@@ -1,0 +1,102 @@
+#
+# Homework 1
+#
+# Data set: hw1_data.csv
+
+data <- read.csv(file="hw1_data.csv", head=TRUE, sep=",")
+
+#
+# Questions:
+#
+# 12. Extract the first 2 rows of the data frame and print them to the 
+#     console. What does the output look like?
+#
+# A.        Ozone Solar.R Wind Temp Month Day
+#       1    41     190  7.4   67     5   1
+#       2    36     118  8.0   72     5   2
+#
+#   You can extract the first two rows using the [ operator and an 
+#   integer sequence to index the rows.
+#
+
+initial<-read.csv(file="hw1_data.csv", head=TRUE, nrow=2)
+
+#
+# 13. How many observations (i.e. rows) are in this data frame?
+#
+# A. 153, You can use the `nrow()' function to compute the number of 
+#    rows in a data frame.
+#
+
+nrow(data)
+
+
+# 14. Extract the last 2 rows of the data frame and print them to the 
+#     console. What does the output look like?
+#
+# A.        Ozone Solar.R  Wind Temp Month Day
+#     152    18     131    8.0   76     9  29
+#     153    20     223   11.5   68     9  30
+#   The `tail()' function is an easy way to extract the last few 
+#   elements of an R object.
+
+tail(data, n=2)
+
+#
+# 15. What is the value of Ozone in the 47th row?
+#
+# A. 21, The single bracket [ operator can be used to extract individual 
+#       rows of a data frame.
+
+names(data)
+
+data[47, 1]
+
+#
+# 16. How many missing values are in the Ozone column of this data frame?
+#
+# A. 37, The `is.na' function can be used to test for missing values.
+#
+
+length(data$Ozone[data$Ozone=="NA"])
+
+ref: https://www.biostars.org/p/10143/
+
+# 17. What is the mean of the Ozone column in this dataset? Exclude 
+#     missing values (coded as NA) from this calculation.
+#
+# A. 42.1, The `mean' function can be used to calculate the mean.
+#
+
+mean(data$Ozone[], na.rm=TRUE)
+
+ref: http://stackoverflow.com/questions/6148374/r-mean-when-conditions-got-na
+
+#
+# 18. Extract the subset of rows of the data frame where Ozone values 
+#     are above 31 and Temp values are above 90. What is the mean of 
+#     Solar.R in this subset?
+#
+# A. 212.8, You need to construct a logical vector in R to match the 
+#    question's requirements. Then use that logical vector to subset 
+#    the data frame.
+#
+
+mean(data$Solar.R[data$Ozone>31 & data$Temp>90], na.rm=TRUE)
+
+#
+# 19. What is the mean of "Temp" when "Month" is equal to 6?
+#
+# A. 79.1
+#
+
+mean(data$Temp[data$Month==6], na.rm=TRUE)
+
+#
+# 20. What was the maximum ozone value in the month of May (i.e. Month 
+#     = 5)?
+#
+# A. 115
+#
+
+max(data$Ozone[data$Month==5], na.rm=TRUE)
