@@ -4,6 +4,12 @@
 
 ### [Syllabus](./00-RequiredReading&Info.md#syllabus)
 
+#### [Welcome](./00-RequiredReading&Info.md#welcome)
+
+#### [Expectations and Requirements](./00-RequiredReading&Info.md#expectations-and-requriements)
+
+#### [Discussion Forum Guidelines](./00-RequiredReading&Info.md#discussion-forum-guidelines)
+
 ### [Frequently Asked Questions](./00-RequiredReading&Info.md#faq)
 
 ### [[Optional] Non-notebook Workflow](./00-RequiredReading&Info.md#nnwf)
