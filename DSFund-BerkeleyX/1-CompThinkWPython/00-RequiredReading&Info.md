@@ -35,7 +35,7 @@ Although prior computer science or statistics knowledge tends to allow learners 
 
 #### Recommended Text
 
-+ Computational and Inferential Thinking: The Foundations of Data Science by Ani Adhikari, and John DeNero, with contributions by David Wagner; 2018. This text was created for this course and is available for free at inferentialthinking.com]. Reading this text is not required, but many past UC Berkeley students report that it was helpful for mastering the course material.
++ Computational and Inferential Thinking: The Foundations of Data Science by Ani Adhikari, and John DeNero, with contributions by David Wagner; 2018. This text was created for this course and is available for free at inferentialthinking.com. Reading this text is not required, but many past UC Berkeley students report that it was helpful for mastering the course material.
 
 #### Course Structure
 
@@ -70,7 +70,7 @@ The discussion forum is available to discuss any topic related to the course, in
 + Use the search button. Many of your course classmates are likely to have the same questions as you. If you perform a search for your question first, you may find the answer without needing to post yourself.
 + Be respectful of others. Insulting or condescending comments will not be tolerated. People are taking this course to learn something new, not to demonstrate what they already know. If someone else is confused or stuck, take the initiative to help them out, and please never put them down. 
 
-## Frequently Asked Questions <a name="faq"></a>
+## Frequently Asked Questions
 
 Below are frequently asked questions (FAQs) specific to Data 8.1X 2018.  For questions specific to edX, see support.edx.org.
 
@@ -88,7 +88,7 @@ __How do I know if I will receive full credit on a lab assignment?__
 
 Automated feedback is provided for each lab assignment, and you can continue to edit your lab assignment until you pass all of the tests to receive full credit.
 
-## [Optional] Non-notebook Workflow <a name="nnwf"></a>
+## [Optional] Non-notebook Workflow
 
 ### Non-notebook Workflow Setup and Installation
 

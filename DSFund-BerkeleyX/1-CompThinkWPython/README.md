@@ -10,9 +10,9 @@
 
 #### [Discussion Forum Guidelines](./00-RequiredReading&Info.md#discussion-forum-guidelines)
 
-### [Frequently Asked Questions](./00-RequiredReading&Info.md#faq)
+### [Frequently Asked Questions](./00-RequiredReading&Info.md#frequently-asked-questions)
 
-### [[Optional] Non-notebook Workflow](./00-RequiredReading&Info.md#nnwf)
+### [[Optional] Non-notebook Workflow](./00-RequiredReading&Info.md#optional-non-notebook-workflow)
 
 ## Week 1
 
