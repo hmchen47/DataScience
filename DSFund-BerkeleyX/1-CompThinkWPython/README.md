@@ -6,7 +6,7 @@
 
 #### [Welcome](./00-RequiredReading&Info.md#welcome)
 
-#### [Expectations and Requirements](./00-RequiredReading&Info.md#expectations-and-requriements)
+#### [Expectations and Requirements](./00-RequiredReading&Info.md#expectations-and-requirements)
 
 #### [Discussion Forum Guidelines](./00-RequiredReading&Info.md#discussion-forum-guidelines)
 
