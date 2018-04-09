@@ -30,9 +30,9 @@
 
 #### [Lec 1.6 Demo: Visualizations (2)](./01-Intro.md#lec-16-demo-visualizations-2)
 
-### Introduction and Practice with Jupyter Notebooks
+### [Introduction and Practice with Jupyter Notebooks](./01a-Jupyter.md#introduction-to-jupyter-notebooks)
 
-#### [Introduction to Jupyter Notebooks](./01a-Jupyter.md#introduction-to-jupyter-notebooks)
+#### [Introduction to Jupyter Notebooks](./01a-Jupyter.md#introduction-to-jupyter-notebooks#introduction-to-jupyter-notebooks)
 
 #### [Lab 0: Practice with Jupyter Notebooks](./01a-Jupyter.md#lab-0-practice-with-jupyter-notebooks)
 
@@ -50,15 +50,15 @@
 
 #### [Practice for Section 2](./02-CauseAndEffect.md#practice-for-section-2)
 
-### Section 3a: Python (Lec 3.1 - Lec 3.3)
+### Section 3a: [Python (Lec 3.1 - Lec 3.3)](./03-PythonTables.md)
 
-#### [Lec 3.1 Python](./03-PythonTables.md#)
+#### [Lec 3.1 Python](./03-PythonTables.md#lec-31-python)
 
-#### [Lec 3.2 Names](./03-PythonTables.md#)
+#### [Lec 3.2 Names](./03-PythonTables.md#lec-32-names)
 
-#### [Lec 3.3 Call Expressions](./03-PythonTables.md#)
+#### [Lec 3.3 Call Expressions](./03-PythonTables.md#lec-33-call-expressions)
 
-#### Reading and Practice for Section 3a
+#### [Reading and Practice for Section 3a](./03-PythonTables.md#reading-and-practice-for-section-3a)
 
 ### Section 3b: Tables (Lec 3.4 - Lec 3.7)
 
