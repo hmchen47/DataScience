@@ -65,10 +65,35 @@
 
 ### Notes
 
++ Ebola Epidemic, Sept. 2014
++ Growth Rate
+    + The _growth rate_ is the rate of increase per unit time
+    + After one time unit, a quantity x growing at rate `g` will be  
+        $x * (1 + g)$
+    + After `t` time units, a quantity `x` growing at rate `g` will be  
+        $x * (1 + g) * t$
+    + If `after` and `before` are measurements of the same quantity taken `t` time units apart, then the _growth rate_ is  
+        $(after/before)^{(1/t)} - 1$
++ Demo
+    ```python
+    sept_7 = 4366
+    aug_7 = 1830
+    growth_per_month = (sept_7 / aug_7) - 1
+
+    sept_7 * (1 + growth_per_month) ** 12
+
+    fed_budget_2002 = 2370000000000
+    fed_budget_2012 = 3380000000000
+    fed_budget_2012 - fed_budget_2002
+
+    g = (fed_budget_2012 / fed_budget_2002) ** (1/10) - 1
+
+    fed_budget_2002 * (1 + g) ** 16 # Actual 2018 budget: $4.1 trillion
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/MHRQ1UGKRyI)
 
 ## Lec 4.4 Arrays
 
