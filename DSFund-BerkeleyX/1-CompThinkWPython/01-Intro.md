@@ -18,15 +18,15 @@
 
         Drawing useful conclusion from data using computation
 
-    + Exploration
+    + __Exploration__
 
         + Identifying patterns in info
         + Uses visualization
-    + Inference
+    + __Inference__
 
         + Quantifying whether those patterns are reliable
         + Uses randomization
-    + Prediction
+    + __Prediction__
 
         + Making informed guesses
         + Uses machine learning
@@ -39,7 +39,7 @@
 
 ### Notes
 
-[Example](https://hub.data8x.berkeley.edu/user/cade73f52ccce256ebbca3384ef48d9c/notebooks/materials-x18/lec/x18/1/Example.ipynb)
+[Example](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/courseware/413fff9cb76c471fa0ccb32d7d08ace6/679974c6a9ef47be9c4f091ac35884d5/3?activate_block_id=block-v1%3ABerkeleyX%2BData8.1x%2B1T2018%2Btype%40vertical%2Bblock%4032e21bdef731460b86123fc70cab72bd#examples-external-resource)
 
 ### Video
 
@@ -49,7 +49,7 @@
 
 ### Notes
 
-+ [Example](https://hub.data8x.berkeley.edu/user/cade73f52ccce256ebbca3384ef48d9c/notebooks/materials-x18/lec/x18/1/lec01.ipynb)
++ [Example](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/courseware/413fff9cb76c471fa0ccb32d7d08ace6/679974c6a9ef47be9c4f091ac35884d5/3?activate_block_id=block-v1:BerkeleyX+Data8.1x+1T2018+type@vertical+block@32e21bdef731460b86123fc70cab72bd#examples-external-resource)
 
     + Cell 1:
         ```python
