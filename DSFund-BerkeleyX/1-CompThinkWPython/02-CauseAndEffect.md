@@ -106,3 +106,54 @@
 ### Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/zQKuNDEkKTM)
+
+
+## Reading and Practice for Section 2
+
+This guide assumes you have watched the Section 2 videos.
+
+This corresponds to textbook section:
+
+Chapter 2: [Causality and Experiments](https://www.inferentialthinking.com/chapters/02/causality-and-experiments.html) 
+
+In this section, we learned about causality and experiments.  Some terms and concepts with which you should now be familiar  include association, causation, treatment and control groups, and confounding factors.  
+
+Try applying what you learned to a real example in the next problem.
+
+## Practice for Section 2
+
+A study at UCLA investigated factors that might result in greater attention to the health and education of girls in rural India. One such factor is information about job opportunities for women. The idea is that if people know that educated women can get good jobs, they might take more care of the health and education of girls in their families, as an investment in the girls’ future potential as earners.
+
+The study focused on 160 villages outside the capital of India, all with little access to information about call centers and similar organizations that offer job opportunities to women. In 80 of the villages chosen at random, recruiters visited the village, described the opportunities, recruited women who had some English language proficiency and experience with computers, and provided ongoing support free of charge for three years. In the other 80 villages, no recruiters visited and no other intervention was made.
+
+At the end of the study period, the researchers recorded data about the school attendance and health of the children in the villages.
+
+Q1. Which statement best describes the treatment and control groups for this study?
+
+    a. The treatment group was the 80 villages visited by recruiters, and the control group was the other 80 villages with no intervention.
+    b.The treatment group was the 160 villages selected, and the control group was the rest of the villages outside the capital of India.
+    c. The treatment group was the girls in India, and the control group was the boys in India.
+    d. There is no clear notion of treatment and control group in this study.
+
+    Ans: a
+
+Q2. Was this an observational study, a randomized controlled experiment or a randomized observational study?
+
+    a. This was an observational study.
+    b. This was a randomized controlled experiment.
+    c. This was a randomized observational study.
+
+    Ans: b
+
+Q3. The study found that "Girls aged 5-15 in villages that received the recruiting services were 3 to 5 percentage points more likely to be in school." Does the study provide evidence that receiving recruting services leads to an increase in the chance that girls are in school?
+
+    a. Yes, the study provides evidence of a causal link.
+    b. No, the study does not provide evidence for causation because of confounding factors.
+    c. There is not enough information to tell.
+
+    Ans: a
+
+To explore this UCLA study, read ]Econoic Opportunities and Gender Differences in Human Capital: Experimental Evidence for India](http://www.nber.org/papers/w16021.pdf)
+
+Submit Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
+
