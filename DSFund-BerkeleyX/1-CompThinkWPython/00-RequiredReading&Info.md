@@ -212,5 +212,5 @@ Complete the lab by reading and changing the "labxx.py" file.  Make sure to save
 Once you have completed lab and saved your changes, go back to the edX courseware and find the lab uploader in the Alternative Lab section.  Submit your labs using the lab uploader by the lab deadline date.
 
 
-#### Guide to Downloading and Completing Labs Discussion
+#### [Guide to Downloading and Completing Labs Discussion](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/courseware/fea1a99fb6514ef9ac18cdf8bf191ee5/d3a40594600042f69bf7ac6ecdb4022b/2?activate_block_id=block-v1%3ABerkeleyX%2BData8.1x%2B1T2018%2Btype%40vertical%2Bblock%408b1d09655d7a45198ea32b62d66fb28e)
 
