@@ -153,35 +153,134 @@ Q5. For the following questions, fill in the expected output of the expression.
 
 ### Notes
 
++ Table Structure
+    + organize data in tables
+    + a table is a sequence of labeled columns
+    + data within a column should be the same "type"
+    + terms: Label, Column, Row
++ Demo
+    ```python
+    Table.read_table('flowers.csv')             # load data set
+    flowers = Table.read_table('flowers.csv')   # assign name for the table
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/3KcQVMZI-Ro)
 
 ## Lec 3.5 Select
 
 ### Notes
 
++ Table Operations
+    + `t.select(label)`: constructs a new table with just the specified columns
+    + `t.drop(label)`: constructs a new table without the specified columns
+    + `t.sort(label)`: constructs a new table, with rows sorted by the specified column
++ Demo
+    ```python
+    petals = flowers.select('Petals')
+    flowers.drop('Color')
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/_ojpEI8z5rI)
 
 ## Lec 3.6 Sorting
 
 ### Notes
 
++ Demo
+    ```python
+    movies = Table.read_table('top_movies_by_title.csv')
+    movies.show(3)
+    movies.sort('Gross')
+    movies.sort('Gross', descending=True)
+    sorted_by_gross = movies.sort('Gross', descending=True)
+    sorted_by_gross.sort('Studio')
+    sorted_by_gross.sort('Studio', distinct=True)
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/RGy3BM9nNW8)
 
 ## Lec 3.7 Bar Charts
 
 ### Notes
 
++ Demo
+    ```python
+    top_per_studio = sorted_by_gross.sort('Studio', distinct=True)
+    top_per_studio.barh('Studio', 'Gross')
+
+    top_studios = top_per_studio.sort('Gross', descending=True)
+    top_studios.barh('Studio', 'Gross')
+
+    just_revenues = top_studios.select('Studio', 'Gross', 'Gross (Adjusted)')
+    just_revenues
+    just_revenues.barh('Studio')
+
+    sorted_by_year = top_studios.sort('Year')
+    revenues_by_year = sorted_by_year.select('Studio', 'Gross', 'Gross (Adjusted)')
+    revenues_by_year.barh('Studio')
+
+    sorted_by_year
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/vl8CJVoZpsA)
+
+
+## Reading and Practice for Section 3b
+
+### Readings
+
+This guide assumes that you have watched the videos for section 3b.
+
+This corresponds to textbook section:
+
+[Chapter 3.4: Introduction to Tables](https://www.inferentialthinking.com/chapters/03/4/intro-to-tables.html)
+
+In section 3b, we used Python to load, manipulate, and visualize data.  We introduced tables, along with operations to select columns and sort rows.  The table operations in this section are just a small subset of the many table operations available to you! The following weeks will introduce the rest.
+
+Below are the table operations that you learned in this section. If t is the name of a table that has a column called label, then
+
+`t.select("label")` constructs a new table with just that column.
+
+`t.sort("label")` constructs a new table with all columns, but with the rows sorted by the values in that column.
+
+Try practicing your understanding of tables and operations with the following practice problems.
+
+### Practice
+
+Suppose you have a table called `students` with columns labeled `name`, `age`, and `email`. Select the best table expression for the following statements.
+
+Q1. A table with just the names and emails of all students.
+
+    a. students.select('name', 'age')
+    b. students.select('name').select('email')
+    c. students.select(name, email)
+    d. students.select('name', 'email')
+
+    Ans: d
+
+Q2. A table ordered by age from oldest to youngest.
+
+    a. students.sort('age')
+    b. students.sort('age', descending=False)
+    c. students.sort('age', descending=True)
+    d. students.sort('age', ascending=False)
+
+    Ans: c
+
+Q3. A table with just the names of the students, ordered from the youngest to oldest.
+
+    a. students.select('name').sort('age')
+    b. students.sort('age').select('name')
+    c. students.select('name', 'age').sort('age')
+    d. students.sort('age').select('name', 'age')
+
+    Ans: b
 
