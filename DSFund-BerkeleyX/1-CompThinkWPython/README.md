@@ -52,7 +52,13 @@
 
 ### Section 3a: Python (Lec 3.1 - Lec 3.3)
 
-### Reading and Practice for Section 3a
+#### [Lec 3.1 Python](./03-PythonTables.md#)
+
+#### [Lec 3.2 Names](./03-PythonTables.md#)
+
+#### [Lec 3.3 Call Expressions](./03-PythonTables.md#)
+
+#### Reading and Practice for Section 3a
 
 ### Section 3b: Tables (Lec 3.4 - Lec 3.7)
 
