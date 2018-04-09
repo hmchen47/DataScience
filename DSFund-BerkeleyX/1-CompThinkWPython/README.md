@@ -72,9 +72,9 @@
 
 #### [Reading and Practice for Section 3b](./03-PythonTables.md#reading-and-practice-for-section-3b)
 
-### Lab 1: Introduction to Python (Jupyter Notebook)
+### Lab 1: [Introduction to Python (Jupyter Notebook)](./lab1-IntroPython.md)
 
-### Alternative Lab 1: Introduction to Python (Non-Notebook Version)
+### Alternative Lab 1: [Introduction to Python (Non-Notebook Version)](lab1-IntroPython.md)
 
 ## Week 2
 
