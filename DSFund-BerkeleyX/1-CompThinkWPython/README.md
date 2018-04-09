@@ -18,17 +18,17 @@
 
 ### Section 1: [Introduction (Lec 1.1 - Lec 1.6)](./01-Intro.md)
 
-#### [Lec 1.1 Course Overview](./01-Intro.md#lec-1.1-course-overview)
+#### [Lec 1.1 Course Overview](./01-Intro.md#lec-11-course-overview)
 
-#### [Lec 1.2 Why Data Science](./01-Intro.md#lec-1.2-why-data-science)
+#### [Lec 1.2 Why Data Science](./01-Intro.md#lec-12-why-data-science)
 
-#### [Lec 1.3 Programming](./01-Intro.md#lec-1.3-programming)
+#### [Lec 1.3 Programming](./01-Intro.md#lec-13-programming)
 
-#### [Lec 1.4 Demo: Little Women](./01-Intro.md#lec-1.4-demo-little-women)
+#### [Lec 1.4 Demo: Little Women](./01-Intro.md#lec-14-demo-little-women)
 
-#### [Lec 1.5 Demo: Visualizations (1)](./01-Intro.md#lec-1.5-demo-visualizations-(1))
+#### [Lec 1.5 Demo: Visualizations (1)](./01-Intro.md#lec-15-demo-visualizations-1)
 
-#### [Lec 1.6 Demo: Visualizations (2)](./01-Intro.md#lec-1.6-demo-visualizations-(2))
+#### [Lec 1.6 Demo: Visualizations (2)](./01-Intro.md#lec-16-demo-visualizations-2)
 
 
 
