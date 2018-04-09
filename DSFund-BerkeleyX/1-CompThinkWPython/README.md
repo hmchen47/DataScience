@@ -37,7 +37,16 @@
 #### [Lab 0: Practice with Jupyter Notebooks](./01a-Jupyter.md#lab-0-practice-with-jupyter-notebooks)
 
 
-### Section 2: Cause and Effect (Lec 2.1 - Lec 2.4)
+### Section 2: [Cause and Effect (Lec 2.1 - Lec 2.4)](./02-CauseAndEffect.md)
+
+#### [Lec 2.1 Questions](./02-CauseAndEffect.md#lec-21-questions)
+
+#### [Lec 2.2 Association](./02-CauseAndEffect.md#lec-22-association)
+
+#### [Lec 2.3 Causation](./02-CauseAndEffect.md#lec-23-causation)
+
+#### [Lec 2.4 Confounding](./02-CauseAndEffect.md#lec24-confounding)
+
 
 ### Reading and Practice for Section 2
 
