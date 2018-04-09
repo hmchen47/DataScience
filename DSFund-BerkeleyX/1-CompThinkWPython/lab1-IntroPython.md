@@ -10,6 +10,8 @@ If you choose not to use Jupyter notebooks for the course for accessibility reas
 
 Note: IE / Edge browsers are currently unsupported. 
 
+[Coursera Lab 1 Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/courseware/413fff9cb76c471fa0ccb32d7d08ace6/fb3001131a9d41a8a23f98fd7fd08527/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.1x%2B1T2018%2Btype%40vertical%2Bblock%40baf9ff1f98724f14b25a587f0ccd6c21)
+
 # Lab 1 (Non-notebook alternative) 
 
 You do not need to complete this version of Lab 1 unless you find that completing the Jupyter notebook version of the lab assignment is problematic for accessibility reasons. If you can use Jupyter notebooks, then you should [complete this version](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/jump_to_id/baf9ff1f98724f14b25a587f0ccd6c21) instead.
