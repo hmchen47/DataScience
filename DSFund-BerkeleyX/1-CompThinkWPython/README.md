@@ -72,15 +72,25 @@
 
 #### [Reading and Practice for Section 3b](./03-PythonTables.md#reading-and-practice-for-section-3b)
 
-### Lab 1: [Introduction to Python (Jupyter Notebook)](./lab1-IntroPython.md)
+### [Lab 1: Introduction to Python (Jupyter Notebook)](./lab1-IntroPython.md)
 
-### Alternative Lab 1: [Introduction to Python (Non-Notebook Version)](lab1-IntroPython.md)
+### [Alternative Lab 1: Introduction to Python (Non-Notebook Version)](lab1-IntroPython.md)
 
 ## Week 2
 
-### Section 4: Expressions (Lec 4.1 - Lec 4.5)
+### Section 4: [Expressions (Lec 4.1 - Lec 4.5)](./04-Expression.md)
 
-### Reading and Practice for Section 4
+#### [Lec 4.1 Arithmetic](./04-Expression.md#lec-41-arithmetic)
+
+#### [Lec 4.2 Arithmetic Question](./04-Expression.md#lec-42-arithmetic-question)
+
+#### [Lec 4.3 Exponential Growth](./04-Expression.md#lec-43-exponential-growth)
+
+#### [Lec 4.4 Arrays](./04-Expression.md#lec-44-arrays)
+
+#### [Lec 4.5 Columns](./04-Expression.md#lec-45-columns)
+
+#### [Reading and Practice for Section 4](./04-Expression.md#reading-and-practice-for-section-4)
 
 ### Section 5a: Strings (Lec 5.1 - Lec 5.4)
 
