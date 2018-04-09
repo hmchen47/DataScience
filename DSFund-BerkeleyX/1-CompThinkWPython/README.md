@@ -36,7 +36,6 @@
 
 #### [Lab 0: Practice with Jupyter Notebooks](./01a-Jupyter.md#lab-0-practice-with-jupyter-notebooks)
 
-
 ### Section 2: [Cause and Effect (Lec 2.1 - Lec 2.4)](./02-CauseAndEffect.md)
 
 #### [Lec 2.1 Questions](./02-CauseAndEffect.md#lec-21-questions)
@@ -47,8 +46,9 @@
 
 #### [Lec 2.4 Confounding](./02-CauseAndEffect.md#lec24-confounding)
 
+#### [Reading and Practice for Section 2](./02-CauseAndEffect.md#reading-and-practice-for-section-2)
 
-### Reading and Practice for Section 2
+#### [Practice for Section 2](./02-CauseAndEffect.md#practice-for-section-2)
 
 ### Section 3a: Python (Lec 3.1 - Lec 3.3)
 
