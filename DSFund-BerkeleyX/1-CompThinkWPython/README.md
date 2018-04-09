@@ -30,9 +30,12 @@
 
 #### [Lec 1.6 Demo: Visualizations (2)](./01-Intro.md#lec-16-demo-visualizations-2)
 
-
-
 ### Introduction and Practice with Jupyter Notebooks
+
+#### [Introduction to Jupyter Notebooks](./01a-Jupyter.md#introduction-to-jupyter-notebooks)
+
+#### [Lab 0: Practice with Jupyter Notebooks](./01a-Jupyter.md#lab-0-practice-with-jupyter-notebooks)
+
 
 ### Section 2: Cause and Effect (Lec 2.1 - Lec 2.4)
 
