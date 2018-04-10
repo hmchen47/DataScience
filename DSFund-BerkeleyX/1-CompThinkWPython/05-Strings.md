@@ -266,7 +266,7 @@ Q6. `int(str(a) * c)`
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/KOcIKkXQvl0)
 
 ## Lec 5.8 Take
 
@@ -292,15 +292,45 @@ Q6. `int(str(a) * c)`
     ```
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/TlHeF21OSAc)
 
 ## Lec 5.9 Where
 
 ### Notes
 
++ The `where` Method
+
+    + Constructs a new table with just the rows that match the condition: `t.where(label, condition)`
++ Manipulating Rows
+
+    + sort the rows in increasing order: `t.sort(column)`
+    + keep the numbered rows, index starting at 0: `t.take(row_number)`
+    + keep all rows for which a column's value satisfies a consition: `t.where(column, are.condition)`
+    + keep all rows containing a certain value in a column: `t.where(column, value)`
++ Demo
+    ```python
+    # load data
+    nba = Table.read_table('nba_salaries.csv')
+
+    # basic operations
+    nba.sort('2015-2016 SALARY')
+    nba = nba.relabeled('2015-2016 SALARY', 'SALARY')
+
+    # where operation
+    nba.sort('SALARY')
+    nba.where('SALARY', are.above(10))
+    nba.where('SALARY', are.above(10)).sort('SALARY')
+    nba.where('SALARY', are.between(10, 11))
+    nba.where('TEAM', are.equal_to('Toronto Raptors'))
+    nba.where('TEAM', 'Toronto Raptors')
+    nba.where('TEAM', are.containing('Raptors'))
+    nba.where('TEAM', are.equal_to('Golden State Warriors')).sort('SALARY', descending=True)
+    nba.where('SALARY', are.between(10, 12))
+    ```
+
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/xCk4CxHL2ec)
 
 ## Reading and Practice for Section 5c
 
