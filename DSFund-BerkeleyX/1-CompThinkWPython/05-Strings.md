@@ -164,3 +164,22 @@ Q6. `int(str(a) * c)`
 
     Ans: Error
 
+# Section 5b: Minrad's Map (Lec 5.5 - Lec 5.6)
+
+## Lec 5.5 Minard's Map
+
+### Notes
+
+
+### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
+## Lec 5.6 Minard's Map Code
+
+### Notes
+
+
+### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
