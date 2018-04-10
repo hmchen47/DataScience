@@ -35,10 +35,27 @@
 
 ### Notes
 
++ Text and Strings
+    + A Sstring value is a snippet of text of any length
+        + 'a'
+        + 'We can do it'
+        + "there can be 2 sentences. Here's the second!"
+    + Strings that contain numbers can be converted to numbers
+        + `int('12)`
+        + `float('1.2')`
+    + Any value can be converted to a string
+        + `str(5)`
++ Demo
+    ```python
+    '2.3' + 4                   # typeError
+    '2.3' * 4                   # '2.32.32.32.3' repeats 4 times
+    int('23') + float('2.3')
+    x = 12; int(str(x) + '0')   # 120
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/NJQr6a-j8b0)
 
 ## Lec 5.3 String Exercise
 
