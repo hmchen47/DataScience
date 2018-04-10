@@ -61,10 +61,22 @@
 
 ### Notes
 
++ Discussion Question
+
+    + Assume you have run tthe following statements
+        1. `x = 3`
+        2. `y = '4'`
+        3. `z= '5.6'`
+    + What's the source of the error in each example?
+
+        a. `x + y`  
+        b. `x + int(y + z)`  
+        c. `str(x) + int(y)`  
+        d. `str(x, y) + z`
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/rMIcCFnloiE)
 
 ## Lec 5.4 Exercise Answer
 
