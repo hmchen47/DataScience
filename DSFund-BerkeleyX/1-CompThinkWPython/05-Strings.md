@@ -272,6 +272,24 @@ Q6. `int(str(a) * c)`
 
 ### Notes
 
++ `Take` Rows, `Select` Columns
+
+    + The `select` method returns a table w/ only some columns
+    + The `take` method returns a table w/ only some rows
+        + Rows are unmbered, starting at 0
+        + Taking a single number returns a one-row table
+        + Taking a list of numbers returns a table as well
++ Demo
+
+    ```python
+    # load data
+    minard = Table.read_table('https://www.inferentialthinking.com/notebooks/minard.csv')
+
+    # take operation
+    minard.take(0)
+    minard.take([0, 1, 2, 3])   # row 0, 1, 2, 3
+    minard.take(np.arange(0,4)) # consecutive rows
+    ```
 ### Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
