@@ -155,3 +155,61 @@ _ Demo
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/n8R4pZQDl_8)
 
 
+## Reading and Practice for Section 4
+
+### Readings
+
+This guide assumes that you have watched section 4 (video lecture segments Lec 4.1, Lec 4.2, Lec 4.3, Lec 4.4, Lec 4.5) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 3.1: Expressions](https://www.inferentialthinking.com/chapters/03/1/expressions.html)
++ [Chapter 3.2.1: Growth Rates](https://www.inferentialthinking.com/chapters/03/2/1/example-growth-rates.html)
++ [Chapter 4.1: Numbers](https://www.inferentialthinking.com/chapters/04/1/numbers.html)
+
+In section 4, we learned more details about numbers and arithmetic in Python, and we applied those details to calculate growth rates.  We were also introduced to arrays a powerful way to store and manipulate multiple values. Arrays and tables are extremely important concepts throughout this course.  A table is just a collection of arrays; each column in a table is just an array with a label.  We learned the column table method, which is defined below.
+
+`tbl.column(column_name_or_index)` returns an array with only the values in the specified column
+
+See if you can answer the following questions.
+
+## Practices
+
+Suppose Data8.1X initially starts with 10000 students enrolled. Each month, 5% more students consistently enroll in Data8.1X.
+
+Q1. Which line of code correctly evaluates to the number of students in Data8.1X class after 7 months?
+
+    a. 10000 * 6 ** 7
+    b. 10000 * 1.05 ** 7
+    c. 10000 * 1.05 * 7
+
+    Ans: b
+
+Q2. What is the output for each line of code? Select the correct answer.  
+    make_array(2, 4, 8) * make_array(2, 2, 2)
+
+    a. array([4, 8, 16])
+    b. array([2, 2, 2])
+    c. 28
+    d. None of the above or results in an error message
+
+    Ans: a
+
+Q3. `make_array(2, 4, 8) * 2`
+
+    a. array([4, 8, 16])
+    b. array([2, 2, 2])
+    c. 28
+    d. None of the above or results in an error message
+
+    Ans: a
+
+Q4. `make_array(2, 4, 8) * make_array(2, 2)`
+
+    a. array([4, 8, 16])
+    b. array([2, 2, 2])
+    c. 28
+    d. None of the above or results in an error message
+
+    Ans: d
+
