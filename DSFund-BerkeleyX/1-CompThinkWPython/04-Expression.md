@@ -99,16 +99,59 @@
 
 ### Notes
 
++ Arrays - containing a sequence if values
+    + all elements of an array should have the same type
+    + arithmetic is applied to each element individually
+    + when two arrays are added, they must have the same size; corresponding elements are added in the result
+_ Demo
+    ```python
+    make_array(1, 2, 3)
+    make_array(1, 2, 3) * 2
+
+    a = make_array(1, 2, 3)
+    a + make_array(10, 100, 1000)
+    sum(a); max(a); min(a)
+    fed_budget_2002 * (1 + g) ** a
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/q6cQBGP9wsQ)
 
 ## Lec 4.5 Columns
 
 ### Notes
 
++ Columns of Tables - a column of a table is an array
+    + Access a column of a table `t` using its label or index: `movies.column('Year')` or `movies.column(4)` [index starts at 0]
+    + A column expression evaluates to an array
+    + Arithmetic doesn't change the array or table
+    + Make a table with a column using `with_column` method
++ Demo
+    ```python
+    movies = Table.read_table('top_movies_2017.csv')
+    movies.column('Gross')
+
+    movies.set_format('Gross', NumberFormatter) # adding , for numbers
+
+    adjustment = movies.column('Gross (Adjusted)') / movies.column('Gross')
+
+    movies.with_column('Adjustment', adjustment)
+    movies.with_column('Adjustment', adjustment).scatter('Year', 'Adjustment')
+
+    movies.column('Year')
+
+    age = 2017 - movies.column('Year')
+    movies = movies.with_column('Age', age)
+    movies = movies.with_column('Growth rate', adjustment ** (1 / age) - 1)
+
+    movies.scatter('Year', 'Growth rate')
+    movies.sort('Age').show(20)
+    movies.sort('Year').show(20)
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/n8R4pZQDl_8)
+
+
