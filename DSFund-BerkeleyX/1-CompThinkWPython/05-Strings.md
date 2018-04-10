@@ -237,3 +237,57 @@ Q6. `int(str(a) * c)`
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/AtlV0r24uy4)
 
 
+# Section 5c: Building Tables (Lec 5.7 - Lec 5.9)
+
+## Lec 5.7 Lists
+
+### Notes
+
++ Lists are generic sequences
+    + A list is a sequence of values (just like an array), but the values can all have different types
+        ```python
+        [2+3, 'four', Table().with_column('K', [3, 4])]
+        ```
+    + If you create a table column from a list, it will be converted to an array automatically
++ Demo
+
+    ```python
+    make_array(2, 3.0)
+    make_array(2, 3.0).item(0)
+    make_array(2, 'three')
+    make_array(2, 'three').item(0)
+
+    type([2, 'three'])
+
+    flowers = Table.read_table('flowers.csv')
+    my_favorite_flower = [5, 'morning glory', 'purple']
+    flowers.with_row(my_favorite_flower)
+    ```
+
+### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
+## Lec 5.8 Take
+
+### Notes
+
+### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
+## Lec 5.9 Where
+
+### Notes
+
+### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
+## Reading and Practice for Section 5c
+
+### Readings
+
+### Practice
+
+
