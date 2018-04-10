@@ -104,11 +104,11 @@
 
 #### [Reading and Practice for Section 5a](./05-Strings.md#reading-and-practice-for-section-5a)
 
-### Section 5b: [Minrad's Map (Lec 5.5 - Lec 5.6)](./05-Strings.md#section-5b-minrads-map-lec-55---lec-56)
+### Section 5b: [Minard's Map (Lec 5.5 - Lec 5.6)](./05-Strings.md#section-5b-minrads-map-lec-55---lec-56)
 
-#### [Lec 5.5 Minard's Map](./05-Strings.md#lec-55-minrads-map)
+#### [Lec 5.5 Minard's Map](./05-Strings.md#lec-55-minards-map)
 
-#### [Lec 5.6 Minard's Map Code](./05-Strings.md#lec-56-minrads-map-code)
+#### [Lec 5.6 Minard's Map Code](./05-Strings.md#lec-56-minards-map-code)
 
 ### Section 5c: [Building Tables (Lec 5.7 - Lec 5.9)](./05-Strings.md#section-5c-building-tables-lec-57---lec-59)
 
