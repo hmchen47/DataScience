@@ -92,9 +92,17 @@
 
 #### [Reading and Practice for Section 4](./04-Expression.md#reading-and-practice-for-section-4)
 
-### Section 5a: Strings (Lec 5.1 - Lec 5.4)
+### Section 5a: [Strings (Lec 5.1 - Lec 5.4)](./05-Strings.md)
 
-### Reading and Practice for Section 5a
+#### [Lec 5.1 Creating Tables](./05-Strings.md#lec-51-creating-tables)
+
+#### [Lec 5.2 Strings](./05-Strings.md#lec-52-strings)
+
+#### [Lec 5.3 String Exercise](./05-Strings.md#lec-53-string-exercise)
+
+#### [Lec 5.4 Exercise Answer](./05-Strings.md#lec-54-exercise-answer)
+
+#### [Reading and Practice for Section 5a](./05-Strings.md#reading-and-practice-for-section-5a)
 
 ### Section 5b: Minrad's Map (Lec 5.5 - Lec 5.6)
 
