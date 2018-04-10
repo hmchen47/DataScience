@@ -170,16 +170,70 @@ Q6. `int(str(a) * c)`
 
 ### Notes
 
++ Charles Joseph Minard, 1781-1870
+
+    + French civil engineer who create one of the greatest graph of all time
+    + Visualized Napoleon's 1812 invasion of Russia, including
+
+        + the number of soldiers
+        + the direction of the march
+        + the latitude and longitude of each city
+        + the temperature on the return journey
+        + Dates in November and December
+
+![Minard's Map](https://media1.britannica.com/eb-media/87/75087-004-046911B2.jpg)
+
++ Different types of data
+
+    | Longitude | Latitude | City | Direction | Survivors |
+    |-----------|----------|------|-----------|-----------|
+    | 32   | 54.8 | Smolensk | Advance | 145000 |
+    | 33.2 | 54.9 | Dorogobouge | Advance | 140000|
+    | 34.4 | 55.5 | Chjat | Advance | 127100 |
+    | 37.6 | 55.8 | Moscou | Advance | 100000 |
+    | 34.3 | 55.2 | Wixma | Retreat | 55000 |
+    | 32   | 54.6 | Smolensk | Retreat | 24000 |
+    | 40.4 | 54.4 | Orscha | Retreat | 20000 |
+    | 26.8 | 54.3 | Moiodexno | Retreat | 12000 |
+
+    + float - decimal number: longitude, latitude
+    + string - text: City
+    + int - integer - Survivors
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/dcuI0D9gXdQ)
 
 ## Lec 5.6 Minard's Map Code
 
 ### Notes
 
++ Demo
+
+    ```python
+    # load data
+    minard = Table.read_table('https://www.inferentialthinking.com/notebooks/minard.csv')
+    
+    # class attributes
+    minard.num_columns
+    minard.num_rows
+    minard.labels
+
+    # label and index manipulation
+    minard.column('Survivors')
+    minard.column(4)
+
+    # calculate surviving percentage
+    initial_size = minard.column('Survivors').item(0)
+    percentage_surviving = minard.column('Survivors')/initial_size
+
+    # Adding column into table and reformat
+    with_percentages = minard.with_column('Percent Surviving', percentage_surviving)
+    with_percentages.set_format('Percent Surviving', PercentFormatter)
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/AtlV0r24uy4)
+
+
