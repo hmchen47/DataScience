@@ -112,10 +112,10 @@
 
 ### Section 5c: [Building Tables (Lec 5.7 - Lec 5.9)](./05-Strings.md#section-5c-building-tables-lec-57---lec-59)
 
-#### [Lec 5.7 Lists](./05-String.md#lec-57-lists)
+#### [Lec 5.7 Lists](./05-Strings.md#lec-57-lists)
 
-#### [Lec 5.8 Take](./05-String.md#lec-58-take)
+#### [Lec 5.8 Take](./05-Strings.md#lec-58-take)
 
-#### [Lec 5.9 Where](./05-String.md#lec-59-where)
+#### [Lec 5.9 Where](./05-Strings.md#lec-59-where)
 
 #### [Reading and Practice for Section 5c](./05-Strings.md#reading-and-practice-for-section-5c)
