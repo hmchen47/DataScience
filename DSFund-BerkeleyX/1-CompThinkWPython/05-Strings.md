@@ -93,3 +93,74 @@
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/L_UtEQX7QpY)
 
+## Reading and Practice for Section 5a
+
+### Readings
+
+This guide assumes that you have watched section 5a (video lecture segments Lec 5.1, Lec 5.2, Lec 5.3, Lec 5.4) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 4.2: Strings](https://www.inferentialthinking.com/chapters/04/2/strings.html)
++ [Chapter 6: Tables](https://www.inferentialthinking.com/chapters/06/tables.html)
+
+In section 5a, we learned a little more about building tables, and we were introduced to text representations in Python, otherwise known as strings.  Just like floats and ints that represent numbers, strings are a very powerful data type for text.  It's important to understand the different behaviors of strings, ints, floats, and other data types in Python.
+
+Here are the table methods we learned.  These will be important later on in the course!
+
+`Table.read_table(filename)` create a table with data from a file
+
+`Table()` create an empty table
+
+`Table().with_columns(name, values, ...)` creates a table with an array of values for each column name
+
+`tbl.with_columns(name, values, ...)` appends a column name with an array of values to an existing table
+
+`tbl.num_rows` returns the number of rows in a table
+
+`tbl.num_columns`  returns the number of columns in a table
+
+`tbl.labels` returns a list of column labels of a table
+
+`tbl.relabeled(old_label, new_label)` returns a new table with a changed label column
+
+`tbl.drop(col1, col2, …)` returns a table without the dropped columns
+
+Here is some more practice with strings and types.
+
+### Practices
+
+Assume you have run the following statements
+```python
+a = 2
+b = '3'
+c = '4.5'
+d = 10
+```
+
+What is the output for each of these code statements? Fill in your exact answer. If your answer is a string, please use SINGLE quotations (i.e. '10'). If the code results in an error message, write `Error`. Make sure to include quotations if your answer is a string (i.e. '1').
+
+Q1. `int(b)`
+
+    Ans: 3
+
+Q2. `str(a)`
+
+    Ans: '2'
+
+Q3. `int(c)`
+
+    Ans: Error
+
+Q4. `a * b`
+
+    Ans: '33'
+
+Q5. `int(str(d) + b)`
+
+    Ans: 103
+
+Q6. `int(str(a) * c)`
+
+    Ans: Error
+
