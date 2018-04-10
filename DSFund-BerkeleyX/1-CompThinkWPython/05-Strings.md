@@ -336,6 +336,52 @@ Q6. `int(str(a) * c)`
 
 ### Readings
 
+This guide assumes that you have watched section 5c (video lecture segments Lec 5.7, Lec 5.8, Lec 5.9) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 6: Tabl](https://www.inferentialthinking.com/chapters/06/tables.html)
++ [Chapter 6.2: Selecting Rows](https://www.inferentialthinking.com/chapters/06/2/selecting-rows.html)
+
+In section 5c, we learned more about building tables. It started with lists, another type of sequence in Python.  Make sure you understand the difference between lists and arrays. Remember that sequences in Python are "0-indexed."  We also learned more table operators, which are defined below.
+
+`tbl.take(row_indices)` returns a table with only the rows at the given indices.  row_indices is an array
+
+`tbl.where(label, condition)` constructs a new table with just the rows that match a given condition
+
+Test your understanding with these practice questions.
+
 ### Practice
 
+Q1. Lists can contain values of different types (ints, strings, floats, etc).
 
+    Ans: True
+
+Q2. Arrays can contain values of different types (ints, strings, floats, etc).
+
+    Ans: False
+
+Q3. This list `my_listis ['cat', 'dog', 4, 'three', True]` What is the index of `'cat'` in `my_list`?
+
+    Ans: 0
+
+Q4. What is the index of `True` in the above list?
+
+    Ans: 4, -1
+
+
+Suppose I have a table called `students` with one row per student and with columns `first_name`, `last_name`, and `grade`. You can assume that the grade is a numerical `score`.
+
+Q5. I want to find all the students with a grade above 95. What table operation should I use? (ignore the arguments). Your answer should be the name of a method, like select or sort.
+
+    a. students.take('grade', are.above(95))
+    b. students.where('grade', are.above(95))
+    c. students.where('grade', are_above(95))
+    d. students.select('grade', are.above(95))
+
+    Ans: b
+
+Q6. Now I want to find all the students with the first name 'Wilton'. I decide to use the where method. Complete the blank in the code. 
+students.where('first_name', _______)
+
+    Ans: 'Wilton'
