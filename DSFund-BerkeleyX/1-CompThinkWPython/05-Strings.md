@@ -82,7 +82,14 @@
 
 ### Notes
 
++ Answers:
+
+    a. TypeError: add int and string  
+    b. ValueError: int('45.6') not integer  
+    c. TypeError: add string and int  
+    d. TypeError: str takes only one argument and must be string
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/L_UtEQX7QpY)
+
