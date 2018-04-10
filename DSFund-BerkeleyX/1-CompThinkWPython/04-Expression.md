@@ -5,6 +5,7 @@
 ### Notes
 
 + Arithmetic Operators
+
     | Operation | Operator | Example | Value |
     |-----------|:----------:|---------|-------|
     | Addition | `+` | `2 + 3` | 5 |
@@ -13,7 +14,9 @@
     | Division | `/` | `8 / 3` | 2.6666666666666665 |
     | Remainder | `%` | `8 % 3` | 2 |
     | Exponentiation | `**` | `2 ** 0.5` | 1.4142135623730951 |
+
 + Ints and Floats
+
     + Python has two real number types:
         + `int`: an integer of any size
         + `float`: a number with a fractional aprt that may be wero
@@ -103,7 +106,7 @@
     + all elements of an array should have the same type
     + arithmetic is applied to each element individually
     + when two arrays are added, they must have the same size; corresponding elements are added in the result
-_ Demo
++ Demo
     ```python
     make_array(1, 2, 3)
     make_array(1, 2, 3) * 2
@@ -123,11 +126,13 @@ _ Demo
 ### Notes
 
 + Columns of Tables - a column of a table is an array
-    + Access a column of a table `t` using its label or index: `movies.column('Year')` or `movies.column(4)` [index starts at 0]
+
+    + Access a column of a table `t` using its label or index: `movies.column('Year')` or `movies.column(4)` [index starts from 0]
     + A column expression evaluates to an array
     + Arithmetic doesn't change the array or table
     + Make a table with a column using `with_column` method
 + Demo
+
     ```python
     movies = Table.read_table('top_movies_2017.csv')
     movies.column('Gross')
