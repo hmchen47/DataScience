@@ -119,3 +119,8 @@
 #### [Lec 5.9 Where](./05-Strings.md#lec-59-where)
 
 #### [Reading and Practice for Section 5c](./05-Strings.md#reading-and-practice-for-section-5c)
+
+### [Lab 2: Data Types (Jupyter Notebook)](./lab2-DataTypes.md)
+
+### [Alternative Lab 2: Data Types (Non-Notebook Workflow)](./lab2-DataTypes.md#alternative-lab-2-data-types-non-notebook-workflow))
+
