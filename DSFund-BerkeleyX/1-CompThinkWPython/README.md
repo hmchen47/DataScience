@@ -92,12 +92,35 @@
 
 #### [Reading and Practice for Section 4](./04-Expression.md#reading-and-practice-for-section-4)
 
-### Section 5a: Strings (Lec 5.1 - Lec 5.4)
+### Section 5a: [Strings (Lec 5.1 - Lec 5.4)](./05-Strings.md)
 
-### Reading and Practice for Section 5a
+#### [Lec 5.1 Creating Tables](./05-Strings.md#lec-51-creating-tables)
 
-### Section 5b: Minrad's Map (Lec 5.5 - Lec 5.6)
+#### [Lec 5.2 Strings](./05-Strings.md#lec-52-strings)
 
-### Section 5c: Building Tables (Lec 5.7 - Lec 5.9)
+#### [Lec 5.3 String Exercise](./05-Strings.md#lec-53-string-exercise)
 
-### Reading and Practice for Section 5c
+#### [Lec 5.4 Exercise Answer](./05-Strings.md#lec-54-exercise-answer)
+
+#### [Reading and Practice for Section 5a](./05-Strings.md#reading-and-practice-for-section-5a)
+
+### Section 5b: [Minard's Map (Lec 5.5 - Lec 5.6)](./05-Strings.md#section-5b-minrads-map-lec-55---lec-56)
+
+#### [Lec 5.5 Minard's Map](./05-Strings.md#lec-55-minards-map)
+
+#### [Lec 5.6 Minard's Map Code](./05-Strings.md#lec-56-minards-map-code)
+
+### Section 5c: [Building Tables (Lec 5.7 - Lec 5.9)](./05-Strings.md#section-5c-building-tables-lec-57---lec-59)
+
+#### [Lec 5.7 Lists](./05-Strings.md#lec-57-lists)
+
+#### [Lec 5.8 Take](./05-Strings.md#lec-58-take)
+
+#### [Lec 5.9 Where](./05-Strings.md#lec-59-where)
+
+#### [Reading and Practice for Section 5c](./05-Strings.md#reading-and-practice-for-section-5c)
+
+### [Lab 2: Data Types (Jupyter Notebook)](./lab2-DataTypes.md)
+
+### [Alternative Lab 2: Data Types (Non-Notebook Workflow)](./lab2-DataTypes.md#alternative-lab-2-data-types-non-notebook-workflow))
+
