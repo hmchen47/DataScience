@@ -15,7 +15,7 @@
     + Create a table w/ an array of data for each column: `Table().with_columns(label1, data1, ...)`
 + Table Methods:
 
-    + Create and extending tables: `Table().with_columns` and `Table.read_table
+    + Create and extending tables: `Table().with_columns` and `Table.read_table(filename)`
     + Finding the size: `num_rowa` and `num_columns`
     + Referring to columns: labels, relabeling, and indices; column indices start from 0: `labels` and `relabeled`
     + Accessing data in a column: `column` takes a label or index and returns an array
