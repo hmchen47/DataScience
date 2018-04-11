@@ -62,13 +62,13 @@
 
 ### Section 3b: [Tables (Lec 3.4 - Lec 3.7)](./03-PythonTables.md#tables-lec-3.4-lec-3.7))
 
-#### [Lec 3.4 Tables](./03-PythonTables.md#)
+#### [Lec 3.4 Tables](./03-PythonTables.md#lec-34-tables)
 
-#### [Lec 3.5 Select](./03-PythonTables.md#)
+#### [Lec 3.5 Select](./03-PythonTables.md#lec-35-select)
 
-#### [Lec 3.6 Sorting](./03-PythonTables.md#)
+#### [Lec 3.6 Sorting](./03-PythonTables.md#lec-36-sorting)
 
-#### [Lec 3.7 Bar Charts](./03-PythonTables.md#)
+#### [Lec 3.7 Bar Charts](./03-PythonTables.md#lec-37-bar-charts)
 
 #### [Reading and Practice for Section 3b](./03-PythonTables.md#reading-and-practice-for-section-3b)
 
