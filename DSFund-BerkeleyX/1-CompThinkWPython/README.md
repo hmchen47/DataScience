@@ -124,3 +124,23 @@
 
 ### [Alternative Lab 2: Data Types (Non-Notebook Workflow)](./lab2-DataTypes.md#alternative-lab-2-data-types-non-notebook-workflow))
 
+## Week 3
+
+### Section 6: [Census (Lec 6.1 - Lec 6.4)](./06-Census.md)
+
+#### [Reading and Practice for Section 6]
+
+### Section 7: [Charts (Lec 7.1 - 7.8)](./07-Charts.md)
+
+#### [Reading and Practice for Section 7]
+
+### Section 8: [Histograms (Lec 8.1 - Lec 8.7)](./08-Histograms.md)
+
+#### [Reading and Practice for Section 8]
+
+### [Lab 3: Tables (Jupyter Notebook)]
+
+### [Alternative Lab 3: Tables (Non-Notebook Workflow)]
+
+
+
