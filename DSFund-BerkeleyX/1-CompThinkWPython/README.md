@@ -128,7 +128,15 @@
 
 ### Section 6: [Census (Lec 6.1 - Lec 6.4)](./06-Census.md)
 
-#### [Reading and Practice for Section 6]
+#### [Lec 6.1 Census](./06-Census.md#lec-61-census)
+
+#### [Lec 6.2 Column Arithmetic](./06-Census.md#lec-62-column-arithmetic)
+
+#### [Lec 6.3 Accessing Values](./06-Census.md#lec-63-accessing-values)
+
+#### [Lec 6.4 Males and Females](./06-Census.md#lec-64-males-and-females)
+
+#### [Reading and Practice for Section 6](./06-Census.md#reading-and-practice-for-section-6)
 
 ### Section 7: [Charts (Lec 7.1 - 7.8)](./07-Charts.md)
 
