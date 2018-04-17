@@ -96,15 +96,13 @@
 
 ### Notes
 
-+ Demo
-
-    ```python
-
-    ```
++ When to use Line Graph and Scatter Plot
+    + Line graph (`plot`): one-to-one mapping
+    + Scatter plot (`scatter`): one-to-many mapping
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/CQIc1pjkyEM)
 
 
 ## Lec 7.6 Types of Data
