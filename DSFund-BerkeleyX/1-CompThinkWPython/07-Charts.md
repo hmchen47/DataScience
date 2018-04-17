@@ -109,6 +109,24 @@
 
 ### Notes
 
++ Two Important Types
+    + __Numerical__ - Each value is from a numerical scale
+        + Ordered, because they are numbers
+        + Differences, averages, etc. are meaningful
+    + __Categorical__ - Each value is from a fixed inventory
+        + May or may not have an ordering
++ Categorical, Not Numerical  
+    Just because the assigned values are numbers, that doesn't mean the variable is numerical
+    + Census example has numerical; `SEX` code (0, 1, and 2)
+    + It doesn't make sense to perform arithmetic on these "numbers", e.g. $1 - 0$ or $(0+1+2)/3$ have no meaning
+    + The variable `SEX` is still categorical, even though numbers were used for the categories
++ Terminology
+    + __Individuals__: those whose features are recorded 
+    + __Variable__: a feature
+    + A variable has different __values__
+    + Values can be __numerical__ or __categorical__, and of many syb-types within these
+    + Each __individual has exactly one value__ of the variable
+    + __Distribution__: for each different value of the variable , the frequency of individuals that have that value
 + Demo
 
     ```python
