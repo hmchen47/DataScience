@@ -100,6 +100,55 @@
 
 ### Reading
 
+This guide assumes that you have watched section 6 (video lecture segments Lec 6.1, Lec 6.2, Lec 6.3, Lec 6.4) in Courseware.
+
+This corresponds to textbook sections:  
+
++ [Chapter 6.3: Example Trends in the U.S. Population](https://www.inferentialthinking.com/chapters/06/3/example-trends-in-the-population-of-the-united-states.html)
++ [Chapter 6.4: Trends in Gender Ratios](https://www.inferentialthinking.com/chapters/06/4/example-gender-ratio-in-the-us-population.html)
+
+In Section 6, we applied table methods to manipulate US Census data. Proficiency in manipulating tables requires knowing table methods and how they combine in sequence, as well as comfort with array arithmetic.  A list of all the existing table methods and how to use them can be found in the [Tables Documentation](http://data8.org/datascience/tables.html). Knowing your table methods will be extremely helpful for lab this week!
+
+Test your understanding with these practice questions.
 
 ### Practice
+
+Match each of the following table commands with a description of its effect. Each answer may only be used once. Assume that t is a table that has already been loaded.
+
+A. `t.select(...)`
+B. `t.sort(...)`
+C. `Table.read_table(...)`
+D. `t.column(...).item(...)`
+E. `t.barh(...)`
+F. `t.column(...)`
+G. `t.show(...)` 
+
+Q1. Displays the first few rows of `t`.
+
+    Ans: G
+
+Q2. Reads a table from a file or webpage.
+
+    Ans: C
+
+Q3. Returns a table with some of the columns of `t`.
+
+    Ans: A
+
+Q4. Returns a table with the same contents as `t`, but with the rows ordered by the values in a certain column.
+
+    Ans: B
+
+Q5. Returns an array containing the values in a column of `t`.
+
+    Ans: F
+
+Q6. Displays a bar chart based on the columns of `t`.
+
+    Ans: E
+
+Q7. Returns a single value from a cell in `t`.
+
+    Ans: D
+
 
