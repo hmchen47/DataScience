@@ -30,6 +30,18 @@
 
 ### Notes
 
++ Demo
+    ```python
+    us_pop.column('2015') - us_pop.column('2010')
+
+    change = us_pop.column('2015') - us_pop.column('2010')
+    census = us_pop.with_columns(
+        'Change', change,
+        'Total Growth', change / us_pop.column('2010')
+    )
+    census.set_format('Change', NumberFormatter)
+    census.set_format('Total Growth', PercentFormatter)
+    ```
 
 ### Video
 
