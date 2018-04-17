@@ -184,12 +184,66 @@
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/hMvuoBFWC1o)
 
 
-##  Reading and Practice for Section 7
+## Reading and Practice for Section 7
 
 ### Reading
 
+This guide assumes that you have watched section 7 (video lecture segments Lec 7.1, Lec 7.2, Lec 7.3, Lec 7.4, Lec 7.5, Lec 7.6, Lec 7.7, Lec 7.8) in Courseware.
+
+This corresponds to the textbook section:
+
++ [Chapter 7: Visualization](https://www.inferentialthinking.com/chapters/07/visualization.html)
+
+Section 7 described a variety of ways of visualizing data and when each is appropriate. Line graphs, scatter plots, and bar charts all have different purposes. One important concept in determining the types of visualizations that are appropriate for a data set is the difference between numerical and categorical data.
+
+Here's a summary of these three types of visualizations:
+
++ Scatter Plot: `t.scatter(...)`
+    + A scatter plot displays the relationship between two __numerical__ variables.
+    + Each point in the scatter plot corresponds to a row in a table.
++ Line Graph: `t.plot(...)`
+    + A line graph displays chronological patterns and changes in a __numerical__ variable.
+    + The rows describe a quantity measured at regular intervals.
++ Bar Chart: `t.barh(...)` or `t.bar(...)`
+    + A bar chart displays the relationship between a __categorical__ variable and a __numerical__ variable.
+    + Each bar corresponds to a row in the table.
 
 ### Practice
 
+Suppose you have table `movies` describing box office sales in each year. It has one row per year and the following columns.
 
+movies
+| Column | Content |
+|--------|---------|
+| `Year` | Year |
+| `Total Gross` | Total domestic box office revenue of all movies that year |
+| `Number of Movies` | Number of movies released that year |
+| `Top Movie` | Name of the highest grossing movie that year |
+| `Top Movie Gross` | Domestic box office revenue of the top movie |
+
+Answer the following questions below.
+
+Q1. To display the relationship between Total Gross and Year, what is the best visualization to use?
+
+    a. Scatter Plot
+    b. Line Graph
+    c. Bar Chart
+
+    Ans: b
+
+Q2. To display the relationship between Number of Movies and Total Gross, what is the best visualization to use?
+
+    a. Scatter Plot
+    b. Line Graph
+    c. Bar Chart
+
+    Ans: a
+
+Q3. To display the relationship between Top Movie and Top Movie Gross, what is the best visualization to use?
+
+    a. Scatter Plot
+    b. Line Graph
+    c. Bar Chart
+
+    Ans: c
 

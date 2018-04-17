@@ -89,7 +89,7 @@ plots.style.use('fivethirtyeight')
 |----------|-------------|------|
 | `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
 | `t.scatter(x[, y])` | scatter plot | (../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
-| `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
+| `t.bar('label', col)` | Depict bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); | `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 
 
 ### Common Graph Arguments
