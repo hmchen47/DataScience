@@ -38,13 +38,20 @@
 
 ### Notes
 
++ Question  
+    The graph shows the change in the U.S. population by age, between 2010 and 2015.  
+    How can you explain the peak at 68 years?
 + Demo
 
     ```python
-
+    by_age.labels   # tuple of table labels
+    by_age.plot(0, 3)
+    by_age.sort(3, descending=True)
     ```
 
 ### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/5-NEr5Pnybk)
 
 
 ## Lec 7.3 Scatter Plots
@@ -54,10 +61,13 @@
 + Demo
 
     ```python
-
+    actors = actors.relabeled(5, '#1 Movie Gross')
+    actors.scatter(2, 1)
     ```
 
 ### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
 
 
 ## Lec 7.4 Example 2
@@ -72,6 +82,8 @@
 
 ### Video
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
 
 ## Lec 7.5 How to Choose
 
@@ -85,6 +97,8 @@
 
 ### Video
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
 
 ## Lec 7.6 Types of Data
 
@@ -97,6 +111,8 @@
     ```
 
 ### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
 
 
 ## Lec 7.7 Distributions
@@ -118,6 +134,9 @@
 
 
 ### Video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+
 
 ##  Reading and Practice for Section 7
 

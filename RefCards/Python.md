@@ -59,6 +59,7 @@ plots.style.use('fivethirtyeight')
 | `t.where(column, are.condition)` | keep all rows for which a column's value satisfies a consition | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.where(column, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
+| `t.relabel(col, label)` | rename the label of selected column | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
 
 
 
@@ -77,14 +78,23 @@ plots.style.use('fivethirtyeight')
 
 | Attribute | Description | Link |
 |-----------|-------------|------|
-| `overlay` | True=one graph; False=separated graphs |[Graph](./07-Charts.md#lec-71-line-graphs) |
+| `t.labels` | tuple of table labels | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-72-example-2) |
+
 
 
 ### Methods
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Graph](./07-Charts.md#lec-71-line-graphs) |
+| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
+| `t.scatter(x[, y])` | scatter plot | (../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
+
+
+### Common Graph Arguments
+
+| Argument | Description | Link |
+|----------|-------------|------|
+| `overlay` | True = one graph; False = separated graphs | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
 
 
 
