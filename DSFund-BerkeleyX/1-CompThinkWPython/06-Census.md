@@ -133,7 +133,7 @@ Q2. Reads a table from a file or webpage.
 
 Q3. Returns a table with some of the columns of `t`.
 
-    Ans: A
+    Ans: A [x]
 
 Q4. Returns a table with the same contents as `t`, but with the rows ordered by the values in a certain column.
 
@@ -141,7 +141,7 @@ Q4. Returns a table with the same contents as `t`, but with the rows ordered by 
 
 Q5. Returns an array containing the values in a column of `t`.
 
-    Ans: F
+    Ans: F [x]
 
 Q6. Displays a bar chart based on the columns of `t`.
 
