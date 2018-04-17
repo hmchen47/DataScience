@@ -28,7 +28,7 @@ plots.style.use('fivethirtyeight')
 |----------|-------------|------|
 | `np.array(lst)` | convert a list to an array | |
 | `make_array(elt1, elt2, ...)` | create array with given elements or list | [Lec 4.4 Arrays](../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-44-arrays) |
-| `ary.barh('label')` | Depict horizontal bar chart with `label` column | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts) |
+
 
 
 ## Table
@@ -60,6 +60,7 @@ plots.style.use('fivethirtyeight')
 | `t.where(column, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
 | `t.relabel(col, label)` | rename the label of selected column | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
+| `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 
 
 
@@ -88,6 +89,7 @@ plots.style.use('fivethirtyeight')
 |----------|-------------|------|
 | `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
 | `t.scatter(x[, y])` | scatter plot | (../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
+| `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 
 
 ### Common Graph Arguments

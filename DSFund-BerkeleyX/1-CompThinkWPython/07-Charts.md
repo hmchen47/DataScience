@@ -142,10 +142,20 @@
 
 ### Notes
 
++ Use of Bar Charts
+    + To display the relation between a categorical variable and a numerical variable
+    + To display the distribution of a categorical variable
 + Demo
 
     ```python
+    top = Table.read_table('top_movies.csv')
+    top10 = top.take(np.arange(10))
+    top10.barh(0, 2)
 
+    studios = top.group('Studio')
+    sum(studios.column(1))
+    studios.barh(0)
+    studios.sort(1, descending=True).barh(0)
     ```
 
 ### Video
