@@ -167,10 +167,21 @@
 
 ### Notes
 
++ Questions
+    + More than half of smartphone owners have used their phone to get health information, do online banking (horizontal bar chart shown)
+    + Which of the following questions can be answered by this char?  
+        Among survey responders ...
+        1. What proportion did not use their phone for __online banking__?
+        2. What proportion either used their phone for __online banking__ or for __government services or info__?
+        3. Did everyone use their phone for at least one of these activities?
+        4. Did anyone use their phone for both __online banking__ and __health info__?
++ Answers:
+    + Q1. 43%
+    + Q2~Q4: not enough info, unkonwn intersection portions
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/hMvuoBFWC1o)
 
 
 ##  Reading and Practice for Section 7
