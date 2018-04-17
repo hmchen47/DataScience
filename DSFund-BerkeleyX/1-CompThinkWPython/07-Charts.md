@@ -4,16 +4,34 @@
 
 ### Notes
 
-+ 
-+ Demo
++ Visualization Relations: line graphs & scatter plots
++ Demo - Line Graphs
 
     ```python
+    # load data
+    full_census_table = Table.read_table("census.csv")
+    # taken from Sec 06
+    partial = full_census_table.select(['SEX', 'AGE', 4, 9])
+    us_pop = partial.relabeled(2, '2010').relabeled(3, '2015')
+    ratio = (us_pop.column(3) / us_pop.column(2))
+    census = us_pop.with_columns(
+            'Change', us_pop.column(3) - us_pop.column(2), 
+            'Total Growth', ratio - 1,
+            'Annual Growth', ratio ** (1/5) - 1)
+    census.set_format([2, 3, 4], NumberFormatter)
+    census.set_format([5, 6], PercentFormatter)
 
+    # Line graphs - drop SEX col and only display age 0~100
+    by_age = census.where('SEX', 0).drop('SEX').where('AGE', are.between(0, 100))
+    by_age.plot(0, 2) 
+    by_age.plot(0, 3)
+    by_age.select(0, 1, 2).plot(0)
+    by_age.select(0, 1, 2).plot(0, overlay=False)
     ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/pcEadlLnFBw)
 
 
 ## Lec 7.2 Example 1

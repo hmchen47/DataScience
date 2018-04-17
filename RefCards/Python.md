@@ -71,4 +71,21 @@ plots.style.use('fivethirtyeight')
     ]).scatter('Number of Periods')
     ```
 
-## Visualizations 
+## Visualizations
+
+### Attributes
+
+| Attribute | Description | Link |
+|-----------|-------------|------|
+| `overlay` | True=one graph; False=separated graphs |[Graph](./07-Charts.md#lec-71-line-graphs) |
+
+
+### Methods
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Graph](./07-Charts.md#lec-71-line-graphs) |
+
+
+
+
