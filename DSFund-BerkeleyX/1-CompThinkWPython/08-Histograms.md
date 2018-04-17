@@ -1,13 +1,30 @@
 # Section 8: Histograms (Lec 8.1 - Lec 8.7)
 
++ Displaying a Categorical Distribution
+    + The distribution of a variable (a column, e.g. Studios) describes the frequencies of its different values
+    + the `group` method counts the number of rows for each value in the column (e.g. the number of top movie released by each studio)
+    + Bar charts can display the distribution of a categorical variable (e.g. studios)
+        + One bar for each category
+        + Length of bar is the count of individuals in that category
+
 ## Lec 8.1 Area Principle
 
 ### Notes
 
-+ Demo
-    ```python
++ What's Wrong with This Picture?  
+    ![Diagram](https://i1.wp.com/flowingdata.com/wp-content/uploads/2012/03/ipad-expanded-battery.jpg?w=960&ssl=1)
+    + 70% bigger for iPad 2 battery, but double in diagram due to (1.7 x 1.7)
+    + Flowing [data](https://flowingdata.com/2012/03/16/new-ipad-battery-size-is-huge/)
++ Area Principle  
+    __Areas__ should be proportional to the values they represent.  
+    For example:
+    + If represent $20%$ of a population: A
+    + Then $40%$ can be represented by: AA
+    + But noy by AAAA
++ Question:  
+    Is this consistent with the area principle? (Only the Right bottom one)
 
-    ```
+    ![diagram](http://www.princeton.edu/~ina/images/infographics/starbucks_small.jpg)
 
 ### Video
 
