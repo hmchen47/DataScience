@@ -82,10 +82,19 @@
 
 ### Notes
 
++ Demo
+    ```python
+    us_pop_2015 = us_pop.drop('2010').where('AGE', are.below(999)).where('SEX', are.above(0))
+    sum(us_pop_2015.column(2))
+
+    males = us_pop_2015.where('SEX', 1).column('2015')
+    by_sex = us_pop_2015.where('SEX', 2).drop('SEX').relabeled('2015', 'Females').with_column('Males', males)
+    by_sex.set_format('Males', NumberFormatter)
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/SAJavz58uHk)
 
 ## Reading and Practice for Section 6
 
