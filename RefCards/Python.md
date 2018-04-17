@@ -5,10 +5,13 @@
 ### UC Berkeley Data Science
 
 ```python
-from datascience import *   # Berkeley Data Science lib
+# Run this cell to import libraries needed to run the examples
+from datascience import *
 import numpy as np
+
 %matplotlib inline
 import matplotlib.pyplot as plots
+plots.style.use('fivethirtyeight')
 ```
 
 ## Numpy
