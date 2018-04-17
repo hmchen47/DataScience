@@ -140,7 +140,23 @@
 
 ### Section 7: [Charts (Lec 7.1 - 7.8)](./07-Charts.md)
 
-#### [Reading and Practice for Section 7]
+#### [Lec 7.1 Line Graphs](./07-Charts.md#lec-71-line-graphs)
+
+#### [Lec 7.2 Example 1](./07-Charts.md#lec-72-example-1)
+
+#### [Lec 7.3 Scatter Plots](./07-Charts.md#lec-73-scatter-plots)
+
+#### [Lec 7.4 Example 2](./07-Charts.md#lec-74-example-2)
+
+#### [Lec 7.5 How to Choose](./07-Charts.md#lec-75-how-to-choose)
+
+#### [Lec 7.6 Types of Data](./07-Charts.md#lec-76-types-of-data)
+
+#### [Lec 7.7 Distributions](./07-Charts.md#lec-77-distributions)
+
+#### [Lec 7.8 Example 3](./07-Charts.md#lec-78-example-3)
+
+#### [Reading and Practice for Section 7](./07-Charts.md#reading-and-practice-for-section-7)
 
 ### Section 8: [Histograms (Lec 8.1 - Lec 8.7)](./08-Histograms.md)
 
