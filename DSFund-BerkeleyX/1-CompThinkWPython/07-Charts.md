@@ -58,6 +58,11 @@
 
 ### Notes
 
++ Interpreting Scatter Plots  
+    Interpretations involve all three features of the plot:
+    + the individuals corresponding to the point; that is, those on whom the two variables are measured
+    + the variable on the horizontal axis
+    + the variable on the vertical axis
 + Demo
 
     ```python
@@ -77,12 +82,14 @@
 + Demo
 
     ```python
-
+    actors.scatter(2, 3)
+    actors.where(2, are.below(10))  # Anthony Daniel
+    actors.where(2, are.above(60))  # Samuel Jackson, Morgan Freeman, ...
     ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/WxrsPBNklks)
 
 
 ## Lec 7.5 How to Choose
