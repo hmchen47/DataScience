@@ -45,16 +45,38 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/4SLry5hYcmE)
 
 ## Lec 6.3 Accessing Values
 
 ### Notes
 
++ Census Table Description
+    + Values are column-dependent interpretations
+    + The `SEX` column: 1 = Male, 2 = Female
+    + The `POPESTIMATE2010` column: 7/1/2010 estimate
++ In this tab;le, some rows are sums of other rows
+    + The `SEX` column: 0 is $Total$ (of Male + Femal)
+    + The `AGE`   column: 999 is $Total$ of all ages
++ Numeric codes are often used for storage efficiency
++ Demo
+
+    ```python
+    census.sort('Change', descending=True)
+    sum(census.column('2010')) 
+    everyone = census.sort('Change', descending=True).row(0)    # 1st row
+    five_year_growth = everyone.item(5)
+
+    census = census.with_column(    # must reassign to original table
+        'Annual Growth', (census.column(5) + 1) ** (1/5) - 1
+    )
+    census.set_format(6, PercentFormatter)
+    census.sort('Change', descending=True)
+    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/EOrAk4r9kck)
 
 ## Lec 6.4 Males and Females
 
