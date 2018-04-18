@@ -119,9 +119,16 @@
 
 ### Notes
 
++ Histogram
+    + Chart that displays the distribution of a numerical variable
+    + Use bins; there is one bar corresponding to each bin
+    + Use the area principle: the __area__ of each bar is the precent of individuals in the corresponding bin
 + Demo
     ```python
-
+    top.bin('Age', bins = my_bins)      # uneven bins
+    top.hist('Age', bins = my_bins, unit = 'Year')
+    top.hist('Age', bins = my_bins, unit = 'Year', normed = False) # not normalized and not follow area principle
+    top.hist('Age', bins = np.arange(0, 110, 10), unit = 'Year')
     ```
 
 ### Video
