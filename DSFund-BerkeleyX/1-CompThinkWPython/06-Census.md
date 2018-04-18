@@ -55,7 +55,7 @@
     + Values are column-dependent interpretations
     + The `SEX` column: 1 = Male, 2 = Female
     + The `POPESTIMATE2010` column: 7/1/2010 estimate
-+ In this tab;le, some rows are sums of other rows
++ In this table, some rows are sums of other rows
     + The `SEX` column: 0 is $Total$ (of Male + Female)
     + The `AGE`   column: 999 is $Total$ of all ages
 + Numeric codes are often used for storage efficiency
@@ -116,11 +116,17 @@ Test your understanding with these practice questions.
 Match each of the following table commands with a description of its effect. Each answer may only be used once. Assume that t is a table that has already been loaded.
 
 A. `t.select(...)`
+
 B. `t.sort(...)`
+
 C. `Table.read_table(...)`
+
 D. `t.column(...).item(...)`
+
 E. `t.barh(...)`
+
 F. `t.column(...)`
+
 G. `t.show(...)` 
 
 Q1. Displays the first few rows of `t`.
