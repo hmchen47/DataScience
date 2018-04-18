@@ -27,8 +27,7 @@ plots.style.use('fivethirtyeight')
 | Function | Description | Link |
 |----------|-------------|------|
 | `np.array(lst)` | convert a list to an array | |
-| `make_array(elt1, elt2, ...)` | create array with given elements or list | [Lec 4.4 Arrays](../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-44-arrays) |
-| `make_array(x1, x2, ...)` | create an array with the given values $xi$, where i = 1, 2, ...  | [Lec 8.2 Binning](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning) |
+| `make_array(x1, x2, ...)` | create an array with the given values $xi$, where i = 1, 2, ...  | [Lec 4.4 Arrays](../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-44-arrays); [Lec 8.2 Binning](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning) |
 
 
 
@@ -60,8 +59,8 @@ plots.style.use('fivethirtyeight')
 | `t.where(column, are.condition)` | keep all rows for which a column's value satisfies a consition | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.where(column, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
-| `t.relabel(col, label)` | rename the label of selected column | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
-| `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
+| `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
+| `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-distributions) |
 
 
 
@@ -80,7 +79,7 @@ plots.style.use('fivethirtyeight')
 
 | Attribute | Description | Link |
 |-----------|-------------|------|
-| `t.labels` | tuple of table labels | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-72-example-2) |
+| `t.labels` | tuple of table labels | [Lec 7.2 Example 1](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-72-example-1) |
 
 
 
@@ -88,21 +87,22 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
+| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Lec 7.1 Line Graphs](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
 | `t.scatter(x[, y])` | scatter plot | [Lec 7.3 Scatter Plots](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
-| `t.bar('label', col)` | Depict bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); | `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
+| `t.bar('label', col)` | Depict bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts) | 
+| `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 | `t.bin(label, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning) |
-| `t.hist(x, bin=<ary>)` | Histogram with given bins | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histogram) |
+| `t.hist(x, bin=<ary>)` | Histogram with given bins | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histograms) |
 
 
 ### Common Graph Arguments
 
 | Argument | Description | Link |
 |----------|-------------|------|
-| `overlay` | True = one graph; False = separated graphs | [Graph](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
-| `unit` | string as the unit of x-axis | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histogram) |
-| `normed` | True/False, normalized with area principle, deprecated | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histogram) |
-| `density` | True/False, normalized with area principle, deprecated | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histogram) |
+| `overlay` | True = one graph; False = separated graphs | [Lec 7.1 Line Graphs](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs) |
+| `unit` | string as the unit of x-axis | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histograms) |
+| `normed` | True/False, normalized with area principle, deprecated | [Lec 8.5 Density](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-85-desity) |
+| `density` | True/False, normalized with area principle, deprecated | [Lec 8.5 Density](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-85-desity) |
 
 
 
