@@ -123,7 +123,7 @@
 
 + Histogram Axes
     + By default, `hist` uses a scale (`normed=True`) that ensures the area of the chart sums to 100%
-    + The area of each bar is a precentage of the whole
+    + The area of each bar is a percentage of the whole
     + The horizontal axis is a number line (e.g., years), and the bins sizes don't have to be equal to each other
     + The vertical axis is a rate (e.g., percent per year)
 + How to calculate Height  
