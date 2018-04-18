@@ -54,8 +54,9 @@
     min(top.column('Age')), max(top.column('Age'))  # get max and min ages
     my_bins = make_array(0, 5, 10, 15, 25, 40, 65, 100) # uneven intervals
     top.bin('Age', bins = my_bins)  # create bins with given intervals
-    top.bin('Age', bins = np.arange(0, 101, 25))    # the last bin [100, 100)
-    op.bin('Age', bins = np.arange(0, 60, 25))  # the last bin [50, 50)
+    top.bin('Age', bins = np.arange(0, 101, 25))
+    top.bin('Age', bins = np.arange(0, 60, 25))
+    # the last bin is [50, 50), the value 50 thrown into the last 2nd bin
     top.where('Age', 50)
     ```
 
@@ -68,10 +69,46 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ Question: 
+    + Table A
 
-    ```
+        | bin | Score Count |
+        |-----|-------------|
+        |  70 | 1 |
+        |  80 | 2 |
+        |  90 | 3 |
+        | 100 | 0 |
+
+    + Table B
+
+        | bin | Score Count |
+        |-----|-------------|
+        |  70 | 10 |
+        |  80 | 20 |
+        |  90 | 40 |
+        | 100 |  0 |
+
+    + Table C
+
+        | bin | Score Count |
+        |-----|-------------|
+        |  70 | 10 |
+        |  80 | 20 |
+        |  90 | 30 |
+        | 100 |  0 |
+
+    + Table D
+
+        | bin | Score Count |
+        |-----|-------------|
+        |  70 | 321 |
+        |  80 | 642 |
+        |  90 | 963 |
+        | 100 |   0 |
+    + Which of A, B, C, and D are consistent with this distribution of test scores?
+
+        Ans: A, C, and D
+
 
 ### Video
 
