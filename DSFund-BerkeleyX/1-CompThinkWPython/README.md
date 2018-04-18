@@ -176,9 +176,9 @@
 
 #### [Reading and Practice for Section 8](./08-Histograms.md#reading-and-practice-for-section-8)
 
-### [Lab 3: Tables (Jupyter Notebook)]
+### [Lab 3: Tables (Jupyter Notebook)](./lab3-Tables.md)
 
-### [Alternative Lab 3: Tables (Non-Notebook Workflow)]
+### [Alternative Lab 3: Tables (Non-Notebook Workflow)](./lab3-Tables.md#alternative-lab-3-tables-non-notebook-workflow))
 
 
 
