@@ -1,4 +1,4 @@
-# Python Reference Cards for UCBerkeley DataScience package
+# Python Reference Cards for UC Berkeley DataScience package
 
 ## Typical Programming Environment
 
