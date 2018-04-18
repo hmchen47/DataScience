@@ -6,7 +6,7 @@
 
 + The Decennial Census
     + Every ten years, the Census Bureau counts how many people there in the U.S.
-    + In between censuses, the Bureau s=estimates how many people there are each year
+    + In between censuses, the Bureau estimates how many people there are each year
     + Article 1, Section 2 of the Constitution:  
         "Representatives and direct Taxes shall be apportioned among the several States ... according to their respective Numbers ..."
 + Public Census Data
@@ -56,7 +56,7 @@
     + The `SEX` column: 1 = Male, 2 = Female
     + The `POPESTIMATE2010` column: 7/1/2010 estimate
 + In this tab;le, some rows are sums of other rows
-    + The `SEX` column: 0 is $Total$ (of Male + Femal)
+    + The `SEX` column: 0 is $Total$ (of Male + Female)
     + The `AGE`   column: 999 is $Total$ of all ages
 + Numeric codes are often used for storage efficiency
 + Demo
