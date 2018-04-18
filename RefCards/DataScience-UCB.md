@@ -48,7 +48,7 @@ plots.style.use('fivethirtyeight')
 | `t.read_table(filename)` | Read a table from a spreadsheet | [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.with_columns(name, values, ...)` | appends a column name with an array of values to an existing table |  [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.with_row(lst)` | appends a row w/ given columns to an existing table |  [Lec 5.7 Lists](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists) |
-| `t.with_row(lst)` | appends multiple rows (rows of columns) w/ given columns to an existing table |  [Lec 5.7 Lists](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists) |
+| `t.with_rows(lst)` | appends multiple rows (rows of columns) w/ given columns to an existing table |  [Lec 5.7 Lists](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists) |
 | `t.item(int)` | data in column `int` | [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [Lec 4.5 Columns](../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-45-columns) |
