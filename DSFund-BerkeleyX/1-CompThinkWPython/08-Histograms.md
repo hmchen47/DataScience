@@ -28,7 +28,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/qEYz6D0MKq8)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/qEYz6D0MKq8){:target="_blank"}
 
 
 ## Lec 8.2 Binning
@@ -62,7 +62,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/kREoWbByNZs)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/kREoWbByNZs){:target="_blank"}
 
 
 ## Lec 8.3 Example 1
@@ -70,41 +70,22 @@
 ### Notes
 
 + Question: 
-    + Table A
 
-        | bin | Score Count |
-        |-----|-------------|
-        |  70 | 1 |
-        |  80 | 2 |
-        |  90 | 3 |
-        | 100 | 0 |
 
-    + Table B
+    | Table A | bin | Score Count | | Table B | bin | Score Count |
+    |--|-----|-------------|--|--|--|-----|-------------|
+    | |  70 | 1 | | |  70 | 10 |
+    | |  80 | 2 | | |  80 | 20 |
+    | |  90 | 3 | | |  90 | 40 |
+    | | 100 | 0 | | | 100 |  0 |
 
-        | bin | Score Count |
-        |-----|-------------|
-        |  70 | 10 |
-        |  80 | 20 |
-        |  90 | 40 |
-        | 100 |  0 |
+    | Table C | bin | Score Count | | Table D | bin | Score Count |
+    |--|-----|-------------|--|--|--|-----|-------------|
+    | |  70 | 10 | | |  70 | 321 |
+    | |  80 | 20 | | |  80 | 642 |
+    | |  90 | 30 | | |  90 | 963 |
+    | | 100 | 0 | | | 100 |  0 |
 
-    + Table C
-
-        | bin | Score Count |
-        |-----|-------------|
-        |  70 | 10 |
-        |  80 | 20 |
-        |  90 | 30 |
-        | 100 |  0 |
-
-    + Table D
-
-        | bin | Score Count |
-        |-----|-------------|
-        |  70 | 321 |
-        |  80 | 642 |
-        |  90 | 963 |
-        | 100 |   0 |
     + Which of A, B, C, and D are consistent with this distribution of test scores?
 
         Ans: A, C, and D
@@ -112,7 +93,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/vz5VLqrw-tA)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/vz5VLqrw-tA){:target="_blank"}
 
 
 ## Lec 8.4 Drawing Histograms
@@ -122,7 +103,7 @@
 + Histogram
     + Chart that displays the distribution of a numerical variable
     + Use bins; there is one bar corresponding to each bin
-    + Use the area principle: the __area__ of each bar is the precent of individuals in the corresponding bin
+    + Use the area principle: the __area__ of each bar is the percent of individuals in the corresponding bin
 + Demo
     ```python
     top.bin('Age', bins = my_bins)      # uneven bins
@@ -133,7 +114,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/xPv7VNSBJZQ)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/xPv7VNSBJZQ){:target="_blank"}
 
 
 ## Lec 8.5 Density
@@ -149,9 +130,9 @@
     The $[25, 40)$ bin contains 42 out of 200 movies
     + $42/200 = 21\%$
     + The bin is $40 - 25 = 15$ years wide
-    + Height of bar $= 21\% / 15 years = 1.4$ percent per year
+    + $\text{Height of bar} = 21\% / 15 \text{ years} = 1.4$ percent per year
 + Height Measures Density  
-    $$ Height = \frac{\% \text{in bin}}{\text{width of bin}}$$  
+    $$ \text{Height} = \frac{\% \text{in bin}}{\text{width of bin}}$$  
     + The height measures the percent of data in the bin __relative to the amount of space in the bin.__
     + Height measures crowdedness or __density__.
     + Units: percent per unit on the horizontal axis
@@ -161,16 +142,17 @@
     + How crowded is the bin? --> Use __height__
 + Bar Chart or Histogram?
     + Bar Chart
-        +Distribution of categorical variable
+        + Distribution of categorical variable
         + Bars have arbitrary (but equal) widths and spacing
         + height (or length) of bars proportional to the percent of individuals
-    + Distribution of numerical variable
-    + Horizontal axis is numerical , hence to scal ewith no gaps
-    + Area of bars proportional to the percent of individuals; height measures density
+    + Histograms
+        + Distribution of numerical variable
+        + Horizontal axis is numerical , hence to scale with no gaps
+        + Area of bars proportional to the percent of individuals; height measures density
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/F8Pv0DWqPls)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/F8Pv0DWqPls){:target="_blank"}
 
 
 ## Lec 8.6 Example 2
@@ -182,15 +164,15 @@
     `incomes.hist(1, bins=[0, 15,25, 85])`  
     What are the vertical axis units? 
 + Answer
-    + Vertical axis: Percent per million    
-    + `incomes.hist(1, bins=[0, 15,25, 85], unit='million')` 
+    + Vertical axis: Percent per million
+    + `incomes.hist(1, bins=[0, 15,25, 85], unit='million')`
     + $[0, 15)$: $(45\%) / (15 \text{ million}) = 3 \% \text{ per million}$
     + $[15, 25)$: $(40\%) / (10 \text{ million}) = 4 \% \text{ per million}$
     + $[25, 85)$: $(15\%) / (60 \text{ million}) = .25 \% \text{ per million}$
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/ZwvovAbWUyY)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/ZwvovAbWUyY){:target="_blank"}
 
 
 ## Lec 8.7 Example 3
@@ -207,13 +189,13 @@
     | $[10, 20)$ | ? |
     | $[20, 50)$ | 1 |
 + Answer:  
-    Total area of visible bars: $ (5 * 2) + (5 * 3) + (30 x 1) = 55\%$  
+    Total area of visible bars: $ (5 x 2) + (5 x 3) + (30 x 1) = 55\%$  
     Area of hidden bar = $1 - 55\% = 45\%$  
     Height of hidden bar = $45\% / 10 = 4.5\% \text{ per pound}$
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/Jl5fNPkEcDI)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/Jl5fNPkEcDI){:target="_blank"}
 
 
 ## Reading and Practice for Section 8
@@ -224,7 +206,7 @@ This guide assumes that you have watched section 8 (video lecture segments Lec 8
 
 This corresponds to textbook section:
 
-[Chapter 7.2: Visualizing Numerical Distributions](https://www.inferentialthinking.com/chapters/07/2/visualizing-numerical-distributions.html)
+[Chapter 7.2: Visualizing Numerical Distributions](https://www.inferentialthinking.com/chapters/07/2/visualizing-numerical-distributions.html){:target="_blank"}
 
 A histogram visualizes a single numerical variable. A histogram of a numerical dataset looks very much like a bar chart, though it has some important differences. 
 
@@ -249,7 +231,7 @@ The table `nba` has a column labeled `salary` containing the 2015-2016 salaries 
 
 bin widths and heights for `nba.hist(...)`
 
-bin (million dollars): [0, 2), [2, 4), [4, 12), [12, 18), [18, 26)
+bin (million dollars): [0, 2), [2, 4), [4, 12), [12, 18), [18, 26)  
 height (percent per million dollars): 17.64, 11.39, 3.60, 1.60, 0.45
 
 Q1. Which bin contains the most number of players?
