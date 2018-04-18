@@ -15,6 +15,8 @@ Note: IE / Edge browsers are currently unsupported.
 [Jupyter Notebook Link](https://hub.data8x.berkeley.edu/user/cade73f52ccce256ebbca3384ef48d9c/notebooks/materials-x18/materials/x18/lab/1/lab03/lab03.ipynb#)
 
 
+[Local notebook link](./labs/lab03/lab03.ipunb)
+
 # Alternative Lab 3: Tables (Non-Notebook Workflow)
 
 You do not need to complete this version of Lab 3 unless you find that completing the Jupyter notebook version of the lab assignment is problematic for accessibility reasons. If you can use Jupyter notebooks, then you should [complete this version](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/courseware/c07ade93d3e642c3a6dedd804aac3d77/9aa3e929ee474c65804a48e9712593ef/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.1x%2B1T2018%2Btype%40vertical%2Bblock%407aabebdf03f94c4bbbb5abbfa1e7a91d) instead.

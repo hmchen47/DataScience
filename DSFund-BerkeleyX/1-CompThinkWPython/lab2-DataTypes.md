@@ -14,6 +14,9 @@ Note: IE / Edge browsers are currently unsupported.
 
 [Jupyter Link](https://hub.data8x.berkeley.edu/user/cade73f52ccce256ebbca3384ef48d9c/notebooks/materials-x18/materials/x18/lab/1/lab02/lab02.ipynb)
 
+
+[Local notebook link](./labs/lab02/lab02.ipunb)
+
 # Lab 2: Data Types, Arrays, and Tables (Non-Notebook Workflow)
 
 You do not need to complete this version of Lab 2 unless you find that completing the Jupyter notebook version of the lab assignment is problematic for accessibility reasons. If you can use Jupyter notebooks, then you should complete this version instead.
