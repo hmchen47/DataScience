@@ -140,10 +140,33 @@
 
 ### Notes
 
-+ Demo
-    ```python
-
-    ```
++ Histogram Axes
+    + By default, `hist` uses a scale (`normed=True`) that ensures the area of the chart sums to 100%
+    + The area of each bar is a precentage of the whole
+    + The horizontal axis is a number line (e.g., years), and the bins sizes don't have to be equal to each other
+    + The vertical axis is a rate (e.g., percent per year)
++ How to calculate Height  
+    The $[25, 40)$ bin contains 42 out of 200 movies
+    + $42/200 = 21\%$
+    + The bin is $40 - 25 = 15$ years wide
+    + Height of bar $= 21\% / 15 years = 1.4$ percent per year
++ Height Measures Density  
+    $$ Height = \frac{\% \text{in bin}}{\text{width of bin}}$$  
+    + The height measures the percent of data in the bin __relative to the amount of space in the bin.__
+    + Height measures crowdedness or __density__.
+    + Units: percent per unit on the horizontal axis
++ Area Measures Percent  
+    $$\text{Area of bar} = \% \text{ in bin} = \text{Height x width in bin}$$
+    + How many individuals in the bin? --> Use __area__
+    + How crowded is the bin? --> Use __height__
++ Bar Chart or Histogram?
+    + Bar Chart
+        +Distribution of categorical variable
+        + Bars have arbitrary (but equal) widths and spacing
+        + height (or length) of bars proportional to the percent of individuals
+    + Distribution of numerical variable
+    + Horizontal axis is numerical , hence to scal ewith no gaps
+    + Area of bars proportional to the percent of individuals; height measures density
 
 ### Video
 
