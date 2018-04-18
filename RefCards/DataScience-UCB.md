@@ -1,8 +1,6 @@
-# Python Reference Cards
+# Python Reference Cards for UCBerkeley DataScience package
 
 ## Typical Programming Environment
-
-### UC Berkeley Data Science
 
 ```python
 # Run this cell to import libraries needed to run the examples
