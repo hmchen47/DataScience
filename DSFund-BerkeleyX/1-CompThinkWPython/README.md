@@ -140,15 +140,45 @@
 
 ### Section 7: [Charts (Lec 7.1 - 7.8)](./07-Charts.md)
 
-#### [Reading and Practice for Section 7]
+#### [Lec 7.1 Line Graphs](./07-Charts.md#lec-71-line-graphs)
+
+#### [Lec 7.2 Example 1](./07-Charts.md#lec-72-example-1)
+
+#### [Lec 7.3 Scatter Plots](./07-Charts.md#lec-73-scatter-plots)
+
+#### [Lec 7.4 Example 2](./07-Charts.md#lec-74-example-2)
+
+#### [Lec 7.5 How to Choose](./07-Charts.md#lec-75-how-to-choose)
+
+#### [Lec 7.6 Types of Data](./07-Charts.md#lec-76-types-of-data)
+
+#### [Lec 7.7 Distributions](./07-Charts.md#lec-77-distributions)
+
+#### [Lec 7.8 Example 3](./07-Charts.md#lec-78-example-3)
+
+#### [Reading and Practice for Section 7](./07-Charts.md#reading-and-practice-for-section-7)
 
 ### Section 8: [Histograms (Lec 8.1 - Lec 8.7)](./08-Histograms.md)
 
-#### [Reading and Practice for Section 8]
+#### [Lec 8.1 Area Principle](./08-Histograms.md#lec-81-area-principle)
 
-### [Lab 3: Tables (Jupyter Notebook)]
+#### [Lec 8.2 Binning](./08-Histograms.md#lec-82-binning)
 
-### [Alternative Lab 3: Tables (Non-Notebook Workflow)]
+#### [Lec 8.3 Example 1](./08-Histograms.md#lec-83-example-1)
+
+#### [Lec 8.4 Drawing Histograms](./08-Histograms.md#lec-84-drawing-histograms)
+
+#### [Lec 8.5 Density](./08-Histograms.md#lec-85-density)
+
+#### [Lec 8.6 Example 2](./08-Histograms.md#lec-86-example-2)
+
+#### [Lec 8.7 Example 3](./08-Histograms.md#lec-87-example-3)
+
+#### [Reading and Practice for Section 8](./08-Histograms.md#reading-and-practice-for-section-8)
+
+### [Lab 3: Tables (Jupyter Notebook)](./lab3-Tables.md)
+
+### [Alternative Lab 3: Tables (Non-Notebook Workflow)](./lab3-Tables.md#alternative-lab-3-tables-non-notebook-workflow))
 
 
 
