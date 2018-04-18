@@ -79,7 +79,7 @@ plots.style.use('fivethirtyeight')
 
 | Attribute | Description | Link |
 |-----------|-------------|------|
-| `t.labels` | tuple of table labels | [Lec 7.2 Example 1](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-72-example-1) |
+
 
 
 
