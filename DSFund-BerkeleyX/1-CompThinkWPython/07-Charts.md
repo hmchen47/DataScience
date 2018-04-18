@@ -23,7 +23,7 @@
 
     # Line graphs - drop SEX col and only display age 0~100
     by_age = census.where('SEX', 0).drop('SEX').where('AGE', are.between(0, 100))
-    by_age.plot(0, 2) 
+    by_age.plot(0, 2)
     by_age.plot(0, 3)
     by_age.select(0, 1, 2).plot(0)
     by_age.select(0, 1, 2).plot(0, overlay=False)
@@ -31,7 +31,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/pcEadlLnFBw)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/pcEadlLnFBw){:target="_blank"}
 
 
 ## Lec 7.2 Example 1
@@ -48,10 +48,11 @@
     by_age.plot(0, 3)
     by_age.sort(3, descending=True)
     ```
++ Ans: Age 68 -> born in 1947 just after WWII
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/5-NEr5Pnybk)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/5-NEr5Pnybk){:target="_blank"}
 
 
 ## Lec 7.3 Scatter Plots
@@ -89,7 +90,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/WxrsPBNklks)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/WxrsPBNklks){:target="_blank"}
 
 
 ## Lec 7.5 How to Choose
@@ -102,7 +103,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/CQIc1pjkyEM)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/CQIc1pjkyEM){:target="_blank"}
 
 
 ## Lec 7.6 Types of Data
@@ -121,22 +122,16 @@
     + It doesn't make sense to perform arithmetic on these "numbers", e.g. $1 - 0$ or $(0+1+2)/3$ have no meaning
     + The variable `SEX` is still categorical, even though numbers were used for the categories
 + Terminology
-    + __Individuals__: those whose features are recorded 
+    + __Individuals__: those whose features are recorded
     + __Variable__: a feature
     + A variable has different __values__
-    + Values can be __numerical__ or __categorical__, and of many syb-types within these
+    + Values can be __numerical__ or __categorical__, and of many sub-types within these
     + Each __individual has exactly one value__ of the variable
     + __Distribution__: for each different value of the variable , the frequency of individuals that have that value
-+ Demo
-
-    ```python
-
-    ```
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)]
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/EHRg9ojcVRQ){:target="_blank"}
 
 ## Lec 7.7 Distributions
 
@@ -160,7 +155,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/ME3LjCrvxik)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/ME3LjCrvxik){:target="_blank"}
 
 
 ## Lec 7.8 Example 3
@@ -181,7 +176,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/hMvuoBFWC1o)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/hMvuoBFWC1o){:target="_blank"}
 
 
 ## Reading and Practice for Section 7
@@ -212,7 +207,6 @@ Here's a summary of these three types of visualizations:
 
 Suppose you have table `movies` describing box office sales in each year. It has one row per year and the following columns.
 
-movies
 | Column | Content |
 |--------|---------|
 | `Year` | Year |
