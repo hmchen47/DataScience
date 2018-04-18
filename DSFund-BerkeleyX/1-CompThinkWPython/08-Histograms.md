@@ -182,8 +182,8 @@
     `incomes.hist(1, bins=[0, 15,25, 85])`  
     What are the vertical axis units? 
 + Answer
-    + Vertical axis: Percent per million
-    + `incomes.hist(1, bins=[0, 15,25, 85], unit='million')`
+    + Vertical axis: Percent per million    
+    + `incomes.hist(1, bins=[0, 15,25, 85], unit='million')` 
     + $[0, 15)$: $(45\%) / (15 \text{ million}) = 3 \% \text{ per million}$
     + $[15, 25)$: $(40\%) / (10 \text{ million}) = 4 \% \text{ per million}$
     + $[25, 85)$: $(15\%) / (60 \text{ million}) = .25 \% \text{ per million}$
@@ -197,10 +197,19 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ Question:  
+    Here is a numerical description of a histogram.  The height of one of the bar is missing.  Can you fill it in?  
 
-    ```
+    | Wight bin (pounds) | Height of Bar (percent per pound) |
+    |---|---|
+    | $[0, 5)$ | 2 |
+    | $[5, 10)$ | 3 |
+    | $[10, 20)$ | ? |
+    | $[20, 50)$ | 1 |
++ Answer:  
+    Total area of visible bars: $ (5 * 2) + (5 * 3) + (30 x 1) = 55\%$  
+    Area of hidden bar = $1 - 55\% = 45\%$  
+    Height of hidden bar = $45\% / 10 = 4.5\% \text{ per pound}$
 
 ### Video
 
