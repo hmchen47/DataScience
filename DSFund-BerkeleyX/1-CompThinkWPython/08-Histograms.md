@@ -35,9 +35,28 @@
 
 ### Notes
 
++ Binning Numerical Values  
+    Binning is counting the number of numerical valuesthat lie within ranges, called __bins__.
+    + Bins are defined by their lower bounds (inclusive)
+    + The upper bound is the lower bound of the next bin
+    + e.g., 188, 170, 189, 163, 183, 171, 185, 168, 173, ...
+        + $[160, 165)$: 163
+        + $[165, 170)$: 168
+        + $[170, 175)$: 170, 171, 173
+        + ...
 + Demo
     ```python
-
+    top = Table.read_table('top_movies.csv')
+    # add age of movies
+    age = 2017 - top.column('Year')
+    top = top.with_column('Age', age)
+    
+    min(top.column('Age')), max(top.column('Age'))  # get max and min ages
+    my_bins = make_array(0, 5, 10, 15, 25, 40, 65, 100) # uneven intervals
+    top.bin('Age', bins = my_bins)  # create bins with given intervals
+    top.bin('Age', bins = np.arange(0, 101, 25))    # the last bin [100, 100)
+    op.bin('Age', bins = np.arange(0, 60, 25))  # the last bin [50, 50)
+    top.where('Age', 50)
     ```
 
 ### Video
