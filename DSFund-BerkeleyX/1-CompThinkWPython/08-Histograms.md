@@ -177,10 +177,16 @@
 
 ### Notes
 
-+ Demo
-    ```python
-
-    ```
++ Question  
+    What is the height of each bar in this histogram?  
+    `incomes.hist(1, bins=[0, 15,25, 85])`  
+    What are the vertical axis units? 
++ Answer
+    + Vertical axis: Percent per million
+    + `incomes.hist(1, bins=[0, 15,25, 85], unit='million')`
+    + $[0, 15)$: $(45\%) / (15 \text{ million}) = 3 \% \text{ per million}$
+    + $[15, 25)$: $(40\%) / (10 \text{ million}) = 4 \% \text{ per million}$
+    + $[25, 85)$: $(15\%) / (60 \text{ million}) = .25 \% \text{ per million}$
 
 ### Video
 
