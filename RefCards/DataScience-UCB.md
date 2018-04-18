@@ -47,13 +47,15 @@ plots.style.use('fivethirtyeight')
 | `Table()` | creates an empty table|  [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.read_table(filename)` | Read a table from a spreadsheet | [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.with_columns(name, values, ...)` | appends a column name with an array of values to an existing table |  [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
+| `t.with_row(lst)` | appends a row w/ given columns to an existing table |  [Lec 5.7 Lists](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists) |
+| `t.with_row(lst)` | appends multiple rows (rows of columns) w/ given columns to an existing table |  [Lec 5.7 Lists](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists) |
 | `t.item(int)` | data in column `int` | [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [Lec 5.1 Creating Tables](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables) |
 | `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [Lec 4.5 Columns](../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-45-columns) |
 | `t.select('label')` | constructs a new table with just the specified columns | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
 | `t.drop('label')` | constructs a new table without the specified columns | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
 | `t.sort('label', desending)` | constructs a new table, with rows sorted by the specified column | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
-| `t.take(row_number)` | keep the numbered rows, index starting at 0 | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
+| `t.take(row_number)` | keep the numbered rows, index starting at 0 | [Lec 5.8 Take](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-58-yake) |
 | `t.where(column, are.condition)` | keep all rows for which a column's value satisfies a consition | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.where(column, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
