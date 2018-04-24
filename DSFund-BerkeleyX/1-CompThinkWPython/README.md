@@ -181,4 +181,31 @@
 ### [Alternative Lab 3: Tables (Non-Notebook Workflow)](./lab3-Tables.md#alternative-lab-3-tables-non-notebook-workflow))
 
 
+## Week 4
+
+### ]Section 9a: Comparing Histograms (Lec 9.1 - Lec 9.2)]
+
+### ]Section 9b: Functions (Lec 9.3 - Lec 9.6)]
+
+#### ]Reading and Practice for Section 9b]
+
+### ]Section 10a: Groups (Lec 10.1 - Lec 10.3)]
+
+#### ]Reading and Practice for Section 10a]
+
+### ]Section 10b: Pivot (Lec 10.4 - Lec 10.6)]
+
+#### ]Reading and Practice for Section 10b]
+
+### ]Section 11: Joins (Lec 11.1 - Lec 11.4)]
+
+#### ]Reading and Practice for Section 11]
+
+### ]Lab 4: Functions and Visualizations (Jupyter Notebook)]
+
+### ]Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)]
+
+
+
+
 
