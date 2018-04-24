@@ -183,21 +183,21 @@
 
 ## Week 4
 
-### [Section 9a: Comparing Histograms (Lec 9.1 - Lec 9.2)](./09Functions.md)
+### [Section 9a: Comparing Histograms (Lec 9.1 - Lec 9.2)](./09-Functions.md)
 
-#### [Lec 9.1 Comparing Histograms](./09Functions.md#lec-91-comparing-histograms)
+#### [Lec 9.1 Comparing Histograms](./09-Functions.md#lec-91-comparing-histograms)
 
-#### [Lec 9.2 Comparing Histograms Discussion](./09Functions.md#lec-92-comparing-histograms-discussion)
+#### [Lec 9.2 Comparing Histograms Discussion](./09-Functions.md#lec-92-comparing-histograms-discussion)
 
-### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09Functions.md##section-9b-functions-lec-93-lec-96)
+### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md##section-9b-functions-lec-93-lec-96)
 
-#### [Lec 9.3 Defining Functions](./09Functions.md#lec-93-defining-functions)
+#### [Lec 9.3 Defining Functions](./09-Functions.md#lec-93-defining-functions)
 
-#### [Lec 9.4 Defining Functions Discussion](./09Functions.md#lec-94-lec-94-defining-functions-discussion)
+#### [Lec 9.4 Defining Functions Discussion](./09-Functions.md#lec-94-lec-94-defining-functions-discussion)
 
-#### [Lec 9.5 Apply](./09Functions.md#lec-95-apply)
+#### [Lec 9.5 Apply](./09-Functions.md#lec-95-apply)
 
-#### [Lec 9.6 Example Prediction](./09Functions.md#lec-96-example-prediction)
+#### [Lec 9.6 Example Prediction](./09-Functions.md#lec-96-example-prediction)
 
 #### [Reading and Practice for Section 9b]
 
