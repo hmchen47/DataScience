@@ -183,27 +183,39 @@
 
 ## Week 4
 
-### ]Section 9a: Comparing Histograms (Lec 9.1 - Lec 9.2)]
+### [Section 9a: Comparing Histograms (Lec 9.1 - Lec 9.2)](./09Functions.md)
 
-### ]Section 9b: Functions (Lec 9.3 - Lec 9.6)]
+#### [Lec 9.1 Comparing Histograms](./09Functions.md#lec-91-comparing-histograms)
 
-#### ]Reading and Practice for Section 9b]
+#### [Lec 9.2 Comparing Histograms Discussion](./09Functions.md#lec-92-comparing-histograms-discussion)
 
-### ]Section 10a: Groups (Lec 10.1 - Lec 10.3)]
+### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09Functions.md##section-9b-functions-lec-93-lec-96)
 
-#### ]Reading and Practice for Section 10a]
+#### [Lec 9.3 Defining Functions](./09Functions.md#lec-93-defining-functions)
 
-### ]Section 10b: Pivot (Lec 10.4 - Lec 10.6)]
+#### [Lec 9.4 Defining Functions Discussion](./09Functions.md#lec-94-lec-94-defining-functions-discussion)
 
-#### ]Reading and Practice for Section 10b]
+#### [Lec 9.5 Apply](./09Functions.md#lec-95-apply)
 
-### ]Section 11: Joins (Lec 11.1 - Lec 11.4)]
+#### [Lec 9.6 Example Prediction](./09Functions.md#lec-96-example-prediction)
 
-#### ]Reading and Practice for Section 11]
+#### [Reading and Practice for Section 9b]
 
-### ]Lab 4: Functions and Visualizations (Jupyter Notebook)]
+### [Section 10a: Groups (Lec 10.1 - Lec 10.3)]
 
-### ]Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)]
+#### [Reading and Practice for Section 10a]
+
+### [Section 10b: Pivot (Lec 10.4 - Lec 10.6)]
+
+#### [Reading and Practice for Section 10b]
+
+### [Section 11: Joins (Lec 11.1 - Lec 11.4)]
+
+#### []Reading and Practice for Section 11]
+
+### []Lab 4: Functions and Visualizations (Jupyter Notebook)]
+
+### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)]
 
 
 
