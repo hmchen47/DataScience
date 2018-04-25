@@ -22,9 +22,23 @@
 
 ### Notes
 
++ Discussion Questions  
+    The histogram describes a __year__ of daily temperatures  
+    Answer these questions , if possible:
+    + What portion of days had a high temp in the range $60-70$?
+    + What portion had a low of 45 or more?
+    + How many days had a difference of more than 20 degrees btw their high & low temperatures.
+
+    ![diagram](./Diagrams/sec09-sec09-temp.png)
+
++ Answers:
+    + $(70 - 60) \times 4.8\% = 48\%$
+    + $1 - (0.1\% \times (35 - 10)) - (.7\% \times (40-35)) - (2\% \times (45 - 40)) = 1 - 14\% = 86\%$
+    + N/A
+
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/Ag2929CN3MA){:target="_blank"}
 
 
 # Section 9b: Functions (Lec 9.3 - Lec 9.6)
@@ -35,7 +49,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/DEEsmyz3oRo){:target="_blank"}
 
 
 ## Lec 9.4 Defining Functions Discussion
@@ -44,7 +58,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/4dat6zBtddM){:target="_blank"}
 
 
 ## Lec 9.5 Apply
@@ -53,7 +67,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/A9lKV2QBTXs){:target="_blank"}
 
 
 ## Lec 9.6 Example Prediction
@@ -62,7 +76,7 @@
 
 ### Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/eLtLrb_Mfnk){:target="_blank"}
 
 
 ## Reading and Practice for Section 9b
