@@ -123,6 +123,28 @@
 
 ### Notes
 
++ Apply
+    ```python
+    `t.apply(func_name, 'col_label')
+    ```
+    + The `apply` method creates an array by calling a function on every element in input column(s)
+    + 1st argument: function to apply
+    + 2nd argument: the input column(s)
++ Demo
+    ```python
+    def cut_off_at_a_billion(x):
+    """The smaller of x and 1,000,000,000"""
+    return min(x, 1e9)
+
+    cut_off_at_a_billion(12)
+    cut_off_at_a_billion(123456)
+    cut_off_at_a_billion(1234567890)
+
+    top = Table.read_table('top_movies_2017.csv').where('Studio', 'Fox')
+    cut_off = top.apply(cut_off_at_a_billion, 'Gross (Adjusted)')   # example fpr apply
+    top.with_column('Adjusted but cut', cut_off)
+    ```
+
 ### Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/A9lKV2QBTXs){:target="_blank"}
