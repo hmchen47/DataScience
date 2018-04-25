@@ -190,10 +190,30 @@ Q7. What should go in placeholder [F]?
 
 ### Notes
 
++ Pivot
+    + Cross-classifies according to two categorical variables
+    + Produces a grid of counts or aggregated values
+    + Two required arguments:
+        + 1st: variable that forms column labels of grid
+        + 2nd: variable that forms row labels of grid
+    + Two optional arguments (include both or neither)
+        + `values` = `column_lebel_to_arggregate`
+        + `collect` = function _with_which_to_aggregate
++ Demo
+    ```python
+    all_cones.group(['Flavor', 'Color'])
+    all_cones.pivot('Flavor', 'Color')   # pivot table, contingency table
+
+    all_cones.pivot('Color', 'Flavor')
+    all_cones.pivot('Color', 'Flavor', values = 'Price', collect = max)
+
+    nba.drop(0).group(['TEAM', 'POSITION'], np.average)
+    nba.pivot('POSITION', 'TEAM', 'SALARY', np.average)
+    ```
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/JSgaMnExiCY){:target="_blank"}
 
 
 ## Lec 10.5 Example 2
@@ -203,7 +223,7 @@ Q7. What should go in placeholder [F]?
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/e2Bs4SfIBUA){:target="_blank"}
 
 
 ## Lec 10.6 Comparing Distributions
@@ -213,7 +233,7 @@ Q7. What should go in placeholder [F]?
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/YqN8OYt8Upw){:target="_blank"}
 
 
 ## Reading and Practice for Section 10b
