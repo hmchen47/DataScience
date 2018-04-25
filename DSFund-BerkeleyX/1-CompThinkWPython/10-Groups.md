@@ -46,6 +46,24 @@
 
 ### Notes
 
++ Grouping by Multiple Columns
+    + The `group` method can also aggregate all rows that share the combination of values in multiple columns
+    + 1st argument: a list of which columns to group by
+    + 2nd argument: (optional) how to combine values
++ Demo
+    ```python
+    all_cones.group('Flavor')
+    all_cones.group(['Flavor', 'Color'])
+    all_cones.group(['Flavor', 'Color'], max)
+
+    nba.drop(0).group(['TEAM', 'POSITION'], np.average)
+    nba.drop(0, 2).group('POSITION', np.average)
+
+    full_table = Table.read_table('educ_inc.csv')
+    ca_2014 = full_table.where('Year', are.equal_to('1/1/14 0:00')).where('Age', are.not_equal_to('00 to 17')).drop(0).sort('Population Count')
+    no_ages = ca_2014.drop(0)
+    no_ages.group([0, 1, 2], sum)
+    ```
 
 ### Videos
 
