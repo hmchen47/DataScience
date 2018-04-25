@@ -88,6 +88,35 @@
 
 ### Notes
 
++ Maps
+    + A table containing columns of latitude and longitute values can be used to generate a map of markers
+    ```python
+    ___.map_table(table, ...)
+    ```
+    + `___` : either `Marker` or `Circle`
+    + `table`: 
+        + Column 0: latitudes
+        + Column 1: longitudes
+        + Column 2: labels
+        + Column 3: colors
+        + Column 4: sizes
+    + `...`: Applies to all features - color = 'blue', size=200
++ Demo
+    ```python
+    stations = Table.read_table('station.csv')
+    Marker.map_table(stations.select('lat', 'long', 'name'))
+    sf = stations.where('landmark', 'San Francisco')
+    Circle.map_table(sf.select('lat', 'long', 'name'), color='green', radius=150)
+    colors = stations.group('landmark').with_column(
+        'color', make_array('blue', 'red', 'green', 'orange', 'purple'))
+    colored = stations.join('landmark', colors).select('lat', 'long', 'name', 'color')
+    Marker.map_table(colored)
+    station_starts = stations.join('name', starts, 'Start Station')
+    Circle.map_table(station_starts.select('lat', 'long', 'name').with_columns(
+        'color', 'blue',
+        'area', station_starts.column('count') * 1000
+    ))
+    ```
 
 ### Videos
 

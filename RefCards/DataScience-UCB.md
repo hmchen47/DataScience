@@ -66,6 +66,8 @@ plots.style.use('fivethirtyeight')
 | `t.pivot('col_label', 'row_label'[, values=<'label'>, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third column, aggregated by the collect function | [Lec 10.4 Pivot Tables](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-104-pivot-tables) |
 | `t.join('col_1st_tbl', 2nd_tbl, 'col_2ns_tbl')` | Join two tables w/ given columns | [Lec 11.1 Joins]((../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-111-joins) |
 
+
+
 + [Visualization with Table](../DSFund-BerkeleyX/1-CompThinkWPython/01-Intro.md#lec-16-demo-visualizations-2)
 
     ```python
@@ -95,6 +97,8 @@ plots.style.use('fivethirtyeight')
 | `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 | `t.bin(label, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning) |
 | `t.hist(x, bin=<ary>)` | Histogram with given bins | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histograms) |
+| `{Marker|Circle}..map_table(table, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps](../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-114-maps) |
+
 
 
 ### Common Graph Arguments
