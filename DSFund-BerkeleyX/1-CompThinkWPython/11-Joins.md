@@ -4,16 +4,6 @@
 
 ### Notes
 
-
-### Videos 
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/2s0yP3wp3rI){:target="_blank"}
-
-
-## Lec 11.2 Bikes
-
-### Notes
-
 + Joining Two Tables
     ```python
     t.join('col_1st_tbl', 2nd_tbl, 'col_2ns_tbl') # same values in col_1st_tbl & col_2nd_tbl
@@ -47,6 +37,32 @@
     two = drinks.join('Cafe', drinks)
     two.with_column('Total', two.column('Price') + two.column('Price_2'))
     ```
+
+### Videos 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/2s0yP3wp3rI){:target="_blank"}
+
+
+## Lec 11.2 Bikes
+
+### Notes
+
++ Demo: Bikes
+    ```python
+    trips = Table.read_table('trip.csv')
+
+    commute = trips.where('Duration', are.below(1800))
+    commute.hist('Duration')
+
+    commute.hist('Duration', bins=60, unit='second')
+    commute.hist('Duration', bins=np.arange(1801), unit='second')
+    starts = commute.group('Start Station').sort('count', descending=True)
+    commute.pivot('Start Station', 'End Station')
+    duration = trips.select(3, 6, 1)
+    shortest = duration.group([0, 1], min)
+    from_cc = shortest.where(0, are.containing('Civic Center BART')).sort(2)
+    ```
+
 
 ### Videos
 
