@@ -196,11 +196,49 @@
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/eLtLrb_Mfnk){:target="_blank"}
 
 
-## Reading and Practice for Section 9b
+## Reading and Practice for Section 9
 
 ### Reading
 
+This guide assumes that you have watched section 9b (video lecture segments Lec 9.3, Lec 9.4, Lec 9.5, Lec 9.6) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 8: Applying a Function to a Column](https://www.inferentialthinking.com/chapters/08/1/applying-a-function-to-a-column.html)
++ [Chapter 8.1: Functions and Tables](https://www.inferentialthinking.com/chapters/08/functions-and-tables.html)
+
+In section 9, we continued our discussion of histograms by comparing histograms and their distributions. This is just an extension of the histogram fundaments we learned in section 8. We also learned another important Python programming concept called functions. Functions are powerful pieces of code that give a name to a computational process that may be applied multiple times. Pay attention to the specific structure and format for creating a function. Many students forget little things like using def, the semicolon, or the indentation when creating a new function.
+
+We also saw how a function can be used in a table using the tbl.apply(...) method.
+
+`tbl.apply(function, column)` returns an array where a function is applied to each item in a column.
+
+Try and complete the practice questions below.
+
 ### Practice
 
+Here is a function `mystery_function` that takes an input `mystery_input` and returns a mysterious output. Your job is to figure out what `mystery_function` does and answer the following questions below. 
 
+```python
+def mystery_function(mystery_input):
+      return mystery_input.where("mystery", are.equal_to(42))
+```
+
+Q1. What data type for `mystery_input` would not cause an error if passed in as an argument into the function mystery_function? Select the answer that would not cause an error.
+
+    a. An int 42
+    b. A string "mystery"
+    c. An array called mystery
+    d. A table with a column "mystery"
+
+    Ans: d
+
+Q2. What is the output data type for mystery_function?
+
+    a. An int 42
+    b. A string "mystery"
+    c. An array called mystery
+    d. A table with a column "mystery"
+
+    Ans: d
 
