@@ -61,7 +61,7 @@ plots.style.use('fivethirtyeight')
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
 | `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
 | `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-distributions) |
-| `t.select(func, col)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
+| `tbl.apply(function, column)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
 
 
 
