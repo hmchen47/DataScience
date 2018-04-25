@@ -63,7 +63,7 @@ plots.style.use('fivethirtyeight')
 | `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-distributions) |
 | `t.select(func, col)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
 | `t.group(label[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-101-one-attribute-group)| `t.group(labe_lstl[, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-102-cross-classification)
-| `t.pivot('col_label', 'row_label'[, values=<'label'>, collect=func])` | Cross-classifies according to two categorical variables Produces a grid of counts or aggregated values | [Lec 10.4 Pivot Tables](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-104-pivot-tables) |
+| `t.pivot('col_label', 'row_label'[, values=<'label'>, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third column, aggregated by the collect function | [Lec 10.4 Pivot Tables](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-104-pivot-tables) |
 
 
 + [Visualization with Table](../DSFund-BerkeleyX/1-CompThinkWPython/01-Intro.md#lec-16-demo-visualizations-2)

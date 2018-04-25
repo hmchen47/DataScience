@@ -277,8 +277,64 @@ Q7. What should go in placeholder [F]?
 
 ### Reading
 
+This guide assumes that you have watched section 10 (video lecture segments Lec 10.4, Lec 10.5, Lec 10.6) in Courseware.
+
+This corresponds to textbook section:
+
+[Chapter 8.3: Cross-Classifying by more than One Variable](https://www.inferentialthinking.com/chapters/08/3/cross-classifying-by-more-than-one-variable.html)
+
+In section 10b, we learned another complex table method, pivot.
+
+Here are the descriptions for pivot.
+
+`tbl.pivot(col1, col2)` returns a pivot table where each unique value in `col1` has its own column and each unique value in `col2` has its own row. Each cell of the pivot table contains the number of rows that have the combination of values in `col1` and `col2`
+
+`tbl.pivot(col1, col2, values, collect)` returns a pivot table where each unique value in `col1` has its own column and each unique value in `col2` has its own row. The cells of the grid contain row counts (two arguments) or the `values` from a third column, aggregated by the `collect` function
+
+Practice your understanding of pivot with the following practice problem.
 
 ### Practice
+
+Back to our Data 8X marble store where we sell small bags of marbles. Each bag contains marbles of one color and one shape. Each row is a bag of marbles. The marbles table currently has four columns: the color, the shape, the amount in each bag, and the price in dollars of each bag of marbles available for purchase. Let's see what we can do with this data! This is the table marbles.
+
+marbles
+
+| Color | Shape | Amount | Price ($) |
+|-------|-------|--------|-----------|
+| Red | Round | 4 | 1.30 |
+| Green | Rectangular | 6 | 1.20 |
+| Blue | Rectangular | 12 | 2.00 |
+| Red | Round | 7 | 1.75 |
+| Green | Rectangular | 9 | 1.40 |
+| Green | Round | 2 | 1.00 |
+
+The following table results from calling `marbles.pivot(’Shape’, ’Color’, ’Amount’, max)`. Fill in the missing entries.
+
+```python
+marbles.pivot(’Shape’, ’Color’, ’Amount’, max)
+```
+
+| Color | Rectangular | Round |
+|-------|-------------|-------|
+| Blue | [B] | 0 |
+| [A] | [C] | [D] |
+| Red | 0 | 7 |
+
+Q1. What should go in placeholder [A]?
+
+    Ans: Green
+
+Q2. What should go in placeholder [B]?
+
+    Ans: 12
+
+Q3. What should go in placeholder [C]?
+
+    Ans: 9
+
+Q4. What should go in placeholder [D]?
+
+    Ans: 2
 
 
 
