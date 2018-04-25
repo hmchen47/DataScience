@@ -14,8 +14,41 @@
 
 ### Notes
 
++ Joining Two Tables
+    ```python
+    t.join('col_1st_tbl', 2nd_tbl, 'col_2ns_tbl') # same values in col_1st_tbl & col_2nd_tbl
+    ```
+    + `t`: match rows in this table
+    + `col_1st_tbl`: using values in this column
+    + `2nd_tbl`: with rows in the table
+    + `col_2nd_tb;`: using values in the 2nd table
+    + Auto sort the matching rows of `col_1st_tbl` and `col_2nd_tbl`
+    + Result columns generated from both tables
+    + Generate all possible rows with matched rows
 
-### Videos 
+    ![diagram](./Diagrams/sec11-joins.png)
++ Demo
+    ```python
+    drinks = Table(['Drink', 'Cafe', 'Price']).with_rows([
+        ['Milk Tea', 'Tea One', 4],
+        ['Espresso', 'Nefeli',  2],
+        ['Latte',    'Nefeli',  3],
+        ['Espresso', "Abe's",   2]
+    ])
+
+    discounts = Table().with_columns(
+        'Coupon % off', make_array(25, 50, 5),
+        'Location', make_array('Tea One', 'Nefeli', 'Tea One')
+    )
+
+    t = drinks.join('Cafe', discounts, 'Location')
+
+    t.with_column('Discounted', t.column(2) * (1 - t.column(3)/ 100))
+    two = drinks.join('Cafe', drinks)
+    two.with_column('Total', two.column('Price') + two.column('Price_2'))
+    ```
+
+### Videos
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/-kJEI52bIUM){:target="_blank"}
 
@@ -25,7 +58,7 @@
 ### Notes
 
 
-### Videos 
+### Videos
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/KErtBTDpCQo){:target="_blank"}
 
@@ -35,7 +68,7 @@
 ### Notes
 
 
-### Videos 
+### Videos
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/NmvTEc7DjLk){:target="_blank"}
 
