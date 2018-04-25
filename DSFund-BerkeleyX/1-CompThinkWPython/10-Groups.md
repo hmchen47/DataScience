@@ -74,12 +74,13 @@
 
 ### Notes
 
-+ Which NBA teams spent the most on their "starters" in 2015-2016?  
-  Assume the "starter" for a team & position in the player with the highest salary on that team in that position
-  + Ans: 
-    ```python
-    starter_salaries = nba.drop(0).group(['TEAM', 'POSITION'], max)
-    starter_salaries.drop(1).group('TEAM', sum).sort(1, descending=True)
++ Question   
+    Which NBA teams spent the most on their "starters" in 2015-2016?  
+    Assume the "starter" for a team & position in the player with the highest salary on that team in that position
+    + Ans: 
+        ```python
+        starter_salaries = nba.drop(0).group(['TEAM', 'POSITION'], max)
+        starter_salaries.drop(1).group('TEAM', sum).sort(1, descending=True)
     ```
 
 ### Videos
@@ -220,6 +221,16 @@ Q7. What should go in placeholder [F]?
 
 ### Notes
 
++ Question (by `pivot`)   
+    Which NBA teams spent the most on their "starters" in 2015-2016?  
+    Assume the "starter" for a team & position in the player with the highest salary on that team in that position
+    + Answer
+        ```python
+        step_1 = nba.pivot('POSITION', 'TEAM', 'SALARY', max)
+        
+        totals = step_1.drop(0).apply(sum)
+        step_1.with_columns('TOTAL', totals).sort(6, descending=True)
+        ```
 
 ### Videos
 
