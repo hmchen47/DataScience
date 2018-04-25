@@ -227,7 +227,7 @@ Q7. What should go in placeholder [F]?
     + Answer
         ```python
         step_1 = nba.pivot('POSITION', 'TEAM', 'SALARY', max)
-        
+
         totals = step_1.drop(0).apply(sum)
         step_1.with_columns('TOTAL', totals).sort(6, descending=True)
         ```
@@ -241,6 +241,32 @@ Q7. What should go in placeholder [F]?
 
 ### Notes
 
++ California, 2014  
+    Population crosse-classified by age, gender, educational level, and income.  The final column contains the counts in each combination of attributes.
+
+    | Age | Gender | Educational Attainment | Personal Income | Population Count |
+    |-----|--------|------------------------|-----------------|----------------|
+    |18 to 64 | Female | No high school diploma | H: 75,000 and over | 2058 |
+    | 65 to 80+ | Male | No high school diploma | H: 75,000 and over | 2153 |
+    | 65 to 80+ | Female | No high school diploma | G: 50,000 and 74,999 | 4666 |
+    | ... | ... | ... | ... | ... |
+    + Goal: Compare distributions of personal income at different educational levels.
+    + Ans:
+        ```python
+        educ_income = ca_2014.pivot(2, 3, 4, sum)
+
+        def percent(x):
+            """Convert an array of counts into percents"""
+            return np.round((x / sum(x)) * 100, 2)
+        
+        distributions = educ_income.select(0).with_columns(
+            'Bachelors or Higher', percent(educ_income.column(1)),
+            'High School', percent(educ_income.column(2))
+        )
+        
+        sum(distributions.column(1))    # verify
+        distributions.barh(0)
+        ```
 
 ### Videos
 
