@@ -107,11 +107,14 @@
     Marker.map_table(stations.select('lat', 'long', 'name'))
     sf = stations.where('landmark', 'San Francisco')
     Circle.map_table(sf.select('lat', 'long', 'name'), color='green', radius=150)
+
+    # generate color table
     colors = stations.group('landmark').with_column(
         'color', make_array('blue', 'red', 'green', 'orange', 'purple'))
     colored = stations.join('landmark', colors).select('lat', 'long', 'name', 'color')
     Marker.map_table(colored)
-    station_starts = stations.join('name', starts, 'Start Station')
+
+    station_starts = stations.join('name', starts, 'Start Station') 
     Circle.map_table(station_starts.select('lat', 'long', 'name').with_columns(
         'color', 'blue',
         'area', station_starts.column('count') * 1000
@@ -126,6 +129,77 @@
 
 ### Reading
 
+This guide assumes that you have watched section 11 (video lecture segments Lec 11.1, Lec 11.2, Lec 11.3, Lec 11.4) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 8.4: Joining Tables by Columns](https://www.inferentialthinking.com/chapters/08/4/joining-tables-by-columns.html)
++ [Chapter 8.5: Bike Sharing in the Bay Area](https://www.inferentialthinking.com/chapters/08/5/bike-sharing-in-the-bay-area.html)
+
+In section 11, we focused on table joins. The `join` table method is very useful when working with many sets of data. We were also introduced to some mapping capabilities from the `datascience` library.
+
+Here is the description for join.
+
+`tblA.join(colA, tblB, colB)` returns a table with the columns of tblA and tblB, containing rows for all values of a colA and colB that appear in both tables. 
+
+Practice your understanding of join with the following practice problems.
+
 ### Practice
 
+Let's revisit our original Data 8X marble store. Data 8X sells small bags of marbles in groups of different amounts. Each bag contains marbles of one color. Each row is a bag of marbles. Our table marbles is as follows:
+
+marbles
+
+| Color | Amount | Price ($) |
+|-------|--------|-----------|
+| Red | 4 | 1.30 |
+| Green | 6 | 1.20 |
+| Blue | 12 | 2.00 |
+| Red | 7 | 1.75 |
+| Green | 9 | 1.40 |
+| Green | 2 | 1.00 |
+
+Assume that there was a sale, and we get different amounts of discount based on how many marbles are in the bags we buy from this store. The sales table is as follows:
+
+sales
+
+| Count | Discount |
+|-------|----------|
+| 2 | 5% |
+| 4 | 10% |
+| 6 | 20% |
+| 7 | 30% |
+| 9 | 35% |
+| 12 | 40% |
+
+This line of code `marbles.[A]([B], [C], [D])` will evaluate the table for the amount of discount applied to each bundle of marbles. The resulting table from your code should look like this:
+
+marbles.[A]([B], [C], [D])
+
+| Amount | Color | Price ($) | Discount |
+| 4 | Red | 1.30 | 10% |
+| 6 | Green | 1.20 | 20% |
+| 12 | Blue | 2.00 | 40% |
+| 7 | Red | 1.75 | 30% |
+| 9 | Green | 1.40 | 35% |
+| 2 | Green | 1.00 | 5% |
+
+Fill in the following placeholders with the exact code. Here it is again: 
+marbles.[A]([B], [C], [D]).
+
+Q1. What should go in placeholder [A]?
+
+    Ans: join
+
+Q2. What should go in placeholder [B]?
+
+    Ans: 'Amount'
+
+Q3. What should go in placeholder [C]?
+
+    Ans: sales
+
+Q4. What should go in placeholder [D]?
+
+    Ans: 'Count'
 
