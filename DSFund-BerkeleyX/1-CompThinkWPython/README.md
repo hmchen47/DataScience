@@ -181,7 +181,7 @@
 ### [Alternative Lab 3: Tables (Non-Notebook Workflow)](./lab3-Tables.md#alternative-lab-3-tables-non-notebook-workflow))
 
 
-## Week 4
+## Week 4 
 
 ### [Section 9a: Comparing Histograms (Lec 9.1 - Lec 9.2)](./09-Functions.md)
 
@@ -199,15 +199,27 @@
 
 #### [Lec 9.6 Example Prediction](./09-Functions.md#lec-96-example-prediction)
 
-#### [Reading and Practice for Section 9b]
+#### [Reading and Practice for Section 9b](./09-Functions.md#reading-and-practice-for-section-9b)
 
 ### [Section 10a: Groups (Lec 10.1 - Lec 10.3)]
 
-#### [Reading and Practice for Section 10a]
+#### [Lec 10.1 One Attribute Group](./10-Groups.md#lec-101-one-attribute-group)
+
+#### [Lec 10.2 Cross Classification](./10-Groups.md#lec-102-cross-classification)
+
+#### [Lec 10.3 Example 1](./10-Groups.md#lec-103-example-1)
+
+#### [Reading and Practice for Section 10a](./10-Groups.md#reading-and-practice-for-section-10a)
 
 ### [Section 10b: Pivot (Lec 10.4 - Lec 10.6)]
 
-#### [Reading and Practice for Section 10b]
+#### [Lec 10.4 Pivot Tables](./10-Groups.md#lec-104-pivot-tables)
+
+#### [Lec 10.5 Example 2](./10-Groups.md#lec-105-example-2)
+
+#### [Lec 10.6 Comparing Distributions](./10-Groups.md#lec-106-comparing-distributions)
+
+#### [Reading and Practice for Section 10b](./10-Groups.md#reading-and-practice-for-section-10b)
 
 ### [Section 11: Joins (Lec 11.1 - Lec 11.4)]
 
