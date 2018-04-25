@@ -154,6 +154,43 @@
 
 ### Notes
 
++ Sir Francis Galton
+    + 1822-1911 (knighted in 1909)
+    + A pioneer in making predictions
+    + Particular (an troublesome) interest in heredity
+    + VCharles Darwin's half-cousin
++ Demo
+    ```python
+    height = Table.read_table('galton.csv').select(1, 2, 7).relabeled(2, 'child')
+    height
+    height.scatter(2)
+
+    height = height.with_column(
+        'parent average', (height.column('mother') + height.column('father')) / 2
+    )
+
+    height.scatter('parent average', 'child')
+    _ = plots.plot([67.5, 67.5], [50, 85], color='red', lw=2) # vertical line
+    _ = plots.plot([68.5, 68.5], [50, 85], color='red', lw=2) # vertical line
+
+    close_to_68 = height.where('parent average', are.between(67.5, 68.5))
+    close_to_68.column('child').mean()
+
+    def predict_child(pa):
+        close_points = height.where('parent average', are.between(pa - 0.5, pa + 0.5))
+        return close_points.column('child').mean()
+
+    predict_child(68)
+    predict_child(62)
+
+    # Apply predict_child to all the midparent heights
+    height.with_column(
+        'prediction', height.apply(predict_child, 'parent average')
+    ).select(2, 3, 4).scatter('parent average')
+    # result shows a linear association
+    ```
+
+
 ### Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/eLtLrb_Mfnk){:target="_blank"}
