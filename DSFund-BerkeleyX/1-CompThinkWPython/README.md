@@ -189,7 +189,7 @@
 
 #### [Lec 9.2 Comparing Histograms Discussion](./09-Functions.md#lec-92-comparing-histograms-discussion)
 
-### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md##section-9b-functions-lec-93-lec-96)
+### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md##section-9b-functions-lec-93---lec-96)
 
 #### [Lec 9.3 Defining Functions](./09-Functions.md#lec-93-defining-functions)
 
@@ -201,7 +201,7 @@
 
 #### [Reading and Practice for Section 9b](./09-Functions.md#reading-and-practice-for-section-9b)
 
-### [Section 10a: Groups (Lec 10.1 - Lec 10.3)]
+### [Section 10a: Groups (Lec 10.1 - Lec 10.3)](./10-Groups.md)
 
 #### [Lec 10.1 One Attribute Group](./10-Groups.md#lec-101-one-attribute-group)
 
@@ -211,7 +211,7 @@
 
 #### [Reading and Practice for Section 10a](./10-Groups.md#reading-and-practice-for-section-10a)
 
-### [Section 10b: Pivot (Lec 10.4 - Lec 10.6)]
+### [Section 10b: Pivot (Lec 10.4 - Lec 10.6)](./10-Groups.md#section-10b-pivot-lec-104---lec106)
 
 #### [Lec 10.4 Pivot Tables](./10-Groups.md#lec-104-pivot-tables)
 
@@ -221,11 +221,19 @@
 
 #### [Reading and Practice for Section 10b](./10-Groups.md#reading-and-practice-for-section-10b)
 
-### [Section 11: Joins (Lec 11.1 - Lec 11.4)]
+### [Section 11: Joins (Lec 11.1 - Lec 11.4)](./11-Joins.md)
 
-#### []Reading and Practice for Section 11]
+#### [Lec 11.1 Joins](./11-Joins.md#lec-111-joins)
 
-### []Lab 4: Functions and Visualizations (Jupyter Notebook)]
+#### [Lec 11.2 Bikes](./11-Joins.md#lec-112-bikes)
+
+#### [Lec 11.3 Shortest Trips](./11-Joins.md#lec-113-shortest-trips)
+
+#### [Lec 11.4 Maps](./11-Joins.md#lec-114-maps)
+
+#### [Reading and Practice for Section 11](./11-Joins.md#reading-and-practice-for-section-11)
+
+### [Lab 4: Functions and Visualizations (Jupyter Notebook)]
 
 ### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)]
 
