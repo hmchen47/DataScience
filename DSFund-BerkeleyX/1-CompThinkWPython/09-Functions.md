@@ -77,6 +77,43 @@
 
 ### Notes
 
++ Discussion Question
+    ```python
+    def f(s):
+        return np.round(s / sum(s) * 100, 2)
+    ```
+    + What does this function do?
+    + What kind of input does it take?
+    + What output will it give?
+    + What's a reasonable name?
+
++ Answer:
+    + Get an array of percentage of values, `s`, with 2 decimal precision
+    + `s` is an array of the numerical values
+    + an array of of float values
+    + `f` = percent
+
++ Demo
+    ```python
+    counts = make_array(1, 2, 3)
+    total = sum(counts)
+    np.round((counts/total)*100, 2)
+
+    percents(counts)
+    percents(make_array(1, 1, 1, 1))
+
+    def percents(counts, decimal_places=2): # 2 as default value for decimal_places
+        """Convert the counts to percents out of the total."""  # string box
+        total = sum(counts)
+        return np.round((counts/total)*100, decimal_places)
+
+    parts = make_array(2, 1, 4)
+    print("Rounded to 1 decimal place:", percents(parts, 1), "or", percents(parts, decimal_places=1))
+    print("Rounded to the default number of decimal places:", percents(parts))
+
+    help(percents)  # display what describe within string box
+    ```
+
 ### Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/4dat6zBtddM){:target="_blank"}
