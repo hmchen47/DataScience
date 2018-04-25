@@ -16,10 +16,11 @@ Please complete Lab 4 by the end of Sunday, May 6 ( 11:59PM Anywhere on Earth Op
 
 If you choose not to use Jupyter to complete the lab, there is also a non-notebook workflow. Read the instructions linked below.
 
-Instructions for setting up the required tools on your computer Opens in new window.
+[Instructions for setting up the required tools on your computer](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/jump_to_id/818f78421da14bc494f1adae4c9dca25)
 
-Instructions for downloading lab files and completing them Opens in new window.
+[Instructions for downloading lab files and completing them](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.1x+1T2018/jump_to_id/8b1d09655d7a45198ea32b62d66fb28e)
 
-Download Lab 4 Opens in new window
+[Download Lab 4](https://github.com/data-8/materials-x18-raw/blob/master/materials_zips/x18/lab/1/lab04.zip?raw=true)
 
-Once you've completed your lab locally, use the button below to upload only your lab04.py file for scoring.
+Once you've completed your lab locally, use the button below to upload only your __lab04.py__ file for scoring.
+
