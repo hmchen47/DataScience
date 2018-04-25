@@ -91,9 +91,97 @@
 
 ### Reading
 
+This guide assumes that you have watched section 10 (video lecture segments Lec 10.1, Lec 10.2, Lec 10.3) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 8.2: Classifying by one Variable](https://www.inferentialthinking.com/chapters/08/2/classifying-by-one-variable.html)
++ [Chapter 8.3: Cross Classifying by More than One Variable](https://www.inferentialthinking.com/chapters/08/3/cross-classifying-by-more-than-one-variable.html)
+
+In section 10, we learned an advanced table method, group. This powerful table operation allow you to analyze and summarize large quantities of data.
+
+Here are the descriptions for group
+
+`tbl.group(column_or_columns)` returns a table with the counts of rows grouped by unique values or combinations of values in a column or columns
+
+`tbl.group(column_or_columns, func)` returns a table that groups rows by unique values or combinations of values in a column or columns. The other values are aggregated by func
+
+Practice your understanding of group with the following practice problems.
 
 ### Practice
 
+Data 8X has opened up a marble store where we sell small bags of marbles in groups of different amounts. Each bag contains marbles of one color. Each row is a bag of marbles. Our table marbles is as follows:
+
+marbles
+
+| Color | Amount | Price ($) |
+|-------|--------|-----------|
+| Red | 4 | 1.30 |
+| Green | 6 | 1.20 |
+| Blue | 12 | 2.00 |
+| Red | 7 | 1.75 |
+| Green | 9 | 1.40 |
+| Green | 2 | 1.00 |
+
+The marbles table currently has three columns: the color, the amount in each bag, and the price in dollars of each bag of marbles available for purchase. Let's see what we can do with this data!
+
+Q1. Which line of code returns a new table which displays the total number of marbles and the total cost for each unique color?
+
+    a. marbles.group('Color', max)
+    b. marbles.group('Color')
+    c. marbles.group('Color', sum)
+    d. None of the above.
+
+    Ans: 
+
+Now assume we have updated our inventory of marbles, and have begun selling marbles of different shapes as well as colors. Each bag contains marbles of one color and one shape. Each row is a bag of marbles. A table representing our new inventory is as follows:
+
+marbles
+
+| Color | Shape | Amount | Price ($) |
+|-------|-------|--------|-----------|
+| Red | Round | 4 | 1.30 |
+| Green | Rectangular | 6 | 1.20 |
+| Blue | Rectangular | 12 | 2.00 |
+| Red | Round | 7 | 1.75 |
+| Green | Rectangular | 9 | 1.40 |
+| Green | Round | 2 | 1.00 |
+
+The following table results from calling marbles.group(['Color', 'Shape'], sum). Fill in the missing entries.
+
+```python
+marbles.group(['Color', 'Shape'], sum)
+```
+
+| Color | Shape | Amount sum | Price ($) [D] |`
+| Red | Round | 11 | 3.05 |`
+| Green | Rectangular | [A] | [E] |`
+| Blue | Rectangular | [B] | 3.05 |`
+| Green | Round | [C] | [F] |`
+
+Q2. What should go in placeholder [A]?
+
+    Ans: 15
+
+Q3. What should go in placeholder [B]?
+
+    Ans: 12
+
+Q4. What should go in placeholder [C]?
+
+    Ans: 2
+
+Q5. What should go in placeholder [D]?
+
+    Ans: Sum
+
+Q6. What should go in placeholder [E]?
+
+    Ans: 2.6
+
+Q7. What should go in placeholder [F]?
+
+    Ans: 1.0
 
 
 # Section 10b: Pivot (Lec 10.4 - Lec 10.6)
