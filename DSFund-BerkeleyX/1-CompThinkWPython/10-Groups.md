@@ -74,6 +74,13 @@
 
 ### Notes
 
++ Which NBA teams spent the most on their "starters" in 2015-2016?  
+  Assume the "starter" for a team & position in the player with the highest salary on that team in that position
+  + Ans: 
+    ```python
+    starter_salaries = nba.drop(0).group(['TEAM', 'POSITION'], max)
+    starter_salaries.drop(1).group('TEAM', sum).sort(1, descending=True)
+    ```
 
 ### Videos
 
