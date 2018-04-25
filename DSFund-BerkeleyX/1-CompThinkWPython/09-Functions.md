@@ -47,6 +47,27 @@
 
 ### Notes
 
++ `def` Statements  
+    User-defined functions give names to blocks of code
+    ```python
+    def spread(values):
+        return max(values) - min(values)
+    ```
+    + Name: `spread`
+    + Arguments: `values`
+    + Body: `max(values) - min(values)`
+    + Return expression: `return max(values) - min(values)`
++ Demo
+    ```python
+    def double(x):
+        """ Double x """
+        return 2*x
+
+    double(3)
+    double(-4)
+    y = 5;  double(y/4)
+    ```
+
 ### Video
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/DEEsmyz3oRo){:target="_blank"}
