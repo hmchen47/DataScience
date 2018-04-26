@@ -61,15 +61,11 @@ plots.style.use('fivethirtyeight')
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
 | `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
 | `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-distributions) |
-<<<<<<< HEAD
-| `tbl.apply(function, column)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
-=======
 | `t.apply(func, col)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
 | `t.group(label[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-101-one-attribute-group)| `t.group(labe_lstl[, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-102-cross-classification)
 | `t.pivot('col_label', 'row_label'[, values=<'label'>, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third column, aggregated by the collect function | [Lec 10.4 Pivot Tables](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-104-pivot-tables) |
 | `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins](../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-111-joins) |
 
->>>>>>> sec10
 
 
 
