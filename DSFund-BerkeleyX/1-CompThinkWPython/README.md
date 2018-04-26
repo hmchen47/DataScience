@@ -189,7 +189,7 @@
 
 #### [Lec 9.2 Comparing Histograms Discussion](./09-Functions.md#lec-92-comparing-histograms-discussion)
 
-### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md##section-9b-functions-lec-93---lec-96)
+### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md#09-Functions.md#section-9b-functions-lec-93---lec-96)
 
 #### [Lec 9.3 Defining Functions](./09-Functions.md#lec-93-defining-functions)
 
@@ -199,7 +199,7 @@
 
 #### [Lec 9.6 Example Prediction](./09-Functions.md#lec-96-example-prediction)
 
-#### [Reading and Practice for Section 9b](./09-Functions.md#reading-and-practice-for-section-9b)
+#### [Reading and Practice for Section 9b](./09-Functions.md#reading-and-practice-for-section-9)
 
 ### [Section 10a: Groups (Lec 10.1 - Lec 10.3)](./10-Groups.md)
 
@@ -211,7 +211,7 @@
 
 #### [Reading and Practice for Section 10a](./10-Groups.md#reading-and-practice-for-section-10a)
 
-### [Section 10b: Pivot (Lec 10.4 - Lec 10.6)](./10-Groups.md#section-10b-pivot-lec-104---lec106)
+### [Section 10b: Pivot (Lec 10.4 - Lec 10.6)](./10-Groups.md#section-10b-pivot-lec-104---lec-106)
 
 #### [Lec 10.4 Pivot Tables](./10-Groups.md#lec-104-pivot-tables)
 
@@ -233,9 +233,9 @@
 
 #### [Reading and Practice for Section 11](./11-Joins.md#reading-and-practice-for-section-11)
 
-### [Lab 4: Functions and Visualizations (Jupyter Notebook)]
+### [Lab 4: Functions and Visualizations (Jupyter Notebook)](./lab04-FuncVisual.md#lab-4-functions-and-visualizations)
 
-### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)]
+### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)](./lab04-FuncVisual.md#alternative-lab-4-functions-and-visualizations-non-notebook-workflow)
 
 
 
