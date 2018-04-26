@@ -118,23 +118,23 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Lab 4 Functions and Visualization](../DSFund-BerkeleyX/1-CompThinkWPython/lab4-FuncVisual.md) |
+| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Lab 4 Functions and Visualization](../DSFund-BerkeleyX/1-CompThinkWPython/lab04-FuncVisual.md) |
 
 
 
-## Conditions
+## [Conditions](https://www.inferentialthinking.com/chapters/06/2/selecting-rows.html#Some-More-Conditions)
 
 | Predicate | Description |
 |-----------|-------------|
-| `are.equal_to(Z)` | Equal to Z |
-| `are.above(x)` | Greater than x |
-| `are.above_or_equal_to(x)` | Greater than or equal to x |
-| `are.below(x)` | Less than x |
-| `are.below_or_equal_to(x)` | Less than or equal to x |
-| `are.between(x, y)` | Greater than or equal to x, and less than y |
-| `are.strictly_between(x, y)` | Greater than x and less than y |
-| `are.between_or_equal_to(x, y)` | Greater than or equal to x, and less than or equal  |to y
-| `are.containing(S)` | Contains the string S |
-| `are.not_equal_to(Z)` | Not equal to Z |
-| `are.not_above(x)` | Not above x |
+| `are.equal_to(Z)` | Equal to `Z` |
+| `are.above(x)` | Greater than `x` |
+| `are.above_or_equal_to(x)` | Greater than or equal to `x` |
+| `are.below(x)` | Less than `x` |
+| `are.below_or_equal_to(x)` | Less than or equal to `x` |
+| `are.between(x, y)` | Greater than or equal to `x`, and less than `y` |
+| `are.strictly_between(x, y)` | Greater than `x` and less than `y` |
+| `are.between_or_equal_to(x, y)` | Greater than or equal to `x`, and less than or equal  to `y` |
+| `are.containing(S)` | Contains the string `S` |
+| `are.not_equal_to(Z)` | Not equal to `Z` |
+| `are.not_above(x)` | Not above `x` |
 
