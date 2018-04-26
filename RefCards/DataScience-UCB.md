@@ -118,7 +118,7 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Lab 4 Functions and Visualization](../DSFund-BerkeleyX/1-CompThinkWPython/labs/lab04/lab04.ipynb) |
+| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Using Interact](../DSFund-BerkeleyX/1-CompThinkWPython/labs/lab04/lab04.ipynb) |
 
 
 
@@ -137,4 +137,7 @@ plots.style.use('fivethirtyeight')
 | `are.containing(S)` | Contains the string `S` |
 | `are.not_equal_to(Z)` | Not equal to `Z` |
 | `are.not_above(x)` | Not above `x` |
+
+
+
 
