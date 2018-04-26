@@ -123,13 +123,18 @@
 
 ### Notes
 
-+ Apply
++ Apply with one arguments
     ```python
     `t.apply(func_name, 'col_label')
     ```
     + The `apply` method creates an array by calling a function on every element in input column(s)
     + 1st argument: function to apply
     + 2nd argument: the input column(s)
++ Apply with multiple arguments
+    ```python
+    `t.apply(two_arg_func, 'col_label_for_1st_arg', 'col_label_for_2nd_arg)
+    ```
+    + `apply` called with only a function applies it to each row
 + Demo
     ```python
     def cut_off_at_a_billion(x):
