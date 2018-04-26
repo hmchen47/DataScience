@@ -11,6 +11,7 @@
         + `len` - number of grouped values (default)
         + `list` - list of all grouped values
         + `sum` - total of all grouped values
+        + ...
 + Demo
     ```python
     all_cones = Table.read_table('cones.csv')
@@ -81,7 +82,7 @@
         ```python
         starter_salaries = nba.drop(0).group(['TEAM', 'POSITION'], max)
         starter_salaries.drop(1).group('TEAM', sum).sort(1, descending=True)
-    ```
+        ```
 
 ### Videos
 
@@ -133,7 +134,7 @@ Q1. Which line of code returns a new table which displays the total number of ma
     c. marbles.group('Color', sum)
     d. None of the above.
 
-    Ans: 
+    Ans: c
 
 Now assume we have updated our inventory of marbles, and have begun selling marbles of different shapes as well as colors. Each bag contains marbles of one color and one shape. Each row is a bag of marbles. A table representing our new inventory is as follows:
 
