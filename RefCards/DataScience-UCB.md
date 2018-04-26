@@ -54,14 +54,22 @@ plots.style.use('fivethirtyeight')
 | `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [Lec 4.5 Columns](../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-45-columns) |
 | `t.select('label')` | constructs a new table with just the specified columns | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
 | `t.drop('label')` | constructs a new table without the specified columns | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
-| `t.sort('label', desending)` | constructs a new table, with rows sorted by the specified column | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
+| `t.sort('label', descending)` | constructs a new table, with rows sorted by the specified column | [Lec 3.5 Select](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-35-select) |
 | `t.take(row_number)` | keep the numbered rows, index starting at 0 | [Lec 5.8 Take](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-58-yake) |
-| `t.where(column, are.condition)` | keep all rows for which a column's value satisfies a consition | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
+| `t.where(column, are.condition)` | keep all rows for which a column's value satisfies a condition | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.where(column, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where](../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-59-where) |
 | `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic](../DSFund-BerkeleyX/1-CompThinkWPython/06-Census.md#lec-62-column-arithmetic) |
 | `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots) |
 | `t.group(label)` | counting with given label |[Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-distributions) |
+<<<<<<< HEAD
 | `tbl.apply(function, column)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
+=======
+| `t.apply(func, col)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply](../DSFund-BerkeleyX/1-CompThinkWPython/09-Functions.md#lec-95-apply) |
+| `t.group(label[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-101-one-attribute-group)| `t.group(labe_lstl[, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-102-cross-classification)
+| `t.pivot('col_label', 'row_label'[, values=<'label'>, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third column, aggregated by the collect function | [Lec 10.4 Pivot Tables](../DSFund-BerkeleyX/1-CompThinkWPython/10-Groups.md#lec-104-pivot-tables) |
+| `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins](../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-111-joins) |
+
+>>>>>>> sec10
 
 
 
@@ -95,6 +103,8 @@ plots.style.use('fivethirtyeight')
 | `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 | `t.bin(label, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning) |
 | `t.hist(x, bin=<ary>)` | Histogram with given bins | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histograms) |
+| `{Marker|Circle}..map_table(table, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps](../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-114-maps) |
+
 
 
 ### Common Graph Arguments
@@ -108,5 +118,27 @@ plots.style.use('fivethirtyeight')
 
 
 
+## iPython 
 
+| Function | Description | Link |
+|----------|-------------|------|
+| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Lab 4 Functions and Visualization](../DSFund-BerkeleyX/1-CompThinkWPython/lab4-FuncVisual.md) |
+
+
+
+## Conditions
+
+| Predicate | Description |
+|-----------|-------------|
+| `are.equal_to(Z)` | Equal to Z |
+| `are.above(x)` | Greater than x |
+| `are.above_or_equal_to(x)` | Greater than or equal to x |
+| `are.below(x)` | Less than x |
+| `are.below_or_equal_to(x)` | Less than or equal to x |
+| `are.between(x, y)` | Greater than or equal to x, and less than y |
+| `are.strictly_between(x, y)` | Greater than x and less than y |
+| `are.between_or_equal_to(x, y)` | Greater than or equal to x, and less than or equal  |to y
+| `are.containing(S)` | Contains the string S |
+| `are.not_equal_to(Z)` | Not equal to Z |
+| `are.not_above(x)` | Not above x |
 

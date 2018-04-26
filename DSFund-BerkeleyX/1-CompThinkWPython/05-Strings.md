@@ -305,7 +305,7 @@ Q6. `int(str(a) * c)`
 
     + sort the rows in increasing order: `t.sort(column)`
     + keep the numbered rows, index starting at 0: `t.take(row_number)`
-    + keep all rows for which a column's value satisfies a consition: `t.where(column, are.condition)`
+    + keep all rows for which a column's value satisfies a condition: `t.where(column, are.condition)`
     + keep all rows containing a certain value in a column: `t.where(column, value)`
 + Demo
     ```python
