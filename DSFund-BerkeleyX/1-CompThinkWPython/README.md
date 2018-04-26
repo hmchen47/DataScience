@@ -189,7 +189,7 @@
 
 #### [Lec 9.2 Comparing Histograms Discussion](./09-Functions.md#lec-92-comparing-histograms-discussion)
 
-### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md##section-9b-functions-lec-93---lec-96)
+### [Section 9b: Functions (Lec 9.3 - Lec 9.6)](./09-Functions.md#09-Functions.md#section-9b-functions-lec-93---lec-96)
 
 #### [Lec 9.3 Defining Functions](./09-Functions.md#lec-93-defining-functions)
 
