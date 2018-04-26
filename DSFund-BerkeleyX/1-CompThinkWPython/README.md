@@ -233,9 +233,9 @@
 
 #### [Reading and Practice for Section 11](./11-Joins.md#reading-and-practice-for-section-11)
 
-### [Lab 4: Functions and Visualizations (Jupyter Notebook)](../lab04-FuncVisual.md)
+### [Lab 4: Functions and Visualizations (Jupyter Notebook)](./lab04-FuncVisual.md#lab-4-functions-and-visualizations)
 
-### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)](../lab04-FuncVisual.md#alternative-lab-4-functions-and-visualizations-non---notebook-workflow)
+### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)](./lab04-FuncVisual.md#alternative-lab-4-functions-and-visualizations-non-notebook-workflow)
 
 
 
