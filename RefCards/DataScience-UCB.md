@@ -118,7 +118,7 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Lab 4 Functions and Visualization](../DSFund-BerkeleyX/1-CompThinkWPython/lab04-FuncVisual.md) |
+| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Lab 4 Functions and Visualization](../DSFund-BerkeleyX/1-CompThinkWPython/labs/lab04/lab04.ipynb) |
 
 
 
