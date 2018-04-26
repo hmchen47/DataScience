@@ -6,13 +6,13 @@
 
 + Joining Two Tables
     ```python
-    t.join('col_1st_tbl', 2nd_tbl, 'col_2ns_tbl') # same values in col_1st_tbl & col_2nd_tbl
+    tblA.join('col_tblA', tblB, 'col_tblB') # same values in col_1st_tbl & col_2nd_tbl
     ```
-    + `t`: match rows in this table
+    + `tblA`: match rows in this table
     + `col_1st_tbl`: using values in this column
-    + `2nd_tbl`: with rows in the table
-    + `col_2nd_tb;`: using values in the 2nd table
-    + Auto sort the matching rows of `col_1st_tbl` and `col_2nd_tbl`
+    + `tblB`: with rows in this table
+    + `col_2nd_tb;`: using values in the `tblB`
+    + Auto sort the matching rows of `col_tblA` and `col_tblB`
     + Result columns generated from both tables
     + Generate all possible rows with matched rows
 
@@ -91,16 +91,16 @@
 + Maps
     + A table containing columns of latitude and longitute values can be used to generate a map of markers
     ```python
-    ___.map_table(table, ...)
+    {Marker|Circle}.map_table(table, ...)
     ```
-    + `___` : either `Marker` or `Circle`
+    + `{Marker|Circle}` : map w/ either `Marker` or `Circle`
     + `table`: 
         + Column 0: latitudes
         + Column 1: longitudes
         + Column 2: labels
         + Column 3: colors
         + Column 4: sizes
-    + `...`: Applies to all features - color = 'blue', size=200
+    + `...`: Applies to all features - color = 'blue', size=200, ...
 + Demo
     ```python
     stations = Table.read_table('station.csv')
