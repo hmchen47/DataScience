@@ -199,7 +199,7 @@ Q7. What should go in placeholder [F]?
         + 1st: variable that forms column labels of grid
         + 2nd: variable that forms row labels of grid
     + Two optional arguments (include both or neither)
-        + `values` = `column_lebel_to_arggregate`
+        + `values` = `column_label_to_aggregate`
         + `collect` = function _with_which_to_aggregate
 + Demo
     ```python
@@ -251,6 +251,7 @@ Q7. What should go in placeholder [F]?
     | 65 to 80+ | Male | No high school diploma | H: 75,000 and over | 2153 |
     | 65 to 80+ | Female | No high school diploma | G: 50,000 and 74,999 | 4666 |
     | ... | ... | ... | ... | ... |
+
     + Goal: Compare distributions of personal income at different educational levels.
     + Ans:
         ```python
