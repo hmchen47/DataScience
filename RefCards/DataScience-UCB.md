@@ -99,7 +99,7 @@ plots.style.use('fivethirtyeight')
 | `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts](../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts); [Lec 7.7 Distributions](../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions) |
 | `t.bin(label, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning) |
 | `t.hist(x, bin=<ary>)` | Histogram with given bins | [Lec 8.4 Drawing Histograms](../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histograms) |
-| `{Marker|Circle}..map_table(table, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps](../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-114-maps) |
+| `{Marker\|Circle}..map_table(table, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps](../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-114-maps) |
 
 
 
