@@ -4,6 +4,37 @@
 
 ### Notes
 
++ Combining Comparisons  
+    Boolean operators can be applied to `bool` values
+    ```
+    a = True        b = False
+    not b           a or b              a and not b     # evaluate to True
+    a and b         not (a or b)        b and b         # evaluate to False
+    ```
++ Aggregating Comparisons  
+    Summing an array or list of book values will count the `True` values only.
+    ```
+    1           + 0         + 1         == 2
+    True        + False     + True      == 2
+    Sum([1,     0,          1])         == 2
+    sum([True,  False,      True])      == 2
+    ```
++ Demo
+    ```python
+    'Dog' > 'Catastrophe' > 'Cat'
+    a = np.arange(11, 50)
+
+    def teen(x):
+        return 13 <= n <= 19
+
+    ages = Table().with_column('Age', a)
+    ages = ages.with_column('Teenager', ages.apply(teen, 'Age'))
+
+    sum([False, True, True, False, True])
+    ages.column(1)
+    sum(ages.column(1))
+    ```
+
 
 ### Videos
 
