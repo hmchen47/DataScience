@@ -253,6 +253,24 @@
 ### [Reading and Practice for Section 12](./12-TableExample.md#reading-and-practice-for-section-12)
 
 
+## [Section 13: Iteration (Lec 13.1 - Lec 13.7)](./13-Iteration.md)
+
+### [Lec 13.1 Comparison](./13-Iteration.md#lec-131-comarison)
+
+### [Lec 13.2 Predicates](./13-Iteration.md#lec-132-predicates)
+
+### [Lec 13.3 Random Selection](./13-Iteration.md#lec-133-random-selection)
+
+### [Lec 13.4 Random Selection Discussion](./13-Iteration.md#lec-134-random-selection-discusion)
+
+### [Lec 13.5 Print](./13-Iteration.md#lec-135-print)
+
+### [Lec 13.6 Control Statements](./13-Iteration.md#lec-136-control-statements)
+
+### [Lec 13.7 For Statements](./13-Iteration.md#lec-137-for-statements)
+
+### [Reading and Practice for Section 13](./13-Iteration.md#reading-and-practice-for-section-13)
+
 
 
 
