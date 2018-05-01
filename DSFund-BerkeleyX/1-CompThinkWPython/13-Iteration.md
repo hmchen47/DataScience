@@ -141,6 +141,40 @@
 
 ### Notes
 
++ Control Statements  
+    These statements _control_ the sequence of computations that are performed in a program
+    + The keyword `if` and `for` begin control statements
+    + The purpose of `if` is to define functions that choose different behavior based on their arguments
+    + The purpose of `for` is to perform a computation for every element in a list or array
++ Demo
+    ```python
+    def sign(x):
+        print(x, 'is', end=' ')
+        if x > 0:
+            print('positive')
+        if x < 0:
+            print('negative')
+        if x == 0:
+            print('zero')
+    sign(3)
+    sign(-3)
+    sign(0)
+
+    def sign(x):
+        print(x, 'is', end=' ')
+        if x > 1e-15:
+            print('positive')
+        elif x < -1e-15:
+            print('negative')
+        elif x == 0:
+            print('zero')
+        else:
+            print('really close to zero')
+    sign(3)
+    sign(-3)
+    sign(0)
+    sign(2**0.5 * 2 **0.5 - 2)
+    ```
 
 ### Videos
 
