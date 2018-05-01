@@ -45,6 +45,16 @@
 
 ### Notes
 
++ a function returns `True` or `False`
++ Demo
+    ```python
+    still_young = are.between(35, 40)
+    ages.where('Age', still_young)
+    still_young(38)
+    ages.apply(still_young, 'Age')
+    sum(ages.apply(still_young, 'Age'))
+    ages.where('Age', teen)
+    ```
 
 ### Videos
 
