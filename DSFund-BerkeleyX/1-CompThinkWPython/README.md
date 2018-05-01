@@ -272,7 +272,9 @@
 ### [Reading and Practice for Section 13](./13-Iteration.md#reading-and-practice-for-section-13)
 
 
+### [Lab 5: World Progress (Jupyter Notebook)](./lab05-WorldProgress.md)
 
+### [Alternative Lab 5: World Progress (Non-Notebook Workflow)](./lab05-WorldProgress.md#alternative-lLab-5-world-progress-non---notebook-workflow))
 
 
 
