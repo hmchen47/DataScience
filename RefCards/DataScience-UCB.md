@@ -52,19 +52,19 @@ plots.style.use('fivethirtyeight')
 | `t.item(int)` | data in column `int` | [Lec 5.1 Creating Tables][024] |
 | `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [Lec 5.1 Creating Tables][024] |
 | `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [Lec 4.5 Columns][023] |
-| `t.select('label')` | constructs a new table with just the specified columns | [Lec 3.5 Select][022] |
-| `t.drop('label')` | constructs a new table without the specified columns | [Lec 3.5 Select][022] |
-| `t.sort('label', descending)` | constructs a new table, with rows sorted by the specified column | [Lec 3.5 Select][022] |
+| `t.select(col)` | constructs a new table with just the specified columns | [Lec 3.5 Select][022] |
+| `t.drop(col) | constructs a new table without the specified columns | [Lec 3.5 Select][022] |
+| `t.sort(col, descending)` | constructs a new table, with rows sorted by the specified col | [Lec 3.5 Select][022] |
 | `t.take(row_number)` | keep the numbered rows, index starting at 0 | [Lec 5.8 Take][021] |
-| `t.where(column, are.condition)` | keep all rows for which a column's value satisfies a condition | [Lec 5.9 Where][020] |
-| `t.where(column, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where][020] |
-| `t.set_format(column, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic][019] |
+| `t.where(col, are.condition)` | keep all rows for which a column's value satisfies a condition | [Lec 5.9 Where][020] |
+| `t.where(col, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where][020] |
+| `t.set_format(col, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic][019] |
 | `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots][008] |
-| `t.group(label)` | counting with given label |[Lec 7.7 Distributions][011] |
-| `t.apply(func, col)` | returns an array where a function is applied to each item in a column | [Lec 9.5 Apply][018] |
-| `t.group(label[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group][017] |
+| `t.group(col)` | counting with given label |[Lec 7.7 Distributions][011] |
+| `t.apply(func, col)` | returns an array where a function is applied to each item in a col | [Lec 9.5 Apply][018] |
+| `t.group(col[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group][017] |
 | `t.group(labe_lstl[, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification][015]
-| `t.pivot('col_label', 'row_label'[, values=<'label'>, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third column, aggregated by the collect function | [Lec 10.4 Pivot Tables][015] |
+| `t.pivot(col, roe, [, values=str, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015] |
 | `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014] |
 
 
@@ -96,11 +96,11 @@ plots.style.use('fivethirtyeight')
 |----------|-------------|------|
 | `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Lec 7.1 Line Graphs][001] |
 | `t.scatter(x[, y])` | scatter plot | [Lec 7.3 Scatter Plots][008] |
-| `t.bar('label', col)` | Depict bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009] | 
-| `t.barh('label', col)` | Depict horizontal bar chart with `label` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009]; [Lec 7.7 Distributions][011] |
-| `t.bin(label, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning][010] |
+| `t.bar(colX, colY)` | Depict bar chart with `colX` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009] | 
+| `t.barh(colX, colY)` | Depict horizontal bar chart with `colX` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009]; [Lec 7.7 Distributions][011] |
+| `t.bin(col, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning][010] |
 | `t.hist(x, bin=<ary>)` | Histogram with given bins | [Lec 8.4 Drawing Histograms][006]|
-| `{Marker\|Circle}..map_table(table, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps][007] |
+| `{Marker\|Circle}..map_table(tbl, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps][007] |
 
 
 
@@ -142,6 +142,7 @@ plots.style.use('fivethirtyeight')
 
 
 -------------------
+## References
 
 [001]: ../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs
 [002]: [005]
