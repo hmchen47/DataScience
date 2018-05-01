@@ -185,6 +185,33 @@
 
 ### Notes
 
++ Demo
+    ```python
+    np.append(make_array(1, 2, 3), 4)
+    np.append(make_array(1, 2, 3), 'four')
+    np.append(make_array(1, 2, 3), make_array(4, 5, 6))
+    np.arange(4)
+
+    for i in np.arange(4):
+        print('iteration', i)
+
+    coin = make_array('heads', 'tails')
+    np.random.choice(coin)
+
+    sum(np.random.choice(coin, 100) == 'heads')
+    num_heads = make_array(sum(np.random.choice(coin, 100) == 'heads'))
+    num_heads = np.append(num_heads, sum(np.random.choice(coin, 100) == 'heads'))
+
+    for i in np.arange(10000):
+        num_heads = np.append(num_heads, sum(np.random.choice(coin, 100) == 'heads'))
+
+    len(num_heads)
+    t = Table().with_column('Heads in 100 coin flips', num_heads)
+    t.hist(bins=np.arange(30, 70, 1))
+
+    most = t.group(0).where(0, are.between(40,
+    sum(most.column('count')) / t.num_rows * 100
+    ```
 
 ### Videos
 

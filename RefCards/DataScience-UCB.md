@@ -19,6 +19,10 @@ plots.style.use('fivethirtyeight')
 | `np.char.count(<data>, 'str')` | Count `str` appearance in `data` | [Lec 1.4 Demo: Little Women][002] |
 | `np.random.choice(ary, sample_size)` | randomly select an element from `ary` with sample size `size` | [Random Selection][028] |
 | `np.count_nonzero(ary)` | Count nonzero values in array `ary` | [Random Selection][028] |
+| `np.append(ary, val|aryA)` | append a value or array to `ary` | [For Statement][029] |
+
+
+
 
 
 ## Array
@@ -175,7 +179,7 @@ plots.style.use('fivethirtyeight')
 [026]: ../DSFund-BerkeleyX/1-CompThinkWPython/12-TableExamples.mc#Lec-121-table-method-review
 [027]: http://data8.org/datascience/tables.html
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#Lec-133-random-selection
-
+[029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
 
 
 
