@@ -116,6 +116,21 @@
 
 ### Notes
 
++ Demo
+    ```python
+    def double(x):
+        print('doubling', x)
+        return 2 * x
+
+    def square(x):
+        print('squaring', x)
+        return x * x
+
+    double(square(double(5)))
+
+    print('one', end=' long ')
+    print('line')
+    ```
 
 ### Videos
 
