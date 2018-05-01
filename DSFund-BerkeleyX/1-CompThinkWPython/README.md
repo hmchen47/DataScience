@@ -238,6 +238,24 @@
 ### [Alternative Lab 4: Functions and Visualizations (Non-Notebook Workflow)](./lab04-FuncVisual.md#alternative-lab-4-functions-and-visualizations-non-notebook-workflow)
 
 
+## Week 5
+
+## [Section 12: Table Examples (Lec 12.1 - Lec 12.4)](./12-TableExamples.md)
+
+### [Lec 12.1 Table Method Review](./12-TableExamples.md#lec-121-table-method-review)
+
+### [Lec 12.2 Discussion Question](./12-TableExamples.md#lec-122-discussion-question)
+
+### [Lec 12.3 Midterm Question](./12-TableExamples.md#lec-123-midterm-question)
+
+### [Lec 12.4 Advanced Where](./12-TableExamples.md#lec-124-advanced-where)
+
+### [Reading and Practice for Section 12](./12-TableExample.md#reading-and-practice-for-section-12)
+
+
+
+
+
 
 
 
