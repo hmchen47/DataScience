@@ -39,7 +39,7 @@ plots.style.use('fivethirtyeight')
 | `t.labels` | returns a list of column labels of a table | [Lec 5.1 Creating Tables][024] |
 
 
-### Methods 
+### Methods ([Ref][027])
 
 | Function | Description | Link |
 |----------|-------------|------|
@@ -171,6 +171,7 @@ plots.style.use('fivethirtyeight')
 [024]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables
 [025]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists
 [026]: ../DSFund-BerkeleyX/1-CompThinkWPython/12-TableExamples.mc#Lec-121-table-method-review
+[027]: http://data8.org/datascience/tables.html
 
 
 

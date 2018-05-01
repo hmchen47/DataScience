@@ -27,13 +27,6 @@
         'Coupon % off', make_array(5, 50, 25),
         'Location', make_array('Tea One', 'Nefeli', 'Tea One')
     )
-
-    # table methods
-    a = drinks.join('Cafe', discounts, 'Location')
-    a = a.with_column('Discounted Price', a.column(2) * (1 - a.column(3)/100) )
-    a = a.drop(2, 3)
-    a.sort('Discounted Price').sort('Cafe', distinct=True) # Correct, Espresso is cheaper
-    a.group('Cafe', min) # Incorrect, Coffee is first alphabetically
     ```
 + Reference: [data science module](http://data8.org/datascience/tables.html)
 
@@ -46,6 +39,40 @@
 
 ### Notes
 
++ Discussion Question
+    + Generate a table with one row per cafe that has the name and discounted price of its cheapest discounted drink
+    + drinks
+
+        | Drink | Cafe | Price |
+        |-------|------|-------|
+        | Milk Tea | Tea One | 4 |
+        | Espresso | Nefeli | 2 |
+        | Coffee | Nefeli | 3 |
+        | Espresso | Abe's | 2 |
+    + discounts
+
+        | Coupon | Location |
+        |--------|----------|
+        | 5% | Tea One |
+        | 50% | Nefeli |
+        | 25% | Tea One |
+    + Cheapest 
+
+        | Cafe | Drink | Discounted Price |
+        |------|-------|------------------|
+        | Nefeli | Espresso | 1 |
+        | Tea One | Milk Tea | 3 |
+
++ Answer:
+    ```python
+    a = drinks.join('Cafe', discounts, 'Location')
+    a = a.with_column('Discounted Price', a.column(2) * (1 - a.column(3)/100) )
+    a = a.drop(2, 3)
+    a.sort('Discounted Price').sort('Cafe', distinct=True) # Correct, Espresso is cheaper
+    a.group('Cafe', min) # Incorrect, Coffee is first alphabetically
+    a.group('Cafe', list) # display the list with  each Cafe
+    a.sort('Discounted Price').sort('Cafe', distinct=True)
+    ```
 
 ### Videos
 
