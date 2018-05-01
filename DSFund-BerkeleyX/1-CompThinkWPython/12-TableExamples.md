@@ -158,8 +158,37 @@ The result of a comparison expresson is a `bool` value
 
 ### Reading
 
+his guide assumes that you have watched section 12 (video lecture segments Lec 12.1, Lec 12.2, Lec 12.3, Lec 12.4) in Courseware. 
+
+This corresponds to textbook section:
+
+[Chapter 9: Randomness](https://www.inferentialthinking.com/chapters/09/randomness.html)
+
+This section summarized Table methods and introduced conditional statements. Practice your understanding of conditional statements by answering the questions below.
 
 ### Practice
 
+What do the following lines of code evaluate to?
 
+Q1. 77 < 77
+a. True
+b. False
+c. 77
+d. Error
+e. None of the above
+
+Ans: b
+
+You have a table of the top 50 most played songs on spotify called `top_50_songs` with columns rank (an integer), `song_name` (a string), `artist_name` (a string), and `num_plays` (an integer).
+
+Q2. The expression `top_50_songs.where("num_plays", are.greater_than(1000000))` returns a table of all songs played more than 1,000,000 times. Which of the following expressions returns the same result?
+
+    a. top_50_songs.where(num_plays > 1000000)
+    b. top_50_songs.where("num_plays" > 1000000)
+    c. top_50_songs.where(top_50_songs.column("num_plays") > 1000000)
+    d. top_50_songs.column("num_plays") > 1000000
+    e. top_50_songs.column(top_50_songs.where("num_plays") > 1000000)
+    f. None of the above
+
+    Ans: c
 
