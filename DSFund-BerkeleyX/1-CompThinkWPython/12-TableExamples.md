@@ -124,6 +124,30 @@
 
 ### Notes
 
++ Comparison Operators  
+The result of a comparison expresson is a `bool` value
+    + Assignment statements: `x = 2`; `y = 3`
+    + Comparison expressions: `x > 1`, `x > y`, `y >= 3`, `x == y`, `x != 2`, `2 < x < 5`
+    + `t.where(ary_of_bool_vals)` returns a table with only the rows of `t` for which the corresponding `bool` is `True`
++ Demo
+    ```python
+    # As of Jan 2017, this census file is online here: 
+    # http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.csv
+
+    full_census_table = Table.read_table('nc-est2015-agesex-res.csv')
+    partial = full_census_table.select('SEX', 'AGE', 'POPESTIMATE2010', 'POPESTIMATE2015')
+    us_pop = partial.relabeled(2, '2010').relabeled(3, '2015')
+
+    us_pop.where('AGE', 70)
+    us_pop.where('AGE', 70).where([False, True, True])
+    seventy = us_pop.where('AGE', 70)
+
+    # advanced where
+    seventy.column('2010') < 2000000
+    seventy.where(seventy.column('2010') < 2000000)
+    us_pop.column('2015') / us_pop.column('2010') > 1.5
+    us_pop.where(us_pop.column('2015') / us_pop.column('2010') > 1.5)
+    ```
 
 ### Videos
 
