@@ -7,7 +7,7 @@
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/tGQfKdCISbA){:target="_blank"}
 
 
 ## Lec 12.2 Discussion Question
@@ -17,7 +17,7 @@
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/79W7XQHnWxo){:target="_blank"}
 
 
 ## Lec 12.3 Midterm Question
@@ -27,7 +27,7 @@
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/4ljo9LqtmYI){:target="_blank"}
 
 
 ## Lec 12.4 Advanced Where
@@ -37,7 +37,7 @@
 
 ### Videos
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/nUZOdd-w8-s){:target="_blank"}
 
 
 ## Reading and Practice for Section 12
