@@ -83,6 +83,37 @@
 
 ### Notes
 
++ Spring 2016 Midterm, Q2(b)
+
+    Each row of the `trip` table from lecture desceibes a single bicycle rental in the San Francisco area. Durations are integers representing times in seconds,  The first three rows out of 338343 appear below.
+
+    | Start | End | Duration |
+    |-------|-----|----------|
+    | Ferry Building | SF Caltrain | 765 |
+    | San Antonio Shopping Center | Mountain View City Hall | 1036 |
+    | Post at Kearny | 2nd at South Part | 307 |
+
+    Write a Python expression below each of the following descriptions that computes its value.  The first one is provided for you.  You _may_ use uo to lines and introduce variables.
+
+    + The average duration of rental
+        ```python
+        total_duration = sum(trip.column(2))
+        total_duration / trip.num_rows
+        ```
+    + The name of the station where the most rentals ended (assume no ties)
+    + The number of stations for which the average duration ending at that station was more than 10 minutes.
+
++ Answers:
+    ```python
+    trip = Table.read_table('trip.csv').where('Duration', are.below(1800)).select(3, 6, 1).relabeled(0, 'Start').relabeled(1, 'End')
+    trip.show(3)
+
+    # The name of the station where the most rentals ended (assume no ties).
+    trip.group('End').sort('count', descending=True).row(0).item(0)
+
+    # The number of stations for which the average duration ending at that station was more than 10 minutes.
+    trip.drop('Start').group('End', np.average).where(2, are.above(10*60)).num_rows
+    ```
 
 ### Videos
 
