@@ -95,6 +95,17 @@
 
 ### Notes
 
++ Discussion Question  
+    `d = np.arange(6) + 1`  
+    What results from evaluating the following 2 expressions?  
+    Are they the same? Do they describe the same process?  
+    ```python
+    np.random.choice(d, 1000) + np.random.choice(d, 1000)
+
+    2 * np.random.choice(d, 1000)
+    ```
++ Answer:  
+    Two different processes.
 
 ### Videos
 
