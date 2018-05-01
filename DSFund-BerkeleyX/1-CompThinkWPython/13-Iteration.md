@@ -222,8 +222,64 @@
 
 ### Reading
 
+This guide assumes that you have watched section 13 (video lecture segments Lec 13.1, Lec 13.2, Lec 13.3, Lec 13.4, Lec 13.5, Lec 13.6, Lec 13.7) in Courseware.
+
+This corresponds to textbook sections:
+
++ [Chapter 9.1: Conditional Statements](https://www.inferentialthinking.com/chapters/09/1/conditional-statements.html)
++ [Chapter 9.2: Iteration](https://www.inferentialthinking.com/chapters/09/2/iteration.html)
+
+In section 13, we learned more about control statements and saw the first demonstration of using randomness and for loops together. Both of these concepts will be used widely in Data 8.2X Foundations of Data Science: Inferential Thinking by Resampling.
+
+Practice your understanding of for loops with this walkthrough question.
 
 ### Practice
 
+Trace each of the iterations in the following for loop.
 
+```python
+for count in make_array(1,2,3,7):
+    if count % 2 == 0:
+        print(“Even!”)
+    else:
+	print(“Odd!”)
+```
+Q1. How many times (iterations) does the body of the for loop run?
 
+    Ans: 4
+
+Q2. At Iteration 1...  
+    What is count equal to?
+
+    Ans: 1
+
+Q3. What is the output printed? If nothing, leave blank.
+
+    Ans: Odd!
+
+Q4. At Iteration 2...  
+    What is count equal to?
+
+    Ans: 2
+
+Q5. What is the output printed? If nothing, leave blank.
+
+    Ans: Even!
+
+Q6. At Iteration 3...  
+    What is count equal to?
+
+    Ans: 3
+
+Q7. What is the output printed? If nothing, leave blank.
+
+    Ans: Odd!
+
+Q8. At Iteration 4...  
+    What is count equal to?
+
+    Ans: 7
+
+Q9. What is the output printed? If nothing, leave blank.
+
+    Ans: Odd!
