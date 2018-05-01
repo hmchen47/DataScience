@@ -17,6 +17,9 @@ plots.style.use('fivethirtyeight')
 | Function | Description | Link |
 |----------|-------------|------|
 | `np.char.count(<data>, 'str')` | Count `str` appearance in `data` | [Lec 1.4 Demo: Little Women][002] |
+| `np.random.choice(ary, sample_size)` | randomly select an element from `ary` with sample size `size` | [Random Selection][028] |
+| `np.count_nonzero(ary)` | Count nonzero values in array `ary` | [Random Selection][028] |
+
 
 ## Array
 
@@ -66,7 +69,7 @@ plots.style.use('fivethirtyeight')
 | `t.group([col, ...][, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification][015]
 | `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015]; [Table Methods][026] |
 | `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014]; [Table Methods][026] |
-| `t.exclude([row, ...])` | return a table that excludes listed rows from given table | ; [Table Methods][026] |
+| `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [Table Methods][026] |
 
 
 
@@ -143,7 +146,6 @@ plots.style.use('fivethirtyeight')
 
 
 -------------------
-## References
 
 [001]: ../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs
 [002]: [005]
@@ -172,6 +174,8 @@ plots.style.use('fivethirtyeight')
 [025]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists
 [026]: ../DSFund-BerkeleyX/1-CompThinkWPython/12-TableExamples.mc#Lec-121-table-method-review
 [027]: http://data8.org/datascience/tables.html
+[028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#Lec-133-random-selection
+
 
 
 

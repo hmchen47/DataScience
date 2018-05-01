@@ -65,6 +65,26 @@
 
 ### Notes
 
++ Random Selection
+    + `np.random.choice`
+        + Selectes uniformly at random
+        + with replacement
+        + from an array
+        + a specified number of times
+    + `np.random.choice(some_ary, sample_size)`
++ Demo
+    ```python
+    two_groups = make_array('treatment', 'control')
+    np.random.choice(two_groups)
+    np.random.choice(two_groups, 10)
+    np.random.choice(two_groups, 10)
+
+    outcomes = np.random.choice(two_groups, 10)
+    outcomes == 'control'       # returns bool array
+    sum(outcomes == 'control')
+    sum(outcomes == 'treatment')
+    np.count_nonzero(outcomes == 'control')     # number of True in array
+    ```
 
 ### Videos
 
