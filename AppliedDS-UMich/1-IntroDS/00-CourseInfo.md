@@ -16,6 +16,8 @@
     3. Advanced Querying and Manipulation with `pandas`
     4. Basic Statistical Analysis with `numpy` and `scipy`, and projects
 
+[Video](https://d3c33hcgiwev3.cloudfront.net/fDbOAIkPEealuRI3K47d-Q.processed/full/540p/index.mp4?Expires=1525392000&Signature=b3zYEqNevBVi7ctzJQc4UZlo4fAEL4mTTFymtAiRuGM5q8z8HoZfJroHPKYsvwSbpNpfFchWK-PCGg~Ezi07~cFvVg55qfZMkiPcS7oH1UfDJ7KLl-dpQ9kuXoDRbbjpezDqP06YUgJIn62SWy~9jdxxE~1E3o7odo~iPBltbTQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
 ## Syllabus
 
 __Welcome to Applied Data Science with Python!__
@@ -54,7 +56,32 @@ Thank you in advance for your participation!
 
 ## Data Science
 
++ Data Science
+    + Drew Conway perspective on data science
+        + Hacking skills
+        + Math and Statistics Knowledge
+        + Substantive Expertise
+
+        ![THE DATA SCIENCE VENN DIAGRAM](https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png?format=750w)
+
+    + Other data science perspectives:
+        + Skepticism, experimentation, simulation, and replication
+    + David Donoho, "50 Years of Data Science"
+        1. Data Exploration and Preparation
+        2. Data Representation and Transformation
+        3. Computing with Data
+        4. Data Modeling
+        5. Data Visualization and Presentation
+        6. Science about Data Science
+
+
+[Video](https://d3c33hcgiwev3.cloudfront.net/N5oBUIkfEeaKKwpaECzIKQ.processed/full/540p/index.mp4?Expires=1525392000&Signature=f1T6sPe7zqpbxyhnU3vtA~Qyi8~tLwu6QsjFRxdB7ykE9ft1jsthOx-WKi5U8FP3MyGguM0mI68di1GPoQ44YTIsyebTdA1BAPPm4zyHtgMa6FIJFjMCuLRGM5pN1eJks2Jf1VpK41Kbcy-9riCE3Y9CkqNMPzNUDzMTcMDU2xA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
 ## 50 years of Data Science, David Donoho (optional)
+
+David Donoho, Stanford University, article on the last 50 years of Data Science and the direction the field is headed. This is a fairly long and academic article, but is excellent overview of the field. Optional for completion of the course.
+
+[paper](http://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf)
 
 ## The Coursera Jupyter Notebook System
 
