@@ -1,5 +1,15 @@
 # Python for Data Science
 
+
+### General
+
+### Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `type(obj)` | return the object's type | [Python Types and Sequences][000] |
+
+
 ## SciPy
 
 ### Environment and Packages
@@ -29,7 +39,7 @@
 
 -------------------------------------
 
-[000]: 
+[000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
 [001]: 
 [002]: 
 [003]: 
