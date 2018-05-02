@@ -85,4 +85,10 @@ David Donoho, Stanford University, article on the last 50 years of Data Science 
 
 ## The Coursera Jupyter Notebook System
 
+[Video](https://d3c33hcgiwev3.cloudfront.net/5lVxeokQEeaT1Q4Eo0QvOw.processed/full/540p/index.mp4?Expires=1525392000&Signature=itpARC5BsFKJwZefsyU8sZYMjInxrR-Ei-~nzoTtV018q0mHSq39EFTlTX5hiYAbRv0irWTjJ2uZ1gr9oqjTynkDMrUFMNWrIsciXeJlANNJwMFwgap24Hb8~2WRF49VrXLYeW0EmlsDoOqOXtXlR7Gv2Djpm1-H-9IzXKWNamE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
 ## Notice for Auditing Learners: Assignment Submission
+
+__Please note__: only verified learners can submit assignments. If you are auditing this course, you will be able to go through the quizzes or assignments, but you will not be able to submit your assignment for a grade. If you wish to have your assignments graded and receive a course certificate, we encourage you to upgrade to the Certified Learner track for this course. Coursera has provided [information about purchasing a certificate](https://learner.coursera.help/hc/en-us/articles/208280146-Pay-for-a-course-or-Specialization), and you can also get help from the [Coursera Help Center](https://learner.coursera.help/hc/en-us).
+
+
