@@ -151,14 +151,44 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # unpack a sequence into different variables. Make sure the number of values you are unpacking matches the number of variables being assigned.
     x = ('Christopher', 'Brooks', 'brooksch@umich.edu')
     fname, lname, email = x
-
-
-
     ```
+
++ Quiz  
+    + What would be an appropriate slice to get the name "Christopher" from the string "Dr. Christopher Brooks"?
+
+        ```python
+        x = 'Dr. Christopher Brooks'
+
+        print(x[???])
+        ```
+    + Answer:
+        ```python
+        x = 'Dr. Christopher Brooks'
+
+        print(x[4:15])
+        ```
 
 [video](https://d3c33hcgiwev3.cloudfront.net/AuqMXJVAEeaUSArAHh3eJg.processed/full/540p/index.mp4?Expires=1525392000&Signature=Eh8804MzDRIM3qQelGNhx-M2s0iS4ukXXzNqC3C03n0TuUYcqJT452XfZDsv-lq0VI-2bo9vrARcBYRaWEp~YUEjYHvSk9pdjt~dKceIyAR8DwQvJwRkQWLvmxYq9BrlGKLDN9NPuDQEfQHKVAnu9o10NmaVKbmwehpnp7Szp6Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
 ## Python More on Strings
+
++ Demo
+    ```python
+    print('Chris' + 2)          # TypeError
+    print('Chris' + str(2))     # Chris2
+
+    # string formatting
+    sales_record = {        # Dictionary
+    'price': 3.24,
+    'num_items': 4,
+    'person': 'Chris'}
+
+    sales_statement = '{} bought {} item(s) at a price of {} each for a total of {}'
+    print(sales_statement.format(sales_record['person'],
+                                sales_record['num_items'],
+                                sales_record['price'],
+                                sales_record['num_items']*sales_record['price']))
+    ```
 
 ## Python Demonstration: Reading and Writing CSV files
 
