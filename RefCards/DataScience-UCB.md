@@ -17,6 +17,13 @@ plots.style.use('fivethirtyeight')
 | Function | Description | Link |
 |----------|-------------|------|
 | `np.char.count(<data>, 'str')` | Count `str` appearance in `data` | [Lec 1.4 Demo: Little Women][002] |
+| `np.random.choice(ary, sample_size)` | randomly select an element from `ary` with sample size `size` | [Lec 13.3 Random Selection][028] |
+| `np.count_nonzero(ary)` | Count nonzero values in array `ary` | [Lec 13.3 Random Selection][028] |
+| `np.append(ary, val|aryA)` | append a value or array to `ary` | [For Statement][029] |
+
+
+
+
 
 ## Array
 
@@ -52,21 +59,21 @@ plots.style.use('fivethirtyeight')
 | `t.item(int)` | data in column `int` | [Lec 5.1 Creating Tables][024] |
 | `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [Lec 5.1 Creating Tables][024] |
 | `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [Lec 4.5 Columns][023] |
-| `t.select(col[, ...])` | constructs a new table with just the specified columns | [Lec 3.5 Select][022]; [Table Methods][026] |
-| `t.drop(col[, ...])` | constructs a new table without the specified columns | [Lec 3.5 Select][022]; [Table Methods][026] |
-| `t.sort(col, descending=False, distinct=False)` | constructs a new table, with rows sorted by the specified col | [Lec 3.5 Select][022]; [Table Methods][026] |
-| `t.take([row, ...]r)` | keep the numbered rows, index starting at 0 | [Lec 5.8 Take][021]; [Table Methods][026] |
-| `t.where(col, are.condition(...))` | keep all rows for which a column's value satisfies a condition | [Lec 5.9 Where][020]; [Table Methods][026] |
+| `t.select(col[, ...])` | constructs a new table with just the specified columns | [Lec 3.5 Select][022]; [Lec 12.1 Table Methods][026] |
+| `t.drop(col[, ...])` | constructs a new table without the specified columns | [Lec 3.5 Select][022]; [Lec 12.1 Table Methods][026] |
+| `t.sort(col, descending=False, distinct=False)` | constructs a new table, with rows sorted by the specified col | [Lec 3.5 Select][022]; [Lec 12.1 Table Methods][026] |
+| `t.take([row, ...]r)` | keep the numbered rows, index starting at 0 | [Lec 5.8 Take][021]; [Lec 12.1 Table Methods][026] |
+| `t.where(col, are.condition(...))` | keep all rows for which a column's value satisfies a condition | [Lec 5.9 Where][020]; [Lec 12.1 Table Methods][026] |
 | `t.where(col, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where][020] |
 | `t.set_format(col, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic][019] |
 | `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots][008] |
 | `t.group(col)` | counting with given label |[Lec 7.7 Distributions][011] |
-| `t.apply(func, col, ...)` | returns an array where a function is applied to each item in a col | [Lec 9.5 Apply][018]; [Table Methods][026] |
+| `t.apply(func, col, ...)` | returns an array where a function is applied to each item in a col | [Lec 9.5 Apply][018]; [Lec 12.1 Table Methods][026] |
 | `t.group(col[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group][017] |
 | `t.group([col, ...][, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification][015]
-| `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015]; [Table Methods][026] |
-| `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014]; [Table Methods][026] |
-| `t.exclude([row, ...])` | return a table that excludes listed rows from given table | ; [Table Methods][026] |
+| `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015]; [Lec 12.1 Table Methods][026] |
+| `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014]; [Lec 12.1 Table Methods][026] |
+| `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [Lec 12.1 Table Methods][026] |
 
 
 
@@ -137,25 +144,25 @@ plots.style.use('fivethirtyeight')
 | `are.strictly_between(x, y)` | Greater than `x` and less than `y` |
 | `are.between_or_equal_to(x, y)` | Greater than or equal to `x`, and less than or equal  to `y` |
 | `are.containing(S)` | Contains the string `S` |
+| `are.contained_in(ary|lst)` | contains in array or list |
 | `are.not_equal_to(Z)` | Not equal to `Z` |
 | `are.not_above(x)` | Not above `x` |
 
 
 
 -------------------
-## References
 
 [001]: ../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-71-line-graphs
-[002]: [005]
+[002]: ../DSFund-BerkeleyX/1-CompThinkWPython/01-Intro.md#lec-14-demo-little-women
 [003]: https://www.inferentialthinking.com/chapters/06/2/selecting-rows.html#Some-More-Conditions
 [004]: ../DSFund-BerkeleyX/1-CompThinkWPython/labs/lab04/lab04.ipynb
-[005]: ../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-85-desity
+[005]: ../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-85-density
 [006]: ../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-84-drawing-histograms
 [007]: ../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-114-maps
 [008]: ../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-73-scatter-plots
 [009]: ../DSFund-BerkeleyX/1-CompThinkWPython/03-PythonTables.md#lec-37-bar-charts
 [010]: ../DSFund-BerkeleyX/1-CompThinkWPython/08-Histograms.md#lec-82-binning
-[011]: ../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-Distributions
+[011]: ../DSFund-BerkeleyX/1-CompThinkWPython/07-Charts.md#lec-77-distributions
 [012]: ../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-44-arrays
 [013]: ../DSFund-BerkeleyX/1-CompThinkWPython/01-Intro.md#lec-16-demo-visualizations-2
 [014]: ../DSFund-BerkeleyX/1-CompThinkWPython/11-Joins.md#lec-111-joins
@@ -170,8 +177,10 @@ plots.style.use('fivethirtyeight')
 [023]: ../DSFund-BerkeleyX/1-CompThinkWPython/04-Expression.md#lec-45-columns
 [024]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-51-creating-tables
 [025]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-57-lists
-[026]: ../DSFund-BerkeleyX/1-CompThinkWPython/12-TableExamples.mc#Lec-121-table-method-review
+[026]: ../DSFund-BerkeleyX/1-CompThinkWPython/12-TableExamples.md#lec-121-table-method-review
 [027]: http://data8.org/datascience/tables.html
+[028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
+[029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
 
 
 
