@@ -171,13 +171,14 @@ This section summarized Table methods and introduced conditional statements. Pra
 What do the following lines of code evaluate to?
 
 Q1. 77 < 77
-a. True
-b. False
-c. 77
-d. Error
-e. None of the above
 
-Ans: b
+    a. True
+    b. False
+    c. 77
+    d. Error
+    e. None of the above
+
+    Ans: b
 
 You have a table of the top 50 most played songs on spotify called `top_50_songs` with columns rank (an integer), `song_name` (a string), `artist_name` (a string), and `num_plays` (an integer).
 
