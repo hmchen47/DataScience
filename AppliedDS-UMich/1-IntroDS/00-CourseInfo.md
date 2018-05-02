@@ -45,6 +45,13 @@ If you're having problems, here are a couple of great places to go for help:
 
 ## Help us learn more about you!
 
+As part of getting to know you better, your backgrounds, your interest in this specific course and in digital education in general, we at the University of Michigan have crafted a survey that should only take a few minutes to complete. Our goal is to keep our communication with you focused on learning and staying in touch, but we believe that both this and an end-of-course survey are important to our mutual educational goals.
+
+[Take the survey](https://umich.qualtrics.com/SE/?SID=SV_735AxMay2FSApSZ&redirect=SV_9ukuaMa1VKYV9C5&phoenix_global_user_id=%GLOBAL_USER_ID:2013-may-demographics%&phoenix_session_user_id=b9aeb1c86d1c4108f466fffc535219ab82da32fc&name=H.-M.%20Fred%20Chen&platform_id=coursera_phoenix&course_id=python-data-analysis)
+
+Thank you in advance for your participation!
+
+
 ## Data Science
 
 ## 50 years of Data Science, David Donoho (optional)
