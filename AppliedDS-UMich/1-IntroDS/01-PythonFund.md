@@ -446,9 +446,202 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
 
     [video](https://d3c33hcgiwev3.cloudfront.net/ZRyxx4kQEeaKKwpaECzIKQ.processed/full/540p/index.mp4?Expires=1525478400&Signature=MUAfuzVgQJAxTPsY0Ey5qf3ZS4yRStcsrujIdbXe9OxxZgW5wL~sy~RYukvA8MJ-W-uD1FH13kfI-EtWGqGhwkiLpqp8rnAgOQwbk7nJ3OC03efeDZqotcmNaCL8aszQbwwtMgbzX8DWRbSBw7V~FvcLYxXimggauMMJmQlXu7Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
-    
+
 
 ## Advanced Python Demonstration: The Numerical Python Library (NumPy)
+
++ Demo
+    ```python
+    import numpy as np
+
+    # create numpy array
+    mylist = [1, 2, 3]
+    x = np.array(mylist)
+
+    y = np.array([4, 5, 6])
+    m = np.array([[7, 8, 9], [10, 11, 12]])
+
+    # shape method to find the dimensions of the array. (rows, columns)
+    m.shape
+
+    # arange returns evenly spaced values within a given interval.
+    n = np.arange(0, 30, 2) # start at 0 count up by 2, stop before 30
+
+    # reshape returns an array with the same data with a new shape.
+    n = n.reshape(3, 5) # reshape array to be 3x5
+
+    # linspace returns evenly spaced numbers over a specified interval.
+    o = np.linspace(0, 4, 9) # return 9 evenly spaced values from 0 to 4
+
+    # resize changes the shape and size of array in-place.
+    o.resize(3, 3)
+
+    # ones returns a new array of given shape and type, filled with ones.
+    np.ones((3, 2))
+
+    # zeros returns a new array of given shape and type, filled with zeros.
+    np.zeros((2, 3))
+
+    # eye returns a 2-D array with ones on the diagonal and zeros elsewhere.
+    np.eye(3)
+
+    # diag extracts a diagonal or constructs a diagonal array.
+    np.diag(y)
+
+    # Create an array using repeating list (or see np.tile)
+    np.array([1, 2, 3] * 3)
+
+    # Repeat elements of an array using repeat.
+    np.repeat([1, 2, 3], 3)
+
+    # Combining Arrays
+    p = np.ones([2, 3], int)
+
+    # Use vstack to stack arrays in sequence vertically (row wise)
+    np.vstack([p, 2*p])
+
+    # Use hstack to stack arrays in sequence horizontally (column wise).
+    np.hstack([p, 2*p])
+
+    # Operations
+    print(x + y) # elementwise addition     [1 2 3] + [4 5 6] = [5  7  9]
+    print(x - y) # elementwise subtraction  [1 2 3] - [4 5 6] = [-3 -3 -3]
+    print(x * y) # elementwise multiplication  [1 2 3] * [4 5 6] = [4  10  18]
+    print(x / y) # elementwise divison         [1 2 3] / [4 5 6] = [0.25  0.4  0.5]
+    print(x**2) # elementwise power  [1 2 3] ^2 =  [1 4 9]
+
+    # Dot Product:
+    x.dot(y) # dot product  1*4 + 2*5 + 3*6
+
+    z = np.array([y, y**2])
+    print(len(z)) # number of rows of array
+
+    # Transposing permutes the dimensions of the array.
+    z = np.array([y, y**2])
+
+    # shape of array z is (2,3) before transposing.
+    z.shape
+
+    # Use .T to get the transpose.
+    z.T
+
+    # The number of rows has swapped with the number of columns.
+    z.T.shape
+
+    # Use .dtype to see the data type of the elements in the array.
+    z.dtype
+
+    # Use .astype to cast to a specific type.
+    z = z.astype('f')
+    z.dtype
+
+    # Math Functions
+    a = np.array([-4, -2, 1, 3, 5])
+    a.sum()
+    a.max()
+    a.min()
+    a.mean()
+    a.std()
+
+    # argmax and argmin return the index of the maximum and minimum values in the array.
+    a.argmax()
+    a.argmin()
+
+    # Indexing / Slicing
+    s = np.arange(13)**2
+
+    # Use bracket notation to get the value at a specific index. Remember that indexing starts at 0.
+    s[0], s[4], s[-1]
+
+    # Leaving start or stop empty will default to the beginning/end of the array
+    s[1:5]
+
+    # Use negatives to count from the back.
+    s[-4:]
+
+    # A second : can be used to indicate step-size. array[start:stop:stepsize]
+    # Here we are starting 5th element from the end, and counting backwards by 2 until the beginning of the array is reached.
+    s[-5::-2]
+
+    # multidimensional array
+    r = np.arange(36)
+    r.resize((6, 6))
+
+    # Use bracket notation to slice: array[row, column]
+    r[2, 2]
+
+    # And use : to select a range of rows or columns
+    r[3, 3:6]
+
+    # Here we are selecting all the rows up to (and not including) row 2, and all the columns up to (and not including) the last column.
+    r[:2, :-1]
+
+    # This is a slice of the last row, and only every other element.
+    r[-1, ::2]
+
+    # We can also perform conditional indexing. Here we are selecting values from the array that are greater than 30. (Also see np.where)
+    r[r > 30]
+
+    # Here we are assigning all values in the array that are greater than 30 to the value of 30.
+    r[r > 30] = 30
+
+    # copying data, use r.copy to create a copy that will not affect the original array
+    r_copy = r.copy()
+
+    # Iterating Over Arrays
+    test = np.random.randint(0, 10, (4,3))
+
+    # Iterate by row:
+    for row in test:
+        print(row)
+
+    # Iterate by index:
+    for i in range(len(test)):
+        print(test[i])
+
+    # Iterate by row and index:
+    for i, row in enumerate(test):
+        print('row', i, 'is', row)
+
+    # Use zip to iterate over multiple iterables.
+    test2 = test**2
+
+    for i, j in zip(test, test2):
+        print(i,'+',j,'=',i+j)
+
+    ```
+
++ Quiz
+    + Q1
+        ```python
+        old = np.array([[1, 1, 1],
+                        [1, 1, 1]])
+
+        new = old
+        new[0, :2] = 0
+
+        print(old)
+        ```
+    + Answer
+        ```python
+        [[0 0 1]
+         [1 1 1]]
+        ```
+    + Q2
+        ```python
+        old = np.array([[1, 1, 1],
+                        [1, 1, 1]])
+
+        new = old.copy()
+        new[:, 0] = 0
+
+        print(old)
+        ```
+    + Answer: 
+        ```python
+        [[1 1 1]
+         [1 1 1]]
+        ```
 
 ## Quiz
 
