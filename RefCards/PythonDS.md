@@ -29,6 +29,7 @@
 | `set(obj)` | return the unique values for the class types; set theory in math | [CSV Files][001] |
 | `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000] |
 | `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
+| `func = lambda var1, ... : expression` | anonymous function, usage: `func(vara, ...)` | [Lambda & List Comprehension][004] |
 
 
 ## [Date and Times][003]
@@ -95,7 +96,7 @@ import time as tm
 [001]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-demonstration-reading-and-writing-csv-files
 [002]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-dates-and-times
 [003]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-objects-map
-[004]: 
+[004]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-lambda-and-list-comprehensions
 [005]: 
 [006]: 
 [007]: 

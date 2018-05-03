@@ -362,6 +362,92 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Advanced Python Lambda and List Comprehensions
 
++ `lambda` function
+    + Anonymous function, a function w/o name
+    + simple and short, usually in one line
+    useful for data cleaning task
+
++ Demo
+    ```python
+    my_function = lambda a, b, c : a + b
+    my_function(1, 2, 3)
+
+    # Iteration
+    my_list = []
+    for number in range(0, 1000):
+        if number % 2 == 0:
+            my_list.append(number)
+    my_list
+
+    # list comprehension
+    my_list = [number for number in range(0,1000) if number % 2 == 0]
+    ```
+
+
++ Quiz
+    + Convert this function into a lambda:
+        ```python
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+
+        def split_title_and_name(person):
+            return person.split()[0] + ' ' + person.split()[-1]
+
+        #option 1
+        for person in people:
+            print(split_title_and_name(person) == (lambda person:???))
+
+        # option 2
+        # list(map(split_title_and_name, people)) == list(map(???))
+        ```
+    + Answer:
+        ```python
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+
+        def split_title_and_name(person):
+            return person.split()[0] + ' ' + person.split()[-1]
+
+        #option 1
+        for person in people:
+            print(split_title_and_name(person) == (lambda x: x.split()[0] + ' ' + x.split()[-1])(person))
+
+        #option 2
+        list(map(split_title_and_name, people)) == list(map(lambda person: person.split()[0] + ' ' + person.split()[-1], people))
+        ```
+    + List comprehensiom
+        ```python
+        def times_tables():
+            lst = []
+            for i in range(10):
+                for j in range (10):
+                    lst.append(i*j)
+            return lst
+
+        times_tables() == [???]
+        ```
+    + Answer:
+        ```python
+        times_tables() == [i * j for i in range(10) for j in rang(10)]
+        ```
+    + Here’s a harder question which brings a few things together.
+
+        Many organizations have user ids which are constrained in some way. Imagine you work at an internet service provider and the user ids are all two letters followed by two numbers (e.g. aa49). Your task at such an organization might be to hold a record on the billing activity for each possible user.
+
+        Write an initialization line as a single list comprehension which creates a list of all possible user ids. Assume the letters are all lower case.
+        ```python
+        lowercase = 'abcdefghijklmnopqrstuvwxyz'
+        digits = '0123456789'
+
+        answer = [...]
+        correct_answer == answer
+        ```
+    + Answer:
+        ```python
+        answer = [a+b+c+d for a in lowercase for b in lowercase for c in digits for d in digits]
+        ```
+
+    [video](https://d3c33hcgiwev3.cloudfront.net/ZRyxx4kQEeaKKwpaECzIKQ.processed/full/540p/index.mp4?Expires=1525478400&Signature=MUAfuzVgQJAxTPsY0Ey5qf3ZS4yRStcsrujIdbXe9OxxZgW5wL~sy~RYukvA8MJ-W-uD1FH13kfI-EtWGqGhwkiLpqp8rnAgOQwbk7nJ3OC03efeDZqotcmNaCL8aszQbwwtMgbzX8DWRbSBw7V~FvcLYxXimggauMMJmQlXu7Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+    
+
 ## Advanced Python Demonstration: The Numerical Python Library (NumPy)
 
 ## Quiz
