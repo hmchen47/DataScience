@@ -28,6 +28,7 @@
 | `dict.items()` | return (key, value) pairs of dictionary | [CSV Files][001] |
 | `set(obj)` | return the unique values for the class types; set theory in math | [CSV Files][001] |
 | `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000] |
+| `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
 
 
 ## [Date and Times][003]
@@ -93,7 +94,7 @@ import time as tm
 [000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
 [001]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-demonstration-reading-and-writing-csv-files
 [002]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-dates-and-times
-[003]: 
+[003]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-objects-map
 [004]: 
 [005]: 
 [006]: 

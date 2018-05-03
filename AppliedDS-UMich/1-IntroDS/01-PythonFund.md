@@ -298,6 +298,68 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Advanced Python Objects, map()
 
++ Class Object
+    + Mostly use camel name
+    + No private or protect members
+    + No explicit constructor for creating objects, can be achieved by `__init__(self, ...)`
+
++ `map()` fi=unction
+    + one of the basic functional programming
+    + functional programming: 
+        + a programming paradigm in which programmers explicitly declare all parameters which can change through execution of a given function
+        + referred to being side effect free, because there is a software contract that describes what can actually change by calling a function
+        + chaining operations together
+    + return a `map` object which does not actually execute the function until access it
+
++ Demo
+    ```python
+    # class example
+    class Person:
+        department = 'School of Information' #a class variable
+
+        def set_name(self, new_name): #a method
+            self.name = new_name
+        def set_location(self, new_location):
+            self.location = new_location
+
+    person = Person()
+    person.set_name('Christopher Brooks')
+    person.set_location('Ann Arbor, MI, USA')
+    print('{} live in {} and works in the department {}'.format(person.name, person.location, person.department))
+
+    # mapping the min function between two lists
+    store1 = [10.00, 11.00, 12.34, 2.34]
+    store2 = [9.00, 11.10, 12.34, 2.01]
+    cheapest = map(min, store1, store2)
+
+    # iterate through the map object to see the values
+    for item in cheapest:
+        print(item)
+    ```
+
++ Quiz  
+    + Here is a list of faculty teaching this MOOC. Can you write a function and apply it using `map()` to get a list of all faculty titles and last names (e.g. `['Dr. Brooks', 'Dr. Collins-Thompson', …]`) ?
+        ```python
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+
+        def split_title_and_name(person):
+            return #Your answer here
+
+        list(map(#Your answer here))
+        ```
+    + Answer:
+        ```python
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+
+        def split_title_and_name(person):
+            title = person.split()[0]
+            lastname = person.split()[-1]
+            return '{} {}'.format(title, lastname)
+
+        list(map(split_title_and_name, people))
+        ```
+
+
 ## Advanced Python Lambda and List Comprehensions
 
 ## Advanced Python Demonstration: The Numerical Python Library (NumPy)
