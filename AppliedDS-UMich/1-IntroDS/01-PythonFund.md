@@ -190,7 +190,84 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
                                 sales_record['num_items']*sales_record['price']))
     ```
 
+[video](https://d3c33hcgiwev3.cloudfront.net/EMUmMJVAEeanawoaUJkV-g.processed/full/540p/index.mp4?Expires=1525478400&Signature=AMzoI9XdNEehc39avztsbfY1mbO3WX6oQNAz4JV5owPFhs~BVMplI4vUQ2B9AwD5G4N9qbysuw-WX7iSOsUNaQ5v1WXhlA7D9WA7eWhSI~vM0SBtf5bI3dFuHPKLA5lORK6fKrsyhVYbjd9sVXtJFceWm0Hkr2QSHb8RLQNKmiM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
 ## Python Demonstration: Reading and Writing CSV files
+
++ Demo  
+    datafile `mpg.csv`, which contains fuel economy data for 234 cars.
+
+    mpg : miles per gallon  
+    class : car classification  
+    cty : city mpg  
+    cyl : # of cylinders  
+    displ : engine displacement in liters  
+    drv : f = front-wheel drive, r = rear wheel drive, 4 = 4wd  
+    fl : fuel (e = ethanol E85, d = diesel, r = regular, p = premium, c = CNG)  
+    hwy : highway mpg  
+    manufacturer : automobile manufacturer  
+    model : model of car  
+    trans : type of transmission  
+    year : model year
+
+    ```python
+    import csv
+
+    %precision 2    # floating precision for printing
+
+    with open('filename.csv') as csvfile:
+        mpg = list(csv.DictReader(csvfile))
+        # read data and convert to nested dictionary
+
+    mpg[:3]     # The first three dictionaries in list.
+
+    len(mpg)    # number of records
+
+    # keys gives the column names of the csv
+    mpg[0].keys()
+
+    # find the average cty fuel economy across all cars
+    sum(float(d['cty']) for d in mpg) / len(mpg)
+    sum(float(d['hwy']) for d in mpg) / len(mpg)
+
+    # Use set to return the unique values for the number of cylinders the cars in our dataset have
+    cylinders = set(d['cyl'] for d in mpg)
+
+    # grouping the cars by number of cylinder, and finding the average cty mpg for each group
+    CtyMpgByCyl = []
+
+    for c in cylinders: # iterate over all the cylinder levels
+        summpg = 0
+        cyltypecount = 0
+        for d in mpg:                       # iterate over all dictionaries
+            if d['cyl'] == c:               # if the cylinder level type matches,
+                summpg += float(d['cty'])   # add the cty mpg
+                cyltypecount += 1           # increment the count
+        CtyMpgByCyl.append((c, summpg / cyltypecount)) # append the tuple ('cylinder', 'avg mpg')
+
+    CtyMpgByCyl.sort(key=lambda x: x[0])
+    CtyMpgByCyl
+
+    # Use set to return the unique values for the class types in the dataset.
+    vehicleclass = set(d['class'] for d in mpg) # what are the class types
+
+    # find the average hwy mpg for each class of vehicle in the dataset
+    HwyMpgByClass = []
+
+    for t in vehicleclass: # iterate over all the vehicle classes
+        summpg = 0
+        vclasscount = 0
+        for d in mpg:                       # iterate over all dictionaries
+            if d['class'] == t:             # if the cylinder amount type matches,
+                summpg += float(d['hwy'])   # add the hwy mpg
+                vclasscount += 1            # increment the count
+        HwyMpgByClass.append((t, summpg / vclasscount)) # append the tuple ('class', 'avg mpg')
+
+    HwyMpgByClass.sort(key=lambda x: x[1])
+    HwyMpgByClass
+    ```
+
+[video](https://d3c33hcgiwev3.cloudfront.net/Js4rn5VAEeaUSArAHh3eJg.processed/full/540p/index.mp4?Expires=1525478400&Signature=JlgG6ke5Md8DFKGIow8rpDn0c02YwO0KchbWMtAPJXGdCYgsIQfIXkAPWvJe68hvpFkfFhvCdQKS44FmVyYgtXu04MBF4iHxzgAKDdG~xAILDZn3I4G2o9DGJ2XWv7PTi9vADQNcryRQ7Z~jRevNRpt8XNPBzu0FOsvQD~2SyVY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
 ## Python Dates and Times
 
