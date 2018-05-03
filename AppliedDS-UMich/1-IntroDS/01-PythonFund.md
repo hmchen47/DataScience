@@ -645,4 +645,115 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Quiz
 
+1. Python is an example of an
+
+    a. Interpreted language  
+    b. Declarative language  
+    c. Operating system language  
+    d. Data science language  
+    e. Low level language
+
+    Ans: a
+
+
+2. Data Science is a
+
+    a. Branch of statistics  
+    b. Branch of computer science  
+    c. Branch of artificial intelligence  
+    d. Interdisciplinary, made up of all of the above
+
+    Ans: d
+
+
+3. Data visualization is not a part of data science.
+
+    Ans: False
+
+
+4. Which bracketing style does Python use for tuples?
+
+    a. { }  
+    b. ( )  
+    c. [ ]
+
+    Ans: b
+
+
+5. In Python, strings are considered Mutable, and can be changed.
+
+    Ans: False
+
+
+6. What is the result of the following code: `['a', 'b', 'c'] + [1, 2, 3]`
+
+    a. `['a', 'b', 'c', 1, 2, 3]`  
+    b. TypeError: Cannot convert list(int) to list(str)  
+    c. `['a1', 'b2', 'c3']`  
+    d. `[['a', 'b', 'c'], [1, 2, 3]]`
+
+    Ans: a
+
+
+7. String slicing is
+
+    a. A way to make string mutable in python  
+    b. A way to reduce the size on disk of strings in python  
+    c. A way to make a substring of a string in python
+
+    Ans: c
+
+
+8. When you create a lambda, what type is returned? E.g. type(lambda x: x+1) returns
+
+    a. <class 'function'>
+    b. <class 'type'>
+    c. <class 'int'>
+    d. <class 'lambda'>
+
+    Ans: a
+
+
+9. The epoch refers to  
+    a. January 1, year 0  
+    b. January 1, year 1970  
+    c. January 1, year 1980  
+    d. January 1, year 2000
+
+    Ans: b
+
+
+10. This code, `[x**2 for x in range(10)]` , is an example of a
+
+    a. List comprehension  
+    b. Sequence comprehension  
+    c. Tuple comprehension  
+    d. List multiplication
+
+    Ans: a
+
+11. Given a 6x6 NumPy array `r`, which of the following options would slice the shaded elements?
+
+    ![diagram](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ld68zYqoEeaCXQ5dBCgoUw_5c8cf678f7cb43d00e2b9e30c434b0c6_Slice1.png?expiry=1525478400000&hmac=Ny6OoEmefuNRaWfc071uK1MKJmPJCWRiZDSSAYdk3AY)
+
+    a. `r[::7]`  
+    b. `r[0:6,::-7]`  
+    c. `r[:,::7]`  
+    d. `r.reshape(36)[::7]`
+
+    Ans: d, b(x)  
+    You could also use `np.diag(r)`. 
+
+
+12. Given a 6x6 NumPy array r, which of the following options would slice the shaded elements?
+
+    ![diagram](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/INF_bIqrEealuRI3K47d-Q_0931f86653a0cee389ee5b03480acb7d_Slice3.png?expiry=1525478400000&hmac=0XUXfAIg2066W8gKiXzEhiBNwNKAmltP85aD_TbixXU)
+
+    a. `r[2::2,2::2]`  
+    b. `r[[2,3],[2,3]]`  
+    c. `r[2:4,2:4]`  
+    d. `r[::2,::2]`  
+
+    Ans: c
+
 
