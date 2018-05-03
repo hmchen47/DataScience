@@ -40,4 +40,26 @@
 ### [Quiz](./01-PythonFund.md#quiz)
 
 
+## [Basic Data Processing with Pandas](./02-Pandas.md)
+
+### [Introduction](./02-Pandas.md#introduction)
+
+### [Week 2 Lectures Jupyter Notebook](./02-Pandas.md#week-2-lectures-jupyter-notebook)
+
+### [The Series Data Structure](./02-Pandas.md#the-series-data-structure)
+
+### [Querying a Series](./02-Pandas.md#querying-a-series)
+
+### [The DataFrame Data Structure](./02-Pandas.md#the-dataframe-data-structure)
+
+### [DataFrame Indexing and Loading](./02-Pandas.md#dataframe-indexing-and-loading)
+
+### [Querying a DataFrame](./02-Pandas.md#querying-a-dataframe)
+
+### [Indexing Dataframes](./02-Pandas.md#indexing-dataframe)
+
+### [Missing Values](./02-Pandas.md#missing-values)
+
+### [Hacked Data](./02-Pandas.md#hacked-data)
+
 
