@@ -271,6 +271,31 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Python Dates and Times
 
++ Demo
+    ```python
+    import datetime as dt
+    import time as tm
+
+    # time returns the current time in seconds since the Epoch. (January 1st, 1970)
+    tm.time()
+
+    # Convert the timestamp to datetime
+    dtnow = dt.datetime.fromtimestamp(tm.time())
+
+    # datetime attributes
+    dtnow.year, dtnow.month, dtnow.day, dtnow.hour, dtnow.minute, dtnow.second # get year, month, day, etc.from a datetime
+
+    # timedelta is a duration expressing the difference between two dates
+    delta = dt.timedelta(days = 100) # create a timedelta of 100 days
+
+    # date.today returns the current local date
+    today = dt.date.today()
+    today - delta # the date 100 days ago
+    today > today-delta # compare dates
+    ```
+
+[video](https://d3c33hcgiwev3.cloudfront.net/G2bb3pVAEeaUSArAHh3eJg.processed/full/540p/index.mp4?Expires=1525478400&Signature=ibsctGYJRKl72W23GG-KVZ3~d-GGGaA903s8NJt1glTihsK~ykkqxecdDLMAU7G7ipaRVNxG9m0WwxUQRzOQa1lYCJW-T8TFWwst4itPuuk9L636zaaUL7KuropXt5r1kVZAb2mfpf~vkBGYaZJ-NVxGWISlld06v8F~DMwk3KA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
 ## Advanced Python Objects, map()
 
 ## Advanced Python Lambda and List Comprehensions
