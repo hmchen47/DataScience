@@ -81,6 +81,102 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Querying a Series
 
++ Demo
+    ```python
+    sports = {'Archery': 'Bhutan',
+            'Golf': 'Scotland',
+            'Sumo': 'Japan',
+            'Taekwondo': 'South Korea'}
+    s = pd.Series(sports)
+
+    s.iloc[3]       # index location
+    s.loc['Golf']   # value location
+    s[3]            # index location
+    s['Golf']       # value location
+
+    sports = {99: 'Bhutan',
+            100: 'Scotland',
+            101: 'Japan',
+            102: 'South Korea'}
+    s = pd.Series(sports)
+
+    s[0] #This won't call s.iloc[0] as one might expect, it generates an error instead
+
+    s = pd.Series([100.00, 120.00, 101.00, 3.00])   # auto index w/ number sequence from 0
+
+    # np.sum and iteration
+    total = 0
+    for item in s:
+        total+=item
+    print(total)
+
+    total = np.sum(s)
+    print(total)
+
+    #this creates a big series of random numbers
+    s = pd.Series(np.random.randint(0,1000,10000))
+    s.head()
+
+    len(s)
+
+    # run to times and get the average time to execute the code
+    %%timeit -n 100
+    summary = 0
+    for item in s:
+        summary += item
+    # 1.07 ms ± 95.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+    # get_ipython().run_cell_magic('timeit', '-n 100', 'summary = 0\nfor item in s:\n    summary+=item')
+
+    # generate random series for 10 times
+    %%timeit -n 100
+    summary = np.sum(s)
+    # 144 µs ± 24.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+    # get_ipython().run_cell_magic('timeit', '-n 100', 'summary = np.sum(s)')
+
+    s+=2 #adds two to each item in s using broadcasting
+    s.head()
+
+    for label, value in s.iteritems():
+        s.set_value(label, value+2)
+    s.head()
+
+    %%timeit -n 10
+    s = pd.Series(np.random.randint(0,1000,10000))
+    for label, value in s.iteritems():
+        s.loc[label]= value+2
+
+    # get_ipython().run_cell_magic('timeit', '-n 10', 's = pd.Series(np.random.randint(0,1000,10000))\nfor label, value in s.iteritems():\n    s.loc[label]= value+2')
+
+    %%timeit -n 10
+    s = pd.Series(np.random.randint(0,1000,10000))
+    s+=2
+
+    # get_ipython().run_cell_magic('timeit', '-n 10', 's = pd.Series(np.random.randint(0,1000,10000))\ns+=2')
+
+    s = pd.Series([1, 2, 3])
+    s.loc['Animal'] = 'Bears'
+
+    original_sports = pd.Series({'Archery': 'Bhutan',
+                                'Golf': 'Scotland',
+                                'Sumo': 'Japan',
+                                'Taekwondo': 'South Korea'})
+    cricket_loving_countries = pd.Series(['Australia',
+                                        'Barbados',
+                                        'Pakistan',
+                                        'England'], 
+                                    index=['Cricket',
+                                            'Cricket',
+                                            'Cricket',
+                                            'Cricket'])
+    all_countries = original_sports.append(cricket_loving_countries)
+
+    original_sports
+    cricket_loving_countries
+    all_countries
+    all_countries.loc['Cricket']
+    ```
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
 

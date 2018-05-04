@@ -99,7 +99,7 @@ import numpy as np
 | `np.eye(N)` | Return a 2-D array with ones on the diagonal and zeros elsewhere. `N`=number of rows | [NumPy][005] |
 | `np.diag(ary)` | Extract a diagonal or construct a diagonal array. | [NumPy][005] |
 | `np.repeats(ary, repeats)` | Repeat elements of an array. `repeats`: int or array of int | [NumPy][005] |
-| `aryA.resize(aryB, shape)` | Return a new array with the specified shape. `shape`: int or tuple of int, Shape of resized array. | [NumPy][005] |
+| `np.arrayA.resize(np.arrayB, shape)` | Return a new array with the specified shape. `shape`: int or tuple of int, Shape of resized array. | [NumPy][005] |
 
 ### Combining Arrays
 
@@ -113,13 +113,13 @@ import numpy as np
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `aryA {+|-|*|/} aryB` | elementwise add/subtract/multiply/divide | [NumPy][005] |
-| `aryA.dot(aryB)` | Dot product of two arrays. 1-D - inner product, 2-D - matrix multiplication (`matmul` or `aryA @ aryB` preferred), 0-D (sclar) - multiply, $N \times M$-D - `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])` | [NumPy][005] |
-| `ary.T` | Transpose of `ary`  | [NumPy][005] |
-| `ary.dtype` | View the data type of the elements in the array | [NumPy][005] |
-| `ary.astype(typ)` | Cast to a specifica type `typ`  | [NumPy][005] |
-| `ary.shape` | Show tuple of array dimension | [NumPy][005] |
-| `ary.copy()` | Return an array copy of the given object. | [NumPy][005] |
+| `np.arrayA {+|-|*|/} np.arrayB` | elementwise add/subtract/multiply/divide | [NumPy][005] |
+| `np.arrayA.dot(np.arrayB)` | Dot product of two arrays. 1-D - inner product, 2-D - matrix multiplication (`matmul` or `aryA @ aryB` preferred), 0-D (sclar) - multiply, $N \times M$-D - `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])` | [NumPy][005] |
+| `np.array.T` | Transpose of `np.array`  | [NumPy][005] |
+| `np.array.dtype` | View the data type of the elements in the array | [NumPy][005] |
+| `np.array.astype(typ)` | Cast to a specifica type `typ`  | [NumPy][005] |
+| `np.array.shape` | Show tuple of array dimension | [NumPy][005] |
+| `np.array.copy()` | Return an array copy of the given object. | [NumPy][005] |
 
 
 
@@ -127,25 +127,26 @@ import numpy as np
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `ary.sum()` | Sum of all elements in the array | [NumPy][005] |
-| `ary.min()` | Minimum element of the array | [NumPy][005] |
-| `ary.max()` | Max element of the array | [NumPy][005] |
-| `ary.mean()` | Mean of the elements in the array | [NumPy][005] |
-| `ary.std()` | Standard deviation of the elements in the array | [NumPy][005] |
-| `ary.argmax([a, axis=None])` | Returns the indices of the maximum values along an axis. `axis=None`: all elements| [NumPy][005] |
-| `ary.argmin([a, axis=None])` | Returns the indices of the minimum values along an axis.`axis=None`: all elements | [NumPy][005] |
-| `aryA.sum(aryB, axis=None)` | Sum of array elements over a given axis. `axis=None`: all elements | [NumPy][005] |
+| `np.array.sum()` | Sum of all elements in the array | [NumPy][005] |
+| `np.sum(ser)` | Sum of all elements in `ser` | [Querying Series][007] |
+| `np.array.min()` | Minimum element of the array | [NumPy][005] |
+| `np.array.max()` | Max element of the array | [NumPy][005] |
+| `np.array.mean()` | Mean of the elements in the array | [NumPy][005] |
+| `np.array.std()` | Standard deviation of the elements in the array | [NumPy][005] |
+| `np.array.argmax([a, axis=None])` | Returns the indices of the maximum values along an axis. `axis=None`: all elements| [NumPy][005] |
+| `np.array.argmin([a, axis=None])` | Returns the indices of the minimum values along an axis.`axis=None`: all elements | [NumPy][005] |
+| `np.arrayA.sum(np.arrayB, axis=None)` | Sum of array elements over a given axis. `axis=None`: all elements | [NumPy][005] |
 
 
 ### Indexing/Slicing
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `ary[idx]` | get the value at a specific index w/ 1D array | [NumPy][005] |
-| `ary[start:end]` | get the values between $[start, end)$ w/ 1D array, default to the beginning/end of the array | [NumPy][005] |
-| `ary[row, col]` | get the value at specific indices w/ 2D array | [NumPy][005] |
-| `array[rstart:rend, cstart:cend]` | get a su-barray w/ given indices, default to the beginning/end of the row/col | [NumPy][005] |
-| `ary[idx {>, >=, <, <=>>} val]` | conditional index  | [NumPy][005] |
+| `np.array[idx]` | get the value at a specific index w/ 1D array | [NumPy][005] |
+| `np.array[start:end]` | get the values between $[start, end)$ w/ 1D array, default to the beginning/end of the array | [NumPy][005] |
+| `np.array[row, col]` | get the value at specific indices w/ 2D array | [NumPy][005] |
+| `np.array[rstart:rend, cstart:cend]` | get a su-barray w/ given indices, default to the beginning/end of the row/col | [NumPy][005] |
+| `np.array[idx {>, >=, <, <=>>} val]` | conditional index  | [NumPy][005] |
 
 
 ### Random Number Generator
@@ -176,9 +177,12 @@ import pandas as pd
 | Method | Description | Link |
 |--------|-------------|------|
 | `pd.Series(data=None, Index=None)` | One-dimensional ndarray with axis labels (including time series). Labels need not be unique but must be a hashable type. `data`: array-like, dict, or scalar, `Index`: labels | [Series][006] |
-
-
-
+| `pd.Series.iloc[idx]` | Purely integer-location based indexing for selection by position | [Querying Series][007] |
+| `pd.Series.loc[label]` | Purely label-location based indexer for selection by label, or adding w/ assign | [Querying Series][007] |
+| `pd.Series.head(n=5)` | Return the first n rows | [Querying Series][007] |
+| `pd.Series.set_value(label, value)` | Quickly set single value at passed label.  If label not existed, create and append. | [Querying Series][007] |
+| `pd.Series.iteritems()` | Lazily iterate over (index, value) tuples | [Querying Series][007] |
+| `pd.Series.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
 
 
 
@@ -191,7 +195,7 @@ import pandas as pd
 [004]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-lambda-and-list-comprehensions
 [005]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-demonstration-the-numerical-python-library-numPy
 [006]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-series-data-structure
-[007]: 
+[007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
 [008]: 
 [009]: 
 [000]: 
