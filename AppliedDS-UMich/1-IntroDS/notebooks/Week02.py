@@ -132,6 +132,8 @@ cricket_loving_countries
 all_countries
 
 all_countries.loc['Cricket']
+
+
 # # The DataFrame Data Structure
 import pandas as pd
 purchase_1 = pd.Series({'Name': 'Chris',
