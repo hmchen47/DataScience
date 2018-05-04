@@ -494,3 +494,58 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 ## Hacked Data
 
 
+This course uses a third-party tool, Hacked Data, to enhance your learning experience. The tool will reference basic information like your name, email, and Coursera ID.
+
+[Open Tool](https://nzh13lxjj0.execute-api.us-east-1.amazonaws.com/prod/response/2/new/)
+
+
+## Opinion:
+
+Nathaniel Poor and Roei Davidson from the Data and Society Research Institute were faced with an ethical dilemma when the data they wanted to use for research but couldn't (because of logistics issues) was released by hackers. The data they were interested in was publicly available, but difficult to get at requiring an expensive manual process. The hacked dataset included this public data as well as private messages which they were not interested in. 
+
+Read the case study [here](http://bdes.datasociety.net/wp-content/uploads/2016/10/Patreon-Case-Study.pdf). 
+
+Do you agree with the author's decision to not use the hacked data, and state any arguments they haven't considered for or against the use of this data?
+
+
+
+> Agree
+
+> I agree authors's decision not to use the data set.  Yes, the data is available in public domain now.  However, the way and origin of the data is illegal.  The root of the data is malicious.   
+>
+> According to the Fruit of the poisonous tree theory, the fruit is poisonous no matter how great  it is.   Similarly, the use of the data might come out fruitful results due to the accuracy and completeness of the data set.  However, The ethic issues, in particular, privacy, makes the data improper.  The results are also improper.  Though someone might said the data used was filtered and scanned before use and published.  To get such results based on the rotten root makes the results arguable.  
+> 
+> Alternatively,  why not contact the data source again and ask their permission for using the data they provide or crawled by authors themselves.  The authors still can get similar results with the proper way.  The results are more respectful and appreciate by others.
+
+### Peer Feedback : Peer Feedback 
+
+A student from Ethiopia agrees with you.  
+> I totally agree with the author's decision not to use the hacked data because it would intrude the privacy of many users even though the data was to be used for a research. Furthermore, the research could be done using other means and medium of data which would have been legal whereas using this data would set an example that might lead to increase hacking of personal data in the name of research. The research might just be very biased rather than generalizable because no one can confirm the validity of hacked data.
+
+
+My Opinion: convincing
+
+> I agree the opinion and found the author provided a  good point.  The use of the data set will implicitly encourage more hackers doing similar activities.  In this case, the data uses for research.  The result seems not too bad.  However, many other usage might cause big damage on other issues, such as trusty between people and the Internet service provider.  That will eventually tear down the trust and hinder the development  and use of technology. 
+
+This activity is a new one, and we would like your feedback on the value of peer review in peer review in Coursera courses like this one. Please share your thoughts to the following:
+
+A student from India agrees with you.  
+> I strongly agree with the author's decision to not use the hacked data. The advent of internet has had far reaching effects on humanity. While it can be argued that a vast majority of them are progressive, there has been considerable wrong doing as well. This has left a great degree of skepticism about the internet in the minds of humans . As a progressive species we must try to avoid and eradicate the evil effects of internet to foster faith in skeptics. With that intention, we must not only avoid the use of data that was gathered illegally but actively discourage the very act of hacking data.
+
+My Opinion: convincing
+
+> The opinion remind me  on of the value in Google, Don't be evil.  This is a great part of Internet.  So many people, even county, such as China, manipulate the publicity and freedom of the Internet.  That will block the progressive of the technology eventually.
+
+
+A student from United Kingdom agrees with you.
+> 1. Researchers have a limited capability to distinguish between public and private information within the hacked data. 
+> 2. May see private data when cleaning the data. 
+> 3. Perhaps legitimizing criminal activity. 
+> 4. Violating users’ expectation of privacy. 
+> 5. Using people’s data without consent. 
+> 6. We want this data, but we don’t need it.  
+> Other data can be ethically collected and used. These arguments against using the data, we feel, are much stronger than the arguments for using the data. Thus, in the end, we did not use the data copied and released by the hackers. Considering other cases and academic guidelines, we felt it would not be appropriate. Altogether, despite our hoping to do some good with the data and despite our hope to only use parts of it that were originally public, we felt the negatives outweighed the positives, especially when we could gather all or most of the same data in a more legal and more accepted manner. Some cases of using data (or not) will be clear, other cases will not be. In the spirit of making lemonade out of lemons, we hope our case highlights some of the difficulties and considerations academics may encounter when contemplating the use of data.
+
+My Opinion: convincing
+
+> I agree the comments.  However, the opinion just states some facts not provide consequence of using the data significantly.   The consequence of using such illegal  data will make the opinion much stronger.
