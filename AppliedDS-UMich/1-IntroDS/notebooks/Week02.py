@@ -276,6 +276,7 @@ df.loc['Michigan', 'Washtenaw County']
 
 df.loc[ [('Michigan', 'Washtenaw County'),
          ('Michigan', 'Wayne County')] ]
+         
 # # Missing values
 df = pd.read_csv('log.csv')
 df
