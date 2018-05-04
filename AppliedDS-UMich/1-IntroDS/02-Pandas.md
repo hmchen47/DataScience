@@ -456,10 +456,41 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Missing Values
 
++ `fillna` method: 
+    + Signature: `df.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)`
+    + Docstring: Fill NA/NaN values using the specified method
+    + Parameters
+        + `value`: scalar, dict, Series, or DataFrame   
+            Value to use to fill holes (e.g. 0), alternately a dict/Series/DataFrame of values specifying which value to use for each index (for a Series) or column (for a DataFrame). (values not in the dict/Series/DataFrame will not be filled). This value cannot be a list.
+        + `method`: {'backfill', 'bfill', 'pad', 'ffill', None}  
+            Method to use for filling holes in reindexed Series, `pad`/`ffill`: propagate last valid observation forward to next valid, `backfill`/`bfill`: use NEXT valid observation to fill gap
+        + `axis`: {0 or 'index', 1 or 'columns'}  
+        + `inplace`: boolean, default False  
+            If True, fill in place. Note: this will modify any other views on this object, (e.g. a no-copy slice for a column in a DataFrame).
+        + `limit`: int, default None  
+            If method is specified, this is the maximum number of consecutive NaN values to forward/backward fill. In other words, if there is a gap with more than this number of consecutive NaNs, it will only be partially filled. If method is not specified, this is the maximum number of entries along the entire axis where NaNs will be filled. Must be greater than 0 if not None.
+        + `downcast`: dict, default is None  
+            a dict of item->dtype of what to downcast if possible, or the string 'infer' which will try to downcast to an appropriate equal type (e.g. float64 to int64 if possible)
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
++ Demo
+    ```python
+    df = pd.read_csv('log.csv')
+
+    help(pd.DataFrame.fillna)
+
+    df = df.set_index('time')
+    df = df.sort_index()
+
+    df = df.reset_index()
+    df = df.set_index(['time', 'user'])
+
+    df = df.fillna(method='ffill')
+    df.head()
+    ```
+
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/99DDF5ePEeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1525564800&Signature=BvPVy7JSz-QfzQJawmWgz-jCCdOctkjwFMoV5gw0K4l0A4YSsBnrMrdpZN3iN0O11mh~Ai30CIhpT2v42JDuZ1thRA~i73TxBhU4dfVHsm3T6iF21U3qCp2lRXUksOAslNc5Mz2vs~gQiTQ5JQhIcoK7SzXWrvAkJlFydWmcDhE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## Hacked Data
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
