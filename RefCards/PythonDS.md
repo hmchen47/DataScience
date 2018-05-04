@@ -1,5 +1,13 @@
 # Python for Data Science
 
+## Table of Contents
+
++ [General](#general)
+    + [Open CVS File](#ioen-csv-file)
+    + [Methods](#methods)
++ [Date and Times](#date-and-times)
+    + [Import Files](#import-files)
+    + [Attributes](#attributes)
 
 ## General
 
@@ -457,16 +465,11 @@ Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fas
 
 
 
-
-
-
-
-
 ### DataFrame
 
-#### Creation 
+#### Creation
 
-Syntax: ``df(data=None, index=None, columns=None, dtype=None, copy=False)`
+Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 
 | [Parameter][011](v0.22.0) | Type | Description |
 |-----------|-------------|-------------|
