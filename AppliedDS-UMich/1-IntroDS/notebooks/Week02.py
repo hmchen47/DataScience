@@ -233,6 +233,7 @@ only_gold.head()
 len(df[(df['Gold'] > 0) | (df['Gold.1'] > 0)])
 
 df[(df['Gold.1'] > 0) & (df['Gold'] == 0)]
+
 # # Indexing Dataframes
 df.head()
 
