@@ -262,6 +262,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ptint(df)
         ```
 
+![diagram](http://pbpython.com/images/pandas-dataframe-shadow.png)
+
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/w6PVAZmGEeaagxL7xdFKxA.processed/full/540p/index.mp4?Expires=1525564800&Signature=cI~uPCjTpOVibCfdgKjXSUO2fSV5tMmHRPm578h5Gfms2Dd08CDs8xYtFW~5uDiS9PwP6SUWTp03wT2h3Ks0OeLf4FmmRAcb9OiFU3x-nkBQv2WjJw7iD13EiRJoRQNN04RMpFTmh5xkALYvwUsoTaweFMTBo9zF2WbtKJnQgwQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## DataFrame Indexing and Loading
@@ -319,8 +321,57 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Querying a DataFrame
 
++ Boolean Masking
+    + conceptually efficient and cornerstone of efficient NumPy
+    + an array or dataframe  w/ `True` or `False` on each element
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+    ![diagram](./diagrams/booleanMasking.png)
+
++ Demo
+    ```python
+    df['Gold'] > 0      # create boolean mask
+
+    # apply boolean mask to dataframe w/ where function
+    only_gold = df.where(df['Gold'] > 0)
+    only_gold.head()
+
+    # some countries do not have gold medal
+    only_gold['Gold'].count()
+    df['Gold'].count()
+
+    # drop rows w/ NaN
+    only_gold = only_gold.dropna()
+    only_gold.head()
+
+    only_gold = df[df['Gold'] > 0]
+    only_gold.head()
+
+    # countries won gold medals in summer or winter
+    len(df[(df['Gold'] > 0) | (df['Gold.1'] > 0)])
+
+    # counties won golf medal only in winter
+    df[(df['Gold.1'] > 0) & (df['Gold'] == 0)]
+    ```
++ Quiz
+    + Write a query to return all of the names of people who bought products worth more than $3.00
+        ```python
+        purchase_1 = pd.Series({'Name': 'Chris',
+                                'Item Purchased': 'Dog Food',
+                                'Cost': 22.50})
+        purchase_2 = pd.Series({'Name': 'Kevyn',
+                                'Item Purchased': 'Kitty Litter',
+                                'Cost': 2.50})
+        purchase_3 = pd.Series({'Name': 'Vinod',
+                                'Item Purchased': 'Bird Seed',
+                                'Cost': 5.00})
+
+        df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+
+        # Your code here
+        ```
+    + Answer: `df['Name'][df['Cost']>3]`
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/LHzOC5mHEeaqggpsvkGGZA.processed/full/540p/index.mp4?Expires=1525564800&Signature=BflZUCj82jZiMQn4jQihd5IuGFo8ZCcK6HwJ9CGkISeYIMzYGnAf91Lo44uTmeUPlxfKhRlHV8GNCs2RPu1iO1lw0V7fzk3fTXeybs3qq8QckukBBhaIyoEZt6SZi3OzXK7zARHJOueBkLSYow1m2LY0fBxlROJUKOXl~YtKqdQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## Indexing Dataframes
 

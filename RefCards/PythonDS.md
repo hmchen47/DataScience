@@ -199,7 +199,14 @@ import pandas as pd
 | `pd.DataFrame.T` | Transpose index and columns | [DataFrame][008] |
 | `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: Column to use as the row labels of the DataFrame (int or sequence or False), `skiprows`: Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file (list-like or integer or callable) | [DF Index & Load][009] |
 | `pd.DataFrame.columns` | Index of column labels | [DF Index & Load][009] |
-| `np.DataFrame.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: Axis to target with `mapper` (int or str), `inplace`: Whether to return a new %(klass)s (boolean) | [DF Index & Load][009] |
+| `np\\pd.DataFrame.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: Axis to target with `mapper` (int or str), `inplace`: Whether to return a new %(klass)s (boolean) | [DF Index & Load][009] |
+| `pd.DataFrame.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` (boolean NDFrame, array-like, or callable) | [DF Query][010] |
+| `pd.DataFrme.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
+| `pd.DatFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` : if all values are NA, drop that label; `thresh`: int, default None; int value : require that many non-NA values; `subset` : array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
+
+
+
+
 
 
 
@@ -216,7 +223,7 @@ import pandas as pd
 [007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
 [008]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-dataframe-data-structure
 [009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
-[000]: 
+[000]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
 [011]: 
 [012]: 
 [013]: 
