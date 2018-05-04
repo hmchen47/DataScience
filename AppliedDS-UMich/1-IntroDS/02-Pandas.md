@@ -178,7 +178,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     all_countries.loc['Cricket']
     ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/nE8CiJePEea_cQqzDLeQwg.processed/full/540p/index.mp4?Expires=1525564800&Signature=eml1y2DEZSD3DW4FUnrzfUiypGLnp8kIOTr43m7-sobpf4sXW80ltXDAyktfSfoZuuNMaifteEJuEvFBtf52LUwKIoug-CwAYNIy-eJxzSeQzKCpQvFRcj1DRU~q~il6LL4R31z3WtjZSeOZZM6T~q--KijBe-0ksPF7ftnH2Ko_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## The DataFrame Data Structure
 
@@ -262,12 +262,60 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ptint(df)
         ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/w6PVAZmGEeaagxL7xdFKxA.processed/full/540p/index.mp4?Expires=1525564800&Signature=cI~uPCjTpOVibCfdgKjXSUO2fSV5tMmHRPm578h5Gfms2Dd08CDs8xYtFW~5uDiS9PwP6SUWTp03wT2h3Ks0OeLf4FmmRAcb9OiFU3x-nkBQv2WjJw7iD13EiRJoRQNN04RMpFTmh5xkALYvwUsoTaweFMTBo9zF2WbtKJnQgwQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## DataFrame Indexing and Loading
 
++ Demo
+    ```python
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+    !cat olympics.csv # shell cmd execution
+
+    # CSV file loading
+    df = pd.read_csv('olympics.csv')
+    df.head()
+
+    # CSV file loading w/ index and row skipping
+    df = pd.read_csv('olympics.csv', index_col = 0, skiprows=1)
+    df.head()
+
+    df.columns
+
+    for col in df.columns:
+        if col[:2]=='01':
+            df.rename(columns={col:'Gold' + col[4:]}, inplace=True)
+        if col[:2]=='02':
+            df.rename(columns={col:'Silver' + col[4:]}, inplace=True)
+        if col[:2]=='03':
+            df.rename(columns={col:'Bronze' + col[4:]}, inplace=True)
+        if col[:1]=='№':
+            df.rename(columns={col:'#' + col[1:]}, inplace=True) 
+
+    df.head()
+    ```
+
++ Quiz
+    + Suppose we have a CSV file exercise.csv that looks like this:
+
+        Exercise CSV  
+        Week 1 Exercises  
+        | Activity ID | Activity Type | Activity Duration | Calories | 
+        |-------------|---------------|-------------------|----------|
+        | 125 | Running | 65 | 450 | 
+        | 126 | Biking | 40 | 280 | 
+        | 127 | Running | 90 | 850 | 
+        | 128 | Walking | 30 | 160 | 
+
+        Which of the following would return a DataFrame with the columns = ['Activity Type', 'Activity Duration', 'Calories'] and index = [125, 126, 127, 128] with the name 'Activity ID'?  
+        a. `pd.read_csv('exercise.csv', skiprows=2, index_col=0)`
+        b. `pd.read_excel('exercise.csv', skiprows=2, index_col=0)`
+        c. `pd.read_excel('exercise.csv', skiprows=2, sep='\t')`
+        d. `pd.read_csv('exercise.csv', skiprows=2, sep=',')`
+    + Answer:  
+        a
+
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/zFPMm5ePEea2tg7d5YqbXg.processed/full/540p/index.mp4?Expires=1525564800&Signature=BW85AthCkYtHJ9xLHWM4xnWm9yoYWWVy1WEu1J4mVtFugzdS76x49rkoaL0JJP3xhAaTVuACmjbxmbnUQyMsp0B8-7Uf2PqaJ6xNy5PHdK-kJepTL48FKWd8C5N-JHo6lkDp6cGhKgm~pC79NPt~OTu9cBzjHPPmT1PZFZtn2Sk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## Querying a DataFrame
 

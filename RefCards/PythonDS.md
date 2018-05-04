@@ -197,6 +197,9 @@ import pandas as pd
 | `pd.DataFrame.iloc[idx]` | Purely integer-location based indexing for selection by position, Series of `idx` row | [DataFrame][008] |
 | `pd.DataFrame.drop(labels=None, axis=0, index=None, columns=None)` | Return new object with labels in requested axis removed. | [DataFrame][008] |
 | `pd.DataFrame.T` | Transpose index and columns | [DataFrame][008] |
+| `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: Column to use as the row labels of the DataFrame (int or sequence or False), `skiprows`: Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file (list-like or integer or callable) | [DF Index & Load][009] |
+| `pd.DataFrame.columns` | Index of column labels | [DF Index & Load][009] |
+| `np.DataFrame.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: Axis to target with `mapper` (int or str), `inplace`: Whether to return a new %(klass)s (boolean) | [DF Index & Load][009] |
 
 
 
@@ -212,7 +215,7 @@ import pandas as pd
 [006]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-series-data-structure
 [007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
 [008]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-dataframe-data-structure
-[009]: 
+[009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
 [000]: 
 [011]: 
 [012]: 
