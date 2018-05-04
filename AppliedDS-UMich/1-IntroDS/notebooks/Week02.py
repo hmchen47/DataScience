@@ -213,6 +213,7 @@ for col in df.columns:
         df.rename(columns={col:'#' + col[1:]}, inplace=True) 
 
 df.head()
+
 # # Querying a DataFrame
 df['Gold'] > 0
 
