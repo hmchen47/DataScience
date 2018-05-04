@@ -373,10 +373,86 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/LHzOC5mHEeaqggpsvkGGZA.processed/full/540p/index.mp4?Expires=1525564800&Signature=BflZUCj82jZiMQn4jQihd5IuGFo8ZCcK6HwJ9CGkISeYIMzYGnAf91Lo44uTmeUPlxfKhRlHV8GNCs2RPu1iO1lw0V7fzk3fTXeybs3qq8QckukBBhaIyoEZt6SZi3OzXK7zARHJOueBkLSYow1m2LY0fBxlROJUKOXl~YtKqdQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
-## Indexing Dataframes
+## Indexing DataFrames
 
++ Indexing
+    + `index`: row level label
+    + `set_index` method: 
+        + destructive operation
+        + copy the column and set its index to preserve the original index
+        + index column offset with original dataframe
+        + new 1st row w/ empty value
+    + `reset_index` method: remove original indices and create a default numerical indices
++ Demo
+    ```python
+    df['country'] = df.index    # preserve index as column 'country'
+    df = df.set_index('Gold')   # set 'Gold' column as index and move to front
+    df.head()
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
+    df = df.reset_index()
+    df.head()
+
+    df = pd.read_csv('census.csv')
+    df.head()                       # onlu display first 5 rows
+
+    # distinct values in 'SUMLEV' column
+    df['SUMLEV'].unique()
+
+    df=df[df['SUMLEV'] == 50]   # reserve rows with SUMLEV=50
+
+    # set of columns to keep
+    columns_to_keep = ['STNAME',
+                    'CTYNAME',
+                    'BIRTHS2010',
+                    'BIRTHS2011',
+                    'BIRTHS2012',
+                    'BIRTHS2013',
+                    'BIRTHS2014',
+                    'BIRTHS2015',
+                    'POPESTIMATE2010',
+                    'POPESTIMATE2011',
+                    'POPESTIMATE2012',
+                    'POPESTIMATE2013',
+                    'POPESTIMATE2014',
+                    'POPESTIMATE2015']
+    df = df[columns_to_keep]
+
+    df = df.set_index(['STNAME', 'CTYNAME'])    # dual indices
+
+    df.loc['Michigan', 'Washtenaw County']      # single set of values
+
+    df.loc[ [('Michigan', 'Washtenaw County'),  # multi-sets of values
+            ('Michigan', 'Wayne County')] ]
+    ```
+
++ Quiz
+    + Reindex the purchase records DataFrame to be indexed hierarchically, first by store, then by person. Name these indexes 'Location' and 'Name'. Then add a new entry to it with the value of:
+
+        Name: 'Kevyn', Item Purchased: 'Kitty Food', Cost: 3.00 Location: 'Store 2'.
+        ```python
+        purchase_1 = pd.Series({'Name': 'Chris',
+                                'Item Purchased': 'Dog Food',
+                                'Cost': 22.50})
+        purchase_2 = pd.Series({'Name': 'Kevyn',
+                                'Item Purchased': 'Kitty Litter',
+                                'Cost': 2.50})
+        purchase_3 = pd.Series({'Name': 'Vinod',
+                                'Item Purchased': 'Bird Seed',
+                                'Cost': 5.00})
+
+        df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+
+        # Your answer here  
+        ```
+    + Answer: 
+        ```python
+        df = df.set_index([df.index, 'Name'])
+        df.index.names = ['Location', 'Name']
+        df = df.append(pd.Series(data={'Cost': 3.00, 'Item Purchased': 'Kitty Food'}, name=('Store 2', 'Kevyn')))
+        df
+        ```
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/60unRpePEeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1525564800&Signature=D2XAgk~woURtyknKbi4bx-12FPNB~42JHGHlKi54CzwLUrc8dqLdXNiswpwRvoxmkQoK7MsMbTM-o2ASqaNPSgX2Na3yUrv6iLjvvcmM4~lZlbwegcKYGRSm~ZBLHMGw~Tm23r8HPKpIyUquWvQrDKg6FDsYsKQ5LrVacGB4SyQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## Missing Values
 

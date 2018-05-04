@@ -29,7 +29,7 @@
 | `set(obj)` | return the unique values for the class types; set theory in math | [CSV Files][001] |
 | `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000] |
 | `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
-| `func = lambda var1, ... : expr` | anonymous function, usage: `func(vara, ...)` | [Lambda & List Comprehension][004] |
+| `func = lambda var1, ...` | expr` | anonymous function, usage: `func(vara, ...)` | [Lambda & List Comprehension][004] |
 | `enumerate(iterable[, start])` | Return an enumerate object, obtaining an indexed list:  `(0, seq[0]), (1, seq[1]), (2, seq[2]), ...` | [NumPy][005] |
 | `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] |
 
@@ -164,6 +164,11 @@ import numpy as np
 
 
 
+
+
+
+
+
 ## Pandas
 
 ### Import file
@@ -172,7 +177,271 @@ import numpy as np
 import pandas as pd
 ```
 
+
+
+
+
+
+
 ### Series
+
+#### Ceation 
+
+Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)`
+
+| [Parameter][013](v0.22.0) | Type | Description |
+|-----------|-------------|-------------|
+| `data` | array-like, dict, or scalar value | Contains data stored in Series |
+| `index` | array-like or Index (1d) | Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
+| `dtype` | numpy.dtype or None | If None, dtype will be inferred |
+| `copy` | boolean, default False | Copy input data |
+
+#### Attributes
+
+| [Attribute][013](v0.22.0) | Description |
+|-----------|-------------|
+| `T ` | return the transpose, which is by definition self |
+| `asobject ` | return object Series which contains boxed values |
+| `at ` | Fast label-based scalar accessor |
+| `axes ` | Return a list of the row axis labels |
+| `base ` | return the base object if the memory of the underlying data is |
+| `blocks ` | Internal property, property synonym for as_blocks() |
+| `data ` | return the data pointer of the underlying data |
+| `dtype ` | return the dtype object of the underlying data |
+| `dtypes ` | return the dtype object of the underlying data |
+| `empty ` |  |
+| `flags ` |  |
+| `ftype ` | return if the data is sparse|dense |
+| `ftypes ` | return if the data is sparse|dense |
+| `hasnans ` |  |
+| `iat ` | Fast integer location scalar accessor. |
+| `iloc ` | Purely integer-location based indexing for selection by position. |
+| `imag ` |  |
+| `is_copy ` |  |
+| `is_monotonic ` | Return boolean if values in the object are |
+| `is_monotonic_decreasing ` | Return boolean if values in the object are |
+| `is_monotonic_increasing ` | Return boolean if values in the object are |
+| `is_unique ` | Return boolean if values in the object are unique |
+| `itemsize ` | return the size of the dtype of the item of the underlying data |
+| `ix ` | A primarily label-location based indexer, with integer position fallback. |
+| `loc ` | Purely label-location based indexer for selection by label. |
+| `name ` |  |
+| `nbytes ` | return the number of bytes in the underlying data |
+| `ndim ` | return the number of dimensions of the underlying data, |
+| `real ` |  |
+| `shape ` | return a tuple of the shape of the underlying data |
+| `size ` | return the number of elements in the underlying data |
+| `strides ` | return the strides of the underlying data |
+| `values ` | Return Series as ndarray or ndarray-like |
+
+
+#### Methods
+
+| [Method][011] (v0.22.0) | Description |
+|---------------|-------------|
+| `abs()` | Return an object with absolute value taken–only applicable to objects that are all numeric. |
+| `add(other[, level, fill_value, axis])` | Addition of series and other, element-wise (binary operator add). |
+| `add_prefix(prefix)` | Concatenate prefix string with panel items names. |
+| `add_suffix(suffix)` | Concatenate suffix string with panel items names. |
+| `agg(func[, axis])` | Aggregate using callable, string, dict, or list of string/callables |
+| `aggregate(func[, axis])` | Aggregate using callable, string, dict, or list of string/callables |
+| `align(other[, join, axis, level, copy, ...])` | Align two objects on their axes with the |
+| `all([axis, bool_only, skipna, level])` | Return whether all elements are True over requested axis |
+| `any([axis, bool_only, skipna, level])` | Return whether any element is True over requested axis |
+| `append(to_append[, ignore_index, ...])` | Concatenate two or more Series. |
+| `apply(func[, convert_dtype, args])` | Invoke function on values of Series. |
+| `argmax(*args, **kwargs)` |  |
+| `argmin(*args, **kwargs)` |  |
+| `argsort([axis, kind, order])` | Overrides ndarray.argsort. |
+| `as_blocks([copy])` | Convert the frame to a dict of dtype -> Constructor Types that each has a homogeneous dtype. |
+| `as_matrix([columns])` | Convert the frame to its Numpy-array representation. |
+| `asfreq(freq[, method, how, normalize, ...])` | Convert TimeSeries to specified frequency. |
+| `asof(where[, subset])` | The last row without any NaN is taken (or the last row without |
+| `astype(dtype[, copy, errors])` | Cast a pandas object to a specified dtype dtype. |
+| `at_time(time[, asof])` | Select values at particular time of day (e.g. |
+| `autocorr([lag])` | Lag-N autocorrelation |
+| `between(left, right[, inclusive])` | Return boolean Series equivalent to left <= series <= right. |
+| `between_time(start_time, end_time[, ...])` | Select values between particular times of the day (e.g., 9:00-9:30 AM). |
+| `bfill([axis, inplace, limit, downcast])` | Synonym for DataFrame.fillna(method='bfill') |
+| `bool()` | Return the bool of a single element PandasObject. |
+| `cat ` | alias of CategoricalAccessor |
+| `clip([lower, upper, axis, inplace])` | Trim values at input threshold(s). |
+| `clip_lower(threshold[, axis, inplace])` | Return copy of the input with values below given value(s) truncated. |
+| `clip_upper(threshold[, axis, inplace])` | Return copy of input with values above given value(s) truncated. |
+| `combine(other, func[, fill_value])` | Perform elementwise binary operation on two Series using given function |
+| `combine_first(other)` | Combine Series values, choosing the calling Series’s values first. |
+| `compound([axis, skipna, level])` | Return the compound percentage of the values for the requested axis |
+| `compress(condition, *args, **kwargs)` | Return selected slices of an array along given axis as a Series |
+| `consolidate([inplace])` | DEPRECATED: consolidate will be an internal implementation only. |
+| `convert_objects([convert_dates, ...])` | Deprecated. |
+| `copy([deep])` | Make a copy of this objects data. |
+| `corr(other[, method, min_periods])` | Compute correlation with other Series, excluding missing values |
+| `count([level])` | Return number of non-NA/null observations in the Series |
+| `cov(other[, min_periods])` | Compute covariance with Series, excluding missing values |
+| `cummax([axis, skipna])` | Return cumulative max over requested axis. |
+| `cummin([axis, skipna])` | Return cumulative minimum over requested axis. |
+| `cumprod([axis, skipna])` | Return cumulative product over requested axis. |
+| `cumsum([axis, skipna])` | Return cumulative sum over requested axis. |
+| `describe([percentiles, include, exclude])` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset’s distribution, excluding NaN values. |
+| `diff([periods])` | 1st discrete difference of object |
+| `div(other[, level, fill_value, axis])` | Floating division of series and other, element-wise (binary operator truediv). |
+| `divide(other[, level, fill_value, axis])` | Floating division of series and other, element-wise (binary operator truediv). |
+| `dot(other)` | Matrix multiplication with DataFrame or inner-product with Series |
+| `drop([labels, axis, index, columns, level, ...])` | Return new object with labels in requested axis removed. |
+| `drop_duplicates([keep, inplace])` | Return Series with duplicate values removed |
+| `dropna([axis, inplace])` | Return Series without null values |
+| `dt ` | alias of CombinedDatetimelikeProperties |
+| `duplicated([keep])` | Return boolean Series denoting duplicate values |
+| `eq(other[, level, fill_value, axis])` | Equal to of series and other, element-wise (binary operator eq). |
+| `equals(other)` | Determines if two NDFrame objects contain the same elements. |
+| `ewm([com, span, halflife, alpha, ...])` | Provides exponential weighted functions |
+| `expanding([min_periods, freq, center, axis])` | Provides expanding transformations. |
+| `factorize([sort, na_sentinel])` | Encode the object as an enumerated type or categorical variable |
+| `ffill([axis, inplace, limit, downcast])` | Synonym for DataFrame.fillna(method='ffill') |
+| `fillna([value, method, axis, inplace, ...])` | Fill NA/NaN values using the specified method |
+| `filter([items, like, regex, axis])` | Subset rows or columns of dataframe according to labels in the specified index. |
+| `first(offset)` | Convenience method for subsetting initial periods of time series data based on a date offset. |
+| `first_valid_index()` | Return index for first non-NA/null value. |
+| `floordiv(other[, level, fill_value, axis])` | Integer division of series and other, element-wise (binary operator floordiv). |
+| `from_array(arr[, index, name, dtype, copy, ...])` |  |
+| `from_csv(path[, sep, parse_dates, header, ...])` | Read CSV file (DEPRECATED, please use pandas.read_csv() instead). |
+| `ge(other[, level, fill_value, axis])` | Greater than or equal to of series and other, element-wise (binary operator ge). |
+| `get(key[, default])` | Get item from object for given key (DataFrame column, Panel slice, etc.). |
+| `get_dtype_counts()` | Return the counts of dtypes in this object. |
+| `get_ftype_counts()` | Return the counts of ftypes in this object. |
+| `get_value(label[, takeable])` | Quickly retrieve single value at passed index label |
+| `get_values()` | same as values (but handles sparseness conversions); is a view |
+| `groupby([by, axis, level, as_index, sort, ...])` | Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns. |
+| `gt(other[, level, fill_value, axis])` | Greater than of series and other, element-wise (binary operator gt). |
+| `head([n])` | Return the first n rows. |
+| `hist([by, ax, grid, xlabelsize, xrot, ...])` | Draw histogram of the input series using matplotlib |
+| `idxmax([axis, skipna])` | Index label of the first occurrence of maximum of values. |
+| `idxmin([axis, skipna])` | Index label of the first occurrence of minimum of values. |
+| `infer_objects()` | Attempt to infer better dtypes for object columns. |
+| `interpolate([method, axis, limit, inplace, ...])` | Interpolate values according to different methods. |
+| `isin(values)` | Return a boolean Series showing whether each element in the Series is exactly contained in the passed sequence of values. |
+| `isna()` | Return a boolean same-sized object indicating if the values are NA. |
+| `isnull()` | Return a boolean same-sized object indicating if the values are NA. |
+| `item()` | return the first element of the underlying data as a python |
+| `items()` | Lazily iterate over (index, value) tuples |
+| `iteritems()` | Lazily iterate over (index, value) tuples |
+| `keys()` | Alias for index |
+| `kurt([axis, skipna, level, numeric_only])` | Return unbiased kurtosis over requested axis using Fisher’s definition of kurtosis (kurtosis of normal == 0.0).
+| `kurtosis([axis, skipna, level, numeric_only])` | Return unbiased kurtosis over requested axis using Fisher’s definition of kurtosis (kurtosis of normal  |== | `0.0). |
+| `last(offset)` | Convenience method for subsetting final periods of time series data based on a date offset. |
+| `last_valid_index()` | Return index for last non-NA/null value. |
+| `le(other[, level, fill_value, axis])` | Less than or equal to of series and other, element-wise (binary operator le). |
+| `lt(other[, level, fill_value, axis])` | Less than of series and other, element-wise (binary operator lt). |
+| `mad([axis, skipna, level])` | Return the mean absolute deviation of the values for the requested axis |
+| `map(arg[, na_action])` | Map values of Series using input correspondence (which can be |
+| `mask(cond[, other, inplace, axis, level, ...])` | Return an object of same shape as self and whose corresponding entries are from self where cond is  |False | `and otherwise are from other. |
+| `max([axis, skipna, level, numeric_only])` | This method returns the maximum of the values in the object. |
+| `mean([axis, skipna, level, numeric_only])` | Return the mean of the values for the requested axis |
+| `median([axis, skipna, level, numeric_only])` | Return the median of the values for the requested axis |
+| `memory_usage([index, deep])` | Memory usage of the Series |
+| `min([axis, skipna, level, numeric_only])` | This method returns the minimum of the values in the object. |
+| `mod(other[, level, fill_value, axis])` | Modulo of series and other, element-wise (binary operator mod). |
+| `mode()` | Return the mode(s) of the dataset. |
+| `mul(other[, level, fill_value, axis])` | Multiplication of series and other, element-wise (binary operator mul). |
+| `multiply(other[, level, fill_value, axis])` | Multiplication of series and other, element-wise (binary operator mul). |
+| `ne(other[, level, fill_value, axis])` | Not equal to of series and other, element-wise (binary operator ne). |
+| `nlargest([n, keep])` | Return the largest n elements. |
+| `nonzero()` | Return the indices of the elements that are non-zero |
+| `notna()` | Return a boolean same-sized object indicating if the values are not NA. |
+| `notnull()` | Return a boolean same-sized object indicating if the values are not NA. |
+| `nsmallest([n, keep])` | Return the smallest n elements. |
+| `nunique([dropna])` | Return number of unique elements in the object. |
+| `pct_change([periods, fill_method, limit, freq])` | Percent change over given number of periods. |
+| `pipe(func, *args, **kwargs)` | Apply func(self, *args, **kwargs) |
+| `plot ` | alias of SeriesPlotMethods |
+| `pop(item)` | Return item and drop from frame. |
+| `pow(other[, level, fill_value, axis])` | Exponential power of series and other, element-wise (binary operator pow). |
+| `prod([axis, skipna, level, numeric_only, ...])` | Return the product of the values for the requested axis |
+| `product([axis, skipna, level, numeric_only, ...])` | Return the product of the values for the requested axis |
+| `ptp([axis, skipna, level, numeric_only])` | Returns the difference between the maximum value and the minimum value in the object. |
+| `put(*args, **kwargs)` | Applies the put method to its values attribute if it has one. |
+| `quantile([q, interpolation])` | Return value at the given quantile, a la numpy.percentile. |
+| `radd(other[, level, fill_value, axis])` | Addition of series and other, element-wise (binary operator radd). |
+| `rank([axis, method, numeric_only, ...])` | Compute numerical data ranks (1 through n) along axis. |
+| `ravel([order])` | Return the flattened underlying data as an ndarray |
+| `rdiv(other[, level, fill_value, axis])` | Floating division of series and other, element-wise (binary operator rtruediv). |
+| `reindex([index])` | Conform Series to new index with optional filling logic, placing NA/NaN in locations having no value in the previous index. |
+| `reindex_axis(labels[, axis])` | for compatibility with higher dims |
+| `reindex_like(other[, method, copy, limit, ...])` | Return an object with matching indices to myself. |
+| `rename([index])` | Alter Series index labels or name |
+| `rename_axis(mapper[, axis, copy, inplace])` | Alter the name of the index or columns. |
+| `reorder_levels(order)` | Rearrange index levels using input order. |
+| `repeat(repeats, *args, **kwargs)` | Repeat elements of an Series. |
+| `replace([to_replace, value, inplace, limit, ...])` | Replace values given in ‘to_replace’ with ‘value’. |
+| `resample(rule[, how, axis, fill_method, ...])` | Convenience method for frequency conversion and resampling of time series. |
+| `reset_index([level, drop, name, inplace])` | Analogous to the pandas.DataFrame.reset_index() function, see docstring there. |
+| `reshape(*args, **kwargs)` | Deprecated since version 0.19.0. |
+| `rfloordiv(other[, level, fill_value, axis])` | Integer division of series and other, element-wise (binary operator rfloordiv). |
+| `rmod(other[, level, fill_value, axis])` | Modulo of series and other, element-wise (binary operator rmod). |
+| `rmul(other[, level, fill_value, axis])` | Multiplication of series and other, element-wise (binary operator rmul). |
+| `rolling(window[, min_periods, freq, center, ...])` | Provides rolling window calculations. |
+| `round([decimals])` | Round each value in a Series to the given number of decimals. |
+| `rpow(other[, level, fill_value, axis])` | Exponential power of series and other, element-wise (binary operator rpow). |
+| `rsub(other[, level, fill_value, axis])` | Subtraction of series and other, element-wise (binary operator rsub). |
+| `rtruediv(other[, level, fill_value, axis])` | Floating division of series and other, element-wise (binary operator rtruediv). |
+| `sample([n, frac, replace, weights, ...])` | Returns a random sample of items from an axis of object. |
+| `searchsorted(value[, side, sorter])` | Find indices where elements should be inserted to maintain order. |
+| `select(crit[, axis])` | Return data corresponding to axis labels matching criteria |
+| `sem([axis, skipna, level, ddof, numeric_only])` | Return unbiased standard error of the mean over requested axis. |
+| `set_axis(labels[, axis, inplace])` | Assign desired index to given axis |
+| `set_value(label, value[, takeable])` | Quickly set single value at passed label. |
+| `shift([periods, freq, axis])` | Shift index by desired number of periods with an optional time freq |
+| `skew([axis, skipna, level, numeric_only])` | Return unbiased skew over requested axis |
+| `slice_shift([periods, axis])` | Equivalent to shift without copying data. |
+| `sort_index([axis, level, ascending, ...])` | Sort object by labels (along an axis) |
+| `sort_values([axis, ascending, inplace, ...])` | Sort by the values along either axis |
+| `sortlevel([level, ascending, sort_remaining])` | DEPRECATED: use Series.sort_index() |
+| `squeeze([axis])` | Squeeze length 1 dimensions. |
+| `std([axis, skipna, level, ddof, numeric_only])` | Return sample standard deviation over requested axis. |
+| `str ` | alias of StringMethods |
+| `sub(other[, level, fill_value, axis])` | Subtraction of series and other, element-wise (binary operator sub). |
+| `subtract(other[, level, fill_value, axis])` | Subtraction of series and other, element-wise (binary operator sub). |
+| `sum([axis, skipna, level, numeric_only, ...])` | Return the sum of the values for the requested axis |
+| `swapaxes(axis1, axis2[, copy])` | Interchange axes and swap values axes appropriately |
+| `swaplevel([i, j, copy])` | Swap levels i and j in a MultiIndex |
+| `tail([n])` | Return the last n rows. |
+| `take(indices[, axis, convert, is_copy])` | Return the elements in the given positional indices along an axis. |
+| `to_clipboard([excel, sep])` | Attempt to write text representation of object to the system clipboard This can be pasted into Excel, for example. |
+| `to_csv([path, index, sep, na_rep, ...])` | Write Series to a comma-separated values (csv) file |
+| `to_dense()` | Return dense representation of NDFrame (as opposed to sparse) |
+| `to_dict([into])` | Convert Series to {label -> value} dict or dict-like object. |
+| `to_excel(excel_writer[, sheet_name, na_rep, ...])` | Write Series to an excel sheet |
+| `to_frame([name])` | Convert Series to DataFrame |
+| `to_hdf(path_or_buf, key, **kwargs)` | Write the contained data to an HDF5 file using HDFStore. |
+| `to_json([path_or_buf, orient, date_format, ...])` | Convert the object to a JSON string. |
+| `to_latex([buf, columns, col_space, header, ...])` | Render an object to a tabular environment table. |
+| `to_msgpack([path_or_buf, encoding])` | msgpack (serialize) object to input file path |
+| `to_period([freq, copy])` | Convert Series from DatetimeIndex to PeriodIndex with desired |
+| `to_pickle(path[, compression, protocol])` | Pickle (serialize) object to input file path. |
+| `to_sparse([kind, fill_value])` | Convert Series to SparseSeries |
+| `to_sql(name, con[, flavor, schema, ...])` | Write records stored in a DataFrame to a SQL database. |
+| `to_string([buf, na_rep, float_format, ...])` | Render a string representation of the Series |
+| `to_timestamp([freq, how, copy])` | Cast to datetimeindex of timestamps, at beginning of period |
+| `to_xarray()` | Return an xarray object from the pandas object. |
+| `tolist()` | Return a list of the values. |
+| `transform(func, *args, **kwargs)` | Call function producing a like-indexed NDFrame |
+| `transpose(*args, **kwargs)` | return the transpose, which is by definition self |
+| `truediv(other[, level, fill_value, axis])` | Floating division of series and other, element-wise (binary operator truediv). |
+| `truncate([before, after, axis, copy])` | Truncates a sorted DataFrame/Series before and/or after some particular index value. |
+| `tshift([periods, freq, axis])` | Shift the time index, using the index’s frequency if available. |
+| `tz_convert(tz[, axis, level, copy])` | Convert tz-aware axis to target time zone. |
+| `tz_localize(tz[, axis, level, copy, ambiguous])` | Localize tz-naive TimeSeries to target time zone. |
+| `unique()` | Return unique values in the object. |
+| `unstack([level, fill_value])` | Unstack, a.k.a. |
+| `update(other)` | Modify Series in place using non-NA values from passed Series. |
+| `valid([inplace])` |  |
+| `value_counts([normalize, sort, ascending, ...])` | Returns object containing counts of unique values. |
+| `var([axis, skipna, level, ddof, numeric_only])` | Return unbiased variance over requested axis. |
+| `view([dtype])` |  |
+| `where(cond[, other, inplace, axis, level, ...])` | Return an object of same shape as self and whose corresponding entries are from self where cond is True and otherwise are from other. |
+| `xs(key[, axis, level, drop_level])` | Returns a cross-section (row(s) or column(s)) from the Series/DataFrame. |
+
+#### Lecture Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -185,9 +454,30 @@ import pandas as pd
 | `pd.Series.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
 
 
-## DataFrame
 
-### Attributes
+
+
+
+
+
+
+
+### DataFrame
+
+#### Creation 
+
+Syntax: `pd.DataFrame(data=None, index=None, columns=None, dtype=None, copy=False)`
+
+| [Parameter][011](v0.22.0) | Type | Description |
+|-----------|-------------|-------------|
+| `data` | numpy ndarray (structured or homogeneous), dict, or DataFrame | Dict can contain Series, arrays, constants, or list-like objects |
+| `index` | Index or array-like | Index to use for resulting frame. Will default to np.arange(n) if no indexing information part of input data and no index provided |
+| `columns` | Index or array-like | Column labels to use for resulting frame. Will default to np.arange(n) if no column labels are provided |
+| `dtype` | dtype, default None | Data type to force. Only a single dtype is allowed. If None, infer |
+| `copy` | boolean, default False | Copy data from inputs. Only affects DataFrame / 2d ndarray input |
+
+
+#### Attributes
 
 | [Attribute][011](v0.22.0) | Description |
 |-----------|-------------|
@@ -210,8 +500,7 @@ import pandas as pd
 | `values` | Numpy representation of NDFrame |
 
 
-### Methods
-
+#### Methods
 
 | [Method][011] (v0.22.0) | Description |
 |---------------|-------------|
@@ -420,24 +709,33 @@ import pandas as pd
 | `where(cond[, other, inplace, axis, level, ...])` | Return an object of same shape as self and whose corresponding entries are from self where cond is True and otherwise are from other. |
 | `xs(key[, axis, level, drop_level])` | Returns a cross-section (row(s) or column(s)) from the Series/DataFrame. |
 
-### Lecture Methods
+
+#### Indexing & Slicing
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.DataFrame(data)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). `data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects | [DataFrame][008] |
-| `pd.DataFrame.head(n=5)` | Return the first n rows  | [DataFrame][008] |
+| `pd.DataFrame[lbl]` | Column of given `lbl` | [DataFrame][008] |
 | `pd.DataFrame.loc[lbl]` | Purely label-location based indexer for selection by label. Series of row w/ `lbl` | [DataFrame][008] |
 | `pd.DataFrame.loc[rlbl, clbl]` | Purely label-location based indexer for selection by label. Value at position (`rlbl`, `clbl`) | [DataFrame][008] |
 | `pd.DataFrame.loc[rlbl][clbl, ...]` | Purely label-location based indexer for selection by label. Value(s) at position (`rlbl`, `clbl`), ... | [DataFrame][008] |
 | `pd.DataFrame.iloc[idx]` | Purely integer-location based indexing for selection by position, Series of `idx` row | [DataFrame][008] |
+| `pd.DataFrame.set_index(keys)` | Set the DataFrame index (row labels) using one or more existing columns. By default yields a new object. | [Indexing DF][012] |
+| `pd.DataFrame.reset_index(level=None)` | For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. `level`: int, str, tuple, or list. Only remove the given levels from the index. Removes all levels by default| [Indexing DF][012] |
+
+
+#### Lecture Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `pd.DataFrame(data, index=None)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). `data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects; `index`: Index or array-like. Index to use for resulting frame. Will default to np.arange(n); | [DataFrame][008] |
+| `pd.DataFrame.head(n=5)` | Return the first n rows  | [DataFrame][008] |
 | `pd.DataFrame.drop(labels=None, axis=0, index=None, columns=None)` | Return new object with labels in requested axis removed. | [DataFrame][008] |
-| `pd.DataFrame.T` | Transpose index and columns | [DataFrame][008] |
-| `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: Column to use as the row labels of the DataFrame (int or sequence or False), `skiprows`: Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file (list-like or integer or callable) | [DF Index & Load][009] |
+| `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: int or sequence or False. Column to use as the row labels of the DataFrame, `skiprows`: list-like or integer or callable. Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file | [DF Index & Load][009] |
 | `pd.DataFrame.columns` | Index of column labels | [DF Index & Load][009] |
-| `np\\pd.DataFrame.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: Axis to target with `mapper` (int or str), `inplace`: Whether to return a new %(klass)s (boolean) | [DF Index & Load][009] |
-| `pd.DataFrame.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` (boolean NDFrame, array-like, or callable) | [DF Query][010] |
+| `pd.DataFrame.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: int or str. Axis to target with `mapper`, `inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
+| `pd.DataFrame.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010] |
 | `pd.DataFrme.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
-| `pd.DatFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` : if all values are NA, drop that label; `thresh`: int, default None; int value : require that many non-NA values; `subset` : array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
+| `pd.DatFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all`` | if all values are NA, drop that label; `thresh`: int, default None; int value` | require that many non-NA values; `subset`` | array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 
 
 
@@ -461,8 +759,8 @@ import pandas as pd
 [009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
 [000]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
 [011]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
-[012]: 
-[013]: 
+[012]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#indexing-dataframes
+[013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
 [014]: 
 [015]: 
 [016]: 
