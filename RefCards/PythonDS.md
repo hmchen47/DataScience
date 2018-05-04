@@ -185,6 +185,21 @@ import pandas as pd
 | `pd.Series.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
 
 
+## DataFrame
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `pd.DataFrame(data)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). `data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects | [DataFrame][008] |
+| `pd.DataFrame.head(n=5)` | Return the first n rows  | [DataFrame][008] |
+| `pd.DataFrame.loc[lbl]` | Purely label-location based indexer for selection by label. Series of row w/ `lbl` | [DataFrame][008] |
+| `pd.DataFrame.loc[rlbl, clbl]` | Purely label-location based indexer for selection by label. Value at position (`rlbl`, `clbl`) | [DataFrame][008] |
+| `pd.DataFrame.loc[rlbl][clbl, ...]` | Purely label-location based indexer for selection by label. Value(s) at position (`rlbl`, `clbl`), ... | [DataFrame][008] |
+| `pd.DataFrame.iloc[idx]` | Purely integer-location based indexing for selection by position, Series of `idx` row | [DataFrame][008] |
+| `pd.DataFrame.drop(labels=None, axis=0, index=None, columns=None)` | Return new object with labels in requested axis removed. | [DataFrame][008] |
+| `pd.DataFrame.T` | Transpose index and columns | [DataFrame][008] |
+
+
+
 
 -------------------------------------
 
@@ -196,7 +211,7 @@ import pandas as pd
 [005]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-demonstration-the-numerical-python-library-numPy
 [006]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-series-data-structure
 [007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
-[008]: 
+[008]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-dataframe-data-structure
 [009]: 
 [000]: 
 [011]: 

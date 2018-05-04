@@ -182,6 +182,85 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## The DataFrame Data Structure
 
+![diagram](./diagrams/dataframe.png)
+
++ Demo
+    ```python
+    purchase_1 = pd.Series({'Name': 'Chris',
+                            'Item Purchased': 'Dog Food',
+                            'Cost': 22.50})
+    purchase_2 = pd.Series({'Name': 'Kevyn',
+                            'Item Purchased': 'Kitty Litter',
+                            'Cost': 2.50})
+    purchase_3 = pd.Series({'Name': 'Vinod',
+                            'Item Purchased': 'Bird Seed',
+                            'Cost': 5.00})
+    df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+    df.head()
+
+    df.loc['Store 2']           # 'Store 2' row
+    type(df.loc['Store 2'])     # pandas.core.series.Series
+    df.loc['Store 1']           # 'Store 1' row
+    df.loc['Store 1', 'Cost']   # ('Store 1', Cost) element
+    df.T.loc['Cost']            # Cost column
+    df['Cost']                  # Cost column
+    df.loc['Store 1']['Cost']   # ('Store 1', Cost) element
+    df.loc[:,['Name', 'Cost']]  # 
+    df.drop('Store 1')
+
+    copy_df = df.copy()
+    copy_df = copy_df.drop('Store 1')
+    copy_df
+
+    help(opy_df.drop)
+
+    del copy_df['Name']
+    copy_df
+
+    df['Location'] = None
+    ```
++ Quiz
+    + For the purchase records from the pet store, how would you get a list of all items which had been purchased (regardless of where they might have been purchased, or by whom)?
+        ```python
+        purchase_1 = pd.Series({'Name': 'Chris',
+                                'Item Purchased': 'Dog Food',
+                                'Cost': 22.50})
+        purchase_2 = pd.Series({'Name': 'Kevyn',
+                                'Item Purchased': 'Kitty Litter',
+                                'Cost': 2.50})
+        purchase_3 = pd.Series({'Name': 'Vinod',
+                                'Item Purchased': 'Bird Seed',
+                                'Cost': 5.00})
+
+        df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+
+        # Your code here
+        ```
+    + Answer: 
+        ```python
+        df['Item Purchased']
+        ```
+    + For the purchase records from the pet store, how would you update the DataFrame, applying a discount of 20% across all the values in the 'Cost' column?
+        ```python
+        purchase_1 = pd.Series({'Name': 'Chris',
+                                'Item Purchased': 'Dog Food',
+                                'Cost': 22.50})
+        purchase_2 = pd.Series({'Name': 'Kevyn',
+                                'Item Purchased': 'Kitty Litter',
+                                'Cost': 2.50})
+        purchase_3 = pd.Series({'Name': 'Vinod',
+                                'Item Purchased': 'Bird Seed',
+                                'Cost': 5.00})
+
+        df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+
+        # Your code here
+        ```
+    + Answer:
+        ```python
+        df['Cost'] *= 0.8
+        ptint(df)
+        ```
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
 
