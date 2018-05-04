@@ -181,6 +181,8 @@ copy_df
 
 df['Location'] = None
 df
+
+
 # # Dataframe Indexing and Loading
 costs = df['Cost']
 costs
