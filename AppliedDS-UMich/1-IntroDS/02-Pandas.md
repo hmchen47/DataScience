@@ -29,8 +29,55 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## The Series Data Structure
 
+![diagram](https://www.kdnuggets.com/wp-content/uploads/pandas-02.png)
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){:target="_blank"}
++ The Series
+    + Name: label of a column
+    + Index: the index of a row
+    + Value: the element
+
++ Demo
+    ```python
+    import pandas as pd
+    get_ipython().magic('pinfo pd.Series')
+
+    animals = ['Tiger', 'Bear', 'Moose']
+    pd.Series(animals)
+
+    numbers = [1, 2, 3]
+    pd.Series(numbers)
+
+    animals = ['Tiger', 'Bear', None]
+    pd.Series(animals)      # None --> None; dtype: object
+
+    numbers = [1, 2, None]
+    pd.Series(numbers)      # None --> NaN; dtype: float64
+
+    import numpy as np
+    np.nan == None          # False
+
+    np.nan == np.nan        # False
+
+    np.isnan(np.nan)
+
+    sports = {'Archery': 'Bhutan',
+            'Golf': 'Scotland',
+            'Sumo': 'Japan',
+            'Taekwondo': 'South Korea'}
+    s = pd.Series(sports)
+
+    s.index         # Index(['Archery', 'Golf', 'Sumo', 'Taekwondo'], dtype='object')
+
+    s = pd.Series(['Tiger', 'Bear', 'Moose'], index=['India', 'America', 'Canada'])
+
+    sports = {'Archery': 'Bhutan',
+            'Golf': 'Scotland',
+            'Sumo': 'Japan',
+            'Taekwondo': 'South Korea'}
+    s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey']) # only last three taken
+    ```
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/deR9JZmEEeaToA55AQb91A.processed/full/540p/index.mp4?Expires=1525478400&Signature=KsI8ZLjCILliqC04ox1NQDk76fV-CCnCsJA3FeP~J55DpQR6dRMcvN6ffqUJ6Prk00ecOnm8TUMudKNsbiR6A2e7pC0XV1wAArn6rNh~rGyoICswJLp2MHSPUKTWuimK2gNzPpXbH06ucv0T~2s9S-QCQwGqyY7QGsAY-EuJO2w_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## Querying a Series
 

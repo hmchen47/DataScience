@@ -66,17 +66,6 @@ import time as tm
 | `dt.date.today()` | returns the current local date | [Dates and Times][002] |
 
 
-## SciPy
-
-### Environment and Packages
-
-
-### Methods
-
-| Method | Description | Link |
-|--------|-------------|------|
-
-
 
 
 ## Numpy
@@ -86,6 +75,15 @@ import time as tm
 ```python
 import numpy as np
 ```
+
+### General
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `np.nan` | Not a number | [Series][006] |
+| `np.isnan(ary)` | Return ndarray or tuple of ndarray with bool value | [Series][006] |
+
+
 
 ### Array Creation
 
@@ -122,6 +120,7 @@ import numpy as np
 | `ary.astype(typ)` | Cast to a specifica type `typ`  | [NumPy][005] |
 | `ary.shape` | Show tuple of array dimension | [NumPy][005] |
 | `ary.copy()` | Return an array copy of the given object. | [NumPy][005] |
+
 
 
 ### Math Functions
@@ -164,6 +163,24 @@ import numpy as np
 
 
 
+## Pandas
+
+### Import file
+
+```python
+import pandas as pd
+```
+
+### Series
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `pd.Series(data=None, Index=None)` | One-dimensional ndarray with axis labels (including time series). Labels need not be unique but must be a hashable type. `data`: array-like, dict, or scalar, `Index`: labels | [Series][006] |
+
+
+
+
+
 
 -------------------------------------
 
@@ -173,7 +190,7 @@ import numpy as np
 [003]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-objects-map
 [004]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-lambda-and-list-comprehensions
 [005]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#advanced-python-demonstration-the-numerical-python-library-numPy
-[006]: 
+[006]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-series-data-structure
 [007]: 
 [008]: 
 [009]: 
