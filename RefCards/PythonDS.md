@@ -9,7 +9,7 @@
     + [Import Files](#import-files)
     + [Attributes](#attributes)
     + [Methods](#methods-1)
-+ [NumPy](#environment-and-packages)
++ [NumPy](#numpy)
     + [Import File](#import-files-1)
     + [General](#general)
     + [Array Creation](#array-creation)
@@ -68,6 +68,8 @@
 | `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] |
 
 
+[TOC](#table-of-contents)
+
 
 ## [Date and Times][003]
 
@@ -100,6 +102,8 @@ import time as tm
 | `dt.date.today()` | returns the current local date | [Dates and Times][002] |
 
 
+
+[TOC](#table-of-contents)
 
 
 ## Numpy
@@ -197,7 +201,7 @@ import numpy as np
 | `np.random.randint(low, high)` | Return random integers from `low` (inclusive) to `high` (exclusive). | [NumPy][005] |
 
 
-
+[TOC](#table-of-contents)
 
 
 
@@ -210,9 +214,6 @@ import numpy as np
 `python
 import pandas as pd
 `
-
-
-
 
 
 ### Series
@@ -481,6 +482,8 @@ s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
 | `s.where(cond[, other, inplace, axis, level, ...])` | Return an object of same shape as self and whose corresponding entries are from self where cond is True and otherwise are from other. |
 | `s.xs(key[, axis, level, drop_level])` | Returns a cross-section (row(s) or column(s)) from the Series/DataFrame. |
 
+[TOC](#table-of-contents)
+
 #### Lecture Methods
 
 | Method | Description | Link |
@@ -526,6 +529,12 @@ purchase_3 = pd.Series({'Name': 'Vinod',
 df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
 ```
 
+#### Load CSV File
+
+```python
+df = pd.read_csv('<fname>.csv')
+```
+
 #### Attributes
 
 | [Attribute][011] (v0.22.0) | Description |
@@ -548,6 +557,7 @@ df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store
 | `df.style` | Property returning a Styler object containing methods for building a styled HTML representation fo the DataFrame. |
 | `df.values` | Numpy representation of NDFrame |
 
+[TOC](#table-of-contents)
 
 #### Methods
 
@@ -758,6 +768,7 @@ df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store
 | `df.where(cond[, other, inplace, axis, level, ...])` | Return an object of same shape as self and whose corresponding entries are from self where cond is True and otherwise are from other. |
 | `df.xs(key[, axis, level, drop_level])` | Returns a cross-section (row(s) or column(s)) from the Series/DataFrame. |
 
+[TOC](#table-of-contents)
 
 #### Indexing & Slicing
 
@@ -787,7 +798,7 @@ df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store
 | `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` if all values are NA, drop that label; `thresh`: int, default None; int value require that many non-NA values; `subset` array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
 
-
+[TOC](#table-of-contents)
 
 
 
