@@ -63,5 +63,9 @@
 ### [Hacked Data](./02-Pandas.md#hacked-data)
 
 
-## [Assignment 2](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Assignment%202.ipynb)
+## [Assignment 2](https://www.coursera.org/learn/python-data-analysis/notebook/Um6Bz/assignment-2)
+
+### [Assignment 2]()
+
+### [Programming Assignment: Assignment](./notebooks/)
 
