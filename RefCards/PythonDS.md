@@ -806,7 +806,7 @@ df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store
 [007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
 [008]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-dataframe-data-structure
 [009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
-[000]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
+[010]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
 [011]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
 [012]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-valuesindexing-dataframes
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
