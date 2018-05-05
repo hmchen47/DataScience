@@ -13,7 +13,7 @@
 
 ### [Open CVS File][001]
 
-```python
+``python
     import csv
 
     %precision 2    # floating precision for printing
@@ -21,7 +21,7 @@
     with open('filename.csv') as csvfile:
         mpg = list(csv.DictReader(csvfile))
         # read data and convert to nested dictionary
-```
+``
 
 
 ### Methods
@@ -47,10 +47,10 @@
 
 ### Import Files
 
-```python
+``python
 import datetime as dt
 import time as tm
-```
+``
 
 ### Attributes
 
@@ -80,9 +80,9 @@ import time as tm
 
 ### Environment and Packages
 
-```python
+``python
 import numpy as np
-```
+``
 
 ### General
 
@@ -181,11 +181,9 @@ import numpy as np
 
 ### Import file
 
-```python
+``python
 import pandas as pd
-```
-
-
+``
 
 
 
@@ -197,7 +195,7 @@ import pandas as pd
 
 Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)`
 
-| [Parameter][013](v0.22.0) | Type | Description |
+| [Parameter][013] (v0.22.0) | Type | Description |
 |-----------|-------------|-------------|
 | `data` | array-like, dict, or scalar value | Contains data stored in Series |
 | `index` | array-like or Index (1d) | Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
@@ -206,7 +204,7 @@ Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fas
 
 #### Attributes
 
-| [Attribute][013](v0.22.0) | Description |
+| [Attribute][013] (v0.22.0) | Description |
 |-----------|-------------|
 | `T ` | return the transpose, which is by definition self |
 | `asobject ` | return object Series which contains boxed values |
@@ -717,28 +715,28 @@ Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 
 | Method | Description | Link |
 |--------|-------------|------|
-| ``df[lbl]` | Column of given `lbl` | [DataFrame][008] |
-| ``df.loc[lbl]` | Purely label-location based indexer for selection by label. Series of row w/ `lbl` | [DataFrame][008] |
-| ``df.loc[rlbl, clbl]` | Purely label-location based indexer for selection by label. Value at position (`rlbl`, `clbl`) | [DataFrame][008] |
-| ``df.loc[rlbl][clbl, ...]` | Purely label-location based indexer for selection by label. Value(s) at position (`rlbl`, `clbl`), ... | [DataFrame][008] |
-| ``df.iloc[idx]` | Purely integer-location based indexing for selection by position, Series of `idx` row | [DataFrame][008] |
-| ``df.set_index(keys)` | Set the DataFrame index (row labels) using one or more existing columns. By default yields a new object. | [Indexing DF][012] |
-| ``df.reset_index(level=None)` | For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. `level`: int, str, tuple, or list. Only remove the given levels from the index. Removes all levels by default| [Indexing DF][012] |
+| `df[lbl]` | Column of given `lbl` | [DataFrame][008] |
+| `df.loc[lbl]` | Purely label-location based indexer for selection by label. Series of row w/ `lbl` | [DataFrame][008] |
+| `df.loc[rlbl, clbl]` | Purely label-location based indexer for selection by label. Value at position (`rlbl`, `clbl`) | [DataFrame][008] |
+| `df.loc[rlbl][clbl, ...]` | Purely label-location based indexer for selection by label. Value(s) at position (`rlbl`, `clbl`), ... | [DataFrame][008] |
+| `df.iloc[idx]` | Purely integer-location based indexing for selection by position, Series of `idx` row | [DataFrame][008] |
+| `df.set_index(keys)` | Set the DataFrame index (row labels) using one or more existing columns. By default yields a new object. | [Indexing DF][012] |
+| `df.reset_index(level=None)` | For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. `level`: int, str, tuple, or list. Only remove the given levels from the index. Removes all levels by default| [Indexing DF][012] |
 
 
 #### Lecture Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
-| ``df(data, index=None)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). `data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects; `index`: Index or array-like. Index to use for resulting frame. Will default to np.arange(n); | [DataFrame][008] |
-| ``df.head(n=5)` | Return the first n rows  | [DataFrame][008] |
-| ``df.drop(labels=None, axis=0, index=None, columns=None)` | Return new object with labels in requested axis removed. | [DataFrame][008] |
+| `df(data, index=None)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). `data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects; `index`: Index or array-like. Index to use for resulting frame. Will default to np.arange(n); | [DataFrame][008] |
+| `df.head(n=5)` | Return the first n rows  | [DataFrame][008] |
+| `df.drop(labels=None, axis=0, index=None, columns=None)` | Return new object with labels in requested axis removed. | [DataFrame][008] |
 | `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: int or sequence or False. Column to use as the row labels of the DataFrame, `skiprows`: list-like or integer or callable. Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file | [DF Index & Load][009] |
-| ``df.columns` | Index of column labels | [DF Index & Load][009] |
-| ``df.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: int or str. Axis to target with `mapper`, `inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
-| ``df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010] |
-| ``df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
-| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all`` | if all values are NA, drop that label; `thresh`: int, default None; int value` | require that many non-NA values; `subset`` | array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
+| `df.columns` | Index of column labels | [DF Index & Load][009] |
+| `df.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: int or str. Axis to target with `mapper`, `inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
+| `df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010] |
+| `df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
+| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` | if all values are NA, drop that label; `thresh`: int, default None; int value` | require that many non-NA values; `subset` | array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
 
 
