@@ -20,7 +20,7 @@
 
 ## Reference Cards
 
-+ [Data Science in Python](./RefCards/Python-DS.md)
++ [Data Science in Python](./RefCards/PythonDS.md)
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
 
 
