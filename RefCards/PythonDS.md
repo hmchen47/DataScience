@@ -144,18 +144,18 @@ import numpy as np
 | Method | Description | Link |
 |--------|-------------|------|
 | `np.vstack(tup)` | Stack arrays in sequence vertically (row wise). `tup`: sequence of ndarray | [NumPy][005] |
-| `np.hstack(tup)` | Stack arrays in sequence horiziontally (column wise). `tup`: sequence of ndarray | [NumPy][005] |
+| `np.hstack(tup)` | Stack arrays in sequence horizontally (column wise). `tup`: sequence of ndarray | [NumPy][005] |
 
 
 ### Array Operations
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `np.arrayA {+,-|,|,} np.arrayB` | elementwise add/subtract/multiply/divide | [NumPy][005] |
+| `np.arrayA {+,-,,} np.arrayB` | Elementwise add/subtract/multiply/divide | [NumPy][005] |
 | `np.arrayA.dot(np.arrayB)` | Dot product of two arrays. 1-D - inner product, 2-D - matrix multiplication (`matmul` or `aryA @ aryB` preferred), 0-D (sclar) - multiply, $N \times M$-D - `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])` | [NumPy][005] |
 | `np.array.T` | Transpose of `np.array`  | [NumPy][005] |
 | `np.array.dtype` | View the data type of the elements in the array | [NumPy][005] |
-| `np.array.astype(typ)` | Cast to a specifica type `typ`  | [NumPy][005] |
+| `np.array.astype(typ)` | Cast to a specific type `typ`  | [NumPy][005] |
 | `np.array.shape` | Show tuple of array dimension | [NumPy][005] |
 | `np.array.copy()` | Return an array copy of the given object. | [NumPy][005] |
 
@@ -214,7 +214,6 @@ import numpy as np
 `python
 import pandas as pd
 `
-
 
 ### Series
 
