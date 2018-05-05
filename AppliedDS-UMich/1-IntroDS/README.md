@@ -67,7 +67,7 @@
 
 ## [Assignment 2](https://www.coursera.org/learn/python-data-analysis/notebook/Um6Bz/assignment-2)
 
-### [Assignment 2]()
+### [Assignment 2](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Assignment%202.ipynb)
 
-### [Programming Assignment: Assignment](./notebooks/)
+### [Programming Assignment: Assignment](./notebooks/Assignment02.ipynb)
 
