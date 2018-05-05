@@ -8,6 +8,32 @@
 + [Date and Times](#date-and-times)
     + [Import Files](#import-files)
     + [Attributes](#attributes)
+    + [Methods](#methods-1)
++ [NumPy](#environment-and-packages)
+    + [Import File](#import-files-1)
+    + [General](#general)
+    + [Array Creation](#array-creation)
+    + [Combining Array](#combining-arrays)
+    + [Array Operations](array-operations)
+    + [Math Functions](#math-functions)
+    + [Indexing/Slicing](#indexingslicing)
+    + [Random Number Generator](#random-number-generator)
++ [Pandas](#pandas)
+    + [Import File](#import-file)
+    + [Series](#series)
+        + [Creation](#creation)
+        + [Attributes](#attributes-1)
+        + [Methods](#methods-2)
+        + [Lecture Methods](#lecture-methods)
+    + [DataFrame](#dataframe)
+        + [Creation](#creation-1)
+        + [Attributes](#attributes-2)
+        + [Methods](#methods-3)
+        + [Lecture Methods](#lecture-methods-1)
+
+
+
+
 
 ## General
 
@@ -37,7 +63,7 @@
 | `set(obj)` | return the unique values for the class types; set theory in math | [CSV Files][001] |
 | `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000] |
 | `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
-| `func = lambda var1, ...` | expr` | anonymous function, usage: `func(vara, ...)` | [Lambda & List Comprehension][004] |
+| `func = lambda var1, ...: expr` | anonymous function, usage: `func(var1, ...)` | [Lambda & List Comprehension][004] |
 | `enumerate(iterable[, start])` | Return an enumerate object, obtaining an indexed list:  `(0, seq[0]), (1, seq[1]), (2, seq[2]), ...` | [NumPy][005] |
 | `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] |
 
@@ -78,7 +104,7 @@ import time as tm
 
 ## Numpy
 
-### Environment and Packages
+### Import Files
 
 `python
 import numpy as np
@@ -121,7 +147,7 @@ import numpy as np
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `np.arrayA {+|-|*|/} np.arrayB` | elementwise add/subtract/multiply/divide | [NumPy][005] |
+| `np.arrayA {+,-|,|,} np.arrayB` | elementwise add/subtract/multiply/divide | [NumPy][005] |
 | `np.arrayA.dot(np.arrayB)` | Dot product of two arrays. 1-D - inner product, 2-D - matrix multiplication (`matmul` or `aryA @ aryB` preferred), 0-D (sclar) - multiply, $N \times M$-D - `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])` | [NumPy][005] |
 | `np.array.T` | Transpose of `np.array`  | [NumPy][005] |
 | `np.array.dtype` | View the data type of the elements in the array | [NumPy][005] |
@@ -191,7 +217,7 @@ import pandas as pd
 
 ### Series
 
-#### Ceation 
+#### Creation 
 
 Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)`
 
@@ -201,6 +227,14 @@ Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fas
 | `index` | array-like or Index (1d) | Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
 | `dtype` | numpy.dtype or None | If None, dtype will be inferred |
 | `copy` | boolean, default False | Copy input data |
+
+```python
+sports = {'Archery': 'Bhutan',
+        'Golf': 'Scotland',
+        'Sumo': 'Japan',
+        'Taekwondo': 'South Korea'}
+s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
+```
 
 #### Attributes
 
@@ -469,7 +503,7 @@ Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fas
 
 Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 
-| [Parameter][011](v0.22.0) | Type | Description |
+| [Parameter][011] (v0.22.0) | Type | Description |
 |-----------|-------------|-------------|
 | `data` | numpy ndarray (structured or homogeneous), dict, or DataFrame | Dict can contain Series, arrays, constants, or list-like objects |
 | `index` | Index or array-like | Index to use for resulting frame. Will default to np.arange(n) if no indexing information part of input data and no index provided |
@@ -477,10 +511,24 @@ Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 | `dtype` | dtype, default None | Data type to force. Only a single dtype is allowed. If None, infer |
 | `copy` | boolean, default False | Copy data from inputs. Only affects DataFrame / 2d ndarray input |
 
+```python
+# Create from Series
+purchase_1 = pd.Series({'Name': 'Chris',
+                        'Item Purchased': 'Dog Food',
+                        'Cost': 22.50})
+purchase_2 = pd.Series({'Name': 'Kevyn',
+                        'Item Purchased': 'Kitty Litter',
+                        'Cost': 2.50})
+purchase_3 = pd.Series({'Name': 'Vinod',
+                        'Item Purchased': 'Bird Seed',
+                        'Cost': 5.00})
+
+df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+```
 
 #### Attributes
 
-| [Attribute][011](v0.22.0) | Description |
+| [Attribute][011] (v0.22.0) | Description |
 |-----------|-------------|
 | `df.T` | Transpose index and columns |
 | `df.at` | Fast label-based scalar accessor |
@@ -736,7 +784,7 @@ Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 | `df.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: int or str. Axis to target with `mapper`, `inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
 | `df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010] |
 | `df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
-| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` | if all values are NA, drop that label; `thresh`: int, default None; int value` | require that many non-NA values; `subset` | array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
+| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` if all values are NA, drop that label; `thresh`: int, default None; int value require that many non-NA values; `subset` array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
 
 
@@ -760,7 +808,7 @@ Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 [009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
 [000]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
 [011]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
-[012]: Missing Valuesindexing-dataframes
+[012]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-valuesindexing-dataframes
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
 [014]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-values
 [015]: 
