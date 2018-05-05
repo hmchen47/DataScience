@@ -1,5 +1,7 @@
 # Introduction to Data Science in Python
 
+## [RefCard](../../RefCards/PythonDS.md)
+
 ## [Course Info](./00-CourseInfo.md)
 
 ### [Introduction to Specialization](./00-CourseInfo.md#introduction-to-specialization)
