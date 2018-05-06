@@ -262,7 +262,7 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 | `pd.to_datetime(arg, utc=None, format=None)` | Convert argument to datetime; `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series; `utc`: Return UTC DatetimeIndex if True; `format`: strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds | [Date Functionality][020] |
 | `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; [`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
-
+| `df.resample(rule, how=None, axis=0)` | Convenience method for frequency conversion and resampling of time series; `rule`: the offset string or object representing target conversion | [Date Functionality][020] |
 
 
 
@@ -387,11 +387,15 @@ df = pd.DataFrame([{'Name': 'Chris', 'Item Purchased': 'Sponge', 'Cost': 22.50},
                   index=['Store 1', 'Store 1', 'Store 2'])
 ```
 
-#### Load CSV File
+#### Load File
 
 ```python
-df = pd.read_csv('<fname>.csv')
+df = pd.read_csv('<fname>.csv', skiprows=None, index_col=None)
+
+df = pd.read_excel('<fname>.xls', sheet_name=0, header=0, skiprows=None, index_col=None)
+df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_col=None)
 ```
+
 
 #### Attributes
 
