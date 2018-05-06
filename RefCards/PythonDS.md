@@ -579,7 +579,7 @@ df = pd.read_csv('<fname>.csv')
 | `df.any([axis, bool_only, skipna, level])` | Return whether any element is True over requested axis |
 | `df.append(other[, ignore_index, verify_integrity])` | Append rows of other to the end of this frame, returning a new object. |
 | `df.apply(func[, axis, broadcast, raw, reduce, args])` | Applies function along input axis of DataFrame. |
-| `df.applymap(func)` | Apply a function to a DataFrame that is intended to operate elementwise, i.e. |
+| `df.applymap(func)` | Apply a function to a DataFrame that is intended to operate elementwise |
 | `df.as_blocks([copy])` | Convert the frame to a dict of dtype -> Constructor Types that each has a homogeneous dtype. |
 | `df.as_matrix([columns])` | Convert the frame to its Numpy-array representation. |
 | `df.asfreq(freq[, method, how, normalize, ...])` | Convert TimeSeries to specified frequency. |
@@ -798,11 +798,13 @@ df = pd.read_csv('<fname>.csv')
 | `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: int or sequence or False. Column to use as the row labels of the DataFrame, `skiprows`: list-like or integer or callable. Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file | [DF Index & Load][009] |
 | `df.columns` | Index of column labels | [DF Index & Load][009] |
 | `df.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: int or str. Axis to target with `mapper`, `inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
-| `df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010] |
+| `df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010]; [Pandas Idioms][016] |
 | `df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
 | `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` if all values are NA, drop that label; `thresh`: int, default None; int value require that many non-NA values; `subset` array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
 | `df.merge(right, how='inner', left_on=None, right_on=None, left_index=False, right_index=False)` | Merge DataFrame objects by performing a database-style join operation by columns or indexes. `how`: {'left', 'right', 'outer', 'inner'}; `left_on`/`right_on`: label from left/right; `left_index`/`right_index`: indexes from left/right | [Merge DFs][015] |
+| `df.applymap(func)` | Apply a function to a DataFrame that is intended to operate elementwise, all elements | [Pandas Idioms][016] |
+| `df.apply(func, axis=0)` | Applies function along input axis of DataFrame; `axis`: {0 or 'index', 1 or 'columns'} | [Pandas Idioms][016] |
 
 
 
@@ -833,7 +835,7 @@ df = pd.read_csv('<fname>.csv')
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
 [014]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-values
 [015]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#merging-dataframes
-[016]: 
+[016]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pandas-idioms
 [017]: 
 [018]: 
 [019]: 

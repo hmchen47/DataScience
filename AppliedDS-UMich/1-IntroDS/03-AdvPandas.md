@@ -143,8 +143,98 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Pandas Idioms
 
++ Chain Indexing:
+    + Making Code Pandorable
+    + e.g., `df.loc[“Washtenaw”][“Total Population”]`
+    + Generally bad, pandas could return a copy of a view depending upon numpy
++ Code smell
+    + If you see a `][` you should think carefully about what you are doing (Tom Augspurger)
++ `where` method
+    + Syntax: `df.where(cond, other=nan, inplace=False, axis=None)`
+    + Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`.
+    + `cond`: boolean NDFrame, array-like, or callable  
+        Where `cond` is `True`, keep the original value. Where `False`, replace with corresponding value from `other`. If `cond` is callable, it is computed on the NDFrame and should return boolean NDFrame or array. The callable must not change input NDFrame (though pandas doesn't check it).
+    + `other`: scalar, NDFrame, or callable
+        Entries where `cond` is False are replaced with corresponding value from `other`.  If other is callable, it is computed on the NDFrame and should return scalar or NDFrame. The callable must not change input NDFrame (though pandas doesn't check it).
+    + `inplace`: boolean, default False
+        Whether to perform the operation in place on the data
+    + `axis`: alignment axis if needed, default None
++ `applymap` method
+    + Syntax: `df.applymap(func)`
+    + Apply a function to a DataFrame that is intended to operate elementwise, i.e. like doing map(func, series) for each series in the DataFrame
+    + All the function to all elements
+    + Rarely used
++ `apply` method
+    + Syntax: `df.apply(func, axis=0)`
+    + Applies function along input axis of DataFrame.
+    + `func`: function  
+        Function to apply to each column/row
+    + `axis`: {0 or 'index', 1 or 'columns'}, default 0
+        + `0` or 'index': apply function to each column
+        + `1` or 'columns': apply function to each row
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
++ Demo
+    ```python
+    df = pd.read_csv('census.csv')
+
+    # method chaining
+    (df.where(df['SUMLEV']==50)
+        .dropna()
+        .set_index(['STNAME','CTYNAME'])
+        .rename(columns={'ESTIMATESBASE2010': 'Estimates Base 2010'}))
+
+    df = df[df['SUMLEV']==50]
+    df.set_index(['STNAME','CTYNAME'], inplace=True)
+    df.rename(columns={'ESTIMATESBASE2010': 'Estimates Base 2010'})
+
+    # return a Series and build a new DF w/ 2 new columns
+    def min_max(row):
+        data = row[['POPESTIMATE2010',
+                    'POPESTIMATE2011',
+                    'POPESTIMATE2012',
+                    'POPESTIMATE2013',
+                    'POPESTIMATE2014',
+                    'POPESTIMATE2015']]
+        return pd.Series({'min': np.min(data), 'max': np.max(data)})
+    df.apply(min_max, axis=1)
+
+    # append two new columns to original DF
+    def min_max(row):
+        data = row[['POPESTIMATE2010',
+                    'POPESTIMATE2011',
+                    'POPESTIMATE2012',
+                    'POPESTIMATE2013',
+                    'POPESTIMATE2014',
+                    'POPESTIMATE2015']]
+        row['max'] = np.max(data)
+        row['min'] = np.min(data)
+        return row
+    df.apply(min_max, axis=1)
+
+    # generate a DF w/ max value
+    rows = ['POPESTIMATE2010',
+            'POPESTIMATE2011',
+            'POPESTIMATE2012',
+            'POPESTIMATE2013',
+            'POPESTIMATE2014',
+            'POPESTIMATE2015']
+    df.apply(lambda x: np.max(x[rows]), axis=1)
+    ```
++ Quiz  
+    Suppose we are working on a DataFrame that holds information on our equipment for an upcoming backpacking trip.
+
+    Can you use method chaining to modify the DataFrame df in one statement to drop any entries where 'Quantity' is 0 and rename the column 'Weight' to 'Weight (oz.)'?
+    ```python
+    print(df.head())
+
+    # Your code here
+    ```
+    + Answer
+        ```python
+        print(df.drop(df[df['Quantity'] == 0].index).rename(columns={'Weight': 'Weight (oz.)'}))
+        ```
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/8V0N2YkTEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=JM~4lYOt7r4cwxt9bb89koR86qLqVkYU1tlJw8jDTvITLBgrML5XlnkOaRW2dNOc1rT5inglJ5xjWFMlozrNGUApkTyq-i32GQcfqmxLnmUDNoMtHzN94IjDUr5Aopxm0j~kGhuefLyQ3TaFe3IYwQZhajLGuDNbRbx-Yy9qIqk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Group by
