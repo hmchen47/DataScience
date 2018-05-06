@@ -606,6 +606,12 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         Periods to shift for forming difference
     `axis`: {0 or 'index', 1 or 'columns'}, default 0  
         Take difference over rows (0) or columns (1).
++ `resample` method
+    + Syntax: `df.resample(rule, how=None, axis=0)`
+    + Convenience method for frequency conversion and resampling of time series.
+    + `rule`: string  
+        the offset string or object representing target conversion
+    + `axis`: int, optional, default 0
 + `asfreq` method:
     + Syntax: `df.asfreq(freq, method=None, how=None, normalize=False, fill_value=None)`
     + Convert TimeSeries to specified frequency.
