@@ -682,7 +682,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Discussion Prompt: Goodhart's Law
 
+Listen to the Data Skeptic podcast on [Goodhart's law](http://dataskeptic.com/epnotes/goodharts-law.php)
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
+What is the implication for you as a data scientist?
 
 
