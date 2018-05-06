@@ -397,8 +397,96 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Scales
 
++ (a,b) (c,d): Scales
+    + Ratio scale:
+        + units are equally spaced
+        + mathematical operations of `+-/*` are all valid
+        + e.g. height and weight
+    + Interval scale: 
+        + units are equally spaced, but there is no true zero
+        + e.g., temperature in C or F, 0 degree is meaningful; direction of campus w/ 0 degree
+    + Ordinal scale:
+        + the order of the units is important, but not evenly spaced.
+        + e.g., Letter grades such as A+
+        + common in ML, but difficult to work with
+    + Nominal scale: categorical data
+        + categories of data, but the categories have no order with respect to one another
+        + e.g. Teams of a sport
+        + Commonly use a column w/ `True` or `False` to each element whether a category applied
++ Dummy variable: 
+    + a variable with Boolean value
+    + `getdummy` method: convert a single column into multiple columns w/ 0 & 1 indicating the presence of a dummy variable
++ Convert ratio scales into a category
+    + Loss info of the value
+    + Useful in cases
+        + visualizing the frequencies of categories, e.g., historgram
+        + ML classification approaches
+        + 
++ `astype` method:
+    + Syntax: `df.astype(dtype)`
+    + Cast a pandas object to a specified dtype `dtype`
+    + `dtype`: data type, or dict of column name -> data type  
+        + Use a `numpy.dtype` or Python `type` to cast entire pandas object to the same type. 
+        + Alternatively, use `{col: dtype, ...}`, where `col` is a column label and `dtype` is a `numpy.dtype` or Python `type` to cast one or more of the DataFrame's columns to column-specific types.
++ `cut` method:
+    + Syntax: `pd.cut(x, bins, right=True, labels=None)`
+    + Return indices of half-open bins to which each value of `x` belongs.
+    + `x`: array-like  
+        Input array to be binned. It has to be 1-dimensional.
+    + `bins`: int, sequence of scalars, or IntervalIndex  
+        If `bins` is an int, it defines the number of equal-width bins in the range of `x`. However, in this case, the range of `x` is extended by .1% on each side to include the min or max values of `x`. If `bins` is a sequence it defines the bin edges allowing for non-uniform bin width. No extension of the range of `x` is done in this case.
+    + `right`: bool, optional
+        Indicates whether the bins include the rightmost edge or not. If `right == True` (the default), then the bins [1,2,3,4] indicate (1,2], (2,3], (3,4].
+    + `labels`: array or boolean, default None
+        Used as labels for the resulting bins. Must be of the same length as the resulting bins. If False, return only integer indicators of the bins.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
++ Demo
+    ```python
+    df = pd.DataFrame(['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D'],
+                    index=['excellent', 'excellent', 'excellent', 'good', 'good', 'good', 'ok', 'ok', 'ok', 'poor', 'poor'])
+    df.rename(columns={0: 'Grades'}, inplace=True)
+
+    # claim 'Grade' as 'category' type
+    df['Grades'].astype('category').head()
+
+    # claim the categories are ordered
+    grades = df['Grades'].astype('category',
+                                categories=['D', 'D+', 'C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+'],
+                                ordered=True)
+
+    grades > 'C'    # boolean comparison for df --> boolean masking
+
+    df = pd.read_csv('census.csv')
+    df = df[df['SUMLEV']==50]
+    df = df.set_index('STNAME').groupby(level=0)['CENSUS2010POP'].agg({'avg': np.average})
+    pd.cut(df['avg'],10)
+    ```
++ Quiz  
+    + Try casting this series to categorical with the ordering Low < Medium < High.
+        ```python
+        s = pd.Series(['Low', 'Low', 'High', 'Medium', 'Low', 'High', 'Low'])
+
+        # Your code here
+        ```
+    + Answer
+        ```python
+        s.astype('category', categories=['Low', 'Medium', 'High'], ordered=True)
+        ```
+    + Suppose we have a series that holds height data for jacket wearers. Use `pd.cut` to bin this data into 3 bins.
+        ```python
+        s = pd.Series([168, 180, 174, 190, 170, 185, 179, 181, 175, 169, 182, 177, 180, 171])
+
+        # Your code here
+        ```
+    + Answer: 
+        ```python
+        pd.cut(s, 3)
+
+        # You can also add labels for the sizes [Small < Medium < Large].
+        pd.cut(s, 3, labels=['Small', 'Medium', 'Large'])
+        ```
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/MtOhLIkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=GjcP6zHIVck8-gI0O1FHc2AtKkGvMBRXlFOOfXN4cSZp5fNqJNHbC3UJOSBymobTR3kYFsej2smLT~yaAHFSv71aMXJunjiRqBQtaHLg1o8~szGPiauiLqV0E5-L9Ys3nGqUuEt5J5dGBXigAeUEUni2xL6GFt~OJDHtx1LpYsg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Pivot Tables
