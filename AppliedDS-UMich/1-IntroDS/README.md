@@ -91,7 +91,10 @@
 ### [Discussion Prompt: Goodhart's Law](./03-AdvPandas.md#discussion-prompt-goodfarts-law)
 
 
+## [Assignment 3](https://www.coursera.org/learn/python-data-analysis/notebook/KSSjT/assignment-3)
 
+### [Assignment 3](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Assignment%203.ipynb)
 
+### [Programming Assignment: Assignment 3](./notebooks/Assignment03.ipynb)
 
 
