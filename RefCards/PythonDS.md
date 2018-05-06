@@ -526,6 +526,12 @@ purchase_3 = pd.Series({'Name': 'Vinod',
                         'Cost': 5.00})
 
 df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+
+# Create from Dictionary
+df = pd.DataFrame([{'Name': 'Chris', 'Item Purchased': 'Sponge', 'Cost': 22.50},
+                   {'Name': 'Kevyn', 'Item Purchased': 'Kitty Litter', 'Cost': 2.50},
+                   {'Name': 'Filip', 'Item Purchased': 'Spoon', 'Cost': 5.00}],
+                  index=['Store 1', 'Store 1', 'Store 2'])
 ```
 
 #### Load CSV File
@@ -796,6 +802,11 @@ df = pd.read_csv('<fname>.csv')
 | `df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
 | `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` if all values are NA, drop that label; `thresh`: int, default None; int value require that many non-NA values; `subset` array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
+| `df.merge(right, how='inner', left_on=None, right_on=None, left_index=False, right_index=False)` | Merge DataFrame objects by performing a database-style join operation by columns or indexes. `how`: {'left', 'right', 'outer', 'inner'}; `left_on`/`right_on`: label from left/right; `left_index`/`right_index`: indexes from left/right | [Merge DFs][015] |
+
+
+
+
 
 [TOC](#table-of-contents)
 
@@ -821,7 +832,7 @@ df = pd.read_csv('<fname>.csv')
 [012]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-valuesindexing-dataframes
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
 [014]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-values
-[015]: 
+[015]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#merging-dataframes
 [016]: 
 [017]: 
 [018]: 
