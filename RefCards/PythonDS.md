@@ -221,6 +221,51 @@ import pandas as pd
 | Method | Description | Link |
 |--------|-------------|------|
 | `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] 
+| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
+
+
+
+### Timestamp
+
+#### Class
+
+Syntax: `pd.Timestamp(ts_input, freq, tz, unit=None, offset)`
+
+| Parameter | Type | Description |
+|-----------|-------------|-------------|
+| `ts_input` |  datetime-like, str, int, float  | Value to be converted to Timestamp |
+| `freq` |  str, DateOffset  |  Offset which Timestamp will have |
+| `tz` |  string, `pytz.timezone`, `dateutil.tz.tzfile` or None  | Time zone for time which Timestamp will have. |
+| `unit` |  string  | numpy unit used for conversion, if ts_input is int or float |
+| `offset` |  str, DateOffset  | Deprecated, use freq |
+
+
+Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0)`
+
+| Parameter | Type | Description |
+|-----------|-------------|-------------|
+| `value` |  Period or compat.string_types, default None | The time period represented (e.g., '4Q2005') |
+| `freq` |  str, default None | One of pandas period strings or corresponding objects |
+| `year` |  int, default None |
+| `month` |  int, default 1 |
+| `quarter` |  int, default None |
+| `day` |  int, default 1 |
+| `hour` |  int, default 0 |
+| `minute` |  int, default 0 |
+| `second` |  int, default 0 |
+
+
+#### Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `pd.to_datetime(arg, utc=None, format=None)` | Convert argument to datetime; `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series; `utc`: Return UTC DatetimeIndex if True; `format`: strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds | [Date Functionality][020] |
+| `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; [`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
+| `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
+
+
+
+
 
 
 ### Series
@@ -303,7 +348,6 @@ s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
 | `s.set_value(label, value)` | Quickly set single value at passed label.  If label not existed, create and append. | [Querying Series][007] |
 | `s.iteritems()` | Lazily iterate over (index, value) tuples | [Querying Series][007] |
 | `s.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
-
 
 
 
@@ -451,7 +495,7 @@ df = pd.read_csv('<fname>.csv')
 [017]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#group-by
 [018]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#scales
 [019]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pivot_tables
-[020]: 
+[020]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#date-functionality
 [021]: 
 [022]: 
 [023]: 

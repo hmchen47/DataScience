@@ -550,6 +550,126 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Date Functionality
 
++ Pandas Time Related Classes
+    + Timestamp
+    + DatetimeIndex
+    + Period
+    + PeriodIndex
++ `Timestamp` Class
+    + Syntax: `pd.Timestamp(ts_input, freq, tz, unit=None, offset)`
+    + The pandas equivalent of python's Datetime and is interchangable with it in most cases.
+    + `ts_input`: datetime-like, str, int, float  
+        Value to be converted to Timestamp
+    + `freq`: str, DateOffset  
+        Offset which Timestamp will have
+    + `tz`: string, `pytz.timezone`, `dateutil.tz.tzfile` or None  
+        Time zone for time which Timestamp will have.
+    + `unit`: string  
+        numpy unit used for conversion, if ts_input is int or float
+    + `offset`: str, DateOffset  
+        Deprecated, use freq
++ `Period` Class
+    + Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0)`
+    + Represents a period of time
+    + `value`: Period or compat.string_types, default None  
+        The time period represented (e.g., '4Q2005')
+    + `freq`: str, default None  
+        One of pandas period strings or corresponding objects
+    + `year`: int, default None
+    + `month`: int, default 1
+    + `quarter`: int, default None
+    + `day`: int, default 1
+    + `hour`: int, default 0
+    + `minute`: int, default 0
+    + `second`: int, default 0
++ `to_datetime` function
+    + Syntax: `pd.to_datetime(arg, utc=None, format=None)`
+    + Convert argument to datetime.
+    + `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series
+    + `utc`: boolean, default None  
+        Return UTC DatetimeIndex if True
+    + `format`: string, default None  
+        strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds.
++ `data_range` function:
+    + Syntax: `pd.date_range(start=None, end=None, periods=None)`
+    + Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency
+    + `start`: string or datetime-like, default None  
+        Left bound for generating dates
+    + `end`: string or datetime-like, default None  
+        Right bound for generating dates
+    + `periods`: integer, default None  
+        Number of periods to generate
++ `diff` method:
+    + Syntax: `df.diff(periods=1, axis=0)`
+    + 1st discrete difference of object
+    + `periods`: int, default 1  
+        Periods to shift for forming difference
+    `axis`: {0 or 'index', 1 or 'columns'}, default 0  
+        Take difference over rows (0) or columns (1).
++ `asfreq` method:
+    + Syntax: `df.asfreq(freq, method=None, how=None, normalize=False, fill_value=None)`
+    + Convert TimeSeries to specified frequency.
+    + `freq`: DateOffset object, or string  
+    + `method`: {'backfill'/'bfill', 'pad'/'ffill'}, default None
+        Method to use for filling holes in reindexed Series (note this does not fill NaNs that already were present):
+        + 'pad' / 'ffill': propagate last valid observation forward to next valid
+        + 'backfill' / 'bfill': use NEXT valid observation to fill
+    + `how`: {'start', 'end'}, default end
+        For PeriodIndex only, see PeriodIndex.asfreq
+    + `normalize`: bool, default False
+        Whether to reset output index to midnight
+    + `fill_value`: scalar, optional
+        Value to use for missing values, applied during upsampling (note this does not fill NaNs that already were present).
+
++ Demo
+    ```python
+    # Timestamp
+    pd.Timestamp('9/1/2016 10:05AM')
+
+    # Period
+    pd.Period('1/2016')
+
+    pd.Period('3/5/2016')
+
+    # DatetimeIndex
+    t1 = pd.Series(list('abc'), [pd.Timestamp('2016-09-01'), pd.Timestamp('2016-09-02'), pd.Timestamp('2016-09-03')])
+    type(t1.index)
+
+    # PeriodIndex
+    t2 = pd.Series(list('def'), [pd.Period('2016-09'), pd.Period('2016-10'), pd.Period('2016-11')])
+    type(t2.index)
+
+    # Converting to Datetime
+    d1 = ['2 June 2013', 'Aug 29, 2014', '2015-06-26', '7/12/16']
+    ts3 = pd.DataFrame(np.random.randint(10, 100, (4,2)), index=d1, columns=list('ab'))
+
+    ts3.index = pd.to_datetime(ts3.index)
+    pd.to_datetime('4.7.12', dayfirst=True)
+
+    # Timedeltas
+    pd.Timestamp('9/3/2016') - pd.Timestamp('9/1/2016')
+    pd.Timestamp('9/2/2016 8:10AM') + pd.Timedelta('12D 3H')
+
+    # Working with Dates in a Dataframe
+    dates = pd.date_range('10-01-2016', periods=9, freq='2W-SUN')
+
+    df = pd.DataFrame({'Count 1': 100 + np.random.randint(-5, 10, 9).cumsum(),
+                    'Count 2': 120 + np.random.randint(-5, 10, 9)}, index=dates)
+
+    df.index.weekday_name
+    df.diff()
+    df.resample('M').mean()
+    df['2017']
+    df['2016-12']
+    df['2016-12':]
+    df.asfreq('W', method='ffill')
+
+    # Plot
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+
+    df.plot()
+    ```
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
 
