@@ -805,7 +805,9 @@ df = pd.read_csv('<fname>.csv')
 | `df.merge(right, how='inner', left_on=None, right_on=None, left_index=False, right_index=False)` | Merge DataFrame objects by performing a database-style join operation by columns or indexes. `how`: {'left', 'right', 'outer', 'inner'}; `left_on`/`right_on`: label from left/right; `left_index`/`right_index`: indexes from left/right | [Merge DFs][015] |
 | `df.applymap(func)` | Apply a function to a DataFrame that is intended to operate elementwise, all elements | [Pandas Idioms][016] |
 | `df.apply(func, axis=0)` | Applies function along input axis of DataFrame; `axis`: {0 or 'index', 1 or 'columns'} | [Pandas Idioms][016] |
-
+| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list; `how`: {'any', 'all'}; `subset`: Labels along other axis to consider; | [Group by][019] |
+| `df.groupby(by=None, axis=0, level=None, as_index=True, sort=True)` | Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns; `by`: mapping, function, str, or iterable; `axis`: 0 (row), 1 (col); `level`: if the axis is a MultiIndex (hierarchical), group by a particular level or levels; `as_index`: return object with group labels as the index; `sort`: Sort group keys | [Group by][019] |
+| `df.agg(func, axis=0)` | Aggregate using callable, string, dict, or list of string/callables; `func`: callable, string, dictionary, or list of string/callables | [Group by][019] |
 
 
 
@@ -836,7 +838,7 @@ df = pd.read_csv('<fname>.csv')
 [014]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-values
 [015]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#merging-dataframes
 [016]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pandas-idioms
-[017]: 
+[017]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#group-by
 [018]: 
 [019]: 
 

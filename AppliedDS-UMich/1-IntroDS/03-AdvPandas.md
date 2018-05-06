@@ -239,8 +239,160 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Group by
 
++ Split and Combine pattern: 
+    + splitting data into groups
+    + processing the data
+    + combining the results
++ `dropna` method
+    + Syntax: `df.fropna(axis=0, how='any', thresh=None, subset=None, inplace=False)`
+    + Return object with labels on given axis omitted where alternately any or all of the data are missing
+    + `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof  
+        Pass tuple or list to drop on multiple axes
+    + `how`: {'any', 'all'}  
+        + `any` : if any NA values are present, drop that label
+        + `all` : if all values are NA, drop that label
+    + `thresh`: int, default None  
+        int value : require that many non-NA values
+    + `subset`: array-like  
+        Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include
+    + `inplace`: boolean, default False  
+        If True, do operation inplace and return None.
++ `groupby` method
+    + Syntax: `df.groupby(by=None, axis=0, level=None, as_index=True, sort=True)`
+    + Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns.
+    + `by`: mapping, function, str, or iterable
+        + Used to determine the groups for the `groupby`.
+        + `function`: called on each value of the object's index.
+        + `dict` or `Series`: the Series or dict VALUES will be used to determine the groups (the Series' values are first aligned; see `.align()` method). 
+        + `ndarray`: the values are used as-is determine the groups.
+        + `str` or `list of strs`: group by the columns in `self`
+    + `axis`: int, default 0
+    + `level`: int, level name, or sequence of such, default None  
+        If the axis is a MultiIndex (hierarchical), group by a particular level or levels
+    + `as_index`: boolean, default True  
+        For aggregated output, return object with group labels as the index. Only relevant for DataFrame input. as_index=False is effectively "SQL-style" grouped output
+    + `sort`: boolean, default True  
+        Sort group keys. Get better performance by turning this off. Note this does not influence the order of observations within each group.  groupby preserves the order of rows within each group.
++ `agg` method
+    + Syntax: `df.agg(func, axis=0)`
+    + Aggregate using callable, string, dict, or list of string/callables
+    + `func`: callable, string, dictionary, or list of string/callables  
+        Function to use for aggregating the data. If a function, must either work when passed a DataFrame or when passed to DataFrame.apply. For a DataFrame, can pass a dict, if the keys are DataFrame column names.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
+        Accepted Combinations are:
+    
+        + string function name
+        + function
+        + list of functions
+        + dict of column names -> functions (or list of functions)
++ Demo
+    ```python
+    df = pd.read_csv('census.csv')
+    df = df[df['SUMLEV']==50]
+
+    # calculate average w/ loop
+    %%timeit -n 10
+    for state in df['STNAME'].unique():
+        avg = np.average(df.where(df['STNAME']==state).dropna()['CENSUS2010POP'])
+        print('Counties in state ' + state + ' have an average population of ' + str(avg))
+
+    %%timeit -n 10
+    for group, frame in df.groupby('STNAME'):
+        avg = np.average(frame['CENSUS2010POP'])
+        print('Counties in state ' + group + ' have an average population of ' + str(avg))
+
+    # data segmented by the given function
+    df = df.set_index('STNAME')
+
+    def fun(item):
+        if item[0]<'M':
+            return 0
+        if item[0]<'Q':
+            return 1
+        return 2
+
+    for group, frame in df.groupby(fun):
+        print('There are ' + str(len(frame)) + ' records in group ' + str(group) + ' for processing.')
+    # There are 1177 records in group 0 for processing.
+    # There are 1134 records in group 1 for processing.
+    # There are 831 records in group 2 for processing.
+
+    df = pd.read_csv('census.csv')
+    df = df[df['SUMLEV']==50]
+
+    # split & combine method: group data w/ States and then aggregate
+    df.groupby('STNAME').agg({'CENSUS2010POP': np.average})
+    #	        CENSUS2010POP
+    # STNAME
+    # Alabama   71339.343284
+
+    print(type(df.groupby(level=0)['POPESTIMATE2010','POPESTIMATE2011']))
+    # <class 'pandas.core.groupby.DataFrameGroupBy'>
+    print(type(df.groupby(level=0)['POPESTIMATE2010']))
+    # <class 'pandas.core.groupby.SeriesGroupBy'>
+
+    # 2 column DF
+    (df.set_index('STNAME').groupby(level=0)['CENSUS2010POP']
+        .agg({'avg': np.average, 'sum': np.sum}))
+    #	        avg             sum
+    # STNAME
+    # Alabama	71339.343284	4779736
+
+    # 4 col result: hierarchical level result
+    (df.set_index('STNAME').groupby(level=0)['POPESTIMATE2010','POPESTIMATE2011']
+        .agg({'avg': np.average, 'sum': np.sum}))
+    #           avg                                 sum
+    #           POPESTIMATE2010 POPESTIMATE2011     POPESTIMATE2010 POPESTIMATE2011
+    # STNAME
+    # Alabama   71420.313433    71658.328358        4785161         4801108
+
+    # odd behavior: once relabeling, POPESTIMATE2010 = avg, POPESTIMATE2011 = sum
+    (df.set_index('STNAME').groupby(level=0)['POPESTIMATE2010','POPESTIMATE2011']
+        .agg({'POPESTIMATE2010': np.average, 'POPESTIMATE2011': np.sum}))
+    #               POPESTIMATE2010     POPESTIMATE2011
+    # STNAME
+    # Alabama       71420.313433        4801108
+    ```
++ Quiz:  
+    Looking at our backpacking equipment DataFrame, suppose we are interested in finding our total weight for each category. Use `groupby` to group the dataframe, and apply a function to calculate the total weight (Weight x Quantity) by category.
+    ```python
+    print(df)
+
+    # Your code here
+    ```
+
+        | Item                  | Category | Quantity | Weight (oz.) |
+        |-----------------------|----------|---------_|--------------|
+        | Pack                  |     Pack |        1 |         33.0 |
+        | Tent                  |  Shelter |        1 |         80.0 |
+        | Sleeping Pad          |    Sleep |        1 |         27.0 |
+        | Sleeping Bag          |    Sleep |        1 |         20.0 |
+        | Toothbrush/Toothpaste |   Health |        1 |          2.0 |
+        | Sunscreen             |   Health |        1 |          5.0 |
+        | Medical Kit           |   Health |        1 |          3.7 |
+        | Spoon                 |  Kitchen |        1 |          0.7 |
+        | Stove                 |  Kitchen |        1 |         20.0 |
+        | Water Filter          |  Kitchen |        1 |          1.8 |
+        | Water Bottles         |  Kitchen |        2 |         35.0 |
+        | Pack Liner            |  Utility |        1 |          1.0 |
+        | Stuff Sack            |  Utility |        1 |          1.0 |
+        | Trekking Poles        |  Utility |        1 |         16.0 |
+        | Rain Poncho           | Clothing |        1 |          6.0 |
+        | Shoes                 | Clothing |        1 |         12.0 |
+        | Hat                   | Clothing |        1 |          2.5 |
+
+    + Answer:
+        ```python
+        print(df.groupby('Category').apply(lambda df,a,b: sum(df[a] * df[b]), 'Weight (oz.)', 'Quantity'))
+
+        # Or alternatively without using a lambda:
+        # def totalweight(df, w, q):
+        #        return sum(df[w] * df[q])
+        #        
+        # print(df.groupby('Category').apply(totalweight, 'Weight (oz.)', 'Quantity'))
+        ```
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/JOzRuokUEea8gwpyjKjbvQ.processed/full/540p/index.mp4?Expires=1525737600&Signature=f6NoHnZx~bIg5Jr4sEB6DV4FOj8W7RtCjsgPNTGjb8hpKcmSG2zW89i15eY8Taf~RSD0uzJBe4P6KHE8k2FJ~h4RDs8GgHT-KbH7ec37qUDiXBjaiM9W0AH5f-6fhrHgxfGsT-o3iZ1vsf0PPV8PafKP0puLnMO31IZ0MQYSK-s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Scales
