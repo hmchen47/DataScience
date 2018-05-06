@@ -677,7 +677,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     df.plot()
     ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/QnzfqokUEeaoHhIiFgcrVw.processed/full/540p/index.mp4?Expires=1525737600&Signature=XK6i1~u5ajmdCtXpOn5ccMP84cjPeYcI1sGDllbp5CJE-9fmkfD0SMUFJkupawrJ2h~fUDVFZ~pu7qiQhu~auk10TuizzaNPyiDJK8SZB1ik9kvK5~4QHClEP8mLll8e20kjQz-2aP3xjB5Tu3WBe8yodAiDzkk-R6N5YT25q1s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Discussion Prompt: Goodhart's Law
