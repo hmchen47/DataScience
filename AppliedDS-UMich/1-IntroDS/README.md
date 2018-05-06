@@ -72,7 +72,7 @@
 ### [Programming Assignment: Assignment](./notebooks/Assignment02.ipynb)
 
 
-## [Advanced Python Pandas[(./03-AdvPandas.md)]
+## [Advanced Python Pandas](./03-AdvPandas.md)
 
 ### [Week 3 Lectures Jupyter Notebook](./03-AdvPandas.md#week-3-lectures-jupyter-notebook)
 
