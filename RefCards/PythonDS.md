@@ -220,7 +220,7 @@ import pandas as pd
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. | [Scales][018] |
+| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] 
 
 
 ### Series
@@ -817,7 +817,7 @@ df = pd.read_csv('<fname>.csv')
 | `df.groupby(by=None, axis=0, level=None, as_index=True, sort=True)` | Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns; `by`: mapping, function, str, or iterable; `axis`: 0 (row), 1 (col); `level`: if the axis is a MultiIndex (hierarchical), group by a particular level or levels; `as_index`: return object with group labels as the index; `sort`: Sort group keys | [Group by][017] |
 | `df.agg(func, axis=0)` | Aggregate using callable, string, dict, or list of string/callables; `func`: callable, string, dictionary, or list of string/callables | [Group by][017] |
 | `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; `dtype`: data type, or dict of column name -> data type | [Scales][018] |
-
+| `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
 
 
 
@@ -851,5 +851,15 @@ df = pd.read_csv('<fname>.csv')
 [016]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pandas-idioms
 [017]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#group-by
 [018]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#scales
-[019]: 
+[019]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pivot_tables
+[020]: 
+[021]: 
+[022]: 
+[023]: 
+[024]: 
+[025]: 
+[026]: 
+[027]: 
+[028]: 
+[029]: 
 

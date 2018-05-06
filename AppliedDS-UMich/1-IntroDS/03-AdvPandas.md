@@ -491,8 +491,61 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Pivot Tables
 
++ Pivot Tables
+    + Summarizing data for particular purpose
+    + Heavily using aggregation function
+    + a data frame, row with one variable while column w/ another
+    + tend to having marginal values, sum of each column and row  -> relationship btw two variables
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
+    ![Diagram](http://pbpython.com/images/pivot-table-datasheet.png)
+
++ `pivot_table` method
+    + Syntax: `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')`
+    + Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame
+    + `values`: column to aggregate, optional
+    + `index`: column, Grouper, array, or list of the previous  
+        If an array is passed, it must be the same length as the data. The list can contain any of the other types (except list). Keys to group by on the pivot table index.  If an array is passed, it is being used as the same manner as column values.
+    + `columns`: column, Grouper, array, or list of the previous  
+        If an array is passed, it must be the same length as the data. The list can contain any of the other types (except list). Keys to group by on the pivot table column.  If an array is passed, it is being used as the same manner as column values.
+    + `aggfunc`: function or list of functions, default numpy.mean  
+        If list of functions passed, the resulting pivot table will have hierarchical columns whose top level are the function names (inferred from the function objects themselves)
+
++ Demo
+    ```python
+    #http://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64
+    df = pd.read_csv('cars.csv')
+
+    df.pivot_table(values='(kW)', index='YEAR', columns='Make', aggfunc=np.mean)
+
+    df.pivot_table(values='(kW)', index='YEAR', columns='Make', aggfunc=[np.mean,np.min], margins=True)
+    ```
+
++ Quiz  
+    Suppose we have a DataFrame with price and ratings for different bikes, broken down by manufacturer and type of bicycle.
+
+    Create a pivot table that shows the mean price and mean rating for every 'Manufacturer' / 'Bike Type' combination.
+    
+    |   | Bike Type | Manufacturer | Price | Rating |
+    |---|-----------|--------------|-------|--------|
+    | 0 |  Mountain |            A |   400 |      8 |
+    | 1 |  Mountain |            A |   600 |      9 |
+    | 2 |      Road |            A |   400 |      4 |
+    | 3 |      Road |            A |   450 |      4 |
+    | 4 |  Mountain |            B |   300 |      6 |
+    | 5 |  Mountain |            B |   250 |      5 |
+    | 6 |      Road |            B |   400 |      4 |
+    | 7 |      Road |            B |   500 |      6 |
+    | 8 |  Mountain |            C |   400 |      5 |
+    | 9 |  Mountain |            C |   500 |      6 |
+    | 10|      Road |            C |   800 |      9 |
+    | 11|      Road |            C |   950 |     10 |
+
+    + Answer:
+        ```python
+        print(pd.pivot_table(Bikes, index=['Manufacturer','Bike Type']))
+        ```
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/OgnKXYkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=D98E0proM6pxQIWf150RxGU6vsMSagI0gSu00~QipMNwBVK1qp-uDmAGXipcwgWEgsoCD5k0ADTrCPUR1z1OFtLvtC6eD-22lrHF8u4tVkQh~K0VKMhhnJCzJxm0WMl4BC5JCHmOJMfq1dTJXx0m9ELlR2kllJhMn-i7PW2vVV0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Date Functionality
