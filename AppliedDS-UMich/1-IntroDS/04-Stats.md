@@ -220,12 +220,55 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Hypothesis Testing in Python
 
++ Hypothesis Testing
+    + Hypothesis: A statement we can test
+        + Alternative hypothesis: Our idea, e.g. there is a difference between groups
+        + Null hypothesis: The alternative of our idea, e.g. there is no difference between groups
+    + Critical Value alpha ($α$)
+        + The threshold as to how much chance you are willing to accept
+    + Typical values in social sciences are $0.1$, $0.05$, or $0.01$
+
++ P-hacking, or Dredging
+    + At a confidence level of $0.05$, we expect to find one positive result 1 time out of 20 tests
+    + Remedies:
+        + Bonferroni correction: multiple tests, e.g. 0.05 w/ 3 tests -> 0.017
+        + Hold-out sets: generalizable of the test - data divided into two sets and analyze each of them; havily used in ML as _cross fold validation_
+        + Investigation pre-registration: outline expectations and why, then run test to backup the expectations 
+
++ `ttest` method
+    + Syntax: `ttest_ind(a, b, axis=0, equal_var=True, nan_policy='propagate')`
+    + Calculates the T-test for the means of two independent samples of scores
+    + `a`, `b`: array_like  
+    The arrays must have the same shape, except in the dimension corresponding to `axis` (the first, by default).
+    + `axis`: int or None, optional  
+    Axis along which to compute test. If None, compute over the whole arrays, `a`, and `b`.
+    + `equal_var`: bool, optional  
+    If True (default), perform a standard independent 2 sample test that assumes equal population variances. If False, perform Welch's t-test, which does not assume equal population variance.
+    + `nan_policy`: {'propagate', 'raise', 'omit'}, optional  
+    Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values. Default is 'propagate'.
+
 + Demo 
     ```Python
-    
+    df = pd.read_csv('grades.csv')
+    len(df)                         # number of rows
+
+    early = df[df['assignment1_submission'] <= '2015-12-31']
+    late = df[df['assignment1_submission'] > '2015-12-31']
+    early.mean()
+    late.mean()
+
+    from scipy import stats
+    get_ipython().magic('pinfo stats.ttest_ind')
+
+    stats.ttest_ind(early['assignment1_grade'], late['assignment1_grade'])
+    # Ttest_indResult(statistic=1.400549944897566, pvalue=0.16148283016060577)
+    stats.ttest_ind(early['assignment2_grade'], late['assignment2_grade'])
+    # Ttest_indResult(statistic=1.3239868220912567, pvalue=0.18563824610067967)
+    stats.ttest_ind(early['assignment3_grade'], late['assignment3_grade'])
+    # Ttest_indResult(statistic=1.7116160037010733, pvalue=0.087101516341556676)
     ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/cP0Jy5mFEeazEQqJcB_rAg.processed/full/540p/index.mp4?Expires=1526169600&Signature=ERCUyHaMeGn1OVylK68SzuWz7gJRQEtScTwOhR7Lx9ichn4VWj4ljuMOw~n5aYL18eX5LLlaz6b6sGwbFpOt~LIOF4CUfT-LC2aP4jFfD1cRFXhdfY0LnsZIWseXwjbO2Y7vaYCEYKq97elKV~aIlrByQFw8e5Es0gk7nY8pFj0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## End of Theory
