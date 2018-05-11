@@ -200,6 +200,7 @@ import numpy as np
 | `np.random.rand(d0, d1, ..., dn)` | Random values in a given shape from a uniform distribution over $[0, 1)$ | [NumPy][005] |
 | `np.random.randn(d0, d1, ..., dn)` | Return a sample (or samples) from the "standard normal" distribution. | [NumPy][005] |
 | `np.random.randint(low, high)` | Return random integers from `low` (inclusive) to `high` (exclusive). | [NumPy][005] |
+| `np.random.binomial(n, p, size)` | Draw samples from a binomial distribution; `n`: event occurrence; `p`: probability of each event; `size`: times of the set events | [Distribution][021] |
 
 
 [TOC](#table-of-contents)
@@ -500,7 +501,7 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 [018]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#scales
 [019]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pivot_tables
 [020]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#date-functionality
-[021]: 
+[021]: ../AppliedDS-UMich/1-IntroDS/04-Stats.md#distribution
 [022]: 
 [023]: 
 [024]: 
