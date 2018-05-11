@@ -107,6 +107,26 @@ import time as tm
 [TOC](#table-of-contents)
 
 
+## SciPy 
+
+### Import Files
+
+```python
+import scipy.stats as stats
+```
+
+#### Statistical Module
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `skew(a, axis=0, bias=True, nan_policy='propagate')` | For normally distributed data, the skewness should be about $0$. For unimodal continuous distributions, a skewness value > 0 means that there is more weight in the right tail of the distribution. The function `skewtest` can be used to determine if the skewness value is close enough to 0, statistically speaking;  `a`: ndarray; `axis`: Axis along which the kurtosis is calculated; `bias`: False=statistical bias;  `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
+| `kurtosis(a, axis=0, fisher=True, bias=True, nan_policy='propagate')` | Kurtosis is the fourth central moment divided by the square of the variance. If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution; `a`: array data; `axis`: Axis along which the kurtosis is calculated.; `fisher`: True=Fisher's definition (normal ==> 0.0), False=Pearson's definition (normal ==> 3.0); `bias`: False=statistical bias; 
+    + `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
+
+
+
+
+
 ## Numpy
 
 ### Import Files
@@ -121,6 +141,7 @@ import numpy as np
 |--------|-------------|------|
 | `np.nan` | Not a number | [Series][006] |
 | `np.isnan(ary)` | Return ndarray or tuple of ndarray with bool value | [Series][006] |
+| `std(a, axis=None, out=None, ddof=0)` | ompute the standard deviation along the specified axis; `a`: array_like; `axis`: Axis or axes along which the standard deviation is computed; `out`: Alternative output array in which to place the result; `dof`: Means Delta Degrees of Freedom | [More Distribution][022] |
 
 
 
@@ -201,6 +222,10 @@ import numpy as np
 | `np.random.randn(d0, d1, ..., dn)` | Return a sample (or samples) from the "standard normal" distribution. | [NumPy][005] |
 | `np.random.randint(low, high)` | Return random integers from `low` (inclusive) to `high` (exclusive). | [NumPy][005] |
 | `np.random.binomial(n, p, size)` | Draw samples from a binomial distribution; `n`: event occurrence; `p`: probability of each event; `size`: times of the set events | [Distribution][021] |
+| `uniform(low=0.0, high=1.0, size=None)` | Draw samples from a uniform distribution, $[low, high)$; `size`: Output shape. | [More Distribution][022] |
+| `normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution; `loc`: mean; `scale`: std dev; `size`: Output shape | [More Distribution][022] |
+| `chisquare(df, size=None)` | Draw samples from a chi-square distribution; `df`: Number of degrees of freedom, should be $> 0$; `size`: Output shape | [More Distribution][022] |
+
 
 
 [TOC](#table-of-contents)
@@ -502,7 +527,7 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 [019]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pivot_tables
 [020]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#date-functionality
 [021]: ../AppliedDS-UMich/1-IntroDS/04-Stats.md#distribution
-[022]: 
+[022]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#more-distribution
 [023]: 
 [024]: 
 [025]: 
