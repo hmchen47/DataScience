@@ -115,4 +115,10 @@
 ### [Discussion Prompt: Science Isn't Broken: p-hacking activity](./04-Stats.md#discussion-prompt-science-isnt-broken-p---hacking-activity)
 
 
+## [Project](https://www.coursera.org/learn/python-data-analysis/notebook/TeDW0/assignment-4-project)
+
+### [Assignment 4 - Project](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Assignment%204.ipynb)
+
+### [Programming Assignment: Assignment 4 Submission](./notebooks/Assignment04.ipynb)
+
 
