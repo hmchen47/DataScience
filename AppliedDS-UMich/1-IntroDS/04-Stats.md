@@ -2,10 +2,11 @@
 
 ## Week 4 Lectures Jupyter Notebook
 
+To download notebooks and datafiles, as well as get help on Jupyter notebooks in the Coursera platform, visit the [Jupyter Notebook FAQ](https://www.coursera.org/learn/python-data-analysis/resources/0dhYG) course resource.
 
-[Web Notebook]
+[Web Notebook](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Week%204.ipynb)
 
-[Local Notebook]
+[Local Notebook](./Week04.ipynb)
 
 ## Introduction
 
