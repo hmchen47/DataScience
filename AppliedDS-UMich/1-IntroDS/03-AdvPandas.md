@@ -244,7 +244,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + processing the data
     + combining the results
 + `dropna` method
-    + Syntax: `df.fropna(axis=0, how='any', thresh=None, subset=None, inplace=False)`
+    + Syntax: `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)`
     + Return object with labels on given axis omitted where alternately any or all of the data are missing
     + `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof  
         Pass tuple or list to drop on multiple axes
