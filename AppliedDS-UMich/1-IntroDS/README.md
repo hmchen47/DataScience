@@ -98,3 +98,21 @@
 ### [Programming Assignment: Assignment 3](./notebooks/Assignment03.ipynb)
 
 
+## [Statistical Analysis in Python and Project](./04-Stats.md)
+
+### [Week 4 Lectures Jupyter Notebook](./04-Stats.md#week-4-lectures-jupyter-notebook)
+
+### [Introduction](./04-Stats.md#introduction)
+
+### [Distributions](./04-Stats.md#)
+
+### [More Distributions](./04-Stats.md#)
+
+### [Hypothesis Testing in Python](./04-Stats.md#)
+
+### [End of Theory](./04-Stats.md#)
+
+### [Discussion Prompt: Science Isn't Broken: p-hacking activity](./04-Stats.md#discussion-prompt-science-isnt-broken-p---hacking-activity)
+
+
+
