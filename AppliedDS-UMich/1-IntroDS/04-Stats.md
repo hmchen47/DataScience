@@ -273,15 +273,32 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## End of Theory
 
-+ Demo 
-    ```Python
-    
-    ```
+This course uses a third-party tool, End of Theory, to enhance your learning experience. The tool will reference basic information like your name, email, and Coursera ID.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](){: target="_blank"}
+[Open tool](https://nzh13lxjj0.execute-api.us-east-1.amazonaws.com/prod/response/4/new/)
 
+In 2008 Chris Anderson wrote a provocative article in Wired magazine questioning whether science has moved into a new way of knowing about the world, where theory was no longer central to understanding and decisions, but data and algorithms alone could provide insights.
+
+Read the [article](https://www.wired.com/2008/06/pb-theory/)
+
+Do you think we have come to the end of theory? If so, what does this mean for scientific research and discover in theory-heavy fields such as the social sciences? If not, what does theory provide which data and algorithms alone cannot?
+
+### My Own Opinion: Disagree
+
+This is a dangerous proclaim.  The help from computational power and advances of machine learning algorithms make the era happened.  We can only analyze the correlation of the data without knowing underneath behavior.  However, a model simplifies the real world behavior by scarifying many far away factors.  It will provide people a less expensive and quicker way to find the solutions that do not need to know everything detailed.  
+
+It’s like black and while box systems.  One is just to know the result while the other one need to know the how the system behavior.  Once we know the detail, then we can control and manipulate it.  Certainly, not every time we need to know all the details but the coarse results.  Then the approach for the Petabyte Ago kicks in to play the main role.  Just like models, there is no universal model to fit everything though.  Though a great model can explain many things, it might be too expensive too build and explore.  
+
+IMHO, the traditional approach, hypothesize, model, and test, will coexist with the approach for the Petabyte Age, correlation.  One can help us to know the underneath world better while the other one tells us the expecting results without details. Both of them have their own value to help us knowing the real world.
+
+### Review 1
+
+
+### Review 2
+
+
+### Review 3
 
 ## Discussion Prompt: Science Isn't Broken: p-hacking activity
-
 
 
