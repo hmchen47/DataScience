@@ -321,6 +321,8 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 ## [Data type routines][0163]
 
 
+| API | Description | Link |
+|-----|-------------|------|
 | `can_cast(from_, to[, casting])` | Returns True if cast between data types can occur according to the casting rule. | [API][0164]
 | `promote_types(type1, type2)` | Returns the data type with the smallest size and smallest scalar kind to which both type1 and type2 may be safely cast. | [API][0165]
 | `min_scalar_type(a)` | For scalar a, returns the data type with the smallest size and smallest scalar kind which can hold its value. | [API][0166]
@@ -330,17 +332,23 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 
 ### Creating data types 
 
+| API | Description | Link |
+|-----|-------------|------|
 | `dtype(obj[, align, copy])` | Create a data type object. | [API][0170]
 | `format_parser(formats, names, titles[, …])` | Class to convert formats, names, titles description to a dtype. | [API][0171]
 
 ### Data type information
 
+| API | Description | Link |
+|-----|-------------|------|
 | `finfo(dtype)` | Machine limits for floating point types. | [API][0172]
 | `iinfo(type)` | Machine limits for integer types. | [API][0173]
 | `MachAr([float_conv, int_conv, …])` | Diagnosing machine parameters. | [API][0174]
 
 ### Data type testing
 
+| API | Description | Link |
+|-----|-------------|------|
 | `issctype(rep)` | Determines whether the given object represents a scalar data-type. | [API][0175]
 | `issubdtype(arg1, arg2)` | Returns True if first argument is a typecode lower/equal in type hierarchy. | [API][0176]
 | `issubsctype(arg1, arg2)` | Determine if the first argument is a subclass of the second argument. | [API][0177]
@@ -349,6 +357,8 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 
 ### Miscellaneous
 
+| API | Description | Link |
+|-----|-------------|------|
 | `typename(char)` | Return a description for the given data type code. | [API][0180]
 | `sctype2char(sctype)` | Return the string representation of a scalar dtype. | [API][0181]
 | `mintypecode(typechars[, typeset, default])` | Return the character for the minimum-size type to which given types can be safely cast. | [API][0182]
@@ -362,6 +372,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Setting and getting error handling
 
+| API | Description | Link |
+|-----|-------------|------|
 | `seterr([all, divide, over, under, invalid])` | Set how floating-point errors are handled. | [API][0185] |
 | `geterr()` | Get the current way of handling floating-point errors. | [API][0186] |
 | `seterrcall(func)` | Set the floating-point error callback function or log object. | [API][0187] |
@@ -370,6 +382,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Internal functions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `seterrobj(errobj)` | Set the object that defines floating-point error handling. | [API][0190] |
 | `geterrobj()` | Return the current object that defines floating-point error handling. | [API][0191] |
 
@@ -377,6 +391,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Standard FFTs
 
+| API | Description | Link |
+|-----|-------------|------|
 | `fft(a[, n, axis, norm])` | Compute the one-dimensional discrete Fourier Transform. | [API][0193]
 | `ifft(a[, n, axis, norm])` | Compute the one-dimensional inverse discrete Fourier Transform. | [API][0194]
 | `fft2(a[, s, axes, norm])` | Compute the 2-dimensional discrete Fourier Transform | [API][0195]
@@ -386,6 +402,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Real FFTs
 
+| API | Description | Link |
+|-----|-------------|------|
 | `rfft(a[, n, axis, norm])` | Compute the one-dimensional discrete Fourier Transform for real input. | [API][0199]
 | `irfft(a[, n, axis, norm])` | Compute the inverse of the n-point DFT for real input. | [API][0200]
 | `rfft2(a[, s, axes, norm])` | Compute the 2-dimensional FFT of a real array. | [API][0201]
@@ -395,11 +413,15 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Hermitian FFTs
 
+| API | Description | Link |
+|-----|-------------|------|
 | `hfft(a[, n, axis, norm])` | Compute the FFT of a signal that has Hermitian symmetry, i.e., a real spectrum. | [API][0205]
 | `ihfft(a[, n, axis, norm])` | Compute the inverse FFT of a signal that has Hermitian symmetry. | [API][0206]
 
 ### Helper routines
 
+| API | Description | Link |
+|-----|-------------|------|
 | `fftfreq(n[, d])` | Return the Discrete Fourier Transform sample frequencies. | [API][0207]
 | `rfftfreq(n[, d])` | Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft). | [API][0208]
 | `fftshift(x[, axes])` | Shift the zero-frequency component to the center of the spectrum. | [API][0209]
@@ -410,6 +432,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Simple financial functions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `fv(rate, nper, pmt, pv[, when])` | Compute the future value. | [API][0212] |
 | `pv(rate, nper, pmt[, fv, when])` | Compute the present value. | [API][0213] |
 | `npv(rate, values)` | Returns the NPV (Net Present Value) of a cash flow series. | [API][0214] |
@@ -424,6 +448,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ## [Functional programming][0222]
 
+| API | Description | Link |
+|-----|-------------|------|
 | `apply_along_axis(func1d, axis, arr, *args, …)` | Apply a function to 1-D slices along the given axis. | [API][0223] |
 | `apply_over_axes(func, a, axes)` | Apply a function repeatedly over multiple axes. | [API][0224] |
 | `vectorize(pyfunc[, otypes, doc, excluded, …])` | Generalized function class. | [API][0225] |
@@ -435,10 +461,14 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Finding help
 
+| API | Description | Link |
+|-----|-------------|------|
 | `lookfor(what[, module, import_modules, …])` | Do a keyword search on docstrings. | [API][0229] |
 
 ### Reading help
 
+| API | Description | Link |
+|-----|-------------|------|
 | `info([object, maxwidth, output, toplevel])` | Get help information for a function, class, or module. | [API][0230] |
 | `source(object[, output])` | Print or write to a file the source code for a NumPy object. | [API][0231] |
 
@@ -447,6 +477,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Generating index arrays
 
+| API | Description | Link |
+|-----|-------------|------|
 | `c_` | Translates slice objects to concatenation along the second axis. | [API][0233] |
 | `r_` | Translates slice objects to concatenation along the first axis. | [API][0234] |
 | `s_` | A nicer way to build up index tuples for arrays. | [API][0235] |
@@ -467,6 +499,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Indexing-like operations
 
+| API | Description | Link |
+|-----|-------------|------|
 | `take(a, indices[, axis, out, mode])` | Take elements from an array along an axis. | [API][0250] |
 | `choose(a, choices[, out, mode])` | Construct an array from an index array and a set of arrays to choose from. | [API][0251] |
 | `compress(condition, a[, axis, out])` | Return selected slices of an array along given axis. | [API][0252] |
@@ -477,6 +511,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Inserting data into arrays
 
+| API | Description | Link |
+|-----|-------------|------|
 | `place(arr, mask, vals)` | Change elements of an array based on conditional and input values. | [API][0257] |
 | `put(a, ind, v[, mode])` | Replaces specified elements of an array with given values. | [API][0258] |
 | `putmask(a, mask, values)` | Changes elements of an array based on conditional and input values. | [API][0259] |
@@ -484,6 +520,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### Iterating over arrays
 
+| API | Description | Link |
+|-----|-------------|------|
 | `nditer` | Efficient multi-dimensional iterator object to iterate over arrays. | [API][0261] |
 | `ndenumerate(arr)` | Multidimensional index iterator. | [API][0262] |
 | `ndindex(*shape)` | An N-dimensional iterator object to index arrays. | [API][0263] |
@@ -496,6 +534,8 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 
 ### NumPy binary files (NPY, NPZ)
 
+| API | Description | Link |
+|-----|-------------|------|
 | `load(file[, mmap_mode, allow_pickle, …])` | Load arrays or pickled objects from .npy, .npz or pickled files. | [API][0268] |
 | `save(file, arr[, allow_pickle, fix_imports])` | Save an array to a binary file in NumPy .npy format. | [API][0269] |
 | `savez(file, *args, **kwds)` | Save several arrays into a single file in uncompressed .npz format. | [API][0270] |
@@ -505,6 +545,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Text files
 
+| API | Description | Link |
+|-----|-------------|------|
 | `loadtxt(fname[, dtype, comments, delimiter, …])` | Load data from a text file. | [API][0272] |
 | `savetxt(fname, X[, fmt, delimiter, newline, …])` | Save an array to a text file. | [API][0273] |
 | `genfromtxt(fname[, dtype, comments, …])` | Load data from a text file, with missing values handled as specified. | [API][0274] |
@@ -515,11 +557,15 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Raw binary files
 
+| API | Description | Link |
+|-----|-------------|------|
 | `fromfile(file[, dtype, count, sep])` | Construct an array from data in a text or binary file. | [API][0279] |
 | `ndarray.tofile(fid[, sep, format])` | Write array to a file as text or binary (default). | [API][0280] |
 
 ### String formatting
 
+| API | Description | Link |
+|-----|-------------|------|
 | `array2string(a[, max_line_width, precision, …])` | Return a string representation of an array. | [API][0281] |
 | `array_repr(arr[, max_line_width, precision, …])` | Return the string representation of an array. | [API][0282] |
 | `array_str(a[, max_line_width, precision, …])` | Return a string representation of the data in an array. | [API][0283] |
@@ -528,27 +574,100 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Memory mapping files
 
+| API | Description | Link |
+|-----|-------------|------|
 | `memmap` | Create a memory-map to an array stored in a binary file on disk. | [API][0286] |
 
 ### Text formatting options
 
+| API | Description | Link |
+|-----|-------------|------|
 | `set_printoptions([precision, threshold, …])` | Set printing options. | [API][0287] |
 | `get_printoptions()` | Return the current print options. | [API][0288] |
 | `set_string_function(f[, repr])` | Set a Python function to be used when pretty printing arrays. | [API][0289] |
 
 ### Base-n representations
 
+| API | Description | Link |
+|-----|-------------|------|
 | `binary_repr(num[, width])` | Return the binary representation of the input number as a string. | [API][0290] |
 | `base_repr(number[, base, padding])` | Return a string representation of a number in the given base system. | [API][0291] |
 
 ### Data sources
 
+| API | Description | Link |
+|-----|-------------|------|
 | `DataSource([destpath])` | A generic data source file (file, http, ftp, …). | [API][0292] |
 
 ### Binary Format Description
 
+| API | Description | Link |
+|-----|-------------|------|
 | `lib.format` | Binary serialization | [API][0293] |
 
+
+## [Linear algebra (numpy.linalg)][0294]
+
+### Matrix and vector products
+
+| API | Description | Link |
+|-----|-------------|------|
+| `dot(a, b[, out])` | Dot product of two arrays. | [API][0295] |
+| `linalg.multi_dot(arrays)` | Compute the dot product of two or more arrays in a single function call, while automatically selecting the fastest evaluation order. | [API][0296] |
+| `vdot(a, b)` | Return the dot product of two vectors. | [API][0297] |
+| `inner(a, b)` | Inner product of two arrays. | [API][0298] |
+| `outer(a, b[, out])` | Compute the outer product of two vectors. | [API][0299] |
+| `matmul(a, b[, out])` | Matrix product of two arrays. | [API][0300] |
+| `tensordot(a, b[, axes])` | Compute tensor dot product along specified axes for arrays >= 1-D. | [API][0301] |
+| `einsum(subscripts, *operands[, out, dtype, …])` | Evaluates the Einstein summation convention on the operands. | [API][0302] |
+| `einsum_path(subscripts, *operands[, optimize])` | Evaluates the lowest cost contraction order for an einsum expression by considering the creation of intermediate arrays. | [API][0303] |
+| `linalg.matrix_power(a, n)` | Raise a square matrix to the (integer) power n. | [API][0304] |
+| `kron(a, b)` | Kronecker product of two arrays. | [API][0305] |
+
+### Decompositions
+
+| API | Description | Link |
+|-----|-------------|------|
+| `linalg.cholesky(a)` | Cholesky decomposition. | [API][0306] |
+| `linalg.qr(a[, mode])` | Compute the qr factorization of a matrix. | [API][0307] |
+| `linalg.svd(a[, full_matrices, compute_uv])` | Singular Value Decomposition. | [API][0308] |
+
+### Matrix eigenvalues
+
+| API | Description | Link |
+|-----|-------------|------|
+| `linalg.eig(a)` | Compute the eigenvalues and right eigenvectors of a square array. | [API][0309] |
+| `linalg.eigh(a[, UPLO])` | Return the eigenvalues and eigenvectors of a Hermitian or symmetric matrix. | [API][0310] |
+| `linalg.eigvals(a)` | Compute the eigenvalues of a general matrix. | [API][0311] |
+| `linalg.eigvalsh(a[, UPLO])` | Compute the eigenvalues of a Hermitian or real symmetric matrix. | [API][0312] |
+
+### Norms and other numbers
+
+| API | Description | Link |
+|-----|-------------|------|
+| `linalg.norm(x[, ord, axis, keepdims])` | Matrix or vector norm. | [API][0313] |
+| `linalg.cond(x[, p])` | Compute the condition number of a matrix. | [API][0314] |
+| `linalg.det(a)` | Compute the determinant of an array. | [API][0315] |
+| `linalg.matrix_rank(M[, tol, hermitian])` | Return matrix rank of array using SVD method | [API][0316] |
+| `linalg.slogdet(a)` | Compute the sign and (natural) logarithm of the determinant of an array. | [API][0317] |
+| `trace(a[, offset, axis1, axis2, dtype, out])` | Return the sum along diagonals of the array. | [API][0318] |
+
+### Solving equations and inverting matrices
+
+| API | Description | Link |
+|-----|-------------|------|
+| `linalg.solve(a, b)` | Solve a linear matrix equation, or system of linear scalar equations. | [API][0319] |
+| `linalg.tensorsolve(a, b[, axes])` | Solve the tensor equation a x = b for x. | [API][0320] |
+| `linalg.lstsq(a, b[, rcond])` | Return the least-squares solution to a linear matrix equation. | [API][0321] |
+| `linalg.inv(a)` | Compute the (multiplicative) inverse of a matrix. | [API][0322] |
+| `linalg.pinv(a[, rcond])` | Compute the (Moore-Penrose) pseudo-inverse of a matrix. | [API][0323] |
+| `linalg.tensorinv(a[, ind])` | Compute the ‘inverse’ of an N-dimensional array. | [API][0324] |
+
+### Exceptions
+
+| API | Description | Link |
+|-----|-------------|------|
+| `linalg.LinAlgError` | Generic Python-exception-derived object raised by linalg functions. | [API][0325] |
 
 
 
@@ -556,7 +675,6 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 --------------------------------------------
 
-[0]:    
 [0000]: https://www.numpy.org/devdocs/reference/routines.array-creation.html
 [0001]: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html#numpy.empty
 [0002]: https://www.numpy.org/devdocs/reference/generated/numpy.empty_like.html#numpy.empty_like
@@ -757,6 +875,7 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0197]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftn.html#numpy.fft.fftn
 [0198]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftn.html#numpy.fft.ifftn
 [0199]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft
+
 [0200]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft
 [0201]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2
 [0202]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2
@@ -851,38 +970,39 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0291]: https://www.numpy.org/devdocs/reference/generated/numpy.base_repr.html#numpy.base_repr
 [0292]: https://www.numpy.org/devdocs/reference/generated/numpy.DataSource.html#numpy.DataSource
 [0293]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.format.html#module-numpy.lib.format
-[0294]: 
-[0295]: 
-[0296]: 
-[0297]: 
-[0298]: 
-[0299]: 
-[0300]: 
-[0301]: 
-[0302]: 
-[0303]: 
-[0304]: 
-[0305]: 
-[0306]: 
-[0307]: 
-[0308]: 
-[0309]: 
-[0310]: 
-[0311]: 
-[0312]: 
-[0313]: 
-[0314]: 
-[0315]: 
-[0316]: 
-[0317]: 
-[0318]: 
-[0319]: 
-[0320]: 
-[0321]: 
-[0322]: 
-[0323]: 
-[0324]: 
-[0325]: 
+[0294]: https://www.numpy.org/devdocs/reference/routines.linalg.html
+[0295]: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html#numpy.dot
+[0296]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
+[0297]: https://www.numpy.org/devdocs/reference/generated/numpy.vdot.html#numpy.vdot
+[0298]: https://www.numpy.org/devdocs/reference/generated/numpy.inner.html#numpy.inner
+[0299]: https://www.numpy.org/devdocs/reference/generated/numpy.outer.html#numpy.outer
+
+[0300]: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html#numpy.matmul
+[0301]: https://www.numpy.org/devdocs/reference/generated/numpy.tensordot.html#numpy.tensordot
+[0302]: https://www.numpy.org/devdocs/reference/generated/numpy.einsum.html#numpy.einsum
+[0303]: https://www.numpy.org/devdocs/reference/generated/numpy.einsum_path.html#numpy.einsum_path
+[0304]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
+[0305]: https://www.numpy.org/devdocs/reference/generated/numpy.kron.html#numpy.kron
+[0306]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky
+[0307]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.qr.html#numpy.linalg.qr
+[0308]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
+[0309]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.eig.html#numpy.linalg.eig
+[0310]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.eigh.html#numpy.linalg.eigh
+[0311]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.eigvals.html#numpy.linalg.eigvals
+[0312]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.eigvalsh.html#numpy.linalg.eigvalsh
+[0313]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm
+[0314]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.cond.html#numpy.linalg.cond
+[0315]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.det.html#numpy.linalg.det
+[0316]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.matrix_rank.html#numpy.linalg.matrix_rank
+[0317]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.slogdet.html#numpy.linalg.slogdet
+[0318]: https://www.numpy.org/devdocs/reference/generated/numpy.trace.html#numpy.trace
+[0319]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.solve.html#numpy.linalg.solve
+[0320]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.tensorsolve.html#numpy.linalg.tensorsolve
+[0321]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq
+[0322]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.inv.html#numpy.linalg.inv
+[0323]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.pinv.html#numpy.linalg.pinv
+[0324]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.tensorinv.html#numpy.linalg.tensorinv
+[0325]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.LinAlgError.html#numpy.linalg.LinAlgError
 [0326]: 
 [0327]: 
 [0328]: 
@@ -957,3 +1077,409 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0397]: 
 [0398]: 
 [0399]: 
+
+[0400]: 
+[0401]: 
+[0402]: 
+[0403]: 
+[0404]: 
+[0405]: 
+[0406]: 
+[0407]: 
+[0408]: 
+[0409]: 
+[0410]: 
+[0411]: 
+[0412]: 
+[0413]: 
+[0414]: 
+[0415]: 
+[0416]: 
+[0417]: 
+[0418]: 
+[0419]: 
+[0420]: 
+[0421]: 
+[0422]: 
+[0423]: 
+[0424]: 
+[0425]: 
+[0426]: 
+[0427]: 
+[0428]: 
+[0429]: 
+[0430]: 
+[0431]: 
+[0432]: 
+[0433]: 
+[0434]: 
+[0435]: 
+[0436]: 
+[0437]: 
+[0438]: 
+[0439]: 
+[0440]: 
+[0441]: 
+[0442]: 
+[0443]: 
+[0444]: 
+[0445]: 
+[0446]: 
+[0447]: 
+[0448]: 
+[0449]: 
+[0450]: 
+[0451]: 
+[0452]: 
+[0453]: 
+[0454]: 
+[0455]: 
+[0456]: 
+[0457]: 
+[0458]: 
+[0459]: 
+[0460]: 
+[0461]: 
+[0462]: 
+[0463]: 
+[0464]: 
+[0465]: 
+[0466]: 
+[0467]: 
+[0468]: 
+[0469]: 
+[0470]: 
+[0471]: 
+[0472]: 
+[0473]: 
+[0474]: 
+[0475]: 
+[0476]: 
+[0477]: 
+[0478]: 
+[0479]: 
+[0480]: 
+[0481]: 
+[0482]: 
+[0483]: 
+[0484]: 
+[0485]: 
+[0486]: 
+[0487]: 
+[0488]: 
+[0489]: 
+[0490]: 
+[0491]: 
+[0492]: 
+[0493]: 
+[0494]: 
+[0495]: 
+[0496]: 
+[0497]: 
+[0498]: 
+[0499]: 
+
+[0400]: 
+[0401]: 
+[0402]: 
+[0403]: 
+[0404]: 
+[0405]: 
+[0406]: 
+[0407]: 
+[0408]: 
+[0409]: 
+[0410]: 
+[0411]: 
+[0412]: 
+[0413]: 
+[0414]: 
+[0415]: 
+[0416]: 
+[0417]: 
+[0418]: 
+[0419]: 
+[0420]: 
+[0421]: 
+[0422]: 
+[0423]: 
+[0424]: 
+[0425]: 
+[0426]: 
+[0427]: 
+[0428]: 
+[0429]: 
+[0430]: 
+[0431]: 
+[0432]: 
+[0433]: 
+[0434]: 
+[0435]: 
+[0436]: 
+[0437]: 
+[0438]: 
+[0439]: 
+[0440]: 
+[0441]: 
+[0442]: 
+[0443]: 
+[0444]: 
+[0445]: 
+[0446]: 
+[0447]: 
+[0448]: 
+[0449]: 
+[0450]: 
+[0451]: 
+[0452]: 
+[0453]: 
+[0454]: 
+[0455]: 
+[0456]: 
+[0457]: 
+[0458]: 
+[0459]: 
+[0460]: 
+[0461]: 
+[0462]: 
+[0463]: 
+[0464]: 
+[0465]: 
+[0466]: 
+[0467]: 
+[0468]: 
+[0469]: 
+[0470]: 
+[0471]: 
+[0472]: 
+[0473]: 
+[0474]: 
+[0475]: 
+[0476]: 
+[0477]: 
+[0478]: 
+[0479]: 
+[0480]: 
+[0481]: 
+[0482]: 
+[0483]: 
+[0484]: 
+[0485]: 
+[0486]: 
+[0487]: 
+[0488]: 
+[0489]: 
+[0490]: 
+[0491]: 
+[0492]: 
+[0493]: 
+[0494]: 
+[0495]: 
+[0496]: 
+[0497]: 
+[0498]: 
+[0499]: 
+
+[0500]: 
+[0501]: 
+[0502]: 
+[0503]: 
+[0504]: 
+[0505]: 
+[0506]: 
+[0507]: 
+[0508]: 
+[0509]: 
+[0510]: 
+[0511]: 
+[0512]: 
+[0513]: 
+[0514]: 
+[0515]: 
+[0516]: 
+[0517]: 
+[0518]: 
+[0519]: 
+[0520]: 
+[0521]: 
+[0522]: 
+[0523]: 
+[0524]: 
+[0525]: 
+[0526]: 
+[0527]: 
+[0528]: 
+[0529]: 
+[0530]: 
+[0531]: 
+[0532]: 
+[0533]: 
+[0534]: 
+[0535]: 
+[0536]: 
+[0537]: 
+[0538]: 
+[0539]: 
+[0540]: 
+[0541]: 
+[0542]: 
+[0543]: 
+[0544]: 
+[0545]: 
+[0546]: 
+[0547]: 
+[0548]: 
+[0549]: 
+[0550]: 
+[0551]: 
+[0552]: 
+[0553]: 
+[0554]: 
+[0555]: 
+[0556]: 
+[0557]: 
+[0558]: 
+[0559]: 
+[0560]: 
+[0561]: 
+[0562]: 
+[0563]: 
+[0564]: 
+[0565]: 
+[0566]: 
+[0567]: 
+[0568]: 
+[0569]: 
+[0570]: 
+[0571]: 
+[0572]: 
+[0573]: 
+[0574]: 
+[0575]: 
+[0576]: 
+[0577]: 
+[0578]: 
+[0579]: 
+[0580]: 
+[0581]: 
+[0582]: 
+[0583]: 
+[0584]: 
+[0585]: 
+[0586]: 
+[0587]: 
+[0588]: 
+[0589]: 
+[0590]: 
+[0591]: 
+[0592]: 
+[0593]: 
+[0594]: 
+[0595]: 
+[0596]: 
+[0597]: 
+[0598]: 
+[0599]: 
+
+[0600]: 
+[0601]: 
+[0602]: 
+[0603]: 
+[0604]: 
+[0605]: 
+[0606]: 
+[0607]: 
+[0608]: 
+[0609]: 
+[0610]: 
+[0611]: 
+[0612]: 
+[0613]: 
+[0614]: 
+[0615]: 
+[0616]: 
+[0617]: 
+[0618]: 
+[0619]: 
+[0620]: 
+[0621]: 
+[0622]: 
+[0623]: 
+[0624]: 
+[0625]: 
+[0626]: 
+[0627]: 
+[0628]: 
+[0629]: 
+[0630]: 
+[0631]: 
+[0632]: 
+[0633]: 
+[0634]: 
+[0635]: 
+[0636]: 
+[0637]: 
+[0638]: 
+[0639]: 
+[0640]: 
+[0641]: 
+[0642]: 
+[0643]: 
+[0644]: 
+[0645]: 
+[0646]: 
+[0647]: 
+[0648]: 
+[0649]: 
+[0650]: 
+[0651]: 
+[0652]: 
+[0653]: 
+[0654]: 
+[0655]: 
+[0656]: 
+[0657]: 
+[0658]: 
+[0659]: 
+[0660]: 
+[0661]: 
+[0662]: 
+[0663]: 
+[0664]: 
+[0665]: 
+[0666]: 
+[0667]: 
+[0668]: 
+[0669]: 
+[0670]: 
+[0671]: 
+[0672]: 
+[0673]: 
+[0674]: 
+[0675]: 
+[0676]: 
+[0677]: 
+[0678]: 
+[0679]: 
+[0680]: 
+[0681]: 
+[0682]: 
+[0683]: 
+[0684]: 
+[0685]: 
+[0686]: 
+[0687]: 
+[0688]: 
+[0689]: 
+[0690]: 
+[0691]: 
+[0692]: 
+[0693]: 
+[0694]: 
+[0695]: 
+[0696]: 
+[0697]: 
+[0698]: 
+[0699]: 
+
+
