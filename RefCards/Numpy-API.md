@@ -492,6 +492,65 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 | `lib.Arrayterator(var[, buf_size])` | Buffered iterator for big arrays. | [API][0266] |
 
 
+## [Input and output][0267]
+
+### NumPy binary files (NPY, NPZ)
+
+| `load(file[, mmap_mode, allow_pickle, …])` | Load arrays or pickled objects from .npy, .npz or pickled files. | [API][0268] |
+| `save(file, arr[, allow_pickle, fix_imports])` | Save an array to a binary file in NumPy .npy format. | [API][0269] |
+| `savez(file, *args, **kwds)` | Save several arrays into a single file in uncompressed .npz format. | [API][0270] |
+| `savez_compressed(file, *args, **kwds)` | Save several arrays into a single file in compressed .npz format. | [API][0271] |
+
+The format of these binary file types is documented in [`numpy.lib.format`](https://www.numpy.org/devdocs/reference/generated/numpy.lib.format.html#module-numpy.lib.format)
+
+### Text files
+
+| `loadtxt(fname[, dtype, comments, delimiter, …])` | Load data from a text file. | [API][0272] |
+| `savetxt(fname, X[, fmt, delimiter, newline, …])` | Save an array to a text file. | [API][0273] |
+| `genfromtxt(fname[, dtype, comments, …])` | Load data from a text file, with missing values handled as specified. | [API][0274] |
+| `fromregex(file, regexp, dtype[, encoding])` | Construct an array from a text file, using regular expression parsing. | [API][0275] |
+| `fromstring(string[, dtype, count, sep])` | A new 1-D array initialized from text data in a string. | [API][0276] |
+| `ndarray.tofile(fid[, sep, format])` | Write array to a file as text or binary (default). | [API][0277] |
+| `ndarray.tolist()` | Return the array as a (possibly nested) list. | [API][0278] |
+
+### Raw binary files
+
+| `fromfile(file[, dtype, count, sep])` | Construct an array from data in a text or binary file. | [API][0279] |
+| `ndarray.tofile(fid[, sep, format])` | Write array to a file as text or binary (default). | [API][0280] |
+
+### String formatting
+
+| `array2string(a[, max_line_width, precision, …])` | Return a string representation of an array. | [API][0281] |
+| `array_repr(arr[, max_line_width, precision, …])` | Return the string representation of an array. | [API][0282] |
+| `array_str(a[, max_line_width, precision, …])` | Return a string representation of the data in an array. | [API][0283] |
+| `format_float_positional(x[, precision, …])` | Format a floating-point scalar as a decimal string in positional notation. | [API][0284] |
+| `format_float_scientific(x[, precision, …])` | Format a floating-point scalar as a decimal string in scientific notation. | [API][0285] |
+
+### Memory mapping files
+
+| `memmap` | Create a memory-map to an array stored in a binary file on disk. | [API][0286] |
+
+### Text formatting options
+
+| `set_printoptions([precision, threshold, …])` | Set printing options. | [API][0287] |
+| `get_printoptions()` | Return the current print options. | [API][0288] |
+| `set_string_function(f[, repr])` | Set a Python function to be used when pretty printing arrays. | [API][0289] |
+
+### Base-n representations
+
+| `binary_repr(num[, width])` | Return the binary representation of the input number as a string. | [API][0290] |
+| `base_repr(number[, base, padding])` | Return a string representation of a number in the given base system. | [API][0291] |
+
+### Data sources
+
+| `DataSource([destpath])` | A generic data source file (file, http, ftp, …). | [API][0292] |
+
+### Binary Format Description
+
+| `lib.format` | Binary serialization | [API][0293] |
+
+
+
 
 
 
@@ -765,33 +824,33 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 [0264]: https://www.numpy.org/devdocs/reference/generated/numpy.nested_iters.html#numpy.nested_iters
 [0265]: https://www.numpy.org/devdocs/reference/generated/numpy.flatiter.html#numpy.flatiter
 [0266]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.Arrayterator.html#numpy.lib.Arrayterator
-[0267]: 
-[0268]: 
-[0269]: 
-[0270]: 
-[0271]: 
-[0272]: 
-[0273]: 
-[0274]: 
-[0275]: 
-[0276]: 
-[0277]: 
-[0278]: 
-[0279]: 
-[0280]: 
-[0281]: 
-[0282]: 
-[0283]: 
-[0284]: 
-[0285]: 
-[0286]: 
-[0287]: 
-[0288]: 
-[0289]: 
-[0290]: 
-[0291]: 
-[0292]: 
-[0293]: 
+[0267]: https://www.numpy.org/devdocs/reference/routines.io.html
+[0268]: https://www.numpy.org/devdocs/reference/generated/numpy.load.html#numpy.load
+[0269]: https://www.numpy.org/devdocs/reference/generated/numpy.save.html#numpy.save
+[0270]: https://www.numpy.org/devdocs/reference/generated/numpy.savez.html#numpy.savez
+[0271]: https://www.numpy.org/devdocs/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed
+[0272]: https://www.numpy.org/devdocs/reference/generated/numpy.loadtxt.html#numpy.loadtxt
+[0273]: https://www.numpy.org/devdocs/reference/generated/numpy.savetxt.html#numpy.savetxt
+[0274]: https://www.numpy.org/devdocs/reference/generated/numpy.genfromtxt.html#numpy.genfromtxt
+[0275]: https://www.numpy.org/devdocs/reference/generated/numpy.fromregex.html#numpy.fromregex
+[0276]: https://www.numpy.org/devdocs/reference/generated/numpy.fromstring.html#numpy.fromstring
+[0277]: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile
+[0278]: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tolist.html#numpy.ndarray.tolist
+[0279]: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html#numpy.fromfile
+[0280]: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html#numpy.ndarray.tofile
+[0281]: https://www.numpy.org/devdocs/reference/generated/numpy.array2string.html#numpy.array2string
+[0282]: https://www.numpy.org/devdocs/reference/generated/numpy.array_repr.html#numpy.array_repr
+[0283]: https://www.numpy.org/devdocs/reference/generated/numpy.array_str.html#numpy.array_str
+[0284]: https://www.numpy.org/devdocs/reference/generated/numpy.format_float_positional.html#numpy.format_float_positional
+[0285]: https://www.numpy.org/devdocs/reference/generated/numpy.format_float_scientific.html#numpy.format_float_scientific
+[0286]: https://www.numpy.org/devdocs/reference/generated/numpy.memmap.html#numpy.memmap
+[0287]: https://www.numpy.org/devdocs/reference/generated/numpy.set_printoptions.html#numpy.set_printoptions
+[0288]: https://www.numpy.org/devdocs/reference/generated/numpy.get_printoptions.html#numpy.get_printoptions
+[0289]: https://www.numpy.org/devdocs/reference/generated/numpy.set_string_function.html#numpy.set_string_function
+[0290]: https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html#numpy.binary_repr
+[0291]: https://www.numpy.org/devdocs/reference/generated/numpy.base_repr.html#numpy.base_repr
+[0292]: https://www.numpy.org/devdocs/reference/generated/numpy.DataSource.html#numpy.DataSource
+[0293]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.format.html#module-numpy.lib.format
 [0294]: 
 [0295]: 
 [0296]: 
