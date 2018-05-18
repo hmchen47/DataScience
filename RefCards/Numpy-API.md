@@ -431,6 +431,18 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 | `piecewise(x, condlist, funclist, *args, **kw)` | Evaluate a piecewise-defined function. | [API][0227] |
 
 
+## [NumPy-specific help functions][0228]
+
+### Finding help
+
+| `lookfor(what[, module, import_modules, …])` | Do a keyword search on docstrings. | [API][0229] |
+
+### Reading help
+
+| `info([object, maxwidth, output, toplevel])` | Get help information for a function, class, or module. | [API][0230] |
+| `source(object[, output])` | Print or write to a file the source code for a NumPy object. | [API][0231] |
+
+
 
 
 
@@ -668,10 +680,10 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 [0225]: https://www.numpy.org/devdocs/reference/generated/numpy.vectorize.html#numpy.vectorize
 [0226]: https://www.numpy.org/devdocs/reference/generated/numpy.frompyfunc.html#numpy.frompyfunc
 [0227]: https://www.numpy.org/devdocs/reference/generated/numpy.piecewise.html#numpy.piecewise
-[0228]: 
-[0229]: 
-[0230]: 
-[0231]: 
+[0228]: https://www.numpy.org/devdocs/reference/routines.help.html
+[0229]: https://www.numpy.org/devdocs/reference/generated/numpy.lookfor.html#numpy.lookfor
+[0230]: https://www.numpy.org/devdocs/reference/generated/numpy.info.html#numpy.info
+[0231]: https://www.numpy.org/devdocs/reference/generated/numpy.source.html#numpy.source
 [0232]: 
 [0233]: 
 [0234]: 
