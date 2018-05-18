@@ -1556,6 +1556,80 @@ This module provides a number of objects (mostly functions) useful for dealing w
 | `poly2lag(pol)` | Convert a polynomial to a Laguerre series. | [API][0798] |
 
 
+## [Hermite Module, “Physicists’” (numpy.polynomial.hermite)][0799]
+
+This module provides a number of objects (mostly functions) useful for dealing with Hermite series, including a [Hermite][0800] class that encapsulates the usual arithmetic operations. (General information on how this module represents and works with such polynomials is in the docstring for its “parent” sub-package, numpy.polynomial).
+
+### Hermite Class
+| API | Description | Link |
+|-----|-------------|------|
+| `Hermite(coef[, domain, window])` | An Hermite series class. | [API][0801] |
+
+### Basics
+
+| API | Description | Link |
+|-----|-------------|------|
+| `hermval(x, c[, tensor])` | Evaluate an Hermite series at points x. | [API][0802] |
+| `hermval2d(x, y, c)` | Evaluate a 2-D Hermite series at points (x, y). | [API][0803] |
+| `hermval3d(x, y, z, c)` | Evaluate a 3-D Hermite series at points (x, y, z). | [API][0804] |
+| `hermgrid2d(x, y, c)` | Evaluate a 2-D Hermite series on the Cartesian product of x and y. | [API][0805] |
+| `hermgrid3d(x, y, z, c)` | Evaluate a 3-D Hermite series on the Cartesian product of x, y, and z. | [API][0806] |
+| `hermroots(c)` | Compute the roots of a Hermite series. | [API][0807] |
+| `hermfromroots(roots)` | Generate a Hermite series with given roots. | [API][0808] |
+
+### Fitting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `hermfit(x, y, deg[, rcond, full, w])` | Least squares fit of Hermite series to data. | [API][0809] |
+| `hermvander(x, deg)` | Pseudo-Vandermonde matrix of given degree. | [API][0810] |
+| `hermvander2d(x, y, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0811] |
+| `hermvander3d(x, y, z, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0812] |
+
+### Calculus
+
+| API | Description | Link |
+|-----|-------------|------|
+| `hermder(c[, m, scl, axis])` | Differentiate a Hermite series. | [API][0813] |
+| `hermint(c[, m, k, lbnd, scl, axis])` | Integrate a Hermite series. | [API][0814] |
+
+### Algebra
+
+| API | Description | Link |
+|-----|-------------|------|
+| `hermadd(c1, c2)` | Add one Hermite series to another. | [API][0815] |
+| `hermsub(c1, c2)` | Subtract one Hermite series from another. | [API][0816] |
+| `hermmul(c1, c2)` | Multiply one Hermite series by another. | [API][0817] |
+| `hermmulx(c)` | Multiply a Hermite series by x. | [API][0818] |
+| `hermdiv(c1, c2)` | Divide one Hermite series by another. | [API][0819] |
+| `hermpow(c, pow[, maxpower])` | Raise a Hermite series to a power. | [API][0820] |
+
+### Quadrature
+
+| API | Description | Link |
+|-----|-------------|------|
+| `hermgauss(deg)` | Gauss-Hermite quadrature. | [API][0821] |
+| `hermweight(x)` | Weight function of the Hermite polynomials. | [API][0822] |
+
+### Miscellaneous
+
+| API | Description | Link |
+|-----|-------------|------|
+| `hermcompanion(c)` | Return the scaled companion matrix of c. | [API][0823] |
+| `hermdomain` |  | [API][0824] |
+| `hermzero` |  | [API][0825] |
+| `hermone` |  | [API][0826] |
+| `hermx` |  | [API][0827] |
+| `hermtrim(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][0828] |
+| `hermline(off, scl)` | Hermite series whose graph is a straight line. | [API][0829] |
+| `herm2poly(c)` | Convert a Hermite series to a polynomial. | [API][0830] |
+| `poly2herm(pol)` | Convert a polynomial to a Hermite series. | [API][0831] |
+
+
+
+
+
+
 
 
 
@@ -2367,40 +2441,40 @@ This module provides a number of objects (mostly functions) useful for dealing w
 [0796]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagline.html#numpy.polynomial.laguerre.lagline
 [0797]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lag2poly.html#numpy.polynomial.laguerre.lag2poly
 [0798]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.poly2lag.html#numpy.polynomial.laguerre.poly2lag
-[0799]: 
+[0799]: https://www.numpy.org/devdocs/reference/routines.polynomials.hermite.html
 
-[0800]: 
-[0801]: 
-[0802]: 
-[0803]: 
-[0804]: 
-[0805]: 
-[0806]: 
-[0807]: 
-[0808]: 
-[0809]: 
-[0810]: 
-[0811]: 
-[0812]: 
-[0813]: 
-[0814]: 
-[0815]: 
-[0816]: 
-[0817]: 
-[0818]: 
-[0819]: 
-[0820]: 
-[0821]: 
-[0822]: 
-[0823]: 
-[0824]: 
-[0825]: 
-[0826]: 
-[0827]: 
-[0828]: 
-[0829]: 
-[0830]: 
-[0831]: 
+[0800]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.Hermite.html#numpy.polynomial.hermite.Hermite
+[0801]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.Hermite.html#numpy.polynomial.hermite.Hermite
+[0802]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermval.html#numpy.polynomial.hermite.hermval
+[0803]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermval2d.html#numpy.polynomial.hermite.hermval2d
+[0804]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermval3d.html#numpy.polynomial.hermite.hermval3d
+[0805]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermgrid2d.html#numpy.polynomial.hermite.hermgrid2d
+[0806]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermgrid3d.html#numpy.polynomial.hermite.hermgrid3d
+[0807]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermroots.html#numpy.polynomial.hermite.hermroots
+[0808]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermfromroots.html#numpy.polynomial.hermite.hermfromroots
+[0809]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermfit.html#numpy.polynomial.hermite.hermfit
+[0810]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermvander.html#numpy.polynomial.hermite.hermvander
+[0811]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermvander2d.html#numpy.polynomial.hermite.hermvander2d
+[0812]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermvander3d.html#numpy.polynomial.hermite.hermvander3d
+[0813]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermder.html#numpy.polynomial.hermite.hermder
+[0814]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermint.html#numpy.polynomial.hermite.hermint
+[0815]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermadd.html#numpy.polynomial.hermite.hermadd
+[0816]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermsub.html#numpy.polynomial.hermite.hermsub
+[0817]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermmul.html#numpy.polynomial.hermite.hermmul
+[0818]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermmulx.html#numpy.polynomial.hermite.hermmulx
+[0819]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermdiv.html#numpy.polynomial.hermite.hermdiv
+[0820]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermpow.html#numpy.polynomial.hermite.hermpow
+[0821]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermgauss.html#numpy.polynomial.hermite.hermgauss
+[0822]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermweight.html#numpy.polynomial.hermite.hermweight
+[0823]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermcompanion.html#numpy.polynomial.hermite.hermcompanion
+[0824]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermdomain.html#numpy.polynomial.hermite.hermdomain
+[0825]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermzero.html#numpy.polynomial.hermite.hermzero
+[0826]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermone.html#numpy.polynomial.hermite.hermone
+[0827]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermx.html#numpy.polynomial.hermite.hermx
+[0828]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermtrim.html#numpy.polynomial.hermite.hermtrim
+[0829]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.hermline.html#numpy.polynomial.hermite.hermline
+[0830]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.herm2poly.html#numpy.polynomial.hermite.herm2poly
+[0831]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite.poly2herm.html#numpy.polynomial.hermite.poly2herm
 [0832]: 
 [0833]: 
 [0834]: 
