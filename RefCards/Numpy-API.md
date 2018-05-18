@@ -1262,7 +1262,88 @@ Functions that are also in the numpy namespace and return `matrices`
 ## [Padding Arrays][0660]
 
 
+| API | Description | Link |
+|-----|-------------|------|
 | `pad(array, pad_width, mode, **kwargs)` | Pads an array. | [API][0661] |
+
+
+## [Polynomials][0662]
+
+Polynomials in NumPy can be created, manipulated, and even fitted using the [Using the Convenience Classes][0663] of the numpy.polynomial package, introduced in NumPy 1.4.
+
+Prior to NumPy 1.4, [numpy.poly1d][0664] was the class of choice and it is still available in order to maintain backward compatibility. However, the newer Polynomial package is more complete than [numpy.poly1d][0664] and its convenience classes are better behaved in the numpy environment. Therefore Polynomial is recommended for new coding.
+
+
+## [Polynomial Package][0665]
+
+### [Using the Convenience Classes][0666]
+
++ [Basics][0667]
++ [Calculus][0668]
++ [Other Polynomial Constructors][0669]
++ [Fitting][0670]
+
+## [Polynomial Module (numpy.polynomial.polynomial)][0671]
+
+This module provides a number of objects (mostly functions) useful for dealing with Polynomial series, including a Polynomial class that encapsulates the usual arithmetic operations. (General information on how this module represents and works with such polynomials is in the docstring for its “parent” sub-package, numpy.polynomial).
+
+### Polynomial Class
+
+| API | Description | Link |
+|-----|-------------|------|
+| `Polynomial(coef[, domain, window])` | A power series class. | [API][0672] |
+
+### Basics 
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyval(x, c[, tensor])` | Evaluate a polynomial at points x. | [API][0673] |
+| `polyval2d(x, y, c)` | Evaluate a 2-D polynomial at points (x, y). | [API][0674] |
+| `polyval3d(x, y, z, c)` | Evaluate a 3-D polynomial at points (x, y, z). | [API][0675] |
+| `polygrid2d(x, y, c)` | Evaluate a 2-D polynomial on the Cartesian product of x and y. | [API][0676] |
+| `polygrid3d(x, y, z, c)` | Evaluate a 3-D polynomial on the Cartesian product of x, y and z. | [API][0677] |
+| `polyroots(c)` | Compute the roots of a polynomial. | [API][0678] |
+| `polyfromroots(roots)` | Generate a monic polynomial with given roots. | [API][0679] |
+| `polyvalfromroots(x, r[, tensor])` | Evaluate a polynomial specified by its roots at points x. | [API][0680] |
+
+### Fitting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyfit(x, y, deg[, rcond, full, w])` | Least-squares fit of a polynomial to data. | [API][0681] |
+| `polyvander(x, deg)` | Vandermonde matrix of given degree. | [API][0682] |
+| `polyvander2d(x, y, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0683] |
+| `polyvander3d(x, y, z, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0684] |
+
+### Calculus
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyder(c[, m, scl, axis])` | Differentiate a polynomial. | [API][0685] |
+| `polyint(c[, m, k, lbnd, scl, axis])` | Integrate a polynomial. | [API][0686] |
+
+### Algebra
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyadd(c1, c2)` | Add one polynomial to another. | [API][0687] |
+| `polysub(c1, c2)` | Subtract one polynomial from another. | [API][0688] |
+| `polymul(c1, c2)` | Multiply one polynomial by another. | [API][0689] |
+| `polymulx(c)` | Multiply a polynomial by x. | [API][0690] |
+| `polydiv(c1, c2)` | Divide one polynomial by another. | [API][0691] |
+| `polypow(c, pow[, maxpower])` | Raise a polynomial to a power. | [API][0692] |
+
+### Miscellaneous
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polycompanion(c)` | Return the companion matrix of c. | [API][0693] |
+| `polydomain` |  | [API][0694] |
+| `polyzero` |  | [API][0695] |
+| `polyone` |  | [API][0696] |
+| `polyx` |  | [API][0697] |
+| `polytrim(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][0698] |
+| `polyline(off, scl)` | Returns an array representing a linear polynomial. | [API][0699] |
 
 
 
@@ -1940,44 +2021,44 @@ Functions that are also in the numpy namespace and return `matrices`
 [0659]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.NumpyVersion.html#numpy.lib.NumpyVersion
 [0660]: https://www.numpy.org/devdocs/reference/routines.padding.html
 [0661]: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html#numpy.pad
-[0662]: 
-[0663]: 
-[0664]: 
-[0665]: 
-[0666]: 
-[0667]: 
-[0668]: 
-[0669]: 
-[0670]: 
-[0671]: 
-[0672]: 
-[0673]: 
-[0674]: 
-[0675]: 
-[0676]: 
-[0677]: 
-[0678]: 
-[0679]: 
-[0680]: 
-[0681]: 
-[0682]: 
-[0683]: 
-[0684]: 
-[0685]: 
-[0686]: 
-[0687]: 
-[0688]: 
-[0689]: 
-[0690]: 
-[0691]: 
-[0692]: 
-[0693]: 
-[0694]: 
-[0695]: 
-[0696]: 
-[0697]: 
-[0698]: 
-[0699]: 
+[0662]: https://www.numpy.org/devdocs/reference/routines.polynomials.html
+[0663]: https://www.numpy.org/devdocs/reference/routines.polynomials.classes.html
+[0664]: https://www.numpy.org/devdocs/reference/generated/numpy.poly1d.html#numpy.poly1d
+[0665]: https://www.numpy.org/devdocs/reference/routines.polynomials.package.html
+[0666]: https://www.numpy.org/devdocs/reference/routines.polynomials.classes.html
+[0667]: https://www.numpy.org/devdocs/reference/routines.polynomials.classes.html#basics
+[0668]: https://www.numpy.org/devdocs/reference/routines.polynomials.classes.html#calculus
+[0669]: https://www.numpy.org/devdocs/reference/routines.polynomials.classes.html#other-polynomial-constructors
+[0670]: https://www.numpy.org/devdocs/reference/routines.polynomials.classes.html#fitting
+[0671]: https://www.numpy.org/devdocs/reference/routines.polynomials.polynomial.html
+[0672]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.Polynomial.html#numpy.polynomial.polynomial.Polynomial
+[0673]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyval.html#numpy.polynomial.polynomial.polyval
+[0674]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyval2d.html#numpy.polynomial.polynomial.polyval2d
+[0675]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyval3d.html#numpy.polynomial.polynomial.polyval3d
+[0676]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polygrid2d.html#numpy.polynomial.polynomial.polygrid2d
+[0677]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polygrid3d.html#numpy.polynomial.polynomial.polygrid3d
+[0678]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyroots.html#numpy.polynomial.polynomial.polyroots
+[0679]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyfromroots.html#numpy.polynomial.polynomial.polyfromroots
+[0680]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyvalfromroots.html#numpy.polynomial.polynomial.polyvalfromroots
+[0681]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyfit.html#numpy.polynomial.polynomial.polyfit
+[0682]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyvander.html#numpy.polynomial.polynomial.polyvander
+[0683]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyvander2d.html#numpy.polynomial.polynomial.polyvander2d
+[0684]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyvander3d.html#numpy.polynomial.polynomial.polyvander3d
+[0685]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder
+[0686]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint
+[0687]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyadd.html#numpy.polynomial.polynomial.polyadd
+[0688]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polysub.html#numpy.polynomial.polynomial.polysub
+[0689]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polymul.html#numpy.polynomial.polynomial.polymul
+[0690]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polymulx.html#numpy.polynomial.polynomial.polymulx
+[0691]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polydiv.html#numpy.polynomial.polynomial.polydiv
+[0692]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polypow.html#numpy.polynomial.polynomial.polypow
+[0693]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polycompanion.html#numpy.polynomial.polynomial.polycompanion
+[0694]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polydomain.html#numpy.polynomial.polynomial.polydomain
+[0695]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyzero.html#numpy.polynomial.polynomial.polyzero
+[0696]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyone.html#numpy.polynomial.polynomial.polyone
+[0697]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyx.html#numpy.polynomial.polynomial.polyx
+[0698]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polytrim.html#numpy.polynomial.polynomial.polytrim
+[0699]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyline.html#numpy.polynomial.polynomial.polyline
 
 [0700]: 
 [0701]: 
