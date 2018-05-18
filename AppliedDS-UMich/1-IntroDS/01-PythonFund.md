@@ -4,7 +4,9 @@
 
 To download notebooks and datafiles, as well as get help on Jupyter notebooks in the Coursera platform, visit the [Jupyter Notebook FAQ](https://www.coursera.org/learn/python-data-analysis/resources/0dhYG) course resource.
 
-[Notebook](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Week%201.ipynb)
+[Web Notebook](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Week%201.ipynb)
+
+[Local Notebook](./notebooks/Week+1.ipynb)
 
 ## Python Functions
 
@@ -17,7 +19,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
             return x + y
         else:
             return x + y + z
-        
+
     print(add_numbers(1, 2, flag=True))
 
     # Assign function add_numbers to variable a.
@@ -197,18 +199,20 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + Demo  
     datafile `mpg.csv`, which contains fuel economy data for 234 cars.
 
-    mpg : miles per gallon  
-    class : car classification  
-    cty : city mpg  
-    cyl : # of cylinders  
-    displ : engine displacement in liters  
-    drv : f = front-wheel drive, r = rear wheel drive, 4 = 4wd  
-    fl : fuel (e = ethanol E85, d = diesel, r = regular, p = premium, c = CNG)  
-    hwy : highway mpg  
-    manufacturer : automobile manufacturer  
-    model : model of car  
-    trans : type of transmission  
-    year : model year
+    | parameter | description |
+    |-----------|--------------|
+    | mpg | miles per gallon   |
+    | class | car classification   |
+    | cty | city mpg   |
+    | cyl | # of cylinders   |
+    | displ | engine displacement in liters   |
+    | drv | f = front-wheel drive, r = rear wheel drive, 4 = 4wd   |
+    | fl | fuel (e = ethanol E85, d = diesel, r = regular, p = premium, c = CNG)   |
+    | hwy | highway mpg   |
+    | manufacturer | automobile manufacturer   |
+    | model | model of car   |
+    | trans | type of transmission   |
+    | year | model year |
 
     ```python
     import csv
@@ -303,7 +307,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + No private or protect members
     + No explicit constructor for creating objects, can be achieved by `__init__(self, ...)`
 
-+ `map()` fi=unction
++ `map()` function
     + one of the basic functional programming
     + functional programming: 
         + a programming paradigm in which programmers explicitly declare all parameters which can change through execution of a given function
@@ -325,7 +329,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     person = Person()
     person.set_name('Christopher Brooks')
     person.set_location('Ann Arbor, MI, USA')
-    print('{} live in {} and works in the department {}'.format(person.name, person.location, person.department))
+    print('{} live in {} and works in the department {}'.format(person.name, 
+        person.location, person.department))
 
     # mapping the min function between two lists
     store1 = [10.00, 11.00, 12.34, 2.34]
@@ -340,7 +345,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + Quiz  
     + Here is a list of faculty teaching this MOOC. Can you write a function and apply it using `map()` to get a list of all faculty titles and last names (e.g. `['Dr. Brooks', 'Dr. Collins-Thompson', …]`) ?
         ```python
-        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 
+                'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
 
         def split_title_and_name(person):
             return #Your answer here
@@ -349,7 +355,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
     + Answer:
         ```python
-        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 
+                'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
 
         def split_title_and_name(person):
             title = person.split()[0]
@@ -365,11 +372,11 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `lambda` function
     + Anonymous function, a function w/o name
     + simple and short, usually in one line
-    useful for data cleaning task
+    + useful for data cleaning task
 
 + Demo
     ```python
-    my_function = lambda a, b, c : a + b
+    my_function = lambda a, b, c | a + b
     my_function(1, 2, 3)
 
     # Iteration
@@ -387,7 +394,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + Quiz
     + Convert this function into a lambda:
         ```python
-        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 
+                'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
 
         def split_title_and_name(person):
             return person.split()[0] + ' ' + person.split()[-1]
@@ -401,17 +409,20 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
     + Answer:
         ```python
-        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+        people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 
+                'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
 
         def split_title_and_name(person):
             return person.split()[0] + ' ' + person.split()[-1]
 
         #option 1
         for person in people:
-            print(split_title_and_name(person) == (lambda x: x.split()[0] + ' ' + x.split()[-1])(person))
+            print(split_title_and_name(person) == (lambda x: x.split()[0] + ' ' 
+                + x.split()[-1])(person))
 
         #option 2
-        list(map(split_title_and_name, people)) == list(map(lambda person: person.split()[0] + ' ' + person.split()[-1], people))
+        list(map(split_title_and_name, people)) == list(map(lambda person: person.split()[0] 
+            + ' ' + person.split()[-1], people))
         ```
     + List comprehensiom
         ```python
@@ -450,6 +461,76 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Advanced Python Demonstration: The Numerical Python Library (NumPy)
 
++ `np.array` func:
+    + Syntax: `array(object, subok=False, ndmin=0)`
+    + Create an array
+    + `object`: array_like
+    + `subok`: bool, optional  
+        + True: sub-classes will be passed-through
+        + False: returned array forced to be a base-class array (default).
+    + `ndmin`: int, optional
+        Specifies the minimum number of dimensions that the resulting array should have.
++ `np.arange` func:
+    + Syntax: `arange([start,] stop[, step,])`
+    + Return evenly spaced values within a given interval; values are generated within the half-open interval $[start, stop)$
++ `np.reshape` func:
+    + Syntax: `reshape(a, newshape, order='C')`
+    + Gives a new shape to an array without changing its data
+    + `a`: array_like
+    + `newshape`: int or tuple of ints  
+        The new shape should be compatible with the original shape.
+    + `order`: {'C', 'F', 'A'}, optional
+        + 'C': read / write the elements using C-like index order
+        + 'F': read / write the elements using Fortran-like index order
+        + 'A': read / write the elements in Fortran-like index order if `a` is Fortran *contiguous* in memory, C-like order otherwise.
++ `np.linspace` func:
+    + Syntax: `linspace(start, stop, num=50, endpoint=True)`
+    + Return evenly spaced numbers over a specified interval
+    + `start`, `stop`: scalar
+    + `num`: int; eturn evenly spaced numbers over a specified interval
+    + `endpoint`: bool
+        + True: `stop` is the last sample.
+        + False: `stop` not included
++ `np.resize` func:
+    + Syntax: `resize(a, new_shape)`
+    + Return a new array with the specified shape; reshaped_array : ndarray
+    + `a`: array_like
+    + new_shape : int or tuple of int; Shape of resized array
++ `np.ones` & `np.zeros` func:
+    + Syntax: `ones(shape, order='C')` &  `zeros(shape, order='C')`
+    + Return a new array of given shape and type, filled with ones
+    + `shape`: int or sequence of ints  
+        Shape of the new array, e.g., ``(2, 3)`` or ``2``.
+    + `order`: {'C', 'F'}, optional
++ `np.eye` func:
+    + Syntax: `eye(N, M=None, k=0, order='C')`
+    + Return a 2-D array with ones on the diagonal and zeros elsewhere
+    + `N`, `M`: ints, Number of rows and columns in the output
+    + `k`: int; Index of the diagonal: 
+        + `0` (the default): the main diagonal
+        + a positive value refers to an upper diagonal
+        + a negative value to a lower diagonal.
++ `np.diag` func:
+    + Syntax: `diag(v, k=0)`
+    + Extract a diagonal or construct a diagonal array
+    + `v`: array_like  
+        + `v` 2-D array: return a copy of its `k`-th diagonal.
+        + `v` 1-D array: return a 2-D array with `v` on the `k`-th diagonal.
++ `np.vstack` func:
+    + Syntax: `vstack(tup)`
+    + Stack arrays in sequence vertically (row wise)
+    + `tup`: sequence of ndarrays
++ `np.dot` func:
+    + Syntax: `dot(a, b, out=None)`
+    + Dot product of two arrays. Specifically,
+        + If both `a` and `b` are 1-D arrays, it is inner product of vectors (without complex conjugation).
+        + If both `a` and `b` are 2-D arrays, it is matrix multiplication, but using :func:`matmul` or ``a @ b`` is preferred.
+        + If either `a` or `b` is 0-D (scalar), it is equivalent to :func:`multiply` and using `numpy.multiply(a, b)` or `a * b` is preferred.
+        + If `a` is an N-D array and `b` is a 1-D array, it is a sum product over the last axis of `a` and `b`.
+        + If `a` is an N-D array and `b` is an M-D array (where $M>=2$), it is a sum product over the last axis of `a` and the second-to-last axis of `b`:: `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])`
+    + `a`, `b`: array_like
+    + `out`: Output argument
+    
 + Demo
     ```python
     import numpy as np
@@ -559,7 +640,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # Use negatives to count from the back.
     s[-4:]
 
-    # A second : can be used to indicate step-size. array[start:stop:stepsize]
+    # A second | can be used to indicate step-size. array[start:stop:stepsize]
     # Here we are starting 5th element from the end, and counting backwards by 2 until the beginning of the array is reached.
     s[-5::-2]
 
@@ -570,7 +651,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # Use bracket notation to slice: array[row, column]
     r[2, 2]
 
-    # And use : to select a range of rows or columns
+    # And use | to select a range of rows or columns
     r[3, 3:6]
 
     # Here we are selecting all the rows up to (and not including) row 2, and all the columns up to (and not including) the last column.
