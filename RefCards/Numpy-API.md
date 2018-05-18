@@ -1346,6 +1346,74 @@ This module provides a number of objects (mostly functions) useful for dealing w
 | `polyline(off, scl)` | Returns an array representing a linear polynomial. | [API][0699] |
 
 
+## [Chebyshev Module (numpy.polynomial.chebyshev)][0700]
+
+This module provides a number of objects (mostly functions) useful for dealing with Chebyshev series, including a [Chebyshev][0701] class that encapsulates the usual arithmetic operations. (General information on how this module represents and works with such polynomials is in the docstring for its “parent” sub-package, `numpy.polynomial`).
+
+### Chebyshev Class
+| `Chebyshev(coef[, domain, window])` | A Chebyshev series class. | [API][0702] |
+
+### Basics
+
+| API | Description | Link |
+|-----|-------------|------|
+| `chebval(x, c[, tensor])` | Evaluate a Chebyshev series at points x. | [API][0703] |
+| `chebval2d(x, y, c)` | Evaluate a 2-D Chebyshev series at points (x, y). | [API][0704] |
+| `chebval3d(x, y, z, c)` | Evaluate a 3-D Chebyshev series at points (x, y, z). | [API][0705] |
+| `chebgrid2d(x, y, c)` | Evaluate a 2-D Chebyshev series on the Cartesian product of x and y. | [API][0706] |
+| `chebgrid3d(x, y, z, c)` | Evaluate a 3-D Chebyshev series on the Cartesian product of x, y, and z. | [API][0707] |
+| `chebroots(c)` | Compute the roots of a Chebyshev series. | [API][0708] |
+| `chebfromroots(roots)` | Generate a Chebyshev series with given roots. | [API][0709] |
+
+### Fitting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `chebfit(x, y, deg[, rcond, full, w])` | Least squares fit of Chebyshev series to data. | [API][0710] |
+| `chebvander(x, deg)` | Pseudo-Vandermonde matrix of given degree. | [API][0711] |
+| `chebvander2d(x, y, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0712] |
+| `chebvander3d(x, y, z, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0713] |
+
+### Calculus
+
+| API | Description | Link |
+|-----|-------------|------|
+| `chebder(c[, m, scl, axis])` | Differentiate a Chebyshev series. | [API][0714] |
+| `chebint(c[, m, k, lbnd, scl, axis])` | Integrate a Chebyshev series. | [API][0715] |
+
+### Algebra
+
+| API | Description | Link |
+|-----|-------------|------|
+| `chebadd(c1, c2)` | Add one Chebyshev series to another. | [API][0716] |
+| `chebsub(c1, c2)` | Subtract one Chebyshev series from another. | [API][0717] |
+| `chebmul(c1, c2)` | Multiply one Chebyshev series by another. | [API][0718] |
+| `chebmulx(c)` | Multiply a Chebyshev series by x. | [API][0719] |
+| `chebdiv(c1, c2)` | Divide one Chebyshev series by another. | [API][0720] |
+| `chebpow(c, pow[, maxpower])` | Raise a Chebyshev series to a power. | [API][0721] |
+
+### Quadrature
+
+| API | Description | Link |
+|-----|-------------|------|
+| `chebgauss(deg)` | Gauss-Chebyshev quadrature. | [API][0722] |
+| `chebweight(x)` | The weight function of the Chebyshev polynomials. | [API][0723] |
+
+### Miscellaneous 
+
+| API | Description | Link |
+|-----|-------------|------|
+| `chebcompanion(c)` | Return the scaled companion matrix of c. | [API][0724] |
+| `chebdomain` |  | [API][0725] |
+| `chebzero` |  | [API][0726] |
+| `chebone` |  | [API][0727] |
+| `chebx` |  | [API][0728] |
+| `chebtrim(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][0729] |
+| `chebline(off, scl)` | Chebyshev series whose graph is a straight line. | [API][0730] |
+| `cheb2poly(c)` | Convert a Chebyshev series to a polynomial. | [API][0731] |
+| `poly2cheb(pol)` | Convert a polynomial to a Chebyshev series. | [API][0732] |
+
+
 
 
 
@@ -2060,39 +2128,39 @@ This module provides a number of objects (mostly functions) useful for dealing w
 [0698]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polytrim.html#numpy.polynomial.polynomial.polytrim
 [0699]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polynomial.polyline.html#numpy.polynomial.polynomial.polyline
 
-[0700]: 
-[0701]: 
-[0702]: 
-[0703]: 
-[0704]: 
-[0705]: 
-[0706]: 
-[0707]: 
-[0708]: 
-[0709]: 
-[0710]: 
-[0711]: 
-[0712]: 
-[0713]: 
-[0714]: 
-[0715]: 
-[0716]: 
-[0717]: 
-[0718]: 
-[0719]: 
-[0720]: 
-[0721]: 
-[0722]: 
-[0723]: 
-[0724]: 
-[0725]: 
-[0726]: 
-[0727]: 
-[0728]: 
-[0729]: 
-[0730]: 
-[0731]: 
-[0732]: 
+[0700]: https://www.numpy.org/devdocs/reference/routines.polynomials.chebyshev.html
+[0701]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.Chebyshev.html#numpy.polynomial.chebyshev.Chebyshev
+[0702]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.Chebyshev.html#numpy.polynomial.chebyshev.Chebyshev
+[0703]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebval.html#numpy.polynomial.chebyshev.chebval
+[0704]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebval2d.html#numpy.polynomial.chebyshev.chebval2d
+[0705]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebval3d.html#numpy.polynomial.chebyshev.chebval3d
+[0706]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebgrid2d.html#numpy.polynomial.chebyshev.chebgrid2d
+[0707]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebgrid3d.html#numpy.polynomial.chebyshev.chebgrid3d
+[0708]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebroots.html#numpy.polynomial.chebyshev.chebroots
+[0709]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebfromroots.html#numpy.polynomial.chebyshev.chebfromroots
+[0710]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebfit.html#numpy.polynomial.chebyshev.chebfit
+[0711]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebvander.html#numpy.polynomial.chebyshev.chebvander
+[0712]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebvander2d.html#numpy.polynomial.chebyshev.chebvander2d
+[0713]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebvander3d.html#numpy.polynomial.chebyshev.chebvander3d
+[0714]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebder.html#numpy.polynomial.chebyshev.chebder
+[0715]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebint.html#numpy.polynomial.chebyshev.chebint
+[0716]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebadd.html#numpy.polynomial.chebyshev.chebadd
+[0717]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebsub.html#numpy.polynomial.chebyshev.chebsub
+[0718]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebmul.html#numpy.polynomial.chebyshev.chebmul
+[0719]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebmulx.html#numpy.polynomial.chebyshev.chebmulx
+[0720]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebdiv.html#numpy.polynomial.chebyshev.chebdiv
+[0721]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebpow.html#numpy.polynomial.chebyshev.chebpow
+[0722]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebgauss.html#numpy.polynomial.chebyshev.chebgauss
+[0723]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebweight.html#numpy.polynomial.chebyshev.chebweight
+[0724]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebcompanion.html#numpy.polynomial.chebyshev.chebcompanion
+[0725]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebdomain.html#numpy.polynomial.chebyshev.chebdomain
+[0726]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebzero.html#numpy.polynomial.chebyshev.chebzero
+[0727]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebone.html#numpy.polynomial.chebyshev.chebone
+[0728]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebx.html#numpy.polynomial.chebyshev.chebx
+[0729]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebtrim.html#numpy.polynomial.chebyshev.chebtrim
+[0730]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebline.html#numpy.polynomial.chebyshev.chebline
+[0731]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.cheb2poly.html#numpy.polynomial.chebyshev.cheb2poly
+[0732]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.poly2cheb.html#numpy.polynomial.chebyshev.poly2cheb
 [0733]: 
 [0734]: 
 [0735]: 
@@ -2160,5 +2228,310 @@ This module provides a number of objects (mostly functions) useful for dealing w
 [0797]: 
 [0798]: 
 [0799]: 
+
+[0800]: 
+[0801]: 
+[0802]: 
+[0803]: 
+[0804]: 
+[0805]: 
+[0806]: 
+[0807]: 
+[0808]: 
+[0809]: 
+[0810]: 
+[0811]: 
+[0812]: 
+[0813]: 
+[0814]: 
+[0815]: 
+[0816]: 
+[0817]: 
+[0818]: 
+[0819]: 
+[0820]: 
+[0821]: 
+[0822]: 
+[0823]: 
+[0824]: 
+[0825]: 
+[0826]: 
+[0827]: 
+[0828]: 
+[0829]: 
+[0830]: 
+[0831]: 
+[0832]: 
+[0833]: 
+[0834]: 
+[0835]: 
+[0836]: 
+[0837]: 
+[0838]: 
+[0839]: 
+[0840]: 
+[0841]: 
+[0842]: 
+[0843]: 
+[0844]: 
+[0845]: 
+[0846]: 
+[0847]: 
+[0848]: 
+[0849]: 
+[0850]: 
+[0851]: 
+[0852]: 
+[0853]: 
+[0854]: 
+[0855]: 
+[0856]: 
+[0857]: 
+[0858]: 
+[0859]: 
+[0860]: 
+[0861]: 
+[0862]: 
+[0863]: 
+[0864]: 
+[0865]: 
+[0866]: 
+[0867]: 
+[0868]: 
+[0869]: 
+[0870]: 
+[0871]: 
+[0872]: 
+[0873]: 
+[0874]: 
+[0875]: 
+[0876]: 
+[0877]: 
+[0878]: 
+[0879]: 
+[0880]: 
+[0881]: 
+[0882]: 
+[0883]: 
+[0884]: 
+[0885]: 
+[0886]: 
+[0887]: 
+[0888]: 
+[0889]: 
+[0890]: 
+[0891]: 
+[0892]: 
+[0893]: 
+[0894]: 
+[0895]: 
+[0896]: 
+[0897]: 
+[0898]: 
+[0899]: 
+
+[0900]: 
+[0901]: 
+[0902]: 
+[0903]: 
+[0904]: 
+[0905]: 
+[0906]: 
+[0907]: 
+[0908]: 
+[0909]: 
+[0910]: 
+[0911]: 
+[0912]: 
+[0913]: 
+[0914]: 
+[0915]: 
+[0916]: 
+[0917]: 
+[0918]: 
+[0919]: 
+[0920]: 
+[0921]: 
+[0922]: 
+[0923]: 
+[0924]: 
+[0925]: 
+[0926]: 
+[0927]: 
+[0928]: 
+[0929]: 
+[0930]: 
+[0931]: 
+[0932]: 
+[0933]: 
+[0934]: 
+[0935]: 
+[0936]: 
+[0937]: 
+[0938]: 
+[0939]: 
+[0940]: 
+[0941]: 
+[0942]: 
+[0943]: 
+[0944]: 
+[0945]: 
+[0946]: 
+[0947]: 
+[0948]: 
+[0949]: 
+[0950]: 
+[0951]: 
+[0952]: 
+[0953]: 
+[0954]: 
+[0955]: 
+[0956]: 
+[0957]: 
+[0958]: 
+[0959]: 
+[0960]: 
+[0961]: 
+[0962]: 
+[0963]: 
+[0964]: 
+[0965]: 
+[0966]: 
+[0967]: 
+[0968]: 
+[0969]: 
+[0970]: 
+[0971]: 
+[0972]: 
+[0973]: 
+[0974]: 
+[0975]: 
+[0976]: 
+[0977]: 
+[0978]: 
+[0979]: 
+[0980]: 
+[0981]: 
+[0982]: 
+[0983]: 
+[0984]: 
+[0985]: 
+[0986]: 
+[0987]: 
+[0988]: 
+[0989]: 
+[0990]: 
+[0991]: 
+[0992]: 
+[0993]: 
+[0994]: 
+[0995]: 
+[0996]: 
+[0997]: 
+[0998]: 
+[0999]: 
+
+[1000]: 
+[1001]: 
+[1002]: 
+[1003]: 
+[1004]: 
+[1005]: 
+[1006]: 
+[1007]: 
+[1008]: 
+[1009]: 
+[1010]: 
+[1011]: 
+[1012]: 
+[1013]: 
+[1014]: 
+[1015]: 
+[1016]: 
+[1017]: 
+[1018]: 
+[1019]: 
+[1020]: 
+[1021]: 
+[1022]: 
+[1023]: 
+[1024]: 
+[1025]: 
+[1026]: 
+[1027]: 
+[1028]: 
+[1029]: 
+[1030]: 
+[1031]: 
+[1032]: 
+[1033]: 
+[1034]: 
+[1035]: 
+[1036]: 
+[1037]: 
+[1038]: 
+[1039]: 
+[1040]: 
+[1041]: 
+[1042]: 
+[1043]: 
+[1044]: 
+[1045]: 
+[1046]: 
+[1047]: 
+[1048]: 
+[1049]: 
+[1050]: 
+[1051]: 
+[1052]: 
+[1053]: 
+[1054]: 
+[1055]: 
+[1056]: 
+[1057]: 
+[1058]: 
+[1059]: 
+[1060]: 
+[1061]: 
+[1062]: 
+[1063]: 
+[1064]: 
+[1065]: 
+[1066]: 
+[1067]: 
+[1068]: 
+[1069]: 
+[1070]: 
+[1071]: 
+[1072]: 
+[1073]: 
+[1074]: 
+[1075]: 
+[1076]: 
+[1077]: 
+[1078]: 
+[1079]: 
+[1080]: 
+[1081]: 
+[1082]: 
+[1083]: 
+[1084]: 
+[1085]: 
+[1086]: 
+[1087]: 
+[1088]: 
+[1089]: 
+[1090]: 
+[1091]: 
+[1092]: 
+[1093]: 
+[1094]: 
+[1095]: 
+[1096]: 
+[1097]: 
+[1098]: 
+[1099]: 
+
+
 
 
