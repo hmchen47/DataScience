@@ -1420,10 +1420,14 @@ This module provides a number of objects (mostly functions) useful for dealing w
 
 ### Legendre Class
 
+| API | Description | Link |
+|-----|-------------|------|
 | `Legendre(coef[, domain, window])` | A Legendre series class. | [API][0735] |
 
 ### Basics
 
+| API | Description | Link |
+|-----|-------------|------|
 | `legval(x, c[, tensor])` | Evaluate a Legendre series at points x. | [API][0736] |
 | `legval2d(x, y, c)` | Evaluate a 2-D Legendre series at points (x, y). | [API][0737] |
 | `legval3d(x, y, z, c)` | Evaluate a 3-D Legendre series at points (x, y, z). | [API][0738] |
@@ -1434,6 +1438,8 @@ This module provides a number of objects (mostly functions) useful for dealing w
 
 ### Fitting
 
+| API | Description | Link |
+|-----|-------------|------|
 | `legfit(x, y, deg[, rcond, full, w])` | Least squares fit of Legendre series to data. | [API][0743] |
 | `legvander(x, deg)` | Pseudo-Vandermonde matrix of given degree. | [API][0744] |
 | `legvander2d(x, y, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0745] |
@@ -1441,11 +1447,15 @@ This module provides a number of objects (mostly functions) useful for dealing w
 
 ### Calculus
 
+| API | Description | Link |
+|-----|-------------|------|
 | `legder(c[, m, scl, axis])` | Differentiate a Legendre series. | [API][0747] |
 | `legint(c[, m, k, lbnd, scl, axis])` | Integrate a Legendre series. | [API][0748] |
 
 ### Algebra
 
+| API | Description | Link |
+|-----|-------------|------|
 | `legadd(c1, c2)` | Add one Legendre series to another. | [API][0749] |
 | `legsub(c1, c2)` | Subtract one Legendre series from another. | [API][0750] |
 | `legmul(c1, c2)` | Multiply one Legendre series by another. | [API][0751] |
@@ -1455,11 +1465,15 @@ This module provides a number of objects (mostly functions) useful for dealing w
 
 ### Quadrature
 
+| API | Description | Link |
+|-----|-------------|------|
 | `leggauss(deg)` | Gauss-Legendre quadrature. | [API][0755] |
 | `legweight(x)` | Weight function of the Legendre polynomials. | [API][0756] |
 
 ### Miscellaneous 
 
+| API | Description | Link |
+|-----|-------------|------|
 | `legcompanion(c)` | Return the scaled companion matrix of c. | [API][0757] |
 | `legdomain` |  | [API][0758] |
 | `legzero` |  | [API][0759] |
@@ -1469,6 +1483,78 @@ This module provides a number of objects (mostly functions) useful for dealing w
 | `legline(off, scl)` | Legendre series whose graph is a straight line. | [API][0763] |
 | `leg2poly(c)` | Convert a Legendre series to a polynomial. | [API][0764] |
 | `poly2leg(pol)` | Convert a polynomial to a Legendre series. | [API][0765] |
+
+
+## [Laguerre Module (numpy.polynomial.laguerre)][0766]
+
+This module provides a number of objects (mostly functions) useful for dealing with Laguerre series, including a [Laguerre][0767] class that encapsulates the usual arithmetic operations. (General information on how this module represents and works with such polynomials is in the docstring for its “parent” sub-package, numpy.polynomial).
+
+### Laguerre Class
+
+| API | Description | Link |
+|-----|-------------|------|
+| `Laguerre(coef[, domain, window])` | A Laguerre series class. | [API][0768] |
+
+### Basics
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lagval(x, c[, tensor])` | Evaluate a Laguerre series at points x. | [API][0769] |
+| `lagval2d(x, y, c)` | Evaluate a 2-D Laguerre series at points (x, y). | [API][0770] |
+| `lagval3d(x, y, z, c)` | Evaluate a 3-D Laguerre series at points (x, y, z). | [API][0771] |
+| `laggrid2d(x, y, c)` | Evaluate a 2-D Laguerre series on the Cartesian product of x and y. | [API][0772] |
+| `laggrid3d(x, y, z, c)` | Evaluate a 3-D Laguerre series on the Cartesian product of x, y, and z. | [API][0773] |
+| `lagroots(c)` | Compute the roots of a Laguerre series. | [API][0774] |
+| `lagfromroots(roots)` | Generate a Laguerre series with given roots. | [API][0775] |
+
+### Fitting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lagfit(x, y, deg[, rcond, full, w])` | Least squares fit of Laguerre series to data. | [API][0776] |
+| `lagvander(x, deg)` | Pseudo-Vandermonde matrix of given degree. | [API][0777] |
+| `lagvander2d(x, y, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0778] |
+| `lagvander3d(x, y, z, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0779] |
+
+### Calculus
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lagder(c[, m, scl, axis])` | Differentiate a Laguerre series. | [API][0780] |
+| `lagint(c[, m, k, lbnd, scl, axis])` | Integrate a Laguerre series. | [API][0781] |
+
+### Algebra
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lagadd(c1, c2)` | Add one Laguerre series to another. | [API][0782] |
+| `lagsub(c1, c2)` | Subtract one Laguerre series from another. | [API][0783] |
+| `lagmul(c1, c2)` | Multiply one Laguerre series by another. | [API][0784] |
+| `lagmulx(c)` | Multiply a Laguerre series by x. | [API][0785] |
+| `lagdiv(c1, c2)` | Divide one Laguerre series by another. | [API][0786] |
+| `lagpow(c, pow[, maxpower])` | Raise a Laguerre series to a power. | [API][0787] |
+
+### Quadrature
+
+| API | Description | Link |
+|-----|-------------|------|
+| `laggauss(deg)` | Gauss-Laguerre quadrature. | [API][0788] |
+| `lagweight(x)` | Weight function of the Laguerre polynomials. | [API][0789] |
+
+### Miscellaneous
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lagcompanion(c)` | Return the companion matrix of c. | [API][0790] |
+| `lagdomain` |  | [API][0791] |
+| `lagzero` |  | [API][0792] |
+| `lagone` |  | [API][0793] |
+| `lagx` |  | [API][0794] |
+| `lagtrim(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][07995] |
+| `lagline(off, scl)` | Laguerre series whose graph is a straight line. | [API][0796] |
+| `lag2poly(c)` | Convert a Laguerre series to a polynomial. | [API][0797] |
+| `poly2lag(pol)` | Convert a polynomial to a Laguerre series. | [API][0798] |
+
 
 
 
@@ -2248,39 +2334,39 @@ This module provides a number of objects (mostly functions) useful for dealing w
 [0763]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legline.html#numpy.polynomial.legendre.legline
 [0764]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.leg2poly.html#numpy.polynomial.legendre.leg2poly
 [0765]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.poly2leg.html#numpy.polynomial.legendre.poly2leg
-[0766]: 
-[0767]: 
-[0768]: 
-[0769]: 
-[0770]: 
-[0771]: 
-[0772]: 
-[0773]: 
-[0774]: 
-[0775]: 
-[0776]: 
-[0777]: 
-[0778]: 
-[0779]: 
-[0780]: 
-[0781]: 
-[0782]: 
-[0783]: 
-[0784]: 
-[0785]: 
-[0786]: 
-[0787]: 
-[0788]: 
-[0789]: 
-[0790]: 
-[0791]: 
-[0792]: 
-[0793]: 
-[0794]: 
-[0795]: 
-[0796]: 
-[0797]: 
-[0798]: 
+[0766]: https://www.numpy.org/devdocs/reference/routines.polynomials.laguerre.html
+[0767]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.Laguerre.html#numpy.polynomial.laguerre.Laguerre
+[0768]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.Laguerre.html#numpy.polynomial.laguerre.Laguerre
+[0769]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagval.html#numpy.polynomial.laguerre.lagval
+[0770]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagval2d.html#numpy.polynomial.laguerre.lagval2d
+[0771]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagval3d.html#numpy.polynomial.laguerre.lagval3d
+[0772]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.laggrid2d.html#numpy.polynomial.laguerre.laggrid2d
+[0773]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.laggrid3d.html#numpy.polynomial.laguerre.laggrid3d
+[0774]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagroots.html#numpy.polynomial.laguerre.lagroots
+[0775]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagfromroots.html#numpy.polynomial.laguerre.lagfromroots
+[0776]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagfit.html#numpy.polynomial.laguerre.lagfit
+[0777]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagvander.html#numpy.polynomial.laguerre.lagvander
+[0778]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagvander2d.html#numpy.polynomial.laguerre.lagvander2d
+[0779]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagvander3d.html#numpy.polynomial.laguerre.lagvander3d
+[0780]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagder.html#numpy.polynomial.laguerre.lagder
+[0781]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagint.html#numpy.polynomial.laguerre.lagint
+[0782]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagadd.html#numpy.polynomial.laguerre.lagadd
+[0783]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagsub.html#numpy.polynomial.laguerre.lagsub
+[0784]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagmul.html#numpy.polynomial.laguerre.lagmul
+[0785]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagmulx.html#numpy.polynomial.laguerre.lagmulx
+[0786]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagdiv.html#numpy.polynomial.laguerre.lagdiv
+[0787]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagpow.html#numpy.polynomial.laguerre.lagpow
+[0788]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.laggauss.html#numpy.polynomial.laguerre.laggauss
+[0789]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagweight.html#numpy.polynomial.laguerre.lagweight
+[0790]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagcompanion.html#numpy.polynomial.laguerre.lagcompanion
+[0791]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagdomain.html#numpy.polynomial.laguerre.lagdomain
+[0792]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagzero.html#numpy.polynomial.laguerre.lagzero
+[0793]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagone.html#numpy.polynomial.laguerre.lagone
+[0794]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagx.html#numpy.polynomial.laguerre.lagx
+[0795]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagtrim.html#numpy.polynomial.laguerre.lagtrim
+[0796]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lagline.html#numpy.polynomial.laguerre.lagline
+[0797]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.lag2poly.html#numpy.polynomial.laguerre.lag2poly
+[0798]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.laguerre.poly2lag.html#numpy.polynomial.laguerre.poly2lag
 [0799]: 
 
 [0800]: 
