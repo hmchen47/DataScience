@@ -1414,7 +1414,61 @@ This module provides a number of objects (mostly functions) useful for dealing w
 | `poly2cheb(pol)` | Convert a polynomial to a Chebyshev series. | [API][0732] |
 
 
+## [Legendre Module (numpy.polynomial.legendre)][0733]
 
+This module provides a number of objects (mostly functions) useful for dealing with Legendre series, including a [Legendre][0734] class that encapsulates the usual arithmetic operations. (General information on how this module represents and works with such polynomials is in the docstring for its “parent” sub-package, numpy.polynomial).
+
+### Legendre Class
+
+| `Legendre(coef[, domain, window])` | A Legendre series class. | [API][0735] |
+
+### Basics
+
+| `legval(x, c[, tensor])` | Evaluate a Legendre series at points x. | [API][0736] |
+| `legval2d(x, y, c)` | Evaluate a 2-D Legendre series at points (x, y). | [API][0737] |
+| `legval3d(x, y, z, c)` | Evaluate a 3-D Legendre series at points (x, y, z). | [API][0738] |
+| `leggrid2d(x, y, c)` | Evaluate a 2-D Legendre series on the Cartesian product of x and y. | [API][0739] |
+| `leggrid3d(x, y, z, c)` | Evaluate a 3-D Legendre series on the Cartesian product of x, y, and z. | [API][0740] |
+| `legroots(c)` | Compute the roots of a Legendre series. | [API][0741] |
+| `legfromroots(roots)` | Generate a Legendre series with given roots. | [API][0742] |
+
+### Fitting
+
+| `legfit(x, y, deg[, rcond, full, w])` | Least squares fit of Legendre series to data. | [API][0743] |
+| `legvander(x, deg)` | Pseudo-Vandermonde matrix of given degree. | [API][0744] |
+| `legvander2d(x, y, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0745] |
+| `legvander3d(x, y, z, deg)` | Pseudo-Vandermonde matrix of given degrees. | [API][0746] |
+
+### Calculus
+
+| `legder(c[, m, scl, axis])` | Differentiate a Legendre series. | [API][0747] |
+| `legint(c[, m, k, lbnd, scl, axis])` | Integrate a Legendre series. | [API][0748] |
+
+### Algebra
+
+| `legadd(c1, c2)` | Add one Legendre series to another. | [API][0749] |
+| `legsub(c1, c2)` | Subtract one Legendre series from another. | [API][0750] |
+| `legmul(c1, c2)` | Multiply one Legendre series by another. | [API][0751] |
+| `legmulx(c)` | Multiply a Legendre series by x. | [API][0752] |
+| `legdiv(c1, c2)` | Divide one Legendre series by another. | [API][0753] |
+| `legpow(c, pow[, maxpower])` | Raise a Legendre series to a power. | [API][0754] |
+
+### Quadrature
+
+| `leggauss(deg)` | Gauss-Legendre quadrature. | [API][0755] |
+| `legweight(x)` | Weight function of the Legendre polynomials. | [API][0756] |
+
+### Miscellaneous 
+
+| `legcompanion(c)` | Return the scaled companion matrix of c. | [API][0757] |
+| `legdomain` |  | [API][0758] |
+| `legzero` |  | [API][0759] |
+| `legone` |  | [API][0760] |
+| `legx` |  | [API][0761] |
+| `legtrim(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][0762] |
+| `legline(off, scl)` | Legendre series whose graph is a straight line. | [API][0763] |
+| `leg2poly(c)` | Convert a Legendre series to a polynomial. | [API][0764] |
+| `poly2leg(pol)` | Convert a polynomial to a Legendre series. | [API][0765] |
 
 
 
@@ -2161,39 +2215,39 @@ This module provides a number of objects (mostly functions) useful for dealing w
 [0730]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.chebline.html#numpy.polynomial.chebyshev.chebline
 [0731]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.cheb2poly.html#numpy.polynomial.chebyshev.cheb2poly
 [0732]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.chebyshev.poly2cheb.html#numpy.polynomial.chebyshev.poly2cheb
-[0733]: 
-[0734]: 
-[0735]: 
-[0736]: 
-[0737]: 
-[0738]: 
-[0739]: 
-[0740]: 
-[0741]: 
-[0742]: 
-[0743]: 
-[0744]: 
-[0745]: 
-[0746]: 
-[0747]: 
-[0748]: 
-[0749]: 
-[0750]: 
-[0751]: 
-[0752]: 
-[0753]: 
-[0754]: 
-[0755]: 
-[0756]: 
-[0757]: 
-[0758]: 
-[0759]: 
-[0760]: 
-[0761]: 
-[0762]: 
-[0763]: 
-[0764]: 
-[0765]: 
+[0733]: https://www.numpy.org/devdocs/reference/routines.polynomials.legendre.html
+[0734]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.Legendre.html#numpy.polynomial.legendre.Legendre
+[0735]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.Legendre.html#numpy.polynomial.legendre.Legendre
+[0736]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legval.html#numpy.polynomial.legendre.legval
+[0737]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legval2d.html#numpy.polynomial.legendre.legval2d
+[0738]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legval3d.html#numpy.polynomial.legendre.legval3d
+[0739]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.leggrid2d.html#numpy.polynomial.legendre.leggrid2d
+[0740]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.leggrid3d.html#numpy.polynomial.legendre.leggrid3d
+[0741]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legroots.html#numpy.polynomial.legendre.legroots
+[0742]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legfromroots.html#numpy.polynomial.legendre.legfromroots
+[0743]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legfit.html#numpy.polynomial.legendre.legfit
+[0744]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legvander.html#numpy.polynomial.legendre.legvander
+[0745]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legvander2d.html#numpy.polynomial.legendre.legvander2d
+[0746]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legvander3d.html#numpy.polynomial.legendre.legvander3d
+[0747]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legder.html#numpy.polynomial.legendre.legder
+[0748]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legint.html#numpy.polynomial.legendre.legint
+[0749]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legadd.html#numpy.polynomial.legendre.legadd
+[0750]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legsub.html#numpy.polynomial.legendre.legsub
+[0751]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legmul.html#numpy.polynomial.legendre.legmul
+[0752]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legmulx.html#numpy.polynomial.legendre.legmulx
+[0753]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legdiv.html#numpy.polynomial.legendre.legdiv
+[0754]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legpow.html#numpy.polynomial.legendre.legpow
+[0755]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.leggauss.html#numpy.polynomial.legendre.leggauss
+[0756]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legweight.html#numpy.polynomial.legendre.legweight
+[0757]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legcompanion.html#numpy.polynomial.legendre.legcompanion
+[0758]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legdomain.html#numpy.polynomial.legendre.legdomain
+[0759]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legzero.html#numpy.polynomial.legendre.legzero
+[0760]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legone.html#numpy.polynomial.legendre.legone
+[0761]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legx.html#numpy.polynomial.legendre.legx
+[0762]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legtrim.html#numpy.polynomial.legendre.legtrim
+[0763]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legline.html#numpy.polynomial.legendre.legline
+[0764]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.leg2poly.html#numpy.polynomial.legendre.leg2poly
+[0765]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.poly2leg.html#numpy.polynomial.legendre.poly2leg
 [0766]: 
 [0767]: 
 [0768]: 
