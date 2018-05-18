@@ -989,6 +989,137 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 | `ma.where(condition[, x, y])` | Return a masked array with elements from x or y, depending on condition. | [API][0544] |
 
 
+## [Mathematical functions][0545]
+
+### Trigonometric functions
+
+| `sin(x, /[, out, where, casting, order, …])` | Trigonometric sine, element-wise. | [API][0546] |
+| `cos(x, /[, out, where, casting, order, …])` | Cosine element-wise. | [API][0547] |
+| `tan(x, /[, out, where, casting, order, …])` | Compute tangent element-wise. | [API][0548] |
+| `arcsin(x, /[, out, where, casting, order, …])` | Inverse sine, element-wise. | [API][0549] |
+| `arccos(x, /[, out, where, casting, order, …])` | Trigonometric inverse cosine, element-wise. | [API][0550] |
+| `arctan(x, /[, out, where, casting, order, …])` | Trigonometric inverse tangent, element-wise. | [API][0551] |
+| `hypot(x1, x2, /[, out, where, casting, …])` | Given the “legs” of a right triangle, return its hypotenuse. | [API][0552] |
+| `arctan2(x1, x2, /[, out, where, casting, …])` | Element-wise arc tangent of x1/x2 choosing the quadrant correctly. | [API][0553] |
+| `degrees(x, /[, out, where, casting, order, …])` | Convert angles from radians to degrees. | [API][0554] |
+| `radians(x, /[, out, where, casting, order, …])` | Convert angles from degrees to radians. | [API][0555] |
+| `unwrap(p[, discont, axis])` | Unwrap by changing deltas between values to 2*pi complement. | [API][0556] |
+| `deg2rad(x, /[, out, where, casting, order, …])` | Convert angles from degrees to radians. | [API][0557] |
+| `rad2deg(x, /[, out, where, casting, order, …])` | Convert angles from radians to degrees. | [API][0558] |
+
+### Hyperbolic functions
+
+| `sinh(x, /[, out, where, casting, order, …])` | Hyperbolic sine, element-wise. | [API][0559] |
+| `cosh(x, /[, out, where, casting, order, …])` | Hyperbolic cosine, element-wise. | [API][0560] |
+| `tanh(x, /[, out, where, casting, order, …])` | Compute hyperbolic tangent element-wise. | [API][0561] |
+| `arcsinh(x, /[, out, where, casting, order, …])` | Inverse hyperbolic sine element-wise. | [API][0562] |
+| `arccosh(x, /[, out, where, casting, order, …])` | Inverse hyperbolic cosine, element-wise. | [API][0563] |
+| `arctanh(x, /[, out, where, casting, order, …])` | Inverse hyperbolic tangent element-wise. | [API][0564] |
+
+### Rounding
+
+| `around(a[, decimals, out])` | Evenly round to the given number of decimals. | [API][0565] |
+| `round_(a[, decimals, out])` | Round an array to the given number of decimals. | [API][0566] |
+| `rint(x, /[, out, where, casting, order, …])` | Round elements of the array to the nearest integer. | [API][0567] |
+| `fix(x[, out])` | Round to nearest integer towards zero. | [API][0568] |
+| `floor(x, /[, out, where, casting, order, …])` | Return the floor of the input, element-wise. | [API][0569] |
+| `ceil(x, /[, out, where, casting, order, …])` | Return the ceiling of the input, element-wise. | [API][0570] |
+| `trunc(x, /[, out, where, casting, order, …])` | Return the truncated value of the input, element-wise. | [API][0571] |
+
+### Sums, products, differences
+
+| `prod(a[, axis, dtype, out, keepdims, initial])` | Return the product of array elements over a given axis. | [API][0572] |
+| `sum(a[, axis, dtype, out, keepdims, initial])` | Sum of array elements over a given axis. | [API][0573] |
+| `nanprod(a[, axis, dtype, out, keepdims])` | Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones. | [API][0574] |
+| `nansum(a[, axis, dtype, out, keepdims])` | Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero. | [API][0575] |
+| `cumprod(a[, axis, dtype, out])` | Return the cumulative product of elements along a given axis. | [API][0576] |
+| `cumsum(a[, axis, dtype, out])` | Return the cumulative sum of the elements along a given axis. | [API][0577] |
+| `nancumprod(a[, axis, dtype, out])` | Return the cumulative product of array elements over a given axis treating Not a Numbers (NaNs) as one. | [API][0578] |
+| `nancumsum(a[, axis, dtype, out])` | Return the cumulative sum of array elements over a given axis treating Not a Numbers (NaNs) as zero. | [API][0579] |
+| `diff(a[, n, axis])` | Calculate the n-th discrete difference along the given axis. | [API][0580] |
+| `ediff1d(ary[, to_end, to_begin])` | The differences between consecutive elements of an array. | [API][0581] |
+| `gradient(f, *varargs, **kwargs)` | Return the gradient of an N-dimensional array. | [API][0582] |
+| `cross(a, b[, axisa, axisb, axisc, axis])` | Return the cross product of two (arrays of) vectors. | [API][0583] |
+| `trapz(y[, x, dx, axis])` | Integrate along the given axis using the composite trapezoidal rule. | [API][0584] |
+
+### Exponents and logarithms
+
+| `exp(x, /[, out, where, casting, order, …])` | Calculate the exponential of all elements in the input array. | [API][0585] |
+| `expm1(x, /[, out, where, casting, order, …])` | Calculate exp(x) - 1 for all elements in the array. | [API][0586] |
+| `exp2(x, /[, out, where, casting, order, …])` | Calculate 2**p for all p in the input array. | [API][0587] |
+| `log(x, /[, out, where, casting, order, …])` | Natural logarithm, element-wise. | [API][0588] |
+| `log10(x, /[, out, where, casting, order, …])` | Return the base 10 logarithm of the input array, element-wise. | [API][0589] |
+| `log2(x, /[, out, where, casting, order, …])` | Base-2 logarithm of x. | [API][0590] |
+| `log1p(x, /[, out, where, casting, order, …])` | Return the natural logarithm of one plus the input array, element-wise. | [API][0591] |
+| `logaddexp(x1, x2, /[, out, where, casting, …])` | Logarithm of the sum of exponentiations of the inputs. | [API][0592] |
+| `logaddexp2(x1, x2, /[, out, where, casting, …])` | Logarithm of the sum of exponentiations of the inputs in base-2. | [API][0593] |
+
+### Other special functions
+
+| `i0(x)` | Modified Bessel function of the first kind, order 0. | [API][0594] |
+| `sinc(x)` | Return the sinc function. | [API][0595] |
+
+### Floating point routines
+
+| `signbit(x, /[, out, where, casting, order, …])` | Returns element-wise True where signbit is set (less than zero). | [API][0596] |
+| `copysign(x1, x2, /[, out, where, casting, …])` | Change the sign of x1 to that of x2, element-wise. | [API][0597] |
+| `frexp(x[, out1, out2], / [[, out, where, …])` | Decompose the elements of x into mantissa and twos exponent. | [API][0598] |
+| `ldexp(x1, x2, /[, out, where, casting, …])` | Returns x1 * 2**x2, element-wise. | [API][0599] |
+| `nextafter(x1, x2, /[, out, where, casting, …])` | Return the next floating-point value after x1 towards x2, element-wise. | [API][0600] |
+| `spacing(x, /[, out, where, casting, order, …])` | Return the distance between x and the nearest adjacent number. | [API][0601] |
+
+### Rational routines
+
+| `lcm(x1, x2, /[, out, where, casting, order, …])` | Returns the lowest common multiple of |x1| and |x2| | [API][0602] |
+| `gcd(x1, x2, /[, out, where, casting, order, …])` | Returns the greatest common divisor of |x1| and |x2| | [API][0603] |
+
+### Arithmetic operations
+
+| `add(x1, x2, /[, out, where, casting, order, …])` | Add arguments element-wise. | [API][0604] |
+| `reciprocal(x, /[, out, where, casting, …])` | Return the reciprocal of the argument, element-wise. | [API][0605] |
+| `positive(x, /[, out, where, casting, order, …])` | Numerical positive, element-wise. | [API][0606] |
+| `negative(x, /[, out, where, casting, order, …])` | Numerical negative, element-wise. | [API][0607] |
+| `multiply(x1, x2, /[, out, where, casting, …])` | Multiply arguments element-wise. | [API][0608] |
+| `divide(x1, x2, /[, out, where, casting, …])` | Returns a true division of the inputs, element-wise. | [API][0609] |
+| `power(x1, x2, /[, out, where, casting, …])` | First array elements raised to powers from second array, element-wise. | [API][0610] |
+| `subtract(x1, x2, /[, out, where, casting, …])` | Subtract arguments, element-wise. | [API][0611] |
+| `true_divide(x1, x2, /[, out, where, …])` | Returns a true division of the inputs, element-wise. | [API][0612] |
+| `floor_divide(x1, x2, /[, out, where, …])` | Return the largest integer smaller or equal to the division of the inputs. | [API][0613] |
+| `float_power(x1, x2, /[, out, where, …])` | First array elements raised to powers from second array, element-wise. | [API][0614] |
+| `fmod(x1, x2, /[, out, where, casting, …])` | Return the element-wise remainder of division. | [API][0615] |
+| `mod(x1, x2, /[, out, where, casting, order, …])` | Return element-wise remainder of division. | [API][0616] |
+| `modf(x[, out1, out2], / [[, out, where, …])` | Return the fractional and integral parts of an array, element-wise. | [API][0617] |
+| `remainder(x1, x2, /[, out, where, casting, …])` | Return element-wise remainder of division. | [API][0618] |
+| `divmod(x1, x2[, out1, out2], / [[, out, …])` | Return element-wise quotient and remainder simultaneously. | [API][0619] |
+
+### Handling complex numbers
+
+| `angle(z[, deg])` | Return the angle of the complex argument. | [API][0620] |
+| `real(val)` | Return the real part of the complex argument. | [API][0621] |
+| `imag(val)` | Return the imaginary part of the complex argument. | [API][0622] |
+| `conj(x, /[, out, where, casting, order, …])` | Return the complex conjugate, element-wise. | [API][0623] |
+
+### Miscellaneous
+
+| `convolve(a, v[, mode])` | Returns the discrete, linear convolution of two one-dimensional sequences. | [API][0624] |
+| `clip(a, a_min, a_max[, out])` | Clip (limit) the values in an array. | [API][0625] |
+| `sqrt(x, /[, out, where, casting, order, …])` | Return the positive square-root of an array, element-wise. | [API][0626] |
+| `cbrt(x, /[, out, where, casting, order, …])` | Return the cube-root of an array, element-wise. | [API][0627] |
+| `square(x, /[, out, where, casting, order, …])` | Return the element-wise square of the input. | [API][0628] |
+| `absolute(x, /[, out, where, casting, order, …])` | Calculate the absolute value element-wise. | [API][0629] |
+| `fabs(x, /[, out, where, casting, order, …])` | Compute the absolute values element-wise. | [API][0630] |
+| `sign(x, /[, out, where, casting, order, …])` | Returns an element-wise indication of the sign of a number. | [API][0631] |
+| `heaviside(x1, x2, /[, out, where, casting, …])` | Compute the Heaviside step function. | [API][0632] |
+| `maximum(x1, x2, /[, out, where, casting, …])` | Element-wise maximum of array elements. | [API][0633] |
+| `minimum(x1, x2, /[, out, where, casting, …])` | Element-wise minimum of array elements. | [API][0634] |
+| `fmax(x1, x2, /[, out, where, casting, …])` | Element-wise maximum of array elements. | [API][0635] |
+| `fmin(x1, x2, /[, out, where, casting, …])` | Element-wise minimum of array elements. | [API][0636] |
+| `nan_to_num(x[, copy])` | Replace NaN with zero and infinity with large finite numbers. | [API][0637] |
+| `real_if_close(a[, tol])` | If complex input returns a real array if complex parts are close to zero. | [API][0638] |
+| `interp(x, xp, fp[, left, right, period])` | One-dimensional linear interpolation. | [API][0639] |
+
+
+
 
 
 
@@ -1543,102 +1674,102 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0542]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.ediff1d.html#numpy.ma.ediff1d
 [0543]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.indices.html#numpy.ma.indices
 [0544]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.where.html#numpy.ma.where
-[0545]: 
-[0546]: 
-[0547]: 
-[0548]: 
-[0549]: 
-[0550]: 
-[0551]: 
-[0552]: 
-[0553]: 
-[0554]: 
-[0555]: 
-[0556]: 
-[0557]: 
-[0558]: 
-[0559]: 
-[0560]: 
-[0561]: 
-[0562]: 
-[0563]: 
-[0564]: 
-[0565]: 
-[0566]: 
-[0567]: 
-[0568]: 
-[0569]: 
-[0570]: 
-[0571]: 
-[0572]: 
-[0573]: 
-[0574]: 
-[0575]: 
-[0576]: 
-[0577]: 
-[0578]: 
-[0579]: 
-[0580]: 
-[0581]: 
-[0582]: 
-[0583]: 
-[0584]: 
-[0585]: 
-[0586]: 
-[0587]: 
-[0588]: 
-[0589]: 
-[0590]: 
-[0591]: 
-[0592]: 
-[0593]: 
-[0594]: 
-[0595]: 
-[0596]: 
-[0597]: 
-[0598]: 
-[0599]: 
+[0545]: https://www.numpy.org/devdocs/reference/routines.math.html
+[0546]: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html#numpy.sin
+[0547]: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html#numpy.cos
+[0548]: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html#numpy.tan
+[0549]: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html#numpy.arcsin
+[0550]: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html#numpy.arccos
+[0551]: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html#numpy.arctan
+[0552]: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html#numpy.hypot
+[0553]: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html#numpy.arctan2
+[0554]: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html#numpy.degrees
+[0555]: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html#numpy.radians
+[0556]: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html#numpy.unwrap
+[0557]: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html#numpy.deg2rad
+[0558]: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html#numpy.rad2deg
+[0559]: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html#numpy.sinh
+[0560]: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html#numpy.cosh
+[0561]: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html#numpy.tanh
+[0562]: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html#numpy.arcsinh
+[0563]: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html#numpy.arccosh
+[0564]: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html#numpy.arctanh
+[0565]: https://www.numpy.org/devdocs/reference/generated/numpy.around.html#numpy.around
+[0566]: https://www.numpy.org/devdocs/reference/generated/numpy.round_.html#numpy.round_
+[0567]: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html#numpy.rint
+[0568]: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html#numpy.fix
+[0569]: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html#numpy.floor
+[0570]: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html#numpy.ceil
+[0571]: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html#numpy.trunc
+[0572]: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html#numpy.prod
+[0573]: https://www.numpy.org/devdocs/reference/generated/numpy.sum.html#numpy.sum
+[0574]: https://www.numpy.org/devdocs/reference/generated/numpy.nanprod.html#numpy.nanprod
+[0575]: https://www.numpy.org/devdocs/reference/generated/numpy.nansum.html#numpy.nansum
+[0576]: https://www.numpy.org/devdocs/reference/generated/numpy.cumprod.html#numpy.cumprod
+[0577]: https://www.numpy.org/devdocs/reference/generated/numpy.cumsum.html#numpy.cumsum
+[0578]: https://www.numpy.org/devdocs/reference/generated/numpy.nancumprod.html#numpy.nancumprod
+[0579]: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html#numpy.nancumsum
+[0580]: https://www.numpy.org/devdocs/reference/generated/numpy.diff.html#numpy.diff
+[0581]: https://www.numpy.org/devdocs/reference/generated/numpy.ediff1d.html#numpy.ediff1d
+[0582]: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html#numpy.gradient
+[0583]: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html#numpy.cross
+[0584]: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html#numpy.trapz
+[0585]: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html#numpy.exp
+[0586]: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html#numpy.expm1
+[0587]: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html#numpy.exp2
+[0588]: https://www.numpy.org/devdocs/reference/generated/numpy.log.html#numpy.log
+[0589]: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html#numpy.log10
+[0590]: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html#numpy.log2
+[0591]: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html#numpy.log1p
+[0592]: https://www.numpy.org/devdocs/reference/generated/numpy.logaddexp.html#numpy.logaddexp
+[0593]: https://www.numpy.org/devdocs/reference/generated/numpy.logaddexp2.html#numpy.logaddexp2
+[0594]: https://www.numpy.org/devdocs/reference/generated/numpy.i0.html#numpy.i0
+[0595]: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html#numpy.sinc
+[0596]: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html#numpy.signbit
+[0597]: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html#numpy.copysign
+[0598]: https://www.numpy.org/devdocs/reference/generated/numpy.frexp.html#numpy.frexp
+[0599]: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html#numpy.ldexp
 
-[0600]: 
-[0601]: 
-[0602]: 
-[0603]: 
-[0604]: 
-[0605]: 
-[0606]: 
-[0607]: 
-[0608]: 
-[0609]: 
-[0610]: 
-[0611]: 
-[0612]: 
-[0613]: 
-[0614]: 
-[0615]: 
-[0616]: 
-[0617]: 
-[0618]: 
-[0619]: 
-[0620]: 
-[0621]: 
-[0622]: 
-[0623]: 
-[0624]: 
-[0625]: 
-[0626]: 
-[0627]: 
-[0628]: 
-[0629]: 
-[0630]: 
-[0631]: 
-[0632]: 
-[0633]: 
-[0634]: 
-[0635]: 
-[0636]: 
-[0637]: 
-[0638]: 
-[0639]: 
+[0600]: https://www.numpy.org/devdocs/reference/generated/numpy.nextafter.html#numpy.nextafter
+[0601]: https://www.numpy.org/devdocs/reference/generated/numpy.spacing.html#numpy.spacing
+[0602]: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html#numpy.lcm
+[0603]: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html#numpy.gcd
+[0604]: https://www.numpy.org/devdocs/reference/generated/numpy.add.html#numpy.add
+[0605]: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html#numpy.reciprocal
+[0606]: https://www.numpy.org/devdocs/reference/generated/numpy.positive.html#numpy.positive
+[0607]: https://www.numpy.org/devdocs/reference/generated/numpy.negative.html#numpy.negative
+[0608]: https://www.numpy.org/devdocs/reference/generated/numpy.multiply.html#numpy.multiply
+[0609]: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html#numpy.divide
+[0610]: https://www.numpy.org/devdocs/reference/generated/numpy.power.html#numpy.power
+[0611]: https://www.numpy.org/devdocs/reference/generated/numpy.subtract.html#numpy.subtract
+[0612]: https://www.numpy.org/devdocs/reference/generated/numpy.true_divide.html#numpy.true_divide
+[0613]: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html#numpy.floor_divide
+[0614]: https://www.numpy.org/devdocs/reference/generated/numpy.float_power.html#numpy.float_power
+[0615]: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html#numpy.fmod
+[0616]: https://www.numpy.org/devdocs/reference/generated/numpy.mod.html#numpy.mod
+[0617]: https://www.numpy.org/devdocs/reference/generated/numpy.modf.html#numpy.modf
+[0618]: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html#numpy.remainder
+[0619]: https://www.numpy.org/devdocs/reference/generated/numpy.divmod.html#numpy.divmod
+[0620]: https://www.numpy.org/devdocs/reference/generated/numpy.angle.html#numpy.angle
+[0621]: https://www.numpy.org/devdocs/reference/generated/numpy.real.html#numpy.real
+[0622]: https://www.numpy.org/devdocs/reference/generated/numpy.imag.html#numpy.imag
+[0623]: https://www.numpy.org/devdocs/reference/generated/numpy.conj.html#numpy.conj
+[0624]: https://www.numpy.org/devdocs/reference/generated/numpy.convolve.html#numpy.convolve
+[0625]: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html#numpy.clip
+[0626]: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html#numpy.sqrt
+[0627]: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html#numpy.cbrt
+[0628]: https://www.numpy.org/devdocs/reference/generated/numpy.square.html#numpy.square
+[0629]: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html#numpy.absolute
+[0630]: https://www.numpy.org/devdocs/reference/generated/numpy.fabs.html#numpy.fabs
+[0631]: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html#numpy.sign
+[0632]: https://www.numpy.org/devdocs/reference/generated/numpy.heaviside.html#numpy.heaviside
+[0633]: https://www.numpy.org/devdocs/reference/generated/numpy.maximum.html#numpy.maximum
+[0634]: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html#numpy.minimum
+[0635]: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html#numpy.fmax
+[0636]: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html#numpy.fmin
+[0637]: https://www.numpy.org/devdocs/reference/generated/numpy.nan_to_num.html#numpy.nan_to_num
+[0638]: https://www.numpy.org/devdocs/reference/generated/numpy.real_if_close.html#numpy.real_if_close
+[0639]: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html#numpy.interp
 [0640]: 
 [0641]: 
 [0642]: 
