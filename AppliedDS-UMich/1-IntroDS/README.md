@@ -71,3 +71,24 @@
 
 ### [Programming Assignment: Assignment](./notebooks/Assignment02.ipynb)
 
+### [Useful Links for Assignment 2](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/I1mUqDWhEei84BIJ0a_qDg)
+
+#### Grader Issues
+
++ [Always get 0/100 no matter what I try.](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/9LQvj9sIEeeVIQpX8CEJEg)
++ [Grader Error](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/cIBy07OTEeeoFRIny1SCpg)
+
+#### Questions
+
++ Question 3:
+    + [Why my Week 2 Q3 answer is wrong? (Several excellent suggestions are provided)](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/J-xUQdDKEeeT2RIs_W-FMg)
+
++ Question 4:
+    + [Question 4, answer not "correct"](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/-JFP97eHEeeVOgq1E_eRMA)
+
++ Question 5:
+    + [Understanding Question 5](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/NQoVWLdMEeeNTQ68Ms7WUg)
+
++ [Question 6 and 7](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/6_u_9rKtEeeEagonu2xPWg)
+
+
