@@ -716,6 +716,280 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 | `not_equal(x1, x2, /[, out, where, casting, …])` | Return (x1 != x2) element-wise. | [API][0354] |
 
 
+## [Masked array operations][0355]
+
+### Constants
+
+| `ma.MaskType` | alias of numpy.bool_ | [API][0356] |
+
+### Creation
+
+#### From existing data
+
+| `ma.masked_array` | alias of numpy.ma.core.MaskedArray | [API][0357] |
+| `ma.array(data[, dtype, copy, order, mask, …])` | An array class with possibly masked values. | [API][0358] |
+| `ma.copy(self, *args, **params) a.copy(order=)` | Return a copy of the array. | [API][0359] |
+| `ma.frombuffer(buffer[, dtype, count, offset])` | Interpret a buffer as a 1-dimensional array. | [API][0360] |
+| `ma.fromfunction(function, shape, **kwargs)` | Construct an array by executing a function over each coordinate. | [API][0361] |
+| `ma.MaskedArray.copy([order])` | Return a copy of the array. | [API][0362] |
+
+#### Ones and zeros
+| `ma.empty(shape[, dtype, order])` | Return a new array of given shape and type, without initializing entries. | [API][0363] |
+| `ma.empty_like(prototype[, dtype, order, subok])` | Return a new array with the same shape and type as a given array. | [API][0364] |
+| `ma.masked_all(shape[, dtype])` | Empty masked array with all elements masked. | [API][0365] |
+| `ma.masked_all_like(arr)` | Empty masked array with the properties of an existing array. | [API][0366] |
+| `ma.ones(shape[, dtype, order])` | Return a new array of given shape and type, filled with ones. | [API][0367] |
+| `ma.zeros(shape[, dtype, order])` | Return a new array of given shape and type, filled with zeros. | [API][0368] |
+
+### Inspecting the array
+
+| `ma.all(self[, axis, out, keepdims])` | Returns True if all elements evaluate to True. | [API][0369] |
+| `ma.any(self[, axis, out, keepdims])` | Returns True if any of the elements of a evaluate to True. | [API][0370] |
+| `ma.count(self[, axis, keepdims])` | Count the non-masked elements of the array along the given axis. | [API][0371] |
+| `ma.count_masked(arr[, axis])` | Count the number of masked elements along the given axis. | [API][0372] |
+| `ma.getmask(a)` | Return the mask of a masked array, or nomask. | [API][0373] |
+| `ma.getmaskarray(arr)` | Return the mask of a masked array, or full boolean array of False. | [API][0374] |
+| `ma.getdata(a[, subok])` | Return the data of a masked array as an ndarray. | [API][0375] |
+| `ma.nonzero(self)` | Return the indices of unmasked elements that are not zero. | [API][0376] |
+| `ma.shape(obj)` | Return the shape of an array. | [API][0377] |
+| `ma.size(obj[, axis])` | Return the number of elements along a given axis. | [API][0378] |
+| `ma.is_masked(x)` | Determine whether input has masked values. | [API][0379] |
+| `ma.is_mask(m)` | Return True if m is a valid, standard mask. | [API][0380] |
+| `ma.MaskedArray.data` | Return the current data, as a view of the original underlying data. | [API][0381] |
+| `ma.MaskedArray.mask` | Mask | [API][0382] |
+| `ma.MaskedArray.recordmask` | Return the mask of the records. | [API][0383] |
+| `ma.MaskedArray.all([axis, out, keepdims])` | Returns True if all elements evaluate to True. | [API][0384] |
+| `ma.MaskedArray.any([axis, out, keepdims])` | Returns True if any of the elements of a evaluate to True. | [API][0385] |
+| `ma.MaskedArray.count([axis, keepdims])` | Count the non-masked elements of the array along the given axis. | [API][0386] |
+| `ma.MaskedArray.nonzero()` | Return the indices of unmasked elements that are not zero. | [API][0387] |
+| `ma.shape(obj)` | Return the shape of an array. | [API][0388] |
+| `ma.size(obj[, axis])` | Return the number of elements along a given axis. | [API][0389] |
+
+### Manipulating a MaskedArray
+
+#### Changing the shape
+
+| `ma.ravel(self[, order])` | Returns a 1D version of self, as a view. | [API][0390] |
+| `ma.reshape(a, new_shape[, order])` | Returns an array containing the same data with a new shape. | [API][0391] |
+| `ma.resize(x, new_shape)` | Return a new masked array with the specified size and shape. | [API][0392] |
+| `ma.MaskedArray.flatten([order])` | Return a copy of the array collapsed into one dimension. | [API][0393] |
+| `ma.MaskedArray.ravel([order])` | Returns a 1D version of self, as a view. | [API][0394] |
+| `ma.MaskedArray.reshape(*s, **kwargs)` | Give a new shape to the array without changing its data. | [API][0395] |
+| `ma.MaskedArray.resize(newshape[, refcheck, …])` |  | [API][0396] |
+
+#### Modifying axes
+
+| `ma.swapaxes(self, *args, …)` | Return a view of the array with axis1 and axis2 interchanged. | [API][0397] |
+| `ma.transpose(a[, axes])` | Permute the dimensions of an array. | [API][0398] |
+| `ma.MaskedArray.swapaxes(axis1, axis2)` | Return a view of the array with axis1 and axis2 interchanged. | [API][0399] |
+| `ma.MaskedArray.transpose(*axes)` | Returns a view of the array with axes transposed. | [API][0400] |
+
+#### Changing the number of dimensions
+
+| `ma.atleast_1d(*arys)` | Convert inputs to arrays with at least one dimension. | [API][0401] |
+| `ma.atleast_2d(*arys)` | View inputs as arrays with at least two dimensions. | [API][0402] |
+| `ma.atleast_3d(*arys)` | View inputs as arrays with at least three dimensions. | [API][0403] |
+| `ma.expand_dims(x, axis)` | Expand the shape of an array. | [API][0404] |
+| `ma.squeeze(a[, axis])` | Remove single-dimensional entries from the shape of an array. | [API][0405] |
+| `ma.MaskedArray.squeeze([axis])` | Remove single-dimensional entries from the shape of a. | [API][0406] |
+| `ma.column_stack(tup)` | Stack 1-D arrays as columns into a 2-D array. | [API][0407] |
+| `ma.concatenate(arrays[, axis])` | Concatenate a sequence of arrays along the given axis. | [API][0408] |
+| `ma.dstack(tup)` | Stack arrays in sequence depth wise (along third axis). | [API][0409] |
+| `ma.hstack(tup)` | Stack arrays in sequence horizontally (column wise). | [API][0410] |
+| `ma.hsplit(ary, indices_or_sections)` | Split an array into multiple sub-arrays horizontally (column-wise). | [API][0411] |
+| `ma.mr_` | Translate slice objects to concatenation along the first axis. | [API][0412] |
+| `ma.row_stack(tup)` | Stack arrays in sequence vertically (row wise). | [API][0413] |
+| `ma.vstack(tup)` | Stack arrays in sequence vertically (row wise). | [API][0414] |
+
+#### Joining arrays
+
+| `ma.column_stack(tup)` | Stack 1-D arrays as columns into a 2-D array. | [API][0415] |
+| `ma.concatenate(arrays[, axis])` | Concatenate a sequence of arrays along the given axis. | [API][0416] |
+| `ma.append(a, b[, axis])` | Append values to the end of an array. | [API][0417] |
+| `ma.dstack(tup)` | Stack arrays in sequence depth wise (along third axis). | [API][0418] |
+| `ma.hstack(tup)` | Stack arrays in sequence horizontally (column wise). | [API][0419] |
+| `ma.vstack(tup)` | Stack arrays in sequence vertically (row wise). | [API][0420] |
+
+### Operations on masks
+
+#### Creating a mask
+
+| `ma.make_mask(m[, copy, shrink, dtype])` | Create a boolean mask from an array. | [API][0421] |
+| `ma.make_mask_none(newshape[, dtype])` | Return a boolean mask of the given shape, filled with False. | [API][0422] |
+| `ma.mask_or(m1, m2[, copy, shrink])` | Combine two masks with the logical_or operator. | [API][0423] |
+| `ma.make_mask_descr(ndtype)` | Construct a dtype description list from a given dtype. | [API][0424] |
+
+#### Accessing a mask
+
+| `ma.getmask(a)` | Return the mask of a masked array, or nomask. | [API][0425] |
+| `ma.getmaskarray(arr)` | Return the mask of a masked array, or full boolean array of False. | [API][0426] |
+| `ma.masked_array.mask` | Mask | [API][0427] |
+
+#### Finding masked data
+
+| `ma.flatnotmasked_contiguous(a)` | Find contiguous unmasked data in a masked array along the given axis. | [API][0428] |
+| `ma.flatnotmasked_edges(a)` | Find the indices of the first and last unmasked values. | [API][0429] |
+| `ma.notmasked_contiguous(a[, axis])` | Find contiguous unmasked data in a masked array along the given axis. | [API][0430] |
+| `ma.notmasked_edges(a[, axis])` | Find the indices of the first and last unmasked values along an axis. | [API][0431] |
+| `ma.clump_masked(a)` | Returns a list of slices corresponding to the masked clumps of a 1-D array. | [API][0432] |
+| `ma.clump_unmasked(a)` | Return list of slices corresponding to the unmasked clumps of a 1-D array. | [API][0433] |
+
+#### Modifying a mask
+
+| `ma.mask_cols(a[, axis])` | Mask columns of a 2D array that contain masked values. | [API][0434] |
+| `ma.mask_or(m1, m2[, copy, shrink])` | Combine two masks with the logical_or operator. | [API][0435] |
+| `ma.mask_rowcols(a[, axis])` | Mask rows and/or columns of a 2D array that contain masked values. | [API][0436] |
+| `ma.mask_rows(a[, axis])` | Mask rows of a 2D array that contain masked values. | [API][0437] |
+| `ma.harden_mask(self)` | Force the mask to hard. | [API][0438] |
+| `ma.soften_mask(self)` | Force the mask to soft. | [API][0439] |
+| `ma.MaskedArray.harden_mask()` | Force the mask to hard. | [API][0440] |
+| `ma.MaskedArray.soften_mask()` | Force the mask to soft. | [API][0441] |
+| `ma.MaskedArray.shrink_mask()` | Reduce a mask to nomask when possible. | [API][0442] |
+| `ma.MaskedArray.unshare_mask()` | Copy the mask and set the sharedmask flag to False. | [API][0443] |
+
+### Conversion operations
+
+#### `>` to a masked array
+
+| `ma.asarray(a[, dtype, order])` | Convert the input to a masked array of the given data-type. | [API][0444] |
+| `ma.asanyarray(a[, dtype])` | Convert the input to a masked array, conserving subclasses. | [API][0445] |
+| `ma.fix_invalid(a[, mask, copy, fill_value])` | Return input with invalid data masked and replaced by a fill value. | [API][0446] |
+| `ma.masked_equal(x, value[, copy])` | Mask an array where equal to a given value. | [API][0447] |
+| `ma.masked_greater(x, value[, copy])` | Mask an array where greater than a given value. | [API][0448] |
+| `ma.masked_greater_equal(x, value[, copy])` | Mask an array where greater than or equal to a given value. | [API][0449] |
+| `ma.masked_inside(x, v1, v2[, copy])` | Mask an array inside a given interval. | [API][0450] |
+| `ma.masked_invalid(a[, copy])` | Mask an array where invalid values occur (NaNs or infs). | [API][0451] |
+| `ma.masked_less(x, value[, copy])` | Mask an array where less than a given value. | [API][0452] |
+| `ma.masked_less_equal(x, value[, copy])` | Mask an array where less than or equal to a given value. | [API][0453] |
+| `ma.masked_not_equal(x, value[, copy])` | Mask an array where not equal to a given value. | [API][0454] |
+| `ma.masked_object(x, value[, copy, shrink])` | Mask the array x where the data are exactly equal to value. | [API][0455] |
+| `ma.masked_outside(x, v1, v2[, copy])` | Mask an array outside a given interval. | [API][0456] |
+| `ma.masked_values(x, value[, rtol, atol, …])` | Mask using floating point equality. | [API][0457] |
+| `ma.masked_where(condition, a[, copy])` | Mask an array where a condition is met. | [API][0584] |
+
+#### `>` to a ndarray
+
+| `ma.compress_cols(a)` | Suppress whole columns of a 2-D array that contain masked values. | [API][0459] |
+| `ma.compress_rowcols(x[, axis])` | Suppress the rows and/or columns of a 2-D array that contain masked values. | [API][0460] |
+| `ma.compress_rows(a)` | Suppress whole rows of a 2-D array that contain masked values. | [API][0461] |
+| `ma.compressed(x)` | Return all the non-masked data as a 1-D array. | [API][0462] |
+| `ma.filled(a[, fill_value])` | Return input as an array with masked data replaced by a fill value. | [API][0463] |
+| `ma.MaskedArray.compressed()` | Return all the non-masked data as a 1-D array. | [API][0464] |
+| `ma.MaskedArray.filled([fill_value])` | Return a copy of self, with masked values filled with a given value. | [API][0465] |
+
+#### `>` to another object
+
+| `ma.MaskedArray.tofile(fid[, sep, format])` | Save a masked array to a file in binary format. | [API][0466] |
+| `ma.MaskedArray.tolist([fill_value])` | Return the data portion of the masked array as a hierarchical Python list. | [API][0467] |
+| `ma.MaskedArray.torecords()` | Transforms a masked array into a flexible-type array. | [API][0468] |
+| `ma.MaskedArray.tobytes([fill_value, order])` | Return the array data as a string containing the raw bytes in the array. | [API][0469] |
+
+#### Pickling and unpickling
+
+| `ma.dump(a, F)` | Pickle a masked array to a file. | [API][0470] |
+| `ma.dumps(a)` | Return a string corresponding to the pickling of a masked array. | [API][0471] |
+| `ma.load(F)` | Wrapper around cPickle.load which accepts either a file-like object or a filename. | [API][0472] |
+| `ma.loads(strg)` | Load a pickle from the current string. | [API][0473] |
+
+#### Filling a masked array
+
+| `ma.common_fill_value(a, b)` | Return the common filling value of two masked arrays, if any. | [API][0474] |
+| `ma.default_fill_value(obj)` | Return the default fill value for the argument object. | [API][0475] |
+| `ma.maximum_fill_value(obj)` | Return the minimum value that can be represented by the dtype of an object. | [API][0476] |
+| `ma.maximum_fill_value(obj)` | Return the minimum value that can be represented by the dtype of an object. | [API][0477] |
+| `ma.set_fill_value(a, fill_value)` | Set the filling value of a, if a is a masked array. | [API][0478] |
+| `ma.MaskedArray.get_fill_value()` | Return the filling value of the masked array. | [API][0479] |
+| `ma.MaskedArray.set_fill_value([value])` | Set the filling value of the masked array. | [API][0480] |
+| `ma.MaskedArray.fill_value` | Filling value. | [API][0481] |
+
+### Masked arrays arithmetics
+
+#### Arithmetics
+
+| `ma.anom(self[, axis, dtype])` | Compute the anomalies (deviations from the arithmetic mean) along the given axis. | [API][0482] |
+| `ma.anomalies(self[, axis, dtype])` | Compute the anomalies (deviations from the arithmetic mean) along the given axis. | [API][0483] |
+| `ma.average(a[, axis, weights, returned])` | Return the weighted average of array over the given axis. | [API][0484] |
+| `ma.conjugate(x, /[, out, where, casting, …])` | Return the complex conjugate, element-wise. | [API][0485] |
+| `ma.corrcoef(x[, y, rowvar, bias, …])` | Return Pearson product-moment correlation coefficients. | [API][0486] |
+| `ma.cov(x[, y, rowvar, bias, allow_masked, ddof])` | Estimate the covariance matrix. | [API][0487] |
+| `ma.cumsum(self[, axis, dtype, out])` | Return the cumulative sum of the array elements over the given axis. | [API][0488] |
+| `ma.cumprod(self[, axis, dtype, out])` | Return the cumulative product of the array elements over the given axis. | [API][0489] |
+| `ma.mean(self[, axis, dtype, out, keepdims])` | Returns the average of the array elements along given axis. | [API][0490] |
+| `ma.median(a[, axis, out, overwrite_input, …])` | Compute the median along the specified axis. | [API][0491] |
+| `ma.power(a, b[, third])` | Returns element-wise base array raised to power from second array. | [API][0492] |
+| `ma.prod(self[, axis, dtype, out, keepdims])` | Return the product of the array elements over the given axis. | [API][0493] |
+| `ma.std(self[, axis, dtype, out, ddof, keepdims])` | Returns the standard deviation of the array elements along given axis. | [API][0494] |
+| `ma.sum(self[, axis, dtype, out, keepdims])` | Return the sum of the array elements over the given axis. | [API][0495] |
+| `ma.var(self[, axis, dtype, out, ddof, keepdims])` | Compute the variance along the specified axis. | [API][0496] |
+| `ma.MaskedArray.anom([axis, dtype])` | Compute the anomalies (deviations from the arithmetic mean) along the given axis. | [API][0497] |
+| `ma.MaskedArray.cumprod([axis, dtype, out])` | Return the cumulative product of the array elements over the given axis. | [API][0498] |
+| `ma.MaskedArray.cumsum([axis, dtype, out])` | Return the cumulative sum of the array elements over the given axis. | [API][0499] |
+| `ma.MaskedArray.mean([axis, dtype, out, keepdims])` | Returns the average of the array elements along given axis. | [API][0500] |
+| `ma.MaskedArray.prod([axis, dtype, out, keepdims])` | Return the product of the array elements over the given axis. | [API][0501] |
+| `ma.MaskedArray.std([axis, dtype, out, ddof, …])` | Returns the standard deviation of the array elements along given axis. | [API][0502] |
+| `ma.MaskedArray.sum([axis, dtype, out, keepdims])` | Return the sum of the array elements over the given axis. | [API][0503] |
+| `ma.MaskedArray.var([axis, dtype, out, ddof, …])` | Compute the variance along the specified axis. | [API][0504] |
+
+#### Minimum/maximum
+
+| `ma.argmax(self[, axis, fill_value, out])` | Returns array of indices of the maximum values along the given axis. | [API][0505] |
+| `ma.argmin(self[, axis, fill_value, out])` | Return array of indices to the minimum values along the given axis. | [API][0506] |
+| `ma.max(obj[, axis, out, fill_value, keepdims])` | Return the maximum along a given axis. | [API][0507] |
+| `ma.min(obj[, axis, out, fill_value, keepdims])` | Return the minimum along a given axis. | [API][0508] |
+| `ma.ptp(obj[, axis, out, fill_value, keepdims])` | Return (maximum - minimum) along the given dimension (i.e. | [API][0509] |
+| `ma.MaskedArray.argmax([axis, fill_value, out])` | Returns array of indices of the maximum values along the given axis. | [API][0510] |
+| `ma.MaskedArray.argmin([axis, fill_value, out])` | Return array of indices to the minimum values along the given axis. | [API][0511] |
+| `ma.MaskedArray.max([axis, out, fill_value, …])` | Return the maximum along a given axis. | [API][0512] |
+| `ma.MaskedArray.min([axis, out, fill_value, …])` | Return the minimum along a given axis. | [API][0513] |
+| `ma.MaskedArray.ptp([axis, out, fill_value, …])` | Return (maximum - minimum) along the given dimension (i.e. | [API][0514] |
+
+#### Sorting
+
+| `ma.argsort(a[, axis, kind, order, endwith, …])` | Return an ndarray of indices that sort the array along the specified axis. | [API][0515] |
+| `ma.sort(a[, axis, kind, order, endwith, …])` | Sort the array, in-place | [API][0516] |
+| `ma.MaskedArray.argsort([axis, kind, order, …])` | Return an ndarray of indices that sort the array along the specified axis. | [API][0517] |
+| `ma.MaskedArray.sort([axis, kind, order, …])` | Sort the array, in-place | [API][0518] |
+
+#### Algebra
+
+| `ma.diag(v[, k])` | Extract a diagonal or construct a diagonal array. | [API][0519] |
+| `ma.dot(a, b[, strict, out])` | Return the dot product of two arrays. | [API][0520] |
+| `ma.identity(n[, dtype])` | Return the identity array. | [API][0521] |
+| `ma.inner(a, b)` | Inner product of two arrays. | [API][0522] |
+| `ma.innerproduct(a, b)` | Inner product of two arrays. | [API][0523] |
+| `ma.outer(a, b)` | Compute the outer product of two vectors. | [API][0524] |
+| `ma.outerproduct(a, b)` | Compute the outer product of two vectors. | [API][0525] |
+| `ma.trace(self[, offset, axis1, axis2, …])` | Return the sum along diagonals of the array. | [API][0526] |
+| `ma.transpose(a[, axes])` | Permute the dimensions of an array. | [API][0527] |
+| `ma.MaskedArray.trace([offset, axis1, axis2, …])` | Return the sum along diagonals of the array. | [API][0528] |
+| `ma.MaskedArray.transpose(*axes)` | Returns a view of the array with axes transposed. | [API][0529] |
+
+#### Polynomial fit
+
+| `ma.vander(x[, n])` | Generate a Vandermonde matrix. | [API][0530] |
+| `ma.polyfit(x, y, deg[, rcond, full, w, cov])` | Least squares polynomial fit. | [API][0531] |
+
+#### Clipping and rounding
+
+| `ma.around` | Round an array to the given number of decimals. | [API][0532] |
+| `ma.clip(a, a_min, a_max[, out])` | Clip (limit) the values in an array. | [API][0533] |
+| `ma.round(a[, decimals, out])` | Return a copy of a, rounded to ‘decimals’ places. | [API][0534] |
+| `ma.MaskedArray.clip([min, max, out])` | Return an array whose values are limited to [min, max]. | [API][0535] |
+| `ma.MaskedArray.round([decimals, out])` | Return each element rounded to the given number of decimals. | [API][0536] |
+
+#### Miscellanea
+
+| `ma.allequal(a, b[, fill_value])` | Return True if all entries of a and b are equal, using fill_value as a truth value where either or both are masked. | [API][0537] |
+| `ma.allclose(a, b[, masked_equal, rtol, atol])` | Returns True if two arrays are element-wise equal within a tolerance. | [API][0538] |
+| `ma.apply_along_axis(func1d, axis, arr, …)` | Apply a function to 1-D slices along the given axis. | [API][0539] |
+| `ma.arange([start,] stop[, step,][, dtype])` | Return evenly spaced values within a given interval. | [API][0540] |
+| `ma.choose(indices, choices[, out, mode])` | Use an index array to construct a new array from a set of choices. | [API][0541] |
+| `ma.ediff1d(arr[, to_end, to_begin])` | Compute the differences between consecutive elements of an array. | [API][0542] |
+| `ma.indices(dimensions[, dtype])` | Return an array representing the indices of a grid. | [API][0543] |
+| `ma.where(condition[, x, y])` | Return a masked array with elements from x or y, depending on condition. | [API][0544] |
+
+
+
 
 
 --------------------------------------------
@@ -1077,299 +1351,198 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0352]: https://www.numpy.org/devdocs/reference/generated/numpy.less_equal.html#numpy.less_equal
 [0353]: https://www.numpy.org/devdocs/reference/generated/numpy.equal.html#numpy.equal
 [0354]: https://www.numpy.org/devdocs/reference/generated/numpy.not_equal.html#numpy.not_equal
-[0355]: 
-[0356]: 
-[0357]: 
-[0358]: 
-[0359]: 
-[0360]: 
-[0361]: 
-[0362]: 
-[0363]: 
-[0364]: 
-[0365]: 
-[0366]: 
-[0367]: 
-[0368]: 
-[0369]: 
-[0370]: 
-[0371]: 
-[0372]: 
-[0373]: 
-[0374]: 
-[0375]: 
-[0376]: 
-[0377]: 
-[0378]: 
-[0379]: 
-[0380]: 
-[0381]: 
-[0382]: 
-[0383]: 
-[0384]: 
-[0385]: 
-[0386]: 
-[0387]: 
-[0388]: 
-[0389]: 
-[0390]: 
-[0391]: 
-[0392]: 
-[0393]: 
-[0394]: 
-[0395]: 
-[0396]: 
-[0397]: 
-[0398]: 
-[0399]: 
+[0355]: https://www.numpy.org/devdocs/reference/routines.ma.html
+[0356]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskType.html#numpy.ma.MaskType
+[0357]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_array.html#numpy.ma.masked_array
+[0358]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.array.html#numpy.ma.array
+[0359]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.copy.html#numpy.ma.copy
+[0360]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.frombuffer.html#numpy.ma.frombuffer
+[0361]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.fromfunction.html#numpy.ma.fromfunction
+[0362]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.copy.html#numpy.ma.MaskedArray.copy
+[0363]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.empty.html#numpy.ma.empty
+[0364]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.empty_like.html#numpy.ma.empty_like
+[0365]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_all.html#numpy.ma.masked_all
+[0366]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_all_like.html#numpy.ma.masked_all_like
+[0367]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.ones.html#numpy.ma.ones
+[0368]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.zeros.html#numpy.ma.zeros
+[0369]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.all.html#numpy.ma.all
+[0370]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.any.html#numpy.ma.any
+[0371]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.count.html#numpy.ma.count
+[0372]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.count_masked.html#numpy.ma.count_masked
+[0373]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.getmask.html#numpy.ma.getmask
+[0374]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.getmaskarray.html#numpy.ma.getmaskarray
+[0375]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.getdata.html#numpy.ma.getdata
+[0376]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.nonzero.html#numpy.ma.nonzero
+[0377]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.shape.html#numpy.ma.shape
+[0378]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.size.html#numpy.ma.size
+[0379]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.is_masked.html#numpy.ma.is_masked
+[0380]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.is_mask.html#numpy.ma.is_mask
+[0381]: https://www.numpy.org/devdocs/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray.data
+[0382]: https://www.numpy.org/devdocs/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray.mask
+[0383]: https://www.numpy.org/devdocs/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray.recordmask
+[0384]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.all.html#numpy.ma.MaskedArray.all
+[0385]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.any.html#numpy.ma.MaskedArray.any
+[0386]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.count.html#numpy.ma.MaskedArray.count
+[0387]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.nonzero.html#numpy.ma.MaskedArray.nonzero
+[0388]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.shape.html#numpy.ma.shape
+[0389]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.size.html#numpy.ma.size
+[0390]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.ravel.html#numpy.ma.ravel
+[0391]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.reshape.html#numpy.ma.reshape
+[0392]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.resize.html#numpy.ma.resize
+[0393]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.flatten.html#numpy.ma.MaskedArray.flatten
+[0394]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.ravel.html#numpy.ma.MaskedArray.ravel
+[0395]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.reshape.html#numpy.ma.MaskedArray.reshape
+[0396]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.resize.html#numpy.ma.MaskedArray.resize
+[0397]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.swapaxes.html#numpy.ma.swapaxes
+[0398]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.transpose.html#numpy.ma.transpose
+[0399]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.swapaxes.html#numpy.ma.MaskedArray.swapaxes
 
-[0400]: 
-[0401]: 
-[0402]: 
-[0403]: 
-[0404]: 
-[0405]: 
-[0406]: 
-[0407]: 
-[0408]: 
-[0409]: 
-[0410]: 
-[0411]: 
-[0412]: 
-[0413]: 
-[0414]: 
-[0415]: 
-[0416]: 
-[0417]: 
-[0418]: 
-[0419]: 
-[0420]: 
-[0421]: 
-[0422]: 
-[0423]: 
-[0424]: 
-[0425]: 
-[0426]: 
-[0427]: 
-[0428]: 
-[0429]: 
-[0430]: 
-[0431]: 
-[0432]: 
-[0433]: 
-[0434]: 
-[0435]: 
-[0436]: 
-[0437]: 
-[0438]: 
-[0439]: 
-[0440]: 
-[0441]: 
-[0442]: 
-[0443]: 
-[0444]: 
-[0445]: 
-[0446]: 
-[0447]: 
-[0448]: 
-[0449]: 
-[0450]: 
-[0451]: 
-[0452]: 
-[0453]: 
-[0454]: 
-[0455]: 
-[0456]: 
-[0457]: 
-[0458]: 
-[0459]: 
-[0460]: 
-[0461]: 
-[0462]: 
-[0463]: 
-[0464]: 
-[0465]: 
-[0466]: 
-[0467]: 
-[0468]: 
-[0469]: 
-[0470]: 
-[0471]: 
-[0472]: 
-[0473]: 
-[0474]: 
-[0475]: 
-[0476]: 
-[0477]: 
-[0478]: 
-[0479]: 
-[0480]: 
-[0481]: 
-[0482]: 
-[0483]: 
-[0484]: 
-[0485]: 
-[0486]: 
-[0487]: 
-[0488]: 
-[0489]: 
-[0490]: 
-[0491]: 
-[0492]: 
-[0493]: 
-[0494]: 
-[0495]: 
-[0496]: 
-[0497]: 
-[0498]: 
-[0499]: 
+[0400]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.transpose.html#numpy.ma.MaskedArray.transpose
+[0401]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.atleast_1d.html#numpy.ma.atleast_1d
+[0402]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.atleast_2d.html#numpy.ma.atleast_2d
+[0403]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.atleast_3d.html#numpy.ma.atleast_3d
+[0404]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.expand_dims.html#numpy.ma.expand_dims
+[0405]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.squeeze.html#numpy.ma.squeeze
+[0406]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.squeeze.html#numpy.ma.MaskedArray.squeeze
+[0407]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.column_stack.html#numpy.ma.column_stack
+[0408]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.concatenate.html#numpy.ma.concatenate
+[0409]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.dstack.html#numpy.ma.dstack
+[0410]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.hstack.html#numpy.ma.hstack
+[0411]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.hsplit.html#numpy.ma.hsplit
+[0412]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mr_.html#numpy.ma.mr_
+[0413]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.row_stack.html#numpy.ma.row_stack
+[0414]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.vstack.html#numpy.ma.vstack
+[0415]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.column_stack.html#numpy.ma.column_stack
+[0416]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.concatenate.html#numpy.ma.concatenate
+[0417]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.append.html#numpy.ma.append
+[0418]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.dstack.html#numpy.ma.dstack
+[0419]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.hstack.html#numpy.ma.hstack
+[0420]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.vstack.html#numpy.ma.vstack
+[0421]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.make_mask.html#numpy.ma.make_mask
+[0422]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.make_mask_none.html#numpy.ma.make_mask_none
+[0423]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mask_or.html#numpy.ma.mask_or
+[0424]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.make_mask_descr.html#numpy.ma.make_mask_descr
+[0425]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.getmask.html#numpy.ma.getmask
+[0426]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.getmaskarray.html#numpy.ma.getmaskarray
+[0427]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_array.mask.html#numpy.ma.masked_array.mask
+[0428]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.flatnotmasked_contiguous.html#numpy.ma.flatnotmasked_contiguous
+[0429]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.flatnotmasked_edges.html#numpy.ma.flatnotmasked_edges
+[0430]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.notmasked_contiguous.html#numpy.ma.notmasked_contiguous
+[0431]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.notmasked_edges.html#numpy.ma.notmasked_edges
+[0432]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.clump_masked.html#numpy.ma.clump_masked
+[0433]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.clump_unmasked.html#numpy.ma.clump_unmasked
+[0434]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mask_cols.html#numpy.ma.mask_cols
+[0435]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mask_or.html#numpy.ma.mask_or
+[0436]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mask_rowcols.html#numpy.ma.mask_rowcols
+[0437]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mask_rows.html#numpy.ma.mask_rows
+[0438]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.harden_mask.html#numpy.ma.harden_mask
+[0439]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.soften_mask.html#numpy.ma.soften_mask
+[0440]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.harden_mask.html#numpy.ma.MaskedArray.harden_mask
+[0441]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.soften_mask.html#numpy.ma.MaskedArray.soften_mask
+[0442]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.shrink_mask.html#numpy.ma.MaskedArray.shrink_mask
+[0443]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.unshare_mask.html#numpy.ma.MaskedArray.unshare_mask
+[0444]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.asarray.html#numpy.ma.asarray
+[0445]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.asanyarray.html#numpy.ma.asanyarray
+[0446]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.fix_invalid.html#numpy.ma.fix_invalid
+[0447]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_equal.html#numpy.ma.masked_equal
+[0448]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_greater.html#numpy.ma.masked_greater
+[0449]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_greater_equal.html#numpy.ma.masked_greater_equal
+[0450]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_inside.html#numpy.ma.masked_inside
+[0451]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_invalid.html#numpy.ma.masked_invalid
+[0452]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_less.html#numpy.ma.masked_less
+[0453]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_less_equal.html#numpy.ma.masked_less_equal
+[0454]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_not_equal.html#numpy.ma.masked_not_equal
+[0455]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_object.html#numpy.ma.masked_object
+[0456]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_outside.html#numpy.ma.masked_outside
+[0457]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_values.html#numpy.ma.masked_values
+[0458]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.masked_where.html#numpy.ma.masked_where
+[0459]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.compress_cols.html#numpy.ma.compress_cols
+[0460]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.compress_rowcols.html#numpy.ma.compress_rowcols
+[0461]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.compress_rows.html#numpy.ma.compress_rows
+[0462]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.compressed.html#numpy.ma.compressed
+[0463]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.filled.html#numpy.ma.filled
+[0464]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.compressed.html#numpy.ma.MaskedArray.compressed
+[0465]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.filled.html#numpy.ma.MaskedArray.filled
+[0466]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.tofile.html#numpy.ma.MaskedArray.tofile
+[0467]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.tolist.html#numpy.ma.MaskedArray.tolist
+[0468]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.torecords.html#numpy.ma.MaskedArray.torecords
+[0469]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.tobytes.html#numpy.ma.MaskedArray.tobytes
+[0470]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.dump.html#numpy.ma.dump
+[0471]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.dumps.html#numpy.ma.dumps
+[0472]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.load.html#numpy.ma.load
+[0473]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.loads.html#numpy.ma.loads
+[0474]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.common_fill_value.html#numpy.ma.common_fill_value
+[0475]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.default_fill_value.html#numpy.ma.default_fill_value
+[0476]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.maximum_fill_value.html#numpy.ma.maximum_fill_value
+[0477]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.maximum_fill_value.html#numpy.ma.maximum_fill_value
+[0478]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.set_fill_value.html#numpy.ma.set_fill_value
+[0479]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.get_fill_value.html#numpy.ma.MaskedArray.get_fill_value
+[0480]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.set_fill_value.html#numpy.ma.MaskedArray.set_fill_value
+[0481]: https://www.numpy.org/devdocs/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray.fill_value
+[0482]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.anom.html#numpy.ma.anom
+[0483]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.anomalies.html#numpy.ma.anomalies
+[0484]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.average.html#numpy.ma.average
+[0485]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.conjugate.html#numpy.ma.conjugate
+[0486]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.corrcoef.html#numpy.ma.corrcoef
+[0487]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.cov.html#numpy.ma.cov
+[0488]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.cumsum.html#numpy.ma.cumsum
+[0489]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.cumprod.html#numpy.ma.cumprod
+[0490]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.mean.html#numpy.ma.mean
+[0491]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.median.html#numpy.ma.median
+[0492]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.power.html#numpy.ma.power
+[0493]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.prod.html#numpy.ma.prod
+[0494]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.std.html#numpy.ma.std
+[0495]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.sum.html#numpy.ma.sum
+[0496]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.var.html#numpy.ma.var
+[0497]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.anom.html#numpy.ma.MaskedArray.anom
+[0498]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.cumprod.html#numpy.ma.MaskedArray.cumprod
+[0499]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.cumsum.html#numpy.ma.MaskedArray.cumsum
 
-[0400]: 
-[0401]: 
-[0402]: 
-[0403]: 
-[0404]: 
-[0405]: 
-[0406]: 
-[0407]: 
-[0408]: 
-[0409]: 
-[0410]: 
-[0411]: 
-[0412]: 
-[0413]: 
-[0414]: 
-[0415]: 
-[0416]: 
-[0417]: 
-[0418]: 
-[0419]: 
-[0420]: 
-[0421]: 
-[0422]: 
-[0423]: 
-[0424]: 
-[0425]: 
-[0426]: 
-[0427]: 
-[0428]: 
-[0429]: 
-[0430]: 
-[0431]: 
-[0432]: 
-[0433]: 
-[0434]: 
-[0435]: 
-[0436]: 
-[0437]: 
-[0438]: 
-[0439]: 
-[0440]: 
-[0441]: 
-[0442]: 
-[0443]: 
-[0444]: 
-[0445]: 
-[0446]: 
-[0447]: 
-[0448]: 
-[0449]: 
-[0450]: 
-[0451]: 
-[0452]: 
-[0453]: 
-[0454]: 
-[0455]: 
-[0456]: 
-[0457]: 
-[0458]: 
-[0459]: 
-[0460]: 
-[0461]: 
-[0462]: 
-[0463]: 
-[0464]: 
-[0465]: 
-[0466]: 
-[0467]: 
-[0468]: 
-[0469]: 
-[0470]: 
-[0471]: 
-[0472]: 
-[0473]: 
-[0474]: 
-[0475]: 
-[0476]: 
-[0477]: 
-[0478]: 
-[0479]: 
-[0480]: 
-[0481]: 
-[0482]: 
-[0483]: 
-[0484]: 
-[0485]: 
-[0486]: 
-[0487]: 
-[0488]: 
-[0489]: 
-[0490]: 
-[0491]: 
-[0492]: 
-[0493]: 
-[0494]: 
-[0495]: 
-[0496]: 
-[0497]: 
-[0498]: 
-[0499]: 
-
-[0500]: 
-[0501]: 
-[0502]: 
-[0503]: 
-[0504]: 
-[0505]: 
-[0506]: 
-[0507]: 
-[0508]: 
-[0509]: 
-[0510]: 
-[0511]: 
-[0512]: 
-[0513]: 
-[0514]: 
-[0515]: 
-[0516]: 
-[0517]: 
-[0518]: 
-[0519]: 
-[0520]: 
-[0521]: 
-[0522]: 
-[0523]: 
-[0524]: 
-[0525]: 
-[0526]: 
-[0527]: 
-[0528]: 
-[0529]: 
-[0530]: 
-[0531]: 
-[0532]: 
-[0533]: 
-[0534]: 
-[0535]: 
-[0536]: 
-[0537]: 
-[0538]: 
-[0539]: 
-[0540]: 
-[0541]: 
-[0542]: 
-[0543]: 
-[0544]: 
+[0500]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.mean.html#numpy.ma.MaskedArray.mean
+[0501]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.prod.html#numpy.ma.MaskedArray.prod
+[0502]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.std.html#numpy.ma.MaskedArray.std
+[0503]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.sum.html#numpy.ma.MaskedArray.sum
+[0504]: htt5s://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.var.html#numpy.ma.MaskedArray.var
+[0505]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.argmax.html#numpy.ma.argmax
+[0506]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.argmin.html#numpy.ma.argmin
+[0507]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.max.html#numpy.ma.max
+[0508]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.min.html#numpy.ma.min
+[0509]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.ptp.html#numpy.ma.ptp
+[0510]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.argmax.html#numpy.ma.MaskedArray.argmax
+[0511]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.argmin.html#numpy.ma.MaskedArray.argmin
+[0512]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.max.html#numpy.ma.MaskedArray.max
+[0513]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.min.html#numpy.ma.MaskedArray.min
+[0514]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.ptp.html#numpy.ma.MaskedArray.ptp
+[0515]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.argsort.html#numpy.ma.argsort
+[0516]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.sort.html#numpy.ma.sort
+[0517]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.argsort.html#numpy.ma.MaskedArray.argsort
+[0518]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.sort.html#numpy.ma.MaskedArray.sort
+[0519]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.diag.html#numpy.ma.diag
+[0520]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.dot.html#numpy.ma.dot
+[0521]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.identity.html#numpy.ma.identity
+[0522]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.inner.html#numpy.ma.inner
+[0523]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.innerproduct.html#numpy.ma.innerproduct
+[0524]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.outer.html#numpy.ma.outer
+[0525]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.outerproduct.html#numpy.ma.outerproduct
+[0526]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.trace.html#numpy.ma.trace
+[0527]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.transpose.html#numpy.ma.transpose
+[0528]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.trace.html#numpy.ma.MaskedArray.trace
+[0529]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.transpose.html#numpy.ma.MaskedArray.transpose
+[0530]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.vander.html#numpy.ma.vander
+[0531]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.polyfit.html#numpy.ma.polyfit
+[0532]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.around.html#numpy.ma.around
+[0533]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.clip.html#numpy.ma.clip
+[0534]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.round.html#numpy.ma.round
+[0535]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.clip.html#numpy.ma.MaskedArray.clip
+[0536]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.MaskedArray.round.html#numpy.ma.MaskedArray.round
+[0537]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.allequal.html#numpy.ma.allequal
+[0538]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.allclose.html#numpy.ma.allclose
+[0539]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.apply_along_axis.html#numpy.ma.apply_along_axis
+[0540]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.arange.html#numpy.ma.arange
+[0541]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.choose.html#numpy.ma.choose
+[0542]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.ediff1d.html#numpy.ma.ediff1d
+[0543]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.indices.html#numpy.ma.indices
+[0544]: https://www.numpy.org/devdocs/reference/generated/numpy.ma.where.html#numpy.ma.where
 [0545]: 
 [0546]: 
 [0547]: 
@@ -1526,5 +1699,106 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0697]: 
 [0698]: 
 [0699]: 
+
+[0700]: 
+[0701]: 
+[0702]: 
+[0703]: 
+[0704]: 
+[0705]: 
+[0706]: 
+[0707]: 
+[0708]: 
+[0709]: 
+[0710]: 
+[0711]: 
+[0712]: 
+[0713]: 
+[0714]: 
+[0715]: 
+[0716]: 
+[0717]: 
+[0718]: 
+[0719]: 
+[0720]: 
+[0721]: 
+[0722]: 
+[0723]: 
+[0724]: 
+[0725]: 
+[0726]: 
+[0727]: 
+[0728]: 
+[0729]: 
+[0730]: 
+[0731]: 
+[0732]: 
+[0733]: 
+[0734]: 
+[0735]: 
+[0736]: 
+[0737]: 
+[0738]: 
+[0739]: 
+[0740]: 
+[0741]: 
+[0742]: 
+[0743]: 
+[0744]: 
+[0745]: 
+[0746]: 
+[0747]: 
+[0748]: 
+[0749]: 
+[0750]: 
+[0751]: 
+[0752]: 
+[0753]: 
+[0754]: 
+[0755]: 
+[0756]: 
+[0757]: 
+[0758]: 
+[0759]: 
+[0760]: 
+[0761]: 
+[0762]: 
+[0763]: 
+[0764]: 
+[0765]: 
+[0766]: 
+[0767]: 
+[0768]: 
+[0769]: 
+[0770]: 
+[0771]: 
+[0772]: 
+[0773]: 
+[0774]: 
+[0775]: 
+[0776]: 
+[0777]: 
+[0778]: 
+[0779]: 
+[0780]: 
+[0781]: 
+[0782]: 
+[0783]: 
+[0784]: 
+[0785]: 
+[0786]: 
+[0787]: 
+[0788]: 
+[0789]: 
+[0790]: 
+[0791]: 
+[0792]: 
+[0793]: 
+[0794]: 
+[0795]: 
+[0796]: 
+[0797]: 
+[0798]: 
+[0799]: 
 
 
