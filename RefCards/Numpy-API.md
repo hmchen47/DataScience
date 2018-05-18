@@ -373,7 +373,37 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 | `seterrobj(errobj)` | Set the object that defines floating-point error handling. | [API][0190] |
 | `geterrobj()` | Return the current object that defines floating-point error handling. | [API][0191] |
 
+## [Discrete Fourier Transform (numpy.fft)][0192]
 
+### Standard FFTs
+
+| `fft(a[, n, axis, norm])` | Compute the one-dimensional discrete Fourier Transform. | [API][0193]
+| `ifft(a[, n, axis, norm])` | Compute the one-dimensional inverse discrete Fourier Transform. | [API][0194]
+| `fft2(a[, s, axes, norm])` | Compute the 2-dimensional discrete Fourier Transform | [API][0195]
+| `ifft2(a[, s, axes, norm])` | Compute the 2-dimensional inverse discrete Fourier Transform. | [API][0196]
+| `fftn(a[, s, axes, norm])` | Compute the N-dimensional discrete Fourier Transform. | [API][0197]
+| `ifftn(a[, s, axes, norm])` | Compute the N-dimensional inverse discrete Fourier Transform. | [API][0198]
+
+### Real FFTs
+
+| `rfft(a[, n, axis, norm])` | Compute the one-dimensional discrete Fourier Transform for real input. | [API][0199]
+| `irfft(a[, n, axis, norm])` | Compute the inverse of the n-point DFT for real input. | [API][0200]
+| `rfft2(a[, s, axes, norm])` | Compute the 2-dimensional FFT of a real array. | [API][0201]
+| `irfft2(a[, s, axes, norm])` | Compute the 2-dimensional inverse FFT of a real array. | [API][0202]
+| `rfftn(a[, s, axes, norm])` | Compute the N-dimensional discrete Fourier Transform for real input. | [API][0203]
+| `irfftn(a[, s, axes, norm])` | Compute the inverse of the N-dimensional FFT of real input. | [API][0204]
+
+### Hermitian FFTs
+
+| `hfft(a[, n, axis, norm])` | Compute the FFT of a signal that has Hermitian symmetry, i.e., a real spectrum. | [API][0205]
+| `ihfft(a[, n, axis, norm])` | Compute the inverse FFT of a signal that has Hermitian symmetry. | [API][0206]
+
+### Helper routines
+
+| `fftfreq(n[, d])` | Return the Discrete Fourier Transform sample frequencies. | [API][0207]
+| `rfftfreq(n[, d])` | Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft). | [API][0208]
+| `fftshift(x[, axes])` | Shift the zero-frequency component to the center of the spectrum. | [API][0209]
+| `ifftshift(x[, axes])` | The inverse of fftshift. | [API][0210]
 
 
 
@@ -572,24 +602,24 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 [0189]: https://www.numpy.org/devdocs/reference/generated/numpy.errstate.html#numpy.errstate
 [0190]: https://www.numpy.org/devdocs/reference/generated/numpy.seterrobj.html#numpy.seterrobj
 [0191]: https://www.numpy.org/devdocs/reference/generated/numpy.geterrobj.html#numpy.geterrobj
-[0192]: 
-[0193]: 
-[0194]: 
-[0195]: 
-[0196]: 
-[0197]: 
-[0198]: 
-[0199]: 
-[0200]: 
-[0201]: 
-[0202]: 
-[0203]: 
-[0204]: 
-[0205]: 
-[0206]: 
-[0207]: 
-[0208]: 
-[0209]: 
+[0192]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fft.html#numpy.fft.fft
+[0193]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft
+[0194]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2
+[0195]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2
+[0196]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftn.html#numpy.fft.fftn
+[0197]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftn.html#numpy.fft.ifftn
+[0198]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft
+[0199]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft
+[0200]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2
+[0201]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2
+[0202]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftn.html#numpy.fft.rfftn
+[0203]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfftn.html#numpy.fft.irfftn
+[0204]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.hfft.html#numpy.fft.hfft
+[0205]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ihfft.html#numpy.fft.ihfft
+[0206]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftfreq.html#numpy.fft.fftfreq
+[0207]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftfreq.html#numpy.fft.rfftfreq
+[0208]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftshift.html#numpy.fft.fftshift
+[0209]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftshift.html#numpy.fft.ifftshift
 [0210]: 
 [0211]: 
 [0212]: 
