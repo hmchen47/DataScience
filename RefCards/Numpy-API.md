@@ -354,6 +354,27 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 | `mintypecode(typechars[, typeset, default])` | Return the character for the minimum-size type to which given types can be safely cast. | [API][0182]
 
 
+## [Mathematical functions with automatic domain (numpy.emath)][0183]
+
+Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available after `numpy` is imported.
+
+## [Floating point error handling][0184]
+
+### Setting and getting error handling
+
+| `seterr([all, divide, over, under, invalid])` | Set how floating-point errors are handled. | [API][0185] |
+| `geterr()` | Get the current way of handling floating-point errors. | [API][0186] |
+| `seterrcall(func)` | Set the floating-point error callback function or log object. | [API][0187] |
+| `geterrcall()` | Return the current callback function used on floating-point errors. | [API][0188] |
+| `errstate(**kwargs)` | Context manager for floating-point error handling. | [API][0189] |
+
+### Internal functions
+
+| `seterrobj(errobj)` | Set the object that defines floating-point error handling. | [API][0190] |
+| `geterrobj()` | Return the current object that defines floating-point error handling. | [API][0191] |
+
+
+
 
 
 --------------------------------------------
@@ -542,15 +563,15 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 [0180]: https://www.numpy.org/devdocs/reference/generated/numpy.typename.html#numpy.typename
 [0181]: https://www.numpy.org/devdocs/reference/generated/numpy.sctype2char.html#numpy.sctype2char
 [0182]: https://www.numpy.org/devdocs/reference/generated/numpy.mintypecode.html#numpy.mintypecode
-[0183]: 
-[0184]: 
-[0185]: 
-[0186]: 
-[0187]: 
-[0188]: 
-[0189]: 
-[0190]: 
-[0191]: 
+[0183]: https://www.numpy.org/devdocs/reference/routines.emath.html
+[0184]: https://www.numpy.org/devdocs/reference/routines.err.html
+[0185]: https://www.numpy.org/devdocs/reference/generated/numpy.seterr.html#numpy.seterr
+[0186]: https://www.numpy.org/devdocs/reference/generated/numpy.geterr.html#numpy.geterr
+[0187]: https://www.numpy.org/devdocs/reference/generated/numpy.seterrcall.html#numpy.seterrcall
+[0188]: https://www.numpy.org/devdocs/reference/generated/numpy.geterrcall.html#numpy.geterrcall
+[0189]: https://www.numpy.org/devdocs/reference/generated/numpy.errstate.html#numpy.errstate
+[0190]: https://www.numpy.org/devdocs/reference/generated/numpy.seterrobj.html#numpy.seterrobj
+[0191]: https://www.numpy.org/devdocs/reference/generated/numpy.geterrobj.html#numpy.geterrobj
 [0192]: 
 [0193]: 
 [0194]: 
