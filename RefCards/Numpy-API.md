@@ -422,6 +422,21 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 | `rate(nper, pmt, pv, fv[, when, guess, tol, …])` | Compute the rate of interest per period. | [API][0221] |
 
 
+## [Functional programming][0222]
+
+| `apply_along_axis(func1d, axis, arr, *args, …)` | Apply a function to 1-D slices along the given axis. | [API][0223] |
+| `apply_over_axes(func, a, axes)` | Apply a function repeatedly over multiple axes. | [API][0224] |
+| `vectorize(pyfunc[, otypes, doc, excluded, …])` | Generalized function class. | [API][0225] |
+| `frompyfunc(func, nin, nout)` | Takes an arbitrary Python function and returns a NumPy ufunc. | [API][0226] |
+| `piecewise(x, condlist, funclist, *args, **kw)` | Evaluate a piecewise-defined function. | [API][0227] |
+
+
+
+
+
+
+
+
 --------------------------------------------
 
 [0]:    
@@ -617,42 +632,42 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 [0189]: https://www.numpy.org/devdocs/reference/generated/numpy.errstate.html#numpy.errstate
 [0190]: https://www.numpy.org/devdocs/reference/generated/numpy.seterrobj.html#numpy.seterrobj
 [0191]: https://www.numpy.org/devdocs/reference/generated/numpy.geterrobj.html#numpy.geterrobj
-[0192]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fft.html#numpy.fft.fft
-[0193]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft
-[0194]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2
-[0195]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2
-[0196]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftn.html#numpy.fft.fftn
-[0197]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftn.html#numpy.fft.ifftn
-[0198]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft
-[0199]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft
-[0200]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2
-[0201]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2
-[0202]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftn.html#numpy.fft.rfftn
-[0203]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfftn.html#numpy.fft.irfftn
-[0204]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.hfft.html#numpy.fft.hfft
-[0205]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ihfft.html#numpy.fft.ihfft
-[0206]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftfreq.html#numpy.fft.fftfreq
-[0207]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftfreq.html#numpy.fft.rfftfreq
-[0208]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftshift.html#numpy.fft.fftshift
-[0209]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftshift.html#numpy.fft.ifftshift
-[0210]: https://www.numpy.org/devdocs/reference/generated/numpy.fv.html#numpy.fv
-[0211]: https://www.numpy.org/devdocs/reference/generated/numpy.pv.html#numpy.pv
-[0212]: https://www.numpy.org/devdocs/reference/generated/numpy.npv.html#numpy.npv
-[0213]: https://www.numpy.org/devdocs/reference/generated/numpy.pmt.html#numpy.pmt
-[0214]: https://www.numpy.org/devdocs/reference/generated/numpy.ppmt.html#numpy.ppmt
-[0215]: https://www.numpy.org/devdocs/reference/generated/numpy.ipmt.html#numpy.ipmt
-[0216]: https://www.numpy.org/devdocs/reference/generated/numpy.irr.html#numpy.irr
-[0217]: https://www.numpy.org/devdocs/reference/generated/numpy.mirr.html#numpy.mirr
-[0218]: https://www.numpy.org/devdocs/reference/generated/numpy.nper.html#numpy.nper
-[0219]: https://www.numpy.org/devdocs/reference/generated/numpy.rate.html#numpy.rate
-[0220]: 
-[0221]: 
-[0222]: 
-[0223]: 
-[0224]: 
-[0225]: 
-[0226]: 
-[0227]: 
+[0192]: https://www.numpy.org/devdocs/reference/routines.fft.html
+[0193]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fft.html#numpy.fft.fft
+[0194]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifft.html#numpy.fft.ifft
+[0195]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fft2.html#numpy.fft.fft2
+[0196]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifft2.html#numpy.fft.ifft2
+[0197]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftn.html#numpy.fft.fftn
+[0198]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftn.html#numpy.fft.ifftn
+[0199]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft.html#numpy.fft.rfft
+[0200]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft.html#numpy.fft.irfft
+[0201]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfft2.html#numpy.fft.rfft2
+[0202]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfft2.html#numpy.fft.irfft2
+[0203]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftn.html#numpy.fft.rfftn
+[0204]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.irfftn.html#numpy.fft.irfftn
+[0205]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.hfft.html#numpy.fft.hfft
+[0206]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ihfft.html#numpy.fft.ihfft
+[0207]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftfreq.html#numpy.fft.fftfreq
+[0208]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftfreq.html#numpy.fft.rfftfreq
+[0209]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftshift.html#numpy.fft.fftshift
+[0210]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftshift.html#numpy.fft.ifftshift
+[0211]: https://www.numpy.org/devdocs/reference/routines.financial.html
+[0212]: https://www.numpy.org/devdocs/reference/generated/numpy.fv.html#numpy.fv
+[0213]: https://www.numpy.org/devdocs/reference/generated/numpy.pv.html#numpy.pv
+[0214]: https://www.numpy.org/devdocs/reference/generated/numpy.npv.html#numpy.npv
+[0215]: https://www.numpy.org/devdocs/reference/generated/numpy.pmt.html#numpy.pmt
+[0216]: https://www.numpy.org/devdocs/reference/generated/numpy.ppmt.html#numpy.ppmt
+[0217]: https://www.numpy.org/devdocs/reference/generated/numpy.ipmt.html#numpy.ipmt
+[0218]: https://www.numpy.org/devdocs/reference/generated/numpy.irr.html#numpy.irr
+[0219]: https://www.numpy.org/devdocs/reference/generated/numpy.mirr.html#numpy.mirr
+[0220]: https://www.numpy.org/devdocs/reference/generated/numpy.nper.html#numpy.nper
+[0221]: https://www.numpy.org/devdocs/reference/generated/numpy.rate.html#numpy.rate
+[0222]: https://www.numpy.org/devdocs/reference/routines.functional.html
+[0223]: https://www.numpy.org/devdocs/reference/generated/numpy.apply_along_axis.html#numpy.apply_along_axis
+[0224]: https://www.numpy.org/devdocs/reference/generated/numpy.apply_over_axes.html#numpy.apply_over_axes
+[0225]: https://www.numpy.org/devdocs/reference/generated/numpy.vectorize.html#numpy.vectorize
+[0226]: https://www.numpy.org/devdocs/reference/generated/numpy.frompyfunc.html#numpy.frompyfunc
+[0227]: https://www.numpy.org/devdocs/reference/generated/numpy.piecewise.html#numpy.piecewise
 [0228]: 
 [0229]: 
 [0230]: 
