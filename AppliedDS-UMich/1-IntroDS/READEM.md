@@ -16,6 +16,7 @@
 
 ### [Notice for Auditing Learners: Assignment Submission](./00-CourseInfo.md#note-for-auditing-learner-assignment-submission)
 
+------------------------------------
 
 ## [Python Fundamentals](./01-PythonFund.md)
 
@@ -39,5 +40,5 @@
 
 ### [Quiz](./01-PythonFund.md#quiz)
 
-
+------------------------------------------
 
