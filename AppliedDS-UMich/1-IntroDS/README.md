@@ -122,3 +122,51 @@
 ### [Programming Assignment: Assignment 4 Submission](./notebooks/Assignment04.ipynb)
 
 
+### [Assignment 4 Useful Links](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/soJlqi6IEei04BJ_asBq6g)
+
+#### General Advice
+
++ [Resources/Assignment 4 project Tips](https://www.coursera.org/learn/python-data-analysis/resources/XlMzq)
+
++ [Auto grader Issues](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/Hb5-cQ8lEeiHXArnlnGtVg)
+
++ [stack overflow pandas rearranging a dataframe](https://stackoverflow.com/questions/41457322/pandas-rearranging-a-data-frame/41458629#41458629)
+
++ [Introduction to Jupyter Lab](http://go.continuum.io/registration-jupyterlab-next-generation-ds-ide/)
+
++ [How to Use the Discussion Forums](https://www.coursera.org/learn/python-data-analysis/discussions/forums/2PqFH7QcEeeYBA47k-OCuA/threads/ra19sbPaEeeEagonu2xPWg) - Sophie Greene (Excellent advice)
+
++ [Useful Jupyter Notebook shortcuts](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/)
+
++ [Suggestions for Learning Python and Passing Assignments](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/tWBZHQ2nEeie6RIScuhjOA)
+
+and please read [Observations from a Teaching Assistant](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/2/threads/tWBZHQ2nEeie6RIScuhjOA) for additional resource links
+
+
+#### Questions
+
++ Question 1: get_list_of_university_towns
+
+    + [Understanding and debugging Question 1](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/QRjk3bKzEee5Ew6CaivGLg) - This is a very useful thread, plenty of advice/guidance
+    + [How to read university_towns.txt](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/UsFxrrLqEeeu0xJuJy4ScA)
+    + [I accidentally deleted the file by open('university_towns.txt','w')](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/W8bHlK5QEee0IRINZLVqPg)
+
++ Question 4:
+
+    + [Duration of recession](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/kyB8RaumEeelRgqEwi0dZA)
+
++ Question 5:
+
+    + [Question 5- understanding/testing convert_housing_data_to_quarters](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/nB8Rqba_EeeVOgq1E_eRMA)
+    + [Cannot read columns after '2016-08' from "City_Zhvi_AllHomes.csv"](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/o5l-1rdYEeeu0xJuJy4ScA)
+
++ Question 6:
+
+    + [Understanding and debugging question 6 run_ttest](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/F6mWJ7SbEeeKBBKJgknU5g)
+    + [T test question](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/eRoqTyW7EeioOQ6tt0rd6g)
+    + [run_ttest: separate housing data into "university towns group"/" non-university town group"](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/n6epwLCKEeewNAofllqCYg)
+    + [price ratio division](https://www.coursera.org/learn/python-data-analysis/discussions/weeks/4/threads/XNxlUa2rEeelRgqEwi0dZA/replies/MosqN66kEee0IRINZLVqPg) (scroll to highlighted post)
+
+
+
+    
