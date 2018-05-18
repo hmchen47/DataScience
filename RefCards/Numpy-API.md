@@ -670,6 +670,51 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 | `linalg.LinAlgError` | Generic Python-exception-derived object raised by linalg functions. | [API][0325] |
 
 
+## [Logic functions][0326]
+
+### Truth value testing
+
+| `all(a[, axis, out, keepdims])` | Test whether all array elements along a given axis evaluate to True. | [API][0327] |
+| `any(a[, axis, out, keepdims])` | Test whether any array element along a given axis evaluates to True. | [API][0328] |
+
+### Array contents
+
+| `isfinite(x, /[, out, where, casting, order, …])` | Test element-wise for finiteness (not infinity or not Not a Number). | [API][0329] |
+| `isinf(x, /[, out, where, casting, order, …])` | Test element-wise for positive or negative infinity. | [API][0330] |
+| `isnan(x, /[, out, where, casting, order, …])` | Test element-wise for NaN and return result as a boolean array. | [API][0331] |
+| `isnat(x, /[, out, where, casting, order, …])` | Test element-wise for NaT (not a time) and return result as a boolean array. | [API][0332] |
+| `isneginf(x[, out])` | Test element-wise for negative infinity, return result as bool array. | [API][0333] |
+| `isposinf(x[, out])` | Test element-wise for positive infinity, return result as bool array. | [API][0334] |
+
+### Array type testing
+
+| `iscomplex(x)` | Returns a bool array, where True if input element is complex. | [API][0335] |
+| `iscomplexobj(x)` | Check for a complex type or an array of complex numbers. | [API][0336] |
+| `isfortran(a)` | Returns True if the array is Fortran contiguous but not C contiguous. | [API][0337] |
+| `isreal(x)` | Returns a bool array, where True if input element is real. | [API][0338] |
+| `isrealobj(x)` | Return True if x is a not complex type or an array of complex numbers. | [API][0339] |
+| `isscalar(num)` | Returns True if the type of num is a scalar type. | [API][0340] |
+
+### Logical operations
+
+| `logical_and(x1, x2, /[, out, where, …])` | Compute the truth value of x1 AND x2 element-wise. | [API][0341] |
+| `logical_or(x1, x2, /[, out, where, casting, …])` | Compute the truth value of x1 OR x2 element-wise. | [API][0342] |
+| `logical_not(x, /[, out, where, casting, …])` | Compute the truth value of NOT x element-wise. | [API][0343] |
+| `logical_xor(x1, x2, /[, out, where, …])` | Compute the truth value of x1 XOR x2, element-wise. | [API][0344] |
+
+### Comparison
+
+| `allclose(a, b[, rtol, atol, equal_nan])` | Returns True if two arrays are element-wise equal within a tolerance. | [API][0345] |
+| `isclose(a, b[, rtol, atol, equal_nan])` | Returns a boolean array where two arrays are element-wise equal within a tolerance. | [API][0346] |
+| `array_equal(a1, a2)` | True if two arrays have the same shape and elements, False otherwise. | [API][0347] |
+| `array_equiv(a1, a2)` | Returns True if input arrays are shape consistent and all elements equal. | [API][0348] |
+| `greater(x1, x2, /[, out, where, casting, …])` | Return the truth value of (x1 > x2) element-wise. | [API][0349] |
+| `greater_equal(x1, x2, /[, out, where, …])` | Return the truth value of (x1 >= x2) element-wise. | [API][0350] |
+| `less(x1, x2, /[, out, where, casting, …])` | Return the truth value of (x1 < x2) element-wise. | [API][0351] |
+| `less_equal(x1, x2, /[, out, where, casting, …])` | Return the truth value of (x1 =< x2) element-wise. | [API][0352] |
+| `equal(x1, x2, /[, out, where, casting, …])` | Return (x1 == x2) element-wise. | [API][0353] |
+| `not_equal(x1, x2, /[, out, where, casting, …])` | Return (x1 != x2) element-wise. | [API][0354] |
+
 
 
 
@@ -1003,35 +1048,35 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0323]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.pinv.html#numpy.linalg.pinv
 [0324]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.tensorinv.html#numpy.linalg.tensorinv
 [0325]: https://www.numpy.org/devdocs/reference/generated/numpy.linalg.LinAlgError.html#numpy.linalg.LinAlgError
-[0326]: 
-[0327]: 
-[0328]: 
-[0329]: 
-[0330]: 
-[0331]: 
-[0332]: 
-[0333]: 
-[0334]: 
-[0335]: 
-[0336]: 
-[0337]: 
-[0338]: 
-[0339]: 
-[0340]: 
-[0341]: 
-[0342]: 
-[0343]: 
-[0344]: 
-[0345]: 
-[0346]: 
-[0347]: 
-[0348]: 
-[0349]: 
-[0350]: 
-[0351]: 
-[0352]: 
-[0353]: 
-[0354]: 
+[0326]: https://www.numpy.org/devdocs/reference/routines.logic.html
+[0327]: https://www.numpy.org/devdocs/reference/generated/numpy.all.html#numpy.all
+[0328]: https://www.numpy.org/devdocs/reference/generated/numpy.any.html#numpy.any
+[0329]: https://www.numpy.org/devdocs/reference/generated/numpy.isfinite.html#numpy.isfinite
+[0330]: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html#numpy.isinf
+[0331]: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html#numpy.isnan
+[0332]: https://www.numpy.org/devdocs/reference/generated/numpy.isnat.html#numpy.isnat
+[0333]: https://www.numpy.org/devdocs/reference/generated/numpy.isneginf.html#numpy.isneginf
+[0334]: https://www.numpy.org/devdocs/reference/generated/numpy.isposinf.html#numpy.isposinf
+[0335]: https://www.numpy.org/devdocs/reference/generated/numpy.iscomplex.html#numpy.iscomplex
+[0336]: https://www.numpy.org/devdocs/reference/generated/numpy.iscomplexobj.html#numpy.iscomplexobj
+[0337]: https://www.numpy.org/devdocs/reference/generated/numpy.isfortran.html#numpy.isfortran
+[0338]: https://www.numpy.org/devdocs/reference/generated/numpy.isreal.html#numpy.isreal
+[0339]: https://www.numpy.org/devdocs/reference/generated/numpy.isrealobj.html#numpy.isrealobj
+[0340]: https://www.numpy.org/devdocs/reference/generated/numpy.isscalar.html#numpy.isscalar
+[0341]: https://www.numpy.org/devdocs/reference/generated/numpy.logical_and.html#numpy.logical_and
+[0342]: https://www.numpy.org/devdocs/reference/generated/numpy.logical_or.html#numpy.logical_or
+[0343]: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html#numpy.logical_not
+[0344]: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html#numpy.logical_xor
+[0345]: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html#numpy.allclose
+[0346]: https://www.numpy.org/devdocs/reference/generated/numpy.isclose.html#numpy.isclose
+[0347]: https://www.numpy.org/devdocs/reference/generated/numpy.array_equal.html#numpy.array_equal
+[0348]: https://www.numpy.org/devdocs/reference/generated/numpy.array_equiv.html#numpy.array_equiv
+[0349]: https://www.numpy.org/devdocs/reference/generated/numpy.greater.html#numpy.greater
+[0350]: https://www.numpy.org/devdocs/reference/generated/numpy.greater_equal.html#numpy.greater_equal
+[0351]: https://www.numpy.org/devdocs/reference/generated/numpy.less.html#numpy.less
+[0352]: https://www.numpy.org/devdocs/reference/generated/numpy.less_equal.html#numpy.less_equal
+[0353]: https://www.numpy.org/devdocs/reference/generated/numpy.equal.html#numpy.equal
+[0354]: https://www.numpy.org/devdocs/reference/generated/numpy.not_equal.html#numpy.not_equal
 [0355]: 
 [0356]: 
 [0357]: 
