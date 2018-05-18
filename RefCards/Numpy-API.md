@@ -674,11 +674,15 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Truth value testing
 
+| API | Description | Link |
+|-----|-------------|------|
 | `all(a[, axis, out, keepdims])` | Test whether all array elements along a given axis evaluate to True. | [API][0327] |
 | `any(a[, axis, out, keepdims])` | Test whether any array element along a given axis evaluates to True. | [API][0328] |
 
 ### Array contents
 
+| API | Description | Link |
+|-----|-------------|------|
 | `isfinite(x, /[, out, where, casting, order, …])` | Test element-wise for finiteness (not infinity or not Not a Number). | [API][0329] |
 | `isinf(x, /[, out, where, casting, order, …])` | Test element-wise for positive or negative infinity. | [API][0330] |
 | `isnan(x, /[, out, where, casting, order, …])` | Test element-wise for NaN and return result as a boolean array. | [API][0331] |
@@ -688,6 +692,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Array type testing
 
+| API | Description | Link |
+|-----|-------------|------|
 | `iscomplex(x)` | Returns a bool array, where True if input element is complex. | [API][0335] |
 | `iscomplexobj(x)` | Check for a complex type or an array of complex numbers. | [API][0336] |
 | `isfortran(a)` | Returns True if the array is Fortran contiguous but not C contiguous. | [API][0337] |
@@ -697,6 +703,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Logical operations
 
+| API | Description | Link |
+|-----|-------------|------|
 | `logical_and(x1, x2, /[, out, where, …])` | Compute the truth value of x1 AND x2 element-wise. | [API][0341] |
 | `logical_or(x1, x2, /[, out, where, casting, …])` | Compute the truth value of x1 OR x2 element-wise. | [API][0342] |
 | `logical_not(x, /[, out, where, casting, …])` | Compute the truth value of NOT x element-wise. | [API][0343] |
@@ -704,6 +712,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Comparison
 
+| API | Description | Link |
+|-----|-------------|------|
 | `allclose(a, b[, rtol, atol, equal_nan])` | Returns True if two arrays are element-wise equal within a tolerance. | [API][0345] |
 | `isclose(a, b[, rtol, atol, equal_nan])` | Returns a boolean array where two arrays are element-wise equal within a tolerance. | [API][0346] |
 | `array_equal(a1, a2)` | True if two arrays have the same shape and elements, False otherwise. | [API][0347] |
@@ -720,12 +730,16 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Constants
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.MaskType` | alias of numpy.bool_ | [API][0356] |
 
 ### Creation
 
 #### From existing data
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.masked_array` | alias of numpy.ma.core.MaskedArray | [API][0357] |
 | `ma.array(data[, dtype, copy, order, mask, …])` | An array class with possibly masked values. | [API][0358] |
 | `ma.copy(self, *args, **params) a.copy(order=)` | Return a copy of the array. | [API][0359] |
@@ -734,6 +748,9 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 | `ma.MaskedArray.copy([order])` | Return a copy of the array. | [API][0362] |
 
 #### Ones and zeros
+
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.empty(shape[, dtype, order])` | Return a new array of given shape and type, without initializing entries. | [API][0363] |
 | `ma.empty_like(prototype[, dtype, order, subok])` | Return a new array with the same shape and type as a given array. | [API][0364] |
 | `ma.masked_all(shape[, dtype])` | Empty masked array with all elements masked. | [API][0365] |
@@ -743,6 +760,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Inspecting the array
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.all(self[, axis, out, keepdims])` | Returns True if all elements evaluate to True. | [API][0369] |
 | `ma.any(self[, axis, out, keepdims])` | Returns True if any of the elements of a evaluate to True. | [API][0370] |
 | `ma.count(self[, axis, keepdims])` | Count the non-masked elements of the array along the given axis. | [API][0371] |
@@ -769,6 +788,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Changing the shape
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.ravel(self[, order])` | Returns a 1D version of self, as a view. | [API][0390] |
 | `ma.reshape(a, new_shape[, order])` | Returns an array containing the same data with a new shape. | [API][0391] |
 | `ma.resize(x, new_shape)` | Return a new masked array with the specified size and shape. | [API][0392] |
@@ -779,6 +800,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Modifying axes
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.swapaxes(self, *args, …)` | Return a view of the array with axis1 and axis2 interchanged. | [API][0397] |
 | `ma.transpose(a[, axes])` | Permute the dimensions of an array. | [API][0398] |
 | `ma.MaskedArray.swapaxes(axis1, axis2)` | Return a view of the array with axis1 and axis2 interchanged. | [API][0399] |
@@ -786,6 +809,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Changing the number of dimensions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.atleast_1d(*arys)` | Convert inputs to arrays with at least one dimension. | [API][0401] |
 | `ma.atleast_2d(*arys)` | View inputs as arrays with at least two dimensions. | [API][0402] |
 | `ma.atleast_3d(*arys)` | View inputs as arrays with at least three dimensions. | [API][0403] |
@@ -803,6 +828,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Joining arrays
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.column_stack(tup)` | Stack 1-D arrays as columns into a 2-D array. | [API][0415] |
 | `ma.concatenate(arrays[, axis])` | Concatenate a sequence of arrays along the given axis. | [API][0416] |
 | `ma.append(a, b[, axis])` | Append values to the end of an array. | [API][0417] |
@@ -814,6 +841,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Creating a mask
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.make_mask(m[, copy, shrink, dtype])` | Create a boolean mask from an array. | [API][0421] |
 | `ma.make_mask_none(newshape[, dtype])` | Return a boolean mask of the given shape, filled with False. | [API][0422] |
 | `ma.mask_or(m1, m2[, copy, shrink])` | Combine two masks with the logical_or operator. | [API][0423] |
@@ -827,6 +856,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Finding masked data
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.flatnotmasked_contiguous(a)` | Find contiguous unmasked data in a masked array along the given axis. | [API][0428] |
 | `ma.flatnotmasked_edges(a)` | Find the indices of the first and last unmasked values. | [API][0429] |
 | `ma.notmasked_contiguous(a[, axis])` | Find contiguous unmasked data in a masked array along the given axis. | [API][0430] |
@@ -836,6 +867,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Modifying a mask
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.mask_cols(a[, axis])` | Mask columns of a 2D array that contain masked values. | [API][0434] |
 | `ma.mask_or(m1, m2[, copy, shrink])` | Combine two masks with the logical_or operator. | [API][0435] |
 | `ma.mask_rowcols(a[, axis])` | Mask rows and/or columns of a 2D array that contain masked values. | [API][0436] |
@@ -851,6 +884,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### `>` to a masked array
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.asarray(a[, dtype, order])` | Convert the input to a masked array of the given data-type. | [API][0444] |
 | `ma.asanyarray(a[, dtype])` | Convert the input to a masked array, conserving subclasses. | [API][0445] |
 | `ma.fix_invalid(a[, mask, copy, fill_value])` | Return input with invalid data masked and replaced by a fill value. | [API][0446] |
@@ -869,6 +904,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### `>` to a ndarray
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.compress_cols(a)` | Suppress whole columns of a 2-D array that contain masked values. | [API][0459] |
 | `ma.compress_rowcols(x[, axis])` | Suppress the rows and/or columns of a 2-D array that contain masked values. | [API][0460] |
 | `ma.compress_rows(a)` | Suppress whole rows of a 2-D array that contain masked values. | [API][0461] |
@@ -879,6 +916,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### `>` to another object
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.MaskedArray.tofile(fid[, sep, format])` | Save a masked array to a file in binary format. | [API][0466] |
 | `ma.MaskedArray.tolist([fill_value])` | Return the data portion of the masked array as a hierarchical Python list. | [API][0467] |
 | `ma.MaskedArray.torecords()` | Transforms a masked array into a flexible-type array. | [API][0468] |
@@ -886,6 +925,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Pickling and unpickling
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.dump(a, F)` | Pickle a masked array to a file. | [API][0470] |
 | `ma.dumps(a)` | Return a string corresponding to the pickling of a masked array. | [API][0471] |
 | `ma.load(F)` | Wrapper around cPickle.load which accepts either a file-like object or a filename. | [API][0472] |
@@ -893,6 +934,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Filling a masked array
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.common_fill_value(a, b)` | Return the common filling value of two masked arrays, if any. | [API][0474] |
 | `ma.default_fill_value(obj)` | Return the default fill value for the argument object. | [API][0475] |
 | `ma.maximum_fill_value(obj)` | Return the minimum value that can be represented by the dtype of an object. | [API][0476] |
@@ -906,6 +949,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Arithmetics
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.anom(self[, axis, dtype])` | Compute the anomalies (deviations from the arithmetic mean) along the given axis. | [API][0482] |
 | `ma.anomalies(self[, axis, dtype])` | Compute the anomalies (deviations from the arithmetic mean) along the given axis. | [API][0483] |
 | `ma.average(a[, axis, weights, returned])` | Return the weighted average of array over the given axis. | [API][0484] |
@@ -932,6 +977,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Minimum/maximum
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.argmax(self[, axis, fill_value, out])` | Returns array of indices of the maximum values along the given axis. | [API][0505] |
 | `ma.argmin(self[, axis, fill_value, out])` | Return array of indices to the minimum values along the given axis. | [API][0506] |
 | `ma.max(obj[, axis, out, fill_value, keepdims])` | Return the maximum along a given axis. | [API][0507] |
@@ -945,6 +992,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Sorting
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.argsort(a[, axis, kind, order, endwith, …])` | Return an ndarray of indices that sort the array along the specified axis. | [API][0515] |
 | `ma.sort(a[, axis, kind, order, endwith, …])` | Sort the array, in-place | [API][0516] |
 | `ma.MaskedArray.argsort([axis, kind, order, …])` | Return an ndarray of indices that sort the array along the specified axis. | [API][0517] |
@@ -952,6 +1001,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Algebra
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.diag(v[, k])` | Extract a diagonal or construct a diagonal array. | [API][0519] |
 | `ma.dot(a, b[, strict, out])` | Return the dot product of two arrays. | [API][0520] |
 | `ma.identity(n[, dtype])` | Return the identity array. | [API][0521] |
@@ -966,11 +1017,15 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Polynomial fit
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.vander(x[, n])` | Generate a Vandermonde matrix. | [API][0530] |
 | `ma.polyfit(x, y, deg[, rcond, full, w, cov])` | Least squares polynomial fit. | [API][0531] |
 
 #### Clipping and rounding
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.around` | Round an array to the given number of decimals. | [API][0532] |
 | `ma.clip(a, a_min, a_max[, out])` | Clip (limit) the values in an array. | [API][0533] |
 | `ma.round(a[, decimals, out])` | Return a copy of a, rounded to ‘decimals’ places. | [API][0534] |
@@ -979,6 +1034,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 #### Miscellanea
 
+| API | Description | Link |
+|-----|-------------|------|
 | `ma.allequal(a, b[, fill_value])` | Return True if all entries of a and b are equal, using fill_value as a truth value where either or both are masked. | [API][0537] |
 | `ma.allclose(a, b[, masked_equal, rtol, atol])` | Returns True if two arrays are element-wise equal within a tolerance. | [API][0538] |
 | `ma.apply_along_axis(func1d, axis, arr, …)` | Apply a function to 1-D slices along the given axis. | [API][0539] |
@@ -993,6 +1050,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Trigonometric functions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `sin(x, /[, out, where, casting, order, …])` | Trigonometric sine, element-wise. | [API][0546] |
 | `cos(x, /[, out, where, casting, order, …])` | Cosine element-wise. | [API][0547] |
 | `tan(x, /[, out, where, casting, order, …])` | Compute tangent element-wise. | [API][0548] |
@@ -1009,6 +1068,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Hyperbolic functions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `sinh(x, /[, out, where, casting, order, …])` | Hyperbolic sine, element-wise. | [API][0559] |
 | `cosh(x, /[, out, where, casting, order, …])` | Hyperbolic cosine, element-wise. | [API][0560] |
 | `tanh(x, /[, out, where, casting, order, …])` | Compute hyperbolic tangent element-wise. | [API][0561] |
@@ -1018,6 +1079,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Rounding
 
+| API | Description | Link |
+|-----|-------------|------|
 | `around(a[, decimals, out])` | Evenly round to the given number of decimals. | [API][0565] |
 | `round_(a[, decimals, out])` | Round an array to the given number of decimals. | [API][0566] |
 | `rint(x, /[, out, where, casting, order, …])` | Round elements of the array to the nearest integer. | [API][0567] |
@@ -1028,6 +1091,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Sums, products, differences
 
+| API | Description | Link |
+|-----|-------------|------|
 | `prod(a[, axis, dtype, out, keepdims, initial])` | Return the product of array elements over a given axis. | [API][0572] |
 | `sum(a[, axis, dtype, out, keepdims, initial])` | Sum of array elements over a given axis. | [API][0573] |
 | `nanprod(a[, axis, dtype, out, keepdims])` | Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones. | [API][0574] |
@@ -1044,6 +1109,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Exponents and logarithms
 
+| API | Description | Link |
+|-----|-------------|------|
 | `exp(x, /[, out, where, casting, order, …])` | Calculate the exponential of all elements in the input array. | [API][0585] |
 | `expm1(x, /[, out, where, casting, order, …])` | Calculate exp(x) - 1 for all elements in the array. | [API][0586] |
 | `exp2(x, /[, out, where, casting, order, …])` | Calculate 2**p for all p in the input array. | [API][0587] |
@@ -1056,11 +1123,15 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Other special functions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `i0(x)` | Modified Bessel function of the first kind, order 0. | [API][0594] |
 | `sinc(x)` | Return the sinc function. | [API][0595] |
 
 ### Floating point routines
 
+| API | Description | Link |
+|-----|-------------|------|
 | `signbit(x, /[, out, where, casting, order, …])` | Returns element-wise True where signbit is set (less than zero). | [API][0596] |
 | `copysign(x1, x2, /[, out, where, casting, …])` | Change the sign of x1 to that of x2, element-wise. | [API][0597] |
 | `frexp(x[, out1, out2], / [[, out, where, …])` | Decompose the elements of x into mantissa and twos exponent. | [API][0598] |
@@ -1070,11 +1141,15 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Rational routines
 
+| API | Description | Link |
+|-----|-------------|------|
 | `lcm(x1, x2, /[, out, where, casting, order, …])` | Returns the lowest common multiple of |x1| and |x2| | [API][0602] |
 | `gcd(x1, x2, /[, out, where, casting, order, …])` | Returns the greatest common divisor of |x1| and |x2| | [API][0603] |
 
 ### Arithmetic operations
 
+| API | Description | Link |
+|-----|-------------|------|
 | `add(x1, x2, /[, out, where, casting, order, …])` | Add arguments element-wise. | [API][0604] |
 | `reciprocal(x, /[, out, where, casting, …])` | Return the reciprocal of the argument, element-wise. | [API][0605] |
 | `positive(x, /[, out, where, casting, order, …])` | Numerical positive, element-wise. | [API][0606] |
@@ -1094,6 +1169,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Handling complex numbers
 
+| API | Description | Link |
+|-----|-------------|------|
 | `angle(z[, deg])` | Return the angle of the complex argument. | [API][0620] |
 | `real(val)` | Return the real part of the complex argument. | [API][0621] |
 | `imag(val)` | Return the imaginary part of the complex argument. | [API][0622] |
@@ -1101,6 +1178,8 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 
 ### Miscellaneous
 
+| API | Description | Link |
+|-----|-------------|------|
 | `convolve(a, v[, mode])` | Returns the discrete, linear convolution of two one-dimensional sequences. | [API][0624] |
 | `clip(a, a_min, a_max[, out])` | Clip (limit) the values in an array. | [API][0625] |
 | `sqrt(x, /[, out, where, casting, order, …])` | Return the positive square-root of an array, element-wise. | [API][0626] |
@@ -1125,6 +1204,8 @@ This module contains all functions in the [numpy](https://www.numpy.org/devdocs/
 
 Functions that are also in the numpy namespace and return `matrices`
 
+| API | Description | Link |
+|-----|-------------|------|
 | `mat(data[, dtype])` | Interpret the input as a matrix. | [API][0641] |
 | `matrix(data[, dtype, copy])` | Returns a matrix from an array-like object, or from a string of data. | [API][0642] |
 | `asmatrix(data[, dtype])` | Interpret the input as a matrix. | [API][0643] |
@@ -1132,6 +1213,8 @@ Functions that are also in the numpy namespace and return `matrices`
 
 ### Replacement functions in matlib
 
+| API | Description | Link |
+|-----|-------------|------|
 | `empty(shape[, dtype, order])` | Return a new matrix of given shape and type, without initializing entries. | [API][0645] |
 | `zeros(shape[, dtype, order])` | Return a matrix of given shape and type, filled with zeros. | [API][0646] |
 | `ones(shape[, dtype, order])` | Matrix of ones. | [API][0647] |
@@ -1140,6 +1223,40 @@ Functions that are also in the numpy namespace and return `matrices`
 | `repmat(a, m, n)` | Repeat a 0-D to 2-D array or matrix MxN times. | [API][0650] |
 | `rand(*args)` | Return a matrix of random values with given shape. | [API][0651] |
 | `randn(*args)` | Return a random matrix with data from the “standard normal” distribution. | [API][0652] |
+
+
+## [Miscellaneous routines][0653]
+
+### Buffer objects
+
++ getbuffer
++ newbuffer
+
+### Performance tuning
+
+| API | Description | Link |
+|-----|-------------|------|
+| `setbufsize(size)` | Set the size of the buffer used in ufuncs. | [API][0654] |
+| `getbufsize()` | Return the size of the buffer used in ufuncs. | [API][0655] |
+
+### Memory ranges
+
+| API | Description | Link |
+|-----|-------------|------|
+| `shares_memory(a, b[, max_work])` | Determine if two arrays share memory | [API][0656] |
+| `may_share_memory(a, b[, max_work])` | Determine if two arrays might share memory | [API][0657] |
+
+### Array mixins
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lib.mixins.NDArrayOperatorsMixin` | Mixin defining all operator special methods using __array_ufunc__. | [API][0658] |
+
+### NumPy version comparison
+
+| API | Description | Link |
+|-----|-------------|------|
+| `lib.NumpyVersion(vstring)` | Parse and compare numpy version strings. | [API][0659] |
 
 
 
@@ -1809,13 +1926,13 @@ Functions that are also in the numpy namespace and return `matrices`
 [0650]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.repmat.html#numpy.matlib.repmat
 [0651]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.rand.html#numpy.matlib.rand
 [0652]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.randn.html#numpy.matlib.randn
-[0653]: 
-[0654]: 
-[0655]: 
-[0656]: 
-[0657]: 
-[0658]: 
-[0659]: 
+[0653]: https://www.numpy.org/devdocs/reference/routines.other.html
+[0654]: https://www.numpy.org/devdocs/reference/generated/numpy.setbufsize.html#numpy.setbufsize
+[0655]: https://www.numpy.org/devdocs/reference/generated/numpy.getbufsize.html#numpy.getbufsize
+[0656]: https://www.numpy.org/devdocs/reference/generated/numpy.shares_memory.html#numpy.shares_memory
+[0657]: https://www.numpy.org/devdocs/reference/generated/numpy.may_share_memory.html#numpy.may_share_memory
+[0658]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.mixins.NDArrayOperatorsMixin.html#numpy.lib.mixins.NDArrayOperatorsMixin
+[0659]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.NumpyVersion.html#numpy.lib.NumpyVersion
 [0660]: 
 [0661]: 
 [0662]: 
