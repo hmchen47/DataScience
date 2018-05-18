@@ -1259,6 +1259,11 @@ Functions that are also in the numpy namespace and return `matrices`
 | `lib.NumpyVersion(vstring)` | Parse and compare numpy version strings. | [API][0659] |
 
 
+## [Padding Arrays][0660]
+
+
+| `pad(array, pad_width, mode, **kwargs)` | Pads an array. | [API][0661] |
+
 
 
 
@@ -1933,8 +1938,8 @@ Functions that are also in the numpy namespace and return `matrices`
 [0657]: https://www.numpy.org/devdocs/reference/generated/numpy.may_share_memory.html#numpy.may_share_memory
 [0658]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.mixins.NDArrayOperatorsMixin.html#numpy.lib.mixins.NDArrayOperatorsMixin
 [0659]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.NumpyVersion.html#numpy.lib.NumpyVersion
-[0660]: 
-[0661]: 
+[0660]: https://www.numpy.org/devdocs/reference/routines.padding.html
+[0661]: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html#numpy.pad
 [0662]: 
 [0663]: 
 [0664]: 
