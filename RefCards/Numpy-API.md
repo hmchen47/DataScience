@@ -1119,6 +1119,32 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 | `interp(x, xp, fp[, left, right, period])` | One-dimensional linear interpolation. | [API][0639] |
 
 
+## [Matrix library (numpy.matlib)][0640]
+
+This module contains all functions in the [numpy](https://www.numpy.org/devdocs/reference/index.html#module-numpy) namespace, with the following replacement functions that return [matrices](https://www.numpy.org/devdocs/reference/generated/numpy.matrix.html#numpy.matrix) instead of [ndarrays](https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray).
+
+Functions that are also in the numpy namespace and return `matrices`
+
+| `mat(data[, dtype])` | Interpret the input as a matrix. | [API][0641] |
+| `matrix(data[, dtype, copy])` | Returns a matrix from an array-like object, or from a string of data. | [API][0642] |
+| `asmatrix(data[, dtype])` | Interpret the input as a matrix. | [API][0643] |
+| `bmat(obj[, ldict, gdict])` | Build a matrix object from a string, nested sequence, or array. | [API][0644] |
+
+### Replacement functions in matlib
+
+| `empty(shape[, dtype, order])` | Return a new matrix of given shape and type, without initializing entries. | [API][0645] |
+| `zeros(shape[, dtype, order])` | Return a matrix of given shape and type, filled with zeros. | [API][0646] |
+| `ones(shape[, dtype, order])` | Matrix of ones. | [API][0647] |
+| `eye(n[, M, k, dtype, order])` | Return a matrix with ones on the diagonal and zeros elsewhere. | [API][0648] |
+| `identity(n[, dtype])` | Returns the square identity matrix of given size. | [API][0649] |
+| `repmat(a, m, n)` | Repeat a 0-D to 2-D array or matrix MxN times. | [API][0650] |
+| `rand(*args)` | Return a matrix of random values with given shape. | [API][0651] |
+| `randn(*args)` | Return a random matrix with data from the “standard normal” distribution. | [API][0652] |
+
+
+
+
+
 
 
 
@@ -1770,19 +1796,19 @@ The format of these binary file types is documented in [`numpy.lib.format`](http
 [0637]: https://www.numpy.org/devdocs/reference/generated/numpy.nan_to_num.html#numpy.nan_to_num
 [0638]: https://www.numpy.org/devdocs/reference/generated/numpy.real_if_close.html#numpy.real_if_close
 [0639]: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html#numpy.interp
-[0640]: 
-[0641]: 
-[0642]: 
-[0643]: 
-[0644]: 
-[0645]: 
-[0646]: 
-[0647]: 
-[0648]: 
-[0649]: 
-[0650]: 
-[0651]: 
-[0652]: 
+[0640]: https://www.numpy.org/devdocs/reference/routines.matlib.html
+[0641]: https://www.numpy.org/devdocs/reference/generated/numpy.mat.html#numpy.mat
+[0642]: https://www.numpy.org/devdocs/reference/generated/numpy.matrix.html#numpy.matrix
+[0643]: https://www.numpy.org/devdocs/reference/generated/numpy.asmatrix.html#numpy.asmatrix
+[0644]: https://www.numpy.org/devdocs/reference/generated/numpy.bmat.html#numpy.bmat
+[0645]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.empty.html#numpy.matlib.empty
+[0646]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.zeros.html#numpy.matlib.zeros
+[0647]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.ones.html#numpy.matlib.ones
+[0648]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.eye.html#numpy.matlib.eye
+[0649]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.identity.html#numpy.matlib.identity
+[0650]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.repmat.html#numpy.matlib.repmat
+[0651]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.rand.html#numpy.matlib.rand
+[0652]: https://www.numpy.org/devdocs/reference/generated/numpy.matlib.randn.html#numpy.matlib.randn
 [0653]: 
 [0654]: 
 [0655]: 
