@@ -443,7 +443,53 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 | `source(object[, output])` | Print or write to a file the source code for a NumPy object. | [API][0231] |
 
 
+## [Indexing routines][0232]
 
+### Generating index arrays
+
+| `c_` | Translates slice objects to concatenation along the second axis. | [API][0233] |
+| `r_` | Translates slice objects to concatenation along the first axis. | [API][0234] |
+| `s_` | A nicer way to build up index tuples for arrays. | [API][0235] |
+| `nonzero(a)` | Return the indices of the elements that are non-zero. | [API][0236] |
+| `where(condition, [x, y])` | Return elements, either from x or y, depending on condition. | [API][0237] |
+| `indices(dimensions[, dtype])` | Return an array representing the indices of a grid. | [API][0238] |
+| `ix_(*args)` | Construct an open mesh from multiple sequences. | [API][0239] |
+| `ogrid` | nd_grid instance which returns an open multi-dimensional “meshgrid”. | [API][0240] |
+| `ravel_multi_index(multi_index, dims[, mode, …])` | Converts a tuple of index arrays into an array of flat indices, applying boundary modes to the multi-index. | [API][0241] |
+| `unravel_index(indices, dims[, order])` | Converts a flat index or array of flat indices into a tuple of coordinate arrays. | [API][0242] |
+| `diag_indices(n[, ndim])` | Return the indices to access the main diagonal of an array. | [API][0243] |
+| `diag_indices_from(arr)` | Return the indices to access the main diagonal of an n-dimensional array. | [API][0244] |
+| `mask_indices(n, mask_func[, k])` | Return the indices to access (n, n) arrays, given a masking function. | [API][0245] |
+| `tril_indices(n[, k, m])` | Return the indices for the lower-triangle of an (n, m) array. | [API][0246] |
+| `tril_indices_from(arr[, k])` | Return the indices for the lower-triangle of arr. | [API][0247] |
+| `triu_indices(n[, k, m])` | Return the indices for the upper-triangle of an (n, m) array. | [API][0248] |
+| `triu_indices_from(arr[, k])` | Return the indices for the upper-triangle of arr. | [API][0249] |
+
+### Indexing-like operations
+
+| `take(a, indices[, axis, out, mode])` | Take elements from an array along an axis. | [API][0250] |
+| `choose(a, choices[, out, mode])` | Construct an array from an index array and a set of arrays to choose from. | [API][0251] |
+| `compress(condition, a[, axis, out])` | Return selected slices of an array along given axis. | [API][0252] |
+| `diag(v[, k])` | Extract a diagonal or construct a diagonal array. | [API][0253] |
+| `diagonal(a[, offset, axis1, axis2])` | Return specified diagonals. | [API][0254] |
+| `select(condlist, choicelist[, default])` | Return an array drawn from elements in choicelist, depending on conditions. | [API][0255] |
+| `lib.stride_tricks.as_strided(x[, shape, …])` | Create a view into the array with the given shape and strides. | [API][0256] |
+
+### Inserting data into arrays
+
+| `place(arr, mask, vals)` | Change elements of an array based on conditional and input values. | [API][0257] |
+| `put(a, ind, v[, mode])` | Replaces specified elements of an array with given values. | [API][0258] |
+| `putmask(a, mask, values)` | Changes elements of an array based on conditional and input values. | [API][0259] |
+| `fill_diagonal(a, val[, wrap])` | Fill the main diagonal of the given array of any dimensionality. | [API][0260] |
+
+### Iterating over arrays
+
+| `nditer` | Efficient multi-dimensional iterator object to iterate over arrays. | [API][0261] |
+| `ndenumerate(arr)` | Multidimensional index iterator. | [API][0262] |
+| `ndindex(*shape)` | An N-dimensional iterator object to index arrays. | [API][0263] |
+| `nested_iters` | Create nditers for use in nested loops | [API][0264] |
+| `flatiter` | Flat iterator object to iterate over arrays. | [API][0265] |
+| `lib.Arrayterator(var[, buf_size])` | Buffered iterator for big arrays. | [API][0266] |
 
 
 
@@ -684,41 +730,41 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 [0229]: https://www.numpy.org/devdocs/reference/generated/numpy.lookfor.html#numpy.lookfor
 [0230]: https://www.numpy.org/devdocs/reference/generated/numpy.info.html#numpy.info
 [0231]: https://www.numpy.org/devdocs/reference/generated/numpy.source.html#numpy.source
-[0232]: 
-[0233]: 
-[0234]: 
-[0235]: 
-[0236]: 
-[0237]: 
-[0238]: 
-[0239]: 
-[0240]: 
-[0241]: 
-[0242]: 
-[0243]: 
-[0244]: 
-[0245]: 
-[0246]: 
-[0247]: 
-[0248]: 
-[0249]: 
-[0250]: 
-[0251]: 
-[0252]: 
-[0253]: 
-[0254]: 
-[0255]: 
-[0256]: 
-[0257]: 
-[0258]: 
-[0259]: 
-[0260]: 
-[0261]: 
-[0262]: 
-[0263]: 
-[0264]: 
-[0265]: 
-[0266]: 
+[0232]: https://www.numpy.org/devdocs/reference/routines.indexing.html
+[0233]: https://www.numpy.org/devdocs/reference/generated/numpy.c_.html#numpy.c_
+[0234]: https://www.numpy.org/devdocs/reference/generated/numpy.r_.html#numpy.r_
+[0235]: https://www.numpy.org/devdocs/reference/generated/numpy.s_.html#numpy.s_
+[0236]: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html#numpy.nonzero
+[0237]: https://www.numpy.org/devdocs/reference/generated/numpy.where.html#numpy.where
+[0238]: https://www.numpy.org/devdocs/reference/generated/numpy.indices.html#numpy.indices
+[0239]: https://www.numpy.org/devdocs/reference/generated/numpy.ix_.html#numpy.ix_
+[0240]: https://www.numpy.org/devdocs/reference/generated/numpy.ogrid.html#numpy.ogrid
+[0241]: https://www.numpy.org/devdocs/reference/generated/numpy.ravel_multi_index.html#numpy.ravel_multi_index
+[0242]: https://www.numpy.org/devdocs/reference/generated/numpy.unravel_index.html#numpy.unravel_index
+[0243]: https://www.numpy.org/devdocs/reference/generated/numpy.diag_indices.html#numpy.diag_indices
+[0244]: https://www.numpy.org/devdocs/reference/generated/numpy.diag_indices_from.html#numpy.diag_indices_from
+[0245]: https://www.numpy.org/devdocs/reference/generated/numpy.mask_indices.html#numpy.mask_indices
+[0246]: https://www.numpy.org/devdocs/reference/generated/numpy.tril_indices.html#numpy.tril_indices
+[0247]: https://www.numpy.org/devdocs/reference/generated/numpy.tril_indices_from.html#numpy.tril_indices_from
+[0248]: https://www.numpy.org/devdocs/reference/generated/numpy.triu_indices.html#numpy.triu_indices
+[0249]: https://www.numpy.org/devdocs/reference/generated/numpy.triu_indices_from.html#numpy.triu_indices_from
+[0250]: https://www.numpy.org/devdocs/reference/generated/numpy.take.html#numpy.take
+[0251]: https://www.numpy.org/devdocs/reference/generated/numpy.choose.html#numpy.choose
+[0252]: https://www.numpy.org/devdocs/reference/generated/numpy.compress.html#numpy.compress
+[0253]: https://www.numpy.org/devdocs/reference/generated/numpy.diag.html#numpy.diag
+[0254]: https://www.numpy.org/devdocs/reference/generated/numpy.diagonal.html#numpy.diagonal
+[0255]: https://www.numpy.org/devdocs/reference/generated/numpy.select.html#numpy.select
+[0256]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.stride_tricks.as_strided.html#numpy.lib.stride_tricks.as_strided
+[0257]: https://www.numpy.org/devdocs/reference/generated/numpy.place.html#numpy.place
+[0258]: https://www.numpy.org/devdocs/reference/generated/numpy.put.html#numpy.put
+[0259]: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html#numpy.putmask
+[0260]: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html#numpy.fill_diagonal
+[0261]: https://www.numpy.org/devdocs/reference/generated/numpy.nditer.html#numpy.nditer
+[0262]: https://www.numpy.org/devdocs/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate
+[0263]: https://www.numpy.org/devdocs/reference/generated/numpy.ndindex.html#numpy.ndindex
+[0264]: https://www.numpy.org/devdocs/reference/generated/numpy.nested_iters.html#numpy.nested_iters
+[0265]: https://www.numpy.org/devdocs/reference/generated/numpy.flatiter.html#numpy.flatiter
+[0266]: https://www.numpy.org/devdocs/reference/generated/numpy.lib.Arrayterator.html#numpy.lib.Arrayterator
 [0267]: 
 [0268]: 
 [0269]: 
