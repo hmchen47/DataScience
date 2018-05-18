@@ -27,6 +27,10 @@
 
 To download notebooks and datafiles, as well as get help on Jupyter notebooks in the Coursera platform, visit the [Jupyter Notebook FAQ](https://www.coursera.org/learn/python-data-analysis/resources/0dhYG) course resource.
 
+[Web Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=YARyOKhmToCEcjioZl6AkA&next=%2Fnotebooks%2FWeek%25202.ipynb)
+
+[Local Notebook](./notebooks/Week02.ipynb)
+
 ## The Series Data Structure
 
 ![diagram](https://www.kdnuggets.com/wp-content/uploads/pandas-02.png)
