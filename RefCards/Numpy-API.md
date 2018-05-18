@@ -318,6 +318,41 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 
 
 
+## [Data type routines][0163]
+
+
+| `can_cast(from_, to[, casting])` | Returns True if cast between data types can occur according to the casting rule. | [API][0164]
+| `promote_types(type1, type2)` | Returns the data type with the smallest size and smallest scalar kind to which both type1 and type2 may be safely cast. | [API][0165]
+| `min_scalar_type(a)` | For scalar a, returns the data type with the smallest size and smallest scalar kind which can hold its value. | [API][0166]
+| `result_type(*arrays_and_dtypes)` | Returns the type that results from applying the NumPy type promotion rules to the arguments. | [API][0167]
+| `common_type(*arrays)` | Return a scalar type which is common to the input arrays. | [API][0168]
+| `obj2sctype(rep[, default])` | Return the scalar dtype or NumPy equivalent of Python type of an object. | [API][0169]
+
+### Creating data types 
+
+| `dtype(obj[, align, copy])` | Create a data type object. | [API][0170]
+| `format_parser(formats, names, titles[, …])` | Class to convert formats, names, titles description to a dtype. | [API][0171]
+
+### Data type information
+
+| `finfo(dtype)` | Machine limits for floating point types. | [API][0172]
+| `iinfo(type)` | Machine limits for integer types. | [API][0173]
+| `MachAr([float_conv, int_conv, …])` | Diagnosing machine parameters. | [API][0174]
+
+### Data type testing
+
+| `issctype(rep)` | Determines whether the given object represents a scalar data-type. | [API][0175]
+| `issubdtype(arg1, arg2)` | Returns True if first argument is a typecode lower/equal in type hierarchy. | [API][0176]
+| `issubsctype(arg1, arg2)` | Determine if the first argument is a subclass of the second argument. | [API][0177]
+| `issubclass_(arg1, arg2)` | Determine if a class is a subclass of a second class. | [API][0178]
+| `find_common_type(array_types, scalar_types)` | Determine common type following standard coercion rules. | [API][0179]
+
+### Miscellaneous
+
+| `typename(char)` | Return a description for the given data type code. | [API][0180]
+| `sctype2char(sctype)` | Return the string representation of a scalar dtype. | [API][0181]
+| `mintypecode(typechars[, typeset, default])` | Return the character for the minimum-size type to which given types can be safely cast. | [API][0182]
+
 
 
 
@@ -488,25 +523,25 @@ Unlike the standard numpy comparison operators, the ones in the char module stri
 [0161]: https://www.numpy.org/devdocs/reference/generated/numpy.is_busday.html#numpy.is_busday
 [0162]: https://www.numpy.org/devdocs/reference/generated/numpy.busday_offset.html#numpy.busday_offset
 [0163]: https://www.numpy.org/devdocs/reference/generated/numpy.busday_count.html#numpy.busday_count
-[0164]: 
-[0165]: 
-[0166]: 
-[0167]: 
-[0168]: 
-[0169]: 
-[0170]: 
-[0171]: 
-[0172]: 
-[0173]: 
-[0174]: 
-[0175]: 
-[0176]: 
-[0177]: 
-[0178]: 
-[0179]: 
-[0180]: 
-[0181]: 
-[0182]: 
+[0164]: https://www.numpy.org/devdocs/reference/routines.dtype.html
+[0165]: https://www.numpy.org/devdocs/reference/generated/numpy.can_cast.html#numpy.can_cast
+[0166]: https://www.numpy.org/devdocs/reference/generated/numpy.promote_types.html#numpy.promote_types
+[0167]: https://www.numpy.org/devdocs/reference/generated/numpy.min_scalar_type.html#numpy.min_scalar_type
+[0168]: https://www.numpy.org/devdocs/reference/generated/numpy.result_type.html#numpy.result_type
+[0169]: https://www.numpy.org/devdocs/reference/generated/numpy.common_type.html#numpy.common_type
+[0170]: https://www.numpy.org/devdocs/reference/generated/numpy.obj2sctype.html#numpy.obj2sctype
+[0171]: https://www.numpy.org/devdocs/reference/generated/numpy.dtype.html#numpy.dtype
+[0172]: https://www.numpy.org/devdocs/reference/generated/numpy.format_parser.html#numpy.format_parser
+[0173]: https://www.numpy.org/devdocs/reference/generated/numpy.finfo.html#numpy.finfo
+[0174]: https://www.numpy.org/devdocs/reference/generated/numpy.iinfo.html#numpy.iinfo
+[0175]: https://www.numpy.org/devdocs/reference/generated/numpy.MachAr.html#numpy.MachAr
+[0176]: https://www.numpy.org/devdocs/reference/generated/numpy.issctype.html#numpy.issctype
+[0177]: https://www.numpy.org/devdocs/reference/generated/numpy.issubdtype.html#numpy.issubdtype
+[0178]: https://www.numpy.org/devdocs/reference/generated/numpy.issubsctype.html#numpy.issubsctype
+[0179]: https://www.numpy.org/devdocs/reference/generated/numpy.find_common_type.html#numpy.find_common_type
+[0180]: https://www.numpy.org/devdocs/reference/generated/numpy.typename.html#numpy.typename
+[0181]: https://www.numpy.org/devdocs/reference/generated/numpy.sctype2char.html#numpy.sctype2char
+[0182]: https://www.numpy.org/devdocs/reference/generated/numpy.mintypecode.html#numpy.mintypecode
 [0183]: 
 [0184]: 
 [0185]: 
