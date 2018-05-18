@@ -406,6 +406,21 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 | `ifftshift(x[, axes])` | The inverse of fftshift. | [API][0210]
 
 
+## [Financial functions][0211]
+
+### Simple financial functions
+
+| `fv(rate, nper, pmt, pv[, when])` | Compute the future value. | [API][0212] |
+| `pv(rate, nper, pmt[, fv, when])` | Compute the present value. | [API][0213] |
+| `npv(rate, values)` | Returns the NPV (Net Present Value) of a cash flow series. | [API][0214] |
+| `pmt(rate, nper, pv[, fv, when])` | Compute the payment against loan principal plus interest. | [API][0215] |
+| `ppmt(rate, per, nper, pv[, fv, when])` | Compute the payment against loan principal. | [API][0216] |
+| `ipmt(rate, per, nper, pv[, fv, when])` | Compute the interest portion of a payment. | [API][0217] |
+| `irr(values)` | Return the Internal Rate of Return (IRR). | [API][0218] |
+| `mirr(values, finance_rate, reinvest_rate)` | Modified internal rate of return. | [API][0219] |
+| `nper(rate, pmt, pv[, fv, when])` | Compute the number of periodic payments. | [API][0220] |
+| `rate(nper, pmt, pv, fv[, when, guess, tol, …])` | Compute the rate of interest per period. | [API][0221] |
+
 
 --------------------------------------------
 
@@ -620,16 +635,16 @@ Note: `numpy.emath` is a preferred alias for `numpy.lib.scimath`, available afte
 [0207]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.rfftfreq.html#numpy.fft.rfftfreq
 [0208]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.fftshift.html#numpy.fft.fftshift
 [0209]: https://www.numpy.org/devdocs/reference/generated/numpy.fft.ifftshift.html#numpy.fft.ifftshift
-[0210]: 
-[0211]: 
-[0212]: 
-[0213]: 
-[0214]: 
-[0215]: 
-[0216]: 
-[0217]: 
-[0218]: 
-[0219]: 
+[0210]: https://www.numpy.org/devdocs/reference/generated/numpy.fv.html#numpy.fv
+[0211]: https://www.numpy.org/devdocs/reference/generated/numpy.pv.html#numpy.pv
+[0212]: https://www.numpy.org/devdocs/reference/generated/numpy.npv.html#numpy.npv
+[0213]: https://www.numpy.org/devdocs/reference/generated/numpy.pmt.html#numpy.pmt
+[0214]: https://www.numpy.org/devdocs/reference/generated/numpy.ppmt.html#numpy.ppmt
+[0215]: https://www.numpy.org/devdocs/reference/generated/numpy.ipmt.html#numpy.ipmt
+[0216]: https://www.numpy.org/devdocs/reference/generated/numpy.irr.html#numpy.irr
+[0217]: https://www.numpy.org/devdocs/reference/generated/numpy.mirr.html#numpy.mirr
+[0218]: https://www.numpy.org/devdocs/reference/generated/numpy.nper.html#numpy.nper
+[0219]: https://www.numpy.org/devdocs/reference/generated/numpy.rate.html#numpy.rate
 [0220]: 
 [0221]: 
 [0222]: 
