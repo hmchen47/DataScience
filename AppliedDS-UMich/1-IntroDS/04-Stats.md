@@ -8,9 +8,11 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 [Local Notebook](./Week04.ipynb)
 
+[Local Python](./Week04.py)
+
 ## Introduction
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Distributions
@@ -30,12 +32,10 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `binomial` method:
     + Syntax: `binomial(n, p, size=None)`
     + Draw samples from a binomial distribution.
-    + `n`: int or array_like of ints  
-        Parameter of the distribution, $n \geq 0$. Floats are also accepted, but they will be truncated to integers.
-    + `p`: float or array_like of floats  
-        Parameter of the distribution, $0 \leq p \leq 1$.
-    + `size`: int or tuple of ints, optional
-        Output shape.  If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.  If size is `None` (default), a single value is returned if $n$ and $p$ are both scalars. Otherwise, `np.broadcast(n, p).size` samples are drawn.
+    + Parameters: 
+        + `n`: int or array_like of ints; Parameter of the distribution, $n \geq 0$. Floats are also accepted, but they will be truncated to integers.
+        + `p`: float or array_like of floats; Parameter of the distribution, $0 \leq p \leq 1$.
+        + `size`: int or tuple of ints; Output shape.  If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.  If size is `None` (default), a single value is returned if $n$ and $p$ are both scalars. Otherwise, `np.broadcast(n, p).size` samples are drawn.
     + Simulate equal coin flips with each $n$ flips to get heads/tails and execute $size$ times
 
 + Demo 
@@ -66,7 +66,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print((x>=15).mean())
         ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/Flm7AZeREeaGLgqdPwfqeA.processed/full/540p/index.mp4?Expires=1526169600&Signature=UKGzeWaVEGuWdDL9Rjy4HMgE-Jrj0UGIMwUt5SalP0gdhgFeSmCIsJULPRmxqq9vjLlpDhydEs9CT0S2oh57~-p9nRxSc3sZgehUx3lykm-vrgtRyGhAlJw~noz7z7fJ-VTx9JucsCONwnDI7xVOAHcOhBTRqAYm78rkSqZTcDQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/Flm7AZeREeaGLgqdPwfqeA.processed/full/540p/index.mp4?Expires=1526169600&Signature=UKGzeWaVEGuWdDL9Rjy4HMgE-Jrj0UGIMwUt5SalP0gdhgFeSmCIsJULPRmxqq9vjLlpDhydEs9CT0S2oh57~-p9nRxSc3sZgehUx3lykm-vrgtRyGhAlJw~noz7z7fJ-VTx9JucsCONwnDI7xVOAHcOhBTRqAYm78rkSqZTcDQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## More Distributions
@@ -74,15 +74,16 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + Termonlogies:
     + Expected value: $E[x] = \sum{n * p}$
     + Standard Deviation (std): a measure of variability
-    + Skew: a measure of the asymmetry of the probability distribution of a real-valued random variable about its mean  
+    + __Skew__: a measure of the asymmetry of the probability distribution of a real-valued random variable about its mean  
         For univariate data $Y_1, Y_2, ..., Y_N$, the formula for __skewness__ is:  
         $$g_1 = \sum_{i=1}^{N} \frac{(Y_i - \bar{Y})^3 / N}{s^3}$$  
         where $\bar{Y}$ is the mean, $s$ is the standard deviation, and $N$ is the number of data points. Note that in computing the skewness, the $s$ is computed with $N$ in the denominator rather than $N - 1$.
-    + Kurtosis: shape of the tail of the distribution  
+    + __Kurtosis__: shape of the tail of the distribution  
         For univariate data $Y_1, Y_2, ..., Y_N$, the formula for __kurtosis__ is:  
         $$kurtosis = \sum_{i=1}^{N} \frac{(Y_i - \bar{Y})^4 / N}{s^4}$$
         where $\bar{Y}$ is the mean, $s$ is the standard deviation, and $N$ is the number of data points. Note that in computing the kurtosis, the standard deviation is computed using $N$ in the denominator rather than $N - 1$.
-    + Modality: Any value of a data variable or random variable at which the frequency curve or probability curve reaches a peak is called a mode
+    + __Modality__: Any value of a data variable or random variable at which the frequency curve or probability curve reaches a peak is called a mode
+
 + Uniform Distribution (Continuous)
     + x-axis: Values of observation
     + y-axis: Probability Observation Occurs
@@ -107,79 +108,65 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
     ![Bimodal Dist](https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png)
 
-+ Ref: Think Stats
++ Ref: Think Stats, Allen B. Downey
     + Probability and Statistics for Programmers
-        + Allen B. Downey
-        + Available for free under CC license at: http://greenteapress.com/thinkstats2/index.html
+    + Available for free under CC license at: http://greenteapress.com/thinkstats2/index.html
 
 + `uniform` method:
     + Syntax: `uniform(low=0.0, high=1.0, size=None)`
     + Draw samples from a uniform distribution, $[low, high)$
-    + `low`: float or array_like of floats, optional  
-        Lower boundary of the output interval.  All values generated will be greater than or equal to low.  The default value is 0.
-    + `high`: float or array_like of floats  
-        Upper boundary of the output interval.  All values generated will be less than high.  The default value is 1.0.
-    + `size`: int or tuple of ints, optional  
-        Output shape.  If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.  If size is `None` (default), a single value is returned if `low` and `high` are both scalars. Otherwise, `np.broadcast(low, high).size` samples are drawn.
+    + Parameters: 
+        + `low`: float or array_like of floats; Lower boundary of the output interval.  All values generated will be greater than or equal to low.  The default value is 0.
+        + `high`: float or array_like of floats; Upper boundary of the output interval.  All values generated will be less than high.  The default value is 1.0.
+        + `size`: int or tuple of ints; Output shape.  If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.  If size is `None` (default), a single value is returned if `low` and `high` are both scalars. Otherwise, `np.broadcast(low, high).size` samples are drawn.
 
 + `normal` method
     + Syntax: `normal(loc=0.0, scale=1.0, size=None)`
     + Draw random samples from a normal (Gaussian) distribution
-    + `loc`: float or array_like of floats  
-        Mean ("centre") of the distribution.
-    + `scale`: float or array_like of floats  
-        Standard deviation (spread or "width") of the distribution.
-    + `size`: int or tuple of ints, optional  
-        Output shape.  If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.  If size is `None` (default), a single value is returned if `loc` and `scale` are both scalars. Otherwise, `np.broadcast(loc, scale).size` samples are drawn.
+    + Parameters: 
+        + `loc`: float or array_like of floats; Mean ("centre") of the distribution.
+        + `scale`: float or array_like of floats; Standard deviation (spread or "width") of the distribution.
+        + `size`: int or tuple of ints; Output shape.  If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.  If size is `None` (default), a single value is returned if `loc` and `scale` are both scalars. Otherwise, `np.broadcast(loc, scale).size` samples are drawn.
 
 + `chisquare` method
     + Syntax: `chisquare(df, size=None)`
     + Draw samples from a chi-square distribution
-    + `df`: float or array_like of floats  
-        Number of degrees of freedom, should be $> 0$.
-    + `size`: int or tuple of ints, optional  
-        Output shape.  If the given shape is, e.g., $(m, n, k)$, then
-        $m * n * k$ samples are drawn.  If size is `None` (default),
-        a single value is returned if `df` is a scalar.  Otherwise,
-        `np.array(df).size` samples are drawn.
+    + Parametres: 
+        + `df`: float or array_like of floats; Number of degrees of freedom, should be $> 0$.
+        + `size`: int or tuple of ints; Output shape.  
+            + If the given shape is, e.g., $(m, n, k)$, then $m * n * k$ samples are drawn.
+            + If size is `None` (default), a single value is returned if `df` is a scalar.
+            + Otherwise, `np.array(df).size` samples are drawn.
 
 + `std` method:
     + Syntax: `std(a, axis=None, out=None, ddof=0)`
     + ompute the standard deviation along the specified axis
-    + `a`: array_like  
-        Calculate the standard deviation of these values.
-    + `axis`: None or int or tuple of ints, optional  
-        Axis or axes along which the standard deviation is computed. The default is to compute the standard deviation of the flattened array.
-    + `out` : ndarray, optional  
-        Alternative output array in which to place the result. It must have the same shape as the expected output but the type (of the calculated values) will be cast if necessary.
-    + `dof`: int, optional  
-        Means Delta Degrees of Freedom.  The divisor used in calculations is $N - ddof$, where $N$ represents the number of elements.
+    + Parametres: 
+        + `a`: array_like; Calculate the standard deviation of these values.
+        + `axis`: None or int or tuple of ints; Axis or axes along which the standard deviation is computed. The default is to compute the standard deviation of the flattened array.
+        + `out` : ndarray; Alternative output array in which to place the result. It must have the same shape as the expected output but the type (of the calculated values) will be cast if necessary.
+        + `dof`: int;  Means Delta Degrees of Freedom.  The divisor used in calculations is $N - ddof$, where $N$ represents the number of elements.
 
 + `stats.skew` method
     + Syntax: `skew(a, axis=0, bias=True, nan_policy='propagate')`
     + For normally distributed data, the skewness should be about $0$. For unimodal continuous distributions, a skewness value > 0 means that there is more weight in the right tail of the distribution. The function `skewtest` can be used to determine if the skewness value is close enough to 0, statistically speaking.
-    + `a`: ndarray
-        data for which the skew is calculated
-    + `axis`: int or None, optional
-        Axis along which the kurtosis is calculated. Default is 0. If None, compute over the whole array `a`.
-    + `bias`: bool, optional
-        If False, then the calculations are corrected for statistical bias.
-    + `nan_policy`: {'propagate', 'raise', 'omit'}, optional
-        Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values.
+    + Parameters:
+        + `a`: ndarray; data for which the skew is calculated
+        + `axis`: int or None; Axis along which the kurtosis is calculated. Default is 0. If None, compute over the whole array `a`.
+        + `bias`: bool; If False, then the calculations are corrected for statistical bias.
+        + `nan_policy`: {'propagate', 'raise', 'omit'}; Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values.
 
 + `stats.kurtosis` method:
     + Syntax: `kurtosis(a, axis=0, fisher=True, bias=True, nan_policy='propagate')`
     + Kurtosis is the fourth central moment divided by the square of the variance. If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution.
-    + `a`: array
-        data for which the kurtosis is calculated
-    + `axis`: int or None, optional
-        Axis along which the kurtosis is calculated. Default is 0. If None, compute over the whole array `a`.
-    + `fisher`: bool, optional
-        If True, Fisher's definition is used (normal ==> 0.0). If False, Pearson's definition is used (normal ==> 3.0).
-    + `bias`: bool, optional
-        If False, then the calculations are corrected for statistical bias.
-    + `nan_policy`: {'propagate', 'raise', 'omit'}, optional
-        Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values.
+    Parameters:
+        + `a`: ; data for which the kurtosis is calculated
+        + `axis`: int or None; Axis along which the kurtosis is calculated. Default is 0. If None, compute over the whole array `a`.
+        + `fisher`: bool; 
+            + `True`: Fisher's definition is used (normal ==> 0.0). 
+            + `False`: Pearson's definition is used (normal ==> 3.0).
+        + `bias`: bool; If False, then the calculations are corrected for statistical bias.
+        + `nan_policy`: {'propagate', 'raise', 'omit'}; Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values.
 
 
 + Demo 
@@ -215,7 +202,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     plt.legend(loc='upper right')
     ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/WxZYpJmFEea9VA4aKWH1oA.processed/full/540p/index.mp4?Expires=1526169600&Signature=aLy3e24RkaPyLLMK91JglIa9xEmj0mdjRpklT0OFarUQOGk6p2Xd5MUabz6RBAaNsHvLt74tXfVArvwD2oOU2iHVqbo5GeWTZEkmC4z4usDPm8cSEUXrU07yoGy9GkDbTeFGycJdpABIo6hRBC~KhW-cICZwstVmMOS9cdg3ZOQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/WxZYpJmFEea9VA4aKWH1oA.processed/full/540p/index.mp4?Expires=1526169600&Signature=aLy3e24RkaPyLLMK91JglIa9xEmj0mdjRpklT0OFarUQOGk6p2Xd5MUabz6RBAaNsHvLt74tXfVArvwD2oOU2iHVqbo5GeWTZEkmC4z4usDPm8cSEUXrU07yoGy9GkDbTeFGycJdpABIo6hRBC~KhW-cICZwstVmMOS9cdg3ZOQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Hypothesis Testing in Python
@@ -238,14 +225,11 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `ttest` method
     + Syntax: `ttest_ind(a, b, axis=0, equal_var=True, nan_policy='propagate')`
     + Calculates the T-test for the means of two independent samples of scores
-    + `a`, `b`: array_like  
-    The arrays must have the same shape, except in the dimension corresponding to `axis` (the first, by default).
-    + `axis`: int or None, optional  
-    Axis along which to compute test. If None, compute over the whole arrays, `a`, and `b`.
-    + `equal_var`: bool, optional  
-    If True (default), perform a standard independent 2 sample test that assumes equal population variances. If False, perform Welch's t-test, which does not assume equal population variance.
-    + `nan_policy`: {'propagate', 'raise', 'omit'}, optional  
-    Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values. Default is 'propagate'.
+    + Parameters: 
+        + `a`, `b`: array_like; The arrays must have the same shape, except in the dimension corresponding to `axis` (the first, by default).
+        + `axis`: int or None; Axis along which to compute test. If None, compute over the whole arrays, `a`, and `b`.
+        + `equal_var`: bool; If True (default), perform a standard independent 2 sample test that assumes equal population variances. If False, perform Welch's t-test, which does not assume equal population variance.
+        + `nan_policy`: {'propagate', 'raise', 'omit'}; Defines how to handle when input contains nan. 'propagate' returns nan, 'raise' throws an error, 'omit' performs the calculations ignoring nan values. Default is 'propagate'.
 
 + Demo 
     ```Python
@@ -268,7 +252,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # Ttest_indResult(statistic=1.7116160037010733, pvalue=0.087101516341556676)
     ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/cP0Jy5mFEeazEQqJcB_rAg.processed/full/540p/index.mp4?Expires=1526169600&Signature=ERCUyHaMeGn1OVylK68SzuWz7gJRQEtScTwOhR7Lx9ichn4VWj4ljuMOw~n5aYL18eX5LLlaz6b6sGwbFpOt~LIOF4CUfT-LC2aP4jFfD1cRFXhdfY0LnsZIWseXwjbO2Y7vaYCEYKq97elKV~aIlrByQFw8e5Es0gk7nY8pFj0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/cP0Jy5mFEeazEQqJcB_rAg.processed/full/540p/index.mp4?Expires=1526169600&Signature=ERCUyHaMeGn1OVylK68SzuWz7gJRQEtScTwOhR7Lx9ichn4VWj4ljuMOw~n5aYL18eX5LLlaz6b6sGwbFpOt~LIOF4CUfT-LC2aP4jFfD1cRFXhdfY0LnsZIWseXwjbO2Y7vaYCEYKq97elKV~aIlrByQFw8e5Es0gk7nY8pFj0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## End of Theory
