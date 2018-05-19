@@ -1705,25 +1705,76 @@ This module provides: error and warning objects; a polynomial base class; and so
 
 ### Error objects
 
+| API | Description | Link |
+|-----|-------------|------|
 | `PolyError` | Base class for errors in this module. | [API][0865] |
 | `PolyDomainError` | Issued by the generic Poly class when two domains don’t match. | [API][0866] |
 
 ### Warning objects
 
+| API | Description | Link |
+|-----|-------------|------|
 | `RankWarning` | Issued by chebfit when the design matrix is rank deficient. | [API][0867] |
 
 ### Base class
 
+| API | Description | Link |
+|-----|-------------|------|
 | `PolyBase` | Base class for all polynomial types. | [API][0868] |
 
 ### Functions
 
+| API | Description | Link |
+|-----|-------------|------|
 | `as_series(alist[, trim])` | Return argument as a list of 1-d arrays. | [API][0869] |
 | `trimseq(seq)` | Remove small Poly series coefficients. | [API][0870] |
 | `trimcoef(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][0871] |
 | `getdomain(x)` | Return a domain suitable for given abscissae. | [API][0872] |
 | `mapdomain(x, old, new)` | Apply linear map to input points. | [API][0873] |
 | `mapparms(old, new)` | Linear map parameters between domains. | [API][0874] |
+
+
+## [Poly1d][0875]
+
+### Basics
+
+| API | Description | Link |
+|-----|-------------|------|
+| `poly1d(c_or_r[, r, variable])` | A one-dimensional polynomial class. | [API][0876] |
+| `polyval(p, x)` | Evaluate a polynomial at specific values. | [API][0877] |
+| `poly(seq_of_zeros)` | Find the coefficients of a polynomial with the given sequence of roots. | [API][0878] |
+| `roots(p)` | Return the roots of a polynomial with coefficients given in p. | [API][0879] |
+
+### Fitting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyfit(x, y, deg[, rcond, full, w, cov])` | Least squares polynomial fit. | [API][0880] |
+
+### Calculus
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyder(p[, m])` | Return the derivative of the specified order of a polynomial. | [API][0881] |
+| `polyint(p[, m, k])` | Return an antiderivative (indefinite integral) of a polynomial. | [API][0882] |
+
+### Arithmetic
+
+| API | Description | Link |
+|-----|-------------|------|
+| `polyadd(a1, a2)` | Find the sum of two polynomials. | [API][0883] |
+| `polydiv(u, v)` | Returns the quotient and remainder of polynomial division. | [API][0884] |
+| `polymul(a1, a2)` | Find the product of two polynomials. | [API][0885] |
+| `polysub(a1, a2)` | Difference (subtraction) of two polynomials. | [API][0886] |
+
+### Warnings
+
+| `RankWarning` | Issued by polyfit when the Vandermonde matrix is rank deficient. | [API][0887] |
+
+
+
+
+
 
 
 
@@ -2614,19 +2665,19 @@ This module provides: error and warning objects; a polynomial base class; and so
 [0872]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.getdomain.html#numpy.polynomial.polyutils.getdomain
 [0873]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.mapdomain.html#numpy.polynomial.polyutils.mapdomain
 [0874]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.mapparms.html#numpy.polynomial.polyutils.mapparms
-[0875]: 
-[0876]: 
-[0877]: 
-[0878]: 
-[0879]: 
-[0880]: 
-[0881]: 
-[0882]: 
-[0883]: 
-[0884]: 
-[0885]: 
-[0886]: 
-[0887]: 
+[0875]: https://www.numpy.org/devdocs/reference/routines.polynomials.poly1d.html
+[0876]: https://www.numpy.org/devdocs/reference/generated/numpy.poly1d.html#numpy.poly1d
+[0877]: https://www.numpy.org/devdocs/reference/generated/numpy.polyval.html#numpy.polyval
+[0878]: https://www.numpy.org/devdocs/reference/generated/numpy.poly.html#numpy.poly
+[0879]: https://www.numpy.org/devdocs/reference/generated/numpy.roots.html#numpy.roots
+[0880]: https://www.numpy.org/devdocs/reference/generated/numpy.polyfit.html#numpy.polyfit
+[0881]: https://www.numpy.org/devdocs/reference/generated/numpy.polyder.html#numpy.polyder
+[0882]: https://www.numpy.org/devdocs/reference/generated/numpy.polyint.html#numpy.polyint
+[0883]: https://www.numpy.org/devdocs/reference/generated/numpy.polyadd.html#numpy.polyadd
+[0884]: https://www.numpy.org/devdocs/reference/generated/numpy.polydiv.html#numpy.polydiv
+[0885]: https://www.numpy.org/devdocs/reference/generated/numpy.polymul.html#numpy.polymul
+[0886]: https://www.numpy.org/devdocs/reference/generated/numpy.polysub.html#numpy.polysub
+[0887]: https://www.numpy.org/devdocs/reference/generated/numpy.RankWarning.html#numpy.RankWarning
 [0888]: 
 [0889]: 
 [0890]: 
