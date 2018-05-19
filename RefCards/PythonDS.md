@@ -242,6 +242,8 @@ import numpy as np
 import pandas as pd
 `
 
+[Pandas Reference](http://pandas.pydata.org/pandas-docs/stable/api.html)
+
 ### General
 
 | Method | Description | Link |
@@ -253,7 +255,7 @@ import pandas as pd
 
 ### Timestamp
 
-#### Class
+#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Timestamp.html#pandas.Timestamp)
 
 Syntax: `pd.Timestamp(ts_input, freq, tz, unit=None, offset)`
 
@@ -296,7 +298,7 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 
 ### Series
 
-#### Creation 
+#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series) 
 
 Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)`
 
@@ -354,13 +356,6 @@ s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
 | `s.values ` | Return Series as ndarray or ndarray-like |
 
 
-#### Methods
-
-| [Method][011] (v0.22.0) | Description |
-|---------------|-------------|
-| `s.abs()` | Return an object with absolute value taken–only applicable to objects that are all numeric. |
-
-
 [TOC](#table-of-contents)
 
 #### Lecture Methods
@@ -380,7 +375,7 @@ s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
 
 ### DataFrame
 
-#### Creation
+#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame)
 
 Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 
@@ -447,14 +442,6 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 [TOC](#table-of-contents)
 
-#### Methods
-
-| [Method][011] (v0.22.0) | Description |
-|---------------|-------------|
-| `df.abs()` | Return an object with absolute value taken–only applicable to objects that are all numeric. |
-
-
-[TOC](#table-of-contents)
 
 #### Indexing & Slicing
 
