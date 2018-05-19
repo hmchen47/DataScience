@@ -12,7 +12,11 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## Introduction
 
-[<img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" width="60">](https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+<a href="https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:42px;height:42px;border:0;"> target="_blank"
+</a>
+
+
 
 
 ## Distributions
@@ -88,7 +92,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + x-axis: Values of observation
     + y-axis: Probability Observation Occurs
 
-    <img src="http://slideplayer.com/4899942/16/images/2/The+Uniform+Distribution.jpg" width="300" alt="Uniform Dist">
+        <img src="http://slideplayer.com/4899942/16/images/2/The+Uniform+Distribution.jpg" width="300" alt="Uniform Dist">
 
 + Normal (Gaussian) Distribution
     + x-axis: Value of Observation
@@ -96,17 +100,17 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + standard deviation: measure of variability  
         $$\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \overline{x})^2}$$
 
-    <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="300" alt="Gaussian Dist">
+        <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="300" alt="Gaussian Dist">
 
 + Chi Squared (χ2) Distribution
     + left-skewed
     + Degrees of freedom (df)
 
-    <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="300" alt="Chi-Squared Dist">
+        <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="300" alt="Chi-Squared Dist">
 
 + Bimodal distributions
 
-    <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="300" alt="Bimodal Dist">
+        <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="300" alt="Bimodal Dist">
 
 
 + Ref: Think Stats, Allen B. Downey
