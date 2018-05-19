@@ -46,8 +46,26 @@
 + [Programming Assignment: Assignment](./notebooks/Assignment02.ipynb)
 
 
-## [Advanced Python Pandas](./03-AdvPandas.md)
+## [Advanced Python Pandas[(./03-AdvPandas.md)]
 
++ [Week 3 Lectures Jupyter Notebook](./03-AdvPandas.md#week-3-lectures-jupyter-notebook)
++ [Merging Dataframes](./03-AdvPandas.md#merging-dataframe)
++ [Pandas Idioms](./03-AdvPandas.md#pandas-idioms)
++ [Group by](./03-AdvPandas.md#group-by)
++ [Scales](./03-AdvPandas.md#scales)
++ [Pivot Tables](./03-AdvPandas.md#pivot-tables)
++ [Date Functionality](./03-AdvPandas.md#date-functionality)
++ [Discussion Prompt: Goodhart's Law](./03-AdvPandas.md#discussion-prompt-goodfarts-law)
+
+
+## [Assignment 3](https://www.coursera.org/learn/python-data-analysis/notebook/KSSjT/assignment-3)
+
++ [Assignment 3](https://hub.coursera-notebooks.org/user/qceqpnyfwlofzjpttttssh/notebooks/Assignment%203.ipynb)
++ [Programming Assignment: Assignment 3](./notebooks/Assignment03.ipynb)
+
+## [Statistical Analysis in Python and Project](./04-Stats.md)
+
++ [Week 4 Lectures Jupyter Notebook](./04-Stats.md#week-4-lectures-jupyter-notebook)
 + [Introduction](./04-Stats.md#introduction)
 + [Distributions](./04-Stats.md#distributions)
 + [More Distributions](./04-Stats.md#more-distributions)
