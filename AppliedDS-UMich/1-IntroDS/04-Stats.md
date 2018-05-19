@@ -13,10 +13,8 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 ## Introduction
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:60px;height:42px;border:0;"> 
+  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:60px;height:60px;border:0;"> 
 </a>
-
-
 
 
 ## Distributions
@@ -100,17 +98,17 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + standard deviation: measure of variability  
         $$\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \overline{x})^2}$$
 
-        <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="300" alt="Gaussian Dist">
+    <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="450" alt="Gaussian Dist">
 
 + Chi Squared (χ2) Distribution
     + left-skewed
     + Degrees of freedom (df)
 
-        <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="300" alt="Chi-Squared Dist">
+    <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="450" alt="Chi-Squared Dist">
 
 + Bimodal distributions
 
-        <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="300" alt="Bimodal Dist">
+    <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="450" alt="Bimodal Dist">
 
 
 + Ref: Think Stats, Allen B. Downey
@@ -206,8 +204,9 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
                     label=['2 degrees of freedom','5 degrees of freedom'])
     plt.legend(loc='upper right')
     ```
-[<img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" width="60">](https://d3c33hcgiwev3.cloudfront.net/WxZYpJmFEea9VA4aKWH1oA.processed/full/540p/index.mp4?Expires=1526169600&Signature=aLy3e24RkaPyLLMK91JglIa9xEmj0mdjRpklT0OFarUQOGk6p2Xd5MUabz6RBAaNsHvLt74tXfVArvwD2oOU2iHVqbo5GeWTZEkmC4z4usDPm8cSEUXrU07yoGy9GkDbTeFGycJdpABIo6hRBC~KhW-cICZwstVmMOS9cdg3ZOQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
-
+<a href="https://d3c33hcgiwev3.cloudfront.net/WxZYpJmFEea9VA4aKWH1oA.processed/full/540p/index.mp4?Expires=1526169600&Signature=aLy3e24RkaPyLLMK91JglIa9xEmj0mdjRpklT0OFarUQOGk6p2Xd5MUabz6RBAaNsHvLt74tXfVArvwD2oOU2iHVqbo5GeWTZEkmC4z4usDPm8cSEUXrU07yoGy9GkDbTeFGycJdpABIo6hRBC~KhW-cICZwstVmMOS9cdg3ZOQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
+  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:60px;height:60px;border:0;"> 
+</a>
 
 ## Hypothesis Testing in Python
 
@@ -255,8 +254,9 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # Ttest_indResult(statistic=1.7116160037010733, pvalue=0.087101516341556676)
     ```
 
-[<img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" width="60">](https://d3c33hcgiwev3.cloudfront.net/cP0Jy5mFEeazEQqJcB_rAg.processed/full/540p/index.mp4?Expires=1526169600&Signature=ERCUyHaMeGn1OVylK68SzuWz7gJRQEtScTwOhR7Lx9ichn4VWj4ljuMOw~n5aYL18eX5LLlaz6b6sGwbFpOt~LIOF4CUfT-LC2aP4jFfD1cRFXhdfY0LnsZIWseXwjbO2Y7vaYCEYKq97elKV~aIlrByQFw8e5Es0gk7nY8pFj0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
-
+<a href="https://d3c33hcgiwev3.cloudfront.net/cP0Jy5mFEeazEQqJcB_rAg.processed/full/540p/index.mp4?Expires=1526169600&Signature=ERCUyHaMeGn1OVylK68SzuWz7gJRQEtScTwOhR7Lx9ichn4VWj4ljuMOw~n5aYL18eX5LLlaz6b6sGwbFpOt~LIOF4CUfT-LC2aP4jFfD1cRFXhdfY0LnsZIWseXwjbO2Y7vaYCEYKq97elKV~aIlrByQFw8e5Es0gk7nY8pFj0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
+  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:60px;height:60px;border:0;"> 
+</a>
 
 ## End of Theory
 
