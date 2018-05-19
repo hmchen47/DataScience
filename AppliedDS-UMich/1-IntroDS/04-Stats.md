@@ -222,7 +222,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         + Hold-out sets: generalizable of the test - data divided into two sets and analyze each of them; havily used in ML as _cross fold validation_
         + Investigation pre-registration: outline expectations and why, then run test to backup the expectations 
 
-+ `ttest` method
++ `ttest_ind` method
     + Syntax: `ttest_ind(a, b, axis=0, equal_var=True, nan_policy='propagate')`
     + Calculates the T-test for the means of two independent samples of scores
     + Parameters: 
