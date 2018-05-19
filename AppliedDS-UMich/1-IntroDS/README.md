@@ -110,7 +110,7 @@
 
 ## [Statistical Analysis in Python and Project](./04-Stats.md)
 
-``+ [Week 4 Lectures Jupyter Notebook](./04-Stats.md#week-4-lectures-jupyter-notebook)
++ [Week 4 Lectures Jupyter Notebook](./04-Stats.md#week-4-lectures-jupyter-notebook)
 + [Introduction](./04-Stats.md#introduction)
 + [Distributions](./04-Stats.md#distributions)
 + [More Distributions](./04-Stats.md#more-distributions)
