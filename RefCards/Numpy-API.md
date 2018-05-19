@@ -1772,7 +1772,78 @@ This module provides: error and warning objects; a polynomial base class; and so
 | `RankWarning` | Issued by polyfit when the Vandermonde matrix is rank deficient. | [API][0887] |
 
 
+## [Random sampling (numpy.random)][0888]
 
+### Simple random data
+
+| API | Description | Link |
+|-----|-------------|------|
+| `rand(d0, d1, …, dn)` | Random values in a given shape. | [API][0889] |
+| `randn(d0, d1, …, dn)` | Return a sample (or samples) from the “standard normal” distribution. | [API][0890] |
+| `randint(low[, high, size, dtype])` | Return random integers from low (inclusive) to high (exclusive). | [API][0891] |
+| `random_integers(low[, high, size])` | Random integers of type np.int between low and high, inclusive. | [API][0892] |
+| `random_sample([size])` | Return random floats in the half-open interval [0.0, 1.0). | [API][0893] |
+| `random([size])` | Return random floats in the half-open interval [0.0, 1.0). | [API][0894] |
+| `ranf([size])` | Return random floats in the half-open interval [0.0, 1.0). | [API][0895] |
+| `sample([size])` | Return random floats in the half-open interval [0.0, 1.0). | [API][0896] |
+| `choice(a[, size, replace, p])` | Generates a random sample from a given 1-D array | [API][0897] |
+| `bytes(length)` | Return random bytes. | [API][0898] |
+
+### Permutations
+
+| API | Description | Link |
+|-----|-------------|------|
+| `shuffle(x)` | Modify a sequence in-place by shuffling its contents. | [API][0899] |
+| `permutation(x)` | Randomly permute a sequence, or return a permuted range. | [API][0900] |
+
+### Distributions
+
+| API | Description | Link |
+|-----|-------------|------|
+| `beta(a, b[, size])` | Draw samples from a Beta distribution. | [API][0901] |
+| `binomial(n, p[, size])` | Draw samples from a binomial distribution. | [API][0902] |
+| `chisquare(df[, size])` | Draw samples from a chi-square distribution. | [API][0903] |
+| `dirichlet(alpha[, size])` | Draw samples from the Dirichlet distribution. | [API][0904] |
+| `exponential([scale, size])` | Draw samples from an exponential distribution. | [API][0905] |
+| `f(dfnum, dfden[, size])` | Draw samples from an F distribution. | [API][0906] |
+| `gamma(shape[, scale, size])` | Draw samples from a Gamma distribution. | [API][0907] |
+| `geometric(p[, size])` | Draw samples from the geometric distribution. | [API][0908] |
+| `gumbel([loc, scale, size])` | Draw samples from a Gumbel distribution. | [API][0909] |
+| `hypergeometric(ngood, nbad, nsample[, size])` | Draw samples from a Hypergeometric distribution. | [API][0910] |
+| `laplace([loc, scale, size])` | Draw samples from the Laplace or double exponential distribution with specified location (or mean) and scale (decay). | [API][0911] |
+| `logistic([loc, scale, size])` | Draw samples from a logistic distribution. | [API][0912] |
+| `lognormal([mean, sigma, size])` | Draw samples from a log-normal distribution. | [API][0913] |
+| `logseries(p[, size])` | Draw samples from a logarithmic series distribution. | [API][0914] |
+| `multinomial(n, pvals[, size])` | Draw samples from a multinomial distribution. | [API][0915] |
+| `multivariate_normal(mean, cov[, size, …)` | Draw random samples from a multivariate normal distribution. | [API][0916] |
+| `negative_binomial(n, p[, size])` | Draw samples from a negative binomial distribution. | [API][0917] |
+| `noncentral_chisquare(df, nonc[, size])` | Draw samples from a noncentral chi-square distribution. | [API][0918] |
+| `noncentral_f(dfnum, dfden, nonc[, size])` | Draw samples from the noncentral F distribution. | [API][0919] |
+| `normal([loc, scale, size])` | Draw random samples from a normal (Gaussian) distribution. | [API][0920] |
+| `pareto(a[, size])` | Draw samples from a Pareto II or Lomax distribution with specified shape. | [API][0921] |
+| `poisson([lam, size])` | Draw samples from a Poisson distribution. | [API][0922] |
+| `power(a[, size])` | Draws samples in [0, 1] from a power distribution with positive exponent a - 1. | [API][0923] |
+| `rayleigh([scale, size])` | Draw samples from a Rayleigh distribution. | [API][0924] |
+| `standard_cauchy([size])` | Draw samples from a standard Cauchy distribution with mode = 0. | [API][0925] |
+| `standard_exponential([size])` | Draw samples from the standard exponential distribution. | [API][0926] |
+| `standard_gamma(shape[, size])` | Draw samples from a standard Gamma distribution. | [API][0927] |
+| `standard_normal([size])` | Draw samples from a standard Normal distribution (mean=0, stdev=1). | [API][0928] |
+| `standard_t(df[, size])` | Draw samples from a standard Student’s t distribution with df degrees of freedom. | [API][0929] |
+| `triangular(left, mode, right[, size])` | Draw samples from the triangular distribution over the interval [left, right]. | [API][0930] |
+| `uniform([low, high, size])` | Draw samples from a uniform distribution. | [API][0931] |
+| `vonmises(mu, kappa[, size])` | Draw samples from a von Mises distribution. | [API][0932] |
+| `wald(mean, scale[, size])` | Draw samples from a Wald, or inverse Gaussian, distribution. | [API][0933] |
+| `weibull(a[, size])` | Draw samples from a Weibull distribution. | [API][0934] |
+| `zipf(a[, size])` | Draw samples from a Zipf distribution. | [API][0935] |
+
+### Random generator
+
+| API | Description | Link |
+|-----|-------------|------|
+| `RandomState([seed])` | Container for the Mersenne Twister pseudo-random number generator. | [API][0936] |
+| `seed([seed])` | Seed the generator. | [API][0937] |
+| `get_state()` | Return a tuple representing the internal state of the generator. | [API][0938] |
+| `set_state(state)` | Set the internal state of the generator from a tuple. | [API][0939] |
 
 
 
@@ -2678,59 +2749,59 @@ This module provides: error and warning objects; a polynomial base class; and so
 [0885]: https://www.numpy.org/devdocs/reference/generated/numpy.polymul.html#numpy.polymul
 [0886]: https://www.numpy.org/devdocs/reference/generated/numpy.polysub.html#numpy.polysub
 [0887]: https://www.numpy.org/devdocs/reference/generated/numpy.RankWarning.html#numpy.RankWarning
-[0888]: 
-[0889]: 
-[0890]: 
-[0891]: 
-[0892]: 
-[0893]: 
-[0894]: 
-[0895]: 
-[0896]: 
-[0897]: 
-[0898]: 
-[0899]: 
+[0888]: https://www.numpy.org/devdocs/reference/routines.random.html
+[0889]: https://www.numpy.org/devdocs/reference/generated/numpy.random.rand.html#numpy.random.rand
+[0890]: https://www.numpy.org/devdocs/reference/generated/numpy.random.randn.html#numpy.random.randn
+[0891]: https://www.numpy.org/devdocs/reference/generated/numpy.random.randint.html#numpy.random.randint
+[0892]: https://www.numpy.org/devdocs/reference/generated/numpy.random.random_integers.html#numpy.random.random_integers
+[0893]: https://www.numpy.org/devdocs/reference/generated/numpy.random.random_sample.html#numpy.random.random_sample
+[0894]: https://www.numpy.org/devdocs/reference/generated/numpy.random.random.html#numpy.random.random
+[0895]: https://www.numpy.org/devdocs/reference/generated/numpy.random.ranf.html#numpy.random.ranf
+[0896]: https://www.numpy.org/devdocs/reference/generated/numpy.random.sample.html#numpy.random.sample
+[0897]: https://www.numpy.org/devdocs/reference/generated/numpy.random.choice.html#numpy.random.choice
+[0898]: https://www.numpy.org/devdocs/reference/generated/numpy.random.bytes.html#numpy.random.bytes
+[0899]: https://www.numpy.org/devdocs/reference/generated/numpy.random.shuffle.html#numpy.random.shuffle
 
-[0900]: 
-[0901]: 
-[0902]: 
-[0903]: 
-[0904]: 
-[0905]: 
-[0906]: 
-[0907]: 
-[0908]: 
-[0909]: 
-[0910]: 
-[0911]: 
-[0912]: 
-[0913]: 
-[0914]: 
-[0915]: 
-[0916]: 
-[0917]: 
-[0918]: 
-[0919]: 
-[0920]: 
-[0921]: 
-[0922]: 
-[0923]: 
-[0924]: 
-[0925]: 
-[0926]: 
-[0927]: 
-[0928]: 
-[0929]: 
-[0930]: 
-[0931]: 
-[0932]: 
-[0933]: 
-[0934]: 
-[0935]: 
-[0936]: 
-[0937]: 
-[0938]: 
-[0939]: 
+[0900]: https://www.numpy.org/devdocs/reference/generated/numpy.random.permutation.html#numpy.random.permutation
+[0901]: https://www.numpy.org/devdocs/reference/generated/numpy.random.beta.html#numpy.random.beta
+[0902]: https://www.numpy.org/devdocs/reference/generated/numpy.random.binomial.html#numpy.random.binomial
+[0903]: https://www.numpy.org/devdocs/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
+[0904]: https://www.numpy.org/devdocs/reference/generated/numpy.random.dirichlet.html#numpy.random.dirichlet
+[0905]: https://www.numpy.org/devdocs/reference/generated/numpy.random.exponential.html#numpy.random.exponential
+[0906]: https://www.numpy.org/devdocs/reference/generated/numpy.random.f.html#numpy.random.f
+[0907]: https://www.numpy.org/devdocs/reference/generated/numpy.random.gamma.html#numpy.random.gamma
+[0908]: https://www.numpy.org/devdocs/reference/generated/numpy.random.geometric.html#numpy.random.geometric
+[0909]: https://www.numpy.org/devdocs/reference/generated/numpy.random.gumbel.html#numpy.random.gumbel
+[0910]: https://www.numpy.org/devdocs/reference/generated/numpy.random.hypergeometric.html#numpy.random.hypergeometric
+[0911]: https://www.numpy.org/devdocs/reference/generated/numpy.random.laplace.html#numpy.random.laplace
+[0912]: https://www.numpy.org/devdocs/reference/generated/numpy.random.logistic.html#numpy.random.logistic
+[0913]: https://www.numpy.org/devdocs/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
+[0914]: https://www.numpy.org/devdocs/reference/generated/numpy.random.logseries.html#numpy.random.logseries
+[0915]: https://www.numpy.org/devdocs/reference/generated/numpy.random.multinomial.html#numpy.random.multinomial
+[0916]: https://www.numpy.org/devdocs/reference/generated/numpy.random.multivariate_normal.html#numpy.random.multivariate_normal
+[0917]: https://www.numpy.org/devdocs/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
+[0918]: https://www.numpy.org/devdocs/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
+[0919]: https://www.numpy.org/devdocs/reference/generated/numpy.random.noncentral_f.html#numpy.random.noncentral_f
+[0920]: https://www.numpy.org/devdocs/reference/generated/numpy.random.normal.html#numpy.random.normal
+[0921]: https://www.numpy.org/devdocs/reference/generated/numpy.random.pareto.html#numpy.random.pareto
+[0922]: https://www.numpy.org/devdocs/reference/generated/numpy.random.poisson.html#numpy.random.poisson
+[0923]: https://www.numpy.org/devdocs/reference/generated/numpy.random.power.html#numpy.random.power
+[0924]: https://www.numpy.org/devdocs/reference/generated/numpy.random.rayleigh.html#numpy.random.rayleigh
+[0925]: https://www.numpy.org/devdocs/reference/generated/numpy.random.standard_cauchy.html#numpy.random.standard_cauchy
+[0926]: https://www.numpy.org/devdocs/reference/generated/numpy.random.standard_exponential.html#numpy.random.standard_exponential
+[0927]: https://www.numpy.org/devdocs/reference/generated/numpy.random.standard_gamma.html#numpy.random.standard_gamma
+[0928]: https://www.numpy.org/devdocs/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
+[0929]: https://www.numpy.org/devdocs/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
+[0930]: https://www.numpy.org/devdocs/reference/generated/numpy.random.triangular.html#numpy.random.triangular
+[0931]: https://www.numpy.org/devdocs/reference/generated/numpy.random.uniform.html#numpy.random.uniform
+[0932]: https://www.numpy.org/devdocs/reference/generated/numpy.random.vonmises.html#numpy.random.vonmises
+[0933]: https://www.numpy.org/devdocs/reference/generated/numpy.random.wald.html#numpy.random.wald
+[0934]: https://www.numpy.org/devdocs/reference/generated/numpy.random.weibull.html#numpy.random.weibull
+[0935]: https://www.numpy.org/devdocs/reference/generated/numpy.random.zipf.html#numpy.random.zipf
+[0936]: https://www.numpy.org/devdocs/reference/generated/numpy.random.RandomState.html#numpy.random.RandomState
+[0937]: https://www.numpy.org/devdocs/reference/generated/numpy.random.seed.html#numpy.random.seed
+[0938]: https://www.numpy.org/devdocs/reference/generated/numpy.random.get_state.html#numpy.random.get_state
+[0939]: https://www.numpy.org/devdocs/reference/generated/numpy.random.set_state.html#numpy.random.set_state
 [0940]: 
 [0941]: 
 [0942]: 
