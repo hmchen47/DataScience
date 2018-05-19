@@ -1866,6 +1866,42 @@ This module provides: error and warning objects; a polynomial base class; and so
 | `union1d(ar1, ar2)` | Find the union of two arrays. | [API][0947] |
 
 
+## [Sorting, searching, and counting][0948]
+
+### Sorting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `sort(a[, axis, kind, order])` | Return a sorted copy of an array. | [API][0949] |
+| `lexsort(keys[, axis])` | Perform an indirect stable sort using a sequence of keys. | [API][0950] |
+| `argsort(a[, axis, kind, order])` | Returns the indices that would sort an array. | [API][0951] |
+| `ndarray.sort([axis, kind, order])` | Sort an array, in-place. | [API][0952] |
+| `msort(a)` | Return a copy of an array sorted along the first axis. | [API][0953] |
+| `sort_complex(a)` | Sort a complex array using the real part first, then the imaginary part. | [API][0954] |
+| `partition(a, kth[, axis, kind, order])` | Return a partitioned copy of an array. | [API][0955] |
+| `argpartition(a, kth[, axis, kind, order])` | Perform an indirect partition along the given axis using the algorithm specified by the kind keyword. | [API][0956] |
+
+
+### Searching
+
+| API | Description | Link |
+|-----|-------------|------|
+| `argmax(a[, axis, out])` | Returns the indices of the maximum values along an axis. | [API][0957] |
+| `nanargmax(a[, axis])` | Return the indices of the maximum values in the specified axis ignoring NaNs. | [API][0958] |
+| `argmin(a[, axis, out])` | Returns the indices of the minimum values along an axis. | [API][0959] |
+| `nanargmin(a[, axis])` | Return the indices of the minimum values in the specified axis ignoring NaNs. | [API][0960] |
+| `argwhere(a)` | Find the indices of array elements that are non-zero, grouped by element. | [API][0961] |
+| `nonzero(a)` | Return the indices of the elements that are non-zero. | [API][09662] |
+| `flatnonzero(a)` | Return indices that are non-zero in the flattened version of a. | [API][0963] |
+| `where(condition, [x, y])` | Return elements, either from x or y, depending on condition. | [API][0964] |
+| `searchsorted(a, v[, side, sorter])` | Find indices where elements should be inserted to maintain order. | [API][0965] |
+| `extract(condition, arr)` | Return the elements of an array that satisfy some condition. | [API][0966] |
+
+### Counting
+
+| API | Description | Link |
+|-----|-------------|------|
+| `count_nonzero(a[, axis])` | Counts the number of non-zero values in the array a. | [API][0967] |
 
 
 
@@ -2829,26 +2865,26 @@ This module provides: error and warning objects; a polynomial base class; and so
 [0945]: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html#numpy.setdiff1d
 [0946]: https://www.numpy.org/devdocs/reference/generated/numpy.setxor1d.html#numpy.setxor1d
 [0947]: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html#numpy.union1d
-[0948]: 
-[0949]: 
-[0950]: 
-[0951]: 
-[0952]: 
-[0953]: 
-[0954]: 
-[0955]: 
-[0956]: 
-[0957]: 
-[0958]: 
-[0959]: 
-[0960]: 
-[0961]: 
-[0962]: 
-[0963]: 
-[0964]: 
-[0965]: 
-[0966]: 
-[0967]: 
+[0948]: https://www.numpy.org/devdocs/reference/routines.sort.html
+[0949]: https://www.numpy.org/devdocs/reference/generated/numpy.sort.html#numpy.sort
+[0950]: https://www.numpy.org/devdocs/reference/generated/numpy.lexsort.html#numpy.lexsort
+[0951]: https://www.numpy.org/devdocs/reference/generated/numpy.argsort.html#numpy.argsort
+[0952]: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html#numpy.ndarray.sort
+[0953]: https://www.numpy.org/devdocs/reference/generated/numpy.msort.html#numpy.msort
+[0954]: https://www.numpy.org/devdocs/reference/generated/numpy.sort_complex.html#numpy.sort_complex
+[0955]: https://www.numpy.org/devdocs/reference/generated/numpy.partition.html#numpy.partition
+[0956]: https://www.numpy.org/devdocs/reference/generated/numpy.argpartition.html#numpy.argpartition
+[0957]: https://www.numpy.org/devdocs/reference/generated/numpy.argmax.html#numpy.argmax
+[0958]: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmax.html#numpy.nanargmax
+[0959]: https://www.numpy.org/devdocs/reference/generated/numpy.argmin.html#numpy.argmin
+[0960]: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmin.html#numpy.nanargmin
+[0961]: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html#numpy.argwhere
+[0962]: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html#numpy.nonzero
+[0963]: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html#numpy.flatnonzero
+[0964]: https://www.numpy.org/devdocs/reference/generated/numpy.where.html#numpy.where
+[0965]: https://www.numpy.org/devdocs/reference/generated/numpy.searchsorted.html#numpy.searchsorted
+[0966]: https://www.numpy.org/devdocs/reference/generated/numpy.extract.html#numpy.extract
+[0967]: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html#numpy.count_nonzero
 [0968]: 
 [0969]: 
 [0970]: 
