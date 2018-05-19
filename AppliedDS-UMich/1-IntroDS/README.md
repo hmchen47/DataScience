@@ -65,10 +65,10 @@
 
 + [Week 4 Lectures Jupyter Notebook](./04-Stats.md#week-4-lectures-jupyter-notebook)
 + [Introduction](./04-Stats.md#introduction)
-+ [Distributions](./04-Stats.md#)
-+ [More Distributions](./04-Stats.md#)
-+ [Hypothesis Testing in Python](./04-Stats.md#)
-+ [End of Theory](./04-Stats.md#)
++ [Distributions](./04-Stats.md#distributions)
++ [More Distributions](./04-Stats.md#more-distributions)
++ [Hypothesis Testing in Python](./04-Stats.md#hypothesis-testing-in-python)
++ [End of Theory](./04-Stats.md#end-of-theory)
 + [Discussion Prompt: Science Isn't Broken: p-hacking activity](./04-Stats.md#discussion-prompt-science-isnt-broken-p---hacking-activity)
 
 
