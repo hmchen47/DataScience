@@ -285,7 +285,6 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 | `pd.to_datetime(arg, utc=None, format=None)` | Convert argument to datetime; `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series; `utc`: Return UTC DatetimeIndex if True; `format`: strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds | [Date Functionality][020] |
 | `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; [`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
-+ [Offset Aliases]((http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases)) for `rule` in `resample`
 
     | Alias | Description |
     |--------|------------|
@@ -319,23 +318,6 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 
 
 | `index` | array-like or Index (1d) | Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
-| `dtype` | numpy.dtype or None | If None, dtype will be inferred |
-| `copy` | boolean, default False | Copy input data |
-
-```python
-sports = {'Archery': 'Bhutan',
-        'Golf': 'Scotland',
-        'Sumo': 'Japan',
-        'Taekwondo': 'South Korea'}
-s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
-```
-
-#### Attributes
-
-| [Attribute][013] (v0.22.0) | Description |
-|-----------|-------------|
-| `s.T ` | return the transpose, which is by definition self |
-| `s.asobject ` | return object Series which contains boxed values |
 | `s.at ` | Fast label-based scalar accessor |
 | `s.axes ` | Return a list of the row axis labels |
 | `s.base ` | return the base object if the memory of the underlying data is |
