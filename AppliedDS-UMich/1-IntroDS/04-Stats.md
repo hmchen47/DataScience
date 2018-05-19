@@ -68,8 +68,9 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print((x>=15).mean())
         ```
 
-[<img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" width="60">](https://d3c33hcgiwev3.cloudfront.net/Flm7AZeREeaGLgqdPwfqeA.processed/full/540p/index.mp4?Expires=1526169600&Signature=UKGzeWaVEGuWdDL9Rjy4HMgE-Jrj0UGIMwUt5SalP0gdhgFeSmCIsJULPRmxqq9vjLlpDhydEs9CT0S2oh57~-p9nRxSc3sZgehUx3lykm-vrgtRyGhAlJw~noz7z7fJ-VTx9JucsCONwnDI7xVOAHcOhBTRqAYm78rkSqZTcDQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
-
+<a href="https://d3c33hcgiwev3.cloudfront.net/Flm7AZeREeaGLgqdPwfqeA.processed/full/540p/index.mp4?Expires=1526169600&Signature=UKGzeWaVEGuWdDL9Rjy4HMgE-Jrj0UGIMwUt5SalP0gdhgFeSmCIsJULPRmxqq9vjLlpDhydEs9CT0S2oh57~-p9nRxSc3sZgehUx3lykm-vrgtRyGhAlJw~noz7z7fJ-VTx9JucsCONwnDI7xVOAHcOhBTRqAYm78rkSqZTcDQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
+  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:60px;height:60px;border:0;"> 
+</a>
 
 ## More Distributions
 
@@ -98,17 +99,17 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + standard deviation: measure of variability  
         $$\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \overline{x})^2}$$
 
-    <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="450" alt="Gaussian Dist">
+        <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="300" alt="Gaussian Dist">
 
 + Chi Squared (χ2) Distribution
     + left-skewed
     + Degrees of freedom (df)
 
-    <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="450" alt="Chi-Squared Dist">
+        <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="300" alt="Chi-Squared Dist">
 
 + Bimodal distributions
-
-    <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="450" alt="Bimodal Dist">
+  
+    <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="300" alt="Bimodal Dist">
 
 
 + Ref: Think Stats, Allen B. Downey
