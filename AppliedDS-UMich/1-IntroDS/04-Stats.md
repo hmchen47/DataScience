@@ -88,7 +88,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + x-axis: Values of observation
     + y-axis: Probability Observation Occurs
 
-    ![Uniform Dist](http://slideplayer.com/4899942/16/images/2/The+Uniform+Distribution.jpg)
+    <img src="http://slideplayer.com/4899942/16/images/2/The+Uniform+Distribution.jpg" width="300" alt="Uniform Dist">
 
 + Normal (Gaussian) Distribution
     + x-axis: Value of Observation
@@ -96,17 +96,18 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + standard deviation: measure of variability  
         $$\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \overline{x})^2}$$
 
-    ![Gaussian Dist](https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG)
+    <img src="https://cdn-images-1.medium.com/max/1600/0*RfxIdjcLvDPJjD5b.PNG" width="300" alt="Gaussian Dist">
 
 + Chi Squared (χ2) Distribution
     + left-skewed
     + Degrees of freedom (df)
 
-    ![Chi-Squared Dist](https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg)
+    <img src="https://saylordotorg.github.io/text_introductory-statistics/section_15/5a0c7bbacb4242555e8a85c9767c03ee.jpg" width="300" alt="Chi-Squared Dist">
 
 + Bimodal distributions
 
-    ![Bimodal Dist](https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png)
+    <img src="https://cdn-images-1.medium.com/max/1250/1*cxeqxH1_zb68td7toVvFQQ.png" width="300" alt="Bimodal Dist">
+
 
 + Ref: Think Stats, Allen B. Downey
     + Probability and Statistics for Programmers
