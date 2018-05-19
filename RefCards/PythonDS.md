@@ -90,7 +90,7 @@ import time as tm
 | `dt.day` | Day of `dt` | [Dates and Times][002] |
 | `dt.hour` | Hour of `dt` | [Dates and Times][002] |
 | `dt.minute` | Minute of `dt` | [Dates and Times][002] |
-| `t.second` | Second of `dt` | [Dates and Times][002] |
+| `dt.second` | Second of `dt` | [Dates and Times][002] |
 
 
 ### Methods
@@ -99,12 +99,32 @@ import time as tm
 |--------|-------------|------|
 | `tm.time()` | returns the current time in seconds since the Epoch. (January 1st, 1970) | [Dates and Times][002] |
 | `dt.datetime.fromtimestamp(ts)` | Convert the timestamp `ts` to datetime | [Dates and Times][002] |
-| `dt.timedelta(arg=val)` | a duration expressing the difference between `val` `arg`, `arg` = `<days|seconds|microseconds>` and `val` = <int> | [Dates and Times][002] |
+| `dt.timedelta(arg=val)` | a duration expressing the difference between `val` `arg`, `arg` = `<days, seconds, microseconds>` and `val` = `<int>` | [Dates and Times][002] |
 | `dt.date.today()` | returns the current local date | [Dates and Times][002] |
 
 
 
 [TOC](#table-of-contents)
+
+
+## SciPy 
+
+### Import Files
+
+```python
+import scipy.stats as stats
+```
+
+#### Statistical Module
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `skew(a, axis=0, bias=True, nan_policy='propagate')` | For normally distributed data, the skewness should be about $0$. For unimodal continuous distributions, a skewness value > 0 means that there is more weight in the right tail of the distribution. The function `skewtest` can be used to determine if the skewness value is close enough to 0, statistically speaking;  `a`: ndarray; `axis`: Axis along which the kurtosis is calculated; `bias`: False=statistical bias;  `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
+| `kurtosis(a, axis=0, fisher=True, bias=True, nan_policy='propagate')` | Kurtosis is the fourth central moment divided by the square of the variance. If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution; `a`: array data; `axis`: Axis along which the kurtosis is calculated.; `fisher`: True=Fisher's definition (normal ==> 0.0), False=Pearson's definition (normal ==> 3.0); `bias`: False=statistical bias; 
+    + `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
+| `ttest_ind(a, b, axis=0, equal_var=True, nan_policy='propagate')` | Calculates the T-test for the means of two independent samples of scores; `a`, `b`: array_like; `axis`: Axis along which to compute test; `equal_var`: True=perform a standard independent 2 sample test that assumes equal population variances, False=perform Welch's t-test, which does not assume equal population variance; `nan_policy`: {'propagate', 'raise', 'omit'}, | [Hypothesis Testing][023] |
+
+
 
 
 ## Numpy
@@ -121,6 +141,7 @@ import numpy as np
 |--------|-------------|------|
 | `np.nan` | Not a number | [Series][006] |
 | `np.isnan(ary)` | Return ndarray or tuple of ndarray with bool value | [Series][006] |
+| `std(a, axis=None, out=None, ddof=0)` | ompute the standard deviation along the specified axis; `a`: array_like; `axis`: Axis or axes along which the standard deviation is computed; `out`: Alternative output array in which to place the result; `dof`: Means Delta Degrees of Freedom | [More Distribution][022] |
 
 
 
@@ -200,6 +221,11 @@ import numpy as np
 | `np.random.rand(d0, d1, ..., dn)` | Random values in a given shape from a uniform distribution over $[0, 1)$ | [NumPy][005] |
 | `np.random.randn(d0, d1, ..., dn)` | Return a sample (or samples) from the "standard normal" distribution. | [NumPy][005] |
 | `np.random.randint(low, high)` | Return random integers from `low` (inclusive) to `high` (exclusive). | [NumPy][005] |
+| `np.random.binomial(n, p, size)` | Draw samples from a binomial distribution; `n`: event occurrence; `p`: probability of each event; `size`: times of the set events | [Distribution][021] |
+| `uniform(low=0.0, high=1.0, size=None)` | Draw samples from a uniform distribution, $[low, high)$; `size`: Output shape. | [More Distribution][022] |
+| `normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution; `loc`: mean; `scale`: std dev; `size`: Output shape | [More Distribution][022] |
+| `chisquare(df, size=None)` | Draw samples from a chi-square distribution; `df`: Number of degrees of freedom, should be $> 0$; `size`: Output shape | [More Distribution][022] |
+
 
 
 [TOC](#table-of-contents)
@@ -216,6 +242,8 @@ import numpy as np
 import pandas as pd
 `
 
+[Pandas Reference](http://pandas.pydata.org/pandas-docs/stable/api.html)
+
 ### General
 
 | Method | Description | Link |
@@ -227,7 +255,7 @@ import pandas as pd
 
 ### Timestamp
 
-#### Class
+#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Timestamp.html#pandas.Timestamp)
 
 Syntax: `pd.Timestamp(ts_input, freq, tz, unit=None, offset)`
 
@@ -262,7 +290,7 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 | `pd.to_datetime(arg, utc=None, format=None)` | Convert argument to datetime; `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series; `utc`: Return UTC DatetimeIndex if True; `format`: strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds | [Date Functionality][020] |
 | `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; [`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
-| `df.resample(rule, how=None, axis=0)` | Convenience method for frequency conversion and resampling of time series; `rule`: the offset string or object representing target conversion | [Date Functionality][020] |
+| `df.resample(rule, how=None, axis=0)` | Convenience method for frequency conversion and resampling of time series; `rule`: the offset string or object representing target conversion | [Date Functionality][020] [API][024] |
 
 
 
@@ -270,7 +298,7 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 
 ### Series
 
-#### Creation 
+#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series) 
 
 Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)`
 
@@ -328,13 +356,6 @@ s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
 | `s.values ` | Return Series as ndarray or ndarray-like |
 
 
-#### Methods
-
-| [Method][011] (v0.22.0) | Description |
-|---------------|-------------|
-| `s.abs()` | Return an object with absolute value taken–only applicable to objects that are all numeric. |
-
-
 [TOC](#table-of-contents)
 
 #### Lecture Methods
@@ -354,7 +375,7 @@ s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
 
 ### DataFrame
 
-#### Creation
+#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame)
 
 Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 
@@ -421,14 +442,6 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 [TOC](#table-of-contents)
 
-#### Methods
-
-| [Method][011] (v0.22.0) | Description |
-|---------------|-------------|
-| `df.abs()` | Return an object with absolute value taken–only applicable to objects that are all numeric. |
-
-
-[TOC](#table-of-contents)
 
 #### Indexing & Slicing
 
@@ -500,13 +513,9 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 [018]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#scales
 [019]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#pivot_tables
 [020]: ../AppliedDS-UMich/1-IntroDS/03-AdvPandas.md#date-functionality
-[021]: 
-[022]: 
-[023]: 
-[024]: 
-[025]: 
-[026]: 
-[027]: 
-[028]: 
-[029]: 
+[021]: ../AppliedDS-UMich/1-IntroDS/04-Stats.md#distribution
+[022]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#more-distribution
+[023]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#hypothesis-testing-in-python
+[024]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.resample.html
+
 
