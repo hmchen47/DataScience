@@ -1846,6 +1846,25 @@ This module provides: error and warning objects; a polynomial base class; and so
 | `set_state(state)` | Set the internal state of the generator from a tuple. | [API][0939] |
 
 
+## [Set routines][0940]
+
+### Making proper sets
+
+| API | Description | Link |
+|-----|-------------|------|
+| `unique(ar[, return_index, return_inverse, …])` | Find the unique elements of an array. | [API][0941] |
+
+### Boolean operations
+
+| API | Description | Link |
+|-----|-------------|------|
+| `in1d(ar1, ar2[, assume_unique, invert])` | Test whether each element of a 1-D array is also present in a second array. | [API][0942] |
+| `intersect1d(ar1, ar2[, assume_unique])` | Find the intersection of two arrays. | [API][0943] |
+| `isin(element, test_elements[, …])` | Calculates element in test_elements, broadcasting over element only. | [API][0944] |
+| `setdiff1d(ar1, ar2[, assume_unique])` | Find the set difference of two arrays. | [API][0945] |
+| `setxor1d(ar1, ar2[, assume_unique])` | Find the set exclusive-or of two arrays. | [API][0946] |
+| `union1d(ar1, ar2)` | Find the union of two arrays. | [API][0947] |
+
 
 
 
@@ -2802,14 +2821,14 @@ This module provides: error and warning objects; a polynomial base class; and so
 [0937]: https://www.numpy.org/devdocs/reference/generated/numpy.random.seed.html#numpy.random.seed
 [0938]: https://www.numpy.org/devdocs/reference/generated/numpy.random.get_state.html#numpy.random.get_state
 [0939]: https://www.numpy.org/devdocs/reference/generated/numpy.random.set_state.html#numpy.random.set_state
-[0940]: 
-[0941]: 
-[0942]: 
-[0943]: 
-[0944]: 
-[0945]: 
-[0946]: 
-[0947]: 
+[0940]: https://www.numpy.org/devdocs/reference/routines.set.html
+[0941]: https://www.numpy.org/devdocs/reference/generated/numpy.unique.html#numpy.unique
+[0942]: https://www.numpy.org/devdocs/reference/generated/numpy.in1d.html#numpy.in1d
+[0943]: https://www.numpy.org/devdocs/reference/generated/numpy.intersect1d.html#numpy.intersect1d
+[0944]: https://www.numpy.org/devdocs/reference/generated/numpy.isin.html#numpy.isin
+[0945]: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html#numpy.setdiff1d
+[0946]: https://www.numpy.org/devdocs/reference/generated/numpy.setxor1d.html#numpy.setxor1d
+[0947]: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html#numpy.union1d
 [0948]: 
 [0949]: 
 [0950]: 
