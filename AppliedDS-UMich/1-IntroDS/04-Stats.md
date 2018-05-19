@@ -242,8 +242,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     late.mean()
 
     from scipy import stats
-    get_ipython().magic('pinfo stats.ttest_ind')
-
+ 
     stats.ttest_ind(early['assignment1_grade'], late['assignment1_grade'])
     # Ttest_indResult(statistic=1.400549944897566, pvalue=0.16148283016060577)
     stats.ttest_ind(early['assignment2_grade'], late['assignment2_grade'])
