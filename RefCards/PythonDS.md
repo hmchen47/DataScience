@@ -185,7 +185,7 @@ import pandas as pd
 
 ### Series
 
-#### Ceation 
+#### Creation 
 
 Syntax: `pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)`
 
@@ -736,7 +736,15 @@ Syntax: ``df(data=None, index=None, columns=None, dtype=None, copy=False)`
 | ``df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010] |
 | ``df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
 | `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all`` | if all values are NA, drop that label; `thresh`: int, default None; int value` | require that many non-NA values; `subset`` | array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
+| `df.where(cond, other=nan, inplace=False, axis=None, level=None, errors='raise', try_cast=False, raise_on_error=None)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other` | [DF Query][010] |
+| `count(axis=0, level=None, numeric_only=False)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None) | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
+| `df.sort_index(axis=0, level=None, ascending=True, inplace=False, kind='quicksort', na_position='last', sort_remaining=True, by=None)` | Sort object by labels (along an axis)  | [Missing Values][014] |
+| `df.set_index(keys, drop=True, append=False, inplace=False, verify_integrity=False)` | Set the DataFrame index (row labels) using one or more existing columns. By default yields a new object. | [Indexing DataFrames][015] |
+| `df.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')` | For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. | [Indexing DataFrames][015] |
+| `unique(values)` | Hash table-based unique. Uniques are returned in order of appearance. This does NOT sort. | [Indexing DataFrames][015] |
+
+
 
 
 
@@ -762,7 +770,7 @@ Syntax: ``df(data=None, index=None, columns=None, dtype=None, copy=False)`
 [012]: Missing Valuesindexing-dataframes
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
 [014]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-values
-[015]: 
+[015]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md##indexing-dataframes
 [016]: 
 [017]: 
 [018]: 

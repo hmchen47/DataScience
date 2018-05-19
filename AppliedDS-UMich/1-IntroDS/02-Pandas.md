@@ -39,11 +39,23 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + Name: label of a column
     + Index: the index of a row
     + Value: the element
++ Class `Series`
+    + Syntax: `pd.Series(data, index, dtype=None, copy=False)`
+    + One-dimensional ndarray with axis labels (including time series)
+    + `data`: array-like, dict, or scalar value; Contains data stored in Series
+    + `index`: array-like or Index (1d); Values must be hashable and have the same length as `data`. 
+    + `dtype`: numpy.dtype or None
+    + `copy`: boolean, default False; Copy input data
++ `np.isnan` func:
+    + Syntax: `isnan(x, out=None)`
+    + Test element-wise for NaN and return result as a boolean array
+    + `x`: array_like; input array
+    + `out`: ndarray, None, or tuple of ndarray and None; A location into which the result is stored
 
 + Demo
     ```python
     import pandas as pd
-    get_ipython().magic('pinfo pd.Series')
+    pd.Series?
 
     animals = ['Tiger', 'Bear', 'Moose']
     pd.Series(animals)
@@ -84,6 +96,25 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/deR9JZmEEeaToA55AQb91A.processed/full/540p/index.mp4?Expires=1525478400&Signature=KsI8ZLjCILliqC04ox1NQDk76fV-CCnCsJA3FeP~J55DpQR6dRMcvN6ffqUJ6Prk00ecOnm8TUMudKNsbiR6A2e7pC0XV1wAArn6rNh~rGyoICswJLp2MHSPUKTWuimK2gNzPpXbH06ucv0T~2s9S-QCQwGqyY7QGsAY-EuJO2w_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 ## Querying a Series
+
++ `.loc` property:
+    + Purely label-location based indexer for selection by label.
+    + `.loc[]` is primarily label based, but may also be used with a boolean array.
+    + Allowed inputs are:
+        + A single label, e.g. `5` or `'a'`, (note that `5` is interpreted as a *label* of the index, and **never** as an integer position along the index).
+        + A list or array of labels, e.g. `['a', 'b', 'c']`.
+        + A slice object with labels, e.g. `'a':'f'` (note that contrary to usual python slices, **both** the start and the stop are included!).
+        + A boolean array.
+        + A `callable` function with one argument (the calling Series, DataFrame or Panel) and that returns valid output for indexing (one of the above)
++ `.iloc` property:
+    + Purely integer-location based indexing for selection by position.
+    + `.iloc[]` is primarily integer position based (from `0` to `length-1` of the axis), but may also be used with a boolean array.
+    + Allowed inputs are:
+        + An integer, e.g. `5`. 
+        + A list or array of integers, e.g. `[4, 3, 0]`.
+        + A slice object with ints, e.g. `1:7`.
+        + A boolean array.
+        + A `callable` function with one argument (the calling Series, DataFrame or Panel) and that returns valid output for indexing (one of the above)
 
 + Demo
     ```python
@@ -188,6 +219,25 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ![diagram](./diagrams/dataframe.png)
 
+
++ `copy` method:
+    + Syntax: `copy(deep=True)`
+    + Make a copy of this objects data
+    + `deep`: boolean or string; 
+        + True: Make a deep copy, including a copy of the data and the indices.
+        + False: neither the indices or the data are copied.
++ `drop` method:
+    + Syntax: `drop(labels=None, axis=0, index=None, columns=None, level=None, inplace=False, errors='raise')`
+    + Return new object with labels in requested axis removed
+    + `labels`: single label or list-like; Index or column labels to drop.
+    + `axis`: int or axis name; Whether to drop labels from the index (0/'index') or columns (1/'columns').
+    + `index`, `columns`: single label or list-like; Alternative to specifying `axis` (`labels, axis=1` is equivalent to `columns=labels`).
+    + `level`: int or level name; For MultiIndex 
+    + `inplace`: bool; True: do operation inplace and return None.
+    + `errors`: {'ignore', 'raise'}
++ 
+
+![Anatomy of Pandas DataFrame](https://cdn-images-1.medium.com/max/1250/1*ZSehcrMtBWN7_qCWq_HiSg.png)
 + Demo
     ```python
     purchase_1 = pd.Series({'Name': 'Chris',
@@ -272,6 +322,13 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## DataFrame Indexing and Loading
 
++ `rename` method
+    + Syntax: `rename(mapper=None, index=None, columns=None, axis=None, copy=True, inplace=False, level=None)`
+    + Alter axes labels.
+    + `mapper`, `index`, `columns`: dict-like or function; dict-like or functions transformations to apply to that axis' values. Use either `mapper` and `axis` to specify the axis to target with `mapper`, or `index` and `columns`.
+    + `axis`: int or str; Axis to target with `mapper`. Can be either the axis name `('index', 'columns')` or number `(0, 1)`. The default is 'index'.
+    + `inplace`: boolean
+    + `level`: int or level name; In case of a MultiIndex, only rename labels in the specified level.
 + Demo
     ```python
 
@@ -331,6 +388,38 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
     ![diagram](./diagrams/booleanMasking.png)
 
++ `where` method:
+    + Syntax: `where(cond, other=nan, inplace=False, axis=None, level=None, errors='raise', try_cast=False, raise_on_error=None)`
+    + Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`.
+    + `cond`: boolean NDFrame, array-like, or callable; 
+        + Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other`.
+        + If `cond` is callable, it is computed on the NDFrame and should return boolean NDFrame or array. The callable must not change input NDFrame (though pandas doesn't check it).
+    + `other`: scalar, NDFrame, or callable
+        + Entries where `cond` is False are replaced with corresponding value from `other`.
+        + If other is callable, it is computed on the NDFrame and should return scalar or NDFrame. The callable must not change input NDFrame (though pandas doesn't check it).
+    + `inplace`: boolean; Whether to perform the operation in place on the data
+    + `axis`: alignment axis if needed
+    + `level`: alignment level if needed
+    + `errors`: str, {'raise', 'ignore'}, default 'raise'
+        + `raise` : allow exceptions to be raised
+        + `ignore` : suppress exceptions. On error return original object
++ `dropna` method:
+    + Syntax: `dropna( axis=0, how='any', thresh=None, subset=None, inplace=False)`
+    + Return object with labels on given axis omitted where alternately any or all of the data are missing
+    + `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof; Pass tuple or list to drop on multiple axes
+    + `how`: {'any', 'all'}
+        + any : if any NA values are present, drop that label
+        + all : if all values are NA, drop that label
+    + `thresh`: int; int value : require that many non-NA values
+    + `subset`: array-like; Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include 
+    + `inplace`: boolean
++ `count` method:
+    + Syntax: `count(axis=0, level=None, numeric_only=False)`
+    + Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None)
+    + `axis`: {0 or 'index', 1 or 'columns'}
+    + `level`: int or level name; If the axis is a MultiIndex (hierarchical), count along a particular level, collapsing into a DataFrame
+    + `numeric_only`: boolean; Include only float, int, boolean data
+
 + Demo
     ```python
     df['Gold'] > 0      # create boolean mask
@@ -387,6 +476,26 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         + index column offset with original dataframe
         + new 1st row w/ empty value
     + `reset_index` method: remove original indices and create a default numerical indices
++ `set_index` method:
+    + Syntax: `set_index(keys, drop=True, append=False, inplace=False, verify_integrity=False)`
+    + Set the DataFrame index (row labels) using one or more existing columns. By default yields a new object.
+    + `keys`: column label or list of column labels / arrays
+    + `drop`: boolean; Delete columns to be used as the new index
+    + `append`: boolean; Whether to append columns to existing index
+    + `inplace`: boolean; Modify the DataFrame in place (do not create a new object)
+    + `verify_integrity`: boolean; Check the new index for duplicates. Otherwise defer the check until necessary. Setting to False will improve the performance of this method
++ `reset_index` method:
+    + Syntax: `reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')`
+    + For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. For a standard index, the index name will be used (if set), otherwise a default 'index' or 'level_0' (if 'index' is already taken) will be used.
+    + `level`: int, str, tuple, or list; Only remove the given levels from the index. Removes all levels by default
+    + `drop`: boolean; Do not try to insert index into dataframe columns. This resets the index to the default integer index.
+    + `inplace`: boolean; Modify the DataFrame in place (do not create a new object)
+    + `col_level`: int or str; If the columns have multiple levels, determines which level the labels are inserted into. By default it is inserted into the first level.
+    + `col_fill`: object; If the columns have multiple levels, determines how the other levels are named. If None then the index name is repeated.
++ `unique` function
+    + Syntax: `unique(values)`
+    + Hash table-based unique. Uniques are returned in order of appearance. This does NOT sort.
+    + `values`: 1d array-like
 + Demo
     ```python
     df['country'] = df.index    # preserve index as column 'country'
@@ -464,17 +573,23 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + Signature: `df.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)`
     + Docstring: Fill NA/NaN values using the specified method
     + Parameters
-        + `value`: scalar, dict, Series, or DataFrame   
-            Value to use to fill holes (e.g. 0), alternately a dict/Series/DataFrame of values specifying which value to use for each index (for a Series) or column (for a DataFrame). (values not in the dict/Series/DataFrame will not be filled). This value cannot be a list.
-        + `method`: {'backfill', 'bfill', 'pad', 'ffill', None}  
-            Method to use for filling holes in reindexed Series, `pad`/`ffill`: propagate last valid observation forward to next valid, `backfill`/`bfill`: use NEXT valid observation to fill gap
+        + `value`: scalar, dict, Series, or DataFrame; Value to use to fill holes (e.g. 0), alternately a dict/Series/DataFrame of values specifying which value to use for each index (for a Series) or column (for a DataFrame). (values not in the dict/Series/DataFrame will not be filled). This value cannot be a list.
+        + `method`: {'backfill', 'bfill', 'pad', 'ffill', None}; Method to use for filling holes in reindexed Series, `pad`/`ffill`: propagate last valid observation forward to next valid, `backfill`/`bfill`: use NEXT valid observation to fill gap
         + `axis`: {0 or 'index', 1 or 'columns'}  
-        + `inplace`: boolean, default False  
-            If True, fill in place. Note: this will modify any other views on this object, (e.g. a no-copy slice for a column in a DataFrame).
-        + `limit`: int, default None  
-            If method is specified, this is the maximum number of consecutive NaN values to forward/backward fill. In other words, if there is a gap with more than this number of consecutive NaNs, it will only be partially filled. If method is not specified, this is the maximum number of entries along the entire axis where NaNs will be filled. Must be greater than 0 if not None.
-        + `downcast`: dict, default is None  
-            a dict of item->dtype of what to downcast if possible, or the string 'infer' which will try to downcast to an appropriate equal type (e.g. float64 to int64 if possible)
+        + `inplace`: boolean; If True, fill in place. Note: this will modify any other views on this object, (e.g. a no-copy slice for a column in a DataFrame).
+        + `limit`: int; If method is specified, this is the maximum number of consecutive NaN values to forward/backward fill. In other words, if there is a gap with more than this number of consecutive NaNs, it will only be partially filled. If method is not specified, this is the maximum number of entries along the entire axis where NaNs will be filled. Must be greater than 0 if not None.
+        + `downcast`: dict; a dict of item->dtype of what to downcast if possible, or the string 'infer' which will try to downcast to an appropriate equal type (e.g. float64 to int64 if possible)
++ `sort_index` method:
+    + Syntax: `sort_index(axis=0, level=None, ascending=True, inplace=False, kind='quicksort', na_position='last', sort_remaining=True, by=None)`
+    + Sort object by labels (along an axis)
+    + `axis`: index, columns to direct sorting
+    + `level`: int or level name or list of ints or list of level names
+        if not None, sort on values in specified index level(s) 
+    + `ascending`: boolean; Sort ascending vs. descending
+    + `inplace`: bool; if True, perform operation in-place
+    + `kind`: {'quicksort', 'mergesort', 'heapsort'}, default 'quicksort'
+    + `na_position`: {'first', 'last'}; `first` puts NaNs at the beginning, `last` puts NaNs at the end. Not implemented for MultiIndex.
+    + `sort_remaining`: bool; if true and sorting by level and index is multilevel, sort by other levels too (in order) after sorting by specified level
 
 + Demo
     ```python
