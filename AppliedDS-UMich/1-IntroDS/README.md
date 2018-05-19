@@ -76,7 +76,7 @@
 
 ### [Week 3 Lectures Jupyter Notebook](./03-AdvPandas.md#week-3-lectures-jupyter-notebook)
 
-### [Merging Dataframes](./03-AdvPandas.md#merging-dataframe)
+### [Merging Dataframes](./03-AdvPandas.md#merging-dataframes)
 
 ### [Pandas Idioms](./03-AdvPandas.md#pandas-idioms)
 
@@ -88,8 +88,7 @@
 
 ### [Date Functionality](./03-AdvPandas.md#date-functionality)
 
-### [Discussion Prompt: Goodhart's Law](./03-AdvPandas.md#discussion-prompt-goodfarts-law)
-
+### [Discussion Prompt: Goodhart's Law](./03-AdvPandas.md#discussion-prompt-goodharts-law)
 
 
 
