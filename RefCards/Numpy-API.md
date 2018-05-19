@@ -1904,6 +1904,48 @@ This module provides: error and warning objects; a polynomial base class; and so
 | `count_nonzero(a[, axis])` | Counts the number of non-zero values in the array a. | [API][0967] |
 
 
+## [Statistics][0968]
+
+### Order statistics
+
+| `amin(a[, axis, out, keepdims, initial])` | Return the minimum of an array or minimum along an axis. | [API][0969] |
+| `amax(a[, axis, out, keepdims, initial])` | Return the maximum of an array or maximum along an axis. | [API][0970] |
+| `nanmin(a[, axis, out, keepdims])` | Return minimum of an array or minimum along an axis, ignoring any NaNs. | [API][0971] |
+| `nanmax(a[, axis, out, keepdims])` | Return the maximum of an array or maximum along an axis, ignoring any NaNs. | [API][0972] |
+| `ptp(a[, axis, out, keepdims])` | Range of values (maximum - minimum) along an axis. | [API][0973] |
+| `percentile(a, q[, axis, out, …])` | Compute the qth percentile of the data along the specified axis. | [API][0974] |
+| `nanpercentile(a, q[, axis, out, …])` | Compute the qth percentile of the data along the specified axis, while ignoring nan values. | [API][0975] |
+| `quantile(a, q[, axis, out, overwrite_input, …])` | Compute the `q`th quantile of the data along the specified axis…versionadded:: 1.15.0. | [API][0976] |
+| `nanquantile(a, q[, axis, out, …])` | Compute the qth quantile of the data along the specified axis, while ignoring nan values. | [API][0977] |
+
+### Averages and variances
+
+| `median(a[, axis, out, overwrite_input, keepdims])` | Compute the median along the specified axis. | [API][0978] |
+| `average(a[, axis, weights, returned])` | Compute the weighted average along the specified axis. | [API][0979] |
+| `mean(a[, axis, dtype, out, keepdims])` | Compute the arithmetic mean along the specified axis. | [API][0980] |
+| `std(a[, axis, dtype, out, ddof, keepdims])` | Compute the standard deviation along the specified axis. | [API][0981] |
+| `var(a[, axis, dtype, out, ddof, keepdims])` | Compute the variance along the specified axis. | [API][0982] |
+| `nanmedian(a[, axis, out, overwrite_input, …])` | Compute the median along the specified axis, while ignoring NaNs. | [API][0983] |
+| `nanmean(a[, axis, dtype, out, keepdims])` | Compute the arithmetic mean along the specified axis, ignoring NaNs. | [API][0984] |
+| `nanstd(a[, axis, dtype, out, ddof, keepdims])` | Compute the standard deviation along the specified axis, while ignoring NaNs. | [API][0985] |
+| `nanvar(a[, axis, dtype, out, ddof, keepdims])` | Compute the variance along the specified axis, while ignoring NaNs. | [API][0986] |
+
+### Correlating
+
+| `corrcoef(x[, y, rowvar, bias, ddof])` | Return Pearson product-moment correlation coefficients. | [API][0987] |
+| `correlate(a, v[, mode])` | Cross-correlation of two 1-dimensional sequences. | [API][0988] |
+| `cov(m[, y, rowvar, bias, ddof, fweights, …])` | Estimate a covariance matrix, given data and weights. | [API][0989] |
+
+### Histograms
+
+| `histogram(a[, bins, range, normed, weights, …])` | Compute the histogram of a set of data. | [API][0990] |
+| `histogram2d(x, y[, bins, range, normed, weights])` | Compute the bi-dimensional histogram of two data samples. | [API][0991] |
+| `histogramdd(sample[, bins, range, normed, …])` | Compute the multidimensional histogram of some data. | [API][0992] |
+| `bincount(x[, weights, minlength])` | Count number of occurrences of each value in array of non-negative ints. | [API][0993] |
+| `digitize(x, bins[, right])` | Return the indices of the bins to which each value in input array belongs. | [API][0994] |
+
+
+
 
 
 
@@ -2885,33 +2927,33 @@ This module provides: error and warning objects; a polynomial base class; and so
 [0965]: https://www.numpy.org/devdocs/reference/generated/numpy.searchsorted.html#numpy.searchsorted
 [0966]: https://www.numpy.org/devdocs/reference/generated/numpy.extract.html#numpy.extract
 [0967]: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html#numpy.count_nonzero
-[0968]: 
-[0969]: 
-[0970]: 
-[0971]: 
-[0972]: 
-[0973]: 
-[0974]: 
-[0975]: 
-[0976]: 
-[0977]: 
-[0978]: 
-[0979]: 
-[0980]: 
-[0981]: 
-[0982]: 
-[0983]: 
-[0984]: 
-[0985]: 
-[0986]: 
-[0987]: 
-[0988]: 
-[0989]: 
-[0990]: 
-[0991]: 
-[0992]: 
-[0993]: 
-[0994]: 
+[0968]: https://www.numpy.org/devdocs/reference/routines.statistics.html
+[0969]: https://www.numpy.org/devdocs/reference/generated/numpy.amin.html#numpy.amin
+[0970]: https://www.numpy.org/devdocs/reference/generated/numpy.amax.html#numpy.amax
+[0971]: https://www.numpy.org/devdocs/reference/generated/numpy.nanmin.html#numpy.nanmin
+[0972]: https://www.numpy.org/devdocs/reference/generated/numpy.nanmax.html#numpy.nanmax
+[0973]: https://www.numpy.org/devdocs/reference/generated/numpy.ptp.html#numpy.ptp
+[0974]: https://www.numpy.org/devdocs/reference/generated/numpy.percentile.html#numpy.percentile
+[0975]: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html#numpy.nanpercentile
+[0976]: https://www.numpy.org/devdocs/reference/generated/numpy.quantile.html#numpy.quantile
+[0977]: https://www.numpy.org/devdocs/reference/generated/numpy.nanquantile.html#numpy.nanquantile
+[0978]: https://www.numpy.org/devdocs/reference/generated/numpy.median.html#numpy.median
+[0979]: https://www.numpy.org/devdocs/reference/generated/numpy.average.html#numpy.average
+[0980]: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html#numpy.mean
+[0981]: https://www.numpy.org/devdocs/reference/generated/numpy.std.html#numpy.std
+[0982]: https://www.numpy.org/devdocs/reference/generated/numpy.var.html#numpy.var
+[0983]: https://www.numpy.org/devdocs/reference/generated/numpy.nanmedian.html#numpy.nanmedian
+[0984]: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html#numpy.nanmean
+[0985]: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html#numpy.nanstd
+[0986]: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html#numpy.nanvar
+[0987]: https://www.numpy.org/devdocs/reference/generated/numpy.corrcoef.html#numpy.corrcoef
+[0988]: https://www.numpy.org/devdocs/reference/generated/numpy.correlate.html#numpy.correlate
+[0989]: https://www.numpy.org/devdocs/reference/generated/numpy.cov.html#numpy.cov
+[0990]: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html#numpy.histogram
+[0991]: https://www.numpy.org/devdocs/reference/generated/numpy.histogram2d.html#numpy.histogram2d
+[0992]: https://www.numpy.org/devdocs/reference/generated/numpy.histogramdd.html#numpy.histogramdd
+[0993]: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html#numpy.bincount
+[0994]: https://www.numpy.org/devdocs/reference/generated/numpy.digitize.html#numpy.digitize
 [0995]: 
 [0996]: 
 [0997]: 
