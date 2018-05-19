@@ -1908,6 +1908,8 @@ This module provides: error and warning objects; a polynomial base class; and so
 
 ### Order statistics
 
+| API | Description | Link |
+|-----|-------------|------|
 | `amin(a[, axis, out, keepdims, initial])` | Return the minimum of an array or minimum along an axis. | [API][0969] |
 | `amax(a[, axis, out, keepdims, initial])` | Return the maximum of an array or maximum along an axis. | [API][0970] |
 | `nanmin(a[, axis, out, keepdims])` | Return minimum of an array or minimum along an axis, ignoring any NaNs. | [API][0971] |
@@ -1920,6 +1922,8 @@ This module provides: error and warning objects; a polynomial base class; and so
 
 ### Averages and variances
 
+| API | Description | Link |
+|-----|-------------|------|
 | `median(a[, axis, out, overwrite_input, keepdims])` | Compute the median along the specified axis. | [API][0978] |
 | `average(a[, axis, weights, returned])` | Compute the weighted average along the specified axis. | [API][0979] |
 | `mean(a[, axis, dtype, out, keepdims])` | Compute the arithmetic mean along the specified axis. | [API][0980] |
@@ -1932,18 +1936,66 @@ This module provides: error and warning objects; a polynomial base class; and so
 
 ### Correlating
 
+| API | Description | Link |
+|-----|-------------|------|
 | `corrcoef(x[, y, rowvar, bias, ddof])` | Return Pearson product-moment correlation coefficients. | [API][0987] |
 | `correlate(a, v[, mode])` | Cross-correlation of two 1-dimensional sequences. | [API][0988] |
 | `cov(m[, y, rowvar, bias, ddof, fweights, …])` | Estimate a covariance matrix, given data and weights. | [API][0989] |
 
 ### Histograms
 
+| API | Description | Link |
+|-----|-------------|------|
 | `histogram(a[, bins, range, normed, weights, …])` | Compute the histogram of a set of data. | [API][0990] |
 | `histogram2d(x, y[, bins, range, normed, weights])` | Compute the bi-dimensional histogram of two data samples. | [API][0991] |
 | `histogramdd(sample[, bins, range, normed, …])` | Compute the multidimensional histogram of some data. | [API][0992] |
 | `bincount(x[, weights, minlength])` | Count number of occurrences of each value in array of non-negative ints. | [API][0993] |
 | `digitize(x, bins[, right])` | Return the indices of the bins to which each value in input array belongs. | [API][0994] |
 
+
+## [Test Support (numpy.testing)][0995]
+
+Common test support for all numpy test scripts.
+
+This single module should provide all the common functionality for numpy tests in a single location, so that test scripts can just import it and work right away.
+
+### Asserts
+
+| API | Description | Link |
+|-----|-------------|------|
+| `assert_almost_equal(actual, desired[, …])` | Raises an AssertionError if two items are not equal up to desired precision. | [API][0996] |
+| `assert_approx_equal(actual, desired[, …])` | Raises an AssertionError if two items are not equal up to significant digits. | [API][0997] |
+| `assert_array_almost_equal(x, y[, decimal, …])` | Raises an AssertionError if two objects are not equal up to desired precision. | [API][0998] |
+| `assert_allclose(actual, desired[, rtol, …])` | Raises an AssertionError if two objects are not equal up to desired tolerance. | [API][0999] |
+| `assert_array_almost_equal_nulp(x, y[, nulp])` | Compare two arrays relatively to their spacing. | [API][1000] |
+| `assert_array_max_ulp(a, b[, maxulp, dtype])` | Check that all items of arrays differ in at most N Units in the Last Place. | [API][1001] |
+| `assert_array_equal(x, y[, err_msg, verbose])` | Raises an AssertionError if two array_like objects are not equal. | [API][1002] |
+| `assert_array_less(x, y[, err_msg, verbose])` | Raises an AssertionError if two array_like objects are not ordered by less than. | [API][1003] |
+| `assert_equal(actual, desired[, err_msg, verbose])` | Raises an AssertionError if two objects are not equal. | [API][1004] |
+| `assert_raises(exception_class, callable, …)` | Fail unless an exception of class exception_class is thrown by callable when invoked with arguments args and keyword arguments kwargs. | [API][1005] |
+| `assert_raises_regex(exception_class, …)` | Fail unless an exception of class exception_class and with message that matches expected_regexp is thrown by callable | `when invoked with arguments args and keyword arguments kwargs. | [API][1006] |
+| `assert_warns(warning_class, *args, **kwargs)` | Fail unless the given callable throws the specified warning. | [API][1007] |
+| `assert_string_equal(actual, desired)` | Test if two strings are equal. | [API][1008] |
+
+### Decorators
+
+| API | Description | Link |
+|-----|-------------|------|
+| `decorators.deprecated([conditional])` | Filter deprecation warnings while running the test suite. | [API][1009] |
+| `decorators.knownfailureif(fail_condition[, msg])` | Make function raise KnownFailureException exception if given condition is true. | [API][1010] |
+| `decorators.setastest([tf])` | Signals to nose that this function is or is not a test. | [API][1011] |
+| `decorators.skipif(skip_condition[, msg])` | Make function raise SkipTest exception if a given condition is true. | [API][1012] |
+| `decorators.slow(t)` | Label a test as ‘slow’. | [API][1013] |
+| `decorate_methods(cls, decorator[, testmatch])` | Apply a decorator to all methods in a class matching a regular expression. | [API][1014] |
+
+### Test Running
+
+| API | Description | Link |
+|-----|-------------|------|
+| `Tester` | alias of numpy.testing._private.nosetester.NoseTester | [API][1015] |
+| `run_module_suite([file_to_run, argv])` | Run a test module. | [API][1016] |
+| `rundocs([filename, raise_on_error])` | Run doctests found in the given file. | [API][1017] |
+| `suppress_warnings([forwarding_rule])` | Context manager and decorator doing much the same as warnings.catch_warnings. | [API][1018] |
 
 
 
@@ -2954,113 +3006,212 @@ This module provides: error and warning objects; a polynomial base class; and so
 [0992]: https://www.numpy.org/devdocs/reference/generated/numpy.histogramdd.html#numpy.histogramdd
 [0993]: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html#numpy.bincount
 [0994]: https://www.numpy.org/devdocs/reference/generated/numpy.digitize.html#numpy.digitize
-[0995]: 
-[0996]: 
-[0997]: 
-[0998]: 
-[0999]: 
+[0995]: https://www.numpy.org/devdocs/reference/routines.testing.html
+[0996]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_almost_equal.html#numpy.testing.assert_almost_equal
+[0997]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_approx_equal.html#numpy.testing.assert_approx_equal
+[0998]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_array_almost_equal.html#numpy.testing.assert_array_almost_equal
+[0999]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_allclose.html#numpy.testing.assert_allclose
 
-[1000]: 
-[1001]: 
-[1002]: 
-[1003]: 
-[1004]: 
-[1005]: 
-[1006]: 
-[1007]: 
-[1008]: 
-[1009]: 
-[1010]: 
-[1011]: 
-[1012]: 
-[1013]: 
-[1014]: 
-[1015]: 
-[1016]: 
-[1017]: 
-[1018]: 
-[1019]: 
-[1020]: 
-[1021]: 
-[1022]: 
-[1023]: 
-[1024]: 
-[1025]: 
-[1026]: 
-[1027]: 
-[1028]: 
-[1029]: 
-[1030]: 
-[1031]: 
-[1032]: 
-[1033]: 
-[1034]: 
-[1035]: 
-[1036]: 
-[1037]: 
-[1038]: 
-[1039]: 
-[1040]: 
-[1041]: 
-[1042]: 
-[1043]: 
-[1044]: 
-[1045]: 
-[1046]: 
-[1047]: 
-[1048]: 
-[1049]: 
-[1050]: 
-[1051]: 
-[1052]: 
-[1053]: 
-[1054]: 
-[1055]: 
-[1056]: 
-[1057]: 
-[1058]: 
-[1059]: 
-[1060]: 
-[1061]: 
-[1062]: 
-[1063]: 
-[1064]: 
-[1065]: 
-[1066]: 
-[1067]: 
-[1068]: 
-[1069]: 
-[1070]: 
-[1071]: 
-[1072]: 
-[1073]: 
-[1074]: 
-[1075]: 
-[1076]: 
-[1077]: 
-[1078]: 
-[1079]: 
-[1080]: 
-[1081]: 
-[1082]: 
-[1083]: 
-[1084]: 
-[1085]: 
-[1086]: 
-[1087]: 
-[1088]: 
-[1089]: 
-[1090]: 
-[1091]: 
-[1092]: 
-[1093]: 
-[1094]: 
-[1095]: 
-[1096]: 
-[1097]: 
-[1098]: 
-[1099]: 
-
-
+[1000]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_array_almost_equal_nulp.html#numpy.testing.assert_array_almost_equal_nulp
+[1001]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_array_max_ulp.html#numpy.testing.assert_array_max_ulp
+[1002]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_array_equal.html#numpy.testing.assert_array_equal
+[1003]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_array_less.html#numpy.testing.assert_array_less
+[1004]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_equal.html#numpy.testing.assert_equal
+[1005]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_raises.html#numpy.testing.assert_raises
+[1006]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_raises_regex.html#numpy.testing.assert_raises_regex
+[1007]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_warns.html#numpy.testing.assert_warns
+[1008]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.assert_string_equal.html#numpy.testing.assert_string_equal
+[1009]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.decorators.deprecated.html#numpy.testing.decorators.deprecated
+[1010]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.decorators.knownfailureif.html#numpy.testing.decorators.knownfailureif
+[1011]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.decorators.setastest.html#numpy.testing.decorators.setastest
+[1012]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.decorators.skipif.html#numpy.testing.decorators.skipif
+[1013]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.decorators.slow.html#numpy.testing.decorators.slow
+[1014]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.decorate_methods.html#numpy.testing.decorate_methods
+[1015]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.Tester.html#numpy.testing.Tester
+[1016]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.run_module_suite.html#numpy.testing.run_module_suite
+[1017]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.rundocs.html#numpy.testing.rundocs
+[1018]: https://www.numpy.org/devdocs/reference/generated/numpy.testing.suppress_warnings.html#numpy.testing.suppress_warnings
+[//]: # [1019]: 
+[//]: # [1020]: 
+[//]: # [1021]: 
+[//]: # [1022]: 
+[//]: # [1023]: 
+[//]: # [1024]: 
+[//]: # [1025]: 
+[//]: # [1026]: 
+[//]: # [1027]: 
+[//]: # [1028]: 
+[//]: # [1029]: 
+[//]: # [1030]: 
+[//]: # [1031]: 
+[//]: # [1032]: 
+[//]: # [1033]: 
+[//]: # [1034]: 
+[//]: # [1035]: 
+[//]: # [1036]: 
+[//]: # [1037]: 
+[//]: # [1038]: 
+[//]: # [1039]: 
+[//]: # [1040]: 
+[//]: # [1041]: 
+[//]: # [1042]: 
+[//]: # [1043]: 
+[//]: # [1044]: 
+[//]: # [1045]: 
+[//]: # [1046]: 
+[//]: # [1047]: 
+[//]: # [1048]: 
+[//]: # [1049]: 
+[//]: # [1050]: 
+[//]: # [1051]: 
+[//]: # [1052]: 
+[//]: # [1053]: 
+[//]: # [1054]: 
+[//]: # [1055]: 
+[//]: # [1056]: 
+[//]: # [1057]: 
+[//]: # [1058]: 
+[//]: # [1059]: 
+[//]: # [1060]: 
+[//]: # [1061]: 
+[//]: # [1062]: 
+[//]: # [1063]: 
+[//]: # [1064]: 
+[//]: # [1065]: 
+[//]: # [1066]: 
+[//]: # [1067]: 
+[//]: # [1068]: 
+[//]: # [1069]: 
+[//]: # [1070]: 
+[//]: # [1071]: 
+[//]: # [1072]: 
+[//]: # [1073]: 
+[//]: # [1074]: 
+[//]: # [1075]: 
+[//]: # [1076]: 
+[//]: # [1077]: 
+[//]: # [1078]: 
+[//]: # [1079]: 
+[//]: # [1080]: 
+[//]: # [1081]: 
+[//]: # [1082]: 
+[//]: # [1083]: 
+[//]: # [1084]: 
+[//]: # [1085]: 
+[//]: # [1086]: 
+[//]: # [1087]: 
+[//]: # [1088]: 
+[//]: # [1089]: 
+[//]: # [1090]: 
+[//]: # [1091]: 
+[//]: # [1092]: 
+[//]: # [1093]: 
+[//]: # [1094]: 
+[//]: # [1095]: 
+[//]: # [1096]: 
+[//]: # [1097]: 
+[//]: # [1098]: 
+[//]: # [1099]: 
+[//]: # 
+[//]: # [1100]: 
+[//]: # [1101]: 
+[//]: # [1102]: 
+[//]: # [1103]: 
+[//]: # [1104]: 
+[//]: # [1105]: 
+[//]: # [1106]: 
+[//]: # [1107]: 
+[//]: # [1108]: 
+[//]: # [1109]: 
+[//]: # [1110]: 
+[//]: # [1111]: 
+[//]: # [1112]: 
+[//]: # [1113]: 
+[//]: # [1114]: 
+[//]: # [1115]: 
+[//]: # [1116]: 
+[//]: # [1117]: 
+[//]: # [1118]: 
+[//]: # [1119]: 
+[//]: # [1120]: 
+[//]: # [1121]: 
+[//]: # [1122]: 
+[//]: # [1123]: 
+[//]: # [1124]: 
+[//]: # [1125]: 
+[//]: # [1126]: 
+[//]: # [1127]: 
+[//]: # [1128]: 
+[//]: # [1129]: 
+[//]: # [1130]: 
+[//]: # [1131]: 
+[//]: # [1132]: 
+[//]: # [1133]: 
+[//]: # [1134]: 
+[//]: # [1135]: 
+[//]: # [1136]: 
+[//]: # [1137]: 
+[//]: # [1138]: 
+[//]: # [1139]: 
+[//]: # [1140]: 
+[//]: # [1141]: 
+[//]: # [1142]: 
+[//]: # [1143]: 
+[//]: # [1144]: 
+[//]: # [1145]: 
+[//]: # [1146]: 
+[//]: # [1147]: 
+[//]: # [1148]: 
+[//]: # [1149]: 
+[//]: # [1150]: 
+[//]: # [1151]: 
+[//]: # [1152]: 
+[//]: # [1153]: 
+[//]: # [1154]: 
+[//]: # [1155]: 
+[//]: # [1156]: 
+[//]: # [1157]: 
+[//]: # [1158]: 
+[//]: # [1159]: 
+[//]: # [1160]: 
+[//]: # [1161]: 
+[//]: # [1162]: 
+[//]: # [1163]: 
+[//]: # [1164]: 
+[//]: # [1165]: 
+[//]: # [1166]: 
+[//]: # [1167]: 
+[//]: # [1168]: 
+[//]: # [1169]: 
+[//]: # [1170]: 
+[//]: # [1171]: 
+[//]: # [1172]: 
+[//]: # [1173]: 
+[//]: # [1174]: 
+[//]: # [1175]: 
+[//]: # [1176]: 
+[//]: # [1177]: 
+[//]: # [1178]: 
+[//]: # [1179]: 
+[//]: # [1180]: 
+[//]: # [1181]: 
+[//]: # [1182]: 
+[//]: # [1183]: 
+[//]: # [1184]: 
+[//]: # [1185]: 
+[//]: # [1186]: 
+[//]: # [1187]: 
+[//]: # [1188]: 
+[//]: # [1189]: 
+[//]: # [1190]: 
+[//]: # [1191]: 
+[//]: # [1192]: 
+[//]: # [1193]: 
+[//]: # [1194]: 
+[//]: # [1195]: 
+[//]: # [1196]: 
+[//]: # [1197]: 
+[//]: # [1198]: 
+[//]: # [1199]: 
 
 
