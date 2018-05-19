@@ -135,7 +135,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print(pd.merge(products, invoices, left_index=True, right_on='Product ID'))
         ````
 
-[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/6IgoSIkTEealuRI3K47d-Q.processed/full/540p/index.mp4?Expires=1525651200&Signature=ZIUkterjQQyn2VnsXdBJqvtNKGJUbtRXN75eDDB3MQMeK3Jq1QIgad7iUER~2~9GZs8MGlLY0PaHLxgxEZ4MGsNXmDdZq0m76ceg4Tmj9tfrtVGK2IO7mGfMLamxv6k~mqSuRjyZ859QY~hn-hqU174sSmwmV7D95uKVgjUHWx8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
+[![Video Icon](https://www.nslegalaid.ca/wp-content/uploads/2017/05/Video.jpg)](https://d3c33hcgiwev3.cloudfront.net/6IgoSIkTEealuRI3K47d-Q.processed/full/540p/index.mp4?Expires=1525651200&Signature=ZIUkterjQQyn2VnsXdBJqvtNKGJUbtRXN75eDDB3MQMeK3Jq1QIgad7iUER~2~9GZs8MGlLY0PaHLxgxEZ4MGsNXmDdZq0m76ceg4Tmj9tfrtVGK2IO7mGfMLamxv6k~mqSuRjyZ859QY~hn-hqU174sSmwmV7D95uKVgjUHWx8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Pandas Idioms
@@ -234,7 +234,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print(df.drop(df[df['Quantity'] == 0].index).rename(columns={'Weight': 'Weight (oz.)'}))
         ```
 
-[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/8V0N2YkTEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=JM~4lYOt7r4cwxt9bb89koR86qLqVkYU1tlJw8jDTvITLBgrML5XlnkOaRW2dNOc1rT5inglJ5xjWFMlozrNGUApkTyq-i32GQcfqmxLnmUDNoMtHzN94IjDUr5Aopxm0j~kGhuefLyQ3TaFe3IYwQZhajLGuDNbRbx-Yy9qIqk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
+[![Video Icon](https://www.nslegalaid.ca/wp-content/uploads/2017/05/Video.jpg)](https://d3c33hcgiwev3.cloudfront.net/8V0N2YkTEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=JM~4lYOt7r4cwxt9bb89koR86qLqVkYU1tlJw8jDTvITLBgrML5XlnkOaRW2dNOc1rT5inglJ5xjWFMlozrNGUApkTyq-i32GQcfqmxLnmUDNoMtHzN94IjDUr5Aopxm0j~kGhuefLyQ3TaFe3IYwQZhajLGuDNbRbx-Yy9qIqk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Group by
@@ -385,7 +385,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         # print(df.groupby('Category').apply(totalweight, 'Weight (oz.)', 'Quantity'))
         ```
 
-[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/JOzRuokUEea8gwpyjKjbvQ.processed/full/540p/index.mp4?Expires=1525737600&Signature=f6NoHnZx~bIg5Jr4sEB6DV4FOj8W7RtCjsgPNTGjb8hpKcmSG2zW89i15eY8Taf~RSD0uzJBe4P6KHE8k2FJ~h4RDs8GgHT-KbH7ec37qUDiXBjaiM9W0AH5f-6fhrHgxfGsT-o3iZ1vsf0PPV8PafKP0puLnMO31IZ0MQYSK-s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
+[![Video Icon](https://www.nslegalaid.ca/wp-content/uploads/2017/05/Video.jpg)](https://d3c33hcgiwev3.cloudfront.net/JOzRuokUEea8gwpyjKjbvQ.processed/full/540p/index.mp4?Expires=1525737600&Signature=f6NoHnZx~bIg5Jr4sEB6DV4FOj8W7RtCjsgPNTGjb8hpKcmSG2zW89i15eY8Taf~RSD0uzJBe4P6KHE8k2FJ~h4RDs8GgHT-KbH7ec37qUDiXBjaiM9W0AH5f-6fhrHgxfGsT-o3iZ1vsf0PPV8PafKP0puLnMO31IZ0MQYSK-s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Scales
@@ -480,7 +480,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         pd.cut(s, 3, labels=['Small', 'Medium', 'Large'])
         ```
 
-[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/MtOhLIkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=GjcP6zHIVck8-gI0O1FHc2AtKkGvMBRXlFOOfXN4cSZp5fNqJNHbC3UJOSBymobTR3kYFsej2smLT~yaAHFSv71aMXJunjiRqBQtaHLg1o8~szGPiauiLqV0E5-L9Ys3nGqUuEt5J5dGBXigAeUEUni2xL6GFt~OJDHtx1LpYsg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
+[![Video Icon](https://www.nslegalaid.ca/wp-content/uploads/2017/05/Video.jpg)](https://d3c33hcgiwev3.cloudfront.net/MtOhLIkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=GjcP6zHIVck8-gI0O1FHc2AtKkGvMBRXlFOOfXN4cSZp5fNqJNHbC3UJOSBymobTR3kYFsej2smLT~yaAHFSv71aMXJunjiRqBQtaHLg1o8~szGPiauiLqV0E5-L9Ys3nGqUuEt5J5dGBXigAeUEUni2xL6GFt~OJDHtx1LpYsg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Pivot Tables
@@ -537,7 +537,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print(pd.pivot_table(Bikes, index=['Manufacturer','Bike Type']))
         ```
 
-[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/OgnKXYkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=D98E0proM6pxQIWf150RxGU6vsMSagI0gSu00~QipMNwBVK1qp-uDmAGXipcwgWEgsoCD5k0ADTrCPUR1z1OFtLvtC6eD-22lrHF8u4tVkQh~K0VKMhhnJCzJxm0WMl4BC5JCHmOJMfq1dTJXx0m9ELlR2kllJhMn-i7PW2vVV0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
+[![Video Icon](https://www.nslegalaid.ca/wp-content/uploads/2017/05/Video.jpg)](https://d3c33hcgiwev3.cloudfront.net/OgnKXYkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=D98E0proM6pxQIWf150RxGU6vsMSagI0gSu00~QipMNwBVK1qp-uDmAGXipcwgWEgsoCD5k0ADTrCPUR1z1OFtLvtC6eD-22lrHF8u4tVkQh~K0VKMhhnJCzJxm0WMl4BC5JCHmOJMfq1dTJXx0m9ELlR2kllJhMn-i7PW2vVV0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Date Functionality
@@ -693,7 +693,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     df.plot()
     ```
 
-[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/QnzfqokUEeaoHhIiFgcrVw.processed/full/540p/index.mp4?Expires=1525737600&Signature=XK6i1~u5ajmdCtXpOn5ccMP84cjPeYcI1sGDllbp5CJE-9fmkfD0SMUFJkupawrJ2h~fUDVFZ~pu7qiQhu~auk10TuizzaNPyiDJK8SZB1ik9kvK5~4QHClEP8mLll8e20kjQz-2aP3xjB5Tu3WBe8yodAiDzkk-R6N5YT25q1s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.nslegalaid.ca/wp-content/uploads/2017/05/Video.jpg)](https://d3c33hcgiwev3.cloudfront.net/QnzfqokUEeaoHhIiFgcrVw.processed/full/540p/index.mp4?Expires=1525737600&Signature=XK6i1~u5ajmdCtXpOn5ccMP84cjPeYcI1sGDllbp5CJE-9fmkfD0SMUFJkupawrJ2h~fUDVFZ~pu7qiQhu~auk10TuizzaNPyiDJK8SZB1ik9kvK5~4QHClEP8mLll8e20kjQz-2aP3xjB5Tu3WBe8yodAiDzkk-R6N5YT25q1s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Discussion Prompt: Goodhart's Law
