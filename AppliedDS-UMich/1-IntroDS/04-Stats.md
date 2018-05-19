@@ -13,7 +13,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 ## Introduction
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" width="60> 
+  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:60px;height:42px;border:0;"> 
 </a>
 
 
