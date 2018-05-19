@@ -1697,6 +1697,33 @@ This module provides a number of objects (mostly functions) useful for dealing w
 | `poly2herme(pol)` | Convert a polynomial to a Hermite series. | [API][0863] |
 
 
+## [Polyutils][0864]
+
+Utility classes and functions for the polynomial modules.
+
+This module provides: error and warning objects; a polynomial base class; and some routines used in both the _polynomial_ and _chebyshev_ modules.
+
+### Error objects
+
+| `PolyError` | Base class for errors in this module. | [API][0865] |
+| `PolyDomainError` | Issued by the generic Poly class when two domains don’t match. | [API][0866] |
+
+### Warning objects
+
+| `RankWarning` | Issued by chebfit when the design matrix is rank deficient. | [API][0867] |
+
+### Base class
+
+| `PolyBase` | Base class for all polynomial types. | [API][0868] |
+
+### Functions
+
+| `as_series(alist[, trim])` | Return argument as a list of 1-d arrays. | [API][0869] |
+| `trimseq(seq)` | Remove small Poly series coefficients. | [API][0870] |
+| `trimcoef(c[, tol])` | Remove “small” “trailing” coefficients from a polynomial. | [API][0871] |
+| `getdomain(x)` | Return a domain suitable for given abscissae. | [API][0872] |
+| `mapdomain(x, old, new)` | Apply linear map to input points. | [API][0873] |
+| `mapparms(old, new)` | Linear map parameters between domains. | [API][0874] |
 
 
 
@@ -2576,17 +2603,17 @@ This module provides a number of objects (mostly functions) useful for dealing w
 [0861]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite_e.hermeline.html#numpy.polynomial.hermite_e.hermeline
 [0862]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite_e.herme2poly.html#numpy.polynomial.hermite_e.herme2poly
 [0863]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.hermite_e.poly2herme.html#numpy.polynomial.hermite_e.poly2herme
-[0864]: 
-[0865]: 
-[0866]: 
-[0867]: 
-[0868]: 
-[0869]: 
-[0870]: 
-[0871]: 
-[0872]: 
-[0873]: 
-[0874]: 
+[0864]: https://www.numpy.org/devdocs/reference/routines.polynomials.polyutils.html
+[0865]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.PolyError.html#numpy.polynomial.polyutils.PolyError
+[0866]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.PolyDomainError.html#numpy.polynomial.polyutils.PolyDomainError
+[0867]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.RankWarning.html#numpy.polynomial.polyutils.RankWarning
+[0868]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.PolyBase.html#numpy.polynomial.polyutils.PolyBase
+[0869]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.as_series.html#numpy.polynomial.polyutils.as_series
+[0870]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.trimseq.html#numpy.polynomial.polyutils.trimseq
+[0871]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.trimcoef.html#numpy.polynomial.polyutils.trimcoef
+[0872]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.getdomain.html#numpy.polynomial.polyutils.getdomain
+[0873]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.mapdomain.html#numpy.polynomial.polyutils.mapdomain
+[0874]: https://www.numpy.org/devdocs/reference/generated/numpy.polynomial.polyutils.mapparms.html#numpy.polynomial.polyutils.mapparms
 [0875]: 
 [0876]: 
 [0877]: 
