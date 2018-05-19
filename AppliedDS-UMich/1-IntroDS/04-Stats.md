@@ -13,7 +13,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 ## Introduction
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/DsljYJeREeaK1Q4gRyvE8A.processed/full/540p/index.mp4?Expires=1526169600&Signature=KnqgJkjJOXRSOdOctE~QugCueoZnhm1qGRVeOACvVRUUa~Ym6jZVsBOK0TUB43h-yWY465E0zsf89rLFheESIpJ2NwqtFP4RcfA9dWeE7uCwgKlpPiini7JWb6SSispEFw9Jom5CX1g8QON4N~fKRJuULLm1y4nUFg3w4wZcOpg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" width="60px"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 
@@ -69,7 +69,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/Flm7AZeREeaGLgqdPwfqeA.processed/full/540p/index.mp4?Expires=1526169600&Signature=UKGzeWaVEGuWdDL9Rjy4HMgE-Jrj0UGIMwUt5SalP0gdhgFeSmCIsJULPRmxqq9vjLlpDhydEs9CT0S2oh57~-p9nRxSc3sZgehUx3lykm-vrgtRyGhAlJw~noz7z7fJ-VTx9JucsCONwnDI7xVOAHcOhBTRqAYm78rkSqZTcDQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" width="60px"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 ## More Distributions
@@ -206,7 +206,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     plt.legend(loc='upper right')
     ```
 <a href="https://d3c33hcgiwev3.cloudfront.net/WxZYpJmFEea9VA4aKWH1oA.processed/full/540p/index.mp4?Expires=1526169600&Signature=aLy3e24RkaPyLLMK91JglIa9xEmj0mdjRpklT0OFarUQOGk6p2Xd5MUabz6RBAaNsHvLt74tXfVArvwD2oOU2iHVqbo5GeWTZEkmC4z4usDPm8cSEUXrU07yoGy9GkDbTeFGycJdpABIo6hRBC~KhW-cICZwstVmMOS9cdg3ZOQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" width="60px"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 ## Hypothesis Testing in Python
@@ -256,7 +256,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/cP0Jy5mFEeazEQqJcB_rAg.processed/full/540p/index.mp4?Expires=1526169600&Signature=ERCUyHaMeGn1OVylK68SzuWz7gJRQEtScTwOhR7Lx9ichn4VWj4ljuMOw~n5aYL18eX5LLlaz6b6sGwbFpOt~LIOF4CUfT-LC2aP4jFfD1cRFXhdfY0LnsZIWseXwjbO2Y7vaYCEYKq97elKV~aIlrByQFw8e5Es0gk7nY8pFj0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" width="60px"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 ## End of Theory

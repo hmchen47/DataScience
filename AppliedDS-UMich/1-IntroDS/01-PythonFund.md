@@ -173,7 +173,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/AuqMXJVAEeaUSArAHh3eJg.processed/full/540p/index.mp4?Expires=1525392000&Signature=Eh8804MzDRIM3qQelGNhx-M2s0iS4ukXXzNqC3C03n0TuUYcqJT452XfZDsv-lq0VI-2bo9vrARcBYRaWEp~YUEjYHvSk9pdjt~dKceIyAR8DwQvJwRkQWLvmxYq9BrlGKLDN9NPuDQEfQHKVAnu9o10NmaVKbmwehpnp7Szp6Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:48px;height:48px;border:0;"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 
@@ -198,7 +198,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/EMUmMJVAEeanawoaUJkV-g.processed/full/540p/index.mp4?Expires=1525478400&Signature=AMzoI9XdNEehc39avztsbfY1mbO3WX6oQNAz4JV5owPFhs~BVMplI4vUQ2B9AwD5G4N9qbysuw-WX7iSOsUNaQ5v1WXhlA7D9WA7eWhSI~vM0SBtf5bI3dFuHPKLA5lORK6fKrsyhVYbjd9sVXtJFceWm0Hkr2QSHb8RLQNKmiM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:48px;height:48px;border:0;"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 
@@ -280,7 +280,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/Js4rn5VAEeaUSArAHh3eJg.processed/full/540p/index.mp4?Expires=1525478400&Signature=JlgG6ke5Md8DFKGIow8rpDn0c02YwO0KchbWMtAPJXGdCYgsIQfIXkAPWvJe68hvpFkfFhvCdQKS44FmVyYgtXu04MBF4iHxzgAKDdG~xAILDZn3I4G2o9DGJ2XWv7PTi9vADQNcryRQ7Z~jRevNRpt8XNPBzu0FOsvQD~2SyVY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:48px;height:48px;border:0;"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 
@@ -310,7 +310,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/G2bb3pVAEeaUSArAHh3eJg.processed/full/540p/index.mp4?Expires=1525478400&Signature=ibsctGYJRKl72W23GG-KVZ3~d-GGGaA903s8NJt1glTihsK~ykkqxecdDLMAU7G7ipaRVNxG9m0WwxUQRzOQa1lYCJW-T8TFWwst4itPuuk9L636zaaUL7KuropXt5r1kVZAb2mfpf~vkBGYaZJ-NVxGWISlld06v8F~DMwk3KA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:48px;height:48px;border:0;"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 
@@ -470,7 +470,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/ZRyxx4kQEeaKKwpaECzIKQ.processed/full/540p/index.mp4?Expires=1525478400&Signature=MUAfuzVgQJAxTPsY0Ey5qf3ZS4yRStcsrujIdbXe9OxxZgW5wL~sy~RYukvA8MJ-W-uD1FH13kfI-EtWGqGhwkiLpqp8rnAgOQwbk7nJ3OC03efeDZqotcmNaCL8aszQbwwtMgbzX8DWRbSBw7V~FvcLYxXimggauMMJmQlXu7Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:48px;height:48px;border:0;"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 
@@ -740,7 +740,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/b95yjokQEeaTPwpQDCu1cw.processed/full/540p/index.mp4?Expires=1526860800&Signature=G680vC4xioBxFq-TawjBWg~0ByEn0UDUt~ISSaULtFrwGepvIrcSg4dgx5IMkHK9PRavSWBtIGdW3VCQE0lpAXu33uN9-HF6YXOe8vgxFFdIglfSU87~CVsK9NcagP7nc0sk5eL-eyWenOEXL4TFGYlWjs1hT8N~Kvqg7zF0uyM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:48px;height:48px;border:0;"> 
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 ## Quiz
