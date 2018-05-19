@@ -220,7 +220,7 @@ import pandas as pd
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] 
+| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] |
 | `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
 
 
@@ -262,9 +262,39 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 | `pd.to_datetime(arg, utc=None, format=None)` | Convert argument to datetime; `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series; `utc`: Return UTC DatetimeIndex if True; `format`: strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds | [Date Functionality][020] |
 | `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; [`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
+| `df.resample(rule, how=None, axis=0)` | Convenience method for frequency conversion and resampling of time series | [Date Functionality][020] |
 
++ [Offset Aliases]((http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases)) for `rule` in `resample`
 
-
+    | Alias | Description |
+    |--------|------------|
+    | `B`     | business day frequency |
+    | `C`     | custom business day frequency (experimental) |
+    | `D`     | calendar day frequency |
+    | `W`     | weekly frequency |
+    | `M`     | month end frequency |
+    | `SM`    | semi-month end frequency (15th and end of month) |
+    | `BM`    | business month end frequency |
+    | `CBM`   | custom business month end frequency |
+    | `MS`    | month start frequency |
+    | `SMS`   | semi-month start frequency (1st and 15th) |
+    | `BMS`   | business month start frequency |
+    | `CBMS`  | custom business month start frequency |
+    | `Q`     | quarter end frequency |
+    | `BQ`    | business quarter endfrequency |
+    | `QS`    | quarter start frequency |
+    | `BQS`   | business quarter start frequency |
+    | `A`     | year end frequency |
+    | `BA`    | business year end frequency |
+    | `AS`    | year start frequency |
+    | `BAS`   | business year start frequency |
+    | `BH`    | business hour frequency |
+    | `H`     | hourly frequency |
+    | `T`     | minutely frequency |
+    | `S`     | secondly frequency |
+    | `L`     | milliseonds |
+    | `U`     | microseconds |
+    | `N`     | nanoseconds |
 
 
 

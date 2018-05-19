@@ -36,20 +36,17 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `merge` method
     + Syntax: `pd.merge(left, right, how='inner', on=None, left_on=None, right_on=None, left_index=False, right_index=False, sort=False)`
     + Merge DataFrame objects by performing a database-style join operation by columns or indexes.
-    + `left`, `right`: DataFrame
-    + `how`: {'left', 'right', 'outer', 'inner'}
-        + 'left': use only keys from left frame, similar to a SQL left outer join; preserve key order
-        + 'right': use only keys from right frame, similar to a SQL right outer join; preserve key order
-        + 'outer': use union of keys from both frames, similar to a SQL full outer join; sort keys lexicographically
-        + 'inner': use intersection of keys from both frames, similar to a SQL inner join; preserve the order of the left keys
-    + `on`: label or list  
-        Field names to join on. Must be found in both DataFrames. If on is None and not merging on indexes, then it merges on the intersection of the columns by default.
-    + `left_on`, `right_on`: label or list, or array-like  
-        Field names to join on in left/right DataFrame. Can be a vector or list of vectors of the length of the DataFrame to use a particular vector as the join key instead of columns
-    + `left_index`, `right_index`: boolean, default False  
-        Use the index from the left/right DataFrame as the join key(s). If it is a MultiIndex, the number of keys in the other DataFrame (either the index or a number of columns) must match the number of levels
-    + `sort`: boolean, default False  
-        Use the index from the left DataFrame as the join key(s). If it is a MultiIndex, the number of keys in the other DataFrame (either the index or a number of columns) must match the number of levels
+    + Parameters:
+        + `left`, `right`: DataFrame
+        + `how`: {'left', 'right', 'outer', 'inner'}
+            + 'left': use only keys from left frame, similar to a SQL left outer join; preserve key order
+            + 'right': use only keys from right frame, similar to a SQL right outer join; preserve key order
+            + 'outer': use union of keys from both frames, similar to a SQL full outer join; sort keys lexicographically
+            + 'inner': use intersection of keys from both frames, similar to a SQL inner join; preserve the order of the left keys
+        + `on`: label or list; Field names to join on. Must be found in both DataFrames. If on is None and not merging on indexes, then it merges on the intersection of the columns by default.
+        + `left_on`, `right_on`: label or list, or array-like; Field names to join on in left/right DataFrame. Can be a vector or list of vectors of the length of the DataFrame to use a particular vector as the join key instead of columns
+        + `left_index`, `right_index`: boolean, default False; Use the index from the left/right DataFrame as the join key(s). If it is a MultiIndex, the number of keys in the other DataFrame (either the index or a number of columns) must match the number of levels
+        + `sort`: boolean, default False; Use the index from the left DataFrame as the join key(s). If it is a MultiIndex, the number of keys in the other DataFrame (either the index or a number of columns) must match the number of levels
 
 + Demo
     ```python
@@ -138,7 +135,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print(pd.merge(products, invoices, left_index=True, right_on='Product ID'))
         ````
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/6IgoSIkTEealuRI3K47d-Q.processed/full/540p/index.mp4?Expires=1525651200&Signature=ZIUkterjQQyn2VnsXdBJqvtNKGJUbtRXN75eDDB3MQMeK3Jq1QIgad7iUER~2~9GZs8MGlLY0PaHLxgxEZ4MGsNXmDdZq0m76ceg4Tmj9tfrtVGK2IO7mGfMLamxv6k~mqSuRjyZ859QY~hn-hqU174sSmwmV7D95uKVgjUHWx8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/6IgoSIkTEealuRI3K47d-Q.processed/full/540p/index.mp4?Expires=1525651200&Signature=ZIUkterjQQyn2VnsXdBJqvtNKGJUbtRXN75eDDB3MQMeK3Jq1QIgad7iUER~2~9GZs8MGlLY0PaHLxgxEZ4MGsNXmDdZq0m76ceg4Tmj9tfrtVGK2IO7mGfMLamxv6k~mqSuRjyZ859QY~hn-hqU174sSmwmV7D95uKVgjUHWx8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Pandas Idioms
@@ -146,19 +143,21 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + Chain Indexing:
     + Making Code Pandorable
     + e.g., `df.loc[“Washtenaw”][“Total Population”]`
-    + Generally bad, pandas could return a copy of a view depending upon numpy
+    + Generally bad, Pandas could return a copy of a view depending upon Numpy
 + Code smell
     + If you see a `][` you should think carefully about what you are doing (Tom Augspurger)
+
 + `where` method
     + Syntax: `df.where(cond, other=nan, inplace=False, axis=None)`
     + Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`.
-    + `cond`: boolean NDFrame, array-like, or callable  
-        Where `cond` is `True`, keep the original value. Where `False`, replace with corresponding value from `other`. If `cond` is callable, it is computed on the NDFrame and should return boolean NDFrame or array. The callable must not change input NDFrame (though pandas doesn't check it).
-    + `other`: scalar, NDFrame, or callable
-        Entries where `cond` is False are replaced with corresponding value from `other`.  If other is callable, it is computed on the NDFrame and should return scalar or NDFrame. The callable must not change input NDFrame (though pandas doesn't check it).
-    + `inplace`: boolean, default False
-        Whether to perform the operation in place on the data
-    + `axis`: alignment axis if needed, default None
+    + Parameters: 
+        + `cond`: boolean NDFrame, array-like, or callable  
+            Where `cond` is `True`, keep the original value. Where `False`, replace with corresponding value from `other`. If `cond` is callable, it is computed on the NDFrame and should return boolean NDFrame or array. The callable must not change input NDFrame (though pandas doesn't check it).
+        + `other`: scalar, NDFrame, or callable
+            Entries where `cond` is False are replaced with corresponding value from `other`.  If other is callable, it is computed on the NDFrame and should return scalar or NDFrame. The callable must not change input NDFrame (though pandas doesn't check it).
+        + `inplace`: boolean, default False
+            Whether to perform the operation in place on the data
+        + `axis`: alignment axis if needed, default None
 + `applymap` method
     + Syntax: `df.applymap(func)`
     + Apply a function to a DataFrame that is intended to operate elementwise, i.e. like doing map(func, series) for each series in the DataFrame
@@ -167,11 +166,12 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `apply` method
     + Syntax: `df.apply(func, axis=0)`
     + Applies function along input axis of DataFrame.
-    + `func`: function  
-        Function to apply to each column/row
-    + `axis`: {0 or 'index', 1 or 'columns'}, default 0
-        + `0` or 'index': apply function to each column
-        + `1` or 'columns': apply function to each row
+    + Parameters: 
+        + `func`: function  
+            Function to apply to each column/row
+        + `axis`: {0 or 'index', 1 or 'columns'}, default 0
+            + `0` or 'index': apply function to each column
+            + `1` or 'columns': apply function to each row
 
 + Demo
     ```python
@@ -234,7 +234,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print(df.drop(df[df['Quantity'] == 0].index).rename(columns={'Weight': 'Weight (oz.)'}))
         ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/8V0N2YkTEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=JM~4lYOt7r4cwxt9bb89koR86qLqVkYU1tlJw8jDTvITLBgrML5XlnkOaRW2dNOc1rT5inglJ5xjWFMlozrNGUApkTyq-i32GQcfqmxLnmUDNoMtHzN94IjDUr5Aopxm0j~kGhuefLyQ3TaFe3IYwQZhajLGuDNbRbx-Yy9qIqk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/8V0N2YkTEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=JM~4lYOt7r4cwxt9bb89koR86qLqVkYU1tlJw8jDTvITLBgrML5XlnkOaRW2dNOc1rT5inglJ5xjWFMlozrNGUApkTyq-i32GQcfqmxLnmUDNoMtHzN94IjDUr5Aopxm0j~kGhuefLyQ3TaFe3IYwQZhajLGuDNbRbx-Yy9qIqk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Group by
@@ -246,45 +246,38 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `dropna` method
     + Syntax: `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)`
     + Return object with labels on given axis omitted where alternately any or all of the data are missing
-    + `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof  
-        Pass tuple or list to drop on multiple axes
-    + `how`: {'any', 'all'}  
-        + `any` : if any NA values are present, drop that label
-        + `all` : if all values are NA, drop that label
-    + `thresh`: int, default None  
-        int value : require that many non-NA values
-    + `subset`: array-like  
-        Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include
-    + `inplace`: boolean, default False  
-        If True, do operation inplace and return None.
+    + Parameters: 
+        + `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof; Pass tuple or list to drop on multiple axes
+        + `how`: {'any', 'all'}  
+            + `any` : if any NA values are present, drop that label
+            + `all` : if all values are NA, drop that label
+        + `thresh`: int: require that many non-NA values
+        + `subset`: array-like; Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include
+        + `inplace`: boolean; `True`: do operation inplace and return None.
 + `groupby` method
     + Syntax: `df.groupby(by=None, axis=0, level=None, as_index=True, sort=True)`
     + Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns.
-    + `by`: mapping, function, str, or iterable
-        + Used to determine the groups for the `groupby`.
-        + `function`: called on each value of the object's index.
-        + `dict` or `Series`: the Series or dict VALUES will be used to determine the groups (the Series' values are first aligned; see `.align()` method). 
-        + `ndarray`: the values are used as-is determine the groups.
-        + `str` or `list of strs`: group by the columns in `self`
-    + `axis`: int, default 0
-    + `level`: int, level name, or sequence of such, default None  
-        If the axis is a MultiIndex (hierarchical), group by a particular level or levels
-    + `as_index`: boolean, default True  
-        For aggregated output, return object with group labels as the index. Only relevant for DataFrame input. as_index=False is effectively "SQL-style" grouped output
-    + `sort`: boolean, default True  
-        Sort group keys. Get better performance by turning this off. Note this does not influence the order of observations within each group.  groupby preserves the order of rows within each group.
+    + Parameters: 
+        + `by`: mapping, function, str, or iterable; Used to determine the groups for the `groupby`.
+            + `function`: called on each value of the object's index.
+            + `dict` or `Series`: the Series or dict VALUES will be used to determine the groups (the Series' values are first aligned; see `.align()` method). 
+            + `ndarray`: the values are used as-is determine the groups.
+            + `str` or `list of strs`: group by the columns in `self`
+        + `axis`: int, default 0
+        + `level`: int, level name, or sequence of such; If the axis is a MultiIndex (hierarchical), group by a particular level or levels
+        + `as_index`: boolean; For aggregated output, return object with group labels as the index. Only relevant for DataFrame input. as_index=False is effectively "SQL-style" grouped output
+        + `sort`: boolean; Sort group keys. Get better performance by turning this off. Note this does not influence the order of observations within each group.  groupby preserves the order of rows within each group.
+
 + `agg` method
     + Syntax: `df.agg(func, axis=0)`
     + Aggregate using callable, string, dict, or list of string/callables
-    + `func`: callable, string, dictionary, or list of string/callables  
-        Function to use for aggregating the data. If a function, must either work when passed a DataFrame or when passed to DataFrame.apply. For a DataFrame, can pass a dict, if the keys are DataFrame column names.
-
+    + Parameters: 
+        + `func`: callable, string, dictionary, or list of string/callables; Function to use for aggregating the data. If a function, must either work when passed a DataFrame or when passed to DataFrame.apply. For a DataFrame, can pass a dict, if the keys are DataFrame column names.  
         Accepted Combinations are:
-    
-        + string function name
-        + function
-        + list of functions
-        + dict of column names -> functions (or list of functions)
+            + string function name
+            + function
+            + list of functions
+            + dict of column names -> functions (or list of functions)
 + Demo
     ```python
     df = pd.read_csv('census.csv')
@@ -392,7 +385,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         # print(df.groupby('Category').apply(totalweight, 'Weight (oz.)', 'Quantity'))
         ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/JOzRuokUEea8gwpyjKjbvQ.processed/full/540p/index.mp4?Expires=1525737600&Signature=f6NoHnZx~bIg5Jr4sEB6DV4FOj8W7RtCjsgPNTGjb8hpKcmSG2zW89i15eY8Taf~RSD0uzJBe4P6KHE8k2FJ~h4RDs8GgHT-KbH7ec37qUDiXBjaiM9W0AH5f-6fhrHgxfGsT-o3iZ1vsf0PPV8PafKP0puLnMO31IZ0MQYSK-s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/JOzRuokUEea8gwpyjKjbvQ.processed/full/540p/index.mp4?Expires=1525737600&Signature=f6NoHnZx~bIg5Jr4sEB6DV4FOj8W7RtCjsgPNTGjb8hpKcmSG2zW89i15eY8Taf~RSD0uzJBe4P6KHE8k2FJ~h4RDs8GgHT-KbH7ec37qUDiXBjaiM9W0AH5f-6fhrHgxfGsT-o3iZ1vsf0PPV8PafKP0puLnMO31IZ0MQYSK-s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Scales
@@ -413,32 +406,33 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         + categories of data, but the categories have no order with respect to one another
         + e.g. Teams of a sport
         + Commonly use a column w/ `True` or `False` to each element whether a category applied
+
 + Dummy variable: 
     + a variable with Boolean value
     + `getdummy` method: convert a single column into multiple columns w/ 0 & 1 indicating the presence of a dummy variable
+
 + Convert ratio scales into a category
     + Loss info of the value
     + Useful in cases
         + visualizing the frequencies of categories, e.g., historgram
         + ML classification approaches
-        + 
+
 + `astype` method:
     + Syntax: `df.astype(dtype)`
     + Cast a pandas object to a specified dtype `dtype`
-    + `dtype`: data type, or dict of column name -> data type  
-        + Use a `numpy.dtype` or Python `type` to cast entire pandas object to the same type. 
-        + Alternatively, use `{col: dtype, ...}`, where `col` is a column label and `dtype` is a `numpy.dtype` or Python `type` to cast one or more of the DataFrame's columns to column-specific types.
+    + Parameters:
+        + `dtype`: data type, or dict of column name -> data type
+            + Use a `numpy.dtype` or Python `type` to cast entire pandas object to the same type. 
+            + Alternatively, use `{col: dtype, ...}`, where `col` is a column label and `dtype` is a `numpy.dtype` or Python `type` to cast one or more of the DataFrame's columns to column-specific types.
+
 + `cut` method:
     + Syntax: `pd.cut(x, bins, right=True, labels=None)`
     + Return indices of half-open bins to which each value of `x` belongs.
-    + `x`: array-like  
-        Input array to be binned. It has to be 1-dimensional.
-    + `bins`: int, sequence of scalars, or IntervalIndex  
-        If `bins` is an int, it defines the number of equal-width bins in the range of `x`. However, in this case, the range of `x` is extended by .1% on each side to include the min or max values of `x`. If `bins` is a sequence it defines the bin edges allowing for non-uniform bin width. No extension of the range of `x` is done in this case.
-    + `right`: bool, optional
-        Indicates whether the bins include the rightmost edge or not. If `right == True` (the default), then the bins [1,2,3,4] indicate (1,2], (2,3], (3,4].
-    + `labels`: array or boolean, default None
-        Used as labels for the resulting bins. Must be of the same length as the resulting bins. If False, return only integer indicators of the bins.
+    + Parameters: 
+        + `x`: array-like; Input array to be binned. It has to be 1-dimensional.
+        + `bins`: int, sequence of scalars, or IntervalIndex; If `bins` is an int, it defines the number of equal-width bins in the range of `x`. However, in this case, the range of `x` is extended by .1% on each side to include the min or max values of `x`. If `bins` is a sequence it defines the bin edges allowing for non-uniform bin width. No extension of the range of `x` is done in this case.
+        + `right`: bool; Indicates whether the bins include the rightmost edge or not. If `right == True` (the default), then the bins [1,2,3,4] indicate (1,2], (2,3], (3,4].
+        + `labels`: array or boolean; Used as labels for the resulting bins. Must be of the same length as the resulting bins. If False, return only integer indicators of the bins.
 
 + Demo
     ```python
@@ -486,7 +480,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         pd.cut(s, 3, labels=['Small', 'Medium', 'Large'])
         ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/MtOhLIkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=GjcP6zHIVck8-gI0O1FHc2AtKkGvMBRXlFOOfXN4cSZp5fNqJNHbC3UJOSBymobTR3kYFsej2smLT~yaAHFSv71aMXJunjiRqBQtaHLg1o8~szGPiauiLqV0E5-L9Ys3nGqUuEt5J5dGBXigAeUEUni2xL6GFt~OJDHtx1LpYsg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/MtOhLIkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=GjcP6zHIVck8-gI0O1FHc2AtKkGvMBRXlFOOfXN4cSZp5fNqJNHbC3UJOSBymobTR3kYFsej2smLT~yaAHFSv71aMXJunjiRqBQtaHLg1o8~szGPiauiLqV0E5-L9Ys3nGqUuEt5J5dGBXigAeUEUni2xL6GFt~OJDHtx1LpYsg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Pivot Tables
@@ -502,13 +496,11 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 + `pivot_table` method
     + Syntax: `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')`
     + Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame
-    + `values`: column to aggregate, optional
-    + `index`: column, Grouper, array, or list of the previous  
-        If an array is passed, it must be the same length as the data. The list can contain any of the other types (except list). Keys to group by on the pivot table index.  If an array is passed, it is being used as the same manner as column values.
-    + `columns`: column, Grouper, array, or list of the previous  
-        If an array is passed, it must be the same length as the data. The list can contain any of the other types (except list). Keys to group by on the pivot table column.  If an array is passed, it is being used as the same manner as column values.
-    + `aggfunc`: function or list of functions, default numpy.mean  
-        If list of functions passed, the resulting pivot table will have hierarchical columns whose top level are the function names (inferred from the function objects themselves)
+    + Parameters: 
+        + `values`: column to aggregate, optional
+        + `index`: column, Grouper, array, or list of the previous; If an array is passed, it must be the same length as the data. The list can contain any of the other types (except list). Keys to group by on the pivot table index.  If an array is passed, it is being used as the same manner as column values.
+        + `columns`: column, Grouper, array, or list of the previous; If an array is passed, it must be the same length as the data. The list can contain any of the other types (except list). Keys to group by on the pivot table column.  If an array is passed, it is being used as the same manner as column values.
+        + `aggfunc`: function or list of functions, default `numpy.mean`; If list of functions passed, the resulting pivot table will have hierarchical columns whose top level are the function names (inferred from the function objects themselves)
 
 + Demo
     ```python
@@ -545,7 +537,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         print(pd.pivot_table(Bikes, index=['Manufacturer','Bike Type']))
         ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/OgnKXYkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=D98E0proM6pxQIWf150RxGU6vsMSagI0gSu00~QipMNwBVK1qp-uDmAGXipcwgWEgsoCD5k0ADTrCPUR1z1OFtLvtC6eD-22lrHF8u4tVkQh~K0VKMhhnJCzJxm0WMl4BC5JCHmOJMfq1dTJXx0m9ELlR2kllJhMn-i7PW2vVV0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/OgnKXYkUEeaXYgo_fJsBPw.processed/full/540p/index.mp4?Expires=1525737600&Signature=D98E0proM6pxQIWf150RxGU6vsMSagI0gSu00~QipMNwBVK1qp-uDmAGXipcwgWEgsoCD5k0ADTrCPUR1z1OFtLvtC6eD-22lrHF8u4tVkQh~K0VKMhhnJCzJxm0WMl4BC5JCHmOJMfq1dTJXx0m9ELlR2kllJhMn-i7PW2vVV0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){:target="_blank"}
 
 
 ## Date Functionality
@@ -555,77 +547,101 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     + DatetimeIndex
     + Period
     + PeriodIndex
+
 + `Timestamp` Class
-    + Syntax: `pd.Timestamp(ts_input, freq, tz, unit=None, offset)`
+    + Syntax: `pd.Timestamp(ts_input, freq, tz, unit=None)`
     + The pandas equivalent of python's Datetime and is interchangable with it in most cases.
-    + `ts_input`: datetime-like, str, int, float  
-        Value to be converted to Timestamp
-    + `freq`: str, DateOffset  
-        Offset which Timestamp will have
-    + `tz`: string, `pytz.timezone`, `dateutil.tz.tzfile` or None  
-        Time zone for time which Timestamp will have.
-    + `unit`: string  
-        numpy unit used for conversion, if ts_input is int or float
-    + `offset`: str, DateOffset  
-        Deprecated, use freq
+    + Parameters:
+        + `ts_input`: datetime-like, str, int, float; Value to be converted to Timestamp
+        + `freq`: str, DateOffset; Offset which Timestamp will have
+        + `tz`: string, `pytz.timezone`, `dateutil.tz.tzfile` or None; Time zone for time which Timestamp will have.
+        + `unit`: string; numpy unit used for conversion, if ts_input is int or float
+
 + `Period` Class
     + Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0)`
     + Represents a period of time
-    + `value`: Period or compat.string_types, default None  
-        The time period represented (e.g., '4Q2005')
-    + `freq`: str, default None  
-        One of pandas period strings or corresponding objects
-    + `year`: int, default None
-    + `month`: int, default 1
-    + `quarter`: int, default None
-    + `day`: int, default 1
-    + `hour`: int, default 0
-    + `minute`: int, default 0
-    + `second`: int, default 0
+    + Parameters:
+        + `value`: Period or compat.string_types; The time period represented (e.g., '4Q2005')
+        + `freq`: str; One of pandas period strings or corresponding objects
+        + `year`: int, default None
+        + `month`: int, default 1
+        + `quarter`: int, default None
+        + `day`: int, default 1
+        + `hour`: int, default 0
+        + `minute`: int, default 0
+        + `second`: int, default 
+
 + `to_datetime` function
     + Syntax: `pd.to_datetime(arg, utc=None, format=None)`
     + Convert argument to datetime.
-    + `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series
-    + `utc`: boolean, default None  
-        Return UTC DatetimeIndex if True
-    + `format`: string, default None  
-        strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds.
+    + Parameters:
+        + `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series
+        + `utc`: boolean; Return UTC DatetimeIndex if True
+        + `format`: string; strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds.
+
 + `data_range` function:
     + Syntax: `pd.date_range(start=None, end=None, periods=None)`
     + Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency
-    + `start`: string or datetime-like, default None  
-        Left bound for generating dates
-    + `end`: string or datetime-like, default None  
-        Right bound for generating dates
-    + `periods`: integer, default None  
-        Number of periods to generate
+    + Parameters:
+        + `start`: string or datetime-like; Left bound for generating dates
+        + `end`: string or datetime-like; Right bound for generating dates
+        + `periods`: integer; Number of periods to generate
+
 + `diff` method:
     + Syntax: `df.diff(periods=1, axis=0)`
     + 1st discrete difference of object
-    + `periods`: int, default 1  
-        Periods to shift for forming difference
-    `axis`: {0 or 'index', 1 or 'columns'}, default 0  
-        Take difference over rows (0) or columns (1).
+    + Parameters:
+        + `periods`: int;  Periods to shift for forming difference
+        + `axis`: {0 or 'index', 1 or 'columns'}
+
 + `resample` method
     + Syntax: `df.resample(rule, how=None, axis=0)`
     + Convenience method for frequency conversion and resampling of time series.
-    + `rule`: string  
-        the offset string or object representing target conversion
-    + `axis`: int, optional, default 0
+    + Parameters:
+        + `rule`: string;  the offset string or object representing target conversion; [Offset Aliases](http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases)
+        + `axis`: int, optional, default 0
+
+        | Alias | Description |
+        |--------|------------|
+        | `B`     | business day frequency |
+        | `C`     | custom business day frequency (experimental) |
+        | `D`     | calendar day frequency |
+        | `W`     | weekly frequency |
+        | `M`     | month end frequency |
+        | `SM`    | semi-month end frequency (15th and end of month) |
+        | `BM`    | business month end frequency |
+        | `CBM`   | custom business month end frequency |
+        | `MS`    | month start frequency |
+        | `SMS`   | semi-month start frequency (1st and 15th) |
+        | `BMS`   | business month start frequency |
+        | `CBMS`  | custom business month start frequency |
+        | `Q`     | quarter end frequency |
+        | `BQ`    | business quarter endfrequency |
+        | `QS`    | quarter start frequency |
+        | `BQS`   | business quarter start frequency |
+        | `A`     | year end frequency |
+        | `BA`    | business year end frequency |
+        | `AS`    | year start frequency |
+        | `BAS`   | business year start frequency |
+        | `BH`    | business hour frequency |
+        | `H`     | hourly frequency |
+        | `T`     | minutely frequency |
+        | `S`     | secondly frequency |
+        | `L`     | milliseonds |
+        | `U`     | microseconds |
+        | `N`     | nanoseconds |
+
 + `asfreq` method:
     + Syntax: `df.asfreq(freq, method=None, how=None, normalize=False, fill_value=None)`
     + Convert TimeSeries to specified frequency.
-    + `freq`: DateOffset object, or string  
-    + `method`: {'backfill'/'bfill', 'pad'/'ffill'}, default None
-        Method to use for filling holes in reindexed Series (note this does not fill NaNs that already were present):
-        + 'pad' / 'ffill': propagate last valid observation forward to next valid
-        + 'backfill' / 'bfill': use NEXT valid observation to fill
-    + `how`: {'start', 'end'}, default end
-        For PeriodIndex only, see PeriodIndex.asfreq
-    + `normalize`: bool, default False
-        Whether to reset output index to midnight
-    + `fill_value`: scalar, optional
-        Value to use for missing values, applied during upsampling (note this does not fill NaNs that already were present).
+    + Parameters:
+        + `freq`: DateOffset object, or string
+        + `method`: {'backfill'/'bfill', 'pad'/'ffill'}; Method to use for filling holes in reindexed Series (note this does not fill NaNs that already were present):
+            + `'pad'`/`'ffill'`: propagate last valid observation forward to next valid
+            + `'backfill'`/`'bfill'`: use NEXT valid observation to fill
+        + `how`: {'start', 'end'}, default end; For PeriodIndex only, see PeriodIndex.asfreq
+        + `normalize`: bool; Whether to reset output index to midnight
+        + `fill_value`: scalar; Value to use for missing values, applied during upsampling (note this does not fill NaNs that already were present).
 
 + Demo
     ```python
@@ -677,7 +693,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     df.plot()
     ```
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://d3c33hcgiwev3.cloudfront.net/QnzfqokUEeaoHhIiFgcrVw.processed/full/540p/index.mp4?Expires=1525737600&Signature=XK6i1~u5ajmdCtXpOn5ccMP84cjPeYcI1sGDllbp5CJE-9fmkfD0SMUFJkupawrJ2h~fUDVFZ~pu7qiQhu~auk10TuizzaNPyiDJK8SZB1ik9kvK5~4QHClEP8mLll8e20kjQz-2aP3xjB5Tu3WBe8yodAiDzkk-R6N5YT25q1s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
+[![Video Icon](https://www.freeiconspng.com/uploads/video-icon-31.png)](https://d3c33hcgiwev3.cloudfront.net/QnzfqokUEeaoHhIiFgcrVw.processed/full/540p/index.mp4?Expires=1525737600&Signature=XK6i1~u5ajmdCtXpOn5ccMP84cjPeYcI1sGDllbp5CJE-9fmkfD0SMUFJkupawrJ2h~fUDVFZ~pu7qiQhu~auk10TuizzaNPyiDJK8SZB1ik9kvK5~4QHClEP8mLll8e20kjQz-2aP3xjB5Tu3WBe8yodAiDzkk-R6N5YT25q1s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A){: target="_blank"}
 
 
 ## Discussion Prompt: Goodhart's Law
