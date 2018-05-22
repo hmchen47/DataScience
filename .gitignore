@@ -56,3 +56,10 @@ Thumbs.db
 # package generated files in folder #
 #####################################
 .ipynb_checkpoints/
+
+.gitignore
+
+# Exception #
+# ###########
+!./DSFund-BerkeleyX/1-CompThinkWPython/Diagrams/*.png
+
