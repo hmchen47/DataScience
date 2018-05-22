@@ -4,10 +4,10 @@
 
 ### Notes
 
-+ Demo
-    ```python
-
-    ```
++ Course Instructors
+    + Ani Adhikari - Statistics Depat.
+    + John DeNero
+    + David Wagner
 
 ### Video 
 
