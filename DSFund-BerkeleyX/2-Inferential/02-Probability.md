@@ -115,10 +115,13 @@
 
 ### Notes
 
++ Addition Rule  
+    If event A can happen in _exactly one_ of two ways, then  
+    $$ P(A) = P(\text{first way}) + P(\text{second way}) $$
 
 ### Video
 
-<a href="URL" target="_blank">
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.2x+1T2018/courseware/148bc397ac774e18a846abdb54ee2e1a/7cd2c9c09383493da3127ca92c1610e4/4?activate_block_id=block-v1%3ABerkeleyX%2BData8.2x%2B1T2018%2Btype%40vertical%2Bblock%40d9dedc9b412a42009af73e0510261e0f" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
