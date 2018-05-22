@@ -6,8 +6,8 @@
 
 + Course Instructors
     + Ani Adhikari - Statistics Depat.
-    + John DeNero
-    + David Wagner
+    + John DeNero - CS
+    + David Wagner - CS
 
 ### Video 
 
@@ -20,10 +20,21 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ What is Data Science?  
+    Drawing useful conclusion from data using computation
+    + __Exploration__
+        + Identifying patterns in infromation
+        + Uses visualizations
+    + __Inference__
+        + Quantifying wether those patterns are realiable
+        + Uses randomization
+    + __Prediction__
+        + Making informed guesses
 
-    ```
++ Procedure:
+    1. identifypatterns
+    2. quantifying wether those patterns reliable
+    3. making informed guesses based on reliable patterns
 
 ### Video 
 
