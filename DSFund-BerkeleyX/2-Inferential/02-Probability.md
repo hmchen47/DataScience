@@ -149,6 +149,66 @@
 
 ### Readings
 
+This guide assumes that you have watched the videos for Section 2.
+
+This corresponds to textbook sections:
+
+[Chapter 9: Randomness](https://www.inferentialthinking.com/chapters/09/randomness.html) 
+
+Section 2 is a brief introduction to probability. Probability is a very powerful branch of mathematics, and it will be the foundation for future topics in Data 8.2x. We saw the famous Monty Hall problem. We will use the standard notation P(event) to denote the probability that "event" happens, and we will use the words "chance" and "probability" interchangeably.
+
+We learned two probability rules, the multiplication rule and the addition rule.
+
+1. __Multiplication Rule__: Chance that two events A and B both happen = $P(A, B) = P(\text{A happens}) \times P(\text{B happens given that A happens})$
+2. __Addition Rule__: If an event A can happen in exactly one of two distinct ways, then $P(A) = P(\text{first way}) + P(\text{second way})$
+
+Here are some other helpful probability rules...
+
++ When all outcomes are assumed equally likely: $P(\text{event happens}) = (\text{\# of outcomes that make event happen}) / (\text{\# of all outcomes})$
++ When an event doesn't happen: $P(\text{event doesn't happen}) = 1 - P(\text{event does happen})$
++ $P(\text{at least one success}) = 1 - P(\text{no success})$
+
+-----------------------
+
+Let's practice your understanding of probability!
+
+For the following questions, a die (singular form of "dice") means a fair, 6-sided die, with the sides having values 1, 2, 3, 4, 5, 6. The chance of an outcome for one roll doesn't depend on outcomes of any previous or future rolls.
+
+You can write formulas in the blanks, such as $(1/6)*(1/6)$.
 
 ### Practices
+
+Wilton rolls a die four times. What are the chances that...
+
+Q1. All four rolls are a 5?
+
+    Ans: (1/6)^4
+
+Q2. All four rolls are the same value?
+
+    Ans: (1/6)^4 * 6
+
+Q3. At least two of the values are different?
+
+    Ans: 1 - (1/6)^4 * 6
+
+Q4. Suppose you roll two 6-sided fair dice. Answer the following True or False questions.
+
+    1. If the first die shows a 6, then at least one of the two dice shows a 6.
+
+        Ans: true
+    
+    2. If the second die shows a 6, then at least one of the two dice shows a 6.
+
+        Ans: True
+
+    3. $P(\text{at least one of the two dice shows a 6}) = (1/6) + (1/6)$
+
+        Ans: True
+
+Q5. There are 36 ways two dice can land: six ways for the first die and six ways for the second die. In how many of those ways does at least one of the dice show a 6?
+
+    Ans: 11
+
+
 
