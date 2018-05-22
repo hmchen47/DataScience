@@ -11,8 +11,8 @@
 
 ### Video 
 
-<a href="url">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:42px;height:42px;border:0;">
+<a href="https://youtu.be/tIQz3ldACvM" target="_blank">
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
 
@@ -27,7 +27,7 @@
 
 ### Video 
 
-<a href="url">
-  <img src="http://mobile.softpedia.com/screenshots/icon_flv-player-android.jpg" alt="Video" style="width:42px;height:42px;border:0;">
+<a href="https://youtu.be/BKgdDLrSC5s" target="_blank">
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" style="width:48px;height:48px;border:0;"> 
 </a>
 
