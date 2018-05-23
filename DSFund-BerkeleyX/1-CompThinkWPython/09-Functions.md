@@ -148,7 +148,7 @@
     cut_off_at_a_billion(1234567890)
 
     top = Table.read_table('top_movies_2017.csv').where('Studio', 'Fox')
-    cut_off = top.apply(cut_off_at_a_billion, 'Gross (Adjusted)')   # example fpr apply
+    cut_off = top.apply(cut_off_at_a_billion, 'Gross (Adjusted)')   # example for apply
     top.with_column('Adjusted but cut', cut_off)
     ```
 
