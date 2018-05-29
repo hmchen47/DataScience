@@ -1,8 +1,4 @@
-
 # coding: utf-8
-
-
-
 
 from datascience import *
 import numpy as np
