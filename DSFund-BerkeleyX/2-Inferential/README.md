@@ -22,7 +22,7 @@
     + [[Review] Lec 3.5 Print](../1-CompThinkWPython/13-Iteration.md#lec-135-print)
     + [[Review] Lec 3.6 Control Statements](../1-CompThinkWPython/13-Iteration.md#lec-136-control-statements)
     + [[Review] Lec 3.7 For Statements](../1-CompThinkWPython/13-Iteration.md#lec-137-for-statements)
-    + [Reading and Practice for Section 3](./13-Iteration.md#reading-and-practice-for-section-13)
+    + [Reading and Practice for Section 3](../1-CompThinkWPython/13-Iteration.md#reading-and-practice-for-section-13)
 
 + [Lab 1: Randomization](./lab01-Random.md)
 
