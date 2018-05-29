@@ -91,12 +91,53 @@
 </a>
 
 
-## Reading and Practice for Section
+## Reading and Practice for Section 4a
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 4a.
+
+This corresponds to textbook sections:
+
+[Chapter 10: Sampling and Empirical Distributions](https://www.inferentialthinking.com/chapters/10/sampling-and-empirical-distributions.html)
+
+In section 4a, we learned about sampling. Random sampling will allow us to make conclusions about unknowns based on data. Know the difference between a deterministic sample, a probability sample, and an uniform random sample. Also be careful of samples of convenience.
+
+Try to complete the following questions about sampling.
 
 ### Practice
+
+The Data 8.2x staff needs your help to survey the Data 8.2x students. The Data 8.2x staff want to get some feedback for the course, but they cannot ask every single student because that would take too much time. The staff comes up with a few sampling methods to determine who to survey.
+
+Given the following sampling techniques, are they deterministic, probability, or uniform random samples? Assume that there are 20,000 students and the staff has a list of all students.
+
+Q1. True or False: surveying every 10th student on the list starting from the first student on the list will result in a determinstic sample.
+
+    Ans: True
+
+Q2. Choose a random number uniformly from 1 to 10 and survey 1000 consecutive students on the list starting from the random number. What type of sample will result from this surveying technique. Select all that apply.
+
+    a. Deterministic Sample
+    b. Probability Sample
+    c. Uniform Random Sample
+
+    Ans: b
+
+Q3. Choose a random number uniformly from 1 to 10 and survey every 10th student on the list starting from the random number. True of False: each individual has the same chance of being chosen.
+
+    Ans: True
+
+Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, we survey the student. If tail, we do not survey the student. What is the chance that nobody is surveyed?
+
+    a. $0$
+    b. $1/2$
+    c. $(1/2)^19999$
+    d. $(1/2)^20000$
+    e. $1 - (1/2)^20000$
+
+    Ans: d
+
+
 
 
 
