@@ -16,10 +16,10 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `np.char.count(<data>, 'str')` | Count `str` appearance in `data` | [Lec 1.4 Demo: Little Women][002] |
-| `np.random.choice(ary, sample_size)` | randomly select an element from `ary` with sample size `size` | [Lec 13.3 Random Selection][028] |
-| `np.count_nonzero(ary)` | Count nonzero values in array `ary` | [Lec 13.3 Random Selection][028] |
-| `np.append(ary, val|aryA)` | append a value or array to `ary` | [For Statement][029] |
+| `np.char.count(<data>, 'str')` | Count `str` appearance in `data` | [I-Lec 1.4 Demo: Little Women][002] |
+| `np.random.choice(ary, sample_size)` | randomly select an element from `ary` with sample size `size` | [I-Lec 13.3 Random Selection][028] |
+| `np.count_nonzero(ary)` | Count nonzero values in array `ary` | [I-Lec 13.3 Random Selection][028] |
+| `np.append(ary, val|aryA)` | append a value or array to `ary` | [I-Lec 13.7 For Statement][029] |
 
 
 
@@ -31,7 +31,7 @@ plots.style.use('fivethirtyeight')
 | Function | Description | Link |
 |----------|-------------|------|
 | `np.array(lst)` | convert a list to an array | |
-| `make_array(x1, x2, ...)` | create an array with the given values $xi$, where i = 1, 2, ...  | [Lec 4.4 Arrays][012]; [Lec 8.2 Binning][010] |
+| `make_array(x1, x2, ...)` | create an array with the given values $xi$, where i = 1, 2, ...  | [I-Lec 4.4 Arrays][012]; [I-Lec 8.2 Binning][010] |
 
 
 
@@ -41,39 +41,39 @@ plots.style.use('fivethirtyeight')
 
 | Attribute | Description | Link |
 |-----------|-------------|------|
-| `t.num_row` / `t.num_column` | row/column size |  [Lec 5.1 Creating Tables][024] |
-| `t.labels` | returns a list of column labels of a table | [Lec 5.1 Creating Tables][024] |
+| `t.num_row` / `t.num_column` | row/column size |  [I-Lec 5.1 Creating Tables][024] |
+| `t.labels` | returns a list of column labels of a table | [I-Lec 5.1 Creating Tables][024] |
 
 
 ### Methods ([Ref][027])
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `Table().with_columns(name, values, ...)` | creates a table with an array of values for each column name |  [Lec 5.1 Creating Tables][024] |
-| `Table()` | creates an empty table|  [Lec 5.1 Creating Tables][024] |
-| `t.read_table(filename)` | Read a table from a spreadsheet | [Lec 5.1 Creating Tables][024] |
-| `t.with_columns(name, values, ...)` | appends a column name with an array of values to an existing table |  [Lec 5.1 Creating Tables][024] |
-| `t.with_row(lst)` | appends a row w/ given columns to an existing table |  [Lec 5.7 Lists][025]  |
-| `t.with_rows(lst)` | appends multiple rows (rows of columns) w/ given columns to an existing table |  [Lec 5.7 Lists][025] |
-| `t.item(int)` | data in column `int` | [Lec 5.1 Creating Tables][024] |
-| `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [Lec 5.1 Creating Tables][024] |
-| `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [Lec 4.5 Columns][023] |
-| `t.select(col[, ...])` | constructs a new table with just the specified columns | [Lec 3.5 Select][022]; [Lec 12.1 Table Methods][026] |
-| `t.drop(col[, ...])` | constructs a new table without the specified columns | [Lec 3.5 Select][022]; [Lec 12.1 Table Methods][026] |
-| `t.sort(col, descending=False, distinct=False)` | constructs a new table, with rows sorted by the specified col | [Lec 3.5 Select][022]; [Lec 12.1 Table Methods][026] |
-| `t.take([row, ...]r)` | keep the numbered rows, index starting at 0 | [Lec 5.8 Take][021]; [Lec 12.1 Table Methods][026] |
-| `t.where(col, are.condition(...))` | keep all rows for which a column's value satisfies a condition | [Lec 5.9 Where][020]; [Lec 12.1 Table Methods][026] |
-| `t.where(col, value)` | keep all rows containing a certain value in a column | [Lec 5.9 Where][020] |
-| `t.set_format(col, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [Lec 6.2 Column Arithmetic][019] |
-| `t.relabel(col, label)` | rename the label of selected column | [Lec 7.3 Scatter Plots][008] |
-| `t.group(col)` | counting with given label |[Lec 7.7 Distributions][011] |
-| `t.apply(func, col, ...)` | returns an array where a function is applied to each item in a col | [Lec 9.5 Apply][018]; [Lec 12.1 Table Methods][026] |
-| `t.group(col[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [Lec 10.1 One Attribute Group][017] |
-| `t.group([col, ...][, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [Lec 10.2 Cross Classification][015]
-| `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015]; [Lec 12.1 Table Methods][026] |
-| `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014]; [Lec 12.1 Table Methods][026] |
-| `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [Lec 12.1 Table Methods][026] |
-| `t.sample(k=None, with_replacement=True, weights=None)` | Return a new table where k rows are randomly sampled from the original table | [Sampling][030] |
+| `Table().with_columns(name, values, ...)` | creates a table with an array of values for each column name |  [I-Lec 5.1 Creating Tables][024] |
+| `Table()` | creates an empty table|  [I-Lec 5.1 Creating Tables][024] |
+| `t.read_table(filename)` | Read a table from a spreadsheet | [I-Lec 5.1 Creating Tables][024] |
+| `t.with_columns(name, values, ...)` | appends a column name with an array of values to an existing table |  [I-Lec 5.1 Creating Tables][024] |
+| `t.with_row(lst)` | appends a row w/ given columns to an existing table |  [I-Lec 5.7 Lists][025]  |
+| `t.with_rows(lst)` | appends multiple rows (rows of columns) w/ given columns to an existing table |  [I-Lec 5.7 Lists][025] |
+| `t.item(int)` | data in column `int` | [I-Lec 5.1 Creating Tables][024] |
+| `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [I-Lec 5.1 Creating Tables][024] |
+| `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [I-Lec 4.5 Columns][023] |
+| `t.select(col[, ...])` | constructs a new table with just the specified columns | [I-Lec 3.5 Select][022]; [I-Lec 12.1 Table Methods][026] |
+| `t.drop(col[, ...])` | constructs a new table without the specified columns | [I-Lec 3.5 Select][022]; [I-Lec 12.1 Table Methods][026] |
+| `t.sort(col, descending=False, distinct=False)` | constructs a new table, with rows sorted by the specified col | [I-Lec 3.5 Select][022]; [I-Lec 12.1 Table Methods][026] |
+| `t.take([row, ...]r)` | keep the numbered rows, index starting at 0 | [I-Lec 5.8 Take][021]; [I-Lec 12.1 Table Methods][026] |
+| `t.where(col, are.condition(...))` | keep all rows for which a column's value satisfies a condition | [I-Lec 5.9 Where][020]; [I-Lec 12.1 Table Methods][026] |
+| `t.where(col, value)` | keep all rows containing a certain value in a column | [I-Lec 5.9 Where][020] |
+| `t.set_format(col, FORMAT)` | convert display format, FORMAT= NumberFormatter, PercentFormatter | [I-Lec 6.2 Column Arithmetic][019] |
+| `t.relabel(col, label)` | rename the label of selected column | [I-Lec 7.3 Scatter Plots][008] |
+| `t.group(col)` | counting with given label |[I-Lec 7.7 Distributions][011] |
+| `t.apply(func, col, ...)` | returns an array where a function is applied to each item in a col | [I-Lec 9.5 Apply][018]; [I-Lec 12.1 Table Methods][026] |
+| `t.group(col[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [I-Lec 10.1 One Attribute Group][017] |
+| `t.group([col, ...][, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [I-Lec 10.2 Cross Classification][015]
+| `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [I-Lec 10.4 Pivot Tables][015]; [I-Lec 12.1 Table Methods][026] |
+| `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [I-Lec 11.1 Joins][014]; [I-Lec 12.1 Table Methods][026] |
+| `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [I-Lec 12.1 Table Methods][026] |
+| `t.sample(k=None, with_replacement=True, weights=None)` | Return a new table where k rows are randomly sampled from the original table | [II-Lec 4.2 Sampling][030] |
 
 
 
@@ -101,13 +101,13 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [Lec 7.1 Line Graphs][001] |
-| `t.scatter(x[, y])` | scatter plot | [Lec 7.3 Scatter Plots][008] |
-| `t.bar(colX, colY)` | Depict bar chart with `colX` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009] | 
-| `t.barh(colX, colY)` | Depict horizontal bar chart with `colX` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009]; [Lec 7.7 Distributions][011] |
-| `t.bin(columns, bins=None, range=None, density=None)` | Group values by bin and compute counts per bin by column. If the original table has $n$ columns, the resulting binned table has $n+1$ columns, where column $0$ contains the lower bound of each bin. | [Lec 8.2 Binning][010] |
-| `t.hist(*columns, overlay=True, bins=None, bin_column=None, unit=None, group=None, side_by_side=False, width=6, height=4, **vargs)` | Plots one histogram for each column in columns. If no column is specified, plot all columns | [Lec 8.4 Drawing Histograms][006]|
-| `{Marker\|Circle}.map_table(tbl, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps][007] |
+| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [I-Lec 7.1 Line Graphs][001] |
+| `t.scatter(x[, y])` | scatter plot | [I-Lec 7.3 Scatter Plots][008] |
+| `t.bar(colX, colY)` | Depict bar chart with `colX` column; numerical vs categorical or distribution | [I-Lec 3.7 Bar Charts][009] | 
+| `t.barh(colX, colY)` | Depict horizontal bar chart with `colX` column; numerical vs categorical or distribution | [I-Lec 3.7 Bar Charts][009]; [I-Lec 7.7 Distributions][011] |
+| `t.bin(columns, bins=None, range=None, density=None)` | Group values by bin and compute counts per bin by column. If the original table has $n$ columns, the resulting binned table has $n+1$ columns, where column $0$ contains the lower bound of each bin. | [I-Lec 8.2 Binning][010] |
+| `t.hist(*columns, overlay=True, bins=None, bin_column=None, unit=None, group=None, side_by_side=False, width=6, height=4, **vargs)` | Plots one histogram for each column in columns. If no column is specified, plot all columns | [I-Lec 8.4 Drawing Histograms][006]|
+| `{Marker\|Circle}.map_table(tbl, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [I-Lec 11.4 Maps][007] |
 
 
 
@@ -115,10 +115,10 @@ plots.style.use('fivethirtyeight')
 
 | Argument | Description | Link |
 |----------|-------------|------|
-| `overlay` | True = one graph; False = separated graphs | [Lec 7.1 Line Graphs][001] |
-| `unit` | string as the unit of x-axis | [Lec 8.4 Drawing Histograms][006] |
-| `normed` | True/False, normalized with area principle, deprecated | [Lec 8.5 Density][005] |
-| `density` | True/False, normalized with area principle, deprecated | [Lec 8.5 Density][005] |
+| `overlay` | True = one graph; False = separated graphs | [I-Lec 7.1 Line Graphs][001] |
+| `unit` | string as the unit of x-axis | [I-Lec 8.4 Drawing Histograms][006] |
+| `normed` | True/False, normalized with area principle, deprecated | [I-Lec 8.5 Density][005] |
+| `density` | True/False, normalized with area principle, deprecated | [I-Lec 8.5 Density][005] |
 
 
 
@@ -126,7 +126,7 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [Using Interact][004] |
+| `interact(func, arg=val)` | autogenerate UI controls for function arguments, and then calls the function with those arguments when you manipulate the controls interactively; must define `func` | [I-Lab 4 Using Interact][004] |
 
 
 
@@ -153,7 +153,7 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `sample_proportions(sample_size, probabilities)` | Return the proportion of random draws for each outcome in a distribution | [Random Select][031] |
+| `sample_proportions(sample_size, probabilities)` | Return the proportion of random draws for each outcome in a distribution | [II-Lec 5.2 Random Selection][031] |
 
 
 -------------------
@@ -188,7 +188,7 @@ plots.style.use('fivethirtyeight')
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
 [029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
 [030]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
-[031]: ../
+[031]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
 
 
 
