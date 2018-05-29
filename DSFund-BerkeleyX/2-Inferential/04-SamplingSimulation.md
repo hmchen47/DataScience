@@ -188,15 +188,37 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
 
 ### Notes
 
++ Law of Averages
+
+    + If a chance experiment is repeated many times, independently and under the same conditions, then the proportion of times that an event occurs gets closer to the theoretical probability of the event
+    + As you increase the number of rolls of a die, the proportion of times you see the face with five spots gets closer to 1/6
+
++ Empirical Distribution of a Sample
+
+    If the sample size is large,
+
+    then the empirical distribution of a uniform random sample
+
+    resembles the distribution of the population,
+
+    with high probability
+
 
 + Demo
     ```python
+    united = Table.read_table('united.csv') # read united airline data
 
+    def delay_hist(t):
+        t.hist('Delay', unit='minute', bins=np.arange(-30, 301, 10))
+        
+    delay_hist(united)
+
+    delay_hist(united.sample(1000))
     ```
 
 ### Video
 
-<a href="url" target="_blank">
+<a href="https://youtu.be/z6tlWBbhEGM" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
