@@ -299,8 +299,7 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
         + Based on simulated values of the statistic
         + Consists of all the observed values of the statistic,
         + and the proportion of times each value appeared
-    + Good approximation to the probability distribution of the statistic
-        + if the number of repetitions in the simulation is large
+    + Good approximation to the probability distribution of the statistic, if the number of repetitions in the simulation is __large__
 
 + Demo
     ```python
@@ -332,10 +331,68 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
 
 ### Reading
 
+This guide assumes that you learned more about sampling. Distributions represent events of chance. We learned about probability distributions and empirical distributions. The law of averages explains why the empirical distribution of a large random sample looks like the probability distribution. With our understanding of different distributions and the law of averages, we can use sampling and simulation to learn things about the world around us with limited data.
+
+Be careful! Before you proceed, do you know the difference between a probability distribution and an empirical distribution? If you don't, try rewatching the previous lecture videos.
+
+Try to complete the following questions. have watched the videos for Section 4b.
+
+This corresponds to textbook sections:
+
+[Chapter 10: Sampling and Empirical Distributions](https://www.inferentialthinking.com/chapters/10/sampling-and-empirical-distributions.html)
+
+In section 4b, we learned more about sampling. Distributions represent events of chance. We learned about probability distributions and empirical distributions. The law of averages explains why the empirical distribution of a large random sample looks like the probability distribution. With our understanding of different distributions and the law of averages, we can use sampling and simulation to learn things about the world around us with limited data.
+
+Be careful! Before you proceed, do you know the difference between a probability distribution and an empirical distribution? If you don't, try rewatching the previous lecture videos.
+
+Try to complete the following questions.
 
 ### Practice
 
+Below are four histograms that result from rolling a fair 6-sided die with values 1, 2, 3, 4, 5, and 6. 
 
+Each of these histograms is either the probability histogram of one roll of the die or an empirical histogram of 10, 1000, or 100000 die rolls. What is your best guess of what each histogram represents? Please match the die roll with the corresponding resulting histogram. Try not to use a Jupyter notebook to solve this problem! 
+
+Histogram 1: 
+
+Histogram of 6-sided die rolls. Distribution of 6 values is not perfectly even, but also not very sparse. 
+
+![hist1](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f50e8137769e20c432e010da842f6597/asset-v1:BerkeleyX+Data8.2x+1T2018+type@asset+block/die1000.png)
+
+Histogram 2: 
+
+Histogram of 6-sided die rolls. Distribution of 6 values is perfectly even (all 6 outcomes exactly the same probability). 
+
+![hist2](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/53598b1d3ba3979f7c0afd3e9827a5f3/asset-v1:BerkeleyX+Data8.2x+1T2018+type@asset+block/dieprob.png)
+
+Histogram 3: 
+
+Histogram of 6-sided die rolls. Distribution of 6 values is very sparse. 
+
+~[hist3](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b44839ede46fd66ad0ccf686a71ab6a9/asset-v1:BerkeleyX+Data8.2x+1T2018+type@asset+block/die10.png)
+
+Histogram 4: 
+
+Histogram of 6-sided die rolls. Distribution of 6 values is almost perfectly even.
+
+![hist4](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/28dc51f2aef766d759c5cd56ae5b1df6/asset-v1:BerkeleyX+Data8.2x+1T2018+type@asset+block/die100000.png)
+
+
+Q1. Which histogram is the probabiliy histogram of 1 roll of the die?
+
+    Ans: Histogram 2 
+
+Q2. Which histogram is the empirical histogram of 10 rolls of the die?
+
+    Ans: Histogram 3
+
+Q3. Which histogram is the empirical histogram of 1,000 rolls of the die?
+
+    Ans: Histogram 1
+
+Q4. Which histogram is the empirical histogram of 100,000 rolls of the die?
+
+    ANs: Histogram 4
 
 
 
