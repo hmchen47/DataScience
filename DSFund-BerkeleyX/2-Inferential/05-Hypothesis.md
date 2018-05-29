@@ -163,10 +163,29 @@
 
 ### Notes
 
-+ Demo 
-    ````python
++ Discussion Questions <br/>
+    In each of (a) and (b), choose a statistic that will help you decide between the two viewpoints. <br/>
+    Data: the results of 400 tosses of a coin <br/>
+    (a) <br/>
+        “This coin is fair.” <br/>
+        “No, it’s not.” <br/>
+    (b) <br/>
+        “This coin is fair.” <br/>
+        “No, it’s biased towards tails.”
 
-    ```
++ “Fair”
+    + For both (a) and (b),
+        + The number of heads in the 400 tosses is a good starting point, but might need adjustment
+        + A number of heads around 200 suggests “fair”
+
++ Answers <br/>
+    (a) Very large or very small values of the number of heads suggest “not fair.” <br/>
+        + The __distance__ between number of heads and 200 is the key
+        + Statistic: $| \text{number of heads} - 200 |$
+        + Large values of the statistic suggest “not fair”
+    (b) Small values of the number of heads suggest “biased towards tails” <br/>
+        + Statistic: number of heads
+
 
 ### Video 
 
