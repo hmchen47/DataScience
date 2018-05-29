@@ -33,3 +33,15 @@
     + [Lec 4.2 Sampling](./04-SamplingSimulation.md#)
     + [Reading and Practice](./04-SamplingSimulation.md#)
 
++ [Section 4b: Simulation (Lec 4.3 - Lec 4.6)](./04-SamplingSimulation.md)
+    + [Lec 4.3 Distributions](./04-SamplingSimulation.md#)
+    + [Lec 4.4 Large Random Samples](./04-SamplingSimulation.md#)
+    + [Lec 4.5 Simulation](./04-SamplingSimulation.md#)
+    + [Lec 4.6 Statistics](./04-SamplingSimulation.md#)
+    + [Reading and Practice for Section 4b](./04-SamplingSimulation.md#)
+
+
+
+
+
+
