@@ -199,8 +199,64 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 5.
+
+This corresponds to textbook sections:
+
+[Chapter 11: Testing Hypothesis](https://www.inferentialthinking.com/chapters/11/testing-hypotheses.html)
+
+[Chapter 11.1: Assessing Models Opens in new window](https://www.inferentialthinking.com/chapters/11/1/assessing-models.html)
+
+In section 5, we learned how data scientists answer yes-no questions with random samples and empirical distributions. In both the U.S. Supreme Court Swain vs. Alabama example and the Mendel's Pea Flowers example, there were underlying frameworks and assumptions created that allowed for us to use chance models. We'll get more experience with designing these tests and models, choosing the right statistic, and generating conclusions from our models.
+
+Try applying what you learned in the following practice questions.
+
 
 ### Practice 
+
+Kristen Gilbert was an American nurse in the 1990’s who had established a reputation of being very good in crisis situations. When a patient went into cardiac arrest, she would stay calm, sound the code blue alarm, and administer epinephrine to restart the heart. However, other nurses at the hospital became suspicious of Gilbert because it seemed like there was an unusual number of code blue calls when she was working. Some nurses thought that Gilbert was administering fatal injections to patients to cause their cardiac arrest, but no one ever witnessed this directly. 
+
+Here are the data. There were 1641 shifts in total. Each shift was classified according to whether or not there was at least one death and whether or not Gilbert was present.
+
+AT LEAST ONE DEATH ON SHIFT?
+
+| GILBERT PRESENT? | Yes | No | Total |
+|------------------|-----|----|-------|
+| Yes | 40 | 217 | 257 |
+| No | 34 | 1350 | 1384 |
+| Total | 74 | 1567 | 1641 |
+
+
+In defense of Gilbert, assess whether her shifts are like random draws from all 1641 shifts in the following steps.
+
+Q1. If you picked a shift at random, what’s the chance there’s at least one death on that shift?
+
+    Ans: 74/1641
+
+Q2. Suppose Gilbert's shifts were like random draws from all 1641 shifts. How many draws would there be?
+
+    Ans: 257
+
+Q3. If Gilbert's shifts were like random draws, in how many shifts do you expect her to have seen at least one death?
+
+    Ans: 
+
+Q4. In how many of Gilbert's shifts did she see at least one death?
+
+  Ans: 40
+
+Q5. The histogram below shows 10,000 values of the number of shifts with at least one death out of 257 randomly drawn shifts. 
+
+![histogram](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7748463de393cb8da912d4439ab06eb6/asset-v1:BerkeleyX+Data8.2x+1T2018+type@asset+block/gilberthistogram.png)
+
+    Which do you conclude?
+
+    a. Gilbert's shifts were like random draws.
+
+    b. Gilbert had too many shifts with at least one death. Her shifts don't look like random draws.
+
+    Ans: b
+
 
 
 
