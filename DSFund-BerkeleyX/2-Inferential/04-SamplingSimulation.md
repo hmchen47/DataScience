@@ -227,14 +227,33 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
 
 ### Notes
 
++ Calculate & Simulate
+
+    + Roll a fair diw 4 times
+    + What is $P(\text{get at least one 6})$?
+
 + Demo
     ```python
+    k = 4                               # a trial w/ 4 rolls
+    dice = np.arange(6) + 1
+    rolls = np.random.choice(dice, k)
 
+    sum(rolls == 6)
+
+    trials = 10000
+    successes = 0
+
+    for _ in np.arange(trials):
+        rolls = np.random.choice(dice, k)
+        if sum(rolls == 6) > 0:
+            successes = successes + 1
+
+    successes / trials
     ```
 
 ### Video
 
-<a href="url" target="_blank">
+<a href="https://youtu.be/bZAH45VowH0" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
