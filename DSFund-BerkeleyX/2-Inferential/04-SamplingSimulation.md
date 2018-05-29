@@ -262,14 +262,68 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
 
 ### Notes
 
++ Why Sample?
+    + Probability: 
+        + a branch of mathematics where if you make assumptions about how the world works
+        + compute what will happen when you run an experiment
+    + Statistics: 
+        + look at the outcome of an experiment and tries to reason about what the world is like
+        + a method of understanding from observation
+    + Sampling: tie the two together
+
++ Inference
+    + __Statistical Inference__: Making conclusions based on data in random samples
+    + Example: 
+        + Use the data to guess the valueif an unknown (_fixed_) number
+        + Create an __estimate__ (_depends on tehrandom sample_) of the unknown quantity
+
++ Terminology
+    + __Parameter__: A number associated with the population
+    + __Statistic__: A number calculated from the sample
+
+    A statistic can be used as an __estimate__ of a parameter
+
++ Probability Distribution of a Statistic
+
+    + Values of a statistic vary because random samples vary
+    + “Sampling distribution” or “probability distribution” of the statistic:
+        + All possible values of the statistic,
+        + and all the corresponding probabilities
+    + Can be hard to calculate
+        + Either have to do the math
+        + Or have to generate all possible samples and calculate the statistic based on each sample
+
++ Empirical Distribution of a Statistic
+
+    + Empirical distribution of the statistic:
+        + Based on simulated values of the statistic
+        + Consists of all the observed values of the statistic,
+        + and the proportion of times each value appeared
+    + Good approximation to the probability distribution of the statistic
+        + if the number of repetitions in the simulation is large
+
 + Demo
     ```python
+    def estimate_by_simulation(trials):
+        successes = 0
 
+        for _ in np.arange(trials):
+            rolls = np.random.choice(dice, k)
+            if sum(rolls == 6) > 0:
+                successes = successes + 1
+
+        return successes / trials
+
+    estimates = []
+    for _ in np.arange(1000):
+        estimates.append(estimate_by_simulation(10000))
+
+    Table().with_column('Estimate', estimates).hist(bins=50, normed=False)
     ```
 
 ### Video
 
-<a href="url" target="_blank">
+<a href="https://youtu.be/6FLXlYSa8NY" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
