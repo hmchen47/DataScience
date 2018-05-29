@@ -24,7 +24,6 @@ plots.style.use('fivethirtyeight')
 
 
 
-
 ## Array
 
 ### Methods
@@ -74,7 +73,7 @@ plots.style.use('fivethirtyeight')
 | `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015]; [Lec 12.1 Table Methods][026] |
 | `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014]; [Lec 12.1 Table Methods][026] |
 | `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [Lec 12.1 Table Methods][026] |
-| `t.sample(k=None, with_replacement=True, weights=None)` | Return a new table where k rows are randomly sampled from the original table | [Sampling][] |
+| `t.sample(k=None, with_replacement=True, weights=None)` | Return a new table where k rows are randomly sampled from the original table | [Sampling][030] |
 
 
 
@@ -148,6 +147,13 @@ plots.style.use('fivethirtyeight')
 | `are.not_equal_to(Z)` | Not equal to `Z` |
 | `are.not_above(x)` | Not above `x` |
 
+
+
+## Misc
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `sample_proportions(sample_size, probabilities)` | Return the proportion of random draws for each outcome in a distribution | [Random Select][031] |
 
 
 -------------------
