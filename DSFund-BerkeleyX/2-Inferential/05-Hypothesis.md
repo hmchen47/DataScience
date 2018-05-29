@@ -96,8 +96,58 @@
 
 ### Notes
 
++ Steps in Assessing a Model
+
+    + Come up with a statistic that will help you decide whether the data support the model or an alternative view of the world.
+    + Simulate the statistic under the assumptions of the model.
+    + Draw a histogram of the simulated values. This is the model’s prediction for how the statistic should come out.
+    + Compute the observed statistic from the sample in the study.
+    + Compare this value with the histogram.
+    + If the two are not consistent, that’s evidence against the model.
+
++ Gregor Mendel, 1822-1884
+
+    <img src="https://www.sciencelearn.org.nz/system/images/images/000/002/472/embed/Gregor_Mendel_oval.jpg" alt="text" width="123">
+    <img src="https://lh3.googleusercontent.com/VXvSFXZ0srj5i4fMooyoqhcmy6T-imfcFSfBdhDSI19z_cA6brh1-Z0TBYl0V--u1mjcKyknUPqBsgy6s7FuNgfrEfP3GM3EU2BafYs=s660" alt="text" width="400">
+
++ A Model
+    + Pea plants of a particular kind
+    + Each one has either purple flowers or white flowers
+    + Mendel’s model:
+        + Each plant is purple-flowering with chance $75\%$,
+        + regardless of the colors of the other plants
+    + Question:
+        + Is the model good, or not?
+
++ Choosing a Statistic
+
+    + Start with percent of purple-flowering plants in sample
+    + If that percent is much larger or much smaller than $75$, that is evidence against the model
+    + __Distance__ from $75$ is the key
+    + Statistic: $| \text{sample percent of purple-flowering plants} - 75 |$
+    + If the statistic is large, that is evidence against the model
+
+
 + Demo 
     ````python
+    model = make_array(0.75, 0.25)
+
+    sample_proportions(929, model)
+
+    percent_purple = (100 * sample_proportions(929, model)).item(0)
+
+    abs(percent_purple - 75)
+
+    distances = make_array()
+
+    repetitions = 10000
+    for i in np.arange(repetitions):
+        one_distance = abs((100 * sample_proportions(929, model)).item(0) - 75)
+        distances = np.append(distances, one_distance)
+
+    Table().with_column('Distance from 75', distances).hist()
+
+    abs(100 * (705 / 929) - 75)
 
     ```
 
