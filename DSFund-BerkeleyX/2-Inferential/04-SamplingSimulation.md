@@ -145,11 +145,41 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
 
 ### Notes
 
++ Probability Distribution
 
+    + Random quantity with various possible values
+    + “Probability distribution”:
+        + All the possible values of the quantity
+        + The probability of each of those values
+    + If you can do the math, you can work out the probability distribution can without ever simulating the random quantity
+
++ Empirical Distribution
+
+    + “Empirical”: based on observations
+    + Observations can be from repetitions of an experiment
+    + “Empirical Distribution”
+        + All observed values
+        + The proportion of times each value appears
+
++ Demo
+    ```python
+    # Gerneate dice outcome set
+    die = Table().with_column('face', np.arange(6)+1)
+
+    # plot dice face historgram func
+    def face_hist(t):
+        t.hist('face', bins=np.arange(0.5, 7, 1), unit='face')
+        plots.xlabel('Face')
+
+    face_hist(die)
+
+    # Try changing the sample size of 1000 to larger and smaller numbers
+    face_hist(die.sample(1000))
+    ```
 
 ### Video
 
-<a href="url" target="_blank">
+<a href="https://youtu.be/f7z8QSovv10" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
