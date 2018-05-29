@@ -74,7 +74,7 @@ plots.style.use('fivethirtyeight')
 | `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [Lec 10.4 Pivot Tables][015]; [Lec 12.1 Table Methods][026] |
 | `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [Lec 11.1 Joins][014]; [Lec 12.1 Table Methods][026] |
 | `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [Lec 12.1 Table Methods][026] |
-
+| `t.sample(k=None, with_replacement=True, weights=None)` | Return a new table where k rows are randomly sampled from the original table | [Sampling][] |
 
 
 
@@ -181,7 +181,8 @@ plots.style.use('fivethirtyeight')
 [027]: http://data8.org/datascience/tables.html
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
 [029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
-
+[030]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
+[031]: ../
 
 
 
