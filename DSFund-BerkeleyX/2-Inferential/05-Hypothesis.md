@@ -4,10 +4,21 @@
 
 ### Notes
 
-+ Demo 
-    ````python
++ Choosing One of Two Viewpoints
 
-    ```
+    + Based on data
+        + “Chocolate has no effect on cardiac disease.” --> “Yes, it does.”
+        + “This jury panel was selected at random from eligible jurors.” --> “No, it has too many people with college degrees.”
+
++ Models
+    + A model is a set of assumptions aboyut the data
+    + In data science, many models involve assumption about processes that involve randomnes, e.g., “Chance models”
+
++ Approach to Assessment
+
+    + If we can simulate data according to the assumptions of the model, we can learn what the model predicts.
+    + We can then compare the predictions to the data that were observed.
+    + If the data and the model’s predictions are not consistent, that is evidence against the model.
 
 ### Video 
 
