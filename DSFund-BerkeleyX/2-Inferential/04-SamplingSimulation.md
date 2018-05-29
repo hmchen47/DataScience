@@ -91,7 +91,7 @@
 </a>
 
 
-## Reading and Practice for Section 4a
+## Reading and Practice
 
 ### Reading
 
@@ -136,6 +136,79 @@ Q4. Suppose for each student, we flip a fair coin. If that coin lands on heads, 
     e. $1 - (1/2)^20000$
 
     Ans: d
+
+
+
+# Section 4b: Simulation (Lec 4.3 - Lec 4.6)
+
+## Lec 4.3 Distributions
+
+### Notes
+
+
+
+### Video
+
+<a href="url" target="_blank">
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+</a>
+
+
+## Lec 4.4 Large Random Samples
+
+### Notes
+
+
++ Demo
+    ```python
+
+    ```
+
+### Video
+
+<a href="url" target="_blank">
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+</a>
+
+
+## Lec 4.5 Simulation
+
+### Notes
+
++ Demo
+    ```python
+
+    ```
+
+### Video
+
+<a href="url" target="_blank">
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+</a>
+
+
+## Lec 4.6 Statistics
+
+### Notes
+
++ Demo
+    ```python
+
+    ```
+
+### Video
+
+<a href="url" target="_blank">
+  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+</a>
+
+
+## Reading and Practice
+
+### Reading
+
+
+### Practice
 
 
 
