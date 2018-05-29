@@ -40,7 +40,12 @@
     + [Lec 4.6 Statistics](./04-SamplingSimulation.md#)
     + [Reading and Practice for Section 4b](./04-SamplingSimulation.md#)
 
-
++  [Section 5: Hypothesis Testing (Lec 5.1 - Lec 5.4)](./05-Hypothesis.md)
+    + [Lec 5.1 Assessing Models](./05-Hypothesis.md#)
+    + [Lec 5.2 A Model about Random Selection](./05-Hypothesis.md#)
+    + [Lec 5.3 A Genetic Model](./05-Hypothesis.md#)
+    + [Lec 5.4 Example](./05-Hypothesis.md#)
+    + [Reading and Practice for Section 5](./05-Hypothesis.md#)
 
 
 
