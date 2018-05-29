@@ -44,6 +44,19 @@
         + $[165, 170)$: 168
         + $[170, 175)$: 170, 171, 173
         + ...
++ `bin()` method
+    + Signature: `Table.bin(columns, bins=None, range=None, density=None)`
+    + Group values by bin and compute counts per bin by column. If the original table has $n$ columns, the resulting binned table has $n+1$ columns, where column $0$ contains the lower bound of each bin.
+    + Args: 
+        + `columns` (str or int): Labels or indices of columns to be binned. If empty, all columns are binned.
+        + `bins` (int or sequence of scalars): 
+            + `int`: the number of equal-width bins in the given range (10, by default)
+            + `sequence`: define the bin edges, including the rightmost edge, allowing for non-uniform bin widths.
+        + `range` (float, float): The lower and upper range of the bins. None = range contains all values in the table. Values outside the range are ignored.
+        + `density` (bool): for result
+            + `False`: containing the number of samples in each bin
+            + `True`: the value of the probability density function at the bin, normalized such that the integral over the range is $1$.
+
 + Demo
     ```python
     top = Table.read_table('top_movies.csv')

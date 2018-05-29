@@ -105,9 +105,9 @@ plots.style.use('fivethirtyeight')
 | `t.scatter(x[, y])` | scatter plot | [Lec 7.3 Scatter Plots][008] |
 | `t.bar(colX, colY)` | Depict bar chart with `colX` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009] | 
 | `t.barh(colX, colY)` | Depict horizontal bar chart with `colX` column; numerical vs categorical or distribution | [Lec 3.7 Bar Charts][009]; [Lec 7.7 Distributions][011] |
-| `t.bin(col, bins=<ary>)` | create bins for further use; the last bin is the point, therefore any item located on the point moves to the __last 2nd bin__ | [Lec 8.2 Binning][010] |
+| `t.bin(columns, bins=None, range=None, density=None)` | Group values by bin and compute counts per bin by column. If the original table has $n$ columns, the resulting binned table has $n+1$ columns, where column $0$ contains the lower bound of each bin. | [Lec 8.2 Binning][010] |
 | `t.hist(*columns, overlay=True, bins=None, bin_column=None, unit=None, group=None, side_by_side=False, width=6, height=4, **vargs)` | Plots one histogram for each column in columns. If no column is specified, plot all columns | [Lec 8.4 Drawing Histograms][006]|
-| `{Marker\|Circle}..map_table(tbl, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps][007] |
+| `{Marker\|Circle}.map_table(tbl, ...)` | A table containing columns of latitude and longitude values used to generate a map of markers | [Lec 11.4 Maps][007] |
 
 
 
