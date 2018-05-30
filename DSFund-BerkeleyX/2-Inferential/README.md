@@ -47,7 +47,7 @@
     + [Lec 5.4 Example](./05-Hypothesis.md#)
     + [Reading and Practice for Section 5](./05-Hypothesis.md#)
 
-+ [Lab 2: Sampling](./lab02-Sampling.md)
++ [Lab 2: Sampling](./lab02.md)
 
 
 
