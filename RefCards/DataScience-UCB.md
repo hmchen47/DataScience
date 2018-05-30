@@ -101,7 +101,7 @@ plots.style.use('fivethirtyeight')
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `t.plot(x[, y])` | line graph, `x` & `y` are column indices in table `t`, no `y` -> plot all columns in `t` except `x` | [I-Lec 7.1 Line Graphs][001] |
+| `t.plot(column_for_xticks=None, overlay=True)` | Plot line charts for the table | [I-Lec 7.1 Line Graphs][001] |
 | `t.scatter(x[, y])` | scatter plot | [I-Lec 7.3 Scatter Plots][008] |
 | `t.bar(colX, colY)` | Depict bar chart with `colX` column; numerical vs categorical or distribution | [I-Lec 3.7 Bar Charts][009] | 
 | `t.barh(colX, colY)` | Depict horizontal bar chart with `colX` column; numerical vs categorical or distribution | [I-Lec 3.7 Bar Charts][009]; [I-Lec 7.7 Distributions][011] |
