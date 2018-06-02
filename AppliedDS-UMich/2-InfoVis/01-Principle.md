@@ -171,26 +171,37 @@ http://www.darkhorseanalytics.com/
 
 ## Graphical heuristics: Chart junk (Edward Tufte)
 
-+ Demo
-    ```python
++ Types of Chart Junks
+  + Unintended optical art
+    + e.g. excessive sshading or patterningof chart features
+    + Economics Graphic (see below)- Tufte, E. R. (1985). “Instituto de Expansao Commercial, Brasil: ‘Graphicos Economicos-Estisticas’ (Rio de Janeiro, 1929), p 15.” The Visual Display of Quantitative Information. Second Edition. Cheshire, CT: Graphics Press. (pp 108)  
+    + Moire patterns: 
+      + human eye jump --> visdsual fatigue
+      + Strip shirt in low resolution video
+    Suggestion: labeling the chart graphics directly
+  + The grid
+    + unnecessary as data ink
+    + Causing competition w/ the actual data being shared
+    + Sulorions: 
+      + thining, removing, or desaturating grid -> easier to see  the data
+      + direct labeling of data
+  + The duck
+    + non-data creative graphics - line art or photographs including in the chart
+    + e.g. News pagaer and news magazine
+    + Nigel Holmes, graphic artisit, displays data as memorable as well as aesthetic
 
-    ```
+  <br/><img src="http://davidgiard.com/content/binary/DataVisPix/DV-Fig6a.PNG" alt="Unintended optical art" width="400">
+  <img src="http://visualoop.com/media/2015/03/Diamonds-Were-a-Girls-Best-Friend.jpg" alt="A Gem That Lost Its Luster" width="288">
+  <br/><img src="url" alt="text" width="450">
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/5TCbG_0fEea3FxIaEbBXjA.processed/full/360p/index.mp4?Expires=1528070400&Signature=AjtazWrcqCNpOeqkYGxcPBlUTEvFG6FghCkDMsnONPepIrBVeKq8rvNVIwXKRzMayyM86qnvey5zhtIt17EzQDMBgAMKsafadIKxiRgZX~rv8JqcKHMKGWt-zCX5lC6cEeQ2RdPZv~xbjHdeWjieoxiIJR~X2JgSog7Am15BY0g_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Chart junk" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 
 ## Useful Junk?: The Effects of Visual Embellishment on Comprehension and ](./01-Principle.md#)+ [Memorability of Charts
 
-+ Demo
-    ```python
-
-    ```
-
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., & Brooks, C. (2010, April). [Useful Junk?: The Effects of Visual Embellishment on Comprehension and Memorability of Charts](http://hci.usask.ca/uploads/173-pap0297-bateman.pdf). In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 2573-2582). ACM.
 
 
 ## Graphical heuristics: Lie Factor and Spark Lines (Edward Tufte)
