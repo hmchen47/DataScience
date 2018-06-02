@@ -160,19 +160,13 @@ This course uses a third-party tool, Hands-on Visualization Wheel, to enhance yo
   + Direct label
 
 <br/><img src="https://static1.squarespace.com/static/56713bf4dc5cb41142f28d1f/t/5671eae2816924fc2265189a/1454121618204/data-ink.gif?format=1000w" alt="Remove to Improve" width="300">
-<img src="urhttps://static1.squarespace.com/static/568ab0cfd8af102bf3ef67f3/t/56bad27660b5e9e52ed8f059/1505194301477/transparent.pngl" alt="darkhorseanalytics" width="300">
+<img src="https://static1.squarespace.com/static/568ab0cfd8af102bf3ef67f3/t/56bad27660b5e9e52ed8f059/1505194301477/transparent.png" alt="darkhorseanalytics" width="300">
 
 
 ## Dark Horse Analytics (Optional)
 
-+ Demo
-    ```python
-
-    ```
-
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+Feel free to explore Dark Horse's [portfolio](http://www.darkhorseanalytics.com/portfolio-all/) and [blog](http://www.darkhorseanalytics.com/blog) for interesting and interactive visuals:
+http://www.darkhorseanalytics.com/
 
 
 ## Graphical heuristics: Chart junk (Edward Tufte)
