@@ -129,32 +129,21 @@ Thank you for participating!
 
 ## Notice for Coursera Learners: Assignment Submission
 
-+ Demo
-    ```python
-
-    ```
-
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+Please note: only verified learners can submit assignments. If you are auditing this course, you will be able to go through the quizzes or assignments, but you will not be able to submit your assignment for a grade. If you wish to have your assignments graded and receive a course certificate, we encourage you to upgrade to the Certified Learner track for this course. Coursera has provided [information about purchasing a certificate](https://learner.coursera.help/hc/en-us/articles/208280146-Pay-for-a-course-or-Specialization), and you can also get help from the [Coursera Help Center](https://learner.coursera.help/hc/en-us).
 
 
-## Ungraded External ToolHands-on Visualization Wheel
+## Hands-on Visualizati Wheel
 
-+ Demo
-    ```python
+This course uses a third-party tool, Hands-on Visualization Wheel, to enhance your learning experience. The tool will reference basic information like your name, email, and Coursera ID.
 
-    ```
+[Tool](https://mooctools.ai.umich.edu/multimeasure/424-visualization-wheel-practice/)
 
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
-
+[My Share](https://mooctools.ai.umich.edu/multimeasure/424-visualization-wheel-practice/70-electromagnetic-radiation/a6230ca4e1638c4635337b2554203d7b524b94a6/)
 
 ## Graphical heuristics: Data-ink ratio (Edward Tufte)
 
 + Demo
-    ```python
+    ```pythony
 
     ```
 

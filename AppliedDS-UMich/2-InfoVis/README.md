@@ -10,7 +10,7 @@
 + [About the Professor: Christopher Brooks](./01-Principle.md#)
 + [Tools for Thinking about Design (Alberto Cairo)](./01-Principle.md#)
 + [Notice for Coursera Learners: Assignment Submission](./01-Principle.md#)
-+ [Ungraded External ToolHands-on Visualization Wheel](./01-Principle.md#)
++ [Hands-on Visualization Wheel](./01-Principle.md#)
 + [Graphical heuristics: Data-ink ratio (Edward Tufte)](./01-Principle.md#)
 + [Dark Horse Analytics (Optional)](./01-Principle.md#)
 + [Graphical heuristics: Chart junk (Edward Tufte)](./01-Principle.md#)
