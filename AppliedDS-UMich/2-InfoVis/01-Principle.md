@@ -106,12 +106,23 @@ Thank you for participating!
 
 ## Tools for Thinking about Design (Alberto Cairo)
 
-+ Demo
-    ```python
++ Visualization Wheel
+  <br/><img src="https://www.researchgate.net/profile/Maurizio_Bocconcino/publication/321326283/figure/fig2/AS:565586897760256@1511857832021/The-visualization-wheel.png" alt="The visualization wheel" width="400">
 
-    ```
+  + Cairo, A. (2013). The functional art: An introduction to information graphics and visualization. Berkley, CA: New Riders
 
-<a href="url" alt="text" target="_blank">
++ Visualization Wheel Dimensions
+  + __Abstraction – Figuration__: Boxes and charts (abstraction) or real-world physical objects (figuration)
+  + __Functionality – Decoration__: No embellishments (functionality) or artistic embellishments (decoration)
+  + __Density – Lightness__: Must be studied in depth (density) or understandable at a glance (lightness)
+  + __Multidimensional – Unidimensional__: Different aspects of phenomena (multidimensional) or single or few items of phenomenal (unidimensional)
+  + __Originality – Familiarity__: Novel methods of visualization (originality) or established and well understood methods of visualization (familiarity)
+  + __Novelty – Redundancy__: Explaining each item once (novelty) or encoding multiple explanations of the same phenomena (redundancy) 
+
+    <br/><img src="./diagrams/MOOCHist.png" alt="Density vs. Lightness: A scatterplot with marginal histograms" width="500">  <br/>Density–Lightness<br/>
+    <br/><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" alt="Originality vs Familiarity: Charles Minard's map" width="600"> <br/>Multidimensional–Unidimensional <br/>
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/OplrYxO5EeeExg76uXNxYA.processed/full/540p/index.mp4?Expires=1528070400&Signature=cJdvbF5sDKDcIXQpQ3idi3eQR58Tbn~LGMzHcgAdjnM17Bo2VdgzaTK8nrk39LLzcbTlUBj5sdcZ7LXIMgFfphD2s4cp-1AhR4u5WRGB1hHZMMzysDIJ00aGztGn~DdeSooaFHFELf8sT1CdD6uANQPsKjZ73xzHpC1nWbMFR4M_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Tools about Design" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
