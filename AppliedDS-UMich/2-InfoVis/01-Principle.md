@@ -192,7 +192,6 @@ http://www.darkhorseanalytics.com/
 
   <br/><img src="http://davidgiard.com/content/binary/DataVisPix/DV-Fig6a.PNG" alt="Unintended optical art" width="400">
   <img src="http://visualoop.com/media/2015/03/Diamonds-Were-a-Girls-Best-Friend.jpg" alt="A Gem That Lost Its Luster" width="288">
-  <br/><img src="url" alt="text" width="450">
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/5TCbG_0fEea3FxIaEbBXjA.processed/full/360p/index.mp4?Expires=1528070400&Signature=AjtazWrcqCNpOeqkYGxcPBlUTEvFG6FghCkDMsnONPepIrBVeKq8rvNVIwXKRzMayyM86qnvey5zhtIt17EzQDMBgAMKsafadIKxiRgZX~rv8JqcKHMKGWt-zCX5lC6cEeQ2RdPZv~xbjHdeWjieoxiIJR~X2JgSog7Am15BY0g_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Chart junk" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -206,12 +205,23 @@ Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., & Brooks, C. (2
 
 ## Graphical heuristics: Lie Factor and Spark Lines (Edward Tufte)
 
-+ Demo
-    ```python
++ Spark lines
+  + a.k.a. data words
+  + bridge the gap btw text and firgures
+  + ont only represented directly in text, but also embedded in tabls along w/ the data descrobed
+  + e.g., MS Excel, Google Finance
+  + Used in data trends or distribution 
+  + Sparktweet: unicode block characters used to display a bar graph inside the 140 characters alloted by Twitter
 
-    ```
+  <br/><img src="https://docs.telerik.com/reporting/media/SparklineChart.png" alt="Soarklines" width="300">
+  <img src="https://i2.wp.com/www.newsrewired.com/wp-content/uploads/2011/05/sparktweet.jpg?w=518&ssl=1" alt="sparktweet" width="300">
 
-<a href="url" alt="text" target="_blank">
++ Lie Factor:
+  + the size of an effect shown in the graphic divided by the size of the effect actually in the data
+
+  <br/><img src="http://slideplayer.com/4283310/14/images/10/Examples+of+the+lie+factor.jpg" alt="text" width="450">
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/xnFyU_3_EeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1528070400&Signature=gN~9lchpaZ9YCU7UgXx33PAxMOc7BMgRQuMFUBg9CYV28J8a7yx4yC7VCbbzNWfKsnyf~Y0SlxaU7iLt6FBRxwz8VhathLIE23yA87AX17SFAAWPeJGOrFTRO6ffcd26Eug-Fdz6HQeeZgX1WH~YQ199Ty~MmDoVa5ZV9bQlkY8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Lie Factor and Spark Lines" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
