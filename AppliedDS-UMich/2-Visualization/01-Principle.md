@@ -90,24 +90,16 @@ Some IVQs also contain runnable code blocks. These IVQs allow you to practice th
 
 ## Help us learn more about you!
 
-+ Demo
-    ```python
+As part of getting to know you better, your backgrounds, your interest in this specific course and in digital education in general, we at the University of Michigan have crafted a survey that should only take a few minutes to complete. Our goal is to keep our communication with you focused on learning and staying in touch, but we believe that both this and an end-of-course survey are important to our mutual educational goals.
 
-    ```
+[Take the survey](https://umich.qualtrics.com/SE/?SID=SV_735AxMay2FSApSZ&redirect=SV_9ukuaMa1VKYV9C5&phoenix_global_user_id=%GLOBAL_USER_ID:2013-may-demographics%&phoenix_session_user_id=a673d88550c65e33c23c67424ca1324525dee852&name=H.-M.%20Fred%20Chen&platform_id=coursera_phoenix&course_id=python-plotting)
 
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+Thank you for participating!
 
 
 ## About the Professor: Christopher Brooks
 
-+ Demo
-    ```python
-
-    ```
-
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/zc1x69naEeamdAphtyjZ1A.processed/full/360p/index.mp4?Expires=1528070400&Signature=Ok-EFuFw4Qc-xlPCyzcuFmgo6H2Rv8PNDMhP2xSDYaTXWTVr5FLKFlzK1dpkEzSyMDwbYjXH9TDXmv5Zl5qNNbUQ12RpzdoZ4OU3bj2D4WjZUMa3HWahNkmrurXWuaQdsnXulyFKc-nuhdLYNKOUbBdVwBOJY79B5x6Y4lSpXzQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Christopher Brooks" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
