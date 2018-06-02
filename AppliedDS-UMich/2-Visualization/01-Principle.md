@@ -2,12 +2,7 @@
 
 ## Introduction
 
-+ Demo
-    ```python
-
-    ```
-
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/B6SZaP0fEearIRLZY_MkaA.processed/full/360p/index.mp4?Expires=1528070400&Signature=VQzb9ZsHjGEaShggtLYMuZ8ImnWqZxZGuCxrkilWHjUBRDbswcgzN3ZbTQptezzuyu9TRaajJ8MCNTBhAbldK9lP6k2tpKOIYyJZTAZL9eS2bX0HSISMpp9ptHV84Fr~8TleDKZZAEJZvShDhMBBbFKaRBKAcayiCJdFltgOPFk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
