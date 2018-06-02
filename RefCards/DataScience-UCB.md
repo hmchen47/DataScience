@@ -89,14 +89,6 @@ plots.style.use('fivethirtyeight')
 
 ## Visualizations
 
-### Attributes
-
-| Attribute | Description | Link |
-|-----------|-------------|------|
-
-
-
-
 ### Methods
 
 | Function | Description | Link |
