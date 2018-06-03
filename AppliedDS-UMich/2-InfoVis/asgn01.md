@@ -27,6 +27,7 @@ Download the attachment for a preview of how the assignment will be graded.
 [assignment1_rubric.pdf](https://d3c33hcgiwev3.cloudfront.net/_6764b06941d5bed6d0678452b8062366_assignment1_rubric.pdf?Expires=1528156800&Signature=ZTyhop~GiRYD9M8XkBZcuaMCHGLrXL~MZGcPtwtH7rroG4VtOTj7KddYXfYIRfkdZi3mgcl09dVYL3hLhK3puTrh7DY4XnXzrzPz2vBxgRVOZnsi2YdoisGTsn3UYvptDURo43sTkYte-uYdMf7iP0HDToPlNI0xbif7rEyt~a8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
 Rubric Preview Criteria:
+
 + Please upload an image of this visual using a widely accessible graphic format (e.g., PDF, .jpg, .png)
 + Briefly describe the context for the visual by addressing the following questions:
     1. What is the source of the visual? (e.g., URL or bibliographic citation)
@@ -36,7 +37,17 @@ Rubric Preview Criteria:
     + 0 pts - The learner did not identify the intended audience.
     + 2 pts - The learner identified the intended audience, but did not provide an     explanation.
     + 4 pts - The learner identified the intended audience and they provided an explanation of how they knew who the intended audience is.
-    
+
++ Article Criteria
+    1. Identify the specific component(s) of the visual that is/are misleading
+    2. For each part(s) of the visualization that is/are misleading, identify the mechanism that is used: hiding relevant data to highlight what benefits us; displaying too much data to obscure reality; using graphic forms in inappropriate ways (distorting the data)
+    3. Explain how the mechanisms are used to mislead
+
++ Did the learner identify one or more specific components that is/are misleading?
++ For each component of the visual that the learner identified as misleading, did the learner identify the mechanism that was used to mislead?
++ Did the learner explain how the mechanisms were used to mislead?
++ Optional: Describe any additional issues you found with visual that did not fall under Cairo's three misleading mechanisms
+
 
 ## Review Your Peers: Graphics Lies, Misleading Visuals
 
