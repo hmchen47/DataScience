@@ -172,20 +172,20 @@ http://www.darkhorseanalytics.com/
 ## Graphical heuristics: Chart junk (Edward Tufte)
 
 + Types of Chart Junks
-  + Unintended optical art
+  + __Unintended optical art__
     + e.g. excessive sshading or patterningof chart features
     + Economics Graphic (see below)- Tufte, E. R. (1985). “Instituto de Expansao Commercial, Brasil: ‘Graphicos Economicos-Estisticas’ (Rio de Janeiro, 1929), p 15.” The Visual Display of Quantitative Information. Second Edition. Cheshire, CT: Graphics Press. (pp 108)  
     + Moire patterns: 
       + human eye jump --> visdsual fatigue
       + Strip shirt in low resolution video
     Suggestion: labeling the chart graphics directly
-  + The grid
+  + __The grid__
     + unnecessary as data ink
     + Causing competition w/ the actual data being shared
     + Sulorions: 
       + thining, removing, or desaturating grid -> easier to see  the data
       + direct labeling of data
-  + The duck
+  + __The duck__
     + non-data creative graphics - line art or photographs including in the chart
     + e.g. News pagaer and news magazine
     + Nigel Holmes, graphic artisit, displays data as memorable as well as aesthetic
@@ -213,13 +213,13 @@ Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., & Brooks, C. (2
   + Used in data trends or distribution 
   + Sparktweet: unicode block characters used to display a bar graph inside the 140 characters alloted by Twitter
 
-  <br/><img src="https://docs.telerik.com/reporting/media/SparklineChart.png" alt="Soarklines" width="300">
+  <img src="https://docs.telerik.com/reporting/media/SparklineChart.png" alt="Soarklines" width="300">
   <img src="https://i2.wp.com/www.newsrewired.com/wp-content/uploads/2011/05/sparktweet.jpg?w=518&ssl=1" alt="sparktweet" width="300">
 
 + Lie Factor:
   + the size of an effect shown in the graphic divided by the size of the effect actually in the data
+  <br/><img src="http://slideplayer.com/4283310/14/images/10/Examples+of+the+lie+factor.jpg" alt="text" width="400">
 
-  <br/><img src="http://slideplayer.com/4283310/14/images/10/Examples+of+the+lie+factor.jpg" alt="text" width="450">
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/xnFyU_3_EeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1528070400&Signature=gN~9lchpaZ9YCU7UgXx33PAxMOc7BMgRQuMFUBg9CYV28J8a7yx4yC7VCbbzNWfKsnyf~Y0SlxaU7iLt6FBRxwz8VhathLIE23yA87AX17SFAAWPeJGOrFTRO6ffcd26Eug-Fdz6HQeeZgX1WH~YQ199Ty~MmDoVa5ZV9bQlkY8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Lie Factor and Spark Lines" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -228,26 +228,47 @@ Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., & Brooks, C. (2
 
 ## The Truthful Art (Alberto Cairo)
 
-+ Demo
-    ```python
++ Qualities of a Great Visualization
+  1. Truthful: Be aware of your actions when cleaning, summarizing and manipulating data and ensure you aren’t
+      + Misleading yourself (self deception)
+        + limitation of activities applied
+        + modification of data
+        + skeoticism about the inauthentic to the phenomena described
+      + Misleading your audience
+        + ommit yhe ability of the reader to explore the phenomena more fully
+        + e.g. left diagram of cable company investment graphic
+  2. Functionality: 
+      + Darkhorse Analytics: direct labels -> w/o labels
+      + Understanding howw functional a given approach to a visulation not necessary require expensive ethnographic research
+      + Most time crow source much easier to test hypotheses
+  3. Beauty
+      + Knowing a great deal about audience
+      + Different perceptions based on people's lived experiences and aspects about themselves
+      + Building beautiful visualization experience depending on situations and contextual factors
+      + Wired Magazine: known for full page infromation graphic spreads
+  4. Insightful
+      + Not only replicate the data, but draw for the viewer in an aha or eireka moment
+      + Academic papger peer review relys on insightful graphics
+  5. Enlightening: A combination of the previous four, but with a social ethical responsibility
+  <br/><img src="http://newsjel.ly/wp-content/uploads/2017/06/001-1.png" alt="Truthful" width="500">
+  <br/><img src="url" alt="text" width="450">
+  <br/><img src="url" alt="text" width="450">
 
-    ```
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/Z_s6fv0fEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528070400&Signature=i~WZIqtwIQsnn6D9-y1C2cBbJYsO3prpZjeT-usRoL0TJa30bxpQT9ik485m-qw117JgEYl6QxUltVGJpm-gSjeFKxc3vQ9NntsyGdKWDmEdn4rVIh91FAVOD5YBCMq-il-t1vcb7PVIPfw-ziobQFwJzpxDQXgs3~D4gpfxhaA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Truthful Art" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 
 ## Discussion Prompt: Must a visual be enlightening?
 
-+ Demo
-    ```python
+In writing on what makes a visualization great, Alberto Cairo wrote that "An enlightening graphic is a consequence of paying attention to the previous four qualities. A graphic that is truthful, functional, beautiful, and insightful has the potential of being enlightening as well. But there's something else to consider at this point: the topic of the visualization. __Choosing topics ethically and wisely - casting light over relevant issues - matters a lot.__" (The Truthful Art, p. 60)
 
-    ```
+Do you believe that the process by which we evaluate the quality of information visualizations is amoral? That is, that the rules, heuristics, and intuitions we apply to the creation of a "good information visualization" are separate from the domain and social/ethical responsibilities we might hold as practicing data scientists?
 
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+> Mu Response:
+>
+> The answer is YES and NO.  It depends on the point of views.  If the article is about science or engineering subjects in a specific field, carrying out the study findings is to tell the facts than the moral issue.  However, if we broaden the view, the ethical issue covers everything.  From the choice of research methods to conducting the research must be based on the fundamental principle.  Tell the truth rather than just try to publish the papers.  Currently there are too many researchers just utilize the research papers as their step stones rather than the spirit to discover the truth and improving the quality of human life.
 
 
 
