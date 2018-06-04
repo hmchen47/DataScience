@@ -88,7 +88,105 @@ Rubric Preview Criteria:
 
 ## Review Your Peers: Graphics Lies, Misleading Visuals
 
+### Review 2: Spurious Graphics by Fox News
 
+PROMPT
+Read Alberto Cairo’s work, Graphics Lies, Misleading Visuals
+
+Locate an example of a misleading visual that uses one or more of the mechanisms for misleading that Cairo outlines in his book chapter: (1) Hiding relevant data; (2) Displaying too much data and obscuring reality; (3) Distorting data through visual forms.
+
+Please upload an image of this visual using a widely accessible graphic format (e.g., PDF, .jpg, .png)
+
+![Fox Unemployment Chart](https://s3.amazonaws.com/coursera-uploads/peer-review/5af6f8037adddaffafec4e095ec053b5/FoxUnemploymentChart.jpg)
+
+Graphic used by Fox News to communicate the unemployment rate since President Obama issued the economic stimulus packages in 2009
+
+
+PROMPT
+Briefly describe the context for the visual by addressing the following questions:
+
+What is the source of the visual? (e.g., URL or bibliographic citation)
+Who is the intended audience (i.e., decoders)? How do you know this?
+1. I found this visual at this link after searching the web for unscrupulous plots. 
+2. The original intended audience when presented by Fox News was to anyone who was watching the channel at the time which could be argued was its predominantly conservative view base.  The way they shaped the information suggests to me they wanted to use this plot to convince their view base that President Obama's stimulus package was failing. I can be reasonably confident that the intended audience was for the conservative view base of Fox News because there have been many studies related to what type of political ideology viewers of certain channels hold. One such article can be found here where in Table III: Media Consumption by Ideology, the responders of the poll that watched Fox News were overwhelmingly conservative.
+
+PROMPT
+
+Identify the specific component(s) of the visual that is/are misleading
+For each part(s) of the visualization that is/are misleading, identify the mechanism that is used: hiding relevant data to highlight what benefits us; displaying too much data to obscure reality; using graphic forms in inappropriate ways (distorting the data)
+
+Explain how the mechanisms are used to mislead
+1. The x-axis does not use evenly spaced intervals. Here is list of the different intervals:
+    + Dec '07 to Sept '08 (9 months)
+    + Sept '08 to March '09 (6 months)
+    + March '09 to June '10 (15 months)
+2. This would fall under the "using graphic forms in inappropriate ways" category. 
+3. The mechanism used is misleading because the way that the dates were chosen made the graph look like it was increasing linearly, but when all the data is presented in a graph with the dates spaced evenly, the graph increases linearly at first and then levels off towards the end which could tell a completely different story on whether the stimulus package was working or not.
+
+
+
+### Review 3: Baby Boomer Description
+
+PROMPT
+Read Alberto Cairo’s work, Graphics Lies, Misleading Visuals
+
+Locate an example of a misleading visual that uses one or more of the mechanisms for misleading that Cairo outlines in his book chapter: (1) Hiding relevant data; (2) Displaying too much data and obscuring reality; (3) Distorting data through visual forms.
+
+Please upload an image of this visual using a widely accessible graphic format (e.g., PDF, .jpg, .png)
+
+![Baby Boomer](https://s3.amazonaws.com/coursera-uploads/peer-review/63c0fa64d12209377e062183a590618a/Baby_Boomer_Description.jpg)
+
+PROMPT
+Briefly describe the context for the visual by addressing the following questions:
+
+What is the source of the visual? (e.g., URL or bibliographic citation)
+Who is the intended audience (i.e., decoders)? How do you know this?
+1. http://livingqlikview.com/the-9-worst-data-visualizations-ever-created/
+
+2. Based on the title of the visualization, I believe the intended audience is the general population since the visualization seems to be describing a generation and its characteristics. 
+
+PROMPT
+Identify the specific component(s) of the visual that is/are misleading
+For each part(s) of the visualization that is/are misleading, identify the mechanism that is used: hiding relevant data to highlight what benefits us; displaying too much data to obscure reality; using graphic forms in inappropriate ways (distorting the data)
+
+Explain how the mechanisms are used to mislead
+1. The visual of the figure, and the percentage numbers for each description.
+
+2. The figure visual uses the graphic form mechanism to distort data since it serves no purpose to the visual. The percentage numbers for each description represent the hiding relevant data mechanism. 
+
+3. The figure visual is problematic because the color coding inside the figure which represent each description are hard to interpret versus if it was a pie chart. The percentage numbers don't add up to 100% which leads the viewer to think if the baby boomers can describe themselves using multiple descriptions versus only one description. It is also odd that the area represented by 61% appears larger compared to the area represented by 78%.
+
+### Review 4: Misleading Information in “Obama's Final Number”
+
+PROMPT
+Read Alberto Cairo’s work, Graphics Lies, Misleading Visuals
+
+Locate an example of a misleading visual that uses one or more of the mechanisms for misleading that Cairo outlines in his book chapter: (1) Hiding relevant data; (2) Displaying too much data and obscuring reality; (3) Distorting data through visual forms.
+
+Please upload an image of this visual using a widely accessible graphic format (e.g., PDF, .jpg, .png)
+
+![% of Job Gains Under Different Presidents](https://s3.amazonaws.com/coursera-uploads/peer-review/920243a64a5f8fe7139e6d12182cb8e8/Jobs-Gained-Rev-1.png)
+
+
+PROMPT
+Briefly describe the context for the visual by addressing the following questions:
+
+What is the source of the visual? (e.g., URL or bibliographic citation)
+Who is the intended audience (i.e., decoders)? How do you know this?
+1. https://www.factcheck.org/2017/09/obamas-final-numbers/
+
+2. People in United States who are interested in politics.  I know it because of the title of the article and the source.
+
+
+PROMPT
+Identify the specific component(s) of the visual that is/are misleading
+For each part(s) of the visualization that is/are misleading, identify the mechanism that is used: hiding relevant data to highlight what benefits us; displaying too much data to obscure reality; using graphic forms in inappropriate ways (distorting the data)
+Explain how the mechanisms are used to mislead
+1. Color missleading in the graph.  People might think Obama had an OK year because the bar color is blue. The writer is trying to distort data through visual forms.  Because RED in graph normally means something alert compared to blue.  There is no clear explanation on RED vs. BLUE color in the chart.  It's only briefly mentioned in one part of whole long paper, which people can easily ignore it.
+
+2. Because different presidents have different tenure (some of them are 4 years, some of them are 8 years).  The writer might mislead the audience by hiding relevant data.  Because the bar has the same width and each bar only presents each president tenure, which didn't show the tenure on the same scale.  In such case, comparing the job gain percentage on different time scale is not fair comparison. 
+
+3. The statistics presented in the graph might be misleading.  The key statistics used in the graph is the absolutely job gain percentage.  But the job gain number is also highly related to total U.S. population.  The graph should also add population percentage gain as comparison for people to draw better conclusion.  The graph is misleading the audience by on purposely hiding some useful information.
 
 
 
