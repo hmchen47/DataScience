@@ -48,8 +48,47 @@ Rubric Preview Criteria:
 + Did the learner explain how the mechanisms were used to mislead?
 + Optional: Describe any additional issues you found with visual that did not fall under Cairo's three misleading mechanisms
 
+### My Submission
+
++ Please upload an image of this visual using a widely accessible graphic format (e.g., PDF, .jpg, .png)
+
+    <img src="https://i.redditmedia.com/Vy_5A4tEXkDQBM1B5WKdCkCATPwSnLwWwDwlemRl4B4.jpg?w=723&s=034adde51aa004933ba1ab97621faed6" alt="Age of Death and Musical Genre" width="450">
+
++ Briefly describe the context for the visual by addressing the following questions:
+    1. What is the source of the visual? (e.g., URL or bibliographic citation) <br/>
+        URL: https://www.reddit.com/user/canadianshostakovich
+    2. Who is the intended audience (i.e., decoders)? How do you know this? <br/>
+        General interest, seach from 'dataisugly'
+
++ Main Discussions:
+
+> 1. Identify the specific component(s) of the visual that is/are misleading
+> 2. For each part(s) of the visualization that is/are misleading, identify the mechanism that is used: hiding relevant data to highlight what benefits us; displaying too much data to obscure reality; using graphic forms in inappropriate ways (distorting the data)
+> 3. Explain how the mechanisms are used to mislead
+
+    1. Hiding relevant data to highlight what benefits us
+            
+        + Hiding the times of appearance and popularity of genre are not shown in the line graph will mislead audience that RAP and Hip Pop musicians 
+        + The appearance or popularity of the genre
+        + The old-fashioned genre collects more instances than the new-fashion ones.  For instance the Blues and Jazz have more musicians that what have for Rap and Hip Pop.  The later ones are pretty new.
+        + The new-fashion genre covers much shorter time span than old ones.  The average ages of the new-fashion genre will have much shorter ages than old ones.  For instance, Rap becomes popular in less tha 20 year.  We cannot expect the averag age of death with it more than 30~40 years old.
+
+    2. Displaying too much data to obscure reality
+
+        + The male and femal life expectancies do not convey any meaning and wrongly present.
+        + The life expectancy should be flat at a certain point of time.  However, the lines for both male and female are increasing.  Without the correct statement it is difficult to interpret the meaning.
+        + My best guess is that the x-asix is ordered by the year of appearance or popularity of the given genre.  Therefore, the lines of the life expectancies increase with the genre shown.  However, it is not clearly state in the graphic and did not see any meaning of the presentation of the two lines.
+
+    3. Using graphic forms in inappropriate ways
+
+        + The x-axis seems wrongly combining two different units (categorical and continuous) into one. The graphic shows categorical of genre rather than the time span and not clear about the actual year.  The evenly spread genres should not having the same space while the two lines of the life expectancy are most likely the years of appearance or popularity of the genre.  
+        + The y-axis truncates the bottom portion of the age to makes the curves dramatic difference among genre visually.  
+        + The graphic puts two different types of the curves (life expectancy and age of death) into one.  It seems trying to exaggerate the new-fashion genre with early death.  However, they are irrelevant.  
+
 
 ## Review Your Peers: Graphics Lies, Misleading Visuals
+
+
 
 
 
