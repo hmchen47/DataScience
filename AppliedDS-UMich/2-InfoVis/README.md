@@ -2,7 +2,7 @@
 
 [RefCard](../../RefCards/PythonDS.md)
 
-## [Principles of Information Visualization](./01-Principle.md)
+## Module 1: [Principles of Information Visualization](./01-Principle.md)
 
 + [Introduction](./01-Principle.md#)
 + [Syllabus](./01-Principle.md#)
@@ -24,4 +24,28 @@
 + [Graphics Lies, Misleading Visuals](./asgn01.md#)
 + [Peer-graded Assignment: Graphics Lies, Misleading Visuals](./asgn01.md#)
 + [Review Your Peers: Graphics Lies, Misleading Visuals](./asgn01.md#)
+
+
+## Module 2: [Basic Charting](02-BasicChart.md)
+
++ [Module 2 Jupyter Notebook](./02-BasicChart.md#)
++ [Introduction](./02-BasicChart.md#)
++ [Matplotlib Architecture](./02-BasicChart.md#)
++ [Matplotlib](./02-BasicChart.md#)
++ [Ten Simple Rules for Better Figures](./02-BasicChart.md#)
++ [Basic Plotting with Matplotlib](./02-BasicChart.md#)
++ [Scatterplots](./02-BasicChart.md#)
++ [Line Plots](./02-BasicChart.md#)
++ [Bar Charts](./02-BasicChart.md#)
++ [Dejunkifying a Plot](./02-BasicChart.md#)
+
+
+## Assignment 2
+
++ [Plotting Weather Patterns](asgn02.md)
++ [Peer-graded Assignment: Plotting Weather Patterns](asgn02.md)
++ [Review Your Peers: Plotting Weather Patterns](asgn02.md)
+
+
+
 
