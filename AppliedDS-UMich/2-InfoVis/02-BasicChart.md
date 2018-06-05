@@ -317,29 +317,110 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 
 
 
-<br/><img src="url" alt="text" width="450">
-<br/><img src="url" alt="text" width="450">
-<br/><img src="url" alt="text" width="450">
-<br/><img src="url" alt="text" width="450">
-
-
 ## Ten Simple Rules for Better Figures
 
 Rougier et al. share their ten simple rules for drawing better figures, and use matplotlib to provide illustrative examples. As you read this paper, reflect on what you learned in the first module of the course -- principles from Tufte and Cairo -- and consider how you might realize these using matplotlib.
 
-Rougier NP, Droettboom M, Bourne PE (2014) [Ten Simple Rules for Better Figures](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833). PLoS Comput Biol 10(9): e1003833. doi:10.1371/journal.pcbi.
+> Rougier NP, Droettboom M, Bourne PE (2014) [Ten Simple Rules for Better Figures](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833). PLoS Comput Biol 10(9): e1003833. doi:10.1371/journal.pcbi.
 
-+ Rules
-    + Rule 1: Know Your Audience
-    + Rule 2: Identify Your Message
-    + Rule 3: Adapt the Figure to the Support Medium
-    + Rule 4: Captions Are Not Optional
-    + Rule 5: Do Not Trust the Defaults
-    + Rule 6: Use Color Effectively
-    + Rule 7: Do Not Mislead the Reader
-    + Rule 8: Avoid “Chartjunk”
-    + Rule 9: Message Trumps Beauty
-    + Rule 10: Get the Right Tool
+
++ Rule 1: Know Your Audience
+    + How a visual is perceived differs significantly from the intent of the conveyer
+    + Identify, as early as possible in the design process, the audience and the message the visual is to convey
+    + Audiences
+        + Yourself and your direct collaborators: possibly skip a number of steps in the design process
+        + Scientific journal: make sure your figure is correct and conveys all the relevant information to a broader audience
+        + Students: special care about the goal is to explain a concept
+        + General public: the most difficult audience of all since you need to design a simple, possibly approximated, figure that reveals only the most salient part of your research
+
++ Rule 2: Identify Your Message
+    + Figure: express an idea or introduce some facts or a result that would be too long (or nearly impossible) to explain only with words
+    + For an article or during a time-limited oral presentation
+    + Clearly identify the role of the figure, i.e., what is the underlying message and how can a figure best express this 
+    + Only after identifying the message will it be worth the time to develop your figure
+
++ Rule 3: Adapt the Figure to the Support Medium
+    + A figure can be displayed on a variety of media, such as a poster, a computer monitor, a projection screen (as in an oral presentation), or a simple sheet of paper (as in a printed article).
+    + Different medium implies different ways of viewing and interacting with the figure
+    + Oral presentation: 
+        + The figure must be kept simple and the message must be visually salient in order to grab attention
+        + Video-projected figures will be seen from a distance
+        + Figure elements must consequently be made thicker (lines) or bigger (points, text), colors should have strong contrast, and vertical text should be avoided, etc.
+    + Journal article: 
+        + Able to view the figure as long as necessary
+        + Details added, along with complementary explanations in the caption
+    + Computer screens: possibility to zoom and drag the figure
+    + Each type of support medium requires a different figure
+
++ Rule 4: Captions Are Not Optional
+    + A figure should be accompanied by a caption
+    + Caption: explain how to read the figure and provide additional precision for what cannot be graphically represented
+
++ Rule 5: Do Not Trust the Defaults
+    + Default settings are used to specify size, font, colors, styles, ticks, markers, etc.
+    + Recognize the specific style of each software package (Matlab, Excel, Keynote, etc.) or library (LaTeX, matplotlib, gnuplot, etc.)
+    + Default settings: used for virtually any type of plot, not fine-tuned for a specific type of plot
+    + All plots require at least some manual tuning of the different settings
+        + to better express the message
+        + be it for making a precise plot more salient to a broad audience
+        + to choose the best colormap for the nature of the data
+
++ Rule 6: Use Color Effectively
+    + Color is an important dimension in human vision and is consequently equally important in the design of a scientific figure.
+    + Edward Tufte: greatest ally or worst enemy if not used properly
+    + Do not use the default colormap (e.g., jet or rainbow) unless there is an explicit reason to do so.
+    + Main categories of colormaps:
+        + __Sequential__: one variation of a unique color, used for _quantitative data_ varying from low to high.
+        + __Diverging__: variation from one color to another, used to _highlight deviation_ from a median value.
+        + __Qualitative__: rapid variation of colors, used mainly for _discrete or categorical data_.
+
++ Rule 7: Do Not Mislead the Reader
+    + Incorrect perception of quantities
+        + Software automatically re-scales values
+        + Inadvertently misled your readers into visually believing something that does not exist in your data
+    + Ensure to always use the simplest type of plots that can convey message
+    + Ensure to use labels, ticks, title, and the full range of values when relevant
+    + Do not hesitate to ask colleagues about their interpretation of your figures.
+
++ Rule 8: Avoid “Chartjunk”
+    + Chartjunk: the unnecessary or confusing visual elements found in a figure 
+    + Any decorations that do not tell the viewer something new must be banned - Edward Tutfe
+    + Graphs should ideally “represent all the data that is needed to see and understand what's meaningful.” - Stephen Few
+
++ Rule 9: Message Trumps Beauty
+    + Each scientific domain w/ own set of best practices
+    + Knowing these standards
+        + facilitate a more direct comparison between models, studies, or experiments
+        + help to spot obvious errors in results
+    + Online graphics: aesthetic first and content second
+    + Science: message and readability of the figure is the most important aspect while beauty is only an option
+
++ Rule 10: Get the Right Tool
+    + Matplotlib
+        + A python plotting library, primarily for 2-D plotting, but with some 3-D support
+        + Produce publication-quality figures in a variety of hardcopy formats and interactive environments across platforms
+        + Cover virtually all scientific domains
+    + R: 
+        + a language and environment for statistical computing and graphics
+        + Provide a wide variety of statistical (linear and nonlinear modeling, classical statistical tests, time-series analysis, classification, clustering, etc.) and graphical techniques, and is highly extensible.
+    + Inkscape: 
+        + A professional vector graphics editor
+        + To a professional vector graphics editor
+        + To improve a script-generated figure
+        + To read a PDF file in order to extract figures and transform them any way you like
+    + TikZ and PGF: 
+        + TeX packages for creating graphics programmatically
+        + To create sophisticated graphics in a rather intuitive and easy manner
+    + GIMP 
+        + GNU Image Manipulation Program
+        + For photo retouching, image composition, and image authoring
+    + ImageMagick
+        + A software suite to create, edit, compose, or convert bitmap images from the command line
+        + To quickly convert an image into another format
+    + D3.js (Data-Driven Documents): a JavaScript library that offers an easy way to create and control interactive data-based graphical forms which run in web browsers
+    + Cytoscape: a software platform for visualizing complex networks and integrating these with any type of attribute data
+    + Circos: designed for visualizing genomic data but useful if you have data that describes relationships or multilayered annotations of one or more scales
+
 
 ## Basic Plotting with Matplotlib
 
