@@ -232,8 +232,6 @@ import numpy as np
 
 
 
-
-
 ## Pandas
 
 ### Import file
@@ -476,14 +474,69 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 
 
-
-
 [TOC](#table-of-contents)
 
+## MatPlotLib
+
+### Environment and Module
+
+```python
+
+%matplotlib notebook                # provides an interactive environment in Jupyter and IPuthon
+
+import matplotlib as mpl            # load module in CLI
+
+import matplotlib.pyplot as plt     # load pyplot module
+```
 
 
+### Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the :class:`~matplotlib.axes.Axes`  | [Basic Plotting][025] |
 
 
+#### Line style or marker
+
+| character | description | | character | description |
+|-----------|-------------|-|-----------|-------------|
+| `'-'`  |  solid line style | | `'1'`  |  tri_down marker |
+| `'--'` |  dashed line style | | `'2'`  |  tri_up marker |
+| `'-.'` |  dash-dot line style | | `'3'`  |  tri_left marker |
+| `':'`  |  dotted line style | | `'4'`  |  tri_right marker |
+| `'.'`  |  point marker | | `'*'`  |  star marker |
+| `','`  |  pixel marker | | `'+'`  |  plus marker |
+| `'o'`  |  circle marker | | `'_'`  |  hline marker |
+| `'v'`  |  triangle_down marker | | `'^'`  |  triangle_up marker |
+| `'<'`  |  triangle_left marker | | `'>'`  |  triangle_right marker |
+| `'s'`  |  square marker | | `'p'`  |  pentagon marker |
+| `'h'`  |  hexagon1 marker | | `'H'`  |  hexagon2 marker |
+| `'x'`  |  x marker | | `'|'`  |  vline marker |
+| `'D'`  |  diamond marker | | `'d'`  |  thin_diamond marker |
+
+#### Color abbreviations
+
+| character |  color | | character |  color |
+|-----------|--------|-|-----------|--------|
+| 'b'       |  blue  | | 'm'       |  magenta |
+| 'g'       |  green | | 'y'       |  yellow |
+| 'r'       |  red   | | 'k'       |  black |
+| 'c'       |  cyan  | | 'w'       |  white |
+
+### Examples
+
+```python
+plot(x, y)        # plot x and y using default line style and color
+plot(x, y, 'bo')  # plot x and y using blue circle markers
+plot(y)           # plot y using x as index array 0..N-1
+plot(y, 'r+')     # ditto, but with red plusses
+
+plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
+plot([1,2,3], [1,4,9], 'rs',  label='line 2')
+axis([0, 4, 0, 10])
+legend()
+```
 
 -------------------------------------
 
@@ -512,5 +565,6 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 [022]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#more-distribution
 [023]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#hypothesis-testing-in-python
 [024]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.resample.html
+[025]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
 
 

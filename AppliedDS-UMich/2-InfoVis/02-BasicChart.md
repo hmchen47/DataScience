@@ -30,7 +30,7 @@
 
 + Demo
     ```python
-    %matplotlib notebook # enable matplotlib in IPython Jyputer notebook
+    %matplotlib notebook # provides an interactive environment
 
     import matplotlib as mpl
     mpl.get_backend()   # 'TkAgg' for CLI Python3, 'nbAgg' for iPython
@@ -424,12 +424,153 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Basic Plotting with Matplotlib
 
-+ Deno
-    ```python
++ Show matplotlib figures directly in the notebook by using the `%matplotlib notebook` and `%matplotlib inline` magic commands
 
++ `plt.plot` method
+    + Signature: `plt.plot(*args, **kwargs)`
+    + Docstring: Plot lines and/or markers to the Plot lines and/or markers to the :class:`~matplotlib.axes.Axes`.  
+    + Args: 
+        + `args`: variable length argument, allowing for multiple *x*, *y* pairs with an optional format string.
+        + `kwargs`: used to set line properties (any property that has a `set_*` method).  You can use this to set a line label (for auto legends), linewidth, anitialising, marker face color, etc.
+    + Example for `args`: each of the following is legal::
+        ```python
+        plot(x, y)        # plot x and y using default line style and color
+        plot(x, y, 'bo')  # plot x and y using blue circle markers
+        plot(y)           # plot y using x as index array 0..N-1
+        plot(y, 'r+')     # ditto, but with red plusses
+        ```
+        + If `x` and/or `y` is 2-dimensional, then the corresponding will be plotted.
+        + If used with labeled data, make sure that the color spec is not included as an element in data, as otherwise the last case `plot("v","r", data={"v":..., "r":...)` can be interpreted as the first case which would do `plot(v, r)` using the default line style and color.
+        + If not used with labeled data (i.e., without a data argument), an arbitrary number of `x`, `y`, `fmt` groups can be specified, as in `a.plot(x1, y1, 'g^', x2, y2, 'g-')` 
+        + Return value is a list of lines that were added.
+        + By default, each line is assigned a different style specified by a 'style cycle'.  To change this behavior, you can edit the `axes.prop_cycle rcParam`.
+    + Line style or marker
+
+        | character | description | | character | description |
+        |-----------|-------------|-|-----------|-------------|
+        | `'-'`  |  solid line style | | `'1'`  |  tri_down marker |
+        | `'--'` |  dashed line style | | `'2'`  |  tri_up marker |
+        | `'-.'` |  dash-dot line style | | `'3'`  |  tri_left marker |
+        | `':'`  |  dotted line style | | `'4'`  |  tri_right marker |
+        | `'.'`  |  point marker | | `'*'`  |  star marker |
+        | `','`  |  pixel marker | | `'+'`  |  plus marker |
+        | `'o'`  |  circle marker | | `'_'`  |  hline marker |
+        | `'v'`  |  triangle_down marker | | `'^'`  |  triangle_up marker |
+        | `'<'`  |  triangle_left marker | | `'>'`  |  triangle_right marker |
+        | `'s'`  |  square marker | | `'p'`  |  pentagon marker |
+        | `'h'`  |  hexagon1 marker | | `'H'`  |  hexagon2 marker |
+        | `'x'`  |  x marker | | `'|'`  |  vline marker |
+        | `'D'`  |  diamond marker | | `'d'`  |  thin_diamond marker |
+
+    + Color abbreviations
+
+        | character |  color | | character |  color |
+        |-----------|--------|-|-----------|--------|
+        | 'b'       |  blue  | | 'm'       |  magenta |
+        | 'g'       |  green | | 'y'       |  yellow |
+        | 'r'       |  red   | | 'k'       |  black |
+        | 'c'       |  cyan  | | 'w'       |  white |
+    + Example for `kwargs`
+        ```python
+        plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
+        plot([1,2,3], [1,4,9], 'rs',  label='line 2')
+        axis([0, 4, 0, 10])
+        legend()
+        ```
+        + If you make multiple lines with one plot command, the `kwargs` apply to all those lines, e.g. `plot(x1, y1, x2, y2, antialiased=False)`. Neither line will be `antialiased`.
+        + You do not need to use format strings, which are just abbreviations.  All of the line properties can be controlled by keyword arguments.  For example, you can set the `color`, `marker`, `linestyle`, and `markercolor` with 
+            ```python 
+            plot(x, y, color='green', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
+            ```
+    + The kwargs are :class:`~matplotlib.lines.Line2D` properties:
+        + `agg_filter`: unknown
+        + `alpha`: float (0.0 transparent through 1.0 opaque)
+        + `animated`: [True | False]
+        + `antialiased` or aa: [True | False]
+        + `axes: an :class:`~matplotlib.axes.Axes` instance
+        + `clip_box: a :class:`matplotlib.transforms.Bbox` instance
+        + `clip_on`: [True | False]
+        + `clip_path`: [ (:class:`~matplotlib.path.Path`, class:`~matplotlib.transforms.Transform`) | :class:`~matplotlib.patches.Patch` | None ] 
+        + `color` or `c`: any matplotlib color
+        + ``contains`: a callable function
+        + `dash_capstyle`: ['butt' | 'round' | 'projecting']
+        + `dash_joinstyle`: ['miter' | 'round' | 'bevel']
+        + ``dashes`: sequence of on/off ink in points 
+        + `drawstyle`: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post']
+        + `figure`: a :class:`matplotlib.figure.Figure` instance
+        + `fillstyle`: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none']
+        + `gid`: an id string
+        + `label`: string or anything printable with '%s' conversion.
+        + `linestyle` or `ls`: ['solid' | 'dashed', 'dashdot', 'dotted' | (offset, on-off-dash-seq) | `'-'` | `'--'` | `'-.'` | `':'` | `'None'` | `' '` | `''`]
+        + `linewidth` or `lw`: float value in points
+        + `marker`: :mod:`A valid marker style <matplotlib.markers>`
+        + `markeredgecolor` or `mec`: any matplotlib color
+        + `markeredgewidth` or `mew`: float value in points
+        + `markerfacecolor` or `mfc`: any matplotlib color
+        + `markerfacecoloralt` or `mfcalt`: any matplotlib color
+        + `markersize` or `ms`: float
+        + `markevery`: [None | int | length-2 tuple of int | slice | list/array of int | float | length-2 tuple of float]
+        + `path_effects`: unknown
+        + `picker`: float distance in points or callable pick function `fn(artist, event)` 
+        + `pickradius`: float distance in points
+        + `rasterized`: [True | False | None]
+        + `sketch_params`: unknown
+        + `snap`: unknown
+        + `solid_capstyle`: ['butt' | 'round' |  'projecting']
+        + `solid_joinstyle`: ['miter' | 'round' | 'bevel']
+        + `transform: a :class:`matplotlib.transforms.Transform` instance
+        + `url`: a url string
+        + `visible`: [True | False]
+        + `xdata`: 1D array
+        + `ydata`: 1D array
+        + `zorder`: any number
+
+    + kwargs `scalex` and `scaley`, if defined, are passed on to :meth:`~matplotlib.axes.Axes.autoscale_view` to determine whether the `x` and `y` axes are autoscaled; the default is `True`.
+
++ Demo
+    ```python
+    import matplotlib.pyplot as plt
+
+    # because the default is the line style '-', 
+    # nothing will be shown if we only pass in one point (3,2)
+    plt.plot(3, 2)
+
+    # we can pass in '.' to plt.plot to indicate that we want
+    # the point (3,2) to be indicated with a marker '.'
+    plt.plot(3, 2, '.')
+
+    # First let's set the backend without using mpl.use() from the scripting layer
+    from matplotlib.backends.backend_agg import FigureCanvasAgg
+    from matplotlib.figure import Figure
+
+    fig = Figure()                  # create a new figure
+    canvas = FigureCanvasAgg(fig)   # associate fig with the backend
+    ax = fig.add_subplot(111)       # add a subplot to the fig
+    ax.plot(3, 2, '.')              # plot the point (3,2)
+
+    # save the figure to test.png
+    # you can see this figure in your Jupyter workspace afterwards by going to
+    # https://hub.coursera-notebooks.org/
+    canvas.print_png('test.png')
+
+    # We can use html cell magic to display the image.
+    %%html
+    <img src='test.png' />
+
+    plt.figure()                # create a new figure
+    plt.plot(3, 2, 'o')         # plot the point (3,2) using the circle marker
+    ax = plt.gca()              # get the current axes
+    ax.axis([0,6,0,10])         # Set axis properties [xmin, xmax, ymin, ymax]
+    
+    plt.figure()                # create a new figure
+    plt.plot(1.5, 1.5, 'o')     # plot the point (1.5, 1.5) using the circle marker
+    plt.plot(2, 2, 'o')         # plot the point (2, 2) using the circle marker
+    plt.plot(2.5, 2.5, 'o')     # plot the point (2.5, 2.5) using the circle marker
+    ax = plt.gca()              # get current axes
+    ax.get_children()           # get all the child objects the axes contains
     ```
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/gHvXBv0cEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528329600&Signature=kQmxs5co1w1DcbHaegKSc-lIeK~590M~0gkDX~Lxm-7ieMbtPpVAeNfi5H6~NfNrE7fq2c1MYOyvLT1L7DEmZP2dcLBUNrUnEOAJ30aFrhu0IMfEFZsuD0SD5ewb9wRoP1ZWAiJQ3S92cjhd~gvVcs7KIas6T75gD4kFmVs-EAQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Basic Plotting with Matplotlib" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
