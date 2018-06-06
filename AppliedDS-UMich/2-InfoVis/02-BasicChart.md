@@ -522,7 +522,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `snap`: unknown
         + `solid_capstyle`: ['butt' | 'round' |  'projecting']
         + `solid_joinstyle`: ['miter' | 'round' | 'bevel']
-        + `transform: a `matplotlib.transforms.Transform` class instance
+        + `transform`: a `matplotlib.transforms.Transform` class instance
         + `url`: a url string
         + `visible`: [True | False]
         + `xdata`: 1D array
@@ -564,6 +564,59 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         fig.add_subplot(111, projection='polar')    # add a polar subplot
         fig.add_subplot(sub)        # add Subplot instance sub
         ```
+    + Supported `kwargs`:
+
+        + `adjustable`: [ 'box' | 'datalim' | 'box-forced'] 
+        + `agg_filter`: unknown
+        + `alpha`: float (0.0 transparent through 1.0 opaque) 
+        + `anchor`: unknown
+        + `animated`: [True | False] 
+        + `aspect`: unknown
+        + `autoscale_on`: unknown
+        + `autoscalex_on`: unknown
+        + `autoscaley_on`: unknown
+        + `axes`: an `~matplotlib.axes.Axes` instance 
+        + `axes_locator`: unknown
+        + `axisbelow`: [ _True_ | _False_ | 'line' ] 
+        + `clip_box`: a `matplotlib.transforms.Bbox` instance 
+        + `clip_on`: [True | False] 
+        + `clip_path`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ]
+        + `color_cycle`: unknown
+        + `contains`: a callable function 
+        + `facecolor`: unknown
+        + `fc`: unknown
+        + `figure`: unknown
+        + `frame_on`: [ *True* | *False* ] 
+        + `gid`: an id string 
+        + `label`: string or anything printable with '%s' conversion. 
+        + `navigate`: [ *True* | *False* ] 
+        + `navigate_mode`: unknown
+        + `path_effects`: unknown
+        + `picker`: [None|float|boolean|callable] 
+        + `position`: unknown
+        + `rasterization_zorder`: unknown
+        + `rasterized`: [True | False | None] 
+        + `sketch_params`: unknown
+        + `snap`: unknown
+        + `title`: unknown
+        + `transform`: `~matplotlib.transforms.Transform` instance 
+        + `url`: a url string 
+        + `visible`: [True | False] 
+        + `xbound`: unknown
+        + `xlabel`: unknown
+        + `xlim`: unknown
+        + `xmargin`: unknown
+        + `xscale`: ['linear' | 'log' | 'logit' | 'symlog']
+        + `xticklabels`: sequence of strings
+        + `xticks`: sequence of floats 
+        + `ybound`: unknown
+        + `ylabel`: unknown
+        + `ylim`: unknown
+        + `ymargin`: unknown
+        + `yscale`: ['linear' | 'log' | 'logit' | 'symlog']
+        + `yticklabels`: sequence of strings
+        + `yticks`: sequence of floats
+        + `zorder`: any number
 
 + `plt.figure` method
     + Signature: `plt.figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, **kwargs)`
@@ -584,9 +637,61 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 + `plt.gca` method
     + Signature: `plt.gca(**kwargs)`
     + Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.
+    + Supported `kwargs`:
+        + `adjustable`: [ 'box' | 'datalim' | 'box-forced'] 
+        + `agg_filter`: unknown
+        + `alpha`: float (0.0 transparent through 1.0 opaque) 
+        + `anchor`: unknown
+        + `animated`: [True | False] 
+        + `aspect`: unknown
+        + `autoscale_on`: unknown
+        + `autoscalex_on`: unknown
+        + `autoscaley_on`: unknown
+        + `axes`: an `~matplotlib.axes.Axes` instance 
+        + `axes_locator`: unknown
+        + `axisbelow`: [ *True* | *False* | 'line' ] 
+        + `clip_box`: a `matplotlib.transforms.Bbox` instance 
+        + `clip_on`: [True | False] 
+        + `clip_path`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` None ] 
+        + `color_cycle`: unknown
+        + `contains`: a callable function 
+        + `facecolor`: unknown
+        + `fc`: unknown
+        + `figure`: unknown
+        + `frame_on`: [ *True* | *False* ] 
+        + `gid`: an id string 
+        + `label`: string or anything printable with '%s' conversion. 
+        + `navigate`: [ *True* | *False* ] 
+        + `navigate_mode`: unknown
+        + `path_effects`: unknown
+        + `picker`: [None|float|boolean|callable] 
+        + `position`: unknown
+        + `rasterization_zorder`: unknown
+        + `rasterized`: [True | False | None] 
+        + `sketch_params`: unknown
+        + `snap`: unknown
+        + `title`: unknown
+        + `transform`: `~matplotlib.transforms.Transform` instance 
+        + `url`: a url string 
+        + `visible`: [True | False] 
+        + `xbound`: unknown
+        + `xlabel`: unknown
+        + `xlim`: unknown
+        + `xmargin`: unknown
+        + `xscale`: ['linear' | 'log' | 'logit' | 'symlog']
+        + `xticklabels`: sequence of strings
+        + `xticks`: sequence of floats 
+        + `ybound`: unknown
+        + `ylabel`: unknown
+        + `ylim`: unknown
+        + `ymargin`: unknown
+        + `yscale`: ['linear' | 'log' | 'logit' | 'symlog']
+        + `yticklabels`: sequence of strings
+        + `yticks`: sequence of floats
+        + `zorder`: any number
 
-+ `ax.axis` method
-    + Signature: `ax.axis(*v, **kwargs)`
++ `plt.gca().axis` method
+    + Signature: `plt.gca()..axis(*v, **kwargs)`
     + Docstring: Set axis properties
     + Args: 
         + `v`: list of float or {Value}
@@ -610,7 +715,9 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         xmin, xmax, ymin, ymax = axis(string_arg)
         xmin, xmax, ymin, ymax = axis(**kwargs)
         ```
-+ 
++ `plt.gca().get_children` method
+    + Signature: `plt.gca().get_children()`
+    + Docstring: return a list of child artists
 
 + Demo
     ```python
@@ -662,12 +769,192 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Scatterplots
 
++ `pyplot` retrieving the current figure with the function `gcf` and then the current axis with the function `gca`.
++ `pyplot` mirrors the API of the axis objects -> call the `plot` function against the `pyplot` module.
++ Function declaration from most of the functions in matplotlib end with an open set of keyword arguments -> property control via keyword arguments
+
++ `plt.scatter` method
+    + Signature: `plt.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None, **kwargs)`
+    + Docstring: Make a scatter plot of `x` vs `y`
+    + Parameters
+        + `x`, `y` (array_like, shape (n, )): Input data
+        + `s` (scalar or array_like, shape (n, )): size in $points^2$.  Default is `rcParams['lines.markersize'] ** 2`.
+        + `c` (color, sequence, or sequence of color): default: 'b'; a single color format string, or a sequence of color specifications of length `N`, or a sequence of `N` numbers to be mapped to colors using the `cmap` and `norm` specified via kwargs
+        + `marker` : `~matplotlib.markers.MarkerStyle`, optional, default: 'o'
+        + `cmap` : `~matplotlib.colors.Colormap`; A `~matplotlib.colors.Colormap` instance or registered name. `cmap` is only used if `c` is an array of floats. If None, defaults to rc `image.cmap`.
+        + `norm` : `~matplotlib.colors.Normalize`; A `~matplotlib.colors.Normalize` instance is used to scale luminance data to 0, 1. `norm` is only used if `c` is an array of floats. If `None`, use the default :func:`normalize`.
+        + `vmin`, `vmax` (scalar): `vmin` and `vmax` are used in conjunction with `norm` to normalize luminance data.  If either are `None`, the min and max of the color array is used. 
+        + `alpha` (scalar):  The alpha blending value, between 0 (transparent) and 1 (opaque)
+        + `linewidths` (scalar or array_like): If None, defaults to `(lines.linewidth,)`.
+        + `verts` (sequence of (x, y)): If `marker` is None, these vertices will be used to construct the marker.  The center of the marker is located at $(0,0)$ in normalized units.  The overall marker is rescaled by `s`.
+        + `edgecolors` (color or sequence of color): 
+            + If None, defaults to 'face'
+            + If 'face', the edge color will always be the same as the face color.
+            + If it is 'none', the patch boundary will not be drawn.
+            + For non-filled markers, the `edgecolors` kwarg is ignored and forced to 'face' internally.
+
++ `plt.xlabel`, `plt.ylabel` methods:
+    + Signature: `plt.xlabel(s, *args, **kwargs)`, `plt.ylabel(s, *args, **kwargs)`
+    + Docstring: Set the `x`, `y` axis label of the current axis
+    + Default override is:
+        ```json
+        override = {
+            'fontsize'            : 'small',
+            'verticalalignment'   : 'top',
+            'horizontalalignment' : 'center'
+            }
+        ```
++ `plt.title` method:
+    + Signature: `plt.title(s, *args, **kwargs)`
+    + Docstring: Set a title of the current axes.
+    + Parameters
+        + `label` (str): Text to use for the title
+        + `fontdict` (dict): A dictionary controlling the appearance of the title text, the default `fontdict` is:
+            ```json
+            {'fontsize': rcParams['axes.titlesize'],
+            'fontweight' : rcParams['axes.titleweight'],
+            'verticalalignment': 'baseline',
+            'horizontalalignment': loc}
+            ```
+        + `loc` ({'center', 'left', 'right'}, str): Which title to set, defaults to 'center'
+        + `kwargs`: text properties
+
++ `plt.ledgend` method:
+    + Signature: `plt.legend(*args, **kwargs)`
+    + Docstring: Places a legend on the axes.
+    + To make a legend for lines which already exist on the axes (via plot for instance), simply call this function with an iterable of strings, one for each legend item.
+    + Parametrs: 
+        + `loc` (int or string or pair of floats), default: 'upper right': The location of the legend. Possible codes are:
+
+            | Location String |  Location Code | | Location String |  Location Code | 
+            |-----------------|----------------|-|-----------------|----------------|
+            | 'best'         |  0 |   | 'upper right'   |  1 | 
+            | 'upper left'    |  2 |   | 'lower left'    |  3 | 
+            | 'lower right'   |  4 |   | 'right'         |  5 | 
+            | 'center left'   |  6 |   | 'center right'  |  7 | 
+            | 'lower center'  |  8 |   | 'upper center'  |  9 | 
+            | 'center'        |  10 |
+        + `bbox_to_anchor` (`matplotlib.transforms.BboxBase` instance or tuple of floats): Specify any arbitrary location for the legend in `bbox_transform`    coordinates (default Axes coordinates).
+        + `ncol` (int): The number of columns that the legend has. Default is 1.
+        + `prop` (None or `matplotlib.font_manager.FontProperties` class or dict):     The font properties of the legend. Default-the current     `matplotlib.rcParams` data will be used.
+        + `fontsize` (int or float or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}): Controls the font size of the legend.
+        + `numpoints` (None or int): The number of marker points in the legend when creating a legend entry for a line/`matplotlib.lines.Line2D` class. Default `legend.numpoints` `rcParam<matplotlib.rcParams>` data.
+        + `scatterpoints` (None or int): The number of marker points in the legend when creating a legend entry for a scatter plot/`matplotlib.collections.PathCollection` class.  Default `legend.scatterpoints` `rcParam<matplotlib.rcParams>` data.
+        + `scatteryoffsets` (iterable of floats): The vertical offset (relative to the font size) for the markers created for a scatter plot legend entry. $0.0$ is at the base the legend text, and 1.0 is at the top. To draw all markers at the same height, set to $[0.5]$. Default $[0.375, 0.5, 0.3125]$.
+        + `markerscale` (None or int or float): The relative size of legend markers compared with the originally drawn ones. Default `legend.markerscale` in `rcParam <matplotlib.rcParams>`.
+        + `markerfirst` (bool): 
+            + True: legend marker is placed to the left of the legend label
+            + False: legend marker is placed to the right of the legend label
+        + `frameon` (None or bool): Control whether the legend should be drawn on a patch (frame).  Default `legend.frameon`
+        + `fancybox` (None or bool): Control whether round edges should be enabled around the `~matplotlib.patches.FancyBboxPatch` class which makes up the legend's background.  Default `legend.fancybox`
+        + `shadow` (None or bool): Control whether to draw a shadow behind the legend. Default=`None` - `legend.shadow`
+        + `framealpha` (None or float): Control the alpha transparency of the legend's background. Default `legend.framealpha`
+        + `facecolor` (None or "inherit" or a color spec): Control the legend's background color. Default `legend.facecolor` `inherit`= `axes.facecolor`
+        + `edgecolor` (None or "inherit" or a color spec): Control the legend's background patch edge color. Default `legend.edgecolor` `inherit` = `axes.edgecolor`
+        + `mode` ({"expand", None}): `expand` = the legend horizontally expanded to fill the axes area (or `bbox_to_anchor` if defines the legend's size).
+        + `bbox_transform` (None or `matplotlib.transforms.Transform` class): The transform for the bounding box (`bbox_to_anchor`). Default using Axes' `~matplotlib.axes.Axes.transAxes` transform.
+        + `title` (str or None): The legend's title. Default is no title.
+        + `borderpad` (float or None): The fractional whitespace inside the legend border. Measured in font-size units. Default `legend.borderpad`
+        + `labelspacing` (float or None): The vertical space between the legend entries. Measured in font-size units. Default `legend.labelspacing`
+        + `handlelength` (float or None): The length of the legend handles. Measured in font-size units. Default `legend.handlelength`
+        + `handletextpad` (float or None): The pad between the legend handle and text. Measured in font-size units. Default `legend.handletextpad`
+        + `borderaxespad` (float or None): The pad between the axes and legend border. Measured in font-size units. Default `legend.borderaxespad`
+        + `columnspacing` (float or None): The spacing between columns. Measured in font-size units. Default `legend.columnspacing`
+        + `handler_map` (dict or None): The custom dictionary mapping instances or types to a legend handler. This `handler_map` updates the default handler map  found at `matplotlib.legend.Legend.get_legend_handler_map` function.
+
++ `zip` fucntion
+    + Init signature: `zip(*args, **kwargs)`
+    + Docstring: zip(iter1 [,iter2 [...]]) --> zip object
+    + Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument.  The `.__next__()` method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.
+
 + Deno
     ```python
+    import numpy as np
 
+    x = np.array([1,2,3,4,5,6,7,8])
+    y = x
+
+    plt.figure()
+    plt.scatter(x, y) # similar to plt.plot(x, y, '.'), but the underlying child objects in the axes are not Line2D
+
+    x = np.array([1,2,3,4,5,6,7,8])
+    y = x
+
+    # create a list of colors for each point to have
+    # ['green', 'green', 'green', 'green', 'green', 'green', 'green', 'red']
+    # plot the point with size 100 and chosen colors
+    colors = ['green']*(len(x)-1)
+    colors.append('red') 
+
+    plt.figure()
+    plt.scatter(x, y, s=100, c=colors)
+
+    # ZIP Function usage
+    # convert the two lists into a list of pairwise tuples
+    zip_generator = zip([1,2,3,4,5], [6,7,8,9,10])
+    print(list(zip_generator))
+    # the above prints: [(1, 6), (2, 7), (3, 8), (4, 9), (5, 10)]
+
+    zip_generator = zip([1,2,3,4,5], [6,7,8,9,10])
+    # The single star * unpacks a collection into positional arguments
+    print(*zip_generator)
+    # the above prints: (1, 6) (2, 7) (3, 8) (4, 9) (5, 10)
+
+    # use zip to convert 5 tuples with 2 elements each to 2 tuples with 5 elements each
+    print(list(zip((1, 6), (2, 7), (3, 8), (4, 9), (5, 10))))
+    # the above prints: [(1, 2, 3, 4, 5), (6, 7, 8, 9, 10)]
+
+    # Unpack zip object
+    zip_generator = zip([1,2,3,4,5], [6,7,8,9,10])
+    # let's turn the data back into 2 lists
+    x, y = zip(*zip_generator) # This is like calling zip((1, 6), (2, 7), (3, 8), (4, 9), (5, 10))
+    print(x)
+    print(y)
+    # the above prints: (1, 2, 3, 4, 5) & (6, 7, 8, 9, 10)
+
+    plt.figure()
+    # plot a data series 'Tall students' in red using the first two elements of x and y
+    plt.scatter(x[:2], y[:2], s=100, c='red', label='Tall students')
+    # plot a second data series 'Short students' in blue using the last three elements of x and y 
+    plt.scatter(x[2:], y[2:], s=100, c='blue', label='Short students')
+
+    # add a label to the x axis
+    plt.xlabel('The number of times the child kicked a ball')
+    # add a label to the y axis
+    plt.ylabel('The grade of the student')
+    # add a title
+    plt.title('Relationship between ball kicking and grades')
+
+    # add a legend (uses the labels from plt.scatter)
+    plt.legend()
+
+    # add the legend to loc=4 (the lower right hand corner), also gets rid of the frame and adds a title
+    plt.legend(loc=4, frameon=False, title='Legend')
+
+    # get children from current axes (the legend is the second to last item in this list)
+    plt.gca().get_children()
+
+    # get the legend from the current axes
+    legend = plt.gca().get_children()[-2]
+
+    # you can use get_children to navigate through the child artists
+    legend.get_children()[0].get_children()[1].get_children()[0].get_children()
+
+    # import the artist class from matplotlib
+    from matplotlib.artist import Artist
+
+    def rec_gc(art, depth=0):
+        if isinstance(art, Artist):
+            # increase the depth for pretty printing
+            print("  " * depth + str(art))
+            for child in art.get_children():
+                rec_gc(child, depth+2)
+
+    # Call this function on the legend artist to see what the legend is made up of
+    rec_gc(plt.legend())
     ```
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/xSk2r_0dEearIRLZY_MkaA.processed/full/540p/index.mp4?Expires=1528416000&Signature=dkqpm85W8V6th8JzE6LAdVPCEQRSFPl9bMmLXpSMO0mVcCnEG8eVPWnnuofeKPMPhcbMPLHEwds0u1YAI0FR6v2Ac4FDMTaRlbjZfkGOGFPrklE7UHx7YVs478dQXmoGHOhSgNiyTiFcVotfc4~J4T4PQh~xK4b~3kpBdadQCoo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Scatterplots" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 

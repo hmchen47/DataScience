@@ -66,7 +66,7 @@
 | `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
 | `func = lambda var1, ...: expr` | anonymous function, usage: `func(var1, ...)` | [Lambda & List Comprehension][004] |
 | `enumerate(iterable[, start])` | Return an enumerate object, obtaining an indexed list:  `(0, seq[0]), (1, seq[1]), (2, seq[2]), ...` | [NumPy][005] |
-| `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] |
+| `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] [Scatterplots][026] |
 
 
 [TOC](#table-of-contents)
@@ -495,14 +495,17 @@ import matplotlib.pyplot as plt     # load pyplot module
 | Method | Description | Link |
 |--------|-------------|------|
 | `mpl.get_backend()` | Return the name of the current backend | [Basic Plotting][025] |
-| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the :class:`~matplotlib.axes.Axes` | [Basic Plotting][025] |
+| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the `~matplotlib.axes.Axes` class; Args: agg_filter, alpha, animated, antialiased, axes, clip_box, clip_on, clip_path, color/c, contains, dash_capstyle, dash_joinstyle, dashes, drawstyle, figure, fillstyle, gid, label, linestyle, linewidth, marker, markeredgecolor, markeredgewidth, markerfacecolor, markerfacwidthmarkersize, markevery, path_effects, picker, pickradius, rasterized, sketch_params, snap, solid_capstyle, solid_joinstyle, transform, url, visible, xdata, ydata, zorder | [Basic Plotting][025] |
 | `mpl.figure.Figure(figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None)` | he Figure instance supports callbacks through a _callbacks_ attribute which is a `matplotlib.cbook.CallbackRegistry` class instance  | [Basic Plotting][025] |
 | `mpl.backends.backend_agg.FigureCanvasAgg(figure)` | The canvas the figure renders into | [Basic Plotting][025] |
-| `fig.add_subplot(*args, **kwargs)` | Add a subplot | [Basic Plotting][025] |
+| `fig.add_subplot(*args, **kwargs)` | Add a subplot; `kwargs`: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
 | `plt.figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, **kwargs)` | Creates a new figure | [Basic Plotting][025] |
 | `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
-| ``plt.gca(**kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. | [Basic Plotting][025] |
-| `ax.get_children()` | return a list of child artists | [Basic Plotting][025] |
+| `plt.gca()..axis(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. `kwargs`: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
+| `plt.gca().get_children()` | return a list of child artists | [Basic Plotting][025] |
+| `plt.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None, **kwargs)` | Make a Scatterplots of `x` vs `y` | [Scatterplots][026] |
+| `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
+| `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
 
 
 
@@ -576,5 +579,5 @@ legend()
 [023]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#hypothesis-testing-in-python
 [024]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.resample.html
 [025]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
-
+[026]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
 
