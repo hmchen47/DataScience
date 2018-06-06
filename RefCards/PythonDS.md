@@ -494,7 +494,17 @@ import matplotlib.pyplot as plt     # load pyplot module
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the :class:`~matplotlib.axes.Axes`  | [Basic Plotting][025] |
+| `mpl.get_backend()` | Return the name of the current backend | [Basic Plotting][025] |
+| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the :class:`~matplotlib.axes.Axes` | [Basic Plotting][025] |
+| `mpl.figure.Figure(figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None)` | he Figure instance supports callbacks through a _callbacks_ attribute which is a `matplotlib.cbook.CallbackRegistry` class instance  | [Basic Plotting][025] |
+| `mpl.backends.backend_agg.FigureCanvasAgg(figure)` | The canvas the figure renders into | [Basic Plotting][025] |
+| `fig.add_subplot(*args, **kwargs)` | Add a subplot | [Basic Plotting][025] |
+| `plt.figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, **kwargs)` | Creates a new figure | [Basic Plotting][025] |
+| `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
+| ``plt.gca(**kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. | [Basic Plotting][025] |
+| `ax.get_children()` | return a list of child artists | [Basic Plotting][025] |
+
+
 
 
 #### Line style or marker

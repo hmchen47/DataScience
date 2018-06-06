@@ -426,9 +426,13 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 + Show matplotlib figures directly in the notebook by using the `%matplotlib notebook` and `%matplotlib inline` magic commands
 
++ `mpl.get_backend` method
+    + Signature: `mpl.get_backend()`
+    + Docstring: Return the name of the current backend.
+
 + `plt.plot` method
     + Signature: `plt.plot(*args, **kwargs)`
-    + Docstring: Plot lines and/or markers to the Plot lines and/or markers to the :class:`~matplotlib.axes.Axes`.  
+    + Docstring: Plot lines and/or markers to the Plot lines and/or markers to the `~matplotlib.axes.Axes` class.  
     + Args: 
         + `args`: variable length argument, allowing for multiple *x*, *y* pairs with an optional format string.
         + `kwargs`: used to set line properties (any property that has a `set_*` method).  You can use this to set a line label (for auto legends), linewidth, anitialising, marker face color, etc.
@@ -482,22 +486,22 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
             ```python 
             plot(x, y, color='green', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
             ```
-    + The kwargs are :class:`~matplotlib.lines.Line2D` properties:
+    + The kwargs are properties of `~matplotlib.lines.Line2D` class:
         + `agg_filter`: unknown
         + `alpha`: float (0.0 transparent through 1.0 opaque)
         + `animated`: [True | False]
         + `antialiased` or aa: [True | False]
-        + `axes: an :class:`~matplotlib.axes.Axes` instance
-        + `clip_box: a :class:`matplotlib.transforms.Bbox` instance
+        + `axes`: an `~matplotlib.axes.Axes` class instance
+        + `clip_box`: a `matplotlib.transforms.Bbox` class instance
         + `clip_on`: [True | False]
-        + `clip_path`: [ (:class:`~matplotlib.path.Path`, class:`~matplotlib.transforms.Transform`) | :class:`~matplotlib.patches.Patch` | None ] 
+        + `clip_path`: [ (`~matplotlib.path.Path` class, `~matplotlib.transforms.Transform` class) | `~matplotlib.patches.Patch` class | None ]
         + `color` or `c`: any matplotlib color
         + ``contains`: a callable function
         + `dash_capstyle`: ['butt' | 'round' | 'projecting']
         + `dash_joinstyle`: ['miter' | 'round' | 'bevel']
         + ``dashes`: sequence of on/off ink in points 
         + `drawstyle`: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post']
-        + `figure`: a :class:`matplotlib.figure.Figure` instance
+        + `figure`: a `matplotlib.figure.Figure` class instance
         + `fillstyle`: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none']
         + `gid`: an id string
         + `label`: string or anything printable with '%s' conversion.
@@ -511,21 +515,102 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `markersize` or `ms`: float
         + `markevery`: [None | int | length-2 tuple of int | slice | list/array of int | float | length-2 tuple of float]
         + `path_effects`: unknown
-        + `picker`: float distance in points or callable pick function `fn(artist, event)` 
+        + `picker`: float distance in points or callable pick function `fn(artist, event)`
         + `pickradius`: float distance in points
         + `rasterized`: [True | False | None]
         + `sketch_params`: unknown
         + `snap`: unknown
         + `solid_capstyle`: ['butt' | 'round' |  'projecting']
         + `solid_joinstyle`: ['miter' | 'round' | 'bevel']
-        + `transform: a :class:`matplotlib.transforms.Transform` instance
+        + `transform: a `matplotlib.transforms.Transform` class instance
         + `url`: a url string
         + `visible`: [True | False]
         + `xdata`: 1D array
         + `ydata`: 1D array
         + `zorder`: any number
 
-    + kwargs `scalex` and `scaley`, if defined, are passed on to :meth:`~matplotlib.axes.Axes.autoscale_view` to determine whether the `x` and `y` axes are autoscaled; the default is `True`.
+    + kwargs `scalex` and `scaley`, if defined, are passed on to `~matplotlib.axes.Axes.autoscale_view` method to determine whether the `x` and `y` axes are autoscaled; the default is `True`.
+
++ `mpl.figure.Figure` method
+    + Init signature: `mpl.figure.Figure(figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None)`
+    + Docstring: The Figure instance supports callbacks through a _callbacks_ attribute which is a `matplotlib.cbook.CallbackRegistry` class instance.  The events you can connect to are 'dpi_changed', and the callback will be called with `func(fig)` where fig is the `Figure` class instance.
+    + Args:
+        + `figsize`: w,h tuple in inches
+        + `dpi`: Dots per inch
+        + `facecolor`: The figure patch facecolor; defaults to rc `figure.facecolor`
+        + `edgecolor`: The figure patch edge color; defaults to rc `figure.edgecolor`
+        + `linewidth`: The figure patch edge linewidth
+        + `frameon`: If `False`, suppress drawing the figure frame
+        + `subplotpars`: A `SubplotParams` class instance, defaults to rc
+        + `tight_layout`: 
+            + False: use `subplotpars`
+            + True: adjust subplot parameters using `tight_layout` with default padding. When providing a dict containing the keys `pad`, `w_pad`, `h_pad` and `rect`, the default `tight_layout` paddings will be overridden.
+
++ `mpl.backends.backend_agg.FigureCanvasAgg` method
+    + Init signature: `mpl.backends.backend_agg.FigureCanvasAgg(figure)`
+    + Docstring: The canvas the figure renders into.  Calls the `draw` and `print fig` methods, creates the renderers, etc...
+
++ `fig.add_subplot` method
+    + Signature: `fig.add_subplot(*args, **kwargs)`
+    + Docstring: Add a subplot
+    + Args:
+        + `kwargs`: `~matplotlib.axes.Axes` class kwargs plus `projection`, which chooses a projection type for the axes.
+    + Valid values for `projection` are: ['aitoff', 'hammer', 'lambert', 'mollweide', 'polar', 'rectilinear'].  Some of these projections support additional `kwargs`, which may be provided to `add_axes` method.
+    + Examples:
+        ```python
+        fig.add_subplot(111)
+        fig.add_subplot(1,1,1)      # equivalent but more general
+        fig.add_subplot(212, facecolor='r')     # add subplot with red background
+        fig.add_subplot(111, projection='polar')    # add a polar subplot
+        fig.add_subplot(sub)        # add Subplot instance sub
+        ```
+
++ `plt.figure` method
+    + Signature: `plt.figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, **kwargs)`
+    + Docstring: Creates a new figure.
+    + Args: 
+        + `num` (int or string): 
+            + Not provided: a new figure created, and the figure number will be incremented. The figure objects holds this number in a `number` attribute.
+            + Provided & id existed: make it active, and returns a reference to it or  create return it and returns it.
+            + string: the window title will be set to this figure's `num`.
+        + `figsize` (tuple of integers): width, height in inches, default to  `figure.figsize.`
+        + `dpi` (int): resolution of the figure, default to rc `figure.dpi`.
+        + `facecolor`: the background color, default to rc `figure.facecolor`
+        + `edgecolor`: the border color, default to rc `figure.edgecolor`
+
++ `print_png` method
+    + Signature: `mpl.backends.backend_agg.print_png(filename_or_obj, *args, **kwargs)`
+
++ `plt.gca` method
+    + Signature: `plt.gca(**kwargs)`
+    + Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.
+
++ `ax.axis` method
+    + Signature: `ax.axis(*v, **kwargs)`
+    + Docstring: Set axis properties
+    + Args: 
+        + `v`: list of float or {Value}
+            | Value     | Description |
+            |-----------|------|
+            | 'on'      | Toggle axis lines and labels on |
+            | 'off'     | Toggle axis lines and labels off |
+            | 'equal'   | Equal scaling by changing limits |
+            | 'scaled'  | Equal scaling by changing box dimensions |
+            | 'tight'   | Limits set such that all data is shown |
+            | 'auto'    | Automatic scaling, fill rectangle with data |
+            | 'normal'  | Same as 'auto'; deprecated |
+            | 'image'   | 'scaled' with axis limits equal to data limits |
+            | 'square'  | Square plot; similar to 'scaled', but initially forcing xmax-xmin = ymax-ymin |
+        + `emit` (bool): Passed to set_{x,y}lim functions, if observers are notified of axis limit change
+        + `xmin`, `ymin`, `xmax`, `ymax` (float): The axis limits to be set
+    + Valid signature:
+        ```python
+        xmin, xmax, ymin, ymax = axis()
+        xmin, xmax, ymin, ymax = axis(list_arg)
+        xmin, xmax, ymin, ymax = axis(string_arg)
+        xmin, xmax, ymin, ymax = axis(**kwargs)
+        ```
++ 
 
 + Demo
     ```python
