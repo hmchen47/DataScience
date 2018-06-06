@@ -7,31 +7,20 @@
 # 
 # `%matplotlib notebook` provides an interactive environment.
 
-# In[ ]:
-
-get_ipython().magic('matplotlib notebook')
-
-
-# In[ ]:
+# get_ipython().magic('matplotlib notebook')
+%matplotlib notebook
 
 import matplotlib as mpl
 mpl.get_backend()
 
-
-# In[ ]:
-
 import matplotlib.pyplot as plt
-get_ipython().magic('pinfo plt.plot')
-
-
-# In[ ]:
+# get_ipython().magic('pinfo plt.plot')
+plt.plot?
 
 # because the default is the line style '-', 
 # nothing will be shown if we only pass in one point (3,2)
 plt.plot(3, 2)
 
-
-# In[ ]:
 
 # we can pass in '.' to plt.plot to indicate that we want
 # the point (3,2) to be indicated with a marker '.'
@@ -39,8 +28,6 @@ plt.plot(3, 2, '.')
 
 
 # Let's see how to make a plot without using the scripting layer.
-
-# In[ ]:
 
 # First let's set the backend without using mpl.use() from the scripting layer
 from matplotlib.backends.backend_agg import FigureCanvasAgg
@@ -66,12 +53,8 @@ canvas.print_png('test.png')
 
 # We can use html cell magic to display the image.
 
-# In[ ]:
-
 get_ipython().run_cell_magic('html', '', "<img src='test.png' />")
 
-
-# In[ ]:
 
 # create a new figure
 plt.figure()
@@ -86,8 +69,6 @@ ax = plt.gca()
 ax.axis([0,6,0,10])
 
 
-# In[ ]:
-
 # create a new figure
 plt.figure()
 
@@ -99,8 +80,6 @@ plt.plot(2, 2, 'o')
 plt.plot(2.5, 2.5, 'o')
 
 
-# In[ ]:
-
 # get current axes
 ax = plt.gca()
 # get all the child objects the axes contains
@@ -108,8 +87,6 @@ ax.get_children()
 
 
 # # Scatterplots
-
-# In[ ]:
 
 import numpy as np
 
@@ -119,8 +96,6 @@ y = x
 plt.figure()
 plt.scatter(x, y) # similar to plt.plot(x, y, '.'), but the underlying child objects in the axes are not Line2D
 
-
-# In[ ]:
 
 import numpy as np
 
@@ -138,8 +113,6 @@ plt.figure()
 plt.scatter(x, y, s=100, c=colors)
 
 
-# In[ ]:
-
 # convert the two lists into a list of pairwise tuples
 zip_generator = zip([1,2,3,4,5], [6,7,8,9,10])
 
@@ -153,8 +126,6 @@ print(*zip_generator)
 # the above prints:
 # (1, 6) (2, 7) (3, 8) (4, 9) (5, 10)
 
-
-# In[ ]:
 
 # use zip to convert 5 tuples with 2 elements each to 2 tuples with 5 elements each
 print(list(zip((1, 6), (2, 7), (3, 8), (4, 9), (5, 10))))
@@ -172,16 +143,12 @@ print(y)
 # (6, 7, 8, 9, 10)
 
 
-# In[ ]:
-
 plt.figure()
 # plot a data series 'Tall students' in red using the first two elements of x and y
 plt.scatter(x[:2], y[:2], s=100, c='red', label='Tall students')
 # plot a second data series 'Short students' in blue using the last three elements of x and y 
 plt.scatter(x[2:], y[2:], s=100, c='blue', label='Short students')
 
-
-# In[ ]:
 
 # add a label to the x axis
 plt.xlabel('The number of times the child kicked a ball')
@@ -190,38 +157,20 @@ plt.ylabel('The grade of the student')
 # add a title
 plt.title('Relationship between ball kicking and grades')
 
-
-# In[ ]:
-
 # add a legend (uses the labels from plt.scatter)
 plt.legend()
-
-
-# In[ ]:
 
 # add the legend to loc=4 (the lower right hand corner), also gets rid of the frame and adds a title
 plt.legend(loc=4, frameon=False, title='Legend')
 
-
-# In[ ]:
-
 # get children from current axes (the legend is the second to last item in this list)
 plt.gca().get_children()
-
-
-# In[ ]:
 
 # get the legend from the current axes
 legend = plt.gca().get_children()[-2]
 
-
-# In[ ]:
-
 # you can use get_children to navigate through the child artists
 legend.get_children()[0].get_children()[1].get_children()[0].get_children()
-
-
-# In[ ]:
 
 # import the artist class from matplotlib
 from matplotlib.artist import Artist
@@ -239,8 +188,6 @@ rec_gc(plt.legend())
 
 # # Line Plots
 
-# In[ ]:
-
 import numpy as np
 
 linear_data = np.array([1,2,3,4,5,6,7,8])
@@ -250,23 +197,14 @@ plt.figure()
 # plot the linear data and the exponential data
 plt.plot(linear_data, '-o', exponential_data, '-o')
 
-
-# In[ ]:
-
 # plot another series with a dashed red line
 plt.plot([22,44,55], '--r')
-
-
-# In[ ]:
 
 plt.xlabel('Some data')
 plt.ylabel('Some other data')
 plt.title('A title')
 # add a legend with legend entries (because we didn't have labels when we plotted the data series)
 plt.legend(['Baseline', 'Competition', 'Us'])
-
-
-# In[ ]:
 
 # fill the area between the linear data and exponential data
 plt.gca().fill_between(range(len(linear_data)), 
@@ -277,18 +215,13 @@ plt.gca().fill_between(range(len(linear_data)),
 
 # Let's try working with dates!
 
-# In[ ]:
-
 plt.figure()
 
 observation_dates = np.arange('2017-01-01', '2017-01-09', dtype='datetime64[D]')
 
 plt.plot(observation_dates, linear_data, '-o',  observation_dates, exponential_data, '-o')
 
-
 # Let's try using pandas
-
-# In[ ]:
 
 import pandas as pd
 
@@ -297,16 +230,10 @@ observation_dates = np.arange('2017-01-01', '2017-01-09', dtype='datetime64[D]')
 observation_dates = map(pd.to_datetime, observation_dates) # trying to plot a map will result in an error
 plt.plot(observation_dates, linear_data, '-o',  observation_dates, exponential_data, '-o')
 
-
-# In[ ]:
-
 plt.figure()
 observation_dates = np.arange('2017-01-01', '2017-01-09', dtype='datetime64[D]')
 observation_dates = list(map(pd.to_datetime, observation_dates)) # convert the map to a list to get rid of the error
 plt.plot(observation_dates, linear_data, '-o',  observation_dates, exponential_data, '-o')
-
-
-# In[ ]:
 
 x = plt.gca().xaxis
 
@@ -314,22 +241,13 @@ x = plt.gca().xaxis
 for item in x.get_ticklabels():
     item.set_rotation(45)
 
-
-# In[ ]:
-
 # adjust the subplot so the text doesn't run off the image
 plt.subplots_adjust(bottom=0.25)
-
-
-# In[ ]:
 
 ax = plt.gca()
 ax.set_xlabel('Date')
 ax.set_ylabel('Units')
 ax.set_title('Exponential vs. Linear performance')
-
-
-# In[ ]:
 
 # you can add mathematical expressions in any text element
 ax.set_title("Exponential ($x^2$) vs. Linear ($x$) performance")
@@ -337,14 +255,9 @@ ax.set_title("Exponential ($x^2$) vs. Linear ($x$) performance")
 
 # # Bar Charts
 
-# In[ ]:
-
 plt.figure()
 xvals = range(len(linear_data))
 plt.bar(xvals, linear_data, width = 0.3)
-
-
-# In[ ]:
 
 new_xvals = []
 
@@ -354,26 +267,17 @@ for item in xvals:
 
 plt.bar(new_xvals, exponential_data, width = 0.3 ,color='red')
 
-
-# In[ ]:
-
 from random import randint
 linear_err = [randint(0,15) for x in range(len(linear_data))] 
 
 # This will plot a new set of bars with errorbars using the list of random error values
 plt.bar(xvals, linear_data, width = 0.3, yerr=linear_err)
 
-
-# In[ ]:
-
 # stacked bar charts are also possible
 plt.figure()
 xvals = range(len(linear_data))
 plt.bar(xvals, linear_data, width = 0.3, color='b')
 plt.bar(xvals, exponential_data, width = 0.3, bottom=linear_data, color='r')
-
-
-# In[ ]:
 
 # or use barh for horizontal bar charts
 plt.figure()
