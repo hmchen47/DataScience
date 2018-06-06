@@ -601,7 +601,8 @@ import matplotlib.pyplot as plt     # load pyplot module
 | `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
 | `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
 | `fill_between(x, y1, y2=0, where=None, interpolate=False, step=None, *, data=None, **kwargs)` | Make filled polygons between two curves | [Line Plots][027] |
-
+|  `bar(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` <br/>
+ `barh(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) | [Bar Charts][028] |
 
 
 
@@ -632,18 +633,18 @@ import matplotlib.pyplot as plt     # load pyplot module
 | 'r'       |  red   | | 'k'       |  black |
 | 'c'       |  cyan  | | 'w'       |  white |
 
-### Examples
+#### Examples - Line Plots
 
 ```python
-plot(x, y)        # plot x and y using default line style and color
-plot(x, y, 'bo')  # plot x and y using blue circle markers
-plot(y)           # plot y using x as index array 0..N-1
-plot(y, 'r+')     # ditto, but with red plusses
+plt.plot(x, y)        # plot x and y using default line style and color
+plt.plot(x, y, 'bo')  # plot x and y using blue circle markers
+plt.plot(y)           # plot y using x as index array 0..N-1
+plt.plot(y, 'r+')     # ditto, but with red plusses
 
-plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
-plot([1,2,3], [1,4,9], 'rs',  label='line 2')
-axis([0, 4, 0, 10])
-legend()
+plt.plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
+plt.plot([1,2,3], [1,4,9], 'rs',  label='line 2')
+plt.axis([0, 4, 0, 10])
+plt.legend()
 ```
 
 -------------------------------------
@@ -676,7 +677,7 @@ legend()
 [025]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
 [026]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
 [027]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
-
+[028]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
 
 
 

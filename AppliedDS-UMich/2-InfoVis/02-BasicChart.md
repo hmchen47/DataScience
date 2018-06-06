@@ -29,13 +29,13 @@
     [<br/><img src="https://matplotlib.org/_images/inheritance-3c2c45b4bd2f47461e9113da50594813ad9f98d0.png" alt="artist module" width="600"><br/>](http://matplotlib.org/api/artist_api.html) Artisitc Module
 
 + Demo
-    ```python
+    ``python
     %matplotlib notebook # provides an interactive environment
 
     import matplotlib as mpl
     mpl.get_backend()   # 'TkAgg' for CLI Python3, 'nbAgg' for iPython
 
-    ```
+    ``
 <a href="https://d3c33hcgiwev3.cloudfront.net/K0bxmP0cEeaeKwpzIn5n7A.processed/full/360p/index.mp4?Expires=1528243200&Signature=D6cbxN4rLY99Vn80YNlOh33YTF1MsqIOvULT3aTza75V0rUZ51y6-1uC4oAJL-R-WiwZ-yc70I2JzV8kf2hhgVB5OLppIX~3U45-bQn402pKfT26fE2vpw2MTuwfUTmWQPY0IVLJ7yTidVaussi8-te49qDOI0pBn98eFOVo5KM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Matplotlib Architecture" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
@@ -77,7 +77,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     + Map underlying UI events like `key-press-event` or `mouse-motion-event` to the matplotlib classes `KeyEvent` or `MouseEvent`
     + Connect events to callback functions and interact with figure and data
     + e.g., how to toggle all of the lines in an Axes window when the user types `t'
-    ```python
+    ``python
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -93,7 +93,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     fig.canvas.mpl_connect('key_press_event', on_press)
     ax.plot(np.random.rand(2, 20))
     plt.show()
-    ```
+    ``
 
 #### Artist Layer
 
@@ -111,7 +111,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     <img src="http://www.aosabook.org/images/matplotlib/artists_tree.png" alt="The hierarchy of artist instances used to draw" width="340">
 
 + Coupling the `Artist` hierarchy and the backend `draw` method, e.g.,  create SomeArtist which subclasses Artist, the essential method that SomeArtist must implement is draw, which is passed a renderer from the backend
-    ```python
+    ``python
     class SomeArtist(Artist):
         'An example Artist that implements the draw method'
 
@@ -121,7 +121,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 
             # create some objects and use renderer to draw  here
             renderer.draw_path(graphics_context, path, transform)
-    ```
+    ``
 + Two types of `Artist`s in the hierarchy
     + __Primitive artists__: the kinds of objects seen in a plot, including `Line2D`, `Rectangle`, `Circle`, and `Text`
     + __Composite artists__: collections of Artists such as the `Axis`, `Tick`, `Axes`, and `Figure`
@@ -132,7 +132,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     + Containing numerous helper methods that create primitive artists and adding them to the Axes instance
 
 + A simple Python script
-    ```python
+    ``python
     # Import the FigureCanvas from the backend of your choice
     #  and attach the Figure artist to it.
     from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -159,7 +159,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     # Decorate the figure with a title and save it.
     ax.set_title('Normal distribution with $\mu=0, \sigma=1$')
     fig.savefig('matplotlib_histogram.png')
-    ```
+    ``
 
 ### Scripting Layer (pyplot)
 
@@ -167,7 +167,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 + Usually the appropriate programming paradigm when writing a web application server, a UI application, or perhaps a script to be shared with other developers
 + `matplotlib.pyplot` interface: provide a lighter scripting interface to simplify common tasks
 + `pyplot` script: same as the Python code above
-    ```python
+    ``python
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -176,7 +176,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     plt.title(r'Normal distribution with $\mu=0, \sigma=1$')
     plt.savefig('matplotlib_histogram.png')
     plt.show()
-    ```
+    ``
     + `import matplotlib.pyplot as plt`: parses a local configuration file in which the user state their preference for a default backend
     + `plt.hist(x, 100)`:  the first plotting command in the script;  check internal data structures to confirm existence of a current `Figure` instance
         + True: extract the current `Axes` and direct plotting to the `Axes.hist` API call
@@ -192,7 +192,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 + `matplotlib.pyplot.plot`: a somewhat stripped-down and simplified version of `pyplot`'s frequently used line plotting function
 
 + Example:
-    ```python
+    ``python
     @autogen_docstring(Axes.plot)
     def plot(*args, **kwargs):
         ax = gca()
@@ -201,7 +201,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
         draw_if_interactive()
 
         return ret
-    ```
+    ``
     + `@autogen_docstring(Axes.plot)`: decorator; extract the documentation string from the corresponding API method and attache a properly formatted version to the `pyplot.plot` method
     + `*args` and `**kwargs`: all the arguments and keyword arguments that are passed to the method
     + `ax = gca()`: invoke the stateful machinery to "get current Axes" (each Python interpreter can have only one "current axes"), and create the `Figure` and `Axes` if necessary.
@@ -437,12 +437,12 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `args`: variable length argument, allowing for multiple *x*, *y* pairs with an optional format string.
         + `kwargs`: used to set line properties (any property that has a `set_*` method).  You can use this to set a line label (for auto legends), linewidth, anitialising, marker face color, etc.
     + Example for `args`: each of the following is legal::
-        ```python
+        ``python
         plot(x, y)        # plot x and y using default line style and color
         plot(x, y, 'bo')  # plot x and y using blue circle markers
         plot(y)           # plot y using x as index array 0..N-1
         plot(y, 'r+')     # ditto, but with red plusses
-        ```
+        ``
         + If `x` and/or `y` is 2-dimensional, then the corresponding will be plotted.
         + If used with labeled data, make sure that the color spec is not included as an element in data, as otherwise the last case `plot("v","r", data={"v":..., "r":...)` can be interpreted as the first case which would do `plot(v, r)` using the default line style and color.
         + If not used with labeled data (i.e., without a data argument), an arbitrary number of `x`, `y`, `fmt` groups can be specified, as in `a.plot(x1, y1, 'g^', x2, y2, 'g-')` 
@@ -475,17 +475,17 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         | 'r'       |  red   | | 'k'       |  black |
         | 'c'       |  cyan  | | 'w'       |  white |
     + Example for `kwargs`
-        ```python
+        ``python
         plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
         plot([1,2,3], [1,4,9], 'rs',  label='line 2')
         axis([0, 4, 0, 10])
         legend()
-        ```
+        ``
         + If you make multiple lines with one plot command, the `kwargs` apply to all those lines, e.g. `plot(x1, y1, x2, y2, antialiased=False)`. Neither line will be `antialiased`.
         + You do not need to use format strings, which are just abbreviations.  All of the line properties can be controlled by keyword arguments.  For example, you can set the `color`, `marker`, `linestyle`, and `markercolor` with 
-            ```python 
+            ``python 
             plot(x, y, color='green', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
-            ```
+            ``
     + The kwargs are properties of `~matplotlib.lines.Line2D` class:
         + `agg_filter`: unknown
         + `alpha`: float (0.0 transparent through 1.0 opaque)
@@ -496,10 +496,10 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `clip_on`: [True | False]
         + `clip_path`: [ (`~matplotlib.path.Path` class, `~matplotlib.transforms.Transform` class) | `~matplotlib.patches.Patch` class | None ]
         + `color` or `c`: any matplotlib color
-        + ``contains`: a callable function
+        + `contains`: a callable function
         + `dash_capstyle`: ['butt' | 'round' | 'projecting']
         + `dash_joinstyle`: ['miter' | 'round' | 'bevel']
-        + ``dashes`: sequence of on/off ink in points 
+        + `dashes`: sequence of on/off ink in points 
         + `drawstyle`: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post']
         + `figure`: a `matplotlib.figure.Figure` class instance
         + `fillstyle`: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none']
@@ -557,13 +557,13 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `kwargs`: `~matplotlib.axes.Axes` class kwargs plus `projection`, which chooses a projection type for the axes.
     + Valid values for `projection` are: ['aitoff', 'hammer', 'lambert', 'mollweide', 'polar', 'rectilinear'].  Some of these projections support additional `kwargs`, which may be provided to `add_axes` method.
     + Examples:
-        ```python
+        ``python
         fig.add_subplot(111)
         fig.add_subplot(1,1,1)      # equivalent but more general
         fig.add_subplot(212, facecolor='r')     # add subplot with red background
         fig.add_subplot(111, projection='polar')    # add a polar subplot
         fig.add_subplot(sub)        # add Subplot instance sub
-        ```
+        ``
     + Supported `kwargs`:
 
         + `adjustable`: [ 'box' | 'datalim' | 'box-forced'] 
@@ -709,18 +709,18 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `emit` (bool): Passed to set_{x,y}lim functions, if observers are notified of axis limit change
         + `xmin`, `ymin`, `xmax`, `ymax` (float): The axis limits to be set
     + Valid signature:
-        ```python
+        ``python
         xmin, xmax, ymin, ymax = axis()
         xmin, xmax, ymin, ymax = axis(list_arg)
         xmin, xmax, ymin, ymax = axis(string_arg)
         xmin, xmax, ymin, ymax = axis(**kwargs)
-        ```
+        ``
 + `plt.gca().get_children` method
     + Signature: `plt.gca().get_children()`
     + Docstring: return a list of child artists
 
 + Demo
-    ```python
+    ``python
     import matplotlib.pyplot as plt
 
     # because the default is the line style '-', 
@@ -760,7 +760,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     plt.plot(2.5, 2.5, 'o')     # plot the point (2.5, 2.5) using the circle marker
     ax = plt.gca()              # get current axes
     ax.get_children()           # get all the child objects the axes contains
-    ```
+    ``
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/gHvXBv0cEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528329600&Signature=kQmxs5co1w1DcbHaegKSc-lIeK~590M~0gkDX~Lxm-7ieMbtPpVAeNfi5H6~NfNrE7fq2c1MYOyvLT1L7DEmZP2dcLBUNrUnEOAJ30aFrhu0IMfEFZsuD0SD5ewb9wRoP1ZWAiJQ3S92cjhd~gvVcs7KIas6T75gD4kFmVs-EAQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Basic Plotting with Matplotlib" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -797,25 +797,25 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Signature: `plt.xlabel(s, *args, **kwargs)`, `plt.ylabel(s, *args, **kwargs)`
     + Docstring: Set the `x`, `y` axis label of the current axis
     + Default override is:
-        ```json
+        ``json
         override = {
             'fontsize'            : 'small',
             'verticalalignment'   : 'top',
             'horizontalalignment' : 'center'
             }
-        ```
+        ``
 + `plt.title` method:
     + Signature: `plt.title(s, *args, **kwargs)`
     + Docstring: Set a title of the current axes.
     + Parameters
         + `label` (str): Text to use for the title
         + `fontdict` (dict): A dictionary controlling the appearance of the title text, the default `fontdict` is:
-            ```json
+            ``json
             {'fontsize': rcParams['axes.titlesize'],
             'fontweight' : rcParams['axes.titleweight'],
             'verticalalignment': 'baseline',
             'horizontalalignment': loc}
-            ```
+            ``
         + `loc` ({'center', 'left', 'right'}, str): Which title to set, defaults to 'center'
         + `kwargs`: text properties
 
@@ -868,7 +868,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument.  The `.__next__()` method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.
 
 + Demo
-    ```python
+    ``python
     import numpy as np
 
     x = np.array([1,2,3,4,5,6,7,8])
@@ -952,7 +952,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
     # Call this function on the legend artist to see what the legend is made up of
     rec_gc(plt.legend())
-    ```
+    ``
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/xSk2r_0dEearIRLZY_MkaA.processed/full/540p/index.mp4?Expires=1528416000&Signature=dkqpm85W8V6th8JzE6LAdVPCEQRSFPl9bMmLXpSMO0mVcCnEG8eVPWnnuofeKPMPhcbMPLHEwds0u1YAI0FR6v2Ac4FDMTaRlbjZfkGOGFPrklE7UHx7YVs478dQXmoGHOhSgNiyTiFcVotfc4~J4T4PQh~xK4b~3kpBdadQCoo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Scatterplots" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -975,7 +975,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `y2` (array): An N-length array (or scalar) of the y data
         + `where` (array): 
             + `None`: fill between everywhere.  
-            + not `None`: an N-length numpy boolean array and the fill will only happen over the regions where ``where==True``.
+            + not `None`: an N-length numpy boolean array and the fill will only happen over the regions where `where==True`.
         + `interpolate` (bool): 
             + `True`: interpolate between the two lines to find the precise point of intersection.  
             + `False`: the start and end points of the filled region will only occur on explicit values in the _x_ array.
@@ -1093,7 +1093,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
  
 
 + Demo
-    ```python
+    ``python
     import numpy as np
 
     linear_data = np.array([1,2,3,4,5,6,7,8])
@@ -1156,7 +1156,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
     # you can add mathematical expressions in any text element w/ LaTex by $
     ax.set_title("Exponential ($x^2$) vs. Linear ($x$) performance")
-    ```
+    ``
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/0sxDE_9aEeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1528416000&Signature=Busiy-6aXd7nlofhxE4fUsqI9JE4k0XSeyIvdJcKA0gBxHbdcvqkSwfmb5~7LcFyxaNkUvinWx3o42wsCarZRx8ovwxlu3wx9lHrwvssZRTUX-ryvquu-pPznOmPEspOkinBI-Dc5Et38q41~EzFK2uW2N65sgSQPTc8JG3HNkM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Bar Charts" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -1165,12 +1165,64 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Bar Charts
 
++ `plt.bar` & `plt.barh` methods
+    + Signature: `bar(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` & `barh(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)`
+    + Docstring: Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges)
+    + Parameters:
+        + `left` (sequence of scalars): the x coordinates of the left sides of the bars
+        + `height` (sequence of scalars): the heights of the bars
+        + `width` (scalar or array-like): the width(s) of the bars default`: 0.8
+        + `bottom` (scalar or array-like): the y coordinate(s) of the bars
+        + `color (scalar or array-like)`: the colors of the bar faces
+        + `edgecolor (scalar or array-like)`: the colors of the bar edges
+        + `linewidth (scalar or array-like)`: width of bar edge(s). If None, use default linewidth; If 0, don't draw edges.
+        + `tick_label (string or array-like)`: the tick labels of the bars 
+        + `xerr (scalar or array-like)`: if not None, will be used to generate errorbar(s) on the bar chart
+        + `yerr (scalar or array-like)`: if not None, will be used to generate errorbar(s) on the bar chart
+        + `ecolor (scalar or array-like)`: specifies the color of errorbar(s)
+        + `capsize (scalar)`: determines the length in points of the error bar caps, which will take the value from the `errorbar.capsize` `rcParam<matplotlib.rcParams>`.
+        + `error_kw (dict)`: dictionary of kwargs to be passed to errorbar method. *ecolor* and *capsize* may be specified here rather than as independent kwargs.
+        + `align ({'center', 'edge'})`: If 'edge', aligns bars by their left edges (for vertical bars) and by their bottom edges (for horizontal bars). If 'center', interpret the `left` argument as the coordinates of the centers of the bars. To align on the align bars on the right edge pass a negative `width`.
+        + `orientation ({'vertical', 'horizontal'})`: The orientation of the bars.
+        + `log (boolean)`:  If true, sets the axis to be log scale. default=False
+
 + Demo
-    ```python
+    ``python
+    plt.figure()
+    xvals = range(len(linear_data))
+    plt.bar(xvals, linear_data, width = 0.3)
 
-    ```
+    new_xvals = []
 
-<a href="url" alt="text" target="_blank">
+    # plot another set of bars, adjusting the new xvals to make up for the first set of bars plotted
+    for item in xvals:
+        new_xvals.append(item+0.3)
+
+    plt.bar(new_xvals, exponential_data, width = 0.3 ,color='red')
+
+
+    from random import randint
+    linear_err = [randint(0,15) for x in range(len(linear_data))] 
+
+    # This will plot a new set of bars with errorbars using the list of random error values
+    plt.bar(xvals, linear_data, width = 0.3, yerr=linear_err)
+
+
+    # stacked bar charts are also possible
+    plt.figure()
+    xvals = range(len(linear_data))
+    plt.bar(xvals, linear_data, width = 0.3, color='b')
+    plt.bar(xvals, exponential_data, width = 0.3, bottom=linear_data, color='r')
+
+
+    # or use barh for horizontal bar charts
+    plt.figure()
+    xvals = range(len(linear_data))
+    plt.barh(xvals, linear_data, height = 0.3, color='b')
+    plt.barh(xvals, exponential_data, height = 0.3, left=linear_data, color='r')
+    ``
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/0sxDE_9aEeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1528416000&Signature=Busiy-6aXd7nlofhxE4fUsqI9JE4k0XSeyIvdJcKA0gBxHbdcvqkSwfmb5~7LcFyxaNkUvinWx3o42wsCarZRx8ovwxlu3wx9lHrwvssZRTUX-ryvquu-pPznOmPEspOkinBI-Dc5Et38q41~EzFK2uW2N65sgSQPTc8JG3HNkM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Bar Charts" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -1178,9 +1230,9 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 ## Dejunkifying a Plot
 
 + Demo
-    ```python
+    ``python
 
-    ```
+    ``
 
 <a href="url" alt="text" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
