@@ -60,7 +60,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     [<br/><img src="https://delftswa.gitbooks.io/desosa-2017/content/matplotlib/images-matplotlib/functional_view.png" alt="Functional View" width="450">](https://delftswa.gitbooks.io/desosa-2017/content/matplotlib/chapter.html)
 
 + `FigureCanvas`: `Qt` user interface toolkit as example
-    + Know how to insert itself into a native `Qt` window
+    + Know how to insert it into a native `Qt` window
     + Transfer the matplotlib `Renderer` commands onto the canvas
     + Translate native Qt events into the matplotlib Event framework
     + The abstract base classes reside in `matplotlib.backend_bases` and all of the derived classes live in dedicated modules.
@@ -115,11 +115,11 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     class SomeArtist(Artist):
         'An example Artist that implements the draw method'
 
-        def draw(self, renderer):
-            """Call the appropriate renderer methods to paint self onto canvas"""
-            if not self.get_visible():  return
+        def draw(, renderer):
+            """Call the appropriate renderer methods to paint  onto canvas"""
+            if not .get_visible():  return
 
-            # create some objects and use renderer to draw self here
+            # create some objects and use renderer to draw  here
             renderer.draw_path(graphics_context, path, transform)
     ```
 + Two types of `Artist`s in the hierarchy
@@ -328,7 +328,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + How a visual is perceived differs significantly from the intent of the conveyer
     + Identify, as early as possible in the design process, the audience and the message the visual is to convey
     + Audiences
-        + Yourself and your direct collaborators: possibly skip a number of steps in the design process
+        + Your and your direct collaborators: possibly skip a number of steps in the design process
         + Scientific journal: make sure your figure is correct and conveys all the relevant information to a broader audience
         + Students: special care about the goal is to explain a concept
         + General public: the most difficult audience of all since you need to design a simple, possibly approximated, figure that reveals only the most salient part of your research
@@ -867,7 +867,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Docstring: zip(iter1 [,iter2 [...]]) --> zip object
     + Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument.  The `.__next__()` method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.
 
-+ Deno
++ Demo
     ```python
     import numpy as np
 
@@ -961,19 +961,211 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Line Plots
 
-+ Deno
-    ```python
++ Characters of Line Plots:
+    + Utilize `plt.plot` fucntion
+    + Only y-axis calues, no x-axis values -> using index as the x-axis values
+    + Color of two series of data assigned autoamtically,, while scatterplots require manualy labeled
+    + Marker style assigned automatically w/ different series of data
++ `plt.gca().fill_between` method
+    + Signature: `fill_between(x, y1, y2=0, where=None, interpolate=False, step=None, *, data=None, **kwargs)`
+    + Docstring: Make filled polygons between two curves; Method of matplotlib.axes._subplots.AxesSubplot instance
+    + Paramters: 
+        + `x` (array): An N-length array of the x data
+        + `y1` (array): An N-length array (or scalar) of the y data
+        + `y2` (array): An N-length array (or scalar) of the y data
+        + `where` (array): 
+            + `None`: fill between everywhere.  
+            + not `None`: an N-length numpy boolean array and the fill will only happen over the regions where ``where==True``.
+        + `interpolate` (bool): 
+            + `True`: interpolate between the two lines to find the precise point of intersection.  
+            + `False`: the start and end points of the filled region will only occur on explicit values in the _x_ array.
+        + `step` ({'pre', 'post', 'mid'}): If not None, fill with step logic.
 
++ Date Time handling
+    + Standard library: 
+        + `datetime` module: classes for manipulating dates and times in both simple and complex ways
+        + `time` module: time access and conversion
+        + `calendar` module: classes for working with dates to manage year/month/week oriented values
+    + Numpy:
+        + `datetime64` dtype: encode dates as 64-bit integers, and thus allowing arrays of dates to be represented very compactly
+        + `timedelta` dtype
+    + Pandas:
+        + `Timestamp`: combining the ease-of-use of datetime and dateutil with the efficient storage and vectorized interface of `numpy.datetime64`
+
++ `pd.to_datetime` method: &nbsp;&nbsp; [Date Functions](../1-IntroDS/03-AdvPandas.md#date-functionality)
+
++ `plt.gca().xaxis` & `plt.gca().yaxis` classes:
+    + `xaxis = class XAxis(Axis)` 
+    + Attributes: 
+        + `axes.transData` - transform data coords to display coords
+        + `axes.transAxes` - transform axis coords to display coords
+        + `labelpad` - number of points between the axis and its label
+    + Methods: 
+        + `contains(mouseevent)`: Test whether the mouse event occured in the x axis.
+        + `get_data_interval()`: return the Interval instance for this axis data limits
+        + `get_minpos()`
+        + `get_text_heights(renderer)`: Returns the amount of space one should reserve for text above and below the axes.  Returns a tuple (above, below)
+        + `get_tick_space()`: Return the estimated number of ticks that can fit on the axis.
+        + `get_ticks_position()`: Return the ticks position (top, bottom, default or unknown)
+        + `get_view_interval()`: return the Interval instance for this axis view limits
+        + `set_data_interval(vmin, vmax, ignore=False)`: set the axis data limits
+        + `set_default_intervals()`: set the default limits for the axis interval if they are not mutated
+        + `set_label_position(position)`: Set the label position (top or bottom);             ACCEPTS: [ 'top' | 'bottom' ]
+        + `set_ticks_position(position)`: 
+            + Set the ticks position (top, bottom, both, default or none) both sets the ticks to appear on both positions, but does not change the tick labels.  
+            + 'default': reset the tick positions to the default: ticks on both positions, labels at bottom.  
+            + 'none': be used if you don't want any ticks. 
+            + 'none' and 'both': affect only the ticks, not the labels.
+            + ACCEPTS: [ 'top' | 'bottom' | 'both' | 'default' | 'none' ]
+        + `set_view_interval(vmin, vmax, ignore=False)`: for mpl internal use
+        + `tick_bottom()`: use ticks only on bottom
+        + `tick_top()`: use ticks only on top
+    + Methods inherited from Axis:
+        + `axis_date(tz=None)`: Sets up x-axis ticks and labels that treat the x data as dates. *tz* is a `tzinfo` instance or a timezone string. This timezone is used to create date labels.
+        + `cla()`: clear the current axis
+        + `convert_units(x)`
+        + `draw(artist, renderer, *args, **kwargs)`: Draw the axis lines, grid lines, tick lines and labels
+        + `get_children()`: Return a list of the child `Artist`s this `Artist` contains.
+        + `get_gridlines()`: Return the grid lines as a list of Line2D instance
+        + `get_label()`: Return the axis label as a Text instance
+        + `get_label_position()`: Return the label position (top or bottom)
+        + `get_label_text()`: Get the text of the label
+        + `get_major_formatter()`: Get the formatter of the major ticker
+        + `get_major_locator()`: Get the locator of the major ticker
+        + `get_major_ticks(numticks=None)`: get the tick instances; grow as necessary
+        + `get_majorticklabels()`: Return a list of Text instances for the major ticklabels
+        + `get_majorticklines()`: Return the major tick lines as a list of Line2D instances
+        + `get_majorticklocs()`: Get the major tick locations in data coordinates as a numpy array
+        + `get_minor_formatter()`: Get the formatter of the minor ticker
+        + `get_minor_locator()`: Get the locator of the minor ticker
+        + `get_minor_ticks(numticks=None)`: get the minor tick instances; grow as necessary
+        + `get_minorticklabels()`: Return a list of Text instances for the minor ticklabels
+        + `get_minorticklines()`: Return the minor tick lines as a list of Line2D instances
+        + `get_minorticklocs()`: Get the minor tick locations in data coordinates as a numpy array
+        + `get_offset_text()`: Return the axis offsetText as a Text instance
+        + `get_pickradius()`: Return the depth of the axis used by the picker
+        + `get_scale()`
+        + `get_smart_bounds()`: get whether the axis has smart bounds
+        + `get_tick_padding()`
+        + `get_ticklabel_extents(renderer)`: Get the extents of the tick labels on either side of the axes.
+        + `get_ticklabels(minor=False, which=None)`: Get the x tick labels as a list of `~matplotlib.text.Text` instances.
+            + `minor` (bool)`: If True return the minor ticklabels, else return the major ticklabels
+            + `which` (None, {'minor', 'major', 'both'})`: Selects which ticklabels to return
+        + `get_ticklines(minor=False)`: Return the tick lines as a list of Line2D instances
+        + `get_ticklocs(minor=False)`: Get the tick locations in data coordinates as a numpy array
+        + `get_tightbbox(renderer)`: Return a bounding box that encloses the axis. It only accounts tick labels, axis label, and offsetText.
+        + `get_transform()`: Return the `~matplotlib.transforms.Transform` instance used by this artist.
+        + `get_units()`: return the units for axis
+        + `grid(b=None, which='major', **kwargs)`: Set the axis grid on or off; b is a boolean. Use *which* = 'major' | 'minor' | 'both' to set the grid for major or minor ticks.
+            + If *b* is *None* and len(kwargs)==0, toggle the grid state.  
+            + If *kwargs* are supplied, it is assumed you want the grid on and *b* will be set to True.
+            + *kwargs* are used to set the line properties of the grids, e.g., xax.grid(color='r', linestyle='-', linewidth=2)
+        + `have_units()`: Return *True* if units are set on the *x* or *y* axes
+        + `iter_ticks()`: Iterate through all of the major and minor ticks.
+        + `limit_range_for_scale(vmin, vmax)`
+        + `pan(numsteps)`: Pan *numsteps* (can be positive or negative)
+        + `reset_ticks()
+        + `set_clip_path(clippath, transform=None)`: Set the artist's clip path, which may be:
+            + a `~matplotlib.patches.Patch` (or subclass) instance
+            + a `~matplotlib.path.Path` instance, in which case an optional `~matplotlib.transforms.Transform` instance may be provided, which will be applied to the path before using it for clipping.
+            + *None*, to remove the clipping path
+            + For efficiency, if the path happens to be an axis-aligned rectangle, this method will set the clipping box to the corresponding rectangle and set the clipping path to *None*.
+            + ACCEPTS`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ]
+        + `set_label_coords(x, y, transform=None)`: Set the coordinates of the label.  By default, the x coordinate of the y label is determined by the tick label bounding boxes, but this can lead to poor alignment of multiple ylabels if there are multiple axes.  Ditto for the y coodinate of the x label.
+        + `set_label_text(label, fontdict=None, **kwargs)`: Sets the text value of the axis label; ACCEPTS`: A string value for the label
+        + `set_major_formatter(formatter)`: Set the formatter of the major ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
+        + `set_major_locator(locator)`: Set the locator of the major ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
+        + `set_minor_formatter(formatter)`: Set the formatter of the minor ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
+        + `set_minor_locator(locator)`: Set the locator of the minor ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
+        + `set_pickradius(pickradius)`: Set the depth of the axis used by the picker; ACCEPTS`: a distance in points
+        + `set_smart_bounds(value)`: set the axis to have smart bounds
+        + `set_tick_params(which='major', reset=False, **kw)`: Set appearance parameters for ticks and ticklabels.
+        + `set_ticklabels(ticklabels, *args, **kwargs)`: Set the text values of the tick labels. Return a list of Text instances.  Use *kwarg* *minor=True* to select minor ticks.
+            + All other kwargs are used to update the text object properties.
+            + As for get_ticklabels, label1 (left or bottom) is affected for a given tick only if its label1On attribute is True, and similarly for label2.  The list of returned
+            label text objects consists of all such label1 objects followed by all such label2 objects.
+            + The input *ticklabels* is assumed to match the set of tick locations, regardless of the state of label1On and label2On.
+            + ACCEPTS`: sequence of strings or Text objects
+        + `set_ticks(ticks, minor=False)`: Set the locations of the tick marks from sequence ticks; ACCEPTS`: sequence of floats
+        + `set_units(u)`: set the units for axis; ACCEPTS`: a units tag
+        + `update_units(data)`: introspect *data* for units converter and update the axis.converter instance if necessary. Return *True* if *data* is registered for unit conversion.
+        + `zoom(direction)`: Zoom in/out on axis; if *direction* is >0 zoom in, else zoom out
+ 
+
++ Demo
+    ```python
+    import numpy as np
+
+    linear_data = np.array([1,2,3,4,5,6,7,8])
+    exponential_data = linear_data**2
+
+    plt.figure()
+    # plot the linear data and the exponential data
+    plt.plot(linear_data, '-o', exponential_data, '-o')
+
+    # plot another series with a dashed red line
+    plt.plot([22,44,55], '--r')
+
+    plt.xlabel('Some data')
+    plt.ylabel('Some other data')
+    plt.title('A title')
+    # add a legend with legend entries (because we didn't have labels when we plotted the data series)
+    plt.legend(['Baseline', 'Competition', 'Us'])
+
+    # fill the area between the linear data and exponential data
+    plt.gca().fill_between(range(len(linear_data)), 
+                        linear_data, exponential_data, 
+                        facecolor='blue', 
+                        alpha=0.25)
+
+    # Let's try working with dates!
+    plt.figure()
+    # Numpy provides a linear sampling dates
+    observation_dates = np.arange('2017-01-01', '2017-01-09', dtype='datetime64[D]')
+    plt.plot(observation_dates, linear_data, '-o',  observation_dates, exponential_data, '-o')
+
+    # Let's try using pandas
+    import pandas as pd
+
+    plt.figure()
+    observation_dates = np.arange('2017-01-01', '2017-01-09', dtype='datetime64[D]')
+    observation_dates = map(pd.to_datetime, observation_dates) 
+    # trying to plot a map will result in an error 
+    #  map function return iterator and matplotlib cannot handle iterator
+    plt.plot(observation_dates, linear_data, '-o',  observation_dates, exponential_data, '-o')
+
+    plt.figure()
+    observation_dates = np.arange('2017-01-01', '2017-01-09', dtype='datetime64[D]')
+    observation_dates = list(map(pd.to_datetime, observation_dates)) 
+    # convert the map to a list to get rid of the error - memory efficient way
+    plt.plot(observation_dates, linear_data, '-o',  observation_dates, exponential_data, '-o')
+
+    x = plt.gca().xaxis
+
+    # rotate the tick labels for the x axis
+    for item in x.get_ticklabels():
+        item.set_rotation(45)
+
+    # adjust the subplot so the text doesn't run off the image
+    plt.subplots_adjust(bottom=0.25)
+
+    ax = plt.gca()
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Units')
+    ax.set_title('Exponential vs. Linear performance')
+
+    # you can add mathematical expressions in any text element w/ LaTex by $
+    ax.set_title("Exponential ($x^2$) vs. Linear ($x$) performance")
     ```
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/0sxDE_9aEeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1528416000&Signature=Busiy-6aXd7nlofhxE4fUsqI9JE4k0XSeyIvdJcKA0gBxHbdcvqkSwfmb5~7LcFyxaNkUvinWx3o42wsCarZRx8ovwxlu3wx9lHrwvssZRTUX-ryvquu-pPznOmPEspOkinBI-Dc5Et38q41~EzFK2uW2N65sgSQPTc8JG3HNkM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Bar Charts" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 
 ## Bar Charts
 
-+ Deno
++ Demo
     ```python
 
     ```
@@ -985,7 +1177,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Dejunkifying a Plot
 
-+ Deno
++ Demo
     ```python
 
     ```

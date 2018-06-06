@@ -253,19 +253,21 @@ import pandas as pd
 
 ### Timestamp
 
+| Attribute | unit | Description |
 |-----------|-------------|-------------|
 | `ts_input` |  datetime-like, str, int, float  | Value to be converted to Timestamp |
 | `freq` |  str, DateOffset  |  Offset which Timestamp will have |
-| `tz` |  string, `pytz.timezone`, `dateutil.tz.tzfile` or None  | Time zone for time which Timestamp will have. |
+| `tz` |  string, `pytz.timezone`, <br/>`dateutil.tz.tzfile` or None  | Time zone for time which Timestamp will have. |
 | `unit` |  string  | numpy unit used for conversion, if ts_input is int or float |
 | `offset` |  str, DateOffset  | Deprecated, use freq |
 
-
-Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0)`
+| Method | Description | Link |
+|--------|-------------|------|
+| `pd.Period(**kwargs)` } <br/> `kwargs`: value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0 | 
 
 | Parameter | Type | Description |
 |-----------|-------------|-------------|
-| `value` |  Period or compat.string_types, default None | The time period represented (e.g., '4Q2005') |
+| `value` |  `Period` or `compat.string_types`, default None | The time period represented (e.g., '4Q2005') |
 | `freq` |  str, default None | One of pandas period strings or corresponding objects |
 | `year` |  int, default None |
 | `month` |  int, default 1 |
@@ -280,42 +282,32 @@ Syntax: `pd.Period(value=None, freq=None, year=None, month=1, quarter=None, day=
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.to_datetime(arg, utc=None, format=None)` | Convert argument to datetime; `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series; `utc`: Return UTC DatetimeIndex if True; `format`: strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds | [Date Functionality][020] |
-| `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; [`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
-| `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
+|`pd.to_datetime(arg, **kwargs)` | Convert argument to datetime <br/> `kwargs`: errors='raise', dayfirst=False, yearfirst=False, utc=None, box=True, format=None, exact=True, unit=None, infer_datetime_format=False, origin='unix', cache=False | [Date Functionality][020], [Line Plots][027] |
+| `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; <br/>[`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
+| `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; <br/> `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
 
-    | Alias | Description |
-    |--------|------------|
-    | `B`     | business day frequency |
-    | `C`     | custom business day frequency (experimental) |
-    | `D`     | calendar day frequency |
-    | `W`     | weekly frequency |
-    | `M`     | month end frequency |
-    | `SM`    | semi-month end frequency (15th and end of month) |
-    | `BM`    | business month end frequency |
-    | `CBM`   | custom business month end frequency |
-    | `MS`    | month start frequency |
-    | `SMS`   | semi-month start frequency (1st and 15th) |
-    | `BMS`   | business month start frequency |
-    | `CBMS`  | custom business month start frequency |
-    | `Q`     | quarter end frequency |
-    | `BQ`    | business quarter endfrequency |
-    | `QS`    | quarter start frequency |
-    | `BQS`   | business quarter start frequency |
-    | `A`     | year end frequency |
-    | `BA`    | business year end frequency |
-    | `AS`    | year start frequency |
-    | `BAS`   | business year start frequency |
-    | `BH`    | business hour frequency |
-    | `H`     | hourly frequency |
-    | `T`     | minutely frequency |
-    | `S`     | secondly frequency |
-    | `L`     | milliseonds |
-    | `U`     | microseconds |
-    | `N`     | nanoseconds |
+| Alias | Description | | Alias | Description |
+|--------|------------|-|--------|------------|
+| `B`     | business day frequency |     | `C`     | custom business day frequency (experimental) | 
+| `D`     | calendar day frequency |    | `W`     | weekly frequency |
+| `M`     | month end frequency |    | `SM`    | semi-month end frequency (15th and end of month) |
+| `BM`    | business month end frequency | | `CBM`   | custom business month end frequency |
+| `MS`    | month start frequency | | `SMS`   | semi-month start frequency (1st and 15th) |
+| `BMS`   | business month start frequency | | `CBMS`  | custom business month start frequency |
+| `Q`     | quarter end frequency | | `BQ`    | business quarter endfrequency |
+| `QS`    | quarter start frequency | | `BQS`   | business quarter start frequency |
+| `A`     | year end frequency | | `BA`    | business year end frequency |
+| `AS`    | year start frequency | | `BAS`   | business year start frequency |
+| `BH`    | business hour frequency | | `H`     | hourly frequency |
+| `T`     | minutely frequency | | `S`     | secondly frequency |
+| `L`     | milliseonds | | `U`     | microseconds |
+| `N`     | nanoseconds |
 
 
-| `index` | array-like or Index (1d) | Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
+
+| Attribute | Description |
+|-----------|-------------|
+| `s.index` | array-like or Index (1d),  Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
 | `s.at ` | Fast label-based scalar accessor |
 | `s.axes ` | Return a list of the row axis labels |
 | `s.base ` | return the base object if the memory of the underlying data is |
@@ -489,23 +481,126 @@ import matplotlib as mpl            # load module in CLI
 import matplotlib.pyplot as plt     # load pyplot module
 ```
 
+### Classes
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `plt.gca().xaxis` & `plt.gca().yaxis` | xaxis = class XAxis(Axis), yaxis = class YAxis(Axis) | [Line Plots][027] |
+
+#### Axis Methods:
+
++ `axis_date(tz=None)`: Sets up x-axis ticks and labels that treat the x data as dates. *tz* is a `tzinfo` instance or a timezone string. This timezone is used to create date labels.
++ `cla()`: clear the current axis
++ `convert_units(x)
++ `draw(artist, renderer, *args, **kwargs)`: Draw the axis lines, grid lines, tick lines and labels
++ `get_children()`: Return a list of the child `Artist`s this `Artist` contains.
++ `get_gridlines()`: Return the grid lines as a list of Line2D instance
++ `get_label()`: Return the axis label as a Text instance
++ `get_label_position()`: Return the label position (top or bottom)
++ `get_label_text()`: Get the text of the label
++ `get_major_formatter()`: Get the formatter of the major ticker
++ `get_major_locator()`: Get the locator of the major ticker
++ `get_major_ticks(numticks=None)`: get the tick instances; grow as necessary
++ `get_majorticklabels()`: Return a list of Text instances for the major ticklabels
++ `get_majorticklines()`: Return the major tick lines as a list of Line2D instances
++ `get_majorticklocs()`: Get the major tick locations in data coordinates as a numpy array
++ `get_minor_formatter()`: Get the formatter of the minor ticker
++ `get_minor_locator()`: Get the locator of the minor ticker
++ `get_minor_ticks(numticks=None)`: get the minor tick instances; grow as necessary
++ `get_minorticklabels()`: Return a list of Text instances for the minor ticklabels
++ `get_minorticklines()`: Return the minor tick lines as a list of Line2D instances
++ `get_minorticklocs()`: Get the minor tick locations in data coordinates as a numpy array
++ `get_offset_text()`: Return the axis offsetText as a Text instance
++ `get_pickradius()`: Return the depth of the axis used by the picker
++ `get_scale()
++ `get_smart_bounds()`: get whether the axis has smart bounds
++ `get_tick_padding()
++ `get_ticklabel_extents(renderer)`: Get the extents of the tick labels on either side of the axes.
++ `get_ticklabels(minor=False, which=None)`: Get the x tick labels as a list of `~matplotlib.text.Text` instances.
+    + `minor` (bool)`: If True return the minor ticklabels, else return the major ticklabels
+    + `which` (None, {'minor', 'major', 'both'})`: Selects which ticklabels to return
++ `get_ticklines(minor=False)`: Return the tick lines as a list of Line2D instances
++ `get_ticklocs(minor=False)`: Get the tick locations in data coordinates as a numpy array
++ `get_tightbbox(renderer)`: Return a bounding box that encloses the axis. It only accounts tick labels, axis label, and offsetText.
++ `get_transform()`: Return the `~matplotlib.transforms.Transform` instance used by this artist.
++ `get_units()`: return the units for axis
++ `grid(b=None, which='major', **kwargs)`: Set the axis grid on or off; b is a boolean. Use *which* = 'major' | 'minor' | 'both' to set the grid for major or minor ticks.
+    + If *b* is *None* and len(kwargs)==0, toggle the grid state.  
+    + If *kwargs* are supplied, it is assumed you want the grid on and *b* will be set to True.
+    + *kwargs* are used to set the line properties of the grids, e.g., xax.grid(color='r', linestyle='-', linewidth=2)
++ `have_units()`: Return *True* if units are set on the *x* or *y* axes
++ `iter_ticks()`: Iterate through all of the major and minor ticks.
++ `limit_range_for_scale(vmin, vmax)
++ `pan(numsteps)`: Pan *numsteps* (can be positive or negative)
++ `reset_ticks()
++ `set_clip_path(clippath, transform=None)`: Set the artist's clip path, which may be:
+    + a `~matplotlib.patches.Patch` (or subclass) instance
+    + a `~matplotlib.path.Path` instance, in which case an optional `~matplotlib.transforms.Transform` instance may be provided, which will be applied to the path before using it for clipping.
+    + *None*, to remove the clipping path
+    + For efficiency, if the path happens to be an axis-aligned rectangle, this method will set the clipping box to the corresponding rectangle and set the clipping path to *None*.
+    + ACCEPTS`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ]
++ `set_label_coords(x, y, transform=None)`: Set the coordinates of the label.  By default, the x coordinate of the y label is determined by the tick label bounding boxes, but this can lead to poor alignment of multiple ylabels if there are multiple axes.  Ditto for the y coodinate of the x label.
++ `set_label_text(label, fontdict=None, **kwargs)`: Sets the text value of the axis label; ACCEPTS`: A string value for the label
++ `set_major_formatter(formatter)`: Set the formatter of the major ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
++ `set_major_locator(locator)`: Set the locator of the major ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
++ `set_minor_formatter(formatter)`: Set the formatter of the minor ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
++ `set_minor_locator(locator)`: Set the locator of the minor ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
++ `set_pickradius(pickradius)`: Set the depth of the axis used by the picker; ACCEPTS`: a distance in points
++ `set_smart_bounds(value)`: set the axis to have smart bounds
++ `set_tick_params(which='major', reset=False, **kw)`: Set appearance parameters for ticks and ticklabels.
++ `set_ticklabels(ticklabels, *args, **kwargs)`: Set the text values of the tick labels. Return a list of Text instances.  Use *kwarg* *minor=True* to select minor ticks.
+    + All other kwargs are used to update the text object properties.
+    + As for get_ticklabels, label1 (left or bottom) is affected for a given tick only if its label1On attribute is True, and similarly for label2.  The list of returned
+    label text objects consists of all such label1 objects followed by all such label2 objects.
+    + The input *ticklabels* is assumed to match the set of tick locations, regardless of the state of label1On and label2On.
+    + ACCEPTS`: sequence of strings or Text objects
++ `set_ticks(ticks, minor=False)`: Set the locations of the tick marks from sequence ticks; ACCEPTS`: sequence of floats
++ `set_units(u)`: set the units for axis; ACCEPTS`: a units tag
++ `update_units(data)`: introspect *data* for units converter and update the axis.converter instance if necessary. Return *True* if *data* is registered for unit conversion.
++ `zoom(direction)`: Zoom in/out on axis; if *direction* is >0 zoom in, else zoom out
+
+#### XAxis & YAxis Methods: 
+
++ Methods inhert from Axis class
++ `contains(mouseevent)`: Test whether the mouse event occured in the x axis.
++ `get_data_interval()`: return the Interval instance for this axis data limits
++ `get_minpos()`
++ `get_text_heights(renderer)`: Returns the amount of space one should reserve for text above and below the axes.  Returns a tuple (above, below)
++ `get_tick_space()`: Return the estimated number of ticks that can fit on the axis.
++ `get_ticks_position()`: Return the ticks position (top, bottom, default or unknown)
++ `get_view_interval()`: return the Interval instance for this axis view limits
++ `set_data_interval(vmin, vmax, ignore=False)`: set the axis data limits
++ `set_default_intervals()`: set the default limits for the axis interval if they are not mutated
++ `set_label_position(position)`: Set the label position (top or bottom);             ACCEPTS: [ 'top' | 'bottom' ]
++ `set_ticks_position(position)`: 
+    + Set the ticks position (top, bottom, both, default or none) both sets the ticks to appear on both positions, but does not change the tick labels.  
+    + 'default': reset the tick positions to the default: ticks on both positions, labels at bottom.  
+    + 'none': be used if you don't want any ticks. 
+    + 'none' and 'both': affect only the ticks, not the labels.
+    + ACCEPTS: [ 'top' | 'bottom' | 'both' | 'default' | 'none' ]
++ `set_view_interval(vmin, vmax, ignore=False)`: for mpl internal use
++ `tick_bottom()`: use ticks only on bottom
++ `tick_top()`: use ticks only on top
+
+
 
 ### Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
 | `mpl.get_backend()` | Return the name of the current backend | [Basic Plotting][025] |
-| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the `~matplotlib.axes.Axes` class; Args: agg_filter, alpha, animated, antialiased, axes, clip_box, clip_on, clip_path, color/c, contains, dash_capstyle, dash_joinstyle, dashes, drawstyle, figure, fillstyle, gid, label, linestyle, linewidth, marker, markeredgecolor, markeredgewidth, markerfacecolor, markerfacwidthmarkersize, markevery, path_effects, picker, pickradius, rasterized, sketch_params, snap, solid_capstyle, solid_joinstyle, transform, url, visible, xdata, ydata, zorder | [Basic Plotting][025] |
-| `mpl.figure.Figure(figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None)` | he Figure instance supports callbacks through a _callbacks_ attribute which is a `matplotlib.cbook.CallbackRegistry` class instance  | [Basic Plotting][025] |
-| `mpl.backends.backend_agg.FigureCanvasAgg(figure)` | The canvas the figure renders into | [Basic Plotting][025] |
-| `fig.add_subplot(*args, **kwargs)` | Add a subplot; `kwargs`: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
-| `plt.figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, **kwargs)` | Creates a new figure | [Basic Plotting][025] |
+| `plt.plot(*args, **kwargs)` | Plot lines and/or markers to the Plot lines and/or markers to the `~matplotlib.axes.Axes` class; <br/> __`kwargs`__: agg_filter, alpha, animated, antialiased, axes, clip_box, clip_on, clip_path, color/c, contains, dash_capstyle, dash_joinstyle, dashes, drawstyle, figure, fillstyle, gid, label, linestyle, linewidth, marker, markeredgecolor, markeredgewidth, markerfacecolor, markerfacwidthmarkersize, markevery, path_effects, picker, pickradius, rasterized, sketch_params, snap, solid_capstyle, solid_joinstyle, transform, url, visible, xdata, ydata, zorder | [Basic Plotting][025], [Line Plots][027] |
+| `mpl.figure.Figure(*args)` | The Figure instance supports callbacks through a _callbacks_ attribute which is a `matplotlib.cbook.CallbackRegistry` class instance; `args`: figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None  | [Basic Plotting][025] |
+| `mpl.backends.backend_agg. FigureCanvasAgg(figure)` | The canvas the figure renders into | [Basic Plotting][025] |
+| `fig.add_subplot(*args, **kwargs)` | Add a subplot; <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
+| `plt.figure(*args, **kwargs)` | Creates a new figure; `args`: figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None | [Basic Plotting][025] |
 | `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
-| `plt.gca()..axis(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. `kwargs`: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
+| `plt.gca()..axis(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
 | `plt.gca().get_children()` | return a list of child artists | [Basic Plotting][025] |
-| `plt.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None, **kwargs)` | Make a Scatterplots of `x` vs `y` | [Scatterplots][026] |
+| `plt.scatter(x, y, *args, **kwargs)` | Make a Scatterplots of `x` vs `y`; `args`: s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None | [Scatterplots][026] |
 | `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
 | `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
+| `fill_between(x, y1, y2=0, where=None, interpolate=False, step=None, *, data=None, **kwargs)` | Make filled polygons between two curves | [Line Plots][027] |
 
 
 
@@ -580,4 +675,8 @@ legend()
 [024]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.resample.html
 [025]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
 [026]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
+[027]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
+
+
+
 
