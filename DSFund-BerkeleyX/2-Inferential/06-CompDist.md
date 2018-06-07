@@ -129,10 +129,13 @@
 
 ### Notes
 
-+ Demo
-    ```python
-
-    ```
++ Summary of the Method <br/>
+    To assess whether a sample was drawn randomly from a known categorical distribution:
+    + Use TVD as the statistic because it measures the distance between categorical distributions
+    + Sample at random from the population and compute the TVD from the random sample; repeat numerous times
+    + Compare:
+        + Empirical distribution of simulated TVDs
+        + Actual TVD from the sample in the study
 
 ### Video
 
