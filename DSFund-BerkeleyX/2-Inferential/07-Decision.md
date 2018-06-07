@@ -181,10 +181,16 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ Sir Ronald Fisher, 1890-1962 <br/>
+    > "We have the duty of formulating, of summarizing, and of communicating our conclusions, inintelligible form, in recognition of the right of other free minds to utilize them in making their own decisions"
 
-    ```
++ Sir Ronald Fisher, 1925 <br/>
+    > “It is convenient to take this point [5%] as a limit in judging whether a deviation is to be considered significant or not.” <br/>
+    > –– _Statistical Methods for Research Workers_
+
++ Sir Ronald Fisher, 1926
+    > “If one in twenty does not seem high enough odds, we may, if we prefer it, draw the line at one in fifty (the 2 percent point), or one in a hundred (the 1 percent point). Personally, the author prefers to set a low standard of significance at the 5 percent point …”
+
 
 ### Video
 
