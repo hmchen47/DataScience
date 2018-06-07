@@ -200,13 +200,111 @@
 </a>
 
 
-## Reading and Practice for Section 7
+## Reading and Practice
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 7.
+
+This corresponds to textbook sections:
+
+[Chapter 11.3: Decisions and Uncertainty](https://www.inferentialthinking.com/chapters/11/3/decisions-and-uncertainty.html)
+
+In section 7, we tied together what we have learned in the last couple of lectures. We have seen several examples of assessing models that involve chance, by comparing observed data to the predictions made by the models. We have developed a general framework of decision making.
+
+Let's try to tie all that we have learned by answering the following conceptual questions. You may find chapter 11.3 of the textbook to be useful.
 
 ### Practice
 
+Let's try to develop a general framework for decision making, into which all our examples will fit.
+
+Fill in the following blanks with the appropriate word from the word bank. Options may be re-used for more than one blank or not used at all.
+
+The basic structure of testing a hypothesis is the following:
+
+Setting up your question:<br/>
+______A______: For a fully specified chance model under which you can simulate the data, it hypothesizes that the data were generated as if by random selection, according to the particulars of the chance model. <br/>
+______B______: States that there is some process other than the chance model that generated the data.
+
+Blank A
+
+    Ans: Null Hypothesis
+
+Blank B
+
+    Ans: Alternative Hypothesis
+
+
+Choose a ______C______:
+A value that can be computed for the observed data and and also for random samples from the chance model.
+The magnitude of the ______D______ should help you determine whether the distribution of data are consistent with the ______E______.
+When this value is computed for the observed data, it is called the ______F______.
+
+Blank C
+
+    Ans: Test Statistic
+
+Blank D
+
+    Ans: Test Statistic
+
+Blank E
+
+    Ans: Null Hypothesis
+
+Blank F
+
+    Ans: Observed Value of the Test Statistic
+
+
+Simulate under the ______G______:
+Use random sampling to create a(n) ______H______ of the test statistic in order to approximate the ______I______ of this statistic, which is called its ______J______, assuming that the chance model is true.
+
+Blank G
+
+    Ans:Null Hypothesis
+    
+Blank H
+
+    Ans: Emperical Distribution
+    
+Blank I
+
+    Ans: Probability Distribution
+
+Blank J
+
+    Ans: Sampling Distribution
+
+
+Conclusion:
+P-value: The probability under the chance model that the ______K______ is equal to the ______L______ or ever further in the direction of the ______M______.
+______N______: The maximum ______O______ for which you choose to reject the null hypothesis in favor of the ______P______. A typical value is 5%.
+
+Blank K
+
+    Ans: Test Statistic
+
+Blank 
+
+    Ans: Observed Value of Test Statistic
+    
+Blank M
+
+    Ans: Alternative Hypothesis
+    
+Blank 
+
+
+    Ans: P-value cutoff
+    
+Blank O
+
+    Ans: P-value
+    
+Blank P
+
+    Ans: Alternative Hypothesis
 
 
 
