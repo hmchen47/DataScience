@@ -145,13 +145,82 @@
 </a>
 
 
-## Reading and Practice for Section 6
+## Reading and Practice
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 6.
 
+This corresponds to textbook sections:
+
+[Chapter 11.2: Multiple Categories](https://www.inferentialthinking.com/chapters/11/2/multiple-categories.html)
+
+In section 6, we examined jury selection in Alameda County to investigate if certain ethnic groups are underrepresented among jury panelists. This example showed us how to assess whether a sample was drawn randomly from a known categorical distribution. It is important to realize that we use total variation distance (tvd) as the test statistic because it measures distance between categorical distributions. 
+
+Try applying what you learned in the following practice questions.
 
 ### Practice
+
+Let's revisit the example of jury selection in Alameda County from lecture. Like from lecutre, one distribtuion represents, for each ethnicity, the proportion of all eligible juror candidates of that ethnicity. The other distribution represents the proportion of people of a particular ethnicity that were selected to be on the jury panel. The bar chart of the two distributions can be found below.
+
+<br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/43e88ee5f5594e454485e80b52e87659/asset-v1:BerkeleyX+Data8.2x+1T2018+type@asset+block/jury.png" alt="text" width="450">
+
+Histogram of ethnicity distribution of jurors selected in jurys in Alameda County. The distribution of eligible jurors is Asian: 0.15, Black: 0.18, Latino: 0.12, White: 0.54, Other: 0.01. The actual distribution of the jurors is Asian: 0.26, Black: 0.08, Latino: 0.08, White: 0.54, Other: 0.04. 
+
+Q1. From the histogram, which ethnicities are underrepresented in the jury panel? Select all that apply
+
+    a. Asian
+    b. Black
+    c. Latino
+    d. White
+    e. Other
+
+    Ans: b, c
+
+Q2. Which ethnicities are overrepresented in the jury panel? Select all that apply
+
+    a. Asian
+    b. Black
+    c. Latino
+    d. White
+    e. Other
+
+    Ans: a, e
+
+Q3. What is the total combined length of the bars for the eligible juror distribution?
+
+    Ans: 1.0
+ 
+Q4. What is the total combined length of the bars for the panel juror distribution?
+
+    Ans:1.0
+ 
+The table of the exact proportions corresponding to the chart above can be found below.
+
+| Ethnicity | Eligible | Panel|
+|-----------|----------|------|
+| Asian | 0.15 | 0.26 |
+| Black | 0.18 | 0.08 |
+| Latino | 0.12 | 0.08 |
+| White | 0.54 | 0.54 |
+| White | 0.01 | 0.04 |
+    
+Your friend suggests the following statistic for calculating the difference between the two distributions.
+
+1. Subtract the height of one bar in the distribution of eligible jurors from its corresponding bar in the distribution of jurors as they appeared in the panels
+2. Add all those differences together
+
+Q5. What is the value of the statistic proposed by your friend?
+
+Ans: 0
+ 
+Q6. True or False: your friend chose a good statistic.
+
+Ans: False
+
+Q7. Instead, calculate the total variation distance for the two distritbutions shown above. What is the total variation distance? (Don't forget to divide by 2.)
+
+Ans: 0.14
 
 
 
