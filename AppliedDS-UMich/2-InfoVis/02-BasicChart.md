@@ -1284,7 +1284,35 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `bottom`, `top`, `left`, `right` (bool or  {'on', 'off'}): controls whether to draw the respective ticks.
         + `labelbottom`, `labeltop`, `labelleft`, `labelright` (bool or  {'on', 'off'}): controls whether to draw the): respective tick labels.
 
-+ 
++ `plt.gca().spines` class:
+    + Dictionary that remembers insertion order
+    + `class OrderedDict(builtins.dict)`
+    + Methods:
+        + `clear(...)`: od.clear() -> None.  Remove all items from od.
+        + `copy(...)`: od.copy() -> a shallow copy of od
+        + `fromkeys(...)` from builtins.type: OD.fromkeys(S[, v]) -> New ordered dictionary with keys from S.: If not specified, the value defaults to None.
+        + `items(...)`: D.items() -> a set-like object providing a view on D's items
+        + `keys(...)`: D.keys() -> a set-like object providing a view on D's keys
+        + `move_to_end(...)`: Move an existing element to the end (or beginning if last==False).: : Raises KeyError if the element does not exist.: When last=True, acts like a fast version of self[key]=self.pop(key).
+        + `pop(...)`: od.pop(k[,d]) -> v, remove specified key and return the corresponding: value.  If key is not found, d is returned if given, otherwise KeyError: is raised.
+        + `popitem(...)`: od.popitem() -> (k, v), return and remove a (key, value) pair.: Pairs are returned in LIFO order if last is true or FIFO order if false.
+        + `setdefault(...)`: od.setdefault(k[,d]) -> od.get(k,d), also set od[k]=d if k not in od
+        + `update(...)`: D.update([E, ]**F) -> None.  Update D from dict/iterable E and F.: If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]: If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v: In either case, this is followed by: for k in F:  D[k] = F[k]
+        + `values(...)`: D.values() -> an object providing a view on D's values
+
++ `plt.xticks` & `plt.yticks` methods:
+    + Signature: `xticks(*args, **kwargs)` & `yticks(*args, **kwargs)`
+    + Get or set the *x*/*y*-limits of the current tick locations and labels
+
++ `plt.text` method
+    + Signature: `text(x, y, s, fontdict=None, withdash=False, **kwargs)`
+    + Docstring: Add text in string `s` to axis at location `x`, `y`, data coordinates.
+    + Parameters: 
+        + `x`, `y` (scalars): data coordinates
+        + `s` (string):  text
+        + `fontdict` (dictionary): A dictionary to override the default text properties. Default `None`: determined by your rc parameters.
+        + `withdash` (boolean): Creates a `~matplotlib.text.TextWithDash` instance instead of a `~matplotlib.text.Text` instance.
+        + `kwargs` : `~matplotlib.text.Text` properties.
 
 + Here's the data we'll be working with:
 
@@ -1459,7 +1487,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Instructor's Solution
         ```python
         # plt.ylabel('% Popularity', alpha=0.8)
-        
+
         # direct label each bar with Y axis values
         for bar in bars:
             plt.gca().text(bar.get_x() + bar.get_width()/2, bar.get_height() - 5, str(int(bar.get_height())) + '%', 
