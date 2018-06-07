@@ -113,9 +113,31 @@
 
 ### Notes
 
++ Tail Areas
+    <br/>[<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/bbb58b35dd040bcf4d8b4d3f7c72b679.jpg" alt="Right and Left Tails of a Distribution" width="300">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
+    [<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/e4499588e283aa8c3339ac767a95ccef.jpg" alt="text" width="220">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
+    [<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/c01e6ac6766ff9e8602e238df3d23be1.jpg" alt="Z Value that Produces a Known Area" width="155">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
+
++ Conventions About Inconsistency
+    + __"Inconsistent"__: The test statistic is in the tail of the empirical distribution under the null hypothesis
+    + __"In the tail,” first convention__:
+        + The area in the tail is less than $5\%$
+        + The result is _statistically significant_
+    + __“In the tail,” second convention__:
+        + The area in the tail is less than $1\%$
+        + The result is _highly statistically 
++ Definition of the P-value
+    + Formal name: __observed significance level__
+    + The P-value is the chance,
+        + under the null hypothesis,
+        + that the test statistic
+        + is equal to the value that was observed in the data
+        + or is even further in the direction of the alternative.
+
 + Demo
     ```python
-
+    np.count_nonzero(averages <= observerd_average) / repetitions
+    # 0.05652 > 5%  
     ```
 
 ### Video
