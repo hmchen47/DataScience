@@ -96,7 +96,25 @@
 
 + Demo
     ```python
+    eligible = jury.column('Eligible')
 
+    panels_and_sample = jury.with_column('Random Sample', sample_proportions(1453, eligible))
+    
+    panels_and_sample.barh('Ethnicity')
+
+    total_variation_distance(panels_and_sample.column('Random Sample'), eligible)
+    total_variation_distance(jury.column('Panels'), eligible)
+    tvds = make_array()
+
+    repetitions = 10000
+    for i in np.arange(repetitions):
+        sample_distribution = sample_proportions(1453, eligible)
+        new_tvd = total_variation_distance(sample_distribution, eligible)
+        tvds = np.append(tvds, new_tvd)
+
+    Table().with_column('Total Variation Distance', tvds).hist(bins = np.arange(0, 0.2, 0.005), ec='w')
+
+    total_variation_distance(jury.column('Panels'), eligible)
     ```
 
 ### Video
