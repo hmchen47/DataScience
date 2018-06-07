@@ -576,13 +576,32 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
         + `minute`: int, default 0
         + `second`: int, default 
 
-+ `to_datetime` function
-    + Syntax: `pd.to_datetime(arg, utc=None, format=None)`
-    + Convert argument to datetime.
-    + Parameters:
-        + `arg`: integer, float, string, datetime, list, tuple, 1-d array, Series
-        + `utc`: boolean; Return UTC DatetimeIndex if True
-        + `format`: string; strftime to parse time, eg "%d/%m/%Y", note that "%f" will parse all the way up to nanoseconds.
++ `pd.to_datetime` method
+    + Signature: `pd.to_datetime(arg, errors='raise', dayfirst=False, yearfirst=False, utc=None, box=True, format=None, exact=True, unit=None, infer_datetime_format=False, origin='unix', cache=False)`
+    + Docstring: Convert argument to datetime
+    + Parameters: 
+        + `arg` (integer, float, string, datetime, list, tuple, 1-d array, Series):  DataFrame/dict-like
+        + `errors` ({‘ignore’, ‘raise’, ‘coerce’}): 
+            + 'raise’: raise an exception
+            + ‘coerce’: set as NaT
+            + ‘ignore’: return the input
+        + `dayfirst` (boolean): Specify a date parse order if `arg` is `str` or its list-likes. 
+        + `yearfirst` (boolean): Specify a date parse order if arg is str or its list-likes.
+        + `utc` (boolean): Return UTC DatetimeIndex
+        + `box` (boolean): 
+            + `True`: return a DatetimeIndex
+            + `False`: return ndarray of values
+        + `format` (string): strftime to parse time, eg “%d/%m/%Y”
+        + `exact` (boolean): 
+            + `True`: require an exact format match
+            + `False`: allow the format to match anywhere in the target string
+        + `unit` (string): unit of the arg (D,s,ms,us,ns) denote the unit, which is an integer or float number. This will be based off the origin. Example, with unit=’ms’ and origin=’unix’ (the default), this would calculate
+        + `infer_datetime_format` (boolean): `True` and no format is given: the format of the datetime strings if  inferable, switch to a faster method of parsing them
+        + `origin` (scalar): Define the reference date
+            + ‘unix’ (or POSIX) time: origin is set to 1970-01-01
+            + ‘julian’ ( unit must be ‘D’): origin set to beginning of Julian Calendar
+            + Timestamp convertible: origin set to Timestamp identified by origin
+        + `cache` (boolean): True - use a cache of unique, converted dates to apply the datetime conversion
 
 + `data_range` function:
     + Syntax: `pd.date_range(start=None, end=None, periods=None)`
