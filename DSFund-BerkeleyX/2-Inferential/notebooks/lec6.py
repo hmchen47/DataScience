@@ -1,9 +1,6 @@
 
 # coding: utf-8
 
-# In[ ]:
-
-
 from datascience import *
 import numpy as np
 
@@ -13,13 +10,9 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 np.set_printoptions(legacy='1.13')
 
-
 # ## Comparing Distributions
 
 # **Please run all cells before this cell, including the import cell at the top of the notebook.**
-
-# In[ ]:
-
 
 jury = Table().with_columns(
     'Ethnicity', make_array('Asian', 'Black', 'Latino', 'White', 'Other'),
@@ -28,100 +21,36 @@ jury = Table().with_columns(
 )
 jury
 
-
-# In[ ]:
-
-
 jury.barh('Ethnicity')
-
-
-# In[ ]:
-
 
 jury_with_diffs = jury.with_column('Difference', jury.column('Panels') - jury.column('Eligible'))
 
-
-# In[ ]:
-
-
 jury_with_diffs
-
-
-# In[ ]:
-
 
 jury_with_diffs = jury_with_diffs.with_column('Absolute Difference', np.abs(jury_with_diffs.column('Difference')))
 
-
-# In[ ]:
-
-
 jury_with_diffs
-
-
-# In[ ]:
-
 
 sum(jury_with_diffs.column('Absolute Difference'))
 
-
-# In[ ]:
-
-
 sum(jury_with_diffs.column('Absolute Difference')) / 2
-
-
-# In[ ]:
-
 
 def total_variation_distance(distribution_1, distribution_2):
     return sum(np.abs(distribution_1 - distribution_2)) / 2
 
-
-# In[ ]:
-
-
 total_variation_distance(jury.column('Panels'), jury.column('Eligible'))
-
-
-# In[ ]:
-
 
 eligible = jury.column('Eligible')
 
-
-# In[ ]:
-
-
 panels_and_sample = jury.with_column('Random Sample', sample_proportions(1453, eligible))
-
-
-# In[ ]:
-
 
 panels_and_sample
 
-
-# In[ ]:
-
-
 panels_and_sample.barh('Ethnicity')
-
-
-# In[ ]:
-
 
 total_variation_distance(panels_and_sample.column('Random Sample'), eligible)
 
-
-# In[ ]:
-
-
 total_variation_distance(jury.column('Panels'), eligible)
-
-
-# In[ ]:
-
 
 tvds = make_array()
 
@@ -131,15 +60,7 @@ for i in np.arange(repetitions):
     new_tvd = total_variation_distance(sample_distribution, eligible)
     tvds = np.append(tvds, new_tvd)
 
-
-# In[ ]:
-
-
 Table().with_column('Total Variation Distance', tvds).hist(bins = np.arange(0, 0.2, 0.005), ec='w')
-
-
-# In[ ]:
-
 
 total_variation_distance(jury.column('Panels'), eligible)
 
