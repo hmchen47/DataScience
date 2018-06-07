@@ -47,7 +47,7 @@
     + [Lec 5.4 Example](./05-Hypothesis.md#)
     + [Reading and Practice for Section 5](./05-Hypothesis.md#)
 
-+ [Lab 2: Sampling](./lab02.md)
++ [Lab 2: Sampling](./lab02-Sampling.md)
 
 ## Week 3
 
@@ -66,3 +66,8 @@
     + [Lec 7.5 Origin of the Conventions](./07-Decision.md#)
     + [Reading and Practice for Section 7](./07-Decision.md#)
  
++ [Lab 3: Inference, Part 1](./lab03-Inference.md)
+
+
+
+
