@@ -52,11 +52,17 @@
 ## Week 3
 
 + [Section 6: Comparing Distributions (Lec 6.1 - Lec 6.4)](./06-CompDist.md)
-
     + [Lec 6.1 Introduction](./06-CompDist.md#)
     + [Lec 6.2 Total Variation Distance](./06-CompDist.md#)
     + [Lec 6.3 Assessment](./06-CompDist.md#)
     + [Lec 6.4 Summary](./06-CompDist.md#)
     + [Reading and Practice for Section 6](./06-CompDist.md#)
 
-
++ [Section 7: Decisions and Uncertainty (Lec 7.1 - Lec 7.5)](./07-Decision.md)
+    + [Lec 7.1 Introduction and Terminology](./07-Decision.md#)
+    + [Lec 7.2 Performing a Test](./07-Decision.md#)
+    + [Lec 7.3 Statistical Significance](./07-Decision.md#)
+    + [Lec 7.4 An Error Probability](./07-Decision.md#)
+    + [Lec 7.5 Origin of the Conventions](./07-Decision.md#)
+    + [Reading and Practice for Section 7](./07-Decision.md#)
+ 
