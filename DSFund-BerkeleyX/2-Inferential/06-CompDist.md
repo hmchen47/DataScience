@@ -42,7 +42,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V001700_DTH.mp4" alt="Introduction" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -51,15 +51,41 @@
 
 ### Notes
 
++ Model and Alternative
+    + _Model_: The people on the jury panels were selected at random from the eligible population
+    + _Alternative viewpoint_: No, they weren’t
+
++ Distance Between Distributions
+    + People on the panels are of multiple ethnicities
+    + Distribution of ethnicities is categorical
+    + To see whether the the distribution of ethnicities of the panels is close to that of the eligible jurors, we have to measure the distance between two categorical distributions
+    
++ Total Variation Distance <br/>
+    Every distance has a computational recipe __Total Variation Distance (TVD)__:
+    + For each category, compute the difference in proportions between two distributions
+    + Take the absolute value of each difference
+    + Sum, and then divide the sum by 2
+
 + Demo
     ```python
+    jury_with_diffs = jury.with_column('Difference', jury.column('Panels') - jury.column('Eligible'))
 
+    jury_with_diffs = jury_with_diffs.with_column('Absolute Difference', np.abs(jury_with_diffs.column('Difference')))
+
+    sum(jury_with_diffs.column('Absolute Difference'))
+
+    sum(jury_with_diffs.column('Absolute Difference')) / 2
+
+    def total_variation_distance(distribution_1, distribution_2):
+        return sum(np.abs(distribution_1 - distribution_2)) / 2
+
+    total_variation_distance(jury.column('Panels'), jury.column('Eligible'))
     ```
 
 ### Video
 
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V001800_DTH.mp4" alt="Total Variation Distance" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -76,7 +102,7 @@
 ### Video
 
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V001900_DTH.mp4" alt="Assessment" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -93,7 +119,7 @@
 ### Video
 
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V001600_DTH.mp4" alt="Summary" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
