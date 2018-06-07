@@ -20,17 +20,13 @@ scores.group('Section')
 scores.group('Section', np.average).show()
 
 # Null: The Section 3 average is like the average of 27 random scores from the class.
-
 # Alternative: No, it's too low.
 
 # observed statistic
-
 observerd_average = 13.6667
-
 np.average(scores.sample(27, with_replacement=False).column('Midterm'))
 
 averages = make_array()
-
 repetitions = 50000
 for i in np.arange(repetitions):
     new_average = np.average(scores.sample(27, with_replacement=False).column('Midterm'))

@@ -68,9 +68,38 @@
 
 ### Notes
 
++ The Problem
+    + Large Statistics class divided into 12 discussion sections
+    + Graduate Student Instructors (GSIs) lead the sections
+    + After the midterm, students in Section 3 notice that the average score in their section is lower than in others
+
++ The GSI’s Defense
+    + GSI’s position (Null Hypothesis): <br/>
+        If we had picked my section at random from the whole class, we could have got an average like this one.
+    + Alternative: <br/>
+        No, the average score is too low. Randomness is not the only reason for the low scores.
+
 + Demo
     ```python
+    scores = Table.read_table('scores_by_section.csv')
+    scores.group('Section')
+    scores.group('Section', np.average).show()
 
+    # Null: The Section 3 average is like the average of 27 random scores from the class.
+    # Alternative: No, it's too low.
+
+    # observed statistic
+    observerd_average = 13.6667
+    np.average(scores.sample(27, with_replacement=False).column('Midterm'))
+
+    averages = make_array()
+    repetitions = 50000
+    for i in np.arange(repetitions):
+        new_average = np.average(scores.sample(27, with_replacement=False).column('Midterm'))
+        averages = np.append(averages, new_average)
+
+    Table().with_column('Random Sample Average', averages).hist(bins = 25, ec='w')
+    plots.scatter(observerd_average, 0, color='red', s=30);
     ```
 
 ### Video
