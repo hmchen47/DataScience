@@ -49,6 +49,14 @@
 
 + [Lab 2: Sampling](./lab02.md)
 
+## Week 3
 
++ [Section 6: Comparing Distributions (Lec 6.1 - Lec 6.4)](./06-CompDist.md)
+
+    + [Lec 6.1 Introduction](./06-CompDist.md#)
+    + [Lec 6.2 Total Variation Distance](./06-CompDist.md#)
+    + [Lec 6.3 Assessment](./06-CompDist.md#)
+    + [Lec 6.4 Summary](./06-CompDist.md#)
+    + [Reading and Practice for Section 6](./06-CompDist.md#)
 
 
