@@ -1,13 +1,61 @@
 # Section 7: Decisions and Uncertainty (Lec 7.1 - Lec 7.5)
 
++ Environment Initiation
+    ```python
+    from datascience import *
+    import numpy as np
+
+    import matplotlib.pyplot as plots
+    ```
++ [Web Link](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.2x+1T2018/courseware/0eeac50995794429b04ca715f4effd91/4e7f40f6c2c94a6eafb0331b83aabc32/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.2x%2B1T2018%2Btype%40vertical%2Bblock%402751e24db49049acb477eccb15aca6e8)
++ [Web Notebook](https://hub.data8x.berkeley.edu/user/59d217c894d11dbd21d2d37ef6ae9675/notebooks/materials-x18/lec/x18/2/lec7.ipynb#)
++ [Local Notebook](./notebooks/lec7.ipynb)
++ [Local Python Code](./notebooks/lec7.py)
+
 ## Lec 7.1 Introduction and Terminology
 
 ### Notes
 
-+ Demo
-    ```python
++ Incomplete Information
+    + We are trying to choose between two views of the world, based on data in a sample.
+    + It is not always clear whether the data are consistent with one view or the other.
+    + Random samples can turn out quite extreme. It is unlikely, but possible.
 
-    ```
++ Testing Hypotheses
+    + A test chooses between two views of how data were generated
+    + The views are called __hypotheses__
+    + The test picks the hypothesis that is better supported by the observed data
+
++ Null and Alternative <br/>
+    The method only works if we can simulate data under one of the hypotheses.
+    + Null hypothesis
+        + A well defined chance model about how the data were generated
+        + We can simulate data under the assumptions of this model – “under the null hypothesis”
+    + Alternative hypothesis
+    + A different view about the origin of the data
+
++ Test Statistic
+    The statistic that we choose to simulate, to decide between the two hypotheses <br/>
+    Questions before choosing the statistic:<br/>
+    + What values of the statistic will make us lean towards the null hypothesis?
+    + What values will make us lean towards the alternative?
+        + Preferably, the answer should be just “high” or just “low”. Try to avoid “both high and low”.
+
++ Prediction Under the Null Hypothesis
+    + Simulate the test statistic under the null hypothesis; draw the histogram of the simulated values
+    + This displays __the empirical distribution of the statistic under the null hypothesis__
+    + It is a prediction about the statistic, made by the null hypothesis
+        + It shows all the likely values of the statistic
+        + Also how likely they are (if the null hypothesis is true)
+    + The probabilities are approximate, because we can’t generate all the possible random samples
+
++ Conclusion of the Test <br/>
+    + Resolve choice between null and alternative hypotheses
+        + Compare the __observed test statistic__ and its empirical distribution under the null hypothesis
+        + If the observed value is _not consistent_ with the distribution, then the test favors the alternative – “rejects the null hypothesis”
+    + Whether a value is consistent with a distribution:
+        + A visualization may be sufficient
+        + If not, there are conventions about “consistency”
 
 ### Video
 
