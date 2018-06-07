@@ -29,13 +29,12 @@
     [<br/><img src="https://matplotlib.org/_images/inheritance-3c2c45b4bd2f47461e9113da50594813ad9f98d0.png" alt="artist module" width="600"><br/>](http://matplotlib.org/api/artist_api.html) Artisitc Module
 
 + Demo
-    ``python
+    ```python
     %matplotlib notebook # provides an interactive environment
 
     import matplotlib as mpl
     mpl.get_backend()   # 'TkAgg' for CLI Python3, 'nbAgg' for iPython
-
-    ``
+    ```
 <a href="https://d3c33hcgiwev3.cloudfront.net/K0bxmP0cEeaeKwpzIn5n7A.processed/full/360p/index.mp4?Expires=1528243200&Signature=D6cbxN4rLY99Vn80YNlOh33YTF1MsqIOvULT3aTza75V0rUZ51y6-1uC4oAJL-R-WiwZ-yc70I2JzV8kf2hhgVB5OLppIX~3U45-bQn402pKfT26fE2vpw2MTuwfUTmWQPY0IVLJ7yTidVaussi8-te49qDOI0pBn98eFOVo5KM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Matplotlib Architecture" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
@@ -77,7 +76,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     + Map underlying UI events like `key-press-event` or `mouse-motion-event` to the matplotlib classes `KeyEvent` or `MouseEvent`
     + Connect events to callback functions and interact with figure and data
     + e.g., how to toggle all of the lines in an Axes window when the user types `t'
-    ``python
+    ```python
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -93,7 +92,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     fig.canvas.mpl_connect('key_press_event', on_press)
     ax.plot(np.random.rand(2, 20))
     plt.show()
-    ``
+    ```
 
 #### Artist Layer
 
@@ -111,7 +110,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     <img src="http://www.aosabook.org/images/matplotlib/artists_tree.png" alt="The hierarchy of artist instances used to draw" width="340">
 
 + Coupling the `Artist` hierarchy and the backend `draw` method, e.g.,  create SomeArtist which subclasses Artist, the essential method that SomeArtist must implement is draw, which is passed a renderer from the backend
-    ``python
+    ```python
     class SomeArtist(Artist):
         'An example Artist that implements the draw method'
 
@@ -121,7 +120,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 
             # create some objects and use renderer to draw  here
             renderer.draw_path(graphics_context, path, transform)
-    ``
+    ```
 + Two types of `Artist`s in the hierarchy
     + __Primitive artists__: the kinds of objects seen in a plot, including `Line2D`, `Rectangle`, `Circle`, and `Text`
     + __Composite artists__: collections of Artists such as the `Axis`, `Tick`, `Axes`, and `Figure`
@@ -132,7 +131,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     + Containing numerous helper methods that create primitive artists and adding them to the Axes instance
 
 + A simple Python script
-    ``python
+    ```python
     # Import the FigureCanvas from the backend of your choice
     #  and attach the Figure artist to it.
     from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -159,7 +158,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     # Decorate the figure with a title and save it.
     ax.set_title('Normal distribution with $\mu=0, \sigma=1$')
     fig.savefig('matplotlib_histogram.png')
-    ``
+    ```
 
 ### Scripting Layer (pyplot)
 
@@ -167,7 +166,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 + Usually the appropriate programming paradigm when writing a web application server, a UI application, or perhaps a script to be shared with other developers
 + `matplotlib.pyplot` interface: provide a lighter scripting interface to simplify common tasks
 + `pyplot` script: same as the Python code above
-    ``python
+    ```python
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -176,7 +175,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
     plt.title(r'Normal distribution with $\mu=0, \sigma=1$')
     plt.savefig('matplotlib_histogram.png')
     plt.show()
-    ``
+    ```
     + `import matplotlib.pyplot as plt`: parses a local configuration file in which the user state their preference for a default backend
     + `plt.hist(x, 100)`:  the first plotting command in the script;  check internal data structures to confirm existence of a current `Figure` instance
         + True: extract the current `Axes` and direct plotting to the `Axes.hist` API call
@@ -192,7 +191,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 + `matplotlib.pyplot.plot`: a somewhat stripped-down and simplified version of `pyplot`'s frequently used line plotting function
 
 + Example:
-    ``python
+    ```python
     @autogen_docstring(Axes.plot)
     def plot(*args, **kwargs):
         ax = gca()
@@ -201,7 +200,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
         draw_if_interactive()
 
         return ret
-    ``
+    ```
     + `@autogen_docstring(Axes.plot)`: decorator; extract the documentation string from the corresponding API method and attache a properly formatted version to the `pyplot.plot` method
     + `*args` and `**kwargs`: all the arguments and keyword arguments that are passed to the method
     + `ax = gca()`: invoke the stateful machinery to "get current Axes" (each Python interpreter can have only one "current axes"), and create the `Figure` and `Axes` if necessary.
@@ -437,12 +436,12 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `args`: variable length argument, allowing for multiple *x*, *y* pairs with an optional format string.
         + `kwargs`: used to set line properties (any property that has a `set_*` method).  You can use this to set a line label (for auto legends), linewidth, anitialising, marker face color, etc.
     + Example for `args`: each of the following is legal::
-        ``python
+        ```python
         plot(x, y)        # plot x and y using default line style and color
         plot(x, y, 'bo')  # plot x and y using blue circle markers
         plot(y)           # plot y using x as index array 0..N-1
         plot(y, 'r+')     # ditto, but with red plusses
-        ``
+        ```
         + If `x` and/or `y` is 2-dimensional, then the corresponding will be plotted.
         + If used with labeled data, make sure that the color spec is not included as an element in data, as otherwise the last case `plot("v","r", data={"v":..., "r":...)` can be interpreted as the first case which would do `plot(v, r)` using the default line style and color.
         + If not used with labeled data (i.e., without a data argument), an arbitrary number of `x`, `y`, `fmt` groups can be specified, as in `a.plot(x1, y1, 'g^', x2, y2, 'g-')` 
@@ -475,17 +474,17 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         | 'r'       |  red   | | 'k'       |  black |
         | 'c'       |  cyan  | | 'w'       |  white |
     + Example for `kwargs`
-        ``python
+        ```python
         plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
         plot([1,2,3], [1,4,9], 'rs',  label='line 2')
         axis([0, 4, 0, 10])
         legend()
-        ``
+        ```
         + If you make multiple lines with one plot command, the `kwargs` apply to all those lines, e.g. `plot(x1, y1, x2, y2, antialiased=False)`. Neither line will be `antialiased`.
         + You do not need to use format strings, which are just abbreviations.  All of the line properties can be controlled by keyword arguments.  For example, you can set the `color`, `marker`, `linestyle`, and `markercolor` with 
-            ``python 
+            ```python 
             plot(x, y, color='green', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
-            ``
+            ```
     + The kwargs are properties of `~matplotlib.lines.Line2D` class:
         + `agg_filter`: unknown
         + `alpha`: float (0.0 transparent through 1.0 opaque)
@@ -557,13 +556,13 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `kwargs`: `~matplotlib.axes.Axes` class kwargs plus `projection`, which chooses a projection type for the axes.
     + Valid values for `projection` are: ['aitoff', 'hammer', 'lambert', 'mollweide', 'polar', 'rectilinear'].  Some of these projections support additional `kwargs`, which may be provided to `add_axes` method.
     + Examples:
-        ``python
+        ```python
         fig.add_subplot(111)
         fig.add_subplot(1,1,1)      # equivalent but more general
         fig.add_subplot(212, facecolor='r')     # add subplot with red background
         fig.add_subplot(111, projection='polar')    # add a polar subplot
         fig.add_subplot(sub)        # add Subplot instance sub
-        ``
+        ```
     + Supported `kwargs`:
 
         + `adjustable`: [ 'box' | 'datalim' | 'box-forced'] 
@@ -709,18 +708,18 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `emit` (bool): Passed to set_{x,y}lim functions, if observers are notified of axis limit change
         + `xmin`, `ymin`, `xmax`, `ymax` (float): The axis limits to be set
     + Valid signature:
-        ``python
+        ```python
         xmin, xmax, ymin, ymax = axis()
         xmin, xmax, ymin, ymax = axis(list_arg)
         xmin, xmax, ymin, ymax = axis(string_arg)
         xmin, xmax, ymin, ymax = axis(**kwargs)
-        ``
+        ```
 + `plt.gca().get_children` method
     + Signature: `plt.gca().get_children()`
     + Docstring: return a list of child artists
 
 + Demo
-    ``python
+    ```python
     import matplotlib.pyplot as plt
 
     # because the default is the line style '-', 
@@ -760,7 +759,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     plt.plot(2.5, 2.5, 'o')     # plot the point (2.5, 2.5) using the circle marker
     ax = plt.gca()              # get current axes
     ax.get_children()           # get all the child objects the axes contains
-    ``
+    ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/gHvXBv0cEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528329600&Signature=kQmxs5co1w1DcbHaegKSc-lIeK~590M~0gkDX~Lxm-7ieMbtPpVAeNfi5H6~NfNrE7fq2c1MYOyvLT1L7DEmZP2dcLBUNrUnEOAJ30aFrhu0IMfEFZsuD0SD5ewb9wRoP1ZWAiJQ3S92cjhd~gvVcs7KIas6T75gD4kFmVs-EAQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Basic Plotting with Matplotlib" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -868,7 +867,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument.  The `.__next__()` method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.
 
 + Demo
-    ``python
+    ```python
     import numpy as np
 
     x = np.array([1,2,3,4,5,6,7,8])
@@ -952,7 +951,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
     # Call this function on the legend artist to see what the legend is made up of
     rec_gc(plt.legend())
-    ``
+    ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/xSk2r_0dEearIRLZY_MkaA.processed/full/540p/index.mp4?Expires=1528416000&Signature=dkqpm85W8V6th8JzE6LAdVPCEQRSFPl9bMmLXpSMO0mVcCnEG8eVPWnnuofeKPMPhcbMPLHEwds0u1YAI0FR6v2Ac4FDMTaRlbjZfkGOGFPrklE7UHx7YVs478dQXmoGHOhSgNiyTiFcVotfc4~J4T4PQh~xK4b~3kpBdadQCoo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Scatterplots" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -994,8 +993,17 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 + `pd.to_datetime` method: &nbsp;&nbsp; [Date Functions](../1-IntroDS/03-AdvPandas.md#date-functionality)
 
+
++ `plt.Axes` class
+    + The `Axes` contains most of the figure elements: `~matplotlib.axis.Axis`,`~matplotlib.axis.Tick`, `~matplotlib.lines.Line2D`, `~matplotlib.text.Text`, `~matplotlib.patches.Polygon`, etc., and sets the coordinate system.
+    + The `Axes` instance supports callbacks through a callbacks attribute which is a `~matplotlib.cbook.CallbackRegistry` instance.  The events you can connect to are 'xlim_changed' and 'ylim_changed' and the callback will be called with func(*ax*) where *ax* is the `Axes` instance.
+    + [Official Doc](https://matplotlib.org/api/axes_api.html)
+
++ `plt.gca().axes` class
+    + Base class for subplots, which are `Axes` instances with  additional methods to facilitate generating and manipulating a set of `Axes` within a figure.
+
 + `plt.gca().xaxis` & `plt.gca().yaxis` classes:
-    + `xaxis = class XAxis(Axis)` 
+    + `xaxis = class XAxis(Axis)` & `yaxis = class YAxis(Axis)`
     + Attributes: 
         + `axes.transData` - transform data coords to display coords
         + `axes.transAxes` - transform axis coords to display coords
@@ -1064,36 +1072,64 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `iter_ticks()`: Iterate through all of the major and minor ticks.
         + `limit_range_for_scale(vmin, vmax)`
         + `pan(numsteps)`: Pan *numsteps* (can be positive or negative)
-        + `reset_ticks()
+        + `reset_ticks()`
         + `set_clip_path(clippath, transform=None)`: Set the artist's clip path, which may be:
             + a `~matplotlib.patches.Patch` (or subclass) instance
             + a `~matplotlib.path.Path` instance, in which case an optional `~matplotlib.transforms.Transform` instance may be provided, which will be applied to the path before using it for clipping.
             + *None*, to remove the clipping path
             + For efficiency, if the path happens to be an axis-aligned rectangle, this method will set the clipping box to the corresponding rectangle and set the clipping path to *None*.
-            + ACCEPTS`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ]
+            + ACCEPTS: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ]
         + `set_label_coords(x, y, transform=None)`: Set the coordinates of the label.  By default, the x coordinate of the y label is determined by the tick label bounding boxes, but this can lead to poor alignment of multiple ylabels if there are multiple axes.  Ditto for the y coodinate of the x label.
-        + `set_label_text(label, fontdict=None, **kwargs)`: Sets the text value of the axis label; ACCEPTS`: A string value for the label
-        + `set_major_formatter(formatter)`: Set the formatter of the major ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
-        + `set_major_locator(locator)`: Set the locator of the major ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
-        + `set_minor_formatter(formatter)`: Set the formatter of the minor ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
-        + `set_minor_locator(locator)`: Set the locator of the minor ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
-        + `set_pickradius(pickradius)`: Set the depth of the axis used by the picker; ACCEPTS`: a distance in points
+        + `set_label_text(label, fontdict=None, **kwargs)`: Sets the text value of the axis label; ACCEPTS: A string value for the label
+        + `set_major_formatter(formatter)`: Set the formatter of the major ticker; ACCEPTS: A `~matplotlib.ticker.Formatter` instance
+        + `set_major_locator(locator)`: Set the locator of the major ticker; ACCEPTS: a `~matplotlib.ticker.Locator` instance
+        + `set_minor_formatter(formatter)`: Set the formatter of the minor ticker; ACCEPTS A `~matplotlib.ticker.Formatter` instance
+        + `set_minor_locator(locator)`: Set the locator of the minor ticker; ACCEPTS: a `~matplotlib.ticker.Locator` instance
+        + `set_pickradius(pickradius)`: Set the depth of the axis used by the picker; ACCEPTS: a distance in points
         + `set_smart_bounds(value)`: set the axis to have smart bounds
-        + `set_tick_params(which='major', reset=False, **kw)`: Set appearance parameters for ticks and ticklabels.
+        + `set_tick_params(which='major', reset=False, **kwargs)`: Set appearance parameters for ticks and ticklabels.
         + `set_ticklabels(ticklabels, *args, **kwargs)`: Set the text values of the tick labels. Return a list of Text instances.  Use *kwarg* *minor=True* to select minor ticks.
             + All other kwargs are used to update the text object properties.
             + As for get_ticklabels, label1 (left or bottom) is affected for a given tick only if its label1On attribute is True, and similarly for label2.  The list of returned
             label text objects consists of all such label1 objects followed by all such label2 objects.
             + The input *ticklabels* is assumed to match the set of tick locations, regardless of the state of label1On and label2On.
-            + ACCEPTS`: sequence of strings or Text objects
-        + `set_ticks(ticks, minor=False)`: Set the locations of the tick marks from sequence ticks; ACCEPTS`: sequence of floats
-        + `set_units(u)`: set the units for axis; ACCEPTS`: a units tag
+            + ACCEPTS: sequence of strings or Text objects
+        + `set_ticks(ticks, minor=False)`: Set the locations of the tick marks from sequence ticks; ACCEPTS: sequence of floats
+        + `set_units(u)`: set the units for axis; ACCEPTS: a units tag
         + `update_units(data)`: introspect *data* for units converter and update the axis.converter instance if necessary. Return *True* if *data* is registered for unit conversion.
         + `zoom(direction)`: Zoom in/out on axis; if *direction* is >0 zoom in, else zoom out
  
+ + `plt.gca().axis` method
+    + Signature: `axis(*v, **kwargs)`
+    + Docstring: Set axis properties
+    + Parameters: 
+        + `v` (list of float or {'on', 'off', 'equal', 'tight', 'scaled', 'normal', 'auto', 'image', 'square'}): Optional positional argument
+            
+            | Value    |  Description | 
+            |----------|--------------|
+            | 'on'     |  Toggle axis lines and labels on |
+            | 'off'    |  Toggle axis lines and labels off |
+            | 'equal'  |  Equal scaling by changing limits |
+            | 'scaled' |  Equal scaling by changing box dimensions |
+            | 'tight'  |  Limits set such that all data is shown |
+            | 'auto'   |  Automatic scaling, fill rectangle with data |
+            | 'normal' |  Same as 'auto'; deprecated |
+            | 'image'  |  'scaled' with axis limits equal to data limits |
+            | 'square' |  Square plot; similar to 'scaled', but initially forcing $xmax-xmin =  ymax-ymin$ |
+            
+        + `emit` (bool): Passed to set_{x,y}lim functions, if observers are notified of axis limit change
+        + `xmin`, `ymin`, `xmax`, `ymax` (float): The axis limits to be set
+    + Valid signatures:
+        ```python
+        xmin, xmax, ymin, ymax = axis()
+        xmin, xmax, ymin, ymax = axis(list_arg)
+        xmin, xmax, ymin, ymax = axis(string_arg)
+        xmin, xmax, ymin, ymax = axis(**kwargs)
+        ````
++ [axis and tick API](https://matplotlib.org/api/axis_api.html)
 
 + Demo
-    ``python
+    ```python
     import numpy as np
 
     linear_data = np.array([1,2,3,4,5,6,7,8])
@@ -1156,7 +1192,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
     # you can add mathematical expressions in any text element w/ LaTex by $
     ax.set_title("Exponential ($x^2$) vs. Linear ($x$) performance")
-    ``
+    ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/0sxDE_9aEeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1528416000&Signature=Busiy-6aXd7nlofhxE4fUsqI9JE4k0XSeyIvdJcKA0gBxHbdcvqkSwfmb5~7LcFyxaNkUvinWx3o42wsCarZRx8ovwxlu3wx9lHrwvssZRTUX-ryvquu-pPznOmPEspOkinBI-Dc5Et38q41~EzFK2uW2N65sgSQPTc8JG3HNkM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Bar Charts" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -1187,7 +1223,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `log (boolean)`:  If true, sets the axis to be log scale. default=False
 
 + Demo
-    ``python
+    ```python
     plt.figure()
     xvals = range(len(linear_data))
     plt.bar(xvals, linear_data, width = 0.3)
@@ -1229,12 +1265,210 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Dejunkifying a Plot
 
-+ Demo
-    ``python
++ `plt.tick_params` method
+    + Signature: `plt.tick_params(axis='both', **kwargs)`
+    + Docstring: Change the appearance of ticks and tick labels.
+    + Parameters
+        + `axis` ({'x', 'y', 'both'}): Axis on which to operate; default is 'both'.
+        + `reset` (bool): If *True*, set all parameters to defaults): before processing other keyword arguments.  Default is): *False*.
+        + `which` ({'major', 'minor', 'both'}): Default is 'major'; apply arguments to *which* ticks.
+        + `direction` ({'in', 'out', 'inout'}): Puts ticks inside the axes, outside the axes, or both.
+        + `length` (float): Tick length in points.
+        + `width` (float): Tick width in points.
+        + `color` (color): Tick color; accepts any mpl color spec.
+        + `pad` (float): Distance in points between tick and label.
+        + `labelsize` (float or str): Tick label font size in points or as a string` (e.g., 'large').
+        + `labelcolor` (color): Tick label color; mpl color spec.
+        + `colors` (color): Changes the tick color and the label color to the same value:): mpl color spec.
+        + `zorder` (float): Tick and label zorder.
+        + `bottom`, `top`, `left`, `right` (bool or  {'on', 'off'}): controls whether to draw the respective ticks.
+        + `labelbottom`, `labeltop`, `labelleft`, `labelright` (bool or  {'on', 'off'}): controls whether to draw the): respective tick labels.
 
-    ``
++ 
 
-<a href="url" alt="text" target="_blank">
++ Here's the data we'll be working with:
+
+    | Language | % Popularity |
+    |----------|--------------|
+    | Python | 56 |
+    | SQL | 39 |
+    | Java | 34 |
+    | C++ | 34 |
+    | JavaScript | 29 |
+
++ Task: 
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    plt.figure()
+
+    languages =['Python', 'SQL', 'Java', 'C++', 'JavaScript']
+    pos = np.arange(len(languages))
+    popularity = [56, 39, 34, 34, 29]
+
+    plt.bar(pos, popularity, align='center')
+    plt.xticks(pos, languages)
+    plt.ylabel('% Popularity')
+    plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow', alpha=0.8)
+
+    #TODO: remove all the ticks (both axes), and tick labels on the Y axis
+
+    plt.show()
+    ```
+    + Answer: 
+        ```python
+        # remove ticks
+        plt.gca().xaxis.set_ticks_position(position='none')
+        plt.gca().yaxis.set_ticks_position(position='none')
+
+        # remove tick labels on the Y axis
+        plt.gca().yaxis.set_ticklabels([])
+        ```
+    + Instructor Solution
+        ```python
+        # remove all the ticks (both axes), and tick labels on the Y axis
+        plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='on')
+        ```
+
++ Task: Task: Remove the frame of the chart.
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    plt.figure()
+
+    languages =['Python', 'SQL', 'Java', 'C++', 'JavaScript']
+    pos = np.arange(len(languages))
+    popularity = [56, 39, 34, 34, 29]
+
+    plt.bar(pos, popularity, align='center')
+    plt.xticks(pos, languages)
+    plt.ylabel('% Popularity')
+    plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow', alpha=0.8)
+
+    # remove all the ticks (both axes), and tick labels on the Y axis
+    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='on')
+
+    # TODO: remove the frame of the chart
+
+    plt.show()
+    ```
+    + Answer: 
+        ```python
+        plt.gca().axes.set_frame_on(False)
+        ```
+    + Instructor's Solution: 
+        ```python
+        for spine in plt.gca().spines.values():
+            spine.set_visible(False)
+        ```
++ Task: Change the bar colors to be less bright blue, make one bar, the python bar, a contrasting color, soften all labels by turning grey.
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    plt.figure()
+
+    languages =['Python', 'SQL', 'Java', 'C++', 'JavaScript']
+    pos = np.arange(len(languages))
+    popularity = [56, 39, 34, 34, 29]
+    # TODO: change the bar colors to be less bright blue
+    # TODO: make one bar, the python bar, a contrasting color
+    plt.bar(pos, popularity, align='center')
+
+    # TODO: soften all labels by turning grey
+    plt.xticks(pos, languages)
+    plt.ylabel('% Popularity')
+    plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow')
+
+    # remove all the ticks (both axes), and tick labels on the Y axis
+    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='on')
+
+    # remove the frame of the chart
+    for spine in plt.gca().spines.values():
+        spine.set_visible(False)
+    plt.show()
+    ```
+    + Answer: 
+        ```python
+        # TODO: change the bar colors to be less bright blue
+        # TODO: make one bar, the python bar, a contrasting color
+        colors = np.array(['orange'] + ['darkblue'] * (len(languages) - 1))
+        plt.bar(pos, popularity, align='center', color=colors)
+
+        # TODO: soften all labels by turning grey
+        plt.gca().yaxis.label.set_color('grey')
+        plt.xticks(pos, languages, color='grey
+        ```
+    + Instructor's Solution: 
+        ```python
+        # change the bar colors to be less bright blue
+        bars = plt.bar(pos, popularity, align='center', linewidth=0, color='lightslategrey')
+        # make one bar, the python bar, a contrasting color
+        bars[0].set_color('#1F77B4')
+
+        # soften all labels by turning grey
+        plt.xticks(pos, languages, alpha=0.8)
+        plt.ylabel('% Popularity', alpha=0.8)
+        plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow', alpha=0.8)
+        ```
+
++ Task: Directly label each bar with Y axis values, and remove the Y label since bars are directly labeled.
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    plt.figure()
+
+    languages =['Python', 'SQL', 'Java', 'C++', 'JavaScript']
+    pos = np.arange(len(languages))
+    popularity = [56, 39, 34, 34, 29]
+
+    # change the bar colors to be less bright blue
+    bars = plt.bar(pos, popularity, align='center', linewidth=0, color='lightslategrey')
+    # make one bar, the python bar, a contrasting color
+    bars[0].set_color('#1F77B4')
+
+    # soften all labels by turning grey
+    plt.xticks(pos, languages, alpha=0.8)
+
+    # TODO: remove the Y label since bars are directly labeled
+    plt.ylabel('% Popularity', alpha=0.8)
+    plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow', alpha=0.8)
+
+    # remove all the ticks (both axes), and tick labels on the Y axis
+    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='on')
+
+    # remove the frame of the chart
+    for spine in plt.gca().spines.values():
+        spine.set_visible(False)
+        
+    # TODO: direct label each bar with Y axis values
+    plt.show()
+    ```
+    + Answer
+        ```python
+        # TODO: remove the Y label since bars are directly labeled
+        # plt.ylabel('% Popularity', alpha=0.8)
+        plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow', alpha=0.8)
+
+        for idx, val in enumerate(popularity):
+            plt.gca().text(idx -0.2, val - 3, str(val)+"%", color='white', fontweight='bold', fontsize=12)
+        ```
+    + Instructor's Solution
+        ```python
+        # plt.ylabel('% Popularity', alpha=0.8)
+        
+        # direct label each bar with Y axis values
+        for bar in bars:
+            plt.gca().text(bar.get_x() + bar.get_width()/2, bar.get_height() - 5, str(int(bar.get_height())) + '%', 
+                        ha='center', color='w', fontsize=11)
+        ```
+
+
+
+<a href="urhttps://d3c33hcgiwev3.cloudfront.net/EvKM1f0IEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528416000&Signature=cZ-RsBcgrv-1Kwpc3ipBv5yvSGnvDbRy6bA3UxL615FtK3q1CTx37HrXiEOnJGm0-lDHi0W3z3RRztLfbrH0P8FFlQB9vk9Ihcvc5Rw9djQh4jf1kRz-y~fThS9z8K1OlKqVjwqz2jI0KwEcRPb39Qw9VhbrHJQ2a80IUCZMl2Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5Al" alt="Dejunkifying a Plot" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 

@@ -441,7 +441,7 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.reset_index(level=None)` | For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. `level`: int, str, tuple, or list. Only remove the given levels from the index. Removes all levels by default| [Indexing DF][012] |
 
 
-#### Lecture Methods
+#### Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -470,10 +470,11 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 ## MatPlotLib
 
+### [Official Pyplot API](https://matplotlib.org/api/pyplot_summary.html)
+
 ### Environment and Module
 
 ```python
-
 %matplotlib notebook                # provides an interactive environment in Jupyter and IPuthon
 
 import matplotlib as mpl            # load module in CLI
@@ -485,102 +486,18 @@ import matplotlib.pyplot as plt     # load pyplot module
 
 | Method | Description | Link |
 |--------|-------------|------|
+| `mpl.axes.Axes` | contain most of the figure elements: Axis, Tick, Line2D, Text, Polygon, etc., and sets the coordinate system. | [Axes][030] |
 | `plt.gca().xaxis` & `plt.gca().yaxis` | xaxis = class XAxis(Axis), yaxis = class YAxis(Axis) | [Line Plots][027] |
 
-#### Axis Methods:
+### Official Docs
 
-+ `axis_date(tz=None)`: Sets up x-axis ticks and labels that treat the x data as dates. *tz* is a `tzinfo` instance or a timezone string. This timezone is used to create date labels.
-+ `cla()`: clear the current axis
-+ `convert_units(x)
-+ `draw(artist, renderer, *args, **kwargs)`: Draw the axis lines, grid lines, tick lines and labels
-+ `get_children()`: Return a list of the child `Artist`s this `Artist` contains.
-+ `get_gridlines()`: Return the grid lines as a list of Line2D instance
-+ `get_label()`: Return the axis label as a Text instance
-+ `get_label_position()`: Return the label position (top or bottom)
-+ `get_label_text()`: Get the text of the label
-+ `get_major_formatter()`: Get the formatter of the major ticker
-+ `get_major_locator()`: Get the locator of the major ticker
-+ `get_major_ticks(numticks=None)`: get the tick instances; grow as necessary
-+ `get_majorticklabels()`: Return a list of Text instances for the major ticklabels
-+ `get_majorticklines()`: Return the major tick lines as a list of Line2D instances
-+ `get_majorticklocs()`: Get the major tick locations in data coordinates as a numpy array
-+ `get_minor_formatter()`: Get the formatter of the minor ticker
-+ `get_minor_locator()`: Get the locator of the minor ticker
-+ `get_minor_ticks(numticks=None)`: get the minor tick instances; grow as necessary
-+ `get_minorticklabels()`: Return a list of Text instances for the minor ticklabels
-+ `get_minorticklines()`: Return the minor tick lines as a list of Line2D instances
-+ `get_minorticklocs()`: Get the minor tick locations in data coordinates as a numpy array
-+ `get_offset_text()`: Return the axis offsetText as a Text instance
-+ `get_pickradius()`: Return the depth of the axis used by the picker
-+ `get_scale()
-+ `get_smart_bounds()`: get whether the axis has smart bounds
-+ `get_tick_padding()
-+ `get_ticklabel_extents(renderer)`: Get the extents of the tick labels on either side of the axes.
-+ `get_ticklabels(minor=False, which=None)`: Get the x tick labels as a list of `~matplotlib.text.Text` instances.
-    + `minor` (bool)`: If True return the minor ticklabels, else return the major ticklabels
-    + `which` (None, {'minor', 'major', 'both'})`: Selects which ticklabels to return
-+ `get_ticklines(minor=False)`: Return the tick lines as a list of Line2D instances
-+ `get_ticklocs(minor=False)`: Get the tick locations in data coordinates as a numpy array
-+ `get_tightbbox(renderer)`: Return a bounding box that encloses the axis. It only accounts tick labels, axis label, and offsetText.
-+ `get_transform()`: Return the `~matplotlib.transforms.Transform` instance used by this artist.
-+ `get_units()`: return the units for axis
-+ `grid(b=None, which='major', **kwargs)`: Set the axis grid on or off; b is a boolean. Use *which* = 'major' | 'minor' | 'both' to set the grid for major or minor ticks.
-    + If *b* is *None* and len(kwargs)==0, toggle the grid state.  
-    + If *kwargs* are supplied, it is assumed you want the grid on and *b* will be set to True.
-    + *kwargs* are used to set the line properties of the grids, e.g., xax.grid(color='r', linestyle='-', linewidth=2)
-+ `have_units()`: Return *True* if units are set on the *x* or *y* axes
-+ `iter_ticks()`: Iterate through all of the major and minor ticks.
-+ `limit_range_for_scale(vmin, vmax)
-+ `pan(numsteps)`: Pan *numsteps* (can be positive or negative)
-+ `reset_ticks()
-+ `set_clip_path(clippath, transform=None)`: Set the artist's clip path, which may be:
-    + a `~matplotlib.patches.Patch` (or subclass) instance
-    + a `~matplotlib.path.Path` instance, in which case an optional `~matplotlib.transforms.Transform` instance may be provided, which will be applied to the path before using it for clipping.
-    + *None*, to remove the clipping path
-    + For efficiency, if the path happens to be an axis-aligned rectangle, this method will set the clipping box to the corresponding rectangle and set the clipping path to *None*.
-    + ACCEPTS`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ]
-+ `set_label_coords(x, y, transform=None)`: Set the coordinates of the label.  By default, the x coordinate of the y label is determined by the tick label bounding boxes, but this can lead to poor alignment of multiple ylabels if there are multiple axes.  Ditto for the y coodinate of the x label.
-+ `set_label_text(label, fontdict=None, **kwargs)`: Sets the text value of the axis label; ACCEPTS`: A string value for the label
-+ `set_major_formatter(formatter)`: Set the formatter of the major ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
-+ `set_major_locator(locator)`: Set the locator of the major ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
-+ `set_minor_formatter(formatter)`: Set the formatter of the minor ticker; ACCEPTS`: A `~matplotlib.ticker.Formatter` instance
-+ `set_minor_locator(locator)`: Set the locator of the minor ticker; ACCEPTS`: a `~matplotlib.ticker.Locator` instance
-+ `set_pickradius(pickradius)`: Set the depth of the axis used by the picker; ACCEPTS`: a distance in points
-+ `set_smart_bounds(value)`: set the axis to have smart bounds
-+ `set_tick_params(which='major', reset=False, **kw)`: Set appearance parameters for ticks and ticklabels.
-+ `set_ticklabels(ticklabels, *args, **kwargs)`: Set the text values of the tick labels. Return a list of Text instances.  Use *kwarg* *minor=True* to select minor ticks.
-    + All other kwargs are used to update the text object properties.
-    + As for get_ticklabels, label1 (left or bottom) is affected for a given tick only if its label1On attribute is True, and similarly for label2.  The list of returned
-    label text objects consists of all such label1 objects followed by all such label2 objects.
-    + The input *ticklabels* is assumed to match the set of tick locations, regardless of the state of label1On and label2On.
-    + ACCEPTS`: sequence of strings or Text objects
-+ `set_ticks(ticks, minor=False)`: Set the locations of the tick marks from sequence ticks; ACCEPTS`: sequence of floats
-+ `set_units(u)`: set the units for axis; ACCEPTS`: a units tag
-+ `update_units(data)`: introspect *data* for units converter and update the axis.converter instance if necessary. Return *True* if *data* is registered for unit conversion.
-+ `zoom(direction)`: Zoom in/out on axis; if *direction* is >0 zoom in, else zoom out
-
-#### XAxis & YAxis Methods: 
-
-+ Methods inhert from Axis class
-+ `contains(mouseevent)`: Test whether the mouse event occured in the x axis.
-+ `get_data_interval()`: return the Interval instance for this axis data limits
-+ `get_minpos()`
-+ `get_text_heights(renderer)`: Returns the amount of space one should reserve for text above and below the axes.  Returns a tuple (above, below)
-+ `get_tick_space()`: Return the estimated number of ticks that can fit on the axis.
-+ `get_ticks_position()`: Return the ticks position (top, bottom, default or unknown)
-+ `get_view_interval()`: return the Interval instance for this axis view limits
-+ `set_data_interval(vmin, vmax, ignore=False)`: set the axis data limits
-+ `set_default_intervals()`: set the default limits for the axis interval if they are not mutated
-+ `set_label_position(position)`: Set the label position (top or bottom);             ACCEPTS: [ 'top' | 'bottom' ]
-+ `set_ticks_position(position)`: 
-    + Set the ticks position (top, bottom, both, default or none) both sets the ticks to appear on both positions, but does not change the tick labels.  
-    + 'default': reset the tick positions to the default: ticks on both positions, labels at bottom.  
-    + 'none': be used if you don't want any ticks. 
-    + 'none' and 'both': affect only the ticks, not the labels.
-    + ACCEPTS: [ 'top' | 'bottom' | 'both' | 'default' | 'none' ]
-+ `set_view_interval(vmin, vmax, ignore=False)`: for mpl internal use
-+ `tick_bottom()`: use ticks only on bottom
-+ `tick_top()`: use ticks only on top
++ [The Matplotlib API][032]
+    + [axis and tick API][030]
+    + [PyPlot API][031]
+    + [Colors in Matplotlib][033]
+    + [Figure][034]
+    + [Subplot Parameters][035]
+    + [text][036]
 
 
 
@@ -595,15 +512,15 @@ import matplotlib.pyplot as plt     # load pyplot module
 | `fig.add_subplot(*args, **kwargs)` | Add a subplot; <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
 | `plt.figure(*args, **kwargs)` | Creates a new figure; `args`: figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None | [Basic Plotting][025] |
 | `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
-| `plt.gca()..axis(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
+| `plt.gca().axis(*v, **kwargs)` <br/> `plt.gca().axes(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
 | `plt.gca().get_children()` | return a list of child artists | [Basic Plotting][025] |
 | `plt.scatter(x, y, *args, **kwargs)` | Make a Scatterplots of `x` vs `y`; `args`: s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None | [Scatterplots][026] |
 | `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
 | `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
-| `fill_between(x, y1, y2=0, where=None, interpolate=False, step=None, *, data=None, **kwargs)` | Make filled polygons between two curves | [Line Plots][027] |
-|  `bar(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` <br/>
- `barh(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) | [Bar Charts][028] |
-
+| `plt.fill_between(x, y1, y2=0, **kwargs)` | Make filled polygons between two curves; <br/> `kwargs`: where=None, interpolate=False, step=None, *, data=None | [Line Plots][027] |
+|  `bar(left, height, **kwargs)` <br/>
+ `barh(left, height, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) <br/> `kwargs`: width=0.8, bottom=None, hold=None, data=None,  | [Bar Charts][028] |
+| `plt.tick_params(axis='both', **kwargs)` | Change the appearance of ticks and tick labels | [Dejunkify][029] |
 
 
 #### Line style or marker
@@ -678,6 +595,17 @@ plt.legend()
 [026]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
 [027]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
 [028]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
+[029]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#dejunkifying-a-plot
+[030]: https://matplotlib.org/api/axes_api.html
+[031]: https://matplotlib.org/api/axis_api.html
+[031]: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html
+[032]: https://matplotlib.org/api/index.html
+[033]: https://matplotlib.org/api/pyplot_summary.html#colors-in-matplotlib
+[034]: https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html
+[035]: https://matplotlib.org/api/_as_gen/matplotlib.figure.SubplotParams.html
+[036]: https://matplotlib.org/api/text_api.html
+
+
 
 
 
