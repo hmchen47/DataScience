@@ -116,7 +116,7 @@
 + Tail Areas
     <br/>[<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/bbb58b35dd040bcf4d8b4d3f7c72b679.jpg" alt="Right and Left Tails of a Distribution" width="300">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
     [<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/e4499588e283aa8c3339ac767a95ccef.jpg" alt="text" width="220">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
-    [<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/c01e6ac6766ff9e8602e238df3d23be1.jpg" alt="Z Value that Produces a Known Area" width="155">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
+    [<img src="https://saylordotorg.github.io/text_introductory-statistics/section_09/c01e6ac6766ff9e8602e238df3d23be1.jpg" alt="Z Value that Produces a Known Area" width="153">](https://saylordotorg.github.io/text_introductory-statistics/s09-04-areas-of-tails-of-distribution.html#fwk-shafer-ch05_s04_f01)
 
 + Conventions About Inconsistency
     + __"Inconsistent"__: The test statistic is in the tail of the empirical distribution under the null hypothesis
@@ -151,9 +151,23 @@
 
 ### Notes
 
++ Can the Conclusion be Wrong?
+    <br/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Inferential_Statistics_Decision_Making_Table.png/750px-Inferential_Statistics_Decision_Making_Table.png" alt="Decision-making table" width="450">
+
++ An Error Probability
+    + The cutoff for the P-value is an error probability.
+    + If:
+        + your cutoff is $5\%$
+        + and the null hypothesis happens to be true
+    + then there is about a $5\%$ chance that your test will reject the null hypothesis.
+
 + Demo
     ```python
-
+    np.count_nonzero(averages <= 13.6) / repetitions
+    # 0.49562
+    Table().with_column('Random Sample Average', averages).hist(bins = 25, ec='w')
+    plots.scatter(observerd_average, 0, color='red', s=30)
+    plots.plot([13.6, 13.6], [0, 0.35], color='gold', lw=2);
     ```
 
 ### Video
