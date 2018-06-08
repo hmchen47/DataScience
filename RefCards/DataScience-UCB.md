@@ -56,7 +56,7 @@ plots.style.use('fivethirtyeight')
 | `t.with_row(lst)` | appends a row w/ given columns to an existing table |  [I-Lec 5.7 Lists][025]  |
 | `t.with_rows(lst)` | appends multiple rows (rows of columns) w/ given columns to an existing table |  [I-Lec 5.7 Lists][025] |
 | `t.item(int)` | data in column `int` | [I-Lec 5.1 Creating Tables][024] |
-| `t.sum(ary), tbl.max(ary), tbl.min(ary)` | methods to work with data in columns | [I-Lec 5.1 Creating Tables][024] |
+| `t.sum(ary), t.max(ary), t.min(ary)` | methods to work with data in columns | [I-Lec 5.1 Creating Tables][024] |
 | `t.column(col_name_or_index)` | returns an array with only the values in the specified column | [I-Lec 4.5 Columns][023] |
 | `t.select(col[, ...])` | constructs a new table with just the specified columns | [I-Lec 3.5 Select][022]; [I-Lec 12.1 Table Methods][026] |
 | `t.drop(col[, ...])` | constructs a new table without the specified columns | [I-Lec 3.5 Select][022]; [I-Lec 12.1 Table Methods][026] |
