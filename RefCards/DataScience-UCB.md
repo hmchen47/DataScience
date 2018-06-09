@@ -77,7 +77,6 @@ plots.style.use('fivethirtyeight')
 
 
 
-
 + [Visualization with Table][013]
 
     ```python
@@ -141,11 +140,12 @@ plots.style.use('fivethirtyeight')
 
 
 
-## Misc
+## [Utility](http://data8.org/datascience/util.html)
 
 | Function | Description | Link |
 |----------|-------------|------|
 | `sample_proportions(sample_size, probabilities)` | Return the proportion of random draws for each outcome in a distribution | [II-Lec 5.2 Random Selection][031] |
+| 
 
 
 -------------------
@@ -179,8 +179,9 @@ plots.style.use('fivethirtyeight')
 [027]: http://data8.org/datascience/tables.html
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
 [029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
-[030]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
-[031]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
+[030]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
+[031]: ../DSFund-BerkeleyX/2-Inferential/05-Hypothesis.md#lec-52-a-model-about-random-selection
+
 
 
 
