@@ -40,7 +40,7 @@
 
 ### [Open CVS File][001]
 
-`python
+```python
     import csv
 
     %precision 2    # floating precision for printing
@@ -48,7 +48,7 @@
     with open('filename.csv') as csvfile:
         mpg = list(csv.DictReader(csvfile))
         # read data and convert to nested dictionary
-`
+```
 
 
 ### Methods
@@ -76,10 +76,10 @@
 
 ### Import Files
 
-`python
+```python
 import datetime as dt
 import time as tm
-`
+```
 
 ### Attributes
 
@@ -131,9 +131,9 @@ import scipy.stats as stats
 
 ### Import Files
 
-`python
+```python
 import numpy as np
-`
+```
 
 ### General
 
@@ -236,9 +236,9 @@ import numpy as np
 
 ### Import file
 
-`python
+```python
 import pandas as pd
-`
+```
 
 [Pandas Reference](http://pandas.pydata.org/pandas-docs/stable/api.html)
 
