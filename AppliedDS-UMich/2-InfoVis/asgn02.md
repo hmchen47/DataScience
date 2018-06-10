@@ -23,6 +23,27 @@ Download the attachment for a preview of how the assignment will be graded.
 
 [assignment2_rubric.pdf](https://d3c33hcgiwev3.cloudfront.net/_5491561792e942ea08a955f4a18961e8_assignment2_rubric.pdf?Expires=1528502400&Signature=cHpOlRjhIDO5-ycTZFcyDJXl2owulS3SU61PbuOXqbzkJ7rKny4Vurg4mbiI07M-biJDLSbaQ3PjqkVjWfVJL4H13NvtMr~fYVw8HnZ41qlPQ~L8aJB~ukI1pItM8XGaNkkdVZpVsPL5hicWrTXA9lfhPeivcEvjIBe3V9aDstQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
+#### Requirements
+
+Each row in the assignment datafile corresponds to a single observation.
+
+The following variables are provided to you:
+
+* **id** : station identification code
+* **date** : date in YYYY-MM-DD format (e.g. 2012-01-24 = January 24, 2012)
+* **element** : indicator of element type
+    * TMAX : Maximum temperature (tenths of degrees C)
+    * TMIN : Minimum temperature (tenths of degrees C)
+* **value** : data value for element (tenths of degrees C)
+
+For this assignment, you must:
+
+1. Read the documentation and familiarize yourself with the dataset, then write some python code which returns a line graph of the record high and record low temperatures by day of the year over the period 2005-2014. The area between the record high and record low temperatures for each day should be shaded.
+2. Overlay a scatter of the 2015 data for any points (highs and lows) for which the ten year record (2005-2014) record high or record low was broken in 2015.
+3. Watch out for leap days (i.e. February 29th), it is reasonable to remove these points from the dataset for the purpose of this visualization.
+4. Make the visual nice! Leverage principles from the first module in this course when developing your solution. Consider issues such as legends, labels, and chart junk.
+
+
 #### Review criteria
 
 Each component of the assignment will be graded by a peer-reviewer, using a detailed rubric.
@@ -80,7 +101,7 @@ Upload an image of your record highs and lows plot. Ensure that your plot includ
 
     The result should look more or less similar the plot in the original post
 
-    You may want to review Group By and Date Functionality lectures in week3 of course 1
+    You may want to review [Group By](../1-IntroDS/03-AdvPandas.md#group-by) and [Date Functionality](../1-IntroDS/03-AdvPandas.md#date-functionality) lectures in week3 of course 1
 
 + [Unable to find the .csv file](https://www.coursera.org/learn/python-plotting/discussions/weeks/2/threads/5Zuz5k57EeeEgg7HiAhd5A)
 
