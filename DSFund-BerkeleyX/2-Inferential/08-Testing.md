@@ -1,5 +1,11 @@
 # Section 8a: A/B Testing (Lec 8.1 - Lec 8.3)
 
+[Web Notebook](https://hub.data8x.berkeley.edu/user/59d217c894d11dbd21d2d37ef6ae9675/notebooks/materials-x18/lec/x18/2/lec8.ipynb)
+
+[Local Notebook](./notebooks/lec8.ipynb)
+
+[Local Python Code](./notebooks/lec8.py)
+
 ## Lec 8.1 Introduction
 
 ### Notes
