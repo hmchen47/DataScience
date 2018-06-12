@@ -241,7 +241,6 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
     football = football.select('Team').with_column(
         'Drop', drops
     )
-
     means_tbl = football.group('Team', np.average)
     #   Team        Drop average
     #   Colts       0.46875
@@ -258,13 +257,43 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
 " target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
+
+
 ## Lec 8.5 Deflategate Testing
 
 ### Notes
 
++ Null hypothesis <br/>
+    The 4 Colts footballs are like a sample drawn at random without replacement from all 15 balls. <br/>
+    + To test this hypothesis, repeat this process:
+        + Randomly permute all 15 balls
+        + Label 11 of them “Patriots” and the remaining 4 “Colts”
+        + Compare the averages of the two groups
+
 + Demo
     ```python
+    group_labels = football.select('Team')
+    drop_tbl = football.select('Drop')
 
+    shuffled_drops = drop_tbl.sample(with_replacement=False).column(0)
+    shuffled_tbl = group_labels.with_column('Shuffled Drop', shuffled_drops)
+    means = shuffled_tbl.group('Team', np.average).column(1)
+    new_difference = means.item(0) - means.item(1)
+    #0.12727272727272665 -> random results
+
+    differences = make_array()
+    for i in np.arange(20000):
+        shuffled_drops = drop_tbl.sample(with_replacement=False).column(0)
+        shuffled_tbl = group_labels.with_column('Shuffled Drop', shuffled_drops)
+        means = shuffled_tbl.group('Team', np.average).column(1)
+        new_difference = means.item(0) - means.item(1)
+        differences = np.append(differences, new_difference)
+
+    Table().with_column('Difference Between Means', differences).hist(ec='w')
+    plots.scatter(observed_difference, 0, color='red', s=40);
+
+    np.count_nonzero(differences <= observed_difference) / 20000
+    # 0.00225 -> p-value
     ```
 
 ### Video
@@ -273,3 +302,6 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
 " target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
+
+
+
