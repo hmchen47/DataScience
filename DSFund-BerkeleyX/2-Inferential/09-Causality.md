@@ -42,9 +42,31 @@
 
 ### Notes
 
++ Before the Randomization
+    + In the population there is one imaginary ticket for each of the 31 participants in the experiment.
+    + Each participant’s ticket looks like this: (Potential Outcome)
+        + Treatment group: outcome if assigned to treatment group
+        + Control group: outcome if assigned to control group
+
++ The Data 
+    + 16 randomly picked tickets show: Outcome if assigned to control group
+    + The remaining 15 tickets show: Outcome if assigned to treatment group
+
++ The Hypotheses
+    + Null: <br/>
+        The distribution of all 31 potential control scores is the same as the distribution of all 31 potential treatment scores.
+    + Alternative: <br/>
+        The distribution of all 31 potential control scores is different from the distribution of all 31 potential treatment scores.
+
 + Demo
     ```python
-
+    observed_outcomes = Table.read_table('observed_outcomes.csv')
+    # Group         Outcome if assigned treatment   Outcome if assigned control
+    # Control       Unknown                         1
+    #   ...
+    # Treatment     1                               Unknown
+    # Treatment     1                               Unknown
+    #   ...
     ```
 
 ### Video
