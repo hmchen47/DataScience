@@ -156,14 +156,60 @@
 </a>
 
 
-
-
 ## Reading and Practice for Section 8a
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 8a.
+
+This corresponds to textbook section:
+
+[Chapter 12: Comparing Two Samples](https://www.inferentialthinking.com/chapters/12/comparing-two-samples.html)
+
+In section 8a, we developed a way of comparing two random samples and answer questions about the similarities and differences between them. So far, we have seen several examples of assessing whether a single sample looks like random draws from a specified chance model. A/B testing refers to deciding whether two numerical samples come from the same underlying distribution.
+
+Try the following practice problems.
 
 ### Practice
+
+Suppose we want to write a function to preform A/B testing for the difference between averages. Let us define a function that generates the array of simulated differences. The function `difference_of_ab_sample_means` takes four arguments:
+
++ the data table
++ the label of the column containing the variable whose average is of interest
++ the label of the column containing group labels (e.g., A and B)
++ the number of repetitions
+
+It returns and array of simulated differences in group means, each computed by first randomly permuting the data and assigning random values to each group. The length of the array is equal to the number of repetitions. 
+
+Try to fill in the missing blanks of the `difference_of_ab_sample_means` without looking at examples. 
+
+```python
+def difference_of_ab_sample_means(table, label, group_label, repetitions):
+      
+      tbl = table.select(group_label, label)
+      
+      differences = ____A____
+      
+      for i in np.arange(repetitions):
+            shuffled = tbl.sample(____B____).column(1)
+            original_and_shuffled = tbl.with_column('Shuffled Data', shuffled)
+      
+            shuffled_means = ____C____.____D____(____E____, np.average).column(2)
+            simulated_difference = ____F____.item(1) - ____G____.item(0)
+      
+            differences = np.append(differences, simulated_difference)
+      
+      return differences
+```
+
+    Ans:
+    A: make_array()
+    B: with_replacement = False
+    C: original_and_shuffled
+    D: group
+    E. group_label
+    F. shuffled_means
+    G. shuffled_means
 
 
 
