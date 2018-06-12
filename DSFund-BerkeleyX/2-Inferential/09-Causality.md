@@ -4,9 +4,31 @@
 
 ### Notes
 
++ Randomized Controlled Experiment
+    + Sample A: control group
+    + Sample B: treatment group
+    + If the treatment and control groups are selected at random, then you can make causal conclusions.
+    + Any difference in outcomes between the two groups could be due to
+        + chance
+        + the treatment
 + Demo
     ```python
+    bta = Table.read_table('bta.csv')
 
+    bta.group('Group')
+    # Group       count
+    # Control     16
+    # Treatment   15
+
+    bta.group('Group', sum)
+    # Group       Result sum
+    # Control     2
+    # Treatment   9
+
+    bta.group('Group', np.average)
+    # Group       Result average
+    # Control     0.125
+    # Treatment   0.6
     ```
 
 ### Video
