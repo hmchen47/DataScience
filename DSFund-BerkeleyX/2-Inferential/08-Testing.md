@@ -225,7 +225,8 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V002700_DTH.mp4" alt="Lec 8.4 Deflategate Introduction
+" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 ## Lec 8.5 Deflategate Testing
@@ -239,6 +240,7 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V002900_DTH.mp4" alt="Lec 8.5 Deflategate Testing
+" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
