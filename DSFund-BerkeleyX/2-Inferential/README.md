@@ -75,6 +75,9 @@
     + [Lec 8.3 Performing the Test](./08-Testing#)
     + [Reading and Practice for Section 8a](./08-Testing#)
 
++ [Section 8b: Deflategate Example (Lec 8.4 - Lec 8.5)](./08-Testing.md#)
+    + [Lec 8.4 Deflategate Introduction](./08-Testing.md#)
+    + [Lec 8.5 Deflategate Testing](./08-Testing.md#)
 
 
 
