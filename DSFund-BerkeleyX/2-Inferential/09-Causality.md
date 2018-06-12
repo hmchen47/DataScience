@@ -80,9 +80,20 @@
 
 ### Notes
 
++ Test Statistic
+    + Compare the proportions of 1's in the two groups
+    + The alternative says the distributions in the two groups are different
+    + Test statistic:
+        + __Distance__ between the two proportions
+        + $ | \text{control proportion} - \text{treatment proportion} |$
+    + Large values of the statistic favor the alternative
 + Demo
     ```python
+    obs_proportions = bta.group('Group', np.average).column(1)
+    # array([0.125, 0.6  ])
 
+    observed_distance = abs(obs_proportions.item(0) - obs_proportions.item(1))
+    # 0.475
     ```
 
 ### Video
