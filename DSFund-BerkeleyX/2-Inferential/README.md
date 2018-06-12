@@ -66,3 +66,15 @@
     + [Lec 7.5 Origin of the Conventions](./07-Decision.md#)
     + [Reading and Practice for Section 7](./07-Decision.md#)
  
+
+## Week 4
+
++ [Section 8a: A/B Testing (Lec 8.1 - Lec 8.3)](./08-Testing)
+    + [Lec 8.1 Introduction](./08-Testing#)
+    + [Lec 8.2 Hypotheses and Statistic](./08-Testing#)
+    + [Lec 8.3 Performing the Test](./08-Testing#)
+    + [Reading and Practice for Section 8a](./08-Testing#)
+
+
+
+
