@@ -66,6 +66,7 @@
     + [Lec 7.5 Origin of the Conventions](./07-Decision.md#)
     + [Reading and Practice for Section 7](./07-Decision.md#)
  
++ [Lab 3: Inference, Part 1](./lab03.md)
 
 ## Week 4
 
@@ -85,5 +86,10 @@
     + [Lec 9.3 Test Statistic](./09-Causality.md#)
     + [Lec 9.4 Performing a Test](./09-Causality.md#)
     + [Reading and Practice for Section 9](./09-Causality.md#)
+
++ [Lab 4: Inference, Part 2](./lab04.md)
+
+
+
 
 
