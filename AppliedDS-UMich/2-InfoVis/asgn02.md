@@ -77,15 +77,46 @@ Each component of the assignment will be graded by a peer-reviewer, using a deta
 
 ### My submission
 
-Upload an image of your record highs and lows plot. Ensure that your plot includes the following elements:
++ Upload an image of your record highs and lows plot. Ensure that your plot includes the following elements:
+    + an accurate title
+    + correctly labelled axes
+    + line graph displaying record highs and lows for 2005-2014
+    + shaded area between the two lines
+    + overlaid scatter plot indicates days in 2015 that broke a record high or low for 2005-2014
+    + a legend or sufficient labelling for the line graph and scatter plot
 
-+ an accurate title
-+ correctly labelled axes
-+ line graph displaying record highs and lows for 2005-2014
-+ shaded area between the two lines
-+ overlaid scatter plot indicates days in 2015 that broke a record high or low for 2005-2014
-+ a legend or sufficient labelling for the line graph and scatter plot
+    ![Diagram](./notebooks/temperature.png)
 
++ Describe how your visual leverages the guidelines of effective visual design outlined in module one of this course.
+
+    Truthful: 
+        1. The diagram represents all the temperature fo all stations.  
+        2. The diagram is based on the maximum and minimum temperature for all station.  
+        3. The TMAX and TMIN temperature of all station by each day are within the shaded area.
+
+    Functionality: 
+        1. The diagram covers all the measured temperatures of all stations with 10 year period.
+        2. It represents the temperature range of the 10 year period.
+        3. Temperatures broke the past 10 years are pointed out.
+
+    Beautiful:
+        1. The diagram illustrates the temperature range of each day for general public.
+        2. It is easily interpreted by the public general.
+        3. Legend of lines and dots are provide for audience to interpret the diagram.
+        4. Extreme temperatures are using balder colors while the range is shaded with lighter color.  
+        5. The extreme temperatures for 2015 are illustrated with vivid color dots for attraction.
+
+    Insightful: 
+        1. The rang of the 10 year temperature provides the general trends of maximum and minimum temperatures.
+        2. The trend of temperature variation with each month can be interpreted from the diagram easily.
+        3. The extreme temperature of 2015 indicates that the beginning of the year is colder that before while the end of the year is hotter than before.
+
+    Enlightening: 
+        The main purpose of the diagram provides an evidence that year 2015 is with more dramatic climate change than the past 10 years.
+
+ + Please upload your source code.
+
+    [Notebook](./notebooks/Assignment02.ipynb)
 
 ## Useful Links for Assignment
 
@@ -160,6 +191,38 @@ Upload an image of your record highs and lows plot. Ensure that your plot includ
 
 ## Review Your Peers: Plotting Weather Patterns
 
+### Rewview 1
+
+I have made sure my visual is truthful by not cutting off any part of the axes that corresponds to the data points. I have used opposing colors for my scatter plot to distinguish them from the line plot to keep the visual functional. I also have a legend defining the lines and points in the visual which is insightful. I have avoided using grid lines and only used month names on the x axis (versus all days) to keep the visual beautiful and functional at the same time.
+
+[Notebook](./notebooks/Assignment2-r1.ipynb)
+
+
+### Review 2
+
+Describe how your visual leverages the guidelines of effective visual design outlined in module one of this course.
+
+I just tried to not overload the visual with details to make it simpler but clear and still looking nice.
+
+[Notebook](./notebooks/Assignment2-r2.ipynb)
+
+
+### Review 3
+
+My plot is truthful to the data and have no intention of misleading the users with hiding information, or flood user with too much data to obscure reality, nor distorting the data using visual forms. I used the different colors to catch users' attention of the broken records, as well as 10 years ranges. The plot contains clear labels and ticks for easy understanding.
+
+[Notebook](./notebooks/Assignment2-r3.ipynb)
+
+
+
+### Review 4
+
+I have tried to use the concepts descrived by Tufte. He proposes the data-ink ratio, where he argues that all ink that is not used to present data should be removed. The data-ink ratio can be calculated by dividing the ink used for displaying data (data-ink) by the total ink used in the graphic, with the goal of having the ratio as close to 1 as possible. Thus, the greatest amount of unnecessary information was eliminated, such as the top and right spines, among others.
+
+Also, take into account the mechanisms for misleading that Cairo outlines in his book chapter: hiding relevant data, displaying too much data and obscuring reality, and distorting data through graphic forms.
+
+
+[Notebook](./notebooks/Assignment2-r4.ipynb)
 
 
 
