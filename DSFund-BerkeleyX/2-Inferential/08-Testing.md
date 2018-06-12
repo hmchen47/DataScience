@@ -218,9 +218,38 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
 
 ### Notes
 
++ Deflategate <br/>
+    + 2015 AFC Championship Game
+    + Wikipedia: 
+        > The 2015 AFC Championship Game football tampering scandal, commonly referred to as Deflategate, or Ballghazi
+
 + Demo
     ```python
+    football = Table.read_table('deflategate.csv')
+    football.show()
 
+    football = football.drop(1, 2).with_column(
+        'Combined', (football.column(1) + football.column(2)) / 2
+    )
+    football.show()
+
+    start = np.append(12.5 * np.ones(11), 13 * np.ones(4))
+    # array([12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 13. , 13. , 13. , 13. ])
+    drops = start - football.column(1)
+    # array([0.85 , 1.475, 1.175, 1.65 , 1.225, 0.725, 0.425, 1.175, 1.35, 1.8  , 1.375, 0.475, 0.475, 0.275, 0.65 ])
+
+    football = football.select('Team').with_column(
+        'Drop', drops
+    )
+
+    means_tbl = football.group('Team', np.average)
+    #   Team        Drop average
+    #   Colts       0.46875
+    #   Patriots    1.20227
+
+    means = means_tbl.column(1)
+    observed_difference = means.item(0) - means.item(1)
+    # -0.733522727272728
     ```
 
 ### Video
