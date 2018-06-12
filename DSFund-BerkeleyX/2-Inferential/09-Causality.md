@@ -144,8 +144,36 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 9.
+
+This corresponds to textbook section:
+
+[Chapter 12.3: Causality](https://www.inferentialthinking.com/chapters/12/3/causality.html)
+
+In section 9, we learned that our methods for comparing two samples have a powerful use in the analysis of randomized controlled experiments. Since the treatment and control groups are assigned randomly in randomized controlled experiments, differences in their outcomes can be compared to what would happen just due to chance if the treatment had no effect at all. Within a randomized controlled experiment, if all the observed differences are more marked than what we would predict as purely due to chance, we will have evidence of causality.
+
+Complete the practice questions below to refresh your understanding of causality.
 
 ### Practice
+
+In 2013, a Berkeley chemical engineering professor, Jay Keasling, discovered a synthetic version of artemisinin - a chemical crucial to producing antimalarial drugs. A group of researchers and statisticians come together to test the effectiveness of this new chemical, which is being used to treat malaria in developing countries.
+
+A random sample of 500 malaria patients are randomly assigned to take either the antimalarial drug or a placebo pill. It turns out that among the patients who took the drug, a much larger proportion recovered from malaria than among those who took the placebo. Meanwhile, cases of malaria are decreasing in developing nations, and some suggest that this might be due to the increased effectiveness of mosquito nets being distributed.
+
+Q1. True of False: This is a randomized controlled experiment.
+
+    Ans: True
+
+
+Q2. True of False: The experiment indicates that taking the drug causes an increase in recovery rates among malaria patients.
+
+    Ans: True
+
+Q3. True of False: The improvements in mosquito nets are a confounding factor in this experiment.
+
+    Ans: True
+
+
 
 
 
