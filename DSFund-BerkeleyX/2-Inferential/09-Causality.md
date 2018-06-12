@@ -11,7 +11,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V003300_DTH.mp4" alt="Lec 9.1 Introduction" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -27,7 +27,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V003100_DTH.mp4" alt="Lec 9.2 Hypotheses" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -43,7 +43,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V003000_DTH.mp4" alt="Lec 9.3 Test Statistic" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -59,7 +59,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD82FD2018-V003200_DTH.mp4" alt="Lec 9.4 Performing a Test" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
