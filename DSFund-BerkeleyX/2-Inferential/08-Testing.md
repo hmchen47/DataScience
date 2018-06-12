@@ -56,10 +56,44 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ The Groups and the Question
+    + Random sample of mothers of newborns. Compare:
+        + (A) Birth weights of babies of mothers who smoked during pregnancy
+        + (B) Birth weights of babies of mothers who didn’t smoke
+    + Question: Could the difference be due to chance alone?
++ Comparing Two Samples
+    + Compare values of sampled individuals in Group A with values of sampled individuals in Group B.
+    + Question: Do the two sets of values come from the same underlying distribution?
+    + Answering this question by performing a statistical test is called A/B testing.
 
-    ```
++ The Groups and the Question
+    + Random sample of mothers of newborns. Compare:
+        + (A) Birth weights of babies of mothers who smoked during pregnancy
+        + (B) Birth weights of babies of mothers who didn’t smoke
+    + Question: Could the difference be due to chance alone?
+
++ Hypotheses
+    + __Null__: <br/>
+        In the population, the distributions of the birth weights of the babies in the two groups are the same. (They are different in the sample just due to chance.)
+    + __Alternative__: <br/>
+        In the population, the babies of the mothers who didn’t smoke were heavier, on average, than the babies of the smokers.
+
++ Test Statistic
+    + Group A: smokers
+    + Group B: non-smokers
+    + Statistic: Difference between average weights <br/> $\text{Group B average} - \text{Group A average}$
+    + Large values of this statistic favor the alternative
+
++ Simulating Under the Null
+
+    + If the null is true, all rearrangements of the birth weights among the two groups are equally likely
+    + Plan:
+        + Shuffle all the birth weights
+        + Assign some to “Group A” and the rest to “Group B”, maintaining the two sample sizes
+        + Find the difference between the averages of the two shuffled groups
+        + Repeat
+
+
 
 ### Video
 
