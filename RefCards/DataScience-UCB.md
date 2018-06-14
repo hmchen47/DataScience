@@ -136,6 +136,7 @@ plots.style.use('fivethirtyeight')
 | `are.between_or_equal_to(x, y)` | Greater than or equal to `x`, and less than or equal  to `y` |
 | `are.containing(S)` | Contains the string `S` |
 | `are.contained_in(ary|lst)` | contains in array or list |
+| `are.not_contained_in(ary|lst)` | not contain in array or list |
 | `are.not_equal_to(Z)` | Not equal to `Z` |
 | `are.not_above(x)` | Not above `x` |
 
