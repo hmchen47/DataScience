@@ -16,10 +16,13 @@
     + Answering this question by performing a statistical test is called __A/B testing.__
 + Two Population Proportions
     + Parameters: $p_1 - p_2$
-    + Statistic: $\hat{p}_1 - \hat{p}_2$
+        + $p_1$: population proportion for the first population
+        + $p_2$: population proportion for the second population
+    + Statistic/Estimate: $\hat{p}_1 - \hat{p}_2$
     + Standard Error: $\text{s.e.}(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1 (1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2 (1-\hat{p}_2)}{n_2}}$
     + Confidence interval: $(\hat{p}_1 - \hat{p}_2) = z^* \text{s.e.}(\hat{p}_1 - \hat{p}_2)$
-    + Large Sample $z$-Test: $z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p}(\frac{1}{n_1} + \frac{1}{n_2}))}}$
+    + Large Sample $z$-Test: $z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p}(\frac{1}{n_1} + \frac{1}{n_2}))}}$, where $\hat{p} = \frac{N-1\hat{p}_1 + n_2\hat{p}_2}{n_1 + n_2}$
+    + Constraints: $n_1 \times p_1 \geq 10$ and $n_2 \times p_2 \geq 10$
 
 + SD Module 2:  Sampling Distributions for the Difference in Two Sample Proprotions
     + Independent samples
@@ -29,6 +32,27 @@
         + Participants randomly assigned to one of _two treatment conditions_, same response variable recorded for each unit.
     + Categorical response variable
     + Difference between the two population proportion: $p_1 - p_2$
+    + General description: Estimating the _difference_ between two populations w.r.t. the proportion failing into a category of categorical variable.
+
++ Example: HT2
+    + Q: Sample of college students asked if would return money if found a wallet on the street
+        + 83/93 women said they would
+        + 53/73 men said they would
+    + Assume these represent all college students
+    + Test hypothesis that equal proportions of college men and women would return money vs. alternative hypothesis that a higher proportion of women would do so.
+    + Using $5\%$ significance level: <br/>
+        Let $1 = \text{women}$ and $2 = \text{man}$, then <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+        $n_1 = 93$ (83 Yes, 10 No); $n_2 = 73$ (53 Yes, 22 No). <br/>
+        Therefore, <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+        $\hat{p}_1 = \frac{83}{93} =  0.8925$ and $\hat{p}_2 = \frac{53}{75}$ <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+        $H_0 = p_1 - p_2 = 0$ vs. $H_a: p_1 - P_2 > 0$
+    + Perform the $z$-test of $H_0: p_1 = p_2$ vs. $H_a: p_1 > p_2$ at $5\%$ level: <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+        $p= \frac{83+53}{93+75} = 0.8095$, $z = \frac{\hat{p}_1 - \hat{p_2}}{\sqrt{\hat{p}(1-\hat{p})({\frac{1}{n_1}+\frac{1}{N_2}})}} =  \frac{(0.8925 - 0.7067)}{0.8095 (1 - 0.8095)(\frac{1}{93} + \frac{1}{75})}$ <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+        $\text{p-value} = P\{z \geq 3.05 \text{ under the } N(0, 1) \text{ distribution}\} = 0.011$
+    + Conclusion: 
+        + Reject $H_0$: $\text{p-value} \leq 0.05$
+        + In the populations represented by these samples, there is evidence to say that a higher proportion of women than men would return the money.
+
 
 + Demo
     ```python
