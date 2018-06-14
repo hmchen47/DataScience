@@ -14,6 +14,21 @@
     + Compare values of sampled individuals in Group A with values of sampled individuals in Group B.
     + Question: Do the two sets of values come from the same underlying distribution?
     + Answering this question by performing a statistical test is called __A/B testing.__
++ Two Population Proportions
+    + Parameters: $p_1 - p_2$
+    + Statistic: $\hat{p}_1 - \hat{p}_2$
+    + Standard Error: $\text{s.e.}(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1 (1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2 (1-\hat{p}_2)}{n_2}}$
+    + Confidence interval: $(\hat{p}_1 - \hat{p}_2) = z^* \text{s.e.}(\hat{p}_1 - \hat{p}_2)$
+    + Large Sample $z$-Test: $z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p}(\frac{1}{n_1} + \frac{1}{n_2}))}}$
+
++ SD Module 2:  Sampling Distributions for the Difference in Two Sample Proprotions
+    + Independent samples
+    + Ways that independent samples can occur:
+        + Random sample are taken separately from _two populations_ and same response variable is recorded for each individual
+        + One random sample is taken and a variable recorded for each individual, but then units are categorized as _belonging to one population or other_ (e.g. M/F)
+        + Participants randomly assigned to one of _two treatment conditions_, same response variable recorded for each unit.
+    + Categorical response variable
+    + Difference between the two population proportion: $p_1 - p_2$
 
 + Demo
     ```python
@@ -22,23 +37,23 @@
 
     import matplotlib.pyplot as plots
     plots.style.use('fivethirtyeight')
-    get_ipython().run_line_magic('matplotlib', 'inline')
+    %matplotlib inline
 
     baby = Table.read_table('baby.csv')
 
     smoking_and_birthweight = baby.select('Maternal Smoker', 'Birth Weight')
 
     smoking_and_birthweight.group('Maternal Smoker')
-    # Maternal Smoker	count
-    #          False	715
-    #          True	    459
+    # Maternal Smoker   count
+    #          False    715
+    #          True     459
 
     smoking_and_birthweight.hist('Birth Weight', group='Maternal Smoker')
 
     means_tbl = smoking_and_birthweight.group('Maternal Smoker', np.average)
-    # Maternal Smoker	Birth Weight average
-    #           False	123.085
-    #           True	113.819
+    # Maternal Smoker   Birth Weight average
+    #           False   123.085
+    #           True    113.819
 
     means = means_tbl.column(1)
     observed_difference = means.item(0) - means.item(1)
@@ -188,7 +203,7 @@ def difference_of_ab_sample_means(table, label, group_label, repetitions):
       
       tbl = table.select(group_label, label)
       
-      differences = ____A____
+      differences = ____A____.
       
       for i in np.arange(repetitions):
             shuffled = tbl.sample(____B____).column(1)
