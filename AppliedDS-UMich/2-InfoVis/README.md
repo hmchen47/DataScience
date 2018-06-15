@@ -48,4 +48,17 @@
 
 
 
+## Module 3: [Charting Fundamentals](./03-ChartFund.md)
+
++ [Module 3 Jupyter Notebook](./03-ChartFund.md#)
++ [Subplots](./03-ChartFund.md#)
++ [Histograms](./03-ChartFund.md#)
++ [Selecting the Number of Bins in a Histogram: A Decision Theoretic (Optional)](./03-ChartFund.md#)
++ [Box Plots](./03-ChartFund.md#)
++ [Heatmaps](./03-ChartFund.md#)
++ [Animation](./03-ChartFund.md#)
++ [Interactivity](./03-ChartFund.md#)
+
+
+
 
