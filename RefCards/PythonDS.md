@@ -217,15 +217,16 @@ import numpy as np
 | `np.random.seed()` | seed the generator | [NumPy][005] |
 | `np.random.permutation(ary)` | Randomly permute a sequence, or return a permuted range. `ary`: multi-dim array | [NumPy][005] |
 | `np.random.shuffle()` | Modify a sequence in-place by shuffling its contents. | [NumPy][005] |
-| `np.random.random_sample(size=None)` | Return random floats in the half-open interval $[0.0, 1.0)$  | [NumPy][005] |
+| `np.random.random_sample(size=None)`, `np.random.random(size=None)` | Return random floats in the half-open interval $[0.0, 1.0)$  | [NumPy][005], [Histograms][038] |
 | `np.random.rand(d0, d1, ..., dn)` | Random values in a given shape from a uniform distribution over $[0, 1)$ | [NumPy][005] |
 | `np.random.randn(d0, d1, ..., dn)` | Return a sample (or samples) from the "standard normal" distribution. | [NumPy][005] |
 | `np.random.randint(low, high)` | Return random integers from `low` (inclusive) to `high` (exclusive). | [NumPy][005] |
 | `np.random.binomial(n, p, size)` | Draw samples from a binomial distribution; `n`: event occurrence; `p`: probability of each event; `size`: times of the set events | [Distribution][021] |
-| `uniform(low=0.0, high=1.0, size=None)` | Draw samples from a uniform distribution, $[low, high)$; `size`: Output shape. | [More Distribution][022] |
-| `normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution; `loc`: mean; `scale`: std dev; `size`: Output shape | [More Distribution][022] |
-| `chisquare(df, size=None)` | Draw samples from a chi-square distribution; `df`: Number of degrees of freedom, should be $> 0$; `size`: Output shape | [More Distribution][022] |
-| `normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution | [Histograms][038] |
+| `np.random.uniform(low=0.0, high=1.0, size=None)` | Draw samples from a uniform distribution, $[low, high)$; `size`: Output shape. | [More Distribution][022] |
+| `np.random.normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution; `loc`: mean; `scale`: std dev; `size`: Output shape | [More Distribution][022], [Histograms][038] |
+| `np.random.chisquare(df, size=None)` | Draw samples from a chi-square distribution; `df`: Number of degrees of freedom, should be $> 0$; `size`: Output shape | [More Distribution][022] |
+| `np.random.gamma(shape, scale=1.0, size=None)` | Draw samples from a Gamma distribution. <br/> Samples are drawn from a Gamma distribution with specified parameters, `shape` (sometimes designated "k") and `scale` (sometimes designated "theta"), where both parameters are > 0. | [Histograms][038] |
+
 
 
 
@@ -358,7 +359,6 @@ import pandas as pd
 
 
 
-
 ### DataFrame
 
 #### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame)
@@ -446,25 +446,25 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `df(data, index=None)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). `data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects; `index`: Index or array-like. Index to use for resulting frame. Will default to np.arange(n); | [DataFrame][008] |
+| `df(data, index=None)` | 2-dim size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). <br/>`data`: numpy ndarray (structured or homogeneous), dict, or DataFrame Dict can contain Series, arrays, constants, or list-like objects; <br/>`index`: Index or array-like. Index to use for resulting frame. Will default to np.arange(n); | [DataFrame][008] |
 | `df.head(n=5)` | Return the first n rows  | [DataFrame][008] |
 | `df.drop(labels=None, axis=0, index=None, columns=None)` | Return new object with labels in requested axis removed. | [DataFrame][008] |
-| `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, `index_col`: int or sequence or False. Column to use as the row labels of the DataFrame, `skiprows`: list-like or integer or callable. Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file | [DF Index & Load][009] |
+| `pd.read_csv(fPathName, index_col=None, skiprows=None)` | Read CSV (comma-separated) file into DataFrame, <br/>`index_col`: int or sequence or False. Column to use as the row labels of the DataFrame, <br/>`skiprows`: list-like or integer or callable. Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file | [DF Index & Load][009] |
 | `df.columns` | Index of column labels | [DF Index & Load][009] |
-| `df.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; `columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, `axis`: int or str. Axis to target with `mapper`, `inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
-| `df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; `cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010]; [Pandas Idioms][016] |
+| `df.rename(columns=None, axis=None, inplace=False)` | Alter axes labels; <br/>`columns`: columns_mapper, e.g., {"A": "a", "C": "c"}, <br/>`axis`: int or str. Axis to target with `mapper`, <br/>`inplace`: boolean. Whether to return a new %(klass)s | [DF Index & Load][009] |
+| `df.where(cond)` | Return an object of same shape as self and whose corresponding entries are from self where `cond` is True and otherwise are from `other`; <br/>`cond`: boolean NDFrame, array-like, or callable. Where `cond` is True, keep the original value. Where False, replace with corresponding value from `other` | [DF Query][010]; [Pandas Idioms][016] |
 | `df.count(axis=0)` | Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None); `axis`: {0 or 'index', 1 or 'columns'}, default 0 or 'index' for row-wise, 1 or 'columns' for column-wise | [DF Query][010] |
-| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; `how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` if all values are NA, drop that label; `thresh`: int, default None; int value require that many non-NA values; `subset` array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; `inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
+| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; <br/>`axis`: {0 or 'index', 1 or 'columns'}, or tuple/list thereof. Pass tuple or list to drop on multiple axes; <br/>`how`: {'any', 'all'}, `any`: if any NA values are present, drop that label; `all` if all values are NA, drop that label; <br/>`thresh`: int, default None; int value require that many non-NA values; <br/>`subset` array-like, Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include; <br/>`inplace`: boolean, default False, f True, do operation inplace and return None. | [DF Query][010] |
 | `df.fillna(value=None, method=None)` | Fill NA/NaN values using the specified method | [Missing Values][014] |
-| `df.merge(right, how='inner', left_on=None, right_on=None, left_index=False, right_index=False)` | Merge DataFrame objects by performing a database-style join operation by columns or indexes. `how`: {'left', 'right', 'outer', 'inner'}; `left_on`/`right_on`: label from left/right; `left_index`/`right_index`: indexes from left/right | [Merge DFs][015] |
+| `df.merge(right, how='inner', left_on=None, right_on=None, left_index=False, right_index=False)` | Merge DataFrame objects by performing a database-style join operation by columns or indexes. <br/>`how`: {'left', 'right', 'outer', 'inner'}; <br/>`left_on`/`right_on`: label from left/right; <br/>`left_index`/`right_index`: indexes from left/right | [Merge DFs][015] |
 | `df.applymap(func)` | Apply a function to a DataFrame that is intended to operate elementwise, all elements | [Pandas Idioms][016] |
-| `df.apply(func, axis=0)` | Applies function along input axis of DataFrame; `axis`: {0 or 'index', 1 or 'columns'} | [Pandas Idioms][016] |
-| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; `axis`: {0 or 'index', 1 or 'columns'}, or tuple/list; `how`: {'any', 'all'}; `subset`: Labels along other axis to consider; | [Group by][017] |
-| `df.groupby(by=None, axis=0, level=None, as_index=True, sort=True)` | Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns; `by`: mapping, function, str, or iterable; `axis`: 0 (row), 1 (col); `level`: if the axis is a MultiIndex (hierarchical), group by a particular level or levels; `as_index`: return object with group labels as the index; `sort`: Sort group keys | [Group by][017] |
-| `df.agg(func, axis=0)` | Aggregate using callable, string, dict, or list of string/callables; `func`: callable, string, dictionary, or list of string/callables | [Group by][017] |
-| `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; `dtype`: data type, or dict of column name -> data type | [Scales][018] |
-| `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
-
+| `df.apply(func, axis=0)` | Applies function along input axis of DataFrame; <br/>`axis`: {0 or 'index', 1 or 'columns'} | [Pandas Idioms][016] |
+| `df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)` | Return object with labels on given axis omitted where alternately any or all of the data are missing; <br/>`axis`: {0 or 'index', 1 or 'columns'}, or tuple/list; `how`: {'any', 'all'}; `subset`: Labels along other axis to consider; | [Group by][017] |
+| `df.groupby(by=None, axis=0, level=None, as_index=True, sort=True)` | Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns; <br/> `by`: mapping, function, str, or iterable; `axis`: 0 (row), 1 (col); `level`: if the axis is a MultiIndex (hierarchical), group by a particular level or levels; `as_index`: return object with group labels as the index; `sort`: Sort group keys | [Group by][017] |
+| `df.agg(func, axis=0)` | Aggregate using callable, string, dict, or list of string/callables; <br/>`func`: callable, string, dictionary, or list of string/callables | [Group by][017] |
+| `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; <br/>`dtype`: data type, or dict of column name -> data type | [Scales][018] |
+| `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; <br/> values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
+| `df.describe(percentiles=None, include=None, exclude=None)` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values. | [Box Plots][039] |
 
 
 [TOC](#table-of-contents)
@@ -483,6 +483,8 @@ import matplotlib as mpl                # load module in CLI
 import matplotlib.pyplot as plt         # load pyplot module
 
 import matplotlib.gridspec as gridspec
+
+import mpl_toolkits.axes_grid1.inset_locator as mpl_il
 ```
 
 ### Classes
@@ -532,7 +534,18 @@ import matplotlib.gridspec as gridspec
 | `set_title(label, fontdict=None, loc='center', **kwargs)` | Set a title for the axes of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
 | `set_xlim(left=None, right=None, emit=True, auto=False, **kw)` | Set the data limits for the x-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
 | `set_ylim(bottom=None, top=None, emit=True, auto=False, **kw)` | Set the data limits for the y-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
-| `invert_axis()` | 
+| `invert_axis()` | Invert the x-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
+| `plt.boxplot(x, *args)` | Make a box and whisker plot <br/> `args`: `notch=None, sym=None, vert=None, whis=None, positions=None, widths=None, patch_artist=None, bootstrap=None, usermedians=None, conf_intervals=None, meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, whiskerprops=None, manage_xticks=True, autorange=False, zorder=None, hold=None, data=None` | [Box Plots][039] |
+| `inset_axes(parent_axes, width, height, *args)`| Create an inset axes with a given width and height of `mpl_toolkits.axes_grid1.inset_locator`.<br/> `args`: loc=1, bbox_to_anchor=None, bbox_transform=None, axes_class=None, axes_kwargs=None, borderpad=0.5 | [Box Plots][039] |
+| `margins(*args, **kw)` | Set or retrieve autoscaling margins | [Box Plots][039] |
+| `tick_right()`, `tick_left()` | use ticks only on right/left of `matplotlib.axis.YAxis` | [Box Plots][039] |
+| `tick_top()`, `tick_bottom()` | use ticks only on top/bottom of `matplotlib.axis.xAxis`  | [Box Plots][039] |
+| `plt.hist2d(x, y, *args, **kwargs)` | Make a 2D histogram plot <br/> `*args`: bins=10, range=None, normed=False, weights=None, cmin=None, cmax=None, hold=None, data=None | [Heatmaps][040] |
+| `plt.colorbar(mappable=None, cax=None, ax=None, **kw)` | Add a colorbar to a plot | [Heatmaps][040] |
+
+
+
+
 
 
 #### Line style or marker
@@ -618,7 +631,8 @@ plt.legend()
 [036]: https://matplotlib.org/api/text_api.html
 [037]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
 [038]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
-
+[039]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
+[040]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
 
 
 

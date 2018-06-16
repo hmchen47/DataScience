@@ -130,6 +130,22 @@
     + Returns: <br/>
         out (ndarray or scalar): Drawn samples from the parameterized normal distribution.
 
++ `np.random.gamma` method
+    + Signature: `np.random.gamma(shape, scale=1.0, size=None)`
+    + Docstring: Draw samples from a Gamma distribution. <br/>
+        Samples are drawn from a Gamma distribution with specified parameters, `shape` (sometimes designated "k") and `scale` (sometimes designated "theta"), where both parameters are > 0.
+    + Parameters
+        + `shape` (float or array_like of floats): The shape of the gamma distribution. Should be greater than zero.
+        + `scale` (float or array_like of floats): The scale of the gamma distribution. Should be greater than zero.
+        + `size` (int or tuple of ints): Output shape.  
+            + If the given shape is, e.g., `(m, n, k)`, then `m * n * k` samples are drawn.  
+            + If size is `None` (default), a single value is returned if `shape` and `scale` are both scalars.
+            + Otherwise, `np.broadcast(shape, scale).size` samples are drawn.
+    + Returns: 
+        + `out` (ndarray or scalar): Drawn samples from the parameterized gamma distribution.
+
+    
+
 + `plt.hist` method:
     + Signature: `plt.hist(x, bins=None, range=None, normed=False, weights=None, cumulative=False, bottom=None, histtype='bar', align='mid', orientation='vertical', rwidth=None, log=False, color=None, label=None, stacked=False, hold=None, data=None, **kwargs)`
     + Docstring: Plot a histogram
@@ -581,8 +597,75 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
 
 ## Heatmaps
 
++ `plt.hist2d` method
+    + Signature: `plt.hist2d(x, y, bins=10, range=None, normed=False, weights=None, cmin=None, cmax=None, hold=None, data=None, **kwargs)`
+    + Docstring: Make a 2D histogram plot.
+    + Parameters
+        + `x`, `y` (array_like, shape (n, )): Input values
+        + `bins` ([None | int | [int, int] | array_like | [array, array]]): 
+            + `int`: the number of bins for the two dimensions ($nx=ny=bins$).
+            + `[int, int]`: the number of bins in each dimension ($nx, ny = bins$).
+            + `array_like`: the bin edges for the two dimensions ($x_edges=y_edges=bins$).
+            + `[array, array]`: the bin edges in each dimension ($x_edges, y_edges = bins$).
+            + default: 10
+        + `range` (array_like shape(2, 2)): 
+            + The leftmost and rightmost edges of the bins along each dimension (if not specified explicitly in the bins parameters): `[[xmin, xmax], [ymin, ymax]]`. 
+            + All values outside of this range will be considered outliers and not tallied in the histogram.
+        + `normed` (boolean): Normalize histogram.
+        + `weights` (array_like, shape (n, )): An array of values w_i weighing each sample (x_i, y_i).
+        + `cmin` (scalar): All bins that has count less than cmin will not be displayed and these count values in the return value count histogram will also be set to nan upon return
+        + `cmax` (scalar): All bins that has count more than cmax will not be displayed (set to none before passing to imshow) and these count values in the return value count histogram will also be set to nan upon return
+        + `cmap`: {Colormap, string}; A `matplotlib.colors.Colormap` instance.  If not set, use rc settings.
+        + `norm`: Normalize; A :class:`matplotlib.colors.Normalize` instance is used to
+        scale luminance data to `[0, 1]`. If not set, defaults to `Normalize()`.
+        + `vmin`/`vmax` {None, scalar}: Arguments passed to the `Normalize` instance.
+        + `alpha` ($0 <= scalar <= 1$ or `None`): The alpha blending value.
+    + Returns: `(counts, xedges, yedges, Image)` 
 
-<a href="url" alt="text" target="_blank">
++ `plt.colorbar` method
+    + Signature: `plt.colorbar(mappable=None, cax=None, ax=None, **kw)`
+    + Docstring: Add a colorbar to a plot.
+    + Parametres:
+        + `mappable`: the `~matplotlib.image.Image`,`~matplotlib.contour.ContourSet`, etc. to which the colorbar applies; this argument is mandatory for the `~matplotlib.figure.Figure.colorbar` method but optional for the `~matplotlib.pyplot.colorbar` function, which sets the default to the current image.
+        + `cax`: axes object into which the colorbar will be drawn
+        + `ax`: parent axes object(s) from which space for a new colorbar axes will be stolen. If a list of axes is given they will all be resized to make room for the colorbar axes.
+        + `use_gridspec`: 
+            + `cax` = None: a new `cax` is created as an instance of Axes. 
+            + `ax` is an instance of Subplot and `use_gridspec`= True: `cax` is created as an instance of Subplot using the grid_spec module.
+    + Axes Properties: 
+        + `orientation`: vertical or horizontal
+        + `fraction`: 0.15; fraction of original axes to use for colorbar
+        + `pad`: 0.05 if vertical, 0.15 if horizontal; fraction of original axes between colorbar and new image axes
+        + `shrink`: 1.0; fraction by which to shrink the colorbar
+        + `aspect`: 20; ratio of long to short dimensions
+        + `anchor`: (0.0, 0.5) if vertical; (0.5, 1.0) if horizontal; the anchor point of the colorbar axes
+        + `panchor`: (1.0, 0.5) if vertical; (0.5, 0.0) if horizontal; the anchor point of the colorbar parent axes. If False, the parent axes' anchor will be unchanged
+    + colorbar Properties:
+        + `extend`      [ 'neither' | 'both' | 'min' | 'max']: 
+        + `extendfrac`  [ None | 'auto' | length | lengths ]
+        + `extendrect`  [ False | True ]
+        + `spacing`     [ 'uniform' | 'proportional' ]
+        + `ticks`       [ None | list of ticks | Locator object ]
+        + `format`      [ None | format string | Formatter object ]
+        + `drawedges`   [ False | True ] 
+
+
++ Demo
+    ```python
+    plt.figure()
+
+    Y = np.random.normal(loc=0.0, scale=1.0, size=10000)
+    X = np.random.random(size=10000)
+    _ = plt.hist2d(X, Y, bins=25)
+
+    plt.figure()
+    _ = plt.hist2d(X, Y, bins=100)
+
+    # add a colorbar legend
+    plt.colorbar()
+    ```
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/Opdlk_0gEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1529280000&Signature=laoJZ4o8OB6YrDuNQ5OML60vOlkdJylh8KuBUoBeCIoGkSczIIX204JoS93vLfE1OHNYx~eiCa51UmBpi3AXl~rZBoabBUNTLk9VUvAOI~zEmdr4G-lIb7iy5cvBVv8we55DQmh8ftpmnpvWhijHUSPlKfqS61igb3GDEHNcXfU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Heatmaps" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
