@@ -10,8 +10,8 @@
 
 + [Getting creative on practice assignment](https://www.coursera.org/learn/python-plotting/discussions/weeks/3/threads/A6ntUGUBEeeA2A7nkPb23A)
 
-I misunderstood the practice assignment in the beginning, but decided to go through the track to just see how far i can go. Here is the result: you can choose which two distributions and their means from left and right top charts, and the script will calculate overlap in density area.
-<br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/8TrXd2UAEeeoWApy3rtT5g_db46550906cb66a4354c3252399e1f62_Screen-Shot-2017-07-09-at-4.47.03-PM.png?expiry=1529280000000&hmac=fJLn-F0-w4VWixrH3BIbNvXcMqrer4zUV7Rqk-9edtA" alt="text" width="450">
+    I misunderstood the practice assignment in the beginning, but decided to go through the track to just see how far i can go. Here is the result: you can choose which two distributions and their means from left and right top charts, and the script will calculate overlap in density area.
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/8TrXd2UAEeeoWApy3rtT5g_db46550906cb66a4354c3252399e1f62_Screen-Shot-2017-07-09-at-4.47.03-PM.png?expiry=1529280000000&hmac=fJLn-F0-w4VWixrH3BIbNvXcMqrer4zUV7Rqk-9edtA" alt="text" width="450">
 
 ## Practice Peer-graded Assignment: Practice Assignment: Understanding Distributions Through Sampling
 
@@ -71,9 +71,9 @@ plt.text(x4.mean()-1.5, 0.5, 'x4\nUniform')
 + [Web Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=x_a6Zl0sSvS2umZdLBr0bA&next=%2Fnotebooks%2FAssignment3.ipynb)
 + [Local Notebook](./notebooks/Assignment04.ipynb)
 
-## ReadingAssignment Reading
+## Assignment Reading
 
-Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented task-driven visualizations: allowing users to make better, more confident decisions](https://drive.google.com/file/d/0B7Tj31nhk4BAeFJ1Y1lwQmpMQVk/view. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 571-580). ACM
+Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented task-driven visualizations: allowing users to make better, more confident decisions](https://drive.google.com/file/d/0B7Tj31nhk4BAeFJ1Y1lwQmpMQVk/view). In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 571-580). ACM
 
 The authors have provided a related video which may be of further value in explaining the research.
 
@@ -81,15 +81,13 @@ The authors have provided a related video which may be of further value in expla
 
 In this assignment you must choose one of the options presented below and submit a visual as well as your source code for peer grading. The details of how you solve the assignment are up to you, although your assignment must use matplotlib so that your peers can evaluate your work. The options differ in challenge level, but there are no grades associated with the challenge level you chose. However, your peers will be asked to ensure you at least met a minimum quality for a given technique in order to pass. Implement the technique fully (or exceed it!) and you should be able to earn full grades for the assignment.
 
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented task-driven visualizations: allowing users to make better, more confident decisions.](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf) 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 571-580). ACM. ([video](https://www.youtube.com/watch?v=BI7GAs-va-Q))
-
 
 In this [paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf) the authors describe the challenges users face when trying to make judgements about probabilistic data generated through samples. As an example, they look at a bar chart of four years of data (replicated below in Figure 1). Each year has a y-axis value, which is derived from a sample of a larger dataset. For instance, the first value might be the number votes in a given district or riding for 1992, with the average being around 33,000. On top of this is plotted the 95% confidence interval for the mean (see the boxplot lectures for more information, and the yerr parameter of barcharts).
 
 <br>
-<img src="readonly/Assignment3Fig1.png" alt="Figure 1" style="width: 400px;"/>
+<img src="https://hub.coursera-notebooks.org/user/pkfpwscjcemdtitwkaxuvv/notebooks/readonly/Assignment3Fig1.png" alt="Figure 1" style="width: 400px;"/>
 <h4 style="text-align: center;" markdown="1">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Figure 1 from (Ferreira et al, 2014).</h4>
 
 <br>
@@ -98,7 +96,7 @@ A challenge that users face is that, for a given y-axis value (e.g. 42,000), it 
 
 
 <br>
-<img src="readonly/Assignment3Fig2c.png" alt="Figure 1" style="width: 400px;"/>
+<img src="https://hub.coursera-notebooks.org/user/pkfpwscjcemdtitwkaxuvv/notebooks/readonly/Assignment3Fig2c.png" alt="Figure 1" style="width: 400px;"/>
 <h4 style="text-align: center;" markdown="1">  Figure 2c from (Ferreira et al. 2014). Note that the colorbar legend at the bottom as well as the arrows are not required in the assignment descriptions below.</h4>
 
 <br>
@@ -197,10 +195,6 @@ Note: for the remaining two options, you will need to run the code that the lear
 
     <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/XSEqPDFiEeeVOwrGEP_klA_830e98303b25993852b000a2f9258862_Screen-Shot-2017-05-05-at-08.13.23.png?expiry=1529280000000&hmac=1W2nxBL72moc4s8veMT66Jwarti-ynb4EkepPg4RBVM" alt="text" width="450">
     <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/3x3WVTFiEeeuNhKwhdsJZA_2144f62f898228e3868fa0b8dc1d7715_Screen-Shot-2017-05-05-at-08.16.45.png?expiry=1529280000000&hmac=5d88tGuP1MMm0A6rLjtF_55yhiT8yESIAC7rcKZQ224" alt="text" width="450">
-    <br/><img src="url" alt="text" width="450">
-    <br/><img src="url" alt="text" width="450">
-    <br/><img src="url" alt="text" width="450">
-
 
 
 + [How to open learner's source code through Jupyter Notebook on Coursera platform?](https://www.coursera.org/learn/python-plotting/discussions/weeks/3/threads/ihlirjvdEeewQg63RcQI7A)
@@ -339,8 +333,6 @@ Note: for the remaining two options, you will need to run the code that the lear
 
     `plt.bar` will take the year (parameter `left`), the mean (parameter `height`) and the margin of error (parameter yerr) for each row and draw a bar with `height =mean`, and `confidence interval = [mean-margin of error , mean+margin of error]`
 
-
-<br/><img src="url" alt="text" width="300">
 
 
 
