@@ -485,6 +485,8 @@ import matplotlib.pyplot as plt         # load pyplot module
 import matplotlib.gridspec as gridspec
 
 import mpl_toolkits.axes_grid1.inset_locator as mpl_il
+
+import matplotlib.animation as animation
 ```
 
 ### Classes
@@ -542,7 +544,9 @@ import mpl_toolkits.axes_grid1.inset_locator as mpl_il
 | `tick_top()`, `tick_bottom()` | use ticks only on top/bottom of `matplotlib.axis.xAxis`  | [Box Plots][039] |
 | `plt.hist2d(x, y, *args, **kwargs)` | Make a 2D histogram plot <br/> `*args`: bins=10, range=None, normed=False, weights=None, cmin=None, cmax=None, hold=None, data=None | [Heatmaps][040] |
 | `plt.colorbar(mappable=None, cax=None, ax=None, **kw)` | Add a colorbar to a plot | [Heatmaps][040] |
-
+| `plt.cla()` | Clear the current axes | [Animation][041] |
+| `annotate(s, xy, *args, **kwargs)` | Annotate the point `xy` with text `s`<br/> `args`: xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None | [Animation][041] |
+| `animation.FuncAnimation(fig, func, *args)` | Makes an animation by repeatedly calling a function `func` <br/> `args`: frames=None, init_func=None, fargs=None, save_count=0, interval=200, repeat_delay=None, repeat=True, blit=False | [Animation][041] |
 
 
 
@@ -633,6 +637,6 @@ plt.legend()
 [038]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
 [039]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
 [040]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
-
+[041]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
 
 

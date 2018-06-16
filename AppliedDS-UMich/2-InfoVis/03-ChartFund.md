@@ -671,8 +671,118 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
 
 ## Animation
 
++ `plt.cla` method:
+    + Signature: `plt.cla()`
+    + Doccstring: Clear the current axes.
 
-<a href="url" alt="text" target="_blank">
++ `plt.annotate` method
+    + Signature: `plt.annotate(s, xy, xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None, **kwargs)`
+    + Docstring: Annotate the point `xy` with text `s`.
+    + Parameters:
+        + `s` (str): The text of the annotation
+        + `xy` (iterable): Length 2 sequence specifying the *(x,y)* point to annotate
+        + `xytext` (iterable): Length 2 sequence specifying the *(x,y)* to place the text at.  If None, defaults to ``xy``.
+        + `xycoords` (str, Artist, Transform, callable or tuple): 
+            + `str`: 
+                + 'figure points': points from the lower left of the figure
+                + 'figure pixels': pixels from the lower left of the figure
+                + 'figure fraction': fraction of figure from lower left
+                + 'axes points': points from lower left corner of axes
+                + 'axes pixels': pixels from lower left corner of axes
+                + 'axes fraction': fraction of axes from lower left
+                + 'data': use the coordinate system of the object being annotated (default)
+                + 'polar': `(theta,r)` if not native 'data' coordinates
+            + If a `~matplotlib.artist.Artist` object is passed in the units are fraction if it's bounding box.
+            + If a `~matplotlib.transforms.Transform` object is passed in use that to transform ``xy`` to screen coordinates
+            + If a callable it must take a `~matplotlib.backend_bases.RendererBase` object as input and return a `~matplotlib.transforms.Transform` or `~matplotlib.transforms.Bbox` object
+            + If a `tuple` must be length 2 tuple of str, `Artist`, `Transform` or callable objects.  The first transform is used for the *x* coordinate and the second for *y*.
+        + `textcoords` (str, `Artist`, `Transform`, callable or tuple): The coordinate system that `xytext` is given, which may be different than the coordinate system used for `xy`.
+            + 'offset points': offset (in points) from the *xy* value
+            + 'offset pixels': offset (in pixels) from the *xy* value
+        + `arrowprops` (dict): If not None, properties used to draw a `~matplotlib.patches.FancyArrowPatch` arrow between `xy` and `xytext`.
+            + width: the width of the arrow in points
+            + headwidth: the width of the base of the arrow head in points
+            + headlength: the length of the arrow head in points
+            + shrink: fraction of total length to 'shrink' from both ends
+            + ?: any key to :class:`matplotlib.patches.FancyArrowPatch`
+            + `'arrowstyle'`:
+                + `'-'`: None
+                + `'->'`: head_length=0.4,head_width=0.2
+                + `'-['`: widthB=1.0,lengthB=0.2,angleB=None
+                + `'|-|'`: widthA=1.0,widthB=1.0
+                + `'-|>'`: head_length=0.4,head_width=0.2
+                + `'<-'`: head_length=0.4,head_width=0.2
+                + `'<->'`: head_length=0.4,head_width=0.2
+                + `'<|-'`: head_length=0.4,head_width=0.2
+                + `'<|-|>'`: head_length=0.4,head_width=0.2
+                + `'fancy'`: head_length=0.4,head_width=0.4,tail_width=0.4
+                + `'simple'`: head_length=0.5,head_width=0.5,tail_width=0.2
+                + `'wedge'`: tail_width=0.3,shrink_factor=0.5
+            + keys for `~matplotlib.patches.FancyArrowPatch` are:
+                + arrowstyle: the arrow style
+                + connectionstyle: the connection style
+                + relpos: default is (0.5, 0.5)
+                + patchA: default is bounding box of the text
+                + patchB: default is None
+                + shrinkA: default is 2 points
+                + shrinkB: default is 2 points
+                + mutation_scale: default is text size (in points)
+                + mutation_aspect: default is 1.
+                + ?: any key for :class:`matplotlib.patches.PathPatch`
+        + `annotation_clip` (bool): Controls the visibility of the annotation when it goes outside the axes area.
+            + `True`: the annotation will only be drawn when the ``xy`` is inside the axes. 
+            + `False`:  the annotation will always be drawn regardless of its position.
+            + `None` (default): behave as `True` only if `xycoords` is "data".
+    + Returns: Annotation
+
++ `FuncAnimation(TimedAnimation)` Class
+    + Signature: `animation.FuncAnimation(fig, func, frames=None, init_func=None, fargs=None, save_count=0, interval=200, repeat_delay=None, repeat=True, blit=False)`
+    + Docstring: Makes an animation by repeatedly calling a function `func`
+    + Parameters
+        + `fig` (matplotlib.figure.Figure): The figure object that is used to get draw, resize, and any other needed events.
+        + `func` (callable):  The function to call at each frame.  The first argument will be the next value in `frames`.   Any additional positional arguments can be supplied via the `fargs` parameter.
+        + `frames` (iterable, int, generator function, or None): Source of data to pass `func` and each frame of the animation
+            + If an iterable, then simply use the values provided.  If the iterable has a length, it will override the `save_count` kwarg.
+            + If an integer, equivalent to passing `range(frames)`
+            + If a generator function, then must have the signature  `def gen_function() -> obj:`
+            + In all of these cases, the values in `frames` is simply passed through to the user-supplied `func` and thus can be of any type.
+            + `None`: equivalent to passing `itertools.count`.
+        + `init_func` (callable):  A function used to draw a clear frame. 
+            + If not given, the results of drawing from the first item in the frames sequence will be used. This function will be called once before the first frame.
+            + If blit=True, ``init_func`` must return an iterable of artists to be re-drawn.
+        + `fargs` (tuple or None): Additional arguments to pass to each call to `func`
+        + `save_count` (int): The number of values from `frames` to cache.
+        + `interval` (number): Delay between frames in milliseconds.
+        + `repeat_delay` (number):  If the animation in repeated, adds a delay in milliseconds before repeating the animation.
+        + `repeat` (bool): Controls whether the animation should repeat when the sequence of frames is completed.
+        + `blit` (bool): Controls whether blitting is used to optimize drawing.  
+
++ Demo
+    ```python
+    import matplotlib.animation as animation
+
+    n = 100
+    x = np.random.randn(n)
+
+    # create the function that will do the plotting, where curr is the current frame
+    def update(curr):
+        # check if animation is at the last frame, and if so, stop the animation a
+        if curr == n: 
+            a.event_source.stop()
+        plt.cla()
+        bins = np.arange(-4, 4, 0.5)
+        plt.hist(x[:curr], bins=bins)
+        plt.axis([-4,4,0,30])
+        plt.gca().set_title('Sampling the Normal Distribution')
+        plt.gca().set_ylabel('Frequency')
+        plt.gca().set_xlabel('Value')
+        plt.annotate('n = {}'.format(curr), [3,27])
+
+    fig = plt.figure()
+    a = animation.FuncAnimation(fig, update, interval=100)
+    ```
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/d1tGBf0gEearIRLZY_MkaA.processed/full/360p/index.mp4?Expires=1529280000&Signature=T1Bh9qH5yrxq19J-Nit1QzuPimVwS2szgy26XWmtqV0I55Urt7fsZVwIisr77~pEvpwHK344YRkZuuL1nHII1vQkYQZjf2zXHfaL4uza2rMtyZuPgozJU5fXbqpcubuE4PuVfMnTNCIooinTKkYLSoDGNh35gxGDt7CX6WppkdQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Animation" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
