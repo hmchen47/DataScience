@@ -370,10 +370,7 @@
 
 ## Selecting the Number of Bins in a Histogram: A Decision Theoretic (Optional)
 
-
-<a href="url" alt="text" target="_blank">
-  <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](http://users.stat.umn.edu/~gmeeden/papers/hist.pdf). Journal of Statistical Planning and inference, 61(1), 49-59.
 
 ## Box Plots
 
