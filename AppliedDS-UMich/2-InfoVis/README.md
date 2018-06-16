@@ -59,6 +59,12 @@
 + [Animation](./03-ChartFund.md#)
 + [Interactivity](./03-ChartFund.md#)
 
+## Assignment 3
 
++ [Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#)
++ [Building a Custom Visualization](./asgn03.md#)
++ [ReadingAssignment Reading](./asgn03.md#)
++ [Peer-graded Assignment: Building a Custom Visualization](./asgn03.md#)
++ [Review Your Peers: Building a Custom Visualization](./asgn03.md#)
 
 
