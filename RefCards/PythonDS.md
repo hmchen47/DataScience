@@ -225,6 +225,7 @@ import numpy as np
 | `uniform(low=0.0, high=1.0, size=None)` | Draw samples from a uniform distribution, $[low, high)$; `size`: Output shape. | [More Distribution][022] |
 | `normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution; `loc`: mean; `scale`: std dev; `size`: Output shape | [More Distribution][022] |
 | `chisquare(df, size=None)` | Draw samples from a chi-square distribution; `df`: Number of degrees of freedom, should be $> 0$; `size`: Output shape | [More Distribution][022] |
+| `normal(loc=0.0, scale=1.0, size=None)` | Draw random samples from a normal (Gaussian) distribution | [Histograms][038] |
 
 
 
@@ -475,11 +476,13 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 ### Environment and Module
 
 ```python
-%matplotlib notebook                # provides an interactive environment in Jupyter and IPuthon
+%matplotlib notebook                    # provides an interactive environment in Jupyter and IPuthon
 
-import matplotlib as mpl            # load module in CLI
+import matplotlib as mpl                # load module in CLI
 
-import matplotlib.pyplot as plt     # load pyplot module
+import matplotlib.pyplot as plt         # load pyplot module
+
+import matplotlib.gridspec as gridspec
 ```
 
 ### Classes
@@ -488,6 +491,7 @@ import matplotlib.pyplot as plt     # load pyplot module
 |--------|-------------|------|
 | `mpl.axes.Axes` | contain most of the figure elements: Axis, Tick, Line2D, Text, Polygon, etc., and sets the coordinate system. | [Axes][030] |
 | `plt.gca().xaxis` & `plt.gca().yaxis` | xaxis = class XAxis(Axis), yaxis = class YAxis(Axis) | [Line Plots][027] |
+| `gridspec.GridSpec` | specifies the geometry of the grid that a subplot will be placed | [Histograms][038] |
 
 ### Official Docs
 
@@ -510,7 +514,7 @@ import matplotlib.pyplot as plt     # load pyplot module
 | `mpl.figure.Figure(*args)` | The Figure instance supports callbacks through a _callbacks_ attribute which is a `matplotlib.cbook.CallbackRegistry` class instance; `args`: figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None  | [Basic Plotting][025] |
 | `mpl.backends.backend_agg. FigureCanvasAgg(figure)` | The canvas the figure renders into | [Basic Plotting][025] |
 | `fig.add_subplot(*args, **kwargs)` | Add a subplot; <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
-| `subplots(nrows=1, ncols=1, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)` | Create a figure and a set of subplots <br/> Returns: <br/> + `fig` : `matplotlib.figure.Figure` object <br/> + `ax` (Axes object or array of Axes objects): ax can be either a single `matplotlib.axes.Axes` object or an array of Axes objects if more than one subplot was created. | [Subplots][037] |
+| `subplots(nrows=1, ncols=1, *args, **fig_kw)` | Create a figure and a set of subplots <br/> `*args`: `sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None` <br/> Returns: <br/> + `fig` : `matplotlib.figure.Figure` object <br/> + `ax` (Axes object or array of Axes objects): ax can be either a single `matplotlib.axes.Axes` object or an array of Axes objects if more than one subplot was created. | [Subplots][037] |
 | `plt.figure(*args, **kwargs)` | Creates a new figure; `args`: figsize=None, dpi=None, facecolor=None, edgecolor=None, linewidth=0.0, frameon=None, subplotpars=None, tight_layout=None | [Basic Plotting][025]; [Subplots][037] |
 | `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
 | `plt.gca().axis(*v, **kwargs)` <br/> `plt.gca().axes(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
@@ -519,10 +523,16 @@ import matplotlib.pyplot as plt     # load pyplot module
 | `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
 | `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
 | `plt.fill_between(x, y1, y2=0, **kwargs)` | Make filled polygons between two curves; <br/> `kwargs`: where=None, interpolate=False, step=None, *, data=None | [Line Plots][027] |
-|  `bar(left, height, **kwargs)` <br/>
- `barh(left, height, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) <br/> `kwargs`: width=0.8, bottom=None, hold=None, data=None,  | [Bar Charts][028] |
+| `plt.bar(left, height, **kwargs)` <br/>
+ `plt.barh(left, height, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) <br/> `kwargs`: width=0.8, bottom=None, hold=None, data=None,  | [Bar Charts][028] |
 | `plt.tick_params(axis='both', **kwargs)` | Change the appearance of ticks and tick labels | [Dejunkify][029] |
 | `plt.gcf()` | Get a reference to the current figure. | [Subplots][037] |
+| `plt.hist(x, *args, **kwargs)` | Plot a histogram <br/> `*args`: `bins=None, range=None, normed=False, weights=None, cumulative=False, bottom=None, histtype='bar', align='mid', orientation='vertical', rwidth=None, log=False, color=None, label=None, stacked=False, hold=None, data=None` | [Histograms][038] |
+| `plt.scatter(x, y, *args, **kwargs)` | Make a scatter plot of `x` vs `y` <br/> `*args`: `s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None` | [Histograms][038] |
+| `set_title(label, fontdict=None, loc='center', **kwargs)` | Set a title for the axes of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
+| `set_xlim(left=None, right=None, emit=True, auto=False, **kw)` | Set the data limits for the x-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
+| `set_ylim(bottom=None, top=None, emit=True, auto=False, **kw)` | Set the data limits for the y-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
+| `invert_axis()` | 
 
 
 #### Line style or marker
@@ -607,6 +617,7 @@ plt.legend()
 [035]: https://matplotlib.org/api/_as_gen/matplotlib.figure.SubplotParams.html
 [036]: https://matplotlib.org/api/text_api.html
 [037]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
+[038]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
 
 
 
