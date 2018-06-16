@@ -788,7 +788,66 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
 
 ## Interactivity
 
++ `mpl_connect` method of `matplotlib.backends.backend_nbagg.FigureCanvasNbAgg`
+    + Signature: `mpl_connect(s, func)`
+    + Docstring: Connect event with string `s` to `func`.  The signature of `func` is `def func(event)` where event is a `matplotlib.backend_bases.Event` instance
+    + Events:
+        + 'button_press_event'
+        + 'button_release_event'
+        + 'draw_event'
+        + 'key_press_event'
+        + 'key_release_event'
+        + 'motion_notify_event'
+        + 'pick_event'
+        + 'resize_event'
+        + 'scroll_event'
+        + 'figure_enter_event',
+        + 'figure_leave_event',
+        + 'axes_enter_event',
+        + 'axes_leave_event'
+        + 'close_event'
 
-<a href="url" alt="text" target="_blank">
+
++ Demo
+    ```python
+    plt.figure()
+    data = np.random.rand(10)
+    plt.plot(data)
+
+    def onclick(event):
+        plt.cla()
+        plt.plot(data)
+        plt.gca().set_title('Event at pixels {},{} \nand data {},{}'.format(event.x, event.y, event.xdata, event.ydata))
+
+    # tell mpl_connect we want to pass a 'button_press_event' into onclick when the event is detected
+    plt.gcf().canvas.mpl_connect('button_press_event', onclick)
+
+    from random import shuffle
+    origins = ['China', 'Brazil', 'India', 'USA', 'Canada', 'UK', 'Germany', 'Iraq', 'Chile', 'Mexico']
+
+    shuffle(origins)
+
+    df = pd.DataFrame({'height': np.random.rand(10),
+                    'weight': np.random.rand(10),
+                    'origin': origins})
+
+    plt.figure()
+    # picker=5 means the mouse doesn't have to click directly on an event, but can be up to 5 pixels away
+    plt.scatter(df['height'], df['weight'], picker=5)
+    plt.gca().set_ylabel('Weight')
+    plt.gca().set_xlabel('Height')
+
+    def onpick(event):
+        origin = df.iloc[event.ind[0]]['origin']
+        plt.gca().set_title('Selected item came from {}'.format(origin))
+
+    # tell mpl_connect we want to pass a 'pick_event' into onpick when the event is detected
+    plt.gcf().canvas.mpl_connect('pick_event', onpick)
+    ```
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/nB-oRv0gEeaREQ7irMqVoA.processed/full/360p/index.mp4?Expires=1529280000&Signature=QZcwu9XLk4AUGE8kxRYIT8J7b0XLNxLgN9JG4XjBo2e6dmqK~xynnnnp~~qYXugIRnJoI5LIuOk-z-yz7swKNQz71LeNCbznIRBxfNyvgBYNCqSAH~Ma6jPM9PbnFYxMWcOAPr1IgSE02PtJZzxQAW3kEgslaJ7xngzOv-uGrAA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Interactivity" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
+
+
+

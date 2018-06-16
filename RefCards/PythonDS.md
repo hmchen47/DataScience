@@ -547,7 +547,7 @@ import matplotlib.animation as animation
 | `plt.cla()` | Clear the current axes | [Animation][041] |
 | `annotate(s, xy, *args, **kwargs)` | Annotate the point `xy` with text `s`<br/> `args`: xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None | [Animation][041] |
 | `animation.FuncAnimation(fig, func, *args)` | Makes an animation by repeatedly calling a function `func` <br/> `args`: frames=None, init_func=None, fargs=None, save_count=0, interval=200, repeat_delay=None, repeat=True, blit=False | [Animation][041] |
-
+| `mpl_connect(s, func)` | Connect event with string `s` to `func`.  The signature of `func` is `def func(event)` where event is a `matplotlib.backend_bases.Event` instance | [Interactivity][042] |
 
 
 
@@ -638,5 +638,5 @@ plt.legend()
 [039]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
 [040]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
 [041]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
-
+[042]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#interactivity
 
