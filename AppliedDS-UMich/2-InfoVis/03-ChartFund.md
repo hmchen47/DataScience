@@ -374,8 +374,208 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
 
 ## Box Plots
 
++ `pd.describe` method of `pandas.core.frame.DataFrame`
+    + Signature: `describe(percentiles=None, include=None, exclude=None)`
+    + Docstring: Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values.
+    + Parameters
+        + `percentiles` (list-like of numbers): The percentiles to include in the output. All should fall between 0 and 1. The default is `[.25, .5, .75]`, which returns the 25th, 50th, and 75th percentiles.
+        + `include` ('all', list-like of dtypes or None): A white list of data types to include in the result. Ignored  for `Series`. Here are the options:
+            + 'all': All columns of the input will be included in the output.
+            + A list-like of dtypes : Limits the results to the provided data types. To limit the result to numeric types submit `numpy.number`. To limit it instead to categorical objects submit the `numpy.object` data type. Strings can also be used in the style of `select_dtypes` (e.g. `df.describe(include=['O'])`)
+            + None (default): The result will include all numeric columns.
+        + `exclude` (list-like of dtypes or None): A black list of data types to omit from the result. Ignored for `Series`. Here are the options:
+            + A list-like of dtypes: Excludes the provided data types from the result. To select numeric types submit `numpy.number`. To select categorical objects submit the data type `numpy.object`. Strings can also be used in the style of `select_dtypes` (e.g. `df.describe(include=['O'])`)
+        + None (default): The result will exclude nothing.
+    + Returns
+        + `summary`:  Series/DataFrame of summary statistics
 
-<a href="url" alt="text" target="_blank">
++ `plt.boxplot` method
+    + Signature: `boxplot(x, notch=None, sym=None, vert=None, whis=None, positions=None, widths=None, patch_artist=None, bootstrap=None, usermedians=None, conf_intervals=None, meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, whiskerprops=None, manage_xticks=True, autorange=False, zorder=None, hold=None, data=None)`
+    + Docstring: Make a box and whisker plot. <br/>
+        Make a box and whisker plot for each column of `x` or each vector in sequence `x`.  The box extends from the lower to upper quartile values of the data, with a line at the median. The whiskers extend from the box to show the range of the data.  Flier points are those past the end of the whiskers.
+    + Parameters
+        + `x` (Array or a sequence of vectors): The input data.
+        + `notch` (bool): 
+            + `True`: notched box plot produced
+            + `False`: a rectangular boxplot is produced. The notches represent the confidence interval (CI) around the median. 
+        + `sym` (str): 
+            + The default symbol for flier points. 
+            + Enter an empty string ('') if no fliers
+            + `None`: the fliers default to 'b+' 
+            + flierprops `kwarg`: more control
+        + `vert` (bool): 
+            + `True`: makes the boxes vertical
+            + `False`: everything is drawn horizontally.
+        + `whis` (float, sequence, or string) (default = 1.5):  determine the reach of the whiskers to the beyond the first and third quartiles. 
+        + `bootstrap` (int): Specifies whether to bootstrap the confidence intervals around the median for notched boxplots.
+        + `usermedians` (array-like):  An array or sequence whose first dimension (or length) is compatible with `x`.
+        + `conf_intervals` (array-like): Array or sequence whose first dimension (or length) is compatible with `x` and whose second dimension is 2. 
+        + `positions` (array-like): Sets the positions of the boxes. Defaults to
+        `range(1, N+1)` where N is the number of boxes to be drawn.
+        + `widths` (scalar or array-like): Sets the width of each box either with a scalar or a sequence. The default is 0.5, or $0.15*(distance between
+        extreme positions)$, if that is smaller.
+        + `patch_artist` (bool): If `False` produces boxes with the Line2D artist. Otherwise, boxes and drawn with Patch artists.
+        + `labels` (sequence): Labels for each dataset.
+        + `manage_xticks` (bool): If the function should adjust the xlim and xtick locations.
+        + `autorange` (bool): When `True` and the data are distributed such that the  25th and  75th percentiles are equal, `whis` is set to `'range'` such that the whisker ends are at the minimum and maximum of the data.
+        + `meanline` (bool): If `True` (and ``showmeans`` is `True`), will try to render the mean as a line spanning the full width of the box according to `meanprops`.
+        + `zorder` (scalar): Sets the zorder of the boxplot.
+        + `showcaps` (bool): Show the caps on the ends of whiskers.
+        + `showbox` (bool): Show the central box.
+        + `showfliers` (bool): Show the outliers beyond the caps.
+        + `showmeans` (bool): Show the arithmetic means.
+        + `capprops` (dict):  Specifies the style of the caps.
+        + `boxprops` (dict):  Specifies the style of the box.
+        + `whiskerprops` (dict):  Specifies the style of the whiskers.
+        + `flierprops` (dict):  Specifies the style of the fliers.
+        + `medianprops` (dict):  Specifies the style of the median.
+        + `meanprops` (dict):  Specifies the style of the mean.
+    + Returns
+        + `result` (dict):  A dictionary mapping each component of the boxplot to a list of the :class:`matplotlib.lines.Line2D` instances created. That dictionary has the following keys (assuming vertical boxplots):
+            + `boxes`: the main body of the boxplot showing the quartiles and the median's confidence intervals if enabled.
+            + `medians`: horizontal lines at the median of each box.
+            + `whiskers`: the vertical lines extending to the most extreme, non-outlier data points.
+            + `caps`: the horizontal lines at the ends of the whiskers.
+            + `fliers`: points representing data that extend beyond the whiskers (fliers).
+            + `means`: points or lines representing the means.
+
++ `plt.clear` method
+    + Signature: `plt.clf()`
+    + Docstring: Clear the current figure.
+
++ `inset_axes` method of `mpl_toolkits.axes_grid1.inset_locator`
+    + Signature: `inset_axes(parent_axes, width, height, loc=1, bbox_to_anchor=None, bbox_transform=None, axes_class=None, axes_kwargs=None, borderpad=0.5)`
+    + Docstring: Create an inset axes with a given width and height. <br/>
+        Both sizes used can be specified either in inches or percentage of the parent axes.
+    + Parameters
+        + `parent_axes` (`matplotlib.axes.Axes`): Axes to place the inset axes.
+        + `width`, `height` (float or str): Size of the inset axes to create.
+        + `loc` (int or string): Location to place the inset axes. The valid locations are
+
+            | Location | Num | | Location | Num |
+            |----------|-----|-|----------|-----|
+            | 'upper right'  | 1| | 'upper left'   | 2|
+            | 'lower left'   | 3| | 'lower right'  | 4|
+            | 'right'        | 5| | 'center left'  | 6|
+            | 'center right' | 7| | 'lower center' | 8|
+            | 'upper center' | 9| | 'center'       | 10|
+        + `bbox_to_anchor` (tuple or `matplotlib.transforms.BboxBase`): Bbox that the inset axes will be anchored. Can be a tuple of [left, bottom, width, height], or a tuple of [left, bottom].
+        + `bbox_transform` (`matplotlib.transforms.Transform`): Transformation for the bbox. if None, `parent_axes.transAxes` is used.
+        + `axes_class` (`matplotlib.axes.Axes` type): If specified, the inset axes created with be created with this class's constructor.
+        + `axes_kwargs` (dict): Keyworded arguments to pass to the constructor of the inset axes.<br/>
+            Valid arguments include:
+            + `adjustable`: [ 'box' | 'datalim' | 'box-forced'] 
+            + `agg_filter`: unknown
+            + `alpha`: float (0.0 transparent through 1.0 opaque) 
+            + `anchor`: unknown
+            + `animated`: [True | False] 
+            + `aspect`: unknown
+            + `autoscale_on`: unknown
+            + `autoscalex_on`: unknown
+            + `autoscaley_on`: unknown
+            + `axes`: an `~matplotlib.axes.Axes` instance 
+            + `axes_locator`: unknown
+            + `axisbelow`: [ *True* | *False* | 'line' ] 
+            + `clip_box`: a `matplotlib.transforms.Bbox` instance 
+            + `clip_on`: [True | False] 
+            + `clip_path`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ] 
+            + `color_cycle`: unknown
+            + `contains`: a callable function 
+            + `facecolor`: unknown
+            + `fc`: unknown
+            + `figure`: unknown
+            + `frame_on`: [ *True* | *False* ] 
+            + `gid`: an id string 
+            + `label`: string or anything printable with '%s' conversion. 
+            + `navigate`: [ *True* | *False* ] 
+            + `navigate_mode`: unknown
+            + `path_effects`: unknown
+            + `picker`: [None|float|boolean|callable] 
+            + `position`: unknown
+            + `rasterization_zorder`: unknown
+            + `rasterized`: [True | False | None] 
+            + `sketch_params`: unknown
+            + `snap`: unknown
+            + `title`: unknown
+            + `transform`: `~matplotlib.transforms.Transform` instance 
+            + `url`: a url string 
+            + `visible`: [True | False] 
+            + `xbound`: unknown
+            + `xlabel`: unknown
+            + `xlim`: unknown
+            + `xmargin`: unknown
+            + `xscale`: ['linear' | 'log' | 'logit' | 'symlog']
+            + `xticklabels`: sequence of strings
+            + `xticks`: sequence of floats 
+            + `ybound`: unknown
+            + `ylabel`: unknown
+            + `ylim`: unknown
+            + `ymargin`: unknown
+            + `yscale`: ['linear' | 'log' | 'logit' | 'symlog']
+            + `yticklabels`: sequence of strings
+            + `yticks`: sequence of floats
+            + `zorder`: any number 
+        + `borderpad` (float): Padding between inset axes and the bbox_to_anchor. Defaults to 0.5.
+    + Returns
+        + `inset_axes` (`axes_class`): Inset axes object created.
+
++ `margins` method of `mpl_toolkits.axes_grid1.parasite_axes.AxesHostAxes`
+    + Signature: `margins(*args, **kw)`
+    + Docstring: Set or retrieve autoscaling margins
+    + Returns:  `xmargin`, `ymargin`
+
++ `tick_right`, `tick_left` method of `matplotlib.axis.YAxis`
+    + Signature: `tick_right()`, `tick_left()`
+    + Docstring: use ticks only on right/left
+
++ `tick_top`, `tick_bottom` method of `matplotlib.axis.xAxis`
+    + Signature: `tick_top()`, `tick_bottom()`
+    + Docstring: use ticks only on top/bottom
+
++ Demo 
+    ```python
+    import pandas as pd
+
+    normal_sample = np.random.normal(loc=0.0, scale=1.0, size=10000)
+    random_sample = np.random.random(size=10000)
+    gamma_sample = np.random.gamma(2, size=10000)
+
+    df = pd.DataFrame({'normal': normal_sample, 
+                    'random': random_sample, 
+                    'gamma': gamma_sample})
+
+    df.describe()
+
+    plt.figure()
+    # create a boxplot of the normal data, assign the output to a variable to supress output
+    _ = plt.boxplot(df['normal'], whis='range')
+
+    # clear the current figure
+    plt.clf()
+    # plot boxplots for all three of df's columns
+    _ = plt.boxplot([ df['normal'], df['random'], df['gamma'] ], whis='range')
+
+    plt.figure()
+    _ = plt.hist(df['gamma'], bins=100)
+
+    import mpl_toolkits.axes_grid1.inset_locator as mpl_il
+
+    plt.figure()
+    plt.boxplot([ df['normal'], df['random'], df['gamma'] ], whis='range')
+    # overlay axis on top of another 
+    ax2 = mpl_il.inset_axes(plt.gca(), width='60%', height='40%', loc=2)
+    ax2.hist(df['gamma'], bins=100)
+    ax2.margins(x=0.5)
+
+    # switch the y axis ticks for ax2 to the right side
+    ax2.yaxis.tick_right()
+
+    # if `whis` argument isn't passed, boxplot defaults to showing 1.5*interquartile (IQR) whiskers with outliers
+    plt.figure()
+    _ = plt.boxplot([ df['normal'], df['random'], df['gamma'] ] )
+    ```
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/JHejcf0gEearIRLZY_MkaA.processed/full/360p/index.mp4?Expires=1529280000&Signature=ItKBIP6v95~SjLUrUeA~NFO834sqPSamyKahtBSNAAINMVRrzmNNQHvccQIm1kTRv5YvMp0uIcmvxz~ig9EWJetIKroBgYcO0elWmXQk4QMYzqx9OApgRsbStnBTsUtlQrCj5bud0gyHXf0OVoJJuJQIxnZjkF2wW-Ns8mEdSU0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Box Plots" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
