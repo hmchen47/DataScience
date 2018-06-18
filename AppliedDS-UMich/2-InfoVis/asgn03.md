@@ -88,25 +88,18 @@ The authors have provided a related video which may be of further value in expla
 ### Background and Related Literature
 
 + Visual data analysis ignores uncertainty
-    + Data analysist often deal with samples or selections of data
-    + S. Kandel, A. Paepcke, J. M. Hellerstein, J. Heer. Enterprise data analysis and visualization: An interview study. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2917-2926.
+    + Data analysist often deal with samples or selections of data [12]
 + Visualization techniques that handle uncertainty
-    + A. Tversky, D. Kahneman. Judgment under Uncertainty: Heuristics and Biases. Science, 185 (1974). 1124-1131.
-    + People make incorrect decisions when presented with probabilistic choices.
+    + People make incorrect decisions when presented with probabilistic choices. [21]
     + It is possible to make more accurate decisions about data analysis when provided with confidence intervals and sample size information.
-    + G. Cumming, S. Finch. Inference by eye: Confidence intervals and how to read pictures of data. American Psychologist, 60(2), 170–18, 2005.
-    + Most researcher misuse confidence intervals; they discuss "rules of eye" for reading and comparing confidence intervals on printed bar charts.
-    + A. M. MacEachren, A. Robinson, S. Hopper, S. Gardner, R. Murray, M. Gahegan, E. Hetzler. Visualizing geospatial information uncertainty: What we know and what we need to know. Cartography and Geographic Information Science, 32(3), 139-160.
-    + While it may be complex, representing uncertainty can help users understand the risk and value of making decisions with data.
-    + D. Fisher, I. Popov, S. M. Drucker, and mc schraefel. Trust Me, I'm Partially Right: Incremental Visualization Lets Analysts Explore Large Datasets Faster. ACM Conf. on Human Factors in Comp. Systems. CHI 2012. (pp. 1673-1682).
-    + Analysts can use uncertainty ranges, in the form of confidence intervals on bar charts, to help decide when to terminate an incremental computation.
-    + M. Skeels, B. Lee, G. Smith, and G. Robertson. Revealing Uncertainty for Information Visualization. In Proc. of the Working Conf. on Advanced Visual Interfaces. ACM, New York, NY, USA. 2008, 376-379.
-    + The idea of visualization techniques that can handle uncertainty is a popular one in the visualization field.
+    + Most researcher misuse confidence intervals; they discuss "rules of eye" for reading and comparing confidence intervals on printed bar charts.[07]
+    + While it may be complex, representing uncertainty can help users understand the risk and value of making decisions with data. [14]
+    + Analysts can use uncertainty ranges, in the form of confidence intervals on bar charts, to help decide when to terminate an incremental computation. [08]
+    + The idea of visualization techniques that can handle uncertainty is a popular one in the visualization field. [16]
     + A taxonomy of source of uncertainty
-    + Quantitative uncertainty derived from examing samples of a population
+    + Quantitative uncertainty derived from examining samples of a population
 + Annotating visualizations to address tasks
-    + N. Kong, M. Agrawala. Graphical Overlays: Using Layered Elements to Aid Chart Reading. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2631-2638.
-    + Using overlays to help users accomplish specific tasks on pie charts, bar charts, and line charts.
+    + Using overlays to help users accomplish specific tasks on pie charts, bar charts, and line charts. [13]
     + Useful to highlight a specific data point in a chart
 
 
@@ -124,6 +117,102 @@ The authors have provided a related video which may be of further value in expla
 + Without uncertainty, find the minimum value in  the bar chart.
 + Example Question: "what aggregates are _likely_ to be the maximum or minimum? --> A user would need to estimate how much uncertainty is represented by error bars and how likely that makes a  minimum or maximum.
 
+### The Visual Analysis Environment
+
++ Selected core data visualizations
+    + Bar charts: ubiquitous and used to represent many spots of data
+    + Ranked lists: used tio represent sorted elements and often showing top few bars of a broad histogram
++ A visual treatment for showing how a ranked list changes across different attributes, but not uncertain rankings. [10]
++ __Uncertain ranked lists__: partial order - certain that some items will be greater than others but uncertain about other pairwise relationships
++ Tasks for visual analysis [01, 02]
+    + goal: design a visual data analysis environment containing summaries for bar charts and ranked lists that supported sample based analysis
+    + __bar cart__: compare pair of bars; find extrema; compare values to a constant; compare to a range
+    + __rankedlist__: 
+        + identify which items are likely to fall between a given pair of rankings
+        + identify which items are likely to fall between a given pair of ranking
++ Computational Framework: Two-phase computational framework:
+    1. __uncertainty quantification phase__:
+        + estimate the probability probability distribution from the aggregate interested in
+        + use Central Limit Theory (CLT) to estimate  CI based on the count, standard deviation, and running average of items seen so far
+    2. __Monte-Carlo approach__:
+        + represent each task by a corresponding non-probabilistic predicate that refers to samples
+        + repeatedly draw samples and evaluate the predicate against the samples for each distribution
+        + approximate the probability of an event as the fraction of those iterations in which the predicate is true.
+
+### Design Goads
+
+1. _Easy to interpret_
+    + Uncertainty is a complex concept for users to interpret.
+    + Visualization should add minimal additional complex.
+    + Useful test: wether the visualization converges to a single form when all the data has arrived.
+2. _ Consistency across Task_
+    + bar chart: users can carry out multiple tasks with it.
+    + bar chart:  able to change between tasks without losing context on the dataset
+3. _Spatial Stability across Sample Size_
+    + Incremental analysis [08, 11]
+    + Samples grow larger over time, the visualization should be change as little as possible.
+    + Smoothly animate between the data at two successive time intervals
+    + Changes in the visualization should be proportionate to the size of change in the data
+4. _Minimum Visual Noise_
+    + Ensure that the visualization is not confusing.
+    + E.g., the base data displayed as a bar chart, showing probabilities with bar chart is more likely confusing than other visual representation.
+
++ Solution: ineravtive annotation [13]
+    + The annotations will show the results of task-based queries against the dataset.
++ Visual annotations:
+    + _Compare Bars to Each Other_
+        + See Fig.2(a)
+        + Each bar is colored by the probability that its distribution is larger than the selected bar.
+    + _Identity Minimum and Maximum_
+        + The Extrema tool, Fig 2(b)
+        + Used to quantify the proability that any bar would be either the maximum or minimum among all the distributions
+        + A quantitative color mapping is used to identify bars and the regions in the pie charts.
+    + _Compare to Constant_
+        + See Fig. 2(c)
+        + A horizontal line representing a constant value
+        + The probability that the distribution is larger than this constant value is mapped as a color to the corresponding bar.
+    + _Compare to Range_
+        + Range tool, Fig. 2(d)
+        + Evaluate the probability of distribution's value falling within a range
+        + The probability that the distribution represented by the error bar is contained in the region is mapped as a color to the corresponding bar.
+
+        <img src="./notebooks/BarChartsCompare.png" alt="Visual Representations with Bar Charts" width="600">
+    
+    + _Find Items at Given Rank_
+        + Ranking probability distribution, Fig. 3(b)
+        + Each line of the list is a single rank.
+        + The line is populated by the set if items that have some probability of having that rank.
+        + The bars are sorted in a stable order.
+    + _Find Items within Ranks_
+        + See Fig. 3(c)
+        + Find what items fall within a range of ranks.
+        + Learn the set of items that are likely to fall in the top five - without regard for individual rank.
+
+        <img src="./notebooks/RankedListCompare.png" alt="Visual Representations with Ranked Lists" width="600">
+
++ Design Discussion
+    + In a standard bar chart, these tasks can largely be addressed.
+    + All the interactions are light weighted: users need only select the tool and choose the relevant value.
+    + Sort tool:
+        + more complex
+        + a list, in which every row represents all the possible values of that row
+        + probability maps to height, width and color
+            + _width_: very small bars fall off the chart
+            + _height_: easily read across to find heigh bars - comparing lengths is much harder
+            + _color_: highlighting regions of the list where the rank is certain
+
+
+### References
+
+[07]: G. Cumming, S. Finch. Inference by eye: Confidence intervals and how to read pictures of data. American Psychologist, 60(2), 170–18, 2005.
+[08]: D. Fisher, I. Popov, S. M. Drucker, and mc schraefel. Trust Me, I'm Partially Right: Incremental Visualization Lets Analysts Explore Large Datasets Faster. ACM Conf. on Human Factors in Comp. Systems. CHI 2012. (pp. 1673-1682).
+[10]: S. Gratzl, A. Lex, N. Gehlenborg. LineUp: Visual Analysis of Multi-Attribute Rankings. IEEE Trans. on Vis. and Comp. Graphics 2013
+[11]: J. Hellerstein, R. Avnur, A. Chou, C. Olston, V. Raman, T. Roth, C. Hidber, P. Haas. Interactive Data Analysis with CONTROL. IEEE Computer, 32(8), 51-59, 1999.
+[12]: S. Kandel, A. Paepcke, J. M. Hellerstein, J. Heer. Enterprise data analysis and visualization: An interview study. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2917-2926.
+[13]: N. Kong, M. Agrawala. Graphical Overlays: Using Layered Elements to Aid Chart Reading. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2631-2638.
+[14]: A. M. MacEachren, A. Robinson, S. Hopper, S. Gardner, R. Murray, M. Gahegan, E. Hetzler. Visualizing geospatial information uncertainty: What we know and what we need to know. Cartography and Geographic Information Science, 32(3), 139-160.
+[16]: M. Skeels, B. Lee, G. Smith, and G. Robertson. Revealing Uncertainty for Information Visualization. In Proc. of the Working Conf. on Advanced Visual Interfaces. ACM, New York, NY, USA. 2008, 376-379.
+[21]: A. Tversky, D. Kahneman. Judgment under Uncertainty: Heuristics and Biases. Science, 185 (1974). 1124-1131.
 
 
 ## Assignment 3 - Building a Custom Visualization
