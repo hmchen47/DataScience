@@ -77,14 +77,63 @@ Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented task-dr
 
 The authors have provided a related video which may be of further value in explaining the research.
 
+### Inuroduction
+
++ Goal of data analysis: describe attributes if a population based on quantifiable properties
++ An uncertain value does not necessarily help reason about uncertain values. -> uncertainty ranges
++ Heights of two bar charts can be difficult to compute the probability of a nearly-overlapping set of uncertainty regions.
++ Visual encoding and interactions with the goal of allowing data analyst not only to identify the presence and magnitude of uncertainty, but to carry out common data exploration tasks.
++ Two common visualizations: bar chart & ranked list
+
+### Background and Related Literature
+
++ Visual data analysis ignores uncertainty
+    + Data analysist often deal with samples or selections of data
+    + S. Kandel, A. Paepcke, J. M. Hellerstein, J. Heer. Enterprise data analysis and visualization: An interview study. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2917-2926.
++ Visualization techniques that handle uncertainty
+    + A. Tversky, D. Kahneman. Judgment under Uncertainty: Heuristics and Biases. Science, 185 (1974). 1124-1131.
+    + People make incorrect decisions when presented with probabilistic choices.
+    + It is possible to make more accurate decisions about data analysis when provided with confidence intervals and sample size information.
+    + G. Cumming, S. Finch. Inference by eye: Confidence intervals and how to read pictures of data. American Psychologist, 60(2), 170–18, 2005.
+    + Most researcher misuse confidence intervals; they discuss "rules of eye" for reading and comparing confidence intervals on printed bar charts.
+    + A. M. MacEachren, A. Robinson, S. Hopper, S. Gardner, R. Murray, M. Gahegan, E. Hetzler. Visualizing geospatial information uncertainty: What we know and what we need to know. Cartography and Geographic Information Science, 32(3), 139-160.
+    + While it may be complex, representing uncertainty can help users understand the risk and value of making decisions with data.
+    + D. Fisher, I. Popov, S. M. Drucker, and mc schraefel. Trust Me, I'm Partially Right: Incremental Visualization Lets Analysts Explore Large Datasets Faster. ACM Conf. on Human Factors in Comp. Systems. CHI 2012. (pp. 1673-1682).
+    + Analysts can use uncertainty ranges, in the form of confidence intervals on bar charts, to help decide when to terminate an incremental computation.
+    + M. Skeels, B. Lee, G. Smith, and G. Robertson. Revealing Uncertainty for Information Visualization. In Proc. of the Working Conf. on Advanced Visual Interfaces. ACM, New York, NY, USA. 2008, 376-379.
+    + The idea of visualization techniques that can handle uncertainty is a popular one in the visualization field.
+    + A taxonomy of source of uncertainty
+    + Quantitative uncertainty derived from examing samples of a population
++ Annotating visualizations to address tasks
+    + N. Kong, M. Agrawala. Graphical Overlays: Using Layered Elements to Aid Chart Reading. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2631-2638.
+    + Using overlays to help users accomplish specific tasks on pie charts, bar charts, and line charts.
+    + Useful to highlight a specific data point in a chart
+
+
+### Uncertainty Visualizations from Sampled Data
+
++ A core operation in understanding a dataset is examining the filtered and grouped average, sum, and count of a column.
++ Sample-based analysis: 
+    + Estimate the expected average, sum or count of dataset based on the sample
+    + Infer a distribution on the _expected_ value
++ The average value and CI represent a _distribution_ of possible values.
++ The distribution for each value represents the possible values once all of the data has been seen.
++ Extract info from probability distributions modeled from the samples.
++ Collect a series of different tasks that are commonly performed during the exploratory data analysis process.
++ List includes low-level task, like _retrieve value, find extremes (minimum and maximum), sort values, and compare values_.
++ Without uncertainty, find the minimum value in  the bar chart.
++ Example Question: "what aggregates are _likely_ to be the maximum or minimum? --> A user would need to estimate how much uncertainty is represented by error bars and how likely that makes a  minimum or maximum.
+
+
+
 ## Assignment 3 - Building a Custom Visualization
 
 In this assignment you must choose one of the options presented below and submit a visual as well as your source code for peer grading. The details of how you solve the assignment are up to you, although your assignment must use matplotlib so that your peers can evaluate your work. The options differ in challenge level, but there are no grades associated with the challenge level you chose. However, your peers will be asked to ensure you at least met a minimum quality for a given technique in order to pass. Implement the technique fully (or exceed it!) and you should be able to earn full grades for the assignment.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented task-driven visualizations: allowing users to make better, more confident decisions.](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf) 
+> Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented task-driven visualizations: allowing users to make better, more confident decisions.](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf) 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 571-580). ACM. ([video](https://www.youtube.com/watch?v=BI7GAs-va-Q))
 
-In this [paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf) the authors describe the challenges users face when trying to make judgements about probabilistic data generated through samples. As an example, they look at a bar chart of four years of data (replicated below in Figure 1). Each year has a y-axis value, which is derived from a sample of a larger dataset. For instance, the first value might be the number votes in a given district or riding for 1992, with the average being around 33,000. On top of this is plotted the 95% confidence interval for the mean (see the boxplot lectures for more information, and the yerr parameter of barcharts).
+In this [paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf) the authors describe the challenges users face when trying to make judgements about probabilistic data generated through samples. As an example, they look at a bar chart of four years of data (replicated below in Figure 1). Each year has a y-axis value, which is derived from a sample of a larger dataset. For instance, the first value might be the number votes in a given district or riding for 1992, with the average being around 33,000. On top of this is plotted the 95% confidence interval for the mean (see the boxplot lectures for more information, and the `yerr` parameter of barcharts).
 
 <br>
 <img src="./Assignment3Fig1.png" alt="Figure 1" style="width: 400px;"/>
@@ -171,12 +220,10 @@ Download the attachment for a preview of how the assignment will be graded.
 
 + Based on the challenge level that the learner chose for this assignment, comment on the quality of the elements that are specific to each option:
     + __Easier option__: The bar colors reflect the bar’s position with respect to the y-axis value (e.g. blue if the bar is below the y value, white if the bar is the same as the y value, and red if the bar value is above the y value).
-    + __Harder option__: The bar colors reflect the bar’s position with respect to the y-axis value (e.g. a gradient ranging from dark blue for the distribution being certainly below this y-axis, to white if the value is certainly contained, to dark red if the value is certainly not contained as the distribution is above the axis).
-
-Note: for the remaining two options, you will need to run the code that the learner has uploaded in order to test the interactivity. We recommend that you run the code on the Jupyter notebook system on the Coursera platform.
-
-+ __Even harder__: Added interactivity that allows the user to click on the y axis to set the value of interestThe bar colors change appropriately with respect to what value the user has selected.
-+ __Hardest__: Added interactivity that allows the user to interactively set a range of y values they are interested in, and recolor based on this (e.g. a y-axis band, see the paper for more details).
+    + __Harder option__: The bar colors reflect the bar’s position with respect to the y-axis value (e.g. a gradient ranging from dark blue for the distribution being certainly below this y-axis, to white if the value is certainly contained, to dark red if the value is certainly not contained as the distribution is above the axis).<br/>
+    Note: for the remaining two options, you will need to run the code that the learner has uploaded in order to test the interactivity. We recommend that you run the code on the Jupyter notebook system on the Coursera platform.
+    + __Even harder__: Added interactivity that allows the user to click on the y axis to set the value of interestThe bar colors change appropriately with respect to what value the user has selected.
+    + __Hardest__: Added interactivity that allows the user to interactively set a range of y values they are interested in, and recolor based on this (e.g. a y-axis band, see the paper for more details).
 
 ### Useful Links for Assignment 3
 
