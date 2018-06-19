@@ -1202,7 +1202,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 ## Bar Charts
 
 + `plt.bar` & `plt.barh` methods
-    + Signature: `bar(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` & `barh(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)`
+    + Signature: <br/>`bar(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` & <br/>`barh(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)`
     + Docstring: Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges)
     + Parameters:
         + `left` (sequence of scalars): the x coordinates of the left sides of the bars
