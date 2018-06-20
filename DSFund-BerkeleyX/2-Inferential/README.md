@@ -89,6 +89,15 @@
 
 + [Lab 4: Inference, Part 2](./lab04.md)
 
+## Week 5
+
++ [Section 10: Confidence Intervals (Lec 10.1 - Lec 10.4)](./10-CI.md)
+    + [Lec 10.1 Percentiles](./10-CI.md#)
+    + [Lec 10.2 Estimation](./10-CI.md#)
+    + [Lec 10.3 Estimate Variability](./10-CI.md#)
+    + [Lec 10.4 The Bootstrap](./10-CI.md#)
+    + [Reading and Practice for Section 10](./10-CI.md#)
+
 
 
 
