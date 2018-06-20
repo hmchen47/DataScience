@@ -636,7 +636,7 @@ plt.legend()
 [037]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
 [038]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
 [039]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
-[040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
+[040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#heatmaps
 [041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
 [042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#interactivity
 [043]: ../AppliedDS-UMich/2-InfoVis/asgn03.ms#related-methods-used
