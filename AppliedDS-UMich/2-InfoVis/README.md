@@ -28,16 +28,16 @@
 
 ## Module 2: [Basic Charting](02-BasicChart.md)
 
-+ [Module 2 Jupyter Notebook](./02-BasicChart.md#)
-+ [Introduction](./02-BasicChart.md#)
-+ [Matplotlib Architecture](./02-BasicChart.md#)
-+ [Matplotlib](./02-BasicChart.md#)
-+ [Ten Simple Rules for Better Figures](./02-BasicChart.md#)
-+ [Basic Plotting with Matplotlib](./02-BasicChart.md#)
-+ [Scatterplots](./02-BasicChart.md#)
-+ [Line Plots](./02-BasicChart.md#)
-+ [Bar Charts](./02-BasicChart.md#)
-+ [Dejunkifying a Plot](./02-BasicChart.md#)
++ [Module 2 Jupyter Notebook](./02-BasicChart.md#module-2-jupyter-notebook)
++ [Introduction](./02-BasicChart.md#introduction)
++ [Matplotlib Architecture](./02-BasicChart.md#matplotlib-architecture)
++ [Matplotlib](./02-BasicChart.md#matplotlib)
++ [Ten Simple Rules for Better Figures](./02-BasicChart.md#ten-simple-rules-for-better-figures)
++ [Basic Plotting with Matplotlib](./02-BasicChart.md#basic-plotting-with-matplotlib)
++ [Scatterplots](./02-BasicChart.md#scatterplots)
++ [Line Plots](./02-BasicChart.md#line-plots)
++ [Bar Charts](./02-BasicChart.md#bar-charts)
++ [Dejunkifying a Plot](./02-BasicChart.md#dejunkifying-a-plot)
 
 
 ## Assignment 2
