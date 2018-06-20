@@ -620,11 +620,11 @@ plt.legend()
 [022]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#more-distribution
 [023]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#hypothesis-testing-in-python
 [024]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.resample.html
-[025]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
-[026]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
-[027]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
-[028]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
-[029]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#dejunkifying-a-plot
+[025]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
+[026]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
+[027]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
+[028]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
+[029]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#dejunkifying-a-plot
 [030]: https://matplotlib.org/api/axes_api.html
 [031]: https://matplotlib.org/api/axis_api.html
 [031]: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html
@@ -633,13 +633,13 @@ plt.legend()
 [034]: https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html
 [035]: https://matplotlib.org/api/_as_gen/matplotlib.figure.SubplotParams.html
 [036]: https://matplotlib.org/api/text_api.html
-[037]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
-[038]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
-[039]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
-[040]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
-[041]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
-[042]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#interactivity
-[043]: ./AppliedDS-UMich/2-InfoVis/asgn03.ms#related-methods-used
+[037]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
+[038]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
+[039]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
+[040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
+[041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
+[042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#interactivity
+[043]: ../AppliedDS-UMich/2-InfoVis/asgn03.ms#related-methods-used
 
 
 
