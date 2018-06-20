@@ -1,5 +1,10 @@
 # Section 11: Interpreting Confidence (Lec 11.1 - Lec 11.3)
 
++ [Launch Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.2x+1T2018/courseware/95ee24be1f714d51bb48d73712c71aba/c1392ee86ecc4e6ca55908f2d3f9242c/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.2x%2B1T2018%2Btype%40vertical%2Bblock%40ece536653f1143a78cbee4c9858ef8cb)
++ [Web Notebook](https://hub.data8x.berkeley.edu/user/59d217c894d11dbd21d2d37ef6ae9675/notebooks/materials-x18/lec/x18/2/lec11.ipynb#)
++ [Local Notebook](./notebooks/lec11.ipynb)
++ [Local Python](./notebooks/lec11.py)
+
 ## Lec 11.1 Applying the Bootstrap
 
 ### Notes
