@@ -9,9 +9,54 @@
 
 ### Notes
 
++ When to Find a Confidence Interval
+    + You wan to guess a parameter of a population.
+    + You have a random sample from the population.
+    + You want to quantify your uncertainty.
+    + A statistic is a reasonable estimate of the parameter.
+
 + Demo
     ```python
+    births = Table.read_table('baby.csv')
+    births.show(3)
+    # Birth     Gestational     Maternal    Maternal    Maternal            Maternal 
+    # Weight    Days            Age         Height      Pregnancy Weight    Smoker
+    # 120       284             27          62          100                 False
+    # 113       282             33          64          135                 False
+    # 128       279             28          64          115                 True
 
+    babies = births.select('Birth Weight', 'Gestational Days')
+    # Birth Weight    Gestational Days
+    # 120             284
+    # 113             282
+    # ...
+
+    babies.scatter(1, 0)
+
+    ratios = babies.with_column(
+        'Ratio BW/GD', babies.column(0)/babies.column(1)
+    )
+    # Birth Weight    Gestational Days    Ratio BW/GD
+    # 120             284                 0.422535
+    # 113             282                 0.400709
+    # ...
+
+    ratios.hist('Ratio BW/GD')
+
+    np.median(ratios.column('Ratio BW/GD'))     # 0.42907801418439717
+
+    resampled_medians = []
+    for i in np.arange(1000):
+        resample = ratios.sample()
+        median = np.median(resample.column('Ratio BW/GD'))
+        resampled_medians.append(median)
+
+    interval_99 = [percentile(0.5, resampled_medians),
+                percentile(99.5, resampled_medians)]
+    print(interval_99)      # [0.4243514279485503, 0.43416370106761565]
+
+    Table().with_column('Resampled median', resampled_medians).hist(0)
+    plots.plot(interval_99, [0, 0], color='gold', lw=10);
     ```
 
 ### Video
