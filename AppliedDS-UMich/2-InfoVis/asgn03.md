@@ -464,8 +464,116 @@ Download the attachment for a preview of how the assignment will be graded.
 
 ## Related Methods Used
 
++ `plt.errorbar` method
+    + Signature: `errorbar(x, y, yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None, **kwargs)`
+    + Docstring: Plot an errorbar graph. Plot x versus y with error deltas in `yerr` and `xerr`. Vertical errorbars are plotted if `yerr` is not None. Horizontal errorbars are plotted if `xerr` is not None.
+    + Parameters
+        + `x` (scalar or array-like)
+        + `y` (scalar or array-like)
+        + `xerr`/`yerr` (scalar or array-like, shape(N,) or shape(2,N)):  
+            + scalar number, len(N) array-like object, or a N-element array-like object: errorbars are drawn at +/-value relative to the data. 
+            + sequence of shape 2xN: errorbars are drawn at -row1 and +row2 relative to the data.
+        + `fmt` (plot format string): The plot format symbol. 
+            + 'none' (case-insensitive): only the errorbars are plotted.  This is used for adding errorbars to a bar plot, for example.  
+            + Default '': an empty plot format string; properties are then identical to the defaults for `plot`.
+        + `ecolor` (mpl color): A matplotlib color arg which gives the color the errorbar lines; if None, use the color of the line connecting the markers.
+        + `elinewidth` (scalar): The linewidth of the errorbar lines. If None, use the linewidth.
+        + `capsize` (scalar): The length of the error bar caps in points    
+    capthick : scalar, optional, default: None
+        An alias kwarg to markeredgewidth (a.k.a. - mew). This
+        setting is a more sensible name for the property that
+        controls the thickness of the error bar cap in points. For
+        backwards compatibility, if mew or markeredgewidth are given,
+        then they will over-ride capthick. This may change in future
+        releases.
+    
+    barsabove : bool, optional, default: False
+        if True , will plot the errorbars above the plot
+        symbols. Default is below.
+    
+    lolims / uplims / xlolims / xuplims : bool, optional, default:None
+        These arguments can be used to indicate that a value gives
+        only upper/lower limits. In that case a caret symbol is
+        used to indicate this. lims-arguments may be of the same
+        type as *xerr* and *yerr*.  To use limits with inverted
+        axes, :meth:`set_xlim` or :meth:`set_ylim` must be called
+        before :meth:`errorbar`.
+    
+    errorevery : positive integer, optional, default:1
+        subsamples the errorbars. e.g., if errorevery=5, errorbars for
+        every 5-th datapoint will be plotted. The data plot itself still
+        shows all data points.
+    
+    Returns
+    -------
+    plotline : :class:`~matplotlib.lines.Line2D` instance
+        x, y plot markers and/or line
+    caplines : list of :class:`~matplotlib.lines.Line2D` instances
+        error bar cap
+    barlinecols : list of :class:`~matplotlib.collections.LineCollection`
+        horizontal and vertical error ranges.
+    
+    Other Parameters
+    ----------------
+    kwargs : All other keyword arguments are passed on to the plot
+        command for the markers. For example, this code makes big red
+        squares with thick green edges::
+    
+            x,y,yerr = rand(3,10)
+            errorbar(x, y, yerr, marker='s', mfc='red',
+                     mec='green', ms=20, mew=4)
+    
+        where mfc, mec, ms and mew are aliases for the longer
+        property names, markerfacecolor, markeredgecolor, markersize
+        and markeredgewidth.
+    
+        valid kwargs for the marker properties are
+    
+          agg_filter: unknown
+      alpha: float (0.0 transparent through 1.0 opaque) 
+      animated: [True | False] 
+      antialiased or aa: [True | False] 
+      axes: an :class:`~matplotlib.axes.Axes` instance 
+      clip_box: a :class:`matplotlib.transforms.Bbox` instance 
+      clip_on: [True | False] 
+      clip_path: [ (:class:`~matplotlib.path.Path`, :class:`~matplotlib.transforms.Transform`) | :class:`~matplotlib.patches.Patch` | None ] 
+      color or c: any matplotlib color 
+      contains: a callable function 
+      dash_capstyle: ['butt' | 'round' | 'projecting'] 
+      dash_joinstyle: ['miter' | 'round' | 'bevel'] 
+      dashes: sequence of on/off ink in points 
+      drawstyle: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post'] 
+      figure: a :class:`matplotlib.figure.Figure` instance 
+      fillstyle: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none'] 
+      gid: an id string 
+      label: string or anything printable with '%s' conversion. 
+      linestyle or ls: ['solid' | 'dashed', 'dashdot', 'dotted' | (offset, on-off-dash-seq) | ``'-'`` | ``'--'`` | ``'-.'`` | ``':'`` | ``'None'`` | ``' '`` | ``''``]
+      linewidth or lw: float value in points 
+      marker: :mod:`A valid marker style <matplotlib.markers>`
+      markeredgecolor or mec: any matplotlib color 
+      markeredgewidth or mew: float value in points 
+      markerfacecolor or mfc: any matplotlib color 
+      markerfacecoloralt or mfcalt: any matplotlib color 
+      markersize or ms: float 
+      markevery: [None | int | length-2 tuple of int | slice | list/array of int | float | length-2 tuple of float]
+      path_effects: unknown
+      picker: float distance in points or callable pick function ``fn(artist, event)`` 
+      pickradius: float distance in points 
+      rasterized: [True | False | None] 
+      sketch_params: unknown
+      snap: unknown
+      solid_capstyle: ['butt' | 'round' |  'projecting'] 
+      solid_joinstyle: ['miter' | 'round' | 'bevel'] 
+      transform: a :class:`matplotlib.transforms.Transform` instance 
+      url: a url string 
+      visible: [True | False] 
+      xdata: 1D array 
+      ydata: 1D array 
+      zorder: any number 
+
+
 + `plt.colormaps` function
-    + Signature: `colormaps()`
+    + Signature: `plt.colormaps()`
     + Docstring: Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called.
     + set the colormap for an image, pcolor, scatter, etc, using a keyword argument::
         ```python
@@ -540,22 +648,22 @@ Download the attachment for a preview of how the assignment will be graded.
         + YlOrBr: light yellow, orange, dark brown
         + YlOrRd: light yellow, orange, dark red
     + Miscellaneous schemes
-        + afmhot        sequential black-orange-yellow-white blackbody spectrum, commonly used in atomic force microscopy
-        + brg           blue-red-green
-        + bwr           diverging blue-white-red
-        + coolwarm      diverging blue-gray-red, meant to avoid issues with 3D shading, color blindness, and ordering of colors [#]_
-        + CMRmap        "Default colormaps on color images often reproduce to confusing grayscale images. The proposed colormap maintains an aesthetically pleasing color image that automatically reproduces to a monotonic grayscale with discrete, quantifiable saturation levels." [#]_
-        + cubehelix     Unlike most other color schemes cubehelix was designed by D.A. Green to be monotonically increasing in terms of perceived brightness. Also, when printed on a blackand white postscript printer, the scheme results in a greyscale with monotonically increasing brightness. This color scheme is named cubehelix because the r,g,b values produced can be visualised as a squashed helix around the diagonal in the r,g,b color cube.
-        + gnuplot       gnuplot's traditional pm3d scheme (black-blue-red-yellow)
-        + gnuplot2      sequential color printable as gray (black-blue-violet-yellow-white)
-        + ocean         green-blue-white
-        + rainbow       spectral purple-blue-green-yellow-orange-red colormap with diverging luminance
-        + seismic       diverging blue-white-red
-        + nipy_spectral black-purple-blue-green-yellow-red-white spectrum, originally from the Neuroimaging in Python project
-        + terrain       mapmaker's colors, blue-green-yellow-brown-white, originally from IGOR Pro
+        + afmhot: sequential black-orange-yellow-white blackbody spectrum, commonly used in atomic force microscopy
+        + brg: blue-red-green
+        + bwr: diverging blue-white-red
+        + coolwarm: diverging blue-gray-red, meant to avoid issues with 3D shading, color blindness, and ordering of colors [#]_
+        + CMRmap: "Default colormaps on color images often reproduce to confusing grayscale images. The proposed colormap maintains an aesthetically pleasing color image that automatically reproduces to a monotonic grayscale with discrete, quantifiable saturation levels." [#]_
+        + cubehelix: Unlike most other color schemes cubehelix was designed by D.A. Green to be monotonically increasing in terms of perceived brightness. Also, when printed on a blackand white postscript printer, the scheme results in a greyscale with monotonically increasing brightness. This color scheme is named cubehelix because the r,g,b values produced can be visualised as a squashed helix around the diagonal in the r,g,b color cube.
+        + gnuplot: gnuplot's traditional pm3d scheme (black-blue-red-yellow)
+        + gnuplot2: sequential color printable as gray (black-blue-violet-yellow-white)
+        + ocean: green-blue-white
+        + rainbow: spectral purple-blue-green-yellow-orange-red colormap with diverging luminance
+        + seismic: diverging blue-white-red
+        + nipy_spectral: black-purple-blue-green-yellow-red-white spectrum, originally from the Neuroimaging in Python project
+        + terrain: mapmaker's colors, blue-green-yellow-brown-white, originally from IGOR Pro
 
-+ `plt.imshow' method
-    + Signature: `imshow(X, cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None, **kwargs)`
++ `plt.imshow` method
+    + Signature: `plt.imshow(X, cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None, **kwargs)`
     + Doctsring: Display an image on the axes.
     + Parameters
         + `X` (array_like, shape (n, m) or (n, m, 3) or (n, m, 4)): Display the image in `X` to current axes.  `X` may be an array or a PIL image. If `X` is an array, it can have the following shapes and types:
@@ -591,13 +699,23 @@ Download the attachment for a preview of how the assignment will be graded.
     + Returns: image : `~matplotlib.image.AxesImage`
     
 
-
-
-
++ `cm.ro_rgba` method of of `matplotlib.cm.ScalarMappable`
+    + Signature: `cm.to_rgba(x, alpha=None, bytes=False, norm=True)`
+    + Docstring: Return a normalized rgba array corresponding to *x*
+    + Returns: 
+    + Normal case: `x` is a 1-D or 2-D sequence of scalars, and the corresponding ndarray of rgba values will be returned, based on the norm and colormap set for this ScalarMappable.
+    + Special case: for handling images that are already rgb or rgba, such as might have been read from an image file.
+    + Either case:
+        + *bytes* = *False* (default): the rgba array will be floats in the 0-1 range;
+        + *byte* = *True*: the returned rgba array will be uint8 in the 0 to 255 range.
+    + `norm`=False: no normalization of the input data is performed, and it is assumed to already be in the range (0-1).
 
 ## Review Your Peers: Building a Custom Visualization
 
-
++ [Review #1](./notebooks/Assignment3-r1.py)
++ [Review #2](./notebooks/Assignment3-r2.ipynb)
++ [Review #3](./notebooks/Assignment3-r3.ipynb)
++ [Review #4](./notebooks/Assignment3-r4.py)
 
 
 
