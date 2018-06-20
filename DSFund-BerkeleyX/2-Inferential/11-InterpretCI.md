@@ -117,8 +117,85 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 11.
+
+This corresponds to textbook section:
+
+[Chapter 13.3: Confidence Intervals](https://www.inferentialthinking.com/chapters/13/3/confidence-intervals.html)
+
+[Chapter 13.4: Using Confidence Intervals](https://www.inferentialthinking.com/chapters/13/4/using-confidence-intervals.html)
+
+In section 11, we learned more about confidence intervals. We use confidence intervals to estimate some unknown parameter.  Confidence intervals account for chance variability in our original random sample by producing an interval of estimates.  A common misconception is that the 95% confidence interval contains the parameter 95% of the time. It does not. Rather, "95% confidence" describes the method we used to create the interval.  About 95% of the time, our method creates a good intervals (one that contains the parameter). 
+
+Test your conceptual understanding of confidence intervals with the following practice questions.
 
 ### Practice
+
+You sample 100 dogs at random from all dogs in Berkeley and compute a 95% confidence interval of their average height. For each of the statements below, state whether they are Always True, Typically True, Not Expected to be True, or False.
+
+Q1. The chance that the average height of all dogs in Berkeley is in this interval is 95%.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: d
+
+Q2. If you had repeated the process of sampling 100 dogs many times and computed a confidence interval from each sample, approximately 95% of the intervals would contain the average height of all dogs in Berkeley.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: b
+
+Q3. If you had repeated the process of sampling 100 dogs many times and computed a confidence interval from each sample, 95% of the intervals would contain the heights of all dogs in Berkeley.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: c
+
+Q4. If you had sampled another 100 dogs from the population and computed a second confidence interval, it would be the same as the first.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: c
+
+Q5. If you had sampled 100 dogs a second time and computed a new confidence interval, it would overlap with your original confidence interval.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: b
+
+Q6. If you had sampled 100 dogs a second time and computed a second confidence interval, it would be approximately the same size as the first, but have a different center.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: b
+
+Q7. If you had sampled 1000 dogs instead of 100 dogs, your confidence interval would have been smaller.
+
+    a. Always True
+    b. Typically True
+    c. Not Expected to be True
+    d. False
+
+    Ans: b
+
 
 
 
