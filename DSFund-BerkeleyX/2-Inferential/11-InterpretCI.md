@@ -97,10 +97,14 @@
 
 ### Notes
 
-+ Demo
-    ```python
-
-    ```
++ Using a CI for Testing
+    + Null hypothesis: __Population average = x__
+    + Alternative hypothesis: __Population average ≠ x__
+    + Cutoff for P-value: $p\%$
+    + Method:
+        + Construct a $(100-p)\%$ confidence interval for the population average
+        + If x is not in the interval, reject the null
+        + If x is in the interval, can’t reject the null
 
 ### Video
 
