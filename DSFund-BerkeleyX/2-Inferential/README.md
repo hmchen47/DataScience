@@ -98,7 +98,11 @@
     + [Lec 10.4 The Bootstrap](./10-CI.md#)
     + [Reading and Practice for Section 10](./10-CI.md#)
 
-
++ [Section 11: Interpreting Confidence (Lec 11.1 - Lec 11.3)](./11-InterpretCI.md)
+    + [Lec 11.1 Applying the Bootstrap](./11-InterpretCI.md#)
+    + [Lec 11.2 Confidence Interval Pitfalls](./11-InterpretCI.md#)
+    + [Lec 11.3 Confidence Interval Tests](./11-InterpretCI.md#)
+    + [Reading and Practice](./11-InterpretCI.md#)
 
 
 
