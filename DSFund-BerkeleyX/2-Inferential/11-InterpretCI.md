@@ -70,10 +70,21 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ When Not to Use The Bootstrap
+    + If you’re trying to estimate very high or very low percentiles, or min and max
+    + If you’re trying to estimate any parameter that’s greatly affected by rare elements of the population
+    + If the probability distribution of your statistic is not roughly bell shaped (the shape of the empirical distribution will be a clue)
+    + If the original sample is very small (fewer than 20)
 
-    ```
++ Can You Use a CI Like This?
+    + By our calculation, an approximate $95\%$ confidence interval for the average age of the mothers in the population is $(26.9, 27.6)$ years.
+    + True or False: <br/> About $95\%$ of the mothers in the population were between 26.9 years and 27.6 years old.
+    + Answer: False. We’re estimating that their average age is in this interval.
+
++ Is This What a CI Means?
+    + True or False: There is a 0.95 probability that the average age of mothers in the population is in the range $26.9$ to $27.6$ years.
+    + Answer: False. <br/> The average age of the mothers in the population is unknown but it’s a constant. It’s not random. No chances involved.
+    + An approximate $95\%$ confidence interval for the average age of the mothers in the population is $(26.9, 27.6)$ years.
 
 ### Video
 
