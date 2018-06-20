@@ -61,10 +61,19 @@
 
 ## Assignment 3
 
-+ [Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#)
-+ [Building a Custom Visualization](./asgn03.md#)
-+ [ReadingAssignment Reading](./asgn03.md#)
-+ [Peer-graded Assignment: Building a Custom Visualization](./asgn03.md#)
-+ [Review Your Peers: Building a Custom Visualization](./asgn03.md#)
++ [Practice Assignment](./asgn03.md#practice-assignment)
+    + [Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#practice-assignment-understanding-distributions-through-sampling)
+    + [Useful Links](./asgn03.md#useful-links)
+    + [Practice Peer-graded Assignment: Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#practice-peer-graded-assignment-practice-assignment-understanding-distributions-through-sampling)
++ [Assignment 3](./asgn03.md#assignment-3)
+    + [Building a Custom Visualization](./asgn03.md#building-a-custom-visualization)
+    + [Assignment Reading](./asgn03.md#/assignment-reading)
+    + [Assignment 3 - Building a Custom Visualization](./asgn03.md#assignment-3---building-a-custom-visualization)
+    + [Useful Links](./asgn03.md#useful-links-for-assignment-3)
+    + [Peer-graded Assignment: Building a Custom Visualization](./asgn03.md#peer-graded-assignment-building-a-custom-visualization)
+    + [Related Methods Used](./asgn03.md#related-methods-used)
+    + [Review Your Peers: Building a Custom Visualization](./asgn03.md#review-your-peers-building-a-custom-visualization)
+
+
 
 
