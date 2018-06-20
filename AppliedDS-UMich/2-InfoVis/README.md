@@ -50,14 +50,14 @@
 
 ## Module 3: [Charting Fundamentals](./03-ChartFund.md)
 
-+ [Module 3 Jupyter Notebook](./03-ChartFund.md#)
-+ [Subplots](./03-ChartFund.md#)
-+ [Histograms](./03-ChartFund.md#)
-+ [Selecting the Number of Bins in a Histogram: A Decision Theoretic (Optional)](./03-ChartFund.md#)
-+ [Box Plots](./03-ChartFund.md#)
-+ [Heatmaps](./03-ChartFund.md#)
-+ [Animation](./03-ChartFund.md#)
-+ [Interactivity](./03-ChartFund.md#)
++ [Module 3 Jupyter Notebook](./03-ChartFund.md#module-3-jupyter-notebook)
++ [Subplots](./03-ChartFund.md#subplots)
++ [Histograms](./03-ChartFund.md#histograms)
++ [Selecting the Number of Bins in a Histogram: A Decision Theoretic (Optional)](./03-ChartFund.md#selecting-the-number-of-bins-in-a-histogram-a-decision-theoretic-optional)
++ [Box Plots](./03-ChartFund.md#box-plots)
++ [Heatmaps](./03-ChartFund.md#heatmaps)
++ [Animation](./03-ChartFund.md#animation)
++ [Interactivity](./03-ChartFund.md#interactivity)
 
 
 
