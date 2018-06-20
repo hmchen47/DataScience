@@ -462,6 +462,136 @@ Download the attachment for a preview of how the assignment will be graded.
     `plt.bar` will take the year (parameter `left`), the mean (parameter `height`) and the margin of error (parameter yerr) for each row and draw a bar with `height =mean`, and `confidence interval = [mean-margin of error , mean+margin of error]`
 
 
+## Related Methods Used
+
++ `plt.colormaps` function
+    + Signature: `colormaps()`
+    + Docstring: Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called.
+    + set the colormap for an image, pcolor, scatter, etc, using a keyword argument::
+        ```python
+        imshow(X, cmap=cm.hot)
+        ```
+        or using the :func:`set_cmap` function
+        ```python
+        imshow(X)
+        pyplot.set_cmap('hot')
+        pyplot.set_cmap('jet')
+        ```
+        In interactive mode, `set_cmap` will update the colormap post-hoc, allowing you to see which one works best for your data.
+    
+        All built-in colormaps can be reversed by appending `_r`: For instance, `gray_r` is the reverse of `gray`.
+    + Common color schemes
+        + _Sequential schemes_: for unipolar data that progresses from low to high
+        + Diverging schemes: for bipolar data that emphasizes positive or negative deviations from a central value
+        + _Cyclic schemes_:  meant for plotting values that wrap around at the endpoints, such as phase angle, wind direction, or time of day
+        + _Qualitative schemes_: for nominal data that has no inherent ordering, where color is used only to distinguish categories
+    + Base colormaps derived from those of the same name provided with Matlab
+        + autumn: sequential linearly-increasing shades of red-orange-yellow
+        + bone: sequential increasing black-white color map with a tinge of blue, to emulate X-ray film
+        + cool: linearly-decreasing shades of cyan-magenta
+        + copper: sequential increasing shades of black-copper
+        + flag: repetitive red-white-blue-black pattern (not cyclic at endpoints)
+        + gray: sequential linearly-increasing black-to-white grayscale
+        + hot: sequential black-red-yellow-white, to emulate blackbody radiation from an object at increasing temperatures
+        + hsv: cyclic red-yellow-green-cyan-blue-magenta-red, formed by changing the hue component in the HSV color space
+        + inferno: perceptually uniform shades of black-red-yellow
+        + jet: a spectral map with dark endpoints, blue-cyan-yellow-red; based on a fluid-jet simulation by NCSA [#]_
+        + magma: perceptually uniform shades of black-red-white
+        + pink: sequential increasing pastel black-pink-white, meant for sepia tone colorization of photographs
+        + plasma: perceptually uniform shades of blue-red-yellow
+        + prism: repetitive red-yellow-green-blue-purple-...-green pattern (not cyclic at endpoints)
+        + spring: linearly-increasing shades of magenta-yellow
+        + summer: sequential linearly-increasing shades of green-yellow
+        + viridis: perceptually uniform shades of blue-green-yellow
+        + winter: linearly-increasing shades of blue-green
+    + Colormaps from `Yorick scientific visualisation package <http://dhmunro.github.io/yorick-doc/>`_, an evolution of the GIST package, both by David H. Munro:
+        + gist_earth: mapmaker's colors from dark blue deep ocean to green lowlands to brown highlands to white mountains
+        + gist_heat: sequential increasing black-red-orange-white, to emulate blackbody radiation from an iron bar as it grows hotter
+        + gist_ncar: pseudo-spectral black-blue-green-yellow-red-purple-white colormap from National Center for Atmospheric Research [#]_
+        + gist_rainbow: runs through the colors in spectral order from red to violet at full saturation (like *hsv* but not cyclic)
+        + gist_stern: "Stern special" color table from Interactive Data Language software
+    + ColorBrewer Diverging
+        + BrBG: brown, white, blue-green
+        + PiYG: pink, white, yellow-green
+        + PRGn: purple, white, green
+        + PuOr: orange, white, purple
+        + RdBu: red, white, blue
+        + RdGy: red, white, gray
+        + RdYlBu: red, yellow, blue
+        + RdYlGn: red, yellow, green
+        + Spectral: red, orange, yellow, green, blue
+    + ColorBrewer Sequential
+        + Blues: white to dark blue
+        + BuGn: white, light blue, dark green
+        + BuPu: white, light blue, dark purple
+        + GnBu: white, light green, dark blue
+        + Greens: white to dark green
+        + Greys: white to black (not linear)
+        + Oranges: white, orange, dark brown
+        + OrRd: white, orange, dark red
+        + PuBu: white, light purple, dark blue
+        + PuBuGn: white, light purple, dark green
+        + PuRd: white, light purple, dark red
+        + Purples: white to dark purple
+        + RdPu: white, pink, dark purple
+        + Reds: white to dark red
+        + YlGn: light yellow, dark green
+        + YlGnBu: light yellow, light green, dark blue
+        + YlOrBr: light yellow, orange, dark brown
+        + YlOrRd: light yellow, orange, dark red
+    + Miscellaneous schemes
+        + afmhot        sequential black-orange-yellow-white blackbody spectrum, commonly used in atomic force microscopy
+        + brg           blue-red-green
+        + bwr           diverging blue-white-red
+        + coolwarm      diverging blue-gray-red, meant to avoid issues with 3D shading, color blindness, and ordering of colors [#]_
+        + CMRmap        "Default colormaps on color images often reproduce to confusing grayscale images. The proposed colormap maintains an aesthetically pleasing color image that automatically reproduces to a monotonic grayscale with discrete, quantifiable saturation levels." [#]_
+        + cubehelix     Unlike most other color schemes cubehelix was designed by D.A. Green to be monotonically increasing in terms of perceived brightness. Also, when printed on a blackand white postscript printer, the scheme results in a greyscale with monotonically increasing brightness. This color scheme is named cubehelix because the r,g,b values produced can be visualised as a squashed helix around the diagonal in the r,g,b color cube.
+        + gnuplot       gnuplot's traditional pm3d scheme (black-blue-red-yellow)
+        + gnuplot2      sequential color printable as gray (black-blue-violet-yellow-white)
+        + ocean         green-blue-white
+        + rainbow       spectral purple-blue-green-yellow-orange-red colormap with diverging luminance
+        + seismic       diverging blue-white-red
+        + nipy_spectral black-purple-blue-green-yellow-red-white spectrum, originally from the Neuroimaging in Python project
+        + terrain       mapmaker's colors, blue-green-yellow-brown-white, originally from IGOR Pro
+
++ `plt.imshow' method
+    + Signature: `imshow(X, cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None, **kwargs)`
+    + Doctsring: Display an image on the axes.
+    + Parameters
+        + `X` (array_like, shape (n, m) or (n, m, 3) or (n, m, 4)): Display the image in `X` to current axes.  `X` may be an array or a PIL image. If `X` is an array, it can have the following shapes and types:
+            + MxN -- values to be mapped (float or int)
+            + MxNx3 -- RGB (float or uint8)
+            + MxNx4 -- RGBA (float or uint8)
+        
+            The value for each component of MxNx3 and MxNx4 float arrays should be in the range 0.0 to 1.0. MxN arrays are mapped to colors based on the `norm` (mapping scalar to scalar) and the `cmap` (mapping the normed scalar to a color).
+        + `cmap` (`~matplotlib.colors.Colormap`):  If None, default to rc `image.cmap` value. `cmap` is ignored if `X` is 3-D, directly specifying RGB(A) values.
+        + `aspect` (['auto' | 'equal' | scalar]): 
+            + 'auto': changes the image aspect ratio to match that of the axes.
+            + 'equal' w/ `extent`=`None`: changes the axes aspect ratio to match that of the image. 
+            + 'equal' w/ `extent`!=`None`: the axes aspect ratio is changed to match that of the extent.
+            + None: default to rc ``image.aspect`` value.
+        + `interpolation` (string): 
+            + Acceptable values are 'none', 'nearest', 'bilinear', 'bicubic', 'spline16', 'spline36', 'hanning', 'hamming', 'hermite', 'kaiser', 'quadric', 'catrom', 'gaussian', 'bessel', 'mitchell', 'sinc', 'lanczos'
+            +  None: default to rc `image.interpolation`. 
+        + `norm` (`~matplotlib.colors.Normalize`): 
+            + A `~matplotlib.colors.Normalize` instance is used to scale a 2-D float `X` input to the (0, 1) range for input to the `cmap`. 
+            + None: use the default func:`normalize`. 
+            + Instance of `~matplotlib.colors.NoNorm`: `X` must be an array of integers that index directly into the lookup table of the `cmap`.
+        + `vmin`, `vmax` (scalar): `vmin` and `vmax` are used in conjunction with norm to normalize luminance data.  Note if you pass a `norm` instance, your settings for `vmin` and `vmax` will be ignored.
+        + `alpha` (scalar): The alpha blending value, between 0 (transparent) and 1 (opaque)
+        + `origin` (['upper' | 'lower']): Place the [0,0] index of the array in the upper left or lower left corner of the axes. If None, default to rc `image.origin`.
+        + `extent` (scalars (left, right, bottom, top)):  
+            + The location, in data-coordinates, of the lower-left and upper-right corners. 
+            + `None`: the image is positioned such that the pixel centers fall on zero-based (row, column) indices.
+        + `shape` (scalars (columns, rows)): For raw buffer images
+        + `filternorm` (scalar): A parameter for the antigrain image resize filter.  
+            + `filternorm` = 1: the filter normalizes integer values and corrects the rounding errors. It doesn't do anything with the source floating point values, it corrects only integers according to the rule of 1.0 which means that any sum of pixel weights must be equal to 1.0.  So, the filter function must produce a graph of the proper shape.
+        + `filterrad` (scalar):  The filter radius for filters that have a radius parameter, i.e. when interpolation is one of: 'sinc', 'lanczos' or 'blackman'
+        + `kwargs` : `~matplotlib.artist.Artist` properties
+    + Returns: image : `~matplotlib.image.AxesImage`
+    
+
+
 
 
 
