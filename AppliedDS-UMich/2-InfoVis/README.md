@@ -42,9 +42,10 @@
 
 ## Assignment 2
 
-+ [Plotting Weather Patterns](asgn02.md)
-+ [Peer-graded Assignment: Plotting Weather Patterns](asgn02.md)
-+ [Review Your Peers: Plotting Weather Patterns](asgn02.md)
++ [Plotting Weather Patterns](./.md#plotting-weather-patterns)
++ [Peer-graded Assignment: Plotting Weather Patterns](./asgn02.md#peer-graded-assignment-plotting-weather-patterns)
++ [Useful Links for Assignment](./asgn02.md#useful-links-for-assignment)
++ [Review Your Peers: Plotting Weather Patterns](./asgn02.md#review-your-peers-plotting-weather-patterns)
 
 
 
