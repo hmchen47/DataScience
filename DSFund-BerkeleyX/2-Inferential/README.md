@@ -59,10 +59,10 @@
     + [Reading and Practice for Section 6](./06-CompDist.md#)
 
 + [Section 7: Decisions and Uncertainty (Lec 7.1 - Lec 7.5)](./07-Decision.md)
-    + [Lec 7.1 Introduction and Terminology](./07-Decision.md#)
-    + [Lec 7.2 Performing a Test](./07-Decision.md#)
-    + [Lec 7.3 Statistical Significance](./07-Decision.md#)
-    + [Lec 7.4 An Error Probability](./07-Decision.md#)
-    + [Lec 7.5 Origin of the Conventions](./07-Decision.md#)
-    + [Reading and Practice for Section 7](./07-Decision.md#)
+    + [Lec 7.1 Introduction and Terminology](./07-Decision.md#lec-71-introduction-and-terminology)
+    + [Lec 7.2 Performing a Test](./07-Decision.md#lec-72-performing-a-test)
+    + [Lec 7.3 Statistical Significance](./07-Decision.md#lec-73-statistical-significance)
+    + [Lec 7.4 An Error Probability](./07-Decision.md#lec-74-an-error-probability)
+    + [Lec 7.5 Origin of the Conventions](./07-Decision.md#lec-75-origin-of-the-conventions)
+    + [Reading and Practice for Section 7](./07-Decision.md#reading-and-practice)
  
