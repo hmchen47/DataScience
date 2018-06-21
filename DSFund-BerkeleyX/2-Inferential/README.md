@@ -41,11 +41,12 @@
     + [Reading and Practice for Section 4b](./04-SamplingSimulation.md#)
 
 +  [Section 5: Hypothesis Testing (Lec 5.1 - Lec 5.4)](./05-Hypothesis.md)
-    + [Lec 5.1 Assessing Models](./05-Hypothesis.md#)
-    + [Lec 5.2 A Model about Random Selection](./05-Hypothesis.md#)
-    + [Lec 5.3 A Genetic Model](./05-Hypothesis.md#)
-    + [Lec 5.4 Example](./05-Hypothesis.md#)
-    + [Reading and Practice for Section 5](./05-Hypothesis.md#)
+    + [Lec 5.1 Assessing Models](./05-Hypothesis.md#lec-51-assessing-models)
+    + [Lec 5.2 A Model about Random Selection](./05-Hypothesis.md#lec-52-a-model-about-random-selection)
+    + [Lec 5.3 A Genetic Model](./05-Hypothesis.md#lec-53-a-genetic-model)
+    + [Lec 5.4 Example](./05-Hypothesis.md#lec-54-example)
+    + [Reading and Practice for Section 5](./05-Hypothesis.md#reading-and-practice-for-section-5)
+
 
 
 
