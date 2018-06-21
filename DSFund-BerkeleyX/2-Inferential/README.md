@@ -87,7 +87,7 @@
     + [Lec 9.4 Performing a Test](./09-Causality.md#)
     + [Reading and Practice for Section 9](./09-Causality.md#)
 
-+ [Lab 4: Inference, Part 2](./lab04.md)
++ [Lab 4: Inference, Part 2](./lab04-Inference.md)
 
 ## Week 5
 
