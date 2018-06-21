@@ -29,16 +29,16 @@
 ## Week 2
 
 + [Section 4a: Sampling (Lec 4.1 - Lec 4.2)](./04-SamplingSimulation.md)
-    + [Lec 4.1 Probability & Sampling](./04-SamplingSimulation.md#)
-    + [Lec 4.2 Sampling](./04-SamplingSimulation.md#)
-    + [Reading and Practice](./04-SamplingSimulation.md#)
+    + [Lec 4.1 Probability & Sampling](./04-SamplingSimulation.md#lec-41-probability--sampling)
+    + [Lec 4.2 Sampling](./04-SamplingSimulation.md#lec-42-sampling)
+    + [Reading and Practice](./04-SamplingSimulation.md#reading-and-practice)
 
-+ [Section 4b: Simulation (Lec 4.3 - Lec 4.6)](./04-SamplingSimulation.md)
-    + [Lec 4.3 Distributions](./04-SamplingSimulation.md#)
-    + [Lec 4.4 Large Random Samples](./04-SamplingSimulation.md#)
-    + [Lec 4.5 Simulation](./04-SamplingSimulation.md#)
-    + [Lec 4.6 Statistics](./04-SamplingSimulation.md#)
-    + [Reading and Practice for Section 4b](./04-SamplingSimulation.md#)
++ [Section 4b: Simulation (Lec 4.3 - Lec 4.6)](./04-SamplingSimulation.md#section-4b-simulation-lec-43---lec-46)
+    + [Lec 4.3 Distributions](./04-SamplingSimulation.md#lec-43-distributions)
+    + [Lec 4.4 Large Random Samples](./04-SamplingSimulation.md#lec-44-large-random-samples)
+    + [Lec 4.5 Simulation](./04-SamplingSimulation.md#lec-45-simulation)
+    + [Lec 4.6 Statistics](./04-SamplingSimulation.md#lec-46-statistics)
+    + [Reading and Practice for Section 4b](./04-SamplingSimulation.md#reading-and-practice-1)
 
 
 
