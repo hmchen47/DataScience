@@ -104,6 +104,6 @@
     + [Lec 11.3 Confidence Interval Tests](./11-InterpretCI.md#)
     + [Reading and Practice](./11-InterpretCI.md#)
 
-+ [Lab 5: Bootstrap](./lab05.md)
++ [Lab 5: Bootstrap](./lab05-Bootstrap.md)
 
 
