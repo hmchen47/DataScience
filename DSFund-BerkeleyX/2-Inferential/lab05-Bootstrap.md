@@ -12,6 +12,48 @@ If you cannot complete the Jupyter notebook version of Lab 5 for accessibility r
 
 Note: IE / Edge browsers are currently unsupported for Jupyter notebook labs. We highly recommend you use Google Chrome. 
 
+Answer:
 
+Q1.1: 
+1. N: population parameter
+2. n: statistic, the computed number from random sample that's estimate of N
+
+Q1.2 
+```python
+def plot_serial_numbers(numbers):
+    numbers.hist(bins=200)
+    
+    # Assuming the lines above produce a histogram, this next
+    # line may make your histograms look nicer.  Feel free to
+    # delete it if you want.
+    plt.ylim(0, .25)
+
+plot_serial_numbers(observations)
+```
+
+Q1.3
+1. We cannot tell the N immediately, but the samples indicates the most likely number of N is no less than 130.
+2. The bars in the diagram represent the pobability of the samples located in the given range.
+3. Due to the bins assigned as 200 and the samples only 17 without repeat.  Therefore, all the bins are only one occurence inside.  
+
+Q1.4:
+```python
+def mean_based_estimator(nums):
+    return np.mean(nums)
+
+mean_based_estimate = mean_based_estimator(observations)
+mean_based_estimate
+```
+
+Q1.5:
+```python
+max_estimate = np.max(observations)[0][0]
+max_estimate
+```
+
+Q1.6:
+1. The result of max_estimate is never greater than N.
+2. The result (twice) of mean_based_estimate could be less or greater than N or equal to N.  It highly depends on the samples.
+3. We cannot make any statement that the result (twice) of mean_based_estimate is at least x away from N.  The variance of distance from (N/2) depends on the samples.
 
 
