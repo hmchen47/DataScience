@@ -80,10 +80,10 @@
     + [Lec 8.5 Deflategate Testing](./08-Testing.md#)
 
 + [Section 9: Causality (Lec 9.1 - Lec 9.4)](./09-Causality.md)
-    + [Lec 9.1 Introduction](./09-Causality.md#)
-    + [Lec 9.2 Hypotheses](./09-Causality.md#)
-    + [Lec 9.3 Test Statistic](./09-Causality.md#)
-    + [Lec 9.4 Performing a Test](./09-Causality.md#)
-    + [Reading and Practice for Section 9](./09-Causality.md#)
+    + [Lec 9.1 Introduction](./09-Causality.md#lec-91-introduction)
+    + [Lec 9.2 Hypotheses](./09-Causality.md#lec-92-hypotheses)
+    + [Lec 9.3 Test Statistic](./09-Causality.md#lec-93-test-statistic)
+    + [Lec 9.4 Performing a Test](./09-Causality.md#lec-94-performing-a-test)
+    + [Reading and Practice for Section 9](./09-Causality.md#reading-and-practice-for-section-9)
 
 
