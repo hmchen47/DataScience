@@ -7,12 +7,12 @@
     + [Lec 1.2 Why Data Science](./01-Intro.md#)
 
 + [Section 2: Probability (Lec 2.1 - Lec 2.5)](./02-Probability.md)
-    + [Lec 2.1 Monty Hall Problem](./02-Probability.md#)
-    + [Lec 2.2 Probability](./02-Probability.md#)
-    + [Lec 2.3 Multiplication Rule](./02-Probability.md#)
-    + [Lec 2.4 Addition Rule](./02-Probability.md#)
-    + [Lec 2.5 Probability Example](./02-Probability.md#)
-    + [Reading and Practice for Section 2](./02-Probability.md#)
+    + [Lec 2.1 Monty Hall Problem](./02-Probability.md#lec-21-monty-hall-problem)
+    + [Lec 2.2 Probability](./02-Probability.md#lec-22-probability)
+    + [Lec 2.3 Multiplication Rule](./02-Probability.md#lec-23-multiplication-rule)
+    + [Lec 2.4 Addition Rule](./02-Probability.md#lec-24-addition-rule)
+    + [Lec 2.5 Probability Example](./02-Probability.md#lec-25-probability-example)
+    + [Reading and Practice for Section 2](./02-Probability.md#reading-and-practice-for-section-2)
 
 + [[Review] Section 3: Iteration (Lec 3.1 - Lec 3.7)](../1-CompThinkWPython/13-Iteration.md)
     + [[Review] Lec 3.1 Comparison](../1-CompThinkWPython/13-Iteration.md#lec-131-comparison)
@@ -23,4 +23,5 @@
     + [[Review] Lec 3.6 Control Statements](../1-CompThinkWPython/13-Iteration.md#lec-136-control-statements)
     + [[Review] Lec 3.7 For Statements](../1-CompThinkWPython/13-Iteration.md#lec-137-for-statements)
     + [Reading and Practice for Section 3](./13-Iteration.md#reading-and-practice-for-section-13)
+
 
