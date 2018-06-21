@@ -69,15 +69,15 @@
 
 ## Week 4
 
-+ [Section 8a: A/B Testing (Lec 8.1 - Lec 8.3)](./08-Testing)
-    + [Lec 8.1 Introduction](./08-Testing#)
-    + [Lec 8.2 Hypotheses and Statistic](./08-Testing#)
-    + [Lec 8.3 Performing the Test](./08-Testing#)
-    + [Reading and Practice for Section 8a](./08-Testing#)
++ [Section 8a: A/B Testing (Lec 8.1 - Lec 8.3)](./08-Testing.md)
+    + [Lec 8.1 Introduction](./08-Testing.md#lec-81-introduction)
+    + [Lec 8.2 Hypotheses and Statistic](./08-Testing.md#lec-82-hypotheses-and-statistic)
+    + [Lec 8.3 Performing the Test](./08-Testing.md#lec-83-performing-the-test)
+    + [Reading and Practice for Section 8a](./08-Testing.md#reading-and-practice-for-section-8a)
 
-+ [Section 8b: Deflategate Example (Lec 8.4 - Lec 8.5)](./08-Testing.md#)
-    + [Lec 8.4 Deflategate Introduction](./08-Testing.md#)
-    + [Lec 8.5 Deflategate Testing](./08-Testing.md#)
++ [Section 8b: Deflategate Example (Lec 8.4 - Lec 8.5)](./08-Testing.md#section-8b-deflategate-example-lec-84---lec-85)
+    + [Lec 8.4 Deflategate Introduction](./08-Testing.md#lec-84-deflategate-introduction)
+    + [Lec 8.5 Deflategate Testing](./08-Testing.md#lec-85-deflategate-testing)
 
 
 
