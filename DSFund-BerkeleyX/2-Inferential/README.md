@@ -92,11 +92,12 @@
 ## Week 5
 
 + [Section 10: Confidence Intervals (Lec 10.1 - Lec 10.4)](./10-CI.md)
-    + [Lec 10.1 Percentiles](./10-CI.md#)
-    + [Lec 10.2 Estimation](./10-CI.md#)
-    + [Lec 10.3 Estimate Variability](./10-CI.md#)
-    + [Lec 10.4 The Bootstrap](./10-CI.md#)
-    + [Reading and Practice for Section 10](./10-CI.md#)
+    + [Lec 10.1 Percentiles](./10-CI.md#lec-101-percentiles)
+    + [Lec 10.2 Estimation](./10-CI.md#lec-102-estimation)
+    + [Lec 10.3 Estimate Variability](./10-CI.md#lec-103-estimate-variability)
+    + [Lec 10.4 The Bootstrap](./10-CI.md#lec-104-the-bootstrap)
+    + [Reading and Practice for Section 10](./10-CI.md#reading-and-practice-for-section-10)
+
 
 
 
