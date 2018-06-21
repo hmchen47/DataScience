@@ -3,8 +3,8 @@
 ## Week 1
 
 + [Section 1: Introduction (Lec 1.1 - Lec 1.2)](./01-Intro.md)
-    + [Lec 1.1 Course Overview](./01-Intro.md#)
-    + [Lec 1.2 Why Data Science](./01-Intro.md#)
+    + [Lec 1.1 Course Overview](./01-Intro.md#lec-11-course-overview)
+    + [Lec 1.2 Why Data Science](./01-Intro.md#lec-12-why-data-science)
 
 + [Section 2: Probability (Lec 2.1 - Lec 2.5)](./02-Probability.md)
     + [Lec 2.1 Monty Hall Problem](./02-Probability.md#lec-21-monty-hall-problem)
