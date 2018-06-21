@@ -53,10 +53,10 @@
 
 + [Section 6: Comparing Distributions (Lec 6.1 - Lec 6.4)](./06-CompDist.md)
 
-    + [Lec 6.1 Introduction](./06-CompDist.md#)
-    + [Lec 6.2 Total Variation Distance](./06-CompDist.md#)
-    + [Lec 6.3 Assessment](./06-CompDist.md#)
-    + [Lec 6.4 Summary](./06-CompDist.md#)
-    + [Reading and Practice for Section 6](./06-CompDist.md#)
+    + [Lec 6.1 Introduction](./06-CompDist.md#lec-61-introduction)
+    + [Lec 6.2 Total Variation Distance](./06-CompDist.md#lec-62-total-variation-distance)
+    + [Lec 6.3 Assessment](./06-CompDist.md#lec-63-assessment)
+    + [Lec 6.4 Summary](./06-CompDist.md#lec-64-summary)
+    + [Reading and Practice for Section 6](./06-CompDist.md#reading-and-practice)
 
 
