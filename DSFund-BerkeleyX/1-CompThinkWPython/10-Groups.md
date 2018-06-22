@@ -201,6 +201,16 @@ Q7. What should go in placeholder [F]?
     + Two optional arguments (include both or neither)
         + `values` = `column_label_to_aggregate`
         + `collect` = function _with_which_to_aggregate
++ `t.pivot` method
+    + Signature: `t.pivot(columns, rows, values=None, collect=None, zero=None)`
+    + Docstring: Generate a table with a column for each unique value in `columns`, with rows for each unique value in `rows`. Each row counts/aggregates the values that match both row and column based on `collect`.
+    + Args: 
+        + `columns` (a single column label or index): used to create new columns, based on its unique values.
+        + `rows` (row labels or indices): used to create new rows based on it's unique values.
+        + `values`: column label in table for use in aggregation.
+        + `collect`: aggregation function, used to group `values` over row-column combinations.
+        + `zero`: zero value for non-existent row-column combinations.
+
 + Demo
     ```python
     all_cones.group(['Flavor', 'Color'])

@@ -70,7 +70,7 @@ plots.style.use('fivethirtyeight')
 | `t.apply(func, col, ...)` | returns an array where a function is applied to each item in a col | [I-Lec 9.5 Apply][018]; [I-Lec 12.1 Table Methods][026] |
 | `t.group(col[, func])` | aggregates all rows with the same value a column into a single row in the resulting table with given function; default=count | [I-Lec 10.1 One Attribute Group][017] |
 | `t.group([col, ...][, func])` | aggregate all rows that share the combination of values in multiple columns; default=count | [I-Lec 10.2 Cross Classification][015]
-| `t.pivot(col, roe, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [I-Lec 10.4 Pivot Tables][015]; [I-Lec 12.1 Table Methods][026] |
+| `t.pivot(col, row, [, values=vals, collect=func])` | returns a pivot table where each unique value in col1 has its own column and each unique value in col2 has its own row. The cells of the grid contain row counts (two arguments) or the values from a third col, aggregated by the collect function | [I-Lec 10.4 Pivot Tables][015]; [I-Lec 12.1 Table Methods][026] |
 | `tblA.join(colA, tblB, colB)` | returns a table with the columns of `tblA` and `tblB`, containing rows for all values of a `colA` and colB that appear in both tables | [I-Lec 11.1 Joins][014]; [I-Lec 12.1 Table Methods][026] |
 | `t.exclude([row, ...])` | return a table that excludes listed rows from given table | [I-Lec 12.1 Table Methods][026] |
 | `t.sample(k=None, with_replacement=True, weights=None)` | Return a new table where k rows are randomly sampled from the original table | [II-Lec 4.2 Sampling][030] |
@@ -136,6 +136,7 @@ plots.style.use('fivethirtyeight')
 | `are.between_or_equal_to(x, y)` | Greater than or equal to `x`, and less than or equal  to `y` |
 | `are.containing(S)` | Contains the string `S` |
 | `are.contained_in(ary|lst)` | contains in array or list |
+| `are.not_contained_in(ary|lst)` | not contain in array or list |
 | `are.not_equal_to(Z)` | Not equal to `Z` |
 | `are.not_above(x)` | Not above `x` |
 
@@ -146,6 +147,9 @@ plots.style.use('fivethirtyeight')
 | Function | Description | Link |
 |----------|-------------|------|
 | `sample_proportions(sample_size, probabilities)` | Return the proportion of random draws for each outcome in a distribution | [II-Lec 5.2 Random Selection][031] |
+| `percentile(p, arr=None)` | Returns the pth percentile of the input array (the value that is at least as great as p% of the values in the array) | [Percentiles][032] |
+
+
 
 
 -------------------
@@ -179,8 +183,11 @@ plots.style.use('fivethirtyeight')
 [027]: http://data8.org/datascience/tables.html
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
 [029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
-[030]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
-[031]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
+[030]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
+[031]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
+[032]: ../DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
+
+
 
 
 
