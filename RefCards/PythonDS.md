@@ -287,6 +287,9 @@ import pandas as pd
 |`pd.to_datetime(arg, **kwargs)` | Convert argument to datetime <br/> `kwargs`: errors='raise', dayfirst=False, yearfirst=False, utc=None, box=True, format=None, exact=True, unit=None, infer_datetime_format=False, origin='unix', cache=False | [Date Functionality][020], [Line Plots][027] |
 | `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; <br/>[`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; <br/> `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
+| `pd.plotting.scatter_matrix(frame, *args, **kwds)` | Draw a matrix of scatter plots <br/> `args`: alpha=0.5, figsize=None, ax=None, grid=False, diagonal='hist', marker='.', density_kwds=None, hist_kwds=None, range_padding=0.05 | [Plotting w/ Pandas][044] |
+| `pd.tools.plotting.parallel_coordinates(data. col)` | Parallel coordinates is a plotting technique for plotting multivariate data ([viki](https://en.wikipedia.org/wiki/Parallel_coordinates)) | [Plotting w/ Pandas][044] |
+
 
 | Alias | Description | | Alias | Description |
 |--------|------------|-|--------|------------|
@@ -465,6 +468,9 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; <br/>`dtype`: data type, or dict of column name -> data type | [Scales][018] |
 | `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; <br/> values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
 | `df.describe(percentiles=None, include=None, exclude=None)` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values. | [Box Plots][039] |
+| `df.plot.box(by=None, **kwds)` | Boxplot | [Plotting w/ Pandas][044] |
+| `df.plot.hist(by=None, bins=10, **kwds)` | Histogram | [Plotting w/ Pandas][044] |
+| `df.plot.kde(**kwds)` | Kernel Density Estimate plot | [Plotting w/ Pandas][044] |
 
 
 [TOC](#table-of-contents)
@@ -523,7 +529,7 @@ import matplotlib.animation as animation
 | `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
 | `plt.gca().axis(*v, **kwargs)` <br/> `plt.gca().axes(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
 | `plt.gca().get_children()` | return a list of child artists | [Basic Plotting][025] |
-| `plt.scatter(x, y, *args, **kwargs)` | Make a Scatterplots of `x` vs `y`; `args`: s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None | [Scatterplots][026] |
+| `plt.scatter(x, y, *args, **kwargs)` | Make a Scatterplots of `x` vs `y`; `args`: s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None | [Scatterplots][026], [Histograms][038] |
 | `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
 | `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
 | `plt.fill_between(x, y1, y2=0, **kwargs)` | Make filled polygons between two curves; <br/> `kwargs`: where=None, interpolate=False, step=None, *, data=None | [Line Plots][027] |
@@ -531,7 +537,6 @@ import matplotlib.animation as animation
 | `plt.tick_params(axis='both', **kwargs)` | Change the appearance of ticks and tick labels | [Dejunkify][029] |
 | `plt.gcf()` | Get a reference to the current figure. | [Subplots][037] |
 | `plt.hist(x, *args, **kwargs)` | Plot a histogram <br/> `*args`: `bins=None, range=None, normed=False, weights=None, cumulative=False, bottom=None, histtype='bar', align='mid', orientation='vertical', rwidth=None, log=False, color=None, label=None, stacked=False, hold=None, data=None` | [Histograms][038] |
-| `plt.scatter(x, y, *args, **kwargs)` | Make a scatter plot of `x` vs `y` <br/> `*args`: `s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None` | [Histograms][038] |
 | `set_title(label, fontdict=None, loc='center', **kwargs)` | Set a title for the axes of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
 | `set_xlim(left=None, right=None, emit=True, auto=False, **kw)` | Set the data limits for the x-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
 | `set_ylim(bottom=None, top=None, emit=True, auto=False, **kw)` | Set the data limits for the y-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
@@ -550,6 +555,9 @@ import matplotlib.animation as animation
 | `plt.colormaps()` | Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called. | [Assignment 3][043] |
 | `plt.imshow(X, *args, **kwargs)` | Display an image on the axes <br/> `*args`: cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None | [Assignment 3][043] |
 | `cm.to_rgba(x, alpha=None, bytes=False, norm=True)` | Return a normalized rgba array corresponding to *x* | [Assignment 3][043] |
+| `plt,style.user(style)` | Use matplotlib style settings from a style specification. | [Plotting w/ Pandas][044] |
+| `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
+
 
 
 #### Line style or marker
@@ -633,13 +641,15 @@ plt.legend()
 [034]: https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html
 [035]: https://matplotlib.org/api/_as_gen/matplotlib.figure.SubplotParams.html
 [036]: https://matplotlib.org/api/text_api.html
-[037]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
-[038]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
-[039]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
+[037]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#subplots
+[038]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#histograms
+[039]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#box-plots
 [040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#heatmaps
-[041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
-[042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#interactivity
-[043]: ../AppliedDS-UMich/2-InfoVis/asgn03.ms#related-methods-used
+[041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#animations
+[042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#interactivity
+[043]: ../AppliedDS-UMich/2-InfoVis/asgn03.md#related-methods-used
+[044]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#plotting-with-pandas
+
 
 
 
