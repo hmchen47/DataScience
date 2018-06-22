@@ -108,5 +108,8 @@
 
 
 
++ [Lab 5: Bootstrap](./lab05-Bootstrap.md)
+
++ [Optional Additional Content](./labs/lab06.ipynb)
 
 
