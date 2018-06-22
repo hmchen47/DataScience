@@ -75,7 +75,7 @@
     + [Review Your Peers: Building a Custom Visualization](./asgn03.md#review-your-peers-building-a-custom-visualization)
 
 
-## [Module 4: Applied Visualizations](./04-AppliedVis.md)
+## Module 4: [Applied Visualizations](./04-AppliedVis.md)
 
 + [Module 4 Jupyter Notebook](./04-AppliedVis.md#)
 + [Plotting with Pandas](./04-AppliedVis.md#)
