@@ -38,7 +38,7 @@
     + [Lec 3.3 Call Expressions](./03-PythonTables.md#lec-33-call-expressions)
     + [Reading and Practice for Section 3a](./03-PythonTables.md#reading-and-practice-for-section-3a)
 
-+ Section 3b: [Tables (Lec 3.4 - Lec 3.7)](./03-PythonTables.md#tables-lec-3.4-lec-3.7))
++ Section 3b: [Tables (Lec 3.4 - Lec 3.7)](./03-PythonTables.md#section-3b-tables-lec-34---lec-37)
     + [Lec 3.4 Tables](./03-PythonTables.md#lec-34-tables)
     + [Lec 3.5 Select](./03-PythonTables.md#lec-35-select)
     + [Lec 3.6 Sorting](./03-PythonTables.md#lec-36-sorting)
@@ -48,6 +48,7 @@
 + [Lab 1: Introduction to Python (Jupyter Notebook)](./lab1-IntroPython.md)
 + [Alternative Lab 1: Introduction to Python (Non-Notebook Version)](lab1-IntroPython.md)
 
+https://github.com/hmchen47/DataScience/blob/lab03/DSFund-BerkeleyX/1-CompThinkWPython/
 ## Week 2
 
 + Section 4: [Expressions (Lec 4.1 - Lec 4.5)](./04-Expression.md)
