@@ -183,9 +183,9 @@ plots.style.use('fivethirtyeight')
 [027]: http://data8.org/datascience/tables.html
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
 [029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
-[030]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
-[031]: ../DataScience/DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
-[032]: ../DataScience/DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
+[030]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
+[031]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
+[032]: ../DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
 
 
 

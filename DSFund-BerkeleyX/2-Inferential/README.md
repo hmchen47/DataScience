@@ -99,7 +99,18 @@
     + [Reading and Practice for Section 10](./10-CI.md#reading-and-practice-for-section-10)
 
 
++ [Section 11: Interpreting Confidence (Lec 11.1 - Lec 11.3)](./11-InterpretCI.md)
+    + [Lec 11.1 Applying the Bootstrap](./11-InterpretCI.md#lec-111-applying-the-bootstrap)
+    + [Lec 11.2 Confidence Interval Pitfalls](./11-InterpretCI.md#lec-112-confidence-interval-pitfalls)
+    + [Lec 11.3 Confidence Interval Tests](./11-InterpretCI.md#lec-113-confidence-interval-tests)
+    + [Reading and Practice](./11-InterpretCI.md#reading-and-practice)
 
 
+
+
+
++ [Lab 5: Bootstrap](./lab05-Bootstrap.md)
+
++ [Optional Additional Content](./labs/lab06.ipynb)
 
 
