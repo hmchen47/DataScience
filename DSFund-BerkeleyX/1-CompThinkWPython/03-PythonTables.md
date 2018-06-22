@@ -176,6 +176,28 @@ Q5. For the following questions, fill in the expected output of the expression.
     + `t.select(label)`: constructs a new table with just the specified columns
     + `t.drop(label)`: constructs a new table without the specified columns
     + `t.sort(label)`: constructs a new table, with rows sorted by the specified column
+
++ `t.select` method
+    + Signature: `select(*column_or_columns)`
+    + Docstring: Return a table with only the columns in `column_or_columns`
+    + Args: 
+        + `column_or_columns`: Columns to select from the `Table` as either column labels (`str`) or column indices (`int`).
+
++ `t.drop` method
+    + Signature: `drop(*column_or_columns)`
+    + Docstring: Return a Table with only columns other than selected label or labels.
+    + Args:
+        + `column_or_columns` (string or list of strings): The header names or indices of the columns to be dropped.
+    + `column_or_columns`: must be an existing header name, or a valid column index.
+
++ `t.sort` method:
+    + Signature: `sort(column_or_label, descending=False, distinct=False)`
+    + Docstring: Return a Table of rows sorted according to the values in a column.
+    + Args:
+        + `column_or_label`: the column whose values are used for sorting.
+        + `descending` (boolean)
+        + `distinct` (boolean): omitt repeated values in `column_or_label`
+
 + Demo
     ```python
     petals = flowers.select('Petals')

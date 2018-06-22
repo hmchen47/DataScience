@@ -34,7 +34,6 @@
 ###################
 *.jpg
 *.gif
-*.png
 *.jpeg
 
 # Logs and databases #
