@@ -4,6 +4,7 @@
 
 + Foundations of Data Science - BerkeleyX
     1. [Computational Thinking with Python - Data8.1x](./DSFund-BerkeleyX/1-CompThinkWPython/README.md)
+    2. [Inferential Thinking by Resampling](./DSFund-BerkeleyX/2-Inferential/README.md)
 
 + Applied Data Science with Python
     1. [Introduction to Data Science in Python](./AppliedDS-UMich/1-IntroDS/README.md)

@@ -61,6 +61,7 @@
     + Args: 
         + `sample_size`: The size of the sample to draw from the distribution.
         + `probabilities`: An array of probabilities that forms a distribution.
+    + Ref: datascience/util.py
 
 + Demo 
     ````python
