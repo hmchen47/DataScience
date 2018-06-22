@@ -48,6 +48,71 @@
     + [Reading and Practice for Section 5](./05-Hypothesis.md#reading-and-practice-for-section-5)
 
 
++ [Lab 2: Sampling](./lab02-Sampling.md)
 
+## Week 3
+
++ [Section 6: Comparing Distributions (Lec 6.1 - Lec 6.4)](./06-CompDist.md)
+
+    + [Lec 6.1 Introduction](./06-CompDist.md#lec-61-introduction)
+    + [Lec 6.2 Total Variation Distance](./06-CompDist.md#lec-62-total-variation-distance)
+    + [Lec 6.3 Assessment](./06-CompDist.md#lec-63-assessment)
+    + [Lec 6.4 Summary](./06-CompDist.md#lec-64-summary)
+    + [Reading and Practice for Section 6](./06-CompDist.md#reading-and-practice)
+
++ [Section 7: Decisions and Uncertainty (Lec 7.1 - Lec 7.5)](./07-Decision.md)
+    + [Lec 7.1 Introduction and Terminology](./07-Decision.md#lec-71-introduction-and-terminology)
+    + [Lec 7.2 Performing a Test](./07-Decision.md#lec-72-performing-a-test)
+    + [Lec 7.3 Statistical Significance](./07-Decision.md#lec-73-statistical-significance)
+    + [Lec 7.4 An Error Probability](./07-Decision.md#lec-74-an-error-probability)
+    + [Lec 7.5 Origin of the Conventions](./07-Decision.md#lec-75-origin-of-the-conventions)
+    + [Reading and Practice for Section 7](./07-Decision.md#reading-and-practice)
+ 
++ [Lab 3: Inference, Part 1](./lab03-Inference.md)
+
+## Week 4
+
++ [Section 8a: A/B Testing (Lec 8.1 - Lec 8.3)](./08-Testing.md)
+    + [Lec 8.1 Introduction](./08-Testing.md#lec-81-introduction)
+    + [Lec 8.2 Hypotheses and Statistic](./08-Testing.md#lec-82-hypotheses-and-statistic)
+    + [Lec 8.3 Performing the Test](./08-Testing.md#lec-83-performing-the-test)
+    + [Reading and Practice for Section 8a](./08-Testing.md#reading-and-practice-for-section-8a)
+
++ [Section 8b: Deflategate Example (Lec 8.4 - Lec 8.5)](./08-Testing.md#section-8b-deflategate-example-lec-84---lec-85)
+    + [Lec 8.4 Deflategate Introduction](./08-Testing.md#lec-84-deflategate-introduction)
+    + [Lec 8.5 Deflategate Testing](./08-Testing.md#lec-85-deflategate-testing)
+
++ [Section 9: Causality (Lec 9.1 - Lec 9.4)](./09-Causality.md)
+    + [Lec 9.1 Introduction](./09-Causality.md#lec-91-introduction)
+    + [Lec 9.2 Hypotheses](./09-Causality.md#lec-92-hypotheses)
+    + [Lec 9.3 Test Statistic](./09-Causality.md#lec-93-test-statistic)
+    + [Lec 9.4 Performing a Test](./09-Causality.md#lec-94-performing-a-test)
+    + [Reading and Practice for Section 9](./09-Causality.md#reading-and-practice-for-section-9)
+
++ [Lab 4: Inference, Part 2](./lab04-Inference.md)
+
+## Week 5
+
++ [Section 10: Confidence Intervals (Lec 10.1 - Lec 10.4)](./10-CI.md)
+    + [Lec 10.1 Percentiles](./10-CI.md#lec-101-percentiles)
+    + [Lec 10.2 Estimation](./10-CI.md#lec-102-estimation)
+    + [Lec 10.3 Estimate Variability](./10-CI.md#lec-103-estimate-variability)
+    + [Lec 10.4 The Bootstrap](./10-CI.md#lec-104-the-bootstrap)
+    + [Reading and Practice for Section 10](./10-CI.md#reading-and-practice-for-section-10)
+
+
++ [Section 11: Interpreting Confidence (Lec 11.1 - Lec 11.3)](./11-InterpretCI.md)
+    + [Lec 11.1 Applying the Bootstrap](./11-InterpretCI.md#lec-111-applying-the-bootstrap)
+    + [Lec 11.2 Confidence Interval Pitfalls](./11-InterpretCI.md#lec-112-confidence-interval-pitfalls)
+    + [Lec 11.3 Confidence Interval Tests](./11-InterpretCI.md#lec-113-confidence-interval-tests)
+    + [Reading and Practice](./11-InterpretCI.md#reading-and-practice)
+
+
+
+
+
++ [Lab 5: Bootstrap](./lab05-Bootstrap.md)
+
++ [Optional Additional Content](./labs/lab06.ipynb)
 
 
