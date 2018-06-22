@@ -14,7 +14,7 @@
 + [Graphical heuristics: Data-ink ratio (Edward Tufte)](./01-Principle.md#)
 + [Dark Horse Analytics (Optional)](./01-Principle.md#)
 + [Graphical heuristics: Chart junk (Edward Tufte)](./01-Principle.md#)
-+ [Useful Junk?: The Effects of Visual Embellishment on Comprehension and ](./01-Principle.md#)+ [Memorability of Charts](./01-Principle.md#)
++ [Useful Junk?: The Effects of Visual Embellishment on Comprehension and Memorability of Charts](./01-Principle.md#)
 + [Graphical heuristics: Lie Factor and Spark Lines (Edward Tufte)](./01-Principle.md#)
 + [The Truthful Art (Alberto Cairo)](./01-Principle.md#)
 + [Discussion Prompt: Must a visual be enlightening?](./01-Principle.md#)
@@ -73,6 +73,14 @@
     + [Peer-graded Assignment: Building a Custom Visualization](./asgn03.md#peer-graded-assignment-building-a-custom-visualization)
     + [Related Methods Used](./asgn03.md#related-methods-used)
     + [Review Your Peers: Building a Custom Visualization](./asgn03.md#review-your-peers-building-a-custom-visualization)
+
+
+## [Module 4: Applied Visualizations](./04-AppliedVis.md)
+
++ [Module 4 Jupyter Notebook](./04-AppliedVis.md#)
++ [Plotting with Pandas](./04-AppliedVis.md#)
++ [Seaborn](./04-AppliedVis.md#)
++ [Spurious Correlations](./04-AppliedVis.md#)
 
 
 
