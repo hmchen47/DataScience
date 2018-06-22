@@ -44,6 +44,19 @@
         + $[165, 170)$: 168
         + $[170, 175)$: 170, 171, 173
         + ...
++ `bin()` method
+    + Signature: `Table.bin(columns, bins=None, range=None, density=None)`
+    + Group values by bin and compute counts per bin by column. If the original table has $n$ columns, the resulting binned table has $n+1$ columns, where column $0$ contains the lower bound of each bin.
+    + Args: 
+        + `columns` (str or int): Labels or indices of columns to be binned. If empty, all columns are binned.
+        + `bins` (int or sequence of scalars): 
+            + `int`: the number of equal-width bins in the given range (10, by default)
+            + `sequence`: define the bin edges, including the rightmost edge, allowing for non-uniform bin widths.
+        + `range` (float, float): The lower and upper range of the bins. None = range contains all values in the table. Values outside the range are ignored.
+        + `density` (bool): for result
+            + `False`: containing the number of samples in each bin
+            + `True`: the value of the probability density function at the bin, normalized such that the integral over the range is $1$.
+
 + Demo
     ```python
     top = Table.read_table('top_movies.csv')
@@ -71,20 +84,19 @@
 
 + Question: 
 
+| Table A | bin | Score Count | | Table B | bin | Score Count |
+|--|-----|-------------|--|--|--|-----|-------------|
+| |  70 | 1 | | |  70 | 10 |
+| |  80 | 2 | | |  80 | 20 |
+| |  90 | 3 | | |  90 | 40 |
+| | 100 | 0 | | | 100 |  0 |
 
-    | Table A | bin | Score Count | | Table B | bin | Score Count |
-    |--|-----|-------------|--|--|--|-----|-------------|
-    | |  70 | 1 | | |  70 | 10 |
-    | |  80 | 2 | | |  80 | 20 |
-    | |  90 | 3 | | |  90 | 40 |
-    | | 100 | 0 | | | 100 |  0 |
-
-    | Table C | bin | Score Count | | Table D | bin | Score Count |
-    |--|-----|-------------|--|--|--|-----|-------------|
-    | |  70 | 10 | | |  70 | 321 |
-    | |  80 | 20 | | |  80 | 642 |
-    | |  90 | 30 | | |  90 | 963 |
-    | | 100 | 0 | | | 100 |  0 |
+| Table C | bin | Score Count | | Table D | bin | Score Count |
+|--|-----|-------------|--|--|--|-----|-------------|
+| |  70 | 10 | | |  70 | 321 |
+| |  80 | 20 | | |  80 | 642 |
+| |  90 | 30 | | |  90 | 963 |
+| | 100 | 0 | | | 100 |  0 |
 
     + Which of A, B, C, and D are consistent with this distribution of test scores?
 
@@ -104,6 +116,19 @@
     + Chart that displays the distribution of a numerical variable
     + Use bins; there is one bar corresponding to each bin
     + Use the area principle: the __area__ of each bar is the percent of individuals in the corresponding bin
+
++ `hist()` method
+    + Signature: `Table.hist(*columns, overlay=True, bins=None, bin_column=None, unit=None, group=None, side_by_side=False, width=6, height=4, **vargs)`
+    + Plots one histogram for each column in columns. If no column is specified, plot all columns.
+    + Args:
+        + `overlay` (bool): If True, plots 1 chart with all the histograms overlaid on top of each other
+        + `bins` (list or int): Lower bound for each bin in the histogram or number of bins.
+        + `bin_column` (column name or index): A column of bin lower bounds
+        + `unit` (string): A name for the units of the plotted column
+        + `group` (column name or index): A column of categories
+        + `side_by_side` (bool): Whether histogram bins should be plotted side by side (instead of directly overlaid)
+        + `vargs`: Additional arguments that get passed into: `func:plt.hist`
+
 + Demo
     ```python
     top.bin('Age', bins = my_bins)      # uneven bins

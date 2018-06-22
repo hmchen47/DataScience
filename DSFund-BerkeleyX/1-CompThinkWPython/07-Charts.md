@@ -5,6 +5,17 @@
 ### Notes
 
 + Visualization Relations: line graphs & scatter plots
+
++ `plot` method:
+    + Signature: `Table.plot(column_for_xticks=None, select=None, overlay=True, width=6, height=4, **vargs)`
+    + Docstring: Plot line charts for the table.
+    + Args: 
+        + `column_for_xticks` (`str/array`): A column containing x-axis labels
+        + `overlay` (bool): 
+            + `True`: create a chart with one color per data column
+            + `False`: each plot will be displayed separately
+            +  Additional arguments that get passed into [`plt.plot`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot).
+
 + Demo - Line Graphs
 
     ```python
@@ -64,6 +75,9 @@
     + the individuals corresponding to the point; that is, those on whom the two variables are measured
     + the variable on the horizontal axis
     + the variable on the vertical axis
+
++ 
+
 + Demo
 
     ```python
