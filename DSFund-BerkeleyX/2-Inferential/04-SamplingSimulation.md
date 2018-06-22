@@ -55,6 +55,7 @@
         + `k`: specifies the number of rows (`int`) to be sampled from the table. Default is k equal to number of rows in the table.
         + `with_replacement`: `bool`
         + `weights`: Array specifying probability the ith row of the table is sampled.
+
 + `Table.group` method
     + Signature: `Table.group(column_or_label, collect=None)`
     + Group rows by unique values in a column; count or aggregate others.
@@ -75,7 +76,7 @@
     start = np.random.choice(np.arange(10)) # random samples from a given list
     top.take(np.arange(start, start + 5))
 
-    top.sample(5)       
+    top.sample(5)
 
     top.sample(50).group("Title")
 
