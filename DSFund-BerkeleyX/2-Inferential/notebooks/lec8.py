@@ -85,26 +85,16 @@ football.show()
 football = football.drop(1, 2).with_column(
     'Combined', (football.column(1) + football.column(2)) / 2
 )
-
 football.show()
 
-np.ones(5)
-
 start = np.append(12.5 * np.ones(11), 13 * np.ones(4))
-start
-
 drops = start - football.column(1)
-drops
 
 football = football.select('Team').with_column(
     'Drop', drops
 )
 
-football.show()
-
 means_tbl = football.group('Team', np.average)
-
-means_tbl
 
 means = means_tbl.column(1)
 observed_difference = means.item(0) - means.item(1)

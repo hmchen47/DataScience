@@ -140,8 +140,8 @@
 + Demo
     ```python
     def cut_off_at_a_billion(x):
-    """The smaller of x and 1,000,000,000"""
-    return min(x, 1e9)
+        """The smaller of x and 1,000,000,000"""
+        return min(x, 1e9)
 
     cut_off_at_a_billion(12)
     cut_off_at_a_billion(123456)
