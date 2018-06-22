@@ -19,7 +19,7 @@
 + [The Truthful Art (Alberto Cairo)](./01-Principle.md#)
 + [Discussion Prompt: Must a visual be enlightening?](./01-Principle.md#)
 
-## Assignment 1
+## [Assignment 1](./asgn01.md)
 
 + [Graphics Lies, Misleading Visuals](./asgn01.md#)
 + [Peer-graded Assignment: Graphics Lies, Misleading Visuals](./asgn01.md#)
@@ -40,7 +40,7 @@
 + [Dejunkifying a Plot](./02-BasicChart.md#)
 
 
-## Assignment 2
+## [Assignment 2](./asgn02.md)
 
 + [Plotting Weather Patterns](asgn02.md)
 + [Peer-graded Assignment: Plotting Weather Patterns](asgn02.md)
@@ -59,7 +59,7 @@
 + [Animation](./03-ChartFund.md#)
 + [Interactivity](./03-ChartFund.md#)
 
-## Assignment 3
+## [Assignment 3](./asgn03.md)
 
 + [Practice Assignment](./asgn03.md#practice-assignment)
     + [Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#practice-assignment-understanding-distributions-through-sampling)
@@ -83,5 +83,11 @@
 + [Spurious Correlations](./04-AppliedVis.md#)
 
 
+## [Project](asgn04-Project.md)
+
++ [LectureBecoming an Independent Data Scientist](./asgn04-Project.md#)
++ [Project Description](./asgn04-Project.md#)
++ [Peer-graded Assignment: Becoming an Independent Data Scientist](./asgn04-Project.md#)
++ [Review Your Peers: Becoming an Independent Data Scientist](./asgn04-Project.md#)
 
 
