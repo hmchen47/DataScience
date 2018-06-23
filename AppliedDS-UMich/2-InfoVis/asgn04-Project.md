@@ -10,7 +10,7 @@
 
 + [Project Launch Page](https://www.coursera.org/learn/python-plotting/notebook/lVxma/project-description)
 + [Web Notebook](https://hub.coursera-notebooks.org/user/pkfpwscjcemdtitwkaxuvv/notebooks/Assignment4.ipynb)
-+ [local Notebook](./notebooks/Assignment04.ipynb)
++ [Local Notebook](./notebooks/Assignment04.ipynb)
 
 ### Assignment 4
 
@@ -60,44 +60,38 @@ Download the [attachment](https://d3c33hcgiwev3.cloudfront.net/_f4c1865acab51d22
 From time to time, Dr. Chris Brooks may want to share your work anonymously (via social media channels such as Twitter), to highlight some of the accomplishments of learners in this course.
 If you agree that you are comfortable with instructor sharing your
 
-Assignment #4 as an example of great work, please type YES in the text box. The submitter's response goes here.
+Assignment #4 as an example of great work, please type YES in the text box. The submitter's response goes here. <br/>
+Has the learner identified the region and the domain category that their data sets are about (e.g., Chaohu, China and sports or athletics)?
++ 0 pts: The learner did not identify the region and domain category that their data sets are about.
++ 2 pts: The learner identified the region and domain category that their data sets are about.
 
-+ Has the learner identified the region and the domain category that their data sets are about (e.g., Chaohu, China and sports or athletics)?
-    + 0 pts: The learner did not identify the region and domain category that their data sets are about.
-    + 2 pts: The learner identified the region and domain category that their data sets are about.
-+ Create a research question about the domain category and region that you identified.
-+ Has the learner stated a research question about the domain category and region that they identified?
-    + 0 pts: The learner did not state a research question that related to the domain category and region they identified.
-    + 2pts: The learner did state a research question that related to the domain category and region they identified.
+Create a research question about the domain category and region that you identified. <br/>
+Has the learner stated a research question about the domain category and region that they identified?
++ 0 pts: The learner did not state a research question that related to the domain category and region they identified.
++ 2pts: The learner did state a research question that related to the domain category and region they identified.
 
-Provide at least two links to publicly accessible datasets. These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages.
+Provide at least two links to publicly accessible datasets. These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages. <br/> Has the learner provided at least two links to available datasets? These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages.
++ 0 pts: The learner did not provide at least two working links to publicly available data sets (including links to CSV or Excel files).
++ 2 pts: The learner did provide links to at least two working links to publicly available data sets (including links to CSV or Excel files).
 
-+ Has the learner provided at least two links to available datasets? These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages.
-    + 0 pts: The learner did not provide at least two working links to publicly available data sets (including links to CSV or Excel files).
-    + 2 pts: The learner did provide links to at least two working links to publicly available data sets (including links to CSV or Excel files).
+Upload an image which addresses your research question.<br/>
+In addition to addressing your research question, this visual should addressCairo's principles of truthfulness, functionality, beauty, and insightfulness. <br/>
+Has the learner uploaded an image that addresses their stated question?
++ 0 pts: The learner did not upload an image that addresses their stated question.
++ 2 pts: The learner uploaded an image that addresses their stated question.
 
-Upload an image which addresses your research question.
+Provide a short (1-2 paragraphs) justification of how your visual addresses your research question. <br/>
+Has the learner written a short (1-2 paragraph) justification of how their visualization addresses their question?
++ 0 pts: The learner has not written a short (1-2 paragraph) justification of howtheir visualization addresses their question.
++ 3 pts: The learner has written a short (1-2 paragraph) justification of how their visualization addresses their question.
 
-In addition to addressing your research question, this visual should addressCairo's principles of truthfulness, functionality, beauty, and insightfulness.
-
-+ Has the learner uploaded an image that addresses their stated question?
-    + 0 pts: The learner did not upload an image that addresses their stated question.
-    + 2 pts: The learner uploaded an image that addresses their stated question.
-
-Provide a short (1-2 paragraphs) justification of how your visual addresses your research question.
-
-+ Has the learner written a short (1-2 paragraph) justification of how their visualization addresses their question?
-    + 0 pts: The learner has not written a short (1-2 paragraph) justification of howtheir visualization addresses their question.
-    + 3 pts: The learner has written a short (1-2 paragraph) justification of how their visualization addresses their question.
-
-As this assignment is for the whole course, you must incorporate and defend the principles discussed in the first week, specifically, Cairo’s principles of truth, beauty, function, and insight.
-
+As this assignment is for the whole course, you must incorporate and defend the principles discussed in the first week, specifically, Cairo’s principles of truth, beauty, function, and insight. <br/>
 For each of the following prompts, please provide a response that links each principle to one or more elements of your visual.
-
 + Describe your design choices for your visual in regards to Cairo's principle of __truthfulness__.
 + Describe your design choices for your visual in regards to Cairo's principle of __beauty__.
 + Describe your design choices for your visual in regards to Cairo's principle of __functionality__.
 + Describe your design choices for your visual in regards to Cairo's principle of __insightfulness__.
+<br/>
 
 + Did the learner describe their design choices in regards to Cairo's principle of __truthfulness__ (e.g., avoiding misleading representations) and relate them to one or more elements of their visual?
     + 0 pts: No, the learner did not describe their design choices in regards to Cairo's principle of truthfulness (e.g., avoiding misleading representations) and did not relate them to one or more elements of their visual?
@@ -121,6 +115,186 @@ In this assignment the focus is more on the mechanics of creating charts, so the
 1. Did the chart created teach you something new about the city/region/country? What did you learn?
 2. Do you think this chart answers an interesting question? Why?
 3. Name one thing which works and one which could be improved, and how would you improve it.
+
+## Discussion Forum Useful Links
+
++ [Choosing our own topic?](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/aVnbtaUHEeeSgBIYX3zlwA)
+
+    > As long as your submission satisfies the different rubrics, this should not be an issue.
+    >
+    > If you look at the rubrics (summary below), the choice of subject and location are not being evaluated. the assignment provide suggestions but learners are free to change the topic and/or location.
+    > 
+    > >>>>>>>>>>>>>>>>>>
+    > 
+    > Has the learner identified the region and the domain category that their data sets are about (e.g., Chaohu, China and sports or athletics)?
+    > Has the learner stated a research question about the domain category and region that they identified?
+    > Has the learner provided at least two links to available datasets? These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages.
+    > Has the learner uploaded an image that addresses their stated question?
+    > Has the learner written a short (1-2 paragraph) justification of how their visualization addresses their question?
+    > Did the learner describe their design choices in regards to Cairo's principle of
+    > truthfulness (e.g., avoiding misleading representations)
+    > beauty (e.g., using fonts, colors, and layout that are appropriate and aesthetically pleasing)
+    > insightfulness (i.e., producing a "eureka" or "aha" response in the viewer)
+    > with one or more elements of their visual?
+    >
+    > >>>>>>>>>>>>>>>>>>
+
++ [Data upload for assignment 4](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/IZ1vZQ5pEeeijwrAcoNCCA)
+
+    > yes, if the files are already in csv/excel formal
+    >
+    > you can use the upload feature in Jupyter home page
+    >
+    > click on the coursera logo or from the main menu File->open
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/wJkxXw9DEeenwhLx02RwNg_4c3500404a996f79732b174bd8e2dee5_Screen-Shot-2017-03-22-at-21.01.18.png?expiry=1529884800000&hmac=1P3HgPFAc3zCpfTSgVAIYfYMGkMRby9hLOqKMbKqwvk" alt="text" width="450">
+    > 
+    > click on upload and choose the files to upload from your local machine's file system
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/9oka9Q9FEeeeVA5iCv4-eg_1d77940b28d3d69034c1e6cfff917ddd_Screen-Shot-2017-03-22-at-21.24.16.png?expiry=1529884800000&hmac=KkPny9u8qf4Jd5psqyCC_WfjjRBiEDQQmWY2F6weru4" alt="text" width="450">
+    >
+    > alternatively, you can read the data from the links into dataframes then save the dataframes into local files, here's an example
+
++ [Need data? Try data.world](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/tofGEBCsEeeLeQqR3315Cg)
+
+    > In case someone is having trouble finding a dataset to use, I thought I'd post about data.world. It seems to have quite a few datasets that are appliciable to this assignment. [This article](http://www.dataquest.io/blog/datadotworld-python-tutorial/) on dataquest.io also gives a decent overview of how to import the data through the api - probably easier if you are using your own notebook locally.
+
+    > From the UK you can query previous census data (most detail for 2011) here: https://www.nomisweb.co.uk/query/select/getdatasetbytheme.asp?opt=3&theme=&subgrp=
+
+    > Another great source for publicly available datasets is the European Data Portal aggregator (https://www.europeandataportal.eu).
+    > 
+    > Also, try the websites of several official national statistics institutes. Germany has the GENESIS (https://www-genesis.destatis.de), which also offers datasets in English.
+
++ [How to download data from a website into a CSV file?](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/yMT7zw2KEeeqzRJFs29uDA)
+
+    > If you have a link to the CSV file, pandas read_csv can be used exactly the same way, instead of the file name, you pass the url
+    > 
+    > here is an example
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ysYxeRRoEeeExg76uXNxYA_4b29a3221c57095cea2b47d51232ecff_Screen-Shot-2017-03-29-at-08.41.35.png?expiry=1529884800000&hmac=vPWraYqN8QTxisIqqa4SKSHQzJwowqU-g8ujdoqr8vI" alt="text" width="450">
+    >
+    > If you have a web page containing a table and you want to read that table you can use read_html. You will need to load the missing modules like lxml in the online platform, that said, the changes are not permanent, i.e. the modules you install will be deleted when you log out /restart the Jupyter server
+    >
+    > I've written a script that can help load the needed modules automatically
+    ```python
+    import pandas as pd
+    from IPython.display import display, HTML
+
+    def install_module(module):
+        ! conda install "$module" -y
+        js_cmd = ['IPython.notebook.kernel.restart();',
+                'IPython.notebook.select(1);',
+                'IPython.notebook.execute_cell();'
+                ]
+        js = "<script>{0}</script>".format(' '.join(js_cmd))
+        display(HTML(js))
+
+    url = 'https://simple.wikipedia.org/wiki/List_of_U.S._states'
+    try:
+        df_list = pd.read_html(url)
+    except Exception as e:
+        print(e)
+        # #install necessary modules for read_html
+        module = str(e).split()[0]
+        install_module(module)
+    print('Number of Data Frames {}'.format(len(df_list)))
+    df_list[0].columns = df_list[0].iloc[0]
+    df = df_list[0].iloc[1:]
+    df.head()
+    ```
+    > the script will automatically restart the kernel to propagate the changes and will return the list tables available in the input url page
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/Stpj9BRoEeeExg76uXNxYA_878b9358a015255778c73207d218a44e_Screen-Shot-2017-03-29-at-11.12.37.png?expiry=1529884800000&hmac=wj3k8kJQZLL7ArXgrpeKeN3yM1Qyah-djYlpvVrConA" alt="text" width="450">
+    >
+    > This way your peer reviewers will be able to run the code in the online platform without issues
+    > 
+    > If you want to save the html table you read using read-html to datafile you can use
+    ```python
+    #csv
+    df.to_csv('filename.csv')
+    #or excel might need module xlwt installed
+    df.to_excel('file.xls')
+    ```
+
+    > If you use the online coursera platform, the code is not guaranteed to work, because the online platform have not internet connection
+    > 
+    > so you can either run it locally (Anaconda 3 version 4.3 is required). If you 're already running the code locally, you can use anaconda navigator or conda to install lxml
+    > 
+    > or
+    > 
+    > you can save the file to your local disk, (this will work for html in some cases and not others), then upload the file to the online platform. here is how to do so
+    > 
+    > 1. open any of the your coursera notebooks, then go to your home folder by clicking on the coursera logo or File->Open from the main menu
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hzeRXFWAEeer_QroCIhHzA_175a8100634a0a56dbbcce576f201f09_upload.png?expiry=1529884800000&hmac=LlYLFvp3ZPU3tsY-qeZfVrhMXJWPT06H9l8l8-N_5Mo" alt="text" width="450">
+    > 
+    > 2. In your home folder page, click on the Upload button (located on the right)
+    > 
+    > 3. The file selection window of your local OS will pop-up, browse through your local files to the file you want to upload, select the file and 
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/FXwonlWBEeer_QroCIhHzA_b3d14aa2300ed6489b18f2581d07f0d5_upload3.png?expiry=1529884800000&hmac=diitdNwVXWLu0o4cI5TcbcbtQ-lPMVueN-68a8uLd3M" alt="text" width="450">
+    > 
+    > 4.The home folder will show the name of the file and a blue upload button, click it to confirm,
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/dHxhnFWBEeeTxBKRuWYr1A_5969afb16931756c575446bd4c2d4962_upload4.png?expiry=1529884800000&hmac=OobCARKqlVEM9zGzudyo00V-ItqHI_NBJnU_FbMdXek" alt="text" width="450">
+    > 
+    > 5. The file will show in your home folder and you'll be able to use it in your notebook
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/FhrHyFWDEeeroBJvqbisdg_3b44adf8c0431e2606e5c8d4c6cb757b_upload5.png?expiry=1529884800000&hmac=ZUy6GxyuGDYzEZj9goOP695K7z7bBFtEBSboYQlD7PE" alt="text" width="450">
+
+    > If you have problems with the read_html or saving the html page, feel free to post a link and I'll be happy to help
+
+    > The problem is in the code you use to set the columns and select the data
+    > 
+    > here is what I got
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/O_BZuiseEeecDRLMy3SOFA_1c3477cdd2887533514433a3a1364df0_Screen-Shot-2017-04-27-at-08.48.33.png?expiry=1529884800000&hmac=w-lnuwianqs-M5ey-5lPC7FbMCooXaRhvE5bArLGMdA" alt="text" width="300">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/lDNCkCseEees5g7IX40wTA_8124243f9b0b77f48c4e27e5dc273fd6_Screen-Shot-2017-04-27-at-08.48.58.png?expiry=1529884800000&hmac=sam69he5Yo_ji3kB7-Oogk0DxAFnPiBigKd7JYJjzRU" alt="text" width="300">
+    > 
+    > It turns out, df_list[1] is the same as df, so you can use df_list[1] without needing any processing
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/et40YysgEeejEg4SqUr0SA_977e6096f2ff8cd85f9b1ed2f2e7b46d_Screen-Shot-2017-04-27-at-09.06.33.png?expiry=1529884800000&hmac=N81R2ni0888Tuu8PQKBmA7HI5S0Oe5yhG-gI6CS04dU" alt="text" width="450">
+
+    ```python
+    # I have modified this code so that it doesn't interfere with the actual source code below.
+    # You will need to run this once and then run the actual source code below.
+
+    import pandas as pd
+    from IPython.display import display, HTML
+
+    def install_module(module):
+        ! conda install "$module" -y
+        js_cmd = ['IPython.notebook.kernel.restart();',
+                'IPython.notebook.select(1);',
+                'IPython.notebook.execute_cell();'
+                ]
+        js = "<script>{0}</script>".format(' '.join(js_cmd))
+        display(HTML(js))
+
+    url = 'https://simple.wikipedia.org/wiki/List_of_U.S._states'
+    try:
+        df_list = pd.read_html(url)
+    except Exception as e:
+        print(e)
+        # #install necessary modules for read_html
+        module = str(e).split()[0]
+        install_module(module)
+    '''
+    print('Number of Data Frames {}'.format(len(df_list)))
+    df_list[0].columns = df_list[0].iloc[0]
+    df = df_list[0].iloc[1:]
+    df.head()
+    '''
+    del df_list, display, HTML, pd, url
+    ```
++ [last date to submit all assignments](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/a5XUlxFwEeeLeQqR3315Cg)
+
+    > No need to worry, Coursera's deadlines arelines.
+    > If you miss a deadline, your grade won't be affected, you can keep working in your current session until it ends.
+    > After the final deadline for your session , you can simply switch to a future sesur assignments.
+    > For more information please refer to the help centre [article on deadlines](https://learner.coursera.help/hc/en-us/articles/208279866-Assignment-deadlines) and [switching sessions](https://learner.coursera.help/hc/en-us/articles/208279776-Switch-to-a-different-session)
+
++ [Spurious Correlations](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/M6Wdg62_EeeB2hJL-yunuA)
+
+    > I think the next chart could have not be an spurious one :
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/3eOzEW9kEeiqzxI1CK5zjg_30ff126387a71eac34952aa8cf35bc07_chartUSspending_and_suicides.png?expiry=1529884800000&hmac=s2c5EJleUuZ3BQvJZVulJ0Y5qV6jGs-EXIi551aeHb0" alt="text" width="450">
+    > It amezed me to find a paper in the "Journal of Socio-Economics" of elSevier that relates public spending and sucide.
+    > 
+    > https://www.sciencedirect.com/science/article/pii/S1053535706000813
+    > 
+    > Maybe more knowledgeable people find this society chaos unsupportable and decide to not living in to it.
+    > 
+    > I am not agree, but could be possible :-P
 
 
 ## Review Your Peers: Becoming an Independent Data Scientist
