@@ -85,9 +85,15 @@
 
 ## [Project](asgn04-Project.md)
 
-+ [Becoming an Independent Data Scientist](./asgn04-Project.md#)
-+ [Project Description](./asgn04-Project.md#)
-+ [Peer-graded Assignment: Becoming an Independent Data Scientist](./asgn04-Project.md#)
-+ [Review Your Peers: Becoming an Independent Data Scientist](./asgn04-Project.md#)
++ [Becoming an Independent Data Scientist](./asgn04-Project.md#becoming-an-independent-data-scientist)
++ [Project Description](./asgn04-Project.md#project-description)
++ [Peer-graded Assignment: Becoming an Independent Data Scientist](./asgn04-Project.md#peer-graded-assignment-becoming-an-independent-data-scientist)
++ [Discussion Forum Useful Links](./asgn04-Project.md#discussion-forum-useful-links)
++ [Review Your Peers: Becoming an Independent Data Scientist](./asgn04-Project.md#review-your-peers-becoming-an-independent-data-scientist)
+
+
+
+
+
 
 
