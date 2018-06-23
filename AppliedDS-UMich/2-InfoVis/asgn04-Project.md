@@ -228,22 +228,22 @@ In this assignment the focus is more on the mechanics of creating charts, so the
     > 3. The file selection window of your local OS will pop-up, browse through your local files to the file you want to upload, select the file and 
     <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/FXwonlWBEeer_QroCIhHzA_b3d14aa2300ed6489b18f2581d07f0d5_upload3.png?expiry=1529884800000&hmac=diitdNwVXWLu0o4cI5TcbcbtQ-lPMVueN-68a8uLd3M" alt="text" width="450">
     > 
-    > 4.The home folder will show the name of the file and a blue upload button, click it to confirm,
+    > 4. The home folder will show the name of the file and a blue upload button, click it to confirm,
     <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/dHxhnFWBEeeTxBKRuWYr1A_5969afb16931756c575446bd4c2d4962_upload4.png?expiry=1529884800000&hmac=OobCARKqlVEM9zGzudyo00V-ItqHI_NBJnU_FbMdXek" alt="text" width="450">
     > 
     > 5. The file will show in your home folder and you'll be able to use it in your notebook
     <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/FhrHyFWDEeeroBJvqbisdg_3b44adf8c0431e2606e5c8d4c6cb757b_upload5.png?expiry=1529884800000&hmac=ZUy6GxyuGDYzEZj9goOP695K7z7bBFtEBSboYQlD7PE" alt="text" width="450">
-
+    > 
     > If you have problems with the read_html or saving the html page, feel free to post a link and I'll be happy to help
 
     > The problem is in the code you use to set the columns and select the data
     > 
     > here is what I got
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/O_BZuiseEeecDRLMy3SOFA_1c3477cdd2887533514433a3a1364df0_Screen-Shot-2017-04-27-at-08.48.33.png?expiry=1529884800000&hmac=w-lnuwianqs-M5ey-5lPC7FbMCooXaRhvE5bArLGMdA" alt="text" width="300">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/lDNCkCseEees5g7IX40wTA_8124243f9b0b77f48c4e27e5dc273fd6_Screen-Shot-2017-04-27-at-08.48.58.png?expiry=1529884800000&hmac=sam69he5Yo_ji3kB7-Oogk0DxAFnPiBigKd7JYJjzRU" alt="text" width="300">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/O_BZuiseEeecDRLMy3SOFA_1c3477cdd2887533514433a3a1364df0_Screen-Shot-2017-04-27-at-08.48.33.png?expiry=1529884800000&hmac=w-lnuwianqs-M5ey-5lPC7FbMCooXaRhvE5bArLGMdA" alt="text" width="370">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/lDNCkCseEees5g7IX40wTA_8124243f9b0b77f48c4e27e5dc273fd6_Screen-Shot-2017-04-27-at-08.48.58.png?expiry=1529884800000&hmac=sam69he5Yo_ji3kB7-Oogk0DxAFnPiBigKd7JYJjzRU" alt="text" width="370">
     > 
     > It turns out, df_list[1] is the same as df, so you can use df_list[1] without needing any processing
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/et40YysgEeejEg4SqUr0SA_977e6096f2ff8cd85f9b1ed2f2e7b46d_Screen-Shot-2017-04-27-at-09.06.33.png?expiry=1529884800000&hmac=N81R2ni0888Tuu8PQKBmA7HI5S0Oe5yhG-gI6CS04dU" alt="text" width="450">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/et40YysgEeejEg4SqUr0SA_977e6096f2ff8cd85f9b1ed2f2e7b46d_Screen-Shot-2017-04-27-at-09.06.33.png?expiry=1529884800000&hmac=N81R2ni0888Tuu8PQKBmA7HI5S0Oe5yhG-gI6CS04dU" alt="text" width="300">
 
     ```python
     # I have modified this code so that it doesn't interfere with the actual source code below.
@@ -277,6 +277,7 @@ In this assignment the focus is more on the mechanics of creating charts, so the
     '''
     del df_list, display, HTML, pd, url
     ```
+
 + [last date to submit all assignments](https://www.coursera.org/learn/python-plotting/discussions/weeks/4/threads/a5XUlxFwEeeLeQqR3315Cg)
 
     > No need to worry, Coursera's deadlines arelines.
