@@ -119,7 +119,7 @@ Thank you for participating!
   + __Originality – Familiarity__: Novel methods of visualization (originality) or established and well understood methods of visualization (familiarity)
   + __Novelty – Redundancy__: Explaining each item once (novelty) or encoding multiple explanations of the same phenomena (redundancy) 
 
-    <br/><img src="./diagrams/MOOCHist.png" alt="Density vs. Lightness: A scatterplot with marginal histograms" width="500">  <br/>Density–Lightness<br/>
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/yrEtYvhQEeaREQ7irMqVoA_d1febf73a4214d9ee45b0f2ba281eb60_WP1-Fig13-_1_.jpg?expiry=1530057600000&hmac=eImi3DnEXk0x3b5RKoAk0JheN5yTCQrKuMxIdidR9hU" alt="Density vs. Lightness: A scatterplot with marginal histograms" width="600">  <br/>Density–Lightness<br/>
     <br/><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" alt="Originality vs Familiarity: Charles Minard's map" width="600"> <br/>Multidimensional–Unidimensional <br/>
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/OplrYxO5EeeExg76uXNxYA.processed/full/540p/index.mp4?Expires=1528070400&Signature=cJdvbF5sDKDcIXQpQ3idi3eQR58Tbn~LGMzHcgAdjnM17Bo2VdgzaTK8nrk39LLzcbTlUBj5sdcZ7LXIMgFfphD2s4cp-1AhR4u5WRGB1hHZMMzysDIJ00aGztGn~DdeSooaFHFELf8sT1CdD6uANQPsKjZ73xzHpC1nWbMFR4M_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Tools about Design" target="_blank">
@@ -229,7 +229,7 @@ Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., & Brooks, C. (2
 ## The Truthful Art (Alberto Cairo)
 
 + Qualities of a Great Visualization
-  1. Truthful: Be aware of your actions when cleaning, summarizing and manipulating data and ensure you aren’t
+  1. __Truthful__: Be aware of your actions when cleaning, summarizing and manipulating data and ensure you aren’t
       + Misleading yourself (self deception)
         + limitation of activities applied
         + modification of data
@@ -237,22 +237,20 @@ Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., & Brooks, C. (2
       + Misleading your audience
         + ommit yhe ability of the reader to explore the phenomena more fully
         + e.g. left diagram of cable company investment graphic
-  2. Functionality: 
+  2. __Functionality__: 
       + Darkhorse Analytics: direct labels -> w/o labels
       + Understanding howw functional a given approach to a visulation not necessary require expensive ethnographic research
       + Most time crow source much easier to test hypotheses
-  3. Beauty
+  3. __Beauty__:
       + Knowing a great deal about audience
       + Different perceptions based on people's lived experiences and aspects about themselves
       + Building beautiful visualization experience depending on situations and contextual factors
       + Wired Magazine: known for full page infromation graphic spreads
-  4. Insightful
+  4. __Insightful__:
       + Not only replicate the data, but draw for the viewer in an aha or eireka moment
       + Academic papger peer review relys on insightful graphics
-  5. Enlightening: A combination of the previous four, but with a social ethical responsibility
-  <br/><img src="http://newsjel.ly/wp-content/uploads/2017/06/001-1.png" alt="Truthful" width="500">
-  <br/><img src="url" alt="text" width="450">
-  <br/><img src="url" alt="text" width="450">
+  5. __Enlightening__: A combination of the previous four, but with a social ethical responsibility
+  <br/><img src="http://newsjel.ly/wp-content/uploads/2017/06/001-1.png" alt="Truthful" width="600">
 
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/Z_s6fv0fEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528070400&Signature=i~WZIqtwIQsnn6D9-y1C2cBbJYsO3prpZjeT-usRoL0TJa30bxpQT9ik485m-qw117JgEYl6QxUltVGJpm-gSjeFKxc3vQ9NntsyGdKWDmEdn4rVIh91FAVOD5YBCMq-il-t1vcb7PVIPfw-ziobQFwJzpxDQXgs3~D4gpfxhaA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Truthful Art" target="_blank">

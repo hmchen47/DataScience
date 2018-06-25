@@ -4,7 +4,8 @@
 
 ## Module 1: [Principles of Information Visualization](./01-Principle.md)
 
-+ [Syllabus](./01-Principle.md#syllabus)
++ [Introduction](./01-Principleinciple.md#introduction)
++ [Syllabus](./01-Principleinciple.md#syllabus)
 + [Help us learn more about you!](./01-Principle.md#help-us-learn-more-about-you)
 + [About the Professor: Christopher Brooks](./01-Principle.md#about-the-professor-christopher-brooks)
 + [Tools for Thinking about Design (Alberto Cairo)](./01-Principle.md#tools-for-thinking-about-design-alberto-cairo)
@@ -13,17 +14,19 @@
 + [Graphical heuristics: Data-ink ratio (Edward Tufte)](./01-Principle.md#graphical-heuristics-data-ink-ratio-edward-tufte)
 + [Dark Horse Analytics (Optional)](./01-Principle.md#dark-horse-analytics-optional)
 + [Graphical heuristics: Chart junk (Edward Tufte)](./01-Principle.md#graphical-heuristics-chart-junk-edward-tufte)
-+ [Useful Junk?: The Effects of Visual Embellishment on Comprehension and Memorability of Charts](./01-Principle.md#useful-junk-the-effects-of-visual-embellishment-on-comprehension-and-memorability-of-charts)
++ [Useful Junk?: The Effects of Visual Embellishment on Comprehension and Memorability of Charts](./01-Principle.md#useful-junk-the-effects-of-visual-embellishment-on-comprehension-and-01-principlemd-memorability-of-charts)
 + [Graphical heuristics: Lie Factor and Spark Lines (Edward Tufte)](./01-Principle.md#graphical-heuristics-lie-factor-and-spark-lines-edward-tufte)
 + [The Truthful Art (Alberto Cairo)](./01-Principle.md#the-truthful-art-alberto-cairo)
 + [Discussion Prompt: Must a visual be enlightening?](./01-Principle.md#discussion-prompt-must-a-visual-be-enlightening)
 
+https://github.com/hmchen47/DataScience/blob/vis/AppliedDS-UMich/2-InfoVis/01-Principle.md#
+
+
+## Module 2
 
 + [Line Plots](./02-BasicChart.md#)
 + [Bar Charts](./02-BasicChart.md#)
 + [Dejunkifying a Plot](./02-BasicChart.md#)
-
-
 
 ## Assignment 2
 
