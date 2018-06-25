@@ -126,16 +126,13 @@ In this assignment the focus is more on the mechanics of creating charts, so the
     > 
     > >>>>>>>>>>>>>>>>>>
     > 
-    > Has the learner identified the region and the domain category that their data sets are about (e.g., Chaohu, China and sports or athletics)?
-    > Has the learner stated a research question about the domain category and region that they identified?
-    > Has the learner provided at least two links to available datasets? These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages.
-    > Has the learner uploaded an image that addresses their stated question?
-    > Has the learner written a short (1-2 paragraph) justification of how their visualization addresses their question?
-    > Did the learner describe their design choices in regards to Cairo's principle of
-    > truthfulness (e.g., avoiding misleading representations)
-    > beauty (e.g., using fonts, colors, and layout that are appropriate and aesthetically pleasing)
-    > insightfulness (i.e., producing a "eureka" or "aha" response in the viewer)
-    > with one or more elements of their visual?
+    > + Has the learner identified the region and the domain category that their data sets are about (e.g., Chaohu, China and sports or athletics)?
+    > + Has the learner stated a research question about the domain category and region that they identified?
+    > + Has the learner provided at least two links to available datasets? These could be links to files such as CSV or Excel files, or links to websites which might have data in tabular form, such as Wikipedia pages.
+    > + Has the learner uploaded an image that addresses their stated question?
+    > + Has the learner written a short (1-2 paragraph) justification of how their visualization addresses their question?
+    >
+    > Did the learner describe their design choices in regards to Cairo's principle of truthfulness (e.g., avoiding misleading representations) beauty (e.g., using fonts, colors, and layout that are appropriate and aesthetically pleasing) insightfulness (i.e., producing a "eureka" or "aha" response in the viewer) with one or more elements of their visual?
     >
     > >>>>>>>>>>>>>>>>>>
 
