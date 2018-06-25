@@ -50,7 +50,7 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 ### Overview of matplotlib Architecture
 
 + Three layers 
-    + From bottom to top are: backend, artist, and scripting
+    + From bottom to top are: <b style="color:darkblue">backend, artist</b>, and <b style="color:darkblue">scripting</b>
     + Each layer that sits above another layer knows how to talk to the layer below it, but the lower layer is not aware of the layers above it.
 
 #### Backend Layer
@@ -324,6 +324,18 @@ Hunter, J., & Droettboom, M. (2012). [matplotlib](http://www.aosabook.org/en/mat
 Rougier et al. share their ten simple rules for drawing better figures, and use matplotlib to provide illustrative examples. As you read this paper, reflect on what you learned in the first module of the course -- principles from Tufte and Cairo -- and consider how you might realize these using matplotlib.
 
 > Rougier NP, Droettboom M, Bourne PE (2014) [Ten Simple Rules for Better Figures](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833). PLoS Comput Biol 10(9): e1003833. doi:10.1371/journal.pcbi.
+
++ Ten Rules:
+    1. Know Your Audience
+    2. Identify Your Message
+    3. Adapt the Figure to the Support Medium
+    4. Captions Are Not Optional
+    5. Do Not Trust the Defaults
+    6. Use Color Effectively
+    7. Do Not Mislead the Reader
+    8. Avoid “Chartjunk”
+    9. Message Trumps Beauty
+    10. Get the Right Tool
 
 
 + Rule 1: Know Your Audience
@@ -763,6 +775,19 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     plt.plot(2.5, 2.5, 'o')     # plot the point (2.5, 2.5) using the circle marker
     ax = plt.gca()              # get current axes
     ax.get_children()           # get all the child objects the axes contains
+    # [<matplotlib.lines.Line2D at 0x7f301d3340f0>,
+    #  <matplotlib.lines.Line2D at 0x7f3030154978>,
+    #  <matplotlib.lines.Line2D at 0x7f301d334ac8>,
+    #  <matplotlib.spines.Spine at 0x7f30301e1a58>,
+    #  <matplotlib.spines.Spine at 0x7f30300d7f98>,
+    #  <matplotlib.spines.Spine at 0x7f30300e11d0>,
+    #  <matplotlib.spines.Spine at 0x7f30300e13c8>,
+    #  <matplotlib.axis.XAxis at 0x7f30300e1588>,
+    #  <matplotlib.axis.YAxis at 0x7f30300e4710>,
+    #  <matplotlib.text.Text at 0x7f30300feba8>,
+    #  <matplotlib.text.Text at 0x7f30300fe7f0>,
+    #  <matplotlib.text.Text at 0x7f30300fe7b8>,
+    #  <matplotlib.patches.Rectangle at 0x7f30300fe5c0>]
     ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/gHvXBv0cEeaI9Q7Pym09lA.processed/full/360p/index.mp4?Expires=1528329600&Signature=kQmxs5co1w1DcbHaegKSc-lIeK~590M~0gkDX~Lxm-7ieMbtPpVAeNfi5H6~NfNrE7fq2c1MYOyvLT1L7DEmZP2dcLBUNrUnEOAJ30aFrhu0IMfEFZsuD0SD5ewb9wRoP1ZWAiJQ3S92cjhd~gvVcs7KIas6T75gD4kFmVs-EAQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Basic Plotting with Matplotlib" target="_blank">
@@ -800,25 +825,25 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Signature: `plt.xlabel(s, *args, **kwargs)`, `plt.ylabel(s, *args, **kwargs)`
     + Docstring: Set the `x`, `y` axis label of the current axis
     + Default override is:
-        ``json
+        ```json
         override = {
             'fontsize'            : 'small',
             'verticalalignment'   : 'top',
             'horizontalalignment' : 'center'
             }
-        ``
+        ```
 + `plt.title` method:
     + Signature: `plt.title(s, *args, **kwargs)`
     + Docstring: Set a title of the current axes.
     + Parameters
         + `label` (str): Text to use for the title
         + `fontdict` (dict): A dictionary controlling the appearance of the title text, the default `fontdict` is:
-            ``json
+            ```json
             {'fontsize': rcParams['axes.titlesize'],
             'fontweight' : rcParams['axes.titleweight'],
             'verticalalignment': 'baseline',
             'horizontalalignment': loc}
-            ``
+            ```
         + `loc` ({'center', 'left', 'right'}, str): Which title to set, defaults to 'center'
         + `kwargs`: text properties
 
@@ -867,7 +892,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 + `zip` fucntion
     + Init signature: `zip(*args, **kwargs)`
-    + Docstring: zip(iter1 [,iter2 [...]]) --> zip object
+    + Docstring: `zip(iter1 [,iter2 [...]])` --> zip object
     + Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument.  The `.__next__()` method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.
 
 + Demo
@@ -955,7 +980,24 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
     # Call this function on the legend artist to see what the legend is made up of
     rec_gc(plt.legend())
-    ```
+    # Legend
+    #     <matplotlib.offsetbox.VPacker object at 0x7f300d570eb8>
+    #         <matplotlib.offsetbox.TextArea object at 0x7f300d570be0>
+    #             Text(0,0,'None')
+    #         <matplotlib.offsetbox.HPacker object at 0x7f300d570048>
+    #             <matplotlib.offsetbox.VPacker object at 0x7f300d570080>
+    #                 <matplotlib.offsetbox.HPacker object at 0x7f300d570b38>
+    #                     <matplotlib.offsetbox.DrawingArea object at 0x7f300d570390>
+    #                         <matplotlib.collections.PathCollection object at    # 0x7f300d570588>
+    #                     <matplotlib.offsetbox.TextArea object at 0x7f300d5700b8>
+    #                         Text(0,0,'Tall students')
+    #                 <matplotlib.offsetbox.HPacker object at 0x7f300d570ba8>
+    #                     <matplotlib.offsetbox.DrawingArea object at 0x7f300d5708d0>
+    #                         <matplotlib.collections.PathCollection object at    # 0x7f300d570ac8>
+    #                     <matplotlib.offsetbox.TextArea object at 0x7f300d5705f8>
+    #                         Text(0,0,'Short students')
+    #     FancyBboxPatch(0,0;1x1)
+    #     ```
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/xSk2r_0dEearIRLZY_MkaA.processed/full/540p/index.mp4?Expires=1528416000&Signature=dkqpm85W8V6th8JzE6LAdVPCEQRSFPl9bMmLXpSMO0mVcCnEG8eVPWnnuofeKPMPhcbMPLHEwds0u1YAI0FR6v2Ac4FDMTaRlbjZfkGOGFPrklE7UHx7YVs478dQXmoGHOhSgNiyTiFcVotfc4~J4T4PQh~xK4b~3kpBdadQCoo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Scatterplots" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -969,7 +1011,8 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Only y-axis calues, no x-axis values -> using index as the x-axis values
     + Color of two series of data assigned autoamtically,, while scatterplots require manualy labeled
     + Marker style assigned automatically w/ different series of data
-+ `plt.gca().fill_between` method
+
++ `plt.gca().fill_between` method of `matplotlib.axes._subplots.AxesSubplot`
     + Signature: `fill_between(x, y1, y2=0, where=None, interpolate=False, step=None, *, data=None, **kwargs)`
     + Docstring: Make filled polygons between two curves; Method of matplotlib.axes._subplots.AxesSubplot instance
     + Paramters: 
@@ -983,6 +1026,42 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
             + `True`: interpolate between the two lines to find the precise point of intersection.  
             + `False`: the start and end points of the filled region will only occur on explicit values in the _x_ array.
         + `step` ({'pre', 'post', 'mid'}): If not None, fill with step logic.
+        +  `kwargs` control the `~matplotlib.patches.Polygon` properties:
+            + `agg_filter`: unknown
+            + `alpha`: float or None 
+            + `animated`: [True | False] 
+            + `antialiased` or `antialiaseds`: Boolean or sequence of booleans 
+            + `array`: unknown
+            + `axes`: an `~matplotlib.axes.Axes` instance 
+            + `clim`: a length 2 sequence of floats 
+            + `clip_box`: a `matplotlib.transforms.Bbox` instance 
+            + `clip_on`: [True | False] 
+            + `clip_path`: [ (`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ] 
+            + `cmap`: a colormap or registered colormap name 
+            + `color`: matplotlib color arg or sequence of rgba tuples
+            + `contains`: a callable function 
+            + `edgecolor` or `edgecolors`: matplotlib color spec or sequence of specs 
+            + `facecolor` or `facecolors`: matplotlib color spec or sequence of specs 
+            + `figure`: a `matplotlib.figure.Figure` instance 
+            + `gid`: an id string 
+            + `hatch`: [ '/' | '\\' | '|' | '-' | '+' | 'x' | 'o' | 'O' | '.' | '*' ] 
+            + `label`: string or anything printable with '%s' conversion. 
+            + `linestyle` or `dashes` or `linestyles`: ['solid' | 'dashed', 'dashdot', 'dotted' | (offset, on-off-dash-seq) | `'-'` | `'--'` | `'-.'` | `':'` | `'None'` | `' '` | `''`]
+            + `linewidth` or `linewidths` or `lw`: float or sequence of floats 
+            + `norm`: unknown
+            + `offset_position`: unknown
+            + `offsets`: float or sequence of floats 
+            + `path_effects`: unknown
+            + `picker`: [None|float|boolean|callable] 
+            + `pickradius`: unknown
+            + `rasterized`: [True | False | None] 
+            + `sketch_params`: unknown
+            + `snap`: unknown
+            + `transform: `~matplotlib.transforms.Transform` instance
+            + `url`: a url string 
+            + `urls`: unknown
+            + `visible`: [True | False] 
+            + `zorder`: any number
 
 + Date Time handling
     + Standard library: 
@@ -997,14 +1076,14 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 + `pd.to_datetime` method: &nbsp;&nbsp; [Date Functions](../1-IntroDS/03-AdvPandas.md#date-functionality)
 
-
 + `plt.Axes` class
     + The `Axes` contains most of the figure elements: `~matplotlib.axis.Axis`,`~matplotlib.axis.Tick`, `~matplotlib.lines.Line2D`, `~matplotlib.text.Text`, `~matplotlib.patches.Polygon`, etc., and sets the coordinate system.
     + The `Axes` instance supports callbacks through a callbacks attribute which is a `~matplotlib.cbook.CallbackRegistry` instance.  The events you can connect to are 'xlim_changed' and 'ylim_changed' and the callback will be called with func(*ax*) where *ax* is the `Axes` instance.
-    + [Official Doc](https://matplotlib.org/api/axes_api.html)
+    + [Matplotlib: Axes class](https://matplotlib.org/api/axes_api.html)
 
-+ `plt.gca().axes` class
++ `plt.gca().axes` method of `class AxesSubplot(SubplotBase, matplotlib.axes._axes.Axes)`
     + Base class for subplots, which are `Axes` instances with  additional methods to facilitate generating and manipulating a set of `Axes` within a figure.
+    + [List of Methods fro Axes class](https://matplotlib.org/api/axes_api.html)
 
 + `plt.gca().xaxis` & `plt.gca().yaxis` classes:
     + `xaxis = class XAxis(Axis)` & `yaxis = class YAxis(Axis)`
@@ -1061,8 +1140,8 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `get_tick_padding()`
         + `get_ticklabel_extents(renderer)`: Get the extents of the tick labels on either side of the axes.
         + `get_ticklabels(minor=False, which=None)`: Get the x tick labels as a list of `~matplotlib.text.Text` instances.
-            + `minor` (bool)`: If True return the minor ticklabels, else return the major ticklabels
-            + `which` (None, {'minor', 'major', 'both'})`: Selects which ticklabels to return
+            + `minor` (bool): If True return the minor ticklabels, else return the major ticklabels
+            + `which` (None, {'minor', 'major', 'both'}): Selects which ticklabels to return
         + `get_ticklines(minor=False)`: Return the tick lines as a list of Line2D instances
         + `get_ticklocs(minor=False)`: Get the tick locations in data coordinates as a numpy array
         + `get_tightbbox(renderer)`: Return a bounding box that encloses the axis. It only accounts tick labels, axis label, and offsetText.
@@ -1103,7 +1182,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `update_units(data)`: introspect *data* for units converter and update the axis.converter instance if necessary. Return *True* if *data* is registered for unit conversion.
         + `zoom(direction)`: Zoom in/out on axis; if *direction* is >0 zoom in, else zoom out
  
- + `plt.gca().axis` method
+ + `plt.gca().axis` method of `matplotlib.axes._subplots.AxesSubplot`
     + Signature: `axis(*v, **kwargs)`
     + Docstring: Set axis properties
     + Parameters: 
@@ -1130,7 +1209,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         xmin, xmax, ymin, ymax = axis(string_arg)
         xmin, xmax, ymin, ymax = axis(**kwargs)
         ````
-+ [axis and tick API](https://matplotlib.org/api/axis_api.html)
++ [Matplotlib: axis and tick API](https://matplotlib.org/api/axis_api.html)
 
 + Demo
     ```python
@@ -1205,13 +1284,13 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
 
 ## Bar Charts
 
-+ `plt.bar` & `plt.barh` methods
++ `plt.bar` & `plt.barh` methods of `matplotlib.pyplot`
     + Signature: <br/>`bar(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)` & <br/>`barh(left, height, width=0.8, bottom=None, hold=None, data=None, **kwargs)`
     + Docstring: Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges)
     + Parameters:
-        + `left` (sequence of scalars): the x coordinates of the left sides of the bars
+        + `left` (sequence of scalars): the `x` coordinates of the left sides of the bars
         + `height` (sequence of scalars): the heights of the bars
-        + `width` (scalar or array-like): the width(s) of the bars default`: 0.8
+        + `width` (scalar or array-like): the width(s) of the bars
         + `bottom` (scalar or array-like): the y coordinate(s) of the bars
         + `color (scalar or array-like)`: the colors of the bar faces
         + `edgecolor (scalar or array-like)`: the colors of the bar edges
@@ -1222,9 +1301,13 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `ecolor (scalar or array-like)`: specifies the color of errorbar(s)
         + `capsize (scalar)`: determines the length in points of the error bar caps, which will take the value from the `errorbar.capsize` `rcParam<matplotlib.rcParams>`.
         + `error_kw (dict)`: dictionary of kwargs to be passed to errorbar method. *ecolor* and *capsize* may be specified here rather than as independent kwargs.
-        + `align ({'center', 'edge'})`: If 'edge', aligns bars by their left edges (for vertical bars) and by their bottom edges (for horizontal bars). If 'center', interpret the `left` argument as the coordinates of the centers of the bars. To align on the align bars on the right edge pass a negative `width`.
+        + `align ({'center', 'edge'})`: 
+            + 'edge': aligns bars by their left edges (for vertical bars) and by their bottom edges (for horizontal bars). 
+            + 'center': interpret the `left` argument as the coordinates of the centers of the bars. 
+            + To align on the align bars on the right edge pass a negative `width`.
         + `orientation ({'vertical', 'horizontal'})`: The orientation of the bars.
-        + `log (boolean)`:  If true, sets the axis to be log scale. default=False
+        + `log` (bool):  If true, sets the axis to be log scale. default=False
+    + Returns: `bars`: `matplotlib.container.BarContainer` Container with all of the bars + errorbars
 
 + Demo
     ```python
@@ -1239,7 +1322,6 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         new_xvals.append(item+0.3)
 
     plt.bar(new_xvals, exponential_data, width = 0.3 ,color='red')
-
 
     from random import randint
     linear_err = [randint(0,15) for x in range(len(linear_data))] 
@@ -1288,27 +1370,32 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `bottom`, `top`, `left`, `right` (bool or  {'on', 'off'}): controls whether to draw the respective ticks.
         + `labelbottom`, `labeltop`, `labelleft`, `labelright` (bool or  {'on', 'off'}): controls whether to draw the): respective tick labels.
 
-+ `plt.gca().spines` class:
++ `plt.gca().spines` method of `class OrderedDict(builtins.dict)`
     + Dictionary that remembers insertion order
     + `class OrderedDict(builtins.dict)`
     + Methods:
         + `clear(...)`: od.clear() -> None.  Remove all items from od.
         + `copy(...)`: od.copy() -> a shallow copy of od
-        + `fromkeys(...)` from builtins.type: OD.fromkeys(S[, v]) -> New ordered dictionary with keys from S.: If not specified, the value defaults to None.
+        + `fromkeys(...)`: from builtins.type: OD.fromkeys(S[, v]) -> New ordered dictionary with keys from S. If not specified, the value defaults to None.
         + `items(...)`: D.items() -> a set-like object providing a view on D's items
         + `keys(...)`: D.keys() -> a set-like object providing a view on D's keys
-        + `move_to_end(...)`: Move an existing element to the end (or beginning if last==False).: : Raises KeyError if the element does not exist.: When last=True, acts like a fast version of self[key]=self.pop(key).
-        + `pop(...)`: od.pop(k[,d]) -> v, remove specified key and return the corresponding: value.  If key is not found, d is returned if given, otherwise KeyError: is raised.
-        + `popitem(...)`: od.popitem() -> (k, v), return and remove a (key, value) pair.: Pairs are returned in LIFO order if last is true or FIFO order if false.
-        + `setdefault(...)`: od.setdefault(k[,d]) -> od.get(k,d), also set od[k]=d if k not in od
-        + `update(...)`: D.update([E, ]**F) -> None.  Update D from dict/iterable E and F.: If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]: If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v: In either case, this is followed by: for k in F:  D[k] = F[k]
+        + `move_to_end(...)`: Move an existing element to the end (or beginning if last==False). 
+            + Raises KeyError if the element does not exist. 
+            + When last=True, acts like a fast version of self[key]=self.pop(key).
+        + `pop(...)`: `od.pop(k[,d])` -> v, remove specified key and return the corresponding: value.  If key is not found, d is returned if given, otherwise KeyError is raised.
+        + `popitem(...)`: `od.popitem()` -> (k, v), return and remove a (key, value) pair.: Pairs are returned in LIFO order if last is true or FIFO order if false.
+        + `setdefault(...)`: `od.setdefault(k[,d])` -> `od.get(k,d)`, also `set od[k]=d if k not in od`
+        + `update(...)`: D.update([E, ]**F) -> None.  Update D from dict/iterable E and F.: 
+            + If E is present and has a `.keys()` method, then does:  `for k in E: D[k] = E[k]`
+            + If E is present and lacks a `.keys()` method, then does:  `for k, v in E: D[k] = v`
+            + In either case, this is followed by: `for k in F:  D[k] = F[k]`
         + `values(...)`: D.values() -> an object providing a view on D's values
 
-+ `plt.xticks` & `plt.yticks` methods:
++ `plt.xticks` & `plt.yticks` methods of `matplotlib.pyplot`
     + Signature: `xticks(*args, **kwargs)` & `yticks(*args, **kwargs)`
     + Get or set the *x*/*y*-limits of the current tick locations and labels
 
-+ `plt.text` method
++ `plt.text` method of `matplotlib.pyplot`
     + Signature: `text(x, y, s, fontdict=None, withdash=False, **kwargs)`
     + Docstring: Add text in string `s` to axis at location `x`, `y`, data coordinates.
     + Parameters: 
@@ -1318,7 +1405,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
         + `withdash` (boolean): Creates a `~matplotlib.text.TextWithDash` instance instead of a `~matplotlib.text.Text` instance.
         + `kwargs` : `~matplotlib.text.Text` properties.
 
-+ Here's the data we'll be working with:
++ Example Task: Here's the data we'll be working with
 
     | Language | % Popularity |
     |----------|--------------|

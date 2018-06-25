@@ -714,7 +714,6 @@ import seaborn as sns
 [028]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
 [029]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#dejunkifying-a-plot
 [030]: https://matplotlib.org/api/axes_api.html
-[031]: https://matplotlib.org/api/axis_api.html
 [031]: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html
 [032]: https://matplotlib.org/api/index.html
 [033]: https://matplotlib.org/api/pyplot_summary.html#colors-in-matplotlib
