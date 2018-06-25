@@ -694,6 +694,7 @@ Rougier et al. share their ten simple rules for drawing better figures, and use 
     + Docstring: Set axis properties
     + Args: 
         + `v`: list of float or {Value}
+        
             | Value     | Description |
             |-----------|------|
             | 'on'      | Toggle axis lines and labels on |
