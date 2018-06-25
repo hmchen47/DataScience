@@ -295,6 +295,50 @@ In this assignment the focus is more on the mechanics of creating charts, so the
     > I am not agree, but could be possible :-P
 
 
+### My submission
+
++ Region and Domain:
+    + Alberta & British Columbia
+    + Wildfire
+
++ Research Question: <br/>
+    What are the wirldfire occurrences and fire size of Alberta and British Columbia between 1999 and 2004?
+
++ Links for Project Data
+    + [Alberta Wildfire Historical Data 1999-2014](http://wildfire.alberta.ca/resources/historical-data/documents/HistoricalWildfireDatabase-1999-2014.xlsx)
+    + [British Columbia Historical Wildfire Data](https://catalogue.data.gov.bc.ca/dataset/fire-incident-locations-historical/resource/219490d7-da49-46b4-a958-1df6aa07f823)
+
++ Image
+    <br/><img src="./notebooks/AB_BC_Wildfire.png" alt="Statistics Of Wirldfire (AB & BC)" width="600">
+
++ Discussion
+
+    The figures illustrates the occurrences and size of wildfile in Alberta and British Columbia, Canada, from 199 to 2014.  The sources of the wildfire historical data are gathered from Provincial governments.  For Alberta, the historical data is divided into a couple of files while British Columbia's data from as early as 1900.  Meanwhile, Alberta's data contains more fields of information than BC one.  However, We cannot find a metadata for Alberta's dataset while BC's data is more straight forward.  After using the definition of fire class and fire size, we can decide to use 'uc_hectares' field as the appropriate one for fire size.
+
+    The plot compares these two provinces' wildfire occurrences (left y-axis scale x 1000) and aggregated fire size in hectares (right y-axis scale x 1000).  Two line graphs represent the occurrences of wildfire while two side-by-side bar charts for each year indicate the aggregated fire size.  In general, we can conclude that BC had more wildfire occurrences while Alberta had larger fire size except for year 2003, 2009, 2010, and 2014.  Derived from the information, we can draw a rough conclusion that BC had much more small wildfire occurrences while Alberta had larger damage by each occurrence.
+
++ Cairo’s principles
+    + Truthfulness
+        1. The datasets are gather from the government's open data
+        2. All data are simple counts and summarization.  
+        3. Comparisons are based on the datasets
+
+    + Beauty
+        1. The aggregated fire size of each province are illustrated side-by-side for comparison.
+        2. The occurrences of wildfire are depicted with line graphs for comparison.
+        3. The scales of line graphs and bar charts are displayed on each side of the figure.
+
+    + Functionality
+        1. The line graphs show the occurrences of each province from 1999-2014 and indicates BC had more wildfire occurrences than Alberta.
+        2. The bar charts indicate that Alberta had far more damages than BC, except for a couple of individual years.
+        3. British Columbia had more fluctuated occurrences than Alberta.
+        4. Occurrence of huge wildfire size happened more in Alberta.
+
+    + Insightfulness
+        1. The wildfire in Alberta was harder to control than BC.
+        2. British Columbia had far more wildfire caused by Residential.
+        3. In average, Alberta has larger fire size than BC.
+
 ## Review Your Peers: Becoming an Independent Data Scientist
 
 
