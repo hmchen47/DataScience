@@ -614,28 +614,28 @@ import seaborn as sns
 
 ### [seaborn API][045]
 
-| API | Description | Link |../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#Set
+| API | Description | Link |
 |-----|-------------|------|
 | __Axis grids__ | | |
 | `FacetGrid(data[, row, col, hue, col_wrap, ...])` | Subplot grid for plotting conditional relationships. | [Link](https://seaborn.pydata.org/generated/seaborn.FacetGrid.html#seaborn.FacetGrid) |
 | `factorplot([x, y, hue, data, row, col, ...])` | Draw a categorical plot onto a FacetGrid. | [Link](https://seaborn.pydata.org/generated/seaborn.factorplot.html#seaborn.factorplot) |
 | `lmplot(x, y, data[, hue, col, row, palette, ...])` | Plot data and regression model fits across a FacetGrid. | [Link](https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot) |
 | `PairGrid(data[, hue, hue_order, palette, ...])` | Subplot grid for plotting pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.PairGrid.html#seaborn.PairGrid) |
-| `pairplot(data[, hue, hue_order, palette, ...])` | Plot pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot), [Seaborn][0448] |
+| `pairplot(data[, hue, hue_order, palette, ...])` | Plot pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot), [Seaborn][048] |
 | `JointGrid(x, y[, data, size, ratio, space, ...])` | Grid for drawing a bivariate plot with marginal univariate plots. | [Link](https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid) |
-| `jointplot(x, y[, data, kind, stat_func, ...])` | Draw a plot of two variables with bivariate and univariate graphs. | [Link](https://seaborn.pydata.org/generated/seaborn.jointplot.html#seaborn.jointplot), [Seaborn][0448] |
+| `jointplot(x, y[, data, kind, stat_func, ...])` | Draw a plot of two variables with bivariate and univariate graphs. | [Link](https://seaborn.pydata.org/generated/seaborn.jointplot.html#seaborn.jointplot), [Seaborn][048] |
 | __Categorical plots__ | | |
 | `stripplot([x, y, hue, data, order, ...])` | Draw a scatterplot where one variable is categorical. | [Link](https://seaborn.pydata.org/generated/seaborn.stripplot.html#seaborn.stripplot) |
-| `swarmplot([x, y, hue, data, order, ...])` | Draw a categorical scatterplot with non-overlapping points. | [Link](https://seaborn.pydata.org/generated/seaborn.swarmplot.html#seaborn.swarmplot), [Seaborn][0448] |
+| `swarmplot([x, y, hue, data, order, ...])` | Draw a categorical scatterplot with non-overlapping points. | [Link](https://seaborn.pydata.org/generated/seaborn.swarmplot.html#seaborn.swarmplot), [Seaborn][048] |
 | `boxplot([x, y, hue, data, order, hue_order, ...])` | Draw a box plot to show distributions with respect to categories. | [Link](https://seaborn.pydata.org/generated/seaborn.boxplot.html#seaborn.boxplot) |
-| `violinplot([x, y, hue, data, order, ...])` | Draw a combination of boxplot and kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.violinplot.html#seaborn.violinplot), [Seaborn][0448] |
+| `violinplot([x, y, hue, data, order, ...])` | Draw a combination of boxplot and kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.violinplot.html#seaborn.violinplot), [Seaborn][048] |
 | `lvplot([x, y, hue, data, order, hue_order, ...])` | Draw a letter value plot to show distributions of large datasets. | [Link](https://seaborn.pydata.org/generated/seaborn.lvplot.html#seaborn.lvplot) |
 | `pointplot([x, y, hue, data, order, ...])` | Show point estimates and confidence intervals using scatter plot glyphs. | [Link](https://seaborn.pydata.org/generated/seaborn.pointplot.html#seaborn.pointplot) |
 | `barplot([x, y, hue, data, order, hue_order, ...])` | Show point estimates and confidence intervals as rectangular bars. | [Link](https://seaborn.pydata.org/generated/seaborn.barplot.html#seaborn.barplot) |
 | `countplot([x, y, hue, data, order, ...])` | Show the counts of observations in each categorical bin using bars. | [Link](https://seaborn.pydata.org/generated/seaborn.countplot.html#seaborn.countplot) |
 | __Distribution plots__ | | |
-| `distplot(a[, bins, hist, kde, rug, fit, ...])` | Flexibly plot a univariate distribution of observations. | [Link](https://seaborn.pydata.org/generated/seaborn.distplot.html#seaborn.distplot), [Seaborn][0448] |
-| `kdeplot(data[, data2, shade, vertical, ...])` | Fit and plot a univariate or bivariate kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.kdeplot.html#seaborn.kdeplot), [Seaborn][0448] |
+| `distplot(a[, bins, hist, kde, rug, fit, ...])` | Flexibly plot a univariate distribution of observations. | [Link](https://seaborn.pydata.org/generated/seaborn.distplot.html#seaborn.distplot), [Seaborn][048] |
+| `kdeplot(data[, data2, shade, vertical, ...])` | Fit and plot a univariate or bivariate kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.kdeplot.html#seaborn.kdeplot), [Seaborn][048] |
 | `rugplot(a[, height, axis, ax])` | Plot datapoints in an array as sticks on an axis. | [Link](https://seaborn.pydata.org/generated/seaborn.rugplot.html#seaborn.rugplot) |
 | __Regression plots__ | | |
 | `regplot(x, y[, data, x_estimator, x_bins, ...])` | Plot data and a linear regression model fit. | [Link](https://seaborn.pydata.org/generated/seaborn.regplot.html#seaborn.regplot) |
@@ -651,7 +651,7 @@ import seaborn as sns
 | `set([context, style, palette, font, ...])` | Set aesthetic parameters in one step. | [Link](https://seaborn.pydata.org/generated/seaborn.set.html#seaborn.set) |
 | `axes_style([style, rc])` | Return a parameter dict for the aesthetic style of the plots. | [Link](https://seaborn.pydata.org/generated/seaborn.axes_style.html#seaborn.axes_style) |
 | `set_style([style, rc])` | Set the aesthetic style of the plots. | [Link](https://seaborn.pydata.org/generated/seaborn.set_style.html#seaborn.set_style) |
-| `plotting_context([context, font_scale, rc])` | Return a parameter dict to scale elements of the figure. | [Link](https://seaborn.pydata.org/generated/seaborn.plotting_context.html#seaborn.plotting_context), [Seaborn][0448] |
+| `plotting_context([context, font_scale, rc])` | Return a parameter dict to scale elements of the figure. | [Link](https://seaborn.pydata.org/generated/seaborn.plotting_context.html#seaborn.plotting_context), [Seaborn][048] |
 | `set_context([context, font_scale, rc])` | Set the plotting context parameters. | [Link](https://seaborn.pydata.org/generated/seaborn.set_context.html#seaborn.set_context) |
 | `set_color_codes([palette])` | Change how matplotlib color shorthands are interpreted. | [Link](https://seaborn.pydata.org/generated/seaborn.set_color_codes.html#seaborn.set_color_codes) |
 | `reset_defaults()` | Restore all RC params to default settings. | [Link](https://seaborn.pydata.org/generated/seaborn.reset_defaults.html#seaborn.reset_defaults) |
@@ -693,7 +693,7 @@ import seaborn as sns
 [007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
 [008]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-dataframe-data-structure
 [009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
-[010]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
+[010]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataframe
 [011]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
 [012]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-valuesindexing-dataframes
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
