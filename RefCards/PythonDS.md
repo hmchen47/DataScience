@@ -141,7 +141,8 @@ import numpy as np
 |--------|-------------|------|
 | `np.nan` | Not a number | [Series][006] |
 | `np.isnan(ary)` | Return ndarray or tuple of ndarray with bool value | [Series][006] |
-| `std(a, axis=None, out=None, ddof=0)` | ompute the standard deviation along the specified axis; `a`: array_like; `axis`: Axis or axes along which the standard deviation is computed; `out`: Alternative output array in which to place the result; `dof`: Means Delta Degrees of Freedom | [More Distribution][022] |
+| `np.std(a, axis=None, out=None, ddof=0)` | ompute the standard deviation along the specified axis; `a`: array_like; `axis`: Axis or axes along which the standard deviation is computed; `out`: Alternative output array in which to place the result; `dof`: Means Delta Degrees of Freedom | [More Distribution][022] |
+| `np.concatenate
 
 
 
@@ -287,6 +288,9 @@ import pandas as pd
 |`pd.to_datetime(arg, **kwargs)` | Convert argument to datetime <br/> `kwargs`: errors='raise', dayfirst=False, yearfirst=False, utc=None, box=True, format=None, exact=True, unit=None, infer_datetime_format=False, origin='unix', cache=False | [Date Functionality][020], [Line Plots][027] |
 | `pd.date_range(start=None, end=None, periods=None)` | Return a fixed frequency DatetimeIndex, with day (calendar) as the default frequency; <br/>[`start`, `end`]; `periods`: umber of periods to generate | [Date Functionality][020] |
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; <br/> `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
+| `pd.plotting.scatter_matrix(frame, *args, **kwds)` | Draw a matrix of scatter plots <br/> `args`: alpha=0.5, figsize=None, ax=None, grid=False, diagonal='hist', marker='.', density_kwds=None, hist_kwds=None, range_padding=0.05 | [Plotting w/ Pandas][044] |
+| `pd.tools.plotting.parallel_coordinates(data. col)` | Parallel coordinates is a plotting technique for plotting multivariate data ([viki](https://en.wikipedia.org/wiki/Parallel_coordinates)) | [Plotting w/ Pandas][044] |
+
 
 | Alias | Description | | Alias | Description |
 |--------|------------|-|--------|------------|
@@ -465,6 +469,9 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; <br/>`dtype`: data type, or dict of column name -> data type | [Scales][018] |
 | `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; <br/> values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
 | `df.describe(percentiles=None, include=None, exclude=None)` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values. | [Box Plots][039] |
+| `df.plot.box(by=None, **kwds)` | Boxplot | [Plotting w/ Pandas][044] |
+| `df.plot.hist(by=None, bins=10, **kwds)` | Histogram | [Plotting w/ Pandas][044] |
+| `df.plot.kde(**kwds)` | Kernel Density Estimate plot | [Plotting w/ Pandas][044] |
 
 
 [TOC](#table-of-contents)
@@ -523,16 +530,14 @@ import matplotlib.animation as animation
 | `plt.gca(**kwargs)` | Docstring: Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one.  | [Basic Plotting][025] |
 | `plt.gca().axis(*v, **kwargs)` <br/> `plt.gca().axes(*v, **kwargs)` | Get the current `~matplotlib.axes.Axes` instance on the current figure matching the given keyword `args`, or create one. <br/> __`kwargs`__: adjustable, agg_filter, alpha, anchor, animated, aspect, autoscale_on, autoscalex_on, autoscaley_on, axes, axes_locator, axisbelow, clip_box, clip_on, clip_path, color_cycle, contains, facecolor, fc, figure, frame_on, gid, label, navigate, navigate_mode, path_effects, picker, position, rasterization_zorder, rasterized, sketch_params, snap, title, transform, url, visible, xbound, xlabel, xlim, xmargin, xscale, xticklabels, xticks, ybound, ylabel, ylim, ymargin, yscale, yticklabels, yticks, zorder | [Basic Plotting][025] |
 | `plt.gca().get_children()` | return a list of child artists | [Basic Plotting][025] |
-| `plt.scatter(x, y, *args, **kwargs)` | Make a Scatterplots of `x` vs `y`; `args`: s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None | [Scatterplots][026] |
+| `plt.scatter(x, y, *args, **kwargs)` | Make a Scatterplots of `x` vs `y`; `args`: s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None | [Scatterplots][026], [Histograms][038] |
 | `plt.xlabel(s, *args, **kwargs)` | Set the `x` axis label of the current axis | [Scatterplots][026] |
 | `plt.ylabel(s, *args, **kwargs)` | Set the `y` axis label of the current axis| [Scatterplots][026] |
 | `plt.fill_between(x, y1, y2=0, **kwargs)` | Make filled polygons between two curves; <br/> `kwargs`: where=None, interpolate=False, step=None, *, data=None | [Line Plots][027] |
-| `plt.bar(left, height, **kwargs)` <br/>
- `plt.barh(left, height, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) <br/> `kwargs`: width=0.8, bottom=None, hold=None, data=None,  | [Bar Charts][028] |
+| `plt.bar(left, height, **kwargs)` <br/> `plt.barh(left, height, **kwargs)` | Make a bar plot with rectangles bounded by: `left`, `left` + `width`, `bottom`, `bottom` + `height` (left, right, bottom and top edges) <br/> `kwargs`: width=0.8, bottom=None, hold=None, data=None,  | [Bar Charts][028] |
 | `plt.tick_params(axis='both', **kwargs)` | Change the appearance of ticks and tick labels | [Dejunkify][029] |
 | `plt.gcf()` | Get a reference to the current figure. | [Subplots][037] |
 | `plt.hist(x, *args, **kwargs)` | Plot a histogram <br/> `*args`: `bins=None, range=None, normed=False, weights=None, cumulative=False, bottom=None, histtype='bar', align='mid', orientation='vertical', rwidth=None, log=False, color=None, label=None, stacked=False, hold=None, data=None` | [Histograms][038] |
-| `plt.scatter(x, y, *args, **kwargs)` | Make a scatter plot of `x` vs `y` <br/> `*args`: `s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None` | [Histograms][038] |
 | `set_title(label, fontdict=None, loc='center', **kwargs)` | Set a title for the axes of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
 | `set_xlim(left=None, right=None, emit=True, auto=False, **kw)` | Set the data limits for the x-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
 | `set_ylim(bottom=None, top=None, emit=True, auto=False, **kw)` | Set the data limits for the y-axis of `matplotlib.axes._subplots.AxesSubplot` | [Histograms][038] |
@@ -547,8 +552,12 @@ import matplotlib.animation as animation
 | `plt.cla()` | Clear the current axes | [Animation][041] |
 | `annotate(s, xy, *args, **kwargs)` | Annotate the point `xy` with text `s`<br/> `args`: xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None | [Animation][041] |
 | `animation.FuncAnimation(fig, func, *args)` | Makes an animation by repeatedly calling a function `func` <br/> `args`: frames=None, init_func=None, fargs=None, save_count=0, interval=200, repeat_delay=None, repeat=True, blit=False | [Animation][041] |
-| `mpl_connect(s, func)` | Connect event with string `s` to `func`.  The signature of `func` is `def func(event)` where event is a `matplotlib.backend_bases.Event` instance | [Interactivity][042] |
-
+| `mpl.connect(s, func)` | Connect event with string `s` to `func`.  The signature of `func` is `def func(event)` where event is a `matplotlib.backend_bases.Event` instance | [Interactivity][042] |
+| `plt.colormaps()` | Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called. | [Assignment 3][043] |
+| `plt.imshow(X, *args, **kwargs)` | Display an image on the axes <br/> `*args`: cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None | [Assignment 3][043] |
+| `cm.to_rgba(x, alpha=None, bytes=False, norm=True)` | Return a normalized rgba array corresponding to *x* | [Assignment 3][043] |
+| `plt,style.user(style)` | Use matplotlib style settings from a style specification. | [Plotting w/ Pandas][044] |
+| `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
 
 
 
@@ -593,6 +602,85 @@ plt.axis([0, 4, 0, 10])
 plt.legend()
 ```
 
+# Seaborn
+
++ Seaborn is a library for making attractive and informative statistical graphics in Python.
++ [Official Site][046]
++ [Seaborn Tutorial](https://seaborn.pydata.org/tutorial.html)
+
+```python
+import seaborn as sns
+```
+
+### [seaborn API][045]
+
+| API | Description | Link |
+|-----|-------------|------|
+| __Axis grids__ | | |
+| `FacetGrid(data[, row, col, hue, col_wrap, ...])` | Subplot grid for plotting conditional relationships. | [Link](https://seaborn.pydata.org/generated/seaborn.FacetGrid.html#seaborn.FacetGrid) |
+| `factorplot([x, y, hue, data, row, col, ...])` | Draw a categorical plot onto a FacetGrid. | [Link](https://seaborn.pydata.org/generated/seaborn.factorplot.html#seaborn.factorplot) |
+| `lmplot(x, y, data[, hue, col, row, palette, ...])` | Plot data and regression model fits across a FacetGrid. | [Link](https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot) |
+| `PairGrid(data[, hue, hue_order, palette, ...])` | Subplot grid for plotting pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.PairGrid.html#seaborn.PairGrid) |
+| `pairplot(data[, hue, hue_order, palette, ...])` | Plot pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot), [Seaborn][048] |
+| `JointGrid(x, y[, data, size, ratio, space, ...])` | Grid for drawing a bivariate plot with marginal univariate plots. | [Link](https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid) |
+| `jointplot(x, y[, data, kind, stat_func, ...])` | Draw a plot of two variables with bivariate and univariate graphs. | [Link](https://seaborn.pydata.org/generated/seaborn.jointplot.html#seaborn.jointplot), [Seaborn][048] |
+| __Categorical plots__ | | |
+| `stripplot([x, y, hue, data, order, ...])` | Draw a scatterplot where one variable is categorical. | [Link](https://seaborn.pydata.org/generated/seaborn.stripplot.html#seaborn.stripplot) |
+| `swarmplot([x, y, hue, data, order, ...])` | Draw a categorical scatterplot with non-overlapping points. | [Link](https://seaborn.pydata.org/generated/seaborn.swarmplot.html#seaborn.swarmplot), [Seaborn][048] |
+| `boxplot([x, y, hue, data, order, hue_order, ...])` | Draw a box plot to show distributions with respect to categories. | [Link](https://seaborn.pydata.org/generated/seaborn.boxplot.html#seaborn.boxplot) |
+| `violinplot([x, y, hue, data, order, ...])` | Draw a combination of boxplot and kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.violinplot.html#seaborn.violinplot), [Seaborn][048] |
+| `lvplot([x, y, hue, data, order, hue_order, ...])` | Draw a letter value plot to show distributions of large datasets. | [Link](https://seaborn.pydata.org/generated/seaborn.lvplot.html#seaborn.lvplot) |
+| `pointplot([x, y, hue, data, order, ...])` | Show point estimates and confidence intervals using scatter plot glyphs. | [Link](https://seaborn.pydata.org/generated/seaborn.pointplot.html#seaborn.pointplot) |
+| `barplot([x, y, hue, data, order, hue_order, ...])` | Show point estimates and confidence intervals as rectangular bars. | [Link](https://seaborn.pydata.org/generated/seaborn.barplot.html#seaborn.barplot) |
+| `countplot([x, y, hue, data, order, ...])` | Show the counts of observations in each categorical bin using bars. | [Link](https://seaborn.pydata.org/generated/seaborn.countplot.html#seaborn.countplot) |
+| __Distribution plots__ | | |
+| `distplot(a[, bins, hist, kde, rug, fit, ...])` | Flexibly plot a univariate distribution of observations. | [Link](https://seaborn.pydata.org/generated/seaborn.distplot.html#seaborn.distplot), [Seaborn][048] |
+| `kdeplot(data[, data2, shade, vertical, ...])` | Fit and plot a univariate or bivariate kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.kdeplot.html#seaborn.kdeplot), [Seaborn][048] |
+| `rugplot(a[, height, axis, ax])` | Plot datapoints in an array as sticks on an axis. | [Link](https://seaborn.pydata.org/generated/seaborn.rugplot.html#seaborn.rugplot) |
+| __Regression plots__ | | |
+| `regplot(x, y[, data, x_estimator, x_bins, ...])` | Plot data and a linear regression model fit. | [Link](https://seaborn.pydata.org/generated/seaborn.regplot.html#seaborn.regplot) |
+| `residplot(x, y[, data, lowess, x_partial, ...])` | Plot the residuals of a linear regression. | [Link](https://seaborn.pydata.org/generated/seaborn.residplot.html#seaborn.residplot) |
+| __Matrix plots__ | | |
+| `heatmap(data[, vmin, vmax, cmap, center, ...])` | Plot rectangular data as a color-encoded matrix. | [Link](https://seaborn.pydata.org/generated/seaborn.heatmap.html#seaborn.heatmap) |
+| `clustermap(data[, pivot_kws, method, ...])` | Plot a matrix dataset as a hierarchically-clustered heatmap. | [Link](https://seaborn.pydata.org/generated/seaborn.clustermap.html#seaborn.clustermap) |
+| __Timeseries plots__ | | |
+| `tsplot(data[, time, unit, condition, value, ...])` | Plot one or more timeseries with flexible representation of uncertainty. | [Link](https://seaborn.pydata.org/generated/seaborn.tsplot.html#seaborn.tsplot) |
+| __Miscellaneous plots__ | | |
+| `palplot(pal[, size])` | Plot the values in a color palette as a horizontal array. | [Link](https://seaborn.pydata.org/generated/seaborn.palplot.html#seaborn.palplot) |
+| __Style frontend__ | | |
+| `set([context, style, palette, font, ...])` | Set aesthetic parameters in one step. | [Link](https://seaborn.pydata.org/generated/seaborn.set.html#seaborn.set) |
+| `axes_style([style, rc])` | Return a parameter dict for the aesthetic style of the plots. | [Link](https://seaborn.pydata.org/generated/seaborn.axes_style.html#seaborn.axes_style) |
+| `set_style([style, rc])` | Set the aesthetic style of the plots. | [Link](https://seaborn.pydata.org/generated/seaborn.set_style.html#seaborn.set_style) |
+| `plotting_context([context, font_scale, rc])` | Return a parameter dict to scale elements of the figure. | [Link](https://seaborn.pydata.org/generated/seaborn.plotting_context.html#seaborn.plotting_context), [Seaborn][048] |
+| `set_context([context, font_scale, rc])` | Set the plotting context parameters. | [Link](https://seaborn.pydata.org/generated/seaborn.set_context.html#seaborn.set_context) |
+| `set_color_codes([palette])` | Change how matplotlib color shorthands are interpreted. | [Link](https://seaborn.pydata.org/generated/seaborn.set_color_codes.html#seaborn.set_color_codes) |
+| `reset_defaults()` | Restore all RC params to default settings. | [Link](https://seaborn.pydata.org/generated/seaborn.reset_defaults.html#seaborn.reset_defaults) |
+| `reset_orig()` | Restore all RC params to original settings (respects custom rc). | [Link](https://seaborn.pydata.org/generated/seaborn.reset_orig.html#seaborn.reset_orig) |
+| __Color palettes__ | | |
+| `set_palette(palette[, n_colors, desat, ...])` | Set the matplotlib color cycle using a seaborn palette. | [Link](https://seaborn.pydata.org/generated/seaborn.set_palette.html#seaborn.set_palette) |
+| `color_palette([palette, n_colors, desat])` | Return a list of colors defining a color palette. | [Link](https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette) |
+| `husl_palette([n_colors, h, s, l])` | Get a set of evenly spaced colors in HUSL hue space. | [Link](https://seaborn.pydata.org/generated/seaborn.husl_palette.html#seaborn.husl_palette) |
+| `hls_palette([n_colors, h, l, s])` | Get a set of evenly spaced colors in HLS hue space. | [Link](https://seaborn.pydata.org/generated/seaborn.hls_palette.html#seaborn.hls_palette) |
+| `cubehelix_palette([n_colors, start, rot, ...])` | Make a sequential palette from the cubehelix system. | [Link](https://seaborn.pydata.org/generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette) |
+| `dark_palette(color[, n_colors, reverse, ...])` | Make a sequential palette that blends from dark to color. | [Link](https://seaborn.pydata.org/generated/seaborn.dark_palette.html#seaborn.dark_palette) |
+| `light_palette(color[, n_colors, reverse, ...])` | Make a sequential palette that blends from light to color. | [Link](https://seaborn.pydata.org/generated/seaborn.light_palette.html#seaborn.light_palette) |
+| `diverging_palette(h_neg, h_pos[, s, l, sep, ...])` | Make a diverging palette between two HUSL colors. | [Link](https://seaborn.pydata.org/generated/seaborn.diverging_palette.html#seaborn.diverging_palette) |
+| `blend_palette(colors[, n_colors, as_cmap, input])` | Make a palette that blends between a list of colors. | [Link](https://seaborn.pydata.org/generated/seaborn.blend_palette.html#seaborn.blend_palette) |
+| `xkcd_palette(colors)` | Make a palette with color names from the xkcd color survey. | [Link](https://seaborn.pydata.org/generated/seaborn.xkcd_palette.html#seaborn.xkcd_palette) |
+| `crayon_palette(colors)` | Make a palette with color names from Crayola crayons. | [Link](https://seaborn.pydata.org/generated/seaborn.crayon_palette.html#seaborn.crayon_palette) |
+| `mpl_palette(name[, n_colors])` | Return discrete colors from a matplotlib palette. | [Link](https://seaborn.pydata.org/generated/seaborn.mpl_palette.html#seaborn.mpl_palette) |
+| __Palette widgets__ | | |
+| `choose_colorbrewer_palette(data_type[, as_cmap])` | Select a palette from the ColorBrewer set. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_colorbrewer_palette.html#seaborn.choose_colorbrewer_palette) |
+| `choose_cubehelix_palette([as_cmap])` | Launch an interactive widget to create a sequential cubehelix palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette) |
+| `choose_light_palette([input, as_cmap])` | Launch an interactive widget to create a light sequential palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_light_palette.html#seaborn.choose_light_palette) |
+| `choose_dark_palette([input, as_cmap])` | Launch an interactive widget to create a dark sequential palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_dark_palette.html#seaborn.choose_dark_palette) |
+| `choose_diverging_palette([as_cmap])` | Launch an interactive widget to choose a diverging color palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette) |
+| __Utility functions__ | | |
+| `despine([fig, ax, top, right, left, bottom, ...])` | Remove the top and right spines from plot(s). | [Link](https://seaborn.pydata.org/generated/seaborn.despine.h) |
+| `desaturate(color, prop)` | Decrease the saturation channel of a color by some percent. | [Link](https://seaborn.pydata.org/generated/seaborn.desaturate.html#seaborn.desaturate) |
+| `saturate(color)` | Return a fully saturated color with the same hue. | [Link](https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate) |
+| `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
+
 -------------------------------------
 
 [000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
@@ -605,7 +693,7 @@ plt.legend()
 [007]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-series
 [008]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#the-dataframe-data-structure
 [009]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#dataframe-indexing-and-loading
-[010]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataFrame
+[010]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#querying-a-dataframe
 [011]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
 [012]: ../AppliedDS-UMich/1-IntroDS/02-Pandas.md#missing-valuesindexing-dataframes
 [013]: http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
@@ -620,11 +708,11 @@ plt.legend()
 [022]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#more-distribution
 [023]: ./AppliedDS-UMich/1-IntroDS/04-Stats.md#hypothesis-testing-in-python
 [024]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.resample.html
-[025]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
-[026]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
-[027]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
-[028]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
-[029]: ./AppliedDS-UMich/2-InfoVis/02-BasicChart.md#dejunkifying-a-plot
+[025]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#basic-plotting-with-matplotlib
+[026]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#scatter-plot
+[027]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#line-plots
+[028]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#bar-charts
+[029]: ../AppliedDS-UMich/2-InfoVis/02-BasicChart.md#dejunkifying-a-plot
 [030]: https://matplotlib.org/api/axes_api.html
 [031]: https://matplotlib.org/api/axis_api.html
 [031]: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html
@@ -633,10 +721,19 @@ plt.legend()
 [034]: https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html
 [035]: https://matplotlib.org/api/_as_gen/matplotlib.figure.SubplotParams.html
 [036]: https://matplotlib.org/api/text_api.html
-[037]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#subplots
-[038]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#histograms
-[039]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#box-plots
-[040]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#heatmaps
-[041]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#animations
-[042]: ./AppliedDS-UMich/2-InfoVis/03-ChartFund.ms#interactivity
+[037]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#subplots
+[038]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#histograms
+[039]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#box-plots
+[040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#heatmaps
+[041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#animations
+[042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#interactivity
+[043]: ../AppliedDS-UMich/2-InfoVis/asgn03.md#related-methods-used
+[044]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#plotting-with-pandas
+[045]: https://seaborn.pydata.org/api.html#api-ref
+[046]: https://seaborn.pydata.org/
+[047]: https://seaborn.pydata.org/tutorial.html
+[048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
+
+
+
 

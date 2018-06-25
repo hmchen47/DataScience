@@ -14,12 +14,12 @@
 + [Graphical heuristics: Data-ink ratio (Edward Tufte)](./01-Principle.md#)
 + [Dark Horse Analytics (Optional)](./01-Principle.md#)
 + [Graphical heuristics: Chart junk (Edward Tufte)](./01-Principle.md#)
-+ [Useful Junk?: The Effects of Visual Embellishment on Comprehension and ](./01-Principle.md#)+ [Memorability of Charts](./01-Principle.md#)
++ [Useful Junk?: The Effects of Visual Embellishment on Comprehension and Memorability of Charts](./01-Principle.md#)
 + [Graphical heuristics: Lie Factor and Spark Lines (Edward Tufte)](./01-Principle.md#)
 + [The Truthful Art (Alberto Cairo)](./01-Principle.md#)
 + [Discussion Prompt: Must a visual be enlightening?](./01-Principle.md#)
 
-## Assignment 1
+## [Assignment 1](./asgn01.md)
 
 + [Graphics Lies, Misleading Visuals](./asgn01.md#)
 + [Peer-graded Assignment: Graphics Lies, Misleading Visuals](./asgn01.md#)
@@ -40,7 +40,7 @@
 + [Dejunkifying a Plot](./02-BasicChart.md#)
 
 
-## Assignment 2
+## [Assignment 2](./asgn02.md)
 
 + [Plotting Weather Patterns](asgn02.md)
 + [Peer-graded Assignment: Plotting Weather Patterns](asgn02.md)
@@ -58,6 +58,41 @@
 + [Heatmaps](./03-ChartFund.md#heatmaps)
 + [Animation](./03-ChartFund.md#animation)
 + [Interactivity](./03-ChartFund.md#interactivity)
+
+## [Assignment 3](./asgn03.md)
+
++ [Practice Assignment](./asgn03.md#practice-assignment)
+    + [Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#practice-assignment-understanding-distributions-through-sampling)
+    + [Useful Links](./asgn03.md#useful-links)
+    + [Practice Peer-graded Assignment: Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#practice-peer-graded-assignment-practice-assignment-understanding-distributions-through-sampling)
++ [Assignment 3](./asgn03.md#assignment-3)
+    + [Building a Custom Visualization](./asgn03.md#building-a-custom-visualization)
+    + [Assignment Reading](./asgn03.md#/assignment-reading)
+    + [Assignment 3 - Building a Custom Visualization](./asgn03.md#assignment-3---building-a-custom-visualization)
+    + [Useful Links](./asgn03.md#useful-links-for-assignment-3)
+    + [Peer-graded Assignment: Building a Custom Visualization](./asgn03.md#peer-graded-assignment-building-a-custom-visualization)
+    + [Related Methods Used](./asgn03.md#related-methods-used)
+    + [Review Your Peers: Building a Custom Visualization](./asgn03.md#review-your-peers-building-a-custom-visualization)
+
+
+## Module 4: [Applied Visualizations](./04-AppliedVis.md)
+
++ [Module 4 Jupyter Notebook](./04-AppliedVis.md#)
++ [Plotting with Pandas](./04-AppliedVis.md#)
++ [Seaborn](./04-AppliedVis.md#)
++ [Spurious Correlations](./04-AppliedVis.md#)
+
+
+## [Project](asgn04-Project.md)
+
++ [Becoming an Independent Data Scientist](./asgn04-Project.md#becoming-an-independent-data-scientist)
++ [Project Description](./asgn04-Project.md#project-description)
++ [Peer-graded Assignment: Becoming an Independent Data Scientist](./asgn04-Project.md#peer-graded-assignment-becoming-an-independent-data-scientist)
++ [Discussion Forum Useful Links](./asgn04-Project.md#discussion-forum-useful-links)
++ [Review Your Peers: Becoming an Independent Data Scientist](./asgn04-Project.md#review-your-peers-becoming-an-independent-data-scientist)
+
+
+
 
 
 
