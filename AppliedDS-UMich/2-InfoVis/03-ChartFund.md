@@ -3,12 +3,13 @@
 ## Module 3 Jupyter Notebook
 
 + [Web Launcher](https://www.coursera.org/learn/python-plotting/notebook/nXjSZ/module-3-jupyter-notebook)
-+ [Web Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=0-lHeSXARWGpR3klwAVhEA&next=%2Fnotebooks%2FWeek3.ipynb)
-+[Local Notebook](./labs/Week03.ipynb)
++ [Web Lecture Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=0-lHeSXARWGpR3klwAVhEA&next=%2Fnotebooks%2FWeek3.ipynb)
++ [Local Lecture Notebook](./notebooks/Week03.ipynb)
++ [Local Python Code](./notebooks/Week03.py)
 
 ## Subplots
 
-+ `plt.figure` method
++ `plt.figure` method of `matplotlib.pyplot`
     + Signature: `figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, **kwargs)`
     + Docstring: Creates a new figure.
     + Args:
@@ -21,9 +22,9 @@
         + `dpi` (integer): resolution of the figure; defaults to rc `figure.dpi`.
         + `facecolor` : the background color. defaults to rc `figure.facecolor`
         + `edgecolor` : the border color. defaults to rc `figure.edgecolor`
-    + Return: The Figure instance returned will also be passed to new_figure_manager in the backends, which allows to hook custom Figure classes into the `pylab` interface. Additional `kwargs` will be passed to the figure init function.
+    + Return: `figure` (Figure): The Figure instance returned will also be passed to new_figure_manager in the backends, which allows to hook custom Figure classes into the `pylab` interface. Additional `kwargs` will be passed to the figure init function.
 
-+ `plt.subplot` method:
++ `plt.subplot` method of `matplotlib.pyplot`
     + Signature: `subplot(*args, **kwargs)`
     + Docstring: Return a subplot axes positioned by the given grid definition.
     + Keyword arguments:
@@ -33,9 +34,9 @@
     + Typical call signature: `subplot(nrows, ncols, plot_number)`
         + `nrows`, `ncols`: used to notionally split the figure into $nrows * ncols$ sub-axes, and *plot_number* is used to identify the particular subplot that this function is to create within the notional grid. 
         + `plot_number`: starts at 1, increments across rows first and has a maximum of $nrows * ncols$.
-    + `nrows`, `ncols` and `plot_number` $< 10 $: convenience notation exists
+    + `nrows`, `ncols` and `plot_number` $< 10$: convenience notation exists
 
-+ `plt.subplots` method
++ `plt.subplots` method of `matplotlib.pyplot`
     + Signature: `subplots(nrows=1, ncols=1, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)`
     + Docstring: Create a figure and a set of subplots
     + Args:
@@ -55,10 +56,10 @@
         + `gridspec_kw` (dict): Dict with keywords passed to the `~matplotlib.gridspec.GridSpec` class constructor used to create the grid the subplots are placed on.
         + `**fig_kw` : All additional keyword arguments are passed to the `figure` call.
     + Returns:
-        + `fig` : `matplotlib.figure.Figure` object
-        + `ax` (Axes object or array of Axes objects): ax can be either a single :class:`matplotlib.axes.Axes` object or an array of Axes objects if more than one subplot was created.  The dimensions of the resulting array can be controlled with the `squeeze` keyword.
+        + `fig`: `matplotlib.figure.Figure` object
+        + `ax` (Axes object or array of Axes objects): ax can be either a single `matplotlib.axes.Axes` object or an array of Axes objects if more than one subplot was created.  The dimensions of the resulting array can be controlled with the `squeeze` keyword.
 
-+ `plt.gcf` method
++ `plt.gcf` method of `matplotlib.pyplot`
     + Signature: `plt.gcf()`
     + Docstring: Get a reference to the current figure.
     
@@ -107,8 +108,6 @@
     # necessary on some systems to update the plot
     plt.gcf().canvas.draw()
     ```
-
-
 <a href="https://d3c33hcgiwev3.cloudfront.net/XD9_O_0eEeahPwr4NTFsvg.processed/full/360p/index.mp4?Expires=1529193600&Signature=F9mwszxkvX5LWTNgjh44kDlaR3lLq-PtIMK5Gt2HJq~jvLJ1yJpK93hPwYrWTGPDVRZ9wMbG5STWEtT2ozkzne1x~VZ4c6zvxkBKQeNwwSD0fzJ3WpljuQQX7P6Jis4HXdbmzr3CYvMPVws~CL8RbhMaNfJXGGG2EMEoKU87kxg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Subplots
 " target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -144,9 +143,7 @@
     + Returns: 
         + `out` (ndarray or scalar): Drawn samples from the parameterized gamma distribution.
 
-    
-
-+ `plt.hist` method:
++ `plt.hist` method of `matplotlib.pyplot`:
     + Signature: `plt.hist(x, bins=None, range=None, normed=False, weights=None, cumulative=False, bottom=None, histtype='bar', align='mid', orientation='vertical', rwidth=None, log=False, color=None, label=None, stacked=False, hold=None, data=None, **kwargs)`
     + Docstring: Plot a histogram
     + Usage: 
@@ -155,8 +152,8 @@
     + Parameters
         + `x` ((n,) array or sequence of (n,) arrays): Input values, this takes either a single array or a sequency of arrays which are not required to be of the same length
         + `bins` (integer or array_like or 'auto'): 
-            + `bins + 1` bin edges, consistently with `numpy.histogram`
-            +  `bins` a sequence: Unequally spaced bins
+            + $bins + 1$ bin edges, consistently with `numpy.histogram`
+            +  `bins` (sequence): Unequally spaced bins
             + `auto`: Numpy 1.11
             + Default: the rcParam `hist.bins`
         + `range` (tuple or None): 
@@ -200,12 +197,12 @@
             + `True`: multiple data are stacked on top of each other 
             + `False`: multiple data are aranged side by side if `histtype` is 'bar' or on top of each other if histtype is 'step'
         + `kwargs` : `~matplotlib.patches.Patch` properties
-    + Return: 
+    + Return:
         + `n` (array or list of arrays):  The values of the histogram bins. See **normed** and **weights** for a description of the possible semantics. If input **x** is an array, then this is an array of length **nbins**. If input is a sequence arrays `[data1, data2,..]`, then this is a list of arrays with the values of the histograms for each of the arrays in the same order.
         + `bins` (array): The edges of the bins. Length $nbins + 1$ ($nbins$ left edges and right edge of last bin).  Always a single array even when multiple data sets are passed in.
         + `patches` (list or list of lists): Silent list of individual patches used to create the histogram or list of such list if multiple input datasets.
 
-+ `plt.scatter` method:
++ `plt.scatter` method of `matplotlib.pyplot`:
     + Signature: `plt.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None, **kwargs)`
     + Docstring: Make a scatter plot of `x` vs `y`
     + Parameters
@@ -242,7 +239,7 @@
             + 'none': the patch boundary will not be drawn.
             + For non-filled markers, `kwarg` is ignored and forced to 'face' internally.
         + `kwargs`: `~matplotlib.collections.Collection` properties
-    + Return: paths: `~matplotlib.collections.PathCollection`
+    + Return: `paths`: `~matplotlib.collections.PathCollection`
 
 + `gspec.GridSpec` class
     + A class that specifies the geometry of the grid that a subplot will be placed. The location of grid is determined by similar way as the SubplotParams.
@@ -280,10 +277,9 @@
             ```
         + `loc` ({'center', 'left', 'right'}, str): Which title to set, defaults to 'center'
         + `kwargs` : text properties
-    + Returns: 
-        + `text`: `~matplotlib.text.Text` class; The matplotlib text instance representing the title
+    + Returns: `text`: `~matplotlib.text.Text` class; The matplotlib text instance representing the title
 
-+ `set_xlim` meyjod of `matplotlib.axes._subplots.AxesSubplot`
++ `set_xlim` method of `matplotlib.axes._subplots.AxesSubplot`
     + Signature: `set_xlim(left=None, right=None, emit=True, auto=False, **kw)`
     + Docstring: Set the data limits for the x-axis
     + Parameters
@@ -295,8 +291,7 @@
             + False: off (default action)
             + None: unchanged.
         + `xlimits` (tuple): The left and right xlims may be passed as the tuple (`left`, `right`) as the first positional argument (or as the `left` keyword argument).
-    + Returns
-        + `xlimits` (tuple): Returns the new x-axis limits as (`left`, `right`).
+    + Returns: `xlimits` (tuple): Returns the new x-axis limits as (`left`, `right`).
 
 + `set_ylim` method of `matplotlib.axes._subplots.AxesSubplot`
     + Signature: `set_ylim(bottom=None, top=None, emit=True, auto=False, **kw)`
@@ -310,8 +305,7 @@
             + False: off (default action)
             + None: unchanged.
         + `ylimits` (tuple): The bottom and top ylims may be passed as the tuple (`bottom`, `top`) as the first positional argument (or as the `bottom` keyword argument).
-    + Returns
-        + `ylimits` (tuple): Returns the new x-axis limits as (`bottom`, `top`).
+    + Returns: `ylimits` (tuple): Returns the new x-axis limits as (`bottom`, `top`).
 
 + `invert_axis` method of `matplotlib.axes._subplots.AxesSubplot`
     + Signature: `invert_xaxis()`
@@ -394,7 +388,9 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
     + Signature: `describe(percentiles=None, include=None, exclude=None)`
     + Docstring: Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values.
     + Parameters
-        + `percentiles` (list-like of numbers): The percentiles to include in the output. All should fall between 0 and 1. The default is `[.25, .5, .75]`, which returns the 25th, 50th, and 75th percentiles.
+        + `percentiles` (list-like of numbers): 
+            + The percentiles to include in the output. All should fall between 0 and 1. 
+            + default: `[.25, .5, .75]`, which returns the 25th, 50th, and 75th percentiles.
         + `include` ('all', list-like of dtypes or None): A white list of data types to include in the result. Ignored  for `Series`. Here are the options:
             + 'all': All columns of the input will be included in the output.
             + A list-like of dtypes : Limits the results to the provided data types. To limit the result to numeric types submit `numpy.number`. To limit it instead to categorical objects submit the `numpy.object` data type. Strings can also be used in the style of `select_dtypes` (e.g. `df.describe(include=['O'])`)
@@ -402,10 +398,9 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
         + `exclude` (list-like of dtypes or None): A black list of data types to omit from the result. Ignored for `Series`. Here are the options:
             + A list-like of dtypes: Excludes the provided data types from the result. To select numeric types submit `numpy.number`. To select categorical objects submit the data type `numpy.object`. Strings can also be used in the style of `select_dtypes` (e.g. `df.describe(include=['O'])`)
         + None (default): The result will exclude nothing.
-    + Returns
-        + `summary`:  Series/DataFrame of summary statistics
+    + Returns `summary`:  Series/DataFrame of summary statistics
 
-+ `plt.boxplot` method
++ `plt.boxplot` method of `matplotlib.pyplot`
     + Signature: `boxplot(x, notch=None, sym=None, vert=None, whis=None, positions=None, widths=None, patch_artist=None, bootstrap=None, usermedians=None, conf_intervals=None, meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, whiskerprops=None, manage_xticks=True, autorange=False, zorder=None, hold=None, data=None)`
     + Docstring: Make a box and whisker plot. <br/>
         Make a box and whisker plot for each column of `x` or each vector in sequence `x`.  The box extends from the lower to upper quartile values of the data, with a line at the median. The whiskers extend from the box to show the range of the data.  Flier points are those past the end of the whiskers.
@@ -446,21 +441,20 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
         + `flierprops` (dict):  Specifies the style of the fliers.
         + `medianprops` (dict):  Specifies the style of the median.
         + `meanprops` (dict):  Specifies the style of the mean.
-    + Returns
-        + `result` (dict):  A dictionary mapping each component of the boxplot to a list of the :class:`matplotlib.lines.Line2D` instances created. That dictionary has the following keys (assuming vertical boxplots):
-            + `boxes`: the main body of the boxplot showing the quartiles and the median's confidence intervals if enabled.
-            + `medians`: horizontal lines at the median of each box.
-            + `whiskers`: the vertical lines extending to the most extreme, non-outlier data points.
-            + `caps`: the horizontal lines at the ends of the whiskers.
-            + `fliers`: points representing data that extend beyond the whiskers (fliers).
-            + `means`: points or lines representing the means.
+    + Returns: `result` (dict):  A dictionary mapping each component of the boxplot to a list of the `matplotlib.lines.Line2D` instances created. That dictionary has the following keys (assuming vertical boxplots):
+        + `boxes`: the main body of the boxplot showing the quartiles and the median's confidence intervals if enabled.
+        + `medians`: horizontal lines at the median of each box.
+        + `whiskers`: the vertical lines extending to the most extreme, non-outlier data points.
+        + `caps`: the horizontal lines at the ends of the whiskers.
+        + `fliers`: points representing data that extend beyond the whiskers (fliers).
+        + `means`: points or lines representing the means.
 
-+ `plt.clear` method
++ `plt.clear` method of `matplotlib.pyplot`
     + Signature: `plt.clf()`
     + Docstring: Clear the current figure.
 
 + `inset_axes` method of `mpl_toolkits.axes_grid1.inset_locator`
-    + Signature: `inset_axes(parent_axes, width, height, loc=1, bbox_to_anchor=None, bbox_transform=None, axes_class=None, axes_kwargs=None, borderpad=0.5)`
+    + Signature: `mpl.inset_axes(parent_axes, width, height, loc=1, bbox_to_anchor=None, bbox_transform=None, axes_class=None, axes_kwargs=None, borderpad=0.5)`
     + Docstring: Create an inset axes with a given width and height. <br/>
         Both sizes used can be specified either in inches or percentage of the parent axes.
     + Parameters
@@ -532,8 +526,7 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
             + `yticks`: sequence of floats
             + `zorder`: any number 
         + `borderpad` (float): Padding between inset axes and the bbox_to_anchor. Defaults to 0.5.
-    + Returns
-        + `inset_axes` (`axes_class`): Inset axes object created.
+    + Returns: `inset_axes` (`axes_class`): Inset axes object created.
 
 + `margins` method of `mpl_toolkits.axes_grid1.parasite_axes.AxesHostAxes`
     + Signature: `margins(*args, **kw)`
@@ -561,6 +554,15 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
                     'gamma': gamma_sample})
 
     df.describe()
+	#       gamma	        normal	        random
+    # count	10000.000000	10000.000000	10000.000000
+    # mean	1.995054	    -0.019214	    0.500379
+    # std	1.397261	    0.998759	    0.288660
+    # min	0.020110	    -4.105543	    0.000004
+    # 25%	0.961939	    -0.698102	    0.251339
+    # 50%	1.690176	    -0.014492	    0.496587
+    # 75%	2.689681	    0.663903	    0.750690
+    # max	11.555561	    4.050988	    0.999973
 
     plt.figure()
     # create a boxplot of the normal data, assign the output to a variable to supress output
@@ -597,7 +599,7 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
 
 ## Heatmaps
 
-+ `plt.hist2d` method
++ `plt.hist2d` method of `matplotlib.pyplot`
     + Signature: `plt.hist2d(x, y, bins=10, range=None, normed=False, weights=None, cmin=None, cmax=None, hold=None, data=None, **kwargs)`
     + Docstring: Make a 2D histogram plot.
     + Parameters
@@ -622,17 +624,17 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
         + `alpha` ($0 <= scalar <= 1$ or `None`): The alpha blending value.
     + Returns: `(counts, xedges, yedges, Image)` 
 
-+ `plt.colorbar` method
-    + Signature: `plt.colorbar(mappable=None, cax=None, ax=None, **kw)`
++ `plt.colorbar` method of `matplotlib.pyplot`
+    + Signature: `plt.colorbar(mappable=None, cax=None, ax=None, **kwargs)`
     + Docstring: Add a colorbar to a plot.
     + Parametres:
         + `mappable`: the `~matplotlib.image.Image`,`~matplotlib.contour.ContourSet`, etc. to which the colorbar applies; this argument is mandatory for the `~matplotlib.figure.Figure.colorbar` method but optional for the `~matplotlib.pyplot.colorbar` function, which sets the default to the current image.
         + `cax`: axes object into which the colorbar will be drawn
         + `ax`: parent axes object(s) from which space for a new colorbar axes will be stolen. If a list of axes is given they will all be resized to make room for the colorbar axes.
-        + `use_gridspec`: 
+        + `use_gridspec`:
             + `cax` = None: a new `cax` is created as an instance of Axes. 
             + `ax` is an instance of Subplot and `use_gridspec`= True: `cax` is created as an instance of Subplot using the grid_spec module.
-    + Axes Properties: 
+    + Axes Properties:
         + `orientation`: vertical or horizontal
         + `fraction`: 0.15; fraction of original axes to use for colorbar
         + `pad`: 0.05 if vertical, 0.15 if horizontal; fraction of original axes between colorbar and new image axes
@@ -641,13 +643,13 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
         + `anchor`: (0.0, 0.5) if vertical; (0.5, 1.0) if horizontal; the anchor point of the colorbar axes
         + `panchor`: (1.0, 0.5) if vertical; (0.5, 0.0) if horizontal; the anchor point of the colorbar parent axes. If False, the parent axes' anchor will be unchanged
     + colorbar Properties:
-        + `extend`      [ 'neither' | 'both' | 'min' | 'max']: 
-        + `extendfrac`  [ None | 'auto' | length | lengths ]
-        + `extendrect`  [ False | True ]
-        + `spacing`     [ 'uniform' | 'proportional' ]
-        + `ticks`       [ None | list of ticks | Locator object ]
-        + `format`      [ None | format string | Formatter object ]
-        + `drawedges`   [ False | True ] 
+        + `extend`: [ 'neither' | 'both' | 'min' | 'max']: 
+        + `extendfrac`: [ None | 'auto' | length | lengths ]
+        + `extendrect`: [ False | True ]
+        + `spacing`: [ 'uniform' | 'proportional' ]
+        + `ticks`: [ None | list of ticks | Locator object ]
+        + `format`: [ None | format string | Formatter object ]
+        + `drawedges`: [ False | True ]
 
 
 + Demo
@@ -671,11 +673,11 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
 
 ## Animation
 
-+ `plt.cla` method:
++ `plt.cla` method of `matplotlib.pyplot`:
     + Signature: `plt.cla()`
     + Doccstring: Clear the current axes.
 
-+ `plt.annotate` method
++ `plt.annotate` method of `matplotlib.pyplot`
     + Signature: `plt.annotate(s, xy, xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None, **kwargs)`
     + Docstring: Annotate the point `xy` with text `s`.
     + Parameters:
@@ -719,16 +721,16 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
                 + `'simple'`: head_length=0.5,head_width=0.5,tail_width=0.2
                 + `'wedge'`: tail_width=0.3,shrink_factor=0.5
             + keys for `~matplotlib.patches.FancyArrowPatch` are:
-                + arrowstyle: the arrow style
-                + connectionstyle: the connection style
-                + relpos: default is (0.5, 0.5)
-                + patchA: default is bounding box of the text
-                + patchB: default is None
-                + shrinkA: default is 2 points
-                + shrinkB: default is 2 points
-                + mutation_scale: default is text size (in points)
-                + mutation_aspect: default is 1.
-                + ?: any key for :class:`matplotlib.patches.PathPatch`
+                + `arrowstyle: the arrow style
+                + `connectionstyle`: the connection style
+                + `relpos`: default is (0.5, 0.5)
+                + `patchA`: default is bounding box of the text
+                + `patchB`: default is None
+                + `shrinkA`: default is 2 points
+                + `shrinkB`: default is 2 points
+                + `mutation_scale`: default is text size (in points)
+                + `mutation_aspect`: default is 1.
+                + `?`: any key for :class:`matplotlib.patches.PathPatch`
         + `annotation_clip` (bool): Controls the visibility of the annotation when it goes outside the axes area.
             + `True`: the annotation will only be drawn when the ``xy`` is inside the axes. 
             + `False`:  the annotation will always be drawn regardless of its position.
@@ -806,7 +808,16 @@ He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Dec
         + 'axes_enter_event',
         + 'axes_leave_event'
         + 'close_event'
-
+    + For the location events (button and key press/release), if the mouse is over the axes, the variable `event.inaxes` will be set to the `~matplotlib.axes.Axes` the event occurs is over, and additionally, the variables `event.xdata` and `event.ydata` will be defined.  This is the mouse location in data coords.  
+    + See `~matplotlib.backend_bases.KeyEvent` and `~matplotlib.backend_bases.MouseEvent` for more info.
+    +  Return value is a `connection id` that can be used with `~matplotlib.backend_bases.Event.mpl_disconnect`.
+    + Example: 
+        ```python
+        def on_press(event):
+            print('you pressed', event.button, event.xdata, event.ydata)
+    
+        cid = canvas.mpl_connect('button_press_event', on_press)
+        ```
 
 + Demo
     ```python
