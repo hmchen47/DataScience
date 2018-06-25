@@ -4,11 +4,11 @@
 
 A detailed description is found in the Jupyter notebook. This assignment attempts to use your current geographical location to personalize the data.
 
-[Launch Page](https://www.coursera.org/learn/python-plotting/notebook/84M6u/plotting-weather-patterns)
+[Launch Web Page](https://www.coursera.org/learn/python-plotting/notebook/84M6u/plotting-weather-patterns)
 
-[Web Notebook](https://hub.coursera-notebooks.org/user/pkfpwscjcemdtitwkaxuvv/notebooks/Assignment2.ipynb#)
+[Web Assignment Notebook](https://hub.coursera-notebooks.org/user/pkfpwscjcemdtitwkaxuvv/notebooks/Assignment2.ipynb#)
 
-[Local Notebook](./notebooks/Assignment02.ipynb)
+[Local Assignment Notebook](./notebooks/Assignment02.ipynb)
 
 ## Peer-graded Assignment: Plotting Weather Patterns
 
@@ -118,13 +118,13 @@ Each component of the assignment will be graded by a peer-reviewer, using a deta
 
     [Notebook](./notebooks/Assignment02.ipynb)
 
-## Useful Links for Assignment
+## Discussion Forum Links for Assignment
 
 + [Assignment 2 Basic Example](https://www.coursera.org/learn/python-plotting/discussions/weeks/2/threads/7Rh0RAQ1Eee-uQ7R_UJsXg)
 
     To help you with assignment 2, here is a basic example of the visualization you need to create.
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/p_2Q3gQ1Eee1_w6aJKt_EA_0605a3e0b4e950fe061e1dab526a26ea_WhiteboardExample.jpg?expiry=1528761600000&hmac=OMJh4Z2lI0GLgk0NJRgcM_4pxKWoA_NKLyIYhcbQVFc" alt="text" width="450">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/p_2Q3gQ1Eee1_w6aJKt_EA_0605a3e0b4e950fe061e1dab526a26ea_WhiteboardExample.jpg?expiry=1530057600000&hmac=xy_2DpWNmNl_-aI-omYr1mx4kgkDlCPh-DWqSIjAqCc" alt="Basic Example" width="450">
 
     The number of data points in each of your min/max results should be 365
 
@@ -146,18 +146,18 @@ Each component of the assignment will be graded by a peer-reviewer, using a deta
 
     2. when in the notebook page, you'll see the name of the file you want to download in the beginning of the second paragraph as shown below
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/DPVOaqmaEeehSg7dYzt83A_fa36ab1002bbb77b7bb5f62b3b3ef159_Screen-Shot-2017-10-05-at-07.54.10.png?expiry=1528761600000&hmac=Xob_pPkIuwF2m3F9qvpv9a0F0OsHr5vxbDX-ioaB1pg" alt="Notebook Page" width="600">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/DPVOaqmaEeehSg7dYzt83A_fa36ab1002bbb77b7bb5f62b3b3ef159_Screen-Shot-2017-10-05-at-07.54.10.png?expiry=1530057600000&hmac=zPJ4moQvorhZt2bqTTXo4nP0vnTCj86mIAKvaL7gu_A" alt="Notebook Page" width="600">
 
 
     3. From the notebook main menu click File-> open
 
     4. now you'll see the home folder and the folder data. click on data then C2A2_data then BinnedCsvs_d400
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/3umEeqmbEeeWchJSuVvCkA_e204a0d270f063634936a2bc97c2b406_getcsvfile.png?expiry=1528761600000&hmac=ywUwDsBXSNEjpQgbMCIM3AjkvYhmJj_ybtXPM6MMgw4" alt="Open Fil Screens" width="600">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/3umEeqmbEeeWchJSuVvCkA_e204a0d270f063634936a2bc97c2b406_getcsvfile.png?expiry=1530057600000&hmac=O1kFGUkKIGg6JfCddHrkfcfoCSpQDZoJQ1iBUV8hlac" alt="Open Fil Screens" width="600">
 
     5. The files list will take sometime but once loaded, the files are sorted in alphabetical order
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/CH7PoamcEeehSg7dYzt83A_085312bc384ef4cb78964bdecb41bce7_Screen-Shot-2017-10-05-at-08.03.22.png?expiry=1528761600000&hmac=uZ9WK_rtMqR6DEd-NwowvIMhROREBC7S1lJwaApu9uo" alt="CVS File List" width="600">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/CH7PoamcEeehSg7dYzt83A_085312bc384ef4cb78964bdecb41bce7_Screen-Shot-2017-10-05-at-08.03.22.png?expiry=1530057600000&hmac=9FzQEUz0YEBdVZB0EPL4E-HLQF0GWHRZrCoJJ2ZwtOI" alt="CVS File List" width="600">
 
     6. browse down to the file name then click to open it. once the file is open you can click File->Download to download it
 
@@ -168,15 +168,15 @@ Each component of the assignment will be graded by a peer-reviewer, using a deta
 
     You will need to delete this notebook by clicking on File-> Open,
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/JaTvYY4LEee5BApqFAWhtA_d1718241280e11c4e49d156f35be9fbc_Screen-Shot-2017-08-31-at-06.11.18.png?expiry=1528761600000&hmac=TAGgnPiom_tNEdu5E5a13RJBKof8wW6E9NJdRsB0TX4" alt="Assignment Page" width="600">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/JaTvYY4LEee5BApqFAWhtA_d1718241280e11c4e49d156f35be9fbc_Screen-Shot-2017-08-31-at-06.11.18.png?expiry=1530057600000&hmac=Ny8ZhyhlXM7q2yCgJjQoV6ZnklEZSlAw4cEWoHhB04M" alt="Assignment Page" width="600">
 
     then select the file name "Assignment 2.ipynb", click delete, then click on the control panel,
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/JaTvYY4LEee5BApqFAWhtA_d1718241280e11c4e49d156f35be9fbc_Screen-Shot-2017-08-31-at-06.11.18.png?expiry=1528761600000&hmac=TAGgnPiom_tNEdu5E5a13RJBKof8wW6E9NJdRsB0TX4" alt="Deletion Instruction" width="600">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/D_P_-o4MEeeTRApMRfIQUA_d1a40a5e23a687afd454bcc8a64b9088_remove-notebook.png?expiry=1530057600000&hmac=C3yoOneFGCTSqIMUeRKggAONV5Wo5Mw64yBMHul2bvw" alt="Deletion Instruction" width="600">
 
     then in the control panel, click stop My server, start server
 
-    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/D_P_-o4MEeeTRApMRfIQUA_d1a40a5e23a687afd454bcc8a64b9088_remove-notebook.png?expiry=1528761600000&hmac=hCfKaU-psixuvO4BHBDzxzFNv-t7ZMnfGFjeFtDsELk" alt="Control Panel Instruction" width="600">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/LZfjSY4MEee7zxJeG4wOTA_5da2a9a7679634a8bad0bc87fa2eb66f_control-panel.png?expiry=1530057600000&hmac=0BZcusv4UEtLCqYs5Q0cdYNldKTS1XyjAtatq30uKqg" alt="Control Panel Instruction" width="600">
 
     You may be asked to re-login, do so and access the assignment the usual way, if the assignment does not appear, click on the control panel again and stop/start server
 
