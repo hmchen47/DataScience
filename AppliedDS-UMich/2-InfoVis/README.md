@@ -22,18 +22,33 @@
 https://github.com/hmchen47/DataScience/blob/vis/AppliedDS-UMich/2-InfoVis/01-Principle.md#
 
 
-## Module 2
+## [Assignment 1](./asgn01.md)
 
-+ [Line Plots](./02-BasicChart.md#)
-+ [Bar Charts](./02-BasicChart.md#)
-+ [Dejunkifying a Plot](./02-BasicChart.md#)
++ [Graphics Lies, Misleading Visuals](./asgn01.md#graphics-lies-misleading-visuals)
++ [Peer-graded Assignment: Graphics Lies, Misleading Visuals](./asgn01.md#peer-graded-assignment-graphics-lies-misleading-visuals)
++ [Review Your Peers: Graphics Lies, Misleading Visuals](./asgn01.md#review-your-peers-graphics-lies-misleading-visuals)
 
-## Assignment 2
 
-+ [Plotting Weather Patterns](asgn02.md)
-+ [Peer-graded Assignment: Plotting Weather Patterns](asgn02.md)
-+ [Review Your Peers: Plotting Weather Patterns](asgn02.md)
+## Module 2: [Basic Charting](02-BasicChart.md)
 
++ [Module 2 Jupyter Notebook](./02-BasicChart.md#module-2-jupyter-notebook)
++ [Introduction](./02-BasicChart.md#introduction)
++ [Matplotlib Architecture](./02-BasicChart.md#matplotlib-architecture)
++ [Matplotlib](./02-BasicChart.md#matplotlib)
++ [Ten Simple Rules for Better Figures](./02-BasicChart.md#ten-simple-rules-for-better-figures)
++ [Basic Plotting with Matplotlib](./02-BasicChart.md#basic-plotting-with-matplotlib)
++ [Scatterplots](./02-BasicChart.md#scatterplots)
++ [Line Plots](./02-BasicChart.md#line-plots)
++ [Bar Charts](./02-BasicChart.md#bar-charts)
++ [Dejunkifying a Plot](./02-BasicChart.md#dejunkifying-a-plot)
+
+
+## [Assignment 2](./asgn02.md)
+
++ [Plotting Weather Patterns](./.md#plotting-weather-patterns)
++ [Peer-graded Assignment: Plotting Weather Patterns](./asgn02.md#peer-graded-assignment-plotting-weather-patterns)
++ [Useful Links for Assignment](./asgn02.md#useful-links-for-assignment)
++ [Review Your Peers: Plotting Weather Patterns](./asgn02.md#review-your-peers-plotting-weather-patterns)
 
 
 ## Module 3: [Charting Fundamentals](./03-ChartFund.md)

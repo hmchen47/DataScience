@@ -2,6 +2,9 @@
 
 ## Module 2 Jupyter Notebook
 
++ [Launch Web Page](https://www.coursera.org/learn/python-plotting/notebook/Zq7Lu/module-2-jupyter-notebook)
++ [Lecture Web Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=TRfcKmuwSYyX3CprsNmMIw&next=%2Fnotebooks%2FWeek2.ipynb)
++ [Local Lecture Notebook](./notebooks/Week02.ipynb)
 
 ## Introduction
 
