@@ -19,8 +19,6 @@
 + [The Truthful Art (Alberto Cairo)](./01-Principle.md#the-truthful-art-alberto-cairo)
 + [Discussion Prompt: Must a visual be enlightening?](./01-Principle.md#discussion-prompt-must-a-visual-be-enlightening)
 
-https://github.com/hmchen47/DataScience/blob/vis/AppliedDS-UMich/2-InfoVis/01-Principle.md#
-
 
 ## [Assignment 1](./asgn01.md)
 
