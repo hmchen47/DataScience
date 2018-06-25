@@ -341,4 +341,71 @@ In this assignment the focus is more on the mechanics of creating charts, so the
 
 ## Review Your Peers: Becoming an Independent Data Scientist
 
+### Review #1
+
++ United States, and weather phenomena
++ How much people is displaced by floods each year compared to the total poblation displaced in the united states?
++ Links
+    + https://data.world/idmc/3e6a5027-6665-4fb0-a9d9-0543399ba8c6/workspace/file?filename=disaster-data-2.json
+    + https://data.world/idmc/3e6a5027-6665-4fb0-a9d9-0543399ba8c6/workspace/file?filename=displacement-data-1.json
++ This visualization was concerned with answering the question of how much people is displaced by floods each year compared to the total poblation displaced in the united states, the data was taken from data.world site and it shows that the total poblation displaced has 3 high points but floods aren't a very big part of the total in general, but in 2013 it was a peak and mostly of the displaced people were because of floods
++ Principles
+    + My visual respects the principle of truthfulness because it is not misleading with its data.
+    + My visual respects the principle of beauty because it respects design patterns and intends to be visual friendly.
+    + My visual respects the principle of functionality because it is comprehensive.
+    + My visual respects the principle of insightfulness because it gives functional information.
++ [Source code](./notebooks/Assignment4-r1.py)
+
+### Review #2
+
++ Central America; Migration to US
++ Are the high murder rates in the originating countries the reason for the migration of unaccompanied children?
++ Links
+    + https://dataunodc.un.org/sites/dataunodc.un.org/files/homicide_report_total_and_sex.xlsx
+    + https://www.acf.hhs.gov/orr/about/ucs/facts-and-data#countryoforigin 
++ Justification
+
+    The data provided by the data sets in the two links had five years and 5 countries in common: 2012 - 2016 and the countries El Salvador, Honduras, Guatemala, Mexico and Colombia. In the case migration data, Colombia was lumped with well over a 190 countries under the label "All Others". However, the numbers were so small in comparison to those of the first 4 countries listed above, I adopted them as numbers for Colombia.
+
+    The visuals show murder rates and migration percents for El Salvador and Colombia. The El Salvador chart supports the hypothesis that high murder rates encourage the migration in question, whereas the Colombia chart disagrees with it. Data for Honduras and Guatemala is similar to that of El Salvador. This suggests that whereas high homicidal rates may be a factor in migration, there may be other factors as well. For example, proximity of the country to the US, Economy of the country, etc.
+
++ Principles:
+    + Charts must reflect the data and should not be allowed to draw false conclusions.
+    + Simple uncluttered and visually pleasing charts are the best.
+    + Must present information ina way to grasp it quickly for possible followup actions.
+    + Conclusions should be straightforward and allow for visibility into information hidden in the data,
++ [Source Notebook](./notebooks/Assignment4-r3.ipynb)
+
+### Review #4
+
++ Beijing, China.; Temperature in Beijing against Global Surface Ocean temperature in each month.
++ Whether there is a correlation between temperature in Beijing against Global Ocean Surface temperature in each month.
++ Datasets
+    1. data/C2A2_data/BinnedCsvs_d25/9bc594d0d6bf5fec16beb2afb02a3b859b7d804548c77d614b2a6b9b.csv
+    2. https://raw.githubusercontent.com/datasets/global-temp/master/data/monthly.csv
+
++ This project deals with whether there is a correlation between temperature in Beijing against Global Surface temperature in each month. We have used data from 2000 to 2015 and found that no correlation exists between the two and hence conclude china is not the sole major contributor to the surface ocean temperature.
+
++ Insightfulness and beauty
+
++ [Source code](./notebooks/Assignment4-r3.py)
+
+### Review #4
+
++ Eastern United States, Metropolitan NHL division
++ Compare Points gained in NHL seasons 1975-2018 between Washington Capitals and their biggest rival Pittsburgh Penguins
++ Data
+    + ttps://en.wikipedia.org/wiki/List_of_Washington_Capitals_seasons
+    + https://en.wikipedia.org/wiki/List_of_Pittsburgh_Penguins_seasons
++ Justification
+
+    The purpose of this visualization was to compare Points that are awarded for each game won gained in NHL seasons 1975-2018 between Washington Capitals and their biggest rival Pittsburgh Penguins. The source of the data was Wikipedia pages listing NHL seasons for each team. A 5 year moving average was was plotted in helping to visualize the data trends. The 2005 and 2013 seasons where dropped from the data due to the NHL lockouts since those years affected the number of games played. They year at which the comparison has begun is 1975 at which the Capitals started playing in the NHL. Penguins are an older team and started playing in the NHL in 1968 which is not shown on the graph.
+
+    In the first 7 years Capitals as the new team in the NHL were catching up to the points the Penguins had. Capitals managed to surpass the number of points the Penguins had from around 1983 till around 1991. After that both teams hand relatively similar scores with interchanging periods of one team having more points than the other. What is interesting is that in some periods like around 1994 till around 1998 the increase or decrease of points happened simultaneously for both teams while the Penguins maintained a higher number of points over the Capitals.
+
++ Principles:
+    + Truthfulness: Data taken directly from the source. The 2005 and 2013 seasons where dropped from the data due to the NHL lockouts - those years that affected the number of games played - depicting them would have gave the wrong impression in terms of a much lower number of points scored. The y-axis has not been cut and is starting from 0 points to show the appropriate scale. The x-axis shows years in 5 year intervals for readability. No other modification has been done to the data.
+    + Functionality: The seasons have been adjusted from the format say 2017-2018 to 2018 for readability purposes. The x-axis shows years in 5 year intervals for readability and identifying trends and not for specific year to NHL points comparisons. The alpha values on the axis, labels, lines have been adjusted for visibility purposes. The top and left spine have been set to not visible. The choice of line colors for Capitals and Penguins was based on the primary colors of these teams which aids familiarity. Provided label, removed the label border, adjusted placement. Set figure size to better show the image.
+    + Beauty: adjusted the colors and alpha values of the labels and line charts. Line colors were adjusted and chosen to represent the primary team colors of the teams. Removed the top an left spine to make the image more visually pleasing.
+    + Insightfulness: The line plot is useful for depicting trends across a period of time. The plot shows that form the most part both teams usually have very similar NHL seasons. This is not true in the initial time period when the Capitals were a new team in NHL and did not get that many points. Also the time period around 1985 showing Penguins decline does not relate to the general trend.
 
