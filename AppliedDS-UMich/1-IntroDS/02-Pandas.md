@@ -370,6 +370,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
         Exercise CSV  
         Week 1 Exercises  
+        
         | Activity ID | Activity Type | Activity Duration | Calories | 
         |-------------|---------------|-------------------|----------|
         | 125 | Running | 65 | 450 | 
