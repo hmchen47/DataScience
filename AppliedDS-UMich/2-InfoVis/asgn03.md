@@ -37,7 +37,7 @@ Tips:
 + Take a look at the histograms below to get an idea of what the random variables look like, as well as their positioning with respect to one another. This is just a guide, so be creative in how you lay things out!
 + Try to keep the length of your animation reasonable (roughly between 10 and 30 seconds).
 
-```python
+``python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -61,15 +61,15 @@ plt.text(x1.mean()-1.5, 0.5, 'x1\nNormal')
 plt.text(x2.mean()-1.5, 0.5, 'x2\nGamma')
 plt.text(x3.mean()-1.5, 0.5, 'x3\nExponential')
 plt.text(x4.mean()-1.5, 0.5, 'x4\nUniform')
-```
+``
 
 ## Assignment 3
 
 ## Building a Custom Visualization
 
 + [Web Launch Page](https://www.coursera.org/learn/python-plotting/notebook/OMUVV/building-a-custom-visualization)
-+ [Web Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=x_a6Zl0sSvS2umZdLBr0bA&next=%2Fnotebooks%2FAssignment3.ipynb)
-+ [Local Notebook](./notebooks/Assignment04.ipynb)
++ [Web Assignment Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=x_a6Zl0sSvS2umZdLBr0bA&next=%2Fnotebooks%2FAssignment3.ipynb)
++ [Local Assignment Notebook](./notebooks/Assignment04.ipynb)
 
 ## Assignment Reading
 
@@ -204,15 +204,15 @@ The authors have provided a related video which may be of further value in expla
 
 ### References
 
-[07]: G. Cumming, S. Finch. Inference by eye: Confidence intervals and how to read pictures of data. American Psychologist, 60(2), 170–18, 2005.
-[08]: D. Fisher, I. Popov, S. M. Drucker, and mc schraefel. Trust Me, I'm Partially Right: Incremental Visualization Lets Analysts Explore Large Datasets Faster. ACM Conf. on Human Factors in Comp. Systems. CHI 2012. (pp. 1673-1682).
-[10]: S. Gratzl, A. Lex, N. Gehlenborg. LineUp: Visual Analysis of Multi-Attribute Rankings. IEEE Trans. on Vis. and Comp. Graphics 2013
-[11]: J. Hellerstein, R. Avnur, A. Chou, C. Olston, V. Raman, T. Roth, C. Hidber, P. Haas. Interactive Data Analysis with CONTROL. IEEE Computer, 32(8), 51-59, 1999.
-[12]: S. Kandel, A. Paepcke, J. M. Hellerstein, J. Heer. Enterprise data analysis and visualization: An interview study. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2917-2926.
-[13]: N. Kong, M. Agrawala. Graphical Overlays: Using Layered Elements to Aid Chart Reading. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2631-2638.
-[14]: A. M. MacEachren, A. Robinson, S. Hopper, S. Gardner, R. Murray, M. Gahegan, E. Hetzler. Visualizing geospatial information uncertainty: What we know and what we need to know. Cartography and Geographic Information Science, 32(3), 139-160.
-[16]: M. Skeels, B. Lee, G. Smith, and G. Robertson. Revealing Uncertainty for Information Visualization. In Proc. of the Working Conf. on Advanced Visual Interfaces. ACM, New York, NY, USA. 2008, 376-379.
-[21]: A. Tversky, D. Kahneman. Judgment under Uncertainty: Heuristics and Biases. Science, 185 (1974). 1124-1131.
+<br/>[07]: G. Cumming, S. Finch. Inference by eye: Confidence intervals and how to read pictures of data. American Psychologist, 60(2), 170–18, 2005.
+<br/>[08]: D. Fisher, I. Popov, S. M. Drucker, and mc schraefel. Trust Me, I'm Partially Right: Incremental Visualization Lets Analysts Explore Large Datasets Faster. ACM Conf. on Human Factors in Comp. Systems. CHI 2012. (pp. 1673-1682).
+<br/>[10]: S. Gratzl, A. Lex, N. Gehlenborg. LineUp: Visual Analysis of Multi-Attribute Rankings. IEEE Trans. on Vis. and Comp. Graphics 2013
+<br/>[11]: J. Hellerstein, R. Avnur, A. Chou, C. Olston, V. Raman, T. Roth, C. Hidber, P. Haas. Interactive Data Analysis with CONTROL. IEEE Computer, 32(8), 51-59, 1999.
+<br/>[12]: S. Kandel, A. Paepcke, J. M. Hellerstein, J. Heer. Enterprise data analysis and visualization: An interview study. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2917-2926.
+<br/>[13]: N. Kong, M. Agrawala. Graphical Overlays: Using Layered Elements to Aid Chart Reading. IEEE Trans. on Vis. and Comp. Graphics, 18(12), 2631-2638.
+<br/>[14]: A. M. MacEachren, A. Robinson, S. Hopper, S. Gardner, R. Murray, M. Gahegan, E. Hetzler. Visualizing geospatial information uncertainty: What we know and what we need to know. Cartography and Geographic Information Science, 32(3), 139-160.
+<br/>[16]: M. Skeels, B. Lee, G. Smith, and G. Robertson. Revealing Uncertainty for Information Visualization. In Proc. of the Working Conf. on Advanced Visual Interfaces. ACM, New York, NY, USA. 2008, 376-379.
+<br/>[21]: A. Tversky, D. Kahneman. Judgment under Uncertainty: Heuristics and Biases. Science, 185 (1974). 1124-1131.
 
 
 ## Assignment 3 - Building a Custom Visualization
@@ -245,7 +245,7 @@ Figure 2c from (Ferreira et al. 2014). Note that the colorbar legend at the bott
 
 *Note: The data given for this assignment is not the same as the data used in the article and as a result the visualizations may look a little different.*
 
-```python
+``python
 # Use the following data for this assignment:
 
 import pandas as pd
@@ -259,7 +259,7 @@ df = pd.DataFrame([np.random.normal(32000,200000,3650),
                    np.random.normal(48000,70000,3650)], 
                   index=[1992,1993,1994,1995])
 df
-```
+``
 
 ## Peer-graded Assignment: Building a Custom Visualization
 
@@ -363,7 +363,7 @@ Download the attachment for a preview of how the assignment will be graded.
 
     according to the paper,
 
-    ```python
+    ``python
     (ci['Ci_low'] > y)  #use dark red colors
 
     (ci['Ci_low'] < y) &
@@ -376,7 +376,7 @@ Download the attachment for a preview of how the assignment will be graded.
 
     (ci['Ci_high'] < y)  #use dark blue colors
     (ci['mean'] == y) #use white color
-    ```
+    ``
 
     I found that using the y-mean is simpler, the difference is interpolated to the interval [.4,1], using numpy.interp,
 
@@ -388,14 +388,14 @@ Download the attachment for a preview of how the assignment will be graded.
 
 
     The mean and the dotted line position y, to determine the colour of the bar i.e
-    ```python
+    ``python
     if y - (mean) < 0:
     color = reds
     elif y - (mean) >0:
     colors = blues
     else:
     colors = whites
-    ```
+    ``
     and the absolute difference (|mean -y|)determines the colour shade or intensity.
     <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/rad0ECULEeeErgpOFanBSA_fd203fe83e5de96a87ef872d3342f20c_Screen-Shot-2017-04-19-at-14.53.18.png?expiry=1529280000000&hmac=IL3gQuhkteMrD1gAFYrE28IqRH5SRPQkqLfQYYux9BQ" alt="text" width="300">
 
@@ -436,12 +436,12 @@ Download the attachment for a preview of how the assignment will be graded.
 
     in code
 
-    ```python
+    ``python
     sampling mean = np.mean(the samples generated by the normal distribution generator)
     standard error = np.std(the samples generated by the normal distribution generator)/sqrt(the number of samples generated by the normal distribution generator)
     or
     standard error = np.sem(the samples generated by the normal distribution generator)
-    ```
+    ``
 
     A common misunderstanding is trying to related the population to the confidence interval. the confidence interval is related to the observed data i.e. the samples
 
@@ -464,8 +464,8 @@ Download the attachment for a preview of how the assignment will be graded.
 
 ## Related Methods Used
 
-+ `plt.errorbar` method
-    + Signature: `errorbar(x, y, yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None, **kwargs)`
++ `plt.errorbar` method of `matplotlib.pyplot`
+    + Signature: `plt.errorbar(x, y, yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None, **kwargs)`
     + Docstring: Plot an errorbar graph. Plot x versus y with error deltas in `yerr` and `xerr`. Vertical errorbars are plotted if `yerr` is not None. Horizontal errorbars are plotted if `xerr` is not None.
     + Parameters
         + `x` (scalar or array-like)
@@ -479,98 +479,64 @@ Download the attachment for a preview of how the assignment will be graded.
         + `ecolor` (mpl color): A matplotlib color arg which gives the color the errorbar lines; if None, use the color of the line connecting the markers.
         + `elinewidth` (scalar): The linewidth of the errorbar lines. If None, use the linewidth.
         + `capsize` (scalar): The length of the error bar caps in points    
-    capthick : scalar, optional, default: None
-        An alias kwarg to markeredgewidth (a.k.a. - mew). This
-        setting is a more sensible name for the property that
-        controls the thickness of the error bar cap in points. For
-        backwards compatibility, if mew or markeredgewidth are given,
-        then they will over-ride capthick. This may change in future
-        releases.
+        + `capthick` (scalar): An alias kwarg to markeredgewidth (a.k.a. - mew). This setting is a more sensible name for the property that controls the thickness of the error bar cap in points. For backwards compatibility, if mew or markeredgewidth are given, then they will over-ride capthick. This may change in future releases.
+        + `barsabove` (boo): if True, will plot the errorbars above the plot symbols. Default is below.
+        + `lolims`/`uplims`/`xlolims`/`xuplims` (bool):  These arguments can be used to indicate that a value gives only upper/lower limits. In that case a caret symbol is used to indicate this. lims-arguments may be of the same type as *xerr* and *yerr*.  To use limits with inverted axes, :meth:`set_xlim` or :meth:`set_ylim` must be called before :meth:`errorbar`.
+        + `errorevery` (positive integer): subsamples the errorbars. e.g., if errorevery=5, errorbars for every 5-th datapoint will be plotted. The data plot itself still shows all data points.
+    + Returns:
+        + `plotline` (`~matplotlib.lines.Line2D` instance):  `x`, `y` plot markers and/or line
+        + `caplines` (list of `~matplotlib.lines.Line2D` instances): error bar cap
+        + `barlinecols` (list of `~matplotlib.collections.LineCollection`):  horizontal and vertical error ranges.
+    + `kwargs`: All other keyword arguments are passed on to the plot command for the markers. marker properties
+        + `agg_filter`: unknown
+        + `alpha`: float (0.0 transparent through 1.0 opaque) 
+        + `animated`: [True | False] 
+        + `antialiased` or `aa`: [True | False] 
+        + `axes`: an :class:`~matplotlib.axes.Axes` instance 
+        + `clip_box`: a :class:`matplotlib.transforms.Bbox` instance 
+        + `clip_on`: [True | False] 
+        + `clip_path`: [(`~matplotlib.path.Path`, `~matplotlib.transforms.Transform`) | `~matplotlib.patches.Patch` | None ] 
+        + `color` or `c`: any matplotlib color 
+        + `contains`: a callable function 
+        + `dash_capstyle`: ['butt' | 'round' | 'projecting'] 
+        + `dash_joinstyle`: ['miter' | 'round' | 'bevel'] 
+        + `dashes`: sequence of on/off ink in points 
+        + `drawstyle`: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post'] 
+        + `figure`: a `matplotlib.figure.Figure` instance 
+        + `fillstyle`: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none'] 
+        + `gid`: an id string 
+        + `label`: string or anything printable with '%s' conversion. 
+        + `linestyle` or `ls`: ['solid' | 'dashed', 'dashdot', 'dotted' | (offset, on-off-dash-seq) | `'-'` | `'--'` | `'-.'` | `':'` | `'None'` | `' '` | `''`]
+        + `linewidth` or `lw`: float value in points 
+        + `marker: `A valid marker style <matplotlib.markers>`
+        + `markeredgecolor` or `mec`: any matplotlib color
+        + `markeredgewidth` or `mew`: float value in points
+        + `markerfacecolor` or `mfc`: any matplotlib color
+        + `markerfacecoloralt` or `mfcalt`: any matplotlib color
+        + `markersize` or `ms`: float 
+        + `markevery`: [None | int | length-2 tuple of int | slice | list/array of int | float | length-2 tuple of float]
+        + `path_effects`: unknown
+        + `picker`: float distance in points or callable pick function `fn(artist, event)`
+        + `pickradius`: float distance in points 
+        + `rasterized`: [True | False | None] 
+        + `sketch_params`: unknown
+        + `snap`: unknown
+        + `solid_capstyle`: ['butt' | 'round' |  'projecting'] 
+        + `solid_joinstyle`: ['miter' | 'round' | 'bevel'] 
+        + `transform`: a :class:`matplotlib.transforms.Transform` instance 
+        + `url`: a url string 
+        + `visible`: [True | False] 
+        + `xdata`: 1D array 
+        + `ydata`: 1D array 
+        + `zorder`: any number 
+    + For example, this code makes big red squares with thick green edges:
+        ```python
+        x,y,yerr = rand(3,10)
+        errorbar(x, y, yerr, marker='s', mfc='red',
+                    mec='green', ms=20, mew=4)
+        ```
+        where mfc, mec, ms and mew are aliases for the longer property names, markerfacecolor, markeredgecolor, markersize and markeredgewidth.
     
-    barsabove : bool, optional, default: False
-        if True , will plot the errorbars above the plot
-        symbols. Default is below.
-    
-    lolims / uplims / xlolims / xuplims : bool, optional, default:None
-        These arguments can be used to indicate that a value gives
-        only upper/lower limits. In that case a caret symbol is
-        used to indicate this. lims-arguments may be of the same
-        type as *xerr* and *yerr*.  To use limits with inverted
-        axes, :meth:`set_xlim` or :meth:`set_ylim` must be called
-        before :meth:`errorbar`.
-    
-    errorevery : positive integer, optional, default:1
-        subsamples the errorbars. e.g., if errorevery=5, errorbars for
-        every 5-th datapoint will be plotted. The data plot itself still
-        shows all data points.
-    
-    Returns
-    -------
-    plotline : :class:`~matplotlib.lines.Line2D` instance
-        x, y plot markers and/or line
-    caplines : list of :class:`~matplotlib.lines.Line2D` instances
-        error bar cap
-    barlinecols : list of :class:`~matplotlib.collections.LineCollection`
-        horizontal and vertical error ranges.
-    
-    Other Parameters
-    ----------------
-    kwargs : All other keyword arguments are passed on to the plot
-        command for the markers. For example, this code makes big red
-        squares with thick green edges::
-    
-            x,y,yerr = rand(3,10)
-            errorbar(x, y, yerr, marker='s', mfc='red',
-                     mec='green', ms=20, mew=4)
-    
-        where mfc, mec, ms and mew are aliases for the longer
-        property names, markerfacecolor, markeredgecolor, markersize
-        and markeredgewidth.
-    
-        valid kwargs for the marker properties are
-    
-          agg_filter: unknown
-      alpha: float (0.0 transparent through 1.0 opaque) 
-      animated: [True | False] 
-      antialiased or aa: [True | False] 
-      axes: an :class:`~matplotlib.axes.Axes` instance 
-      clip_box: a :class:`matplotlib.transforms.Bbox` instance 
-      clip_on: [True | False] 
-      clip_path: [ (:class:`~matplotlib.path.Path`, :class:`~matplotlib.transforms.Transform`) | :class:`~matplotlib.patches.Patch` | None ] 
-      color or c: any matplotlib color 
-      contains: a callable function 
-      dash_capstyle: ['butt' | 'round' | 'projecting'] 
-      dash_joinstyle: ['miter' | 'round' | 'bevel'] 
-      dashes: sequence of on/off ink in points 
-      drawstyle: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post'] 
-      figure: a :class:`matplotlib.figure.Figure` instance 
-      fillstyle: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none'] 
-      gid: an id string 
-      label: string or anything printable with '%s' conversion. 
-      linestyle or ls: ['solid' | 'dashed', 'dashdot', 'dotted' | (offset, on-off-dash-seq) | ``'-'`` | ``'--'`` | ``'-.'`` | ``':'`` | ``'None'`` | ``' '`` | ``''``]
-      linewidth or lw: float value in points 
-      marker: :mod:`A valid marker style <matplotlib.markers>`
-      markeredgecolor or mec: any matplotlib color 
-      markeredgewidth or mew: float value in points 
-      markerfacecolor or mfc: any matplotlib color 
-      markerfacecoloralt or mfcalt: any matplotlib color 
-      markersize or ms: float 
-      markevery: [None | int | length-2 tuple of int | slice | list/array of int | float | length-2 tuple of float]
-      path_effects: unknown
-      picker: float distance in points or callable pick function ``fn(artist, event)`` 
-      pickradius: float distance in points 
-      rasterized: [True | False | None] 
-      sketch_params: unknown
-      snap: unknown
-      solid_capstyle: ['butt' | 'round' |  'projecting'] 
-      solid_joinstyle: ['miter' | 'round' | 'bevel'] 
-      transform: a :class:`matplotlib.transforms.Transform` instance 
-      url: a url string 
-      visible: [True | False] 
-      xdata: 1D array 
-      ydata: 1D array 
-      zorder: any number 
-
 
 + `plt.colormaps` function
     + Signature: `plt.colormaps()`
@@ -590,94 +556,94 @@ Download the attachment for a preview of how the assignment will be graded.
         All built-in colormaps can be reversed by appending `_r`: For instance, `gray_r` is the reverse of `gray`.
     + Common color schemes
         + _Sequential schemes_: for unipolar data that progresses from low to high
-        + Diverging schemes: for bipolar data that emphasizes positive or negative deviations from a central value
+        + _Diverging schemes_: for bipolar data that emphasizes positive or negative deviations from a central value
         + _Cyclic schemes_:  meant for plotting values that wrap around at the endpoints, such as phase angle, wind direction, or time of day
         + _Qualitative schemes_: for nominal data that has no inherent ordering, where color is used only to distinguish categories
     + Base colormaps derived from those of the same name provided with Matlab
-        + autumn: sequential linearly-increasing shades of red-orange-yellow
-        + bone: sequential increasing black-white color map with a tinge of blue, to emulate X-ray film
-        + cool: linearly-decreasing shades of cyan-magenta
-        + copper: sequential increasing shades of black-copper
-        + flag: repetitive red-white-blue-black pattern (not cyclic at endpoints)
-        + gray: sequential linearly-increasing black-to-white grayscale
-        + hot: sequential black-red-yellow-white, to emulate blackbody radiation from an object at increasing temperatures
-        + hsv: cyclic red-yellow-green-cyan-blue-magenta-red, formed by changing the hue component in the HSV color space
-        + inferno: perceptually uniform shades of black-red-yellow
-        + jet: a spectral map with dark endpoints, blue-cyan-yellow-red; based on a fluid-jet simulation by NCSA [#]_
-        + magma: perceptually uniform shades of black-red-white
-        + pink: sequential increasing pastel black-pink-white, meant for sepia tone colorization of photographs
-        + plasma: perceptually uniform shades of blue-red-yellow
-        + prism: repetitive red-yellow-green-blue-purple-...-green pattern (not cyclic at endpoints)
-        + spring: linearly-increasing shades of magenta-yellow
-        + summer: sequential linearly-increasing shades of green-yellow
-        + viridis: perceptually uniform shades of blue-green-yellow
-        + winter: linearly-increasing shades of blue-green
-    + Colormaps from `Yorick scientific visualisation package <http://dhmunro.github.io/yorick-doc/>`_, an evolution of the GIST package, both by David H. Munro:
-        + gist_earth: mapmaker's colors from dark blue deep ocean to green lowlands to brown highlands to white mountains
-        + gist_heat: sequential increasing black-red-orange-white, to emulate blackbody radiation from an iron bar as it grows hotter
-        + gist_ncar: pseudo-spectral black-blue-green-yellow-red-purple-white colormap from National Center for Atmospheric Research [#]_
-        + gist_rainbow: runs through the colors in spectral order from red to violet at full saturation (like *hsv* but not cyclic)
-        + gist_stern: "Stern special" color table from Interactive Data Language software
+        + `autumn`: sequential linearly-increasing shades of red-orange-yellow
+        + `bone`: sequential increasing black-white color map with a tinge of blue, to emulate X-ray film
+        + `cool`: linearly-decreasing shades of cyan-magenta
+        + `copper`: sequential increasing shades of black-copper
+        + `flag`: repetitive red-white-blue-black pattern (not cyclic at endpoints)
+        + `gray`: sequential linearly-increasing black-to-white grayscale
+        + `hot`: sequential black-red-yellow-white, to emulate blackbody radiation from an object at increasing temperatures
+        + `hsv`: cyclic red-yellow-green-cyan-blue-magenta-red, formed by changing the hue component in the HSV color space
+        + `inferno`: perceptually uniform shades of black-red-yellow
+        + `jet`: a spectral map with dark endpoints, blue-cyan-yellow-red; based on a fluid-jet simulation by NCSA [#]_
+        + `magma`: perceptually uniform shades of black-red-white
+        + `pink`: sequential increasing pastel black-pink-white, meant for sepia tone colorization of photographs
+        + `plasma`: perceptually uniform shades of blue-red-yellow
+        + `prism`: repetitive red-yellow-green-blue-purple-...-green pattern (not cyclic at endpoints)
+        + `spring`: linearly-increasing shades of magenta-yellow
+        + `summer`: sequential linearly-increasing shades of green-yellow
+        + `viridis`: perceptually uniform shades of blue-green-yellow
+        + `winter`: linearly-increasing shades of blue-green
+    + Colormaps from [Yorick scientific visualisation package](http://dhmunro.github.io/yorick-doc/), an evolution of the GIST package, both by David H. Munro:
+        + `gist_earth`: mapmaker's colors from dark blue deep ocean to green lowlands to brown highlands to white mountains
+        + `gist_heat`: sequential increasing black-red-orange-white, to emulate blackbody radiation from an iron bar as it grows hotter
+        + `gist_ncar`: pseudo-spectral black-blue-green-yellow-red-purple-white colormap from National Center for Atmospheric Research [#]_
+        + `gist_rainbow`: runs through the colors in spectral order from red to violet at full saturation (like *hsv* but not cyclic)
+        + `gist_stern`: "Stern special" color table from Interactive Data Language software
     + ColorBrewer Diverging
-        + BrBG: brown, white, blue-green
-        + PiYG: pink, white, yellow-green
-        + PRGn: purple, white, green
-        + PuOr: orange, white, purple
-        + RdBu: red, white, blue
-        + RdGy: red, white, gray
-        + RdYlBu: red, yellow, blue
-        + RdYlGn: red, yellow, green
-        + Spectral: red, orange, yellow, green, blue
+        + `BrBG`: brown, white, blue-green
+        + `PiYG`: pink, white, yellow-green
+        + `PRGn`: purple, white, green
+        + `PuOr`: orange, white, purple
+        + `RdBu`: red, white, blue
+        + `RdGy`: red, white, gray
+        + `RdYlBu`: red, yellow, blue
+        + `RdYlGn`: red, yellow, green
+        + `Spectral`: red, orange, yellow, green, blue
     + ColorBrewer Sequential
-        + Blues: white to dark blue
-        + BuGn: white, light blue, dark green
-        + BuPu: white, light blue, dark purple
-        + GnBu: white, light green, dark blue
-        + Greens: white to dark green
-        + Greys: white to black (not linear)
-        + Oranges: white, orange, dark brown
-        + OrRd: white, orange, dark red
-        + PuBu: white, light purple, dark blue
-        + PuBuGn: white, light purple, dark green
-        + PuRd: white, light purple, dark red
-        + Purples: white to dark purple
-        + RdPu: white, pink, dark purple
-        + Reds: white to dark red
-        + YlGn: light yellow, dark green
-        + YlGnBu: light yellow, light green, dark blue
-        + YlOrBr: light yellow, orange, dark brown
-        + YlOrRd: light yellow, orange, dark red
+        + `Blues`: white to dark blue
+        + `BuGn`: white, light blue, dark green
+        + `BuPu`: white, light blue, dark purple
+        + `GnBu`: white, light green, dark blue
+        + `Greens`: white to dark green
+        + `Greys`: white to black (not linear)
+        + `Oranges`: white, orange, dark brown
+        + `OrRd`: white, orange, dark red
+        + `PuBu`: white, light purple, dark blue
+        + `PuBuGn`: white, light purple, dark green
+        + `PuRd`: white, light purple, dark red
+        + `Purples`: white to dark purple
+        + `RdPu`: white, pink, dark purple
+        + `Reds`: white to dark red
+        + `YlGn`: light yellow, dark green
+        + `YlGnBu`: light yellow, light green, dark blue
+        + `YlOrBr`: light yellow, orange, dark brown
+        + `YlOrRd`: light yellow, orange, dark red
     + Miscellaneous schemes
-        + afmhot: sequential black-orange-yellow-white blackbody spectrum, commonly used in atomic force microscopy
-        + brg: blue-red-green
-        + bwr: diverging blue-white-red
-        + coolwarm: diverging blue-gray-red, meant to avoid issues with 3D shading, color blindness, and ordering of colors [#]_
-        + CMRmap: "Default colormaps on color images often reproduce to confusing grayscale images. The proposed colormap maintains an aesthetically pleasing color image that automatically reproduces to a monotonic grayscale with discrete, quantifiable saturation levels." [#]_
-        + cubehelix: Unlike most other color schemes cubehelix was designed by D.A. Green to be monotonically increasing in terms of perceived brightness. Also, when printed on a blackand white postscript printer, the scheme results in a greyscale with monotonically increasing brightness. This color scheme is named cubehelix because the r,g,b values produced can be visualised as a squashed helix around the diagonal in the r,g,b color cube.
-        + gnuplot: gnuplot's traditional pm3d scheme (black-blue-red-yellow)
-        + gnuplot2: sequential color printable as gray (black-blue-violet-yellow-white)
-        + ocean: green-blue-white
-        + rainbow: spectral purple-blue-green-yellow-orange-red colormap with diverging luminance
-        + seismic: diverging blue-white-red
-        + nipy_spectral: black-purple-blue-green-yellow-red-white spectrum, originally from the Neuroimaging in Python project
-        + terrain: mapmaker's colors, blue-green-yellow-brown-white, originally from IGOR Pro
+        + `afmhot`: sequential black-orange-yellow-white blackbody spectrum, commonly used in atomic force microscopy
+        + `brg`: blue-red-green
+        + `bwr`: diverging blue-white-red
+        + `coolwarm`: diverging blue-gray-red, meant to avoid issues with 3D shading, color blindness, and ordering of colors
+        + `CMRmap`: "Default colormaps on color images often reproduce to confusing grayscale images. The proposed colormap maintains an aesthetically pleasing color image that automatically reproduces to a monotonic grayscale with discrete, quantifiable saturation levels."
+        + `cubehelix`: Unlike most other color schemes cubehelix was designed by D.A. Green to be monotonically increasing in terms of perceived brightness. Also, when printed on a blackand white postscript printer, the scheme results in a greyscale with monotonically increasing brightness. This color scheme is named cubehelix because the r,g,b values produced can be visualised as a squashed helix around the diagonal in the r,g,b color cube.
+        + `gnuplot`: gnuplot's traditional pm3d scheme (black-blue-red-yellow)
+        + `gnuplot2`: sequential color printable as gray (black-blue-violet-yellow-white)
+        + `ocean`: green-blue-white
+        + `rainbow`: spectral purple-blue-green-yellow-orange-red colormap with diverging luminance
+        + `seismic`: diverging blue-white-red
+        + `nipy_spectral`: black-purple-blue-green-yellow-red-white spectrum, originally from the Neuroimaging in Python project
+        + `terrain`: mapmaker's colors, blue-green-yellow-brown-white, originally from IGOR Pro
 
-+ `plt.imshow` method
++ `plt.imshow` method of `matplotlib.pyplot`
     + Signature: `plt.imshow(X, cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None, **kwargs)`
     + Doctsring: Display an image on the axes.
     + Parameters
         + `X` (array_like, shape (n, m) or (n, m, 3) or (n, m, 4)): Display the image in `X` to current axes.  `X` may be an array or a PIL image. If `X` is an array, it can have the following shapes and types:
-            + MxN -- values to be mapped (float or int)
-            + MxNx3 -- RGB (float or uint8)
-            + MxNx4 -- RGBA (float or uint8)
-        
+            + $MxN$ -- values to be mapped (float or int)
+            + $MxNx3$ -- RGB (float or uint8)
+            + $MxNx4$ -- RGBA (float or uint8)
+
             The value for each component of MxNx3 and MxNx4 float arrays should be in the range 0.0 to 1.0. MxN arrays are mapped to colors based on the `norm` (mapping scalar to scalar) and the `cmap` (mapping the normed scalar to a color).
         + `cmap` (`~matplotlib.colors.Colormap`):  If None, default to rc `image.cmap` value. `cmap` is ignored if `X` is 3-D, directly specifying RGB(A) values.
         + `aspect` (['auto' | 'equal' | scalar]): 
             + 'auto': changes the image aspect ratio to match that of the axes.
             + 'equal' w/ `extent`=`None`: changes the axes aspect ratio to match that of the image. 
             + 'equal' w/ `extent`!=`None`: the axes aspect ratio is changed to match that of the extent.
-            + None: default to rc ``image.aspect`` value.
+            + None: default to rc `image.aspect` value.
         + `interpolation` (string): 
             + Acceptable values are 'none', 'nearest', 'bilinear', 'bicubic', 'spline16', 'spline36', 'hanning', 'hamming', 'hermite', 'kaiser', 'quadric', 'catrom', 'gaussian', 'bessel', 'mitchell', 'sinc', 'lanczos'
             +  None: default to rc `image.interpolation`. 
@@ -693,7 +659,7 @@ Download the attachment for a preview of how the assignment will be graded.
             + `None`: the image is positioned such that the pixel centers fall on zero-based (row, column) indices.
         + `shape` (scalars (columns, rows)): For raw buffer images
         + `filternorm` (scalar): A parameter for the antigrain image resize filter.  
-            + `filternorm` = 1: the filter normalizes integer values and corrects the rounding errors. It doesn't do anything with the source floating point values, it corrects only integers according to the rule of 1.0 which means that any sum of pixel weights must be equal to 1.0.  So, the filter function must produce a graph of the proper shape.
+            <br/>`filternorm` = 1: the filter normalizes integer values and corrects the rounding errors. It doesn't do anything with the source floating point values, it corrects only integers according to the rule of 1.0 which means that any sum of pixel weights must be equal to 1.0.  So, the filter function must produce a graph of the proper shape.
         + `filterrad` (scalar):  The filter radius for filters that have a radius parameter, i.e. when interpolation is one of: 'sinc', 'lanczos' or 'blackman'
         + `kwargs` : `~matplotlib.artist.Artist` properties
     + Returns: image : `~matplotlib.image.AxesImage`
@@ -709,6 +675,44 @@ Download the attachment for a preview of how the assignment will be graded.
         + *bytes* = *False* (default): the rgba array will be floats in the 0-1 range;
         + *byte* = *True*: the returned rgba array will be uint8 in the 0 to 255 range.
     + `norm`=False: no normalization of the input data is performed, and it is assumed to already be in the range (0-1).
+
++ `plt.twinx` method of `matplotlib.pyplot`
+    + Signature: `plt.twinx(ax=None)`
+    + Docstring: Make a second axes that shares the *x*-axis.  The new axes will overlay *ax* (or the current axes if *ax* is *None*).  The ticks for *ax2* will be  placed on the right, and the *ax2* instance is returned.
+
++ `ax.get_legend_handles_labels` method of `matplotlib.axes._subplots.AxesSubplot`
+    + Signature: `ax.get_legend_handles_labels(legend_handler_map=None)`
+    + Docstring: Return handles and labels for legend
+    + `ax.legend()` is equivalent to 
+        ```python
+        h, l = ax.get_legend_handles_labels()
+        ax.legend(h, l)
+        ```
++ `ax.set_zorder` method of `matplotlib.axes._subplots.AxesSubplot`
+    + Signature: `ax.set_zorder(level)`
+    + Docstring: Set the zorder for the artist.  Artists with lower zorder values are drawn first.
+
++ `ax.set_visible` method of `matplotlib.patches.Rectangle`
+    + Signature: `ax.set_visible(b)`
+    + Docstring: Set the artist's visiblity.
+    + Parameter: `b` (bool)
+
++ `fig.tight_layout` method of `matplotlib.figure.Figure`
+    + Signature: `fig.tight_layout(renderer=None, pad=1.08, h_pad=None, w_pad=None, rect=None)`
+    + Docstring: Adjust subplot parameters to give specified padding.
+    + Parameters:
+        + `pad` (float): padding between the figure edge and the edges of subplots, as a fraction of the font-size.
+        + `h_pad`, `w_pad` (float): padding (height/width) between edges of adjacent subplots. Defaults to `pad_inches`.
+        + `rect`: if rect is given, it is interpreted as a rectangle (left, bottom, right, top) in the normalized figure coordinate that the whole subplots area (including labels) will fit into. Default is (0, 0, 1, 1).
+
++ `plt.show` method of `matplotlib.pyplot`
+    + Signature: `plt.show(*args, **kw)`
+    + Docstring: Display a figure.
+    + Display interfaces:
+        + When running in ipython with its pylab mode, display all figures and return to the ipython prompt.
+        + In non-interactive mode, display all figures and block until the figures have been closed; in interactive mode it has no effect unless figures were created prior to a change from non-interactive to interactive mode (not recommended).  In that case it displays the figures but does not block.
+
+
 
 ## Review Your Peers: Building a Custom Visualization
 

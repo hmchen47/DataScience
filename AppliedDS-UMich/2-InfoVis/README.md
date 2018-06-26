@@ -43,51 +43,6 @@
 
 ## [Assignment 2](./asgn02.md)
 
-+ [Peer-graded Assignment: Plotting Weather Patterns](./asgn02.md#peer-graded-assignment-plotting-weather-patterns)
-+ [Plotting Weather Patterns](./asgn02.md#plotting-weather-patterns)
-+ [Peer-graded Assignment: Plotting Weather Patterns](./asgn02.md#peer-graded-assignment-plotting-weather-patterns)
-+ [Discussion Forum Links for Assignment](./asgn02.md#discussion-forum-links-for-assignment)
-+ [Review Your Peers: Plotting Weather Patterns](./asgn02.md#review-your-peers-plotting-weather-patterns)
-
-
-## Module 3: [Charting Fundamentals](./03-ChartFund.md)
-
-+ [Module 3 Jupyter Notebook](./03-ChartFund.md#module-3-jupyter-notebook)
-+ [Subplots](./03-ChartFund.md#subplots)
-+ [Histograms](./03-ChartFund.md#histograms)
-+ [Selecting the Number of Bins in a Histogram: A Decision Theoretic (Optional)](./03-ChartFund.md#selecting-the-number-of-bins-in-a-histogram-a-decision-theoretic-optional)
-+ [Box Plots](./03-ChartFund.md#box-plots)
-+ [Heatmaps](./03-ChartFund.md#heatmaps)
-+ [Animation](./03-ChartFund.md#animation)
-+ [Interactivity](./03-ChartFund.md#interactivity)
-
-
-## Assignment 3
-
-+ [Practice Assignment: Understanding Distributions Through Sampling](./asgn03.md#)
-+ [Building a Custom Visualization](./asgn03.md#)
-+ [ReadingAssignment Reading](./asgn03.md#)
-+ [Peer-graded Assignment: Building a Custom Visualization](./asgn03.md#)
-+ [Review Your Peers: Building a Custom Visualization](./asgn03.md#)
-
-
-
-## Module 2: [Basic Charting](02-BasicChart.md)
-
-+ [Module 2 Jupyter Notebook](./02-BasicChart.md#module-2-jupyter-notebook)
-+ [Introduction](./02-BasicChart.md#introduction)
-+ [Matplotlib Architecture](./02-BasicChart.md#matplotlib-architecture)
-+ [Matplotlib](./02-BasicChart.md#matplotlib)
-+ [Ten Simple Rules for Better Figures](./02-BasicChart.md#ten-simple-rules-for-better-figures)
-+ [Basic Plotting with Matplotlib](./02-BasicChart.md#basic-plotting-with-matplotlib)
-+ [Scatterplots](./02-BasicChart.md#scatterplots)
-+ [Line Plots](./02-BasicChart.md#line-plots)
-+ [Bar Charts](./02-BasicChart.md#bar-charts)
-+ [Dejunkifying a Plot](./02-BasicChart.md#dejunkifying-a-plot)
-
-
-## [Assignment 2](./asgn02.md)
-
 + [Plotting Weather Patterns](./.md#plotting-weather-patterns)
 + [Peer-graded Assignment: Plotting Weather Patterns](./asgn02.md#peer-graded-assignment-plotting-weather-patterns)
 + [Useful Links for Assignment](./asgn02.md#useful-links-for-assignment)
