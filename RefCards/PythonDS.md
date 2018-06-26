@@ -3,36 +3,46 @@
 ## Table of Contents
 
 + [General](#general)
-    + [Open CVS File](#ioen-csv-file)
-    + [Methods](#methods)
-+ [Date and Times](#date-and-times)
-    + [Import Files](#import-files)
-    + [Attributes](#attributes)
-    + [Methods](#methods-1)
-+ [NumPy](#numpy)
-    + [Import File](#import-files-1)
-    + [General](#general)
-    + [Array Creation](#array-creation)
-    + [Combining Array](#combining-arrays)
+    + [Open CSV File](open-cvs-file)
+    + [Method](methods)
++ [Date and Time](date-and-times)
+    + [Import Files](import-files)
+    + [Attributes](attributes)
+    + [Methods](methods-1)
++ [SciPy](scipy)
+    + [Import Files](import-files-1)
+    + [Statistical Module](statistical-module)
++ [Numpy](numpy)
+    + [Import Files](import-files-2)
+    + [General](general-1)
+    + [Array Creation](array-creation)
+    + [Combining Array](combining-arrays)
     + [Array Operations](array-operations)
-    + [Math Functions](#math-functions)
-    + [Indexing/Slicing](#indexingslicing)
-    + [Random Number Generator](#random-number-generator)
-+ [Pandas](#pandas)
-    + [General][#general-1] 
-    + [Import File](#import-file)
-    + [Series](#series)
-        + [Creation](#creation)
-        + [Attributes](#attributes-1)
-        + [Methods](#methods-2)
-        + [Lecture Methods](#lecture-methods)
-    + [DataFrame](#dataframe)
-        + [Creation](#creation-1)
-        + [Attributes](#attributes-2)
-        + [Methods](#methods-3)
-        + [Lecture Methods](#lecture-methods-1)
-
-
+    + [Math Functions](math-functions)
+    + [Indexing/Slicing](indexingslicing)
+    + [Random Number Generator](random-number-generator)
++ [Pandas](pandas)
+    + [Import File](import-file)
+    + [General](general-2)
+    + [Timestamp](timestamp)
+    + [Methods](methods-2)
+    + [Lecture Methods](lecture-methods)
++ [DataFrame](dataframe)
+    + [Class](class)
+    + [Local File](load-file)
+    + [Attributes](attributes-1)
+    + [Indexing & Slicing](indexing--slicing)
+    + [Methods](methods-3)
++ [Matplotlib](matplotlib)
+    + [Official Pyplot API](official-pyplot-api)
+    + [Environment and Modules](environment-and-module)
+    + [Classes](classes)
+    + [Official Docs](official-docs)
+    + [Methods](methods-4)
+    + [Line Style or marker](line-style-or-marker)
+    + [Color abbreviations](color-abbreviations)
++ [Seaborn](seaborn)
+    + [Seaborn API](seaborn-api)
 
 
 
@@ -115,7 +125,7 @@ import time as tm
 import scipy.stats as stats
 ```
 
-#### Statistical Module
+### Statistical Module
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -264,24 +274,8 @@ import pandas as pd
 | `unit` |  string  | numpy unit used for conversion, if ts_input is int or float |
 | `offset` |  str, DateOffset  | Deprecated, use freq |
 
-| Method | Description | Link |
-|--------|-------------|------|
-| `pd.Period(**kwargs)` } <br/> `kwargs`: value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0 | 
 
-| Parameter | Type | Description |
-|-----------|-------------|-------------|
-| `value` |  `Period` or `compat.string_types`, default None | The time period represented (e.g., '4Q2005') |
-| `freq` |  str, default None | One of pandas period strings or corresponding objects |
-| `year` |  int, default None |
-| `month` |  int, default 1 |
-| `quarter` |  int, default None |
-| `day` |  int, default 1 |
-| `hour` |  int, default 0 |
-| `minute` |  int, default 0 |
-| `second` |  int, default 0 |
-
-
-#### Methods
+### Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -290,6 +284,7 @@ import pandas as pd
 | `df.asfreq(freq, method=None, fill_value=None)` | Convert TimeSeries to specified frequency; <br/> `freq`: DateOffset object, or string; `method`: {'backfill'/'bfill', 'pad'/'ffill'} | [Date Functionality][020] |
 | `pd.plotting.scatter_matrix(frame, *args, **kwds)` | Draw a matrix of scatter plots <br/> `args`: alpha=0.5, figsize=None, ax=None, grid=False, diagonal='hist', marker='.', density_kwds=None, hist_kwds=None, range_padding=0.05 | [Plotting w/ Pandas][044] |
 | `pd.tools.plotting.parallel_coordinates(data. col)` | Parallel coordinates is a plotting technique for plotting multivariate data ([viki](https://en.wikipedia.org/wiki/Parallel_coordinates)) | [Plotting w/ Pandas][044] |
+| `pd.Period(**kwargs)` | <br/> `kwargs`: value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0 | [Date Functionality][020] |
 
 
 | Alias | Description | | Alias | Description |
@@ -349,7 +344,7 @@ import pandas as pd
 
 [TOC](#table-of-contents)
 
-#### Lecture Methods
+### Lecture Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -365,7 +360,7 @@ import pandas as pd
 
 ### DataFrame
 
-#### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame)
+### [Class](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame)
 
 Syntax: `df(data=None, index=None, columns=None, dtype=None, copy=False)`
 
@@ -398,7 +393,7 @@ df = pd.DataFrame([{'Name': 'Chris', 'Item Purchased': 'Sponge', 'Cost': 22.50},
                   index=['Store 1', 'Store 1', 'Store 2'])
 ```
 
-#### Load File
+ Load File
 
 ```python
 df = pd.read_csv('<fname>.csv', skiprows=None, index_col=None)
@@ -408,7 +403,7 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 ```
 
 
-#### Attributes
+### Attributes
 
 | [Attribute][011] (v0.22.0) | Description |
 |-----------|-------------|
@@ -433,7 +428,7 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 [TOC](#table-of-contents)
 
 
-#### Indexing & Slicing
+### Indexing & Slicing
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -446,7 +441,7 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.reset_index(level=None)` | For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. `level`: int, str, tuple, or list. Only remove the given levels from the index. Removes all levels by default| [Indexing DF][012] |
 
 
-#### Methods
+### Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
@@ -568,7 +563,7 @@ import matplotlib.animation as animation
 
 
 
-#### Line style or marker
+### Line style or marker
 
 | character | description | | character | description |
 |-----------|-------------|-|-----------|-------------|
@@ -586,7 +581,7 @@ import matplotlib.animation as animation
 | `'x'`  |  x marker | | `'|'`  |  vline marker |
 | `'D'`  |  diamond marker | | `'d'`  |  thin_diamond marker |
 
-#### Color abbreviations
+### Color abbreviations
 
 | character |  color | | character |  color |
 |-----------|--------|-|-----------|--------|
@@ -595,7 +590,7 @@ import matplotlib.animation as animation
 | 'r'       |  red   | | 'k'       |  black |
 | 'c'       |  cyan  | | 'w'       |  white |
 
-#### Examples - Line Plots
+### Examples - Line Plots
 
 ```python
 plt.plot(x, y)        # plot x and y using default line style and color
