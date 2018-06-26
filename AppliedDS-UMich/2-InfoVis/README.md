@@ -79,10 +79,11 @@
 
 ## Module 4: [Applied Visualizations](./04-AppliedVis.md)
 
-+ [Module 4 Jupyter Notebook](./04-AppliedVis.md#)
-+ [Plotting with Pandas](./04-AppliedVis.md#)
-+ [Seaborn](./04-AppliedVis.md#)
-+ [Spurious Correlations](./04-AppliedVis.md#)
++ [Module 4 Jupyter Notebook](./04-AppliedVis.md#module-4-jupyter-notebook)
++ [Plotting with Pandas](./04-AppliedVis.md#plotting-with-pandas)
++ [Seaborn](./04-AppliedVis.md#seaborn)
++ [Spurious Correlations](./04-AppliedVis.md#spurious-correlations)
+
 
 
 ## [Project](asgn04-Project.md)
