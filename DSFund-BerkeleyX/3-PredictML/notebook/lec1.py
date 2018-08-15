@@ -8,13 +8,10 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 import matplotlib.pyplot as plots
 plots.style.use('fivethirtyeight')
 
-
 # ## Introduction: Average (Mean) ##
-
 # **Please run all cells before this cell, including the import cell at the top of the notebook.**
 
 values = make_array(2, 3, 3, 9)
-
 
 sum(values) / len(values), np.average(values), np.mean(values)
 
