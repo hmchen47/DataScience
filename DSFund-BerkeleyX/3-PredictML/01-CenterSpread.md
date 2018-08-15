@@ -146,7 +146,7 @@
 
 + How Far from the Average?
     + Standard deviation (SD) measures roughly how far the data are from their average
-    + SD = root (5) mean (4) square (3) of deviations (2) from average (1) - (#) indicates the calculation step
+    + __SD = root (5) mean (4) square (3) of deviations (2) from average (1) - (#) indicates the calculation step__
     + SD has the same units as the data
 
 + Why Use the SD? - There are two main reasons.
@@ -304,9 +304,63 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 1.
 
+This corresponds to textbook section:
+
+[Chapter 14.1: Properties of the Mean ](https://www.inferentialthinking.com/chapters/14/1/Properties_of_the_Mean)
+
+[Chapter 14.2: Variability](https://www.inferentialthinking.com/chapters/14/2/Variability)
+
+In section 1, we studied averages (or means) and what we can say about them with only minimal assumptions about underlying populations. In histograms, the mean acts as the center of gravity or balance point of that histogram. In comparison, the median is the halfway point of the data (i.e. half of the area of the histogram is on either side of the median). We measure variability around the mean and use standard deviations (SDs) to quantify this measurement. Finally, we learned about Chebyshev's Inequality.
+
+Sample means, medians, and standard deviations are extensively used in data science. It's important that you understand these concepts! Try the following practice questions to test your understanding.
 
 ### Practice
+
+For the histograms below, is the mean to the left, to the right of the median, or will the mean and the median probably overlap?
+
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/0d318cf40b2f41619d7d47ea519646a3/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%409e9f73070907479fa9f1c4fb55297106">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/84e581b5814e121f07263bfbb36953b2/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/histogram1_s1.png" alt="Histogram with majority of data points on the lower end of the histogram and therefore very few data points that are higher. The histogram is skewed right." width="300">
+</a>
+
+    a. Mean to the right of the median
+    b. Mean to the left of the median
+    c. Mean and median will probably overlap
+
+    Ans: a
+
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/0d318cf40b2f41619d7d47ea519646a3/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%409e9f73070907479fa9f1c4fb55297106">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/770194acf97fe0d494fb32e3a89024a4/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/histogram2_s1.png" alt="Histogram with majority of data points on the higher end of the histogram and therefore very few data points that are smaller. The histogram is skewed left." width="300">
+</a>
+
+    a. Mean to the right of the median
+    b. Mean to the left of the median
+    c. Mean and median will probably overlap
+
+    Ans: b
+
+Calculating the standard deviation of a data set can be done in five steps. Given a list of numbers called any_numbers, fill in the remaining steps to calculate the standard deviation for the list any_numbers. 
+
+Your result of step 5 should be the standard deviation of any_numbers. We filled in step 1 and step 2 for you.
+
+Step 1: Calculate the average of any_numbers (i.e. use np.mean(any_numbers)).
+
+Step 2: Calculate the deviations by subtracting the average (step 1) from each number in the list any_numbers (i.e. any_numbers - average)
+
+
+Step 3:
+
+    Ans: Calculate the square of the deviations
+
+Step 4:
+
+    Ans: Calculate the average of the result(s) of step 3
+
+Step 5:
+
+    Ans: Calculate th positive square root of the result(s) of step 4
+
 
 
 
