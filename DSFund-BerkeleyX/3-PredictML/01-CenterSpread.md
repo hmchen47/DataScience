@@ -190,8 +190,106 @@
 
 ### Notes
 
++ The Mathematician’s Name
+    + Chebyshev
+    + Chebychev
+    + Chebishov
+    + Čebyšev
+    + Tchebichev
+    + Tchebicheff
+    + Tschebyscheff
+    + Tschebyschew
+    + Чебышёв
+
+
++ How Big are Most of the Values?
+    + No matter what the shape of the distribution, the bulk of the data are in the range “average ± a few SDs”
+    + Chebyshev’s Inequality <br/>
+        No matter what the shape of the distribution, the proportion of values in the range “average ± z SDs” is at least $1 - 1/z^2$
+
++ Chebyshev’s Bounds - __No matter what the distribution looks like__
+
+    | Range | Proportion |
+    |-------|------------|
+    | average ± 2 SDs | at least $1 - 1/4 (75\%)$ |
+    | average ± 3 SDs | at least $1 - 1/9 (88.888...\%)$ |
+    | average ± 4 SDs | at least $1 - 1/16 (93.75\%)$ |
+    | average ± 5 SDs | at least $1 - 1/25 (96\%)$ |
+
 + Demo
     ```python
+    births = Table.read_table('baby.csv')
+    # Birth     Gestational     Maternal    Maternal    Maternal            Maternal
+    # Weight    Days            Age         Height      Pregnancy Weight    Smoker
+    # 120       284             27          62          100                 False
+    # 113       282             33          64          135                 False
+    # 128       279             28          64          115                 True
+    # ... (rows omitted)
+
+    births.hist('Maternal Pregnancy Weight')
+
+    mpw = births.column('Maternal Pregnancy Weight')
+    average = np.average(mpw)           # 128.4787052810903
+    sd = np.std(mpw)                    # 20.72544970428041
+
+    within_3_SDs = births.where('Maternal Pregnancy Weight', are.between(average - 3*sd, average + 3*sd))
+
+    within_3_SDs.num_rows / births.num_rows     # 0.9863713798977853
+
+    # Chebyshev's bound for the proportion in the range "average plus or minus 3 SDs" is at least
+    1 - 1/3**2      # 0.8888888888888888
+
+    births.hist(overlay = False)
+
+    # See if Chebyshev's bounds work for different shapes of distributions
+    for k in births.labels:
+        values = births.column(k)
+        average = np.average(values)
+        sd = np.std(values)
+        print()
+        print(k)
+        for z in np.arange(2, 6):
+            chosen = births.where(k, are.between(average - z*sd, average + z*sd))
+            proportion = chosen.num_rows / births.num_rows
+            percent = round(proportion * 100, 2)
+            print('Average plus or minus', z, 'SDs:', percent, '%')
+
+    # Birth Weight
+    # Average plus or minus 2 SDs: 94.89 %      75.00%
+    # Average plus or minus 3 SDs: 99.57 %      88.88%
+    # Average plus or minus 4 SDs: 100.0 %      93.75%
+    # Average plus or minus 5 SDs: 100.0 %      96.00%
+    # 
+    # Gestational Days
+    # Average plus or minus 2 SDs: 93.78 %
+    # Average plus or minus 3 SDs: 98.64 %
+    # Average plus or minus 4 SDs: 99.57 %
+    # Average plus or minus 5 SDs: 99.83 %
+    # 
+    # Maternal Age
+    # Average plus or minus 2 SDs: 94.89 %
+    # Average plus or minus 3 SDs: 99.91 %
+    # Average plus or minus 4 SDs: 100.0 %
+    # Average plus or minus 5 SDs: 100.0 %
+    # 
+    # Maternal Height
+    # Average plus or minus 2 SDs: 97.19 %
+    # Average plus or minus 3 SDs: 99.66 %
+    # Average plus or minus 4 SDs: 99.91 %
+    # Average plus or minus 5 SDs: 100.0 %
+    # 
+    # Maternal Pregnancy Weight
+    # Average plus or minus 2 SDs: 95.06 %
+    # Average plus or minus 3 SDs: 98.64 %
+    # Average plus or minus 4 SDs: 99.49 %
+    # Average plus or minus 5 SDs: 99.91 %
+    # 
+    # Maternal Smoker
+    # Average plus or minus 2 SDs: 100.0 %
+    # Average plus or minus 3 SDs: 100.0 %
+    # Average plus or minus 4 SDs: 100.0 %
+    # Average plus or minus 5 SDs: 100.0 %
+
 
     ```
 
