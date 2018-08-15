@@ -136,9 +136,47 @@
 
 ### Notes
 
++ Defining Variability <br/>
+    Plan A: “biggest value - smallest value”
+    + Doesn’t tell us much about the shape of the distribution
+
+    Plan B: 
+    + Measure variability around the mean
+    + Need to figure out a way to quantify this
+
++ How Far from the Average?
+    + Standard deviation (SD) measures roughly how far the data are from their average
+    + SD = root (5) mean (4) square (3) of deviations (2) from average (1) - (#) indicates the calculation step
+    + SD has the same units as the data
+
++ Why Use the SD? - There are two main reasons.
+    + The first reason: No matter what the shape of the distribution, the bulk of the data are in the range “average ± a few SDs”
+    + The second reason: Relation with bell shaped curves - Coming up in the next lecture.
+
 + Demo
     ```python
+    sd_table = Table().with_columns('Value', values)
+    # Value: 2, 3, 3, 9
+    
+    average = np.average(values)            $# 4.25
+    
+    deviations = values - average
+    sd_table = sd_table.with_column('Deviation', deviations)
+    # (Value, Deviation): (2, -2.25), (3, -1.25), (3, -1.25), (9, 4.75)
+    
+    sum(deviations)                         # 0.0
 
+    sd_table = sd_table.with_column('Squared Deviation', deviations ** 2)
+    # (Value, Deviation, Squared Deviation) = (2, -2.25, 5.0625), 
+    #   (3, -1.25, 1.5625), (3, -1.25, 1.5625), (9, 4.75, 22.5625)
+
+    # Variance of the data is the average of the squared deviations
+    variance = np.average(sd_table.column('Squared Deviation'))     # 7.6875
+
+    # Standard Deviation (SD) is the square root of the variance
+    sd = variance ** 0.5            # 2.7726341266023544
+    
+    np.std(values)                  # 2.7726341266023544
     ```
 
 ### Video
