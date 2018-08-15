@@ -9,10 +9,61 @@
 
 ### Notes
 
++ Goals
+    + Describe what is meant by "bell shaped curve"
+    + Explain how bell shaped curves arise in inference
+
++ Standard Units
+    + How many SDs above average?
+    + $z = (\text{value} - \text{average})/SD$
+        + Negative z: value below average
+        + Positive z: value above average
+        + z = 0: value equal to average
+    + When values are in standard units: average = 0, SD = 1
+    + Chebyshev: At least 96% of the values of z are between -5 and 5
+
++ Discussion Question - `both` table in Demo <br/>
+    Find whole numbers that are close to: <br/> &nbsp;&nbsp;&nbsp;&nbsp;
+    a.  the average age <br/> &nbsp;&nbsp;&nbsp;&nbsp;
+    b.  the SD of the ages
+
+    + Ans: 
+      + The average is about 27 (about 0 standard units)
+      + The SD is abut 6 (33 is about 1 SD above the average)
+
 
 + Demo
     ```python
+    def standard_units(x):
+        """Convert the array x to standard units"""
+        return (x - np.average(x)) / np.std(x)
 
+    births = Table.read_table('baby.csv')
+    births.labels
+    # ('Birth Weight', 'Gestational Days', 'Maternal Age', 'Maternal Height',
+    #  'Maternal Pregnancy Weight', 'Maternal Smoker')
+
+    ages = births.column('Maternal Age')
+    ages_in_standard_units = standard_units(ages)
+    np.average(ages_in_standard_units), np.std(ages_in_standard_units)
+    # (-7.868020072300939e-17, 1.0)
+
+    both = Table().with_column(
+        'Age in Years', ages,
+        'Age in Standard Units', ages_in_standard_units
+    )
+    # Age in Years	Age in Standard Units
+    # 27            -0.0392546
+    # 33            0.992496
+    # 28            0.132704
+    # ... (rows omitted)
+
+    np.mean(ages), np.std(ages)   # (27.228279386712096, 5.815360404190897)
+
+    both.hist('Age in Years', bins = np.arange(15, 46, 2))
+
+    both.hist('Age in Standard Units', bins = np.arange(-2.2, 3.4, 0.35))
+    plots.xlim(-2, 3.1);
     ```
 
 ### Video
