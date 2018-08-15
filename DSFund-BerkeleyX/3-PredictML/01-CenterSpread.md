@@ -9,10 +9,62 @@
 
 ### Notes
 
-+ Demo
-    ```python
++ Prediction
+  + One of the major responsibility of data science
+  + To predict the value of one or more variables given the values of other related variables
+  + Distributions: empirical, probability, data, etc.
 
-    ```
++ Goals
+  + Quantify natural concepts like "center" and "variability"
+  + Examine bell shaped distributions
+  + Understand why many of the empirical distributions that we have generated are bell shaped
+
++ The Average (or Mean) <br/>
+    Data: 2, 3, 3, 9 -> Average = $(2+3+3+9)/4 = 4.25$
+    + Need not be a value in the collection
+    + Need not be an integer even if the data are integers
+    + Somewhere between min and max, but not necessarily halfway in between
+    + Same units as the data
+    + Smoothing operator: collect all the contributions in one big pot, then split evenly
+
++ Relation to the Histogram
+  + The average of a list depends only on the __proportions__ in which the distinct values appear, not on the number of entries in the list
+  + The average is the __center of gravity__ of the histogram
+  + The point on the horizontal axis where the histogram balances
+
++ Demo
+  ```python
+  values = make_array(2, 3, 3, 9)
+  sum(values) / len(values), np.average(values), np.mean(values)
+  # (4.25, 4.25, 4.25
+
+  (2 + 3 + 3 + 9) / 4                 # 4.25
+  2 * (1/4) + 3 * (2/4) + 9 * (1/4)   # 4.25
+  2 * 0.25 + 3 * 0.5 + 9 * 0.25       # 4.25
+
+  values_table = Table().with_columns('Value', values)
+  values_table                        # Value: 2, 3, 3, 9
+
+  bins_for_display = np.arange(0.5, 10.6, 1)
+
+  values_table.hist(bins = bins_for_display, ec = 'w')
+
+  2 * np.ones(10)   # array([2., 2., 2., 2., 2., 2., 2., 2., 2., 2.])
+
+  twos = 2 * np.ones(10)
+  threes = 3 * np.ones(20)
+  nines = 9 * np.ones(10)
+
+  new_values = np.append(np.append(twos, threes), nines)
+
+  len(new_values)     # 40
+
+  new_values_table = Table().with_column('Value', new_values)
+  new_values_table.hist(bins = bins_for_display)
+
+  np.average(new_values), np.average(values)
+  # (4.25, 0.3909710391822828)
+  ```
 
 ### Video
 
