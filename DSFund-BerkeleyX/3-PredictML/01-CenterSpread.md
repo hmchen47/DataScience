@@ -77,9 +77,52 @@
 
 ### Notes
 
++ Discussion Question
+    + Create a data set that has this histogram. (You can do it with a short list of whole numbers.)
+    + What are its median and mean?
+    <a href="url">
+        <br/><img src="./diagrams/lec1-1.PNG" alt="text" width="300">
+    </a>
+      + Answer: data set = {1, 2, 2, 3, 3, 3, 4, 4, 5} -> median = average = 3
+    + Are the medians of these two distributions the same or different? Are the means the same or different? If you say “different,” then say which one is bigger.
+    <a href="url">
+        <br/><img src="./diagrams/lec1-1.PNG" alt="text" width="300">
+    </a>
+    <a href="url">
+        <img src="./diagrams/lec1-3.PNG" alt="text" width="300">
+    </a>
+      + Answer: List 1 = {1, 2, 2, 3, 3, 3, 4, 4, 5}, List 2 = {1, 2, 3, 3, 3, 4, 4, 10}; same median = 3, different average -> 2nd List bigger
+
++ Comparing Mean and median
+    + __Mean__: Balance point of the histogram
+    + __Median__: Half-way point of data; half the area of histogram is on either side of median
+    + If the distribution is symmetric about a value, then that value is both the average and the median.
+    + If the histogram is skewed, then the mean is pulled away from the median in the direction of the tail.
+
++ Discussion Question <br/>
+    Which is bigger?
+    1. mean
+    2. median
+    <a href="url">
+        <br/><img src="./diagrams/lec1-4.png" alt="text" width="450">
+    </a>
+    + Answer:  meaian bigger - average is pulled away from the median to the left
+
 + Demo
     ```python
+    nba = Table.read_table('nba2013.csv')
+    # Name	Position	Height	Weight	Age in 2013
+    # DeQuan Jones	Guard	80	221	23
+    # Darius Miller	Guard	80	235	23
+    # Trevor Ariza	Guard	80	210	28
+    # James Jones	    Guard	80	215	32
+    # ...(rows omitted)
 
+    nba.hist('Height', bins=np.arange(65.5, 90.5), ec='w')
+
+    heights = nba.column('Height')
+    percentile(50, heights), np.average(heights)
+    # (80, 79.06534653465347)
     ```
 
 ### Video
