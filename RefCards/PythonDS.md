@@ -1,4 +1,4 @@
-# Python for Data Science
+# Python for Data Science - UC Berkley
 
 ## Table of Contents
 
