@@ -86,7 +86,10 @@
 
 + Correlation Formula
     <a href="http://www.socialresearchmethods.net/kb/statcorr.php">
-        <br/><img src="http://www.socialresearchmethods.net/kb/Assets/images/corrform1.gif" alt="Correlation Formula" width="450">
+        <br/><img src="http://www.socialresearchmethods.net/kb/Assets/images/corrform1.gif" alt="Correlation Formula" width="350">
+    </a>
+    <a href="http://whatilearned.wikia.com/wiki/Correlation">
+        <img src="https://vignette.wikia.nocookie.net/whatilearned/images/9/92/Correlation_coefficient.jpg/revision/latest/scale-to-width-down/180?cb=20110520211820" alt="Formula for a Pearson's r correlation coefficient" width="350">
     </a>
 
 + The Correlation Coefficient $r$
