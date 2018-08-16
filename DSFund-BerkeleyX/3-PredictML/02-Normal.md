@@ -197,7 +197,27 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 2.
+
+This corresponds to textbook section:
+
+[Chapter 14.3: The SD and the Normal Curve](https://www.inferentialthinking.com/chapters/14/3/SD_and_the_Normal_Curve)
+
+[Chapter 14.4: The Central Limit Theorem](https://www.inferentialthinking.com/chapters/14/4/Central_Limit_Theorem)
+
+In section 2, we saw the introduction of bell-shaped (or normal) distributions and standard units. The Central Limit Theorem says that the probability distribution of the sum or average of a large random sample drawn with replacement will be roughly normal, regardless of the distribution of the population from which the sample is drawn. The Central Limit Theorem makes it possible to make inferences with very little knowledge about the population, provided we have a large random sample. That is why it is central to the field of statistical inference.
+
+Test your understanding with the questions below.
 
 ### Practice
+
+Recall Chebychev's bounds from section 1. Fill in the following table with the correct percentages for the bounds and approximations for the corresponding distributions.
+
+Percent in Range	All Distributions: Bound	Normal Distribution: Approximation<br/>
+average ± 1 SD	at least ____B____%	about ____D____%<br/>
+average ± 2 SDs	at least ____C____%	about ____E____%<br/>
+average ± ____A____ SDs	at least 88.888…%	about 99.73%<br/>
+
+    Ans: A: 3; B: 0; C: 75; D: 68; E: 95
 
 
