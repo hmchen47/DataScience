@@ -100,7 +100,6 @@
 
 ### Video
 
-
 <a href="https://edx-video.net/BERD83FD2018-V000600_DTH.mp4" alt="Lec 2.2 SD and Bell Curves" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
@@ -110,13 +109,34 @@
 ### Notes
 
 
-+ Demo
-    ```python
++ The Standard Normal Curve <br/>
+    A beautiful formula that we won’t use at all:
+    $$ \Phi(z) = \frac{1}{\sqrt{2\pi}} \exp^{-\frac{1}{2}z^2}, -\inf < x < \inf$$
 
-    ```
++ Bell Curve
+    <a href="http://enginclub.com/cap-and-bell-curve/">
+        <br/><img src="https://static1.squarespace.com/static/56b6f4247c65e4255b1b99cd/t/56c56a23859fd08f987297ce/1455778344901/?format=1000w" alt="THE BELL CURVE" width="450">
+    </a>
+
++ How Big are Most of the Values?
+    + __No matter what the shape of the distribution__, the bulk of the data are in the range “average ± a few SDs”
+    + __If a histogram is bell-shaped__, then almost all of the data are in the range “average ± 3 SDs”
+
++ Bounds and Normal Approximations
+
+    | Percent in Range | All Distributions | Normal Distribution |
+    |------------------|-------------------|---------------------|
+    | average ± 1 SD | at least 0% | about 68% |
+    | average ± 2 SD | at least 75% | about 95% |
+    | average ± 3 SD | at least 88.888...% | about 99.73% |
+
++ A "Central" Area
+    <a href="http://onlyinnewmexico.blogspot.com/2016/06/bell-curve.html">
+        <br/><img src="https://2.bp.blogspot.com/-18UoKVTOJSc/V2G3OaDjjFI/AAAAAAAAKd0/aRarcgwHY4klLu3k0xhU3eL6giWDi_RQACLcB/s400/bell_curve.gif" alt="Bell Curve" width="400">
+    </a>
+
 
 ### Video
-
 
 <a href="https://edx-video.net/BERD83FD2018-V000500_DTH.mp4" alt="Lec 2.3 Normal Distribution" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
