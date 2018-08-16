@@ -19,7 +19,7 @@ plots.style.use('fivethirtyeight')
 | `np.char.count(<data>, 'str')` | Count `str` appearance in `data` | [I-Lec 1.4 Demo: Little Women][002] |
 | `np.random.choice(ary, sample_size)` | randomly select an element from `ary` with sample size `size` | [I-Lec 13.3 Random Selection][028] |
 | `np.count_nonzero(ary)` | Count nonzero values in array `ary` | [I-Lec 13.3 Random Selection][028] |
-| `np.append(ary, val|aryA)` | append a value or array to `ary` | [I-Lec 13.7 For Statement][029] |
+| `np.append(ary, val\|aryA)` | append a value or array to `ary` | [I-Lec 13.7 For Statement][029] |
 
 
 
@@ -182,10 +182,7 @@ plots.style.use('fivethirtyeight')
 [028]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-133-random-selection
 [029]: ../DSFund-BerkeleyX/1-CompThinkWPython/13-Iteration.md#lec-137-for-statements
 [030]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
-<<<<<<< HEAD
 [031]: ../DSFund-BerkeleyX/2-Inferential/05-Hypothesis.md#lec-52-a-model-about-random-selection
-=======
-[031]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-52-a-model-about-random-selection
 [032]: ../DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
 
 
