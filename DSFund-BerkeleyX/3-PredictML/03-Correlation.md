@@ -262,8 +262,29 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 3.
 
+This corresponds to textbook section:
+
+[Chapter 15.1: Correlation](https://www.inferentialthinking.com/chapters/14/1/Properties_of_the_Mean)
+
+In section 3, we learned about correlation and linear association. These topics are important in prediction because drawing a line is one of the most common methods of predicting the value of one variable based on the value of another. We'll see more examples of this later in the course.
+
+Test your understanding of correlation and linear association with the following practice problem.
 
 ### Practice
+
+Below are six different scatter plots labeled a, b, c, d, e, and f.
+
+6 scatter plots labeled a, b, c, d, e, and f.
+
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/8b39d790e1f84ef1ab17edb4148a909a/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40f55ac8c6ec9b4dbea5e6791ae2d496ca">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2a8ea77eb57b08132efb334113a6b5eb/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/scatterplots.png" alt="Scatter plot a has data points in a very spare, negatively sloped cloud. Scatter plot b has data points in an almost straight, positively sloped line. Scatter plot c has data points in a spare, positively sloped cloud. Scatter plot d has data points in a barely straight, positively sloped line. Scatter plot e has data points in a spare, negatively sloped cloud. Scatter plot f has data points in a very straight, positively sloped line." width="600">
+</a>
+
+Order the scatter plots above in terms of least to greatest correlation coefficient.
+
+    Ans: $e < a < c < d < b < f$
+
 
 
