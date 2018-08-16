@@ -10,7 +10,6 @@ plots.style.use('fivethirtyeight')
 
 
 # ## Standard Units ##
-
 # **Please run all cells before this cell, including the import cell at the top of the notebook.**
 
 def standard_units(x):
