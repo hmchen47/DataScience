@@ -35,16 +35,6 @@
 
 + Demo
     ```python
-    def r_scatter(r):
-        plots.figure(figsize=(5,5))
-        "Generate a scatter plot with a correlation approximately r"
-        x = np.random.normal(0, 1, 1000)
-        z = np.random.normal(0, 1, 1000)
-        y = r*x + (np.sqrt(1-r**2))*z
-        plots.scatter(x, y, color='darkblue', s=20)
-        plots.xlim(-4, 4)
-        plots.ylim(-4, 4)
-
     galton = Table.read_table('galton.csv')
 
     heights = Table().with_columns(
@@ -94,10 +84,100 @@
 
 ### Notes
 
++ Correlation Formula
+    <a href="http://www.socialresearchmethods.net/kb/statcorr.php">
+        <br/><img src="http://www.socialresearchmethods.net/kb/Assets/images/corrform1.gif" alt="Correlation Formula" width="450">
+    </a>
+
++ The Correlation Coefficient $r$
+    + Measures __linear__ association
+    + Based on standard units
+    + $-1 ≤ r ≤ 1$
+        + $r = 1$: scatter is perfect straight line sloping up
+        + $r = -1$: scatter is perfect straight line sloping down
+    + $r = 0$: No linear association; _uncorrelated_
+
++ Definition of $r$
+    + Correlation Coefficient (r) = average of | product of | x in standard units | and | y in standard unit
+    + Measures how clustered the scatter is around a straight line
+
++ Operations that Leave $r$ Unchanged <br/>
+    The correlation coefficient is not effected by:
+    + Changing the units of measurement of the data 
+        + Because $r$ is based on standard units
+    + Which variable is plotted on the horizontal axis and which on the vertical
+        + Because the product of standard units is the same wither way
 
 + Demo
     ```python
+    def r_scatter(r):
+        plots.figure(figsize=(5,5))
+        "Generate a scatter plot with a correlation approximately r"
+        x = np.random.normal(0, 1, 1000)
+        z = np.random.normal(0, 1, 1000)
+        y = r*x + (np.sqrt(1-r**2))*z
+        plots.scatter(x, y, color='darkblue', s=20)
+        plots.xlim(-4, 4)
+        plots.ylim(-4, 4)
 
+    # Draws a scatter diagram of variables that have the specified correlation
+    r_scatter(0.6)
+    r_scatter(0)
+
+    # ### Calculating $r$ ###
+    x = np.arange(1, 7, 1)
+    y = make_array(2, 3, 1, 5, 2, 7)
+    t = Table().with_columns(
+            'x', x,
+            'y', y
+        )
+    # t = (x, y): {(1, 2), (2, 3), (3, 1), (4, 5), (5, 2), (6, 7)}
+
+    t.scatter('x', 'y', s=30, color='red')  # positive; linear with break
+
+    t= t.with_columns(
+            'x (standard units)', standard_units(x),
+            'y (standard units)', standard_units(y)
+        )
+    # x   y   x (standard units)    y (standard units)
+    # 1   2   -1.46385              -0.648886
+    # 2   3   -0.87831              -0.162221
+    # 3   1   -0.29277              -1.13555
+    # 4   5    0.29277               0.811107
+    # 5   2    0.87831              -0.648886
+    # 6   7    1.46385               1.78444
+
+    su_product = t.column(2) * t.column(3)
+    t = t.with_column('product of standard units', su_product)
+    # x   y   x (standard units)  y (standard units)  product of standard units
+    # 1   2   -1.46385            -0.648886            0.949871
+    # 2   3   -0.87831            -0.162221            0.142481
+    # 3   1   -0.29277            -1.13555             0.332455
+    # 4   5    0.29277             0.811107            0.237468
+    # 5   2    0.87831            -0.648886           -0.569923
+    # 6   7    1.46385             1.78444             2.61215
+
+    # r is the average of the products of standard units
+    r = np.mean(t.column(4))        # 0.6174163971897709
+
+    def correlation(tbl, x, y):
+        """tbl is a table; 
+        x and y are column labels"""
+        x_in_standard_units = standard_units(tbl.column(x))
+        y_in_standard_units = standard_units(tbl.column(y))
+        return np.average(x_in_standard_units * y_in_standard_units)  
+
+    correlation(t, 'x', 'y')            # 0.6174163971897709
+    correlation(suv, 'mpg', 'msrp')     # -0.6667143635709919
+
+    # switching x and y axis values
+    correlation(t, 'x', 'y')            # 0.6174163971897709
+    correlation(t, 'y', 'x')            # 0.6174163971897709
+
+    t.scatter('x', 'y', s=30, color='red')
+    t.scatter('y', 'x', s=30, color='red')
+
+    correlation(t, 'y', 'x')            # 0.6174163971897709
     ```
 
 ### Video
