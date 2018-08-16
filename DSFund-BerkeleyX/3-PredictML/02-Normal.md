@@ -146,10 +146,44 @@
 
 ### Notes
 
++ Second Reason for Using the SD
+    + If the sample is
+        + large, and
+        + drawn at random with replacement,
+    + Then, regardless of the distribution of the population, <br/>
+        __the probability distribution of the sample sum (or of the sample average)__ is roughly normal
+
++ Sample Averages
+    + Often, we only have a sample; we don't know much about the population from which it was drawn.
+    + The Central Limit Theorem says that the probability distribution of the average of a large number sample is roughly norma;, regardless of the distribution of the population.
+    + This allows us to make inferences based on averages of large random samples.
 
 + Demo
     ```python
+    united = Table.read_table('united_summer2015.csv')
+    # Date      Flight Number   Destination     Delay
+    # 6/1/15    73              HNL	            257
+    # 6/1/15    217             EWR	            28
+    # 6/1/15    237             STL	            -3
+    # ... (rows omitted)
 
+    united.hist('Delay', bins = np.arange(-20, 300, 10), ec='w')
+
+    sample_size = 500
+    averages = make_array()
+
+    for i in np.arange(10000):
+        sampled_flights = united.sample(sample_size)
+        sample_average = np.average(sampled_flights.column('Delay'))
+        averages = np.append(averages, sample_average)
+
+    Table().with_column('Sample Average', averages).hist(bins = 25, ec='w')
+    plots.title('Sample Averages: Sample Size ' + str(sample_size))
+    plots.xlabel('Random Sample Average');
+
+    # Population average
+    pop_ave = np.average(united.column('Delay'))
+    # 16.658155515370705 -> from random samples
     ```
 
 ### Video
