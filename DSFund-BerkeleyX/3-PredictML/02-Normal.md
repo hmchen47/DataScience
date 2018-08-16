@@ -68,7 +68,6 @@
 
 ### Video
 
-
 <a href="https://edx-video.net/BERD83FD2018-V000700_DTH.mp4" alt="Lec 2.1 Standard Units" target="_blank">
   <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
@@ -77,10 +76,26 @@
 
 ### Notes
 
++ The SD and the Histogram
+    + Usually, it's not easy to estimate the SD by looking at a histogram.
+    + But if the histogram has a bell shape, then you can.
+
++ The SD and Bell-Shaped Curves <br/>
+    If a histogram is bell-shaped, then
+    + the average is at the center
+    + the SD is the distance between the average and the points of inflection on either side
 
 + Demo
     ```python
+    births.hist('Maternal Height', bins = np.arange(56.5, 72.6, 1), ec = 'w')
 
+    heights = births.column('Maternal Height')
+    np.average(heights), np.std(heights)    # (64.04940374787053, 2.5250254409674375)
+
+    births.hist('Birth Weight', ec = 'w')
+
+    bw = births.column('Birth Weight')
+    np.average(bw), np.std(bw)              # (119.46252129471891, 18.32086370220278)
     ```
 
 ### Video
