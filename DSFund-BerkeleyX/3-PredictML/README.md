@@ -23,6 +23,10 @@
     + [Lec 3.3 Interpretation](./03-Correlation.md#)
     + [Reading and Practice](./03-Correlation.md#)
 
++ [Lab 1: Sample Means and Correlation](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/83f3c67624ff4a21925587722b381e91/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40cbe2e3674aaf4dff8dc5929dda2aaea3)
+    + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/materials/x18/lab/3/lab01/lab01.ipynb#)
+    + [Local Notebook](./labs/lab01.ipynb)
+
 
 
 
