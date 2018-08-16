@@ -3,16 +3,16 @@
 ## Data Science
 
 + Foundations of Data Science - BerkeleyX
-    1. [Computational Thinking with Python - Data8.1x](./DSFund-BerkeleyX/1-CompThinkWPython/README.md)
-    2. [Inferential Thinking by Resampling - Data8.2x](./DSFund-BerkeleyX/2-Inferential/README.md)
-    3. [Foundations of Data Science: Prediction and Machine Learning - Data8.3x](./DSFund-BerkeleyX/3-PredictML/README.md)
+    1.  [Computational Thinking with Python - Data8.1x](./DSFund-BerkeleyX/1-CompThinkWPython/README.md)
+    2.  [Inferential Thinking by Resampling - Data8.2x](./DSFund-BerkeleyX/2-Inferential/README.md)
+    3.  [Foundations of Data Science: Prediction and Machine Learning - Data8.3x](./DSFund-BerkeleyX/3-PredictML/README.md)
 
 + Applied Data Science with Python - UMich & Coursera
-    1. [Introduction to Data Science in Python](./AppliedDS-UMich/1-IntroDS/README.md)
-    2. [Applied Plotting, Charting & Data Representation in Python](./AppliedDS-UMich/2-InfoVis/README.md)
-    3. [Applied Machine Learning in Python]
-    4. [Applied Text Mining in Python]
-    5. [Applied Social Network Analysis in Python]
+    1.  [Introduction to Data Science in Python](./AppliedDS-UMich/1-IntroDS/README.md)
+    2.  [Applied Plotting, Charting & Data Representation in Python](./AppliedDS-UMich/2-InfoVis/README.md)
+    3.  [Applied Machine Learning in Python]
+    4.  [Applied Text Mining in Python]
+    5.  [Applied Social Network Analysis in Python]
 
 ## Machine Learning
 
