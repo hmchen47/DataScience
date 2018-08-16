@@ -1,4 +1,4 @@
-https://www.lulu.com/# Python Reference Cards for UC Berkeley DataScience package
+# Python Reference Cards for UC Berkeley DataScience package
 
 ## Typical Programming Environment
 
