@@ -99,6 +99,10 @@
         + $r = 1$: scatter is perfect straight line sloping up
         + $r = -1$: scatter is perfect straight line sloping down
     + $r = 0$: No linear association; _uncorrelated_
+    
+    <a href="url">
+        <img src="./diagrams/lec3-1.png" alt="text" width="600">
+    </a>
 
 + Definition of $r$
     + Correlation Coefficient (r) = average of | product of | x in standard units | and | y in standard unit
@@ -193,10 +197,59 @@
 
 ### Notes
 
++ Causal Conclusions: Be careful ...
+    + Correlation measures linear association
+    + Association doesn't imply causation
+    + Just because two variables are correlated, that doesn't mean one causes the other
+
++ Non-linearity and Outliers : uncorrelated
+    + Both of these can affect correlation
+    + Draw a scatter plot before you decide to compute $r$
+
++ Ecological Correlation
+    + Correlations based on groups or aggregated data
+    + These can be misleading, e.g., they can be artificially high
 
 + Demo
     ```python
+    # ### Nonlinearity ###
+    new_x = np.arange(-4, 4.1, 0.5)
+    nonlinear = Table().with_columns(
+            'x', new_x,
+            'y', new_x**2
+        )
+    nonlinear.scatter('x', 'y', s=30, color='r')    # Upward probabilstic curve
+    correlation(nonlinear, 'x', 'y')        # 0.0 -> uncorrelated, not linear
 
+    # ### Outliers ###
+    line = Table().with_columns(
+            'x', make_array(1, 2, 3, 4),
+            'y', make_array(1, 2, 3, 4)
+        )
+    line.scatter('x', 'y', s=30, color='r')
+
+    correlation(line, 'x', 'y')             # 1.0
+
+    outlier = Table().with_columns(
+            'x', make_array(1, 2, 3, 4, 5),
+            'y', make_array(1, 2, 3, 4, 0)
+        )
+    outlier.scatter('x', 'y', s=30, color='r')
+
+    correlation(outlier, 'x', 'y')          # 0.0 - > outlier
+
+    # ### Ecological Correlation ###
+    sat2014 = Table.read_table('sat2014.csv').sort('State')
+    # State       Participation   Critical    Math    Writing     Combined
+    #             Rate            Reading
+    # Alabama     6.7             547         538     532         1617
+    # Alaska      54.2            507         503     475         1485
+    # Arizona     36.4            522         525     500
+    # ... (rows omitted)
+
+    sat2014.scatter('Critical Reading', 'Math')         # only 51 pts that are averages of states
+
+    correlation(sat2014, 'Critical Reading', 'Math')    # 0.9847558411067434
     ```
 
 ### Video
