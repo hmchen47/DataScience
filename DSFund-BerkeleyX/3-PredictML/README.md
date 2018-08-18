@@ -30,20 +30,20 @@
 
 ## Week 2
 
-+ [Section 4: Regression (Lec 4.1 - Lec 4.5)](./03-Regression.md)
-    + [Lec 4.1 Prediction](./03-Regression.md#)
-    + [Lec 4.2 Linear Regression](./03-Regression.md#)
-    + [Lec 4.3 Regression to the Mean](./03-Regression.md#)
-    + [Lec 4.4 Regression Equation](./03-Regression.md#)
-    + [Lec 4.5 Interpreting the Slope](./03-Regression.md#)
-    + [Reading and Practice for Section 4](./03-Regression.md#)
++ [Section 4: Regression (Lec 4.1 - Lec 4.5)](./04-Regression.md)
+    + [Lec 4.1 Prediction](./04-Regression.md#)
+    + [Lec 4.2 Linear Regression](./04-Regression.md#)
+    + [Lec 4.3 Regression to the Mean](./04-Regression.md#)
+    + [Lec 4.4 Regression Equation](./04-Regression.md#)
+    + [Lec 4.5 Interpreting the Slope](./04-Regression.md#)
+    + [Reading and Practice for Section 4](./04-Regression.md#)
 
-+ [Section 5: Least Squares (Lec 5.1 - Lec 5.4)](./04-LeastSquare.md)
-    + [Lec 5.1 Linear Regression Review](./04-LeastSquare.md#)
-    + [Lec 5.2 Discussion Question](./04-LeastSquare.md#)
-    + [Lec 5.3 Squared Error](./04-LeastSquare.md#)
-    + [Lec 5.4 Least Squares](./04-LeastSquare.md#)
-    + [Reading and Practice for Section 5](./04-LeastSquare.md#)
++ [Section 5: Least Squares (Lec 5.1 - Lec 5.4)](./05-LeastSquare.md)
+    + [Lec 5.1 Linear Regression Review](./05-LeastSquare.md#)
+    + [Lec 5.2 Discussion Question](./05-LeastSquare.md#)
+    + [Lec 5.3 Squared Error](./05-LeastSquare.md#)
+    + [Lec 5.4 Least Squares](./05-LeastSquare.md#)
+    + [Reading and Practice for Section 5](./05-LeastSquare.md#)
 
 + [Lab 2: Regression]
     + [Wen Notebook]
