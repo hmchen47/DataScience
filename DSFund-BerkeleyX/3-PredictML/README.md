@@ -36,14 +36,14 @@
     + [Lec 4.3 Regression to the Mean](./04-Regression.md#)
     + [Lec 4.4 Regression Equation](./04-Regression.md#)
     + [Lec 4.5 Interpreting the Slope](./04-Regression.md#)
-    + [Reading and Practice for Section 4](./04-Regression.md#)
+    + [Reading and Practice](./04-Regression.md#)
 
 + [Section 5: Least Squares (Lec 5.1 - Lec 5.4)](./05-LeastSquare.md)
     + [Lec 5.1 Linear Regression Review](./05-LeastSquare.md#)
     + [Lec 5.2 Discussion Question](./05-LeastSquare.md#)
     + [Lec 5.3 Squared Error](./05-LeastSquare.md#)
     + [Lec 5.4 Least Squares](./05-LeastSquare.md#)
-    + [Reading and Practice for Section 5](./05-LeastSquare.md#)
+    + [Reading and Practice](./05-LeastSquare.md#)
 
 + [Lab 2: Regression]
     + [Wen Notebook]
