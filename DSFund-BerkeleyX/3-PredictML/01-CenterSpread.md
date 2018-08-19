@@ -146,7 +146,7 @@
 
 + How Far from the Average?
     + Standard deviation (SD) measures roughly how far the data are from their average
-    + __SD = root (5) mean (4) square (3) of deviations (2) from average (1) - (#) indicates the calculation step__
+    + __SD = root (5) mean (4) square (3) of deviations (2) from average (1)__ - (#) indicates the calculation step
     + SD has the same units as the data
 
 + Why Use the SD? - There are two main reasons.
