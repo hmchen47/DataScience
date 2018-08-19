@@ -242,6 +242,10 @@
 
     $$\text{intercept of the regression line} = \text{average of } y - \text{slope } \dot \text{average of } x $$
 
++ Scatter Plots of Other Shapes
+    + We have been able to come up with a good straight line to use for prediction when the scatter diagram is football shaped.
+    + The __same equation__ gives the best straight line to use for prediction __no matter what the shape of the scatter diagram__.
+
 + Demo
     ```python
     def standard_units(x):
