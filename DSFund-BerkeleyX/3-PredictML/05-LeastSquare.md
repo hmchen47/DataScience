@@ -4,15 +4,24 @@
 
 ### Note
 
-    <a href="url">
-        <br/><img src="url" alt="text" width="450">
++ Regression Line
+    <a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/11f472f1d45d411993d1f696435f7d51/ec06aa8ad4eb4e30ae9bea5c093e0454/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%4083cd119349084de2915411d56e9e3056">
+        <br/><img src="./diagrams/lec4-1.png" alt="Regression Line" width="400">
     </a>
 
++ Regression Line Equation <br/>
+    In original units, the regression line has this equation:
 
-+ Demo
-    ```python
+    $$\frac{\text{estimate of } y - \text{average of } y}{|text{SD of }y} = r \times \frac{\text{the given } x - \text{average of } x}{\text{SD of } x}$$
 
-    ```
+    where the left-hand formula is "y in standard units" and the right-hand formula is "x in standard units".
+
+    $$y = \text{slope } \times x + \text{intercept}$$
+
+    $$\text{slope of the regression line} = r \times \frac{\text{SD of} y}{\text{SD of } x}$$
+
+    $$\text{intercept of the regression line} = \text{average of } y - \text{slope } \times \text{average of } x$$
+
 
 ### Video
 
