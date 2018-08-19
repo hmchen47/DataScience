@@ -102,10 +102,10 @@
     + Convert the given x to standard units
     + Multiply by r
     + That’s the regression estimate of y, but:
-        + It’s in standard units: $\text{estimat of} y_{(su)} = r \times \text{given } x_{(su)}$
+        + It’s in standard units: $\text{estimate of } y_{(su)} = r \times \text{given } x_{(su)}$
         + So covert it back to the original units of y
 
-+ Question <br/>
++ Question
     + The scatter plot of the lengths and wights of adult mountain lions is roughly football shaped.
         + Weights: average 84 inches, SD 8 inches
         + Weights: average 125 pounds, SD 15 pounds
@@ -211,8 +211,9 @@
 ### Notes
 
 
-+ Regression in Standard Units <br/>
-    $$\text{estimate if } y_{(su)} = r \times \text{given } x_{(su)}$$
++ Regression in Standard Units
+
+    $$\text{estimate of } y_{(su)} = r \times \text{given } x_{(su)}$$
 
     When the variable are measured in standard units, the regression line passes 
     + through the point $(0, 0)$ 
@@ -227,20 +228,20 @@
 
     + In standard units, the equation is
 
-        $$\text{estimate if } y_{(su)} = r \times \text{given } x_{(su)}$$
+        $$\text{estimate of } y_{(su)} = r \times \text{given } x_{(su)}$$
     + Rewrite this using the definition oof standard units.
 
-        $$ \frac{\text{estimate of } y - \text{average of } y}{\text{ SD of }y} =  r \frac{\text{the given } x - \text{average of } x}{\text{SD of } x} $$
+        $$ \frac{\text{estimate of } y - \text{average of } y}{\text{ SD of }y} =  r \times \frac{\text{the given } x - \text{average of } x}{\text{SD of } x} $$
 
-        where the left-hand equation is the estimated y in standard units and the right-hand equation is the x in standard units
+        where the left-hand equation is the estimated $y$ in standard units and the right-hand equation is the $x$ in standard units
 
 + Express Lines by Slope and Intercept
 
     $$\text{estimate of } y = \text{ slope } \times x + \text{ intercept } $$
 
-    $$\text{slope of the regression line } = r \dot \frac{\text{ SD of } y}{\text{SD of } x} $$
+    $$\text{slope of the regression line } = r \times \frac{\text{ SD of } y}{\text{SD of } x} $$
 
-    $$\text{intercept of the regression line} = \text{average of } y - \text{slope } \dot \text{average of } x $$
+    $$\text{intercept of the regression line } = \text{average of } y - \text{slope } \times \text{average of } x $$
 
 + Scatter Plots of Other Shapes
     + We have been able to come up with a good straight line to use for prediction when the scatter diagram is football shaped.
@@ -273,11 +274,11 @@
 
     galton_slope = slope(heights, 'MidParent', 'Child')
     galton_intercept = intercept(heights, 'MidParent', 'Child')
-    galton_slope, galton_intercept      $ (0.637360896969479, 22.63624054958975)
+    galton_slope, galton_intercept      # (0.637360896969479, 22.63624054958975)
 
     heights.take(123)
-    # MidParent    Child   Original    Prediction
-    # 69.48             71.5        66.7588
+    # MidParent    Child   Original Prediction
+    # 69.48        71.5    66.7588
 
     galton_slope * 69.48 + galton_intercept
     # 66.92007567102915
@@ -331,14 +332,67 @@
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
-
 ## Reading and Practice
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 4.
 
+This corresponds to textbook section:
+
+[Chapter 15.2: The Regression Line](https://www.inferentialthinking.com/chapters/15/2/Regression_Line)
+
+In section 4, we learned about the regression line, the regression equation, and using regression as a means of prediction. In regression, we use the value of one variable (which we will call "x") to predict the value of another (which we will call "y"). To calculate the regression equation, we use correlation, which we learned about last section, to compute the regression line's slope and intercept.
 
 ### Practice
+
+The `water` table below contains one row per country with data from 2014. The `OBS_VALUE` column represents the approximate price of a $1.5$ liter bottle of mineral water in that country, and the `mm_precipitation` column represents the average precipitation in that country (in millimeters).
+
+Water Table
+
+| COUNTRY  | OBS_VALUE  | mm_precipitation |
+|----------|------------|------------------|
+| Albania  | .55  | 1485 |
+| Algeria  | .027  | 89 |
+| Angola  | 1  | 1010 |
+| Argentina  | 1.29667  | 591 |
+| Armenia  | 0.5325  | 562 |
+| Australia  | 2.07302  | 534 |
+| Austria  | 0.72  | 1110 |
+| Azerbaijan  | 0.576  | 447 |
+| Bangladesh  | 0.374  | 2666 |
+| Belarus  | 0.7675  | 618 |
+|... (89 rows omitted) | |
+
+
+The next table below contains calculations along with a scatterplot from the `water` table.
+
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/11f472f1d45d411993d1f696435f7d51/c600807c4b78445eacffee2f0f53339a/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40672c3159d4f84f0abf3184d5537944e8">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e9c0558f5d966ed4e1393f406352d7bf/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/info.png" alt="Table of calculations from data in the water table. These are the expressions and values. np.average(water.column('OBS_VALUE')) = 0.919016; np.std(water.column('OBS_VALUE')) = 0.464763; np.average(water.column('mm_precipitation')) = 1010.4; p.std(water.column('mm_precipitation')) = 752.475; correlation(water, 'OBS_VALUE', 'mm_precipitation') = 0.262079 " width="350">
+</a>
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/11f472f1d45d411993d1f696435f7d51/c600807c4b78445eacffee2f0f53339a/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40672c3159d4f84f0abf3184d5537944e8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e0ceae2e28452f05c04fa4b79d997682/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/water_scatter.png" alt="Scatter plot of data from the water table. OBS_VALUE on the x-axis and mm_precipitation on the y-axis. There is no clear correlation." width="300">
+</a>
+
+What is the value of correlation(water, ‘mm_precipitation’, ‘OBS_VALUE’)?
+
+    Ans: 
+ 
+What is the slope for the equation of the regression line of the data in the water table for finding the OBS_VALUE y using the mm_precipitation x?
+
+    Ans: 
+ 
+What is the intercept for the equation of the regression line of the data in the water table for finding the OBS_VALUE y using the mm_precipitation x?
+
+    Ans:  
+ 
+Using the regression line equation, what would we expect the OBS_VALUE to be in 2014 for a country that had an average of 700 mm of precipitation?
+
+    Ans: 
+ 
+Is this a good equation to use for predicting price from precipitation?
+
+    Ans: 
 
 
 
