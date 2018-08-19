@@ -34,14 +34,34 @@
 
 ### Note
 
-    <a href="url">
-        <br/><img src="url" alt="text" width="450">
-    </a>
-
++ Discussion Question
+    + A course has a midterm (average $70$; standard deviation $10$) and a really hard final (average $50$; standard deviation $12$)
+    + If the scatter diagram comparing midterm & final scores for students has a typical oval shape with correlation $0.75$, then...
+    + What do you expect the average final score would be for students who scored $90$ on the midterm?
+    + How about $60$ on the midterm?
 
 + Demo
     ```python
+    x_mean = 70
+    x_sd = 10
+    y_mean = 50
+    y_sd = 12
+    r = 0.75
 
+    midterm_score = 90
+    x = midterm_score
+    (((x - x_mean) / x_sd) * r * y_sd) + y_mean     # 68
+
+    midterm_score = 60
+    x = midterm_score
+    (((x - x_mean) / x_sd) * r * y_sd) + y_mean     # 41
+
+    # y = a * x + b
+    a = r * (y_sd / x_sd)
+    b = y_mean - a * x_mean
+
+    a * 90 + b                                      # 68
+    a * 60 + b                                      # 41
     ```
 
 ### Video
