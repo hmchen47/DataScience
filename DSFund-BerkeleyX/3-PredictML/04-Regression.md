@@ -174,15 +174,32 @@
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
-
 ## Lec 4.3 Regression to the Mean
 
 ### Notes
 
-
-    <a href="url">
-        <br/><img src="url" alt="text" width="450">
++ Sire Francis Gatlon, 1822-1911 <br/>
+    Regression Towards Mediocrity in Hereditary Stature, Journal of Anthropological Institute, 1886, 15:246-63
+    <a href="https://en.wikipedia.org/wiki/Francis_Galton">
+        <br/><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Francis_Galton_1850s.jpg" alt="Francis Galton
+" width="150">
     </a>
+
++ Regression to the Mean
+
+    $$\text{estimate of } y_{(su)} = r \times \text{given } x_{(su)}$$
+
+    + The regression estimate of $y$ is closer to the mean than the given value of $x$ is
+    + The regression estimate is an average.  _On average_, the values of $y$ at a fixed $x$ are closer to the mean than $x$ is.
+    + "Regression to the mean" is a statement about averages.  It is not for all individuals.
+    + A statement about $x$ and $$ pairs
+        + Measured in standard units
+        + Describing the deviation of $x$ from $0$ (the average of x's)
+        + And the deviation of $y$ from $0$ (the average of y's)
+    + On average, $y$ deviates from $0$ less than $$ deviates from $0$
+        + where $y$ is regression line, $r$ is correlation <br/>
+        + Not true for all points — a statement about averages
+
 
 + Demo
     ```python
