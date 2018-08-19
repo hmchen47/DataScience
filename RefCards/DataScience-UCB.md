@@ -147,7 +147,7 @@ plots.style.use('fivethirtyeight')
 |----------|-------------|------|
 | `sample_proportions(sample_size, probabilities)` | Return the proportion of random draws for each outcome in a distribution | [II-Lec 5.2 Random Selection][031] |
 | `percentile(p, arr=None)` | Returns the pth percentile of the input array (the value that is at least as great as p% of the values in the array) | [Percentiles][032] |
-
+| `minimize(f, start=None, smooth=False, log=None, array=False, **vargs)` | Minimize a function f of one or more arguments | [III-Lec 5.4 Least Squares][033] |
 
 
 -------------------
@@ -184,6 +184,7 @@ plots.style.use('fivethirtyeight')
 [030]: ../DSFund-BerkeleyX/2-Inferential/04-SamplingSimulation.md#lec-42-sampling
 [031]: ../DSFund-BerkeleyX/2-Inferential/05-Hypothesis.md#lec-52-a-model-about-random-selection
 [032]: ../DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
+[033]: ../DSFund-BerkeleyX/3--PredictML/05-LeastSquare.md#lec-54-least-squares
 
 
 

@@ -199,14 +199,60 @@
 
 ### Note
 
-    <a href="url">
-        <br/><img src="url" alt="text" width="450">
-    </a>
++ Least Squares Line
+    + Minimizes the root mean squared error (rmse) among all lines
+    + Equivalently, minimizes the mean squared error (mse) among all lines
+    + Names:
+        + “Best fit” line
+        + Least squares line
+        + Regression line
 
++ Numerical Optimization
+    + Numerical minimization is approximate but effective
+    + Lots of machine learning uses numerical minimization
+    + If the function `mse(a, b)` returns the mse of estimation using the line “estimate = ax + b”,
+        + then minimize(mse)returns array $[a_0, b_0]$
+        + $a_0$ is the slope and $b_o$ the intercept of the line that minimizes the mse among lines with arbitrary slope $a$ and arbitrary intercept $b$ (that is, among all lines)
+
++ `minimize` fucntion
+    + Signature: `minimize(f, start=None, smooth=False, log=None, array=False, **vargs)`
+    + Docstring: Minimize a function f of one or more arguments.
+    + Args:
+        + `f`: A function that takes numbers and returns a number
+        + `start`: A starting value or list of starting values
+        + `smooth`: Whether to assume that f is smooth and use first-order info
+        + `log`: Logging function called on the result of optimization (e.g. print)
+        + `vargs`: Other named arguments passed to scipy.optimize.minimize
+    + Returns either:
+        + the minimizing argument of a one-argument function
+        + an array of minimizing arguments of a multi-argument function
 
 + Demo
     ```python
+    def f(x):
+        return (x - 3) ** 2 + 1
 
+    [f(1), f(2), f(3), f(4), f(5)]      # [5, 2, 1, 2, 5]
+    minimize(f)                         # 2.999999999968361
+    f(minimize(f))                      # 1.0
+    f(3)                                # 1
+    f(3.1)                              # 1.01
+    f(2.9)                              # 1.01
+
+    def lw_mse(any_slope, any_intercept):
+        x = little_women.column(0)
+        y = little_women.column(1)
+        predicted = any_slope * x + any_intercept
+        return np.mean((y - predicted) ** 2)
+
+    lw_rmse(50, 10000)
+    # Slope:     50 characters per period
+    # Intercept: 10000 characters
+    # Root mean squared error: 4322.167831766537
+    lw_mse(50, 10000) ** 0.5        # 4322.167831766537
+    minimize(lw_mse)                # array([  86.97784117, 4744.78484535])
+    slope(little_women, 0, 1)       # 86.97784125829821
+    intercept(little_women, 0, 1)   # 4744.784796574928
     ```
 
 ### Video
