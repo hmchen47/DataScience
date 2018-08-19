@@ -309,16 +309,21 @@
 
 ### Notes
 
++ Units of Slope
+    + Population of adult mountain lions
+    + Estimate length based on weight
+        + Length: average 84 inches, SD 8 inches
+        + Weights: average 125 pounds, SD 15 pounds
+        + correlation between length and weight: 0.6
+    + Slope of regression line: $0.6 x 8 \text{ inches } / 15 \text{ pounds } = 0.32 \text{ inches per pound}$
+    + Units of slope: __unites of y per unit of x__
 
-    <a href="url">
-        <br/><img src="url" alt="text" width="450">
-    </a>
-
-
-+ Demo
-    ```python
-
-    ```
++ Interpretation
+    + Slope = $0.32$ inches per pound
+    + The difference between the average lengths of two groups that differ by 1 pound in weight
+        + Fix a weight and consider the group of all mountain lions of that weight
+        + Now consider all the mountain lions that weight 1 more pound than the first group
+        + The heavier group is estimated to be $0.32$ inches longer, on average
 
 ### Video
 
