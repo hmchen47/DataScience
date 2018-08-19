@@ -266,9 +266,43 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 5.
 
+This corresponds to textbook section:
+
+[Chapter 15.2: The Method of Least Squares](https://www.inferentialthinking.com/chapters/15/3/Method_of_Least_Squares)
+
+In section 5, we reviewed regression and learned more about errors and the method of least squares. One of the most important concepts to take away from these lectures is that the regression line is the line that minimizes the root mean squared error.
+
+Test your conceptual understanding with the following true/false questions.
 
 ### Practice
+
+Are the following statements true or false?
+
+Q1. Linear correlation implies causation.
+
+    Ans False
+
+Q2. Causation implies linear correlation.
+
+    Ans False
+
+Q3. The least squares method is a way to generate a regression line.
+
+    Ans True
+
+Q4. We can calculate a "best fit" regression line by minimizing the mean error.
+
+    Ans False
+
+Q5. The regression line is the only line that minimizes mean squared error.
+
+    Ans True
+
+Q6. No matter what the shape of the scatter plot, there is a unique line that minimizes the mean squared error of estimation.
+
+    Ans: True
 
 
 
