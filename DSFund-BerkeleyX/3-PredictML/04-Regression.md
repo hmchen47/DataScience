@@ -26,10 +26,10 @@
 
 + Galton's Heights
     <a href="url">
-        <br/><img src="./diagrams/lec4-2.png" alt="Estimate of 68 in" width="300">
+        <br/><img src="./diagrams/lec4-2.png" alt="Estimate of 68 in" width="250">
     </a>
     <a href="url">
-        <img src="./diagrams/lec4-3.png" alt="Estimates of all heights" width="300">
+        <img src="./diagrams/lec4-3.png" alt="Estimates of all heights" width="305">
     </a>
 
 + Nearest Neighbor Regression
@@ -200,45 +200,110 @@
         + where $y$ is regression line, $r$ is correlation <br/>
         + Not true for all points — a statement about averages
 
-
-+ Demo
-    ```python
-
-    ```
-
 ### Video
 
 <a href="https://edx-video.net/BERD83FD2018-V001300_DTH.mp4" alt="Lec 4.3 Regression to the Mean" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
-
 ## Lec 4.4 Regression Equation
 
 ### Notes
 
 
++ Regression in Standard Units <br/>
+    $$\text{estimate if } y_{(su)} = r \times \text{given } x_{(su)}$$
+
+    When the variable are measured in standard units, the regression line passes 
+    + through the point $(0, 0)$ 
+    + has slope $r$
+
++ Regression Line
     <a href="url">
-        <br/><img src="url" alt="text" width="450">
+        <br/><img src="./diagrams/lec4-1.png" alt="Regression Line in Standard and Original Units" width="400">
     </a>
+
++ Rewriting the 
+
+    + In standard units, the equation is
+
+        $$\text{estimate if } y_{(su)} = r \times \text{given } x_{(su)}$$
+    + Rewrite this using the definition oof standard units.
+
+        $$ \frac{\text{estimate of } y - \text{average of } y}{\text{ SD of }y} =  r \frac{\text{the given } x - \text{average of } x}{\text{SD of } x} $$
+
+        where the left-hand equation is the estimated y in standard units and the right-hand equation is the x in standard units
+
++ Express Lines by Slope and Intercept
+
+    $$\text{estimate of } y = \text{ slope } \times x + \text{ intercept } $$
+
+    $$\text{slope of the regression line } = r \dot \frac{\text{ SD of } y}{\text{SD of } x} $$
+
+    $$\text{intercept of the regression line} = \text{average of } y - \text{slope } \dot \text{average of } x $$
 
 + Demo
     ```python
+    def standard_units(x):
+        return (x - np.average(x))/np.std(x)
 
+    def correlation(t, x, y):
+        x_su = standard_units(t.column(x))
+        y_su = standard_units(t.column(y))
+        return np.average(x_su * y_su)
+
+    def slope(t, x, y):
+        r = correlation(t, x, y)
+        return r * np.std(t.column(y))/np.std(t.column(x))
+
+    def intercept(t, x, y):
+        a = slope(t, x, y)
+        return np.average(t.column(y)) - a*np.average(t.column(x))
+
+    heights
+    # MidParent  Child   Original Prediction
+    # 75.43      73.2    70.1
+    # 75.43      69.2    70.1
+    # 75.43      69      70.1
+    # ... (rows omitted)
+
+    galton_slope = slope(heights, 'MidParent', 'Child')
+    galton_intercept = intercept(heights, 'MidParent', 'Child')
+    galton_slope, galton_intercept      $ (0.637360896969479, 22.63624054958975)
+
+    heights.take(123)
+    # MidParent    Child   Original    Prediction
+    # 69.48             71.5        66.7588
+
+    galton_slope * 69.48 + galton_intercept
+    # 66.92007567102915
+
+    def fitted_values(t, x, y):
+        a = slope(t, x, y)
+        b = intercept(t, x, y)
+        return a * t.column(x) + b
+
+    regression_predictions = fitted_values(heights, 'MidParent', 'Child')
+
+    heights = heights.with_column(
+        'Regression Prediction', regression_predictions
+    )
+    # MidParent     Child   Original Prediction     Regression Prediction
+    # 75.43         73.2    70.1                    70.7124
+    # 75.43         69.2    70.1                    70.7124
+    # ... (rows omitted)
+
+    heights.scatter('MidParent')
     ```
-
 ### Video
-
 
 <a href="https://edx-video.net/BERD83FD2018-V001600_DTH.mp4" alt="Lec 4.4 Regression Equation" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
-
 ## Lec 4.5 Interpreting the Slope
 
 ### Notes
-
 
 
     <a href="url">
