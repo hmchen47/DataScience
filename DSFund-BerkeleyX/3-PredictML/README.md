@@ -50,5 +50,25 @@
     + [Local Notebook](./labs/lab02.ipynb)
 
 
+## Week 3
+
++ [Section 6: Residuals (Lec 6.1 - Lec 6.4)](./06-Residuals.md)
+    + [Lec 6.1 Introduction](./06-Residuals.md#)
+    + [Lec 6.2 Regression Diagnostics](./06-Residuals.md#)
+    + [Lec 6.3 Properties of Residuals](./06-Residuals.md#)
+    + [Lec 6.4 Discussion Question](./06-Residuals.md#)
+    + [Reading and Practice](./06-Residuals.md#)
+
++ [Section 7: Regression Inference (Lec 7.1 - Lec 7.3)](./07-RegInference.md)
+    + [Lec 7.1 Regression Model](./07-RegInference.md#)
+    + [Lec 7.2 Prediction Variability](./07-RegInference.md#)
+    + [Lec 7.3 The True Slope](./07-RegInference.md#)
+    + [Reading and Practice](./07-RegInference.md#)
+
++ [Lab 3: Regression Inference]
+
+
+
+
 
 
