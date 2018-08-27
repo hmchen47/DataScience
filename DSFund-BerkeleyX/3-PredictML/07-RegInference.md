@@ -18,7 +18,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V002600_DTH.mp4" alt="Lec 7.1 Regression Model" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -34,7 +34,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V002700_DTH.mp4" alt="Lec 7.2 Prediction Variability" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -50,7 +50,7 @@
 
 ### Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V002500_DTH.mp4" alt="Lec 7.3 The True Slope" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
