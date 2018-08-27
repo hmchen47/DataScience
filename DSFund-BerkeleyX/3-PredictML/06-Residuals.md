@@ -160,6 +160,36 @@
 
     That is, $\text{SD of fitted values} = |r| \cdot \text{SD of }y$$
 
++ Average of Residuals
+    + The average of the residuals is always $0$
+    + No matter what the scatter looks like
+    + Just as the average of the deviations from mean is always $0$
+    + No matter what the data look like
+
++ Correlation, Revisited
+    + “The correlation measures how clustered the points are about a straight line.”
+    + We can now quantify this statement.
+
++ SD of Fitted Values
+
+    $$\frac{\text{SD of fitted values}}{\text{SD of } y } = |r|$$
+
+    $$\text{SD of fitted values} = |r| \cdot (\text{SD of } y) $$
+
++ Variance of Fitted Values
+    + Variance = Square of the SD = Mean Square of the Deviations
+    + Variance has bad units, but good math properties
+    + $$\frac{\text{Variance of fitted values}}{{\text{Variance of } y}} = r^2 $$
+
++ A Variance Decomposition
+    + $$\frac{\text{Variance of fitted values}}{\text{Variance of }y} = r^2$$
+    + $$\frac{\text{Variance of residuals}}{\text{Variance of }y} = 1 - r^2$$
+
++ Residual Average and SD
+    + The average of residuals is always $0$
+    + $$\frac{\text{Variance of residuals}}{\text{Variance of }y} = 1 - r^2$$
+    + $$\text{SD of residuals} = \sqrt{(1 - r²)} \text{  SD of } y$$
+
 + Demo
     ```python
     # ### A Measure of Clustering
@@ -198,7 +228,6 @@
 
     np.std(fitted_values(hybrid, 3, 4)) / np.std(hybrid.column(4))
                                                         # 0.5060703843771186
-
     ```
 
 ### Video 
@@ -212,10 +241,33 @@
 
 ### Note
 
++ Discussion Question
+
+    How does the SD of then fitted values related to $r$?<br/>
+    A. $(\text{SD of fitted}) / (\text{SD of y}) = r$<br/>
+    B. $(\text{SD of fitted}) / (\text{SD of y}) = |r|$<br/>
+    C. $(\text{SD of fitted}) / (\text{SD of residuals}) = r$<br/>
+    D. $(\text{SD of fitted}) / (\text{SD of residuals}) = |r|$
+
+    Ans: B
+
++ No matter what the shape of the scatter plot, the SD of the residuals is a fraction of the SD of the observed values of $y$. The fraction is  $\sqrt{1-r^2}$.
+
+$$\text{SD of residuals} = \sqrt{1 - r^2} \cdot \text{SD of }y$$
 
 + Demo
     ```python
+    np.std(residuals(heights, 'MidParent', 'Child'))        # 3.3880799163953426
 
+    r = correlation(heights, 'MidParent', 'Child')          # 0.32094989606395924
+
+    np.sqrt(1 - r**2) * np.std(heights.column('Child'))     # 3.388079916395342
+
+    np.std(residuals(hybrid, 'acceleration', 'mpg'))        # 9.43273683343029
+
+    r = correlation(hybrid, 'acceleration', 'mpg')          # -0.5060703843771186
+
+    np.sqrt(1 - r**2) * np.std(hybrid.column('mpg'))        # 9.43273683343029
     ```
 
 ### Video 
