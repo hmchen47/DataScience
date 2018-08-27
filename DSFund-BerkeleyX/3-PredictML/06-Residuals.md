@@ -103,10 +103,37 @@
 
 ### Note
 
++ Residual Plot: A scatter diagram of residuals
+    + Should look like an unassociated blob for linear relations
+    + But will show patterns for non-linear relations
+    + Used to check whether linear regression is appropriate
 
 + Demo
     ```python
+    # ### Nonlinearity
+    dugong = Table.read_table('dugong.csv')
+    # Length  Age
+    # 1.8     1
+    # 1.85    1.5
+    # 1.87    1.5
+    # ... (rows omitted)
 
+    correlation(dugong, 'Length', 'Age')        # 0.8296474554905714
+
+    plot_residuals(dugong, 'Length', 'Age')
+
+    height_vs_average_weight = Table.read_table('us_women.csv')
+    # height  ave weight
+    # 58      115
+    # 59      117
+    # 60      120
+    # ... (rows omitted)
+
+    height_vs_average_weight
+
+    correlation(height_vs_average_weight, 0, 1)     # 0.9954947677842161
+
+    plot_residuals(height_vs_average_weight, 0, 1)
     ```
 
 ### Video 
