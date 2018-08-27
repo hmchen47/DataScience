@@ -1,19 +1,11 @@
 
 # coding: utf-8
-
-# In[ ]:
-
-
 from datascience import *
 import numpy as np
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 import matplotlib.pyplot as plots
 plots.style.use('fivethirtyeight')
-
-
-# In[ ]:
-
 
 def standard_units(any_numbers):
     """Convert any array of numbers to standard units."""
@@ -52,10 +44,6 @@ def plot_residuals(t, x, y):
 # ## Regression Model
 
 # **Please run all cells before this cell, including the import cell at the top of the notebook.**
-
-# In[ ]:
-
-
 def draw_and_compare(true_slope, true_int, sample_size):
     x = np.random.normal(50, 5, sample_size)
     xlims = np.array([np.min(x), np.max(x)])
@@ -79,15 +67,7 @@ def draw_and_compare(true_slope, true_int, sample_size):
     
 draw_and_compare(2, -5, 10)
 
-
-# In[ ]:
-
-
 draw_and_compare(2, -5, 100)
-
-
-# In[ ]:
-
 
 draw_and_compare(2, -5, 1000)
 
@@ -95,22 +75,10 @@ draw_and_compare(2, -5, 1000)
 # ## Prediction Variability
 
 # **Please run all cells before this cell, including the previous example cells and the import cell at the top of the notebook.**
-
-# In[ ]:
-
-
 baby = Table.read_table('baby.csv')
 baby.show(3)
 
-
-# In[ ]:
-
-
 plot_residuals(baby, 'Gestational Days', 'Birth Weight')
-
-
-# In[ ]:
-
 
 x = 300
 a = slope(baby, 'Gestational Days', 'Birth Weight')
@@ -119,15 +87,7 @@ predicted_y = a * x + b
 baby.scatter('Gestational Days', 'Birth Weight', fit_line=True)
 plots.scatter(300, predicted_y, color='gold', s=200);
 
-
-# In[ ]:
-
-
 predicted_y
-
-
-# In[ ]:
-
 
 def prediction_at(t, x):
     a = slope(t, 'Gestational Days', 'Birth Weight')
@@ -139,10 +99,6 @@ for i in np.arange(4):
     predicted_y = prediction_at(resample, 300)
     resample.scatter('Gestational Days', 'Birth Weight', fit_line=True)
     plots.scatter(300, predicted_y, color='gold', s=200)
-
-
-# In[ ]:
-
 
 lines = Table(['slope', 'intercept', 'at 150', 'at 300', 'at 350'])
 
@@ -158,10 +114,6 @@ for i in np.arange(lines.num_rows):
     plots.plot([150, 350], [line.item('at 150'), line.item('at 350')], lw=1)
     plots.scatter(300, line.item('at 300'), s=200)
 
-
-# In[ ]:
-
-
 lines = Table(['slope', 'intercept', 'at 291', 'at 300', 'at 309'])
 
 for i in range(10):
@@ -174,10 +126,6 @@ for i in np.arange(lines.num_rows):
     line = lines.row(i)
     plots.plot([291, 309], [line.item('at 291'), line.item('at 309')], lw=1)
     plots.scatter(300, line.item('at 300'), s=30)
-
-
-# In[ ]:
-
 
 def bootstrap_prediction(table, x, y, new_x, repetitions=5000):
 
@@ -203,15 +151,7 @@ def bootstrap_prediction(table, x, y, new_x, repetitions=5000):
     
 bootstrap_prediction(baby, 'Gestational Days', 'Birth Weight', 300)
 
-
-# In[ ]:
-
-
 bootstrap_prediction(baby, 'Gestational Days', 'Birth Weight', 330)
-
-
-# In[ ]:
-
 
 bootstrap_prediction(baby, 'Gestational Days', 'Birth Weight', 280)
 
@@ -219,22 +159,10 @@ bootstrap_prediction(baby, 'Gestational Days', 'Birth Weight', 280)
 # ## Slope Inference
 
 # **Please run all cells before this cell, including the previous example cells and the import cell at the top of the notebook.**
-
-# In[ ]:
-
-
 slope(baby, 'Gestational Days', 'Birth Weight')
-
-
-# In[ ]:
-
 
 for i in np.arange(4):
     baby.sample().scatter('Gestational Days', 'Birth Weight', fit_line=True)
-
-
-# In[ ]:
-
 
 baby.scatter('Gestational Days', 'Birth Weight')
 for i in np.arange(4):
@@ -244,21 +172,9 @@ for i in np.arange(4):
     xlims = make_array(150, 350)
     plots.plot(xlims, s*xlims + c, lw=4)
 
-
-# In[ ]:
-
-
 baby.num_rows
 
-
-# In[ ]:
-
-
 baby.sample().num_rows
-
-
-# In[ ]:
-
 
 slopes = []
 for i in np.arange(5000):
@@ -267,17 +183,9 @@ for i in np.arange(5000):
     slopes.append(resample_slope)
 Table().with_column('Bootstrap Slopes', slopes).hist(bins=20)
 
-
-# In[ ]:
-
-
 left = percentile(2.5, slopes)
 right = percentile(97.5, slopes)
 [left, right]
-
-
-# In[ ]:
-
 
 def bootstrap_slope(table, x, y, repetitions=5000):
     
@@ -304,15 +212,7 @@ def bootstrap_slope(table, x, y, repetitions=5000):
     
 bootstrap_slope(baby, 1, 0)
 
-
-# In[ ]:
-
-
 plot_residuals(baby, 2, 1)
-
-
-# In[ ]:
-
 
 bootstrap_slope(baby, 2, 1)
 
