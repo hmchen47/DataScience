@@ -281,7 +281,84 @@ $$\text{SD of residuals} = \sqrt{1 - r^2} \cdot \text{SD of }y$$
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 6.
 
+This corresponds to textbook section:
+
+[Chapter 15.5: Visual Diagnostics](https://www.inferentialthinking.com/chapters/15/5/Visual_Diagnostics)
+
+[Chapter 15.6: Numerical Diagnostics](https://www.inferentialthinking.com/chapters/15/6/Numerical_Diagnostics)
+
+In section 6, we learned about residuals. Residuals measure how far off the regression estimates are from the actual values.
+
+We can plot residuals to help us make visual assessments of the quality of a linear regression analysis. The residual plot of a linear association shows no pattern. When a residual plot shows a pattern, there may be a non-linear relation between the variables. 
+
+We also learned some numerical properties of residuals.
+
+Let's try the following practice questions.
 
 ### Practice
+
+Q1. No matter what the shape of the scatter diagram, the average of the residuals is 0.
+
+    Ans: True
+
+Q2. No matter what the shape of the scatter plot, the SD of the residuals is a fraction of the SD of the response variable.
+
+    Ans: true
+
+Three of the plots below are residual plots of linear regressions, and one of them is not. Pick the right description of each plot. You can assume that each of the red horizontal lines is at height 0.
+
+<a href="url">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e218f7a6f83f3ec33d29e4960bd99c6d/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/residuals.png" title= "plot a" alt="plot a" width="250">
+</a>
+<a href="url">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e218f7a6f83f3ec33d29e4960bd99c6d/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/residuals.png" title= "plot b" alt="plot b" width="250">
+</a>
+<a href="url">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e218f7a6f83f3ec33d29e4960bd99c6d/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/residuals.png" title= "plot c" alt="plot c" width="250">
+</a>
+<a href="url">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e218f7a6f83f3ec33d29e4960bd99c6d/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/residuals.png" title= "plot d" alt="plot d" width="250">
+</a>
+
+Plot a
+
+    a. Not a residual plot
+    b. Residual plot; the original data are not linearly related.
+    c. Residual plot; the original data are roughly evenly dispersed about a straight line.
+    d. Residual plot; the original data are dispersed about a straight line but not evenly.
+
+    Ans: c
+
+Plot b
+
+    a. Not a residual plot
+    b. Residual plot; the original data are not linearly related.
+    c. Residual plot; the original data are roughly evenly dispersed about a straight line.
+    d. Residual plot; the original data are dispersed about a straight line but not evenly.
+
+    Ans: d
+
+
+Plot c
+
+    a. Not a residual plot
+    b. Residual plot; the original data are not linearly related.
+    c. Residual plot; the original data are roughly evenly dispersed about a straight line.
+    d. Residual plot; the original data are dispersed about a straight line but not evenly.
+
+    Ans: b
+
+
+Plot d
+
+    a. Not a residual plot
+    b. Residual plot; the original data are not linearly related.
+    c. Residual plot; the original data are roughly evenly dispersed about a straight line.
+    d. Residual plot; the original data are dispersed about a straight line but not evenly.
+
+    Ans: a
+
+
 
