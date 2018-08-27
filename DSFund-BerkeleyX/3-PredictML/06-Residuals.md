@@ -5,15 +5,91 @@
 + [Local notebook](./notebook/lec6.ipynb)
 + [Local Python Code](./notebook/lec6.py)
 
++ Common Functions for Demo
+    ```python
+    def standard_units(any_numbers):
+        """Convert any array of numbers to standard units."""
+        return (any_numbers - np.average(any_numbers)) / np.std(any_numbers)
+
+    # Below, t is a table; x and y are column indices or labels.
+
+    def correlation(t, x, y):
+        """Return the correlation coefficient (r) of two variables."""
+        return np.mean(standard_units(t.column(x)) * standard_units(t.column(y)))
+
+    def slope(t, x, y):
+        """The slope of the regression line (original units)."""
+        r = correlation(t, x, y)
+        return r * np.std(t.column(y)) / np.std(t.column(x))
+
+    def intercept(t, x, y):
+        """The intercept of the regression line (original units)."""
+        return np.mean(t.column(y)) - slope(t, x, y) * np.mean(t.column(x))
+
+    def fitted_values(t, x, y):
+        """The fitted values along the regression line."""
+        a = slope(t, x, y)
+        b = intercept(t, x, y)
+        return a * t.column(x) + b
+    ```
 
 ## Lec 6.1 Introduction
 
 ### Note
 
++ Residuals
+    + Error in regression estimate
+    + One residual corresponding to each point (x, y)
+    + residual <br/>
+        = <span style="color:blue" b> observed y - regression estimate of y </span><br/>
+        = observed y - height of regression line at x <br/>
+        = vertical distance between the point and the best line
 
 + Demo
     ```python
+    # ## Residuals
+    galton = Table.read_table('galton.csv')
 
+    heights = Table().with_columns(
+        'MidParent', galton.column('midparentHeight'),
+        'Child', galton.column('childHeight')
+    )
+    # MidParent     Child
+    # 75.43         73.2
+    # 75.43         69.2
+    # 75.43         69
+    # ... (rows omitted)
+
+    heights = heights.with_columns('Fitted', fitted_values(heights, 0, 1))
+    # MidParent     Child   Fitted
+    # 75.43         73.2    70.7124
+    # 75.43         69.2    70.7124
+    # 75.43         69      70.7124
+    # ... (rows omitted)
+
+    heights.scatter(0)
+
+    def residuals(t, x, y):
+        return t.column(y) - fitted_values(t, x, y)
+
+    heights = heights.with_columns('Residual', residuals(heights, 'MidParent', 'Child'))
+    # MidParent     Child   Fitted      Residual
+    # 75.43         73.2    70.7124     2.48763
+    # 75.43         69.2    70.7124     -1.51237
+    # 75.43         69      70.7124     -1.71237
+    # ... (rows omitted)
+
+    heights.scatter(0)
+
+    def plot_residuals(t, x, y):
+        with_residuals = t.with_columns(
+            'Fitted', fitted_values(t, x, y),
+            'Residual', residuals(t, x, y)
+        )
+        with_residuals.select(x, y, 'Fitted').scatter(0)
+        with_residuals.scatter(x, 'Residual')
+
+    plot_residuals(heights, 'MidParent', 'Child')
     ```
 
 ### Video 
