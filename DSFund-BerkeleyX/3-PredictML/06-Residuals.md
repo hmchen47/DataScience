@@ -1,5 +1,11 @@
 # Section 6: Residuals (Lec 6.1 - Lec 6.4)
 
++ [Launching Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/9e3318ad6da44461990e1d4e3a64986f/6f26c6f9a58842ab81654f2c01994558/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40c8a5435d8a5d45f39b0a327e1d239d50)
++ [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec6.ipynb#)
++ [Local notebook](./notebook/lec6.ipynb)
++ [Local Python Code](./notebook/lec6.py)
+
+
 ## Lec 6.1 Introduction
 
 ### Note
