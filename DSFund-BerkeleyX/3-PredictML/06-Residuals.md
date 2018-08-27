@@ -92,7 +92,7 @@
     plot_residuals(heights, 'MidParent', 'Child')
     ```
 
-### Video 
+### Video
 
 <a href="https://edx-video.net/BERD83FD2018-V002100_DTH.mp4" alt="Lec 6.1 Introduction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -147,9 +147,57 @@
 
 ### Note
 
++ Residual Variance
+    + The mean of residuals is always $0$, regardless of the original data
+    + Variance of standard deviation squared: mean squared deviation
+    + $(\text{Variance of residuals}) / (\text{Variance of y}) = 1 - r^2$
+    + $(\text{Variance of fitted values}) / (\text{Variance of y}) = r^2$
+    + $\text{Variance of y} = (\text{Variance of fitted values}) + (\text{Variance of residuals})$
+
++ No matter what the shape of the scatter plot, the SD of the fitted values is a fraction of the SD of the observed values of $y$. The fraction is |r|.
+
+    $$\frac{\text{SD of fitted values}}{\text{SD of }y} = |r| $$ 
+
+    That is, $\text{SD of fitted values} = |r| \cdot \text{SD of }y$$
 
 + Demo
     ```python
+    # ### A Measure of Clustering
+    def plot_fitted(t, x, y):
+        tbl = t.select(x, y)
+        tbl.with_columns('Fitted Value', fitted_values(t, x, y)).scatter(0)
+
+    plot_fitted(heights, 'MidParent', 'Child')
+
+    correlation(heights, 'MidParent', 'Child')          # 0.3209498960639592
+
+    np.var(fitted_values(heights, 'MidParent', 'Child')) / np.var(heights.column('Child'))
+                                                        # 0.10300883578346642
+
+    correlation(heights, 'MidParent', 'Child') ** 2     # 0.10300883578346624
+
+    np.std(fitted_values(heights, 'MidParent', 'Child')) / np.std(heights.column('Child'))
+                                                        # 0.32094989606395957
+
+    correlation(dugong, 'Length', 'Age')                # 0.8296474554905714
+
+    np.std(fitted_values(dugong, 0, 1)) / np.std(dugong.column(1))
+                                                        # 0.8296474554905713
+
+    plot_fitted(dugong, 'Length', 'Age')
+
+    hybrid = Table.read_table('hybrid.csv')
+    # vehicle           year    msrp        acceleration    mpg     class
+    # Prius (1st Gen)   1997    24509.7     7.46            41.26   Compact
+    # Tino              2000    35355       8.2             54.1    Compact
+    # Prius (2nd Gen)   2000    26832.2     7.97            45.23   Compact
+
+    plot_fitted(hybrid, 'acceleration', 'mpg')
+
+    correlation(hybrid, 'acceleration', 'mpg')          # -0.5060703843771186
+
+    np.std(fitted_values(hybrid, 3, 4)) / np.std(hybrid.column(4))
+                                                        # 0.5060703843771186
 
     ```
 
