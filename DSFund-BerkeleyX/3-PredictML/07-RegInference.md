@@ -102,6 +102,11 @@
     + Get the “middle 95%” interval.
     + That’s an approximate 95% confidence interval for the height of the true line at $y$.
 
++ Predictions at Different Values of $x$
+    + Since y is correlated with $x$, the predicted values of $y$ depend on the value of $x$.
+    + The width of the prediction interval also depends on $x$.
+        + Typically, intervals are wider for values of $x$ that are further away from the mean of $x$.
+
 + Demo
     ```python
     baby = Table.read_table('baby.csv')
@@ -207,10 +212,91 @@
 
 ### Note
 
++ Confidence Interval for True Slope
+    + Bootstrap the scatter plot.
+    + Find the slope of the regression line through the bootstrapped plot.
+    + Repeat.
+    + Draw the empirical histogram of all the generated slopes.
+    + Get the “middle 95%” interval.
+    + That’s an approximate 95% confidence interval for the slope of the true line.
+
++ Rain on the Regression Parade
+    <a href="url">
+        <br/><img src="./diagrams/lec7-2.png" title= "caption" alt="Regression slope" width="350">
+    </a>
+
++ Test Whether There Really is a Slope
+    + __Null hypothesis__: The slope of the true line is 0.
+    + __Alternative hypothesis__: No, it’s not.
+    + Method:
+        + Construct a bootstrap confidence interval for the true slope.
+        + If the interval doesn’t contain 0, reject the null hypothesis.
+        + If the interval does contain 0, there isn’t enough evidence to reject the null hypothesis.
 
 + Demo
     ```python
+    slope(baby, 'Gestational Days', 'Birth Weight')     # 0.4665568769492152
 
+    # resample 4 times with similar regression lines
+    for i in np.arange(4):
+        baby.sample().scatter('Gestational Days', 'Birth Weight', fit_line=True)
+
+    baby.scatter('Gestational Days', 'Birth Weight')
+    for i in np.arange(4):
+        resample = baby.sample()
+        s = slope(resample, 'Gestational Days', 'Birth Weight')
+        c = intercept(resample, 'Gestational Days', 'Birth Weight')
+        xlims = make_array(150, 350)
+        plots.plot(xlims, s*xlims + c, lw=4)
+
+    baby.num_rows               # 1174
+    baby.sample().num_rows      # 1174
+
+    slopes = []
+    for i in np.arange(5000):
+        resample = baby.sample()
+        resample_slope = slope(resample, 'Gestational Days', 'Birth Weight')
+        slopes.append(resample_slope)
+    Table().with_column('Bootstrap Slopes', slopes).hist(bins=20)
+
+    left = percentile(2.5, slopes)
+    right = percentile(97.5, slopes)
+    [left, right]       # [0.38403181781352447, 0.560962450953542]
+
+    # 5000 different slopes
+    def bootstrap_slope(table, x, y, repetitions=5000):
+        
+        # Bootstrap resampling
+        slopes = []
+        for i in np.arange(repetitions):
+            resample = table.sample()
+            resample_slope = slope(resample, x, y)
+            slopes.append(resample_slope)
+        
+        # Find the endpoints of the 95% confidence interval for the true slope
+        left = percentile(2.5, slopes)
+        right = percentile(97.5, slopes)
+        
+        # Slope of the regression line from the original sample
+        observed_slope = slope(table, x, y)
+        
+        # Display results
+        Table().with_column('Bootstrap Slopes', slopes).hist(bins=20)
+        plots.plot([left, right], [0, 0], color='yellow', lw=8);
+        print('Slope of regression line:', observed_slope)
+        print('Approximate 95%-confidence interval for the true slope:')
+        print(left, right)
+        
+    bootstrap_slope(baby, 1, 0)
+    # Slope of regression line: 0.4665568769492152
+    # Approximate 95%-confidence interval for the true slope: 0.3825996089892574 0.5558900672708974
+
+    plot_residuals(baby, 2, 1)
+    # r: -0.053424773507798104  RMSE: 15.980630030890573
+
+    bootstrap_slope(baby, 2, 1)
+    # Slope of regression line: -0.14702142270280957
+    # Approximate 95%-confidence interval for the true slope: -0.3043433713081157 0.002489069633700973
     ```
 
 ### Video
