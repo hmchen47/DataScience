@@ -107,6 +107,83 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## Introduction
 
++ What is Machine Learning (ML)?
+    + The study of computer programs (algorithms) that can learn by example
+    + ML algorithms can generalize from existing examples of a task
+        + e.g. after seeing a training set of labeled images, an image classifier can figure out how to apply labels accurately to new, previously unseen images
+
++ Speech Recognition
+    <a href="url">
+        <br/><img src="./images/fig1-01.png" title= "Speech Recognition" alt="Data flow of speech recognition with machine learning" width="450">
+    </a>
+
++ Machine Learning models can learn by example
+    + Algorithms learn rules from labelled examples
+    + A set of labelled examples used for learning is called training data.
+    + The learned rules should also be able to generalize to correctly recognize or predict new examples not in the training set.
+
++ Machine Learning models learn from experience
+    + Labeled examples (Email spam detection)
+    + User feedback (Clicks on a search page)
+    + Surrounding environment (self-driving cars)
+
++ Machine Learning brings together statistics, computer science, and more..
+    + Statistical methods
+        + Infer conclusions from data
+        + Estimate reliability of predictions
+    + Computer science
+        + Large-scale computing architectures
+        + Algorithms for capturing, manipulating, indexing, combining, retrieving and performing predictions on data
+        + Software pipelines that manage the complexity of multiple subtasks
+    + Economics, biology, psychology
+        + How can an individual or system efficiently improve their performance in a given environment?
+        + What is learning and how can it be optimized?
+
++ Machine Learning for fraud detection and credit scoring
+    <a href="url">
+        <br/><img src="./images/fig1-02.png" title= "Machine learning Flow for fraud detection and credit scoring" alt="Machine learning flow chart for credit adn fraud detection" width="450">
+    </a>
+
++ Web search: query spell-checking, result ranking, content classification and selection, advertising placement
+
++ Machine Learning for Speech Recognition
+    <a href="url">
+        <br/><img src="./images/fig1-03.png" title= "Speech recognition with Machine learning" alt="Machine learning architecture of speech recognition" width="450">
+    </a>
+
++ Machine Learning algorithms are at the heart of the information economy
+    + Finance: fraud detection, credit scoring
+    + Web search
+    + Speech recognition
+    + eCommerce: Product recommendations
+    + Email spam filtering
+    + Health applications: drug design and discovery
+    + Education: Automated essay scoring
+
++ What is __Applied__ Machine Learning?
+    + Understand basic ML concepts and workflow
+    + How to properly apply 'black-box' machine learning components and features
+    + Learn how to apply machine learning algorithms in Python using the _scikit-learn_ package
+    + What is not covered in this course:
+        + Underlying theory of statistical machine learning
+        + Lower-level details of how particular ML components work
+        + In-depth material on more advanced concepts like deep learning
+
++ Q: A key goal of effective machine learning algorithms is to have good generalization ability. This refers to a learning algorithm’s ability to:
+    1. Predict the training data perfectly.
+    2. Make accurate predictions for new objects that weren’t seen during training.
+    3. Only require labels on some of the training data samples.
+    4. Find clusters of similar items.
+
+    Ans: 2
+
++ Recommended text for this course
+
+    Introduction to Machine Learning with Python: A Guide for Data Scientists <br/>
+    By Andreas C. Müller and Sarah Guido <br/>
+    O'Reilly Media
+
+
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/Xn_zgzmaEeeRKQp2xLWbhg.processed/full/540p/index.mp4?Expires=1535587200&Signature=hqR~HN7tM5ibdp2D7WR779QxRI1FFVd6dsPPNCucoIDWcbvjZ6aGZ3nrultVso2C1I20wp5kQFJjU7v5uWP8RX0adT8BDqEuBvLUXA07dMaw-ESoMRSQP0aE6uTP3-xfvFaoy-Mc7nyKgN3EEzpm7MkxeI1Ybq7a3FBjMHNod0U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
