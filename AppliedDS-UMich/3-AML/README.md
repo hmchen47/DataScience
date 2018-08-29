@@ -6,7 +6,6 @@
 + [Introduction](./01-FundML.md#)
 + [Key Concepts in Machine Learning](./01-FundML.md#)
 + [Python Tools for Machine Learning](./01-FundML.md#)
-+ [Notice for Auditing Learners: Assignment Submission](./01-FundML.md#)
 + [Module 1 Notebook](./01-FundML.md#)
 + [An Example Machine Learning Problem](./01-FundML.md#)
 + [Examining the Data](./01-FundML.md#)
