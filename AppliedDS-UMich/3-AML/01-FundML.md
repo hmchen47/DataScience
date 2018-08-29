@@ -184,6 +184,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     O'Reilly Media
 
 
+### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/Xn_zgzmaEeeRKQp2xLWbhg.processed/full/540p/index.mp4?Expires=1535587200&Signature=hqR~HN7tM5ibdp2D7WR779QxRI1FFVd6dsPPNCucoIDWcbvjZ6aGZ3nrultVso2C1I20wp5kQFJjU7v5uWP8RX0adT8BDqEuBvLUXA07dMaw-ESoMRSQP0aE6uTP3-xfvFaoy-Mc7nyKgN3EEzpm7MkxeI1Ybq7a3FBjMHNod0U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -250,7 +251,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
         <br/><img src="images/fig1-09.png" title= "Represent-Train-Evaluate-Refine Machine Learning cycle" alt="Represent-Train-Evaluate-Refine Machine Learning cycle" width="250">
     </a>
 
-### Course Video
+### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/Fcm_hlzsEeeQywpoSy5QrA.processed/full/540p/index.mp4?Expires=1535587200&Signature=jDu4qL7QSvu3D-PCh5x8XoByv3l1uZAU9tBVifdTVWMig-StCMMtQN3HSzvgSCuiHOPuJ8KF4HDiwqXcn0~-zUG2rLQhjM~JSrVkCiGx~3FdzGKsBdZ3V5qO-XNSCxzBoH1NXImJ4PEIPFvea~yQea~Puamv8IGnH9WHmDqQ5bo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Key Concepts in Machine Learning" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -305,7 +306,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 
 
-### Course Video
+### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/4NaQeVzqEeeliw7ADgKLdA.processed/full/540p/index.mp4?Expires=1535673600&Signature=TvSRdaMnMc5~~cj~DTGMO2s~EO58sd2lNmcWaK-aOJ1wtV~8L9ZgMBas7ErdohPtklsutnMogqiOg04nHiEWHLYC6IP~0dxcUv6v6~Sh7NgGaSTzcdXYRqXjr5LgFpi5-Cs0RezpmQuBeL7RVNWtATbFsJAs8dy-ADfHQqXtbRI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Python Tools for Machine Learning" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -321,12 +322,29 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## An Example Machine Learning Problem
 
++ The Fruit Dataset
+    <a href="url">
+        <br/><img src="images/fig1-10.png" title= "caption" alt="text" width="350">
+    </a>
+
++ The input data as a table
+    <a href="url">
+        <br/><img src="images/fig1-11.png" title= "caption" alt="text" width="350">
+    </a>
+
++ The scale for the (simplistic) color_score feature used in the fruit dataset
+    <a href="url">
+        <br/><img src="images/fig1-12.png" title= "caption" alt="text" width="250">
+    </a>
+
++ Creating Training and Testing Sets
+    <a href="url">
+        <br/><img src="images/fig1-13.png" title= "caption" alt="text" width="350">
+    </a>
 
 
 
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
+### Lecture Video
 
 <a href="url" alt="text" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
