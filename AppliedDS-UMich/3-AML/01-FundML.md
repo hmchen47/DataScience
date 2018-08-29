@@ -680,16 +680,15 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## Zachary Lipton: The Foundations of Algorithmic Bias (optional)
 
+This Nov. 2016 article by Zachary C. Lipton from the blog Approximately Correct discusses why and how automated processes for decision-making, particularly applications of machine learning, can exhibit bias in subtle and not-so-subtle ways. It's self-contained and includes a mini-review of machine learning concepts that reinforces what's covered in Module 1. This reading is optional for completion of the course.
+
+http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
+
+If you're interested in the more general topic of ethics in data science, we recommend this online course in Data Science Ethics by Prof. H.V. Jagadish of the University of Michigan.
+
+https://www.edx.org/course/data-science-ethics-michiganx-ds101x-1
 
 
-
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
 
 ## Quiz: Module 1 Quiz
 
