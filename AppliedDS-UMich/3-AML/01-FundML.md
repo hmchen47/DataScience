@@ -501,7 +501,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 </a>
 
 
-## LectureK-Nearest Neighbors Classification
+## K-Nearest Neighbors Classification
 
 + The k-Nearest Neighbor (k-NN) Classifier Algorithm <br/>
     Given a training set X_train with labels y_train, and given a new instance x_test to be classified:
@@ -526,15 +526,148 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     3. Optional weighting function on the neighbor points: __Ignored__
     4. How to aggregate the classes of neighbor points: __Simple majority vote__ <br/>(Class with the most representatives among nearest neighbors)
 
++ Python Code for K-NN
+    ```python
+    X = fruits[['mass', 'width', 'height']]
+    y = fruits['fruit_label']
+
+    # default is 75% / 25% train-test split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+    # ### Create classifier object
+    from sklearn.neighbors import KNeighborsClassifier
+
+    knn = KNeighborsClassifier(n_neighbors = 5)
+
+    # ### Train the classifier (fit the estimator) using the training data
+    knn.fit(X_train, y_train)
+    # KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+    #       metric_params=None, n_jobs=1, n_neighbors=5, p=2,
+    #       weights='uniform')
+
+    # ### Estimate the accuracy of the classifier on future data, using the test data
+    knn.score(X_test, y_test)
+    # 0.53333333333333333
+
+    # ### Use the trained k-NN classifier model to classify new, previously unseen objects
+    # first example: a small fruit with mass 20g, width 4.3 cm, height 5.5 cm
+    fruit_prediction = knn.predict([[20, 4.3, 5.5]])
+    lookup_fruit_name[fruit_prediction[0]]          # 'mandarin'
+
+    # second example: a larger, elongated fruit with mass 100g, width 6.3 cm, height 8.5 cm
+    fruit_prediction = knn.predict([[100, 6.3, 8.5]])
+    lookup_fruit_name[fruit_prediction[0]]          # 'lemon'
+
+    # ### Plot the decision boundaries of the k-NN classifier
+    from adspy_shared_utilities import plot_fruit_knn
+
+    plot_fruit_knn(X_train, y_train, 5, 'uniform')   # we choose 5 nearest neighbors
+
+    # ### How sensitive is k-NN classification accuracy to the choice of the 'k' parameter?
+    k_range = range(1,20)
+    scores = []
+
+    for k in k_range:
+        knn = KNeighborsClassifier(n_neighbors = k)
+        knn.fit(X_train, y_train)
+        scores.append(knn.score(X_test, y_test))
+
+    plt.figure()
+    plt.xlabel('k')
+    plt.ylabel('accuracy')
+    plt.scatter(k_range, scores)
+    plt.xticks([0,5,10,15,20]);
+
+    # ### How sensitive is k-NN classification accuracy to the train/test split proportion?
+    t = [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]
+
+    knn = KNeighborsClassifier(n_neighbors = 5)
+
+    plt.figure()
+
+    for s in t:
+
+        scores = []
+        for i in range(1,1000):
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1-s)
+            knn.fit(X_train, y_train)
+            scores.append(knn.score(X_test, y_test))
+        plt.plot(s, np.mean(scores), 'bo')
+
+    plt.xlabel('Training set proportion (%)')
+    plt.ylabel('accuracy');
+    ```
 + How sensitive is k-NN classifier accuracy to the choice of 'k' parameter?
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
         <br/><img src="images/fig1-20.png" title= "Accuracy vs k values" alt="The diagram illustrates the relationship between k-value and corresponding accuracy" width="300">
     </a>
 
++ Q: Which of these could be an acceptable sequence of operations using scikit-learn to apply the k-nearest neighbors classification method?
+    1. read_table, train_test_split, fit, KNeighborsClassifier, score
+    2. read_table, train_test_split, KNeighborsClassifier, fit, score
+    3. read_table, fit, train_test_split, KNeighborsClassifier, score
+    4. KNeighborsClassifier, train_test_split, fit, score, read_table
 
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
-        <br/><img src="url" title= "caption" alt="text" width="350">
-    </a>
+    Ans: 2
+
++ Q: Which of the following is true about the k-nearest neighbors classification algorithm, assuming uniform weighting on the k neighbors? Select all that apply.
+    1. A low value of “k” (close to 1) is more likely to overfit the training data and lead to worse accuracy on the test data, compared to higher values of “k”.
+    2. A low value of “k” (close to 1) is less likely to overfit the training data and lead to better accuracy on the test data, compared to higher values of “k”.
+    3. Setting “k” to the number of points in the training set will result in a classifier that always predicts the majority class.
+    4. Setting “k” to the number of points in the training set will result in a classifier that never predicts the majority class.
+    5. The k-nearest neighbors classification algorithm has to memorize all of the training examples to make a prediction.
+    6. The performance of a k-nearest neighbors classifier is relatively insensitive to the choice of “k” on most datasets.
+
+    Ans: 1, 3, 5
+
++ `KNeighborsClassifier` init method
+    + Init signature: `KNeighborsClassifier(n_neighbors=5, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=1, **kwargs)`
+    + Docstring: Classifier implementing the k-nearest neighbors vote.
+    + Parameters
+        + `n_neighbors` (int, optional, default = 5): Number of neighbors to use by default for :meth:`kneighbors` queries.
+        + `weights` (str or callable, optional, default = 'uniform'): weight function used in prediction.  Possible values:
+            - 'uniform' : uniform weights.  All points in each neighborhood are weighted equally.
+            - 'distance' : weight points by the inverse of their distance. in this case, closer neighbors of a query point will have a greater influence than neighbors which are further away.
+            - [callable] : a user-defined function which accepts an array of distances, and returns an array of the same shape containing the weights.
+        + `algorithm` ({'auto', 'ball_tree', 'kd_tree', 'brute'}, optional): Algorithm used to compute the nearest neighbors:
+            - 'ball_tree' will use :class:`BallTree`
+            - 'kd_tree' will use :class:`KDTree`
+            - 'brute' will use a brute-force search.
+            - 'auto' will attempt to decide the most appropriate algorithm based on the values passed to :meth:`fit` method.
+
+            Note: fitting on sparse input will override the setting of this parameter, using brute force.
+
+        + `leaf_size` (int, optional, default = 30): Leaf size passed to BallTree or KDTree.  This can affect the speed of the construction and query, as well as the memory required to store the tree.  The optimal value depends on the nature of the problem.
+
+        + `p` (integer, optional, default = 2): Power parameter for the Minkowski metric. When p = 1, this is equivalent to using manhattan_distance (l1), and euclidean_distance (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
+        + `metric` (string or callable, default 'minkowski'): the distance metric to use for the tree.  The default metric is minkowski, and with p=2 is equivalent to the standard Euclidean metric. See the documentation of the DistanceMetric class for a list of available metrics.
+        + `metric_params` (dict, optional, default = None): Additional keyword arguments for the metric function.
+        + `n_jobs` (int, optional, default = 1): The number of parallel jobs to run for neighbors search. If ``-1``, then the number of jobs is set to the number of CPU cores. Doesn't affect :meth:`fit` method.
+
++ `knn.fit` method
+    + Signature: `knn.fit(X, y)`
+    + Docstring: Fit the model using X as training data and y as target values
+    + Parameters
+        + `X` ({array-like, sparse matrix, BallTree, KDTree}): Training data. If array or matrix, shape [n_samples, n_features], or [n_samples, n_samples] if metric='precomputed'.
+        + `y` ({array-like, sparse matrix}): Target values of shape = [n_samples] or [n_samples, n_outputs]
+
++ `knn.score` method
+    + Signature: `knn.score(X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: score (float): Mean accuracy of self.predict(X) wrt. y.
+
++ `knn.predict` method
+    + Signature: `knn.predict(X)`
+    + Docstring: Predict the class labels for the provided data
+    + Parameters: 
+        + `X` (array-like, shape (n_query, n_features), or (n_query, n_indexed) if metric == 'precomputed') : Test samples.
+    + Returns: `y` (array of shape [n_samples] or [n_samples, n_outputs]): Class labels for each data sample.
+
+
 
 
 ### Lecture Video 

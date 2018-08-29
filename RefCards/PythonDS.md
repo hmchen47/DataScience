@@ -701,6 +701,7 @@ import seaborn as sns
 ```python
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 ```
 
 ## Method
@@ -708,8 +709,11 @@ from sklearn.tree import DecisionTreeClassifier
 | API | Description | Link |
 |-----|-------------|------|
 | `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [ML Example][049] |
-
-
+| `KNeighborsClassifier(`<br/> `n_neighbors=5, weights='uniform',` <br/> `algorithm='auto', leaf_size=30,`<br/> `p=2, metric='minkowski',` <br/> `metric_params=None, n_jobs=1, **kwargs)` | Classifier implementing the k-nearest neighbors vote. | [KNN Calssifier][051] |
+| `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN Calssifier][051] |
+| `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN Calssifier][051] |
+| `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels. | [KNN Calssifier][051] |
+| `knn.predict(X)` | Predict the class labels for the provided data | [KNN Calssifier][051] |
 
 
 
@@ -767,7 +771,7 @@ from sklearn.tree import DecisionTreeClassifier
 [048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
 [049]: ../AppliedDS-UMich/3-AML/01-FundML.ms#an-example-machine-learning-problem
 [050]: ../AppliedDS-UMich/3-AML/01-FundML.ms#examining-the-data
-[051]: ../AppliedDS-UMich/3-AML/01-FundML.ms#
+[051]: ../AppliedDS-UMich/3-AML/01-FundML.ms#k---nearest-neighbors-classification
 [052]: 
 [053]: 
 [054]: 
