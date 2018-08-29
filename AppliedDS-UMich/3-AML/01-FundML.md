@@ -324,23 +324,75 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 + The Fruit Dataset
     <a href="url">
-        <br/><img src="images/fig1-10.png" title= "caption" alt="text" width="350">
+        <br/><img src="images/fig1-10.png" title= "Fruit Dataset" alt="A fruit dataset created by Ian Murray at University Edinburgh for Machine learning lecture purpose" width="350">
     </a>
 
 + The input data as a table
     <a href="url">
-        <br/><img src="images/fig1-11.png" title= "caption" alt="text" width="350">
+        <br/><img src="images/fig1-11.png" title= "Table of fruit dataset" alt="The table represents the dataset of fruits with each row as a single data instance whereas the fruit_label column contains the label for each data instance and (mass, width, height, color_score) as the features of the instance." width="350">
     </a>
 
-+ The scale for the (simplistic) color_score feature used in the fruit dataset
+    ```python
+    %matplotlib notebook
+    import numpy as np+[Web notebook]()
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+
+    fruits = pd.read_table('fruit_data_with_colors.txt')
+
+    fruits.head()
+    # | fruit_| fruit_   | fruit_       | mass  | width | height | color_ |
+    # | label | name     | subtype      |       |       |        | score  |
+    # | 1     | apple    | granny_smith | 192   | 8.4   | 7.3    | 0.55   |
+    # | 1     | apple    | granny_smith | 180   | 8.0   | 6.8    | 0.59   |
+    # | 1     | apple    | granny_smith | 176   | 7.4   | 7.2    | 0.60   |
+    # | 2     | mandarin | mandarin     | 86    | 6.2   | 4.7    | 0.80   |
+    # | 2     | mandarin | mandarin     | 84    | 6.0   | 4.6    | 0.79   |
+
+    # create a mapping from fruit label value to fruit name to make results easier to interpret
+    lookup_fruit_name = dict(zip(fruits.fruit_label.unique(), fruits.fruit_name.unique()))
+    # {1: 'apple', 2: 'mandarin', 3: 'orange', 4: 'lemon'}
+    ```
+
++ The scale for the (simplistic) `color_score` feature used in the fruit dataset
     <a href="url">
-        <br/><img src="images/fig1-12.png" title= "caption" alt="text" width="250">
+        <br/><img src="images/fig1-12.png" title= "Color scale" alt="Color spectrum for color scale" width="250">
     </a>
 
 + Creating Training and Testing Sets
     <a href="url">
-        <br/><img src="images/fig1-13.png" title= "caption" alt="text" width="350">
+        <br/><img src="images/fig1-13.png" title= "Generating training and testing data sets" alt="Mutually exclusively divide original dataset with 3:1 ratio for training and testing sets" width="350">
     </a>
+    ```python
+    X = fruits[['height', 'width', 'mass', 'color_score']]
+    y = fruits['fruit_label']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+    ```
+
++ `train_test_split` function
+    + Signature: `train_test_split(*arrays, **options)`
+    + Docstring: Split arrays or matrices into random train and test subsets <br/>
+        Quick utility that wraps input validation and  `next(ShuffleSplit().split(X, y))` and application to input data into a single call for splitting (and optionally subsampling) data in a oneliner.
+    + Parameters
+        + `*arrays` (sequence of indexables with same length / shape[0] <br/>): Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.
+        + `test_size` (float, int, None, optional): 
+            + If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. 
+            + If int, represents the absolute number of test samples.
+            + If None, the value is set to the complement of the train size. By default, the value is set to $0.25$. The default will change in version 0.21. It will remain $0.25$ only if `train_size` is unspecified, otherwise it will complement the specified `train_size`.
+        + `train_size` (float, int, or None, default None): 
+            + If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. 
+            + If int, represents the absolute number of train samples. 
+            + If None, the value is automatically set to the complement of the test size.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + `shuffle` (boolean, optional (default=True)): Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.
+        + `stratify` (array-like or None (default is None)):  If not None, data is split in a stratified fashion, using this as the class labels.
+
+    + Returns: splitting : list, length=2 * len(arrays); List containing train-test split of inputs.
+
 
 
 

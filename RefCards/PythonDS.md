@@ -683,6 +683,31 @@ import seaborn as sns
 | `saturate(color)` | Return a fully saturated color with the same hue. | [Link](https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate) |
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
+
+# Scikit_learn
+
++ `scikit-learn`: Python Machine Learning Library
+    + [scikit-learn Homepage](http://scikit-learn.org/)
+    + [scikit-learn User Guide](http://scikit-learn.org/stable/user_guide.html)
+    + [scikit-learn API reference](http://scikit-learn.org/stable/modules/classes.html)
+
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+```
+
+## Method
+
+| API | Description | Link |
+|-----|-------------|------|
+| `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [ML Example][049] |
+
+
+
+
+
+
 -------------------------------------
 
 [000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
@@ -734,6 +759,47 @@ import seaborn as sns
 [046]: https://seaborn.pydata.org/
 [047]: https://seaborn.pydata.org/tutorial.html
 [048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
+[049]: ../AppliedDS-UMich/3-AML/01-FundML.ms#an-example-machine-learning-problem
+[050]: 
+[051]: 
+[052]: 
+[053]: 
+[054]: 
+[055]: 
+[056]: 
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
+[063]: 
+[064]: 
+[065]: 
+[066]: 
+[067]: 
+[068]: 
+[069]: 
+[070]: 
+[071]: 
+[072]: 
+[073]: 
+[074]: 
+[075]: 
+[076]: 
+[077]: 
+[078]: 
+[079]: 
+[080]: 
+[081]: 
+[082]: 
+[083]: 
+[084]: 
+[085]: 
+[086]: 
+[087]: 
+[088]: 
+[089]: 
 
 
 
