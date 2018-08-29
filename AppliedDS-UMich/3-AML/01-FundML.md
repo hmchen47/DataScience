@@ -323,12 +323,12 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 ## An Example Machine Learning Problem
 
 + The Fruit Dataset
-    <a href="url">
+    <a href="https://d3c33hcgiwev3.cloudfront.net/hTmWWzmaEee7AA7Ncgm5Cg.processed/full/540p/index.mp4?Expires=1535673600&Signature=VYuFss4hE4zwTHrV9Bv8Odm~3zX7r3pCwu7yHXX1R2gZNjqdt7YeV-02VEHPoqfNMnY~b3dfdPp31UlrE4WgSOCoEcDHwpdD1UOujTRCRKGTW~3Zh4q6zOmHAzDBCEsSsZ5H4p4RPSOxY8Roj-ex1SLEFPPT9GtTPPWM-jG5qwc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-10.png" title= "Fruit Dataset" alt="A fruit dataset created by Ian Murray at University Edinburgh for Machine learning lecture purpose" width="350">
     </a>
 
 + The input data as a table
-    <a href="url">
+    <a href="https://d3c33hcgiwev3.cloudfront.net/hTmWWzmaEee7AA7Ncgm5Cg.processed/full/540p/index.mp4?Expires=1535673600&Signature=VYuFss4hE4zwTHrV9Bv8Odm~3zX7r3pCwu7yHXX1R2gZNjqdt7YeV-02VEHPoqfNMnY~b3dfdPp31UlrE4WgSOCoEcDHwpdD1UOujTRCRKGTW~3Zh4q6zOmHAzDBCEsSsZ5H4p4RPSOxY8Roj-ex1SLEFPPT9GtTPPWM-jG5qwc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-11.png" title= "Table of fruit dataset" alt="The table represents the dataset of fruits with each row as a single data instance whereas the fruit_label column contains the label for each data instance and (mass, width, height, color_score) as the features of the instance." width="350">
     </a>
 
@@ -356,12 +356,12 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     ```
 
 + The scale for the (simplistic) `color_score` feature used in the fruit dataset
-    <a href="url">
+    <a href="https://d3c33hcgiwev3.cloudfront.net/hTmWWzmaEee7AA7Ncgm5Cg.processed/full/540p/index.mp4?Expires=1535673600&Signature=VYuFss4hE4zwTHrV9Bv8Odm~3zX7r3pCwu7yHXX1R2gZNjqdt7YeV-02VEHPoqfNMnY~b3dfdPp31UlrE4WgSOCoEcDHwpdD1UOujTRCRKGTW~3Zh4q6zOmHAzDBCEsSsZ5H4p4RPSOxY8Roj-ex1SLEFPPT9GtTPPWM-jG5qwc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-12.png" title= "Color scale" alt="Color spectrum for color scale" width="250">
     </a>
 
 + Creating Training and Testing Sets
-    <a href="url">
+    <a href="https://d3c33hcgiwev3.cloudfront.net/hTmWWzmaEee7AA7Ncgm5Cg.processed/full/540p/index.mp4?Expires=1535673600&Signature=VYuFss4hE4zwTHrV9Bv8Odm~3zX7r3pCwu7yHXX1R2gZNjqdt7YeV-02VEHPoqfNMnY~b3dfdPp31UlrE4WgSOCoEcDHwpdD1UOujTRCRKGTW~3Zh4q6zOmHAzDBCEsSsZ5H4p4RPSOxY8Roj-ex1SLEFPPT9GtTPPWM-jG5qwc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-13.png" title= "Generating training and testing data sets" alt="Mutually exclusively divide original dataset with 3:1 ratio for training and testing sets" width="350">
     </a>
     ```python
@@ -396,7 +396,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/hTmWWzmaEee7AA7Ncgm5Cg.processed/full/540p/index.mp4?Expires=1535673600&Signature=VYuFss4hE4zwTHrV9Bv8Odm~3zX7r3pCwu7yHXX1R2gZNjqdt7YeV-02VEHPoqfNMnY~b3dfdPp31UlrE4WgSOCoEcDHwpdD1UOujTRCRKGTW~3Zh4q6zOmHAzDBCEsSsZ5H4p4RPSOxY8Roj-ex1SLEFPPT9GtTPPWM-jG5qwc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="An Example Machine Learning Problem" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -420,7 +420,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     Ans: 1, 2, 3
 
 + A pairwise feature scatterplot visualizes the data using all possible pairs of features, with one scatterplot per feature pair, and histograms for each feature along the diagonal.
-    <a href="url">
+    <a href="https://d3c33hcgiwev3.cloudfront.net/d_CORDmaEeeRMwreAZ0UVg.processed/full/540p/index.mp4?Expires=1535673600&Signature=La411GGE4Wg3PH1EHmh90OL3gIvVTR1XLxvSi3JsVmJCmI8kG66neYZtMBrkoIOG-76Yhfy~2O607f6xy4Ra8jAwRKWkdFWJaGpbJsjxE059XoEoh61ORDchGJR-gKZgweCTYe0MS2uRL9cazJJKwEZp4t4U76jrERlPojtKejE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-15.png" title= "Pairwise feature scatterplots and individual scatter plot" alt="A matrix scatterplots represent all combination of features while individual scatterplot represents the height and color_score plot" width="350">
     </a>
     ```html
@@ -429,7 +429,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     ```
 
 + A three-dimensional feature scatterplot
-    <a href="url">
+    <a href="https://d3c33hcgiwev3.cloudfront.net/d_CORDmaEeeRMwreAZ0UVg.processed/full/540p/index.mp4?Expires=1535673600&Signature=La411GGE4Wg3PH1EHmh90OL3gIvVTR1XLxvSi3JsVmJCmI8kG66neYZtMBrkoIOG-76Yhfy~2O607f6xy4Ra8jAwRKWkdFWJaGpbJsjxE059XoEoh61ORDchGJR-gKZgweCTYe0MS2uRL9cazJJKwEZp4t4U76jrERlPojtKejE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-17.png" title= "caption" alt="text" width="250">
     </a>
     ```python
@@ -503,14 +503,44 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## LectureK-Nearest Neighbors Classification
 
++ The k-Nearest Neighbor (k-NN) Classifier Algorithm <br/>
+    Given a training set X_train with labels y_train, and given a new instance x_test to be classified:
+    1. Find the most similar instances (let's call them X_NN) to x_test that are in X_train.
+    2. Get the labels y_NN for the instances in X_NN
+    3. Predict the label for x_test by combining the labels y_NN e.g. simple majority vote
+
++ A visual explanation of k-NN
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
+        <br/><img src="images/fig1-19.png" title= "K-nearest neighbor with k=1, 5, 10" alt="Diagrams represents the k-nearest neighbors with k = 1, 5, and 10 " width="600">
+    </a>
+
++ A nearest neighbor algorithm needs four things specified
+    1. A distance metric
+    2. How many 'nearest' neighbors to look at?
+    3. Optional weighting function on the neighbor points
+    4. Method for aggregating the classes of neighbor points
+
++ A nearest neighbor algorithm needs four things specified
+    1. A distance metric: __Typically Euclidean (Minkowski with p = 2)__
+    2. How many 'nearest' neighbors to look at?: _e.g. five__
+    3. Optional weighting function on the neighbor points: __Ignored__
+    4. How to aggregate the classes of neighbor points: __Simple majority vote__ <br/>(Class with the most representatives among nearest neighbors)
+
++ How sensitive is k-NN classifier accuracy to the choice of 'k' parameter?
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
+        <br/><img src="images/fig1-20.png" title= "Accuracy vs k values" alt="The diagram illustrates the relationship between k-value and corresponding accuracy" width="300">
+    </a>
 
 
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
+        <br/><img src="url" title= "caption" alt="text" width="350">
+    </a>
 
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
 
-<a href="url" alt="text" target="_blank">
+### Lecture Video 
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/i3r_FTmaEeeRKQp2xLWbhg.processed/full/540p/index.mp4?Expires=1535673600&Signature=RRZR0EXP~aIBtsdFAPN7EHU80x6RSIt4iSq7BkjnFPV9gH8ZfUE04vYr2Lqq7MOIueQYDWFXn~wyu86CkrCIIIS5vygYuPhDzyDyGCkJuIOG9usaYp9THL6ZK8IXOuj6H0t9IZnh0lunnUN96loUC8Poi~Bjrkh7fXjUsrv2y5U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="K-Nearest Neighbors Classification
+" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
