@@ -259,17 +259,55 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## Python Tools for Machine Learning
 
++ `scikit-learn`: Python Machine Learning Library
+    + [scikit-learn Homepage](http://scikit-learn.org/)
+    + [scikit-learn User Guide](http://scikit-learn.org/stable/user_guide.html)
+    + [scikit-learn API reference](http://scikit-learn.org/stable/modules/classes.html)
+    + In Python, we typically import classes and functions we need like this:
+        ```python
+        from sklearn.model_selection import train_test_split
+        from sklearn.tree import DecisionTreeClassifier
+        ```
 
++ [SciPy Library](http://www.scipy.org/): Scientific Computing Tools
+    + Provides a variety of useful scientific computing tools, including statistical distributions, optimization of functions, linear algebra, and a variety of specialized mathematical functions.
+    + With `scikit-learn`, it provides support for _sparse matrices_, a way to store large tables that consist mostly of zeros.
+    + Example import: `import scipy as sp`
 
++ [NumPy](http://www.numpy.org/): Scientific Computing Library
+    + Provides fundamental data structures used by `scikit-learn`, particularly multi-dimensional arrays.
+    + Typically, data that is input to `scikit-learn` will be in the form of a NumPy array.
+    + Example import: `import numpy as np`
 
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
++ [Pandas](http://pandas.pydata.org/): Data Manipulation and Analysis
+    + Provides key data structures like `DataFrame`
+    + Also, support for reading/writing data in different formats
+    + Example import: `import pandas as pd`
+
++ [matplotlib](http://matplotlib.org/) and other plotting libraries
+    + We typically use matplotlib's __pyplot__ module: `import matplotlib.pyplot as plt`
+    + We also sometimes use the __seaborn__ visualization library (http://seaborn.pydata.org/) `import seaborn as sn`
+    + And sometimes the __graphviz__ plotting library: `import graphviz`
+
++ Versions of main libraries used in this course
+
+    | Library name    | Minimum version |
+    |----------------|------------------|
+    | scikit-learn    | 0.18.1 |
+    | scipy           | 0.19.0 |
+    | numpy           | 1.12.1 |
+    | pandas          | 0.19.2 |
+    | matplotlib      | 2.0.1 |
+    | seaborn         | 0.7.1 |
+    | graphviz        | 0.7 |
+
+    It’s okay if your versions of these don’t match ours exactly, as long as the version of `scikit-learn` and other libraries you’re using is the same or greater than listed here.
+
 
 
 ### Course Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/4NaQeVzqEeeliw7ADgKLdA.processed/full/540p/index.mp4?Expires=1535673600&Signature=TvSRdaMnMc5~~cj~DTGMO2s~EO58sd2lNmcWaK-aOJ1wtV~8L9ZgMBas7ErdohPtklsutnMogqiOg04nHiEWHLYC6IP~0dxcUv6v6~Sh7NgGaSTzcdXYRqXjr5LgFpi5-Cs0RezpmQuBeL7RVNWtATbFsJAs8dy-ADfHQqXtbRI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Python Tools for Machine Learning" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
