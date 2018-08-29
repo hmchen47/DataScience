@@ -503,6 +503,12 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## K-Nearest Neighbors Classification
 
++ K-NN Algorithm
+    + used for classification and regression
+    + instance-based or memory-based supervised learning
+    + memorizing the labeled examples of training set
+    + `k`: the number of nearest neighbor the classifier will retrieve and use to make decision
+
 + The k-Nearest Neighbor (k-NN) Classifier Algorithm <br/>
     Given a training set X_train with labels y_train, and given a new instance x_test to be classified:
     1. Find the most similar instances (let's call them X_NN) to x_test that are in X_train.
@@ -534,22 +540,22 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     # default is 75% / 25% train-test split
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
-    # ### Create classifier object
+    # Create classifier object
     from sklearn.neighbors import KNeighborsClassifier
 
     knn = KNeighborsClassifier(n_neighbors = 5)
 
-    # ### Train the classifier (fit the estimator) using the training data
+    # Train the classifier (fit the estimator) using the training data
     knn.fit(X_train, y_train)
     # KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
     #       metric_params=None, n_jobs=1, n_neighbors=5, p=2,
     #       weights='uniform')
 
-    # ### Estimate the accuracy of the classifier on future data, using the test data
+    # Estimate the accuracy of the classifier on future data, using the test data
     knn.score(X_test, y_test)
     # 0.53333333333333333
 
-    # ### Use the trained k-NN classifier model to classify new, previously unseen objects
+    # Use the trained k-NN classifier model to classify new, previously unseen objects
     # first example: a small fruit with mass 20g, width 4.3 cm, height 5.5 cm
     fruit_prediction = knn.predict([[20, 4.3, 5.5]])
     lookup_fruit_name[fruit_prediction[0]]          # 'mandarin'
@@ -558,12 +564,12 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     fruit_prediction = knn.predict([[100, 6.3, 8.5]])
     lookup_fruit_name[fruit_prediction[0]]          # 'lemon'
 
-    # ### Plot the decision boundaries of the k-NN classifier
+    # Plot the decision boundaries of the k-NN classifier
     from adspy_shared_utilities import plot_fruit_knn
 
     plot_fruit_knn(X_train, y_train, 5, 'uniform')   # we choose 5 nearest neighbors
 
-    # ### How sensitive is k-NN classification accuracy to the choice of the 'k' parameter?
+    #  How sensitive is k-NN classification accuracy to the choice of the 'k' parameter?
     k_range = range(1,20)
     scores = []
 
@@ -597,10 +603,22 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     plt.xlabel('Training set proportion (%)')
     plt.ylabel('accuracy');
     ```
+
++ K-NN Analysis with `k` value:
+    + smaller `k`: 
+        + good at learning the classess for individual points in the training set
+        + decision boundary: fragmented with considerable variation
+        + sensitive to noise, outliers, mislabeled data and other sources of variations iin individual data points
+    + larger `k`:
+        + area assigned to different classes - smother and not as fragmented and more robust to 
+        + possibly with some mistakes, more mistakes in individual points
+    + Bias tradeoff
+
 + How sensitive is k-NN classifier accuracy to the choice of 'k' parameter?
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
         <br/><img src="images/fig1-20.png" title= "Accuracy vs k values" alt="The diagram illustrates the relationship between k-value and corresponding accuracy" width="300">
     </a>
+
 
 + Q: Which of these could be an acceptable sequence of operations using scikit-learn to apply the k-nearest neighbors classification method?
     1. read_table, train_test_split, fit, KNeighborsClassifier, score
@@ -693,7 +711,113 @@ https://www.edx.org/course/data-science-ethics-michiganx-ds101x-1
 ## Quiz: Module 1 Quiz
 
 
+Q1. Select the option that correctly completes the sentence:<br/>
+    Training a model using labeled data and using this model to predict the labels for new data is known as ____________.
 
+    a. Density Estimation
+    b. Unsupervised Learning
+    c. Clustering
+    d. Supervised Learning
+
+    Ans: d
+
+
+Q2. Select the option that correctly completes the sentence: <br/>
+Modeling the features of an unlabeled dataset to find hidden structure is known as ____________.
+
+    a. Unsupervised Learning
+    b. Supervised Learning
+    c. Regression
+    d. Classification
+
+    Ans: a
+
+
+Q3. Select the option that correctly completes the sentence: <br/>
+Training a model using categorically labelled data to predict labels for new data is known as __________.
+
+    a. Regression
+    b. Classification
+    c. Feature Extraction
+    d. Clustering
+
+    Ans: b
+
+
+Q4. Select the option that correctly completes the sentence:<br/>
+Training a model using labelled data where the labels are continuous quantities to predict labels for new data is known as __________.
+
+    a. Classification
+    b. Clustering
+    c. Regression
+    d. Feature Extraction
+
+    Ans: c
+
+
+Q5. Using the data for classes 0, 1, and 2 plotted below, what class would a KNeighborsClassifier classify the new point as for k = 1 and k = 3?
+<a href="https://www.coursera.org/learn/python-machine-learning/exam/W3RV7/module-1-quiz">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/YdQCpibAEeejEg4SqUr0SA_de250da2368b67dbcac2c7e894135d18_knn_quiz1.png?expiry=1535673600000&hmac=0KycXQ45OqeogEm5Q7VxBnqos-S6UyIu212yyZWUnm4" alt="" title= "Question 5" width="250">
+</a>
+
+    a. k=1: Class 1; k=3: Class 2
+    b. k=1: Class 0; k=3: Class 2
+    c. k=1: Class 0; k=3: Class 1
+    d. k=1: Class 1; k=3: Class 0
+    e. k=1: Class 2; k=3: Class 1
+
+    Ans: a
+
+Q6. Which of the following is true for the nearest neighbor classifier (Select all that apply):
+
+    a. Given a data instance to classify, computes the probability of each possible class using a statistical model of the input features
+    b. A higher value of k leads to a more complex decision boundary
+    c. Partitions observations into k clusters where each observation belongs to the cluster with the nearest mean
+    d. Memorizes the entire training set
+
+    Ans: (x - c. d)
+
+
+Q7. Why is it important to examine your dataset as a first step in applying machine learning? (Select all that apply): <br/>
+
+    a. See what type of cleaning or preprocessing still needs to be done
+    b. You might notice missing data
+    c. Gain insight on what machine learning model might be appropriate, if any
+    d. Get a sense for how difficult the problem might be
+    e. It is not important
+
+    Ans: (x- a, b, d)
+
+
+Q8. The key purpose of splitting the dataset into training and test sets is:
+
+    a. To reduce the amount of labelled data needed for evaluating classifier accuracy
+    b. To reduce the number of features we need to consider as input to the learning algorithm
+    c. To speed up the training process
+    d. To estimate how well the learned model will generalize to new data
+
+    Ans: d
+
+
+Q9. The purpose of setting the random_state parameter in train_test_split is: (Select all that apply)
+
+    a. To make experiments easily reproducible by always using the same partitioning of the data
+    b. To avoid bias in data splitting
+    c. To avoid predictable splitting of the data
+    d. To split the data into similar subsets so that bias is not introduced into the final results
+
+    Ans: (x - a, d)
+
+
+Q10. Given a dataset with 10,000 observations and 50 features plus one label, what would be the dimensions of X_train, y_train, X_test, and y_test? Assume a train/test split of 75%/25%.
+
+    a. X_train: (10000, 50), y_train: (10000, ), X_test: (10000, 50), y_test: (10000, )
+    b. X_train: (2500, ), y_train: (2500, 50), X_test: (7500, ), y_test: (7500, 50)
+    c. X_train: (2500, 50), y_train: (2500, ), X_test: (7500, 50), y_test: (7500, )
+    d. X_train: (10000, 28), y_train: (10000, ), X_test: (10000, 12), y_test: (10000, )
+    e. X_train: (7500, 50), y_train: (7500, ), X_test: (2500, 50), y_test: (2500, )
+
+    Ans: e
 
 
 
