@@ -114,7 +114,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 + Speech Recognition
     <a href="url">
-        <br/><img src="./images/fig1-01.png" title= "Speech Recognition" alt="Data flow of speech recognition with machine learning" width="450">
+        <br/><img src="./images/fig1-01.png" title= "Speech Recognition" alt="Data flow of speech recognition with machine learning" width="250">
     </a>
 
 + Machine Learning models can learn by example
@@ -141,14 +141,14 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 + Machine Learning for fraud detection and credit scoring
     <a href="url">
-        <br/><img src="./images/fig1-02.png" title= "Machine learning Flow for fraud detection and credit scoring" alt="Machine learning flow chart for credit adn fraud detection" width="450">
+        <br/><img src="./images/fig1-02.png" title= "Machine learning Flow for fraud detection and credit scoring" alt="Machine learning flow chart for credit adn fraud detection" width="250">
     </a>
 
 + Web search: query spell-checking, result ranking, content classification and selection, advertising placement
 
 + Machine Learning for Speech Recognition
     <a href="url">
-        <br/><img src="./images/fig1-03.png" title= "Speech recognition with Machine learning" alt="Machine learning architecture of speech recognition" width="450">
+        <br/><img src="./images/fig1-03.png" title= "Speech recognition with Machine learning" alt="Machine learning architecture of speech recognition" width="250">
     </a>
 
 + Machine Learning algorithms are at the heart of the information economy
@@ -192,14 +192,67 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## Key Concepts in Machine Learning
 
++ Key types of Machine Learning problems <br/>
+    + __Supervised__ machine learning: Learn to predict __target values__ from labelled data.
+        + Classification (target values are discrete classes)
+        + Regression (target values are continuous values)
+    + __Unsupervised__ machine learning: Find structure in unlabeled data
+        + Find groups of similar instances in the data (clustering)
+        + Finding unusual patterns (outlier detection)
 
++ Supervised Learning (classification example)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/hrHXm/key-concepts-in-machine-learning">
+        <br/><img src="images/fig1-04.png" title= "Classification example" alt="Classification example - Supervised learning with fruits" width="350">
+    </a>
 
++ Examples of explicit and implicit label sources
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/hrHXm/key-concepts-in-machine-learning">
+        <br/><img src="images/fig1-05.png" title= "caption" alt="text" width="350">
+    </a>
 
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
++ Unsupervised learning: finding useful structure or knowledge in data when no labels are available
+    + Finding clusters of similar users (clustering)
+    + Detecting abnormal server access patterns (unsupervised outlier detection)
+    <a href="https://sklearn.org/modules/decomposition.html">
+        <br/><img src="https://sklearn.org/_images/sphx_glr_plot_pca_vs_lda_0011.png" title= "Unsupervised learning - clustering" alt="example of the iris dataset, which is comprised of 4 features, projected on the 2 dimensions that explain most variance" width="200">
+    </a>
+    <a href="https://datascience.stackexchange.com/questions/18450/which-outlier-detection-can-detect-these-outliers">
+        <img src="https://i.stack.imgur.com/CY2rV.png" title= "Unsupervised learning with outlier detection" alt="Points are readings of a sensor for a day. But the values of the sensor change because of system reconfiguration (the environment is not static). The times of the reconfigurations are unknown. Blue points are for the period before reconfiguration. Yellow points are for after the reconfiguration which causes deviation in the distribution of the readings (but are normal). Red points are results of illegal modifying of the yellow points. In other words, they are anomalies which should be detected." width="350">
+    </a>
 
-<a href="url" alt="text" target="_blank">
++ Q: Which of the following are examples of __supervised machine__ learning? Select all that apply.
+
+    1. Analyzing sales data to find groups of customers with similar buying habits.
+    2. Making online movie recommendations based on the “star” ratings that other users provided with their online movie reviews.
+    3. A face recognition system that was trained using images with crowdsourced labels.
+    4. A search engine that uses user clicks on the results page to learn which pages are most relevant to popular queries.
+
+    Ans: 2, 3, 4
+    1. This is an example of clustering, which is an unsupervised machine learning task.
+
++ A Basic Machine Learning Workflow
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/hrHXm/key-concepts-in-machine-learning">
+        <br/><img src="images/fig1-06.png" title= "Basic workflow of a machine learning" alt="Basic workflow with building blocks of representation, evaluation, and optimization" width="350">
+    </a>
+
++ Feature Representations
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/hrHXm/key-concepts-in-machine-learning">
+        <br/><img src="images/fig1-07.png" title= "Examples of feature representations" alt="Feature representation: email - word frequency counts; picture - color pixels; sea creature - attribute values" width="350">
+    </a>
+
++ Representing a piece of fruit as an array of features (plus label information)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/hrHXm/key-concepts-in-machine-learning">
+        <br/><img src="images/fig1-08.png" title= "Example of fruit representation with array of features" alt="Representing a piece of fruit with an array of features by mass, color, width and heights" width="350">
+    </a>
+
++ Represent / Train / Evaluate / Refine Cycle
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/hrHXm/key-concepts-in-machine-learning">
+        <br/><img src="images/fig1-09.png" title= "Represent-Train-Evaluate-Refine Machine Learning cycle" alt="Represent-Train-Evaluate-Refine Machine Learning cycle" width="250">
+    </a>
+
+### Course Video
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/Fcm_hlzsEeeQywpoSy5QrA.processed/full/540p/index.mp4?Expires=1535587200&Signature=jDu4qL7QSvu3D-PCh5x8XoByv3l1uZAU9tBVifdTVWMig-StCMMtQN3HSzvgSCuiHOPuJ8KF4HDiwqXcn0~-zUG2rLQhjM~JSrVkCiGx~3FdzGKsBdZ3V5qO-XNSCxzBoH1NXImJ4PEIPFvea~yQea~Puamv8IGnH9WHmDqQ5bo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Key Concepts in Machine Learning" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -212,6 +265,9 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 <a href="url">
     <br/><img src="url" title= "caption" alt="text" width="450">
 </a>
+
+
+### Course Video
 
 <a href="url" alt="text" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
