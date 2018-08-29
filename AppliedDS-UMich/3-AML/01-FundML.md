@@ -394,8 +394,6 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     + Returns: splitting : list, length=2 * len(arrays); List containing train-test split of inputs.
 
 
-
-
 ### Lecture Video
 
 <a href="url" alt="text" target="_blank">
@@ -405,14 +403,100 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 ## Examining the Data
 
++ Some reasons why looking at the data initially is important
+    + Inspecting feature values may help identify what cleaning or preprocessing still needs to be done once you can see the range or distribution of values that is typical for each attribute.
+    + You might notice missing or noisy data, or inconsistencies such as the wrong data type being used for a column, incorrect units of measurements for a particular column, or that there aren’t enough examples of a particular class.
+    + You may realize that your problem is actually solvable without machine learning.
+    <a href="url">
+        <br/><img src="images/fig1-14.png" title= "Table with incorrect or missing feature values" alt="The table containing incorrect or missing data: row 2 - color-score must be 0.0~1.0; row 5 - fruit_subtype should be mandarin; row 10-13 - missing mass" width="250">
+    </a>
+
++ Q: Why is it important to examine your dataset before starting to work with it for a machine learning task?
+    1. To understand how much missing data there is in the dataset
+    2. To get an idea of whether the features need further cleaning
+    3. It may turn out the problem doesn't require machine learning.
+    4. It's not important; most machine learning methods can learn to work with the raw data without further processing.
+
+    Ans: 1, 2, 3
+
++ A pairwise feature scatterplot visualizes the data using all possible pairs of features, with one scatterplot per feature pair, and histograms for each feature along the diagonal.
+    <a href="url">
+        <br/><img src="images/fig1-15.png" title= "Pairwise feature scatterplots and individual scatter plot" alt="A matrix scatterplots represent all combination of features while individual scatterplot represents the height and color_score plot" width="350">
+    </a>
+    ```html
+    cmap = cm.get_cmap('gnuplot')
+    scatter = pd.scatter_matrix(X_train, c= y_train, marker = 'o', s=40, hist_kwds={'bins':15}, figsize=(9,9), cmap=cmap)
+    ```
+
++ A three-dimensional feature scatterplot
+    <a href="url">
+        <br/><img src="images/fig1-17.png" title= "caption" alt="text" width="250">
+    </a>
+    ```python
+    from mpl_toolkits.mplot3d import Axes3D
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection = '3d')
+    ax.scatter(X_train['width'], X_train['height'], X_train['color_score'], c = y_train, marker = 'o', s=100)
+    ax.set_xlabel('width')
+    ax.set_ylabel('height')
+    ax.set_zlabel('color_score')
+    plt.show()
+    ```
+
++ `cm.get_cmap` method
+    + Signature: `cm.get_cmap(name=None, lut=None)`
+    + Docstring: Get a colormap instance, defaulting to rc values if *name* is None.
+    + Parameters:
+        + `name` (`matplotlib.colors.Colormap` instance): it will be returned.
+        + `lut`: If *lut* is not None it must be an integer giving the number of entries desired in the lookup table, and *name* must be a standard mpl colormap name.
+
++ `pd.scatter_matrix` method
+    + Signature: `pd.scatter_matrix(frame, alpha=0.5, figsize=None, ax=None, grid=False, diagonal='hist', marker='.', density_kwds=None, hist_kwds=None, range_padding=0.05, **kwds)`
+    + Docstring: Draw a matrix of scatter plots
+    + Parameters:
+        + `frame` (DataFrame)
+        + `alpha` (float, optional): amount of transparency applied
+        + `figsize` (float,float): a tuple (width, height) in inches
+        + `ax` (Matplotlib axis object, optional)
+        + `grid` (bool, optional): setting this to True will show the grid
+        + `diagonal` ( {‘hist’, ‘kde’}): pick between ‘kde’ and ‘hist’ for either Kernel Density Estimation or Histogram plot in the diagonal
+        + `marker` (str, optional): Matplotlib marker type, default ‘.’
+        + `hist_kwds`: other plotting keyword arguments; To be passed to hist function
+        + `density_kwds`: other plotting keyword arguments; To be passed to kernel density estimate plot
+        + `range_padding` (float, optional): relative extension of axis range in x and y with respect to (x_max - x_min) or (y_max - y_min), default 0.05
+        + `kwds`: other plotting keyword arguments; To be passed to scatter function
+
++ `plt.savefig` function
+    + Signature: `savefig(fname, *kwargs*)`
+    + Docstring: Save the current figure.
+    + Arguments:
+        + `fname`: A string containing a path to a filename, or a Python file-like object, or possibly some backend-dependent object such as `~matplotlib.backends.backend_pdf.PdfPages`.
+            + If *format* is *None* and *fname* is a string, the output format is deduced from the extension of the filename. 
+            + If the filename has no extension, the value of the rc parameter `savefig.format` is used.
+            + If *fname* is not a string, remember to specify *format* to ensure that the correct backend is used.
+    + Keyword arguments:
+        + `dpi` ([ *None* | ``scalar > 0`` | 'figure']): The resolution in dots per inch.  
+            + If *None* it will default to the value `savefig.dpi` in the matplotlibrc file. 
+            + If 'figure' it will set the dpi to be the value of the figure.
+        + `facecolor`, `edgecolor`: the colors of the figure rectangle
+        + `orientation` ([ 'landscape' | 'portrait' ]): not supported on all backends; currently only on postscript output
+        + `papertype`: One of 'letter', 'legal', 'executive', 'ledger', 'a0' through 'a10', 'b0' through 'b10'. Only supported for postscript output.
+        + `format`: One of the file extensions supported by the active backend.  Most backends support png, pdf, ps, eps and svg.
+        + `transparent`:
+            + If *True*, the axes patches will all be transparent; the figure patch will also be transparent unless facecolor and/or edgecolor are specified via kwargs. This is useful, for example, for displaying a plot on top of a colored background on a web page.  The transparency of these patches will be restored to their original values upon exit of this function.
+        + `frameon`: 
+            + If *True*, the figure patch will be colored, if *False*, the figure background will be transparent.  
+            + If not provided, the rcParam 'savefig.frameon' will be used.
+        + `bbox_inches`: Bbox in inches. Only the given portion of the figure is saved. If 'tight', try to figure out the tight bbox of the figure.
+        + `pad_inches`: Amount of padding around the figure when bbox_inches is 'tight'.
+        + `bbox_extra_artists`: A list of extra artists that will be considered when the tight bbox is calculated.
 
 
 
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
+### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/d_CORDmaEeeRMwreAZ0UVg.processed/full/540p/index.mp4?Expires=1535673600&Signature=La411GGE4Wg3PH1EHmh90OL3gIvVTR1XLxvSi3JsVmJCmI8kG66neYZtMBrkoIOG-76Yhfy~2O607f6xy4Ra8jAwRKWkdFWJaGpbJsjxE059XoEoh61ORDchGJR-gKZgweCTYe0MS2uRL9cazJJKwEZp4t4U76jrERlPojtKejE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Examining the Data" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
