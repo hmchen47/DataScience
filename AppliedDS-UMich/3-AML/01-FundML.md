@@ -312,32 +312,11 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 </a>
 
 
-## Notice for Auditing Learners: Assignment Submission
-
-
-
-
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
-
-
 ## Module 1 Notebook
 
-
-
-
-<a href="url">
-    <br/><img src="url" title= "caption" alt="text" width="450">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
++ [Web Notebook](https://hub.coursera-notebooks.org/user/elkljxyoytcwjbmkgctrtg/notebooks/Module%201.ipynb#)
++ [Local Notebook](notebooks/Module01.ipynb)
++ [Local Python Code](notebooks/Module01.py)
 
 
 ## An Example Machine Learning Problem
