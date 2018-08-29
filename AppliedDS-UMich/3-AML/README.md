@@ -9,7 +9,7 @@
 + [Module 1 Notebook](./01-FundML.md#)
 + [An Example Machine Learning Problem](./01-FundML.md#)
 + [Examining the Data](./01-FundML.md#)
-+ [LectureK-Nearest Neighbors Classification](./01-FundML.md#)
++ [K-Nearest Neighbors Classification](./01-FundML.md#)
 + [Zachary Lipton: The Foundations of Algorithmic Bias (optional)](./01-FundML.md#)
 + [Quiz: Module 1 Quiz](./01-FundML.md#)
 
