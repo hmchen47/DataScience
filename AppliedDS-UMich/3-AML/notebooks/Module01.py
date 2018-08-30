@@ -11,6 +11,7 @@
 
 # ### Import required modules and load data file
 get_ipython().magic('matplotlib notebook')
+# %matplotlib notebook
 import numpy as np+[Web notebook]()
 import matplotlib.pyplot as plt
 import pandas as pd
