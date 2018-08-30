@@ -369,6 +369,9 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     y = fruits['fruit_label']
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
     ```
+    + `ramdon_state`: seed value for random number generator
+    + `X_train`: the training instances to train the classifier
+    + `X_test`: evaluate the classifier after it's been trained
 
 + `train_test_split` function
     + Signature: `train_test_split(*arrays, **options)`
@@ -384,12 +387,12 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
             + If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. 
             + If int, represents the absolute number of train samples. 
             + If None, the value is automatically set to the complement of the test size.
-        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+        + `random_state` (int, RandomState instance or None, optional, default=None): 
             + If int, random_state is the seed used by the random number generator;
             + If RandomState instance, random_state is the random number generator;
             + If None, the random number generator is the RandomState instance used by `np.random`.
         + `shuffle` (boolean, optional (default=True)): Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.
-        + `stratify` (array-like or None (default is None)):  If not None, data is split in a stratified fashion, using this as the class labels.
+        + `stratify` (array-like or None, default is None):  If not None, data is split in a stratified fashion, using this as the class labels.
 
     + Returns: splitting : list, length=2 * len(arrays); List containing train-test split of inputs.
 
