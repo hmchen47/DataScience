@@ -552,12 +552,12 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     from sklearn.neighbors import KNeighborsClassifier
 
     knn = KNeighborsClassifier(n_neighbors = 5)
-
-    # Train the classifier (fit the estimator) using the training data
-    knn.fit(X_train, y_train)
     # KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
     #       metric_params=None, n_jobs=1, n_neighbors=5, p=2,
     #       weights='uniform')
+
+    # Train the classifier (fit the estimator) using the training data
+    knn.fit(X_train, y_train)
 
     # Estimate the accuracy of the classifier on future data, using the test data
     knn.score(X_test, y_test)
@@ -786,8 +786,8 @@ Q6. Which of the following is true for the nearest neighbor classifier (Select a
     c. Partitions observations into k clusters where each observation belongs to the cluster with the nearest mean
     d. Memorizes the entire training set
 
-    Ans: a, b, d (x - b, d), (x - c, d)
-    b - correct, d - correct, c- k-mean for unsupervised 
+    Ans: (x - b, c, d) (x - a, b, d), (x - b, d), (x - c, d)
+    b - correct, d - correct, c- k-mean for unsupervised
 
 
 Q7. Why is it important to examine your dataset as a first step in applying machine learning? (Select all that apply):
@@ -819,7 +819,7 @@ Q9. The purpose of setting the random_state parameter in train_test_split is: (S
     c. To avoid predictable splitting of the data
     d. To split the data into similar subsets so that bias is not introduced into the final results
 
-    Ans: a, b, d (x - a, b) (x - a, d)
+    Ans: (x - a, c), (x - a, b, d), (x - a, b) (x - a, d)
     a - correct, c - incorrect
 
 
@@ -832,6 +832,5 @@ Q10. Given a dataset with 10,000 observations and 50 features plus one label, wh
     e. X_train: (7500, 50), y_train: (7500, ), X_test: (2500, 50), y_test: (2500, )
 
     Ans: e
-
 
 
