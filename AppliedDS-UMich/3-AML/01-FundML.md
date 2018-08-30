@@ -786,7 +786,7 @@ Q6. Which of the following is true for the nearest neighbor classifier (Select a
     c. Partitions observations into k clusters where each observation belongs to the cluster with the nearest mean
     d. Memorizes the entire training set
 
-    Ans: (x - b, c, d) (x - a, b, d), (x - b, d), (x - c, d)
+    Ans: a, b , c, d (x - c, d), (x - a, d), (x - b, c, d) (x - a, b, d), (x - b, d), (x - c, d)
     b - correct, d - correct, c- k-mean for unsupervised
 
 
@@ -819,7 +819,7 @@ Q9. The purpose of setting the random_state parameter in train_test_split is: (S
     c. To avoid predictable splitting of the data
     d. To split the data into similar subsets so that bias is not introduced into the final results
 
-    Ans: (x - a, c), (x - a, b, d), (x - a, b) (x - a, d)
+    Ans: a, b, c, d (x - c, d), (x - b, d), (x - a, c), (x - a, b, d), (x - a, b) (x - a, d)
     a - correct, c - incorrect
 
 
