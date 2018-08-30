@@ -13,8 +13,8 @@
 + [Zachary Lipton: The Foundations of Algorithmic Bias (optional)](./01-FundML.md#)
 + [Quiz: Module 1 Quiz](./01-FundML.md#)
 
-## [Assignment 1](./asgn01.md)
 
+## [Assignment 1](./asgn01.md)
 
 
 ## Module 2: [Supervised Machine Learning](./02-Supervised1.md)
