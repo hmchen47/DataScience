@@ -404,9 +404,9 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 ## Examining the Data
 
 + Some reasons why looking at the data initially is important
-    + Inspecting feature values may help identify what cleaning or preprocessing still needs to be done once you can see the range or distribution of values that is typical for each attribute.
-    + You might notice missing or noisy data, or inconsistencies such as the wrong data type being used for a column, incorrect units of measurements for a particular column, or that there aren’t enough examples of a particular class.
-    + You may realize that your problem is actually solvable without machine learning.
+    + Inspecting feature values may help identify _what cleaning or preprocessing still needs_ to be done once you can see the range or distribution of values that is typical for each attribute.
+    + You might notice _missing or noisy data_, or _inconsistencies_ such as the wrong data type being used for a column, incorrect units of measurements for a particular column, or that there aren’t enough examples of a particular class.
+    + You may realize that your _problem_ is actually solvable without machine learning.
     <a href="url">
         <br/><img src="images/fig1-14.png" title= "Table with incorrect or missing feature values" alt="The table containing incorrect or missing data: row 2 - color-score must be 0.0~1.0; row 5 - fruit_subtype should be mandarin; row 10-13 - missing mass" width="250">
     </a>
@@ -419,11 +419,16 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
     Ans: 1, 2, 3
 
-+ A pairwise feature scatterplot visualizes the data using all possible pairs of features, with one scatterplot per feature pair, and histograms for each feature along the diagonal.
++ Benefits of visualization in training data set
+    + get an idea of the range of values that each feature takes on -> outliers
+    + get a better idea how likely a machine learning algorithm could do well at predicting the different classes
+
++ Feature pair plots
+    + A pairwise feature scatterplot visualizes the data using all possible pairs of features, with one scatterplot per feature pair, and histograms for each feature along the diagonal.
     <a href="https://d3c33hcgiwev3.cloudfront.net/d_CORDmaEeeRMwreAZ0UVg.processed/full/540p/index.mp4?Expires=1535673600&Signature=La411GGE4Wg3PH1EHmh90OL3gIvVTR1XLxvSi3JsVmJCmI8kG66neYZtMBrkoIOG-76Yhfy~2O607f6xy4Ra8jAwRKWkdFWJaGpbJsjxE059XoEoh61ORDchGJR-gKZgweCTYe0MS2uRL9cazJJKwEZp4t4U76jrERlPojtKejE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <br/><img src="images/fig1-15.png" title= "Pairwise feature scatterplots and individual scatter plot" alt="A matrix scatterplots represent all combination of features while individual scatterplot represents the height and color_score plot" width="350">
     </a>
-    ```html
+    ```python
     cmap = cm.get_cmap('gnuplot')
     scatter = pd.scatter_matrix(X_train, c= y_train, marker = 'o', s=40, hist_kwds={'bins':15}, figsize=(9,9), cmap=cmap)
     ```
@@ -612,12 +617,15 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     + larger `k`:
         + area assigned to different classes - smother and not as fragmented and more robust to 
         + possibly with some mistakes, more mistakes in individual points
+        + supress the effect of noisey individual labels
+        + less detailed classification boundaries
     + Bias tradeoff
 
 + How sensitive is k-NN classifier accuracy to the choice of 'k' parameter?
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/MwsUM/k-nearest-neighbors-classification">
         <br/><img src="images/fig1-20.png" title= "Accuracy vs k values" alt="The diagram illustrates the relationship between k-value and corresponding accuracy" width="300">
     </a>
+    + Best choise of `k`: highest accuracy - depending on the data set
 
 
 + Q: Which of these could be an acceptable sequence of operations using scikit-learn to apply the k-nearest neighbors classification method?
