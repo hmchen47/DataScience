@@ -214,7 +214,7 @@
         + then minimize(mse)returns array $[a_0, b_0]$
         + $a_0$ is the slope and $b_o$ the intercept of the line that minimizes the mse among lines with arbitrary slope $a$ and arbitrary intercept $b$ (that is, among all lines)
 
-+ `minimize` fucntion
++ `minimize` function
     + Signature: `minimize(f, start=None, smooth=False, log=None, array=False, **vargs)`
     + Docstring: Minimize a function f of one or more arguments.
     + Args:
@@ -222,7 +222,7 @@
         + `start`: A starting value or list of starting values
         + `smooth`: Whether to assume that f is smooth and use first-order info
         + `log`: Logging function called on the result of optimization (e.g. print)
-        + `vargs`: Other named arguments passed to scipy.optimize.minimize
+        + `vargs`: Other named arguments passed to `scipy.optimize.minimize`
     + Returns either:
         + the minimizing argument of a one-argument function
         + an array of minimizing arguments of a multi-argument function
@@ -250,7 +250,8 @@
     # Intercept: 10000 characters
     # Root mean squared error: 4322.167831766537
     lw_mse(50, 10000) ** 0.5        # 4322.167831766537
-    minimize(lw_mse)                # array([  86.97784117, 4744.78484535])
+
+    minimize(lw_mse)                # array([86.97784117, 4744.78484535])
     slope(little_women, 0, 1)       # 86.97784125829821
     intercept(little_women, 0, 1)   # 4744.784796574928
     ```
