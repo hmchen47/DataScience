@@ -786,8 +786,7 @@ Q6. Which of the following is true for the nearest neighbor classifier (Select a
     c. Partitions observations into k clusters where each observation belongs to the cluster with the nearest mean
     d. Memorizes the entire training set
 
-    Ans: a, b , c, d (x - c, d), (x - a, d), (x - b, c, d) (x - a, b, d), (x - b, d), (x - c, d)
-    b - correct, d - correct, c- k-mean for unsupervised
+    Ans: d
 
 
 Q7. Why is it important to examine your dataset as a first step in applying machine learning? (Select all that apply):
@@ -815,12 +814,11 @@ Q8. The key purpose of splitting the dataset into training and test sets is:
 Q9. The purpose of setting the random_state parameter in train_test_split is: (Select all that apply)
 
     a. To make experiments easily reproducible by always using the same partitioning of the data
-    b. To avoid bias in data splitting
+    b. To avoid bias in data
     c. To avoid predictable splitting of the data
     d. To split the data into similar subsets so that bias is not introduced into the final results
 
-    Ans: a, b, c, d (x - c, d), (x - b, d), (x - a, c), (x - a, b, d), (x - a, b) (x - a, d)
-    a - correct, c - incorrect
+    Ans: a
 
 
 Q10. Given a dataset with 10,000 observations and 50 features plus one label, what would be the dimensions of X_train, y_train, X_test, and y_test? Assume a train/test split of 75%/25%.
