@@ -2,8 +2,8 @@
 
 + [Alunching Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/7c8a2a1d0e8241e99bff43c05c23b011/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%402d9f38b83b784ebc9cb99d1d459549a7)
 + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec3.ipynb)
-+ [Local Notebook](./notebook/lec3.ipynb)
-+[Local Python Code](./notebook/lec3.py)
++ [Local Notebook](./notebooks/lec3.ipynb)
++[Local Python Code](./notebooks/lec3.py)
 
 ## Lec 3.1 Visualization
 

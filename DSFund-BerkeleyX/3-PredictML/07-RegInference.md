@@ -2,8 +2,8 @@
 
 + [Launching Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/9e3318ad6da44461990e1d4e3a64986f/4f90f7d56ed74420b5b641cdb0fedc65/?child=first)
 + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec7.ipynb#)
-+ [Local notebook](./notebook/lec7.ipynb)
-+ [Local Python Code](./notebook/lec7.py)
++ [Local notebook](./notebooks/lec7.ipynb)
++ [Local Python Code](./notebooks/lec7.py)
 
 + Common Functions for Linear Regression
     ```python
