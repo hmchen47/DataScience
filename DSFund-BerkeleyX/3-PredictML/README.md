@@ -45,8 +45,8 @@
     + [Lec 5.4 Least Squares](./05-LeastSquare.md#)
     + [Reading and Practice](./05-LeastSquare.md#)
 
-+ [Lab 2: Regression]
-    + [Wen Notebook]
++ [Lab 2: Regression](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/11f472f1d45d411993d1f696435f7d51/1a651a67c04f4dbdbabb7c10a9bff6ac/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%408f1a9a290aa246a18ad5e59b66e021bd)
+    + [Wen Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/materials/x18/lab/3/lab02/lab02.ipynb)
     + [Local Notebook](./labs/lab02.ipynb)
 
 
