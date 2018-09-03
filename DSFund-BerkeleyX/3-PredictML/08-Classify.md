@@ -43,8 +43,20 @@
 
 
 + Demo
-    ```html
+    ```python
+    ckd = Table.read_table('ckd.csv').relabeled('Blood Glucose Random', 'Glucose')
+    # labels: Age    Blood Pressure    Specific Gravity    Albumin    Sugar    Red Blood Cells    Pus Cell    Pus Cell clumps    Bacteria    Glucose    Blood Urea    Serum Creatinine    Sodium    Potassium    Hemoglobin    Packed Cell Volume    White Blood Cell Count    Red Blood Cell Count    Hypertension    Diabetes Mellitus    Coronary Artery Disease    Appetite    Pedal Edema    Anemia    Class
+    # Class 1: patient with chronic kidney disease
 
+    ckd.group('Class')
+    # Class   count
+    # 0       115
+    # 1       43
+
+    ckd.scatter('White Blood Cell Count', 'Glucose', colors='Class')
+    # decide which attributes to make decision -> a good reference
+
+    ckd.scatter('Hemoglobin', 'Glucose', colors='Class')    # a better one
     ```
 
 ### Video
@@ -60,7 +72,7 @@
 
 
 + Demo
-    ```html
+    ```python
 
     ```
 
