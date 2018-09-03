@@ -9,11 +9,26 @@
 
 ### Note
 
++ Classification: a particular kind of machine learning technique
++ Classifier: 
+    + a machine learning algorithm used to answer yes or no question
+    + making prediction based on historical data given some data set
+    + E.g, credit risk in bank
++ Classifier Examples:
+    + online stores to decide fraudulent or legitimate
+        + amount of the transaction
+        + what are buying, e.g., diamonds
+        + where to ship
+    + Applications
+        + Medical: cancerous or not - pre-judge, training
+        + Online dating site: important questions, such as religion
 
-+ Demo
-    ```html
-
-    ```
++ Machine: learning
+    + Teach computers by examples
+    + Large data sets -> predict the future instances
+    + No fix rules to make decisions
+    + Concerns on fairness and discrimination
+    + Trained algorithms come out of human system with bias
 
 ### Video
 
