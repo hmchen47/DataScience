@@ -79,9 +79,44 @@
 
 ### Note
 
++ Rows of Tables <br/>
+  Each row contains all the data for one individual
+  + `t.row(i)` evaluates to $ith$ row of table `t`
+  + `t.row(i).item(j)` is the value of column `j` in row `i`
+  + If all values are numbers, then `np.array(t.row(i))` evaluates to an array of all the numbers in the row.
+  + To consider each row individually, use
+    ```python
+    for row in t.rows:
+        ... row.item(j) ...
+    ```
+
++ Distance Between Two Points
+  + Two attributes x and y:
+
+    $$D = \sqrt{(x_0 - x_1)^2 + (y_0 - y_1^2)} $$
+
+  + Three attributes x, y, and z:
+
+    $$ D = \sqrt{(x_0 - x_1)^2 + (y_0 - y_1^2) + (z_0 - z_1)^2} $$
+  + and so on ...
+
 + Demo
     ```python
+    Table().with_columns(['X', [0, 2, 3], 'Y', [0, 2, 4]]).scatter('X', 'Y')
 
+    def distance(pt1, pt2):
+        """Return the distance between two points (represented as arrays)"""
+        return np.sqrt(sum((pt1 - pt2) ** 2))
+
+    def row_distance(row1, row2):
+        """Return the distance between two numerical rows of a table"""
+        return distance(np.array(row1), np.array(row2))
+
+    attributes = patients.drop('Class')
+
+    row_distance(attributes.row(0), attributes.row(1))      # 11.874342087037917
+    row_distance(attributes.row(0), attributes.row(2))      # 2.23606797749979
+    row_distance(attributes.row(0), attributes.row(0))      # 0.0
     ```
 
 ### Video
