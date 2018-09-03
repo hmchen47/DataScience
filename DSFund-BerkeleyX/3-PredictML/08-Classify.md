@@ -73,7 +73,26 @@
 
 + Demo
     ```python
+    banknotes = Table.read_table('banknote.csv')
+    # class: counterfeit (1) or legitimate (0)
+    # WaveletVar   WaveletSkew    WaveletCurt    Entropy    Class
+    # 3.6216       8.6661         -2.8073        -0.44699    0
+    # 4.5459       8.1674         -2.4586        -1.4621     0
+    # 3.866       -2.6383          1.9242         0.10645    0
+    # ... (rows omitted)
 
+    banknotes.scatter('WaveletVar', 'WaveletCurt', colors='Class')
+
+    banknotes.scatter('WaveletSkew', 'Entropy', colors='Class')
+
+    fig = plots.figure(figsize=(8,8))
+    ax = Axes3D(fig)
+    ax.scatter(banknotes.column('WaveletSkew'), 
+            banknotes.column('WaveletVar'), 
+            banknotes.column('WaveletCurt'), 
+            c=banknotes.column('Class'),
+            cmap='viridis',
+            s=50);
     ```
 
 ### Video
