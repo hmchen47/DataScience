@@ -1,5 +1,10 @@
 # Section 9: Classifiers (Lec 9.1 - Lec 9.6)
 
++ [Launching Wbe page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/474dec3c53d64133aa87a260efa7347f/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%401caeb79118e34ca39fe5447986857d4a)
++ [Web notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec9.ipynb)
++ [Local Notebook](./notebooks/lec9.ipynb)
++ [Local Python Code](./notebooks/lec09.py)
+
 ## Lec 9.1 Terminology
 
 ### Note
