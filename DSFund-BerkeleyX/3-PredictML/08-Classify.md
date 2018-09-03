@@ -1,5 +1,10 @@
 # Section 8: Classification (Lec 8.1 - Lec 8.3)
 
++ [Launching Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/517a860f7bb44b76a020bddf902f0521/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40c79297d109df494db223fbf78fec7225)
++ [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec8.ipynb)
++ [Local Notebook](./notebook/lec9.ipynb)
++ [Local Python Code](./notebooks/lec8.py)
+
 ## Lec 8.1 Introduction
 
 ### Note
