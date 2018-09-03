@@ -46,7 +46,7 @@
     + [Reading and Practice](./05-LeastSquare.md#)
 
 + [Lab 2: Regression]
-    + [Wen Notebook]
+    + [Web Notebook]
     + [Local Notebook](./labs/lab02.ipynb)
 
 
@@ -65,7 +65,9 @@
     + [Lec 7.3 The True Slope](./07-RegInference.md#)
     + [Reading and Practice](./07-RegInference.md#)
 
-+ [Lab 3: Regression Inference]
++ [Lab 3: Regression Inference](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/9e3318ad6da44461990e1d4e3a64986f/d3c28c5dfaaa42b39c7334a2a566f7da/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40296906bb51034a6e864fe8dafc40be94)
+    + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/git-pull?repo=git://reposync/materials-x18&subPath=materials/x18/lab/3/lab03/lab03.ipynb)
+    + [Local Notebook](./labs/lab03.ipynb)
 
 
 
