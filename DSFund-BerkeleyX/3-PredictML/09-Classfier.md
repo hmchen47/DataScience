@@ -24,7 +24,7 @@
     <a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/474dec3c53d64133aa87a260efa7347f/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%401caeb79118e34ca39fe5447986857d4a">
         <br/><img src="diagrams/lec9-2.png" alt="text" title= "caption" width="450">
     </a>
-    
+
 
 ### Video
 
@@ -37,9 +37,35 @@
 
 ### Note
 
++ The Google Science Fair
+  + Brittany Wenger, a 17-year-old high school student in 2012
+  + Won by building a breast cancer classifier with 99% accuracy
+
 + Demo
     ```python
+    patients = Table.read_table('breast-cancer.csv').drop('ID')
+    # Clump     Uniformity of  Uniformity of  Marginal  Single Epithelial  Bare    Bland      Normal    Mitoses  Class
+    # Thickness Cell Size      Cell Shape     Adhesion  Cell Size          Nuclei  Chromatin  Nucleoli
+    # 5         1              1              1         2                  1       3          1         1         0
+    # 5         4              4              5         7                  10      3          2         1         0
+    # ... (rows omitted)
 
+    patients.scatter('Bland Chromatin', 'Single Epithelial Cell Size', colors='Class')
+
+    def randomize_column(a):
+        return a + np.random.normal(0.0, 0.09, size=len(a))
+
+    # adding random noise to visualize the overlaps on the same spot
+    jittered = Table().with_columns([
+            'Bland Chromatin (jittered)', 
+            randomize_column(patients.column('Bland Chromatin')),
+            'Single Epithelial Cell Size (jittered)', 
+            randomize_column(patients.column('Single Epithelial Cell Size')),
+            'Class',
+            patients.column('Class')
+        ])
+
+    jittered.scatter('Bland Chromatin (jittered)', 'Single Epithelial Cell Size (jittered)', colors='Class')
     ```
 
 ### Video
