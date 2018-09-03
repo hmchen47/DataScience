@@ -106,7 +106,75 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 8.
+
+This corresponds to textbook section:
+
+[Chapter 17: Classification](https://www.inferentialthinking.com/chapters/17/Classification)
+
+In section 8, we learned about a new kind of machine learning: classification. Classification is about learning how to identify the class to which an individual belongs, based on past examples. We start with examples in which we have been told what the correct class was, and we want to learn from those examples how to make good predictions in the future.
+
+You will learn how to build your own machine learning classifiers, but first, let's make sure you understand how classifiers work.
+
 
 
 ### Practice
+
+Given this dataset, the goal is to classify the new point (5, 7) using k-nearest neighbor classifiers.
+
+pointsBlue
+
+| X  |  Y |
+|----|----|
+| 8  |  2 |
+| 7  |  2 |
+| 6  |  5 |
+| 7  |  2 |
+| 5  |  6 |
+| 9  |  4 |
+... (14 rows omitted)
+
+
+pointsYellow
+
+| X  |  Y |
+|----|----|
+| 6  |  5 |
+| 4  |  3 |
+| 1  |  6 |
+| 1  |  6 |
+| 3  |  4 |
+| 5  |  5 |
+... (14 rows omitted)
+
+
+Here's a scatter plot of the data. Let's try to classify point (5, 7).
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/4347e12ff0de4aa7831d7342e754833b/?child=first">
+    <br/><img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/80ef7ab4aa3719512719eba500a17dc5/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/colors.png" alt="Scatter plot of data from pointsBlue and pointsYellow table. Point (5, 7) is surrounded by the following 7 points (from closest to smallest): blue, blue, yellow, blue, yellow, blue, yellow." title= "Scatter plot" width="350">
+</a>
+
+Q1. What is the color of point (5, 7) if you use a 3-nearest neighbors classifer?
+
+a. Blue
+b. Yellow
+
+Ans: a
+
+
+Q2. What is the color of point (5, 7) if you use a 5-nearest neighbors classifer?
+
+a. Blue
+b. Yellow
+
+Ans: a
+
+
+Q3. What is the color of point (5, 7) if you use a 7-nearest neighbors classifer?
+
+a. Blue
+b. Yellow
+
+Ans: a
+
+
 
