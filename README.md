@@ -67,6 +67,15 @@
         + [Seaborn API](./RefCards/PythonDS.md#seaborn-api)
 
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
+    + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
+    + [Numpy](./RefCards/DataScience-UCB.md#numpy)
+    + [Array](./RefCards/DataScience-UCB.md#array)
+    + [Table](./RefCards/DataScience-UCB.md#table)
+    + [Visualizations](./DataScience-UCB.md#visualizations)
+    + [iPython](./RefCards/DataScience-UCB.md#ipython)
+    + [Conditions](./RefCards/DataScience-UCB.md#conditions)
+    + [Utility](./RefCards/DataScience-UCB.md#utility)
+
 
 
 ----------------------------
