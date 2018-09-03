@@ -9,10 +9,22 @@
 
 ### Note
 
-+ Demo
-    ```python
++ Training a Classifier
+    <a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/474dec3c53d64133aa87a260efa7347f/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%401caeb79118e34ca39fe5447986857d4a">
+        <br/><img src="diagrams/lec9-1.png" alt="Flow of Classifier Training" title= "Classifier Training" width="450">
+    </a>
+    + Classifier: a method predicting something about that example, the class of the example, or the label of the example
+    + Usually class = label
+    + Attributes: characteristics of the example
+    + Classification rule depends on what patterns or associations might be found in that population
+    + Training set to form classification rule while test set to evaluate the accuracy of the classifier
 
-    ```
+
++ Nearest Neighbor Classifier
+    <a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/474dec3c53d64133aa87a260efa7347f/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%401caeb79118e34ca39fe5447986857d4a">
+        <br/><img src="diagrams/lec9-2.png" alt="text" title= "caption" width="450">
+    </a>
+    
 
 ### Video
 
