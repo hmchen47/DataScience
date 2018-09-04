@@ -130,9 +130,73 @@
 
 ### Note
 
+
++ Finding the $k$ Nearest Neighbors <br/>
+  To find the $$ nearest neighbors of an example:
+  + Find the distance between the example and each example in the training set
+  + Augment the training data table with a column containing all the distances
+  + Sort the augmented table in increasing order of the distances
+  + Take the top $k$ rows of the sorted table
+
+
++ The Classifier <br/>
+  To classify a point:
+  + Find its $k$ nearest neighbors
+  + Take a majority vote of the $k$ nearest neighbors to see which of the two classes appears more often
+  + Assign the point the class that wins the majority vote
+
+
 + Demo
     ```python
+    def distances(training, example):
+        """Compute a table with the training set and distances to the example for each row in the training set."""
+        dists = []
+        attributes = training.drop('Class')
+        for row in attributes.rows:
+            dist = row_distance(row, example)
+            dists.append(dist)
+        return training.with_column('Distance', dists)
 
+    def closest(training, example, k):
+        """Return a table of the k closest neighbors to example"""
+        return distances(training, example).sort('Distance').take(np.arange(k))
+
+    patients.take(12)
+    # Clump     Uniformity of  Uniformity of  Marginal  Single Epithelial  Bare    Bland      Normal    Mitoses  Class
+    # Thickness Cell Size      Cell Shape     Adhesion  Cell Size          Nuclei  Chromatin  Nucleoli
+    # 5         3               3               3       2                   3       4           4       1           1
+
+    example = patients.drop('Class').row(12)
+    # Row(Clump Thickness=5, Uniformity of Cell Size=3, Uniformity of Cell Shape=3, Marginal Adhesion=3, Single Epithelial Cell Size=2, Bare Nuclei=3, Bland Chromatin=4, Normal Nucleoli=4, Mitoses=1)
+
+    closest(patients, example, 5)
+    # Clump     Uniformity of  Uniformity of  Marginal  Single Epithelial  Bare    Bland      Normal    Mitoses  Class  Distance
+    # Thickness Cell Size      Cell Shape     Adhesion  Cell Size          Nuclei  Chromatin  Nucleoli
+    # 5         3               3               3       2                   3       4           4       1         1     0
+    # 5         3               3               4       2                   4       3           4       1         1     1.73205
+    # 5         1               3               3       2                   2       2           3       1         0     3.16228
+    # 5         2               2               2       2                   2       3           2       2         0     3.16228
+    # 5         3               3               1       3                   3       3           3       3         1     3.31662
+
+    closest(patients.exclude(12), example, 5)
+    # Clump     Uniformity of  Uniformity of  Marginal  Single Epithelial  Bare    Bland      Normal    Mitoses  Class  Distance
+    # Thickness Cell Size      Cell Shape     Adhesion  Cell Size          Nuclei  Chromatin  Nucleoli
+    # 5         3               3               4       2                   4       3           4       1           1   1.73205
+    # 5         1               3               3       2                   2       2           3       1           0   3.16228
+    # 5         2               2               2       2                   2       3           2       2           0   3.16228
+    # 5         3               3               1       3                   3       3           3       3           1   3.31662
+    # 4         3               3               1       2                   1       3           3       1           0   3.31662
+
+    def majority_class(neighbors):
+        """Return the class that's most common among all these neighbors."""
+        return neighbors.group('Class').sort('count', descending=True).column('Class').item(0)
+
+    def classify(training, example, k):
+        "Return the majority class among the k nearest neighbors."
+        nearest_neighbors = closest(training, example, k)
+        return majority_class(nearest_neighbors)
+
+    classify(patients.exclude(12), example, 5)      # 0
     ```
 
 ### Video
