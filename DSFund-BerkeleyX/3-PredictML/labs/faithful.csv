@@ -1,284 +1,273 @@
-
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="utf-8">
-
-    <title>faithful.csv (editing)</title>
-    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="/user/37b80bfacc52ea5dfdad124579807188/static/base/images/favicon-file.ico?v=e2776a7f45692c839d6eea7d7ff6f3b2">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css?v=9b2c8d3489227115310662a343fce11c" type="text/css" />
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/jquery-typeahead/dist/jquery.typeahead.min.css?v=7afb461de36accb1aa133a1710f5bc56" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-<link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/codemirror/lib/codemirror.css?v=ae81317fa2b3a745892c83985827d41b">
-<link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/codemirror/addon/dialog/dialog.css?v=c89dce10b44d2882a024e7befc2b63f5">
-
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/style/style.min.css?v=47782e517c98a53adb514cbefb4528f2" type="text/css"/>
-    
-
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/custom/custom.css" type="text/css" />
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/es6-promise/promise.min.js?v=f004a16cb856e0ff11781d01ec5ca8fe" type="text/javascript" charset="utf-8"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/preact/index.js?v=00a2fac73c670ce39ac53d26640eb542" type="text/javascript"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/proptypes/index.js?v=c40890eb04df9811fcc4d47e53a29604" type="text/javascript"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/preact-compat/index.js?v=f865e990e65ad27e3a2601d8adb48db1" type="text/javascript"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/requirejs/require.js?v=6da8be361b9ee26c5e721e76c6d4afce" type="text/javascript" charset="utf-8"></script>
-    <script>
-      require.config({
-          
-          urlArgs: "v=20180816030214",
-          
-          baseUrl: '/user/37b80bfacc52ea5dfdad124579807188/static/',
-          paths: {
-            'auth/js/main': 'auth/js/main.min',
-            custom : '/user/37b80bfacc52ea5dfdad124579807188/custom',
-            nbextensions : '/user/37b80bfacc52ea5dfdad124579807188/nbextensions',
-            kernelspecs : '/user/37b80bfacc52ea5dfdad124579807188/kernelspecs',
-            underscore : 'components/underscore/underscore-min',
-            backbone : 'components/backbone/backbone-min',
-            jed: 'components/jed/jed',
-            jquery: 'components/jquery/jquery.min',
-            json: 'components/requirejs-plugins/src/json',
-            text: 'components/requirejs-text/text',
-            bootstrap: 'components/bootstrap/js/bootstrap.min',
-            bootstraptour: 'components/bootstrap-tour/build/js/bootstrap-tour.min',
-            'jquery-ui': 'components/jquery-ui/ui/minified/jquery-ui.min',
-            moment: 'components/moment/min/moment-with-locales',
-            codemirror: 'components/codemirror',
-            termjs: 'components/xterm.js/dist/xterm',
-            typeahead: 'components/jquery-typeahead/dist/jquery.typeahead.min',
-          },
-          map: { // for backward compatibility
-              "*": {
-                  "jqueryui": "jquery-ui",
-              }
-          },
-          shim: {
-            typeahead: {
-              deps: ["jquery"],
-              exports: "typeahead"
-            },
-            underscore: {
-              exports: '_'
-            },
-            backbone: {
-              deps: ["underscore", "jquery"],
-              exports: "Backbone"
-            },
-            bootstrap: {
-              deps: ["jquery"],
-              exports: "bootstrap"
-            },
-            bootstraptour: {
-              deps: ["bootstrap"],
-              exports: "Tour"
-            },
-            "jquery-ui": {
-              deps: ["jquery"],
-              exports: "$"
-            }
-          },
-          waitSeconds: 30,
-      });
-
-      require.config({
-          map: {
-              '*':{
-                'contents': 'services/contents',
-              }
-          }
-      });
-
-      // error-catching custom.js shim.
-      define("custom", function (require, exports, module) {
-          try {
-              var custom = require('custom/custom');
-              console.debug('loaded custom.js');
-              return custom;
-          } catch (e) {
-              console.error("error loading custom.js", e);
-              return {};
-          }
-      })
-
-    document.nbjs_translations = {"domain": "nbjs", "locale_data": {"nbjs": {"": {"domain": "nbjs"}}}};
-    </script>
-
-    
-    
-
-</head>
-
-<body class="edit_app "
- 
-data-base-url="/user/37b80bfacc52ea5dfdad124579807188/"
-data-file-path="materials-x18/materials/x18/lab/3/lab01/faithful.csv"
-
-  
- 
-
-dir="ltr">
-
-<noscript>
-    <div id='noscript'>
-      Jupyter Notebook requires JavaScript.<br>
-      Please enable it to proceed. 
-  </div>
-</noscript>
-
-<div id="header">
-  <div id="header-container" class="container">
-  <div id="ipython_notebook" class="nav navbar-brand"><a href="/user/37b80bfacc52ea5dfdad124579807188/tree" title='dashboard'>
-      
-<img src='/hub/logo' alt='Jupyter Notebook'/>
-
-  </a></div>
-
-  
-
-<span id="save_widget" class="pull-left save_widget">
-    <span class="filename"></span>
-    <span class="last_modified"></span>
-</span>
-
-
-  
-  
-
-  
-  
-
-    <span id="login_widget">
-      
-        <button id="logout" class="btn btn-sm navbar-btn">Logout</button>
-      
-    </span>
-
-  
-
-  
-
-<span>
-    <a href='/hub/home'
-       class='btn btn-default btn-sm navbar-btn pull-right'
-       style='margin-right: 4px; margin-left: 2px;'>
-        Control Panel
-    </a>
-</span>
-
-  
-  </div>
-  <div class="header-bar"></div>
-
-  
-
-<div id="menubar-container" class="container">
-  <div id="menubar">
-    <div id="menus" class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-          <p  class="navbar-text indicator_area">
-          <span id="current-mode" >current mode</span>
-          </p>
-        <button type="button" class="btn btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <i class="fa fa-bars"></i>
-          <span class="navbar-text">Menu</span>
-        </button>
-        <ul class="nav navbar-nav navbar-right">
-          <li id="notification_area"></li>
-        </ul>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
-              <ul id="file-menu" class="dropdown-menu">
-                <li id="new-file"><a href="#">New</a></li>
-                <li id="save-file"><a href="#">Save</a></li>
-                <li id="rename-file"><a href="#">Rename</a></li>
-                <li id="download-file"><a href="#">Download</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
-              <ul id="edit-menu" class="dropdown-menu">
-                <li id="menu-find"><a href="#">Find</a></li>
-                <li id="menu-replace"><a href="#">Find &amp; Replace</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Key Map</li>
-                <li id="menu-keymap-default"><a href="#">Default<i class="fa"></i></a></li>
-                <li id="menu-keymap-sublime"><a href="#">Sublime Text<i class="fa"></i></a></li>
-                <li id="menu-keymap-vim"><a href="#">Vim<i class="fa"></i></a></li>
-                <li id="menu-keymap-emacs"><a href="#">emacs<i class="fa"></i></a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">View</a>
-              <ul id="view-menu" class="dropdown-menu">
-              <li id="toggle_header" title="Show/Hide the logo and notebook title (above menu bar)">
-              <a href="#">Toggle Header</a></li>
-              <li id="menu-line-numbers"><a href="#">Toggle Line Numbers</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Language</a>
-              <ul id="mode-menu" class="dropdown-menu">
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="lower-header-bar"></div>
-
-
-</div>
-
-<div id="site">
-
-
-<div id="texteditor-backdrop">
-<div id="texteditor-container" class="container"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-
-    
-
-
-<script src="/user/37b80bfacc52ea5dfdad124579807188/static/edit/js/main.min.js?v=69ef7b7a55de6f60611ff3ae94ef5069" type="text/javascript" charset="utf-8"></script>
-
-
-<script type='text/javascript'>
-  function _remove_token_from_url() {
-    if (window.location.search.length <= 1) {
-      return;
-    }
-    var search_parameters = window.location.search.slice(1).split('&');
-    for (var i = 0; i < search_parameters.length; i++) {
-      if (search_parameters[i].split('=')[0] === 'token') {
-        // remote token from search parameters
-        search_parameters.splice(i, 1);
-        var new_search = '';
-        if (search_parameters.length) {
-          new_search = '?' + search_parameters.join('&');
-        }
-        var new_url = window.location.origin + 
-                      window.location.pathname + 
-                      new_search + 
-                      window.location.hash;
-        window.history.replaceState({}, "", new_url);
-        return;
-      }
-    }
-  }
-  _remove_token_from_url();
-</script>
-</body>
-
-</html>
+duration,wait
+3.6,79.0
+1.8,54
+3.333,74
+2.283,62
+4.533,85
+2.883,55
+4.7,88
+3.6,85
+1.95,51
+4.35,85
+1.833,54
+3.917,84
+4.2,78
+1.75,47
+4.7,83
+2.167,52
+1.75,62
+4.8,84
+1.6,52
+4.25,79
+1.8,51
+1.75,47
+3.45,78
+3.067,69
+4.533,74
+3.6,83
+1.967,55
+4.083,76
+3.85,78
+4.433,79
+4.3,73
+4.467,77
+3.367,66
+4.033,80
+3.833,74
+2.017,52
+1.867,48
+4.833,80
+1.833,59
+4.783,90
+4.35,80
+1.883,58
+4.567,84
+1.75,58
+4.533,73
+3.317,83
+3.833,64
+2.1,53
+4.633,82
+2,59
+4.8,75
+4.716,90
+1.833,54
+4.833,80
+1.733,54
+4.883,83
+3.717,71
+1.667,64
+4.567,77
+4.317,81
+2.233,59
+4.5,84
+1.75,48
+4.8,82
+1.817,60
+4.4,92
+4.167,78
+4.7,78
+2.067,65
+4.7,73
+4.033,82
+1.967,56
+4.5,79
+4,71
+1.983,62
+5.067,76
+2.017,60
+4.567,78
+3.883,76
+3.6,83
+4.133,75
+4.333,82
+4.1,70
+2.633,65
+4.067,73
+4.933,88
+3.95,76
+4.517,80
+2.167,48
+4,86
+2.2,60
+4.333,90
+1.867,50
+4.817,78
+1.833,63
+4.3,72
+4.667,84
+3.75,75
+1.867,51
+4.9,82
+2.483,62
+4.367,88
+2.1,49
+4.5,83
+4.05,81
+1.867,47
+4.7,84
+1.783,52
+4.85,86
+3.683,81
+4.733,75
+2.3,59
+4.9,89
+4.417,79
+1.7,59
+4.633,81
+2.317,50
+4.6,85
+1.817,59
+4.417,87
+2.617,53
+4.067,69
+4.25,77
+1.967,56
+4.6,88
+3.767,81
+1.917,45
+4.5,82
+2.267,55
+4.65,90
+1.867,45
+4.167,83
+2.8,56
+4.333,89
+1.833,46
+4.383,82
+1.883,51
+4.933,86
+2.033,53
+3.733,79
+4.233,81
+2.233,60
+4.533,82
+4.817,77
+4.333,76
+1.983,59
+4.633,80
+2.017,49
+5.1,96
+1.8,53
+5.033,77
+4,77
+2.4,65
+4.6,81
+3.567,71
+4,70
+4.5,81
+4.083,93
+1.8,53
+3.967,89
+2.2,45
+4.15,86
+2,58
+3.833,78
+3.5,66
+4.583,76
+2.367,63
+5,88
+1.933,52
+4.617,93
+1.917,49
+2.083,57
+4.583,77
+3.333,68
+4.167,81
+4.333,81
+4.5,73
+2.417,50
+4,85
+4.167,74
+1.883,55
+4.583,77
+4.25,83
+3.767,83
+2.033,51
+4.433,78
+4.083,84
+1.833,46
+4.417,83
+2.183,55
+4.8,81
+1.833,57
+4.8,76
+4.1,84
+3.966,77
+4.233,81
+3.5,87
+4.366,77
+2.25,51
+4.667,78
+2.1,60
+4.35,82
+4.133,91
+1.867,53
+4.6,78
+1.783,46
+4.367,77
+3.85,84
+1.933,49
+4.5,83
+2.383,71
+4.7,80
+1.867,49
+3.833,75
+3.417,64
+4.233,76
+2.4,53
+4.8,94
+2,55
+4.15,76
+1.867,50
+4.267,82
+1.75,54
+4.483,75
+4,78
+4.117,79
+4.083,78
+4.267,78
+3.917,70
+4.55,79
+4.083,70
+2.417,54
+4.183,86
+2.217,50
+4.45,90
+1.883,54
+1.85,54
+4.283,77
+3.95,79
+2.333,64
+4.15,75
+2.35,47
+4.933,86
+2.9,63
+4.583,85
+3.833,82
+2.083,57
+4.367,82
+2.133,67
+4.35,74
+2.2,54
+4.45,83
+3.567,73
+4.5,73
+4.15,88
+3.817,80
+3.917,71
+4.45,83
+2,56
+4.283,79
+4.767,78
+4.533,84
+1.85,58
+4.25,83
+1.983,43
+2.25,60
+4.75,75
+4.117,81
+2.15,46
+4.417,90
+1.817,46
+4.467,74
