@@ -326,9 +326,94 @@
 
 ### Reading
 
+This guide assumes that you have watched the videos for Section 9.
+
+This corresponds to textbook sections:
+
+[Chapter 17.1: Nearest Neighbors](https://www.inferentialthinking.com/chapters/17/1/Nearest_Neighbors)
+
+[Chapter 17.2: Training and Testing](https://www.inferentialthinking.com/chapters/17/2/Training_and_Testing)
+
+[Chapter 17.3: Rows of Tables](https://www.inferentialthinking.com/chapters/17/3/Rows_of_Tables)
+
+[Chapter 17.4: Implementing the Classifier](https://www.inferentialthinking.com/chapters/17/4/Implementing_the_Classifier)
+
+[Chapter 17.5: The Accuracy of the Classifier](https://www.inferentialthinking.com/chapters/17/5/Accuracy_of_the_Classifier)
+
+In section 9, we learned how to create our own k-nearest neighbor classifier. We solidified our understanding of nearest neighbor classification, saw the difference between training and testing our model, and learned metrics used for evaluating our model.
+
+Visualizations and decision boundaries are important in understanding how a k-nearest neighbor classifier works.
+
+Let's try the following practice problems.
 
 
 ### Practice
+
+Are the following statements true or false?
+
+Q1. In k-nearest neighbors classification, increasing the value of k will always improve accuracy on the test set.
+
+    Ans: False
+
+
+Q2. In k-nearest neighbors classification, increasing the value of k can never improve accuracy on the test set.
+
+    Ans: False
+
+
+Q3. In nearest neighbors classification, the test set should be selected to include some data points from the training set and some data points that aren't in the training set.
+
+Ans: False
+
+
+We want to predict whether a watermelon is a seedless (class 0) or seeded (class 1) variety, based on two attributes: length and circumference. We have a training set of 9 examples and a test set with 2 examples, as shown in the plot below. No two watermelons have the same length and circumference.
+
+<a href="https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/56296378689f4329bde00d75bb4f0428/?child=first">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1084add53bf965490320f3247c7672c0/asset-v1:BerkeleyX+Data8.3x+2T2018+type@asset+block/watermelon.png" alt="Practice Question 4~9" title= "Watermelon" width="450">
+</a>
+
+Q4. The first watermelon in the test set has circumference 90 cm and length 40 cm. What class will a 1-nearest neighbor classifier predict for this watermelon?
+
+    a. Class 0: Seedless
+    b. Class 1: Seeded
+
+    Ans: a
+
+
+Q5. What class will a 3-nearest neighbors classifier predict for the same watermelon?
+
+    a. Class 0: Seedless
+    b. Class 1: Seeded
+
+    Ans: b
+
+
+Q6 What class will a 5-nearest neighbors classifier predict for the same watermelon?
+
+    a. Class 0: Seedless
+    b. Class 1: Seeded
+
+    Ans: b
+
+
+Q7. Suppose we have two more watermelons: one with length 41 cm and circumference 100 cm, and the other with length 52 cm and circumference 100 cm. Using the definition of distance provided in Section 9, find the distance between these two watermelons for use by a nearest neighbor classifier that has chosen length and circumference as the only two attributes.
+
+    Ans: 11
+ 
+Q8. What class will a 3-nearest neighbors classifier predict for a watermelon with length 41 cm and circumference 100 cm?
+
+    a. Class 0: Seedless
+    b. Class 1: Seeded
+
+    Ans: b
+
+
+Q9. What class will a 3-nearest neighbors classifier predict for a watermelon with length 52 cm and circumference 100 cm?
+
+    a. Class 0: Seedless
+    b. Class 1: Seeded
+
+    Ans: a
 
 
 
