@@ -253,9 +253,66 @@
 
 ### Note
 
++ Decision Boundaries
+    + A change in input attributes might change the prediction
+    + Inputs that are very close but result in different predicted labels are on wither side of a __decision boundary__
+    + To visualize, plot predictions of a regular set of inputs
+
 + Demo
     ```python
+    ckd = Table.read_table('ckd.csv').relabeled('Blood Glucose Random', 'Glucose')
 
+
+    kidney = ckd.select('Hemoglobin', 'Glucose', 'Class')
+    kidney.scatter('Hemoglobin', 'Glucose', colors=2)
+    plots.scatter(13, 250, color='red', s=30);
+
+    def show_closest(t, point):
+        """Show closest training example to a point."""
+        near = closest(t, point, 1).row(0)
+        t.scatter(0, 1, colors='Class')
+        plots.scatter(point.item(0), point.item(1), color='red', s=30)
+        plots.plot([point.item(0), near.item(0)], [point.item(1), near.item(1)], color='k', lw=2)
+        
+    show_closest(kidney, make_array(13, 250))
+
+    def standard_units(any_numbers):
+        """Convert any array of numbers to standard units."""
+        return (any_numbers - np.mean(any_numbers)) / np.std(any_numbers)
+
+    def standardize(t):
+        """Return a table in which all columns of t are converted to standard units."""
+        t_su = Table()
+        for label in t.labels:
+            t_su = t_su.with_column(label + ' (su)', standard_units(t.column(label)))
+        return t_su
+
+    kidney_su = standardize(kidney.drop('Class')).with_column('Class', kidney.column('Class'))
+    show_closest(kidney_su, make_array(-0.2, 1.8))
+    show_closest(kidney_su, make_array(-0.2, 1.3))
+    show_closest(kidney_su, make_array(-0.2, 1))
+    show_closest(kidney_su, make_array(-0.2, 0.9))
+
+    def decision_boundary(t, k):
+        """Decision boundary of a two-column + Class table."""
+        t_su = standardize(t.drop('Class')).with_column('Class', t.column('Class'))
+        decisions = Table(t_su.labels)
+        for x in np.arange(-2, 2.1, 0.1):
+            for y in np.arange(-2, 2.1, 0.1):
+                predicted = classify(t_su, make_array(x, y), k)
+                decisions.append([x, y, predicted])
+        decisions.scatter(0, 1, colors='Class', alpha=0.4)
+        plots.xlim(-2, 2)
+        plots.ylim(-2, 2)
+        t_su_0 = t_su.where('Class', 0)
+        t_su_1 = t_su.where('Class', 1)
+        plots.scatter(t_su_0.column(0), t_su_0.column(1), c='darkblue', edgecolor='k')
+        plots.scatter(t_su_1.column(0), t_su_1.column(1), c='gold', edgecolor='k')
+        
+    decision_boundary(kidney, 1)
+    decision_boundary(kidney, 5)
+    decision_boundary(jittered, 1)
+    decision_boundary(jittered, 5)
     ```
 
 ### Video
