@@ -210,9 +210,36 @@
 
 ### Note
 
+
++ Accuracy of a Classifier
+  + The accuracy of a classifier on a labeled data set is the proportion of examples that are labeled correctly 
+  + Need to compare classifier predictions to true labels
+  + If the labeled data set is sampled at random from a population, then we can infer accuracy on that population
+
+
 + Demo
     ```python
+    patients.num_rows       # 683
 
+    shuffled = patients.sample(with_replacement=False) # Randomly permute the rows
+    training_set = shuffled.take(np.arange(342))
+    test_set  = shuffled.take(np.arange(342, 683))
+
+    def evaluate_accuracy(training, test, k):
+        test_attributes = test.drop('Class')
+        num_correct = 0
+        for i in np.arange(test.num_rows):
+            # Run the classifier on the ith patient in the test set
+            test_patient = test_attributes.row(i)
+            c = classify(training, test_patient, k)
+            # Was the classifier's prediction correct?
+            if c == test.column('Class').item(i):
+                num_correct = num_correct + 1
+        return num_correct / test.num_rows
+
+    evaluate_accuracy(training_set, test_set, 5)        # 0.9736070381231672
+    evaluate_accuracy(training_set, test_set, 1)        # 0.9648093841642229
+    evaluate_accuracy(training_set, training_set, 1)    # 1.0 -> bias
     ```
 
 ### Video
