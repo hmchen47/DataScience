@@ -128,17 +128,70 @@
     <a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/algorithm-choice">
         <br/><img src="https://docs.microsoft.com/en-us/azure/machine-learning/studio/media/algorithm-choice/image3.png" alt="Linear regression fits a line (or plane, or hyperplane) to the data set. It's a workhorse, simple and fast, but it may be overly simplistic for some problems." title= "Linear regression" width="350">
     </a> 
+    + Demo
+        ```python
+        cmap_bold = ListedColormap(['#FFFF00', '#00FF00', '#0000FF', '#000000'])
+
+        fruits = pd.read_table('fruit_data_with_colors.txt')
+
+        feature_names_fruits = ['height', 'width', 'mass', 'color_score']
+        X_fruits = fruits[feature_name_fruits]
+        y_fruits = fruits['fruit_label']
+        target_names_fruits = ['apple', 'mandarin', 'orange', 'lemon']
+
+        X_fruits_2d = fruits['height', 'width']
+        y_fruits_2d = fruits['fruit_label']
+
+        from sklearn.datasets import make_regression
+        plt.figure()
+        plt.title('Sample regression problem with one input variable')
+        X_R1, y_R1 = make_regression(n_samples=100, n_features=1, 
+            n_informative=1, bias=150.0, noise=30, random_state=0)
+        plt.scatter(X_R1, y_R1, marker='o', s=50)
+        plt.show()
+        ```
 
 + Simple Binary Classification Dataset
     <a href="https://blogs.sas.com/content/iml/2017/07/17/prediction-regions-classification.html">
         <br/><img src="https://blogs.sas.com/content/iml/files/2017/07/predictionregion4.png" alt="For each input, the statistical model predicts an outcome. Thus the model divides the input space into disjoint regions for which the first outcome is the most probable, for which the second outcome is the most probable, and so forth. In many textbooks and papers, the classification problem is illustrated by using a two-dimensional graph that shows the prediction regions overlaid with the training data, as shown in the adjacent image which visualizes a binary outcome and a linear boundary between regions." title= "Prediction regions for the binary classification problem. Graph created in SAS." width="350">
     </a>
+    + Demo
+        ```python
+        from sklearn.datasets import make_friedman1
+        plt.figure()
+        plt.title('Complex regression problem with one input variable')
+        X_F1, y_F1 = make_friedman1(n_samples=100, n_features=7, random_state=0)
+
+        plt.scatter(X_F1[:, 2], y_F1, marker='o', s=50)
+        plt.show()
+        plt.figure()
+        plt.title('Sample binary classification problem with two informative features')
+        X_C2, y_C2 = make_classification(
+            n_samples=100, n_features=2, n_redundant=2, n_informative=1, 
+            n_clusters_per_class=1, flip_y=0.1, classs_sep=0.5, random_state=0
+        )
+        ```
 
 + Complex Binary Classification Dataset
     <a href="https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6">
         <br/><img src="https://cdn-images-1.medium.com/max/1600/1*3OXoJsetPs2EnswGH6TIyQ@2x.png" alt=" Here is a more complex dataset which isn’t linearly separable. The simple logistic regression model won’t be able to clearly distinguish between the classes. We’re using the make_moons method of scikit-learn to generate the data." title= "logistic regression model with the same parameters" width="350">
     </a>
+    + Demo
+        ```python
+        X_D2, y_D2 = make_blobs(N-samples=100, n_features=2,
+            cenetrs=8, cluster_std=1.3, random_state=0)
+        y_D2 = y_D2 % 2
+        plt.figure()
+        plt.title('Sample binary classification problem with non-linear separable classes')
+        plt.scatter(X_D2[:, 0], X_D2[:, 1], c=y_D2,
+                    marker='o', s=50, camp_camp_bold)
+        plt.show()
 
+        cancer = load_breast_cancer()
+        (X_cancer, y_cancer) = load_breast_cancer(return_X_y = True)
+
+        (X_crime, y_crime) = load_crime_dataset()
+        ```
  
 + Fruit Multi-class Classification Dataset  
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
