@@ -85,9 +85,31 @@
     + [Lec 9.6 Decision Boundaries](./09-Classfier.md#)
     + [Reading and Practice](./09-Classfier.md#)
 
-+ [Lab 4: Classification Part 1]()
-    + [Web Notebook]()
++ [Lab 4: Classification Part 1](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/03a357f8203f4dfa8aa471e06b75affe/45ad6c3dcdf043dd9b9c5cf453657766/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40da5682aa8ac8403da5a69b856806732e)
+    + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/git-pull?repo=git://reposync/materials-x18&subPath=materials/x18/lab/3/lab04/lab04.ipynb)
     + [Local Notebook](./labs/lab04.ipynb)
+
+
+## Week 5
+
++ [Section 10: Privacy (Lec 10.1 - Lec 10.5)](./10-Privacy.md#)
+    + [Lec 10.1 Examples](./10-Privacy.md#)
+    + [Lec 10.2 Meaning](./10-Privacy.md#)
+    + [Lec 10.3 Case Study](./10-Privacy.md#)
+    + [Lec 10.4 Inferences](./10-Privacy.md#)
+    + [Lec 10.5 Implications](./10-Privacy.md#)
+
++ [Section 11: Data Science Case Study (Lec 11.1 - Lec 11.7)](./11-CaseStudy.md)
+    + [Lec 11.1 Introduction](./11-CaseStudy.md)
+    + [Lec 11.2 Visualize](./11-CaseStudy.md)
+    + [Lec 11.3 Regression](./11-CaseStudy.md)
+    + [Lec 11.4 Prediction](./11-CaseStudy.md)
+    + [Lec 11.5 Association](./11-CaseStudy.md)
+    + [Lec 11.6 Confidence](./11-CaseStudy.md)
+    + [Lec 11.7 Conclusion](./11-CaseStudy.md)
+
++ [Lab 5: Classification Part 2]
+
 
 
 
