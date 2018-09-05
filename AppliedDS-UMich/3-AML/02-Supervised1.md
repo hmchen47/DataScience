@@ -175,14 +175,105 @@
 
 ## K-Nearest Neighbors: Classification and Regression
 
++ The k-Nearest Neighbor (k-NN) Classifier Algorithm <br/>
+    Given a training set `X_train` with labels `y_train`, and given a new instance `x_test` to be classified:
+    1. Find the most similar instances (let's call them `X_NN`) to `x_test` that are in `X_train`.
+    2. Get the labels `y_NN` for the instances in `X_NN`
+    3. Predict the label for `x_test` by combining the labels `y_NN` e.g. simple majority vote
+
++ Nearest Neighbors Classification (k=1 & 11)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
+        <br/><img src="images/fig2-03.png" alt="Scatter plot with nearest neighbor (k=1)" title= "1-NN Classification" width="250">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
+        <img src="images/fig2-04.png" alt="Scatter plot with nearest neighbor (k=11)" title= "11-NN Classification" width="250">
+    </a>
+    + K = 1: variant decision boundary; high model complexity; overfitting
+    + K = 11: smoother decision boundary; lower model complexity; underfitting (?)
+    + Python code
+        ```python
+        from adspy_shared_utilities import plot_two_class_knn
+
+        X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2, random_state=0)
+        
+        plot_two_class_knn(X_train, y_train, 1, 'uniform', X_test, y_test)
+        # scores: training = 1.00, test = 0.80
+        plot_two_class_knn(X_train, y_train, 3, 'uniform', X_test, y_test)
+        # scores: training = 0.88, test = 0.88
+        plot_two_class_knn(X_train, y_train, 11, 'uniform', X_test, y_test)
+        # scores: training = 0.61, test = 0.92
+        ```
+
++ k-Nearest Neighbors Regression
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
+        <br/><img src="images/fig2-05.png" alt="Scatter plots with nearest neighbor (k=1&3)" title= "1-NN Classification" width="550">
+    </a>
+    + Diagrams: original, k = 1, k = 3
+    + Green dot = training point; blue triangle = test point
+    + For k=1, $\text{x_test} = -0.6$ and the nearest point is $(-0.5, 105)$, therefore, $\text{predict} = 105$
+    + For k=3, $\text{x_test} = -1.25$ and 3 nearest points $(-1.6, 55)$, $(-1.4, 90)$, and $(-0.9, 90)$, $\text{predict} = (55+90+90)/3$
+    + Demo
+        ```python
+        from sklearn.neighbors import KNeighborsRegressor
+
+        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state=0)
+
+        knnreg = KNeighborsRegressor(n_neighbors=5).fit(X_train, y_train)
+
+        print(knnreg.predict(X_test))
+        print(('R-squared test score: {:.3f}'
+            .format(knnreg.score(X_test, y_test))))
+        # [ 231.71  148.36  150.59  150.59   72.15  166.51  141.91  235.57  208.26
+        #   102.1   191.32  134.5   228.32  148.36  159.17  113.47  144.04  199.23
+        #   143.19  166.51  132.71  208.26  128.02  123.14  141.91]
+        # R-suqared test score: 0.425
+        ```
+
++ The $R^2$ ("r-squared") Regression Score
+    + Measures how well a prediction model for regression fits the given data.
+    + The score is between $0$ and $1$:
+        + A value of $0$ corresponds to a constant model that predicts the mean value of all training target values.
+        + A value of $1$ corresponds to perfect prediction
+    + Also known as "__coefficient of determination__"
+    + Demo - Regression model complexity as a function of K
+        ```python
+        fig, subaxes = plt.subplots(5, 1, figsize=(5, 20))
+        X_predict_input = np.linspace(-3, 3, 500).reshape(-1, 1)
+        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state=0)
+
+        for thisaxis, k in zip(subaxes, [1, 3, 7, 15, 55]):
+            knnreg = KNeighborsRegressor(n_neighbors=K).fit(X_train, y_train)
+            y_predict_output = knnreg.predict(X_predict_input)
+            train_score = knnreg.score(X_train, y_train)
+            test_score = knnreg.score(X_test, y_test)
+            thisaxis.plot(X_predict_input, y_predict_output)
+            thisaxes.plot(X_train, y_train, 'o', alpha=0.9, label='Train')
+            thisaxes.plot(X_test, y_test, '^', alpha=0.9, label='Test')
+            thisaxes.set_xlabel('Input feature')
+            thisaxes.set_ylabel('Tragte value')
+            thisaxes.set_title('KNN Regression (K={})\nTrain $R^2 = {:.3f}$,  Test $R^2 = {:.3f}$'
+                .format(K, train_score, test_score))
+            thisaxes.legend()
+            plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
+        ```
+
++ KNeighborsClassifierand KNeighborsRegressor: important parameters
+
+    + Model complexity
+        + `n_neighbors`: number of nearest neighbors ($k$) to consider: Default = 5
+    + Model fitting
+        + `metric`: distance function between data points: Default: Minkowski distance with power parameter p = 2 (Euclidean)
 
 
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
+    <a href="url">
+        <br/><img src="url" alt="text" title= "caption" width="350">
+    </a>
 
-<a href="url" alt="text" target="_blank">
+
+### Lecture Video 
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/qdyBZzy_Eee_fhKOKKDDtA.processed/full/360p/index.mp4?Expires=1536278400&Signature=MnTBLit6pHuRL1oyKq6YuXJHdS3iZdP6W52ounY5OQSLlNiXdEMzoHn~6P7u-uTPi~oQosRPFPnH8MkfeSV~gr91Xtbnt3Xl8Dy-OuynwnqX197xvbtVp7kebdjHiohYSMmwBKw-sFUfKb6q-TskZyX-p3yiYdeYYL66QKojfbw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="K-Nearest Neighbors: Classification and Regression" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
