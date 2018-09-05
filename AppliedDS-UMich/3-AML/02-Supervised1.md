@@ -2,7 +2,10 @@
 
 ## Module 2 Notebook
 
-
++ [Launching Web Page](https://www.coursera.org/learn/python-machine-learning/notebook/7u2va/module-2-notebook)
++ [Web Notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=n1itCiowSXKYrQoqMPly9A&next=%2Fnotebooks%2FModule%25202.ipynb)
++ [Local Notebook](notebooks/Module02.ipynb)
++ [Local Python Code](notebooks/Module02.py)
 
 
 <a href="url">
