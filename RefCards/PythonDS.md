@@ -690,7 +690,7 @@ import seaborn as sns
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
 
-# Scikit_learn
+# Scikit-learn
 
 + `scikit-learn`: Python Machine Learning Library
     + [scikit-learn Homepage](http://scikit-learn.org/)
