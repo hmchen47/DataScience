@@ -80,7 +80,7 @@
     + Supervised learning used to develop predict models that can accurately predict the outcomes, target values/target labels
 
 
-### Lecture Video 
+### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/tPIu3lzrEeeQywpoSy5QrA.processed/full/360p/index.mp4?Expires=1536278400&Signature=QJpYlD0vOtufdV2wDh49dA7eMIu7XUHPJLOoxIwvPDpcsGrjhSZvac1dgTn0dD1UpdLkCkcYtUqBvOKklUEfMDAkMnp8Sz4vKiLHVSnAcKQ96B0xhfpMG3KORoWOo7i3~XcRC5oDpYNN-P-B35xYGJsPDyAEkpEi2oFbEuCCnOw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction to Supervised Machine Learning" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
@@ -124,14 +124,51 @@
 
 ## Supervised Learning: Datasets
 
++ Simple Regression Dataset
+    <a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/algorithm-choice">
+        <br/><img src="https://docs.microsoft.com/en-us/azure/machine-learning/studio/media/algorithm-choice/image3.png" alt="Linear regression fits a line (or plane, or hyperplane) to the data set. It's a workhorse, simple and fast, but it may be overly simplistic for some problems." title= "Linear regression" width="350">
+    </a> 
+
++ Simple Binary Classification Dataset
+    <a href="https://blogs.sas.com/content/iml/2017/07/17/prediction-regions-classification.html">
+        <br/><img src="https://blogs.sas.com/content/iml/files/2017/07/predictionregion4.png" alt="For each input, the statistical model predicts an outcome. Thus the model divides the input space into disjoint regions for which the first outcome is the most probable, for which the second outcome is the most probable, and so forth. In many textbooks and papers, the classification problem is illustrated by using a two-dimensional graph that shows the prediction regions overlaid with the training data, as shown in the adjacent image which visualizes a binary outcome and a linear boundary between regions." title= "Prediction regions for the binary classification problem. Graph created in SAS." width="350">
+    </a>
+
++ Complex Binary Classification Dataset
+    <a href="https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6">
+        <br/><img src="https://cdn-images-1.medium.com/max/1600/1*3OXoJsetPs2EnswGH6TIyQ@2x.png" alt=" Here is a more complex dataset which isn’t linearly separable. The simple logistic regression model won’t be able to clearly distinguish between the classes. We’re using the make_moons method of scikit-learn to generate the data." title= "logistic regression model with the same parameters" width="350">
+    </a>
+
+ 
++ Fruit Multi-class Classification Dataset  
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
+        <img src="images/fig1-15.png" alt="text" title= "Fruit Multi-class scatterplots" width="350">
+    </a>
+    + Features: width, height, mass, color_score
+    + Classes: 0: apple; 1: mandarin orange; 2: orange; 3: lemon
+    
+
++ Supervised Learning: Datasets
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
+        <br/><img src="images/fig2-02.png" alt="text" title= "Table of communities and crime dataset" width="350">
+    </a>
+    + Input features: socio-economic data by location from U.S. Census
+    + Target variable: Per capita violent crimes
+    + Derived from the original UCI dataset at: https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime+Unnormalized
+    + Import Python code
+        ```python
+        from adspy_shared_utilities import load_crime_dataset
+        crime = load_crime_dataset()
+        ```
 
 
+    <a href="url">
+        <br/><img src="url" alt="text" title= "caption" width="350">
+    </a>
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
+### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/9W-NIzzCEeeW0g5QrK3QnA.processed/full/360p/index.mp4?Expires=1536278400&Signature=hiR0kqhBB1RBP4F4Sxe0W9i2CMCQrKugrV0J15f1npMuvmTGJVy96VvZtirnb-iUzkMWtptbFLwg-R73k6Gizk8tb7G0bgFIkht1U5IGPiHEJvmVbFYtg1HK2apYvQqWd1xoYvl2zKvo2tAIiUKeqRyvhKE09jxODtXz3ofpfWk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Supervised Learning: Datasets" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
