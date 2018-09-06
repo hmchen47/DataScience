@@ -65,11 +65,32 @@
     + These represent two complementary approaches to supervised learning
         + K-nearest neighbors makes few assumptions about the structure of the data and gives potentially accurate but sometimes unstable predictions (sensitive to small changes in the training data)
         + Linear models make strong assumptions about structure of the data and give stable but potentially inaccurate predictions
+    
+
++ The relationship between model complexity and training/test performance
+
+
++ Supervised learning methods: Overview
+    + To start with, we'll look at two simple but powerful prediction algorithms:
+        + K-nearest neighbors (review from week 1, plus regression)
+        + Linear model fit using least-squares
+    + These represent two complementary approaches to supervised learning:
+        + K-nearest neighbors makes few assumptions about the structure of the data and gives potentially accurate but sometimes unstable predictions (sensitive to small changes in the training data).
+        + Linear models make strong assumptions about the structure of the data and give stable but potentially inaccurate predictions.
+    + We'll cover a number of widely-used supervised learning methods for classification and regression.
+    + For each supervised learning method we'll explore:
+        + How the method works conceptually at a high level.
+        + What kind of feature preprocessing is typically needed.
+        + Key parameters that control model complexity, to avoid under-and over-fitting.
+        + Positives and negatives of the learning method.
     + Other models: decision trees, kernelized supported vector machines (SVM) and neural networks
 
 + The relationship between model complexity and training/test performance
     <a href="https://datascience.stackexchange.com/questions/33720/i-am-trying-to-make-a-classifier-using-machine-learning-to-detect-malwares-am-i">
-        <br/><img src="https://i.stack.imgur.com/4nVgI.png" alt="The first thing to do if you want to validate your results is to cut your set into a training set and a validation set. This way you train the K-NN method on your training set, and you use the trained classifier on the validation set. Then you can monitor the validation error, and the training error." title= "K-NN best case scenario" width="450">
+        <br/><img src="https://i.stack.imgur.com/4nVgI.png" alt="The first thing to do if you want to validate your results is to cut your set into a training set and a validation set. This way you train the K-NN method on your training set, and you use the trained classifier on the validation set. Then you can monitor the validation error, and the training error." title= "K-NN best case scenario" width="250">
+    </a>
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/EiQjD/linear-regression-least-squares">
+        <img src="images/fig2-06.png" alt="Underfitting vs. overfitting" title= "relationship between model complexity and training/test performance" width="285">
     </a>
 
 + Models and Variables
@@ -334,13 +355,92 @@
 ## Linear Regression: Least-Squares
 
 
++ Linear Models
+    + A linear model is a sum of weighted variablesthat predicts a target output value given an input data instance. 
+    + Example: predicting housing prices
+        + House features: taxes per year ($X_{TAX}$), age in years ($X_{AGE}$)
+
+            $$\hat{Y_{PRICE}} = 21200 + 109 \cdot X_{TAX} - 2000 \cdot X_{AGE}$$ 
+        + A house with feature values $(X_{TAX}, X_{AGE})$ of $(10000, 75)$ would have a predicted selling price of:
+
+            $$\hat{Y_{PRICE}} = 21200 + 109 \cdot 1000 - 2000 \cdot 75 = 1,152,000$$
+
++ Linear Regression is an Example of a Linear Model
+    + Input instance - feature vector: $ {\bf x} = (x_0, x_1, \cdots, x_n)$
+    + Predict output: $\hat{y} = \hat(w_0) x_0 + \hat{w_1} x_1 + \cdots + \hat{w_n} x_n + b$
+    + Parameters to estimate: train parameters or coefficients
+        + $\hat{\bf w} = (\hat{w_0}, \hat{w_1}, \cdots , \hat{w_n})$: feature weights/model coefficients
+        + $\hat{\bf b}$: constant bias term / intercept
+    + Example - house price: $\hat{w_0} = 109$, $x_0$ = tax paid, $\hat{w_1} = -20$, $x_1$ = house age, $\hat{b} = 212,000$
+
++ A Linear Regression Model with one Variable (Feature)
+    + Input instance: ${\bf x} = (x_0)$
+    + Predicted output: $\hat{y} = \hat{w_0} x_0 + \hat{b}$
+    + Parameters to estimate: $\hat{w_0}$ (slope, $\hat{b}$ (y-intercept)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/EiQjD/linear-regression-least-squares">
+        <br/><img src="images/fig2-07.png" alt="Multiple regression lines with a given dataset" title= "Linear Regression Model" width="300">
+    </a>
+
++ Least-Squares Linear Regression("Ordinary least-squares")
+    + Finds $w$ and $b$ that minimizes the mean squared error of the linear model: the sum of squared differences between predicted target and actual target values.
+    + No parameters to control model complexity.
+    <a href="https://rasbt.github.io/mlxtend/user_guide/regressor/LinearRegression/">
+        <br/><img src="https://rasbt.github.io/mlxtend/user_guide/regressor/LinearRegression_files/simple_regression.png" alt="In Ordinary Least Squares (OLS) Linear Regression, our goal is to find the line (or hyperplane) that minimizes the vertical offsets. Or in other words, we define the best-fitting line as the line that minimizes the sum of squared errors (SSE) or mean squared error (MSE) between our target variable (y) and our predicted output over all samples i in our dataset of size n." title= "Least-square linear regression" width="350">
+    </a>
+
++ How are Linear Regression Parameters w, bEstimated?
+    + Parameters are estimated from training data.
+    + There are many different ways to estimate wand b:
+        + Different methods correspond to different "fit" criteria and goals and ways to control model complexity.
+    + The learning algorithm finds the parameters that optimize an __objective function__, typically to minimize some kind of __loss function__ of the predicted target values vs.actual target values.
 
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
++ Least-Squares Linear Regression("Ordinary least-squares")
+    + Finds $w$ and $b$ that minimizes the __sum of squared differences(RSS)__ over the training data between predicted target and actual target values.
+    + a.k.a. mean squared error of the linear model
+    + No parameters to control model complexity.
 
-<a href="url" alt="text" target="_blank">
+    $$RSS({\bf w}, b) = \sum^N_{i=1} ({\bf y_i} - ({\bf w \cdot x_i} + b))^2$$
+
+    + Training set target value: ${\bf y_i}$
+    + Predicted target value using model: $({\bf w \cdot x_i} + b)$
+
++ Least-Squares Linear Regression in Scikit-Learn
+    ```python
+    from sklearn.linear_modelimport LinearRegression
+    X_train, X_test, y_train, y_test= train_test_split(X_R1, y_R1, random_state= 0)
+    linreg= LinearRegression().fit(X_train, y_train)
+    print("linear model intercept (b): {}".format(linreg.intercept_))
+    print("linear model coeff(w): {}".format(linreg.coef_))
+    # linear model coeff(w): [ 45.70870465]
+    # linear model intercept (b): 148.44575345658873
+    # R-squared score (training): 0.679
+    # R-squared score (test): 0.492
+    ```
+    + `linreg.coef_`: ${\bf w_0}$
+    + `linreg.intercept_`: $b$
+    + Underscore denotes a quantity derived from training data, as opposed to a user setting
+
++ Demo: Linear regression
+    ```python
+    plt.figure(figsize=(5, 4))
+    plt.scatter(X_R1, y_R1, marker='o', s=50, alpha=0.8)
+    plt.plot(X_R1, linreg.coef_ * X_R1 + linreg.intercept_, 'r-')
+    plt.title('Least-squares linear regression')
+    plt.xlabel('Feature value (x)')
+    plt.ylabel('Target value (y)')
+    plt.show()
+    ```
+
++ K-NN Regression vs Least-Squares Linear Regression
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/EiQjD/linear-regression-least-squares">
+        <br/><img src="images/fig2-08.png" alt="Comparisons between K-NN (K=7) regression and Least-squares linear regression with their training and test scores" title= "K-NN Regression vs Least-Squares Linear Regression" width="450">
+    </a>
+
+
+### Lecture Video
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/mmfAvlzrEeejtgqYK5OBTg.processed/full/360p/index.mp4?Expires=1536278400&Signature=c5t~aFcm-nbBmSXNiFUsgAp~0t12pE3u-SXSLqQ2-I5lJxWg7xu3g1N6HK18H6RTdYhCKm2WzBbKR70jmLyWki4w87Yn8oxGPot-BXE7e5WSFJLk1~4CnyFJcy5NIuSkyaDoizDCKhxjis-69LMwUOwfIjGbP2NSCAPrxAXgZVQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Linear Regression: Least-Squares" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
