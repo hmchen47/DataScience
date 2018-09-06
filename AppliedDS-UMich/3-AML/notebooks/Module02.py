@@ -10,6 +10,9 @@
 # # Applied Machine Learning: Module 2 (Supervised Learning, Part I)
 
 # ## Preamble and Review
+
+# In[1]:
+
 get_ipython().magic('matplotlib notebook')
 import numpy as np
 import pandas as pd
@@ -54,6 +57,9 @@ print('Predicted fruit type for ', example_fruit, ' is ',
 
 
 # ## Datasets
+
+# In[2]:
+
 from sklearn.datasets import make_classification, make_blobs
 from matplotlib.colors import ListedColormap
 from sklearn.datasets import load_breast_cancer
@@ -119,6 +125,9 @@ cancer = load_breast_cancer()
 # ## K-Nearest Neighbors
 
 # ### Classification
+
+# In[3]:
+
 from adspy_shared_utilities import plot_two_class_knn
 
 X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2,
@@ -130,6 +139,9 @@ plot_two_class_knn(X_train, y_train, 11, 'uniform', X_test, y_test)
 
 
 # ### Regression
+
+# In[4]:
+
 from sklearn.neighbors import KNeighborsRegressor
 
 X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state = 0)
@@ -139,6 +151,9 @@ knnreg = KNeighborsRegressor(n_neighbors = 5).fit(X_train, y_train)
 print(knnreg.predict(X_test))
 print('R-squared test score: {:.3f}'
      .format(knnreg.score(X_test, y_test)))
+
+
+# In[19]:
 
 fig, subaxes = plt.subplots(1, 2, figsize=(8,4))
 X_predict_input = np.linspace(-3, 3, 50).reshape(-1,1)
@@ -159,6 +174,9 @@ plt.tight_layout()
 
 
 # ### Regression model complexity as a function of K
+
+# In[6]:
+
 # plot k-NN regression on sample dataset for different values of K
 fig, subaxes = plt.subplots(5, 1, figsize=(5,20))
 X_predict_input = np.linspace(-3, 3, 500).reshape(-1,1)
@@ -170,7 +188,6 @@ for thisaxis, K in zip(subaxes, [1, 3, 7, 15, 55]):
     y_predict_output = knnreg.predict(X_predict_input)
     train_score = knnreg.score(X_train, y_train)
     test_score = knnreg.score(X_test, y_test)
-    thisaxis.plot(X_predict_input, y_predict_output)
     thisaxis.plot(X_train, y_train, 'o', alpha=0.9, label='Train')
     thisaxis.plot(X_test, y_test, '^', alpha=0.9, label='Test')
     thisaxis.set_xlabel('Input feature')
@@ -184,6 +201,9 @@ for thisaxis, K in zip(subaxes, [1, 3, 7, 15, 55]):
 # ## Linear models for regression
 
 # ### Linear regression
+
+# In[8]:
+
 from sklearn.linear_model import LinearRegression
 
 X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1,
@@ -201,8 +221,11 @@ print('R-squared score (test): {:.3f}'
 
 
 # ### Linear regression: example plot 
+
+# In[17]:
+
 plt.figure(figsize=(5,4))
-plt.scatter(X_R1, y_R1, marker= 'o', s=50, alpha=0.8)
+plt.scatter(X_R1, y_R1, marker= 'o', s=10, alpha=0.8)
 plt.plot(X_R1, linreg.coef_ * X_R1 + linreg.intercept_, 'r-')
 plt.title('Least-squares linear regression')
 plt.xlabel('Feature value (x)')
@@ -702,6 +725,9 @@ plt.show()
 
 
 # ## Decision Trees
+
+# In[27]:
+
 from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier
 from adspy_shared_utilities import plot_decision_tree
@@ -720,6 +746,9 @@ print('Accuracy of Decision Tree classifier on test set: {:.2f}'
 
 
 # #### Setting max decision tree depth to help avoid overfitting
+
+# In[28]:
+
 clf2 = DecisionTreeClassifier(max_depth = 3).fit(X_train, y_train)
 
 print('Accuracy of Decision Tree classifier on training set: {:.2f}'
@@ -729,14 +758,23 @@ print('Accuracy of Decision Tree classifier on test set: {:.2f}'
 
 
 # #### Visualizing decision trees
+
+# In[24]:
+
 plot_decision_tree(clf, iris.feature_names, iris.target_names)
 
 
 # #### Pre-pruned version (max_depth = 3)
+
+# In[29]:
+
 plot_decision_tree(clf2, iris.feature_names, iris.target_names)
 
 
 # #### Feature importance
+
+# In[30]:
+
 from adspy_shared_utilities import plot_feature_importances
 
 plt.figure(figsize=(10,4), dpi=80)
@@ -744,6 +782,9 @@ plot_feature_importances(clf, iris.feature_names)
 plt.show()
 
 print('Feature importances: {}'.format(clf.feature_importances_))
+
+
+# In[31]:
 
 from sklearn.tree import DecisionTreeClassifier
 from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
@@ -772,6 +813,9 @@ plt.show()
 
 
 # #### Decision Trees on a real-world dataset
+
+# In[32]:
+
 from sklearn.tree import DecisionTreeClassifier
 from adspy_shared_utilities import plot_decision_tree
 from adspy_shared_utilities import plot_feature_importances
@@ -782,6 +826,9 @@ clf = DecisionTreeClassifier(max_depth = 4, min_samples_leaf = 8,
                             random_state = 0).fit(X_train, y_train)
 
 plot_decision_tree(clf, cancer.feature_names, cancer.target_names)
+
+
+# In[33]:
 
 print('Breast cancer dataset: decision tree')
 print('Accuracy of DT classifier on training set: {:.2f}'
@@ -794,4 +841,6 @@ plot_feature_importances(clf, cancer.feature_names)
 plt.tight_layout()
 
 plt.show()
+
+
 
