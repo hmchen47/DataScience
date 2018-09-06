@@ -373,11 +373,28 @@
     + Model fitting
         + `metric`: distance function between data points: Default: Minkowski distance with power parameter p = 2 (Euclidean)
 
-
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" width="350">
-    </a>
+    + Demo: Regression model complexity as a function of K¶
+        ```python
+        # plot k-NN regression on sample dataset for different values of K
+        fig, subaxes = plt.subplots(1, 5, figsize=(20, 5))
+        X_predict_input = np.linspace(-3, 3, 500).reshape(-1,1)
+        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state = 0)
+        for thisaxis, K in zip(subaxes, [1, 3, 7, 15, 55]):
+            knnreg = KNeighborsRegressor(n_neighbors = K).fit(X_train, y_train)
+            y_predict_output = knnreg.predict(X_predict_input)
+            train_score = knnreg.score(X_train, y_train)
+            test_score = knnreg.score(X_test, y_test)
+            thisaxis.plot(X_predict_input, y_predict_output)
+            thisaxis.plot(X_train, y_train, 'o', alpha=0.9, label='Train')
+            thisaxis.plot(X_test, y_test, '^', alpha=0.9, label='Test')
+            thisaxis.set_xlabel('Input feature')
+            thisaxis.set_ylabel('Target value')
+            thisaxis.set_title('KNN Regression (K={})\nTrain $R^2 = {:.3f}$,  Test $R^2 = {:.3f}$'
+                .format(K, train_score, test_score))
+            thisaxis.legend()
+            plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
+        ```
+    <img src="images/plt2-09.png" alt="plot k-NN regression on sample dataset for different values of K" title= "caption" width="750">
 
 
 ### Lecture Video 
@@ -388,7 +405,6 @@
 
 
 ## Linear Regression: Least-Squares
-
 
 + Linear Models
     + A linear model is a sum of weighted variablesthat predicts a target output value given an input data instance. 
@@ -441,36 +457,62 @@
     + Predicted target value using model: $({\bf w \cdot x_i} + b)$
 
 + Least-Squares Linear Regression in Scikit-Learn
-    ```python
-    from sklearn.linear_modelimport LinearRegression
-    X_train, X_test, y_train, y_test= train_test_split(X_R1, y_R1, random_state= 0)
-    linreg= LinearRegression().fit(X_train, y_train)
-    print("linear model intercept (b): {}".format(linreg.intercept_))
-    print("linear model coeff(w): {}".format(linreg.coef_))
-    # linear model coeff(w): [ 45.70870465]
-    # linear model intercept (b): 148.44575345658873
-    # R-squared score (training): 0.679
-    # R-squared score (test): 0.492
-    ```
     + `linreg.coef_`: ${\bf w_0}$
     + `linreg.intercept_`: $b$
     + Underscore denotes a quantity derived from training data, as opposed to a user setting
+    + Demo: Linear regression
+        ```python
+        from sklearn.linear_model import LinearRegression
 
-+ Demo: Linear regression
-    ```python
-    plt.figure(figsize=(5, 4))
-    plt.scatter(X_R1, y_R1, marker='o', s=50, alpha=0.8)
-    plt.plot(X_R1, linreg.coef_ * X_R1 + linreg.intercept_, 'r-')
-    plt.title('Least-squares linear regression')
-    plt.xlabel('Feature value (x)')
-    plt.ylabel('Target value (y)')
-    plt.show()
-    ```
+        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state = 0)
+        linreg = LinearRegression().fit(X_train, y_train)
+
+        print('linear model coeff (w): {}'.format(linreg.coef_))
+        print('linear model intercept (b): {:.3f}'.format(linreg.intercept_))
+        print('R-squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
+        print('R-squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
+        # linear model coeff (w): [ 45.71]
+        # linear model intercept (b): 148.446
+        # R-squared score (training): 0.679
+        # R-squared score (test): 0.492
+        ```
+    + Demo: Linear regression: example plot
+        ```python
+        plt.figure(figsize=(5,4))
+        plt.scatter(X_R1, y_R1, marker= 'o', s=50, alpha=0.8)
+        plt.plot(X_R1, linreg.coef_ * X_R1 + linreg.intercept_, 'r-')
+        plt.title('Least-squares linear regression')
+        plt.xlabel('Feature value (x)')
+        plt.ylabel('Target value (y)')
+        plt.show()
+        ```
+    <img src="images/plt2-10.png" alt="Linear regression: example plot" title= "apLinear reqgression" width="250">
 
 + K-NN Regression vs Least-Squares Linear Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/EiQjD/linear-regression-least-squares">
         <br/><img src="images/fig2-08.png" alt="Comparisons between K-NN (K=7) regression and Least-squares linear regression with their training and test scores" title= "K-NN Regression vs Least-Squares Linear Regression" width="450">
     </a>
+
++ Demo: Linear model 
+    ```python
+    X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state = 0)
+    linreg = LinearRegression().fit(X_train, y_train)
+
+    print('Crime dataset')
+    print('linear model intercept: {}'.format(linreg.intercept_))
+    print('linear model coeff:\n{}'.format(linreg.coef_))
+    print('R-squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
+    print('R-squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
+    # Crime dataset
+    # linear model intercept: -1728.1306725806212
+    # linear model coeff:
+    # [  1.62e-03  -9.43e+01   1.36e+01  -3.13e+01  -8.15e-02  -1.69e+01
+    #   -2.43e-03   1.53e+00  -1.39e-02  -7.72e+00   2.28e+01  -5.66e+00
+    #    ...        ...        ...          ...         ...      ...
+    #    5.97e-01   1.98e+00  -1.36e-01  -1.85e+00]
+    # R-squared score (training): 0.673
+    # R-squared score (test): 0.496
+    ```
 
 
 ### Lecture Video
@@ -478,6 +520,7 @@
 <a href="https://d3c33hcgiwev3.cloudfront.net/mmfAvlzrEeejtgqYK5OBTg.processed/full/360p/index.mp4?Expires=1536278400&Signature=c5t~aFcm-nbBmSXNiFUsgAp~0t12pE3u-SXSLqQ2-I5lJxWg7xu3g1N6HK18H6RTdYhCKm2WzBbKR70jmLyWki4w87Yn8oxGPot-BXE7e5WSFJLk1~4CnyFJcy5NIuSkyaDoizDCKhxjis-69LMwUOwfIjGbP2NSCAPrxAXgZVQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Linear Regression: Least-Squares" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
+
 
 
 ## Linear Regression: Ridge, Lasso, and Polynomial Regression
@@ -615,7 +658,7 @@
     + When to use ridge vs lasso regression:
         + Many small/medium sized effects: use _ridge_.
         + Only a few variables with medium/large effect: use _lasso_.
-    + Demo: 
+    + Demo:
         ```python
         from sklearn.linear_model import Lasso
         from sklearn.preprocessing import MinMaxScaler
