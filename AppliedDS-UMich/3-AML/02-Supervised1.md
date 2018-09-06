@@ -25,7 +25,7 @@
     + Model/Estimator
         + Model fitting produces a 'trained model'
         + Training is the process of estimating model parameters
-        + Example
+        + Demo
             ```python
             # estimator/model - Classifier selection
             knn = KNeighborsClassifier(n_neighbors = 5)
@@ -49,7 +49,7 @@
         | 4 | 4 | 2 | mandarin | mandarin | 84 | 6.0 | 4.6 | 0.79 |
 
 + Classification and Regression
-    + Both classificationa dn regression take a set of training instances and learn a mapping to a __target value__.
+    + Both classification and regression take a set of training instances and learn a mapping to a __target value__.
     + For classification, the target value is a _discrete_ class value
         + Binary: target value = $0$ (negative class) or $1$ (positive class), e.g., detecting a fraudulent credit card transaction
         + Multi-class: target value is one of a set of discrete values, e.g., labelling the type of fruit from physical attributes
@@ -66,9 +66,6 @@
         + K-nearest neighbors makes few assumptions about the structure of the data and gives potentially accurate but sometimes unstable predictions (sensitive to small changes in the training data)
         + Linear models make strong assumptions about structure of the data and give stable but potentially inaccurate predictions
     
-
-+ The relationship between model complexity and training/test performance
-
 
 + Supervised learning methods: Overview
     + To start with, we'll look at two simple but powerful prediction algorithms:
@@ -100,6 +97,54 @@
     + Unsupervised learning models used to understand and explore the structure within a given dataset
     + Supervised learning used to develop predict models that can accurately predict the outcomes, target values/target labels
 
++ Demo: Preamble and Review
+    ```python
+    %matplotlib notebook
+    import numpy as np
+    import pandas as pd
+    import seaborn as sn
+    import matplotlib.pyplot as plt
+
+    from sklearn.model_selection import train_test_split
+    from sklearn.neighbors import KNeighborsClassifier
+
+    np.set_printoptions(precision=2)
+
+
+    fruits = pd.read_table('fruit_data_with_colors.txt')
+
+    feature_names_fruits = ['height', 'width', 'mass', 'color_score']
+    X_fruits = fruits[feature_names_fruits]
+    y_fruits = fruits['fruit_label']
+    target_names_fruits = ['apple', 'mandarin', 'orange', 'lemon']
+
+    X_fruits_2d = fruits[['height', 'width']]
+    y_fruits_2d = fruits['fruit_label']
+
+    X_train, X_test, y_train, y_test = \
+        train_test_split(X_fruits, y_fruits, random_state=0)
+
+    from sklearn.preprocessing import MinMaxScaler
+    scaler = MinMaxScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    # we must apply the scaling to the test set that we computed for the training set
+    X_test_scaled = scaler.transform(X_test)
+
+    knn = KNeighborsClassifier(n_neighbors = 5)
+    knn.fit(X_train_scaled, y_train)
+    print('Accuracy of K-NN classifier on training set: {:.2f}'
+        .format(knn.score(X_train_scaled, y_train)))
+    print('Accuracy of K-NN classifier on test set: {:.2f}'
+        .format(knn.score(X_test_scaled, y_test)))
+
+    example_fruit = [[5.5, 2.2, 10, 0.70]]
+    example_fruit_scaled = scaler.transform(example_fruit)
+    print('Predicted fruit type for ', example_fruit, ' is ', 
+            target_names_fruits[knn.predict(example_fruit_scaled)[0]-1])
+    # Accuracy of K-NN classifier on training set: 0.95
+    # Accuracy of K-NN classifier on test set: 1.00
+    # Predicted fruit type for  [[5.5, 2.2, 10, 0.7]]  is  mandarin
+    ```
 
 ### Lecture Video
 
@@ -133,7 +178,7 @@
 
 + Overfitting with k-NN classifiers
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/fVStr/overfitting-and-underfitting">
-        <br/><img src="images/fig2-01.png" alt="text" title= "caption" width="350">
+        <br/><img src="images/fig1-19.png" alt="text" title= "caption" width="350">
     </a>
 
 ### Lecture Video
@@ -146,73 +191,76 @@
 ## Supervised Learning: Datasets
 
 + Simple Regression Dataset
-    <a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/algorithm-choice">
-        <br/><img src="https://docs.microsoft.com/en-us/azure/machine-learning/studio/media/algorithm-choice/image3.png" alt="Linear regression fits a line (or plane, or hyperplane) to the data set. It's a workhorse, simple and fast, but it may be overly simplistic for some problems." title= "Linear regression" width="350">
-    </a> 
-    + Demo
+    + Demo - Dataset
         ```python
-        cmap_bold = ListedColormap(['#FFFF00', '#00FF00', '#0000FF', '#000000'])
+        from sklearn.datasets import make_classification, make_blobs
+        from matplotlib.colors import ListedColormap
+        from sklearn.datasets import load_breast_cancer
+        from adspy_shared_utilities import load_crime_dataset
 
-        fruits = pd.read_table('fruit_data_with_colors.txt')
+        cmap_bold = ListedColormap(['#FFFF00', '#00FF00', '#0000FF','#000000'])
 
-        feature_names_fruits = ['height', 'width', 'mass', 'color_score']
-        X_fruits = fruits[feature_name_fruits]
-        y_fruits = fruits['fruit_label']
-        target_names_fruits = ['apple', 'mandarin', 'orange', 'lemon']
-
-        X_fruits_2d = fruits['height', 'width']
-        y_fruits_2d = fruits['fruit_label']
-
+        # synthetic dataset for simple regression
         from sklearn.datasets import make_regression
         plt.figure()
         plt.title('Sample regression problem with one input variable')
-        X_R1, y_R1 = make_regression(n_samples=100, n_features=1, 
-            n_informative=1, bias=150.0, noise=30, random_state=0)
-        plt.scatter(X_R1, y_R1, marker='o', s=50)
+        X_R1, y_R1 = make_regression(
+            n_samples = 100, n_features=1, n_informative=1, 
+            bias = 150.0, noise = 30, random_state=0)
+        plt.scatter(X_R1, y_R1, marker= 'o', s=50)
         plt.show()
-        ```
 
-+ Simple Binary Classification Dataset
-    <a href="https://blogs.sas.com/content/iml/2017/07/17/prediction-regions-classification.html">
-        <br/><img src="https://blogs.sas.com/content/iml/files/2017/07/predictionregion4.png" alt="For each input, the statistical model predicts an outcome. Thus the model divides the input space into disjoint regions for which the first outcome is the most probable, for which the second outcome is the most probable, and so forth. In many textbooks and papers, the classification problem is illustrated by using a two-dimensional graph that shows the prediction regions overlaid with the training data, as shown in the adjacent image which visualizes a binary outcome and a linear boundary between regions." title= "Prediction regions for the binary classification problem. Graph created in SAS." width="350">
-    </a>
-    + Demo
-        ```python
+        # synthetic dataset for more complex regression
         from sklearn.datasets import make_friedman1
         plt.figure()
         plt.title('Complex regression problem with one input variable')
-        X_F1, y_F1 = make_friedman1(n_samples=100, n_features=7, random_state=0)
+        X_F1, y_F1 = make_friedman1(
+            n_samples = 100, n_features = 7, random_state=0)
 
-        plt.scatter(X_F1[:, 2], y_F1, marker='o', s=50)
+        plt.scatter(X_F1[:, 2], y_F1, marker= 'o', s=50)
         plt.show()
+        ```
+    <img src="images/plt2-01.png" alt="synthetic dataset for simple regression" title= "synthetic dataset for simple regression" width="350">&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="images/plt2-02.png" alt="synthetic dataset for more complex regression" title= "synthetic dataset for more complex regression" width="350">
+
+
++ Simple Binary Classification Dataset
+    + Demo
+        ```python
+        # synthetic dataset for classification (binary) 
         plt.figure()
         plt.title('Sample binary classification problem with two informative features')
         X_C2, y_C2 = make_classification(
-            n_samples=100, n_features=2, n_redundant=2, n_informative=1, 
-            n_clusters_per_class=1, flip_y=0.1, classs_sep=0.5, random_state=0
-        )
+            n_samples = 100, n_features=2, n_redundant=0, n_informative=2,
+            n_clusters_per_class=1, flip_y = 0.1, class_sep = 0.5, random_state=0)
+        plt.scatter(X_C2[:, 0], X_C2[:, 1], c=y_C2,
+                marker= 'o', s=50, cmap=cmap_bold)
+        plt.show()
         ```
+    <img src="images/plt2-03.png" alt="synthetic dataset for classification (binary)" title= "synthetic dataset for classification (binary)" width="450">
 
 + Complex Binary Classification Dataset
-    <a href="https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6">
-        <br/><img src="https://cdn-images-1.medium.com/max/1600/1*3OXoJsetPs2EnswGH6TIyQ@2x.png" alt=" Here is a more complex dataset which isn’t linearly separable. The simple logistic regression model won’t be able to clearly distinguish between the classes. We’re using the make_moons method of scikit-learn to generate the data." title= "logistic regression model with the same parameters" width="350">
-    </a>
     + Demo
         ```python
-        X_D2, y_D2 = make_blobs(N-samples=100, n_features=2,
-            cenetrs=8, cluster_std=1.3, random_state=0)
+        # more difficult synthetic dataset for classification (binary) 
+        # with classes that are not linearly separable
+        X_D2, y_D2 = make_blobs(n_samples = 100, n_features = 2, centers = 8,
+                            cluster_std = 1.3, random_state = 4)
         y_D2 = y_D2 % 2
         plt.figure()
-        plt.title('Sample binary classification problem with non-linear separable classes')
-        plt.scatter(X_D2[:, 0], X_D2[:, 1], c=y_D2,
-                    marker='o', s=50, camp_camp_bold)
+        plt.title('Sample binary classification problem with non-linearly separable classes')
+        plt.scatter(X_D2[:,0], X_D2[:,1], c=y_D2,
+                marker= 'o', s=50, cmap=cmap_bold)
         plt.show()
 
+        # Breast cancer dataset for classification
         cancer = load_breast_cancer()
         (X_cancer, y_cancer) = load_breast_cancer(return_X_y = True)
 
+        # Communities and Crime dataset
         (X_crime, y_crime) = load_crime_dataset()
         ```
+    <img src="images/plt2-04.png" alt="more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" title= "more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" width="450">
  
 + Fruit Multi-class Classification Dataset  
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
@@ -235,11 +283,6 @@
         crime = load_crime_dataset()
         ```
 
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" width="350">
-    </a>
-
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/9W-NIzzCEeeW0g5QrK3QnA.processed/full/360p/index.mp4?Expires=1536278400&Signature=hiR0kqhBB1RBP4F4Sxe0W9i2CMCQrKugrV0J15f1npMuvmTGJVy96VvZtirnb-iUzkMWtptbFLwg-R73k6Gizk8tb7G0bgFIkht1U5IGPiHEJvmVbFYtg1HK2apYvQqWd1xoYvl2zKvo2tAIiUKeqRyvhKE09jxODtXz3ofpfWk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Supervised Learning: Datasets" target="_blank">
@@ -256,12 +299,6 @@
     3. Predict the label for `x_test` by combining the labels `y_NN` e.g. simple majority vote
 
 + Nearest Neighbors Classification (k=1 & 11)
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
-        <br/><img src="images/fig2-03.png" alt="Scatter plot with nearest neighbor (k=1)" title= "1-NN Classification" width="250">
-    </a>
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
-        <img src="images/fig2-04.png" alt="Scatter plot with nearest neighbor (k=11)" title= "11-NN Classification" width="250">
-    </a>
     + K = 1: variant decision boundary; high model complexity; overfitting
     + K = 11: smoother decision boundary; lower model complexity; underfitting (?)
     + Python code
@@ -269,14 +306,14 @@
         from adspy_shared_utilities import plot_two_class_knn
 
         X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2, random_state=0)
-        
+
         plot_two_class_knn(X_train, y_train, 1, 'uniform', X_test, y_test)
-        # scores: training = 1.00, test = 0.80
         plot_two_class_knn(X_train, y_train, 3, 'uniform', X_test, y_test)
-        # scores: training = 0.88, test = 0.88
         plot_two_class_knn(X_train, y_train, 11, 'uniform', X_test, y_test)
-        # scores: training = 0.61, test = 0.92
         ```
+    <img src="images/plt2-05.png" alt="Classification with KNN (K=1)" title= "caption" width="250">
+    <img src="images/plt2-06.png" alt="Classification with KNN (K=3)" title= "caption" width="250">
+    <img src="images/plt2-07.png" alt="Classification with KNN (K=11)" title= "caption" width="250">
 
 + k-Nearest Neighbors Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
@@ -290,17 +327,16 @@
         ```python
         from sklearn.neighbors import KNeighborsRegressor
 
-        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state=0)
+        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state = 0)
 
-        knnreg = KNeighborsRegressor(n_neighbors=5).fit(X_train, y_train)
+        knnreg = KNeighborsRegressor(n_neighbors = 5).fit(X_train, y_train)
 
         print(knnreg.predict(X_test))
-        print(('R-squared test score: {:.3f}'
-            .format(knnreg.score(X_test, y_test))))
+        print('R-squared test score: {:.3f}'.format(knnreg.score(X_test, y_test)))
         # [ 231.71  148.36  150.59  150.59   72.15  166.51  141.91  235.57  208.26
         #   102.1   191.32  134.5   228.32  148.36  159.17  113.47  144.04  199.23
-        #   143.19  166.51  132.71  208.26  128.02  123.14  141.91]
-        # R-suqared test score: 0.425
+        #   143.19  166.51  231.71  208.26  128.02  123.14  141.91]
+        # R-squared test score: 0.425
         ```
 
 + The $R^2$ ("r-squared") Regression Score
@@ -311,25 +347,24 @@
     + Also known as "__coefficient of determination__"
     + Demo - Regression model complexity as a function of K
         ```python
-        fig, subaxes = plt.subplots(5, 1, figsize=(5, 20))
-        X_predict_input = np.linspace(-3, 3, 500).reshape(-1, 1)
-        X_train, X_test, y_train, y_test = train_test_split(X_R1, y_R1, random_state=0)
+        fig, subaxes = plt.subplots(1, 2, figsize=(8,4))
+        X_predict_input = np.linspace(-3, 3, 50).reshape(-1,1)
+        X_train, X_test, y_train, y_test = train_test_split(X_R1[0::5], y_R1[0::5], random_state = 0)
 
-        for thisaxis, k in zip(subaxes, [1, 3, 7, 15, 55]):
-            knnreg = KNeighborsRegressor(n_neighbors=K).fit(X_train, y_train)
+        for thisaxis, K in zip(subaxes, [1, 3]):
+            knnreg = KNeighborsRegressor(n_neighbors = K).fit(X_train, y_train)
             y_predict_output = knnreg.predict(X_predict_input)
-            train_score = knnreg.score(X_train, y_train)
-            test_score = knnreg.score(X_test, y_test)
-            thisaxis.plot(X_predict_input, y_predict_output)
-            thisaxes.plot(X_train, y_train, 'o', alpha=0.9, label='Train')
-            thisaxes.plot(X_test, y_test, '^', alpha=0.9, label='Test')
-            thisaxes.set_xlabel('Input feature')
-            thisaxes.set_ylabel('Tragte value')
-            thisaxes.set_title('KNN Regression (K={})\nTrain $R^2 = {:.3f}$,  Test $R^2 = {:.3f}$'
-                .format(K, train_score, test_score))
-            thisaxes.legend()
-            plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
+            thisaxis.set_xlim([-2.5, 0.75])
+            thisaxis.plot(X_predict_input, y_predict_output, '^', markersize = 10,
+                    label='Predicted', alpha=0.8)
+            thisaxis.plot(X_train, y_train, 'o', label='True Value', alpha=0.8)
+            thisaxis.set_xlabel('Input feature')
+            thisaxis.set_ylabel('Target value')
+            thisaxis.set_title('KNN regression (K={})'.format(K))
+            thisaxis.legend()
+        plt.tight_layout()
         ```
+    <img src="images/plt2-08.png" alt="KNN Regression" title= "caption" width="550">
 
 + KNeighborsClassifierand KNeighborsRegressor: important parameters
 
@@ -751,14 +786,101 @@
 
 ## Logistic Regression
 
++ Linear regression 
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <br/><img src="images/fig2-11.png" alt="Block diagram to represent the linear regression" title= "Linear Regression Block Diagram" width="200">
+    </a>
+
++ Linear models for classification: Logistic Regression
+    + a kind of generalized linear model
+    + take a set of variables, the features, and estimate a target value
+    + binary variable instead of a continuous value, generalized to multi-class categorical variable
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <br/><img src="images/fig2-12.png" alt="The block diagram of logistic regression with logistic functional plot" title= "Logistic Regression: functional plot and block diagram" width="450">
+    </a>
+    + The logistic function transforms real-valued input to an output number $y$ between $0$ and $1$, interpreted as the __probability__ the input object belongs to the positive class, given its input features $x_0, x_1, \cdots,x_n)$
+
++ Linear models for classification: Logistic Regression
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <br/><img src="images/fig2-13.png" alt="Logistic regression with Classification" title= "Logistic regression for classification" width="250">
+    </a>
+    + Training set to represent the hours of study and passing/failing of the exam: red dot = negative class = failing = 0; blue dot = positive class = passing = 1
+
++ Logistic Regression for binary classification
+    <a href="https://helloacm.com/a-short-introduction-logistic-regression-algorithm/">
+        <br/><img src="https://helloacm.com/wp-content/uploads/2016/03/logistic-regression-example.jpg" alt="The logistic function looks like a big S and will transform any value into the range 0 to 1. This is useful because we can apply a rule to the output of the logistic function to snap values to 0 and 1 (e.g. IF less than 0.5 then output 1) and predict a class value.  Because of the way that the model is learned, the predictions made by logistic regression can also be used as the probability of a given data instance belonging to class 0 or class 1. This can be useful on problems where you need to give more rationale for a prediction." title= "Logistic regression: binary classification" width="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <img src="images/fig2-14.png" alt="Logistic regression represents with 3D plot" title= "Logistic regression with 3D diagram" width="240">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <img src="images/fig2-15.png" alt="Logistic regression with binary classification" title= "Logistic regression with binary boundary" width="180">
+    </a>
 
 
++ Simple logistic regression problem: two-class, two-feature version of the fruit dataset
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <br/><img src="images/fig2-16.png" alt="Logistic regression for two fruits" title= "Binary classification with logistic regression" width="200">
+    </a>
+    + Demo: Logistic regression for binary classification on fruits dataset using height, width features (positive class: apple, negative class: others)
+        ```python
+        from sklearn.linear_model import LogisticRegression
+        from adspy_shared_utilities import (plot_class_regions_for_classifier_subplot)
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
+        fig, subaxes = plt.subplots(1, 1, figsize=(7, 5))
+        y_fruits_apple = y_fruits_2d == 1
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_fruits_2d.as_matrix(), y_druits_apple.as_matrix(), random_state=0)
+        
+        clf = LogisticRegression (C=100).fit(X_train, y_train)
+        plot_class_regions_for_classifier_subplot(clf, X_train, y_train, None, None, 
+            'Logistic regression for binary classification\nFruit dataset: Apple vs Others', subaxes)
 
-<a href="url" alt="text" target="_blank">
+        h = 6; w = 8
+        print('A fruit with height {} and with width {} is predicted to be: {}'
+            .format(h, w, [not and apple', 'an apple'][clf.predict([[h, w]])[0]]))
+        h = 10; w= 7
+        print('A fruit with height {} and with width {} is predicted to be: {}'
+            .format(h, w, [not and apple', 'an apple'][clf.predict([[h, w]])[0]]))
+
+        subaxes.set_xlabel('height')
+        subaxes.set_ylabel('width)
+        print('Accuracy of Logistic regression classifier on training set: {:.2f}'
+            .format(clf.score(X_train, y_train)))
+        print('Accuracy of Logistic regression classifier on test set: {:.2f}'
+            .format(clf.score(X_test, y_test)))
+        ```
+
++ Logistic Regression: Regularization
+    + L2 regularization is 'on' by default (like ridge regression)
+    + Parameter C controls amount of regularization (default 1.0)
+    + As with regularized linear regression, it can be important to normalize all features so that they are on the same scale.
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
+        <br/><img src="images/fig2-17.png" alt="Logistic regression with different regularization parameter C" title= "Comparisons of logistic regression with different C values" width="450">
+    </a>
+    + Demo: Application to real dataset
+        ```python
+        from sklearn.linear_model import LogisticRegression
+
+        X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+
+        clf = LogisticRegression().fit(X_train, y_train)
+        print('Breast cancer dataset')
+        print('Accuracy of Logistic regression classifier on training set: {:.2f}'
+            .format(clf.score(X_train, y_train)))
+        print('Accuracy of Logistic regression classifier on test set: {:.2f}'
+            .format(clf.score(X_test, y_test)))
+        ```
+
++ Logistic and linear functions
+    <a href="https://www.saedsayad.com/logistic_regression.htm">
+        <br/><img src="https://www.saedsayad.com/images/LogReg_1.png" alt="Logistic regression predicts the probability of an outcome that can only have two values (i.e. a dichotomy). The prediction is based on the use of one or several predictors (numerical and categorical). A linear regression is not appropriate for predicting the value of a binary variable for two reasons: 1)A linear regression will predict values outside the acceptable range (e.g. predicting probabilities outside the range 0 to 1); 2) Since the dichotomous experiments can only have one of two possible values for each experiment, the residuals will not be normally distributed about the predicted line.  On the other hand, a logistic regression produces a logistic curve, which is limited to values between 0 and 1. Logistic regression is similar to a linear regression, but the curve is constructed using the natural logarithm of the “odds” of the target variable, rather than the probability. Moreover, the predictors do not have to be normally distributed or have equal variance in each group." title= "Logistic Regression" width="300">
+    </a>
+
+
+### Lecture Video
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/c_rluz6DEee4_A7ezGAgwg.processed/full/360p/index.mp4?Expires=1536364800&Signature=XiNruM5NmiNHvjmKhBpfVD~RyzSa3QAiX-AwMnpz9~d6WjmKkmUQyteS4xAINTNQiHqqfjL8hXz2cFjImhMbm9yrhfZEfjNKgcsF0Clo0AHH14DOTOgbdLzSlquvLw9F9Zt8gQQ4hNGTGkPUOkxTNAiwA-cNTIUvX49CxLAWaE4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Logistic Regression" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
