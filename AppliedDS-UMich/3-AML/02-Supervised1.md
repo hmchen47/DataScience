@@ -536,24 +536,26 @@
     + Ridge regression uses __L2 regularization__: minimize sum of squares of $w$ entries
     + The influence of the regularization term is controlled by the $\alpha$ parameter.
     + Higher alpha means more regularization and simpler models.
-    + Demo
+    + Demo: Ridge regression
         ```python
         from sklearn.linear_model import Ridge
-        X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state=0)
+        X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state = 0)
 
-        linridge = Ridge(alpha=20.0).fir(X_train, y_train)
+        linridge = Ridge(alpha=20.0).fit(X_train, y_train)
+
         print('Crime dataset')
-        print('ridge regression linear model interception: {}'.format(linridge.intercept_))
-        print('ridge regression linear model coeff: \n{}'.format(linridge.coef_))
+        print('ridge regression linear model intercept: {}'.format(linridge.intercept_))
+        print('ridge regression linear model coeff:\n{}'.format(linridge.coef_))
         print('R-squared score (training): {:.3f}'.format(linridge.score(X_train, y_train)))
         print('R-squared score (test): {:.3f}'.format(linridge.score(X_test, y_test)))
         print('Number of non-zero features: {}'.format(np.sum(linridge.coef_ != 0)))
         # Crime dataset
-        # ridge regression linear model interception: -3352.4230358466525
+        # ridge regression linear model intercept: -3352.4230358466525
         # ridge regression linear model coeff:
-        # [  1.95e-03   2.19e+01    -3.59e+00   -3.59e+01   6.36e+00    -1.97e+01
-        #   -2.81e-03   1.66e+00    -6.61e-03   -6.95e+00   1.72e+01    -5.63e+00
-        # ... ] 
+        # [  1.95e-03   2.19e+01   9.56e+00  -3.59e+01   6.36e+00  -1.97e+01
+        #   -2.81e-03   1.66e+00  -6.61e-03  -6.95e+00   1.72e+01  -5.63e+00
+        #     ...         ...         ...     ...         ...         ...
+        #    3.31e-01   3.36e+00   1.61e-01  -2.68e+00]
         # R-squared score (training): 0.671
         # R-squared score (test): 0.494
         # Number of non-zero features: 88
@@ -567,6 +569,36 @@
         + For each feature: transform a given feature $x_i$ value to a scaled version $x_i^{\prime}$ using the formula
 
             $$ x_i^{\prime} = (x_i - x_i^{MIN}) / (x_i^{MAX} - x_i^{MIN}) $$
+    + Demo: 
+        ```python
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+
+        from sklearn.linear_model import Ridge
+        X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime,random_state = 0)
+
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+
+        linridge = Ridge(alpha=20.0).fit(X_train_scaled, y_train)
+
+        print('Crime dataset')
+        print('ridge regression linear model intercept: {}'.format(linridge.intercept_))
+        print('ridge regression linear model coeff:\n{}'.format(linridge.coef_))
+        print('R-squared score (training): {:.3f}'.format(linridge.score(X_train_scaled, y_train)))
+        print('R-squared score (test): {:.3f}'.format(linridge.score(X_test_scaled, y_test)))
+        print('Number of non-zero features: {}'.format(np.sum(linridge.coef_ != 0)))
+        # Crime dataset
+        # ridge regression linear model intercept: 933.3906385044163
+        # ridge regression linear model coeff:
+        # [  88.69   16.49  -50.3   -82.91  -65.9    -2.28   87.74  150.95   18.88
+        #   -31.06  -43.14 -189.44   -4.53  107.98  -76.53    2.86   34.95   90.14
+        #    ...      ...     ...     ...     ...     ...     ...     ...     ...
+        #   205.2    75.97   61.38  -79.83   67.27   95.67  -11.88]
+        # R-squared score (training): 0.615
+        # R-squared score (test): 0.599
+        # Number of non-zero features: 88
+        ```
 
 + Feature Normalization with MinMaxScaler
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/M7yUQ/linear-regression-ridge-lasso-and-polynomial-regression">
@@ -587,66 +619,42 @@
     scaler = MinMaxScaler()
     X_train_scaled= scaler.fit_transform(X_train)
     ```
+
 + Feature Normalization: The test set must use identical scaling to the training set
     + Fit the scaler using the training set, then apply the same scaler to transform the test set.
     + Do not scale the training and test sets using different scalers: this could lead to random skew in the data.
     + Do not fit the scaler using any part of the test data: referencing the test data can lead to a form of _data leakage_. More on this issue later in the course.
 
-+ Demo: Ridge regression with feature normalization
-    ```python
-    from sklearn.preprocessing import MinMaxScaler
-    scaler = MinMaxScaler()
-
-    from sklearn.linear_model import Ridge
-    X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state=0)
-
-    X_train_sacled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
-
-    linridge = Ridge(alpha=20.0).fit(X_train_scaled, y_train)
-    print('Crime dataset')
-    print('ridge regression linear model interception: {}'.format(linridge.intercept_))
-    print('ridge regression linear model coeff: \n{}'.format(linridge.coef_))
-    print('R-squared score (training): {:.3f}'.format(linridge.score(X_train_scaled, y_train)))
-    print('R-squared score (test): {:.3f}'.format(linridge.score(X_test_scaled, y_test)))
-    print('Number of non-zero features: {}'.format(np.sum(linridge.coef_ != 0)))
-    # Crime dataset
-    # ridge regression linear model interception: 933.3906385044163
-    # ridge regression linear model coeff:
-    # [  88.69   16.49  -50.3   -82.91  -65.9   -2.28   87.74   150.95  18.88
-    # ... ] 
-    # R-squared score (training): 0.615
-    # R-squared score (test): 0.599
-    # Number of non-zero features: 88
-    ```
 
 + Demo: Ridge regression with regularization parameter - alpha
     ```python
-    print('Ridge regression: effect of alpha regularization parameter\n')
-    for this_alpha in [0, 1, 10, 20, 50, 100, 1000]:
-        linridge = Ridge(alpha=this_alpha).fit_X_train_scaled, y_train)
-        r2_train = linridge.score(X_train_scaled, y_test)
-        r2_test = linridge.score(X_test_scaled, y_test)
-        num_coeff_bigger =  np.sum(abs(linridge.coef_) > 1.0)
-        print('Alpha = {:.2f}\n  num abs(coeff) > 1.0: {:.2f}, r-squared test: {:.2f}'
-            .format(this_alpha, num_coeff_bigger, r2_train, r2_test))
-    # Ridge regression: effect of alpha regularization parameter
-    # Alpha = 0.00
-    #   num abs(coeff) > 1.0: 88, r-squared training: 0.67, r-squared test: 0.50
-    # Alpha = 1.00
-    #   num abs(coeff) > 1.0: 87, r-squared training: 0.66, r-squared test: 0.56
-    # Alpha = 10.00
-    #   num abs(coeff) > 1.0: 87, r-squared training: 0.63, r-squared test: 0.59
-    # Alpha = 20.00 --> best
-    #   num abs(coeff) > 1.0: 88, r-squared training: 0.61, r-squared test: 0.60
-    # Alpha = 50.00
-    #   num abs(coeff) > 1.0: 86, r-squared training: 0.58, r-squared test: 0.58
-    # Alpha = 100.00
-    #   num abs(coeff) > 1.0: 87, r-squared training: 0.55, r-squared test: 0.55
-    # Alpha = 1000.00
-    #   num abs(coeff) > 1.0: 84, r-squared training: 0.31, r-squared test: 0.30
-    ```
+        print('Ridge regression: effect of alpha regularization parameter\n')
+        for this_alpha in [0, 1, 10, 20, 50, 100, 1000]:
+            linridge = Ridge(alpha = this_alpha).fit(X_train_scaled, y_train)
+            r2_train = linridge.score(X_train_scaled, y_train)
+            r2_test = linridge.score(X_test_scaled, y_test)
+            num_coeff_bigger = np.sum(abs(linridge.coef_) > 1.0)
+            print('Alpha = {:.2f}\n  num abs(coeff) > 1.0: {}, \
+                r-squared training: {:.2f}, r-squared test: {:.2f}'
+                .format(this_alpha, num_coeff_bigger, r2_train, r2_test))
 
+        # Ridge regression: effect of alpha regularization parameter
+        # 
+        # Alpha = 0.00
+        #   num abs(coeff) > 1.0: 88, r-squared training: 0.67, r-squared test: 0.50
+        # Alpha = 1.00
+        #   num abs(coeff) > 1.0: 87, r-squared training: 0.66, r-squared test: 0.56
+        # Alpha = 10.00
+        #   num abs(coeff) > 1.0: 87, r-squared training: 0.63, r-squared test: 0.59
+        # Alpha = 20.00
+        #   num abs(coeff) > 1.0: 88, r-squared training: 0.61, r-squared test: 0.60
+        # Alpha = 50.00
+        #   num abs(coeff) > 1.0: 86, r-squared training: 0.58, r-squared test: 0.58
+        # Alpha = 100.00
+        #   num abs(coeff) > 1.0: 87, r-squared training: 0.55, r-squared test: 0.55
+        # Alpha = 1000.00
+        #   num abs(coeff) > 1.0: 84, r-squared training: 0.31, r-squared test: 0.30
+    ```
 
 + Lasso regression is another form of regularized linear regression that uses an L1 regularization penalty for training (instead of ridge's L2 penalty)
     + __L1 penalty__: Minimize the sum of the __absolute values__ of the coefficients
@@ -658,75 +666,82 @@
     + When to use ridge vs lasso regression:
         + Many small/medium sized effects: use _ridge_.
         + Only a few variables with medium/large effect: use _lasso_.
-    + Demo:
+    + Demo: Lasson Regression
         ```python
         from sklearn.linear_model import Lasso
         from sklearn.preprocessing import MinMaxScaler
-        scaler = MinMAxScaler()
+        scaler = MinMaxScaler()
 
-        X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state=0)
+        X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state = 0)
 
-        X_train_sacled = scaler.fit_transform(X_train)
+        X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
 
-        linlasso = Lasso(alpha=2.0, max_iter=10000).fit(X_train_scaled, y_train)
+        linlasso = Lasso(alpha=2.0, max_iter = 10000).fit(X_train_scaled, y_train)
+
         print('Crime dataset')
-        print('lasso regression linear model interception: {}'.format(linlasso.intercept_))
-        print('lasso regression linear model coeff: \n{}'.format(linlasso.coef_))
-        print('Non-zero features: {}`.format(np.sum(linlasso.coef_ != 0)))
+        print('lasso regression linear model intercept: {}'.format(linlasso.intercept_))
+        print('lasso regression linear model coeff:\n{}'.format(linlasso.coef_))
+        print('Non-zero features: {}'.format(np.sum(linlasso.coef_ != 0)))
         print('R-squared score (training): {:.3f}'.format(linlasso.score(X_train_scaled, y_train)))
-        print('R-squared score (test): {:.3f}'.format(linlasso.score(X_test_scaled, y_test)))
+        print('R-squared score (test): {:.3f}\n'.format(linlasso.score(X_test_scaled, y_test)))
         print('Features with non-zero weight (sorted by absolute magnitude):')
 
-        for e in sorted (list(zip(list(X_crime, linlasso.coef_)), key=lambda e: -abs(e[1]))):
+        for e in sorted (list(zip(list(X_crime), linlasso.coef_)),
+                        key = lambda e: -abs(e[1])):
             if e[1] != 0:
                 print('\t{}, {:.3f}'.format(e[0], e[1]))
         # Crime dataset
-        # lasso regression linear model interception: 1186.6120619985579
+        # lasso regression linear model intercept: 1186.6120619985786
         # lasso regression linear model coeff:
-        # [    0.   0.  -0. -168.18 -0. -0. 0.  119.69
-        # ... ] 
+        # [    0.       0.      -0.    -168.18    -0.      -0.       0.     119.69
+        #      0.      -0.       0.    -169.68    -0.       0.      -0.       0.
+        #      ...      ...     ...     ...       ...       ...     ...     ...
+        #   -104.57   264.93     0.      23.45   -49.39     0.       5.2      0.  ]
         # Non-zero features: 20
         # R-squared score (training): 0.631
         # R-squared score (test): 0.624
+        # 
         # Features with non-zero weight (sorted by absolute magnitude):
-        #   PctKidsBornNeverMar, 1488.365
-        #   PctKids2Par, -1188.740
-        #   HousVacant, 459.538
-        #   PctPersDenseHous, 339.045
+        # 	PctKidsBornNeverMar, 1488.365
+        # 	PctKids2Par, -1188.740
         #   ...
+        # 	PctLargHouseFam, 20.144
+        # 	PctSameCity85, 5.198
         ```
 
 + Demo: Lasso regression with regularization parameter - alpha
     ```python
     print('Lasso regression: effect of alpha regularization\n\
-        parameter on number of features kept in final models\n')
+    parameter on number of features kept in final model\n')
     
     for alpha in [0.5, 1, 2, 3, 5, 10, 20, 50]:
-    linlasso = Lasso(alpha, max_iter=10000).fit(X_train_scaled, y_train)
-    r2_train = linlasso.score(X_train_scaled, y_train)
-    r2_test = linlasso.score(X_test_scaled, y_test)
-
-    print('Alpha = {:.2f}\n  Feature kept: {}, r-squared training: {:.2f}, r-squared test: {:.2f}\n'
-        .format(alpha, np.sum(linlasso.coef_ != 0), r2_train, r2_test))
+        linlasso = Lasso(alpha, max_iter = 10000).fit(X_train_scaled, y_train)
+        r2_train = linlasso.score(X_train_scaled, y_train)
+        r2_test = linlasso.score(X_test_scaled, y_test)
+        
+        print('Alpha = {:.2f}\n  Features kept: {}, r-squared training: {:.2f}, \
+    r-squared test: {:.2f}'
+             .format(alpha, np.sum(linlasso.coef_ != 0), r2_train, r2_test))
     # Lasso regression: effect of alpha regularization
     # parameter on number of features kept in final model
-    # Alpha = 0.5
-    #   Feature kept: 35, r-squared training: 0.65, r-squared test: 0.58
-    # Alpha = 1.0
-    #   Feature kept: 25, r-squared training: 0.64, r-squared test: 0.60
-    # Alpha = 2.0
-    #   Feature kept: 20, r-squared training: 0.63, r-squared test: 0.62
-    # Alpha = 3.0
-    #   Feature kept: 17, r-squared training: 0.62, r-squared test: 0.63
-    # Alpha = 5.0
-    #   Feature kept: 12, r-squared training: 0.60, r-squared test: 0.61
-    # Alpha = 10.0
-    #   Feature kept:  6, r-squared training: 0.57, r-squared test: 0.58
-    # Alpha = 20.0
-    #   Feature kept:  2, r-squared training: 0.51, r-squared test: 0.50
-    # Alpha = 50.0
-    #   Feature kept:  1, r-squared training: 0.31, r-squared test: 0.30
+    # 
+    # Alpha = 0.50
+    #   Features kept: 35, r-squared training: 0.65, r-squared test: 0.58
+    # Alpha = 1.00
+    #   Features kept: 25, r-squared training: 0.64, r-squared test: 0.60
+    # Alpha = 2.00
+    #   Features kept: 20, r-squared training: 0.63, r-squared test: 0.62
+    # Alpha = 3.00
+    #   Features kept: 17, r-squared training: 0.62, r-squared test: 0.63
+    # Alpha = 5.00
+    #   Features kept: 12, r-squared training: 0.60, r-squared test: 0.61
+    # Alpha = 10.00
+    #   Features kept: 6, r-squared training: 0.57, r-squared test: 0.58
+    # Alpha = 20.00
+    #   Features kept: 2, r-squared training: 0.51, r-squared test: 0.50
+    # Alpha = 50.00
+    #   Features kept: 1, r-squared training: 0.31, r-squared test: 0.30
     ```
 
 + Lasso Regression on the Communities and Crime Dataset
@@ -738,8 +753,8 @@
         > HousVacant, 459.538 # number of vacant households  
         > PctPersDenseHous, 339.045 # percent of persons in dense housing (more than 1 person/room)  
         > NumInShelters, 264.932 # number of people in homeless shelters  
-    
-+ Polynomial Features with Linear 
+
++ Polynomial Features with Linear
 
     $$ {\bf x} = (x_0, x_1) \Longrightarrow {\bf x^{\prime}} = (x_0, x_1, x_0^2, x_0 x_1, x_1^2)$$
 
@@ -769,56 +784,88 @@
     from sklearn.linear_model import Ridge
     from sklearn.preprocessing import PolynomialFeatures
 
-    X_train, X_test, y_train, y_test = train_test_split(X_F1, y_F1, random_state=0)
-    linreg = LinearRegression().fit(X_train, y_train)
-    print('Linear model coeff (W0: {}'.format(linreg.coef_)))
-    print('linear model interception (b): {:.3f}'.format(linreg.intercept_))
-    print('R-squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
-    print('R-squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
 
-    print('\nNow we transform the original input data to add \
-        polynomial features up to degree 2 (quadratic)\n')
+    X_train, X_test, y_train, y_test = train_test_split(X_F1, y_F1,
+                                                    random_state = 0)
+    linreg = LinearRegression().fit(X_train, y_train)
+
+    print('linear model coeff (w): {}'
+        .format(linreg.coef_))
+    print('linear model intercept (b): {:.3f}'
+        .format(linreg.intercept_))
+    print('R-squared score (training): {:.3f}'
+        .format(linreg.score(X_train, y_train)))
+    print('R-squared score (test): {:.3f}'
+        .format(linreg.score(X_test, y_test)))
+
+    print('\nNow we transform the original input data to add\n\
+    polynomial features up to degree 2 (quadratic)\n')
     poly = PolynomialFeatures(degree=2)
     X_F1_poly = poly.fit_transform(X_F1)
-    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1, random_state=0)
-    linreg = LinearRegression().fit(X_train, y_train)
-    print('(poly deg 2) linear model coeff (w): \n{}'.format(linreg.coef_))
-    print('(poly deg 2) linear model intercept (b): {:.3f}'.format(linreg.intercept_))
-    print('(poly deg 2) R_squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
-    print('(poly deg 2) R_squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
 
-    print('\nAdditional of many polynomial features often leads to overfitting, \n\
-        so we often use polynomial features in combination with regression that \n\
-        has a regularization penalty, like ridge regression.\n')
-    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1,
+                                                    random_state = 0)
+    linreg = LinearRegression().fit(X_train, y_train)
+
+    print('(poly deg 2) linear model coeff (w):\n{}'
+        .format(linreg.coef_))
+    print('(poly deg 2) linear model intercept (b): {:.3f}'
+        .format(linreg.intercept_))
+    print('(poly deg 2) R-squared score (training): {:.3f}'
+        .format(linreg.score(X_train, y_train)))
+    print('(poly deg 2) R-squared score (test): {:.3f}\n'
+        .format(linreg.score(X_test, y_test)))
+
+    print('\nAddition of many polynomial features often leads to\n\
+    overfitting, so we often use polynomial features in combination\n\
+    with regression that has a regularization penalty, like ridge\n\
+    regression.\n')
+
+    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1,
+                                                    random_state = 0)
     linreg = Ridge().fit(X_train, y_train)
-    print('(poly deg 2 + ridge) linear model coeff (w): \n{}'.format(linreg.coef_))
-    print('(poly deg 2 + ridge) linear model intercept (b): {:.3f}'.format(linreg.intercept_))
-    print('(poly deg 2 + ridge) R_squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
-    print('(poly deg 2 + ridge) R_squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
-    # linear model coeff (w): [442 6. .53 10.24 6.55 -2.02 -.32]
+
+    print('(poly deg 2 + ridge) linear model coeff (w):\n{}'
+        .format(linreg.coef_))
+    print('(poly deg 2 + ridge) linear model intercept (b): {:.3f}'
+        .format(linreg.intercept_))
+    print('(poly deg 2 + ridge) R-squared score (training): {:.3f}'
+        .format(linreg.score(X_train, y_train)))
+    print('(poly deg 2 + ridge) R-squared score (test): {:.3f}'
+        .format(linreg.score(X_test, y_test)))
+    # linear model coeff (w): [  4.42   6.     0.53  10.24   6.55  -2.02  -0.32]
     # linear model intercept (b): 1.543
     # R-squared score (training): 0.722
     # R-squared score (test): 0.722
-    #
-    # Now we transform the original input data to add polynomial features up to degree 2 (quadratic)
-    # (poly deg 2) linear model coeff (w): [3.14e-12 1.66e+01 2.67e+01 -2.21e+.1 ... ]
-    # (poly deg 2) linear model intercept (b): -3.026
+    # 
+    # Now we transform the original input data to add
+    # polynomial features up to degree 2 (quadratic)
+    # 
+    # (poly deg 2) linear model coeff (w):
+    # [  3.41e-12   1.66e+01   2.67e+01  -2.21e+01   1.24e+01   6.93e+00
+    # 1.05e+00   3.71e+00  -1.34e+01  -5.73e+00   1.62e+00   3.66e+00
+    # 5.05e+00  -1.46e+00   1.95e+00  -1.51e+01   4.87e+00  -2.97e+00
+    # -7.78e+00   5.15e+00  -4.65e+00   1.84e+01  -2.22e+00   2.17e+00
+    # -1.28e+00   1.88e+00   1.53e-01   5.62e-01  -8.92e-01  -2.18e+00
+    # 1.38e+00  -4.90e+00  -2.24e+00   1.38e+00  -5.52e-01  -1.09e+00]
+    # (poly deg 2) linear model intercept (b): -3.206
     # (poly deg 2) R-squared score (training): 0.969
     # (poly deg 2) R-squared score (test): 0.805
-    #
-    # Additional of many polynomial features often leads to overfitting,
-    # so we often use polynomial features in combination with regression that
-    # has a regularization penalty, like ridge regression.
-    # (poly deg 2 + ridge) linear model coeff (w): [0 2.23 4.72 -3.15 3.86 1.61 -0.77 ... ]
+    # 
+    # Addition of many polynomial features often leads to
+    # overfitting, so we often use polynomial features in combination
+    # with regression that has a regularization penalty, like ridge
+    # regression.
+    # 
+    # (poly deg 2 + ridge) linear model coeff (w):
+    # [ 0.    2.23  4.73 -3.15  3.86  1.61 -0.77 -0.15 -1.75  1.6   1.37  2.52
+    # 2.72  0.49 -1.94 -1.63  1.51  0.89  0.26  2.05 -1.93  3.62 -0.72  0.63
+    # -3.16  1.29  3.55  1.73  0.94 -0.51  1.7  -1.98  1.81 -0.22  2.88 -0.89]
     # (poly deg 2 + ridge) linear model intercept (b): 5.418
     # (poly deg 2 + ridge) R-squared score (training): 0.826
     # (poly deg 2 + ridge) R-squared score (test): 0.825
     ```
 
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/M7yUQ/linear-regression-ridge-lasso-and-polynomial-regression">
-        <br/><img src="url" alt="text" title= "caption" width="350">
-    </a>
 
 ### Lecture Video
 
