@@ -1390,14 +1390,115 @@
 
 ## Cross-Validation
 
++ Cross-validation
+    + Uses multiple train-test splits, not just a single one
+    + Each split used to train & evaluate a separate model
+    + Why is this better?
+        + The accuracy score of a supervised learning method can vary, depending on which samples happen to end up in the training set.
+        + Using multiple train-test splits gives more stable and reliable estimates for how the classifier is likely to perform on average.
+        + Results are averaged over multiple different training sets instead of relying on a single model trained on a particular training set.
+    + Accuracy of k-NN classifier (k=5) on fruit data test set for different random_statevalues in train_test_split.
+        | random_state | Test set accuracy |
+        |--------------|-------------------|
+        | 0 | 1.00 |
+        | 1 | 0.93 |
+        | 5 | 0.93 |
+        | 7 | 0.67 |
+        | 10 | 0.87 |
+
++ Cross-validation Example (5-fold)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
+        <br/><img src="images/fig2-35.png" alt="text" title= "Cross-validation Example (5-fold)" width="350">
+    </a>
+    + Demo: Example based on k-NN classifier with fruit dataset (2 features)
+        ```python
+        from sklearn.model_selection import cross_val_score
+
+        clf = KNeighborsClassifier(n_neighbors = 5)
+        X = X_fruits_2d.as_matrix()
+        y = y_fruits_2d.as_matrix()
+        cv_scores = cross_val_score(clf, X, y)
+
+        print('Cross-validation scores (3-fold):', cv_scores)
+        print('Mean cross-validation score (3-fold): {:.3f}'.format(np.mean(cv_scores)))
+        # Cross-validation scores (3-fold): [ 0.77  0.74  0.83]
+        # Mean cross-validation score (3-fold): 0.781
+        ```
+    + A note on performing cross-validation for more advanced scenarios.<br/>In some cases (e.g. when feature values have very different ranges), we've seen the need to scale or normalize the training and test sets before use with a classifier. The proper way to do cross-validation when you need to scale the data is not to scale the entire dataset with a single transform, since this will indirectly leak information into the training data about the whole dataset, including the test data (see the lecture on data leakage later in the course). Instead, scaling/normalizing must be computed and applied for each cross-validation fold separately. To do this, the easiest way in scikit-learn is to use pipelines. While these are beyond the scope of this course, further information is available in the scikit-learn documentation here: <br/> http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
+
++ Stratified Cross-validation
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
+        <br/><img src="images/fig2-36.png" alt="In the default cross-validation set up, to use for example five folds, the first 20% of the records are used as the first fold, the next 20% for the second fold, and so on. One problem with this is that the data might have been created in such a way that the records are sorted or at least show some bias in the ordering by class label." title= "Stratified Cross-validation" width="265">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
+        <img src="images/fig2-37.png" alt="When scikit-learn doing cross-validation for a classification task, it actually does instead what's called "Stratified K-fold Cross-validation". The Stratified Cross-validation means that when splitting the data, the proportions of classes in each fold are made as close as possible to the actual proportions of the classes in the overall data set as shown here. " title= "Stratified Cross-validation" width="250">
+    </a>
+    + Stratified folds each contain a proportion of classes that matches the overall dataset. Now, all classes will be fairly represented in the test set.
+
++ Leave-one-out cross-validation (with N samples in dataset)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
+        <br/><img src="images/fig2-38.png" alt="For regression, scikit-learn uses regular k-fold cross-validation since the concept of preserving class proportions isn't something that's really relevant for everyday regression problems. At one extreme we can do something called "Leave-one-out cross-validation", which is just k-fold cross-validation, with K sets to the number of data samples in the data set. In other words, each fold consists of a single sample as the test set and the rest of the data as the training set. Of course this uses even more computation, but for small data sets in particular, it can provide improved proved estimates because it gives the maximum possible amount of training data to a model, and that may help the performance of the model when the training sets are small." title= "Leave-one-out cross-validation (with N samples in dataset)" width="350">
+    </a>
+
++ Validation curves show sensitivity to changes in an important parameter
+    ```python
+    # Validation curve example
+    from sklearn.svm import SVC
+    from sklearn.model_selection import validation_curve
+
+    param_range = np.logspace(-3, 3, 4)
+    train_scores, test_scores = validation_curve(
+        SVC(), X, y, param_name='gamma', param_range=param_range, cv=3)
+
+    print(train_scores)
+    # [[ 0.49  0.42  0.41]
+    #  [ 0.84  0.72  0.76]
+    #  [ 0.92  0.9   0.93]
+    #  [ 1.    1.    0.98]]
+    print(test_scores)
+    # [[ 0.45  0.32  0.33]
+    #  [ 0.82  0.68  0.61]
+    #  [ 0.41  0.84  0.67]
+    #  [ 0.36  0.21  0.39]]
+    ```
+    + One row per parameter sweep value, One column per CV fold.
+
++ Validation Curve Example
+    + The validation curve shows the mean cross-validation accuracy (solid lines) for training (orange) and test (blue) sets as a function of the SVM parameter (gamma). It also shows the variation around the mean (shaded region) as computed from k-fold cross-validation scores.
+    + Demo: scikit-learn validation_plot example
+        ```python
+        #  See:  http://scikit-learn.org/stable/auto_examples/model_selection/plot_validation_curve.html
+        plt.figure()
+
+        train_scores_mean = np.mean(train_scores, axis=1)
+        train_scores_std = np.std(train_scores, axis=1)
+        test_scores_mean = np.mean(test_scores, axis=1)
+        test_scores_std = np.std(test_scores, axis=1)
+
+        plt.title('Validation Curve with SVM')
+        plt.xlabel('$\gamma$ (gamma)')
+        plt.ylabel('Score')
+        plt.ylim(0.0, 1.1)
+        lw = 2
+
+        plt.semilogx(param_range, train_scores_mean, label='Training score',
+            color='darkorange', lw=lw)
+        plt.fill_between(param_range, train_scores_mean - train_scores_std,
+            train_scores_mean + train_scores_std, alpha=0.2, color='darkorange', lw=lw)
+        plt.semilogx(param_range, test_scores_mean, label='Cross-validation score',
+                    color='navy', lw=lw)
+        plt.fill_between(param_range, test_scores_mean - test_scores_std,
+            test_scores_mean + test_scores_std, alpha=0.2, color='navy', lw=lw)
+
+        plt.legend(loc='best')
+        plt.show()
+        ```
+        <img src="images/plt2-21.png" alt="You can plot these results from validation curve as shown here to get an idea of how sensitive the performance of the model is to changes in the given parameter. The x axis corresponds to values of the parameter and the y axis gives the evaluation score, for example the accuracy of the classifier. Finally as a reminder, cross-validation is used to evaluate the model and not learn or tune a new model. " title= "Validation Curve Example" width="350">
 
 
+### LEcture Video
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
-
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/uHP16UGREeeR4AqenwJvyA.processed/full/360p/index.mp4?Expires=1536451200&Signature=JgcWFHJDdoYJKqb8s-G3Aclm4012Y~b0Xoqoren5qFhHLIOsq8u9W2f8Tf7cdsV9H5liu9RinW2Q-dRRUXeRJLXHo0Dgr6Fb-Ad6CoXlrd7UDwrSj6TOpZA5mcfQVNvWV8fFv-bXGLqx7FlJVcvkkkcXxrUJtWj5ieestVBVlzY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Cross-Validation" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
