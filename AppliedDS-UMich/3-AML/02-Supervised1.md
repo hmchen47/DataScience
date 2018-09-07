@@ -909,45 +909,89 @@
 
 
 + Simple logistic regression problem: two-class, two-feature version of the fruit dataset
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <br/><img src="images/fig2-16.png" alt="Logistic regression for two fruits" title= "Binary classification with logistic regression" width="200">
-    </a>
-    + Demo: Logistic regression for binary classification on fruits dataset using height, width features (positive class: apple, negative class: others)
+    + Demo: Logistic regression for binary classification on fruits dataset using height, width features (positive class: apple, negative class: others) (below left)
         ```python
         from sklearn.linear_model import LogisticRegression
-        from adspy_shared_utilities import (plot_class_regions_for_classifier_subplot)
+        from adspy_shared_utilities import (
+        plot_class_regions_for_classifier_subplot)
 
         fig, subaxes = plt.subplots(1, 1, figsize=(7, 5))
-        y_fruits_apple = y_fruits_2d == 1
-        X_train, X_test, y_train, y_test = train_test_split(
-            X_fruits_2d.as_matrix(), y_druits_apple.as_matrix(), random_state=0)
-        
-        clf = LogisticRegression (C=100).fit(X_train, y_train)
-        plot_class_regions_for_classifier_subplot(clf, X_train, y_train, None, None, 
-            'Logistic regression for binary classification\nFruit dataset: Apple vs Others', subaxes)
+        y_fruits_apple = y_fruits_2d == 1   # make into a binary problem: apples vs everything else
+        X_train, X_test, y_train, y_test = (
+        train_test_split(X_fruits_2d.as_matrix(),
+                        y_fruits_apple.as_matrix(),
+                        random_state = 0))
 
-        h = 6; w = 8
-        print('A fruit with height {} and with width {} is predicted to be: {}'
-            .format(h, w, [not and apple', 'an apple'][clf.predict([[h, w]])[0]]))
-        h = 10; w= 7
-        print('A fruit with height {} and with width {} is predicted to be: {}'
-            .format(h, w, [not and apple', 'an apple'][clf.predict([[h, w]])[0]]))
+        clf = LogisticRegression(C=100).fit(X_train, y_train)
+        plot_class_regions_for_classifier_subplot(clf, X_train, y_train, None, None, \
+            'Logistic regression for binary classification\nFruit dataset: Apple vs others', subaxes)
 
+        h = ; w = 8
+        print('A fruit with height {} and width {} is predicted to be: {}'
+            .format(h,w, ['not an apple', 'an apple'][clf.predict([[h,w]])[0]]))
+
+        h = 10; w = 7
+        print('A fruit with height {} and width {} is predicted to be: {}'
+            .format(h,w, ['not an apple', 'an apple'][clf.predict([[h,w]])[0]]))
         subaxes.set_xlabel('height')
-        subaxes.set_ylabel('width)
+        subaxes.set_ylabel('width')
+
         print('Accuracy of Logistic regression classifier on training set: {:.2f}'
             .format(clf.score(X_train, y_train)))
         print('Accuracy of Logistic regression classifier on test set: {:.2f}'
             .format(clf.score(X_test, y_test)))
+        # A fruit with height 6 and width 8 is predicted to be: an apple
+        # A fruit with height 10 and width 7 is predicted to be: not an apple
+        # Accuracy of Logistic regression classifier on training set: 0.77
+        # Accuracy of Logistic regression classifier on test set: 0.73
         ```
+        <img src="images/plt2-11.png" alt="text" title= "caption" width="350">
+        <img src="images/plt2-12.png" alt="text" title= "caption" width="350">
+    
+    + Demo: Logistic regression on simple synthetic dataset (above right)
+        ```python
+        from sklearn.linear_model import LogisticRegression
+        from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+
+        X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2, random_state = 0)
+
+        fig, subaxes = plt.subplots(1, 1, figsize=(7, 5))
+        clf = LogisticRegression().fit(X_train, y_train)
+        title = 'Logistic regression, simple synthetic dataset C = {:.3f}'.format(1.0)
+        plot_class_regions_for_classifier_subplot(clf, X_train, y_train,
+                                                None, None, title, subaxes)
+
+        print('Accuracy of Logistic regression classifier on training set: {:.2f}'
+            .format(clf.score(X_train, y_train)))
+        print('Accuracy of Logistic regression classifier on test set: {:.2f}'
+            .format(clf.score(X_test, y_test)))
+        # Accuracy of Logistic regression classifier on training set: 0.80
+        # Accuracy of Logistic regression classifier on test set: 0.80
+        ```
+
 
 + Logistic Regression: Regularization
     + L2 regularization is 'on' by default (like ridge regression)
     + Parameter C controls amount of regularization (default 1.0)
     + As with regularized linear regression, it can be important to normalize all features so that they are on the same scale.
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <br/><img src="images/fig2-17.png" alt="Logistic regression with different regularization parameter C" title= "Comparisons of logistic regression with different C values" width="450">
-    </a>
+    + Demo: Logistic regression regularization: C parameter
+        ```python 
+        X_train, X_test, y_train, y_test = (
+            train_test_split(X_fruits_2d.as_matrix(), y_fruits_apple.as_matrix(),
+            random_state=0))
+
+        fig, subaxes = plt.subplots(1, 3, figsize=(13, 4))
+
+        for this_C, subplot in zip([0.1, 1, 100], subaxes):
+            clf = LogisticRegression(C=this_C).fit(X_train, y_train)
+            title ='Logistic regression (apple vs rest), C = {:.3f}'.format(this_C)
+            
+            plot_class_regions_for_classifier_subplot(
+                clf, X_train, y_train, X_test, y_test, title, subplot)
+        plt.tight_layout()
+        ```
+        <img src="images/plt2-13.png" alt="text" title= "caption" width="700">
+
     + Demo: Application to real dataset
         ```python
         from sklearn.linear_model import LogisticRegression
@@ -960,6 +1004,9 @@
             .format(clf.score(X_train, y_train)))
         print('Accuracy of Logistic regression classifier on test set: {:.2f}'
             .format(clf.score(X_test, y_test)))
+        # Breast cancer dataset
+        # Accuracy of Logistic regression classifier on training set: 0.96
+        # Accuracy of Logistic regression classifier on test set: 0.96
         ```
 
 + Logistic and linear functions
