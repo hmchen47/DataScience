@@ -1147,14 +1147,56 @@
 
 ## Multi-Class Classification
 
++ Multi-Class classification with linear Models
+    + Converting multi-class  classification problem into a series of binary problems
+    + Binary class: one class selected and others as another class
+    + Suppose $(height, weight) = (2, 6)$ for apple, $y_apple = -0.23401135 * height + 0.72246123 * weight - 3.31753728 = 0.549$, therefore, $(0.549) = +1$
+    ```python
+    from sklearn.svm import LinearSVC
+
+    X_train, X_test, y_train, y_test = train_test_split(X_fruits_2d, y_fruits_2d, random_state = 0)
+
+    clf = LinearSVC(C=5, random_state = 67).fit(X_train, y_train)
+    print('Coefficients:\n', clf.coef_)
+    print('Intercepts:\n', clf.intercept_)
+    # Coefficients: (4 sets)
+    #  [[-0.23  0.72]   apple vs others
+    #  [-1.63  1.15]    
+    #  [ 0.08  0.31]
+    #  [ 1.26 -1.68]]
+    # Intercepts: (4 sets)
+    #  [-3.32  1.2  -2.75  1.16] (apple  )
+
+    # Multi-class results on the fruit dataset
+    plt.figure(figsize=(6,6))
+    colors = ['r', 'g', 'b', 'y']
+    cmap_fruits = ListedColormap(['#FF0000', '#00FF00', '#0000FF','#FFFF00'])
+
+    plt.scatter(X_fruits_2d[['height']], X_fruits_2d[['width']],
+            c=y_fruits_2d, cmap=cmap_fruits, edgecolor = 'black', alpha=.7)
+
+    x_0_range = np.linspace(-10, 15)
+
+    for w, b, color in zip(clf.coef_, clf.intercept_, ['r', 'g', 'b', 'y']):
+        # Since class prediction with a linear model uses the formula y = w_0 x_0 + w_1 x_1 + b, 
+        # and the decision boundary is defined as being all points with y = 0, to plot x_1 as a 
+        # function of x_0 we just solve w_0 x_0 + w_1 x_1 + b = 0 for x_1:
+        plt.plot(x_0_range, -(x_0_range * w[0] + b) / w[1], c=color, alpha=.8)
+        
+    plt.legend(target_names_fruits)
+    plt.xlabel('height')
+    plt.ylabel('width')
+    plt.xlim(-2, 12)
+    plt.ylim(-2, 15)
+    plt.show()
+    ```
+    <img src="images/plt2-16.png" alt="Multi-class results on the fruit dataset" title= "Multi-class results on the fruit dataset" width="350">
 
 
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
+### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/OBB7qD6LEeeHpAqQsW8qwg.processed/full/360p/index.mp4?Expires=1536451200&Signature=huODEN23nuyNbAIfAYczsZvToxIs7jP49viV1anUdYxMjfwH23wxq6BNcCZZA5Ek8HmlNxBt34~YJhNHmwBhWoKryMF9E-i7NbXuNegAVlMCfxEy6EGT85HwVvhAzuPfoTOM3eTYr4u45~bZziLysjxNF0GvTvHy9V2SU9hT7Js_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Multi-Class Classification" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
