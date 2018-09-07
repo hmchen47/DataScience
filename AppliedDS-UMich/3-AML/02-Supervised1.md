@@ -1190,7 +1190,7 @@
     plt.ylim(-2, 15)
     plt.show()
     ```
-    <img src="images/plt2-16.png" alt="Multi-class results on the fruit dataset" title= "Multi-class results on the fruit dataset" width="350">
+    <img src="images/plt2-16.png" alt="Multi-class results on the fruit dataset" title= "Multi-class results on the fruit dataset" width="250">
 
 
 
@@ -1203,14 +1203,187 @@
 
 ## Kernelized Support Vector Machines
 
++ Complex binary classification problems
+    + We saw how linear support vector classifiers could effectively find a decision boundary with maximum margin
+    + But what about more complex binary classification problems?
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lCUeA/kernelized-support-vector-machines">
+        <br/><img src="images/fig2-22.png" alt="Easy for a linear classifier vs. Difficult/impossible for a linear classifier" title= "caption" width="350">
+    </a>
+    + Kernalized Supported Vector Machine a.k.a. Supported Vector Machine (SVM)
+    + SVM applied for classification and regression, but only classification cocered here
+    + Take original dataset and transform it to a new higher dimensional feature space, where it becomes much easier to classify the transform to data using a linear classifier
+
++ Way to deal with Complex classification problems
+    + A simple 1-dimensional classification problemfor a linear classifier (fig.1)
+    + A more perplexing 1-d classification problem for a linear classifier (fig.2)
+    + Let's transform the data by adding a second dimension/feature(set to the squared value of the first feature) (fig.3)
+    + The data transformation makes it possible to solve this with a linear classifier (fig.4)
+    + What does the linear decision boundary in feature space correspond to in the original input space? (fig.5)
+    + What does the linear decision boundary correspond to in the original input space? (fig.6) <br/>
+        <img src="images/fig2-23.png" alt="A simple 1-dimensional classification problemfor a linear classifier" title= "fig.1" width="200">
+        <img src="images/fig2-24.png" alt="A more perplexing 1-d classification problem for a linear classifier" title= "fig.2" width="200">
+        <img src="images/fig2-25.png" alt="Let's transform the data by adding a second dimension/feature(set to the squared value of the first feature), an ellipse-like decision boundary in 2-dimensional space that separates the white points from the black points in the original input space" title= "fig.3" width="150"><br/>
+        <img src="images/fig2-26.png" alt="The data transformation makes it possible to solve this with a linear classifier" title= "fig.4" width="150">
+        <img src="images/fig2-27.png" alt="What does the linear decision boundary in feature space correspond to in the original input space?" title= "fig.5" width="200">
+        <img src="images/fig2-28.png" alt="Transforming the data can make it much easier for a linear classifier" title= "fig.6" width="200">
 
 
++ Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
+    <img src="images/fig2-29.png" alt="Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable" title= "original to feature" width="220">
+    <img src="images/fig2-30.png" alt="Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable - the decision boundary consist of the set of points in 3-dimensional space where the paraboloid intersects the maximum margin hyperplane decision boundary" title= "original to future" width="220">
+    <img src="images/fig2-31.png" alt="Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable" title= "future to original" width="230"> <br/>
+    + Transforming the data can make it much easier for a linear classifier. (fig.7)
+    <a href="https://en.wikipedia.org/wiki/Kernel_method">
+        <br/><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Kernel_Machine.png" alt="This idea of transforming the input data points to a new feature space where a linear classifier can be easily applied, is a very general and powerful one. There are lots of different possible transformations we could apply to data. And the different kernels available for the kernelized SVM correspond to different transformations. Here we're going to focus mainly on what's called the radial basis function kernel, which we'll abbreviate as RBF." title= "fig.7" width="350">
+    </a>
 
-<a href="url" alt="text" target="_blank">
++ Redial Basis Function Kernel
+    + Mapping function: $K({\bf x, x^{\prime}}) = exp [-\gamma \cdot \| {\bf x} - {\bf x^{\prime}} \|^2])$
+    + A __kernel__ is a similarity measure (modified dot product) between data points<br/>
+    <img src="images/fig2-32.png" alt="The radial basis function kernel, the similarity between two points and the transformed feature space is an exponentially decaying function of the distance between the vector and the original input space as shown by the formula here. Using the radial basis function kernel in effect, transforms all the points inside a certain distance of the circle class to one area of the transformed feature space. And all the points in the square class outside a certain radius get moved to a different area of the feature space. The dark circles and squares represents the points that might lie along the maximum margin for a support vector machine in the transformed feature space. And also, it shows the corresponding points in the original input space. So just as we saw with the simple 1D and 2D examples earlier, the kernelized support vector machine tries to find the decision boundary with maximum margin between classes using a linear classifier in the transformed feature space not the original input space. The linear decision boundary learn feature space by linear SVM corresponds to a non-linear decision boundary In the original input space. So in this example, an ellipse like closed region in the input space. Now, one of the mathematically remarkable things about kernelized support vector machines, something referred to as the kernel trick, is that internally, the algorithm doesn't have to perform this actual transformation on the data points to the new high dimensional feature space. Instead, the kernelized SVM can compute these more complex decision boundaries just in terms of similarity calculations between pairs of points in the high dimensional space where the transformed feature representation is implicit. This similarity function which mathematically is a kind of dot product is the kernel in kernelized SVM. " title= "caption" width="250">
+
++ Applying the SVM with RBF kernel
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lCUeA/kernelized-support-vector-machines">
+        <br/><img src="images/fig2-33.png" alt="Here's the result of using a support vector machine with RBF kernel, on that more complex binary classification problem we saw earlier. You can see that unlike a linear classifier, the SVM with RBF kernel finds a more complex and very effective set of decision boundaries that are very good at separating one class from the other. Note that the SVM classifier is still using a maximum margin principle to find these decision boundaries. But because of the non-linear transformation of the data, these boundaries may no longer always be equally distant from the margin edge points in the original input space. " title= "Applying the SVM with RBF kernel" width="350">
+    </a>
+    + Demo: Radial Basis Kernel vs Polynomial Kernel
+        ```python
+        from sklearn.svm import SVC
+        from adspy_shared_utilities import plot_class_regions_for_classifier
+
+        X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state = 0)
+
+        # The default SVC kernel is radial basis function (RBF)
+        plot_class_regions_for_classifier(SVC().fit(X_train, y_train),
+            X_train, y_train, None, None, 'Support Vector Classifier: RBF kernel')
+
+        # Compare decision boundries with polynomial kernel, degree = 3
+        plot_class_regions_for_classifier(SVC(kernel = 'poly', degree = 3)
+            .fit(X_train, y_train), X_train, y_train, None, None,
+            'Support Vector Classifier: Polynomial kernel, degree = 3')
+        ```
+        <img src="images/plt2-17.png" alt="The default SVC kernel is radial basis function (RBF).  By default, the SVM will use the radial base's function, but a number of other choices are supported." title= "Support Vector Classifier: RBF kernel" width="250">
+        <img src="images/plt2-18.png" alt="The polynomial kernel, using the kernel poly setting, essentially represents a future transformation similar to the earlier quadratic example. In the lecture, this future space represented in terms of futures that are polynomial combinations of the original input features, much as we saw also for linear regression. The polynomial kernel takes additional parameter degree that controls the model complexity and the computational cost of this transformation. " title= "Support Vector Classifier: Polynomial kernel, degree = 3" width="250">
+
+
++ Radial Basis Function kernel: Gamma Parameter
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lCUeA/kernelized-support-vector-machines">
+        <br/><img src="images/fig2-34.png" alt="Gamma controls how far the influence of a single trending example reaches, which in turn affects how tightly the decision boundaries end up surrounding points in the input space. Small gamma means a larger similarity radius. So that points farther apart are considered similar. Which results in more points being group together and smoother decision boundaries. On the other hand for larger values of gamma, the kernel value to K is more quickly and points have to be very close to be considered similar. This results in more complex, tightly constrained decision boundaries." title= "Radial Basis Function kernel: Gamma Parameter" width="450">
+    </a>
+    + Demo: The effect of the RBF gamma parameter on decision boundaries
+        ```python
+        # Support Vector Machine with RBF kernel: gamma parameter
+        from adspy_shared_utilities import plot_class_regions_for_classifier
+
+        X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state = 0)
+        fig, subaxes = plt.subplots(3, 1, figsize=(4, 11))
+
+        for this_gamma, subplot in zip([0.01, 1.0, 10.0], subaxes):
+            clf = SVC(kernel = 'rbf', gamma=this_gamma).fit(X_train, y_train)
+            title = 'Support Vector Classifier: \nRBF kernel, gamma = {:.2f}'.format(this_gamma)
+            plot_class_regions_for_classifier_subplot(
+                clf, X_train, y_train, None, None, title, subplot)
+            plt.tight_layout()
+        ```
+        <img src="images/plt2-19.png" alt="Small values of gamma give broader, smoother decision regions. While larger values of gamma give smaller, more complex decision regions. " title= "Support Vector Machine with RBF kernel: gamma parameter." width="600">
+
++ Demo: Effect of C and gamma parameters (horizontal: increasing C, vertical: increasing $\gamma$)
+    ```python
+    # Support Vector Machine with RBF kernel: using both C and gamma parameter 
+    from sklearn.svm import SVC
+    from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+    from sklearn.model_selection import train_test_split
+
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state = 0)
+    fig, subaxes = plt.subplots(3, 4, figsize=(15, 10), dpi=50)
+
+    for this_gamma, this_axis in zip([0.01, 1, 5], subaxes):
+        for this_C, subplot in zip([0.1, 1, 15, 250], this_axis):
+            title = 'gamma = {:.2f}, C = {:.2f}'.format(this_gamma, this_C)
+            clf = SVC(kernel = 'rbf', gamma = this_gamma, C = this_C)
+                .fit(X_train, y_train)
+            plot_class_regions_for_classifier_subplot(
+                clf, X_train, y_train, X_test, y_test, title, subplot)
+            plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
+    ```
+    <img src="images/plt2-20.png" alt="You can set the gamma parameter when creating the SVC object to control the kernel width in this way, as shown in this code. You may recall from linear SVMs that SVMs also have a regularization parameter, C, that controls the tradeoff between satisfying the maximum margin criterion to find the simple decision boundary, and avoiding misclassification errors on the training set. The C parameter is also an important one for kernelized SVMs, and it interacts with the gamma parameter. If gamma is large, then C will have little to no effect. Well, if gamma is small, the model is much more constrained and the effective C will be similar to how it would affect a linear classifier. Typically, gamma and C are tuned together, with the optimal combination typically in an intermediate range of values. For example, gamma between 0.0001 and 10 and see between 0.1 and 100. Though the specifical optimal values will depend on your application. Kernelized SVMs are pretty sensitive to settings of gamma. The most important thing to remember when applying SVMs is that it's important to normalize the input data, so that all the features have comparable units that are on the same scale. We saw this earlier with some other learning methods like regularized regression. "  title= "Support Vector Machine with RBF kernel: using both C and gamma parameter" width="600">
+
++ Reminder: Using a scaler object: fit and transform methods
+    ```python
+    from sklearn.preprocessingimport MinMaxScaler
+    scaler = MinMaxScaler()
+    scaler.fit(X_train)
+    X_train_scaled= scaler.transform(X_train)
+    X_test_scaled= scaler.transform(X_test)
+    clf= SVC().fit(X_train_scaled, y_train)
+    accuracy = clf.score(X_test_scaled, y_test)
+
+    # Tip: It can be more efficient to do fitting and transforming together on the training set using the `fit_transform` method.
+    scaler = MinMaxScaler()
+    X_train_scaled= scaler.fit_transform(X_train)
+    ```
+
+    + Demo: Application of SVMs to a real dataset: unnormalized data -> overfitting
+        ```python
+        from sklearn.svm import SVC
+        X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+
+        clf = SVC(C=10).fit(X_train, y_train)
+        print('Breast cancer dataset (unnormalized features)')
+        print('Accuracy of RBF-kernel SVC on training set: {:.2f}'
+            .format(clf.score(X_train, y_train)))
+        print('Accuracy of RBF-kernel SVC on test set: {:.2f}'
+            .format(clf.score(X_test, y_test)))
+        # Breast cancer dataset (unnormalized features)
+        # Accuracy of RBF-kernel SVC on training set: 1.00
+        # Accuracy of RBF-kernel SVC on test set: 0.63
+        ```
+
+    + Demo: Application of SVMs to a real dataset: normalized data with feature preprocessing using minmax scaling
+        ```python
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+
+        clf = SVC(C=10).fit(X_train_scaled, y_train)
+        print('Breast cancer dataset (normalized with MinMax scaling)')
+        print('RBF-kernel SVC (with MinMax scaling) training set accuracy: {:.2f}'
+            .format(clf.score(X_train_scaled, y_train)))
+        print('RBF-kernel SVC (with MinMax scaling) test set accuracy: {:.2f}'
+            .format(clf.score(X_test_scaled, y_test)))
+        # Breast cancer dataset (normalized with MinMax scaling)
+        # RBF-kernel SVC (with MinMax scaling) training set accuracy: 0.98
+        # RBF-kernel SVC (with MinMax scaling) test set accuracy: 0.96
+        ```
+
++ Kernelized Support Vector Machines: pros and cons
+    + Pros:
+        + Can perform well on a range of datasets.
+        + Versatile: different kernel functions can be specified, or custom kernels can be defined for specific data types.
+        + Works well for both low-and high-dimensional data.
+    + Cons:
+        + Efficiency (runtime speed and memory usage) decreases as training set size increases (e.g. over 50000 samples).
+        + Needs careful normalization of input data and parameter tuning.
+        + Does not provide direct probability estimates (but can be estimated using e.g. Platt scaling).
+        + Difficult to interpret why a prediction was made.
+
+
++ Kernelized Support Vector Machines (SVC): Important parameters <br/>
+    Model complexity
+    + kernel: Type of kernel function to be used
+        + Default = 'rbf' for radial basis function
+        + Other types include 'polynomial'
+    + kernel parameters
+        + `gamma`($\gamma$): RBF kernel width
+    + `C`: regularization parameter
+    + Typically `C` and `gamma` are tuned at the same time.
+
+
+### Lecture Video
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/0F-tskyCEeeGww6XbaTymg.processed/full/360p/index.mp4?Expires=1536451200&Signature=OelcTkr3mv6FwSRwSKqNcVjTw6txXZlDVNFdvOjG~G2MJ5EGApSg3gF9skDE-XVF4NjsWJdRhp4TfZy9NDG6HFXNRoHg~1iXUcOzgEAZ3j3kA2UPTTPpYkQr-MkVTLqG6oHnCwfnoKk0c9Qf7enkEt4wCwI2OK5UtFoz0Ffrs9s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Kernelized Support Vector Machines" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
