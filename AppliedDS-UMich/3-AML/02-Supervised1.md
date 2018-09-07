@@ -1024,14 +1024,123 @@
 
 ## Linear Classifiers: Support Vector Machines
 
++ Linear classifiers: how would you separate these two groups of training examples with a straight line?
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
+        <br/><img src="images/fig2-18.png" alt="Linear Classifier: how would you separate these two groups of training examples with a straight line" title= "Linear classifier" width="450">
+    </a>
+    + A linear classifier is a function that maps an input data point $x$ to an output class value $y$ (+1 or -1) using a linear function (with weight parameters $w$ of the input point's features.
+    + `sign` function: $+1 \text{ if } \hat{y} > 0$ and $-1 \text{ if } \hat{y} < 0$
+    + General linear classifier equation: $f(x, w, b) = sign(w \circ x + b) = sign(\sum w[i]x[i] + b)$ where $w$ is a vector of weights, $x$ is a vector of feature values, and $b$ is a bias term
+    + operator $\circ$: $[w_1, w_2] \circ [x_1, x_2] = w_1 x_1 + w2 x_2$
+
++ Linear classifiers: how would you separate these two groups of training examples with a line?
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
+        <br/><img src="images/fig2-19.png" alt="Linear classifiers: how would you separate these two groups of training examples with a line? A linear classifier is a function that maps an input data point xto an output class value y(+1 or -1) using a linear function (with weight parameters w of the input point's features." title= "caption" width="450">
+    </a>
+    + Suppose $w=[1, -1]$ and $b = 0$, it is depicted as diagonal line where $[w_1, w_2] = [1, -1]$, therefore $x_1 - x_2 = 0$
+    + Suppose to classify $[-0.75, -2.25]$, 
+
+        $$f([-0.75, -2.25], w, b) = sign(1 \cdot -0.75 + (-1) \cdot (-2.25) + 0) =  sign(-0.75 + 2.25 = 1.50) = +1$$
+    + Suppose to classify $[-1.75, -0.25]$
+
+        $$f([-1.75, -0.25], w, b) = sign(1 \cdot -1.75 + (-1) \cdot (-0.25) + 0) =  sign(-1.75 + 0.25 = -1.50) = -1$$
 
 
++ Linear Classifiers
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
+        <br/><img src="images/fig2-20.png" alt="Linear classifiers: There are many possible linear classifiers that could separate the two classes. Which one is best?" title= "caption" width="450">
+    </a>
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
++ Classifier Margin
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
+        <br/><img src="images/fig2-21.png" alt="Classifier margin: Defined as the maximum width the decision boundary area can be increased before hitting a data point.." title= "Classifier margin" width="450">
+    </a>
+    + __Classifier margin__: Defined as the maximum width the decision boundary area can be increased before hitting a data point.
 
-<a href="url" alt="text" target="_blank">
++ Maximum margin linear classifier: Linear Support Vector Machines
+    + $f(x, w, b) = sign(w \circ x + b)$
+    + Maximum margin classifier: The linear classifier with maximum margin is a linear Support Vector Machine (LSVM).
+    + Demo: Linear Support Vector Machine
+        ```python
+        from sklearn.svm import SVC
+        from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+
+        X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2, random_state = 0)
+
+        fig, subaxes = plt.subplots(1, 1, figsize=(7, 5))
+        this_C = 1.0
+        clf = SVC(kernel = 'linear', C=this_C).fit(X_train, y_train)
+        title = 'Linear SVC, C = {:.3f}'.format(this_C)
+        plot_class_regions_for_classifier_subplot(clf, X_train, y_train, None, None, title, subaxes)
+        ```
+        <img src="images/plt2-14.png" alt="Maximum margin linear classifier: Linear Support Vector Machines as C = 1.0" title= "Maximum margin linear classifier: Linear Support Vector Machines" width="350">
+
+
++ Regularization for SVMs: the $C$ parameter
+    + The strength of regularization is determined by $C$
+    + Larger values of $C$: less regularization
+        + Fit the training data as well as possible
+        + Each individual data point is important to classify correctly
+    + Smaller values of $C$: more regularization
+        + More tolerant of errors on individual data points
+    + Demo: Linear Support Vector Machine: C parameter
+        ```python
+        from sklearn.svm import LinearSVC
+        from adspy_shared_utilities import plot_class_regions_for_classifier
+
+        X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2, random_state = 0)
+        fig, subaxes = plt.subplots(1, 2, figsize=(8, 4))
+
+        for this_C, subplot in zip([0.00001, 100], subaxes):
+            clf = LinearSVC(C=this_C).fit(X_train, y_train)
+            title = 'Linear SVC, C = {:.5f}'.format(this_C)
+            plot_class_regions_for_classifier_subplot(clf, X_train, y_train, 
+                None, None, title, subplot)
+        plt.tight_layout()
+        ```
+        <img src="images/plt2-15.png" alt="Linear Support Vector Machine: C parameter (C=0.00001, C=100.00000)" title= "Linear Support Vector Machine: C parameter" width="550">
+
++ Demo: Application to real dataset
+    ```python
+    from sklearn.svm import LinearSVC
+    X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+    
+    clf = LinearSVC().fit(X_train, y_train)
+    print('Breast cancer dataset')
+    print('Accuracy of Linear SVC classifier on training set: {:.2f}'
+         .format(clf.score(X_train, y_train)))
+    print('Accuracy of Linear SVC classifier on test set: {:.2f}'
+         .format(clf.score(X_test, y_test)))
+    # Breast cancer dataset
+    # Accuracy of Linear SVC classifier on training set: 0.90
+    # Accuracy of Linear SVC classifier on test set: 0.92
+    ```
+
++ Linear Models: Pros and Cons
+    + Pros:
+        + Simple and easy to train.
+        + Fast prediction
+            + linear nature of prediction function
+            + LSVM effectly performed on high dimensional dataset, in particular, sparse data instances
+        + Scales well to very large datasets.
+            + LSVM only using subset of training points (support vectors) and decision function
+        + Works well with sparse data.
+        + Reasons for prediction are relatively easy to interpret.
+    + Cons:
+        + For lower-dimensional data, other models may have superior generalization performance.
+        + For classification, data may not be linearly separable (more on this in SVMs with non-linear kernels)
+
++ linear_model: Important Parameters
+    + Model complexity
+        + __alpha__: weight given to the L1 or L2 regularization term in regression models
+        + default = 1.0
+    + __C__: regularization weight for `LinearSVC` and `LogisticRegression` classification models
+        + default = 1.0
+
+
+### Lecture Video
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/3thhjT6DEeeR4AqenwJvyA.processed/full/360p/index.mp4?Expires=1536364800&Signature=WQwyPHi2C1RMpNioL4xmscAFMLvoymVrEG3CeWUSUm6HTlCkOAKBgJgFcSA1ffjum~caEbRzIn-0YfRQye2hz~3-HAD9CH99Kx97DBd9c8PR2qDgUTgcV2Xnmialwy6nsdQcYIjtZgSmlNf9Blxvu-AH71E7~PhKbkDLWeORc7g_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Linear Classifiers: Support Vector Machines" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
