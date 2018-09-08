@@ -1703,30 +1703,14 @@ Domingos, P. (2012). [A few useful things to know about machine learning](https:
 
 ## Ed Yong: Genetic Test for Autism Refuted (optional)
 
+This article by Ed Yong in The Scientist is included because it describes a real-world example of a prediction problem in the health/medical sciences domain - training a classifier to predict risk of autism spectrum disorder (ASD) based on genetic markers - as well as including discussion of potential overfitting of the classifier (by training and testing on the same data) as one possible issue, among other factors, by researchers attempting to replicate the study.
 
-
-
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+[Genetic Test for Autism Refuted](http://www.the-scientist.com/?articles.view/articleNo/38030/title/Genetic-Test-for-Autism-Refuted/)
 
 
 ## Quiz: Module 2 Quiz
 
 
-
-
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
 
 
 ## Classifier Visualization Playspace
