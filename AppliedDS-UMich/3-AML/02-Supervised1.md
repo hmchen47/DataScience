@@ -40,6 +40,7 @@
         knn.score(X_test_scaled, y_test)
         ```
     + Example - Table terminologies
+
         |   | fruit_label | fruit_name | fruit_subtype | mass | width | height | color_score |
         |---|-------------|------------|---------------|------|-------|--------|-------------|
         | 0 | 0 | 1 | apple | granny_smith | 192 | 8.4 | 7.3 | 0.55 |
@@ -168,17 +169,17 @@
 
 + Overfitting vs. Underfitting in Regression
     <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html">
-        <br/><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_underfitting_overfitting_001.png" alt="This example demonstrates the problems of underfitting and overfitting and how we can use linear regression with polynomial features to approximate nonlinear functions. The plot shows the function that we want to approximate, which is a part of the cosine function. In addition, the samples from the real function and the approximations of different models are displayed. The models have polynomial features of different degrees. We can see that a linear function (polynomial with degree 1) is not sufficient to fit the training samples. This is called underfitting. A polynomial of degree 4 approximates the true function almost perfectly. However, for higher degrees the model will overfit the training data, i.e. it learns the noise of the training data. We evaluate quantitatively overfitting / underfitting by using cross-validation. We calculate the mean squared error (MSE) on the validation set, the higher, the less likely the model generalizes correctly from the training data." title= "Underfitting vs. Overfitting" width="350">
+        <br/><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_underfitting_overfitting_001.png" alt="This example demonstrates the problems of underfitting and overfitting and how we can use linear regression with polynomial features to approximate nonlinear functions. The plot shows the function that we want to approximate, which is a part of the cosine function. In addition, the samples from the real function and the approximations of different models are displayed. The models have polynomial features of different degrees. We can see that a linear function (polynomial with degree 1) is not sufficient to fit the training samples. This is called underfitting. A polynomial of degree 4 approximates the true function almost perfectly. However, for higher degrees the model will overfit the training data, i.e. it learns the noise of the training data. We evaluate quantitatively overfitting / underfitting by using cross-validation. We calculate the mean squared error (MSE) on the validation set, the higher, the less likely the model generalizes correctly from the training data." title= "Underfitting vs. Overfitting" width="450">
     </a>
 
 + Underfitting and Overfitting in Classification
     <a href="https://www.safaribooksonline.com/library/view/deep-learning/9781491924570/ch01.html">
-        <br/><img src="https://www.safaribooksonline.com/library/view/deep-learning/9781491924570/assets/dpln_0107.png" alt="A straight line cutting across a curving scatterplot would be a good example of underfitting.If the line fits the data too well, we have the opposite problem, called “overfitting.” Solving underfitting is the priority, but much effort in machine learning is spent attempting not to overfit the line to the data. When we say a model overfits a dataset, we mean that it may have a low error rate for the training data, but it does not generalize well to the overall population of data in which we’re interested.  Another way of explaining overfitting is by thinking about probable distributions of data. The training set of data that we’re trying to draw a line through is just a sample of a larger unknown set, and the line we draw will need to fit the larger set equally well if it is to have any predictive power. We must assume, therefore, that our sample is loosely representative of a larger set." title= "Underfitting and overfitting in machine learning" width="350">
+        <br/><img src="https://www.safaribooksonline.com/library/view/deep-learning/9781491924570/assets/dpln_0107.png" alt="A straight line cutting across a curving scatterplot would be a good example of underfitting.If the line fits the data too well, we have the opposite problem, called “overfitting.” Solving underfitting is the priority, but much effort in machine learning is spent attempting not to overfit the line to the data. When we say a model overfits a dataset, we mean that it may have a low error rate for the training data, but it does not generalize well to the overall population of data in which we’re interested.  Another way of explaining overfitting is by thinking about probable distributions of data. The training set of data that we’re trying to draw a line through is just a sample of a larger unknown set, and the line we draw will need to fit the larger set equally well if it is to have any predictive power. We must assume, therefore, that our sample is loosely representative of a larger set." title= "Underfitting and overfitting in machine learning" width="450">
     </a>
 
 + Overfitting with k-NN classifiers
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/fVStr/overfitting-and-underfitting">
-        <br/><img src="images/fig1-19.png" alt="text" title= "caption" width="350">
+        <br/><img src="images/fig1-19.png" alt="text" title= "caption" width="450">
     </a>
 
 ### Lecture Video
@@ -220,8 +221,8 @@
         plt.scatter(X_F1[:, 2], y_F1, marker= 'o', s=50)
         plt.show()
         ```
-    <img src="images/plt2-01.png" alt="synthetic dataset for simple regression" title= "synthetic dataset for simple regression" width="350">&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="images/plt2-02.png" alt="synthetic dataset for more complex regression" title= "synthetic dataset for more complex regression" width="350">
+    <img src="images/plt2-01.png" alt="synthetic dataset for simple regression" title= "synthetic dataset for simple regression" width="250">&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="images/plt2-02.png" alt="synthetic dataset for more complex regression" title= "synthetic dataset for more complex regression" width="250">
 
 
 + Simple Binary Classification Dataset
@@ -237,7 +238,7 @@
                 marker= 'o', s=50, cmap=cmap_bold)
         plt.show()
         ```
-    <img src="images/plt2-03.png" alt="synthetic dataset for classification (binary)" title= "synthetic dataset for classification (binary)" width="450">
+    <img src="images/plt2-03.png" alt="synthetic dataset for classification (binary)" title= "synthetic dataset for classification (binary)" width="350">
 
 + Complex Binary Classification Dataset
     + Demo
@@ -260,11 +261,11 @@
         # Communities and Crime dataset
         (X_crime, y_crime) = load_crime_dataset()
         ```
-    <img src="images/plt2-04.png" alt="more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" title= "more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" width="450">
+    <img src="images/plt2-04.png" alt="more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" title= "more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" width="350">
  
 + Fruit Multi-class Classification Dataset  
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
-        <img src="images/fig1-15.png" alt="text" title= "Fruit Multi-class scatterplots" width="350">
+        <img src="images/fig1-15.png" alt="text" title= "Fruit Multi-class scatterplots" width="450">
     </a>
     + Features: width, height, mass, color_score
     + Classes: 0: apple; 1: mandarin orange; 2: orange; 3: lemon
@@ -311,9 +312,9 @@
         plot_two_class_knn(X_train, y_train, 3, 'uniform', X_test, y_test)
         plot_two_class_knn(X_train, y_train, 11, 'uniform', X_test, y_test)
         ```
-    <img src="images/plt2-05.png" alt="Classification with KNN (K=1)" title= "caption" width="250">
-    <img src="images/plt2-06.png" alt="Classification with KNN (K=3)" title= "caption" width="250">
-    <img src="images/plt2-07.png" alt="Classification with KNN (K=11)" title= "caption" width="250">
+    <img src="images/plt2-05.png" alt="Classification with KNN (K=1)" title= "Classification with KNN (K=1)" width="200">
+    <img src="images/plt2-06.png" alt="Classification with KNN (K=3)" title= "Classification with KNN (K=3)" width="200">
+    <img src="images/plt2-07.png" alt="Classification with KNN (K=11)" title= "Classification with KNN (K=11)" width="200">
 
 + k-Nearest Neighbors Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
@@ -345,7 +346,7 @@
         + A value of $0$ corresponds to a constant model that predicts the mean value of all training target values.
         + A value of $1$ corresponds to perfect prediction
     + Also known as "__coefficient of determination__"
-    + Demo - Regression model complexity as a function of K
+    + Demo: Regression model complexity as a function of K
         ```python
         fig, subaxes = plt.subplots(1, 2, figsize=(8,4))
         X_predict_input = np.linspace(-3, 3, 50).reshape(-1,1)
@@ -364,10 +365,9 @@
             thisaxis.legend()
         plt.tight_layout()
         ```
-    <img src="images/plt2-08.png" alt="KNN Regression" title= "caption" width="550">
+    <img src="images/plt2-08.png" alt="Regression model complexity as a function of K" title= "KNN Regression" width="450">
 
-+ KNeighborsClassifierand KNeighborsRegressor: important parameters
-
++ KNeighborsClassifier and KNeighborsRegressor: important parameters
     + Model complexity
         + `n_neighbors`: number of nearest neighbors ($k$) to consider: Default = 5
     + Model fitting
@@ -394,7 +394,7 @@
             thisaxis.legend()
             plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
         ```
-    <img src="images/plt2-09.png" alt="plot k-NN regression on sample dataset for different values of K" title= "caption" width="750">
+        <img src="images/plt2-09.png" alt="plot k-NN regression on sample dataset for different values of K" title= "k-NN regression on sample dataset" width="800">
 
 
 ### Lecture Video 
