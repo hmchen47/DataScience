@@ -1697,17 +1697,9 @@
 
 ## A Few Useful Things to Know about Machine Learning
 
+This article by Prof. Pedro Domingos provides a bit more background and discussion of the essential concepts in machine learning covered in Modules 1 and 2. It covers topics such as overfitting, the role of data vs model vs features, and the use of ensembles, where many models are learned instead of just one (something we look at with random forests).
 
-
-
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
-
+Domingos, P. (2012). [A few useful things to know about machine learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf). Communications of the ACM, 55(10), 78. doi:10.1145/2347736.2347755
 
 ## Ed Yong: Genetic Test for Autism Refuted (optional)
 
