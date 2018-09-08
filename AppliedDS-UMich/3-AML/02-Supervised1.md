@@ -703,11 +703,11 @@
         # R-squared score (test): 0.624
         # 
         # Features with non-zero weight (sorted by absolute magnitude):
-        # 	PctKidsBornNeverMar, 1488.365
-        # 	PctKids2Par, -1188.740
+        #  | PctKidsBornNeverMar, 1488.365
+        #  | PctKids2Par, -1188.740
         #   ...
-        # 	PctLargHouseFam, 20.144
-        # 	PctSameCity85, 5.198
+        #  | PctLargHouseFam, 20.144
+        #  | PctSameCity85, 5.198
         ```
 
 + Demo: Lasso regression with regularization parameter - alpha
@@ -1399,10 +1399,10 @@
     + Accuracy of k-NN classifier (k=5) on fruit data test set for different random_statevalues in train_test_split.
         | random_state | Test set accuracy |
         |--------------|-------------------|
-        | 0 | 1.00 |
-        | 1 | 0.93 |
-        | 5 | 0.93 |
-        | 7 | 0.67 |
+        |  0 | 1.00 |
+        |  1 | 0.93 |
+        |  5 | 0.93 |
+        |  7 | 0.67 |
         | 10 | 0.87 |
 
 + Cross-validation Example (5-fold)
@@ -1423,7 +1423,7 @@
         # Cross-validation scores (3-fold): [ 0.77  0.74  0.83]
         # Mean cross-validation score (3-fold): 0.781
         ```
-    + A note on performing cross-validation for more advanced scenarios.<br/>In some cases (e.g. when feature values have very different ranges), we've seen the need to scale or normalize the training and test sets before use with a classifier. The proper way to do cross-validation when you need to scale the data is not to scale the entire dataset with a single transform, since this will indirectly leak information into the training data about the whole dataset, including the test data (see the lecture on data leakage later in the course). Instead, scaling/normalizing must be computed and applied for each cross-validation fold separately. To do this, the easiest way in scikit-learn is to use pipelines. While these are beyond the scope of this course, further information is available in the scikit-learn documentation here: <br/> http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
+    + A note on performing cross-validation for more advanced scenarios.<br/> In some cases (e.g. when feature values have very different ranges), we've seen the need to scale or normalize the training and test sets before use with a classifier. The proper way to do cross-validation when you need to scale the data is not to scale the entire dataset with a single transform, since this will indirectly leak information into the training data about the whole dataset, including the test data (see the lecture on data leakage later in the course). Instead, scaling/normalizing must be computed and applied for each cross-validation fold separately. To do this, the easiest way in scikit-learn is to use pipelines. While these are beyond the scope of this course, further information is available in the scikit-learn documentation here: <br/> http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
 + Stratified Cross-validation
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
@@ -1668,6 +1668,7 @@
 
     plt.show()
     ```
+    
 
 
 + Decision Trees: Pros and Cons
@@ -1710,6 +1711,116 @@ This article by Ed Yong in The Scientist is included because it describes a real
 
 ## Quiz: Module 2 Quiz
 
+Q1. After training a ridge regression model, you find that the training and test set accuracies are 0.98 and 0.54 respectively. Which of the following would be the best choice for the next ridge regression model you train?
+
+    a. You are overfitting, the next model trained should have a lower value for alpha
+    b. You are overfitting, the next model trained should have a higher value for alpha
+    c. You are underfitting, the next model trained should have a lower value for alpha
+    d. You are underfitting, the next model trained should have a higher value for alpha
+
+    Ans: b
+
+
+Q2. After training a Radial Basis Function (RBF) kernel SVM, you decide to increase the influence of each training point and to simplify the decision surface. Which of the following would be the best choice for the next RBF SVM you train?
+
+    a. Decrease C and gamma
+    b. Increase C and gamma
+    c. Increase C, decrease gamma
+    d. Decrease C, increase gamma
+
+    Ans: xb
+
+
+Q3. Which of the following is an example of multiclass classification? (Select all that apply)
+
+    a. Classify a set of fruits as apples, oranges, bananas, or lemons
+    b. Predict whether an article is relevant to one or more topics (e.g. sports, politics, finance, science)
+    c. Predicting both the rating and profit of soon to be released movie
+    d. Classify a voice recording as an authorized user or not an authorized user.
+
+    Ans: xabc
+
+
+Q4. Looking at the plot below which shows accuracy scores for different values of a regularization parameter lambda, what value of lambda is the best choice for generalization?
+
+<img src="images/fig2-q1.png" alt="text" title= "caption" width="250">
+
+    Ans: 10
+
+
+Q5. Suppose you are interested in finding a parsimonious model (the model that accomplishes the desired level of prediction with as few predictor variables as possible) to predict housing prices. Which of the following would be the best choice?
+
+    a. Lasso Regression
+    b. Logistic Regression
+    c. Ridge Regression
+    d. Ordinary Least Squares Regression
+
+    Ans: a
+
+
+Q6. Match the plots of SVM margins below to the values of the C parameter that correspond to them.
+
+<img src="images/fig2-q2.png" alt="text" title= "caption" width="450">
+
+    a. 1, 0.1, 10
+    b. 0.1, 1, 10
+    c. 10, 0.1, 1
+    d. 10, 1, 0.1
+
+
+    Ans: b
+
+
+Use Figures A and B below to answer questions 7, 8, 9, and 10.
+
+<img src="images/fig2-q3.png" alt="text" title= "Figure A" width="350">
+<img src="images/fig2-q4.png" alt="text" title= "Figure B" width="350">
+
+Q7. Looking at the two figures (Figure A, Figure B), determine which linear model each figure corresponds to:
+
+    a. Figure A: Ridge Regression, Figure B: Lasso Regression
+    b. Figure A: Lasso Regression, Figure B: Ridge Regression
+    c. Figure A: Ordinary Least Squares Regression, Figure B: Ridge Regression
+    d. Figure A: Ridge Regression, Figure B: Ordinary Least Squares Regression
+    e. Figure A: Ordinary Least Squares Regression, Figure B: Lasso Regression
+    f. Figure A: Lasso Regression, Figure B: Ordinary Least Squares Regression
+
+    Ans: a
+
+
+Q8. Looking at Figure A and B, what is a value of alpha that optimizes the R2 score for the Ridge Model?
+
+    Ans: 3
+
+
+Q9. Looking at Figure A and B, what is a value of alpha that optimizes the R2 score for the Lasso Model?
+
+    Ans: x110
+
+
+Q10. When running a LinearRegression() model with default parameters on the same data that generated Figures A and B the output coefficients are:
+
+    Coef 0      -19.5
+    Coef 1      48.8
+    Coef 2      9.7
+    Coef 3      24.6
+    Coef 4      13.2
+    Coef 5      5.1
+
+    For what value of Coef 3 is R2 score maximized for the Ridge Model?
+
+
+    Ans: ??
+
+Q11. Which of the following is true of cross-validation? (Select all that apply)
+
+    a. Increases generalization ability and reduces computational complexity
+    b. Removes need for training and test sets
+    c. Helps prevent knowledge about the test set from leaking into the model
+    d. Increases generalization ability and computational complexity
+    e. Fits multiple models on different splits of the data
+
+    Ans: (ac-0.4)
 
 
 
