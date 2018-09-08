@@ -969,7 +969,6 @@
         # Accuracy of Logistic regression classifier on test set: 0.80
         ```
 
-
 + Logistic Regression: Regularization
     + L2 regularization is 'on' by default (like ridge regression)
     + Parameter C controls amount of regularization (default 1.0)
@@ -1431,7 +1430,7 @@
         <br/><img src="images/fig2-36.png" alt="In the default cross-validation set up, to use for example five folds, the first 20% of the records are used as the first fold, the next 20% for the second fold, and so on. One problem with this is that the data might have been created in such a way that the records are sorted or at least show some bias in the ordering by class label." title= "Stratified Cross-validation" width="265">
     </a>
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
-        <img src="images/fig2-37.png" alt="When scikit-learn doing cross-validation for a classification task, it actually does instead what's called "Stratified K-fold Cross-validation". The Stratified Cross-validation means that when splitting the data, the proportions of classes in each fold are made as close as possible to the actual proportions of the classes in the overall data set as shown here. " title= "Stratified Cross-validation" width="250">
+        <img src="images/fig2-37.png" alt="When scikit-learn doing cross-validation for a classification task, it actually does instead what's called 'Stratified K-fold Cross-validation'. The Stratified Cross-validation means that when splitting the data, the proportions of classes in each fold are made as close as possible to the actual proportions of the classes in the overall data set as shown here. " title= "Stratified Cross-validation" width="250">
     </a>
     + Stratified folds each contain a proportion of classes that matches the overall dataset. Now, all classes will be fairly represented in the test set.
 
@@ -1505,16 +1504,195 @@
 
 ## Decision Trees
 
++ Decision Trees
+    + popular supervised learning method
+    + learn a series of explicit if then rules on feature values that result in a decision that predicts the target value
+
++ Decision Tree Example
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
+        <br/><img src="images/fig2-39.png" alt="If we think of the property of being alive as a binary feature of an object and the property of having orange fur with black stripes as another feature, we can say that the is a live feature is more informative at an early stage of guessing and thus would appear higher in our tree of questions." title= "Specific question to narrow down the selection" height="150">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
+        <img src="images/fig2-40.png" alt="Form these questions into a tree with a node representing one question and the yes or no possible answers as the left and right branches from that node that connect the node to the next level of the tree. One question being answered at each level. At the bottom of the tree are nodes called leaf nodes that represent actual objects as the possible answers. For any object there's a path from the root of the tree to that object that is determined by the answers to the specific yes or no questions at each level." title= "Tree structure of Decision Tree - Root node & Leaf node" height="150">
+    </a>
+
++ The [Iris Daatset](https://en.wikipedia.org/wiki/Iris_flower_data_set)
+    + The dataset contains a set of 150 records under 5 attributes - Petal Length , Petal Width , Sepal Length , Sepal width and Class.
+    + Species: Iris setosa, Iris versicolor, Iris virginica
+    + 50 examples/species
+
++ Decision Tree Splits
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
+        <br/><img src="images/fig2-41.png" alt="The goal when building a decision tree is to find the sequence of questions that has the best accuracy at classifying the data in the fewest steps. Looking at a decision tree, each decision splits the data into two branches based on some feature value being above or below a threshold. Using that split leaves a pool of instances that are a combination of virginica and versicolor that still need to be distinguished further. So we can further improve the accuracy of the classification by continuing this process of finding the best split for the remaining subsets with the iris dataset. " title= "caption" height="200">
+    </a>
+
++ Informativenessof Splits
+    + The _value_ list gives the number of samples of each class that end up at this leaf node during training.
+    + The iris dataset has 3 classes, so there are three counts.
+    + Sample = 37, value = [37, 0, 0], class = setosa:
+        + This leaf has 37 setosa samples, zero versicolor, and zero virginicasamples.
+    + Sample = 36, value = [0, 33, 3], class = versicolor
+        + This leaf has 0 setosa, 33 versicolor, and 3 virginicasamples.
+    + Sample = 39, value = [0, 1, 38], class = virginica
+        + This leaf has 0 setosa, 1 versicolor, and 38 virginicasamples.
+        <!---
+        <img src="images/fig2-42.png" alt="There are a number of mathematical ways to compute the best split. One criterion that's widely used for decision trees is called information game, for example. So to build the decision tree, the decision tree building algorithm starts by finding the feature that leads to the most informative split. For any given split of the data on a particular feature value, even for the best split it's likely that some examples will still be incorrectly classified or need further splitting. " title= "First node decision" width="200">
+        <img src="images/fig2-43.png" alt="Trees whose leaf nodes each have all the same target value are called pure, as opposed to mixed where the leaf nodes are allowed to contain at least some mixture of the classes. To predict the class of a new instance given its feature measurements, using the decision tree we simply start at the root of the decision tree and take the decision at each level based on the appropriate feature measurement until we get to a leafnode." title= "Second level decision node" width="200">
+        --->
+        <img src="images/fig2-44.png" alt="The prediction is then just the majority class of the instances in that leafnode. So for the iris data for example, a flower that has a petal length of three centimeters, a petal width of two centimeters and a sepal width of two centimeters would end up at this leafnode, whose instances are all of the virginica class. So the prediction would be virginica. " title= "Complete decision tree for Iris dataset" width="450">
+    + Demo: Decision Trees
+        ```python
+        from sklearn.datasets import load_iris
+        from sklearn.tree import DecisionTreeClassifier
+        from adspy_shared_utilities import plot_decision_tree
+        from sklearn.model_selection import train_test_split
+
+        iris = load_iris()
+
+        X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state = 3)
+        clf = DecisionTreeClassifier().fit(X_train, y_train)
+
+        print('Accuracy of Decision Tree classifier on training set: {:.2f}'
+            .format(clf.score(X_train, y_train)))
+        print('Accuracy of Decision Tree classifier on test set: {:.2f}'
+            .format(clf.score(X_test, y_test)))
+        # Accuracy of Decision Tree classifier on training set: 1.00
+        # Accuracy of Decision Tree classifier on test set: 0.97
+        ```
+
++ Decision tree for regression
+    + using the same process of testing the future values at each node and predicting the target value based on the contents of the leafnode
+    + the leafnode prediction would be the mean value of the target values for the training points in that leaf
+
++ Controlling the Model Complexity of Decision Trees
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
+        <br/><img src="images/fig2-45.png" alt="Typically such trees are overly complex and essentially memorized the training data. So when building decision trees, we need to use some additional strategy to prevent this overfitting. One strategy to prevent overfitting is to prevent the tree from becoming really detailed and complex by stopping its growth early. This is called pre-pruning. Another strategy is to build a complete tree with pure leaves but then to prune back the tree into a simpler form. This is called post-pruning or sometimes just pruning. The decision tree implementation and scikit-learn only implements pre-pruning. We can control tree complexity via pruning by limiting either the maximum depth of the tree using the max depth parameter or the maximum number of leafnodes using the max leafnodes parameter. We could also set a threshold on the minimum number of instances that must be in a node to consider splitting it. And this would be using the min samples leaf parameter we can see the effect of pre-pruning by setting max depth to three on the iris dataset. " title= "Controlling the Model Complexity of Decision Trees - prunning" height="250">
+    </a>
+    + Demo:Setting max decision tree depth to help avoid overfitting
+        ```python
+        clf2 = DecisionTreeClassifier(max_depth = 3).fit(X_train, y_train)
+
+        print('Accuracy of Decision Tree classifier on training set: {:.2f}'
+             .format(clf2.score(X_train, y_train)))
+        print('Accuracy of Decision Tree classifier on test set: {:.2f}'
+             .format(clf2.score(X_test, y_test)))
+        # Accuracy of Decision Tree classifier on training set: 0.98
+        # Accuracy of Decision Tree classifier on test set: 0.92
+        ```
+
++ Visualizing Decision Trees
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
+        <br/><img src="images/fig2-46.png" alt="Plot decision tree, that takes the classifier object, the feature names, and the class names as input. And uses the graphics library to visualize the tree. It works by calling the export graph its function in the scikit-learn tree module to create a dot file which is a text file description of the tree, and then using the graphics library to visualize the dot file creating an image. Here's the resulting plot for the unpruned Iris dataset tree. The first line in a node indicates the decision rule being applied for that node. The second line indicates the total number of data instances for that node. The third line shows the class distribution among those instances. And the fourth line shows the majority class of that nodes data instances. " title= "caption" height="250">
+    </a>
+    + See: `plot_decision_tree()` function in `adspy_shared_utilities.py` code
+    + Demo: 
+        ```python
+        # Visualizing decision trees
+        plot_decision_tree(clf, iris.feature_names, iris.target_names)
+
+        # #### Pre-pruned version (max_depth = 3)
+        plot_decision_tree(clf2, iris.feature_names, iris.target_names)
+        ```
+
++ Feature Importance: How important is a feature to overall prediction accuracy?
+    + A number between 0 and 1 assigned to each feature.
+    + Feature importance of 0 --> the feature was not used in prediction.
+    + Feature importance of 1 --> the feature predicts the target perfectly.
+    + All feature importancesare normalized to sum to 1.
 
 
++ Feature Importance Chart
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
+        <br/><img src="url" alt="text" title= "caption" height="150">
+    </a>
+    + See: `plot_feature_importances()` function in `adspy_shared_utilities.py` code
+    + Demo: # Feature importance
+        ```python
+        from adspy_shared_utilities import plot_feature_importances
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
+        plt.figure(figsize=(10,4), dpi=80)
+        plot_feature_importances(clf, iris.feature_names)
+        plt.show()
 
-<a href="url" alt="text" target="_blank">
+        print('Feature importances: {}'.format(clf.feature_importances_))
+
+        from sklearn.tree import DecisionTreeClassifier
+        from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+
+        X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state = 0)
+        fig, subaxes = plt.subplots(6, 1, figsize=(6, 32))
+
+        pair_list = [[0,1], [0,2], [0,3], [1,2], [1,3], [2,3]]
+        tree_max_depth = 4
+
+        for pair, axis in zip(pair_list, subaxes):
+            X = X_train[:, pair]
+            y = y_train
+            
+            clf = DecisionTreeClassifier(max_depth=tree_max_depth).fit(X, y)
+            title = 'Decision Tree, max_depth = {:d}'.format(tree_max_depth)
+            plot_class_regions_for_classifier_subplot(
+                clf, X, y, None, None, title, axis, iris.target_names)
+            
+            axis.set_xlabel(iris.feature_names[pair[0]])
+            axis.set_ylabel(iris.feature_names[pair[1]])
+            
+        plt.tight_layout()
+        plt.show()
+        ```
+    <img src="images/plt2-24.png" alt="In scikit-learn, feature importance values are stored as a list in an estimated property called feature_importances_. And note the underscore at the end of the name which indicates it's a property of the object that's set as a result of fitting the model and not say as a user defined property. The shared utilities python file contains a function called plot feature importances, that you can import and use to visualize future importance. It plots a horizontal bar chart with the features listed along the y axis by name and feature importance along the x axis. " title= "Feature importances" height="200"> <br/>
+    <img src="images/plt2-25.png" alt="Here's the feature importance chart for the iris decision tree and this example for this particular train/test split of the iris data set. The pedal length feature easily has the largest feature importance weight. We can confirm this by looking at the decision tree that this is indeed corresponds to that features position at the top of the decision tree, showing that this first level just using the petal length feature does a good job splitting the turning data into separate classes. Note that if a feature has a low feature importance value, that doesn't necessarily mean that the feature is not important for prediction. It simply means that the particular feature wasn't chosen at an early level of the tree and this could be because the future may be identical or highly correlated with another informative feature and so doesn't provide any new additional signal for prediction. Feature importance values don't tell us which specific classes a feature might be especially predictive for, and they also don't indicate more complex relationships between features that may influence prediction. " title= "Feature importances for cross valiadtions" height="200">
+
++ Demo: # Decision Trees on a real-world dataset
+    ```python
+    from sklearn.tree import DecisionTreeClassifier
+    from adspy_shared_utilities import plot_decision_tree
+    from adspy_shared_utilities import plot_feature_importances
+
+    X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+
+    clf = DecisionTreeClassifier(max_depth = 4, min_samples_leaf = 8,
+        random_state = 0).fit(X_train, y_train)
+
+    plot_decision_tree(clf, cancer.feature_names, cancer.target_names)
+
+    print('Breast cancer dataset: decision tree')
+    print('Accuracy of DT classifier on training set: {:.2f}'
+        .format(clf.score(X_train, y_train)))
+    print('Accuracy of DT classifier on test set: {:.2f}'
+        .format(clf.score(X_test, y_test)))
+
+    plt.figure(figsize=(10,6),dpi=80)
+    plot_feature_importances(clf, cancer.feature_names)
+    plt.tight_layout()
+
+    plt.show()
+    ```
+
+
++ Decision Trees: Pros and Cons
+    + Pros:
+        + Easily visualized and interpreted.
+        + No feature normalization or scaling typically needed.
+        + Work well with datasets using a mixture of feature types (continuous, categorical, binary)
+    + Cons:
+        + Even after tuning, decision trees can often still overfit.
+        + Usually need an ensemble of trees for better generalization performance.
+
+
++ Decision Trees: DecisionTreeClassifierKey Parameters
+    + `max_depth`: controls maximum depth (number of split points). Most common way to reduce tree complexity and overfitting.
+    + `min_samples_leaf`: threshold for the minimum # of data instances a leaf can have to avoid further splitting.
+    + `max_leaf_nodes`: limits total number of leaves in the tree.
+    + In practice, adjusting only one of these (e.g. `max_depth`) is enough to reduce overfitting.
+
+
+### Lecture Video
+
+<a href="https://d3c33hcgiwev3.cloudfront.net/kIeJZUG_EeedLxJ0mGjb9g.processed/full/360p/index.mp4?Expires=1536451200&Signature=LxQjbCiWUOn2-o4lzUBh~JjSBUcEL5FfUG9aoDwpx-rzOjsRAqBhQTQj61GjHIVNDil5xYU2QUu1m9h-KT4F7ivg3GUuE69RfcR8k6dt8QF3~3jD4ndauZM9ppD~6afpHl3gFUaA-KBLC78SB1kEZzWREEnBWDmlD0~Yumjx46w_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Decision Trees" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
+
 
 
 ## A Few Useful Things to Know about Machine Learning
