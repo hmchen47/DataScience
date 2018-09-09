@@ -169,7 +169,7 @@
 
 + Overfitting vs. Underfitting in Regression
     <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html">
-        <br/><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_underfitting_overfitting_001.png" alt="This example demonstrates the problems of underfitting and overfitting and how we can use linear regression with polynomial features to approximate nonlinear functions. The plot shows the function that we want to approximate, which is a part of the cosine function. In addition, the samples from the real function and the approximations of different models are displayed. The models have polynomial features of different degrees. We can see that a linear function (polynomial with degree 1) is not sufficient to fit the training samples. This is called underfitting. A polynomial of degree 4 approximates the true function almost perfectly. However, for higher degrees the model will overfit the training data, i.e. it learns the noise of the training data. We evaluate quantitatively overfitting / underfitting by using cross-validation. We calculate the mean squared error (MSE) on the validation set, the higher, the less likely the model generalizes correctly from the training data." title= "Underfitting vs. Overfitting" width="450">
+        <br/><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_underfitting_overfitting_001.png" alt="This example demonstrates the problems of underfitting and overfitting and how we can use linear regression with polynomial features to approximate nonlinear functions. The plot shows the function that we want to approximate, which is a part of the cosine function. In addition, the samples from the real function and the approximations of different models are displayed. The models have polynomial features of different degrees. We can see that a linear function (polynomial with degree 1) is not sufficient to fit the training samples. This is called underfitting. A polynomial of degree 4 approximates the true function almost perfectly. However, for higher degrees the model will overfit the training data, i.e. it learns the noise of the training data. We evaluate quantitatively overfitting / underfitting by using cross-validation. We calculate the mean squared error (MSE) on the validation set, the higher, the less likely the model generalizes correctly from the training data." title= "Underfitting vs. Overfitting" width="600">
     </a>
 
 + Underfitting and Overfitting in Classification
@@ -179,7 +179,7 @@
 
 + Overfitting with k-NN classifiers
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/fVStr/overfitting-and-underfitting">
-        <br/><img src="images/fig1-19.png" alt="text" title= "caption" width="450">
+        <br/><img src="images/fig1-19.png" alt="text" title= "caption" width="600">
     </a>
 
 ### Lecture Video
@@ -221,8 +221,8 @@
         plt.scatter(X_F1[:, 2], y_F1, marker= 'o', s=50)
         plt.show()
         ```
-    <img src="images/plt2-01.png" alt="synthetic dataset for simple regression" title= "synthetic dataset for simple regression" width="250">&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="images/plt2-02.png" alt="synthetic dataset for more complex regression" title= "synthetic dataset for more complex regression" width="250">
+    <img src="images/plt2-01.png" alt="For example, high dimensional data sets in some sense have most of their data in corners with lots of empty space and that's kind of difficult to visualize. We'll go through some examples later in the course. But the low dimensional examples are still useful so that we can understand things like how a model's complexity changes with changes in some key parameters So for basic regression we'll start with the simple problem that has one informative input variable. One noisy linear output and 100 data set samples. Here's a plot of a data set using scatter plot with each point represented by one dot. The x-axis shows the future value, and the y-axis shows the regression target. To create this we use the make regression function in SK learned data sets. Here is the code in the notebook." title="synthetic dataset for simple regression" width="300">&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="images/plt2-02.png" alt="To illustrate binary classification we will include a simple two class dataset with two informative features. Here's a scatterplot showing each data instance as a dot with the first feature value corresponding to the x-axis. And the second feature value corresponding to the y-axis. The color of a point shows which class that data instance is labeled. " title= "synthetic dataset for more complex regression" width="300">
 
 
 + Simple Binary Classification Dataset
@@ -238,7 +238,7 @@
                 marker= 'o', s=50, cmap=cmap_bold)
         plt.show()
         ```
-    <img src="images/plt2-03.png" alt="synthetic dataset for classification (binary)" title= "synthetic dataset for classification (binary)" width="350">
+    <img src="images/plt2-03.png" alt="To illustrate binary classification we will include a simple two class dataset with two informative features. Here's a scatterplot showing each data instance as a dot with the first feature value corresponding to the x-axis. And the second feature value corresponding to the y-axis. The color of a point shows which class that data instance is labeled. I'm calling this dataset simple because it has only two features, both of which are informative. " title= "synthetic dataset for classification (binary)" width="350">
 
 + Complex Binary Classification Dataset
     + Demo
@@ -261,19 +261,19 @@
         # Communities and Crime dataset
         (X_crime, y_crime) = load_crime_dataset()
         ```
-    <img src="images/plt2-04.png" alt="more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" title= "more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" width="350">
+    <img src="images/plt2-04.png" alt="We'll also look at a more complex binary classification problem that uses two features. But where the two classes are not really linearly separable, instead forming into various clusters in different parts of the feature space. This dataset was created in two steps. First using the make_blobs function in SK learn datasets to randomly generate 100 samples in 8 different clusters. And then by changing the cluster label assigned by make_blobs, which is a number from 1 to 8, to a binary number by converting it using a modulo 2 function. Assigning the even index points to class 0 and odd index points to class 1." title= "more difficult synthetic dataset for classification (binary) with classes that are not linearly separable" width="350">
  
 + Fruit Multi-class Classification Dataset  
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
-        <img src="images/fig1-15.png" alt="text" title= "Fruit Multi-class scatterplots" width="450">
+        <img src="images/fig1-15.png" alt="To illustrate multi-class classification, we'll use our familiar fruits dataset, which, as you may remember has four features and four possible target labels. Here on the left, I'm showing the array of scatter plots that we saw in week one that shows the relationship between all possible pairs of features and the class labels, with the distribution of values for each feature along the diagonal. " title= "Fruit Multi-class scatterplots" width="450">
     </a>
     + Features: width, height, mass, color_score
     + Classes: 0: apple; 1: mandarin orange; 2: orange; 3: lemon
-    
+
 
 + Supervised Learning: Datasets
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/71PMP/supervised-learning-datasets">
-        <br/><img src="images/fig2-02.png" alt="text" title= "Table of communities and crime dataset" width="350">
+        <br/><img src="images/fig2-02.png" alt="To illustrate a real-world regression problem, we'll use a dataset derived from the communities and crime dataset in the UCI repository. Our dataset uses a subset of the original features and target values. Which were originally created from combining several U.S. government data sources, like the U.S. census. Each data instance corresponds to a particular geographic area, typically a town or a region of a city. Our version of this dataset has 88 features that encode various demographic and social economic properties of each location. With 1994 location data instances. The target value that we'll try to predict is the per capita violent crime rate. To use this data set, we use the load_crime_dataset function that's included with the share utilities module for this course" title= "Table of communities and crime dataset" width="450">
     </a>
     + Input features: socio-economic data by location from U.S. Census
     + Target variable: Per capita violent crimes
@@ -312,13 +312,13 @@
         plot_two_class_knn(X_train, y_train, 3, 'uniform', X_test, y_test)
         plot_two_class_knn(X_train, y_train, 11, 'uniform', X_test, y_test)
         ```
-    <img src="images/plt2-05.png" alt="Classification with KNN (K=1)" title= "Classification with KNN (K=1)" width="200">
-    <img src="images/plt2-06.png" alt="Classification with KNN (K=3)" title= "Classification with KNN (K=3)" width="200">
-    <img src="images/plt2-07.png" alt="Classification with KNN (K=11)" title= "Classification with KNN (K=11)" width="200">
+    <img src="images/plt2-05.png" alt="Here's how a k-Nearest Neighbor Classifier using only one nearest neighbor, that is with k equal to 1, makes these predictions for the simple binary synthetic dataset. So as you might recall from week one where we applied a nearest neighbors classifier to our multi-class fruit dataset. Here we're applying the nearest neighbors classifier to our simple binary classification problem. Where the points in class zero are labeled with yellow dots and the points in class one are labeled with black dots. And just as we did for the week one problem with fruit classification, here we're also showing how the entire feature space is broken up into different decision regions according to the predictions that the k-Nearest Neighbor Classifier would make at each point in the decision space. So for example, a point out here in the yellow region represents a point that the classifier would classify as class zero. And a point, let's say, over here, the classifier would classify as class one. So because this is a one nearest neighbors classifier, to make a classification prediction for any given query point, the Classifier simply looks back into its trading set. So these points here represent all the points on the training set. So for any given point, let's say here, The Classifier would simply find the training point that's closest, namely this one, and assign the predict a class to simply the class of the nearest point in the training set. Likewise, if we have a point over here. The nearest point in the training says actually this point right here that has a class zero label and so that point would get assigned a class zero. And in fact, this whole region right here represents all the points that are closer to the class zero training point than any of the other class one training points. So this whole region here represents a one nearest neighbors prediction of class zero. So the k-Nearest Neighbor's Classifier with k = 1, you can see that the decision boundaries that derived from that prediction are quite jagged and have high variance. This is an example of a model, classification model, it has high model complexity. " title= "Classification with KNN (K=1)" width="200">
+    <img src="images/plt2-06.png" alt="If you run this code and compare the resulting training and test scores for k equals 1, 3, and 11, which are shown in the title of each plot, you can see the effect of model complexity on a models ability to generalize." title= "Classification with KNN (K=3)" width="200">
+    <img src="images/plt2-07.png" alt="And here is what happens when we increase k from 1 to 11. Now the classifier must combine the votes of the 11 nearest points, not just 1. So single training data points no longer have as dramatic an influence on the prediction. The result is a much smoother decision boundary, which represents a model with lower model complexity where the decision boundary has much less variance. Actually if we increased k even higher to be the total number of points in the training set, the result would be a single decision region where all predictions would be the most frequent class in the training data. As we saw for the fruit data set, k-Nearest Neighbor Classifiers can be applied to any number of classes, not just 2. The code for this example in the notebook uses a special function, in the shared utilities library for this course, called plot_two_class_knn. If you run this code and compare the resulting training and test scores for k equals 1, 3, and 11, which are shown in the title of each plot, you can see the effect of model complexity on a models ability to generalize. In the k = 1 case, the training score is a perfect 1.0. But the test score is only 0.80. As k increases to 3, the training score drops to 0.88 but the test score rises slightly 2.88, indicating the model is generalizing better to new data. When k = 11, the training score drops a bit further to 0.81, but the test score even better at 0.92, indicating that this simple model is much more effective at ignoring minor variations in training data. And instead capturing the more important global trend in where the classes tend to be located with the best overall generalization performance as a result. " title= "Classification with KNN (K=11)" width="200">
 
 + k-Nearest Neighbors Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/I1cfu/k-nearest-neighbors-classification-and-regression">
-        <br/><img src="images/fig2-05.png" alt="Scatter plots with nearest neighbor (k=1&3)" title= "1-NN Classification" width="550">
+        <br/><img src="images/fig2-05.png" alt="The nearest neighbors approach isn't useful just for classification. You can use it for regression too. So here are three plots that show the same simple regression problem with one input feature and the corresponding target values in the training data. The left most plot here, this one, shows just the original training data points. And the middle and right plots show the predictions made by k and n regression algorithm, when k = 1 and k = 3. So in these plots, you can see the training points are actually in green. These green circles are the training points and the blue triangles are the output of the k-nearest neighbor regression for any given input value of x. So for example the knn regression prediction for this point here is this y value here. " title= "1-NN Classification" width="550">
     </a>
     + Diagrams: original, k = 1, k = 3
     + Green dot = training point; blue triangle = test point
@@ -365,7 +365,7 @@
             thisaxis.legend()
         plt.tight_layout()
         ```
-    <img src="images/plt2-08.png" alt="Regression model complexity as a function of K" title= "KNN Regression" width="450">
+    <img src="images/plt2-08.png" alt="Just as we did for classification, let's look at the connection between model complexity and generalization ability as measured by the r-squared training and test values on the simple regression dataset. " title= "Regression model complexity as a function of K" width="450">
 
 + KNeighborsClassifier and KNeighborsRegressor: important parameters
     + Model complexity
@@ -394,7 +394,8 @@
             thisaxis.legend()
             plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
         ```
-        <img src="images/plt2-09.png" alt="plot k-NN regression on sample dataset for different values of K" title= "k-NN regression on sample dataset" width="800">
+        <img src="images/plt2-09.png" alt="Just as we did for classification, let's look at the connection between model complexity and generalization ability as measured by the r-squared training and test values on the simple regression dataset. The series of plots on the notebook shows how the KNN regression algorithm fits the data for k = 1, 3, 7, 15, and in an extreme case of k = 55. It represents almost half the training points. We can see the same pattern in model complexity for k and N regression that we saw for k and N classification. Namely, that small values of k give models with higher complexity. And large values of k result in simpler models with lower complexity. Starting on the left when k = 1, the regression model fits the training data perfectly with a r-squared score of 1.0. But it's very bad at predicting the target values for new data samples, as reflected in the r-squared test score of only 0.155. As the value of k increases, which we can see acts to smooth out these local variations to capture more of the global trend. Again the training set score drops, but the model gets better at generalizing to new data and the test score goes up as K increases. Finally in this series, the model with k = 15 has the best test set performance, with an r-squared score of 0.485. Increasing k much further however to k = 55, results in both the training and test set scores dropping back down to lower levels, as the model now starts to under-fit. In other words, it's too simple to do well, even on the training data. The pro's of the nearest neighbor approach are that it's simple and easy to understand why a particular prediction is made. A k-nearest neighbor approach can be a reasonable baseline against what you can compare more sophisticated methods. When the training data has many instances, or each instance has lots of features, this can really slow down the performance of a k-nearest neighbors model. So in general, if your data set has hundreds or thousands of features, you should consider alternatives to k-nearest neighbors models, especially if your data is sparse. Meaning that each instance has lots of features, but most of them are zero. 
+" title= "plot k-NN regression on sample dataset for different values of K" width="800">
 
 
 ### Lecture Video 
@@ -429,7 +430,7 @@
     + Predicted output: $\hat{y} = \hat{w_0} x_0 + \hat{b}$
     + Parameters to estimate: $\hat{w_0}$ (slope, $\hat{b}$ (y-intercept)
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/EiQjD/linear-regression-least-squares">
-        <br/><img src="images/fig2-07.png" alt="Multiple regression lines with a given dataset" title= "Linear Regression Model" width="300">
+        <br/><img src="images/fig2-07.png" alt="Here's an example of a linear regression model with just one input variable or feature x0 on a simple artificial example dataset. The blue cloud of points represents a training set of x0, y pairs. In this case, the formula for predicting the output y hat is just w0 hat times x0 + b hat, which you might recognize as the familiar slope intercept formula for a straight line, where w0 hat is the slope, and b hat is the y intercept. The grand red lines represent different possible linear regression models that could attempt to explain the relationship between x0 and y." title= "Multiple regression lines with a given dataset" width="300">
     </a>
 
 + Least-Squares Linear Regression("Ordinary least-squares")
@@ -486,11 +487,11 @@
         plt.ylabel('Target value (y)')
         plt.show()
         ```
-    <img src="images/plt2-10.png" alt="Linear regression: example plot" title= "apLinear reqgression" width="250">
+    <img src="images/plt2-10.png" alt=" Here is the same code in the notebook. With additional code to score the quality of the regression model, in the same way that we did for K nearest neighbors regression using the R-squared metric. And here is the notebook code we use to plot the least-squares linear solution for this dataset. " title= "apLinear reqgression" width="250">
 
 + K-NN Regression vs Least-Squares Linear Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/EiQjD/linear-regression-least-squares">
-        <br/><img src="images/fig2-08.png" alt="Comparisons between K-NN (K=7) regression and Least-squares linear regression with their training and test scores" title= "K-NN Regression vs Least-Squares Linear Regression" width="450">
+        <br/><img src="images/fig2-08.png" alt="Here we can see how these two regression methods represent two complementary types of supervised learning. The K nearest neighbor regresser doesn't make a lot of assumptions about the structure of the data, and gives potentially accurate but sometimes unstable predictions that are sensitive to small changes in the training data. So it has a correspondingly higher training set, R-squared score, compared to least-squares linear regression. K-NN achieves an R-squared score of 0.72 and least-squares achieves an R-squared of 0.679 on the training set.On the other hand, linear models make strong assumptions about the structure of the data, in other words, that the target value can be predicted using a weighted sum of the input variables. And linear models give stable but potentially inaccurate predictions. However, in this case, it turns out that the linear model strong assumption that there's a linear relationship between the input and output variables happens to be a good fit for this dataset. " title= "K-NN Regression vs Least-Squares Linear Regression" width="450">
     </a>
 
 + Demo: Linear model 
@@ -602,7 +603,7 @@
 
 + Feature Normalization with MinMaxScaler
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/M7yUQ/linear-regression-ridge-lasso-and-polynomial-regression">
-        <br/><img src="images/fig2-09.png" alt="Comparisons of unnormalized and normalized with MinMAxScaler data point" title= "Unnormalized and Normalized data points" width="350">
+        <br/><img src="images/fig2-09.png" alt="transformation for each feature as shown here. Here's an example of how it works with two features. Suppose we have one feature 'height' whose values fall in a fairly narrow range between 1.5 and 2.5 units. But a second feature, 'width' has a much wider range between five and 10 units. After applying minmax scaling, values for both features are transformed because they are on the same scale, with the minimum value getting mapped to zero, and the maximum value being transformed to one. And everything else getting transformed to a value between those two extremes." title= "Unnormalized and Normalized data points" width="450">
     </a>
 
 + Demo: Using a scaler object - fit and transform methods
@@ -615,7 +616,8 @@
     clf= Ridge().fit(X_train_scaled, y_train)
     r2_score = clf.score(X_test_scaled, y_test)
 
-    # Tip: It can be more efficient to do fitting and transforming together on the training set using the fit_transform method.
+    # Tip: It can be more efficient to do fitting and transforming together 
+    # on the training set using the fit_transform method.
     scaler = MinMaxScaler()
     X_train_scaled= scaler.fit_transform(X_train)
     ```
@@ -765,7 +767,7 @@
 
 + Least-Squares Polynomial Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/M7yUQ/linear-regression-ridge-lasso-and-polynomial-regression">
-        <br/><img src="images/fig2-10.png" alt="Comparison of complex regression problem with one input variable: 1) original feature with linear regression, 2) polynomial degree 2 feature" title= "complex regression problem with one input variable" width="450">
+        <br/><img src="images/fig2-10.png" alt="So you can think of this intuitively as allowing polynomials to be fit to the training data instead of simply a straight line, but using the same least-squares criterion that minimizes mean squared error. We'll see later that this approach of adding new features like polynomial features is also very effective with classification. And we'll look at this kind of transformation again in kernelized support vector machines. When we add these new polynomial features, we're essentially adding to the model's ability to capture interactions between the different variables by adding them as features to the linear model. For example, it may be that housing prices vary as a quadratic function of both the lat size that a house sits on, and the amount of taxes paid on the property as a theoretical example. A simple linear model could not capture this nonlinear relationship, but by adding nonlinear features like polynomials to the linear regression model, we can capture this nonlinearity. Or generally, we can use other types of nonlinear feature transformations beyond just polynomials. This is beyond the scope of this course but technically these are called nonlinear basis functions for regression, and are widely used. Of course, one side effect of adding lots of new features especially when we're taking every possible combination of K variables, is that these more complex models have the potential for overfitting. So in practice, polynomial regression is often done with a regularized learning method like ridge regression." title= "complex regression problem with one input variable" width="600">
     </a>
 
 + Polynomial Features with Linear Regression
@@ -784,37 +786,27 @@
     from sklearn.linear_model import Ridge
     from sklearn.preprocessing import PolynomialFeatures
 
-
     X_train, X_test, y_train, y_test = train_test_split(X_F1, y_F1,
                                                     random_state = 0)
     linreg = LinearRegression().fit(X_train, y_train)
 
-    print('linear model coeff (w): {}'
-        .format(linreg.coef_))
-    print('linear model intercept (b): {:.3f}'
-        .format(linreg.intercept_))
-    print('R-squared score (training): {:.3f}'
-        .format(linreg.score(X_train, y_train)))
-    print('R-squared score (test): {:.3f}'
-        .format(linreg.score(X_test, y_test)))
+    print('linear model coeff (w): {}'.format(linreg.coef_))
+    print('linear model intercept (b): {:.3f}'.format(linreg.intercept_))
+    print('R-squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
+    print('R-squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
 
     print('\nNow we transform the original input data to add\n\
     polynomial features up to degree 2 (quadratic)\n')
     poly = PolynomialFeatures(degree=2)
     X_F1_poly = poly.fit_transform(X_F1)
 
-    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1,
-                                                    random_state = 0)
+    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1, random_state = 0)
     linreg = LinearRegression().fit(X_train, y_train)
 
-    print('(poly deg 2) linear model coeff (w):\n{}'
-        .format(linreg.coef_))
-    print('(poly deg 2) linear model intercept (b): {:.3f}'
-        .format(linreg.intercept_))
-    print('(poly deg 2) R-squared score (training): {:.3f}'
-        .format(linreg.score(X_train, y_train)))
-    print('(poly deg 2) R-squared score (test): {:.3f}\n'
-        .format(linreg.score(X_test, y_test)))
+    print('(poly deg 2) linear model coeff (w):\n{}'.format(linreg.coef_))
+    print('(poly deg 2) linear model intercept (b): {:.3f}'.format(linreg.intercept_))
+    print('(poly deg 2) R-squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
+    print('(poly deg 2) R-squared score (test): {:.3f}\n'.format(linreg.score(X_test, y_test)))
 
     print('\nAddition of many polynomial features often leads to\n\
     overfitting, so we often use polynomial features in combination\n\
@@ -878,7 +870,7 @@
 
 + Linear regression 
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <br/><img src="images/fig2-11.png" alt="Block diagram to represent the linear regression" title= "Linear Regression Block Diagram" width="200">
+        <br/><img src="images/fig2-11.png" alt="Linear regression predicts a real valued output y based on a weighted sum of input variables or features xi, plus a constant b term. This diagram shows that formula in graphical form. The square boxes on the left represent the input features, xi. And the values above the arrows represent the weights that each xi is multiplied by. The output variable y in the box on the right is the sum of all the weighted inputs that are connected into it. Note that we're adding b as a constant term by treating it as the product of a special constant feature with value 1 multiplied by a weight of value b. This formula is summarized in equation form below the diagram. The job of linear regression is to estimate values for the model coefficients, wi hat and b hat. They give a model that best fit the training data with minimal squared error. " title= "Linear Regression Block Diagram" width="200">
     </a>
 
 + Linear models for classification: Logistic Regression
@@ -886,13 +878,14 @@
     + take a set of variables, the features, and estimate a target value
     + binary variable instead of a continuous value, generalized to multi-class categorical variable
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <br/><img src="images/fig2-12.png" alt="The block diagram of logistic regression with logistic functional plot" title= "Logistic Regression: functional plot and block diagram" width="450">
+        <br/><img src="images/fig2-12.png" alt="Logistic regression is similar to linear regression, but with one critical addition. Here, we show the same type of diagram that we showed for linear regression with the input variables, xi in the left boxes and the model coefficients wi and b above the arrows. The logistic regression model still computes a weighted sum of the input features xi and the intercept term b, but it runs this result through a special non-linear function f, the logistic function represented by this new box in the middle of the diagram to produce the output y. The logistic function itself is shown in more detail on the plot on the right. It's an S shaped function that gets closer and closer to 1 as the input value increases above 0 and closer and closer to 0 as the input value decreases far below 0. The effect of applying the logistic function is to compress the output of the linear function so that it's limited to a range between 0 and 1. Below the diagram, you can see the formula for the predicted output y hat which first computes the same linear combination of the inputs xi, model coefficient weights wi hat and intercept b hat, but runs it through the additional step of applying the logistic function to produce y hat. If we pick different values for b hat and the w hat coefficients, we'll get different variants of this s shaped logistic function, which again is always between 0 and 1. Because the job of basic logistic regression is to predict a binary output value, you can see how this might used for binary classification. We could identify data instances with the target value of 0 as belonging to the negative class and data instances with a target value of 1 belonging to the positive class. Then the value of y hat, that's the output from the logistic regression formula, can be interpreted as the probability that the input data instance belongs to the positive class, given its input features. " title= "Logistic Regression: functional plot and block diagram" width="450">
     </a>
+
     + The logistic function transforms real-valued input to an output number $y$ between $0$ and $1$, interpreted as the __probability__ the input object belongs to the positive class, given its input features $x_0, x_1, \cdots,x_n)$
 
 + Linear models for classification: Logistic Regression
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <br/><img src="images/fig2-13.png" alt="Logistic regression with Classification" title= "Logistic regression for classification" width="250">
+        <br/><img src="images/fig2-13.png" alt="Suppose we want to whether or not a student will pass a final exam based on a single input variable that's the number of hours they spend studying for the exam. Students who end up failing the exam are assigned to the negative class, which corresponds to a target value of 0. And students who pass the exam are assigned to the positive class and associated with a target value of 1. This plot shows an example training set. The x-axis corresponds to the number of hours studied and the y-axis corresponds to the probability of passing the exam. The red points to the left, with a target value of 0 represent points in the training set, which are examples of students who failed the exam, along with the number of hours they spent studying. Likewise, the blue points with target value 1 on the right represent points in the training set, corresponding to students who passed the exam. With their x values representing the number of hours those students spent studying. " title= "Logistic regression for classification" width="350">
     </a>
     + Training set to represent the hours of study and passing/failing of the exam: red dot = negative class = failing = 0; blue dot = positive class = passing = 1
 
@@ -901,10 +894,10 @@
         <br/><img src="https://helloacm.com/wp-content/uploads/2016/03/logistic-regression-example.jpg" alt="The logistic function looks like a big S and will transform any value into the range 0 to 1. This is useful because we can apply a rule to the output of the logistic function to snap values to 0 and 1 (e.g. IF less than 0.5 then output 1) and predict a class value.  Because of the way that the model is learned, the predictions made by logistic regression can also be used as the probability of a given data instance belonging to class 0 or class 1. This can be useful on problems where you need to give more rationale for a prediction." title= "Logistic regression: binary classification" width="200">
     </a>
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <img src="images/fig2-14.png" alt="Logistic regression represents with 3D plot" title= "Logistic regression with 3D diagram" width="240">
+        <img src="images/fig2-14.PNG" alt="We can apply logistic regression to learn a binary classifier using this training set, using the same idea we saw in the previous exam example. To do this, we'll add a third dimension shown here as the vertical y-axis. Corresponding to the probability of belonging to the positive class. We'll say that the red points are associated with the negative class and have a target value of 0, and the blue points are associated with the positive class and have a target value of 1. Then just as we did in the exam studying example, we can estimate the w hat and b hat parameters of the logistic function that best fits this training data. The only difference is that the logistic function is now a function of two input features and not just one. So it forms something like a three dimensional S shaped sheet in this space. " title= "Logistic regression with 3D diagram" width="240">
     </a>
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/bEtYh/logistic-regression">
-        <img src="images/fig2-15.png" alt="Logistic regression with binary classification" title= "Logistic regression with binary boundary" width="180">
+        <img src="images/fig2-15.png" alt="Once this logistic function has been estimated from the training data, we can use it to predict the class membership for any point, given its Feature 1 and Feature 2 values, same way we did for the exam example. Any data instances whose logistic probability estimate y hat is greater than or equal to 0.5 are predicted to be in the positive blue class, otherwise, in the other red class. Now if we imagine that there's a plane representing y equals 0.5, as shown here, that intersects this logistic function. It turns out that all the points that have a value of y = 0.5, when you intersect that with a logistic function, the points all lie along a straight line. In other words, using logistic regression gives a linear decision boundary between the classes as shown here. If you imagine looking straight down on the 3D logistic function on the left, you get the view that looks something like something on the right. Here. The points with y greater or equal to 0.5 on the logistic function, lie in a region to the right of the straight line, which is the dash line on the right here. And the points with y less than 0.5 on the logistic function would form a region to the left of that dash line. Let's look at an example with real data in Scikit-Learn. To perform logistic, regression in Scikit-Learn, you import the logistic regression class from the sklearn.linear model module, then create the object and call the fit method using the training data just as you did for other class files like k nearest neighbors. " title= "Logistic regression with binary boundary" width="180">
     </a>
 
 
@@ -945,7 +938,7 @@
         # Accuracy of Logistic regression classifier on training set: 0.77
         # Accuracy of Logistic regression classifier on test set: 0.73
         ```
-        <img src="images/plt2-11.png" alt="text" title= "caption" width="350">
+        <img src="images/plt2-11.png" alt="The data set we're using here is a modified form of our fruits data set, using only height and width as the features, the features space, and with the target class value modified into a binary classification problem predicting whether an object is an apple, a positive class, or something other than an apple, a negative class. Here is a graphical display of the results. The x-axis corresponds to the height feature and the y-axis corresponds to the width feature. The black points represent the positive apple class training points. And the yellow points are instances of all the other fruits in the training set. The gray decision region represents that area of the height and width feature space, where a fruit would have an estimated probability greater than 0.5 of being an apple. And thus classified as an apple according to the logistic regression function. The yellow decision region corresponds to the region of feature space for objects that have an estimated probability of less than 0.5 of being an apple. You can see the linear decision boundary where the grey region meets the yellow region, that results applying logistic regression. In fact, logistic regression results are often quite similar to those you might obtain from a linear support vector machine, another type of linear model we explore for classification. " title= "caption" width="350">
         <img src="images/plt2-12.png" alt="text" title= "caption" width="350">
     
     + Demo: Logistic regression on simple synthetic dataset (above right)
@@ -989,7 +982,7 @@
                 clf, X_train, y_train, X_test, y_test, title, subplot)
         plt.tight_layout()
         ```
-        <img src="images/plt2-13.png" alt="text" title= "caption" width="700">
+        <img src="images/plt2-13.png" alt="Like ridge and lasso regression, a regularization penalty on the model coefficients can also be applied with logistic regression, and is controlled with the parameter C. In fact, the same L2 regularization penalty used for ridge regression is turned on by default for logistic regression with a default value C = 1. Note that for both Support Vector machines and Logistic Regression, higher values of C correspond to less regularization. With large values of C, logistic regression tries to fit the training data as well as possible. While with small values of C, the model tries harder to find model coefficients that are closer to 0, even if that model fits the training data a little bit worse. You can see the effect of changing the regularization parameter C for logistic regression in this visual. Using the same upper class of fire we now vary C to take on values from 0.1 on the left to 1.0 in the middle, and 100.0 on the right. Although the real power of regularization doesn't become evident until we have data that has higher dimensional feature spaces. You can get an idea of the trade off that's happening between relying on a simpler model, one that puts more emphasis on a single feature in this case, out of the two features, but has lower training set accuracy. And that's an example as shown on the left with C = 0.1. Or, better training data fit on the right with C = 100. You can find the code that created this example in the accompanying notebook. " title= "Logistic regression regularization: C parameter" width="700">
 
     + Demo: Application to real dataset
         ```python
@@ -1025,7 +1018,7 @@
 
 + Linear classifiers: how would you separate these two groups of training examples with a straight line?
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
-        <br/><img src="images/fig2-18.png" alt="Linear Classifier: how would you separate these two groups of training examples with a straight line" title= "Linear classifier" width="450">
+        <br/><img src="images/fig2-18.png" alt="So let's take a look at a simple linear classification problem, a binary problem that has two different classes, and where each data instance is represented by two informative features. So we're going to call these features x1 on the x-axis and x2 on the y-axis. Now, how do we get from taking a data instance that's described by a particular combination of x1, x2 to a class prediction. So that represents the x1 and x2 feature values for this particular instance, let's say, and so that corresponds to the input here. And then we take those two x1, x2 values and put them through a linear function f here. And the output of this f needs to be a class value. So either we want it to return +1, if it's in one class and -1 if it's in the other class. So the linear classifier does that by computing a linear function of x1, x2 that's represented by this part of the equation here. So this w is a vector of weights. This x represents the vector of feature values. And then b is a bias term that gets added in. So this is a dot product, this circle here is a dot product. Which means that, let's say, the simple case where we had (w1, w2), and a future vector of (x1, x2). The dot product of those is simply the linear combination of w1 x1 + w2 x2. We take the X values, and we have certain weights that are learned for the classifier. So we compute w1 x1 + w2 x2. Then we feed that, and then plus a bias term, if there is one. And we feed the output of that through the sign function that converts the value in here. If it's above 0, it'll convert to +1, and if it's below 0, it'll convert it to -1 and that's what the equation represents here. So that is the very simple rule that we use to convert a data instance with its input features to an output prediction. Okay, let's take a look using a specific linear function to see how this works in practice. So what I've done here is drawn a straight line through the space that is defined by the equation x1- x2 = 0. In other words, every point on this line satisfies this equation. So you can see, for example, that x1 = -1 and x2 = -1 and if you subtract them you get 0. Essentially, it's just the line that represents all the points where x1 and x2 are equal. So this corresponds to, so we can rewrite this x1- x2 = 0 into a form that uses a dot product of weights with the input vector x. So in order to get x1- x2 = 0 that's equivalent writing a linear function where you have a weight vector of 1 and -1 and a bias term of 0 So for example, so if we have weights (w1, w2) dot (x1, x2). We call that this is just the same as computing w1 x1 + w2 x2. And so in this case, if w is 1 and -1, that's equivalent to x1- x2. " title= "Linear Classifier: how would you separate these two groups of training examples with a straight line" width="450">
     </a>
     + A linear classifier is a function that maps an input data point $x$ to an output class value $y$ (+1 or -1) using a linear function (with weight parameters $w$ of the input point's features.
     + `sign` function: $+1 \text{ if } \hat{y} > 0$ and $-1 \text{ if } \hat{y} < 0$
@@ -1034,7 +1027,7 @@
 
 + Linear classifiers: how would you separate these two groups of training examples with a line?
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
-        <br/><img src="images/fig2-19.png" alt="Linear classifiers: how would you separate these two groups of training examples with a line? A linear classifier is a function that maps an input data point xto an output class value y(+1 or -1) using a linear function (with weight parameters w of the input point's features." title= "caption" width="450">
+        <br/><img src="images/fig2-19.png" alt="So all I've done here then is just convert the description of this line into a form that can be used as a decision rule for classifier. So I might have to look at a specific point. So suppose that we wanted to classify the point here that had coordinates -0.75 and -2.25. So this point right here. So all we would do to have a classifier make a decision with this decision boundary would be to plug in those coordinates into this part of the function, apply the weights and the bias term that describe the decision boundary. So here we're computing. So this expression here corresponds to this part of the equation. And so, if we compute w1 times x1 + w2 times x2 plus 0, we get a value of 0.15 that's inside the sign function. And then the sign function will output 1 if this value is greater than zero, which it is or minus 1, if the value is less than zero. So in this case, because it's greater than zero, the output from the decision function would be plus 1. So this has classified this point as being class one. If we look at a different point, let's take a look at the point -1.75 and -0.25. So again, we're just going to up, so this is corresponding to the value of x1 and x2. And again, if we just take these values and plug them into this part of the equation. Apply the weights and the bias term that describe the decision boundary as you did before. We do this computation, we find out that, in fact, classifier predicts a class of -1 here. So you see that by applying a simple linear formula, we've been able to produce a class value for any point in this two dimensional features space. " title= "caption" width="450">
     </a>
     + Suppose $w=[1, -1]$ and $b = 0$, it is depicted as diagonal line where $[w_1, w_2] = [1, -1]$, therefore $x_1 - x_2 = 0$
     + Suppose to classify $[-0.75, -2.25]$, 
@@ -1045,14 +1038,13 @@
         $$f([-1.75, -0.25], w, b) = sign(1 \cdot -1.75 + (-1) \cdot (-0.25) + 0) =  sign(-1.75 + 0.25 = -1.50) = -1$$
 
 
-+ Linear Classifiers
++ Linear Classifiers & Classifier Margin
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
-        <br/><img src="images/fig2-20.png" alt="Linear classifiers: There are many possible linear classifiers that could separate the two classes. Which one is best?" title= "caption" width="450">
-    </a>
-
-+ Classifier Margin
+        <br/><img src="images/fig2-20.png" alt="So one way to define a good classifier is to reward classifiers for the amount of separation that can provide between the two classes. And to do this, we need define the concept of classifier margin. So informally, for our given classifier, The margin is the width that the decision boundary can be increased before hitting a data point. So what we do is we take the decision boundary, and we grow a region around it. Sort of in this perpendicular to the line in this direction and that direction, and we grow this width until we hit a data point. So in this case, we were only able to grow the margin a small amount here, before hitting this data point. So this width here between the decision boundary and nearest data point represents the margin of this particular classifier. Now you can imagine that for every classifier that we tried, we can do the same calculation or simulation to find the margin. " title= "caption" width="350">
+    </a> &nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/uClaN/linear-classifiers-support-vector-machines">
-        <br/><img src="images/fig2-21.png" alt="Classifier margin: Defined as the maximum width the decision boundary area can be increased before hitting a data point.." title= "Classifier margin" width="450">
+        <img src="images/fig2-21.png" alt="And so among all possible classifiers that separate these two classes then, we can define the best classifier as the classifier that has the maximum amount of margin which corresponds to the one shown here. So you recall that the original classifier on the previous slide had a very small margin. This one manages to achieve a must larger margin. So again, the margin is the distance the width that we can go from the decision boundary perpendicular to the nearest data point. So you can see that by defining this concept of margin that sort of quantifies the degree to which the classifier can split the classes into two regions that have some amount of separation between them. We can actually do a search for the classifier that has the maximum margin. This maximum margin classifier is called the Linear Support Vector Machine, also known as an LSVM or a support vector machine with linear kernel. Now we'll explain more about what the concept of a kernel is and how you can define nonlinear kernels as well as kernels, and why you'd want to do that. We'll cover those shortly in a continuation of our support vector machine lecture later in this particular week. Here's an example in the notebook on how to use the default linear support vector classifier in scikit-learn, which is defined in the sklearn SVM library. 
+" title= "Classifier margin" width="350">
     </a>
     + __Classifier margin__: Defined as the maximum width the decision boundary area can be increased before hitting a data point.
 
@@ -1072,7 +1064,7 @@
         title = 'Linear SVC, C = {:.3f}'.format(this_C)
         plot_class_regions_for_classifier_subplot(clf, X_train, y_train, None, None, title, subaxes)
         ```
-        <img src="images/plt2-14.png" alt="Maximum margin linear classifier: Linear Support Vector Machines as C = 1.0" title= "Maximum margin linear classifier: Linear Support Vector Machines" width="350">
+        <img src="images/plt2-14.png" alt="The linear SVC class implements a linear support vector classifier and is trained in the same way as other classifiers, namely by using the fit method on the training data. Now in the simple classification problem I just showed you, the two classes were perfectly separable with a linear classifier. In practice though, we typically have noise or just more complexity in the data set that makes a perfect linear separation impossible, but where most points can be separated without errors by linear classifier. And our simple binary classification dataset here is an illustration of that. So how tolerant the support vector machine is of misclassifying training points, as compared to its objective of minimizing the margin between classes is controlled by a regularization parameter called C which by default is set to 1.0 as we have here. " title= "Maximum margin linear classifier: Linear Support Vector Machines" width="350">
 
 
 + Regularization for SVMs: the $C$ parameter
@@ -1097,7 +1089,7 @@
                 None, None, title, subplot)
         plt.tight_layout()
         ```
-        <img src="images/plt2-15.png" alt="Linear Support Vector Machine: C parameter (C=0.00001, C=100.00000)" title= "Linear Support Vector Machine: C parameter" width="550">
+        <img src="images/plt2-15.png" alt="Larger values of C represent less regularization and will cause the model to fit the training set with these few errors as possible, even if it means using a small immersion decision boundary. Very small values of C on the other hand use more regularization that encourages the classifier to find a large marge on decision boundary, even if that decision boundary leads to more points being misclassified. Here's an example in the notebook showing the effect of varying C on this basic classification problem. On the right, when C is large, the decision boundary is adjusted so that more of the black training points are correctly classified. While on the left, for small values of C, the classifier is more tolerant of these errors in favor of capturing the majority of data points correctly with a larger margin. " title= "Linear Support Vector Machine: C parameter" width="550">
 
 + Demo: Application to real dataset
     ```python
@@ -1189,7 +1181,7 @@
     plt.ylim(-2, 15)
     plt.show()
     ```
-    <img src="images/plt2-16.png" alt="Multi-class results on the fruit dataset" title= "Multi-class results on the fruit dataset" width="250">
+    <img src="images/plt2-16.png" alt="Here, we simply pass in the normal dataset that has the value from one to four as the category of fruit to be predicted. And we fit it exactly the same way that we would fit the model as if it were a binary problem. And in general, if we're just, you know, fitting, and then predicting, all of this would be completely transparent. Scikit-learn would simply do the right thing and it would learn multiple classes, and it would predict multiple classes, and we wouldn't really have to do much else. However, we can get access to what's happening under the hood as it were, if we look at the coefficients and the intercepts of the linear models that result from fitting to the training data. And this is what this example shows. So, what we're doing here is fitting a linear support vector machine to the fruit training data. And if we look at the coefficient values, we'll see that instead of just one pair of coefficients for a single linear model, a classifier, we actually get four values. And these values correspond to the four classes of fruit in the training set. And so, what scikit-learn has done here is it's created four binary classifiers, one for each class. And so, you can see there are four pairs of coefficients here and there are also four intercept values. So, in this case the first pair of coefficients corresponds to a classifier that classifies apples versus the rest of the fruit, and so, these pair of coefficients and this intercept define a straight line. " title= "Multi-class results on the fruit dataset" height="350">
 
 
 
@@ -1206,8 +1198,9 @@
     + We saw how linear support vector classifiers could effectively find a decision boundary with maximum margin
     + But what about more complex binary classification problems?
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lCUeA/kernelized-support-vector-machines">
-        <br/><img src="images/fig2-22.png" alt="Easy for a linear classifier vs. Difficult/impossible for a linear classifier" title= "caption" width="350">
+        <br/><img src="images/fig2-22.png" alt="Linear support vector machines worked well for simpler kinds of classification problems, where the classes were linearly separable or close to linearly separable like this example on the left. But with real data, many classification problems aren't this easy. With the different classes located in future space in a way that a line or hyperplane can't act as an effective classifier. Here's an example on the right. These dataset is difficult, or impossible for a linear model, a line or hyperplane, to classify well. So to help address the situation, we're now going to turn to our next type of supervised learning model. A very powerful extension of linear support vector machines called kernelized support vector machines. " title= "Easy for a linear classifier vs. Difficult/impossible for a linear classifier" height="200">
     </a>
+
     + Kernalized Supported Vector Machine a.k.a. Supported Vector Machine (SVM)
     + SVM applied for classification and regression, but only classification cocered here
     + Take original dataset and transform it to a new higher dimensional feature space, where it becomes much easier to classify the transform to data using a linear classifier
@@ -1219,32 +1212,33 @@
     + The data transformation makes it possible to solve this with a linear classifier (fig.4)
     + What does the linear decision boundary in feature space correspond to in the original input space? (fig.5)
     + What does the linear decision boundary correspond to in the original input space? (fig.6) <br/>
-        <img src="images/fig2-23.png" alt="A simple 1-dimensional classification problemfor a linear classifier" title= "fig.1" width="200">
-        <img src="images/fig2-24.png" alt="A more perplexing 1-d classification problem for a linear classifier" title= "fig.2" width="200">
-        <img src="images/fig2-25.png" alt="Let's transform the data by adding a second dimension/feature(set to the squared value of the first feature), an ellipse-like decision boundary in 2-dimensional space that separates the white points from the black points in the original input space" title= "fig.3" width="150"><br/>
-        <img src="images/fig2-26.png" alt="The data transformation makes it possible to solve this with a linear classifier" title= "fig.4" width="150">
-        <img src="images/fig2-27.png" alt="What does the linear decision boundary in feature space correspond to in the original input space?" title= "fig.5" width="200">
-        <img src="images/fig2-28.png" alt="Transforming the data can make it much easier for a linear classifier" title= "fig.6" width="200">
+        <img src="images/fig2-23.png" alt="Here's a binary classification problem in 1-dimension with a set of points that lie along the x-axis. Color black for one class and white for the second class. Each data point here has just one feature. It's positioned on the x-axis. If we gave this problem to a linear support vector machine, it would have no problem finding the decision boundary. It gives the maximum margin between points of different classes.  " title= "fig.1" width="200">&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="images/fig2-24.png" alt="Here I've engineered the data points, so that the maximum margin decision boundary happens to be at x = 0. Now suppose we gave the linear support vector machine a harder problem, where the classes are no longer linearly separable. A simple linear decision boundary just doesn't have enough expressive power to classify all these points correctly." title= "fig.2" width="200">&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="images/fig2-25.png" alt="One very powerful idea is to transform the input data from a 1-dimensional space to a 2-dimensional space. We can do this, for example, by mapping each 1-dimensional input data instance xi to a corresponding 2-dimensional ordered pair xi, xi squared, whose new second feature is the squared value of the first feature. We're not adding in any new information in the sense that all we need to obtain this new 2-dimensional version is already present in the original 1-dimensional data point. This might remind you of a similar technique that we saw when adding polynomial features to a linear regression problem earlier in the course. " title= "fig.3" width="150"><br/>
+        <img src="images/fig2-26.png" alt="We can now learn a linear support vector machine in this new, 2-deminsional feature space, whose maximum margin decision boundary might look like this here to correctly classify the points. Any future 1-dimensional points for which we'd like to predict the class, we can just create the 2-deminsional transformed version and predict the class of the 2-deminsional point, using this 2-deminsional linear SVM.  " title= "fig.4" width="150">&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="images/fig2-27.png" alt="If we took the inverse of the transformation we just applied to bring the data points back to our original input space, we can see that the linear decision boundary in the 2-deminsional space corresponds to the two points where a parabola crosses the x-axis. Now just so that this very important idea is clear, let's move from a 1-dimensional problem to a 2-deminsional classification problem. You can see the same powerful idea in action here." title= "fig.5" width="200">&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="images/fig2-28.png" alt="Here we have two classes represented by the black and the white points. Each of which has two features, x0 and x1. The points of both classes are scattered around the origin 00 in a 2-deminsional plane. The white points form a cluster right around 00, that's completely surrounded by the black points. Again, this looks to be impossible for a linear classifier, which in 2-deminsional space is a straight line, to separate the white points from the black points with any degree of accuracy. " title= "fig.6" width="200">
 
 
 + Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable
 
-    <img src="images/fig2-29.png" alt="Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable" title= "original to feature" width="220">
-    <img src="images/fig2-30.png" alt="Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable - the decision boundary consist of the set of points in 3-dimensional space where the paraboloid intersects the maximum margin hyperplane decision boundary" title= "original to future" width="220">
-    <img src="images/fig2-31.png" alt="Example of mapping a 2D classification problem to a 3D feature space to make it linearly separable" title= "future to original" width="230"> <br/>
+    <img src="images/fig2-29.png" alt="Here we have two classes represented by the black and the white points. Each of which has two features, x0 and x1. The points of both classes are scattered around the origin 00 in a 2-deminsional plane. The white points form a cluster right around 00, that's completely surrounded by the black points. Again, this looks to be impossible for a linear classifier, which in 2-deminsional space is a straight line, to separate the white points from the black points with any degree of accuracy. " title= "original to feature" width="220">&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="images/fig2-30.png" alt="But just as we did in the 1-dimensional case, we can map each 2-deminsional point (x0,x1) to a new 3-deminsional point by adding a third feature. Mathematically 1-(x0 squared+x1 squared), and this transformation acts to shape the points into a parabaloid around (0,0). Now the wide points since they're close to (0,0), get mapped to points with higher vertical z values, that new third feature that are close to 1. While the black points which are farther from (0,0) get mapped to points with z values that either close to 0 or even negative. With this transformation, it makes it possible to find a hyperplane. Say, z = 0.9, that now easily separates the white data points that are near z = 1 from most or all of the black data points. Finally, the decision boundary consists of the set of points in 3-deminsional space where the paraboloid intersects the maximum margin hyperplane decision boundary. " title= "original to future" width="220">&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="images/fig2-31.png" alt="This corresponds to an ellipse-like decision boundary in 2-deminsional space that separates the white points from the black points in the original input space. This idea of transforming the input data points to a new feature space where a linear classifier can be easily applied, is a very general and powerful one. " title= "future to original" width="230">
+
     + Transforming the data can make it much easier for a linear classifier. (fig.7)
-    <a href="https://en.wikipedia.org/wiki/Kernel_method">
-        <br/><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Kernel_Machine.png" alt="This idea of transforming the input data points to a new feature space where a linear classifier can be easily applied, is a very general and powerful one. There are lots of different possible transformations we could apply to data. And the different kernels available for the kernelized SVM correspond to different transformations. Here we're going to focus mainly on what's called the radial basis function kernel, which we'll abbreviate as RBF." title= "fig.7" width="350">
-    </a>
+        <a href="https://en.wikipedia.org/wiki/Kernel_method">
+            <br/><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Kernel_Machine.png" alt="This idea of transforming the input data points to a new feature space where a linear classifier can be easily applied, is a very general and powerful one. There are lots of different possible transformations we could apply to data. And the different kernels available for the kernelized SVM correspond to different transformations. Here we're going to focus mainly on what's called the radial basis function kernel, which we'll abbreviate as RBF." title= "fig.7" width="350">
+        </a>
 
 + Redial Basis Function Kernel
     + Mapping function: $K({\bf x, x^{\prime}}) = exp [-\gamma \cdot \| {\bf x} - {\bf x^{\prime}} \|^2])$
     + A __kernel__ is a similarity measure (modified dot product) between data points<br/>
-    <img src="images/fig2-32.png" alt="The radial basis function kernel, the similarity between two points and the transformed feature space is an exponentially decaying function of the distance between the vector and the original input space as shown by the formula here. Using the radial basis function kernel in effect, transforms all the points inside a certain distance of the circle class to one area of the transformed feature space. And all the points in the square class outside a certain radius get moved to a different area of the feature space. The dark circles and squares represents the points that might lie along the maximum margin for a support vector machine in the transformed feature space. And also, it shows the corresponding points in the original input space. So just as we saw with the simple 1D and 2D examples earlier, the kernelized support vector machine tries to find the decision boundary with maximum margin between classes using a linear classifier in the transformed feature space not the original input space. The linear decision boundary learn feature space by linear SVM corresponds to a non-linear decision boundary In the original input space. So in this example, an ellipse like closed region in the input space. Now, one of the mathematically remarkable things about kernelized support vector machines, something referred to as the kernel trick, is that internally, the algorithm doesn't have to perform this actual transformation on the data points to the new high dimensional feature space. Instead, the kernelized SVM can compute these more complex decision boundaries just in terms of similarity calculations between pairs of points in the high dimensional space where the transformed feature representation is implicit. This similarity function which mathematically is a kind of dot product is the kernel in kernelized SVM. " title= "caption" width="250">
+    <img src="images/fig2-32.png" alt="The radial basis function kernel, the similarity between two points and the transformed feature space is an exponentially decaying function of the distance between the vector and the original input space as shown by the formula here. Using the radial basis function kernel in effect, transforms all the points inside a certain distance of the circle class to one area of the transformed feature space. And all the points in the square class outside a certain radius get moved to a different area of the feature space. The dark circles and squares represents the points that might lie along the maximum margin for a support vector machine in the transformed feature space. And also, it shows the corresponding points in the original input space. So just as we saw with the simple 1D and 2D examples earlier, the kernelized support vector machine tries to find the decision boundary with maximum margin between classes using a linear classifier in the transformed feature space not the original input space. The linear decision boundary learn feature space by linear SVM corresponds to a non-linear decision boundary In the original input space. So in this example, an ellipse like closed region in the input space. Now, one of the mathematically remarkable things about kernelized support vector machines, something referred to as the kernel trick, is that internally, the algorithm doesn't have to perform this actual transformation on the data points to the new high dimensional feature space. Instead, the kernelized SVM can compute these more complex decision boundaries just in terms of similarity calculations between pairs of points in the high dimensional space where the transformed feature representation is implicit. This similarity function which mathematically is a kind of dot product is the kernel in kernelized SVM. " title= "Redial Basis Function Kernel" width="300">
 
 + Applying the SVM with RBF kernel
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lCUeA/kernelized-support-vector-machines">
-        <br/><img src="images/fig2-33.png" alt="Here's the result of using a support vector machine with RBF kernel, on that more complex binary classification problem we saw earlier. You can see that unlike a linear classifier, the SVM with RBF kernel finds a more complex and very effective set of decision boundaries that are very good at separating one class from the other. Note that the SVM classifier is still using a maximum margin principle to find these decision boundaries. But because of the non-linear transformation of the data, these boundaries may no longer always be equally distant from the margin edge points in the original input space. " title= "Applying the SVM with RBF kernel" width="350">
+        <br/><img src="images/fig2-33.png" alt="Here's the result of using a support vector machine with RBF kernel, on that more complex binary classification problem we saw earlier. You can see that unlike a linear classifier, the SVM with RBF kernel finds a more complex and very effective set of decision boundaries that are very good at separating one class from the other. Note that the SVM classifier is still using a maximum margin principle to find these decision boundaries. But because of the non-linear transformation of the data, these boundaries may no longer always be equally distant from the margin edge points in the original input space. " title= "Applying the SVM with RBF kernel" width="450">
     </a>
     + Demo: Radial Basis Kernel vs Polynomial Kernel
         ```python
@@ -1262,8 +1256,8 @@
             .fit(X_train, y_train), X_train, y_train, None, None,
             'Support Vector Classifier: Polynomial kernel, degree = 3')
         ```
-        <img src="images/plt2-17.png" alt="The default SVC kernel is radial basis function (RBF).  By default, the SVM will use the radial base's function, but a number of other choices are supported." title= "Support Vector Classifier: RBF kernel" width="250">
-        <img src="images/plt2-18.png" alt="The polynomial kernel, using the kernel poly setting, essentially represents a future transformation similar to the earlier quadratic example. In the lecture, this future space represented in terms of futures that are polynomial combinations of the original input features, much as we saw also for linear regression. The polynomial kernel takes additional parameter degree that controls the model complexity and the computational cost of this transformation. " title= "Support Vector Classifier: Polynomial kernel, degree = 3" width="250">
+        <img src="images/plt2-17.png" alt="The default SVC kernel is radial basis function (RBF).  By default, the SVM will use the radial base's function, but a number of other choices are supported." title= "Support Vector Classifier: RBF kernel" width="300">
+        <img src="images/plt2-18.png" alt="The polynomial kernel, using the kernel poly setting, essentially represents a future transformation similar to the earlier quadratic example. In the lecture, this future space represented in terms of futures that are polynomial combinations of the original input features, much as we saw also for linear regression. The polynomial kernel takes additional parameter degree that controls the model complexity and the computational cost of this transformation. " title= "Support Vector Classifier: Polynomial kernel, degree = 3" width="300">
 
 
 + Radial Basis Function kernel: Gamma Parameter
@@ -1397,6 +1391,7 @@
         + Using multiple train-test splits gives more stable and reliable estimates for how the classifier is likely to perform on average.
         + Results are averaged over multiple different training sets instead of relying on a single model trained on a particular training set.
     + Accuracy of k-NN classifier (k=5) on fruit data test set for different random_statevalues in train_test_split.
+
         | random_state | Test set accuracy |
         |--------------|-------------------|
         |  0 | 1.00 |
@@ -1427,16 +1422,16 @@
 
 + Stratified Cross-validation
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
-        <br/><img src="images/fig2-36.png" alt="In the default cross-validation set up, to use for example five folds, the first 20% of the records are used as the first fold, the next 20% for the second fold, and so on. One problem with this is that the data might have been created in such a way that the records are sorted or at least show some bias in the ordering by class label." title= "Stratified Cross-validation" width="265">
-    </a>
+        <br/><img src="images/fig2-36.png" alt="In the default cross-validation set up, to use for example five folds, the first 20% of the records are used as the first fold, the next 20% for the second fold, and so on. One problem with this is that the data might have been created in such a way that the records are sorted or at least show some bias in the ordering by class label." title= "Stratified Cross-validation" width="325">
+    </a> &nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
-        <img src="images/fig2-37.png" alt="When scikit-learn doing cross-validation for a classification task, it actually does instead what's called 'Stratified K-fold Cross-validation'. The Stratified Cross-validation means that when splitting the data, the proportions of classes in each fold are made as close as possible to the actual proportions of the classes in the overall data set as shown here. " title= "Stratified Cross-validation" width="250">
+        <img src="images/fig2-37.png" alt="When scikit-learn doing cross-validation for a classification task, it actually does instead what's called 'Stratified K-fold Cross-validation'. The Stratified Cross-validation means that when splitting the data, the proportions of classes in each fold are made as close as possible to the actual proportions of the classes in the overall data set as shown here. " title= "Stratified Cross-validation" width="310">
     </a>
     + Stratified folds each contain a proportion of classes that matches the overall dataset. Now, all classes will be fairly represented in the test set.
 
 + Leave-one-out cross-validation (with N samples in dataset)
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Vm0Ie/cross-validation">
-        <br/><img src="images/fig2-38.png" alt="For regression, scikit-learn uses regular k-fold cross-validation since the concept of preserving class proportions isn't something that's really relevant for everyday regression problems. At one extreme we can do something called "Leave-one-out cross-validation", which is just k-fold cross-validation, with K sets to the number of data samples in the data set. In other words, each fold consists of a single sample as the test set and the rest of the data as the training set. Of course this uses even more computation, but for small data sets in particular, it can provide improved proved estimates because it gives the maximum possible amount of training data to a model, and that may help the performance of the model when the training sets are small." title= "Leave-one-out cross-validation (with N samples in dataset)" width="350">
+        <br/><img src="images/fig2-38.png" alt="For regression, scikit-learn uses regular k-fold cross-validation since the concept of preserving class proportions isn't something that's really relevant for everyday regression problems. At one extreme we can do something called 'Leave-one-out cross-validation', which is just k-fold cross-validation, with K sets to the number of data samples in the data set. In other words, each fold consists of a single sample as the test set and the rest of the data as the training set. Of course this uses even more computation, but for small data sets in particular, it can provide improved proved estimates because it gives the maximum possible amount of training data to a model, and that may help the performance of the model when the training sets are small." title= "Leave-one-out cross-validation (with N samples in dataset)" width="350">
     </a>
 
 + Validation curves show sensitivity to changes in an important parameter
@@ -1510,7 +1505,7 @@
 
 + Decision Tree Example
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
-        <br/><img src="images/fig2-39.png" alt="If we think of the property of being alive as a binary feature of an object and the property of having orange fur with black stripes as another feature, we can say that the is a live feature is more informative at an early stage of guessing and thus would appear higher in our tree of questions." title= "Specific question to narrow down the selection" height="150">
+        <br/><img src="images/fig2-39.png" alt="If we think of the property of being alive as a binary feature of an object and the property of having orange fur with black stripes as another feature, we can say that the is a live feature is more informative at an early stage of guessing and thus would appear higher in our tree of questions." title= "Specific question to narrow down the selection" height="150">&nbsp;&nbsp;&nbsp;&nbsp;
     </a>
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
         <img src="images/fig2-40.png" alt="Form these questions into a tree with a node representing one question and the yes or no possible answers as the left and right branches from that node that connect the node to the next level of the tree. One question being answered at each level. At the bottom of the tree are nodes called leaf nodes that represent actual objects as the possible answers. For any object there's a path from the root of the tree to that object that is determined by the answers to the specific yes or no questions at each level." title= "Tree structure of Decision Tree - Root node & Leaf node" height="150">
@@ -1523,7 +1518,7 @@
 
 + Decision Tree Splits
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
-        <br/><img src="images/fig2-41.png" alt="The goal when building a decision tree is to find the sequence of questions that has the best accuracy at classifying the data in the fewest steps. Looking at a decision tree, each decision splits the data into two branches based on some feature value being above or below a threshold. Using that split leaves a pool of instances that are a combination of virginica and versicolor that still need to be distinguished further. So we can further improve the accuracy of the classification by continuing this process of finding the best split for the remaining subsets with the iris dataset. " title= "caption" height="200">
+        <br/><img src="images/fig2-41.png" alt="The goal when building a decision tree is to find the sequence of questions that has the best accuracy at classifying the data in the fewest steps. Looking at a decision tree, each decision splits the data into two branches based on some feature value being above or below a threshold. Using that split leaves a pool of instances that are a combination of virginica and versicolor that still need to be distinguished further. So we can further improve the accuracy of the classification by continuing this process of finding the best split for the remaining subsets with the iris dataset. " title= "caption" height="350">
     </a>
 
 + Informativenessof Splits
@@ -1602,8 +1597,6 @@
 
 
 + Feature Importance Chart
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/Zj96A/decision-trees">
-        <br/><img src="url" alt="text" title= "caption" height="150">
     </a>
     + See: `plot_feature_importances()` function in `adspy_shared_utilities.py` code
     + Demo: # Feature importance
@@ -1668,7 +1661,7 @@
 
     plt.show()
     ```
-    
+    <img src="images/plt2-25.png" alt="Finally let's apply decision trees to the breast cancer data set that we've been using across multiple supervised learning algorithms. Here we're controlling them all the complexity by setting the max depth and min samples leaf parameters. And we've included the visualization of the resulting tree here followed by a feature importance plot. As an exercise, try removing these two parameters to just use the default settings to see the effect on test set accuracy and the increase in overfitting that occurs. For this training set, the mean concave points feature gives the most informative initial split, followed by the worst area parameter." title="Decission Tree - Breast Cancer" height="250">
 
 
 + Decision Trees: Pros and Cons
@@ -1728,7 +1721,7 @@ Q2. After training a Radial Basis Function (RBF) kernel SVM, you decide to incre
     c. Increase C, decrease gamma
     d. Decrease C, increase gamma
 
-    Ans: xb
+    Ans: d, xb
 
 
 Q3. Which of the following is an example of multiclass classification? (Select all that apply)
@@ -1738,7 +1731,7 @@ Q3. Which of the following is an example of multiclass classification? (Select a
     c. Predicting both the rating and profit of soon to be released movie
     d. Classify a voice recording as an authorized user or not an authorized user.
 
-    Ans: xabc
+    Ans: a, xabc
 
 
 Q4. Looking at the plot below which shows accuracy scores for different values of a regularization parameter lambda, what value of lambda is the best choice for generalization?
@@ -1773,8 +1766,8 @@ Q6. Match the plots of SVM margins below to the values of the C parameter that c
 
 Use Figures A and B below to answer questions 7, 8, 9, and 10.
 
-<img src="images/fig2-q3.png" alt="text" title= "Figure A" width="350">
-<img src="images/fig2-q4.png" alt="text" title= "Figure B" width="350">
+<img src="images/fig2-q3.png" alt="text" title= "Figure A" width="300">
+<img src="images/fig2-q4.png" alt="text" title= "Figure B" width="300">
 
 Q7. Looking at the two figures (Figure A, Figure B), determine which linear model each figure corresponds to:
 
