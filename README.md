@@ -10,7 +10,7 @@
 + Applied Data Science with Python - UMich & Coursera
     1. [Introduction to Data Science in Python](./AppliedDS-UMich/1-IntroDS/README.md)
     2. [Applied Plotting, Charting & Data Representation in Python](./AppliedDS-UMich/2-InfoVis/README.md)
-    3. [Applied Machine Learning in Python]
+    3. [Applied Machine Learning in Python](./AppliedDS-UMich/3-AML/README.md)
     4. [Applied Text Mining in Python]
     5. [Applied Social Network Analysis in Python]
 
@@ -66,7 +66,10 @@
     + [Seaborn](./RefCards/PythonDS.md#seaborn)
         + [Seaborn API](./RefCards/PythonDS.md#seaborn-api)
 
++ [Machine Learning in Python](./RefCards/PythonML.md)
+
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
+
 
 
 ----------------------------
