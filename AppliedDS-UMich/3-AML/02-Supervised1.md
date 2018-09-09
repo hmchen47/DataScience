@@ -452,7 +452,7 @@
     + a.k.a. mean squared error of the linear model
     + No parameters to control model complexity.
 
-    $$RSS({\bf w}, b) = \sum^N_{i=1} ({\bf y_i} - ({\bf w \cdot x_i} + b))^2$$
+    $$RSS({\bf w}, b) = \sum^N_{i=1} (y_i - (w_i \cdot x_i + b))^2$$
 
     + Training set target value: ${\bf y_i}$
     + Predicted target value using model: $({\bf w \cdot x_i} + b)$
@@ -494,7 +494,7 @@
         <br/><img src="images/fig2-08.png" alt="Here we can see how these two regression methods represent two complementary types of supervised learning. The K nearest neighbor regresser doesn't make a lot of assumptions about the structure of the data, and gives potentially accurate but sometimes unstable predictions that are sensitive to small changes in the training data. So it has a correspondingly higher training set, R-squared score, compared to least-squares linear regression. K-NN achieves an R-squared score of 0.72 and least-squares achieves an R-squared of 0.679 on the training set.On the other hand, linear models make strong assumptions about the structure of the data, in other words, that the target value can be predicted using a weighted sum of the input variables. And linear models give stable but potentially inaccurate predictions. However, in this case, it turns out that the linear model strong assumption that there's a linear relationship between the input and output variables happens to be a good fit for this dataset. " title= "K-NN Regression vs Least-Squares Linear Regression" width="450">
     </a>
 
-+ Demo: Linear model 
++ Demo: Linear model
     ```python
     X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state = 0)
     linreg = LinearRegression().fit(X_train, y_train)
@@ -529,7 +529,7 @@
 + Ridge Regression
     + Ridge regression learns $w$, $b$ using the same least-squares criterion but adds a penalty for large variations in $w$ parameters
 
-        $$ RSS_{RIDGE}({\bf w}, b) = \sum_{i=1}^N ({\bf y_i} - ({\bf w \cdot x_i} + b))^2 + \alpha \sum_{j=1}^p w_j^2$$
+        $$ RSS_{RIDGE}({\bf w}, b) = \sum_{i=1}^N ({\bf y_i} - (w_i \cdot x_i + b))^2 + \alpha \sum_{j=1}^p w_j^2$$
         
         where $\alpha \sum_{j=1}^p w_j^2$ is the penalty
     + Once the parameters are learned, the __ridge regression prediction formula__ is the __same__ as ordinary least-squares.
@@ -661,7 +661,7 @@
 + Lasso regression is another form of regularized linear regression that uses an L1 regularization penalty for training (instead of ridge's L2 penalty)
     + __L1 penalty__: Minimize the sum of the __absolute values__ of the coefficients
 
-        $$ RSS_{LASSO} = ({\bf w}, b) = \sum_{i=1}^N ({\bf y_i} - ({\bf w \cdot x_i} + b))^2 + \alpha \sum_{j=1}^p |w_j|$$
+        $$ RSS_{LASSO} ({\bf w}, b) = \sum_{i=1}^N (y_i - (w_i \cdot x_i + b))^2 + \alpha \sum_{j=1}^p |w_j|$$
     + This has the effect of setting parameter weights in $w$ to __zero__ for the least influential variables. This is called a __sparse solution__: a kind of feature selection
     + The parameter $\alpha$ controls amount of L1 regularization (default = 1.0).
     + The prediction formula is the same as ordinary least-squares.
@@ -1372,6 +1372,9 @@
         + `gamma`($\gamma$): RBF kernel width
     + `C`: regularization parameter
     + Typically `C` and `gamma` are tuned at the same time.
+    + [RBF SVM parameters](http://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html)
+        + Intuitively, the `gamma` parameter defines how far the influence of a single training example reaches, with low values meaning ‘far’ and high values meaning ‘close’. The `gamma` parameters can be seen as the inverse of the radius of influence of samples selected by the model as support vectors.
+        + The `C` parameter trades off misclassification of training examples against simplicity of the decision surface. A low `C` makes the decision surface smooth, while a high `C` aims at classifying all training examples correctly by giving the model freedom to select more samples as support vectors.
 
 
 ### Lecture Video
@@ -1721,7 +1724,8 @@ Q2. After training a Radial Basis Function (RBF) kernel SVM, you decide to incre
     c. Increase C, decrease gamma
     d. Decrease C, increase gamma
 
-    Ans: d, xb
+    Ans: a, xc, xd, xb
+    The trick here is to simplify the decision surface. Remember when c is low, the SVM will allow more misclassified pts.
 
 
 Q3. Which of the following is an example of multiclass classification? (Select all that apply)
@@ -1732,6 +1736,7 @@ Q3. Which of the following is an example of multiclass classification? (Select a
     d. Classify a voice recording as an authorized user or not an authorized user.
 
     Ans: a, xabc
+    Normally, multi stands for >=3. For two labels, it's called binary classification in most situations.
 
 
 Q4. Looking at the plot below which shows accuracy scores for different values of a regularization parameter lambda, what value of lambda is the best choice for generalization?
@@ -1781,14 +1786,14 @@ Q7. Looking at the two figures (Figure A, Figure B), determine which linear mode
     Ans: a
 
 
-Q8. Looking at Figure A and B, what is a value of alpha that optimizes the R2 score for the Ridge Model?
+Q8. Looking at Figure A and B, what is a value of alpha that optimizes the $R^2$ score for the Ridge Model?
 
     Ans: 3
 
 
-Q9. Looking at Figure A and B, what is a value of alpha that optimizes the R2 score for the Lasso Model?
+Q9. Looking at Figure A and B, what is a value of alpha that optimizes the $R^2$ score for the Lasso Model?
 
-    Ans: x110
+    Ans: 11, x20, x110
 
 
 Q10. When running a LinearRegression() model with default parameters on the same data that generated Figures A and B the output coefficients are:
@@ -1800,10 +1805,16 @@ Q10. When running a LinearRegression() model with default parameters on the same
     Coef 4      13.2
     Coef 5      5.1
 
-    For what value of Coef 3 is R2 score maximized for the Ridge Model?
+For what value of Coef 3 is $R^2$ score maximized for the Ridge Model?
 
 
-    Ans: ??
+    Ans: 0, x40, x35
+    1. you need to identify which figure correspond to the Lasso model (Q7)
+    2. Find the alpha that maximize the R2 of the Lasso model (Q8/9)
+    3. Identify the lines at default value (1.0): Coef 1 > Coef 3 > Coef 4 > Coef 2 > Coef 5 > Coef 0 (Orange, Red, Green, Purple, Brown, Blue)
+    3. find the value of Coef 3 at the alpha that maximized the R2 of the Lasso model. (Red @ 11)
+
+
 
 Q11. Which of the following is true of cross-validation? (Select all that apply)
 
@@ -1813,7 +1824,8 @@ Q11. Which of the following is true of cross-validation? (Select all that apply)
     d. Increases generalization ability and computational complexity
     e. Fits multiple models on different splits of the data
 
-    Ans: (ac-0.4)
+    Ans: cde, xace-0.6, xac-0.4
+    There is no pm functionality. You could always think about that and resubmit the quiz in a few hours.
 
 
 
