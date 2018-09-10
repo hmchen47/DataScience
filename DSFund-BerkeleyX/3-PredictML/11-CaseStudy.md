@@ -127,11 +127,20 @@
 
 ### Note
 
-
-
 + Demo
     ```python
+    examples = scores.where("Mentored", False)
 
+    def predict_mt2(mt1):
+        near = examples.where("Midterm 1", are.between_or_equal_to(mt1-2, mt1+2))
+        return near.column("Midterm 2").mean()
+
+    predict_mt2(30)     # 34.11057692307692
+
+    mt1_scores = examples.select("Midterm 1").sort(0, distinct=True)
+    predictions = mt1_scores.with_column("Predicted MT 2", mt1_scores.apply(predict_mt2, "Midterm 1"))
+    t = scores.join("Midterm 1", predictions)
+    t.drop("Mentored").scatter(0)
     ```
 
 ### Lecture Video
