@@ -169,10 +169,10 @@
         'Latitude',  lprs.apply(get_latitude, 'Location'),
         'Longitude', lprs.apply(get_longitude, 'Location')
     )
-    # Plate      Timestamp                 Location                                     Latitude   Longitude
-    # 1275226    01/19/2011 02:06:00 AM    (37.798304999999999, -122.27574799999999)    37.7983    -122.276
-    # 27529C     01/19/2011 02:06:00 AM    (37.798304999999999, -122.27574799999999)    37.7983    -122.276
-    # 1158423    01/19/2011 02:06:00 AM    (37.798304999999999, -122.27574799999999)    37.7983    -122.276
+    # Plate   Timestamp               Location                                  Latitude  Longitude
+    # 1275226 01/19/2011 02:06:00 AM  (37.798304999999999, -122.27574799999999) 37.7983   -122.276
+    # 27529C  01/19/2011 02:06:00 AM  (37.798304999999999, -122.27574799999999) 37.7983   -122.276
+    # 1158423 01/19/2011 02:06:00 AM  (37.798304999999999, -122.27574799999999) 37.7983   -122.276
     # ... (rows omitted)
 
     # And at last, we can draw a map with a marker everywhere that her car has been seen.
@@ -193,9 +193,48 @@
 
 
 + Demo
-    ```html
+    ```python
+    # ## Poking around
 
+    # Let's try another.  And let's see if we can make the map a little more fancy.  It'd be 
+    # nice to distinguish between license plate reads that are seen during the daytime 
+    # (on a weekday), vs the evening (on a weekday), vs on a weekend.  So we'll color-code 
+    # the markers.  To do this, we'll write some Python code to analyze the Timestamp and 
+    # choose an appropriate color.
+    import datetime
+
+    def get_color(ts):
+        t = datetime.datetime.strptime(ts, '%m/%d/%Y %I:%M:%S %p')
+        if t.weekday() >= 6:
+            return 'green' # Weekend
+        elif t.hour >= 6 and t.hour <= 17:
+            return 'blue' # Weekday daytime
+        else:
+            return 'red' # Weekday evening
+
+    lprs.append_column('Color', lprs.apply(get_color, 'Timestamp'))
+
+    # Now we can check out another license plate, this time with our spiffy color-coding.  
+    # This one happens to be the car that the city issues to the Fire Chief.
+    t = lprs.where('Plate', '1328354').select('Latitude', 'Longitude', 'Timestamp', 'Color')
+    Marker.map_table(t)
+
+    # Hmm.  We can see a blue cluster in downtown Oakland, where the Fire Chief's car was seen 
+    # on weekdays during business hours.  I bet we've found her office.  In fact, if you happen 
+    # to know downtown Oakland, those are mostly clustered right near City Hall.  Also, her car 
+    # was seen twice in northern Oakland on weekday evenings.  One can only speculate what that 
+    # indicates.  Maybe dinner with a friend?  Or running errands?  Off to the scene of a fire?  
+    # Who knows.  And then the car has been seen once more, late at night on a weekend, in a 
+    # residential area in the hills.  Her home address, maybe?
     ```
+
+As we can see, this kind of data can potentially reveal a fair bit about people. Someone with access to the data can draw inferences. Take a moment to think about what someone might be able to infer from this kind of data.
+
+As we've seen here, it's not too hard to make a pretty good guess at roughly where some lives, from this kind of information: their car is probably parked near their home most nights. Also, it will often be possible to guess where someone works: if they commute into work by car, then on weekdays during business hours, their car is probably parked near their office, so we'll see a clear cluster that indicates where they work.
+
+But it doesn't stop there. If we have enough data, it might also be possible to get a sense of what they like to do during their downtime (do they spend time at the park?). And in some cases the data might reveal that someone is in a relationship and spending nights at someone else's house. That's arguably pretty sensitive stuff.
+
+This gets at one of the challenges with privacy. Data that's collected for one purpose (fighting crime, or something like that) can potentially reveal a lot more. It can allow the owner of the data to draw inferences -- sometimes about things that people would prefer to keep private. And that means that, in a world of "big data", if we're not careful, privacy can be collateral damage.
 
 ### Video 
 
