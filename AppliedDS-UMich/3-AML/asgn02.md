@@ -40,4 +40,27 @@ P.S. The length of the data does not change as the degree changes, the number of
 P.S.S.
 
 The following table may help you digest the information above
-<br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/MFDYTlf4Eee7Tw73tY0PgA_9e429450c6baa32583813458dd0bc7b7_Screen-Shot-2017-06-23-at-10.41.33.png?expiry=1536624000000&hmac=bwJE24K-KYps8h6MIrWIsRf2tTLU_AbaHnaRI0If2MI" alt="text" title= "caption" width="350">
+<br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/MFDYTlf4Eee7Tw73tY0PgA_9e429450c6baa32583813458dd0bc7b7_Screen-Shot-2017-06-23-at-10.41.33.png?expiry=1536624000000&hmac=bwJE24K-KYps8h6MIrWIsRf2tTLU_AbaHnaRI0If2MI" alt="text" title= "caption" width="450">
+
+
+## [Assignment 2, Q 6, which dataset to use?](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/2/threads/sydl3EcyEeeqVwpT36CBzg)
+
+For performance reasons, Q6 is based on a subset of the whole dataset. The assignment was updated (version 1.2) to create new variables X_subset and y_subset along with a new explanation that these should be used as input, and with a description of how to call validation_curve that matches what's in the lecture (and these happen to be defined as X_test2, y_test2 in the setup block so that nothing about the results changes.).
+
+The update version of the assignment can be found in the readonly folder, you may need to logout /login of coursera to be able to view it.
+
+You can access the readonly folder by clicking File->Open from the menu of the notebook, this will load in the home folder page, clicking on the read only icon you'll be able to browse to the note book you're interested in
+
+<a href="https://www.coursera.org/learn/python-machine-learning/discussions/weeks/2/threads/sydl3EcyEeeqVwpT36CBzg">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/WOtPAUe4Eeem0wpMSN0I3g_ae7d4eb7186a3595b56b0e32b3a9833b_readonly-copy.png?expiry=1536710400000&hmac=90bp1gcHWLh6YnsoTe_Hy2ru1kH9O9WbfcTe-ffp25o" alt="Web Notebook Use instruction" title= "Home folder screenshot" height="200">
+</a>
+
+alternatively, if you change the name of of the notebook by clicking on it's name and entering a different name, logging out/in or restarting server would automatically retrieve a fresh/ most up-to-date copy of the assignment. More information in [Resources/ Jupyter Notebook FAQ](https://www.coursera.org/learn/python-machine-learning/resources/bANLa)
+
+meanwhile here is a screen shot of the update
+
+<a href="https://www.coursera.org/learn/python-machine-learning/discussions/weeks/2/threads/sydl3EcyEeeqVwpT36CBzg">
+    <br/><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/KXAoX0e4EeeJ9Aq7pT6nQA_511d80966def1a3abf13377fca586bba_Screen-Shot-2017-06-02-at-18.22.55.png?expiry=1536710400000&hmac=C11ukZo-XsrTwhL7OINFV50ypu4q0Y8u7Dvtk03XWls" alt="Question Revised" title= "Question Revised" height="200">
+</a>
+
+
