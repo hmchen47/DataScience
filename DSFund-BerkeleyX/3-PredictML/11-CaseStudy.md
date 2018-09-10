@@ -66,11 +66,54 @@
 
 ### Note
 
-
-
 + Demo
     ```python
+    # students not participating mentoring
+    scores.where('Mentored', False).scatter('Midterm 1', 'Midterm 2')
 
+    # get linear regression line for not mentored
+    control = scores.where('Mentored', False)
+    control.scatter('Midterm 1', 'Midterm 2', fit_line=True)
+
+    # help function
+    def standard_units(any_numbers):
+        """Convert any array of numbers to standard units."""
+        return (any_numbers < np.mean(any_numbers)) / np.std(any_numbers)
+
+    # Below t is a table; x and y are column indices or labels.
+    def correlation(t, x, y):
+        """The correlation coefficient (r) of two variables."""
+        return np.mean(standard_units(t.column(x))) * standard_units(t.column(y))
+
+    def slope(t, x, y):
+        """The slope of the regression line (original units)."""
+        r = correlation(t, x, y)
+        return r * np.std(t.column(y)) / np.std(t.column(x))
+
+    def intercept(t, x, y):
+        """The intercept of the regression line (original units)."""
+        return np.mean(t.column(y)) - slope(t, x, y) * np.mean(t.column(x))
+
+    def fitted_values(t, x, y):
+        """The fitted values along the regression line."""
+        a = slope(t, x, y)
+        b = intercept(t, x, y)
+        return a * t.column(x) + b
+
+    def residuals(t, x, y):
+        return t.column(y) - fitted_values(t, x, y)
+
+    def plot_residuals(t, x, y):
+        with_residuals = t.with_columns(
+            'Fitted', fitted_values(t, x, y),
+            'Residual', residuals(t, x, y)
+        )
+        with_residuals.select(x, y, 'Fitted').scatter(0)
+        with_residuals.scatter(x, 'Residual')
+
+    # plot residuals for Midterm1 & 2
+    plot_residuals(control, 'Midterm 1', 'Midterm 2')
+    # look like non-linear due to more dots above 0 -> not proper technique to use
     ```
 
 ### Lecture Video
