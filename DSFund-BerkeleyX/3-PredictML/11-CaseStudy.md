@@ -1,7 +1,7 @@
 # Section 11: Data Science Case Study (Lec 11.1 - Lec 11.7)
 
-+ [Web page launching notebook](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/5b8ee52fd5644c26995eda55b83306ce/80bbdae8643e405bb9f051c41abf5f23/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%404e7b87ec410a4a098c9665a86f4fc4d3)
-+ [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec11.ipynb)
++ [Web notebook launching web page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/5b8ee52fd5644c26995eda55b83306ce/80bbdae8643e405bb9f051c41abf5f23/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%404e7b87ec410a4a098c9665a86f4fc4d3)
++ [Web notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec11.ipynb)
 + [Local Notebook](./notebooks/lec11.ipynb)
 + [Local Python Code](./notebooks/lec11.py)
 
@@ -45,11 +45,14 @@
 
 ### Note
 
-
-
 + Demo
     ```python
+    scores.scatter('Midterm 1', 'Midterm 2', colors='Mentored')
+    # Midterm 1 with high score not participated for a cluster
+    # Midterm 1 with lower score participated forms cluster
+    # Midterm 1 with lower score not participated forms a cluster
 
+    scores.hist('Midterm 1', group='Mentored', bins=np.arange(0, 41, 5), normed=False)
     ```
 
 ### Lecture Video
@@ -60,11 +63,6 @@
 
 
 ## Lec 11.3 Regression
-
-+ [Web notebook launching web page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/5b8ee52fd5644c26995eda55b83306ce/80bbdae8643e405bb9f051c41abf5f23/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%404e7b87ec410a4a098c9665a86f4fc4d3)
-+ [Web notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec11.ipynb)
-+ [Local Notebook](./notebooks/lec11.ipynb)
-+ [Local Python Code](./notebooks/lec11.py)
 
 ### Note
 
