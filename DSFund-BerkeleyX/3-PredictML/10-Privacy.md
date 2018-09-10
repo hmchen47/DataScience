@@ -249,9 +249,35 @@ This gets at one of the challenges with privacy. Data that's collected for one p
 
 
 + Demo
-    ```html
+    ```python
+    # Let's look at another. This time, we'll make a function to display the map.
+    def map_plate(plate):
+        sightings = lprs.where('Plate', plate)
+        t = sightings.select('Latitude', 'Longitude', 'Timestamp', 'Color')
+        return Marker.map_table(t)
+        
+    map_plate('5AJG153')
 
+    # What can we tell from this?  Looks to me like this person lives on International Blvd and 9th, roughly.  On weekdays they've seen in a variety of locations in west Oakland.  It's fun to imagine what this might indicate -- delivery person? taxi driver? someone running errands all over the place in west Oakland?
+    # 
+    # We can look at another:
+    map_plate('6UZA652')
     ```
+
+### Mitigation
+
+If we want to protect people's privacy, what can be done about this?  That's a lengthy subject.  But at risk of over-simplifying, there are a few simple strategies that data owners can take:
+
+1. Minimize the data they have.  Collect only what they need, and delete it after it's not needed.
+
+2. Control who has access to the sensitive data.  Perhaps only a handful of trusted insiders need access; if so, then one can lock down the data so only they have access to it.  One can also log all access, to deter misuse.
+
+3. Anonymize the data, so it can't be linked back to the individual who it is about.  Unfortunately, this is often harder than it sounds.
+
+4. Engage with stakeholders.  Provide transparency, to try to avoid people being taken by surprise.  Give individuals a way to see what data has been collected about them.  Give people a way to opt out and have their data be deleted, if they wish.  Engage in a discussion about values, and tell people what steps you are taking to protect them from unwanted consequences.
+
+This only scratches the surface of the subject.  My main goal in this lecture was to make you aware of privacy concerns, so that if you are ever a steward of a large data set, you can think about how to protect people's data and use it responsibly.
+
 
 ### Video 
 
