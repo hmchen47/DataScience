@@ -13,7 +13,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.1 Introduction" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V005100_DTH.mp4" alt="Lec 11.1 Introduction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -31,7 +31,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.2 Visualize" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V005400_DTH.mp4" alt="Lec 11.2 Visualize" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -49,7 +49,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.3 Regression" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V005200_DTH.mp4" alt="Lec 11.3 Regression" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -67,7 +67,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.4 Prediction" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V005300_DTH.mp4" alt="Lec 11.4 Prediction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -85,7 +85,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.5 Association" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V004300_DTH.mp4" alt="Lec 11.5 Association" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -103,7 +103,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.6 Confidence" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V005000_DTH.mp4" alt="Lec 11.6 Confidence" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -121,7 +121,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="Lec 11.7 Conclusion" target="_blank">
+<a href="https://edx-video.net/BERD83FD2018-V004900_DTH.mp4" alt="Lec 11.7 Conclusion" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
