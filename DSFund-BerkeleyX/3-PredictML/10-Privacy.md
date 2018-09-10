@@ -9,11 +9,38 @@
 
 ### Note
 
++ Why is Facebook in the news?
+    + Cambridge Analytica: 
+        + Access private 87 mil users w/ permission
+        + Involve with political campaigning
+    + Start with survey about personality for academic research
+    + Not only the survey questions but also personal profiles and their friends' profiles
+    + Bought data from academic researchers
 
-+ Demo
-    ```html
++ Knowing your Facebook Likes is enough to predict:
+    + Black vs. white: 95% accuracy
+    + Republican vs Democrat: 85% accuracy
+    + Christian vs Muslim: 82% accuracy
+    + Homosexual male vs heterosexual mal: 88% accuracy
 
-    ```
++ Voter turnout:
+    + Show one of two messages to 61M people in US
+    + Variant #1: "you should vote!"
+    + Variant #2: "you should vote!", plus thumbnails of friends who have already voted
+    + Results: 340K more people vote when they saw Variant #2
+
++ The myth of anonymity:
+    + Netflix releases dataset of how people rated movies they'd seen on Netflix
+    + Researchers discovered that knowing two of your movie ratings and when you rated them enough to uniquely find you in the dataset, for 68% of people
+
++ Terminology: disclosure, collection, inference
+    + Disclosure: home address with Amazon
+    + Collection: collecting information without my awareness, such as web site visiting
+    + Disclosure: least privacy implication
+    + Collection: more privacy implications because3 people not aware the info is being collected
+    + Inference: most sensitive privacy implication because it may be hard for people to anticipate what inferences can be drawn about them
+
+
 
 ### Video 
 
