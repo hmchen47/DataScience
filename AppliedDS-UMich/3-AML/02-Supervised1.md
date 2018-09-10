@@ -668,7 +668,7 @@
     + When to use ridge vs lasso regression:
         + Many small/medium sized effects: use _ridge_.
         + Only a few variables with medium/large effect: use _lasso_.
-    + Demo: Lasson Regression
+    + Demo: Lasso Regression
         ```python
         from sklearn.linear_model import Lasso
         from sklearn.preprocessing import MinMaxScaler
@@ -756,6 +756,7 @@
         > PctPersDenseHous, 339.045 # percent of persons in dense housing (more than 1 person/room)  
         > NumInShelters, 264.932 # number of people in homeless shelters  
 
+
 + Polynomial Features with Linear
 
     $$ {\bf x} = (x_0, x_1) \Longrightarrow {\bf x^{\prime}} = (x_0, x_1, x_0^2, x_0 x_1, x_1^2)$$
@@ -786,8 +787,7 @@
     from sklearn.linear_model import Ridge
     from sklearn.preprocessing import PolynomialFeatures
 
-    X_train, X_test, y_train, y_test = train_test_split(X_F1, y_F1,
-                                                    random_state = 0)
+    X_train, X_test, y_train, y_test = train_test_split(X_F1, y_F1, random_state = 0)
     linreg = LinearRegression().fit(X_train, y_train)
 
     print('linear model coeff (w): {}'.format(linreg.coef_))
@@ -813,18 +813,13 @@
     with regression that has a regularization penalty, like ridge\n\
     regression.\n')
 
-    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1,
-                                                    random_state = 0)
+    X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1, random_state = 0)
     linreg = Ridge().fit(X_train, y_train)
 
-    print('(poly deg 2 + ridge) linear model coeff (w):\n{}'
-        .format(linreg.coef_))
-    print('(poly deg 2 + ridge) linear model intercept (b): {:.3f}'
-        .format(linreg.intercept_))
-    print('(poly deg 2 + ridge) R-squared score (training): {:.3f}'
-        .format(linreg.score(X_train, y_train)))
-    print('(poly deg 2 + ridge) R-squared score (test): {:.3f}'
-        .format(linreg.score(X_test, y_test)))
+    print('(poly deg 2 + ridge) linear model coeff (w):\n{}'.format(linreg.coef_))
+    print('(poly deg 2 + ridge) linear model intercept (b): {:.3f}'.format(linreg.intercept_))
+    print('(poly deg 2 + ridge) R-squared score (training): {:.3f}'.format(linreg.score(X_train, y_train)))
+    print('(poly deg 2 + ridge) R-squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
     # linear model coeff (w): [  4.42   6.     0.53  10.24   6.55  -2.02  -0.32]
     # linear model intercept (b): 1.543
     # R-squared score (training): 0.722
@@ -1808,11 +1803,11 @@ Q10. When running a LinearRegression() model with default parameters on the same
 For what value of Coef 3 is $R^2$ score maximized for the Ridge Model?
 
 
-    Ans: 0, x40, x35
+    Ans: 10
     1. you need to identify which figure correspond to the Lasso model (Q7)
     2. Find the alpha that maximize the R2 of the Lasso model (Q8/9)
-    3. Identify the lines at default value (1.0): Coef 1 > Coef 3 > Coef 4 > Coef 2 > Coef 5 > Coef 0 (Orange, Red, Green, Purple, Brown, Blue)
-    3. find the value of Coef 3 at the alpha that maximized the R2 of the Lasso model. (Red @ 11)
+    3. Identify the lines with provided coefficient values (0.1): Coef 1 > Coef 3 > Coef 4 > Coef 2 > Coef 5 > Coef 0 (Orange, Red, Green, Purple, Brown, Blue)
+    3. find the value of Coef 3 at the alpha that maximized the R2 of the Lasso model. (Red @ 3) - Refer to Fig A
 
 
 
