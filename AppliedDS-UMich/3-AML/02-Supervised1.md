@@ -1823,17 +1823,23 @@ Q11. Which of the following is true of cross-validation? (Select all that apply)
     There is no pm functionality. You could always think about that and resubmit the quiz in a few hours.
 
 
+## Assignment 2: Q6 
+
+The initialized unfitted classifier object we'll be using is a Support Vector Classifier with radial basis kernel.  So your first step is to create an `SVC` object with default parameters (i.e. `kernel='rbf', C=1`) and `random_state=0`. Recall that the kernel width of the RBF kernel is controlled using the `gamma` parameter.  
+
+With this classifier, and the dataset in X_subset, y_subset, explore the effect of `gamma` on classifier accuracy by using the `validation_curve` function to find the training and test scores for 6 values of `gamma` from `0.0001` to `10` (i.e. `np.logspace(-4,1,6)`). Recall that you can specify what scoring metric you want validation_curve to use by setting the "scoring" parameter.  In this case, we want to use "accuracy" as the scoring metric.
+
+For each level of `gamma`, `validation_curve` will fit 3 models on different subsets of the data, returning two 6x3 (6 levels of gamma x 3 fits per level) arrays of the scores for the training and test sets.
+
+
 
 ## Classifier Visualization Playspace
 
++ [Web Notebook Launching page](https://www.coursera.org/learn/python-machine-learning/notebook/8oREO/classifier-visualization-playspace)
++ [Web notebook](https://hub.coursera-notebooks.org/hub/coursera_login?token=6V4a26wfSI6eGtusH5iOsw&next=%2Fnotebooks%2FClassifier%2520Visualization.ipynb)
++ [Local notebook](notebooks/ClassifierVisualization.ipynb)
++ [Local Python code](notebooks/Classifier+Visualization.py)
 
 
 
-<a href="url">
-    <br/><img src="url" alt="text" title= "caption" width="350">
-</a>
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
 
