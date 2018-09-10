@@ -179,11 +179,25 @@
 
 ### Note
 
-
-
 + Demo
     ```python
+    u.group("Mentored", np.mean)
+    # Mentored  Midterm 1 mean  Midterm 2 mean  Predicted MT 2 mean  Improvement mean
+    # False     29.3461         32.2821         32.3047              -0.0226162
+    # True      25.5945         28.5629         27.082                1.48083
 
+    def mean_ci(observations):
+        means = []
+        for i in np.arange(2000):
+            means.append(observations.sample().column("Improvement").mean())
+        lower, upper = percentile(2.5, means), percentile(97.5, means)
+        print("Mean improvement:", observations.column("Improvement").mean())
+        print("95% CI of mean improvement:", lower, "to", upper)
+
+    mentored = u.where("Mentored", True)
+    mean_ci(mentored)
+    # Mean improvement: 1.48082915986
+    # 95% CI of mean improvement: 0.895866644024 to 2.10329501026
     ```
 
 ### Lecture Video
@@ -194,15 +208,6 @@
 
 
 ## Lec 11.7 Conclusion
-
-### Note
-
-
-
-+ Demo
-    ```python
-
-    ```
 
 ### Lecture Video
 
