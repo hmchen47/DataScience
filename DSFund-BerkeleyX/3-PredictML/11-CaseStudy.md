@@ -1,14 +1,37 @@
 # Section 11: Data Science Case Study (Lec 11.1 - Lec 11.7)
 
++ [Web page launching notebook](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/5b8ee52fd5644c26995eda55b83306ce/80bbdae8643e405bb9f051c41abf5f23/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%404e7b87ec410a4a098c9665a86f4fc4d3)
++ [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec11.ipynb)
++ [Local Notebook](./notebooks/lec11.ipynb)
++ [Local Python Code](./notebooks/lec11.py)
+
 ## Lec 11.1 Introduction
 
 ### Note
 
++ Group Mentoring in an Intro Computer Science Course
 
++ Small-Group Mentoring at scale
+    + CA 61A: Program structures, 84 mentors, 140 sections, 587 students
+    + Data 8: Foundations of Data Science. 31, 60, 261
+    + CS 61B: Data Structures, 51, 52, 160
+    + CS 70: Discrete Math & Probability, 25, 27, 156
+    + EE 16A: Linear Algebra & Circuits, 9, 9, 45
+
++ Mentoring Schedule in CS 61A
+    + Sep. 14, 2017 - CS 61A Midterm 1
+    + Sep. 15, 2017 - Sign-ups for mentor sections open
+    + Sep. 17, 2017 - CS 61A Midterm 1 scores returned
+    + Sep. 18, 2017 - Weekly mentor sections start
+    + Oct. 09, 2017 - CS 61A Midterm 2
 
 + Demo
     ```python
-
+    scores = Table.read_table("scores.csv")
+    # Midterm 1  Midterm 2    Mentored
+    # 28          20          False
+    # 28.5        35          False
+    # 23.5        13.5        False
     ```
 
 ### Lecture Video
