@@ -53,11 +53,31 @@
 
 ### Note
 
++ What is _privacy_?
+    + "the right to be let alone" - Justice DSamuel Warren and Louis Brandeis
+    + control over who can obtain or use information about me
+    + Fair Information Practices: notice, consent (opt-in/opt-out), access
+        + providing people notice if you are collecting information - awareness
+        + consent: people should have right to have some say over whether you collect info about them or what you about them
+            + opt-in: ask for explicit consent, no permission until you say yes
+            + opt-out: similar to opt-in but default assume that your are ok to do something unless someone tells you they don't want you to do it
+        + access: people should have right to know what information credit agencies have about them
+    + contextual integrity - Helen Nissenbaum
+        + people feel like their privacy has been violated if info is used in a way that surprises them, that differs from what they would expect
+        + E.g. bar talk about boss or company to buddies
 
-+ Demo
-    ```html
++ Why care about privacy?
+    + reputation management
+    + maintaining social boundaries
+    + limits on government power
+    + freedom of though, speech, politics
+    + opportunity for second chances
 
-    ```
++ Trend: architectures of persuasion
+    + use the info to persuade them
+    + E.g. voters
+    + Concern: how far could this go?
+
 
 ### Video 
 
