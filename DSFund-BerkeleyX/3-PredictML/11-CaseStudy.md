@@ -154,11 +154,18 @@
 
 ### Note
 
-
-
 + Demo
     ```python
+    u = t.with_column("Improvement", t.column("Midterm 2") - t.column("Predicted MT 2"))
+    u.hist("Improvement", bins=np.arange(-30, 31, 5), group="Mentored", unit="point")
 
+    def of_at_least_5(values):
+        return sum(values >= 5) / len(values)
+
+    u.select(2, 4).group("Mentored", of_at_least_5).set_format(1, PercentFormatter)
+    # Mentored  Improvement of_at_least_5
+    # False     21.90%
+    # True      29.63%
     ```
 
 ### Lecture Video
