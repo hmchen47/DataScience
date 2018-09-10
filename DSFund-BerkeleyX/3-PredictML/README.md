@@ -108,7 +108,10 @@
     + [Lec 11.6 Confidence](./11-CaseStudy.md)
     + [Lec 11.7 Conclusion](./11-CaseStudy.md)
 
-+ [Lab 5: Classification Part 2]
++ [Lab 5: Classification Part 2](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/5b8ee52fd5644c26995eda55b83306ce/03d46f4cc2fe43b4b381bd1f8e52c68d/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%402f4003f17eb441f888e296615d5dd01d)
+    + [Web notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/git-pull?repo=git%3A%2F%2Freposync%2Fmaterials-x18&subPath=materials%2Fx18%2Flab%2F3%2Flab05%2Flab05.ipynb&redirects=1)
+    + [Local Notebook](./notebooks/lab05.ipynb)
+    + [Local Python Code](./notebooks/lab05.py)
 
 
 
