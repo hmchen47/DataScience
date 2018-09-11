@@ -2,7 +2,10 @@
 
 ## Module 3 Notebook
 
-
++ [Web Note Launch Page](https://www.coursera.org/learn/python-machine-learning/notebook/g7cJG/module-3-notebook)
++ [Web Notebook](https://hub.coursera-notebooks.org/user/elkljxyoytcwjbmkgctrtg/notebooks/Module%203.ipynb)
++ [Local Notebook](./notebooks/Module03.ipynb)
++ [Local Python Code](./notebooks/Module03.py)
 
 ## Model Evaluation & Selection
 
