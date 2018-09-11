@@ -376,23 +376,23 @@ The next table below contains calculations along with a scatterplot from the `wa
 
 What is the value of correlation(water, ‘mm_precipitation’, ‘OBS_VALUE’)?
 
-    Ans: 
+    Ans: 0.262079
  
 What is the slope for the equation of the regression line of the data in the water table for finding the OBS_VALUE y using the mm_precipitation x?
 
-    Ans: 
+    Ans: 0.000424
  
 What is the intercept for the equation of the regression line of the data in the water table for finding the OBS_VALUE y using the mm_precipitation x?
 
-    Ans:  
+    Ans: x602.444
  
 Using the regression line equation, what would we expect the OBS_VALUE to be in 2014 for a country that had an average of 700 mm of precipitation?
 
-    Ans: 
+    Ans: ??
  
 Is this a good equation to use for predicting price from precipitation?
 
-    Ans: 
+    Ans: No
 
 
 
