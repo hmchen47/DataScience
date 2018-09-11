@@ -31,19 +31,21 @@
 ## Week 2
 
 + [Section 4: Regression (Lec 4.1 - Lec 4.5)](./04-Regression.md)
-    + [Lec 4.1 Prediction](./04-Regression.md#)
-    + [Lec 4.2 Linear Regression](./04-Regression.md#)
-    + [Lec 4.3 Regression to the Mean](./04-Regression.md#)
-    + [Lec 4.4 Regression Equation](./04-Regression.md#)
-    + [Lec 4.5 Interpreting the Slope](./04-Regression.md#)
-    + [Reading and Practice](./04-Regression.md#)
+    + [Lec 4.1 Prediction](./04-Regression.md#lec-41-prediction)
+    + [Lec 4.2 Linear Regression](./04-Regression.md#lec-42-linear-regression)
+    + [Lec 4.3 Regression to the Mean](./04-Regression.md#lec-43-regression-to-the-mean)
+    + [Lec 4.4 Regression Equation](./04-Regression.md#lec-44-regression-equation)
+    + [Lec 4.5 Interpreting the Slope](./04-Regression.md#lec-45-interpreting-the-slope)
+    + [Reading and Practice](./04-Regression.md#reading-and-practice)
+
 
 + [Section 5: Least Squares (Lec 5.1 - Lec 5.4)](./05-LeastSquare.md)
-    + [Lec 5.1 Linear Regression Review](./05-LeastSquare.md#)
-    + [Lec 5.2 Discussion Question](./05-LeastSquare.md#)
-    + [Lec 5.3 Squared Error](./05-LeastSquare.md#)
-    + [Lec 5.4 Least Squares](./05-LeastSquare.md#)
-    + [Reading and Practice](./05-LeastSquare.md#)
+    + [Lec 5.1 Linear Regression Review](./05-LeastSquare.md#lec-51-linear-regression-review)
+    + [Lec 5.2 Discussion Question](./05-LeastSquare.md#lec-52-discussion-question)
+    + [Lec 5.3 Squared Error](./05-LeastSquare.md#lec-53-squared-error)
+    + [Lec 5.4 Least Squares](./05-LeastSquare.md#lec-54-least-squares)
+    + [Reading and Practice](./05-LeastSquare.md#reading-and-practice)
+
 
 + [Lab 2: Regression](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/11f472f1d45d411993d1f696435f7d51/1a651a67c04f4dbdbabb7c10a9bff6ac/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%408f1a9a290aa246a18ad5e59b66e021bd)
     + [Wen Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/materials/x18/lab/3/lab02/lab02.ipynb)
