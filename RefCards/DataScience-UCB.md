@@ -38,6 +38,7 @@ plots.style.use('fivethirtyeight')
 ## Table
 
 ### `Table` Class methods and Attributes
+
 + `append(row_or_table)`: Append a row or all rows of a table. An appended table must have all columns of self.
 + `append_column(label, values)`: Appends a column to the table or replaces a column.
 + `apply(fn, *column_or_columns)`: Apply `fn` to each element or elements of `column_or_columns`. If no `column_or_columns` provided, `fn` is applied to each row.
