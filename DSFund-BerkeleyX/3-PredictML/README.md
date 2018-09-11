@@ -92,21 +92,23 @@
 
 ## Week 5
 
-+ [Section 10: Privacy (Lec 10.1 - Lec 10.5)](./10-Privacy.md#)
-    + [Lec 10.1 Examples](./10-Privacy.md#)
-    + [Lec 10.2 Meaning](./10-Privacy.md#)
-    + [Lec 10.3 Case Study](./10-Privacy.md#)
-    + [Lec 10.4 Inferences](./10-Privacy.md#)
-    + [Lec 10.5 Implications](./10-Privacy.md#)
++ [Section 10: Privacy (Lec 10.1 - Lec 10.5)](./10-Privacy.md)
+    + [Lec 10.1 Examples](./10-Privacy.md#lec-101-examples)
+    + [Lec 10.2 Meaning](./10-Privacy.md#lec-102-meaning)
+    + [Lec 10.3 Case Study](./10-Privacy.md#lec-103-case-study)
+    + [Lec 10.4 Inferences](./10-Privacy.md#lec-104-inferences)
+    + [Lec 10.5 Implications](./10-Privacy.md#lec-105-implications)
+
 
 + [Section 11: Data Science Case Study (Lec 11.1 - Lec 11.7)](./11-CaseStudy.md)
-    + [Lec 11.1 Introduction](./11-CaseStudy.md)
-    + [Lec 11.2 Visualize](./11-CaseStudy.md)
-    + [Lec 11.3 Regression](./11-CaseStudy.md)
-    + [Lec 11.4 Prediction](./11-CaseStudy.md)
-    + [Lec 11.5 Association](./11-CaseStudy.md)
-    + [Lec 11.6 Confidence](./11-CaseStudy.md)
-    + [Lec 11.7 Conclusion](./11-CaseStudy.md)
+    + [Lec 11.1 Introduction](./11-CaseStudy.md#lec-111-introduction)
+    + [Lec 11.2 Visualize](./11-CaseStudy.md#lec-112-visualize)
+    + [Lec 11.3 Regression](./11-CaseStudy.md#lec-113-regression)
+    + [Lec 11.4 Prediction](./11-CaseStudy.md#lec-114-prediction)
+    + [Lec 11.5 Association](./11-CaseStudy.md#lec-115-association)
+    + [Lec 11.6 Confidence](./11-CaseStudy.md#lec-116-confidence)
+    + [Lec 11.7 Conclusion](./11-CaseStudy.md#lec-117-conclusion)
+
 
 + [Lab 5: Classification Part 2](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/5b8ee52fd5644c26995eda55b83306ce/03d46f4cc2fe43b4b381bd1f8e52c68d/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%402f4003f17eb441f888e296615d5dd01d)
     + [Web notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/git-pull?repo=git%3A%2F%2Freposync%2Fmaterials-x18&subPath=materials%2Fx18%2Flab%2F3%2Flab05%2Flab05.ipynb&redirects=1)
