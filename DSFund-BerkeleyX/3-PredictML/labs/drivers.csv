@@ -1,284 +1,101 @@
-
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="utf-8">
-
-    <title>drivers.csv (editing)</title>
-    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="/user/37b80bfacc52ea5dfdad124579807188/static/base/images/favicon-file.ico?v=e2776a7f45692c839d6eea7d7ff6f3b2">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css?v=9b2c8d3489227115310662a343fce11c" type="text/css" />
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/jquery-typeahead/dist/jquery.typeahead.min.css?v=7afb461de36accb1aa133a1710f5bc56" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-<link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/codemirror/lib/codemirror.css?v=ae81317fa2b3a745892c83985827d41b">
-<link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/components/codemirror/addon/dialog/dialog.css?v=c89dce10b44d2882a024e7befc2b63f5">
-
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/static/style/style.min.css?v=47782e517c98a53adb514cbefb4528f2" type="text/css"/>
-    
-
-    <link rel="stylesheet" href="/user/37b80bfacc52ea5dfdad124579807188/custom/custom.css" type="text/css" />
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/es6-promise/promise.min.js?v=f004a16cb856e0ff11781d01ec5ca8fe" type="text/javascript" charset="utf-8"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/preact/index.js?v=00a2fac73c670ce39ac53d26640eb542" type="text/javascript"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/proptypes/index.js?v=c40890eb04df9811fcc4d47e53a29604" type="text/javascript"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/preact-compat/index.js?v=f865e990e65ad27e3a2601d8adb48db1" type="text/javascript"></script>
-    <script src="/user/37b80bfacc52ea5dfdad124579807188/static/components/requirejs/require.js?v=6da8be361b9ee26c5e721e76c6d4afce" type="text/javascript" charset="utf-8"></script>
-    <script>
-      require.config({
-          
-          urlArgs: "v=20180816030214",
-          
-          baseUrl: '/user/37b80bfacc52ea5dfdad124579807188/static/',
-          paths: {
-            'auth/js/main': 'auth/js/main.min',
-            custom : '/user/37b80bfacc52ea5dfdad124579807188/custom',
-            nbextensions : '/user/37b80bfacc52ea5dfdad124579807188/nbextensions',
-            kernelspecs : '/user/37b80bfacc52ea5dfdad124579807188/kernelspecs',
-            underscore : 'components/underscore/underscore-min',
-            backbone : 'components/backbone/backbone-min',
-            jed: 'components/jed/jed',
-            jquery: 'components/jquery/jquery.min',
-            json: 'components/requirejs-plugins/src/json',
-            text: 'components/requirejs-text/text',
-            bootstrap: 'components/bootstrap/js/bootstrap.min',
-            bootstraptour: 'components/bootstrap-tour/build/js/bootstrap-tour.min',
-            'jquery-ui': 'components/jquery-ui/ui/minified/jquery-ui.min',
-            moment: 'components/moment/min/moment-with-locales',
-            codemirror: 'components/codemirror',
-            termjs: 'components/xterm.js/dist/xterm',
-            typeahead: 'components/jquery-typeahead/dist/jquery.typeahead.min',
-          },
-          map: { // for backward compatibility
-              "*": {
-                  "jqueryui": "jquery-ui",
-              }
-          },
-          shim: {
-            typeahead: {
-              deps: ["jquery"],
-              exports: "typeahead"
-            },
-            underscore: {
-              exports: '_'
-            },
-            backbone: {
-              deps: ["underscore", "jquery"],
-              exports: "Backbone"
-            },
-            bootstrap: {
-              deps: ["jquery"],
-              exports: "bootstrap"
-            },
-            bootstraptour: {
-              deps: ["bootstrap"],
-              exports: "Tour"
-            },
-            "jquery-ui": {
-              deps: ["jquery"],
-              exports: "$"
-            }
-          },
-          waitSeconds: 30,
-      });
-
-      require.config({
-          map: {
-              '*':{
-                'contents': 'services/contents',
-              }
-          }
-      });
-
-      // error-catching custom.js shim.
-      define("custom", function (require, exports, module) {
-          try {
-              var custom = require('custom/custom');
-              console.debug('loaded custom.js');
-              return custom;
-          } catch (e) {
-              console.error("error loading custom.js", e);
-              return {};
-          }
-      })
-
-    document.nbjs_translations = {"domain": "nbjs", "locale_data": {"nbjs": {"": {"domain": "nbjs"}}}};
-    </script>
-
-    
-    
-
-</head>
-
-<body class="edit_app "
- 
-data-base-url="/user/37b80bfacc52ea5dfdad124579807188/"
-data-file-path="materials-x18/materials/x18/lab/3/lab03/drivers.csv"
-
-  
- 
-
-dir="ltr">
-
-<noscript>
-    <div id='noscript'>
-      Jupyter Notebook requires JavaScript.<br>
-      Please enable it to proceed. 
-  </div>
-</noscript>
-
-<div id="header">
-  <div id="header-container" class="container">
-  <div id="ipython_notebook" class="nav navbar-brand"><a href="/user/37b80bfacc52ea5dfdad124579807188/tree" title='dashboard'>
-      
-<img src='/hub/logo' alt='Jupyter Notebook'/>
-
-  </a></div>
-
-  
-
-<span id="save_widget" class="pull-left save_widget">
-    <span class="filename"></span>
-    <span class="last_modified"></span>
-</span>
-
-
-  
-  
-
-  
-  
-
-    <span id="login_widget">
-      
-        <button id="logout" class="btn btn-sm navbar-btn">Logout</button>
-      
-    </span>
-
-  
-
-  
-
-<span>
-    <a href='/hub/home'
-       class='btn btn-default btn-sm navbar-btn pull-right'
-       style='margin-right: 4px; margin-left: 2px;'>
-        Control Panel
-    </a>
-</span>
-
-  
-  </div>
-  <div class="header-bar"></div>
-
-  
-
-<div id="menubar-container" class="container">
-  <div id="menubar">
-    <div id="menus" class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-          <p  class="navbar-text indicator_area">
-          <span id="current-mode" >current mode</span>
-          </p>
-        <button type="button" class="btn btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <i class="fa fa-bars"></i>
-          <span class="navbar-text">Menu</span>
-        </button>
-        <ul class="nav navbar-nav navbar-right">
-          <li id="notification_area"></li>
-        </ul>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
-              <ul id="file-menu" class="dropdown-menu">
-                <li id="new-file"><a href="#">New</a></li>
-                <li id="save-file"><a href="#">Save</a></li>
-                <li id="rename-file"><a href="#">Rename</a></li>
-                <li id="download-file"><a href="#">Download</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
-              <ul id="edit-menu" class="dropdown-menu">
-                <li id="menu-find"><a href="#">Find</a></li>
-                <li id="menu-replace"><a href="#">Find &amp; Replace</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Key Map</li>
-                <li id="menu-keymap-default"><a href="#">Default<i class="fa"></i></a></li>
-                <li id="menu-keymap-sublime"><a href="#">Sublime Text<i class="fa"></i></a></li>
-                <li id="menu-keymap-vim"><a href="#">Vim<i class="fa"></i></a></li>
-                <li id="menu-keymap-emacs"><a href="#">emacs<i class="fa"></i></a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">View</a>
-              <ul id="view-menu" class="dropdown-menu">
-              <li id="toggle_header" title="Show/Hide the logo and notebook title (above menu bar)">
-              <a href="#">Toggle Header</a></li>
-              <li id="menu-line-numbers"><a href="#">Toggle Line Numbers</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Language</a>
-              <ul id="mode-menu" class="dropdown-menu">
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="lower-header-bar"></div>
-
-
-</div>
-
-<div id="site">
-
-
-<div id="texteditor-backdrop">
-<div id="texteditor-container" class="container"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-
-    
-
-
-<script src="/user/37b80bfacc52ea5dfdad124579807188/static/edit/js/main.min.js?v=69ef7b7a55de6f60611ff3ae94ef5069" type="text/javascript" charset="utf-8"></script>
-
-
-<script type='text/javascript'>
-  function _remove_token_from_url() {
-    if (window.location.search.length <= 1) {
-      return;
-    }
-    var search_parameters = window.location.search.slice(1).split('&');
-    for (var i = 0; i < search_parameters.length; i++) {
-      if (search_parameters[i].split('=')[0] === 'token') {
-        // remote token from search parameters
-        search_parameters.splice(i, 1);
-        var new_search = '';
-        if (search_parameters.length) {
-          new_search = '?' + search_parameters.join('&');
-        }
-        var new_url = window.location.origin + 
-                      window.location.pathname + 
-                      new_search + 
-                      window.location.hash;
-        window.history.replaceState({}, "", new_url);
-        return;
-      }
-    }
-  }
-  _remove_token_from_url();
-</script>
-</body>
-
-</html>
+Speed moving away from us (miles per hour),Current distance from us (miles)
+29.504674191097997,47.62845020867571
+64.87711363244078,110.75343088127846
+15.91524621784827,22.871827256991438
+13.950087338104314,23.003158021303026
+72.53929618336775,126.28145871775216
+38.42997280720855,59.22222027451718
+29.909897028489898,51.395652045503454
+46.17996262265314,75.07703383308571
+62.193339653561665,105.43515995190542
+23.423662158646813,40.97356617583596
+50.76314885260313,91.97808237754428
+36.793660830399304,65.03488212918798
+33.00267639773935,61.46050543015497
+28.752696613948302,46.437088669161916
+42.586437204947906,75.53211904594181
+14.33117147369892,12.596500240158605
+44.502597511968325,73.4726977076801
+6.95256757542343,11.16844376906897
+29.59250709180062,57.17329342529155
+66.74272457516832,107.48918226684053
+33.81104009171621,59.11491796690062
+36.22478887204548,56.36347420169367
+30.95702896825622,42.0066230331854
+35.10462249887348,55.37021577940613
+11.885409481465567,30.76156590527032
+37.084683706665906,66.2855378742386
+45.01716557192832,72.37185481107221
+46.22423787153838,73.98829345339931
+36.805328642789455,55.13587623502313
+18.229182547694393,30.979963580002877
+19.83696161639454,32.135515377769366
+54.48609839073803,96.75284314598973
+5.6586261215865274,11.197420052859009
+22.346835506299342,34.913912704484865
+27.848457545405772,47.432572748955444
+59.95888843337496,108.44136311971332
+46.78174840489626,82.99778569778071
+33.97903799081418,54.994134292270765
+54.531327694666984,87.19461835879738
+15.7637059785402,33.23287998334559
+12.13061589484283,25.59044854648199
+55.99919819014543,86.9756342544694
+55.28939950174476,88.6948170215327
+17.683581971746797,30.16473424990218
+42.17757043122371,67.86902508441706
+58.432297127613545,97.97434573162803
+41.953571778609316,64.95366614935675
+14.832293743125057,21.528007229345736
+41.51267603505892,69.83051809307022
+39.32866148729163,56.711681653080994
+68.01003040670864,115.05454526505414
+37.507257354906905,56.67541086474496
+63.12960342430598,114.04956867907335
+6.56806013414755,18.539470258363163
+23.365270261046255,37.48335240493431
+18.691766453000817,33.184548152027105
+38.722708393475486,60.501582161338746
+15.06553234884474,25.528520327359193
+37.14235310233855,71.44693295456376
+15.921448559471232,18.683974976473458
+40.73082066226324,67.91129416292215
+69.8024426752157,118.15387397625797
+70.01238723499732,114.70572816404072
+14.742309720078332,17.249699439413313
+23.55090313500739,31.0390688275262
+33.37111863349597,49.06135070024569
+54.972782219620484,89.58766228861165
+70.38549134713,108.9291599312318
+16.76314999009233,17.691384713854504
+63.89036747198073,100.87620423150034
+38.7206078457522,63.97194295067532
+8.30962941381981,12.74943715486961
+42.696354429839424,68.24892782230924
+37.263426541947354,61.31805889430706
+50.90758555234455,88.76709337204166
+5.390481510445653,12.734901317237886
+37.47177490652911,70.77337378635693
+47.62075756750814,86.8948221431834
+37.36315884903721,64.78051958620635
+40.99040919836676,60.8134097457596
+66.28394243507624,109.49947652162601
+40.79047758133726,54.5002218986898
+52.36752250455705,87.29815984144656
+49.39004961632999,89.16566305019941
+57.87801973952843,85.7719818715325
+31.694440639864236,53.63221710724046
+65.07613457542067,104.94545830636746
+58.29162020078235,97.40169198841113
+70.52356431114691,125.82242231892707
+43.76418163711405,77.04276855523867
+56.602428922697406,86.19732111680831
+42.44344663841963,64.37002818242875
+28.19654522872195,46.12977196574822
+13.205889117855833,20.584229580759946
+14.865390839463322,27.20444425261754
+48.12250082199063,82.65649812390413
+17.31320947606638,20.654414762475596
+73.8479983668523,129.67880268159968
+49.68837194117181,86.62262809386125
+51.862191430831736,80.6011787290597

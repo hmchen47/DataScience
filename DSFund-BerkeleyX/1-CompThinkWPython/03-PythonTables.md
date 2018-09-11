@@ -177,26 +177,28 @@ Q5. For the following questions, fill in the expected output of the expression.
     + `t.drop(label)`: constructs a new table without the specified columns
     + `t.sort(label)`: constructs a new table, with rows sorted by the specified column
 
-+ `t.select` method
-    + Signature: `select(*column_or_columns)`
-    + Docstring: Return a table with only the columns in `column_or_columns`
-    + Args: 
++ `Table.select` method
+    + Signature: `Table.select(*column_or_columns)`
+    + Docstring: Return a table with only the columns in `column_or_columns`.
+    + Args:
         + `column_or_columns`: Columns to select from the `Table` as either column labels (`str`) or column indices (`int`).
+    + Returns: A new instance of `Table` containing only selected columns. The columns of the new `Table` are in the order given in `column_or_columns`.
 
-+ `t.drop` method
-    + Signature: `drop(*column_or_columns)`
++ `Table.drop` method
+    + Signature: `Table.drop(*column_or_columns)`
     + Docstring: Return a Table with only columns other than selected label or labels.
     + Args:
-        + `column_or_columns` (string or list of strings): The header names or indices of the columns to be dropped.
-    + `column_or_columns`: must be an existing header name, or a valid column index.
+        + `column_or_columns` (string or list of strings): The header names or indices of the columns to be dropped. `column_or_columns` must be an existing header name, or a valid column index.
+    + Returns: An instance of `Table` with given columns removed.
 
-+ `t.sort` method:
-    + Signature: `sort(column_or_label, descending=False, distinct=False)`
++ `Table.sort` method
+    + Signature: `Table.sort(column_or_label, descending=False, distinct=False)`
     + Docstring: Return a Table of rows sorted according to the values in a column.
     + Args:
         + `column_or_label`: the column whose values are used for sorting.
-        + `descending` (boolean)
-        + `distinct` (boolean): omitt repeated values in `column_or_label`
+        + `descending`: if True, sorting will be in descending, rather than ascending order.
+        + `distinct`: if True, repeated values in `column_or_label` will be omitted.
+    + Returns: An instance of `Table` containing rows sorted based on the values in `column_or_label`.
 
 + Demo
     ```python

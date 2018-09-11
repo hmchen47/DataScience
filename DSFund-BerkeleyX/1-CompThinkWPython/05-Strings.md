@@ -9,23 +9,64 @@
     + Read a table from a spreadsheet: `Table.read_table(filename)`
     + An empty table: `Table()`
     + and ...
-+ Array --> Tables
 
++ Array --> Tables
     + Create a table with a single column w/ `data` as an array: `Table().with_column(label, data)`
     + Create a table w/ an array of data for each column: `Table().with_columns(label1, data1, ...)`
-+ Table Methods:
 
++ Table Methods:
     + Create and extending tables: `Table().with_columns` and `Table.read_table(filename)`
     + Finding the size: `num_rows` and `num_columns`
     + Referring to columns: labels, relabeling, and indices; column indices start from 0: `labels` and `relabeled`
     + Accessing data in a column: `column` takes a label or index and returns an array
     + Using array methods to work with data in columns: `item`, `sum`, `min`, `max`, and so on
     + Creating new tables containing some of the original columns: `select` and `drop`
-+ Examples
 
++ Examples
     The table `students` has columns `Name`, `ID`, and `Score`. Write one line code that evaluates to:  
     a) A table consisting of only the column labeled `Name`: `students.select('Name')`  
     b) The largest score: `students.column('Score').max()` or `max(students.column('Score'))`
+
++ `Table.read_table` method
+    + Signature: `Table.read_table(filepath_or_buffer, *args, **vargs)`
+    + Docstring: Read a table from a file or web address.
+
++ `Table.with_column` method
+    + Signature: `Table.with_column(label, values, *rest)`
+    + Docstring: Return a new table with an additional or replaced column.
+    + Args:
+        + `label` (str): The column label. If an existing label is used, the existing column will be replaced in the new table.
+        + `values` (single value or sequence): If a single value, every value in the new column is `values`. If sequence of values, new column takes on values in `values`.
+        + `rest`: An alternating list of labels and values describing additional columns. See with_columns for a full description.
+    + Returns: copy of original table with new or replaced column
+
++ `Table.with_columns` method
+    + Signature: `Table.with_columns(*labels_and_values)`
+    + Docstring: Return a table with additional or replaced columns.
+    + Args:
+    + `labels_and_values`: An alternating list of labels and values or a list of label-value pairs. If one of the labels is in existing table, then every value in the corresponding column is set to that value. If label has only a single value (`int`), every row of corresponding column takes on that value.
+    + Returns: Copy of original table with new or replaced columns. Columns added in order of labels. Equivalent to `with_column(label, value)` when passed only one label-value pair.
+    + Example:
+        ```python
+        players = Table().with_columns(
+            'player_id', make_array(110234, 110235),
+            'wOBA', make_array(.354, .236))
+        # player_id | wOBA
+        # 110234    | 0.354
+        # 110235    | 0.236
+
+        players = players.with_columns('salaries', 'N/A', 'season', 2016)
+        # player_id | wOBA  | salaries | season
+        # 110234    | 0.354 | N/A      | 2016
+        # 110235    | 0.236 | N/A      | 2016
+        players.with_columns(
+            'salaries', salaries.column('salary'),
+            'years', make_array(6, 1))
+        # player_id | wOBA  | salaries    | season | years
+        # 110235    | 0.236 | $15,500,000 | 2016   | 1
+        # 110234    | 0.354 | $500,000    | 2016   | 6
+        ```
+
 
 ### Video
 
@@ -82,6 +123,14 @@
 
 ### Notes
 
++ `Table.column` method
+    + Signature: `Table.column(self, index_or_label)`
+    + Docstring: Return the values of a column as an array.
+    + Args:
+        + `label` (int or str): The index or label of a column
+    + Returns: An instance of `numpy.array`.
+    + `table.column(label)` is equivalent to `table[label]`.
+
 + Answers:
 
     a. TypeError: add int and string  
@@ -108,23 +157,15 @@ In section 5a, we learned a little more about building tables, and we were intro
 
 Here are the table methods we learned.  These will be important later on in the course!
 
-`Table.read_table(filename)` create a table with data from a file
-
-`Table()` create an empty table
-
-`Table().with_columns(name, values, ...)` creates a table with an array of values for each column name
-
-`tbl.with_columns(name, values, ...)` appends a column name with an array of values to an existing table
-
-`tbl.num_rows` returns the number of rows in a table
-
-`tbl.num_columns`  returns the number of columns in a table
-
-`tbl.labels` returns a list of column labels of a table
-
-`tbl.relabeled(old_label, new_label)` returns a new table with a changed label column
-
-`tbl.drop(col1, col2, …)` returns a table without the dropped columns
++ `Table.read_table(filename)` create a table with data from a file
++ `Table()` create an empty table
++ `Table().with_columns(name, values, ...)` creates a table with an array of values for each column name
++ `tbl.with_columns(name, values, ...)` appends a column name with an array of values to an existing table
++ `tbl.num_rows` returns the number of rows in a table
++ `tbl.num_columns`  returns the number of columns in a table
++ `tbl.labels` returns a list of column labels of a table
++ `tbl.relabeled(old_label, new_label)` returns a new table with a changed label column
++ `tbl.drop(col1, col2, …)` returns a table without the dropped columns
 
 Here is some more practice with strings and types.
 
@@ -249,6 +290,34 @@ Q6. `int(str(a) * c)`
         [2+3, 'four', Table().with_column('K', [3, 4])]
         ```
     + If you create a table column from a list, it will be converted to an array automatically
+
++ `make_array` function
+    + Signature: `make_array(*elements)`
+    + Docstring Returns an array containing all the arguments passed to this function A simple way to make an array with a few elements.
+    + Examples: make_array(0) -> array([0]); make_array(2, 3, 4) -> array([2, 3, 4]); make_array("foo", "bar") -> array(['foo', 'bar'], dtype='<U3')
+
++ `Table.with_row` method
+    + Signature: `Table.with_row(row)`
+    + Docstring: Return a table with an additional row.
+    + Args:
+        + `row` (sequence): A value for each column.
+
++ `Table.with_rows` method
+    + Signature: `Table.with_rows(rows)`
+    + Docstring: Return a table with additional rows.
+    + Args:
+        + `rows` (sequence of sequences): Each row has a value per column. If `rows` is a 2-d array, its shape must be (_, n) for n columns.
+    + Example: 
+        ```python
+        tiles = Table(make_array('letter', 'count', 'points'))
+        tiles.with_rows(
+                make_array(make_array('c', 2, 3),
+                make_array('d', 4, 2)))
+        # letter | count | points
+        # c      | 2     | 3
+        # d      | 4     | 2
+        ```
+
 + Demo
 
     ```python
@@ -279,6 +348,15 @@ Q6. `int(str(a) * c)`
         + Rows are unmbered, starting at 0
         + Taking a single number returns a one-row table
         + Taking a list of numbers returns a table as well
+
++ `Table.take` method
+    + Signature: `Table.take()`
+    + Docstring: Return a new Table with selected rows taken by index.
+    + Args:
+        + `row_indices_or_slice` (integer or array of integers): The row index, list of row indices or a slice of row indices to be selected.
+    + Returns: A new instance of `Table` with selected rows in order corresponding to `row_indices_or_slice`.
+    + E.g.: grades.take(-1); grades.take(make_array(2, 1, 0)); grades.take[:3] = grades.take(np.arange(0,3))
+
 + Demo
 
     ```python
@@ -299,14 +377,28 @@ Q6. `int(str(a) * c)`
 ### Notes
 
 + The `where` Method
-
     + Constructs a new table with just the rows that match the condition: `t.where(label, condition)`
+
 + Manipulating Rows
 
     + sort the rows in increasing order: `t.sort(column)`
     + keep the numbered rows, index starting at 0: `t.take(row_number)`
     + keep all rows for which a column's value satisfies a condition: `t.where(column, are.condition)`
     + keep all rows containing a certain value in a column: `t.where(column, value)`
+
++ `Table.where` method
+    + Signature: `Table.where(column_or_label, value_or_predicate=None, other=None)`
+    + Docstring: Return a new `Table` containing rows where `value_or_predicate` returns True for values in `column_or_label`.
+    + Args:
+        + `column_or_label`: A column of the `Table` either as a label (`str`) or an index (`int`). Can also be an array of booleans; only the rows where the array value is `True` are kept.
+        + `value_or_predicate`: If a function, it is applied to every value in `column_or_label`. Only the rows where `value_or_predicate` returns True are kept. If a single value, only the rows where the values in `column_or_label` are equal to `value_or_predicate` are kept.
+        + `other`: Optional additional column label for `value_or_predicate` to make pairwise comparisons. See the examples below for usage. When `other` is supplied, `value_or_predicate` must be a callable function.
+    + Returns:
+        + If `value_or_predicate` is a function, returns a new `Table` containing only the rows where `value_or_predicate(val)` is True for the `val`s in `column_or_label`.
+        + If `value_or_predicate` is a value, returns a new `Table` containing only the rows where the values in `column_or_label` are equal to `value_or_predicate`.
+        + If `column_or_label` is an array of booleans, returns a new `Table` containing only the rows where `column_or_label` is `True`.
+    + Examples: marbles.where("Price", are.equal_to(1.3)); marbles.where("Price", are.above(1.5)); marbles.where("Price", are.above, "Amount")
+
 + Demo
     ```python
     # load data
