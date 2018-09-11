@@ -1,14 +1,14 @@
 # Foundations of Data Science: Computational Thinking with Python - BerkeleyX: Data8.1x
 
-## [Required Reading and Information](./00-RequiredReading&Info.md)
+## [Required Reading and Information](./00-RequiredReading.md)
 
-+ [Syllabus](./00-RequiredReading&Info.md#syllabus)
-    + [Welcome](./00-RequiredReading&Info.md#welcome)
-    + [Expectations and Requirements](./00-RequiredReading&Info.md#expectations-and-requirements)
-    + [Discussion Forum Guidelines](./00-RequiredReading&Info.md#discussion-forum-guidelines)
++ [Syllabus](./00-RequiredReading.md#syllabus)
+    + [Welcome](./00-RequiredReading.md#welcome)
+    + [Expectations and Requirements](./00-RequiredReading.md#expectations-and-requirements)
+    + [Discussion Forum Guidelines](./00-RequiredReading.md#discussion-forum-guidelines)
 
-+ [Frequently Asked Questions](./00-RequiredReading&Info.md#frequently-asked-questions)
-+ [[Optional] Non-notebook Workflow](./00-RequiredReading&Info.md#optional-non-notebook-workflow)
++ [Frequently Asked Questions](./00-RequiredReading.md#frequently-asked-questions)
++ [[Optional] Non-notebook Workflow](./00-RequiredReading.md#optional-non-notebook-workflow)
 
 ## Week 1
 
