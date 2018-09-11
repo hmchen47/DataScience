@@ -1,5 +1,13 @@
 # Python Reference Cards for UC Berkeley DataScience package
 
++ [Official References][035]
+    + [Tutorial][036]
+    + [Tables][027]
+    + [Maps][037]
+    + [Predicates][038]
+    + [Formats][039]
+    + [Utility Functions][040]
+
 ## Typical Programming Environment
 
 ```python
@@ -109,7 +117,7 @@ plots.style.use('fivethirtyeight')
 | `t.labels` | returns a list of column labels of a table | [I-Lec 5.1 Creating Tables][024] |
 
 
-### Methods ([Ref][027])
+### [Methods - DataScience][027]
 
 | Function | Description | Link |
 |----------|-------------|------|
@@ -250,7 +258,12 @@ plots.style.use('fivethirtyeight')
 [032]: ../DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
 [033]: ../DSFund-BerkeleyX/3--PredictML/05-LeastSquare.md#lec-54-least-squares
 [034]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-56-minards-map-code
-
+[035]: http://data8.org/datascience/index.html
+[036]: http://data8.org/datascience/tutorial.html
+[037]: http://data8.org/datascience/maps.html
+[038]: http://data8.org/datascience/predicates.html
+[039]: http://data8.org/datascience/formats.html
+[040]: http://data8.org/datascience/util.html
 
 
 
