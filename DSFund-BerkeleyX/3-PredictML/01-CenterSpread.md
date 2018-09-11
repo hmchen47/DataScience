@@ -83,6 +83,7 @@
     <a href="url">
         <br/><img src="./diagrams/lec1-1.PNG" alt="text" width="300">
     </a>
+
       + Answer: data set = {1, 2, 2, 3, 3, 3, 4, 4, 5} -> median = average = 3
     + Are the medians of these two distributions the same or different? Are the means the same or different? If you say “different,” then say which one is bigger.
     <a href="url">
@@ -91,6 +92,7 @@
     <a href="url">
         <img src="./diagrams/lec1-3.PNG" alt="text" width="300">
     </a>
+
       + Answer: List 1 = {1, 2, 2, 3, 3, 3, 4, 4, 5}, List 2 = {1, 2, 3, 3, 3, 4, 4, 10}; same median = 3, different average -> 2nd List bigger
 
 + Comparing Mean and median
@@ -106,7 +108,8 @@
     <a href="url">
         <br/><img src="./diagrams/lec1-4.png" alt="text" width="450">
     </a>
-    + Answer:  meaian bigger - average is pulled away from the median to the left
+
+    + Answer:  median bigger - average is pulled away from the median to the left
 
 + Demo
     ```python
@@ -158,7 +161,7 @@
     sd_table = Table().with_columns('Value', values)
     # Value: 2, 3, 3, 9
     
-    average = np.average(values)            $# 4.25
+    average = np.average(values)            # 4.25
     
     deviations = values - average
     sd_table = sd_table.with_column('Deviation', deviations)
