@@ -2,8 +2,8 @@
 
 + [Launching Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/15f6f5cf64944c379af5a6b1f12f8af4/)
 + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec1.ipynb)
-+ [Local Notebook](./notebook/lec1.ipynb)
-+ [Local Python](./notebook/lec1.py)
++ [Local Notebook](./notebooks/lec1.ipynb)
++ [Local Python](./notebooks/lec1.py)
 
 ## Lec 1.1 Introduction
 

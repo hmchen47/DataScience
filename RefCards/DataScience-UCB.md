@@ -37,6 +37,70 @@ plots.style.use('fivethirtyeight')
 
 ## Table
 
+### `Table` Class methods and Attributes
+
++ `append(row_or_table)`: Append a row or all rows of a table. An appended table must have all columns of self.
++ `append_column(label, values)`: Appends a column to the table or replaces a column.
++ `apply(fn, *column_or_columns)`: Apply `fn` to each element or elements of `column_or_columns`. If no `column_or_columns` provided, `fn` is applied to each row.
++ `as_html(max_rows=0)`: Format table as HTML.
++ ``as_text(max_rows=0, sep=' | ')`: Format table as text.
++ `bar(column_for_categories=None, select=None, overlay=True, width=6, height=4, **vargs)`: Plot bar charts for the table.
++ `barh(column_for_categories=None, select=None, overlay=True, width=6, **vargs)`: Plot horizontal bar charts for the table.
++ `bin(*columns, **vargs)`: Group values by bin and compute counts per bin by column.
++ `boxplot(**vargs)`: Plots a boxplot for the table.
++ `column(index_or_label)`: Return the values of a column as an array.
++ `column_index(label)`: Return the index of a column by looking up its label.
++ `copy(*, shallow=False)`: Return a copy of a table.
++ `drop(*column_or_columns)`: Return a Table with only columns other than selected label or labels.
++ `exclude()`: Return a new Table without a sequence of rows excluded by number.
++ `group(column_or_label, collect=None)`: Group rows by unique values in a column; count or aggregate others.
++ `group_bar(column_label, **vargs)`: Plot a bar chart for the table.
++ `group_barh(column_label, **vargs)`: Plot a horizontal bar chart for the table.
++ `groups(labels, collect=None)`: Group rows by multiple columns, count or aggregate others.
++ `hist(*columns, overlay=True, bins=None, bin_column=None, unit=None, counts=None, group=None, side_by_side=False, width=6, height=4, **vargs)`: Plots one histogram for each column in columns. If no column is specified, plot all columns.
++ `index_by(column_or_label)`: Return a dict keyed by values in a column that contains lists of rows corresponding to each value.
++ `join(column_label, other, other_label=None)`: Creates a new table with the columns of self and other, containing rows for all values of a column that appear in both tables.
++ `move_to_end(column_label)`: Move a column to the last in order.
++ `move_to_start(column_label)`: Move a column to the first in order.
++ `percentile(p)`: Return a new table with one row containing the pth percentile for each column.
++ `pivot(columns, rows, values=None, collect=None, zero=None)`: Generate a table with a column for each unique value in `columns`, with rows for each unique value in `rows`. Each row counts/aggregates the values that match both row and column based on `collect`.
++ `pivot_bin(pivot_columns, value_column, bins=None, **vargs)`: Form a table with columns formed by the unique tuples in pivot_columns containing counts per bin of the values associated with each tuple in the value_column.
++ `pivot_hist(pivot_column_label, value_column_label, overlay=True, width=6, height=4, **vargs)`: Draw histograms of each category in a column.
++ `plot(column_for_xticks=None, select=None, overlay=True, width=6, height=4, **vargs)`: Plot line charts for the table.
++ `relabel(column_label, new_label)`: Changes the label(s) of column(s) specified by `column_label` to labels in `new_label`.
++ `relabeled(label, new_label)`: Return a new table with ``label`` specifying column label(s) replaced by corresponding `new_label`.
++ `remove(row_or_row_indices)`: Removes a row or multiple rows of a table in place.
++ `row(index)`: Return a row.
++ `sample(k=None, with_replacement=True, weights=None)`: Return a new table where k rows are randomly sampled from the original table.
++ `sample_from_distribution(distribution, k, proportions=False)`: Return a new table with the same number of rows and a new column. The values in the distribution   + `column are define a multinomial. They are replaced by sample counts/proportions in the output.
++ `scatter(column_for_x, select=None, overlay=True, fit_line=False, colors=None, labels=None, sizes=None, width=5, height=5, s=20, **vargs)`: Creates scatterplots, optionally adding a line of best fit.
++ `select(*column_or_columns)`: Return a table with only the columns in `column_or_columns`.
++ `set_format(column_or_columns, formatter)`: Set the format of a column.
++ `show(max_rows=0)`: Display the table.
++ `sort(column_or_label, descending=False, distinct=False)`: Return a Table of rows sorted according to the values in a column.
++ `split(k)`: Return a tuple of two tables where the first table contains `k` rows randomly sampled and the second contains the remaining rows.
++ `stack(key, labels=None)`: Takes k original columns and returns two columns, with col. 1 of all column names and col. 2 of all associated data.
++ `stats(ops=(<built-in function min>, <built-in function max>, <function median at 0x7f5edc2fc048>, <built-in function sum>))`: Compute statistics for each column and place them in a table.
++ `take()`: Return a new Table with selected rows taken by index.
++ `to_array()`: Convert the table to a structured NumPy array.
++ `to_csv(filename)`: Creates a CSV file with the provided filename.
++ `to_df()`: Convert the table to a Pandas DataFrame.
++ `where(column_or_label, value_or_predicate=None, other=None)`: Return a new `Table` containing rows where `value_or_predicate` returns True for values in `column_or_label`.
++ `with_column(label, values, *rest)`: Return a new table with an additional or replaced column.
++ `with_columns(*labels_and_values)`: Return a table with additional or replaced columns.
++ `with_relabeling(*args)`: # Deprecated
++ `with_row(row)`: Return a table with an additional row.
++ `with_rows(rows)`: Return a table with additional rows.
+
++ __Class Attributes__
+    + `column_labels`: Return a tuple of column labels. [Deprecated]
+    + `columns`
+    + `labels`: Return a tuple of column labels.
+    + `num_columns`: Number of columns.
+    + `num_rows`: Number of rows.
+    + `rows`: Return a view of all rows.
+    + `values`: Return data in `self` as a numpy array.
+
 ### Attributes
 
 | Attribute | Description | Link |
@@ -185,6 +249,7 @@ plots.style.use('fivethirtyeight')
 [031]: ../DSFund-BerkeleyX/2-Inferential/05-Hypothesis.md#lec-52-a-model-about-random-selection
 [032]: ../DSFund-BerkeleyX/2-Inferential/10-CI.md#percentiles
 [033]: ../DSFund-BerkeleyX/3--PredictML/05-LeastSquare.md#lec-54-least-squares
+[034]: ../DSFund-BerkeleyX/1-CompThinkWPython/05-Strings.md#lec-56-minards-map-code
 
 
 

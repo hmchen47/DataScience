@@ -2,8 +2,8 @@
 
 + [Launching Notebook Web Page](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/7bba8d29a20946e5be64e508fd3481b2/f9a06e52a1c448049e646a8101021f26/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%406f23e54059604575bf51e75383dfe293)
 + [Notebook Web Page](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/notebooks/materials-x18/lec/x18/3/lec2.ipynb#)
-+ [Local Notebook](./notebook/lec2.ipynb)
-+ [Local Python code](./notebook/lec2.py)
++ [Local Notebook](./notebooks/lec2.ipynb)
++ [Local Python code](./notebooks/lec2.py)
 
 ## Lec 2.1 Standard Units
 
