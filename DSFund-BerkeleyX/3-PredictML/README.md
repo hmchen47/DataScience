@@ -53,17 +53,18 @@
 ## Week 3
 
 + [Section 6: Residuals (Lec 6.1 - Lec 6.4)](./06-Residuals.md)
-    + [Lec 6.1 Introduction](./06-Residuals.md#)
-    + [Lec 6.2 Regression Diagnostics](./06-Residuals.md#)
-    + [Lec 6.3 Properties of Residuals](./06-Residuals.md#)
-    + [Lec 6.4 Discussion Question](./06-Residuals.md#)
-    + [Reading and Practice](./06-Residuals.md#)
+    + [Lec 6.1 Introduction](./06-Residuals.md#lec-61-introduction)
+    + [Lec 6.2 Regression Diagnostics](./06-Residuals.md#lec-62-regression-diagnostics)
+    + [Lec 6.3 Properties of Residuals](./06-Residuals.md#lec-63-properties-of-residuals)
+    + [Lec 6.4 Discussion Question](./06-Residuals.md#lec-64-discussion-question)
+    + [Reading and Practice](./06-Residuals.md#reading-and-practice)
+
 
 + [Section 7: Regression Inference (Lec 7.1 - Lec 7.3)](./07-RegInference.md)
-    + [Lec 7.1 Regression Model](./07-RegInference.md#)
-    + [Lec 7.2 Prediction Variability](./07-RegInference.md#)
-    + [Lec 7.3 The True Slope](./07-RegInference.md#)
-    + [Reading and Practice](./07-RegInference.md#)
+    + [Lec 7.1 Regression Model](./07-RegInference.md#lec-71-regression-model)
+    + [Lec 7.2 Prediction Variability](./07-RegInference.md#lec-72-prediction-variability)
+    + [Lec 7.3 The True Slope](./07-RegInference.md#lec-73-the-true-slope)
+    + [Reading and Practice](./07-RegInference.md#reading-and-practice)
 
 + [Lab 3: Regression Inference](https://courses.edx.org/courses/course-v1:BerkeleyX+Data8.3x+2T2018/courseware/9e3318ad6da44461990e1d4e3a64986f/d3c28c5dfaaa42b39c7334a2a566f7da/1?activate_block_id=block-v1%3ABerkeleyX%2BData8.3x%2B2T2018%2Btype%40vertical%2Bblock%40296906bb51034a6e864fe8dafc40be94)
     + [Web Notebook](https://hub.data8x.berkeley.edu/user/37b80bfacc52ea5dfdad124579807188/git-pull?repo=git://reposync/materials-x18&subPath=materials/x18/lab/3/lab03/lab03.ipynb)
