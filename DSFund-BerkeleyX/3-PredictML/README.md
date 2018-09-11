@@ -68,22 +68,24 @@
 + [Lab 3: Regression Inference]
 
 
-##  Week 4
+## Week 4
 
 + [Section 8: Classification (Lec 8.1 - Lec 8.3)](./08-Classify.md)
-    + [Lec 8.1 Introduction](./08-Classify.md#)
-    + [Lec 8.2 Nearest Neighbor](./08-Classify.md#)
-    + [Lec 8.3 Examples](./08-Classify.md#)
-    + [Reading and Practice](./08-Classify.md#)
+    + [Lec 8.1 Introduction](./08-Classify.md#lec-81-introduction)
+    + [Lec 8.2 Nearest Neighbor](./08-Classify.md#lec-82-nearest-neighbor)
+    + [Lec 8.3 Examples](./08-Classify.md#lec-83-examples)
+    + [Reading and Practice](./08-Classify.md#reading-and-practice)
+
 
 + [Section 9: Classifiers (Lec 9.1 - Lec 9.6)](./09-Classfier.md)
-    + [Lec 9.1 Terminology](./09-Classfier.md#)
-    + [Lec 9.2 Dataset](./09-Classfier.md#)
-    + [Lec 9.3 Distance](./09-Classfier.md#)
-    + [Lec 9.4 Nearest Neighbors](./09-Classfier.md#)
-    + [Lec 9.5 Evaluation](./09-Classfier.md#)
-    + [Lec 9.6 Decision Boundaries](./09-Classfier.md#)
-    + [Reading and Practice](./09-Classfier.md#)
+    + [Lec 9.1 Terminology](./09-Classfier.md#lec-91-terminology)
+    + [Lec 9.2 Dataset](./09-Classfier.md#lec-92-dataset)
+    + [Lec 9.3 Distance](./09-Classfier.md#lec-93-distance)
+    + [Lec 9.4 Nearest Neighbors](./09-Classfier.md#lec-94-nearest-neighbors)
+    + [Lec 9.5 Evaluation](./09-Classfier.md#lec-95-evaluation)
+    + [Lec 9.6 Decision Boundaries](./09-Classfier.md#lec-96-decision-boundaries)
+    + [Reading and Practice](./09-Classfier.md#reading-and-practice)
+
 
 + [Lab 4: Classification Part 1]()
     + [Web Notebook]()
