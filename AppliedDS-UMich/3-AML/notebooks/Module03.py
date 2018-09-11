@@ -12,9 +12,6 @@
 # ## Evaluation for Classification
 
 # ### Preamble
-
-# In[ ]:
-
 get_ipython().magic('matplotlib notebook')
 import numpy as np
 import pandas as pd
@@ -29,9 +26,6 @@ X, y = dataset.data, dataset.target
 for class_name, class_count in zip(dataset.target_names, np.bincount(dataset.target)):
     print(class_name,class_count)
 
-
-# In[ ]:
-
 # Creating a dataset with imbalanced binary classes:  
 # Negative class (0) is 'not digit 1' 
 # Positive class (1) is 'digit 1'
@@ -41,13 +35,7 @@ y_binary_imbalanced[y_binary_imbalanced != 1] = 0
 print('Original labels:\t', y[1:30])
 print('New binary labels:\t', y_binary_imbalanced[1:30])
 
-
-# In[ ]:
-
 np.bincount(y_binary_imbalanced)    # Negative class (0) is the most frequent class
-
-
-# In[ ]:
 
 X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
 
@@ -57,13 +45,8 @@ from sklearn.svm import SVC
 svm = SVC(kernel='rbf', C=1).fit(X_train, y_train)
 svm.score(X_test, y_test)
 
-
 # ### Dummy Classifiers
-
 # DummyClassifier is a classifier that makes predictions using simple rules, which can be useful as a baseline for comparison against actual classifiers, especially with imbalanced classes.
-
-# In[ ]:
-
 from sklearn.dummy import DummyClassifier
 
 # Negative class (0) is most frequent
@@ -73,24 +56,14 @@ y_dummy_predictions = dummy_majority.predict(X_test)
 
 y_dummy_predictions
 
-
-# In[ ]:
-
 dummy_majority.score(X_test, y_test)
-
-
-# In[ ]:
 
 svm = SVC(kernel='linear', C=1).fit(X_train, y_train)
 svm.score(X_test, y_test)
 
 
 # ### Confusion matrices
-
 # #### Binary (two-class) confusion matrix
-
-# In[ ]:
-
 from sklearn.metrics import confusion_matrix
 
 # Negative class (0) is most frequent
@@ -100,9 +73,6 @@ confusion = confusion_matrix(y_test, y_majority_predicted)
 
 print('Most frequent class (dummy classifier)\n', confusion)
 
-
-# In[ ]:
-
 # produces random predictions w/ same class proportion as training set
 dummy_classprop = DummyClassifier(strategy='stratified').fit(X_train, y_train)
 y_classprop_predicted = dummy_classprop.predict(X_test)
@@ -110,17 +80,11 @@ confusion = confusion_matrix(y_test, y_classprop_predicted)
 
 print('Random class-proportional prediction (dummy classifier)\n', confusion)
 
-
-# In[ ]:
-
 svm = SVC(kernel='linear', C=1).fit(X_train, y_train)
 svm_predicted = svm.predict(X_test)
 confusion = confusion_matrix(y_test, svm_predicted)
 
 print('Support vector machine classifier (linear kernel, C=1)\n', confusion)
-
-
-# In[ ]:
 
 from sklearn.linear_model import LogisticRegression
 
@@ -130,9 +94,6 @@ confusion = confusion_matrix(y_test, lr_predicted)
 
 print('Logistic regression classifier (default settings)\n', confusion)
 
-
-# In[ ]:
-
 from sklearn.tree import DecisionTreeClassifier
 
 dt = DecisionTreeClassifier(max_depth=2).fit(X_train, y_train)
@@ -141,11 +102,7 @@ confusion = confusion_matrix(y_test, tree_predicted)
 
 print('Decision tree classifier (max_depth = 2)\n', confusion)
 
-
 # ### Evaluation metrics for binary classification
-
-# In[ ]:
-
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 # Accuracy = TP + TN / (TP + TN + FP + FN)
 # Precision = TP / (TP + FP)
@@ -156,16 +113,10 @@ print('Precision: {:.2f}'.format(precision_score(y_test, tree_predicted)))
 print('Recall: {:.2f}'.format(recall_score(y_test, tree_predicted)))
 print('F1: {:.2f}'.format(f1_score(y_test, tree_predicted)))
 
-
-# In[ ]:
-
 # Combined report with all above metrics
 from sklearn.metrics import classification_report
 
 print(classification_report(y_test, tree_predicted, target_names=['not 1', '1']))
-
-
-# In[ ]:
 
 print('Random class-proportional (dummy)\n', 
       classification_report(y_test, y_classprop_predicted, target_names=['not 1', '1']))
@@ -176,20 +127,13 @@ print('Logistic regression\n',
 print('Decision tree\n', 
       classification_report(y_test, tree_predicted, target_names = ['not 1', '1']))
 
-
 # ### Decision functions
-
-# In[ ]:
-
 X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
 y_scores_lr = lr.fit(X_train, y_train).decision_function(X_test)
 y_score_list = list(zip(y_test[0:20], y_scores_lr[0:20]))
 
 # show the decision_function scores for first 20 instances
 y_score_list
-
-
-# In[ ]:
 
 X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
 y_proba_lr = lr.fit(X_train, y_train).predict_proba(X_test)
@@ -198,11 +142,7 @@ y_proba_list = list(zip(y_test[0:20], y_proba_lr[0:20,1]))
 # show the probability of positive class for first 20 instances
 y_proba_list
 
-
 # ### Precision-recall curves
-
-# In[ ]:
-
 from sklearn.metrics import precision_recall_curve
 
 precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
@@ -222,9 +162,6 @@ plt.show()
 
 
 # ### ROC curves, Area-Under-Curve (AUC)
-
-# In[ ]:
-
 from sklearn.metrics import roc_curve, auc
 
 X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
@@ -244,9 +181,6 @@ plt.legend(loc='lower right', fontsize=13)
 plt.plot([0, 1], [0, 1], color='navy', lw=3, linestyle='--')
 plt.axes().set_aspect('equal')
 plt.show()
-
-
-# In[ ]:
 
 from matplotlib import cm
 
@@ -277,11 +211,7 @@ plt.show()
 
 
 # ### Evaluation measures for multi-class classification
-
 # #### Multi-class confusion matrix
-
-# In[ ]:
-
 dataset = load_digits()
 X, y = dataset.data, dataset.target
 X_train_mc, X_test_mc, y_train_mc, y_test_mc = train_test_split(X, y, random_state=0)
@@ -316,34 +246,20 @@ plt.xlabel('Predicted label');
 
 
 # #### Multi-class classification report
-
-# In[ ]:
-
 print(classification_report(y_test_mc, svm_predicted_mc))
 
-
 # #### Micro- vs. macro-averaged metrics
-
-# In[ ]:
-
 print('Micro-averaged precision = {:.2f} (treat instances equally)'
       .format(precision_score(y_test_mc, svm_predicted_mc, average = 'micro')))
 print('Macro-averaged precision = {:.2f} (treat classes equally)'
       .format(precision_score(y_test_mc, svm_predicted_mc, average = 'macro')))
-
-
-# In[ ]:
 
 print('Micro-averaged f1 = {:.2f} (treat instances equally)'
       .format(f1_score(y_test_mc, svm_predicted_mc, average = 'micro')))
 print('Macro-averaged f1 = {:.2f} (treat classes equally)'
       .format(f1_score(y_test_mc, svm_predicted_mc, average = 'macro')))
 
-
 # ### Regression evaluation metrics
-
-# In[ ]:
-
 get_ipython().magic('matplotlib notebook')
 import matplotlib.pyplot as plt
 import numpy as np
@@ -383,11 +299,7 @@ plt.show()
 
 
 # ### Model selection using evaluation metrics
-
 # #### Cross-validation example
-
-# In[ ]:
-
 from sklearn.model_selection import cross_val_score
 from sklearn.svm import SVC
 
@@ -404,11 +316,7 @@ print('Cross-validation (AUC)', cross_val_score(clf, X, y, cv=5, scoring = 'roc_
 # use recall as scoring metric
 print('Cross-validation (recall)', cross_val_score(clf, X, y, cv=5, scoring = 'recall'))
 
-
 # #### Grid search example
-
-# In[ ]:
-
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import roc_auc_score
@@ -437,28 +345,18 @@ print('Test set AUC: ', roc_auc_score(y_test, y_decision_fn_scores_auc))
 print('Grid best parameter (max. AUC): ', grid_clf_auc.best_params_)
 print('Grid best score (AUC): ', grid_clf_auc.best_score_)
 
-
 # #### Evaluation metrics supported for model selection
-
-# In[ ]:
-
 from sklearn.metrics.scorer import SCORERS
 
 print(sorted(list(SCORERS.keys())))
 
-
 # ### Two-feature classification example using the digits dataset
-
 # #### Optimizing a classifier using different evaluation metrics
-
-# In[ ]:
-
 from sklearn.datasets import load_digits
 from sklearn.model_selection import train_test_split
 from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
-
 
 dataset = load_digits()
 X, y = dataset.data, dataset.target == 1
@@ -489,11 +387,7 @@ for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
 plt.tight_layout()
 plt.show()
 
-
 # #### Precision-recall curve for the default SVC classifier (with balanced class weights)
-
-# In[ ]:
-
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_curve
 from adspy_shared_utilities import plot_class_regions_for_classifier
@@ -533,9 +427,6 @@ plt.axes().set_aspect('equal')
 plt.show()
 print('At zero threshold, precision: {:.2f}, recall: {:.2f}'
       .format(closest_zero_p, closest_zero_r))
-
-
-# In[ ]:
 
 
 
