@@ -477,7 +477,7 @@
     plt.show()
     ```
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/0YPe1/classifier-decision-functions">
-        <img src="images/plt3-01.png" alt="text" title= "caption" height="300">
+        <img src="images/plt3-01.png" alt="text" title= "Precision-recall curves" height="300">
     </a>
 
 ### Lecture Video
@@ -492,18 +492,131 @@
 ### Note
 
 
-+ Demo
++ Classifier Decision Functions
+    + X-axis: Precision
+    + Y-axis: Recall
+    + Top right corner:
+        + The “ideal” point
+        + Precision = 1.0
+        + Recall = 1.0
+    + “Steepness” of P-R curves is important:
+        + Maximize precision
+        + while maximizing recall
+    
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves">
+        <img src="images/plt3-08.png" alt="Precision-Recall Curves are very widely used evaluation method from machine learning. As we just saw in example, the x axis shows precision and the y axis shows recall. Now an ideal classifier would be able to achieve perfect precision of 1.0 and perfect recall of 1.0. So the optimal point would be up here in the top right. And in general, with precision recall curves, the closer in some sense, the curve is to the top right corner, the more preferable it is, the more beneficial the tradeoff it gives between precision and recall. And we saw some examples already of how there is a tradeoff between those two quantities, between precision and recall, with many classifiers. This example here is an actual precision recall curve that we generated using the following notebook code. The red circle indicates the precision and recall that's achieved when the decision threshold is zero. So I created this curve using exactly the same method as we saw in the previous example, by looking at the decision function output from a support vector classifier. Applying very end decision boundary, looking at how the precision of recall change as the decision boundary changed. Fortunately, learn has a function that's built in that does all of that, that could compute the precision of recall curve. And that's what we've been using in the notebook here. So you can see that in this particular application there is a general downward trend. So as the precision of the classifier goes up, the recall tends to go down. In this particular case you'll see also that It's not exactly a smooth curve. There are some jaggy errors and, in fact, the jumps tend to get a little bigger as we approach maximum precision. This is a consequence of how the formulas for precision and recall are computed. They use discrete counts that include the number of true positives. And so as the decision threshold increases, there are fewer and fewer points that remain as positive predictions. So the fractions that are computed for these smaller numbers can change pretty dramatically with small changes in the decision threshold. And that's why these sort of trailing edges of the Precision-recall curve can appear a bit jagged when you plot them. " title= "Classifier Decision Functions" height="250">
+    </a>
+
++ ROC Curves
+    + ROC: Receiver Operating Characteristics
+    + X-axis: False Positive Rate
+    + Y-axis: True Positive Rate
+    + Top left corner:
+        + The “ideal” point
+        + False positive rate of zero
+        + True positive rate of one
+    + “Steepness” of ROC curves is important:
+        + Maximize the true positive rate
+        + while minimizing the false positive rate
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
+        <img src="images/fig3-11.png" alt="ROC curves or receiver operating characteristic curves are a very widely used visualization method that illustrate the performance of a binary classifier. ROC curves on the X-axis show a classifier's False Positive Rate so that would go from 0 to 1.0, and on the Y-axis they show a classifier's True Positive Rate so that will also go from 0 to 1.0. The ideal point in ROC space is one where the classifier achieves zero, a false positive rate of zero, and a true positive rate of one. So that would be the upper left corner. So curves in ROC space represent different tradeoffs as the decision boundary, the decision threshold is varied for the classifier. So just as in the precision recall case, as we vary decision threshold, we'll get different numbers of false positives and true positives that we can plot on a chart. The dotted line here that I'm showing is the classifier curve that secretly results from a classifier that randomly guesses the label for a binary class. It's basically like flipping a coin. If you have two classes with equal numbers of positive and negative incidences, then flipping a coin will get you randomly equal numbers of false positives and true positives for a large virus data sets. So the dotted line here is used as a base line. So bad classifier will have performance that is random or maybe even worse than random or be slightly better than random. Reasonably good classifier will give an ROC curve that is consistently better than random across all decision threshold choices. And then an excellent classifier would be one like I've shown here, which is way up into the left. This particular example is an example of a logistic regression classifier using the notebook example you've seen. So, the shape of the curve can be important as well, the steepness of the curve, we want classifiers that maximize the true positive rate while minimizing the false positive rate. " title= "ROC Curves" height="200">
+    </a>
+
++ ROC curve examples
+    + Random guessing
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
+            <img src="images/fig3-12.png" alt="text" title= "ROC curve examples: random guessing" height="200">
+        </a>
+    + Perfect classifier
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
+            <img src="images/fig3-13.png" alt="text" title= "ROC curve examples: perfect classifier" height="200">
+        </a>
+    + Bad, okay,
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
+            <img src="images/fig3-12.png" alt="text" title= "ROC curve examples: bad, okay" height="200">
+        </a>
+
++ Summarizing an ROC curve in one number: Area Under the Curve (AUC)
+    + AUC = 0 (worst) AUC = 1 (best)
+    + AUC can be interpreted as:
+        1. The total area under the ROC curve.
+        2. The probability that the classifier will assign a higher score to a randomly chosen positive example than to a randomly chosen   + negative example.
+    + Advantages:
+        + Gives a single number for easy comparison.
+        + Does not require specifying a decision threshold.
+    + Drawbacks:
+        + As with other single-number metrics, AUC loses information, e.g. about tradeoffs and the shape of the ROC curve.
+        + This may be a factor to consider when e.g. wanting to compare the performance of classifiers with overlapping ROC curves.
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
+        <img src="images/fig3-15.png" alt="We can qualify the goodness of a classifier in some sense by looking at how much area there is underneath the curve. So the area underneath the random classifier is going to be 0.5 but then the area, as you can see, the size of the bumpiness of the classifier as it approaches the top left corner. Well, the area underneath the curve will get larger and larger. It will approach 1.  We use something called area under the curve, AUC. That's the single number that measures this total area underneath the ROC curve as a way to summarize a classifier's performance. So, an AUC of zero represents a very bad classifier, and an AUC of one will represent an optimal classifier." title= "Area Under the Curve (AUC)" height="200">
+    </a>
+
+
++ Demo 1
     ```python
+    from sklearn.metrics import roc_curve, auc
 
+    X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
+
+    y_score_lr = lr.fit(X_train, y_train).decision_function(X_test)
+    fpr_lr, tpr_lr, _ = roc_curve(y_test, y_score_lr)
+    roc_auc_lr = auc(fpr_lr, tpr_lr)
+
+    plt.figure()
+    plt.xlim([-0.01, 1.00])
+    plt.ylim([-0.01, 1.01])
+    plt.plot(fpr_lr, tpr_lr, lw=3, label='LogRegr ROC curve (area = {:0.2f})'.format(roc_auc_lr))
+    plt.xlabel('False Positive Rate', fontsize=16)
+    plt.ylabel('True Positive Rate', fontsize=16)
+    plt.title('ROC curve (1-of-10 digits classifier)', fontsize=16)
+    plt.legend(loc='lower right', fontsize=13)
+    plt.plot([0, 1], [0, 1], color='navy', lw=3, linestyle='--')
+    plt.axes().set_aspect('equal')
+    plt.show()
     ```
+    <a href="url"> <br/>
+        <img src="images/plt3-02.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC)" height="250">
+    </a>
 
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
++ Demo 2
+    ```python
+    from matplotlib import cm
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
+
+    plt.figure()
+    plt.xlim([-0.01, 1.00])
+    plt.ylim([-0.01, 1.01])
+    for g in [0.01, 0.1, 0.20, 1]:
+        svm = SVC(gamma=g).fit(X_train, y_train)
+        y_score_svm = svm.decision_function(X_test)
+        fpr_svm, tpr_svm, _ = roc_curve(y_test, y_score_svm)
+        roc_auc_svm = auc(fpr_svm, tpr_svm)
+        accuracy_svm = svm.score(X_test, y_test)
+        print("gamma = {:.2f}  accuracy = {:.2f}   AUC = {:.2f}".format(g, accuracy_svm, roc_auc_svm))
+        plt.plot(fpr_svm, tpr_svm, lw=3, alpha=0.7, 
+                label='SVM (gamma = {:0.2f}, area = {:0.2f})'.format(g, roc_auc_svm))
+
+    plt.xlabel('False Positive Rate', fontsize=16)
+    plt.ylabel('True Positive Rate (Recall)', fontsize=16)
+    plt.plot([0, 1], [0, 1], color='k', lw=0.5, linestyle='--')
+    plt.legend(loc="lower right", fontsize=11)
+    plt.title('ROC curve: (1-of-10 digits classifier)', fontsize=16)
+    plt.axes().set_aspect('equal')
+
+    plt.show()
+    # gamma = 0.01  accuracy = 0.91   AUC = 1.00
+    # gamma = 0.10  accuracy = 0.90   AUC = 0.98
+    # gamma = 0.20  accuracy = 0.90   AUC = 0.66
+    # gamma = 1.00  accuracy = 0.90   AUC = 0.50
+    ```
+    <a href="url"> <br/>
+        <img src="images/plt3-03.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC) with differeent gamma parameters" height="250">
     </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/7QzJvD6FEee2TA5yccyTSg.processed/full/360p/index.mp4?Expires=1536883200&Signature=Z7qcBxZq7~rGuyqNG14q2NjuUodasmZjY8vnrHJFlisdQ0vfvAt07NkmrP-F2UM3LsvPYgW~L-9Oasbz9604aV2MF~wqka2F7dmbjQSyfuwWSrElXeNkx41nFo2ObEmynogoyk~LuFwriGcvfWJNj37uGR5Rqk4Cy3OE8Rrlnkg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Precision-recall and ROC curves" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
