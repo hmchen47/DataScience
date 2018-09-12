@@ -222,7 +222,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/n4ge2T6FEee3MRIl4lCYSA.processed/full/360p/index.mp4?Expires=1536883200&Signature=Nb8qRgdnN4JrgKmkaiI7JXbQdRBVWFNvWfW4peY5JQTJg9wL4OeM0ny5Vj9q8~BuvfXsdWtAlGjQUUtQH2hRv6~byZbIbUbZR-~8yuPM14ecmjoQL2oGeaFjnX3B7u-mPaQqgiZf-ZxJ0kptP5Pbo51Lhk0J2BeVK0SmMIIKeSo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Model Evaluation & Selection" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -231,19 +231,158 @@
 
 ### Note
 
++ Confusion Matrix for Binary Prediction Task
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+        <br/><img src="images/fig3-04.png" alt="So, let's go back to the matrix of possible binary classification outcomes. This time filled out with the actual counts from the notebooks decision tree output. Remember our original motivation for creating this matrix was to go beyond a single number accuracy, to get more insight into the different types of prediction successes and failures of a given classifier. Now we have these four numbers that we can examine and compare manually. " title= "Confusion table" height="150">
+    </a>
+
+    + Always look at the confusion matrix for your classifier
+
++ Visualization of Different Error Types
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection"> 
+        <br/><img src="images/fig3-05.png" alt="Let's look at this classification result visually to help us connect these four numbers to a classifier's performance. What I've done here is plot the data instances by using two specific feature values out of the total 64 feature values that make up each instance in the digits dataset. The black points here are the instances with true class positive namely the digit one and the white points have true class negative, that is, there are all the other digits except for one. The black line shows a hypothetical linear classifier's decision boundary for which any instance to the left of the decision boundary is predicted to be in the positive class and everything to the right of the decision boundary is predicted to be in the negative class. The true positive points are those black points in the positive prediction region and false positives are those white points in the positive prediction region. Likewise, true negatives are the white points in the negative prediction region and false negatives are black points in the negative prediction region. " title= "caption" height="200">
+    </a>
+    + Black points: True class positive, namely digit one
+    + White pointss: True class negative
+    + Black line: a hypothetical linear classifier's decision boundary, positive class on left and negative class on right
+    + True Positive (TP): black points in the positive prediction region
+    + True Negative (TF): white points in the positive prediction region
+    + False Positive (FP): white points in the positive prediction region
+    + False Negative (FN): black points in the positive prediction region
+
++ Confusion Matrix for Binary Prediction Task
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection"> <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="images/fig3-04.png" alt="We've already seen one metric that can be derived from the confusion matrix counts namely accuracy. The successful predictions of the classifier, the ones where the predicted class matches the true class are along the diagonal of the confusion matrix. So, if we add up all the accounts along the diagonal, that will give us the total number of correct predictions across all classes, and dividing this sum by the total number of instances gives us accuracy. But, let's look at some other evaluation metrics we can compute from these four numbers. Well, a very simple related number that's sometimes used is classification error, which is the sum of the counts off the diagonal namely all of the errors divided by total instance count, and numerically, this is equivalent to just one minus the accuracy. Now, for a more interesting example, let's suppose, going back to our medical tumor detecting classifier that we wanted an evaluation metric that would give higher scores to classifiers that not only achieved the high number of true positives but also avoided false negatives. That is, that rarely failed to detect a true cancerous tumor. Recall, also known as the true positive rate, sensitivity or probability of detection is such an evaluation metric and it's obtained by dividing the number of true positives by the sum of true positives and false negatives. You can see from this formula that there are two ways to get a larger recall number. First, by either increasing the number of true positives or by reducing the number of false negatives. Since this will make the denominator smaller. In this example there are 26 true positives and 17 false negatives which gives a recall of 0.6. Now suppose that we have a machine learning task, where it's really important to avoid false positives. In other words, we're fine with cases where not all true positive instances are detected but when the classifier does predict the positive class, we want to be very confident that it's correct. A lot of customer facing prediction problems are like this, for example, predicting when to show a user A query suggestion in a web search interface might be one such scenario. Users will often remember the failures of a machine learning prediction even when the majority of predictions are successes. So, precision is an evaluation metric that reflects the situation and is obtained by dividing the number of true positives by the sum of true positives and false positives. So to increase precision, we must either increase the number of true positives the classifier predicts or reduce the number of errors where the classifier incorrectly predicts that a negative instance is in the positive class. Here, the classifier has made seven false positive errors and so the precision is 0.79. Another related evaluation metric that will be useful is called the false positive rate, also known as specificity. This gives the fraction of all negative instances that the classifier incorrectly identifies as positive. Here, we have seven false positives, which out of a total of 407 negative instances, gives a false positive rate of 0.02. " title= "Confusion Matrix for Binary Prediction Task" height="150">
+    </a>
+    + __Accuracy__: for what fraction of all instances is the classifier's prediction correct (for either positive or negative class)?
+
+        $$\text{Accuracy} = \frac{NP + T{}{TN + TP + FN + FP}} = \frac{400 + 26}{400 + 26 + 17 + 7} = 0.95$$
+    + __Classification error (1 – Accuracy)__: for what fraction of all instances is the classifier's prediction incorrect?
+
+        $$ ClassificationError = \frac{FP + FN}{TN + TP + FN + FP} = \frac{7 + 17}{400 + 26 + 17 + 7} = 0.060$$
+    + __Recall__, or __True Positive Rate (TPR)__: what fraction of all positive instances does the classifier correctlyidentify as positive?
+
+        $$Recall = \frac{TP}{TP + FN} = \frac{26}{26 + 17} = 0.60$$
+        + Recall is also known as
+            + True Positive Rate (TPR)
+            + Sensitivity
+            + Probability of detection
+    + __Precision__: what fraction of positive predictions are correct?
+
+        $$ Precision = \frac{TP}{TP + FP} = \frac{26}{26 + 7} = 0.79 $$
+    + __False positive rate (FPR)__: what fraction of all negative instances does the classifier incorrectly identify as positive?
+
+        $$ FPR = \frac{FP}{TN + FP} = \frac{7}{400 + 7} = 0.02$$
+        + a.k.a. __Specificity__
+
++ A Graphical Illustration of Precision & Recall
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+        <br/><img src="images/fig3-06.png" alt="Going back to our classifier visualization, let's look at how precision and recall can be interpreted. The numbers that are in the confusion matrix here are derived from this classification scenario. " title= "Graphical Illustration of Precision & Recall" height="200">
+    </a>
+
+    + The Precision-Recall Tradeoff
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+            <br/><img src="images/fig3-07.png" alt="We can see that a precision of 0.68 means that about 68 percent of the points in the positive prediction region to the left of the decision boundary or 13 out of the 19 instances are correctly labeled as positive. A recall of 0.87 means, that of all true positive instances, so all black points in the figure, the positive prediction region has 'found about 87 percent of them' or 13 out of 15. " title= "Precision-Recall Tradeoff" height="200">
+        </a>
+
+    + High Precision, Lower Recall
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+            <br/><img src="images/fig3-08.png" alt="If we wanted a classifier that was oriented towards higher levels of precision like in the search engine query suggestion task, we might want a decision boundary instead that look like this. Now, all the points in the positive prediction region seven out of seven are true positives, giving us a perfect precision of 1.0. Now, this comes at a cost because out of the 15 total positive instances eight of them are now false negatives, in other words, they're incorrectly predicted as being negative. And so, recall drops to 7 divided by 15 or 0.47. " title= "High Precision, Lower Recall" height="200">
+        </a>
+
+    + Low Precision, High Recall
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+            <br/><img src="images/fig3-09.png" alt="On the other hand, if our classification task is like the tumor detection example, we want to minimize false negatives and obtain high recall. In which case, we would want the classifier's decision boundary to look more like this. Now, all 15 positive instances have been correctly predicted as being in the positive class, which means these tumors have all been detected. However, this also comes with a cost since the number of false positives, things that the detector triggers as possible tumors for example that are actually not, has gone up. So, recall is a perfect 1.0 score but the precision has dropped to 15 out of 42 or 0.36. " title= "Low Precision, High Recall" height="200">
+        </a>
+
++ There is often a tradeoff between precision and recall
+    + Recall-oriented machine learning tasks:
+        + Search and information extraction in legal discovery
+        + Tumor detection
+        + Often paired with a human expert to filter out false positives
+    + Precision-oriented machine learning tasks:
+        + Search engine ranking, query suggestion
+        + Document classification
+        + Many customer-facing tasks (users remember failures!)
+    + F1-score: combining precision & recall into a single number
+
+        $$ F_1 = 2 \cdot \frac{Precision \cdot Recall}{precision + Recall} = \frac{2 \cdot TP}{2 \cdot TP + FN + FP}$$
+    + F-score: generalizes F1-score for combining precision & recall into a single number
+
+        $$F_{\beta} = (1 + \beta^2) \cdot \frac{Precision \cdot Recall}{(\beta^2 \cdot Precision) + Recall} = \frac{(1 + \beta^2) \cdot TP}{(1 + \beta^2) \cdot TP + \beta \cdot FN + FP}$$
+        + $\beta$ allows adjustment of the metric to control the emphasis on recall vs precision:
+            + Precision-oriented users: $\beta = 0.5$ (false positives hurt performance more than false negatives)
+            + Recall-oriented users: $\beta = 2$ (false negatives hurt performance more than false positives)
 
 + Demo
     ```python
+    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+    # Accuracy = TP + TN / (TP + TN + FP + FN)
+    # Precision = TP / (TP + FP)
+    # Recall = TP / (TP + FN)  Also known as sensitivity, or True Positive Rate
+    # F1 = 2 * Precision * Recall / (Precision + Recall) 
+    print('Accuracy: {:.2f}'.format(accuracy_score(y_test, tree_predicted)))
+    print('Precision: {:.2f}'.format(precision_score(y_test, tree_predicted)))
+    print('Recall: {:.2f}'.format(recall_score(y_test, tree_predicted)))
+    print('F1: {:.2f}'.format(f1_score(y_test, tree_predicted)))
+    # Accuracy: 0.95
+    # Precision: 0.79
+    # Recall: 0.60
+    # F1: 0.68
 
+    # Combined report with all above metrics
+    from sklearn.metrics import classification_report
+
+    print(classification_report(y_test, tree_predicted, target_names=['not 1', '1']))
+    #                 precision  recall  f1-score   support
+    #       not 1     0.96       0.98    0.97       407
+    #           1     0.79       0.60    0.68        43
+    # avg / total     0.94       0.95    0.94       450
+
+    print('Random class-proportional (dummy)\n', 
+        classification_report(y_test, y_classprop_predicted, target_names=['not 1', '1']))
+    print('SVM\n', 
+        classification_report(y_test, svm_predicted, target_names = ['not 1', '1']))
+    print('Logistic regression\n', 
+        classification_report(y_test, lr_predicted, target_names = ['not 1', '1']))
+    print('Decision tree\n', 
+        classification_report(y_test, tree_predicted, target_names = ['not 1', '1']))
+    # Random class-proportional (dummy)
+    #               precision    recall  f1-score   support
+    # 
+    #       not 1       0.91      0.91      0.91       407
+    #           1       0.10      0.09      0.10        43
+    # 
+    # avg / total       0.83      0.84      0.83       450
+    # 
+    # SVM
+    #               precision    recall  f1-score   support
+    # 
+    #       not 1       0.99      0.99      0.99       407
+    #           1       0.88      0.88      0.88        43
+    # 
+    # avg / total       0.98      0.98      0.98       450
+    # 
+    # Logistic regression
+    #               precision    recall  f1-score   support
+    # 
+    #       not 1       0.99      0.99      0.99       407
+    #           1       0.86      0.86      0.86        43
+    # 
+    # avg / total       0.97      0.97      0.97       450
+    # 
+    # Decision tree
+    #               precision    recall  f1-score   support
+    # 
+    #       not 1       0.96      0.98      0.97       407
+    #           1       0.79      0.60      0.68        43
+    # 
+    # avg / total       0.94      0.95      0.94       450
     ```
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
-    </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/4gasyz6FEee2TA5yccyTSg.processed/full/360p/index.mp4?Expires=1536883200&Signature=JVw~A~1O9I1P2g8TM3V8w9flpCq037msbx0ihmQ24tyZoOv11XNoZbOTdW7i1TWp062vIUh8Coo3Nc~2mtLgmhD820CdHVqkLYkjH1zn0hgGaE09SMkQhYiJmUnANXQmQFp52qjadBJ5zbKonXrk~AErCYcX02y2Z01L2nr96gE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Confusion Matrices & Basic Evaluation Metrics" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
@@ -255,7 +394,76 @@
 
 + Demo
     ```python
+    # ### Decision functions
+    X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
+    y_scores_lr = lr.fit(X_train, y_train).decision_function(X_test)
+    y_score_list = list(zip(y_test[0:20], y_scores_lr[0:20]))
+    # [(0, -23.176547400757663),
+    #  (0, -13.541223742469006),
+    #  (0, -21.722500473360618),
+    #  (0, -18.907578437722535),
+    #  (0, -19.736034587372778),
+    #  (0, -9.7493459511792651),
+    #  (1, 5.2349002124953099),
+    #  (0, -19.30716117885968),
+    #  (0, -25.101015601857377),
+    #  (0, -21.827250934235906),
+    #  (0, -24.150855663826746),
+    #  (0, -19.576844844946265),
+    #  (0, -22.574902551102674),
+    #  (0, -10.823739601445064),
+    #  (0, -11.912425566043064),
+    #  (0, -10.97956652705531),
+    #  (1, 11.205846086251944),
+    #  (0, -27.645770221552823),
+    #  (0, -12.859636015637092),
+    #  (0, -25.848590145556187)]
 
+    X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
+    y_proba_lr = lr.fit(X_train, y_train).predict_proba(X_test)
+    y_proba_list = list(zip(y_test[0:20], y_proba_lr[0:20,1]))
+    # [(0, 8.6010872706740499e-11),
+    #  (0, 1.3155903495453823e-06),
+    #  (0, 3.6816111034009875e-10),
+    #  (0, 6.1452989618944584e-09),
+    #  (0, 2.6837934145133791e-09),
+    #  (0, 5.8329401240781557e-05),
+    #  (1, 0.99470087426871634),
+    #  (0, 4.1210362715903745e-09),
+    #  (0, 1.2553575357627774e-11),
+    #  (0, 3.3154719959007555e-10),
+    #  (0, 3.2465093048358345e-11),
+    #  (0, 3.1469099051059103e-09),
+    #  (0, 1.5698002448420801e-10),
+    #  (0, 1.9920533537070619e-05),
+    #  (0, 6.706507243234968e-06),
+    #  (0, 1.7046194538057202e-05),
+    #  (1, 0.99998640569605668),
+    #  (0, 9.8535912965519826e-13),
+    #  (0, 2.6009374594983658e-06),
+    #  (0, 5.9442892596185542e-12)]
+
+    # ### Precision-recall curves
+    from sklearn.metrics import precision_recall_curve
+
+    precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
+    closest_zero = np.argmin(np.abs(thresholds))
+    closest_zero_p = precision[closest_zero]
+    closest_zero_r = recall[closest_zero]
+
+    plt.figure()
+    plt.xlim([0.0, 1.01])
+    plt.ylim([0.0, 1.01])
+    plt.plot(precision, recall, label='Precision-Recall Curve')
+    plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
+    plt.xlabel('Precision', fontsize=16)
+    plt.ylabel('Recall', fontsize=16)
+    plt.axes().set_aspect('equal')
+    plt.show()
+    ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+        <img src="images/plt3-01.png" alt="text" title= "caption" height="300">
+    </a>
     ```
 
     <a href="url">
