@@ -391,6 +391,47 @@
 
 ### Note
 
++ Decision Functions (decision_function)
+    + Each classifier score value per test point indicates how confidently the classifier predicts the positive class (large-magnitude positive values) or the negative class (large-magnitude negative values).
+    + Choosing a fixed decision threshold gives a classification rule.
+    + By sweeping the decision threshold through the entire range of possible score values, we get a series of classification outcomes that form a curve.
+
++ Predicted Probability of Class Membership (predict_proba)
+    + Typical rule: choose most likely class
+        + e.gclass 1 if threshold > 0.50.
+    + Adjusting threshold affects predictions of classifier.
+    + Higher threshold results in a more conservative classifier
+        + e.g. only predict Class 1 if estimated probability of class 1 is above 70%
+        + This increases precision. Doesn't predict class 1 as often, but when it does, it gets high proportion of class 1 instances correct.
+    + Not all models provide realistic probability estimates
+
++ Varying the Decision Threshold
+
+    | True Label | Classifier score | | True Label | Classifier score |
+    |------------|------------------|-|------------|------------------|
+    | 0 | -27.6457 | | 0 | -25.8486 |
+    | 0 | -25.1011 | | 0 | -24.1511 |
+    | 0 | -23.1765 | | 0 | -22.575 |
+    | 0 | -21.8271 | | 0 | -21.7226 |
+    | 0 | -19.7361 | | 0 | -19.5768 |
+    | 0 | -19.3071 | | 0 | -18.9077 |
+    | 0 | -13.5411 | | 0 | -12.8594 |
+    | 1 | -3.9128 |  | 0 | -1.9798 |
+    | 1 | 1.824 |  | 0 | 4.74931 |
+    | 1 | 15.234624 |  | 1 | 21.20597 |
+
+    | Classifier score threshold | Precision | Recall |
+    |----------------------------|-----------|--------|
+    | -20 | 4/12=0.34 | 4/4=1.00 |
+    | -10 | 4/6=0.67 | 4/4=1.00 |
+    | 0 | 3/4=0.75 | 3/4=0.75 |
+    | 10 | 2/2=1.0 | 2/4=0.50 |
+    | 20 | 1/1=1.0 | 1/4 = 0.25 |
+
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/0YPe1/classifier-decision-functions">
+        <img src="images/fig3-10.png" alt="Now, we can use these decision scores or prediction probabilities for getting more complete evaluation picture of a classifiers performance. For a particular application, we might pick a specific decision threshold depending on whether we want the classifier to be more or less conservative about making false-positive or false-negative errors. It might not be entirely clear when developing a new model, what the right decision threshold would be, and how that choice will affect evaluation metrics like precision and recall. So instead, what we'll do is, look at how classifier performs for all possible decision thresholds. This example shows how that works. On the left here is a list of test instances with their true label and classifier score. If we set a decision threshold, then all the instances above that line, for example if we set the decision threshold to be -20 here. Then, all the instances above the line are below the threshold of -20. So -20 or less and all the instances in this direction are above the threshold of -20. And so the ones below the threshold will be predicted to be in the- class. And the ones above the threshold will be predicted to be in the + class. So, if we pick the specific threshold, so in this case, -20. And we partition the test points in this way. We can compute partition and recall for the points that are predicted to be in the positive class. So in this case, we have 12 instances here, 12 total instances. They're being predicted as positive and only four of them, this one, this one, this one, and this one are actually positive and so the precision here is 4 divided by 12 or approximately 0.34. The recall on the other hand, there are four positive labeled instances in the whole set of test examples here and we've found all of them with this particular threshold setting. So the recall here is 4 out of 4, we found all four positive labeled examples. And so, for this particular threshold of -20, we can obtain precision on re cost score for that threshold. Let's pick a different threshold let's look at what happened when the threshold is -10? Right here, so again anything below this line is treated and has a higher value than -10 here, so those would be treated as + predictions. Things above the line have a score below -10, so these would be predicted to be And again, we can compute a precision and recall for this decision threshold setting, and we can see here that there are a total of six instances in the + prediction class. Of which four are actually of the positive class, and so the precision here is 4 over 6 or about 0.67. And again, the recall here is going to be 4 out of 4, and it's going to be 1.0. Again, so that corresponds to this point in the table over here. And then as were computing these different precision and recalls for different Thresholds. We can also plot them on this precision recall chart. So the first pair of precision recall numbers that I got, 0.34 and 1.0, we can plot on this point in precision recall space. The second example, so this was for the threshold of -20. When the threshold was -10, we got precision of .67 and a recall of 1 corresponding to this point that we can plot. And so you can see that if we do this for a number of other thresholds, for example the threshold of 0, we'll get a precision of 0.75. And a recall of 0.75 that corresponds to this point. And in that choice of decision threshold. And we can keep doing that for different thresholds. And we actually are plotting a series of points through the space which we can be connected at as a curve. And so in this way, we can get a more complete picture by varying the threshold of how the precision and recall of the result and classifier output changes as a function of the decision threshold. And this resulting chart here is called a precision recall curve." title= "Decision Threshold" height="200">
+    </a>
+
 
 + Demo
     ```python
@@ -398,50 +439,24 @@
     X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
     y_scores_lr = lr.fit(X_train, y_train).decision_function(X_test)
     y_score_list = list(zip(y_test[0:20], y_scores_lr[0:20]))
-    # [(0, -23.176547400757663),
-    #  (0, -13.541223742469006),
-    #  (0, -21.722500473360618),
-    #  (0, -18.907578437722535),
-    #  (0, -19.736034587372778),
-    #  (0, -9.7493459511792651),
-    #  (1, 5.2349002124953099),
-    #  (0, -19.30716117885968),
-    #  (0, -25.101015601857377),
-    #  (0, -21.827250934235906),
-    #  (0, -24.150855663826746),
-    #  (0, -19.576844844946265),
-    #  (0, -22.574902551102674),
-    #  (0, -10.823739601445064),
-    #  (0, -11.912425566043064),
-    #  (0, -10.97956652705531),
-    #  (1, 11.205846086251944),
-    #  (0, -27.645770221552823),
-    #  (0, -12.859636015637092),
-    #  (0, -25.848590145556187)]
+    # [(0, -23.176547400757663), (0, -13.541223742469006), (0, -21.722500473360618),
+    #  (0, -18.907578437722535), (0, -19.736034587372778), (0, -9.7493459511792651),
+    #  (1, 5.2349002124953099),  (0, -19.30716117885968),  (0, -25.101015601857377),
+    #  (0, -21.827250934235906), (0, -24.150855663826746), (0, -19.576844844946265),
+    #  (0, -22.574902551102674), (0, -10.823739601445064), (0, -11.912425566043064),
+    #  (0, -10.97956652705531),  (1, 11.205846086251944),  (0, -27.645770221552823),
+    #  (0, -12.859636015637092), (0, -25.848590145556187)]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
     y_proba_lr = lr.fit(X_train, y_train).predict_proba(X_test)
     y_proba_list = list(zip(y_test[0:20], y_proba_lr[0:20,1]))
-    # [(0, 8.6010872706740499e-11),
-    #  (0, 1.3155903495453823e-06),
-    #  (0, 3.6816111034009875e-10),
-    #  (0, 6.1452989618944584e-09),
-    #  (0, 2.6837934145133791e-09),
-    #  (0, 5.8329401240781557e-05),
-    #  (1, 0.99470087426871634),
-    #  (0, 4.1210362715903745e-09),
-    #  (0, 1.2553575357627774e-11),
-    #  (0, 3.3154719959007555e-10),
-    #  (0, 3.2465093048358345e-11),
-    #  (0, 3.1469099051059103e-09),
-    #  (0, 1.5698002448420801e-10),
-    #  (0, 1.9920533537070619e-05),
-    #  (0, 6.706507243234968e-06),
-    #  (0, 1.7046194538057202e-05),
-    #  (1, 0.99998640569605668),
-    #  (0, 9.8535912965519826e-13),
-    #  (0, 2.6009374594983658e-06),
-    #  (0, 5.9442892596185542e-12)]
+    # [(0, 8.6010872706740499e-11), (0, 1.3155903495453823e-06), (0, 3.6816111034009875e-10),
+    #  (0, 6.1452989618944584e-09), (0, 2.6837934145133791e-09), (0, 5.8329401240781557e-05),
+    #  (1, 0.99470087426871634),    (0, 4.1210362715903745e-09)  (0, 1.2553575357627774e-11),
+    #  (0, 3.3154719959007555e-10), (0, 3.2465093048358345e-11), (0, 3.1469099051059103e-09),
+    #  (0, 1.5698002448420801e-10), (0, 1.9920533537070619e-05), (0, 6.706507243234968e-06),
+    #  (0, 1.7046194538057202e-05), (1, 0.99998640569605668),    (0, 9.8535912965519826e-13),
+    #  (0, 2.6009374594983658e-06), (0, 5.9442892596185542e-12)]
 
     # ### Precision-recall curves
     from sklearn.metrics import precision_recall_curve
@@ -461,18 +476,13 @@
     plt.axes().set_aspect('equal')
     plt.show()
     ```
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/0YPe1/classifier-decision-functions">
         <img src="images/plt3-01.png" alt="text" title= "caption" height="300">
-    </a>
-    ```
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
     </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/zxFPUz6FEeeR4AqenwJvyA.processed/full/360p/index.mp4?Expires=1536883200&Signature=KjE0qGwonCOca4-bh2ZZFfNBML6WyABR4RGyijJbKA~S7HS1YwuL9R4LEvzg0Ii2Mv78SBveugPxUgLO8qLD01Lu49MgwxuhaiRYi9doGLWccg2v7gmn3a8acWR5Zks7GcO-1i-ZpPZXNvNArbYOjnSqVq2jERGPTzp47Zzjyng_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Classifier Decision Functions" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
