@@ -626,18 +626,151 @@
 ### Note
 
 
++ Multi-Class Evaluation
+    + Multi-class evaluation is an extension of the binary case.
+        + A collection of true vs predicted binary outcomes, one per class
+        + Confusion matrices are especially useful
+        + Classification report
+    + Overall evaluation metrics are averages across classes
+        + But there are different ways to average multi-class results: we will cover these shortly.
+        + The support (number of instances) for each class is important to consider, e.g. in case of imbalanced classes
+    + Multi-label classification: each instance can have multiple labels (not covered here)
+
++ Multi-Class Confusion Matrix
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation"><br/>
+        <img src="images/plt3-04-1.png" alt="There are different ways to average multi-class results that we'll cover shortly. And the support, the number of instances for each class is important to consider. So just as we're all interested in how to handle imbalance classes in the binary case, it's important as you will see to consider similar issues of how the support for classes might vary to a large or small extent across multiple classes. There is a case of multi-label classification in which each instance could have multiple labels. For example, a web page might be labeled with different topics that come from a predefined set of areas of interest. We won't cover multi-label classification in this lecture. Instead, we'll focus exclusively on multi-class evaluation. The multi-class confusion matrix is a straightforward extension of the binary classifier two by two confusion matrix. For example, in our digits data set, there are ten classes for the digits, zero through nine. So, the ten class confusion matrix is a ten by ten matrix with the true digit class indexed by row and the predicted digit class indexed by column. As with the two by two case, the correct prediction is by the classifier where the true class matches the predicted class are all along the diagonal and misclassifications are off the diagonal. " title= "Multi-Class Confusion Matrix" height="200">
+    </a>
+
++ Micro vs Macro Average - Example
+
+    | Class | Predicted Class | Correct? |
+    |-------|-----------------|----------|
+    | orange | lemon | 0 |
+    | orange | lemon | 0 |
+    | orange | apple | 0 |
+    | orange | orange | 1 |
+    | orange | apple | 0 |
+    | lemon | lemon | 1 |
+    | lemon | apple | 0 |
+    | apple | apple | 1 |
+    | apple | apple | 1 |
+
+    + Macro-average:
+        + Each __class__ has equal weight.
+        + Procedures:
+            1. Compute metric within each class
+            2. Average resulting metrics across classes <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                Class       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precision<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                `--------------`<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                orange      &nbsp;&nbsp;&nbsp;&nbsp;$1/5 = 0.20$ <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                lemon       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1/2 = 0.50$ <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                apple       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$2/2 = 1.00$ <br/>
+            Macro-average precision: $(0.20 + 0.50 + 1.00) / 3 = 0.57$
+
+    + Micro-average:
+        + Each __instance__ has equal weight.
+        + Largest classes have most influence
+        + Procedures:
+            1. Aggregrateoutcomes across all classes
+            2. Compute metric with aggregate outcomes
+        
+            Micro-average precision: $4 / 9 = 0.44$
+
++ Macro-Average vs Micro-Average
+    + If the classes have about the same number of instances, macro-and micro-average will be about the same.
+    + If some classes are much larger (more instances) than others, and you want to:
+        + Weight your metric toward the largest ones, use micro-averaging.
+        + Weight your metric toward the smallest ones, use macro-averaging.
+    + If themicro-averageis much lower than the macro-average then examine the larger classes for poor metric performance.
+    + If the macro-average is much lower than the micro-averagethen examine the smaller classes for poor metric performance.
+
++ Multi-class Evaluation Metrics via the "Average" Parameter for a Scoring Function
+    + Micro: Metric on aggregated instances
+    + Macro: Mean per-class metric, classes have equal weight
+    + Weighted: Mean per-class metric, weighted by support
+    + Samples: for multi-label problems only
+
+
 + Demo
     ```python
+    # #### Multi-class confusion matrix
+    dataset = load_digits()
+    X, y = dataset.data, dataset.target
+    X_train_mc, X_test_mc, y_train_mc, y_test_mc = train_test_split(X, y, random_state=0)
 
+    svm = SVC(kernel = 'linear').fit(X_train_mc, y_train_mc)
+    svm_predicted_mc = svm.predict(X_test_mc)
+    confusion_mc = confusion_matrix(y_test_mc, svm_predicted_mc)
+    df_cm = pd.DataFrame(confusion_mc, 
+        index = [i for i in range(0,10)], columns = [i for i in range(0,10)])
+
+    plt.figure(figsize=(5.5,4))
+    sns.heatmap(df_cm, annot=True)
+    plt.title('SVM Linear Kernel \nAccuracy:{0:.3f}'
+        .format(accuracy_score(y_test_mc, svm_predicted_mc)))
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
     ```
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation"><br/>
+        <img src="images/plt3-04-1.png" alt="In this example which was created using the following notebook code based on a support vector classifier with linear kernel, we can see that most of the predictions are correct with only a few misclassifications here and there. The most frequent type of mistake here is apparently misclassifying the true digit, eight as a predicted digit one which happened three times. And indeed, the overall accuracy is high, about 97% as shown here. As an aside, it's sometimes useful to display a confusion matrix as a heat map in order to highlight the relative frequencies of different types of errors. So, I've included the code to generate that here. For comparison, " title= "SVM Linear Kernel Accuracy" height="200">
     </a>
+
++ Demo 2: 
+    ```python
+    svm = SVC(kernel = 'rbf').fit(X_train_mc, y_train_mc)
+    svm_predicted_mc = svm.predict(X_test_mc)
+    confusion_mc = confusion_matrix(y_test_mc, svm_predicted_mc)
+    df_cm = pd.DataFrame(confusion_mc, index = [i for i in range(0,10)],
+                    columns = [i for i in range(0,10)])
+
+    plt.figure(figsize = (5.5,4))
+    sns.heatmap(df_cm, annot=True)
+    plt.title('SVM RBF Kernel \nAccuracy:{0:.3f}'
+        .format(accuracy_score(y_test_mc, svm_predicted_mc)))
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label');
+    ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation"><br/>
+        <img src="images/plt3-04-2.png" alt="I've also included a second confusion matrix on the same dataset for another support vector classifier that does much worse in a distinctive way. The only change is to use an RBF, radial basis function kernel instead of a linear kernel. While we can see for the accuracy number were about 43% below the confusion matrix that the classifier is doing much worse than the delinear kernel, that single number doesn't give much insight into why. Looking at the confusion matrix, however, reveals that for every true digit class, a significant fraction of outcomes are to predict the digit four. That's rather surprising. For example, of the 44 instances of the true digit 2 in row 2, 17 are classified correctly, but 27 are classified as the digit 4. Clearly, something is broken with this model and I picked this second example just to show an extreme example of what you might see when things go quite wrong. This digits dataset is well-established and free of problems. But especially when developing with a new dataset, seeing patterns like this in a confusion matrix could give you valuable clues about possible problems, say in the feature pre-processing for example. So as a general rule of thumb as part of model evaluation, I suggest always looking at the confusion matrix for your classifier. To get some insight into what kind of errors it is making for each class including whether some classes are much more prone to certain kinds of errors than others. " title= "SVM RBF Kernel Accuracy" height="200">
+    </a>
+
++ Demo 3: 
+```python
+    # #### Multi-class classification report
+    print(classification_report(y_test_mc, svm_predicted_mc))
+    #              precision    recall  f1-score   support
+    #           0       1.00      0.65      0.79        37
+    #           1       1.00      0.23      0.38        43
+    #           2       1.00      0.39      0.56        44
+    #           3       1.00      0.93      0.97        45
+    #           4       0.14      1.00      0.25        38
+    #           5       1.00      0.33      0.50        48
+    #           6       1.00      0.54      0.70        52
+    #           7       1.00      0.35      0.52        48
+    #           8       1.00      0.02      0.04        48
+    #           9       1.00      0.55      0.71        47
+    # 
+    # avg / total       0.93      0.49      0.54       450
+
+    # #### Micro- vs. macro-averaged metrics
+    print('Micro-averaged precision = {:.2f} (treat instances equally)'
+        .format(precision_score(y_test_mc, svm_predicted_mc, average = 'micro')))
+    print('Macro-averaged precision = {:.2f} (treat classes equally)'
+        .format(precision_score(y_test_mc, svm_predicted_mc, average = 'macro')))
+    # Micro-averaged precision = 0.49 (treat instances equally)
+    # Macro-averaged precision = 0.91 (treat classes equally)
+
+    print('Micro-averaged f1 = {:.2f} (treat instances equally)'
+        .format(f1_score(y_test_mc, svm_predicted_mc, average = 'micro')))
+    print('Macro-averaged f1 = {:.2f} (treat classes equally)'
+        .format(f1_score(y_test_mc, svm_predicted_mc, average = 'macro')))
+    # Micro-averaged f1 = 0.49 (treat instances equally)
+    # Macro-averaged f1 = 0.54 (treat classes equally)
+    ```
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/N52UsEC9EeekFhJ0WUQQxA.processed/full/360p/index.mp4?Expires=1536883200&Signature=DriAPvEKQbp1KLc1wiQsvkx3kFgtNf249Z665mq2R39GliDcpBUNeVZXypgAUNlVuitLs~5qjfaAirNVMhEddbyc5sCTOCvqVLNDGA5dpYBfmV-I4zj99b9l~rsg~Uq20bHqtSybIwFbNWhJ~Z0t1Oor0mMZ1RGvLz7n81M6ahM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Multi-Class Evaluation" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
