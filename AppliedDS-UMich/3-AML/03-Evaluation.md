@@ -502,9 +502,8 @@
     + “Steepness” of P-R curves is important:
         + Maximize precision
         + while maximizing recall
-    
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves">
-        <img src="images/plt3-08.png" alt="Precision-Recall Curves are very widely used evaluation method from machine learning. As we just saw in example, the x axis shows precision and the y axis shows recall. Now an ideal classifier would be able to achieve perfect precision of 1.0 and perfect recall of 1.0. So the optimal point would be up here in the top right. And in general, with precision recall curves, the closer in some sense, the curve is to the top right corner, the more preferable it is, the more beneficial the tradeoff it gives between precision and recall. And we saw some examples already of how there is a tradeoff between those two quantities, between precision and recall, with many classifiers. This example here is an actual precision recall curve that we generated using the following notebook code. The red circle indicates the precision and recall that's achieved when the decision threshold is zero. So I created this curve using exactly the same method as we saw in the previous example, by looking at the decision function output from a support vector classifier. Applying very end decision boundary, looking at how the precision of recall change as the decision boundary changed. Fortunately, learn has a function that's built in that does all of that, that could compute the precision of recall curve. And that's what we've been using in the notebook here. So you can see that in this particular application there is a general downward trend. So as the precision of the classifier goes up, the recall tends to go down. In this particular case you'll see also that It's not exactly a smooth curve. There are some jaggy errors and, in fact, the jumps tend to get a little bigger as we approach maximum precision. This is a consequence of how the formulas for precision and recall are computed. They use discrete counts that include the number of true positives. And so as the decision threshold increases, there are fewer and fewer points that remain as positive predictions. So the fractions that are computed for these smaller numbers can change pretty dramatically with small changes in the decision threshold. And that's why these sort of trailing edges of the Precision-recall curve can appear a bit jagged when you plot them. " title= "Classifier Decision Functions" height="250">
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
+        <img src="images/fig3-01.png" alt="Precision-Recall Curves are very widely used evaluation method from machine learning. As we just saw in example, the x axis shows precision and the y axis shows recall. Now an ideal classifier would be able to achieve perfect precision of 1.0 and perfect recall of 1.0. So the optimal point would be up here in the top right. And in general, with precision recall curves, the closer in some sense, the curve is to the top right corner, the more preferable it is, the more beneficial the tradeoff it gives between precision and recall. And we saw some examples already of how there is a tradeoff between those two quantities, between precision and recall, with many classifiers. This example here is an actual precision recall curve that we generated using the following notebook code. The red circle indicates the precision and recall that's achieved when the decision threshold is zero. So I created this curve using exactly the same method as we saw in the previous example, by looking at the decision function output from a support vector classifier. Applying very end decision boundary, looking at how the precision of recall change as the decision boundary changed. Fortunately, learn has a function that's built in that does all of that, that could compute the precision of recall curve. And that's what we've been using in the notebook here. So you can see that in this particular application there is a general downward trend. So as the precision of the classifier goes up, the recall tends to go down. In this particular case you'll see also that It's not exactly a smooth curve. There are some jaggy errors and, in fact, the jumps tend to get a little bigger as we approach maximum precision. This is a consequence of how the formulas for precision and recall are computed. They use discrete counts that include the number of true positives. And so as the decision threshold increases, there are fewer and fewer points that remain as positive predictions. So the fractions that are computed for these smaller numbers can change pretty dramatically with small changes in the decision threshold. And that's why these sort of trailing edges of the Precision-recall curve can appear a bit jagged when you plot them. " title= "Classifier Decision Functions" height="250">
     </a>
 
 + ROC Curves
@@ -867,42 +866,236 @@
 
 ## Practical Guide to Controlled Experiments on the Web (optional)
 
-### Note
+Beyond the essential evaluation metrics covered in this course, online controlled experiments, which involve A-B testing and other techniques, are perhaps the most important way that machine learning algorithms are evaluated for real-world use in Web and other online applications. This article by Ron Kohavi, Randal Henne, and Dan Sommerfield, reviews the key points of running controlled experiments, along with important engineering issues and limitations to keep in mind when using them.
 
-
-+ Demo
-    ```python
-
-    ```
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
-    </a>
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controlled experiments on the web](https://ai.stanford.edu/~ronnyk/2007GuideControlledExperiments.pdf). Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining - KDD '07. doi:10.1145/1281192.1281295
 
 
 ## Model Selection: Optimizing Classifiers for Different Evaluation Metrics
 
 ### Note
 
++ Model Selection Using Evaluation Metrics
+    + Train/test on same data
+        + Single metric.
+        + Typically overfits and likely won't generalize well to new data.
+        + But can serve as a sanity check: low accuracy on the training set may indicate an implementation problem.
+    + Single train/test split
+        + Single metric.
+        + Speed and simplicity.
+        + Lack of variance information
+    + K-fold cross-validation
+        + K train-test splits.
+        + Average metric over all splits.
+        + Can be combined with parameter grid search: `GridSearchCV` (def. cv = 3)
+
++ Example: Optimizing a Classifier Using Different Evaluation Metrics
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
+        <br/><img src="images/fig3-17.png" alt="Let's first look at an example using the scoring parameter for cross-validation, and then we'll take a look at the other primary method of model selection, grid search. Let's take a look at a specific example that shows how a classifier's decision boundary changes when it's optimized for different evaluation metrics. This classification problem is based on the same binary digit classifier training and test sets we've been using as an example throughout the notebook. In these classification visualization examples, the positive examples, the digit one are shown as black points and the region of positive class prediction is shown in the light-colored or yellow region to the right of this decision boundary. The negative examples, all other digits, are shown as white points. And the region of negative class prediction here in these figures is to the left of the decision boundary. The data points have been plotted using two out of the 64 future values in the digits' dataset and have been jittered a little. That is, I've added a little bit of random noise so we can see more easily the density of examples in the feature space. " title= "Optimizing a Classifier Using Different Evaluation Metrics" height="250">
+    </a>
+
++ Example: Precision-Recall Curve of Default Support Vector Classifier
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
+        <br/><img src="images/plt3-08.png" alt="We can see the precision recall trade-off very clearly for this classification scenario in the precision recall curve for the default support vector classifier with linear kernel optimized for accuracy on the same dataset, and using the balanced option for the class weight parameter. " title= "Precision-Recall Curve of Default Support Vector Classifier" height="200">
+    </a>
+
++ Training, Validation, and Test Frameworkfor Model Selection and Evaluation
+    + Using only cross-validation or a test set to do model selection may lead to more subtle overfitting / optimistic generalization estimates
+    + Instead, use three data splits:
+        1. Training set (model building)
+        2. Validation set (model selection)
+        3. Test set (final evaluation)
+    + In practice:
+        + Create an initial training/test split
+        + Do cross-validation on the training data for model/parameter selection
+        + Save the held-out test set for final model evaluation
+
++ Concluding Notes
+    + Accuracy is often not the right evaluation metric for many real-world machine learning tasks
+        + False positives and false negatives may need to be treated very differently
+        + Make sure you understand the needs of your application and choose an evaluation metric that matches your application, user, or business goals.
+    + Examples of additional evaluation methods include:
+        + Learning curve: How much does accuracy (or other metric) change as a function of the amount of training data?
+        + Sensitivity analysis: How much does accuracy (or other metric) change as a function of key learning parameter values?
+
 
 + Demo
     ```python
+    # #### Cross-validation example
+    from sklearn.model_selection import cross_val_score
+    from sklearn.svm import SVC
 
+    dataset = load_digits()
+    # again, making this a binary problem with 'digit 1' as positive class 
+    # and 'not 1' as negative class
+    X, y = dataset.data, dataset.target == 1
+    clf = SVC(kernel='linear', C=1)
+
+    # accuracy is the default scoring metric
+    print('Cross-validation (accuracy)', cross_val_score(clf, X, y, cv=5))
+    # use AUC as scoring metric
+    print('Cross-validation (AUC)', cross_val_score(clf, X, y, cv=5, scoring = 'roc_auc'))
+    # use recall as scoring metric
+    print('Cross-validation (recall)', cross_val_score(clf, X, y, cv=5, scoring = 'recall'))
+    # Cross-validation (accuracy) [ 0.91944444  0.98611111  0.97214485  0.97493036  0.96935933]
+    # Cross-validation (AUC) [ 0.9641871   0.9976571   0.99372205  0.99699002  0.98675611]
+    # Cross-validation (recall) [ 0.81081081  0.89189189  0.83333333  0.83333333  0.83333333]
+
+    # #### Grid search example
+    from sklearn.svm import SVC
+    from sklearn.model_selection import GridSearchCV
+    from sklearn.metrics import roc_auc_score
+
+    dataset = load_digits()
+    X, y = dataset.data, dataset.target == 1
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+    clf = SVC(kernel='rbf')
+    grid_values = {'gamma': [0.001, 0.01, 0.05, 0.1, 1, 10, 100]}
+
+    # default metric to optimize over grid parameters: accuracy
+    grid_clf_acc = GridSearchCV(clf, param_grid = grid_values)
+    grid_clf_acc.fit(X_train, y_train)
+    y_decision_fn_scores_acc = grid_clf_acc.decision_function(X_test) 
+
+    print('Grid best parameter (max. accuracy): ', grid_clf_acc.best_params_)
+    print('Grid best score (accuracy): ', grid_clf_acc.best_score_)
+
+    # alternative metric to optimize over grid parameters: AUC
+    grid_clf_auc = GridSearchCV(clf, param_grid = grid_values, scoring = 'roc_auc')
+    grid_clf_auc.fit(X_train, y_train)
+    y_decision_fn_scores_auc = grid_clf_auc.decision_function(X_test) 
+
+    print('Test set AUC: ', roc_auc_score(y_test, y_decision_fn_scores_auc))
+    print('Grid best parameter (max. AUC): ', grid_clf_auc.best_params_)
+    print('Grid best score (AUC): ', grid_clf_auc.best_score_)
+    # Grid best parameter (max. accuracy):  {'gamma': 0.001}
+    # Grid best score (accuracy):  0.996288047513
+    # Test set AUC:  0.999828581224
+    # Grid best parameter (max. AUC):  {'gamma': 0.001}
+    # Grid best score (AUC):  0.99987412783
+
+    # #### Evaluation metrics supported for model selection
+    from sklearn.metrics.scorer import SCORERS
+
+    print(sorted(list(SCORERS.keys())))
+    # ['accuracy', 'adjusted_mutual_info_score', 'adjusted_rand_score', 'average_precision', 
+    # 'completeness_score', 'explained_variance', 'f1', 'f1_macro', 'f1_micro', 'f1_samples', 
+    # 'f1_weighted', 'fowlkes_mallows_score', 'homogeneity_score', 'log_loss', 
+    # 'mean_absolute_error', 'mean_squared_error', 'median_absolute_error', 'mutual_info_score', 
+    # 'neg_log_loss', 'neg_mean_absolute_error', 'neg_mean_squared_error', 
+    # 'neg_mean_squared_log_error', 'neg_median_absolute_error', 'normalized_mutual_info_score', 
+    # 'precision', 'precision_macro', 'precision_micro', 'precision_samples', 
+    # 'precision_weighted', 'r2', 'recall', 'recall_macro', 'recall_micro', 'recall_samples', 
+    # 'recall_weighted', 'roc_auc', 'v_measure_score']
+
+    # ### Two-feature classification example using the digits dataset
+    # #### Optimizing a classifier using different evaluation metrics
+    from sklearn.datasets import load_digits
+    from sklearn.model_selection import train_test_split
+    from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+    from sklearn.svm import SVC
+    from sklearn.model_selection import GridSearchCV
+
+    dataset = load_digits()
+    X, y = dataset.data, dataset.target == 1
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+    # Create a two-feature input vector matching the example plot above
+    # We jitter the points (add a small amount of random noise) in case there are areas
+    # in feature space where many instances have the same features.
+    jitter_delta = 0.25
+    X_twovar_train = X_train[:,[20,59]]+ np.random.rand(X_train.shape[0], 2) - jitter_delta
+    X_twovar_test  = X_test[:,[20,59]] + np.random.rand(X_test.shape[0], 2) - jitter_delta
+
+    clf = SVC(kernel = 'linear').fit(X_twovar_train, y_train)
+    grid_values = {'class_weight':['balanced', {1:2},{1:3},{1:4},{1:5},{1:10},{1:20},{1:50}]}
+    plt.figure(figsize=(9,6))
+    for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
+        grid_clf_custom = GridSearchCV(clf, param_grid=grid_values, scoring=eval_metric)
+        grid_clf_custom.fit(X_twovar_train, y_train)
+        print('Grid best parameter (max. {0}): {1}'
+            .format(eval_metric, grid_clf_custom.best_params_))
+        print('Grid best score ({0}): {1}'
+            .format(eval_metric, grid_clf_custom.best_score_))
+        plt.subplots_adjust(wspace=0.3, hspace=0.3)
+        plot_class_regions_for_classifier_subplot(grid_clf_custom, X_twovar_test, y_test, 
+            None, None, None,  plt.subplot(2, 2, i+1))
+        
+        plt.title(eval_metric+'-oriented SVC')
+    plt.tight_layout()
+    plt.show()
+    # Grid best parameter (max. precision): {'class_weight': {1: 2}}
+    # Grid best score (precision): 0.5364331779495704
+    # Grid best parameter (max. recall): {'class_weight': {1: 50}}
+    # Grid best score (recall): 0.9284149447808437
+    # Grid best parameter (max. f1): {'class_weight': {1: 3}}
+    # Grid best score (f1): 0.4955650747228387
+    # Grid best parameter (max. roc_auc): {'class_weight': {1: 20}}
+    # Grid best score (roc_auc): 0.8886304322985741
     ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
+        <br/><img src="images/plt3-06.png" alt="We apply grid search here to explore different values of the optional class weight parameter that controls how much weight is given to each of the two classes during training. As it turns out, optimizing for different evaluation metrics results in different optimal values of the class weight parameter. As the class weight parameter increases, more emphasis will be given to correctly classifying the positive class instances. The precision-oriented classifier we see here with class weight of two, tries hard to reduce false positive while increasing true positives. So it focuses on the cluster of positive class points in the lower right corner where there are relatively few negative class points. Here, precision is over 50 percent. In contrast, the recall-oriented classifier with class weight of 50, tries hard to reduce the number of false negatives while increasing true positives. That is, it tries to find most of the positive class points as part of its positive class predictions. We can also see that the decision boundary for the F1-oriented classifier has an optimal class weight of two, which is between the optimal class weight values for the precision and recall-oriented classifiers. Visually we can see that the F1-oriented classifier also has a kind of intermediate positioning between the precision and recall-oriented, decision boundaries. This makes sense given that F1 is the harmonic mean of precision and recall. The AUC-oriented classifier with optimal class weight to 5 has a similar decision boundary to the F1-oriented classifier, but shifted slightly in favor of higher recall. " title= "Two-feature classification example using the digits dataset" height="200">
+    </a>
 
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
+
++ Demo 2:
+    ```python
+    # #### Precision-recall curve for the default SVC classifier (with balanced class weights)
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import precision_recall_curve
+    from adspy_shared_utilities import plot_class_regions_for_classifier
+    from sklearn.svm import SVC
+
+    dataset = load_digits()
+    X, y = dataset.data, dataset.target == 1
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+    # create a two-feature input vector matching the example plot above
+    jitter_delta = 0.25
+    X_twovar_train = X_train[:,[20,59]]+ np.random.rand(X_train.shape[0], 2) - jitter_delta
+    X_twovar_test  = X_test[:,[20,59]] + np.random.rand(X_test.shape[0], 2) - jitter_delta
+
+    clf = SVC(kernel='linear', class_weight='balanced').fit(X_twovar_train, y_train)
+
+    y_scores = clf.decision_function(X_twovar_test)
+
+    precision, recall, thresholds = precision_recall_curve(y_test, y_scores)
+    closest_zero = np.argmin(np.abs(thresholds))
+    closest_zero_p = precision[closest_zero]
+    closest_zero_r = recall[closest_zero]
+
+    plot_class_regions_for_classifier(clf, X_twovar_test, y_test)
+    plt.title("SVC, class_weight = 'balanced', optimized for accuracy")
+    plt.show()
+    ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
+        <br/><img src="images/plt3-07.png" alt="Take a moment to imagine how the extreme lower right part of the curve on this precision recall curve represents a decision boundary that's highly precision-oriented in the lower right of the classification plot, where there's a cluster of positive examples. As the decision threshold is shifted to become less and less conservative, tracing the curve up into the left, the classifier becomes more and more like the recall-oriented support vector classifier example. Again, the red circle represents the precision recall trade-off achieved at the zero score mark, which is the actual decision boundary chosen for the trained classifier. " title= "two-feature input vector matching the example" height="200">
+    </a>
+
++ Demo 3:
+    ```python
+    plt.figure()
+    plt.xlim([0.0, 1.01])
+    plt.ylim([0.0, 1.01])
+    plt.title ("Precision-recall curve: SVC, class_weight = 'balanced'")
+    plt.plot(precision, recall, label = 'Precision-Recall Curve')
+    plt.plot(closest_zero_p, closest_zero_r, 'o', markersize=12, fillstyle='none', c='r', mew=3)
+    plt.xlabel('Precision', fontsize=16)
+    plt.ylabel('Recall', fontsize=16)
+    plt.axes().set_aspect('equal')
+    plt.show()
+    print('At zero threshold, precision: {:.2f}, recall: {:.2f}'
+        .format(closest_zero_p, closest_zero_r))
+    # At zero threshold, precision: 0.22, recall: 0.74
+    ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
+        <br/><img src="images/plt3-08.png" alt="text" title= "two-feature input vector matching the example At zero threshold, precision" height="200">
     </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/MTn7gFzsEeejtgqYK5OBTg.processed/full/360p/index.mp4?Expires=1536969600&Signature=Z7XuYqumT9d1~wNhneDuGyxXiVhHYbh-OACyXjT1jIVpIf7~pnGcsWvoEojpvID~VXM8hS~JIUSr1Xps~KIJcw74WzxuGCKQQI7vKPGmqiS2AkoyNfH3bBWz-CIDGSGcoevmKDtS73FkEXAZhFTMn53VIcgtjk1QHfYe4E-vHJ0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Model Selection: Optimizing Classifiers for Different Evaluation Metrics" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
