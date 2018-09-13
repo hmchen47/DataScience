@@ -735,7 +735,7 @@
     </a>
 
 + Demo 3: 
-```python
+    ```python
     # #### Multi-class classification report
     print(classification_report(y_test_mc, svm_predicted_mc))
     #              precision    recall  f1-score   support
@@ -779,19 +779,88 @@
 
 ### Note
 
++ Regression metrics
+    + Typically r2_score is enough
+        + Reminder: computes how well future instances will be predicted
+        + Best possible score is $1.0$
+        + Constant prediction score is $0.0$
+    + Alternative metrics include:
+        + `mean_absolute_error` (absolute difference of target & predicted values)
+        + `mean_squared_error` (squared difference of target & predicted values)
+        + `median_absolute_error` (robust to outliers)
+
++ Dummy regressors
+    + As in classification, comparison to a 'dummy' prediction model that uses a fixed rule can be useful. 
+    + For this, scikit.learn provides __dummy regressors__.
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation"><br/>
+        <img src="images/plt3-05.png" alt="We saw how using how dummy classifiers could give us simple but useful baselines to compared against when evaluating a classifier. The same functionality exist for regression. There's a dummy regressor class that provides predictions using simple strategies that do not look at the input data. This example which is available as the regression example from this lecture's notebook shows a scatter plot using database on a single input variable, which is plotted along the x axis from the diabetes data set. The points are the data instances from the test split and form a cloud that looks like it may trend down slightly to the right. " title= "Dummy regressors" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation">
+        <img src="images/fig3-16.png" alt="The green line, which is also labeled fitted model is the default linear regression that was fit to the training points. We can see that it’s not a particularly strong fit to the test data. The red line labeled dummy mean, shows a linear model that uses the strategy of always predicting the mean of the training data. So this is an example of a dummy regressor. " title= "Dummy regressors" height="200">
+    </a>
+        + Linear model, coefficients: [-698.80206267]
+        + Mean squared error (dummy): 4965.13
+        + Mean squared error (linear model): 4646.74
+        + r2_score (dummy): -0.00
+        + r2_score (linear model): 0.06
+    + The `DummyRegressorclass` implements four simple baseline rules for regression, using the strategy parameter:
+        + `mean` predicts the mean of the training target values.
+        + `median` predicts the median of the training target values.
+        + `quantile` predicts a user-provided quantile of the training target values (e.g. value at the 75th percentile)
+        + `constant` predicts a custom constant value provided by the user.
 
 + Demo
     ```python
+    # ### Regression evaluation metrics
+    %matplotlib notebook
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from sklearn.model_selection import train_test_split
+    from sklearn import datasets
+    from sklearn.linear_model import LinearRegression
+    from sklearn.metrics import mean_squared_error, r2_score
+    from sklearn.dummy import DummyRegressor
 
+    diabetes = datasets.load_diabetes()
+
+    X = diabetes.data[:, None, 6]
+    y = diabetes.target
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+    lm = LinearRegression().fit(X_train, y_train)
+    lm_dummy_mean = DummyRegressor(strategy = 'mean').fit(X_train, y_train)
+
+    y_predict = lm.predict(X_test)
+    y_predict_dummy_mean = lm_dummy_mean.predict(X_test)
+
+    print('Linear model, coefficients: ', lm.coef_)
+    print("Mean squared error (dummy): {:.2f}"
+        .format(mean_squared_error(y_test, y_predict_dummy_mean)))
+    print("Mean squared error (linear model): {:.2f}".format(mean_squared_error(y_test, y_predict)))
+    print("r2_score (dummy): {:.2f}".format(r2_score(y_test, y_predict_dummy_mean)))
+    print("r2_score (linear model): {:.2f}".format(r2_score(y_test, y_predict)))
+
+    # Plot outputs
+    plt.scatter(X_test, y_test,  color='black')
+    plt.plot(X_test, y_predict, color='green', linewidth=2)
+    plt.plot(X_test, y_predict_dummy_mean, color='red', 
+        linestyle = 'dashed', linewidth=2, label = 'dummy')
+
+    plt.show()
+    # Linear model, coefficients:  [-698.80206267]
+    # Mean squared error (dummy): 4965.13
+    # Mean squared error (linear model): 4646.74
+    # r2_score (dummy): -0.00
+    # r2_score (linear model): 0.06
     ```
-
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation"><br/>
+        <img src="images/plt3-05.png" alt="You can look at the notebook to see that a dummy regressor is created and used just like a regular regression model. You create, fit with the training data, and then call predict on the test data. Although again, like the dummy classifier you should not use the dummy regressor for actual problems. Its only use is to provide a baseline for comparison. Looking at the regression metrics output from the linear model compared to the dummy model. We can see that as expected the dummy regressor achieves an r squared score of 0. Since it always makes a constant prediction without looking at the output. In this instance the linear model provides only slightly better fit than the dummy regressor, according to both mean squared error and the r2_score. Aside from the strategy of always predicting the mean of the training target values, you could also create some other flavors of dummy regressors that always predict the median of the training target values, or a particular quantile of those values, or a specific custom constant value that you provide. Although regression typically has simpler evaluation needs than classification, it does pay to double check to make sure the evaluation metric you choose for a regression problem does penalize errors in a way that reflects the consequences of those errors for the business, organizational, or user needs of your application. " title= "Regression evaluation metrics" height="200">
     </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/ED9ofT6GEee2TA5yccyTSg.processed/full/360p/index.mp4?Expires=1536969600&Signature=JFEiRHjHOY~FTPTkDQI1MbR-UQ6YsgMUVrnd~U8bRDWYNySnaeRn4wiVvulOxrUsOB6Pb6eul15Ccb9-PFTCQVKn8KxF28AE2MEV1j81bHd5vwSb2ZRV5KfPU6z6XnqYlYXrd~0nReKhhYBD1PmxeA1La0KauoVwTHbTElbyNcA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Regression Evaluation" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
