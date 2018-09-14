@@ -387,7 +387,7 @@ for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
 plt.tight_layout()
 plt.show()
 
-# #### Precision-recall curve for the default SVC classifier (with balanced class weights)
+ # #### Precision-recall curve for the default SVC classifier (with balanced class weights)
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_curve
 from adspy_shared_utilities import plot_class_regions_for_classifier
