@@ -914,7 +914,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         + Sensitivity analysis: How much does accuracy (or other metric) change as a function of key learning parameter values?
 
 
-+ Demo
++ Demo 1
     ```python
     # #### Cross-validation example
     from sklearn.model_selection import cross_val_score
@@ -1057,7 +1057,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
     plt.show()      # right plot
     ```
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
-        <br/><img src="images/plt3-06.png" alt="We apply grid search here to explore different values of the optional class weight parameter that controls how much weight is given to each of the two classes during training. As it turns out, optimizing for different evaluation metrics results in different optimal values of the class weight parameter. As the class weight parameter increases, more emphasis will be given to correctly classifying the positive class instances. The precision-oriented classifier we see here with class weight of two, tries hard to reduce false positive while increasing true positives. So it focuses on the cluster of positive class points in the lower right corner where there are relatively few negative class points. Here, precision is over 50 percent. In contrast, the recall-oriented classifier with class weight of 50, tries hard to reduce the number of false negatives while increasing true positives. That is, it tries to find most of the positive class points as part of its positive class predictions. We can also see that the decision boundary for the F1-oriented classifier has an optimal class weight of two, which is between the optimal class weight values for the precision and recall-oriented classifiers. Visually we can see that the F1-oriented classifier also has a kind of intermediate positioning between the precision and recall-oriented, decision boundaries. This makes sense given that F1 is the harmonic mean of precision and recall. The AUC-oriented classifier with optimal class weight to 5 has a similar decision boundary to the F1-oriented classifier, but shifted slightly in favor of higher recall. " title= "Two-feature classification example using the digits dataset" height="200">
+        <br/><img src="images/plt3-06.png" alt="We apply grid search here to explore different values of the optional class weight parameter that controls how much weight is given to each of the two classes during training. As it turns out, optimizing for different evaluation metrics results in different optimal values of the class weight parameter. As the class weight parameter increases, more emphasis will be given to correctly classifying the positive class instances. The precision-oriented classifier we see here with class weight of two, tries hard to reduce false positives while increasing true positives. So it focuses on the cluster of positive class points in the lower right corner where there are relatively few negative class points. Here, precision is over 50 percent. In contrast, the recall-oriented classifier with class weight of 50, tries hard to reduce the number of false negatives while increasing true positives. That is, it tries to find most of the positive class points as part of its positive class predictions. We can also see that the decision boundary for the F1-oriented classifier has an optimal class weight of two, which is between the optimal class weight values for the precision and recall-oriented classifiers. Visually we can see that the F1-oriented classifier also has a kind of intermediate positioning between the precision and recall-oriented, decision boundaries. This makes sense given that F1 is the harmonic mean of precision and recall. The AUC-oriented classifier with optimal class weight to 5 has a similar decision boundary to the F1-oriented classifier, but shifted slightly in favor of higher recall. " title= "Two-feature classification example using the digits dataset" height="200">
     </a>
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
         <img src="images/plt3-07.png" alt="Take a moment to imagine how the extreme lower right part of the curve on this precision recall curve represents a decision boundary that's highly precision-oriented in the lower right of the classification plot, where there's a cluster of positive examples. As the decision threshold is shifted to become less and less conservative, tracing the curve up into the left, the classifier becomes more and more like the recall-oriented support vector classifier example. Again, the red circle represents the precision recall trade-off achieved at the zero score mark, which is the actual decision boundary chosen for the trained classifier. " title= "two-feature input vector matching the example" height="200">
@@ -1092,9 +1092,324 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
 
 ## Quiz: Module 3 Quiz
 
+Q1. A supervised learning model has been built to predict whether someone is infected with a new strain of a virus. 0.5The probability of any one person having the virus is 1%. Using accuracy as a metric, what would be a good choice for a baseline accuracy score that the new model would want to outperform?
+
+    Ans: x0.5
+
+[Q1](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/yAQZrFB_EeeHCRK3oa8qzA)
+Think back to the imbalanced classes example in the first lecture of week3, the base Accuracy was chosen based on the majority class
+
+for example
+
+let the probability of heads result in an unfair coin toss be 10%. If the classifier tried just to guess the result based in the probability(i.e. the majority class) e.i. if we had 100 samples which are tails, the classifier is likely to predict 90 to be tails correctly, this is simply because the likelihood of getting tails is the majority. The base accuracy in this case will be samples predicted correctly/samples =90% and you will expect any classifier to achieve an accuracy of at least 90%
+
+like I stated above, the accuracy is the probability of the majority class (the larger class), i..e The probability of any one person not having the virus.
+
+recall that P(A)+P(Not A) =1, since P(any one person having the virus.) is given, the rest is a matter of subtraction.
+
+At the beginning of the notebook, the following is stated:
+
+In this assignment you'll train several models and evaluate how effectively they predict instances of fraud.
+
+The above is meant to tell you that we have a binary classification task (i.e. fraud/not fraud).
+
+It also indicates that the positive class i.e. the class represented as 1 in the target column(it may not be named target but it usually is the last column and you'll expect it to have only two values 0 or 1); corresponds to cases (rows) that belong to a fraud case.
+
+
+Q2. Given the following confusion matrix:
+
+| Predicted Positive | Predicted Negative |
+|--------------------|--------------------|
+| Condition Positive | 96 | 4 |
+| Condition Negative | 8 | 19 |
+
+Compute the accuracy to three decimal places.
+
+    Ans: 0.923
+
+Q3. Given the following confusion matrix:
+
+| Predicted Positive | Predicted Negative |
+|--------------------|--------------------|
+| Condition Positive | 96 | 4 |
+| Condition Negative | 8 | 19 |
+
+Compute the precision to three decimal places.
+
+    Ans: 0.923
+
+Q4. Given the following confusion matrix:
+
+| Predicted Positive | Predicted Negative |
+|--------------------|--------------------|
+| Condition Positive | 96 | 4 |
+| Condition Negative | 8 | 19 |
+
+Compute the recall to three decimal places.
+
+    Ans: 0.960
+
+Q5. Using the fitted model `m` create a precision-recall curve to answer the following question:
+
+For the fitted model `m`, approximately what precision can we expect for a recall of 0.8?
+
+(Use y_test and X_test to compute the precision-recall curve. If you wish to view a plot, you can use `plt.show()` )
+
+    Ans: 0.7, x0.75
+
+[Q5](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
+
+the question asks what the expected precision would be if recall was .8
+
+this means we need to find the precision, recall then plot then and use the plot to find precision
+
+1. the classifier(m) is already defined no need to define it
+2. calculate y_decision using the decision function on X_test. m has already been fitted so there is no need for fitting
+3. plug y_test and y_decision into precision_recall_curve to find precision and recall arrays
+4. plot precision vs recall (x = recall, y=precision) using matplotlib.pyplot plot function
+5. find .8 on the x axis then find the corresponding value on the y axis
+
+```python
+from sklearn.metrics import precision_recall_curve
+
+y_scores_lr = m.fit(X_train, y_train).decision_function(X_test)
+precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
+closest_zero = np.argmin(np.abs(thresholds))
+closest_zero_p = precision[closest_zero]
+closest_zero_r = recall[closest_zero]
+
+plt.figure()
+plt.xlim([0.0, 1.01])
+plt.ylim([0.0, 1.01])
+plt.plot(precision, recall, label='Precision-Recall Curve')
+plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
+plt.xlabel('Precision', fontsize=16)
+plt.ylabel('Recall', fontsize=16)
+plt.axes().set_aspect('equal')
+plt.show()
+```
+<img src="images/fig3-q2.png" alt="text" title= "Answer plot for Q5" height="300">
+
+
+Q6. Given the following models and AUC scores, match each model to its corresponding ROC curve.
+
++ Model 1 test set AUC score: 0.91
++ Model 2 test set AUC score: 0.50
++ Model 3 test set AUC score: 0.56
+
+<a href="https://www.coursera.org/learn/python-machine-learning/exam/Wxgra/module-3-quiz"> <br/>
+    <img src="images/fig3-q1.png" alt="text" title= "caption" height="250">
+</a>
+
+    a. Model 1: Roc 1, Model 2: Roc 2, Model 3: Roc 3
+    b. Model 1: Roc 1, Model 2: Roc 3, Model 3: Roc 2
+    c. Model 1: Roc 2, Model 2: Roc 3, Model 3: Roc 1
+    d. Model 1: Roc 3, Model 2: Roc 2, Model 3: Roc 1
+    e. Not enough information is given.
+
+    Ans: b
+
+Q7. Given the following models and accuracy scores, match each model to its corresponding ROC curve.
+
++ Model 1 test set AUC score: 0.91
++ Model 2 test set AUC score: 0.50
++ Model 3 test set AUC score: 0.56
+
+<a href="https://www.coursera.org/learn/python-machine-learning/exam/Wxgra/module-3-quiz"> <br/>
+    <img src="images/fig3-q1.png" alt="text" title= "caption" height="250">
+</a>
+
+    a. Model 1: Roc 1, Model 2: Roc 2, Model 3: Roc 3
+    b. Model 1: Roc 1, Model 2: Roc 3, Model 3: Roc 2
+    c. Model 1: Roc 2, Model 2: Roc 3, Model 3: Roc 1
+    d. Model 1: Roc 3, Model 2: Roc 2, Model 3: Roc 1
+    e. Not enough information is given.
+
+    Ans: e
+
+[Q7](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/Rps2MlBCEeeFiQ58IQLPLA)
+ROC is the graph resulting from plotting True Positive Rate([sensitivity](https://en.wikipedia.org/wiki/Sensitivity_(tests)) vs. False Positive Rate(1 − [specificity](https://en.wikipedia.org/wiki/Specificity_(tests))), AUC is the area under that curve, not sure what you mean by dx, the mathematical relationship between TPR and FPR is described [here](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
+
+I don't think you can represent the relationship Accuracy vs ROC mathematically, they are two different metrics, you may find this [validated article](https://stats.stackexchange.com/questions/68893/area-under-curve-of-roc-vs-overall-accuracy) useful in clarifying the difference between the two.
+
+
+We cannot conclude a high AUC will result in a high accuracy and vice versa. Just to say we have a sample of 10 positive examples and 9990 negative examples, it is possible that we get a high accuracy(predict almost all with negative) but a low AUROC(predict not well on positive data points).
+
+There are some discussions that could be found here.
+
+https://stats.stackexchange.com/questions/90659/why-is-auc-higher-for-a-classifier-that-is-less-accurate-than-for-one-that-is-mo
+
+https://datascience.stackexchange.com/questions/806/advantages-of-auc-vs-standard-accuracy
 
 
 
+Q8. Using the fitted model `m` what is the micro precision score?
+
+(Use y_test and X_test to compute the precision score.)
+
+    Ans: x0.74
+    
+[Q8](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
+**** could be micro or macro
+
+m is already a fitted model on X_train and y_train, there is no need to create a new model, to see the parameters of m you can use print ,
+
+here is what you need to do
+
+1. use m.predict on X_test to find y_predict
+2. use precision_score function with the required averaging on y_test and y_predict
+3. copy the result into the text box
+4. the order in which y_test(y_true) and y_predict are passed to the precision_score function is important, when in doubt use
+
+```python
+svm_predicted_mc = m.predict(X_test)
+
+print('Micro-averaged precision = {:.2f} (treat instances equally)'
+        .format(precision_score(y_test, svm_predicted_mc, average = 'micro')))
+print('Macro-averaged precision = {:.2f} (treat classes equally)'
+        .format(precision_score(y_test, svm_predicted_mc, average = 'macro')))
+# Micro-averaged precision = 0.74 (treat instances equally)
+# Macro-averaged precision = 0.81 (treat classes equally)
+```
+
+Q9. Which of the following is true of the R-Squared metric? (Select all that apply)
+
+    a. A model that always predicts the mean of y would get a negative score
+    b. A model that always predicts the mean of y would get a score of 0.0
+    c. The best possible score is 1.0
+    d. The worst possible score is 0.0
+
+    Ans: xcd-0.5 
+
+Q10. In a future society, a machine is used to predict a crime before it occurs. If you were responsible for tuning this machine, what evaluation metric would you want to maximize to ensure no innocent people (people not about to commit a crime) are imprisoned (where crime is the positive label)?
+
+    a. Accuracy
+    b. Precision
+    c. Recall
+    d. F1
+    e. AUC
+
+    Ans: xc
+
+
+Q11. Consider the machine from the previous question. If you were responsible for tuning this machine, what evaluation metric would you want to maximize to ensure all criminals (people about to commit a crime) are imprisoned (where crime is the positive label)?
+
+    a. Accuracy
+    b. Precision
+    c. Recall
+    d. F1
+    e. AUC
+
+    Ans: xb
+
+Q12. A classifier is trained on an imbalanced multiclass dataset. After looking at the model’s precision scores, you find that the micro averaging is much smaller than the macro averaging score. Which of the following is most likely happening?
+
+    a. The model is probably misclassifying the frequent labels more than the infrequent labels.
+    b. The model is probably misclassifying the infrequent labels more than the frequent labels.
+
+    Ans: a
+
+Q13. Using the already defined RBF SVC model `m`, run a grid search on the parameters C and gamma, for values [0.01, 0.1, 1, 10]. The grid search should find the model that best optimizes for recall. How much better is the recall of this model than the precision? (Compute recall - precision to 3 decimal places)
+
+(Use y_test and X_test to compute precision and recall.)
+
+    Ans: x0.8
+
+```python
+
+grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
+
+for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
+    grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring=eval_metric)
+    grid_clf_custom.fit(X_test, y_test)
+    print('Grid best parameter (max. {0}): {1}'
+        .format(eval_metric, grid_clf_custom.best_params_))
+    print('Grid best score ({0}): {1}'
+        .format(eval_metric, grid_clf_custom.best_score_))
+
+# Grid best parameter (max. precision): {'C': 0.1, 'gamma': 1}
+# Grid best score (precision): 1.0
+# Grid best parameter (max. recall): {'C': 1, 'gamma': 1}
+# Grid best score (recall): 0.8
+# Grid best parameter (max. f1): {'C': 1, 'gamma': 10}
+# Grid best score (f1): 0.8053333333333333
+# Grid best parameter (max. roc_auc): {'C': 10, 'gamma': 0.1}
+# Grid best score (roc_auc): 0.9305555555555556
+```
+
+
+
+[Q13 & 14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/gwn8HFatEeeqKgpTZZjjFg)
+
+IMPORTANT: The grid search needs to be used only once in each question
+
+Q13
+
+1. grid_recall = run grid search with scoring='recall' with model m and grid values {'C': [0.01, 0.1, 1, 10] , 'gamma': [0.01, 0.1, 1, 10] }
+2. fit grid_recall with X_train and y_train
+3. y_pred = use grid_recall predict on X_test
+4. use recall_score and precision_score on y_test and y_pred to calculate recall and precision
+5. result = recall-precision
+
+Q14
+
+1. grid_precison = run grid search with scoring='precision' with model m and grid values {'C': [0.01, 0.1, 1, 10] , 'gamma': [0.01, 0.1, 1, 10] }
+2. fit grid_precision with X_train and y_train
+3. y_pred = use grid_precision predict on X_test
+4. use recall_score and precision_score on y_test and y_pred to calculate recall and precision
+5. result = precision-recall
+
+[Q13](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/N3pdg5wSEeeNexIKzDOQDA)
+```python
+# wrong code
+#recall--------------
+grid = {'C':[0.01, 0.1, 1, 10],'gamma': [0.01, 0.1, 1, 10], 'kernel': ['rbf']}
+
+gs = GridSearchCV(m, grid, scoring='recall').fit(...)
+y_decision_recall_scores_acc = gs.decision_function(...)
+
+#precision-----------
+gsp = GridSearchCV(m, grid, scoring='precision').fit(...)
+y_decision_precision_scores_acc = gsp.decision_function(...)
+
+print(gs.best_score_-gsp.best_score_)
+
+# Staff suggest
+grid_values = {...}
+grid_search = run_grid search with model m and scoring ='recall' and fit on X_train y_train
+y_pred = run grid_search best_estimator's predict on X_test
+recall = run recall_score on y_test, y_pred
+precision = run precision_score on y_test, y_pred
+result =  recall-precisoin
+
+print('Recall-Precision: {:.2f}'.format(recall_score(y_test, y_pred_recall) -precision_score(y_test, y_pred_recall)))
+print('Precision-Recall: {:.2f}'.format(precion_score(y_test, y_pred_recall) -recall_score(y_test, y_pred_recall)))
+
+```
+
+[Q13 & Q14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/R3H4h1E0Eeep9w5HRnu7Hg)
+
+As pointed by people above, there is no need to train a new SVC. If you want an example, you could refer to the sklearn [doc](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) and that should make sense!
+
+
+[Q13 & 14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/3lmtH1hWEees3A5L052WIA)
+
+If you see the example [here](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html), what you need is the prediction but not the probability.
+
+[Q13](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/M9oe0TOQEeizYg4713QR1g)
+
+Steve, 'C' is the penalty constant for misclassification in the SVC (Support Vector Classifier), you need to re-visit the lecture that covers that classifier. There's also a detailed discussion with example graphs on [stackexchange](https://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel).
+
+To answer the quiz you need to also understand what GridSearchCV() does. It is called with a set of parameters to try for a classifier, and will try all specified combinations. You first generate such a GridSearchCV object by specifying its parameters, and then call fit() on it to do the actual work. Its usage is covered in the lecture Model Selection - Optimizing Classifiers for Different Evaluation Metrics.
+
+
+
+14. Using the already defined RBF SVC model `m`, run a grid search on the parameters C and gamma, for values [0.01, 0.1, 1, 10]. The grid search should find the model that best optimizes for precision. How much better is the precision of this model than the recall? (Compute precision - recall to 3 decimal places)
+
+(Use y_test and X_test to compute precision and recall.)
+
+
+    Ans: x1.0
 
 
 
