@@ -728,7 +728,7 @@
         <img src="images/plt3-04-2.png" alt="I've also included a second confusion matrix on the same dataset for another support vector classifier that does much worse in a distinctive way. The only change is to use an RBF, radial basis function kernel instead of a linear kernel. While we can see for the accuracy number were about 43% below the confusion matrix that the classifier is doing much worse than the delinear kernel, that single number doesn't give much insight into why. Looking at the confusion matrix, however, reveals that for every true digit class, a significant fraction of outcomes are to predict the digit four. That's rather surprising. For example, of the 44 instances of the true digit 2 in row 2, 17 are classified correctly, but 27 are classified as the digit 4. Clearly, something is broken with this model and I picked this second example just to show an extreme example of what you might see when things go quite wrong. This digits dataset is well-established and free of problems. But especially when developing with a new dataset, seeing patterns like this in a confusion matrix could give you valuable clues about possible problems, say in the feature pre-processing for example. So as a general rule of thumb as part of model evaluation, I suggest always looking at the confusion matrix for your classifier. To get some insight into what kind of errors it is making for each class including whether some classes are much more prone to certain kinds of errors than others. " title= "SVM RBF Kernel Accuracy" height="200">
     </a>
 
-+ Demo 3: 
++ Demo 2: 
     ```python
     # #### Multi-class classification report
     print(classification_report(y_test_mc, svm_predicted_mc))
@@ -1063,7 +1063,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         <img src="images/plt3-07.png" alt="Take a moment to imagine how the extreme lower right part of the curve on this precision recall curve represents a decision boundary that's highly precision-oriented in the lower right of the classification plot, where there's a cluster of positive examples. As the decision threshold is shifted to become less and less conservative, tracing the curve up into the left, the classifier becomes more and more like the recall-oriented support vector classifier example. Again, the red circle represents the precision recall trade-off achieved at the zero score mark, which is the actual decision boundary chosen for the trained classifier. " title= "two-feature input vector matching the example" height="200">
     </a>
 
-+ Demo 3:
++ Demo 2:
     ```python
     plt.figure()
     plt.xlim([0.0, 1.01])
