@@ -78,7 +78,7 @@
 
 + Binary prediction outcomes
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/BE2l9/model-evaluation-selection">
-        <br/><img src="images/fig3-02.png" alt="Now let's look more carefully at the different types of outcomes we might see using a binary classifier. This will give us some insight into why using just accuracy doesn't give a complete picture of the classifier's performance. And will motivate our definition and exploration of additional evaluation metrics. With a positive and negative class, there are four possible outcomes that we can break into two cases corresponding to the first and second row of this matrix. If the true label for an instance is negative, the classifier can predict either negative, which is correct, and call the true negative. Or it can erroneously predict positive, which is an error and called a false positive. If the true label for an instance is positive, the classifier can predict either negative, which is an error and called a false negative. Or it can predict positive, which is correct and that's called a true positive. So maybe a quick way to remember this is that the first word in these matrix cells is false, if it's a a classifier error, or true if it's a classifier success. The second word is negative if the true label is negative and positive if the true label is positive. Another name for a false positive that you might know from statistics is a type one error. And another name for a false negative is a type two error. We're going to use these two-letter combinations, TN, FN, FP, and TP, as variable names, when defining some new evaluation metrics shortly. We'll also use capital N here to denote the total number of instances, of the sum of all the values in the matrix, the number of data points we're looking at. This matrix of all combinations of predicted label and true label is called a confusion matrix. " title= "confusion matrix" height="150">
+        <br/><img src="images/fig3-02.png" alt="Now let's look more carefully at the different types of outcomes we might see using a binary classifier. This will give us some insight into why using just accuracy doesn't give a complete picture of the classifier's performance. And will motivate our definition and exploration of additional evaluation metrics. With a positive and negative class, there are four possible outcomes that we can break into two cases corresponding to the first and second row of this matrix. If the true label for an instance is negative, the classifier can predict either negative, which is correct, and call the true negative. Or it can erroneously predict positive, which is an error and called a false positive. If the true label for an instance is positive, the classifier can predict either negative, which is an error and called a false negative. Or it can predict positive, which is correct and that's called a true positive. So maybe a quick way to remember this is that the first word in these matrix cells is false, if it's a a classifier error, or true if it's a classifier success. The second word is negative if the predicted label is negative and positive if the predicted label is positive. Another name for a false positive that you might know from statistics is a type one error. And another name for a false negative is a type two error. We're going to use these two-letter combinations, TN, FN, FP, and TP, as variable names, when defining some new evaluation metrics shortly. We'll also use capital N here to denote the total number of instances, of the sum of all the values in the matrix, the number of data points we're looking at. This matrix of all combinations of predicted label and true label is called a confusion matrix. " title= "confusion matrix" height="150">
     </a>
     <a href="https://www.researchgate.net/publication/230614354_How_to_evaluate_performance_of_prediction_methods_Measures_and_their_interpretation_in_variation_effect_analysis/figures?lo=1">
         <img src="https://www.researchgate.net/profile/Mauno_Vihinen/publication/230614354/figure/fig4/AS:216471646019585@1428622270943/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for_W640.jpg" alt="Contingency matrix and measures calculated based on it 2x2 contigency table for displaying the outcome of predictions. Based on the table it is possible to calculate row and column wise parameters, PPV and NVP, and sensitivity and specificity, respectively. These parameters are useful, but are not based on all the information in the table. Accuracy is a measure that is calculated based on all the four figures in the table." title= "Contingency matrix and measures" height="250">
@@ -304,6 +304,8 @@
         + Search engine ranking, query suggestion
         + Document classification
         + Many customer-facing tasks (users remember failures!)
+
++ F-score
     + F1-score: combining precision & recall into a single number
 
         $$ F_1 = 2 \cdot \frac{Precision \cdot Recall}{precision + Recall} = \frac{2 \cdot TP}{2 \cdot TP + FN + FP}$$
@@ -570,15 +572,8 @@
     plt.title('ROC curve (1-of-10 digits classifier)', fontsize=16)
     plt.legend(loc='lower right', fontsize=13)
     plt.plot([0, 1], [0, 1], color='navy', lw=3, linestyle='--')
-    plt.axes().set_aspect('equal')
-    plt.show()
-    ```
-    <a href="url"> <br/>
-        <img src="images/plt3-02.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC)" height="250">
-    </a>
+    plt.axes().set_aspect('equal')  # left plot
 
-+ Demo 2
-    ```python
     from matplotlib import cm
 
     X_train, X_test, y_train, y_test = train_test_split(X, y_binary_imbalanced, random_state=0)
@@ -603,13 +598,16 @@
     plt.title('ROC curve: (1-of-10 digits classifier)', fontsize=16)
     plt.axes().set_aspect('equal')
 
-    plt.show()
+    plt.show()                      # right plt
     # gamma = 0.01  accuracy = 0.91   AUC = 1.00
     # gamma = 0.10  accuracy = 0.90   AUC = 0.98
     # gamma = 0.20  accuracy = 0.90   AUC = 0.66
     # gamma = 1.00  accuracy = 0.90   AUC = 0.50
     ```
     <a href="url"> <br/>
+        <img src="images/plt3-02.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC)" height="250">
+    </a>
+    <a href="url">
         <img src="images/plt3-03.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC) with differeent gamma parameters" height="250">
     </a>
 
@@ -680,8 +678,8 @@
     + If some classes are much larger (more instances) than others, and you want to:
         + Weight your metric toward the largest ones, use micro-averaging.
         + Weight your metric toward the smallest ones, use macro-averaging.
-    + If themicro-averageis much lower than the macro-average then examine the larger classes for poor metric performance.
-    + If the macro-average is much lower than the micro-averagethen examine the smaller classes for poor metric performance.
+    + If the micro-average is much lower than the macro-average then examine the larger classes for poor metric performance.
+    + If the macro-average is much lower than the micro-average then examine the smaller classes for poor metric performance.
 
 + Multi-class Evaluation Metrics via the "Average" Parameter for a Scoring Function
     + Micro: Metric on aggregated instances
@@ -708,14 +706,8 @@
     plt.title('SVM Linear Kernel \nAccuracy:{0:.3f}'
         .format(accuracy_score(y_test_mc, svm_predicted_mc)))
     plt.ylabel('True label')
-    plt.xlabel('Predicted label')
-    ```
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation"><br/>
-        <img src="images/plt3-04-1.png" alt="In this example which was created using the following notebook code based on a support vector classifier with linear kernel, we can see that most of the predictions are correct with only a few misclassifications here and there. The most frequent type of mistake here is apparently misclassifying the true digit, eight as a predicted digit one which happened three times. And indeed, the overall accuracy is high, about 97% as shown here. As an aside, it's sometimes useful to display a confusion matrix as a heat map in order to highlight the relative frequencies of different types of errors. So, I've included the code to generate that here. For comparison, " title= "SVM Linear Kernel Accuracy" height="200">
-    </a>
+    plt.xlabel('Predicted label')       # left plot
 
-+ Demo 2: 
-    ```python
     svm = SVC(kernel = 'rbf').fit(X_train_mc, y_train_mc)
     svm_predicted_mc = svm.predict(X_test_mc)
     confusion_mc = confusion_matrix(y_test_mc, svm_predicted_mc)
@@ -727,9 +719,12 @@
     plt.title('SVM RBF Kernel \nAccuracy:{0:.3f}'
         .format(accuracy_score(y_test_mc, svm_predicted_mc)))
     plt.ylabel('True label')
-    plt.xlabel('Predicted label');
+    plt.xlabel('Predicted label');      # right plot
     ```
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation"><br/>
+        <img src="images/plt3-04-1.png" alt="In this example which was created using the following notebook code based on a support vector classifier with linear kernel, we can see that most of the predictions are correct with only a few misclassifications here and there. The most frequent type of mistake here is apparently misclassifying the true digit, eight as a predicted digit one which happened three times. And indeed, the overall accuracy is high, about 97% as shown here. As an aside, it's sometimes useful to display a confusion matrix as a heat map in order to highlight the relative frequencies of different types of errors. So, I've included the code to generate that here. For comparison, " title= "SVM Linear Kernel Accuracy" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation">
         <img src="images/plt3-04-2.png" alt="I've also included a second confusion matrix on the same dataset for another support vector classifier that does much worse in a distinctive way. The only change is to use an RBF, radial basis function kernel instead of a linear kernel. While we can see for the accuracy number were about 43% below the confusion matrix that the classifier is doing much worse than the delinear kernel, that single number doesn't give much insight into why. Looking at the confusion matrix, however, reveals that for every true digit class, a significant fraction of outcomes are to predict the digit four. That's rather surprising. For example, of the 44 instances of the true digit 2 in row 2, 17 are classified correctly, but 27 are classified as the digit 4. Clearly, something is broken with this model and I picked this second example just to show an extreme example of what you might see when things go quite wrong. This digits dataset is well-established and free of problems. But especially when developing with a new dataset, seeing patterns like this in a confusion matrix could give you valuable clues about possible problems, say in the feature pre-processing for example. So as a general rule of thumb as part of model evaluation, I suggest always looking at the confusion matrix for your classifier. To get some insight into what kind of errors it is making for each class including whether some classes are much more prone to certain kinds of errors than others. " title= "SVM RBF Kernel Accuracy" height="200">
     </a>
 
@@ -1024,7 +1019,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         
         plt.title(eval_metric+'-oriented SVC')
     plt.tight_layout()
-    plt.show()
+    plt.show()      # left plot
     # Grid best parameter (max. precision): {'class_weight': {1: 2}}
     # Grid best score (precision): 0.5364331779495704
     # Grid best parameter (max. recall): {'class_weight': {1: 50}}
@@ -1032,15 +1027,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
     # Grid best parameter (max. f1): {'class_weight': {1: 3}}
     # Grid best score (f1): 0.4955650747228387
     # Grid best parameter (max. roc_auc): {'class_weight': {1: 20}}
-    # Grid best score (roc_auc): 0.8886304322985741
-    ```
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
-        <br/><img src="images/plt3-06.png" alt="We apply grid search here to explore different values of the optional class weight parameter that controls how much weight is given to each of the two classes during training. As it turns out, optimizing for different evaluation metrics results in different optimal values of the class weight parameter. As the class weight parameter increases, more emphasis will be given to correctly classifying the positive class instances. The precision-oriented classifier we see here with class weight of two, tries hard to reduce false positive while increasing true positives. So it focuses on the cluster of positive class points in the lower right corner where there are relatively few negative class points. Here, precision is over 50 percent. In contrast, the recall-oriented classifier with class weight of 50, tries hard to reduce the number of false negatives while increasing true positives. That is, it tries to find most of the positive class points as part of its positive class predictions. We can also see that the decision boundary for the F1-oriented classifier has an optimal class weight of two, which is between the optimal class weight values for the precision and recall-oriented classifiers. Visually we can see that the F1-oriented classifier also has a kind of intermediate positioning between the precision and recall-oriented, decision boundaries. This makes sense given that F1 is the harmonic mean of precision and recall. The AUC-oriented classifier with optimal class weight to 5 has a similar decision boundary to the F1-oriented classifier, but shifted slightly in favor of higher recall. " title= "Two-feature classification example using the digits dataset" height="200">
-    </a>
 
-
-+ Demo 2:
-    ```python
     # #### Precision-recall curve for the default SVC classifier (with balanced class weights)
     from sklearn.model_selection import train_test_split
     from sklearn.metrics import precision_recall_curve
@@ -1067,10 +1054,13 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
 
     plot_class_regions_for_classifier(clf, X_twovar_test, y_test)
     plt.title("SVC, class_weight = 'balanced', optimized for accuracy")
-    plt.show()
+    plt.show()      # right plot
     ```
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
-        <br/><img src="images/plt3-07.png" alt="Take a moment to imagine how the extreme lower right part of the curve on this precision recall curve represents a decision boundary that's highly precision-oriented in the lower right of the classification plot, where there's a cluster of positive examples. As the decision threshold is shifted to become less and less conservative, tracing the curve up into the left, the classifier becomes more and more like the recall-oriented support vector classifier example. Again, the red circle represents the precision recall trade-off achieved at the zero score mark, which is the actual decision boundary chosen for the trained classifier. " title= "two-feature input vector matching the example" height="200">
+        <br/><img src="images/plt3-06.png" alt="We apply grid search here to explore different values of the optional class weight parameter that controls how much weight is given to each of the two classes during training. As it turns out, optimizing for different evaluation metrics results in different optimal values of the class weight parameter. As the class weight parameter increases, more emphasis will be given to correctly classifying the positive class instances. The precision-oriented classifier we see here with class weight of two, tries hard to reduce false positive while increasing true positives. So it focuses on the cluster of positive class points in the lower right corner where there are relatively few negative class points. Here, precision is over 50 percent. In contrast, the recall-oriented classifier with class weight of 50, tries hard to reduce the number of false negatives while increasing true positives. That is, it tries to find most of the positive class points as part of its positive class predictions. We can also see that the decision boundary for the F1-oriented classifier has an optimal class weight of two, which is between the optimal class weight values for the precision and recall-oriented classifiers. Visually we can see that the F1-oriented classifier also has a kind of intermediate positioning between the precision and recall-oriented, decision boundaries. This makes sense given that F1 is the harmonic mean of precision and recall. The AUC-oriented classifier with optimal class weight to 5 has a similar decision boundary to the F1-oriented classifier, but shifted slightly in favor of higher recall. " title= "Two-feature classification example using the digits dataset" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
+        <img src="images/plt3-07.png" alt="Take a moment to imagine how the extreme lower right part of the curve on this precision recall curve represents a decision boundary that's highly precision-oriented in the lower right of the classification plot, where there's a cluster of positive examples. As the decision threshold is shifted to become less and less conservative, tracing the curve up into the left, the classifier becomes more and more like the recall-oriented support vector classifier example. Again, the red circle represents the precision recall trade-off achieved at the zero score mark, which is the actual decision boundary chosen for the trained classifier. " title= "two-feature input vector matching the example" height="200">
     </a>
 
 + Demo 3:
@@ -1102,21 +1092,13 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
 
 ## Quiz: Module 3 Quiz
 
-### Note
 
 
-+ Demo
-    ```python
 
-    ```
 
-    <a href="url">
-        <br/><img src="url" alt="text" title= "caption" height="200">
-    </a>
 
-### Lecture Video
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+
+
+
 
