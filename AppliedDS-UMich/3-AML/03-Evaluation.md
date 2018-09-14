@@ -1096,24 +1096,25 @@ Q1. A supervised learning model has been built to predict whether someone is inf
 
     Ans: x0.5
 
-[Q1](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/yAQZrFB_EeeHCRK3oa8qzA)
-Think back to the imbalanced classes example in the first lecture of week3, the base Accuracy was chosen based on the majority class
++ [Q1](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/yAQZrFB_EeeHCRK3oa8qzA)
 
-for example
+    Think back to the imbalanced classes example in the first lecture of week3, the base Accuracy was chosen based on the majority class
 
-let the probability of heads result in an unfair coin toss be 10%. If the classifier tried just to guess the result based in the probability(i.e. the majority class) e.i. if we had 100 samples which are tails, the classifier is likely to predict 90 to be tails correctly, this is simply because the likelihood of getting tails is the majority. The base accuracy in this case will be samples predicted correctly/samples =90% and you will expect any classifier to achieve an accuracy of at least 90%
+    for example
 
-like I stated above, the accuracy is the probability of the majority class (the larger class), i..e The probability of any one person not having the virus.
+    let the probability of heads result in an unfair coin toss be 10%. If the classifier tried just to guess the result based in the probability(i.e. the majority class) e.i. if we had 100 samples which are tails, the classifier is likely to predict 90 to be tails correctly, this is simply because the likelihood of getting tails is the majority. The base accuracy in this case will be samples predicted correctly/samples =90% and you will expect any classifier to achieve an accuracy of at least 90%
 
-recall that P(A)+P(Not A) =1, since P(any one person having the virus.) is given, the rest is a matter of subtraction.
+    like I stated above, the accuracy is the probability of the majority class (the larger class), i..e The probability of any one person not having the virus.
 
-At the beginning of the notebook, the following is stated:
+    recall that P(A)+P(Not A) =1, since P(any one person having the virus.) is given, the rest is a matter of subtraction.
 
-In this assignment you'll train several models and evaluate how effectively they predict instances of fraud.
+    At the beginning of the notebook, the following is stated:
 
-The above is meant to tell you that we have a binary classification task (i.e. fraud/not fraud).
+    In this assignment you'll train several models and evaluate how effectively they predict instances of fraud.
 
-It also indicates that the positive class i.e. the class represented as 1 in the target column(it may not be named target but it usually is the last column and you'll expect it to have only two values 0 or 1); corresponds to cases (rows) that belong to a fraud case.
+    The above is meant to tell you that we have a binary classification task (i.e. fraud/not fraud).
+
+    It also indicates that the positive class i.e. the class represented as 1 in the target column(it may not be named target but it usually is the last column and you'll expect it to have only two values 0 or 1); corresponds to cases (rows) that belong to a fraud case.
 
 
 Q2. Given the following confusion matrix:
@@ -1157,38 +1158,38 @@ For the fitted model `m`, approximately what precision can we expect for a recal
 
     Ans: 0.7, x0.75
 
-[Q5](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
++ [Q5](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
 
-the question asks what the expected precision would be if recall was .8
+    the question asks what the expected precision would be if recall was .8
 
-this means we need to find the precision, recall then plot then and use the plot to find precision
+    this means we need to find the precision, recall then plot then and use the plot to find precision
 
-1. the classifier(m) is already defined no need to define it
-2. calculate y_decision using the decision function on X_test. m has already been fitted so there is no need for fitting
-3. plug y_test and y_decision into precision_recall_curve to find precision and recall arrays
-4. plot precision vs recall (x = recall, y=precision) using matplotlib.pyplot plot function
-5. find .8 on the x axis then find the corresponding value on the y axis
+    1. the classifier(m) is already defined no need to define it
+    2. calculate y_decision using the decision function on X_test. m has already been fitted so there is no need for fitting
+    3. plug y_test and y_decision into precision_recall_curve to find precision and recall arrays
+    4. plot precision vs recall (x = recall, y=precision) using matplotlib.pyplot plot function
+    5. find .8 on the x axis then find the corresponding value on the y axis
 
-```python
-from sklearn.metrics import precision_recall_curve
+    ```python
+    from sklearn.metrics import precision_recall_curve
 
-y_scores_lr = m.fit(X_train, y_train).decision_function(X_test)
-precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
-closest_zero = np.argmin(np.abs(thresholds))
-closest_zero_p = precision[closest_zero]
-closest_zero_r = recall[closest_zero]
+    y_scores_lr = m.fit(X_train, y_train).decision_function(X_test)
+    precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
+    closest_zero = np.argmin(np.abs(thresholds))
+    closest_zero_p = precision[closest_zero]
+    closest_zero_r = recall[closest_zero]
 
-plt.figure()
-plt.xlim([0.0, 1.01])
-plt.ylim([0.0, 1.01])
-plt.plot(precision, recall, label='Precision-Recall Curve')
-plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
-plt.xlabel('Precision', fontsize=16)
-plt.ylabel('Recall', fontsize=16)
-plt.axes().set_aspect('equal')
-plt.show()
-```
-<img src="images/fig3-q2.png" alt="text" title= "Answer plot for Q5" height="300">
+    plt.figure()
+    plt.xlim([0.0, 1.01])
+    plt.ylim([0.0, 1.01])
+    plt.plot(precision, recall, label='Precision-Recall Curve')
+    plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
+    plt.xlabel('Precision', fontsize=16)
+    plt.ylabel('Recall', fontsize=16)
+    plt.axes().set_aspect('equal')
+    plt.show()
+    ```
+    <img src="images/fig3-q2.png" alt="text" title= "Answer plot for Q5" height="300">
 
 
 Q6. Given the following models and AUC scores, match each model to its corresponding ROC curve.
@@ -1227,19 +1228,20 @@ Q7. Given the following models and accuracy scores, match each model to its corr
 
     Ans: e
 
-[Q7](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/Rps2MlBCEeeFiQ58IQLPLA)
-ROC is the graph resulting from plotting True Positive Rate([sensitivity](https://en.wikipedia.org/wiki/Sensitivity_(tests)) vs. False Positive Rate(1 − [specificity](https://en.wikipedia.org/wiki/Specificity_(tests))), AUC is the area under that curve, not sure what you mean by dx, the mathematical relationship between TPR and FPR is described [here](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
++ [Q7](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/Rps2MlBCEeeFiQ58IQLPLA)
 
-I don't think you can represent the relationship Accuracy vs ROC mathematically, they are two different metrics, you may find this [validated article](https://stats.stackexchange.com/questions/68893/area-under-curve-of-roc-vs-overall-accuracy) useful in clarifying the difference between the two.
+    ROC is the graph resulting from plotting True Positive Rate([sensitivity](https://en.wikipedia.org/wiki/Sensitivity_(tests)) vs. False Positive Rate(1 − [specificity](https://en.wikipedia.org/wiki/Specificity_(tests))), AUC is the area under that curve, not sure what you mean by dx, the mathematical relationship between TPR and FPR is described [here](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
+
+    I don't think you can represent the relationship Accuracy vs ROC mathematically, they are two different metrics, you may find this [validated article](https://stats.stackexchange.com/questions/68893/area-under-curve-of-roc-vs-overall-accuracy) useful in clarifying the difference between the two.
 
 
-We cannot conclude a high AUC will result in a high accuracy and vice versa. Just to say we have a sample of 10 positive examples and 9990 negative examples, it is possible that we get a high accuracy(predict almost all with negative) but a low AUROC(predict not well on positive data points).
+    We cannot conclude a high AUC will result in a high accuracy and vice versa. Just to say we have a sample of 10 positive examples and 9990 negative examples, it is possible that we get a high accuracy(predict almost all with negative) but a low AUROC(predict not well on positive data points).
 
-There are some discussions that could be found here.
+    There are some discussions that could be found here.
 
-https://stats.stackexchange.com/questions/90659/why-is-auc-higher-for-a-classifier-that-is-less-accurate-than-for-one-that-is-mo
+    https://stats.stackexchange.com/questions/90659/why-is-auc-higher-for-a-classifier-that-is-less-accurate-than-for-one-that-is-mo
 
-https://datascience.stackexchange.com/questions/806/advantages-of-auc-vs-standard-accuracy
+    https://datascience.stackexchange.com/questions/806/advantages-of-auc-vs-standard-accuracy
 
 
 
@@ -1249,28 +1251,28 @@ Q8. Using the fitted model `m` what is the micro precision score?
 
     Ans: x0.74
     
-[Q8](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
-**** could be micro or macro
++ [Q8](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
+    **** could be micro or macro
 
-m is already a fitted model on X_train and y_train, there is no need to create a new model, to see the parameters of m you can use print ,
+    m is already a fitted model on X_train and y_train, there is no need to create a new model, to see the parameters of m you can use print ,
 
-here is what you need to do
+    here is what you need to do
 
-1. use m.predict on X_test to find y_predict
-2. use precision_score function with the required averaging on y_test and y_predict
-3. copy the result into the text box
-4. the order in which y_test(y_true) and y_predict are passed to the precision_score function is important, when in doubt use
+    1. use m.predict on X_test to find y_predict
+    2. use precision_score function with the required averaging on y_test and y_predict
+    3. copy the result into the text box
+    4. the order in which y_test(y_true) and y_predict are passed to the precision_score function is important, when in doubt use
 
-```python
-svm_predicted_mc = m.predict(X_test)
+    ```python
+    svm_predicted_mc = m.predict(X_test)
 
-print('Micro-averaged precision = {:.2f} (treat instances equally)'
-        .format(precision_score(y_test, svm_predicted_mc, average = 'micro')))
-print('Macro-averaged precision = {:.2f} (treat classes equally)'
-        .format(precision_score(y_test, svm_predicted_mc, average = 'macro')))
-# Micro-averaged precision = 0.74 (treat instances equally)
-# Macro-averaged precision = 0.81 (treat classes equally)
-```
+    print('Micro-averaged precision = {:.2f} (treat instances equally)'
+            .format(precision_score(y_test, svm_predicted_mc, average = 'micro')))
+    print('Macro-averaged precision = {:.2f} (treat classes equally)'
+            .format(precision_score(y_test, svm_predicted_mc, average = 'macro')))
+    # Micro-averaged precision = 0.74 (treat instances equally)
+    # Macro-averaged precision = 0.81 (treat classes equally)
+    ```
 
 Q9. Which of the following is true of the R-Squared metric? (Select all that apply)
 
@@ -1339,68 +1341,69 @@ for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
 
 
 
-[Q13 & 14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/gwn8HFatEeeqKgpTZZjjFg)
++ [Q13 & 14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/gwn8HFatEeeqKgpTZZjjFg)
 
-IMPORTANT: The grid search needs to be used only once in each question
+    IMPORTANT: The grid search needs to be used only once in each question
 
-Q13
+    Q13
 
-1. grid_recall = run grid search with scoring='recall' with model m and grid values {'C': [0.01, 0.1, 1, 10] , 'gamma': [0.01, 0.1, 1, 10] }
-2. fit grid_recall with X_train and y_train
-3. y_pred = use grid_recall predict on X_test
-4. use recall_score and precision_score on y_test and y_pred to calculate recall and precision
-5. result = recall-precision
+    1. grid_recall = run grid search with scoring='recall' with model m and grid values {'C': [0.01, 0.1, 1, 10] , 'gamma': [0.01, 0.1, 1, 10] }
+    2. fit grid_recall with X_train and y_train
+    3. y_pred = use grid_recall predict on X_test
+    4. use recall_score and precision_score on y_test and y_pred to calculate recall and precision
+    5. result = recall-precision
 
-Q14
+    Q14
 
-1. grid_precison = run grid search with scoring='precision' with model m and grid values {'C': [0.01, 0.1, 1, 10] , 'gamma': [0.01, 0.1, 1, 10] }
-2. fit grid_precision with X_train and y_train
-3. y_pred = use grid_precision predict on X_test
-4. use recall_score and precision_score on y_test and y_pred to calculate recall and precision
-5. result = precision-recall
+    1. grid_precison = run grid search with scoring='precision' with model m and grid values {'C': [0.01, 0.1, 1, 10] , 'gamma': [0.01, 0.1, 1, 10] }
+    2. fit grid_precision with X_train and y_train
+    3. y_pred = use grid_precision predict on X_test
+    4. use recall_score and precision_score on y_test and y_pred to calculate recall and precision
+    5. result = precision-recall
 
-[Q13](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/N3pdg5wSEeeNexIKzDOQDA)
-```python
-# wrong code
-#recall--------------
-grid = {'C':[0.01, 0.1, 1, 10],'gamma': [0.01, 0.1, 1, 10], 'kernel': ['rbf']}
++ [Q13](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/N3pdg5wSEeeNexIKzDOQDA)
 
-gs = GridSearchCV(m, grid, scoring='recall').fit(...)
-y_decision_recall_scores_acc = gs.decision_function(...)
+    ```python
+    # wrong code
+    #recall--------------
+    grid = {'C':[0.01, 0.1, 1, 10],'gamma': [0.01, 0.1, 1, 10], 'kernel': ['rbf']}
 
-#precision-----------
-gsp = GridSearchCV(m, grid, scoring='precision').fit(...)
-y_decision_precision_scores_acc = gsp.decision_function(...)
+    gs = GridSearchCV(m, grid, scoring='recall').fit(...)
+    y_decision_recall_scores_acc = gs.decision_function(...)
 
-print(gs.best_score_-gsp.best_score_)
+    #precision-----------
+    gsp = GridSearchCV(m, grid, scoring='precision').fit(...)
+    y_decision_precision_scores_acc = gsp.decision_function(...)
 
-# Staff suggest
-grid_values = {...}
-grid_search = run_grid search with model m and scoring ='recall' and fit on X_train y_train
-y_pred = run grid_search best_estimator's predict on X_test
-recall = run recall_score on y_test, y_pred
-precision = run precision_score on y_test, y_pred
-result =  recall-precisoin
+    print(gs.best_score_-gsp.best_score_)
 
-print('Recall-Precision: {:.2f}'.format(recall_score(y_test, y_pred_recall) -precision_score(y_test, y_pred_recall)))
-print('Precision-Recall: {:.2f}'.format(precion_score(y_test, y_pred_recall) -recall_score(y_test, y_pred_recall)))
+    # Staff suggest
+    grid_values = {...}
+    grid_search = run_grid search with model m and scoring ='recall' and fit on X_train y_train
+    y_pred = run grid_search best_estimator's predict on X_test
+    recall = run recall_score on y_test, y_pred
+    precision = run precision_score on y_test, y_pred
+    result =  recall-precisoin
 
-```
+    print('Recall-Precision: {:.2f}'.format(recall_score(y_test, y_pred_recall) -precision_score(y_test, y_pred_recall)))
+    print('Precision-Recall: {:.2f}'.format(precion_score(y_test, y_pred_recall) -recall_score(y_test, y_pred_recall)))
 
-[Q13 & Q14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/R3H4h1E0Eeep9w5HRnu7Hg)
+    ```
 
-As pointed by people above, there is no need to train a new SVC. If you want an example, you could refer to the sklearn [doc](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) and that should make sense!
++ [Q13 & Q14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/R3H4h1E0Eeep9w5HRnu7Hg)
+
+    As pointed by people above, there is no need to train a new SVC. If you want an example, you could refer to the sklearn [doc](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) and that should make sense!
 
 
-[Q13 & 14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/3lmtH1hWEees3A5L052WIA)
++ [Q13 & 14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/3lmtH1hWEees3A5L052WIA)
 
-If you see the example [here](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html), what you need is the prediction but not the probability.
+    If you see the example [here](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html), what you need is the prediction but not the probability.
 
-[Q13](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/M9oe0TOQEeizYg4713QR1g)
++ [Q13](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/M9oe0TOQEeizYg4713QR1g)
 
-Steve, 'C' is the penalty constant for misclassification in the SVC (Support Vector Classifier), you need to re-visit the lecture that covers that classifier. There's also a detailed discussion with example graphs on [stackexchange](https://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel).
+    Steve, 'C' is the penalty constant for misclassification in the SVC (Support Vector Classifier), you need to re-visit the lecture that covers that classifier. There's also a detailed discussion with example graphs on [stackexchange](https://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel).
 
-To answer the quiz you need to also understand what GridSearchCV() does. It is called with a set of parameters to try for a classifier, and will try all specified combinations. You first generate such a GridSearchCV object by specifying its parameters, and then call fit() on it to do the actual work. Its usage is covered in the lecture Model Selection - Optimizing Classifiers for Different Evaluation Metrics.
+    To answer the quiz you need to also understand what GridSearchCV() does. It is called with a set of parameters to try for a classifier, and will try all specified combinations. You first generate such a GridSearchCV object by specifying its parameters, and then call fit() on it to do the actual work. Its usage is covered in the lecture Model Selection - Optimizing Classifiers for Different Evaluation Metrics.
 
 
 
