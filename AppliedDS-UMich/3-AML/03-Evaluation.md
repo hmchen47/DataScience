@@ -688,7 +688,7 @@
     + Samples: for multi-label problems only
 
 
-+ Demo
++ Demo 1
     ```python
     # #### Multi-class confusion matrix
     dataset = load_digits()
@@ -1175,8 +1175,6 @@ For the fitted model `m`, approximately what precision can we expect for a recal
 
     y_scores = m.fit(X_train, y_train).decision_function(X_test)
     precision, recall, thresholds = precision_recall_curve(y_test, y_scores)
-    print("Precision: {}".format(precision))
-    print("Recall: {}".format(recall))
     closest_zero = np.argmin(np.abs(thresholds))
     closest_zero_p = precision[closest_zero]
     closest_zero_r = recall[closest_zero]
@@ -1185,11 +1183,13 @@ For the fitted model `m`, approximately what precision can we expect for a recal
     plt.xlim([0.0, 1.01])
     plt.ylim([0.0, 1.01])
     plt.plot(recall, precision, label='Recall-Precision Curve')
-    plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
+    plt.plot(closest_zero_r, closest_zero_p, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
     plt.xlabel('Recall', fontsize=16)
     plt.ylabel('Precision', fontsize=16)
     plt.axes().set_aspect('equal')
     plt.show()
+    print("Precision: {}".format(precision))
+    print("Recall: {}".format(recall))
 
     # Precision: 
     # [ 0.26732673  0.26        0.26262626  0.26530612  0.26804124  0.27083333
@@ -1288,7 +1288,7 @@ Q8. Using the fitted model `m` what is the micro precision score?
 
 (Use y_test and X_test to compute the precision score.)
 
-    Ans: 0.61, x0.81, x0.74
+    Ans: 0.805, x0.61, x0.81, x0.74
 
 + [Q8](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
 
@@ -1304,14 +1304,20 @@ Q8. Using the fitted model `m` what is the micro precision score?
     4. the order in which y_test(y_true) and y_predict are passed to the precision_score function is important, when in doubt use
 
     ```python
+    # m object
+    # SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    #   decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
+    #   max_iter=-1, probability=False, random_state=None, shrinking=True,
+    #   tol=0.001, verbose=False)
+
     y_predicted = m.predict(X_test)
 
-    print('Micro-averaged precision = {:.2f} (treat instances equally)'
-            .format(precision_score(y_predicted, y_test, average = 'micro')))
-    print('Macro-averaged precision = {:.2f} (treat classes equally)'
-            .format(precision_score(ypredicted, y_test, average = 'macro')))
+    print('Micro-averaged precision = {:.3f} (treat instances equally)'
+            .format(precision_score(y_test, y_predicted, average = 'micro')))
+    print('Macro-averaged precision = {:.3f} (treat classes equally)'
+            .format(precision_score(y_test, y_predicted, average = 'macro')))
     # Micro-averaged precision = 0.744 (treat instances equally)
-    # Macro-averaged precision = 0.605 (treat classes equally)
+    # Macro-averaged precision = 0.805 (treat classes equally)
     ```
 
 Q9. Which of the following is true of the R-Squared metric? (Select all that apply)
