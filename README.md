@@ -27,7 +27,7 @@
 
     | Topic | | Item Col 1 | Item Col 2 | Item Col 3 | Item Col 4|
     |-------|-|------------|------------|------------|-----------|
-    | [General](./RefCards./PythonDS.md#general) | [Open CSV File](./RefCards/PythonDS.md#open-cvs-file) | [Method](./RefCards/PythonDS.md#methods) | |
+    | [General](./RefCards./PythonDS.md#general) | | [Open CSV File](./RefCards/PythonDS.md#open-cvs-file) | [Method](./RefCards/PythonDS.md#methods) | |
     | [Date and Time](./RefCards/PythonDS.md#date-and-times) | |[Import Files](./RefCards/PythonDS.md#import-files) | [Attributes](./RefCards/PythonDS.md#attributes) | [Methods](./RefCards/PythonDS.md#methods-1) | | 
     | [SciPy](./RefCards/PythonDS.md#scipy) | | [Import Files](./RefCards/PythonDS.md#import-files-1) | [Statistical Module](./RefCards/PythonDS.md#statistical-module) | | |
     | [Numpy](./RefCards/PythonDS.md#numpy) | | [Import Files](./RefCards/PythonDS.md#import-files-2) | [General](./RefCards/PythonDS.md#general-1) | [Array Creation](./RefCards/PythonDS.md#array-creation) | [Combining Array](./RefCards/PythonDS.md#combining-arrays) |
