@@ -1156,7 +1156,7 @@ For the fitted model `m`, approximately what precision can we expect for a recal
 
 (Use y_test and X_test to compute the precision-recall curve. If you wish to view a plot, you can use `plt.show()` )
 
-    Ans: 0.7, x0.75
+    Ans: x0.55, x0.75
 
 + [Q5](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
 
@@ -1182,10 +1182,10 @@ For the fitted model `m`, approximately what precision can we expect for a recal
     plt.figure()
     plt.xlim([0.0, 1.01])
     plt.ylim([0.0, 1.01])
-    plt.plot(precision, recall, label='Precision-Recall Curve')
+    plt.plot(recall, precision, label='Precision-Recall Curve')
     plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
-    plt.xlabel('Precision', fontsize=16)
-    plt.ylabel('Recall', fontsize=16)
+    plt.xlabel('Recall', fontsize=16)
+    plt.ylabel('Precision', fontsize=16)
     plt.axes().set_aspect('equal')
     plt.show()
     ```
@@ -1249,9 +1249,10 @@ Q8. Using the fitted model `m` what is the micro precision score?
 
 (Use y_test and X_test to compute the precision score.)
 
-    Ans: x0.74
+    Ans: x0.81, x0.74
     
 + [Q8](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
+
     **** could be micro or macro
 
     m is already a fitted model on X_train and y_train, there is no need to create a new model, to see the parameters of m you can use print ,
@@ -1281,7 +1282,7 @@ Q9. Which of the following is true of the R-Squared metric? (Select all that app
     c. The best possible score is 1.0
     d. The worst possible score is 0.0
 
-    Ans: bcd, xcd-0.5 
+    Ans: abcd, xbcd-0.75, xcd-0.5 
 
 Q10. In a future society, a machine is used to predict a crime before it occurs. If you were responsible for tuning this machine, what evaluation metric would you want to maximize to ensure no innocent people (people not about to commit a crime) are imprisoned (where crime is the positive label)?
 
@@ -1318,45 +1319,23 @@ Q13. Using the already defined RBF SVC model `m`, run a grid search on the param
     Ans: , x0.8
 
 ```python
-
-grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
-
-# for i, eval_metric in enumerate(('recall', 'precision')):
-#     grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring=eval_metric)
-#     grid_clf_custom.fit(X_train, y_train)
-
-#     y_decision_fn_scores = grid_clf_custom.decision_function(X_test)
-
-#     print('Grid best parameter (max. accuracy): ', grid_clf_acc.best_params_)
-#     print('Grid best score (accuracy): ', grid_clf_acc.best_score_)
-
-#     print('Test set {}: '.format(eval_metric ,roc_auc_score(y_test, y_decision_fn_scores))
-#     print('\nGrid best parameter (max. {0}): {1}'
-#         .format(eval_metric, grid_clf_acc.best_params_))
-#     print('Grid best score ({0}): {1}'
-#         .format(eval_metric, grid_clf_acc.best_score_))
-
-from sklearn.model_selection import cross_val_score
-
 grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
 
 grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring='recall')
 grid_clf_custom.fit(X_train, y_train)
 
-y_decision_fn_scores = grid_clf_custom.decision_function(X_test)
-
-cross_precision = cross_val_score(grid_clf_custom, X_test, y_test, cv=5, scoring = 'precision')
+predicted = grid_clf_custom.predict(X_test)
 
 print('Grid best parameter (max. recall): ', grid_clf_custom.best_params_)
 print('Grid best score (recall): ', grid_clf_custom.best_score_)
-print('Cross-validation (precision)', cross_precision)
+print('precision score: ', precision_score(y_test, predicted))
 
-print("result = {}".format(grid_clf_custom.best_score_ - cross_precision))
+print("result = {:.3f}".format(grid_clf_custom.best_score_ - precision_score(y_test, predicted)))
 
 # Grid best parameter (max. recall):  {'gamma': 0.01, 'C': 0.01}
 # Grid best score (recall):  1.0
-# Cross-validation (precision) [ 1.          1.          0.71428571  1.          1.        ]
-# result = [ 0.          0.          0.28571429  0.          0.        ]
+# precision score:  0.48
+# result = 0.52
 ```
 
 
@@ -1436,27 +1415,23 @@ Q14. Using the already defined RBF SVC model `m`, run a grid search on the param
 
 
 ```python
-from sklearn.model_selection import cross_val_score
-
 grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
 
 grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring='precision')
 grid_clf_custom.fit(X_train, y_train)
 
-y_decision_fn_scores = grid_clf_custom.decision_function(X_test)
+predicted = grid_clf_custom.predict(X_test)
 
-cross_recall = cross_val_score(grid_clf_custom, X_test, y_test, cv=5, scoring = 'recall')
-
-print('Grid best parameter (precision): ', grid_clf_custom.best_params_)
+print('Grid best parameter (max. precision): ', grid_clf_custom.best_params_)
 print('Grid best score (precision): ', grid_clf_custom.best_score_)
-print('Cross-validation (recall)', cross_recall)
+print('recall score: ', recall_score(y_test, predicted))
 
-print("result = {}".format(grid_clf_custom.best_score_ - cross_recall))
+print("result = {:.3f}".format(grid_clf_custom.best_score_ - recall_score(y_test, predicted)))
 
-# Grid best parameter (precision):  {'C': 10, 'gamma': 1}
+# Grid best parameter (max. precision):  {'C': 10, 'gamma': 1}
 # Grid best score (precision):  0.907672075643
-# Cross-validation (recall) [ 1.    0.8   0.8   0.6   0.25]
-# result = [-0.09232792  0.10767208  0.10767208  0.30767208  0.65767208]
+# recall score:  0.75
+# result = 0.158
 ```
 
 
