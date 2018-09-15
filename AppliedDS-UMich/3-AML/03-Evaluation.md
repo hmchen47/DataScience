@@ -951,21 +951,21 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
     # default metric to optimize over grid parameters: accuracy
     grid_clf_acc = GridSearchCV(clf, param_grid = grid_values)
     grid_clf_acc.fit(X_train, y_train)
-    y_decision_fn_scores_acc = grid_clf_acc.decision_function(X_test) 
+    y_decision_fn_scores_acc = grid_clf_acc.decision_function(X_test)
 
     print('Grid best parameter (max. accuracy): ', grid_clf_acc.best_params_)
     print('Grid best score (accuracy): ', grid_clf_acc.best_score_)
+    # Grid best parameter (max. accuracy):  {'gamma': 0.001}
+    # Grid best score (accuracy):  0.996288047513
 
     # alternative metric to optimize over grid parameters: AUC
     grid_clf_auc = GridSearchCV(clf, param_grid = grid_values, scoring = 'roc_auc')
     grid_clf_auc.fit(X_train, y_train)
-    y_decision_fn_scores_auc = grid_clf_auc.decision_function(X_test) 
+    y_decision_fn_scores_auc = grid_clf_auc.decision_function(X_test)
 
     print('Test set AUC: ', roc_auc_score(y_test, y_decision_fn_scores_auc))
     print('Grid best parameter (max. AUC): ', grid_clf_auc.best_params_)
     print('Grid best score (AUC): ', grid_clf_auc.best_score_)
-    # Grid best parameter (max. accuracy):  {'gamma': 0.001}
-    # Grid best score (accuracy):  0.996288047513
     # Test set AUC:  0.999828581224
     # Grid best parameter (max. AUC):  {'gamma': 0.001}
     # Grid best score (AUC):  0.99987412783
@@ -1014,7 +1014,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         print('Grid best score ({0}): {1}'
             .format(eval_metric, grid_clf_custom.best_score_))
         plt.subplots_adjust(wspace=0.3, hspace=0.3)
-        plot_class_regions_for_classifier_subplot(grid_clf_custom, X_twovar_test, y_test, 
+        plot_class_regions_for_classifier_subplot(grid_clf_custom, X_twovar_test, y_test,
             None, None, None,  plt.subplot(2, 2, i+1))
         
         plt.title(eval_metric+'-oriented SVC')
@@ -1094,7 +1094,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
 
 Q1. A supervised learning model has been built to predict whether someone is infected with a new strain of a virus. 0.5The probability of any one person having the virus is 1%. Using accuracy as a metric, what would be a good choice for a baseline accuracy score that the new model would want to outperform?
 
-    Ans: x0.5
+    Ans: 0.99, x0.5
 
 + [Q1](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/yAQZrFB_EeeHCRK3oa8qzA)
 
@@ -1126,7 +1126,7 @@ Q2. Given the following confusion matrix:
 
 Compute the accuracy to three decimal places.
 
-    Ans: 0.923
+    Ans: 0.906
 
 Q3. Given the following confusion matrix:
 
@@ -1281,7 +1281,7 @@ Q9. Which of the following is true of the R-Squared metric? (Select all that app
     c. The best possible score is 1.0
     d. The worst possible score is 0.0
 
-    Ans: xcd-0.5 
+    Ans: bcd, xcd-0.5 
 
 Q10. In a future society, a machine is used to predict a crime before it occurs. If you were responsible for tuning this machine, what evaluation metric would you want to maximize to ensure no innocent people (people not about to commit a crime) are imprisoned (where crime is the positive label)?
 
@@ -1291,7 +1291,7 @@ Q10. In a future society, a machine is used to predict a crime before it occurs.
     d. F1
     e. AUC
 
-    Ans: xc
+    Ans: b, xc
 
 
 Q11. Consider the machine from the previous question. If you were responsible for tuning this machine, what evaluation metric would you want to maximize to ensure all criminals (people about to commit a crime) are imprisoned (where crime is the positive label)?
@@ -1302,7 +1302,7 @@ Q11. Consider the machine from the previous question. If you were responsible fo
     d. F1
     e. AUC
 
-    Ans: xb
+    Ans: c, xb
 
 Q12. A classifier is trained on an imbalanced multiclass dataset. After looking at the model’s precision scores, you find that the micro averaging is much smaller than the macro averaging score. Which of the following is most likely happening?
 
@@ -1315,28 +1315,48 @@ Q13. Using the already defined RBF SVC model `m`, run a grid search on the param
 
 (Use y_test and X_test to compute precision and recall.)
 
-    Ans: x0.8
+    Ans: , x0.8
 
 ```python
 
 grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
 
-for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
-    grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring=eval_metric)
-    grid_clf_custom.fit(X_test, y_test)
-    print('Grid best parameter (max. {0}): {1}'
-        .format(eval_metric, grid_clf_custom.best_params_))
-    print('Grid best score ({0}): {1}'
-        .format(eval_metric, grid_clf_custom.best_score_))
+# for i, eval_metric in enumerate(('recall', 'precision')):
+#     grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring=eval_metric)
+#     grid_clf_custom.fit(X_train, y_train)
 
-# Grid best parameter (max. precision): {'C': 0.1, 'gamma': 1}
-# Grid best score (precision): 1.0
-# Grid best parameter (max. recall): {'C': 1, 'gamma': 1}
-# Grid best score (recall): 0.8
-# Grid best parameter (max. f1): {'C': 1, 'gamma': 10}
-# Grid best score (f1): 0.8053333333333333
-# Grid best parameter (max. roc_auc): {'C': 10, 'gamma': 0.1}
-# Grid best score (roc_auc): 0.9305555555555556
+#     y_decision_fn_scores = grid_clf_custom.decision_function(X_test)
+
+#     print('Grid best parameter (max. accuracy): ', grid_clf_acc.best_params_)
+#     print('Grid best score (accuracy): ', grid_clf_acc.best_score_)
+
+#     print('Test set {}: '.format(eval_metric ,roc_auc_score(y_test, y_decision_fn_scores))
+#     print('\nGrid best parameter (max. {0}): {1}'
+#         .format(eval_metric, grid_clf_acc.best_params_))
+#     print('Grid best score ({0}): {1}'
+#         .format(eval_metric, grid_clf_acc.best_score_))
+
+from sklearn.model_selection import cross_val_score
+
+grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
+
+grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring='recall')
+grid_clf_custom.fit(X_train, y_train)
+
+y_decision_fn_scores = grid_clf_custom.decision_function(X_test)
+
+cross_precision = cross_val_score(grid_clf_custom, X_test, y_test, cv=5, scoring = 'precision')
+
+print('Grid best parameter (max. recall): ', grid_clf_custom.best_params_)
+print('Grid best score (recall): ', grid_clf_custom.best_score_)
+print('Cross-validation (precision)', cross_precision)
+
+print("result = {}".format(grid_clf_custom.best_score_ - cross_precision))
+
+# Grid best parameter (max. recall):  {'gamma': 0.01, 'C': 0.01}
+# Grid best score (recall):  1.0
+# Cross-validation (precision) [ 1.          1.          0.71428571  1.          1.        ]
+# result = [ 0.          0.          0.28571429  0.          0.        ]
 ```
 
 
@@ -1407,7 +1427,7 @@ for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
 
 
 
-14. Using the already defined RBF SVC model `m`, run a grid search on the parameters C and gamma, for values [0.01, 0.1, 1, 10]. The grid search should find the model that best optimizes for precision. How much better is the precision of this model than the recall? (Compute precision - recall to 3 decimal places)
+Q14. Using the already defined RBF SVC model `m`, run a grid search on the parameters C and gamma, for values [0.01, 0.1, 1, 10]. The grid search should find the model that best optimizes for precision. How much better is the precision of this model than the recall? (Compute precision - recall to 3 decimal places)
 
 (Use y_test and X_test to compute precision and recall.)
 
@@ -1415,7 +1435,29 @@ for i, eval_metric in enumerate(('precision','recall', 'f1','roc_auc')):
     Ans: x1.0
 
 
+```python
+from sklearn.model_selection import cross_val_score
 
+grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
+
+grid_clf_custom = GridSearchCV(m, param_grid=grid_values, scoring='precision')
+grid_clf_custom.fit(X_train, y_train)
+
+y_decision_fn_scores = grid_clf_custom.decision_function(X_test)
+
+cross_recall = cross_val_score(grid_clf_custom, X_test, y_test, cv=5, scoring = 'recall')
+
+print('Grid best parameter (precision): ', grid_clf_custom.best_params_)
+print('Grid best score (precision): ', grid_clf_custom.best_score_)
+print('Cross-validation (recall)', cross_recall)
+
+print("result = {}".format(grid_clf_custom.best_score_ - cross_recall))
+
+# Grid best parameter (precision):  {'C': 10, 'gamma': 1}
+# Grid best score (precision):  0.907672075643
+# Cross-validation (recall) [ 1.    0.8   0.8   0.6   0.25]
+# result = [-0.09232792  0.10767208  0.10767208  0.30767208  0.65767208]
+```
 
 
 
