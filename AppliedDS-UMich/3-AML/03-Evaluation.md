@@ -1156,7 +1156,7 @@ For the fitted model `m`, approximately what precision can we expect for a recal
 
 (Use y_test and X_test to compute the precision-recall curve. If you wish to view a plot, you can use `plt.show()` )
 
-    Ans: x0.55, x0.75
+    Ans: 0.6, x0.55, x0.75
 
 + [Q5](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
 
@@ -1173,8 +1173,10 @@ For the fitted model `m`, approximately what precision can we expect for a recal
     ```python
     from sklearn.metrics import precision_recall_curve
 
-    y_scores_lr = m.fit(X_train, y_train).decision_function(X_test)
-    precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
+    y_scores = m.fit(X_train, y_train).decision_function(X_test)
+    precision, recall, thresholds = precision_recall_curve(y_test, y_scores)
+    print("Precision: {}".format(precision))
+    print("Recall: {}".format(recall))
     closest_zero = np.argmin(np.abs(thresholds))
     closest_zero_p = precision[closest_zero]
     closest_zero_r = recall[closest_zero]
@@ -1182,12 +1184,49 @@ For the fitted model `m`, approximately what precision can we expect for a recal
     plt.figure()
     plt.xlim([0.0, 1.01])
     plt.ylim([0.0, 1.01])
-    plt.plot(recall, precision, label='Precision-Recall Curve')
+    plt.plot(recall, precision, label='Recall-Precision Curve')
     plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
     plt.xlabel('Recall', fontsize=16)
     plt.ylabel('Precision', fontsize=16)
     plt.axes().set_aspect('equal')
     plt.show()
+
+    # Precision: 
+    # [ 0.26732673  0.26        0.26262626  0.26530612  0.26804124  0.27083333
+    #   0.27368421  0.27659574  0.27956989  0.2826087   0.28571429  0.28888889
+    #   0.29213483  0.29545455  0.29885057  0.30232558  0.30588235  0.30952381
+    #   0.31325301  0.30487805  0.30864198  0.3125      0.3164557   0.32051282
+    #   0.32467532  0.32894737  0.33333333  0.33783784  0.34246575  0.34722222
+    #   0.35211268  0.35714286  0.36231884  0.36764706  0.37313433  0.37878788
+    #   0.38461538  0.390625    0.3968254   0.38709677  0.39344262  0.4
+    #   0.40677966  0.4137931   0.42105263  0.42857143  0.43636364  0.44444444
+    #   0.45283019  0.46153846  0.47058824  0.48        0.48979592  0.5
+    #   0.5106383   0.52173913  0.53333333  0.54545455  0.55813953  0.54761905
+    #   0.56097561  0.55        0.56410256  0.57894737  0.59459459  0.61111111
+    #   0.62857143  0.61764706  0.60606061  0.625       0.64516129  0.66666667
+    #   0.68965517  0.71428571  0.74074074  0.76923077  0.8         0.83333333
+    #   0.82608696  0.86363636  0.85714286  0.9         0.94736842  0.94444444
+    #   0.94117647  0.9375      1.          1.          1.          1.
+    #   1.          1.          1.          1.          1.          1.
+    #   1.          1.          1.          1.          1.          1.        ]
+    # Recall: 
+    # [ 1.          0.96296296  0.96296296  0.96296296  0.96296296  0.96296296
+    #   0.96296296  0.96296296  0.96296296  0.96296296  0.96296296  0.96296296
+    #   0.96296296  0.96296296  0.96296296  0.96296296  0.96296296  0.96296296
+    #   0.96296296  0.92592593  0.92592593  0.92592593  0.92592593  0.92592593
+    #   0.92592593  0.92592593  0.92592593  0.92592593  0.92592593  0.92592593
+    #   0.92592593  0.92592593  0.92592593  0.92592593  0.92592593  0.92592593
+    #   0.92592593  0.92592593  0.92592593  0.88888889  0.88888889  0.88888889
+    #   0.88888889  0.88888889  0.88888889  0.88888889  0.88888889  0.88888889
+    #   0.88888889  0.88888889  0.88888889  0.88888889  0.88888889  0.88888889
+    #   0.88888889  0.88888889  0.88888889  0.88888889  0.88888889  0.85185185
+    #   0.85185185  0.81481481  0.81481481  0.81481481  0.81481481  0.81481481
+    #   0.81481481  0.77777778  0.74074074  0.74074074  0.74074074  0.74074074
+    #   0.74074074  0.74074074  0.74074074  0.74074074  0.74074074  0.74074074
+    #   0.7037037   0.7037037   0.66666667  0.66666667  0.66666667  0.62962963
+    #   0.59259259  0.55555556  0.55555556  0.51851852  0.48148148  0.44444444
+    #   0.40740741  0.37037037  0.33333333  0.2962963   0.25925926  0.22222222
+    #   0.18518519  0.14814815  0.11111111  0.07407407  0.03703704  0.        ]
     ```
     <img src="images/fig3-q2.png" alt="text" title= "Answer plot for Q5" height="300">
 
@@ -1249,8 +1288,8 @@ Q8. Using the fitted model `m` what is the micro precision score?
 
 (Use y_test and X_test to compute the precision score.)
 
-    Ans: x0.81, x0.74
-    
+    Ans: 0.61, x0.81, x0.74
+
 + [Q8](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/o8gc4nK0EeeWGQ6jD8LE1g)
 
     **** could be micro or macro
@@ -1265,14 +1304,14 @@ Q8. Using the fitted model `m` what is the micro precision score?
     4. the order in which y_test(y_true) and y_predict are passed to the precision_score function is important, when in doubt use
 
     ```python
-    svm_predicted_mc = m.predict(X_test)
+    y_predicted = m.predict(X_test)
 
     print('Micro-averaged precision = {:.2f} (treat instances equally)'
-            .format(precision_score(y_test, svm_predicted_mc, average = 'micro')))
+            .format(precision_score(y_predicted, y_test, average = 'micro')))
     print('Macro-averaged precision = {:.2f} (treat classes equally)'
-            .format(precision_score(y_test, svm_predicted_mc, average = 'macro')))
-    # Micro-averaged precision = 0.74 (treat instances equally)
-    # Macro-averaged precision = 0.81 (treat classes equally)
+            .format(precision_score(ypredicted, y_test, average = 'macro')))
+    # Micro-averaged precision = 0.744 (treat instances equally)
+    # Macro-averaged precision = 0.605 (treat classes equally)
     ```
 
 Q9. Which of the following is true of the R-Squared metric? (Select all that apply)
@@ -1316,7 +1355,7 @@ Q13. Using the already defined RBF SVC model `m`, run a grid search on the param
 
 (Use y_test and X_test to compute precision and recall.)
 
-    Ans: , x0.8
+    Ans: 0.52, x0.8
 
 ```python
 grid_values = {'gamma': [0.01, 0.1, 1, 10], 'C':  [0.01, 0.1, 1, 10]}
@@ -1411,7 +1450,7 @@ Q14. Using the already defined RBF SVC model `m`, run a grid search on the param
 (Use y_test and X_test to compute precision and recall.)
 
 
-    Ans: x1.0
+    Ans: 0.158, x1.0
 
 
 ```python
