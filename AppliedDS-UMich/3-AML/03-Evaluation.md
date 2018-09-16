@@ -1327,7 +1327,7 @@ Q9. Which of the following is true of the R-Squared metric? (Select all that app
     c. The best possible score is 1.0
     d. The worst possible score is 0.0
 
-    Ans: abcd, xbcd-0.75, xcd-0.5 
+    Ans: cd, abcd-0.5, xbcd-0.75, xcd-0.5 
 
 Q10. In a future society, a machine is used to predict a crime before it occurs. If you were responsible for tuning this machine, what evaluation metric would you want to maximize to ensure no innocent people (people not about to commit a crime) are imprisoned (where crime is the positive label)?
 
