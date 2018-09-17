@@ -10,9 +10,6 @@
 # # Applied Machine Learning: Module 4 (Supervised Learning, Part II)
 
 # ## Preamble and Datasets
-
-# In[ ]:
-
 get_ipython().magic('matplotlib notebook')
 import numpy as np
 import pandas as pd
@@ -91,9 +88,6 @@ cancer = load_breast_cancer()
 
 
 # ## Naive Bayes classifiers
-
-# In[ ]:
-
 from sklearn.naive_bayes import GaussianNB
 from adspy_shared_utilities import plot_class_regions_for_classifier
 
@@ -102,9 +96,6 @@ X_train, X_test, y_train, y_test = train_test_split(X_C2, y_C2, random_state=0)
 nbclf = GaussianNB().fit(X_train, y_train)
 plot_class_regions_for_classifier(nbclf, X_train, y_train, X_test, y_test,
                                  'Gaussian Naive Bayes classifier: Dataset 1')
-
-
-# In[ ]:
 
 X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2,
                                                    random_state=0)
@@ -115,9 +106,6 @@ plot_class_regions_for_classifier(nbclf, X_train, y_train, X_test, y_test,
 
 
 # ### Application to a real-world dataset
-
-# In[ ]:
-
 X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
 
 nbclf = GaussianNB().fit(X_train, y_train)
@@ -131,9 +119,6 @@ print('Accuracy of GaussianNB classifier on test set: {:.2f}'
 # ## Ensembles of Decision Trees
 
 # ### Random forests
-
-# In[ ]:
-
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
@@ -151,9 +136,6 @@ plt.show()
 
 
 # ### Random forest: Fruit dataset
-
-# In[ ]:
-
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
@@ -192,9 +174,6 @@ print('Accuracy of RF classifier on test set: {:.2f}'
 
 
 # #### Random Forests on a real-world dataset
-
-# In[ ]:
-
 from sklearn.ensemble import RandomForestClassifier
 
 X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
@@ -210,9 +189,6 @@ print('Accuracy of RF classifier on test set: {:.2f}'
 
 
 # ### Gradient-boosted decision trees
-
-# In[ ]:
-
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
 from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
@@ -229,9 +205,6 @@ plt.show()
 
 
 # #### Gradient boosted decision trees on the fruit dataset
-
-# In[ ]:
-
 X_train, X_test, y_train, y_test = train_test_split(X_fruits.as_matrix(),
                                                    y_fruits.as_matrix(),
                                                    random_state = 0)
@@ -263,9 +236,6 @@ print('Accuracy of GBDT classifier on test set: {:.2f}'
 
 
 # #### Gradient-boosted decision trees on a real-world dataset
-
-# In[ ]:
-
 from sklearn.ensemble import GradientBoostingClassifier
 
 X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
@@ -292,9 +262,6 @@ print('Accuracy of GBDT classifier on test set: {:.2f}'
 # ## Neural networks
 
 # #### Activation functions
-
-# In[ ]:
-
 xrange = np.linspace(-2, 2, 200)
 
 plt.figure(figsize=(7,6))
@@ -313,9 +280,6 @@ plt.show()
 # ### Neural networks: Classification
 
 # #### Synthetic dataset 1: single hidden layer
-
-# In[ ]:
-
 from sklearn.neural_network import MLPClassifier
 from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
 
@@ -335,9 +299,6 @@ for units, axis in zip([1, 10, 100], subaxes):
 
 
 # #### Synthetic dataset 1: two hidden layers
-
-# In[ ]:
-
 from adspy_shared_utilities import plot_class_regions_for_classifier
 
 X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
@@ -350,9 +311,6 @@ plot_class_regions_for_classifier(nnclf, X_train, y_train, X_test, y_test,
 
 
 # #### Regularization parameter: alpha
-
-# In[ ]:
-
 X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
 
 fig, subaxes = plt.subplots(4, 1, figsize=(6, 23))
@@ -372,9 +330,6 @@ for this_alpha, axis in zip([0.01, 0.1, 1.0, 5.0], subaxes):
 
 
 # #### The effect of different choices of activation function
-
-# In[ ]:
-
 X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
 
 fig, subaxes = plt.subplots(3, 1, figsize=(6,18))
@@ -392,9 +347,6 @@ for this_activation, axis in zip(['logistic', 'tanh', 'relu'], subaxes):
 
 
 # ### Neural networks: Regression
-
-# In[ ]:
-
 from sklearn.neural_network import MLPRegressor
 
 fig, subaxes = plt.subplots(2, 3, figsize=(11,8), dpi=70)
@@ -422,9 +374,6 @@ for thisaxisrow, thisactivation in zip(subaxes, ['tanh', 'relu']):
 
 
 # #### Application to real-world dataset for classification
-
-# In[ ]:
-
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import MinMaxScaler
 
