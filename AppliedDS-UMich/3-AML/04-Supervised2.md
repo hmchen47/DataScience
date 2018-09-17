@@ -2,7 +2,10 @@
 
 ## Module 4 Notebook
 
-
++ [Launch Notebook Web Page](https://www.coursera.org/learn/python-machine-learning/notebook/TR0yt/module-4-notebook)
++ [Web Notebook](https://hub.coursera-notebooks.org/user/elkljxyoytcwjbmkgctrtg/notebooks/Module%204.ipynb)
++ [Local Notebook](notebooks/Module04.ipynb)
++ [Python Code](notebooks/Module04.py)
 
 ## Naive Bayes Classifiers
 
