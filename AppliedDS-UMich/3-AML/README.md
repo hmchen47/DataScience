@@ -76,7 +76,7 @@
 + [The Treachery of Leakage (optional)](./04-Supervised2.md$)
 + [Leakage in Data Mining: Formulation, Detection, and Avoidance (optional)](./04-Supervised2.md$)
 + [Data Leakage Example: The ICML 2013 Whale Challenge (optional)](./04-Supervised2.md$)
-+ [gRules of Machine Learning: Best Practices for ML Engineering (optional)](./04-Supervised2.md$)
++ [Rules of Machine Learning: Best Practices for ML Engineering (optional)](./04-Supervised2.md$)
 + [Quiz: Module 4 Quiz](./04-Supervised2.md$)
 
 
