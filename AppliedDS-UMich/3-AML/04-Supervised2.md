@@ -685,16 +685,13 @@ Carter, C., & Tanz, O. (2017, April 13). Neural networks made easy. Retrieved Ma
 
 ## Play with Neural Networks: TensorFlow Playground (optional)
 
-+ Demo
-    ```python
+This neural network simulation by Daniel Smilkov and Shan Carter lets you play with neural networks in your browser. See the effect of different parameter settings and network configurations on a choice of difficult example classification problems.
 
-    ```
+The "output" on the right shows the "training loss" and "test loss". Loss is an evaluation metric that is related to the number of errors made for each example on the training or test set - so lower loss numbers are better. (In technical terms, for neural networks the loss is usually negative log-likelihood for classification, and residual sum of squares for regression.)
 
-### Lecture Video
+To show decision boundaries more clearly, along with the test data, click the two checkboxes marked "Show test data" and "Discretize output" in the lower right of the window.
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+To access the simulation, [click here](http://playground.tensorflow.org/)
 
 
 ## Deep Learning (Optional)
