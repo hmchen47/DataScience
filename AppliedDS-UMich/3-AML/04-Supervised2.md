@@ -696,14 +696,48 @@ To access the simulation, [click here](http://playground.tensorflow.org/)
 
 ## Deep Learning (Optional)
 
-+ Demo
-    ```python
++ Deep Learning Summary
+    + Deep learning architectures combine a sophisticated automatic feature extraction phase with a supervised learning phase.
+    + The feature extraction phase uses a hierarchy of multiple feature extraction layers.
+    + Starting from primitive, low-level features in the initial layer, each feature layer's output provides the input features to the next higher feature layer.
+    + All features are used in the final supervised learning model.
 
-    ```
++ An example of a simple deep learning architecture
+    <a href="https://www.semanticscholar.org/paper/Efficiency-Optimization-of-Trainable-Feature-for-a-Peemen-Mesman/0af203b0112a8564c730a596fe5cf35556537e2e/figure/0"> <br/>
+        <img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/0af203b0112a8564c730a596fe5cf35556537e2e/2-Figure1-1.png" alt="Convolutional Neural Networks (CNNs) are fully trainable pattern recognition models that exploit the benefits of two step classification by using feature extraction [7]. CNN models are based on Artificial Neural Networks (ANNs) [4] but their network structure is inspired by the visual perception of the human" title= "An Example CNN architecture for a handwritten digit recognition task. brain. The network architecture of an example CNN is depicted in Fig. 1. The processing starts with feature extraction layers and is finished by fully connected ANN classification layers. Using different layers delivers robust recognition accuracy and is invariant to small geometric transformations of the input images. The robust recognition accuracy makes that CNN are successfully used for classification tasks on real world data [3][7][14]. - M. Peemen, B. Mesman, and H. Corporaal. Efficiency Optimization of Trainable Feature Extractors for a Consumer Platform. Proceedings of the 13th International Conference on Advanced Concepts for Intelligent Vision Systems, 2011.  At a high-level, one of the advantages of deep learning is that it includes a sophisticated automatic featured learning phase as part of its supervised training. Moreover, deep learning is called deep. Because this feature extraction typically doesn't use just one feature learning step, but a hierarchy of multiple feature learning layers. Each feeding into the next. Here's one simplified example of what a deep learning architecture might look like in practice for an image recognition task. In this case, digit recognition. Recognizing a handwritten digit from zero to nine, for example. You can see the automatic feature extraction step made up of hierarchy of feature layers. Each of which is based on a network that does convolution which can be thought of as a filter for a specific pattern followed by a subsampling step, also known as pooling that can detect a translated or rotated version of that feature anywhere in the image. So that features are detected properly for the final classification step, which is implemented as a fully connected network. The subsampling step also has the effect of reducing the computational complexity of the network. Depending on the properties of the object we want to predict, for example. If we care only about the presence of the object in the image compared to let's say, specific location, the subsampling part of the architecture may or may not be included and this is only one example of a deep learning architecture. The size, structure and other properties may look very different. Depending on the specific learning problem. " height="200">
+    </a>
+
+
++ Deep Learning
+    <a href="https://dzone.com/articles/deep-learning-vs-machine-learning-the-hottest-topi"> <br/>
+        <img src="https://dzone.com/storage/temp/6872876-screen-shot-2017-10-11-at-120200-pm.png" alt="Image: HonglakLee and colleagues (2011) from “Unsupervised Learning of Hierarchical Representations with Convolutional Deep Belief Networks”, Communications of the ACM, Vol. 54 No. 10, Pages 95-103. Deep learning algorithms try to learn high-level features from data. This is a very distinctive part of deep learning and a major step ahead of traditional machine learning. Therefore, deep learning reduces the task of developing a new feature extractor for every problem. For example, convolutional neural networks will try to learn low-level features such as edges and lines in early layers then parts of faces of people and then the high-level representation of a face. Learn more about neural networks and their interesting implementation in deep learning with required codes.  This image from a paper by Honglak Lee and colleagues at the University of Michigan shows an illustration of multilayer feature learning for face recognition. Here there are three groups from left to right corresponding to first, second and third stages of feature learning. The matrix at each stage shows a set of image features with one feature per square. Each feature can be thought of as a detector or filter, that lights up when that pattern is present in the underlying image. The first layer of their deep learning architecture extracts the most primitive low-level features, such as edges and different kinds of blobs. The second layer creates new features from combinations of those first layer features. For faces, this might correspond to key elements that capture shapes of higher level features like noses or eyes. The third layer in turn, creates new features from combinations of the second layer of features. Forming still higher level features that capture typical face types and facial expressions. Finally, all of these features are used as input to the final supervised learning step, namely the face classifier. Here are the feature layers that result from training on different types of objects, cars, elephants, chairs and a mixture of objects. " title= "caption" height="200">
+    </a>
+    <a href="https://www.slideshare.net/zukun/p04-restricted-boltzmann-machines-cvpr2012-deep-learning-methods-for-vision"> <br/>
+        <img src="https://image.slidesharecdn.com/p04restrictedboltzmannmachinescvpr2012deeplearningmethodsforvision-120822081652-phpapp02/95/p04-restricted-boltzmann-machines-cvpr2012-deep-learning-methods-for-vision-61-728.jpg" alt="Image: HonglakLee and colleagues (2011) from “Unsupervised Learning of Hierarchical Representations with Convolutional Deep Belief Networks”, Communications of the ACM, Vol. 54 No. 10, Pages 95-103.  These kinds of complex features can't be learned from a small number of layers. Advances in both algorithms and computing power allow current deep learning systems to train architectures that could have dozens of layers of nonlinear, hierarchical features. It turns out that the human brain does something quite related to this when processing visual information. There are specific neurocircuits that first do low-level feature extraction, such as edge detection and finding the frequency of repeated patterns which are then used to compute more sophisticated features to help estimate things like simple shapes and their orientation or whether a shape is in the foreground or background. Followed by further layers of higher level visual processing that support more complex tasks, such as face recognition and interpreting the motion of multiple moving objects.  " title= "caption" height="200">
+    </a>
+
++ Pros and Cons of Deep Learning
+    + Pros:
+        + Powerful: deep learning has achieved significant gains over other machine learning approaches on many difficult learning tasks, leading to state-of-the-art performance across many different domains.
+        + Does effective automatic feature extraction, reducing the need for guesswork and heuristics on this key problem.
+        + Current software provides flexible architectures that can be adapted for new domains fairly easily.
+    + Cons:
+        + Can require huge amounts of training data.
+        + Can require huge amounts of computing power.
+        + Architectures can be complex and often must be highly tailored to a specific application.
+        + The resulting models may not be easily interpretable.
+
++ Deep learning software for Python
+    + [Kerasht](tps://keras.io/)
+    + [Lasagne](https://lasagne.readthedocs.io/en/latest/)
+    + [TensorFlow](https://www.tensorflow.org/)
+    + [Theano](http://deeplearning.net/software/theano/)
+    + Libraries support high-performance computation via GPUs.
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d18ky98rnyall9.cloudfront.net/OYs_ZT6MEeeHpAqQsW8qwg.processed/full/360p/index.mp4?Expires=1537574400&Signature=L6haRtBD09Mke03UybL3~BzOPxetAtjlwsi59V5BmsbJso6zpqS-Z3i2gLHaT59EhQp-~DlqFcyyRYCQfQvfTJ0NLzx79lk-JzEclyZk7RabXeZyU38Tg7jcbxojcQCGHDr3JdczEEpZFuVFttDsLD61wZ8TFA0lXZmaBlB6aFs_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Deep Learning" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
