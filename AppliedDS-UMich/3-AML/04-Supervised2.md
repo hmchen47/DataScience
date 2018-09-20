@@ -166,21 +166,172 @@
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d18ky98rnyall9.cloudfront.net/Ld6WAECbEee4_A7ezGAgwg.processed/full/360p/index.mp4?Expires=1537488000&Signature=VMGXs1je8kFOomj5Yk1bNqi2lKFRDS~LcCE4AhXWb2ubC2zpzTtRucIuiNYRsPllZjmnFBkKKcm2aouGDa1b9bneFMFwWbVZodxBbAd5R7d4F3br-By1V-gj44iSRZItOI1LtDmVfoDhxu7JxuP5lX9spS7pqNIu28IraN6tEcg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Naive Bayes Classifiers" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
 
 ## Random Forests
 
++ Ensemble:
+    + take multiple individual learning models and combine them to produce an aggregate model 
+    + more powerful than any of its individual learning models alone
+    + different learning models tend to make different kinds of mistakes on the data set
+    + each individual model might overfit to a different part of the data
+    + combining different individual models into an ensemble → average out their individual mistakes to reduce the risk of overfitting while maintaining strong prediction performance
+
++ Random Forests
+    + An ensemble of trees, not just one tree.
+    + Widely used, very good results on many problems.
+    + `sklearn.ensemble` module:
+        + Classification: `RandomForestClassifier`
+        + Regression: `RandomForestRegressor`
+    + One decision tree → Prone to overfitting.
+    + Many decision trees → More stable, better generalization
+    + Ensemble of trees should be diverse: introduce random variation into tree-building.
+
++ Random Forest Process
+    +Original Dataset
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+            <img src="images/fig4-03.png" alt="This random variation during tree building happens in two ways. First, the data used to build each tree is selected randomly and second, the features chosen in each split tests are also randomly selected. To create a random forest model you first decide on how many trees to build. This is set using the n_estimated parameter for both RandomForestClassifier and RandomForestRegressor. Each tree were built from a different random sample of the data called the bootstrap sample. " title= "Random Forest Process" height="250">
+        </a>
+
+    + Bootstrap Samples
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+            <img src="images/fig4-04.png" alt="Bootstrap samples are commonly used in statistics and machine learning. If your training set has N instances or samples in total, a bootstrap sample of size N is created by just repeatedly picking one of the N dataset rows at random with replacement, that is, allowing for the possibility of picking the same row again at each selection. You repeat this random selection process N times. The resulting bootstrap sample has N rows just like the original training set but with possibly some rows from the original dataset missing and others occurring multiple times just due to the nature of the random selection with replacement." title= "Bootstrap Samples" height="250">
+        </a>
+
+    + Randomized Feature Splits
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+            <img src="images/fig4-05.png" alt="When building a decision tree for a random forest, the process is almost the same as for a standard decision tree but with one important difference. When picking the best split for a node, instead of finding the best split across all possible features, a random subset of features is chosen and the best split is found within that smaller subset of features. The number of features in the subset that are randomly considered at each stage is controlled by the max_features parameter. This randomness in selecting the bootstrap sample to train an individual tree in a forest ensemble, combined with the fact that splitting a node in the tree is restricted to random subsets of the features of the split, virtually guarantees that all of the decision trees and the random forest will be different. " title= "Randomized Feature Splits" height="250">
+        </a>
+
++ Random Forest `max_features` Parameter
+    + Learning is quite sensitive to `max_features`.
+    + Setting `max_features= 1` leads to forests with diverse, more complex trees.
+    + Setting `max_features= <close to number of features>` will lead to similar forests with simpler trees.
+
++ Prediction Using Random Forests
+    1. Make a prediction for every tree in the forest.
+    2. Combine individual predictions
+        + Regression: mean of individual tree predictions.
+        + Classification:
+            + Each tree gives probability for each class.
+            + Probabilities averaged across trees.
+            + Predict the class with highest probability.
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+        <img src="images/fig4-06.png" alt="Once a random forest model is trained, it predicts the target value for new instances by first making a prediction for every tree in the random forest. For regression tasks the overall prediction is then typically the mean of the individual tree predictions. For classification the overall prediction is based on a weighted vote. Each tree gives a probability for each possible target class label then the probabilities for each class are averaged across all the trees and the class with the highest probability is the final predicted class. " title= "Prediction Using Random Forests" height="200">
+    </a>
+
++ Random Forest: Fruit Dataset
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+        <img src="images/fig4-07.png" alt="Here's an example of learning a random forest of the example fruit dataset using two features, height and width. Here we're showing the training data plotted in terms of two feature values with height on the x axis and width on the y axis. As usual, there are four categories of fruit to be predicted. Because the number of features is restricted to just two in this very simple example, the randomness in creating the tree ensemble is coming mostly from the bootstrap sampling of the training data. You can see that the decision boundaries overall have the box like shape that we associate with decision trees but with some additional detail variation to accommodate specific local changes in the training data. Overall, you can get an impression of the increased complexity of this random forest model in capturing both the global and local patterns in the training data compared to the single decision tree model we saw earlier. Notice that we did not have to perform scaling or other pre-processing as we did with a number of other supervised learning methods. This is one advantage of using random forests. Also note that we passed in a fixed value for the random state parameter in order to make the results reproducible. " title= "Random Forest: Fruit Dataset" height="200">
+    </a>
+
++ Random Forest: Pros and Cons
+    + Pros:
+        + Widely used, excellent prediction performance on many problems.
+        + Doesn't require careful normalization of features or extensive parameter tuning.
+        + Like decision trees, handles a mixture of feature types.
+        + Easily parallelized across multiple CPUs.
+    + Cons:
+        + The resulting models are often difficult for humans to interpret.
+        + Like decision trees, random forests may not be a good choice for very high-dimensional tasks (e.g. text classifiers) compared to fast, accurate linear models.
+
++ Random Forests: `RandomForestClassifier` Key Parameters
+    + `n_estimators`: number of trees to use in ensemble (default: 10).
+        + Should be larger for larger datasets to reduce overfitting(but uses more computation).
+    + `max_features`: has a strong effect on performance. Influences the diversity of trees in the forest.
+        + Default works well in practice, but adjusting may lead to some further gains.
+    + `max_depth`: controls the depth of each tree (default: None. Splits until all leaves are pure).
+    + `n_jobs`: How many cores to use in parallel during training.
+    + Choose a fixed setting for the `random_state` parameter if you need reproducible results.
+
+
+
 + Demo
     ```python
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.model_selection import train_test_split
+    from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
 
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state = 0)
+    fig, subaxes = plt.subplots(1, 1, figsize=(6, 6))
+
+    clf = RandomForestClassifier().fit(X_train, y_train)
+    title = 'Random Forest Classifier, complex binary dataset, default settings'
+    plot_class_regions_for_classifier_subplot(
+        clf, X_train, y_train, X_test, y_test, title, subaxes)
+
+    plt.show()      # Fig.7
+
+    # ### Random forest: Fruit dataset
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.model_selection import train_test_split
+    from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_fruits.as_matrix(), y_fruits.as_matrix(), random_state = 0)
+    fig, subaxes = plt.subplots(6, 1, figsize=(6, 32))
+
+    title = 'Random Forest, fruits dataset, default settings'
+    pair_list = [[0,1], [0,2], [0,3], [1,2], [1,3], [2,3]]
+
+    for pair, axis in zip(pair_list, subaxes):
+        X = X_train[:, pair]
+        y = y_train
+        
+        clf = RandomForestClassifier().fit(X, y)
+        plot_class_regions_for_classifier_subplot(
+            clf, X, y, None, None, title, axis, target_names_fruits)
+        
+        axis.set_xlabel(feature_names_fruits[pair[0]])
+        axis.set_ylabel(feature_names_fruits[pair[1]])
+        
+    plt.tight_layout()
+    plt.show()          # Fig.8
+
+    clf = RandomForestClassifier(
+        n_estimators = 10, random_state=0).fit(X_train, y_train)
+
+    print('Random Forest, Fruit dataset, default settings')
+    print('Accuracy of RF classifier on training set: {:.2f}'
+        .format(clf.score(X_train, y_train)))
+    print('Accuracy of RF classifier on test set: {:.2f}'
+        .format(clf.score(X_test, y_test)))
+    # Random Forest, Fruit dataset, default settings
+    # Accuracy of RF classifier on training set: 1.00
+    # Accuracy of RF classifier on test set: 0.80
+
+    # #### Random Forests on a real-world dataset
+    from sklearn.ensemble import RandomForestClassifier
+
+    X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+
+    clf = RandomForestClassifier(max_features = 8, random_state = 0)
+    clf.fit(X_train, y_train)
+
+    print('Breast cancer dataset')
+    print('Accuracy of RF classifier on training set: {:.2f}'
+        .format(clf.score(X_train, y_train)))
+    print('Accuracy of RF classifier on test set: {:.2f}'
+        .format(clf.score(X_test, y_test)))
+    # Breast cancer dataset
+    # Accuracy of RF classifier on training set: 1.00
+    # Accuracy of RF classifier on test set: 0.99
     ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+        <img src="images/plt4-07.png" alt="This code also plots the decision boundaries for the other five possible feature pairs. Again, to use the RandomForestClassifier we import the random forest classifier class from the sklearn ensemble library. After doing the usual train test split and setting up the pipe plot figure for plotting, we iterate through pairs of feature columns in the dataset. For each pair of features we call the fit method on that subset of the training data X using the labels y. We then use the utility function plot class regions for classifier that's available in the shared module for this course to visualize the training data and the random forest decision boundaries. " title= "Random Forest Classifier, complex binary dataset, default settings" height="250">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
+        <img src="images/plt4-08.png" alt="Let's apply random forest to a larger dataset with more features. For comparison with other supervised learning methods, we use the breast cancer dataset again. We create a new random forest classifier and since there are about 30 features, we'll set max_features to eight to give a diverse set of trees that also fit the data reasonably well. We can see that random forest with no feature scaling or extensive parameter tuning achieve very good test set performance on this dataset, in fact, it's as good or better than all the other supervised methods we've seen so far including current life support vector machines and neural networks that require more careful tuning. " title= "Random forest: Fruit dataset" height="600">
+    </a>
+
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d18ky98rnyall9.cloudfront.net/_4VeolzrEeeQywpoSy5QrA.processed/full/360p/index.mp4?Expires=1537488000&Signature=BuFNm32Z2UaDHHcbL32WyXCgU6iJzlGtdRtTazEkBobN0lPZr4fVTDjPHsgZcArbW99evZH6cwuzcBm-oRPC4gw0iMzP1m3hVZNr4EUg1MB46gKNlwNcnJ1F4yKEMy-tOd4wcHhBSqHYx9S7CGcss8yb3CUjCLi8RFx-K0AkHbk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="andom Forests" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
