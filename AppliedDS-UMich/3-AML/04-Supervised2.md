@@ -338,14 +338,130 @@
 
 ## Gradient Boosted Decision Trees
 
++ Gradient Boosted Decision Trees (GBDT)
+    + Training builds a series of small decision trees.
+    + Each tree attempts to correct errors from the previous stage.
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/emwn3/gradient-boosted-decision-trees"> <br/>
+            <img src="images/fig4-08.png" alt="Unlike the random forest method that builds and combines a forest of randomly different trees in parallel, the key idea of gradient boosted decision trees is that they build a series of trees. Where each tree is trained, so that it attempts to correct the mistakes of the previous tree in the series. Typically, gradient boosted tree ensembles use lots of shallow trees known in machine learning as weak learners. Built in a nonrandom way, to create a model that makes fewer and fewer mistakes as more trees are added. Once the model is built, making predictions with a gradient boosted tree models is fast and doesn't use a lot of memory. Like random forests, the number of estimators in the gradient boosted tree ensemble is an important parameter in controlling model complexity. " title= "Gradient Boosted Decision Trees (GBDT) - data flow" height="200">
+        </a>
+    + The learning rate controls how hard each new tree tries to correct remaining mistakes from previous round.
+        + High learning rate: more complex trees
+        + Low learning rate: simpler trees
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/emwn3/gradient-boosted-decision-trees"> <br/>
+        <img src="images/fig4-09.png" alt="A new parameter that does not occur with random forest is something called the learning rate. The learning rate controls how the gradient boost the tree algorithms, builds a series of collective trees. When the learning rate is high, each successive tree put strong emphases on correcting the mistakes of its predecessor. And thus may result in a more complex individual tree, and those overall are more complex model. With smaller settings of the learning rate, there's less emphasis on thoroughly correcting the errors of the previous step, which tends to lead to simpler trees at each step. " title= "Gradient Boosted Decision Trees (GBDT) - example" height="200">
+    </a>
+
++ GBDT: Pros and Cons
+    + Pros:
+        + Often best off-the-shelf accuracy on many problems.
+        + Using model for prediction requires only modest memory and is fast.
+        + Doesn't require careful normalization of features to perform well.
+        + Like decision trees, handles a mixture of feature types.
+    + Cons:
+        + Like random forests, the models are often difficult for humans to interpret.
+        + Requires careful tuning of the learning rate and other parameters.
+        + Training can require significant computation.
+        + Like decision trees, not recommended for text classification and other problems with very high dimensional sparse features, for accuracy and computational cost reasons.
+
++ GBDT: `GradientBoostingClassifier` Key Parameters
+    + `n_estimators`: sets # of small decision trees to use (weak learners) in the ensemble.
+    + `learning_rate`: controls emphasis on fixing errors from previous iteration.
+    + The above two are typically tuned together.
+    + `n_estimatorsis` adjusted first, to best exploit memory and CPUs during training, then other parameters.
+    + `max_depthis` typically set to a small value (e.g. 3-5) for most applications.
+
+
+
 + Demo
     ```python
+    # ### Gradient-boosted decision trees
+    from sklearn.ensemble import GradientBoostingClassifier
+    from sklearn.model_selection import train_test_split
+    from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
 
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state = 0)
+    fig, subaxes = plt.subplots(1, 1, figsize=(6, 6))
+
+    clf = GradientBoostingClassifier().fit(X_train, y_train)
+    title = 'GBDT, complex binary dataset, default settings'
+    plot_class_regions_for_classifier_subplot(
+        clf, X_train, y_train, X_test, y_test, title, subaxes)
+
+    plt.show()      # Fig.9
+
+    # #### Gradient boosted decision trees on the fruit dataset
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_fruits.as_matrix(), y_fruits.as_matrix(), random_state = 0)
+    fig, subaxes = plt.subplots(6, 1, figsize=(6, 32))
+
+    pair_list = [[0,1], [0,2], [0,3], [1,2], [1,3], [2,3]]
+
+    for pair, axis in zip(pair_list, subaxes):
+        X = X_train[:, pair]
+        y = y_train
+        
+        clf = GradientBoostingClassifier().fit(X, y)
+        plot_class_regions_for_classifier_subplot(
+            clf, X, y, None, None, title, axis, target_names_fruits)
+        
+        axis.set_xlabel(feature_names_fruits[pair[0]])
+        axis.set_ylabel(feature_names_fruits[pair[1]])
+        
+    plt.tight_layout()
+    plt.show()      # Fig.10
+
+    clf = GradientBoostingClassifier().fit(X_train, y_train)
+
+    print('GBDT, Fruit dataset, default settings')
+    print('Accuracy of GBDT classifier on training set: {:.2f}'
+        .format(clf.score(X_train, y_train)))
+    print('Accuracy of GBDT classifier on test set: {:.2f}'
+        .format(clf.score(X_test, y_test)))
+    # GBDT, Fruit dataset, default settings
+    # Accuracy of GBDT classifier on training set: 1.00
+    # Accuracy of GBDT classifier on test set: 0.80
+
+    # #### Gradient-boosted decision trees on a real-world dataset
+    from sklearn.ensemble import GradientBoostingClassifier
+
+    X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+
+    clf = GradientBoostingClassifier(random_state = 0)
+    clf.fit(X_train, y_train)
+
+    print('Breast cancer dataset (learning_rate=0.1, max_depth=3)')
+    print('Accuracy of GBDT classifier on training set: {:.2f}'
+        .format(clf.score(X_train, y_train)))
+    print('Accuracy of GBDT classifier on test set: {:.2f}\n'
+        .format(clf.score(X_test, y_test)))
+    # Breast cancer dataset (learning_rate=0.1, max_depth=3)
+    # Accuracy of GBDT classifier on training set: 1.00
+    # Accuracy of GBDT classifier on test set: 0.96
+
+    clf = GradientBoostingClassifier(learning_rate = 0.01, max_depth = 2, random_state = 0)
+    clf.fit(X_train, y_train)
+
+    print('Breast cancer dataset (learning_rate=0.01, max_depth=2)')
+    print('Accuracy of GBDT classifier on training set: {:.2f}'
+        .format(clf.score(X_train, y_train)))
+    print('Accuracy of GBDT classifier on test set: {:.2f}'
+        .format(clf.score(X_test, y_test)))
+    # Breast cancer dataset (learning_rate=0.01, max_depth=2)
+    # Accuracy of GBDT classifier on training set: 0.97
+    # Accuracy of GBDT classifier on test set: 0.97
     ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/emwn3/gradient-boosted-decision-trees"> <br/>
+        <img src="images/plt4-09.png" alt="Here's an example showing how to use gradient boosted trees in scikit-learn on our sample fruit classification test, plotting the decision regions that result. The code is more or less the same as what we used for random forests. But from the sklearn.ensemble module, we import the GradientBoostingClassifier class. We then create the GradientBoostingClassifier object, and fit it to the training data in the usual way. By default, the learning rate parameter is set to 0.1, the n_estimators parameter giving the number of trees to use is set to 100, and the max depth is set to 3. As with random forests, you can see the decision boundaries have that box-like shape that's characteristic of decision trees or ensembles of trees. " title= "Gradient-boosted decision trees" height="250">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/emwn3/gradient-boosted-decision-trees"> <br/>
+        <img src="images/plt4-10.png" alt="Not covered i  Lecture" title= "Gradient boosted decision trees on the fruit dataset" height="600">
+    </a>
+
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d18ky98rnyall9.cloudfront.net/2YlAZ1zrEeeliw7ADgKLdA.processed/full/360p/index.mp4?Expires=1537488000&Signature=CyD0KOnbXSk7Zf-q1XDP249mSCKXST4r4y52GuxsoftRnYrcKPDBEx25fTkuSNcacZlMkBhwAwThrV6lYwjGfrdvYg7gcPs~Q6o9dOMcbm3vsMI5ey7Su0vzUjvxwQ1w6psBs85OHoXoDluoHEbArrHKGIYwzyU0o1ABk8ssqnc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Gradient Boosted Decision Trees" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
