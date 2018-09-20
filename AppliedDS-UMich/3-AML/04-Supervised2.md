@@ -783,7 +783,6 @@ Posted by Martin Stumpe (Technical Lead) and Lily Peng (Product Manager), Google
         + The patient ID could contain information about specific diagnosis paths (e.g. for routine visit vs specialist).
     + Any of these leaked features is highly predictive of the target, but not legitimately available at the time prediction needs to be done.
 
-
 + Other examples of data leakage
     + Leakage in training data:
         + Performing data preprocessing using parameters or results from analyzing the entire dataset:Normalizing and rescaling, detecting and removing outliers, estimating missing values, feature selection.
@@ -829,16 +828,11 @@ Posted by Martin Stumpe (Technical Lead) and Lily Peng (Product Manager), Google
 
 ## The Treachery of Leakage (optional)
 
-+ Demo
-    ```python
+This fun, less-technical read from Colin Fraser reinforces the material in the Data Leakage lecture to provide further explanation and examples on detecting and avoiding data leakage in your machine learning applications.
 
-    ```
+Here's the link to the article:
 
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
+https://medium.com/@colin.fraser/the-treachery-of-leakage-56a2d7c4e931
 
 
 ## Leakage in Data Mining: Formulation, Detection, and Avoidance (optional)
