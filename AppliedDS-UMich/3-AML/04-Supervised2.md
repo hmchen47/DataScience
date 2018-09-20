@@ -468,14 +468,210 @@
 
 ## Neural Networks
 
++ The excellent course on Coursera, Neural Networks for Machine Learning, by a pioneer in this area, Professor Jeff Hinton  
+
++ Review: Linear and Logistic Regression
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-10.png" alt="In this part of the course, you'll get an introduction to the basics of neural networks. Which are a broad family of algorithms that have formed the basis for the recent resurgence in the computational field called deep learning. Early work on neural networks actually began in the 1950s and 60s. And just recently, has experienced a resurgence of interest, as deep learning has achieved impressive state-of-the-art results. On specific tasks that range from object classification in images, to fast accurate machine translation, to gameplay. The topic of neural networks requires its own course. And indeed, if you're interested in more depth, you can check out the excellent course on Coursera. Called Neural Networks for Machine Learning, by a pioneer in this area, Professor Jeff Hinton. Here, we'll provide an introduction to the basic concepts and algorithms that are foundation of neural networks. And of the much more sophisticated deep learning methods in use today. You'll learn about some basic models called multi-layer perceptrons, supported by scikit-learn, that can be used for classification and regression. Let's start by briefly reviewing simpler methods we have already seen for regression and classification. Linear regression and logistic regression, which we show graphically here. Linear regression predicts a continuous output, y hat, shown as the box on the right. As a function as the sum of the input variables xi, shown in the boxes on the left. Each weighted by a corresponding coefficient, wi hat, plus an intercept or bias term, b hat. We saw how various methods like ordinary least squares, ridge regression or lasso regression. Could be used to estimate these model coefficients, wi hat and b hat, shown above the arrows in the diagram, from training data. Logistic regression takes this one step further, by running the output of the linear function of the input variables, xi. Through an additional nonlinear function, the logistic function. Represented by the new box in the middle of the diagram, to produce the output, y. Which, because of the logistic function, is now constrained to lie between zero and one. We use logistical regression for binary classification. Since we can interpret y as the probability that a given input data instance belongs to the positive class, in a two-class binary classification scenario. " title= "Linear and Logistic Regression" height="250">
+    </a>
+
++ Multi-layer Perceptron with One Hidden Layer (and `tanh` activation function)
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-11.png" alt="Here's an example of a simple neural network for regression, called a multi-layer perceptron. Which I will sometimes abbreviate by MLP. These are also known as feed-forward neural networks. MLPs take this idea of computing weighted sums of the input features, like we saw in logistic regression. But it takes it a step beyond logistic regression, by adding an additional processing step called a hidden layer. Represented by this additional set of boxes, h0, h1, and h2 in the diagram. These boxes, within the hidden layer, are called hidden units. And each hidden unit in the hidden layer computes a nonlinear function of the weighted sums of the input features. Resulting in intermediate output values, v0, v1, v2. Then the MLP computes a weighted sum of these hidden unit outputs, to form the final output value, Y hat. This nonlinear function that the hidden unit applies. is called the activation function. In this example, your activation function is the hyperbolic tangent function, which is related to the logistic function. You can see that the result of adding this additional hidden layer processing step to the prediction model, is a formula for y hat. That is already more involved than the one for logistic regression. Now predicting y involves computing a different initial weighted sum of the input feature values for each hidden unit. Which applies a nonlinear activation function. And then all of these nonlinear outputs are combined, using another weighted sum, to produce y. In particular, there's one weight between each input and each hidden unit. And one weight between each hidden unit and the output variable. In fact, this addition and combination of non-linear activation functions. Allows multi-layer perceptrons to learn more complex functions. Than is possible with a simple linear or logistic function. This additional expressive power enables neural networks to perform more accurate prediction. When the relationship between the input and output is itself complex. Of course, this complexity also means that there are a lot more weights, model coefficients, to estimate in the training phase. Which means that both more training data and more computation are typically needed to learn in a neural network, compared to a linear model. " title= "Multi-layer Perceptron with One Hidden Layer" height="200">
+    </a>
+    + Linear function: $h_i = tanh(w_{0i} x_0 + w_{1i} x_1 + w_{2i} x_2 + w_{3i} x_3)$ (incorrect in diagram)
+
++ Activation Functions
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-12.png" alt="As an aside, there are a number of choices for the activation function in a neural network, that gets applied in hidden units. Here, the plot shows the input value coming into the activation function, from the previous layer's inputs on the x-axis. And the y-axis shows the resulting output value for the function. This code to plot this example is available in the accompanying notebook. The three main activation functions we'll compare later in this lecture are the hyperbolic tangent. That's the S-shaped function in green. The rectified linear unit function, which I'll abbreviate to relu, shown as the piecewise linear function in blue. And the familiar logistic function, which is shown in red. The relu activation function is the default activation function for neural networks in scikit-learn. It maps any negative input values to zero. The hyperbolic tangent function, or tanh function. Maps large positive input values to outputs very close to one. And large negative input values, to outputs very close to negative one. These differences in the activation function can have some effect on the shape of regression prediction plots. Or classification decision boundaries that neural networks learn. In general, we'll be using either the hyperbolic tangent or the relu function as our default activation function. Since these perform well for most applications. " title= "Activation Functions" height="200">
+    </a>
+    + Activation function: $$ f(x) = tanh(x) = \frac{2}{1 + \exp^{-2x} - 1} $$
+
++ A single hidden layer network using 1, 10, or 100 units
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-13.png" alt="So here we're passing a list with a single element. Meaning we want one hidden layer, using the number in the variable called units. By default, if you don't specify the hidden_layer_sizes parameter, scikit-learn will create a single hidden layer with 100 hidden units. While a setting of 10 may work well for simple data sets, like the one we use as examples here. For really complex data sets, the number of hidden units could be in the thousands. It's also possible, as we'll see shortly, to create an MLP with more than one hidden layer. By passing a hidden_layer_sizes parameter with multiple entries. I want to also note the use of this extra parameter, called solver. Which specifies the algorithm to use for learning the weights of the network. Here, we're using the lbfgs algorithm. We'll discuss the solver parameter setting further, at the end of this lecture. Also note that we're passing in a random_state parameter, when creating the MLPClassifier object. Like we did for the train-test split function. And we happened to set this random state parameter to a fixed value of zero. This is because for neural networks, their weights are initialized randomly, which can affect the model that is learned. Because of this, even without changing the key parameters on the same data set. The same neural network algorithm might learn two different models. Depending on the value of the internal random seed that is chosen. So by always setting the same value for the random seed used to initialize the weights. We can assure the results will always be the same, for everyone using these examples. " title= "A single hidden layer network using 1, 10, or 100 units" height="200">
+    </a>
+
++ Multi-layer Perceptron with Two Hidden Layers
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-14.png" alt="Here's a graphical depiction of a multi-layer perceptron with two hidden layers. Adding the second hidden layer further increases the complexity of functions that the neural network can learn, from more complex data sets. Taking this complexity further, large architectures of neural networks, with many stages of computation, are why deep learning methods are called deep. And we'll summarize deep learning, in an upcoming lecture for this week. " title= "Multi-layer Perceptron with Two Hidden Layers" height="200">
+    </a>
+
++ One vs Two Hidden Layers
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-15.png" alt="And on the right is the same data set, using a new MLP with two hidden layers of ten units each. You can see the MLP with two hidden layers learned a more complex decision boundary. And achieved, in this case, a much better fit on the training data, and slightly better accuracy on the test data. " title= "One vs Two Hidden Layers" height="200">
+    </a>
+
++ L2 Regularization with the Alpha Parameter
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-16.png" alt="Here's the graphical output of this notebook code. You can see the effect of increasing regularization with increasing alpha. In the left plot, when alpha is small, the decision boundaries are much more complex and variable. And the classifier's over-fitting, as we can see from the very high training set score, and low test score. On the other hand, the right plot uses the largest value of alpha here, alpha 5.0. And that setting results in much smoother decision boundaries, while still capturing the global structure of the data. And this increased simplicity allows it to generalize much better, and not over-fit to the training set. And this is evident from the much higher test score, in this case. " title= "L2 Regularization with the Alpha Parameter" height="200">
+    </a>
+
++ Neural Network Regression with `MLPRegressor`
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/fig4-17.png" alt="Here's the example of a simple MLP regression model, in our notebook. You use the multi-layer perceptron regressor by importing the MLPRegressor class from the sklearn.neural_network module, and then creating the MLPRegressor object. When creating the object here, we're setting the number of hidden layers and units within each hidden layer. Using the same hidden_layer_sizes parameter that we used for classification. This example uses two hidden layers, with 100 hidden nodes each. This notebook code has a loop that cycles through different settings of the activation function parameter, and the alpha parameter for L2 regularization. Here we've included regression results that use, in the top row, the hyperbolic tangent activation function. And in the bottom row, the relu activation function. You can see the smoothness of the activation function somewhat influences the smoothness of the corresponding regression results. Along the columns, the plots also show the effect of using different alpha settings, to increase the amount of L2 regularization from left to right. Again, as with classification, the effect of increasing the amount of L2 regularization, by increasing alpha. Is to constrain the regression to use simpler and simpler models, with fewer and fewer large weights. You can see this effect for both activation functions, in the top and bottom rows. The regression line on the left has higher variance than the much smoother, regularized model on the right. " title= "Neural Network Regression with MLPRegressor" height="200">
+    </a>
+
++ Neural Networks: Pros and Cons
+    + Pros:
+        + They form the basis of state-of-the-art models and can be formed into advanced architectures that effectively capture complex features given enough data and computation.
+    + Cons:
+        + Larger, more complex models require significant training time, data, and customization.
+        + Careful preprocessing of the data is needed.
+        + A good choice when the features are of similar types, but less so when features of very different types.
+
++ Neural Nets: MLPClassifierand MLPRegressorImportant pParameters
+    + `hidden_layer_sizes`: sets the number of hidden layers (number of elements in list), and number of hidden units per layer (each list element). Default: (100).
+    + `alpha`: controls weight on the regularization penalty that shrinks weights to zero. Default: alpha = 0.0001.
+    + `activation`: controls the nonlinear function used for the activation function, including: 'relu' (default), 'logistic', 'tanh'.
+
++ Solver
+    + The algorithm that actually does the numerical work of finding the optimal weights
+    + All of the solver algorithms have to do a kind of hill-climbing in a very bumpy landscape, with lots of local minima
+    + Each local minimum corresponds to a locally optimal set of weights
+    + A choice of weight setting that's better than any nearby choices of weights
+    + Depending on the initial random initialization of the weights
+    + The nature of the trajectory in the search path that a solver takes through this bumpy landscape
+    + End up at different local minima, which can have different validation scores
+    + The default solver, `adam`, tends to be both efficient and effective on large data sets, with thousands of training examples. 
+    + For small data sets, the `lbfgs` solver tends to be faster, and find more effective weights
+    
+
 + Demo
     ```python
+    # #### Activation functions
+    xrange = np.linspace(-2, 2, 200)
 
+    plt.figure(figsize=(7,6))
+
+    plt.plot(xrange, np.maximum(xrange, 0), label = 'relu')
+    plt.plot(xrange, np.tanh(xrange), label = 'tanh')
+    plt.plot(xrange, 1 / (1 + np.exp(-xrange)), label = 'logistic')
+    plt.legend()
+    plt.title('Neural network activation functions')
+    plt.xlabel('Input value (x)')
+    plt.ylabel('Activation function output')
+
+    plt.show()      # Fig.11
+
+    # ### Neural networks: Classification
+    # #### Synthetic dataset 1: single hidden layer
+    from sklearn.neural_network import MLPClassifier
+    from adspy_shared_utilities import plot_class_regions_for_classifier_subplot
+
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
+
+    fig, subaxes = plt.subplots(3, 1, figsize=(6,18))
+
+    for units, axis in zip([1, 10, 100], subaxes):
+        nnclf = MLPClassifier(
+            hidden_layer_sizes = [units], solver='lbfgs', random_state = 0).fit(X_train, y_train)
+        
+        title = 'Dataset 1: Neural net classifier, 1 layer, {} units'.format(units)
+        
+        plot_class_regions_for_classifier_subplot(
+            nnclf, X_train, y_train, X_test, y_test, title, axis)
+        plt.tight_layout()      # Fig.12
+
+    # #### Synthetic dataset 1: two hidden layers
+    from adspy_shared_utilities import plot_class_regions_for_classifier
+
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
+    nnclf = MLPClassifier(
+        hidden_layer_sizes = [10, 10], solver='lbfgs', random_state = 0).fit(X_train, y_train)
+    plot_class_regions_for_classifier(
+        nnclf, X_train, y_train, X_test, y_test, 
+        'Dataset 1: Neural net classifier, 2 layers, 10/10 units')  # Fig.13
+
+    # #### Regularization parameter: alpha
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
+    fig, subaxes = plt.subplots(4, 1, figsize=(6, 23))
+    for this_alpha, axis in zip([0.01, 0.1, 1.0, 5.0], subaxes):
+        nnclf = MLPClassifier(
+            solver='lbfgs', activation = 'tanh', alpha = this_alpha,
+            hidden_layer_sizes = [100, 100], random_state = 0).fit(X_train, y_train)
+        title = 'Dataset 2: NN classifier, alpha = {:.3f} '.format(this_alpha)
+        plot_class_regions_for_classifier_subplot(
+            nnclf, X_train, y_train, X_test, y_test, title, axis)
+        plt.tight_layout()      # Fig.14
+
+    # #### The effect of different choices of activation function
+    X_train, X_test, y_train, y_test = train_test_split(X_D2, y_D2, random_state=0)
+    fig, subaxes = plt.subplots(3, 1, figsize=(6,18))
+    for this_activation, axis in zip(['logistic', 'tanh', 'relu'], subaxes):
+        nnclf = MLPClassifier(
+            solver='lbfgs', activation = this_activation, alpha = 0.1, hidden_layer_sizes = [10, 10],
+            random_state = 0).fit(X_train, y_train)
+        title = 'Dataset 2: NN classifier, 2 layers 10/10, {} activation function'.format(this_activation)
+        plot_class_regions_for_classifier_subplot(
+            nnclf, X_train, y_train, X_test, y_test, title, axis)
+        plt.tight_layout()      # Fig.15
+
+
+    # ### Neural networks: Regression
+    from sklearn.neural_network import MLPRegressor
+
+    fig, subaxes = plt.subplots(2, 3, figsize=(11,8), dpi=70)
+    X_predict_input = np.linspace(-3, 3, 50).reshape(-1,1)
+    X_train, X_test, y_train, y_test = train_test_split(X_R1[0::5], y_R1[0::5], random_state = 0)
+    for thisaxisrow, thisactivation in zip(subaxes, ['tanh', 'relu']):
+        for thisalpha, thisaxis in zip([0.0001, 1.0, 100], thisaxisrow):
+            mlpreg = MLPRegressor(
+                hidden_layer_sizes = [100,100], activation = thisactivation,
+                alpha = thisalpha, solver = 'lbfgs').fit(X_train, y_train)
+            y_predict_output = mlpreg.predict(X_predict_input)
+            thisaxis.set_xlim([-2.5, 0.75])
+            thisaxis.plot(X_predict_input, y_predict_output,
+                        '^', markersize = 10)
+            thisaxis.plot(X_train, y_train, 'o')
+            thisaxis.set_xlabel('Input feature')
+            thisaxis.set_ylabel('Target value')
+            thisaxis.set_title('MLP regression\nalpha={}, activation={})'
+                            .format(thisalpha, thisactivation))
+            plt.tight_layout()      # Fig.16
+
+    # #### Application to real-world dataset for classification
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.preprocessing import MinMaxScaler
+
+    scaler = MinMaxScaler()
+    X_train, X_test, y_train, y_test = train_test_split(X_cancer, y_cancer, random_state = 0)
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    clf = MLPClassifier(hidden_layer_sizes = [100, 100], alpha = 5.0, random_state = 0, 
+        solver='lbfgs').fit(X_train_scaled, y_train)
+    print('Breast cancer dataset')
+    print('Accuracy of NN classifier on training set: {:.2f}'
+        .format(clf.score(X_train_scaled, y_train)))
+    print('Accuracy of NN classifier on test set: {:.2f}'
+        .format(clf.score(X_test_scaled, y_test)))
+    # Breast cancer dataset
+    # Accuracy of NN classifier on training set: 0.98
+    # Accuracy of NN classifier on test set: 0.97
     ```
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/plt4-11.png" alt="To use a neural network classifier, you import the MLPClassifier class from the sklearn.neural_network module. This code example shows the classifier being fit to the training data, using a single hidden layer. With three different numbers of hidden units in the layer, 1 unit, 10 units and 100 units. As with all other classification types we've seen, you can create the classifier objects with the appropriate parameters. And call the fit method on the training data. Here, the main parameter for a neural network classifier is this parameter, hidden_layer_sizes. This parameter is a list, with one element for each hidden layer, that gives the number of hidden units to use for that layer. " title= "Neural network activation functions" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/plt4-12.png" alt=" This graphic plots the results of running this code. To show how the number of hidden units in a single layer in the neural network affects the model complexity for classification. With a single hidden unit, the model is mathematically equivalent to logistic regression. We see the classifier returns the familiar simple linear decision boundary between the two classes. The training set score's low, and the test score is not much better, so this network model is under-fitting. With ten hidden units, we can see that the MLPClassifier is able to learn a more complete decision boundary. That captures more of the nonlinear, cluster-oriented structure in the data, though the test set accuracy is still low. With 100 hidden units, the decision boundary is even more detailed. And achieves much better accuracy, on both the training and the test sets. " title= "Dataset 1: Neural net classifier, 1 layer, (1, 10, 100) units" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/plt4-13.png" alt="Here is an example in the notebook, showing how we create a two-layer MLP, with 10 hidden units in each layer. We just set the hidden_layer_sizes parameter, when creating the MLPClassifier, to a two-element list. Indicating ten units, in each of the two hidden layers. You can see the result of of adding the second hidden layer, on the classification problem we saw earlier. On the left is the original MLP, with one hidden layer of ten units. " title= "Dataset 1: Neural net classifier, 2 layers, 10/10 units" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/plt4-14.png" alt="" title= "Dataset 2: NN classifier, alpha 0.01, 0.1, 1.0, 5.0]" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/plt4-15.png" alt="The regularization parameter for MLPs is called alpha, like with the linear regression models. And in scikit-learn, it's set to a small value by default, like 0.0001, that gives a little bit of regularization. This code example shows the effects of changing alpha for a larger MLP, with 2 hidden layers of 100 nodes each. From a small value of 0.01, to a larger value of 5.0. For variety here, we're also setting the activation function to use the hyperbolic tangent function. Here's the graphical output of this notebook code. You can see the effect of increasing regularization with increasing alpha. In the left plot, when alpha is small, the decision boundaries are much more complex and variable. And the classifier's over-fitting, as we can see from the very high training set score, and low test score. On the other hand, the right plot uses the largest value of alpha here, alpha 5.0. And that setting results in much smoother decision boundaries, while still capturing the global structure of the data. And this increased simplicity allows it to generalize much better, and not over-fit to the training set. And this is evident from the much higher test score, in this case. " title= "Dataset 2: NN classifier, 2 layers 10/10, ['logistic', 'tanh', 'relu'] activation function" height="200">
+    </a>
+    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
+        <img src="images/plt4-16.png" alt="Here's the example of a simple MLP regression model, in our notebook. You use the multi-layer perceptron regressor by importing the MLPRegressor class from the sklearn.neural_network module, and then creating the MLPRegressor object. When creating the object here, we're setting the number of hidden layers and units within each hidden layer. Using the same hidden_layer_sizes parameter that we used for classification. This example uses two hidden layers, with 100 hidden nodes each. This notebook code has a loop that cycles through different settings of the activation function parameter, and the alpha parameter for L2 regularization. Here we've included regression results that use, in the top row, the hyperbolic tangent activation function. And in the bottom row, the relu activation function. You can see the smoothness of the activation function somewhat influences the smoothness of the corresponding regression results. Along the columns, the plots also show the effect of using different alpha settings, to increase the amount of L2 regularization from left to right. Again, as with classification, the effect of increasing the amount of L2 regularization, by increasing alpha. Is to constrain the regression to use simpler and simpler models, with fewer and fewer large weights. You can see this effect for both activation functions, in the top and bottom rows. The regression line on the left has higher variance than the much smoother, regularized model on the right. " title= "MLP regression\nalpha=[0.0001, 1.0, 100], activation=['tanh', 'relu']" height="600">
+    </a>
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d18ky98rnyall9.cloudfront.net/STxb-kAWEeeR4AqenwJvyA.processed/full/360p/index.mp4?Expires=1537574400&Signature=gS4~r38Cm3-1JzOrBv5mOPBmTYCWwKq~0vEXOv9vEXi4nSJA-DcrZ5DdqiZ3Qy82kDZ3szytRqAtd3qLXIgh8LNjym0~6J1ourLQ7qhrrPv1b6THkpp3rEe3~SEKpH-WYg7CF07gQyZg3eqbbsgdCCca0WZzHQWSM9ElkYt6O2o_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Neural Networks" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
