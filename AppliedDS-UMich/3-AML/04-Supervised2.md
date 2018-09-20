@@ -754,16 +754,12 @@ Deep Learning in a Nutshell: Core Concepts. (2016, September 08). Retrieved May 
 
 ## Assisting Pathologists in Detecting Cancer with Deep Learning (optional)
 
-+ Demo
-    ```python
+This short article is an example of how deep learning is being used in healthcare.
 
-    ```
+[Assisting Pathologists in Detecting Cancer with Deep Learning](https://research.googleblog.com/2017/03/assisting-pathologists-in-detecting.html)
 
-### Lecture Video
+Posted by Martin Stumpe (Technical Lead) and Lily Peng (Product Manager), Google Research Blog
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
 
 
 ## Data Leakage
