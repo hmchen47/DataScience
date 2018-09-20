@@ -744,17 +744,13 @@ To access the simulation, [click here](http://playground.tensorflow.org/)
 
 ## Deep Learning in a Nutshell: Core Concepts (optional)
 
-+ Demo
-    ```python
+This self-contained tutorial by Tim Dettmers covers the key high-level concepts of deep learning and reinforces the basic concepts we covered in the Neural Networks and Deep Learning lectures. There are multiple parts - Part 1 is less technical while Parts 2-4 go into more detail on algorithms.
 
-    ```
+The link to access Part 1 is here:
 
-### Lecture Video
+https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-core-concepts/
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
-
+Deep Learning in a Nutshell: Core Concepts. (2016, September 08). Retrieved May 10, 2017.
 
 ## Assisting Pathologists in Detecting Cancer with Deep Learning (optional)
 
