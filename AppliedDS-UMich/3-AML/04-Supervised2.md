@@ -854,17 +854,9 @@ https://www.kaggle.com/c/the-icml-2013-whale-challenge-right-whale-redux/discuss
 
 ## Rules of Machine Learning: Best Practices for ML Engineering (optional)
 
-+ Demo
-    ```python
+This optional reading is intended mainly for software engineers who want to build and deploy machine learning applications in production - especially at scale. The only background knowledge required are the basic machine learning concepts we've covered so far in this course. Written by Google's Dr. Martin Zinkevich, it walks through a set of software engineering best practices for designing and deploying machine learning in software systems - based on years of practical experience at Google.
 
-    ```
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
-
+http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
 
 ## Quiz: Module 4 Quiz
 
