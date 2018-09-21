@@ -878,7 +878,7 @@ Q2. Which of the following are advantages to using decision trees over other mod
     c. Trees are naturally resistant to overfitting
     d. Trees are easy to interpret and visualize
 
-    Ans: xbcd, xab, xc, xac, xbc, xabc
+    Ans: xab, xbcd, xab, xc, xac, xbc, xabc
 
 
 Q3. What is the main reason that each tree of a random forest only looks at a random subset of the features when building each node?
@@ -911,7 +911,7 @@ Q5. Select which of the following statements are true.
     d. For a model that won’t overfit a training set, Naive Bayes would be a better choice than a decision tree.
 
 
-    Ans: xacd, xbcd, xcd, xc, xbc, xac
+    Ans: xabcd, xacd, xbcd, xcd, xc, xbc, xac
 
 
 Q6. Match each of the prediction probabilities decision boundaries visualized below with the model that created them.
@@ -968,7 +968,7 @@ Q9. Which of the following might be good ways to help prevent a data leakage sit
     d. Sanity check the model with an unseen validation set
 
 
-    Ans: acde, xacd, xbc, xabcd, xbcd
+    Ans: acd, xbc, xabcd, xbcd
 
 
 Q10. Given the neural network below, find the correct outputs for the given values of x1 and x2.
