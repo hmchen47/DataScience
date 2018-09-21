@@ -878,7 +878,7 @@ Q2. Which of the following are advantages to using decision trees over other mod
     c. Trees are naturally resistant to overfitting
     d. Trees are easy to interpret and visualize
 
-    Ans: xabc
+    Ans: bc, xabc
 
 
 Q3. What is the main reason that each tree of a random forest only looks at a random subset of the features when building each node?
@@ -911,7 +911,7 @@ Q5. Select which of the following statements are true.
     d. For a model that won’t overfit a training set, Naive Bayes would be a better choice than a decision tree.
 
 
-    Ans: xac
+    Ans: bc, xac
 
 
 Q6. Match each of the prediction probabilities decision boundaries visualized below with the model that created them.
@@ -925,7 +925,7 @@ Q6. Match each of the prediction probabilities decision boundaries visualized be
     d. KNN (k=1), Neural Network, Decision Tree
 
 
-    Ans: xc
+    Ans: a, xc
 
 
 Q7. A decision tree of depth 2 is visualized below. Using the `value` attribute of each leaf, find the accuracy score for the tree of depth 2 and the accuracy score for a tree of depth 1.
@@ -936,7 +936,16 @@ Q7. A decision tree of depth 2 is visualized below. Using the `value` attribute 
 What is the improvement in accuracy between the model of depth 1 and the model of depth 2? (i.e. accuracy2 - accuracy1)
 
 
-    Ans: xSpecificity
+    Ans: 0.067, xSpecificity
+
++ [Compute accuracy using 'value' attribute for each depth of a decision tree](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/4/threads/lZ_kWFl8EeeQwApbqFuYng)
+
+    value is y_test, y_test depends on the class [Positive(edible), Negative(poisonous) classes] the value is in and whether it resulted from choosing True or False
+    <a href="https://www.coursera.org/learn/python-machine-learning/exam/J7A0M/module-4-quiz"> <br/>
+        <img src="images/fig4-q4.png" alt="text" title= "Module 4 - Q7" height="200">
+    </a>
+
+    $Accuracy1 = (3796 + 3048) / 8124 = 0.8868$ & $Accuracy2 = (3760 + 512 + 72 + 3408) / (4596 + 3528) = 0.9542097488921714$ 
 
 
 Q8. For the autograded assignment in this module, you will create a classifier to predict whether a given blight ticket will be paid on time (See the module 4 assignment notebook for a more detailed description). Which of the following features should be removed from the training of the model to prevent data leakage? (Select all that apply)
@@ -948,7 +957,7 @@ Q8. For the autograded assignment in this module, you will create a classifier t
     e. ticket_issued_date - Date and time the ticket was issued
 
 
-    Ans: xce
+    Ans: ace, xce
 
 
 Q9. Which of the following might be good ways to help prevent a data leakage situation?
@@ -959,7 +968,7 @@ Q9. Which of the following might be good ways to help prevent a data leakage sit
     d. Sanity check the model with an unseen validation set
 
 
-    Ans: xbcd
+    Ans: abcd, xbcd
 
 
 Q10. Given the neural network below, find the correct outputs for the given values of x1 and x2.
