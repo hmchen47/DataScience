@@ -878,7 +878,7 @@ Q2. Which of the following are advantages to using decision trees over other mod
     c. Trees are naturally resistant to overfitting
     d. Trees are easy to interpret and visualize
 
-    Ans: c, xac, xbc, xabc
+    Ans: xc, xac, xbc, xabc
 
 
 Q3. What is the main reason that each tree of a random forest only looks at a random subset of the features when building each node?
@@ -911,7 +911,7 @@ Q5. Select which of the following statements are true.
     d. For a model that won’t overfit a training set, Naive Bayes would be a better choice than a decision tree.
 
 
-    Ans: cd, xc, xbc, xac
+    Ans: xcd, xc, xbc, xac
 
 
 Q6. Match each of the prediction probabilities decision boundaries visualized below with the model that created them.
@@ -957,7 +957,7 @@ Q8. For the autograded assignment in this module, you will create a classifier t
     e. ticket_issued_date - Date and time the ticket was issued
 
 
-    Ans: acd, xae, xace, xce
+    Ans: xacd, xae, xace, xce
 
 
 Q9. Which of the following might be good ways to help prevent a data leakage situation?
