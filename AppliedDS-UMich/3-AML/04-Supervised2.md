@@ -191,7 +191,7 @@
     + Ensemble of trees should be diverse: introduce random variation into tree-building.
 
 + Random Forest Process
-    +Original Dataset
+    + Original Dataset
         <a href="https://www.coursera.org/learn/python-machine-learning/lecture/lF9QN/random-forests"> <br/>
             <img src="images/fig4-03.png" alt="This random variation during tree building happens in two ways. First, the data used to build each tree is selected randomly and second, the features chosen in each split tests are also randomly selected. To create a random forest model you first decide on how many trees to build. This is set using the n_estimated parameter for both RandomForestClassifier and RandomForestRegressor. Each tree were built from a different random sample of the data called the bootstrap sample. " title= "Random Forest Process" height="250">
         </a>
@@ -878,7 +878,7 @@ Q2. Which of the following are advantages to using decision trees over other mod
     c. Trees are naturally resistant to overfitting
     d. Trees are easy to interpret and visualize
 
-    Ans: bc, xabc
+    Ans: xac, xbc, xabc
 
 
 Q3. What is the main reason that each tree of a random forest only looks at a random subset of the features when building each node?
@@ -911,7 +911,7 @@ Q5. Select which of the following statements are true.
     d. For a model that won’t overfit a training set, Naive Bayes would be a better choice than a decision tree.
 
 
-    Ans: bc, xac
+    Ans: xc, xbc, xac
 
 
 Q6. Match each of the prediction probabilities decision boundaries visualized below with the model that created them.
@@ -957,7 +957,7 @@ Q8. For the autograded assignment in this module, you will create a classifier t
     e. ticket_issued_date - Date and time the ticket was issued
 
 
-    Ans: ace, xce
+    Ans: xae, xace, xce
 
 
 Q9. Which of the following might be good ways to help prevent a data leakage situation?
@@ -968,7 +968,7 @@ Q9. Which of the following might be good ways to help prevent a data leakage sit
     d. Sanity check the model with an unseen validation set
 
 
-    Ans: abcd, xbcd
+    Ans: xbc, xabcd, xbcd
 
 
 Q10. Given the neural network below, find the correct outputs for the given values of x1 and x2.
