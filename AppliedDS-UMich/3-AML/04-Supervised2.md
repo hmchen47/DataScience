@@ -911,7 +911,7 @@ Q5. Select which of the following statements are true.
     d. For a model that won’t overfit a training set, Naive Bayes would be a better choice than a decision tree.
 
 
-    Ans: xab, xabc, xabd, xacd, xabcd, xacd, xbcd, xcd, xc, xbc, xac
+    Ans: xbd, xab, xabc, xabd, xacd, xabcd, xacd, xbcd, xcd, xc, xbc, xac
 
 
 Q6. Match each of the prediction probabilities decision boundaries visualized below with the model that created them.
