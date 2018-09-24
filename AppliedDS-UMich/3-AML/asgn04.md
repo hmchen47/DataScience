@@ -58,7 +58,8 @@ res += ['Failed, bm.index.shape should be (61001,)\n','Passed\n'][bm.index.shape
 
 res += 'Output index test: '
 if bm.index.shape==(61001,):
-    res +=['Failed\n','Passed\n'][all(pd.read_csv('test.csv',usecols=[0],index_col=0).sort_index().index.values==bm.sort_index().index.values)]
+    res +=['Failed\n','Passed\n'][all(pd.read_csv(
+        'test.csv',usecols=[0],index_col=0).sort_index().index.values==bm.sort_index().index.values)]
 else:
     res+='Failed'
 print(res)
@@ -137,7 +138,8 @@ print(res)
     def blight_model():
         df_test = pd.read_csv('test.csv', encoding=\"latin1\", low_memory=False)
         np.random.seed(seed=0)
-        return pd.Series(data=np.random.uniform(size=df_test.shape[0]), index=df_test['ticket_id'], dtype=\"float32\")
+        return pd.Series(data=np.random.uniform(size=df_test.shape[0]), 
+            index=df_test['ticket_id'], dtype=\"float32\")
     #blight_model()
     ```
 
@@ -229,11 +231,11 @@ print(res)
     The best way to avoid memory problems is to create two versions of the assignment notebook, one for development and one for submission. To avoid memory issues
 
     1. Read only the columns you use in the final model, see read_csv has very useful parameter that can help reduce processing
-        + usecols: provide a list of all columns to be read
-        + index_col: provide the name of the column to be used as index
-        + parse_dates: provide a list of columns that needs to be parsed)
-        + dtypes: provide a dictionary of column names as keys and types as values, use ‘str’ for string,’float’ for float64, don’t use integer as NaN values are not allowed in integer data)
-        + converters: these can be useful for applying simple transformations to the columns, one example {‘col_name’:lambda x: x.upper() if type(x)==str else x} can be used to convert all string items to upper case. Only use with mostly non-numeric data
+        + `usecols`: provide a list of all columns to be read
+        + `index_col`: provide the name of the column to be used as index
+        + `parse_dates`: provide a list of columns that needs to be parsed)
+        + `dtypes`: provide a dictionary of column names as keys and types as values, use ‘str’ for string,’float’ for float64, don’t use integer as NaN values are not allowed in integer data)
+        + `converters`: these can be useful for applying simple transformations to the columns, one example {‘col_name’:lambda x: x.upper() if type(x)==str else x} can be used to convert all string items to upper case. Only use with mostly non-numeric data
     2. Replace or delete NaN values as early as possible in your code, use the same column datatype to fill each column, e.g. if the column dtype is float64, use a float number, if the column dtype is DateTime or TimeStamp use pd.to_datetime(‘Date here’) and if the dtype is Timedelta use pd.Timedelta(‘number units’) units can days, months, etc..
     3. Remove redundant features, e.g. a column containing only one distinct value will add little information to your learning model
     4. Keep your code neat, create functions to perform repetitive tasks, e.g. once you decided on the columns to use and how to deal with NaN values and categorical data, create a function that you can use for both train and test
@@ -320,7 +322,7 @@ print(res)
 
 + I read this post after I was done with my pre-processing and I think I have overdone that according to some of the posts written here. Here, what I did:
 
-    I selected 6 features namelyagency_name, state, disposition, late_fee, discount_amount, judgment_amount. I selected these after doing research on each of the features. I didn't used address.csv and latlon.csv.
+    I selected 6 features namely agency_name, state, disposition, late_fee, discount_amount, judgment_amount. I selected these after doing research on each of the features. I didn't used address.csv and latlon.csv.
 
     I have reason for not selecting each of the other features. Please let me know if you want reason for any feature
 
