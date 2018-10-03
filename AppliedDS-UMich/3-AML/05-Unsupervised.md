@@ -2,7 +2,10 @@
 
 ## Unsupervised Learning Notebook
 
-
++ [Web notebook Launching Page](https://www.coursera.org/learn/python-machine-learning/notebook/KDjxZ/unsupervised-learning-notebook)
++ [Web Notebook](https://hub.coursera-notebooks.org/user/elkljxyoytcwjbmkgctrtg/notebooks/UnsupervisedLearning.ipynb)
++ [Local notebook](notebooks/UnsupervisedLearning.ipynb)
++ [Local python code](notebooks/UnsupervisedLearning.py)
 
 ## Introduction
 
