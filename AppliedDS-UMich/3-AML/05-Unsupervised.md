@@ -470,17 +470,8 @@
 
 ## How to Use t-SNE Effectively
 
-+ Demo
-    ```python
-
-    ```
-
-### Lecture Video
-
-<a href="url" alt="How to Use t-SNE Effectively" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
-
++ Wattenberg, et al., "[How to Use t-SNE Effectively](http://doi.org/10.23915/distill.00002)", Distill, 2016. 
++ http://distill.pub/2016/misread-tsne/#citation
 
 ## How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms
 
