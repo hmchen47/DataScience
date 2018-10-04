@@ -475,14 +475,8 @@
 
 ## How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms
 
-+ Demo
-    ```python
+Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](https://medium.freecodecamp.com/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba)", freeCodeCamp, 2017.
 
-    ```
 
-### Lecture Video
 
-<a href="url" alt="How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
-</a>
 
