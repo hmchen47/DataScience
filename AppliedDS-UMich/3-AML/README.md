@@ -2,16 +2,16 @@
 
 ## Module 1: [Fundamentals of Machine Learning - Intro to SciKit Learn](./01-FundML.md)
 
-+ [Course Syllabus](./01-FundML.md#)
-+ [Introduction](./01-FundML.md#)
-+ [Key Concepts in Machine Learning](./01-FundML.md#)
-+ [Python Tools for Machine Learning](./01-FundML.md#)
-+ [Module 1 Notebook](./01-FundML.md#)
-+ [An Example Machine Learning Problem](./01-FundML.md#)
-+ [Examining the Data](./01-FundML.md#)
-+ [K-Nearest Neighbors Classification](./01-FundML.md#)
-+ [Zachary Lipton: The Foundations of Algorithmic Bias (optional)](./01-FundML.md#)
-+ [Quiz: Module 1 Quiz](./01-FundML.md#)
++ [Course Syllabus](./01-FundML.md#course-syllabus)
++ [Introduction](./01-FundML.md#introduction)
++ [Key Concepts in Machine Learning](./01-FundML.md#key-concepts-in-machine-learning)
++ [Python Tools for Machine Learning](./01-FundML.md#python-tools-for-machine-learning)
++ [Module 1 Notebook](./01-FundML.md#module-1-notebook)
++ [An Example Machine Learning Problem](./01-FundML.md#an-example-machine-learning-problem)
++ [Examining the Data](./01-FundML.md#examining-the-data)
++ [K-Nearest Neighbors Classification](./01-FundML.md#k-nearest-neighbors-classification)
++ [Zachary Lipton: The Foundations of Algorithmic Bias (optional)](./01-FundML.md#zachary-lipton-the-foundations-of-algorithmic-bias-optional)
++ [Quiz: Module 1 Quiz](./01-FundML.md#quiz-module-1-quiz)
 
 
 ## [Assignment 1](./asgn01.md)
@@ -76,7 +76,7 @@
 + [The Treachery of Leakage (optional)](./04-Supervised2.md$)
 + [Leakage in Data Mining: Formulation, Detection, and Avoidance (optional)](./04-Supervised2.md$)
 + [Data Leakage Example: The ICML 2013 Whale Challenge (optional)](./04-Supervised2.md$)
-+ [gRules of Machine Learning: Best Practices for ML Engineering (optional)](./04-Supervised2.md$)
++ [Rules of Machine Learning: Best Practices for ML Engineering (optional)](./04-Supervised2.md$)
 + [Quiz: Module 4 Quiz](./04-Supervised2.md$)
 
 
@@ -93,6 +93,9 @@
 + [Clustering](./05-Unsupervised.md#)
 + [How to Use t-SNE Effectively](./05-Unsupervised.md#)
 + [How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](./05-Unsupervised.md#)
+
+
+
 
 
 
