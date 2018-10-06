@@ -635,18 +635,23 @@ See the [Pairwise metrics, Affinities and Kernels][348] section of the user guid
 | `metrics.pairwise_distances_chunked(X[, Y, …])` | Generate a distance matrix chunk by chunk with optional reduction | [API][370] |
 
 
+### sklearn.mixture: Gaussian Mixture Models
+
+The [sklearn.mixture][371] module implements mixture modeling algorithms.
+
+User guide: See the [Gaussian mixture models][372] section for further details.
+
+| `mixture.BayesianGaussianMixture([…])` | Variational Bayesian estimation of a Gaussian mixture. | [API][373] |
+| `mixture.GaussianMixture([n_components, …])` | Gaussian Mixture. | [API][374] |
+
+
 
 
 
 
 
 ------------------------------
-<!--
-[370]: 
-[371]: 
-[372]: 
-[373]: 
-[374]: 
+<!-- 
 [375]: 
 [376]: 
 [377]: 
@@ -1244,10 +1249,14 @@ See the [Pairwise metrics, Affinities and Kernels][348] section of the user guid
 [364]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_manhattan_distances.html#sklearn.metrics.pairwise.paired_manhattan_distances
 [365]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_cosine_distances.html#sklearn.metrics.pairwise.paired_cosine_distances
 [366]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_distances.html#sklearn.metrics.pairwise.paired_distances
-[367]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin.html#sklearn.metrics.pairwise_distances_argmin
-[368]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin_min.html#sklearn.metrics.pairwise_distances_argmin_min
-[369]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_chunked.html#sklearn.metrics.pairwise_distances_chunked
-
+[367]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html#sklearn.metrics.pairwise_distances
+[368]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin.html#sklearn.metrics.pairwise_distances_argmin
+[369]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin_min.html#sklearn.metrics.pairwise_distances_argmin_min
+[370]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_chunked.html#sklearn.metrics.pairwise_distances_chunked
+[371]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.mixture
+[372]: http://scikit-learn.org/stable/modules/mixture.html#mixture
+[373]: http://scikit-learn.org/stable/modules/generated/sklearn.mixture.BayesianGaussianMixture.html#sklearn.mixture.BayesianGaussianMixture
+[374]: http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html#sklearn.mixture.GaussianMixture
 
 
 
