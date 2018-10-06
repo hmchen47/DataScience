@@ -836,6 +836,15 @@ User guide: See the [Preprocessing data][450] section for further details.
 | `preprocessing.power_transform(X[, method, …])` | Apply a power transform featurewise to make data more Gaussian-like. | [API][477] |
 
 
+### sklearn.semi_supervised: Semi-Supervised Learning
+
+The [sklearn.semi_supervised][478] module implements semi-supervised learning algorithms. These algorithms utilized small amounts of labeled data and large amounts of unlabeled data for classification tasks. This module includes Label Propagation.
+
+User guide: See the [Semi-Supervised][479] section for further details.
+
+| `semi_supervised.LabelPropagation([kernel, …])` | Label Propagation classifier | [API][480] |
+| `semi_supervised.LabelSpreading([kernel, …])` | LabelSpreading model for semi-supervised learning | [API][481] |
+
 
 
 
@@ -846,10 +855,6 @@ User guide: See the [Preprocessing data][450] section for further details.
 
 ------------------------------
 <!-- 
-[478]: 
-[479]: 
-[480]: 
-[481]: 
 [482]: 
 [483]: 
 [484]: 
@@ -1451,3 +1456,7 @@ User guide: See the [Preprocessing data][450] section for further details.
 [475]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.robust_scale.html#sklearn.preprocessing.robust_scale
 [476]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.scale.html#sklearn.preprocessing.scale
 [477]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.power_transform.html#sklearn.preprocessing.power_transform
+[478]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.semi_supervised
+[479]: http://scikit-learn.org/stable/modules/label_propagation.html#semi-supervised
+[480]: http://scikit-learn.org/stable/modules/generated/sklearn.semi_supervised.LabelPropagation.html#sklearn.semi_supervised.LabelPropagation
+[481]: http://scikit-learn.org/stable/modules/generated/sklearn.semi_supervised.LabelSpreading.html#sklearn.semi_supervised.LabelSpreading
