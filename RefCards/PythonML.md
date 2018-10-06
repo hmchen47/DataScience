@@ -487,47 +487,6 @@ User guide: See the [Generalized Linear Models][239] section for further details
 
 ------------------------------
 <!--
-[238]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.linear_model
-[239]: http://scikit-learn.org/stable/modules/linear_model.html#linear-model
-[240]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ARDRegression.html#sklearn.linear_model.ARDRegression
-[241]: 
-[242]: 
-[243]: 
-[244]: 
-[245]: 
-[246]: 
-[247]: 
-[248]: 
-[249]: 
-[250]: 
-[251]: 
-[252]: 
-[253]: 
-[254]: 
-[255]: 
-[256]: 
-[257]: 
-[258]: 
-[259]: 
-[260]: 
-[261]: 
-[262]: 
-[263]: 
-[264]: 
-[265]: 
-[266]: 
-[267]: 
-[268]: 
-[269]: 
-[270]: 
-[271]: 
-[272]: 
-[273]: 
-[274]: 
-[275]: 
-[276]: 
-[277]: 
-[278]: 
 [279]: 
 [280]: 
 [281]: 
@@ -649,6 +608,106 @@ User guide: See the [Generalized Linear Models][239] section for further details
 [397]: 
 [398]: 
 [399]: 
+[400]: 
+[401]: 
+[402]: 
+[403]: 
+[404]: 
+[405]: 
+[406]: 
+[407]: 
+[408]: 
+[409]: 
+[410]: 
+[411]: 
+[412]: 
+[413]: 
+[414]: 
+[415]: 
+[416]: 
+[417]: 
+[418]: 
+[419]: 
+[420]: 
+[421]: 
+[422]: 
+[423]: 
+[424]: 
+[425]: 
+[426]: 
+[427]: 
+[428]: 
+[429]: 
+[430]: 
+[431]: 
+[432]: 
+[433]: 
+[434]: 
+[435]: 
+[436]: 
+[437]: 
+[438]: 
+[439]: 
+[440]: 
+[441]: 
+[442]: 
+[443]: 
+[444]: 
+[445]: 
+[446]: 
+[447]: 
+[448]: 
+[449]: 
+[450]: 
+[451]: 
+[452]: 
+[453]: 
+[454]: 
+[455]: 
+[456]: 
+[457]: 
+[458]: 
+[459]: 
+[460]: 
+[461]: 
+[462]: 
+[463]: 
+[464]: 
+[465]: 
+[466]: 
+[467]: 
+[468]: 
+[469]: 
+[470]: 
+[471]: 
+[472]: 
+[473]: 
+[474]: 
+[475]: 
+[476]: 
+[477]: 
+[478]: 
+[479]: 
+[480]: 
+[481]: 
+[482]: 
+[483]: 
+[484]: 
+[485]: 
+[486]: 
+[487]: 
+[488]: 
+[489]: 
+[490]: 
+[491]: 
+[492]: 
+[493]: 
+[494]: 
+[495]: 
+[496]: 
+[497]: 
+[498]: 
+[499]: 
 
 -->
 
@@ -892,6 +951,47 @@ User guide: See the [Generalized Linear Models][239] section for further details
 [235]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.kernel_ridge
 [236]: http://scikit-learn.org/stable/modules/kernel_ridge.html#kernel-ridge
 [237]: http://scikit-learn.org/stable/modules/generated/sklearn.kernel_ridge.KernelRidge.html#sklearn.kernel_ridge.KernelRidge
+[238]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.linear_model
+[239]: http://scikit-learn.org/stable/modules/linear_model.html#linear-model
+[240]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ARDRegression.html#sklearn.linear_model.ARDRegression
+[241]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.BayesianRidge.html#sklearn.linear_model.BayesianRidge
+[242]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html#sklearn.linear_model.ElasticNet
+[243]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNetCV.html#sklearn.linear_model.ElasticNetCV
+[244]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html#sklearn.linear_model.HuberRegressor
+[245]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lars.html#sklearn.linear_model.Lars
+[246]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LarsCV.html#sklearn.linear_model.LarsCV
+[247]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso
+[248]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html#sklearn.linear_model.LassoCV
+[249]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLars.html#sklearn.linear_model.LassoLars
+[250]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV
+[251]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsIC.html#sklearn.linear_model.LassoLarsIC
+[252]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression
+[253]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression
+[254]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV
+[255]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLasso.html#sklearn.linear_model.MultiTaskLasso
+[256]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNet.html#sklearn.linear_model.MultiTaskElasticNet
+[257]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLassoCV.html#sklearn.linear_model.MultiTaskLassoCV
+[258]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNetCV.html#sklearn.linear_model.MultiTaskElasticNetCV
+[259]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuit.html#sklearn.linear_model.OrthogonalMatchingPursuit
+[260]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuitCV.html#sklearn.linear_model.OrthogonalMatchingPursuitCV
+[261]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PassiveAggressiveClassifier.html#sklearn.linear_model.PassiveAggressiveClassifier
+[262]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PassiveAggressiveRegressor.html#sklearn.linear_model.PassiveAggressiveRegressor
+[263]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html#sklearn.linear_model.Perceptron
+[264]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RANSACRegressor.html#sklearn.linear_model.RANSACRegressor
+[265]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge
+[266]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifier.html#sklearn.linear_model.RidgeClassifier
+[267]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifierCV.html#sklearn.linear_model.RidgeClassifierCV
+[268]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV
+[269]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier
+[270]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor
+[271]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TheilSenRegressor.html#sklearn.linear_model.TheilSenRegressor
+[272]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.enet_path.html#sklearn.linear_model.enet_path
+[273]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path.html#sklearn.linear_model.lars_path
+[274]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lasso_path.html#sklearn.linear_model.lasso_path
+[275]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.logistic_regression_path.html#sklearn.linear_model.logistic_regression_path
+[276]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp.html#sklearn.linear_model.orthogonal_mp
+[277]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp_gram.html#sklearn.linear_model.orthogonal_mp_gram
+[278]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ridge_regression.html#sklearn.linear_model.ridge_regression
 
 
 
