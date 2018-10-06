@@ -872,6 +872,17 @@ User guide: See the [Support Vector Machines][483] section for further details.
 | `svm.libsvm.predict_proba` | Predict probabilities | [API][496] |
 
 
+### sklearn.tree: Decision Trees
+
+The [sklearn.tree][497] module includes decision tree-based models for classification and regression.
+
+User guide: See the [Decision Trees][498] section for further details.
+
+| `tree.DecisionTreeClassifier([criterion, …])` | A decision tree classifier. | [API][499] |
+| `tree.DecisionTreeRegressor([criterion, …])` | A decision tree regressor. | [API][500] |
+| `tree.ExtraTreeClassifier([criterion, …])` | An extremely randomized tree classifier. | [API][501] |
+| `tree.ExtraTreeRegressor([criterion, …])` | An extremely randomized tree regressor. | [API][502] |
+| `tree.export_graphviz(decision_tree[, …])` | Export a decision tree in DOT format. | [API][503] |
 
 
 
@@ -881,13 +892,6 @@ User guide: See the [Support Vector Machines][483] section for further details.
 
 ------------------------------
 <!-- 
-[497]: 
-[498]: 
-[499]: 
-[500]: 
-[501]: 
-[502]: 
-[503]: 
 [504]: 
 [505]: 
 [506]: 
@@ -1586,3 +1590,10 @@ User guide: See the [Support Vector Machines][483] section for further details.
 [494]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.fit.html#sklearn.svm.libsvm.fit
 [495]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.predict.html#sklearn.svm.libsvm.predict
 [496]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.predict_proba.html#sklearn.svm.libsvm.predict_proba
+[497]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree
+[498]: http://scikit-learn.org/stable/modules/tree.html#tree
+[499]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier
+[500]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor
+[501]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.ExtraTreeClassifier.html#sklearn.tree.ExtraTreeClassifier
+[502]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.ExtraTreeRegressor.html#sklearn.tree.ExtraTreeRegressor
+[503]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html#sklearn.tree.export_graphviz
