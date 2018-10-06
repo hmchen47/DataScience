@@ -846,6 +846,32 @@ User guide: See the [Semi-Supervised][479] section for further details.
 | `semi_supervised.LabelSpreading([kernel, …])` | LabelSpreading model for semi-supervised learning | [API][481] |
 
 
+### sklearn.svm: Support Vector Machines
+
+The [sklearn.svm][482] module includes Support Vector Machine algorithms.
+
+User guide: See the [Support Vector Machines][483] section for further details.
+
+#### Estimators
+
+| `svm.LinearSVC([penalty, loss, dual, tol, C, …])` | Linear Support Vector Classification. | [API][484] |
+| `svm.LinearSVR([epsilon, tol, C, loss, …])` | Linear Support Vector Regression. | [API][485] |
+| `svm.NuSVC([nu, kernel, degree, gamma, …])` | Nu-Support Vector Classification. | [API][486] |
+| `svm.NuSVR([nu, C, kernel, degree, gamma, …])` | Nu Support Vector Regression. | [API][487] |
+| `svm.OneClassSVM([kernel, degree, gamma, …])` | Unsupervised Outlier Detection. | [API][488] |
+| `svm.SVC([C, kernel, degree, gamma, coef0, …])` | C-Support Vector Classification. | [API][489] |
+| `svm.SVR([kernel, degree, gamma, coef0, tol, …])` | Epsilon-Support Vector Regression. | [API][490] |
+| `svm.l1_min_c(X, y[, loss, fit_intercept, …])` | Return the lowest bound for C such that for C in (l1_min_C, infinity) the model is guaranteed not to be empty. | [API][491] |
+
+#### Low-level methods
+
+| `svm.libsvm.cross_validation` | Binding of the cross-validation routine (low-level routine) | [API][492] |
+| `svm.libsvm.decision_function` | Predict margin (libsvm name for this is predict_values) | [API][493] |
+| `svm.libsvm.fit` | Train the model using libsvm (low-level method) | [API][494] |
+| `svm.libsvm.predict` | Predict target values of X given a model (low-level method) | [API][495] |
+| `svm.libsvm.predict_proba` | Predict probabilities | [API][496] |
+
+
 
 
 
@@ -855,21 +881,6 @@ User guide: See the [Semi-Supervised][479] section for further details.
 
 ------------------------------
 <!-- 
-[482]: 
-[483]: 
-[484]: 
-[485]: 
-[486]: 
-[487]: 
-[488]: 
-[489]: 
-[490]: 
-[491]: 
-[492]: 
-[493]: 
-[494]: 
-[495]: 
-[496]: 
 [497]: 
 [498]: 
 [499]: 
@@ -973,6 +984,106 @@ User guide: See the [Semi-Supervised][479] section for further details.
 [597]: 
 [598]: 
 [599]: 
+[600]: 
+[601]: 
+[602]: 
+[603]: 
+[604]: 
+[605]: 
+[606]: 
+[607]: 
+[608]: 
+[609]: 
+[610]: 
+[611]: 
+[612]: 
+[613]: 
+[614]: 
+[615]: 
+[616]: 
+[617]: 
+[618]: 
+[619]: 
+[620]: 
+[621]: 
+[622]: 
+[623]: 
+[624]: 
+[625]: 
+[626]: 
+[627]: 
+[628]: 
+[629]: 
+[630]: 
+[631]: 
+[632]: 
+[633]: 
+[634]: 
+[635]: 
+[636]: 
+[637]: 
+[638]: 
+[639]: 
+[640]: 
+[641]: 
+[642]: 
+[643]: 
+[644]: 
+[645]: 
+[646]: 
+[647]: 
+[648]: 
+[649]: 
+[650]: 
+[651]: 
+[652]: 
+[653]: 
+[654]: 
+[655]: 
+[656]: 
+[657]: 
+[658]: 
+[659]: 
+[660]: 
+[661]: 
+[662]: 
+[663]: 
+[664]: 
+[665]: 
+[666]: 
+[667]: 
+[668]: 
+[669]: 
+[670]: 
+[671]: 
+[672]: 
+[673]: 
+[674]: 
+[675]: 
+[676]: 
+[677]: 
+[678]: 
+[679]: 
+[680]: 
+[681]: 
+[682]: 
+[683]: 
+[684]: 
+[685]: 
+[686]: 
+[687]: 
+[688]: 
+[689]: 
+[690]: 
+[691]: 
+[692]: 
+[693]: 
+[694]: 
+[695]: 
+[696]: 
+[697]: 
+[698]: 
+[699]: 
 
 -->
 
@@ -1460,3 +1571,18 @@ User guide: See the [Semi-Supervised][479] section for further details.
 [479]: http://scikit-learn.org/stable/modules/label_propagation.html#semi-supervised
 [480]: http://scikit-learn.org/stable/modules/generated/sklearn.semi_supervised.LabelPropagation.html#sklearn.semi_supervised.LabelPropagation
 [481]: http://scikit-learn.org/stable/modules/generated/sklearn.semi_supervised.LabelSpreading.html#sklearn.semi_supervised.LabelSpreading
+[482]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm
+[483]: http://scikit-learn.org/stable/modules/svm.html#svm
+[484]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC
+[485]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html#sklearn.svm.LinearSVR
+[486]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html#sklearn.svm.NuSVC
+[487]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVR.html#sklearn.svm.NuSVR
+[488]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html#sklearn.svm.OneClassSVM
+[489]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC
+[490]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR
+[491]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.l1_min_c.html#sklearn.svm.l1_min_c
+[492]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.cross_validation.html#sklearn.svm.libsvm.cross_validation
+[493]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.decision_function.html#sklearn.svm.libsvm.decision_function
+[494]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.fit.html#sklearn.svm.libsvm.fit
+[495]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.predict.html#sklearn.svm.libsvm.predict
+[496]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.libsvm.predict_proba.html#sklearn.svm.libsvm.predict_proba
