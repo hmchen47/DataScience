@@ -749,6 +749,25 @@ User guide: See the [Naive Bayes][418] section for further details.
 | `naive_bayes.ComplementNB([alpha, fit_prior, …])` | The Complement Naive Bayes classifier described in Rennie et al. | [API][422] |
 
 
+### sklearn.neighbors: Nearest Neighbors
+
+The [sklearn.neighbors][423] module implements the k-nearest neighbors algorithm.
+
+User guide: See the [Nearest Neighbors][424] section for further details.
+
+| `neighbors.BallTree` | BallTree for fast generalized N-point problems | [API][425] |
+| `neighbors.DistanceMetric` | DistanceMetric class | [API][426] |
+| `neighbors.KDTree` | KDTree for fast generalized N-point problems | [API][427] |
+| `neighbors.KernelDensity([bandwidth, …])` | Kernel Density Estimation | [API][428] |
+| `neighbors.KNeighborsClassifier([…])` | Classifier implementing the k-nearest neighbors vote. | [API][429] |
+| `neighbors.KNeighborsRegressor([n_neighbors, …])` | Regression based on k-nearest neighbors. | [API][430] |
+| `neighbors.LocalOutlierFactor([n_neighbors, …])` | Unsupervised Outlier Detection using Local Outlier Factor (LOF) | [API][431] |
+| `neighbors.RadiusNeighborsClassifier([…])` | Classifier implementing a vote among neighbors within a given radius | [API][432] |
+| `neighbors.RadiusNeighborsRegressor([radius, …])` | Regression based on neighbors within a fixed radius. | [API][433] |
+| `neighbors.NearestCentroid([metric, …])` | Nearest centroid classifier. | [API][434] |
+| `neighbors.NearestNeighbors([n_neighbors, …])` | Unsupervised learner for implementing neighbor searches. | [API][435] |
+| `neighbors.kneighbors_graph(X, n_neighbors[, …])` | Computes the (weighted) graph of k-Neighbors for points in X | [API][436] |
+| `neighbors.radius_neighbors_graph(X, radius)` | Computes the (weighted) graph of Neighbors for points in X | [API][437] |
 
 
 
@@ -756,21 +775,6 @@ User guide: See the [Naive Bayes][418] section for further details.
 
 ------------------------------
 <!-- 
-[423]: 
-[424]: 
-[425]: 
-[426]: 
-[427]: 
-[428]: 
-[429]: 
-[430]: 
-[431]: 
-[432]: 
-[433]: 
-[434]: 
-[435]: 
-[436]: 
-[437]: 
 [438]: 
 [439]: 
 [440]: 
@@ -1361,3 +1365,18 @@ User guide: See the [Naive Bayes][418] section for further details.
 [420]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB
 [421]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB
 [422]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.ComplementNB.html#sklearn.naive_bayes.ComplementNB
+[423]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors
+[424]: http://scikit-learn.org/stable/modules/neighbors.html#neighbors
+[425]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree
+[426]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric
+[427]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree
+[428]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KernelDensity.html#sklearn.neighbors.KernelDensity
+[429]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier
+[430]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.KNeighborsRegressor
+[431]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.LocalOutlierFactor.html#sklearn.neighbors.LocalOutlierFactor
+[432]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsClassifier.html#sklearn.neighbors.RadiusNeighborsClassifier
+[433]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsRegressor.html#sklearn.neighbors.RadiusNeighborsRegressor
+[434]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestCentroid.html#sklearn.neighbors.NearestCentroid
+[435]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestNeighbors.html#sklearn.neighbors.NearestNeighbors
+[436]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.kneighbors_graph.html#sklearn.neighbors.kneighbors_graph
+[437]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.radius_neighbors_graph.html#sklearn.neighbors.radius_neighbors_graph
