@@ -689,13 +689,32 @@ User guide: See the [Cross-validation: evaluating estimator performance][375], [
 | `model_selection.validation_curve(estimator, …)` | Validation curve. | [API][405] |
 
 
+### [sklearn.multiclass][410]: Multiclass and multilabel classification
+
+This module implements multiclass learning algorithms:
++ one-vs-the-rest / one-vs-all
++ one-vs-one
++ error correcting output codes
+
+The estimators provided in this module are meta-estimators: they require a base estimator to be provided in their constructor. For example, it is possible to use these estimators to turn a binary classifier or a regressor into a multiclass classifier. It is also possible to use these estimators with multiclass estimators in the hope that their accuracy or runtime performance improves.
+
+All classifiers in scikit-learn implement multiclass classification; you only need to use this module if you want to experiment with custom multiclass strategies.
+
+The one-vs-the-rest meta-classifier also implements a predict_proba method, so long as such a method is implemented by the base classifier. This method returns probabilities of class membership in both the single label and multilabel case. Note that in the multilabel case, probabilities are the marginal probability that a given sample falls in the given class. As such, in the multilabel case the sum of these probabilities over all possible labels for a given sample will not sum to unity, as they do in the single label case.
+
+User guide: See the [Multiclass and multilabel algorithms][406] section for further details.
+
+| `multiclass.OneVsRestClassifier(estimator[, …])` | One-vs-the-rest (OvR) multiclass/multilabel strategy | [API][407] |
+| `multiclass.OneVsOneClassifier(estimator[, …])` | One-vs-one multiclass strategy | [API][408] |
+| `multiclass.OutputCodeClassifier(estimator[, …])` | (Error-Correcting) Output-Code multiclass strategy | [API][409] |
+
+
+
+
+
+
 ------------------------------
 <!-- 
-[406]: 
-[407]: 
-[408]: 
-[409]: 
-[410]: 
 [411]: 
 [412]: 
 [413]: 
@@ -1296,3 +1315,8 @@ User guide: See the [Cross-validation: evaluating estimator performance][375], [
 [403]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.learning_curve.html#sklearn.model_selection.learning_curve
 [404]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score
 [405]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.validation_curve.html#sklearn.model_selection.validation_curve
+[406]: http://scikit-learn.org/stable/modules/multiclass.html#multiclass
+[407]: http://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html#sklearn.multiclass.OneVsRestClassifier
+[408]: http://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html#sklearn.multiclass.OneVsOneClassifier
+[409]: http://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OutputCodeClassifier.html#sklearn.multiclass.OutputCodeClassifier
+[410]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.multiclass
