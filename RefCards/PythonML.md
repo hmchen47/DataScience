@@ -781,6 +781,16 @@ User guide: See the [Neural network models (supervised)][439] and [Neural networ
 | `neural_network.MLPRegressor([…])` | Multi-layer Perceptron regressor. | [API][443] |
 
 
+### sklearn.pipeline: Pipeline
+
+The [sklearn.pipeline][444] module implements utilities to build a composite estimator, as a chain of transforms and estimators.
+
+| `pipeline.FeatureUnion(transformer_list[, …])` | Concatenates results of multiple transformer objects. | [API][445] |
+| `pipeline.Pipeline(steps[, memory])` | Pipeline of transforms with a final estimator. | [API][446] |
+| `pipeline.make_pipeline(*steps, **kwargs)` | Construct a Pipeline from the given estimators. | [API][447] |
+| `pipeline.make_union(*transformers, **kwargs)` | Construct a FeatureUnion from the given transformers. | [API][448] |
+
+
 
 
 
@@ -788,11 +798,6 @@ User guide: See the [Neural network models (supervised)][439] and [Neural networ
 
 ------------------------------
 <!-- 
-[444]: 
-[445]: 
-[446]: 
-[447]: 
-[448]: 
 [449]: 
 [450]: 
 [451]: 
@@ -1393,3 +1398,8 @@ User guide: See the [Neural network models (supervised)][439] and [Neural networ
 [441]: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html#sklearn.neural_network.BernoulliRBM
 [442]: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html#sklearn.neural_network.MLPClassifier
 [443]: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html#sklearn.neural_network.MLPRegressor
+[444]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.pipeline
+[445]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html#sklearn.pipeline.FeatureUnion
+[446]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline
+[447]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline
+[448]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_union.html#sklearn.pipeline.make_union
