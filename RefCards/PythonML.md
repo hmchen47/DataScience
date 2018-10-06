@@ -770,17 +770,24 @@ User guide: See the [Nearest Neighbors][424] section for further details.
 | `neighbors.radius_neighbors_graph(X, radius)` | Computes the (weighted) graph of Neighbors for points in X | [API][437] |
 
 
+### sklearn.neural_network: Neural network models
+
+The [sklearn.neural_network][438] module includes models based on neural networks.
+
+User guide: See the [Neural network models (supervised)][439] and [Neural network models (unsupervised)][440] sections for further details.
+
+| `neural_network.BernoulliRBM([n_components, …])` | Bernoulli Restricted Boltzmann Machine (RBM). | [API][441] |
+| `neural_network.MLPClassifier([…])` | Multi-layer Perceptron classifier. | [API][442] |
+| `neural_network.MLPRegressor([…])` | Multi-layer Perceptron regressor. | [API][443] |
+
+
+
+
 
 
 
 ------------------------------
 <!-- 
-[438]: 
-[439]: 
-[440]: 
-[441]: 
-[442]: 
-[443]: 
 [444]: 
 [445]: 
 [446]: 
@@ -1380,3 +1387,9 @@ User guide: See the [Nearest Neighbors][424] section for further details.
 [435]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestNeighbors.html#sklearn.neighbors.NearestNeighbors
 [436]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.kneighbors_graph.html#sklearn.neighbors.kneighbors_graph
 [437]: http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.radius_neighbors_graph.html#sklearn.neighbors.radius_neighbors_graph
+[438]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network
+[439]: http://scikit-learn.org/stable/modules/neural_networks_supervised.html#neural-networks-supervised
+[440]: http://scikit-learn.org/stable/modules/neural_networks_unsupervised.html#neural-networks-unsupervised
+[441]: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html#sklearn.neural_network.BernoulliRBM
+[442]: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html#sklearn.neural_network.MLPClassifier
+[443]: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html#sklearn.neural_network.MLPRegressor
