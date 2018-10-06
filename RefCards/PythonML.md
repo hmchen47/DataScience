@@ -511,16 +511,6 @@ User guide: See the [Manifold learning][280] section for further details.
 
 ------------------------------
 <!--
-[279]: 
-[280]: 
-[281]: 
-[282]: 
-[283]: 
-[284]: 
-[285]: 
-[286]: 
-[287]: 
-[288]: 
 [289]: 
 [290]: 
 [291]: 
@@ -1016,6 +1006,16 @@ User guide: See the [Manifold learning][280] section for further details.
 [276]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp.html#sklearn.linear_model.orthogonal_mp
 [277]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp_gram.html#sklearn.linear_model.orthogonal_mp_gram
 [278]: http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ridge_regression.html#sklearn.linear_model.ridge_regression
+[279]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.manifold
+[280]: http://scikit-learn.org/stable/modules/manifold.html#manifold
+[281]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html#sklearn.manifold.Isomap
+[282]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html#sklearn.manifold.LocallyLinearEmbedding
+[283]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html#sklearn.manifold.MDS
+[284]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.SpectralEmbedding.html#sklearn.manifold.SpectralEmbedding
+[285]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html#sklearn.manifold.TSNE
+[286]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.locally_linear_embedding.html#sklearn.manifold.locally_linear_embedding
+[287]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.smacof.html#sklearn.manifold.smacof
+[288]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.spectral_embedding.html#sklearn.manifold.spectral_embedding
 
 
 
