@@ -442,6 +442,8 @@ The [sklearn.linear_model][238] module implements generalized linear models. It 
 
 User guide: See the [Generalized Linear Models][239] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `linear_model.ARDRegression([n_iter, tol, …])` | Bayesian ARD regression. |[API][240] |
 | `linear_model.BayesianRidge([n_iter, tol, …])` | Bayesian ridge regression |[API][241] |
 | `linear_model.ElasticNet([alpha, l1_ratio, …])` | Linear regression with combined L1 and L2 priors as regularizer. |[API][242] |
@@ -481,6 +483,28 @@ User guide: See the [Generalized Linear Models][239] section for further details
 | `linear_model.orthogonal_mp(X, y[, …])` | Orthogonal Matching Pursuit (OMP) | [API][276] | 
 | `linear_model.orthogonal_mp_gram(Gram, Xy[, …])` | Gram Orthogonal Matching Pursuit (OMP) | [API][277] | 
 | `linear_model.ridge_regression(X, y, alpha[, …])` | Solve the ridge equation by the method of normal equations. | [API][278] | 
+
+
+### sklearn.manifold: Manifold Learning
+
+The [sklearn.manifold][279] module implements data embedding techniques.
+
+User guide: See the [Manifold learning][280] section for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `manifold.Isomap([n_neighbors, n_components, …])` | Isomap Embedding | [API][281] |
+| `manifold.LocallyLinearEmbedding([…])` | Locally Linear Embedding | [API][282] |
+| `manifold.MDS([n_components, metric, n_init, …])` | Multidimensional scaling | [API][283] |
+| `manifold.SpectralEmbedding([n_components, …])` | Spectral embedding for non-linear dimensionality reduction. | [API][284] |
+| `manifold.TSNE([n_components, perplexity, …])` | t-distributed Stochastic Neighbor Embedding. | [API][285] |
+| `manifold.locally_linear_embedding(X, …[, …])` | Perform a Locally Linear Embedding analysis on the data. | [API][286] |
+| `manifold.smacof(dissimilarities[, metric, …])` | Computes multidimensional scaling using the SMACOF algorithm. | [API][287] |
+| `manifold.spectral_embedding(adjacency[, …])` | Project the sample on the first eigenvectors of the graph Laplacian. | [API][288] |
+
+
+
+
 
 
 
