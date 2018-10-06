@@ -743,6 +743,8 @@ The [sklearn.naive_bayes][417] module implements Naive Bayes algorithms. These a
 
 User guide: See the [Naive Bayes][418] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `naive_bayes.BernoulliNB([alpha, binarize, …])` | Naive Bayes classifier for multivariate Bernoulli models. | [API][419] |
 | `naive_bayes.GaussianNB([priors, var_smoothing])` | Gaussian Naive Bayes (GaussianNB) | [API][420] |
 | `naive_bayes.MultinomialNB([alpha, …])` | Naive Bayes classifier for multinomial models | [API][421] |
@@ -755,6 +757,8 @@ The [sklearn.neighbors][423] module implements the k-nearest neighbors algorithm
 
 User guide: See the [Nearest Neighbors][424] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `neighbors.BallTree` | BallTree for fast generalized N-point problems | [API][425] |
 | `neighbors.DistanceMetric` | DistanceMetric class | [API][426] |
 | `neighbors.KDTree` | KDTree for fast generalized N-point problems | [API][427] |
@@ -776,6 +780,8 @@ The [sklearn.neural_network][438] module includes models based on neural network
 
 User guide: See the [Neural network models (supervised)][439] and [Neural network models (unsupervised)][440] sections for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `neural_network.BernoulliRBM([n_components, …])` | Bernoulli Restricted Boltzmann Machine (RBM). | [API][441] |
 | `neural_network.MLPClassifier([…])` | Multi-layer Perceptron classifier. | [API][442] |
 | `neural_network.MLPRegressor([…])` | Multi-layer Perceptron regressor. | [API][443] |
@@ -785,10 +791,52 @@ User guide: See the [Neural network models (supervised)][439] and [Neural networ
 
 The [sklearn.pipeline][444] module implements utilities to build a composite estimator, as a chain of transforms and estimators.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `pipeline.FeatureUnion(transformer_list[, …])` | Concatenates results of multiple transformer objects. | [API][445] |
 | `pipeline.Pipeline(steps[, memory])` | Pipeline of transforms with a final estimator. | [API][446] |
 | `pipeline.make_pipeline(*steps, **kwargs)` | Construct a Pipeline from the given estimators. | [API][447] |
 | `pipeline.make_union(*transformers, **kwargs)` | Construct a FeatureUnion from the given transformers. | [API][448] |
+
+
+### sklearn.preprocessing: Preprocessing and Normalization
+
+The [sklearn.preprocessing][449] module includes scaling, centering, normalization, binarization and imputation methods.
+
+User guide: See the [Preprocessing data][450] section for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `preprocessing.Binarizer([threshold, copy])` | Binarize data (set feature values to 0 or 1) according to a threshold | [API][451] |
+| `preprocessing.FunctionTransformer([func, …])` | Constructs a transformer from an arbitrary callable. | [API][452] |
+| `preprocessing.KBinsDiscretizer([n_bins, …])` | Bin continuous data into intervals. | [API][453] |
+| `preprocessing.KernelCenterer()` | Center a kernel matrix | [API][454] |
+| `preprocessing.LabelBinarizer([neg_label, …])` | Binarize labels in a one-vs-all fashion | [API][455] |
+| `preprocessing.LabelEncoder` | Encode labels with value between 0 and n_classes-1. | [API][456] |
+| `preprocessing.MultiLabelBinarizer([classes, …])` | Transform between iterable of iterables and a multilabel format | [API][457] |
+| `preprocessing.MaxAbsScaler([copy])` | Scale each feature by its maximum absolute value. | [API][458] |
+| `preprocessing.MinMaxScaler([feature_range, copy])` | Transforms features by scaling each feature to a given range. | [API][459] |
+| `preprocessing.Normalizer([norm, copy])` | Normalize samples individually to unit norm. | [API][460] |
+| `preprocessing.OneHotEncoder([n_values, …])` | Encode categorical integer features as a one-hot numeric array. | [API][461] |
+| `preprocessing.OrdinalEncoder([categories, dtype])` | Encode categorical features as an integer array. | [API][462] |
+| `preprocessing.PolynomialFeatures([degree, …])` | Generate polynomial and interaction features. | [API][463] |
+| `preprocessing.PowerTransformer([method, …])` | Apply a power transform featurewise to make data more Gaussian-like. | [API][464] |
+| `preprocessing.QuantileTransformer([…])` | Transform features using quantiles information. | [API][465] |
+| `preprocessing.RobustScaler([with_centering, …])` | Scale features using statistics that are robust to outliers. | [API][466] |
+| `preprocessing.StandardScaler([copy, …])` | Standardize features by removing the mean and scaling to unit variance | [API][467] |
+| `preprocessing.add_dummy_feature(X[, value])` | Augment dataset with an additional dummy feature. | [API][468] |
+| `preprocessing.binarize(X[, threshold, copy])` | Boolean thresholding of array-like or scipy.sparse matrix | [API][469] |
+| `preprocessing.label_binarize(y, classes[, …])` | Binarize labels in a one-vs-all fashion | [API][470] |
+| `preprocessing.maxabs_scale(X[, axis, copy])` | Scale each feature to the [-1, 1] range without breaking the sparsity. | [API][471] |
+| `preprocessing.minmax_scale(X[, …])` | Transforms features by scaling each feature to a given range. | [API][472] |
+| `preprocessing.normalize(X[, norm, axis, …])` | Scale input vectors individually to unit norm (vector length). | [API][473] |
+| `preprocessing.quantile_transform(X[, axis, …])` | Transform features using quantiles information. | [API][474] |
+| `preprocessing.robust_scale(X[, axis, …])` | Standardize a dataset along any axis | [API][475] |
+| `preprocessing.scale(X[, axis, with_mean, …])` | Standardize a dataset along any axis | [API][476] |
+| `preprocessing.power_transform(X[, method, …])` | Apply a power transform featurewise to make data more Gaussian-like. | [API][477] |
+
+
+
 
 
 
@@ -798,35 +846,6 @@ The [sklearn.pipeline][444] module implements utilities to build a composite est
 
 ------------------------------
 <!-- 
-[449]: 
-[450]: 
-[451]: 
-[452]: 
-[453]: 
-[454]: 
-[455]: 
-[456]: 
-[457]: 
-[458]: 
-[459]: 
-[460]: 
-[461]: 
-[462]: 
-[463]: 
-[464]: 
-[465]: 
-[466]: 
-[467]: 
-[468]: 
-[469]: 
-[470]: 
-[471]: 
-[472]: 
-[473]: 
-[474]: 
-[475]: 
-[476]: 
-[477]: 
 [478]: 
 [479]: 
 [480]: 
@@ -1403,3 +1422,32 @@ The [sklearn.pipeline][444] module implements utilities to build a composite est
 [446]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline
 [447]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline
 [448]: http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_union.html#sklearn.pipeline.make_union
+[449]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing
+[450]: http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing
+[451]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Binarizer.html#sklearn.preprocessing.Binarizer
+[452]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer
+[453]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.KBinsDiscretizer.html#sklearn.preprocessing.KBinsDiscretizer
+[454]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.KernelCenterer.html#sklearn.preprocessing.KernelCenterer
+[455]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelBinarizer.html#sklearn.preprocessing.LabelBinarizer
+[456]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html#sklearn.preprocessing.LabelEncoder
+[457]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html#sklearn.preprocessing.MultiLabelBinarizer
+[458]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler
+[459]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler
+[460]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html#sklearn.preprocessing.Normalizer
+[461]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder
+[462]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html#sklearn.preprocessing.OrdinalEncoder
+[463]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures
+[464]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PowerTransformer.html#sklearn.preprocessing.PowerTransformer
+[465]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.QuantileTransformer.html#sklearn.preprocessing.QuantileTransformer
+[466]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html#sklearn.preprocessing.RobustScaler
+[467]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler
+[468]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.add_dummy_feature.html#sklearn.preprocessing.add_dummy_feature
+[469]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.binarize.html#sklearn.preprocessing.binarize
+[470]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.label_binarize.html#sklearn.preprocessing.label_binarize
+[471]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.maxabs_scale.html#sklearn.preprocessing.maxabs_scale
+[472]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.minmax_scale.html#sklearn.preprocessing.minmax_scale
+[473]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.normalize.html#sklearn.preprocessing.normalize
+[474]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.quantile_transform.html#sklearn.preprocessing.quantile_transform
+[475]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.robust_scale.html#sklearn.preprocessing.robust_scale
+[476]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.scale.html#sklearn.preprocessing.scale
+[477]: http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.power_transform.html#sklearn.preprocessing.power_transform
