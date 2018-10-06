@@ -737,6 +737,17 @@ User guide: See the [Multiclass and multilabel algorithms][412] section for furt
 | `multioutput.RegressorChain(base_estimator[, …])` | A multi-label model that arranges regressions into a chain. | [API][416] |
 
 
+### sklearn.naive_bayes: Naive Bayes
+
+The [sklearn.naive_bayes][417] module implements Naive Bayes algorithms. These are supervised learning methods based on applying Bayes’ theorem with strong (naive) feature independence assumptions.
+
+User guide: See the [Naive Bayes][418] section for further details.
+
+| `naive_bayes.BernoulliNB([alpha, binarize, …])` | Naive Bayes classifier for multivariate Bernoulli models. | [API][419] |
+| `naive_bayes.GaussianNB([priors, var_smoothing])` | Gaussian Naive Bayes (GaussianNB) | [API][420] |
+| `naive_bayes.MultinomialNB([alpha, …])` | Naive Bayes classifier for multinomial models | [API][421] |
+| `naive_bayes.ComplementNB([alpha, fit_prior, …])` | The Complement Naive Bayes classifier described in Rennie et al. | [API][422] |
+
 
 
 
@@ -745,12 +756,6 @@ User guide: See the [Multiclass and multilabel algorithms][412] section for furt
 
 ------------------------------
 <!-- 
-[417]: 
-[418]: 
-[419]: 
-[420]: 
-[421]: 
-[422]: 
 [423]: 
 [424]: 
 [425]: 
@@ -1350,3 +1355,9 @@ User guide: See the [Multiclass and multilabel algorithms][412] section for furt
 [414]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputRegressor.html#sklearn.multioutput.MultiOutputRegressor
 [415]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html#sklearn.multioutput.MultiOutputClassifier
 [416]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.RegressorChain.html#sklearn.multioutput.RegressorChain
+[417]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.naive_bayes
+[418]: http://scikit-learn.org/stable/modules/naive_bayes.html#naive-bayes
+[419]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html#sklearn.naive_bayes.BernoulliNB
+[420]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB
+[421]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB
+[422]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.ComplementNB.html#sklearn.naive_bayes.ComplementNB
