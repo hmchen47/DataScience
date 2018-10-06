@@ -641,6 +641,8 @@ The [sklearn.mixture][371] module implements mixture modeling algorithms.
 
 User guide: See the [Gaussian mixture models][372] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `mixture.BayesianGaussianMixture([…])` | Variational Bayesian estimation of a Gaussian mixture. | [API][373] |
 | `mixture.GaussianMixture([n_components, …])` | Gaussian Mixture. | [API][374] |
 
@@ -651,6 +653,8 @@ User guide: See the [Cross-validation: evaluating estimator performance][375], [
 
 #### Splitter Classes
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `model_selection.GroupKFold([n_splits])` | K-fold iterator variant with non-overlapping groups. | [API][379] |
 | `model_selection.GroupShuffleSplit([…])` | Shuffle-Group(s)-Out cross-validation iterator | [API][379] |
 | `model_selection.KFold([n_splits, shuffle, …])` | K-Folds cross-validator | [API][380] |
@@ -668,11 +672,15 @@ User guide: See the [Cross-validation: evaluating estimator performance][375], [
 
 #### Splitter Functio23ns
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `model_selection.check_cv([cv, y, classifier])` | Input checker utility for building a cross-validator | [API][392] |
 | `model_selection.train_test_split(*arrays, …)` | Split arrays or matrices into random train and test subsets | [API][393] |
 
 #### Hyper-parameter optimizers
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `model_selection.GridSearchCV(estimator, …)` | Exhaustive search over specified parameter values for an estimator. | [API][394] |
 | `model_selection.ParameterGrid(param_grid)` | Grid of parameters with a discrete number of values for each. | [API][395] |
 | `model_selection.ParameterSampler(…[, …])` | Generator on parameters sampled from given distributions. | [API][396] |
@@ -681,6 +689,8 @@ User guide: See the [Cross-validation: evaluating estimator performance][375], [
 
 #### Model validation
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `model_selection.cross_validate(estimator, X)` | Evaluate metric(s) by cross-validation and also record fit/score times. | [API][400] |
 | `model_selection.cross_val_predict(estimator, X)` | Generate cross-validated estimates for each input data point | [API][401] |
 | `model_selection.cross_val_score(estimator, X)` | Evaluate a score by cross-validation | [API][402] |
@@ -704,9 +714,29 @@ The one-vs-the-rest meta-classifier also implements a predict_proba method, so l
 
 User guide: See the [Multiclass and multilabel algorithms][406] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `multiclass.OneVsRestClassifier(estimator[, …])` | One-vs-the-rest (OvR) multiclass/multilabel strategy | [API][407] |
 | `multiclass.OneVsOneClassifier(estimator[, …])` | One-vs-one multiclass strategy | [API][408] |
 | `multiclass.OutputCodeClassifier(estimator[, …])` | (Error-Correcting) Output-Code multiclass strategy | [API][409] |
+
+
+### [sklearn.multioutput][411]: Multioutput regression and classification
+
+This module implements multioutput regression and classification.
+
+The estimators provided in this module are meta-estimators: they require a base estimator to be provided in their constructor. The meta-estimator extends single output estimators to multioutput estimators.
+
+User guide: See the [Multiclass and multilabel algorithms][412] section for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `multioutput.ClassifierChain(base_estimator)` | A multi-label model that arranges binary classifiers into a chain. | [API][413] |
+| `multioutput.MultiOutputRegressor(estimator)` | Multi target regression | [API][414] |
+| `multioutput.MultiOutputClassifier(estimator)` | Multi target classification | [API][415] |
+| `multioutput.RegressorChain(base_estimator[, …])` | A multi-label model that arranges regressions into a chain. | [API][416] |
+
+
 
 
 
@@ -715,12 +745,6 @@ User guide: See the [Multiclass and multilabel algorithms][406] section for furt
 
 ------------------------------
 <!-- 
-[411]: 
-[412]: 
-[413]: 
-[414]: 
-[415]: 
-[416]: 
 [417]: 
 [418]: 
 [419]: 
@@ -1320,3 +1344,9 @@ User guide: See the [Multiclass and multilabel algorithms][406] section for furt
 [408]: http://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html#sklearn.multiclass.OneVsOneClassifier
 [409]: http://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OutputCodeClassifier.html#sklearn.multiclass.OutputCodeClassifier
 [410]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.multiclass
+[411]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.multioutput
+[412]: http://scikit-learn.org/stable/modules/multiclass.html#multiclass
+[413]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.ClassifierChain.html#sklearn.multioutput.ClassifierChain
+[414]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputRegressor.html#sklearn.multioutput.MultiOutputRegressor
+[415]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html#sklearn.multioutput.MultiOutputClassifier
+[416]: http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.RegressorChain.html#sklearn.multioutput.RegressorChain
