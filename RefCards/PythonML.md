@@ -645,44 +645,52 @@ User guide: See the [Gaussian mixture models][372] section for further details.
 | `mixture.GaussianMixture([n_components, …])` | Gaussian Mixture. | [API][374] |
 
 
+### [sklearn.model_selection][399]: Model Selection
 
+User guide: See the [Cross-validation: evaluating estimator performance][375], [Tuning the hyper-parameters of an estimator][376] and [Learning curve][377] sections for further details.
 
+#### Splitter Classes
 
+| `model_selection.GroupKFold([n_splits])` | K-fold iterator variant with non-overlapping groups. | [API][379] |
+| `model_selection.GroupShuffleSplit([…])` | Shuffle-Group(s)-Out cross-validation iterator | [API][379] |
+| `model_selection.KFold([n_splits, shuffle, …])` | K-Folds cross-validator | [API][380] |
+| `model_selection.LeaveOneGroupOut()` | Leave One Group Out cross-validator | [API][381] |
+| `model_selection.LeavePGroupsOut(n_groups)` | Leave P Group(s) Out cross-validator | [API][382] |
+| `model_selection.LeaveOneOut()` | Leave-One-Out cross-validator | [API][383] |
+| `model_selection.LeavePOut(p)` | Leave-P-Out cross-validator | [API][384] |
+| `model_selection.PredefinedSplit(test_fold)` | Predefined split cross-validator | [API][385] |
+| `model_selection.RepeatedKFold([n_splits, …])` | Repeated K-Fold cross validator. | [API][386] |
+| `model_selection.RepeatedStratifiedKFold([…])` | Repeated Stratified K-Fold cross validator. | [API][387] |
+| `model_selection.ShuffleSplit([n_splits, …])` | Random permutation cross-validator | [API][388] |
+| `model_selection.StratifiedKFold([n_splits, …])` | Stratified K-Folds cross-validator | [API][389] |
+| `model_selection.StratifiedShuffleSplit([…])` | Stratified ShuffleSplit cross-validator | [API][390] |
+| `model_selection.TimeSeriesSplit([n_splits, …])` | Time Series cross-validator | [API][391] |
+
+#### Splitter Functio23ns
+
+| `model_selection.check_cv([cv, y, classifier])` | Input checker utility for building a cross-validator | [API][392] |
+| `model_selection.train_test_split(*arrays, …)` | Split arrays or matrices into random train and test subsets | [API][393] |
+
+#### Hyper-parameter optimizers
+
+| `model_selection.GridSearchCV(estimator, …)` | Exhaustive search over specified parameter values for an estimator. | [API][394] |
+| `model_selection.ParameterGrid(param_grid)` | Grid of parameters with a discrete number of values for each. | [API][395] |
+| `model_selection.ParameterSampler(…[, …])` | Generator on parameters sampled from given distributions. | [API][396] |
+| `model_selection.RandomizedSearchCV(…[, …])` | Randomized search on hyper parameters. | [API][397] |
+| `model_selection.fit_grid_point(X, y, …[, …])` | Run fit on one set of parameters. | [API][398] |
+
+#### Model validation
+
+| `model_selection.cross_validate(estimator, X)` | Evaluate metric(s) by cross-validation and also record fit/score times. | [API][400] |
+| `model_selection.cross_val_predict(estimator, X)` | Generate cross-validated estimates for each input data point | [API][401] |
+| `model_selection.cross_val_score(estimator, X)` | Evaluate a score by cross-validation | [API][402] |
+| `model_selection.learning_curve(estimator, X, y)` | Learning curve. | [API][403] |
+| `model_selection.permutation_test_score(…)` | Evaluate the significance of a cross-validated score with permutations | [API][404] |
+| `model_selection.validation_curve(estimator, …)` | Validation curve. | [API][405] |
 
 
 ------------------------------
 <!-- 
-[375]: 
-[376]: 
-[377]: 
-[378]: 
-[379]: 
-[380]: 
-[381]: 
-[382]: 
-[383]: 
-[384]: 
-[385]: 
-[386]: 
-[387]: 
-[388]: 
-[389]: 
-[390]: 
-[391]: 
-[392]: 
-[393]: 
-[394]: 
-[395]: 
-[396]: 
-[397]: 
-[398]: 
-[399]: 
-[400]: 
-[401]: 
-[402]: 
-[403]: 
-[404]: 
-[405]: 
 [406]: 
 [407]: 
 [408]: 
@@ -1257,10 +1265,34 @@ User guide: See the [Gaussian mixture models][372] section for further details.
 [372]: http://scikit-learn.org/stable/modules/mixture.html#mixture
 [373]: http://scikit-learn.org/stable/modules/generated/sklearn.mixture.BayesianGaussianMixture.html#sklearn.mixture.BayesianGaussianMixture
 [374]: http://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html#sklearn.mixture.GaussianMixture
-
-
-
-
-
-
-
+[375]: http://scikit-learn.org/stable/modules/cross_validation.html#cross-validation
+[376]: http://scikit-learn.org/stable/modules/grid_search.html#grid-search
+[377]: http://scikit-learn.org/stable/modules/learning_curve.html#learning-curve
+[378]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html#sklearn.model_selection.GroupKFold
+[379]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html#sklearn.model_selection.GroupShuffleSplit
+[380]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold
+[381]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut
+[382]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeavePGroupsOut.html#sklearn.model_selection.LeavePGroupsOut
+[383]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneOut.html#sklearn.model_selection.LeaveOneOut
+[384]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeavePOut.html#sklearn.model_selection.LeavePOut
+[385]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.PredefinedSplit.html#sklearn.model_selection.PredefinedSplit
+[386]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RepeatedKFold.html#sklearn.model_selection.RepeatedKFold
+[387]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RepeatedStratifiedKFold.html#sklearn.model_selection.RepeatedStratifiedKFold
+[388]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ShuffleSplit.html#sklearn.model_selection.ShuffleSplit
+[389]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html#sklearn.model_selection.StratifiedKFold
+[390]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedShuffleSplit.html#sklearn.model_selection.StratifiedShuffleSplit
+[391]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html#sklearn.model_selection.TimeSeriesSplit
+[392]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.check_cv.html#sklearn.model_selection.check_cv
+[393]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split
+[394]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn.model_selection.GridSearchCV
+[395]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ParameterGrid.html#sklearn.model_selection.ParameterGrid
+[396]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ParameterSampler.html#sklearn.model_selection.ParameterSampler
+[397]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html#sklearn.model_selection.RandomizedSearchCV
+[398]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.fit_grid_point.html#sklearn.model_selection.fit_grid_point
+[399]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection
+[400]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html#sklearn.model_selection.cross_validate
+[401]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_predict.html#sklearn.model_selection.cross_val_predict
+[402]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html#sklearn.model_selection.cross_val_score
+[403]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.learning_curve.html#sklearn.model_selection.learning_curve
+[404]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score
+[405]: http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.validation_curve.html#sklearn.model_selection.validation_curve
