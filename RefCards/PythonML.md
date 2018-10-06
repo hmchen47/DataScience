@@ -502,6 +502,137 @@ User guide: See the [Manifold learning][280] section for further details.
 | `manifold.smacof(dissimilarities[, metric, …])` | Computes multidimensional scaling using the SMACOF algorithm. | [API][287] |
 | `manifold.spectral_embedding(adjacency[, …])` | Project the sample on the first eigenvectors of the graph Laplacian. | [API][288] |
 
+### sklearn.metrics: Metrics
+
+See the [Model evaluation: quantifying the quality of predictions][289] section and the [Pairwise metrics, Affinities and Kernels][290] section of the user guide for further details.
+
+The [sklearn.metrics][291] module includes score functions, performance metrics and pairwise metrics and distance computations.
+
+#### Model Selection Interface
+
+See the The [scoring parameter: defining model evaluation rules][292] section of the user guide for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.check_scoring(estimator[, scoring, …])` | Determine scorer from user options. | [API][293] |
+| `metrics.get_scorer(scoring)` | Get a scorer from string | [API][294] |
+| `metrics.make_scorer(score_func[, …])` | Make a scorer from a performance metric or loss function. | [API][295] |
+
+#### Classification metrics
+
+See the [Classification metrics][296] section of the user guide for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.accuracy_score(y_true, y_pred[, …])` | Accuracy classification score. | [API][297] |
+| `metrics.auc(x, y[, reorder])` | Compute Area Under the Curve (AUC) using the trapezoidal rule | [API][298] |
+| `metrics.average_precision_score(y_true, y_score)` | Compute average precision (AP) from prediction scores | [API][299] |
+| `metrics.balanced_accuracy_score(y_true, y_pred)` | Compute the balanced accuracy | [API][300] |
+| `metrics.brier_score_loss(y_true, y_prob[, …])` | Compute the Brier score. | [API][301] |
+| `metrics.classification_report(y_true, y_pred)` | Build a text report showing the main classification metrics | [API][302] |
+| `metrics.cohen_kappa_score(y1, y2[, labels, …])` | Cohen’s kappa: a statistic that measures inter-annotator agreement. | [API][303] |
+| `metrics.confusion_matrix(y_true, y_pred[, …])` | Compute confusion matrix to evaluate the accuracy of a classification | [API][304] |
+| `metrics.f1_score(y_true, y_pred[, labels, …])` | Compute the F1 score, also known as balanced F-score or F-measure | [API][305] |
+| `metrics.fbeta_score(y_true, y_pred, beta[, …])` | Compute the F-beta score | [API][306] |
+| `metrics.hamming_loss(y_true, y_pred[, …])` | Compute the average Hamming loss. | [API][307] |
+| `metrics.hinge_loss(y_true, pred_decision[, …])` | Average hinge loss (non-regularized) | [API][308] |
+| `metrics.jaccard_similarity_score(y_true, y_pred)` | Jaccard similarity coefficient score | [API][309] |
+| `metrics.log_loss(y_true, y_pred[, eps, …])` | Log loss, aka logistic loss or cross-entropy loss. |[API][310] |
+| `metrics.matthews_corrcoef(y_true, y_pred[, …])` | Compute the Matthews correlation coefficient (MCC) |[API][311] |
+| `metrics.precision_recall_curve(y_true, …)` | Compute precision-recall pairs for different probability thresholds |[API][312] |
+| `metrics.precision_recall_fscore_support(…)` | Compute precision, recall, F-measure and support for each class |[API][313] |
+| `metrics.precision_score(y_true, y_pred[, …])` | Compute the precision |[API][314] |
+| `metrics.recall_score(y_true, y_pred[, …])` | Compute the recall |[API][315] |
+| `metrics.roc_auc_score(y_true, y_score[, …])` | Compute Area Under the Receiver Operating Characteristic Curve (ROC AUC) from prediction scores. |[API][316] |
+| `metrics.roc_curve(y_true, y_score[, …])` | Compute Receiver operating characteristic (ROC) |[API][317] |
+| `metrics.zero_one_loss(y_true, y_pred[, …])` | Zero-one classification loss. |[API][318] |
+
+
+#### Regression metrics
+
+See the [Regression metrics][319] section of the user guide for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.explained_variance_score(y_true, y_pred)` | Explained variance regression score function | [API][320] |
+| `metrics.mean_absolute_error(y_true, y_pred)` | Mean absolute error regression loss | [API][321] |
+| `metrics.mean_squared_error(y_true, y_pred[, …])` | Mean squared error regression loss | [API][322] |
+| `metrics.mean_squared_log_error(y_true, y_pred)` | Mean squared logarithmic error regression loss | [API][323] |
+| `metrics.median_absolute_error(y_true, y_pred)` | Median absolute error regression loss | [API][324] |
+| `metrics.r2_score(y_true, y_pred[, …])` | R^2 (coefficient of determination) regression score function. | [API][325] |
+
+#### Multilabel ranking metrics
+
+See the [Multilabel ranking][326] metrics section of the user guide for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.coverage_error(y_true, y_score[, …])` | Coverage error measure | [API][327] |
+| `metrics.label_ranking_average_precision_score(…)` | Compute ranking-based average precision | [API][328] |
+| `metrics.label_ranking_loss(y_true, y_score)` | Compute Ranking loss measure | [API][329] |
+
+#### Clustering metrics
+
+See the [Clustering performance evaluation][330] section of the user guide for further details.
+
+The [sklearn.metrics.cluster][331] submodule contains evaluation metrics for cluster analysis results. There are two forms of evaluation:
+
++ supervised, which uses a ground truth class values for each sample.
++ unsupervised, which does not and measures the ‘quality’ of the model itself.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.adjusted_mutual_info_score(…[, …])` | Adjusted Mutual Information between two clusterings. |[API][332] |
+| `metrics.adjusted_rand_score(labels_true, …)` | Rand index adjusted for chance. |[API][333] |
+| `metrics.calinski_harabaz_score(X, labels)` | Compute the Calinski and Harabaz score. |[API][334] |
+| `metrics.davies_bouldin_score(X, labels)` | Computes the Davies-Bouldin score. |[API][335] |
+| `metrics.completeness_score(labels_true, …)` | Completeness metric of a cluster labeling given a ground truth. |[API][336] |
+| `metrics.cluster.contingency_matrix(…[, …])` | Build a contingency matrix describing the relationship between labels. |[API][337] |
+| `metrics.fowlkes_mallows_score(labels_true, …)` | Measure the similarity of two clusterings of a set of points. |[API][338] |
+| `metrics.homogeneity_completeness_v_measure(…)` | Compute the homogeneity and completeness and V-Measure scores at once. |[API][339] |
+| `metrics.homogeneity_score(labels_true, …)` | Homogeneity metric of a cluster labeling given a ground truth. | [API][340] |
+| `metrics.mutual_info_score(labels_true, …)` | Mutual Information between two clusterings. | [API][341] |
+| `metrics.normalized_mutual_info_score(…[, …])` | Normalized Mutual Information between two clusterings. | [API][342] |
+| `metrics.silhouette_score(X, labels[, …])` | Compute the mean Silhouette Coefficient of all samples. | [API][343] |
+| `metrics.silhouette_samples(X, labels[, metric])` | Compute the Silhouette Coefficient for each sample. | [API][344] |
+| `metrics.v_measure_score(labels_true, labels_pred)` | V-measure cluster labeling given a ground truth. | [API][345] |
+
+#### Biclustering metrics
+
+See the [Biclustering evaluation][346] section of the user guide for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.consensus_score(a, b[, similarity])` | The similarity of two sets of biclusters. | [API][347] |
+
+#### Pairwise metrics
+
+See the [Pairwise metrics, Affinities and Kernels][348] section of the user guide for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `metrics.pairwise.additive_chi2_kernel(X[, Y])` | Computes the additive chi-squared kernel between observations in X and Y | [API][349] |
+| `metrics.pairwise.chi2_kernel(X[, Y, gamma])` | Computes the exponential chi-squared kernel X and Y. | [API][350] |
+| `metrics.pairwise.cosine_similarity(X[, Y, …])` | Compute cosine similarity between samples in X and Y. | [API][351] |
+| `metrics.pairwise.cosine_distances(X[, Y])` | Compute cosine distance between samples in X and Y. | [API][352] |
+| `metrics.pairwise.distance_metrics()` | Valid metrics for pairwise_distances. | [API][353] |
+| `metrics.pairwise.euclidean_distances(X[, Y, …])` | Considering the rows of X (and Y=X) as vectors, compute the distance matrix between each pair of vectors. | [API][354] |
+| `metrics.pairwise.kernel_metrics()` | Valid metrics for pairwise_kernels | [API][355] |
+| `metrics.pairwise.laplacian_kernel(X[, Y, gamma])` | Compute the laplacian kernel between X and Y. | [API][356] |
+| `metrics.pairwise.linear_kernel(X[, Y, …])` | Compute the linear kernel between X and Y. | [API][357] |
+| `metrics.pairwise.manhattan_distances(X[, Y, …])` | Compute the L1 distances between the vectors in X and Y. | [API][358] |
+| `metrics.pairwise.pairwise_kernels(X[, Y, …])` | Compute the kernel between arrays X and optional array Y. | [API][359] |
+| `metrics.pairwise.polynomial_kernel(X[, Y, …])` | Compute the polynomial kernel between X and Y: | [API][360] |
+| `metrics.pairwise.rbf_kernel(X[, Y, gamma])` | Compute the rbf (gaussian) kernel between X and Y: | [API][361] |
+| `metrics.pairwise.sigmoid_kernel(X[, Y, …])` | Compute the sigmoid kernel between X and Y: | [API][362] |
+| `metrics.pairwise.paired_euclidean_distances(X, Y)` | Computes the paired euclidean distances between X and Y | [API][363] |
+| `metrics.pairwise.paired_manhattan_distances(X, Y)` | Compute the L1 distances between the vectors in X and Y. | [API][364] |
+| `metrics.pairwise.paired_cosine_distances(X, Y)` | Computes the paired cosine distances between X and Y | [API][365] |
+| `metrics.pairwise.paired_distances(X, Y[, metric])` | Computes the paired distances between X and Y. | [API][366] |
+| `metrics.pairwise_distances(X[, Y, metric, …])` | Compute the distance matrix from a vector array X and optional Y. | [API][367] |
+| `metrics.pairwise_distances_argmin(X, Y[, …])` | Compute minimum distances between one point and a set of points. | [API][368] |
+| `metrics.pairwise_distances_argmin_min(X, Y)` | Compute minimum distances between one point and a set of points. | [API][369] |
+| `metrics.pairwise_distances_chunked(X[, Y, …])` | Generate a distance matrix chunk by chunk with optional reduction | [API][370] |
 
 
 
@@ -511,87 +642,6 @@ User guide: See the [Manifold learning][280] section for further details.
 
 ------------------------------
 <!--
-[289]: 
-[290]: 
-[291]: 
-[292]: 
-[293]: 
-[294]: 
-[295]: 
-[296]: 
-[297]: 
-[298]: 
-[299]: 
-[300]: 
-[301]: 
-[302]: 
-[303]: 
-[304]: 
-[305]: 
-[306]: 
-[307]: 
-[308]: 
-[309]: 
-[310]: 
-[311]: 
-[312]: 
-[313]: 
-[314]: 
-[315]: 
-[316]: 
-[317]: 
-[318]: 
-[319]: 
-[320]: 
-[321]: 
-[322]: 
-[323]: 
-[324]: 
-[325]: 
-[326]: 
-[327]: 
-[328]: 
-[329]: 
-[330]: 
-[331]: 
-[332]: 
-[333]: 
-[334]: 
-[335]: 
-[336]: 
-[337]: 
-[338]: 
-[339]: 
-[340]: 
-[341]: 
-[342]: 
-[343]: 
-[344]: 
-[345]: 
-[346]: 
-[347]: 
-[348]: 
-[349]: 
-[350]: 
-[351]: 
-[352]: 
-[353]: 
-[354]: 
-[355]: 
-[356]: 
-[357]: 
-[358]: 
-[359]: 
-[360]: 
-[361]: 
-[362]: 
-[363]: 
-[364]: 
-[365]: 
-[366]: 
-[367]: 
-[368]: 
-[369]: 
 [370]: 
 [371]: 
 [372]: 
@@ -722,6 +772,106 @@ User guide: See the [Manifold learning][280] section for further details.
 [497]: 
 [498]: 
 [499]: 
+[500]: 
+[501]: 
+[502]: 
+[503]: 
+[504]: 
+[505]: 
+[506]: 
+[507]: 
+[508]: 
+[509]: 
+[510]: 
+[511]: 
+[512]: 
+[513]: 
+[514]: 
+[515]: 
+[516]: 
+[517]: 
+[518]: 
+[519]: 
+[520]: 
+[521]: 
+[522]: 
+[523]: 
+[524]: 
+[525]: 
+[526]: 
+[527]: 
+[528]: 
+[529]: 
+[530]: 
+[531]: 
+[532]: 
+[533]: 
+[534]: 
+[535]: 
+[536]: 
+[537]: 
+[538]: 
+[539]: 
+[540]: 
+[541]: 
+[542]: 
+[543]: 
+[544]: 
+[545]: 
+[546]: 
+[547]: 
+[548]: 
+[549]: 
+[550]: 
+[551]: 
+[552]: 
+[553]: 
+[554]: 
+[555]: 
+[556]: 
+[557]: 
+[558]: 
+[559]: 
+[560]: 
+[561]: 
+[562]: 
+[563]: 
+[564]: 
+[565]: 
+[566]: 
+[567]: 
+[568]: 
+[569]: 
+[570]: 
+[571]: 
+[572]: 
+[573]: 
+[574]: 
+[575]: 
+[576]: 
+[577]: 
+[578]: 
+[579]: 
+[580]: 
+[581]: 
+[582]: 
+[583]: 
+[584]: 
+[585]: 
+[586]: 
+[587]: 
+[588]: 
+[589]: 
+[590]: 
+[591]: 
+[592]: 
+[593]: 
+[594]: 
+[595]: 
+[596]: 
+[597]: 
+[598]: 
+[599]: 
 
 -->
 
@@ -1016,6 +1166,87 @@ User guide: See the [Manifold learning][280] section for further details.
 [286]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.locally_linear_embedding.html#sklearn.manifold.locally_linear_embedding
 [287]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.smacof.html#sklearn.manifold.smacof
 [288]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.spectral_embedding.html#sklearn.manifold.spectral_embedding
+[289]: http://scikit-learn.org/stable/modules/model_evaluation.html#model-evaluation
+[290]: http://scikit-learn.org/stable/modules/metrics.html#metrics
+[291]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics
+[292]: http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter
+[293]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.check_scoring.html#sklearn.metrics.check_scoring
+[294]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.get_scorer.html#sklearn.metrics.get_scorer
+[295]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html#sklearn.metrics.make_scorer
+[296]: http://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics
+[297]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score
+[298]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html#sklearn.metrics.auc
+[299]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score
+[300]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.balanced_accuracy_score.html#sklearn.metrics.balanced_accuracy_score
+[301]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html#sklearn.metrics.brier_score_loss
+[302]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html#sklearn.metrics.classification_report
+[303]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html#sklearn.metrics.cohen_kappa_score
+[304]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix
+[305]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score
+[306]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.fbeta_score.html#sklearn.metrics.fbeta_score
+[307]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.hamming_loss.html#sklearn.metrics.hamming_loss
+[308]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.hinge_loss.html#sklearn.metrics.hinge_loss
+[309]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html#sklearn.metrics.jaccard_similarity_score
+[310]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss
+[311]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html#sklearn.metrics.matthews_corrcoef
+[312]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve
+[313]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_fscore_support.html#sklearn.metrics.precision_recall_fscore_support
+[314]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score
+[315]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score
+[316]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score
+[317]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve
+[318]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.zero_one_loss.html#sklearn.metrics.zero_one_loss
+[319]: http://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics
+[320]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html#sklearn.metrics.explained_variance_score
+[321]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html#sklearn.metrics.mean_absolute_error
+[322]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error
+[323]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html#sklearn.metrics.mean_squared_log_error
+[324]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html#sklearn.metrics.median_absolute_error
+[325]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score
+[326]: http://scikit-learn.org/stable/modules/model_evaluation.html#multilabel-ranking-metrics
+[327]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.coverage_error.html#sklearn.metrics.coverage_error
+[328]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.label_ranking_average_precision_score.html#sklearn.metrics.label_ranking_average_precision_score
+[329]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.label_ranking_loss.html#sklearn.metrics.label_ranking_loss
+[330]: http://scikit-learn.org/stable/modules/clustering.html#clustering-evaluation
+[331]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics.cluster
+[332]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_mutual_info_score.html#sklearn.metrics.adjusted_mutual_info_score
+[333]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score
+[334]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.calinski_harabaz_score.html#sklearn.metrics.calinski_harabaz_score
+[335]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.davies_bouldin_score.html#sklearn.metrics.davies_bouldin_score
+[336]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.completeness_score.html#sklearn.metrics.completeness_score
+[337]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.cluster.contingency_matrix.html#sklearn.metrics.cluster.contingency_matrix
+[338]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.fowlkes_mallows_score.html#sklearn.metrics.fowlkes_mallows_score
+[339]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_completeness_v_measure.html#sklearn.metrics.homogeneity_completeness_v_measure
+[340]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_score.html#sklearn.metrics.homogeneity_score
+[341]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mutual_info_score.html#sklearn.metrics.mutual_info_score
+[342]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.normalized_mutual_info_score.html#sklearn.metrics.normalized_mutual_info_score
+[343]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html#sklearn.metrics.silhouette_score
+[344]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_samples.html#sklearn.metrics.silhouette_samples
+[345]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.v_measure_score.html#sklearn.metrics.v_measure_score
+[346]: http://scikit-learn.org/stable/modules/biclustering.html#biclustering-evaluation
+[347]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.consensus_score.html#sklearn.metrics.consensus_score
+[348]: http://scikit-learn.org/stable/modules/metrics.html#metrics
+[349]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.additive_chi2_kernel.html#sklearn.metrics.pairwise.additive_chi2_kernel
+[350]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.chi2_kernel.html#sklearn.metrics.pairwise.chi2_kernel
+[351]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html#sklearn.metrics.pairwise.cosine_similarity
+[352]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_distances.html#sklearn.metrics.pairwise.cosine_distances
+[353]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.distance_metrics.html#sklearn.metrics.pairwise.distance_metrics
+[354]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.euclidean_distances.html#sklearn.metrics.pairwise.euclidean_distances
+[355]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.kernel_metrics.html#sklearn.metrics.pairwise.kernel_metrics
+[356]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.laplacian_kernel.html#sklearn.metrics.pairwise.laplacian_kernel
+[357]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.linear_kernel.html#sklearn.metrics.pairwise.linear_kernel
+[358]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html#sklearn.metrics.pairwise.manhattan_distances
+[359]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.pairwise_kernels.html#sklearn.metrics.pairwise.pairwise_kernels
+[360]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.polynomial_kernel.html#sklearn.metrics.pairwise.polynomial_kernel
+[361]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.rbf_kernel.html#sklearn.metrics.pairwise.rbf_kernel
+[362]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.sigmoid_kernel.html#sklearn.metrics.pairwise.sigmoid_kernel
+[363]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_euclidean_distances.html#sklearn.metrics.pairwise.paired_euclidean_distances
+[364]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_manhattan_distances.html#sklearn.metrics.pairwise.paired_manhattan_distances
+[365]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_cosine_distances.html#sklearn.metrics.pairwise.paired_cosine_distances
+[366]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_distances.html#sklearn.metrics.pairwise.paired_distances
+[367]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin.html#sklearn.metrics.pairwise_distances_argmin
+[368]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin_min.html#sklearn.metrics.pairwise_distances_argmin_min
+[369]: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_chunked.html#sklearn.metrics.pairwise_distances_chunked
 
 
 
