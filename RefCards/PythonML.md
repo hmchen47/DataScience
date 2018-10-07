@@ -842,6 +842,8 @@ The [sklearn.semi_supervised][478] module implements semi-supervised learning al
 
 User guide: See the [Semi-Supervised][479] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `semi_supervised.LabelPropagation([kernel, …])` | Label Propagation classifier | [API][480] |
 | `semi_supervised.LabelSpreading([kernel, …])` | LabelSpreading model for semi-supervised learning | [API][481] |
 
@@ -854,6 +856,8 @@ User guide: See the [Support Vector Machines][483] section for further details.
 
 #### Estimators
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `svm.LinearSVC([penalty, loss, dual, tol, C, …])` | Linear Support Vector Classification. | [API][484] |
 | `svm.LinearSVR([epsilon, tol, C, loss, …])` | Linear Support Vector Regression. | [API][485] |
 | `svm.NuSVC([nu, kernel, degree, gamma, …])` | Nu-Support Vector Classification. | [API][486] |
@@ -865,6 +869,8 @@ User guide: See the [Support Vector Machines][483] section for further details.
 
 #### Low-level methods
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `svm.libsvm.cross_validation` | Binding of the cross-validation routine (low-level routine) | [API][492] |
 | `svm.libsvm.decision_function` | Predict margin (libsvm name for this is predict_values) | [API][493] |
 | `svm.libsvm.fit` | Train the model using libsvm (low-level method) | [API][494] |
@@ -878,12 +884,85 @@ The [sklearn.tree][497] module includes decision tree-based models for classific
 
 User guide: See the [Decision Trees][498] section for further details.
 
+| Function | Description | Link |
+|----------|-------------|------|
 | `tree.DecisionTreeClassifier([criterion, …])` | A decision tree classifier. | [API][499] |
 | `tree.DecisionTreeRegressor([criterion, …])` | A decision tree regressor. | [API][500] |
 | `tree.ExtraTreeClassifier([criterion, …])` | An extremely randomized tree classifier. | [API][501] |
 | `tree.ExtraTreeRegressor([criterion, …])` | An extremely randomized tree regressor. | [API][502] |
 | `tree.export_graphviz(decision_tree[, …])` | Export a decision tree in DOT format. | [API][503] |
 
+
+### sklearn.utils: Utilities
+
+The [sklearn.utils][504] module includes various utilities.
+
+Developer guide: See the [Utilities for Developers][505] page for further details.
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `utils.testing.mock_mldata_urlopen(*args, …)` | Object that mocks the urlopen function to fake requests to mldata. | [API][506] |
+| `utils.arrayfuncs.cholesky_delete` |  | [API][507] |
+| `utils.arrayfuncs.min_pos` | Find the minimum value of an array over positive values | [API][508] |
+| `utils.as_float_array(X[, copy, force_all_finite])` | Converts an array-like to an array of floats. | [API][509] |
+| `utils.assert_all_finite(X[, allow_nan])` | Throw a ValueError if X contains NaN or infinity. | [API][510] |
+| `utils.bench.total_seconds(delta)` | helper function to emulate function total_seconds, | [API][511] |
+| `utils.check_X_y(X, y[, accept_sparse, …])` | Input validation for standard estimators. | [API][512] |
+| `utils.check_array(array[, accept_sparse, …])` | Input validation on an array, list, sparse matrix or similar. | [API][513] |
+| `utils.check_consistent_length(*arrays)` | Check that all arrays have consistent first dimensions. | [API][514] |
+| `utils.check_random_state(seed)` | Turn seed into a np.random.RandomState instance | [API][515] |
+| `utils.class_weight.compute_class_weight(…)` | Estimate class weights for unbalanced datasets. | [API][516] |
+| `utils.class_weight.compute_sample_weight(…)` | Estimate sample weights by class for unbalanced datasets. | [API][517] |
+| `utils.deprecated([extra])` | Decorator to mark a function or class as deprecated. | [API][518] |
+| `utils.estimator_checks.check_estimator(Estimator)` | Check if estimator adheres to scikit-learn conventions. | [API][519] |
+| `utils.extmath.safe_sparse_dot(a, b[, …])` | Dot product that handle the sparse matrix case correctly | [API][520] |
+| `utils.extmath.randomized_range_finder(A, …)` | Computes an orthonormal matrix whose range approximates the range of A. | [API][521] |
+| `utils.extmath.randomized_svd(M, n_components)` | Computes a truncated randomized SVD | [API][522] |
+| `utils.extmath.fast_logdet(A)` | Compute log(det(A)) for A symmetric | [API][523] |
+| `utils.extmath.density(w, **kwargs)` | Compute density of a sparse vector | [API][524] |
+| `utils.extmath.weighted_mode(a, w[, axis])` | Returns an array of the weighted modal (most common) value in a | [API][525] |
+| `utils.gen_even_slices(n, n_packs[, n_samples])` | Generator to create n_packs slices going up to n. | [API][526] |
+| `utils.graph.single_source_shortest_path_length(…)` | Return the shortest path length from source to all reachable nodes. | [API][527] |
+| `utils.graph_shortest_path.graph_shortest_path` | Perform a shortest-path graph search on a positive directed or undirected graph. | [API][528] |
+| `utils.indexable(*iterables)` | Make arrays indexable for cross-validation. | [API][529] |
+| `utils.multiclass.type_of_target(y)` | Determine the type of data indicated by the target. | [API][530] |
+| `utils.multiclass.is_multilabel(y)` | Check if y is in a multilabel format. | [API][531] |
+| `utils.multiclass.unique_labels(*ys)` | Extract an ordered array of unique labels | [API][532] |
+| `utils.murmurhash3_32` | Compute the 32bit murmurhash3 of key at seed. | [API][533] |
+| `utils.resample(*arrays, **options)` | Resample arrays or sparse matrices in a consistent way | [API][534] |
+| `utils.safe_indexing(X, indices)` | Return items or rows from X using indices. | [API][535] |
+| `utils.safe_mask(X, mask)` | Return a mask which is safe to use on X. | [API][536] |
+| `utils.safe_sqr(X[, copy])` | Element wise squaring of array-likes and sparse matrices. | [API][537] |
+| `utils.shuffle(*arrays, **options)` | Shuffle arrays or sparse matrices in a consistent way | [API][538] |
+| `utils.sparsefuncs.incr_mean_variance_axis(X, …)` | Compute incremental mean and variance along an axix on a CSR or CSC matrix. | [API][539] |
+| `utils.sparsefuncs.inplace_column_scale(X, scale)` | Inplace column scaling of a CSC/CSR matrix. | [API][540] |
+| `utils.sparsefuncs.inplace_row_scale(X, scale)` | Inplace row scaling of a CSR or CSC matrix. | [API][541] |
+| `utils.sparsefuncs.inplace_swap_row(X, m, n)` | Swaps two rows of a CSC/CSR matrix in-place. | [API][542] |
+| `utils.sparsefuncs.inplace_swap_column(X, m, n)` | Swaps two columns of a CSC/CSR matrix in-place. | [API][543] |
+| `utils.sparsefuncs.mean_variance_axis(X, axis)` | Compute mean and variance along an axix on a CSR or CSC matrix | [API][544] |
+| `utils.sparsefuncs.inplace_csr_column_scale(X, …)` | Inplace column scaling of a CSR matrix. | [API][545] |
+| `utils.sparsefuncs_fast.inplace_csr_row_normalize_l1` | Inplace row normalize using the l1 norm | [API][546] |
+| `utils.sparsefuncs_fast.inplace_csr_row_normalize_l2` | Inplace row normalize using the l2 norm | [API][547] |
+| `utils.random.sample_without_replacement` | Sample integers without replacement. | [API][548] |
+| `utils.validation.check_is_fitted(estimator, …)` | Perform is_fitted validation for estimator. | [API][549] |
+| `utils.validation.check_memory(memory)` | Check that memory is joblib.Memory-like. | [API][550] |
+| `utils.validation.check_symmetric(array[, …])` | Make sure that array is 2D, square and symmetric. | [API][551] |
+| `utils.validation.column_or_1d(y[, warn])` | Ravel column or 1d numpy array, else raises an error | [API][552] |
+| `utils.validation.has_fit_parameter(…)` | Checks whether the estimator’s fit method supports the given parameter. | [API][553] |
+| `utils.testing.assert_in` | Just like self.assertTrue(a in b), but with a nicer default message. | [API][554] |
+| `utils.testing.assert_not_in` | Just like self.assertTrue(a not in b), but with a nicer default message. | [API][555] |
+| `utils.testing.assert_raise_message(…)` | Helper function to test the message raised in an exception. | [API][556] |
+| `utils.testing.all_estimators([…])` | Get a list of all estimators from sklearn. | [API][557] |
+
+#### Utilities from joblib:
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `utils.Memory([location, backend, cachedir, …])` | A context object for caching a function’s return value each time it is called with the same input arguments. | [API][558] |
+| `utils.Parallel([n_jobs, backend, verbose, …])` | Helper class for readable parallel mapping. | [API][559] |
+| `utils.cpu_count()` | Return the number of CPUs. | [API][560] |
+| `utils.delayed(function[, check_pickle])` | Decorator used to capture the arguments of a function. | [API][561] |
+| `utils.parallel_backend(backend[, n_jobs])` | Change the default backend used by Parallel inside a with block. | [API][562] |
 
 
 
@@ -892,65 +971,6 @@ User guide: See the [Decision Trees][498] section for further details.
 
 ------------------------------
 <!-- 
-[504]: 
-[505]: 
-[506]: 
-[507]: 
-[508]: 
-[509]: 
-[510]: 
-[511]: 
-[512]: 
-[513]: 
-[514]: 
-[515]: 
-[516]: 
-[517]: 
-[518]: 
-[519]: 
-[520]: 
-[521]: 
-[522]: 
-[523]: 
-[524]: 
-[525]: 
-[526]: 
-[527]: 
-[528]: 
-[529]: 
-[530]: 
-[531]: 
-[532]: 
-[533]: 
-[534]: 
-[535]: 
-[536]: 
-[537]: 
-[538]: 
-[539]: 
-[540]: 
-[541]: 
-[542]: 
-[543]: 
-[544]: 
-[545]: 
-[546]: 
-[547]: 
-[548]: 
-[549]: 
-[550]: 
-[551]: 
-[552]: 
-[553]: 
-[554]: 
-[555]: 
-[556]: 
-[557]: 
-[558]: 
-[559]: 
-[560]: 
-[561]: 
-[562]: 
 [563]: 
 [564]: 
 [565]: 
@@ -1597,3 +1617,62 @@ User guide: See the [Decision Trees][498] section for further details.
 [501]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.ExtraTreeClassifier.html#sklearn.tree.ExtraTreeClassifier
 [502]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.ExtraTreeRegressor.html#sklearn.tree.ExtraTreeRegressor
 [503]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html#sklearn.tree.export_graphviz
+[504]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.utils
+[505]: http://scikit-learn.org/stable/developers/utilities.html#developers-utils
+[506]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.testing.mock_mldata_urlopen.html#sklearn.utils.testing.mock_mldata_urlopen
+[507]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.arrayfuncs.cholesky_delete.html#sklearn.utils.arrayfuncs.cholesky_delete
+[508]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.arrayfuncs.min_pos.html#sklearn.utils.arrayfuncs.min_pos
+[509]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.as_float_array.html#sklearn.utils.as_float_array
+[510]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.assert_all_finite.html#sklearn.utils.assert_all_finite
+[511]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.bench.total_seconds.html#sklearn.utils.bench.total_seconds
+[512]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.check_X_y.html#sklearn.utils.check_X_y
+[513]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.check_array.html#sklearn.utils.check_array
+[514]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.check_consistent_length.html#sklearn.utils.check_consistent_length
+[515]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.check_random_state.html#sklearn.utils.check_random_state
+[516]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.class_weight.compute_class_weight.html#sklearn.utils.class_weight.compute_class_weight
+[517]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.class_weight.compute_sample_weight.html#sklearn.utils.class_weight.compute_sample_weight
+[518]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.deprecated.html#sklearn.utils.deprecated
+[519]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.estimator_checks.check_estimator.html#sklearn.utils.estimator_checks.check_estimator
+[520]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.safe_sparse_dot.html#sklearn.utils.extmath.safe_sparse_dot
+[521]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.randomized_range_finder.html#sklearn.utils.extmath.randomized_range_finder
+[522]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.randomized_svd.html#sklearn.utils.extmath.randomized_svd
+[523]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.fast_logdet.html#sklearn.utils.extmath.fast_logdet
+[524]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.density.html#sklearn.utils.extmath.density
+[525]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.weighted_mode.html#sklearn.utils.extmath.weighted_mode
+[526]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.gen_even_slices.html#sklearn.utils.gen_even_slices
+[527]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.graph.single_source_shortest_path_length.html#sklearn.utils.graph.single_source_shortest_path_length
+[528]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.graph_shortest_path.graph_shortest_path.html#sklearn.utils.graph_shortest_path.graph_shortest_path
+[529]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.indexable.html#sklearn.utils.indexable
+[530]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.multiclass.type_of_target.html#sklearn.utils.multiclass.type_of_target
+[531]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.multiclass.is_multilabel.html#sklearn.utils.multiclass.is_multilabel
+[532]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.multiclass.unique_labels.html#sklearn.utils.multiclass.unique_labels
+[533]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.murmurhash3_32.html#sklearn.utils.murmurhash3_32
+[534]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.resample.html#sklearn.utils.resample
+[535]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.safe_indexing.html#sklearn.utils.safe_indexing
+[536]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.safe_mask.html#sklearn.utils.safe_mask
+[537]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.safe_sqr.html#sklearn.utils.safe_sqr
+[538]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.shuffle.html#sklearn.utils.shuffle
+[539]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.incr_mean_variance_axis.html#sklearn.utils.sparsefuncs.incr_mean_variance_axis
+[540]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.inplace_column_scale.html#sklearn.utils.sparsefuncs.inplace_column_scale
+[541]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.inplace_row_scale.html#sklearn.utils.sparsefuncs.inplace_row_scale
+[542]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.inplace_swap_row.html#sklearn.utils.sparsefuncs.inplace_swap_row
+[543]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.inplace_swap_column.html#sklearn.utils.sparsefuncs.inplace_swap_column
+[544]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.mean_variance_axis.html#sklearn.utils.sparsefuncs.mean_variance_axis
+[545]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs.inplace_csr_column_scale.html#sklearn.utils.sparsefuncs.inplace_csr_column_scale
+[546]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs_fast.inplace_csr_row_normalize_l1.html#sklearn.utils.sparsefuncs_fast.inplace_csr_row_normalize_l1
+[547]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.sparsefuncs_fast.inplace_csr_row_normalize_l2.html#sklearn.utils.sparsefuncs_fast.inplace_csr_row_normalize_l2
+[548]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.random.sample_without_replacement.html#sklearn.utils.random.sample_without_replacement
+[549]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.check_is_fitted.html#sklearn.utils.validation.check_is_fitted
+[550]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.check_memory.html#sklearn.utils.validation.check_memory
+[551]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.check_symmetric.html#sklearn.utils.validation.check_symmetric
+[552]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.column_or_1d.html#sklearn.utils.validation.column_or_1d
+[553]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.has_fit_parameter.html#sklearn.utils.validation.has_fit_parameter
+[554]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.testing.assert_in.html#sklearn.utils.testing.assert_in
+[555]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.testing.assert_not_in.html#sklearn.utils.testing.assert_not_in
+[556]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.testing.assert_raise_message.html#sklearn.utils.testing.assert_raise_message
+[557]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.testing.all_estimators.html#sklearn.utils.testing.all_estimators
+[558]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.Memory.html#sklearn.utils.Memory
+[559]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.Parallel.html#sklearn.utils.Parallel
+[560]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.cpu_count.html#sklearn.utils.cpu_count
+[561]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.delayed.html#sklearn.utils.delayed
+[562]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.parallel_backend.html#sklearn.utils.parallel_backend
