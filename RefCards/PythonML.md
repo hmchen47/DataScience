@@ -956,6 +956,11 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 #### Utilities from joblib:
 
++ Library Import 
+    ```python
+    
+    ```
+
 | Function | Description | Link |
 |----------|-------------|------|
 | `utils.Memory([location, backend, cachedir, …])` | A context object for caching a function’s return value each time it is called with the same input arguments. | [API][558] |
@@ -965,14 +970,75 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `utils.parallel_backend(backend[, n_jobs])` | Change the default backend used by Parallel inside a with block. | [API][562] |
 
 
+## Preprocessing
+
++ Library Import 
+    ```python
+    
+    ```
+
+| Function | Description | Link |
+|----------|-------------|------|
+
+
+
+## Model Selcetion
+
++ Library Import 
+    ```python
+    from sklearn.model_selection import train_test_split
+    ```
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [Example][563] |
+
+
+## Classification
+
++ Library Import 
+    ```python
+    from sklearn.neighbors import KNeighborsClassifier      # knn
+    ```
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `KNeighborsClassifier (n_neighbors=5, **kwargs)` | Classifier implementing the k-nearest neighbors vote | [KNN][564] |
+| `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN][564] |
+| `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [KNN][564] |
+| `knn.predict(X)` | Predict the class labels for the provided data | [KNN][564] |
+
+
+
+
+## Regression
+
++ Library Import 
+    ```python
+    
+    ```
+
+| Function | Description | Link |
+|----------|-------------|------|
+
+
+
+
+## Clustering
+
+```python
+
+```
+
+| Function | Description | Link |
+|----------|-------------|------|
+
 
 
 
 
 ------------------------------
 <!-- 
-[563]: 
-[564]: 
 [565]: 
 [566]: 
 [567]: 
@@ -1676,3 +1742,5 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [560]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.cpu_count.html#sklearn.utils.cpu_count
 [561]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.delayed.html#sklearn.utils.delayed
 [562]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.parallel_backend.html#sklearn.utils.parallel_backend
+[563]: https://github.com/hmchen47/DataScience/blob/aml05/AppliedDS-UMich/3-AML/01-FundML.md#an-example-machine-learning-problem
+[564]: https://github.com/hmchen47/DataScience/blob/aml05/AppliedDS-UMich/3-AML/01-FundML.md#k-nearest-neighbors-classification

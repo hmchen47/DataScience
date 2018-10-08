@@ -378,7 +378,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     + Docstring: Split arrays or matrices into random train and test subsets <br/>
         Quick utility that wraps input validation and  `next(ShuffleSplit().split(X, y))` and application to input data into a single call for splitting (and optionally subsampling) data in a oneliner.
     + Parameters
-        + `*arrays` (sequence of indexables with same length / shape[0] <br/>): Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.
+        + `*arrays` (sequence of indexables with same length / shape[0]): Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.
         + `test_size` (float, int, None, optional): 
             + If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. 
             + If int, represents the absolute number of test samples.
@@ -393,8 +393,8 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
             + If None, the random number generator is the RandomState instance used by `np.random`.
         + `shuffle` (boolean, optional (default=True)): Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.
         + `stratify` (array-like or None, default is None):  If not None, data is split in a stratified fashion, using this as the class labels.
-
     + Returns: splitting : list, length=2 * len(arrays); List containing train-test split of inputs.
+
 
 
 ### Lecture Video
@@ -630,7 +630,6 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     </a>
     + Best choise of `k`: highest accuracy - depending on the data set
 
-
 + Q: Which of these could be an acceptable sequence of operations using scikit-learn to apply the k-nearest neighbors classification method?
     1. read_table, train_test_split, fit, KNeighborsClassifier, score
     2. read_table, train_test_split, KNeighborsClassifier, fit, score
@@ -649,9 +648,9 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
     Ans: 1, 3, 5
 
-+ `KNeighborsClassifier` init method
-    + Init signature: `KNeighborsClassifier(n_neighbors=5, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=1, **kwargs)`
-    + Docstring: Classifier implementing the k-nearest neighbors vote.
++ `KNeighborsClassifier` Class
+    + Signature: `KNeighborsClassifier(n_neighbors=5, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=1, **kwargs)`
+    + Docstring: Classifier implementing the k-nearest neighbors vote
     + Parameters
         + `n_neighbors` (int, optional, default = 5): Number of neighbors to use by default for :meth:`kneighbors` queries.
         + `weights` (str or callable, optional, default = 'uniform'): weight function used in prediction.  Possible values:
@@ -663,11 +662,9 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
             - 'kd_tree' will use :class:`KDTree`
             - 'brute' will use a brute-force search.
             - 'auto' will attempt to decide the most appropriate algorithm based on the values passed to :meth:`fit` method.
-
+        
             Note: fitting on sparse input will override the setting of this parameter, using brute force.
-
         + `leaf_size` (int, optional, default = 30): Leaf size passed to BallTree or KDTree.  This can affect the speed of the construction and query, as well as the memory required to store the tree.  The optimal value depends on the nature of the problem.
-
         + `p` (integer, optional, default = 2): Power parameter for the Minkowski metric. When p = 1, this is equivalent to using manhattan_distance (l1), and euclidean_distance (l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.
         + `metric` (string or callable, default 'minkowski'): the distance metric to use for the tree.  The default metric is minkowski, and with p=2 is equivalent to the standard Euclidean metric. See the documentation of the DistanceMetric class for a list of available metrics.
         + `metric_params` (dict, optional, default = None): Additional keyword arguments for the metric function.
@@ -695,8 +692,6 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
     + Parameters: 
         + `X` (array-like, shape (n_query, n_features), or (n_query, n_indexed) if metric == 'precomputed') : Test samples.
     + Returns: `y` (array of shape [n_samples] or [n_samples, n_outputs]): Class labels for each data sample.
-
-
 
 
 ### Lecture Video 

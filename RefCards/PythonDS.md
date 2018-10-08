@@ -565,7 +565,7 @@ import matplotlib.animation as animation
 | `plt,style.user(style)` | Use matplotlib style settings from a style specification. | [Plotting w/ Pandas][044] |
 | `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
 | `cm.get_cmap(name=None, lut=None)` | Get a colormap instance, defaulting to rc values if *name* is None. | [Exame Data][050] |
-| `savefig(fname, *kwargs*)` | Save the current figure.  | [Exame Data][050] |
+| `plt.savefig(fname, *kwargs*)` | Save the current figure.  | [Exame Data][050] |
 
 
 
