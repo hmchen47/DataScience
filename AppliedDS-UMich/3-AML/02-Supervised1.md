@@ -179,8 +179,6 @@
     + Parameters:
         + `X` (array-like, shape [n_samples, n_features]): Input data that will be transformed.
 
-
-
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/tPIu3lzrEeeQywpoSy5QrA.processed/full/360p/index.mp4?Expires=1536278400&Signature=QJpYlD0vOtufdV2wDh49dA7eMIu7XUHPJLOoxIwvPDpcsGrjhSZvac1dgTn0dD1UpdLkCkcYtUqBvOKklUEfMDAkMnp8Sz4vKiLHVSnAcKQ96B0xhfpMG3KORoWOo7i3~XcRC5oDpYNN-P-B35xYGJsPDyAEkpEi2oFbEuCCnOw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction to Supervised Machine Learning" target="_blank">
@@ -258,7 +256,6 @@
     <img src="images/plt2-01.png" alt="For example, high dimensional data sets in some sense have most of their data in corners with lots of empty space and that's kind of difficult to visualize. We'll go through some examples later in the course. But the low dimensional examples are still useful so that we can understand things like how a model's complexity changes with changes in some key parameters So for basic regression we'll start with the simple problem that has one informative input variable. One noisy linear output and 100 data set samples. Here's a plot of a data set using scatter plot with each point represented by one dot. The x-axis shows the future value, and the y-axis shows the regression target. To create this we use the make regression function in SK learned data sets. Here is the code in the notebook." title="synthetic dataset for simple regression" width="300">&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="images/plt2-02.png" alt="To illustrate binary classification we will include a simple two class dataset with two informative features. Here's a scatterplot showing each data instance as a dot with the first feature value corresponding to the x-axis. And the second feature value corresponding to the y-axis. The color of a point shows which class that data instance is labeled. " title= "synthetic dataset for more complex regression" width="300">
 
-
 + Simple Binary Classification Dataset
     + Demo
         ```python
@@ -317,6 +314,117 @@
         from adspy_shared_utilities import load_crime_dataset
         crime = load_crime_dataset()
         ```
+
++ `ListedColormap` class
+    + Init signature: `ListedColormap(colors, name='from_list', N=None)`
+    + Docstring: Colormap object generated from a list of colors. <br/> This may be most useful when indexing directly into a colormap, but it can also be used to generate special colormaps for ordinary mapping.
+    + Init docstring: Make a colormap from a list of colors.
+    + `colors`: a list of matplotlib color specifications, or an equivalent Nx3 or Nx4 floating point array (`N` rgb or rgba values)
+    + `name`: a string to identify the colormap
+    + `N`:  the number of entries in the map.  The default is `None`, in which case there is one colormap entry for each element in the list of colors.  
+        + If `N < len(colors)` the list will be truncated at `N`.  
+        + If `N > len(colors)` the list will be extended by repetition.
+
++ `make_classification` fucntion
+    + Signature: `make_classification(n_samples=100, n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, weights=None, flip_y=0.01, class_sep=1.0, hypercube=True, shift=0.0, scale=1.0, shuffle=True, random_state=None)`
+    + Docstring: Generate a random n-class classification problem. <br/> This initially creates clusters of points normally distributed (std=1) about vertices of a $2 * class_sep$-sided hypercube, and assigns an equal number of clusters to each class. It introduces interdependence between these features and adds various types of further noise to the data. <br/> Prior to shuffling, `X` stacks a number of these primary "informative" features, "redundant" linear combinations of these, "repeated" duplicates of sampled features, and arbitrary noise for and remaining features.
+    + Parameters:
+        + `n_samples` (int, optional (default=100)): The number of samples.
+        + `n_features` (int, optional (default=20)): The total number of features. These comprise `n_informative` informative features, `n_redundant` redundant features, `n_repeated`
+        duplicated features and `n_features-n_informative-n_redundant-n_repeated` useless features drawn at random.
+        + `n_informative` (int, optional (default=2)): The number of informative features. Each class is composed of a number of gaussian clusters each located around the vertices of a hypercube in a subspace of dimension `n_informative`. For each cluster, informative features are drawn independently from  N(0, 1) and then randomly linearly combined within each cluster in order to add covariance. The clusters are then placed on the vertices of the hypercube.
+        + `n_redundant` (int, optional (default=2)): The number of redundant features. These features are generated as random linear combinations of the informative features.
+        + `n_repeated` (int, optional (default=0)): The number of duplicated features, drawn randomly from the informative and the redundant features.
+        + `n_classes` (int, optional (default=2)): The number of classes (or labels) of the classification problem.
+        + `n_clusters_per_class` (int, optional (default=2)): The number of clusters per class.
+        + `weights` (list of floats or None (default=None)): The proportions of samples assigned to each class. If None, then classes are balanced. Note that if `len(weights) == n_classes - 1`, then the last class weight is automatically inferred. More than `n_samples` samples may be returned if the sum of `weights` exceeds 1.
+        + `flip_y` (float, optional (default=0.01)): The fraction of samples whose class are randomly exchanged.
+        + `class_sep` (float, optional (default=1.0)): The factor multiplying the hypercube dimension.
+        + `hypercube` (boolean, optional (default=True)): If True, the clusters are put on the vertices of a hypercube. If False, the clusters are put on the vertices of a random polytope.
+        + `shift` (float, array of shape [n_features] or None, optional (default=0.0)): Shift features by the specified value. If None, then features are shifted by a random value drawn in [-class_sep, class_sep].
+        + `scale` (float, array of shape [n_features] or None, optional (default=1.0)): Multiply features by the specified value. If None, then features are scaled by a random value drawn in [1, 100]. Note that scaling happens after shifting.
+        + `shuffle` (boolean, optional (default=True)): Shuffle the samples and the features.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator; 
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+    + Returns:
+        + `X` (array of shape [n_samples, n_features]): The generated samples.
+        + `y` (array of shape [n_samples]): The integer labels for class membership of each sample.
+    + Notes The algorithm is adapted from I. Guyon, "Design of experiments for the NIPS 2003 variable selection benchmark", 2003, and was designed to generate the "Madelon" dataset.
+
++ `make_blobs` function
+    + Signature: `make_blobs(n_samples=100, n_features=2, centers=3, cluster_std=1.0, center_box=(-10.0, 10.0), shuffle=True, random_state=None)`
+    + Docstring: Generate isotropic Gaussian blobs for clustering.
+    + Parameters:
+        + `n_samples` (int, optional (default=100)): The total number of points equally divided among clusters.
+        + `n_features` (int, optional (default=2)):  The number of features for each sample.
+        + `centers` (int or array of shape [n_centers, n_features], optional (default=3)): The number of centers to generate, or the fixed center locations.
+        + `cluster_std` (float or sequence of floats, optional (default=1.0)): The standard deviation of the clusters.
+        + `center_box` (pair of floats (min, max), optional (default=(-10.0, 10.0))): The bounding box for each cluster center when centers are generated at random.
+        + `shuffle` (boolean, optional (default=True)): Shuffle the samples.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + Returns:
+            + `X` (array of shape [n_samples, n_features]): The generated samples.
+            + `y` (array of shape [n_samples]):  The integer labels for cluster membership of each sample.
+
++ `make_regression` function
+    + Signature: `make_regression(n_samples=100, n_features=100, n_informative=10, n_targets=1, bias=0.0, effective_rank=None, tail_strength=0.5, noise=0.0, shuffle=True, coef=False, random_state=None)`
+    + Docstring: Generate a random regression problem. <br/> The input set can either be well conditioned (by default) or have a low rank-fat tail singular profile.  The output is generated by applying a (potentially biased) random linear regression model with `n_informative` nonzero regressors to the previously generated input and some gaussian centered noise with some adjustable scale.
+    + Parameters:
+        + `n_samples` (int, optional (default=100)): The number of samples.
+        + `n_features` (int, optional (default=100)):  The number of features.
+        + `n_informative` (int, optional (default=10)):  The number of informative features, i.e., the number of features used to build the linear model used to generate the output.
+        + `n_targets` (int, optional (default=1)): The number of regression targets, i.e., the dimension of the y output vector associated with a sample. By default, the output is a scalar.
+        + `bias` (float, optional (default=0.0)): The bias term in the underlying linear model.
+        + `effective_rank` (int or None, optional (default=None)): 
+            + if not None, the approximate number of singular vectors required to explain most of the input data by linear combinations. Using this kind of singular spectrum in the input allows the generator to reproduce the correlations often observed in practice.
+            + if None, the input set is well conditioned, centered and gaussian with unit variance.
+        + `tail_strength` (float between 0.0 and 1.0, optional (default=0.5)): The relative importance of the fat noisy tail of the singular values profile if `effective_rank` is not None.
+        + `noise` (float, optional (default=0.0)):  The standard deviation of the gaussian noise applied to the output.
+        + `shuffle` (boolean, optional (default=True)):  Shuffle the samples and the features.
+        + `coef` (boolean, optional (default=False)): If True, the coefficients of the underlying linear model are returned.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+    + Returns
+        + `X` (array of shape [n_samples, n_features]): The input samples.
+        + `y` (array of shape [n_samples] or [n_samples, n_targets]): The output values.
+        + `coef` (array of shape [n_features] or [n_features, n_targets], optional): The coefficient of the underlying linear model. It is returned only if coef is True.
+
++ `make_friedman1` function
+    + Signature: `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)`
+    + Docstring: Generate the "Friedman #1" regression problem <br/> This dataset is described in Friedman [1] and Breiman [2].
+    + Parameters
+        + `n_samples` (int, optional (default=100)):  The number of samples.
+        + `n_features` (int, optional (default=10)):  The number of features. Should be at least 5.
+        + `noise` (float, optional (default=0.0)):  The standard deviation of the gaussian noise applied to the output.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+    + Returns
+        + `X` (array of shape [n_samples, n_features]):  The input samples.
+        + `y` (array of shape [n_samples]): The output values.
+    + References
+        1. J. Friedman, "Multivariate adaptive regression splines", The Annals of Statistics 19 (1), pages 1-67, 1991.
+        2. L. Breiman, "Bagging predictors", Machine Learning 24, pages 123-140, 1996.
+
++ `load_breast_cancer` function
+    + Signature: `load_breast_cancer(return_X_y=False)`
+    + Docstring: Load and return the breast cancer wisconsin dataset (classification).
+    + Note: The breast cancer dataset is a classic and very easy binary classification dataset.
+    + Parameters: `return_X_y` (boolean, default=False): If True, returns ``(data, target)`` instead of a Bunch object.
+    + Returns:
+        + `data` (Bunch): Dictionary-like object, the interesting attributes are:
+            + 'data', the data to learn, 'target', the classification labels,
+            + 'target_names', the meaning of the labels, 'feature_names', the meaning of the features, and 'DESCR', the full description of the dataset.
+        + `(data, target)` (tuple if ``return_X_y`` is True)
+    + The copy of UCI ML Breast Cancer Wisconsin (Diagnostic) dataset is downloaded from: https://goo.gl/U2Uwz2
 
 ### Lecture Video
 

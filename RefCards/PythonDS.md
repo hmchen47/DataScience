@@ -485,14 +485,11 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 %matplotlib notebook                    # provides an interactive environment in Jupyter and IPuthon
 
 import matplotlib as mpl                # load module in CLI
-
 import matplotlib.pyplot as plt         # load pyplot module
-
 import matplotlib.gridspec as gridspec
-
 import mpl_toolkits.axes_grid1.inset_locator as mpl_il
-
 import matplotlib.animation as animation
+from matplotlib.colors import ListedColormap
 ```
 
 ### Classes
@@ -552,21 +549,21 @@ import matplotlib.animation as animation
 | `annotate(s, xy, *args, **kwargs)` | Annotate the point `xy` with text `s`<br/> `args`: xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None | [Animation][041] |
 | `animation.FuncAnimation(fig, func, *args)` | Makes an animation by repeatedly calling a function `func` <br/> `args`: frames=None, init_func=None, fargs=None, save_count=0, interval=200, repeat_delay=None, repeat=True, blit=False | [Animation][041] |
 | `mpl.connect(s, func)` | Connect event with string `s` to `func`.  The signature of `func` is `def func(event)` where event is a `matplotlib.backend_bases.Event` instance | [Interactivity][042] |
-| `plterrorbar(x, y, *args, **kwargs)` | Plot an errorbar graph. Plot x versus y with error deltas in `yerr` and `xerr`. Vertical errorbars are plotted if `yerr` is not None. Horizontal errorbars are plotted if `xerr` is not None.<br/> `*args`: yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None | [Assignment 3][043] |
-| `plt.colormaps()` | Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called. | [Assignment 3][043] |
-| `plt.imshow(X, *args, **kwargs)` | Display an image on the axes <br/> `*args`: cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None | [Assignment 3][043] |
-| `cm.to_rgba(x, alpha=None, bytes=False, norm=True)` | Return a normalized rgba array corresponding to *x* | [Assignment 3][043] |
-| `plt.twinx(ax=None)` | Make a second axes that shares the *x*-axis.  The new axes will overlay *ax* (or the current axes if *ax* is *None*).  The ticks for *ax2* will be  placed on the right, and the *ax2* instance is returned. | [Assignment 3][043] |
-| `get_legend_handles_labels( legend_handler_map=None)` | Return handles and labels for legend | [Assignment 3][043] |
-| `ax.set_zorder(level)` | Set the zorder for the artist.  Artists with lower zorder values are drawn first. | [Assignment 3][043] |
-| `ax.set_visible(b)` | Set the artist's visiblity. | [Assignment 3][043] |
-| `fig.tight_layout(renderer=None, pad=1.08, h_pad=None, w_pad=None, rect=None)` | Adjust subplot parameters to give specified padding. | [Assignment 3][043] |
-| `plt.show(*args, **kw)` | Display a figure. | [Assignment 3][043] |
+| `plterrorbar(x, y, *args, **kwargs)` | Plot an errorbar graph. Plot x versus y with error deltas in `yerr` and `xerr`. Vertical errorbars are plotted if `yerr` is not None. Horizontal errorbars are plotted if `xerr` is not None.<br/> `*args`: yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None | [Agmt 3][043] |
+| `plt.colormaps()` | Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called. | [Agmt 3][043] |
+| `plt.imshow(X, *args, **kwargs)` | Display an image on the axes <br/> `*args`: cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None | [Agmt 3][043] |
+| `cm.to_rgba(x, alpha=None, bytes=False, norm=True)` | Return a normalized rgba array corresponding to *x* | [Agmt 3][043] |
+| `plt.twinx(ax=None)` | Make a second axes that shares the *x*-axis.  The new axes will overlay *ax* (or the current axes if *ax* is *None*).  The ticks for *ax2* will be  placed on the right, and the *ax2* instance is returned. | [Agmt 3][043] |
+| `get_legend_handles_labels( legend_handler_map=None)` | Return handles and labels for legend | [Agmt 3][043] |
+| `ax.set_zorder(level)` | Set the zorder for the artist.  Artists with lower zorder values are drawn first. | [Agmt 3][043] |
+| `ax.set_visible(b)` | Set the artist's visiblity. | [Agmt 3][043] |
+| `fig.tight_layout(renderer=None, pad=1.08, h_pad=None, w_pad=None, rect=None)` | Adjust subplot parameters to give specified padding. | [Agmt 3][043] |
+| `plt.show(*args, **kw)` | Display a figure. | [Agmt 3][043] |
 | `plt,style.user(style)` | Use matplotlib style settings from a style specification. | [Plotting w/ Pandas][044] |
 | `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
 | `cm.get_cmap(name=None, lut=None)` | Get a colormap instance, defaulting to rc values if *name* is None. | [Exame Data][050] |
 | `savefig(fname, *kwargs*)` | Save the current figure.  | [Exame Data][050] |
-
+| `ListedColormap(colors, name='from_list', N=None)` | Colormap object generated from a list of colors | [Datasets][051] |
 
 
 ### Line style or marker
@@ -690,31 +687,6 @@ import seaborn as sns
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
 
-# Scikit-learn
-
-+ `scikit-learn`: Python Machine Learning Library
-    + [scikit-learn Homepage](http://scikit-learn.org/)
-    + [scikit-learn User Guide](http://scikit-learn.org/stable/user_guide.html)
-    + [scikit-learn API reference](http://scikit-learn.org/stable/modules/classes.html)
-
-
-```python
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-```
-
-## Method
-
-| API | Description | Link |
-|-----|-------------|------|
-| `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [ML Example][049] |
-| `KNeighborsClassifier(`<br/> `n_neighbors=5, weights='uniform',` <br/> `algorithm='auto', leaf_size=30,`<br/> `p=2, metric='minkowski',` <br/> `metric_params=None, n_jobs=1, **kwargs)` | Classifier implementing the k-nearest neighbors vote. | [KNN Calssifier][051] |
-| `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN Calssifier][051] |
-| `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN Calssifier][051] |
-| `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels. | [KNN Calssifier][051] |
-| `knn.predict(X)` | Predict the class labels for the provided data | [KNN Calssifier][051] |
-
 
 
 
@@ -763,7 +735,7 @@ from sklearn.neighbors import KNeighborsClassifier
 [040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#heatmaps
 [041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#animations
 [042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#interactivity
-[043]: ../AppliedDS-UMich/2-InfoVis/asgn03.md#related-methods-used
+[043]: ../AppliedDS-UMich/2-InfoVis/Assigment03.md#related-methods-used
 [044]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#plotting-with-pandas
 [045]: https://seaborn.pydata.org/api.html#api-ref
 [046]: https://seaborn.pydata.org/
@@ -771,7 +743,7 @@ from sklearn.neighbors import KNeighborsClassifier
 [048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
 [049]: ../AppliedDS-UMich/3-AML/01-FundML.ms#an-example-machine-learning-problem
 [050]: ../AppliedDS-UMich/3-AML/01-FundML.ms#examining-the-data
-[051]: ../AppliedDS-UMich/3-AML/01-FundML.ms#k---nearest-neighbors-classification
+[051]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
 [052]: 
 [053]: 
 [054]: 

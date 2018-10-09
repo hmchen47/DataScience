@@ -974,12 +974,22 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 + Library Import 
     ```python
-    from sklearn.preprocessing import MinMaxScaler
+    from sklearn.preprocessing import MinMaxScaler          # scaler
+    from sklearn.datasets import make_classification        # datasets
+    from sklearn.datasets import make_blobs
+    from sklearn.datasets import load_breast_cancer
+    from sklearn.datasets import make_regression
+    from sklearn.datasets import make_friedman1
     ```
 
 | Function | Description | Link |
 |----------|-------------|------|
-| 
+| `MinMaxScaler(feature_range=(0, 1), copy=True)` | Transforms features by scaling each feature to a given range | [Supervised ML][565] |
+| `scaler.fit_transform(X, y=None, **fit_params)` | Fit to data, then transform it | [Supervised ML][565] |
+| `scaler.transform(X)` | Scaling features of X according to feature_range | [Supervised ML][565] |
+| `make_classification(n_samples=100, n_features=20, *args)` | Generate a random n-class classification problem | [Datasets][566] |
+| `make_blobs(n_samples=100, n_features=2, *args)` | Generate isotropic Gaussian blobs for clustering | [Datasets][566] |
+| `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
 
 
 
@@ -999,12 +1009,12 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 + Library Import 
     ```python
-    from sklearn.neighbors import KNeighborsClassifier      # knn
+    from sklearn.neighbors import KNeighborsClassifier          # knn
     ```
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `KNeighborsClassifier (n_neighbors=5, **kwargs)` | Classifier implementing the k-nearest neighbors vote | [KNN][564] |
+| `knn = KNeighborsClassifier( n_neighbors=5, **kwargs)` | Classifier implementing the k-nearest neighbors vote | [KNN][564] |
 | `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN][564] |
 | `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [KNN][564] |
 | `knn.predict(X)` | Predict the class labels for the provided data | [KNN][564] |
@@ -1041,7 +1051,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 ------------------------------
 <!-- 
 [565]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#introduction-to-supervised-machine-learning
-[566]: 
+[566]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
 [567]: 
 [568]: 
 [569]: 
