@@ -19,7 +19,7 @@
 
 + Review of important terms
     + Feature representation, e.g. `mass`, `width`, `height`, `color_score`
-    + Data instances/samples/examples (X); i.e., rows, e.g. row(0) = `| 1 | 0 | 1 | apple | granny_smith | 192 | 8.4 | 7.3 | 0.55 |`, row(2) = `| 3 | 2 | 1 | apple | granny_smith | 176 | 7.4 | 7.2 | 0.60 |`; in Python `X` represent the set of features, e.g., row(0) = `| 192 | 8.4 | 7.3 | 0.55 |`
+    + Data instances/samples/examples (X); i.e., rows, e.g. <br/> row(0) = `| 1 | 0 | 1 | apple | granny_smith | 192 | 8.4 | 7.3 | 0.55 |`, <br/>row(2) = `| 3 | 2 | 1 | apple | granny_smith | 176 | 7.4 | 7.2 | 0.60 |`; <br/>in Python `X` represent the set of features, e.g., row(0) = `| 192 | 8.4 | 7.3 | 0.55 |`
     + Target value (y), e.g., label = `fruit_label`, `fruit_name` & `fruit_subtype`: only for labeling purpose as more readable for humans
     + Training and test sets: using `train_test_split` function from `sklearn.model_selection` module, default as $75\%:25\%$, e.g., `X_train, X_test, y_train, y_test = train_test_split(X_fruits, y_fruits, random_state=0)`
     + Model/Estimator
@@ -66,7 +66,6 @@
     + These represent two complementary approaches to supervised learning
         + K-nearest neighbors makes few assumptions about the structure of the data and gives potentially accurate but sometimes unstable predictions (sensitive to small changes in the training data)
         + Linear models make strong assumptions about structure of the data and give stable but potentially inaccurate predictions
-    
 
 + Supervised learning methods: Overview
     + To start with, we'll look at two simple but powerful prediction algorithms:
@@ -146,6 +145,41 @@
     # Accuracy of K-NN classifier on test set: 1.00
     # Predicted fruit type for  [[5.5, 2.2, 10, 0.7]]  is  mandarin
     ```
+
++ `MinMaxScaler` Class
+    + Init signature: `MinMaxScaler(feature_range=(0, 1), copy=True)`
+    + Docstring: Transforms features by scaling each feature to a given range. <br/> This estimator scales and translates each feature individually such that it is in the given range on the training set, i.e. between zero and one. <br/> The transformation is given by:
+        ```python
+        X_std = (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))
+        X_scaled = X_std * (max - min) + min
+        ```
+        where `min`, `max` = feature_range. <br/> This transformation is often used as an alternative to zero mean, unit variance scaling.
+    + Parameters
+        + `feature_range` (tuple (min, max), default=(0, 1)): Desired range of transformed data.
+        + `copy` (boolean, optional, default True): Set to False to perform inplace row normalization and avoid a copy (if the input is already a numpy array).
+    + Attributes
+        + `min_` (ndarray, shape (n_features,)): Per feature adjustment for minimum.
+        + `scale_` (ndarray, shape (n_features,)): Per feature relative scaling of the data.
+        + `data_min_` (ndarray, shape (n_features,)): Per feature minimum seen in the data
+        + `data_max_` (ndarray, shape (n_features,)): Per feature maximum seen in the data
+        + `data_range_` (ndarray, shape (n_features,)): Per feature range `(data_max_ - data_min_)` seen in the data
+
++ `scaler.fit_transform` method:
+    + Signature: `scaler.fit_transform(X, y=None, **fit_params)`
+    + Docstring: Fit to data, then transform it. <br/> Fits transformer to X and y with optional parameters fit_params and returns a transformed version of X.
+    + Parameters:
+        + `X` (numpy array of shape [n_samples, n_features]): Training set.
+        + `y` (numpy array of shape [n_samples]): Target values.
+    + Returns:
+        + `X_new` (numpy array of shape [n_samples, n_features_new]): Transformed array.
+
++ `scaler.transform` method:
+    + Signature: `scaler.transform(X)`
+    + Docstring: Scaling features of X according to feature_range.
+    + Parameters:
+        + `X` (array-like, shape [n_samples, n_features]): Input data that will be transformed.
+
+
 
 ### Lecture Video
 
