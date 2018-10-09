@@ -975,11 +975,6 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 + Library Import 
     ```python
     from sklearn.preprocessing import MinMaxScaler          # scaler
-    from sklearn.datasets import make_classification        # datasets
-    from sklearn.datasets import make_blobs
-    from sklearn.datasets import load_breast_cancer
-    from sklearn.datasets import make_regression
-    from sklearn.datasets import make_friedman1
     ```
 
 | Function | Description | Link |
@@ -987,9 +982,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `MinMaxScaler(feature_range=(0, 1), copy=True)` | Transforms features by scaling each feature to a given range | [Supervised ML][565] |
 | `scaler.fit_transform(X, y=None, **fit_params)` | Fit to data, then transform it | [Supervised ML][565] |
 | `scaler.transform(X)` | Scaling features of X according to feature_range | [Supervised ML][565] |
-| `make_classification(n_samples=100, n_features=20, *args)` | Generate a random n-class classification problem | [Datasets][566] |
-| `make_blobs(n_samples=100, n_features=2, *args)` | Generate isotropic Gaussian blobs for clustering | [Datasets][566] |
-| `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
+
 
 
 
@@ -1040,14 +1033,34 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 ## Clustering
 
-```python
++ Import Modules
+    ```python
 
-```
+    ```
 
 | Function | Description | Link |
 |----------|-------------|------|
 
 
+
+## Utilities and Datasets
+
++ Import Modules
+    ```python
+    from sklearn.datasets import make_classification        # datasets
+    from sklearn.datasets import make_blobs
+    from sklearn.datasets import make_regression
+    from sklearn.datasets import make_friedman1
+    from sklearn.datasets import load_breast_cancer
+    ```
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `make_classification(n_samples=100, n_features=20, *args)` | Generate a random n-class classification problem | [Datasets][566] |
+| `make_blobs(n_samples=100, n_features=2, *args)` | Generate isotropic Gaussian blobs for clustering | [Datasets][566] |
+| `make_regression(n_samples=100, n_features=100, *args)` | nerate a random regression problem | [Datasets][566] |
+| `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
+| `load_breast_cancer(return_X_y=False)` | Load and return the breast cancer wisconsin dataset (classification) | [Datasets][566] |
 
 
 
@@ -1056,7 +1069,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [565]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#introduction-to-supervised-machine-learning
 [566]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
 [567]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
-[568]: 
+[568]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-least-squares
 [569]: 
 [570]: 
 [571]: 

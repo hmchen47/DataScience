@@ -709,6 +709,46 @@
     # R-squared score (test): 0.496
     ```
 
++ `LinearRegression` Class
+    + Init signature: `LinearRegression(fit_intercept=True, normalize=False, copy_X=True, n_jobs=1)`
+    + Docstring: Ordinary least squares Linear Regression.
+    + Parameters
+        + `fit_intercept` (boolean, optional, default True): whether to calculate the intercept for this model. If set to False, no intercept will be used in calculations (e.g. data is expected to be already centered).
+        + `normalize` (boolean, optional, default False):  This parameter is ignored when ``fit_intercept`` is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm. If you wish to standardize, please use `sklearn.preprocessing.StandardScaler` before calling `fit` on an estimator with `normalize=False`.
+        + `copy_X` (boolean, optional, default True): If True, X will be copied; else, it may be overwritten.
+        + `n_jobs` (int, optional, default 1):  The number of jobs to use for the computation. If -1 all CPUs are used. This will only provide speedup for n_targets > 1 and sufficient large problems.
+    + Attributes
+        + `coef_` (array, shape (n_features, ) or (n_targets, n_features)):  Estimated coefficients for the linear regression problem. If multiple targets are passed during the fit (y 2D), this is a 2D array of shape (n_targets, n_features), while if only one target is passed, this is a 1D array of length n_features.
+        + `intercept_` (array):  Independent term in the linear model.
+    + Notes: From the implementation point of view, this is just plain Ordinary Least Squares (scipy.linalg.lstsq) wrapped as a predictor object.
+
++ `linreg.fit` method
+    + Signature: `linreg.fit(X, y, sample_weight=None)`
+    + Docstring: Fit linear model.
+    + Parameters
+        + `X` (numpy array or sparse matrix of shape [n_samples,n_features]):  Training data
+        + `y` (numpy array of shape [n_samples, n_targets]): Target values. Will be cast to X's dtype if necessary
+        + `sample_weight` (numpy array of shape [n_samples]):  Individual weights for each sample
+    + Returns: `self`: returns an instance of self
+
++ `linreg.predict` method
+    + Signature: `linreg.predict(X)`
+    + Docstring: Predict using the linear model
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = (n_samples, n_features)): Samples.
+    + Returns: `C` (array, shape = (n_samples,)): Returns predicted values.
+
++ `linreg.score` method
+    + Signature: `linreg.score(X, y, sample_weight=None)`
+    + Docstring: Returns the coefficient of determination $R^2$ of the prediction.
+    + Note: The coefficient $R^2$ is defined as $(1 - u/v)$, where $u$ is the residual sum of squares $\sum ((y - y_{pred})^2)$ and $v$ is the total sum of squares $\sum ((y - \bar{y})^2)$. <br/> The best possible score is $1.0$ and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a $R^2$ score of $0.0$.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)):  True values for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): $R^2$ of `self.predict(X)` wrt. y.
+
+
 
 ### Lecture Video
 
