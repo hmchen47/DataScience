@@ -162,9 +162,9 @@ import numpy as np
 |--------|-------------|------|
 | `np.array(object, ndmin=0)` | Create an array; `object`: array_like, `ndim`: minimum dimensions | [NumPy][005] |
 | `np.arange([start,] stop[, step,])` | Return evenly spaced values within a given interval | [NumPy][005] |
-| `np.reshape(ary, newshape, order='C')` | Gives a new shape to an array without changing its data. | [NumPy][005] |
+| `np.reshape(ary, newshape, order='C')` | Gives a new shape to an array without changing its data. | [NumPy][005]; [KNN Reg][052] |
 | `np.linspace(start, stop)` | Returns `num` evenly spaced samples, calculated over the interval [`start`, `stop`]. | [NumPy][005] |
-| `np.resize(ary, new_shape)` | Return a new array with the specified shape. | [NumPy][005] |
+| `np.resize(ary, new_shape)` | Return a new array with the specified shape. | [NumPy][005]; [KNN Reg][052] |
 | `np.ones(shape)` | Return a new array of given shape and type, filled with ones. | [NumPy][005] |
 | `np.zeros(shape)` | Return a new array of given shape and type, filled with zeros. | [NumPy][005] |
 | `np.eye(N)` | Return a 2-D array with ones on the diagonal and zeros elsewhere. `N`=number of rows | [NumPy][005] |
@@ -744,7 +744,7 @@ import seaborn as sns
 [049]: ../AppliedDS-UMich/3-AML/01-FundML.ms#an-example-machine-learning-problem
 [050]: ../AppliedDS-UMich/3-AML/01-FundML.ms#examining-the-data
 [051]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
-[052]: 
+[052]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
 [053]: 
 [054]: 
 [055]: 

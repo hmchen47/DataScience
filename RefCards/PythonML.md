@@ -1026,12 +1026,15 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 + Library Import 
     ```python
-    
+    from sklearn.neighbors import KNeighborsRegressor           # knnreg
     ```
 
 | Function | Description | Link |
 |----------|-------------|------|
-
+| `KNeighborsRegressor(n_neighbors=5, **kwargs)` | Regression based on k-nearest neighbors | [KNN][567] |
+| `knnreg.fit(X, y)` | Fit the model using X as training data and y as target values| [KNN][567] |
+| `knnreg.predict(X)` | Predict the target for the provided data | [KNN][567] |
+| `knnreg.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [KNN][567] |
 
 
 
@@ -1052,7 +1055,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 <!-- 
 [565]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#introduction-to-supervised-machine-learning
 [566]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
-[567]: 
+[567]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
 [568]: 
 [569]: 
 [570]: 

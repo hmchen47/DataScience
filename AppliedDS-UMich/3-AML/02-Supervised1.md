@@ -515,7 +515,7 @@
     + Model fitting
         + `metric`: distance function between data points: Default: Minkowski distance with power parameter p = 2 (Euclidean)
 
-    + Demo: Regression model complexity as a function of K¶
+    + Demo: Regression model complexity as a function of K
         ```python
         # plot k-NN regression on sample dataset for different values of K
         fig, subaxes = plt.subplots(1, 5, figsize=(20, 5))
@@ -536,8 +536,60 @@
             thisaxis.legend()
             plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
         ```
-        <img src="images/plt2-09.png" alt="Just as we did for classification, let's look at the connection between model complexity and generalization ability as measured by the r-squared training and test values on the simple regression dataset. The series of plots on the notebook shows how the KNN regression algorithm fits the data for k = 1, 3, 7, 15, and in an extreme case of k = 55. It represents almost half the training points. We can see the same pattern in model complexity for k and N regression that we saw for k and N classification. Namely, that small values of k give models with higher complexity. And large values of k result in simpler models with lower complexity. Starting on the left when k = 1, the regression model fits the training data perfectly with a r-squared score of 1.0. But it's very bad at predicting the target values for new data samples, as reflected in the r-squared test score of only 0.155. As the value of k increases, which we can see acts to smooth out these local variations to capture more of the global trend. Again the training set score drops, but the model gets better at generalizing to new data and the test score goes up as K increases. Finally in this series, the model with k = 15 has the best test set performance, with an r-squared score of 0.485. Increasing k much further however to k = 55, results in both the training and test set scores dropping back down to lower levels, as the model now starts to under-fit. In other words, it's too simple to do well, even on the training data. The pro's of the nearest neighbor approach are that it's simple and easy to understand why a particular prediction is made. A k-nearest neighbor approach can be a reasonable baseline against what you can compare more sophisticated methods. When the training data has many instances, or each instance has lots of features, this can really slow down the performance of a k-nearest neighbors model. So in general, if your data set has hundreds or thousands of features, you should consider alternatives to k-nearest neighbors models, especially if your data is sparse. Meaning that each instance has lots of features, but most of them are zero. 
-" title= "plot k-NN regression on sample dataset for different values of K" width="800">
+        <img src="images/plt2-09.png" alt="Just as we did for classification, let's look at the connection between model complexity and generalization ability as measured by the r-squared training and test values on the simple regression dataset. The series of plots on the notebook shows how the KNN regression algorithm fits the data for k = 1, 3, 7, 15, and in an extreme case of k = 55. It represents almost half the training points. We can see the same pattern in model complexity for k and N regression that we saw for k and N classification. Namely, that small values of k give models with higher complexity. And large values of k result in simpler models with lower complexity. Starting on the left when k = 1, the regression model fits the training data perfectly with a r-squared score of 1.0. But it's very bad at predicting the target values for new data samples, as reflected in the r-squared test score of only 0.155. As the value of k increases, which we can see acts to smooth out these local variations to capture more of the global trend. Again the training set score drops, but the model gets better at generalizing to new data and the test score goes up as K increases. Finally in this series, the model with k = 15 has the best test set performance, with an r-squared score of 0.485. Increasing k much further however to k = 55, results in both the training and test set scores dropping back down to lower levels, as the model now starts to under-fit. In other words, it's too simple to do well, even on the training data. The pro's of the nearest neighbor approach are that it's simple and easy to understand why a particular prediction is made. A k-nearest neighbor approach can be a reasonable baseline against what you can compare more sophisticated methods. When the training data has many instances, or each instance has lots of features, this can really slow down the performance of a k-nearest neighbors model. So in general, if your data set has hundreds or thousands of features, you should consider alternatives to k-nearest neighbors models, especially if your data is sparse. Meaning that each instance has lots of features, but most of them are zero. " title= "plot k-NN regression on sample dataset for different values of K" width="800">
+
++ `KNeighborsRegressor` Class:
+    + Init signature: `KNeighborsRegressor(n_neighbors=5, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=1, **kwargs)`
+    + Docstring: Regression based on k-nearest neighbors. <br/> The target is predicted by local interpolation of the targets associated of the nearest neighbors in the training set.
+    + Parameters
+        + `n_neighbors` (int, optional (default = 5)):  Number of neighbors to use by default for `kneighbors` queries.
+        + `weights` (str or callable): weight function used in prediction.  Possible values:
+            - 'uniform' : uniform weights.  All points in each neighborhood are weighted equally.
+            - 'distance' : weight points by the inverse of their distance. in this case, closer neighbors of a query point will have a greater influence than neighbors which are further away.
+            - [callable] : a user-defined function which accepts an array of distances, and returns an array of the same shape containing the weights.
+
+            Uniform weights are used by default.
+        + `algorithm` ({'auto', 'ball_tree', 'kd_tree', 'brute'}, optional): Algorithm used to compute the nearest neighbors:
+            - 'ball_tree' will use :class:`BallTree`
+            - 'kd_tree' will use :class:`KDTree`
+            - 'brute' will use a brute-force search.
+            - 'auto' will attempt to decide the most appropriate algorithm based on the values passed to :meth:`fit` method.
+
+            Note: fitting on sparse input will override the setting of this parameter, using brute force.
+        + `leaf_size` (int, optional (default = 30)):  Leaf size passed to BallTree or KDTree.  This can affect the speed of the construction and query, as well as the memory
+            required to store the tree.  The optimal value depends on the nature of the problem.
+        + `p` (integer, optional (default = 2)):  Power parameter for the Minkowski metric. When $p = 1$, this is equivalent to using manhattan_distance (l1), and euclidean_distance (l2) for $p = 2$. For arbitrary $p$, minkowski_distance (l_p) is used.
+        + `metric` (string or callable, default 'minkowski'): the distance metric to use for the tree.  The default metric is minkowski, and with p=2 is equivalent to the standard Euclidean metric. See the documentation of the DistanceMetric class for a list of available metrics.
+        + `metric_params` (dict, optional (default = None)):  Additional keyword arguments for the metric function.
+        + `n_jobs` (int, optional (default = 1)):  The number of parallel jobs to run for neighbors search.
+            + If `-1`, then the number of jobs is set to the number of CPU cores.
+            + Doesn't affect `fit` method.
+
++ `knnreg.fit` method
+    + Signature: `knnreg.fit(X, y)`
+    + Docstring: Fit the model using X as training data and y as target values
+    + Parameters
+        + `X` ({array-like, sparse matrix, BallTree, KDTree}):  Training data. If array or matrix, shape [n_samples, n_features], or [n_samples, n_samples] if metric='precomputed'.
+        + `y` ({array-like, sparse matrix}): Target values, array of float values, shape = [n_samples] or [n_samples, n_outputs]
+
++ `knnreg.predict` method
+    + Signature: `knnreg.predict(X)`
+    + Docstring: Predict the target for the provided data
+    + Parameters
+        + `X` (array-like, shape (n_query, n_features), or (n_query, n_indexed) if metric == 'precomputed'): Test samples.
+    + Returns
+        + `y` (array of int, shape = [n_samples] or [n_samples, n_outputs]): Target values
+
++ `knnreg.score` method
+    + Signature: `knnreg.score(X, y, sample_weight=None)`
+    + Docstring: Returns the coefficient of determination $R^2$ of the prediction.
+    + Note: The coefficient R^2 is defined as (1 - u/v), where $u$ is the residual sum of squares $\sum ((y_true - y_pred) ** 2)$ and $v$ is the total sum of squares $\sum ((y_true - y_true.mean()) ** 2)$. <br/>  The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a $R^2$ score of 0.0.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True values for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional):  Sample weights.
+    + Returns: `score` (float): $R^2$ of `self.predict(X)` wrt. `y`.
+
 
 
 ### Lecture Video 
