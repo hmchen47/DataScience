@@ -1558,6 +1558,128 @@
         + default = 1.0
 
 
++ `SVC` class
+    + Init signature: `SVC(C=1.0, kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape='ovr', random_state=None)`
+    + Docstring: C-Support Vector Classification.
+    + Note: The implementation is based on `libsvm`. The fit time complexity is more than quadratic with the number of samples which makes it hard to scale to dataset with more than a couple of 10000 samples. <br/> The multiclass support is handled according to a one-vs-one scheme. <br/> For details on the precise mathematical formulation of the provided kernel functions and how `gamma`, `coef0` and `degree` affect each other, see the corresponding section in the narrative documentation: `svm_kernels`.
+    + Parameters
+        + `C` (float, optional (default=1.0)): Penalty parameter C of the error term.
+        + `kernel` (string, optional (default='rbf')): Specifies the kernel type to be used in the algorithm. 
+            + One of 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed' or a callable.
+            + If none is given, 'rbf' will be used.
+            + If a callable is given it is used to pre-compute the kernel matrix from data matrices; that matrix should be an array of shape `(n_samples, n_samples)`.
+        + `degree` (int, optional (default=3)): Degree of the polynomial kernel function ('poly'). Ignored by all other kernels.
+        + `gamma` (float, optional (default='auto')): Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. If `gamma` is 'auto' then $1/n$_features will be used instead.
+        + `coef0` (float, optional (default=0.0)): Independent term in kernel function. It is only significant in 'poly' and 'sigmoid'.
+        + `probability` (boolean, optional (default=False)): Whether to enable probability estimates. This must be enabled prior to calling `fit`, and will slow down that method.
+        + `shrinking` (boolean, optional (default=True)): Whether to use the shrinking heuristic.
+        + `tol` (float, optional (default=1e-3)): Tolerance for stopping criterion.
+        + `cache_size` (float, optional): Specify the size of the kernel cache (in MB).
+        + `class_weight` ({dict, 'balanced'}, optional): Set the parameter `C` of class $i$ to `class_weight[i]*C` for SVC. If not given, all classes are supposed to have weight one. <br/> The "balanced" mode uses the values of y to automatically adjust weights inversely proportional to class frequencies in the input data as `n_samples / (n_classes * np.bincount(y))`
+        + `verbose` (bool, default: False):  Enable verbose output. Note that this setting takes advantage of a per-process runtime setting in libsvm that, if enabled, may not work properly in a multithreaded context.
+        + `max_iter` (int, optional (default=-1)): Hard limit on iterations within solver, or -1 for no limit.
+        + `decision_function_shape` ('ovo', 'ovr', default='ovr'): Whether to return a one-vs-rest ('ovr') decision function of shape (n_samples, n_classes) as all other classifiers, or the original one-vs-one ('ovo') decision function of libsvm which has shape $(n_{samples}, n_{classes} * (n_{classes} - 1) / 2)$.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): The seed of the pseudo random number generator to use when shuffling the data.  If int, random_state is the seed used by the random number generator; If RandomState instance, random_state is the random number generator; If None, the random number generator is the RandomState instance used by `np.random`.
+    + Attributes
+        + `support_` (array-like, shape = [n_SV]): Indices of support vectors.
+        + `support_vectors_` (array-like, shape = [n_SV, n_features]): Support vectors.
+        + `n_support_` (array-like, dtype=int32, shape = [n_class]): Number of support vectors for each class.
+        + `dual_coef_` (array, shape = [n_class-1, n_SV]):  Coefficients of the support vector in the decision function. For multiclass, coefficient for all 1-vs-1 classifiers. The layout of the coefficients in the multiclass case is somewhat non-trivial. See the section about multi-class classification in the SVM section of the User Guide for details.
+        + `coef_` (array, shape = [n_class-1, n_features]): Weights assigned to the features (coefficients in the primal problem). This is only available in the case of a linear kernel. <br/> `coef_` is a readonly property derived from `dual_coef_` and `support_vectors_`.
+        + `intercept_` (array, shape = [n_class * (n_class-1) / 2]): Constants in decision function.
+
+
++ `svc.fit` method
+    + Signature: `svc.fit(self, X, y, sample_weight=None)`
+    + Docstring: Fit the SVM model according to the given training data.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape (n_samples, n_features)): Training vectors, where n_samples is the number of samples and n_features is the number of features. For kernel="precomputed", the expected shape of X is (n_samples, n_samples).
+        + `y` (array-like, shape (n_samples,)): Target values (class labels in classification, real numbers in regression)
+        + `sample_weight` (array-like, shape (n_samples,)): Per-sample weights. Rescale C per sample. Higher weights force the classifier to put more emphasis on these points.
+    + Returns: `self` (object): Returns self.
+    + Notes
+        + If X and y are not C-ordered and contiguous arrays of np.float64 and X is not a scipy.sparse.csr_matrix, X and/or y may be copied.
+        + If X is a dense array, then the other methods will not support sparse matrices as input.
+
++ `svc.predict` method
+    + Signature: `svc.predict(self, X)`
+    + Docstring: Perform classification on samples in X.  For an one-class model, $+1$ or $-1$ is returned.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape (n_samples, n_features)): For kernel="precomputed", the expected shape of X is [n_samples_test, n_samples_train]
+    + Returns: `y_pred` (array, shape (n_samples,)): Class labels for samples in X.
+
++ `svc.score` method
+    + Signature: `svc.score(self, X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels.
+    + Note: In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters: 
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float):  Mean accuracy of `self.predict(X)` wrt. y.
+
+
++ `LinearSVC` class
+    + Init signature: `LinearSVC(penalty='l2', loss='squared_hinge', dual=True, tol=0.0001, C=1.0, multi_class='ovr', fit_intercept=True, intercept_scaling=1, class_weight=None, verbose=0, random_state=None, max_iter=1000)`
+    + Docstring: Linear Support Vector Classification.
+    + Note: Similar to SVC with parameter kernel='linear', but implemented in terms of `liblinear` rather than `libsvm`, so it has more flexibility in the choice of penalties and loss functions and should scale better to large numbers of samples. <br/>
+    This class supports both dense and sparse input and the multiclass support is handled according to a one-vs-the-rest scheme.
+    + Parameters
+        + `penalty` (string, 'l1' or 'l2' (default='l2')): Specifies the norm used in the penalization. The 'l2' penalty is the standard used in SVC. The 'l1' leads to `coef_` vectors that are sparse.
+        + `loss` (string, 'hinge' or 'squared_hinge' (default='squared_hinge')): Specifies the loss function. 'hinge' is the standard SVM loss (used e.g. by the SVC class) while 'squared_hinge' is the square of the hinge loss.
+        + `dual` (bool, (default=True)): Select the algorithm to either solve the dual or primal optimization problem. Prefer dual=False when n_samples > n_features.
+        + `tol` (float, optional (default=1e-4)): Tolerance for stopping criteria.
+        + `C` (float, optional (default=1.0)): Penalty parameter C of the error term.
+        + `multi_class` (string, 'ovr' or 'crammer_singer' (default='ovr')): Determines the multi-class strategy if `y` contains more than two classes.
+            + `"ovr"` trains n_classes one-vs-rest classifiers, while
+            + `"crammer_singer"` optimizes a joint objective over all classes.
+            
+            While `crammer_singer` is interesting from a theoretical perspective as it is consistent, it is seldom used in practice as it rarely leads to better accuracy and is more expensive to compute. If ``"crammer_singer"`` is chosen, the options loss, penalty and dual will be ignored.
+        + `fit_intercept` (boolean, optional (default=True)): Whether to calculate the intercept for this model. If set to false, no intercept will be used in calculations (i.e. data is expected to be already centered).
+        + `intercept_scaling` (float, optional (default=1)): When self.fit_intercept is True, instance vector x becomes `[x, self.intercept_scaling]`, i.e. a "synthetic" feature with constant value equals to intercept_scaling is appended to the instance vector. The intercept becomes intercept_scaling * synthetic feature weight <br/>         
+        Note! the synthetic feature weight is subject to l1/l2 regularization as all other features. To lessen the effect of regularization on synthetic feature weight (and therefore on the intercept) intercept_scaling has to be increased.
+        + `class_weight` ({dict, 'balanced'}, optional): Set the parameter C of class i to `class_weight[i]*C` for SVC. If not given, all classes are supposed to have weight one. <br/> The "balanced" mode uses the values of y to automatically adjust weights inversely proportional to class frequencies in the input data as `n_samples / (n_classes * np.bincount(y))`
+        + `verbose` (int, (default=0)): Enable verbose output. Note that this setting takes advantage of a per-process runtime setting in liblinear that, if enabled, may not work properly in a multithreaded context.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): The seed of the pseudo random number generator to use when shuffling the data.  
+            + If int, random_state is the seed used by the random number generator; 
+            + If RandomState instance, random_state is the random number generator; 
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + `max_iter` (int, (default=1000)): The maximum number of iterations to be run.
+    + Attributes
+        + `coef_` (array, shape = [n_features] if n_classes == 2 else [n_classes, n_features]): Weights assigned to the features (coefficients in the primal problem). This is only available in the case of a linear kernel. <br/>  `coef_` is a readonly property derived from `raw_coef_` that follows the internal memory layout of liblinear.
+        + `intercept_` (array, shape = [1] if n_classes == 2 else [n_classes]):  Constants in decision function.
+    + Notes: The underlying C implementation uses a random number generator to select features when fitting the model. It is thus not uncommon to have slightly different results for the same input data. If that happens, try with a smaller `tol` parameter. <br/>
+    The underlying implementation, liblinear, uses a sparse internal representation for the data that will incur a memory copy. <br/>
+    Predict output may not match that of standalone liblinear in certain cases. See `differences from liblinear <liblinear_differences>` in the narrative documentation.
+    
+
++ `linsvc.fit` method
+    + Signature: `linsvc.fit(self, X, y, sample_weight=None)`
+    + Docstring: Fit the model according to the given training data.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = [n_samples, n_features]):  Training vector, where n_samples in the number of samples and n_features is the number of features.
+        + `y` (array-like, shape = [n_samples]):  Target vector relative to X
+        + `sample_weight` (array-like, shape = [n_samples], optional): Array of weights that are assigned to individual samples. If not provided, then each sample is given unit weight.
+    + Returns: `self` (object): Returns self.
+
+
++ `linsvc.predict` method
+    + Signature: `linsvc.predict(self, X)`
+    + Docstring: Predict class labels for samples in X.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = [n_samples, n_features]):  Samples.
+    + Returns: `C` (array, shape = [n_samples]): Predicted class label per sample.
+
++ `linsvc.score` method
+    + Signature: `linsvc.score(self, X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels. <br/> In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): Mean accuracy of self.predict(X) wrt. y.
+
+
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/3thhjT6DEeeR4AqenwJvyA.processed/full/360p/index.mp4?Expires=1536364800&Signature=WQwyPHi2C1RMpNioL4xmscAFMLvoymVrEG3CeWUSUm6HTlCkOAKBgJgFcSA1ffjum~caEbRzIn-0YfRQye2hz~3-HAD9CH99Kx97DBd9c8PR2qDgUTgcV2Xnmialwy6nsdQcYIjtZgSmlNf9Blxvu-AH71E7~PhKbkDLWeORc7g_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Linear Classifiers: Support Vector Machines" target="_blank">

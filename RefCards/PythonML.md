@@ -1003,6 +1003,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 + Library Import 
     ```python
     from sklearn.neighbors import KNeighborsClassifier          # knn
+    from sklearn.svm import SVC                                 # svc
+    from sklearn.svm import LinearSVC                           # linsvc
     ```
 
 | Function | Description | Link |
@@ -1011,6 +1013,14 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN][564] |
 | `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [KNN][564] |
 | `knn.predict(X)` | Predict the class labels for the provided data | [KNN][564] |
+| `svc = SVC(C=1.0, kernel='rbf', *args)` | C-Support Vector Classification | [SVM][571] |
+| `svc.fit(self, X, y, sample_weight=None)` | Fit the SVM model according to the given training data  | [SVM][571] |
+| `svc.predict(self, X)` | Perform classification on samples in X.  For an one-class model, $+1$ or $-1$ is returned  | [SVM][571] |
+| `svc.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
+| `linsvc = LinearSVC(penalty='l2', *args)` | Linear Support Vector Classification  | [SVM][571] |
+| `linsvc.fit(self, X, y, sample_weight=None)` | Fit the model according to the given training data  | [SVM][571] |
+| `linsvc.predict(self, X)` | Predict class labels for samples in X  | [SVM][571] |
+| `linsvc.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
 
 
 
@@ -1094,7 +1104,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [568]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-least-squares
 [569]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-ridge-lasso-and-polynomial-regression
 [570]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#logistic-regression
-[571]: 
+[571]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-classifiers-support-vector-machines
 [572]: 
 [573]: 
 [574]: 
