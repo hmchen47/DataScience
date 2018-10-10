@@ -2046,7 +2046,61 @@
         <img src="images/plt2-21.png" alt="You can plot these results from validation curve as shown here to get an idea of how sensitive the performance of the model is to changes in the given parameter. The x axis corresponds to values of the parameter and the y axis gives the evaluation score, for example the accuracy of the classifier. Finally as a reminder, cross-validation is used to evaluate the model and not learn or tune a new model. " title= "Validation Curve Example" width="350">
 
 
-### LEcture Video
++ `cross_val_score` function
+    + Signature: `cross_val_score(estimator, X, y=None, groups=None, scoring=None, cv=None, n_jobs=1, verbose=0, fit_params=None, pre_dispatch='2*n_jobs')`
+    + Docstring: Evaluate a score by cross-validation
+    + Parameters
+        + `estimator` (estimator object implementing 'fit'): The object to use to fit the data.
+        + `X` (array-like): The data to fit. Can be for example a list, or an array.
+        + `y` (array-like, optional, default: None):  The target variable to try to predict in the case of supervised learning.
+        + `groups` (array-like, with shape (n_samples,), optional): Group labels for the samples used while splitting the dataset into train/test set.
+        + `scoring` (string, callable or None, optional, default: None):  A string (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)`.
+        + `cv` (int, cross-validation generator or an iterable, optional):  Determines the cross-validation splitting strategy. Possible inputs for cv are:
+            + None, to use the default 3-fold cross validation,
+            + integer, to specify the number of folds in a `(Stratified)KFold`,
+            + An object to be used as a cross-validation generator.
+            + An iterable yielding train, test splits.
+
+            For integer/None inputs, if the estimator is a classifier and `y` is either binary or multiclass, :class:`StratifiedKFold` is used. In all other cases, `KFold` is used. <br/>
+            Refer :ref:`User Guide <cross_validation>` for the various cross-validation strategies that can be used here.
+        + `n_jobs` (integer, optional):  The number of CPUs to use to do the computation. -1 means 'all CPUs'.
+        + `verbose` (integer, optional):  The verbosity level.
+        + `fit_params` (dict, optional): Parameters to pass to the fit method of the estimator.
+        + `pre_dispatch` (int, or string, optional): Controls the number of jobs that get dispatched during parallel execution. Reducing this number can be useful to avoid an explosion of memory consumption when more jobs get dispatched than CPUs can process. This parameter can be:
+            + None, in which case all the jobs are immediately created and spawned. Use this for lightweight and fast-running jobs, to avoid delays due to on-demand spawning of the jobs
+            + An int, giving the exact number of total jobs that are spawned
+            + A string, giving an expression as a function of n_jobs, as in '2*n_jobs'
+    + Returns: `scores` (array of float, shape=(len(list(cv)),)): Array of scores of the estimator for each run of the cross validation.
+
+
++ `validation_curve` function
+    + Signature: `validation_curve(estimator, X, y, param_name, param_range, groups=None, cv=None, scoring=None, n_jobs=1, pre_dispatch='all', verbose=0)`
+    + Docstring: Validation curve. Determine training and test scores for varying parameter values. <br/>
+        Compute scores for an estimator with different values of a specified parameter. This is similar to grid search with one parameter. However, this will also compute training scores and is merely a utility for plotting the results.
+    + Parameters
+        + `estimator` (object type that implements the "fit" and "predict" methods): An object of that type which is cloned for each validation.
+        + `X` (array-like, shape (n_samples, n_features)): Training vector, where n_samples is the number of samples and n_features is the number of features.
+        + `y` (array-like, shape (n_samples) or (n_samples, n_features), optional):  Target relative to X for classification or regression; None for unsupervised learning.
+        + `param_name` (string): Name of the parameter that will be varied.
+        + `param_range` (array-like, shape (n_values,)): The values of the parameter that will be evaluated.
+        + `groups` (array-like, with shape (n_samples,), optional): Group labels for the samples used while splitting the dataset into train/test set.
+        + `cv` (int, cross-validation generator or an iterable, optional):  Determines the cross-validation splitting strategy. Possible inputs for cv are:
+            + None, to use the default 3-fold cross validation,
+            + integer, to specify the number of folds in a `(Stratified)KFold`,
+            + An object to be used as a cross-validation generator.
+            + An iterable yielding train, test splits.
+
+            For integer/None inputs, if the estimator is a classifier and ``y`` is either binary or multiclass, :class:`StratifiedKFold` is used. In all other cases, :class:`KFold` is used. <br/> Refer :ref:`User Guide <cross_validation>` for the various cross-validation strategies that can be used here.
+        + `scoring` (string, callable or None, optional, default: None): A string (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)`.
+        + `n_jobs` (integer, optional): Number of jobs to run in parallel (default 1).
+        + `pre_dispatch` (integer or string, optional): Number of predispatched jobs for parallel execution (default is all). The option can reduce the allocated memory. The string can be an expression like '2*n_jobs'.
+        + `verbose` (integer, optional): Controls the verbosity: the higher, the more messages.
+    + Returns: 
+        + `train_scores` (array, shape (n_ticks, n_cv_folds)): Scores on training sets.
+        + `test_scores` (array, shape (n_ticks, n_cv_folds)): Scores on test set.
+
+
+### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/uHP16UGREeeR4AqenwJvyA.processed/full/360p/index.mp4?Expires=1536451200&Signature=JgcWFHJDdoYJKqb8s-G3Aclm4012Y~b0Xoqoren5qFhHLIOsq8u9W2f8Tf7cdsV9H5liu9RinW2Q-dRRUXeRJLXHo0Dgr6Fb-Ad6CoXlrd7UDwrSj6TOpZA5mcfQVNvWV8fFv-bXGLqx7FlJVcvkkkcXxrUJtWj5ieestVBVlzY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Cross-Validation" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 

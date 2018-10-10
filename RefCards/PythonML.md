@@ -991,11 +991,16 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 + Library Import 
     ```python
     from sklearn.model_selection import train_test_split
+    from sklearn.model_selection import cross_val_score
+    from sklearn.model_selection import validation_curve
     ```
 
 | Function | Description | Link |
 |----------|-------------|------|
 | `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [Example][563] |
+| `cross_val_score(estimator, X, *args)` | Evaluate a score by cross-validation | [Cross-Valiation][572] |
+| `validation_curve(estimator, X, y, param_name, param_range, *args*)` | Compute scores for an estimator with different values of a specified parameter | [Cross-Validation][572] |
+
 
 
 ## Classification
@@ -1005,6 +1010,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.neighbors import KNeighborsClassifier          # knn
     from sklearn.svm import SVC                                 # svc
     from sklearn.svm import LinearSVC                           # linsvc
+    from sklearn.tree import DecisionTreeClassifier             # dtclf
     ```
 
 | Function | Description | Link |
@@ -1084,6 +1090,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.datasets import make_regression
     from sklearn.datasets import make_friedman1
     from sklearn.datasets import load_breast_cancer
+    from sklearn.datasets import load_iris
     ```
 
 | Function | Description | Link |
@@ -1105,7 +1112,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [569]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-ridge-lasso-and-polynomial-regression
 [570]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#logistic-regression
 [571]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-classifiers-support-vector-machines
-[572]: 
+[572]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#cross-validation
 [573]: 
 [574]: 
 [575]: 
