@@ -1855,11 +1855,13 @@
 
 + Reminder: Using a scaler object: fit and transform methods
     ```python
-    from sklearn.preprocessingimport MinMaxScaler
+    from sklearn.preprocessing import MinMaxScaler
+
     scaler = MinMaxScaler()
     scaler.fit(X_train)
     X_train_scaled= scaler.transform(X_train)
     X_test_scaled= scaler.transform(X_test)
+
     clf= SVC().fit(X_train_scaled, y_train)
     accuracy = clf.score(X_test_scaled, y_test)
 
