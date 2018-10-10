@@ -1269,13 +1269,12 @@
     + Demo: Logistic regression for binary classification on fruits dataset using height, width features (positive class: apple, negative class: others) (below left)
         ```python
         from sklearn.linear_model import LogisticRegression
-        from adspy_shared_utilities import (
-        plot_class_regions_for_classifier_subplot)
+        from adspy_shared_utilities import (plot_class_regions_for_classifier_subplot)
 
         fig, subaxes = plt.subplots(1, 1, figsize=(7, 5))
         y_fruits_apple = y_fruits_2d == 1   # make into a binary problem: apples vs everything else
         X_train, X_test, y_train, y_test = (
-        train_test_split(X_fruits_2d.as_matrix(),
+            train_test_split(X_fruits_2d.as_matrix(),
                         y_fruits_apple.as_matrix(),
                         random_state = 0))
 
@@ -1315,8 +1314,8 @@
         fig, subaxes = plt.subplots(1, 1, figsize=(7, 5))
         clf = LogisticRegression().fit(X_train, y_train)
         title = 'Logistic regression, simple synthetic dataset C = {:.3f}'.format(1.0)
-        plot_class_regions_for_classifier_subplot(clf, X_train, y_train,
-                                                None, None, title, subaxes)
+        plot_class_regions_for_classifier_subplot(
+            clf, X_train, y_train, None, None, title, subaxes)
 
         print('Accuracy of Logistic regression classifier on training set: {:.2f}'
             .format(clf.score(X_train, y_train)))
@@ -1369,6 +1368,72 @@
     <a href="https://www.saedsayad.com/logistic_regression.htm">
         <br/><img src="https://www.saedsayad.com/images/LogReg_1.png" alt="Logistic regression predicts the probability of an outcome that can only have two values (i.e. a dichotomy). The prediction is based on the use of one or several predictors (numerical and categorical). A linear regression is not appropriate for predicting the value of a binary variable for two reasons: 1)A linear regression will predict values outside the acceptable range (e.g. predicting probabilities outside the range 0 to 1); 2) Since the dichotomous experiments can only have one of two possible values for each experiment, the residuals will not be normally distributed about the predicted line.  On the other hand, a logistic regression produces a logistic curve, which is limited to values between 0 and 1. Logistic regression is similar to a linear regression, but the curve is constructed using the natural logarithm of the “odds” of the target variable, rather than the probability. Moreover, the predictors do not have to be normally distributed or have equal variance in each group." title= "Logistic Regression" width="300">
     </a>
+
++ `LogisticRegression` Class
+    + Init signature: `LogisticRegression(penalty='l2', dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver='liblinear', max_iter=100, multi_class='ovr', verbose=0, warm_start=False, n_jobs=1)`
+    + Docstring: Logistic Regression (aka logit, MaxEnt) classifier.
+    + Note: In the multiclass case, the training algorithm uses the one-vs-rest (OvR) scheme if the 'multi_class' option is set to 'ovr', and uses the cross- entropy loss if the 'multi_class' option is set to 'multinomial'. (Currently the 'multinomial' option is supported only by the 'lbfgs', 'sag' and 'newton-cg' solvers.)  <br/>
+    This class implements regularized logistic regression using the 'liblinear' library, 'newton-cg', 'sag' and 'lbfgs' solvers. It can handle both dense and sparse input. Use C-ordered arrays or CSR matrices containing 64-bit floats for optimal performance; any other input format will be converted (and copied). <br/>
+    The 'newton-cg', 'sag', and 'lbfgs' solvers support only L2 regularization with primal formulation. The 'liblinear' solver supports both L1 and L2 regularization, with a dual formulation only for the L2 penalty.
+    + Parameters
+        + `penalty` (str, 'l1' or 'l2', default: 'l2'): Used to specify the norm used in the penalization. The 'newton-cg', 'sag' and 'lbfgs' solvers support only l2 penalties.
+        + `dual` (bool, default: False): Dual or primal formulation. Dual formulation is only implemented for l2 penalty with liblinear solver. Prefer dual=False when n_samples > n_features.
+        + `tol` (float, default: 1e-4): Tolerance for stopping criteria.
+        + `C` (float, default: 1.0): Inverse of regularization strength; must be a positive float. Like in support vector machines, smaller values specify stronger regularization.
+        + `fit_intercept` (bool, default: True): Specifies if a constant (a.k.a. bias or intercept) should be added to the decision function.
+        + `intercept_scaling` (float, default 1.): Useful only when the solver 'liblinear' is used and self.fit_intercept is set to True. In this case, x becomes [x, self.intercept_scaling], i.e. a "synthetic" feature with constant value equal to intercept_scaling is appended to the instance vector. The intercept becomes `intercept_scaling * synthetic_feature_weight`. <br/>   Note! the synthetic feature weight is subject to l1/l2 regularization as all other features. <br/> To lessen the effect of regularization on synthetic feature weight (and therefore on the intercept) intercept_scaling has to be increased.
+        + `class_weight` (dict or 'balanced', default: None):  Weights associated with classes in the form `{class_label: weight}`. If not given, all classes are supposed to have weight one. <br/> The "balanced" mode uses the values of y to automatically adjust weights inversely proportional to class frequencies in the input data as `n_samples / (n_classes * np.bincount(y))`. <br/>     Note that these weights will be multiplied with sample_weight (passed through the fit method) if sample_weight is specified.
+        + `random_state` (int, RandomState instance or None, optional, default: None): The seed of the pseudo random number generator to use when shuffling the data.  
+            + If int, random_state is the seed used by the random number generator; 
+            + If RandomState instance, random_state is the random number generator; 
+            + If None, the random number generator is the RandomState instance used by `np.random`. Used when `solver` == 'sag' or 'liblinear'.
+        + `solver` ({'newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga'} default: 'liblinear'): Algorithm to use in the optimization problem. <br/>  
+            - For small datasets, 'liblinear' is a good choice, whereas 'sag' and 'saga' are faster for large ones.
+            - For multiclass problems, only 'newton-cg', 'sag', 'saga' and 'lbfgs' handle multinomial loss; 'liblinear' is limited to one-versus-rest schemes.
+            - 'newton-cg', 'lbfgs' and 'sag' only handle L2 penalty, whereas 'liblinear' and 'saga' handle L1 penalty.
+
+            Note that 'sag' and 'saga' fast convergence is only guaranteed on features with approximately the same scale. You can preprocess the data with a scaler from sklearn.preprocessing.
+        + `max_iter` (int, default: 100):  Useful only for the newton-cg, sag and lbfgs solvers. Maximum number of iterations taken for the solvers to converge.
+        + `multi_class` (str, {'ovr', 'multinomial'}, default: 'ovr'): Multiclass option can be either 'ovr' or 'multinomial'. If the option chosen is 'ovr', then a binary problem is fit for each label. Else the loss minimised is the multinomial loss fit across the entire probability distribution. Does not work for liblinear solver.
+        + `verbose` (int, default: 0): For the liblinear and lbfgs solvers set verbose to any positive number for verbosity.
+        + `warm_start` (bool, default: False): When set to True, reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution. Useless for liblinear solver.
+        + `n_jobs` (int, default: 1): Number of CPU cores used when parallelizing over classes if multi_class='ovr'". This parameter is ignored when the ``solver``is set to 'liblinear' regardless of whether 'multi_class' is specified or not. If given a value of -1, all cores are used.
+    + Attributes
+        + `coef_` (array, shape (1, n_features) or (n_classes, n_features)): Coefficient of the features in the decision function. `coef_` is of shape (1, n_features) when the given problem is binary.
+        + `intercept_` (array, shape (1,) or (n_classes,)): Intercept (a.k.a. bias) added to the decision function. If `fit_intercept` is set to False, the intercept is set to zero. `intercept_` is of shape(1,) when the problem is binary.
+        + `n_iter_` (array, shape (n_classes,) or (1, )):  Actual number of iterations for all classes. If binary or multinomial, it returns only 1 element. For liblinear solver, only the maximum number of iteration across all classes is given.
+    + Notes: The underlying C implementation uses a random number generator to select features when fitting the model. It is thus not uncommon, to have slightly different results for the same input data. If that happens, try with a smaller tol parameter. <br/> Predict output may not match that of standalone liblinear in certain cases. See `differences from liblinear <liblinear_differences>` in the narrative documentation.
+    + References
+        + LIBLINEAR -- [A Library for Large Linear Classification](http://www.csie.ntu.edu.tw/~cjlin/liblinear/)
+        + SAG -- [Mark Schmidt, Nicolas Le Roux, and Francis Bach Minimizing Finite Sums with the Stochastic Average Gradient](https://hal.inria.fr/hal-00860051/document)
+        + SAGA -- Defazio, A., Bach F. & Lacoste-Julien S. (2014). [SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives](    https://arxiv.org/abs/1407.0202)
+        + Hsiang-Fu Yu, Fang-Lan Huang, Chih-Jen Lin (2011). [Dual coordinate descent methods for logistic regression and maximum entropy models.](http://www.csie.ntu.edu.tw/~cjlin/papers/maxent_dual.pdf) Machine Learning 85(1-2):41-75.
+
++ `logreg.fit` method
+    + Signature: `logreg.LogisticRegression.fit(self, X, y, sample_weight=None)`
+    + Docstring: Fit the model according to the given training data.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape (n_samples, n_features)): Training vector, where n_samples is the number of samples and n_features is the number of features.
+        + `y` (array-like, shape (n_samples,)):  Target vector relative to X.
+        + `sample_weight` (array-like, shape (n_samples,) optional):  Array of weights that are assigned to individual samples. If not provided, then each sample is given unit weight.
+    + Returns: `self` (object): Returns self.
+
++ `logreg.predict` method
+    + Signature: `logreg.predict(self, X)`
+    + Docstring: Predict class labels for samples in X.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = [n_samples, n_features]):  Samples.
+    + Returns: `C` (array, shape = [n_samples]): Predicted class label per sample.
+
++ `logreg.score` method
+    + Signature: `logreg.score(self, X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels.
+    + Note: In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)):  True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float):  Mean accuracy of `self.predict(X)` wrt. y.
 
 
 ### Lecture Video

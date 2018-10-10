@@ -1024,6 +1024,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.linear_model import Ridge                      # linridge
     from sklearn.linear_model import Lasso                      # linlasso
     from sklearn.preprocessing import PolynomialFeatures        # poly
+    from sklearn.linear_model import LogisticRegression         # logreg
     ```
 
 | Function | Description | Link |
@@ -1046,7 +1047,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `linlasso.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [Lasso][569] |
 | `poly = PolynomialFeatures(degree=2, *args)` | Generate polynomial and interaction features | [Poly][569] |
 | `poly.fit_transform(X, y=None, **fit_params)` | Fit to data, then transform it. | [Poly][569] |
-
+| `logreg = LogisticRegression(penalty='l2', dual=False, tol=0.0001, C=1.0. *args)` | Logistic Regression (aka logit, MaxEnt) classifier | [Logistic][570] |
+| `logreg.LogisticRegression.fit(self, X, y, sample_weight=None)` | Fit the model according to the given training data | [Logistic][570] |
+| `logreg.predict(self, X)` | Predict class labels for samples in X | [Logistic][570] |
+| `logreg.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Logistic][570] |
 
 
 ## Clustering
@@ -1089,7 +1093,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [567]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
 [568]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-least-squares
 [569]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-ridge-lasso-and-polynomial-regression
-[570]: 
+[570]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#logistic-regression
 [571]: 
 [572]: 
 [573]: 
