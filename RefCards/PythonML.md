@@ -1007,7 +1007,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `knn = KNeighborsClassifier( n_neighbors=5, **kwargs)` | Classifier implementing the k-nearest neighbors vote | [KNN][564] |
+| `knn = KNeighborsClassifier(n_neighbors=5, **kwargs)` | Classifier implementing the k-nearest neighbors vote | [KNN][564] |
 | `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN][564] |
 | `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [KNN][564] |
 | `knn.predict(X)` | Predict the class labels for the provided data | [KNN][564] |
@@ -1020,14 +1020,32 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 + Library Import 
     ```python
     from sklearn.neighbors import KNeighborsRegressor           # knnreg
+    from sklearn.linear_model import LinearRegression           # linreg
+    from sklearn.linear_model import Ridge                      # linridge
+    from sklearn.linear_model import Lasso                      # linlasso
+    from sklearn.preprocessing import PolynomialFeatures        # poly
     ```
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `KNeighborsRegressor(n_neighbors=5, **kwargs)` | Regression based on k-nearest neighbors | [KNN][567] |
+| `knnreg = KNeighborsRegressor(n_neighbors=5, *args)` | Regression based on k-nearest neighbors | [KNN][567] |
 | `knnreg.fit(X, y)` | Fit the model using X as training data and y as target values| [KNN][567] |
 | `knnreg.predict(X)` | Predict the target for the provided data | [KNN][567] |
 | `knnreg.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [KNN][567] |
+| `linreg = LinearRegression(fit_intercept=True, *args)` | Ordinary least squares Linear Regression | [Least Square][568] |
+| `linreg.fit(X, y, sample_weight=None)` | Fit linear model | [Least Square][568] |
+| `linreg.predict(X)` | Predict using the linear model | [Least Square][568] |
+| `linreg.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [Least Square][568] |
+| `linridge = Ridge(alpha=1.0, *args*)` | Linear least squares with l2 regularization | [Ridge][569] |
+| `linridge.fit(X, y, sample_weight=None)` | Fit Ridge regression model | [Ridge][569] |
+| `linridge.predict(X)` | Predict using the linear model | [Ridge][569] |
+| `linridge.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [Ridge][569] |
+| `linlasso = Lasso(alpha=1.0, *args*)` | Linear Model trained with L1 prior as regularizer | [Lasso][569] |
+| `linlasso.fit(X, y, check_input=True)` | Fit model with coordinate descent | [Lasso][569] |
+| `linlasso.predict(X)` | Predict using the linear model | [Lasso][569] |
+| `linlasso.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [Lasso][569] |
+| `poly = PolynomialFeatures(degree=2, *args)` | Generate polynomial and interaction features | [Poly][569] |
+| `poly.fit_transform(X, y=None, **fit_params)` | Fit to data, then transform it. | [Poly][569] |
 
 
 
@@ -1070,7 +1088,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [566]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
 [567]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
 [568]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-least-squares
-[569]: 
+[569]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-ridge-lasso-and-polynomial-regression
 [570]: 
 [571]: 
 [572]: 

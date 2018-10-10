@@ -796,6 +796,7 @@
         # Number of non-zero features: 88
         ```
 
+
 + The Need for Feature Normalization
     + Important for some machine learning methods that all features are on the same scale (e.g. faster convergence in learning, more uniform or 'fair' influence for all weights)
         + e.g. regularized regression, k-NN, support vector machines, neural networks, …
@@ -862,34 +863,34 @@
     + Do not fit the scaler using any part of the test data: referencing the test data can lead to a form of _data leakage_. More on this issue later in the course.
 
 
-+ Demo: Ridge regression with regularization parameter - alpha
++ Demo: Ridge regression with regularization parameter - __alpha__
     ```python
-        print('Ridge regression: effect of alpha regularization parameter\n')
-        for this_alpha in [0, 1, 10, 20, 50, 100, 1000]:
-            linridge = Ridge(alpha = this_alpha).fit(X_train_scaled, y_train)
-            r2_train = linridge.score(X_train_scaled, y_train)
-            r2_test = linridge.score(X_test_scaled, y_test)
-            num_coeff_bigger = np.sum(abs(linridge.coef_) > 1.0)
-            print('Alpha = {:.2f}\n  num abs(coeff) > 1.0: {}, \
-                r-squared training: {:.2f}, r-squared test: {:.2f}'
-                .format(this_alpha, num_coeff_bigger, r2_train, r2_test))
+    print('Ridge regression: effect of alpha regularization parameter\n')
+    for this_alpha in [0, 1, 10, 20, 50, 100, 1000]:
+        linridge = Ridge(alpha = this_alpha).fit(X_train_scaled, y_train)
+        r2_train = linridge.score(X_train_scaled, y_train)
+        r2_test = linridge.score(X_test_scaled, y_test)
+        num_coeff_bigger = np.sum(abs(linridge.coef_) > 1.0)
+        print('Alpha = {:.2f}\n  num abs(coeff) > 1.0: {}, \
+            r-squared training: {:.2f}, r-squared test: {:.2f}'
+            .format(this_alpha, num_coeff_bigger, r2_train, r2_test))
 
-        # Ridge regression: effect of alpha regularization parameter
-        # 
-        # Alpha = 0.00
-        #   num abs(coeff) > 1.0: 88, r-squared training: 0.67, r-squared test: 0.50
-        # Alpha = 1.00
-        #   num abs(coeff) > 1.0: 87, r-squared training: 0.66, r-squared test: 0.56
-        # Alpha = 10.00
-        #   num abs(coeff) > 1.0: 87, r-squared training: 0.63, r-squared test: 0.59
-        # Alpha = 20.00
-        #   num abs(coeff) > 1.0: 88, r-squared training: 0.61, r-squared test: 0.60
-        # Alpha = 50.00
-        #   num abs(coeff) > 1.0: 86, r-squared training: 0.58, r-squared test: 0.58
-        # Alpha = 100.00
-        #   num abs(coeff) > 1.0: 87, r-squared training: 0.55, r-squared test: 0.55
-        # Alpha = 1000.00
-        #   num abs(coeff) > 1.0: 84, r-squared training: 0.31, r-squared test: 0.30
+    # Ridge regression: effect of alpha regularization parameter
+    # 
+    # Alpha = 0.00
+    #   num abs(coeff) > 1.0: 88, r-squared training: 0.67, r-squared test: 0.50
+    # Alpha = 1.00
+    #   num abs(coeff) > 1.0: 87, r-squared training: 0.66, r-squared test: 0.56
+    # Alpha = 10.00
+    #   num abs(coeff) > 1.0: 87, r-squared training: 0.63, r-squared test: 0.59
+    # Alpha = 20.00
+    #   num abs(coeff) > 1.0: 88, r-squared training: 0.61, r-squared test: 0.60
+    # Alpha = 50.00
+    #   num abs(coeff) > 1.0: 86, r-squared training: 0.58, r-squared test: 0.58
+    # Alpha = 100.00
+    #   num abs(coeff) > 1.0: 87, r-squared training: 0.55, r-squared test: 0.55
+    # Alpha = 1000.00
+    #   num abs(coeff) > 1.0: 84, r-squared training: 0.31, r-squared test: 0.30
     ```
 
 + Lasso regression is another form of regularized linear regression that uses an L1 regularization penalty for training (instead of ridge's L2 penalty)
@@ -946,7 +947,7 @@
         #  | PctSameCity85, 5.198
         ```
 
-+ Demo: Lasso regression with regularization parameter - alpha
++ Demo: Lasso regression with regularization parameter - __alpha__
     ```python
     print('Lasso regression: effect of alpha regularization\n\
     parameter on number of features kept in final model\n')
@@ -957,8 +958,8 @@
         r2_test = linlasso.score(X_test_scaled, y_test)
         
         print('Alpha = {:.2f}\n  Features kept: {}, r-squared training: {:.2f}, \
-    r-squared test: {:.2f}'
-             .format(alpha, np.sum(linlasso.coef_ != 0), r2_train, r2_test))
+            r-squared test: {:.2f}'
+            .format(alpha, np.sum(linlasso.coef_ != 0), r2_train, r2_test))
     # Lasso regression: effect of alpha regularization
     # parameter on number of features kept in final model
     # 
@@ -978,7 +979,6 @@
     #   Features kept: 2, r-squared training: 0.51, r-squared test: 0.50
     # Alpha = 50.00
     #   Features kept: 1, r-squared training: 0.31, r-squared test: 0.30
-    ```
 
 + Lasso Regression on the Communities and Crime Dataset
     + For alpha = $2.0$, $20$ out of $88$ features have non-zero weight.
@@ -1030,7 +1030,7 @@
     print('R-squared score (test): {:.3f}'.format(linreg.score(X_test, y_test)))
 
     print('\nNow we transform the original input data to add\n\
-    polynomial features up to degree 2 (quadratic)\n')
+        polynomial features up to degree 2 (quadratic)\n')
     poly = PolynomialFeatures(degree=2)
     X_F1_poly = poly.fit_transform(X_F1)
 
@@ -1043,9 +1043,9 @@
     print('(poly deg 2) R-squared score (test): {:.3f}\n'.format(linreg.score(X_test, y_test)))
 
     print('\nAddition of many polynomial features often leads to\n\
-    overfitting, so we often use polynomial features in combination\n\
-    with regression that has a regularization penalty, like ridge\n\
-    regression.\n')
+        overfitting, so we often use polynomial features in combination\n\
+        with regression that has a regularization penalty, like ridge\n\
+        regression.\n')
 
     X_train, X_test, y_train, y_test = train_test_split(X_F1_poly, y_F1, random_state = 0)
     linreg = Ridge().fit(X_train, y_train)
@@ -1086,6 +1086,141 @@
     # (poly deg 2 + ridge) R-squared score (training): 0.826
     # (poly deg 2 + ridge) R-squared score (test): 0.825
     ```
+
++ `Ridge` Class
+    + Init signature: `Ridge(alpha=1.0, fit_intercept=True, normalize=False, copy_X=True, max_iter=None, tol=0.001, solver='auto', random_state=None)`
+    + Docstring: Linear least squares with l2 regularization.
+    + Note: This model solves a regression model where the loss function is the linear least squares function and regularization is given by the l2-norm. Also known as Ridge Regression or Tikhonov regularization. This estimator has built-in support for multi-variate regression (i.e., when y is a 2d-array of shape [n_samples, n_targets]).
+    + Parameters
+        + `alpha` ({float, array-like}, shape (n_targets)): Regularization strength; must be a positive float. Regularization improves the conditioning of the problem and reduces the variance of the estimates. Larger values specify stronger regularization. Alpha corresponds to $C^{-1}$ in other linear models such as `LogisticRegression` or `LinearSVC`. If an array is passed, penalties are assumed to be specific to the targets. Hence they must correspond in number.
+        + `fit_intercept` (boolean):  Whether to calculate the intercept for this model. If set to false, no intercept will be used in calculations (e.g. data is expected to be already centered).
+        + `normalize` (boolean, optional, default False):  This parameter is ignored when `fit_intercept` is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm. If you wish to standardize, please use `sklearn.preprocessing.StandardScaler` before calling `fit` on an estimator with `normalize=False`.
+        + `copy_X` (boolean, optional, default True): If True, X will be copied; else, it may be overwritten.
+        + `max_iter` (int, optional):  Maximum number of iterations for conjugate gradient solver. For 'sparse_cg' and 'lsqr' solvers, the default value is determined by scipy.sparse.linalg. For 'sag' solver, the default value is 1000.
+        + `tol` (float):  Precision of the solution.
+        + `solver` ({'auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'}): Solver to use in the computational routines:
+            - 'auto' chooses the solver automatically based on the type of data.
+            - 'svd' uses a Singular Value Decomposition of X to compute the Ridge coefficients. More stable for singular matrices than 'cholesky'.
+            - 'cholesky' uses the standard scipy.linalg.solve function to obtain a closed-form solution.
+            - 'sparse_cg' uses the conjugate gradient solver as found in scipy.sparse.linalg.cg. As an iterative algorithm, this solver is more appropriate than 'cholesky' for large-scale data (possibility to set `tol` and `max_iter`).
+            - 'lsqr' uses the dedicated regularized least-squares routine scipy.sparse.linalg.lsqr. It is the fastest but may not be available in old scipy versions. It also uses an iterative procedure.
+            - 'sag' uses a Stochastic Average Gradient descent, and 'saga' uses its improved, unbiased version named SAGA. Both methods also use an iterative procedure, and are often faster than other solvers when both n_samples and n_features are large. Note that 'sag' and 'saga' fast convergence is only guaranteed on features with approximately the same scale. You can preprocess the data with a scaler from sklearn.preprocessing.
+
+            All last five solvers support both dense and sparse data. However, only 'sag' and 'saga' supports sparse input when `fit_intercept` is True.
+        + `random_state` (int, RandomState instance or None, optional, default None):  The seed of the pseudo random number generator to use when shuffling the data.  
+            + If int, random_state is the seed used by the random number generator; 
+            + If RandomState instance, random_state is the random number generator; 
+            + If None, the random number generator is the RandomState instance used by `np.random`. Used when `solver` == 'sag'.
+    + Attributes
+        + `coef_` (array, shape (n_features,) or (n_targets, n_features)): Weight vector(s).
+        + `intercept_` (float | array, shape = (n_targets,)):  Independent term in decision function. Set to 0.0 if `fit_intercept = False`.
+        + `n_iter_` (array or None, shape (n_targets,)): Actual number of iterations for each target. Available only for sag and lsqr solvers. Other solvers will return None.
+
++ `linridge.fit` method
+    + Signature: `linridge.fit(X, y, sample_weight=None)`
+    + Docstring: Fit Ridge regression model
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = [n_samples, n_features]): Training data
+        + `y` (array-like, shape = [n_samples] or [n_samples, n_targets]): Target values
+        + `sample_weight` (float or numpy array of shape [n_samples]): Individual weights for each sample
+    + Returns: `self`: returns an instance of self.
+
++ `linridge.predict` method
+    + Signature: `linridge.predict(X)`
+    + Docstring: Predict using the linear model
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = (n_samples, n_features)): Samples.
+    + Returns: `C` (array, shape = (n_samples,)): Returns predicted values.
+
++ `linridge.score` method
+    + Signature: `linridge.score(X, y, sample_weight=None)`
+    + Docstring: Returns the coefficient of determination $R^2$ of the prediction.
+    + Note: The coefficient $R^2$ is defined as $(1 - u/v)$, where $u$ is the residual sum of squares $\sum ((y - y_{pred})^2)$ and $v$ is the total sum of squares $\sum ((y - \bar{y})^2)$. The best possible score is $1.0$ and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a $R^2$ score of $0.0$.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True values for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): $R^2$ of `self.predict(X)` wrt. y.
+
+
++ `linlasso` Class
+    + Init signature: `Lasso(alpha=1.0, fit_intercept=True, normalize=False, precompute=False, copy_X=True, max_iter=1000, tol=0.0001, warm_start=False, positive=False, random_state=None, selection='cyclic')`
+    + Docstring: Linear Model trained with L1 prior as regularizer (aka the Lasso)
+    + Note: The optimization objective for Lasso is
+
+        $$(1 / (2 * \text{n_samples})) * |y - X_w|^2 + \alpha * |w|$$
+
+        Technically the Lasso model is optimizing the same objective function as the Elastic Net with `l1_ratio=1.0` (no L2 penalty).
+    + Parameters
+        + `alpha` (float, optional): Constant that multiplies the L1 term. Defaults to $1.0$. `alpha = 0` is equivalent to an ordinary least square, solved by the `LinearRegression` object. For numerical reasons, using ``alpha = 0`` with the `Lasso` object is not advised. Given this, you should use the `LinearRegression` object.
+        + `fit_intercept` (boolean): whether to calculate the intercept for this model. If set to false, no intercept will be used in calculations (e.g. data is expected to be already centered).
+        + `normalize` (boolean, optional, default False):  This parameter is ignored when `fit_intercept` is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm. If you wish to standardize, please use `sklearn.preprocessing.StandardScaler` before calling `fit` on an estimator with `normalize=False`.
+        + `precompute` (True | False | array-like, default=False):  Whether to use a precomputed Gram matrix to speed up calculations. If set to `'auto'` let us decide. The Gram matrix can also be passed as argument. For sparse input this option is always `True` to preserve sparsity.
+        + `copy_X` (boolean, optional, default True): If `True`, X will be copied; else, it may be overwritten.
+        + `max_iter` (int, optional): The maximum number of iterations
+        + `tol` (float, optional):  The tolerance for the optimization: if the updates are smaller than `tol`, the optimization code checks the dual gap for optimality and continues until it is smaller than `tol`.
+        + `warm_start` (bool, optional): When set to True, reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution.
+        + `positive` (bool, optional): When set to ``True``, forces the coefficients to be positive.
+        + `random_state` (int, RandomState instance or None, optional, default None): The seed of the pseudo random number generator that selects a random feature to update.  
+            + If int, random_state is the seed used by the random number generator; 
+            + If RandomState instance, random_state is the random number generator; 
+            + If None, the random number generator is the RandomState instance used by `np.random`. Used when `selection` == 'random'.
+        + `selection` (str, default 'cyclic'): If set to 'random', a random coefficient is updated every iteration rather than looping over features sequentially by default. This (setting to 'random') often leads to significantly faster convergence especially when tol is higher than $1e-4$.
+    + Attributes
+        + `coef_` (array, shape (n_features,) | (n_targets, n_features)): parameter vector (w in the cost function formula)
+        + `sparse_coef_` (scipy.sparse matrix, shape (n_features, 1) | (n_targets, n_features)): `sparse_coef_` is a readonly property derived from `coef_`
+        + `intercept_` (float | array, shape (n_targets,)): independent term in decision function.
+        + `n_iter_` (int | array-like, shape (n_targets,)): number of iterations run by the coordinate descent solver to reach the specified tolerance.
+
++ `linlasso.fit` method
+    + Signature: `linlasso.fit(X, y, check_input=True)`
+    + Docstring: Fit model with coordinate descent.
+    + Parameters
+        + `X` (ndarray or scipy.sparse matrix, (n_samples, n_features)): Data
+        + `y` (ndarray, shape (n_samples,) or (n_samples, n_targets)): Target. Will be cast to X's dtype if necessary
+        + `check_input` (boolean, (default=True)): Allow to bypass several input checking. Don't use this parameter unless you know what you do.
+    + Notes: Coordinate descent is an algorithm that considers each column of data at a time hence it will automatically convert the X input as a Fortran-contiguous numpy array if necessary. <br/> To avoid memory re-allocation it is advised to allocate the initial data in memory directly using that format.
+
++ `linlasso.predict` method
+    + Signature: `linlasso.predict(X)`
+    + Docstring: Predict using the linear model
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = (n_samples, n_features)): Samples.
+    + Returns: `C` (array, shape = (n_samples,)): Returns predicted values.
+
++ `linlasso.score` method
+    + Signature: `linlasso.score(X, y, sample_weight=None)`
+    + Docstring: Returns the coefficient of determination $R^2$ of the prediction.
+    + Note: The coefficient $R^2$ is defined as $(1 - u/v)$, where $u$ is the residual sum of squares $\sum ((y - y_{pred})^2)$ and $v$ is the total sum of squares $\sum ((y - \bar{y})^2)$. The best possible score is $1.0$ and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a $R^2$ score of $0.0$.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True values for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): $R^2$ of `self.predict(X)` wrt. y.
+
+
++ `PolynomialFeatures` Class
+    + Init signature: `PolynomialFeatures(degree=2, interaction_only=False, include_bias=True)`
+    + Docstring: Generate polynomial and interaction features.
+    + Note: Generate a new feature matrix consisting of all polynomial combinations of the features with degree less than or equal to the specified degree. For example, if an input sample is two dimensional and of the form $[a, b]$, the degree-2 polynomial features are $[1, a, b, a^2, ab, b^2]$.
+    + Parameters
+        + `degree` (integer): The degree of the polynomial features. Default = 2.
+        + `interaction_only` (boolean, default = False): If true, only interaction features are produced: features that are products of at most `degree` *distinct* input features (so not $x[1]^2$, $x[0] * x[2]^3$, etc.).
+        + `include_bias` (boolean):  If True (default), then include a bias column, the feature in which all polynomial powers are zero (i.e. a column of ones - acts as an intercept term in a linear model).
+    + Attributes
+        + `powers_` (array, shape (n_output_features, n_input_features)): powers_[i, j] is the exponent of the jth input in the ith output.
+        + `n_input_features_` (int): The total number of input features.
+        + `n_output_features_` (int): The total number of polynomial output features. The number of output features is computed by iterating over all suitably sized combinations of input features.
+    + Notes: Be aware that the number of features in the output array scales polynomially in the number of features of the input array, and exponentially in the degree. High degrees can cause overfitting.
+
++ `poly.fit` method
+    + Signature: `poly.fit_transform(X, y=None, **fit_params)`
+    + Docstring: Fit to data, then transform it.
+    + Note: Fits transformer to X and y with optional parameters fit_params and returns a transformed version of X.
+    + Parameters
+        + `X` (numpy array of shape [n_samples, n_features]): Training set.
+        + `y` (numpy array of shape [n_samples]): Target values.
+    + Returns: `X_new` (numpy array of shape [n_samples, n_features_new]): Transformed array.
 
 
 ### Lecture Video
