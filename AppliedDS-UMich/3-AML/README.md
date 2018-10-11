@@ -44,20 +44,19 @@
 
 ## Module 3: [Evaluation](./03-Evaluation.md)
 
-+ [Module 3 Notebook](./03-Evaluation.md#)
-+ [Model Evaluation & Selection](./03-Evaluation.md#)
-+ [Confusion Matrices & Basic Evaluation Metrics](./03-Evaluation.md#)
-+ [Classifier Decision Functions](./03-Evaluation.md#)
-+ [Precision-recall and ROC curves](./03-Evaluation.md#)
-+ [Multi-Class Evaluation](./03-Evaluation.md#)
-+ [Regression Evaluation](./03-Evaluation.md#)
-+ [Practical Guide to Controlled Experiments on the Web (optional)](./03-Evaluation.md#)
-+ [Model Selection: Optimizing Classifiers for Different Evaluation Metrics](./03-Evaluation.md#)
-+ [Quiz: Module 3 Quiz](./03-Evaluation.md#)
++ [Module 3 Notebook](./03-Evaluation.md#module-3-notebook)
++ [Model Evaluation & Selection](./03-Evaluation.md#model-evaluation--selection)
++ [Confusion Matrices & Basic Evaluation Metrics](./03-Evaluation.md#confusion-matrices--basic-evaluation-metrics)
++ [Classifier Decision Functions](./03-Evaluation.md#classifier-decision-functions)
++ [Precision-recall and ROC curves](./03-Evaluation.md#precision-recall-and-roc-curves)
++ [Multi-Class Evaluation](./03-Evaluation.md#multi-class-evaluation)
++ [Regression Evaluation](./03-Evaluation.md#regression-evaluation)
++ [Practical Guide to Controlled Experiments on the Web (optional)](./03-Evaluation.md#practical-guide-to-controlled-experiments-on-the-web-optional)
++ [Model Selection: Optimizing Classifiers for Different Evaluation Metrics](./03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics)
++ [Quiz: Module 3 Quiz](./03-Evaluation.md#quiz-module-3-quiz)
 
 
 ## [Assignment 3](./asgn03.md)
-
 
 
 ## Module 4: [Supervised Machine Learning - Part 2](./04-Supervised2.md)
