@@ -1027,7 +1027,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `linsvc.fit(self, X, y, sample_weight=None)` | Fit the model according to the given training data  | [SVM][571] |
 | `linsvc.predict(self, X)` | Predict class labels for samples in X  | [SVM][571] |
 | `linsvc.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
-
+| `dtclf = DecisionTreeClassifier(criterion='gini', *args)` | A decision tree classifier | [Decision Tree][573] |
+| `dtclf.fit(self, X, y, *args)`  | Build a decision tree classifier from the training set $(X, y)$. | [Decision Tree][573] |
+| `dtclf.predict(X, check_input=True)` | Predict class or regression value for X | [Decision Tree][573] |
+| `dtclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Decision Tree][573] |
 
 
 
@@ -1100,7 +1103,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `make_regression(n_samples=100, n_features=100, *args)` | nerate a random regression problem | [Datasets][566] |
 | `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
 | `load_breast_cancer(return_X_y=False)` | Load and return the breast cancer wisconsin dataset (classification) | [Datasets][566] |
-
+| `load_iris(return_X_y=False)` | Load and return the iris dataset (classification) | [Decision Tree][573] |
 
 
 ------------------------------
@@ -1113,7 +1116,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [570]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#logistic-regression
 [571]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-classifiers-support-vector-machines
 [572]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#cross-validation
-[573]: 
+[573]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#decision-trees
 [574]: 
 [575]: 
 [576]: 
