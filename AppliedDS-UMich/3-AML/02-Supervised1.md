@@ -2405,6 +2405,61 @@ This article by Prof. Pedro Domingos provides a bit more background and discussi
 
 Domingos, P. (2012). [A few useful things to know about machine learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf). Communications of the ACM, 55(10), 78. doi:10.1145/2347736.2347755
 
++ A __classifier__ is a system that inputs (typically) a vector of discrete and/or continuous _feature values_ and outputs a single discrete value, the _class_.
+
++ Key lessons that machine learning researchers and practitioners have learned.
+    1. Learning = Representation + Evaluation + Optimization
+    2. It's generalization that counts
+    3. Data alone is not enough
+    4. Overfitting has many faces
+    5. Intitution fails in high dimensions
+    6. Theoretical guarantees are not what they seem
+    7. Feature engineering is the key
+    8. More data beats a cleaverer algorithm
+    9. Learn many models, not just one
+    10. Simplicity does not imply accuracy
+    11. Represntable does not imply learnable
+    12. Correlation does not imply causation
+
++ Learning = Representation + Evaluation + Optimization
+
+
++ It's generalization that counts
+
+
++ Data alone is not enough
+
+
++ Overfitting has many faces
+
+
++ Intitution fails in high dimensions
+
+
++ Theoretical guarantees are not what they seem
+
+
++ Feature engineering is the key
+
+
++ More data beats a cleaverer algorithm
+
+
++ Learn many models, not just one
+
+
++ Simplicity does not imply accuracy
+
+
++ Represntable does not imply learnable
+
+
++ Correlation does not imply causation
+
+
+
+
+
 ## Ed Yong: Genetic Test for Autism Refuted (optional)
 
 This article by Ed Yong in The Scientist is included because it describes a real-world example of a prediction problem in the health/medical sciences domain - training a classifier to predict risk of autism spectrum disorder (ASD) based on genetic markers - as well as including discussion of potential overfitting of the classifier (by training and testing on the same data) as one possible issue, among other factors, by researchers attempting to replicate the study.
