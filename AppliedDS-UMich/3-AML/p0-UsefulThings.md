@@ -143,7 +143,14 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Feature engineering is the key
 
-
++ Most important factor is the features used
++ Most of the effort: the raw data is not in a form that is amenable to learning, but you can construct features from it that are.
++ Time-consuming: gather data, integrate it, clean it and pre-process it, and how much trial and error can go into feature design.
++ Typical procedure: iterative process of running the learner, analyzing the results, modifying the data and/or the learner, and repeating.
++ Feature engineering is more difficult because it’s domain-specific, while learners can be largely general-purpose.
++ Current solution: automatically generating large numbers of candidate features and selecting the best by (say) their information gain with respect to the class. 
++ Features that look irrelevant in isolation may be relevant in combination.
++ For example, if the class is an XOR of k input features, each of them by itself carries no information about the class.
 
 
 ## More data beats a cleaverer algorithm
