@@ -102,8 +102,8 @@ Organization: Department of Computer Science and Engineering, University of Wash
     + Many algorithms that work fine in low dimensions become intractable when the input is high-dimensional
     + Generalizing correctly becomes exponentially harder as the dimensionality (number of features) of the examples grows, because a fixed-size training set covers a dwindling fraction of the input space.
 + Machine learning algorithms depend on (explicitly or implicitly) breaks down in high dimensions
-    + Consider a nearest neighbor classifier with Hamming distance as the similarity measure, and suppose the class is just $x_1 ^ x_2$.
-    + 98 irrelevant features $x_3, \cdots , x_100$, the noise from them completely swamps the signal in $x_1$ and $x_2$, and nearest neighbor effectively makes random predictions.
+    + Consider a nearest neighbor classifier with Hamming distance as the similarity measure, and suppose the class is just $x_1 \wedge x_2$.
+    + 98 irrelevant features $x_3, \cdots , x_{100}$, the noise from them completely swamps the signal in $x_1$ and $x_2$, and nearest neighbor effectively makes random predictions.
     + all 100 features are relevant, Suppose that examples are laid out on a regular grid, and consider a test example $x_t$. If the grid is d-dimensional, $x_t$’s 2d nearest examples are all at the same distance from it. So as the dimensionality increases, more and more examples become nearest neighbors of $x_t$, until the choice of nearest neighbor (and therefore of class) is effectively random.
 + Intuitions from a three dimensional world, often do not apply in high-dimensional ones
     + most of the mass of a multivariate Gaussian distribution is not near the mean, but in an increasingly distant “shell” around it
@@ -117,7 +117,28 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Theoretical guarantees are not what they seem
 
-
++ Most theoretical guarantees: a bound on the number of examples needed to ensure good generalization
++ Induction is traditionally contrasted with deduction: in deduction you can guarantee that the conclusions are correct; in induction all bets are off.
++ Having guarantees on the results of induction, particularly if we’re willing to settle for probabilistic guarantees
+    + Let’s say a classifier is bad if its true error rate is greater than $\epsilon$.
+    + Then the probability that a bad classifier is consistent with n random, independent training examples is less than $(1 − \epsilon)^n$.
+    + Let $b$ be the number of bad classifiers in the learner’s hypothesis space $H$. 
+    + The probability that at least one of them is consistent is less than $b(1 − \epsilon)^n$, by the union bound. 
+    + Assuming the learner always returns a consistent classifier, the probability that this classifier is bad is then less than $|H|(1 − \epsilon)^n$, where we have used the fact that $b \leq |H|$. 
+    + So if this probability to be less than $\epsilon$, it suffices to make $n > \ln(\epsilon / |H|)/ \ln(1 − \epsilon) \geq \frac{1}{\epsilon} (\ln |H| + \ln \frac{1}{\epsilon})$.
++ The bounds obtained in this way are usually extremely loose
+    + The required number of examples only grows logarithmically with $|H|$ and $1 / \epsilon$.
+    + Most interesting hypothesis spaces are doubly exponential in the number of features $d$, which still leaves us needing a number of examples exponential in $d$
+    + Consider the space of Boolean functions of d Boolean variables. If there are e possible different examples, there are $2^e$ possible different functions, so since there are $2^d$ possible examples, the total number of functions is $2^{2^d}$.
+    + Even for hypothesis spaces that are “merely” exponential, the bound is still very loose, because the union bound is very pessimistic.
+    + For example, if there are 100 Boolean features and the hypothesis space is decision trees with up to 10 levels, to guarantee $\delta = \esilon = 1\%$ in the bound above we need half a million examples.
++ Given a large enough training set, with high probability your learner will either return a hypothesis that generalizes well or be unable to find a consistent hypothesis.
++ The bound also says nothing about how to select a good hypothesis space. It only tells us that, if the hypothesis space contains the true classifier, then the probability that the learner outputs a bad classifier decreases with training set size.
++ Common type of theoretical guarantee is _asymptotic_: given infinite data, the learner is guaranteed to output the correct classifier.
++ In practice, seldom in the asymptotic regime (also known as “asymptopia”). 
++ Bias-variance tradeoff: if learner $A$ is better than learner $B$ given infinite data, $B$ is often better than $A$ given finite data.
++ Main role of theoretical guarantees: a source of understanding and driving force for algorithm design
++ _Caveat Emptor_: learning is a complex phenomenon, and just because a learner has a theoretical justification and works in practice doesn’t mean the former is the reason for the latter.
 
 
 ## Feature engineering is the key
