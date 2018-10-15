@@ -98,7 +98,21 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Intuition fails in high dimensions
 
-
++ Curse of dimensionality: Bellman in 1961
+    + Many algorithms that work fine in low dimensions become intractable when the input is high-dimensional
+    + Generalizing correctly becomes exponentially harder as the dimensionality (number of features) of the examples grows, because a fixed-size training set covers a dwindling fraction of the input space.
++ Machine learning algorithms depend on (explicitly or implicitly) breaks down in high dimensions
+    + Consider a nearest neighbor classifier with Hamming distance as the similarity measure, and suppose the class is just $x_1 ^ x_2$.
+    + 98 irrelevant features $x_3, \cdots , x_100$, the noise from them completely swamps the signal in $x_1$ and $x_2$, and nearest neighbor effectively makes random predictions.
+    + all 100 features are relevant, Suppose that examples are laid out on a regular grid, and consider a test example $x_t$. If the grid is d-dimensional, $x_t$’s 2d nearest examples are all at the same distance from it. So as the dimensionality increases, more and more examples become nearest neighbors of $x_t$, until the choice of nearest neighbor (and therefore of class) is effectively random.
++ Intuitions from a three dimensional world, often do not apply in high-dimensional ones
+    + most of the mass of a multivariate Gaussian distribution is not near the mean, but in an increasingly distant “shell” around it
+    + constant number of examples is distributed uniformly in a high-dimensional hypercube, beyond some dimensionality most examples are closer to a face of the hypercube than to their nearest neighbor
++ High dimensions: hard to understand what is happening --> difficult to design a good classifier
++ Blessing of non-uniformity
+    + most applications examples are not spread uniformly throughout the instance space, but are concentrated on or near a lower-dimensional manifold
+    + For example, k-nearest neighbor works quite well for handwritten digit recognition even though images of digits have one dimension per pixel, because the space of digit images is much smaller than the space of all possible images.
+    + Learners can implicitly take advantage of this lower effective dimension, or algorithms for explicitly reducing the dimensionality can be used
 
 
 ## Theoretical guarantees are not what they seem
