@@ -48,7 +48,13 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## It's generalization that counts
 
-
++ __Fundamental Goal__ of machine learning: to _generalize_ beyond the examples in the training set
++ Most common mistake: to test on the training data and have the illusion of success
++ Contamination of classifier by test data, e.g. using test data to tune parameters and do a lot of tuning
++ __Cross-validation__: randomly dividing your training data into (say) ten subsets, holding out each one while training on the rest, testing each learned classifier on the examples it did not see, and averaging the results to see how well the particular parameter setting does
++ Notice that generalization being the goal has an interesting consequence for machine learning.
++ The objective function is only a proxy for the true goal -> no need to fully optimize it; in fact, a local optimum returned by simple greedy search may be better than the global optimum.
++ 
 
 
 ## Data alone is not enough
