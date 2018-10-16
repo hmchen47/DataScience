@@ -2408,19 +2408,20 @@ Domingos, P. (2012). [A few useful things to know about machine learning](https:
 + A __classifier__ is a system that inputs (typically) a vector of discrete and/or continuous _feature values_ and outputs a single discrete value, the _class_.
 
 + Key lessons that machine learning researchers and practitioners have learned.
-    1. [Learning = Representation + Evaluation + Optimization](./p0-UsefulThings.md#)
-    2. [It's generalization that counts](./p0-UsefulThings.md#)
-    3. [Data alone is not enough](./p0-UsefulThings.md#)
-    4. [Overfitting has many faces](./p0-UsefulThings.md#)
-    5. [Intitution fails in high dimensions](./p0-UsefulThings.md#)
-    6. [Theoretical guarantees are not what they seem](./p0-UsefulThings.md#)
-    7. [Feature engineering is the key](./p0-UsefulThings.md#)
-    8. [More data beats a cleaverer algorithm](./p0-UsefulThings.md#)
-    9. [Learn many models, not just one](./p0-UsefulThings.md#)
-    10. [Simplicity does not imply accuracy](./p0-UsefulThings.md#)
-    11. [Represntable does not imply learnable](./p0-UsefulThings.md#)
-    12. [Correlation does not imply causation](./p0-UsefulThings.md#)
+    1. [Learning = Representation + Evaluation + Optimization](./p0-UsefulThings.md#learning--representation--evaluation--optimization)
+    2. [It's generalization that counts](./p0-UsefulThings.md#its-generalization-that-counts)
+    3. [Data alone is not enough](./p0-UsefulThings.md#data-alone-is-not-enough)
+    4. [Overfitting has many faces](./p0-UsefulThings.md#overfitting-has-many-faces)
+    5. [Intitution fails in high dimensions](./p0-UsefulThings.md#intuition-fails-in-high-dimensions)
+    6. [Theoretical guarantees are not what they seem](./p0-UsefulThings.md#theoretical-guarantees-are-not-what-they-seem)
+    7. [Feature engineering is the key](./p0-UsefulThings.md#feature-engineering-is-the-key)
+    8. [More data beats a cleaverer algorithm](./p0-UsefulThings.md#more-data-beats-a-cleaverer-algorithm)
+    9. [Learn many models, not just one](./p0-UsefulThings.md#learn-many-models-not-just-one)
+    10. [Simplicity does not imply accuracy](./p0-UsefulThings.md#simplicity-does-not-imply-accuracy)
+    11. [Represntable does not imply learnable](./p0-UsefulThings.md#represntable-does-not-imply-learnable)
+    12. [Correlation does not imply causation](./p0-UsefulThings.md#correlation-does-not-imply-causation)
 
++ [Regerences](./p0-UsefulThings.md#references)
 
 
 ## Ed Yong: Genetic Test for Autism Refuted (optional)
