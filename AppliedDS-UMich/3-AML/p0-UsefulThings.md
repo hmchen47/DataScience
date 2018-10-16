@@ -217,7 +217,14 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Represntable does not imply learnable
 
-
++ Essentially all representations used in variable-size learners have associated theorems of the form “Every function can be represented, or approximated arbitrarily closely, using this representation.”
++ A function can be represented does not mean it can be learned. For example, standard decision tree learners cannot learn trees with more leaves than there are training examples. 
++ Continuous spaces: a fixed set of primitives often requires an infinite number of components.
++ Hypothesis space has many local optima of the evaluation function -> not find the true function even if it is representable
++ Given finite data, time and memory, standard learners can learn only a tiny subset of all possible functions, and these subsets are different for learners with different representations.
++ Some representations are exponentially more compact than others for some functions.
++ Example: support vector machines form combinations of kernels centered at some of the training examples (the support vectors). Representing parity of n bits in this way requires 2n basis functions.
++ Finding methods to learn these deeper representations is one of the major research frontiers in machine learning
 
 
 ## Correlation does not imply causation
