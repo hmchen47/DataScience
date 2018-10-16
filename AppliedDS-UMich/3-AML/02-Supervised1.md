@@ -2408,15 +2408,15 @@ Domingos, P. (2012). [A few useful things to know about machine learning](https:
 + A __classifier__ is a system that inputs (typically) a vector of discrete and/or continuous _feature values_ and outputs a single discrete value, the _class_.
 
 + Key lessons that machine learning researchers and practitioners have learned.
-    1. [Learning = Representation + Evaluation + Optimization][./p0-UsefulThings.md#]
-    2. [It's generalization that counts][./p0-UsefulThings.md#]
-    3. [Data alone is not enough][./p0-UsefulThings.md#]
-    4. [Overfitting has many faces][./p0-UsefulThings.md#]
-    5. [Intitution fails in high dimensions][./p0-UsefulThings.md#]
-    6. [Theoretical guarantees are not what they seem][./p0-UsefulThings.md#]
-    7. [Feature engineering is the key][./p0-UsefulThings.md#]
-    8. [More data beats a cleaverer algorithm][./p0-UsefulThings.md#]
-    9. [Learn many models, not just one][./p0-UsefulThings.md#]
+    1. [Learning = Representation + Evaluation + Optimization](./p0-UsefulThings.md#)
+    2. [It's generalization that counts](./p0-UsefulThings.md#)
+    3. [Data alone is not enough](./p0-UsefulThings.md#)
+    4. [Overfitting has many faces](./p0-UsefulThings.md#)
+    5. [Intitution fails in high dimensions](./p0-UsefulThings.md#)
+    6. [Theoretical guarantees are not what they seem](./p0-UsefulThings.md#)
+    7. [Feature engineering is the key](./p0-UsefulThings.md#)
+    8. [More data beats a cleaverer algorithm](./p0-UsefulThings.md#)
+    9. [Learn many models, not just one](./p0-UsefulThings.md#)
     10. [Simplicity does not imply accuracy](./p0-UsefulThings.md#)
     11. [Represntable does not imply learnable](./p0-UsefulThings.md#)
     12. [Correlation does not imply causation](./p0-UsefulThings.md#)
@@ -2428,6 +2428,13 @@ Domingos, P. (2012). [A few useful things to know about machine learning](https:
 This article by Ed Yong in The Scientist is included because it describes a real-world example of a prediction problem in the health/medical sciences domain - training a classifier to predict risk of autism spectrum disorder (ASD) based on genetic markers - as well as including discussion of potential overfitting of the classifier (by training and testing on the same data) as one possible issue, among other factors, by researchers attempting to replicate the study.
 
 [Genetic Test for Autism Refuted](http://www.the-scientist.com/?articles.view/articleNo/38030/title/Genetic-Test-for-Autism-Refuted/)
+
++ In September 2012, a team of Australian scientists claimed to have developed a genetic test that predicts a person’s risk of developing autism spectrum disorder (ASD) with 72 percent accuracy. 
++ But a new study, led by Benjamin Neale from Massachusetts General Hospital, suggests that those claims were overblown.
++ Several factors could explain the differences between the two studies
+    + The Melbourne team initially tested the accuracy of their risk classifier on the same group of people whom they used to identify their SNP set. This is bad practice.
+    + Neale’s team may have come to different conclusions because the group did not use the full set of SNPs, nor the code that was provided.
+    + Neale emphasized that other research into the genetics of autism are yielding stronger results.
 
 
 ## Quiz: Module 2 Quiz
