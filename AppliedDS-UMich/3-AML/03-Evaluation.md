@@ -148,8 +148,8 @@
     svm.score(X_test, y_test)
 
     # ### Dummy Classifiers
-    # DummyClassifier is a classifier that makes predictions using simple rules, which 
-    # can be useful as a baseline for comparison against actual classifiers, especially 
+    # DummyClassifier is a classifier that makes predictions using simple rules, which
+    # can be useful as a baseline for comparison against actual classifiers, especially
     # with imbalanced classes.
     from sklearn.dummy import DummyClassifier
 
@@ -220,6 +220,85 @@
     #  [ 17  26]]
     ```
 
++ `load_digits` function
+    + Signature: `load_digits(n_class=10, return_X_y=False)`
+    + Docstring: Load and return the digits dataset (classification). Each datapoint is a 8x8 image of a digit.
+    + Parameters:
+        + `n_class` (integer, between 0 and 10, optional (default=10)): The number of classes to return.
+        + `return_X_y` (boolean, default=False): If True, returns `(data, target)` instead of a Bunch object.
+    + Returns: 
+        + `data` (Bunch): Dictionary-like object, the interesting attributes are:
+            + 'data': the data to learn
+            + 'images': the images corresponding to each sample
+            + 'target': the classification labels for each sample
+            + 'target_names': the meaning of the labels, and
+            +  'DESCR': the full description of the dataset.
+        + `(data, target)`: tuple if `return_X_y` is True
+
++ `np.bincount` method
+    + Signature: `np.bincount(x, weights=None, minlength=0)`
+    + Docstring: Count number of occurrences of each value in array of non-negative ints. <br/>
+        The number of bins (of size 1) is one larger than the largest value in `x`. If `minlength` is specified, there will be at least this number of bins in the output array (though it will be longer if necessary, depending on the contents of `x`). <br/> 
+        Each bin gives the number of occurrences of its index value in `x`. If `weights` is specified the input array is weighted by it, i.e. if a value `n` is found at position `i`, `out[n] += weight[i]` instead of `out[n] += 1`.
+    + Parameters
+        + `x` (array_like, 1 dimension, nonnegative ints): Input array.
+        + `weights` (array_like, optional): Weights, array of the same shape as `x`.
+        + `minlength` (int, optional): A minimum number of bins for the output array.
+    + Returns: `out` (ndarray of ints): The result of binning the input array. The length of `out` is equal to `np.amax(x)+1`.
+
++ `DummyClassifier` Class
+    + Init signature: `DummyClassifier(strategy='stratified', random_state=None, constant=None)`
+    + Docstring: DummyClassifier is a classifier that makes predictions using simple rules. <br/>
+        This classifier is useful as a simple baseline to compare with other (real) classifiers. Do not use it for real problems.
+    + Parameters
+        + `strategy` (str, default="stratified"): Strategy to use to generate predictions.
+            + "stratified": generates predictions by respecting the training set's class distribution.
+            + "most_frequent": always predicts the most frequent label in the training set.
+            + "prior": always predicts the class that maximizes the class prior (like "most_frequent") and ``predict_proba`` returns the class prior.
+            + "uniform": generates predictions uniformly at random.
+            + "constant": always predicts a constant label that is provided by the user. This is useful for metrics that evaluate a non-majority class
+        + `random_state` (int, RandomState instance or None, optional, default=None): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + `constant` (int or str or array of shape = [n_outputs]): The explicit constant as predicted by the "constant" strategy. This parameter is useful only for the "constant" strategy.
+    + Attributes
+        + `classes_` (array or list of array of shape = [n_classes]): Class labels for each output.
+        + `n_classes_` (array or list of array of shape = [n_classes]): Number of label for each output.
+        + `class_prior_` (array or list of array of shape = [n_classes]): Probability of each class for each output.
+        + `n_outputs_` (int): Number of outputs.
+        + `outputs_2d_` (bool): True if the output at fit is 2d, else false.
+        + `sparse_output_` (bool):  True if the array returned from predict is to be in sparse CSC format. Is automatically set to True if the input y is passed in sparse format.
+
+
++ `dummy.fit` method
+    + Signature: `dummy.fit(self, X, y, sample_weight=None)`
+    + Docstring: Fit the random classifier.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = [n_samples, n_features]): Training vectors, where n_samples is the number of samples and n_features is the number of features.
+        + `y` (array-like, shape = [n_samples] or [n_samples, n_outputs]): Target values.
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `self` (object): Returns self.
+
++ `dummy.predict` method
+    + Signature: `dummy.predict(X)`
+    + Docstring: Perform classification on test vectors X.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = [n_samples, n_features]): Input vectors, where n_samples is the number of samples and n_features is the number of features.
+    + Returns: `y` (array, shape = [n_samples] or [n_samples, n_outputs]): Predicted target values for X.
+
+
++ `dummy.score` method
+    + Signature: `dummy.score(X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
+        In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): Mean accuracy of self.predict(X) wrt. y.
+
+
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/n4ge2T6FEee3MRIl4lCYSA.processed/full/360p/index.mp4?Expires=1536883200&Signature=Nb8qRgdnN4JrgKmkaiI7JXbQdRBVWFNvWfW4peY5JQTJg9wL4OeM0ny5Vj9q8~BuvfXsdWtAlGjQUUtQH2hRv6~byZbIbUbZR-~8yuPM14ecmjoQL2oGeaFjnX3B7u-mPaQqgiZf-ZxJ0kptP5Pbo51Lhk0J2BeVK0SmMIIKeSo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Model Evaluation & Selection" target="_blank">
@@ -243,7 +322,7 @@
         <br/><img src="images/fig3-05.png" alt="Let's look at this classification result visually to help us connect these four numbers to a classifier's performance. What I've done here is plot the data instances by using two specific feature values out of the total 64 feature values that make up each instance in the digits dataset. The black points here are the instances with true class positive namely the digit one and the white points have true class negative, that is, there are all the other digits except for one. The black line shows a hypothetical linear classifier's decision boundary for which any instance to the left of the decision boundary is predicted to be in the positive class and everything to the right of the decision boundary is predicted to be in the negative class. The true positive points are those black points in the positive prediction region and false positives are those white points in the positive prediction region. Likewise, true negatives are the white points in the negative prediction region and false negatives are black points in the negative prediction region. " title= "caption" height="200">
     </a>
     + Black points: True class positive, namely digit one
-    + White pointss: True class negative
+    + White points: True class negative
     + Black line: a hypothetical linear classifier's decision boundary, positive class on left and negative class on right
     + True Positive (TP): black points in the positive prediction region
     + True Negative (TF): white points in the positive prediction region

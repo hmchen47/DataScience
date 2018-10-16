@@ -970,6 +970,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `utils.parallel_backend(backend[, n_jobs])` | Change the default backend used by Parallel inside a with block. | [API][562] |
 
 
+
+
+
+
 ## Preprocessing
 
 + Library Import 
@@ -1011,6 +1015,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.svm import SVC                                 # svc
     from sklearn.svm import LinearSVC                           # linsvc
     from sklearn.tree import DecisionTreeClassifier             # dtclf
+    from sklearn.dummy import DummyClassifier                   # dummy
     ```
 
 | Function | Description | Link |
@@ -1031,6 +1036,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `dtclf.fit(self, X, y, *args)`  | Build a decision tree classifier from the training set $(X, y)$. | [Decision Tree][573] |
 | `dtclf.predict(X, check_input=True)` | Predict class or regression value for X | [Decision Tree][573] |
 | `dtclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Decision Tree][573] |
+| `dummy = DummyClassifier(strategy='stratified', random_state=None, constant=None)` | DummyClassifier is a classifier that makes predictions using simple rules | [Model Evaluation][574] |
+| `dummy.fit(self, X, y, sample_weight=None)` | Fit the random classifier | [Model Evaluation][574] |
+| `dummy.predict(X)` | Perform classification on test vectors X | [Model Evaluation][574] |
+| `dummy.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Model Evaluation][574] |
 
 
 
@@ -1084,7 +1093,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 
 
-## Utilities and Datasets
+## Utilities, Metrics and Datasets
 
 + Import Modules
     ```python
@@ -1094,6 +1103,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.datasets import make_friedman1
     from sklearn.datasets import load_breast_cancer
     from sklearn.datasets import load_iris
+    from sklearn.datasets import load_digits
+    from sklearn.metrics import confusion_matrix
     ```
 
 | Function | Description | Link |
@@ -1104,6 +1115,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
 | `load_breast_cancer(return_X_y=False)` | Load and return the breast cancer wisconsin dataset (classification) | [Datasets][566] |
 | `load_iris(return_X_y=False)` | Load and return the iris dataset (classification) | [Decision Tree][573] |
+
 
 
 ------------------------------
@@ -1117,7 +1129,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [571]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-classifiers-support-vector-machines
 [572]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#cross-validation
 [573]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#decision-trees
-[574]: 
+[574]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-evaluation--selection
 [575]: 
 [576]: 
 [577]: 

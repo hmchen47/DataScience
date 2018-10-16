@@ -152,7 +152,7 @@ import numpy as np
 | `np.nan` | Not a number | [Series][006] |
 | `np.isnan(ary)` | Return ndarray or tuple of ndarray with bool value | [Series][006] |
 | `np.std(a, axis=None, out=None, ddof=0)` | ompute the standard deviation along the specified axis; `a`: array_like; `axis`: Axis or axes along which the standard deviation is computed; `out`: Alternative output array in which to place the result; `dof`: Means Delta Degrees of Freedom | [More Distribution][022] |
-| `np.concatenate
+| `np.bincount(x, weights=None, minlength=0)` | Count number of occurrences of each value in array of non-negative ints | [Model Evaluation][052] |
 
 
 
@@ -720,6 +720,48 @@ from sklearn.neighbors import KNeighborsClassifier
 
 -------------------------------------
 
+<!--
+[052]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-evaluation--selection
+[053]: 
+[054]: 
+[055]: 
+[056]: 
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
+[063]: 
+[064]: 
+[065]: 
+[066]: 
+[067]: 
+[068]: 
+[069]: 
+[070]: 
+[071]: 
+[072]: 
+[073]: 
+[074]: 
+[075]: 
+[076]: 
+[077]: 
+[078]: 
+[079]: 
+[080]: 
+[081]: 
+[082]: 
+[083]: 
+[084]: 
+[085]: 
+[086]: 
+[087]: 
+[088]: 
+[089]: 
+
+-->
+
 [000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
 [001]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-demonstration-reading-and-writing-csv-files
 [002]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-dates-and-times
@@ -772,44 +814,6 @@ from sklearn.neighbors import KNeighborsClassifier
 [049]: ../AppliedDS-UMich/3-AML/01-FundML.ms#an-example-machine-learning-problem
 [050]: ../AppliedDS-UMich/3-AML/01-FundML.ms#examining-the-data
 [051]: ../AppliedDS-UMich/3-AML/01-FundML.ms#k---nearest-neighbors-classification
-[052]: 
-[053]: 
-[054]: 
-[055]: 
-[056]: 
-[057]: 
-[058]: 
-[059]: 
-[060]: 
-[061]: 
-[062]: 
-[063]: 
-[064]: 
-[065]: 
-[066]: 
-[067]: 
-[068]: 
-[069]: 
-[070]: 
-[071]: 
-[072]: 
-[073]: 
-[074]: 
-[075]: 
-[076]: 
-[077]: 
-[078]: 
-[079]: 
-[080]: 
-[081]: 
-[082]: 
-[083]: 
-[084]: 
-[085]: 
-[086]: 
-[087]: 
-[088]: 
-[089]: 
 
 
 
