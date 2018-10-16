@@ -185,7 +185,19 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Learn many models, not just one
 
-
++ Systematic empirical comparisons showed that the best learner varies from application to application, and systems containing many different learners started to appear.
++ Combine many variations, the results are better—often much better—and at little extra effort for the user.
++ Model ensembles:
+    + E. Bauer and R. Kohavi. [An empirical comparison of voting classification algorithms: Bagging, boosting and variants](http://robotics.stanford.edu/~ronnyk/vote.pdf). Machine Learning, 36:105–142, 1999.
+    + Bagging: generate random variations of the training set by resampling, learn a classifier on each, and combine the results by voting; the simplest technique
+    + Boosting: training examples have weights, and these are varied so that each new classifier focuses on the examples the previous ones tended to get wrong.
+    + Stacking: the outputs of individual classifiers become the inputs of a “higher-level” learner that figures out how best to combine them.
++ Bayesian model averaging (BMA):
+    + The theoretically optimal approach to learning
+    + predictions on new examples are made by averaging the individual predictions of all classifiers in the hypothesis space, weighted by how well the classifiers explain the training data and how much we believe in them a _priori_.
+    + Ensembles change the hypothesis space (e.g., from single decision trees to linear combinations of them), and can take a wide variety of forms.
+    + BMA assigns weights to the hypotheses in the original space according to a fixed formula.
+    + BMA weights are extremely different from those produced by (say) bagging or boosting: the latter are fairly even, while the former are extremely skewed, to the point where the single highest-weight classifier usually dominates, making BMA effectively equivalent to just selecting it.
 
 
 ## Simplicity does not imply accuracy
