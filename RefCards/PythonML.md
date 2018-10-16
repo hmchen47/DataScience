@@ -1115,22 +1115,11 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
 | `load_breast_cancer(return_X_y=False)` | Load and return the breast cancer wisconsin dataset (classification) | [Datasets][566] |
 | `load_iris(return_X_y=False)` | Load and return the iris dataset (classification) | [Decision Tree][573] |
-
+| `confusion_matrix(y_true, y_pred, labels=None, sample_weight=None)` | Compute confusion matrix to evaluate the accuracy of a classification | [Confusion Matrix][575] |
 
 
 ------------------------------
 <!-- 
-[565]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#introduction-to-supervised-machine-learning
-[566]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
-[567]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
-[568]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-least-squares
-[569]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-ridge-lasso-and-polynomial-regression
-[570]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#logistic-regression
-[571]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-classifiers-support-vector-machines
-[572]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#cross-validation
-[573]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#decision-trees
-[574]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-evaluation--selection
-[575]: 
 [576]: 
 [577]: 
 [578]: 
@@ -1825,3 +1814,14 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [562]: http://scikit-learn.org/stable/modules/generated/sklearn.utils.parallel_backend.html#sklearn.utils.parallel_backend
 [563]: ../AppliedDS-UMich/3-AML/01-FundML.md#an-example-machine-learning-problem
 [564]: ../AppliedDS-UMich/3-AML/01-FundML.md#k-nearest-neighbors-classification
+[565]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#introduction-to-supervised-machine-learning
+[566]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#supervised-learning-datasets
+[567]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#k-nearest-neighbors-classification-and-regression
+[568]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-least-squares
+[569]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-regression-ridge-lasso-and-polynomial-regression
+[570]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#logistic-regression
+[571]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#linear-classifiers-support-vector-machines
+[572]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#cross-validation
+[573]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#decision-trees
+[574]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-evaluation--selection
+[575]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#confusion-matrices--basic-evaluation-metrics

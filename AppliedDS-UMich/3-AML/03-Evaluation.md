@@ -298,6 +298,20 @@
         + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
     + Returns: `score` (float): Mean accuracy of self.predict(X) wrt. y.
 
++ `confusion_matrix` function
+    + Signature: `confusion_matrix(y_true, y_pred, labels=None, sample_weight=None)`
+    + Docstring: Compute confusion matrix to evaluate the accuracy of a classification
+    + Note: By definition a confusion matrix `C` is such that $C_{i, j}$ is equal to the number of observations known to be in group `i` but predicted to be in group `j`. <br/>
+        Thus in binary classification, the count of true negatives is `C_{0,0}`, false negatives is `C_{1,0}`, true positives is `C_{1,1}` and false positives is `C_{0,1}`.
+    + Parameters
+        + `y_true` (array, shape = [n_samples]): Ground truth (correct) target values.
+        + `y_pred` (array, shape = [n_samples]): Estimated targets as returned by a classifier.
+        + `labels` (array, shape = [n_classes], optional): List of labels to index the matrix. This may be used to reorder or select a subset of labels. If none is given, those that appear at least once in `y_true` or `y_pred` are used in sorted order.
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `C` (array, shape = [n_classes, n_classes]): Confusion matrix
+
+
+
 
 ### Lecture Video
 
