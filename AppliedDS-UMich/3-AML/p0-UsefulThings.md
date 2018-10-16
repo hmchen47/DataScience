@@ -229,5 +229,13 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Correlation does not imply causation
 
++ The goal of learning predictive models is to use them as guides to action.
++ Machine learning is usually applied to _observational data_, where the predictive variables are not under the control of the learner, as opposed to _experimental data_, where they are.
++ Correlation is a sign of a potential causal connection, and use it as a guide to further investigation
++ Many researchers believe that causality is only a convenient fiction.
++ Practical points for machine learners
+    + predict the effects of our actions, not just correlations between observable variables
+    + obtain experimental data (for example by randomly assigning visitors to different versions of a Web site), then by all means do so
+
 
 
