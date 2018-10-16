@@ -202,7 +202,17 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## Simplicity does not imply accuracy
 
-
++ Given two classifiers with the same training error, the simpler of the two will likely have the lowest test error.
++ Many counter examples:
+    + The generalization error of a boosted ensemble continues to improve by adding classifiers even after the training error has reached zero.
+    + SVM: effectively have an infinite number of parameters without overfitting.
+    + The function $sign(\sin(ax))$ can discriminate an arbitrarily large, arbitrarily labeled set of points on the x axis, even though it has only one parameter
+    + no necessary connection between the number of parameters of a model and its tendency to overfit.
++ Smaller spaces allow hypotheses to be represented by shorter codes. Bounds like the one in the section on theoretical guarantees above might then be viewed as implying that shorter hypotheses generalize better.
++ Tradeoff between accuracy and simplicity is circular reasoning: prefer simpler by design, and if they are accurate it’s because our preferences are accurate, not because the hypotheses are “simple” in the representation we chose.
++ Few learners search their hypothesis space exhaustively
++ The size of the hypothesis space is only a rough guide to what really matters for relating training and test error: the procedure by which a hypothesis is chosen.
++ Simpler hypotheses should be preferred because simplicity is a virtue in its own right, not because of a hypothetical connection with accuracy.
 
 
 ## Represntable does not imply learnable
