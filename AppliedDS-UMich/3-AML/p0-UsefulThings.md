@@ -155,7 +155,32 @@ Organization: Department of Computer Science and Engineering, University of Wash
 
 ## More data beats a cleaverer algorithm
 
-
++ Two main choices for the best set of features but still not accurate enough:
+    + design a better learning algorithm
+    + gather more data (more examples, and possibly more raw features, subject to the curse of dimensionality)
++ Rule of thumb: a dumb algorithm with lots and lots of data beats a clever one with modest amounts of it
++ Scalability on resources: time, memory, and training data for ML
++ Even though in principle more data means that more complex classifiers can be learned, in practice simpler classifiers wind up being used, because complex ones take too long to learn. -> fast ways to learn complex classifiers
++ The meaning of “nearby" as key difference: all learners essentially work by grouping nearby examples into the same class
++ Powerful learners can be unstable but still accurate
++ Basic rule: try the simplest learners first, naive Bayes > logistic regression > k-nearest neighbor > support vector machines
+    <a href="http://people.cs.vt.edu/liangzhe/slides/01-29-2015-elaheh.pdf"> <br/>
+        <img src="images/fig2-47.png" alt="As a rule, it pays to try the simplest learners first (e.g., naive Bayes before logistic regression, k-nearest neighbor before support vector machines). More sophisticated learners are seductive, but they are usually harder to use, because they have more knobs you need to turn to get good results, and because their internals are more opaque" title= "Very different frontiers cna yield similar class predictions" height="200">
+    </a>
++ More sophisticated learners are seductive, but they are usually harder to use, because they have more knobs you need to turn to get good results, and because their internals are more opaque.
++ Major types of learners:
+    + fixed-size learners:
+        + only take advantage of so much data
+    + variable-size learners:
+        + representation grows with the data
+        + non-parametric learners
+        + in principle learn any function given sufficient data --> limitations of the algorithm
++ clever algorithms: making the most of the data and computing resources available
++ Human cycles:
+    + human effort saved and insight gained, although harder to measure, are often more important.
+    + human-understandable output, e.g. rule sets
+    + data sources and learning problems: easy and efficient
+    + close collaboration between machine learning experts and application domain ones.
 
 
 ## Learn many models, not just one
