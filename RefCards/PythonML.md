@@ -1106,10 +1106,11 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.datasets import load_breast_cancer
     from sklearn.datasets import load_iris
     from sklearn.datasets import load_digits
+
     from sklearn.metrics import confusion_matrix
     from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import precision_recall_curve
+    from sklearn.metrics import classification_report, precision_recall_curve
+    from sklearn.metrics import roc_curve, auc
     ```
 
 | Function | Description | Link |

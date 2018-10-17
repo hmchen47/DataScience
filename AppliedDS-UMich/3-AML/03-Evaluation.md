@@ -770,11 +770,11 @@
         + As with other single-number metrics, AUC loses information, e.g. about tradeoffs and the shape of the ROC curve.
         + This may be a factor to consider when e.g. wanting to compare the performance of classifiers with overlapping ROC curves.
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
-        <img src="images/fig3-15.png" alt="We can qualify the goodness of a classifier in some sense by looking at how much area there is underneath the curve. So the area underneath the random classifier is going to be 0.5 but then the area, as you can see, the size of the bumpiness of the classifier as it approaches the top left corner. Well, the area underneath the curve will get larger and larger. It will approach 1.  We use something called area under the curve, AUC. That's the single number that measures this total area underneath the ROC curve as a way to summarize a classifier's performance. So, an AUC of zero represents a very bad classifier, and an AUC of one will represent an optimal classifier." title= "Area Under the Curve (AUC)" height="200">
+        <img src="images/plt3-04.png" alt="We can qualify the goodness of a classifier in some sense by looking at how much area there is underneath the curve. So the area underneath the random classifier is going to be 0.5 but then the area, as you can see, the size of the bumpiness of the classifier as it approaches the top left corner. Well, the area underneath the curve will get larger and larger. It will approach 1.  We use something called area under the curve, AUC. That's the single number that measures this total area underneath the ROC curve as a way to summarize a classifier's performance. So, an AUC of zero represents a very bad classifier, and an AUC of one will represent an optimal classifier." title= "Area Under the Curve (AUC)" height="200">
     </a>
 
 
-+ Demo 1
++ Demo
     ```python
     from sklearn.metrics import roc_curve, auc
 
@@ -832,6 +832,31 @@
         <img src="images/plt3-03.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC) with differeent gamma parameters" height="250">
     </a>
 
++ `roc_curve` function
+    + Signature: `roc_curve(y_true, y_score, pos_label=None, sample_weight=None, drop_intermediate=True)`
+    + Docstring: Compute Receiver operating characteristic (ROC)
+    + Note: this implementation is restricted to the binary classification task.
+    + Parameters
+        + `y_true` (array, shape = [n_samples]): True binary labels in range ${0, 1}$ or ${-1, 1}$.  If labels are not binary, pos_label should be explicitly given.
+        + `y_score` (array, shape = [n_samples]): Target scores, can either be probability estimates of the positive class, confidence values, or non-thresholded measure of decisions (as returned by "decision_function" on some classifiers).
+        + `pos_label` (int or str, default=None): Label considered as positive and others are considered negative.
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+        + `drop_intermediate` (boolean, optional (default=True)): Whether to drop some suboptimal thresholds which would not appear on a plotted ROC curve. This is useful in order to create lighter ROC curves.
+    + Returns
+        + `fpr` (array, shape = [>2]): Increasing false positive rates such that element $i$ is the false positive rate of predictions with `score >= thresholds[i]`.
+        + `tpr` (array, shape = [>2]): Increasing true positive rates such that element $i$ is the true positive rate of predictions with `score >= thresholds[i]`.
+        + `thresholds` (array, shape = [n_thresholds]): Decreasing thresholds on the decision function used to compute `fpr` and `tpr`. `thresholds[0]` represents no instances being predicted and is arbitrarily set to `max(y_score) + 1`.
+    + Notes: Since the thresholds are sorted from low to high values, they are reversed upon returning them to ensure they correspond to both `fpr` and `tpr`, which are sorted in reversed order during their calculation.
+
++ `auc` function
+    + Signature: `auc(x, y, reorder=False)`
+    + Docstring: Compute Area Under the Curve (AUC) using the trapezoidal rule <br/>
+        This is a general function, given points on a curve.  For computing the area under the ROC-curve, see :func:`roc_auc_score`.
+    + Parameters
+        + `x` (array, shape = [n]): x coordinates.
+        + `y` (array, shape = [n]): y coordinates.
+        + `reorder` (boolean, optional (default=False)): If True, assume that the curve is ascending in the case of ties, as for an ROC curve. If the curve is non-ascending, the result will be wrong.
+    + Returns: `auc` (float)
 
 
 ### Lecture Video
