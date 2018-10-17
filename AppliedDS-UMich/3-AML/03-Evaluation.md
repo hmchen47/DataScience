@@ -851,7 +851,7 @@
 + `auc` function
     + Signature: `auc(x, y, reorder=False)`
     + Docstring: Compute Area Under the Curve (AUC) using the trapezoidal rule <br/>
-        This is a general function, given points on a curve.  For computing the area under the ROC-curve, see :func:`roc_auc_score`.
+        This is a general function, given points on a curve.  For computing the area under the ROC-curve, see `roc_auc_score`.
     + Parameters
         + `x` (array, shape = [n]): x coordinates.
         + `y` (array, shape = [n]): y coordinates.
@@ -1099,6 +1099,34 @@
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation"><br/>
         <img src="images/plt3-05.png" alt="You can look at the notebook to see that a dummy regressor is created and used just like a regular regression model. You create, fit with the training data, and then call predict on the test data. Although again, like the dummy classifier you should not use the dummy regressor for actual problems. Its only use is to provide a baseline for comparison. Looking at the regression metrics output from the linear model compared to the dummy model. We can see that as expected the dummy regressor achieves an r squared score of 0. Since it always makes a constant prediction without looking at the output. In this instance the linear model provides only slightly better fit than the dummy regressor, according to both mean squared error and the r2_score. Aside from the strategy of always predicting the mean of the training target values, you could also create some other flavors of dummy regressors that always predict the median of the training target values, or a particular quantile of those values, or a specific custom constant value that you provide. Although regression typically has simpler evaluation needs than classification, it does pay to double check to make sure the evaluation metric you choose for a regression problem does penalize errors in a way that reflects the consequences of those errors for the business, organizational, or user needs of your application. " title= "Regression evaluation metrics" height="200">
     </a>
+
++ `mean_squared_error` function
+    + Signature: `mean_squared_error(y_true, y_pred, sample_weight=None, multioutput='uniform_average')`
+    + Docstring: Mean squared error regression loss
+    + Parameters
+        + `y_true` (array-like of shape = (n_samples) or (n_samples, n_outputs)): Ground truth (correct) target values.
+        + `y_pred` (array-like of shape = (n_samples) or (n_samples, n_outputs)): Estimated target values.
+        + `sample_weight` (array-like of shape = (n_samples), optional): Sample weights.
+        + `multioutput` (string in ['raw_values', 'uniform_average'] or array-like of shape (n_outputs)): Defines aggregating of multiple output values. Array-like value defines weights used to average errors.
+            + 'raw_values': Returns a full set of errors in case of multioutput input.
+            + 'uniform_average': Errors of all outputs are averaged with uniform weight.
+    + Returns: `loss` (float or ndarray of floats): A non-negative floating point value (the best value is 0.0), or an array of floating point values, one for each individual target.
+
+
++ `r2_score` function
+    + Signature: `r2_score(y_true, y_pred, sample_weight=None, multioutput='uniform_average')`
+    + Docstring: $R^2$ (coefficient of determination) regression score function.
+    + Note: Best possible score is $1.0$ and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a $R^2$ score of $0.0$.
+    + Parameters
+        + `y_true` (array-like of shape = (n_samples) or (n_samples, n_outputs)): Ground truth (correct) target values.
+        + `y_pred` (array-like of shape = (n_samples) or (n_samples, n_outputs)): Estimated target values.
+        + `sample_weight` (array-like of shape = (n_samples), optional): Sample weights.
+        + `multioutput` (string in ['raw_values', 'uniform_average', 'variance_weighted'] or None or array-like of shape (n_outputs)): Defines aggregating of multiple output scores. Array-like value defines weights used to average scores. Default is "uniform_average".
+            + 'raw_values': Returns a full set of scores in case of multioutput input.
+            + 'uniform_average': Scores of all outputs are averaged with uniform weight.
+            + 'variance_weighted': Scores of all outputs are averaged, weighted by the variances of each individual output.
+    + Returns: `z` (float or ndarray of floats):  The $R^2$ score or ndarray of scores if 'multioutput' is 'raw_values'.
+
 
 ### Lecture Video
 

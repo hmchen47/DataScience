@@ -1111,6 +1111,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
     from sklearn.metrics import classification_report, precision_recall_curve
     from sklearn.metrics import roc_curve, auc
+    from sklearn.metrics import mean_squared_error, r2_score
     ```
 
 | Function | Description | Link |
@@ -1128,17 +1129,19 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `f1_score(y_true, y_pred, *args*)` | The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. | [Evaluation Metrics][575] |
 | `classification_report(y_true, y_pred, *args*)` | Build a text report showing the main classification metrics | [Evaluation Metrics][575] |
 | `precision_recall_curve(y_true, probas_pred, *args*)` | Compute precision-recall pairs for different probability thresholds | [Decision Functions][576] |
-
-
+| `roc_curve(y_true, y_score, *args*)` | Compute Receiver operating characteristic (ROC) | [ROC Curves][577] |
+| `auc(x, y, reorder=False)` | Compute Area Under the Curve (AUC) using the trapezoidal rule | [ROC Curves][577] |
+| `mean_squared_error(y_true, y_pred, *args*)` | Mean squared error regression loss | [Regression Evaluation][578] |
+| `r2_score(y_true, y_pred, *args)` | $R^2$ (coefficient of determination) regression score function | [Regression Evaluation][578] |
 
 
 
 ------------------------------
 <!-- 
 [576]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#classifier-decision-functions
-[577]: 
-[578]: 
-[579]: 
+[577]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#precision-recall-and-roc-curves
+[578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
+[579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
 [580]: 
 [581]: 
 [582]: 
