@@ -1189,6 +1189,19 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         + Learning curve: How much does accuracy (or other metric) change as a function of the amount of training data?
         + Sensitivity analysis: How much does accuracy (or other metric) change as a function of key learning parameter values?
 
++ List of Scores in Model Secltion
+    + '__accuracy__', 'adjusted_mutual_info_score', 'adjusted_rand_score', 'average_precision',
+    + 'completeness_score',
+    + 'explained_variance',
+    + '__f1__', 'f1_macro', 'f1_micro', 'f1_samples', 'f1_weighted', 'fowlkes_mallows_score',
+    + 'homogeneity_score',
+    + 'log_loss',
+    + 'mean_absolute_error', '__mean_squared_error__', 'median_absolute_error', 'mutual_info_score',
+    + 'neg_log_loss', 'neg_mean_absolute_error', 'neg_mean_squared_error', 'neg_mean_squared_log_error', 'neg_median_absolute_error', 'normalized_mutual_info_score',
+    + '__precision__', 'precision_macro', 'precision_micro', 'precision_samples', 'precision_weighted', 
+    + '__r2__', '__recall__', 'recall_macro', 'recall_micro', 'recall_samples', 'recall_weighted', '__roc_auc__', 
+    + 'v_measure_score'
+
 
 + Demo 1
     ```python
@@ -1295,7 +1308,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         
         plt.title(eval_metric+'-oriented SVC')
     plt.tight_layout()
-    plt.show()      # left plot
+    plt.show()                      # left plot
     # Grid best parameter (max. precision): {'class_weight': {1: 2}}
     # Grid best score (precision): 0.5364331779495704
     # Grid best parameter (max. recall): {'class_weight': {1: 50}}
@@ -1330,7 +1343,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
 
     plot_class_regions_for_classifier(clf, X_twovar_test, y_test)
     plt.title("SVC, class_weight = 'balanced', optimized for accuracy")
-    plt.show()      # right plot
+    plt.show()                      # right plot
     ```
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
         <br/><img src="images/plt3-06.png" alt="We apply grid search here to explore different values of the optional class weight parameter that controls how much weight is given to each of the two classes during training. As it turns out, optimizing for different evaluation metrics results in different optimal values of the class weight parameter. As the class weight parameter increases, more emphasis will be given to correctly classifying the positive class instances. The precision-oriented classifier we see here with class weight of two, tries hard to reduce false positives while increasing true positives. So it focuses on the cluster of positive class points in the lower right corner where there are relatively few negative class points. Here, precision is over 50 percent. In contrast, the recall-oriented classifier with class weight of 50, tries hard to reduce the number of false negatives while increasing true positives. That is, it tries to find most of the positive class points as part of its positive class predictions. We can also see that the decision boundary for the F1-oriented classifier has an optimal class weight of two, which is between the optimal class weight values for the precision and recall-oriented classifiers. Visually we can see that the F1-oriented classifier also has a kind of intermediate positioning between the precision and recall-oriented, decision boundaries. This makes sense given that F1 is the harmonic mean of precision and recall. The AUC-oriented classifier with optimal class weight to 5 has a similar decision boundary to the F1-oriented classifier, but shifted slightly in favor of higher recall. " title= "Two-feature classification example using the digits dataset" height="200">
@@ -1358,6 +1371,151 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/meBKr/model-selection-optimizing-classifiers-for-different-evaluation-metrics">
         <br/><img src="images/plt3-08.png" alt="text" title= "two-feature input vector matching the example At zero threshold, precision" height="200">
     </a>
+
+
++ `cross_val_score` function
+    + Signature: `cross_val_score(estimator, X, y=None, groups=None, scoring=None, cv=None, n_jobs=1, verbose=0, fit_params=None, pre_dispatch='2*n_jobs')`
+    + Docstring: Evaluate a score by cross-validation
+    + Parameters
+        + `estimator` (estimator object implementing 'fit'): The object to use to fit the data.
+        + `X` (array-like): The data to fit. Can be for example a list, or an array.
+        + `y` (array-like, optional, default: None): The target variable to try to predict in the case of supervised learning.
+        + `groups` (array-like, with shape (n_samples,), optional): Group labels for the samples used while splitting the dataset into train/test set.
+        + `scoring` (string, callable or None, optional, default: None): A string (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)`.
+        + `cv` (int, cross-validation generator or an iterable, optional): Determines the cross-validation splitting strategy. Possible inputs for cv are:
+            + None, to use the default 3-fold cross validation,
+            + integer, to specify the number of folds in a `(Stratified)KFold`,
+            + An object to be used as a cross-validation generator.
+            + An iterable yielding train, test splits.
+        
+            For integer/None inputs, if the estimator is a classifier and `y` is either binary or multiclass, `StratifiedKFold` is used. In all other cases, :class:`KFold` is used.
+        + `n_jobs` (integer, optional): The number of CPUs to use to do the computation. $-1$ means 'all CPUs'.
+        + `verbose` (integer, optional): The verbosity level.
+        + `fit_params` (dict, optional): Parameters to pass to the fit method of the estimator.
+        + `pre_dispatch` (int, or string, optional): Controls the number of jobs that get dispatched during parallel execution. Reducing this number can be useful to avoid an explosion of memory consumption when more jobs get dispatched than CPUs can process. This parameter can be:
+            + None, in which case all the jobs are immediately created and spawned. Use this for lightweight and fast-running jobs, to avoid delays due to on-demand spawning of the jobs
+            + An int, giving the exact number of total jobs that are spawned
+            + A string, giving an expression as a function of $n_{jobs}$, as in $2*n_{jobs}$
+    + Returns
+        + `scores` (array of float, shape=(len(list(cv)),)): Array of scores of the estimator for each run of the cross validation.
+
++ `GridSearchCV` Class
+    + Init signature: `GridSearchCV(estimator, param_grid, scoring=None, fit_params=None, n_jobs=1, iid=True, refit=True, cv=None, verbose=0, pre_dispatch='2*n_jobs', error_score='raise', return_train_score=True)`
+    + Docstring: Exhaustive search over specified parameter values for an estimator. <br/>
+        Important members are fit, predict. <br/>
+        GridSearchCV implements a "fit" and a "score" method. It also implements "predict", "predict_proba", "decision_function", "transform" and "inverse_transform" if they are implemented in the estimator used. <br/>
+        The parameters of the estimator used to apply these methods are optimized by cross-validated grid-search over a parameter grid.
+    + Parameters
+        + `estimator` (estimator object.): This is assumed to implement the scikit-learn estimator interface. Either estimator needs to provide a `score` function, or `scoring` must be passed.
+        + `param_grid` (dict or list of dictionaries):  Dictionary with parameters names (string) as keys and lists of parameter settings to try as values, or a list of such dictionaries, in which case the grids spanned by each dictionary in the list are explored. This enables searching over any sequence of parameter settings.
+        + `scoring` (string, callable, list/tuple, dict or None, default: None): A single string (see `scoring_parameter`) or a callable (see `scoring`) to evaluate the predictions on the test set. <br/>  
+            For evaluating multiple metrics, either give a list of (unique) strings or a dict with names as keys and callables as values. <br/> 
+            NOTE that when using custom scorers, each scorer should return a single value. Metric functions returning a list/array of values can be wrapped into multiple scorers that return one value each. <br/>
+            See :ref:`multimetric_grid_search` for an example. <br/>
+            If None, the estimator's default scorer (if available) is used.
+        + `fit_params` (dict, optional): Parameters to pass to the fit method.
+        + `n_jobs` (int, default=1): Number of jobs to run in parallel.
+        + `pre_dispatch` (int, or string, optional): Controls the number of jobs that get dispatched during parallel execution. Reducing this number can be useful to avoid an explosion of memory consumption when more jobs get dispatched than CPUs can process. This parameter can be:
+            + None, in which case all the jobs are immediately created and spawned. Use this for lightweight and fast-running jobs, to avoid delays due to on-demand spawning of the jobs
+            + An int, giving the exact number of total jobs that are spawned
+            + A string, giving an expression as a function of $n_{jobs}$, as in $2*n_{jobs}$
+        + `iid` (boolean, default=True): If True, the data is assumed to be identically distributed across the folds, and the loss minimized is the total loss per sample, and not the mean loss across the folds.
+        + `cv` (int, cross-validation generator or an iterable, optional): Determines the cross-validation splitting strategy. Possible inputs for cv are:
+            + None, to use the default 3-fold cross validation,
+            + integer, to specify the number of folds in a `(Stratified)KFold`,
+            + An object to be used as a cross-validation generator.
+            + An iterable yielding train, test splits.
+
+            For integer/None inputs, if the estimator is a classifier and `y` is either binary or multiclass, `StratifiedKFold` is used. In all other cases, `KFold` is used. <br/>
+            Refer `User Guide <cross_validation>` for the various cross-validation strategies that can be used here.
+        + `refit` (boolean, or string, default=True): Refit an estimator using the best found parameters on the whole dataset. <br/>
+            For multiple metric evaluation, this needs to be a string denoting the scorer is used to find the best parameters for refitting the estimator at the end. <br/>
+            The refitted estimator is made available at the `best_estimator_` attribute and permits using `predict` directly on this `GridSearchCV` instance. <br/>
+            Also for multiple metric evaluation, the attributes `best_index_`, `best_score_` and `best_parameters_` will only be available if `refit` is set and all of them will be determined w.r.t this specific scorer. <br/>
+            See `scoring` parameter to know more about multiple metric evaluation.
+        + `verbose` (integer): Controls the verbosity: the higher, the more messages.
+        + `error_score` ('raise' (default) or numeric): Value to assign to the score if an error occurs in estimator fitting. If set to 'raise', the error is raised. If a numeric value is given, FitFailedWarning is raised. This parameter does not affect the refit step, which will always raise the error.
+        + `return_train_score` (boolean, default=True): If `'False'`, the `cv_results_` attribute will not include training scores.
+    + Attributes
+        + `cv_results_` (dict of numpy (masked) ndarrays): A dict with keys as column headers and values as columns, that can be imported into a pandas `DataFrame`. <br/>
+            For instance the below given table
+
+            |param_kernel|param_gamma|param_degree|split0_test_score|...|rank_t...|
+            |:----------:|:---------:|:----------:|:---------------:|:-:|:-------:|
+            |  'poly'    |     --    |      2     |        0.8      |...|    2    |
+            |  'poly'    |     --    |      3     |        0.7      |...|    4    |
+            |  'rbf'     |     0.1   |     --     |        0.8      |...|    3    |
+            |  'rbf'     |     0.2   |     --     |        0.9      |...|    1    |
+
+            will be represented by a `cv_results_` dict of:
+            ```json
+            {
+            'param_kernel': masked_array(data = ['poly', 'poly', 'rbf', 'rbf'],
+                                        mask = [False False False False]...)
+            'param_gamma': masked_array(data = [-- -- 0.1 0.2],
+                                        mask = [ True  True False False]...),
+            'param_degree': masked_array(data = [2.0 3.0 -- --],
+                                        mask = [False False  True  True]...),
+            'split0_test_score'  : [0.8, 0.7, 0.8, 0.9],
+            'split1_test_score'  : [0.82, 0.5, 0.7, 0.78],
+            'mean_test_score'    : [0.81, 0.60, 0.75, 0.82],
+            'std_test_score'     : [0.02, 0.01, 0.03, 0.03],
+            'rank_test_score'    : [2, 4, 3, 1],
+            'split0_train_score' : [0.8, 0.9, 0.7],
+            'split1_train_score' : [0.82, 0.5, 0.7],
+            'mean_train_score'   : [0.81, 0.7, 0.7],
+            'std_train_score'    : [0.03, 0.03, 0.04],
+            'mean_fit_time'      : [0.73, 0.63, 0.43, 0.49],
+            'std_fit_time'       : [0.01, 0.02, 0.01, 0.01],
+            'mean_score_time'    : [0.007, 0.06, 0.04, 0.04],
+            'std_score_time'     : [0.001, 0.002, 0.003, 0.005],
+            'params'             : [{'kernel': 'poly', 'degree': 2}, ...],
+            }
+            ```
+
+            NOTE:
+            + The key `'params'` is used to store a list of parameter settings dicts for all the parameter candidates.
+            + The `mean_fit_time`, `std_fit_time`, `mean_score_time` and `std_score_time` are all in seconds.
+            + For multi-metric evaluation, the scores for all the scorers are available in the `cv_results_` dict at the keys ending with that scorer's name (`'_<scorer_name>'`) instead of `'_score'` shown above. ('split0_test_precision', 'mean_train_precision' etc.)
+        + `best_estimator_` (estimator or dict): Estimator that was chosen by the search, i.e. estimator which gave highest score (or smallest loss if specified) on the left out data. Not available if `refit=False`. <br/>
+            See `refit` parameter for more information on allowed values.
+        + `best_score_` (float): Mean cross-validated score of the best_estimator <br/>
+            For multi-metric evaluation, this is present only if `refit` is specified.
+        + `best_params_` (dict):  Parameter setting that gave the best results on the hold out data. <br/>
+            For multi-metric evaluation, this is present only if `refit` is specified.
+        + `best_index_` (int): The index (of the `cv_results_` arrays) which corresponds to the best candidate parameter setting. <br/>
+            The dict at `search.cv_results_['params'][search.best_index_]` gives the parameter setting for the best model, that gives the highest mean score (`search.best_score_`). <br/>
+            For multi-metric evaluation, this is present only if `refit` is specified.
+        + `scorer_` (function or a dict): Scorer function used on the held out data to choose the best parameters for the model. <br/>
+            For multi-metric evaluation, this attribute holds the validated `scoring` dict which maps the scorer key to the scorer callable.
+        + `n_splits_` (int): The number of cross-validation splits (folds/iterations).
+    + Notes
+        + The parameters selected are those that maximize the score of the left out data, unless an explicit score is passed in which case it is used instead.
+        + If `n_jobs` was set to a value higher than one, the data is copied for each point in the grid (and not `n_jobs` times). This is done for efficiency reasons if individual jobs take very little time, but may raise errors if the dataset is large and not enough memory is available.  A workaround in this case is to set `pre_dispatch`. Then, the memory is copied only `pre_dispatch` many times. A reasonable value for `pre_dispatch` is $2 * n_jobs$.
+
++ `GridSearchCV.decision_function` method
+    + Signature: `GridSearchCV.decision_function(self, X)`
+    + Docstring: Call decision_function on the estimator with the best found parameters. <br/>
+        Only available if `refit=True` and the underlying estimator supports `decision_function`.
+    + Parameters
+        + `X` (indexable, length n_samples): Must fulfill the input assumptions of the underlying estimator.
+
++ `roc_auc_score` function
+    + Signature: `roc_auc_score(y_true, y_score, average='macro', sample_weight=None)`
+    + Docstring: Compute Area Under the Curve (AUC) from prediction scores <br/>
+        Note: this implementation is restricted to the binary classification task or multilabel classification task in label indicator format.
+    + Parameters
+        + `y_true` (array, shape = [n_samples] or [n_samples, n_classes]): True binary labels in binary label indicators.
+        + `y_score` (array, shape = [n_samples] or [n_samples, n_classes]): Target scores, can either be probability estimates of the positive class, confidence values, or non-thresholded measure of decisions (as returned by "decision_function" on some classifiers).
+        + `average` (string, [None, 'micro', 'macro' (default), 'samples', 'weighted']): If ``None``, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+            + `'micro'`: Calculate metrics globally by considering each element of the label indicator matrix as a label.
+            + `'macro'`: Calculate metrics for each label, and find their unweighted mean.  This does not take label imbalance into account.
+            + `'weighted'`: Calculate metrics for each label, and find their average, weighted by support (the number of true instances for each label).
+            + `'samples'`: Calculate metrics for each instance, and find their average.
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `auc` (float)
+
+
 
 ### Lecture Video
 

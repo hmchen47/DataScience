@@ -997,6 +997,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.model_selection import train_test_split
     from sklearn.model_selection import cross_val_score
     from sklearn.model_selection import validation_curve
+    from sklearn.model_selection import cross_val_score
+    from sklearn.model_selection import GridSearchCV
     ```
 
 | Function | Description | Link |
@@ -1004,7 +1006,9 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [Example][563] |
 | `cross_val_score(estimator, X, *args)` | Evaluate a score by cross-validation | [Cross-Valiation][572] |
 | `validation_curve(estimator, X, y, param_name, param_range, *args*)` | Compute scores for an estimator with different values of a specified parameter | [Cross-Validation][572] |
-
+| `cross_val_score(estimator, X, *args*)` | Evaluate a score by cross-validation | [Model Selection]][580] |
+| `GridSearchCV(estimator, param_grid, *args)` | Exhaustive search over specified parameter values for an estimator | [Model Selection][580] |
+| `GridSearchCV.decision_function(self, X)` | Call decision_function on the estimator with the best found parameters | [Model Selection][580] |
 
 
 ## Classification
@@ -1110,7 +1114,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.metrics import confusion_matrix
     from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
     from sklearn.metrics import classification_report, precision_recall_curve
-    from sklearn.metrics import roc_curve, auc
+    from sklearn.metrics import roc_curve, auc, roc_auc_score
     from sklearn.metrics import mean_squared_error, r2_score
     ```
 
@@ -1122,7 +1126,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
 | `load_breast_cancer(return_X_y=False)` | Load and return the breast cancer wisconsin dataset (classification) | [Datasets][566] |
 | `load_iris(return_X_y=False)` | Load and return the iris dataset (classification) | [Decision Tree][573] |
-| `confusion_matrix(y_true, y_pred, labels=None, sample_weight=None)` | Compute confusion matrix to evaluate the accuracy of a classification | [Model Evaluation][574], [Confusion Matrics][575] |
+| `confusion_matrix(y_true, y_pred, labels=None, sample_weight=None)` | Compute confusion matrix to evaluate the accuracy of a classification | [Model Evaluation][574], [Confusion Matrix][575] |
 | `accuracy_score(y_true, y_pred, *args*)` | Accuracy classification score | [Evaluation Metrics][575] |
 | `precision_score(y_true, y_pred, *args*)` | The precision is the ratio $tp / (tp + fp)$ where $tp$ is the number of true positives and $fp$ the number of false positives. | [Evaluation Metrics][575] |
 | `recall_score(y_true, y_pred, *args*)` | The recall is the ratio $tp / (tp + fn)$ where $tp$ is the number of true positives and $fn$ the number of false negatives. | [Evaluation Metrics][575] |
@@ -1133,6 +1137,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `auc(x, y, reorder=False)` | Compute Area Under the Curve (AUC) using the trapezoidal rule | [ROC Curves][577] |
 | `mean_squared_error(y_true, y_pred, *args*)` | Mean squared error regression loss | [Regression Evaluation][578] |
 | `r2_score(y_true, y_pred, *args)` | $R^2$ (coefficient of determination) regression score function | [Regression Evaluation][578] |
+| `roc_auc_score(y_true, y_score, *args)` | Compute Area Under the Curve (AUC) from prediction scores | [Model Selection][580] |
 
 
 
@@ -1142,7 +1147,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [577]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#precision-recall-and-roc-curves
 [578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
 [579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
-[580]: 
+[580]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics
 [581]: 
 [582]: 
 [583]: 
