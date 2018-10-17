@@ -579,12 +579,12 @@
 
 ### Note
 
-+ Decision Functions (decision_function)
++ Decision Functions (`decision_function`)
     + Each classifier score value per test point indicates how confidently the classifier predicts the positive class (large-magnitude positive values) or the negative class (large-magnitude negative values).
     + Choosing a fixed decision threshold gives a classification rule.
     + By sweeping the decision threshold through the entire range of possible score values, we get a series of classification outcomes that form a curve.
 
-+ Predicted Probability of Class Membership (predict_proba)
++ Predicted Probability of Class Membership (`predict_proba`)
     + Typical rule: choose most likely class
         + e.gclass 1 if threshold > 0.50.
     + Adjusting threshold affects predictions of classifier.
@@ -617,7 +617,7 @@
     | 20 | 1/1=1.0 | 1/4 = 0.25 |
 
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/0YPe1/classifier-decision-functions">
-        <img src="images/fig3-10.png" alt="Now, we can use these decision scores or prediction probabilities for getting more complete evaluation picture of a classifiers performance. For a particular application, we might pick a specific decision threshold depending on whether we want the classifier to be more or less conservative about making false-positive or false-negative errors. It might not be entirely clear when developing a new model, what the right decision threshold would be, and how that choice will affect evaluation metrics like precision and recall. So instead, what we'll do is, look at how classifier performs for all possible decision thresholds. This example shows how that works. On the left here is a list of test instances with their true label and classifier score. If we set a decision threshold, then all the instances above that line, for example if we set the decision threshold to be -20 here. Then, all the instances above the line are below the threshold of -20. So -20 or less and all the instances in this direction are above the threshold of -20. And so the ones below the threshold will be predicted to be in the- class. And the ones above the threshold will be predicted to be in the + class. So, if we pick the specific threshold, so in this case, -20. And we partition the test points in this way. We can compute partition and recall for the points that are predicted to be in the positive class. So in this case, we have 12 instances here, 12 total instances. They're being predicted as positive and only four of them, this one, this one, this one, and this one are actually positive and so the precision here is 4 divided by 12 or approximately 0.34. The recall on the other hand, there are four positive labeled instances in the whole set of test examples here and we've found all of them with this particular threshold setting. So the recall here is 4 out of 4, we found all four positive labeled examples. And so, for this particular threshold of -20, we can obtain precision on re cost score for that threshold. Let's pick a different threshold let's look at what happened when the threshold is -10? Right here, so again anything below this line is treated and has a higher value than -10 here, so those would be treated as + predictions. Things above the line have a score below -10, so these would be predicted to be And again, we can compute a precision and recall for this decision threshold setting, and we can see here that there are a total of six instances in the + prediction class. Of which four are actually of the positive class, and so the precision here is 4 over 6 or about 0.67. And again, the recall here is going to be 4 out of 4, and it's going to be 1.0. Again, so that corresponds to this point in the table over here. And then as were computing these different precision and recalls for different Thresholds. We can also plot them on this precision recall chart. So the first pair of precision recall numbers that I got, 0.34 and 1.0, we can plot on this point in precision recall space. The second example, so this was for the threshold of -20. When the threshold was -10, we got precision of .67 and a recall of 1 corresponding to this point that we can plot. And so you can see that if we do this for a number of other thresholds, for example the threshold of 0, we'll get a precision of 0.75. And a recall of 0.75 that corresponds to this point. And in that choice of decision threshold. And we can keep doing that for different thresholds. And we actually are plotting a series of points through the space which we can be connected at as a curve. And so in this way, we can get a more complete picture by varying the threshold of how the precision and recall of the result and classifier output changes as a function of the decision threshold. And this resulting chart here is called a precision recall curve." title= "Decision Threshold" height="200">
+        <img src="images/fig3-10.png" alt="Now, we can use these decision scores or prediction probabilities for getting more complete evaluation picture of a classifiers performance. For a particular application, we might pick a specific decision threshold depending on whether we want the classifier to be more or less conservative about making false-positive or false-negative errors. It might not be entirely clear when developing a new model, what the right decision threshold would be, and how that choice will affect evaluation metrics like precision and recall. So instead, what we'll do is, look at how classifier performs for all possible decision thresholds. This example shows how that works. On the left here is a list of test instances with their true label and classifier score. If we set a decision threshold, then all the instances above that line, for example if we set the decision threshold to be -20 here. Then, all the instances above the line are below the threshold of -20. So -20 or less and all the instances in this direction are above the threshold of -20. And so the ones below the threshold will be predicted to be in the- class. And the ones above the threshold will be predicted to be in the + class. So, if we pick the specific threshold, so in this case, -20. And we partition the test points in this way. We can compute partition and recall for the points that are predicted to be in the positive class. So in this case, we have 12 instances here, 12 total instances. They're being predicted as positive and only four of them, this one, this one, this one, and this one are actually positive and so the precision here is 4 divided by 12 or approximately 0.34. The recall on the other hand, there are four positive labeled instances in the whole set of test examples here and we've found all of them with this particular threshold setting. So the recall here is 4 out of 4, we found all four positive labeled examples. And so, for this particular threshold of -20, we can obtain precision on re cost score for that threshold. Let's pick a different threshold let's look at what happened when the threshold is -10? Right here, so again anything below this line is treated and has a higher value than -10 here, so those would be treated as + predictions. Things above the line have a score below -10, so these would be predicted to be And again, we can compute a precision and recall for this decision threshold setting, and we can see here that there are a total of six instances in the + prediction class. Of which four are actually of the positive class, and so the precision here is 4 over 6 or about 0.67. And again, the recall here is going to be 4 out of 4, and it's going to be 1.0. Again, so that corresponds to this point in the table over here. And then as were computing these different precision and recalls for different Thresholds. We can also plot them on this precision recall chart. So the first pair of precision recall numbers that I got, 0.34 and 1.0, we can plot on this point in precision recall space. The second example, so this was for the threshold of -20. When the threshold was -10, we got precision of .67 and a recall of 1 corresponding to this point that we can plot. And so you can see that if we do this for a number of other thresholds, for example the threshold of 0, we'll get a precision of 0.75. And a recall of 0.75 that corresponds to this point. And in that choice of decision threshold. And we can keep doing that for different thresholds. And we actually are plotting a series of points through the space which we can be connected at as a curve. And so in this way, we can get a more complete picture by varying the threshold of how the precision and recall of the result and classifier output changes as a function of the decision threshold. And this resulting chart here is called a precision recall curve." title= "Decision Threshold" height="300">
     </a>
 
 
@@ -667,6 +667,41 @@
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/0YPe1/classifier-decision-functions">
         <img src="images/plt3-01.png" alt="text" title= "Precision-recall curves" height="300">
     </a>
+
++ `logreg.decision_function` method
+    + Signature: `logreg.decision_function(X)`
+    + Docstring: Predict confidence scores for samples. <br/>
+        The confidence score for a sample is the signed distance of that sample to the hyperplane.
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape = (n_samples, n_features)): Samples.
+    + Returns: `array` (shape=(n_samples,) if n_classes == 2 else (n_samples, n_classes)):  Confidence scores per (sample, class) combination. In the binary case, confidence score for self.classes_[1] where >0 means this class would be predicted.
+
++ `logreg.predict_proba` method
+    + Signature: `logreg.predict_proba(X)`
+    + Docstring: Probability estimates. The returned estimates for all classes are ordered by the label of classes. <br/>
+        For a multi_class problem, if multi_class is set to be "multinomial"  the `softmax` function is used to find the predicted probability of each class. <br/>
+        Else use a one-vs-rest approach, i.e calculate the probability of each class assuming it to be positive using the logistic function and normalize these values across all the classes.
+    + Parameters
+        + `X` (array-like, shape = [n_samples, n_features])
+    + Returns: `T` (array-like, shape = [n_samples, n_classes]): Returns the probability of the sample for each class in the model, where classes are ordered as they are in `self.classes_`.
+
++ `precision_recall_curve` method
+    + Signature: `precision_recall_curve(y_true, probas_pred, pos_label=None, sample_weight=None)`
+    + Docstring: Compute precision-recall pairs for different probability thresholds
+    + Note: this implementation is restricted to the binary classification task. <br/>
+        The precision is the ratio $tp / (tp + fp)$ where $tp$ is the number of true positives and $fp$ the number of false positives. The precision is intuitively the ability of the classifier not to label as positive a sample that is negative. <br/>
+        The recall is the ratio $tp / (tp + fn)$ where $tp$ is the number of true positives and $fn$ the number of false negatives. The recall is intuitively the ability of the classifier to find all the positive samples. <br/>
+        The last precision and recall values are 1. and 0. respectively and do not have a corresponding threshold.  This ensures that the graph starts on the x axis.
+    + Parameters
+        + `y_true` (array, shape = [n_samples]): True targets of binary classification in range {-1, 1} or {0, 1}.
+        + `probas_pred` (array, shape = [n_samples]): Estimated probabilities or decision function.
+        + `pos_label` (int or str, default=None): The label of the positive class
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: 
+        + `precision` (array, shape = [n_thresholds + 1]): Precision values such that element i is the precision of predictions with score >= thresholds[i] and the last element is 1.
+        + `recall` (array, shape = [n_thresholds + 1]): Decreasing recall values such that element i is the recall of predictions with score >= thresholds[i] and the last element is 0.
+        + `thresholds` (array, shape = [n_thresholds <= len(np.unique(probas_pred))]): Increasing thresholds on the decision function used to compute precision and recall.
+
 
 ### Lecture Video
 
