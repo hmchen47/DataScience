@@ -254,7 +254,7 @@
         + `strategy` (str, default="stratified"): Strategy to use to generate predictions.
             + "stratified": generates predictions by respecting the training set's class distribution.
             + "most_frequent": always predicts the most frequent label in the training set.
-            + "prior": always predicts the class that maximizes the class prior (like "most_frequent") and ``predict_proba`` returns the class prior.
+            + "prior": always predicts the class that maximizes the class prior (like "most_frequent") and `predict_proba` returns the class prior.
             + "uniform": generates predictions uniformly at random.
             + "constant": always predicts a constant label that is provided by the user. This is useful for metrics that evaluate a non-majority class
         + `random_state` (int, RandomState instance or None, optional, default=None): 
@@ -309,8 +309,6 @@
         + `labels` (array, shape = [n_classes], optional): List of labels to index the matrix. This may be used to reorder or select a subset of labels. If none is given, those that appear at least once in `y_true` or `y_pred` are used in sorted order.
         + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
     + Returns: `C` (array, shape = [n_classes, n_classes]): Confusion matrix
-
-
 
 
 ### Lecture Video
@@ -474,6 +472,101 @@
     # 
     # avg / total       0.94      0.95      0.94       450
     ```
+
++ `accuract_score` function
+    + Signature: `accuracy_score(y_true, y_pred, normalize=True, sample_weight=None)`
+    + Docstring: Accuracy classification score. <br/>
+        In multilabel classification, this function computes subset accuracy: the set of labels predicted for a sample must *exactly* match the corresponding set of labels in y_true.
+    + Parameters
+        + `y_true` (1d array-like, or label indicator array / sparse matrix): Ground truth (correct) labels.
+        + `y_pred` (1d array-like, or label indicator array / sparse matrix): Predicted labels, as returned by a classifier.
+        + `normalize` (bool, optional (default=True)): 
+            + If `False`, return the number of correctly classified samples.
+            + Otherwise, return the fraction of correctly classified samples.
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float):
+        + If `normalize == True`, return the correctly classified samples (float), else it returns the number of correctly classified samples (int).
+        + The best performance is 1 with `normalize == True` and the number of samples with `normalize == False`.
+    + Notes: In binary and multiclass classification, this function is equal to the `jaccard_similarity_score` function.
+
+
++ `precision_score` function
+    + Signature: `precision_score(y_true, y_pred, labels=None, pos_label=1, average='binary', sample_weight=None)`
+    + Docstring: Compute the precision <br/>
+        The precision is the ratio $tp / (tp + fp)$ where $tp$ is the number of true positives and $fp$ the number of false positives. The precision is intuitively the ability of the classifier not to label as positive a sample that is negative. <br/>
+        The best value is 1 and the worst value is 0.
+    + Parameters
+        + `y_true` (1d array-like, or label indicator array / sparse matrix): Ground truth (correct) target values.
+        + `y_pred` (1d array-like, or label indicator array / sparse matrix): Estimated targets as returned by a classifier.
+        + `labels` (list, optional): The set of labels to include when `average != 'binary'`, and their order if `average is None`. Labels present in the data can be excluded, for example to calculate a multiclass average ignoring a majority negative class, while labels not present in the data will result in 0 components in a macro average. For multilabel targets, labels are column indices. By default, all labels in `y_true` and `y_pred` are used in sorted order.
+        + `pos_label` (str or int, 1 by default): The class to report if `average='binary'` and the data is binary. If the data are multiclass or multilabel, this will be ignored; setting `labels=[pos_label]` and `average != 'binary'` will report scores for that label only.
+        + `average` (string, [None, 'binary' (default), 'micro', 'macro', 'samples', 'weighted']): This parameter is required for multiclass/multilabel targets. If `None`, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+            + `'binary'`: Only report results for the class specified by `pos_label`. This is applicable only if targets (`y_{true,pred}`) are binary.
+            + `'micro'`: Calculate metrics globally by counting the total true positives, false negatives and false positives.
+            + `'macro'`: Calculate metrics for each label, and find their unweighted mean.  This does not take label imbalance into account.
+            + `'weighted'`: Calculate metrics for each label, and find their average, weighted by support (the number of true instances for each label). This alters 'macro' to account for label imbalance; it can result in an F-score that is not between precision and recall.
+            + `'samples'`: Calculate metrics for each instance, and find their average (only meaningful for multilabel classification where this differs from `accuracy_score`).
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `precision` (float (if average is not None) or array of float, shape = [n_unique_labels]): Precision of the positive class in binary classification or weighted average of the precision of each class for the multiclass task.
+
++ `recall_score` function
+    + Signature: `recall_score(y_true, y_pred, labels=None, pos_label=1, average='binary', sample_weight=None)`
+    + Docstring: Compute the recall <br/>
+        The recall is the ratio $tp / (tp + fn)$ where $tp$ is the number of true positives and $fn$ the number of false negatives. The recall is intuitively the ability of the classifier to find all the positive samples. <br/>
+        The best value is 1 and the worst value is 0.
+    + Parameters
+        + `y_true` (1d array-like, or label indicator array / sparse matrix): Ground truth (correct) target values.
+        + `y_pred` (1d array-like, or label indicator array / sparse matrix): Estimated targets as returned by a classifier.
+        + `labels` (list, optional): The set of labels to include when `average != 'binary'`, and their order if `average is None`. Labels present in the data can be excluded, for example to calculate a multiclass average ignoring a majority negative class, while labels not present in the data will result in 0 components in a macro average. For multilabel targets, labels are column indices. By default, all labels in `y_true` and `y_pred` are used in sorted order.
+        + `pos_label` (str or int, 1 by default): The class to report if `average='binary'` and the data is binary. If the data are multiclass or multilabel, this will be ignored; setting `labels=[pos_label]` and `average != 'binary'` will report scores for that label only.
+        + `average` (string, [None, 'binary' (default), 'micro', 'macro', 'samples', 'weighted']): This parameter is required for multiclass/multilabel targets. If `None`, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+            + `'binary'`: Only report results for the class specified by `pos_label`. This is applicable only if targets (`y_{true,pred}`) are binary.
+            + `'micro'`: Calculate metrics globally by counting the total true positives, false negatives and false positives.
+            + `'macro'`: Calculate metrics for each label, and find their unweighted mean.  This does not take label imbalance into account.
+            + `'weighted'`: Calculate metrics for each label, and find their average, weighted by support (the number of true instances for each label). This alters 'macro' to account for label imbalance; it can result in an F-score that is not between precision and recall.
+            + `'samples'`: Calculate metrics for each instance, and find their average (only meaningful for multilabel classification where this differs from `accuracy_score`).
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `recall` (float (if average is not None) or array of float, shape = [n_unique_labels]): Recall of the positive class in binary classification or weighted average of the recall of each class for the multiclass task.
+
++ `f1_score` function
+    + Signature: `f1_score(y_true, y_pred, labels=None, pos_label=1, average='binary', sample_weight=None)`
+    + Docstring: Compute the F1 score, also known as balanced F-score or F-measure <br/>
+        The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. The relative contribution of precision and recall to the F1 score are equal. The formula for the F1 score is:
+
+        $$F_1 = 2 * (\text{precision} * \text{recall}) / (\text{precision} + \text{recall})$$
+
+        In the multi-class and multi-label case, this is the weighted average of the F1 score of each class.
+    + Parameters
+        + `y_true` (1d array-like, or label indicator array / sparse matrix): Ground truth (correct) target values.
+        + `y_pred` (1d array-like, or label indicator array / sparse matri): Estimated targets as returned by a classifier.
+        + `labels` (list, optional): The set of labels to include when `average != 'binary'`, and their order if `average is None`. Labels present in the data can be excluded, for example to calculate a multiclass average ignoring a majority negative class, while labels not present in the data will result in 0 components in a macro average. For multilabel targets, labels are column indices. By default, all labels in `y_true` and `y_pred` are used in sorted order.
+        + `pos_label` (str or int, 1 by default): The class to report if `average='binary'` and the data is binary. If the data are multiclass or multilabel, this will be ignored; setting `labels=[pos_label]` and `average != 'binary'` will report scores for that label only.
+        + `average` (string, [None, 'binary' (default), 'micro', 'macro', 'samples', 'weighted']): This parameter is required for multiclass/multilabel targets. If `None`, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+            + `'binary'`: Only report results for the class specified by `pos_label`. This is applicable only if targets (`y_{true,pred}`) are binary.
+            + `'micro'`: Calculate metrics globally by counting the total true positives, false negatives and false positives.
+            + `'macro'`: Calculate metrics for each label, and find their unweighted mean.  This does not take label imbalance into account.
+            + `'weighted'`: Calculate metrics for each label, and find their average, weighted by support (the number of true instances for each label). This alters 'macro' to account for label imbalance; it can result in an F-score that is not between precision and recall.
+            + `'samples'`: Calculate metrics for each instance, and find their average (only meaningful for multilabel classification where this differs from `accuracy_score`).
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+    + Returns: `f1_score` (float or array of float, shape = [n_unique_labels]):  F1 score of the positive class in binary classification or weighted average of the F1 scores of each class for the multiclass task.
+
++ `classification_report` function
+    + Signature: `classification_report(y_true, y_pred, labels=None, target_names=None, sample_weight=None, digits=2)`
+    + Docstring: Build a text report showing the main classification metrics
+    + Parameters
+        + `y_true` (1d array-like, or label indicator array / sparse matrix): Ground truth (correct) target values.
+        + `y_pred` (1d array-like, or label indicator array / sparse matrix): Estimated targets as returned by a classifier.
+        + `labels` (array, shape = [n_labels]): Optional list of label indices to include in the report.
+        + `target_names` (list of strings): Optional display names matching the labels (same order).
+        + `sample_weight` (array-like of shape = [n_samples], optional): Sample weights.
+        + `digits` (int): Number of digits for formatting output floating point values
+    + Returns
+        + `report` (string): Text summary of the precision, recall, F1 score for each class.
+        + The reported averages are a prevalence-weighted macro-average across classes (equivalent to `precision_recall_fscore_support` with `average='weighted'`).
+        + Note that in binary classification, recall of the positive class is also known as "sensitivity"; recall of the negative class is "specificity".
+
+
+
 
 ### Lecture Video
 
@@ -703,6 +796,8 @@
     <a href="url">
         <img src="images/plt3-03.png" alt="ROC curves, Area-Under-Curve (AUC)" title= "ROC curves, Area-Under-Curve (AUC) with differeent gamma parameters" height="250">
     </a>
+
+
 
 ### Lecture Video
 
@@ -1524,7 +1619,6 @@ print("result = {:.3f}".format(grid_clf_custom.best_score_ - precision_score(y_t
 
     print('Recall-Precision: {:.2f}'.format(recall_score(y_test, y_pred_recall) -precision_score(y_test, y_pred_recall)))
     print('Precision-Recall: {:.2f}'.format(precion_score(y_test, y_pred_recall) -recall_score(y_test, y_pred_recall)))
-
     ```
 
 + [Q13 & Q14](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/R3H4h1E0Eeep9w5HRnu7Hg)

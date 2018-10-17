@@ -1105,6 +1105,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.datasets import load_iris
     from sklearn.datasets import load_digits
     from sklearn.metrics import confusion_matrix
+    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+    from sklearn.metrics import classification_report
     ```
 
 | Function | Description | Link |
@@ -1115,7 +1117,16 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)` | Generate the "Friedman #1" regression problem | [Datasets][566] |
 | `load_breast_cancer(return_X_y=False)` | Load and return the breast cancer wisconsin dataset (classification) | [Datasets][566] |
 | `load_iris(return_X_y=False)` | Load and return the iris dataset (classification) | [Decision Tree][573] |
-| `confusion_matrix(y_true, y_pred, labels=None, sample_weight=None)` | Compute confusion matrix to evaluate the accuracy of a classification | [Confusion Matrix][575] |
+| `confusion_matrix(y_true, y_pred, labels=None, sample_weight=None)` | Compute confusion matrix to evaluate the accuracy of a classification | [Model Evaluation][574], [Evaluation Matrics][575] |
+| `accuracy_score(y_true, y_pred, *args*)` | Accuracy classification score | [Evaluation Matrics][575] |
+| `precision_score(y_true, y_pred, *args*)` | The precision is the ratio $tp / (tp + fp)$ where $tp$ is the number of true positives and $fp$ the number of false positives. | [Evaluation Matrics][575] |
+| `recall_score(y_true, y_pred, *args*)` | The recall is the ratio $tp / (tp + fn)$ where $tp$ is the number of true positives and $fn$ the number of false negatives. | [Evaluation Matrics][575] |
+| `f1_score(y_true, y_pred, *args*)` | The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. | [Evaluation Matrics][575] |
+| `classification_report(y_true, y_pred, *args*)` | Build a text report showing the main classification metrics | [Evaluation Matrics][575] |
+
+
+
+
 
 
 ------------------------------
