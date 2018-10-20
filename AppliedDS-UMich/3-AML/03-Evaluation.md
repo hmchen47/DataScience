@@ -1141,6 +1141,25 @@ Beyond the essential evaluation metrics covered in this course, online controlle
 
 Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controlled experiments on the web](https://ai.stanford.edu/~ronnyk/2007GuideControlledExperiments.pdf). Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining - KDD '07. doi:10.1145/1281192.1281295
 
++ [Introduction](./p1-ControledExp.md#)
++ [Motivating Examples](./p1-ControledExp.md#)
+    + [Checkout Page at Doctor FootCare](./p1-ControledExp.md#)
+    + [Ratings of Microsoft Office Help Articles](./p1-ControledExp.md#)
+    + [Results and ROI](./p1-ControledExp.md#)
++ [Controlled Experiments](./p1-ControledExp.md#)
+    + [Terminology](./p1-ControledExp.md#)
+    + [Hypothesis Testing and Sample Size](./p1-ControledExp.md#)
+    + [Extensions for Online Settings](./p1-ControledExp.md#)
+    + [Limitations](./p1-ControledExp.md#)
++ [Implementation Architecture](./p1-ControledExp.md#)
+    + [Randomization Algorithm](./p1-ControledExp.md#)
+    + [Assignment Method](./p1-ControledExp.md#)
++ [Lesson Learned](./p1-ControledExp.md#)
+    + [Analysis](./p1-ControledExp.md#)
+    + [Trust and Execution](./p1-ControledExp.md#)
+    + [Culture and Business](./p1-ControledExp.md#)
++ [Summary](./p1-ControledExp.md#)
+
 
 ## Model Selection: Optimizing Classifiers for Different Evaluation Metrics
 
