@@ -6,11 +6,11 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 ## Introduction
 
 + Controlled experiments 
-    + building the appropriate infrastructure can accelerate innovation
+    + Building the appropriate infrastructure can accelerate innovation
     + Stefan Thomke: Experimentation Matters
     + a.k.a. randomized experiments (single-factor or factorial designs), A/B tests (and their generalizations), split tests, Control/Treatment, and parallel flights
     + Control = the "existing" version <br/> Treatment = a new version being evaluated
-    + a methodology to reliably evaluate ideas
+    + A methodology to reliably evaluate ideas
 
 
 ## Motivating Examples
@@ -22,6 +22,7 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 ### Ratings of Microsoft Office Help Articles
 
 + The initial implementation presented users with a Yes/No widget. The team then modified the widget and offered a 5-star ratings.
+
 + Motivations for the change
     + The 5-star widget provides finer-grained feedback, which might help better evaluate content writers.
     + The 5-star widget improves usability by exposing users to a single feedback box as opposed to two separate pop-ups (one for Yes/No and another for Why).
@@ -31,18 +32,56 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 + Doctor FootCare
     + In reality, the site "upgraded" from the A to B and lost 90% of their revenue.
     + By removing the discount code from the new version (B), conversion-rate increased 6.5% relative to the old version (A).
+
 + Microsoft’s Office Help
     + The number of ratings plummeted by an order of magnitude, thus significantly missing on goal #2 above.
     + Based on additional tests, it turned out that the two-stage model actually helps in increasing the response rate.
     
 ## Controlled Experiments
 
++ A/B test: the simplest controlled experiment
+    <a href="https://www.betaout.com/blog/ab-testing-to-drive-better-ecommerce-sale/"> <br/>
+        <img src="http://www.betaoutcdn.com/inbound/2013/10/image_1_uv3cr.png" alt="Though this is not a standalone example of A/B testing leading to a huge success. The formula for the ecommerce retail giant Amazon’s success is also testing and only testing, 'There is nothing at Amazon which has not been tested.'  Starting from the product page design to the call to action buttons, checkout process to their delivery and return process, everything has gone through multiple split tests. Not only Amazon, most of the marketers & ecommerce sites nowadays, have turned to A/B testing to identify the most performing option for a variable in their site design and retail process for increased leads and better conversion. For sites with a lot of traffic, A/B testing is the quickest way to iterate and improve. Let’s start with the most common A/B testing variables for ecommerce companies." title= "A/B testing" height="200">
+    </a>
 
 
 ### Terminology
 
++ __Overall Evaluation Criterion__ (OEC)
+    + A quantitative measure of the experiment’s objective
+    + a.k.a. Response or Dependent Variable in statistics, other synonyms include Outcome, Evaluation metric, Performance metric, or Fitness Function
+    + A good OEC should not be short-term focused (e.g., clicks) and should include factors that predict long-term goals, such as predicted lifetime value and repeat visits
+    + Some ways to measure what customers want: Ulwick, Anthony. What Customers Want: Using Outcome-Driven Innovation to Create Breakthrough Products and Services. McGraw-Hill, 2005.
 
-    
++ __Factor__
+    + A controllable experimental variable that is thought to influence the OEC. 
+    + Assigned Values, Levels or Versions, Variables
+    + E.g., A/B tests - single factor with two values: A and B
+
++ __Variant / Treatment__
+    + A user experience being tested by assigning levels to the factors; it is either the Control or one of the Treatments.
+    + specifically differentiate between the Control, which is a special variant that designates the existing version being compared against and the new Treatments being tried
+    + bug: the experiment is aborted and all users should see the Control variant
+
++ __Experimentation Unit / Item__: The entity on which observations are made
+
++ __Null Hypothesis / $H_0$__: the OECs for the variants are not different and that any observed differences during the experiment are due to random fluctuations.
+
++ __Confidence level__: The probability of failing to reject (i.e., retaining) the null hypothesis when it is true.
+
++ __Power__: The probability of correctly rejecting the null hypothesis, H0, when it is false. Power measures our ability to detect a difference when it indeed exists.
+
++ __A/A Test__ / __Null Test__: 
+    + Assigning users to one of two groups, but expose them to exactly the same experience.
+    + Used to 
+        + collect data and assess its variability for power calculations, and 
+        + test the experimentation system (the Null hypothesis should be rejected about $5\%$ of the time when a $95\%$ confidence level is used).
+
++ __Standard Deviation (Std-Dev)__: A measure of variability, typically denoted by $\sigma$.
+
++ __Standard Error (Std-Err)__: For a statistic, it is the standard deviation of the sampling distribution of the sample statistic. For a mean of $n$ independent observations, it is $\hat{\sigma} / \sqrt{n}$ where $\sigma$ is the estimated standard deviation.
+
+
 ### Hypothesis Testing and Sample Size
 
 
