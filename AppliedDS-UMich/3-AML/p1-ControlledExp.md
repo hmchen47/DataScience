@@ -131,6 +131,25 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ### Limitations
 
+1. Quantitative Metrics, but No Explanations
+2. Short term vs. Long Term Effects
+    + Long-term goals should be part of the OEC.
+    + latent conversions: a lag from the time a user is exposed to something and take action.
+3. Primacy and Newness Effects
+    + primacy effect: change the navigation on a web site, experienced users may be less efficient until they get used to the new navigation
+    + newness bias: when a new design or feature is introduced, some users will investigate it, click everywhere; associated with the Hawthorne Effect
+    + Both primacy and newness concerns imply that some experiments need to be run for multiple weeks.
+4. Features Must be Implemented
+    + feature may be a prototype that is being tested against a small portion, or may not cover all edge cases
+    + feature must be implemented and be of sufficient quality to expose users to it.
+    + Jacob Nielsen correctly points out that paper prototyping can be used for qualitative feedback and quick refinements of designs in early stages.
+5. Consistency
+    + Users may notice they are getting a different variant than their friends and family.
+    + Same user will see multiple variants when using different computers (with different cookies).
+6. Parallel Experiments
+    + strong interactions are rare in practice -> overrated
+    + Pairwise statistical tests can also be done to flag such interactions automatically.
+7. Launch Events and Media Announcements.
 
     
 ## Implementation Architecture
