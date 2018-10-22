@@ -84,8 +84,18 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ### Hypothesis Testing and Sample Size
 
++ Accept a Treatment as being statistically significantly different if the test rejects the null hypothesis, which is that the OECs are not different.
++ What is important impact the test:
+    1. __Confidence level__: Commonly set to $95\%$, this level implies that 5% of the time we will incorrectly conclude that there is a difference when there is none (Type I error).
+    2. __Power__: Commonly desired to be around $80-95\%$, although not directly controlled. If the Null Hypothesis is false, i.e., there is a difference in the OECs, the power is the probability of determining that the difference is statistically significant. (A Type II error is one where we retain the Null Hypothesis when it is false.)
+    3. __Standard Error__: The smaller the Std-Err, the more powerful the test. There are three useful ways to reduce the Std-Err:
+        1. The estimated OEC is typically a mean of large samples. The Std-Err of a mean decreases proportionally to the square root of the sample size, so increasing the sample size, which usually implies running the experiment longer, reduces the Std-Err and hence increases the power.
+        2. Use OEC components that have inherently lower variability, i.e., the Std-Dev, $\sigma$, is smaller.
+        3. Lower the variability of the OEC by filtering out users who were not exposed to the variants, yet were still included in the OEC.
+    4. The effect, or the difference in OECs for the variants. Larger differences are easier to detect, so great ideas will unlikely be missed. Conversely, if Type I or Type II errors are made, they are more likely when the effects are small.
 
-    
+
+
 ### Extensions for Online Settings
 
 
