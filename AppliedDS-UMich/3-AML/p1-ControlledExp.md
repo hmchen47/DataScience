@@ -94,11 +94,29 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
         3. Lower the variability of the OEC by filtering out users who were not exposed to the variants, yet were still included in the OEC.
     4. The effect, or the difference in OECs for the variants. Larger differences are easier to detect, so great ideas will unlikely be missed. Conversely, if Type I or Type II errors are made, they are more likely when the effects are small.
 
++ Sample Size: <br/> Approximated formula of the desired sample size, assuming the desired confidence level is $95\%$ and the desired power is $90\%$: 
+
+    $𝑛= (4 r \sigma / \Delta)^2$ 
+    
+    where $n$ is the sample size, $r$ is the number of variants (assumed to be approximately equal in size), $\sigma$ is the std-dev of the OEC, and $\Delta$ is the minimum difference between the OECs. The factor of $4$ may overestimate by $25\%$ for large $n$, but the approximation suffices for the example.
+
++ Examples: Revenue <br/>
+    E-commerce site and $5\%$ of users who visit during the experiment period end up purchasing with about 75: $E(spending) = 75 \cdot 5\%$.  Assume $\sigma = 30$ and run A/B test to detect $5\%$, then $n = (4 \cdot 2 \cdot 30 / (3.75 \cdot 0.05)) > 1,600,000$
+
++ Example: $5\%$ conversion rate change (3.b) <br/>
+    Purchase (conversion event) modeled as a Bernoulli trial with $p=0.05$ being the probability of a purchase.  $\text{Std-Err} = \sqrt{p(1−𝑝)}$.  Therefore, $4 \cdot 2 \cdot \sqrt{0.05⋅(1−0.05)} / (0.05 \cdot 0.05)^2 < 500,000$. 
+
++ Example: change tot he checkout procedure (3.c) <br/>
+    Assume that $10\%$ of users initiate checkout and that $50\%$ of those users complete it. This user segment is more homogenous and hence the OEC has lower variability. <br/>
+    Average conversion rate = $0.5$, $\text{std-dev} = 0.5$.  To detect $5\%$ change, $n = 4 \cdot 2 \cdot 0.5 \cdot (1−0.5) / (0.5 \cdot 0.05)^2 ~ 25,600$.  Therefore, the total number is about $256,000$ since $90\%$ users excluded.
+
++ When running experiments, it is important to decide in advance on the OEC (a planned comparison); otherwise, there is an increased risk of finding what appear to be significant results by chance (familywise type I error). <br/> __Adjustment__: Fisher’s least-significant-difference, Bonferroni adjustment, Duncan’s test, Scheffé’s test, Tukey’s test, and Dunnett’s test
+
 
 
 ### Extensions for Online Settings
 
-
++ 
     
 ### Limitations
 
