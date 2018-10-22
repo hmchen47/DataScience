@@ -116,8 +116,19 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ### Extensions for Online Settings
 
-+ 
-    
++ Treatment Ramp-up
+    + An experiment can be initiated with a small percentage of users assigned to the treatment(s), and then that percentage can be gradually increased.
+    + E.g., run an A/B test at $50\%/50\%$; start with a $99.9\%/0.1\%$ split, then rampup the Treatment from $0.1\%$ to $0.5\%$ to $2.5\%$ to $10\%$ to $50\%$.
+
++ Automation
+    + Once an organization has a clear OEC, it can run experiments to optimize certain areas amenable to automated search.
+    + the slots on the home page at Amazon are automatically optimized. If decisions have to be made quickly (e.g., headline optimizations for portal sites), these could be made with lower confidence levels because the cost of mistakes is lower. Multi-armed bandit algorithms and Hoeffding Races can be used for such optimizations.
+
++ Software Migrations
+    + Features or system migrates to new backend, new database or new language -> no change on user experience
+    + A/B test with goal to retain $H_0$
+
+
 ### Limitations
 
 
