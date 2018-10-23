@@ -285,8 +285,21 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ## Summary
 
++ Controlled experiments
+    + neutralize confounding variables by distributing then equally over all values through random assignment
+    + establish a causal relationship btw the cnage made in different variants and the measure(s) of interest, including the Overall Evaluation Criterion (OEC)
 
++ Data Mining
+    + provide extremely valuable insights, such as the identification of segments that benefit from a feature introduce in a controlled experiment,
+    + leading to a virtuous cycle of improvements in features and better personalization
 
++ basic ideas in running controlled experiments
+    + easy to understand
+    + a comprehensive overview for the web was not previously available
+
++ Experimentation the "New Imperative for Innovation"
+
++ New technologies are making it easier than ever to conduct complex experiments quickly and cheaply
 
 
 
