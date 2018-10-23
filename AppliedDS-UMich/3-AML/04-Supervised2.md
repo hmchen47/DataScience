@@ -89,6 +89,18 @@
         <img src="images/plt4-04.png" alt="text" title= "Fig.4" height="200">
     </a>
 
++ `ListedColormap` class
+    + Init signature: `ListedColormap(colors, name='from_list', N=None)`
+    + Docstring: Colormap object generated from a list of colors. <br/>
+        This may be most useful when indexing directly into a colormap, but it can also be used to generate special colormaps for ordinary mapping.
+    + Parameters:
+        + `colors`: a list of matplotlib color specifications, or an equivalent Nx3 or Nx4 floating point array (`N` rgb or rgba values)
+        + `name`: a string to identify the colormap
+        + `N`: the number of entries in the map.  The default is `None`, in which case there is one colormap entry for each element in the list of colors.  
+            + If `N < len(colors)` the list will be truncated at `N`.  
+            + If `N > len(colors)` the list will be extended by repetition.
+
+
 ## Naive Bayes Classifiers
 
 + Naïve Bayes Classifiers: a simple, probabilistic classifier family
@@ -163,6 +175,45 @@
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/0XFms/naive-bayes-classifiers">
         <img src="images/plt4-05.png" alt="To use the Gaussian Naive Bayes classifier in Python, we just instantiate an instance of the Gaussian NB class and call the fit method on the training data just as we would with any other classifier. It's worth noting that the Naive Bayes models are among a few classifiers in scikit learn that support a method called partial fit, which can be used instead of fit to train the classifier incrementally in case you're working with a huge data set that doesn't fit into memory. More details on that are available in the scikit learn documentation for Naive Bayes. For the Gaussian NB class there are no special parameters to control the models complexity. Looking at one example in the notebook from our synthetic two class dataset, we can see that, in fact, the Gaussian Naive Bayes classifier achieves quite good performance on this simple classification example. When the classes are no longer as easily separable as with this second, more difficult binary example here. Like linear models, Naive Bayes does not perform as well. " title= "Gaussian Naive Bayes classifier with synthetic datasets" height="250">
     </a>
+
++ `GaussianNB` class
+    + Init signature: `GaussianNB(priors=None)`
+    + Docstring: Gaussian Naive Bayes (GaussianNB) <br/>
+        Can perform online updates to model parameters via `partial_fit` method. For details on algorithm used to update feature means and variance online, see Stanford CS tech report [STAN-CS-79-773](http://i.stanford.edu/pub/cstr/reports/cs/tr/79/773/CS-TR-79-773.pdf) by Chan, Golub, and LeVeque:
+    + Parameters
+        + `priors` (array-like, shape (n_classes,)): Prior probabilities of the classes. If specified the priors are not adjusted according to the data.
+    + Attributes
+        + `class_prior_` (array, shape (n_classes,)): probability of each class.
+        + `class_count_` (array, shape (n_classes,)): number of training samples observed in each class.
+        + `theta_` (array, shape (n_classes, n_features)): mean of each feature per class
+        + `sigma_` (array, shape (n_classes, n_features)):  variance of each feature per class
+
++ `nbclf.fit` method
+    + Signature: `nbclf.fit(self, X, y, sample_weight=None)`
+    + Docstring: Fit Gaussian Naive Bayes according to `X`, `y`
+    + Parameters
+        + `X` (array-like, shape (n_samples, n_features)): Training vectors, where n_samples is the number of samples and n_features is the number of features.
+        + `y` (array-like, shape (n_samples,)): Target values.
+        + `sample_weight` (array-like, shape (n_samples,), optional (default=None)): Weights applied to individual samples (1. for unweighted).
+    + Returns: `self` (object): Returns self.
+
++ `nbclf.predict` method
+    + Signature: `nbclf.predict(self, X)`
+    + Docstring: Perform classification on an array of test vectors `X`.
+    + Parameters
+        + `X` (array-like, shape = [n_samples, n_features])
+    + Returns: `C` (array, shape = [n_samples]): Predicted target values for X
+
++ `nbclf.score` method
+    + Signature: `nbclf.score(self, X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
+        In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)):  True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): Mean accuracy of `self.predict(X)` wrt. y.
+
 
 ### Lecture Video
 

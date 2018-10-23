@@ -1020,6 +1020,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.svm import LinearSVC                           # linsvc
     from sklearn.tree import DecisionTreeClassifier             # dtclf
     from sklearn.dummy import DummyClassifier                   # dummy
+    from sklearn.naive_bayes import GaussianNB                  # nbclf
     ```
 
 | Function | Description | Link |
@@ -1044,7 +1045,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `dummy.fit(self, X, y, sample_weight=None)` | Fit the random classifier | [Model Evaluation][574] |
 | `dummy.predict(X)` | Perform classification on test vectors X | [Model Evaluation][574] |
 | `dummy.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Model Evaluation][574] |
-
+| `GaussianNB(priors=None)` | Gaussian Naive Bayes | [Naive Bayes][581] |
+| `nbclf.fit(self, X, y, sample_weight=None)` | Fit Gaussian Naive Bayes according to `X`, `y` | [Naive Bayes][581] |
+| `nbclf.predict(self, X)` | Perform classification on an array of test vectors `X` | [Naive Bayes][581] |
+| `nbclf.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Naive Bayes][581] |
 
 
 ## Regression
@@ -1143,15 +1147,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 ------------------------------
 <!-- 
-[576]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#classifier-decision-functions
-[577]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#precision-recall-and-roc-curves
-[578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
-[579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
-[580]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics
-[581]: 
-[582]: 
-[583]: 
-[584]: 
+[581]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#naive-bayes-classifiers
+[582]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#random-forests
+[583]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#gradient-boosted-decision-trees
+[584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
 [585]: 
 [586]: 
 [587]: 
@@ -1848,3 +1847,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [573]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#decision-trees
 [574]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-evaluation--selection
 [575]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#confusion-matrices--basic-evaluation-metrics
+[576]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#classifier-decision-functions
+[577]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#precision-recall-and-roc-curves
+[578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
+[579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
+[580]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics

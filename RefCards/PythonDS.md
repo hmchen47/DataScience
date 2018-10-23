@@ -483,16 +483,12 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 ```python
 %matplotlib notebook                    # provides an interactive environment in Jupyter and IPuthon
-
 import matplotlib as mpl                # load module in CLI
-
 import matplotlib.pyplot as plt         # load pyplot module
-
 import matplotlib.gridspec as gridspec
-
 import mpl_toolkits.axes_grid1.inset_locator as mpl_il
-
 import matplotlib.animation as animation
+from matplotlib.colors import ListedColormap
 ```
 
 ### Classes
@@ -502,6 +498,7 @@ import matplotlib.animation as animation
 | `mpl.axes.Axes` | contain most of the figure elements: Axis, Tick, Line2D, Text, Polygon, etc., and sets the coordinate system. | [Axes][030] |
 | `plt.gca().xaxis` & `plt.gca().yaxis` | xaxis = class XAxis(Axis), yaxis = class YAxis(Axis) | [Line Plots][027] |
 | `gridspec.GridSpec` | specifies the geometry of the grid that a subplot will be placed | [Histograms][038] |
+| `ListedColormap(colors, *args)` | Colormap object generated from a list of colors | [Mod04][052] |
 
 ### Official Docs
 
@@ -772,7 +769,7 @@ from sklearn.neighbors import KNeighborsClassifier
 [049]: ../AppliedDS-UMich/3-AML/01-FundML.ms#an-example-machine-learning-problem
 [050]: ../AppliedDS-UMich/3-AML/01-FundML.ms#examining-the-data
 [051]: ../AppliedDS-UMich/3-AML/01-FundML.ms#k---nearest-neighbors-classification
-[052]: 
+[052]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#module-4-notebook
 [053]: 
 [054]: 
 [055]: 
