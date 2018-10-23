@@ -223,7 +223,38 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ### Trust and Execution
 
++ Run Continuous A/A Tests
+    1. Are users split according to the planned percentages?
+    2. Is the data collected matching the system of record?
+    3. Are the results showing non-significant results 95% of the time?
 
++ Automate Ramp-up and Abort
+    + experiments ramp-up in the percentages assigned to the Treatment(s).
+    + auto-aborted if a treatment is statistically significantly underperforming relative to the Control
+    + auto-abort simply reduces the percentage of users assigned to a treatment to zero.
+    + Ramp-up is quite easy to do in online environments, yet hard to do in offline studies.
+
++ Determine the Minimum Sample Size
+    + Decide on the statistical power, the effect you would like to detect, and estimate the variability of the OEC through an A/A test. 
+    + Minimum sample size needed for the experiment and the running time based on statistical power
+    + common mistake: run experiments underpowered
+
++ Assign $50\%$ of Users to Treatment
+    + common practice: run new variants for only a small percentage of users
+    + recommend: Treatment ramp-up
+    + Maximize the power of an experiment and minimize the running time: $50\%$ of users see each of the variants in an A/B test
+    + Assuming all factors are fixed, a good approximation for the multiplicative increase in running time for an A/B test relative to $50\%/50\%$ is $1/(4𝑝(1−𝑝))$ where the treatment receives portion $p$ of the traffic. 
+    + E.g., if an experiment is run at $99\%/1\%$, then it will have to run about $25$ times longer than if it ran at $50\%/50\%$
+
++ Beware of Day of Week Effects
+    + running experiments for at least a week or two, then continuing by multiples of a week so that day-of-week effects can be analyzed
+    + generalized to other time-related events: holidays and seasons
+    + different geographies: US may not work well in France, Germany, or Japan
+
++ Power calculation
+    + $50\%/50\%$: 5 days
+    + $95\%/5\%$: 25 days (4 weeks)
+    + $99\%/1\%$: 125 days
 
 ### Culture and Business
 
