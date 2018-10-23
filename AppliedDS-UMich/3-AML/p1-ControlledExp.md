@@ -258,6 +258,29 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ### Culture and Business
 
++ Agree on the OEC Upfront
+    + controlled experiments: objectively measure the value of new features for the business
+    + OECs can be combined measures, which transform multiple objectives, in the form of experimental observations, into a single metric.
+    + Weigh the value of various inputs and decide their relative importance.
+    + Assess the _lifetime value_ of users and their actions -> OEC
+    + E.g., a search from a new user may be worth more than an additional search from an existing user.
+
++ Beware of Launching Features that "Do Not Hurt" Users
+    + no statistically significant difference between variants
+        + truely no difference between the variants
+        + no sufficient power to detect the change
+    + decision based on "no significant difference" results to launch the change anyway "because it does not hurt anything." -> possible negative experiment but underpowered
+
++ Weigh the Feature Maintenance Costs
+    + Maintenance costs overtaken a statistically significant difference between variants
+    + Small increase in OEC may not outweight the cost of maintaining the feature
+
++ Change to a Data-Driven Culture
+    + Running a few online experiments can provide great insights into how customers are using a feature.
+    + Running frequent experiments and using experimental results as major input to company decisions and product planning can have a dramatic impact on company culture.
+    + classical software development: completely designed prior to implementation.
+    + web world: integrate customer feedback directly through prototypes and experimentation
+    + OEC + experiment -> real data -> attaining shared goals
 
 
 ## Summary
