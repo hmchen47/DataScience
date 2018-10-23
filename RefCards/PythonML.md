@@ -1045,10 +1045,14 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `dummy.fit(self, X, y, sample_weight=None)` | Fit the random classifier | [Model Evaluation][574] |
 | `dummy.predict(X)` | Perform classification on test vectors X | [Model Evaluation][574] |
 | `dummy.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Model Evaluation][574] |
-| `GaussianNB(priors=None)` | Gaussian Naive Bayes | [Naive Bayes][581] |
+| `nbclf = GaussianNB(priors=None)` | Gaussian Naive Bayes | [Naive Bayes][581] |
 | `nbclf.fit(self, X, y, sample_weight=None)` | Fit Gaussian Naive Bayes according to `X`, `y` | [Naive Bayes][581] |
 | `nbclf.predict(self, X)` | Perform classification on an array of test vectors `X` | [Naive Bayes][581] |
 | `nbclf.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Naive Bayes][581] |
+| `rfclf = RandomForestClassifier(n_estimators=10, criterion='gini', *args)` | A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and use averaging to improve the predictive accuracy and control over-fitting. | [Random Forest][582] |
+| `rfclf.fit(X, y, sample_weight=None)` | Build a forest of trees from the training set (X, y) | [Random Forest][582] |
+| `rfclf.predict(X)` | The predicted class of an input sample is a vote by the trees in the forest, weighted by their probability estimates. | [Random Forest][582] |
+| `rfclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Random Forest][582] |
 
 
 ## Regression

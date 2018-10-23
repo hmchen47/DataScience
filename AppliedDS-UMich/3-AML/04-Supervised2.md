@@ -189,7 +189,7 @@
         + `sigma_` (array, shape (n_classes, n_features)):  variance of each feature per class
 
 + `nbclf.fit` method
-    + Signature: `nbclf.fit(self, X, y, sample_weight=None)`
+    + Signature: `nbclf.fit(X, y, sample_weight=None)`
     + Docstring: Fit Gaussian Naive Bayes according to `X`, `y`
     + Parameters
         + `X` (array-like, shape (n_samples, n_features)): Training vectors, where n_samples is the number of samples and n_features is the number of features.
@@ -198,14 +198,14 @@
     + Returns: `self` (object): Returns self.
 
 + `nbclf.predict` method
-    + Signature: `nbclf.predict(self, X)`
+    + Signature: `nbclf.predict(X)`
     + Docstring: Perform classification on an array of test vectors `X`.
     + Parameters
         + `X` (array-like, shape = [n_samples, n_features])
     + Returns: `C` (array, shape = [n_samples]): Predicted target values for X
 
 + `nbclf.score` method
-    + Signature: `nbclf.score(self, X, y, sample_weight=None)`
+    + Signature: `nbclf.score(X, y, sample_weight=None)`
     + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
         In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
     + Parameters
@@ -298,8 +298,6 @@
     + `n_jobs`: How many cores to use in parallel during training.
     + Choose a fixed setting for the `random_state` parameter if you need reproducible results.
 
-
-
 + Demo
     ```python
     from sklearn.ensemble import RandomForestClassifier
@@ -378,6 +376,96 @@
         <img src="images/plt4-08.png" alt="Let's apply random forest to a larger dataset with more features. For comparison with other supervised learning methods, we use the breast cancer dataset again. We create a new random forest classifier and since there are about 30 features, we'll set max_features to eight to give a diverse set of trees that also fit the data reasonably well. We can see that random forest with no feature scaling or extensive parameter tuning achieve very good test set performance on this dataset, in fact, it's as good or better than all the other supervised methods we've seen so far including current life support vector machines and neural networks that require more careful tuning. " title= "Random forest: Fruit dataset" height="150">
     </a>
 
+
++ `RandomForestClassifier` class
+    + Init signature: `RandomForestClassifier(n_estimators=10, criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features='auto', max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, bootstrap=True, oob_score=False, n_jobs=1, random_state=None, verbose=0, warm_start=False, class_weight=None)`
+    + Docstring:  A random forest classifier. <br/>
+        A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and use averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is always the same as the original input sample size but the samples are drawn with replacement if `bootstrap=True` (default).
+    + Parameters
+        + `n_estimators` (integer, optional (default=10)): The number of trees in the forest.
+        + `criterion` (string, optional (default="gini")): The function to measure the quality of a split. Supported criteria are "gini" for the Gini impurity and "entropy" for the information gain. Note: this parameter is tree-specific.
+        + `max_features` (int, float, string or None, optional (default="auto")): The number of features to consider when looking for the best split:
+            + If int, then consider `max_features` features at each split.
+            + If float, then `max_features` is a percentage and `int(max_features * n_features)` features are considered at each split.
+            + If "auto", then `max_features=sqrt(n_features)`.
+            + If "sqrt", then `max_features=sqrt(n_features)` (same as "auto").
+            + If "log2", then `max_features=log2(n_features)`.
+            + If None, then `max_features=n_features`.
+
+            Note: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than `max_features` features.
+        + `max_depth` (integer or None, optional (default=None)): The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.
+        + `min_samples_split` (int, float, optional (default=2)): The minimum number of samples required to split an internal node:
+            + If int, then consider `min_samples_split` as the minimum number.
+            + If float, then `min_samples_split` is a percentage and `ceil(min_samples_split * n_samples)` are the minimum number of samples for each split.
+            + `min_samples_leaf` (int, float, optional (default=1)): The minimum number of samples required to be at a leaf node:
+                + If int, then consider `min_samples_leaf` as the minimum number.
+                + If float, then `min_samples_leaf` is a percentage and `ceil(min_samples_leaf * n_samples)` are the minimum number of samples for each node.
+        + `min_weight_fraction_leaf` (float, optional (default=0.)): The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.
+        + `max_leaf_nodes` (int or None, optional (default=None)): Grow trees with ``max_leaf_nodes`` in best-first fashion. Best nodes are defined as relative reduction in impurity. If None then unlimited number of leaf nodes.
+        + `min_impurity_split` (float,): Threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf.
+        + `min_impurity_decrease` (float, optional (default=0.)): A node will be split if this split induces a decrease of the impurity greater than or equal to this value. <br/>
+            The weighted impurity decrease equation is the following:
+
+            $$N_t / N * (\text{impurity} - N_{tR} / N_t * \text{right impurity} - N_{tL} / N_t * \text{left impurity})$$
+
+            where $N$ is the total number of samples, $N_t$ is the number of samples at the current node, $N_{tL}$ is the number of samples in the left child, and $N_{tR}$ is the number of samples in the right child. <br/> $N$, $N_t$, $N_{tR}$ and $N_{tL}$ all refer to the weighted sum, if `sample_weight` is passed.
+        + `bootstrap` (boolean, optional (default=True)): Whether bootstrap samples are used when building trees.
+        + `oob_score` (bool (default=False)): Whether to use out-of-bag samples to estimate the generalization accuracy.
+        + `n_jobs` (integer, optional (default=1)): The number of jobs to run in parallel for both `fit` and `predict`. If $-1$, then the number of jobs is set to the number of cores.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + `verbose` (int, optional (default=0)): Controls the verbosity of the tree building process.
+        + `warm_start` (bool, optional (default=False)): When set to `True`, reuse the solution of the previous call to fit and add more estimators to the ensemble, otherwise, just fit a whole new forest.
+        + `class_weight` (dict, list of dicts, "balanced", "balanced_subsample" or None, optional (default=None)): Weights associated with classes in the form `{class_label: weight}`. If not given, all classes are supposed to have weight one. For multi-output problems, a list of dicts can be provided in the same order as the columns of y. <br/>
+            Note that for multioutput (including multilabel) weights should be   defined for each class of every column in its own dict. For example, for four-class multilabel classification weights should be [{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of [{1:1}, {2:5}, {3:1}, {4:1}]. <br/>
+            The "balanced" mode uses the values of y to automatically adjust weights inversely proportional to class frequencies in the input data as `n_samples / (n_classes * np.bincount(y))` <br/>
+            The "balanced_subsample" mode is the same as "balanced" except that weights are computed based on the bootstrap sample for every tree grown. <br/>
+            For multi-output, the weights of each column of y will be multiplied. <br/>
+            Note that these weights will be multiplied with sample_weight (passed through the fit method) if sample_weight is specified.
+    + Attributes
+        + `estimators_` (list of DecisionTreeClassifier): The collection of fitted sub-estimators.
+        + `classes_` (array of shape = [n_classes] or a list of such arrays): The classes labels (single output problem), or a list of arrays of class labels (multi-output problem).
+        + `n_classes_` (int or list): The number of classes (single output problem), or a list containing the number of classes for each output (multi-output problem).
+        + `n_features_` (int):  The number of features when `fit` is performed.
+        + `n_outputs_` (int):  The number of outputs when `fit` is performed.
+        + `feature_importances_`(array of shape = [n_features]): The feature importances (the higher, the more important the feature).
+        + `oob_score_` (float): Score of the training dataset obtained using an out-of-bag estimate.
+        + `oob_decision_function_` (array of shape = [n_samples, n_classes]): Decision function computed with out-of-bag estimate on the training set. If n_estimators is small it might be possible that a data point was never left out during the bootstrap. In this case, `oob_decision_function_` might contain NaN.
+    + Notes
+        + The default values for the parameters controlling the size of the trees (e.g. `max_depth`, `min_samples_leaf`, etc.) lead to fully grown and unpruned trees which can potentially be very large on some data sets. To reduce memory consumption, the complexity and size of the trees should be controlled by setting those parameter values.
+        + The features are always randomly permuted at each split. Therefore, the best found split may vary, even with the same training data, `max_features=n_features` and `bootstrap=False`, if the improvement of the criterion is identical for several splits enumerated during the search of the best split. To obtain a deterministic behaviour during fitting, `random_state` has to be fixed.
+    + References
+        + L. Breiman, "Random Forests", Machine Learning, 45(1), 5-32, 2001.
+
++ `rfclf.fit` method
+    + Signature: `rfclf.fit(X, y, sample_weight=None)`
+    + Docstring: Build a forest of trees from the training set (X, y).
+    + Parameters
+        + `X` (array-like or sparse matrix of shape = [n_samples, n_features]): The training input samples. Internally, its dtype will be converted to `dtype=np.float32`. If a sparse matrix is provided, it will be converted into a sparse `csc_matrix`.
+        + `y` (array-like, shape = [n_samples] or [n_samples, n_outputs]):  The target values (class labels in classification, real numbers in regression).
+        + `sample_weight` (array-like, shape = [n_samples] or None): Sample weights. If None, then samples are equally weighted. Splits that would create child nodes with net zero or negative weight are ignored while searching for a split in each node. In the case of classification, splits are also ignored if they would result in any single class carrying a negative weight in either child node.
+    + Returns: `self` (object): Returns self.
+
++ `rfclf.predict` method
+    + Signature: `rfclf.predict(X)`
+    + Docstring: Predict class for `X` <br/>
+        The predicted class of an input sample is a vote by the trees in the forest, weighted by their probability estimates. That is, the predicted class is the one with highest mean probability estimate across the trees.
+    + Parameters
+        + `X` (array-like or sparse matrix of shape = [n_samples, n_features]):  The input samples. Internally, its dtype will be converted to `dtype=np.float32`. If a sparse matrix is provided, it will be converted into a sparse `csr_matrix`.
+    + Returns: `y` (array of shape = [n_samples] or [n_samples, n_outputs]):  The predicted classes.
+
+
++ `rfclf.score` method
+    + Signature: `rfclf.score(X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
+        In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)):  True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float):  Mean accuracy of `self.predict(X)` wrt. y.
 
 
 ### Lecture Video
