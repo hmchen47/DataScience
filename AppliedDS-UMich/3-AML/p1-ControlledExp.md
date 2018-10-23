@@ -154,10 +154,32 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
     
 ## Implementation Architecture
 
-
-
 ### Randomization Algorithm
 
++ Properties
+    1. Users must be equally likely to see each variant of an experiment (assuming a 50-50 split).
+    2. Repeat assignments of a single user must be consistent.
+    3. When multiple experiments are run concurrently, there must be no correlation between experiments.
+    4. The algorithm should support monotonic ramp-up , meaning that the percentage of users who see a Treatment can be slowly increased without changing the assignments of users who were already previously assigned to that Treatment.
+
++ Pseudorandom with caching
+    + A good pseudorandom number generator will satisfy the first and third requirements of the randomization algorithm.
+    + state introduced: the assignments of users must be cached once they visit the site.
+    + server side: storing the assignments for users in some form of database; client side: by storing a user’s assignment in a cookie
+    + The fourth requirement (monotonic ramp-up) is particularly difficult to implement using this method.
+
++ Hash and partition
+    + Hash and partition
+        + completed stateless
+        + Each user is assigned a unique identifier, which is maintained either through a database or a cookie.
+        + identifier is appended onto the name or id of the experiment.
+    + Very sensitive to the choice of hash function.
+        + any _funnels_ (instances where adjacent keys map to the same hash code) then the first property (uniform distribution) will be violated.
+        + _characteristics_ (instances where a perturbation of the key produces a predictable perturbation of the hash code), then correlations may occur between experiments.
+    + satisfy the second requirement (by definition), satisfying the first and third is more difficult
+    + only MD5 generated no correlations between experiments
+    + SHA256 requiring a five-way interaction to produce a correlation
+    + .NET string hashing function failed to pass even a two-way interaction test
 
     
 ### Assignment Method
