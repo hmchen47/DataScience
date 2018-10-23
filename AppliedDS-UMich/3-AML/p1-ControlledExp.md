@@ -181,11 +181,23 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
     + SHA256 requiring a five-way interaction to produce a correlation
     + .NET string hashing function failed to pass even a two-way interaction test
 
-    
+
 ### Assignment Method
 
++ A piece of software that enables the experimenting website to execute a different code path for different users.
++ Traffic splitting
+    + A method that involves implementing each variant of an experiment on a different fleet of servers, be it physical or virtual.
+    + Embed the randomization algorithm into a load balancer or proxy server to split traffic between the variants.
+    + Requiring no changes to existing code to implement an experiment.
++ Server-side selection
+    + API calls embedded into the website’s servers invoke the randomization algorithm and enable branching logic that produces a different user experience for each variant.
+    + Extremely general method that supports multiple experiments on any aspect of a website, from visual elements to backend algorithms.
++ Client-side selection
+    + JavaScript calls embedded into each web page contact a remote service for assignments
+    + Dynamically modify the page to produce the appropriate user experience
+    + easier to implement than server-side experiments
 
-    
+
 ## Lesson Learned
 
 
@@ -193,15 +205,15 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 ### Analysis
 
 
-    
+
 ### Trust and Execution
 
 
-    
+
 ### Culture and Business
 
 
-    
+
 ## Summary
 
 
