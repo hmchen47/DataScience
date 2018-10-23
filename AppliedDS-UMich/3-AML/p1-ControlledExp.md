@@ -200,11 +200,26 @@ Authors: Ron Kohavi, Randal M. Henne, Dan Sommerfield
 
 ## Lesson Learned
 
-
-
 ### Analysis
 
++ Mine the Data
+    + Rich data is typically collected that can be analyzed using machine learning and data mining techniques.
+    + Excluding the population from the analysis showed positive results, and once the bug was fixed, the feature was indeed retested and was positive.
 
++ Speed Matters
+    + experiments at Amazon showed a $1\%$ sales decrease for an additional 100 msec
+    + experiments at Google showed increased the time to display search results by 500 msecs reduced revenues by $20\%$ (based on a talk by Marissa Mayer at Web 2.0).
+
++ Test One Factor at a Time (or Not)
+    + testing one factor at a time -> too restrict
+    + fractional factorial designs and Taguchi methods -> introducing complexity
+    + factorial designs allow for joint optimization of factors, and are therefore superior in theory
+    + recommendations
+        + Conduct single-factor experiments for gaining insights and decoupled with incremental changes
+        + Try some bold bets and very different designs.
+            + backend algorithms: easier to try
+            + Data mining: isolate areas where the new algorithm is significantly better, leading to interesting insights.
+        + factorial designs: Limit the factors and the possible values per factor because users will be fragmented (reducing power) and because testing the combinations for launch is hard.
 
 ### Trust and Execution
 
