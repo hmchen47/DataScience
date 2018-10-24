@@ -1022,6 +1022,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.dummy import DummyClassifier                   # dummy
     from sklearn.naive_bayes import GaussianNB                  # nbclf
     from sklearn.ensemble import GradientBoostingClassifier     # gbdtclf
+    from sklearn.neural_network import MLPClassifier            # mlpclf
     ```
 
 | Function | Description | Link |
@@ -1058,6 +1059,12 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `gbdtclf..fit(X, y, *args)` | Fit the gradient boosting model | [GBDT][583] |
 | `gbdtclf..predict(X)` | Predict class for X | [GBDT][583] |
 | `gbdtclf..score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [GBDT][583] |
+| `mlpclf = MLPClassifier(hidden_layer_sizes=(100,), activation='relu', solver='adam', *args)` | Multi-layer Perceptron classifier; optimize the log-loss function using LBFGS or stochastic gradient descent | [NN][584] |
+| `mlpclf.fit(X, y)` | Fit the model to data matrix X and target(s) y | [NN][584] |
+| `mlpclf..predict(X)` | Predict using the multi-layer perceptron classifier | [NN][584] |
+| `mlpclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [NN][584] |
+
+
 
 
 ## Regression

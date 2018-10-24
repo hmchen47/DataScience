@@ -655,7 +655,7 @@
 
 
 + `gbdtclf.fit` method
-    + Signature: `gbdtclf..fit(self, X, y, sample_weight=None, monitor=None)`
+    + Signature: `gbdtclf..fit(X, y, sample_weight=None, monitor=None)`
     + Docstring: Fit the gradient boosting model.
     + Parameters
         + `X` (array-like, shape = [n_samples, n_features]): Training vectors, where n_samples is the number of samples and n_features is the number of features.
@@ -666,7 +666,7 @@
 
 
 + `gbdtclf.predict` method
-    + Signature: `gbdtclf..predict(self, X)`
+    + Signature: `gbdtclf..predict(X)`
     + Docstring: Predict class for X.
     + Parameters
         + `X` (array-like or sparse matrix, shape = [n_samples, n_features]): The input samples. Internally, it will be converted to `dtype=np.float32` and if a sparse matrix is provided to a sparse `csr_matrix`.
@@ -674,7 +674,7 @@
 
 
 + `gbdtclf.score` method
-    + Signature: `gbdtclf..score(self, X, y, sample_weight=None)`
+    + Signature: `gbdtclf..score(X, y, sample_weight=None)`
     + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
         In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
     + Parameters
@@ -833,7 +833,6 @@
             nnclf, X_train, y_train, X_test, y_test, title, axis)
         plt.tight_layout()      # Fig.15
 
-
     # ### Neural networks: Regression
     from sklearn.neural_network import MLPRegressor
 
@@ -893,6 +892,97 @@
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/v4cs3/neural-networks"> <br/>
         <img src="images/plt4-16.png" alt="Here's the example of a simple MLP regression model, in our notebook. You use the multi-layer perceptron regressor by importing the MLPRegressor class from the sklearn.neural_network module, and then creating the MLPRegressor object. When creating the object here, we're setting the number of hidden layers and units within each hidden layer. Using the same hidden_layer_sizes parameter that we used for classification. This example uses two hidden layers, with 100 hidden nodes each. This notebook code has a loop that cycles through different settings of the activation function parameter, and the alpha parameter for L2 regularization. Here we've included regression results that use, in the top row, the hyperbolic tangent activation function. And in the bottom row, the relu activation function. You can see the smoothness of the activation function somewhat influences the smoothness of the corresponding regression results. Along the columns, the plots also show the effect of using different alpha settings, to increase the amount of L2 regularization from left to right. Again, as with classification, the effect of increasing the amount of L2 regularization, by increasing alpha. Is to constrain the regression to use simpler and simpler models, with fewer and fewer large weights. You can see this effect for both activation functions, in the top and bottom rows. The regression line on the left has higher variance than the much smoother, regularized model on the right. " title= "MLP regression\nalpha=[0.0001, 1.0, 100], activation=['tanh', 'relu']" height="450">
     </a>
+
++ `MLPClassifier` class
+    + Init signature: `MLPClassifier(hidden_layer_sizes=(100,), activation='relu', solver='adam', alpha=0.0001, batch_size='auto', learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=200, shuffle=True, random_state=None, tol=0.0001, verbose=False, warm_start=False, momentum=0.9, nesterovs_momentum=True, early_stopping=False, validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08)`
+    + Docstring: Multi-layer Perceptron classifier. <br/>
+        This model optimizes the log-loss function using LBFGS or stochastic gradient descent.
+    + Parameters
+        + `hidden_layer_sizes` (tuple, length = n_layers - 2, default (100,)): The ith element represents the number of neurons in the ith hidden layer.
+        + `activation` ({'identity', 'logistic', 'tanh', 'relu'}, default 'relu'): Activation function for the hidden layer.
+            + 'identity', no-op activation, useful to implement linear bottleneck, returns $f(x) = x$
+            + 'logistic', the logistic sigmoid function, returns $f(x) = 1 / (1 + \exp(-x))$.
+            + 'tanh', the hyperbolic tan function, returns $f(x) = \tanh(x)$.
+            + 'relu', the rectified linear unit function, returns $f(x) = \max(0, x)$
+        + `solver` ({'lbfgs', 'sgd', 'adam'}, default 'adam'): The solver for weight optimization.
+            + 'lbfgs' is an optimizer in the family of quasi-Newton methods.
+            + 'sgd' refers to stochastic gradient descent.
+            + 'adam' refers to a stochastic gradient-based optimizer proposed by Kingma, Diederik, and Jimmy Ba
+
+            Note: The default solver 'adam' works pretty well on relatively large datasets (with thousands of training samples or more) in terms of both training time and validation score. <br/>  For small datasets, however, 'lbfgs' can converge faster and perform better.
+        + `alpha` (float, optional, default 0.0001): L2 penalty (regularization term) parameter.
+        + `batch_size` (int, optional, default 'auto'):  Size of minibatches for stochastic optimizers. If the solver is 'lbfgs', the classifier will not use minibatch. When set to "auto", `batch_size=min(200, n_samples)`
+        + `learning_rate` ({'constant', 'invscaling', 'adaptive'}, default 'constant'): Learning rate schedule for weight updates.
+            + 'constant' is a constant learning rate given by 'learning_rate_init'.
+            + 'invscaling' gradually decreases the learning rate `learning_rate_` at each time step 't' using an inverse scaling exponent of 'power_t'. effective_learning_rate = learning_rate_init / pow(t, power_t)
+            + 'adaptive' keeps the learning rate constant to 'learning_rate_init' as long as training loss keeps decreasing. Each time two consecutive epochs fail to decrease training loss by at least tol, or fail to increase validation score by at least tol if 'early_stopping' is on, the current learning rate is divided by 5.
+
+            Only used when `solver='sgd'`.
+        + `learning_rate_init` (double, optional, default 0.001): The initial learning rate used. It controls the step-size in updating the weights. Only used when solver='sgd' or 'adam'.
+        + `power_t` (double, optional, default 0.5): The exponent for inverse scaling learning rate. It is used in updating effective learning rate when the learning_rate is set to 'invscaling'. Only used when solver='sgd'.
+        + `max_iter` (int, optional, default 200): Maximum number of iterations. The solver iterates until convergence (determined by 'tol') or this number of iterations. For stochastic solvers ('sgd', 'adam'), note that this determines the number of epochs (how many times each data point will be used), not the number of gradient steps.
+        + `shuffle` (bool, optional, default True): Whether to shuffle samples in each iteration. Only used when solver='sgd' or 'adam'.
+        + `random_state` (int, RandomState instance or None, optional, default None): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + `tol` (float, optional, default 1e-4): Tolerance for the optimization. When the loss or score is not improving by at least tol for two consecutive iterations, unless `learning_rate` is set to 'adaptive', convergence is considered to be reached and training stops.
+        + `verbose` (bool, optional, default False): Whether to print progress messages to stdout.
+        + `warm_start` (bool, optional, default False): When set to True, reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution.
+        + `momentum` (float, default $0.9$): Momentum for gradient descent update. Should be between 0 and 1. Only used when solver='sgd'.
+        + `nesterovs_momentum` (boolean, default True): Whether to use Nesterov's momentum. Only used when solver='sgd' and momentum > 0.
+        + `early_stopping` (bool, default False): Whether to use early stopping to terminate training when validation score is not improving. If set to true, it will automatically set aside 10% of training data as validation and terminate training when validation score is not improving by at least tol for two consecutive epochs. <br/>  Only effective when solver='sgd' or 'adam'
+        + `validation_fraction` (float, optional, default $0.1$): The proportion of training data to set aside as validation set for early stopping. Must be between 0 and 1. <br/> Only used if early_stopping is True
+        + `beta_1` (float, optional, default $0.9$): Exponential decay rate for estimates of first moment vector in adam, should be in $[0, 1)$. Only used when solver='adam'
+        + `beta_2` (float, optional, default $0.999$): Exponential decay rate for estimates of second moment vector in adam, should be in $[0, 1)$. Only used when solver='adam'
+        + `epsilon` (float, optional, default $1e-8$): Value for numerical stability in adam. Only used when solver='adam'
+    + Attributes
+        + `classes_` (array or list of array of shape (n_classes,)): Class labels for each output.
+        + `loss_` (float): The current loss computed with the loss function.
+        + `coefs_` (list, length n_layers - 1): The ith element in the list represents the weight matrix corresponding to layer $i$.
+        + `intercepts_` (list, length n_layers - 1): The ith element in the list represents the bias vector corresponding to layer $i + 1$.
+        + `n_iter_` (int,): The number of iterations the solver has ran.
+        + `n_layers_` (int): Number of layers.
+        + `n_outputs_` (int): Number of outputs.
+        + `out_activation_` (string): Name of the output activation function.
+    + Notes
+        + MLPClassifier trains iteratively since at each time step the partial derivatives of the loss function with respect to the model parameters are computed to update the parameters.
+        + It can also have a regularization term added to the loss function that shrinks model parameters to prevent overfitting.
+        + This implementation works with data represented as dense numpy arrays or sparse scipy arrays of floating point values.
+    + References
+        + Hinton, Geoffrey E. "Connectionist learning procedures." Artificial intelligence 40.1 (1989): 185-234.
+        + Glorot, Xavier, and Yoshua Bengio. "Understanding the difficulty of training deep feedforward neural networks." International Conference on Artificial Intelligence and Statistics. 2010.
+        + He, Kaiming, et al. "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification." arXiv preprint arXiv:1502.01852 (2015).
+        + Kingma, Diederik, and Jimmy Ba. "Adam: A method for stochastic optimization." arXiv preprint arXiv:1412.6980 (2014).
+
+
++ `mlpclf.fit` method
+    + Signature: `mlpclf.fit(X, y)`
+    + Docstring: Fit the model to data matrix X and target(s) y.
+    + Parameters
+        + `X` (array-like or sparse matrix, shape (n_samples, n_features)): The input data.
+        + `y` (array-like, shape (n_samples,) or (n_samples, n_outputs)): The target values (class labels in classification, real numbers in regression).
+    + Returns: `self` (object): returns a trained MLP model.
+
+
++ `mlpclf.predict` method
+    + Signature: `mlpclf..predict(X)`
+    + Docstring: Predict using the multi-layer perceptron classifier
+    + Parameters
+        + `X` ({array-like, sparse matrix}, shape (n_samples, n_features): The input data.
+    + Returns: `y` (array-like, shape (n_samples,) or (n_samples, n_classes)): The predicted classes.
+
+
++ `mlpclf.score` method
+    + Signature: `mlpclf.score(X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
+        In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that   each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)):  True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): Mean accuracy of self.predict(X) wrt. y.
+
 
 
 ### Lecture Video
