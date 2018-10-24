@@ -510,7 +510,6 @@
     + `max_depthis` typically set to a small value (e.g. 3-5) for most applications.
 
 
-
 + Demo
     ```python
     # ### Gradient-boosted decision trees
@@ -595,6 +594,94 @@
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/emwn3/gradient-boosted-decision-trees"> <br/>
         <img src="images/plt4-10.png" alt="Not covered i  Lecture" title= "Gradient boosted decision trees on the fruit dataset" height="150">
     </a>
+
++ `GradientBoostingClassifier` class
+    + Init signature: `GradientBoostingClassifier(loss='deviance', learning_rate=0.1, n_estimators=100, subsample=1.0, criterion='friedman_mse', min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_depth=3, min_impurity_decrease=0.0, min_impurity_split=None, init=None, random_state=None, max_features=None, verbose=0, max_leaf_nodes=None, warm_start=False, presort='auto')`
+    + Docstring: Gradient Boosting for classification. <br/>
+        GB builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. In each stage `n_classes_` regression trees are fit on the negative gradient of the binomial or multinomial deviance loss function. Binary classification is a special case where only a single regression tree is induced.
+    + Parameters
+        + `loss` ({'deviance', 'exponential'}, optional (default='deviance')): loss function to be optimized. 'deviance' refers to deviance (= logistic regression) for classification with probabilistic outputs. For loss 'exponential' gradient boosting recovers the AdaBoost algorithm.
+        + `learning_rate` (float, optional (default=0.1)): learning rate shrinks the contribution of each tree by `learning_rate`. There is a trade-off between learning_rate and n_estimators.
+        + `n_estimators` (int (default=100)): The number of boosting stages to perform. Gradient boosting is fairly robust to over-fitting so a large number usually results in better performance.
+        + `max_depth` (integer, optional (default=3)): maximum depth of the individual regression estimators. The maximum depth limits the number of nodes in the tree. Tune this parameter for best performance; the best value depends on the interaction of the input variables.
+        + `criterion` (string, optional (default="friedman_mse")): The function to measure the quality of a split. Supported criteria are "friedman_mse" for the mean squared error with improvement score by Friedman, "mse" for mean squared error, and "mae" for the mean absolute error. The default value of "friedman_mse" is generally the best as it can provide a better approximation in some cases.
+        + `min_samples_split` (int, float, optional (default=2)): The minimum number of samples required to split an internal node:
+            + If int, then consider `min_samples_split` as the minimum number.
+            + If float, then `min_samples_split` is a percentage and `ceil(min_samples_split * n_samples)` are the minimum number of samples for each split.
+        + `min_samples_leaf` (int, float, optional (default=1)): The minimum number of samples required to be at a leaf node:
+            + If int, then consider `min_samples_leaf` as the minimum number.
+            + If float, then `min_samples_leaf` is a percentage and `ceil(min_samples_leaf * n_samples)` are the minimum number of samples for each node.
+        + `min_weight_fraction_leaf` (float, optional (default=0.)): The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.
+        + `subsample` (float, optional (default=1.0)): The fraction of samples to be used for fitting the individual base learners. If smaller than 1.0 this results in Stochastic Gradient Boosting. `subsample` interacts with the parameter `n_estimators`. Choosing `subsample < 1.0` leads to a reduction of variance and an increase in bias.
+        + `max_features` (int, float, string or None, optional (default=None)): The number of features to consider when looking for the best split:
+            + If int, then consider `max_features` features at each split.
+            + If float, then `max_features` is a percentage and `int(max_features * n_features)` features are considered at each split.
+            + If "auto", then `max_features=sqrt(n_features)`.
+            + If "sqrt", then `max_features=sqrt(n_features)`.
+            + If "log2", then `max_features=log2(n_features)`.
+            + If None, then `max_features=n_features`.
+
+            Choosing `max_features < n_features` leads to a reduction of variance and an increase in bias. <br/>
+            Note: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than `max_features` features.
+        + `max_leaf_nodes` (int or None, optional (default=None)): Grow trees with ``max_leaf_nodes`` in best-first fashion. Best nodes are defined as relative reduction in impurity. If None then unlimited number of leaf nodes.
+        + `min_impurity_split` (float,): Threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf.
+        + `min_impurity_decrease` (float, optional (default=0.)):  A node will be split if this split induces a decrease of the impurity greater than or equal to this value. <br/>
+            The weighted impurity decrease equation is the following:
+
+            $$N_t / N * (\text{impurity} - N_{tR} / N_t * \text{right impurity} - N_{tL} / N_t * \text{left impurity})$$
+
+            where $N$ is the total number of samples, $N_t$ is the number of samples at the current node, $N_{tL}$ is the number of samples in the left child, and ``N_t_R`` is the number of samples in the right child. <br/>
+            $N$, $N_t$, $N_{tR}$ and $N_{tL}$ all refer to the weighted sum, if `sample_weight` is passed.
+        + `init` (BaseEstimator, None, optional (default=None)): An estimator object that is used to compute the initial predictions. `init` has to provide `fit` and `predict`. If None it uses `loss.init_estimator`.
+        + `verbose` (int, default: 0): Enable verbose output. If 1 then it prints progress and performance once in a while (the more trees the lower the frequency). If greater than 1 then it prints progress and performance for every tree.
+        + `warm_start` (bool, default: False): When set to `True`, reuse the solution of the previous call to fit and add more estimators to the ensemble, otherwise, just erase the previous solution.
+        + `random_state` (int, RandomState instance or None, optional (default=None)): 
+            + If int, random_state is the seed used by the random number generator;
+            + If RandomState instance, random_state is the random number generator;
+            + If None, the random number generator is the RandomState instance used by `np.random`.
+        + `presort` (bool or 'auto', optional (default='auto')): Whether to presort the data to speed up the finding of best splits in fitting. Auto mode by default will use presorting on dense data and default to normal sorting on sparse data. Setting presort to true on sparse data will raise an error.
+    + Attributes
+        + `feature_importances_` (array, shape = [n_features]): The feature importances (the higher, the more important the feature).
+        + `oob_improvement_` (array, shape = [n_estimators]): The improvement in loss (= deviance) on the out-of-bag samples relative to the previous iteration. `oob_improvement_[0]` is the improvement in loss of the first stage over the `init` estimator.
+        + `train_score_` (array, shape = [n_estimators]): The i-th score `train_score_[i]` is the deviance (= loss) of the model at iteration `i` on the in-bag sample. If `subsample == 1` this is the deviance on the training data.
+        + `loss`_ (LossFunction): The concrete `LossFunction` object.
+        + `init` (BaseEstimator): The estimator that provides the initial predictions. Set via the `init` argument or `loss.init_estimator`.
+        + `estimators_` (ndarray of DecisionTreeRegressor, shape = [n_estimators, ``loss_.K``]): The collection of fitted sub-estimators. `loss_.K` is 1 for binary classification, otherwise n_classes.
+    + Notes: The features are always randomly permuted at each split. Therefore, the best found split may vary, even with the same training data and `max_features=n_features`, if the improvement of the criterion is identical for several splits enumerated during the search of the best split. To obtain a deterministic behaviour during fitting, `random_state` has to be fixed.
+    + References
+        + J. Friedman, Greedy Function Approximation: A Gradient Boosting Machine, The Annals of Statistics, Vol. 29, No. 5, 2001.
+        + J. Friedman, Stochastic Gradient Boosting, 1999
+        + T. Hastie, R. Tibshirani and J. Friedman. Elements of Statistical Learning Ed. 2, Springer, 2009.
+
+
++ `gbdtclf.fit` method
+    + Signature: `gbdtclf..fit(self, X, y, sample_weight=None, monitor=None)`
+    + Docstring: Fit the gradient boosting model.
+    + Parameters
+        + `X` (array-like, shape = [n_samples, n_features]): Training vectors, where n_samples is the number of samples and n_features is the number of features.
+        + `y` (array-like, shape = [n_samples]): Target values (integers in classification, real numbers in regression) <br/> For classification, labels must correspond to classes.
+        + `sample_weight` (array-like, shape = [n_samples] or None):  Sample weights. If None, then samples are equally weighted. Splits that would create child nodes with net zero or negative weight are ignored while searching for a split in each node. In the case of classification, splits are also ignored if they would result in any single class carrying a negative weight in either child node.
+        + `monitor` (callable, optional): The monitor is called after each iteration with the current iteration, a reference to the estimator and the local variables of `_fit_stages` as keyword arguments `callable(i, self, locals())`. If the callable returns `True` the fitting procedure is stopped. The monitor can be used for various things such as computing held-out estimates, early stopping, model introspect, and snapshoting.
+    + Returns: `self` (object): Returns self.
+
+
++ `gbdtclf.predict` method
+    + Signature: `gbdtclf..predict(self, X)`
+    + Docstring: Predict class for X.
+    + Parameters
+        + `X` (array-like or sparse matrix, shape = [n_samples, n_features]): The input samples. Internally, it will be converted to `dtype=np.float32` and if a sparse matrix is provided to a sparse `csr_matrix`.
+    + Returns: `y` (array of shape = [n_samples]): The predicted values.
+
+
++ `gbdtclf.score` method
+    + Signature: `gbdtclf..score(self, X, y, sample_weight=None)`
+    + Docstring: Returns the mean accuracy on the given test data and labels. <br/>
+        In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+    + Parameters
+        + `X` (array-like, shape = (n_samples, n_features)): Test samples.
+        + `y` (array-like, shape = (n_samples) or (n_samples, n_outputs)): True labels for X.
+        + `sample_weight` (array-like, shape = [n_samples], optional): Sample weights.
+    + Returns: `score` (float): Mean accuracy of self.predict(X) wrt. y.
 
 
 
