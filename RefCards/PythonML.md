@@ -1077,6 +1077,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.linear_model import Lasso                      # linlasso
     from sklearn.preprocessing import PolynomialFeatures        # poly
     from sklearn.linear_model import LogisticRegression         # logreg
+    from sklearn.neural_network import MLPRegressor             # mlpreg
     ```
 
 | Function | Description | Link |
@@ -1105,6 +1106,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `logreg.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Logistic][570] |
 | `logreg.decision_function(X)` | The confidence score for a sample is the signed distance of that sample to the hyperplane | [Decision Functions][576] |
 | `logreg.predict_proba(X)` | Probability estimates. The returned estimates for all classes are ordered by the label of classes. | [Decision Functions][576] |
+| `mplreg = MLPRegressor(hidden_layer_sizes=(100,), activation='relu', solver='adam', *args)` | Multi-layer Perceptron regressor; optimize the squared-loss using LBFGS or stochastic gradient descent | [NN][584] |
+| `mlpreg.fit(X, y)` | Fit the model to data matrix X and target(s) `y` | [NN][584] |
+| `mlpreg.predict(X)` | Predict using the multi-layer perceptron model | [NN][584] |
+| `mlpreg.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [NN][584] |
 
 
 ## Clustering
