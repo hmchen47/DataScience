@@ -1086,6 +1086,78 @@ This tutorial by Ophir Tanz and Cambron Carter is a fun high-level math-free tut
 
 Carter, C., & Tanz, O. (2017, April 13). Neural networks made easy. Retrieved May 10, 2017, from https://techcrunch.com/2017/04/13/neural-networks-made-easy/
 
++ This guide to neural networks aims to give you a conversational level of understanding of deep learning.
+
+### Thinking by brute force
+
++ Deep Blue: By exhaustively programming every possible chess move into a computer, as well as known strategies, and then giving it sufficient power, IBM programmers created a machine that, in theory, could calculate every possible move and outcome into the future and pick the sequence of subsequent moves to outplay its opponent.
++ With this sort of computing, the machine relies on fixed rules that have been painstakingly pre-programmed by engineers.
+
+### Teaching machines to learn
+
++ deep learning, or neural networks: a simple and systematic way of analyzing input data that’s loosely modeled after human thinking
++ Around since the 1940s, but because of today’s exponential proliferation of data — images, videos, voice searches, browsing habits and more — along with supercharged and affordable processors
+
+### Machines — they’re just like us!
+
++ __Artificial neural network (ANN)__: an algorithmic construct that enables machines to learn everything from voice commands and playlist curation to music composition and image recognition
++ Typical ANN consists of thousands of interconnected artificial neurons, which are stacked sequentially in rows that are known as _layers_, forming millions of connections
++ Layers are only interconnected with the layer of neurons before and after them via inputs and outputs
++ __Convolutional neural network (CNN)__: using convolution to be able to analyze images in non-literal ways, such as identifying a partially obscured object or one that is viewable only from certain angles.
+
+### All aboard the network training
+
++ Example to identify images, such oranges and apples
+    + The network breaks them down into their most basic components, i.e. edges, textures and shapes
+    + As the picture propagates through the network, these basic components are combined to form more abstract concepts, i.e. curves and different colors which, when combined further
+    + At the end of this process, the network attempts to make a prediction as to what’s in the picture.
+    + At first, these predictions will appear as random guesses, as no real learning has taken place yet
+    + __backpropagation__: the process to increase the likelihood of predicting “apple” for that same image the next time around.
+    + This happens over and over until the predictions are more or less accurate and don’t seem to be improving.
+
+### So many layers…
+
++ Four essential layers of neurons
+    + Convolution
+    + Activation
+    + Pooling
+    + Fully connected
+
++ Convolution
+    + In the initial convolution layer or layers, thousands of neurons act as the first set of filters, scouring every part and pixel in the image, looking for patterns.
+    + Each neuron gradually learns to filter for specific features, which improves accuracy.
+    + With an image by breaking it down into different features
+    + These filters aren’t hand designed; they learn and refine themselves purely by looking at data.
+    + convolution layer essentially creates maps — different, broken-down versions of the picture, each dedicated to a different filtered feature — that indicate where its neurons see an instance (however partial) of the color red, stems, curves and the various other elements
+
++ Activation
+    + One advantage of neural networks is that they are capable of learning in a nonlinear way, which, in mathless terms, means they are able to spot features in images that aren’t quite as obvious
+    + Serve to more or less highlight the valuable stuff — both the straightforward and harder-to-spot varieties.
+    + From each of those separated piles of things we’ve cherry-picked a few items that we might want to keep
+
++ Pooling
+    + "Convolving” across an entire image generates a lot of information
+    + Pooling shrinks it all into a more general and digestible form.
+    + "max pooling": most popular way which edits down each feature map into a Reader’s Digest version of itself, so that only the best examples of redness, stem-ness or curviness are featured.
+    + Choose only the things that “spark joy” from the smaller assortment of favorites in each category pile,
+    + A neural network designer can stack subsequent layered configurations of this sort — convolution, activation, pooling — and continue to filter down images to get higher-level information.
+    <a href="https://techcrunch.com/2017/04/13/neural-networks-made-easy/"> <br/>
+        <img src="https://beta.techcrunch.com/wp-content/uploads/2017/04/neural_networks_convolution_layers_gumgum1.gif" alt="In the case of identifying an apple in pictures, the images get filtered down over and over, with initial layers showing just barely discernable parts of an edge, a blip of red or just the tip of a stem, while subsequent, more filtered layers will show entire apples. Either way, when it’s time to start getting results, the fully connected layer comes into play." title= "Neural Network" height="200">
+    </a>
+
++ Fully connected
+    + Each reduced, or “pooled,” feature map is “fully connected” to output nodes (neurons) that represent the items the neural network is learning to identify. 
+    + the final output of the network is expressed as percentages
+
+
+### If at first you don’t succeed, try, try, try again
+
++ Since this is supervised learning with labeled training data, the network is able to figure out where and how that error occurred through a system of checks and balances known as backpropagation.
++ Backpropagation sends feedback to the previous layer’s nodes about just how far off the answers were.
++ Tweaks and adjustments are made to help each neuron better identify the data at every level when subsequent images go through the network.
++ This process is repeated over and over until the neural network is identifying apples and oranges in images with increasing accuracy, eventually ending up at 100 percent correct predictions — though many engineers consider 85 percent to be acceptable.
+
+
 
 ## Play with Neural Networks: TensorFlow Playground (optional)
 
