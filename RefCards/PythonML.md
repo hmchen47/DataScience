@@ -1168,10 +1168,6 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 ------------------------------
 <!-- 
-[581]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#naive-bayes-classifiers
-[582]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#random-forests
-[583]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#gradient-boosted-decision-trees
-[584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
 [585]: 
 [586]: 
 [587]: 
@@ -1873,3 +1869,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
 [579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
 [580]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics
+[581]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#naive-bayes-classifiers
+[582]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#random-forests
+[583]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#gradient-boosted-decision-trees
+[584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
