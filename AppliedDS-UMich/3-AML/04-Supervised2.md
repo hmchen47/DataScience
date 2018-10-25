@@ -1247,7 +1247,51 @@ Deep Learning in a Nutshell: Core Concepts. (2016, September 08). Retrieved May 
     + Convolutional layers are exceptionally good at finding good features in images to the next layer to form a hierarchy of nonlinear features that grow in complexity.
     + The final layer(s) use all these generated features for classification or regression
 
+### Fundamental Concepts
 
++ Logistic Regression
+    + __Regression analysis__ estimates the relationship between statistical input variables in order to predict an outcome variable.
+    + __Logistic regression__: a regression model that uses input variables to predict a categorical outcome variable that can take on one of a limited set of class values.
+    + Apply the logistic sigmoid function to weighted input values to generate a prediction of which of two classes the input data belongs to (or in case of multinomial logistic regression, which of multiple classes)
+    + The logistic sigmoid function: $ f(x) = \frac{1}{1 + \exp{-x}}$
+    + Similar to a non-linear perceptron or a neural network without hidden 
+    + Easy to interpret and reliable if some statistical properties for the input variables hold -> produce a very reliable model with very little input data
+    + Valuable for areas where data are scarce, like the medical and social sciences where logistic regression is used to analyze and interpret results from experiments
+    + In deep learning, the final layer of a neural network used for classification can often be interpreted as a logistic regression.
+
+    <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/"> <br/>
+        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/sigmoid1-450x300.png" alt="Logistic regression applies the logistic sigmoid function (see Figure 2) to weighted input values to generate a prediction of which of two classes the input data belongs to (or in case of multinomial logistic regression, which of multiple classes)." title= "The logistic sigmoid function" height="200">
+    </a>
+
++ Artificial Neural Network
+    + Layer: (1) takes some input data, and (2) transforms this input data by calculating a _weighted sum_ over the inputs and (3) applies a non-linear function to this transformation to calculate an intermediate state.
+    + Unit: the transformation function
+    + Features: the intermediate states used as the input into another layer
+    + Learn iteratively with multiple layers of non-linear features, which it then combines in a final layer to create a prediction
+    + Learn by generating an error signal that measures the difference between the predictions of the network and the desired values and then using this error signal to change the weights (or parameters) so that predictions get more accurate.
+
++ Unit
+    + The activation function in a layer by which the inputs are transformed via a nonlinear activation function, e.g., logistic sigmoid function
+    + With several incoming connections and several outgoing connections
+    + [Long short-term memory (LSTM) units](https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#LSTM): multiple activation functions with a distinct layout of connections to the nonlinear activation functions, or maxout units, which compute the final output over an array of nonlinearly transformed input values.
+
++ Artificial Neuron
+    + a.k.a. unit, but implies a close connection to neurobiology and the human brain while deep learning has very little to do with the brain
+    + Biological neurons are more similar to entire multilayer perceptrons rather than a single unit in a neural network
+    + Very misleading and potentially dangerous for the perception of the field of deep learning
+
++ Activation Function
+    + Weighted data (matrix multiplication between input data and weights) and outputs a non-linear transformation of the data
+    + [Rectified linear activation function](https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training#rectified-linear-function): $output = \max(0, data_{weighted})$
+    + Unit can have multiple activation functions (e.g. LSTM units) or a slightly more complex structure (for example maxout units).
+    + Difference between linear and non-linear activation functions: the relationship of some weighted values
+    + The features of 1000 layers of pure linear transformations can be reproduced by a single layer (because a chain of matrix multiplication can always be represented by a single matrix multiplication).
+
++ Layer
+    + The highest-level building block in deep learning
+    + A container that usually receives weighted input, transforms it with a set of mostly non-linear functions and then passes these values as output to the next layer.
+    + Usually uniform, that is it only contains one type of activation function, pooling, convolution etc. so that it can be easily compared to other parts of the network.
+    + The first and last layers in a network are called input and output layers, respectively, and all layers in between are called hidden layers.
 
 
 
