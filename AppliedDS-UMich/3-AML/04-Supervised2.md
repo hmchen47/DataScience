@@ -1455,6 +1455,16 @@ Here's the link to the [article](https://medium.com/@colin.fraser/the-treachery-
     + built a leaky dataset and any model that you train on this data
     + Customer `11125` has $0$ spend on movies and $0$ spend on electronics. If the store only sells jewelry, movies, and electronics, then the only way that customer `11125` can possibly be in the dataset is if he bought jewelry. --> The condition of having $0$ spend on movies and electronics logically implies the condition of having bought jewelry.
 
+### Freedom of Information
+
++ __Leakage__ is present when your features contain information that your model should not legitimately be allowed to use.
++ Is this leakage?: images of a wolf or a dog
+    + Classifier seems to do quite well, identifying most wolves and most dogs in your test set. 
+    + Model has simply decided that a “wolf” is a thing on a white background and a “dog” is a thing on a green background.
+    + The background is a legitimate feature that rational observer would use to determine the content of an image.
++ The answer to whether this is a leakage problem or not depends on how you expect the model to generalize.
+
+
 
 
 
