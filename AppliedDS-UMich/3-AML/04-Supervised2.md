@@ -1464,8 +1464,32 @@ Here's the link to the [article](https://medium.com/@colin.fraser/the-treachery-
     + The background is a legitimate feature that rational observer would use to determine the content of an image.
 + The answer to whether this is a leakage problem or not depends on how you expect the model to generalize.
 
+### There’s no such thing as a time machine
 
++ The accidental introduction of time-travel into the data is probably the most common source of leakage in machine learning.
++ No Time Machine Condition (NTMC): 
+    + A general rule might be: if X happened after Y, you shouldn’t build a model that uses X to predict Y.
+    + A model that determines whether it rains at 9:00 AM as a function of whether the road is wet at 9:05 AM might be very accurate, but it will also be very useless.
++ Example:
+    + build a model to predict customer churn (that is, to predict which customers will cancel their subscriptions)
+    + Dataset Example
 
+    | CUSTOMER | HELP_DESK_CALLS_2015 | DOWNTIME_MINS_2015 | CHURNED | ... |
+    |---------:|---------------------:|-------------------:|--------:|:---:|
+    |    45220 |                    4 |               1293 |   FALSE | ... |
+    |    45221 |                    0 |                  0 |    TRUE | ... |
+    |    45222 |                    1 |                 43 |    TRUE | ... |
+    |    45223 |                    4 |               1001 |   FALSE | ... |
+    |    45224 |                    3 |               6298 |   FALSE | ... |
+    |      ... |                  ... |                ... |     ... | ... |
+
+    + Spot the leakage
+        + violated NTMC
+        + The variable CHURNED indicates whether a customer cancels their account at any point in the year.
+        + Features, HELP_DESK_CALLS_2015 and DOWNTIME_MINS_2015 are yearly totals which are, by definition, only available at the end of the year.
+        + There’s no way that we could possibly know the values of these variables before the churn event takes place, so our model has no business using them to predict churn.
+        + If there are many customers like this who cancel early in the year, then the data might contain many examples of churners with small numbers for DOWNTIME_MINS_2015. The model can exploit this pattern in the data to identify customers with low downtime minutes as churners.
+    + The more likely your model says a customer is to churn, the less likely they really are to churn.
 
 
 ## Leakage in Data Mining: Formulation, Detection, and Avoidance (optional)
