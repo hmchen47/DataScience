@@ -1432,9 +1432,30 @@ Posted by Martin Stumpe (Technical Lead) and Lily Peng (Product Manager), Google
 
 This fun, less-technical read from Colin Fraser reinforces the material in the Data Leakage lecture to provide further explanation and examples on detecting and avoiding data leakage in your machine learning applications.
 
-Here's the link to the article:
+Here's the link to the [article](https://medium.com/@colin.fraser/the-treachery-of-leakage-56a2d7c4e931)
 
-https://medium.com/@colin.fraser/the-treachery-of-leakage-56a2d7c4e931
++ The Handbook of Statistical Analysis and Data Mining Applications calls __leakage__ one of the top ten data mining mistakes.
+
+### When is a data leaky?
+
++ [Leakage in Data Mining: Formulation, Detection, and Avoidance](http://dl.acm.org/citation.cfm?id=2020496): many examples and ideas on data leak
++ Example:
+    + build a model to predict, based on past purchases, whether a customer is likely to buy jewelry
+    + Dataset example
+
+    | CUSTOMER | JEWELRY | MOVIES | ELECTRONICS |
+    |:--------:|--------:|-------:|------------:|
+    | 11123 | 1003.23 |   24.99   |  1594.95 |
+    | 11124 |    0.00 |   96.45   |     0.00 |
+    | 11125 |   58.12 |    0.00   |     0.00 |
+    | 11126 |    0.00 |  549.20   |   190.67 |
+    | 11127 |    8.23 | 2400.10   |   523.45 |
+    |   ... |     ... |     ...   |      ... |
+
+    + built a leaky dataset and any model that you train on this data
+    + Customer `11125` has $0$ spend on movies and $0$ spend on electronics. If the store only sells jewelry, movies, and electronics, then the only way that customer `11125` can possibly be in the dataset is if he bought jewelry. --> The condition of having $0$ spend on movies and electronics logically implies the condition of having bought jewelry.
+
+
 
 
 ## Leakage in Data Mining: Formulation, Detection, and Avoidance (optional)
