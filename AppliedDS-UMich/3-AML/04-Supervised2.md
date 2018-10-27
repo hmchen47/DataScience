@@ -1294,6 +1294,51 @@ Deep Learning in a Nutshell: Core Concepts. (2016, September 08). Retrieved May 
     + The first and last layers in a network are called input and output layers, respectively, and all layers in between are called hidden layers.
 
 
+### Convolutional Deep Learning
+
++ Convolution
+    + A mathematical operation which describes a rule of how to mix two functions or pieces of information: (1) The feature map (or input data) and (2) the convolution kernel mix together to form (3) a transformed feature map. Convolution is often interpreted as a filter, where the kernel filters the feature map for information of a certain kind (for example one kernel might filter for edges and discard other information).
+    + Define a bridge between the spatial and time domains (pixel with intensity 147 at position (0,30)) and the frequency domain (amplitude of 0.3, at 30Hz, with 60-degree phase) through the convolution theorem.
+    + This bridge is defined by the use of Fourier transforms: When you use a Fourier transform on both the kernel and the feature map, then the convolution operation is simplified significantly (integration becomes mere multiplication).
+    + Convolution can describe the diffusion of information.
+
+    <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/"> <br/>
+        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/convolution.png" alt="Convolution is important in physics and mathematics as it defines a bridge between the spatial and time domains (pixel with intensity 147 at position (0,30)) and the frequency domain (amplitude of 0.3, at 30Hz, with 60-degree phase) through the convolution theorem. This bridge is defined by the use of Fourier transforms: When you use a Fourier transform on both the kernel and the feature map, then the convolution operation is simplified significantly (integration becomes mere multiplication). Some of the fastest GPU implementations of convolutions (for example some implementations in the NVIDIA cuDNN library) currently make use of Fourier transforms." title= "Convolution of an image with an edge detector convolution kernel" height="200">
+    </a>
+    <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/">
+        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/Convolution_schematic.gif" alt="Convolution is important in physics and mathematics as it defines a bridge between the spatial and time domains (pixel with intensity 147 at position (0,30)) and the frequency domain (amplitude of 0.3, at 30Hz, with 60-degree phase) through the convolution theorem. This bridge is defined by the use of Fourier transforms: When you use a Fourier transform on both the kernel and the feature map, then the convolution operation is simplified significantly (integration becomes mere multiplication). Some of the fastest GPU implementations of convolutions (for example some implementations in the NVIDIA cuDNN library) currently make use of Fourier transforms." title= "Calculating convolution by sliding image patches over the entire image. One image patch (yellow) of the original image (green) is multiplied by the kernel (red numbers in the yellow patch), and its sum is written to one feature map pixel (red cell in convolved feature). " height="200">
+    </a>
+    + Quantum mechanics: Describe the probability of a quantum particle being in a certain place when you measure the particle’s position (average probability for a pixel’s position is highest at contours)
+    + Probability theory: Describe cross-correlation, which is the degree of similarity for two sequences that overlap (similarity high if the pixels of a feature (e.g. nose) overlap in an image (e.g. face))
+    + Statistics: Describe a weighted moving average over a normalized sequence of input (large weights for contours, small weights for everything else)
+    + Cross-correlation interpretation: convolutional filters can be interpreted as feature detectors, that is, the input (feature map) is filtered for a certain feature (the kernel) and the output is large if the feature is detected in the image
+    <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/"> <br/>
+        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/crosscorrelation_Example.png" alt="Cross-correlation for an image. Convolution can be transformed to cross-correlation by reversing the kernel (upside-down image). The kernel can then be interpreted as a feature detector where a detected feature results in large outputs (white) and small outputs if no feature is present (black). Images are taken from Steven Smith’s excellent free online book about digital signal processing." title= "Cross-correlation for an image. " height="200">
+    </a>
+    + Ref: [Understanding Convolution in Deep Learning](http://timdettmers.com/2015/03/26/convolution-deep-learning/)
+
++ Pooling / Subsampling
+    + Pooling is a procedure that takes input over a certain area and reduces that to a single value (subsampling).
+    + Property: outgoing connections usually receive similar information (the information is “funneled” into the right place for the input feature map of the next convolutional layer)
+    + Provide basic invariance to rotations and translations
+    + Information funneled into the right place by the pooling operation so that the convolutional filters can detect it
+    + The larger the size of the pooling area, the more information is condensed, which leads to slim networks that fit more easily into GPU memory.
+    + pooling area too large -> too much information thrown away and predictive performance decreased
+    + Ref: [Neural networks: Computer vision – pooling and subsampling](https://www.youtube.com/watch?v=I-JKxcpbRT4)
+
++ Convolutional Neural Network (CNN)
+    + convolutional neural network, or preferably convolutional network or convolutional net (the term neural is misleading)
+    + using convolutional layers that filter inputs for useful information
+    + parameters are learned so that these filters are adjusted automatically to extract the most useful information for the task at hand
+    + Convolutional networks adjust automatically to find the best feature for tasks, such as the shape and color of an object.
+    + multiple convolutional layers used to filter images for more and more abstract information after each layer
+    + Using pooling layers for limited translation and rotation invariance (detect the object even if it appears at some unusual place).
+    + Pooling also reduces the memory consumption and thus allows for the usage of more convolutional layers.
+    + [Inception module](https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#inception): use 1×1 convolutional kernels to reduce the memory consumption further while speeding up the computation (and thus training)
+    <a href="http://parse.ele.tue.nl/mpeemen"> <br/>
+        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1.png" alt="An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. The next layer applies 10 5×5 convolutional kernels to these subsampled images and again we pool the feature maps. The final layer is a fully connected layer where all generated features are combined and used in the classifier (essentially logistic regression)." title= "An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. " height="200">
+    </a>
+
 
 ## Assisting Pathologists in Detecting Cancer with Deep Learning (optional)
 
