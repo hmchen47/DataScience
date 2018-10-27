@@ -1336,7 +1336,7 @@ Deep Learning in a Nutshell: Core Concepts. (2016, September 08). Retrieved May 
     + Pooling also reduces the memory consumption and thus allows for the usage of more convolutional layers.
     + [Inception module](https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#inception): use 1×1 convolutional kernels to reduce the memory consumption further while speeding up the computation (and thus training)
     <a href="http://parse.ele.tue.nl/mpeemen"> <br/>
-        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1.png" alt="An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. The next layer applies 10 5×5 convolutional kernels to these subsampled images and again we pool the feature maps. The final layer is a fully connected layer where all generated features are combined and used in the classifier (essentially logistic regression)." title= "An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. " height="200">
+        <img src="https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1.png" alt="An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. The next layer applies 10 5×5 convolutional kernels to these subsampled images and again we pool the feature maps. The final layer is a fully connected layer where all generated features are combined and used in the classifier (essentially logistic regression)." title= "An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. " height="250">
     </a>
 
 
@@ -1348,6 +1348,20 @@ This short article is an example of how deep learning is being used in healthcar
 
 Posted by Martin Stumpe (Technical Lead) and Lily Peng (Product Manager), Google Research Blog
 
++ A pathologist’s report after reviewing a patient’s biological tissue samples is often the gold standard in the diagnosis of many diseases.
++ The reviewing of pathology slides is a very complex task, requiring years of training to gain the expertise and experience to do well.
++ E.g., agreement in diagnosis for some forms of breast cancer can be as low as 48%, and similarly low for prostate cancer.
++ Deep learning can be applied to digital pathology, by creating an automated detection algorithm that can naturally complement pathologists’ workflow.
++ Standard “off-the-shelf” deep learning approaches like Inception (aka GoogLeNet) worked reasonably well for both tasks, although the tumor probability prediction heatmaps produced were a bit noisy.
++ It was possible to train a model that either matched or exceeded the performance of a pathologist who had unlimited time to examine the slides.
+    <a href="https://ai.googleblog.com/2017/03/assisting-pathologists-in-detecting.html"> <br/>
+        <img src="https://2.bp.blogspot.com/-gSIgoqSR1sY/WLjHshWv0eI/AAAAAAAABnY/jEMd9ybBnawy3yVuc5loR9-Zl01zM_RtQCLcB/s1600/image01.png" alt="Standard “off-the-shelf” deep learning approaches like Inception (aka GoogLeNet) worked reasonably well for both tasks, although the tumor probability prediction heatmaps produced were a bit noisy. After additional customization, including training networks to examine the image at different magnifications (much like what a pathologist does), we showed that it was possible to train a model that either matched or exceeded the performance of a pathologist who had unlimited time to examine the slides." title= "Left: Images from two lymph node biopsies. Middle: earlier results of our deep learning tumor detection. Right: our current results. Notice the visibly reduced noise (potential false positives) between the two versions." height="300">
+    </a>
++ The prediction heatmaps produced by the algorithm had improved so much that the localization score (FROC) for the algorithm reached 89%, which significantly exceeded the score of 73% for a pathologist with no time constraint
++ A few important caveats to consider
+    + The FROC localization score is not perfect: [FROC score](https://camelyon16.grand-challenge.org/evaluation/) defined as the sensitivity (percentage of tumors detected) at a few pre-defined average false positives per slide
+    + Algorithm lack the breadth of knowledge and experience of human pathologists
+    + Algorithms need to be incorporated in a way that complements the pathologist’s workflow. 
 
 
 ## Data Leakage
