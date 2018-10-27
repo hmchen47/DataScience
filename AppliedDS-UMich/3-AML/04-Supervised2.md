@@ -1491,6 +1491,23 @@ Here's the link to the [article](https://medium.com/@colin.fraser/the-treachery-
         + If there are many customers like this who cancel early in the year, then the data might contain many examples of churners with small numbers for DOWNTIME_MINS_2015. The model can exploit this pattern in the data to identify customers with low downtime minutes as churners.
     + The more likely your model says a customer is to churn, the less likely they really are to churn.
 
+### What can you do?
+
++ Most sources of leakage are violations of NTMC, and modelers should be vigilant in ensuring that they are not accidentally introducing time travel into their models.
++ NTMC cases: dataset needs a time dimension.
+    + E.g., split dataset into two time periods, where purchases (including jewelry) in time period 1 are used to predict whether a customer purchases jewelry in time period 2, the leakage problem disappears.
+    + The more time information you can provide, the better.
++ Prevent data leakage from seeping into models
+    + understand the process that generates the data
+    + how that process relates to the process that you’re actually trying to simulate in order to form predictions
++ Modelling: learn things about some process out there in the real world, and in some sense to approximate that real-world process
++ Leakage happens when there is some systematic correlation between features and outcomes in the data that either does not exist or is not observable in the real world.
++ Understand the data that you are working with
+    + How is it collected?
+    + How is it aggregated?
+    + What are the criteria for being included in this sample?
+
+
 
 ## Leakage in Data Mining: Formulation, Detection, and Avoidance (optional)
 
