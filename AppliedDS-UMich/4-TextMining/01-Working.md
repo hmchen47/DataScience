@@ -100,19 +100,33 @@ Some IVQs also contain runnable code blocks. These IVQs allow you to practice th
 
 ### Lecture Notes
 
-+ Demo
-    ```Python
-
-    ```
-
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
++ Text is Everywhere!
++ Text data is growing fast!
+    + Data continues to grow exponentially
+        + Estimated to be 2.5 Exabytes (2.5 million TB) a day
+        + Grow to 40 Zettabytes (40 billion TB) by 2020 (50-times that of 2010)
+    + Approximately 80% of all data is estimated to be unstructured, text-rich data
+        + $> 40$ million articles (5 million in English) in Wikipedia
+        + $> 4.5$ billion Web pages
+        + $> 500$ million tweets a day, 200 billion a year
+        + $> 1.5$ trillion queries / searches on Google a year
++ Data hidden in plain sight
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/y5C24/introduction-to-text-mining"> <br/>
+        <img src="images/p1-01.png" alt="text" title= "caption" height="200">
     </a>
++ So, what can be done with text?
+    + Parse text
+    + Find / Identify / Extract relevant information from text
+    + Classify text documents
+    + Search for relevant text documents
+    + Sentiment analysis
+    + Topic modeling
+    + ...
 
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/h8qk-2bDEeeSBw5DxGzUwg.processed/full/360p/index.mp4?Expires=1542326400&Signature=jKMebI0NimtJMotyL0Dy2Z4uIubfG937KDeKOlGVxcViFjL8MWoN~xRF8faOYkf4PMvxAH-sxg8~i0a-xkkPBIRjh~EfIVyy6Lj5Opyp4WXgeT885s-SPOYsDlzUZ4zcbzVkHlK9FgBD3aifObtNCBHwrSYr17mabvPjm6JnRRA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction to Text Mining" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 
