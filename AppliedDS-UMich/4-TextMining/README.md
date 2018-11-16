@@ -16,7 +16,7 @@
 + [Resources: Common issues with free text](01-Working.md#)
 + [Module 1 Quiz](01-Working.md#)
 
-### Assignment 1
+### [Assignment 1](asgn01.md)
 
 
 
