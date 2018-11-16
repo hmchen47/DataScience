@@ -37,13 +37,13 @@ Some assignments allow you to download and view your fellow learner’s code and
 | Course Item | Percentage of Final Grade | Passing Threshold |
 |-------------|---------------------------|-------------------|
 | Week 1 Quiz | 5% | 80% |
-| Week 1 Jupyter Notebook Assignment | 20% |  |
+| Week 1 Jupyter Notebook Assignment | 20% |
 | Week 2 Quiz | 5% | 80% |
-| Week 2 Jupyter Notebook Assignment | 20% |  |
+| Week 2 Jupyter Notebook Assignment | 20% |
 | Week 3 Quiz | 5% | 80% |
-| Week 3 Jupyter Notebook Assignment | 20% |  |
+| Week 3 Jupyter Notebook Assignment | 20% |
 | Week 4 Quiz | 5% | 80% |
-| Week 4 Jupyter Notebook Assignment | 20% |  |
+| Week 4 Jupyter Notebook Assignment | 20% |
 
 ### Code of Conduct
 
@@ -104,15 +104,14 @@ Some IVQs also contain runnable code blocks. These IVQs allow you to practice th
 + Text data is growing fast!
     + Data continues to grow exponentially
         + Estimated to be 2.5 Exabytes (2.5 million TB) a day
-        + Grow to 40 Zettabytes (40 billion TB) by 2020 (50-times that of 2010)
-    + Approximately 80% of all data is estimated to be unstructured, text-rich data
+        + Grow to 40 Zettabytes (40 billion TB) by 2020 (50-times that of 2010)`: + Approximately 80% of all data is estimated to be unstructured, text-rich data
         + $> 40$ million articles (5 million in English) in Wikipedia
         + $> 4.5$ billion Web pages
         + $> 500$ million tweets a day, 200 billion a year
         + $> 1.5$ trillion queries / searches on Google a year
 + Data hidden in plain sight
     <a href="https://www.coursera.org/learn/python-text-mining/lecture/y5C24/introduction-to-text-mining"> <br/>
-        <img src="images/p1-01.png" alt="text" title= "caption" height="200">
+        <img src="images/p1-01.png" alt="text" title= "caption" height="300">
     </a>
 + So, what can be done with text?
     + Parse text
@@ -135,19 +134,335 @@ Some IVQs also contain runnable code blocks. These IVQs allow you to practice th
 
 ### Lecture Notes
 
-+ Demo
-    ```Python
++ Primitive constructs in Text
+    + Sentences / input strings
+    + Words or Tokens
+    + Characters
+    + Document, larger files
+    + And their properties …
 
++ Let’s try it out!
+    ```python
+    >>> text1 = "Ethics are built right into the ideals and objectives of the United Nations "
+    >>> len(text1)`
+    76
+    >>> text2 = text1.split(' ')`
+    >>> len(text2)`
+    13
+    >>> text2
+    ['Ethics', 'are', 'built', 'right', 'into', 'the', 'ideals', 'and',
+    'objectives', 'of', 'the', 'United', 'Nations', '']
     ```
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
++ Finding specific words
+    + Long words: Words that are more than 3 letters long
+        ```python
+        >>> [w for w in text2 if len(w) > 3]
+        ['Ethics', 'built', 'right', 'into', 'ideals', 'objectives', 'United', 'Nations']
+        ```
+    + Capitalized words
+        ```python
+        >>> [w for w in text2 if w.istitle()]
+        ['Ethics', 'United', 'Nations']
+        ```
+    + Words that end with `s`
+        ```python
+        >>> [w for w in text2 if w.endswith('s')]
+        ['Ethics', 'ideals', 'objectives', 'Nations']
+        ```
+
++ Finding unique words: using set()`
+    ```python
+    >>> text3 = 'To be or not to be'
+    >>> text4 = text3.split(' ')`
+    >>> len(text4)`
+    6
+    >>> len(set(text4))`
+    5
+    >>> set(text4)`
+    Set(['not', 'To', 'or', 'to', 'be'])
+    >>> len(set([w.lower() for w in text4]))
+    4
+    >>> set([w.lower() for w in text4])
+    Set(['not', 'to', 'or', 'be']
+    ```
+
++ Some word comparison functions …
+    + `s.startswith(t)`
+    + `s.endswith(t)`
+    + `t in s`
+    + `s.isupper()`; `s.islower()`; `s.istitle()`
+    + `s.isalpha()`; `s.isdigit()`; `s.isalnum()`
+
++ String Operations
+    + `s.lower()`; `s.upper()`; `s.titlecase()`
+    + `s.split(t)`
+    + `s.splitlines()`
+    + `s.join(t)`
+    + `s.strip()`; `s.rstrip()`
+    + `s.find(t)`; `s.rfind(t)`
+    + `s.replace(u, v)`
+
++ From words to characters
+    ```python
+    >>> text5 = 'ouagadougou'
+    >>> text6 = text5.split('ou')`
+    >>> text6
+    ['', 'agad', 'g', '']
+    >>> 'ou'.join(text6)`
+    'ouagadougou’
+    >>> text5.split('')`
+    Traceback (most recent call last):
+    File "<stdin>", line 1, in
+    <module>
+    ValueError: empty separator
+    >>> list(text5)`
+    ['o', 'u', 'a', 'g', 'a', 'd', 'o', 'u', 'g', 'o', 'u']
+    >>> [c for c in text5]
+    ['o', 'u', 'a', 'g', 'a', 'd', 'o', 'u', 'g', 'o', 'u']
+    ```
+
++ Cleaning Text
+    ```python
+    >>> text8 = ' A quick brown fox jumped over the lazy dog. '
+    >>> text8.split(' ')`
+    ['', '', '\t', 'A', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog.', '']
+    >>> text9 = text8.strip()`: >>> text9.split(' ')`
+    ['A', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog.']
+    ```
+
++ Changing Text
+    + Find and replace
+        ```python
+        >>> text9
+        'A quick brown fox jumped over the lazy dog.'
+        >>> text9.find('o')`
+        10
+        >>> text9.rfind('o')`
+        40
+        >>> text9.replace('o', 'O')`
+        'A quick brOwn fOx jumped Over the lazy dOg.'
+        ```
+
++ Handling Larger Texts
+    + Reading files line by line
+        ```python
+        >>> f = open('UNDHR.txt', 'r')`
+        >>> f.readline()`
+        'Universal Declaration of Human Rights\n’
+        ```
+    + Reading the full file
+        ```python
+        >>> f.seek(0)`
+        >>> text12 = f.read()`
+        >>> len(text12)`
+        10891
+        >>> text13 = text12.splitlines()`:
+        >>> len(text13)`
+        158
+        >>> text13[0]
+        'Universal Declaration of Human Rights'
+        ```
++ File Operations
+    + `f = open(filename, mode)`
+    + `f.readline()`; `f.read()`; `f.read(n)`
+    + `for line in f: doSomething(line)`
+    + `f.seek(n)`
+    + `f.write(message)`
+    + `f.close()`
+    + `f.closed`
+
++ Issues with reading text files
+    ```python
+    >>> f = open('UNDHR.txt', 'r')`
+    >>> text14 = f.readline()`
+    'Universal Declaration of Human Rights\n'
+    ```
+    + How do you remove the last newline character?
+        ```python
+        >>> text14.rstrip()`
+        'Universal Declaration of Human Rights’
+        ```
+        + Works also for DOS newlines (`^M`) that shows up as `'\r'` or `'\r\n'`
+
++ Take Home Concepts
+    + Handling text sentences
+    + Splitting sentences into words, words into characters
+    + Finding unique words
+    + Handling text from documents
+
++ `str` class
+    + Signature: `str(object='')` -> str; `str(bytes_or_buffer[, encoding[, errors]])` -> str
+    + Docstring: Create a new string object from the given object. If encoding or errors is specified, then the object must expose a data buffer that will be decoded using the given encoding and error handler. Otherwise, returns the result of `object.__str__()` (if defined)  or repr(object). encoding defaults to `sys.getdefaultencoding()`. errors defaults to `'strict'`.
+    + Methods defined here:
+        + `__add__(self, value, /)`: Return self+value.
+        + `__contains__(self, key, /)`: Return key in self.
+        + `__eq__(self, value, /)`: Return `self==value`.
+        + `__format__(...)`, `S.__format__(format_spec)` -> str: Return a formatted version of S as described by format_spec.
+        + `__ge__(self, value, /)`: Return `self>=value`.
+        + `__getattribute__(self, name, /)`: Return `getattr(self, name)`.
+        + `__getitem__(self, key, /)`: Return `self[key].
+        + `__getnewargs__(...)`
+        + `__gt__(self, value, /)`: Return `self>value`.
+        + `__hash__(self, /)`: Return `hash(self)`.
+        + `__iter__(self, /)`: Implement `iter(self)`.
+        + `__le__(self, value, /)`: Return `self<=value`.
+        + `__len__(self, /`: Return `len(self)`.
+        + `__lt__(self, value, /)`: Return `self<value`.
+        + `__mod__(self, value, /)`: Return `self%value`.
+        + `__mul__(self, value, /)`: Return `self*value`.
+        + `__ne__(self, value, /)`: Return `self!=value`.
+        + `__new__(*args, **kwargs)` from `builtins.type`: Create and return a new object.  See help(type) for accurate signature.
+        + `__repr__(self, /)`: Return `repr(self)`.
+        + `__rmod__(self, value, /)`: Return `value%self`.
+        + `__rmul__(self, value, /)`: Return `value*self`.
+        + `__sizeof__(...)`, `S.__sizeof__()` -> size of S in memory, in bytes
+        + `__str__(self, /)`: Return `str(self)`.
+        + `capitalize(...)`, `S.capitalize()` -> str: Return a capitalized version of `S`, i.e. make the first character have upper case and the rest lower case.
+        + `casefold(...)`, `S.casefold()` -> str: Return a version of `S` suitable for caseless comparisons.
+        + `center(...)`, `S.center(width[, fillchar])` -> str: Return S centered in a string of length width. Padding is done using the specified fill character (default is a space)`:     + `count(...)`, `S.count(sub[, start[, end]])` -> int: Return the number of non-overlapping occurrences of substring sub in string `S[start:end]`.  Optional arguments start and end are interpreted as in slice notation.
+        + `encode(...)`, `S.encode(encoding='utf-8', errors='strict')` -> bytes: Encode `S` using the codec registered for encoding. Default encoding is 'utf-8'. errors may be given to set a different error handling scheme. Default is 'strict' meaning that encoding errors raise a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and 'xmlcharrefreplace' as well as any other name registered with `codecs.register_error` that can handle UnicodeEncodeErrors.
+        + `endswith(...)`, `S.endswith(suffix[, start[, end]])` -> bool: Return True if `S` ends with the specified suffix, False otherwise. With optional start, test `S` beginning at that position. With optional end, `stop` comparing S at that position. suffix can also be a tuple of strings to try.
+        + `expandtabs(...)`, `S.expandtabs(tabsize=8)` -> str: Return a copy of `S` where all tab characters are expanded using spaces. If tabsize is not given, a tab size of 8 characters is assumed.
+        + `find(...)`, `S.find(sub[, start[, end]])` -> int: Return the lowest index in S where substring sub is found, such that sub is contained within `S[start:end]`.  Optional arguments start and end are interpreted as in slice notation. Return `-1` on failure.
+        + `format(...)`, `S.format(*args, **kwargs)` -> str: Return a formatted version of S, using substitutions from `args` and `kwargs`. The substitutions are identified by braces ('{' and '}').
+        + `format_map(...)`, `S.format_map(mapping)` -> str: Return a formatted version of `S`, using substitutions from mapping. The substitutions are identified by braces ('{' and '}').
+        + `index(...)`, `S.index(sub[, start[, end]])` -> int: Return the lowest index in `S` where substring `sub` is found, such that `sub` is contained within `S[start:end]`.  Optional arguments start and end are interpreted as in slice notation. Raises ValueError when the substring is not found.
+        + `isalnum(...)`, `S.isalnum()` -> bool: Return True if all characters in `S` are alphanumeric and there is at least one character in `S`, False otherwise.
+        + `isalpha(...)`, `S.isalpha()` -> bool: Return True if all characters in `S` are alphabetic and there is at least one character in `S`, False otherwise.
+        + `isdecimal(...)`, `S.isdecimal()` -> bool: Return True if there are only decimal characters in `S`, False otherwise.
+        + `isdigit(...)`, `S.isdigit()` -> bool: Return True if all characters in `S` are digits and there is at least one character in `S`, False otherwise.
+        + `isidentifier(...)`, `S.isidentifier()` -> bool: Return True if S is a valid identifier according to the language definition. Use `keyword.iskeyword()` to test for reserved identifiers such as "def" and "class".
+        + `islower(...)`, `S.islower()` -> bool: Return True if all cased characters in `S` are lowercase and there is at least one cased character in `S`, False otherwise.
+        + `isnumeric(...)`, `S.isnumeric()` -> bool: Return True if there are only numeric characters in `S`, False otherwise.
+        + `isprintable(...)`, `S.isprintable()` -> bool: Return True if all characters in `S` are considered printable in `repr()` or `S` is empty, False otherwise.
+        + `isspace(...)`: given, only the first count occurrences are replaced.
+        + `istitle(...)`, `S.istitle()` -> bool: Return True if S is a titlecased string and there is at least one character in `S`, i.e. upper- and titlecase characters may only follow uncased characters and lowercase characters only cased ones. Return False otherwise.
+        + `isupper(...)`, `S.isupper()` -> bool: Return True if all cased characters in `S` are uppercase and there is at least one cased character in `S`, False otherwise.
+        + `join(...)`, `S.join(iterable)` -> str: Return a string which is the concatenation of the strings in the iterable.  The separator between elements is `S`.
+        + `ljust(...)`, `S.ljust(width[, fillchar])` -> str: Return `S` left-justified in a Unicode string of length width. Padding is done using the specified fill character (default is a space).
+        + `lower(...)`, `S.lower()` -> str: Return a copy of the string `S` converted to lowercase.
+        + `lstrip(...)`, `S.lstrip([chars])` -> str: Return a copy of the string `S` with leading whitespace removed. If chars is given and not None, remove characters in chars instead.
+        + `partition(...)`, `S.partition(sep)` -> (head, sep, tail): Search for the separator `sep` in `S`, and return the part before it, the separator itself, and the part after it.  If the separator is not found, return S and two empty strings.
+        + `replace(...)`, `S.replace(old, new[, count])` -> str: Return a copy of `S` with all occurrences of substring old replaced by new.  If the optional argument count is given, only the first count occurrences are replaced.
+        + `rfind(...)`, `S.rfind(sub[, start[, end]])` -> int: Return the highest index in `S` where substring `sub` is found, such that `sub` is contained within `S[start:end]`.  Optional arguments `start` and `end` are interpreted as in slice notation. Return `-1` on failure.
+        + `rindex(...)`, `S.rindex(sub[, start[, end]])` -> int: Return the highest index in S where substring sub is found, such that `sub` is contained within `S[start:end]`.  Optional arguments `start` and `end` are interpreted as in slice notation. Raises ValueError when the substring is not found.
+        + `rjust(...)`, `S.rjust(width[, fillchar])` -> str: Return `S` right-justified in a string of length width. Padding is done using the specified fill character (default is a space).
+        + `rpartition(...)`, `S.rpartition(sep)` -> (head, sep, tail): Search for the separator `sep` in `S`, starting at the end of `S`, and return the part before it, the separator itself, and the part after it.  If the separator is not found, return two empty strings and `S`.
+        + `rsplit(...)`, `S.rsplit(sep=None, maxsplit=-1)` -> list of strings: Return a list of the words in `S`, using `sep` as the delimiter string, starting at the end of the string and working to the front.  If `maxsplit` is given, at most `maxsplit` splits are done. If sep is not specified, any whitespace string is a separator.
+        + `rstrip(...)`, `S.rstrip([chars])` -> str: Return a copy of the string `S` with trailing whitespace removed. If `chars` is given and not None, remove characters in chars instead.
+        + `split(...)`, `S.split(sep=None, maxsplit=-1)` -> list of strings: Return a list of the words in `S`, using `sep` as the delimiter string.  If `maxsplit` is given, at most `maxsplit` splits are done. If `sep` is not specified or is None, any given, only the first count occurrences are replaced.
+        + `splitlines(...)`, `S.splitlines([keepends])` -> list of strings: Return a list of the lines in `S`, breaking at line boundaries. Line breaks are not included in the resulting list unless keepends is given and true.
+        + `startswith(...)`, `S.startswith(prefix[, start[, end]])` -> bool: Return True if `S` starts with the specified prefix, False otherwise. With optional `start`, test `S` beginning at that position. With optional `end`, stop comparing `S` at that position. prefix can also be a tuple of strings to try.
+        + `strip(...)`, `S.strip([chars])` -> str: Return a copy of the string S with leading and trailing whitespace removed. If chars is given and not None, remove characters in chars instead.
+        + `swapcase(...)`, `S.swapcase()` -> str: Return a copy of `S` with uppercase characters converted to lowercase and vice versa.
+        + `title(...)`, `S.title()` -> str: Return a titlecased version of `S`, i.e. words start with title case characters, all remaining cased characters have lower case.
+        + `translate(...)`, `S.translate(table)` -> str: Return a copy of the string `S` in which each character has been mapped through the given translation table. The table must implement lookup/indexing via `__getitem__`, for instance a dictionary or list, mapping Unicode ordinals to Unicode ordinals, strings, or None. If this operation raises LookupError, the character is left untouched. Characters mapped to None are deleted.
+        + `upper(...)`, `S.upper()` -> str: Return a copy of `S` converted to uppercase.
+        + `zfill(...)`, `S.zfill(width)` -> str: Pad a numeric string `S` with zeros on the left, to fill a field of the specified width. The string `S` is never truncated.
+        + `maketrans(x, y=None, z=None, /)`: Return a translation table usable for `str.translate()`. If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters to Unicode ordinals, strings or None. Character keys will be then converted to ordinals. If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in `x` will be mapped to the character at the same position in `y`. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.
+
++ `open` function
+    + Signature: `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
+    + Docstring: Open file and return a stream.  Raise `IOErro`r upon failure.
+    + Parametres:
+        + `file` (text or byte string): the name (and the path if the file isn't in the current working directory) of the file to be opened or an integer file descriptor of the file to be wrapped. (If a file descriptor is given, it is closed when the returned I/O object is closed, unless closefd is set to False.)
+        + `mode` (string - optional): specify the mode in which the file is opened. <br/>
+            It defaults to 'r' which means open for reading in text mode.  Other common values are 'w' for writing (truncating the file if it already exists), 'x' for creating and writing to a new file, and 'a' for appending (which on some Unix systems, means that all writes append to the end of the file regardless of the current seek position). In text mode, if encoding is not specified the encoding used is platform dependent: locale.getpreferredencoding(False) is called to get the current locale encoding. (For reading and writing raw bytes use binary mode and leave encoding unspecified.) The available modes are:
+
+            | mode | Description |
+            |------|-------------|
+            | 'r'  | open for reading (default) |
+            | 'w'  | open for writing, truncating the file first |
+            | 'x'  | create a new file and open it for writing |
+            | 'a'  | open for writing, appending to the end of the file if it exists |
+            | 'b'  | binary mode |
+            | 't'  | text mode (default) |
+            | '+'  | open a disk file for updating (reading and writing) |
+            | 'U'  | universal newline mode (deprecated) |
+
+            The default mode is 'rt' (open for reading text). For binary random access, the mode 'w+b' opens and truncates the file to 0 bytes, while 'r+b' opens the file without truncation. The 'x' mode implies 'w' and raises an `FileExistsError` if the file already exists.
+
+            Python distinguishes between files opened in binary and text modes, even when the underlying operating system doesn't. Files opened in binary mode (appending 'b' to the mode argument) return contents a bytes objects without any decoding. In text mode (the default, or when 't' is appended to the mode argument), the contents of the file are returned as strings, the bytes having been first decoded using a platform-dependent encoding or using the specified encoding if given.
+
+            'U' mode is deprecated and will raise an exception in future versions of Python.  It has no effect in Python 3.  Use newline to control universal newlines mode.
+        + `buffering` (integer, optional): used to set the buffering policy. Pass `0` to switch buffering off (only allowed in binary mode), `1` to select line buffering (only usable in text mode), and an $integer > 1$ to indicate the size of a fixed-size chunk buffer.  When no buffering argument is given, the default buffering policy works as follows:
+            + Binary files are buffered in fixed-size chunks; the size of the buffer is chosen using a heuristic trying to determine the underlying device's "block size" and falling back on `io.DEFAULT_BUFFER_SIZE`. On many systems, the buffer will typically be 4096 or 8192 bytes long.
+            + "Interactive" text files (files for which isatty() returns True) use line buffering.  Other text files use the policy described above for binary files.
+        + `encoding`: the name of the encoding used to decode or encode the file. This should only be used in text mode. The default encoding is platform dependent, but any encoding supported by Python can be passed.  See the codecs module for the list of supported encodings.
+        + `errors` (string, optional): specify how encoding errors are to be handled---this argument should not be used in binary mode. Pass 'strict' to raise a ValueError exception if there is an encoding error (the default of None has the same effect), or pass 'ignore' to ignore errors. (Note that ignoring encoding errors can lead to data loss.) See the documentation for codecs.register or run 'help(codecs.Codec)' for a list of the permitted encoding error strings.
+        + `newline`: control how universal newlines works (it only applies to text mode). It can be None, '', '\n', '\r', and '\r\n'.  It works as follows:
+            + On input, if newline is None, universal newlines mode is enabled. Lines in the input can end in '\n', '\r', or '\r\n', and these are translated into '\n' before being returned to the caller. If it is '', universal newline mode is enabled, but line endings are returned to the caller untranslated. If it has any of the other legal values, input lines are only terminated by the given string, and the line ending is returned to the caller untranslated.
+            + On output, if newline is None, any '\n' characters written are translated to the system default line separator, os.linesep. If newline is '' or '\n', no translation takes place. If newline is any of the other legal values, any '\n' characters written are translated to the given string.
+        + `close`: 
+            + If closefd is False, the underlying file descriptor will be kept open when the file is closed. This does not work when a file name is given and must be True in that case.
+            + A custom opener can be used by passing a callable as *opener*. The underlying file descriptor for the file object is then obtained by calling *opener* with (*file*, *flags*). *opener* must return an open file descriptor (passing os.open as *opener* results in functionality similar to passing None).
+    + Return:
+        + `open()` returns a file object whose type depends on the mode, and through which the standard file operations such as reading and writing are performed. When open() is used to open a file in a text mode ('w', 'r', 'wt', 'rt', etc.), it returns a TextIOWrapper. When used to open a file in a binary mode, the returned class varies: in read binary mode, it returns a BufferedReader; in write binary and append binary modes, it returns a BufferedWriter, and in read/write mode, it returns a BufferedRandom.
+        + It is also possible to use a string or bytearray as a file for both reading and writing. For strings StringIO can be used like a file opened in a text mode, and for bytes a BytesIO can be used like a file opened in a binary mode.
+
+
++ `TextIOWrapper(_TextIOBase)`
+    + Docstring: Character and line based layer over a `BufferedIOBase` object, `buffer`.
+        + encoding gives the name of the encoding that the stream will be decoded or encoded with. It defaults to locale.getpreferredencoding(False).
+        + errors determines the strictness of encoding and decoding (see help(codecs.Codec) or the documentation for codecs.register) and defaults to "strict".
+        + newline controls how line endings are handled. It can be None, '', '\n', '\r', and '\r\n'.  It works as follows:
+            + On input, if newline is None, universal newlines mode is enabled. Lines in the input can end in '\n', '\r', or '\r\n', and these are translated into '\n' before being returned to the caller. If it is '', universal newline mode is enabled, but line endings are returned to the caller untranslated. If it has any of the other legal values, input lines are only terminated by the given string, and the line ending is returned to the caller untranslated.
+            + On output, if newline is None, any '\n' characters written are translated to the system default line separator, os.linesep. If newline is '' or '\n', no translation takes place. If newline is any of the other legal values, any '\n' characters written are translated to the given string.
+            + If line_buffering is True, a call to flush is implied when a call to write contains a newline character.
+    + Method resolution order:
+        + `TextIOWrapper`
+        + `_TextIOBase`
+        + `_IOBase`
+        + `builtins.object`
+    + Methods
+        + `__getstate__(...)`
+        + `__init__(self, /, *args, **kwargs)`: Initialize self.  See help(type(self)) for accurate signature.
+        + `__new__(*args, **kwargs)` from `builtins.type`: Create and return a new object.  See help(type) for accurate signature.
+        + `__next__(self, /)`: Implement `next(self)`.
+        + `__repr__(self, /)`: Return `repr(self)`.
+        + `close(self, /)`: Flush and close the IO object. This method has no effect if the file is already closed.
+        + `detach(self, /)`: Separate the underlying buffer from the `TextIOBase` and return it. After the underlying buffer has been detached, the `TextIO` is in an unusable state.
+        + `fileno(self, /)`: Returns underlying file descriptor if one exists. `OSError` is raised if the IO object does not use a file descriptor.
+        + `flush(self, /)`: Flush write buffers, if applicable. This is not implemented for read-only and non-blocking streams.
+        + `isatty(self, /)`: Return whether this is an 'interactive' stream. Return False if it can't be determined.
+        + `read(self, size=-1, /)`: Read at most n characters from stream. Read from underlying buffer until we have n characters or we hit EOF. If n is negative or omitted, read until EOF.
+        + `readable(self, /)`: Return whether object was opened for reading. If False, read() will raise OSError.
+        + `readline(self, size=-1, /)`: Read until newline or EOF. Returns an empty string if EOF is hit immediately.
+        + `seek(self, cookie, whence=0, /)`: Change stream position. Change the stream position to the given byte offset. The offset is interpreted relative to the position indicated by whence.  Values for whence are:
+            + `0` -- start of stream (the default); offset should be zero or positive
+            + `1` -- current stream position; offset may be negative
+            + `2` -- end of stream; offset is usually negative
+
+            Return the new absolute position.
+        + `seekable(self, /)`: Return whether object supports random access. If False, `seek()`, `tell()` and `truncate()` will raise `OSError`. This method may need to do a test `seek()`.
+        + `tell(self, /)`: Return current stream position.
+        + `truncate(self, pos=None, /)`: Truncate file to size bytes. File pointer is left unchanged.  Size defaults to the current IO position as reported by `tell()`.  Returns the new size.
+        + `writable(self, /)`: Return whether object was opened for writing. If False, `write()` will raise `OSError`.
+        + `write(self, text, /)`: Write string to stream. Returns the number of characters written (which is always equal to the length of the string).
+    + Data descriptors defined here:
+        + `buffer`
+        + `closed`
+        + `encoding`: Encoding of the text stream. Subclasses should override.
+        + `errors`: The error setting of the decoder or encoder. Subclasses should override.
+        + `line_buffering`
+        + `name`
+        + `newlines`: Line endings translated so far. Only line endings translated during reading are considered. Subclasses should override.
+    + Methods inherited from `_IOBase`:
+        + `__del__(...)`
+        + `__enter__(...)`
+        + `__exit__(...)`
+        + `__iter__(self, /)`: Implement iter(self).
+        + `readlines(self, hint=-1, /)`: Return a list of lines from the stream. hint can be specified to control the number of lines read: no more lines will be read if the total size (in bytes/characters) of all lines so far exceeds hint.
+        + `writelines(self, lines, /)`
+    + Data descriptors inherited from _IOBase:
+        + `__dict_`
+
 
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/6k5l6He9EeewexKhHrUb5g.processed/full/360p/index.mp4?Expires=1542499200&Signature=E-vaE7tQ7CEe7~KuhxTrllT7smB2K5YtQTIA6vh0vH8B4BH7gtIV6eu2MzDq6rXVg9HA06w5DHxgThIgtXy3BvxJwGDE2fHNRLPbGkNmeREJ6A8AFJjb7jcxNrJ-88QSxeL661G~EFCrUdQIU86in0ZfkW3rBnxC7sjpQwn2hsk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Handling Text in Python" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
 </a>
 

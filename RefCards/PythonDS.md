@@ -72,11 +72,33 @@
 | `dict.values()` | return values from dictionary | [CSV Files][001] |
 | `dict.items()` | return (key, value) pairs of dictionary | [CSV Files][001] |
 | `set(obj)` | return the unique values for the class types; set theory in math | [CSV Files][001] |
-| `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000] |
+| `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000], [Handle Text][048] |
 | `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
 | `func = lambda var1, ...: expr` | anonymous function, usage: `func(var1, ...)` | [Lambda & List Comprehension][004] |
 | `enumerate(iterable[, start])` | Return an enumerate object, obtaining an indexed list:  `(0, seq[0]), (1, seq[1]), (2, seq[2]), ...` | [NumPy][005] |
 | `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] [Scatterplots][026] |
+| `str.startswith(prefix[, start[, end]])` | Return True if `S` starts with the specified prefix, False otherwise. | [Handle Text][048] |
+| `str.endswith(suffix[, start[, end]])` | Return True if `S` ends with the specified suffix, False otherwise. [Handle Text][048] |
+| `str.isupper()` | Return True if all cased characters in `S` are uppercase and there is at least one cased character in `S`, False otherwise. | [Handle Text][048] |
+| `str.islower()` | Return True if all cased characters in `S` are lowercase and there is at least one cased character in `S`, False otherwise. | [Handle Text][048] |
+| `str.istitle()` | Return True if `S` is a titlecased string and there is at least one character in `S`, i.e. upper- and titlecase characters may only follow uncased characters and lowercase characters only cased ones. Return False otherwise. | [Handle Text][048] |
+| `str.isalpha()` | Return True if all characters in `S` are alphabetic and there is at least one character in `S`, False otherwise. | [Handle Text][048] |
+| `str.isdigit()` | Return True if all characters in `S` are digits and there is at least one character in `S`, False otherwise. | [Handle Text][048] |
+| `str.isalnum()` | Return True if all characters in `S` are alphanumeric and there is at least one character in `S`, False otherwise. | [Handle Text][048] |
+| `str.lower()` | Return a copy of the string `S` converted to lowercase. | [Handle Text][048] |
+| `str.upper()` | Return a copy of `S` converted to uppercase. | [Handle Text][048] |
+| `str.splitlines([keepends])` | Return a list of the lines in `S`, breaking at line boundaries. Line breaks are not included in the resulting list unless keepends is given and true. | [Handle Text][048] |
+| `str.join(iterable)` | Return a string which is the concatenation of the strings in the iterable.  The separator between elements is `S`. | [Handle Text][048] |
+| `str.rstrip([chars])` | Return a copy of the string `S` with trailing whitespace removed. If `chars` is given and not None, remove characters in chars instead. | [Handle Text][048] |
+| `str.find(sub[, start[, end]])` | Return the lowest index in S where substring sub is found, such that sub is contained within `S[start:end]`.  Optional arguments start and end are interpreted as in slice notation. Return `-1` on failure. | [Handle Text][048] |
+| `str.rfind(sub[, start[, end]])` | Return the highest index in `S` where substring `sub` is found, such that `sub` is contained within `S[start:end]`. | [Handle Text][048] |
+| `str.replace(old, new[, count])` | Return a copy of `S` with all occurrences of substring old replaced by new. | [Handle Text][048] |
+| `fd = open(file, mode='r', buffering=-1, args*)` | Open file and return a stream.  Raise `IOErro`r upon failure. | [Handle Text][048] |
+| `fd.read(size=-1, /)` | Read at most n characters from stream. Read from underlying buffer until we have n characters or we hit EOF. | [Handle Text][048] |
+| `fd.readline(self, size=-1, /)` | Read until newline or EOF. Returns an empty string if EOF is hit immediately. | [Handle Text][048] |
+| `fd.seek(self, cookie, whence=0, /)` | Change stream position. Change the stream position to the given byte offset. | [Handle Text][048] |
+| `fd.write(self, text, /)` | Write string to stream. Returns the number of characters written (which is always equal to the length of the string). | [Handle Text][048] |
+| `fd.close(self, /)` | Flush and close the IO object. This method has no effect if the file is already closed. | [Handle Text][048] |
 
 
 [TOC](#table-of-contents)
@@ -684,6 +706,61 @@ import seaborn as sns
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
 -------------------------------------
+
+<!--
+[048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
+[049]: 
+[050]: 
+[051]: 
+[052]: 
+[053]: 
+[054]: 
+[055]: 
+[056]: 
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
+[063]: 
+[064]: 
+[065]: 
+[066]: 
+[067]: 
+[068]: 
+[069]: 
+[070]: 
+[071]: 
+[072]: 
+[073]: 
+[074]: 
+[075]: 
+[076]: 
+[077]: 
+[078]: 
+[079]: 
+[080]: 
+[081]: 
+[082]: 
+[083]: 
+[084]: 
+[085]: 
+[086]: 
+[087]: 
+[088]: 
+[089]: 
+[090]: 
+[091]: 
+[092]: 
+[093]: 
+[094]: 
+[095]: 
+[096]: 
+[097]: 
+[098]: 
+[099]: 
+-->
 
 [000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
 [001]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-demonstration-reading-and-writing-csv-files
