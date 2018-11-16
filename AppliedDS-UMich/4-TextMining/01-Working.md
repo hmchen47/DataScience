@@ -474,10 +474,13 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ## Notebook: Working with Text
 
-### Lecture Notes
-
++ [Launching Web Page](https://www.coursera.org/learn/python-text-mining/notebook/0hunw/working-with-text)
++ [Notebook Web Page](https://hub.coursera-notebooks.org/user/dfxbyieeexzfjsmxjreyig/notebooks/Working%20With%20Text.ipynb)
++ [Local Notebook](notebooks/01-Working+With+Text.ipynb)
++ [Local Python Code](notebooks/01-Working+With+Text.py)
 
 ## Regular Expressions
+
 
 ### Lecture Notes
 
