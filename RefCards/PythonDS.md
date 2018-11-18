@@ -5,6 +5,7 @@
 + [General](#general)
     + [Open CSV File](open-cvs-file)
     + [Method](methods)
++ [Regular Expressions](regular-expressions)
 + [Date and Time](date-and-times)
     + [Import Files](import-files)
     + [Attributes](attributes)
@@ -104,6 +105,28 @@
 [TOC](#table-of-contents)
 
 
+## [Regular Expression][049]
+
+```python
+import re
+```
+
+| Attribute | Description | Link |
+|--------|-------------|------|
+| `compile(pattern, flags=0)` | Compile a regular expression pattern, returning a pattern object. | [ReExp][049] |
+| `escape(pattern)` |  Escape all the characters in pattern except ASCII letters, numbers and '_'. | [ReExp][049] |
+| `findall(pattern, string, flags=0)` | Return a list of all non-overlapping matches in the string. | [ReExp][049] |
+| `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [ReExp][049] |
+| `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [ReExp][049] |
+| `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [ReExp][049] |
+| `purge()`: Clear the regular expression caches | [ReExp][049] |
+| `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [ReExp][049] |
+| `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [ReExp][049] |
+| `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [ReExp][049] |
+| `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [ReExp][049] |
+| `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [ReExp][049] |
+
+
 ## [Date and Times][003]
 
 ### Import Files
@@ -139,7 +162,7 @@ import time as tm
 [TOC](#table-of-contents)
 
 
-## SciPy 
+## SciPy
 
 ### Import Files
 
@@ -709,7 +732,7 @@ import seaborn as sns
 
 <!--
 [048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
-[049]: 
+[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#
 [050]: 
 [051]: 
 [052]: 

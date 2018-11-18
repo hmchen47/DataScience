@@ -126,7 +126,7 @@ Some IVQs also contain runnable code blocks. These IVQs allow you to practice th
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/h8qk-2bDEeeSBw5DxGzUwg.processed/full/360p/index.mp4?Expires=1542326400&Signature=jKMebI0NimtJMotyL0Dy2Z4uIubfG937KDeKOlGVxcViFjL8MWoN~xRF8faOYkf4PMvxAH-sxg8~i0a-xkkPBIRjh~EfIVyy6Lj5Opyp4WXgeT885s-SPOYsDlzUZ4zcbzVkHlK9FgBD3aifObtNCBHwrSYr17mabvPjm6JnRRA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Introduction to Text Mining" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
@@ -463,7 +463,7 @@ Some IVQs also contain runnable code blocks. These IVQs allow you to practice th
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/6k5l6He9EeewexKhHrUb5g.processed/full/360p/index.mp4?Expires=1542499200&Signature=E-vaE7tQ7CEe7~KuhxTrllT7smB2K5YtQTIA6vh0vH8B4BH7gtIV6eu2MzDq6rXVg9HA06w5DHxgThIgtXy3BvxJwGDE2fHNRLPbGkNmeREJ6A8AFJjb7jcxNrJ-88QSxeL661G~EFCrUdQIU86in0ZfkW3rBnxC7sjpQwn2hsk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Handling Text in Python" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
@@ -479,25 +479,214 @@ Please note: only verified learners can submit assignments. If you are auditing 
 + [Local Notebook](notebooks/01-Working+With+Text.ipynb)
 + [Local Python Code](notebooks/01-Working+With+Text.py)
 
-## Regular Expressions
 
+## Regular Expressions
 
 ### Lecture Notes
 
-+ Demo
-    ```Python
++ Processing Free-text
+    ```python
+    >>> text10 = '"Ethics are built right into the ideals and objectives of the United Nations" #UNSG @ NY Society for Ethical Culture bit.ly/2guVelr @UN @UN_Women'
+    >>> text11 = text10.split(' ')
+    >>> text11
+    ['"Ethics', 'are', 'built', 'right', 'into', 'the', 'ideals', 'and', 'objectives', 'of', 'the', 'United', 'Nations"', '#UNSG', '@', 'NY', 'Society', 'for', 'Ethical', 'Culture', 'bit.ly/2guVelr', '@UN', '@UN_Women']
+    ```
+    + How do you find all Hashtags? Callouts?
 
++ Finding Specific Words
+    + Hashtags
+        ```python
+        >>> [w for w in text11 if w.startswith('#')]
+        ['#UNSG']
+        ```
+    + Callouts
+        ```python
+        >>> [w for w in text11 if w.startswith('@')]
+        ['@', '@UN', '@UN_Women']
+        ```
++ Finding patterns with regular expressions
+    + Callouts are more than just tokens beginning with '@':  `@UN_Spokesperson @katyperry @coursera`
+    + Match _something_ after '@': `@[A-Za-z0-9_]+`
+        + Alphabets
+        + Numbers
+        + Special symbols like '_'
+
++ Let’s try it out!
+    ```python
+    >>> text10 = ‘”Ethics are built right into the ideals and objectives of the
+    United Nations” #UNSG @ NY Society for Ethical Culture bit.ly/2guVelr @UN
+    @UN_Women’
+    >>> text11 = text10.split(' ')
+    >>> [w for w in text11 if w.startswith('@')]
+    ['@', '@UN', '@UN_Women']
+    ```
+    + Import regular expressions first!
+        ```python
+        >>> import re
+        >>> [w for w in text11 if re.search('@[A-Za-z0-9_]+', w)]
+        ['@UN', '@UN_Women']
+        ```
+
++ Parsing the callout regular expression: `@[A-Za-z0-9_]+`
+    + starts with @
+    + followed by any alphabet (upper or lower case), digit, or underscore
+    + that repeats at least once, but any number of times
+
++ Meta-characters: Character matches
+    + `.` : wildcard, matches a single character
+    + `^` : start of a string
+    + `$` : end of a string
+    + `[]` : matches one of the set of characters within []
+    + `[a-z]` : matches one of the range of characters a, b, …, z
+    + `[^abc]` : matches a character that is not a, b, or, c
+    + `a|b` : matches either a or b, where a and b are strings
+    + `()` : Scoping for operators
+    + `\` : Escape character for special characters (\t, \n, \b)
+
++ Meta-characters: Character symbols
+    + `\b` : Matches word boundary
+    + `\d` : Any digit, equivalent to `[0-9]`
+    + `\D` : Any non-digit, equivalent to `[^0-9]`
+    + `\s` : Any whitespace, equivalent to `[ \t\n\r\f\v]`
+    + `\S` : Any non-whitespace, equivalent to `[^ \t\n\r\f\v]`
+    + `\w` : Alphanumeric character, equivalent to `[a-zA-Z0-9_]`
+    + `\W` : Non-alphanumeric, equivalent to `[^a-zA-Z0-9_]`
+
++ Meta-characters: Repetitions
+    + `*` : matches zero or more occurrences
+    + `+` : matches one or more occurrences
+    + `?` : matches zero or one occurrences
+    + `{n}` : exactly $n$ repetitions, $n ≥ 0$
+    + `{n,}` : at least $n$ repetitions
+    + `{,n}` : at most $n$ repetitions
+    + `{m,n}` : at least $m$ and at most $n$ repetitions
+
++ Recall the callout regular expression
+    ```python
+    >>> text10 = '"Ethics are built right into the ideals and objectives of the United Nations" #UNSG @ NY Society for Ethical Culture bit.ly/2guVelr @UN @UN_Women'
+    >>> text11 = text10.split(' ')
+    >>> [w for w in text11 if re.search('@[A-Za-z0-9_]+', w)]
+    ['@UN', '@UN_Women']
+    >>> [w for w in text11 if re.search('@\w+', w)]
+    ['@UN', '@UN_Women']
+    ```
++ Let’s look at some more examples! - Finding specific characters
+    ```python
+    >>> text12 = ‘ouagadougou’
+    >>> re.findall(r'[aeiou]', text12)
+    ['o', 'u', 'a', 'a', 'o', 'u', 'o', 'u']
+    >>> re.findall(r'[^aeiou]', text12)
+    ['g', 'd', 'g’]
     ```
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
++ Case study: Regular expression for Dates: 
+    + Date variations for 23rd October 2002: `\d{2}[/-]\d{2}[/-]\d{4}`
+        + 23-10-2002
+        + 23/10/2002
+        + 23/10/02
+        + 10/23/2002
+        + 23 Oct 2002
+        + 23 October 2002
+        + Oct 23, 2002
+        + October 23, 2002
+    + Demo
+        ```python
+        >>> dateStr = '23-10-2002\n23/10/2002\n23/10/02\n10/23/2002\n23 Oct 2002\n23 October 2002\nOct 23, 2002\nOctober 23, 2002\n’
+        >>> re.findall(r'\d{2}[/-]\d{2}[/-]\d{4}', dateStr)
+        ['23-10-2002', '23/10/2002', '10/23/2002']
+        >>> re.findall(r'\d{2}[/-]\d{2}[/-]\d{2,4}', dateStr)
+        ['23-10-2002', '23/10/2002', '23/10/02', '10/23/2002']
+        >>> re.findall(r'\d{1,2}[/-]\d{1,2}[/-]\d{2,4}', dateStr)
+        ['23-10-2002', '23/10/2002', '23/10/02', '10/23/2002']
+        # 23-10-2002
+        # 23/10/2002
+        # 23/10/02
+        # 10/23/2002
+        >>> re.findall(r'\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}', dateStr)
+        ['Oct']
+        >>> re.findall(r'\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}', dateStr)
+        ['23 Oct 2002']
+        >>> re.findall(r'\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[az]*\d{4}', dateStr)
+        >>> re.findall(r'(?:\d{2} )?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (?:\d{2}, )?\d{4}', dateStr)
+        ['23 Oct 2002', '23 October 2002', 'Oct 23, 2002', 'October 23, 2002']
+        >>> re.findall(r'(?:\d{1,2} )?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (?:\d{1,2}, )?\d{4}', dateStr)
+        ['23 Oct 2002', '23 October 2002', 'Oct 23, 2002', 'October 23, 2002']
+        # 23 Oct 2002
+        # 23 October 2002
+        # Oct 23, 2002
+        # October 23, 2002
+        ```
++ Take Home Concepts
+    + What are regular expressions?
+    + Regular expression meta-characters
+    + Building a regular expression to identify dates
+
++ `findall` method
+    + Signature: `re.findall(pattern, string, flags=0)`
+    + Docstring: Return a list of all non-overlapping matches in the string. <br/>
+        If one or more capturing groups are present in the pattern, return a list of groups; this will be a list of tuples if the pattern has more than one group. <br/>
+        Empty matches are included in the result.
+    + Parameters:
+        + `pattern`: The regular expression pattern
+
++ Regular Expression special characters:
+    + `.`: Matches any character except a newline.
+    + `^`: Matches the start of the string.
+    + `$`: Matches the end of the string or just before the newline at the end of the string.
+    + `*`: Matches 0 or more (greedy) repetitions of the preceding RE. Greedy means that it will match as many repetitions as possible.
+    + `+`: Matches 1 or more (greedy) repetitions of the preceding RE.
+    + `?`: Matches 0 or 1 (greedy) of the preceding RE.
+    + `*?`,`+?`, `??`: Non-greedy versions of the previous three special characters.
+    + `{m,n}`: Matches from m to n repetitions of the preceding RE.
+    + `{m,n}?`: Non-greedy version of the above.
+    + `\\`: Either escapes special characters or signals a special sequence.
+    + `[]`: Indicates a set of characters. A "^" as the first character indicates a complementing set.
+    + `|`: A|B, creates an RE that will match either A or B.
+    + `(...)`: Matches the RE inside the parentheses. The contents can be retrieved or matched later in the string.
+    + `(?aiLmsux)`: Set the A, I, L, M, S, U, or X flag for the RE (see below).
+    + `(?:...)`: Non-grouping version of regular parentheses.
+    + `(?P<name>...)`: The substring matched by the group is accessible by name.
+    + `(?P=name)`: Matches the text matched earlier by the group named name.
+    + `(?#...)`: A comment; ignored.
+    + `(?=...)`: Matches if ... matches next, but doesn't consume the string.
+    + `(?!...)`: Matches if ... doesn't match next.
+    + `(?<=...)`: Matches if preceded by ... (must be fixed length).
+    + `(?<!...)`: Matches if not preceded by ... (must be fixed length).
+    + `(?(id/name)yes|no)`: Matches yes pattern if the group with id/name matched, the (optional) no pattern otherwise.
+
++ Regrlar Expression character symbol
+    + `\number`: Matches the contents of the group of the same number.
+    + `\A`: Matches only at the start of the string.
+    + `\Z`: Matches only at the end of the string.
+    + `\b`: Matches the empty string, but only at the start or end of a word.
+    + `\B`: Matches the empty string, but not at the start or end of a word.
+    + `\d`: Matches any decimal digit; equivalent to the set [0-9] in bytes patterns or string patterns with the ASCII flag. In string patterns without the ASCII flag, it will match the whole range of Unicode digits.
+    + `\D`: Matches any non-digit character; equivalent to [^\d].
+    + `\s`: Matches any whitespace character; equivalent to [ \t\n\r\f\v] in bytes patterns or string patterns with the ASCII flag. In string patterns without the ASCII flag, it will match the whole range of Unicode whitespace characters.
+    + `\S`: Matches any non-whitespace character; equivalent to [^\s].
+    + `\w`: Matches any alphanumeric character; equivalent to [a-zA-Z0-9_] in bytes patterns or string patterns with the ASCII flag. In string patterns without the ASCII flag, it will match the range of Unicode alphanumeric characters (letters plus digits plus underscore). With LOCALE, it will match the set [0-9_] plus characters defined as letters for the current locale.
+    + `\W`: Matches the complement of \w.
+    + `\\`: Matches a literal backslash.
+
++ Regular Expression Functions
+    + `compile(pattern, flags=0)`: Compile a regular expression pattern, returning a pattern object.
+    + `escape(pattern)`: Escape all the characters in pattern except ASCII letters, numbers and '_'.
+    + `findall(pattern, string, flags=0)`: Return a list of all non-overlapping matches in the string. <br/> If one or more capturing groups are present in the pattern, return a list of groups; this will be a list of tuples if the pattern has more than one group. <br/> Empty matches are included in the result.
+    + `finditer(pattern, string, flags=0)`: Return an iterator over all non-overlapping matches in the string.  For each match, the iterator returns a match object. <br/> Empty matches are included in the result.
+    + `fullmatch(pattern, string, flags=0)`: Try to apply the pattern to all of the string, returning a match object, or None if no match was found.
+    + `match(pattern, string, flags=0)`: Try to apply the pattern at the start of the string, returning a match object, or None if no match was found.
+    + `purge()`: Clear the regular expression caches
+    + `search(pattern, string, flags=0)`: Scan through string looking for a match to the pattern, returning a match object, or None if no match was found.
+    + `split(pattern, string, maxsplit=0, flags=0)`: Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings.  If capturing parentheses are used in pattern, then the text of all groups in the pattern are also returned as part of the resulting list.  If maxsplit is nonzero, at most maxsplit splits occur, and the remainder of the string is returned as the final element of the list.
+    + `sub(pattern, repl, string, count=0, flags=0)`: Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl.  repl can be either a string or a callable; if a string, backslash escapes in it are processed.  If it is a callable, it's passed the match object and must return a replacement string to be used.
+    + `subn(pattern, repl, string, count=0, flags=0)`: Return a 2-tuple containing (new_string, number). new_string is the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in the source string by the replacement repl.  number is the number of substitutions that were made. repl can be either a string or a callable; if a string, backslash escapes in it are processed. If it is a callable, it's passed the match object and must return a replacement string to be used.
+    + `template(pattern, flags=0)`: Compile a template pattern, returning a pattern object
 
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+<a href="https://d3c33hcgiwev3.cloudfront.net/B4K_Xne-Eee1BBJ2zgI9PA.processed/full/360p/index.mp4?Expires=1542672000&Signature=OlHh17RwmHPkICk7WIACrlCeKjhXQ3FuAm-72CS8EEHxHwg6ejYOaOiw6lFxnwTUl102uK--iMpeU4JbLUR0W6WwzvEX1oKn-6fbwu8Lkma9F3y6h2p3wRkgeAj3tvcQOvLrB7q~yi-m0ji95SFiVSwjtjmijoahL6sFuqNg1wo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Regular Expressions" target="_blank">
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
@@ -509,9 +698,128 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ### Lecture Notes
 
+
+
 + Demo
     ```Python
+    import pandas as pd
 
+    time_sentences = ["Monday: The doctor's appointment is at 2:45pm.",
+                    "Tuesday: The dentist's appointment is at 11:30 am.",
+                    "Wednesday: At 7:00pm, there is a basketball game!",
+                    "Thursday: Be back home by 11:15 pm at the latest.",
+                    "Friday: Take the train at 08:10 am, arrive at 09:00am."]
+
+    df = pd.DataFrame(time_sentences, columns=['text'])
+    #                                                   text
+    # 0        Monday: The doctor's appointment is at 2:45pm.
+    # 1        Tuesday: The dentist's appointment is at 11:30...
+    # 2        Wednesday: At 7:00pm, there is a basketball game!
+    # 3        Thursday: Be back home by 11:15 pm at the latest.
+    # 4        Friday: Take the train at 08:10 am, arrive at ...
+
+    # find the number of characters for each string in df['text']
+    df['text'].str.len()
+    # 0    46
+    # 1    50
+    # 2    49
+    # 3    49
+    # 4    54
+    # Name: text, dtype: int64
+
+    # find the number of tokens for each string in df['text']
+    df['text'].str.split().str.len()
+    # 0     7
+    # 1     8
+    # 2     8
+    # 3    10
+    # 4    10
+    # Name: text, dtype: int64
+
+    # find which entries contain the word 'appointment'
+    df['text'].str.contains('appointment')
+    # 0     True
+    # 1     True
+    # 2    False
+    # 3    False
+    # 4    False
+    # Name: text, dtype: bool
+
+    # find how many times a digit occurs in each string
+    df['text'].str.count(r'\d')
+    # 0    3
+    # 1    4
+    # 2    3
+    # 3    4
+    # 4    8
+    # Name: text, dtype: int64
+
+    # find all occurances of the digits
+    df['text'].str.findall(r'\d')
+    # 0                   [2, 4, 5]
+    # 1                [1, 1, 3, 0]
+    # 2                   [7, 0, 0]
+    # 3                [1, 1, 1, 5]
+    # 4    [0, 8, 1, 0, 0, 9, 0, 0]
+    # Name: text, dtype: object
+
+    # group and find the hours and minutes
+    df['text'].str.findall(r'(\d?\d):(\d\d)')
+    # 0               [(2, 45)]
+    # 1              [(11, 30)]
+    # 2               [(7, 00)]
+    # 3              [(11, 15)]
+    # 4    [(08, 10), (09, 00)]
+    # Name: text, dtype: object
+
+    # replace weekdays with '???'
+    df['text'].str.replace(r'\w+day\b', '???')
+    # 0          ???: The doctor's appointment is at 2:45pm.
+    # 1       ???: The dentist's appointment is at 11:30 am.
+    # 2          ???: At 7:00pm, there is a basketball game!
+    # 3         ???: Be back home by 11:15 pm at the latest.
+    # 4    ???: Take the train at 08:10 am, arrive at 09:...
+    # Name: text, dtype: object
+
+    # replace weekdays with 3 letter abbrevations
+    df['text'].str.replace(r'(\w+day\b)', lambda x: x.groups()[0][:3])
+    # 0          Mon: The doctor's appointment is at 2:45pm.
+    # 1       Tue: The dentist's appointment is at 11:30 am.
+    # 2          Wed: At 7:00pm, there is a basketball game!
+    # 3         Thu: Be back home by 11:15 pm at the latest.
+    # 4    Fri: Take the train at 08:10 am, arrive at 09:...
+    # Name: text, dtype: object
+
+    # create new columns from first match of extracted groups
+    df['text'].str.extract(r'(\d?\d):(\d\d)')
+    #       0     1
+    # 0     2    45
+    # 1    11    30
+    # 2     7    00
+    # 3    11    15
+    # 4    08    10
+
+    # extract the entire time, the hours, the minutes, and the period
+    df['text'].str.extractall(r'((\d?\d):(\d\d) ?([ap]m))')
+    #              0         1     2     3
+    #  match
+    # 0    0     2:45 pm     2    45    pm
+    # 1    0    11:30 am    11    30    am
+    # 2    0     7:00 pm     7    00    pm
+    # 3    0    11:15 pm    11    15    pm
+    # 4    0    08:10 am    08    10    am
+    #      1    09:00 am    09    00    am
+
+    # extract the entire time, the hours, the minutes, and the period with group names
+    df['text'].str.extractall(r'(?P<time>(?P<hour>\d?\d):(?P<minute>\d\d) ?(?P<period>[ap]m))')
+    #              time    hour minute  period
+    #  match
+    # 0    0     2:45 pm     2    45    pm
+    # 1    0    11:30 am    11    30    am
+    # 2    0     7:00 pm     7    00    pm
+    # 3    0    11:15 pm    11    15    pm
+    # 4    0    08:10 am    08    10    am
+    #      1    09:00 am    09    00    am
     ```
 
     <a href="url"> <br/>
@@ -522,7 +830,7 @@ Please note: only verified learners can submit assignments. If you are auditing 
 ### Lecture Video
 
 <a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
@@ -546,7 +854,7 @@ Please note: only verified learners can submit assignments. If you are auditing 
 ### Lecture Video
 
 <a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
@@ -567,7 +875,7 @@ Please note: only verified learners can submit assignments. If you are auditing 
 ### Lecture Video
 
 <a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="60px"> 
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
