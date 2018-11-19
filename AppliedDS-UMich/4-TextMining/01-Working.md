@@ -1124,23 +1124,14 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ## Resources: Common issues with free text
 
-### Lecture Notes
++ Regular Expressions
+    + [Regular expressions documentation in Python 3](https://docs.python.org/3/library/re.html)
 
-+ Demo
-    ```Python
-
-    ```
-
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
-
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
++ Tips and tricks of the trade for cleaning text in Python
+    + https://stanford.edu/~rjweiss/public_html/IRiSS2013/text2/notebooks/cleaningtext.html
+    + https://www.analyticsvidhya.com/blog/2014/11/text-data-cleaning-steps-python/
+    + http://ieva.rocks/2016/08/07/cleaning-text-for-nlp/
+    + https://chrisalbon.com/python/cleaning_text.html
 
 
 ## Module 1 Quiz
