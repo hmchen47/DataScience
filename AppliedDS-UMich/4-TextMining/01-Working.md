@@ -697,6 +697,10 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ## Notebook: Regex with Pandas and Named Groups
 
++ [Launching Web Page](https://www.coursera.org/learn/python-text-mining/notebook/CtwPh/regex-with-pandas-and-named-groups)
++ [Notebook Web Page](https://hub.coursera-notebooks.org/user/dfxbyieeexzfjsmxjreyig/notebooks/Regex%20with%20Pandas%20and%20Named%20Groups.ipynb)
++ [Local Notebook](notebooks/01-Regex+with+Pandas+and+Named+Groups.ipynb)
++ [Local Python Code](notebooks/01-Regex+with+Pandas+and+Named+Groups.py)
 
 
 ## Demonstration: Regex with Pandas and Named Groups
