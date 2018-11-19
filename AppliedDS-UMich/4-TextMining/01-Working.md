@@ -707,8 +707,6 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ### Lecture Notes
 
-
-
 + Demo
     ```Python
     import pandas as pd
@@ -831,14 +829,94 @@ Please note: only verified learners can submit assignments. If you are auditing 
     #      1    09:00 am    09    00    am
     ```
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
++ `str.len` method
+    + Signature: `len()` method of `pandas.core.strings.StringMethods` instance
+    + Docstring: Compute length of each string in the Series/Index.
+    + Returns: `lengths` (Series/Index of integer values)
 
++ `str.split` method
+    + Signature: `split(pat=None, n=-1, expand=False)` method of `pandas.core.strings.StringMethods` instance
+    + Docstring: Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. Equivalent to `str.split`.
+    + Parameters
+        + `pat` (string, default None): String or regular expression to split on. If None, splits on whitespace
+        + `n` (int, default -1 (all)): None, 0 and -1 will be interpreted as return all splits
+        + `expand` (bool, default False): 
+            + If True, return DataFrame/MultiIndex expanding dimensionality.
+            + If False, return Series/Index.
+    + Returns: `splait` (Series/Index or DataFrame/MultiIndex of objects)
+
++ `str.contsina` method
+    + Signature: `contains(pat, case=True, flags=0, na=nan, regex=True)` method of `pandas.core.strings.StringMethods` instance
+    + Dcostring: Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index.
+    + Parameters
+        + `pat` (string): Character sequence or regular expression
+        + `case` (boolean, default True): If True, case sensitive
+        + `flags` (int, default 0 (no flags)): re module flags, e.g. re.IGNORECASE
+        + `na`: default NaN, fill value for missing values.
+        + `regex` (bool, default True): If True use `re.search`, otherwise use Python in operator
+    + Returns: `contained` (Series/array of boolean values)
+
++ `str.count` method
+    + Signature: `str_count(pat, flags=0, **kwargs)` method of `pandas.core.strings.StringMethods` instance
+    + Docstring: Count occurrences of pattern in each string of the Series/Index.
+    + Parameters
+        + `pat` (string): valid regular expression
+        + `flags` (int, default 0 (no flags)): re module flags, e.g. re.IGNORECASE
+    + Returns: `counts` (Series/Index of integer values)
+
++ `str.findall` method
+    + Signature: `str_findall(pat, flags=0, **kwargs)` method of pandas.core.strings.StringMethods instance
+    + Docstring: Find all occurrences of pattern or regular expression in the Series/Index. Equivalent to `re.findall`.
+    + Parameters
+        + `pat` (string): Pattern or regular expression
+        + `flags` (int, default 0 (no flags)): re module flags, e.g. re.IGNORECASE
+    + Returns: `matches` (Series/Index of lists)
+
++ `str.replace` method
+    + Signature: `replace(pat, repl, n=-1, case=None, flags=0)` method of `pandas.core.strings.StringMethods` instance
+    + Docstring: Replace occurrences of pattern/regex in the Series/Index with some other string. Equivalent to `str.replace` or `re.sub`.
+    + Parameters
+        + `pat` (string or compiled regex): String can be a character sequence or regular expression.
+        + `repl` (string or callable): Replacement string or a callable. The callable is passed the regex match object and must return a replacement string to be used. See `re.sub`.
+        + `n` (int, default -1 (all)): Number of replacements to make from start
+        + `case` (boolean, default None): 
+            + If True, case sensitive (the default if `pat` is a string)
+            + Set to False for case insensitive
+            + Cannot be set if `pat` is a compiled regex
+        + `flags` (int, default 0 (no flags)): 
+            + re module flags, e.g. re.IGNORECASE
+            + Cannot be set if `pat` is a compiled regex
+    + Returns: `replaced` (Series/Index of objects)
+    + Notes: When `pat` is a compiled regex, all flags should be included in the compiled regex. Use of `case` or `flags` with a compiled regex will raise an error.
+
++ `str.extract` method
+    + Signature: `extract(pat, flags=0, expand=None)` method of `pandas.core.strings.StringMethods` instance
+    + Docstring: For each subject string in the Series, extract groups from the first match of regular expression `pat`.
+    + Parameters
+        + `pat` (string): Regular expression pattern with capturing groups
+        + `flags` (int, default 0 (no flags)): re module flags, e.g. re.IGNORECASE
+        + `expand` (bool, default False): 
+            + If True, return DataFrame.
+            + If False, return Series/Index/DataFrame.
+    + Returns: DataFrame with one row for each subject string, and one column for each group. Any capture group names in regular expression `pat` will be used for column names; otherwise capture group numbers will be used. The dtype of each result column is always object, even when no match is found. If `expand=False` and `pat` has only one capture group, then return a Series (if subject is a Series) or Index (if subject is an Index).
+    + Example: 
+        ```python
+        s = Series(['a1', 'b2', 'c3'])
+        s.str.extract('([ab])(\d)')
+        #      0    1
+        # 0    a    1
+        # 1    b    2
+        # 2  NaN  NaN
+        s.str.extract('(?P<letter>[ab])(?P<digit>\d)')
+        #   letter digit
+        # 0      a     1
+        # 1      b     2
+        # 2    NaN   NaN
+        ```
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/XgLPxFiAEee7Ng519iSOCg.processed/full/360p/index.mp4?Expires=1542758400&Signature=ajsS0QXCGSS04BRx3QIjgxwrh5O8qmvm~WTeyUd2AuGt5luzRG-vzO6EZBAPk2fSIxDqxNNuEa9FFZ5kjRqpRBMUTH9NJlCqCzWG1ympH6PApdD~Ji5gHcmyJ8uGJoIh-~pMAnTNhN46aZMyAzsXH3MMSZ0-EK-N~y4LEAk0zAY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Demonstration: Regex with Pandas and Named Groups" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 

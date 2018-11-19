@@ -517,6 +517,19 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 
 [TOC](#table-of-contents)
 
+### `pandas.core.strings.StringMethods` Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
+| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050] |
+| `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
+| `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
+| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050] |
+| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050] |
+| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050] |
+
+
 ## MatPlotLib
 
 ### [Official Pyplot API](https://matplotlib.org/api/pyplot_summary.html)
@@ -733,8 +746,8 @@ import seaborn as sns
 
 <!--
 [048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
-[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#
-[050]: 
+[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
+[050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
 [051]: 
 [052]: 
 [053]: 
