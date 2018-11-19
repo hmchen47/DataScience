@@ -492,6 +492,13 @@ Please note: only verified learners can submit assignments. If you are auditing 
     ['"Ethics', 'are', 'built', 'right', 'into', 'the', 'ideals', 'and', 'objectives', 'of', 'the', 'United', 'Nations"', '#UNSG', '@', 'NY', 'Society', 'for', 'Ethical', 'Culture', 'bit.ly/2guVelr', '@UN', '@UN_Women']
     ```
     + How do you find all Hashtags? Callouts?
+    + Quiz: Write code that would extract hashtags from the following tweet:
+        ```python
+        tweet = "@nltk Text analysis is awesome! #regex #pandas #python"
+        words = tweet.split(' ')
+        print([w for w in words if w.startswith("#")])
+        # ['#regex', '#pandas', '#python']
+        ```
 
 + Finding Specific Words
     + Hashtags
@@ -504,6 +511,7 @@ Please note: only verified learners can submit assignments. If you are auditing 
         >>> [w for w in text11 if w.startswith('@')]
         ['@', '@UN', '@UN_Women']
         ```
+
 + Finding patterns with regular expressions
     + Callouts are more than just tokens beginning with '@':  `@UN_Spokesperson @katyperry @coursera`
     + Match _something_ after '@': `@[A-Za-z0-9_]+`
@@ -513,9 +521,7 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 + Let’s try it out!
     ```python
-    >>> text10 = ‘”Ethics are built right into the ideals and objectives of the
-    United Nations” #UNSG @ NY Society for Ethical Culture bit.ly/2guVelr @UN
-    @UN_Women’
+    >>> text10 = '"Ethics are built right into the ideals and objectives of the United Nations" #UNSG @ NY Society for Ethical Culture bit.ly/2guVelr @UN @UN_Women'
     >>> text11 = text10.split(' ')
     >>> [w for w in text11 if w.startswith('@')]
     ['@', '@UN', '@UN_Women']
@@ -533,33 +539,34 @@ Please note: only verified learners can submit assignments. If you are auditing 
     + that repeats at least once, but any number of times
 
 + Meta-characters: Character matches
-    + `.` : wildcard, matches a single character
-    + `^` : start of a string
-    + `$` : end of a string
-    + `[]` : matches one of the set of characters within []
-    + `[a-z]` : matches one of the range of characters a, b, …, z
-    + `[^abc]` : matches a character that is not a, b, or, c
-    + `a|b` : matches either a or b, where a and b are strings
-    + `()` : Scoping for operators
-    + `\` : Escape character for special characters (\t, \n, \b)
+    + `.`: wildcard, matches a single character
+    + `^`: start of a string
+    + `$`: end of a string
+    + `[]`: matches one of the set of characters within []
+    + `[a-z]`: matches one of the range of characters a, b, …, z
+    + `[^abc]`: matches a character that is not a, b, or, c
+    + `a|b`: matches either a or b, where a and b are strings
+    + `()`: Scoping for operators
+    + `\`: Escape character for special characters (\t, \n, \b)
+    + `(?:)`: Non-capturing group, the group is matched but is not captured for back-referencing
 
 + Meta-characters: Character symbols
-    + `\b` : Matches word boundary
-    + `\d` : Any digit, equivalent to `[0-9]`
-    + `\D` : Any non-digit, equivalent to `[^0-9]`
-    + `\s` : Any whitespace, equivalent to `[ \t\n\r\f\v]`
-    + `\S` : Any non-whitespace, equivalent to `[^ \t\n\r\f\v]`
-    + `\w` : Alphanumeric character, equivalent to `[a-zA-Z0-9_]`
-    + `\W` : Non-alphanumeric, equivalent to `[^a-zA-Z0-9_]`
+    + `\b`: Matches word boundary
+    + `\d`: Any digit, equivalent to `[0-9]`
+    + `\D`: Any non-digit, equivalent to `[^0-9]`
+    + `\s`: Any whitespace, equivalent to `[ \t\n\r\f\v]`
+    + `\S`: Any non-whitespace, equivalent to `[^ \t\n\r\f\v]`
+    + `\w`: Alphanumeric character, equivalent to `[a-zA-Z0-9_]`
+    + `\W`: Non-alphanumeric, equivalent to `[^a-zA-Z0-9_]`
 
 + Meta-characters: Repetitions
-    + `*` : matches zero or more occurrences
-    + `+` : matches one or more occurrences
-    + `?` : matches zero or one occurrences
-    + `{n}` : exactly $n$ repetitions, $n ≥ 0$
-    + `{n,}` : at least $n$ repetitions
-    + `{,n}` : at most $n$ repetitions
-    + `{m,n}` : at least $m$ and at most $n$ repetitions
+    + `*`: matches zero or more occurrences
+    + `+`: matches one or more occurrences
+    + `?`: matches zero or one occurrences
+    + `{n}`: exactly $n$ repetitions, $n ≥ 0$
+    + `{n,}`: at least $n$ repetitions
+    + `{,n}`: at most $n$ repetitions
+    + `{m,n}`: at least $m$ and at most $n$ repetitions
 
 + Recall the callout regular expression
     ```python
@@ -570,6 +577,7 @@ Please note: only verified learners can submit assignments. If you are auditing 
     >>> [w for w in text11 if re.search('@\w+', w)]
     ['@UN', '@UN_Women']
     ```
+
 + Let’s look at some more examples! - Finding specific characters
     ```python
     >>> text12 = ‘ouagadougou’
@@ -591,35 +599,32 @@ Please note: only verified learners can submit assignments. If you are auditing 
         + October 23, 2002
     + Demo
         ```python
-        >>> dateStr = '23-10-2002\n23/10/2002\n23/10/02\n10/23/2002\n23 Oct 2002\n23 October 2002\nOct 23, 2002\nOctober 23, 2002\n’
-        >>> re.findall(r'\d{2}[/-]\d{2}[/-]\d{4}', dateStr)
+        >>> dateStr = '23-10-2002\n23/10/2002\n23/10/02\n10/23/2002\n23 Oct 2002\n23 October 2002\nOct 23, 2002\nOctober 23, 2002\n'
+
+        >>> re.findall(r'\d{2}[\/-]\d{2}[\/-]\d{4}', dateStr)
         ['23-10-2002', '23/10/2002', '10/23/2002']
-        >>> re.findall(r'\d{2}[/-]\d{2}[/-]\d{2,4}', dateStr)
+        >>> re.findall(r'\d{2}[\/-]\d{2}[\/-]\d{2,4}', dateStr)
         ['23-10-2002', '23/10/2002', '23/10/02', '10/23/2002']
-        >>> re.findall(r'\d{1,2}[/-]\d{1,2}[/-]\d{2,4}', dateStr)
+        >>> re.findall(r'\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}', dateStr)
         ['23-10-2002', '23/10/2002', '23/10/02', '10/23/2002']
-        # 23-10-2002
-        # 23/10/2002
-        # 23/10/02
-        # 10/23/2002
-        >>> re.findall(r'\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}', dateStr)
+
+        >>> re.findall(r'\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}', dateStr)
         ['Oct']
-        >>> re.findall(r'\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}', dateStr)
+        >>> re.findall(r'\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}', dateStr)
         ['23 Oct 2002']
-        >>> re.findall(r'\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[az]*\d{4}', dateStr)
+        >>> re.findall(r'\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[az]* \d{4}', dateStr)
+        ['23 Oct 2002']
         >>> re.findall(r'(?:\d{2} )?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (?:\d{2}, )?\d{4}', dateStr)
         ['23 Oct 2002', '23 October 2002', 'Oct 23, 2002', 'October 23, 2002']
         >>> re.findall(r'(?:\d{1,2} )?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* (?:\d{1,2}, )?\d{4}', dateStr)
         ['23 Oct 2002', '23 October 2002', 'Oct 23, 2002', 'October 23, 2002']
-        # 23 Oct 2002
-        # 23 October 2002
-        # Oct 23, 2002
-        # October 23, 2002
         ```
+
 + Take Home Concepts
     + What are regular expressions?
     + Regular expression meta-characters
     + Building a regular expression to identify dates
+    + [Regular Expressions 101](https://regex101.com/)
 
 + `findall` method
     + Signature: `re.findall(pattern, string, flags=0)`

@@ -126,6 +126,7 @@ import re
 | `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [ReExp][049] |
 | `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [ReExp][049] |
 
+[Regular Expressions 101](https://regex101.com/)
 
 ## [Date and Times][003]
 
