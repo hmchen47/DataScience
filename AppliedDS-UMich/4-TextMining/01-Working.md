@@ -1004,19 +1004,120 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ### Lecture Notes
 
-+ Demo
-    ```Python
++ World of Languages
 
-    ```
++ ASCII and English
+    + ASCII: American Standard Code for Information Interchange
+    + 7-bit character encoding standard: 128 valid codes
+    + Range: 0x00 – 0x7F [$(0000 0000)_2$ to $(0111 1111)_2$]
+    + Includes alphabets (upper and lower cases), digits, punctuations, common symbols, control characters
+    + Worked (relatively) well for English typewriting
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
++ Resume vs. Résumé
+    + Diacritics
+        + résumé :: resume
+        + naïve :: naive
+        + café :: cafe
+        + Québec
+        + Zürich
+        + Fédération Internationale de Football Association (FIFA)
+    + International languages
+        + 基本上 सहायक ασπασθ универсальной
+        + ♪ ♬ ♩
+        + ☺ ☹
+
++ Written Scripts
+    + Latin: 36% (2.6B people)
+    + Chinese: 18% (1.3B)
+    + Devanagari: 14% (1B)
+    + Arabic: 14% (1B)
+    + Cyrillic: 4% (0.3B)
+    + Dravidian: 3.5% (0.25B)
+    <a href="https://www.worldstandards.eu/alphabets/"> <br/>
+        <img src="https://www.worldstandards.eu/WordPress/wp-content/uploads/alphabets-spread-around-the-world-1024x645.jpg" alt="A quick calculation shows that about 2.6 billion people (36% of the world population) use the Latin alphabet, about 1.3 billion people (18%) use the Chinese script, about 1 billion people (14%) use the Devanagari script (India), about 1 billion people (14%) use the Arabic alphabet, about 0.3 billion people (4%) use the Cyrillic alphabet and about 0.25 billion people (3.5%) use the Dravidian script (South India)." title= "The distribution of the world’s most important scripts that are currently used" height="300">
     </a>
 
++ Other Character Encodings
+    + IBM EBCDIC
+    + Latin-1
+    + JIS: Japanese Industrial Standards
+    + CCCII: Chinese Character Code for Information Interchange
+    + EUC: Extended Unix Code
+    + Numerous other national standards
+    + __Unicode__ and __UTF-8__
+
++ Share of Web pages with different encodings
+    <a href="https://en.wikipedia.org/wiki/File:Utf8webgrowth.svg"> <br/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Utf8webgrowth.svg/903px-Utf8webgrowth.svg.png" alt="Note that the ASCII only figure reflects web pages with any declared header if they only include ASCII characters. Since UTF-8 is the default character set from HTML5, its current figure is probably much higher. The trend is confirmed by more recent published statistics which aren't compatible. West European includes ISO-8859-1 and Windows 1252. Others includes Chinese, Korean, Cyrillic, Eastern European, Arabic etc." title= "Shows the usage of the main encodings on the web from 2001 to 2014 as recorded by Google" height="200">
+    </a>
+
++ Unicode
+    + Industry standard for encoding and representing text
+    + Over 128,000 characters from 130+ scripts and symbol sets
+    + Can be implemented by different character endings
+        + UTF-8: One byte to up to four bytes
+        + UTF-16: One or two 16-bit code units
+        + UTF-32: One 32-bit code unit
+
++ UTF-8
+    + Unicode Transformational Format – 8-bits
+    + Variable length encoding: One to four bytes
+    + Backward compatible with ASCII
+        + One byte codes same as ASCII
+    + Dominant character encoding for the Web
+    + How to handle in Python?
+        + Default in Python 3
+        + In Python 2: `# -*- coding: utf-8 -*-`
+
++ Example: Résumé
+    + Python 3
+        ```python
+        >>> text1="Résumé"
+        >>> len(text1)
+        6
+        >>> text1
+        'Résumé'
+        >>> [c for c in text1]
+        ['R', 'é', 's', 'u', 'm', 'é']
+        ```
+    + Python 2
+        ```python
+        >>> text1="Résumé"
+        >>> len(text1)
+        8
+        >>> text1
+        'R\xc3\xa9sum\xc3\xa9'  # 0xc3a9 -> 2 bytes for é
+        >>> [c for c in text1]
+        ['R', '\xc3', '\xa9', 's', 'u', 'm', '\xc3', '\xa9']
+        >>> text2=u'Résumé'
+        >>> len(text2)
+        6
+        >>> text2
+        u'R\xe9sum\xe9'
+        >>> [c for c in text2]
+        [u'R', u'\xe9', u's', u'u', u'm', u'\xe9']
+        ```
+
++ Take Home Concepts
+    + Diversity in Text
+    + ASCII and other character encodings
+    + Handling text in UTF-8
+
++ Lecture Exercise:
+    + Even though we have so many languages around the world, the computer systems are still not necessarily well-equipped to accept inputs in all languages. Are you able to type in words in your native language in its native script? <br/>
+        + Type the name of your first language in the native script (when possible)
+        + Type the name of your first language in English
+        + Run the code and see if python can print the text
+    + Demo
+        ```python
+        native_name = "中文"
+        english_name = "Mandarin"
+        print(native_name, '\n', english_name)
+        ```
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/76wXRGbGEeenaA4bzqx_CA.processed/full/360p/index.mp4?Expires=1542758400&Signature=Wjud85jXbofeuexxsi7sPQHvHP6HbIRVowBGKvkqOzXby14bpXagtMQfwSZcOe0h6KCHSH5cPCp-g8PGEhLot4o2Fy8Yxq~q9q3DWK~XABcxgk5fiAqcZOVj0nNDKFTeaSt84w1OdPyJr2C2~28EFxQvHnw1m92IHe0hNbZNTgU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Internationalization and Issues with Non-ASCII Characters" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
