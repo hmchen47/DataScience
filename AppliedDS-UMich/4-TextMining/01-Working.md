@@ -923,6 +923,82 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ## Practice Quiz
 
+1. Which of these options correspond to matching a pattern at least once?
+
+    a. `*`
+    b. `?`
+    c. `+`
+    d. `{2}`
+    e. `{2, 2}`
+    f. `{2,3}`
+    g. `{1,3}`
+    h. `{3,}`
+    i. `{,3}`
+    j. `{2,}`
+
+    Ans: c, xg
+
+
+2. Which of these options correspond to matching a pattern zero or more times?
+
+    a. `*`
+    b. `?`
+    c. `+`
+    d. `{2}`
+    e. `{2, 2}`
+    f. `{2,3}`
+    g. `{1,3}`
+    h. `{3,}`
+    i. `{,3}`
+    j. `{2,}`
+
+    Ans: a
+
+
+3. Which of these options correspond to matching xyz at the start of the string?
+
+    a. `[^xyz]`
+    b. `^xyz`
+    c. `$xyz`
+    d. `\\xyz`
+    e. `.xyz`
+    f. `[]xyz`
+    g. `[xyz^]`
+    h. `xyz^`
+    i. `xyz$`
+    j. `xyz\\`
+    k. `xyz.`
+    l. `xyz[]`
+    m. `(xyz)`
+    n. `[xyz]`
+    o. `xyz`
+    p. `"xyz"`
+
+    Ans: b
+
+
+
+4. Which of these options correspond to matching xyz at the end of the string?
+
+    a. `[^xyz]`
+    b. `^xyz`
+    c. `$xyz`
+    d. `\\xyz`
+    e. `.xyz`
+    f. `[]xyz`
+    g. `[xyz^]`
+    h. `xyz^`
+    i. `xyz$`
+    j. `xyz\\`
+    k. `xyz.`
+    l. `xyz[]`
+    m. `(xyz)`
+    n. `[xyz]`
+    o. `xyz`
+    p. `"xyz"`
+
+    Ans: i, xc
+
 
 ## Internationalization and Issues with Non-ASCII Characters
 
