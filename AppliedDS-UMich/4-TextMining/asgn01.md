@@ -6,13 +6,13 @@
 
 If you need more complicated expressions of regex for the assignment or just in general want to know more, below are some useful resources. Enjoy!
 
-Regex expression reference and tester: https://regexr.com
+[Regex expression reference and tester](https://regexr.com)
 
-Regex cheatsheet: http://www.rexegg.com/regex-quickstart.html
+[Regex cheatsheet](http://www.rexegg.com/regex-quickstart.html)
 
-Another regex tester: https://www.debuggex.com/ (I highly recommend this one as it has relationship graph to demonstrate the relationship of different groups and show you which group is working and which is not)
+Another [regex tester](https://www.debuggex.com/) (I highly recommend this one as it has relationship graph to demonstrate the relationship of different groups and show you which group is working and which is not)
 
-Regex tutorial: https://www.guru99.com/python-regular-expressions-complete-tutorial.html (if you want to know more, I strongly recommend reading it through, you will know more about the difference among search, match, and findall functions and when to use each of them)
+[Regex tutorial](https://www.guru99.com/python-regular-expressions-complete-tutorial.html) (if you want to know more, I strongly recommend reading it through, you will know more about the difference among search, match, and findall functions and when to use each of them)
 
 ### Jo Are By Amended
 
