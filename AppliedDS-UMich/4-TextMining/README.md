@@ -21,10 +21,10 @@
 
 ## Module 2: [Basic Natural Language Processing](02-BasicNLP.md)
 
-+ [LectureBasic Natural Language Processing](02-BasicNLP.md#)
++ [Basic Natural Language Processing](02-BasicNLP.md#)
 + [Notebook: Module 2 (Python 3)](02-BasicNLP.md#)
-+ [LectureBasic NLP tasks with NLTK](02-BasicNLP.md#)
-+ [LectureAdvanced NLP tasks with NLTK](02-BasicNLP.md#)
++ [Basic NLP tasks with NLTK](02-BasicNLP.md#)
++ [Advanced NLP tasks with NLTK](02-BasicNLP.md#)
 + [Practice Quiz: Practice Quiz](02-BasicNLP.md#)
 + [Discussion Prompt: Finding your own prepositional phrase attachment](02-BasicNLP.md#)
 + [Quiz: Module 2 Quiz](02-BasicNLP.md#)
