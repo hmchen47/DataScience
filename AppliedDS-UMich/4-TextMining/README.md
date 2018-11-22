@@ -19,6 +19,18 @@
 ### [Assignment 1](asgn01.md)
 
 
+## Module 2: [Basic Natural Language Processing](02-BNLP.md)
+
++ [LectureBasic Natural Language Processing](02-BNLP.md#)
++ [Notebook: Module 2 (Python 3)](02-BNLP.md#)
++ [LectureBasic NLP tasks with NLTK](02-BNLP.md#)
++ [LectureAdvanced NLP tasks with NLTK](02-BNLP.md#)
++ [Practice Quiz: Practice Quiz](02-BNLP.md#)
++ [Discussion Prompt: Finding your own prepositional phrase attachment](02-BNLP.md#)
++ [Quiz: Module 2 Quiz](02-BNLP.md#)
+
+### [Assignment 2](asgn02.md)
+
 
 
 
