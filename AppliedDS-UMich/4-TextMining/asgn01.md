@@ -37,15 +37,10 @@ https://www.youtube.com/results?search_query=regular+expression+finite+automata
 First up, your code is not good, sorry to say. You are getting zero because the autograder cannot run your code. That's what the message "Unable to load student data file" means. Here are the most common causes for that:
 
 1. Notebook imports matplotlib or has anything else related to matplotlib such as %matplotlib notebook
-
 2. Notebook plots
-
 3. Notebook prints (using print)
-
 4. Notebook has a syntax error
-
 5. Notebook imports a library not available to the grader
-
 6. Notebook uses an option / parameter to a more recent version of a library that the autograder's older library version does not support
 
 The autograder works by first running the entire notebook, and only afterwards calls the assigned functions to check if the expected answer is produced. If it cannot run the entire notebook you'll get the message about unable to load student data file.

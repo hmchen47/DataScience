@@ -1136,6 +1136,118 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ## Module 1 Quiz
 
+1. Which of these options correspond to matching a pattern _at most once_?
+
+    a. `*`
+    b. `?`
+    c. `+`
+    d. `{2}`
+    e. `{2, 2}`
+    f. `{2,3}`
+    g. `{1,3}`
+    h. `{3,}`
+    i. `{,3}`
+    j. `{2,}`
+
+    Ans: b
+
+
+2. Which of these options correspond to matching a pattern _at least twice_?
+
+    a. `*`
+    b. `?`
+    c. `+`
+    d. `{2}`
+    e. `{2, 2}`
+    f. `{2,3}`
+    g. `{1,3}`
+    h. `{3,}`
+    i. `{,3}`
+    j. `{2,}`
+
+    Ans: j
+
+
+3. Which of these options correspond to matching a pattern _at least once_, but _at most thrice_?
+
+    a. `*`
+    b. `?`
+    c. `+`
+    d. `{2}`
+    e. `{2, 2}`
+    f. `{2,3}`
+    g. `{1,3}`
+    h. `{3,}`
+    i. `{,3}`
+    j. `{2,}`
+
+    Ans: g, xi
+
+
+4. Which of these options correspond to match none of the characters x,y,z?
+
+    a. `[^xyz]`
+    b. `^xyz`
+    c. `$xyz`
+    d. `\\xyz`
+    e. `.xyz`
+    f. `[]xyz`
+    g. `[xyz^]`
+    h. `xyz^`
+    i. `xyz$`
+    j. `xyz\\`
+    k. `xyz.`
+    l. `xyz[]`
+    m. `(xyz)`
+    n. `[xyz]`
+    o. `xyz`
+    p. `"xyz"`
+
+    Ans: a
+
+
+5. Which of these options correspond to match one of the characters x,y,z?
+
+    a. `[^xyz]`
+    b. `^xyz`
+    c. `$xyz`
+    d. `\\xyz`
+    e. `.xyz`
+    f. `[]xyz`
+    g. `[xyz^]`
+    h. `xyz^`
+    i. `xyz$`
+    j. `xyz\\`
+    k. `xyz.`
+    l. `xyz[]`
+    m. `(xyz)`
+    n. `[xyz]`
+    o. `xyz`
+    p. `"xyz"`
+
+    Ans: n
+
+
+6. Which of these options correspond to match the sequence xyz?
+
+    a. `[^xyz]`
+    b. `^xyz`
+    c. `$xyz`
+    d. `\\xyz`
+    e. `.xyz`
+    f. `[]xyz`
+    g. `[xyz^]`
+    h. `xyz^`
+    i. `xyz$`
+    j. `xyz\\`
+    k. `xyz.`
+    l. `xyz[]`
+    m. `(xyz)`
+    n. `[xyz]`
+    o. `xyz`
+    p. `"xyz"`
+
+    Ans: p
 
 
 
