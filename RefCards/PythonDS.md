@@ -44,7 +44,7 @@
     + [Color abbreviations](color-abbreviations)
 + [Seaborn](seaborn)
     + [Seaborn API](seaborn-api)
-
++ [NLTK](natural-language-toolkit)
 
 
 ## General
@@ -530,6 +530,8 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050] |
 
 
+[TOC](#table-of-contents)
+
 ## MatPlotLib
 
 ### [Official Pyplot API](https://matplotlib.org/api/pyplot_summary.html)
@@ -569,6 +571,7 @@ import matplotlib.animation as animation
     + [text][036]
 
 
+[TOC](#table-of-contents)
 
 ### Methods
 
@@ -621,6 +624,7 @@ import matplotlib.animation as animation
 | `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
 
 
+[TOC](#table-of-contents)
 
 ### Line style or marker
 
@@ -662,6 +666,8 @@ plt.plot([1,2,3], [1,4,9], 'rs',  label='line 2')
 plt.axis([0, 4, 0, 10])
 plt.legend()
 ```
+
+[TOC](#table-of-contents)
 
 # Seaborn
 
@@ -742,13 +748,37 @@ import seaborn as sns
 | `saturate(color)` | Return a fully saturated color with the same hue. | [Link](https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate) |
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
+
+[TOC](#table-of-contents)
+
+
+## Natural Language Toolkit
+
+```python
+import nltk
+
+nltk.download()     # fownload corpora
+```
+
+### Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `FreqDist(samples=None)` | A frequency distribution for the outcomes of an experiment | [Basic NLP][051] |
+| `nltk.corpus` | NLTK corpus readers, create a LazyModule instance wrapping module name | [Basic NLP][051] |
+| `nltk.corpus.udhr` | Construct a new plaintext corpus reader for a set of documents located at the given root directory | [Basic NLP][051] |
+| `nltk.corpus.udhr.words(fileids=None)` | return the given file(s) as a list of words and punctuation symbols | [Basic NLP][051] |
+| `nltk.PorterStemmer(mode='NLTK_EXTENSIONS')` | A word stemmer based on the Porter stemming algorithm | [Basic NLP][051] |
+| `nltk.PorterStemmer.stem(word)` | Strip affixes from the token and return the stem | [Basic NLP][051] |
+| `nltk.WordNetLemmatizer()` | Initizlize lemmatization by using WordNet's built-in morphy function | [Basic NLP][051] |
+| `nltk.WordNetLemmatizer.lemmatize(word, pos='n')` | Lemmatize using WordNet's built-in morphy function | [Basic NLP][051] |
+| `nltk.word_tokenize(text, *args)` | Return a tokenized copy of text, using NLTK's recommended word tokenizer | [Basic NLP][051] |
+| `nltk.sent_tokenize(text, language='english')`| Return a sentence-tokenized copy of text, using NLTK's recommended sentence tokenizer | [Basic NLP][051] |
+
+
 -------------------------------------
 
 <!--
-[048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
-[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
-[050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
-[051]: 
 [052]: 
 [053]: 
 [054]: 
@@ -848,7 +878,7 @@ import seaborn as sns
 [046]: https://seaborn.pydata.org/
 [047]: https://seaborn.pydata.org/tutorial.html
 [048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
-
-
-
-
+[048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
+[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
+[050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
+[051]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#basic-nlp-tasks-withnltk
