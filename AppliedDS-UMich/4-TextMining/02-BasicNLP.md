@@ -453,8 +453,8 @@
     ```
 
 + `nltk.help.upenn_tagset` method
-    + Signature: nltk.help.upenn_tagset(tagpattern=None)
-    + Docstring: <no docstring>
+    + Signature: `nltk.help.upenn_tagset(tagpattern=None)`
+    + Docstring: detail explanation of given tag
 
 + `nltk.pos_tag` method
     + Signature: `nltk.pos_tag(tokens, tagset=None, lang='eng')`
@@ -482,7 +482,7 @@
 
 + `nltk.ChartParser` class
     + Init signature: `nltk.ChartParser(grammar, strategy=[<nltk.parse.chart.LeafInitRule>, <nltk.parse.chart.EmptyPredictRule>, <nltk.parse.chart.BottomUpPredictCombineRule>, <nltk.parse.chart.SingleEdgeFundamentalRule>], trace=0, trace_chart_width=50, use_agenda=True, chart_class=<'nltk.parse.chart.Chart'>)`
-    + Docstring: A generic chart parser.  A "strategy", or list of `ChartRuleI` instances, is used to decide what edges to add to the chart.  In particular, ``ChartParser`` uses the following algorithm to parse texts:
+    + Docstring: A generic chart parser.  A "strategy", or list of `ChartRuleI` instances, is used to decide what edges to add to the chart.  In particular, `ChartParser` uses the following algorithm to parse texts:
         ```
         Until no new edges are added:  
           For each *rule* in *strategy*:  
@@ -503,7 +503,7 @@
     + Docstring: list of tree structure
 
 + `nltk.data.load` method
-    + Signature: nltk.data.load(resource_url, format='auto', cache=True, verbose=False, logic_parser=None, fstruct_reader=None, encoding=None)
+    + Signature: `nltk.data.load(resource_url, format='auto', cache=True, verbose=False, logic_parser=None, fstruct_reader=None, encoding=None)`
     + Docstring: Load a given resource from the NLTK data package.  The following resource formats are currently supported:
         + `pickle`
         + `json`
@@ -528,7 +528,7 @@
         + `fstruct_reader` (FeatStructReader): The parser that will be used to parse the feature structure of an fcfg.
         + `encoding` (str): the encoding of the input; only used for text formats.
 
-+ `nltk.corpus.treebanl` class
++ `nltk.corpus.treebank` class
     + Type: BracketParseCorpusReader
     + Docstring: Reader for corpora that consist of parenthesis-delineated parse trees, like those found in the "combined" section of the Penn Treebank, e.g. "(S (NP (DT the) (JJ little) (NN dog)) (VP (VBD barked)))".
     + Init docstring:
@@ -553,62 +553,85 @@
 
 ## Practice Quiz: Practice Quiz
 
-### Lecture Notes
+1. The function to check if a string variable "string1" is lowercased is:
 
-+ Demo
-    ```Python
+    a.`string.lower(string1)`
+    b. `string1.islower()`
+    c. `string1.tolower()`
+    d. `string.islower(string1)`
 
-    ```
+    Ans: b
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
 
-### Lecture Video
+2. The POS tag code for adjectives, as given by NLTK is:
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
+    a. AA
+    b. ADJ
+    c. AJ
+    d. JJ
 
+    Ans: d
 
 ## Discussion Prompt: Finding your own prepositional phrase attachment
 
-### Lecture Notes
+The examples from the video we have just seen are referred to as prepositional phrase attachment ambiguity. For example, “Ali saw the man with the telescope.”
 
-+ Demo
-    ```Python
+Construct at least one new sentence where this phenomenon holds and post your sentence(s) to the discussion board.
 
-    ```
+Before posting, scan the discussion boards and read what your peers have found. You may also comment on other examples your co-learners have already entered, paying particular attention to whether or not the examples provided are representative of the phenomenon.
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
+Alternatively, rephrase the above example sentence to make it unambiguous.
 
 
 ## Quiz: Module 2 Quiz
 
-### Lecture Notes
+1. The function to use to make a string variable, string1, uppercase is:
 
-+ Demo
-    ```Python
+    a. `string1.toupper()`
+    b. `string.toupper(string1)`
+    c. `string1.upper()`
+    d. `string.upper(string1)`
 
-    ```
+    Ans: c
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
 
-### Lecture Video
+2. A string variable, string2, has some lagging whitespace characters. You would remove these using:
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
+    a. `string2.lstrip()`
+    b. `string2.lstrip(‘ ’)`
+    c. `string2.rstrip()`
+    d. `string2.rstrip(‘ ’)`
 
+    Ans: c, xd
+
+
+3. What does NLTK’s function `word_tokenize()` do?
+
+    a. It splits a sentence into words.
+    b. It splits a word into characters.
+    c. It retains valid words and tokens in a sentence and removes invalid words.
+    d. It finds valid word forms for tokens in a sentence (i.e. maps all words to closest valid words).
+
+    Ans: a
+
+
+4. What is a sentence parser typically used for?
+
+    a. It is used to parse sentences to check if they are utf8 compliant.
+    b. It is used to parse sentences to derive their most likely syntax tree structures.
+    c. It is used to parse sentences to assign parts of speech tags to all tokens.
+    d. It is used to check if sentences can be parsed into meaningful tokens.
+
+    Ans: b, xc
+
+
+5. If you want to map all derivationally related words to their root verb using NLTK, you will use:
+
+    a. Lemmatizer
+    b. Porter Stemmer
+    c. Splitter
+    d. Word sense disambiguator
+
+    Ans: a, xb
 
 
