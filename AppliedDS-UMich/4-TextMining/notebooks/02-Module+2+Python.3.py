@@ -4,10 +4,8 @@
 # # Module 2 (Python 3)
 
 # ## Basic NLP Tasks with NLTK
-
 import nltk
 from nltk.book import *
-
 
 # ### Counting vocabulary of words
 text7
