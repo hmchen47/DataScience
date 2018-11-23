@@ -293,18 +293,260 @@
 
 ### Lecture Notes
 
++ In Lecture Quiz:
+    > Visiting aunts can be a nuisance.
+    >
+    > What can be a nuisance?
+    >
+    > a. Traveling to see aunts  
+    > b. Welcoming aunts into your home  
+    > c. Neither; aunts are the most loving relatives!  
+    > d. Depends on which aunt :)
+
+    Ans:  
+    c. Besides the tongue-in-cheek responses, this sentence is another example of a syntactic ambiguity. Depending on how the sentence is parsed, both the first and second interpretations are possible. In this case, the ambiguity arises because the word “Visiting” could either be an adjective or a gerund, leading to two different ways to parse the sentence to derive two different meanings.  
+    d. Besides the tongue-in-cheek responses, this sentence is another example of a syntactic ambiguity. Depending on how the sentence is parsed, both the first and second interpretations are possible. In this case, the ambiguity arises because the word “Visiting” could either be an adjective or a gerund, leading to two different ways to parse the sentence to derive two different meanings.
+
++ NLP Tasks
+    + Counting words, counting frequency of words
+    + Finding sentence boundaries
+    + _Part of speech tagging_
+    + _Parsing the sentence structure_
+    + Identifying semantic role labeling
+    + Named Entity Recognition
+    + Co-reference and pronoun resolution
+
++ Part-of-speech (POS) Tagging
+    + Recall high school grammar: nouns, verbs, adjectives, …
+    + Many more tags or word classes than just these
+        | Tag |  Word class | Tag | Word class | Tag | Word class |
+        |-----|-------------|-----|------------|-----|------------|
+        | CC  | Conjunction | JJ | Adjective | PRP | Pronoun |
+        | CD  | Cardinal | MD | Modal | RB | Adverb |
+        | DT  | Determiner | NN | Noun | SYM | Symbol |
+        | IN  | Preposition | POS | Possessive | VB | Verb |
+        | NP  | Noun Phrase | VP | Verb Phrase | PP | Preposition Phrase |
+
++ Ambiguity in POS Tagging
+    + Ambiguity is common in English: "Visiting aunts can be a nuisance"
+    + Tagging: `[('Visiting', 'VBG'), ('aunts', 'NNS'), ('can', 'MD'), ('be', 'VB'), ('a', 'DT'), ('nuisance', 'NN')]`
+    + Alternative: `[('Visiting', 'JJ'), ('aunts', 'NNS'), ('can', 'MD'), ('be', 'VB'), ('a', 'DT'), ('nuisance', 'NN')]`
+
++ Parsing Sentence Structure
+    + Making sense of sentences is easy if they follow a well-defined grammatical structure
+    + Example: "Alice loves Bob"
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/wWEVW/advanced-nlp-tasks-with-nltk"> <br/>
+        <img src="images/p3-01.png" alt="text" title= "caption" height="130">
+    </a>
+
++ Ambiguity in Parsing
+    + Ambiguity may exist even if sentences are grammatically correct!
+    + Example: "I saw the man with a telescope 
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/wWEVW/advanced-nlp-tasks-with-nltk"> <br/>
+        <img src="images/p3-02.png" alt="text" title= "caption" height="150">
+    </a>
+
++ POS Tagging & Parsing Complexity
+    + Uncommon usages of words; e.g. The old man the boat
+    + Well-formed sentences may still be meaningless!; e.g. Colorless green ideas sleep furiously
+
++ Take Home Concepts
+    + POS tagging provides insights into the word classes / types in a sentence
+    + Parsing the grammatical structures helps derive meaning
+    + Both tasks are difficult, linguistic ambiguity increases the difficulty even more
+    + Better models could be learned with supervised training
+    + NLTK provides access to tools and data for training
+
++ In Lecture Quiz: Mary saw the man with the telescope.
+
+    a. Who has the telescope?
+    b.Mary
+    c. The man
+    d. Could be either
+
+    And: d
+    It could be either. This sentence is an example of an inherent ambiguity in the prepositional phrase attachment. The statement can be parsed in two different ways to derive two different meanings.
+
 + Demo
     ```Python
+    # ### POS tagging
+    nltk.help.upenn_tagset('MD')
+    # MD: modal auxiliary
+    #     can cannot could couldn't dare may might must need ought shall should
+    #     shouldn't will would
 
+    text13 = nltk.word_tokenize(text11)
+    nltk.pos_tag(text13)
+    # [('Children', 'NNP'), ('should', 'MD'), ("n't", 'RB'), ('drink', 'VB'),
+    #  ('a', 'DT'), ('sugary', 'JJ'), ('drink', 'NN'), ('before', 'IN'),
+    #  ('bed', 'NN'), ('.', '.')]
+
+    # Ambiguity in POS Tagging
+    text14 = nltk.word_tokenize("Visiting aunts can be a nuisance")
+    nltk.pos_tag(text14)
+    # [('Visiting', 'VBG'), ('aunts', 'NNS'), ('can', 'MD'), ('be', 'VB'),
+    #  ('a', 'DT'), ('nuisance', 'NN')]
+
+    # Parsing sentence structure
+    text15 = nltk.word_tokenize("Alice loves Bob")
+    grammar = nltk.CFG.fromstring("""
+    S -> NP VP
+    VP -> V NP
+    NP -> 'Alice' | 'Bob'
+    V -> 'loves'
+    """)
+
+    parser = nltk.ChartParser(grammar)
+    trees = parser.parse_all(text15)
+    for tree in trees:
+        print(tree)
+    # (S (NP Alice) (VP (V loves) (NP Bob)))
+
+    # Ambiguity in Parsing
+    text16 = nltk.word_tokenize("I saw the man with a telescope")
+    grammar1 = nltk.data.load('mygrammar.cfg')
+    # <Grammar with 13 productions>
+
+    parser = nltk.ChartParser(grammar1)
+    trees = parser.parse_all(text16)
+    for tree in trees:
+        print(tree)
+    # (S
+    #   (NP I)
+    #   (VP
+    #     (VP (V saw) (NP (Det the) (N man)))
+    #     (PP (P with) (NP (Det a) (N telescope)))))
+    # (S
+    #   (NP I)
+    #   (VP
+    #     (V saw)
+    #     (NP (Det the) (N man) (PP (P with) (NP (Det a) (N telescope))))))
+
+    # NLTK and Parse Tree Collection
+    from nltk.corpus import treebank
+    text17 = treebank.parsed_sents('wsj_0001.mrg')[0]
+    print(text17)
+    # (S
+    #   (NP-SBJ
+    #     (NP (NNP Pierre) (NNP Vinken))
+    #     (, ,)
+    #     (ADJP (NP (CD 61) (NNS years)) (JJ old))
+    #     (, ,))
+    #   (VP
+    #     (MD will)
+    #     (VP
+    #       (VB join)
+    #       (NP (DT the) (NN board))
+    #       (PP-CLR (IN as) (NP (DT a) (JJ nonexecutive) (NN director)))
+    #       (NP-TMP (NNP Nov.) (CD 29))))
+    #   (. .))
+
+    # ### POS tagging and parsing ambiguity
+    text18 = nltk.word_tokenize("The old man the boat")
+    nltk.pos_tag(text18)
+    # [('The', 'DT'), ('old', 'JJ'), ('man', 'NN'), ('the', 'DT'), ('boat', 'NN')]
+
+    text19 = nltk.word_tokenize("Colorless green ideas sleep furiously")
+    nltk.pos_tag(text19)
+    # [('Colorless', 'NNP'), ('green', 'JJ'), ('ideas', 'NNS'), ('sleep', 'VBP'),
+    #  ('furiously', 'RB')]
     ```
 
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
++ `nltk.help.upenn_tagset` method
+    + Signature: nltk.help.upenn_tagset(tagpattern=None)
+    + Docstring: <no docstring>
+
++ `nltk.pos_tag` method
+    + Signature: `nltk.pos_tag(tokens, tagset=None, lang='eng')`
+    + Docstring: Use NLTK's currently recommended part of speech tagger to tag the given list of tokens.
+    + Parameters:
+        + `tokens` (lst(str)): Sequence of tokens to be tagged
+        + `tagset` (str): the tagset to be used, e.g. universal, wsj, brown
+        + `lang` (str): the ISO 639 code of the language, e.g. 'eng' for English, 'rus' for Russian
+    + Return: list(tuple(str, str)): The tagged tokens
+
++ `nltk.CFG` class
+    + Init signature: `nltk.CFG(start, productions, calculate_leftcorners=True)`
+    + Docstring:  A context-free grammar.  A grammar consists of a start state and a set of productions.  The set of terminals and nonterminals is implicitly specified by the productions.
+    + Init docstring: Create a new context-free grammar, from the given start state and set of `Production`s.
+    + Parameters
+        + `start` (Nonterminal): The start symbol
+        + `productions` (list(Production)): The list of productions that defines the grammar
+        + `calculate_leftcorners` (bool): False if we don't want to calculate the leftcorner relation. In that case, some optimized chart parsers won't work.
+
++ `nltk.CFG.fromstring` method
+    + Signature: `nltk.CFG.fromstring(input, encoding=None)`
+    + Docstring: Return the `CFG` corresponding to the input string(s).
+    + Parameter: 
+        + `input`: a grammar, either in the form of a string or as a list of strings.
+
++ `nltk.ChartParser` class
+    + Init signature: `nltk.ChartParser(grammar, strategy=[<nltk.parse.chart.LeafInitRule>, <nltk.parse.chart.EmptyPredictRule>, <nltk.parse.chart.BottomUpPredictCombineRule>, <nltk.parse.chart.SingleEdgeFundamentalRule>], trace=0, trace_chart_width=50, use_agenda=True, chart_class=<'nltk.parse.chart.Chart'>)`
+    + Docstring: A generic chart parser.  A "strategy", or list of `ChartRuleI` instances, is used to decide what edges to add to the chart.  In particular, ``ChartParser`` uses the following algorithm to parse texts:
+        ```
+        Until no new edges are added:  
+          For each *rule* in *strategy*:  
+            Apply *rule* to any applicable edges in the chart.  
+        Return any complete parses in the chart
+        ```
+    + Init docstring: Create a new chart parser, that uses `grammar` to parse texts.
+    + Parameters:
+        + `grammar` (CFG): The grammar used to parse texts.
+        + `strategy` (list(ChartRuleI)): A list of rules that should be used to decide what edges to add to the chart (top-down strategy by default).
+        + `trace` (int): The level of tracing that should be used when parsing a text.  `0` will generate no tracing output; and higher numbers will produce more verbose tracing output.
+        + `trace_chart_width` (int): The default total width reserved for the chart in trace output.  The remainder of each line will be used to display edges.
+        + `use_agenda` (bool): Use an optimized agenda-based algorithm, if possible.
+        + `chart_class`: The class that should be used to create the parse charts.
+
++ `nltk.ChartParser.parse_all` method
+    + Signature: `nltk.ChartParser.parse_all(sent, *args, **kwargs)`
+    + Docstring: list of tree structure
+
++ `nltk.data.load` method
+    + Signature: nltk.data.load(resource_url, format='auto', cache=True, verbose=False, logic_parser=None, fstruct_reader=None, encoding=None)
+    + Docstring: Load a given resource from the NLTK data package.  The following resource formats are currently supported:
+        + `pickle`
+        + `json`
+        + `yaml`
+        + `cfg` (context free grammars)
+        + `pcfg` (probabilistic CFGs)
+        + `fcfg` (feature-based CFGs)
+        + `fol` (formulas of First Order Logic)
+        + `logic` (Logical formulas to be parsed by the given logic_parser)
+        + `val` (valuation of First Order Logic model)
+        + `text` (the file contents as a unicode string)
+        + `raw` (the raw file contents as a byte string)
+
+    + Notes:
+        + If no format is specified, `load()` will attempt to determine a format based on the resource name's file extension.  If that fails, `load()` will raise a `ValueError` exception.
+        + For all text formats (everything except `pickle`, `json`, `yaml` and `raw`), it tries to decode the raw contents using UTF-8, and if that doesn't work, it tries with ISO-8859-1 (Latin-1), unless the `encoding` is specified.
+    + Parameters:
+        + `resource_url` (str): A URL specifying where the resource should be loaded from.  The default protocol is "nltk:", which searches for the file in the the NLTK data package.
+        + `cache` (bool): If true, add this resource to a cache.  If load() finds a resource in its cache, then it will return it from the cache rather than loading it.  The cache uses weak     references, so a resource wil automatically be expunged from the cache when no more objects are using it.
+        + `verbose` (bool): If true, print a message when loading a resource. Messages are not displayed when a resource is retrieved from the cache.
+        + `logic_parser` (LogicParser): The parser that will be used to parse logical expressions.
+        + `fstruct_reader` (FeatStructReader): The parser that will be used to parse the feature structure of an fcfg.
+        + `encoding` (str): the encoding of the input; only used for text formats.
+
++ `nltk.corpus.treebanl` class
+    + Type: BracketParseCorpusReader
+    + Docstring: Reader for corpora that consist of parenthesis-delineated parse trees, like those found in the "combined" section of the Penn Treebank, e.g. "(S (NP (DT the) (JJ little) (NN dog)) (VP (VBD barked)))".
+    + Init docstring:
+        + `root`: The root directory for this corpus.
+        + `fileids`: A list or regexp specifying the fileids in this corpus.
+        + `comment_char`: The character which can appear at the start of a line to indicate that the rest of the line is a comment.
+        + `detect_blocks`: The method that is used to find blocks in the corpus; can be 'unindented_paren' (every unindented parenthesis starts a new parse) or 'sexpr' (brackets are matched).
+        + `tagset`: The name of the tagset used by this corpus, to be used for normalizing or converting the POS tags returned by the tagged_...() methods.
+
++ `nltk.corpus.treebank.parsed_sents` method
+    + Signature: `nltk.corpus.treebank.parsed_sents(fileids=None)`
+    + Docstring: parsing sentences with parenthesis-delineated parse trees
+
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/A43T43e9EeeogA4xFg3wEg.processed/full/360p/index.mp4?Expires=1543104000&Signature=S8u-AkNjG9hEhdghwP1OQPX2Q7q-LnSzRhNEcVA3XmkLzVDN~4iKs3jKlfyzk6hEBmq4I3uELJIp-g6k2y8~igabaw-T~kqO~MyxL07vEZ~yDIdZLAvDGqXEj9ZB9tKv4NPuOa3WrTW0R44d0mX8L5AuP4VQ7vhbBxeE4uFj9CI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Advanced NLP tasks with NLTK" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 

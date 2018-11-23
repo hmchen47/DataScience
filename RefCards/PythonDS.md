@@ -774,12 +774,20 @@ nltk.download()     # fownload corpora
 | `nltk.WordNetLemmatizer.lemmatize(word, pos='n')` | Lemmatize using WordNet's built-in morphy function | [Basic NLP][051] |
 | `nltk.word_tokenize(text, *args)` | Return a tokenized copy of text, using NLTK's recommended word tokenizer | [Basic NLP][051] |
 | `nltk.sent_tokenize(text, language='english')`| Return a sentence-tokenized copy of text, using NLTK's recommended sentence tokenizer | [Basic NLP][051] |
+| `nltk.help.upenn_tagset(tagpattern=None)` | detail explanation of given tag | [Adv NLP][052] |
+| `nltk.pos_tag(tokens, tagset=None, lang='eng')` | Use NLTK's currently recommended part of speech tagger to tag the given list of tokens | [Adv NLP][052] |
+| `nltk.CFG(start, productions, calculate_leftcorners=True)` | A context-free grammar.  A grammar consists of a start state and a set of productions. | [Adv NLP][052] |
+| `nltk.CFG.fromstring(input, encoding=None)` | Return the `CFG` corresponding to the input string(s) | [Adv NLP][052] |
+| `nltk.ChartParser(grammar, *args)` | A generic chart parser | [Adv NLP][052] |
+| `nltk.ChartParser.parse_all(sent, *args, **kwargs)` | list of tree structure | [Adv NLP][052] |
+| `nltk.data.load(resource_url, *args)` | Load a given resource from the NLTK data package | [Adv NLP][052] |
+| `nltk.corpus.treebank()` | Reader for corpora that consist of parenthesis-delineated parse trees | [Adv NLP][052] |
+| `nltk.corpus.treebank.parsed_sents(fileids=None)` | parsing sentences with parenthesis-delineated parse trees | [Adv NLP][052] |
 
 
 -------------------------------------
 
 <!--
-[052]: 
 [053]: 
 [054]: 
 [055]: 
@@ -881,4 +889,5 @@ nltk.download()     # fownload corpora
 [048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
 [049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
 [050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
-[051]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#basic-nlp-tasks-withnltk
+[051]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#basic-nlp-tasks-with-nltk
+[052]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#advanced-nlp-tasks-with-nltk
