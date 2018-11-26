@@ -336,14 +336,14 @@
     + Making sense of sentences is easy if they follow a well-defined grammatical structure
     + Example: "Alice loves Bob"
     <a href="https://www.coursera.org/learn/python-text-mining/lecture/wWEVW/advanced-nlp-tasks-with-nltk"> <br/>
-        <img src="images/p3-01.png" alt="text" title= "caption" height="130">
+        <img src="images/p2-01.png" alt="text" title= "caption" height="130">
     </a>
 
 + Ambiguity in Parsing
     + Ambiguity may exist even if sentences are grammatically correct!
     + Example: "I saw the man with a telescope 
     <a href="https://www.coursera.org/learn/python-text-mining/lecture/wWEVW/advanced-nlp-tasks-with-nltk"> <br/>
-        <img src="images/p3-02.png" alt="text" title= "caption" height="150">
+        <img src="images/p2-02.png" alt="text" title= "caption" height="150">
     </a>
 
 + POS Tagging & Parsing Complexity
