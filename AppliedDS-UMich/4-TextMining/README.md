@@ -36,11 +36,25 @@
 
 ### [Assignment 2](asgn02.md)
 
-+ [Jaccard distance](Asgn02.md#)
-+ [How Spell Checkers Work](Asgn02.md#)
-+ [Edit Distance and Jaccard Distance Calculation with NLTK](Asgn02.md#)
-+ [Solution](Asgn02.md#)
++ [Jaccard distance](asgn02.md#)
++ [How Spell Checkers Work](asgn02.md#)
++ [Edit Distance and Jaccard Distance Calculation with NLTK](asgn02.md#)
++ [Solution](asgn02.md#)
 
+
+## Module 3: [Classification of Text](03-Classify.md)
+
++ [Text Classification](03-Classify.md#)
++ [Identifying Features from Text](03-Classify.md#)
++ [Naive Bayes Classifiers](03-Classify.md#)
++ [Naive Bayes Variations](03-Classify.md#)
++ [Support Vector Machines](03-Classify.md#)
++ [Learning Text Classifiers in Python](03-Classify.md#)
++ [Notebook: Case Study - Sentiment Analysis](03-Classify.md#)
++ [Demonstration: Case Study - Sentiment Analysis](03-Classify.md#)
++ [Quiz: Module 3 Quiz](03-Classify.md#)
+
+### [Assignment 3](asgn03.md)
 
 
 
