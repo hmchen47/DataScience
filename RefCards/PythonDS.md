@@ -113,18 +113,18 @@ import re
 
 | Attribute | Description | Link |
 |--------|-------------|------|
-| `compile(pattern, flags=0)` | Compile a regular expression pattern, returning a pattern object. | [ReExp][049] |
-| `escape(pattern)` |  Escape all the characters in pattern except ASCII letters, numbers and '_'. | [ReExp][049] |
-| `findall(pattern, string, flags=0)` | Return a list of all non-overlapping matches in the string. | [ReExp][049] |
-| `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [ReExp][049] |
-| `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [ReExp][049] |
-| `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [ReExp][049] |
-| `purge()`: Clear the regular expression caches | [ReExp][049] |
-| `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [ReExp][049] |
-| `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [ReExp][049] |
-| `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [ReExp][049] |
-| `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [ReExp][049] |
-| `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [ReExp][049] |
+| `compile(pattern, flags=0)` | Compile a regular expression pattern, returning a pattern object. | [RegEx][049] |
+| `escape(pattern)` |  Escape all the characters in pattern except ASCII letters, numbers and '_'. | [RegEx][049] |
+| `findall(pattern, string, flags=0)` | Return a list of all non-overlapping matches in the string. | [RegEx][049] |
+| `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [RegEx][049] |
+| `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [RegEx][049] |
+| `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [RegEx][049] |
+| `purge()`: Clear the regular expression caches | [RegEx][049] |
+| `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [RegEx][049] |
+| `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [RegEx][049] |
+| `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [RegEx][049] |
+| `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [RegEx][049] |
+| `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [RegEx][049] |
 
 [Regular Expressions 101](https://regex101.com/)
 
@@ -306,7 +306,7 @@ import pandas as pd
 | Method | Description | Link |
 |--------|-------------|------|
 | `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] |
-| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
+| `pd.concat(objs, axis=0, join='outer', join_axes=None, *args)` | Concatenate pandas objects along a particular axis with optional set logic along the other axes | [Asgn01][054] |
 
 
 
@@ -510,6 +510,9 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; <br/>`dtype`: data type, or dict of column name -> data type | [Scales][018] |
 | `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; <br/> values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
 | `df.describe(percentiles=None, include=None, exclude=None)` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values. | [Box Plots][039] |
+| `df.index.duplicated(keep='first')` | Return boolean np.ndarray denoting duplicate values | [Asgn01][054] |
+| `df.sort_values(axis=0, ascending=True, *args)` | Sort by the values along either axis | [Asgn01][054] |
+| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
 | `df.plot.box(by=None, **kwds)` | Boxplot | [Plotting w/ Pandas][044] |
 | `df.plot.hist(by=None, bins=10, **kwds)` | Histogram | [Plotting w/ Pandas][044] |
 | `df.plot.kde(**kwds)` | Kernel Density Estimate plot | [Plotting w/ Pandas][044] |
@@ -522,12 +525,15 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | Method | Description | Link |
 |--------|-------------|------|
 | `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
-| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050] |
+| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
 | `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
 | `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
-| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050] |
+| `df.str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
+| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
 | `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050] |
-| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050] |
+| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
+| `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
+| 
 
 
 [TOC](#table-of-contents)
@@ -791,7 +797,7 @@ nltk.download()     # fownload corpora
 -------------------------------------
 
 <!--
-[054]: 
+[054]: ../AppliedDS-UMich/4-TextMining/asgn01.md#solution
 [055]: 
 [056]: 
 [057]: 

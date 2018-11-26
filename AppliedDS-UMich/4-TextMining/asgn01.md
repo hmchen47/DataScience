@@ -134,6 +134,152 @@ or good measure I resubmitted with a tie-breaking sort. Specifically if I had mu
 Please note: only verified learners can submit assignments. If you are auditing this course, you will be able to go through the quizzes or assignments, but you will not be able to submit your assignment for a grade. If you wish to have your assignments graded and receive a course certificate, we encourage you to upgrade to the Certified Learner track for this course. Coursera has provided [information about purchasing a certificate](https://learner.coursera.help/hc/en-us/articles/208280146-Pay-for-a-course-or-Specialization), and you can also get help from the [Coursera Help Center](https://learner.coursera.help/hc/en-us).
 
 
+## Solution
+
+```python
+def date_sorter():
+    import re
+    
+    df_dates = pd.DataFrame([])
+
+    # Your code here
+    pat1 = re.compile(r"((?P<mon>(?:[0-9]|[0-1][0-9]))[\/-](?P<day>(?:[1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1]))[\/-](?P<year>(?:(?:(?:19|20)[0-9][0-9]|[0-9][0-9]))))")
+    pat2 = re.compile(r"((?P<day>(?:[1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])) (?P<mon>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))[a-z|\s|.|,]+(?P<year>(?:(?:(?:19|20)[0-9][0-9]|[0-9][0-9]))))")
+    pat3 = re.compile(r"((?P<mon>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))[a-z-\s.,]+(?P<day>(?:[1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1]))[,|.|\s|t|h|n|d|s|t|-]+(?P<year>(?:(?:(?:19|20)[0-9][0-9]|[0-9][0-9]))))")
+    pat4 = re.compile(r"((?P<mon>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))[a-z|\s|.|,]+(?P<year>(?:(?:19|20)[0-9][0-9])))")
+    pat5 = re.compile(r"((?P<mon>(?:[1-9]|[0-1][0-9]))[\/](?P<year>(?:(?:19|20)[0-9][0-9])))")
+    pat6 = re.compile(r"((?P<year>(?:(?:19|20)[0-9][0-9])))")
+
+    df_dates1 = df.str.extractall(pat1)
+    df_dates2 = df.str.extractall(pat2)
+    df_dates = pd.concat([df_dates1, df_dates2])
+
+    df_dates3 = df.str.extractall(pat3)
+    df_dates = pd.concat([df_dates, df_dates3])
+
+    df_dates4 = df.str.extractall(pat4)
+    df_dates4['day'] = '1'
+    df_dates = pd.concat([df_dates, df_dates4])
+    df_dates = df_dates[~df_dates.index.duplicated(keep='first')]
+
+    df_dates5 = df.str.extractall(pat5)
+    df_dates5['day'] = '1'
+    df_dates = pd.concat([df_dates, df_dates5])
+    df_dates = df_dates[~df_dates.index.duplicated(keep='first')]
+
+    df_dates6 = df.str.extractall(pat6)
+    df_dates6['day'] = '1'
+    df_dates6['mon'] = '1'
+    df_dates = pd.concat([df_dates, df_dates6])
+    df_dates = df_dates[~df_dates.index.duplicated(keep='first')]
+
+    df_dates['day'] = df_dates.day.astype(int)
+
+    import calendar
+    abbr_to_num = {name: num for num, name in enumerate(calendar.month_abbr) if num}
+
+    df_dates['mon'] = df_dates['mon'].apply(lambda x: abbr_to_num[x] if x in list(calendar.month_abbr) else int(x))
+    df_dates['year'] = df_dates.year.astype(int)
+    df_dates['year'] = df_dates.year.apply(lambda x: x + 1900 if x < 100 else x)
+
+    import datetime as dt
+    df_dates['date'] = pd.to_datetime((df_dates['year']*10000+df_dates['mon']*100+df_dates['day']).apply(str))
+
+    df_dates = df_dates.sort_values(by='date')
+
+    index = df_dates.index.labels[0]
+
+    return pd.Series(index) # Your answer here
+
+date_sorter()
+```
+
++ `df.str.extractall` method
+    + Signature: `df.str.extractall(pat, flags=0)`
+    + Docstring: For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat).
+    + Parameters
+        + `pat` (string): Regular expression pattern with capturing groups
+        + `flags` (int, default 0 (no flags)): re module flags, e.g. `re.IGNORECASE`
+    + Returns: A DataFrame with one row for each match, and one column for each group. Its rows have a MultiIndex with first levels that come from the subject Series. The last level is named 'match' and indicates the order in the subject. Any capture group names in regular expression pat will be used for column names; otherwise capture group numbers will be used.
+
++ `df.str.extract` method
+    + Signature: `df.str.extract(pat, flags=0, expand=None)`
+    + Docstring: For each subject string in the Series, extract groups from the first match of regular expression pat.
+    + Parameters
+        + `pat` (string): Regular expression pattern with capturing groups
+        + `flags` (int, default 0 (no flags)):  re module flags, e.g. re.IGNORECASE
+        + `expand` (bool, default False): 
+            + If True, return DataFrame.
+            + If False, return Series/Index/DataFrame.
+    + Returns: DataFrame with one row for each subject string, and one column for each group. Any capture group names in regular expression pat will be used for column names; otherwise capture group numbers will be used. The dtype of each result column is always object, even when no match is found. If expand=False and pat has only one capture group, then return a Series (if subject is a Series) or Index (if subject is an Index).
+
++ `df.str.split` method
+    + Signature: `df.str.split(pat=None, n=-1, expand=False)`
+    + Docstring: Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. Equivalent to `str.split`.
+    + Parameters
+        + `pat` (string, default None): String or regular expression to split on. If None, splits on whitespace
+        + `n` (int, default -1 (all)): None, 0 and -1 will be interpreted as return all splits
+        + `expand` (bool, default False): 
+            + If True, return DataFrame/MultiIndex expanding dimensionality.
+            + If False, return Series/Index
+    + Return: `return_type`: deprecated, use `expand`
+
++ `df.str.find` method
+    + Signature: `df.str.find(sub, start=0, end=None)`
+    + Docstring: Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure. Equivalent to standard `str.find`.
+    + Parameters
+        + `sub` (str): Substring being searched
+        + `start` (int): Left edge index
+        + `end` (int): Right edge index
+    + Returns: `found`: Series/Index of integer values
+
++ `df.str.findall` method
+    + Signature: `df.str.findall(pat, flags=0, **kwargs)`
+    + Docstring: Find all occurrences of pattern or regular expression in the Series/Index. Equivalent to `re.findall`.
+    + Parameters
+        + `pat` (string): Pattern or regular expression
+        + `flags` (int, default 0 (no flags)): re module flags, e.g. re.IGNORECASE
+    + Returns: `matches`: Series/Index of lists
+
++ `df.index.duplicated` method
+    + Signature: `df.index.duplicated(keep='first')`
+    + Docstring: Return boolean np.ndarray denoting duplicate values
+    + Parameters
+        + `keep` ({'first', 'last', False}, default 'first'): 
+            + `first` : Mark duplicates as `True` except for the first occurrence.
+            + `last` : Mark duplicates as `True` except for the last occurrence.
+            + False : Mark all duplicates as `True`.
+    + Returns: `duplicated` (np.ndarray)
+
++ `df.sort_values` method
+    + Signature: `df.sort_values(axis=0, ascending=True, inplace=False, kind='quicksort', na_position='last')`
+    + Docstring: Sort by the values along either axis
+    + Parameters
+        + `axis` ({0, 'index'}, default 0): Axis to direct sorting
+        + `ascending` (bool or list of bool, default True): Sort ascending vs. descending. Specify list for multiple sort orders.  If this is a list of bools, must match the length of the by.
+        + `inplace` (bool, default False): if True, perform operation in-place
+        + `kind` ({'quicksort', 'mergesort', 'heapsort'}, default 'quicksort'): Choice of sorting algorithm. See also ndarray.np.sort for more information.  `mergesort` is the only stable algorithm. For DataFrames, this option is only applied when sorting on a single column or label.
+        + `na_position` ({'first', 'last'}, default 'last'): `first` puts NaNs at the beginning, `last` puts NaNs at the end
+    + Returns: `sorted_obj` (Series)
+
++ `pd.concat` method
+    + Signature: `pd.concat(objs, axis=0, join='outer', join_axes=None, ignore_index=False, keys=None, levels=None, names=None, verify_integrity=False, copy=True)`
+    + Docstring: Concatenate pandas objects along a particular axis with optional set logic along the other axes.
+    + Notes:Can also add a layer of hierarchical indexing on the concatenation axis, which may be useful if the labels are the same (or overlapping) on the passed axis number.
+    + Parameters
+        + `objs` (a sequence or mapping of Series, DataFrame, or Panel objects): If a dict is passed, the sorted keys will be used as the `keys` argument, unless it is passed, in which case the values will be selected (see below). Any None objects will be dropped silently unless they are all None in which case a ValueError will be raised
+        + `axis` ({0/'index', 1/'columns'}, default 0):  The axis to concatenate along
+        + `join` ({'inner', 'outer'}, default 'outer'): How to handle indexes on other axis(es)
+        + `join_axes` (list of Index objects): Specific indexes to use for the other $n - 1$ axes instead of performing inner/outer set logic
+        + `ignore_index` (boolean, default False): If True, do not use the index values along the concatenation axis. The resulting axis will be labeled 0, ..., n - 1. This is useful if you are concatenating objects where the concatenation axis does not have meaningful indexing information. Note the index values on the other axes are still respected in the join.
+        + `keys` (sequence, default None): If multiple levels passed, should contain tuples. Construct hierarchical index using the passed keys as the outermost level
+        + `levels` (list of sequences, default None): Specific levels (unique values) to use for constructing a MultiIndex. Otherwise they will be inferred from the keys
+        + `names` (list, default None): Names for the levels in the resulting hierarchical index
+        + `verify_integrity` (boolean, default False): Check whether the new concatenated axis contains duplicates. This can be very expensive relative to the actual data concatenation
+        + `copy` (boolean, default True): If False, do not copy data unnecessarily
+    + Returns: `concatenated` (type of objects)
+
+
 
 
 
