@@ -64,19 +64,61 @@
 
 ### Lecture Notes
 
++ Why is Textual Data Unique?
+    + Textual data presents a unique set of challenges
+    + All the information you need is in the text
+    + But features can be pulled out from text at different granularities!
 
++ [Stemming and lemmatization](https://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html)
+    + __Stemming__:
+        + Usually refer to a crude heuristic process that chops off the ends of words in the hope of achieving this goal correctly most of the time, and often includes the removal of derivational affixes.
+        + The process of reducing inflected (or sometimes derived) words to their word stem, base or root form—generally a written word form.
+        + The stem need not be identical to the morphological root of the word; it is usually sufficient that related words map to the same stem, even if this stem is not in itself a valid root.
+        + A stemmer operates on a single word without knowledge of the context, and therefore cannot discriminate between words which have different meanings depending on part of speech.
+        + Eg. "cat" as stem of "cats", "catlike" and "catty"
+    + __Lemmatization__:
+        + usually refer to doing things properly with the use of a vocabulary and morphological analysis of words, normally aiming to remove inflectional endings only and to return the base or dictionary form of a word, which is known as the __lemma__.
+        + Lemmatisation (or lemmatization) in linguistics: the process of grouping together the inflected forms of a word so they can be analysed as a single item, identified by the word's lemma, or dictionary form
+        + Lemmatisation is the algorithmic process of determining the lemma of a word based on its intended meaning.
+        + Examples:
+            + "walk" as lemma of 'walk', 'walked', 'walks', 'walking'
+            + "good" as lemma of "better"
+    + Notes:
+        + "walk" as lemma and stem of "walking"
+        + "meeting" as base with noun and as form of a verb
 
-+ Demo  
-    ```Python
++ [Main differences between stemming and lemmatization](https://blog.bitext.com/what-is-the-difference-between-stemming-and-lemmatization/)
+    + Stemming algorithms work by cutting off the end or the beginning of the word, taking into account a list of common prefixes and suffixes that can be found in an inflected word. This indiscriminate cutting can be successful in some occasions, but not always, and that is why we affirm that this approach presents some limitations. Below we illustrate the method with examples in both English and Spanish.
+        <a href="https://blog.bitext.com/what-is-the-difference-between-stemming-and-lemmatization/"> <br/>
+            <img src="https://blog.bitext.com/hs-fs/hubfs/stemming_v2.png?t=1543243224992&width=372&height=195&name=stemming_v2.png" alt="Stemming" title="Stemming Examples" height="150">
+        </a>
+    + Lemmatization: take into consideration the morphological analysis of the words. To do so, it is necessary to have detailed dictionaries which the algorithm can look through to link the form back to its lemma. Again, you can see how it works with the same example words.
+        <a href="https://blog.bitext.com/what-is-the-difference-between-stemming-and-lemmatization/"> <br/>
+            <img src="https://blog.bitext.com/hs-fs/hubfs/lemma_v2.png?t=1543243224992&width=840&height=234&name=lemma_v2.png" alt="Lemmatization" title="Lemmatization Examples" height="150">
+        </a>
 
-    ```
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
++ Types of Textual Features
+    + Words
+        + By far the most common class of features
+        + Handling commonly-occurring words: Stop words, e.g., "the"
+        + Normalization: Make lower case vs. leave as-is; e.g., "US" vs "us"
+        + Stemming / Lemmatization
+    + Characteristics of words : Capitalization, e.g., "White House" vs "white house"
+    + Parts of speech of words in a sentence, e.g. determiner, "weather" vs "whether"
+    + Grammatical structure, sentence parsing
+    + Grouping words of similar meaning, semantics
+        + {buy, purchase}
+        + {Mr., Ms., Dr., Prof.}; Numbers / Digits; Dates
+    + Depending on classification tasks, features may come from inside words and word sequences
+        + bigrams, trigrams, n-grams: “White House”
+        + character sub-sequences in words: “ing”, “ion”, …
+
++ How would you do it? -> Recall lectures from previous week
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/4u6bd2gGEeeDRAot5bGaoA.processed/full/360p/index.mp4?Expires=1543363200&Signature=EVVRqHrSFqIx-TFZwjDgZ8oABB6s8oTtqegsw6yRunz~nnDbbR2yvuJUuCDHyx93FhJ2NGm5p-XBrWPAnuM4uQdNTFVBxSBOBCe~5r34EXAv-CcB5eS7ClMeNChzr1gAEvUjDTA2nYdqgXIqGSkTjqWeRK4niLw671~GJ-5DbsU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Identifying Features from Text" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
