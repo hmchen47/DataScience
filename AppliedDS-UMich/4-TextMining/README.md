@@ -18,6 +18,11 @@
 
 ### [Assignment 1](asgn01.md)
 
++ [Extra resources on Regex](asgn01.md#)
++ [Something wrong with the grader](asgn01.md#)
++ [Notice for Auditing Learners: Assignment Submission](asgn01.md#)
++ [Solution](asgn01.md#)
+
 
 ## Module 2: [Basic Natural Language Processing](02-BasicNLP.md)
 
@@ -31,6 +36,10 @@
 
 ### [Assignment 2](asgn02.md)
 
++ [Jaccard distance](Asgn02.md#)
++ [How Spell Checkers Work](Asgn02.md#)
++ [Edit Distance and Jaccard Distance Calculation with NLTK](Asgn02.md#)
++ [Solution](Asgn02.md#)
 
 
 
