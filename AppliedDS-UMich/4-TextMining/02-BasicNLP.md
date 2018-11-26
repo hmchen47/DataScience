@@ -103,7 +103,7 @@
     len(sent7)              # 18
     len(text7)              # 100676
     len(set(text7))         # 12408
-    list(set(text7))[:10]   
+    list(set(text7))[:10]
     # ['Sebastian', 'Midland', 'sounding', '2.75', 'Sotheby', 'youngsters', 'B-1B',
     #  'pick-up', '43-year-old', 'publicized']
 
@@ -111,7 +111,7 @@
     dist = FreqDist(text7)
     len(dist)               # 12408
 
-    vocab1 = dist.keys()
+     
     # vocab1[:10]
     # In Python 3 dict.keys() returns an iterable view instead of a list
     list(vocab1)[:10]
