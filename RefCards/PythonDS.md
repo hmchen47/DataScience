@@ -783,12 +783,14 @@ nltk.download()     # fownload corpora
 | `nltk.data.load(resource_url, *args)` | Load a given resource from the NLTK data package | [Adv NLP][052] |
 | `nltk.corpus.treebank()` | Reader for corpora that consist of parenthesis-delineated parse trees | [Adv NLP][052] |
 | `nltk.corpus.treebank.parsed_sents(fileids=None)` | parsing sentences with parenthesis-delineated parse trees | [Adv NLP][052] |
+| `nltk.edit_distance(s1, s2, *args)` | Calculate the Levenshtein edit-distance between two strings [Asgn02][053] |
+| `nltk.jaccard_distance(label1, label2)` | Distance metric comparing set-similarity [Asgn02][053] |
+| `nltk.ngrams(sequence, n, *args)` | Return the ngrams generated from a sequence of items, as an iterator [Asgn02][053] |
 
 
 -------------------------------------
 
 <!--
-[053]: 
 [054]: 
 [055]: 
 [056]: 
@@ -891,3 +893,4 @@ nltk.download()     # fownload corpora
 [050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
 [051]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#basic-nlp-tasks-with-nltk
 [052]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#advanced-nlp-tasks-with-nltk
+[053]: ../AppliedDS-UMich/4-TextMining/asgn02.md#edit-distance-and-jaccard-distance-calculation-with-nltk

@@ -6,25 +6,35 @@
 
 + Jaccard Index a.k.a. _Intersection over Union_ and the _Jaccard similarity coefficient_
 + a statistic used for comparing the similarity and diversity of sample sets
-+ Def: $J(A, B) = \frac{|A \cap B|}{| A \cup B|} = \frac{|A \cap B|}{|A| + |B| - |A \cap B|}$
++ Jaccard coefficient Def: $J(A, B) = \frac{|A \cap B|}{| A \cup B|} = \frac{|A \cap B|}{|A| + |B| - |A \cap B|}$
+
 + __Jaccard distance__:
     + measures dissimilarity between sample sets
     + complementary to the Jaccard coefficient
     + $d_J(A, B) = 1 - J(A, B) = \frac{|A \cup B| - |A \cap B|}{|A \cup}$
-    + The ratio of the size of the symmetric difference $A \Delta B = (A \cup B) - (A \cup B)$
+    + The ratio of the size of the symmetric difference $A \Delta B = (A \cup B) - (A \cap B)$
     + a metric of the collection of all finite sets
+
 + Jaccard distance for measures:
     + $\mu$ = a measure on a measurable space $X$
-    + Jaccard coefficient: $d_{\mu} (A, B) = \frac{\mu (A \cup B)}{\mu (A \cap B)}$
-    + Jaccard distance: $d+{\mu} (A, B) =  1 - J_{\mu} (A, B) =  \frac{(A \Delta B)}{\mu (A\cup B)}$
+    + Jaccard coefficient: $J_{\mu} (A, B) = \frac{\mu (A \cup B)}{\mu (A \cap B)}$
+    + Jaccard distance: $d_{\mu} (A, B) =  1 - J_{\mu} (A, B) =  \frac{\mu(A \Delta B)}{\mu (A\cup B)}$
+
 + Generalized Jaccard similarity and distance
-    + Vectors: ${\bf x} = (x_1, x_2, \cdots, x_n)$ and ${\bf y} = (y_1, y_2, \cdots, y_n)$ with all real $x_i, y_i \geq 0$
+    + Vectors: ${\bf x} = (x_1, x_2, \cdots, x_n)$ and ${\bf y} = (y_1, y_2, \cdots, y_n), \forall x_i, y_i \in \Re^+_0$
     + Jaccard similarity coefficient (Ruzicka similarity): $J({\bf x}, {\bf y}) = \frac{\sum_i \min (x_i, y_i)}{\sum_i \max(x_i, y_i)}$
     + Jaccard distance (Soergel distance): $d_J ({\bf x}, {\bf y}) = 1 - J({\bf x}, {\bf y})$
     + Non-negative measurable functions on measurable space ${\bf X}$ with measure $\mu$: $f$ and $g$
     + Jaccard similarity coefficient (Ruzicka similarity): $J(f, g) = \frac{\int_i \min (f, g) d\mu}{\int_i \max(f, g)d\mu}$ where $\min$ and $\max$ are pointwise operators
     + Jaccard distance: $d_J (f, g) = 1 - J(f, g)$
 
++ Object Detection
+    <a href="https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/"> <br/>
+        <img src="https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_stop_sign.jpg" alt="In the figure above we can see that our object detector has detected the presence of a stop sign in an image. The predicted bounding box is drawn in red while the ground-truth (i.e., hand labeled) bounding box is drawn in green." title= "An example of detecting a stop sign in an image. The predicted bounding box is drawn in red while the ground-truth bounding box is drawn in green. Our goal is to compute the Intersection of Union between these bounding box." height="200">
+    </a>
+    <a href="https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/"> 
+        <img src="https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_equation.png" alt="Examining this equation you can see that Intersection over Union is simply a ratio. In the numerator we compute the area of overlap between the predicted bounding box and the ground-truth bounding box. The denominator is the area of union, or more simply, the area encompassed by both the predicted bounding box and the ground-truth bounding box. Dividing the area of overlap by the area of union yields our final score — the Intersection over Union." title= "Computing the Intersection of Union is as simple as dividing the area of overlap between the bounding boxes by the area of union (thank you to the excellent Pittsburg HW4 assignment for the inspiration for this figure)." height="200">
+    </a>
 
 ### [How Spell Checkers Work](https://engineerbyday.wordpress.com/2012/01/30/how-spell-checkers-work-part-1/#Jaccard)
 + Spelling checker
@@ -72,13 +82,13 @@
         + And so on…
 
 + N-grams
-    + bi-grams: the set of all overlapping character pairs in the string: {$p, po, ot, ta, at, to, o$}.
-    + The character o co-occurs with other characters – i.e. it is associated with them. 
-    + The association is ordered – o follows p and o precedes t. And op is not the same as po.
-    + The last o in potato precedes an implicit terminating null character. An implicit null precedes the first p.
+    + bi-grams: the set of all overlapping character pairs in the string: `{$p, po, ot, ta, at, to, o$}`.
+    + The character `o` co-occurs with other characters – i.e. it is associated with them.
+    + The association is ordered – `o` follows `p` and `o` precedes `t`. And `op` is not the same as `po`.
+    + The last `o` in potato precedes an implicit terminating null character. An implicit null precedes the first `p`.
     + Two strings are similar if they have characters in common. They are a lot more similar if they have co-occurring characters in common.
     + N-grams capture co-occurrence. 
-            + Given a set, bi-grams capture the co-occurrence of pairs of the set’s elements. <br/> potato => {$p, po, ot, ta, at, to, o$}
+        + Given a set, bi-grams capture the co-occurrence of pairs of the set’s elements. <br/> potato => `{$p, po, ot, ta, at, to, o$}`
     + An Improved Spell Checking Algorithm w/ bi-gram
         + Transform each string in your dictionary into its constituent bi-grams.
         + Do the same for the misspelling
@@ -91,9 +101,9 @@
 + Edit Distance
     + Transform any string A into any string B by __adding__, __removing__, __replacing__ or __transposing__ characters in A until you arrive at string B.
     + The edit distance between string A and B is the __minimum__ number of steps it takes to transform A into B.
-        + The edit distance between equal strings is 0.
-        + The edit distance between potato and potatoe is 1.
-        + The distance between potato and potatoes is 2.
+        + The edit distance between equal strings is `0`.
+        + The edit distance between potato and potatoe is `1`.
+        + The distance between potato and potatoes is `2`.
     + The smaller the edit distance, the more similar the strings. 
     + Edit distance is a great way to rank corrections because most spelling mistakes are mutations of the correct spelling.
     + Calculating edit distances can be tricky. There may be more than one way to turn string A into B, and you must use the minimal number of steps required.
@@ -119,26 +129,25 @@
         + By the time you actually calculate the edit distance from abcd ==> pqrs, you’ve already computed all the prior information you need.
 
 
-### [Edit Distance and Jaccard Distance Calculation with NLTK](https://python.gotrained.com/nltk-edit-distance-jaccard-distance/#Jaccard_Distance_Python_NLTK)
+### [Edit Distance and Jaccard Distance Calculation with NLTK](https://python.gotrained.com/nltk-edit-distance-jaccard-distance)
 
 + Edit Distance Python NLTK
     + Demo 1
         ```python
         import nltk
-        
+
         w1 = 'mapping'
         w2 = 'mappings'
-        
+
         nltk.edit_distance(w1, w2)
         ```
     + Demo 2:
         ```python
         import nltk
-        
+
         mistake = "ligting"
-        
         words = ['apple', 'bag', 'drawing', 'listing', 'linking', 'living', 'lighting', 'orange', 'walking', 'zoo']
-        
+
         for word in words:
             ed = nltk.edit_distance(mistake, word)
             print(word, ed)
@@ -156,20 +165,19 @@
     + Demo 3
         ```python
         import nltk
-        
+
         sent1 = "It might help to re-install Python if possible."
         sent2 = "It can help to install Python again if possible."
         sent3 = "It can be so helpful to reinstall C++ if possible."
         sent4 = "help It possible Python to re-install if might." 
         # This has the same words as sent1 with a different order.
         sent5 = "I love Python programming."
-        
+
         ed_sent_1_2 = nltk.edit_distance(sent1, sent2)
         ed_sent_1_3 = nltk.edit_distance(sent1, sent3)
         ed_sent_1_4 = nltk.edit_distance(sent1, sent4)
         ed_sent_1_5 = nltk.edit_distance(sent1, sent5)
-        
-        
+
         print(ed_sent_1_2, 'Edit Distance between sent1 and sent2')
         print(ed_sent_1_3, 'Edit Distance between sent1 and sent3')
         print(ed_sent_1_4, 'Edit Distance between sent1 and sent4')
@@ -179,6 +187,20 @@
         # 32 Edit Distance between sent1 and sent4
         # 47 Edit Distance between sent1 and sent5
         ```
+
++ `nltk.edit_distance` method
+    + Signature: `nltk.edit_distance(s1, s2, substitution_cost=1, transpositions=False)`
+    + Docstring: Calculate the Levenshtein edit-distance between two strings.
+    + Notes:
+        + The edit distance is the number of characters that need to be substituted, inserted, or deleted, to transform s1 into s2.  For example, transforming "rain" to "shine" requires three steps, consisting of two substitutions and one insertion: "rain" -> "sain" -> "shin" -> "shine".  These operations could have been done in other orders, but at least three steps are needed.
+        + Allows specifying the cost of substitution edits (e.g., "a" -> "b"), because sometimes it makes sense to assign greater penalties to substitutions.
+        + This also optionally allows transposition edits (e.g., "ab" -> "ba"), though this is disabled by default.
+    + Parameters
+        + `s1`, `s2` (str): The strings to be analysed
+        + `transpositions` (bool): Whether to allow transposition edits
+        + `substitution_cost` (int)
+    + Return: distance (int)
+
 
 + list of words
     + NLTK:  `words = nltk.corpus.words.words()`
@@ -194,11 +216,10 @@
 + Jaccard Distance Python NLTK: Demo 1
     ```python
     import nltk
-    
+
     mistake = "ligting"
-    
     words = ['apple', 'bag', 'drawing', 'listing', 'linking', 'living', 'lighting', 'orange', 'walking', 'zoo']
-    
+
     for word in words:
         jd = nltk.jaccard_distance(set(mistake), set(word))
         print(word, jd)
@@ -233,7 +254,16 @@
     print(jd_sent_1_3, 'Jaccard Distance between sent1 and sent3')
     print(jd_sent_1_4, 'Jaccard Distance between sent1 and sent4')
     print(jd_sent_1_5, 'Jaccard Distance between sent1 and sent5')
+    # 0.18181818181818182 Jaccard Distance between sent1 and sent2
+    # 0.36 Jaccard Distance between sent1 and sent3
+    # 0.0 Jaccard Distance between sent1 and sent4
+    # 0.22727272727272727 Jaccard Distance between sent1 and sent5
     ```
+
++ `nltk.jaccard_distance` method
+    + Signature: `nltk.jaccard_distance(label1, label2)`
+    + Docstring: Distance metric comparing set-similarity.
+
 
 + n-gram
     + In general, n-gram means splitting a string in sequences with the length n.
@@ -241,62 +271,76 @@
     + Demo: Character Level
         ```python
         import nltk
-        
+
         sent1 = "It might help to re-install Python if possible."
         sent2 = "It can help to install Python again if possible."
         sent3 = "It can be so helpful to reinstall C++ if possible."
         sent4 = "help It possible Python to re-install if might." # This has the same words as sent1 with a different order.
         sent5 = "I love Python programming."
-        
-        
+
         ng1_chars = set(nltk.ngrams(sent1, n=3))
         ng2_chars = set(nltk.ngrams(sent2, n=3))
         ng3_chars = set(nltk.ngrams(sent3, n=3))
         ng4_chars = set(nltk.ngrams(sent4, n=3))
         ng5_chars = set(nltk.ngrams(sent5, n=3))
-        
+
         jd_sent_1_2 = nltk.jaccard_distance(ng1_chars, ng2_chars)
         jd_sent_1_3 = nltk.jaccard_distance(ng1_chars, ng3_chars)
         jd_sent_1_4 = nltk.jaccard_distance(ng1_chars, ng4_chars)
         jd_sent_1_5 = nltk.jaccard_distance(ng1_chars, ng5_chars)
-        
+
         print(jd_sent_1_2, "Jaccard Distance between sent1 and sent2 with ngram 3")
         print(jd_sent_1_3, "Jaccard Distance between sent1 and sent3 with ngram 3")
         print(jd_sent_1_4, "Jaccard Distance between sent1 and sent4 with ngram 3")
         print(jd_sent_1_5, "Jaccard Distance between sent1 and sent5 with ngram 3")
+
         ```
     + Demo: Token level
         ```python
         import nltk
-        
+
         sent1 = "It might help to re-install Python if possible."
         sent2 = "It can help to install Python again if possible."
         sent3 = "It can be so helpful to reinstall C++ if possible."
-        sent4 = "help It possible Python to re-install if might." # This has the same words as sent1 with a different order.
+        sent4 = "help It possible Python to re-install if might." 
+        # This has the same words as sent1 with a different order.
         sent5 = "I love Python programming."
-        
+
         tokens1 = nltk.word_tokenize(sent1)
         tokens2 = nltk.word_tokenize(sent2)
         tokens3 = nltk.word_tokenize(sent3)
         tokens4 = nltk.word_tokenize(sent4)
         tokens5 = nltk.word_tokenize(sent5)
-        
+
         ng1_tokens = set(nltk.ngrams(tokens1, n=3))
         ng2_tokens = set(nltk.ngrams(tokens2, n=3))
         ng3_tokens = set(nltk.ngrams(tokens3, n=3))
         ng4_tokens = set(nltk.ngrams(tokens4, n=3))
         ng5_tokens = set(nltk.ngrams(tokens5, n=3))
-        
+
         jd_sent_1_2 = nltk.jaccard_distance(ng1_tokens, ng2_tokens)
         jd_sent_1_3 = nltk.jaccard_distance(ng1_tokens, ng3_tokens)
         jd_sent_1_4 = nltk.jaccard_distance(ng1_tokens, ng4_tokens)
         jd_sent_1_5 = nltk.jaccard_distance(ng1_tokens, ng5_tokens)
-        
+
         print(jd_sent_1_2, "Jaccard Distance between tokens1 and tokens2 with ngram 3")
         print(jd_sent_1_3, "Jaccard Distance between tokens1 and tokens3 with ngram 3")
         print(jd_sent_1_4, "Jaccard Distance between tokens1 and tokens4 with ngram 3")
         print(jd_sent_1_5, "Jaccard Distance between tokens1 and tokens5 with ngram 3")
         ```
+
++ `nltk.ngrams` method
+    + Signature: `nltk.util.ngrams(sequence, n, pad_left=False, pad_right=False, left_pad_symbol=None, right_pad_symbol=None)`
+    + Docstring: Return the ngrams generated from a sequence of items, as an iterator.
+    + Parameters:	
+        + `sequence` (sequence or iter): the source data to be converted into ngrams
+        + `n` (int): the degree of the ngrams
+        + `pad_left` (bool): whether the ngrams should be left-padded
+        + `pad_right` (bool): whether the ngrams should be right-padded
+        + `left_pad_symbol` (any): the symbol to use for left padding (default is None)
+        + `right_pad_symbol` (any): the symbol to use for right padding (default is None)
+    + Return: sequence or iter
+
 
 ## Solutions
 
