@@ -1,8 +1,6 @@
 # Assignment 2
 
-## Useful Links
-
-### [Jaccard distance](https://en.wikipedia.org/wiki/Jaccard_index)
+## [Jaccard distance](https://en.wikipedia.org/wiki/Jaccard_index)
 
 + Jaccard Index a.k.a. _Intersection over Union_ and the _Jaccard similarity coefficient_
 + a statistic used for comparing the similarity and diversity of sample sets
@@ -36,7 +34,7 @@
         <img src="https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_equation.png" alt="Examining this equation you can see that Intersection over Union is simply a ratio. In the numerator we compute the area of overlap between the predicted bounding box and the ground-truth bounding box. The denominator is the area of union, or more simply, the area encompassed by both the predicted bounding box and the ground-truth bounding box. Dividing the area of overlap by the area of union yields our final score — the Intersection over Union." title= "Computing the Intersection of Union is as simple as dividing the area of overlap between the bounding boxes by the area of union (thank you to the excellent Pittsburg HW4 assignment for the inspiration for this figure)." height="200">
     </a>
 
-### [How Spell Checkers Work](https://engineerbyday.wordpress.com/2012/01/30/how-spell-checkers-work-part-1/#Jaccard)
+## [How Spell Checkers Work](https://engineerbyday.wordpress.com/2012/01/30/how-spell-checkers-work-part-1/#Jaccard)
 + Spelling checker
     + A spellchecker works by searching for a given string in its __dictionary__ of known strings.
     + The measurement of string similarity is relevant to several disciplines, including Genetics.
@@ -129,7 +127,7 @@
         + By the time you actually calculate the edit distance from abcd ==> pqrs, you’ve already computed all the prior information you need.
 
 
-### [Edit Distance and Jaccard Distance Calculation with NLTK](https://python.gotrained.com/nltk-edit-distance-jaccard-distance)
+## [Edit Distance and Jaccard Distance Calculation with NLTK](https://python.gotrained.com/nltk-edit-distance-jaccard-distance)
 
 + Edit Distance Python NLTK
     + Demo 1
@@ -344,5 +342,191 @@
 
 ## Solutions
 
++ Q1: What is the lexical diversity of the given text input? (i.e. ratio of unique tokens to the total number of tokens)
+    ```python
+    def answer_one():
+        
+        words = nltk.word_tokenize(moby_raw)
+        
+        return len(set(words))/len(words) # Your answer here
 
+    answer_one()        # 0.08139566804842562
+    ```
+
++ Q2: What percentage of tokens is 'whale'or 'Whale'?
+    ```python
+    def answer_two():
+        
+        dist = nltk.FreqDist(nltk.word_tokenize(moby_raw))
+        
+        return (dist['whale']+dist['Whale'])/len(nltk.word_tokenize(moby_raw))*100 # Your answer here
+
+    answer_two()        # 0.4125668166077752
+    ```
+
++ Q3: What are the 20 most frequently occurring (unique) tokens in the text? What is their frequency?
+    ```python
+    def answer_three():
+        
+        dist = nltk.FreqDist(nltk.word_tokenize(moby_raw))
+        vocab1 = dist.keys()
+        
+        freqwords = [(w, dist[w]) for w in vocab1]
+        
+        return (sorted(freqwords, key=lambda x: (-x[1],x[0])))[:20] # Your answer here
+
+    answer_three()
+    # [(',', 19204), ('the', 13715), ('.', 7308), ('of', 6513), ('and', 6010), ('a', 4545), ('to', 4515),
+    #  (';', 4173), ('in', 3908), ('that', 2978), ('his', 2459), ('it', 2196), ('I', 2097), ('!', 1767),
+    #  ('is', 1722), ('--', 1713), ('with', 1659), ('he', 1658), ('was', 1639), ('as', 1620)]
+    ```
+
++ Q4: What tokens have a length of greater than 5 and frequency of more than 150?
+    ```python
+    def answer_four():
+        
+        dist = nltk.FreqDist(nltk.word_tokenize(moby_raw))
+        vocab1 = dist.keys()
+        
+        freqwords = [w for w in vocab1 if len(w) > 5 and dist[w] > 150]
+        
+        return sorted(freqwords) # Your answer here
+
+    answer_four()
+    # ['Captain', 'Pequod', 'Queequeg', 'Starbuck', 'almost', 'before', 'himself', 'little',
+    #  'seemed', 'should', 'though', 'through', 'whales', 'without']
+    ```
+
++ Q5: Find the longest word in text1 and that word's length.
+    ```python
+    def answer_five():
+        
+        words_len = sorted([(w, len(w)) for w in set(text1)], key=lambda x: (-x[1],x[0]))
+        
+        return words_len[0] # Your answer here
+
+    answer_five()
+    # ("twelve-o'clock-at-night", 23)
+    ```
+
++ Q6: What unique words have a frequency of more than 2000? What is their frequency?
+    ```python
+    def answer_six():
+        
+        dist = nltk.FreqDist(nltk.word_tokenize(moby_raw))
+        vocab1 = dist.keys()
+        
+        freqwords = [(dist[w], w) for w in vocab1 if dist[w] > 2000 and w.isalpha()]
+        
+        return sorted(freqwords, reverse=True) # Your answer here
+
+    answer_six()
+    # [(13715, 'the'), (6513, 'of'), (6010, 'and'), (4545, 'a'), (4515, 'to'), (3908, 'in'),
+    #  (2978, 'that'), (2459, 'his'), (2196, 'it'), (2097, 'I')]
+    ```
+
++ Q7: What is the average number of tokens per sentence?
+    ```python
+    def answer_seven():
+        
+        return len(nltk.word_tokenize(moby_raw))/len(nltk.sent_tokenize(moby_raw)) # Your answer here
+
+    answer_seven()
+    # 25.881952902963864
+    ```
+
++ Q8: What are the 5 most frequent parts of speech in this text? What is their frequency?
+    ```python
+    def answer_eight():
+
+        words = nltk.word_tokenize(moby_raw)
+
+        word_tags = nltk.pos_tag(words)
+        tags = [tag for (word, tag) in word_tags]
+
+        dist = nltk.FreqDist(tags)
+        tag1 = dist.keys()
+
+        freqtags = [(w, dist[w]) for w in tag1]
+
+        return (sorted(freqtags, key=lambda x: (-x[1],x[0])))[:5] # Your answer here
+
+    answer_eight()
+    # [('NN', 32730), ('IN', 28657), ('DT', 25867), (',', 19204), ('JJ', 17620)]
+    ```
+
++ Q9: Jaccard distance on the trigrams of the two words
+    ```python
+    def answer_nine(entries=['cormulent', 'incendenece', 'validrate']):
+
+        rlt = []
+        for entry in entries:
+            min_jd = 100.0
+            jd = 100.0
+            correct = ""
+    #         print("\n", set(nltk.ngrams(entry, n=3)))
+            for word in correct_spellings:
+                if entry[0] == word[0]:
+                    jd = nltk.jaccard_distance(set(nltk.ngrams(entry, n=3)), set(nltk.ngrams(word, n=3)))
+                if min_jd > jd:
+                    correct = word
+                    min_jd = jd
+    #                 print("{} -> {}({:.4f})".format(entry, word, min_jd))
+
+            rlt.append(correct)
+        return rlt # Your answer here
+
+    answer_nine()
+    # ['corpulent', 'indecence', 'validate']
+    ```
+
++ Q10: Jaccard distance on the 4-grams of the two words
+    ```python
+    def answer_nine(entries=['cormulent', 'incendenece', 'validrate']):
+
+        rlt = []
+        for entry in entries:
+            min_jd = 100.0
+            jd = 100.0
+            correct = ""
+    #         print("\n", set(nltk.ngrams(entry, n=3)))
+            for word in correct_spellings:
+                if entry[0] == word[0]:
+                    jd = nltk.jaccard_distance(set(nltk.ngrams(entry, n=4)), set(nltk.ngrams(word, n=4)))
+                if min_jd > jd:
+                    correct = word
+                    min_jd = jd
+    #                 print("{} -> {}({:.4f})".format(entry, word, min_jd))
+
+            rlt.append(correct)
+        return rlt # Your answer here
+
+    answer_nine()
+    # ['cormus', 'incendiary', 'valid']
+
++ Q11: Edit distance on the two words with transpositions.
+    ```python
+    def answer_eleven(entries=['cormulent', 'incendenece', 'validrate']):
+
+        rlt = []
+        for entry in entries:
+            min_ed = 100.0
+            ed = 100.0
+            correct = ""
+
+            for word in correct_spellings:
+                if entry[0] == word[0]:
+                    ed = nltk.edit_distance(entry, word, transpositions=True)
+                if min_ed > ed:
+                    correct = word
+                    min_ed = ed
+    #                 print("{} -> {}({:.4f})".format(entry, word, min_ed))
+
+            rlt.append(correct)
+
+        return rlt # Your answer here 
+
+    answer_eleven()
+    # ['corpulent', 'intendence', 'validate']
+    ```
 
