@@ -127,19 +127,91 @@
 
 ### Lecture Notes
 
++ Case study: Classifying text search queries
+    + Suppose you are interested in classifying search queries in three classes: Entertainment, Computer Science, Zoology
+    + Most common class of the three is Entertainment.
+    + Suppose the query is “Python”
+        + Python, the snake (Zoology)
+        + Python, the programming language (Computer Science)
+        + Python, as in Monty Python (Entertainment)
+    + Most common class, given “Python”, is Zoology.
+    + Suppose the query is “Python download”
+        + Most probable class, given “Python download”, is Computer Science.
 
++ Probabilistic Model
+    + Update the likelihood of the class given new information
+    + _Prior Probability_: $Pr(y = Entertainment), Pr(y = CS), Pr(y=Zoology)$
+    + _Posterior probability_: $Pr(y = Entertainment|x = “Python”)$
 
-+ Demo  
-    ```Python
++ Bayes’ Rule
+    + Posterior probability = (Prior probability x Likelihood) / (Evidence)
+    + $Pr(y | X) = \frac{Pr(y) \times Pr(X|y)}{Pr(X)}$
 
-    ```
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
++ Naïve Bayes Classification
+    + $Pr(y=CS | "Python") = \frac{Pr(y=CS) \times Pr("Python" | y = CS)}{Pr("Python)}$
+    + $Pr(y=Zoology| "Python") = \frac{Pr(y=Zoology|) \times Pr("Python" | y = Zoology|)}{Pr("Python)}$
+    + $Pr(y=CS | "Python") > Pr(y=Zoology | "Python")$ --> $y = CS$
+    + Probability Theory: $Pr(y|X) = \frac{Pr(y) \times Pr(X|y)}{Pr(X)}$ 
+    + Classification: $y^{\ast} = \arg\max_y Pr(y|X) = \arg\max_y Pr(y) \times Pr(X|y)$
+    + __Naïve assumption__: Given the class label, features are assumed to be independent of each other <br/>
+        $y^{\ast} = \arg\max_y Pr(y|X) = \arg\max_y Pr(y) \times \prod_{i-1}^n Pr(x_i | y)$
+    + Query: "Python download" <br/>
+        $y^{\ast} = \arg\max_y Pr(y) \times Pr("Python" | y) \times Pr("download" |y)$
+
++ Naïve Bayes: What are the parameters?
+    + Prior probabilities: $Pr(y)  \forall y \in Y$
+    + Likelihood: $Pr(x_i | y) \forall x_i \in X, y \in Y$, $x_i$ = feature, $y$ = label
+    + If there are 3 classes $(|Y| = 3)$ and 100 features in $X$, how many parameters does naïve Bayes models have?
+
++ Naïve Bayes: Learning parameters
+    + Prior probabilities: $Pr(y) \forall y \in Y$
+        + Remember training data? all queries are labeled
+        + Count the number of instances in each class
+        + If there are $N$ instances in all, and $n$ out of those are labeled as class $y$ --> $Pr(y) = n / N$
+    + Likelihood: $Pr(x_i | y) \forall x_i \in X, y \in Y$
+        + Count how many times feature $x_i$ appears in instances labeled as class $y$
+        + If there are $p$ instances of class $y$, and $x_i$ appears in $k$ of those, $Pr(x_i | y) = k / p$
+
++ Example: Counting parameters
+    + You are training a naïve Bayes classifier, where the number of possible labels, $|Y| = 3$ and the dimension of the data element, $|X| = 100$, where every feature (dimension) is binary. How many parameters does the naïve Bayes classification model have?
+    + A naïve Bayes classifier has two kinds of parameters:
+        1. $Pr(y)$ for every $y \in Y$: so if $|Y| = 3$, there are three such parameters.
+        2. $Pr(x_i | y)$ for every binary feature $x_i \in X$ and $y \in Y$. Specifically, for a particular feature x_1, the parameters are $Pr(x_1 = 1 | y)$ and $Pr(x_1 = 0 | y)$ for every $y$. So if $|X| = 100$ binary features and $|Y| = 3$, there are $(2 x 100) x 3 = 600$ such features
+
+        Hence in all, there are 603 features.
+    + Note that not all of these features are independent. In particular, $Pr(x_i = 0 | y) = 1 - Pr(x_i = 1 | y)$, for every $x_i$ and $y$. So, there are only 300 independent parameters of this kind (as the other 300 parameters are just complements of these). Similarly, the sum of all prior probabilities $Pr(y)$ should be 1. This means there are only 2 independent prior probabilities. In all, for this example, there are 302 independent parameters.
+
++ [Argmax and Max Calculus](https://www.cs.ubc.ca/~schmidtm/Documents/2016_540_Argmax.pdf)
+    + Def: the __argmex__ of a function $f$ on a set $D$ as <br/> 
+        $\arg\max_{x \in D} f(x) = \{x | f(x) \geq f(y), \forall y \in D \}$
+    + The set of inputs $x$ from the domain $D$ that achieve the highest function value
+    + E.g., $\arg\max_{x \in \Re} -x^2 = \{ 0\}$
+    + Operations not change the argmax set
+        1. $\theta = \text{constant}$: $\arg\max f(x) = \arg\max f(x) + \theta$
+        2. $\theta > 0$: $\arg\max f(x) = \arg\max \theta f(x)$
+        3. $\theta <> 0$: $\arg\max f(x) = \arg\min \theta f(x)$
+        4. \$\arg\max f(x) > 0$: $\arg\max f(x) = \arg\min \frac{1}{f(x)}$
+        5. $g$ strictly monotonic: $\arg\max g(f(x)) = \arg\max f(x)$
+    + Logarithm (a strictly monotonic function) transform multiplication of probability into addition of log-probabilities: <br/> $\arg\max \prod_{i=1}^n p_i(x) = \arg\max \sum_{i=1}^n \log p_i(x)$
+
++ Naïve Bayes: Smoothing
+    + What happens if $Pr(x_i | y) = 0$?
+        + Feature $x_i$ never occurs in documents labeled $y$
+        + But then, the posterior probability $Pr(y | x_i)$ will be 0!!
+    + Instead, smooth the parameters
+    + __Laplace smoothing__ or __Additive smoothing__: Add a dummy count
+        + $Pr(x_i | y) = (k+1) / (p+n)$; where $n$ is number of features
+
++ Take Home Concepts
+    + Naïve Bayes is a probabilistic model
+    + Naïve, because it assumes features are independent of each other, given the class label -> issue: "White" & "House" for "White House"
+    + For text classification problems, naïve Bayes models typically provide very strong baselines
+    + Simple model, easy to learn parameters
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/_JUlTGbGEeexMxI6w-Sq3g.processed/full/360p/index.mp4?Expires=1543363200&Signature=PCcVBvVnmfkGJwe2vPk34VQObZ7x-Xe7jwjhOEbbjmfgJkJT1I-OX5w2dEay8sYLmr6Y8baDaFGKjWZBsNlXvIvJtHbGwpEqHfvMzBBbH0tld3~mO6oVj4B1PMP6k5BPklLZ1MNRdG5OC8NcI1alrv7nmD91IdwCGjYAJVF79rU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Naive Bayes Classifiers" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
