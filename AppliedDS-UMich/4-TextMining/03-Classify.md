@@ -220,19 +220,18 @@
 
 ### Lecture Notes
 
++ Two Classic Naïve Bayes Variants for Text
+    + Multinomial Naïve Bayes
+        + Data follows a multinomial distribution
+        + Each feature value is a count (word occurrence counts, TF-IDF weighting, …)
+    + Bernoulli Naïve Bayes
+        + Data follows a multivariate Bernoulli distribution
+        + Each feature is binary (word is present / absent)
 
-
-+ Demo  
-    ```Python
-
-    ```
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
-    </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/dxw4b2gGEee0ohLeDr_NVg.processed/full/360p/index.mp4?Expires=1543449600&Signature=jyOPPOSNRp5qK5xg-FgTWoAwPJo0VoVYhBO3-ue4k4hFgx-bjlealfAisdFLtpkqX0HmWoeyblmABkNDWz5tEnmubhiGE3DV4j9RusikVPd30VQHrcFOpFywJpvtZwXXdgZq2gv8vv2mXBC5mxDk9CRh5SZ41GAZfYDFw0L7t7Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Naive Bayes Variations" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
