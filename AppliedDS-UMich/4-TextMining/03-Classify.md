@@ -363,19 +363,93 @@
 
 ### Lecture Notes
 
++ Toolkits for Supervised Text Classification
+    + Scikit-learn
+    + NLTK
+        + Interfaces with sklearn and other ML toolkits (like Weka)!
 
++ Scikit-learn
+    + Open-source Machine Learning library
+    + Started as Google Summer of Code by Dave Cournapeau, 2007
+    + Has a more programmatic interface
 
-+ Demo  
-    ```Python
++ Using Sklearn’s NaiveBayesClassifier
+    ```python
+    from sklearn import naive_bayes
 
+    clfrNB = naive_bayes.MultinomialNB()
+    clfrNB.fit(train_data, train_labels)
+    predicted_labels = clfrNB.predict(test_data)
+    metrics.f1_score(test_labels, predicted_labels, average='micro')
     ```
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
+
++ Using Sklearn’s SVM classifier
+    ```python
+    from sklearn import svm
+
+    clfrSVM = svm.SVC(kernel=‘linear’, C=0.1)
+    clfrSVM.fit(train_data, train_labels)
+    predicted_labels = clfrSVM.predict(test_data)
+    ```
+
++ Model Selection
+    + Recall the discussion on multiple phases in a supervised learning task
+        <a href="https://www.coursera.org/learn/python-text-mining/lecture/GaNec/learning-text-classifiers-in-python"> <br/>
+            <img src="images/p3-02.png" alt="text" title= "Supervised Learning Task" height="200">
+        </a>
+
++ Model selection in Scikit-learn
+    ```python
+    from sklearn import model_selection
+
+    X_train, X_test, y_train, y_test = model_selection.train_test_split(
+        train_data, train_labels, test_size = 0.333, random_state = 0)
+    predicted_labels = model_selection.cross_val_predict(clfrSVM, train_data, train_labels, cv=5)
+    ```
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/GaNec/learning-text-classifiers-in-python"> <br/>
+        <img src="images/p3-14.png" alt="text" title= "caption" height="100">
     </a>
+
++ Supervised Text Classification in NLTK
+    + NLTK has some classification algorithms
+    + NaiveBayesClassifier
+    + DecisionTreeClassifier
+    + ConditionalExponentialClassifier
+    + MaxentClassifier
+    + WekaClassifier
+    + SklearnClassifier
+
++ Using NLTK’s NaiveBayesClassifier
+    ```python
+    from nltk.classify import NaiveBayesClassifier
+
+    classifier = NaiveBayesClassifier.train(train_set)
+    classifier.classify(unlabaled_instance)
+    classifier.classify_many(unlabeled_instances)
+    nltk.classify.util.accuracy(classifier, test_set)
+    classifier.labels()
+    classifier.show_most_informative_features()
+    ```
+
++ Using NLTK’s SklearnClassifier
+    ```python
+    from nltk.classify import SklearnClassifier
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.svm import SVC
+
+    clfrNB = SklearnClassifier(MultinomialNB()).train(train_set)
+    clfrSVM = SklearnClassifier(SVC(),kernel=‘linear’).train(train_set)
+    ```
+
++ Take Home Concepts
+    + Scikit-learn most commonly used ML toolkit in Python
+    + NLTK has its own naïve Bayes implementation
+    + NLTK can also interface with Scikit-learn (and other ML toolkits like Weka)
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/DlRB-2bGEeeA5grXB1EKyA.processed/full/360p/index.mp4?Expires=1543449600&Signature=NCibiiRHBaMCZyculdoG5~s5bBljcGqJzipbcLKtI8-mqrrtM0Qy0OOd9oHcnYj4ITauaLkQTizM8rPmxn6pnACr9ai~Y4DQe1zNRDMXIwn8Ix24V57mBPBhUzzhY5umYuWS3M5VwlDkOrExaS~QHrUI2jdayFRnro3i-lIOkX0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Learning Text Classifiers in Python" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
