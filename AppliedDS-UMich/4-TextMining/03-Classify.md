@@ -240,19 +240,121 @@
 
 ### Lecture Notes
 
++ Which medical speciality does this relate to?
+    + Nephrology / Neurology / Podiatry
+    + Paragraph1: TINEA PEDIS, or ATHLETE'S FOOT, is a very common fungal skin infection of the foot. It often first appears between the toes. It can be a one-time occurrence or it can be chronic. The fungus, known as Trichophyton, thrives under warm, damp conditions so people whose feet sweat a great deal are more susceptible. It is easily transmitted in showers and pool walkways. Those people with immunosuppressive conditions, such as diabetes mellitus, are also more susceptible to athlete's foot.
+    + Paragraph 2: KIDNEY FAILURE, also known as RENAL FAILURE or RENAL INSUFFICIENCY, is a medical condition of impaired kidney function in which the kidneys fail to adequately filter metabolic wastes from the blood.The two main forms are acute kidney injury, which is often reversible with adequate treatment, and chronic kidney disease, which is often not reversible. In both cases, there is usually an underlying cause.
+    + Answers: 1) Podiatry, 2) Nephrology
 
-
-+ Demo  
-    ```Python
-
-    ```
-    <a href="url"> <br/>
-        <img src="url" alt="text" title= "caption" height="200">
++ Case study: Sentiment analysis - Movie Review
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-03.png" alt="And this is about sentiment analysis. This is somebody's review for a movie, and you could guess which movie it is since in sensibility- and you can see that the the author or the reviewer here has given some stars and so on, but then used words like wow and great movie and so on. Using those words we could then identify that this particular review is positive. If you have seen words like boring, or lame, or worst, and so on, it would be a negative review. So again this is a sentiment classification task, where looking at the words, we had to determine whether it's positive or negative." title= "Sentiment analysis Example" height="100">
     </a>
+    + Words that you might find in typical reviews
+        + wow, great, Bravo!
+        + boring, lame, worst
+
++ Classifier = Function on input data
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-04.png" alt="So in general, a classifier can be said to be a function on the input data. So you have some function F, that works on medical passages and labels, or decides that what the class label should be. Nephrology, neurology or podiatry. Or another function looks at this review, a movie review, and decides it's +1 that stands for positive review, or -1 that stands for negative review. It's typical to actually have numbers, like +1 or -1 Assigned to classes, and that's what support vector machines or any of that linear classifier, typically use. " title= "Classifier" height="150">
+    </a>
+
++ Decision Boundaries
+    + Classification function is represented by decision surfaces
+    + How do you find them?
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-05.png" alt="What is a decision boundary? Let's take this example. There are just two dimensions, X1 and X2, and there are points, leader points in this two dimensional in space. Some of them are marked star, others are marked circle. Let's call the circle ones as Class A, and the stars as Class B. Now you need to somehow make a boundary around one of the classes to separate that from the other class. You can use any decision boundary, you could use one that is a circle, or you could use one that's a square, or you could have any other random shape, in this case let's take a shape of a heart. A classic fiction function is represented by this decision surface, or decision boundary. And this choice of what shape you should use is completely dependent on this application. If you think that points in the two dimensional base are well represented using a circle, you would use that. Whenever you use a decision boundary, the main purpose is when you get a new point that is unlabeled, depending on the decision boundary you have learned, you can label it as one of the classes. So in this particular example, this point that is unlabeled, will be marked as a star, or Class B because that is outside this boundary that was learned around class A. " title= "caption" height="200">
+    </a>
+
++ Choosing a Decision Boundary
+    + Red +/- : Training data
+    + Black +/- : Test data
+    + __Data overfitting__: Decision boundary learned over training data doesn’t generalize to test data
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-06.png" alt="But when you're using a decision boundary, there are other factors that should be considered. And let's take another example where here you have positive and negative points, so positive is one class, negative is the other class. And all the red positives and negatives define this training data that we have. Looking at this data, you could learn a boundary like this. It's an irregular shaped Pentagon, or in general any other polygon or closed surface that puts all the positive class, on the positive points, inside this polygon, and all the negative points are outside. This is a perfectly great division boundary. The accuracy on the training data is 100% Every point is labeled correctly. But then, when we look at the test data, represented by black positives and negatives here, you would start seeing that yes in general there are positive points near positive points that you saw earlier. In general negative points are near negative points. But then, because of the way we defined the division boundary, there are many many more mistakes that we have done here. There are many many positive points outside of the polygon. The outside spear is supposed to be negative, and there are points within this polygon, that are negative. So in general, in unseen test data, this decision boundary has not worked very well. This problem is called data overfitting. When you have learned a decision boundary that works very well on training data, but does not generalize to test data. " title= "caption" height="200">
+    </a>
+
++ Linear Boundaries
+    + Easy to find
+    + Easy to evaluate
+    + More generalizable: “Occam’s razor”
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-07.png" alt="So instead of a irregular shape boundary, let's consider a linear boundary or a straight line. So in a two dimension space, it is a straight line. In a three dimensional space. It would be a plane, in general and dimensional data representation, it would be a hyperplane. So in this particular case, you have a line that separates the positive region, that's one half of this two dimensional space as positive, and the other half as negative. As you can see, it's not accurate, it's not 100% accurate. You have three negative points on the positive side, and you have one positive point on the negative side. So yes, it has made some mistakes in the training data, but it's very easy to find, because you have to basically learn a line that maximally separates these two points, that that makes as fewer errors as positive, as possible, and you can see that there is no one line that could have separated the positives from negatives completely. So this is as good as you can get. It's also very easy to evaluate, because now you have a very simple rule that any point in this entire half-space and half-region that's on the positive side is going to be called positive. And any point on the other side is going to be called negative. In general, this idea of using a simple classifier or a simple model to fit the data, Is called Occam's Razor. And the rule of thumb here is simple models generalize well. You want to use something that is simple to explain, that would work very well in the test data. And as you can see, if you apply the test points on top of this, you would notice that all test points have been correctly classified. Except for one positive that's on the negative side. So the error is really just one point on the test, and of course there are four points in the training data that were misclassified as well. But overall this is still a much better model than this irregular shaped boundary where we had seen earlier that quite a few positive points have been misclassified, and two of the negative points were misclassified in the test data. So how do you find this linear boundary? " title= "caption" height="200">
+    </a>
+
++ Finding a Linear Boundary
+    + Find the linear boundary = Find w
+    + Many methods
+        + Perceptron
+        + Linear Discriminative Analysis
+        + Linear least squares
+        + ...
+    + Problem: If linearly separable, then infinite number of linear boundaries!
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-08.png" alt="You could use a lot of algorithms and methods to do so. Typically, when you're finding a linear boundary, you're finding W, or the slope of the line. You basically want to find out the coefficients that are the weights associated with the dimensions X1 and X2, so W is typically of the same dimension, same size as your data points. And you are going to use a linear function to see which point would be called positive or negative. There could be many methods, perceptron, a linear discriminant analysis, or linear least square techniques and so on. There are many methods to use, so you could use some perceptrons, you could use linear discriminative analysis, or linear least squares. And in one particular case, in this case, we're going to talk about support vector machines. The problem is that whenever you have a linear boundary that separates the positive points and negative points, if there is one line that splits the positives and negatives from each other, there are in fact infinitely many lines. So you could have a line like this, or the line like this, or the line like this. They all separate the positive points from the negative points. Then the choice becomes what is the best line here. " title= "caption" height="200">
+    </a>
+
++ Maximum Margin
+    + What is a reasonable boundary?
+    + Support Vector Machines are maximum-margin classifiers
+    + How do you find it?
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+        <img src="images/p3-09.png" alt="So let's take another example, very similar to what we have seen before. Again two dimensions, positives and negatives. And consider this line. This line is one that goes from the farthest positive to the farthest negative. By farthest I mean the ones that are kind of the most confusing, that are closest to the boundary, and this line perfectly splits the data as best as it can. I mean it's not really 100% accurate, as you can see that there are negative points on the positive side and two points on the negative side. But if you learn this line, you could actually- you learned any other line. And the question becomes what is a reasonable boundary? So instead of the blue line, if you consider this red band, you would see that the points that are in the confusion are low. What do I mean by that? So in the previous example, when you had just this blue line, any small change to the positive point or a negative point will make an error. If you make a small perturbation on the posture point, let's take an example here, and say this point, is moved a little bit here, suddenly, you're either making a mistake or this line has to change to now get here. So you can see that a small change in a data point can actually lead to a big change in the classifier. However, if you use a line like this, where you have a big band separating the points, you would notice that any small change, the same small change that you found here, would still be on the same side as the hyperplane, as what you would expect it to be. So a small change in your data points would still not change the label that this particular classifier will assign that. So a small change- it's actually more- So it's more resistant to noise or perturbations. This idea is called maximum margin. You would want to learn the thickest band that you can fit, that separates the positive points from negative points. This band, or the thickness is called the margin, and the middle line between them is called the actual hyperplane. So that's the maximum margin hyperplane. The idea here is that you are not basing your classifier on two points, a positive and negative point, but a set of points called support vectors. And in general, the support vector machine is just maximum margin classifier. Where it's not just one or two points that will make a big difference, you actually have a lot of support to learn this margin or this band, and these support vectors are the points that are the most sensitive to shift. But even then, small changes or perturbations to support vectors still would not change the classification, because classification happens with respect to this maximum margin hyperplane. So now the question becomes how do you find it. " title= "caption" height="200">
+    </a>
+
++ Support Vector Machines (SVM)
+    + SVMs are __linear classifiers__ that find a hyperplane to separate __two classes__ of data: positive and negative
+    + Given training data $(x_1, y_1), (x_2, y_2), \cdots$; where $x_i = (x_1,x_2, \cdots, x_n)$ is instance vector and $y_i$ is one of $\{-1, +1\}$
+    + SVM finds a linear function $w$ (weight vector) <br/>
+        $f(x_i) = <w \cdot xi> + b$ if $f(x_i) ≥ 0$, $y_i = +1$; else $y_i = -1$
+
++ SVM: Multi-class classification
+    + SVMs work only for binary classification problems <br/>
+        $f(x_i) = <w \cdot x_i> + b$, if $f(x_i) \geq 0$, $y_i = +1$; else $y_i = -1$
+    + What about three classes?
+    + One vs Rest - one by one
+        <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+            <img src="images/p3-10.png" alt="One is called One versus rest. Where you are actually learning binary classifiers between one class and all the other classes together. " title= "caption" height="200">
+        </a>
+        <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines">
+            <img src="images/p3-11.png" alt="For example, this is the classifier between nephrology and all documents that are not nephrology. Assume that d1 to d9 are all nephrology documents. So this classification is a perfect classification to learn nephrology, as these nine documents, and anything that is not nephrology is on the other side. Then, we learn another classifier, this time for neurology. Where the documents d10 to d15 are neurology documents, and everything else, d1 to d9, and d16 to d21, are all not neurology. And then, we do the same thing with podiatry. You have the documents d16 to the d21, that is labeled podiatry, and everything else. That's d1 to d15, is going to be not podiatry. So in general, we are learning three classifiers, or for n class setup, we are learning n classifiers, such that all the points in one region, let's take the region as this, D16 to d21, ist' going to be not nephrology, yes on podiatry, And what's the other one. Yes, it's not on neurology. So it's not neurology, it's not nephrology, and it's podiatry. So this is going to be podiatry. Right? " title= "caption" height="200">
+        </a>
+        + n-class SVM has $n$ classifiers
+    + One vs One - 
+        <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines"> <br/>
+            <img src="images/p3-13.png" alt="Let's take another set up, and this set up is where instead of learning one versus rest, we are going to do one versus one. That means that you're going to learn classifiers between let's say nephrology and neurology. " title= "caption" height="200">
+        </a>
+        <a href="https://www.coursera.org/learn/python-text-mining/lecture/e5cEj/support-vector-machines">
+            <img src="images/p3-12.png" alt="So in this case you look at only documents that were labeled nephrology or neurology. That's d1 to d9, and d10 to d15, and separate them. So the red line just separates these two points. These two classes, I'm sorry. And then you learn another classifier. This is between neurology and podiatry, that works on a smaller set. Again it's between the d1 to d9 as the neurology documents, and d16 to d21 as the podiatry document. And again the third one, which is between nephrology and podiatry. When you have these three classes together, you can see that in general, for an n-class set up, there are (n,2). A combonotorial number n_square number of classifiers. It so happens that for three classes, it is three classifiers, But for four classes it'll likely to be six classifiers, and so on. But then, you can still use the same idea where you have these points, going to be called between the class labels podiatry and neurology, it's podiatry. Between the classes podiatry and nephrology. It's podiatry, and between the classes nephrology and neurology, it's basically nothing, because it's right in the middle, right? But you still see that sometimes it's going to be called nephrology, sometimes it's going to be called neurology, but the overall votes are still in favor of podiatry because you have two- that all of these points you're going to get two votes on podiatry because of the other two classes. And maybe one additional vote for nephrology or neurology. In any case, all of these points are still going to be classified correctly as podiatry. So both of these, in this particular toy dataset have been labeled the right way, but just the idea and the approach is very different. In one case you're learning one class against all the other classes, and in the other case it's one versus one and do n_square a number of classes. Or reference squared number of classes this way. " title= "caption" height="200">
+        </a>
+        + n-class SVM has $C(n,2)$ classifiers
+
++ SVM Parameters (1): Parameter `C`
+    + __Regularization__: How much importance should you give individual data points as compared to better generalized model
+    + Regularization parameter `c`
+        + Larger values of `c` = less regularization
+            + Fit training data as well as possible, every data point important
+        + Smaller values of `c` = more regularization
+            + More tolerant to errors on individual data points
+
++ SVM Parameters (2): Other params
+    + __Linear kernels__ usually work best for text data
+        + Other kernels include rbf, polynomial
+    + `multi_class`: ovr (one-vs-rest)
+    + `class_weight`: Different classes can get different weights
+
++ Take Home Messages
+    + Support Vector Machines tend to be the most accurate classifiers, especially in high-dimensional data
+    + Strong theoretical foundation
+    + Handles only numeric features
+        + Convert categorical features to numeric features
+        + Normalization
+    + Hyperplane hard to interpret
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/pZdRaWbEEeeA5grXB1EKyA.processed/full/360p/index.mp4?Expires=1543449600&Signature=X70EgT8u~reCHUitwVfkRxfnyu4I0lqghZ-e5oGOrYIJz8-JXwOoqz9DCWXGwGovC7dD2slFYXdmxFx11qeo5Vq44Ty58~9m5uS69wt2AuMy-GL7cbIapXe0tLJKdqMV1NkedEJGRR2v4btNn~uTnAjvNPw3FCvE0hLPHX5f3Q4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Support Vector Machines" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
