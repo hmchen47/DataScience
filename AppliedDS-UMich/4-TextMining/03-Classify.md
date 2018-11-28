@@ -373,7 +373,7 @@
     + Started as Google Summer of Code by Dave Cournapeau, 2007
     + Has a more programmatic interface
 
-+ Using Sklearn’s NaiveBayesClassifier
++ Using Sklearn’s `NaiveBayesClassifier`
     ```python
     from sklearn import naive_bayes
 
@@ -395,7 +395,7 @@
 + Model Selection
     + Recall the discussion on multiple phases in a supervised learning task
         <a href="https://www.coursera.org/learn/python-text-mining/lecture/GaNec/learning-text-classifiers-in-python"> <br/>
-            <img src="images/p3-02.png" alt="text" title= "Supervised Learning Task" height="200">
+            <img src="images/p3-02.png" alt="There's a training phase and an inference phase. You have labeled it as that is already labeled, so in this case, it's green and red. And you split that label data into the training data set and the hold out validation data set. And then you have the test data that could also be labeled that would be used to say how well you have performed on unseen data. But typically, the test data set is not labeled. So you're going to train something on a label set and then you need to apply it on an unlabeled tests. So, you need to use some of the labeled data to see how well these models are. Especially if you're comparing between models, or if you are tuning a model. So if you have some parameters, for example you have the C parameter in SVM, you need to know what is a good value of C. So, how would you do it? That problem is called the model selection problem. And while you're training, you need to somehow make sure that you have ways to do that. There are two ways you could do model selection. One is keeping some part of printing the label data set separate as the hold out data. And the other option is cross-validation" title= "Supervised Learning Task" height="200">
         </a>
 
 + Model selection in Scikit-learn
@@ -407,17 +407,17 @@
     predicted_labels = model_selection.cross_val_predict(clfrSVM, train_data, train_labels, cv=5)
     ```
     <a href="https://www.coursera.org/learn/python-text-mining/lecture/GaNec/learning-text-classifiers-in-python"> <br/>
-        <img src="images/p3-14.png" alt="text" title= "caption" height="100">
+        <img src="images/p3-14.png" alt="So for example, suppose you have these data points. In this case, I have 15 of them and I say I want to do a two third one third split. So my test size is one third or 0.333. That would mean 10 of them would be the train set and five of them would be the test. Now, you could shuffle the training data, the label data, so that you have a randomly uniform distribution around the positive and negative class. But then, you could say I wanted to keep let's say 66 percent in train and 33 percent in test or go 80 20 if you want to. Let's say four out of five should go in my train set and the one out of five, the fifth part as a test. When you do it this way, you are losing out a significant portion of your training data into test. Remember, that you cannot see the test data when you're training the model. So test data is used, exclusively, to tune the parameters. So your training data effectively reduces to 66 percent in this case. The other way to do model selection would be cross-validation. So the cross validation with five full cross-validation, would be something like this where you split the data into five parts. These are five folds. And then, you train five times basically. You train every time where four parts are in the train set and one part is in the test set. So you're going to train five models. Let's see. First, you're going to train on parts one to four and test on five. The next time you're going to say I'm going to train on two to five and test on one and so on. So you have one iteration where five is the test and the regression where one is the test, a third iteration where two is the test and so on. So when you're doing it in this way, you get five ways of splitting the data. Every data point isn't the test ones in this five folds. And then, you get average out the five results you get on the whole test set to see how we'll perform, how the model performs on unseen data. The cross-validation folds is a parameter. In this explanation, I took it as five. It's fairly common to use 10-fold cross-validation especially when you have a large data set. You can keep 90 percent for training and 10 percent as the cross validation hold out data set but because you're doing it 10 times, you're also averaging on multiple runs. And in fact, it's fairly common to run cross-validation multiple times." title= "Split Data" height="100">
     </a>
 
 + Supervised Text Classification in NLTK
     + NLTK has some classification algorithms
-    + NaiveBayesClassifier
-    + DecisionTreeClassifier
-    + ConditionalExponentialClassifier
-    + MaxentClassifier
-    + WekaClassifier
-    + SklearnClassifier
+        + NaiveBayesClassifier
+        + DecisionTreeClassifier
+        + ConditionalExponentialClassifier
+        + MaxentClassifier
+        + WekaClassifier
+        + SklearnClassifier
 
 + Using NLTK’s NaiveBayesClassifier
     ```python
