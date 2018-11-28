@@ -883,6 +883,87 @@
 
 ## Quiz: Module 3 Quiz
 
+1. You are given a dataset on movie reviews with a 1,000 labeled reviews. The labels are one of five movie genres: Action, Comedy, Drama, Horror, and Sci-Fi. The dataset has roughly 200 movie reviews for each movie genre.
+
+    __Your first task__ is to learn a supervised classifier to identify just the reviews for Comedy movies from the dataset. Such a task is:
+
+    a. Single-class classification
+    b. Two-class (Binary) classification
+    c. Multi-class classification
+    e. Multi-label classification
+
+
+    Ans: b
+
+
+2. The dataset available for the first task is:
+
+    a. Balanced
+    b. Insufficient
+    c. Skewed
+    d. Unlabeled
+
+
+    Ans: c
+
+
+3. Suppose you decide to train a support vector machine classifier for this first task. The methodology you will employ will be a:
+
+    A. One vs One classifier
+    B. One vs Rest classifier
+    C. Single binary classifier
+    d. Either A or B
+    e. Classifier cannot be trained
+
+
+    Ans: c, xb
+
+
+4. You are given a dataset on movie reviews with a 1,000 labeled reviews. The labels are one of five movie genres: Action, Comedy, Drama, Horror, and Sci-Fi. The dataset has roughly 200 movie reviews for each movie genre.
+
+    __Your second task__ is to learn to identify all five movie genres. Such a task is:
+
+    a. Single-class classification
+    b. Two-class (Binary) classification
+    c. Multi-class classification
+    d. Multi-label classification
+
+
+    Ans: c
+
+
+5. The dataset available for the second task is:
+
+    a. Balanced
+    b. Insufficient
+    c. Skewed
+    d. Unbalanced
+
+
+    Ans: a
+
+
+6. Suppose you decide to train a support vector machine classifier for the second task. The methodology you will employ will be a:
+
+    A. One vs One classifier
+    B. One vs Rest classifier
+    C. Single five-class classifier
+    d. Either A or B
+    e. Classifier cannot be trained
+
+
+    Ans: d, xc, xa
+
+
+7. How many binary classifiers will you need to train for the second task using the one-vs-one/one-vs-rest classification approach?
+
+    a. 1
+    b. 5
+    c. 10
+    e. 25
+
+
+    Ans: 10/5
 
 
 
