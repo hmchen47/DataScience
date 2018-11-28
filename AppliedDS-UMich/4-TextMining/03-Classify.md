@@ -383,6 +383,26 @@
     metrics.f1_score(test_labels, predicted_labels, average='micro')
     ```
 
++ `naive_bayes.MultinomialNB` class
+    + Init Signature: `naive_bayes.MultinomialNB(alpha=1.0, fit_prior=True, class_prior=None)`
+    + Docstring: Naive Bayes classifier for multinomial models
+    + Parameters
+        + `alpha` (float, optional (default=1.0)): Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).
+        + `fit_prior` (boolean, optional (default=True)): Whether to learn class prior probabilities or not. If false, a uniform prior will be used.
+        + `class_prior` (array-like, size (n_classes,), optional (default=None)): Prior probabilities of the classes. If specified the priors are not adjusted according to the data.
+    + Attributes
+        + `class_log_prior_` (array, shape (n_classes, )): Smoothed empirical log probability for each class.
+        + `intercept_` (property): Mirrors `class_log_prior_` for interpreting MultinomialNB as a linear model.
+        + `feature_log_prob_` (array, shape (n_classes, n_features)): Empirical log probability of features given a class, `P(x_i|y)`.
+        + `coef_` (property): Mirrors `feature_log_prob_` for interpreting MultinomialNB as a linear model.
+        + `class_count_` (array, shape (n_classes,)): Number of samples encountered for each class during fitting. This value is weighted by the sample weight when provided.
+        + `feature_count_` (array, shape (n_classes, n_features)): Number of samples encountered for each (class, feature) during fitting. This value is weighted by the sample weight when provided.
+    + Notes
+        + The multinomial Naive Bayes classifier is suitable for classification with discrete features (e.g., word counts for text classification). The multinomial distribution normally requires integer feature counts. However, in practice, fractional counts such as tf-idf may also work.
+        + For the rationale behind the names `coef_` and `intercept_`, i.e. naive Bayes as a linear classifier, see J. Rennie et al. (2003), Tackling the poor assumptions of naive Bayes text classifiers, ICML.
+    + References: C.D. Manning, P. Raghavan and H. Schuetze (2008). Introduction to Information Retrieval. Cambridge University Press, pp. 234-265.
+
+
 + Using Sklearn’s SVM classifier
     ```python
     from sklearn import svm
@@ -410,6 +430,33 @@
         <img src="images/p3-14.png" alt="So for example, suppose you have these data points. In this case, I have 15 of them and I say I want to do a two third one third split. So my test size is one third or 0.333. That would mean 10 of them would be the train set and five of them would be the test. Now, you could shuffle the training data, the label data, so that you have a randomly uniform distribution around the positive and negative class. But then, you could say I wanted to keep let's say 66 percent in train and 33 percent in test or go 80 20 if you want to. Let's say four out of five should go in my train set and the one out of five, the fifth part as a test. When you do it this way, you are losing out a significant portion of your training data into test. Remember, that you cannot see the test data when you're training the model. So test data is used, exclusively, to tune the parameters. So your training data effectively reduces to 66 percent in this case. The other way to do model selection would be cross-validation. So the cross validation with five full cross-validation, would be something like this where you split the data into five parts. These are five folds. And then, you train five times basically. You train every time where four parts are in the train set and one part is in the test set. So you're going to train five models. Let's see. First, you're going to train on parts one to four and test on five. The next time you're going to say I'm going to train on two to five and test on one and so on. So you have one iteration where five is the test and the regression where one is the test, a third iteration where two is the test and so on. So when you're doing it in this way, you get five ways of splitting the data. Every data point isn't the test ones in this five folds. And then, you get average out the five results you get on the whole test set to see how we'll perform, how the model performs on unseen data. The cross-validation folds is a parameter. In this explanation, I took it as five. It's fairly common to use 10-fold cross-validation especially when you have a large data set. You can keep 90 percent for training and 10 percent as the cross validation hold out data set but because you're doing it 10 times, you're also averaging on multiple runs. And in fact, it's fairly common to run cross-validation multiple times." title= "Split Data" height="100">
     </a>
 
++ `cross_val_predict` method
+    + Signature: `cross_val_predict(estimator, X, y=None, groups=None, cv=None, n_jobs=1, verbose=0, fit_params=None, pre_dispatch='2*n_jobs', method='predict')`
+    + Docstring: Generate cross-validated estimates for each input data point
+    + Parameters
+        + `estimator` : estimator object implementing 'fit' and 'predict' The object to use to fit the data.
+        + `X` (array-like): The data to fit. Can be, for example a list, or an array at least 2d.
+        + `y` (array-like, optional, default: None): The target variable to try to predict in the case of supervised learning.
+        + `groups` (array-like, with shape (n_samples,), optional): Group labels for the samples used while splitting the dataset into train/test set.
+        + `cv` (int, cross-validation generator or an iterable, optional): Determines the cross-validation splitting strategy. Possible inputs for cv are:
+            + None, to use the default 3-fold cross validation,
+            + integer, to specify the number of folds in a `(Stratified)KFold`,
+            + An object to be used as a cross-validation generator.
+            + An iterable yielding train, test splits.
+
+            For integer/None inputs, if the estimator is a classifier and `y` is either binary or multiclass, `StratifiedKFold` is used. In all other cases, `KFold` is used.
+
+            Refer :ref:`User Guide <cross_validation>` for the various cross-validation strategies that can be used here.
+        + `n_jobs` (integer, optional): The number of CPUs to use to do the computation. $-1$ means 'all CPUs'.
+        + `verbose` (integer, optional): The verbosity level.
+        + `fit_params` (dict, optional): Parameters to pass to the fit method of the estimator.
+        + `pre_dispatch` (int, or string, optional): Controls the number of jobs that get dispatched during parallel execution. Reducing this number can be useful to avoid an explosion of memory consumption when more jobs get dispatched than CPUs can process. This parameter can be:
+            + None, in which case all the jobs are immediately created and spawned. Use this for lightweight and fast-running jobs, to avoid delays due to on-demand spawning of the jobs
+            + An int, giving the exact number of total jobs that are spawned
+            + A string, giving an expression as a function of n_jobs, as in '2*n_jobs'
+        + `method` (string, optional, default: 'predict'): Invokes the passed method name of the passed estimator.
+    + Returns: predictions (ndarray): This is the result of calling `method`
+
 + Supervised Text Classification in NLTK
     + NLTK has some classification algorithms
         + NaiveBayesClassifier
@@ -431,6 +478,45 @@
     classifier.show_most_informative_features()
     ```
 
++ `nltk.classify.NaiveBayesClassifier` class
+    + Init signature: `NaiveBayesClassifier(label_probdist, feature_probdist)`
+    + Docstring: A Naive Bayes classifier.  
+    + Notes: 
+        + Naive Bayes classifiers are paramaterized by two probability distributions:
+            + P(label) gives the probability that an input will receive each label, given no information about the input's features.
+            + P(fname=fval|label) gives the probability that a given feature (fname) will receive a given value (fval), given that the label (label).
+        + If the classifier encounters an input with a feature that has never been seen with any label, then rather than assigning a probability of 0 to all labels, it will ignore that feature.
+        + The feature value 'None' is reserved for unseen feature values; you generally should not use 'None' as a feature value for one of your own features.
+    + Parameters
+        + `label_probdist`: P(label), the probability distribution over labels.  It is expressed as a `ProbDistI` whose samples are labels.  I.e., P(label) = `label_probdist.prob(label)`.
+        + `feature_probdist`: P(fname=fval|label), the probability distribution for feature values, given labels.  It is expressed as a dictionary whose keys are `(label, fname)` pairs and whose values are `ProbDistI` objects over feature values.  I.e., P(fname=fval|label) = `feature_probdist[label,fname].prob(fval)`.  If a given `(label,fname)` is not a key in `feature_probdist`, then it is assumed that the corresponding P(fname=fval|label) is 0 for all values of `fval`.
+
++ `train` method
+    + Signature: `nltknbclf.train(labeled_featuresets, estimator=<class 'nltk.probability.ELEProbDist'>)`
+    + Parameter:
+        + `labeled_featuresets`: A list of classified featuresets, i.e., a list of tuples `(featureset, label)`.
+
++ `classify` method
+    + Signature: `nltknbclf.classify(featureset)`
+    + Docstring: return the most appropriate label for the given featureset
+
++ `classify_many` method
+    + Signature: `nltknbclf.classify_many(featuresets)`
+    + Docstring: Apply `self.classify()` to each element of `featuresets`
+    + Return: return `[self.classify(fs) for fs in featuresets]`
+
++ `labels` method
+    + Signature: `nltknbclf.labels()`
+    + Docstring: return the list of category labels used by this classifier
+
++ `show_most_informative_features` method
+    + Signature: `nltknbclf.show_most_informative_features(self, n=10)`
+    + Docstring: as name applied
+
++ `nltk.classify.util.accuracy` method
+    + Signature: `nltk.classify.util.accuracy(classifier, gold)`
+
+
 + Using NLTK’s SklearnClassifier
     ```python
     from nltk.classify import SklearnClassifier
@@ -440,6 +526,21 @@
     clfrNB = SklearnClassifier(MultinomialNB()).train(train_set)
     clfrSVM = SklearnClassifier(SVC(),kernel=‘linear’).train(train_set)
     ```
+
++ `SklearnClassifier` class
+    + Init Signature: `SklearnClassifier(estimator, dtype=<class 'float'>, sparse=True)`
+    + Docstring: Wrapper for scikit-learn classifiers
+    + Parametres:
+        + `estimator` : scikit-learn classifier object
+        + `dtype`: data type used when building feature array. scikit-learn estimators work exclusively on numeric data. The default value should be fine for almost all situations.
+        + `sparse` (bool): Whether to use sparse matrices internally. The estimator must support these; not all scikit-learn classifiers do (see their respective documentation and look for "sparse matrix"). The default value is True, since most NLP problems involve sparse feature sets. Setting this to False may take a great amount of memory.
+
++ `train` method
+    + Signature: `slclf.train(self, labeled_featuresets)`
+    + Dosctring: Train (fit) the scikit-learn estimator
+    + Parameters
+        + `labeled_featuresets`: A list of `(featureset, label)` where each `featureset` is a dict mapping strings to either numbers, booleans or strings.
+
 
 + Take Home Concepts
     + Scikit-learn most commonly used ML toolkit in Python
@@ -465,8 +566,6 @@
 ## Demonstration: Case Study - Sentiment Analysis
 
 ### Lecture Notes
-
-
 
 + Demo  
     ```Python

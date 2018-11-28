@@ -998,15 +998,17 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.model_selection import cross_val_score
     from sklearn.model_selection import validation_curve
     from sklearn.model_selection import cross_val_score
+    from sklearn.model_selection import cross_val_predict
     from sklearn.model_selection import GridSearchCV
     ```
 
 | Function | Description | Link |
 |----------|-------------|------|
-| `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [Example][563] |
+| `train_test_split(*arrays, **options)` | Split arrays or matrices into random train and test subsets | [Example][563], [Text][585] |
 | `cross_val_score(estimator, X, *args)` | Evaluate a score by cross-validation | [Cross-Valiation][572] |
 | `validation_curve(estimator, X, y, param_name, param_range, *args*)` | Compute scores for an estimator with different values of a specified parameter | [Cross-Validation][572] |
 | `cross_val_score(estimator, X, *args*)` | Evaluate a score by cross-validation | [Model Selection]][580] |
+| `cross_val_predict(estimator, X, y=None, *arg*)` | Generate cross-validated estimates for each input data point | [Text][585] |
 | `GridSearchCV(estimator, param_grid, *args)` | Exhaustive search over specified parameter values for an estimator | [Model Selection][580] |
 | `GridSearchCV.decision_function(X)` | Call decision_function on the estimator with the best found parameters | [Model Selection][580] |
 
@@ -1015,6 +1017,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 + Library Import 
     ```python
+    # Classifier & Regression
     from sklearn.neighbors import KNeighborsClassifier          # knn
     from sklearn.svm import SVC                                 # svc
     from sklearn.svm import LinearSVC                           # linsvc
@@ -1023,6 +1026,11 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.naive_bayes import GaussianNB                  # nbclf
     from sklearn.ensemble import GradientBoostingClassifier     # gbdtclf
     from sklearn.neural_network import MLPClassifier            # mlpclf
+
+    # Text Mining
+    from sklearn.naive_bayes import MultinomialNB               # mnnbclf
+    from nltk.classify import NaiveBayesClassifier
+    from nltk.classify import SklearnClassifier
     ```
 
 | Function | Description | Link |
@@ -1031,9 +1039,9 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `knn.fit(X, y)` | Fit the model using X as training data and y as target values | [KNN][564] |
 | `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [KNN][564] |
 | `knn.predict(X)` | Predict the class labels for the provided data | [KNN][564] |
-| `svc = SVC(C=1.0, kernel='rbf', *args)` | C-Support Vector Classification | [SVM][571] |
-| `svc.fit(X, y, sample_weight=None)` | Fit the SVM model according to the given training data  | [SVM][571] |
-| `svc.predict(X)` | Perform classification on samples in X.  For an one-class model, $+1$ or $-1$ is returned  | [SVM][571] |
+| `svc = SVC(C=1.0, kernel='rbf', *args)` | C-Support Vector Classification | [SVM][571], [Text][585] |
+| `svc.fit(X, y, sample_weight=None)` | Fit the SVM model according to the given training data  | [SVM][571], [Text][585] |
+| `svc.predict(X)` | Perform classification on samples in X.  For an one-class model, $+1$ or $-1$ is returned  | [SVM][571], [Text][585] |
 | `svc.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
 | `linsvc = LinearSVC(penalty='l2', *args)` | Linear Support Vector Classification  | [SVM][571] |
 | `linsvc.fit(X, y, sample_weight=None)` | Fit the model according to the given training data  | [SVM][571] |
@@ -1048,8 +1056,9 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `dummy.predict(X)` | Perform classification on test vectors X | [Model Evaluation][574] |
 | `dummy.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Model Evaluation][574] |
 | `nbclf = GaussianNB(priors=None)` | Gaussian Naive Bayes | [Naive Bayes][581] |
-| `nbclf.fit(X, y, sample_weight=None)` | Fit Gaussian Naive Bayes according to `X`, `y` | [Naive Bayes][581] |
-| `nbclf.predict(X)` | Perform classification on an array of test vectors `X` | [Naive Bayes][581] |
+| `mnnbclf.MultinomialNB(alpha=1.0, fit_prior=True, class_prior=None)` | Naive Bayes classifier for multinomial models | [Text][585] |
+| `nbclf.fit(X, y, sample_weight=None)` | Fit Gaussian Naive Bayes according to `X`, `y` | [Naive Bayes][581], [Text][585] |
+| `nbclf.predict(X)` | Perform classification on an array of test vectors `X` | [Naive Bayes][581], [Text][585] |
 | `nbclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Naive Bayes][581] |
 | `rfclf = RandomForestClassifier(n_estimators=10, criterion='gini', *args)` | A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and use averaging to improve the predictive accuracy and control over-fitting. | [Random Forest][582] |
 | `rfclf.fit(X, y, sample_weight=None)` | Build a forest of trees from the training set (X, y) | [Random Forest][582] |
@@ -1063,8 +1072,15 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `mlpclf.fit(X, y)` | Fit the model to data matrix X and target(s) y | [NN][584] |
 | `mlpclf..predict(X)` | Predict using the multi-layer perceptron classifier | [NN][584] |
 | `mlpclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [NN][584] |
-
-
+| `nltknbclf = NaiveBayesClassifier(label_probdist, feature_probdist)` | A Naive Bayes classifier | [Text][585] |
+| `nltknbclf.train(labeled_featuresets, *args)` | model training | [Text][585] |
+| `nltknbclf.classify(featureset)` | return the most appropriate label for the given featureset | [Text][585] |
+| `nltknbclf.classify_many(featuresets)` | Apply `self.classify()` to each element of `featuresets` | [Text][585] |
+| `nltknbclf.labels()` | return the list of category labels used by this classifier | [Text][585] |
+| `nltknbclf.show_most_informative_features(self, n=10)` | Display most $n$ informative features | [Text][585] |
+| `nltk.classify.util.accuracy(classifier, gold)` | Accuracy of model | [Text][585] |
+| `skclf = SklearnClassifier(estimator, dtype=<class 'float'>, sparse=True)` | Wrapper for scikit-learn classifiers | [Text][585] |
+| `slclf.train(self, labeled_featuresets)` | Train (fit) the scikit-learn estimator | [Text][585] |
 
 
 ## Regression
@@ -1155,7 +1171,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `accuracy_score(y_true, y_pred, *args*)` | Accuracy classification score | [Evaluation Metrics][575] |
 | `precision_score(y_true, y_pred, *args*)` | The precision is the ratio $tp / (tp + fp)$ where $tp$ is the number of true positives and $fp$ the number of false positives. | [Evaluation Metrics][575] |
 | `recall_score(y_true, y_pred, *args*)` | The recall is the ratio $tp / (tp + fn)$ where $tp$ is the number of true positives and $fn$ the number of false negatives. | [Evaluation Metrics][575] |
-| `f1_score(y_true, y_pred, *args*)` | The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. | [Evaluation Metrics][575] |
+| `f1_score(y_true, y_pred, *args*)` | The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. | [Evaluation Metrics][575], [Text][585] |
 | `classification_report(y_true, y_pred, *args*)` | Build a text report showing the main classification metrics | [Evaluation Metrics][575] |
 | `precision_recall_curve(y_true, probas_pred, *args*)` | Compute precision-recall pairs for different probability thresholds | [Decision Functions][576] |
 | `roc_curve(y_true, y_score, *args*)` | Compute Receiver operating characteristic (ROC) | [ROC Curves][577] |
@@ -1168,7 +1184,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 ------------------------------
 <!-- 
-[585]: 
+[585]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#learning-text-classifiers-in-python
 [586]: 
 [587]: 
 [588]: 
