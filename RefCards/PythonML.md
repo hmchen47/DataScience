@@ -978,7 +978,9 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 + Library Import 
     ```python
-    from sklearn.preprocessing import MinMaxScaler          # scaler
+    from sklearn.preprocessing import MinMaxScaler              # scaler
+    from sklearn.feature_extraction.text import CountVectorizer # countvec
+    from sklearn.feature_extraction.text import TfidfVectorizer # tfidfvec
     ```
 
 | Function | Description | Link |
@@ -986,7 +988,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `MinMaxScaler(feature_range=(0, 1), copy=True)` | Transforms features by scaling each feature to a given range | [Supervised ML][565] |
 | `scaler.fit_transform(X, y=None, **fit_params)` | Fit to data, then transform it | [Supervised ML][565] |
 | `scaler.transform(X)` | Scaling features of X according to feature_range | [Supervised ML][565] |
-
+| `countvec = CountVectorizer(input='content', *args)` | Convert a collection of text documents to a matrix of token counts | [Text Demo][586] |
+| `countvec.fit(raw_documents, y=None)` | Learn a vocabulary dictionary of all tokens in the raw documents | [Text Demo][586] |
+| `countvec.get_feature_names()` | Array mapping from feature integer indices to feature name | [Text Demo][586] |
+| `countvec.transform(raw_documents)` | Transform documents to document-term matrix | [Text Demo][586] |
 
 
 
@@ -1017,7 +1022,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 + Library Import 
     ```python
-    # Classifier & Regression
+    # Numeric Analysis
     from sklearn.neighbors import KNeighborsClassifier          # knn
     from sklearn.svm import SVC                                 # svc
     from sklearn.svm import LinearSVC                           # linsvc
@@ -1029,8 +1034,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
     # Text Mining
     from sklearn.naive_bayes import MultinomialNB               # mnnbclf
-    from nltk.classify import NaiveBayesClassifier
-    from nltk.classify import SklearnClassifier
+    from nltk.classify import NaiveBayesClassifier              # nltknbclf
+    from nltk.classify import SklearnClassifier                 # skclf
     ```
 
 | Function | Description | Link |
@@ -1080,12 +1085,14 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `nltknbclf.show_most_informative_features(self, n=10)` | Display most $n$ informative features | [Text][585] |
 | `nltk.classify.util.accuracy(classifier, gold)` | Accuracy of model | [Text][585] |
 | `skclf = SklearnClassifier(estimator, dtype=<class 'float'>, sparse=True)` | Wrapper for scikit-learn classifiers | [Text][585] |
-| `slclf.train(self, labeled_featuresets)` | Train (fit) the scikit-learn estimator | [Text][585] |
+| `slclf.train(labeled_featuresets)` | Train (fit) the scikit-learn estimator | [Text][585] |
+
+
 
 
 ## Regression
 
-+ Library Import 
++ Library Import
     ```python
     from sklearn.neighbors import KNeighborsRegressor           # knnreg
     from sklearn.linear_model import LinearRegression           # linreg
@@ -1185,7 +1192,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 ------------------------------
 <!-- 
 [585]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#learning-text-classifiers-in-python
-[586]: 
+[586]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#demonstration-case-study---sentiment-analysis
 [587]: 
 [588]: 
 [589]: 
