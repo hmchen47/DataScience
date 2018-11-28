@@ -456,7 +456,10 @@
 
 ## Notebook: Case Study - Sentiment Analysis
 
-
++ [Launch Web Page](https://www.coursera.org/learn/python-text-mining/notebook/9qZS4/case-study-sentiment-analysis)
++ [Web Notebook](https://hub.coursera-notebooks.org/user/dfxbyieeexzfjsmxjreyig/notebooks/Case%20Study%20-%20Sentiment%20Analysis.ipynb)
++ [Local Notebook](notebooks/03-Case+Study+-+Sentiment+Analysis.ipynb)
++ [Local Python Code](notebooks/03-Case+Study+-+Sentiment+Analysis.py)
 
 
 ## Demonstration: Case Study - Sentiment Analysis
