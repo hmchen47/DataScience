@@ -979,6 +979,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 + Library Import 
     ```python
     from sklearn.preprocessing import MinMaxScaler              # scaler
+
+    # Text Mining
     from sklearn.feature_extraction.text import CountVectorizer # countvec
     from sklearn.feature_extraction.text import TfidfVectorizer # tfidfvec
     ```
@@ -992,7 +994,10 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `countvec.fit(raw_documents, y=None)` | Learn a vocabulary dictionary of all tokens in the raw documents | [Text Demo][586] |
 | `countvec.get_feature_names()` | Array mapping from feature integer indices to feature name | [Text Demo][586] |
 | `countvec.transform(raw_documents)` | Transform documents to document-term matrix | [Text Demo][586] |
-
+| `tfidfvec = TfidfVectorizer(input='content', *args)` | Convert a collection of raw documents to a matrix of TF-IDF features | [Text Demo][586] |
+| `tfidfvec.fit(raw_documents, y=None)` | Learn vocabulary and idf from training set | [Text Demo][586] |
+| `tfidfvec.get_feature_names(self)` | Array mapping from feature integer indices to feature name | [Text Demo][586] |
+| `tfidfvec.transform(raw_documents, copy=True)` | Transform documents to document-term matrix | [Text Demo][586] |
 
 
 ## Model Selcetion
@@ -1082,7 +1087,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `nltknbclf.classify(featureset)` | return the most appropriate label for the given featureset | [Text][585] |
 | `nltknbclf.classify_many(featuresets)` | Apply `self.classify()` to each element of `featuresets` | [Text][585] |
 | `nltknbclf.labels()` | return the list of category labels used by this classifier | [Text][585] |
-| `nltknbclf.show_most_informative_features(self, n=10)` | Display most $n$ informative features | [Text][585] |
+| `nltknbclf.show_most_informative_features(n=10)` | Display most $n$ informative features | [Text][585] |
 | `nltk.classify.util.accuracy(classifier, gold)` | Accuracy of model | [Text][585] |
 | `skclf = SklearnClassifier(estimator, dtype=<class 'float'>, sparse=True)` | Wrapper for scikit-learn classifiers | [Text][585] |
 | `slclf.train(labeled_featuresets)` | Train (fit) the scikit-learn estimator | [Text][585] |
@@ -1191,8 +1196,6 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 ------------------------------
 <!-- 
-[585]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#learning-text-classifiers-in-python
-[586]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#demonstration-case-study---sentiment-analysis
 [587]: 
 [588]: 
 [589]: 
@@ -1896,3 +1899,5 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [582]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#random-forests
 [583]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#gradient-boosted-decision-trees
 [584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
+[585]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#learning-text-classifiers-in-python
+[586]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#demonstration-case-study---sentiment-analysis
