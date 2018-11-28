@@ -578,12 +578,12 @@
     # Sample the data to speed up computation Comment out this line to match with lecture
     df = df.sample(frac=0.1, random_state=10)
     df.head()
-    #                                 Product Name  | Brand Name | Price | Rating | Reviews | Review Votes
-    # 394349 | Sony XPERIA Z2 D6503 FACTORY UNLOCKED Internat... | NaN | 244.95 | 5 | Very good one! Better than Samsung S and iphon... | 0.0
-    # 34377  | Apple iPhone 5c 8GB (Pink) - Verizon Wireless     | Apple | 194.99 | 1 | The phone needed a SIM card, would have been n... | 1.0
-    # 248521 | Motorola Droid RAZR MAXX XT912 M Verizon Smart... | Motorola | 174.99 | 5 | I was 3 months away from my upgrade and my Str... | 3.0
-    # 167661 | CNPGD [U.S. Office Extended Warranty] Smartwat... | CNPGD | 49.99 | 1 | an experience i want to forget | 0.0
-    # 73287  | Apple iPhone 7 Unlocked Phone 256 GB - US Vers... | Apple | 922.00 | 5 | GREAT PHONE WORK ACCORDING MY EXPECTATIONS. | 1.0
+    #                        Product Name        | Brand Name | Price    | Rating |          Reviews               | Review Votes
+    # 394349 | Sony XPERIA Z2 D6503 FACTORY UN.. | NaN        | 244.95   | 5      | Very good one! Better than ... | 0.0
+    # 34377  | Apple iPhone 5c 8GB (Pink) - Ve   | Apple      | 194.99   | 1      | The phone needed a SIM card... | 1.0
+    # 248521 | Motorola Droid RAZR MAXX XT912 .. | Motorola   | 174.99   | 5      | I was 3 months away from my... | 3.0
+    # 167661 | CNPGD [U.S. Office Extended War.. | CNPGD      | 49.99    | 1      | an experience i want to for    | 0.0
+    # 73287  | Apple iPhone 7 Unlocked Phone 2.. | Apple      | 922.00   | 5      | GREAT PHONE WORK ACCORDING     | 1.0
 
     # Drop missing values
     df.dropna(inplace=True)
@@ -595,12 +595,12 @@
     # Encode 1s and 2s as 0 (rated poorly)
     df['Positively Rated'] = np.where(df['Rating'] > 3, 1, 0)
     df.head(10)
-    #                                       Product Name         | Brand Name | Price  | Rating | Reviews | Review Votes | Positively Rated
-    # 34377  | Apple iPhone 5c 8GB (Pink) - Verizon Wireless     | Apple      | 194.99 | 1      | The phone needed a SIM card, would have been n... | 1.0 | 0
-    # 248521 | Motorola Droid RAZR MAXX XT912 M Verizon Smart... | Motorola   | 174.99 | 5      | I was 3 months away from my upgrade and my Str... | 3.0 | 1
-    # 73287  | Apple iPhone 7 Unlocked Phone 256 GB - US Vers... | Apple      | 922.00 | 5      | GREAT PHONE WORK ACCORDING MY EXPECTATIONS. | 1.0 | 1
-    # 167661 | CNPGD [U.S. Office Extended Warranty] Smartwat... | CNPGD      | 49.99  | 1      | an experience i want to forget | 0.0 | 0
-    # 277158 | Nokia N8 Unlocked GSM Touch Screen Phone Featu... | Nokia      | 95.00  | 5      | I fell in love with this phone because it did ... | 0.0 | 1
+    #                       Product Name         | Brand Name | Price  | Rating | Reviews                          | Votes | Positively Rated
+    # 34377  | Apple iPhone 5c 8GB (Pink) - Ve   | Apple      | 194.99 | 1      | The phone needed a SIM card, ... | 1.0   | 0
+    # 248521 | Motorola Droid RAZR MAXX XT912 .. | Motorola   | 174.99 | 5      | I was 3 months away from my  ... | 3.0   | 1
+    # 73287  | Apple iPhone 7 Unlocked Phone 2.. | Apple      | 922.00 | 5      | GREAT PHONE WORK ACCORDING M     | 1.0   | 1
+    # 167661 | CNPGD [U.S. Office Extended War.. | CNPGD      | 49.99  | 1      | an experience i want to forg     | 0.0   | 0
+    # 277158 | Nokia N8 Unlocked GSM Touch Scr.. | Nokia      | 95.00  | 5      | I fell in love with this pho ... | 0.0   | 1
     # ... (omitted rows)
 
     # Most ratings are positive
@@ -616,7 +616,6 @@
     print('\n\nX_train shape: ', X_train.shape)
     # X_train first entry:
     #      Everything about it is awesome!
-    # 
     # X_train shape:  (23052,)
 
     # # CountVectorizer
@@ -639,7 +638,6 @@
     # Train the model
     model = LogisticRegression()
     model.fit(X_train_vectorized, y_train)
-
     # LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
     #           intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
     #           penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
@@ -666,12 +664,12 @@
     # Smallest Coefs:
     # ['worst' 'terrible' 'slow' 'junk' 'poor' 'sucks' 'horrible' 'useless'
     #  'waste' 'disappointed']
-    # 
+    #
     # Largest Coefs: 
     # ['excelent' 'excelente' 'excellent' 'perfectly' 'love' 'perfect' 'exactly'
     #  'great' 'best' 'awesome']
 
-    # # Tfidf
+    # # Tfidf = Term Frequency-Inverse document frequency
     from sklearn.feature_extraction.text import TfidfVectorizer
 
     # Fit the TfidfVectorizer to the training data specifiying a minimum document frequency of 5
@@ -728,12 +726,10 @@
     model.fit(X_train_vectorized, y_train)
 
     predictions = model.predict(vect.transform(X_test))
-
     print('AUC: ', roc_auc_score(y_test, predictions))
     # AUC:  0.91106617946
 
     feature_names = np.array(vect.get_feature_names())
-
     sorted_coef_index = model.coef_[0].argsort()
 
     print('Smallest Coefs:\n{}\n'.format(feature_names[sorted_coef_index[:10]]))
@@ -755,7 +751,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/JQLBambEEeeA5grXB1EKyA.processed/full/360p/index.mp4?Expires=1543536000&Signature=c~IDtGDP-ib7kyddBdiVZqc~KkGmrIqEhHHSp08~3-79em08Ku6Vj-goypm11XDAh5k-VAUyV~J24ogtzL7KXZ2w3X-4kW0Vm~EiSsfQ~-Vbgt6bFUcA2~wHwEG0bfB~kmNsvBLJJjKHeDzezGhETlPqsLQSRzAKZrD2s6yC6ms_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Demonstration: Case Study - Sentiment Analysis" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
