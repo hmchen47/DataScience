@@ -1517,7 +1517,19 @@ If you're just interested in getting a little more background on the problem alo
 
 Kaufman, S., Rosset, S., & Perlich, C. (2011). [Leakage in data mining](http://www.cs.umb.edu/~ding/history/470_670_fall_2011/papers/cs670_Tran_PreferredPaper_LeakingInDataMining.pdf). Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining - KDD '11. doi:10.1145/2020408.2020496
 
-
++ [Introduction](p3-Leakage.md#introduction)
++ [Leakage in the KDD Literature](p3-Leakage.md#leakage-in-the-kdd-literature)
++ [Formulation](p3-Leakage.md#formulation)
+    + [Preliminaries and Legitimacy](p3-Leakage.md#preliminaries-and-legitimacy)
+    + [Leaking Feature](p3-Leakage.md#leaking-feeature)
+    + [Leakage in Training Examples](p3-Leakage.md#leakage-in-training-examples)
+    + [Discussion](p3-Leakage.md#discussion)
++ [Avoidance](p3-Leakage.md#avoidance)
+    + [Methodology](p3-Leakage.md#methodology)
+    + [External Leakage in Comparisons](p3-Leakage.md#external-leakage-in-comparisons)
++ [Detection](p3-Leakage.md#detection)
++ [(Not) Fixing Leakage](p3-Leakage.md#not-fixing-leakaging)
++ [Conclusion](p3-Leakage.md#conclusion)
 
 ## Data Leakage Example: The ICML 2013 Whale Challenge (optional)
 
