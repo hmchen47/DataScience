@@ -87,6 +87,36 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 ### Preliminaries and Legitimacy
 
++ Notations:
+    + ${\mathcal W} = ({\mathcal X}, {\mathcal Y})$: multivariate random process
+    + $\mathcal Y$: the outcome or target generating process
+    + $y$: sample target instances
+    + $\mathcal X$: the feature-vector generating process
+    + $X$: a feature-vector instance
+    + $\bf X$: a feature-vector realization
+    + ${\mathcal x} \in {\mathcal X}$: individual feature generating processes
+    + $x \in X$: instances
+    + $\bf x \in X$: realizations
+    + $\bf W_tr$: the training samples, a separate group of samples
+    + $u, v$: random variables
+
++ ${\mathcal W}$-related instances: specific instances $x_0$ and $y_0$ taken from the same instance of ${\mathcal W}$
+
++ Modeler's goal: statistically infer a target instance from its associated feature-vector instance in $\mathcal W$ and from a separate group of samples of $\mathcal W$
+
++ Solution: $\hat y = \mathbb M (X, \bf W_tr)$
+
++ Model's observational inputs for predicting $y$: $X$ and $\bf W_th$
+
++ Models containing leaks are a subclass of the broader concept of illegitimate or unacceptable models. At this level, __legitimacy__, which is a key concept in our formulation of leakage, is completely abstract. Every modeling problem sets its own rules for what constitutes a legitimate or acceptable solution and different problems, even if using the same data, may have wildly different views on legitimacy.
+
++ Leakage: a specific form of illegitimacy that is an intrinsic property of the observational inputs of a model
+
++ $v \in legit\{u\}$: $v$ is $u$-legitimate if $v$ is observable to the client for the purpose of inferring $u$
+
++ The trivial legitimacy rule: the target itself must never be used for inference: $y \not\in legit\{y\}$
+
++ A model contains leaks wrt. a target instance if one or more of its observational inputs are $y$-illegitimate. The model inherits the illegitimacy property from the _features_ and _training examples_ it uses.
 
 
 ### Leaking Feature
