@@ -114,12 +114,69 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 + $v \in legit\{u\}$: $v$ is $u$-legitimate if $v$ is observable to the client for the purpose of inferring $u$
 
-+ The trivial legitimacy rule: the target itself must never be used for inference: $y \not\in legit\{y\}$
++ The trivial legitimacy rule: the target itself must never be used for inference: Cond.(1)
 
-+ A model contains leaks wrt. a target instance if one or more of its observational inputs are $y$-illegitimate. The model inherits the illegitimacy property from the _features_ and _training examples_ it uses.
+    $$y \not\in legit\{y\}$$
+
++ A model contains leaks w.r.t. a target instance if one or more of its observational inputs are $y$-illegitimate. The model inherits the illegitimacy property from the _features_ and _training examples_ it uses.
 
 
 ### Leaking Feature
+
++ Extend abstract definition of legitimacy to the case of random processes:
+    + ${\mathcal u, v}$: some random processes
+    + $\mathcal v \in legit\{u\}$: $\mathcal v$ is $\mathcal u$-legitimate; for every pair of instances of $\mathcal u$ and $\mathcal v$, $\mathcal u$ and $\mathcal v$ respectively, which are $\mathcal W$-related
+    + Leaking features covered by a simple condition for the absent of leakage: Cond.(2)
+
+        $$\forall x \in {\mathcal X}, x \in legit\{{\mathcal Y}\}$$
+
+    + Any feature made available by the data preparation process is deemed legitimate by the precise formulation of the modeling problem at hand, instance by instance w.r.t. its matching target.
+
++ No-time-machine requirement
+    + Implicitly required that a legitimate model only build on features with information from a time earlier (or sometimes, no later) than that of the target
+    + $\mathcal x, y$: random processes over some time axis (not necessarily physical time)
+    + Prediction is required by the client for the target process $y$ at times $t_y$, and their $\mathcal W$-related feature process $x$ is observable to the client at times $t_x$.
+    + Rule: Cond.(3)
+
+        $$ legit\{y\} \subseteq \{ x \in {\mathcal X} | t_x < t_y\}$$
+
+        + Any legitimate feature w.r.t. the target process is a member of the right hand side set of features.
+        + The right hand side is the set of all features whose every instance is observed earlier than its $\mathcal W$-related target instance.
+        + Assume that $\mathcal X$ contains all possible features
+        + "$\subseteq$": additional legitimacy constraints might be also apply (otherwise "$=$" could be used)
+
++ Extension: 
+    + require features to be observable a sufficient period of time prior to $t_y$ as in (4) below in order to preclude any information that is an immediate trigger of the target.
+    + Sometimes it is too limiting to think of the target as pertaining to a point-in-time, only to a rough interval.
+    + Example: "heavy spender" from "Ten supplementary analyses to improve e-commerce web sites"
+        + With legitimacy defined as (3) (or as (4) when $\tau = 0$) a model may be built that uses the purchase of a diamond to conclude that the customer is a big spender but with sufficiently large this is not allowed.
+        + This transforms the problem from identification of “heavy spenders” to the suggested identification of “migrators”.
+    + Cond.(4)
+
+        $$legit\{y\} \subseteq \{x \in {\mathcal X} | t_x < t_y - \tau\}$$
+
++ Memory limitation
+    + A model may not use information older than a time relative to that of the target: Cond.(5)
+
+        $$legit\{y\} \subseteq \{x \in {\mathcal X} | t_y - \tau < t_x < t_y\}$$
+
+    + A requirement to use exactly $n$ features from a specified pool $\mathcal X_p$ of preselected features: Cond.(6)
+
+        $$legit\{y\} \subseteq \{[ x_1, \ldots, x_n] | \forall k, x_k \in {\mathcal X_p}, k \text{ unique}\}$$
+
+    + Variant: only the features selected for a specific provided dataset are considered legitimate.
+    + Sometimes allow free use of the entire set: Cond.(7)
+
+        $$legit\{y\} \subseteq {\mathcal X_p}$$
+
+    + Combining (7) with (3): Cond.(8)
+
+        $$legit\{y\} \subseteq \{x \in {\mathcal X_p} | t_x < t_y \}$$
+
++ Most documented cases of leakage mentioned in literature are covered by condition (2) in conjunction with a no-time-machine requirement as in (3).
+    + In the trivial example of predicting rainy days, the target is an illegitimate feature since its value is not observable to the client when the prediction is re-quired (say, the previous day).
+    + The pneumonia detection database in the INFORMS 2008 challenge implies that a certain combination of missing diagnosis code and some other features is highly informative of the target.
+    + Conditions (2) and (3) similarly apply to the account number and interviewer name examples, the session length, the immediate and indirect triggers, and the web-site based features used by IBM
 
 
 
