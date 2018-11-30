@@ -197,6 +197,62 @@
         # 0            c     1.0
         ```
 
++ [Question 11 (Q11)](https://www.coursera.org/learn/python-text-mining/discussions/weeks/3/threads/5793y4PfEee6eQpzQFu5YA)
+
+    + Jim Soiland init
+
+        I've searched all the other threads regarding this topic and I'm just not seeing where I'm going wrong! I've got all the others right so I'm just pounding my head trying to get this guy correct, as well.
+
+        Steps taken:
+
+        1. Created CountVectorizer with parameters set min=5, ngram_range=(2,5) and analyzer set per instructions. Fitted on X_Train, then transformed Xtrain/test. Feature names extracted and synthetic feature names added upfront.
+        2. Series objects created for each necessary xtrain/xtest function (char-length, digits, and special chars). Each series is appended to the feature matrix with course-supplied function.
+        3. Logistic Regression model fitted with C=100 to augmented train data.
+        4. Model coefficients and feature names zipped together and converted to dataframe. Dataframe gets sorted by coefficient value. Get the first ten feature names from the dataframe as the smallest features, then get the last ten feature names (and reverse them) as the largest features. I've also tried sorting the dataframe by the coefficients' absolute value. Still no dice.
+        Does anyone see anything glaring in my approach? I'm really scratching my head here!
+
+        Answer: (.991...86, [' .','..',...,' m'],['digit_count',...,'ar'])
+
+    + Valdimir reply
+
+        A correct way to add new feature names to a list: using np.append. Please note that np.append returns a copy of the original array, hence for the change to take place it should be assigned to a feature list!
+
+        Like this: `feature_names = np.append(feature_names, ['name1','name2','name3'])`
+
+    + Marcus Fischer Reply
+
+        just in case you haven't solved the problem yet. To me it seems like you didn't manage to add the features to the vectorisations of X_train and X_test or you are simply not using them in your computations.
+
+        Try something like:
+
+        X_train_addfeatures = add_feature(X_train_vect, [len_doc, # of digits, # of non_words])
+
+        X_test_addfeatures= add_feature(X_test_vect, [len_doc, # of digits, # of non_words])
+
+        Then use X_train_addfeatures and X_test_addfeatures to compute the AUC_score using the setup you described above.
+
+        Ultimately, you should be able to extract the feature names of the smallest coefficients by simply using:
+
+        sorted_coef_index_min = clf.coef_[0].argsort()
+
+        To reverse the descending order of this array you just have to add [::-1] to argsort().
+
+        sorted_coef_index_max = clf.coef_[0].argsort()[::-1]
+
+        Now you should be ready to go. However, don't forget to convert the resulting np.arrays to python list before you submit your assignment. ;-)
+
++ [Hints for Q11](https://www.coursera.org/learn/python-text-mining/discussions/weeks/3/threads/OlPMVljnEei6sA7UYifM3A)
+
+    Dear all,
+
+    I had some troubles with Q11, after reading the previous posts I could not find the bug. I was convinced I was doing something wrong with the list.
+
+    Finally I realised that I was too fast coping from the previous answers I provided. So my errors came from not correctly applying the instruction ...
+
+    + I was not using the Count Vectorizer but the TfidfVectorizer as in q9
+    + I haven't pass in analyzer='char_wb'
+
+
 
 ## Solution
 
