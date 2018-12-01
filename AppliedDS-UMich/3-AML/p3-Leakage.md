@@ -116,7 +116,7 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 + The trivial legitimacy rule: the target itself must never be used for inference: Cond.(1)
 
-    $$y \not\in legit\{y\}$$
+    $$y \notin legit\{y\}$$
 
 + A model contains leaks w.r.t. a target instance if one or more of its observational inputs are $y$-illegitimate. The model inherits the illegitimacy property from the _features_ and _training examples_ it uses.
 
@@ -179,12 +179,34 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
     + Conditions (2) and (3) similarly apply to the account number and interviewer name examples, the session length, the immediate and indirect triggers, and the web-site based features used by IBM
 
 
-
 ### Leakage in Training Examples
 
++ Trying to predict the level of a white noise process $\mathcal y_t$ for $t = [101, 102, \ldots, 200]$, clearly a hopeless task.
 
++ For the purpose of predicting $\mathcal y_t$, itself is a legitimate feature but otherwise, as in (3), only past information is deemed legitimate – so obviously we cannot cheat. 
+
++ Consider a model trained on examples $\bf W_t$ taken from $t = [1, 2, \ldots, 200]$. The proposed model is ${\hat y}_t = \mathbb{M}(t, {\bf W_{tr}})$, a table containing for each $\bf t$ the target's realized value $\bf y_t$. Strictly speaking, the only feature used by this model, $\mathcal t$, is legitimate.
+
++ Adding to (2) the following condition for the absence of leakage: For all $y \in Y_{ev}$, [Cond.(9)]
+
+    $$\forall X \in X_{tr}, X \in legit\{y\} \wedge \forall \tilde{y} \in Y_{tr}, \tilde{y} \in legit\{y\}$$
+
+    + $Y_{ev}$: the set of evaluation target instances
+    + $Y_{tr}, X_{tr}$: the sets of training targets and feature-vectors
+    + $\bf W_{tr}$: the set of training examples formed with realizations of $Y_{tr}, X_{tr}$
+
++ Interpretation: the information presented for training as constant features embedded into the model, and added to every feature-vector instance the model is called to generate a prediction for.
+
++ For modeling problems where the usual i.i.d. instances assumption is valid, and when without loss of generality considering all information specific to the instance being predicted as features rather than examples, condition (9) simply reduces to condition (2) since irrelevant observations can always be considered legitimate.
+
++ When dealing with problems exhibiting non-stationarity, a.k.a. concept-drift, and more specifically the case when samples of the target (or, within a Bayesian framework, the target/feature) are not mutually independent, condition (9) cannot be reduced to condition (2).
+
++ Example: Available information about the number of reviews given to a group of titles for the "who reviewed what" task is not statistically independent of the number of reviews given to the second group of titles which is the target in the “how many ratings” task.
+
++ Without proper conditioning on these shared ancestors we have potential dependence, and because most of these ancestors are unobservable, and difficult to find observable proxies for, dependence is bound to occur.
 
 ### Discussion
+
 
 
 
