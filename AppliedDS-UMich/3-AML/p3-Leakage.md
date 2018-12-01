@@ -233,7 +233,33 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 ### Methodology
 
++ Two stage process of tagging every observation
+    1. _legitimacy tags_ during collection
+    2. observing _learn-predict separation_
 
++ At the most basic level suitable for handling the more general case of leakage in training examples, legitimacy tags (or hints) are ancillary data attached to every pair $(x, y)$ of observational input instance $x$ and target instance $y$, sufficient for answering the question "is $x$ legitimate for inferring $y$" under the problem's definition of legitimacy.
+
++ The learn-predict separation paradigm
+    <a href="https://www.researchgate.net/publication/221653692_Leakage_in_Data_Mining_Formulation_Detection_and_Avoidance/figures?lo=1"> <br/>
+        <img src="https://www.researchgate.net/profile/Claudia_Perlich/publication/221653692/figure/fig1/AS:651594077069312@1532363542681/An-illustration-of-learn-predict-separation_W640.jpg" alt="the modeler uses the raw but tagged data to construct training examples in such a way that (i) for each target instance, only those observational inputs which are purely legitimate for predicting it are included as features, and (ii) only observational inputs which are purely legitimate with all evaluation targets may serve as examples." title="An illustration of learn-predict separation" height="300">
+    </a>
+    + The modeler uses the raw but tagged data to construct training examples in such a way 
+        1. for each target instance, only those observational inputs which are purely legitimate for predicting it are included as features, and
+        2. only observational inputs which are purely legitimate with all evaluation targets may serve as examples.
+
++ To completely prevent leakage by design decisions, the modeler has to be careful not to even get exposed to information beyond the separation point, for this we can only prescribe self-control.
+
++ _Prediction about the future_
+    + Legitimacy tagging implemented by time-stamping every observation
+    + Learn-predict separation implemented by a cut at some point in time that segments training from evaluation examples
+
++ Updates to database records are usually not time-stamped and not stored separately, and at best whole records end up with one time-stamp. Records are then translated into examples, and this loss of information is often the source of all evil that allows leakage to find its way into predictive models.
+
++ INFORMS 2008 Data Mining Challenge
+    + Lacked proper time-stamping, causing observations taken before and after the target's time-stamp to end up as components of examples.
+    + Made time-separation impossible, and models built on this data did not perform prediction about the future.
+
++ The fact that training data exposed by the organizers for the separate "Who Reviewed What" task contained leakage was due to an external source of leakage, an issue related with data mining competitions.
 
 ### External Leakage in Comparisons
 
