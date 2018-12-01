@@ -207,7 +207,26 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 ### Discussion
 
++ Leakage in training examples is not limited to the explicit use of illegitimate examples in the training process.
 
++ A more dangerous way: illegitimate examples may creep in and introduce leakage is through design decisions
+
++ Access to illegitimate data about the deployment population, but there is no evidence in training data to support this knowledge. This might prompt us to use a certain modeling approach that otherwise contains no leakage in training examples but is still illegitimate.
+
++ Examples to access to illegitimate data 
+    1. selecting or designing features that will have predictive power in deployment, but don‟t show this power on training examples,
+    2. algorithm or parametric model selection, and
+    3. meta-parameter value choices
+
++ In some domains such as time series prediction, where typically only a single history measuring the phenomenon of interest is available for analysis, this form of leakage is endemic and commonly known as _data snooping / dredging_.
+
++ Arguably, more often than not the modeler might find it very challenging to define, together with the client, a complete set of such legitimacy guidelines prior to any modeling work being undertaken, and specifically prior to performing preliminary evaluation.
+
++ It should usually be rather easy to provide a coarse definition of legitimacy for the problem, and a good place to start is to consider model use cases.
+
++ The specification of any modeling problem is really incomplete without laying out these ground rules of what constitutes a legitimate model.
+
++ The major challenge becomes preparing the data in such a way that ensures models built on this data would be leakage free. Alternatively, when we do not have full control over data collection or when it is simply given to us, a methodology for detecting when a large number of seemingly innocent pieces of information are in fact plagued with leakage is required.
 
 
 ## Avoidance
