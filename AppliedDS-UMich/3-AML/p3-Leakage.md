@@ -263,6 +263,30 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 ### External Leakage in Comparisons
 
++ External leakage: when some data source other than what is simply given by the client (organizer) for the purpose of performing inference, contains leakage and is accessible to modelers (competitors)
+
++ Examples:
+    + KDD-Cup 2007 “How Many Reviews” task
+    + the INFORMS 2010 financial forecasting challenge
+    + the IJCNN 2011 Social Network Challenge
+
++ Other data are even considered is indeed a competition issue, or in some cases an issue of a project organized like a competition
+
++ Ulterior conflict of interest
+    + do not want competitors to cheat and use illegitimate data
+    + welcome insightful competitors suggesting new ideas for sources of information
+
++ Conflicting: when one admits not knowing which sources could be used, one also admits she can't provide an air-tight definition of what she accepts as legitimate.
+
++ Solution: separate the task of suggesting broader legitimacy definitions for a problem from the modeling task that fixes the current understanding of legitimacy
+
++ Competitions should just choose one task, or have two separate challenges: one to suggest better data, and one to predict with the given data only.
+
++ live prediction: one approach for the first task
+
++ When the legitimacy definition for a data mining problem is isomorphic to the no-time-machine legitimacy definition (3) of predictive modeling, we can sometimes take advantage of the fact that a learn-predict separation over time is physically impossible to circumvent.
+
++ Example: the IJCNN Social Network Challenge could have asked to predict new edges in the network graph a month in advance, instead of synthetically removing edges from an existing network which left traces and the online original source for competitors to find.
 
 
 ## Detection
