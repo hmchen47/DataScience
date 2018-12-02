@@ -1609,12 +1609,13 @@ This optional reading is intended mainly for software engineers who want to buil
 
 http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
 
-
-+ Before Machine Learning
++ [Terminology](p4-MLRules.md#terminology)
++ [Overview](p4-MLRules.md#overview)
++ [Before Machine Learning](p4-MLRules.md#before-machine-learning)
     + [Rule #01](p4-MLRules.md#rule-01): Don’t be afraid to launch a product without machine learning.
     + [Rule #02](p4-MLRules.md#rule-02): Make metrics design and implementation a priority.
     + [Rule #03](p4-MLRules.md#rule-03): Choose machine learning over a complex heuristic.
-+ ML Phase I: Your First Pipeline
++ [ML Phase I: Your First Pipeline](p4-MLRules.md#ml-phase-i-your-first-pipeline)
     + [Rule #04](p4-MLRules.md#rule-04): Keep the first model simple and get the infrastructure right.
     + [Rule #05](p4-MLRules.md#rule-05): Test the infrastructure independently from the machine learning.
     + [Rule #06](p4-MLRules.md#rule-06): Be careful about dropped data when copying pipelines.
