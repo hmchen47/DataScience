@@ -310,7 +310,7 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
     + Any substantial leakage would be reflected as a difference between estimated and realized out-of-sample performance.
     + In fact a sanity check of the model's generalization capability, and while this would work well for many cases, other issues can make it challenging or even impossible to isolate the cause of such performance discrepancy as leakage: classical over-fitting, tangible concept-drift, issues with the design of the field-test such a sampling bias and so on.
 
-+ Fundamental problem with the methods for leakage detection: 
++ Fundamental problem with the methods for leakage detection:
     + all require some degree of domain knowledge
     + EDA: need to know if a good predictor is reasonable
     + comparison of model performance to alternative models or prior state-of-art models requires knowledge of the previous results
@@ -319,8 +319,26 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 ## (Not) Fixing Leakage
 
++ Dealing with detected leakage:
+    + Best-case scenario: take a step back, get access to raw data with intact legitimacy tags, and use a learn-predict separation to reconstruct a leakage-free version of the problem.
+    + Second-best scenario: intact data is not available but the modeler can afford to fix the data collection process and postpone the project until leakage-free data become available.
+    + Final scenario: make do with that which is available
 
++ Because of structural constraints at work, leakage can be some-what localized in samples. When the model is used in the field, by definition all observations are legitimate and there can be no active leaks.
+
++ For some problems, living with leakage without attempting to fix it could work.
+
++ Without explicit legitimacy tags in the data, it is often impossible to figure out the legitimacy of specific observations and/or features even if it is obvious that leakage has occurred.
+
++ Usually, where there is one leaking feature, there are more. Removing the "obvious" leaks that are detected may exacerbate the effect of undetected ones.
+    + Feature removal: succeeds only in very few and simple scenarios to completely eradicate leaks.
+    + Feature modification: INFORMS 2008 in an attempt to plug obvious leaks, which clearly created others
+    + Instance removal: left some unintended traces as in organization of INFORMS 2009
+
++ Further research into general methodology for lea-kage correction is indeed required.
 
 ## Conclusion
+
+
 
 
