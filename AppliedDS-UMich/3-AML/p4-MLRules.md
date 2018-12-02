@@ -28,26 +28,88 @@ Author: Martin Zinkevich @ Google
 
 ### Rule #1: Don’t be afraid to launch a product without machine learning.
 
++ If you think that machine learning will give you a 100% boost, then a heuristic will get you 50% of the way there.
+
++ If machine learning is not absolutely required for your product, don't use it until you have data.
+
 
 ### Rule #2: Make metrics design and implementation a priority.
+
++ Track as much as possible in your current system.
+    1. It is easier to gain permission from the system’s users earlier on.
+    2. If you think that something might be a concern in the future, it is better to get historical data now.
+    3. If you design your system with metric instrumentation in mind, things will go better for you in the future.
+    4. You will notice what things change and what stays the same.
+
++ Note that an experiment framework, where you can group users into buckets and aggregate statistics by experiment, is important.
+
++ By being more liberal about gathering metrics, you can gain a broader picture of your system.
 
 
 ### Rule #3: Choose machine learning over a complex heuristic.
 
++ A simple heuristic can get your product out the door. 
+
++ A complex heuristic is unmaintainable.
+
++ The machine-learned model is easier to update and maintain.
+
 
 ## ML Phase I: Your First Pipeline
 
-
 ### Rule #4: Keep the first model simple and get the infrastructure right.
+
++ The first model provides the biggest boost to your product, so it doesn't need to be fancy.
+
++ Before anyone can use your fancy new machine learning system, you have to determine:
+    1. How to get examples to your learning algorithm.
+    2. A first cut as to what “good” and “bad” mean to your system.
+    3. How to integrate your model into your application.
+
++ Choosing simple features makes it easier to ensure that:
+    1. The features reach your learning algorithm correctly.
+    2. The model learns reasonable weights.
+    3. The features reach your model in the server correctly.
+
++ Simple model provides you with baseline metrics and a baseline behavior that you can use to test more complex models.
 
 
 ### Rule #5: Test the infrastructure independently from the machine learning.
 
++ Make sure that the infrastructure is testable, and that the learning parts of the system are encapsulated so that you can test everything around it.
+
++ Test getting data into the algorithm.
+    + Check that feature columns that should be populated are populated.
+    + Where privacy permits, manually inspect the input to your training algorithm.
+    + If possible, check statistics in your pipeline in comparison to elsewhere, such as RASTA.
+
++ Test getting models out of the training algorithm. Make sure that the model in your training environment gives the same score as the model in your serving environment.
+
++ Machine learning has an element of unpredictability, so make sure that you have tests for the code for creating examples in training and serving, and that you can load and use a fixed model during serving.
+
 
 ### Rule #6: Be careful about dropped data when copying pipelines.
 
++ Often we create a pipeline by copying an existing pipeline (i.e. cargo cult programming), and the old pipeline drops data that we need for the new pipeline.
+
++ Log data that was seen by the user is useless if we want to model why a particular post was not seen by the user, because all the negative examples have been dropped.
+
 
 ### Rule #7: Turn heuristics into features, or handle them externally. 
+
++ These same heuristics for an existing system can give you a lift when tweaked with machine learning.
+
++ Mined for whatever information they have
+    + The transition to a machine learned system will be smoother
+    + Usually those rules contain a lot of the intuition about the system you don’t want to throw away
+
++ Four ways to use an existing heuristic:
+    1. Preprocess using the heuristic.
+    2. Create a feature: Directly creating a feature from the heuristic but start by using the raw value produced by the heuristic
+    3. Mine the raw inputs of the heuristic: feeding these inputs of the heuristic  into the learning separately
+    4. Modify the label: the heuristic captures information not currently contained in the label
+
++ Do be mindful of the added complexity when using heuristics in an ML system.
 
 
 ## Monitoring
