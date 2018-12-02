@@ -1537,6 +1537,71 @@ In 2013 a machine learning competition offered a prize for the most accurate det
 
 https://www.kaggle.com/c/the-icml-2013-whale-challenge-right-whale-redux/discussion/4865#25839#post25839
 
++ Some data leakage was found in the first release of the dataset.
+
++ It was possible to get an 0.9973 AUC using only leakage, without reading the audio files we were given.
+
++ Leakage can, of course, undermine the credibility of the leaderboard scores.
+
++ The revision fixed most of the issue, and the algorithm that got 0.9973 on the original dataset (using only leakage) could only achieve a 0.59 AUC on the revised dataset.
+
++ The leakage came from three sources:
+    + The distribution of file lengths (in bytes)
+    + The timestamp embedded in the audio clip filename (focusing mostly on the millisecond field)
+    + The chronological order of the clips (ordered using the full timestamp)
+
++ File Size
+    + After downloading the data and typing a simple “ls -lS”, I noticed that a large number of  audio clip files had both the same size and the same label (i.e. whale vs no-whale).
+    + Histograms of the file sizes, broken down by label
+    + Audio files with whale upcalls turned out to have a very specific set of file sizes.
+    + files without whale upcalls had sizes that looked  much more evenly distributed.
+    <a href="https://www.flickr.com/photos/chef_ele/8835763634/in/dateposted/"> <br/>
+        <img src="https://farm6.staticflickr.com/5442/8835763634_a6d75b0e13_o_d.png" alt="Audio files with whale upcalls turned out to have a very specific set of file sizes (see this “comb-like” histogram  where some files are multiples of 148 bytes plus a constant).  " title="Histogram of Training File Lengths - Whale Labels" height="250">
+    </a>
+    <a href="https://www.flickr.com/photos/chef_ele/8835134511/in/set-72157634048640327"> 
+        <img src="https://farm9.staticflickr.com/8548/8835134511_582a829b12_o_d.png" alt="files without whale upcalls had sizes that looked  much more evenly distributed (see this histogram). " title="Histogram of Training File Length - No-Whale Labels" height="250">
+    </a>
+
++ Millisecond timestamps
+    + Another anomaly was related to the timestamps embedded in the filenames.
+    + If a whale upcall was not in a file, the millisecond field in the timestamp was almost always a multiple of 10 ms.
+    + If a whale upcall was in a file, the millisecond field seemed evenly distributed in time.
+    + if a whale upcall was in a file, the millisecond field seemed evenly distributed in time
+    <a href="https://www.flickr.com/photos/chef_ele/8835763570/in/set-72157634048640327"> <br/>
+        <img src="https://farm4.staticflickr.com/3780/8835763570_fbefd80a7e_o_d.png" alt="If a whale upcall was not in a file, the millisecond field in the timestamp was almost always a multiple of 10 ms." title="Zoomed Histogram of Milliseconds Field - No-Whale Labels" height="250">
+    </a>
+    <a href="https://www.flickr.com/photos/chef_ele/8835763486/in/set-72157634048640327"> 
+        <img src="https://farm4.staticflickr.com/3727/8835763486_33e3813abf_o_d.png" alt="if a whale upcall was in a file, the millisecond field seemed evenly distributed in time - i.e. multiples of 1 ms." title="Zoomed Histogram of Milliseconds Field - Whale Labels" height="250">
+    </a>
+    + A zero in the last digit of the millisecond field was strongly predictive; using a simple test for zero as a binary feature yielded a 0.945 AUC by itself.
+    + Additional histograms of the millisecond timestamps showed that the audio clips without whale upcalls were more likely to start in the first half of a given second.
+    + Clips with whale upcalls were more evenly distributed across time.
+    <a href="https://www.flickr.com/photos/chef_ele/8835134379/in/set-72157634048640327"> <br/>
+        <img src="https://farm8.staticflickr.com/7344/8835134379_7dc1a08b4d_o_d.png" alt="Additional histograms of the millisecond timestamps showed that the audio clips without whale upcalls were more likely to start in the first half of a given second." title="Histogram of Milliseconds Field - No-Whale Labels" height="250">
+    </a>
+    <a href="https://www.flickr.com/photos/chef_ele/8835763426/in/set-72157634048640327"> 
+        <img src="https://farm4.staticflickr.com/3727/8835763486_33e3813abf_o_d.png" alt="Clips with whale upcalls were more evenly distributed across time" title="Histogram of Milliseconds Field - Whale Labels" height="250">
+    </a>
+    + The audio clips with upcalls were processed in a different way than those without upcalls.
+
++ Clip order
+    + The (chronological) ordering of the clips contained information on both contests.
+    + A moving average of clip labels in the training set showed a familiar pattern: minutes or hours of high whale-call activity, followed by equally lengthy lulls.
+    <a href="https://www.flickr.com/photos/chef_ele/8835763360/in/set-72157634048640327"> <br/>
+        <img src="https://farm4.staticflickr.com/3667/8835763360_2ce40608b7_o_d.png" alt="A moving average of clip labels in the training set showed a familiar pattern: minutes or hours of high whale-call activity, followed by equally lengthy lulls." title="Moving average of whale label" height="300">
+    </a>
+
++ Features: to take advantage of all these observations,  I created the following features:
+    + File size in bytes (as an integer)
+    + File size in bytes (as a categorical variable).
+    + Timestamp_milliseconds (as an integer)
+    + 0 if timestamp_milliseconds was a multiple of 10, 1 otherwise
+    + 0 if timestamp_milliseconds was a multiple of 10, moving average of the above 0/1 feature otherwise
+    + A logistic regression using these simple features yielded 0.9973 AUC on the leaderboard.
+
++ Fixes
+    + Capping the file size so that most files were exactly 2 seconds long (8088 bytes).
+    + Reducing the millisecond field in the filename timestamp from 3 digits down to 1 (though what that 1 digit represents is unclear).
 
 ## Rules of Machine Learning: Best Practices for ML Engineering (optional)
 
