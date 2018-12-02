@@ -291,6 +291,30 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 
 ## Detection
 
++ When the data are not properly tagged, the modeler cannot pursue a learn-predict separation. One important question is how to detect leakage when it happens in given data, as the ability to detect that there is a problem can help mitigate its effects.
+
++ Detecting leakage boils down to pointing out how conditions (2) or (9) fail to hold for the dataset in question. A brute-force solution to this task is often infeasible because datasets will always be too large.
+
++ Exploratory data analysis (EDA)
+    + The good practice of getting more intimate with the raw data, examining it through basic and interpretable visualization or statistical tools
+    + Prejudice free and methodological, this kind of examination can expose leakage as patterns in the data that are _surprising_.
+    + The INFORMS 2008 breast cancer example: the "patient id" is so strongly correlated with the target is surprising
+    + Initial EDA is not the only stage of modeling where surprising behavior can expose leakage.
+    + The "IBM Websphere" example: showing how the surprising behavior of a feature in the fitted model, in this case a high entropy value (the word "Websphere"), becomes apparent only after the model has been built
+
++ Another approach related to critical examination of modeling results comes from observing overall surprising model performance.
+    + A substantial divergence from this expected performance is surprising and merits testing the most informative observations the model is based on more closely for legitimacy.
+    + The INFORMS 2010 financial forecasting Challenge: contradict prior evidence about the efficiency of the stock market.
+
++ Early in-the-field testing of initial models
+    + Any substantial leakage would be reflected as a difference between estimated and realized out-of-sample performance.
+    + In fact a sanity check of the model's generalization capability, and while this would work well for many cases, other issues can make it challenging or even impossible to isolate the cause of such performance discrepancy as leakage: classical over-fitting, tangible concept-drift, issues with the design of the field-test such a sampling bias and so on.
+
++ Fundamental problem with the methods for leakage detection: 
+    + all require some degree of domain knowledge
+    + EDA: need to know if a good predictor is reasonable
+    + comparison of model performance to alternative models or prior state-of-art models requires knowledge of the previous results
+    + the setup for early in-the-field evaluation is obviously very involved
 
 
 ## (Not) Fixing Leakage
