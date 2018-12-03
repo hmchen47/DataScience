@@ -153,16 +153,78 @@ Author: Martin Zinkevich @ Google
 
 ## Your First Objective
 
++ Objective: a number that your algorithm is “trying” to optimize.
+
++ Metric: any number that your system reports
+
 ### <a name="rule-12"></a>  Rule #12: Don’t overthink which objective you choose to directly optimize.
+
++ Tons of metrics care about and should measure them all (Rule #02)
+
++ In early stage of the machine learning process, all going up, even those that you do not directly optimize.
+
++ Keep it simple and don’t think too hard about balancing different metrics when you can still easily increase all the metrics.
+
++ Do not confuse your objective with the ultimate health of the system (Rule #39)
+
++ If you find yourself increasing the directly optimized metric, but deciding not to launch, some objective revision may be required.
 
 
 ### <a name="rule-13"></a>  Rule #13: Choose a simple, observable and attributable metric for your first objective.
 
++ The ML objective should be something that is easy to measure and is a proxy for the “true” objective.
+
++ Train on the simple ML objective, and consider having a "policy layer" on top that allows you to add additional logic (hopefully very simple logic) to do the final ranking.
+
++ User behavior directly observed and attributable to an action of the system:
+    1. Was this ranked link clicked?
+    2. Was this ranked object downloaded?
+    3. Was this ranked object forwarded/replied to/emailed?
+    4. Was this ranked object rated?
+    5. Was this shown object marked as spam/pornography/offensive?
+
++ Avoid modeling indirect effects at first:
+    1. Did the user visit the next day?
+    2. How long did the user visit the site?
+    3. What were the daily active users?
+
++ Indirect effects make great metrics, and can be used during A/B testing and during launch decisions.
+
++ Don’t try to get the machine learning to figure out:
+    1. Is the user happy using the product?
+    2. Is the user satisfied with the experience?
+    3. Is the product improving the user’s overall wellbeing?
+    4. How will this affect the company’s overall health?
+
++ Use proxies: if the user is happy, they will stay on the site longer.
+
 
 ### <a name="rule-14"></a>  Rule #14: Starting with an interpretable model makes debugging easier.
 
++ Linear regression, logistic regression, and Poisson regression are directly motivated by a probabilistic model.
+
++ Each prediction is interpretable as a probability or an expected value.
+
++ Easier to debug than models that use objectives (zero-one loss, various hinge losses, et cetera) that try to directly optimize classification accuracy or ranking performance.
+
++ In linear, logistic, or Poisson regression, there are subsets of the data where the average predicted expectation equals the average label (1moment calibrated, or just calibrated).
+
++ With simple models, it is easier to deal with feedback loops (Rule #36)
+
++ Remember when it comes time to choose which model to use, the decision matters more than the likelihood of the data given the model (Rule #27)
+
 
 ### <a name="rule-15"></a>  Rule #15: Separate Spam Filtering and Quality Ranking in a Policy Layer.
+
++ Quality ranking is a fine art, but spam filtering is a war.
+
++ Quality ranking should focus on ranking content that is posted in good faith.
+
++ "Racy" content should be handled separately from Quality Ranking.
+
++ Spam filtering: the features that you need to generate will be constantly changing.
+
++ Integrate the output of the two systems at some stage.
 
 
 ## ML Phase II: Feature Engineering
