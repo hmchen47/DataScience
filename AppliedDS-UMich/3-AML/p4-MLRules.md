@@ -386,32 +386,99 @@ Author: Martin Zinkevich @ Google
 
 ## Training-Serving Skew
 
++ Training-serving skew is a difference between performance during training and performance during serving.
+
++ Skew caused by
+    + a discrepancy between how you handle data in the training and serving pipelines, or
+    + a change in the data between when you train and when you serve, or
+    + a feedback loop between your model and your algorithm.
+
++ The best solution is to explicitly monitor it so that system and data changes don’t introduce skew unnoticed.
+
 
 ### <a name="rule-29"></a>  Rule #29: The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
+
++ Verify the consistency between serving and training (Rule #37)
+
++ Logging features at serving time with significant quality improvements and a reduction in code complexity
 
 
 ### <a name="rule-30"></a>  Rule #30: Importance weight sampled data, don’t arbitrarily drop it!
 
++ Dropping data in training has caused issues in the past for several teams (Rule #06)
+
++ Importance weighting means that if you decide that you are going to sample example X with a $30\%$ probability, then give it a weight of $10/3$. 
+
++ With importance weighting, all of the calibration properties discussed in Rule #14 still hold.
+
 
 ### <a name="rule-31"></a>  Rule #31: Beware that if you join data from a table at training and serving time, the data in the table may change.
+
++ Between training and serving time, features in the table may be changed.
+
++ The easiest way to avoid this sort of problem is to log features at serving time (Rule #32)
+
++ Note that this still doesn’t completely resolve the issue.
 
 
 ### <a name="rule-32"></a>  Rule #32: Reuse code between your training pipeline and your serving pipeline whenever possible.
 
++ In online processing, handle each request as it arrives (e.g. you must do a separate lookup for each query), whereas in batch processing, combine tasks (e.g. making a join).
+
++ At serving time, doing online processing, whereas training with batch processing task.
+
++ Example:
+    + Create an object that is particular to your system where the result of any queries or joins can be stored in a very human readable way, and errors can be tested easily.
+    + Once information gathered all the information, during serving or training, run a common method to bridge between the human-readable object that is specific to your system, and whatever format the machine learning system expects.
+
++ Eliminates a source of training-serving skew
+
++ Try not to use two different programming languages between training and serving
+
 
 ### <a name="rule-33"></a>  Rule #33: If you produce a model based on the data until January 5th, test the model on the data from January 6th and after.
+
++ Measure performance of a model on the data gathered after the data you trained the model on, as this better reflects what your system will do in production.
+
++ Area under the curve, which represents the likelihood of giving the positive example a score higher than a negative example, should be reasonably close.
 
 
 ### <a name="rule-34"></a>  Rule #34: In binary classification for filtering (such as spam detection or determining interesting emails), make small shortterm sacrifices in performance for very clean data.
 
++ In a filtering task, examples which are marked as negative are not shown to the user.
+
++ Sampling bias: Suppose you have a filter that blocks 75% of the negative examples at serving. You might be tempted to draw additional training data from the instances shown to users.
+
++ Note that if your filter is blocking $95\%$ of the negative examples or more, this becomes less viable.
+
 
 ### <a name="rule-35"></a>  Rule #35: Beware of the inherent skew in ranking problems.
+
++ When you switch your ranking algorithm radically enough that different results show up, you have effectively changed the data that your algorithm is going to see in the future.
+
++ Approaches to design model around it
+    + Have higher regularization on features that cover more queries as opposed to those features that are on for only one query. -> prevent very popular results from leaking into irrelevant queries.
+    + Only allow features to have positive weights. Thus, any good feature will be better than a feature that is “unknown”.
+    + Don’t have document-only features.
 
 
 ### <a name="rule-36"></a>  Rule #36: Avoid feedback loops with positional features.
 
++ The position of content dramatically affects how likely the user is to interact with it.
+
++ One way to deal with this is to add positional features, i.e. features about the position of the content in the page.
+
++ Note that it is important to keep any positional features somewhat separate from the rest of the model because of this asymmetry between training and testing.
+
++ Having the model be the sum of a function of the positional features and a function of the rest of the features is ideal.
+
 
 ### <a name="rule-37"></a>  Rule #37: Measure Training/Serving Skew.
+
++ Things causing skew
+    1. The difference between the performance on the training data and the holdout data.
+    2. The difference between the performance on the holdout data and the “next-day” data.  Should tune your regularization to maximize the next-day performance.
+    3. The difference between the performance on the “next-day” data and the live data.
 
 
 ## ML Phase III: Slowed Growth, Optimization Refinement, and Complex Models
