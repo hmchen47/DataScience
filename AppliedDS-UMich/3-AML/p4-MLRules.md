@@ -316,26 +316,75 @@ Author: Martin Zinkevich @ Google
 
 ## Human Analysis of the System
 
-
 ### <a name="rule-23"></a>  Rule #23: You are not a typical end user.
+
++ While there are a lot of benefits to fishfooding (using a prototype within your team) and dogfooding (using a prototype within your company), employees should look at whether the performance is correct.
+
++ Anything that looks reasonably near production should be tested further, either by paying laypeople to answer questions on a crowdsourcing platform, or through a live experiment on real users.
+
++ Two reasons
+    + too close to the code
+    + time is too valuable
+
++ Using user experience methodologies
+    + Create user personas (one description is in Bill Buxton’s Designing User Experiences ) early in a process
+    + Do usability testing (one description is in Steve Krug’s Don’t Make Me Think ) later
 
 
 ### <a name="rule-24"></a>  Rule #24: Measure the delta between models.
 
++ Calculate just how different the new results are from production
+
++ Difference
+    + Samll: without running an experiment that there will be little change
+    + Large: make sure that the change is good
+
++ Make sure that the system is stable. Make sure that a model when compared with itself has a low (ideally zero) symmetric difference.
+
 
 ### <a name="rule-25"></a>  Rule #25: When choosing models, utilitarian performance trumps predictive power.
+
++ The key question is what you do with that prediction
+    + If you are using click-through-rate to rank documents, then the quality of the final ranking matters more than the prediction itself.
+    + If you predict the probability that a document is spam and then have a cutoff on what is blocked, then the precision of what is allowed through matters more.
+
++ If there is some change that improves log loss but degrades the performance of the system, look for another feature.
 
 
 ### <a name="rule-26"></a>  Rule #26: Look for patterns in the measured errors, and create new features.
 
++ Model got “wrong” after training
+    + classification: a false positive or a false negative
+    + ranking: a pair where a positive was ranked lower than a negative
+
++ The machine learning system knows it got wrong and would like to fix if given the opportunity.
+    + If a feature allows the model to fix the error, the model will try to use it.
+    + If create a feature based upon examples the system doesn’t see as mistakes, the feature will be ignored.
+
++ Once you have examples that the model got wrong, look for trends that are outside your current feature set.
+
++ Don’t be too specific about the features you add. If you are going to add post length, don’t try to guess what long means, just add a dozen features and the let model figure out what to do with them
+
 
 ### <a name="rule-27"></a>  Rule #27: Try to quantify observed undesirable behavior.
+
++ Some members of your team will start to be frustrated with properties of the system they don’t like which aren’t captured by the existing loss function. At this point, they should do whatever it takes to turn their gripes into solid numbers.
+
++ If your issues are measurable, then you can start using them as features, objectives, or metrics.
+
++ General rule: measure first, optimize second
 
 
 ### <a name="rule-28"></a>  Rule #28: Be aware that identical shortterm behavior does not imply identical longterm behavior.
 
++ Imagine that you have a new system that looks at every doc_id and exact_query, and then calculates the probability of click for every doc for every query. You find that its behavior is nearly identical to your current system in both side by sides and A/B testing, so given its simplicity, you launch it. However, you notice that no new apps are being shown.
 
-## TrainingServing Skew
++ Since your system only shows a doc based on its own history with that query, there is no way to learn that a new doc should be shown.
+
++ The only way to understand how such a system would work longterm is to have it train only on data acquired when the model was live.
+
+
+## Training-Serving Skew
 
 
 ### <a name="rule-29"></a>  Rule #29: The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
