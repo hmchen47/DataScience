@@ -229,26 +229,89 @@ Author: Martin Zinkevich @ Google
 
 ## ML Phase II: Feature Engineering
 
++ After you have a working end to end system with unit and system tests instrumented, Phase II begins .
+
++ Pulling in as many features as possible and combining them in intuitive ways
+
 
 ### <a name="rule-16"></a>  Rule #16: Plan to launch and iterate.
+
++ Three basic reasons to launch new models:
+    1. you are coming up with new features,
+    2. you are tuning regularization and combining old features in new ways, and/or
+    3. you are tuning the objective.
+
++ Looking over the data feeding into the example can help find new signals as well as old, broken ones.
+
++ Think about how easy it is to create a fresh copy of the pipeline and verify its correctness.
+
++ Think about whether it is possible to have two or three copies running in parallel.
+
++ Finally, don’t worry about whether feature 16 of 35 makes it into this version of the pipeline.
 
 
 ### <a name="rule-17"></a>  Rule #17: Start with directly observed and reported features as opposed to learned features.
 
++ A learned feature is a feature generated either by an external system (such as an unsupervised clustering system) or by the learner itself (e.g. via a factored model or deep learning).
+
++ They should not be in the first model.
+
++ The external system's objective may be only weakly correlated with your current objective.
+
++ The primary issue with factored models and deep models is that they are non-convex.
+
++ By creating a model without deep features, you can get an excellent baseline performance. After this baseline is achieved, you can try more esoteric approaches.
+
 
 ### <a name="rule-18"></a>  Rule #18: Explore with features of content that generalize across contexts.
+
++ Often a machine learning system is a small part of a much bigger picture.
+
++ Note that this is not about personalization: figure out if someone likes the content in this context first, then figure out who likes it more or less.
 
 
 ### <a name="rule-19"></a>  Rule #19: Use very specific features when you can.
 
++ Don’t be afraid of groups of features where each feature applies to a very small fraction of your data, but overall coverage is above 90%.
+
++ Use regularization to eliminate the features that apply to too few examples.
+
 
 ### <a name="rule-20"></a>  Rule #20: Combine and modify existing features to create new features in humanunderstandable ways.
+
++ Machine learning systems such as TensorFlow allow you to preprocess your data through transformations.
+
++ The two most standard approaches are "discretizations" and "crosses".
+
++ Discretization consists of taking a continuous feature and creating many discrete features from it.
+
++ Crosses
+    + Combine two or more feature columns.
+    + A feature column, in TensorFlow's terminology, is a set of homogenous features.
+    + A new feature column with features
+    + Massive amounts of data to learn models with crosses of three, four, or more base feature columns
+    + Produce very large feature columns may overfit
+    + __Dot product__: the simplest form simply counts the number of common words between the query and the document
+    + __Intersection__: thus, we will have a feature which is present if and only if the word “pony” is in the document and the query, and another feature which is present if and only if the word “the” is in the document and the query.
 
 
 ### <a name="rule-21"></a>  Rule #21: The number of feature weights you can learn in a linear model is roughly proportional to the amount of data you have.
 
++ Fascinating statistical learning theory results concerning the appropriate level of complexity for a model, but this rule is basically all you need to know.
+
++ Scale your learning to the size of your data:
+    + 1000 labeled examples: search ranking system: use a dot product between document and query features, TFIDF, and a half-dozen other highly human-engineered features.
+    + Million examples: Intersect the document and query feature columns, using regularization and possibly feature selection.
+    + billions or hundreds of billions of examples: cross the feature columns with document and query tokens, using feature selection and regularization.
+
 
 ### <a name="rule-22"></a>  Rule #22: Clean up features you are no longer using.
+
++ Unused features create technical debt.
+
++ A feature not used -> combine other features -> drop out
+
++ Keep coverage in mind when considering what features to add or keep.
 
 
 ## Human Analysis of the System
