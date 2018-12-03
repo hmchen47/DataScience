@@ -1620,17 +1620,17 @@ http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
     + [Rule #05](p4-MLRules.md#rule-05): Test the infrastructure independently from the machine learning.
     + [Rule #06](p4-MLRules.md#rule-06): Be careful about dropped data when copying pipelines.
     + [Rule #07](p4-MLRules.md#rule-07): Turn heuristics into features, or handle them externally. 
-+ Monitoring
++ [Monitoring](p4-MLRules.md#monitoring)
     + [Rule #08](p4-MLRules.md#rule-08): Know the freshness requirements of your system.
     + [Rule #09](p4-MLRules.md#rule-09): Detect problems before exporting models.
     + [Rule #10](p4-MLRules.md#rule-10): Watch for silent failures.
     + [Rule #11](p4-MLRules.mdrule-11): Give feature sets owners and documentation.
-+ Your First Objective
++ [Your First Objective](p4-MLRules.md#your-first-objective)
     + [Rule #12](p4-MLRules.md#rule-12): Don’t overthink which objective you choose to directly optimize.
     + [Rule #13](p4-MLRules.md#rule-13): Choose a simple, observable and attributable metric for your first objective.
     + [Rule #14](p4-MLRules.md#rule-14): Starting with an interpretable model makes debugging easier.
     + [Rule #15](p4-MLRules.md#rule-15): Separate Spam Filtering and Quality Ranking in a Policy Layer.
-+ ML Phase II: Feature Engineering
++ [ML Phase II: Feature Engineering](p4-MLRules.md#ml-phase-ii-feature-engineering)
     + [Rule #16](p4-MLRules.md#rule-16): Plan to launch and iterate.
     + [Rule #17](p4-MLRules.md#rule-17): Start with directly observed and reported features as opposed to learned features.
     + [Rule #18](p4-MLRules.md#rule-18): Explore with features of content that generalize across contexts.
@@ -1638,14 +1638,14 @@ http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
     + [Rule #20](p4-MLRules.md#rule-20): Combine and modify existing features to create new features in humanunderstandable ways.
     + [Rule #21](p4-MLRules.md#rule-21): The number of feature weights you can learn in a linear model is roughly proportional to the amount of data you have.
     + [Rule #22](p4-MLRules.md#rule-): Clean up features you are no longer using.
-+ Human Analysis of the System
++ [Human Analysis of the System](p4-MLRules.md#human-analysis-of-the-system)
     + [Rule #23](p4-MLRules.md#rule-23): You are not a typical end user.
     + [Rule #24](p4-MLRules.md#rule-24): Measure the delta between models.
     + [Rule #25](p4-MLRules.md#rule-25): When choosing models, utilitarian performance trumps predictive power.
     + [Rule #26](p4-MLRules.md#rule-26): Look for patterns in the measured errors, and create new features.
     + [Rule #27](p4-MLRules.md#rule-27): Try to quantify observed undesirable behavior.
     + [Rule #28](p4-MLRules.md#rule-28): Be aware that identical shortterm behavior does not imply identical longterm behavior.
-+ TrainingServing Skew
++ [Training Serving Skew](p4-MLRules.md#training-serving-skew)
     + [Rule #29](p4-MLRules.md#rule-29): The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
     + [Rule #30](p4-MLRules.md#rule-30): Importance weight sampled data, don’t arbitrarily drop it!
     + [Rule #31](p4-MLRules.md#rule-31): Beware that if you join data from a table at training and serving time, the data in the table may change.
@@ -1655,7 +1655,7 @@ http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
     + [Rule #35](p4-MLRules.md#rule-35): Beware of the inherent skew in ranking problems.
     + [Rule #36](p4-MLRules.md#rule-36): Avoid feedback loops with positional features.
     + [Rule #37](p4-MLRules.md#rule-37): Measure Training/Serving Skew.
-+ ML Phase III: Slowed Growth, Optimization Refinement, and Complex Models
++ [ML Phase III: Slowed Growth, Optimization Refinement, and Complex Models](p4-MLRules.md#ml-phase-iii-slowed-growth-optimization-refinement-and-complex-models)
     + [Rule #38](p4-MLRules.md#rule-38): Don’t waste time on new features if unaligned objectives have become the issue.
     + [Rule #39](p4-MLRules.md#rule-39): Launch decisions will depend upon more than one metric.
     + [Rule #40](p4-MLRules.md#rule-40): Keep ensembles simple.
