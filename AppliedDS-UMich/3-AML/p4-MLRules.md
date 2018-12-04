@@ -483,25 +483,82 @@ Author: Martin Zinkevich @ Google
 
 ## ML Phase III: Slowed Growth, Optimization Refinement, and Complex Models
 
-
 ### <a name="rule-38"></a>  Rule #38: Don’t waste time on new features if unaligned objectives have become the issue.
+
++ If the product goals are not covered by the existing algorithmic objective, you need to change either your objective or your product goals.
 
 
 ### <a name="rule-39"></a>  Rule #39: Launch decisions will depend upon more than one metric.
 
++ Launch decisions depend on multiple criteria, only some of which can be directly optimized using ML.
+
++ There are no “hit points” identifying the health of your product.
+
++ Metrics that are measureable in A/B tests in themselves are only a proxy for more long-term goals:
+    + satisfying users,
+    + increasing users,
+    + satisfying partners, and
+    + profit
+
++ The only easy launch decisions are when all metrics get better (or at least do not get worse).
+
++ There is no explicit ranking of all possible metric values.
+
++ Each metric covers some risk with which the team is concerned.
+
++ Individuals, on the other hand, tend to favor one objective that they can directly optimize.
+
++ There is a type of machine learning, multi-objective learning, which starts to address this problem.
+
++ How to predict the future success of a site as a whole is AI-complete, as hard as computer vision or natural language processing.
+
 
 ### <a name="rule-40"></a>  Rule #40: Keep ensembles simple.
+
++ Unified models that take in raw features and directly rank content are the easiest models to debug and understand.
+
++ An ensemble of models (a “model” which combines the scores of other models) can work better.
+
++ Each model should either be an ensemble only taking the input of other models, or a base model taking many features, but not both.
+
++ Use a simple model for ensembling that takes only the output of your “base” models as inputs.
+
++ It is best if the incoming models are semantically interpretable (for example, calibrated) so that changes of the underlying models do not confuse the ensemble model.
+
++ Enforce that an increase in the predicted probability of an underlying classifier does not decrease the predicted probability of the ensemble.
 
 
 ### <a name="rule-41"></a>  Rule #41: When performance plateaus, look for qualitatively new sources of information to add rather than refining existing signals.
 
++ Building the infrastructure for radically different features, such as the history of documents that this user has accessed in the last day, week, or year, or data from a different property.
+
++ Use [wikidata](https://en.wikipedia.org/wiki/Wikidata) entities or something internal to your company (such as Google’s [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_Graph)).
+
++ Use deep learning. 
+
++ Start to adjust your expectations on how much return you expect on investment, and expand your efforts accordingly.
+
 
 ### <a name="rule-42"></a>  Rule #42: Don’t expect diversity, personalization, or relevance to be as correlated with popularity as you think they are.
+
++ Diversity in a set of content can mean many things, with the diversity of the source of the content being one of the most common.
+
++ Personalization implies each user gets their own results.
+
++ Relevance implies that the results for a particular query are more appropriate for that query than any other.
+
++ Note that if your system is measuring clicks, time spent, watches, +1s, reshares, et cetera, you are measuring the popularity of the content.
+
++ To personalize, they add features that would allow the system to personalize (some features representing the user’s interest) or diversify (features indicating if this document has any features in common with other documents returned, such as author or content), and find that those features get less weight (or sometimes a different sign) than they expect.
+
++ Do postprocessing to increase diversity or relevance.
 
 
 ### <a name="rule-43"></a>  Rule #43: Your friends tend to be the same across different products. Your interests tend not to be.
 
++ What has sometimes worked is using raw data from one property to predict behavior on another.
 
++ Even knowing that a user has a history on another property can help.
 
 
 
