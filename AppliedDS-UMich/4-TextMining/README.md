@@ -56,6 +56,11 @@
 
 ### [Assignment 3](asgn03.md)
 
++ [Discussion Forum](asgn03.md#discussion-forum)
++ [Solution](asgn03.md#solution)
+
+
+
 
 
 `
