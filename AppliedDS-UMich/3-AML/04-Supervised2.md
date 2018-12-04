@@ -1645,7 +1645,7 @@ http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
     + [Rule #26](p4-MLRules.md#rule-26): Look for patterns in the measured errors, and create new features.
     + [Rule #27](p4-MLRules.md#rule-27): Try to quantify observed undesirable behavior.
     + [Rule #28](p4-MLRules.md#rule-28): Be aware that identical shortterm behavior does not imply identical longterm behavior.
-+ [Training Serving Skew](p4-MLRules.md#training-serving-skew)
++ [Training-Serving Skew](p4-MLRules.md#training---serving-skew)
     + [Rule #29](p4-MLRules.md#rule-29): The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
     + [Rule #30](p4-MLRules.md#rule-30): Importance weight sampled data, don’t arbitrarily drop it!
     + [Rule #31](p4-MLRules.md#rule-31): Beware that if you join data from a table at training and serving time, the data in the table may change.
