@@ -60,6 +60,18 @@
 + [Solution](asgn03.md#solution)
 
 
+## Module 4: [Topic Modeling](04-Modeling.md)
+
++ [Semantic Text Similarity](04-Modeling.md#)
++ [Topic Modeling](04-Modeling.md#)
++ [Generative Models and LDA](04-Modeling.md#)
++ [Practice Quiz: Practice Quiz](04-Modeling.md#)
++ [Information Extraction](04-Modeling.md#)
++ [Additional Resources & Readings](04-Modeling.md#)
++ [Quiz: Module 4 Quiz](04-Modeling.md#)
+
+### [Assignment 4](asgn04.md)
+
 
 
 
