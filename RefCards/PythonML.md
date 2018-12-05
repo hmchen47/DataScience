@@ -1193,10 +1193,123 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `roc_auc_score(y_true, y_score, *args)` | Compute Area Under the Curve (AUC) from prediction scores | [Model Selection][580] |
 
 
+## Semantic Analysis
+
+### Import Files
+
+```python
+import nltk
+from nltk.corpus import wordnet as wn
+from nltk.corpus import wordnet_ic
+from nltk.collocations import AbstractCollocationFinder
+from nltk.collocations import BigramAssocMeasures
+from nltk.collocations import QuadgramAssocMeasures
+from nltk.collocations import TrigramAssocMeasures
+```
+
+### `wordnet` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `wordnet(root, omw_reader)` | Construct a new wordnet corpus reader, with the given root directory | [Semantic][587] |
+| `synset(name)` | Loading Synsets | [Semantic][587] |
+| `ic(corpus, weight_senses_equally=False, smoothing=1.0)` | Creates an information content lookup dictionary from a corpus | [Semantic][587] |
+| `jcn_similarity(synset1, synset2, ic, verbose=False)` | __Jiang-Conrath Similarity__: Return a score denoting how similar two word senses are, based on the Information Content (IC) of the Least Common Subsumer (most specific ancestor node) and that of the two input Synsets. | [Semantic][587] |
+| `lch_similarity(synset1, synset2, *args*)` | __Leacock Chodorow Similarity__: Return a score denoting how similar two word senses are, based on the shortest path that connects the senses (as above) and the maximum depth of the taxonomy in which the senses occur.  | [Semantic][587] |
+| `lin_similarity(synset1, synset2, ic, verbose=False)` | __Lin Similarity__: Return a score denoting how similar two word senses are, based on the Information Content (IC) of the Least Common Subsumer (most specific ancestor node) and that of the two input Synsets.  | [Semantic][587] |
+| `path_similarity(synset1, synset2, *args)` | __Path Distance Similarity__: Return a score denoting how similar two word senses are, based on the shortest path that connects the senses in the is-a (hypernym/hypnoym) taxonomy. The score is in the range 0 to 1, except in those cases where a path cannot be found (will only be true for verbs as there are many distinct verb taxonomies), in which case None is returned. A score of 1 represents identity i.e. comparing a sense with itself will return 1.
+| `res_similarity(synset1, synset2, ic, verbose=False)` | __Resnik Similarity__: Return a score denoting how similar two word senses are, based on the Information Content (IC) of the Least Common Subsumer (most specific ancestor node)  | [Semantic][587] |
+| `wup_similarity(synset1, synset2, verbose=False, simulate_root=True)`: __Wu-Palmer Similarity__: Return a score denoting how similar two word senses are, based on the depth of the two senses in the taxonomy and that of their Least Common Subsumer (most specific ancestor node).  | [Semantic][587] |
+| `lemma(name, lang='eng')` | Return lemma object that matches the name | [Semantic][587] |
+| `lemma_count(lemma)` | Return the frequency count for this Lemma | [Semantic][587] |
+| `lemma_from_key(key)` | Return the Lemma from given key | [Semantic][587] |
+| `lemmas(lemma, pos=None, lang='eng')` | Return all Lemma objects with a name matching the specified lemma name and part of speech tag | [Semantic][587] |
+
+
+### `wordnet_ic` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `wordnet_ic(root, fileids)` | A corpus reader for the WordNet information content corpus | [Semantic][587] |
+| `ic(icfile)`: Load an information content file from the wordnet_ic corpus and return a dictionary | [Semantic][587] |
+
+
+### `AbstractCollocationFinder` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `AbstractCollocationFinder(word_fd, ngram_fd)` | An abstract base class for collocation finders whose purpose is to collect collocation candidate frequencies, filter and rank them | [Semantic][587] |
+| `above_score(score_fn, min_score)` | Returns a sequence of ngrams, ordered by decreasing score, whose scores each exceed the given minimum score. | [Semantic][587] |
+| `apply_freq_filter(min_freq)`| Removes candidate ngrams which have frequency less than min_freq. | [Semantic][587] |
+| `apply_ngram_filter(fn)` | Removes candidate ngrams $(w_1, w_2, \ldots)$ where $fn(w_1, w_2, \ldots)$ evaluates to True. | [Semantic][587] |
+| `apply_word_filter(fn)`| Removes candidate ngrams $(w_1, w_2, \ldots)$ where any of $(fn(w_1), fn(w_2), \ldots)$ evaluates to True. | [Semantic][587] |
+| `nbest(score_fn, n)`| Returns the top n ngrams when scored by the given function. | [Semantic][587] |
+| `score_ngrams(score_fn)`| Returns a sequence of (ngram, score) pairs ordered from highest to lowest score, as determined by the scoring function provided. | [Semantic][587] |
+
+
+### `BigramCollocationFinder(AbstractCollocationFinder)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `BigramCollocationFinder(word_fd, bigram_fd, window_size=2)` | A tool for the finding and ranking of bigram collocations or other association measures
+| `score_ngram(score_fn, w1, w2)` | Returns the score for a given bigram using the given scoring function | [Semantic][587] |
+| `from_words(words, window_size=2)` | from `builtins.type`; Construct a BigramCollocationFinder for all bigrams in the given sequence | [Semantic][587] |
+
+
+### `TrigramCollocationFinder(AbstractCollocationFinder)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `TrigramCollocationFinder(word_fd, bigram_fd, wildcard_fd, trigram_fd)` | A tool for the finding and ranking of trigram collocations or other association measure | [Semantic][587] |
+| `bigram_finder()` | Constructs a bigram collocation finder with the bigram and unigram data from this finder | [Semantic][587] |
+| `score_ngram(score_fn, w1, w2, w3)` | Returns the score for a given trigram using the given scoring function. | [Semantic][587] |
+
+### `QuadgramCollocationFinder(AbstractCollocationFinder)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `QuadgramCollocationFinder(word_fd, quadgram_fd, ii, iii, ixi, ixxi, iixi, ixii)` | A tool for the finding and ranking of quadgram collocations or other association measures
+| `score_ngram(score_fn, w1, w2, w3, w4)` | Returns the score for a given quadgram using the given scoring function | [Semantic][587] |
+| `from_words(words, window_size=4)` | from `builtins.type`; Construct a QuadgramCollocationFinder for all quadgrams in the given sequence | [Semantic][587] |
+
+### `NgramAssocMeasures(builtins.object)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `nltk.NgramAssocMeasures()` | An abstract class defining a collection of generic association measures | [Semantic][587] |
+| `chi_sq(*marginals)` | Scores ngrams using Pearson's chi-square as in Manning and Schutze 5.3.3. | [Semantic][587] |
+| `jaccard(*marginals)` | Scores ngrams using the Jaccard index. | [Semantic][587] |
+| `likelihood_ratio(*marginals)` |  Scores ngrams using likelihood ratios as in Manning and Schutze 5.3.4. | [Semantic][587] |
+| `pmi(*marginals)` |  Scores ngrams by pointwise mutual information, as in Manning and Schutze 5.4. | [Semantic][587] |
+| `poisson_stirling(*marginals)` |  Scores ngrams using the Poisson-Stirling measure. | [Semantic][587] |
+| `student_t(*marginals)` | Scores ngrams using Student's t test with independence hypothesis for unigrams, as in Manning and Schutze 5.3.1. | [Semantic][587] |
+| `mi_like(*marginals, **kwargs)` | Scores ngrams using a variant of mutual information | [Semantic][587] |
+| `raw_freq(*marginals)` | Scores ngrams by their frequency | [Semantic][587] |
+
+
+### `BigramAssocMeasures(NgramAssocMeasures)` Class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `ntlk.BigramAssocMeasures()` | A collection of bigram association measures| [Semantic][587] |
+| `bigram_score_fn(n_ii, (n_ix, n_xi), n_xx)` | association measure| [Semantic][587] |
+| `chi_sq(n_ii, n_ix_xi_tuple, n_xx)` | Scores bigrams using chi-square| [Semantic][587] |
+| `fisher(*marginals)` | Scores bigrams using Fisher's Exact Test (Pedersen 1996)| [Semantic][587] |
+| `phi_sq(*marginals)` | Scores bigrams using phi-square, the square of the Pearson correlation coefficient | [Semantic][587] |
+
+
+### `TrigramAssocMeasures(NgramAssocMeasures)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `nltk.TrigramAssocMeasures()` | A collection of trigram association measures | [Semantic][587] |
+| `trigram_score_fn(n_iii, (n_iix, n_ixi, n_xii), (n_ixx, n_xix, n_xxi), n_xxx)` | associate measure | [Semantic][587] |
+
+
+
 
 ------------------------------
 <!-- 
-[587]: 
 [588]: 
 [589]: 
 [590]: 
@@ -1901,3 +2014,4 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
 [585]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#learning-text-classifiers-in-python
 [586]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#demonstration-case-study---sentiment-analysis
+[587]: ../AppliedDS-UMich/4-TextMining/04-Modeling.md#semantic-text-similarity
