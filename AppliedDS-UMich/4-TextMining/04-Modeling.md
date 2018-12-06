@@ -934,39 +934,107 @@
 
 ## Practice Quiz: Practice Quiz
 
-### Lecture Notes
+1. In the WordNet hierarchy, the word ‘puppy’ is a direct hyponym of ‘dog’ (i.e. ‘puppy’ is a kind of ‘dog’. The least common subsumer for ‘puppy’ and ‘dog’ is:
+
+    a. Puppy
+    b. Dog
+    c. Something other than ‘puppy’ or ‘dog’
+    d. No least common subsumers exist for hyponym relationships
+
+    Ans: b
 
 
+2. If ‘puppy’ is a direct hyponym of ‘dog’, ‘dog’ is a direct ______ of ‘puppy’
 
-+ Demo
-    ```python
+    a. Hyponym: a term that denotes a subcategory of a more general class
+    b. Hypernym: of higher degree in condition or rank
+    c. Meronym: a part of something used to refer to the whole
+    d. Synonym: a word having the same or nearly the same meaning as another in the language
 
-    ```
-
-
-### Lecture Video)
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
-
+    Ans: b
 
 
 ## Information Extraction
 
 ### Lecture Notes
 
++ Information is hidden in free-text
+    + Most traditional transactional information is structured
+    + Abundance of unstructured, freeform text (~80%)
+    + How to convert unstructured text to structured form?
 
++ Information Extraction <br/>
+    Goal: Identify and extract fields of interest from free text
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/5234x/information-extraction"> <br/>
+        <img src="images/p4-07.png" alt="This one is from WebMD from quite some time back. But it says Erbitux helps treat advanced lung cancer. By looking at this, you know that one of the pieces of information that you want to extract would be the headline. But very importantly also, the components of that saying that Erbitux is a particular treatment for lung cancer. And the fact that advance lung cancer is a specific form of lung cancer. So you're going to understand which modifier could be dropped. So in this case, advanced could be taught but lung couldn't be. Because lung cancer treatments are different from let's say blood cancer or breast cancer and so forth. But this webpage has more information than just the headline. It has some information about who wrote this article or who reviewed this article. Or when was it published or the place it was published from and so on. And you can see that this happens all the time in news reports and other places when you see some piece of information, some news article or a tweet. It has more than just the text that is important, and are of some interest for people. So who wrote a particular news report? Where is it coming from? What does it say? Who or what are the other persons involved in this story? This is the typical representation of an information extraction task." title="Information Extraction" height="150">
+    </a>
 
-+ Demo
-    ```python
++ Fields of Interest
+    + Named entities
+        + [NEWS] People, Places, Dates, …
+        + [FINANCE] Money, Companies, …
+        + [MEDICINE] Diseases, Drugs, Procedures, …
+    + Relations
+        + What happened to who, when, where, …
 
-    ```
++ Named Entity Recognition
+    + __Named entities__: Noun phrases that are of specific type and refer to specific individuals, places, organizations, …
+    + __Named Entity Recognition__: Technique(s) to identify all mentions of pre-defined named entities in text
+        + Identify the mention / phrase: Boundary detection
+        + Identify the type: Tagging / classification
+
++ Examples of Named Entity Recognition Tasks
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/5234x/information-extraction"> <br/>
+        <img src="images/p4-08.png" alt="For example, you are to identify the mention, the actual phrase where something is happening. So you need to know where does that mention start and where does it end? So this is the boundary detection subtask within named entity recognition. Once you understood the boundary, the next task is to type it, to tag it, or to classify one of the named entity types that you are interested in. So for example, if you have the word Chicago, it could be a place, it could be an album, it could be a font. So depending on what kind of variation it is, you need to know what is the label it should be assigned to this word. Once you identify that Chicago is your element phrase. So let's take an example of an named entity task in the context of a medical document. I'm going to leave this one and let you try out what are the different named entities here that you would be interested in. Okay now that you've had a chance to see what are the named entities, let's see some of them. One big one is the disease or the condition or the symptom, right? So you have bilateral hand numbness or occasional weakness or C5-6 disc herniation. Okay, but you also have age here. So you could say age is 63 or you could say age is 63 year old. You have gender, female. You have mention of a medical specialty in neurologist. You have a procedure that was done, so you have a workup or an MRI. And in relation to all of this, you also have body parts like feet and hand. And certainly, you come to a conclusion where you can see that these named entities don't have to be separate from each other. So for example, bilateral hand numbness is a completely valid named entity in itself. But hand is also a named entity that is of interest. So then the question becomes, what is the granularity with which you need to annotate this. And if you're doing hand as a separate annotation, why not C5-6 disc or cord because you're talking about spinal cord in this case, you're talking about an anatomical part. So these are the decisions that need to be made when you're defining this named entity task. So in this particular case, if you define the task to be one, where you say we are only interested in the condition, the diagnosis, the age, the gender, the procedures that were done, and the specialty. That's it. In this then, you're not going to focus on a body part, hand and feet, and even if they are there, that's fine. And some decision already was done that way. So for example, nobody said that patient is not a valid entity in this role, it could be, it very well could be. If neurologist is a valid entity, patient could be a valid entity, and that's a decision that has to be made when you're defining this named entity task." title="Named Entity Recognition" height="
+        150">
+    </a>
+    + yellow: disease, condition, or sympton
+    + orange: age
+    + purple: gender
+    + brown: procedure
+    + gray: neurologist, medical speciality
+    + cyan: body parts
+
++ Approaches to identify named entities
+    + Depends on kinds of entities that need to be identified
+    + For well-formatted fields like date, phone numbers: Regular expressions (Recall Week 1)
+    + For other fields: Typically a machine learning approach
+
++ Person, Organization, Location/GPE
+    + Standard NER task in NLP research community
+    + Typically a four-class model
+        + PER: Person
+        + ORG: Organization
+        + LOC / GPE: Location
+        + Other / Outside (any other class): everything else
+
++ Relation Extraction <br/>
+    Identify relationships between named entities
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/5234x/information-extraction"> <br/>
+        <img src="images/p4-09.png" alt="Once you have identified these, then you are going to go and ask the question about relation and relation extraction. The relation extraction task is identifying the relationship between named entities. So let's take an example of something that we have seen earlier today on Erbitux help treat lung cancer. This sentence has a relationship between two named entities. One is Erbitux. Erbitux is colored yellow here to represent that it is a diagnosis, sorry it is a treatment of some kind. And then you have lung cancer that is represented, that's in green to represent a different name identity. In this particular case, a disease or a diagnosis. And then you have a relationship between them. So Erbitux and lung cancer are linked by a treatment relation. Going from Erbitux to lung cancer, that says Erbitux is a treatment for lung cancer. You could easily have a link going the other way. Lung cancer and to Erbitux, lung cancer is treated by Erbitux. So this is the relation, a very simple relation, a binder relation between a disease and a treatment, or a drug." title="Relation Extraction" height="80">
+    </a>
+
++ Co-reference Resolution <br/>
+    Disambiguate mentions and group mentions together
+    <a href="https://www.coursera.org/learn/python-text-mining/lecture/5234x/information-extraction"> <br/>
+        <img src="images/p4-10.png" alt="The other task is co-reference resolution. That is to disambiguate mentions in text and group mentions together if they are referring to the same entity. An example would be if Anita met Joseph at the market and he surprised her with a rose, then you have two named entities, Anita and Joseph. But then, the second sentence uses pronouns, he to refer to Joseph and her to refer to Anita. So in this case, it's pronoun resolution where you are making an inference that if Anita met Joseph at the market, Joseph surprised Anita with a rose." title="Co-reference Resolution" height="70">
+    </a>
+
++ Question Answering
+    + Given a question, find the most appropriate answer from the text
+        + What does Erbitux treat?
+        + Who gave Anita the rose?
+    + Builds on named entity recognition, relation extraction, and co-reference resolution
+
++ Take Home Concepts
+    + Information Extraction is important for natural language understanding and making sense of textual data
+    + Named Entity Recognition is a key building block to address many advanced NLP tasks
+    + Named Entity Recognition systems extensively deploy supervised machine learning and text mining techniques discussed in this course
 
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/PDPrQ2bHEeeSBw5DxGzUwg.processed/full/360p/index.mp4?Expires=1544227200&Signature=bIItZrDKpumWNtAoFy6-~iNZQ6oBNyUWgRUwXrJTMSMH5olBqDKsio-lAe9CsNKYNxhfqNLTdsueu1I6tP56c7A2M9PNIWUnVih7RGOOxA-B7fgqbP~DWirefeZ06jWJ8mqo956-cR~7Pg-sdQY2hyYb5nH6zvySDMWvLZKxTDM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Information Extraction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
