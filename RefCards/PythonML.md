@@ -1306,11 +1306,87 @@ from nltk.collocations import TrigramAssocMeasures
 | `trigram_score_fn(n_iii, (n_iix, n_ixi, n_xii), (n_ixx, n_xix, n_xxi), n_xxx)` | associate measure | [Semantic][587] |
 
 
+## Toic Modeling
+
+### Import Files
+
+```python
+import gensim
+from gensim import corpora, models
+```
+
+### `Dictionary(gensim.utils.SaveLoad, collections.abc.Mapping)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `corpora.Dictionary(documents=None, prune_at=2000000)` | Dictionary encapsulates the mapping between normalized words and their integer ids | [Topic][588] |
+| `doc2bow(document, allow_update=False, return_missing=False)` | Convert `document` into the bag-of-words (BoW) format = list of `(token_id, token_count)` tuples | [Topic][588] |
+| `doc2idx(document, unknown_word_index=-1)` | Convert `document` (a list of words) into a list of indexes = list of `token_id` | [Topic][588] |
+| `filter_extremes(no_below=5, no_above=0.5, keep_n=100000, keep_tokens=None)` | Filter out tokens in the dictionary by their frequency | [Topic][588] |
+| `filter_n_most_frequent(remove_n)` | Filter out the 'remove_n' most frequent tokens that appear in the documents | [Topic][588] |
+| `filter_tokens(bad_ids=None, good_ids=None)` | Remove the selected `bad_ids` tokens from `~gensim.corpora.dictionary.Dictionary` | [Topic][588] |
+| `iteritems()`, `iterkeys = __iter__()`, `itervalues()`, `keys()` | Get all stored ids | [Topic][588] |
+| `merge_with(other)` | Merge another dictionary into this dictionary, mapping the same tokens to the same ids and new tokens to new ids | [Topic][588] |
+| `save_as_text(fname, sort_by_word=True)` | Save `~gensim.corpora.dictionary.Dictionary` to a text file | [Topic][588] |
+| `from_corpus(corpus, id2word=None)` | Create `~gensim.corpora.dictionary.Dictionary` from an existing corpus | [Topic][588] |
+| `from_documents(documents)` | Create `~gensim.corpora.dictionary.Dictionary` from `documents` | [Topic][588] |
+| `load_from_text(fname)` | Load a previously stored `~gensim.corpora.dictionary.Dictionary` from a text file | [Topic][588] |
+| `save(fname_or_handle, *args)` | Save the object to a file | [Topic][588] |
+| `load(fname, mmap=None)` | Load an object previously saved using `~gensim.utils.SaveLoad.save` from a file | [Topic][588] |
+
+
+### `LdaModel(gensim.interfaces.TransformationABC, gensim.models.basemodel.BaseTopicModel)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `gensim.models.ldamodel.LdaModel(corpus=None, *args)` | Train and use Online Latent Dirichlet Allocation (OLDA) models as presented in Hoffman et al. : "[Online Learning for Latent Dirichlet Allocation](https://www.di.ens.fr/~fbach/mdhnips2010.pdf)" | [Topic][588] |
+| `diff(other, *args)`: Calculate the difference in topic distributions between two models: `self` and `other` | [Topic][588] |
+| `do_estep(chunk, state=None)` | Perform inference on a chunk of documents, and accumulate the collected sufficient statistics | [Topic][588] |
+| `do_mstep(rho, other, extra_pass=False)` | Maximization step: use linear interpolation between the existing topics and collected sufficient statistics in `other` to update the topics | [Topic][588] |
+| `get_document_topics(bow, *args)` | Get the topic distribution for the given document | [Topic][588] |
+| `get_term_topics(word_id, minimum_probability=None)` | Get the most relevant topics to the given word | [Topic][588] |
+| `get_topic_terms(topicid, topn=10)` | Get the representation for a single topic | [Topic][588] |
+| `get_topics()` | Get the term-topic matrix learned during inference | [Topic][588] |
+| `inference(chunk, collect_sstats=False)` |  Given a chunk of sparse document vectors, estimate gamma (parameters controlling the topic weights) for each document in the chunk | [Topic][588] |
+| `init_dir_prior(prior, name)` | Initialize priors for the Dirichlet distribution | [Topic][588] |
+| `log_perplexity(chunk, total_docs=None)` | Calculate and return per-word likelihood bound, using a chunk of documents as evaluation corpus | [Topic][588] |
+| `save(fname, *args, **kwargs)` | Save the model to a file | [Topic][588] |
+| `show_topic(topicid, topn=10)` | Get the representation for a single topic | [Topic][588] |
+| `show_topics(num_topics=10, *args)` | Get a representation for selected topics | [Topic][588] |
+| `sync_state()` | Propagate the states topic probabilities to the inner object's attribute | [Topic][588] |
+| `top_topics(corpus=None, *args)` | Get the topics with the highest coherence score the coherence for each topic | [Topic][588] |
+| `update(corpus, *args)` | Train the model with new documents, by EM-iterating over the corpus until the topics converge, or until the maximum number of allowed iterations is reached | [Topic][588] |
+| `update_alpha(gammat, rho)` | Update parameters for the Dirichlet prior on the per-document topic weights | [Topic][588] |
+| `update_eta(lambdat, rho)` | Update parameters for the Dirichlet prior on the per-topic word weights | [Topic][588] |
+| `load(fname, *args, **kwargs)` | Load a previously saved `gensim.models.ldamodel.LdaModel` from file | [Topic][588] |
+| `print_topic(topicno, topn=10)` | Get a single topic as a formatted string | [Topic][588] |
+| `print_topics(num_topics=20, num_words=10)` | Get the most significant topics (alias for `show_topics()` method) | [Topic][588] |
+
+
+### `LdaState(gensim.utils.SaveLoad)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `gensim.models.ldamodel.LdaState(eta, shape, dtype=<class 'numpy.float32'>)` | Encapsulate information for distributed computation of `~gensim.models.ldamodel.LdaModel` objects | [Topic][588] |
+| `blend(rhot, other, targetsize=None)` | Merge the current state with another one using a weighted average for the sufficient statistics | [Topic][588] |
+| `blend2(rhot, other, targetsize=None)` | Merge the current state with another one using a weighted sum for the sufficient statistics | [Topic][588] |
+| `get_Elogbeta()` | Get the log (posterior) probabilities for each topic | [Topic][588] |
+| `get_lambda()` | Get the parameters of the posterior over the topics, also referred to as "the topics" | [Topic][588] |
+| `merge(other)` | Merge the result of an E step from one node with that of another node (summing up sufficient statistics) | [Topic][588] |
+| `reset()` | Prepare the state for a new EM iteration (reset sufficient stats) | [Topic][588] |
+| `load(fname, *args, **kwargs)` | Load a previously stored state from disk | [Topic][588] |
+| `save(fname_or_handle, *args*)` | Save the object to a file | [Topic][588] |
+| `dirichlet_expectation(...)`, `dirichlet_expectation(alpha)` | Expected value of log(theta) where theta is drawn from a Dirichlet distribution | [Topic][588] |
+| `logsumexp(...)`, `logsumexp(x)` | Log of sum of exponentials, using `~gensim._matutils._logsumexp_2d` | [Topic][588] |
+| `mean_absolute_difference(...)`, `mean_absolute_difference(a, b)` | Mean absolute difference between two arrays, using `~gensim._matutils._mean_absolute_difference` | [Topic][588] |
+| `update_dir_prior(prior, N, logphat, rho)` | Update a given prior using Newton's method, described in J. Huang: "[Maximum Likelihood Estimation of Dirichlet Distribution Parameters](http://jonathan-huang.org/research/dirichlet/dirichlet.pdf)" | [Topic][588] |
+| 
+
 
 
 ------------------------------
 <!-- 
-[588]: 
+[588]: ../AppliedDS-UMich/4-TextMining/04-Modeling.md#generative-models-and-lda
 [589]: 
 [590]: 
 [591]: 
