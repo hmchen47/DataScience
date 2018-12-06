@@ -1052,20 +1052,53 @@ Also see the following Wikipedia pages on:
 
 ## Quiz: Module 4 Quiz
 
-### Lecture Notes
+
+1. Which of the following is not included in WordNet:
+
+    a. Sense of a word
+    b. Derivationally related forms
+    c. Pronunciation
+    d. Synonyms
+
+    Ans: c
 
 
+2. If the shortest distance between words A and B in the WordNet hierarchy is 6, the path-based similarity measure PathSim(A,B) would be:
 
-+ Demo
-    ```python
+    a. 6
+    b. 1/6 = 0.167
+    c. 1 - 1/5 = 5/6 = 0.833
+    d. 1/(6+1) = 1/7 = 0.143
 
-    ```
+    Ans: d
 
 
-### Lecture Video
+3. When computing the similarity between words C and D, the distributional similarity based metric gives a higher score than a path-based similarity measure. What can be inferred from this observation?
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
+    a. Distributional Similarity-based measure is a better metric to compute similarity between C and D (because higher numbers are better)
+    b. Path-based similarity measure is a better metric to compute similarity between C and D (because lower numbers are better)
+    c. This cannot happen -- distributional similarity is always lower than path-based similarity.
+    d. Nothing can be inferred. The similarity values from different measures cannot be directly compared.
 
+    Ans: d
+
+
+4. Which of the following approaches can be used to recognize monetary values (like USD 100, JPY 1000, etc.)
+
+    a. Building regular expressions
+    b. Looking up entries in a list
+    c. Checking if something is capitalized or title cased
+    d. All of the above
+
+    Ans: d
+
+
+5. Which of the following is not given as input for a topic modeling setup?
+
+    a. Number of topics
+    b. The document corpus
+    c. The topics
+    d. The topic modeling approach (LDA, PLSA, ...)
+
+    Ans: c
 
