@@ -1039,25 +1039,15 @@
 </a>
 
 
-
 ## Additional Resources & Readings
 
-### Lecture Notes
+The primary reference for the Latent Dirichlet Allocation (LDA) is the following. The first five pages (Pg nos. 993-997) describes the model and the plate notation.David M. Blei, Andrew Y. Ng, Michael I. Jordan; [Latent Dirichlet Allocation](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf). Journal of Machine Learning Research (JMLR); 3(Jan):993-1022, 2003.
 
+Also see the following Wikipedia pages on:
++ [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)
++ [Description of the plate notation](https://en.wikipedia.org/wiki/Plate_notation)
 
-
-+ Demo
-    ```python
-
-    ```
-
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
-
+[WordNet](http://www.nltk.org/howto/wordnet.html) based similarity measures in NLTK
 
 
 ## Quiz: Module 4 Quiz
