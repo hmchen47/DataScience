@@ -116,10 +116,10 @@
 Thanks for your response, Yusuf. The logic I have used is as follows -
 
 1. Word_tokenize
-1. POS tagging
-1. Convert to Wordnet tags
-1. find list of Synsets (first element) for each token. I get (be, function, test) for Doc1 and (use, function, see, code, be, correct) for Doc2
-1. Declare a numpy 2-d array of size len(s1) X len(s2). Nest iterations over elements of s2 inside iterations over elements of s1 using enumerate. Use enumerate indices to populate 2-d numpy array with path_similarities between the two elements. Find row-wise max across all columns, then find mean of the resultant array - using numpy functions that do not propagate nan. If compliant with code of conduct, I can post the resultant 2-day array, the array of max of each row and the mean. I am getting a mean score of 0.7333333 for s1 vs s2 and a score of 0.545xxx for the s2 vs s1 combination, giving a symmetric mean score of 0.63xxxx.
+2. POS tagging
+3. Convert to Wordnet tags
+4. find list of Synsets (first element) for each token. I get (be, function, test) for Doc1 and (use, function, see, code, be, correct) for Doc2
+5. Declare a numpy 2-d array of size len(s1) X len(s2). Nest iterations over elements of s2 inside iterations over elements of s1 using enumerate. Use enumerate indices to populate 2-d numpy array with path_similarities between the two elements. Find row-wise max across all columns, then find mean of the resultant array - using numpy functions that do not propagate nan. If compliant with code of conduct, I can post the resultant 2-day array, the array of max of each row and the mean. I am getting a mean score of 0.7333333 for s1 vs s2 and a score of 0.545xxx for the s2 vs s1 combination, giving a symmetric mean score of 0.63xxxx.
 Please let me know if this is incorrect.
 
 
@@ -195,12 +195,6 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
     Let me know if this helps..
 
 
-
-+ Santosh Tamhane reply
-
-    Thanks for all the help you have given me Yusuf. I will recheck. Best, Santosh.
-
-
 + Raoul Biagioni reply
 
     I have found that in order to pass Part 1 I had to implement the suggestion by Santosh Tamhane and add 'I': 'n', 'D': 'n' to tag_dict.
@@ -208,7 +202,7 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
     This is rather inconvenient considering that the instructions clearly state that the function convert_tag should NOT be modified...
 
 
-+ Aditya Singh · 2 months agoreply 
++ Aditya Singh reply
 
     I have got the value for the synsets for the two docs as correct i am getting a value of 0.48****333. If a synset in s1 would have equivalent similarity scores with synsets in s2 for example a synset in s1 has [0.3, 0.5, 0.5 , 0.4] similarity scores with elements of s2. Then are we supposed to add 0.5 (the max) twice ? And also the division would also increase by 1?
 
@@ -244,9 +238,10 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
 
     I read the instructions again, more carefully this time. We are instructed to use the first element. Is there a way to help identify/select which sense/element to use? Wish there are more discussion about Wordnet.
 
+
 + Yusuf Ertas reply
 
-    Just to add something to the similarity score. You need to drop similarity scores of 0, otherwise they change the mean significantly. I wish I had this to guide me when I was doing the assignment. Upvoted.
+    Just to add something to the similarity score. You need to drop similarity scores of 0, otherwise they change the mean significantly. I wish I had this to guide me when I was doing the assignment.
 
 
 + Jo Are By reply
@@ -272,11 +267,6 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
     I found setting max value to 0 works but you need to check if the similarity = None in your maximization function then at the end don't append max value if ==0.
 
 
-+ Justin Mahlik reply
-
-    Might be a more elegant way to handle this...
-
-
 + omar medhat moslhi reply
 
     I got this number 0.55****73 but I did't pass the grader
@@ -284,7 +274,7 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
 
 + Yusuf Ertas reply
 
-    @ Omar, that should be the correct answer. Have you tried restarting your kernel and submitting one more time.
+    @Omar, that should be the correct answer. Have you tried restarting your kernel and submitting one more time.
 
 
 + Chion John Wong reply
@@ -306,7 +296,7 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
 
     I needed to combine Jo Are's suggestion:
 
-    For "path_similarity may return None in whic h case it is to be discarded (and make sure it does not count when you later divide the sum for normalization)." in Jo Are's suggestion,
+    For "path_similarity may return None in which case it is to be discarded (and make sure it does not count when you later divide the sum for normalization)." in Jo Are's suggestion,
 
     and Yusuf Erta's suggestion:
 
