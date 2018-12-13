@@ -2,6 +2,324 @@
 
 ## Discussion Forum
 
+### [Assignment 4 Guide](https://www.coursera.org/learn/python-text-mining/discussions/weeks/4/threads/hyd7rkwBEeinuQpIIhlTbA)
+
++ Jo Are By Init
+
+    A few things I wish I knew before I started working on this assignment.
+
+    __Part 1__
+
+    __doc_to_synsets__
+
+    + Tokenize words
+    + Tag tokens
+    + Convert tags with predefined function convert_tag. Note: convert_tag may return None and that's ok. No token should be removed at this point.
+    + Get synsets from (token, wordnet_tag) pairs using wn.synsets (including tokens with wordnet_tag None)
+    + wn.synsets returns zero or more synsets. Keep only the first synset. In the case of no synsets, discard the empty list.
+    + Return the list of synsets.
+
+    __similarity_score__
+
+    + For each synset in s1, loop over all the synsets in s2 and find the largest similarity value for each one. Use x.path_similarity(y) where x is a synset from s1 and y is a synset from s2.
+    + path_similarity may return None in which case it is to be discarded (and make sure it does not count when you later divide the sum for normalization).
+    + Return the sum of scores divided by the number of scores found (not including None).
+    + Just to make this point clear, None should not be replaced by zero, but completely discarded.
+
+    Here is some additional debugging info (A similar post by mentor Uwe F Mayer helped me a lot, thanks)
+
+    ```python
+    doc1 = 'Ali saw the man with the telescope.'
+    doc2 = 'The man with the telescope was seen by Ali.'
+    synsets1 = doc_to_synsets(doc1)
+    print(synsets1)
+    synsets2 = doc_to_synsets(doc2)
+    print(synsets2)
+    score1 = similarity_score(synsets1, synsets2)
+    print(score1)
+    score2 = similarity_score(synsets2, synsets1)
+    print(score2)
+    score3 = document_path_similarity(doc1, doc2)
+    print(score3)
+
+    [Synset('ali.n.01'), Synset('saw.v.01'), Synset('man.n.01'), Synset('telescope.n.01')]
+    [Synset('man.n.01'), Synset('telescope.n.01'), Synset('be.v.01'), Synset('see.v.01'), Synset('by.r.01'), Synset('ali.n.01')]
+    0.7916666666666667
+    0.6619047619047619
+    0.7267857142857144
+    ```
+
+    __Part 2__
+
+    I found this part more straight forward. Make sure to read the assignment carefully.
+
+    __ldamodel__
+
+    Read the assignment and documentation. Try to get it right the first time, as this part takes a while to run, especially if you get it wrong.
+
+    __lda_topics__
+
+    Check the documentation. This should be straight forward.
+
+    __topic_distribution__
+
+    I failed to notice that I returned a nested list the first time around. The easy fix for me was to return the first element of the nested list.
+
+    __topic_names__
+
+    I spent some time trying to select topics based on similarity. After reading a bit on the forums I ended up with just manually listing the topics I thought would fit best subjectively.
+
+
++ Santosh Tamhane reply
+
+    I am getting all of Part 1 wrong. It looks like path_similarity is giving me asymmetric values when comparing the token 'correct' from doc2 to any of the tokens from doc1 (be, function, test). This makes my similarity scores possibly incorrect?
+
+    I have independently verified the asymmetry with the following code. Please note that this code is in no way related to the submission. Please help.
+
+    ```python
+    cor = wn.synset('correct.a.01')
+
+    oth = wn.synset('test.v.01')
+
+    x = wn.path_similarity(cor, oth)
+
+    if x is None:
+        print('Regular Order\nnull')
+    else:
+        print('Regular Order\n'+str(x))
+
+    x = wn.path_similarity(oth, cor)
+
+    if x is None:
+        print('Reverse Order\nnull')
+    else:
+        print('Reverse Order\n'+str(x))
+    ```
+
+    The results are -
+    ```python
+    Regular Order
+    null
+    Reverse Order
+    0.2
+    ```
+
++ Yusuf Ertas reply
+
+    Hi Santosh, just so that I understand this better I think your question is about the order of the synsets when evaluating path similarity. I have also found that the correct order matters for evaluating path similarity.
+
+    That being said the definition of document_path_similarity is symmetric, so this should not make any difference. Maybe the error is somewhere else.
+
+
++ Santosh Tamhane reply
+
+Thanks for your response, Yusuf. The logic I have used is as follows -
+
+1. Word_tokenize
+1. POS tagging
+1. Convert to Wordnet tags
+1. find list of Synsets (first element) for each token. I get (be, function, test) for Doc1 and (use, function, see, code, be, correct) for Doc2
+1. Declare a numpy 2-d array of size len(s1) X len(s2). Nest iterations over elements of s2 inside iterations over elements of s1 using enumerate. Use enumerate indices to populate 2-d numpy array with path_similarities between the two elements. Find row-wise max across all columns, then find mean of the resultant array - using numpy functions that do not propagate nan. If compliant with code of conduct, I can post the resultant 2-day array, the array of max of each row and the mean. I am getting a mean score of 0.7333333 for s1 vs s2 and a score of 0.545xxx for the s2 vs s1 combination, giving a symmetric mean score of 0.63xxxx.
+Please let me know if this is incorrect.
+
+
++ Yusuf Ertas reply
+
+Here is what I get for the 4th step as a test:
+
+<a href="url"> <br/>
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/OKYi55DxEeiHxhIKzPUaYA_45a38c59bb65010680786b23a7295bce_synset.PNG?expiry=1544572800000&hmac=DDbJihd_TuELlbp87jtSRrK28d8KCbvEjb-BTR23QfI" alt="text" title="caption" height="100">
+</a>
+
+As for your fifth step it sounds fine to me. It is the 4th step that is probably problematic though.
+
+
++ Santosh Tamhane reply
+
+    Thanks for the pointer, Yusuf. I checked my code again. Is my dict right? - {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v'}. Having checked the Wordnet database online, the only way can bring in Angstrom and inch is if I add the underlined elements to my dict - {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v', 'I': 'n', 'D': 'n'}. With that, I get a test_document_path_similarity() answer of 0.554xxxxx.
+
+
++ Yusuf Ertas reply
+
+    Hi Santosh, I am not certain whether you are using wn.synset() with the right arguments. In my answer that I use the first argument is the word gathered from the pos_tag and the second is the tag derived from the dictionary.
+
+    The word 'a' should turn into the synset Synset('angstrom.n.01') (which is the first element of the list) without any addition to the dictionary.
+
+
++ Santosh Tamhane reply
+
+    Hi Yusuf, after POS tagging I get the following - Since 'a' is returned with 'DT' and there is no 'D' in the original dict, I was getting a None returned from dict lookup - which is why the Synset('angstrom.n.01') was missing in my list of synsets. A similar problem happened with 'in' in the second string. The POS tagging returned with a 'IN'. That led me to believe that - perhaps - my dict was corrupted. Am I doing something wrong in POS tagging?
+
+    ```python
+    [('This', 'DT'),
+    ('is', 'VBZ'),
+    ('a', 'DT'),
+    ('function', 'NN'),
+    ('to', 'TO'),
+    ('test', 'VB'),
+    ('document_path_similarity', 'NN'),
+    ('.', '.')]
+    ```
+
++ Santosh Tamhane reply
+    ```python
+    [('Use', 'VB'),
+    ('this', 'DT'),
+    ('function', 'NN'),
+    ('to', 'TO'),
+    ('see', 'VB'),
+    ('if', 'IN'),
+    ('your', 'PRP$'),
+    ('code', 'NN'),
+    ('in', 'IN'),
+    ('doc_to_synsets', 'NNS'),
+    ('and', 'CC'),
+    ('similarity_score', 'NN'),
+    ('is', 'VBZ'),
+    ('correct', 'JJ'),
+    ('!', '.')]
+    ```
+
+
++ Yusuf Ertas reply
+
+    Hi Santosh, I had another look at this and I am convinced that the error is in the wn.sysnet conversion. Not sure how I could help more without posting code here. But here is a partial pseudo-code of what I did:
+    ```python
+    tags=#gather the pos_tags
+    for tag in tags:
+        tagwn = #Convert tags according to the dictionary
+        output = wn.synsets(tag[0],tagwn)
+        #Get the first item in the list 'output'.
+    ```
+
+    Let me know if this helps..
+
+
+
++ Santosh Tamhane reply
+
+    Thanks for all the help you have given me Yusuf. I will recheck. Best, Santosh.
+
+
++ Raoul Biagioni reply
+
+    I have found that in order to pass Part 1 I had to implement the suggestion by Santosh Tamhane and add 'I': 'n', 'D': 'n' to tag_dict.
+
+    This is rather inconvenient considering that the instructions clearly state that the function convert_tag should NOT be modified...
+
+
++ Aditya Singh · 2 months agoreply 
+
+    I have got the value for the synsets for the two docs as correct i am getting a value of 0.48****333. If a synset in s1 would have equivalent similarity scores with synsets in s2 for example a synset in s1 has [0.3, 0.5, 0.5 , 0.4] similarity scores with elements of s2. Then are we supposed to add 0.5 (the max) twice ? And also the division would also increase by 1?
+
++ Thad Wengert reply
+
+    Jo Are notes that some convert_tag results will return None ... but should that be a lot of them ?? I notice that the tags returned by nltk.pos_tag such as DT, VBZ, NN, TO, VB are not in the tag_dict, which has one-char values like N,J,R,V. So naturally the match rate which seems to fish out the first letter, is still pretty low.
+
+    Is this as expected??
+    ```python
+    Putting this sentence into convert_tag
+    [('This', 'DT'),
+    ('is', 'VBZ'),
+    ('a', 'DT'),
+    ('function', 'NN'),
+    ('to', 'TO'),
+    ('test', 'VB'),
+    ('document_path_similarity', 'NN'),
+    ('.', '.')]
+    
+    #gives you this output
+    [None, 'v', None, 'n', None, 'v', 'n', None]
+    ```
+
++ Miranda Lam reply
+
+    I found choosing the first synset element may not always work. For the test sentence, 'I like cats', the 3rd element of the token 'I' is the correct one. (See output below). Does anyone know how to determine the best matching sense? Or do I create a set of all synset combination?
+```python
+[Synset('iodine.n.01'), Synset('one.n.01'), Synset('i.n.03')]
+```
+
+
++ Miranda Lam reply
+
+    I read the instructions again, more carefully this time. We are instructed to use the first element. Is there a way to help identify/select which sense/element to use? Wish there are more discussion about Wordnet.
+
++ Yusuf Ertas reply
+
+    Just to add something to the similarity score. You need to drop similarity scores of 0, otherwise they change the mean significantly. I wish I had this to guide me when I was doing the assignment. Upvoted.
+
+
++ Jo Are By reply
+
+    I discard similarity values of None, and that is all my code does. I don't explicitly discard values of zero, yet my code passes the grader.
+
+    Are you converting None to zero and then discard the zeros?
+
+    Here's my approach:
+
+    For every element in s1 I make a list of path_similarity values with respect to every element in s2, excluding values of None. For every non-empty list I place the max value in another list.
+
+    Lastly I return the mean of the list of max values.
+
+
++ Yusuf Ertas reply
+
+    I have the same approach, however sometimes the max value happens to be 0, and when I add it in the list the mean changes. For reference, what value do you get for test_document_path_similarity()? I get 0.55****73.
+
+
++ Justin Mahlik reply
+
+    I found setting max value to 0 works but you need to check if the similarity = None in your maximization function then at the end don't append max value if ==0.
+
+
++ Justin Mahlik reply
+
+    Might be a more elegant way to handle this...
+
+
++ omar medhat moslhi reply
+
+    I got this number 0.55****73 but I did't pass the grader
+
+
++ Yusuf Ertas reply
+
+    @ Omar, that should be the correct answer. Have you tried restarting your kernel and submitting one more time.
+
+
++ Chion John Wong reply
+
+    i see that you use stopwords and your output omits "with", "the"
+
+    but it did not omit "by"
+
+    When I use this stopwords, sw = stopwords.words('english')?
+
+    "by" is one of the stopwords. How come your stopwords include the word "by"?
+
+    [Synset('ali.n.01'), Synset('saw.v.01'), Synset('man.n.01'), Synset('telescope.n.01')]
+
+    [Synset('man.n.01'), Synset('telescope.n.01'), Synset('be.v.01'), Synset('see.v.01'), Synset('by.r.01'), Synset('ali.n.01')]
+
+
++ James D Lin repy
+
+    I needed to combine Jo Are's suggestion:
+
+    For "path_similarity may return None in whic h case it is to be discarded (and make sure it does not count when you later divide the sum for normalization)." in Jo Are's suggestion,
+
+    and Yusuf Erta's suggestion:
+
+    You need to drop similarity scores of 0, otherwise they change the mean significantly.
+
+    to get the similarity_score() correct.
+
+    To use convert_tag(), be sure to pass correct value to it. I was confused at first. I wish there was some example code in the lecture. e.g. you should pass entity[1] as the tag value to convert_tag() as shown below:
+
+
+
+
+
 ### [Week 4 Notebook Provided Here](https://www.coursera.org/learn/python-text-mining/discussions/weeks/4/threads/y1xnKsJ2EeiTdg5seYVqZA)
 
 + Uwe F. Mayer init
