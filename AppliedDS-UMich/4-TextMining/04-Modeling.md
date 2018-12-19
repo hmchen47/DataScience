@@ -82,7 +82,7 @@
 
 + `wordnet` class
     + Init Signature: `wordnet(root, omw_reader)`
-    + Docstring: A corpus reader used to access wordnet or its variants.
+    + Docstring: A corpus reader used to access wordnet or its variants
     + Methods:
         + `__init__(root, omw_reader)`: Construct a new wordnet corpus reader, with the given root directory.
         + `all_lemma_names(pos=None, lang='eng')`: Return all lemma names for all synsets for the given part of speech tag and language or languages. If pos is not specified, all synsets for all parts of speech will be used.
@@ -202,7 +202,7 @@
         + `__dict__`: dictionary for instance variables (if defined)
         + `__weakref__`: list of weak references to the object (if defined)
         + `root`: The directory where this corpus is stored.
-    
+
 
 + Collocations and Distributional Similarity
     + “You know a word by the company it keeps” [Firth, 1957]
@@ -506,6 +506,7 @@
         ```python
         topic_dis = ldamodel[new_doc]
         ```
+
 
 + `Dictionary(gensim.utils.SaveLoad, collections.abc.Mapping)` class
     + Init Signature: `corpora.Dictionary(documents=None, prune_at=2000000)`
