@@ -1591,7 +1591,160 @@ above is my output which is exactly same as yours.
 
 ### Part 2 - Topic Modelling
 
+For the second part of this assignment, you will use Gensim's LDA (Latent Dirichlet Allocation) model to model topics in newsgroup_data. You will first need to finish the code in the cell below by using gensim.models.ldamodel.LdaModel constructor to estimate LDA model parameters on the corpus, and save to the variable ldamodel. Extract 10 topics using corpus and id_map, and with passes=25 and random_state=34.
 
+```python
+import pickle
+import gensim
+from sklearn.feature_extraction.text import CountVectorizer
 
+# Load the list of documents
+with open('newsgroups', 'rb') as f:
+    newsgroup_data = pickle.load(f)
+
+# Use CountVectorizor to find three letter tokens, remove stop_words, 
+# remove tokens that don't appear in at least 20 documents,
+# remove tokens that appear in more than 20% of the documents
+vect = CountVectorizer(min_df=20, max_df=0.2, stop_words='english', 
+                       token_pattern='(?u)\\b\\w\\w\\w+\\b')
+# Fit and transform
+X = vect.fit_transform(newsgroup_data)
+
+# Convert sparse matrix to gensim corpus.
+corpus = gensim.matutils.Sparse2Corpus(X, documents_columns=False)
+
+# Mapping from word IDs to words (To be used in LdaModel's id2word parameter)
+id_map = dict((v, k) for k, v in vect.vocabulary_.items())
+```
+
+```python
+# Use the gensim.models.ldamodel.LdaModel constructor to estimate 
+# LDA model parameters on the corpus, and save to the variable `ldamodel`
+
+# Your code here:
+
+ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map, passes=25, random_state=34)
+
+# print(ldamodel.print_topics(num_topics=10, num_words=5))
+```
+
++ lda_topics
+
+    Using ldamodel, find a list of the 10 topics and the most significant 10 words in each topic. This should be structured as a list of 10 tuples where each tuple takes on the form:
+
+    (9, '0.068*"space" + 0.036*"nasa" + 0.021*"science" + 0.020*"edu" + 0.019*"data" + 0.017*"shuttle" + 0.015*"launch" + 0.015*"available" + 0.014*"center" + 0.014*"sci"')
+
+    ```python
+    def lda_topics():
+        
+        # Your Code Here
+        
+        return ldamodel.print_topics(num_topics=10, num_words=10) # Your Answer Here
+
+    lda_topics()
+
+    # [(0, '0.056*"edu" + 0.043*"com" + 0.033*"thanks" + 0.022*"mail" + 0.021*"know" + 0.020*"does" + 0.014*"info" + 0.012*"monitor" + 0.010*"looking" + 0.010*"don"'),
+    #  (1, '0.024*"ground" + 0.018*"current" + 0.018*"just" + 0.013*"want" + 0.013*"use" + 0.011*"using" + 0.011*"used" + 0.010*"power" + 0.010*"speed" + 0.010*"output"'),
+    #  (2, '0.061*"drive" + 0.042*"disk" + 0.033*"scsi" + 0.030*"drives" + 0.028*"hard" + 0.028*"controller" + 0.027*"card" + 0.020*"rom" + 0.018*"floppy" + 0.017*"bus"'),
+    #  (3, '0.023*"time" + 0.015*"atheism" + 0.014*"list" + 0.013*"left" + 0.012*"alt" + 0.012*"faq" + 0.012*"probably" + 0.011*"know" + 0.011*"send" + 0.010*"months"'),
+    #  (4, '0.025*"car" + 0.016*"just" + 0.014*"don" + 0.014*"bike" + 0.012*"good" + 0.011*"new" + 0.011*"think" + 0.010*"year" + 0.010*"cars" + 0.010*"time"'),
+    #  (5, '0.030*"game" + 0.027*"team" + 0.023*"year" + 0.017*"games" + 0.016*"play" + 0.012*"season" + 0.012*"players" + 0.012*"win" + 0.011*"hockey" + 0.011*"good"'),
+    #  (6, '0.017*"information" + 0.014*"help" + 0.014*"medical" + 0.012*"new" + 0.012*"use" + 0.012*"000" + 0.012*"research" + 0.011*"university" + 0.010*"number" + 0.010*"program"'),
+    #  (7, '0.022*"don" + 0.021*"people" + 0.018*"think" + 0.017*"just" + 0.012*"say" + 0.011*"know" + 0.011*"does" + 0.011*"good" + 0.010*"god" + 0.009*"way"'),
+    #  (8, '0.034*"use" + 0.023*"apple" + 0.020*"power" + 0.016*"time" + 0.015*"data" + 0.015*"software" + 0.012*"pin" + 0.012*"memory" + 0.012*"simms" + 0.012*"port"'),
+    #  (9, '0.068*"space" + 0.036*"nasa" + 0.021*"science" + 0.020*"edu" + 0.019*"data" + 0.017*"shuttle" + 0.015*"launch" + 0.015*"available" + 0.014*"center" + 0.014*"sci"')]
+    ```
+
++ topic_distribution
+
+    For the new document new_doc, find the topic distribution. Remember to use vect.transform on the the new doc, and Sparse2Corpus to convert the sparse matrix to gensim corpus.
+
+    ```python
+    new_doc = ["\n\nIt's my understanding that the freezing will start to occur because \
+    of the\ngrowing distance of Pluto and Charon from the Sun, due to it's\nelliptical orbit. \
+    It is not due to shadowing effects. \n\n\nPluto can shadow Charon, and vice-versa.\n\nGeorge \
+    Krumins\n-- "]
+
+    def topic_distribution():
+        
+        # Your Code Here
+    #     # my sol
+        
+    #     new_X = vect.transform(new_doc)
+
+    #     new_corpus = gensim.matutils.Sparse2Corpus(new_X, documents_columns=False)
+
+    #     ldamodel = gensim.models.ldamodel.LdaModel(new_corpus, num_topics=10, id2word=id_map, passes=25, random_state=34)
+
+    #     lda = ldamodel.get_document_topics(new_corpus[0])
+        
+    #     topics = ldamodel.get_document_topics(new_corpus, minimum_probability=0.01)
+
+    #     return  list(topics)[0] # Your Answer Here --> wrong answer
+
+    #     # sol 2
+    #     from gensim import corpora, models
+        
+    #     vect = CountVectorizer(stop_words='english')
+    #     new_X = vect.fit_transform(new_doc)
+    #     new_corpus = gensim.matutils.Sparse2Corpus(new_X, documents_columns=False)
+    #     new_ldamodel = gensim.models.ldamodel.LdaModel(new_corpus,num_topics=10,id2word=id_map,random_state=34,passes=25)
+
+    #     dictionary = corpora.Dictionary(vect.vocabulary_.items())
+    #     bow = dictionary.doc2bow(new_doc[0].split())
+        
+    #     return new_ldamodel.get_document_topics(bow)
+
+    # [(0, 0.010001303),
+    #  (1, 0.010001282),
+    #  (2, 0.010001285),
+    #  (3, 0.010001278),
+    #  (4, 0.010001346),
+    #  (5, 0.010001323),
+    #  (6, 0.90998805),
+    #  (7, 0.01000138),
+    #  (8, 0.010001428),
+    #  (9, 0.010001326)]
+
+        # Sol 3
+        X = vect.transform(new_doc)
+
+        # Convert sparse matrix to gensim corpus.
+        corpus = gensim.matutils.Sparse2Corpus(X, documents_columns=False)
+        
+        return list(ldamodel[corpus])[0] # Your Answer 
+
+    topic_distribution()
+
+    # [(0, 0.020001831),
+    #  (1, 0.020002045),
+    #  (2, 0.020000001),
+    #  (3, 0.49665016),
+    #  (4, 0.020002762),
+    #  (5, 0.020002853),
+    #  (6, 0.020001693),
+    #  (7, 0.020001365),
+    #  (8, 0.020001847),
+    #  (9, 0.34333542)]
+    ```
+
++ topic_names
+
+    From the list of the following given topics, assign topic names to the topics you found. If none of these names best matches the topics you found, create a new 1-3 word "title" for the topic.
+
+    ```python
+    def topic_names():
+        
+        # Your Code Here
+        return ['Automobiles', 'Health', 'Science',
+                'Politics', 'Sports',
+                'Business', 'Society & Lifestyle',
+                'Religion', 'Education', 'Computers & IT']
+        # Your Answer Here
+        
+    topics1 = ['Health', 'Science', 'Automobiles', 'Politics', 'Government', 
+            'Travel', 'Computers & IT', 'Sports', 
+            'Business', 'Society & Lifestyle', 'Religion', 'Education']
+    ```
 
 
