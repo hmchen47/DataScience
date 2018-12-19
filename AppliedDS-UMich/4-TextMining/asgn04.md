@@ -308,6 +308,80 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
 
 
 
+### [Advices on Assigment 4 part 1](https://www.coursera.org/learn/python-text-mining/discussions/weeks/4/threads/UdUakwEoEei9EAqFJB2Eog)
+
++ Viktor Pless init
+
+    It took me a lot of time to pass this part, and during this time I learned a lot about what can go wrong (Yes, I did almost everything wrong that could go wrong). So here are my advices based on my experience and others' laments.
+
+    + Read very carefully the similarity_score description. It says '... dividing it by the number of largest similarity values found'. (It took me 2 days to re-read this description as I was lost in all the forum posts.) The surprise is that the word found is very important here.
+    + The similarity measure to use is path_similarity. Alist of synsets (s1) onto a second list of synsets (s2) means that you have to call s1's path_similarity method with parameter s2.
+    + Read the doc_to_synsets description carefully: use wn.synsets(token, wordnet_tag) (not wn.synset)
+    + doc_to_synsets takes care of lowercasing. You just have to use what's in the description: nltk.word_tokenize and nltk.pos_tag
+    + after convert_tag has been called, you don't have to eliminate Nones
+
+
++ + Yann Vestring reply
+
+    after convert_tag has been called, you don't have to eliminate Nones
+
+    Question: any hint on what you do to the tokens for which convert_tag returns None (since you're not eliminating them)?
+
+
++ Krishna Prasad Shenoy reply
+
+    Hi Victor
+
+    I am stuck with part 1 of assignment 4 for a long time. Some of the people seem to appreciate the hints you have given. I have the following doubt -
+
+    You mention - "
+
+    + It says '... dividing it by the number of largest similarity values found'. (It took me 2 days to re-read this description as I was lost in all the forum posts.) The surprise is that the word found is very important here. "
+    But I am not getting a situation where ALL the synsets return None
+
+    SURELY I AM DOING A MISTAKE SINCE EVERYONE WHO GOT IT RIGHT SEEM TO APPRECIATE WHAT YOU HIGHLIGHTED ABOVE.
+
+    Here are my synsets
+
+    doc1 = 'This is a function to test document_path_similarity.'
+    synset1: [Synset('be.v.01'), Synset('angstrom.n.01'), Synset('function.n.01'), Synset('test.v.01')]
+    doc2 = 'Use this function to see if your code in doc_to_synsets \ and similarity_score is correct!'
+    synset2: [Synset('use.v.01'), Synset('function.n.01'), Synset('see.v.01'), Synset('code.n.01'), Synset('inch.n.01'), Synset('be.v.01'), Synset('correct.a.01')]
+
+    a) similarity_score(synset1, synset2)
+    similarity values - [0.3333333333333333, None, 0.25, None, None, 1.0, None] - largest 1.0
+
+    # [0.1, 0.1, 0.09090909090909091, 0.1, 0.25, 0.1, None] - largest 0.25
+    # [0.14285714285714285, 1.0, 0.125, 0.14285714285714285, 0.1111111111111111, 0.14285714285714285, None] - largest 1.0
+    # [0.2, None, 0.16666666666666666, None, None, 0.2, None] - largest 0.2
+    
+    list of all largest values - [1.0, 0.25, 1.0, 0.2]
+
+    score = total / length = 2.45 / 4 = 0.6125
+
+    b) similarity_score(synset2, synset1)
+
+    similarity values - [0.3333333333333333, None, None, 0.2] - largest 0.3333333333333333
+
+    [0.14285714285714285, 0.1, 1.0, 0.1111111111111111] - largest 1.0
+
+    [0.25, None, None, 0.16666666666666666] - largest 0.25
+
+    [0.14285714285714285, 0.1, 0.14285714285714285, 0.1111111111111111] - largest 0.14285714285714285
+
+    [0.1111111111111111, 0.25, 0.1111111111111111, 0.09090909090909091] - largest 0.25
+
+    [1.0, None, None, 0.2] - largest 1.0
+
+    [0.3333333333333333, None, None, 0.2] - largest 0.3333333333333333
+
+    list of all largest values - [0.3333333333333333, 1.0, 0.25, 0.14285714285714285, 0.25, 1.0, 0.3333333333333333]
+
+    score = total / length = 3.3095238095238098 / 7 = 0.47278911564625853
+
+    test_document_path_similarity() = document_path_similarity(doc1, doc2) = (0.6125 + 0.47278911564625853)/2 = 0.5426445578231293
+    ```
+    This answer is not accepted by autograder. Appreciate if you can reply.
 
 
 ### [Week 4 Notebook Provided Here](https://www.coursera.org/learn/python-text-mining/discussions/weeks/4/threads/y1xnKsJ2EeiTdg5seYVqZA)
@@ -736,7 +810,7 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
     so my code is below and my final data type is corpus. for using get_document, the corpus should be converted to bow, but i don't know how to do it.
     ```python
     new_X = vect.transform(new_doc)
-        new_corpus = gensim.matutils.Sparse2Corpus(new_X, documents_columns=False)
+    new_corpus = gensim.matutils.Sparse2Corpus(new_X, documents_columns=False)
     ```
     or are there other method to solve this problem?
 
@@ -782,28 +856,28 @@ As for your fifth step it sounds fine to me. It is the 4th step that is probably
 
 + Isabel Camilla Hutchison reply
 
-I get the following output, but it won't get accepted by the AG:
-```python
-[[(0, 0.020000000317099309),
-  (1, 0.020000000316238595),
-  (2, 0.020000000316343886),
-  (3, 0.020000000315819035),
-  (4, 0.020000000317976295),
-  (5, 0.020000000317598902),
-  (6, 0.020000000316114326),
-  (7, 0.8199999971463352),
-  (8, 0.020000000318816692),
-  (9, 0.020000000317657578)]]
-```
+    I get the following output, but it won't get accepted by the AG:
+    ```python
+    [[(0, 0.020000000317099309),
+    (1, 0.020000000316238595),
+    (2, 0.020000000316343886),
+    (3, 0.020000000315819035),
+    (4, 0.020000000317976295),
+    (5, 0.020000000317598902),
+    (6, 0.020000000316114326),
+    (7, 0.8199999971463352),
+    (8, 0.020000000318816692),
+    (9, 0.020000000317657578)]]
+    ```
 
-Could someone please give me a hint as to why?
+    Could someone please give me a hint as to why?
 
-My strategy is:
+    My strategy is:
 
-1. transform the new_doc using vect
-2. use Sparse2Corpus to define corpus based on transformed new_doc
-3. generate ldamodel with corpus, same id_map as previous task, num_topics = 10, passes = 25, random_state = 34
-4. finally return list(ldamodel2.get_document_topics(corpus2))
+    1. transform the new_doc using vect
+    2. use Sparse2Corpus to define corpus based on transformed new_doc
+    3. generate ldamodel with corpus, same id_map as previous task, num_topics = 10, passes = 25, random_state = 34
+    4. finally return list(ldamodel2.get_document_topics(corpus2))
 
 + Philipp Stempel reply
 
@@ -1110,7 +1184,7 @@ Good luck !
 
 ### [Hint for topic_names](https://www.coursera.org/learn/python-text-mining/discussions/weeks/4/threads/x1DSkZ44EeiclQpjXTIwdA)
 
-Jun Wang
+Jun Wang init
 
 From the list of the following given topics, assign topic names to the topics you found. If none of these names best matches the topics you found, create a new 1-3 word "title" for the topic.
 
@@ -1313,5 +1387,211 @@ above is my output which is exactly same as yours.
 
 
 ## Solution
+
+
+### Part 1 - Document Similarity
+
++ writing the following functions:
+
+    + doc_to_synsets: returns a list of synsets in document. This function should first tokenize and part of speech tag the document using nltk.word_tokenize and nltk.pos_tag. Then it should find each tokens corresponding synset using wn.synsets(token, wordnet_tag). The first synset match should be used. If there is no match, that token is skipped.
+    + similarity_score: returns the normalized similarity score of a list of synsets (s1) onto a second list of synsets (s2). For each synset in s1, find the synset in s2 with the largest similarity value. Sum all of the largest similarity values together and normalize this value by dividing it by the number of largest similarity values found. Be careful with data types, which should be floats. Missing values should be ignored.
+
+    ```python
+    import numpy as np
+    import nltk
+    from nltk.corpus import wordnet as wn
+    import pandas as pd
+
+
+    def convert_tag(tag):
+        """Convert the tag given by nltk.pos_tag to the tag used by wordnet.synsets"""
+        
+        tag_dict = {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v'}
+        try:
+            return tag_dict[tag[0]]
+        except KeyError:
+            return None
+
+
+    def doc_to_synsets(doc):
+        """
+        Returns a list of synsets in document.
+
+        Tokenizes and tags the words in the document doc.
+        Then finds the first synset for each word/tag combination.
+        If a synset is not found for that combination it is skipped.
+
+        Args:
+            doc: string to be converted
+
+        Returns:
+            list of synsets
+
+        Example:
+            doc_to_synsets('Fish are nvqjp friends.')
+            Out: [Synset('fish.n.01'), Synset('be.v.01'), Synset('friend.n.01')]
+        """
+
+        # Your Code Here
+        
+        # convert doc to tokens
+        tokens = nltk.word_tokenize(doc)
+        
+        # generate tags
+        tags = nltk.pos_tag(tokens)
+        
+        # convert tags
+        tags = [(tag[0], convert_tag(tag[1][0])) for tag in tags]
+            
+        # fetch synsets
+        synsets_lst = [wn.synsets(tag[0], tag[1])[0] for tag in tags if wn.synsets(tag[0], tag[1])]
+        
+        return synsets_lst # Your Answer Here
+
+
+    def similarity_score(s1, s2):
+        """
+        Calculate the normalized similarity score of s1 onto s2
+
+        For each synset in s1, finds the synset in s2 with the largest similarity value.
+        Sum of all of the largest similarity values and normalize this value by dividing it by the
+        number of largest similarity values found.
+
+        Args:
+            s1, s2: list of synsets from doc_to_synsets
+
+        Returns:
+            normalized similarity score of s1 onto s2
+
+        Example:
+            synsets1 = doc_to_synsets('I like cats')
+            synsets2 = doc_to_synsets('I like dogs')
+            similarity_score(synsets1, synsets2)
+            Out: 0.73333333333333339
+        """
+
+        # Your Code Here
+        max_sims = []
+        for syn1 in s1:
+            syn_max = 0.0
+            for syn2 in s2:
+                syn_max = max(syn_max, wn.path_similarity(syn1, syn2) 
+                            if wn.path_similarity(syn1, syn2) else 0.0)
+        
+            if syn_max > 0.0:
+                max_sims.append(syn_max)
+        
+        return  sum(max_sims)/len(max_sims) # Your Answer Here
+
+
+    def document_path_similarity(doc1, doc2):
+        """Finds the symmetrical similarity between doc1 and doc2"""
+
+        synsets1 = doc_to_synsets(doc1)
+        synsets2 = doc_to_synsets(doc2)
+
+        return (similarity_score(synsets1, synsets2) + similarity_score(synsets2, synsets1)) / 2
+
+    # doc1 = 'Ali saw the man with the telescope.'
+    # synsets1 = doc_to_synsets(doc1)
+    # print(synsets1)
+    # # [Synset('ali.n.01'), Synset('saw.v.01'), Synset('man.n.01'), Synset('telescope.n.01')]
+
+    # doc2 = 'The man with the telescope was seen by Ali.'
+    # synsets2 = doc_to_synsets(doc2)
+    # print(synsets2)
+    # # [Synset('man.n.01'), Synset('telescope.n.01'), Synset('be.v.01'), Synset('see.v.01'), Synset('by.r.01'), Synset('ali.n.01')]
+
+    # print(similarity_score(synsets1, synsets2)) # 0.7916666666666667
+    # print(similarity_score(synsets2, synsets1)) # 0.6619047619047619
+    # print(document_path_similarity(doc1, doc2)) # 0.7267857142857144
+    ```
+
++ test_document_path_similarity
+
+    Use this function to check if doc_to_synsets and similarity_score are correct.
+
+    ```python
+    def test_document_path_similarity():
+        doc1 = 'This is a function to test document_path_similarity.'
+        doc2 = 'Use this function to see if your code in doc_to_synsets \
+            and similarity_score is correct!'
+
+        return document_path_similarity(doc1, doc2)
+    ```
+
++ paraphrases is a DataFrame which contains the following columns: Quality, D1, and D2.
+
+    ```python
+    # Use this dataframe for questions most_similar_docs and label_accuracy
+    paraphrases = pd.read_csv('paraphrases.csv')
+    paraphrases.head()
+
+    #   Quality                     D1                  	                            D2
+    # 0   1     Ms Stewart, the chief executive, was not expec...   Ms Stewart, 61, its chief executive officer an...
+    # 1   1     After more than two years' detention under the...   After more than two years in detention by the ...
+    # 2   1     "It still remains to be seen whether the reven...   "It remains to be seen whether the revenue rec...
+    # 3   0     And it's going to be a wild ride," said Allan ...   Now the rest is just mechanical," said Allan H...
+    # 4   1     The cards are issued by Mexico's consulates to...   The card is issued by Mexico's consulates to i...
+    ```
+
++ most_similar_docs
+
+    Using document_path_similarity, find the pair of documents in paraphrases which has the maximum similarity score.
+
+    ```python
+    def most_similar_docs():
+        
+        # Your Code Here
+        
+    #     paraphrases['scores'] = document_path_similarity(paraphrases['D1'], paraphrases['D2'])
+
+        scores = []
+        for row in range(paraphrases.shape[0]):
+            scores.append(document_path_similarity(
+                str(paraphrases.loc[row]['D1']), str(paraphrases.loc[row]['D2'])))
+
+        paraphrases['score'] = pd.Series(scores)
+
+        paraphrases.sort_values(by=['score'], ascending=False, inplace=True)
+
+        return  (paraphrases.iloc[0]['D1'], paraphrases.iloc[0]['D2'],
+                paraphrases.iloc[0]['score']) # Your Answer Here
+
+    # Solution 2
+        paraphrases['similarity'] = paraphrases.apply(lambda x:document_path_similarity(x['D1'], x['D2']), axis=1)
+        pair = paraphrases.iloc[paraphrases['similarity'].argmax()]
+
+        return (pair['D1'], pair['D2'], pair['similarity']) # Your Answer Here
+
+    most_similar_docs()
+
+    # ('"Indeed, Iran should be put on notice that efforts to try to remake Iraq in their image will be aggressively put down," he said.',
+    #  '"Iran should be on notice that attempts to remake Iraq in Iran\'s image will be aggressively put down," he said.\r\n',
+    #  0.97530864197530864)
+    ```
+
+
++ label_accuracy
+
+    Provide labels for the twenty pairs of documents by computing the similarity for each pair using document_path_similarity. Let the classifier rule be that if the score is greater than 0.75, label is paraphrase (1), else label is not paraphrase (0). Report accuracy of the classifier using scikit-learn's accuracy_score.
+
+    ```python
+    def label_accuracy():
+        from sklearn.metrics import accuracy_score
+
+        # Your Code Here
+        paraphrases['label'] = paraphrases['score'].apply(lambda score: 1 if score > 0.75 else 0)
+
+        return accuracy_score(paraphrases['Quality'], paraphrases['label'])  # Your Answer Here
+
+    # label_accuracy()
+    ```
+
+
+### Part 2 - Topic Modelling
+
+
+
 
 
