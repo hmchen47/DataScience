@@ -26,20 +26,20 @@
 
 ## Module 2: [Basic Natural Language Processing](02-BasicNLP.md)
 
-+ [Basic Natural Language Processing](02-BasicNLP.md#)
-+ [Notebook: Module 2 (Python 3)](02-BasicNLP.md#)
-+ [Basic NLP tasks with NLTK](02-BasicNLP.md#)
-+ [Advanced NLP tasks with NLTK](02-BasicNLP.md#)
-+ [Practice Quiz: Practice Quiz](02-BasicNLP.md#)
-+ [Discussion Prompt: Finding your own prepositional phrase attachment](02-BasicNLP.md#)
-+ [Quiz: Module 2 Quiz](02-BasicNLP.md#)
++ [Basic Natural Language Processing](02-BasicNLP.md#basic-natural-language-processing)
++ [Notebook: Module 2 (Python 3)](02-BasicNLP.md#notebook-module-2-python-3)
++ [Basic NLP tasks with NLTK](02-BasicNLP.md#basic-nlp-tasks-with-nltk)
++ [Advanced NLP tasks with NLTK](02-BasicNLP.md#advanced-nlp-tasks-with-nltk)
++ [Practice Quiz: Practice Quiz](02-BasicNLP.md#practice-quiz-practice-quiz)
++ [Discussion Prompt: Finding your own prepositional phrase attachment](02-BasicNLP.md#discussion-prompt-finding-your-own-propositional-phrase-attachement)
++ [Quiz: Module 2 Quiz](02-BasicNLP.md#quiz-module-2-quiz)
 
 ### [Assignment 2](asgn02.md)
 
-+ [Jaccard distance](Asgn02.md#)
-+ [How Spell Checkers Work](Asgn02.md#)
-+ [Edit Distance and Jaccard Distance Calculation with NLTK](Asgn02.md#)
-+ [Solution](Asgn02.md#)
++ [Jaccard distance](Asgn02.md#jaccard-distance)
++ [How Spell Checkers Work](Asgn02.md#how-spell-chekers-work)
++ [Edit Distance and Jaccard Distance Calculation with NLTK](Asgn02.md#edit-distance-and-jaccard-calculation-with-nltk)
++ [Solution](Asgn02.md#solution)
 
 
 
