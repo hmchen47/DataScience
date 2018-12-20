@@ -1405,7 +1405,7 @@ above is my output which is exactly same as yours.
 
     def convert_tag(tag):
         """Convert the tag given by nltk.pos_tag to the tag used by wordnet.synsets"""
-        
+
         tag_dict = {'N': 'n', 'J': 'a', 'R': 'r', 'V': 'v'}
         try:
             return tag_dict[tag[0]]
@@ -1433,19 +1433,19 @@ above is my output which is exactly same as yours.
         """
 
         # Your Code Here
-        
+
         # convert doc to tokens
         tokens = nltk.word_tokenize(doc)
-        
+
         # generate tags
         tags = nltk.pos_tag(tokens)
-        
+
         # convert tags
         tags = [(tag[0], convert_tag(tag[1][0])) for tag in tags]
-            
+
         # fetch synsets
         synsets_lst = [wn.synsets(tag[0], tag[1])[0] for tag in tags if wn.synsets(tag[0], tag[1])]
-        
+
         return synsets_lst # Your Answer Here
 
 
@@ -1477,10 +1477,10 @@ above is my output which is exactly same as yours.
             for syn2 in s2:
                 syn_max = max(syn_max, wn.path_similarity(syn1, syn2) 
                             if wn.path_similarity(syn1, syn2) else 0.0)
-        
+
             if syn_max > 0.0:
                 max_sims.append(syn_max)
-        
+
         return  sum(max_sims)/len(max_sims) # Your Answer Here
 
 
@@ -1541,9 +1541,9 @@ above is my output which is exactly same as yours.
 
     ```python
     def most_similar_docs():
-        
+
         # Your Code Here
-        
+
     #     paraphrases['scores'] = document_path_similarity(paraphrases['D1'], paraphrases['D2'])
 
         scores = []
@@ -1636,9 +1636,9 @@ ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map
 
     ```python
     def lda_topics():
-        
+
         # Your Code Here
-        
+
         return ldamodel.print_topics(num_topics=10, num_words=10) # Your Answer Here
 
     lda_topics()
@@ -1666,10 +1666,10 @@ ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map
     Krumins\n-- "]
 
     def topic_distribution():
-        
+
         # Your Code Here
     #     # my sol
-        
+
     #     new_X = vect.transform(new_doc)
 
     #     new_corpus = gensim.matutils.Sparse2Corpus(new_X, documents_columns=False)
@@ -1677,14 +1677,14 @@ ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map
     #     ldamodel = gensim.models.ldamodel.LdaModel(new_corpus, num_topics=10, id2word=id_map, passes=25, random_state=34)
 
     #     lda = ldamodel.get_document_topics(new_corpus[0])
-        
+
     #     topics = ldamodel.get_document_topics(new_corpus, minimum_probability=0.01)
 
     #     return  list(topics)[0] # Your Answer Here --> wrong answer
 
     #     # sol 2
     #     from gensim import corpora, models
-        
+
     #     vect = CountVectorizer(stop_words='english')
     #     new_X = vect.fit_transform(new_doc)
     #     new_corpus = gensim.matutils.Sparse2Corpus(new_X, documents_columns=False)
@@ -1692,7 +1692,7 @@ ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map
 
     #     dictionary = corpora.Dictionary(vect.vocabulary_.items())
     #     bow = dictionary.doc2bow(new_doc[0].split())
-        
+
     #     return new_ldamodel.get_document_topics(bow)
 
     # [(0, 0.010001303),
@@ -1711,7 +1711,7 @@ ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map
 
         # Convert sparse matrix to gensim corpus.
         corpus = gensim.matutils.Sparse2Corpus(X, documents_columns=False)
-        
+
         return list(ldamodel[corpus])[0] # Your Answer 
 
     topic_distribution()
@@ -1734,14 +1734,14 @@ ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=10, id2word=id_map
 
     ```python
     def topic_names():
-        
+
         # Your Code Here
         return ['Automobiles', 'Health', 'Science',
                 'Politics', 'Sports',
                 'Business', 'Society & Lifestyle',
                 'Religion', 'Education', 'Computers & IT']
         # Your Answer Here
-        
+
     topics1 = ['Health', 'Science', 'Automobiles', 'Politics', 'Government', 
             'Travel', 'Computers & IT', 'Sports', 
             'Business', 'Society & Lifestyle', 'Religion', 'Education']
