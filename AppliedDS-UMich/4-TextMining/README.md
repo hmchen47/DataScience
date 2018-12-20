@@ -62,18 +62,22 @@
 
 ## Module 4: [Topic Modeling](04-Modeling.md)
 
-+ [Semantic Text Similarity](04-Modeling.md#)
-+ [Topic Modeling](04-Modeling.md#)
-+ [Generative Models and LDA](04-Modeling.md#)
-+ [Practice Quiz: Practice Quiz](04-Modeling.md#)
-+ [Information Extraction](04-Modeling.md#)
-+ [Additional Resources & Readings](04-Modeling.md#)
-+ [Quiz: Module 4 Quiz](04-Modeling.md#)
++ [Semantic Text Similarity](04-Modeling.md#semantic--text-similarity)
++ [Topic Modeling](04-Modeling.md#topic-modeling)
++ [Generative Models and LDA](04-Modeling.md#gnerative-models-and-lda)
++ [Practice Quiz: Practice Quiz](04-Modeling.md#practice-quiz-practice-quiz)
++ [Information Extraction](04-Modeling.md#infromation-extraction)
++ [Additional Resources & Readings](04-Modeling.md#additiona;-resources-readings)
++ [Quiz: Module 4 Quiz](04-Modeling.md#quiz-module-4-quiz)
 
 ### [Assignment 4](asgn04.md)
 
-+ Discussion Forum
-+ Solution
++ [Discussion Forum](asgn04.md#discussion-forum)
++ [Solution](asgn04.md#solution)
+    + [Part 1 - Document Similarity](asgn04.md#part-1---document-similarity)
+    + [Part 2 - Topic Modelling](asgn04.md#part-2---topic-modeling)
+
+
 
 
 `
