@@ -44,15 +44,15 @@
 
 ## Module 3: [Classification of Text](03-Classify.md)
 
-+ [Text Classification](03-Classify.md#)
-+ [Identifying Features from Text](03-Classify.md#)
-+ [Naive Bayes Classifiers](03-Classify.md#)
-+ [Naive Bayes Variations](03-Classify.md#)
-+ [Support Vector Machines](03-Classify.md#)
-+ [Learning Text Classifiers in Python](03-Classify.md#)
-+ [Notebook: Case Study - Sentiment Analysis](03-Classify.md#)
-+ [Demonstration: Case Study - Sentiment Analysis](03-Classify.md#)
-+ [Quiz: Module 3 Quiz](03-Classify.md#)
++ [Text Classification](03-Classify.md#text-classification)
++ [Identifying Features from Text](03-Classify.md#identifying-features-from-text)
++ [Naive Bayes Classifiers](03-Classify.md#naive-bayes-classifiers)
++ [Naive Bayes Variations](03-Classify.md#naive-bayes-variations)
++ [Support Vector Machines](03-Classify.md#support-vector-machines)
++ [Learning Text Classifiers in Python](03-Classify.md#learning-text-classifiers-in-python)
++ [Notebook: Case Study - Sentiment Analysis](03-Classify.md#notebook-case-study---sentiment-analyssi)
++ [Demonstration: Case Study - Sentiment Analysis](03-Classify.md#demostration-case-study---sentiment-analysis)
++ [Quiz: Module 3 Quiz](03-Classify.md#quiz-module-3-quiz)
 
 ### [Assignment 3](asgn03.md)
 
