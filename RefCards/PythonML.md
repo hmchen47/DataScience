@@ -1193,11 +1193,200 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `roc_auc_score(y_true, y_score, *args)` | Compute Area Under the Curve (AUC) from prediction scores | [Model Selection][580] |
 
 
+## Semantic Analysis
+
+### Import Files
+
+```python
+import nltk
+from nltk.corpus import wordnet as wn
+from nltk.corpus import wordnet_ic
+from nltk.collocations import AbstractCollocationFinder
+from nltk.collocations import BigramAssocMeasures
+from nltk.collocations import QuadgramAssocMeasures
+from nltk.collocations import TrigramAssocMeasures
+```
+
+### `wordnet` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `wordnet(root, omw_reader)` | Construct a new wordnet corpus reader, with the given root directory | [Semantic][587] |
+| `synset(name)` | Loading Synsets | [Semantic][587] |
+| `ic(corpus, weight_senses_equally=False, smoothing=1.0)` | Creates an information content lookup dictionary from a corpus | [Semantic][587] |
+| `jcn_similarity(synset1, synset2, ic, verbose=False)` | __Jiang-Conrath Similarity__: Return a score denoting how similar two word senses are, based on the Information Content (IC) of the Least Common Subsumer (most specific ancestor node) and that of the two input Synsets. | [Semantic][587] |
+| `lch_similarity(synset1, synset2, *args*)` | __Leacock Chodorow Similarity__: Return a score denoting how similar two word senses are, based on the shortest path that connects the senses (as above) and the maximum depth of the taxonomy in which the senses occur.  | [Semantic][587] |
+| `lin_similarity(synset1, synset2, ic, verbose=False)` | __Lin Similarity__: Return a score denoting how similar two word senses are, based on the Information Content (IC) of the Least Common Subsumer (most specific ancestor node) and that of the two input Synsets.  | [Semantic][587] |
+| `path_similarity(synset1, synset2, *args)` | __Path Distance Similarity__: Return a score denoting how similar two word senses are, based on the shortest path that connects the senses in the is-a (hypernym/hypnoym) taxonomy. The score is in the range 0 to 1, except in those cases where a path cannot be found (will only be true for verbs as there are many distinct verb taxonomies), in which case None is returned. A score of 1 represents identity i.e. comparing a sense with itself will return 1.
+| `res_similarity(synset1, synset2, ic, verbose=False)` | __Resnik Similarity__: Return a score denoting how similar two word senses are, based on the Information Content (IC) of the Least Common Subsumer (most specific ancestor node)  | [Semantic][587] |
+| `wup_similarity(synset1, synset2, verbose=False, simulate_root=True)`: __Wu-Palmer Similarity__: Return a score denoting how similar two word senses are, based on the depth of the two senses in the taxonomy and that of their Least Common Subsumer (most specific ancestor node).  | [Semantic][587] |
+| `lemma(name, lang='eng')` | Return lemma object that matches the name | [Semantic][587] |
+| `lemma_count(lemma)` | Return the frequency count for this Lemma | [Semantic][587] |
+| `lemma_from_key(key)` | Return the Lemma from given key | [Semantic][587] |
+| `lemmas(lemma, pos=None, lang='eng')` | Return all Lemma objects with a name matching the specified lemma name and part of speech tag | [Semantic][587] |
+
+
+### `wordnet_ic` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `wordnet_ic(root, fileids)` | A corpus reader for the WordNet information content corpus | [Semantic][587] |
+| `ic(icfile)`: Load an information content file from the wordnet_ic corpus and return a dictionary | [Semantic][587] |
+
+
+### `AbstractCollocationFinder` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `AbstractCollocationFinder(word_fd, ngram_fd)` | An abstract base class for collocation finders whose purpose is to collect collocation candidate frequencies, filter and rank them | [Semantic][587] |
+| `above_score(score_fn, min_score)` | Returns a sequence of ngrams, ordered by decreasing score, whose scores each exceed the given minimum score. | [Semantic][587] |
+| `apply_freq_filter(min_freq)`| Removes candidate ngrams which have frequency less than min_freq. | [Semantic][587] |
+| `apply_ngram_filter(fn)` | Removes candidate ngrams $(w_1, w_2, \ldots)$ where $fn(w_1, w_2, \ldots)$ evaluates to True. | [Semantic][587] |
+| `apply_word_filter(fn)`| Removes candidate ngrams $(w_1, w_2, \ldots)$ where any of $(fn(w_1), fn(w_2), \ldots)$ evaluates to True. | [Semantic][587] |
+| `nbest(score_fn, n)`| Returns the top n ngrams when scored by the given function. | [Semantic][587] |
+| `score_ngrams(score_fn)`| Returns a sequence of (ngram, score) pairs ordered from highest to lowest score, as determined by the scoring function provided. | [Semantic][587] |
+
+
+### `BigramCollocationFinder(AbstractCollocationFinder)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `BigramCollocationFinder(word_fd, bigram_fd, window_size=2)` | A tool for the finding and ranking of bigram collocations or other association measures
+| `score_ngram(score_fn, w1, w2)` | Returns the score for a given bigram using the given scoring function | [Semantic][587] |
+| `from_words(words, window_size=2)` | from `builtins.type`; Construct a BigramCollocationFinder for all bigrams in the given sequence | [Semantic][587] |
+
+
+### `TrigramCollocationFinder(AbstractCollocationFinder)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `TrigramCollocationFinder(word_fd, bigram_fd, wildcard_fd, trigram_fd)` | A tool for the finding and ranking of trigram collocations or other association measure | [Semantic][587] |
+| `bigram_finder()` | Constructs a bigram collocation finder with the bigram and unigram data from this finder | [Semantic][587] |
+| `score_ngram(score_fn, w1, w2, w3)` | Returns the score for a given trigram using the given scoring function. | [Semantic][587] |
+
+### `QuadgramCollocationFinder(AbstractCollocationFinder)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `QuadgramCollocationFinder(word_fd, quadgram_fd, ii, iii, ixi, ixxi, iixi, ixii)` | A tool for the finding and ranking of quadgram collocations or other association measures
+| `score_ngram(score_fn, w1, w2, w3, w4)` | Returns the score for a given quadgram using the given scoring function | [Semantic][587] |
+| `from_words(words, window_size=4)` | from `builtins.type`; Construct a QuadgramCollocationFinder for all quadgrams in the given sequence | [Semantic][587] |
+
+### `NgramAssocMeasures(builtins.object)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `nltk.NgramAssocMeasures()` | An abstract class defining a collection of generic association measures | [Semantic][587] |
+| `chi_sq(*marginals)` | Scores ngrams using Pearson's chi-square as in Manning and Schutze 5.3.3. | [Semantic][587] |
+| `jaccard(*marginals)` | Scores ngrams using the Jaccard index. | [Semantic][587] |
+| `likelihood_ratio(*marginals)` |  Scores ngrams using likelihood ratios as in Manning and Schutze 5.3.4. | [Semantic][587] |
+| `pmi(*marginals)` |  Scores ngrams by pointwise mutual information, as in Manning and Schutze 5.4. | [Semantic][587] |
+| `poisson_stirling(*marginals)` |  Scores ngrams using the Poisson-Stirling measure. | [Semantic][587] |
+| `student_t(*marginals)` | Scores ngrams using Student's t test with independence hypothesis for unigrams, as in Manning and Schutze 5.3.1. | [Semantic][587] |
+| `mi_like(*marginals, **kwargs)` | Scores ngrams using a variant of mutual information | [Semantic][587] |
+| `raw_freq(*marginals)` | Scores ngrams by their frequency | [Semantic][587] |
+
+
+### `BigramAssocMeasures(NgramAssocMeasures)` Class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `ntlk.BigramAssocMeasures()` | A collection of bigram association measures| [Semantic][587] |
+| `bigram_score_fn(n_ii, (n_ix, n_xi), n_xx)` | association measure| [Semantic][587] |
+| `chi_sq(n_ii, n_ix_xi_tuple, n_xx)` | Scores bigrams using chi-square| [Semantic][587] |
+| `fisher(*marginals)` | Scores bigrams using Fisher's Exact Test (Pedersen 1996)| [Semantic][587] |
+| `phi_sq(*marginals)` | Scores bigrams using phi-square, the square of the Pearson correlation coefficient | [Semantic][587] |
+
+
+### `TrigramAssocMeasures(NgramAssocMeasures)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `nltk.TrigramAssocMeasures()` | A collection of trigram association measures | [Semantic][587] |
+| `trigram_score_fn(n_iii, (n_iix, n_ixi, n_xii), (n_ixx, n_xix, n_xxi), n_xxx)` | associate measure | [Semantic][587] |
+
+
+## Toic Modeling
+
+### Import Files
+
+```python
+import gensim
+from gensim import corpora, models
+```
+
+### `Dictionary(gensim.utils.SaveLoad, collections.abc.Mapping)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `corpora.Dictionary(documents=None, prune_at=2000000)` | Dictionary encapsulates the mapping between normalized words and their integer ids | [Topic][588] |
+| `doc2bow(document, allow_update=False, return_missing=False)` | Convert `document` into the bag-of-words (BoW) format = list of `(token_id, token_count)` tuples | [Topic][588] |
+| `doc2idx(document, unknown_word_index=-1)` | Convert `document` (a list of words) into a list of indexes = list of `token_id` | [Topic][588] |
+| `filter_extremes(no_below=5, no_above=0.5, keep_n=100000, keep_tokens=None)` | Filter out tokens in the dictionary by their frequency | [Topic][588] |
+| `filter_n_most_frequent(remove_n)` | Filter out the 'remove_n' most frequent tokens that appear in the documents | [Topic][588] |
+| `filter_tokens(bad_ids=None, good_ids=None)` | Remove the selected `bad_ids` tokens from `~gensim.corpora.dictionary.Dictionary` | [Topic][588] |
+| `iteritems()`, `iterkeys = __iter__()`, `itervalues()`, `keys()` | Get all stored ids | [Topic][588] |
+| `merge_with(other)` | Merge another dictionary into this dictionary, mapping the same tokens to the same ids and new tokens to new ids | [Topic][588] |
+| `save_as_text(fname, sort_by_word=True)` | Save `~gensim.corpora.dictionary.Dictionary` to a text file | [Topic][588] |
+| `from_corpus(corpus, id2word=None)` | Create `~gensim.corpora.dictionary.Dictionary` from an existing corpus | [Topic][588] |
+| `from_documents(documents)` | Create `~gensim.corpora.dictionary.Dictionary` from `documents` | [Topic][588] |
+| `load_from_text(fname)` | Load a previously stored `~gensim.corpora.dictionary.Dictionary` from a text file | [Topic][588] |
+| `save(fname_or_handle, *args)` | Save the object to a file | [Topic][588] |
+| `load(fname, mmap=None)` | Load an object previously saved using `~gensim.utils.SaveLoad.save` from a file | [Topic][588] |
+
+
+### `LdaModel(gensim.interfaces.TransformationABC, gensim.models.basemodel.BaseTopicModel)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `gensim.models.ldamodel.LdaModel(corpus=None, *args)` | Train and use Online Latent Dirichlet Allocation (OLDA) models as presented in Hoffman et al. : "[Online Learning for Latent Dirichlet Allocation](https://www.di.ens.fr/~fbach/mdhnips2010.pdf)" | [Topic][588] |
+| `diff(other, *args)`: Calculate the difference in topic distributions between two models: `self` and `other` | [Topic][588] |
+| `do_estep(chunk, state=None)` | Perform inference on a chunk of documents, and accumulate the collected sufficient statistics | [Topic][588] |
+| `do_mstep(rho, other, extra_pass=False)` | Maximization step: use linear interpolation between the existing topics and collected sufficient statistics in `other` to update the topics | [Topic][588] |
+| `get_document_topics(bow, *args)` | Get the topic distribution for the given document | [Topic][588] |
+| `get_term_topics(word_id, minimum_probability=None)` | Get the most relevant topics to the given word | [Topic][588] |
+| `get_topic_terms(topicid, topn=10)` | Get the representation for a single topic | [Topic][588] |
+| `get_topics()` | Get the term-topic matrix learned during inference | [Topic][588] |
+| `inference(chunk, collect_sstats=False)` |  Given a chunk of sparse document vectors, estimate gamma (parameters controlling the topic weights) for each document in the chunk | [Topic][588] |
+| `init_dir_prior(prior, name)` | Initialize priors for the Dirichlet distribution | [Topic][588] |
+| `log_perplexity(chunk, total_docs=None)` | Calculate and return per-word likelihood bound, using a chunk of documents as evaluation corpus | [Topic][588] |
+| `save(fname, *args, **kwargs)` | Save the model to a file | [Topic][588] |
+| `show_topic(topicid, topn=10)` | Get the representation for a single topic | [Topic][588] |
+| `show_topics(num_topics=10, *args)` | Get a representation for selected topics | [Topic][588] |
+| `sync_state()` | Propagate the states topic probabilities to the inner object's attribute | [Topic][588] |
+| `top_topics(corpus=None, *args)` | Get the topics with the highest coherence score the coherence for each topic | [Topic][588] |
+| `update(corpus, *args)` | Train the model with new documents, by EM-iterating over the corpus until the topics converge, or until the maximum number of allowed iterations is reached | [Topic][588] |
+| `update_alpha(gammat, rho)` | Update parameters for the Dirichlet prior on the per-document topic weights | [Topic][588] |
+| `update_eta(lambdat, rho)` | Update parameters for the Dirichlet prior on the per-topic word weights | [Topic][588] |
+| `load(fname, *args, **kwargs)` | Load a previously saved `gensim.models.ldamodel.LdaModel` from file | [Topic][588] |
+| `print_topic(topicno, topn=10)` | Get a single topic as a formatted string | [Topic][588] |
+| `print_topics(num_topics=20, num_words=10)` | Get the most significant topics (alias for `show_topics()` method) | [Topic][588] |
+
+
+### `LdaState(gensim.utils.SaveLoad)` class
+
+| Function | Description | Link |
+|----------|-------------|------|
+| `gensim.models.ldamodel.LdaState(eta, shape, dtype=<class 'numpy.float32'>)` | Encapsulate information for distributed computation of `~gensim.models.ldamodel.LdaModel` objects | [Topic][588] |
+| `blend(rhot, other, targetsize=None)` | Merge the current state with another one using a weighted average for the sufficient statistics | [Topic][588] |
+| `blend2(rhot, other, targetsize=None)` | Merge the current state with another one using a weighted sum for the sufficient statistics | [Topic][588] |
+| `get_Elogbeta()` | Get the log (posterior) probabilities for each topic | [Topic][588] |
+| `get_lambda()` | Get the parameters of the posterior over the topics, also referred to as "the topics" | [Topic][588] |
+| `merge(other)` | Merge the result of an E step from one node with that of another node (summing up sufficient statistics) | [Topic][588] |
+| `reset()` | Prepare the state for a new EM iteration (reset sufficient stats) | [Topic][588] |
+| `load(fname, *args, **kwargs)` | Load a previously stored state from disk | [Topic][588] |
+| `save(fname_or_handle, *args*)` | Save the object to a file | [Topic][588] |
+| `dirichlet_expectation(...)`, `dirichlet_expectation(alpha)` | Expected value of log(theta) where theta is drawn from a Dirichlet distribution | [Topic][588] |
+| `logsumexp(...)`, `logsumexp(x)` | Log of sum of exponentials, using `~gensim._matutils._logsumexp_2d` | [Topic][588] |
+| `mean_absolute_difference(...)`, `mean_absolute_difference(a, b)` | Mean absolute difference between two arrays, using `~gensim._matutils._mean_absolute_difference` | [Topic][588] |
+| `update_dir_prior(prior, N, logphat, rho)` | Update a given prior using Newton's method, described in J. Huang: "[Maximum Likelihood Estimation of Dirichlet Distribution Parameters](http://jonathan-huang.org/research/dirichlet/dirichlet.pdf)" | [Topic][588] |
+| 
+
+
 
 ------------------------------
 <!-- 
-[587]: 
-[588]: 
+[588]: ../AppliedDS-UMich/4-TextMining/04-Modeling.md#generative-models-and-lda
 [589]: 
 [590]: 
 [591]: 
@@ -1901,3 +2090,4 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
 [585]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#learning-text-classifiers-in-python
 [586]: ../AppliedDS-UMich/4-TextMining/03-Classify.md#demonstration-case-study---sentiment-analysis
+[587]: ../AppliedDS-UMich/4-TextMining/04-Modeling.md#semantic-text-similarity
