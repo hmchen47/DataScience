@@ -350,45 +350,43 @@ import pandas as pd
 | `L`     | milliseonds | | `U`     | microseconds |
 | `N`     | nanoseconds |
 
-
+## Series
 
 | Attribute | Description |
 |-----------|-------------|
 | `s.index` | array-like or Index (1d),  Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
-| `s.at ` | Fast label-based scalar accessor |
-| `s.axes ` | Return a list of the row axis labels |
-| `s.base ` | return the base object if the memory of the underlying data is |
-| `s.blocks ` | Internal property, property synonym for as_blocks() |
-| `s.data ` | return the data pointer of the underlying data |
-| `s.dtype ` | return the dtype object of the underlying data |
-| `s.dtypes ` | return the dtype object of the underlying data |
-| `s.empty ` |  |
-| `s.flags ` |  |
-| `s.ftype ` | return if the data is sparse|dense |
-| `s.ftypes ` | return if the data is sparse|dense |
-| `s.hasnans ` |  |
-| `s.iat ` | Fast integer location scalar accessor. |
-| `s.iloc ` | Purely integer-location based indexing for selection by position. |
-| `s.imag ` |  |
-| `s.is_copy ` |  |
-| `s.is_monotonic ` | Return boolean if values in the object are |
-| `s.is_monotonic_decreasing ` | Return boolean if values in the object are |
-| `s.is_monotonic_increasing ` | Return boolean if values in the object are |
-| `s.is_unique ` | Return boolean if values in the object are unique |
-| `s.itemsize ` | return the size of the dtype of the item of the underlying data |
-| `s.ix ` | A primarily label-location based indexer, with integer position fallback. |
-| `s.loc ` | Purely label-location based indexer for selection by label. |
-| `s.name ` |  |
-| `s.nbytes ` | return the number of bytes in the underlying data |
-| `s.ndim ` | return the number of dimensions of the underlying data, |
-| `s.real ` |  |
-| `s.shape ` | return a tuple of the shape of the underlying data |
-| `s.size ` | return the number of elements in the underlying data |
-| `s.strides ` | return the strides of the underlying data |
-| `s.values ` | Return Series as ndarray or ndarray-like |
+| `s.at` | Fast label-based scalar accessor |
+| `s.axes` | Return a list of the row axis labels |
+| `s.base` | return the base object if the memory of the underlying data is |
+| `s.blocks` | Internal property, property synonym for as_blocks() |
+| `s.data` | return the data pointer of the underlying data |
+| `s.dtype` | return the dtype object of the underlying data |
+| `s.dtypes` | return the dtype object of the underlying data |
+| `s.empty` |  |
+| `s.flags` |  |
+| `s.ftype` | return if the data is sparse|dense |
+| `s.ftypes` | return if the data is sparse|dense |
+| `s.hasnans` |  |
+| `s.iat` | Fast integer location scalar accessor. |
+| `s.iloc` | Purely integer-location based indexing for selection by position. |
+| `s.imag` |  |
+| `s.is_copy` |  |
+| `s.is_monotonic` | Return boolean if values in the object are |
+| `s.is_monotonic_decreasing` | Return boolean if values in the object are |
+| `s.is_monotonic_increasing` | Return boolean if values in the object are |
+| `s.is_unique` | Return boolean if values in the object are unique |
+| `s.itemsize` | return the size of the dtype of the item of the underlying data |
+| `s.ix` | A primarily label-location based indexer, with integer position fallback. |
+| `s.loc` | Purely label-location based indexer for selection by label. |
+| `s.name` |  |
+| `s.nbytes` | return the number of bytes in the underlying data |
+| `s.ndim` | return the number of dimensions of the underlying data, |
+| `s.real` |  |
+| `s.shape` | return a tuple of the shape of the underlying data |
+| `s.size` | return the number of elements in the underlying data |
+| `s.strides` | return the strides of the underlying data |
+| `s.values` | Return Series as ndarray or ndarray-like |
 
-
-[TOC](#table-of-contents)
 
 ### Lecture Methods
 
@@ -402,6 +400,8 @@ import pandas as pd
 | `s.iteritems()` | Lazily iterate over (index, value) tuples | [Querying Series][007] |
 | `s.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
 
+
+[TOC](#table-of-contents)
 
 
 ### DataFrame

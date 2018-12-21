@@ -36,10 +36,46 @@
 
 ### [Assignment 2](asgn02.md)
 
-+ [Jaccard distance](Asgn02.md#jaccard-distance)
-+ [How Spell Checkers Work](Asgn02.md#how-spell-chekers-work)
-+ [Edit Distance and Jaccard Distance Calculation with NLTK](Asgn02.md#edit-distance-and-jaccard-calculation-with-nltk)
-+ [Solution](Asgn02.md#solution)
++ [Jaccard distance](asgn02.md#jaccard-distance)
++ [How Spell Checkers Work](asgn02.md#how-spell-checkers-work)
++ [Edit Distance and Jaccard Distance Calculation with NLTK](asgn02.md#edit-distance-and-jaccard-distance-calculation-with-nltk)
++ [Solution](asgn02.md#solution)
+
+
+## Module 3: [Classification of Text](03-Classify.md)
+
++ [Text Classification](03-Classify.md#text-classification)
++ [Identifying Features from Text](03-Classify.md#identifying-features-from-text)
++ [Naive Bayes Classifiers](03-Classify.md#naive-bayes-classifiers)
++ [Naive Bayes Variations](03-Classify.md#naive-bayes-variations)
++ [Support Vector Machines](03-Classify.md#support-vector-machines)
++ [Learning Text Classifiers in Python](03-Classify.md#learning-text-classifiers-in-python)
++ [Notebook: Case Study - Sentiment Analysis](03-Classify.md#notebook-case-study---sentiment-analyssi)
++ [Demonstration: Case Study - Sentiment Analysis](03-Classify.md#demostration-case-study---sentiment-analysis)
++ [Quiz: Module 3 Quiz](03-Classify.md#quiz-module-3-quiz)
+
+### [Assignment 3](asgn03.md)
+
++ [Discussion Forum](asgn03.md#discussion-forum)
++ [Solution](asgn03.md#solution)
+
+
+## Module 4: [Topic Modeling](04-Modeling.md)
+
++ [Semantic Text Similarity](04-Modeling.md#semantic--text-similarity)
++ [Topic Modeling](04-Modeling.md#topic-modeling)
++ [Generative Models and LDA](04-Modeling.md#gnerative-models-and-lda)
++ [Practice Quiz: Practice Quiz](04-Modeling.md#practice-quiz-practice-quiz)
++ [Information Extraction](04-Modeling.md#infromation-extraction)
++ [Additional Resources & Readings](04-Modeling.md#additiona;-resources-readings)
++ [Quiz: Module 4 Quiz](04-Modeling.md#quiz-module-4-quiz)
+
+### [Assignment 4](asgn04.md)
+
++ [Discussion Forum](asgn04.md#discussion-forum)
++ [Solution](asgn04.md#solution)
+    + [Part 1 - Document Similarity](asgn04.md#part-1---document-similarity)
+    + [Part 2 - Topic Modelling](asgn04.md#part-2---topic-modeling)
 
 
 
