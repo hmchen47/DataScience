@@ -44,7 +44,7 @@
     + [Color abbreviations](color-abbreviations)
 + [Seaborn](seaborn)
     + [Seaborn API](seaborn-api)
-
++ [NLTK](natural-language-toolkit)
 
 
 ## General
@@ -113,18 +113,18 @@ import re
 
 | Attribute | Description | Link |
 |--------|-------------|------|
-| `compile(pattern, flags=0)` | Compile a regular expression pattern, returning a pattern object. | [ReExp][049] |
-| `escape(pattern)` |  Escape all the characters in pattern except ASCII letters, numbers and '_'. | [ReExp][049] |
-| `findall(pattern, string, flags=0)` | Return a list of all non-overlapping matches in the string. | [ReExp][049] |
-| `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [ReExp][049] |
-| `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [ReExp][049] |
-| `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [ReExp][049] |
-| `purge()`: Clear the regular expression caches | [ReExp][049] |
-| `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [ReExp][049] |
-| `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [ReExp][049] |
-| `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [ReExp][049] |
-| `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [ReExp][049] |
-| `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [ReExp][049] |
+| `compile(pattern, flags=0)` | Compile a regular expression pattern, returning a pattern object. | [RegEx][049] |
+| `escape(pattern)` |  Escape all the characters in pattern except ASCII letters, numbers and '_'. | [RegEx][049] |
+| `findall(pattern, string, flags=0)` | Return a list of all non-overlapping matches in the string. | [RegEx][049] |
+| `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [RegEx][049] |
+| `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [RegEx][049] |
+| `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [RegEx][049] |
+| `purge()`: Clear the regular expression caches | [RegEx][049] |
+| `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [RegEx][049] |
+| `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [RegEx][049] |
+| `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [RegEx][049] |
+| `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [RegEx][049] |
+| `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [RegEx][049] |
 
 [Regular Expressions 101](https://regex101.com/)
 
@@ -306,7 +306,7 @@ import pandas as pd
 | Method | Description | Link |
 |--------|-------------|------|
 | `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] |
-| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
+| `pd.concat(objs, axis=0, join='outer', join_axes=None, *args)` | Concatenate pandas objects along a particular axis with optional set logic along the other axes | [Asgn01][054] |
 
 
 
@@ -350,45 +350,43 @@ import pandas as pd
 | `L`     | milliseonds | | `U`     | microseconds |
 | `N`     | nanoseconds |
 
-
+## Series
 
 | Attribute | Description |
 |-----------|-------------|
 | `s.index` | array-like or Index (1d),  Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
-| `s.at ` | Fast label-based scalar accessor |
-| `s.axes ` | Return a list of the row axis labels |
-| `s.base ` | return the base object if the memory of the underlying data is |
-| `s.blocks ` | Internal property, property synonym for as_blocks() |
-| `s.data ` | return the data pointer of the underlying data |
-| `s.dtype ` | return the dtype object of the underlying data |
-| `s.dtypes ` | return the dtype object of the underlying data |
-| `s.empty ` |  |
-| `s.flags ` |  |
-| `s.ftype ` | return if the data is sparse|dense |
-| `s.ftypes ` | return if the data is sparse|dense |
-| `s.hasnans ` |  |
-| `s.iat ` | Fast integer location scalar accessor. |
-| `s.iloc ` | Purely integer-location based indexing for selection by position. |
-| `s.imag ` |  |
-| `s.is_copy ` |  |
-| `s.is_monotonic ` | Return boolean if values in the object are |
-| `s.is_monotonic_decreasing ` | Return boolean if values in the object are |
-| `s.is_monotonic_increasing ` | Return boolean if values in the object are |
-| `s.is_unique ` | Return boolean if values in the object are unique |
-| `s.itemsize ` | return the size of the dtype of the item of the underlying data |
-| `s.ix ` | A primarily label-location based indexer, with integer position fallback. |
-| `s.loc ` | Purely label-location based indexer for selection by label. |
-| `s.name ` |  |
-| `s.nbytes ` | return the number of bytes in the underlying data |
-| `s.ndim ` | return the number of dimensions of the underlying data, |
-| `s.real ` |  |
-| `s.shape ` | return a tuple of the shape of the underlying data |
-| `s.size ` | return the number of elements in the underlying data |
-| `s.strides ` | return the strides of the underlying data |
-| `s.values ` | Return Series as ndarray or ndarray-like |
+| `s.at` | Fast label-based scalar accessor |
+| `s.axes` | Return a list of the row axis labels |
+| `s.base` | return the base object if the memory of the underlying data is |
+| `s.blocks` | Internal property, property synonym for as_blocks() |
+| `s.data` | return the data pointer of the underlying data |
+| `s.dtype` | return the dtype object of the underlying data |
+| `s.dtypes` | return the dtype object of the underlying data |
+| `s.empty` |  |
+| `s.flags` |  |
+| `s.ftype` | return if the data is sparse|dense |
+| `s.ftypes` | return if the data is sparse|dense |
+| `s.hasnans` |  |
+| `s.iat` | Fast integer location scalar accessor. |
+| `s.iloc` | Purely integer-location based indexing for selection by position. |
+| `s.imag` |  |
+| `s.is_copy` |  |
+| `s.is_monotonic` | Return boolean if values in the object are |
+| `s.is_monotonic_decreasing` | Return boolean if values in the object are |
+| `s.is_monotonic_increasing` | Return boolean if values in the object are |
+| `s.is_unique` | Return boolean if values in the object are unique |
+| `s.itemsize` | return the size of the dtype of the item of the underlying data |
+| `s.ix` | A primarily label-location based indexer, with integer position fallback. |
+| `s.loc` | Purely label-location based indexer for selection by label. |
+| `s.name` |  |
+| `s.nbytes` | return the number of bytes in the underlying data |
+| `s.ndim` | return the number of dimensions of the underlying data, |
+| `s.real` |  |
+| `s.shape` | return a tuple of the shape of the underlying data |
+| `s.size` | return the number of elements in the underlying data |
+| `s.strides` | return the strides of the underlying data |
+| `s.values` | Return Series as ndarray or ndarray-like |
 
-
-[TOC](#table-of-contents)
 
 ### Lecture Methods
 
@@ -402,6 +400,8 @@ import pandas as pd
 | `s.iteritems()` | Lazily iterate over (index, value) tuples | [Querying Series][007] |
 | `s.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
 
+
+[TOC](#table-of-contents)
 
 
 ### DataFrame
@@ -510,6 +510,9 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; <br/>`dtype`: data type, or dict of column name -> data type | [Scales][018] |
 | `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; <br/> values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
 | `df.describe(percentiles=None, include=None, exclude=None)` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values. | [Box Plots][039] |
+| `df.index.duplicated(keep='first')` | Return boolean np.ndarray denoting duplicate values | [Asgn01][054] |
+| `df.sort_values(axis=0, ascending=True, *args)` | Sort by the values along either axis | [Asgn01][054] |
+| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
 | `df.plot.box(by=None, **kwds)` | Boxplot | [Plotting w/ Pandas][044] |
 | `df.plot.hist(by=None, bins=10, **kwds)` | Histogram | [Plotting w/ Pandas][044] |
 | `df.plot.kde(**kwds)` | Kernel Density Estimate plot | [Plotting w/ Pandas][044] |
@@ -522,13 +525,18 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | Method | Description | Link |
 |--------|-------------|------|
 | `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
-| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050] |
+| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
 | `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
 | `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
-| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050] |
+| `df.str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
+| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
 | `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050] |
-| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050] |
+| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
+| `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
+| 
 
+
+[TOC](#table-of-contents)
 
 ## MatPlotLib
 
@@ -569,6 +577,7 @@ import matplotlib.animation as animation
     + [text][036]
 
 
+[TOC](#table-of-contents)
 
 ### Methods
 
@@ -621,6 +630,7 @@ import matplotlib.animation as animation
 | `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
 
 
+[TOC](#table-of-contents)
 
 ### Line style or marker
 
@@ -662,6 +672,8 @@ plt.plot([1,2,3], [1,4,9], 'rs',  label='line 2')
 plt.axis([0, 4, 0, 10])
 plt.legend()
 ```
+
+[TOC](#table-of-contents)
 
 # Seaborn
 
@@ -742,16 +754,50 @@ import seaborn as sns
 | `saturate(color)` | Return a fully saturated color with the same hue. | [Link](https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate) |
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
+
+[TOC](#table-of-contents)
+
+
+## Natural Language Toolkit
+
+```python
+import nltk
+
+nltk.download()     # fownload corpora
+```
+
+### Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `FreqDist(samples=None)` | A frequency distribution for the outcomes of an experiment | [Basic NLP][051] |
+| `nltk.corpus` | NLTK corpus readers, create a LazyModule instance wrapping module name | [Basic NLP][051] |
+| `nltk.corpus.udhr` | Construct a new plaintext corpus reader for a set of documents located at the given root directory | [Basic NLP][051] |
+| `nltk.corpus.udhr.words(fileids=None)` | return the given file(s) as a list of words and punctuation symbols | [Basic NLP][051] |
+| `nltk.PorterStemmer(mode='NLTK_EXTENSIONS')` | A word stemmer based on the Porter stemming algorithm | [Basic NLP][051] |
+| `nltk.PorterStemmer.stem(word)` | Strip affixes from the token and return the stem | [Basic NLP][051] |
+| `nltk.WordNetLemmatizer()` | Initizlize lemmatization by using WordNet's built-in morphy function | [Basic NLP][051] |
+| `nltk.WordNetLemmatizer.lemmatize(word, pos='n')` | Lemmatize using WordNet's built-in morphy function | [Basic NLP][051] |
+| `nltk.word_tokenize(text, *args)` | Return a tokenized copy of text, using NLTK's recommended word tokenizer | [Basic NLP][051] |
+| `nltk.sent_tokenize(text, language='english')`| Return a sentence-tokenized copy of text, using NLTK's recommended sentence tokenizer | [Basic NLP][051] |
+| `nltk.help.upenn_tagset(tagpattern=None)` | detail explanation of given tag | [Adv NLP][052] |
+| `nltk.pos_tag(tokens, tagset=None, lang='eng')` | Use NLTK's currently recommended part of speech tagger to tag the given list of tokens | [Adv NLP][052] |
+| `nltk.CFG(start, productions, calculate_leftcorners=True)` | A context-free grammar.  A grammar consists of a start state and a set of productions. | [Adv NLP][052] |
+| `nltk.CFG.fromstring(input, encoding=None)` | Return the `CFG` corresponding to the input string(s) | [Adv NLP][052] |
+| `nltk.ChartParser(grammar, *args)` | A generic chart parser | [Adv NLP][052] |
+| `nltk.ChartParser.parse_all(sent, *args, **kwargs)` | list of tree structure | [Adv NLP][052] |
+| `nltk.data.load(resource_url, *args)` | Load a given resource from the NLTK data package | [Adv NLP][052] |
+| `nltk.corpus.treebank()` | Reader for corpora that consist of parenthesis-delineated parse trees | [Adv NLP][052] |
+| `nltk.corpus.treebank.parsed_sents(fileids=None)` | parsing sentences with parenthesis-delineated parse trees | [Adv NLP][052] |
+| `nltk.edit_distance(s1, s2, *args)` | Calculate the Levenshtein edit-distance between two strings [Asgn02][053] |
+| `nltk.jaccard_distance(label1, label2)` | Distance metric comparing set-similarity [Asgn02][053] |
+| `nltk.ngrams(sequence, n, *args)` | Return the ngrams generated from a sequence of items, as an iterator [Asgn02][053] |
+
+
 -------------------------------------
 
 <!--
-[048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
-[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
-[050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
-[051]: 
-[052]: 
-[053]: 
-[054]: 
+[054]: ../AppliedDS-UMich/4-TextMining/asgn01.md#solution
 [055]: 
 [056]: 
 [057]: 
@@ -848,7 +894,9 @@ import seaborn as sns
 [046]: https://seaborn.pydata.org/
 [047]: https://seaborn.pydata.org/tutorial.html
 [048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
-
-
-
-
+[048]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
+[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
+[050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
+[051]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#basic-nlp-tasks-with-nltk
+[052]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#advanced-nlp-tasks-with-nltk
+[053]: ../AppliedDS-UMich/4-TextMining/asgn02.md#edit-distance-and-jaccard-distance-calculation-with-nltk
