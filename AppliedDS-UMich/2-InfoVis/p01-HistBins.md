@@ -36,7 +36,7 @@ Year: 1997
 
 + Loss function $L(f, d, {\bf x})$
     + Assume that the loss function depends on $f$ only through the mass it assigns to the $k$ equal subintervals of $[a, b]$, i.e., on ${\bf p}_k (f) = {\bf p}_k = (p_{k,1}, \ldots, p_{k,k})$
-    + Assume that the loss function $L(f, d, {\bf x})$ depends on the data ${\bf X} = {\bf x}$ and denote by
+    + Assume that the loss function $L(f, d, {\bf x})$ depends on the data ${\bf X} = {\bf x}$ and denote by (Eq.1)
 
         $$\begin{array}{rcl} 
             L(f, d, {\bf m}) & = & L({\bf p}_k, k, {\bf m}_k, {\bf x}) \\
@@ -63,6 +63,37 @@ Year: 1997
     + NOT true as the posterior distribution on $\Theta(k)$ is the Bayesian bootstrap but __stepwise Bayes justification__
 
 + Sensible loss function with the Bayesian bootstrap
+    + Suppose ${\bf X} = {\bf x}$ observed with fixed $k$, the number if bins and ${\bf v}_k$ computed
+    + The choice of ${\bf m}_k$ to minimize the posterior expectation, $\sum^k_1 (p_{k,i} - m_{k,i})^2$ with the Bayesian bootstrap, is ${\bf v}_k / n$ where the sample size $n = \sum_{i=1}^k v_{k,i}$
+    + Posterior risk:
+
+        $$\sum_{i=1}^k v_{k,i} (n - v_{k,i}) / (n^2(n+1))$$
+
+    + For a fixed ${\bf x}$, posterior risk $\uparrow$ as $k \uparrow$, $\therefore$ posterior risk never used to choose $k$.
+    + $\because \max ((n+1)^{-1} \sum^k_{i=1} m_{k,i} (1 - m_{k,i}))$ by taking $m_{k,i} = 1/k \text{ } \forall i$, $\therefore \text{posterior risk } \leq (1 - 1/k)/(n+1)$.  The inequality ratio holds: 
+
+        $$\frac{\sum_{i=1}^k v_{k,i} (n-v_i)/(n^2(n_1))}{(1 - 1/k) / (n+1)} \leq 1$$
+
+    + The ratio, as a function of the number of bins $k$, vs. actual posterior risk under the Bayesian bootstrap to its max possible value: an attempt to calibrate the loss over the different problem
+    + When sampling from a rough distribution the histogram has more bins than when sampling from a smooth distribution.
+
++ Entropy
+    + A convenient measure of the smoothness or uncertainty of a probability distribution
+    + Given ${\bf v}_k$, the estimate of the smoothness of the unknown $f$
+
+        $$\mathcal{E}_{{\bf v}_k} = - \sum^k_{i=1} (v_{k.i}/n) \log(v_{k,i} / n)$$
+    + The ratio (Eq.2)
+
+        $$r({\bf X}, k) = \frac{\mathcal{E}_{{\bf v}_k}}{\log k}$$
+    
+        The estimated entropy of $f$ over $k$ bins divided by the entropy of the uniform distribution over $k$ bins, gives a standardized estimate of the measure of the smoothness of the distribution.
+    + $r({\bf x}, k) \in [0, 1]$ and rougher data $\rightarrow$ $k \downarrow$
+    + If denominator of Eq.2 increases to $1 + (1-r({\bf x}, k))$, then it is decreased as $r({\bf x}, k)$ decreases.
+    + Because of the factor $1 - 1/k$, this decrease is proportionally greater for smaller values of $k$.
+    + Histograms with fewer bins are penalized by a greater amount than histograms with more bins when the data are rough.
+
+
+
 
 
 ### [Bootstrapping vs Bayesian Bootstrapping conceptually?](https://stats.stackexchange.com/questions/181350/bootstrapping-vs-bayesian-bootstrapping-conceptually)
@@ -113,12 +144,8 @@ Year: 1997
         \begin{array}{c} 
             y_i - \mu \\ 
             (y_i - \mu)^2 - v
-        \end{array} \right)$$
-
-
-
-
-
+        \end{array} 
+    \right)$$
 
 
 
