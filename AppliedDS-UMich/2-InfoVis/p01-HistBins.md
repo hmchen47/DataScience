@@ -92,8 +92,15 @@ Year: 1997
     + Because of the factor $1 - 1/k$, this decrease is proportionally greater for smaller values of $k$.
     + Histograms with fewer bins are penalized by a greater amount than histograms with more bins when the data are rough.
 
++ Proposal:
+    + Consider the ratio (Eq.3)
 
-
+        $$\frac{\sum_{i=1}^k v_{k,i} (n - v_{k,i})/(n^2(n+1))}{\{(1-1/k)/(n+1)\}^{(1+(1-r({\bf X}, k)))}}$$
+    + Problem: select the histogram with $k_0$ bins where $k_0$ is the value of $k$ which minimizes the above ratio when $5 \leq k \leq 20$.
+    + With sampling from smoother distribution the average histograms with fewer bins than when sampling from a rougher distribution.
+    + Define (Eq.4): $c(k, {\bf x})^{-1} = \{(1 - 1/k)/(n+1)\}^{(1+(1-r({\bf X}, k)))}$
+    + Given a justification of the loss function defined in Eq.1 with $c(k;,x)$ defined in Eq.4.
+    + The general form of the loss function is quite reasonable and the particular choice of $c(k, x)$ was closely tied to our desire to exploit the Bayesian bootstrap to give a sensible solution for this problem.
 
 
 ### [Bootstrapping vs Bayesian Bootstrapping conceptually?](https://stats.stackexchange.com/questions/181350/bootstrapping-vs-bayesian-bootstrapping-conceptually)
