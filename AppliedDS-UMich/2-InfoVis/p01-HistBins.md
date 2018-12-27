@@ -29,6 +29,10 @@ Year: 1997
         + ${\bf m}_k = (m_{k,1}, \ldots, m_{k,k})$: measured vector, ${\bf m}_k > 0$ and $\sum_i m_{k, i} = 1$
     + $L(f, d, {\bf m})$: a loss function when $d = (k, {\bf m}_k)$ is an estimate of $f$
     + ${\bf p}_k (f) = {\bf p}_k = (p_{k,1}, \ldots, p_{k,k})$: predict vector
+    + ${\bf V}_k({\bf x}) = {\bf v}_k$: the count vector for the number of observations that fall in each bin
+    + ${\bf v}_k = (v_{k,1}, \ldots, {\bf v}_{k,k})$: $v_{k,i}$ = the number of observations that falls into bin $i$
+    + ${bf X}$: unknown distribution
+    + $(n, {\bf p}_k)$: multinomial distribution
 
 + Loss function $L(f, d, {\bf x})$
     + Assume that the loss function depends on $f$ only through the mass it assigns to the $k$ equal subintervals of $[a, b]$, i.e., on ${\bf p}_k (f) = {\bf p}_k = (p_{k,1}, \ldots, p_{k,k})$
@@ -45,6 +49,77 @@ Year: 1997
                 \right.
         \end{array}$$
     + Consider the second part $1/k$: With simple case of $4$ bins on the unit interval $[0, 1]$ and the unknown $f$ puts all its mass in the first  bin, i.e., $[0, .25]$. Consider two different decisions $d_1 = (2, (1, 0))$ and $d_2 = (4, (1, 0, 0, 0 ))$. Both decisions on the first part equals to $0$.  But $d_1$ is bettern than $d_2$.
+
++ Issue: how to trade off the increased 'accuracy' that comes from adding more bins with the increased `cost' of the additional bins.
+
++ Non-informative Bayesian Procedure
+    + Donald B. Rubin, "The Bayesian bootstrap", Annals of Statistics, 9:130-134, 1981.
+    + Glen Meeden, Malay Ghosh, and Stephen Vardeman, "Some admissible nonparametric and related finite population sampling estimators", Annals of Statistics, 13:811-817, 1985.
+        + the admissibility of various non-parametric procedures by showing that they were stepwise Bayes procedures against the Bayesian bootstrap
+        + Apply a similar approach to the problem of selecting the number of bins with a given $k$ <br/>
+        $\Theta(k) = \{ {\bf p}_k = {\bf p}_k(f): f \in \Theta\}$
+        + Given ${\bf X} = {\bf x}$, $f$ is true with unknown distribution ${\bf X} \rightarrow {\bf V}_k$ with multinomial $(n, {\bf P}_k)$. 
+        + The posterior distribution over $\Theta(k)$, the Dirichlet distribution, with parameter vector ${\bf v}$ is the __Bayesian bootstrap__
+    + NOT true as the posterior distribution on $\Theta(k)$ is the Bayesian bootstrap but __stepwise Bayes justification__
+
++ Sensible loss function with the Bayesian bootstrap
+
+
+### [Bootstrapping vs Bayesian Bootstrapping conceptually?](https://stats.stackexchange.com/questions/181350/bootstrapping-vs-bayesian-bootstrapping-conceptually)
+
++ The (frequentist) bootstrap takes the data as a reasonable approximation to the unknown population distribution. Therefore, the sampling distribution of a statistic (a function of the data) can be approximated by repeatedly resampling the observations with replacement and computing the statistic for each each sample.
+
++ Let $y=(y_1, \ldots, y_n$) denote the original data. Let $y^b=(y^b_1, \ldots, y^b_n)$ denote a __bootstrap sample__. Such a sample will likely have some observations repeated one or more times and other observations will be absent. The mean of the bootstrap sample is given by $m_b = \frac{1}{n} \sum_{i=1}^n y^b_i$.
+
++ The distribution of $m_b$ over a number of bootstrap replications used to approximate the sampling distribution from the unknown population
+
++ Connection between the frequentist bootstrap and the Bayesian bootstrap
+    + In each bootstrap sample $y_b$, each observation $y_i$ occurs anywhere from $0$ to $n$ times. 
+    + $h^b_i$: the number of times $y_i$ occurs in $y^b$
+    + $h^b = (h^b_1, \ldots, h^b_n)$
+    + $h^b_i \in \{0,1, \ldots, n−1,n\}$ and $\sum^n_{i=1} h^b_i=n$. 
+    + Given $h^b$, construct a collection of nonnegative weights that sum to one: $w^b = h^b / n$, where $w^b_i = h^b_i / n$. 
+    + The mean of the bootstrap sample: $m_b = \sum^n_{i=1} w^b_i y_i$
+    + The observations are chosen for a bootstrap sample determines the joint distribution for $w^b$. In particular, $h^b$ has a multinomial distribution and thus $(n w^b) \sim \text{Multinomial}(n, (1/n)^n_{i=1})$
+    + Compute $m^b$ by drawing $w^b$ from its distribution and computing the dot product with $y$. From this new perspective, it appears that the observations are fixed while the weights are varying.
+
++ Bayesian inference
+    + The calculation of the mean according to the Bayesian bootstrap differs only in the distribution of the weights.
+    + The data $y$ are fixed and the weights $w$ are the unknown parameters. 
+    + Some functional of the data that depends on the unknown parameters: $\mu = \sum_{i=1}^n w_i y_i$
+
++ Thumbnail sketch of the model behind the Bayesian bootstrap:
+    + The sampling distribution for the observations is multinomial and the prior for the weights is a limiting Dirichlet distribution that puts all its weight on the vertices of the simplex.
+    + Posterior distribution for the weights: $w \sim \text{Dirichlet}(1, \ldots, 1)$
+    + The two distributions for the weights (frequentist and Bayesian) are quite similar: They have the same means and similar covariances. 
+    + The Dirichlet distribution is 'smoother' than the multinomial distribution, so the Bayesian bootstrap may be call the smoothed bootstrap.
+    + Interpret the frequentist bootstrap as an approximation to the Bayesian bootstrap.
+    + Given the posterior distribution for the weights, we can approximate the posterior distribution of the functional $μ$ by repeated sampling $w$ from its Dirichlet distribution and computing the dot product with $y$.
+    + Adopt the framework of estimating equations <br/>
+
+        $$\sum^n_{i=1} w_i g(y_i, \theta) = {\bf 0}$$,
+        + $g(y_i, \theta)$: a vector of _estimating functions_ that depends on the unknown parameter (vector) $\theta$
+        + ${\bf 0}$: a vector of zeros
+    + If this system of equations has a unique solution for $\theta$ given $y$ and $w$, then we can compute its posterior distribution by drawing $w$ from its posterior distribution and evaluating that solution. 
+    + The framework of estimating equations is used with _empirical likelihood_ and with _generalized method of moments (GMM)_.
+
++ Example: the simplest case
+
+    $$\sum^n_{i=1} w_i (y_i - \mu) = 0$$
+
+    For the mean and the variance, $\theta = (\mu, v)$,
+
+    $$g(y_i, \theta) = \left( 
+        \begin{array}{c} 
+            y_i - \mu \\ 
+            (y_i - \mu)^2 - v
+        \end{array} \right)$$
+
+
+
+
+
+
 
 
 ## The stepwise Bayes justification
