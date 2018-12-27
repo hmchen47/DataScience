@@ -102,6 +102,53 @@ Year: 1997
     + Given a justification of the loss function defined in Eq.1 with $c(k;,x)$ defined in Eq.4.
     + The general form of the loss function is quite reasonable and the particular choice of $c(k, x)$ was closely tied to our desire to exploit the Bayesian bootstrap to give a sensible solution for this problem.
 
++ Scott's rule
+    + The average number of bins depends very little on the underlying distribution, especially for smaller sample sizes, and increases as the sample size increases.
+    + Bayesian bootstrap: the average number of bins varies a good deal as the underlying population changes.
+    + Smooth densities generate histograms with fewer bins than the rougher densities.
+    + For smooth populations the average number of bins tends to decrease as the sample size increases, while for the rougher densities just the opposite is true.
+    + Formula for the optimal histogram bin width: asymptotically minimizes the integrated mean squared error derived by Scott
+
+        $$\{ 6 / \int_a^b f'(x)^2 dx\}^{-1/3} n^{-1/3}$$
+
+        for a given density $f$, when the integral exists.
+
++ Rule of Thumb by Terrell & Scott
+    + George R. Terrell and David W. Scott, "Oversmooth nonparametric density estimates", J. of the Amer. Stat'l. Assn., 80:209{214, 1985.
+    + For a histogram of data from a density believed to be moderately smooth on the real line, use $(2n)^{1/3}$ equal-width bins or a convenient slightly larger number over the sample range.
+    + E.g., $n=50 \rightarrow 4.6$ bins, $n=4000 \rightarrow 20$ bins
+    + For most practical problems only considering histograms with 5 to 20 bins is not unreasonable.
+    + Suppose $n$ is large enough so that $v_{k,i}/n$ is a very good estimate of $p_{k,i}$.
+    + Notation:
+        + $f$: the density to be estimated
+        + $\mathcal{E}_f(k)$: as $\mathcal{E}_{{\bf v}_k}$ with ${\bf v}_k$ replaced with ${\bf p}_k(f)$
+        + $r(f, k) = \mathcal{E}(k)/\log k$: the true entropy of $f$ over $k$ bins divided by the entropy of the Uniform distribution over $k$ bins.
+    + Replacing ${\bf v}_k$ with ${\bf p}_k(f)$ on Eq.3: (Eq.5)
+
+        $$(n+1)^{r(f,k)-1} (1 - 1/k)^{r(f,k)-2} \sum_{i=1}^k p_{k,i} (1-p_{k,i})$$
+    + This equation measures how well a $k$ bin histogram approximates $f$ where for each bin we use the true bin probability under $f$.
+    + Therefore, an optimal number bins for fitting the true $f$ is the value of $k$ which minimizes the above equation.
+    + Uniform distribution $f$: Eq.5 is consistent in $k$
+    + Other density: find the minimizing value of $k$ as $k$ ranges $[5, 20] \text{  }\forall n \in \mathbb{N}$
+    + E.g., for $n=500$, densities $2, 3, 4,$, and $5 \rightarrow 20$ bins; densities $6, 7$, and $8 \rightarrow 5$ bins
+
++ [On Selecting The Number Of Bins For A Histogram](https://pdfs.semanticscholar.org/a207/5292fa63ecc88834b03ff24cfad348d8499a.pdf?_ga=2.108421506.1086990556.1545942104-1484135392.1545942104)
+    <a href="https://pdfs.semanticscholar.org/a207/5292fa63ecc88834b03ff24cfad348d8499a.pdf?_ga=2.108421506.1086990556.1545942104-1484135392.1545942104"> <br/>
+        <img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/a2075292fa63ecc88834b03ff24cfad348d8499a/5-Table3-1.png" alt="Following abbreviations are used in the tables and figures displaying results: StM – Sturges Method; ScM – Scott Method; FDM – Freedman Diaconis Method; SM – Shimazaki et al. Method; KM – Knuth Method; LHM – method proposed in this paper; Define the error metrics ENN and EL for the nearest neighbor and linear interpolation reconstructions, respectively; the lowest roughness Rˆ is likely to be the most visually appealing" title="RESULTS FOR DF–1 & DF–2 USING VARIOUS METHODS" height="250">
+    </a>
+    <a href="https://pdfs.semanticscholar.org/a207/5292fa63ecc88834b03ff24cfad348d8499a.pdf?_ga=2.108421506.1086990556.1545942104-1484135392.1545942104"> 
+        <img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/a2075292fa63ecc88834b03ff24cfad348d8499a/5-Table4-1.png" alt="Following abbreviations are used in the tables and figures displaying results: StM – Sturges Method; ScM – Scott Method; FDM – Freedman Diaconis Method; SM – Shimazaki et al. Method; KM – Knuth Method; LHM – method proposed in this paper; Define the error metrics ENN and EL for the nearest neighbor and linear interpolation reconstructions, respectively; the lowest roughness Rˆ is likely to be the most visually appealing" title="RESULTS FOR DF–3 & DF–4 USING VARIOUS METHODS" height="250">
+    </a>
+
++ The number of bins in a histogram should depend both on the sample size and the shape of the unknown density to be estimated.
+
++ Two more natural comparisons
+    + Integrated squared error loss which is the criterion Scott used to derive his rule
+    + The loss function given in Eq.3 which gives our procedure
+
++ Scott's rule gives fewer bins and will give better pictures for smooth densities but at the cost of increasing the probability of obscuring important structure for rougher densities.
+
+
 
 ### [Bootstrapping vs Bayesian Bootstrapping conceptually?](https://stats.stackexchange.com/questions/181350/bootstrapping-vs-bayesian-bootstrapping-conceptually)
 
