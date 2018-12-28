@@ -708,6 +708,38 @@ This Nov. 2016 article by Zachary C. Lipton from the blog Approximately Correct 
 
 http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
+### Introduction
+
+
+
+### Algorithms
+
+
+### Machine Learning
+
+
+### Bias
+
+#### Bias Data
+
+
+#### Bias by Omission
+
+
+### Surrogate Objjectiveds
+
+
+### Defining Bias
+
+
+### Takeaways
+
+
+### References
+
+
+
+
 If you're interested in the more general topic of ethics in data science, we recommend this online course in Data Science Ethics by Prof. H.V. Jagadish of the University of Michigan.
 
 https://www.edx.org/course/data-science-ethics-michiganx-ds101x-1
