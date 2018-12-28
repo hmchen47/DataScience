@@ -205,6 +205,56 @@ Year: 1997
 
 ## The stepwise Bayes justification
 
++ Stepwise Bayes technique
+    + Francis C. Hsuan. "A stepwise Bayes procedure". Annals of Statistics, 7:860-868, 1979.
+    + Bruce McK. Johnson. "On admissible estimators for certain fixed sample binomial problems". Annals of Mathematical Statistics, 42:1579-1587,1971
+    + The class of unique stepwise procedures is the minimal complete class when the parameter space is finite and the loss function is strictly convex.
+    + Lawerence D. Brown. "A complete class theorem for statistical problems with finite sample space". Annals of Statistics, 9:1289{1300, 1981.
+    + Brown gave a quite general complete class theorem for estimation problems having a finite sample space, again using the stepwise Bayes idea.
+    + A finite sequence of disjoint subsets of the parameter space is selected, where the order of the specified subsets is important.
+    + Procedure:
+        1. define different prior distribution each of the subsets
+        2. Bayes procedure found for each sample point that receives positive probability under the first prior
+        3. Bayes procedure found for the second prior for each sample point which receives positive probability under the second prior and which was not taken care of under the first prior
+        4. Bayes procedure is found for the sample points with positive probability under the third prior and which had not been considered in the first two stages.
+        5. Continued over each subset of the sequence in the order given
+        6. If the sequences of subsets and priors are such that a procedure is defined at every sample point of the sample space then the resulting procedure is admissible.
+    + Assume that there is a random sample of size $n$ from an unknown population with some density function on the known interval $[a, b]$.
+    + Given the sample to select a histogram with $k$ bins to represent the data. In each case the bins are always of the same size and $k$ must satisfy the conditions $k_1 \leq k \leq k_2$ where $k_1, k_2 \in \mathbb{N}^+$.
+
++ Notation:
+    + $M$: the least common multiple of the intergers $k_1, k_1 + 1, \ldots, k_2$
+    + $\Theta(M)$: parameter space
+    + ${\bf u}$: a certain class of vectors ${bf u}$ of lengths $2, 3, \ldots, n+1$
+    + ${\bf V}_M$: the count vector of the number of the observation which fall into each subinterval
+
++ Modeling 
+    + Define a sequence of disjoint subsets of $\Theta(M)$
+    + Given ${\bf u}$ to satisfy disjoint subsets with
+        + $u_1 \in \{1, 2, \ldots, n\}$ and $\|{\bf u}\| = u_1 + 1$
+        + arranged remaining entries $u_j \in \{1, 2, \ldots, M\}\backslash u_1, j=2,\ldots,M$, increasing monotonically
+    + Associate with each such ${\bf u}$ the subset of $\Theta(M)$
+
+        $$\Theta(M, u) = \{{\bf p}_M: p_{M,i} > 0 \text{ for } i=u_2, u_3, \ldots, u_{u_1+1} \text{ and } \sum_{i=2}^{u_1+1} p_{M, u_i} = 1\}$$
+    + E.g. 1: ${\bf u} = (1, 3) \rightarrow \Theta(M, {\bf u})$ is the one vector with mass one on the 3rd subinterval of $[a, b]$
+    + E.g. 2: ${\bf u} = (3, 1, 4, 7 \rightarrow \Theta(M, {\bf u})$ is the set of all those vectors which place all their mass on the 1st, 4th, and 7th subintervals and with positive mass on them
+    + Generate ${\bf u}$: with a typical ${\bf u}$
+        + select $u_1$ subintervals which are given by $u_2, u_3, \ldots, u_{u_1+1}$
+        + ${\bf u}_1 \cap {\bf u}_2 = \emptyset \rightarrow \Theta(M, {\bf u}_1) \cap \Theta(M, {\bf u}_2) = \emptyset$
+        + order ${\bf u}_i, i = 1, 2, \ldots, M$ by lexicographical ordering
+
++ Stepwise Bayes argument
+    + Distributon of ${\bf V}_M$: $multinomial(n, {\bf p})$
+    + Given ${bf u}$ with lexicographic order that all the sample points which get positive probability under all those vectors ${\bf u'}$
+    + The points in the sample space of ${\bf V}_M$, assigned positive probability under ${\bf P}_M \in \Theta(M, {\bf u})$ if $v_i > 0, i = u_2, u_3, \ldots, u_{u_1 + 1}$
+    + Only consider those sample points with $v_i > 0$, the prior choosen
+
+        $$1/\prod_{i=2}^{u_1+1} p_{m,u_i}$$
+
+    + The posterior for $v_i > 0$: $Dirichlet({\bf v})$, i.e., Bayesian bootstrap
+    + Select $k$ to minimize the posterior expected loss = minimize Eq.3
+    + The procedure given in the previous section is equivalent to stepwise Bayesian procedure
+
 
 
 
