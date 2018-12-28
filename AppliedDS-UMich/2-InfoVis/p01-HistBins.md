@@ -255,6 +255,13 @@ Year: 1997
     + Select $k$ to minimize the posterior expected loss = minimize Eq.3
     + The procedure given in the previous section is equivalent to stepwise Bayesian procedure
 
+## Conclusion
 
++ Any rule which is admissible within this family of stepwise Bayes rules must be admissible for the original problem as well.
+    
++ One way to select an admissible rule from this family is to specify a continuous prior density function, say $g$, over $\Theta(M)$, which is strictly positive at every point and from this restricted family select a rule which is admissible, for this restricted problem, against the prior $g$. 
 
++ In practice there will usually be few samples for which more than one value of $k$ minimizes Eq.3 and the choice of $g$ will not matter much.
+
++ Selecting the number of bins in a histogram: an admissible stepwise Bayes procedure based on the Bayesian bootstrap
 
