@@ -787,6 +787,34 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 #### Bias Data
 
++ Example: a model predicting risk of recidivism
+    + training examples: consist of past prisoners' records
+    + labels: binary values (1 if they were convicted of another crime, 0 if not)
+    + arrest rates reflect well-document racial biases
+    + withholding sensitive demographic information from the machine learning algorithm
+    + Given a rich enough set of features and a rich enough family of models, the machine algorithm deduce race implicitly, and use this information to predict recidivism.
+
++ Word Embeddings
+    + Bolukbasi, Tolga et al. [Quantifying and Reducing Stereotypes in Word Embeddings](https://arxiv.org/abs/1606.06121) ICML Workshop on #Data4Good 2016
+    + A technique in which each word in a vocabulary is a assigned to a vector.
+        + The meaning of each word can be captured by the angle of the vector.
+        + These vectors can be used to represent the word when used as input to a machine learning algorithm.
+    + 2013 research: a technique for learning these vectors by choosing the vectors which best predict the neighboring words in a large corpus of data
+    + These representations admitted some remarkable properties.
+    + E.g., \<China\> – \<Beijing\> $\approx$ \<Russia\> – \<Moscow\>; \<king\> – \<queen\> $\approx$ \<prince\> – \<princess\>
+    + In addition to picking up on meaningful semantic relationships, the word embeddings also picked absorbed common biases reflected in the underlying text corpuses.
+    + learned embeddings: \<man\> − \<woman\> $\approx$ \<computer programmer\> – \<homemaker\>.
+    + learned embedding space for occupations: 
+        + \<she\> - 1. \<homemaker\> 2. \<nurse\> 3. \<receptionist\> 4. \<librarian\> 5. \<socialite\> 6. \<hairdresser\>.
+        + \<he\> - 1. \<maestro\> 2. \<skipper\> 3. \<protege\> 4. \<philosopher\> 5. \<captain\> 6. \<architect\>.
+    + It’s hard to guess what prejudices might influence human decision-making that we’ve never thought to examine.
+
+
+
+
+
+
+
 
 #### Bias by Omission
 
