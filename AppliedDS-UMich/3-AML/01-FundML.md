@@ -739,6 +739,14 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 ### Algorithms
 
++ Algorithms: the instructions that tell your computer precisely how to accomplish some task
+
++ Many of the algorithms at the heart of technologies like self-driving cars and recommender systems are considerably more complex, containing many instructions, advanced mathematical operations, and complicated logic.
+
++ In any situation in which human decisions might exhibit bias, so might those made by computerized algorithms.
+
++ For complex algorithms, biases may exist, but detecting the bias, identifying its cause, and correcting may not always be straightforward.
+
 
 ### Machine Learning
 
