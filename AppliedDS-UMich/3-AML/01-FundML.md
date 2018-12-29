@@ -811,12 +811,29 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 
 
-
-
-
-
-
 #### Bias by Omission
+
++ Machine learning could produce biased classifications and decisions as a result because the data is implicitly biased by virtue of who is represented and who is omitted.
+
++ Google photo app: 
+    + State-of-the-art objection detection algorithm annotated photos
+    + Things went horribly wrong when the app tagged a picture of a black couple as "gorillas"
+    <a href="http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/"> <br/>
+        <img src="http://approximatelycorrect.com/wp-content/uploads/2016/11/gorillas_google.png" alt="The algorithm annotated photos with descriptions of the objects they contained such as “skyscrapers”, “airplanes”, “cars”. However, things went horribly wrong when the app tagged a picture of a black couple as “gorillas”." title="Google photo app" height="200">
+    </a>
+    + Deng, Jia, et al. [Imagenet: A large-scale hierarchical image database](http://image-net.org/). CVPR 2009
+    + The classifier was likely trained on the academic 1-million image benchmark dataset ImageNet, for which the misclassification rate per 2014 state of the art is $7.4\%$. That means, for any large population uploading photos, a considerable number will be misclassified.
+    + Imagenet was built to provide a testbed for advancing computer vision. The dataset contains 1 million images consisting of 1,000 images each from 1,000 object classes. Roughly half of these images depict organisms like humans, birds, and gorillas, while the other half depict artificial objects like airplanes and skyscrapers.
+
++ Released in 2009 by Dr. Fei Fei Li and colleagues, the dataset was inspired that humans see many images per second while forming their ability to recognize objects, and that a computer might need access to a similarly rich dataset.
+
++ Absent critical thought we might accidentally birth a system that systematically racially profiles.
+
++ The Guardian’s John Naughton’s suggestion: our desire to scrutinize algorithms is stymied by their impenetrable, black-box nature, this particular kind of error can be found simply by examining the training data, a task that surely doesn’t require a PhD in machine learning.
+
+
+
+
 
 
 ### Surrogate Objjectiveds
