@@ -710,6 +710,31 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 ### Introduction
 
++ Algorithms are tasked with making decisions: experiences, the news we see, our finances, and our career opportunities.
+
++ Risk of recidivism: the probability that an individual relapses into criminal behavior.
+
++ Turning decision-making over to algorithms naturally raises worries about our ability to assess and enforce the neutrality of these new decision makers. 
+
++ Traditional software is typically composed from simple, hand-coded logic rules. IF condition X holds THEN perform action Y.
+
++ Machine learning relies on complex statistical models to discover patterns in large datasets.
+
++ The logic behind this assessment wouldn’t be coded by hand. Instead, the model would extrapolate from the records of thousands or millions of other customers.
+
++ Algorithmic bias examples
+    + Byrnes, Nanette, [Why we Should Expect Algorithms to be Biased](https://www.technologyreview.com/s/601775/why-we-should-expect-algorithms-to-be-biased/), 2016
+    + John Naughton, [Even Algorithms are Biased Against Black Men](https://www.theguardian.com/commentisfree/2016/jun/26/algorithms-racial-bias-offenders-florida), 2016
+    + Tufekci, Zeynep, [The Real Bias Built in at Facebook New York Times](http://www.nytimes.com/2016/05/19/opinion/the-real-bias-built-in-at-facebook.html), 2016
+    + Angqin, Julia et al., [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing), 2016
+
++ Any system built with complex mathematics at its core must somehow be objective, devoid of the biases that plague human decision-making.
+
++ Bias actually enters algorithmic decision-making processes
+    + Tech Review: points to the abundance of men working in computer science without explaining how this might alter the behavior of their algorithms.
+    + The Guardian: the "recidivism" predictor encodes racial bias, producing evidence to support the claim.
+    + New York Times: attention to bias and to the opacity of FaceBook algorithms for new curation, but doesn’t elucidate the precise mechanisms by which undesirable outcomes manifest.
+    + ProPublica: the risk-assessment algorithm itself, but software-company Northpointe would not share the precise proprietary formula.
 
 
 ### Algorithms
