@@ -750,6 +750,38 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 ### Machine Learning
 
++ Machine learning: powerful set of techniques for building algorithms that improve as a function of experience
+
++ Supervised learning: Facebook recognizes face in a photograph; mailbox filters spam; bank predicts default risk
+
++ Example: spam filter
+    + Cobbling together 1000s of consistent rules to cover all the known cases of spam while letting all legitimate email pass through
+    + Machine learning: compile a large dataset containing emails known either to be spam or to be safe
+    + Typical attributes might include the words themselves, the time the email was sent, the email address, server, and domain from which it was sent, and statistics about previous correspondence with this address.
+    + Problems
+        + Who gets to decide which emails are spam and not?
+        + What biases may factor into these decisions?
+        + If the labelers think all emails from Nigeria constitute spam, how can we justify using a system that will treat millions of people unfairly?
+
++ A simple linear model - spam filter
+    <a href="http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/"> <br/>
+        <img src="http://approximatelycorrect.com/wp-content/uploads/2016/11/machine-learning-768x576.png" alt="a flexible family of statistical models for mapping between an email and a probability that it is spam" title="Spam filter architecture" height="250">
+    </a>
+    + A simple model might be to assign a score (weight) to every word in the vocabulary.
+    + If that weight is positive, then it increases the probability that the email is spam. If negative it decreases the probability.
+    + final score: we might sum up the counts of each word, multiplying each by the corresponding
+    + labels
+        + collected actively: as by crowdsourcing low-wage workers through services like Amazon’s mechanical turk
+        + collected passively: as by harvesting information when users explicitly mark emails as spam or remove emails from their spam boxes to their inboxes
+
++ Machine learns: a model as it sees more and more data, it updates its belief, as by tuning the weights, about which model in the family is best
+
++ Supervised machine learning models
+    1. a collection of examples of (hopefully representative) data
+    2. a collection of corresponding labels collected either actively or passively (typically from human annotators)
+
++ In many applications, researchers classify sentences or documents according to one of several _sentiments_. Other papers break down emotional classification into two dimensions: an _arousal_ score and a _valence_ score.
+
 
 ### Bias
 
