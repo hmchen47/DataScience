@@ -595,3 +595,124 @@ into pd.read_csv in order to read the file.
 Please note: The CSV file for Assignment 4 was provided by the original competition, and is not UTF-8 encoded.
 
 
+## [Wikipedia: Missing Data](https://en.wikipedia.org/wiki/Missing_data)
+
++ Missing data / values:
+    + Def: when no data value is stored for the variable in an observation in statistics
+    + Missing data can occur because of nonresponse: no information is provided for one or more items or for a whole unit ("subject").
+    + Attrition: a type of missingness that can occur in longitudinal studies—for instance studying development where a measurement is repeated after a certain period of time.
+    + Possible causes: governments or private entities choose not to, or fail to, report critical statistics, or because the information is not available
+    + Types: missing completely at random; missing at random; missing not at random
+
++ Types of missing data
+    + Missing completely at random: the data sample likely still representative of the population
+    + missing systematically: analysis may be biased
+    + __Missing completely at random (MCAR)__
+        + the events that lead to any particular data-item being missing are independent both of observable variables and of unobservable parameters of interest, and occur entirely at random
+        + analysis performed on the data is unbiased
+        + data rarely MCAR
+        + the random assignment of treatments is assumed to be preserved, but that is usually an unrealistically strong assumption in practice
+    + __Missing at random (MAR)__
+        + the missingness is not random, but where missingness can be fully accounted for by variables where there is complete information
+        + an assumption that is impossible to verify statistically and must rely on its substantive reasonableness
+        + E.g., males are less likely to fill in a depression survey but this has nothing to do with their level of depression, after accounting for maleness.
+        + if the parameter is estimated with _Full Information Maximum Likelihood_, MAR will provide asymptotically unbiased estimates.
+    + __Missing not at random (MNAR)__ (a.k.a nonignorable nonresponse)
+        + data neither MAR nor MCAR
+        + E.g., occur if men failed to fill in a depression survey because of their level of depression
+
++ Techniques of dealing with missing data
+    + Missing data reduces the representativeness of the sample and can therefore distort inferences about the population.
+    + main approaches to handle missing data:
+        + __Imputation__ — where values are filled in the place of missing data
+        + __Omission__ — where samples with invalid data are discarded from further analysis
+        + __Analysis__ — directly applying methods unaffected by the missing values
+    + Some applications control the level of missingness and prevent missing values before gathering the data, e.g., computer questionnaires w/ must answered questions
+    + Survey research: make multiple efforts to contact each individual to persuade those who have decided not to participate to change their minds
+    + The researcher is often advised on planning to use methods of data analysis methods that are robust to missingness.
+    + robust: confident that mild to moderate violations of the technique's key assumptions will produce little or no bias, or distortion in the conclusions drawn about the population
+
++ Imputation
+    + "fill in", or impute the missing data
+    + Rubin (1987): repeating imputation even a few times (5 or less) enormously improves the quality of estimation.
+    + Practical purposes: 2 or 3 imputations capture most of the relative efficiency that could be captured with a larger number of imputations
+    + A too-small number of imputations can lead to a substantial loss of statistical power, and some scholars now recommend 20 to 100 or more.
+    + [Expectation-maximization algorithm](https://en.wikipedia.org/wiki/Expectation-maximization_algorithm): an approach in which values of the statistics which would be computed if a complete dataset were available are estimated (imputed), taking into account the pattern of missing data
+
++ Interpolation
+    + a method of constructing new data points within the range of a discrete set of known data points
+    + valid under normality and assuming MCAR
+    + A test statistic that uses all available data without the need for imputation is the partially overlapping samples t-test.
+
++ Partial deletion: reducing the data available to a dataset having no missing values include:
+    + Listwise deletion/casewise deletion
+    + Pairwise deletion
+
++ Full analysis: take full account of all information available, without the distortion resulting from using imputed values as if they were actually observed:
+    + Generative approaches:
+        + The [expectation-maximization algorithm](https://en.wikipedia.org/wiki/Expectation-maximization_algorithm)
+        + full information [maximum likelihood](https://en.wikipedia.org/wiki/Maximum_likelihood) estimation
+    + Discriminative approaches:
+        + Max-margin classification of data with absent features
+
++ Model-based techniques
+    + often using graphs, offer additional tools for testing missing data types (MCAR, MAR, MNAR) and for estimating parameters under missing data conditions
+    + a test for refuting MAR/MCAR reads as follows:
+    + For any three variables $X, Y$, and $Z$ where $Z$ is fully observed and $X$ and $Y$ partially observed, the data should satisfy: 
+    
+        $$X \perp \!\!\! \perp R_{y}|(R_{x},Z)$$
+    
+        The observed portion of $X$ should be independent on the missingness status of $Y$, conditional on every value of $Z$. Failure to satisfy this condition indicates that the problem belongs to the MNAR category.
+    + When data falls into MNAR category techniques are available for consistently estimating parameters when certain conditions hold in the model.
+    + E.g., if $Y$ explains the reason for missingness in $X$ and $Y$ itself has missing values, the joint probability distribution of $X$ and $Y$ can still be estimated if the missingness of $Y$ is random. The estimand in this case will be:
+
+        $$\begin{array}{rcl}
+            P(X, y) & = & P(X|Y)P(Y) \\
+                & = & P(X|Y, R_x = 0, R_y = 0)P(Y|R_y=0)
+        \end{array}$$
+        where $R_{x}=0$ and $R_{y}=0$ denote the observed portions of their respective variables.
+    + Different model structures may yield different estimands and different procedures of estimation whenever consistent estimation is possible. 
+    + The preceding estimand calls for first estimating $P(X|Y)$ from complete data and multiplying it by $P(Y)$ estimated from cases in which $Y$ is observed regardless of the status of $X$. Moreover, in order to obtain a consistent estimate it is crucial that the first term be $P(X|Y)$ as opposed to $P(Y|X)$.
+    + Any model which implies the independence between a partially observed variable X and the missingness indicator of another variable $Y$ (i.e., $R_{y}$), conditional on $R_{x}$ can be submitted to the following refutation test: $X\perp \!\!\!\perp R_{y}|R_{x}=0$.
+    + The estimands that emerge from these techniques are derived in closed form and do not require iterative procedures such as Expectation Maximization that are susceptible to local optima.
+
++ Time-dependence
+    + A special class of problems appears when the probability of the missingness depends on time.
+    + E.g., in the trauma databases the probability to lose data about the trauma outcome depends on the day after trauma.
+    + Non-stationary Markov chain models
+
+
+
+
+
+
+
+
+## Handling Missing Values when Applying Classification Models
+
+Maytal Saar-Tsechansky, Foster Provost, "Handling Missing Values when Applying Classification Models", Journal of Machine Learning Research 8 (2007) 1625-1657
+
+1. [Introduction](p5-Missing.md#)
+1. [Treatments for Missing Values at Prediction Time](p5-Missing.md#)
+1. [Experimental Comparison of Prediction-time Treatments for Missing Values](p5-Missing.md#)
+    1. [Experimental Setup](p5-Missing.md#)
+    1. [Comparison of PVI, DBI and Reduced Modeling](p5-Missing.md#)
+    1. [Feature Imputability and Modeling Error](p5-Missing.md#)
+    1. [Evaluation using Ensembles of Trees](p5-Missing.md#)
+    1. [Evaluation using Logistic Regression](p5-Missing.md#)
+    1. [Evaluation with “Naturally Occurring” Missing Values](p5-Missing.md#)
+    1. [Evaluation with Multiple Missing Values](p5-Missing.md#)
+1. [Hybrid Models for Efficient Prediction with Missing Values](p5-Missing.md#)
+    1. [Likelihood-based Hybrid Solutions](p5-Missing.md#)
+    1. [Reduced-Feature Ensembles](p5-Missing.md#)
+    1. [Larger Ensembles](p5-Missing.md#)
+    1. [ReFEs with Increasing Numbers of Missing Values](p5-Missing.md#)
+1. [Related Work](p5-Missing.md#)
+1. [Limitations](p5-Missing.md#)
+1. [Conclusions](p5-Missing.md#)
+
+
+
+## Solution
+
+
