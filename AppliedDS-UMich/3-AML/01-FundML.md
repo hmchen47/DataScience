@@ -832,21 +832,71 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 + The Guardian’s John Naughton’s suggestion: our desire to scrutinize algorithms is stymied by their impenetrable, black-box nature, this particular kind of error can be found simply by examining the training data, a task that surely doesn’t require a PhD in machine learning.
 
 
+### Surrogate Objjectives
 
++ Another source of trouble can be the choice of objective: What do we choose to predict? And how do we act upon that information?
 
++ Example: recommender systems
+    + Facebook rely upon to suggest news items from around the world on social media.
+    + Goal: to surface articles that keep users informed of important events
+    + Ensuring neutrality requires that we not only rank individual articles (and deliver the top ones) but that we rank sets of recommended articles according to their diversity, a considerably harder optimization problem.
+    + Solving hard problems can be extremely expensive.
+    + Google, Amazon, and Facebook typically optimize very simple goals.
+    + Solving a yet harder problem with potentially little prospect for additional remuneration cuts against the financial incentives of a large company.
+    + Clicks: assumption that people are generally more likely to click on better articles and less likely to click on worse articles.
+    + Facebook, Google and Amazon log every link that you click on.
+    + Passively collected click data can then be used as supervision to the machine learning algorithms trained to optimize search results.
+    + goals might diverge: sensational headlines might be more likely to get clicks even if they’re less likely to point to true stories.
 
++ Diverged goal in Machine Learning
+    + Sometimes the real problem is difficult to define, or we don’t have any solid data.
+    + Solution: optimize a surrogate problem, hoping that the solutions are similar enough.
+    + E.g., Google search turns up far more relevant results than purely random or chronological selection from the web at large.
+    + Problem example: presidential election
+        + conventional media: broadcast licensees are required to give equal time to opposing presidential candidates if they request it.
+        + denizens of social media were treated to a disproportionate deluge of articles about Donald Trump. 
+        + While these articles may have truly been more likely to elicit clicks, the overall curated content lacked the diversity we would expect from conventional election coverage.
 
-### Surrogate Objjectiveds
++ Example: thorny issue on FaceBook’s news curation
+    + a role in curating the news, even if it doesn’t fully embrace its role news organization
+    + a public square, a place where people go to speak out loud and be heard
+    + Facebook doesn’t simply pass on all information on equally, so it isn’t quite a public square either.
+    + hard to anticipate the effects of optimizing these surrogate tasks
+
++ Example: Rich Caruana:
+    + a predictive machine learning model is trained to predict risk of death in pneumonia patients.
+    + ended up learning that patients who also had asthma as comorbid condition were given a better probability of survival.
+    + The asthma patients were more likely to survive because they had been treated more aggressively. 
+
++ Model Interpretability
+    + Lipton, Zachary C., [The Mythos of Model Interpretability](https://arxiv.org/abs/1606.03490). ICML Workshop on Human Interpretability of Machine Learning 2016)
+    + Real and optimized objectives disagree -> interested interpreting models, that is, figuring out how precisely they make decisions
+    + E.g., tumors
+        + to classify tumors as malignant or benign, and that we have perfectly curated training data. 
+        + If algorithm achieves $100\%$ accuracy, then it may not be essential to understand how precisely it makes its decisions. 
+        + Absent transparency, this algorithm would still save lives. 
+        + When real-world goals and the optimized machine learning objectives diverge, things change.
+    + Example: Facebook’s newsfeed
+        + real-world goal: present a personalized and useful stream of curated content
+        + machine learning goal: maximize clicks and/or other superficial measures of engagement
+        + A story can grab lots of clicks by offering a sensational headline but point to fake news.
+    + Divergence: inevitable
+        + impossible to optimize real objectives directly
+        + too complex or no available annotations
+        + Solution: questioning models, either by introspecting them or analyzing their behavior
+
++ Rich Caruana Suggestion
+    + These problems may be worse now precisely because machine learning has become so powerful.
+    + E.g., search engines 
+        + When search engines were predicting total garbage, the salient question wasn’t whether we should be following click signal or a more meaningful objective. 
+        + We simply wondered whether we could make systems that behave comprehensibly at all.
+    + Technology is maturing, the gap between real and surrogate objectives is more pronounced.
 
 
 ### Defining Bias
 
 
 ### Takeaways
-
-
-### References
-
 
 
 
