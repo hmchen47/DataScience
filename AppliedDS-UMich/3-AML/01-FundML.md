@@ -832,7 +832,7 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 + The Guardian’s John Naughton’s suggestion: our desire to scrutinize algorithms is stymied by their impenetrable, black-box nature, this particular kind of error can be found simply by examining the training data, a task that surely doesn’t require a PhD in machine learning.
 
 
-### Surrogate Objjectives
+### Surrogate Objectives
 
 + Another source of trouble can be the choice of objective: What do we choose to predict? And how do we act upon that information?
 
@@ -910,7 +910,16 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 ### Takeaways
 
++ Many of the problems with bias in algorithms are similar to problems with bias in humans.
 
++ Typically detect biases in human behavior post-hoc by evaluating human behavior, not through an a priori examination of the processes by which we think.
+
++ Perhaps the most salient difference between human and algorithmic bias may be that with human decisions, we expect bias.
+
++ As algorithmic decision-making slowly moves from simple rule-based systems towards more complex, human-level decision making, it’s only reasonable to expect that these decisions are susceptible to bias.
+
+
+### Data Science Ethics Course
 
 If you're interested in the more general topic of ethics in data science, we recommend this online course in Data Science Ethics by Prof. H.V. Jagadish of the University of Michigan.
 
