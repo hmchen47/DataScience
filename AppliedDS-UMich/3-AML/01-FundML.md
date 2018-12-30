@@ -895,6 +895,18 @@ http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
 
 ### Defining Bias
 
++ Algotithmic Fairness
+    + The algorithm doesn’t take into account certain protected information, such as race or gender. 
+    + The algorithm is similarly accurate for different groups. 
+    + The algorithm is calibrated for all groups, i.e., it doesn’t overestimate or underestimate the risk for any group.
+
++ Professor Jon Kleinberg
+    + Kleinberg, Jon et al., [Inherent Trade-Offs in the Fair Determination of Risk Scores](https://arxiv.org/pdf/1609.05807v1.pdf)
+    + Impossibility theorem for fairness in determining risk scores
+    + Three intuitive notions of fairness are not reconcilable except in unrealistically constrained cases.
+    + Think critically about each problem and determine which notion of fairness is most relevant.
+
+
 
 ### Takeaways
 
