@@ -75,6 +75,13 @@
 
 ## [Assignment 3](./asgn03.md)
 
++ [NoteBook links](asgn03.md#notebook-links)
++ [Useful links](asgn03.md#useful-links)
+    + [Question 4 & Question 6](asgn03.md#question-4-question-6)
+    + [Meaning of evaluation metrics like precision score per class](asgn03.md#meaning-of-evaluation-metrics-like-precision-score-per-class)
+    + [Assignment Q 5](asgn03.md#assignment-q-5)
++ [Solution](asgn03.md#solution)
+
 
 ## Module 4: [Supervised Machine Learning - Part 2](./04-Supervised2.md)
 
