@@ -40,6 +40,14 @@
 
 ## [Assignment 2](./asgn02.md)
 
++ [Notebook](asgn02.md#notebook)
+    + [Useful Links](asgn02.md#useful-links)
+    + [Q1 and Q2 - answer not matching grader answer](asgn02.md#q1-and-q2---answer-not-matching-grader-answer)
+    + [Assignment 2, Q 6, which dataset to use?](asgn02.md#assignment-2-q-6-which-dataset-to-use)
++ [Solution](asgn02.md#solution)
+    + [Regression](asgn02.md#regression)
+    + [Classification](asgn02.md#classification)
+
 
 ## Module 3: [Evaluation](./03-Evaluation.md)
 
@@ -53,6 +61,7 @@
 + [Practical Guide to Controlled Experiments on the Web (optional)](./03-Evaluation.md#)
 + [Model Selection: Optimizing Classifiers for Different Evaluation Metrics](./03-Evaluation.md#)
 + [Quiz: Module 3 Quiz](./03-Evaluation.md#)
+
 
 
 ## [Assignment 3](./asgn03.md)
