@@ -24,6 +24,13 @@
 
 ## [Assignment 1](./asgn01.md)
 
++ [Notebook Links](asgn01.md#notebook-links)
++ [Useful Info Links](asgn01.md#useful-info-links)
+    + [Assignment 1 FAQs](asgn01.md#assignment-1-faqs)
+    + [More on the Grader](asgn01.md#more-on-the-grader)
++ [Solution](asgn01.md#solution)
+
+
 
 ## Module 2: [Supervised Machine Learning](./02-Supervised1.md)
 
