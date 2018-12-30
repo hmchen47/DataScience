@@ -2417,9 +2417,9 @@ Domingos, P. (2012). [A few useful things to know about machine learning](https:
     7. [Feature engineering is the key](./p0-UsefulThings.md#feature-engineering-is-the-key)
     8. [More data beats a cleaverer algorithm](./p0-UsefulThings.md#more-data-beats-a-cleaverer-algorithm)
     9. [Learn many models, not just one](./p0-UsefulThings.md#learn-many-models-not-just-one)
-    10. [Simplicity does not imply accuracy](./p0-UsefulThings.md#simplicity-does-not-imply-accuracy)
-    11. [Represntable does not imply learnable](./p0-UsefulThings.md#represntable-does-not-imply-learnable)
-    12. [Correlation does not imply causation](./p0-UsefulThings.md#correlation-does-not-imply-causation)
+    0. [Simplicity does not imply accuracy](./p0-UsefulThings.md#simplicity-does-not-imply-accuracy)
+    1. [Represntable does not imply learnable](./p0-UsefulThings.md#represntable-does-not-imply-learnable)
+    2. [Correlation does not imply causation](./p0-UsefulThings.md#correlation-does-not-imply-causation)
 
 + [Regerences](./p0-UsefulThings.md#references)
 
