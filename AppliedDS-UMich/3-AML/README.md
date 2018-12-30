@@ -41,7 +41,6 @@
 ## [Assignment 2](./asgn02.md)
 
 
-
 ## Module 3: [Evaluation](./03-Evaluation.md)
 
 + [Module 3 Notebook](./03-Evaluation.md#module-3-notebook)
@@ -52,6 +51,24 @@
 + [Multi-Class Evaluation](./03-Evaluation.md#multi-class-evaluation)
 + [Regression Evaluation](./03-Evaluation.md#regression-evaluation)
 + [Practical Guide to Controlled Experiments on the Web (optional)](./03-Evaluation.md#practical-guide-to-controlled-experiments-on-the-web-optional)
+    + [Introduction](./p1-ControlledExp.md#introduction)
+    + [Motivating Examples](./p1-ControlledExp.md#motivating-examples)
+        + [Checkout Page at Doctor FootCare](./p1-ControlledExp.md#checkout-page-at-doctor-footcare)
+        + [Ratings of Microsoft Office Help Articles](./p1-ControlledExp.md#ratings-of-microsoft-office-help-articles)
+        + [Results and ROI](./p1-ControlledExp.md#results-and-roi)
+    + [Controlled Experiments](./p1-ControlledExp.md#controlled-experiments)
+        + [Terminology](./p1-ControlledExp.md#terminology)
+        + [Hypothesis Testing and Sample Size](./p1-ControlledExp.md#hypothesis-testing-and-sample-size)
+        + [Extensions for Online Settings](./p1-ControlledExp.md#extensions-for-online-settings)
+        + [Limitations](./p1-ControlledExp.md#limitations)
+    + [Implementation Architecture](./p1-ControlledExp.md#implementation-architecture)
+        + [Randomization Algorithm](./p1-ControlledExp.md#randomization-algorithm)
+        + [Assignment Method](./p1-ControlledExp.md#assignment-method)
+    + [Lesson Learned](./p1-ControlledExp.md#lesson-learned)
+        + [Analysis](./p1-ControlledExp.md#analysis)
+        + [Trust and Execution](./p1-ControlledExp.md#trust-and-execution)
+        + [Culture and Business](./p1-ControlledExp.md#culture-and-business)
+    + [Summary](./p1-ControlledExp.md#summary)
 + [Model Selection: Optimizing Classifiers for Different Evaluation Metrics](./03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics)
 + [Quiz: Module 3 Quiz](./03-Evaluation.md#quiz-module-3-quiz)
 
