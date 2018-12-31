@@ -662,7 +662,9 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
 
         $$X \perp \!\!\! \perp R_{y}|(R_{x},Z)$$
 
-        The observed portion of $X$ should be independent on the missingness status of $Y$, conditional on every value of $Z$. Failure to satisfy this condition indicates that the problem belongs to the MNAR category.
+        The observed portion of $X$ should be independent on the missingness status of $Y$, $R_y$, conditional on every value of $Z$. Failure to satisfy this condition indicates that the problem belongs to the MNAR category.
+
+    + These tests are necessary for variable-based MAR which is a slight variation of event-based MAR.
     + When data falls into MNAR category techniques are available for consistently estimating parameters when certain conditions hold in the model.
     + E.g., if $Y$ explains the reason for missingness in $X$ and $Y$ itself has missing values, the joint probability distribution of $X$ and $Y$ can still be estimated if the missingness of $Y$ is random. The estimand in this case will be:
 
@@ -686,9 +688,49 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
 
 ### Introduction
 
++ How do you deal with missing values - ignore or treat them?
+    + the percentage of those missing values in the dataset
+    + the variables affected by missing values
+    + whether those missing values are a part of dependent or the independent variables, etc.
+
++ The best scenario is to get the actual value that was missing by going back to the Data Extraction & Collection stage and correcting possible errors during these stages. Generally, that won’t be the case and you will still be left with missing values.
 
 
 ### Techniques
+
++ Deletion
+    + Unless the nature of missing data is ‘Missing completely at random’ (MCAR), the best avoidable method in many cases is deletion.
+    + __Listwise__
+        + rows containing missing variables are deleted.
+        + entire observation for User A and User C will be ignored for listwise deletion
+        <a href="https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1"> <br/>
+            <img src="https://api.ning.com/files/0jbYLowImpvPl6e1GsMKjyojeeq3syhYbJn4oobtnzMCwc9eIiN-tn4Ub-0rUGv19R5Flzsz4PkAzWVBVXcgtnpGjln*ZB90/Capture.PNG" alt="the entire observation for User A and User C will be ignored for listwise deletion" title="Listwise example" height="100">
+        </a>
+    + __Pairwise__
+        + only the missing observations are ignored and analysis is done  on  variables present
+        + 2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it.
+        <a href="https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1"> <br/>
+            <img src="https://api.ning.com/files/0jbYLowImpt7xsb5Q4Ys374*-NW9wopEYrX0FP8sgtHSyhbjKPcv*oKeAYtaLw1Bv0ZpqXop7pUKHWxbgDnHXdQCT19k-RgI/Capture.PNG" alt="2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it." title="Pairwise example" height="100">
+        </a>
+    + Listwise deletion suffers the maximum information loss compared to Pairwise deletion. 
+    + The problem with pairwise deletion is that even though it takes the available cases, one can’t compare analyses because the sample is different every time.
+
++ Imputation
+    + Popular Averaging Techniques
+        + Mean, median and mode are the most popular averaging techniques, which are used to infer missing values.
+        + Approaches ranging from global average for the variable to averages based on groups are usually considered.
+        + Artificially reducing the variation in the dataset as the missing observations could have the same value
+        <a href="https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1"> <br/>
+            <img src="https://api.ning.com/files/0jbYLowImpuEAs18E1J3vbzpKVa-vZ6m7l7S9nTvcGffGznAcGqv3TYo7G6gcsqNRW8UGZf-ESXDAvNneVHNEnK5yywJlueH/Capture.PNG" alt="The table shows the difference in imputed missing values of Revenue arrived by taking its global mean and mean based on which OS platform it belongs to." title="Pairwise example" height="200">
+        </a>
+    + Predictive Techniques
+        + Assumption: the nature of such missing observations are not observed completely at random and the variables chosen to impute such missing observations have some relationship with it, else it could yield imprecise estimates.
+        + A predictive model could be used to impute the missing values for Device, OS, Revenues.
+        + Various statistical methods like regression techniques, machine learning methods like SVM and/or data mining methods to impute such missing values.
+
+
+
+
 
 
 
