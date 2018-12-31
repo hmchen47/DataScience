@@ -67,6 +67,12 @@
 + [Gradient Boosted Decision Trees](./04-Supervised2.md#gradient-boosted-decision-trees)
 + [Neural Networks](./04-Supervised2.md#neural-networks)
 + [Neural Networks Made Easy (optional)](./04-Supervised2.md#neural-networks-made-easy-optional)
+    + [Thinking by brute force](./04-Supervised2.md#thinking-by-brute-force)
+    + [Teaching machines to learn](./04-Supervised2.md#teaching-machines-to-learn)
+    + [Machines — they’re just like us!](./04-Supervised2.md#machines---theyre-just-like-us)
+    + [All aboard the network training](./04-Supervised2.md#all-abord-the-network-training)
+    + [So many layers…](./04-Supervised2.md#so-many-layers)
+    + [If at first you don’t succeed, try, try, try again](./04-Supervised2.md#if-at-first-you-dont-success-try-try-try-again)
 + [Play with Neural Networks: TensorFlow Playground (optional)](./04-Supervised2.md#play-with-neural-networks-tensorflow-playground-optional)
 + [Deep Learning (Optional)](./04-Supervised2.md#deep-learning-optional)
 + [Deep Learning in a Nutshell: Core Concepts (optional)](./04-Supervised2.md#deep-learning-in-a-nutshell-core-concepts-optional)
@@ -80,6 +86,18 @@
 
 
 ## [Assignment 4](./asgn04.md)
+
+Notebooks
+Useful Links for Assignment
+No AUC output in the feedback from AG? Check this!
+Assignment 4 FAQs
+Assignment 4 AUC Competition(also a good start point)
+How to read train.csv via pd.read_csv
+Wikipedia: Missing Data
+How to Treat Missing Values in Your Data
+Introduction
+Techniques
+Illustration
 
 
 
