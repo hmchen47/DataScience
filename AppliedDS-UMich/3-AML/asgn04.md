@@ -9,7 +9,7 @@
 
 ## Useful Links for Assignment
 
-### [No AUC output in the feedback from AG? Check this! (Updated: Nov. 10)](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/4/threads/PmH1O73KEeeBnhIna1yUEg)
+### [No AUC output in the feedback from AG? Check this!](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/4/threads/PmH1O73KEeeBnhIna1yUEg)
 
 If you received a feedback like "Function blight_model was answered incorrectly, 1.0 points were not awarded" from the autograder(AG), it means that in the perspective of the AG, your code contains bugs. Instead, the working code should result in a feedback like "Your AUC of 0.81234567 was awarded a value of 1.0 out of 1.0 total grades".
 
@@ -659,9 +659,9 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
     + often using graphs, offer additional tools for testing missing data types (MCAR, MAR, MNAR) and for estimating parameters under missing data conditions
     + a test for refuting MAR/MCAR reads as follows:
     + For any three variables $X, Y$, and $Z$ where $Z$ is fully observed and $X$ and $Y$ partially observed, the data should satisfy: 
-    
+
         $$X \perp \!\!\! \perp R_{y}|(R_{x},Z)$$
-    
+
         The observed portion of $X$ should be independent on the missingness status of $Y$, conditional on every value of $Z$. Failure to satisfy this condition indicates that the problem belongs to the MNAR category.
     + When data falls into MNAR category techniques are available for consistently estimating parameters when certain conditions hold in the model.
     + E.g., if $Y$ explains the reason for missingness in $X$ and $Y$ itself has missing values, the joint probability distribution of $X$ and $Y$ can still be estimated if the missingness of $Y$ is random. The estimand in this case will be:
@@ -682,34 +682,41 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
     + Non-stationary Markov chain models
 
 
+## [How to Treat Missing Values in Your Data](https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1)
+
+### Introduction
 
 
 
+### Techniques
 
+
+
+### Illustration
 
 
 ## Handling Missing Values when Applying Classification Models
 
 Maytal Saar-Tsechansky, Foster Provost, "Handling Missing Values when Applying Classification Models", Journal of Machine Learning Research 8 (2007) 1625-1657
 
-1. [Introduction](p5-Missing.md#)
-1. [Treatments for Missing Values at Prediction Time](p5-Missing.md#)
-1. [Experimental Comparison of Prediction-time Treatments for Missing Values](p5-Missing.md#)
-    1. [Experimental Setup](p5-Missing.md#)
-    1. [Comparison of PVI, DBI and Reduced Modeling](p5-Missing.md#)
-    1. [Feature Imputability and Modeling Error](p5-Missing.md#)
-    1. [Evaluation using Ensembles of Trees](p5-Missing.md#)
-    1. [Evaluation using Logistic Regression](p5-Missing.md#)
-    1. [Evaluation with “Naturally Occurring” Missing Values](p5-Missing.md#)
-    1. [Evaluation with Multiple Missing Values](p5-Missing.md#)
-1. [Hybrid Models for Efficient Prediction with Missing Values](p5-Missing.md#)
-    1. [Likelihood-based Hybrid Solutions](p5-Missing.md#)
-    1. [Reduced-Feature Ensembles](p5-Missing.md#)
-    1. [Larger Ensembles](p5-Missing.md#)
-    1. [ReFEs with Increasing Numbers of Missing Values](p5-Missing.md#)
-1. [Related Work](p5-Missing.md#)
-1. [Limitations](p5-Missing.md#)
-1. [Conclusions](p5-Missing.md#)
+1. [Introduction](p5-Missing.md#introduction)
+1. [Treatments for Missing Values at Prediction Time](p5-Missing.md#treaments-for-missing-values-at-prediction-time)
+1. [Experimental Comparison of Prediction-time Treatments for Missing Values](p5-Missing.md#experimental-comparison-of-prediction---time-treatments-for-missing-values)
+    1. [Experimental Setup](p5-Missing.md#experimental-setup)
+    1. [Comparison of PVI, DBI and Reduced Modeling](p5-Missing.md#comparison-of-pvi-dbi-and-reduced-modeling)
+    1. [Feature Imputability and Modeling Error](p5-Missing.md#feature-imputability-and-modeling-error)
+    1. [Evaluation using Ensembles of Trees](p5-Missing.md#evaluation-using-ensembles-of-trees)
+    1. [Evaluation using Logistic Regression](p5-Missing.md#evaluation-with-logistic-regression)
+    1. [Evaluation with “Naturally Occurring” Missing Values](p5-Missing.md#evaluation-with-naturally-occuring-missing-values)
+    1. [Evaluation with Multiple Missing Values](p5-Missing.md#evaluation-with-multiple-missing-values)
+1. [Hybrid Models for Efficient Prediction with Missing Values](p5-Missing.md#hybrid-models-for-efficient-prediction-with-missing-values)
+    1. [Likelihood-based Hybrid Solutions](p5-Missing.md#likelihood---based-bybrid-solutions)
+    1. [Reduced-Feature Ensembles](p5-Missing.md#reduced---feature-ensembles)
+    1. [Larger Ensembles](p5-Missing.md#larger-ensembles)
+    1. [ReFEs with Increasing Numbers of Missing Values](p5-Missing.md#refes-with-increasing-numbers-of-missing-values)
+1. [Related Work](p5-Missing.md#related-work)
+1. [Limitations](p5-Missing.md#limitations)
+1. [Conclusions](p5-Missing.md#conclusions)
 
 
 
