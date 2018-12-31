@@ -684,7 +684,7 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
     + Non-stationary Markov chain models
 
 
-## [How to Treat Missing Values in Your Data](https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1)
+## [How to Treat Missing Values in Your Data](https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentral)
 
 ### Introduction
 
@@ -703,14 +703,14 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
     + __Listwise__
         + rows containing missing variables are deleted.
         + entire observation for User A and User C will be ignored for listwise deletion
-        <a href="https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1"> <br/>
-            <img src="https://api.ning.com/files/0jbYLowImpvPl6e1GsMKjyojeeq3syhYbJn4oobtnzMCwc9eIiN-tn4Ub-0rUGv19R5Flzsz4PkAzWVBVXcgtnpGjln*ZB90/Capture.PNG" alt="the entire observation for User A and User C will be ignored for listwise deletion" title="Listwise example" height="100">
+        <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
+            <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210603/listwise-deletion.jpg" alt="the entire observation for User A and User C will be ignored for listwise deletion" title="Listwise example" height="100">
         </a>
     + __Pairwise__
         + only the missing observations are ignored and analysis is done  on  variables present
         + 2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it.
-        <a href="https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1"> <br/>
-            <img src="https://api.ning.com/files/0jbYLowImpt7xsb5Q4Ys374*-NW9wopEYrX0FP8sgtHSyhbjKPcv*oKeAYtaLw1Bv0ZpqXop7pUKHWxbgDnHXdQCT19k-RgI/Capture.PNG" alt="2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it." title="Pairwise example" height="100">
+        <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
+            <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210603/pairwise-deletion.jpg" alt="2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it." title="Pairwise example" height="100">
         </a>
     + Listwise deletion suffers the maximum information loss compared to Pairwise deletion. 
     + The problem with pairwise deletion is that even though it takes the available cases, one can’t compare analyses because the sample is different every time.
@@ -720,8 +720,8 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
         + Mean, median and mode are the most popular averaging techniques, which are used to infer missing values.
         + Approaches ranging from global average for the variable to averages based on groups are usually considered.
         + Artificially reducing the variation in the dataset as the missing observations could have the same value
-        <a href="https://www.datasciencecentral.com/profiles/blogs/how-to-treat-missing-values-in-your-data-1"> <br/>
-            <img src="https://api.ning.com/files/0jbYLowImpuEAs18E1J3vbzpKVa-vZ6m7l7S9nTvcGffGznAcGqv3TYo7G6gcsqNRW8UGZf-ESXDAvNneVHNEnK5yywJlueH/Capture.PNG" alt="The table shows the difference in imputed missing values of Revenue arrived by taking its global mean and mean based on which OS platform it belongs to." title="Pairwise example" height="200">
+        <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
+            <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210602/imputation-by-averaging.jpg" alt="The table shows the difference in imputed missing values of Revenue arrived by taking its global mean and mean based on which OS platform it belongs to." title="Pairwise example" height="200">
         </a>
     + Predictive Techniques
         + Assumption: the nature of such missing observations are not observed completely at random and the variables chosen to impute such missing observations have some relationship with it, else it could yield imprecise estimates.
@@ -729,12 +729,83 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
         + Various statistical methods like regression techniques, machine learning methods like SVM and/or data mining methods to impute such missing values.
 
 
-
-
-
-
-
 ### Illustration
+
++ Example
+    + With the information on Visits,Transactions, Operating System, and Gender, we need to build a model to predict Revenue.
+    <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-ii/?utm_source=datasciencecentral"> <br/>
+        <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/04/03210548/summary-data.jpg" alt="information on Visits,Transactions, Operating System, and Gender, we need to build a model to predict Revenue." title="Pairwise example" height="150">
+    </a>
+
+    + A total of 7200 missing data points (Transactions: 1800, Gender: 5400) out of 22,800 observations. Almost 8% and 24% data points are missing for ‘Transactions’ and ‘Gender’ respectively.
+
++ Revenue Prediction
+    + Using a linear regression model to predict 'Revenue'.
+    <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-ii/?utm_source=datasciencecentral"> <br/>
+        <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/04/03210547/scatter_linear.jpg" alt="A quick intuitive recap of Linear Regression Assume 'y' depends on 'x'." title="Linear Regression" height="200">
+    </a>
+
++ Missing Value Treatment
+    + Deletion: steps involved
+        1. Delete: Delete or ignore the observations that are missing and build the predictive model on the remaining data.
+        1. Impute 'Revenue' by Linear Regression
+        + Build a Linear model to predict 'Revenue' with 15,600 observations.
+    + Impute by Average: steps involved
+        1. Impute 'Transactions' by Mean
+            + impute the missing data points for 'Transactions' variable by looking at the group means of 'Transactions'  by 'OS'.
+            + Mean of Transactions for Users on Android: 0.74
+            + Mean of Transactions for Users on iOS: 1.54
+            + All the missing observations for 'Transactions' will get 0.74 and 1.54 as its value for Users on Android and iOS respectively.
+        2. Impute 'Gender' by Mode
+            + ‘Gender’ is a categorical variable, use Mode to impute the missing variables
+            + the Mode for the variable ‘Gender’ is ‘Male’ since it's frequency is the highest
+            + All the missing data points for 'Gender' will be labeled as ‘Male’.
+        3. Impute 'Revenue' by Linear Regression: Build a Linear model to predict 'Revenue' with the entire dataset totalling 22,800 observations.
+    + Impute by Predictive Model
+        1. Impute 'Gender' by Decision Tree: several predictive techniques
+            + statistical and machine learning to impute missing values. We will be using Decision Trees to impute the missing values of 'Gender'.
+            + The variables used to impute it are 'Visits', 'OS' and 'Transactions'.
+        2. Impute 'Transactions' by Linear Regression
+            + Using a simple linear regression, we will impute 'Transactions' by including the imputed missing values for 'Gender' (imputed from Decision Tree). 
+            + The variables used to impute it are 'Visits', 'OS' and 'Gender'.
+        3. Impute 'Revenue' by Linear Regression: Build a Linear model to predict 'Revenue' with the entire dataset totalling 22,800 observations.
+
++ Linear Regression Model Evaluation
+    + Evaluate how well a linear regression model fits the data is the coefficient of determination or $R^2$
+        + $R^2$: the sensitivity of the predicted response variable with the observed response or dependent variable (Movement of Predicted with Observed)
+        + $R^2 \in [0, 1]$ and 
+
+            $$R^2 = \sum \frac{(\hat{y}^2 - \bar{y})^2}{(y_i - \bar{y})^2}$$
+
+            + $\hat{y}_i^2$: predicted response
+            + $y_i$: observed response
+            + $\bar{y}$: mean response
+    + Adjusted $R^2$
+        + $R^2$ will remain constant or keep on increasing as long as you add more independent variables to your model.
+        + Overfitting leads to good fit on the data used to build the model or in-sample data but may poorly fit out-of-sample or new data.
+        + Adjusted $R^2$ overcomes this shortcoming of $R^2$ to a great extent. 
+        + Adjusted $R^2$ is a modified version of $R^2$ that has been adjusted for the number of predictors in the model.
+
+            $$\text{Adjusted } r^2 = 1 - \frac{(1-R^2)(N-1)}{N-k-1}$$
+            + $N$: number of observations
+            + $k$: number of predictions or independent variables
+        + Penalize $R^2$ for keeping on adding independent variables ($k$ in the equation) that do not fit the model
+        + Not guaranteed to increase or remain constant but may decrease as adding more and more independent variables
+
++ Model Comparison post-treatment of Missing Values
+    + Compare the linear regression output after imputing missing values from the methods discussed
+    <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-ii/?utm_source=datasciencecentral"> <br/>
+        <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/04/03210548/model-comparison.jpg" alt="the Adjusted R2 is same as R2 since the variables that do not contribute to the fit of the model haven't been taken into consideration to build the final model." title="Comparison of the linear regression output after imputing missing values from the methods discussed" height="200">
+    </a>
+    + The Adjusted $R^2$ is same as $^2$ since the variables that do not contribute to the fit of the model haven't been taken into consideration to build the final model.
+    + Inference
+        + 'Deletion' is the worst performing method and the best one is 'Imputation by Predictive Model' followed by 'Imputation by Average'.
+        + 'Imputation by Predictive Model' delivers a better performance since it not only delivers a higher Adjusted $R^2$  but also requires one independent variable ('Visits') less to predict 'Revenue' compared to 'Imputation by Average'.
+
+### Conclusion
+
+Imputation of missing values is a tricky subject and unless the missing data is not observed completely at random, imputing such missing values by a Predictive Model is highly desirable since it can lead to better insights and overall increase in performance of your predictive models.
+
 
 
 ## Handling Missing Values when Applying Classification Models
