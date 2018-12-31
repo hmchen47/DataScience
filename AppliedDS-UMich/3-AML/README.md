@@ -160,18 +160,38 @@
 
 ## [Assignment 4](./asgn04.md)
 
-Notebooks
-Useful Links for Assignment
-No AUC output in the feedback from AG? Check this!
-Assignment 4 FAQs
-Assignment 4 AUC Competition(also a good start point)
-How to read train.csv via pd.read_csv
-Wikipedia: Missing Data
-How to Treat Missing Values in Your Data
-Introduction
-Techniques
-Illustration
-
++ [Notebooks](asgn04.md#notebooks)
++ [Useful Links for Assignment](asgn04.md#useful-links-for-assignment)
+    + [No AUC output in the feedback from AG? Check this!](asgn04.md#no-auc-output-in-the-feedback-from-ag-check-this)
+    + [Assignment 4 FAQs](asgn04.md#assignment-4-faqs)
+    + [Assignment 4 AUC Competition(also a good start point)](asgn04.md#assignment-4-auc-competition-also-a-good-start-point)
+    + [How to read train.csv via pd.read_csv](asgn04.md#how-to-read-train-csv-via-pd-read-csv)
++ [Wikipedia: Missing Data](asgn04.md#wikipedia-missing-data)
++ [How to Treat Missing Values in Your Data](asgn04.md#how-to-treat-missing-values-in-your-data)
+    + [Introduction](asgn04.md#introduction)
+    + [Techniques](asgn04.md#techniques)
+    + [Illustration](asgn04.md#illustration)
+    + [Conclusion](asgn04.md#conclusion)
++ [Handling Missing Values when Applying Classification Models](asgn04.md#handling-missing-values-when-applying-classification-models)
+    1. [Introduction](p5-Missing.md#introduction)
+    1. [Treatments for Missing Values at Prediction Time](p5-Missing.md#treaments-for-missing-values-at-prediction-time)
+    1. [Experimental Comparison of Prediction-time Treatments for Missing Values](p5-Missing.md#experimental-comparison-of-prediction---time-treatments-for-missing-values)
+        1. [Experimental Setup](p5-Missing.md#experimental-setup)
+        1. [Comparison of PVI, DBI and Reduced Modeling](p5-Missing.md#comparison-of-pvi-dbi-and-reduced-modeling)
+        1. [Feature Imputability and Modeling Error](p5-Missing.md#feature-imputability-and-modeling-error)
+        1. [Evaluation using Ensembles of Trees](p5-Missing.md#evaluation-using-ensembles-of-trees)
+        1. [Evaluation using Logistic Regression](p5-Missing.md#evaluation-with-logistic-regression)
+        1. [Evaluation with “Naturally Occurring” Missing Values](p5-Missing.md#evaluation-with-naturally-occuring-missing-values)
+        1. [Evaluation with Multiple Missing Values](p5-Missing.md#evaluation-with-multiple-missing-values)
+    1. [Hybrid Models for Efficient Prediction with Missing Values](p5-Missing.md#hybrid-models-for-efficient-prediction-with-missing-values)
+        1. [Likelihood-based Hybrid Solutions](p5-Missing.md#likelihood---based-bybrid-solutions)
+        1. [Reduced-Feature Ensembles](p5-Missing.md#reduced---feature-ensembles)
+        1. [Larger Ensembles](p5-Missing.md#larger-ensembles)
+        1. [ReFEs with Increasing Numbers of Missing Values](p5-Missing.md#refes-with-increasing-numbers-of-missing-values)
+    1. [Related Work](p5-Missing.md#related-work)
+    1. [Limitations](p5-Missing.md#limitations)
+    1. [Conclusions](p5-Missing.md#conclusions)
++ [Solution](asgn04.md#solution)
 
 
 ## Optional: [Unsupervised Machine Learning](./05-Unsupervised.md)
