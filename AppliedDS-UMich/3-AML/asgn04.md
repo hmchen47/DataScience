@@ -172,7 +172,7 @@ print(res)
 
     The grader is a container with limited computing resources, remember that a few thousands of learners could be using the grader at the same time, for each one of these learners a single grading container is created.
 
-    Because of that, the grader could raise an error that wasn’t raised when you ran your code on your local machine or coursera’s online platform. Most of these problems will be related to inefficient code or trying to carry out calculations on series with NaN values. To be able to view the grader message in such case, you’ll need to place an explicit call to the function blight_model in your code. I.e. add a function call after the function definition as shown below
+    Because of that, the grader could raise an error that wasn't raised when you ran your code on your local machine or coursera's online platform. Most of these problems will be related to inefficient code or trying to carry out calculations on series with NaN values. To be able to view the grader message in such case, you'll need to place an explicit call to the function blight_model in your code. I.e. add a function call after the function definition as shown below
 
     ```python
     def blight_model():
@@ -185,13 +185,13 @@ print(res)
     Some of the common issues are
 
     TimeDelta/ Datetime unknown error: the dates provided in the data files contains both date and time portions, so to avoid this error
-    if you’re calculating the difference between two dates in days; use the date portion only
+    if you're calculating the difference between two dates in days; use the date portion only
 
     ```python
-    df[‘Col name’] = df[‘Col name’].dt.date
+    df['Col name'] = df['Col name'].dt.date
     ```
 
-    If on the other hand you’re calculating the difference in seconds use the following
+    If on the other hand you're calculating the difference in seconds use the following
 
     ```python
     def diff_seconds(date2, date1):
@@ -234,9 +234,9 @@ print(res)
         + `usecols`: provide a list of all columns to be read
         + `index_col`: provide the name of the column to be used as index
         + `parse_dates`: provide a list of columns that needs to be parsed)
-        + `dtypes`: provide a dictionary of column names as keys and types as values, use ‘str’ for string,’float’ for float64, don’t use integer as NaN values are not allowed in integer data)
-        + `converters`: these can be useful for applying simple transformations to the columns, one example {‘col_name’:lambda x: x.upper() if type(x)==str else x} can be used to convert all string items to upper case. Only use with mostly non-numeric data
-    2. Replace or delete NaN values as early as possible in your code, use the same column datatype to fill each column, e.g. if the column dtype is float64, use a float number, if the column dtype is DateTime or TimeStamp use pd.to_datetime(‘Date here’) and if the dtype is Timedelta use pd.Timedelta(‘number units’) units can days, months, etc..
+        + `dtypes`: provide a dictionary of column names as keys and types as values, use 'str' for string,'float' for float64, don't use integer as NaN values are not allowed in integer data)
+        + `converters`: these can be useful for applying simple transformations to the columns, one example {'col_name':lambda x: x.upper() if type(x)==str else x} can be used to convert all string items to upper case. Only use with mostly non-numeric data
+    2. Replace or delete NaN values as early as possible in your code, use the same column datatype to fill each column, e.g. if the column dtype is float64, use a float number, if the column dtype is DateTime or TimeStamp use pd.to_datetime('Date here') and if the dtype is Timedelta use pd.Timedelta('number units') units can days, months, etc..
     3. Remove redundant features, e.g. a column containing only one distinct value will add little information to your learning model
     4. Keep your code neat, create functions to perform repetitive tasks, e.g. once you decided on the columns to use and how to deal with NaN values and categorical data, create a function that you can use for both train and test
     5. Run your code on the online platform before submission, if it takes too long to run the code or restarts kernel, this is an indication that the code needs modification/optimising. One example, you want to divide a pandas series (ser) by a constant C, instead of division ser/C use multiplication ser*(1/C)
@@ -688,44 +688,54 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
 
 ### Introduction
 
-+ How do you deal with missing values - ignore or treat them?
++ How do you deal with missing values - ignore or treat them? Factors to consider:
     + the percentage of those missing values in the dataset
     + the variables affected by missing values
     + whether those missing values are a part of dependent or the independent variables, etc.
 
-+ The best scenario is to get the actual value that was missing by going back to the Data Extraction & Collection stage and correcting possible errors during these stages. Generally, that won’t be the case and you will still be left with missing values.
++ Best scenario: get the missing value by going back to the Data Extraction & Collection stage and correcting possible errors during these stages
 
++ Generally, that won't be the case and you will still be left with missing values.
+
++ Example
+    <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
+        <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210602/missing_value_table.jpg" alt="The 2 tables above give different insights. The inference from the table on the left with the missing data indicates lower count for Android Mobile users and iOS Tablet users and higher Average Transaction Value compared to the inference from the right table with no missing data. The inference from the data with missing values could adversely impact business decisions." title="Example" height="250">
+    </a>
 
 ### Techniques
 
 + Deletion
-    + Unless the nature of missing data is ‘Missing completely at random’ (MCAR), the best avoidable method in many cases is deletion.
+    + Best avoidable method unless 'Missing completely at random' (MCAR)
     + __Listwise__
-        + rows containing missing variables are deleted.
-        + entire observation for User A and User C will be ignored for listwise deletion
+        + delete rows containing missing variables
+        + E.g., entire observation for User A and User C will be ignored for listwise deletion
         <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
             <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210603/listwise-deletion.jpg" alt="the entire observation for User A and User C will be ignored for listwise deletion" title="Listwise example" height="100">
         </a>
     + __Pairwise__
-        + only the missing observations are ignored and analysis is done  on  variables present
-        + 2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it.
+        + only ignore the missing observations and analysis based on variables present
+        + E.g., 2 separate sample data will be analyzed
+            + one with the combination of User, Device and Transaction
+            + the other with the combination of User, OS and Transaction
         <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
             <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210603/pairwise-deletion.jpg" alt="2 separate sample data will be analyzed, one with the combination of User, Device and Transaction and the other with the combination of User, OS and Transaction. In such a case, one won't be deleting any observation. Each of the samples will ignore the variable which has the missing value in it." title="Pairwise example" height="100">
         </a>
-    + Listwise deletion suffers the maximum information loss compared to Pairwise deletion. 
-    + The problem with pairwise deletion is that even though it takes the available cases, one can’t compare analyses because the sample is different every time.
+        + No observation deleted
+        + Each of the samples will ignore the variable with missing value
+    + Listwise deletion suffers the maximum information loss compared to Pairwise deletion.
+    + Pairwise deletion problem: can't compare analyses because the sample is different every time
 
 + Imputation
     + Popular Averaging Techniques
-        + Mean, median and mode are the most popular averaging techniques, which are used to infer missing values.
-        + Approaches ranging from global average for the variable to averages based on groups are usually considered.
-        + Artificially reducing the variation in the dataset as the missing observations could have the same value
+        + Mean, median and mode: the most popular averaging techniques
+        + Approaches ranging from global average for the variable to averages based on groups
+        + Artificially reducing the variation in the dataset
         <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-i/?utm_source=datasciencecentr"> <br/>
             <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/03/03210602/imputation-by-averaging.jpg" alt="The table shows the difference in imputed missing values of Revenue arrived by taking its global mean and mean based on which OS platform it belongs to." title="Pairwise example" height="200">
         </a>
     + Predictive Techniques
         + Assumption: the nature of such missing observations are not observed completely at random and the variables chosen to impute such missing observations have some relationship with it, else it could yield imprecise estimates.
-        + A predictive model could be used to impute the missing values for Device, OS, Revenues.
+        + E.g., A predictive model could be used to impute the missing values for Device, OS, Revenues.
         + Various statistical methods like regression techniques, machine learning methods like SVM and/or data mining methods to impute such missing values.
 
 
@@ -737,7 +747,7 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
         <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/04/03210548/summary-data.jpg" alt="information on Visits,Transactions, Operating System, and Gender, we need to build a model to predict Revenue." title="Pairwise example" height="150">
     </a>
 
-    + A total of 7200 missing data points (Transactions: 1800, Gender: 5400) out of 22,800 observations. Almost 8% and 24% data points are missing for ‘Transactions’ and ‘Gender’ respectively.
+    + A total of 7200 missing data points (Transactions: 1800, Gender: 5400) out of 22,800 observations. Almost 8% and 24% data points are missing for 'Transactions' and 'Gender' respectively.
 
 + Revenue Prediction
     + Using a linear regression model to predict 'Revenue'.
@@ -757,13 +767,13 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
             + Mean of Transactions for Users on iOS: 1.54
             + All the missing observations for 'Transactions' will get 0.74 and 1.54 as its value for Users on Android and iOS respectively.
         2. Impute 'Gender' by Mode
-            + ‘Gender’ is a categorical variable, use Mode to impute the missing variables
-            + the Mode for the variable ‘Gender’ is ‘Male’ since it's frequency is the highest
-            + All the missing data points for 'Gender' will be labeled as ‘Male’.
+            + 'Gender' is a categorical variable, use Mode to impute the missing variables
+            + The Mode for the variable 'Gender' is 'Male' since it's frequency is the highest
+            + All the missing data points for 'Gender' will be labeled as 'Male'.
         3. Impute 'Revenue' by Linear Regression: Build a Linear model to predict 'Revenue' with the entire dataset totalling 22,800 observations.
     + Impute by Predictive Model
         1. Impute 'Gender' by Decision Tree: several predictive techniques
-            + statistical and machine learning to impute missing values. We will be using Decision Trees to impute the missing values of 'Gender'.
+            + Statistical and machine learning to impute missing values. We will be using Decision Trees to impute the missing values of 'Gender'.
             + The variables used to impute it are 'Visits', 'OS' and 'Transactions'.
         2. Impute 'Transactions' by Linear Regression
             + Using a simple linear regression, we will impute 'Transactions' by including the imputed missing values for 'Gender' (imputed from Decision Tree). 
@@ -771,22 +781,22 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
         3. Impute 'Revenue' by Linear Regression: Build a Linear model to predict 'Revenue' with the entire dataset totalling 22,800 observations.
 
 + Linear Regression Model Evaluation
-    + Evaluate how well a linear regression model fits the data is the coefficient of determination or $R^2$
+    + Evaluate how well a linear regression model fits the data is the __coefficient of determination__ or $R^2$
         + $R^2$: the sensitivity of the predicted response variable with the observed response or dependent variable (Movement of Predicted with Observed)
         + $R^2 \in [0, 1]$ and 
 
-            $$R^2 = \sum \frac{(\hat{y}^2 - \bar{y})^2}{(y_i - \bar{y})^2}$$
+            $$R^2 = \sum_i \frac{(\hat{y}_i - \bar{y})^2}{(y_i - \bar{y})^2}$$
 
-            + $\hat{y}_i^2$: predicted response
+            + $\hat{y}_i$: predicted response
             + $y_i$: observed response
             + $\bar{y}$: mean response
     + Adjusted $R^2$
         + $R^2$ will remain constant or keep on increasing as long as you add more independent variables to your model.
         + Overfitting leads to good fit on the data used to build the model or in-sample data but may poorly fit out-of-sample or new data.
-        + Adjusted $R^2$ overcomes this shortcoming of $R^2$ to a great extent. 
+        + Adjusted $R^2$ overcomes this shortcoming of $R^2$ to a great extent.
         + Adjusted $R^2$ is a modified version of $R^2$ that has been adjusted for the number of predictors in the model.
 
-            $$\text{Adjusted } r^2 = 1 - \frac{(1-R^2)(N-1)}{N-k-1}$$
+            $$\text{Adjusted } R^2 = 1 - \frac{(1-R^2)(N-1)}{N-k-1}$$
             + $N$: number of observations
             + $k$: number of predictions or independent variables
         + Penalize $R^2$ for keeping on adding independent variables ($k$ in the equation) that do not fit the model
@@ -797,7 +807,7 @@ Please note: The CSV file for Assignment 4 was provided by the original competit
     <a href="https://clevertap.com/blog/how-to-treat-missing-values-in-your-data-part-ii/?utm_source=datasciencecentral"> <br/>
         <img src="https://d35fo82fjcw0y8.cloudfront.net/2016/04/03210548/model-comparison.jpg" alt="the Adjusted R2 is same as R2 since the variables that do not contribute to the fit of the model haven't been taken into consideration to build the final model." title="Comparison of the linear regression output after imputing missing values from the methods discussed" height="200">
     </a>
-    + The Adjusted $R^2$ is same as $^2$ since the variables that do not contribute to the fit of the model haven't been taken into consideration to build the final model.
+    + The Adjusted $R^2$ is same as $R^2$ since the variables that do not contribute to the fit of the model haven't been taken into consideration to build the final model.
     + Inference
         + 'Deletion' is the worst performing method and the best one is 'Imputation by Predictive Model' followed by 'Imputation by Average'.
         + 'Imputation by Predictive Model' delivers a better performance since it not only delivers a higher Adjusted $R^2$  but also requires one independent variable ('Visits') less to predict 'Revenue' compared to 'Imputation by Average'.
