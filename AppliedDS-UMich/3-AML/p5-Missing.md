@@ -156,6 +156,19 @@ Publication: Journal of Machine Learning Research 8 (2007) 1625-1657
 
 ## Experimental Comparison of Prediction-time Treatments for Missing Values
 
++ The J48 algorithm: the Weka [36] implementation of C4.5 classification tree
+
++ Main experiments: control for various confounding factors, factors, including pattern of missingness (viz., MCAR), relevance of missing values, and induction method (including missing value treatment used for training)
+
++ Avoid trivial cases:
+    + when a feature is not incorporated in the model: different treatments should result in the same classifications.
+    + when a feature does not account for significant variance in the target variable: different treatments will not result in significantly different classifications.
+
++ Followup studies:
+    + using different induction algorithms
+    + using data sets with “naturally occurring” missing values
+    + including increasing numbers missing values
+
 
 ### Experimental Setup
 
