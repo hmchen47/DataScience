@@ -172,7 +172,24 @@ Publication: Journal of Machine Learning Research 8 (2007) 1625-1657
 
 ### Experimental Setup
 
++ Values of features from the top two levels of the classification tree induced with the complete feature set are removed from test instances (cf. [1])
 
++ Build models using training data having no missing values, except for the natural-data experiments
+
++ Scenarios
+    + distribution-based imputation: C4.5’s method for classifying instances with missing values
+    + value imputation: 
+        + estimate missing categorical features using a J48 tree, and continuous values using Weka’s linear regression
+        + mean/mode imputation for the additional missing values
+    + reduced model: remove all the corresponding features from the training data before the model is induced
+
++ Datasets
+    + the average classification accuracy of a missing-value treatment over 10 independent experiments in which the data set is randomly partitioned into training and test sets
+    + use 70% of the data for training and the remaining 30% as test data
+    + web-usage data sets [27]
+    + the UCI machine learning repository [23]
+
++ Hypothesis test: a sign test with the null hypothesis that the average drops in accuracy using the two treatments are equal, as compared to the complete setting
 
 
 ### Comparison of PVI, DBI and Reduced Modeling
