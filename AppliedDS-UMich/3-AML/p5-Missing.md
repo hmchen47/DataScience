@@ -194,7 +194,67 @@ Publication: Journal of Machine Learning Research 8 (2007) 1625-1657
 
 ### Comparison of PVI, DBI and Reduced Modeling
 
++ The relative difference (improvement) w/ a treatment $T$
 
+    $$100 \cdot \frac{AC_T - AC_K}{AC_K}$$
+
+    + $AC_K$: the prediction accuracy obtained in the complete setting
+    + $AC_T$: the accuracy obtained when a test instance includes missing values
+
++ Summary of Data Sets
+
+| Data Set | Instances | Attributes | Nominal Attributes |
+|----------|-----------|------------|--------------------|
+| Abalone | 4177 | 8 | 1 |
+| Breast Cancer | 699 | 9 | 0 |
+| BMG | 2295 | 40 | 8 |
+| CalHouse | 20640 | 8 | 0 |
+| Car | 1728 | 6 | 6 |
+| Coding | 20000 | 15 | 15 |
+| Contraceptive | 1473 | 9 | 7 |
+| Credit | 690 | 15 | 8 |
+| Downsize | 1277 | 15 | 0 |
+| Etoys | 270 | 40 | 8 |
+| Expedia | 500 | 40 | 8 |
+| Move | 3029 | 10 | 10 |
+| PenDigits | 10992 | 16 | 0 |
+| Priceline | 447 | 40 | 8 |
+| QVC | 500 | 40 | 8 |
+
++ Reduced-feature modeling is consistently superior
+
+    | Data Set | Predictive Imputation | Distribution-based Imputation (C4.5) |
+    |----------|----------------------:|-------------------------------------:|
+    | Abalone | 0.12 | 0.36 |
+    | Breast Cancer | -3.45 | -26.07 |
+    | BMG | -2.29 | -8.67 |
+    | CalHouse | -5.32 | -4.06 |
+    | Car | -13.94 | 0.00 |
+    | Coding | -5.76 | -4.92 |
+    | Contraceptive | -9.12 | -0.03 |
+    | Credit | -23.24 | -11.61 |
+    | Downsize | -10.17 | -7.49 |
+    | Etoys | -4.64 | -6.38 |
+    | Expedia | -0.61 | -10.03 |
+    | Move | -0.47 | -13.33 |
+    | PenDigits | -0.25 -| 2.70 |
+    | Priceline | -0.48 | -35.32 |
+    | QVC | -1.16 | -12.05 |
+    | Average | -5.38 | -9.49 |
+
+    + The differences in the relative improvements obtained with each imputation treatment from those obtained with reduced modeling.
+    + A large negative value indicates that an imputation treatment resulted in a larger drop in accuracy than that exhibited by reduced modeling.
+
++ Reduced models
+    + better performance compared to distribution-based imputation in 13/15 data sets
+    + better than value imputation in 14/15 data sets
+
++ The average drop in accuracy:
+    + reduced model: 3.76%
+    + predictive value imputation: 8.73%
+    + distribution-based imputation: 12.98%
+
++ Reduced modeling consistently yields the smallest reductions in accuracy — often performing nearly as well as having all the data. Each of the other techniques performs poorly on at least one data set, suggesting that one should choose between them carefully.
 
 
 ### Feature Imputability and Modeling Error
