@@ -259,6 +259,41 @@ Publication: Journal of Machine Learning Research 8 (2007) 1625-1657
 
 ### Feature Imputability and Modeling Error
 
++ the two most common treatments for missing values, predictive value imputation (PVI) and C4.5’s distribution-based imputation (DBI), each has a stark advantage over
+the other in some domains.
+
++ Feature imputability
+    + Def: the fundamental ability to estimate one feature using others
+    + A feature is completely imputable if it can be predicted perfectly using the other features—the feature is redundant in this sense. 
+    + Affect each of the various treatments, but in different ways
+
+
+#### High Feature Imputability
+
++ Perfect feature imputability: both the primary modeling and the imputation modeling have no intrinsic error
+
++ Predictive value imputation simply fills in the correct value and has no effect whatsoever on the bias and variance of the model induction.
+
++ Example
+    + two attributes, `A` and `B`, and a class variable `C` with $A = B = C$. 
+    + The “model” $A \implies C$ is a perfect classifier.
+    + Given a test case with `A` missing, predictive value imputation can use the (perfect) feature imputability directly: `B` can be used to infer `A`, and this enables the use of the learned model to predict perfectly.
+    + feature imputability: a direct correlate to the effectiveness of value imputation
+    
++ Perfect feature imputability 
+    + introduce a pathology that is fatal to C4.5’s distribution-based imputation
+    + When using DBI for prediction, C4.5’s induction may have substantially increased bias, because it omits redundant features from the model.
+    + features critical for prediction when the alternative features are missing
+
++ Not be perfect
+    + high feature imputability: yield only marginal improvements given the other features—to be more likely to be omitted or pruned from classification trees
+    + apply beyond decision trees to other modeling approaches that use feature selection
+
++ Inference procedures
+    + PVI: determined (as usual) based on the class distribution of a subset Q of training examples assigned to the same leaf node
+    + DBI: classification based on a superset S of Q
+    + When feature imputability is high and PVI is accurate, DBI can only do as well as PVI if the weighted majority class for S is the same as that of Q.
+
 
 
 
