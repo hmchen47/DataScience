@@ -304,8 +304,8 @@ the other in some domains.
 + larger and unbiased sample, DBI’s “smoothed” estimate should lead to better predictions on average
 
 + Example: 
-    <a href="url"> <br/>
-        <img src="images/p5-01.png" alt="Assume that there is no feature imputability at all (note that A and B are marginally independent) and assume that A is missing at prediction time. Since there is no feature imputability, A cannot be inferred using B and the imputation model should predict the mode (A=2). As a result every test example is passed to the A = 2 subtree. Now, consider test instances with B = 1. Although (A = 2, B = 1) is the path chosen by PVI, it does not correspond to the majority of training examples with B = 1. Assuming that test instances follow the same distribution as training instances, on B = 1 examples PVI will have an accuracy of 38%. DBI will have an accuracy of 62%. In sum, DBI will “marginalize” across the missing feature and always will predict the plurality class. PVI sometimes will predict a minority class. Generalizing, DBI should outperform PVI for data sets with low feature imputability." title="Classification tree example: consider an instance at prediction time for which feature A is unknown and B=1." height="200">
+    <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
+        <img src="images/p5-01.png" alt="Assume that there is no feature imputability at all (note that A and B are marginally independent) and assume that A is missing at prediction time. Since there is no feature imputability, A cannot be inferred using B and the imputation model should predict the mode (A=2). As a result every test example is passed to the A = 2 subtree. Now, consider test instances with B = 1. Although (A = 2, B = 1) is the path chosen by PVI, it does not correspond to the majority of training examples with B = 1. Assuming that test instances follow the same distribution as training instances, on B = 1 examples PVI will have an accuracy of 38%. DBI will have an accuracy of 62%. In sum, DBI will 'marginalize' across the missing feature and always will predict the plurality class. PVI sometimes will predict a minority class. Generalizing, DBI should outperform PVI for data sets with low feature imputability." title="Classification tree example: consider an instance at prediction time for which feature A is unknown and B=1." height="150">
     </a>
     + no feature imputability
     + A and B are marginally independent
@@ -321,6 +321,14 @@ the other in some domains.
     + DBI should outperform PVI for data sets with low feature imputability.
 
 
+####  Demostration
+
++ PVI vs DBI
+    <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
+        <img src="images/p5-02.png" alt="The bars represent the differences in the entries in Table 2, between predictive value imputation and C4.5’s distribution-based imputation. A bar above the horizontal line indicates that value imputation performed better; a bar below the line indicates that DBI performed better. The relative performances follow the above argument closely, with value imputation generally preferable for high feature imputability, and C4.5’s DBI generally better for low feature imputability." title="Differences between the relative performances of PVI and DBI. Domains are ordered left-to-right by increasing feature imputability." height="250">
+    </a>
+    + The 15 domains of the comparative study ordered left-to-right by a proxy for increasing feature imputability.
+    + A bar above the horizontal line indicates that value imputation performed better; a bar below the line indicates that DBI performed better.
 
 
 ### Evaluation using Ensembles of Trees
