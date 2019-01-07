@@ -295,6 +295,32 @@ the other in some domains.
     + When feature imputability is high and PVI is accurate, DBI can only do as well as PVI if the weighted majority class for S is the same as that of Q.
 
 
+#### Low Feature Imputation
+
++ Uninformed guess: when feature imputability is very low PVI must guess the missing feature value as simply the most common one
+
++ The class estimate obtained with DBI is based on the larger set `S` and captures the expectation over the distribution of missing feature values.
+
++ larger and unbiased sample, DBI’s “smoothed” estimate should lead to better predictions on average
+
++ Example: 
+    <a href="url"> <br/>
+        <img src="images/p5-01.png" alt="Assume that there is no feature imputability at all (note that A and B are marginally independent) and assume that A is missing at prediction time. Since there is no feature imputability, A cannot be inferred using B and the imputation model should predict the mode (A=2). As a result every test example is passed to the A = 2 subtree. Now, consider test instances with B = 1. Although (A = 2, B = 1) is the path chosen by PVI, it does not correspond to the majority of training examples with B = 1. Assuming that test instances follow the same distribution as training instances, on B = 1 examples PVI will have an accuracy of 38%. DBI will have an accuracy of 62%. In sum, DBI will “marginalize” across the missing feature and always will predict the plurality class. PVI sometimes will predict a minority class. Generalizing, DBI should outperform PVI for data sets with low feature imputability." title="Classification tree example: consider an instance at prediction time for which feature A is unknown and B=1." height="200">
+    </a>
+    + no feature imputability
+    + A and B are marginally independent
+    + Assume A is missing at prediction time
+    + A cannot be inferred using B and the imputation model should predict the mode (A=2).
+    + Every test example is passed to the `A = 2` subtree. Now, consider test instances with B = 1.
+    + `A = 2, B = 1`: the path chosen by PVI, it does not correspond to the majority of training examples with `B = 1`
+    + Assuming that test instances follow the same distribution as training instances, on B = 1 examples 
+        + PVI: an accuracy of $38\%$
+        + DBI: an accuracy of $62\%$
+    + DBI will "marginalize" across the missing feature and always will predict the plurality class. 
+    + PVI sometimes will predict a minority class.
+    + DBI should outperform PVI for data sets with low feature imputability.
+
+
 
 
 ### Evaluation using Ensembles of Trees
