@@ -589,7 +589,32 @@ the other in some domains.
 
 ### Larger Ensembles
 
++ evaluate the performance of bagging with the same number of individual models for any given number of missing features
 
++ including a larger number of models in each ensemble results in improved performance
+for all treatments, for almost all data sets
+
++ Percentage improvement in accuracy compared to a single model with imputation, for bagging with imputation, ReFE, and bagging with reduced models
+
+    | Data Sets | Bagging with Imputation | Bagging with ReFE Reduced Model |
+    |:----------|----------:|-----:|-----:|
+    | Abalone | 0.34 | 0.49 | 0.83 |
+    | BreastCancer | 5.10 | 5.89 | 5.15 |
+    | Bmg | 7.22 | 7.88 | 8.21 |
+    | CalHouse | 2.66 | 7.10 | 8.47 |
+    | Car | -0.10 | -0.08 | 17.55 |
+    | Coding | 14.39 | 15.28 | 17.65 |
+    | Contraceptive | 0.64 | 0.89 | 1.03 |
+    | Credit | 4.98 | 6.77 | 9.35 |
+    | Downsize | 6.91 | 7.60 | 11.13 |
+    | Etoys | 2.95 | 3.35 | 3.48 |
+    | Expedia | 3.41 | 4.19 | 5.27 |
+    | Move | 6.48 | 9.73 | 13.78 |
+    | PenDigits | 0.44 | 0.90 | 1.52 |
+    | Priceline | 7.55 | 9.42 | 11.02 |
+    | QVC | 4.23 | 5.88 | 7.16 |
+    | Average | 4.48 | 5.69 | 8.11 |
+    + All ensembles employ 30 models for prediction.
 
 
 ### ReFEs with Increasing Numbers of Missing Values
