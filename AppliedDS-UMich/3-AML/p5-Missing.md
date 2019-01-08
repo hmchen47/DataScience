@@ -427,11 +427,42 @@ the other in some domains.
 
 ### Evaluation with “Naturally Occurring” Missing Values
 
++ naturally occurring missing values: data sets from real classification problems
 
++ Missingness is unlikely to be completely at random.
+
++ Missing values may have little or no impact on prediction accuracy, and the corresponding attributes may not even be used by the model.
+
++ Summary of business data sets with “naturally occurring” missing values
+
+    | Data Set | Instances | Attributes | Nominal Attributes | Average Number of Missing Features | 
+    |:-----|---:|:---:|:---:|:---:|
+    | Hospitalization | 48083 | 13 | 7 | 1.73 |
+    | Insurance | 18542 | 16 | 0 | 2.32 |
+    | Mortgage | 2950 | 10 | 1 | 2.76 |
+    | Pricing | 15531 | 28 | 8 | 3.56 |
+    + models are induced from training data using C4.5’s distribution-based imputation.
+
++ Reduced modeling leads to higher accuracies than both popular alternatives for all four data sets.
 
 
 ### Evaluation with Multiple Missing Values
 
++ Assess how different treatments improve performance when performance is in fact undermined by the absence of strong predictors at inference time
+
++ The accuracies of reduced-feature modeling and predictive value imputation as the number of missing features increases
+
++ The imputation methods have steeper decreases in accuracy as the number of missing values increases.
+
++ Reduced modeling’s decrease is convex, with considerably more robust performance even for a large number of missing values.
+
++ sources of imputation-modeling error
+    + imputation models
+        + more than one value missing $\rightarrow$ face a missing-at-prediction-time problem
+        + reduced modeling for imputation
+    + predictive value imputation
+        + worse than reduced modeling, if the inductive bias of the resultant imputation model is “worse” than that of the reduced model
+        + classification-tree modeling does a much better job with numeric variables than the linear regression we use for imputation of real-value features
 
 
 
