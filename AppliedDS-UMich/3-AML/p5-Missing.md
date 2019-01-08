@@ -468,7 +468,11 @@ the other in some domains.
 
 ## Hybrid Models for Efficient Prediction with Missing Values
 
++ Storing many classification models has become standard practice, e.g., for improving accuracy with classifier ensembles
 
++ impracticably large as soon as the possible number of (simultaneous) missing values exceeds a dozen or so
+
++ The strength of reduced modeling in the empirical results presented above suggests its tactical use to improve imputation.
 
 
 ### Likelihood-based Hybrid Solutions
