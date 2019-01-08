@@ -361,7 +361,17 @@ the other in some domains.
 
 ### Evaluation using Ensembles of Trees
 
++ Bagged classification trees [4]:
+    + outperform simple classification trees consistently in terms of generalization performance [2, 28]
+    + albeit at the cost of computation, model storage, and interpretability
 
++ Reduced Models
+    + reduced modeling is better than predictive imputation in 12/15 data sets and distribution-based imputation in 14/15 data sets
+    + reduced models tend to increase as the models are induced from larger training sets
+    + a reduced model’s relative advantage with respect to predictive imputation is comparable to its relative advantage when a single model is used
+    + given the widespread use of classification-tree induction, and of bagging as a robust and reliable method for improving classification-tree accuracy via variance reduction
+
++ Practitioners and researchers should not choose either C4.5-style imputation or predictive value imputation blindly. Each does extremely poorly in some domains.
 
 
 ### Evaluation using Logistic Regression
