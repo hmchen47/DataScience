@@ -365,6 +365,28 @@ the other in some domains.
     + outperform simple classification trees consistently in terms of generalization performance [2, 28]
     + albeit at the cost of computation, model storage, and interpretability
 
++ Relative difference in prediction accuracy for bagged decision trees between imputation treatments and reduced-feature modeling
+
+| Data Set | Predictive Imputation | Distribution-based Imputation (C4.5) |
+|----------| ---------------------:|-------------------------------------:|
+| Abalone | -0.45 | -0.51 |
+| Breast Cancer | -1.36 | -1.28 |
+| BMG | -3.01 | -7.17 |
+| CalHouse | -5.16 | -4.41 |
+| Car | -22.58 | -9.72 |
+| Coding | -6.59 | -2.98 |
+| Contraceptive | -8.21 | 0.00 |
+| Credit | -25.96 | -5.36 |
+| Downsize | -6.95 | -4.94 |
+| Etoys | -3.83 | -8.24 |
+| Expedia | 0.20 | -8.48 |
+| Move | -0.92 v-10.61 |
+| PenDigits | -0.11 | -2.33 |
+| Priceline | 0.36 | -25.97 |
+| QVC | 0.13 | -9.99 |
+| Average | -5.47 | -6.57 |
+
+
 + Reduced Models
     + reduced modeling is better than predictive imputation in 12/15 data sets and distribution-based imputation in 14/15 data sets
     + reduced models tend to increase as the models are induced from larger training sets
