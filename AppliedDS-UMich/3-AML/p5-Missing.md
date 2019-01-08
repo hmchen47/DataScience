@@ -619,7 +619,15 @@ for all treatments, for almost all data sets
 
 ### ReFEs with Increasing Numbers of Missing Values
 
++ For all data sets, the accuracies of all methods decrease as more attributes are missing at prediction time. 
 
++ The marginal reductions in accuracy with increasing missing values are similar for ReFE and for bagging with imputation, with ReFE’s advantage diminishing slowly with increasing missing values.
+
++ ReFE uses imputation to handle additional missing values.
+
++ While using no more storage space than standard bagging, ReFE offers significantly better performance than imputation and than bagging with imputation for small numbers of missing values and hence provides another alternative for domains where full-blown reduced modeling (and especially reduced modeling with bagging) is impracticably expensive.
+
++ The ReFE accuracies clearly are between the extremes, trading off accuracy and storage/computation.
 
 
 ## Related Work
