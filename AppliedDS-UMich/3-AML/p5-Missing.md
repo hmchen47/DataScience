@@ -534,8 +534,56 @@ the other in some domains.
 
 
 
-### Reduced-Feature Ensembles
+### Reduced-Feature Ensembles (ReFE)
 
++ Notations
+    + $\mathcal{R}$: a set of models each induced by excluding a single attribute
+    + cardinality of $\mathcal{R}$: the number of attributes
+    + Model $i$: a model $i \in \mathcal{R}$ to capture an alternative hypothesis that can be used for prediction when the value for attribute vi, perhaps among others, is unknown
+
++ Because the models exclude only a single attribute, a ReFE avoids the combinatorial space requirement of full-blown reduced modeling.
+
++ ReFE ensemble members rely on imputation for the additional missing values.
+
++ DBI employed for missing values in ReFE
+
++ ReFE classifier Procedure
+    + For each attribute $v_i$ a model $m_i$ is induced with $v_i$ removed from the training data.
+    + For a given test example in which the values for the set of attributes $V$ are missing, for each attribute $v_i \in V$ whose value is missing, the corresponding model $m_i$ is applied to estimate the (probability of) class membership.
+    + To generate a prediction, the predictions of all models applied to a test example are averaged. 
+    + When a single feature is missing, ReFE is identical to the reduced-model approach. 
+    + The application of ReFE for test instances with two or more missing features results in an ensemble. 
+    + To achieve variance reduction as with bagging, training data are resampled with replacement for each member of the ensemble.
+
++ Relative improvements in accuracy for bagging with imputation and ReFE
+
+    | Data Sets | Bagging | ReFE | Reduced Model |
+    |:----------|--------:|-----:|--------------:|
+    | Abalone | 0.11 | 0.26 | 0.05 |
+    | BreastCancer | 4.35 | 4.51 | 4.62 |
+    | Bmg | 2.88 | 3.51 | 2.57 |
+    | CalHouse | 1.25 | 6.06 | 5.45 |
+    | Car | 0.10 | -0.28 | 17.55 |
+    | Coding | 4.82 | 6.97 | 5.32 |
+    | Contraceptive | 0.39 | 0.45 | 1.16 |
+    | Credit | 2.58 | 5.54 | 8.12 |
+    | Downsize | 3.09 | 3.78 | 6.51 |
+    | Etoys | 0.00 | 2.28 | 1.07 |
+    | Expedia | 1.76 | 2.11 | 2.73 |
+    | Move | 3.26 | 5.99 | 8.97 |
+    | Pendigits | 0.06 | 0.58 | 1.57 |
+    | Priceline | 3.29 | 4.98 | 10.84 |
+    | Qvc | 1.83 | 2.44 | 2.60 |
+    | Average | 1.98 | 3.27 | 5.27 |
+    + the improvements obtained by bagging alone (with imputation), and by the full-blown reduced-model approach
+    + ReFE consistently improves over both a single model with imputation (positive entries in the ReFE column) and over bagging with imputation.
+    + The variance reduction of bagging complements the (partial) reduced modeling.
+
++ ReFE > reduced-feature modeling:
+    + the substantially lower computational burden of ReFE as compared to that of reduced modeling
+    + $N$ attributes: 
+        + Reduced-feature modesling: $(2^N -1)$
+        + only $N$ models — one for each attribute
 
 
 
