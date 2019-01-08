@@ -477,6 +477,60 @@ the other in some domains.
 
 ### Likelihood-based Hybrid Solutions
 
++ Computational cost: induce and store models for some subset of the possible patterns of missing features
+
++ When a test case is encountered, the corresponding reduced model is queried. 
+
++ If no corresponding model has been stored, the hybrid would call on a fall-back technique:
+    + incurring the expense of prediction-time reduced modeling
+    + invoking an imputation method (and possibly incurring reduced accuracy)
+
++ the marginal likelihoods of different variables being missing are very different
+
++ very different (inferred) likelihoods of the many patterns of multiple missing 
+
++ Bayesian network induction [14]: important distinction between considering only the underlying distribution for model induction/ selection and considering the querying distribution as well
+
++ When comparing different Bayesian networks one should identify the network exhibiting the best expected performance over the query distribution, i.e., the distribution of tasks that the network will be used to answer, rather than the network that satisfies general measures such as maximum likelihood over the underlying event distribution.
+
++ [12]: precompute parts of the network that pertain to a subset of frequently encountered cases so as to increase the expected speed of inference
+
++ Accuracies of hybrid strategies for combining reduced modeling and imputation
+    <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
+        <img src="images/p5-03.png" alt="The horizontal, dashed line in Figure 11 shows the performance of pure predictive value imputation for the CalHouse data set. The lower of the two curves in Figure 11 shows the performance of a likelihood-based reduced-models/imputation hybrid. The hybrid approach allows one to choose an appropriate space-usage/accuracy tradeoff, and the figure shows that storing even a few reduced models can result in considerable improvement. The curve was generated as follows. Given enough space to store k models, the hybrid induces and stores reduced models for the top-k most likely missing-feature patterns, and uses distribution-based imputation for the rest. The Calhouse data set has eight attributes, corresponding to 256 patterns of missing features. We assigned a random probability of occurrence for each pattern as follows. The frequency of each pattern was drawn at random from the unit uniform distribution and subsequently normalized so that the frequencies added up to one. For each test instance we sampled a pattern from the resulting distribution and removed the values of features specified by the pattern." title="Accuracies of hybrid strategies for combining reduced modeling and imputation" height="250">
+    </a>
+    + storing even a few reduced models can result in considerable improvement
+    + Given enough space to store $k$ models, the hybrid induces and stores reduced models for the top-k most likely missing-feature patterns, and uses distribution-based imputation for the rest.
+    + Calhouse dataset: eight attributes $\rightarrow$ 256 patterns of missing features
+    + The frequency of each pattern was drawn at random from the unit uniform distribution and subsequently normalized so that the frequencies added up to one.
+
++ Likelihood-based hybrid model
+    + The marginal improvement in accuracy does not decrease monotonically with increasing model storage
+    + The most frequent patterns are not necessarily the patterns that lead to the largest accuracy increases
+    + Choosing the best set of models: a complicated optimization problem
+    + Considerations:
+        + the likelihood of a pattern of missing features
+        + the expected improvement in accuracy that will result from including the corresponding model in the "model base"
+    + Calculating the expected improvement is complicated by the fact that the patterns of missing values form a lattice [34]
+    + For an optimal solution, the expected improvement for a given pattern should not be based on the improvement over using the default strategy (e.g., imputation), but should be based on using the next-best already-stored pattern.
+    + Determining the next-best pattern is a non-trivial estimation problem, and, even if it weren’t, the optimization problem is hard. 
+    + The optimal set of reduced models $M$ corresponds to solving the following optimization task:
+
+        $$\begin{array}{c}
+            \arg\max_M (\sum_f [p(f) \cdot U(f|M)]) \\
+            \text{s.t. } \sum_{f_m \in M} t(f_m) \leq T,
+        \end{array}$$
+        + $M$: the subset of missing patterns for which reduced models are induced
+        + $t(f)$: the (marginal) resource usage (time or space) for reduced modeling with pattern $f$
+        + $T$: the maximum total resource usage allocated for reduced model induction
+        + $U(f|M)$: the utility from inference for an instance with pattern $f$ given the set of reduced models in the subset $M$ (when $f \in M$ the utility is derived from inference via the respective reduced model, otherwise the utility is derived from inference using the next-best already-stored pattern)
+    + estimate the marginal utility of adding a missing-feature pattern f as
+
+        $$ u(f) = p(f) \cdot ( \hat{a}_{rm}(f) - \hat{a}_i( f ))$$,
+        + $p(f)$: the likelihood of encountering pattern $f$
+        + $\hat{a}_{rm}(f)$: the estimated accuracy of reduced modeling for $f$
+        + $\hat{a}_i(f)$: the estimated accuracy of a predictive value imputation model for missing pattern $f$
+    + Estimate $\hat{a}_{rm}(f)$ and $\hat{a}_i(f)$ based on cross-validation using the training data
 
 
 
