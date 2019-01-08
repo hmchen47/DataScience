@@ -367,24 +367,24 @@ the other in some domains.
 
 + Relative difference in prediction accuracy for bagged decision trees between imputation treatments and reduced-feature modeling
 
-| Data Set | Predictive Imputation | Distribution-based Imputation (C4.5) |
-|----------| ---------------------:|-------------------------------------:|
-| Abalone | -0.45 | -0.51 |
-| Breast Cancer | -1.36 | -1.28 |
-| BMG | -3.01 | -7.17 |
-| CalHouse | -5.16 | -4.41 |
-| Car | -22.58 | -9.72 |
-| Coding | -6.59 | -2.98 |
-| Contraceptive | -8.21 | 0.00 |
-| Credit | -25.96 | -5.36 |
-| Downsize | -6.95 | -4.94 |
-| Etoys | -3.83 | -8.24 |
-| Expedia | 0.20 | -8.48 |
-| Move | -0.92 v-10.61 |
-| PenDigits | -0.11 | -2.33 |
-| Priceline | 0.36 | -25.97 |
-| QVC | 0.13 | -9.99 |
-| Average | -5.47 | -6.57 |
+    | Data Set | Predictive Imputation | Distribution-based Imputation (C4.5) |
+    |----------| ---------------------:|-------------------------------------:|
+    | Abalone | -0.45 | -0.51 |
+    | Breast Cancer | -1.36 | -1.28 |
+    | BMG | -3.01 | -7.17 |
+    | CalHouse | -5.16 | -4.41 |
+    | Car | -22.58 | -9.72 |
+    | Coding | -6.59 | -2.98 |
+    | Contraceptive | -8.21 | 0.00 |
+    | Credit | -25.96 | -5.36 |
+    | Downsize | -6.95 | -4.94 |
+    | Etoys | -3.83 | -8.24 |
+    | Expedia | 0.20 | -8.48 |
+    | Move | -0.92 v-10.61 |
+    | PenDigits | -0.11 | -2.33 |
+    | Priceline | 0.36 | -25.97 |
+    | QVC | 0.13 | -9.99 |
+    | Average | -5.47 | -6.57 |
 
 
 + Reduced Models
@@ -393,12 +393,36 @@ the other in some domains.
     + a reduced model’s relative advantage with respect to predictive imputation is comparable to its relative advantage when a single model is used
     + given the widespread use of classification-tree induction, and of bagging as a robust and reliable method for improving classification-tree accuracy via variance reduction
 
-+ Practitioners and researchers should not choose either C4.5-style imputation or predictive value imputation blindly. Each does extremely poorly in some domains.
++ Practitioners and researchers should not choose either C4.5-style imputation or preictive value imputation blindly. Each does extremely poorly in some domains.
 
 
 ### Evaluation using Logistic Regression
 
++ C4.5-style distribution-based imputation is not applicable for logistic regression
 
++ For logistic regression, reduced modeling results in higher accuracy than predictive imputation in all 15 data sets (statistically significant with $p \ll 0:01$)
+
++ Relative difference in prediction accuracy for logistic regression between imputation and reduced-feature modeling.
+
+    | Data Set | Predictive Imputation |
+    |----------|----------------------:|
+    | Abalone | -0.20 |
+    | Breast Cancer | -1.84 |
+    | BMG | -0.75 |
+    | CalHouse | -7.11 |
+    | Car | -12.04 |
+    | Coding | -1.09 |
+    | Contraceptive | -1.49 |
+    | Credit | -3.05 |
+    | Downsize | -0.32 |
+    | Etoys | -0.26 |
+    | Expedia | -1.59 |
+    | Move | -3.68 |
+    | PenDigits | -0.34 |
+    | Priceline | -5.07 |
+    | QVC | -0.02 |
+    | Average | -2.59 |
+    + Reduced modeling never is worse, and sometimes is substantially more accurate.
 
 
 ### Evaluation with “Naturally Occurring” Missing Values
