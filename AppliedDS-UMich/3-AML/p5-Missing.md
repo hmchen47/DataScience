@@ -303,7 +303,7 @@ the other in some domains.
 
 + larger and unbiased sample, DBI’s “smoothed” estimate should lead to better predictions on average
 
-+ Example: 
++ Example - Fig.3: 
     <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
         <img src="images/p5-01.png" alt="Assume that there is no feature imputability at all (note that A and B are marginally independent) and assume that A is missing at prediction time. Since there is no feature imputability, A cannot be inferred using B and the imputation model should predict the mode (A=2). As a result every test example is passed to the A = 2 subtree. Now, consider test instances with B = 1. Although (A = 2, B = 1) is the path chosen by PVI, it does not correspond to the majority of training examples with B = 1. Assuming that test instances follow the same distribution as training instances, on B = 1 examples PVI will have an accuracy of 38%. DBI will have an accuracy of 62%. In sum, DBI will 'marginalize' across the missing feature and always will predict the plurality class. PVI sometimes will predict a minority class. Generalizing, DBI should outperform PVI for data sets with low feature imputability." title="Classification tree example: consider an instance at prediction time for which feature A is unknown and B=1." height="150">
     </a>
@@ -321,7 +321,7 @@ the other in some domains.
     + DBI should outperform PVI for data sets with low feature imputability.
 
 
-####  Demostration
+####  Demonstration
 
 + PVI vs DBI
     <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
@@ -329,6 +329,34 @@ the other in some domains.
     </a>
     + The 15 domains of the comparative study ordered left-to-right by a proxy for increasing feature imputability.
     + A bar above the horizontal line indicates that value imputation performed better; a bar below the line indicates that DBI performed better.
+
+#### Reduced-Feature Modeling should have Advantages all along the Imputability Spectrum
+
++ Reduced modeling is a lower-dimensional learning problem than the (complete) modeling to which imputation methods are applied; it will tend to have lower variance and thereby may exhibit lower generalization error.
+
++ Important variable: reduce the effectiveness at capturing predictive patterns involving the other variables
+
++ Imputation tries implicitly to approximate the full-joint distribution, similar to a graphical model such as a dependency network [18]
+
++ Example w/ two attributes A & B, a class C
+    + reduced-feature modeling uses the feature imputability differently from predictive imputation
+    + The (perfect) feature imputability ensures that there will be an alternative model ($B \rightarrow C$) that will perform well. 
+    + Reduced-feature modeling may have additional advantages over value imputation when the imputation is imperfect.
+
++ Low feature imputation
+    + problematic generally when features are missing at prediction time
+    + no statistical dependency at all between the missing feature and the other features
+    + Reduced modeling is likely to be better than the imputation methods
+
++ Reduced-feature modeling w/ Fig.3
+    + no feature imputability
+    + insufficient data or an inappropriate inductive bias
+    + Complete model omits the important feature (B) entirely?
+    + if A is missing at prediction time, no imputation technique will help us do better than merely guessing that the example belongs to the most common class (as with DBI) or guessing that the missing value is the most common one (as in PVI). 
+    + may induce a partial (reduced) model (e.g., $B = 0 \rightarrow C = -$, $B = 1 \rightarrow C = +$) that will do better than guessing in expectation
+    + much more robust: with only one exception (Move) reduced-feature modeling yields excellent performance until feature imputability is very low
+    + Value imputation does very well only for the domains with the highest feature imputability
+
 
 
 ### Evaluation using Ensembles of Trees
