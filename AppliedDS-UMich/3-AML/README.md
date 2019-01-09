@@ -185,7 +185,7 @@
         1. [Evaluation with Multiple Missing Values](p5-Missing.md#evaluation-with-multiple-missing-values)
     1. [Hybrid Models for Efficient Prediction with Missing Values](p5-Missing.md#hybrid-models-for-efficient-prediction-with-missing-values)
         1. [Likelihood-based Hybrid Solutions](p5-Missing.md#likelihood---based-bybrid-solutions)
-        1. [Reduced-Feature Ensembles](p5-Missing.md#reduced---feature-ensembles)
+        1. [Reduced-Feature Ensembles (ReFE)](p5-Missing.md#reduced---feature-ensembles-refe)
         1. [Larger Ensembles](p5-Missing.md#larger-ensembles)
         1. [ReFEs with Increasing Numbers of Missing Values](p5-Missing.md#refes-with-increasing-numbers-of-missing-values)
     1. [Related Work](p5-Missing.md#related-work)
