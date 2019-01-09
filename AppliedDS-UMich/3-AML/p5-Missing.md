@@ -683,10 +683,20 @@ for all treatments, for almost all data sets
 
 ## Limitations
 
++ The performance of missing-value treatments for inducing classification trees seems unrelated to the Little and Rubin taxonomy [7]
 
++ MCAR scenario [34]: a completely arbitrary function of an example’s values and non consistent
+
++ MAR scenario [22]: conditioned only on observed values
+
++ reduced modeling w/ MAR
+
++ MNAR scenario: may be useful subclasses
 
 
 ## Conclusions
+
+
 
 
 ## Reference
