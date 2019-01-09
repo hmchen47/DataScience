@@ -632,6 +632,52 @@ for all treatments, for almost all data sets
 
 ## Related Work
 
++ Theoretical analysis
+    + most related work: [34] within the PAC framework [35]
+    + attribute blocking process [34]: attribute values are not available at induction time
+    + Strategies:
+        + value imputation (simple default-value imputation in their paper)
+        + distribution-based prediction
+        + a reduced-feature "classifier lattice" of models for all possible patterns of missing values
+    + reduced-feature modeling is the only technique that is unconditionally consistent for MCAR
+    + expose the learner to the specific pattern of missing values observed in a test instance (reduced modeling), rather than to "fill in" a missing value
+
++ Empirical analysis
+    + the challenge of induction from incomplete training data [32, 6, 33, 1, 8, 12, 13]
+    + an explicit probabilistic model and a parameter estimation procedure and present a framework for handling missing values during induction when mixture models are estimated from data [13]
+    + joint treatments for induction and prediction with missing nominal feature values [31]
+    + two forms of imputation similar to those explored here [31]
+    + classification by simply using the first tree node for which the feature is missing (treating it as a leaf) [31]
+    + no solution dominates across domains [31]
+    + C4.5’s DBI seems to perform best more often and hence the paper recommends its use. [31]
+    + Hybrid model: Predictive value imputation often is superior to C4.5’s DBI.
+    + the dominance of one form of imputation versus another depends on the statistical dependencies (and lack thereof) between the features: value imputation is likely to outperform C4.5’s DBI when feature imputability is particularly high, and vice versa.
+
++ Protos [29]
+    + heuristic classification technique for weak-theory domains
+    + Protos, ID3, and another exemplar-based program to a medical diagnosis problem where more than $50\%$ of the test feature values are missing
+    + missingness depends on the feature values
+    + ID3 with various imputation techniques performed poorly.
+
++ Lazy classification trees [9]
+    + an instance of run-time reduced modeling
+    + single classification-tree paths that are tailored for classifying a particular test instance w/o incorporating any missing features
+    + the performance of lazy tree induction to be superior to C4.5’s technique w/ missing values
+    + avoiding any tests on unknown values is the correct thing to do probabilistically, assuming the values are truly unknown...
+    + C4.5’s technique particular difficulty when feature imputability is high
+    + reduce the total costs of feature-value acquisitions and of misclassifications [21]
+
++ Co-training [3]
+    + alternative predictive patterns in the training data
+    + the frequent availability of such alternative predictive patterns
+    + exploited to induce alternative hypotheses.
+    + an induction technique based on the assumption
+        + the feature set comprises two disjoint subsets such that each is sufficient to induce a classifier
+        + the features in each set are not highly correlated with those of the other conditional on the class
+    + E.g., a page can be represented by its content or by the words occurring in hyperlinks that point to that page
+    + often successful because alternative representations are rather common [26]
+    + a random partition usually produces two sets that are each sufficient for accurate classification
+    + Accurate reduced models can frequently be induced in practice and offer an alternative that consistently is at least comparable to and usually superior to popular treatments.
 
 
 
