@@ -707,7 +707,32 @@ for all treatments, for almost all data sets
 
 ## Conclusions
 
++ Reduced-feature models:
+    + preferable both to C4.5’s distribution-based imputation and to predictive value imputation
+    + undertake a lower-variance learning task
+    + not fall prey to certain pathologies
+    + easily applied w/ predictive value imputation and C4.5’s DBI
+    + w/ suboptimal accuracy almost always
 
++ Selection of imputation
+    + based level of feature imputability, by theoretical arguments and by empirical results
+    + A lack of feature imputability is problematic for any imputation.
+    + C4.5’s weighted averaging reduces estimation variance and thereby leads to more accurate estimation.
+    + High feature imputability increases the effective bias of C4.5’s technique, but of course is ideal for predictive value imputation.
+    + The performance of reduced-feature modeling is indistinguishable from that of predictive value imputation.
+    + Reduced-feature modeling is substantially more robust as the level of feature imputability decreases.
+    + Suboptimal: the consistency and magnitude of their negative impact.
+
++ Reduced model & ReFE
+    + reduced model: expensive either in terms of run-time computation or storage
+    + ReFE: manage the tradeoff between computation and storage needs or between efficiency and accuracy
+    + Storage allocation:
+        + see the most use or provide the most utility
+        + run-time computation applied for unlikely or less useful missing-data patterns
+        + allocated to the most advantageous reduced models
+    + The full accuracy of reduced modeling is maintained but both storage and run-time requirements are reduced from their extremes.
+    + Accuracy is traded off for decreased storage and/or run time.
+    + ReFE: ensemble methods modified to help deal with missing values
 
 
 ## Reference
