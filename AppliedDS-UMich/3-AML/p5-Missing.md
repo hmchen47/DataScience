@@ -693,6 +693,17 @@ for all treatments, for almost all data sets
 
 + MNAR scenario: may be useful subclasses
 
++ C4.5’s DBI is not based on an estimation of the full, joint distribution—the lack of which is the basis for the pathology. 
+
++ Full-joint methods also have practical drawbacks:
+    + very expensive computationally
+    + intractable for large problems
+    + awkward for practitioners (and for researchers)
+
++ naive Bayes marginalizes simply by ignoring attributes with missing values
+
++ results not limited a particular imputation model
+
 
 ## Conclusions
 
