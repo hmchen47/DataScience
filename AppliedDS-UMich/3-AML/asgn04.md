@@ -908,6 +908,178 @@ Maytal Saar-Tsechansky, Foster Provost, "Handling Missing Values when Applying C
     + Refer to the pinned threads in Week 4's discussion forum when there is something you could not figure it out.
 
 
+### Solution 2
+
+
+### [Solution 3](notebooks/Ref1-Assignmnet4.ipynb)
+
+```python
+import pandas as pd
+import numpy as np
+
+def blight_model(debug=False):
+
+    # Your code here
+    # loading data
+    if debug: 
+        print('1. loading data')
+
+    df_train = pd.read_csv('train.csv', encoding = 'ISO-8859-1', low_memory=False).set_index('ticket_id')
+
+    # cleaing data and adjust data
+    if debug:
+        print('2. cleaning data')
+
+    df_train = df_train.dropna(subset=['compliance'])
+    disposition_replace = {'Responsible by Default': 'By default',
+                       'Responsible by Determination': 'By determination', 
+                       'Responsible (Fine Waived) by Deter': 'Fine Waived',
+                       'Responsible by Admission': 'By admission',
+                       'SET-ASIDE (PENDING JUDGMENT)': 'Pending',
+                       'PENDING JUDGMENT': 'Pending',
+                       'Not responsible by Dismissal': 'Not responsible',
+                       'Not responsible by City Dismissal': 'Not responsible',
+                       'Not responsible by Determination': 'Not responsible',
+                       'Responsible (Fine Waived) by Admis': 'Fine Waived',
+                       'Responsible - Compl/Adj by Default': 'By default',
+                       'Responsible - Compl/Adj by Determi': 'By determination',
+                       'Responsible by Dismissal': 'By default'
+                      }
+
+    df_train.disposition.replace(disposition_replace, inplace=True)
+
+    if debug:
+        print('3. feature engineering')
+
+    us_statesus_state  = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL',
+             'IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT',
+             'NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI',
+             'SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
+
+    df_train['is_in_state'] = df_train.state.apply(lambda x: x if x in us_statesus_state else 'foreign')
+    df_train.is_in_state[(df_train.is_in_state != 'foreign') & (df_train.is_in_state != 'MI')] = 'out_of_state'
+    df_train['is_discount'] = df_train.discount_amount.apply(lambda x:1 if x > 0 else 0)
+    df_train['judgment_level'] = pd.cut(df_train.judgment_amount, bins=[-1, 140, 305, float("inf")])
+
+    selection = ['judgment_level', 'is_discount', 'is_in_state', 'disposition', 'agency_name', 'compliance']
+    df_selected = df_train[selection]
+
+    X = df_selected.drop('compliance', axis=1)
+    Y = df_selected.compliance
+
+    X_encoded = pd.get_dummies(X)
+    X_encoded.head(3)
+    X_encoded['disposition_Not responsible'] = np.zeros(len(X))
+    X_encoded['disposition_Pending'] = np.zeros(len(X))
+
+    # train
+    if debug: 
+        print('4. training')
+
+    # using GBDT, and best param for GBDT
+    from sklearn.ensemble import GradientBoostingClassifier
+
+    params= {'learning_rate': [0.3], 'n_estimators':[100], 'max_depth':[3]}
+    clf = GradientBoostingClassifier(random_state=0)
+
+    if debug:
+        print('5. training complete with best score', gscv.best_score_, gscv.best_params_)
+
+    from sklearn.model_selection import GridSearchCV
+
+    gscv = GridSearchCV(estimator=clf, param_grid=params, scoring='roc_auc', cv=5, n_jobs=-1)
+    gscv.fit(X_encoded, Y)
+
+    # test dataset
+    if debug: 
+        print('6. final test')
+
+    df_test = pd.read_csv('test.csv').set_index('ticket_id')
+
+    # clean test dataset w/ the same procedure as training dataset
+    df_test['judgment_level'] = pd.cut(df_test.judgment_amount, bins=[-1, 140, 305, float("inf")])
+    df_test['is_discount'] = df_test.discount_amount.apply(lambda x:1 if x > 0 else 0)
+    df_test['is_in_state'] = df_test.state.apply(lambda x: x if x in us_statesus_state else 'foreign')
+    df_test.is_in_state[(df_test.is_in_state != 'foreign') & (df_test.is_in_state != 'MI')] = 'out_of_state'
+    df_test.disposition.replace(disposition_replace, inplace=True)
+
+    # attribution selection for test dataset
+    selection = ['judgment_level', 'is_discount', 'is_in_state', 'disposition', 'agency_name']
+    df_test_selected = df_test[selection]
+
+    # convert categorical variable to dummy variables & add values not shown in training dataset
+    final_df_test = pd.get_dummies(df_test_selected)
+    final_df_test['agency_name_Health Department'] = np.zeros(len(final_df_test), dtype=np.int)
+    final_df_test['agency_name_Neighborhood City Halls'] = np.zeros(len(final_df_test), dtype=np.int)
+    final_df_test['disposition_Not responsible'] = np.zeros(len(final_df_test))
+    final_df_test['disposition_Pending'] = np.zeros(len(final_df_test))
+
+    ret = gscv.predict_proba(final_df_test)[:, None, 1]
+    predict_probs = pd.Series(ret.reshape(len(final_df_test),), index=final_df_test.index)
+
+    return predict_probs.rename('compliance').astype('float32')# Your answer here
+
+blight_model(True)
+```
+
++ `pd.get_dummies` function
+    + Signature: `get_dummies(data, prefix=None, prefix_sep='_', dummy_na=False, columns=None, sparse=False, drop_first=False)`
+    + Docstring: Convert categorical variable into dummy/indicator variables
+    + Parameters
+        + `data` (array-like, Series, or DataFrame)
+        + `prefix` (string, list of strings, or dict of strings, default None): String to append DataFrame column names
+            + Pass a list with length equal to the number of columns when calling `get_dummies` on a DataFrame.
+            + Alternativly, `prefix` can be a dictionary mapping column names to prefixes.
+        + `prefix_sep` (string, default '_'): If appending prefix, separator/delimiter to use. Or pass a list or dictionary as with `prefix.`
+        + `dummy_na` (bool, default False): Add a column to indicate NaNs, if False NaNs are ignored.
+        + `columns` (list-like, default None): Column names in the DataFrame to be encoded. If `columns` is None then all the columns with `object` or `category` dtype will be converted.
+        + `sparse` (bool, default False):  Whether the dummy columns should be sparse or not.  Returns 
+            + SparseDataFrame if `data` is a Series or if all columns are included
+            + a DataFrame with some SparseBlocks
+        + `drop_first` (bool, default False): Whether to get k-1 dummies out of k categorical levels by removing the first level.
+    + Returns: dummies (DataFrame or SparseDataFrame)
+
++ `pd.cut` function
+    + Signature: `cut(x, bins, right=True, labels=None, retbins=False, precision=3, include_lowest=False)`
+    + Docstring: Return indices of half-open bins to which each value of `x` belongs.
+    + Parameters
+        + `x` (array-like): Input array to be binned. It has to be 1-dimensional.
+        + `bins` (int, sequence of scalars, or IntervalIndex): 
+            + int: define the number of equal-width bins in the range of `x`. However, in this case, the range of `x` is extended by $.1\%$ on each side to include the min or max values of `x`
+            + a sequence: define the bin edges allowing for non-uniform bin width. No extension of the range of `x` is done in this case.
+        + `right` (bool, optional): Indicates whether the bins include the rightmost edge or not. If `right == True` (the default), then the bins $[1,2,3,4]$ indicate $(1,2], (2,3], (3,4]$.
+        + `labels` (array or boolean, default None): Used as labels for the resulting bins. Must be of the same length as the resulting bins. If False, return only integer indicators of the bins.
+        + `retbins` (bool, optional): Whether to return the bins or not. Can be useful if bins is given as a scalar.
+        + `precision` (int, optional): The precision at which to store and display the bins labels
+        + `include_lowest` (bool, optional): Whether the first interval should be left-inclusive or not.
+    + Returns
+        + `out` (Categorical or Series or array of integers if labels is False): The return type (Categorical or Series) depends on the input: a Series of type category if input is a Series else Categorical. Bins are represented as categories when categorical data is returned.
+        + `bins` (ndarray of floats): Returned only if `retbins` is True.
+    + Notes
+        + The `cut` function can be useful for going from a continuous variable to a categorical variable. For example, `cut` could convert ages to groups of age ranges.
+        + Any NA values will be NA in the result.  Out of bounds values will be NA in the resulting Categorical object
+ 
++ `GridSearchCV.predict_proba` fucntion in module `sklearn.model_selection._search`
+    + Signature: `predict_proba(X)`
+    + Dosctring: Call predict_proba on the estimator with the best found parameters.
+    + Note: Only available if `refit=True` and the underlying estimator supports `predict_proba`.
+    + Parameters
+        + `X` (indexable, length n_samples): Must fulfill the input assumptions of the underlying estimator.
+
++ `s.rename` fucntion in module pandas.core.series
+    + Signature: `rename(index=None, **kwargs)` method of `pandas.core.series.Series` instance
+    + Docstring: Alter axes input function or functions. Function / dict values must be unique (1-to-1). Labels not contained in a dict / Series will be left as-is. Extra labels listed don't throw an error. Alternatively, change `Series.name` with a scalar value (Series only).
+    + Parameters
+        + `index` (scalar, list-like, dict-like or function, optional): 
+            + Scalar or list-like: alter the ``Series.name`` attribute, and raise on DataFrame or Panel
+            + dict-like or functions: transformations to apply to that axis' values
+        + `copy` (boolean, default True): Also copy underlying data
+        + `inplace` (boolean, default False): Whether to return a new Series. If True then value of copy is ignored.
+        + `level` (int or level name, default None):  In case of a MultiIndex, only rename labels in the specified level.
+    + Returns: `renamed` (Series (new object))
+ 
+
+
 
 
 

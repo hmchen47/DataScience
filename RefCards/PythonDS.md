@@ -305,8 +305,10 @@ import pandas as pd
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] |
+| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018], [Asgn04-3][055] |
 | `pd.concat(objs, axis=0, join='outer', join_axes=None, *args)` | Concatenate pandas objects along a particular axis with optional set logic along the other axes | [Asgn01][054] |
+| `get_dummies(data, *args)` | Convert categorical variable into dummy/indicator variables | [Asgn04-3][055] |
+
 
 
 
@@ -399,6 +401,7 @@ import pandas as pd
 | `s.set_value(label, value)` | Quickly set single value at passed label.  If label not existed, create and append. | [Querying Series][007] |
 | `s.iteritems()` | Lazily iterate over (index, value) tuples | [Querying Series][007] |
 | `s.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
+| `s.rename(index=None, **kwargs)` | Alter axes input function or functions | [Asgn04-3][055] |
 
 
 [TOC](#table-of-contents)
@@ -528,9 +531,9 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
 | `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
 | `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
-| `df.str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
+| `[Asgn04-3][055].str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
 | `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
-| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050] |
+| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050], [Asgn04-3][055] |
 | `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
 | `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
 | 
@@ -798,7 +801,7 @@ nltk.download()     # fownload corpora
 
 <!--
 [054]: ../AppliedDS-UMich/4-TextMining/asgn01.md#solution
-[055]: 
+[055]: ../AppliedDS-UMich/3-AML/asgn04.md#solution-3
 [056]: 
 [057]: 
 [058]: 
