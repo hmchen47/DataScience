@@ -699,12 +699,9 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
     + random-walks across the graph, and then spectral clustering methods which start delving into the eigendecomposition of the adjacency matrix and other matrices derived therefrom.
 
 
+### Conclusion
 
-
-
-
-
-
++ Machine Learning: an extraordinarily ambitious field of research, in which massively complex problems require solving in as accurate and as efficient a way possible
 
 
 
