@@ -600,10 +600,103 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
     </a>
 
 
+### Graph Community Detection
 
++ When: data that can be represented as a network, or ‘graph’.
 
++ How:
+    + A graph community is very generally defined as a subset of vertices which are more connected to each other than with the rest of the network.
+    + Algorithms: Edge Betweenness, Modularity-Maximsation, Walktrap, Clique Percolation, Leading Eigenvector ...
 
++ Example
+    + Graph theory: a fascinating branch of mathematics that lets us model complex systems as an abstract collection of ‘dots’ (or vertices) connected by ‘lines’ (or edges)
+    + Social networks: the vertices represent people, and edges connect vertices who are friends/followers
+    + Any system can be modelled as a network if you can justify a method to meaningfully connect different components.
+    + Eight websites I most recently visited, linked according to whether their respective Wikipedia articles link out to one another.
+    <a href="https://medium.freecodecamp.org/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba"> <br/>
+        <img src="https://cdn-images-1.medium.com/max/1000/1*qd41Vp7sw98vq4PyxVE_DQ.png" alt="The vertices are colored according to their community membership, and sized according to their centrality. See how Google and Twitter are the most central?" title="Graph plotted with ‘igraph’ package" height="200">
+    </a>
+    + The yellow vertices are generally reference/look-up sites; the blue vertices are all used for online publishing (of articles, tweets, or code); and the red vertices include YouTube, which was of course founded by former PayPal employees.
+    + The real power of networks comes from their mathematical analysis.
+    + _Adjacency matrix_ of the network
+        |          | GH | Gl | M | P | Q | T | W | Y |
+        |----------|----|----|---|---|---|---|---|---|
+        | GitHub   |  0 |  1 | 0 | 0 | 0 | 1 | 0 | 0 |
+        | Google   |  1 |  0 | 1 | 1 | 1 | 1 | 1 | 1 |
+        | Medium   |  0 |  1 | 0 | 0 | 0 | 1 | 0 | 0 |
+        | PayPal   |  0 |  1 | 0 | 0 | 0 | 1 | 0 | 1 |
+        | Quora    |  0 |  1 | 0 | 0 | 0 | 1 | 1 | 0 |
+        | Twitter  |  1 |  1 | 1 | 1 | 1 | 0 | 0 | 1 |
+        | Wikipedia|  0 |  1 | 0 | 0 | 1 | 0 | 0 | 0 |
+        | YouTube  |  0 |  1 | 0 | 1 | 0 | 1 | 0 | 0 |
+    + The value at the intersection of each row and column records whether there is an edge between that pair of vertices.
+    + Encoded within the adjacency matrix are all the properties of this network — it gives us the key to start unlocking all manner of valuable insights.
+    + For a start, summing any column (or row) gives you the degree of each vertex — i.e., how many others it is connected to, commonly denoted with $k$.
+    + Modularity (measure of the structure of networks or graphs) of any given clustering of the network:
+        + Summing the degrees of every vertex and dividing by two gives you L, the number of edges (or ‘links’) in the network. The number of rows/columns gives us N, the number of vertices (or ‘nodes’) in the network.
+        + Knowing just $k, L, N$ and the value of each cell in the adjacency matrix $A$
+        + Use the modularity score to assess the ‘quality’ of this clustering.
+        + A higher score will show we’ve split the network into ‘accurate’ communities, whereas a low score suggests our clusters are more random than insightful.
+    <a href="https://medium.freecodecamp.org/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba"> <br/>
+        <img src="https://cdn-images-1.medium.com/max/1000/1*6_kSe1q4nDbvnnghF4yJwA.png" alt="Say we’ve clustered the network into a number of communities. We can use the modularity score to assess the ‘quality’ of this clustering. A higher score will show we’ve split the network into ‘accurate’ communities, whereas a low score suggests our clusters are more random than insightful. The image below illustrates this." title="Modularity serves as a measure of the ‘quality’ of a partition" height="150">
+    </a>
+    + Formula:
 
+        $$M = \frac{1}{2L} \sum_{i,j=1}^N (A_{ij} - \frac{k_i k_j}{2L}) \delta c_i c_j$$
+        + $M$: modularity
+        + $1/2L$: divide everything that follows by 2L, i.e., twice the number of edges in the network
+        + summing up everything to the right and iterate over every row and column in the adjacency matrix $A$, the $i, j = 1$ and the $N$ work much like nested for-loops in programming
+    + Coding
+        ```python
+        sum = 0
+        for i in range(1,N):
+            for j in range(1,N):
+                ans = #stuff with i and j as indices
+                sum += ans
+        ```
+    + `#stuff with i and j` details
+        + The bit in brackets tells us to subtract $( k_i k_j ) / 2L$ from $A_{ij}$
+        + $A_{ij}$: the value in the adjacency matrix at row $i$, column $j$
+        + $k_i$ and $k_j$: the degrees of each vertex — found by adding up the entries in row $i$ and column $j$ respectively
+        + The difference between the network’s real structure and the expected structure it would have if randomly reassembled.
+    + $\delta c_i, c_j$ is the fancy-sounding but totally harmless Kronecker-delta function
+        ```python
+        def Kronecker_Delta(ci, cj):
+            if ci == cj:
+                return 1
+            else:
+                return 0
+        Kronecker_Delta("A","A")    #returns 1
+        Kronecker_Delta("A","B")    #returns 0
+        ```
+    + The Kronecker-delta function takes two arguments, and returns $1$ if they are identical, otherwise, zero.
+    + If vertices $i$ and $j$ have been put in the same cluster, then $\delta c_i, c_j = 1$. Otherwise, if they are in different clusters, the function returns zero.
+    + For the nested $\sum$, the outcome is highest when there are lots of ‘unexpected’ edges connecting vertices assigned to the same cluster.
+    + Dividing by $2L$ bounds the upper value of modularity at $1$.
+    + Modularity scores near to or below zero indicate the current clustering of the network is really no use.
+    + The higher the modularity, the better the clustering of the network into separate communities.
+    + By maximizing modularity, find the best way of clustering the network.
+    + brute force: computationally impossible beyond a very limited sample size
+    + Eight vertices: 4140 different ways of clustering
+    + Heuristic method:
+        + Fast-Greedy Modularity-Maximization
+        + Analogous to the agglomerative hierarchical clustering algorithm
+    + ‘Mod-Max’ merges communities according to changes in modularity
+        1. initially assigning every vertex to its own community, and calculating the modularity of the whole network, $M$.
+        2. for each community pair linked by at least a single edge, the algorithm calculates the resultant change in modularity $\Delta M$ if the two communities were merged into one.
+        3. Repeat steps 1 and 2 — each time merging the pair of communities for which doing so produces the biggest gain in $\Delta M$, then recording the new clustering pattern and its associated modularity score $M$.
+        4. Stop when all the vertices are grouped into one giant cluster. Identify the clustering pattern that returned the highest value of $M$.
+
++ Finer details
+    + Graph theory: NP-hard problems
+    + Community detection is a major focus of current research in graph theory, and there are plenty of alternatives to Modularity-Maximization
+    + resolution limit: not find communities below a certain size
+    + Mod-Max approach: produce a wide ‘plateau’ of many similar high modularity scores
+    + Edge-Betweenness:
+        + a divisive algorithm, starting with all vertices grouped in one giant cluster
+        + iteratively remove the least ‘important’ edges in the network, until all vertices are left isolated.
+    + Clique Percolation: take into account possible overlap between graph communities
+    + random-walks across the graph, and then spectral clustering methods which start delving into the eigendecomposition of the adjacency matrix and other matrices derived therefrom.
 
 
 
