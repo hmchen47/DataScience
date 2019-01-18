@@ -477,6 +477,63 @@
 
 Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](https://medium.freecodecamp.com/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba)", freeCodeCamp, 2017.
 
+### Introduction
+
++ Us humans take it for granted how good we are categorizing and making sense of large volumes of data pretty quickly.
+
++ Humans are generally fairly efficient at making sense of whatever data.
+
++ Three clustering algorithms that machines can use to quickly make sense of large datasets.
+
+### K-means clustering
+
++ When: an idea of how many groups you’re expecting to find a priori.
+
++ How:
+    1. randomly assign each observation into one of k categories, then calculates the mean of each category
+    2. reassign each observation to the category with the closest mean before recalculating the means
+    3. repeats over and over until no more reassignments are necessary
+
++ Example:
+    + Take a group of 12 football (or ‘soccer’) players who have each scored a certain number of goals this season (say in the range 3–30). Let’s divide them into separate clusters — say three.
+    + Procedure
+        1. randomly split the players into three groups and calculate the means of each
+            + Group 1: Player A (5 goals), Player B (20 goals), Player C (11 goals) -> Group Mean = (5 + 20 + 11) / 3 = 12
+            + Group 2: Player D (5 goals), Player E (3 goals), Player F (19 goals) -> Group Mean = 9
+            + Group 3: Player G (30 goals), Player H (3 goals), Player I (15 goals) -> Group Mean = 16
+        2. For each player, reassign them to the group with the closest mean. Then recalculate the group means.
+            + Group 1 (Old Mean = 12): Player C (11 goals) -> New Mean = 11
+            + Group 2 (Old Mean = 9): Player A (5 goals), Player D (5 goals), Player E (3 goals), Player H (3 goals) -> New Mean = 4
+            + Group 3 (Old Mean = 16): Player G (30 goals), Player I (15 goals), Player B (20 goals), Player F (19 goals) -> New Mean = 21
+        3. Repeat Step 2 over and over until the group means no longer change
+            + Group 1 (Old Mean = 11): Player C (11 goals), Player I (15 goals) -> Final Mean = 13
+            + Group 2 (Old Mean = 4): Player A (5 goals), Player D (5 goals), Player E (3 goals), Player H (3 goals) -> Final Mean = 4
+            + Group 3 (Old Mean = 21): Player G (30 goals), Player B (20 goals), Player F (19 goals) -> Final Mean = 23
+    + The clusters could correspond to the players’ positions on the field — such as defenders, midfielders and attackers.
+    + Given data on a range of performance statistics, a machine could do a reasonable job of estimating the positions of players from any team sport — useful for sports analytics, and indeed any other purpose where classification of a dataset into predefined groups can provide relevant insights.
+
++ Finer details:
+    + The initial method of ‘seeding’ the clusters can be done in one of several ways.
+    + Alternative: 
+        + Seed the clusters with just one player each, then start assigning players to the nearest cluster.
+        + The returned clusters are more sensitive to the initial seeding step, reducing repeatability in highly variable datasets.
+    + limitation:
+        + Provide a priori assumptions about how many clusters you’re expecting to find. 
+        + Methods to assess the fit of a particular set of clusters. E.g., the Within-Cluster Sum-of-Squares, a measure of the variance within each cluster. 
+        + The ‘better’ the clusters, the lower the overall WCSS.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
