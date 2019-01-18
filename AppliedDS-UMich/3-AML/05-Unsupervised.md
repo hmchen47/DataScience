@@ -522,6 +522,86 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
         + Methods to assess the fit of a particular set of clusters. E.g., the Within-Cluster Sum-of-Squares, a measure of the variance within each cluster. 
         + The ‘better’ the clusters, the lower the overall WCSS.
 
+### Hierarchical clustering
+
++ When: uncover the underlying relationships between your observations
+
++ How:
+    1. A distance matrix is computed, where the value of cell $(i, j)$ is a distance metric between observations $i$ and $j$.
+    2. Pair the closest two observations and calculate their average. Form a new distance matrix, merging the paired observations into a single object. From this distance matrix, pair up the closest two observations and calculate their average.
+    3. Repeat until all observations are grouped together.
+
++ Example:
+    + Selection of whale and dolphin species.
+    + The typical body lengths for these six species
+    + Dataset
+        | Species            | Initials | Length(m) |
+        |:-------------------|---------:|----------:|
+        | Bottlenose Dolphin |     BD |       3.0 |
+        | Risso's Dolphin    |     RD |       3.6 |
+        | Pilot Whale        |     PW |       6.5 |
+        | Killer Whale       |     KW |       7.5 |
+        | Humpback Whale     |     HW |      15.0 |
+        | Fin Whale          |     FW |      20.0 |
+    + Procedure:
+        1. compute a distance matrix between each species. <br/>
+            The difference in length between any pair of species can be looked up by reading the value at the intersection of the relevant row and column.
+            |    | BD   | RD   | PW   | KW   | HW |
+            |:---|-----:|-----:|-----:|-----:|---:|
+            | RD |  0.6 |      |      |      |      |
+            | PW |  3.5 |  2.9 |      |      |      |
+            | KW |  4.5 |  3.9 |  1.0 |      |      |
+            | HW | 12.0 | 11.4 |  8.5 |  7.5 |      |
+            | FW | 17.0 | 16.4 | 13.5 | 12.5 |  5.0 |
+        2. Pair up the two closest species. Here the Bottlenose & Risso’s Dolphins, with an average length of 3.3m.
+        3. Repeat Step 1 by recalculating the distance matrix, but this time merge the Bottlenose & Risso’s Dolphins into a single object with length 3.3m.
+            |    | [BD, RD]  | PW  | KW  | HW |
+            |:---|----------:|----:|----:|---:|
+            | PW |      3.2  |     |     |    |
+            | KW |      4.2  | 1.0 |     |     |
+            | HW |     11.7  | 8.5 | 7.5 |     |
+            | FW |     16.7  |13.5 |12.5 | 5.0 |
+        4. Repeat Step 2 with this new distance matrix. Here, the smallest distance is between the Pilot & Killer Whales, so we pair them up and take their average — which gives us 7.0m.
+        5. Repeat Step 1 — recalculate the distance matrix, but now we’ve merged the Pilot & Killer Whales into a single object of length 7.0m.
+            |          | [BD, RD] | [PW, KW] | HW  |
+            |:---------|---------:|---------:|----:|
+            | [PW, KW] |      3.7 |          |     |
+            | HW       |     11.7 |      8.0 |     |
+            | FW       |     16.7 |     13.0 | 5.0 |
+        6. Repeat Step 2 with this distance matrix. The smallest distance (3.7m) is between the two merged objects — so now we merge them into an even bigger object, and take the average (which is 5.2m).
+        7. Repeat Step 1 and compute a new distance matrix, having merged the Bottlenose & Risso’s Dolphins with the Pilot & Killer Whales.
+            |    | [[BD, RD] , [PW, KW]]  |  HW |
+            |:---|-----------------------:|----:|
+            | HW |                   9.8  |     |
+            | FW |                  14.8  | 5.0 |
+        8. repeat Step 2. The smallest distance (5.0m) is between the Humpback & Fin Whales, so we merge them into a single object, and take the average (17.5m).
+        9. Repeat Step 1 — compute the distance matrix, having merged the Humpback & Fin Whales.
+            |          | [[BD, RD] , [PW, KW]] |
+            |:---------|----------------------:|
+            | [HW, FW] |                  12.3 |
+        10. repeat Step 2 — there is only one distance (12.3m) in this matrix, so we pair everything into one big object. <br/> 
+            [[[BD, RD],[PW, KW]],[HW, FW]]
+    <a href="https://medium.freecodecamp.org/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba"> <br/>
+        <img src="https://cdn-images-1.medium.com/max/1000/1*jwd6EHmjOtkH9RiQSJ_ZnQ.png" alt="It has a nested structure (think JSON), which allows it to be drawn up as a tree-like graph, or dendrogram. It reads in much the same way a family tree might. The nearer two observations are on the tree, the more similar or closely-related they are taken to be. The structure of the dendrogram gives us insight into how our dataset is structured. In our example, we see two main branches, with Humpback Whale and Fin Whale on one side, and the Bottlenose Dolphin/Risso’s Dolphin and Pilot Whale/Killer Whale on the other." title="A no-frills dendrogram generated at R-Fiddle.org" height="250">
+    </a>
+    + Hierarchical clustering has applications in Data Mining and Machine Learning contexts.
+    + This approach requires no assumptions about the number of clusters you’re looking for.
+    + If we draw a horizontal line at height = 10, we’d intersect the two main branches, splitting the dendrogram into two sub-graphs. 
+    + If we cut at height = 2, we’d be splitting the dendrogram into three clusters.
+
++ Finer details:
+    + three aspects in which hierarchical clustering algorithms
+        + Most fundamental used an agglomerative process: start with one giant cluster, and then proceed to divide the data into smaller and smaller clusters until you’re left with isolated data points.
+        + Methods to calculate the distance matrices
+        + __Linkage criterion__: Clusters are linked according to how close they are to one another, but the way in which we define ‘close’ is flexible.
+    + Define the distance between two clusters to be the minimum (or maximum) distance between any of their points.
+    <a href="https://medium.freecodecamp.org/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba"> <br/>
+        <img src="https://cdn-images-1.medium.com/max/1000/1*4aWCKqBrD8BbEeiNzc2gwg.png" alt="Red/Blue: centroid linkage; Red/Green: minimum linkage; Green/Blue: maximum linkage. For example, each cluster is made up of several discrete points. We could define the distance between two clusters to be the minimum (or maximum) distance between any of their points — as illustrated in the figure below. There are still other ways of defining the linkage criterion, which may be suitable in different contexts." title="caption" height="200">
+    </a>
+
+
+
+
 
 
 
