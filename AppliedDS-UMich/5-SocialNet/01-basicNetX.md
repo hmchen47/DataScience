@@ -1,5 +1,16 @@
 # Module 1: Why Study Networks and Basics on NetworkX
 
+## Learning Objectives
+
++ Recognize and categorize real world networks.
++ Identify applications and important questions about networks that network science allows us to answer.
++ Determine what type of network is best suited to model real networked data.
++ Construct and manipulate networks of different types using different network classes and node and edge attributes in NetworkX.
++ Define bipartite graphs and describe related algorithms such as graph projections.
++ Manipulate bipartite graphs and related algorithms using NetworkX.
+
+
+
 ## Course Syllabus
 
 ### Lecture Note
