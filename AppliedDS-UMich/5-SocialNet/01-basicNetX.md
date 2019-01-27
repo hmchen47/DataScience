@@ -415,12 +415,6 @@ The link will open in this same window for the purposes of making it accessible 
         # 'manager'
         ```
 
-8:42
-So in summary, in this lecture, we looked at how we add an access attributes for nodes, as well as edges. And depending on what we want, sometimes we want a list of all the edges, sometimes we're interested in a particular edge. Same thing for the node, sometimes we want to get a list of all the nodes, where there're attributes and sometimes we just want to get the attribute for a particular node.
-9:07
-Thank you for listening to this video, and I hope to see you in the next one.
-
-
 + Summary
     ```python
     # Adding node and edge attributes:
@@ -449,17 +443,90 @@ Thank you for listening to this video, and I hope to see you in the next one.
 
 ### Lecture Note
 
++ Bipartite Graphs
+    + __Bipartite Graph__: a graph whose nodes can be split into two sets L and R and every edge connects an node in L with a node in R.
+        ```python
+        from networkx.algorithms import bipartite
 
+        B = nx.Graph() # No separate class for bipartite graphs
+        B.add_nodes_from(['A’,'B','C','D', 'E'], bipartite=0) #label one set of nodes 0
+        B.add_nodes_from([1,2,3,4], bipartite=1) # label other set of nodes 1
+        B.add_edges_from([('A',1), ('B',1), ('C',1), ('C',3), ('D',2), ('E',3), ('E', 4)])
 
-+ Demonstration
+        # Checking if a graph is bipartite:
+        bipartite.is_bipartite(B) # Check if B is bipartite
+        # True
+
+        B.add_edge('A', 'B')
+        bipartite.is_bipartite(B) # False
+
+        B.remove_edge('A', 'B')
+
+        # Checking if a set of nodes is a bipartition of a graph:
+        X = set([1,2,3,4])
+        bipartite.is_bipartite_node_set(B,X) # True
+
+        X = set(['A', 'B', 'C', 'D', 'E'])
+        bipartite.is_bipartite_node_set(B,X) # True
+
+        X = set([1,2,3,4, ‘A’])
+        bipartite.is_bipartite_node_set(B,X) # False
+
+        # Getting each set of nodes of a bipartite graph:
+        bipartite.sets(B) # ({'A', 'B', 'C', 'D', 'E'}, {1, 2, 3, 4})
+
+        B.add_edge('A', 'B')
+        bipartite.sets(B) # NetworkXError: Graph is not bipartite.
+
+        B.remove_edge('A', 'B')
+        ```
+        <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/">
+            <img src="https://lh3.googleusercontent.com/ndSW8er1j0jDOT5WQx4sGja9qJL6fHhT5LhgpGI-Sj4Z9VnufF3X1v8U-dK-vZHDdUCgVgm0i-CdLG88r-e3z2aXO1lVeHR7vN1tggCe2JY4A0ekAw7ij0dJglpmUNjw_hGB1ECYYA=w2400" alt="Bipartite Graph is a graph whose nodes can be split into two sets L and R, and every edge connects an node in L with a node in R." title="Bipartite Graphs" height="250">
+        </a>
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/tWwx2/bipartite-graphs">
+            <img src="images/m1-06.png" alt="text" title="Bipartite" height="250">
+        </a>
+
++ Projected Graphs
+    + __L-Bipartite graph projection__: Network of nodes in group L, where a pair of nodes is connected if they have a common neighbor in R in the bipartite graph.
+    + Similar definition for R-Bipartite graph projection
+        ```python
+        B = nx.Graph()
+        B.add_edges_from([('A',1), ('B',1),('C',1),('D',1),('H',1), ('B', 2), ('C', 2), ('D',2),('E', 2), ('G', 2), ('E', 3), ('F', 3), ('H', 3), ('J', 3), ('E', 4), ('I', 4), ('J', 4) ])
+
+        X = set(['A','B','C','D', 'E', 'F','G', 'H', 'I','J'])
+        P = bipartite.projected_graph(B, X)
+        nx.draw_networkx(P)
+        ```
+        <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/">
+            <img src="https://lh3.googleusercontent.com/M3QnE6zndPcgzKDIbl3gFvibIyEkFOVnHeXQktPRWt2UEO-egFrHWaYIkH5X0vgvgt6b8KS2_vTRe3q2uNvM9pbynQX7KiT6oW33ju2-SuyS0Lg8yODzxGkxE08qnUw0ZoU2-rP_9A=w2400" alt="L-Bipartite graph projection" title="Bipartite Graphs" height="250">
+            <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="L-Bipartite graph projection" title="Bipartite Graphs" height="250">
+        </a>
+    + __L-Bipartite weighted graph projection__: An LBipartite graph projection with weights on the edges that are proportional to the number of common neighbors between the nodes.
+        <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+            <img src="images/m1-07.png" alt="xxx" title="L-Bipartite weighted graph projection" height="250">
+        </a>
+        ```python
+        X = set([1,2,3,4])
+        P = bipartite.weighted_projected_graph(B, X)
+        ```
+    
++ Summary
+    + No separate class for bipartite graphs in NetworkX
+    + Use Graph(), DiGraph(), MultiGraph(), etc.
+    + Use from networkx.algorithms import bipartite for bipartite related algorithms (Many algorithms only work on Graph()).
     ```python
-
-
+    nx.bipartite.is_bipartite(B) # Check if B is bipartite
+    bipartite.is_bipartite_node_set(B,X) # Check if node set X is a bipartition
+    bipartite.sets(B) # Get each set of nodes of bipartite graph B
+    bipartite.projected_graph(B, X) # Get the bipartite projection of node set X
+    bipartite.weighted_projected_graph(B, X) # Get the weighted bipartite projection of node set X
     ```
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/A_CWc5TLEeeOmgqEJWRlfA.processed/full/360p/index.mp4?Expires=1548720000&Signature=f2Lgob2QaiIgICLpK9IsCAGnC2OmHzY5p8TvmM1jVPw3C6tEj69jt9e4DjPvZjMysV846o~H5xi7dsv~tiCPSkZL4MwKgfJdK8NJ1KpbXqnD8pyqo4088ioES3SbdtqmidE6fnMB-BnAbzPor0Mitln4fOKAyLO8zz6lf2fJkfE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Bipartite Graphs" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
