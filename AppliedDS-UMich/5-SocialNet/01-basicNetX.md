@@ -558,21 +558,7 @@ The link will open in this same window for the purposes of making it accessible 
 
 ## Notice for Auditing Learners: Assignment Submission
 
-### Lecture Note
-
-
-
-+ Demonstration
-    ```python
-
-
-    ```
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
+Please note: only verified learners can submit assignments. If you are auditing this course, you will be able to go through the quizzes or assignments, but you will not be able to submit your assignment for a grade. If you wish to have your assignments graded and receive a course certificate, we encourage you to upgrade to the Certified Learner track for this course. Coursera has provided [information about purchasing a certificate](https://learner.coursera.help/hc/en-us/articles/208280146-Pay-for-a-course-or-Specialization), and you can also get help from the [Coursera Help Center](https://learner.coursera.help/hc/en-us).
 
 
 ## Notebook: Loading Graphs in NetworkX
