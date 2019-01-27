@@ -307,7 +307,7 @@ The link will open in this same window for the purposes of making it accessible 
         G.edges(data= True) #list of all edges with attributes
         # [('A', 'B', {'relation': 'family', 'weight': 6}), ('C', 'B', {'relation': 'friend', 'weight': 13})]
 
-        G.edges(data= 'relation') #list of all edges with attribute ‘relation'
+        G.edges(data= 'relation') #list of all edges with attribute 'relation'
         # [('A', 'B', 'family'), ('C', 'B', 'friend')]
 
         # Accessing attributes of a specific edge:
@@ -388,7 +388,7 @@ The link will open in this same window for the purposes of making it accessible 
         d. 'neighbors'
 
         Ans: b
-        G is a directed graph and while the edge (‘Ana’, ‘Bob’’) is in the network, the edge (‘Bob’, ‘Ana’) is not. Hence, the output will be an error.
+        G is a directed graph and while the edge ('Ana', 'Bob'') is in the network, the edge ('Bob', 'Ana') is not. Hence, the output will be an error.
         ```
     + Undirected Multigraph
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
@@ -428,7 +428,7 @@ The link will open in this same window for the purposes of making it accessible 
 
     # Accessing Edge attributes:
     G.edges(data= True) #list of all edges with attributes
-    G.edges(data= ‘relation’) #list of all edges with attribute ‘relation’
+    G.edges(data= 'relation') #list of all edges with attribute 'relation'
     G.edge['A']['B']['weight'] # weight of edge (A,B)
     ```
 
@@ -449,9 +449,9 @@ The link will open in this same window for the purposes of making it accessible 
         from networkx.algorithms import bipartite
 
         B = nx.Graph() # No separate class for bipartite graphs
-        B.add_nodes_from(['A’,'B','C','D', 'E'], bipartite=0) #label one set of nodes 0
+        B.add_nodes_from(['A','B','C','D','E'], bipartite=0) #label one set of nodes 0
         B.add_nodes_from([1,2,3,4], bipartite=1) # label other set of nodes 1
-        B.add_edges_from([('A',1), ('B',1), ('C',1), ('C',3), ('D',2), ('E',3), ('E', 4)])
+        B.add_edges_from([('A',1), ('B',1), ('C',1), ('C',3), ('D',2), ('E',3), ('E',4)])
 
         # Checking if a graph is bipartite:
         bipartite.is_bipartite(B) # Check if B is bipartite
@@ -469,7 +469,7 @@ The link will open in this same window for the purposes of making it accessible 
         X = set(['A', 'B', 'C', 'D', 'E'])
         bipartite.is_bipartite_node_set(B,X) # True
 
-        X = set([1,2,3,4, ‘A’])
+        X = set([1,2,3,4,'A'])
         bipartite.is_bipartite_node_set(B,X) # False
 
         # Getting each set of nodes of a bipartite graph:
@@ -481,11 +481,25 @@ The link will open in this same window for the purposes of making it accessible 
         B.remove_edge('A', 'B')
         ```
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/">
-            <img src="https://lh3.googleusercontent.com/ndSW8er1j0jDOT5WQx4sGja9qJL6fHhT5LhgpGI-Sj4Z9VnufF3X1v8U-dK-vZHDdUCgVgm0i-CdLG88r-e3z2aXO1lVeHR7vN1tggCe2JY4A0ekAw7ij0dJglpmUNjw_hGB1ECYYA=w2400" alt="Bipartite Graph is a graph whose nodes can be split into two sets L and R, and every edge connects an node in L with a node in R." title="Bipartite Graphs" height="250">
+            <img src="https://lh3.googleusercontent.com/ndSW8er1j0jDOT5WQx4sGja9qJL6fHhT5LhgpGI-Sj4Z9VnufF3X1v8U-dK-vZHDdUCgVgm0i-CdLG88r-e3z2aXO1lVeHR7vN1tggCe2JY4A0ekAw7ij0dJglpmUNjw_hGB1ECYYA=w2400" alt="Bipartite Graph is a graph whose nodes can be split into two sets L and R, and every edge connects an node in L with a node in R. -- Here's an example of fans of specific basketball teams. So the nodes on green A, B, C, D and E, are people who are fans of basketball teams, 1, 2, 3, and 4. And here the edges represent the fact that a particular fan is a fan of a particular team. So, one aspect of this graph is that you couldn't imagine that it would make sense to add an edge between the fans, right? Because fans are not fans of other fans, are fans of teams, or edges between the basketball teams, because basketball teams have fans, they're not really fans of other teams. So this graph has a particular structure that all the edges go from one set of nodes to another set of nodes. In this case, one set of nodes is fans and the other set of nodes is basketball teams. And that's exactly what a bipartite graphs is. So, just to be a little bit more specific, a graph is a bipartite graph if it has two sets of nodes which we call L and R, and every single edge connects a node from L to R. So, no edge connects a node from L to another node in L, and no edge connects a node in R to another node in R. And so in this particular example the two sets would be the sets of fans, this will be L, and the set of basketball teams which would be R." title="Bipartite Graphs" height="250">
         </a>
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/tWwx2/bipartite-graphs">
-            <img src="images/m1-06.png" alt="text" title="Bipartite" height="250">
+            <img src="images/m1-06.png" alt="NetworkX does not have a separate class for bipartite graph, but it does have a set of algorithms that allow us to study them and to analyze them and to do things with them, and so for that we would import bipartite to get that set of algorithms. So, to construct these bipartite graph, what I'm going to do is I'm going to use the class graph. Like I said, there's no separate class for bipartite graphs. And now, well the first thing I'm going to do is I'm going to add the nodes, and to add the notes I'm going to use the function add nodes from rather than add nodes, and what this allows me to do, is to add a set of nodes from a list. So rather than adding one by one, I can add all of the nodes all at once, and then I'm going to give these set of nodes an attribute called bipartite, and I'm going to give that value zero. And what I'm basically doing here is, I'm telling NetworkX that, these set of nodes are going to be one side of my bipartite graph. In this case will be the left side. And then I'll add the nodes from the other side. So I'll add nodes 1 through 4, and these will have value 1 for the bipartite attribute. And then I can add the edges, and same thing here, you can apply these to other cases not only when you're using this to construct bipartite graphs, but if you use the function add edges from, it allows you to add a list of edges rather than adding one edge at a time, which is very useful sometimes. Okay, so now we've constructed these bipartite graphs. Notice that I gave it the name B rather than G, just to, so it stands for bipartite. Okay, so what kinds of things can we do in NetworkX with bipartite graphs? So first thing, we can check if a particular graph is bipartite." title="Bipartite" height="250">
         </a>
+
+    + Lecture Quiz: Which of the two graphs is bipartite?
+        <a href="url"> <br/>
+            <img src="images/ivq1-01.png" alt="Which of the two graphs is bipartite?" title="Bipartite graph" height="200">
+        </a>
+        ```
+        a. Only Graph A
+        b. Graph B only
+        c. Both Graphs A and B
+        d. Neither graph
+
+        Ans: a
+        Graph A is bipartite: the two sets of nodes are {A,B,C} and {E,G,F}. All edge connect a node in one set to a node in the other set. Graph B is not bipartite: note that nodes C, B, and F form a triangle, so it is not possible to assign each of these nodes to a side without having edges connecting nodes that were assigned to the same side. In fact, for the same reason, a bipartite graph cannot contain a cycle of an odd number of nodes.
+        ```
 
 + Projected Graphs
     + __L-Bipartite graph projection__: Network of nodes in group L, where a pair of nodes is connected if they have a common neighbor in R in the bipartite graph.
@@ -499,22 +513,33 @@ The link will open in this same window for the purposes of making it accessible 
         nx.draw_networkx(P)
         ```
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/">
-            <img src="https://lh3.googleusercontent.com/M3QnE6zndPcgzKDIbl3gFvibIyEkFOVnHeXQktPRWt2UEO-egFrHWaYIkH5X0vgvgt6b8KS2_vTRe3q2uNvM9pbynQX7KiT6oW33ju2-SuyS0Lg8yODzxGkxE08qnUw0ZoU2-rP_9A=w2400" alt="L-Bipartite graph projection" title="Bipartite Graphs" height="250">
+            <img src="https://lh3.googleusercontent.com/M3QnE6zndPcgzKDIbl3gFvibIyEkFOVnHeXQktPRWt2UEO-egFrHWaYIkH5X0vgvgt6b8KS2_vTRe3q2uNvM9pbynQX7KiT6oW33ju2-SuyS0Lg8yODzxGkxE08qnUw0ZoU2-rP_9A=w2400" alt="Let's look at this slightly larger example of a bipartite graph that has the same meaning. So, on one side we have fans and on the other side we have basketball teams. Now imagine that you were interested in creating a network among the fans and have the edges represent some type of affinity in terms of what teams they follow. Whether they kind of tend to follow the same teams or not. This kind of network could be important for viral marketing. So, if two people tend to follow the same teams, they may also like the same other type of product, and so you would be interested in knowing who is likely to impact whom in terms of that other product, and the fact that they follow the same kinds of teams might give you that hint, and so these this kind of network could be useful for certain things. But let's just say that you're interested in constructing that network. Well, you can do this, and what it's called, it's called the L-bipartite graphs projection of the bipartite graph. And what it is, is a network among the nodes in one side of the group, in this case the L side, in this case the fans, where each pair of nodes is connected if they have a common neighbor in the R side of the bipartite graph. So, in this case, there would be exactly the network between the fans, such that they're connected if they have at least one team in common. You would have a similar definition for the R-bipartite graphs, so that would be a network among the basketball teams, and two teams will be connected if they have at least one fan in common. So, what would that network look like for the fans? So again this network of fans will have at least one team in common, this looks something like this. So in this network, the edge A, H, appears in the projection because both A and H are fans of Team 1, and the edge J, E, appears in this network because they're both fans of team 4." title="Bipartite Graphs" height="250">
             <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="L-Bipartite graph projection" title="Bipartite Graphs" height="250">
         </a>
     + __L-Bipartite weighted graph projection__: An LBipartite graph projection with weights on the edges that are proportional to the number of common neighbors between the nodes.
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
-            <img src="images/m1-07.png" alt="xxx" title="L-Bipartite weighted graph projection" height="250">
+            <img src="images/m1-07.png" alt="So this is called the L-bipartite weighted graph projection. And what it is is, well just like we saw, rather than just defining an edge in the projected graph to be, connect any two nodes that have at least one connection in common on the other side, now we're going to add weights on these edges, and their weights are going to be proportional to the number of common neighbors that they have. So, the weighted projected graph for the basketball teams would look like this now, where now we have the edges and we also have a number next to them that says how many common neighbors they have. And here I have the size of the edges B, also proportional to that weight, Just to show you visually the difference. And in NetworkX you can use the weighted projected graph to now output, not just the projected graph but the weighted projected graph in this case of the basketball teams. You could do the same thing for the set of fans. " title="L-Bipartite weighted graph projection" height="250">
         </a>
         ```python
         X = set([1,2,3,4])
         P = bipartite.weighted_projected_graph(B, X)
         ```
-    
+    + IVQ: Use NetworkX to construct the bipartite weighted graph projection of nodes A,B,C,D,E,F and find the weight of the edge `(A,C)`. What is the weight of the edge `(A,C)`?
+        ```python
+        import networkx as nx
+        from networkx.algorithms import bipartite
+
+        B = nx.Graph()
+        B.add_edges_from([('A', 'G'),('A','I'), ('B','H'), ('C', 'G'), ('C', 'I'),('D', 'H'), ('E', 'I'), ('F', 'G'), ('F', 'J')])
+        X1 = set(['A', 'B', 'C', 'D', 'E', 'F'])
+        ```
+
+        Ans: 2
+
 + Summary
     + No separate class for bipartite graphs in NetworkX
-    + Use Graph(), DiGraph(), MultiGraph(), etc.
-    + Use from networkx.algorithms import bipartite for bipartite related algorithms (Many algorithms only work on Graph()).
+    + Use `Graph()`, `DiGraph()`, `MultiGraph()`, etc.
+    + Use `from networkx.algorithms import bipartite` for bipartite related algorithms (Many algorithms only work on `Graph()`).
     ```python
     nx.bipartite.is_bipartite(B) # Check if B is bipartite
     bipartite.is_bipartite_node_set(B,X) # Check if node set X is a bipartition
