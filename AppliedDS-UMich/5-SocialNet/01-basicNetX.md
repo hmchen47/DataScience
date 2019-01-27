@@ -29,7 +29,7 @@ In __Module Four__ you will explore the evolution of networks over time. You wil
 
 ## Enrollment Options
 
-Coursera has made the decision to make Specializations available by monthly subscription. This means you can choose to pay a monthly fee to access all of the courses in a specific Specialization. Coursera’s switch to monthly subscriptions comes with another change -- for those learners who choose the “Audit Only” enrollment, you will no longer be able to submit assignments for grades nor see answers for those assignments. You will still have access to all the course materials but you will not be graded on your work, nor see answers to graded assignments. For further information on the different enrollment options for Coursera courses, please visit the [Enrollment Options ](https://learner.coursera.help/hc/en-us/articles/209818613-Enrollment-options) page. If you have feedback about the enrollment options shared on the Enrollment Options page, you can share your thoughts with Coursera in this [survey](https://www.surveymonkey.com/r/65DPLHG).
+Coursera has made the decision to make Specializations available by monthly subscription. This means you can choose to pay a monthly fee to access all of the courses in a specific Specialization. Coursera's switch to monthly subscriptions comes with another change -- for those learners who choose the “Audit Only” enrollment, you will no longer be able to submit assignments for grades nor see answers for those assignments. You will still have access to all the course materials but you will not be graded on your work, nor see answers to graded assignments. For further information on the different enrollment options for Coursera courses, please visit the [Enrollment Options ](https://learner.coursera.help/hc/en-us/articles/209818613-Enrollment-options) page. If you have feedback about the enrollment options shared on the Enrollment Options page, you can share your thoughts with Coursera in this [survey](https://www.surveymonkey.com/r/65DPLHG).
 
 ## Grading and Assignments
 
@@ -49,7 +49,7 @@ The lectures will provide you with some guidance for completing assignments, but
 
 ### Code of Conduct
 
-Visit [Coursera’s Code of Conduct](https://learner.coursera.help/hc/en-us/articles/208280036-Coursera-Code-of-Conduct) and to abide by guidelines there. It is important when giving feedback to your peers to be polite and to be sensitive to the diversity of cultures and backgrounds of learners in your course.
+Visit [Coursera's Code of Conduct](https://learner.coursera.help/hc/en-us/articles/208280036-Coursera-Code-of-Conduct) and to abide by guidelines there. It is important when giving feedback to your peers to be polite and to be sensitive to the diversity of cultures and backgrounds of learners in your course.
 
 ## Working Offline
 
@@ -111,7 +111,7 @@ The link will open in this same window for the purposes of making it accessible 
 
 + Transportation and Mobility Networks
     + Network of direct flights around the world [Bio.Diaspora]
-    + Human mobility network based on location of dollar bills (Where’s George) [Thiemann et al. 2010]
+    + Human mobility network based on location of dollar bills (Where's George) [Thiemann et al. 2010]
     + Ann Arbor bus transportation network
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
         <img src="https://lh3.googleusercontent.com/bc0o7l-5Bgi9H_D6DZaQvuVimxQHHR5aM4cCLkwuKyAMrd_OyhyP9d4Sb0x32oNb4vWUYgQO6_k9HNK3IUgsQKP92coBxiAyJLUdl0O4DRZMx9VmgFXa4LK9BT1dkjHjz8SMwR1jOA=w2400" alt="We can also have transportation and mobility networks. So in this example, we see a network of directed flights between the different airports around the world. And there's human mobility network that is based on the location of dollar bills using the words George website, where people look at their dollar bills, tells the website where they are located. And then this bill can be track when other people update the location of this bill. We can see this bill has travel throughout the United States, and here is the network I gets more by tracking bills movement. And here we have a network that represents the bus transportation network of Ann Arbor." title="Transportation and Mobility Networks" height="300">
@@ -148,7 +148,7 @@ The link will open in this same window for the purposes of making it accessible 
         + Who are the most influential people in this organization?
     + Friendship network in a 34-person karate club
         <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> <br/>
-            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Zachary’s Karate club graph, from Wayne Zachary’s PhD thesis in 1972. The nodes correspond to members of an actual karate club, and the edges represent their social ties. The instructors of the club are the bold nodes 1 and 34. After a dispute between them, the instructors each formed their own club. We can see here the community formed around each of the nodes 1 and 34. -- the friendship network between the karate club members, we can answer things like, is this club likely to split into two different clubs? And actually the story is that, this is exactly what happens. If you could try to guess which member is going to join which club after it splits, you can look at the structure of this network and make a pretty educated guess. And it turns out that, as you can probably see from just looking at this network, the division between the club happens around here where the nodes on the left side of this line go to one club, and then the ones on the right go to the other club." title="Zachary Karate Club graph" height="200">
+            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Zachary's Karate club graph, from Wayne Zachary's PhD thesis in 1972. The nodes correspond to members of an actual karate club, and the edges represent their social ties. The instructors of the club are the bold nodes 1 and 34. After a dispute between them, the instructors each formed their own club. We can see here the community formed around each of the nodes 1 and 34. -- the friendship network between the karate club members, we can answer things like, is this club likely to split into two different clubs? And actually the story is that, this is exactly what happens. If you could try to guess which member is going to join which club after it splits, you can look at the structure of this network and make a pretty educated guess. And it turns out that, as you can probably see from just looking at this network, the division between the club happens around here where the nodes on the left side of this line go to one club, and then the ones on the right go to the other club." title="Zachary Karate Club graph" height="200">
         </a>
         + Is this club, likely to split into two groups?
         + If so, which nodes will go to which group?
@@ -246,8 +246,8 @@ The link will open in this same window for the purposes of making it accessible 
     G=nx.Graph()
     G.add_edge('A','B', relation= 'friend')
     G.add_edge('B','C', relation= 'coworker')
-    G.add_edge(’D',’E', relation= 'family')
-    G.add_edge(’E',’I', relation= 'neighbor')
+    G.add_edge('D','E', relation= 'family')
+    G.add_edge('E','I', relation= 'neighbor')
     ```
 
 + Mutigraphs
@@ -290,12 +290,124 @@ The link will open in this same window for the purposes of making it accessible 
 
 ### Lecture Note
 
++ Edge Attributes in NetworkX
+    + Number of times coworkers had lunch together in one 
+    + Undirected network
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
+        <img src="images/m1-01.png" alt="Number of times coworkers had lunch together in one year" title="Edge Attributes in NetworkX" height="250">
+    </a>
+        ```python
+        G=nx.Graph()
+        G.add_edge('A','B', weight= 6, relation = 'family')
+        G.add_edge('B','C', weight= 13, relation = 'friend')
 
+        G.edges() #list of all edges
+        # [('A', 'B'), ('C', 'B')]
 
-+ Demonstration
+        G.edges(data= True) #list of all edges with attributes
+        # [('A', 'B', {'relation': 'family', 'weight': 6}), ('C', 'B', {'relation': 'friend', 'weight': 13})]
+
+        G.edges(data= 'relation') #list of all edges with attribute ‘relation'
+        # [('A', 'B', 'family'), ('C', 'B', 'friend')]
+
+        # Accessing attributes of a specific edge:
+        G.edge['A']['B'] # dictionary of attributes of edge (A, B)
+        # {'relation': 'family', 'weight': 6}
+        G.edge['B']['C']['weight']
+        # 13
+        G.edge['C']['B']['weight'] # undirected graph, order does not matter
+        # 13
+        ```
+    + Directed, weighted network:
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
+        <img src="images/m1-02.png" alt="Directed, weighted network" title="Edge Attributes in NetworkX" height="250">
+    </a>
+        ```python
+        G=nx.DiGraph()
+        G.add_edge('A','B', weight= 6, relation = 'family')
+        G.add_edge('C', 'B', weight= 13, relation = 'friend')
+        
+        # Accessing edge attributes:
+        G.edge['C']['B']['weight']
+        # 13
+
+        G.edge['B']['C']['weight'] # directed graph, order matters
+        # KeyError: 'C'
+        ```
+    + MultiGraph:
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
+        <img src="images/m1-03.png" alt="MultiGraph" title="Edge Attributes in NetworkX" height="250">
+    </a>
+        ```python
+        G=nx.MultiGraph()
+        G.add_edge('A','B', weight= 6, relation = 'family')
+        G.add_edge('A','B', weight= 18, relation = 'friend')
+        G.add_edge('C','B', weight= 13, relation = 'friend')
+        
+        # Accessing edge attributes:
+        G.edge['A']['B'] # One dictionary of attributes per (A,B) edge
+        # {0: {'relation': 'family', 'weight': 6}, 1: {'relation': 'friend', 'weight': 18}}
+        
+        G.edge['A']['B'][0]['weight'] # undirected graph, order does not matter
+        # 6
+        ```
+    + Directed MultiGraph:
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
+        <img src="images/m1-04.png" alt="Directed MultiGraph" title="Edge Attributes in NetworkX" height="250">
+    </a>
+        ```python
+        G=nx.MultiDiGraph()
+        G.add_edge('A','B', weight= 6, relation = 'family')
+        G.add_edge('A','B', weight= 18, relation = 'friend')
+        G.add_edge('C','B', weight= 13, relation = 'friend')
+
+        # Accessing edge attributes:
+        G.edge['A']['B'][0]['weight']
+        # 6
+        
+        G.edge['B']['A'][0]['weight'] # directed graph, order matters
+        # KeyError: 'A'
+        ```
+    + Undirected Multigraph
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
+        <img src="images/m1-04.png" alt="Directed MultiGraph" title="Edge Attributes in NetworkX" height="250">
+    </a>
+        ```python
+        G=nx.Graph()
+        G.add_edge('A','B', weight= 6, relation = 'family')
+        G.add_edge('B','C', weight= 13, relation = 'friend')
+
+        # Adding node attributes:
+        G.add_node('A', role = 'trader')
+        G.add_node('B', role = 'trader')
+        G.add_node('C', role = 'manager')
+
+        # Accessing node attributes:
+        G.nodes() # list of all nodes
+        # ['A', 'C', 'B']
+
+        G.nodes(data= True) #list of all nodes with attributes
+        # [('A', {'role': 'trader'}), ('C', {'role': 'manager'}) , ('B', {'role': 'trader'})]
+
+        G.node['A']['role']
+        # 'manager'
+        ```
+
++ Summary
     ```python
+    # Adding node and edge attributes:
+    G=nx.Graph()
+    G.add_edge('A','B', weight= 6, relation = 'family')
+    G.add_node('A', role = 'trader')
 
+    # Accessing node attributes:
+    G.nodes(data= True) #list of all nodes with attributes
+    G.node['A']['role'] #role of node A
 
+    # Accessing Edge attributes:
+    G.edges(data= True) #list of all edges with attributes
+    G.edges(data= ‘relation’) #list of all edges with attribute ‘relation’
+    G.edge['A']['B']['weight'] # weight of edge (A,B)
     ```
 
 ### Lecture Video
