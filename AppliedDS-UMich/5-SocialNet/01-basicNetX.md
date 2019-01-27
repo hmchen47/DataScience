@@ -96,13 +96,75 @@ The link will open in this same window for the purposes of making it accessible 
 
 ### Lecture Note
 
++ Networks
+    + Networks: A set of objects (nodes) with interconnections (edges).
+    + Why study networks? <br/>
+        <b style="color:red">Because they are everywhere!</b>
+
++ Social Networks
+    + Friendship network in a 34-person karate club [Zachary 1977]
+    + E-mail communication network among 436 HP employees [Adamic & Adar 2005]
+    + Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+        <img src="https://lh3.googleusercontent.com/CsyaIMmiYfjAk89JPShRf75E4B-NzPHpwhs5MagkoO8PYEj6vJrkNW1QrcomU8MCpk1JarWNpHkWlQcFNpDE7O4wTySzAHWDavfvmhJ5jg8pmFoS89tePBlU2f0TiNVnjEUkuCVW1Q=w2400" alt="Social Networks" title="Social Networks " height="300">
+    </a>
 
 
-+ Demonstration
-    ```python
++ Transportation and Mobility Networks
+    + Network of direct flights around the world [Bio.Diaspora]
+    + Human mobility network based on location of dollar bills (Where’s George) [Thiemann et al. 2010]
+    + Ann Arbor bus transportation network
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+        <img src="https://lh3.googleusercontent.com/bc0o7l-5Bgi9H_D6DZaQvuVimxQHHR5aM4cCLkwuKyAMrd_OyhyP9d4Sb0x32oNb4vWUYgQO6_k9HNK3IUgsQKP92coBxiAyJLUdl0O4DRZMx9VmgFXa4LK9BT1dkjHjz8SMwR1jOA=w2400" alt="Transportation and Mobility Networks " title="Transportation and Mobility Networks " height="300">
+    </a>
 
 
-    ```
++ Information Networks
+    + Communication between left-wing and rightwing political blogs [Adamic & Glance 2005]
+    + Internet Connectivity [K. C. Claffy]
+    + Network of Wikipedia articles about climate change [EMAPS]
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+        <img src="https://lh3.googleusercontent.com/txcCQMUFlestauM2AvT79S-4gqOP8HDRUrKWwteQgoZ7WgLWl8BcK1-VOz2W14Ry8Y8MaO-JUEuLs6afL8wTWxtFbfOpN_ghMFMCeaWlsi1suf3lwZbSrmt8h4d3_NsMpDkusjpnVA=w2400" alt="Information Networks" title="Information Networks" height="300">
+    </a>
+
++ Biological Networks
+    + Protein-protein interactions [Jeong et al. 2001]
+    + Chesapeake Bay Waterbird Food Web [Perry et al. 2005]
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+        <img src="https://lh3.googleusercontent.com/8PFVbsmguLKaR2f0rQpL2T2arcuUS1bpCE_k3Q_wTRL40GyDekCp8ug6EV9paFYDHMGZzWuuVfiJ6vGQzQhp2vc4hdqFXcNog8g-g3loFofkVfewOnDZ2Gx7rhyCPpkRzpEwpuUTkw=w2400" alt="Biological Networks" title="Biological Networks" height="300">
+    </a>
+    
++ And More…
+    + Financial networks
+    + Co-authorship networks
+    + Trade networks
+    + Citation networks
+
+
++ Networks Applications
+    + <b style="color:darkred">Networks are everywhere, but what can we do with them?</b>
+    + E-mail communication network among 436 HP employees
+        <a href="https://courses.cit.cornell.edu/info2040_2010fa/"> <br/>
+            <img src="https://courses.cit.cornell.edu/info2040_2010fa/adamic-hier.jpg" alt="E-mail communication network among 436 HP employees" title="E-mail communication network among 436 HP employees" height="200">
+        </a>
+        + Is a rumor likely to spread in this network?
+        + Who are the most influential people in this organization?
+    + Friendship network in a 34-person karate club
+        <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> <br/>
+            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Zachary’s Karate club graph, from Wayne Zachary’s PhD thesis in 1972. The nodes correspond to members of an actual karate club, and the edges represent their social ties. The instructors of the club are the bold nodes 1 and 34. After a dispute between them, the instructors each formed their own club. We can see here the community formed around each of the nodes 1 and 34." title="Zachary Karate Club graph" height="200">
+        </a>
+        + Is this club, likely to split into two groups?
+        + If so, which nodes will go to which group?
+    + Network of direct flights around the world
+        <a href="http://www.visualisingdata.com/2012/02/bio-diaspora-visualising-interactions-between-populations-and-travel/"> <br/>
+            <img src="http://www.visualisingdata.com/blog/wp-content/uploads/2012/02/World_FlightLines_BioDiaspora-600x393.jpg" alt="I got in touch with David Kossowsky, a GIS mapper, cartographer and graphic designer, to find out more about the work of Bio.Diaspora and some of the visualisations they have been working on. This image shows a visualisation of the global airline transportation network consisting of all commercial flights worldwide. While this image in its entirety does not necessarily provide information that can be used to assess an infectious disease threat, it does provide one with a greater understanding of how interconnected the world is due to air transportation, and how easy it is for some diseases to spread across very large areas in relatively short periods of time." title="global airline transportation network " height="200">
+        </a>
+
++ Summary
+    + Many complex structures can be modeled by networks.
+    + Studying the structure of a network can allows us to answer questions about complex phenomena.
+    + In this course, we will explore different network techniques to study the structure of social networks.
+
 
 ### Lecture Video
 
