@@ -109,7 +109,6 @@ The link will open in this same window for the purposes of making it accessible 
         <img src="https://lh3.googleusercontent.com/CsyaIMmiYfjAk89JPShRf75E4B-NzPHpwhs5MagkoO8PYEj6vJrkNW1QrcomU8MCpk1JarWNpHkWlQcFNpDE7O4wTySzAHWDavfvmhJ5jg8pmFoS89tePBlU2f0TiNVnjEUkuCVW1Q=w2400" alt="So the first kind of network that we are going to look at are social networks. And in social networks the nodes are people, and the connections between the nodes represent some type relationship between the people in the network. So here we see an example of 34 people who belong to a karate club, and the network represents friendship between them. In this example, node number one, which you see right here, is the instructor in the karate club and everybody else is a student in the karate club. This other example is a network of friendship, marital tie, and family tie among 2,200 people. Here the edges are colored to represent the particular type of relationship between the nodes. And then next we have an e-mail communication network. So the other two networks we saw were in relationships that were happening in the offline world, but networks can also be constructed based on relationships that happen in the online world. So here in this example, we have a network between 436 HP employees and the edges represent communication through email." title="Social Networks " height="300">
     </a>
 
-
 + Transportation and Mobility Networks
     + Network of direct flights around the world [Bio.Diaspora]
     + Human mobility network based on location of dollar bills (Where’s George) [Thiemann et al. 2010]
@@ -133,13 +132,11 @@ The link will open in this same window for the purposes of making it accessible 
         <img src="https://lh3.googleusercontent.com/8PFVbsmguLKaR2f0rQpL2T2arcuUS1bpCE_k3Q_wTRL40GyDekCp8ug6EV9paFYDHMGZzWuuVfiJ6vGQzQhp2vc4hdqFXcNog8g-g3loFofkVfewOnDZ2Gx7rhyCPpkRzpEwpuUTkw=w2400" alt="Networks also show up in biology, so here's an example of a protein to protein interaction. So the nodes are proteins and they're connected by where they interact with each other. And here is a network that represent a food web, so what animals eat what animals." title="Biological Networks" height="300">
     </a>
 
-
 + And More…
     + Financial networks
     + Co-authorship networks
     + Trade networks
     + Citation networks
-
 
 + Networks Applications
     + <b style="color:darkred">Networks are everywhere, but what can we do with them?</b>
@@ -177,17 +174,114 @@ The link will open in this same window for the purposes of making it accessible 
 
 ### Lecture Note
 
++ Network Definition and Vocabulary
+    + Network (or Graph): A representation of connections among a set of items.
+        + Items are called __nodes__ (or _vertices_)
+        + Connections are called __edges__ (or _link_ or _ties_)
+        ```python
+        import networkx as nx
 
+        G=nx.Graph()
+        G.add_edge('A','B')
+        G.add_edge('B','C')
+        ```
+        <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> 
+            <img src="https://lh3.googleusercontent.com/xYuECJWNQyxTK-2Ie9VtKrfBOEPKUq9CDIaO_DQ1s9z6li4OnpC3oIIZkZNuFccAz-CKiUHUajxFHvM6pmE8OAL3bN8bkMGJ0NNuJ_QpQ7J04H3bQBokhvTMaWb0DOvQnu8r8Ma8XA=w2400" alt="So here's an example of a set of things which we call nodes, just circles that have labels A through G. So we call these things nodes or vertices. And then there are connections between them that can represent various different things. And we call these connections edges, or sometimes we call them links or ties as well. And we're going to use NetworkX in Python in order to work with some of the networks that we look at. So the first thing you need to know is how to create a network in NetworkX. So the first thing we're going to do is import networkx as nx. And then we're going to use the class Graph in order to represent this network that we see here. So here I'm making G an instance of one of those graphs. And then what I can do is I can add edges. So for example here, I'm adding the edge A, B, which is this edge right here. And then I would add the next edge, which would be the edge B, C. And I could continue adding all the other edges." title="Network Definition and Vocabulary" height="250">
+        </a>
 
-+ Demonstration
++ Example
+    + Network of friendship, marital tie, and family tie among 2200 people
+        + __Nodes__: People
+        + __Edges__: Friendship, marital, or family ties
+        + (Mostly) __Symmetric relationships__
+        <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa066082"> <br/>
+            <img src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2007/nejm_2007.357.issue-4/nejmsa066082/production/images/img_small/nejmsa066082_f1.jpeg" alt="Each circle (node) represents one person in the data set. There are 2200 persons in this subcomponent of the social network. Circles with red borders denote women, and circles with blue borders denote men. The size of each circle is proportional to the person's body-mass index. The interior color of the circles indicates the person's obesity status: yellow denotes an obese person (body-mass index, ≥30) and green denotes a nonobese person. The colors of the ties between the nodes indicate the relationship between them: purple denotes a friendship or marital tie and orange denotes a familial tie. -- This is a network between people and the edges here represent friendship, marital ties and family ties among 2,200 people. When you look at this network one thing that you can see is that these edges are mostly symmetric relationships. And by that I mean if A is a friend of B, then B is also a friend of A. Or at least most of the time, that's the case. And so this network has symmetric relationships." title="Largest Connected Subcomponent of the Social Network in the Framingham Heart Study in the Year 2000." height="250">
+        </a>
+    + Chesapeake Bay Water bird Food Web
+        + __Nodes__: Birds
+        + __Edges__: What eats what
+        + __Asymmetric relationships__
+        <a href="https://www.usgs.gov/media/images/chesapeake-bay-waterbird-food-web-illustration-circular-1316"> <br/>
+            <img src="https://prd-wret.s3-us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/Circular%201316_fig14.1.jpg" alt="But that doesn't always have to be the case. So if you look at this network, which represents what animals eat other animals, these relationships are very asymmetric. For example, it's very different if you have an edge pointing from the fish to the eagle. That says that the eagle eats the fish, rather than the other way around. So the direction of the edge in this network has a very important meaning to what the edge is trying to represent. So this suggests that we need at least two different types of networks. Some that are undirected, meaning the edges don't have any direction, or that the direction of the edge is not really important, and we call these undirected edges." title="Chesapeake Bay Waterbird Food Web." height="250">
+        </a>
+
++ Edge Direction
+    + __Undirected network__: edges have no direction
+        ```python
+        G=nx.Graph()
+        G.add_edge('A','B')
+        G.add_edge('B','C')
+        ```
+    + __Directed network__: edges have direction
+        ```python
+        G=nx.DiGraph()
+        G.add_edge('B', 'A')
+        G.add_edge('B','C')
+        ```
+
++ Weighted Networks
+    + Not all relationships are equal.
+    + Some edges carry higher weight than others.
+    + Eg: Number of times coworkers had lunch together in one year
+    + __Weighted network__: a network where are assigned a (typically numerical) weight.
+        ```python
+        G=nx.Graph()
+        G.add_edge('A','B', weight = 6)
+        G.add_edge('B','C', weight = 13)
+        ```
+
++ Signed Networks
+    + Some networks can carry information about friendship and antagonism based on conflict or disagreement.
+    + Eg: In Epinions and Slashdot people can declare friends and foes.
+    + __Signed network__: a network where edges are assigned positive or negative sign.
+        ```python
+        G=nx.Graph()
+        G.add_edge('A','B', sign= '+')
+        G.add_edge('B','C', sign= '-')
+        ```
+
++ Other Edge Attributes
+    + Edges can carry many other labels or attributes
     ```python
-
-
+    G=nx.Graph()
+    G.add_edge('A','B', relation= 'friend')
+    G.add_edge('B','C', relation= 'coworker')
+    G.add_edge(’D',’E', relation= 'family')
+    G.add_edge(’E',’I', relation= 'neighbor')
     ```
+
++ Mutigraphs
+    + A pair of nodes can have different types of relationships simultaneously
+    + Multigraph: A network where multiple edges can connect the same nodes (parallel edges).
+        ```python
+        G=nx.MultiGraph()
+        G.add_edge('A','B', relation= 'friend')
+        G.add_edge('A','B', relation= 'neighbor')
+        G.add_edge('G','F', relation= 'family')
+        G.add_edge('G','F', relation= 'coworker')
+        ```
+
++ __Lecture Quiz__: We would like to construct a graph on NetworkX, where the nodes represent employees of a company and the edges represent the number of times an employee sent an email to another employee. What would be the best way to represent this network?
+    ```
+    a. Directed graph
+    b. Undirected graph
+    c. Weighted, directed graph
+    d. Weighted, undirected graph
+    e. Weighted multigraph
+
+    Ans: c 
+    Since we want to capture who sent the email and who received it, we need a directed graph. Since we also want to capture the number of times an employee emailed another, we want the edges to have weights, hence we want to use a weighted, directed graph.
+    ```
+
++ Summary
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+        <img src="https://lh3.googleusercontent.com/S4gf8u9EVJAx4htkOzGvfuW-TFxm4ph-5p4yzXnn7YzGR0dLDPQTjd15td5tDVeiIct2W-dGABDf-HR4iUyWSxbKC4uGvPou4Xii_Vz0Erj1MQt9SycOttuP_1-YInQ8fUeKagkbRw=w2400" alt="Undirected network: Nodes have symmetric relationships; Directed network: Nodes have assymmetric relationships; Weighted network: A network where edges are assigned a weight; Signed network: A network where edges are assigned positive or negative sign; Edges can carry many other labels or attributes. Attribute can be weight, sign, relation,…; Multigraph: a network where multiple edges can connect the same nodes " title="Basic Concepts" height="300">
+    </a>
+
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/KVAnNZTLEeeOmgqEJWRlfA.processed/full/360p/index.mp4?Expires=1548720000&Signature=J5Sr9blGwEfWBbkNgYEYoPokhrpQE2ulvGYTSffirjefoYloIc~IwWXmqMBABZWzUI1bQ8qSMrgznQSnjTcaDm5jHguKzG3NKzNZWO31G~jP1X~4UU3euxOfiCCL7Ma~2OjUKC1BWQwEHf9SztL67eyTmlAsKTs-Q94sbFvA0c0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Network Definition and Vocabulary" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
@@ -206,7 +300,7 @@ The link will open in this same window for the purposes of making it accessible 
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/DKgHw5TLEeeClxLmJhEfgA.processed/full/360p/index.mp4?Expires=1548720000&Signature=TuR6UldQsef~Lo5-Tw0C~-AA4wElpS-pgCtQsTP7MChjRHJZ9lDjTMS3L2l8j5dtrr1aBX72Hf3ASP4Wrz3z8gi5TfJp1IzNDuv7ITDhCQhaz0WucGEy4ffQWeCFYVfz98k3nztw9R7omZJ2uSAgXy3YYlQJA3L0egVTn7t8AYA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Node and Edge Attributes" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
