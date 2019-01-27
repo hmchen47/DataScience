@@ -294,7 +294,7 @@ The link will open in this same window for the purposes of making it accessible 
     + Number of times coworkers had lunch together in one 
     + Undirected network
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
-        <img src="images/m1-01.png" alt="Number of times coworkers had lunch together in one year" title="Edge Attributes in NetworkX" height="250">
+        <img src="images/m1-01.png" alt="So here is an example of a network where the color of the edges represent the relationship between the nodes. And then there's a number on the edges that represents how many times they had lunch together. So when we were using NetworkX to construct some of these graphs, we would simply add attributes to the edges when we added them. So here we added the weight of the edge and also their relation, and the same thing for all the other edges. And so the first thing is, if we just use the function edges, this will give us a list of all the edges of the network. So far I've only added two so this will give us the two edges that I've added. Now if you wanted to get a little more data on these edges, then you would use the same function edges, but now you would say data equals true. And now these will list all the edges with the attributes that they have. So, for each edge, you would get the two nodes A, B, as well as a dictionary for the different attributes that, that edge has. In this case, relation and weight, and same thing for the other edges. Now, let's say you only wanted the information about the edges for a particular attribute, then you can say data equals relation, for example. The particular attribute you're interested in. And now you will get triplets, that will have the two nodes and then the value of the attribute relations. So in this case, A, B will have family. And B, C will have friend.  by using edge rather than edges, and then saying which edge you have by showing the two nodes, the two endpoints of the edge. And then this would return a dictionary that will have each one of the attributes of that edge.  You can also just specify which particular attribute you're interested in. So for example, if you wanted to know what the weight of the edge B, C is, then you would do it this way, and then it will tell you it's 13, as shown right here. Now notice that because this graph is an undirected graph, then the order in which we place the end points of the edge does not matter, right? So if you ask for the weight of the edge B, C, the answer is 13. But if you were to ask for the weight of the edge C, B, you would get the same thing because this is an undirected graph and the order doesn't matter." title="Edge Attributes in NetworkX" height="250">
     </a>
         ```python
         G=nx.Graph()
@@ -320,7 +320,7 @@ The link will open in this same window for the purposes of making it accessible 
         ```
     + Directed, weighted network:
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
-        <img src="images/m1-02.png" alt="Directed, weighted network" title="Edge Attributes in NetworkX" height="250">
+        <img src="images/m1-02.png" alt="What if you have a directed case? So now this is the network, the same kind of thing but now you have direction on the edges. Well, then we would use the directed graph class and then we would add the edges in the exact same way we did before. And now, we would access the attributes of the edges in the same way. So here you would be asking for the weight of the edge C, B which is 13. But if you were to switch the order and now you're asking for the weight of the edge B, C, then you would get an error because this edge doesn't exist. So because you're using the directed graph class, the order matters and it also matters in the way that you access the attributes of the edge." title="Edge Attributes in NetworkX" height="250">
     </a>
         ```python
         G=nx.DiGraph()
@@ -353,7 +353,7 @@ The link will open in this same window for the purposes of making it accessible 
         ```
     + Directed MultiGraph:
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
-        <img src="images/m1-04.png" alt="Directed MultiGraph" title="Edge Attributes in NetworkX" height="250">
+        <img src="images/m1-04.png" alt="generalize this to MultiGraphs, right? So as we saw before, the way you would represent a network like this is by using the MultiGraph class. And then you would add the edges and you would add the edges for the same pair of nodes multiple times. And sometimes you would give them different weights or different attributes in general. So here, we're adding the edge A, B twice with different weights and different relations. And same thing for C,B. So how do we access the attributes for these? Well, if you ask for the attributes of the edge A,B, then what happens is you will get a dictionary of the attributes of A, B. But you would get one dictionary for each one of the edges. So remember the edge A, B has two different edges with different attributes. So here you get the first edge, which is label zero, and is the first one you entered, will have a dictionary that has relation, family, and then weight six. And then another dictionary with the relationship friend that has weight 18, and that's the second answer that you added. And in this case, because this is an undirected graph, the order in which you do things doesn't matter. So in this example, I'm showing you how to get the weight for the edge A, B, and I'm specifying that I want the first edge. So I add this zero here, and then the answer is six. If I wanted the weight on the second edge, then this zero will be one. And then you would get the other weight which is 18. And because this is undirected, the ordered doesn't matter. It's waited and it's also directed. For this kind of graph, we'll actually use a class we haven't seen before which is the MultiDiGraph, which stands for multi directive graph. And of course, now the edges have direction and there can be multiple edges between any two pairs of nodes. And so we'll add the edges in the same way we did before. But now we have to be careful to add them in the right direction, right? So we write A, B rather than B, A because the edge that we're adding has a particular direction. The same thing for the other ones. And when you would access the attributes of these in just the exact same way. But now the order matters, so if I ask for the edge, the way for the first edge A, B, then I would get six. But if I were to ask for the weight of the first edge B, A, I would get an error because that edge doesn't exist." title="Edge Attributes in NetworkX" height="250">
     </a>
         ```python
         G=nx.MultiDiGraph()
@@ -368,9 +368,31 @@ The link will open in this same window for the purposes of making it accessible 
         G.edge['B']['A'][0]['weight'] # directed graph, order matters
         # KeyError: 'A'
         ```
+    + Lecture Quiz: What would be the output of the following code?
+        ```python
+        import networkx as nx
+
+        G=nx.MultiDiGraph()
+
+        G.add_edge('John', 'Ana', weight= 3, relation = 'siblings')
+        G.add_edge('Ana', 'David', weight= 4, relation = 'cousins')
+        G.add_edge('Ana', 'Bob', weight= 1, relation = 'friends')
+        G.add_edge('Ana', 'Bob', weight= 1, relation = 'neighbors')
+
+        print( G.edge['Bob']['Ana'][1]['relation'] )
+        ```
+        ```
+        a. 'friends'
+        b. KeyError: 'Ana'
+        c. Correct
+        d. 'neighbors'
+
+        Ans: b
+        G is a directed graph and while the edge (‘Ana’, ‘Bob’’) is in the network, the edge (‘Bob’, ‘Ana’) is not. Hence, the output will be an error.
+        ```
     + Undirected Multigraph
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hTKct/node-and-edge-attributes"> <br/>
-        <img src="images/m1-04.png" alt="Directed MultiGraph" title="Edge Attributes in NetworkX" height="250">
+        <img src="images/m1-04.png" alt="Okay, so we've talked about how to add attributes and how to access attributes of edges. But we could also imagine having attributes stored on the nodes. So let's go back to this example of how many times coworkers had lunch together in a particular company, and what kind of relationship they have. You could imagine that the nodes can also have a particular attribute, so in this case, imagine they're colored by their role in the company. So some are managers, some are traders and some are analysts. Then we would want a way of capturing this, also, when we construct network in NetworkX, and what we can do is the following. So first, we're constructing the graph in the usual way that we construct it. And then we would add the node attributes. So to add the node attributes, what we'll do is we'll use the function add_node, even though this node A is already added because we added the edge A, B, we would add it again. And now we'll give it an attribute role, and we'll say that the role of node A is trader. And node B is also trader, and C is a manager. And then to access those attributes, we'll do it in the following way. So first of all, if we just wanted to have the node, list of all the nodes, we can use the function nodes, and this will give us the three nodes that we've added. But if we wanted the attributes on the nodes, then just like we did for edges, we would say, data equals true. And it will give us a list of all the nodes. And along with each node, a dictionary with the attributes and the values for that node. And if we want to just for all, or a particular attribute for a particular node, then we would use node instead of nodes. And then specify which node we're at one, and which attribute we want. And they would say that node A is a manager." title="Edge Attributes in NetworkX" height="250">
     </a>
         ```python
         G=nx.Graph()
@@ -392,6 +414,12 @@ The link will open in this same window for the purposes of making it accessible 
         G.node['A']['role']
         # 'manager'
         ```
+
+8:42
+So in summary, in this lecture, we looked at how we add an access attributes for nodes, as well as edges. And depending on what we want, sometimes we want a list of all the edges, sometimes we're interested in a particular edge. Same thing for the node, sometimes we want to get a list of all the nodes, where there're attributes and sometimes we just want to get the attribute for a particular node.
+9:07
+Thank you for listening to this video, and I hope to see you in the next one.
+
 
 + Summary
     ```python
