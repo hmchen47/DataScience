@@ -364,7 +364,7 @@ To check that you have the most recent version of course notebooks and files, he
     d. Weighted, undirected graph
     e. Weighted multigraph
 
-    Ans: c 
+    Ans: c
     Since we want to capture who sent the email and who received it, we need a directed graph. Since we also want to capture the number of times an employee emailed another, we want the edges to have weights, hence we want to use a weighted, directed graph.
     ```
 
@@ -726,11 +726,11 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # 
     # Reading across row `0`, there is a '`1`' in columns `1`, `2`, `3`, and `5`,
     # which indicates that node `0` is adjacent to nodes 1, 2, 3, and 5
-        G_mat = np.array([[0, 1, 1, 1, 0, 1, 0, 0, 0, 0], [1, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-                          [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 0, 0, 1, 0, 0, 0, 0, 0],
-                          [0, 0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
-                          [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                          [0, 0, 0, 0, 0, 1, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
+    G_mat = np.array([[0, 1, 1, 1, 0, 1, 0, 0, 0, 0], [1, 0, 0, 1, 0, 0, 1, 0, 0, 0],
+                      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 0, 0, 1, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+                      [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 1, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
     G_mat
     # array([[0, 1, 1, 1, 0, 1, 0, 0, 0, 0],
     #        [1, 0, 0, 1, 0, 0, 1, 0, 0, 0],
@@ -822,9 +822,9 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     #
     # The third column, the weight of the edge, corresponds to the outcome of the game.
     # A weight of 1 indicates white won, a 0 indicates a draw, and a -1 indicates black won.
-    # 
+    #
     # The fourth column corresponds to approximate timestamps of when the game was played.
-    # 
+    #
     # We can read in the chess graph using `read_edgelist`, and tell it to create the
     # graph using a `nx.MultiDiGraph`.
     chess = nx.read_edgelist('chess_graph.txt', data=[('outcome', int), ('timestamp', float)], 
@@ -1045,6 +1045,372 @@ Q8. Based on the bipartite network below, select all the edges you can add to th
     e. 5
 
     Ans: c, xb
+
+
+## NetworkX Classes and APIs
+
+### NetworkX Basics
+
++ Import file: `import networkx as nx`
+
++ Basic graph types are provided as Python classes:
+    + __Graph__: This class implements an undirected graph. It ignores multiple edges between two nodes. It does allow self-loop edges between a node and itself.
+    + __DiGraph__: Directed graphs, that is, graphs with directed edges. Provides operations common to directed graphs, (a subclass of Graph).
+    + __MultiGraph__: A flexible graph class that allows multiple undirected edges between pairs of nodes. The additional flexibility leads to some degradation in performance, though usually not significant.
+    + __MultiDiGraph__: A directed version of a MultiGraph.
+    ```python
+    G = nx.Graph()
+    G = nx.DiGraph()
+    G = nx.MultiGraph()
+    G = nx.MultiDiGraph()
+    ```
+
+### Classes
+
++ `Graph` class
+    + Init signature: `nx.Graph(data=None, **attr)`
+    + Docstring: Base class for undirected graphs.
+    + Notes:
+        + A Graph stores nodes and edges with optional data, or attributes.
+        + Graphs hold undirected edges.  Self loops are allowed but multiple (parallel) edges are not.
+        + Nodes can be arbitrary (hashable) Python objects with optional key/value attributes.
+        + Edges are represented as links between nodes with optional key/value attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+    + Nodes
+        + Add one node at a time: `G.add_node(1)`
+        + Add the nodes from any container (a list, dict, set or even the lines from a file or the nodes from another graph): `G.add_nodes_from([2,3])`, `G.add_nodes_from(range(100,110))`
+        + In addition to strings and integers any hashable Python object (except None) can represent a node, e.g. a customized node object, or even another Graph.
+    + Edges
+        + G can also be grown by adding edges.
+        + Add one edge: `G.add_edge(1, 2)`
+        + a list of edges: `G.add_edges_from([(1,2),(1,3)])`
+        + or a collection of edges: `G.add_edges_from(H.edges())`
+        + If some edges connect nodes not yet in the graph, the nodes are added automatically.  There are no errors when adding nodes or edges that already exist.
+    + Attributes
+        + Each graph, node, and edge can hold key/value attribute pairs in an associated attribute dictionary (the keys must be hashable). By default these are empty, but can be added or changed using add_edge, add_node or direct manipulation of the attribute dictionaries named graph, node and edge respectively. E.g., `G = nx.Graph(day="Friday")` -> `{'day': 'Friday'}`
+        + Add node attributes using `add_node()`, add_`nodes_from()` or G.node: `G.add_node(1, time='5pm')`, `G.add_nodes_from([3], time='2pm')`
+        + Add edge attributes using `add_edge()`, `add_edges_from()`, subscript notation, or `G.edge`.
+    + Shortcuts
+        + Many common graph features allow python syntax to speed reporting. E.g., `1 in G`, `[n for n in G if n<3]   # iterate through nodes`, `len(G)  # number of nodes in graph`
+        + The fastest way to traverse all edges of a graph is via `adjacency_iter()`, but the `edges()` method is often more convenient.
+    + Reporting
+        + Simple graph information is obtained using methods.
+        + Iterator versions of many reporting methods exist for efficiency.
+        + Methods exist for reporting `nodes()`, `edges()`, `neighbors()` and `degree()` as well as the number of nodes and edges.
+    + Subclasses
+        + The Graph class uses a dict-of-dict-of-dict data structure. The outer dict (node_dict) holds adjacency lists keyed by node. The next dict (adjlist) represents the adjacency list and holds edge data keyed by neighbor.  The inner dict (edge_attr) represents the edge data and holds edge attribute values keyed by attribute names.
+        + Each of these three dicts can be replaced by a user defined dict-like object. In general, the dict-like features should be maintained but extra features can be added. To replace one of the dicts create a new graph class by changing the class(!) variable holding the factory for that dict-like structure. The variable names are node_dict_factory, adjlist_dict_factory and edge_attr_dict_factory.
+        + `node_dict_factory` (function, (default: dict)): Factory function to be used to create the outer-most dict in the data structure that holds adjacency lists keyed by node. It should require no arguments and return a dict-like object.
+        + `adjlist_dict_factory` (function, (default: dict)): Factory function to be used to create the adjacency list dict which holds edge data keyed by neighbor. It should require no arguments and return a dict-like object
+        + `edge_attr_dict_factory` (function, (default: dict)): Factory function to be used to create the edge attribute dict which holds attrbute values keyed by attribute name. It should require no arguments and return a dict-like object.
+    + Init docstring: Initialize a graph with edges, name, graph attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `name` (string, optional (default='')): An optional name for the graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+
+
++ `DiGraph` Class
+    + Init signature: `nx.DiGraph(data=None, **attr)`
+    + Docstring: Base class for directed graphs.
+    + Notes:
+        + A DiGraph stores nodes and edges with optional data, or attributes.
+        + DiGraphs hold directed edges.  Self loops are allowed but multiple (parallel) edges are not.
+        + Nodes can be arbitrary (hashable) Python objects with optional key/value attributes.
+        + Edges are represented as links between nodes with optional key/value attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+    + Nodes
+        + Add one node at a time: `G.add_node(1)`
+        + Add the nodes from any container (a list, dict, set or even the lines from a file or the nodes from another graph).
+        + In addition to strings and integers any hashable Python object (except None) can represent a node, e.g. a customized node object, or even another Graph.
+    + Edges
+        + G can also be grown by adding edges.
+        + Add one edge: `G.add_edge(1, 2)`
+        + a list of edges: `G.add_edges_from([(1,2),(1,3)])`
+        + or a collection of edges: `G.add_edges_from(H.edges())`
+        + If some edges connect nodes not yet in the graph, the nodes are added automatically.  There are no errors when adding nodes or edges that already exist.
+    + Attributes
+        + Each graph, node, and edge can hold key/value attribute pairs in an associated attribute dictionary (the keys must be hashable). By default these are empty, but can be added or changed using add_edge, add_node or direct manipulation of the attribute dictionaries named graph, node and edge respectively. E.g., `G = nx.Graph(day="Friday")` -> `{'day': 'Friday'}`
+        + Add node attributes using `add_node()`, add_`nodes_from()` or G.node: `G.add_node(1, time='5pm')`, `G.add_nodes_from([3], time='2pm')`
+        + Add edge attributes using `add_edge()`, `add_edges_from()`, subscript notation, or `G.edge`.
+    + Shortcuts
+        + Many common graph features allow python syntax to speed reporting. E.g., `1 in G`, `[n for n in G if n<3]   # iterate through nodes`, `len(G)  # number of nodes in graph`
+        + The fastest way to traverse all edges of a graph is via `adjacency_iter()`, but the `edges()` method is often more convenient.
+    + Reporting
+        + Simple graph information is obtained using methods.
+        + Iterator versions of many reporting methods exist for efficiency.
+        + Methods exist for `reporting nodes()`, `edges()`, `neighbors()` and `degree()` as well as the number of nodes and edges.
+        + `node_dict_factory` (function, (default: dict)): Factory function to be used to create the outer-most dict in the data structure that holds adjacency lists keyed by node. It should require no arguments and return a dict-like object.
+        + `adjlist_dict_factory` (function, (default: dict)): Factory function to be used to create the adjacency list dict which holds edge data keyed by neighbor. It should require no arguments and return a dict-like object
+        + `edge_attr_dict_factory` (function, (default: dict)): Factory function to be used to create the edge attribute dict which holds attrbute values keyed by attribute name. It should require no arguments and return a dict-like object.
+    + Subclasses
+        + The Graph class uses a dict-of-dict-of-dict data structure. The outer dict (node_dict) holds adjacency lists keyed by node. The next dict (adjlist) represents the adjacency list and holds edge data keyed by neighbor.  The inner dict (edge_attr) represents the edge data and holds edge attribute values keyed by attribute names.
+        + Each of these three dicts can be replaced by a user defined  dict-like object. In general, the dict-like features should be maintained but extra features can be added. To replace one of the dicts create a new graph class by changing the class(!) variable holding the factory for that dict-like structure. The variable names are node_dict_factory, adjlist_dict_factory and edge_attr_dict_factory.
+    + Init docstring: Initialize a graph with edges, name, graph attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `name` (string, optional (default='')): An optional name for the graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+
+
++ `nx.MultiGraph` Class
+    + Init signature: `nx.MultiGraph(data=None, **attr)`
+    + Docstring: An undirected graph class that can store multiedges.
+    + Notes
+        + Multiedges are multiple edges between two nodes.  Each edge can hold optional data or attributes.
+        + A MultiGraph holds undirected edges.  Self loops are allowed.
+        + Nodes can be arbitrary (hashable) Python objects with optional key/value attributes.
+        + Edges are represented as links between nodes with optional key/value attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+    + Attributes:
+        + Each graph, node, and edge can hold key/value attribute pairs in an associated attribute dictionary (the keys must be hashable). By default these are empty, but can be added or changed using add_edge, add_node or direct manipulation of the attribute dictionaries named graph, node and edge respectively.
+        + Add edge attributes using `add_edge()`, `add_edges_from()`, subscript notation, or `G.edge`.
+    + Reporting: 
+        + Simple graph information is obtained using methods. 
+        + Iterator versions of many reporting methods exist for efficiency. 
+        + Methods exist for reporting `nodes()`, `edges()`, `neighbors()` and `degree()` as well as the number of nodes and edges
+    + Subclasses
+        + The MultiGraph class uses a dict-of-dict-of-dict-of-dict data structure. The outer dict (node_dict) holds adjacency lists keyed by node. The next dict (adjlist) represents the adjacency list and holds edge_key dicts keyed by neighbor. The edge_key dict holds each edge_attr dict keyed by edge key. The inner dict (edge_attr) represents the edge data and holds edge attribute values keyed by attribute names.
+        + Each of these four dicts in the dict-of-dict-of-dict-of-dict structure can be replaced by a user defined dict-like object. In general, the dict-like features should be maintained but extra features can be added. To replace one of the dicts create a new graph class by changing the class(!) variable holding the factory for that dict-like structure. The variable names are node_dict_factory, adjlist_dict_factory, edge_key_dict_factory and edge_attr_dict_factory.
+        + `node_dict_factory` (function, (default: dict)): Factory function to be used to create the outer-most dict in the data structure that holds adjacency lists keyed by node. It should require no arguments and return a dict-like object.
+        + `adjlist_dict_factory` (function, (default: dict)): Factory function to be used to create the adjacency list dict which holds edge data keyed by neighbor. It should require no arguments and return a dict-like object
+        + `edge_attr_dict_factory` (function, (default: dict)): Factory function to be used to create the edge attribute dict which holds attrbute values keyed by attribute name. It should require no arguments and return a dict-like object.
+    + Init Docstring: Initialize a graph with edges, name, graph attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `name` (string, optional (default='')): An optional name for the graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+
+
++ `nx.MultiDiGraph` Class
+    + Init signature: `nx.MultiDiGraph(data=None, **attr)`
+    + Docstring: A directed graph class that can store multiedges.
+    + Notes:
+        + Multiedges are multiple edges between two nodes.  Each edge can hold optional data or attributes.
+        + A MultiDiGraph holds directed edges.  Self loops are allowed.
+        + Nodes can be arbitrary (hashable) Python objects with optional key/value attributes.
+        + Edges are represented as links between nodes with optional key/value attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+    + Attributes
+        + Each graph, node, and edge can hold key/value attribute pairs in an associated attribute dictionary (the keys must be hashable). By default these are empty, but can be added or changed using add_edge, add_node or direct manipulation of the attribute dictionaries named graph, node and edge respectively.
+        + Add node attributes using add_node(), add_nodes_from() or G.node
+        + `Add edge attributes using add_edge(), add_edges_from(), subscript notation, or G.edge.
+    + Reporting: 
+        + Simple graph information is obtained using methods. 
+        + Iterator versions of many reporting methods exist for efficiency.
+        + Methods exist for reporting `nodes()`, `edges()`, `neighbors()` and `degree()` as well as the number of nodes and edges.
+    + Subclasses
+        + The MultiDiGraph class uses a dict-of-dict-of-dict-of-dict structure. The outer dict (node_dict) holds adjacency lists keyed by node. The next dict (adjlist) represents the adjacency list and holds edge_key dicts keyed by neighbor. The edge_key dict holds each edge_attr dict keyed by edge key. The inner dict (edge_attr) represents the edge data and holds edge attribute values keyed by attribute names.
+        + Each of these four dicts in the dict-of-dict-of-dict-of-dict structure can be replaced by a user defined dict-like object. In general, the dict-like features should be maintained but extra features can be added. To replace one of the dicts create a new graph class by changing the class(!) variable holding the factory for that dict-like structure. The variable names are node_dict_factory, adjlist_dict_factory, edge_key_dict_factory and edge_attr_dict_factory.
+        + `node_dict_factory` (function, (default: dict)): Factory function to be used to create the outer-most dict in the data structure that holds adjacency lists keyed by node. It should require no arguments and return a dict-like object.
+        + `adjlist_dict_factory` (function, (default: dict)): Factory function to be used to create the adjacency list dict which holds edge data keyed by neighbor. It should require no arguments and return a dict-like object
+        + `edge_attr_dict_factory` (function, (default: dict)): Factory function to be used to create the edge attribute dict which holds attrbute values keyed by attribute name. It should require no arguments and return a dict-like object.
+    + Init docstring: Initialize a graph with edges, name, graph attributes.
+    + Parameters
+        + `data` (input graph): Data to initialize graph.  If data=None (default) an empty graph is created.  The data can be an edge list, or any NetworkX graph object.  If the corresponding optional Python packages are installed the data can also be a NumPy matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+        + `name` (string, optional (default='')): An optional name for the graph.
+        + `attr` (keyword arguments, optional (default= no attributes)): Attributes to add to graph as key=value pairs.
+
+
+### Common APIs
+
++ `nx.read_adjlist`  function
+    + Signature: `nx.read_adjlist(path, comments='#', delimiter=None, create_using=None, nodetype=None, encoding='utf-8')`
+    + Docstring: Read graph in adjacency list format from path.
+    + Parameters
+        + `path` (string or file): Filename or file handle to read. Filenames ending in .gz or .bz2 will be uncompressed.
+        + `create_using` (NetworkX graph container):  Use given NetworkX graph for holding nodes or edges.
+        + `nodetype` (Python type, optional): Convert nodes to this type.
+        + `comments` (string, optional): Marker for comment lines
+        + `delimiter` (string, optional): Separator for node labels.  The default is whitespace.
+        + `create_using` (NetworkX graph container): Use given NetworkX graph for holding nodes or edges.
+    + Returns: `G` (NetworkX graph): The graph corresponding to the lines in adjacency list format.
+
++ `nx.read_edgelist` function
+    + Signature: `nx.read_edgelist(path, comments='#', delimiter=None, create_using=None, nodetype=None, data=True, edgetype=None, encoding='utf-8')`
+    + Docstring: Read a graph from a list of edges.
+    + Parameters
+        + `path` (file or string): File or filename to read. If a file is provided, it must be opened in 'rb' mode. Filenames ending in .gz or .bz2 will be uncompressed.
+        + `comments` (string, optional): The character used to indicate the start of a comment.
+        + `delimiter` (string, optional): The string used to separate values.  The default is whitespace.
+        + `create_using` (Graph container, optional,): Use specified container to build graph.  The default is networkx.Graph, an undirected graph.
+        + `nodetype` (int, float, str, Python type, optional): Convert node data from strings to specified type
+        + `data` (bool or list of (label,type) tuples): Tuples specifying dictionary key names and types for edge data
+        + `edgetype` (int, float, str, Python type, optional OBSOLETE): Convert edge data from strings to specified type and use as 'weight'
+        + `encoding` (string, optional): Specify which encoding to use when reading file.
+    + Returns: `G` (graph): A networkx Graph or other type specified with create_using
+
++ `nx_from_pandas_dataframe` function
+    + Signature: `nx.from_pandas_dataframe(df, source, target, edge_attr=None, create_using=None)`
+    + Docstring: Return a graph from Pandas DataFrame. The Pandas DataFrame should contain at least two columns of node names and zero or more columns of node attributes. Each row will be processed as one edge instance.
+    + Note: This function iterates over DataFrame.values, which is not guaranteed to retain the data type across columns in the row. This is only a problem if your row is entirely numeric and a mix of ints and floats. In that case, all values will be returned as floats. See the DataFrame.iterrows documentation for an example.
+    + Parameters
+        + `df` (Pandas DataFrame): An edge list representation of a graph
+        + `source` (str or int): A valid column name (string or integer) for the source nodes (for the directed case).
+        + `target` (str or int): A valid column name (string or integer) for the target nodes (for the directed case).
+        + `edge_attr` (str or int, iterable, True): A valid column name (str or integer) or list of column names that will be used to retrieve items from the row and add them to the graph as edge attributes. If `True`, all of the remaining columns will be added.
+        + `create_using` (NetworkX graph): Use specified graph for result.  The default is Graph()
+
++ `G.draw_networkx` function
+    + Signature: `nx.draw_networkx(G, pos=None, arrows=True, with_labels=True, **kwds)`
+    + Docstring: Draw the graph G using Matplotlib. Draw the graph with Matplotlib with options for node positions, labeling, titles, and many other drawing features. See draw() for simple drawing without labels or axes.
+    + `Parameters
+        + `G` (graph):  A networkx graph
+        + `pos` (dictionary, optional): A dictionary with nodes as keys and positions as values. If not specified a spring layout positioning will be computed. See networkx.layout for functions that compute node positions.
+        + `arrows` (bool, optional (default=True)): For directed graphs, if True draw arrowheads.
+        + `with_labels` (bool, optional (default=True)): Set to True to draw labels on the nodes.
+        + `ax` (Matplotlib Axes object, optional): Draw the graph in the specified Matplotlib axes.
+        + `nodelist` (list, optional (default G.nodes())): Draw only specified nodes
+        + `edgelist` (list, optional (default=G.edges())): Draw only specified edges
+        + `node_size` (scalar or array, optional (default=300)): Size of nodes.  If an array is specified it must be the same length as nodelist.
+        + `node_color` (color string, or array of floats, (default='r')): Node color. Can be a single color format string, or a  sequence of colors with the same length as nodelist. If numeric values are specified they will be mapped to colors using the cmap and vmin,vmax parameters.  See matplotlib.scatter for more details.
+        + `node_shape` (string, optional (default='o')): The shape of the node.  Specification is as matplotlib.scatter marker, one of `so^>v<dph8`.
+        + `alpha` (float, optional (default=1.0)): The node and edge transparency
+        + `cmap` (Matplotlib colormap, optional (default=None)): Colormap for mapping intensities of nodes
+        + `vmin`, `vmax` (float, optional (default=None)): Minimum and maximum for node colormap scaling
+        + `linewidths` ([None | scalar | sequence]): Line width of symbol border (default =1.0)
+        + `width` (float, optional (default=1.0)): Line width of edges
+        + `edge_color` (color string, or array of floats (default='r')): Edge color. Can be a single color format string, or a sequence of colors with the same length as edgelist. If numeric values are specified they will be mapped to colors using the edge_`cmap` and `edge_vmin`, `edge_vmax` parameters.
+        + `edge_cmap` (Matplotlib colormap, optional (default=None)): Colormap for mapping intensities of edges
+        + `edge_vmin`,`edge_vmax` (floats, optional (default=None)): Minimum and maximum for edge colormap scaling
+        + `style` (string, optional (default='solid')): Edge line style (solid|dashed|dotted,dashdot)
+        + `labels` (dictionary, optional (default=None)): Node labels in a dictionary keyed by node of text labels
+        + `font_size` (int, optional (default=12)): Font size for text labels
+        + `font_color` (string, optional (default='k' black)): Font color string
+        + `font_weight` (string, optional (default='normal')): Font weight
+        + `font_family` (string, optional (default='sans-serif')): Font family
+        + `label` (string, optional): Label for graph legend
+    + Notes: For directed graphs, "arrows" (actually just thicker stubs) are drawn at the head end.  Arrows can be turned off with keyword arrows=False. Yes, it is ugly but drawing proper arrows with Matplotlib this way is tricky.
+
++ `G.add_edge` method
+    + Signature: `nx.Graph.add_edge(u, v, attr_dict=None, **attr)`
+    + Docstring: Add an edge between `u` and `v`. 
+    + Notes:
+        + The nodes u and v will be automatically added if they are not already in the graph.
+        + Edge attributes can be specified with keywords or by providing a dictionary with key/value pairs.  See examples below.
+    + Parameters
+        + `u`, `v` (nodes): Nodes can be, for example, strings or numbers. Nodes must be hashable (and not None) Python objects.
+        + `attr_dict` (dictionary, optional (default= no attributes)): Dictionary of edge attributes.  Key/value pairs will update existing data associated with the edge.
+        + `attr` (keyword arguments, optional): Edge data (or labels or objects) can be assigned using keyword arguments.
+
++ `G.add_node` method
+    + Signature: `nx.Graph.add_node(n, attr_dict=None, **attr)`
+    + Docstring: Add a single node n and update node attributes.
+    + Parameters
+        + `n` (node): A node can be any hashable Python object except None.
+        + `attr_dict` (dictionary, optional (default= no attributes)): Dictionary of node attributes.  Key/value pairs will update existing data associated with the node.
+        + `attr` (keyword arguments, optional): Set or change attributes using key=value.
+
++ `G.add_nodes_from` method:
+    + Signature: `nx.Graph.add_nodes_from(nodes, **attr)`
+    + Docstring: Add multiple nodes.
+    + Parameters
+        + `nodes` (iterable container): 
+            + A container of nodes (list, dict, set, etc.).
+            + A container of (node, attribute dict) tuples.
+            + Node attributes are updated using the attribute dict.
+        + `attr` (keyword arguments, optional (default= no attributes)): Update attributes for all nodes in nodes. Node attributes specified in nodes as a tuple take precedence over attributes specified generally.
+
++ `G.add_edges_from` method\
+    + Signature: `nx.Graph.add_edges_from(ebunch, attr_dict=None, **attr)`
+    + Docstring: Add all the edges in ebunch.
+    + Parameters
+        + `ebunch` (container of edges): Each edge given in the container will be added to the graph. The edges must be given as as 2-tuples (u,v) or 3-tuples (u,v,d) where d is a dictionary containing edge data.
+        + `attr_dict` (dictionary, optional (default= no attributes)): Dictionary of edge attributes.  Key/value pairs will update existing data associated with each edge.
+        + `attr` (keyword arguments, optional): Edge data (or labels or objects) can be assigned using keyword arguments.
+
++ `G.remove` method
+    + Signature: `nx.Graph.remove_edge(u, v)`
+    + Docstring: Remove the edge between `u` and `v`.
+    + Parameters
+        + `u`, `v` (nodes): Remove the edge between nodes `u` and `v`.
+    + Raises: `NetworkXError`: If there is not an edge between `u` and `v`.
+
++ `G.nodes` method
+    + Signature: `nx.Graph.nodes(data=False)`
+    + Docstring: Return a list of the nodes in the graph.
+    + Parameters
+        + `data` (boolean, optional (default=False)): If False return a list of nodes.  If True return a two-tuple of node and node data dictionary
+    + Returns: `nlist` (list): A list of nodes.  If data=True a list of two-tuples containing `(node, node data dictionary)`.
+
++ `G.edges` method
+    + Signature: `nx.Graph.edges(nbunch=None, data=False, default=None)`
+    + Docstring: Return a list of edges. Edges are returned as tuples with optional data in the order `(node, neighbor, data)`.
+    + Parameters
+        + `nbunch` (iterable container, optional (default= all nodes)): A container of nodes.  The container will be iterated through once.
+        + `data` (string or bool, optional (default=False)): The edge attribute returned in 3-tuple (u,v,ddict[data]).
+            + If True, return edge attribute dict in 3-tuple `(u,v,ddict)`.
+            + If False, return 2-tuple `(u,v)`.
+            + default [value, optional (default=None)]:  Value used for edges that dont have the requested attribute. Only relevant if data is not True or False.
+    + Returns: `edge_list` (list of edge tuples): Edges that are adjacent to any node in nbunch, or a list of all edges if nbunch is not specified.
+
++ `G.is_directed` method
+    + Signature: `nx.Graph.is_directed()`
+    + Docstring: Return True if graph is directed, False otherwise.
+
++ `G.is_multigraph` method
+    + Signature: `nx.Graph.is_multigraph()`
+    + Docstring: Return True if graph is a multigraph, False otherwise.
+
++ `G.degree` method
+    + Signature: `nx.Graph.degree(nbunch=None, weight=None)`
+    + Docstring: Return the degree of a node or nodes. The node degree is the number of edges adjacent to that node.
+    + Parameters
+        + `nbunch` (iterable container, optional (default=all nodes)): A container of nodes.  The container will be iterated through once.
+        + `weight` (string or None, optional (default=None)): The edge attribute that holds the numerical value used as a weight.  If None, then each edge has weight 1. The degree is the sum of the edge weights adjacent to the node.
+    + Returns: `nd` (dictionary, or number): A dictionary with nodes as keys and degree as values or a number if a single node is specified.
+
+
+### Bipartite Algotithm
+
++ `bipartite.is_bipartite` method
+    + Signature: `bipartite.is_bipartite(G)`
+    + Docstring: Returns True if graph G is bipartite, False if not.
+    + Parameters
+        + `G`: NetworkX graph
+
++ `bipartite.is_bipartite_node_set` method
+    + Signature: `bipartite.is_bipartite_node_set(G, nodes)`
+    + Docstring: Returns True if nodes and G/nodes are a bipartition of G.
+    + Parameters
+        + `G`: NetworkX graph
+        + `nodes` (list or container): Check if nodes are a one of a bipartite set.
+    + Notes : For connected graphs the bipartite sets are unique.  This function handles disconnected graphs.
+
++ `bipartite.sets` method
+    + Signature: `bipartite.sets(G)`
+    + Docstring: Returns bipartite node sets of graph `G`. Raises an exception if the graph is not bipartite.
+    + Parameters: `G` (NetworkX graph)
+    + Returns: `(X,Y)` (two-tuple of sets): One set of nodes for each part of the bipartite graph.
+
++ `bipartite.projected_graph` method
+    + Signature: `bipartite.projected_graph(B, nodes, multigraph=False)`
+    + Docstring: Returns the projection of B onto one of its node sets.
+    + Notes: Returns the graph G that is the projection of the bipartite graph B onto the specified nodes. They retain their attributes and are connected in G if they have a common neighbor in B.
+    + Parameters
+        + `B` (NetworkX graph ): The input graph should be bipartite.
+        + `nodes` (list or iterable): Nodes to project onto (the "bottom" nodes).
+        + `multigraph` (bool (default=False)): If True return a multigraph where the multiple edges represent multiple shared neighbors.  They edge key in the multigraph is assigned to the label of the neighbor.
+    + Returns: `Graph` (NetworkX graph or multigraph): A graph that is the projection onto the given nodes.
+
++ `bipartite.weighted_projected_graph` method
+    + Signature: `bipartite.weighted_projected_graph(B, nodes, ratio=False)`
+    + Docstring: Returns a weighted projection of B onto one of its node sets.
+    + Note: The weighted projected graph is the projection of the bipartite network B onto the specified nodes with weights representing the number of shared neighbors or the ratio between actual shared neighbors and possible shared neighbors if ratio=True. The nodes retain their attributes and are connected in the resulting graph if they have an edge to a common node in the original graph.
+    + Parameters
+        + `B` (NetworkX graph ): The input graph should be bipartite.
+        + `nodes` (list or iterable): Nodes to project onto (the "bottom" nodes).
+        + `ratio` (Bool (default=False)): If True, edge weight is the ratio between actual shared neighbors and possible shared neighbors. If False, edges weight is the number of shared neighbors.
+    + Returns: `Graph` (NetworkX graph ): A graph that is the projection onto the given nodes.
+    + Ref: Borgatti, S.P. and Halgin, D. In press. "Analyzing Affiliation Networks". In Carrington, P. and Scott, J. (eds) The Sage Handbook of Social Network Analysis.
 
 
 
