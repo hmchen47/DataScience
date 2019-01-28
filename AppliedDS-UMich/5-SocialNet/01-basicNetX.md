@@ -658,34 +658,19 @@ Please note: only verified learners can submit assignments. If you are auditing 
 
 ## Notebook: Loading Graphs in NetworkX
 
-### Lecture Note
+Use this Jupyter notebook to follow along with the Loading Graphs in NetworkX demonstration.
 
+To download notebooks and datafiles, as well as get help on Jupyter notebooks in the Coursera platform, visit the Jupyter Notebook FAQ course resource.
 
-
-+ Demonstration
-    ```python
-
-
-    ```
-
-### Lecture Video
-
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
-</a>
++ [Launch Web Page](https://www.coursera.org/learn/python-social-network-analysis/notebook/RS5Rn/loading-graphs-in-networkx)
++ [Web Notebook](https://bajwjsbbpcxhnmzzoyjrrp.coursera-apps.org/notebooks/Loading%20Graphs%20in%20NetworkX.ipynb)
++ [Local Notebook](notebooks/01-LoadingGraphsInNetworkX.ipynb)
++ [Local [Python code]](notebooks/01-LoadingGraphsInNetworkX.py)
 
 
 ## TA Demonstration: Loading Graphs in NetworkX
 
-### Lecture Note
 
-
-
-+ Demonstration
-    ```python
-
-
-    ```
 
 ### Lecture Video
 
