@@ -92,6 +92,101 @@ The link will open in this same window for the purposes of making it accessible 
 + Don't forget to check [Stack Overflow](https://stackoverflow.com/questions) and [Cross Validated](https://stats.stackexchange.com/)!
 
 
+## Jupyter Notebook FAQ
+
+### Updates
+
+From time to time, updates have been made to some notebooks to clarify questions or fix technical issues.
+
+To check that you have the most recent version of course notebooks and files, here are the most recent updates with version number (shown in bold in the first line of each notebook)
+
+| Notebook | Version | Last updated |
+|----------|---------|--------------|
+| Assignment 1 | 1.1 | August 28, 2017 |
+| Assignment 2 | 1.2 | September 19, 2017 |
+| Assignment 3 | 1.2 | September 19, 2017 |
+| Assignment 4 | 1.2 | Oct 23, 2017 |
+
+
+### Current Questions
+
+1. Which version of python is this course in? What are the required libraries?
+1. How do I download and install the Jupyter Notebook system for offline use?
+1. How do I submit an assignment for grading using the Coursera platform?
+1. How do I download notebooks and data files?
+1. How can I upload an assignment created offline for grading?
+1. How do I reset my notebook?
+1. Why are my assignment submissions "unverified"?
+
+
+### Current Answers
+
+1. Which version of python is this course in?
+
+    This course is in python 3. The main libraries we are using in this course are:
+
+    *Note: Make sure you are using NetworkX 1.11 for this course now. The latest version NetworkX 2.0 was released recently, and we are still working on reviewing and updating our course materials to migrate to the latest version now. To install or degrade to v1.11, the following command may be helpful: `pip install networkx==1.11`.
+
+    | Library name | Minimum version |
+    |--------------|-----------------|
+    | scikit-learn | 0.18.2 |
+    | networkx | 1.11* |
+    | scipy | 0.18.1 |
+    | numpy | 1.13.1 |
+    | pandas | 0.20.3 |
+    | matplotlib | 2.0.0 |
+
+2. How do I download and install the Jupyter Notebook system for offline use?
+
+    To install the Jupyter Notebook system on your own machine, we recommend downloading Anaconda. This will allow you to work on any personal data science projects outside of the Coursera Jupyter Notebooks. Anaconda is a distribution containing Python, the Conda package and environment manager, and many software packages for data science. We recommend installing the Python 3 version, as that is the version we will be using in this course. Once Anaconda is downloaded, you can access the Jupyter Notebooks through the Anaconda Navigator. For more information on downloading Anaconda, visit the [Install Documentation](https://docs.continuum.io/anaconda/install).
+
+3. How do I submit an assignment for grading using the Coursera platform?
+
+    To submit an assignment for grading from the Coursera Notebook, press Submit Assignment in the top right corner of the notebook. You can only submit assignments in this way from the Coursera platform.
+
+4. How do I download notebooks and data files?
+
+    You can download all of the data files from [here](https://drive.google.com/file/d/1RJ9MogQYjgxHv7hpcAuU7sJnblVl3FN7/view?usp=sharing). Or, to download the datafiles manually from within the Coursera Jupyter platform, navigate to the file directory by selecting File > Open... Then select the file that you would like to download...
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/resources/yPcBs"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/yaBbMpVfEeaRtAqhdPgDFA_a7bb9a1fc1cd10d28ecb76ea435d6f1f_Screen-Shot-2016-10-18-at-11.54.32-AM.png?expiry=1548806400000&hmac=r9wls5W5jdAPq2gxZjGRyoNWS6EY32Rw6_6JV3jbmsw" alt="Download Instruction 1" title="Download Instruction 1" height="250">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/iQwSDpVfEea3KhIAewBBkg_3a936ff741979fa42c80d1828183eb43_Screen-Shot-2016-10-18-at-2.16.41-PM.png?expiry=1548806400000&hmac=EC_1gk2Lh57kXtMPXDrdp8c601yalgPK-dMXSlEY_eU" alt="Download Instruction 2" title="Download Instruction 2" height="250">
+    </a>
+
+    And select File > Download.  For notebooks, download them by selecting File > Download as > Notebook (.ipynb).
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/resources/yPcBs"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/HfRWrJVgEearQg4tHxRZaA_63c3f7e56fe0fdf1a5dbbbd76e1a6cdf_Screen-Shot-2016-10-18-at-12.00.42-PM.png?expiry=1548806400000&hmac=6auKq6iDrr_JDB8qQiXNY8-FdQrp71g5e2aU1gk7AB4" alt="Download Instruction 3" title="Download Instruction 3" height="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hO-Z_JVhEeaUSArAHh3eJg_140f3c972d910be4c8221860cce7300f_Screen-Shot-2016-10-18-at-2.25.59-PM.png?expiry=1548806400000&hmac=j0rO96H1tk0ZZWkyJQkDFqcYEkTUURDRyUaXzUEK-QI" alt="Download Instruction 4" title="Download Instruction 4" height="250">
+    </a>
+
+5. How can I upload an assignment created offline for grading?
+
+    If you have created a notebook outside of the Coursera Notebook Environment, you can upload it for grading by navigation to Assignment Submission (1), then selecting the My submission tab (2), then pressing + Create Submission (3).
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/resources/yPcBs"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/tGeq85VKEeaHlAockZu17g_39b1413d5b7b9c6e8720d36b97d66387_Screen-Shot-2016-10-18-at-11.41.09-AM.png?expiry=1548806400000&hmac=sY6MCxtm8T7XV2r4CrIyNX2QYOfE_2yWDe-KIVbKjZc" alt="Offline Upload" title="Offline Upload" height="200">
+    </a>
+
+6. How do I reset my notebook?
+
+    To clear all the output and saved variables from the notebook, select Kernel > Restart & Clear Output.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/resources/yPcBs"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/j0GzzpViEeaMxg7c63DFRg_6bacb3a0f40cfd924a69e3d30fbf47e6_Screen-Shot-2016-10-18-at-2.41.06-PM.png?expiry=1548806400000&hmac=AHF8emW7E8ptemohXCDuEC5kKxAhoGLBnmV-7XRkEzs" alt="Notebook Reset" title="Notebook Reset" height="150">
+    </a>
+
+    If you wish to replace a notebook with a fresh new version, delete the notebook in the directory, then select Control Panelin the top right corner. Then, Next select Stop My Server... and then My Server
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/resources/yPcBs"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/oA__UZVkEeag_w7Qw8lR8A_7331973778fb40cd31cca7e8f4203a05_Screen-Shot-2016-10-18-at-2.54.46-PM.png?expiry=1548806400000&hmac=TPU0ts5fqZk4_Qbee4uwHzwNreXmmiAuPwCMEgR3trs" alt="Control Panel" title="Control Panel" height="50">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ScP6q5VjEeaUSArAHh3eJg_529b979e3003e838d6b06a0b8ad87463_Screen-Shot-2016-10-18-at-2.46.31-PM.png?expiry=1548806400000&hmac=DNSbL5Lh90viUHi-7l7VZArSzNTUKaNJKJJUf8v3pJY" alt="Stop" title="Stop" height="50">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/jWX5p5VjEeag_w7Qw8lR8A_5ec5467c9de1a51498b060ab7416f1fb_Screen-Shot-2016-10-18-at-2.45.49-PM.png?expiry=1548806400000&hmac=GL0Jc_Q-JIQR2rZ3jsLcOwIi0RUAjZn9jUGLdUhifvo" alt="My Server" title="My Server" height="50">
+    </a>
+
+    Your directory will be populated with the newest versions of any files you deleted prior to this process.
+
+7. Why are my assignment submissions "unverified"?
+
+    Unfortunately, verification is unavailable for assignments graded in-browser, and in order for your assignment to be verified you will need to download your assignment and upload it the same as you would an assignment notebook created offline.
+
+
+
 ## Networks: Definition and Why We Study Them
 
 ### Lecture Note
