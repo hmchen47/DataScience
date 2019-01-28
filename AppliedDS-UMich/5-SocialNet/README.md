@@ -6,6 +6,8 @@
 + [Course Syllabus](01-basicNetX.md#)
 + [Help us learn more about you!](01-basicNetX.md#)
 + [Networks: Definition and Why We Study Them](01-basicNetX.md#)
++ [Additional Resources](01-basicNetX.md#)
++ [Jupyter Notebook FAQ](01-basicNetX.md#)
 + [Network Definition and Vocabulary](01-basicNetX.md#)
 + [Node and Edge Attributes](01-basicNetX.md#)
 + [Bipartite Graphs](01-basicNetX.md#)
@@ -13,10 +15,10 @@
 + [Notebook: Loading Graphs in NetworkX](01-basicNetX.md#)
 + [TA Demonstration: Loading Graphs in NetworkX](01-basicNetX.md#)
 
-###  [Module 1 Assignment](01-basicNetX.md#)
+### [Module 1 Assignment](asgn01.md)
 
-+ [Notebook: Assignment 1](01-basicNetX.md#)
-+ [Programming Assignment: Assignment 1](01-basicNetX.md#)
++ [Discussion Forum](asgn01.md#)
++ [Solution](asgn01.md#)
 
 
 
