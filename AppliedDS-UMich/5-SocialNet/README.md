@@ -14,9 +14,11 @@
 + [Notice for Auditing Learners: Assignment Submission](01-basicNetX.md#)
 + [Notebook: Loading Graphs in NetworkX](01-basicNetX.md#)
 + [TA Demonstration: Loading Graphs in NetworkX](01-basicNetX.md#)
++ [Module 1 Quiz](01-basicNetX.md#)
 
 ### [Module 1 Assignment](asgn01.md)
 
++ [Notebooks](asgn01.md#)
 + [Discussion Forum](asgn01.md#)
 + [Solution](asgn01.md#)
 
