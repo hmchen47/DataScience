@@ -15,6 +15,7 @@
 + [Notebook: Loading Graphs in NetworkX](01-basicNetX.md#)
 + [TA Demonstration: Loading Graphs in NetworkX](01-basicNetX.md#)
 + [Module 1 Quiz](01-basicNetX.md#)
++ [NetworkX Classes and APIs](01-basicNetX.md#)
 
 ### [Module 1 Assignment](asgn01.md)
 
