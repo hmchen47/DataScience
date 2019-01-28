@@ -611,7 +611,7 @@ To check that you have the most recent version of course notebooks and files, he
             <img src="https://lh3.googleusercontent.com/M3QnE6zndPcgzKDIbl3gFvibIyEkFOVnHeXQktPRWt2UEO-egFrHWaYIkH5X0vgvgt6b8KS2_vTRe3q2uNvM9pbynQX7KiT6oW33ju2-SuyS0Lg8yODzxGkxE08qnUw0ZoU2-rP_9A=w2400" alt="Let's look at this slightly larger example of a bipartite graph that has the same meaning. So, on one side we have fans and on the other side we have basketball teams. Now imagine that you were interested in creating a network among the fans and have the edges represent some type of affinity in terms of what teams they follow. Whether they kind of tend to follow the same teams or not. This kind of network could be important for viral marketing. So, if two people tend to follow the same teams, they may also like the same other type of product, and so you would be interested in knowing who is likely to impact whom in terms of that other product, and the fact that they follow the same kinds of teams might give you that hint, and so these this kind of network could be useful for certain things. But let's just say that you're interested in constructing that network. Well, you can do this, and what it's called, it's called the L-bipartite graphs projection of the bipartite graph. And what it is, is a network among the nodes in one side of the group, in this case the L side, in this case the fans, where each pair of nodes is connected if they have a common neighbor in the R side of the bipartite graph. So, in this case, there would be exactly the network between the fans, such that they're connected if they have at least one team in common. You would have a similar definition for the R-bipartite graphs, so that would be a network among the basketball teams, and two teams will be connected if they have at least one fan in common. So, what would that network look like for the fans? So again this network of fans will have at least one team in common, this looks something like this. So in this network, the edge A, H, appears in the projection because both A and H are fans of Team 1, and the edge J, E, appears in this network because they're both fans of team 4." title="Bipartite Graphs" height="250">
             <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="L-Bipartite graph projection" title="Bipartite Graphs" height="250">
         </a>
-    + __L-Bipartite weighted graph projection__: An LBipartite graph projection with weights on the edges that are proportional to the number of common neighbors between the nodes.
+    + __L-Bipartite weighted graph projection__: An L Bipartite graph projection with weights on the edges that are proportional to the number of common neighbors between the nodes.
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
             <img src="images/m1-07.png" alt="So this is called the L-bipartite weighted graph projection. And what it is is, well just like we saw, rather than just defining an edge in the projected graph to be, connect any two nodes that have at least one connection in common on the other side, now we're going to add weights on these edges, and their weights are going to be proportional to the number of common neighbors that they have. So, the weighted projected graph for the basketball teams would look like this now, where now we have the edges and we also have a number next to them that says how many common neighbors they have. And here I have the size of the edges B, also proportional to that weight, Just to show you visually the difference. And in NetworkX you can use the weighted projected graph to now output, not just the projected graph but the weighted projected graph in this case of the basketball teams. You could do the same thing for the set of fans. " title="L-Bipartite weighted graph projection" height="250">
         </a>
@@ -670,13 +670,382 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
 
 ## TA Demonstration: Loading Graphs in NetworkX
 
++ Demonstration
+    ```python
+    # # Loading Graphs in NetworkX
+    import networkx as nx
+    import numpy as np
+    import pandas as pd
+    %matplotlib notebook
 
+    # Instantiate the graph
+    G1 = nx.Graph()
+    # add node/edge pairs
+    G1.add_edges_from([(0, 1), (0, 2), (0, 3), (0, 5), (1, 3), (1, 6), (3, 4),
+            (4, 5), (4, 7), (5, 8), (8, 9)])
+
+    # draw the network G1
+    nx.draw_networkx(G1)        # Fig.1
+
+    # ### Adjacency List
+
+    # `G_adjlist.txt` is the adjaceny list representation of G1.
+    #
+    # It can be read as follows:
+    # * `0 1 2 3 5` $\rightarrow$ node `0` is adjacent to nodes `1, 2, 3, 5`
+    # * `1 3 6` $\rightarrow$ node `1` is (also) adjacent to nodes `3, 6`
+    # * `2` $\rightarrow$ node `2` is (also) adjacent to no new nodes
+    # * `3 4` $\rightarrow$ node `3` is (also) adjacent to node `4`
+    # 
+    # and so on. Note that adjacencies are only accounted for once
+    # (e.g. node `2` is adjacent to node `0`, but node `0` is not listed in node `2`'s row,
+    # because that edge has already been accounted for in node `0`'s row).
+    !cat G_adjlist.txt
+    # 0 1 2 3 5
+    # 1 3 6
+    # 2
+    # 3 4
+    # 4 5 7
+    # 5 8
+    # 6
+    # 7
+    # 8 9
+    # 9
+
+    # If we read in the adjacency list using `nx.read_adjlist`, we can see that it matches `G1`.
+    G2 = nx.read_adjlist('G_adjlist.txt', nodetype=int)
+    G2.edges()
+    # [(0, 1), (0, 2), (0, 3), (0, 5), (1, 3), (1, 6),
+    #  (3, 4), (5, 4), (5, 8), (4, 7), (8, 9)]
+
+    # ### Adjacency Matrix
+    #
+    # The elements in an adjacency matrix indicate whether pairs of vertices are adjacent
+    # or not in the graph. Each node has a corresponding row and column. For example,
+    # row `0`, column `1` corresponds to the edge between node `0` and node `1`.  
+    # 
+    # Reading across row `0`, there is a '`1`' in columns `1`, `2`, `3`, and `5`,
+    # which indicates that node `0` is adjacent to nodes 1, 2, 3, and 5
+        G_mat = np.array([[0, 1, 1, 1, 0, 1, 0, 0, 0, 0], [1, 0, 0, 1, 0, 0, 1, 0, 0, 0],
+                          [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 0, 0, 1, 0, 0, 0, 0, 0],
+                          [0, 0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+                          [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                          [0, 0, 0, 0, 0, 1, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
+    G_mat
+    # array([[0, 1, 1, 1, 0, 1, 0, 0, 0, 0],
+    #        [1, 0, 0, 1, 0, 0, 1, 0, 0, 0],
+    #        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #        [1, 1, 0, 0, 1, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 1, 0, 1, 0, 1, 0, 0],
+    #        [1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+    #        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+    #        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
+
+    # If we convert the adjacency matrix to a networkx graph using `nx.Graph`, we can see 
+    # that it matches G1.
+    G3 = nx.Graph(G_mat)
+    G3.edges()
+    # [(0, 1), (0, 2), (0, 3), (0, 5), (1, 3), (1, 6),
+    #  (3, 4), (4, 5), (4, 7), (5, 8), (8, 9)]
+
+    # ### Edgelist
+    # The edge list format represents edge pairings in the first two columns. Additional
+    # edge attributes can be added in subsequent columns. Looking at `G_edgelist.txt` 
+    # this is the same as the original graph `G1`, but now each edge has a weight. 
+    # 
+    # For example, from the first row, we can see the edge between nodes `0` and `1`, has a weight of `4`.
+    !cat G_edgelist.txt
+    # 0 1 4
+    # 0 2 3
+    # 0 3 2
+    # 0 5 6
+    # 1 3 2
+    # 1 6 5
+    # 3 4 3
+    # 4 5 1
+    # 4 7 2
+    # 5 8 6
+    # 8 9 1
+
+    # Using `read_edgelist` and passing in a list of tuples with the name and type of each
+    # edge attribute will create a graph with our desired edge attributes.
+    G4 = nx.read_edgelist('G_edgelist.txt', data=[('Weight', int)])
+    G4.edges(data=True)
+    # [('0', '1', {'Weight': 4}), ('0', '2', {'Weight': 3}), ('0', '3', {'Weight': 2}),
+    #  ('0', '5', {'Weight': 6}), ('1', '3', {'Weight': 2}), ('1', '6', {'Weight': 5}),
+    #  ('3', '4', {'Weight': 3}), ('5', '4', {'Weight': 1}), ('5', '8', {'Weight': 6}),
+    #  ('4', '7', {'Weight': 2}), ('8', '9', {'Weight': 1})]
+
+
+    # ### Pandas DataFrame
+    # Graphs can also be created from pandas dataframes if they are in edge list format.
+    G_df = pd.read_csv('G_edgelist.txt', delim_whitespace=True, 
+                    header=None, names=['n1', 'n2', 'weight'])
+    #    n1   n2   weight
+    # 0   0    1    4
+    # 1   0    2    3
+    # 2   0    3    2
+    # 3   0    5    6
+    # 4   1    3    2
+    # 5   1    6    5
+    # 6   3    4    3
+    # 7   4    5    1
+    # 8   4    7    2
+    # 9   5    8    6
+    # 10  8    9    1
+
+    G5 = nx.from_pandas_dataframe(G_df, 'n1', 'n2', edge_attr='weight')
+    G5.edges(data=True)
+    # [(0, 1, {'weight': 4}), (0, 2, {'weight': 3}), (0, 3, {'weight': 2}),
+    #  (0, 5, {'weight': 6}), (1, 3, {'weight': 2}), (1, 6, {'weight': 5}),
+    #  (3, 4, {'weight': 3}), (5, 4, {'weight': 1}), (5, 8, {'weight': 6}),
+    #  (4, 7, {'weight': 2}), (8, 9, {'weight': 1})]
+
+    # ### Chess Example
+
+    # Now let's load in a more complex graph and perform some basic analysis on it.
+    #
+    # We will be looking at chess_graph.txt, which is a directed graph of chess games 
+    # in edge list format.
+    ! head -5 chess_graph.txt
+    # 1 2 0  885635999.999997
+    # 1 3 0  885635999.999997
+    # 1 4 0  885635999.999997
+    # 1 5 1  885635999.999997
+    # 1 6 0  885635999.999997
+
+    # Each node is a chess player, and each edge represents a game. The first column
+    # with an outgoing edge corresponds to the white player, the second column with
+    # an incoming edge corresponds to the black player.
+    #
+    # The third column, the weight of the edge, corresponds to the outcome of the game.
+    # A weight of 1 indicates white won, a 0 indicates a draw, and a -1 indicates black won.
+    # 
+    # The fourth column corresponds to approximate timestamps of when the game was played.
+    # 
+    # We can read in the chess graph using `read_edgelist`, and tell it to create the
+    # graph using a `nx.MultiDiGraph`.
+    chess = nx.read_edgelist('chess_graph.txt', data=[('outcome', int), ('timestamp', float)], 
+                            create_using=nx.MultiDiGraph())
+
+    chess.is_directed(), chess.is_multigraph()  # (True, True)
+
+    chess.edges(data=True)
+    # [('1', '2', {'outcome': 0, 'timestamp': 885635999.999997}),
+    #  ('1', '3', {'outcome': 0, 'timestamp': 885635999.999997}),
+    #  ('1', '4', {'outcome': 0, 'timestamp': 885635999.999997}),
+    #  ('1', '5', {'outcome': 1, 'timestamp': 885635999.999997}),
+    #  ('1', '6', {'outcome': 0, 'timestamp': 885635999.999997}),
+    #  ...]
+
+    # Looking at the degree of each node, we can see how many games each person played.
+    # A dictionary is returned where each key is the player, and each value is the number
+    # of games played.
+    games_played = chess.degree()
+    games_played
+    # {'1': 48,  '2': 112,  '3': 85,  '4': 12,  '5': 18,  '6': 95,  ...}
+
+    # Using list comprehension, we can find which player played the most games.
+    max_value = max(games_played.values())
+    max_key, = [i for i in games_played.keys() if games_played[i] == max_value]
+
+    print('player {}\n{} games'.format(max_key, max_value))
+    # player 461
+    # 280 games
+
+    # Let's use pandas to find out which players won the most games. First let's convert our 
+    # graph to a DataFrame.
+    df = pd.DataFrame(chess.edges(data=True), columns=['white', 'black', 'outcome'])
+    df.head()
+    #    white black  outcome
+    # 0  1     2      {'outcome': 0, 'timestamp': 885635999.999997}
+    # 1  1     3      {'outcome': 0, 'timestamp': 885635999.999997}
+    # 2  1     4      {'outcome': 0, 'timestamp': 885635999.999997}
+    # 3  1     5      {'outcome': 1, 'timestamp': 885635999.999997}
+    # 4  1     6      {'outcome': 0, 'timestamp': 885635999.999997}
+
+    # Next we can use a lambda to pull out the outcome from the attributes dictionary.
+    df['outcome'] = df['outcome'].map(lambda x: x['outcome'])
+    df.head()
+    #    white  black outcome
+    # 0  1      2     0
+    # 1  1      3     0
+    # 2  1      4     0
+    # 3  1      5     1
+    # 4  1      6     0
+
+    # To count the number of times a player won as white, we find the rows where the outcome
+    # was '1', group by the white player, and sum.
+    #
+    # To count the number of times a player won as back, we find the rows where the outcome
+    # was '-1', group by the black player, sum, and multiply by -1.
+    #
+    # The we can add these together with a fill value of 0 for those players that only played
+    # as either black or white.
+    won_as_white = df[df['outcome']==1].groupby('white').sum()
+    won_as_black = -df[df['outcome']==-1].groupby('black').sum()
+    win_count = won_as_white.add(won_as_black, fill_value=0)
+    win_count.head()
+
+    #      outcome
+    # 1    7.0
+    # 100  7.0
+    # 1000 1.0
+    # 1002 1.0
+    # 1003 5.0
+
+    # Using `nlargest` we find that player 330 won the most games at 109.
+    win_count.nlargest(5, 'outcome')
+    #       outcome
+    # 330   109.0
+    # 467   103.0
+    # 98    94.0
+    # 456   88.0
+    # 461   88.0
+    ```
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
+        <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="Similar definition for R-Bipartite graph projection" title="Bipartite graph" height="200">
+    </a>
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/_PdjuJTMEeeClxLmJhEfgA.processed/full/360p/index.mp4?Expires=1548806400&Signature=V0Ag0fDazOXk90EbMAXMKfeCuvNEKbdjqPSvOWBzjri80y8nZfWi7ZSGjY0cuJTdQb4wdmnVwlDLz0FNMqbV-sde5oBrHxYvBsrD5tHFLR4-Uoklyr7~~x4px0Y0dl3XNu7C4S3muVAdbP1Nd2PlhpufXnuXU4RJGJuXsw5DULs_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="TA Demonstration: Loading Graphs in NetworkX " target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
+
+
+## Module 1 Quiz
+
+Q1. Select all the true statements below.
+
+    a. Connections between a set of items in the network are called vertices.
+    b. Weighted networks are used to describe networks with unequal relationships between nodes.
+    c. An undirected graph is a good choice to present a network with asymmetric relationships between nodes.
+    d. When there are only two opposite relationships between nodes, a signed network is a good representation.
+
+    Ans: bd
+
+
+
+Q2. A network that has parallel edges (a pair of nodes with different types of concurrent relationships) is called a ________.
+
+    a. Directed Network
+    b. Weighted Network
+    c. Signed Network
+    d. Multigraph
+
+    Ans: d
+
+
+
+Q3. Suppose we want to plot a network representing a small food web for students in a biology class. In order to give them a better understanding of the network, we want to show who is the predator and who is the prey. For those predators who have multiple options for prey, we also want to represent the predator’s preferences (i.e. which prey it likes most or second most). Choose the most appropriate type of network.
+
+    a. Undirected Network
+    b. Directed Signed Network
+    c. Directed Weighted Network
+    d. Unweighted Network
+    e. Signed Network
+
+    Ans: c
+
+
+
+Q4. Select all true statements:
+
+    a. Edges can carry many labels or attributes.
+    b. Suppose G is a graph and node A, B are two of G’s nodes. `G.edge[‘A’][‘B’]` and `G.edge[‘B’][‘A’]` will return the same value for all types of networks.
+    c. Accessing node or edge attributes in NetworkX is the same as accessing values in a Python dictionary
+    d. Suppose we have created a `nx.Graph()` object `G` with some nodes and edges. The statement G.nodes(data=True) will return a list of tuples.
+
+    Ans: acd
+
+
+
+Q5. Based on the following lines of code, what is the type of G.edge['A']['C']?
+
+    ```python
+    import networkx as nx
+
+    G=nx.MultiGraph()
+    G.add_node('A',role='manager')
+    G.add_edge('A','B',relation = 'friend')
+    G.add_edge('A','C', relation = 'business partner')
+    G.add_edge('A','B', relation = 'classmate')
+    G.node['A']['role'] = 'team member'
+    G.node['B']['role'] = 'engineer'
+    ```
+    a. Dictionary
+    b. List
+    c. String
+
+    Ans: a
+
+
+
+Q6. Based on the following lines of code, what's the correct statement to access the edge attribute "friend"? (same code as Q5)
+
+    a. G.edge['A']['B']['relation']
+    b. G.edge['A']['B'][0]['relation']
+    c. G.edge['A']['B'][1]['relation']
+    d. G.edge['A']['B']['relation'][0]
+    e. G.edge['A']['B']['relation'][1]
+
+    Ans: b
+
+
+
+Q7. After all lines of code below are executed, what is(are) the role(s) of node A? (same code as Q5) Check all that apply:
+
+    a. Manager
+    b. Friend
+    c. Business Partner
+    d. Classmate
+    e. Team member
+    f. Engineer
+
+    Ans: e, xaef, xae
+
+
+
+Q8. Based on the bipartite network below, select all the edges you can add to the network while maintaining its bipartite structure.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/Stfrv/module-1-quiz"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/DwXvqniFEeeJIwrF5BVsIg_aa217a0b957c298f329c707d76306670_q1-9.png?expiry=1548806400000&hmac=Du6oqtCd7tFp8VWTwzByueRWwlAZ72VRNW4gIgb1AqM" alt="Bipartite graph" title="Q8 Graph" height="150">
+    </a>
+
+    a. (1, B)
+    b. (3, E)
+    c. (B, D)
+    d. (2, 4)
+
+    Ans: ab
+
+
+
+9. Based on the bipartite network below, which of the following is the bipartite projection of the graph onto the set of circle nodes? (same graph as Q8)
+
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/Stfrv/module-1-quiz"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/sasNSniFEeeA3RJRlG3Uqg_8c4648b180d0c6bb3e53f3cbfff0fd3d_q1-9A.png?expiry=1548806400000&hmac=NEJP3pWBB_VX6X5lDD_0ypaWuEySsen3duaSBFxpPD0" alt="Bipartite graph A" title="Q9 A Graph" height="100">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vBsrqXiFEeeumw4MySoK5g_3884bc92773d8877383d3465a16a9f65_q1-9B.png?expiry=1548806400000&hmac=tH5TwbW9IMHjlNlwZhqCXpf7l_kwV6bxJx9_XYjoGLM" alt="Bipartite graph B" title="Q9 B Graph" height="100">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/xUkF2niFEeeOygpRbdVQKg_abbc77f7f8c9270347b04ed07e8bc34f_q1-9C.png?expiry=1548806400000&hmac=az9VoppUqUdfCRnrHXnjceIOjuMlYMvKNhgl7DVg1ls" alt="Bipartite graph C" title="Q9 C Graph" height="100">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/xUkF2niFEeeOygpRbdVQKg_abbc77f7f8c9270347b04ed07e8bc34f_q1-9C.png?expiry=1548806400000&hmac=az9VoppUqUdfCRnrHXnjceIOjuMlYMvKNhgl7DVg1ls" alt="Bipartite graph D" title="Q9 D Graph" height="100">
+    </a>
+
+
+    Ans: d
+
+
+10. Based on this bipartite network, suppose you create a weighted bipartite projection of the graph onto the set of square nodes. (same graph as Q8) What is the weight of edge AC in the projection graph?
+
+    a. 1
+    b. 2
+    c. 3
+    d. 4
+    e. 5
+
+    Ans: c, xb
+
 
 
 
