@@ -609,7 +609,6 @@ To check that you have the most recent version of course notebooks and files, he
         ```
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/">
             <img src="https://lh3.googleusercontent.com/M3QnE6zndPcgzKDIbl3gFvibIyEkFOVnHeXQktPRWt2UEO-egFrHWaYIkH5X0vgvgt6b8KS2_vTRe3q2uNvM9pbynQX7KiT6oW33ju2-SuyS0Lg8yODzxGkxE08qnUw0ZoU2-rP_9A=w2400" alt="Let's look at this slightly larger example of a bipartite graph that has the same meaning. So, on one side we have fans and on the other side we have basketball teams. Now imagine that you were interested in creating a network among the fans and have the edges represent some type of affinity in terms of what teams they follow. Whether they kind of tend to follow the same teams or not. This kind of network could be important for viral marketing. So, if two people tend to follow the same teams, they may also like the same other type of product, and so you would be interested in knowing who is likely to impact whom in terms of that other product, and the fact that they follow the same kinds of teams might give you that hint, and so these this kind of network could be useful for certain things. But let's just say that you're interested in constructing that network. Well, you can do this, and what it's called, it's called the L-bipartite graphs projection of the bipartite graph. And what it is, is a network among the nodes in one side of the group, in this case the L side, in this case the fans, where each pair of nodes is connected if they have a common neighbor in the R side of the bipartite graph. So, in this case, there would be exactly the network between the fans, such that they're connected if they have at least one team in common. You would have a similar definition for the R-bipartite graphs, so that would be a network among the basketball teams, and two teams will be connected if they have at least one fan in common. So, what would that network look like for the fans? So again this network of fans will have at least one team in common, this looks something like this. So in this network, the edge A, H, appears in the projection because both A and H are fans of Team 1, and the edge J, E, appears in this network because they're both fans of team 4." title="Bipartite Graphs" height="250">
-            <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="L-Bipartite graph projection" title="Bipartite Graphs" height="250">
         </a>
     + __L-Bipartite weighted graph projection__: An L Bipartite graph projection with weights on the edges that are proportional to the number of common neighbors between the nodes.
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
@@ -906,7 +905,7 @@ To download notebooks and datafiles, as well as get help on Jupyter notebooks in
     # 461   88.0
     ```
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/1/"> <br/>
-        <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="Similar definition for R-Bipartite graph projection" title="Bipartite graph" height="200">
+        <img src="https://lh3.googleusercontent.com/PT-yuFMYz6NLVYckDtWW62DFN9x8tK57WDXWEAGGiwlR45C2IMldW48ZG_FoGRfmpPsfjyph_mxWa6Xdgl9BodJA9tkaYeEgQZ9lpE0fwXV8qU_bWC86ISkEcUTNq0CHjLR_AHw9hA=w2400" alt="Similar definition for R-Bipartite graph projection" title="Fig.1: Bipartite graph" height="250">
     </a>
 
 ### Lecture Video
@@ -1090,7 +1089,7 @@ Q8. Based on the bipartite network below, select all the edges you can add to th
         + If some edges connect nodes not yet in the graph, the nodes are added automatically.  There are no errors when adding nodes or edges that already exist.
     + Attributes
         + Each graph, node, and edge can hold key/value attribute pairs in an associated attribute dictionary (the keys must be hashable). By default these are empty, but can be added or changed using add_edge, add_node or direct manipulation of the attribute dictionaries named graph, node and edge respectively. E.g., `G = nx.Graph(day="Friday")` -> `{'day': 'Friday'}`
-        + Add node attributes using `add_node()`, add_`nodes_from()` or G.node: `G.add_node(1, time='5pm')`, `G.add_nodes_from([3], time='2pm')`
+        + Add node attributes using `add_node()`, `add_nodes_from()` or G.node: `G.add_node(1, time='5pm')`, `G.add_nodes_from([3], time='2pm')`
         + Add edge attributes using `add_edge()`, `add_edges_from()`, subscript notation, or `G.edge`.
     + Shortcuts
         + Many common graph features allow python syntax to speed reporting. E.g., `1 in G`, `[n for n in G if n<3]   # iterate through nodes`, `len(G)  # number of nodes in graph`
@@ -1379,7 +1378,7 @@ Q8. Based on the bipartite network below, select all the edges you can add to th
 
 + `bipartite.is_bipartite_node_set` method
     + Signature: `bipartite.is_bipartite_node_set(G, nodes)`
-    + Docstring: Returns True if nodes and G/nodes are a bipartition of G.
+    + Docstring: Returns True if nodes and G/nodes are a bipartition of `G`.
     + Parameters
         + `G`: NetworkX graph
         + `nodes` (list or container): Check if nodes are a one of a bipartite set.
@@ -1393,7 +1392,7 @@ Q8. Based on the bipartite network below, select all the edges you can add to th
 
 + `bipartite.projected_graph` method
     + Signature: `bipartite.projected_graph(B, nodes, multigraph=False)`
-    + Docstring: Returns the projection of B onto one of its node sets.
+    + Docstring: Returns the projection of `B` onto one of its node sets.
     + Notes: Returns the graph G that is the projection of the bipartite graph B onto the specified nodes. They retain their attributes and are connected in G if they have a common neighbor in B.
     + Parameters
         + `B` (NetworkX graph ): The input graph should be bipartite.
@@ -1403,7 +1402,7 @@ Q8. Based on the bipartite network below, select all the edges you can add to th
 
 + `bipartite.weighted_projected_graph` method
     + Signature: `bipartite.weighted_projected_graph(B, nodes, ratio=False)`
-    + Docstring: Returns a weighted projection of B onto one of its node sets.
+    + Docstring: Returns a weighted projection of `B` onto one of its node sets.
     + Note: The weighted projected graph is the projection of the bipartite network B onto the specified nodes with weights representing the number of shared neighbors or the ratio between actual shared neighbors and possible shared neighbors if ratio=True. The nodes retain their attributes and are connected in the resulting graph if they have an edge to a common node in the original graph.
     + Parameters
         + `B` (NetworkX graph ): The input graph should be bipartite.
