@@ -473,6 +473,252 @@
 + Wattenberg, et al., "[How to Use t-SNE Effectively](http://doi.org/10.23915/distill.00002)", Distill, 2016. 
 + http://distill.pub/2016/misread-tsne/#citation
 
+
+### Introduction
+
++ t-SNE plots can sometimes be mysterious or misleading
+
++ A popular method for exploring high-dimensional data is something called t-SNE, introduced by [van der Maaten and Hinton](http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) in 2008
+
++ Magical ability to create compelling two-dimensonal “maps” from data with hundreds or even thousands of dimensions.
+
++ Goal: take a set of points in a high-dimensional space and find a faithful representation of those points in a lower-dimensional space, typically the 2D plane.
+
++ The algorithm is non-linear and adapts to the underlying data, performing different transformations on different regions.
+
++ Perplexity
+    + tuneable parameter
+    + (loosely) how to balance attention between local and global aspects of your data, e.g., 
+    + a guess about the number of close neighbors each point has
+    + a complex effect on the resulting pictures
+    + The performance of SNE is fairly robust to changes in the perplexity, and typical values are between 5 and 50.
+
++ The t-SNE algorithm doesn’t always produce similar output on successive runs.
+
+
+### Those hyperparameters really matter
+
++ Example:
+    + clusters in a 2D plane
+    + t-SNE plots for five different perplexity values
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_01_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_01_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_01_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_01_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_01_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_01_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ Outside that range, things get a little weird. 
+    + perplexity 2, local variations dominate.
+    + perplexity 100, with merged clusters, illustrates a pitfall: for the algorithm to operate properly, the perplexity really should be smaller than the number of points.
+
++ learning rate (often called “epsilon”) of 10
+
++ the most important thing is to iterate until reaching a stable configuration.
+
++ Example: five different runs at perplexity 30
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_02_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_02_01.png" alt="Perplexity: 30, Step: 10" title="t-SNE plots - Perplexity: 30, Step: 10" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_02_02.png" alt="Perplexity: 30, Step: 20" title="t-SNE plots - Perplexity: 30, Step: 20" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_02_03.png" alt="Perplexity: 30, Step: 60" title="t-SNE plots - Perplexity: 30, Step: 60" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_02_04.png" alt="Perplexity: 30, Step: 120" title="t-SNE plots - Perplexity: 30, Step: 120" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_02_05.png" alt="Perplexity: 30, Step: 1,000" title="t-SNE plots - Perplexity: 30, Step: 1,000" height="100">
+    </a>
+    + No fixed number of steps that yields a stable result. 
+    + Different data sets can require different numbers of iterations to converge.
+
++ whether different runs with the same hyperparameters produce the same results.
+
++ multiple runs give the same global shape.
+
++ Certain data sets, however, yield markedly different diagrams on different runs.
+
+
+### Cluster sizes in a t-SNE plot mean nothing
+
++ two clusters have different standard deviations, and so different sizes?
+
++ t-SNE plots for a mixture of Gaussians in plane
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_03_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_03_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_03_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_03_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_03_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_03_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ The t-SNE algorithm adapts its notion of “distance” to regional density variations in the data set.
+
++ It naturally expands dense clusters, and contracts sparse ones, evening out cluster sizes.
+
++ a different effect than the run-of-the-mill fact that any dimensionality reduction technique will distort distances.
+
++ density equalization happens by design and is a predictable feature of t-SNE.
+
+
+### Distances between clusters might not mean anything
+
++ Three Gaussians of 50 points each, one pair being 5 times as far apart as another pair
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_04_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_04_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_04_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_04_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_04_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_04_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ For lower perplexity values the clusters look equidistant.
+
++ When the perplexity is 100, we see the global geometry fine, but one of the cluster appears, falsely, much smaller than the others.
+
++ If we add more points to each cluster, the perplexity has to increase to compensate. 
+
++ t-SNE diagrams for three Gaussian clusters with 200 points each, instead of 50.
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_05_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_05_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_05_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_05_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_05_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_05_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ Seeing global geometry requires fine-tuning perplexity. 
+
++ Real-world data would probably have multiple clusters with different numbers of elements. 
+
++ No one perplexity value that will capture distances across all clusters
+
++ Distances between well-separated clusters in a t-SNE plot may mean nothing.
+
+
+### Random noise doesn’t always look random
+
++ genuinely random data, 500 points drawn from a unit Gaussian distribution in 100 dimensions.
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_06_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_06_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_06_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_06_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_06_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_06_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ clumps: low perplexity values often lead to this kind of distribution
+
++ Recognizing these clumps as random noise is an important part of reading t-SNE plots.
+
++ only a slight density difference across different regions of the cloud, and the points seem suspiciously evenly distributed
+
++ In fact, these features are saying useful things about high-dimensional normal distributions, which are very close to uniform distributions on a sphere: evenly distributed, with roughly equal spaces between points.
+
+
+
+### You can see some shapes, sometimes
+
++ axis-aligned Gaussian distribution in 50 dimensions
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_07_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_07_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_07_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_07_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_07_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_07_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ For high enough perplexity values, the elongated shapes are easy to read.
+
++ At low perplexity, local effects and meaningless “clumping” take center stage.
+
++ two clusters of 75 points each in 2D, arranged in parallel lines with a bit of noise
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_08_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_08_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_08_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_08_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_08_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_08_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ Even in the best cases, though, there’s a subtle distortion: the lines are slightly curved outwards in the t-SNE diagram.
+
++ t-SNE tends to expand denser regions of data.
+
++ Since the middles of the clusters have less empty space around them than the ends, the algorithm magnifies them.
+
+
+### For topology, you may need more than one plot
+
++ The “small” distribution is in effect contained in the large one.
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_09_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_09_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_09_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_09_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_09_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_09_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ Consider a set of points that trace a link or a knot in three dimensions. 
+
++ Looking at multiple perplexity values gives the most complete picture. 
+
++ Low perplexity values give two completely separate loops; high ones show a kind of global connectivity.
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_10_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_10_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_10_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_10_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_10_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_10_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_11_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_11_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_11_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_11_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_11_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_11_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ Using the dot color as a guide, you can see that the first and third runs are far from each other.
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_12_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_12_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_12_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_12_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_12_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_12_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
++ Five runs at perplexity 50, however
+    <a href="https://distill.pub/2016/misread-tsne/"> <br/>
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_13_original.png" alt="Original" title="t-SNE plots" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_13_01.png" alt="Perplexity: 2, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_13_02.png" alt="Perplexity: 5, Step: 5,000" title="t-SNE plots - Perplexity: 2, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_13_03.png" alt="Perplexity: 30, Step: 5,000" title="t-SNE plots - Perplexity: 30, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_13_04.png" alt="Perplexity: 50, Step: 5,000" title="t-SNE plots - Perplexity: 50, Step: 5,000" height="100">
+        <img src="https://distill.pub/2016/misread-tsne/assets/figure_13_05.png" alt="Perplexity: 100, Step: 5,000" title="t-SNE plots - Perplexity: 100, Step: 5,000" height="100">
+    </a>
+
+
+### Conclusion
+
++ incredibly flexible -> popular
+
++ find structure where other dimensionality-reduction algorithms cannot
+
++ tricky to interpret: all sorts of adjustments that tidy up its visualizations.
+
++ studying how t-SNE behaves in simple cases, it’s possible to develop an intuition for what’s going on.
+
+
+
 ## How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms
 
 Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](https://medium.freecodecamp.com/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba)", freeCodeCamp, 2017.
