@@ -119,16 +119,118 @@
 
 ### Lecture Note
 
++ Distance
+    + How “far” is node A from node H?
+    + Are nodes far away or close to each other in this network?
+    + Which nodes are “closest” and “farthest” to other nodes?
+    + We need a sense of distance between nodes to answer these questions
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/2/"> <br/>
+        <img src="https://lh3.googleusercontent.com/4Ux0yK97oXdtmwr9he1a3l4a_-baBRGknIrMXZrgem9kC0SchN9q4b2d1W1g9XwKGWnZ7MQKvE8J6jlFr0Lil1EeKkOJOeC5D-qLOmXHjya7BgG2Cz-YeV5yuO1oYR1f8x41Z_jVsw=w2400" alt="text" title="Example graph for distance" height="200">
+        <img src="images/m2-05.png" alt="text" title="Graph for path definition" height="200">
+        <img src="images/m2-06.png" alt="text" title="Graph for Distance calculation" height="200">
+    </a>
 
++ Paths
+    + Path: A sequence of nodes connected by an edge.
+    + Find two paths from node G to node C:
+        ```
+        G – F – C
+        G – F – E – C
+        ```
 
-+ Demonstration
++ Distance
+    + How far is node A from node H?
+        + Path 1: A – B – C – E – H (4 “hops”)
+        + Path 2: A – B – C – F – E – H (5 “hops”)
+    + __Path length__: Number of steps it contains from beginning to end.
+        + Path 1 has length 4, Path 2 has length 5
+    + Distance between two nodes: the length of the shortest path between them.
+    + The distance between node A and H is 4
+        ```python
+        nx.shortest_path(G, 'A', 'H')
+        # ['A', 'B', 'C', 'E', 'H']
+        
+        nx.shortest_path_length(G, 'A', 'H')
+        # 4
+        ```
+    + Finding the distance from node A to every other node.
+    + Easy to do manually in small networks but tedious in large (real) networks.
+
++ Breadth-First Search
+    + __Breadth-first search__: a systematic and efficient procedure for computing distances from a node to all other nodes in a large network by “discovering” nodes in layers.
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/2/"> <br/>
+        <img src="https://lh3.googleusercontent.com/xujB_jNGOn4bT9MpgY11o5VmvkBGixBHohBAQQtvGpNJ49uGz0lPEmpa_opT968hTt8jUtNbCF9wRraOo4zKge4h5IQkrn-iUFoZyjrYkInMow7ntPd6l_IRDHiwi_lQj4HSR5bAEg=w2400" alt="text" title="Breadth-First Search" height="250">
+    </a>
+        ```python
+        T = nx.bfs_tree(G, 'A')
+        
+        T.edges()
+        # [('A', 'K'), ('A', 'B'), ('B', 'C'), ('C', 'E'), ('C', 'F'), ('E', 'I'), ('E', 'H'), ('E', 'D'), ('F', 'G'), ('I', 'J')]
+        
+        nx.shortest_path_length(G,'A')
+        # {'A': 0, 'B': 1, 'C': 2, 'D': 4, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 1}
+        ```
+
++ Distance Measures
+    + How to characterize the distance between all pairs of nodes in a graph?
+    + __Average distance__ between every pair of nodes.
+        ```python
+        nx.average_shortest_path_length(G)    # 2.52727272727
+        ```
+    + __Diameter__: maximum distance between any pair of nodes.
+        ```python
+        nx.diameter(G)  # 5
+        ```
+    + The __Eccentricity__ of a node `n`: the largest distance between `n` and all other nodes.
+        ```python
+        nx.eccentricity(G)
+        # {'A': 5, 'B': 4, 'C': 3, 'D': 4, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 5}
+        ```
+    + The __radius__ of a graph: the minimum eccentricity
+        ```python
+        nx.radius(G)        # 3
+        ```
+    + The __Periphery__ of a graph: the set of nodes that have eccentricity equal to the diameter.
+        ```python
+        nx.periphery(G)     # ['A', 'K', 'J']
+        ```
+    + The __center__ of a graph: the set of nodes that have eccentricity equal to the radius.
+        ```python
+        nx.center(G)        # ['C', 'E', 'F']
+        ```
+
++ Karate Club Network
     ```python
-
+    G = nx.karate_club_graph()
+    G = nx.convert_node_labels_to_integers(G,first_label=1)
     ```
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/SeNEl/distance-measures"> 
+        <img src="images/m2-07.png" alt="text" title="Friendship network in a 34-person karate club" height="200">
+    </a>
+
+    + Average shortest path = 2.41
+    + Radius = 3
+    + Diameter = 5
+    + Center = [1, 2, 3, 4, 9, 14, 20, 32]
+    + Periphery: [15, 16, 17, 19, 21, 23, 24, 27, 30]
+
+    Node 34 looks pretty “central”. However, it has distance 4 to node 17
+
++ Summary
+    + __Distance between two nodes__: length of the shortest path between them.
+    + __Eccentricity__ of a node n is the largest distance between n and all other nodes.
+    + Characterizing distances in a network:
+        + __Average distance__ between every pair of nodes.
+        + __Diameter__: maximum distance between any pair of nodes.
+        + __Radius__: the minimum eccentricity in the graph.
+    + Identifying central and peripheral nodes:
+        + The __Periphery__ is the set of nodes with eccentricity = diameter.
+        + The __center__ is the set of nodes with eccentricity = radius.
+
 
 ### Lecture Video
 
-<a href="url" alt="Distance Measures" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/VVQyoJTMEeeClxLmJhEfgA.processed/full/360p/index.mp4?Expires=1548892800&Signature=Hfx0XLHeDJI9cSXdftL2~oGunpZSkhB1qJaRCYzJwRMJEbp3hkYkddTG7oa~BG8RPG1QN~0fLqN1l1K00eeKqE1f-M5FJgEJzFN3dWGbbNLUGSQJPRzjQdrOkCfvtmxiXU56WHk-p5Mg~aHnyTeDmim7RnZ0hiueak2oRBWoZe8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Distance Measures" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
