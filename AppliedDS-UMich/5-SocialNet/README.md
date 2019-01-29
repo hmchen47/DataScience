@@ -24,4 +24,24 @@
 + [Solution](asgn01.md#)
 
 
+## Module 2: [Network Connectivity](02-Connectivity.md)
+
++ [Clustering Coefficient](02-Connectivity.md#)
++ [Distance Measures](02-Connectivity.md#)
++ [Connected Components](02-Connectivity.md#)
++ [Network Robustness](02-Connectivity.md#)
++ [Notebook: Simple Network Visualizations in NetworkX](02-Connectivity.md#)
++ [TA Demonstration: Simple Network Visualizations in NetworkX](02-Connectivity.md#)
++ [Quiz: Module 2 Quiz](02-Connectivity.md#)
+
+### [Module 2 Assignment](asgn02.md)
+
++ [Assignment Notebooks](asgn02.md#)
++ [Discussion Forum](asgn02.md#)
++ [Solution](asgn02.md#)
+
+
+
+
+
 
