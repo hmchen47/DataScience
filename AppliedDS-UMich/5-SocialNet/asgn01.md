@@ -207,6 +207,117 @@
 
 ## Solution
 
++ Q1: Using NetworkX, load in the bipartite graph from `Employee_Movie_Choices.txt` and return that graph.
+
+    ```python
+    def answer_one(debug=False):
+
+        # Your Code Here
+        df_G = pd.read_csv('Employee_Movie_Choices.txt', sep='\t')
+
+        G = nx.from_pandas_dataframe(df_G, '#Employee', 'Movie')
+
+        return G  # Your Answer Here
+
+    # answer_one(True)
+    # <networkx.classes.graph.Graph at 0x1e2dab3e518>
+    ```
+
++ Q2: Using the graph from the previous question, add nodes attributes named 'type' where movies have the value 'movie' and employees have the value 'employee' and return that graph.
+
+    ```python
+    def answer_two(debug=False):
+
+        # Your Code Here
+        G = answer_one()
+
+        for node in G.nodes():
+            if node in employees:
+                G.add_node(node, type='employee')
+            elif node in movies:
+                G.add_node(node, type='movie')
+            else:
+                print("Unknow node type: {}".format(node))
+                return None
+
+        return G     # Your Answer Here
+
+    # answer_two(True).nodes(data=True)
+
+    # [('Andy', {'type': 'employee'}),
+    #  ('Anaconda', {'type': 'movie'}),
+    #  ('Mean Girls', {'type': 'movie'}),
+    #  ('The Matrix', {'type': 'movie'}),
+    #  ('Claude', {'type': 'employee'}),
+    #  ('Monty Python and the Holy Grail', {'type': 'movie'}),
+    #  ('Snakes on a Plane', {'type': 'movie'}),
+    #  ('Frida', {'type': 'employee'}),
+    #  ('The Shawshank Redemption', {'type': 'movie'}),
+    #  ('The Social Network', {'type': 'movie'}),
+    #  ('Georgia', {'type': 'employee'}),
+    #  ('Joan', {'type': 'employee'}),
+    #  ('Forrest Gump', {'type': 'movie'}),
+    #  ('Kung Fu Panda', {'type': 'movie'}),
+    #  ('Lee', {'type': 'employee'}),
+    #  ('Pablo', {'type': 'employee'}),
+    #  ('The Dark Knight', {'type': 'movie'}),
+    #  ('Vincent', {'type': 'employee'}),
+    #  ('The Godfather', {'type': 'movie'})]
+    ```
+
++ Q3: Find a weighted projection of the graph from `answer_two` which tells us how many movies different pairs of employees have in common.
+
+    ```python
+    def answer_three(debug=False):
+
+        # Your Code Here
+        P = bipartite.weighted_projected_graph(answer_two(), employees)
+
+        return P   # Your Answer Here
+
+    answer_three(True).edges(data=True)
+
+    # [('Vincent', 'Frida', {'weight': 2}),
+    #  ('Vincent', 'Pablo', {'weight': 1}),
+    #  ('Claude', 'Georgia', {'weight': 3}),
+    #  ('Claude', 'Andy', {'weight': 1}),
+    #  ('Joan', 'Andy', {'weight': 1}),
+    #  ('Joan', 'Lee', {'weight': 3}),
+    #  ('Lee', 'Andy', {'weight': 1}),
+    #  ('Pablo', 'Frida', {'weight': 2}),
+    #  ('Pablo', 'Andy', {'weight': 1}),
+    #  ('Frida', 'Andy', {'weight': 1}),
+    #  ('Georgia', 'Andy', {'weight': 1})]
+    ```
+
++ Q4: Find the Pearson correlation ( using DataFrame.corr() ) between employee relationship scores and the number of movies they have in common. If two employees have no movies in common it should be treated as a 0, not a missing value, and should be included in the correlation calculation.
+
+    ```python
+    def answer_four():
+
+        def common_movies(row):
+            for e1, e2, weight in P.edges(data=True):
+                if e1 > e2:
+                    e1, e2 = e2, e1
+                if (e1 == row['Employee1']) & (e2 == row['Employee2']):
+                    return weight['weight']
+            return 0
+                
+        # Your Code Here
+        P = answer_three()
+        
+        df_ER = pd.read_csv('Employee_Relationships.txt', sep='\t', 
+                            header=None, names=['Employee1', 'Employee2', 'Score'])
+        
+        df_ER_Movie = df_ER
+        df_ER_Movie['Common'] = df_ER_Movie.apply(common_movies, axis=1)
+        
+        return df_ER_Movie['Score'].corr(df_ER_Movie['Common'])    # Your Answer Here
+
+    answer_four()
+
+    # 0.78839622217334748
+    ```
 
 
 
