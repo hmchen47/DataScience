@@ -117,6 +117,7 @@ from networksx.algorithms import bipartie
 |`nx.MultiDiGraph(data=None, **attr)` | A directed graph class that can store multiedges | [Classes][001] |
 
 
+
 ## Common APIs
 
 | API | Description | links |
@@ -157,6 +158,11 @@ from networksx.algorithms import bipartie
 | `nx.is_weakly_connected(G)` | Test directed graph for weak connectivity | [Connected Components][006] |
 | `nx.strongly_connected_components(G)` | Generate nodes in strongly connected components of graph | [Connected Components][006] |
 | `nx.weakly_connected_components(G)` | Generate weakly connected components of G | [Connected Components][006] |
+| `nx.node_connectivity(G, *args)` | Returns node connectivity for a graph or digraph G | [Robustness][007] |
+| `nx.minimum_node_cut(G, *args)` | Returns a set of nodes of minimum cardinality that disconnects G | [Robustness][007] |
+| `nx.edge_connectivity(G, *args)` | Returns the edge connectivity of the graph or digraph G | [Robustness][007] |
+| `nx.minimum_edge_cut(G, *args)` | Returns a set of edges of minimum cardinality that disconnects G | [Robustness][007] |
+| `nx.all_simple_paths(G, source, target, cutoff=None)` | Generate all simple paths in the graph G from source to target | [Robustness][007] |
 
 
 
@@ -177,11 +183,7 @@ from networksx.algorithms import bipartie
 
 -----------------------------------------------
 <--
-[004]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#clustering-coefficient
-[005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#distance-measures
-[006]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
-[007]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
-[008]: 
+[008]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
 [009]: 
 [010]: 
 [011]: 
@@ -279,3 +281,7 @@ from networksx.algorithms import bipartie
 [001]: ../AppliedDS-UMich/5-SocialNet/01-basicNetX.md#classes
 [002]: ../AppliedDS-UMich/5-SocialNet/01-basicNetX.md#common-classes
 [003]: ../AppliedDS-UMich/5-SocialNet/01-basicNetX.md#bipartities-algorithm
+[004]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#clustering-coefficient
+[005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#distance-measures
+[006]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#connected-componnets
+[007]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#network-robustness

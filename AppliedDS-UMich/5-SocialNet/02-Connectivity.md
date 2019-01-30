@@ -706,6 +706,68 @@
     + Graphs with large node and edge connectivity are more robust to the loss of nodes and edges.
 
 
++ `nx.node-connectivity` function
+    + Signature: `nx.node_connectivity(G, s=None, t=None, flow_func=None)`
+    + Docstring: Returns node connectivity for a graph or digraph G.
+    + Note: Node connectivity is equal to the minimum number of nodes that must be removed to disconnect G or render it trivial. If source and target nodes are provided, this function returns the local node connectivity: the minimum number of nodes that must be removed to break all paths from source to target in G.
+    + Parameters
+        + `G` (NetworkX graph): Undirected graph
+        + `s` (node): Source node. Optional. Default value: None.
+        + `t` (node): Target node. Optional. Default value: None.
+        + `flow_func` (function): A function for computing the maximum flow among a pair of nodes. The function has to accept at least three parameters: a Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see `maximum_flow` for details). If flow_func is None, the default maximum flow function (`edmonds_karp`) is used. See below for details. The choice of the default function may change from version to version and should not be relied on. Default value: None.
+    + Returns: `K` (integer): Node connectivity of G, or local node connectivity if source and target are provided.
+
++ `nx.minimum_node_cut` function
+    + Signature: `nx.minimum_node_cut(G, s=None, t=None, flow_func=None)`
+    + Docstring: Returns a set of nodes of minimum cardinality that disconnects G.
+    + Notes:
+        + If source and target nodes are provided, this function returns the set of nodes of minimum cardinality that, if removed, would destroy all paths among source and target in G. If not, it returns a set of nodes of minimum cardinality that disconnects G.
+        + This is a flow based implementation of minimum node cut. The algorithm is based in solving a number of maximum flow computations to determine the capacity of the minimum cut on an auxiliary directed network that corresponds to the minimum node cut of G. It handles both directed and undirected graphs. This implementation is based on algorithm 11 in Ref.
+    + Parameters
+        + `G`: NetworkX graph
+        + `s` (node): Source node. Optional. Default value: None.
+        + `t` (node): Target node. Optional. Default value: None.
+        + `flow_func` (function): A function for computing the maximum flow among a pair of nodes. The function has to accept at least three parameters: a Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see `maximum_flow` for details). If flow_func is None, the default maximum flow function (`edmonds_karp`) is used. See below for details. The choice of the default function may change from version to version and should not be relied on. Default value: None.
+    + Returns: `cutset` (set): Set of nodes that, if removed, would disconnect G. If source and target nodes are provided, the set contians the nodes that if removed, would destroy all paths between source and target.
+    + Reference: Abdol-Hossein Esfahanian. [Connectivity Algorithms](http://www.cse.msu.edu/~cse835/Papers/Graph_connectivity_revised.pdf).
+
++ `nx.edge_connectivity` function
+    + Signature: `nx.edge_connectivity(G, s=None, t=None, flow_func=None)`
+    + Docstring: Returns the edge connectivity of the graph or digraph G.
+    + Notes: 
+        + The edge connectivity is equal to the minimum number of edges that must be removed to disconnect G or render it trivial. If source and target nodes are provided, this function returns the local edge connectivity: the minimum number of edges that must be removed to break all paths from source to target in G.
+    + Parameters
+        + `G` (NetworkX graph): Undirected or directed graph
+        + `s` (node): Source node. Optional. Default value: None.
+        + `t` (node): Target node. Optional. Default value: None.
+        + `flow_func` (function): A function for computing the maximum flow among a pair of nodes. The function has to accept at least three parameters: a Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see `maximum_flow` for details). If flow_func is None, the default maximum flow function (`edmonds_karp`) is used. See below for details. The choice of the default function may change from version to version and should not be relied on. Default value: None.
+    + Returns: `K` (integer): Edge connectivity for G, or local edge connectivity if source and target were provided
+
++ `nx.minimum_edge_cut` function
+    + Signature: `nx.minimum_edge_cut(G, s=None, t=None, flow_func=None)`
+    + Docstring: Returns a set of edges of minimum cardinality that disconnects G.
+    Notes: 
+        + If source and target nodes are provided, this function returns the set of edges of minimum cardinality that, if removed, would break all paths among source and target in G. If not, it returns a set of edges of minimum cardinality that disconnects G.
+        + This is a flow based implementation of minimum edge cut. For undirected graphs the algorithm works by finding a 'small' dominating set of nodes of G (see algorithm 7 in Ref) and computing the maximum flow between an arbitrary node in the dominating set and the rest of nodes in it. This is an implementation of algorithm 6 in Ref. For  directed graphs, the algorithm does n calls to the max flow function. It is an implementation of algorithm 8 in Ref.
+    + Parameters
+        + `G`: NetworkX graph
+        + `s` (node): Source node. Optional. Default value: None.
+        + `t` (node): Target node. Optional. Default value: None.
+        + `flow_func` (function): A function for computing the maximum flow among a pair of nodes. The function has to accept at least three parameters: a Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see `maximum_flow` for details). If flow_func is None, the default maximum flow function (`edmonds_karp`) is used. See below for details. The choice of the default function may change from version to version and should not be relied on. Default value: None.
+    + Returns: `cutset` (set): Set of edges that, if removed, would disconnect G. If source and target nodes are provided, the set contians the edges that if removed, would destroy all paths between source and target.
+    + References: Abdol-Hossein Esfahanian. [Connectivity Algorithms](http://www.cse.msu.edu/~cse835/Papers/Graph_connectivity_revised.pdf).
+
++ `nx.all_simpla_paths` function
+    + Signature: `nx.all_simple_paths(G, source, target, cutoff=None)`
+    + Docstring: Generate all simple paths in the graph G from source to target. A simple path is a path with no repeated nodes.
+    + Parameters
+        + `G`: NetworkX graph
+        + `source` (node): Starting node for path
+        + `target` (node): Ending node for path
+        + `cutoff` (integer, optional): Depth to stop the search. Only paths of length <= cutoff are returned.
+    + Returns: `path_generator` (generator): A generator that produces lists of simple paths.  If there are no paths between the source and target within the given cutoff the generator produces no output.
+
+
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/AyOH_HxEEee4vAqXrrsRwg.processed/full/360p/index.mp4?Expires=1548979200&Signature=JvS9X8bemp6uXc7Sxog~2T153JNq-x4IeH1NmW7Sw16KqhxGqdt6YxELnBJJpXGxlSzgqR2Z0KonaY6ltFSYlZmqMNWwRJsD34r6~VtKTO8~LuNIQHJv4lPgKY1oGDC0KaT~3N-ID9-pUvgcamliiQPTpQCAqDEpSHbGAihm0tA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Network Robustness" target="_blank">
