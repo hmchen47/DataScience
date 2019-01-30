@@ -125,9 +125,9 @@
     + Which nodes are “closest” and “farthest” to other nodes?
     + We need a sense of distance between nodes to answer these questions
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/2/"> <br/>
-        <img src="https://lh3.googleusercontent.com/4Ux0yK97oXdtmwr9he1a3l4a_-baBRGknIrMXZrgem9kC0SchN9q4b2d1W1g9XwKGWnZ7MQKvE8J6jlFr0Lil1EeKkOJOeC5D-qLOmXHjya7BgG2Cz-YeV5yuO1oYR1f8x41Z_jVsw=w2400" alt="text" title="Example graph for distance" height="200">
-        <img src="images/m2-05.png" alt="text" title="Graph for path definition" height="200">
-        <img src="images/m2-06.png" alt="text" title="Graph for Distance calculation" height="200">
+        <img src="https://lh3.googleusercontent.com/4Ux0yK97oXdtmwr9he1a3l4a_-baBRGknIrMXZrgem9kC0SchN9q4b2d1W1g9XwKGWnZ7MQKvE8J6jlFr0Lil1EeKkOJOeC5D-qLOmXHjya7BgG2Cz-YeV5yuO1oYR1f8x41Z_jVsw=w2400" alt="So for example in this network that you see here how far is node A from node H? Or we'd like to know, for example, are some nodes far away from each other and other nodes close to each other in general in this network? And if so, which nodes are closest and which nodes are the furthest away from each other in the network? To answer all these questions, we need to develop a concept of distance between nodes. And that's what we're going to do in this video today. " title="Example graph for distance" height="200">
+        <img src="images/m2-05.png" alt="the first concept we need is the concept of a path. A path is simply a sequence of nodes that are connected by an edge. So for example, we can find paths that go from the node G to the node C. Here's the path G-F-C. And you can find different paths so for example here's the path G-F-E-C." title="Graph for path definition" height="200">
+        <img src="images/m2-06.png" alt="And to define the distance between two nodes, we're going to define it to be the length of the shortest possible path between the two nodes. So going back to the question of what is the distance between node A to node H, the answer is four, because the shortest path between A and H has four hops or has length 4. In network X, you can use the function shortest_path to find a distance from any node to any other node. So here in this example finding the distance between node A and H in the graph G which is the graph that you see here. And so here you get the shortest path between A and H. If you're interested in just the length of this path then you can use the function shortest_path_length, and this gives you the length of this path which is four." title="Graph for Distance calculation" height="200">
     </a>
 
 + Paths
@@ -149,7 +149,7 @@
         ```python
         nx.shortest_path(G, 'A', 'H')
         # ['A', 'B', 'C', 'E', 'H']
-        
+
         nx.shortest_path_length(G, 'A', 'H')
         # 4
         ```
@@ -159,14 +159,14 @@
 + Breadth-First Search
     + __Breadth-first search__: a systematic and efficient procedure for computing distances from a node to all other nodes in a large network by “discovering” nodes in layers.
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/2/"> <br/>
-        <img src="https://lh3.googleusercontent.com/xujB_jNGOn4bT9MpgY11o5VmvkBGixBHohBAQQtvGpNJ49uGz0lPEmpa_opT968hTt8jUtNbCF9wRraOo4zKge4h5IQkrn-iUFoZyjrYkInMow7ntPd6l_IRDHiwi_lQj4HSR5bAEg=w2400" alt="text" title="Breadth-First Search" height="250">
+        <img src="https://lh3.googleusercontent.com/xujB_jNGOn4bT9MpgY11o5VmvkBGixBHohBAQQtvGpNJ49uGz0lPEmpa_opT968hTt8jUtNbCF9wRraOo4zKge4h5IQkrn-iUFoZyjrYkInMow7ntPd6l_IRDHiwi_lQj4HSR5bAEg=w2400" alt="Example of how breadth-first search works. So here we have the network and we're interested in figuring out the distance from node A to all the other nodes in the network. So what we're going to do is we're going to start at A and we're going to start discovering new nodes as we kind of walk through this network. And we're going to be writing down all the nodes that we discover. So we start at A and we sort of process the node A by looking at who is connected to A. In this case, K and B are connected to A and so those are going to be a distance one away because they're the shortest path from each one of those nodes to A it's just one hop, right? A path of length one. Okay, so now we're going to process each one of the newly discovered nodes and ask which nodes are connected to this newly discovered node that we haven't discovered yet? And those nodes are going to be assigned to the next layer. So let's say we process node B. Node B is connected to K, A and C. But we've already discovered nodes A and K, so the only node that we discover here is node C. Now we're going to process node K, and node K is connected to node A and B, but we've already discovered both of those. So the only newly discovered node is node C and it's a distance two away from A. Now we process node C which is connected to B, F, and E. And here we've already discovered B so the only two nodes that we discover are F and E and those are a distance three away from A. Okay, now we're going to process node E. Okay, node E has five connections and out of those five, C and F we already discovered. So the only new ones are the other three which are D, I and H. So we assign those to the next layer. Now we process node F which is connected to three nodes G, C and E. But the only one we haven't discovered yet out of all those is G so I want this to get assigned to the next layer. And all of those nodes are a distance four away from A. Okay, now we have to process each one of those newly discovered nodes. And by now you can see that we're already almost done here. So let's process node D which is only connected to E. But we've already discovered E so D does not discover any new nodes. Now let's go with I. I is connected to E and J. And we haven't discovered J yet, so this one it's assigned to the next layer. Next we process H which is only connected to E but we already discovered E. And finally, we process G which is connected to F which you've already discovered. So, J is a distance five away. " title="Breadth-First Search" height="250">
     </a>
         ```python
         T = nx.bfs_tree(G, 'A')
-        
+
         T.edges()
         # [('A', 'K'), ('A', 'B'), ('B', 'C'), ('C', 'E'), ('C', 'F'), ('E', 'I'), ('E', 'H'), ('E', 'D'), ('F', 'G'), ('I', 'J')]
-        
+
         nx.shortest_path_length(G,'A')
         # {'A': 0, 'B': 1, 'C': 2, 'D': 4, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 1}
         ```
@@ -198,6 +198,28 @@
         ```python
         nx.center(G)        # ['C', 'E', 'F']
         ```
+    + IVQ: 
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/SeNEl/distance-measures"> <br/>
+            <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/2g5_LX6rEeef4BI7KaessA_aef80d415fc6b75dbafe7a0d75c0383f_Screen-Shot-2017-08-11-at-11.10.03-AM.png?expiry=1548979200000&hmac=RK0tsfWkbJxAn1DO73zp5baw2Mk97roMSHYIjvn__4o" alt="IVQ Graph for diameter" title="IVQ graph for diameter" height="200">
+        </a>
+
+        + What is the diameter of this network?
+
+            Ans: 3 <br/>
+            The longest distance between any two nodes is 3. For example, the distance from node A to C is 3 (path A-H-G-C). Hence, the diameter of the network is 3.
+        + What is the eccentricity of node F? 
+
+            Ans: 2
+            The distance from F to every other node is either 1 or 2. Hence the eccentricity of node F is 2.
+        + Which node is in the periphery of the network?
+
+            a. B
+            b. H
+            c. B & H
+            d. none of above
+
+            Ans: a
+            The diameter of the network is 3 and the distance from B to C is 3 (path B-D-G-C). Hence, node B is in the periphery. The maximum distance from node H to any other node is 2, so H is not in the periphery.
 
 + Karate Club Network
     ```python
@@ -205,7 +227,7 @@
     G = nx.convert_node_labels_to_integers(G,first_label=1)
     ```
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/SeNEl/distance-measures"> 
-        <img src="images/m2-07.png" alt="text" title="Friendship network in a 34-person karate club" height="200">
+        <img src="images/m2-07.png" alt="So, let's run an example in this using the Karate Club Network, which we had seen in a previous video. So, this is a network of friendship in a Karate Club. And as you may remember, the story here, is that node one is the instructor of the Karate Club, and this node 34 is an assistant, and they have some type of dispute, they're not friends with each other, and so the club actually splits into two groups, and sort of, this is the separation of the two groups. So one, this set of students on the left go with one of the instructors or with the assistant and the other ones go with the original instructor. So, if we take this network and apply the definitions about distances that we just covered, we can discover how far nodes are from each other and who's central and who's not. So, let's begin by loading up this network. This network is so famous that actually on network X you can simply load it by using the function karate club graph. So, that one returns this particular graph. Now, I'm converting the nodes labels to be integers, so that they match the figure I have here. So, that's what I'm doing with that command there, and then I could ask different questions about the network. So, in this case, the average shortest path between the nodes is about 2.41. The radius of the network is three, and the diameter is five. So, meaning there's a pair of nodes here, there are distance far away from each other and that's the largest that a distance can be. And then, we're going to ask who's at the center of this network? So, here the nodes are in the center, and here, I'm highlighting them in red. So, as you can see the instructor is in the center and all the other nodes are in the center also connected to the instructor, and they also tend to have high degrees, so they are easily connected to many other high degree nodes, and they just have small distances from them to all the other nodes in the network. Now, when you look at the periphery, these are the peripheral nodes, and I'm highlighting them here and in blue and as you can see, they're kind of on the outside, they tend to have small number of connections, and none of them are actually connected to the instructor. Now, you might look at this and say, okay, this make sense. But, for example, this node 34, was the assistant here, he seems pretty central. He's connected to a bunch of nodes, it seems like he could be close to all the other nodes in the graph as well. Why is 34 not showing up in the center? Well, it turns out that if you look carefully, node 34 has a distance four to node 17, right? To get from 34 to 17, you have to go 34, 32, 16, and 17, and so, it couldn't be in the center because the radius of the graph is three and this one has a node that is the distance four away from it. Now, it turns out that actually if this node 17 was just a bit closer, for example, if this node 17 was a distance three away from 34, then 34 would actually be in the center, because 34 is a distance at most three to every other node in the network. And so, this shows that this definition of center is pretty sensitive to just one node that happens to be far away." title="Friendship network in a 34-person karate club" height="200">
     </a>
 
     + Average shortest path = 2.41
