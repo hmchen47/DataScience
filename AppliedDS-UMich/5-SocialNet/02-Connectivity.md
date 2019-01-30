@@ -267,10 +267,11 @@
         nx.is_connected(G)      # True
         ```
         <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/2/"> 
-            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="text" title="caption" height="200">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="First, we're going to talk about connectivity in undirected graphs. Those are the ones where the edges don't have a direction. An undirected graph is said to be connected if for every pair of nodes, there is a path between the two nodes. We can use the function is_connected in network X and give it the undirected graph as input, and it will tell us whether the graph is connected or not. In this case, this example, this graph is connected so it says, true, it is connected. " title="Undirected connected graph" height="200">
+            <img src="images/m2-10.png" alt="However, if we were to remove a few of the edges, for example, if we remove A-G, A-N, and J-O, then the graph will become disconnected, as you can see. Now, we have these sort of three communities such that if you're in a particular community, you cannot find a path to a node in a different community, or in a different set of nodes. Let's try to get at this idea of communities in a more precise way. We're going to refer to these communities as connected components." title="Disconnected undirected graph: three communitities" height="200">
         </a>
     + However, if we remove edges A—G, A—N, and J—O, the graph becomes disconnected.
-    + There is no path between nodes in the three different “communities”. (all <b style="color:red">red line</b> removed)
+    + There is no path between nodes in the three different “communities”. (all <n style="color:red">red line</n> removed)
 
 + Connected Components
     + A subset of nodes such as:
@@ -286,9 +287,9 @@
 
         <n style="color:cyan">{A, B, C, D, E}, {F, G, H, I, J}, {K, L, M, N, O}</n>
     <a href="url"> <br/>
-        <img src="images/m2-08.png" alt="text" title="Fig. 1" height="200">
-        <img src="images/m2-09.png" alt="text" title="Fig. 2" height="200">
-        <img src="images/m2-10.png" alt="text" title="Fig. 3" height="200">
+        <img src="images/m2-08.png" alt="A connected component is a subset of nodes such that there are two conditions this set of nodes satisfy. First, every node in the subset has to have a path to every other node in the subset. That's condition number one. Condition number two would say that no other node outside of the subset has a path to any node inside the subset. So condition two kind of makes sure that you get all the nodes that you could possibly can so that every node in this subset has a connection to every other node in the subset, not a subset of the subset that you could potentially get. So let's see this through examples to make it more clear. Is the subset of nodes E, A, G, F a connected component? So first, let's find these nodes and so here they are. This is the subset of nodes we're referring to. And we can clearly see that this is not a connected component because the nodes, for example, A and F, cannot reach each other. There is no path going from A to F, so condition number one fails." title="Fig. 1: condition 1 failed" height="200">
+        <img src="images/m2-09.png" alt="Is the subset of nodes N, O, K a connected component? All right, these are the nodes. Now in this case, condition number one is actually met. There is a path from any node in N, O, K to any other node in N, O, K. For example, if you wanted to find a path from N to K, you would go N-O-K. However, condition number two fails because there are other nodes that can actually reach nodes in the subset. For example, L can actually reach N, O and K, there is a path from L to all three of those nodes. So therefore, this is not a connected component because condition number two fails. " title="Fig. 2: condition 2 failed" height="200">
+        <img src="images/m2-10.png" alt="the only things that satisfy the definition of connected component are the things that we originally started with. These three communities such that every node is connected within and no nodes are connected across. And these are the three connected components in this particular graph." title="Fig. 3" height="200">
     </a>
     ```python
     nx.number_connected_components(G)       # 3
@@ -309,12 +310,6 @@
         ```python
         nx.is_weakly_connected(G)       # True
         ```
-    <a href="url"> <br/>
-        <img src="images/m2-11.png" alt="text" title="Directed graph: strongly connected" height="200">
-        <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="text" title="Directed graph: weakly connected" height="200">
-        <img src="images/m2-12.png" alt="text" title="Directed graph: strongly connected component" height="200">
-        <img src="images/m2-13.png" alt="text" title="Directed graph: weakly connected component" height="200">
-    </a>
     + Strongly connected component:
         + A subset of nodes such as:
             1. Every node in the subset has a directed path to every other node.
@@ -331,6 +326,24 @@
             # [{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'}]
             ```
         + Since the graph is weakly connected it only has one weakly connected component.
+    <a href="url"> <br/>
+        <img src="images/m2-11.png" alt="The first type is we're going to say that a direct graph is strongly connected if for every pair of nodes, say U and V, there is a directed path that goes from U to V and another directed path that goes from V to U. That, if a directed graph has a has a property, then we say it's strongly connected. We can use the function is_strongly_connected in network X to ask whether this particular directed graph, G, is strongly connected and it would say false because if you look carefully, there is no path that goes from A to H, for example. There are many other examples of pairs of nodes for which there is no path, where here is one, there is no path from A to H, so therefore, this graph is not strongly connected. " title="Directed graph: strongly connected" height="200">
+        <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="The second definition for connected is weakly connected. And the way weakly connected works is that the first thing you do is you replace all the directed edges and you make them undirected. So every edge, you could sort of ignore the direction and you make him into a undirected edge, and now this graph becomes undirected. And now, you ask the question that you already applied to undirected graphs, is this graph connected or not? And if it is, then we say that the original directed graph is weakly connected. So in this case, if we use the function is_weakly_connected, network X would say yes, this graph is weakly connected because once you turn it into an undirected graph, this undirected graph is connected." title="Directed graph: weakly connected" height="200">
+        <img src="images/m2-12.png" alt="The first one is strongly connected components and the definition mirrors the definition for undirected. It's just that now, you have to find paths that are directed, so it would have the two conditions for a subset of nodes to be connected component are that every node in the subset has a directed path to every other node in this subset and that no node outside the subset has a directed path to and from every node inside the subset. And so in this case, what are the strongly connected components of this graph? It's actually not that easy to tell visually. It's a little tricky, though you could try to pause the video and try and see if you can find what they are. But if we use the function strongly_connected_components, it will tell us what they are. And in this case, it turns out that these are the strongly connected components. And so, as you can see, for example, you find that N, node M, and node L are in different components and that's because even though you can go from L to M, you cannot go from M to L, right? And same thing with, for example, H, I are sort of in their own component, and that's because while they can reach other nodes like G and J, none of those nodes seem that they can reach them. And so, these live in their own separate, strongly connected component." title="Directed graph: strongly connected component" height="200">
+        <img src="images/m2-13.png" alt="the weakly connected component version which works in the same way that it did before. So first, we would make all the directed edges undirected, and then we would find the connected components in the new undirected graph. Now, because this graph is weakly connected, that means that when you make all the direct edges undirected, it becomes a connected graph. Then this particular graph has only one weakly connected component, which is the whole graph." title="Directed graph: weakly connected component" height="200">
+    </a>
+    + IVQ: Based on the network shown, select the true statement.
+    <a href="url"> <br/>
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/R57iKH6zEeeZagqeZHXhXg_1f603698c9374c9f3fb2c46963cd4b21_Screen-Shot-2017-08-11-at-12.36.40-PM.png?expiry=1548979200000&hmac=4eH7eX4yClS6scpCQ5W0bhmbMzt7ZNgU-4XbkPgHJKE" alt="text" title="IVQ graph: connectde components" height="200">
+    </a>
+
+        a. The network is weakly connected and strongly connected.
+        b. The network is weakly connected but not strongly connected.
+        c. The network is not weakly connected but it is strongly connected
+        d. The network is neither strongly nor weakly connected.
+
+        Ans: b
+        The network is not strongly connected since some pairs of nodes do not have a path connecting them. For example, there is no path from node C to node D. However, the network is weakly connected because replacing all directed edges with undirected edges produces a connected undirected graph.
 
 + Summary
     + Undirected Graphs
