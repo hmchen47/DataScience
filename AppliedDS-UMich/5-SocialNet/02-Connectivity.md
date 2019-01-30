@@ -261,16 +261,90 @@
 
 ### Lecture Note
 
++ Connected Graphs
+    + An undirected graph is __connected__ if, for every pair nodes, there is a path between them.
+        ```python
+        nx.is_connected(G)      # True
+        ```
+        <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/2/"> 
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="text" title="caption" height="200">
+        </a>
+    + However, if we remove edges A—G, A—N, and J—O, the graph becomes disconnected.
+    + There is no path between nodes in the three different “communities”. (all <b style="color:red">red line</b> removed)
 
++ Connected Components
+    + A subset of nodes such as:
+        1. Every node in the subset has a path to every other node.
+        2. No other node has a path to any node in the subset.
+    + Is the subset {E, A, G, F} a connected component? (Fig.1)
 
-+ Demonstration
+        <n style="color:cyan">No, there is no path between nodes A and F.</n>
+    + Is the subset {N, O, K} a connected component? (Fig. 2)
+
+        <n style="color:cyan">No, node L has a path to N, O, and K.</n>
+    + What are the connected components in this graph?
+
+        <n style="color:cyan">{A, B, C, D, E}, {F, G, H, I, J}, {K, L, M, N, O}</n>
+    <a href="url"> <br/>
+        <img src="images/m2-08.png" alt="text" title="Fig. 1" height="200">
+        <img src="images/m2-09.png" alt="text" title="Fig. 2" height="200">
+        <img src="images/m2-10.png" alt="text" title="Fig. 3" height="200">
+    </a>
     ```python
+    nx.number_connected_components(G)       # 3
 
+    sorted(nx.connected_components(G))
+    # [{'A', 'B', 'C', 'D', 'E'}, {'F', 'G', 'H', 'I', 'J'}, {'K', 'L', 'M', 'N', 'O'}]
+
+    nx.node_connected_component(G, 'M')     # {'K', 'L', 'M', 'N', 'O'}
     ```
+
++ Connectivity in Directed Graphs
+    + A directed graph is __strongly connected__ if, for every pair nodes `u` and `v`, there is a directed path from u to v and a directed path from `v` to `u`.
+        ```python
+        nx.is_strongly_connected(G)     # False
+        ```
+        + Note: There is no directed path from A to H
+    + A directed graph is __weakly connected__ if replacing all directed edges with undirected edges produces a connected undirected graph.
+        ```python
+        nx.is_weakly_connected(G)       # True
+        ```
+    <a href="url"> <br/>
+        <img src="images/m2-11.png" alt="text" title="Directed graph: strongly connected" height="200">
+        <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="text" title="Directed graph: weakly connected" height="200">
+        <img src="images/m2-12.png" alt="text" title="Directed graph: strongly connected component" height="200">
+        <img src="images/m2-13.png" alt="text" title="Directed graph: weakly connected component" height="200">
+    </a>
+    + Strongly connected component:
+        + A subset of nodes such as:
+            1. Every node in the subset has a directed path to every other node.
+            2. No other node has a directed path to every node in the subset.
+        + What are the strongly connected components in this graph?
+            ```python
+            sorted(nx.strongly_connected_components(G))
+            # [{M}, {L}, {K}, {A, B, C, D, E, F, G, J, N, O}, {H, I}]
+            ```
+    + Weakly connected component:
+        + The connected components of the graph after replacing all directed edges with undirected edges.
+            ```python
+            sorted(nx.weakly_connected_components(G))
+            # [{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'}]
+            ```
+        + Since the graph is weakly connected it only has one weakly connected component.
+
++ Summary
+    + Undirected Graphs
+        + __Connected__: for every pair nodes, there is a path between them.
+        + __Connected components__: `nx.connected_components(G)`
+    + Directed Graphs
+        + __Strongly connected__: for every pair nodes, there is a _directed_ path between them.
+        + __Strongly connected components__: `nx.strongly_connected_components(G))`
+
+
 
 ### Lecture Video
 
-<a href="url" alt="Connected Components" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/bR_sUZTLEeeOmgqEJWRlfA.processed/full/360p/index.mp4?Expires=1548979200&Signature=exHWZnjL8bx7tbqlLDE8lP-fX2A4BX1HxZ~znRNsdjaOM5HAvlv3cQWsUCkewRiGzWTab4yreP05TAlEtICOnMm14X25NiYSMwSbePnMEfwTaBEzw6PUl8M-vgQ~2daK9him9sdO8RHgG30fVv8Azf7hNhOtxuLIeHdQbK~yBZI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Connected Components" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
