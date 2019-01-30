@@ -135,6 +135,11 @@ from networksx.algorithms import bipartie
 | `nx.Graph.is_directed()` | Return True if graph is directed, False otherwise | [API][002] |
 | `nx.Graph.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [API][002] |
 | `nx.Graph.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [API][002] |
+| `nx.clustering(G, nodes=None, weight=None)` | Compute the clustering coefficient for nodes | [Clustering][004] |
+| `nx.average_clustering(G, *args)` | Compute the average clustering coefficient for the graph G | [Clustering][004] |
+| `nx.transitivity(G)` | Compute graph transitivity, the fraction of all possible triangles  present in G | [Clustering][004] |
+
+
 
 ## Bipartite APIS
 
@@ -150,12 +155,13 @@ from networksx.algorithms import bipartie
 
 
 
+
 -----------------------------------------------
 <--
-[004]: 
-[005]: 
-[006]: 
-[007]: 
+[004]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#clustering-coefficient
+[005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
+[006]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
+[007]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
 [008]: 
 [009]: 
 [010]: 

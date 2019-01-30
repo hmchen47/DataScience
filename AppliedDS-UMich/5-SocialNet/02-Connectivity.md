@@ -60,7 +60,7 @@
         nx.clustering(G, 'J')
         # 0.0
         ```
-    + IVQ: What is the clustering coefficent of node H? Scroll down to see all answer options
+    + IVQ: What is the clustering coefficient of node H? Scroll down to see all answer options
         <a href="url"> <br/>
             <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/Qi1pVX6nEeenPwquAsH1BA_de80dbed2e1ebc9cb9bbb2745d0c905a_Screen-Shot-2017-08-11-at-11.10.03-AM.png?expiry=1548892800000&hmac=eMxgJUcYHvLy7qufLMNt9LRXdv0Cr3AJM0qYRcFqNvw" alt="IVQ diagram" title="Graph to compute local clustering coefficient" height="200">
         </a>
@@ -105,6 +105,58 @@
             + Ratio of number of triangles and number of “open triads”.
             + Puts larger weight on high degree nodes.
             + `nx.transitivity(G)`
+
++ `nx.clustering` function
+    + Signature: `nx.clustering(G, nodes=None, weight=None)`
+    + Docstring: Compute the clustering coefficient for nodes.
+    + Notes:
+        + For unweighted graphs, the clustering of a node `u` is the fraction of possible triangles through that node that exist,
+
+            $$c_u = \frac{2 T(u)}{deg(u)(deg(u)-1)}$$
+            + $T(u)$: the number of triangles through node `u`
+            + $deg(u)$: the degree of `u`.
+        + For weighted graphs, the clustering is defined as the geometric average of the subgraph edge weights,
+
+            $$c_u = \frac{1}{deg(u)(deg(u)-1))} \sum_{uv} (\hat{w}_{uv} \hat{w}_{uw} \hat{w}_{vw})^{1/3}.$$
+        + The edge weights $\hat{w}_{uv}$ are normalized by the maximum weight in the network $\hat{w}_{uv} = w_{uv}/\max(w)$.
+        + The value of $c_u$ is assigned to 0 if $deg(u) < 2$.
+    + Parameters
+        + `G` (graph): 
+        + `nodes` (container of nodes, optional (default=all nodes in G)): Compute clustering for nodes in this container.
+        + `weight` (string or None, optional (default=None)): The edge attribute that holds the numerical value used as a weight. If None, then each edge has weight 1.
+    + Returns" `out` (float, or dictionary): Clustering coefficient at specified nodes
+    + Ref: [Generalizations of the clustering coefficient to weighted complex networks](http://jponnela.com/web_documents/a9.pdf) by J. Saramäki, M. Kivelä, J.-P. Onnela, K. Kaski, and J. Kertész, Physical Review E, 75 027105 (2007).
+
++ `nx.average_clustering` function
+    + Signature: `nx.average_clustering(G, nodes=None, weight=None, count_zeros=True)`
+    + Docstring: Compute the average clustering coefficient for the graph G.
+    + Notes: 
+        + The clustering coefficient for the graph is the average,
+
+            $$C = \frac{1}{n}\sum_{v \in G} c_v$$
+            + $n$: the number of nodes in `G`.
+        + This is a space saving routine; it might be faster to use the clustering function to get a list and then take the average.
+    + Parameters
+        + `G` (graph)
+        + `nodes` (container of nodes, optional (default=all nodes in G)): Compute average clustering for nodes in this container. 
+        + `weight` (string or None, optional (default=None)): The edge attribute that holds the numerical value used as a weight. If None, then each edge has weight 1.
+        + `count_zeros` (bool): If False include only the nodes with nonzero clustering in the average.
+    + Returns: `avg` (float): Average clustering
+    + Ref
+        + [Generalizations of the clustering coefficient to weighted complex networks](http://jponnela.com/web_documents/a9.pdf) by J. Saramäki, M. Kivelä, J.-P. Onnela, K. Kaski, and J. Kertész, Physical Review E, 75 027105 (2007).
+        + Marcus Kaiser,  [Mean clustering coefficients: the role of isolated nodes and leafs on clustering measures for small-world networks](http://arxiv.org/abs/0802.2512).
+
++ `nx.transivity` function
+    + Signature: `nx.transitivity(G)`
+    + Docstring: Compute graph transitivity, the fraction of all possible triangles  present in G.
+    + Notes: 
+        + Possible triangles are identified by the number of "triads" (two edges with a shared vertex).
+        + The transitivity is
+
+            $$T = 3\frac{\#triangles}{\#triads}$$
+    + Parameters
+        + `G` : graph
+    + Returns: `out` (float): Transitivity
 
 
 
@@ -491,20 +543,88 @@
 
 ## Notebook: Simple Network Visualizations in NetworkX
 
-### Lecture Note
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
 
+# read in the graph 
+G = nx.read_gpickle('major_us_cities')
 
+# draw the graph using the default spring layout
+plt.figure(figsize=(10,9))
+nx.draw_networkx(G)         # Fig.1
 
-+ Demonstration
-    ```python
+# See what layouts are available in networkX
+[x for x in nx.__dir__() if x.endswith('_layout')]
 
-    ```
+# Draw the graph using the random layout
+plt.figure(figsize=(10,9))
+pos = nx.random_layout(G)
+nx.draw_networkx(G, pos)    # Fig.2
 
-### Lecture Video
+# Draw the graph using the circular layout
+plt.figure(figsize=(10,9))
+pos = nx.circular_layout(G)
+nx.draw_networkx(G, pos)    # Fig.3
 
-<a href="url" alt="text" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
+# Draw the graph using custom node positions
+plt.figure(figsize=(10,7))
+
+pos = nx.get_node_attributes(G, 'location')
+nx.draw_networkx(G, pos)    # Fig.4
+
+# Draw the graph adding alpha, removing labels, and softening edge color
+plt.figure(figsize=(10,7))
+
+nx.draw_networkx(G, pos, alpha=0.7, with_labels=False, edge_color='.4') # Fig.5
+
+plt.axis('off')
+plt.tight_layout();
+
+# Draw graph with varying node color, node size, and edge width
+plt.figur(figsize=(10,7))
+
+node_color = [G.degree(v) for v in G]
+node_size = [0.0005*nx.get_node_attributes(G, 'population')[v] for v in G]
+edge_width = [0.0015*G[u][v]['weight'] for u,v in G.edges()]
+
+nx.draw_networkx(G, pos, node_size=node_size, 
+                 node_color=node_color, alpha=0.7, with_labels=False,
+                 width=edge_width, edge_color='.4', cmap=plt.cm.Blues)  # Fig.6
+
+plt.axis('off')
+plt.tight_layout();
+
+# Draw specific edges and add labels to specific nodes
+plt.figure(figsize=(10,7))
+
+node_color = [G.degree(v) for v in G]
+node_size = [0.0005*nx.get_node_attributes(G, 'population')[v] for v in G]
+edge_width = [0.0015*G[u][v]['weight'] for u,v in G.edges()]
+
+nx.draw_networkx(G, pos, node_size=node_size, 
+                 node_color=node_color, alpha=0.7, with_labels=False,
+                 width=edge_width, edge_color='.4', cmap=plt.cm.Blues)  # Fig.7
+
+greater_than_770 = [x for x in G.edges(data=True) if x[2]['weight']>770]
+nx.draw_networkx_edges(G, pos, edgelist=greater_than_770, edge_color='r', alpha=0.4, width=6)
+
+nx.draw_networkx_labels(G, pos, labels={'Los Angeles, CA': 'LA', 'New York, NY': 'NYC'}, font_size=18, font_color='w')
+
+plt.axis('off')
+plt.tight_layout();
+```
+
+<a href="url"> <br/>
+    <img src="images/m2-g01.png" alt="text" title="Fig.1: " height="250">
+    <img src="images/m2-g02.png" alt="text" title="Fig.2: " height="250">
+    <img src="images/m2-g03.png" alt="text" title="Fig.3: " height="250"><br/>
+    <img src="images/m2-g04.png" alt="text" title="Fig.4: " height="250">
+    <img src="images/m2-g05.png" alt="text" title="Fig.5: " height="250"><br/>
+    <img src="images/m2-g06.png" alt="text" title="Fig.6: " height="250">
+    <img src="images/m2-g07.png" alt="text" title="Fig.7: " height="250">
 </a>
+
 
 
 ## TA Demonstration: Simple Network Visualizations in NetworkX
