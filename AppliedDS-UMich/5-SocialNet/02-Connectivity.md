@@ -121,7 +121,7 @@
         + The edge weights $\hat{w}_{uv}$ are normalized by the maximum weight in the network $\hat{w}_{uv} = w_{uv}/\max(w)$.
         + The value of $c_u$ is assigned to 0 if $deg(u) < 2$.
     + Parameters
-        + `G` (graph): 
+        + `G`: graph
         + `nodes` (container of nodes, optional (default=all nodes in G)): Compute clustering for nodes in this container.
         + `weight` (string or None, optional (default=None)): The edge attribute that holds the numerical value used as a weight. If None, then each edge has weight 1.
     + Returns" `out` (float, or dictionary): Clustering coefficient at specified nodes
@@ -137,7 +137,7 @@
             + $n$: the number of nodes in `G`.
         + This is a space saving routine; it might be faster to use the clustering function to get a list and then take the average.
     + Parameters
-        + `G` (graph)
+        + `G`: graph
         + `nodes` (container of nodes, optional (default=all nodes in G)): Compute average clustering for nodes in this container. 
         + `weight` (string or None, optional (default=None)): The edge attribute that holds the numerical value used as a weight. If None, then each edge has weight 1.
         + `count_zeros` (bool): If False include only the nodes with nonzero clustering in the average.
@@ -155,9 +155,8 @@
 
             $$T = 3\frac{\#triangles}{\#triads}$$
     + Parameters
-        + `G` : graph
+        + `G`: graph
     + Returns: `out` (float): Transitivity
-
 
 
 ### Lecture Video
@@ -300,6 +299,129 @@
     + Identifying central and peripheral nodes:
         + The __Periphery__ is the set of nodes with eccentricity = diameter.
         + The __center__ is the set of nodes with eccentricity = radius.
+
++ `nx.shortest_path` function
+    + Signature: `nx.shortest_path(G, source=None, target=None, weight=None)`
+    + Docstring: Compute shortest paths in the graph.
+    + Parameters
+        + `G` : NetworkX graph
+        + `source` (node, optional): Starting node for path. If not specified, compute shortest paths using all nodes as source nodes.
+        + `target` (node, optional): Ending node for path. If not specified, compute shortest paths using all nodes as target nodes.
+        + `weight` (None or string, optional (default = None)):
+            + If None, every edge has weight/distance/cost 1.
+            + If a string, use this edge attribute as the edge weight.
+            + Any edge attribute not present defaults to 1.
+    + Returns: `path` (list or dictionary):
+        + All returned paths include both the source and target in the path.
+        + If the source and target are both specified, return a single list of nodes in a shortest path from the source to the target.
+        + If only the source is specified, return a dictionary keyed by targets with a list of nodes in a shortest path from the source to one of the targets.
+        + If only the target is specified, return a dictionary keyed by sources with a list of nodes in a shortest path from one of the sources to the target.
+        + If neither the source nor target are specified return a dictionary of dictionaries with `path[source][target]=[list of nodes in path]`.
+
++ `nx.shortest_path_length` function
+    + Signature: `nx.shortest_path_length(G, source=None, target=None, weight=None)`
+    + Docstring: Compute shortest path lengths in the graph.
+    + Parameters
+        + `G`: NetworkX graph
+        + `source` (node, optional): Starting node for path. If not specified, compute shortest path lengths using all nodes as source nodes.
+        + `target` (node, optional): Ending node for path. If not specified, compute shortest path lengths using all nodes as target nodes.
+        + `weight` (None or string, optional (default = None)): 
+            + If None, every edge has weight/distance/cost 1.
+            + If a string, use this edge attribute as the edge weight.
+            + Any edge attribute not present defaults to 1.
+    + Returns: `length` (int or dictionary)
+        + If the source and target are both specified, return the length of the shortest path from the source to the target.
+        + If only the source is specified, return a dictionary keyed by targets whose values are the lengths of the shortest path from the source to one of the targets.
+        + If only the target is specified, return a dictionary keyed by sources whose values are the lengths of the shortest path from one of the sources to the target.
+        + If neither the source nor target are specified return a dictionary of dictionaries with `path[source][target]=L`, where `L` is the length of the shortest path from source to target.
+
++ `nx_bfs_tree` function
+    + Signature: `nx.bfs_tree(G, source, reverse=False)`
+    + Docstring: Return an oriented tree constructed from of a breadth-first-search starting at source.
+    + Parameters
+        + `G` : NetworkX graph
+        + `source` (node): Specify starting node for breadth-first search and return edges in the component reachable from source.
+        + `reverse` (bool, optional): If True traverse a directed graph in the reverse direction
+    + Returns: `T` (NetworkX DiGraph): An oriented tree
+
++ `nx.average_shortest_path_length` function
+    + Signature: `nx.average_shortest_path_length(G, weight=None)`
+    + Docstring: Return the average shortest path length.
+    + Note: The average shortest path length is
+
+        $$a =\sum_{s,t \in V} \frac{d(s, t)}{n(n-1)}$$
+        + $V$: the set of nodes in `G`
+        + $d(s, t)$: the shortest path from `s` to `t`
+        + $n$: the number of nodes in `G`
+    + Parameters
+        + `G`: NetworkX graph
+        + `weight` (None or string, optional (default = None))
+            + If None, every edge has weight/distance/cost 1.
+            + If a string, use this edge attribute as the edge weight.
+            + Any edge attribute not present defaults to 1.
+
++ `nx.diameter` function
+    + Signature: `nx.diameter(G, e=None)`
+    + Docstring: Return the diameter of the graph G. The diameter is the maximum eccentricity.
+    + Parameters
+        + `G` (NetworkX graph): A graph
+        + `e` (eccentricity dictionary, optional): A precomputed dictionary of eccentricities.
+    + Returns: `d` (integer): Diameter of graph
+
++ `nx.eccentricity` function
+    + Signature: `nx.eccentricity(G, v=None, sp=None)`
+    + Docstring: Return the eccentricity of nodes in G. The eccentricity of a node v is the maximum distance from v to all other nodes in G.
+    + Parameters
+        + `G` (NetworkX graph): A graph
+        + `v` (node, optional): Return value of specified node
+        + `sp` (dict of dicts, optional): All pairs shortest path lengths as a dictionary of dictionaries
+    + Returns: `ecc` (dictionary): A dictionary of eccentricity values keyed by node.
+
++ `nx.radius` function
+    + Signature: `nx.radius(G, e=None)`
+    + Docstring: Return the radius of the graph G. The radius is the minimum eccentricity.
+    + Parameters
+        + `G` (NetworkX graph): A graph
+        + `e` (eccentricity dictionary, optional): A precomputed dictionary of eccentricities.
+    + Returns: `r` (integer): Radius of graph
+
++ `nx.periphery` function
+    + Signature: `nx.periphery(G, e=None)`
+    + Docstring: Return the periphery of the graph G. The periphery is the set of nodes with eccentricity equal to the diameter.
+    + Parameters
+        + `G` (NetworkX graph): A graph
+        + `e` (eccentricity dictionary, optional): A precomputed dictionary of eccentricities.
+    + Returns: `p` (list): List of nodes in periphery
+
++ `nx.center` function
+    + Signature: `nx.center(G, e=None)`
+    + Docstring: Return the center of the graph G. The center is the set of nodes with eccentricity equal to radius.
+    + Parameters
+        + `G` (NetworkX graph): A graph
+        + `e` (eccentricity dictionary, optional): A precomputed dictionary of eccentricities.
+    + Returns: `c` (list): List of nodes in center
+
++ `nx.karate_club_graph` function
+    + Signature: `nx.karate_club_graph()`
+    + Docstring: Return Zachary's Karate Club graph.
+    + Note:  Each node in the returned graph has a node attribute `'club'` that indicates the name of the club to which the member represented by that node belongs, either `'Mr. Hi'` or `'Officer'`.
+    + References
+        + Zachary, Wayne W. "An Information Flow Model for Conflict and Fission in Small Groups." Journal of Anthropological Research, 33, 452--473, (1977).
+        + [Data file](http://vlado.fmf.uni-lj.si/pub/networks/data/Ucinet/UciData.htm)
+
++ `nx.convert_node_labels_to_integers` function
+    + Signature: `nx.convert_node_labels_to_integers(G, first_label=0, ordering='default', label_attribute=None)`
+    + Docstring: Return a copy of the graph G with the nodes relabeled using consecutive integers.
+    + Parameters
+        + `G` (graph): A NetworkX graph
+        + `first_label` (int, optional (default=0)): An integer specifying the starting offset in numbering nodes. The new integer labels are numbered `first_label, ..., n-1+first_label`.
+        + `ordering` (string): 
+            + "default": inherit node ordering from G.nodes()
+            + "sorted": inherit node ordering from sorted(G.nodes())
+            + "increasing degree": nodes are sorted by increasing degree
+            + "decreasing degree": nodes are sorted by decreasing degree
+        + `label_attribute` (string, optional (default=None)): Name of node attribute to store old label.  If None no attribute is created.
+    + Notes: Node and edge attribute data are copied to the new (relabeled) graph.
 
 
 ### Lecture Video

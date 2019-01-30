@@ -138,6 +138,18 @@ from networksx.algorithms import bipartie
 | `nx.clustering(G, nodes=None, weight=None)` | Compute the clustering coefficient for nodes | [Clustering][004] |
 | `nx.average_clustering(G, *args)` | Compute the average clustering coefficient for the graph G | [Clustering][004] |
 | `nx.transitivity(G)` | Compute graph transitivity, the fraction of all possible triangles  present in G | [Clustering][004] |
+| `nx.shortest_path(G, *args)` | Compute shortest paths in the graph | [Dist Measure][005] |
+| `nx.shortest_path_length(G, *args)` | Compute shortest path lengths in the graph | [Dist Measure][005] |
+| `nx.average_shortest_path_length(G, weight=None)` | Return the average shortest path length | [Dist Measure][005] |
+| `nx.bfs_tree(G, source, reverse=False)` |  Return an oriented tree constructed from of a breadth-first-search starting at source | [Dist Measure][005] |
+| `nx.average_shortest_path_length(G, weight=None)` | Return the average shortest path length | [Dist Measure][005] |
+| `nx.diameter(G, e=None)` | Return the diameter of the graph G | [Dist Measure][005] |
+| `nx.eccentricity(G, v=None, sp=None)` | Return the eccentricity of nodes in G | [Dist Measure][005] |
+| `nx.radius(G, e=None)` | Return the radius of the graph G | [Dist Measure][005] |
+| `nx.periphery(G, e=None)` | Return the periphery of the graph G | [Dist Measure][005] |
+| `nx.center(G, e=None)` | Return the center of the graph G | [Dist Measure][005] |
+| `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
+| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005] |
 
 
 
@@ -159,7 +171,7 @@ from networksx.algorithms import bipartie
 -----------------------------------------------
 <--
 [004]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#clustering-coefficient
-[005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
+[005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#distance-measures
 [006]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
 [007]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
 [008]: 
