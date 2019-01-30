@@ -372,10 +372,10 @@
     + __Structural properties__: connectivity.
     + Examples: airport closures, internet router failures, power line failures.
     <a href="http://www.visualisingdata.com/2012/02/bio-diaspora-visualising-interactions-between-populations-and-travel/"> <br/>
-        <img src="http://www.visualisingdata.com/blog/wp-content/uploads/2012/02/World_FlightLines_BioDiaspora-600x393.jpg" alt="xxx" title="Network of direct flights around the world [Bio.Diaspora]" height="200">
+        <img src="http://www.visualisingdata.com/blog/wp-content/uploads/2012/02/World_FlightLines_BioDiaspora-600x393.jpg" alt="text" title="Network of direct flights around the world [Bio.]" height="150">
     </a>
-    <a href="https://www.caida.org/home/about/annualreports/1998/">
-        <img src="https://www.caida.org/home/about/annualreports/1998/annual/hal1.gif" alt="xxx" title="Internet Connectivity [K. C. Claffy]" height="200"
+    <a href="https://www.caida.org/home/about/annualreports/1998/"> 
+        <img src="https://www.caida.org/home/about/annualreports/1998/annual/hal1.gif" alt="text" title="Internet Connectivity [K. C. Claffy]" height="150">
     </a>
 
 + Disconnecting a Graph
@@ -388,9 +388,9 @@
         nx.minimum_node_cut(G_un)       # {'A'}
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
-            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="200">
-            <img src="images/m2-14.png" alt="xxx" title="original graph" height="200">
-            <img src="images/m2-15.png" alt="xxx" title="original graph" height="200">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-14.png" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-15.png" alt="xxx" title="original graph" height="150">
         </a>
 
     + What is the smallest number of __edges__ that can be removed from this graph in order to disconnect it?
@@ -402,9 +402,9 @@
         nx.minimum_edge_cut(G_un)   # {('A', 'G'), ('O', 'J')}
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
-            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="200">
-            <img src="images/m2-16.png" alt="xxx" title="original graph" height="200">
-            <img src="images/m2-17.png" alt="xxx" title="original graph" height="200">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-16.png" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-17.png" alt="xxx" title="original graph" height="150">
         </a>
     + Robust networks have large minimum node and edge cuts.
 
