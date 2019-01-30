@@ -150,6 +150,13 @@ from networksx.algorithms import bipartie
 | `nx.center(G, e=None)` | Return the center of the graph G | [Dist Measure][005] |
 | `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
 | `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005] |
+| `nx.is_connected(G)` | Return True if the graph is connected, false otherwise | [Connected Components][006] |
+| `nx.number_connected_components(G)` | Return the number of connected components | [Connected Components][006] |
+| `nx.connected_components(G)` | Generate connected components | [Connected Components][006] |
+| `nx.is_strongly_connected(G)` | Test directed graph for strong connectivity | [Connected Components][006] |
+| `nx.is_weakly_connected(G)` | Test directed graph for weak connectivity | [Connected Components][006] |
+| `nx.strongly_connected_components(G)` | Generate nodes in strongly connected components of graph | [Connected Components][006] |
+| `nx.weakly_connected_components(G)` | Generate weakly connected components of G | [Connected Components][006] |
 
 
 

@@ -528,6 +528,56 @@
         + __Strongly connected components__: `nx.strongly_connected_components(G))`
 
 
++ `nx.is_connected` function
+    + Signature: `nx.is_connected(G)`
+    + Docstring: Return True if the graph is connected, false otherwise.
+    + Parameters
+        + `G` (NetworkX Graph): An undirected graph.
+    + Returns: `connected` (bool): True if the graph is connected, false otherwise.
+
++ `nx.number_connected_components` function
+    + Signature: `nx.number_connected_components(G)`
+    + Docstring: Return the number of connected components.
+    + Parameters
+        + `G` (NetworkX graph): An undirected graph.
+    + Returns" `n` (integer): Number of connected components
+
++ `nx.connected_components` function
+    + Signature: `nx.connected_components(G)`
+    + Docstring: Generate connected components.
+    + Parameters
+        + `G` (NetworkX graph): An undirected graph
+    + Returns: `comp` (generator of sets): A generator of sets of nodes, one for each component of G.
+
++ `nx.is_strongly_connected` function
+    + Signature: `nx.is_strongly_connected(G)`
+    + Docstring: Test directed graph for strong connectivity.
+    + Parameters:
+        + `G` (NetworkX Graph): A directed graph.
+    + Returns: `connected` (bool): True if the graph is strongly connected, False otherwise.
+
++ `nx.is_weakly_connected` function
+    + Signature: `nx.is_weakly_connected(G)`
+    + Docstring: Test directed graph for weak connectivity. A directed graph is weakly connected if, and only if, the graph is connected when the direction of the edge between nodes is ignored.
+    + Parameters
+        + `G` (NetworkX Graph): A directed graph.
+    + Returns: `connected` (bool): True if the graph is weakly connected, False otherwise.
+
++ `nx.strongly_connected_components` function
+    + Signature: `nx.strongly_connected_components(G)`
+    + Docstring: Generate nodes in strongly connected components of graph.
+    + Parameters
+        + `G` (NetworkX Graph): An directed graph.
+    + Returns: `comp` (generator of sets): A generator of sets of nodes, one for each strongly connected component of G.
+
++ `nx.weakly_connected_components` function
+    + Signature: `nx.weakly_connected_components(G)`
+    + Docstring: Generate weakly connected components of G.
+    + Parameters
+        + `G` (NetworkX graph): A directed graph
+    + Returns: `comp` (generator of sets): A generator of sets of nodes, one for each weakly connected component of G.
+
+
 
 ### Lecture Video
 
