@@ -366,16 +366,115 @@
 
 ### Lecture Note
 
++ Connectivity and Robustness in Networks
+    + __Network robustness__: the ability of a network to maintain its general structural properties when it faces failures or attacks.
+    + __Type of attacks__: removal of nodes or edges.
+    + __Structural properties__: connectivity.
+    + Examples: airport closures, internet router failures, power line failures.
+    <a href="http://www.visualisingdata.com/2012/02/bio-diaspora-visualising-interactions-between-populations-and-travel/"> <br/>
+        <img src="http://www.visualisingdata.com/blog/wp-content/uploads/2012/02/World_FlightLines_BioDiaspora-600x393.jpg" alt="xxx" title="Network of direct flights around the world [Bio.Diaspora]" height="200">
+    </a>
+    <a href="https://www.caida.org/home/about/annualreports/1998/">
+        <img src="https://www.caida.org/home/about/annualreports/1998/annual/hal1.gif" alt="xxx" title="Internet Connectivity [K. C. Claffy]" height="200"
+    </a>
+
++ Disconnecting a Graph
+    + What is the smallest number of __nodes__ that can be removed from this graph in order to disconnect it?
+        ```python
+        nx.node_connectivity(G_un)      # 1
+        ```
+    + Which node?
+        ```python
+        nx.minimum_node_cut(G_un)       # {'A'}
+        ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="200">
+            <img src="images/m2-14.png" alt="xxx" title="original graph" height="200">
+            <img src="images/m2-15.png" alt="xxx" title="original graph" height="200">
+        </a>
+
+    + What is the smallest number of __edges__ that can be removed from this graph in order to disconnect it?
+        ```python
+        nx.edge_connectivity(G_un)      # 2
+        ```
+    + Which edges?
+        ```python
+        nx.minimum_edge_cut(G_un)   # {('A', 'G'), ('O', 'J')}
+        ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="200">
+            <img src="images/m2-16.png" alt="xxx" title="original graph" height="200">
+            <img src="images/m2-17.png" alt="xxx" title="original graph" height="200">
+        </a>
+    + Robust networks have large minimum node and edge cuts.
+
++ Simple Paths
+    + Imagine node G wants to send a message to node L by passing it along to other nodes in this network.
+    + What options does G have to deliver the message?
+        ```python
+        sorted(nx.all_simple_paths(G, 'G', 'L'))
+        # [['G', 'A', 'N', 'L'], ['G', 'A', 'N', 'O', 'K', 'L'],
+        #  ['G', 'A', 'N', 'O', 'L'],, ['G', 'J', 'O', 'K', 'L'], ['G', 'J', 'O', 'L']]
+        ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
+            <img src="images/m2-18.png" alt="xxx" title="original graph" height="130">
+            <img src="images/m2-19.png" alt="xxx" title="original graph" height="130">
+            <img src="images/m2-20.png" alt="xxx" title="original graph" height="130">
+            <img src="images/m2-21.png" alt="xxx" title="original graph" height="130">
+            <img src="images/m2-22.png" alt="xxx" title="original graph" height="130">
+            <img src="images/m2-23.png" alt="xxx" title="original graph" height="130">
+        </a>
+
++ Node Connectivity
+    + If we wanted to block the message from G to L by removing nodes from the network, how many __nodes__ would we need to remove?
+        ```python
+        nx.node_connectivity(G, 'G', 'L')   # 2
+        ```
+    + Which nodes?
+        ```python
+        nx.minimum_node_cut(G, 'G', 'L')    # {'N', 'O'}
+        ```
+    + If we only remove node N, message can go on path G -> J -> O -> K -> L.
+    + If we only remove node O, message can go on path G -> A -> N -> L.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness"> <br/>
+            <img src="images/m2-18.png" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-22.png" alt="xxx" title="Remove node N: path G -> J -> O -> K -> L" height="150">
+            <img src="images/m2-19.png" alt="xxx" title="remove node O: G -> A -> N -> L" height="150">
+        </a>
+
++ Edge Connectivity
+    + If we wanted to block the message from G to L by removing edges from the network, how many __edges__ would we need to remove?
+        ```python
+        nx.edge_connectivity(G, 'G', 'L')   # 2
+        ```
+    + Which edges?
+        ```python
+        nx.minimum_edge_cut(G, 'G', 'L')    # {('A', 'N'), ('J', 'O')}
+        ```
+    + We need to remove A à N an J à O to block messages from G to L.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness"> <br/>
+            <img src="images/m2-18.png" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-24.png" alt="xxx" title="original graph" height="150">
+        </a>
+
++ Summary
+    + Node connectivity: Minimum number of nodes needed to disconnect a graph or pair of nodes.
+        ```python
+        nx.node_connectivity(G, 'G', 'L')
+        nx.minimum_node_cut(G, 'G', 'L')
+        ```
+    + Edge connectivity: Minimum number of edges needed to disconnect a graph or pair of nodes.
+        ```python
+        nx.edge_connectivity(G, 'G', 'L')
+        nx.minimum_edge_cut(G, 'G', 'L')
+        ```
+    + Graphs with large node and edge connectivity are more robust to the loss of nodes and edges.
 
 
-+ Demonstration
-    ```python
-
-    ```
 
 ### Lecture Video
 
-<a href="url" alt="Network Robustness" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/AyOH_HxEEee4vAqXrrsRwg.processed/full/360p/index.mp4?Expires=1548979200&Signature=JvS9X8bemp6uXc7Sxog~2T153JNq-x4IeH1NmW7Sw16KqhxGqdt6YxELnBJJpXGxlSzgqR2Z0KonaY6ltFSYlZmqMNWwRJsD34r6~VtKTO8~LuNIQHJv4lPgKY1oGDC0KaT~3N-ID9-pUvgcamliiQPTpQCAqDEpSHbGAihm0tA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Network Robustness" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
