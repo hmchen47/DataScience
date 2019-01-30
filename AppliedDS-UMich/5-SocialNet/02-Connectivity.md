@@ -372,10 +372,10 @@
     + __Structural properties__: connectivity.
     + Examples: airport closures, internet router failures, power line failures.
     <a href="http://www.visualisingdata.com/2012/02/bio-diaspora-visualising-interactions-between-populations-and-travel/"> <br/>
-        <img src="http://www.visualisingdata.com/blog/wp-content/uploads/2012/02/World_FlightLines_BioDiaspora-600x393.jpg" alt="text" title="Network of direct flights around the world [Bio.]" height="150">
+        <img src="http://www.visualisingdata.com/blog/wp-content/uploads/2012/02/World_FlightLines_BioDiaspora-600x393.jpg" alt="So one example is the air transportation network, where the nodes are airports and the edges are connections between airports. Well, sometimes airports have to close down for many different reasons. And when this happens of course, transportation is affected. And so you would like for the transportation network to be robust to closures of airports, so that the general connectivity or the general function of the network is still maintained even after it might have lost one particular airport. Or maybe it's not an airport, maybe it's a connection between an airport or some other airport. Maybe both airports are open but they're not able to fly to each other for whatever reason. That is the case where the network might have lost an edge rather than a node, and you would like for the network to still maintain its connectivity or functions." title="Network of direct flights around the world [Bio.]" height="150">
     </a>
     <a href="https://www.caida.org/home/about/annualreports/1998/"> 
-        <img src="https://www.caida.org/home/about/annualreports/1998/annual/hal1.gif" alt="text" title="Internet Connectivity [K. C. Claffy]" height="150">
+        <img src="https://www.caida.org/home/about/annualreports/1998/annual/hal1.gif" alt="There are plenty of other examples like Internet router failures or power line failure and so on. And so for all of these, this idea of removing nodes or edges are things that actually happen, and for all of this maintaining connectivity is very important." title="Internet Connectivity [K. C. Claffy]" height="150">
     </a>
 
 + Disconnecting a Graph
@@ -388,11 +388,10 @@
         nx.minimum_node_cut(G_un)       # {'A'}
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
-            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="150">
-            <img src="images/m2-14.png" alt="xxx" title="original graph" height="150">
-            <img src="images/m2-15.png" alt="xxx" title="original graph" height="150">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="So let's begin looking at our sort of toy example of graph here that we've been looking at. And we'll start with an undirected graph, and ask what is the smallest number of nodes that I would need to remove from this graph in order in order to make it disconnected?" title="original graph" height="150">
+            <img src="images/m2-14.png" alt="And so we can actually use a function in network X that's node connectivity, and the input will be the undirected graph here, G_un. And it says that if I just remove one node, I would be able to disconnect the graph completely. You can try and see if you can figure out which node that is. Or you can use the function_minimum_node_cut, and then give it us input the undirected graph. And it would tell you which nodes are the ones that you can remove in order to disconnect the graph. And in this case, it's node A. So you can see that if you were to remove node A, then this graph goes from being connected to being disconnected." title="Disconnected graph: Node A removed" height="150">
+            <img src="images/m2-15.png" alt="So now there are two subsets of nodes that cannot reach each other, and in the airport example this would be really bad, right? If one airport was responsible for connecting two major parts of the world, that's something you probably wouldn't want to have." title="Disconnected graph: two clusters" height="150">
         </a>
-
     + What is the smallest number of __edges__ that can be removed from this graph in order to disconnect it?
         ```python
         nx.edge_connectivity(G_un)      # 2
@@ -402,9 +401,9 @@
         nx.minimum_edge_cut(G_un)   # {('A', 'G'), ('O', 'J')}
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
-            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="xxx" title="original graph" height="150">
-            <img src="images/m2-16.png" alt="xxx" title="original graph" height="150">
-            <img src="images/m2-17.png" alt="xxx" title="original graph" height="150">
+            <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="Well, you can use the function edge connectivity and give it us input the undirected graph. And it tells us that there are two edges that you need to remove in order to disconnect this graph." title="original graph" height="150">
+            <img src="images/m2-16.png" alt="Well, which 2 edges are there? You can try to figure it out in your own, or you can use the function, minimum_edge_cut, and give it us input the undirected graph. And it tells you that the edges that you need to remove are, A, G and O, J. And you can see that if you remove those two edges, you indeed make the network disconnected." title="Disconnected graph: edges removed" height="150">
+            <img src="images/m2-17.png" alt="And there are two clusters, two subsets of nodes that cannot reach each other anymore. Of course, it's possible that there are other options of edges that do this. But the fact that the edge connectivity is two tells us that the smallest number of edges that you have to remove is two. Now the particular choice of A, G and O, J may not be unique. There may be other options, other pairs of edges that achieve the same goal of disconnecting the network." title="Disconnected graph: two cluster" height="150">
         </a>
     + Robust networks have large minimum node and edge cuts.
 
@@ -417,12 +416,12 @@
         #  ['G', 'A', 'N', 'O', 'L'],, ['G', 'J', 'O', 'K', 'L'], ['G', 'J', 'O', 'L']]
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
-            <img src="images/m2-18.png" alt="xxx" title="original graph" height="130">
-            <img src="images/m2-19.png" alt="xxx" title="original graph" height="130">
-            <img src="images/m2-20.png" alt="xxx" title="original graph" height="130">
-            <img src="images/m2-21.png" alt="xxx" title="original graph" height="130">
-            <img src="images/m2-22.png" alt="xxx" title="original graph" height="130">
-            <img src="images/m2-23.png" alt="xxx" title="original graph" height="130">
+            <img src="images/m2-18.png" alt="Now, let's think about these nodes as nodes that want to communicate with each other, that want to pass messages to each other. These could be maybe routers, or these could be people who are trying to pass a rumor or pass an important message to each other, right? And so imagine that node G here wants to send a message to node L by passing it along to other nodes in this network. So, basically what G wants to do is to find the paths that could take a message from G all the way to L. What options does G have in order to do this? What are those paths that G can use? Well, if you use the function all_simple_paths with input G, the graph and then the two nodes that source in the destination, in this case G and L. Then you get all the paths." title="original graph" height="130">
+            <img src="images/m2-19.png" alt="So first one is G, A, N, L." title="original graph" height="130">
+            <img src="images/m2-20.png" alt="The second one is slightly longer is G, A, N, O, K, L." title="original graph" height="130">
+            <img src="images/m2-21.png" alt="You could also go G, A, N, O, L or G, J, O, K, L." title="original graph" height="130">
+            <img src="images/m2-22.png" alt="Or you could go with a shorter path, G, J, O, L." title="original graph" height="130">
+            <img src="images/m2-23.png" alt="So these are all the options that G has." title="original graph" height="130">
         </a>
 
 + Node Connectivity
@@ -437,9 +436,9 @@
     + If we only remove node N, message can go on path G -> J -> O -> K -> L.
     + If we only remove node O, message can go on path G -> A -> N -> L.
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness"> <br/>
-            <img src="images/m2-18.png" alt="xxx" title="original graph" height="150">
-            <img src="images/m2-22.png" alt="xxx" title="Remove node N: path G -> J -> O -> K -> L" height="150">
-            <img src="images/m2-19.png" alt="xxx" title="remove node O: G -> A -> N -> L" height="150">
+            <img src="images/m2-18.png" alt="some person that wants to actually block the message that's going from G to L. This attacker is no longer interested in just disconnecting the network in any particular way, it's interested in particularly disrupting the communication that's going from G to L. We could ask the question if this person was going to try to do this by removing node, how many nodes would this attack I need to remove in order to block G from L. We can use the same function, node connectivity as we did before, but now we give this input not only the graph G, but also the source and the destination, G and L. And it would tell us how many nodes you would need in order to achieve that. And in this case, you would need to remove two nodes from the network. Which nodes are they? Again, we can use the same function as we used before, minimum_note_cut, and give it the graph, the source and the destination as input, and he would tell us which are the two nodes. In this case the nodes are N and O." title="original graph" height="150">
+            <img src="images/m2-22.png" alt="What if we were only to remove node N, then can we still find a path that goes from G to L? And the answer is yes, you could take the path G, J, O, K, L. On the other hand, if we were to only remove node O, then can the message still make it? And the answer is yes. You could go G, A, N, L. So this shows that it's not enough to remove one of these two nodes." title="Remove node N: path G -> J -> O -> K -> L" height="150">
+            <img src="images/m2-19.png" alt="And you can check on your own that when you actually remove both of these and O, then there is no longer any path that can go from G to L." title="remove node O: G -> A -> N -> L" height="150">
         </a>
 
 + Edge Connectivity
@@ -451,11 +450,23 @@
         ```python
         nx.minimum_edge_cut(G, 'G', 'L')    # {('A', 'N'), ('J', 'O')}
         ```
-    + We need to remove A à N an J à O to block messages from G to L.
+    + We need to remove A -> N an J -> O to block messages from G to L.
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness"> <br/>
-            <img src="images/m2-18.png" alt="xxx" title="original graph" height="150">
-            <img src="images/m2-24.png" alt="xxx" title="original graph" height="150">
+            <img src="images/m2-18.png" alt="How many edges would this attacker need to remove in order to block G from L? We can use the function edge_connectivity with the input, the graph, the source and destination. And it tells us that It needs two edges in order to be able to achieve this. And to figure out which edges they are, we can use again the minimum_edge_cut function with the graph, the source and the destination. And it tells us that the two edges are A, N and J, O, and so here they are shown in red." title="original graph" height="150">
+            <img src="images/m2-24.png" alt="And you can check that if you were to remove those two edges indeed, G would no longer be able to send the message to L." title="original graph" height="150">
         </a>
+    + IVQ: If we wanted to block the message from H to O by removing the the smallest possible number of edges from the network, which edges should we remove?
+        ```python
+        import networkx as nx
+
+        G = nx.DiGraph()
+        G.add_edges_from([('A', 'B'), ('C', 'A'), ('A', 'E'), ('G', 'A'), ('A', 'N'), ('B', 'C'), ('D', 'B'), ('B', 'E'), ('C', 'D'), ('E', 'C'), ('D', 'E'), ('E', 'D'), ('F', 'G'), ('I', 'F'), ('J', 'F'), ('H', 'G'), ('I', 'G'), ('G', 'J'), ('I', 'H'), ('H', 'I'), ('I', 'J'), ('J', 'O'), ('O', 'J'), ('K', 'M'), ('K', 'L'), ('O', 'K'), ('O', 'L'), ('N', 'L'), ('L', 'M'), ('N', 'O')])
+
+        nx.minimum_edge_cut(G, 'H', 'O')
+        ```
+
+        Ans: {('N', 'O'), ('J', 'O')} </br>
+        We can’t block the message from H to O by removing a single edge. Only options C and A block the message, and since option C removes two edges and option A removes 3 edges, C is the correct answer. You can use nx.minimum_edge_cut(G, 'H', 'O') to find the answer.
 
 + Summary
     + Node connectivity: Minimum number of nodes needed to disconnect a graph or pair of nodes.
@@ -469,7 +480,6 @@
         nx.minimum_edge_cut(G, 'G', 'L')
         ```
     + Graphs with large node and edge connectivity are more robust to the loss of nodes and edges.
-
 
 
 ### Lecture Video
