@@ -41,7 +41,6 @@ nx.draw_networkx(G, pos, alpha=0.7, with_labels=False, edge_color='.4')
 plt.axis('off')
 plt.tight_layout();
 
-
 # Draw graph with varying node color, node size, and edge width
 plt.figur(figsize=(10,7))
 
