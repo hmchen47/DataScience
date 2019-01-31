@@ -114,7 +114,7 @@ from networksx.algorithms import bipartie
 | `nx.Graph(data=None, **attr)` | Base class for undirected graphs | [Classes][001] |
 | `nx.DiGraph(data=None, **attr)` | Base class for directed graphs | [Classes][001] |
 | `nx.MultiGraph(data=None, **attr)` | An undirected graph class that can store multiedges | [Classes][001] |
-|`nx.MultiDiGraph(data=None, **attr)` | A directed graph class that can store multiedges | [Classes][001] |
+| `nx.MultiDiGraph(data=None, **attr)` | A directed graph class that can store multiedges | [Classes][001] |
 
 
 
@@ -122,20 +122,27 @@ from networksx.algorithms import bipartie
 
 | API | Description | links |
 |-------|-------------|-------|
-| `nx.read_adjlist(path, *args)v` | Read graph in adjacency list format from path | [API][002] |
-| `nx.read_edgelist(path, *args)` | Read a graph from a list of edges | [API][002] |
-| `nx.from_pandas_dataframe(df, source, target, *args)` | Return a graph from Pandas DataFrame | [API][002] |
-| `nx.draw_networkx(G, **kwds)` | Draw the graph G using Matplotlib | [API][002] |
-| `nx.Graph.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [API][002] |
-| `nx.Graph.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [API][002] |
-| `nx.Graph.add_nodes_from(nodes, **attr)` | Add multiple nodes | [API][002] |
-| `nx.Graph.add_edges_from(ebunch, attr_dict=None, **attr)` | Add all the edges in ebunch | [API][002] |
-| `nx.Graph.remove_edge(u, v)` | Remove the edge between `u` and `v` | [API][002] |
-| `nx.Graph.nodes(data=False)` | Return a list of the nodes in the graph | [API][002] |
-| `nx.Graph.edges(nbunch=None, data=False, default=None)` | Return a list of edges | [API][002] |
-| `nx.Graph.is_directed()` | Return True if graph is directed, False otherwise | [API][002] |
-| `nx.Graph.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [API][002] |
-| `nx.Graph.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [API][002] |
+| `nx.read_adjlist(path, *args)v` | Read graph in adjacency list format from path | [Definition][002] |
+| `nx.read_edgelist(path, *args)` | Read a graph from a list of edges | [Definition][002] |
+| `nx.read_gpickle(path)` | Read graph object in Python pickle format | [Demo 2][008] |
+| `nx.from_pandas_dataframe(df, source, target, *args)` | Return a graph from Pandas DataFrame | [Definition][002] |
+| `nx.draw_networkx(G, **kwds)` | Draw the graph G using Matplotlib | [Definition][002] |
+| `nx.draw_networkx_edges(G, pos, *args, **kwds)` | Draw the edges of the graph G. This draws only the edges of the graph G | [Demo 2][008] |
+| `nx.draw_networkx_nodes(G, pos, *args, **kwds)` | Draw the nodes of the graph G. This draws only the nodes of the graph G | [Demo 2][008] |
+| `nx.draw_networkx_labels(G, pos, *args, **kwds)` | Draw node labels on the graph G | [Demo 2][008] |
+| `nx.random_layout(G, *args)` | Position nodes uniformly at random | [Demo 2][008] |
+| `nx.circular_layout(G, *args)` | Position nodes on a circle | [Demo 2][008] |
+| `nx.get_node_attributes(G, name)` | Get node attributes from graph | [Demo 2][008] |
+| `nx.Graph.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [Definition][002] |
+| `nx.Graph.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [Definition][002] |
+| `nx.Graph.add_nodes_from(nodes, **attr)` | Add multiple nodes | [Definition][002] |
+| `nx.Graph.add_edges_from(ebunch, attr_dict=None, **attr)` | Add all the edges in ebunch | [Definition][002] |
+| `nx.Graph.remove_edge(u, v)` | Remove the edge between `u` and `v` | [Definition][002] |
+| `nx.Graph.nodes(data=False)` | Return a list of the nodes in the graph | [Definition][002] |
+| `nx.Graph.edges(nbunch=None, data=False, default=None)` | Return a list of edges | [Definition][002] |
+| `nx.Graph.is_directed()` | Return True if graph is directed, False otherwise | [Definition][002] |
+| `nx.Graph.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [Definition][002] |
+| `nx.Graph.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [Definition][002] |
 | `nx.clustering(G, nodes=None, weight=None)` | Compute the clustering coefficient for nodes | [Clustering][004] |
 | `nx.average_clustering(G, *args)` | Compute the average clustering coefficient for the graph G | [Clustering][004] |
 | `nx.transitivity(G)` | Compute graph transitivity, the fraction of all possible triangles  present in G | [Clustering][004] |
@@ -183,7 +190,7 @@ from networksx.algorithms import bipartie
 
 -----------------------------------------------
 <--
-[008]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#
+[008]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#notebook-simple-network-visualizations-in-networkx
 [009]: 
 [010]: 
 [011]: 
