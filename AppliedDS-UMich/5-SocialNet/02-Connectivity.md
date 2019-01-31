@@ -622,7 +622,7 @@
         ```
     + Which edges?
         ```python
-        nx.minimum_edge_cut(G_un)   # {('A', 'G'), ('O', 'J')}
+        nx.minimum_edge_cut(G_un)       # {('A', 'G'), ('O', 'J')}
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/3pGvt/network-robustness">
             <img src="https://lh3.googleusercontent.com/PDT4TMSFqXgwMbByGWK-scJjGusNfAxjgEhq0Ci6q0h9CohRKtYMaJg63jP6TIbVZez9cregpYi2kFx7toU5J1SfYEIL1fShNM4aRWGUVnaVOfi2CxQvhEq7vJgCtQAlwIM6JOMunw=w2400" alt="Well, you can use the function edge connectivity and give it us input the undirected graph. And it tells us that there are two edges that you need to remove in order to disconnect this graph." title="original graph" height="150">
@@ -973,6 +973,160 @@ plt.tight_layout();
 
 ## Quiz: Module 2 Quiz
 
+Q1. Consider the given network. What is the value of node F’s local clustering coefficient?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-1.png" alt="Q1 Graph" title="Q1 Graph" height="150">
+    </a>
+
+    a. 0.5
+    b. 0.6
+    c. 0.7
+    d. 0.8
+
+    ANs: c, xb
+
+
+Q2. Given the following two networks, which of the following is True?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-2.png" alt="Q2 Graph" title="Q2 Graph" height="200">
+    </a>
+
+    a. Network (A) has higher average local clustering coefficient and higher transitivity than (B).
+    b. Network (A) has higher average local clustering coefficient but lower transitivity than (B).
+    c. Network (A) has lower average local clustering coefficient and lower transitivity than (B).
+    d. Network (A) has lower average local clustering coefficient but higher transitivity than (B).
+
+    ANs: b, xa
+    Ref: Transitivity vs. Average Clustering Coefficient
+
+
+Q3. Consider the network shown below and select all that apply.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-3.png" alt="Q3 Graph" title="Q3 Graph" height="150">
+    </a>
+
+    a. The radius of this network is half of its diameter.
+    b. The deletion of node G will make the network disconnected.
+    c. If we perform Breadth-First Search (BFS) from node A, the BFS tree we obtain will have a depth of 4.
+    d. Node C and D are in the center of the network.
+    e. F is the only in the periphery of the network.
+    f. The eccentricity of node B and C are equal.
+
+    Ans: abcf
+    ```python
+    import networkx as nx
+
+    G = nx.Graph()
+    G.add_edges_from([('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'D'), ('C', 'E'), ('D', 'E'), ('D', 'G'), ('E', 'G'), ('G', 'F')])
+
+    nx.center(G)            # ['D', 'E']
+    nx.periphery(G)         # ['A', 'F']
+
+    T = nx.bfs_tree(G, 'A')
+    T.edges()
+    # [('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'E'), ('D', 'G'), ('G', 'F')]
+
+    nx.eccentricity(G, 'B') # 3
+    nx.eccentricity(G, 'C') # 3
+
+    G.remove_node('G')
+    nx.is_connected(G)      # False
+    ```
+
+
+Q4. Select all that apply for the network below.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-4.png" alt="Q4 Graph" title="Q4 Graph" height="200">
+    </a>
+
+    a. It is a disconnected graph with 2 connected components.
+    b. If edge (E,G) is removed, the number of connected components will not change.
+    c. The local clustering coefficient of node I is higher than node J and K.
+    d. We can make the graph connected by adding edge (E,J).
+
+    ANs: abd, xab, xabc
+    c. LLC(I) = LLC(J) = LLC(K) = 0
+
+Q5. Consider three networks (A), (B) and (C) below and select all that apply.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-5.png" alt="Q5 Graph" title="Q5 Graph" height="200">
+    </a>
+
+    a. Only network (B) is a strongly connected graph.
+    b. We can change network (A) from a weakly connected graph to a strongly connected graph by adding a directed edge from node C to node D.
+    c. All edges in network (B) are needed for the network to be strongly connected.
+    d. We only need to add one directed edge in order to change network (C) to a strongly connected graph.
+
+    ANs: ad
+
+
+Q6. Which of the following is true about network robustness and connectivity? Select all that apply.
+
+    a. The closure of an airport and the cancellation of a flight route are examples of two different kinds of network attacks in the real world.
+    b. Adding more edges to a network always makes it more robust.
+    c. A network that has a high average local clustering coefficient always has a high node connectivity.
+    d. Network robustness measures a network’s ability to maintain its connectivity.
+    e. Adding edges to a network can never make the network less robust.
+
+    ANs: xac, xabc, xabde
+
+
+Q7. Consider the network given below. What's the node connectivity of the network?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-7.png" alt="Q7 Graph" title="Q7 Graph" height="150">
+    </a>
+
+    a. 1
+    b. 2
+    c. 3
+    d. 4
+
+    ANs: a
+
+
+Q8. Consider the network given below. What is the edge connectivity of the network?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-7.png" alt="Q8 Graph" title="Q8 Graph" height="150">
+    </a>
+
+    a. 1
+    b. 2
+    c. 3
+    d. 4
+
+    ANs: b
+
+
+Q9. The directed network below shows how information can be transferred between nodes. For example, node A can pass the information to node C directly but not vice-versa. If node C wants to send messages to node A, all data must be forwarded by node B.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-9.png" alt="Q9 Graph" title="Q9 Graph" height="200">
+    </a>
+    What is the total number of simple paths from node D to node K?
+
+    a. 5
+    b. 6
+    c. 7
+    d. 8
+    e. 9
+
+    ANs: d, xa
+    # of paths (D -> E) = 2, # of paths (E -> K) = 4
+
+
+Q10. The directed network below shows how information can be transferred between nodes. For example, node A can pass the information to node C directly but not vice-versa. If node C wants to send messages to node A, all data must be forwarded by node B.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
+        <img src="images/q2-9.png" alt="Q10 Graph" title="Q10 Graph" height="200">
+    </a>
+    Suppose we want to block all information channels from node E to node K. Which of the following options achieve this goal? Check all that apply.
+
+    a. Removing node H only
+    b. Removing node G and H
+    c. Removing node F and H
+    d. Removing edge (H,K)
+    e. Removing edges (H,K) and (E,F)
+    f. Removing edges (H,K) and (F,G)
+
+    ANs: ce
 
 
 
