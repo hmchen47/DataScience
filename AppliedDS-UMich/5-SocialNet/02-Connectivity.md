@@ -1044,7 +1044,7 @@ Q4. Select all that apply for the network below.
     c. The local clustering coefficient of node I is higher than node J and K.
     d. We can make the graph connected by adding edge (E,J).
 
-    ANs: abd, xab, xabc
+    ANs: ad, xabd, xab, xabc
     c. LLC(I) = LLC(J) = LLC(K) = 0
 
 Q5. Consider three networks (A), (B) and (C) below and select all that apply.
