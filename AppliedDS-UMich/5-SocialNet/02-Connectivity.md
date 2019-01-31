@@ -790,6 +790,12 @@ nx.draw_networkx(G)         # Fig.1
 
 # See what layouts are available in networkX
 [x for x in nx.__dir__() if x.endswith('_layout')]
+# ['circular_layout',
+#  'random_layout',
+#  'shell_layout',
+#  'spring_layout',
+#  'spectral_layout',
+#  'fruchterman_reingold_layout']
 
 # Draw the graph using the random layout
 plt.figure(figsize=(10,9))
@@ -850,13 +856,13 @@ plt.tight_layout();
 ```
 
 <a href="url"> <br/>
-    <img src="images/m2-g01.png" alt="text" title="Fig.1: " height="250">
-    <img src="images/m2-g02.png" alt="text" title="Fig.2: " height="250">
-    <img src="images/m2-g03.png" alt="text" title="Fig.3: " height="250"><br/>
-    <img src="images/m2-g04.png" alt="text" title="Fig.4: " height="250">
-    <img src="images/m2-g05.png" alt="text" title="Fig.5: " height="250"><br/>
-    <img src="images/m2-g06.png" alt="text" title="Fig.6: " height="250">
-    <img src="images/m2-g07.png" alt="text" title="Fig.7: " height="250">
+    <img src="images/m2-g01.png" alt="Default settings" title="Fig.1: default graph settings" height="250">
+    <img src="images/m2-g02.png" alt=" Random layout" title="Fig.2: random layout" height="250">
+    <img src="images/m2-g03.png" alt="Circular lauout" title="Fig.3: circular layout" height="250"><br/>
+    <img src="images/m2-g04.png" alt="Geographical location" title="Fig.4: geographical locations" height="250">
+    <img src="images/m2-g05.png" alt="Geographical location w/o paddings, labels and axes" title="Fig.5: Geographical location w/o paddings, labels & axes" height="250"><br/>
+    <img src="images/m2-g06.png" alt="Geographical location w/ node color, size and edge width" title="Fig.6: Geographical location w/ node clolor, size and edge width" height="250">
+    <img src="images/m2-g07.png" alt="Geographical location w/ selected labels and highlighted edges" title="Fig.7: Geographical location w/ selected labels and highlighted edges" height="250">
 </a>
 
 + `nx.gpickle` function
@@ -956,16 +962,11 @@ plt.tight_layout();
 
 ### Lecture Note
 
-
-
-+ Demonstration
-    ```python
-
-    ```
++ Other packages: side escape, Gephi, & Graphviz
 
 ### Lecture Video
 
-<a href="url" alt="TA Demonstration: Simple Network Visualizations in NetworkX" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/NKwZAJMGEeeaCBKsFx-ifg.processed/full/360p/index.mp4?Expires=1548979200&Signature=f8qbx1iApYZmUARERk23msNAlWtmDE-v-TYET0dnyyF6hFUCsojfzw576Jf~gJ0~enHx7gMulImJRjfTZ-Vk1pYv5oQCVVhl4z6SiFFTAs6-wHtByjTW~KuDBuYHqJQriaSKz9jd1RH08P4WlvM5uh1URLxZcpOaECjh0zoXWhI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="TA Demonstration: Simple Network Visualizations in NetworkX" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
