@@ -42,6 +42,22 @@
 + [Assignment APIs](asgn02.md#)
 
 
+## Module 3: [Influence Measures and Network Centralization](03-Centralization.md)
+
++ [Degree and Closeness Centrality](03-Centralization.md#)
++ [Betweenness Centrality](03-Centralization.md#)
++ [Basic Page Rank](03-Centralization.md#)
++ [Scaled Page Rank](03-Centralization.md#)
++ [Hubs and Authorities](03-Centralization.md#)
++ [Centrality Examples](03-Centralization.md#)
++ [Quiz: Module 3 Quiz](03-Centralization.md#)
++ [PageRank and Centrality in a real-life network](03-Centralization.md#)
+
+### [Module 3 Assignment](asgn03.md)
+
++ [Notebooks](asgn03.md#)
++ [Discussion Forum](asgn03.md#)
++ [Solution](asgn03.md#)
 
 
 
