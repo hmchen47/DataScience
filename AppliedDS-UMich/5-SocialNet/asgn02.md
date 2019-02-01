@@ -503,5 +503,28 @@ import networkx as nx
     answer_fourteen()       # (0.570111160700385, 0.6975272437231418)
     ```
 
+## Assignment APIs
+
++ `G.subgraph` function
+    + Signature: `nx.Graph.subgraph(nbunch)`
+    + Docstring: Return the subgraph induced on nodes in `nbunch`. The induced subgraph of the graph contains the nodes in nbunch and the edges between those nodes.
+    + Parameters
+        + `nbunch` (list, iterable): A container of nodes which will be iterated through once.
+    + Returns: `G` (Graph): A subgraph of the graph with the same edge attributes.
+    + Notes
+        + The graph, edge or node attributes just point to the original graph. So changes to the node or edge structure will not be reflected in the original graph while changes to the attributes will.
+        + To create a subgraph with its own copy of the edge/node attributes use: `nx.Graph(G.subgraph(nbunch))`
+        + If edge attributes are containers, a deep copy can be obtained using: `G.subgraph(nbunch).copy()`
+        + For an inplace reduction of a graph to a subgraph you can remove nodes: `G.remove_nodes_from([ n in G if n not in set(nbunch)])`
+
++ `G.to_undirected` function
+    + Signature: `nx.Graph.to_directed()`
+    + Docstring: Return a directed representation of the graph.
+    + Returns: `G` (DiGraph): A directed graph with the same name, same nodes, and with each edge `(u,v,data)` replaced by two directed edges `(u,v,data)` and `(v,u,data)`.
+    + Notes
+        + This returns a "deepcopy" of the edge, node, and graph attributes which attempts to completely copy all of the data and references.
+        + This is in contrast to the similar D=DiGraph(G) which returns a shallow copy of the data.
+        + See the Python copy module for more information on shallow and [deep copies](http://docs.python.org/library/copy.html).
+        + Warning: If you have subclassed Graph to use dict-like objects in the data structure, those changes do not transfer to the DiGraph created by this method.
 
 

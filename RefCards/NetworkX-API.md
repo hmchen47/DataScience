@@ -166,11 +166,12 @@ from networksx.algorithms import bipartie
 | `nx.strongly_connected_components(G)` | Generate nodes in strongly connected components of graph | [Connected Components][006] |
 | `nx.weakly_connected_components(G)` | Generate weakly connected components of G | [Connected Components][006] |
 | `nx.node_connectivity(G, *args)` | Returns node connectivity for a graph or digraph G | [Robustness][007] |
-| `nx.minimum_node_cut(G, *args)` | Returns a set of nodes of minimum cardinality that disconnects G | [Robustness][007] |
 | `nx.edge_connectivity(G, *args)` | Returns the edge connectivity of the graph or digraph G | [Robustness][007] |
+| `nx.minimum_node_cut(G, *args)` | Returns a set of nodes of minimum cardinality that disconnects G | [Robustness][007] |
 | `nx.minimum_edge_cut(G, *args)` | Returns a set of edges of minimum cardinality that disconnects G | [Robustness][007] |
 | `nx.all_simple_paths(G, source, target, cutoff=None)` | Generate all simple paths in the graph G from source to target | [Robustness][007] |
-
+| `nx.Graph.subgraph(nbunch)` | Return the subgraph induced on nodes in `nbunch` | [Asgn02][008] |
+| `nx.Graph.to_directed()` | Return a directed representation of the graph | [Asgn02][008] |
 
 
 ## Bipartite APIS
@@ -190,7 +191,7 @@ from networksx.algorithms import bipartie
 
 -----------------------------------------------
 <--
-[008]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#notebook-simple-network-visualizations-in-networkx
+[008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
 [009]: 
 [010]: 
 [011]: 
