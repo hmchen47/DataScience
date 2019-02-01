@@ -238,6 +238,25 @@
     9. return ans1, ans2 #(Hope this helped!)
 
 
+### [Assignment 2 Question 11](https://www.coursera.org/learn/python-social-network-analysis/discussions/weeks/2/threads/ogyclNIdEeiaQxKeqT1mFg)
+
++ Raoul Biagioni init
+
+    Having read through all the posts in the forum I still am unable to pass Q11 (and as a result neither Q12). I don't see what is wrong with the below pseudocode. Any advice or help would be greatly appreciated. (I hope posting pseudo code isn't against the honour code).
+    ```python
+     best cnt
+    init winner node
+    FOR node in Graph
+        init list
+        sp = get shortest paths for current node
+        FOR key, values in sp items
+            IF length of values equals diameter
+                append first value in values to list
+        IF set(list) length > best_cnt
+            store length in best count 
+            store current node as winner node
+    ```
+
 
 
 ## Solution
