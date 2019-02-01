@@ -39,6 +39,7 @@
 + [Assignment Notebooks](asgn02.md#)
 + [Discussion Forum](asgn02.md#)
 + [Solution](asgn02.md#)
++ [Assignment APIs](asgn02.md#)
 
 
 
