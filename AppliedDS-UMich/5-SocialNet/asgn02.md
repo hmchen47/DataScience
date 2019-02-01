@@ -259,10 +259,249 @@
 
 
 
+
 ## Solution
 
+```python
+import networkx as nx
 
+# This line must be commented out when submitting to the autograder
+#!head email_network.txt
 
+#Sender Recipient  time
+# 1     2          1262454010
+# 1     3          1262454010
+# 1     4          1262454010
+# 1     5          1262454010
+# 1     6          1262454010
+# 1     7          1262454010
+# 1     8          1262454010
+# 1     9          1262454010
+# 1    10          1262454010
+```
+
++ Q1: Using networkx, load up the directed multigraph from `email_network.txt`. Make sure the node names are strings.
+
+    ```python
+    def answer_one(debug=False):
+
+        # Your Code Here
+        G = nx.read_edgelist('email_network.txt', data=[('time', int)],
+                            create_using=nx.MultiDiGraph())
+
+        return G # Your Answer Here
+
+    # %matplotlib notebook
+    # G = answer_one(True)
+    # nx.draw_networkx(G)
+    ```
+
++ Q2: How many employees and emails are represented in the graph from Question 1?
+
+    ```python
+    def answer_two():
+
+        # Your Code Here
+        G = answer_one()
+
+        return (len(G.nodes()), len(G.edges()))  # Your Answer Here
+
+    answer_two()        # (167, 82927)
+    ```
+
++ Q3: Based on the emails sent in the data, is it possible for information to go from every employee to every other employee? & Based on the emails sent in the data, is it possible for information to go from every employee to every other employee?
+
+    ```python
+    def answer_three():
+
+        # Your Code Here
+        G = answer_one()
+
+        return (nx.is_strongly_connected(G), nx.is_weakly_connected(G))   # Your Answer Here
+
+    answer_three()      (False, True)
+    ```
+
++ Q4: How many nodes are in the largest (in terms of nodes) weakly connected component?
+    ```python
+    def answer_four():
+
+        # Your Code Here
+        G = answer_one()
+
+        G_wc = sorted(nx.weakly_connected_components(G))
+
+        return  max([len(x) for x in G_wc])  # Your Answer Here
+
+    answer_four()       # 167
+    ```
+
++ Q5: How many nodes are in the largest (in terms of nodes) strongly connected component?
+    ```python
+    def answer_five():
+
+        # Your Code Here
+        G = answer_one()
+
+        G_sc = sorted(nx.strongly_connected_components(G))
+
+        return max([len(x) for x in G_sc])  # Your Answer Here
+
+    answer_five()       # 126
+    ```
+
++ Q6: Using the NetworkX function strongly_connected_component_subgraphs, find the subgraph of nodes in a largest strongly connected component.
+    ```python
+    def answer_six(debug=False):
+
+        # Your Code Here
+        G = answer_one()
+
+        G_scc = sorted(nx.strongly_connected_components(G))
+
+        node_cnt = 0
+        G_sc_lst = []
+        for scc in G_scc:
+            if node_cnt < len(scc):
+                G_sc_lst = [scc]
+                if debug:
+                    print("old ({}) replace w/ scc({}) = {}".format(node_cnt, len(scc), scc))
+                node_cnt = len(scc)
+            elif node_cnt == len(scc):
+                G_sc_lst.append(scc)
+                if debug:
+                    print("old ({}) append w/ scc({}) = {}".format(node_cnt, len(scc), scc))
+
+        return G.subgraph(list(G_sc_lst[0]))   # Your Answer Here
+
+    # answer_six(True)
+    print("\nresult = ", answer_six(True).nodes())
+    # result =  ['87', '68', '109', '86', '63', '31', '41', '101', '129', '50', '52', '122', '71',
+    # '121', '82', '99', '4', '69', '16', '81', '61', '97', '57', '42', '117', '22', '149', '89',
+    # '43', '38', '128', '111', '19', '95', '58', '110', '83', '123', '124', '44', '106', '92',
+    # '1', '23', '21', '14', '84', '64', '93', '113', '32', '18', '53', '49', '27', '36', '46',
+    # '24', '118', '105', '39', '6', '7', '107', '96', '98', '3', '115', '20', '78', '134', '60',
+    # '151', '74', '75', '104', '25', '30', '8', '37', '29', '5', '108', '94', '66', '119', '65',
+    # '47', '54', '26', '120', '112', '10', '17', '13', '2', '45', '77', '79', '80', '35', '40',
+    # '55', '9', '67', '33', '100', '62', '70', '72', '88', '73', '34', '56', '90', '15', '11',
+    # '59', '48', '28', '12', '85', '103', '76', '51', '91']
+    ```
+
++ Q7: What is the average distance between nodes in G_sc?
+    ```python
+    def answer_seven(debug=False):
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        total_dist = path_cnt = 0
+        for node in G_sc.nodes():
+            spl_lst = nx.shortest_path_length(G_sc, node)
+            if debug:
+                print(sum(spl_lst.values()))
+            total_dist += sum(spl_lst.values())
+            path_cnt += len(spl_lst)
+
+        return total_dist/path_cnt     # Your Answer Here
+
+    answer_seven(False)     # 1.6330939783320735
+    ```
+
++ Q8: What is the largest possible distance between two employees in G_sc?
+    ```python
+    def answer_eight():
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        return nx.diameter(G_sc)      # Your Answer Here
+
+    answer_eight()      # 3
+    ```
+
++ Q9: What is the set of nodes in G_sc with eccentricity equal to the diameter?
+    ```python
+    def answer_nine():
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        return set(nx.periphery(G_sc))     # Your Answer Here
+
+    answer_nine()       # {'129', '134', '97'}
+    ```
+
++ Q10: What is the set of node(s) in G_sc with eccentricity equal to the radius?
+    ```python
+    def answer_ten():
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        return set(nx.center(G_sc))     # Your Answer Here
+
+    answer_ten()        # {'38'}
+    ```
+
++ Q11: Which node in G_sc is connected to the most other nodes by a shortest path of length equal to the diameter of G_sc? How many nodes are connected to this node?
+    ```python
+    def answer_eleven(debug=False):
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        diameter = nx.diameter(G_sc)
+
+        node_lst = []
+        for node in G_sc.nodes():
+            spl_lst = list(nx.shortest_path_length(G_sc, node).values())
+            if spl_lst.count(diameter) > 0:
+                node_lst.append((node, spl_lst.count(diameter)))
+            if debug:
+                print("add node ({}): {}".format(node, node_lst))
+
+        return  max(node_lst, key=lambda item: item[1])        # Your Answer Here
+
+    answer_eleven(False)        # ('97', 63)
+    ```
+
++ Q12: Suppose you want to prevent communication from flowing to the node that you found in the previous question from any node in the center of G_sc, what is the smallest number of nodes you would need to remove from the graph (you're not allowed to remove the node from the previous question or the center nodes)?
+    ```python
+    def answer_twelve():
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        spl_node, spl_cnt = answer_eleven()
+
+        return nx.node_connectivity(G_sc, nx.center(G_sc)[0], spl_node) - 1     # Your Answer Here
+
+    answer_twelve()     # 5
+    ```
+
++ Q13: Construct an undirected graph G_un using G_sc (you can ignore the attributes).
+    ```python
+    def answer_thirteen():
+
+        # Your Code Here
+        G_sc = answer_six()
+
+        return nx.Graph(G_sc.to_undirected())   # Your Answer Here
+
+    answer_thirteen()       # networkx.classes.graph.Graph
+    ```
+
++ Q14: What is the transitivity and average clustering coefficient of graph G_un?
+    ```python
+    def answer_fourteen():
+
+        # Your Code Here
+        G_un = answer_thirteen()
+
+        return (nx.transitivity(G_un), nx.average_clustering(G_un))    # Your Answer Here
+
+    answer_fourteen()       # (0.570111160700385, 0.6975272437231418)
+    ```
 
 
 
