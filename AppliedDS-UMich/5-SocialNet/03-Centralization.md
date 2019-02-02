@@ -181,16 +181,127 @@
 
 ### Lecture Notes
 
++ Betweenness Centrality <br/>
+    + Assumption: important nodes connect other nodes.
 
+        $$C_{btw} (v) = \sum_{s, t \in N} \frac{\sigma_{s,t} (v)}{\sigma_{s, t}}$$
+        + $\sigma_{s,t}$: the number of shortest paths between nodes $s$ and $t$
+        + $\sigma_{s, t} (v)$: the number shortest paths between nodes $s$ and $t$ that pass through node $v$.
+    + __Endpoints__: we can either include or exclude node $𝑣$ as node $𝑠$ and $𝑡$ in the computation of $C_{btw} (𝑣)$ .
+    + Ex. If we exclude node $𝑣$, we have:
 
-+ Demo
+        $$C_{btw} (B) = \frac{\sigma_{A,D} (B)}{\sigma_{A,D}} + \frac{\sigma_{A, C} (B)}{\sigma_{A,C}} + \frac{\sigma_{C,D} (B)}{\sigma_{C,D}} = \frac{1}{1} + \frac{1}{1} + \frac{0}{1} = 2$$
+        If we include node $v$, we have:
+
+        $$C_{btw} (B) = \frac{\sigma_{A,B} (B)}{\sigma_{A,B}} + \frac{\sigma_{A, C} (B)}{\sigma_{A,C}} + \frac{\sigma_{A,D} (B)}{\sigma_{A,D}} + \frac{\sigma_{B,C} (B)}{\sigma_{B,C}} + \frac{\sigma_{B,D} (B)}{\sigma_{B,D}} + \frac{\sigma_{C,D} (B)}{\sigma_{C,D}} = \frac{1}{1} + \frac{1}{1} + \frac{1}{1} + \frac{1}{1} + \frac{1}{1} + \frac{0}{1} = 5$$
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> <br/>
+            <img src="images/m3-04.png" alt="Betweenness Centrality" title="Betweenness Centrality" height="150">
+            <img src="images/m3-05.png" alt="Betweenness Centrality: endpoint" title="Betweenness Centrality-endpint" height="100">
+        </a>
+
++ Disconnected Nodes
+    + Assumption: important nodes connect other nodes.
+
+        $$C_{btw} (v) = \sum_{s, t \in N} \frac{\sigma_{s,t} (v)}{\sigma_{s, t}}$$
+    + <n style="color:red">What if not all nodes can reach each other?</n>
+    + Node D cannot be reached by any other node. Hence, $\sigma_{A,D} = 0$, making the above definition undefined.
+    + When computing betweenness centrality, we only consider nodes $𝑠$, $𝑡$ such that there is at least one path between them.
+    + Node D cannot be reached by any other node. Hence, $\sigma_{A,D} = 0$, making the above definition undefined.
+    + Ex. What is the betweenness centrality of node B, without including it as endpoint?
+
+        $$C_{btw} (B) = \frac{\sigma_{A,C} (B)}{\sigma_{A,C}} + \frac{\sigma_{C,A} (B)}{\sigma_{C,A}} + \frac{\sigma_{D,C} (B)}{\sigma_{D,C}} + \frac{\sigma_{D,A} (B)}{\sigma_{D,A}} = \frac{1}{1} + \frac{0}{1} + \frac{0}{1} + \frac{0}{1} = 1$$
+    + Ex. What is the betweenness centrality of node B, without including it as endpoint?
+
+        $$C_{btw} (C) = \frac{\sigma_{A,B} (C)}{\sigma_{A,B}} + \frac{\sigma_{B,A} (C)}{\sigma_{B,A}} + \frac{\sigma_{D,B} (C)}{\sigma_{D,B}} + \frac{\sigma_{D,A} (C)}{\sigma_{D,A}} = \frac{0}{1} + \frac{1}{1} + \frac{0}{1} + \frac{1}{1} = 2$$
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> <br/>
+            <img src="images/m3-06.png" alt="Disconnected Nodes" title="Disconnected Nodes: orignal" height="100">
+            <img src="images/m3-07.png" alt="Disconnected Nodes" title="Disconnected Nodes: node B" height="100">
+            <img src="images/m3-08.png" alt="Disconnected Nodes" title="Disconnected Nodes: node C" height="100">
+        </a>
+    + __Normalization__: betwenness centrality values will be larger in graphs with many nodes. To control for this, we divide centrality values by the number of pairs of nodes in the graph (excluding $𝑣$):
+        + $\frac{1}{2} (|𝑁| − 1)( 𝑁 − 2)$ in undirected graphs
+        + $(|𝑁| − 1)( 𝑁 − 2)$ in directed graphs
+        <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> <br/>
+            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Betweenesw Centrality - Normalization" title="Friendship network in a 34-person karate club [Zachary 1977]" height="150">
+        </a>
+        <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa066082"> 
+            <img src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2007/nejm_2007.357.issue-4/nejmsa066082/production/images/img_small/nejmsa066082_f1.jpeg" alt="Betweenesw Centrality - Normalization" title="Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]" height="150">
+        </a>
+    + Programming
+        ```python
+        btwnCent = nx.betweenness_centrality(G, normalized = True, endpoints = False)
+
+        import operator
+        sorted(btwnCent.items(), key=operator.itemgetter(1), reverse = True)[0:5]
+        # [(1, 0.43763528138528146), (34, 0.30407497594997596), (33, 0.14524711399711399),
+        #  (3, 0.14365680615680618), (32, 0.13827561327561325)]
+        ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
+            <img src="images/m3-01.png" alt="xxx" title="Betweenness Centrality - Normalization" height="200">
+        </a>
+
++ Betweeness Centrality - Complexity
+    + Computing betweenness centrality of all nodes can be very computationally expensive.
+    + Depending on the algorithm, this computation can take up to $𝑂(|𝑁|^3)$ time.
+    + Approximation: rather can computing betweenness centrality based on all pairs of nodes $𝑠$, $𝑡$, we can approximate it based on a sample of nodes.
+    + Eg., Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]: <br/> N = 2200 nodes $\rightarrow$ ~4.8million pairs of nodes
     ```python
+    # Approximation
+    btwnCent_approx = nx.betweenness_centrality(G, normalized = True, endpoints = False, k = 10)
+    sorted(btwnCent_approx.items(), key=operator.itemgetter(1), reverse = True)[0:5]
+    # [(1, 0.48269390331890333), (34, 0.27564694564694564), (32, 0.20863636363636362), 
+    # (3, 0.1697598003848004), (2, 0.13194624819624817)]
 
+    # subsets
+    btwnCent_subset = nx.betweenness_centrality_subset(G, [34, 33, 21, 30, 16, 27, 15, 23, 10], [1, 4, 13, 11, 6, 12, 17, 7], normalized=True)
+
+    sorted(btwnCent_subset.items(),key=operator.itemgetter(1), reverse=True)[0:5]
+    # [(1, 0.04899515993265994), (34, 0.028807419432419434), (3, 0.018368205868205867),
+    #  (33, 0.01664712602212602), (9, 0.014519450456950456)]
     ```
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
+        <img src="images/m3-09.png" alt="xxx" title="Betweenness Centrality - Approximity" height="150">
+        <img src="images/m3-10.png" alt="xxx" title="Betweenness Centrality - Subsets" height="150">
+    </a>
+
++ Betweenness Centrality – Edges
+    + We can use betweenness centrality to find important edges instead of nodes:
+
+        $$C_{btw} (e) = \sum_{s,t \in N} \frac{\sigma_{s,t} (e)}{\sigma_{s,t}}$$
+        + $\sigma_{s,t}$: the number of shortest paths between nodes $𝑠$ and $𝑡$.
+        + $\sigma_{s,t} (e)$: the number shortest paths between nodes $𝑠$ and $𝑡$ that pass through edge $𝑒$.
+    ```python
+    # Edges
+    btwnCent_edge = nx.edge_betweenness_centrality(G, normalized=True)
+    sorted(btwnCent_edge.items(), key=operator.itemgetter(1), reverse = True)[0:5]
+    # [((1, 32), 0.12725999490705373), ((1, 7), 0.07813428401663694), ((1, 6), 0.07813428401663694),
+    #  ((1, 3), 0.0777876807288572), ((1, 9), 0.07423959482783014)]
+
+    # subsets
+    btwnCent_edge_subset = nx.edge_betweenness_centrality_subset(G, [34, 33, 21, 30, 16, 27, 15, 23, 10], [1, 4, 13, 11, 6, 12, 17, 7], normalized=True)
+    sorted(btwnCent_edge_subset.items(), key=operator.itemgetter(1), reverse = True)[0:5]
+    # [((1, 32), 0.01366536513595337), ((1, 9), 0.01366536513595337), ((14, 34), 0.012207509266332794),
+    #  ((1, 3), 0.01211343123107829), ((1, 7), 0.012032085561497326)]
+    ```
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
+        <img src="images/m3-11.png" alt="xxx" title="Betweenness Centrality - Edges" height="150">
+        <img src="images/m3-12.png" alt="xxx" title="Betweenness Centrality - Edges w/ subsets" height="150">
+    </a>
+
++ Summary
+    + Betweenness centrality assumption: important nodes connect other nodes.
+
+        $$C_{btw} (v) = \sum_{s, t \in N} \frac{\sigma_{s,t} (v)}{\sigma_{s,t}}$$
+    + __Normalization__: Divide by number of pairs of nodes.
+    + __Approximation__: Computing betweenness centrality can be computationally expensive. We can approximate computation by taking a subset of nodes.
+    + __Subsets__: We can define subsets of source and target nodes to compute betweenness centrality.
+    + __Edge betweenness centrality__: We can apply the same framework to find important edges instead of nodes.
+
+
 
 ### Lecture Video
 
-<a href="url" alt="Betweenness Centrality" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/iaUb3xmEeeoMBL4ko9vzA.processed/full/360p/index.mp4?Expires=1549238400&Signature=H8YFhrG61Q2CaiQJwCeKOdZG49hwJvVf1OakgcvbFpYd9KUiR-MeIDw0-473~FCoBm1aMhUCBIrUxCbv8Hxti3ehiEUIlaDM9OHA3ymRANH0S06L~wz0bSRIutGTZxCFwdvFIAE3uJrXH52GMdwZAn9N3a3CIw921t0LgXSs1RU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Betweenness Centrality" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
