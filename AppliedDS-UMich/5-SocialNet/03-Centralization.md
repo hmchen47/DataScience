@@ -11,12 +11,12 @@
         + Ex. Average proximity to other nodes. 5 most important nodes are: 1, 3, 34, 32, 9
         + Ex. Fraction of shortest paths that pass through node. 5 most important nodes are: 1, 34, 33, 3, 32
     <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> <br/>
-        <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="xxx" title="Friendship network in a 34-person karate club [Zachary 1977]" height="200">
+        <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="xxx" title="Friendship network in a 34-person karate club [Zachary 1977]" height="150">
     </a>
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
-        <img src="images/m3-01.png" alt="So, one way to answer the question would be to say, well, nodes who have a very high degree, nodes who have lots of friends are important nodes. And if we use that definition then we'll find that the five most important nodes are nodes 34, 1, 33, 3 and 2." title="Importance as high degrees" height="200"> <br/>
-        <img src="images/m3-02.png" alt="There are other ways in which you can imagine answering this question. Another way would be to say that nodes who are important are nodes who are very close to other nodes and network, nodes who have high proximity to other nodes and network. And if we use that definition, then the five most important nodes in the network would be notes 1, 3, 34, 32 and 9.  So, instead of having node 33 we'll have node 9 and then instead of having node 2 we'll have node 32 and all the other ones stay the same. Yet, another way of thinking about importance would be to say that nodes who are important are nodes who tend to connect other nodes into network." title="Importance as high proximity" height="200">
-        <img src="images/m3-03.png" alt="And so, we could imagine measuring importance by the fraction of shortest paths that pass through a particular node. And if we do that, if we define in that way, we find that the five most important nodes in the network are nodes 1,34, 33, 3 and 32. So, instead of having node number 9, we'll have node number 33 in the top five and every all the other nodes will stay the same." title="Importance as high fraction of shortest path passing the node" height="200">
+        <img src="images/m3-01.png" alt="So, one way to answer the question would be to say, well, nodes who have a very high degree, nodes who have lots of friends are important nodes. And if we use that definition then we'll find that the five most important nodes are nodes 34, 1, 33, 3 and 2." title="Importance as high degrees" height="150"> <br/>
+        <img src="images/m3-02.png" alt="There are other ways in which you can imagine answering this question. Another way would be to say that nodes who are important are nodes who are very close to other nodes and network, nodes who have high proximity to other nodes and network. And if we use that definition, then the five most important nodes in the network would be notes 1, 3, 34, 32 and 9.  So, instead of having node 33 we'll have node 9 and then instead of having node 2 we'll have node 32 and all the other ones stay the same. Yet, another way of thinking about importance would be to say that nodes who are important are nodes who tend to connect other nodes into network." title="Importance as high proximity" height="150">
+        <img src="images/m3-03.png" alt="And so, we could imagine measuring importance by the fraction of shortest paths that pass through a particular node. And if we do that, if we define in that way, we find that the five most important nodes in the network are nodes 1,34, 33, 3 and 32. So, instead of having node number 9, we'll have node number 33 in the top five and every all the other nodes will stay the same." title="Importance as high fraction of shortest path passing the node" height="150">
     </a>
 
 + Network Centrality <br/>
@@ -42,6 +42,7 @@
     + Undirected networks: use degree Directed networks: use in-degree or out-degree
 
 + Degree Centrality – Undirected Networks
+
     $$C_{deg}(v) = \frac{d_v}{|N| - 1}$$
     + $N$: the set of nodes in the network
     + $d_v$: the degree of node $v$
@@ -121,13 +122,13 @@
 
         $$C_{close}(L) = \frac{|R(L)|}{\sum_{u \in R(L)} d(L, u)}$$
         + $R(L)$: the set of nodes L can reach.
-        + $C_{close}(L) = 1/1 = 1$, since $L$ can only reach $M$ and it has a shortest path of length 1.
+        + $C_{close}(L) = 1/1 = 1$, since $L$ can only reach $M$ and it has a shortest path of length 1. 
         + __Problem__: centrality of 1 is too high for a node than can only reach one other node!
     + Option 2: Consider only nodes that $L$ can reach and normalize by the fraction of nodes $L$ can reach:
 
-        $$C_{close} (L) = [\frac{|R(L)|}{|N -1|}] \frac{|R(L)|}{\sum_{u \in (L)} d(L, u)}$$
+        $$C_{close} (L) = \frac{|R(L)|}{|N| - 1} \times \frac{|R(L)|}{\sum_{u \in (L)} d(L, u)}$$
 
-        $$C_{close} (L) = [\frac{1}{14}] \frac{1}{1} = 0.071$$
+        $$C_{close} (L) = \frac{1}{14} \times \frac{1}{1} = 0.071$$
         + Note that this definition matches our definition of closeness centrality when a graph is connected since $R(L) = N − 1$
     + Programming
         ```python
