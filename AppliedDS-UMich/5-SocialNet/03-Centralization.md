@@ -181,7 +181,7 @@
 
 ### Lecture Notes
 
-+ Betweenness Centrality <br/>
++ Betweenness Centrality - Undirected Graph
     + Assumption: important nodes connect other nodes.
 
         $$C_{btw} (v) = \sum_{s, t \in N} \frac{\sigma_{s,t} (v)}{\sigma_{s, t}}$$
@@ -199,34 +199,30 @@
             <img src="images/m3-05.png" alt="Betweenness Centrality: endpoint" title="Betweenness Centrality-endpint" height="100">
         </a>
 
-+ Disconnected Nodes
++ Disconnected Nodes - Directed Graph
     + Assumption: important nodes connect other nodes.
 
         $$C_{btw} (v) = \sum_{s, t \in N} \frac{\sigma_{s,t} (v)}{\sigma_{s, t}}$$
-    + <n style="color:red">What if not all nodes can reach each other?</n>
+    + <n style="color:red">What if not all nodes can reach each other?</n> (see directed graph below)
     + Node D cannot be reached by any other node. Hence, $\sigma_{A,D} = 0$, making the above definition undefined.
-    + When computing betweenness centrality, we only consider nodes $𝑠$, $𝑡$ such that there is at least one path between them.
+    + When computing betweenness centrality, only consider nodes $𝑠$, $𝑡$ such that there is at least one path between them.
     + Node D cannot be reached by any other node. Hence, $\sigma_{A,D} = 0$, making the above definition undefined.
     + Ex. What is the betweenness centrality of node B, without including it as endpoint?
 
         $$C_{btw} (B) = \frac{\sigma_{A,C} (B)}{\sigma_{A,C}} + \frac{\sigma_{C,A} (B)}{\sigma_{C,A}} + \frac{\sigma_{D,C} (B)}{\sigma_{D,C}} + \frac{\sigma_{D,A} (B)}{\sigma_{D,A}} = \frac{1}{1} + \frac{0}{1} + \frac{0}{1} + \frac{0}{1} = 1$$
-    + Ex. What is the betweenness centrality of node B, without including it as endpoint?
+    + Ex. What is the betweenness centrality of node C, without including it as endpoint?
 
         $$C_{btw} (C) = \frac{\sigma_{A,B} (C)}{\sigma_{A,B}} + \frac{\sigma_{B,A} (C)}{\sigma_{B,A}} + \frac{\sigma_{D,B} (C)}{\sigma_{D,B}} + \frac{\sigma_{D,A} (C)}{\sigma_{D,A}} = \frac{0}{1} + \frac{1}{1} + \frac{0}{1} + \frac{1}{1} = 2$$
-        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> <br/>
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> 
             <img src="images/m3-06.png" alt="Disconnected Nodes" title="Disconnected Nodes: orignal" height="100">
             <img src="images/m3-07.png" alt="Disconnected Nodes" title="Disconnected Nodes: node B" height="100">
             <img src="images/m3-08.png" alt="Disconnected Nodes" title="Disconnected Nodes: node C" height="100">
         </a>
+
++ Betweenness Centrality - Normalization
     + __Normalization__: betwenness centrality values will be larger in graphs with many nodes. To control for this, we divide centrality values by the number of pairs of nodes in the graph (excluding $𝑣$):
         + $\frac{1}{2} (|𝑁| − 1)( 𝑁 − 2)$ in undirected graphs
         + $(|𝑁| − 1)( 𝑁 − 2)$ in directed graphs
-        <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> <br/>
-            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Betweenesw Centrality - Normalization" title="Friendship network in a 34-person karate club [Zachary 1977]" height="150">
-        </a>
-        <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa066082"> 
-            <img src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2007/nejm_2007.357.issue-4/nejmsa066082/production/images/img_small/nejmsa066082_f1.jpeg" alt="Betweenesw Centrality - Normalization" title="Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]" height="150">
-        </a>
     + Programming
         ```python
         btwnCent = nx.betweenness_centrality(G, normalized = True, endpoints = False)
@@ -236,14 +232,20 @@
         # [(1, 0.43763528138528146), (34, 0.30407497594997596), (33, 0.14524711399711399),
         #  (3, 0.14365680615680618), (32, 0.13827561327561325)]
         ```
+        <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> 
+            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Betweenesw Centrality - Normalization" title="Friendship network in a 34-person karate club [Zachary 1977]" height="150">
+        </a>
+        <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa066082"> 
+            <img src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2007/nejm_2007.357.issue-4/nejmsa066082/production/images/img_small/nejmsa066082_f1.jpeg" alt="Betweenesw Centrality - Normalization" title="Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]" height="150">
+        </a>
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
-            <img src="images/m3-01.png" alt="xxx" title="Betweenness Centrality - Normalization" height="200">
+            <img src="images/m3-01.png" alt="xxx" title="Betweenness Centrality - Normalization" height="150">
         </a>
 
 + Betweeness Centrality - Complexity
     + Computing betweenness centrality of all nodes can be very computationally expensive.
     + Depending on the algorithm, this computation can take up to $𝑂(|𝑁|^3)$ time.
-    + Approximation: rather can computing betweenness centrality based on all pairs of nodes $𝑠$, $𝑡$, we can approximate it based on a sample of nodes.
+    + __Approximation__: rather can computing betweenness centrality based on all pairs of nodes $𝑠$, $𝑡$, we can approximate it based on a sample of nodes.
     + Eg., Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]: <br/> N = 2200 nodes $\rightarrow$ ~4.8million pairs of nodes
     ```python
     # Approximation
@@ -254,7 +256,6 @@
 
     # subsets
     btwnCent_subset = nx.betweenness_centrality_subset(G, [34, 33, 21, 30, 16, 27, 15, 23, 10], [1, 4, 13, 11, 6, 12, 17, 7], normalized=True)
-
     sorted(btwnCent_subset.items(),key=operator.itemgetter(1), reverse=True)[0:5]
     # [(1, 0.04899515993265994), (34, 0.028807419432419434), (3, 0.018368205868205867),
     #  (33, 0.01664712602212602), (9, 0.014519450456950456)]
