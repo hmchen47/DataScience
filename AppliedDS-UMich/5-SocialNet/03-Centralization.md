@@ -450,16 +450,88 @@
 
 ### Lecture Notes
 
++ Hubs and Authorities <br/>
+    Given a query to a search engine:
+    + __Root__: set of highly relevant web pages (e.g. pages that contain the query string) – potential _authorities_.
+    + Find all pages that link to a page in root – potential _hubs_.
+    + __Base__: root nodes and any node that links to a node in root.
+    + Consider all edges connecting nodes in the base set.
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/3/"> <br/>
+        <img src="https://lh3.googleusercontent.com/SGe8Hn4SAS9fM1cQGdNzU9P9Q0SwhH5YI527u37LUlOF3yiXQOxjvp0wJ7dAa3wBBHt0FkIItq2MBMQhLJWm_GBfXecp7VrDNiZFZMOHpnYMhyDg4B78J5CR5JcjXVRXxqg0AMVa2Q=w2400" alt="text" title="caption" height="200">
+    </a>
+
++ HITS Algorithm  <br/>
+    Computing $𝑘$ iterations of the HITS algorithm to assign an _authority score_ and _hub score_ to each node.
+    1. Assign each node an authority and hub score of $1$.
+    2. Apply the __Authority Update Rule__: each node’s _authority_ score is the sum of _hub_ scores of each node that _points to it_.
+        
+        $$auth(i, k) = \sum_{j \in In_i} hub(j, k-1), \forall i \in N$$
+        + $auth(i, k)$: the authority score of node $i$ at iteration $k$
+        + $In_i$: the set of nodes with outward edges to node $i$ (inward edge w.r.t. node $i$)
+        + $N$: all nodes in graph
+        + $hub(j, k-1)$: the hub score of node $j$ at iteration $(k-1)$
+    3. Apply the __Hub Update Rule__: each node’s _hub_ score is the sum of _authority_ scores of each node that _it points to_.
+
+        $$hub(i, k) = \sum_{j \in Out_i} auth(j, k-1), \forall i \in N$$
+        + $hub(i, k)$: the hub score of node $i$ at iteration $k$
+        + $Out_i$: the set of nodes with inward edges from node $i$ (outward edge w.r.t. node $i$)
+        + $auth(j, k-1)$: the authority score of node $j$ at iteration $(k-1)$
+    4. __Nomalize__ Authority and Hub scores: $auth(𝑗) = \frac{auth(j)}{\sum_{i \in N} auth(j)}$ and $hub(𝑗) = \frac{hub(j)}{\sum_{i \in N} hub(j)}$
+    5. Repeat $𝑘$ times.
+
++ HITS Algorithm Example
+    + Compute 2 iterations of the HITS algorithm on this network.
+    + Assign each node an auth and hub score of $1$ ($k=0$)
+    + Normalize ($k=1$): $\sum_{i \in N} auth(i) = 15 \sum_{i \in N} hub(i) = 15$
+    + Normalize ($k=2$): $\sum_{i \in N} auth(i) = 35/15 \sum_{i \in N} hub(i) = 45/15 = 3$
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/3/"> <br/>
+        <img src="https://lh3.googleusercontent.com/qjHl36OaGlhGeQ4tBGp1SD9kt7LbJKCDfIDoHwdX94BKqCv2Gvs_Xbmlrm6ypwAx6LoA0nuvoRk_7YqrJiDeLKmJFh_woz-1F7gwTr6LhlKLjHp5a2zrterrgllg4mWYdXpDAiyFjg=w2400" alt="text" title="caption" height="250">
+    </a>
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/4nJWU/hubs-and-authorities"> 
+        <img src="images/m3-15.png" alt="text" title="caption" height="250">
+    </a>
+    + What happens to the scores if we continue iterating the algorithm?
+
++ HITS Algorithm Convergence
+    + Authority scores
+        | $k$ | A | B | C | D | E | F | G | H |
+        |-----|---|---|---|---|---|---|---|---|
+        | 2 | .11 | .17 | .34 | .14 | .06 | .11 | 0 | .06 |
+        | 4 | .10 | .18 | .36 | .13 | .06 | .11 | 0 | .06 |
+        | 6 | .09 | .19 | .37 | .13 | .06 | .11 | 0 | .06 |
+    + Hub scores
+        | $k$ | A | B | C | D | E | F | G | H |
+        |-----|---|---|---|---|---|---|---|---|
+        | 2 | .04 | .13 | .07 | .16 | .22 | .13 | .18 | .07 |
+        | 4 | .04 | .14 | .05 | .18 | .25 | .14 | .17 | .04 |
+        | 6 | .04 | .14 | .04 | .18 | .26 | .14 | .16 | .04 |
+    + Node B Authority & Hub scores iteration trend
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/4nJWU/hubs-and-authorities"> <br/>
+        <img src="images/m3-16.png" alt="text" title="caption" height="250">
+    </a>
+    + For most networks, as 𝑘 gets larger, authority and hub scores converge to a unique value.
+    + As $𝑘 \rightarrow \infty$ the hub and authority scores approach:
+        |  | A | B | C | D | E | F | G | H |
+        |-----|---|---|---|---|---|---|---|---|
+        | Auth | .08 | __.19__ | __.40__ | .13 | .06 | .11 | 0.0 | .06 |
+        | Hub  | .04 | .14 | .03 | __.19__ | __.27__ | .14 | .15 | .03 |
+
++ HITS Algorithm NetworkX
+    + Use NetworkX funtion `hits(G)` to compute the hub and authority scores of network G.
+    + `hits(G)` outputs two dictionaries, keyed by node, with the hub and authority scores of the nodes.
+
++ Summary
+    + The HITS algorithm starts by constructing a _root set_ of relevant web pages and expanding it to a _base set_.
+    + HITS then assigns an authority and hub score to each node in the network.
+    + Nodes that have incoming edges from _good hubs_ are _good authorities_, and nodes that have outgoing edges to _good authorities_ are _good hubs_.
+    + Authority and hub scores converge for most networks.
+    + Use NetworkX function `hits(G)` to compute the hub and authority scores of network G
 
 
-+ Demo
-    ```python
-
-    ```
 
 ### Lecture Video
 
-<a href="url" alt="Hubs and Authorities" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/F1nw-3xEEeeybwpoukrg-A.processed/full/360p/index.mp4?Expires=1549324800&Signature=ASrDSHZQDqIzMHcoV1T-xVRzTYIqBg73dPnEX4UQVJ8qHC2BN7XI9kVTeAYF32c~mfVSNLhgA2UF-Gx8JVVl6vBYqoLjWhW2LBOUcPktvPcTIBJzD-x1gAaWG7YdsXKb~h42N8z3QD1X2VAj5Cq69hEsmoFydj0Mixl6r2rThsA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Hubs and Authorities" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
