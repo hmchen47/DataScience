@@ -362,6 +362,7 @@
         | $k=2$ | 1/10 | 13/30 | 7/30 | 2/10 | 1/30 |
         | $k=2$ | .1 | .43 | .23 | /20 | .03 |
         | $k=3$ | .1 | .33 | .28 | .22 | .06 |
+        | ... | ... | ... | ... | ... | ... |
         | $k=\infty$ | .12 | .38 | .25 | .19 | .06 |
     + For most networks, PageRank values converge.
 
@@ -391,16 +392,57 @@
 
 ### Lecture Notes
 
++ Interpreting PageRank
+    + The PageRank of a node at step $𝑘$ is the probability that a random walker lands on the node after taking $𝑘$ steps.
+    + __Random walk of $k$ steps__: Start on a random node. Then choose an outgoing edge at random and follow it to the next node. Repeat $𝑘$ times. For example, a random walk of 5 steps on this graph looks like this: (Last section graph)
+        1. Choose a random outgoing edge (D). Follow the edge (D->A) to the next node (A).
+        2. Choose a random outgoing edge (A->B) and follow it (B).
+        3. Choose a random outgoing edge (B->C) and follow it (C).
+        4. Choose a random outgoing edge (C->B) and follow it (B).
+        5. Choose a random outgoing edge (B->D) and follow it (D).
+        6. ...
+    + Page Rank
+        |   | A | B | C | D | E |
+        |---|---|---|---|---|---|
+        | $k=\infty$ | .12 | .38 | .25 | .19 | .06 |
 
++ PageRank Problem
+    + <n style="color:cyan"> What’s the PageRank of the nodes in this network? [Hint: think about the random walk interpretation]  <n/>
+    + For a large enough $𝑘$: `F` and `G` each have PageRank of $1/2$ and all the other nodes have PageRank $0$.
+    + Why? Imagine a random walk on this network. Whenever the walk lands on F or G, it is “stuck” on F and G.
+    + This seems problematic!
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/xxW11/scaled-page-rank"> <br/>
+        <img src="images/m3-14.png" alt="text" title="caption" height="200">
+    </a>
+    + Solution: introduce a “damping parameter” $\alpha$
+    + __Random walk of $k$ steps with damping parameter $𝜶$__:
+        1. Start on a random node.
+        2. choose an outgoing edge at random
+            + with probability $\alpha$: follow it to the next node.
+            + With probability $1 − \alpha$: go to itself.
+        3. Repeat $𝑘$ times.
+    + The random walk is no longer “stuck” on nodes `F` and `G`.
 
-+ Demo
-    ```python
++ Scaled PageRank
+    + The __Scaled PageRank__ of 𝑘 steps and damping factor $\alpha$ of a node $𝑛$ is the probability that a random walk with damping factor $\alpha$ lands on a $𝑛$ after $𝑘$ steps.
+    + For most networks, as $𝑘$ gets larger, Scaled PageRank converges to a unique value, which depends on $\alpha$.
+    + In practice, we use a parameter of $\alpha$ between $0.8$ and $0.9$.
+    + E.g., Scaled PageRank ($\alpha = .8$, $k$ large)
+        + F and G still have high PageRank, but not all the PageRank.
+    + Damping factor works better in very large networks like the Web or large social networks.
+    + Use NetworkX function `pagerank(G, alpha=0.8)` to compute Scaled PageRank of network G with damping parameter alpha.
 
-    ```
++ Summary
+    + The Basic PageRank of a node can be interpreted as the probability that a random walk lands on the node after $𝑘$ random steps.
+    + Basic PageRank has the problem that, in some networks, a few nodes can “suck up” all the PageRank from the network.
+    + To fix this problem, Scaled PageRank introduces a parameter $\alpha$, such that the random walker chooses a random node to jump to with probability $1 − \alpha$.
+    + Typically $\alpha = [0.8, 0.9]$
+    + NetworkX function `pagerank(G, alpha=0.8)` computes Scaled PageRank of network G with damping parameter $\alpha=0.8$.
+
 
 ### Lecture Video
 
-<a href="url" alt="Scaled Page Rank" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/ORse-JTLEeeOmgqEJWRlfA.processed/full/360p/index.mp4?Expires=1549324800&Signature=RtvWumFTbEVTgmTHutaNMPVXtFBcg0WVjQWxYWQc7~7V9A8f-Qw6gL4VccyQWDZQMNMhYmZ3HT-uimX076DuxOkxEiew6AllFzEHPjcKGau8QzkukJDDF2UB3-mVnuZGU6zZiUXd~9hKf2JoYdSOvzbIc3E1fQKcx2pnmYnvXYU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Scaled Page Rank" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
