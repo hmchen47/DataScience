@@ -393,7 +393,8 @@
 ### Lecture Notes
 
 + Interpreting PageRank
-    + The PageRank of a node at step $𝑘$ is the probability that a random walker lands on the node after taking $𝑘$ steps.
+    + The PageRank of a node at step $𝑘$ is the probability that a 
+    random walker lands on the node after taking $𝑘$ steps.
     + __Random walk of $k$ steps__: Start on a random node. Then choose an outgoing edge at random and follow it to the next node. Repeat $𝑘$ times. For example, a random walk of 5 steps on this graph looks like this: (Last section graph)
         1. Choose a random outgoing edge (D). Follow the edge (D->A) to the next node (A).
         2. Choose a random outgoing edge (A->B) and follow it (B).
@@ -417,11 +418,9 @@
     + Solution: introduce a “damping parameter” $\alpha$
     + __Random walk of $k$ steps with damping parameter $𝜶$__:
         1. Start on a random node.
-        2. choose an outgoing edge at random
-            + with probability $\alpha$: follow it to the next node.
-            + With probability $1 − \alpha$: go to itself.
+        2. with probability $\alpha$, choose an outgoing edge at random follow it to the next node. Otherwise, with probability $1 - \alpha$, choose a node at random and jump to it.
         3. Repeat $𝑘$ times.
-    + The random walk is no longer “stuck” on nodes `F` and `G`.
+    + The random walk is no longer “stuck” on nodes `F` and `G`. 
 
 + Scaled PageRank
     + The __Scaled PageRank__ of 𝑘 steps and damping factor $\alpha$ of a node $𝑛$ is the probability that a random walk with damping factor $\alpha$ lands on a $𝑛$ after $𝑘$ steps.
