@@ -540,13 +540,21 @@
 
 ### Lecture Notes
 
++ Comparing Centrality Measures
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/3/"> <br/>
+        <img src="https://lh3.googleusercontent.com/JAINE9ppbGNym66qCBxf1iA-tl6mRYWfNqGaxTPrtUBOIVuvesbybNa1u9w1uAljFVqA2Y69vElummskMHDHZsnuVSKQgTLX_cH1cRAlP8fXQLG564TmwSpfHD_MQJdgoz8bpmO5zw=w2400" alt="text" title="caption" height="250">
+    </a>
 
-
++ Summary
+    + In this example, no pair of centrality measures produces the exact same ranking of nodes, but they have some commonalities.
+    + Centrality measures make different assumptions about what it means to be a “central” node. Thus, they produce different rankings.
+    + The best centrality measure depends on the context of the network one is analyzing.
+    + When identifying central nodes, it is usually best to use multiple centrality measures instead of relying on a single one.
 
 
 ### Lecture Video
 
-<a href="url" alt="Centrality Examples" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/38sc2nxEEeeR4BLAuMMnkA.processed/full/360p/index.mp4?Expires=1549324800&Signature=LDT3hF9pPGEv~gLk~hTpxsQDsP8ItUTMFn6R5q8f2wbz8WjWBWHs54hp47w6XQMRJZYUZMmSsG46EdFWnDNBIMY5hAHsK3Fmd7~xUlpvFpf5Og-GvefNtX7M-Ge6mJf3YNVz3Gf50~XiKpbU8eZj17loiKdjg0~4voF8Rd0NBzw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Centrality Examples" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
