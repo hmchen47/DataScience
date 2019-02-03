@@ -222,9 +222,9 @@
 
         $$C_{btw} (C) = \frac{\sigma_{A,B} (C)}{\sigma_{A,B}} + \frac{\sigma_{B,A} (C)}{\sigma_{B,A}} + \frac{\sigma_{D,B} (C)}{\sigma_{D,B}} + \frac{\sigma_{D,A} (C)}{\sigma_{D,A}} = \frac{0}{1} + \frac{1}{1} + \frac{0}{1} + \frac{1}{1} = 2$$
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> 
-            <img src="images/m3-06.png" alt="Disconnected Nodes" title="Disconnected Nodes: orignal" height="100">
-            <img src="images/m3-07.png" alt="Disconnected Nodes" title="Disconnected Nodes: node B" height="100">
-            <img src="images/m3-08.png" alt="Disconnected Nodes" title="Disconnected Nodes: node C" height="100">
+            <img src="images/m3-06.png" alt="Disconnected Nodes: no node can actually reach node D. And so how do we compute this given that no node can actually reach D? If we were simply to apply the definition as we stated it and we actually include pairs for example A, D, then sigma A, D would be 0 because they're no shortest paths between A and D. And we have that sigma A, D in the definition a=is in the denominator. And so this would make this undefined. And so, we have to fix that in some way. And what we do is that we simply only consider the nodes that actually have at least one shortest path between them when we're considering nodes s and t." title="Disconnected Nodes: orignal" height="100">
+            <img src="images/m3-07.png" alt="Disconnected Nodes: we're not including node B in the computation as one of the endpoints. Well, then we have to see which ones are the nodes that actually have at least one shortest path between them. And we'll use those in the computation. So A, C has a shortest path, thus A,B, C. And B involved in that, so that it contributes 1. C, A, C can reach A in just one step by connecting directly to it. That does not involve node B, so that contributes 0 to the computation. D, C, again, they're connected without including B, so that's contributes 0 to the computation. And then D to A, that has the shortest path D, C, A, which does not involve node B. And therefore, it contributes 0 to the computation. Notice that you can also go from D to A passing through B. You can go D, B, C, A. But that is a longer path, so it's not the shortest path. And so B is not involved in the shortest path between D and A. And so in this case, node B has a centrality of 1." title="Disconnected Nodes: node B" height="100">
+            <img src="images/m3-08.png" alt="Disconnected Nodes: not including C as one of the endpoints. And so the first one is A, B, which there is a direct connection between them, and does not involve C, so that contributes 0. B to A, the shortest path from B to A is B, C, A. And that involves node C so it contributes 1 to the centrality of C. There's D, B, they're directly connected, so that contributes 0. And then there is D, A. And again the path from D to A, the shortest path passes through node C, so that contributes 1 to the computation. And overall we've find that node C has a betweenness centrality of 2." title="Disconnected Nodes: node C" height="100">
         </a>
 
 + Betweenness Centrality - Normalization
@@ -240,21 +240,29 @@
         # [(1, 0.43763528138528146), (34, 0.30407497594997596), (33, 0.14524711399711399),
         #  (3, 0.14365680615680618), (32, 0.13827561327561325)]
         ```
-        <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> 
-            <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Betweenesw Centrality - Normalization" title="Friendship network in a 34-person karate club [Zachary 1977]" height="150">
+    <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> 
+        <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="Betweenesw Centrality - Normalization: nodes that are in graphs that have a larger number of nodes will tend to have higher centrality than nodes of graphs that are smaller in terms of the number of nodes. That's simply because in large graphs, there are more nodes, s and t, to choose from to compute the centrality of the nodes. And so for example, if we look at these friendship network in the 34 person karate club, the nodes there are going to have lower centrality than the nodes in this larger network of 2200 people. And so, sometimes if we want to compare betweenness centrality across networks, it's useful to normalize. And the way we normalize is simply by dividing the betweenness centrality of our node v by the number of possible pairs of nodes in the network, not including node v. So for undirected graphs, you would divide them betweenness centrality of v by (N-1)(N-2) over 2. That's the number of pairs that you could have in an undirected graph excluding the node that you're currently looking at." title="Friendship network in a 34-person karate club [Zachary 1977]" height="150">
+    </a>
+    <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa066082"> 
+        <img src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2007/nejm_2007.357.issue-4/nejmsa066082/production/images/img_small/nejmsa066082_f1.jpeg" alt="Betweenesw Centrality - Normalization: in directed graphs, you have twice the number of pairs because for any pair s, t, you could have a path from s to t, but also a potentially different path from t to s. So you would divide the betweenness centrality of node v by (N-1)(N-2)." title="Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]" height="150">
+    </a>
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
+        <img src="images/m3-01.png" alt="the karate club and betweenness centrality, compute the betweenness centrality of all the nodes and then find the five largest, the five nodes with the largest betweenness centrality, we find that these are the nodes 1, 34, 33, 3, and 32." title="Betweenness Centrality - Normalization" height="150">
+    </a>
+
+    + IVQ: For the same network, what is the normalized betweenness centrality (excluding endpoints) of node D?
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> <br/>
+            <img src="images/m3-q02.png" alt="IVQ graph for betweenness centrality" title="IVQ graph for betweenness centrality" height="100">
         </a>
-        <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa066082"> 
-            <img src="https://www.nejm.org/na101/home/literatum/publisher/mms/journals/content/nejm/2007/nejm_2007.357.issue-4/nejmsa066082/production/images/img_small/nejmsa066082_f1.jpeg" alt="Betweenesw Centrality - Normalization" title="Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]" height="150">
-        </a>
-        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
-            <img src="images/m3-01.png" alt="xxx" title="Betweenness Centrality - Normalization" height="150">
-        </a>
+
+        Ans: 0.6 <br/>
+        There are 6 nodes in this network (excluding node D), therefore, after normalization, the normalized betweenness is 9/(6*5/2) = 0.6
 
 + Betweeness Centrality - Complexity
     + Computing betweenness centrality of all nodes can be very computationally expensive.
     + Depending on the algorithm, this computation can take up to $𝑂(|𝑁|^3)$ time.
-    + __Approximation__: rather can computing betweenness centrality based on all pairs of nodes $𝑠$, $𝑡$, we can approximate it based on a sample of nodes.
     + Eg., Network of friendship, marital tie, and family tie among 2200 people [Christakis & Fowler 2007]: <br/> N = 2200 nodes $\rightarrow$ ~4.8million pairs of nodes
+    + __Approximation__: rather can computing betweenness centrality based on all pairs of nodes $𝑠$, $𝑡$, we can approximate it based on a sample of nodes.
     ```python
     # Approximation
     btwnCent_approx = nx.betweenness_centrality(G, normalized = True, endpoints = False, k = 10)
@@ -269,8 +277,8 @@
     #  (33, 0.01664712602212602), (9, 0.014519450456950456)]
     ```
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
-        <img src="images/m3-09.png" alt="xxx" title="Betweenness Centrality - Approximity" height="150">
-        <img src="images/m3-10.png" alt="xxx" title="Betweenness Centrality - Subsets" height="150">
+        <img src="images/m3-09.png" alt="approximate it by just looking at a sample of nodes, instead of looking at all the nodes. And in network x, you can do this by using the parameter k that says how many nodes you should use to compute the betweenness centrality. And so here, I'm computing the betweenness centrality of the nodes in the karate club network using only 10 nodes rather than 34 nodes. And so this gives you an approximation for what the betweenness centrality of the nodes actually is. And if I look at the five nodes with the largest approximated betweenness centrality, we find that these are nodes 1, 34, 32, 3, and 2. So we get almost exactly the same list as we did when we didn't approximate, when we find the actual betweenness centrality, except that we now get 2 as one of the top five and we lose 33 as one of the top five. So it gives us something that is close to the actual. But of course, there can be some differences since now you're only using 10 rather than 34 nodes to compute the centrality" title="Betweenness Centrality - Approximity, samples = 10" height="150">
+        <img src="images/m3-10.png" alt="you maybe really care about two groups communicating with each other. So you want to find what are the most important nodes in this network that tend to show up in the shortest paths between a group of source nodes and a group of target nodes? And so to do this in network x, you can use the function betweenness centrality subset, in which you pass the graph and then you pass the set of source nodes and the set of target nodes. And you can choose to normalize or not. In this case, I'm normalizing. And I'm just sort of here selecting two groups of nodes, pretty arbitrarily, just to kind of give you an example here. So we're going to see, based on these source nodes and target nodes, what are the most important nodes? And again, here what the meaning of these source nodes and target nodes is that when we select the nodes s, t to compute the centrality of all the nodes, we're always going to choose s from the set of source nodes, and t from the set of target nodes, rather than selecting all possible pairs. And so when we find the top nodes here with the highest betweenness centrality in this setup, with these source nodes and these target nodes, we find that nodes 1, 34, 3, 33, and 9 are the most important nodes. Now notice that these tend to be the nodes that also have highest centrality when you don't restrict to source and subset of source and target nodes. But there are some changes." title="Betweenness Centrality - Subsets" height="150">
     </a>
 
 + Betweenness Centrality – Edges
@@ -293,8 +301,8 @@
     #  ((1, 3), 0.01211343123107829), ((1, 7), 0.012032085561497326)]
     ```
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality">
-        <img src="images/m3-11.png" alt="xxx" title="Betweenness Centrality - Edges" height="150">
-        <img src="images/m3-12.png" alt="xxx" title="Betweenness Centrality - Edges w/ subsets" height="150">
+        <img src="images/m3-11.png" alt="in network x, you can use the function edge betweenness centrality to find the betweenness centrality of all the edges in the network. And so here, if we find the top five edges with the highest betweenness centrality, we find that these are it. So they all tend to be edges that are connected to node number 1, which if you remember, node number 1 here is the instructor of the karate club." title="Betweenness Centrality - Edges" height="150">
+        <img src="images/m3-12.png" alt="In the same way that you could define a specific set of source nodes and a specific set of target nodes, you can do the same thing when you compute the edge betweenness centrality rather than node betweenness centrality. And for this, you can use the function edge betweenness centrality subset. And you pass again the graph and the source nodes and the target nodes. And if we find here the top five edges with the highest betweenness centrality for this particular choice of source and target nodes, we find that these are the the most important ones. And notice that most of them tend to be edges that go from inside the target or inside the source set to the outside. And that make sense because these are the ones that actually end up showing up in the shortest paths between the source and the targets." title="Betweenness Centrality - Edges w/ subsets" height="150">
     </a>
 
 + Summary
@@ -305,32 +313,6 @@
     + __Approximation__: Computing betweenness centrality can be computationally expensive. We can approximate computation by taking a subset of nodes.
     + __Subsets__: We can define subsets of source and target nodes to compute betweenness centrality.
     + __Edge betweenness centrality__: We can apply the same framework to find important edges instead of nodes.
-
-
- We'll find that when we use network x to compute this, we'll have the option of either including or excluding the node as one of the endpoints in the pair of nodes. Now, here we have another concern, which is that sometimes some pairs of nodes are actually not connected to each other, they cannot reach each other. So what happens to the computation when we have this case? Again, this tends to happen more often in graphs that are directed. And so let's look at this example. Note here that node D has no nodes that are actually pointing to it. So actually, no node can actually reach node D. And so how do we compute this given that no node can actually reach D? If we were simply to apply the definition as we stated it and we actually include pairs for example A, D, then sigma A, D would be 0 because they're no shortest paths between A and D. And we have that sigma A, D in the definition a=is in the denominator. And so this would make this undefined. And so, we have to fix that in some way.
-5:48
-And what we do is that we simply only consider the nodes that actually have at least one shortest path between them when we're considering nodes s and t. So, in this case, what is there betweenness centrality of node B? Let's say we're not including node B in the computation as one of the endpoints. Well, then we have to see which ones are the nodes that actually have at least one shortest path between them. And we'll use those in the computation. So A, C has a shortest path, thus A,B, C. And B involved in that, so that it contributes 1. C, A, C can reach A in just one step by connecting directly to it. That does not involve node B, so that contributes 0 to the computation. D, C, again, they're connected without including B, so that's contributes 0 to the computation. And then D to A, that has the shortest path D, C, A, which does not involve node B. And therefore, it contributes 0 to the computation. Notice that you can also go from D to A passing through B. You can go D, B, C, A. But that is a longer path, so it's not the shortest path. And so B is not involved in the shortest path between D and A. And so in this case, node B has a centrality of 1.
-7:17
-Let's look at the same question for node C. And so again, we have to look at all the pairs of nodes that actually have a shortest path between them. And we're not including C as one of the endpoints. And so the first one is A, B, which there is a direct connection between them, and does not involve C, so that contributes 0. B to A, the shortest path from B to A is B, C, A. And that involves node C so it contributes 1 to the centrality of C. There's D, B, they're directly connected, so that contributes 0. And then there is D, A. And again the path from D to A, the shortest path passes through node C, so that contributes 1 to the computation. And overall we've find that node C has a betweenness centrality of 2.
-8:09
-So, so far we haven't talked about normalizing the betweenness centrality in any way. And the problem with this is that nodes that are in graphs that have a larger number of nodes will tend to have higher centrality than nodes of graphs that are smaller in terms of the number of nodes. That's simply because in large graphs, there are more nodes, s and t, to choose from to compute the centrality of the nodes. And so for example, if we look at these friendship network in the 34 person karate club, the nodes there are going to have lower centrality than the nodes in this larger network of 2200 people. And so, sometimes if we want to compare betweenness centrality across networks, it's useful to normalize.
-8:53
-And the way we normalize is simply by dividing the betweenness centrality of our node v by the number of possible pairs of nodes in the network, not including node v. So for undirected graphs, you would divide them betweenness centrality of v by (N-1)(N-2) over 2. That's the number of pairs that you could have in an undirected graph excluding the node that you're currently looking at.
-9:16
-And in directed graphs, you have twice the number of pairs because for any pair s, t, you could have a path from s to t, but also a potentially different path from t to s. So you would divide the betweenness centrality of node v by (N-1)(N-2). And in network x, you can use the function betweenness centrality to find the centrality of every node in the network. And you have the various options that we've discussed here. So for example, you can choose to normalize or not. And you can also choose the question of the endpoints, whether you use the node that you're computing the centrality of as one of the endpoints in the computation of its centrality. So you can choose to do this in any way you want here. So for example, if we look at the karate club and look at betweenness centrality, compute the betweenness centrality of all the nodes and then find the five largest, the five nodes with the largest betweenness centrality, we find that these are the nodes 1, 34, 33, 3, and 32. Now one of the issues with betweenness centrality is that it can be very computationally expensive. Depending on the specific algorithm you're using, this computation can take up to order number of nodes cubed time. And just for us to get some idea about this, look at the network of friendship, marital tie, and family tie among these 2,200 people. This is a relatively small network, yet when you look at the number pairs of nodes that it can have, you have a new order of 4.8 million pairs of nodes. And so even small networks have lots and lots and lots of pairs of nodes. And so computing the betweenness centrality of these networks becomes pretty expensive. So one of the things that you can do is rather than the computing betweenness centrality based on all the nodes s and t, all the possible nodes s, t in the network, you can approximate it by just looking at a sample of nodes, instead of looking at all the nodes. And in network x, you can do this by using the parameter k that says how many nodes you should use to compute the betweenness centrality. And so here, I'm computing the betweenness centrality of the nodes in the karate club network using only 10 nodes rather than 34 nodes. And so this gives you an approximation for what the betweenness centrality of the nodes actually is. And if I look at the five nodes with the largest approximated betweenness centrality, we find that these are nodes 1, 34, 32, 3, and 2. So we get almost exactly the same list as we did when we didn't approximate, when we find the actual betweenness centrality, except that we now get 2 as one of the top five and we lose 33 as one of the top five. So it gives us something that is close to the actual. But of course, there can be some differences since now you're only using 10 rather than 34 nodes to compute the centrality
-12:28
-The other thing that sometimes is useful is that sometimes you rather compute the betweenness centrality based on two subgroups in the network, not necessarily looking at all potential pairs of nodes. But you maybe really care about two groups communicating with each other. So you want to find what are the most important nodes in this network that tend to show up in the shortest paths between a group of source nodes and a group of target nodes? And so to do this in network x, you can use the function betweenness centrality subset, in which you pass the graph and then you pass the set of source nodes and the set of target nodes. And you can choose to normalize or not. In this case, I'm normalizing. And I'm just sort of here selecting two groups of nodes, pretty arbitrarily, just to kind of give you an example here. So we're going to see, based on these source nodes and target nodes, what are the most important nodes? And again, here what the meaning of these source nodes and target nodes is that when we select the nodes s, t to compute the centrality of all the nodes, we're always going to choose s from the set of source nodes, and t from the set of target nodes, rather than selecting all possible pairs. And so when we find the top nodes here with the highest betweenness centrality in this setup, with these source nodes and these target nodes, we find that nodes 1, 34, 3, 33, and 9 are the most important nodes. Now notice that these tend to be the nodes that also have highest centrality when you don't restrict to source and subset of source and target nodes. But there are some changes. So for example, we had not seen that node number 9 was important before. Now we see that it's important in connecting this particular sets of nodes.
-14:15
-The other thing you can do is you can define the betweenness centrality of an edge, rather than the betweenness centrality of a node, in much the same way that you defined betweenness centrality for a node. So if you're defining the betweenness centrality of an edge, you're going to again look at pairs of nodes as t. And you're going to take the ratio of the number of shortest paths in going from s to t that involve the edge e divided by all shortest paths between nodes s and t. So it is the exact same definition. But now rather than asking is this particular node showing up in the shortest path between s and t, we are asking is this particular edge showing up in the shortest path? And in network x, you can use the function edge betweenness centrality to find the betweenness centrality of all the edges in the network.
-15:13
-And so here, if we find the top five edges with the highest betweenness centrality, we find that these are it. So they all tend to be edges that are connected to node number 1, which if you remember, node number 1 here is the instructor of the karate club.
-15:30
-In the same way that you could define a specific set of source nodes and a specific set of target nodes, you can do the same thing when you compute the edge betweenness centrality rather than node betweenness centrality. And for this, you can use the function edge betweenness centrality subset. And you pass again the graph and the source nodes and the target nodes. And if we find here the top five edges with the highest betweenness centrality for this particular choice of source and target nodes, we find that these are the the most important ones. And notice that most of them tend to be edges that go from inside the target or inside the source set to the outside. And that make sense because these are the ones that actually end up showing up in the shortest paths between the source and the targets.
-16:22
-And they also tend to be connected to very important nodes in the network, namely node number 1, which is the instructor of the karate club and node number 34, which is the instructor of the new karate club after these club splits in two.
-16:37
-So in summary, we say that betweenness centrality makes the assumption that important nodes tend to connect the other nodes. And this is the formula that we use to compute it. In general, it's the sum of the fraction of the number of shortest paths that involve a particular node v divided by all the possible shortest paths between the nodes s and t. We talked about normalizing this, especially if we're comparing betweenness centrality among different networks of different sizes. So we divide by the number of pair of nodes. We also talked about approximating this because sometimes we're unable compute it exactly because it can be computationally expensive. So we can approximate it by selecting a subset of nodes rather than all the nodes. And we showed you how to do this in network x. We also talked about choosing specific sets of target nodes and specific sets of source nodes rather than using all possible pairs. That's if you have a particular sets of nodes that you care about and that you want to know, who are the important nodes that are connecting nodes in this two specific sets. And then we talked about how we can generalize this a bit more and talked about the betweenness centrality of not only the nodes but also the edges. Much in the same way that we define it for nodes, we can also define for edge. This is all for this video. Thank you for watching and I see you next time.
-
 
 
 ### Lecture Video
@@ -344,16 +326,56 @@ So in summary, we say that betweenness centrality makes the assumption that impo
 
 ### Lecture Notes
 
++ PageRank
+    + Developed by Google founders to measure the importance of webpages from the hyperlink network structure.
+    + PageRank assigns a score of importance to each node. Important nodes are those with many in-links from important pages.
+    + PageRank can be used for any type of network, but it is mainly useful for directed networks.
+    + A node’s PageRank depends on the PageRank of other nodes (Circular definition?).
+    <a href="http://www.isglobalweb.com/industry-news/55/#gref"> <br/>
+        <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/PageRanks-Example.svg/400px-PageRanks-Example.svg.png" alt="PageRank is a commonly used Google tool which basically helps you understand the importance of a webpage from Google’s point of view. Technically, the tool refers to a link analysis algorithm applied by the Google search engine which sets a mathematical weightage to all hyperlinked elements to measure the relative importance of a particular web page." title="Google PageRank" height="200">
+    </a>
+    + $n$ = number of nodes in the network <br/>
+        k = number of steps
 
+        1. Assign all nodes a PageRank of $1/𝑛$
+        2. Perform the Basic PageRank Update Rule $k$ times.
+    + __Basic PageRank Update Rule__: Each node gives an equal share of its current PageRank to all the nodes it links to.
 
-+ Demo
-    ```python
+        $$p_{N,k} = \sum_{i \in I_N} p_{i,o} \times p_{i,(k-1)}$$
+        + $p_{N,k}$: the probability of node $N$ at $k$th iteration
+        + $I_N$: the set of nodes with outward edges toward Node $N$
+        + $p_{i, o}$: the probability of Node $i$ whicj takes the edge toward Node $N$, recipocial of the number of outward edges on node $i$
+        + $p_{i, (k-1)}$: the probability of node $i$ at $(k-1)$ iteration
+        + Initial iteration: all nodes w/ the same probability
+    + The new PageRank of each node is the sum of all the PageRank it received from other nodes.
+    + Who should be the most “important” node in this network?
+    + Calculate the PageRank of each node after 2 steps of the procedure $(𝑘 = 2)$.
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/3/"> <br/>
+        <img src="https://lh3.googleusercontent.com/drJdlzvGE92sQ5N9aa1YMDOhuwOpz94EoQZzt-eYwoTbYaj-3BkSBA9UN4_FRBapWiDQeCWj5GP4aJnqyca_zZhlL7AkETDp_NzxUp24fmuMGQXdM4Q1Fv5tJr647zpABoBKFXSu3w=w2400" alt="text" title="caption" height="200">
+        <img src="https://lh3.googleusercontent.com/OkbByIZSDRuukdrv0Nnz_mkWZ9rI6lLOOX3oi2T8x37_E3rgcy6yAReM9vVVFF3l3oOB4F8sI2CrASM5uOOtO5VVpsQnzyoH-E015j_4UNnOI4xjQgXKxcHKFMW1OQgs-rOyI1xZEA=w2400" alt="text" title="caption" height="200">
+    </a>
+     + What if continue with $k=4,5,6, \ldots$?
+    + Final result
+        |  | A | B | C | D | E |
+        |--|---|---|---|---|---|
+        | $k=2$ | 1/10 | 13/30 | 7/30 | 2/10 | 1/30 |
+        | $k=2$ | .1 | .43 | .23 | /20 | .03 |
+        | $k=3$ | .1 | .33 | .28 | .22 | .06 |
+        | $k=\infty$ | .12 | .38 | .25 | .19 | .06 |
+    + For most networks, PageRank values converge.
 
-    ```
++ Summary
+    + Steps of Basic PageRank:
+        1. All nodes start with PageRank of 1/𝑛
+        2. Perform the Basic PageRank Update Rule k times:
+            + Basic PageRank Update Rule: Each node gives an equal share of its current PageRank to all the nodes it links to.
+            + The new PageRank of each node is the sum of all the PageRank it received from other nodes.
+    + For most networks, PageRank values converge as k gets larger $(𝑘 \rightarrow \infty$)
+
 
 ### Lecture Video
 
-<a href="url" alt="Basic Page Rank" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/D6AY0XxEEeeR4BLAuMMnkA.processed/full/360p/index.mp4?Expires=1549324800&Signature=kMFYzMPZR4FG-4093ffR0NGM3e0B7Fjw6Xw43sn41-ZbMJvVurl~4bux9WYTyG6oKUvPoGQ81-nL6hCn~uyiNH4bFpzhh0KoQ2kuHieVmQD9t3j4ui7lAjCg9Wp3TKTuh0kKrA8kYHq3wzAwdCkmhVbRgJoyofkT0GbOyMayvBc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Basic Page Rank" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
