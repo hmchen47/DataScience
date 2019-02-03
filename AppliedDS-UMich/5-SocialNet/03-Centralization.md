@@ -457,7 +457,7 @@
     + __Base__: root nodes and any node that links to a node in root.
     + Consider all edges connecting nodes in the base set.
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/3/"> <br/>
-        <img src="https://lh3.googleusercontent.com/SGe8Hn4SAS9fM1cQGdNzU9P9Q0SwhH5YI527u37LUlOF3yiXQOxjvp0wJ7dAa3wBBHt0FkIItq2MBMQhLJWm_GBfXecp7VrDNiZFZMOHpnYMhyDg4B78J5CR5JcjXVRXxqg0AMVa2Q=w2400" alt="text" title="caption" height="200">
+        <img src="https://lh3.googleusercontent.com/SGe8Hn4SAS9fM1cQGdNzU9P9Q0SwhH5YI527u37LUlOF3yiXQOxjvp0wJ7dAa3wBBHt0FkIItq2MBMQhLJWm_GBfXecp7VrDNiZFZMOHpnYMhyDg4B78J5CR5JcjXVRXxqg0AMVa2Q=w2400" alt="So for example, web pages that contain the query string in the text of the web page or for some reason the search engine thinks these might be an important page to look at. So these are potential authorities, potential pages that are important given the query that the user submitted. This will be called the root set. And so let's say in this example that nodes A, B, and C are these potential authorities, this is the root set. And the next step will be to find all the web pages that link to any page in the root set, and these pages will be potential hubs. So hubs are pages that are not themselves necessarily relevant to the query that the user submitted, but they link to pages that are relevant. So they're pages that are good at pointing at things that may be relevant. And let's say that in this example the nodes E, F, G, D, and H are these pages that point to at least one of the pages in the root set. This whole set of nodes, whatever it was in the root and anything that points to something in the root, is going to be called the base set. And we're going to consider all the hyperlinks that link any node in the base set to any other node in the base set. So there may be many other edges in this network and we're going to consider them all. And so this is the network that we're going to use in order to find the important web pages." title="caption" height="250">
     </a>
 
 + HITS Algorithm  <br/>
@@ -485,10 +485,10 @@
     + Normalize ($k=1$): $\sum_{i \in N} auth(i) = 15 \sum_{i \in N} hub(i) = 15$
     + Normalize ($k=2$): $\sum_{i \in N} auth(i) = 35/15 \sum_{i \in N} hub(i) = 45/15 = 3$
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/3/"> <br/>
-        <img src="https://lh3.googleusercontent.com/qjHl36OaGlhGeQ4tBGp1SD9kt7LbJKCDfIDoHwdX94BKqCv2Gvs_Xbmlrm6ypwAx6LoA0nuvoRk_7YqrJiDeLKmJFh_woz-1F7gwTr6LhlKLjHp5a2zrterrgllg4mWYdXpDAiyFjg=w2400" alt="text" title="caption" height="250">
+        <img src="https://lh3.googleusercontent.com/qjHl36OaGlhGeQ4tBGp1SD9kt7LbJKCDfIDoHwdX94BKqCv2Gvs_Xbmlrm6ypwAx6LoA0nuvoRk_7YqrJiDeLKmJFh_woz-1F7gwTr6LhlKLjHp5a2zrterrgllg4mWYdXpDAiyFjg=w2400" alt="because the first step is to give every node a hub and authority score of one, we're going to start there. We're going to give every node an old authority on hub score of 1, and then we're going to compute the new scores. So let's start with the authority scores. We look at node A and we're going to look at what nodes point to node A in order to figure out what the new authority score of A is, and it turns out that C, G, and H point to A. And because C, G, and H all have hub score of 1, then the new authority score of A is going to be 3. Next, node B, nodes D and E point to B, and E and D both have hub score of 1, so B is going to have a new authority score of 2. So you can see at this point that what we're really doing when we get this new authority score is looking at the in-degree of each one of the nodes, and that's what's going to happen. So, for example, node C has an in-degree of 5. And because all the nodes at this point have a hub score of 1, then C is going to have a new authority score of 5. And then D has two nodes pointing to it, so it has a new authority score of 2. And E has in-degree of 1, F has in-degree of 1. G has in-degree of 0, so it's going to have a new authority score of 0. And H has one node pointing to it, so it has a new authority score of 1. Okay, now let's move to the new hub scores. It's going to be very similar, but now instead of looking at the in-degree of every node, we're going to look at the auth degree. And so, for example, A has an auth degree of 1, it points to D. And now we have to look at these old authority score. And again, because this is our first step, every node has an old authority score of 1. And D does as well, and so A is going to have a new hub score of 1. B points to two things, both of them have an authority score of 1, and so B has hub score of 2. C has an auth degree of 1, so it has a new hub score of 1. D has an auth degree of 2. E has an auth degree of 4. F has an auth degree of 2. G has auth degree 2, and H has auth degree 1. Okay, so the hub for the new hub scores, all we had to do was figure out what the auth degree of each node was. Next, we have to normalize. And so, to normalize we have to add up the authority scores and add up the hub scores. In this case, they'll both add up to 15. It's not the case that in every duration they're going to add up to the same thing, but in the first one they do. So they both in this case add up to 15. And so we have to divide all the scores by 15. And so if we do that we normalize its scores. And now the new authority and hub scores are going to become our old scores. " title="Table for Iteration 1" height="250">
     </a>
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/4nJWU/hubs-and-authorities"> 
-        <img src="images/m3-15.png" alt="text" title="caption" height="250">
+        <img src="images/m3-15.png" alt="And we're ready to go for the next iteration, which is going to be slightly more interesting since now the nodes don't all have the same authority and hub score, so we have to pay attention at the nodes that we're looking at. So let's start with node A. We want to figure out the new authority score of A, and so we have to figure out what nodes point to A. So C, G, and H all point to A. And now we have to look at the hub scores of C, G, and H, which are 1/15, 2/15, and 1/15. And so we add those up and we get 4/15, and that is going to be a new authority score. Now let's move to B. B has two nodes pointing to it, E and D. And they have old hub score of 2/15 and 4/15, which adds up to 6/15. And then C has five things pointing to it, nodes E, F, G, B, and D, which have these old hub scores that I'm highlighting here. And they add up to 12/15, so that's C's new authority score. D has two things pointing to it with old hub score of 1/15 and 4/14, which adds up to 1/3, and so on, right? We can continue doing this for all of the other nodes and find all of the new authority scores. Now, let's go and try to find the new hub scores. So, looking at A, again now, we're not looking at the in-degree, we're not looking at who points to it, but who does A point to. And now we have to pay attention to the old authority scores of those nodes. So in this case, A points to D, and D has a old authority score of 2/15, so that's going to be A's new hub score. And then for B it points to E and D, and they have and old authorities score of 1/15 and 1/3, which adds up to 2/5, and so that's going to be B's new hub score. C points to A and A has an old authority score of 1/5, so that's C's new hub score. D points to B and C, and they have an old authority score of 2/15 and 1/3, which adds up to 7/15, and then so on. We can continue doing this for all the other nodes and find the new hub scores. Next we have to normalize. So we have to add up all the authority scores. In this case, they add up to 35/15. So we have to divide every new authority score by 35/15. So if we do that, these are the updated normalized scores. And we do the same thing for the hubs. So we add up the hub scores for all the nodes, which adds up to 3 in this case. And so we have to divide every new hub score by 3, and then these are the updated normalized scores. And so these are our final new authority and hub scores after two iterations of the HITS algorithm." title="Table for iteration 2" height="250">
     </a>
     + What happens to the scores if we continue iterating the algorithm?
 
@@ -507,7 +507,7 @@
         | 6 | .04 | .14 | .04 | .18 | .26 | .14 | .16 | .04 |
     + Node B Authority & Hub scores iteration trend
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/4nJWU/hubs-and-authorities"> <br/>
-        <img src="images/m3-16.png" alt="text" title="caption" height="250">
+        <img src="images/m3-16.png" alt="So for example, node B here starts out with an authority score of .15. Then after 4 iterations, it goes to .18. Then after 6 iterations, it goes to .19. So will this score for B continue to grow or will it saturate at some point, what could happen here? And so if we continue iterating, here I'm showing you what happens to the hub and authority score of node B. So in this plot on the x-axis we have the number of iterations, and then the y-axis we have the authority and hub scores for node B." title="Authority and Hub score of Node B vs. Iterations" height="250">
     </a>
     + For most networks, as 𝑘 gets larger, authority and hub scores converge to a unique value.
     + As $𝑘 \rightarrow \infty$ the hub and authority scores approach:
@@ -517,7 +517,7 @@
         | Hub  | .04 | .14 | .03 | __.19__ | __.27__ | .14 | .15 | .03 |
 
 + HITS Algorithm NetworkX
-    + Use NetworkX funtion `hits(G)` to compute the hub and authority scores of network G.
+    + Use NetworkX func tion `hits(G)` to compute the hub and authority scores of network G.
     + `hits(G)` outputs two dictionaries, keyed by node, with the hub and authority scores of the nodes.
 
 + Summary
@@ -542,10 +542,7 @@
 
 
 
-+ Demo
-    ```python
 
-    ```
 
 ### Lecture Video
 
