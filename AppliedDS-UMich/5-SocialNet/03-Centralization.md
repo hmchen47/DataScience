@@ -358,6 +358,7 @@
     + Final result
         |  | A | B | C | D | E |
         |--|---|---|---|---|---|
+        | $k=1$ | 1/5 | 1/5 | 1/5 | 1/5 | 1/5 |
         | $k=2$ | 1/10 | 13/30 | 7/30 | 2/10 | 1/30 |
         | $k=2$ | .1 | .43 | .23 | /20 | .03 |
         | $k=3$ | .1 | .33 | .28 | .22 | .06 |
@@ -370,7 +371,13 @@
         2. Perform the Basic PageRank Update Rule k times:
             + Basic PageRank Update Rule: Each node gives an equal share of its current PageRank to all the nodes it links to.
             + The new PageRank of each node is the sum of all the PageRank it received from other nodes.
-    + For most networks, PageRank values converge as k gets larger $(𝑘 \rightarrow \infty$)
+    + For most networks, PageRank values converge as $k$ gets larger $(𝑘 \rightarrow \infty$)
+
++ IVQ: In directed networks, nodes with higher in-degree always have higher PageRank.
+
+    Ans: False <br/>
+    Nodes with fewer in-degrees may have a high Page Rank when they are connected to a more important node.
+
 
 
 ### Lecture Video
