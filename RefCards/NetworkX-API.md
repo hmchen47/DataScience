@@ -157,7 +157,7 @@ from networksx.algorithms import bipartie
 | `nx.periphery(G, e=None)` | Return the periphery of the graph G | [Dist Measure][005] |
 | `nx.center(G, e=None)` | Return the center of the graph G | [Dist Measure][005] |
 | `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
-| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005] |
+| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][00] |
 | `nx.is_connected(G)` | Return True if the graph is connected, false otherwise | [Connected Components][006] |
 | `nx.number_connected_components(G)` | Return the number of connected components | [Connected Components][006] |
 | `nx.connected_components(G)` | Generate connected components | [Connected Components][006] |
@@ -185,6 +185,11 @@ from networksx.algorithms import bipartie
 | `bipartite.weighted_projected_graph(B, nodes, ratio=False)` | Returns a weighted projection of `B` onto one of its node sets |[Bipartite][003] |
 
 
+## Centrality Measurement
+
+| API | Description | links |
+|-------|-------------|-------|
+
 
 
 
@@ -192,7 +197,7 @@ from networksx.algorithms import bipartie
 -----------------------------------------------
 <--
 [008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
-[009]: 
+[009]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#degree-and-closeness-centrality
 [010]: 
 [011]: 
 [012]: 
