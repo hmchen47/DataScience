@@ -51,7 +51,6 @@
 + [Hubs and Authorities](03-Centralization.md#)
 + [Centrality Examples](03-Centralization.md#)
 + [Quiz: Module 3 Quiz](03-Centralization.md#)
-+ [PageRank and Centrality in a real-life network](03-Centralization.md#)
 
 ### [Module 3 Assignment](asgn03.md)
 
