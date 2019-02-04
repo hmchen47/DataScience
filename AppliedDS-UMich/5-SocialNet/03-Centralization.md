@@ -859,7 +859,7 @@ Q6. Select all True statements about Page Rank (PR) and HITS in directed network
     d. Nodes that have outgoing edges to good hubs are good authorities, and nodes that have incoming edges from good authorities are good hubs.
     e. Adding out-links of a node will always decrease its PR.
 
-    Ans: xabc, xa
+    Ans: ab, xabc, xa
 
 
 Q7. Given the network below, which value of alpha (damping parameter) listed below in the NetworkX function pagerank maximizes the PageRank of node D?
@@ -928,7 +928,7 @@ Q9. Based on the network below, what are the corresponding normalized authority 
 
 
 Q10. Based on the network below, which of the following is __NOT__ True? Check all that apply.
-    a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
         <img src="images/q3-8.png" alt="Q10 Graph" title="Q10 Graph" height="150">
     </a>
 
@@ -939,12 +939,10 @@ Q10. Based on the network below, which of the following is __NOT__ True? Check a
     d. At step k (k>=1), node A’s basic PR is always the same as node C’s basic PR at step k-1.
 
 
-    Ans: xcd, xacd
+    Ans: xbcd, xcd, xacd
+    a. True: Markov-Chain modeling
+    b. False: the first step is 0.25 and then 0
 
-
-
-
-## PageRank and Centrality in a real-life network
 
 
 
