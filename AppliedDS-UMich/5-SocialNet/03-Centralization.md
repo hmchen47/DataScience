@@ -711,6 +711,24 @@
     + Authority and hub scores converge for most networks.
     + Use NetworkX function `hits(G)` to compute the hub and authority scores of network G
 
++ `nx.hist` function
+    + Signature: `nx.hits(G, max_iter=100, tol=1e-08, nstart=None, normalized=True)`
+    + Docstring: Return HITS hubs and authorities values for nodes
+    + Notes
+        + The HITS algorithm computes two numbers for a node. Authorities estimates the node value based on the incoming links. Hubs estimates the node value based on outgoing links.
+        + The eigenvector calculation is done by the power iteration method and has no guarantee of convergence.  The iteration will stop after max_iter iterations or an error tolerance of number_of_nodes(G)*tol has been reached.
+        + The HITS algorithm was designed for directed graphs but this algorithm does not check if the input graph is directed and will execute on undirected graphs.
+    + Parameters
+        + `G` (graph): A NetworkX graph
+        + `max_iter` (interger, optional): Maximum number of iterations in power method.
+        + `tol` (float, optional): Error tolerance used to check convergence in power method iteration.
+        + `nstart` (dictionary, optional): Starting value of each node for power method iteration.
+        + `normalized` (bool (default=True)): Normalize results by the sum of all of the values.
+    + Returns: `(hubs,authorities)` (two-tuple of dictionaries): Two dictionaries keyed by node containing the hub and authority values.
+    + References
+        1. A. Langville and C. Meyer, "[A survey of eigenvector methods of web information retrieval](http://citeseer.ist.psu.edu/713792.html)."
+        2. Jon Kleinberg, [Authoritative sources in a hyperlinked environment](http://www.cs.cornell.edu/home/kleinber/auth.pdf), Journal of the ACM 46 (5): 604-32, 1999. doi:10.1145/324133.324140.
+
 
 
 ### Lecture Video
@@ -736,8 +754,6 @@
 
         Ans: 5 <br/>
         Node 5 has the highest centrality because all shortest paths from {1, 2, 3, 4} to {6, 7, 8, 9} have to go through node 5. In other words, node 5 is a bridge. Hence node 5 lies on the most shortest paths in the network.
-
-
 
 + Summary
     + In this example, no pair of centrality measures produces the exact same ranking of nodes, but they have some commonalities.

@@ -198,16 +198,12 @@ from networksx.algorithms import bipartie
 | `nx.edge_betweenness_centrality(G, *args)` | Compute betweenness centrality for edges | [Betweenness][010] |
 | `nx.edge_betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for edges for a subset of nodes | [Betweenness][010] |
 | `nx.pagerank(G, *argts)` | eturn the PageRank of the nodes in the graph | [PageRank][011] |
+| `nx.hits(G, *args)` | Return HITS hubs and authorities values for nodes | (Hub & Auth][012] |)
 
 
 
 -----------------------------------------------
 <--
-[008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
-[009]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#degree-and-closeness-centrality
-[010]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#betweenness-centrality
-[011]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#scaled-page-rank
-[012]: 
 [013]: 
 [014]: 
 [015]: 
@@ -305,3 +301,8 @@ from networksx.algorithms import bipartie
 [005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#distance-measures
 [006]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#connected-componnets
 [007]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#network-robustness
+[008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
+[009]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#degree-and-closeness-centrality
+[010]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#betweenness-centrality
+[011]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#scaled-page-rank
+[012]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#hubs-and-authorities
