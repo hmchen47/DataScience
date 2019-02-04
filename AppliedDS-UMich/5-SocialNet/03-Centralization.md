@@ -72,11 +72,11 @@
         </a>
         ```python
         indegCent = nx.in_degree_centrality(G)
-        
-        indegCent[‘A’]
+
+        indegCent['A']
         # 0.143 # 2/14
 
-        indegCent[‘L’]
+        indegCent['L']
         # 0.214 # 3/14
         ```
     + Outbound:
@@ -88,10 +88,10 @@
         ```python
         outdegCent = nx.out_degree_centrality(G)
         
-        outdegCent[‘A’]
+        outdegCent['A']
         # 0.214 # 3/14
 
-        indegCent[‘L’]
+        indegCent['L']
         # 0.071 # 1/14
         ```
 
@@ -133,10 +133,10 @@
     + Programming
         ```python
         closeCent = nx.closeness_centrality(G, normalized = False)
-        closeCent[‘L’]      # 1
+        closeCent['L']      # 1
 
         closeCent = nx.closeness_centrality(G, normalized = True)
-        closeCent[‘L’]      # 0.071
+        closeCent['L']      # 0.071
         ```
     + IVQ: Which node has the highest closeness centrality under option 1, where we only consider the distance to reachable nodes? Note: the closeness centrality of nodes that cannot reach any other nodes is always zero.
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/noB1S/degree-and-closeness-centrality"> <br/>
@@ -148,7 +148,7 @@
     + IVQ: Which node has the highest closeness centrality under option 2, where we normalize by the fraction of nodes a node can reach ? Note: the closeness centrality of nodes that cannot reach any other nodes is always zero. (same diagram)
 
         Ans: A
-        Under option 2, node A has closeness centrality of ½, the highest of all nodes. A can reach all other nodes in the network: B in 1 step, C in 2 steps, and D in 3 steps. Hence, A’s closeness centrality is $(3/3)(3/6) = ½$.
+        Under option 2, node A has closeness centrality of ½, the highest of all nodes. A can reach all other nodes in the network: B in 1 step, C in 2 steps, and D in 3 steps. Hence, A's closeness centrality is $(3/3)(3/6) = ½$.
 
 + Summary <br/>
     Centrality measures identify the most important nodes in a network:
@@ -198,7 +198,7 @@
             <img src="images/m3-04.png" alt="Betweenness Centrality: The way we are going to measure centrality, the betweenness centrality of a node v is by taking nodes s, t and finding all the shortest paths between nodes s and t. That, we're going to call sigma s, t. Sigma s, t is going to be the number of shortest paths between nodes s, t. And then, we're going to look at how many of those shortest paths actually contain node v in the middle? That's this value here. So, sigma s, t is the number of shortest paths between nodes s and t. And sigma s, t(v) is going to be the number of shortest paths between s and t that contain node v. And the betweenness centrality of node v is going to be the sum of these ratios overall possible s and t's. Actually, we're going to find that there are different ways in which we can pick the specific s and t's that we use to compute the centrality node v. But we'll talk about that next. Basic idea here is that a node v has high betweenness centrality if it shows up in many of the shortest paths of nodes s and t. " title="Betweenness Centrality" height="150">
             <img src="images/m3-05.png" alt="Betweenness Centrality: endpoint -- One of the questions, one of the options that we have when we do this is whether or not we actually include node v as a possible node s or t. Let's say for example that we exclude node v from being a possible node s or t. So then we'll have the following. If we measure the betweenness centrality of node B in this simple network, we'll find that is the sum of three different things. First, we're going to have the number of shortest paths between nodes A and D. And there is only one shortest path between node A and D, which is the path A, B, and D. And so because B is involved in this path, then that is going to have value 1 over 1. Next, we look at the two nodes A, C. And we find that the shortest path between notes A and C is the path A, B, C. And of course, that involves node B, so that contributes the value of 1 over 1. Finally, if we look at the pair of nodes C and D, we find that its shortest path is just simply going from node C to D directly, since they're connected. And that does not involve node B, so that contributes 0. And so betweenness centrality of node B when we exclude B from playing the role of s and t, we find that it has betweenness centrality of 2. Now if we actually include node v as one of the endpoints here, then we find that there are many more options to look at, right. So first, we have to look at the pair of nodes A and B, which of course involves node B, so that contributes 1. We look at A, C, which has the shortest path A, B, C. And that involves B, therefore that contributes 1. A, D also passes through node B, so that contributes 1. B, C, well, this one involves the node B itself, so of course node B is involved in the shortest path from node B to C, and so that contributes 1. B, D same story, it's one of the endpoints, so it contributes 1. And then finally, C, D. C, D, again, they're connected to each other. So to get from one to the other, they don't have to pass through node B and so that contributes 0. And so when we include node B in the computation, we find that it has a higher betweenness centrality, in this case 5." title="Betweenness Centrality-endpint" height="100">
         </a>
-    + IVQ: Given the following network, which node has the highest betweenness (excluding endpoints)? What’s the betweenness score (excluding endpoints) of this node? Give your answer in the following format: X, #
+    + IVQ: Given the following network, which node has the highest betweenness (excluding endpoints)? What's the betweenness score (excluding endpoints) of this node? Give your answer in the following format: X, #
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/5rwMl/betweenness-centrality"> <br/>
             <img src="images/m3-q02.png" alt="IVQ graph for betweenness centrality" title="IVQ graph for betweenness centrality" height="100">
         </a>
@@ -330,9 +330,9 @@
     + Developed by Google founders to measure the importance of webpages from the hyperlink network structure.
     + PageRank assigns a score of importance to each node. Important nodes are those with many in-links from important pages.
     + PageRank can be used for any type of network, but it is mainly useful for directed networks.
-    + A node’s PageRank depends on the PageRank of other nodes (Circular definition?).
+    + A node's PageRank depends on the PageRank of other nodes (Circular definition?).
     <a href="http://www.isglobalweb.com/industry-news/55/#gref"> <br/>
-        <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/PageRanks-Example.svg/400px-PageRanks-Example.svg.png" alt="PageRank is a commonly used Google tool which basically helps you understand the importance of a webpage from Google’s point of view. Technically, the tool refers to a link analysis algorithm applied by the Google search engine which sets a mathematical weightage to all hyperlinked elements to measure the relative importance of a particular web page." title="Google PageRank" height="200">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/PageRanks-Example.svg/400px-PageRanks-Example.svg.png" alt="PageRank is a commonly used Google tool which basically helps you understand the importance of a webpage from Google's point of view. Technically, the tool refers to a link analysis algorithm applied by the Google search engine which sets a mathematical weightage to all hyperlinked elements to measure the relative importance of a particular web page." title="Google PageRank" height="200">
     </a>
     + $n$ = number of nodes in the network <br/>
         k = number of steps
@@ -408,7 +408,7 @@
         | $k=\infty$ | .12 | .38 | .25 | .19 | .06 |
 
 + PageRank Problem
-    + <n style="color:cyan"> What’s the PageRank of the nodes in this network? [Hint: think about the random walk interpretation]  <n/>
+    + <n style="color:cyan"> What's the PageRank of the nodes in this network? [Hint: think about the random walk interpretation]  <n/>
     + For a large enough $𝑘$: `F` and `G` each have PageRank of $1/2$ and all the other nodes have PageRank $0$.
     + Why? Imagine a random walk on this network. Whenever the walk lands on F or G, it is “stuck” on F and G.
     + This seems problematic!
@@ -463,14 +463,14 @@
 + HITS Algorithm  <br/>
     Computing $𝑘$ iterations of the HITS algorithm to assign an _authority score_ and _hub score_ to each node.
     1. Assign each node an authority and hub score of $1$.
-    2. Apply the __Authority Update Rule__: each node’s _authority_ score is the sum of _hub_ scores of each node that _points to it_.
+    2. Apply the __Authority Update Rule__: each node's _authority_ score is the sum of _hub_ scores of each node that _points to it_.
         
         $$auth(i, k) = \sum_{j \in In_i} hub(j, k-1), \forall i \in N$$
         + $auth(i, k)$: the authority score of node $i$ at iteration $k$
         + $In_i$: the set of nodes with outward edges to node $i$ (inward edge w.r.t. node $i$)
         + $N$: all nodes in graph
         + $hub(j, k-1)$: the hub score of node $j$ at iteration $(k-1)$
-    3. Apply the __Hub Update Rule__: each node’s _hub_ score is the sum of _authority_ scores of each node that _it points to_.
+    3. Apply the __Hub Update Rule__: each node's _hub_ score is the sum of _authority_ scores of each node that _it points to_.
 
         $$hub(i, k) = \sum_{j \in Out_i} auth(j, k-1), \forall i \in N$$
         + $hub(i, k)$: the hub score of node $i$ at iteration $k$
