@@ -197,7 +197,7 @@ from networksx.algorithms import bipartie
 | `nx.betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for a subset of nodes | [Betweenness][010] |
 | `nx.edge_betweenness_centrality(G, *args)` | Compute betweenness centrality for edges | [Betweenness][010] |
 | `nx.edge_betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for edges for a subset of nodes | [Betweenness][010] |
-
+| `nx.pagerank(G, *argts)` | eturn the PageRank of the nodes in the graph | [PageRank][011] |
 
 
 
@@ -206,7 +206,7 @@ from networksx.algorithms import bipartie
 [008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
 [009]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#degree-and-closeness-centrality
 [010]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#betweenness-centrality
-[011]: 
+[011]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#scaled-page-rank
 [012]: 
 [013]: 
 [014]: 
