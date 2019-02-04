@@ -771,6 +771,176 @@
 
 ## Quiz: Module 3 Quiz
 
+Q1. Based on the network below, what is the degree centrality of node D?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q2-3.png" alt="Q1 Graph" title="Q1 Graph" height="150">
+    </a>
+
+    a. 0.67
+    b. 0.50
+    c. 0.57
+    d. 0.42
+
+    Ans: a, xb
+    $d_v / (|N| - 1) = 4/(7-1) = 0.667$
+    ```python
+    import networkx as nx
+
+    G = nx.Graph()
+    G.add_edges_from([('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'D'), ('C', 'E'), ('D', 'E'), ('D', 'G'), ('E', 'G'), ('G', 'F')])
+    nx.degree_centrality(G)['D']
+    ```
+
+
+Q2. Based on the network below, what is the closeness centrality of node G?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q2-3.png" alt="Q2 Graph" title="Q2 Graph" height="150">
+    </a>
+
+    a. 0.7
+    b. 0.75
+    c. 0.875
+    d. 0.6
+
+    Ans: d
+    ```python
+    nx.cloaseness_centrality(G)['G']
+    ```
+
+Q3. Based on the network below, what is the normalized betweenness centrality (excluding endpoints) of node G?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q2-3.png" alt="Q3 Graph" title="Q3 Graph" height="150">
+    </a>
+
+    a. 0.67
+    b. 0.24
+    c. 0.33
+    d. 0.47
+
+    Ans: c
+    ```python
+    nx.betweenness_centrality(G)['G']
+    ```
+
+
+Q4. Based on the network below, what is the betweenness centrality without normalization of edge (G,F)?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q2-3.png" alt="Q4 Graph" title="Q4 Graph" height="150">
+    </a>
+
+    a. 4
+    b. 5
+    c. 6
+    d. 7
+
+    Ans: c
+    ```python
+    nx.edge_betweenness_centrality(G)[('G', 'F')]
+    ```
+
+
+Q5. Select all True statements.
+
+    a. We can use subsets of node-pairs to approximate betweenness centrality.
+    b. The assumption of degree centrality is that important nodes have more connections.
+    c. The closeness centrality of a node describes how far the node is from others.
+    d. In directed networks, in-degree and out-degree centrality of a node are always the same.
+    e. The node with highest betwenness centrality in a network also has the highest closeness centrality.
+
+
+    Ans: abc
+
+
+Q6. Select all True statements about Page Rank (PR) and HITS in directed networks.
+
+    a. The authority and hub score of each node is obtained by computing multiple iterations of HITS algorithm and both scores of most networks are convergent.
+    b. Adding in-links of a node will never decrease its PR.
+    c. Nodes with high in-degree centrality have higher PRs than nodes with low in-degree centrality.
+    d. Nodes that have outgoing edges to good hubs are good authorities, and nodes that have incoming edges from good authorities are good hubs.
+    e. Adding out-links of a node will always decrease its PR.
+
+    Ans: xabc, xa
+
+
+Q7. Given the network below, which value of alpha (damping parameter) listed below in the NetworkX function pagerank maximizes the PageRank of node D?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q3-7.png" alt="Q7 Graph" title="Q7 Graph" height="50">
+    </a>
+
+    a. 0.95
+    b. 0.8
+    c. 0.9
+    d. 0.5
+
+    Ans: a
+    ```python
+    import networkx as nx
+
+    G = nx.DiGraph()
+    G.add_edges_from([('A', 'B'), ('B', 'A'), ('A', 'C'), ('C', 'D'), ('D', 'C')])
+
+    nx.pagerank(G, alpha=0.95)['D'] # 0.4555778814326893
+    nx.pagerank(G, alpha=0.9)['D']  # 0.420166725100649
+    nx.pagerank(G, alpha=0.8)['D']  # 0.36764573423540375
+    nx.pagerank(G, alpha=0.5)['D']  # 0.28571319580078125
+    ```
+
+
+Q8. Based on the network below, what is the basic PR of node C at step k = 1?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q3-8.png" alt="Q8 Graph" title="Q8 Graph" height="150">
+    </a>
+
+    a. 0.625
+    b. 0.25
+    c. 0.5
+    d. 0.125
+    e. 0.375
+
+    Ans: a, xb
+    A->D=0.5, B->C=1, D->C=1; 0.25 * (0.5 + 1 + 1)
+
+
+
+Q9. Based on the network below, what are the corresponding normalized authority and hub scores of node C correspondingly after two iterations of HITS algorithm?
+    a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q3-8.png" alt="Q9 Graph" title="Q9 Graph" height="150">
+    </a>
+
+
+    a. 0.33, 0.33
+    b. 0.4, 0.4
+    c. 0.8, 0.2
+    d. 0.57, 0.09
+
+
+    Ans: d, xb
+    Auth(A, B, C, D) = (1/7, 2/7, 4/7, 0), Hub(A, B, C, D) = (4/11, 3/11, 1/11, 3/11) with k = 2
+    ```python
+    import networkx as nx
+
+    G = nx.DiGraph()
+    G.add_edges_from([('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'A'), ('D', 'C')])
+
+    nx.pagerank(G, max_iter=2)
+    ```
+
+
+
+Q10. Based on the network below, which of the following is __NOT__ True? Check all that apply.
+    a href="https://www.coursera.org/learn/python-social-network-analysis/exam/0qgIf/module-3-quiz"> <br/>
+        <img src="images/q3-8.png" alt="Q10 Graph" title="Q10 Graph" height="150">
+    </a>
+
+
+    a. At each step, the sum of all nodes’ basic PR is always 1.
+    b. Node D’s basic PR at step k (k>=1) is always 0.
+    c. Node D’s authority and hub score after k iterations (k>=1) are always 0.
+    d. At step k (k>=1), node A’s basic PR is always the same as node C’s basic PR at step k-1.
+
+
+    Ans: xcd, xacd
+
 
 
 
