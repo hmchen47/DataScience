@@ -143,6 +143,28 @@ from networksx.algorithms import bipartie
 | `nx.Graph.is_directed()` | Return True if graph is directed, False otherwise | [Definition][002] |
 | `nx.Graph.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [Definition][002] |
 | `nx.Graph.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [Definition][002] |
+| `nx.Graph.subgraph(nbunch)` | Return the subgraph induced on nodes in `nbunch` | [Asgn02][008] |
+| `nx.Graph.to_directed()` | Return a directed representation of the graph | [Asgn02][008] |
+| `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
+| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][009] |
+
+
+
+## Bipartite APIS
+
+| API | Description | links |
+|-------|-------------|-------|
+| `bipartite.is_bipartite(G)` | Returns True if graph G is bipartite, False if not |[Bipartite][003] |
+| `bipartite.is_bipartite_node_set(G, nodes)` | Returns True if nodes and G/nodes are a bipartition of `G` |[Bipartite][003] |
+| `bipartite.sets(G)` | Returns bipartite node sets of graph `G` |[Bipartite][003] |
+| `bipartite.projected_graph(B, nodes, multigraph=False)` | Returns the projection of `B` onto one of its node sets |[Bipartite][003] |
+| `bipartite.weighted_projected_graph(B, nodes, ratio=False)` | Returns a weighted projection of `B` onto one of its node sets |[Bipartite][003] |
+
+
+## Network Connectivity
+
+| API | Description | links |
+|-------|-------------|-------|
 | `nx.clustering(G, nodes=None, weight=None)` | Compute the clustering coefficient for nodes | [Clustering][004] |
 | `nx.average_clustering(G, *args)` | Compute the average clustering coefficient for the graph G | [Clustering][004] |
 | `nx.transitivity(G)` | Compute graph transitivity, the fraction of all possible triangles  present in G | [Clustering][004] |
@@ -156,13 +178,11 @@ from networksx.algorithms import bipartie
 | `nx.radius(G, e=None)` | Return the radius of the graph G | [Dist Measure][005] |
 | `nx.periphery(G, e=None)` | Return the periphery of the graph G | [Dist Measure][005] |
 | `nx.center(G, e=None)` | Return the center of the graph G | [Dist Measure][005] |
-| `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
-| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][009] |
 | `nx.is_connected(G)` | Return True if the graph is connected, false otherwise | [Connected Components][006] |
-| `nx.number_connected_components(G)` | Return the number of connected components | [Connected Components][006] |
-| `nx.connected_components(G)` | Generate connected components | [Connected Components][006] |
 | `nx.is_strongly_connected(G)` | Test directed graph for strong connectivity | [Connected Components][006] |
 | `nx.is_weakly_connected(G)` | Test directed graph for weak connectivity | [Connected Components][006] |
+| `nx.number_connected_components(G)` | Return the number of connected components | [Connected Components][006] |
+| `nx.connected_components(G)` | Generate connected components | [Connected Components][006] |
 | `nx.strongly_connected_components(G)` | Generate nodes in strongly connected components of graph | [Connected Components][006] |
 | `nx.weakly_connected_components(G)` | Generate weakly connected components of G | [Connected Components][006] |
 | `nx.node_connectivity(G, *args)` | Returns node connectivity for a graph or digraph G | [Robustness][007] |
@@ -170,19 +190,6 @@ from networksx.algorithms import bipartie
 | `nx.minimum_node_cut(G, *args)` | Returns a set of nodes of minimum cardinality that disconnects G | [Robustness][007] |
 | `nx.minimum_edge_cut(G, *args)` | Returns a set of edges of minimum cardinality that disconnects G | [Robustness][007] |
 | `nx.all_simple_paths(G, source, target, cutoff=None)` | Generate all simple paths in the graph G from source to target | [Robustness][007] |
-| `nx.Graph.subgraph(nbunch)` | Return the subgraph induced on nodes in `nbunch` | [Asgn02][008] |
-| `nx.Graph.to_directed()` | Return a directed representation of the graph | [Asgn02][008] |
-
-
-## Bipartite APIS
-
-| API | Description | links |
-|-------|-------------|-------|
-| `bipartite.is_bipartite(G)` | Returns True if graph G is bipartite, False if not |[Bipartite][003] |
-| `bipartite.is_bipartite_node_set(G, nodes)` | Returns True if nodes and G/nodes are a bipartition of `G` |[Bipartite][003] |
-| `bipartite.sets(G)` | Returns bipartite node sets of graph `G` |[Bipartite][003] |
-| `bipartite.projected_graph(B, nodes, multigraph=False)` | Returns the projection of `B` onto one of its node sets |[Bipartite][003] |
-| `bipartite.weighted_projected_graph(B, nodes, ratio=False)` | Returns a weighted projection of `B` onto one of its node sets |[Bipartite][003] |
 
 
 ## Centrality Measurement
