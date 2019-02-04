@@ -87,7 +87,7 @@
 
         ```python
         outdegCent = nx.out_degree_centrality(G)
-        
+
         outdegCent['A']
         # 0.214 # 3/14
 
@@ -168,6 +168,58 @@
         ```python
         nx.closeness_centrality(G, normalized = True)
         ```
+
++ `nx.degree_centrality` function
+    + Signature: `nx.degree_centrality(G)`
+    + Docstring: Compute the degree centrality for nodes. The degree centrality for a node `v` is the fraction of nodes it is connected to.
+    + Parameters
+        + `G` (graph): A networkx graph
+    + Returns" `nodes` (dictionary): Dictionary of nodes with degree centrality as the value.
+    + Notes
+        + The degree centrality values are normalized by dividing by the maximum possible degree in a simple graph $n-1$ where n is the number of nodes in G.
+        + For multigraphs or graphs with self loops the maximum degree might be higher than $n-1$ and values of degree centrality greater than 1 are possible.
+
++ `nx.in_degreee_centrality` function
+    + Signature: `nx.in_degree_centrality(G)`
+    + Docstring: Compute the in-degree centrality for nodes. The in-degree centrality for a node `v` is the fraction of nodes its incoming edges are connected to.
+    + Parameters
+        + `G` (graph): A NetworkX graph
+    + Returns: `nodes` (dictionary): Dictionary of nodes with in-degree centrality as values.
+    + Notes
+        + The degree centrality values are normalized by dividing by the maximum possible degree in a simple graph $n-1$ where n is the number of nodes in G.
+        + For multigraphs or graphs with self loops the maximum degree might be higher than $n-1$ and values of degree centrality greater than 1 are possible.
+
++ `nx.out_degreee_centrality` function
+    + Signature: `nx.out_degree_centrality(G)`
+    + Docstring: Compute the out-degree centrality for nodes. The out-degree centrality for a node `v` is the fraction of nodes its incoming edges are connected to.
+    + Parameters
+        + `G` (graph): A NetworkX graph
+    + Returns: `nodes` (dictionary): Dictionary of nodes with out-degree centrality as values.
+    + Notes
+        + The degree centrality values are normalized by dividing by the maximum possible degree in a simple graph $n-1$ where n is the number of nodes in G.
+        + For multigraphs or graphs with self loops the maximum degree might be higher than $n-1$ and values of degree centrality greater than 1 are possible.
+
++ `nx.closeness_centrality` function
+    + Signature: `nx.closeness_centrality(G, u=None, distance=None, normalized=True)`
+    + Docstring: Compute closeness centrality for nodes.
+    + Notes:
+        + Closeness centrality of a node `u` is the reciprocal of the sum of the shortest path distances from `u` to all `n-1` other nodes. Since the sum of distances depends on the number of nodes in the graph, closeness is normalized by the sum of minimum possible distances `n-1`.
+
+            $$C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)}$$
+            + $d(v, u)$: the shortest-path distance between `v` and `u`
+            + $n$: the number of nodes in the graph
+        + Notice that higher values of closeness indicate higher centrality.
+        + The closeness centrality is normalized to `(n-1)/(|G|-1)` where
+        + $n$ is the number of nodes in the connected part of graph containing the node.  If the graph is not completely connected, this algorithm computes the closeness centrality for each connected part separately.
+        + If the 'distance' keyword is set to an edge attribute key then the shortest-path length will be computed using Dijkstra's algorithm with that edge attribute as the edge weight.
+    + Parameters
+        + `G` (graph): A NetworkX graph
+        + `u` (node, optional): Return only the value for node `u`
+        + `distance` (edge attribute key, optional (default=None)): Use the specified edge attribute as the edge distance in shortest path calculations
+        + `normalized` (bool, optional): If True (default) normalize by the number of nodes in the connected part of the graph.
+    + Returns: `nodes` (dictionary): Dictionary of nodes with closeness centrality as the value.
+    + References: Linton C. Freeman, [Centrality in networks: I. Conceptual,](http://leonidzhukov.ru/hse/2013/socialnetworks/papers/freeman79-centrality.pdf) Social Networks 1:215-239, 1979.
+
 
 
 ### Lecture Video
@@ -313,6 +365,117 @@
     + __Approximation__: Computing betweenness centrality can be computationally expensive. We can approximate computation by taking a subset of nodes.
     + __Subsets__: We can define subsets of source and target nodes to compute betweenness centrality.
     + __Edge betweenness centrality__: We can apply the same framework to find important edges instead of nodes.
+
+
++ `nx.betweenness_centrality` function
+    + Signature: `nx.betweenness_centrality(G, k=None, normalized=True, weight=None, endpoints=False, seed=None)`
+    + Docstring: Compute the shortest-path betweenness centrality for nodes.
+    + Notes
+        + Betweenness centrality of a node `v` is the sum of the fraction of all-pairs shortest paths that pass through `v`
+
+            $$c_B(v) =\sum_{s,t \in V} \frac{\sigma(s, t|v)}{\sigma(s, t)}$$
+            + $V$: the set of nodes
+            + $\sigma(s, t)$: the number of shortest $(s, t)$-paths
+            + $\sigma(s, t|v)$: the number of those paths  passing through some node `v` other than `s, t`.
+        + If $s = t$, $\sigma(s, t) = 1$, and if $v \in {s, t}$, $\sigma(s, t|v) = 0$ [2].
+        + The algorithm is from Ulrik Brandes [1]. See [4] for the original first published version and [2] for details on algorithms for variations and related metrics.
+        + For approximate betweenness calculations set k=#samples to use k nodes ("pivots") to estimate the betweenness values. For an estimate of the number of pivots needed see [3].
+        + For weighted graphs the edge weights must be greater than zero. Zero edge weights can produce an infinite number of equal length paths between pairs of nodes.
+    + Parameters
+        + `G` (graph): A NetworkX graph
+        + `k` (int, optional (default=None)): If `k` is not None use `k` node samples to estimate betweenness. The value of $k \leq n$ where $n$ is the number of nodes in the graph. Higher values give better approximation.
+        + `normalized` (bool, optional): $n$ is the number of nodes in G
+            + Triue: $2/((n-1)(n-2))$ for graphs
+            + False: $1/((n-1)(n-2))$ for directed graphs
+        + `weight` (None or string, optional): 
+            + If None, all edge weights are considered equal.
+            + Otherwise holds the name of the edge attribute used as weight.
+        + `endpoints` (bool, optional): If True include the endpoints in the shortest path counts.
+    + Returns: `nodes` (dictionary): Dictionary of nodes with betweenness centrality as the value.
+    + References
+        1. Ulrik Brandes, [A Faster Algorithm for Betweenness Centrality](http://www.inf.uni-konstanz.de/algo/publications/b-fabc-01.pdf). Journal of Mathematical Sociology 25(2):163-177, 2001.
+        2. Ulrik Brandes, [On Variants of Shortest-Path Betweenness, Centrality and their Generic Computation](http://www.inf.uni-konstanz.de/algo/publications/b-vspbc-08.pdf). Social Networks 30(2):136-145, 2008.
+        3. Ulrik Brandes and Christian Pich, [Centrality Estimation in Large Networks](http://www.inf.uni-konstanz.de/algo/publications/bp-celn-06.pdf). International Journal of Bifurcation and Chaos 17(7):2303-2318, 2007.
+        4. Linton C. Freeman, [A set of measures of centrality based on betweenness](http://moreno.ss.uci.edu/23.pdf). Sociometry 40: 35–41, 1977
+
++ `nx.betweenness_centrality_subset` function
+    + Signature: `nx.betweenness_centrality_subset(G, sources, targets, normalized=False, weight=None)`
+    + Docstring: Compute betweenness centrality for a subset of nodes.
+    + Formula
+
+        $$c_B(v) =\sum_{s\in S, t \in T} \frac{\sigma(s, t|v)}{\sigma(s, t)}$$
+        + $S$: the set of sources
+        + $T$: the set of targets
+        + $\sigma(s, t)$: the number of shortest $(s, t)$-paths, 
+        + $\sigma(s, t|v)$: the number of those paths passing through some  node `v` other than `s, t`
+        + If $s = t$, $\sigma(s, t) = 1$, and if $v \in {s, t}$,  $\sigma(s, t|v) = 0$ [2].
+    + Parameters
+        + `G` (graph): 
+        + `sources` (list of nodes): Nodes to use as sources for shortest paths in betweenness
+        + `targets` (list of nodes): Nodes to use as targets for shortest paths in betweenness
+        + `normalized` (bool, optional): If True the betweenness values are normalized by $2/((n-1)(n-2))$ for graphs, and $1/((n-1)(n-2))$ for directed graphs where $n$ is the number of nodes in G.
+        + `weight` (None or string, optional  ): 
+            + If None, all edge weights are considered equal.
+            + Otherwise holds the name of the edge attribute used as weight.
+    + Returns" `nodes` (dictionary): Dictionary of nodes with betweenness centrality as the value.
+    + Notes: The basic algorithm is from [1].
+        + For weighted graphs the edge weights must be greater than zero. Zero edge weights can produce an infinite number of equal length  paths between pairs of nodes.
+        + The normalization might seem a little strange but it is the same as in betweenness_centrality() and is designed to make betweenness_centrality(G) be the same as `betweenness_centrality_subset(G,sources=G.nodes(),targets=G.nodes())`.
+    + References
+        1. Ulrik Brandes, [A Faster Algorithm for Betweenness Centrality](http://www.inf.uni-konstanz.de/algo/publications/b-fabc-01.pdf). Journal of Mathematical Sociology 25(2):163-177, 2001.
+        2. Ulrik Brandes, [On Variants of Shortest-Path Betweenness Centrality and their Generic Computation](http://www.inf.uni-konstanz.de/algo/publications/b-vspbc-08.pdf).    Social Networks 30(2):136-145, 2008.
+
++ `nx.edge_betweenness_centrality` function
+    + Signature: `nx.edge_betweenness_centrality(G, k=None, normalized=True, weight=None, seed=None)`
+    + Docstring: Compute betweenness centrality for edges
+    + Formula: <br/>
+        Betweenness centrality of an edge `e` is the sum of the fraction of all-pairs shortest paths that pass through `e`
+
+        $$c_B(e) =\sum_{s,t \in V} \frac{\sigma(s, t|e)}{\sigma(s, t)}$$
+        + $V$: the set of nodes
+        + $\sigma(s, t)$: the number of shortest $(s, t)$-paths
+        + $\sigma(s, t|e)$ is the number of those paths passing through edge $e$ [2].
+    + Parameters
+        + `G` (graph): A NetworkX graph
+        + `k` (int, optional (default=None)): If $k$ is not None use $k$ node samples to estimate betweenness. The value of $k \leq n$ where $n$ is the number of nodes in the graph. Higher values give better approximation.
+        + `normalized` (bool, optional): If True the betweenness values are normalized by $2/(n(n-1))$ for graphs, and $1/(n(n-1))$ for directed graphs where $n$ is the number of nodes in G.
+        + `weight` (None or string, optional): 
+            + If None, all edge weights are considered equal.
+            + Otherwise holds the name of the edge attribute used as weight.
+    + Returns: `edges` (dictionary): Dictionary of edges with betweenness centrality as the value.
+    + Notes
+        + The algorithm is from Ulrik Brandes [1].
+        + For weighted graphs the edge weights must be greater than zero. Zero edge weights can produce an infinite number of equal length paths between pairs of nodes.
+    + References
+        1.  [A Faster Algorithm for Betweenness Centrality](http://www.inf.uni-konstanz.de/algo/publications/b-fabc-01.pdf). Ulrik Brandes, Journal of Mathematical Sociology 25(2):163-177, 2001.
+        2. Ulrik Brandes, [On Variants of Shortest-Path Betweenness Centrality and their Generic Computation](http://www.inf.uni-konstanz.de/algo/publications/b-vspbc-08.pdf). Social Networks 30(2):136-145, 2008.
+
++ `nx.edge_betweenness_centrality_subset` function
+    + Signature: `nx.edge_betweenness_centrality_subset(G, sources, targets, normalized=False, weight=None)`
+    + Docstring: Compute betweenness centrality for edges for a subset of nodes
+    + Formula:
+
+        $$c_B(v) =\sum_{s\in S,t \in T} \frac{\sigma(s, t|e)}{\sigma(s, t)}$$
+        + $S$: the set of sources
+        + $T$: the set of targets
+        + $\sigma(s, t)$: the number of shortest $(s, t)$-paths
+        + $\sigma(s, t|e)$: the number of those paths passing through edge `e` [2].
+    + Parameters
+        + `G` (graph): A networkx graph
+        + `sources` (list of nodes): Nodes to use as sources for shortest paths in betweenness
+        + `targets` (list of nodes): Nodes to use as targets for shortest paths in betweenness
+        + `normalized` (bool, optional): If True the betweenness values are normalized by $2/(n(n-1))$ for graphs, and $1/(n(n-1))$ for directed graphs where $n$ is the number of nodes in G.
+        + `weight` (None or string, optional  ): 
+            + If None, all edge weights are considered equal.
+            + Otherwise holds the name of the edge attribute used as weight.
+    + Returns" `edges` (dictionary): Dictionary of edges with Betweenness centrality as the value.
+    + Notes
+        + The basic algorithm is from [1]_.
+        + For weighted graphs the edge weights must be greater than zero. Zero edge weights can produce an infinite number of equal length paths between pairs of nodes.
+        + The normalization might seem a little strange but it is the same as in edge_betweenness_centrality() and is designed to make `edge_betweenness_centrality(G)` be the same as `edge_betweenness_centrality_subset(G,sources=G.nodes(),targets=G.nodes())`.
+    + References
+        1. Ulrik Brandes, [A Faster Algorithm for Betweenness Centrality.](http://www.inf.uni-konstanz.de/algo/publications/b-fabc-01.pdf) Journal of Mathematical Sociology 25(2):163-177, 2001.
+        2. Ulrik Brandes, [On Variants of Shortest-Path Betweenness Centrality and their Generic Computation](http://www.inf.uni-konstanz.de/algo/publications/b-vspbc-08.pdf). Social Networks 30(2):136-145, 2008.
 
 
 ### Lecture Video

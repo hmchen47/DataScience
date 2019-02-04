@@ -157,7 +157,7 @@ from networksx.algorithms import bipartie
 | `nx.periphery(G, e=None)` | Return the periphery of the graph G | [Dist Measure][005] |
 | `nx.center(G, e=None)` | Return the center of the graph G | [Dist Measure][005] |
 | `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
-| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][00] |
+| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][009] |
 | `nx.is_connected(G)` | Return True if the graph is connected, false otherwise | [Connected Components][006] |
 | `nx.number_connected_components(G)` | Return the number of connected components | [Connected Components][006] |
 | `nx.connected_components(G)` | Generate connected components | [Connected Components][006] |
@@ -189,7 +189,14 @@ from networksx.algorithms import bipartie
 
 | API | Description | links |
 |-------|-------------|-------|
-
+| `nx.degree_centrality(G)` | Compute the degree centrality for nodes | [Centralityy][009] |
+| `nx.in_degree_centrality(G)` | Compute the in-degree centrality for nodes | [Centralityy][009] |
+| `nx.out_degree_centrality(G)` | Compute the out-degree centrality for nodes | [Centralityy][009] |
+| `nx.closeness_centrality(G, *args)` | Compute closeness centrality for nodes | [Centralityy][009] |
+| `nx.betweenness_centrality(G, *args)` | Compute the shortest-path betweenness centrality for nodes | [Betweenness][010] |
+| `nx.betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for a subset of nodes | [Betweenness][010] |
+| `nx.edge_betweenness_centrality(G, *args)` | Compute betweenness centrality for edges | [Betweenness][010] |
+| `nx.edge_betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for edges for a subset of nodes | [Betweenness][010] |
 
 
 
@@ -198,7 +205,7 @@ from networksx.algorithms import bipartie
 <--
 [008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
 [009]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#degree-and-closeness-centrality
-[010]: 
+[010]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#betweenness-centrality
 [011]: 
 [012]: 
 [013]: 
