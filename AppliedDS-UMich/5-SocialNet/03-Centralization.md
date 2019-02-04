@@ -939,9 +939,11 @@ Q10. Based on the network below, which of the following is __NOT__ True? Check a
     d. At step k (k>=1), node A’s basic PR is always the same as node C’s basic PR at step k-1.
 
 
-    Ans: xbcd, xcd, xacd
-    a. True: Markov-Chain modeling
-    b. False: the first step is 0.25 and then 0
+    Ans: c, xbcd, xcd, xacd
+    a. True: Markov Chain model
+    b. True: initial w/ 0.25, 0.0 for iteration
+    c. False: 
+    d. True: p(A, k) = p(C, k-1)
 
 
 
