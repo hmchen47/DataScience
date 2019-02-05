@@ -59,5 +59,22 @@
 + [Solution](asgn03.md#)
 
 
+## Module 4: [Applications](04-Applications.md)
+
++ [Preferential Attachment Model](04-Applications.md#)
++ [Reading: ReadingPower Laws and Rich-Get-Richer Phenomena (Optional)](04-Applications.md#)
++ [Small World Networks](04-Applications.md#)
++ [Link Prediction](04-Applications.md#)
++ [Notebook: Extracting Features from Graphs](04-Applications.md#)
++ [Quiz: Module 4 Quiz](04-Applications.md#)
++ [Reading: ReadingThe Small-World Phenomenon (Optional)](04-Applications.md#)
+
+### [Module 4 Assignment](asgn04.md)
+
++ [Notebook](asgn04.md#)
++ [Discussion Forum](asgn04.md#)
++ [Solution](asgn04.md#)
+
+
 
 
