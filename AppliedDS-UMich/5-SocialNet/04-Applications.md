@@ -8,13 +8,14 @@
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="url" alt="Preferential Attachment Model" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
 
 ## Reading: ReadingPower Laws and Rich-Get-Richer Phenomena (Optional)
 
+Read Chapter 18 from "[Networks, Crowds, and Markets: Reasoning about a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch18.pdf)" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for an interesting read on Power Laws and Rich-Get-Richer phenomena such as the preferential attachment model.
 
 
 ## Small World Networks
@@ -25,7 +26,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="url" alt="Small World Networks" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
@@ -38,7 +39,7 @@
 
 ### Lecture Video
 
-<a href="url" alt="text" target="_blank">
+<a href="url" alt="Link Prediction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
