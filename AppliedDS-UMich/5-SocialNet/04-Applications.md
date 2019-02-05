@@ -15,7 +15,7 @@
 
 ## Reading: ReadingPower Laws and Rich-Get-Richer Phenomena (Optional)
 
-Read Chapter 18 from "[Networks, Crowds, and Markets: Reasoning about a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch18.pdf)" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for an interesting read on Power Laws and Rich-Get-Richer phenomena such as the preferential attachment model.
+Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch18.pdf)) from "Networks, Crowds, and Markets: Reasoning about a Highly Connected World" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for an interesting read on Power Laws and Rich-Get-Richer phenomena such as the preferential attachment model.
 
 
 ## Small World Networks
@@ -55,6 +55,11 @@ Read Chapter 18 from "[Networks, Crowds, and Markets: Reasoning about a Highly C
 
 
 ## Reading: ReadingThe Small-World Phenomenon (Optional)
+
+Read chapters 2 and 20 from "Networks, Crowds, and Markets: Reasoning about a Highly Connected World" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for a more in-depth take on the Small World Phenomenon.
+
++ [Chapter 2](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch02.pdf)
++ [Chapter 20:](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch20.pdf)
 
 
 
