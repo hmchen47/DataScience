@@ -127,13 +127,13 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 ### Lecture Notes
 
 + The Small-World Phenomenon
-    + The world is small in the sense that “short” paths exists between almost any two people.
+    + The world is small in the sense that “short" paths exists between almost any two people.
     + How short are these paths?
     + How can we measure their length?
 
 + Milgram Small World Experiment: 
     + Set up (1960s)
-        + 296 randomly chosen “starters” asked to forward a letter to a “target” person.
+        + 296 randomly chosen “starters" asked to forward a letter to a “target" person.
         + Target was a stockbroker in Boston.
         + Instructions for starter:
             + Send letter to target if you know him on a first name basis.
@@ -141,7 +141,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         + Some information about the target, such as city, and occupation, was provided.
     + Results:
         + 64 out of the 296 letters reached the target.
-        + Median chain length was 6 (consistent with the phrase “six degrees of separation”)
+        + Median chain length was 6 (consistent with the phrase “six degrees of separation")
     + Key points:
         + A relatively large percentage (>20%) of letters reached target.
         + Paths were relatively short.
@@ -295,11 +295,220 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
 ### Lecture Notes
 
++ Link Prediction Problem
+    + Modeling network evolution:
+        + Preferential attachment model
+        + Small world model
+    + Link prediction: Given a network, can we predict which edges will be formed in the future?
+
++ Link Prediction
+    + What new edges are likely to form in this network? B
+    + Given a pair of nodes, how to assess whether they are likely to connect?
+    + __Triadic closure__: the tendency for people who share connections in a social network to become connected.
+    + Measure 1: number of common neighbors.
+    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/4/"> <br/>
+        <img src="https://lh3.googleusercontent.com/LTuRz23kE61hfzKzyvX8a-y0-i4LQkwagjFYi9kIwtj3PmTnxaQl0gSF8UbtdZi6EBdXCVKV5OSfE5YYHgpxg_eekSFPZGU9yGWeNKslTIowMFWWzgwzRIgqTZ3GTJhTpqWvC3gM8w=w2400" alt="text" title="caption" height="250">
+    </a>
+
++ Measure 1: Common Neighbors
+    + The number of common neighbors of nodes $X$ and $Y$ is
+
+        $$\text{comm_neigh}(𝑋, 𝑌) = | N(X) \cap N(Y) |$$
+        + $N(X)$: the set of neighbors of node $𝑋$
+    + E.g., $\text{comm_neigh}((A, C) = |\{B, D\}| = 2$
+        ```python
+        common_neigh = [(e[0], e[1], len(list(nx.common_neighbors(G, e[0], e[1])))) for e in nx.non_edges(G)]
+        sorted(common_neigh,key=operator.itemgetter(2), reverse = True
+
+        print (common_neigh)
+        # [('A', 'C', 2), ('A', 'G', 1), ('A', 'F', 1), ('C', 'E', 1), ('C', 'G', 1),
+        #  ('B', 'E', 1), ('B', 'F', 1), ('E', 'I', 1), ('E', 'H', 1), ('E', 'D', 1),
+        #  ('D', 'F', 1), ('F', 'I', 1), ('F', 'H', 1), ('I', 'H', 1), ('A', 'I', 0),
+        #  ('A', 'H', 0), ('C', 'I', 0), ('C', 'H', 0), ('B', 'I', 0), ('B', 'H', 0),
+        #  ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
+        ```
+
++ Measure 2: Jaccard Coefficient
+    + Number of common neighbors normalized by the total number of neighbors.
+    + The Jaccard coefficient of nodes 𝑋 and 𝑌 is
+
+        $$\text{jacc_coeff}(X, Y) = \frac{|N(X) \cap N(Y)|}{|N(X) \cup N(Y)}$$
+    + E.g., $\text{jacc_coeff(A, C) = \frac(|\{B, D\}|){|\{B, D, E, F\}|}$
+    + Number of common neighbors normalized by the total number of neighbors.
+        ```python
+        L = list(nx.jaccard_coefficient(G))
+        L.sort(key=operator.itemgetter(2), reverse = True)
+        print(L)
+        # [('I', 'H', 1.0), ('A', 'C', 0.5), ('E', 'I', 0.3333333333333333),
+        #  ('E', 'H', 0.3333333333333333), ('F', 'I', 0.3333333333333333),
+        #  ('F', 'H', 0.3333333333333333), ('A', 'F', 0.2), ('C', 'E', 0.2),
+        #  ('B', 'E', 0.2), ('B', 'F', 0.2), ('E', 'D', 0.2), ('D', 'F', 0.2),
+        #  ('A', 'G', 0.16666666666666666), ('C', 'G', 0.16666666666666666),
+        #  ('A', 'I', 0.0), ('A', 'H', 0.0), ('C', 'I', 0.0), ('C', 'H', 0.0),
+        #  ('B', 'I', 0.0), ('B', 'H', 0.0), ('B', 'G', 0.0), ('D', 'I', 0.0),
+        #  ('D', 'H', 0.0), ('D', 'G', 0.0)]
+        ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
+            <img src="images/m4-32.png" alt="text" title="caption" height="250">
+        </a>
+
+
++ Measure 3: Resource Allocation
+    + Fraction of a "resource" that a node can send to another through their common neighbors.
+    + The Resource Allocation index of nodes $X$ and $Y$ is
+
+        $$\text{res_alloc}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{|N(u)|}$$
+    + Basic element: $Z$ has $n$ neighbors $X$ sends 1 unit to $Z$, $Z$ distributes the unit evenly among all neighbors $\rightarrow Y$ receives $1/n$ of the unit.
+    + E.g., $\text{res_alloc}(A, C) = \frac{1}{3} + \frac{1}{3}$
+    + Fraction of a ”resource” that a node can send to another through their common neighbors.
+    ```python
+    L = list(nx.resource_allocation_index(G))
+    L.sort(key=operator.itemgetter(2), reverse = True)
+    print(L)
+    # [('A', 'C', 0.6666666666666666), ('A', 'G', 0.3333333333333333),
+    #  ('A', 'F', 0.3333333333333333), ('C', 'E', 0.3333333333333333),
+    #  ('C', 'G', 0.3333333333333333), ('B', 'E', 0.3333333333333333),
+    #  ('B', 'F', 0.3333333333333333), ('E', 'D', 0.3333333333333333),
+    #  ('D', 'F', 0.3333333333333333), ('E', 'I', 0.25), ('E', 'H', 0.25),
+    #  ('F', 'I', 0.25), ('F', 'H', 0.25), ('I', 'H', 0.25), ('A', 'I', 0),
+    #  ('A', 'H', 0), ('C', 'I', 0), ('C', 'H', 0), ('B', 'I', 0),
+    #  ('B', 'H', 0), ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
+    ```
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> <br/>
+        <img src="images/m4-32.png" alt="text" title="caption" height="250">
+        <img src="images/m4-33.png" alt="text" title="Basic eleemnt" height="150">
+        <img src="images/m4-34.png" alt="text" title="caption" height="250">
+    </a>
+
++ Measure 4: Adamic-Adar Index
+    + Similar to resource allocation index, but with log in the denominator.
+    + The Adamic-Adar index of nodes $X$ and $Y$ is
+
+        $$\text{adamic_adar}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{\log(|N(u)|)}$$
+    + E.g., $\text{admic_adar}(A, C) = \frac{1}{\log(3)} + \frac{1}{\log(3)} = 1.82$
+    + Similar to resource allocation index, but with log in the denominator.
+        ```python
+        L = list(nx.adamic_adar_index(G))
+        L.sort(key=operator.itemgetter(2), reverse = True)
+        print(L)
+        # [('A', 'C', 1.8204784532536746), ('A', 'G', 0.9102392266268373),
+        #  ('A', 'F', 0.9102392266268373), ('C', 'E', 0.9102392266268373),
+        #  ('C', 'G', 0.9102392266268373), ('B', 'E', 0.9102392266268373),
+        #  ('B', 'F', 0.9102392266268373), ('E', 'D', 0.9102392266268373),
+        #  ('D', 'F', 0.9102392266268373), ('E', 'I', 0.7213475204444817),
+        #  ('E', 'H', 0.7213475204444817), ('F', 'I', 0.7213475204444817),
+        #  ('F', 'H', 0.7213475204444817), ('I', 'H', 0.7213475204444817),
+        #  ('A', 'I', 0), ('A', 'H', 0), ('C', 'I', 0), ('C', 'H', 0),
+        #  ('B', 'I', 0), ('B', 'H', 0), ('B', 'G', 0), ('D', 'I', 0),
+        #  ('D', 'H', 0), ('D', 'G', 0)]
+        ```
+
++ Measure 5: Pref. Attachment
+    + In the preferential attachment model, nodes with high degree get more neighbors.
+    + Product of the nodes’ degree.
+    + The preferential attachment score of nodes 𝑋 and 𝑌 is
+
+        $$\text{pref_attach}(X, Y) = |N(X)||N(Y)|$$
+    + E.g., $\text{pref_attach}(A, C) = 3 * 3 = 9$
+    + Product of the nodes’ degree. B
+        ```python
+        L = list(nx.preferential_attachment(G))
+        L.sort(key=operator.itemgetter(2), reverse = True)
+        print(L)
+        # [('A', 'G', 12), ('C', 'G', 12), ('B', 'G', 12), ('D', 'G', 12),
+        #  ('A', 'C', 9), ('A', 'F', 9), ('C', 'E', 9), ('B', 'E', 9), ('B', 'F', 9),
+        #  ('E', 'D', 9), ('D', 'F', 9), ('A', 'I', 3), ('A', 'H', 3), ('C', 'I', 3),
+        #  ('C', 'H', 3), ('B', 'I', 3), ('B', 'H', 3), ('E', 'I', 3), ('E', 'H', 3),
+        #  ('D', 'I', 3), ('D', 'H', 3), ('F', 'I', 3), ('F', 'H', 3), ('I', 'H', 1)]
+        ```
+
++ Community Structure
+    + Some measures consider the community structure of the network for link prediction.
+    + Assume the nodes in this network belong to different communities (sets of nodes).
+    + Pairs of nodes who belong to the same community and have many common neighbors in their community are likely to form an edge.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> <br/>
+        <img src="images/m4-35.png" alt="text" title="caption" height="250">
+    </a>
+
++ Measure 6: Community Common Neighbors
+    + Number of common neighbors with bonus for neighbors in same community.
+    + The Common Neighbor Soundarajan-Hopcroft score of nodes $X$ and $Y$ is:
+
+        $$\text{cn_soundarajan_hopcroff}(X, Y) = |N(X) \cap N(Y)| + \sum_{u \in N(X) \cap N(Y)} f(u)$$
+
+        $$f(u) = \left{ \begin{array}{ll}
+            1, & u \text{ in same comm. as } X \text{and } Y \\
+            0, & \text{ otherwise}
+            \end{array} \right.$$
+    + Number of common neighbors with bonus for neighbors in same community.
+        + $\text{cn_soundarajan_hopcroft}(A, C) = 2 + 2 = 4$
+        + $\text{cn_soundarajan_hopcroft}(E, I) = 1 + 1 = 2$
+        + $\text{cn_soundarajan_hopcroft}(A, G) = 1 + 0 = 1$
+    + Assign nodes to communities with attribute node “community”
+        ```python
+        G.node['A']['community'] = 0
+        G.node['B']['community'] = 0
+        G.node['C']['community'] = 0
+        G.node['D']['community'] = 0
+        G.node['E']['community'] = 1
+        G.node['F']['community'] = 1
+        G.node['G']['community'] = 1
+        G.node['H']['community'] = 1
+        G.node['I']['community'] = 1
+        L = list(nx.cn_soundarajan_hopcroft(G))
+        L.sort(key=operator.itemgetter(2), reverse = True)
+        print(L)
+        # [('A', 'C', 4), ('E', 'I', 2), ('E', 'H', 2), ('F', 'I', 2),
+        #  ('F', 'H', 2), ('I', 'H', 2), ('A', 'G', 1), ('A', 'F', 1), ('C', 'E', 1),
+        #  ('C', 'G', 1), ('B', 'E', 1), ('B', 'F', 1), ('E', 'D', 1), ('D', 'F', 1),
+        #  ('A', 'I', 0), ('A', 'H', 0), ('C', 'I', 0), ('C', 'H', 0), ('B', 'I', 0),
+        #  ('B', 'H', 0), ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
+        ```
+
++ Measure 7: Community Resource Allocation
+    + Similar to resource allocation index, but only considering nodes in the same community
+    + The Resource Allocation Soundarajan-Hopcroft score of nodes 𝑋 and 𝑌 is:
+
+        $$\text{ra_soundarajan_hopcroff}(X, Y) = |N(X) \cap N(Y)| + \sum_{u \in N(X) \cap N(Y)} \frac{f(u)}{|N(u)|}$$
+
+        $$f(u) = \left{ \begin{array}{ll}
+            1, & u \text{ in same comm. as } X \text{and } Y \\
+            0, & \text{ otherwise}
+            \end{array} \right.$$
+    + Similar to resource allocation index, but only considering nodes in the same community
+        + $\text{ra_soundarajan_hopcroft}(A, C) = \frac{1}{3} + \frac{1}{3} = \frac{2}{3}$
+        + $\text{ra_soundarajan_hopcroft}(E, I) = \frac{1}{4}$
+        + $\text{ra_soundarajan_hopcroft}(A, G) = 0$
+    + Similar to resource allocation index, but only considering nodes in the same community
+        ```python
+        L = list(nx.ra_index_soundarajan_hopcroft(G))
+        L.sort(key=operator.itemgetter(2), reverse = True)
+        print(L)
+        # [('A', 'C', 0.6666666666666666), ('E', 'I', 0.25), ('E', 'H', 0.25),
+        #  ('F', 'I', 0.25), ('F', 'H', 0.25), ('I', 'H', 0.25), ('A', 'I', 0),
+        #  ('A', 'H', 0), ('A', 'G', 0), ('A', 'F', 0), ('C', 'I', 0), ('C', 'H', 0),
+        #  ('C', 'E', 0), ('C', 'G', 0), ('B', 'I', 0), ('B', 'H', 0), ('B', 'E', 0),
+        #  ('B', 'G', 0), ('B', 'F', 0), ('E', 'D', 0), ('D', 'I', 0), ('D', 'H', 0),
+        #  ('D', 'G', 0), ('D', 'F', 0)]
+        ```
+
++ Summary
+    + Link prediction problem: Given a network, predict which edges will be formed in the future.
+        + 5 basic measures:
+            + Number of Common Neighbors
+            + Jaccard Coefficient
+            + Resource Allocation Index
+            + Adamic-Adar Index
+            + Preferential Attachment Score
+        + 2 measures that require community information:
+            + Common Neighbor Soundarajan-Hopcroft Score
+            + Resource Allocation Soundarajan-Hopcroft Score
+
 
 
 ### Lecture Video
 
-<a href="url" alt="Link Prediction" target="_blank">
+<a href="https://d3c33hcgiwev3.cloudfront.net/T2Y25ZTLEeeRmQ5TE1Qolg.processed/full/360p/index.mp4?Expires=1549584000&Signature=B-HnMCFqSq0itHv2cnUluG6Zh4d2HKl11W14Y038LHmUuQMhKccn6glaOITcSyt47fzBmZRmoxmNpLUnryt9kKP0m6w9qRQ52JXU76kgb22fY15ieBxGCvfGDIpfdEsSCZkeO9lCGQxpBuVfvj8ziZ7yvd8b-9CvOqhfzhmC5PA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Link Prediction" target="_blank">
     <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
 </a>
 
