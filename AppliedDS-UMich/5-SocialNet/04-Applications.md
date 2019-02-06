@@ -309,6 +309,9 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/4/"> <br/>
         <img src="https://lh3.googleusercontent.com/LTuRz23kE61hfzKzyvX8a-y0-i4LQkwagjFYi9kIwtj3PmTnxaQl0gSF8UbtdZi6EBdXCVKV5OSfE5YYHgpxg_eekSFPZGU9yGWeNKslTIowMFWWzgwzRIgqTZ3GTJhTpqWvC3gM8w=w2400" alt="text" title="caption" height="250">
     </a>
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
+        <img src="images/m4-32.png" alt="text" title="caption" height="250">
+    </a>
 
 + Measure 1: Common Neighbors
     + The number of common neighbors of nodes $X$ and $Y$ is
@@ -318,7 +321,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + E.g., $\text{comm\_neigh}((A, C) = |\{B, D\}| = 2$
         ```python
         common_neigh = [(e[0], e[1], len(list(nx.common_neighbors(G, e[0], e[1])))) for e in nx.non_edges(G)]
-        sorted(common_neigh,key=operator.itemgetter(2), reverse = True
+        sorted(common_neigh,key=operator.itemgetter(2), reverse = True)
 
         print (common_neigh)
         # [('A', 'C', 2), ('A', 'G', 1), ('A', 'F', 1), ('C', 'E', 1), ('C', 'G', 1),
@@ -358,9 +361,9 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + The Resource Allocation index of nodes $X$ and $Y$ is
 
         $$\text{res\_alloc}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{|N(u)|}$$
-    + Basic element: $Z$ has $n$ neighbors $X$ sends 1 unit to $Z$, $Z$ distributes the unit evenly among all neighbors $\rightarrow Y$ receives $1/n$ of the unit.
+    + Basic Principle: $Z$ has $n$ neighbors, $X$ sends 1 unit to $Z$, $Z$ distributes the unit evenly among all neighbors $\rightarrow Y$ receives $1/n$ of the unit.
     + E.g., $\text{res\_alloc}(A, C) = \frac{1}{3} + \frac{1}{3}$
-    + Fraction of a ”resource” that a node can send to another through their common neighbors.
+    + Fraction of a "resource" that a node can send to another through their common neighbors.
     ```python
     L = list(nx.resource_allocation_index(G))
     L.sort(key=operator.itemgetter(2), reverse = True)
@@ -376,7 +379,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     ```
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> <br/>
         <img src="images/m4-32.png" alt="text" title="caption" height="250">
-        <img src="images/m4-33.png" alt="text" title="Basic eleemnt" height="150">
+        <img src="images/m4-33.png" alt="text" title="Basic Principle" height="125">
         <img src="images/m4-34.png" alt="text" title="caption" height="250">
     </a>
 
@@ -410,7 +413,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
         $$\text{pref\_attach}(X, Y) = |N(X)||N(Y)|$$
     + E.g., $\text{pref\_attach}(A, C) = 3 * 3 = 9$
-    + Product of the nodes’ degree. B
+    + Product of the nodes’ degree.
         ```python
         L = list(nx.preferential_attachment(G))
         L.sort(key=operator.itemgetter(2), reverse = True)
@@ -444,8 +447,9 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         + $\text{cn\_soundarajan\_hopcroft}(A, C) = 2 + 2 = 4$
         + $\text{cn\_soundarajan\_hopcroft}(E, I) = 1 + 1 = 2$
         + $\text{cn\_soundarajan\_hopcroft}(A, G) = 1 + 0 = 1$
-    + Assign nodes to communities with attribute node “community”
+    + Assign nodes to communities with attribute node “community"
         ```python
+        # assign community
         G.node['A']['community'] = 0
         G.node['B']['community'] = 0
         G.node['C']['community'] = 0
@@ -455,6 +459,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         G.node['G']['community'] = 1
         G.node['H']['community'] = 1
         G.node['I']['community'] = 1
+
         L = list(nx.cn_soundarajan_hopcroft(G))
         L.sort(key=operator.itemgetter(2), reverse = True)
         print(L)
