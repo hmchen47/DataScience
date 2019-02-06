@@ -313,9 +313,9 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 + Measure 1: Common Neighbors
     + The number of common neighbors of nodes $X$ and $Y$ is
 
-        $$\text{comm_neigh}(𝑋, 𝑌) = | N(X) \cap N(Y) |$$
+        $$\text{comm\_neigh}(X, Y) = | N(X) \cap N(Y) |$$
         + $N(X)$: the set of neighbors of node $𝑋$
-    + E.g., $\text{comm_neigh}((A, C) = |\{B, D\}| = 2$
+    + E.g., $\text{comm\_neigh}((A, C) = |\{B, D\}| = 2$
         ```python
         common_neigh = [(e[0], e[1], len(list(nx.common_neighbors(G, e[0], e[1])))) for e in nx.non_edges(G)]
         sorted(common_neigh,key=operator.itemgetter(2), reverse = True
@@ -332,8 +332,8 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Number of common neighbors normalized by the total number of neighbors.
     + The Jaccard coefficient of nodes 𝑋 and 𝑌 is
 
-        $$\text{jacc_coeff}(X, Y) = \frac{|N(X) \cap N(Y)|}{|N(X) \cup N(Y)}$$
-    + E.g., $\text{jacc_coeff(A, C) = \frac(|\{B, D\}|){|\{B, D, E, F\}|}$
+        $$\text{jacc\_coeff}(X, Y) = \frac{|N(X) \cap N(Y)|}{|N(X) \cup N(Y)}$$
+    + E.g., $\text{jacc\_coeff}(A, C) = \frac{|\{B, D\}|}{|\{B, D, E, F\}|}$
     + Number of common neighbors normalized by the total number of neighbors.
         ```python
         L = list(nx.jaccard_coefficient(G))
@@ -357,9 +357,9 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Fraction of a "resource" that a node can send to another through their common neighbors.
     + The Resource Allocation index of nodes $X$ and $Y$ is
 
-        $$\text{res_alloc}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{|N(u)|}$$
+        $$\text{res\_alloc}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{|N(u)|}$$
     + Basic element: $Z$ has $n$ neighbors $X$ sends 1 unit to $Z$, $Z$ distributes the unit evenly among all neighbors $\rightarrow Y$ receives $1/n$ of the unit.
-    + E.g., $\text{res_alloc}(A, C) = \frac{1}{3} + \frac{1}{3}$
+    + E.g., $\text{res\_alloc}(A, C) = \frac{1}{3} + \frac{1}{3}$
     + Fraction of a ”resource” that a node can send to another through their common neighbors.
     ```python
     L = list(nx.resource_allocation_index(G))
@@ -384,8 +384,8 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Similar to resource allocation index, but with log in the denominator.
     + The Adamic-Adar index of nodes $X$ and $Y$ is
 
-        $$\text{adamic_adar}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{\log(|N(u)|)}$$
-    + E.g., $\text{admic_adar}(A, C) = \frac{1}{\log(3)} + \frac{1}{\log(3)} = 1.82$
+        $$\text{adamic\_adar}(X, Y) = \sum_{u \in N(X) \cap N(Y)} \frac{1}{\log(|N(u)|)}$$
+    + E.g., $\text{admic\_adar}(A, C) = \frac{1}{\log(3)} + \frac{1}{\log(3)} = 1.82$
     + Similar to resource allocation index, but with log in the denominator.
         ```python
         L = list(nx.adamic_adar_index(G))
@@ -408,8 +408,8 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Product of the nodes’ degree.
     + The preferential attachment score of nodes 𝑋 and 𝑌 is
 
-        $$\text{pref_attach}(X, Y) = |N(X)||N(Y)|$$
-    + E.g., $\text{pref_attach}(A, C) = 3 * 3 = 9$
+        $$\text{pref\_attach}(X, Y) = |N(X)||N(Y)|$$
+    + E.g., $\text{pref\_attach}(A, C) = 3 * 3 = 9$
     + Product of the nodes’ degree. B
         ```python
         L = list(nx.preferential_attachment(G))
@@ -434,16 +434,16 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Number of common neighbors with bonus for neighbors in same community.
     + The Common Neighbor Soundarajan-Hopcroft score of nodes $X$ and $Y$ is:
 
-        $$\text{cn_soundarajan_hopcroff}(X, Y) = |N(X) \cap N(Y)| + \sum_{u \in N(X) \cap N(Y)} f(u)$$
+        $$\text{cn\_soundarajan\_hopcroff}(X, Y) = |N(X) \cap N(Y)| + \sum_{u \in N(X) \cap N(Y)} f(u)$$
 
-        $$f(u) = \left{ \begin{array}{ll}
+        $$f(u) = \left\{ \begin{array}{ll}
             1, & u \text{ in same comm. as } X \text{and } Y \\
             0, & \text{ otherwise}
             \end{array} \right.$$
     + Number of common neighbors with bonus for neighbors in same community.
-        + $\text{cn_soundarajan_hopcroft}(A, C) = 2 + 2 = 4$
-        + $\text{cn_soundarajan_hopcroft}(E, I) = 1 + 1 = 2$
-        + $\text{cn_soundarajan_hopcroft}(A, G) = 1 + 0 = 1$
+        + $\text{cn\_soundarajan\_hopcroft}(A, C) = 2 + 2 = 4$
+        + $\text{cn\_soundarajan\_hopcroft}(E, I) = 1 + 1 = 2$
+        + $\text{cn\_soundarajan\_hopcroft}(A, G) = 1 + 0 = 1$
     + Assign nodes to communities with attribute node “community”
         ```python
         G.node['A']['community'] = 0
@@ -464,21 +464,24 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('A', 'I', 0), ('A', 'H', 0), ('C', 'I', 0), ('C', 'H', 0), ('B', 'I', 0),
         #  ('B', 'H', 0), ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
         ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
+            <img src="images/m4-36.png" alt="text" title="caption" height="250">
+        </a>
 
 + Measure 7: Community Resource Allocation
     + Similar to resource allocation index, but only considering nodes in the same community
     + The Resource Allocation Soundarajan-Hopcroft score of nodes 𝑋 and 𝑌 is:
 
-        $$\text{ra_soundarajan_hopcroff}(X, Y) = |N(X) \cap N(Y)| + \sum_{u \in N(X) \cap N(Y)} \frac{f(u)}{|N(u)|}$$
+        $$\text{ra\_soundarajan\_hopcroff}(X, Y) = |N(X) \cap N(Y)| + \sum_{u \in N(X) \cap N(Y)} \frac{f(u)}{|N(u)|}$$
 
-        $$f(u) = \left{ \begin{array}{ll}
+        $$f(u) = \left\{ \begin{array}{ll}
             1, & u \text{ in same comm. as } X \text{and } Y \\
             0, & \text{ otherwise}
             \end{array} \right.$$
     + Similar to resource allocation index, but only considering nodes in the same community
-        + $\text{ra_soundarajan_hopcroft}(A, C) = \frac{1}{3} + \frac{1}{3} = \frac{2}{3}$
-        + $\text{ra_soundarajan_hopcroft}(E, I) = \frac{1}{4}$
-        + $\text{ra_soundarajan_hopcroft}(A, G) = 0$
+        + $\text{ra\_soundarajan\_hopcroft}(A, C) = \frac{1}{3} + \frac{1}{3} = \frac{2}{3}$
+        + $\text{ra\_soundarajan\_hopcroft}(E, I) = \frac{1}{4}$
+        + $\text{ra\_soundarajan\_hopcroft}(A, G) = 0$
     + Similar to resource allocation index, but only considering nodes in the same community
         ```python
         L = list(nx.ra_index_soundarajan_hopcroft(G))
@@ -491,6 +494,9 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('B', 'G', 0), ('B', 'F', 0), ('E', 'D', 0), ('D', 'I', 0), ('D', 'H', 0),
         #  ('D', 'G', 0), ('D', 'F', 0)]
         ```
+        <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
+            <img src="images/m4-36.png" alt="text" title="caption" height="250">
+        </a>
 
 + Summary
     + Link prediction problem: Given a network, predict which edges will be formed in the future.
