@@ -134,9 +134,12 @@ from networksx.algorithms import bipartie
 | `nx.circular_layout(G, *args)` | Position nodes on a circle | [Demo 2][008] |
 | `nx.get_node_attributes(G, name)` | Get node attributes from graph | [Demo 2][008] |
 | `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][009] |
+| `nx.non_edges(graph)` | Returns the non-existent edges in the graph | [Prediction][015] |
 | `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
 | `nx.barabasi_albert_graph(n, m, seed=None)` | Returns a random graph according to the Barabási–Albert preferential attachment model | [Preferential Attachment Model][013] |
-
+| `nx.watts_strogatz_graph(n, k, p, seed=None)` | Return a Watts–Strogatz small-world graph | [Small World Model][014] |
+| `nx.connected_watts_strogatz_graph(n, k, p, *args)` | Returns a connected Watts–Strogatz small-world graph | [Small World Model][014] |
+| `nx.newman_watts_strogatz_graph(n, k, p, seed=None)` | Return a Newman–Watts–Strogatz small-world graph | [Small World Model][014] |
 | `G.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [Definition][002] |
 | `G.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [Definition][002] |
 | `G.add_nodes_from(nodes, **attr)` | Add multiple nodes | [Definition][002] |
@@ -209,6 +212,19 @@ from networksx.algorithms import bipartie
 | `nx.edge_betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for edges for a subset of nodes | [Betweenness][010] |
 | `nx.pagerank(G, *argts)` | eturn the PageRank of the nodes in the graph | [PageRank][011] |
 | `nx.hits(G, *args)` | Return HITS hubs and authorities values for nodes | (Hub & Auth][012] |)
+
+
+## Link Prediction
+
+| API | Description | links |
+|-------|-------------|-------|
+| `nx.common_neighbors(G, u, v)` | Return the common neighbors of two nodes in a graph | [Prediction][015] |
+| `nx.jaccard_coefficient(G, ebunch=None)` | Docstring: Compute the Jaccard coefficient of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.resource_allocation_index(G, ebunch=None)` | Compute the resource allocation index of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.adamic_adar_index(G, ebunch=None)`| Compute the Adamic-Adar index of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.preferential_attachment(G, ebunch=None)` | Compute the preferential attachment score of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.cn_soundarajan_hopcroft(G, ebunch=None, community='community')` | Count the number of common neighbors of all node pairs in ebunch using community information | [Prediction][015] |
+| `nx.ra_index_soundarajan_hopcroft(G, ebunch=None, community='community')` | Compute the resource allocation index of all node pairs in ebunch using community information | [Prediction][015] |
 
 
 

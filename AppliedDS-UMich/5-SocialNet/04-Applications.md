@@ -581,7 +581,104 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
             + Common Neighbor Soundarajan-Hopcroft Score
             + Resource Allocation Soundarajan-Hopcroft Score
 
++ `nx.non_edges` function
+    + Signature: `nx.non_edges(graph)`
+    + Docstring: Returns the non-existent edges in the graph.
+    + Parameters
+        + `graph` (NetworkX graph.): Graph to find non-existent edges.
+    + Returns: `non_edges` (iterator)
 
++ `nx.common_neighbors` function
+    + Signature: `nx.common_neighbors(G, u, v)`
+    + Docstring: Return the common neighbors of two nodes in a graph.
+    + Parameters
+        + `G` (graph): A NetworkX undirected graph.
+        + `u`, `v` (nodes): Nodes in the graph.
+    + Returns: `cnbors` (iterator): Iterator of common neighbors of u and v in the graph.
+
++ `nx.jaccard_coefficient` function
+    + Signature: `nx.jaccard_coefficient(G, ebunch=None)`
+    + Docstring: Compute the Jaccard coefficient of all node pairs in `ebunch`.
+    + Note: Jaccard coefficient of nodes `u` and `v` is defined as
+
+        $$\frac{|\Gamma(u) \cap \Gamma(v)|}{|\Gamma(u) \cup \Gamma(v)|}$$
+        + $\Gamma(u)$: the set of neighbors of `u`
+    + Parameters
+        + `G` (graph): A NetworkX undirected graph.
+        + `ebunch` (iterable of node pairs, optional (default = None)): Jaccard coefficient will be computed for each pair of nodes given in the iterable. The pairs must be given as 2-tuples `(u, v)` where `u` and `v` are nodes in the graph. If `ebunch` is None then all non-existent edges in the graph will be used. Default value: None.
+    + Returns: `piter` (iterator): An iterator of 3-tuples in the form `(u, v, p)` where `(u, v)` is a pair of nodes and p is their Jaccard coefficient.
+
++ `nx.resource_allocation_index` function
+    + Signature: `nx.resource_allocation_index(G, ebunch=None)`
+    + Docstring: Compute the resource allocation index of all node pairs in `ebunch`.
+    + Note: Resource allocation index of `u` and `v` is defined as
+
+        $$\sum_{w \in \Gamma(u) \cap \Gamma(v)} \frac{1}{|\Gamma(w)|}$$
+        + $\Gamma(u)$: the set of neighbors of `u`.
+    + Parameters
+        + `G` (graph): A NetworkX undirected graph.
+        + `ebunch` (iterable of node pairs, optional (default = None)): Resource allocation index will be computed for each pair of nodes given in the iterable. The pairs must be given as 2-tuples `(u, v)` where `u` and `v` are nodes in the graph. If `ebunch` is None then all non-existent edges in the graph will be used. Default value: None.
+    + Returns: `piter` (iterator): An iterator of 3-tuples in the form `(u, v, p)` where `(u, v)` is a pair of nodes and `p` is their resource allocation index.
+    + References: T. Zhou, L. Lu, Y.-C. Zhang. [Predicting missing links via local information](http://arxiv.org/pdf/0901.0553.pdf). Eur. Phys. J. B 71 (2009) 623.
+
++ `nx.adamic_adar_index` function
+    + Signature: `nx.adamic_adar_index(G, ebunch=None)`
+    + Docstring: Compute the Adamic-Adar index of all node pairs in `ebunch`.
+    + Note: Adamic-Adar index of `u` and `v` is defined as
+
+        $$\sum_{w \in \Gamma(u) \cap \Gamma(v)} \frac{1}{\log |\Gamma(w)|}$$
+        + $\Gamma(u)$: the set of neighbors of `u`.
+    + Parameters
+        + `G` (graph): NetworkX undirected graph.
+        + `ebunch` (iterable of node pairs, optional (default = None)): Adamic-Adar index will be computed for each pair of nodes given in the iterable. The pairs must be given as 2-tuples `(u, v)` where `u` and `v` are nodes in the graph. If ebunch is None then all non-existent edges in the graph will be used. Default value: None.
+    + Returns: `piter` (iterator): An iterator of 3-tuples in the form `(u, v, p)` where `(u, v)` is a pair of nodes and `p` is their Adamic-Adar index.
+    + References: D. Liben-Nowell, J. Kleinberg. [The Link Prediction Problem for Social Networks](http://www.cs.cornell.edu/home/kleinber/link-pred.pdf) (2004).
+
++ `nx.perferential_attachment` function
+    + Signature: `nx.preferential_attachment(G, ebunch=None)`
+    + Docstring: Compute the preferential attachment score of all node pairs in `ebunch`.
+    + Note: Preferential attachment score of `u` and `v` is defined as
+
+        $$|\Gamma(u)| |\Gamma(v)|$$
+        + $\Gamma(u)$: the set of neighbors of `u`
+    + Parameters
+        + `G` (graph): NetworkX undirected graph.
+        + `ebunch` (iterable of node pairs, optional (default = None)): Preferential attachment score will be computed for each pair of nodes given in the iterable. The pairs must be given as 2-tuples `(u, v)` where `u` and `v` are nodes in the graph. If ebunch is None then all non-existent edges in the graph will be used. Default value: None.
+    + Returns: `piter` (iterator): An iterator of 3-tuples in the form `(u, v, p)` where `(u, v)` is a pair of nodes and `p` is their preferential attachment score.
+
++ `nx.cn_soundarajan_hopcroft` function
+    + Signature: `nx.cn_soundarajan_hopcroft(G, ebunch=None, community='community')`
+    + Docstring: Count the number of common neighbors of all node pairs in ebunch using community information.
+    + Note: For two nodes `u` and `v`, this function computes the number of common neighbors and bonus one for each common neighbor belonging to the same community as `u` and `v`. Mathematically,
+
+        $$|\Gamma(u) \cap \Gamma(v)| + \sum_{w \in \Gamma(u) \cap \Gamma(v)} f(w)$$
+        + $f(w)$:
+            + 1 if `w` belongs to the same community as `u` and `v`
+            + 0 otherwise
+        + $\Gamma(u)$: the set of neighbors of `u`
+    + Parameters
+        + `G` (graph): A NetworkX undirected graph.
+        + `ebunch` (iterable of node pairs, optional (default = None)): The score will be computed for each pair of nodes given in the iterable. The pairs must be given as 2-tuples `(u, v)` where `u` and `v` are nodes in the graph. If ebunch is None then all non-existent edges in the graph will be used. Default value: None.
+        + `community` (string, optional (default = 'community')): Nodes attribute name containing the community information. `G[u][community]` identifies which community `u` belongs to. Each node belongs to at most one community. Default value: 'community'.
+    + Returns: `piter` (iterator): An iterator of 3-tuples in the form `(u, v, p)` where `(u, v)` is a pair of nodes and p is their score.
+    + References: Sucheta Soundarajan and John Hopcroft. [Using community information to improve the precision of link prediction methods](http://doi.acm.org/10.1145/2187980.2188150). In Proceedings of the 21st international conference companion on World Wide Web (WWW '12 Companion). ACM, New York, NY, USA, 607-608.
+
++ `nx.ra_index_soundarajan_hopcroft` function
+    + Signature: `nx.ra_index_soundarajan_hopcroft(G, ebunch=None, community='community')`
+    + Docstring: Compute the resource allocation index of all node pairs in ebunch using community information.
+    + Note: For two nodes `u` and `v`, this function computes the resource allocation index considering only common neighbors belonging to the same community as `u` and `v`. Mathematically,
+
+        $$\sum_{w \in \Gamma(u) \cap \Gamma(v)} \frac{f(w)}{|\Gamma(w)|}$$
+        + $f(w)$:
+            + 1 if `w` belongs to the same community as `u` and `v`
+            + 0 otherwise 
+        + $\Gamma(u)$: the set of neighbors of `u`.
+    + Parameters
+        + `G` (graph): A NetworkX undirected graph.
+        + `ebunch` (iterable of node pairs, optional (default = None)): The score will be computed for each pair of nodes given in the iterable. The pairs must be given as 2-tuples `(u, v)` where `u` and `v` are nodes in the graph. If ebunch is None then all non-existent edges in the graph will be used. Default value: None.
+        + `community` (string, optional (default = 'community')): Nodes attribute name containing the community information. `G[u][community]` identifies which community u belongs to. Each node belongs to at most one community. Default value: 'community'.
+    + Returns: `piter` (iterator): An iterator of 3-tuples in the form (u, v, p) where (u, v) is a pair of nodes and p is their score.
+    + References: Sucheta Soundarajan and John Hopcroft. [Using community information to improve the precision of link prediction methods](http://doi.acm.org/10.1145/2187980.2188150). In Proceedings of the 21st international conference companion on World Wide Web (WWW '12 Companion). ACM, New York, NY, USA, 607-608.
 
 
 ### Lecture Video
