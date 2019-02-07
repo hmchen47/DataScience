@@ -67,11 +67,11 @@
 + Preferential Attachment Model
     + Start with two nodes connected by an edge.
     + At each time step, add a new node with an edge connecting it to an existing node.
-    + Choose the node to connect to at random with probability proportional to each node’s degree.
-    + The probability of connecting to a node $u$ of degree:
+    + Choose the node to connect to at random with probability proportional to each node's degree.
+    + The probability of connecting to a node $u$ of degree $k_u$:
 
         $$k_u = k_u/\sum_j k_j$$
-    + As the number of nodes increases, the degree distribution of the network under the preferential attachment model approaches the power law $𝑃(k) = Ck^{-3}$ with constant $𝐶$.
+    + As the number of nodes increases, the degree distribution of the network under the preferential attachment model approaches the power law $P(k) = Ck^{-3}$ with constant $C$.
     + The preferential attachment model produces networks with degree distributions similar to real networks.
     + `barabasi_albert_graph(n, m)` returns a network with $n$ nodes. Each new node attaches to $m$ existing nodes according to the Preferential Attachment model.
         ```python
@@ -137,7 +137,7 @@
 </a>
 
 
-## Reading: ReadingPower Laws and Rich-Get-Richer Phenomena (Optional)
+## Power Laws and Rich-Get-Richer Phenomena (Optional)
 
 Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch18.pdf)) from "Networks, Crowds, and Markets: Reasoning about a Highly Connected World" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for an interesting read on Power Laws and Rich-Get-Richer phenomena such as the preferential attachment model.
 
@@ -147,13 +147,13 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 ### Lecture Notes
 
 + The Small-World Phenomenon
-    + The world is small in the sense that “short" paths exists between almost any two people.
+    + The world is small in the sense that "short" paths exists between almost any two people.
     + How short are these paths?
     + How can we measure their length?
 
 + Milgram Small World Experiment: 
     + Set up (1960s)
-        + 296 randomly chosen “starters" asked to forward a letter to a “target" person.
+        + 296 randomly chosen "starters" asked to forward a letter to a "target" person.
         + Target was a stockbroker in Boston.
         + Instructions for starter:
             + Send letter to target if you know him on a first name basis.
@@ -161,7 +161,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         + Some information about the target, such as city, and occupation, was provided.
     + Results:
         + 64 out of the 296 letters reached the target.
-        + Median chain length was 6 (consistent with the phrase “six degrees of separation")
+        + Median chain length was 6 (consistent with the phrase "six degrees of separation")
     + Key points:
         + A relatively large percentage (>20%) of letters reached target.
         + Paths were relatively short.
@@ -187,7 +187,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     </a>
 
 + Clustering Coefficient
-    + __Local clustering coefficient of a node__: Fraction of pairs of the node’s friends that are friends with each other.
+    + __Local clustering coefficient of a node__: Fraction of pairs of the node's friends that are friends with each other.
         + Facebook 2011: High average CC (decreases with degree)
         + Microsoft Instant Message: Average CC of 0.13.
         + IMDB actor network: Average CC 0.78
@@ -220,7 +220,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Motivation: Real networks exhibit high clustering coefficient and small average shortest paths. Can we think of a model that achieves both of these properties?
     + Small-world model:
         + Start with a ring of 𝑛 nodes, where each node is connected to its $k$ nearest neighbors.
-        + Fix a parameter $p ∈ [0,1]$
+        + Fix a parameter $p \in [0,1]$
         + Consider each edge $(u, v)$. With probability $p$, select a node $w$ at random and rewire the edge $(u, v)$ so it becomes $(u, w)$.
     + Example: $k = 2, p = 0.4$
     <a href="url"> <br/>
@@ -470,12 +470,12 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
 + Measure 5: Pref. Attachment
     + In the preferential attachment model, nodes with high degree get more neighbors.
-    + Product of the nodes’ degree.
+    + Product of the nodes' degree.
     + The preferential attachment score of nodes 𝑋 and 𝑌 is
 
         $$\text{pref\_attach}(X, Y) = |N(X)||N(Y)|$$
     + E.g., $\text{pref\_attach}(A, C) = 3 * 3 = 9$
-    + Product of the nodes’ degree.
+    + Product of the nodes' degree.
         ```python
         L = list(nx.preferential_attachment(G))
         L.sort(key=operator.itemgetter(2), reverse = True)
@@ -513,7 +513,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
         Ans: 2 <br/>
         Node I and H have only one common neighbor G. G is in the same community hence $f(u)=1$. The result is $1+1=2$.
-    + Assign nodes to communities with attribute node “community"
+    + Assign nodes to communities with attribute node "community"
         ```python
         # assign community
         G.node['A']['community'] = 0
@@ -796,10 +796,139 @@ df
 
 ## Quiz: Module 4 Quiz
 
+Q1: Suppose P(k) denotes the degree distribution of the following network, what is the value of P(2) + P(3)?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-1.png" alt="Q1 Graph" title="Q1 Graph" height="200">
+    </a>
+
+    a. 1/6
+    b. 1/3
+    c. 1/2
+    d. 5/6
+
+    Ans: c
+    P(2) = 1/6, P(3) = 2/6
+
+
+Q2: Let P(k) denote the in-degree distribution of the given network below. What value of k gives the highest value of P(k)?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-2.png" alt="Q2 Graph" title="Q2 Graph" height="150">
+    </a>
+
+    a. 1
+    b. 2
+    c. 3
+    d. 0
+
+    Ans: a
+
+
+Q3: Select all that apply
+
+    a. Networks with a power law distribution have many nodes with large degree and a few nodes with very small degree.
+    b. If we draw a power law distribution in log-log scale, the distribution will look like a straight line.
+    c. In the Preferential Attachment Model, a new node always connects to the node with highest in-degree.
+    d. The Preferential Attachment Model generates a network with a power law degree distribution.
+
+    Ans: bd
+    a. False; d: True
+
+
+Q4: Select all that apply
+
+    a. The degree distribution of small-world networks follows power-law distribution.
+    b. Some Small-world networks have high local clustering coefficient and small average shortest path.
+    c. The Preferential Attachment Model generates a small-world network.
+    d. Small-world networks are always connected.
+    e. In the small-world model starting with k nearest neighbors, increasing the rewiring probability p generally decreases both the average clustering coefficient and average shortest path.
+
+    Ans: be
+    a: False; c: False; d: False
+
+
+Q5: Suppose we want to generate several small-world networks with $k$ nearest neighbors and rewiring probability $p$. If $p$ remains the same and we increase k, which best describes the variation of average local clustering coefficient and average shortest path?
+
+    a. Both of them will increase.
+    b. Both of them will decrease.
+    c. Average local clustering coefficient will increase and average shortest path will decrease.
+    d. Average local clustering coefficient will decrease and average shortest path will increase.
+
+    Ans: c, xd
+
+
+Q6: Based on the network below, suppose we want to apply the common neighbors measure to add an edge from node H, which is the most probable node to connect to H?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-6.png" alt="Q6 Graph" title="Q6 Graph" height="200">
+    </a>
+
+    a. A
+    b. B
+    c. C
+    d. G
+
+    Ans: a
+
+
+Q7: Based on the network below, what is the Jaccard coefficient of nodes D and C?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-6.png" alt="Q7 Graph" title="Q7 Graph" height="200">
+    </a>
+
+    a. 0.29
+    b. 0.33
+    c. 0.40
+    d. 0.50
+
+    Ans: c
+    jacc_coeff(D, C) = |{A, G}| / |{AB, E, G, H}| = 2/5 = 0.4
+
+
+Q8: Based on the network below, if we apply Resource Allocation method to predict the new edges, what is the value of Resource Allocation index of nodes C and D?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-6.png" alt="Q8 Graph" title="Q8 Graph" height="200">
+    </a>
+
+    a. 0.20
+    b. 0.33
+    c. 0.70
+    d. 0.83
+
+    Ans: d
+    res_alloc(C, D) = 1/3 + 1/2 = 5/6
+
+
+Q9: Based on the network below, what is the preferential attachment score of nodes C and D?
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-6.png" alt="Q9 Graph" title="Q9 Graph" height="200">
+    </a>
+
+    a. 5
+    b. 8
+    c. 10
+    d. 15
+
+    Ans: c
+    pref_attach(C, D) = 2 * 5 = 10
+
+
+Q10: Assume there are two communities in this network: `{A, B, C, D, G}` and `{E, F, H}`. Which of the following statements is(are) True? Select all that apply.
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/CgIV0/module-4-quiz"> <br/>
+        <img src="images/q4-6.png" alt="Q9 Graph" title="Q9 Graph" height="200">
+    </a>
+
+    a. The Common Neighbor Soundarajan-Hopcroft score of node C and node D is 2.
+    b. The Common Neighbor Soundarajan-Hopcroft score of node A and node G is 4.
+    c. The Resource Allocation Soundarajan-Hopcroft score of node E and node F is 0.
+    d. The Resource Allocation Soundarajan-Hopcroft score of node A and node G is 0.7
+
+    Ans: bd
+    a. cn_soundarajan_hopcroft(C, D) = 2 + 2 = 4
+    c. ra_index_soundarajan_hopcroft(E, F) = 1/3
 
 
 
-## Reading: ReadingThe Small-World Phenomenon (Optional)
+
+## The Small-World Phenomenon (Optional)
 
 Read chapters 2 and 20 from "Networks, Crowds, and Markets: Reasoning about a Highly Connected World" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for a more in-depth take on the Small World Phenomenon.
 
