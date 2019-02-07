@@ -543,6 +543,103 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 + [Local Notebook](notebooks/04-GraphFeatures.ipynb)
 + [Python Code](notebooks/04-GraphFeatures.py)
 
+
+### Python Code with Results
+
+```python
+# In this notebook we will look at a few ways to quickly create a 
+# feature matrix from a networkx graph.
+import networkx as nx
+import pandas as pd
+
+G = nx.read_gpickle('major_us_cities')
+
+# ## Node based features
+G.nodes(data=True)
+# [('El Paso, TX', {'location': (-106, 31), 'population': 674433}),
+#  ('Long Beach, CA', {'location': (-118, 33), 'population': 469428}),
+#  ('Dallas, TX', {'location': (-96, 32), 'population': 1257676}),
+#  ...
+#  ('Jacksonville, FL', {'location': (-81, 30), 'population': 842583})]
+
+# Initialize the dataframe, using the nodes as the index
+df = pd.DataFrame(index=G.nodes())
+
+# ### Extracting attributes
+# 
+# Using `nx.get_node_attributes` it's easy to extract the node attributes in the graph into DataFrame columns.
+df['location'] = pd.Series(nx.get_node_attributes(G, 'location'))
+df['population'] = pd.Series(nx.get_node_attributes(G, 'population'))
+
+df.head()
+#                 location    population
+# El Paso, TX     (-106, 31)    674433
+# Long Beach, CA  (-118, 33)    469428
+# Dallas, TX      (-96, 32)    1257676
+# Oakland, CA     (-122, 37)    406253
+# Albuquerque, NM (-106, 35)    556495
+
+# ### Creating node based features
+# 
+# Most of the networkx functions related to nodes return a dictionary, which can also easily be added to our dataframe.
+df['clustering'] = pd.Series(nx.clustering(G))
+df['degree'] = pd.Series(G.degree())
+
+df
+#                 location    population    clustering    degree
+# El Paso, TX     (-106, 31)    674433        0.700000        5
+# Long Beach, CA  (-118, 33)    469428        0.745455        11
+# Dallas, TX      (-96, 32)    1257676        0.763636        11
+# ...
+
+# # Edge based features
+G.edges(data=True)
+# [('El Paso, TX', 'Albuquerque, NM', {'weight': 367.88584356108345}),
+#  ('El Paso, TX', 'Mesa, AZ', {'weight': 536.256659972679}),
+#  ('El Paso, TX', 'Tucson, AZ', {'weight': 425.41386739988224}),
+#  ...
+#  ('Columbus, OH', 'Virginia Beach, VA', {'weight': 701.8766661783677})]
+
+
+# Initialize the dataframe, using the edges as the index
+df = pd.DataFrame(index=G.edges())
+
+# ### Extracting attributes
+# 
+# Using `nx.get_edge_attributes`, it's easy to extract the edge attributes in the graph into DataFrame columns.
+df['weight'] = pd.Series(nx.get_edge_attributes(G, 'weight'))
+
+df
+# weight
+# (El Paso, TX, Albuquerque, NM)  367.885844
+# (El Paso, TX, Mesa, AZ)         536.256660
+# (El Paso, TX, Tucson, AZ)       425.413867
+# ...
+
+# ### Creating edge based features
+# 
+# Many of the networkx functions related to edges return a nested data structures. We can extract the relevant data using list comprehension.
+df['preferential attachment'] = [i[2] for i in nx.preferential_attachment(G, df.index)]
+
+df
+#                                 weight      preferential attachment
+# (El Paso, TX, Albuquerque, NM)  367.885844    35
+# (El Paso, TX, Mesa, AZ)         536.256660    40
+# (El Paso, TX, Tucson, AZ)       425.413867    40
+# ...
+
+# In the case where the function expects two nodes to be passed in, we can map the index to a lamda function.
+df['Common Neighbors'] = df.index.map(lambda city: len(list(nx.common_neighbors(G, city[0], city[1]))))
+
+df
+#                                 weight      preferential    Common
+#                                             attachment      Neighbors
+# (El Paso, TX, Albuquerque, NM)  367.885844    35            4
+# (El Paso, TX, Mesa, AZ)         536.256660    40            3
+# (El Paso, TX, Tucson, AZ)       425.413867    40            3
+# ...
+```
+
 ## Quiz: Module 4 Quiz
 
 
