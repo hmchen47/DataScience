@@ -177,6 +177,30 @@
     Team of Applied Social Network Analysis in Python
 
 
+### [Asg 4 question 1 pseudocode](https://www.coursera.org/learn/python-social-network-analysis/discussions/weeks/4/threads/jMXF0EP1Eei4xBLcWCNWTA)
+
++ Gint Butenas init
+
+    Can staff please provide what is expected in pseudocode and point to sources in the materials that provides more detail in terms of parameters. I have been struggling with this final assignment for months and am tired of paying the monthly Coursera fees.
+
+    This is my final assignment for the certificate, but I can't get over the finish line!
+
++ Uwe F Mayer reply
+
+    Gint, this question is about understanding of the network generation algorithms (Preferential Attachment, Small World). It is up to you to study the networks provided, and to judge what algorithm was likely used to generate it. With study I mean print them out, or plot them, or whatever you want to do. Then you can simply hardcode your answers and return a list of 5 classifications, one of 'PA', 'SW_L', or 'SW_H' per network. (For extra credit you could code an algorithm to do that classification automatically, but that's not really required.)
+
++ Uwe F Mayer reply
+
+    You can generate a PA network with the barabasi_albert_graph constructor, and a Small World network with the watts_strogatz_graph, that's correct.
+
+    However, that's not the point of this assignment. You ought to look at the number of neighbors each node has, and more precisely the distribution of those neighbor counts.
+
+    Preferential Attachment networks have a distinct distribution of the neighbor counts.
+
+    For Small World networks again that distribution is rather distinctive, and depends on the re-wiring probability.
+
+
+
 
 
 ## Solution
