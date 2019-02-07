@@ -301,6 +301,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     |-------|:------:|:-----:|:-----:|
     | Shortest Paths | Small | Small | Small |
     | Clustering Coefficient | High | Low | High |
+    | Power Law | Yes | Yes | No |
 
 + `nx.watts_strogatz_graph` function
     + Signature: `nx.watts_strogatz_graph(n, k, p, seed=None)`
