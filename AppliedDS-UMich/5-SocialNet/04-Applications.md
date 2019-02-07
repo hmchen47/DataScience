@@ -306,12 +306,6 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Given a pair of nodes, how to assess whether they are likely to connect?
     + __Triadic closure__: the tendency for people who share connections in a social network to become connected.
     + Measure 1: number of common neighbors.
-    <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/4/"> <br/>
-        <img src="https://lh3.googleusercontent.com/LTuRz23kE61hfzKzyvX8a-y0-i4LQkwagjFYi9kIwtj3PmTnxaQl0gSF8UbtdZi6EBdXCVKV5OSfE5YYHgpxg_eekSFPZGU9yGWeNKslTIowMFWWzgwzRIgqTZ3GTJhTpqWvC3gM8w=w2400" alt="text" title="caption" height="250">
-    </a>
-    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
-        <img src="images/m4-32.png" alt="text" title="caption" height="250">
-    </a>
 
 + Measure 1: Common Neighbors
     + The number of common neighbors of nodes $X$ and $Y$ is
@@ -330,6 +324,12 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('A', 'H', 0), ('C', 'I', 0), ('C', 'H', 0), ('B', 'I', 0), ('B', 'H', 0),
         #  ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
         ```
+        <a href="https://harangdev.github.io/applied-data-science-with-python/applied-social-network-analysis-in-python/4/"> <br/>
+        <img src="https://lh3.googleusercontent.com/LTuRz23kE61hfzKzyvX8a-y0-i4LQkwagjFYi9kIwtj3PmTnxaQl0gSF8UbtdZi6EBdXCVKV5OSfE5YYHgpxg_eekSFPZGU9yGWeNKslTIowMFWWzgwzRIgqTZ3GTJhTpqWvC3gM8w=w2400" alt="the number of common neighbors of nodes X and Y is going to be the size of a set, which is the intersection of the sets N(X) and N(Y), where N(X) defines the set of neighbors of the node X. And so for example, the common neighbor measure for nodes A, C in this network is going to be 2 because nodes A and C have two common neighbors. That is node B and node D. So A, C have two common neighbors." title="Example Graph for Common Neighbors" height="250">
+    </a>
+    <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
+        <img src="images/m4-32.png" alt="In network X, we can use the function common neighbors, which takes in as input the graph to nodes. And it outputs an iterator of all the common neighbors of the two nodes. And so here, what I'm doing is I'm creating a list of tuples which have the two nodes and the number of common neighbors. And I'm only including the nodes that are not connected with each other. The ones that don't have an edge between them by using the function non_edges. And if I sort this list, we can see the pairs of nodes that have the most common neighbors between them. And we see that the pair A, C has two neighbors in common, there are many others that have only one neighbor in common. And then many others that have zero neighbors in common. And so if we start to compare between different edges, for example we look at the pair A, G and the pair H, I, and ask, which one of these two is more likely to become connected? Then by looking at the number of common neighbors, we actually can't tell, because both of these have exactly one neighbor in common. And so let's look at other measures that may potentially give us different answers for these particular pairs of nodes." title="Example Graph of (A, G) & (H, I)" height="250">
+    </a>
 
 + Measure 2: Jaccard Coefficient
     + Number of common neighbors normalized by the total number of neighbors.
@@ -337,6 +337,10 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
         $$\text{jacc\_coeff}(X, Y) = \frac{|N(X) \cap N(Y)|}{|N(X) \cup N(Y)}$$
     + E.g., $\text{jacc\_coeff}(A, C) = \frac{|\{B, D\}|}{|\{B, D, E, F\}|}$
+    + IVQ: What is the Jaccard Coefficient between node A and F?  Enter your answer as a fraction below the graphic.
+
+        Ans: 1/5 <br/>
+        $\text{J\_coef}(F) = |{E}|/|{B, C, D, E, G}|= \frac{1}{5} = 0.2$
     + Number of common neighbors normalized by the total number of neighbors.
         ```python
         L = list(nx.jaccard_coefficient(G))
@@ -352,9 +356,8 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('D', 'H', 0.0), ('D', 'G', 0.0)]
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
-            <img src="images/m4-32.png" alt="text" title="caption" height="250">
+            <img src="images/m4-32.png" alt="The next measure we're going to look at is called the Jaccard coefficient. And what it does is that it looks at the number of common neighbors but it normalizes it by the total number of neighbors of the two nodes. So the way that we write it down is we say the Jaccard coefficient of nodes X and Y is going to be the fraction of the number of common neighbors. That's in the numerator, so it's the intersection of the sets N(X) and N(Y), divided by the number of neighbors of X and Y which would be the union of N(X) and N(Y). And so here, the pair of nodes of A and C, have a Jaccard coefficient of one-half because they have two common neighbors, B and D. And they have four total neighbors, nodes B, D, E, and F. And so that's 2 over 4 which is one-half." title="Example graph for Jaccard Coefficient" height="250">
         </a>
-
 
 + Measure 3: Resource Allocation
     + Fraction of a "resource" that a node can send to another through their common neighbors.
@@ -378,10 +381,14 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     #  ('B', 'H', 0), ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
     ```
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> <br/>
-        <img src="images/m4-32.png" alt="text" title="caption" height="250">
-        <img src="images/m4-33.png" alt="text" title="Basic Principle" height="125">
-        <img src="images/m4-34.png" alt="text" title="caption" height="250">
+        <img src="images/m4-32.png" alt="the Resource Allocation index of the nodes X, Y is going to be the sum over all the common neighbors of X and Y of one over the degree of the nodes. So in this case, if X and Y have a lot of common neighbors and they're going to have a large Resource Allocation index. But if they have a lot of neighbors that have low degree, then they're going to have an even larger Resource Allocation index. Now what's the intuition behind this? Let's consider two nodes X and Y, and let's say that we're measuring the Resource Allocation index between these two nodes." title="Example graph for Resource Allocation" height="250">
+        <img src="images/m4-33.png" alt="Imagine that X is trying to send to Y a unit of something, let's say information or something else. And is going to do so by passing it for X to Z and then hoping that Z will pass this unit to Y. But actually what Z does is that when it receives this unit from X is going to distribute this unit evenly among all the neighbors of Z. Then in that case, well Y is only going to get a fraction of that unit. And which fraction depends on what the degree of Z is. So if Z has degree N, then Y is only going to get 1 over N of that unit. And so if Z is the only common neighbor of X and Y, and Z has a lot of neighbors, a very large degree. Then X is going to be able to send less to Y, than if Z had a very few neighbors. that's why this resource allocation index penalizes pairs of nodes that have common neighbors that themselves have lots of other neighbors." title="Intution of Resource Allocation" height="125">
+        <img src="images/m4-34.png" alt="for example, when we measure the Resource Allocation index of nodes A and C, we would have one-third for node B. because node B is the common neighbor of A and C and has degree of 3, plus 1 over 3 which is for node D, which also has degree 3 and it's also a common neighbor of A and C. So the Resource Allocation index of A, C is going to be two-thirds." title="Example graph for Resource Allocation w/ Node D" height="250">
     </a>
+    + IVQ: What is the Resource Allocation index of Node I and H?
+
+        Ans: 0.25
+        Node I and H have only one common neighbor: G. The degree of node G is 4. Hence the Resource Allocation index is $\frac{1}[4} = 0.25$.
 
 + Measure 4: Adamic-Adar Index
     + Similar to resource allocation index, but with log in the denominator.
@@ -430,7 +437,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     + Assume the nodes in this network belong to different communities (sets of nodes).
     + Pairs of nodes who belong to the same community and have many common neighbors in their community are likely to form an edge.
     <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> <br/>
-        <img src="images/m4-35.png" alt="text" title="caption" height="250">
+        <img src="images/m4-35.png" alt="a network of communication among employees in a company. Then you may think that the department for which an employee works for would define a community. So for example, there's HR, and there's legal and so on, and so you could imagine thinking of those as communities. So if you had that type of structure, then you could use different measures for determining whether two nodes are likely to connect to each other or not. So in this case, let's assume that these network has two communities. So, these are the two communities. So there's A, B, D and C belong to Community 1, and the other nodes belong to Community 2. And what these two measures do, is they make the assumption that if two nodes belong to the same community, and they have many neighbors that also belong to the same community. Then they're more likely to form an edge, than if they had neighbors that belong to different communities, or if the two nodes themselves were in different communities." title="Example graph with two communities" height="250">
     </a>
 
 + Measure 6: Community Common Neighbors
@@ -447,6 +454,10 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         + $\text{cn\_soundarajan\_hopcroft}(A, C) = 2 + 2 = 4$
         + $\text{cn\_soundarajan\_hopcroft}(E, I) = 1 + 1 = 2$
         + $\text{cn\_soundarajan\_hopcroft}(A, G) = 1 + 0 = 1$
+    + IVQ: What is the Common Neighbor Soundarajan-Hopcroft score of node I and H?
+
+        Ans: 2 <br/>
+        Node I and H have only one common neighbor G. G is in the same community hence $f(u)=1$. The result is $1+1=2$.
     + Assign nodes to communities with attribute node “community"
         ```python
         # assign community
@@ -470,7 +481,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('B', 'H', 0), ('B', 'G', 0), ('D', 'I', 0), ('D', 'H', 0), ('D', 'G', 0)]
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
-            <img src="images/m4-36.png" alt="text" title="caption" height="250">
+            <img src="images/m4-36.png" alt="the Common Neighbor Soundarajan-Hopcroft score. And if we're looking at nodes X and Y is simply going to be the number of common neighbors. So the size of intersection of N(X) and N(Y), plus some bonus, which is going to be the sum over all the common neighbors of this function, f(u). And f(u) is simply an indicator that tells us whether the u, which is a common neighbor of X and Y, belongs to the same community as X and Y, or not. And if it does, then it's a 1. If not, it's a 0.  And now we can use the function cn_soundarajan_hopcroft(G) which outputs an iterator of the tuples with the nodes and the score for each one, each pair, that is not already connected by an edge. And we can sort it and find which nodes have the highest score. And if we look at the two edges that we've been following, then we find that I, H has a score of 2, because their common neighbor G belongs to the same community as A do, whereas A, G has a score of 1." title="Example graph for Community Common Neighbors" height="250">
         </a>
 
 + Measure 7: Community Resource Allocation
@@ -500,7 +511,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('D', 'G', 0), ('D', 'F', 0)]
         ```
         <a href="https://www.coursera.org/learn/python-social-network-analysis/lecture/hvFPZ/link-prediction"> 
-            <img src="images/m4-36.png" alt="text" title="caption" height="250">
+            <img src="images/m4-36.png" alt="the Resource Allocation index but it only takes into account nodes that are in the same community as the two nodes we're looking at. So if we're computing this measure which is called the Resource Allocation Soundarajan-Hopcroft score. And this is after the researchers that came up with this measure of X and Y. Then what we do is we sum over all the neighbors of X and Y. And rather than summing just one over the degree of the nodes of the common neighbors like we did in the standard Resource Allocation index. We now have this f(u) in the denominator of the fraction. And this function f(u) again is the same as before is 1, if u belongs to the same community as X and Y, and 0 otherwise. So in the case where you have a common neighbor that does not belong to the same community as X and Y, then that neighbor is not contributing anything to the sum because you have a 0 in the numerator.  And if we look at for example, nodes E and I, we find that well, they have one common node which is node G. And node G has a degree of 4, so it has a score of 1 over 4 because G belongs to same community as E and I. However, if we look at two nodes that are not in the same community like A and G. Then they would have score 0 because their common neighbor, while they have one, namely E, belongs to a different community as at least one of the two nodes." title="Example graph for Community Resource Allocation" height="250">
         </a>
 
 + Summary
@@ -516,7 +527,6 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
             + Resource Allocation Soundarajan-Hopcroft Score
 
 
-
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/T2Y25ZTLEeeRmQ5TE1Qolg.processed/full/360p/index.mp4?Expires=1549584000&Signature=B-HnMCFqSq0itHv2cnUluG6Zh4d2HKl11W14Y038LHmUuQMhKccn6glaOITcSyt47fzBmZRmoxmNpLUnryt9kKP0m6w9qRQ52JXU76kgb22fY15ieBxGCvfGDIpfdEsSCZkeO9lCGQxpBuVfvj8ziZ7yvd8b-9CvOqhfzhmC5PA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Link Prediction" target="_blank">
@@ -526,6 +536,7 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
 ## Notebook: Extracting Features from Graphs
 
+### Notebook Sources
 
 
 
