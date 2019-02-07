@@ -302,6 +302,41 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
     | Shortest Paths | Small | Small | Small |
     | Clustering Coefficient | High | Low | High |
 
++ `nx.watts_strogatz_graph` function
+    + Signature: `nx.watts_strogatz_graph(n, k, p, seed=None)`
+    + Docstring: Return a Watts–Strogatz small-world graph.
+    + Parameters
+        + `n` (int): The number of nodes
+        + `k` (int): Each node is joined with its ``k`` nearest neighbors in a ring topology.
+        + `p` (float): The probability of rewiring each edge
+        + `seed` (int, optional): Seed for random number generator (default=None)
+    + Notes
+        + First create a ring over $n$ nodes.  Then each node in the ring is joined to its $k$ nearest neighbors (or $k - 1$ neighbors if $k$ is odd). Then shortcuts are created by replacing some edges as follows: for each edge $(u, v)$ in the underlying "$n$-ring with $k$ nearest neighbors" with probability $p$ replace it with a new edge $(u, w)$ with uniformly random choice of existing node $w$.
+        + In contrast with `newman_watts_strogatz_graph`, the random rewiring does not increase the number of edges. The rewired graph is not guaranteed to be connected as in `connected_watts_strogatz_graph`.
+    + References: Duncan J. Watts and Steven H. Strogatz, Collective dynamics of small-world networks, Nature, 393, pp. 440--442, 1998.
+
++ `connected_watts_strogatz_graph` function
+    + Signature: `nx.connected_watts_strogatz_graph(n, k, p, tries=100, seed=None)`
+    + Docstring: Returns a connected Watts–Strogatz small-world graph.
+    + Note: Attempts to generate a connected graph by repeated generation of Watts–Strogatz small-world graphs.  An exception is raised if the maximum number of tries is exceeded.
+    + Parameters
+        + `n` (int): The number of nodes
+        + `k` (int): Each node is joined with its $k$ nearest neighbors in a ring topology.
+        + `p` (float): The probability of rewiring each edge
+        + `tries` (int): Number of attempts to generate a connected graph.
+        + `seed` (int, optional): The seed for random number generator.
+
+
++ `newman_watts_strogatz_graph` function
+    + Signature: `nx.newman_watts_strogatz_graph(n, k, p, seed=None)`
+    + Docstring: Return a Newman–Watts–Strogatz small-world graph.
+    + Parameters
+        + `n` (int): The number of nodes.
+        + `k` (int): Each node is joined with its $k$ nearest neighbors in a ring topology.
+        + `p` (float): The probability of adding a new edge for each edge.
+        + `seed` (int, optional): The seed for the random number generator (the default is `None`).
+    + Notes: First create a ring over $n$ nodes.  Then each node in the ring is connected with its $k$ nearest neighbors (or $k - 1$ neighbors if $k$ is odd).  Then shortcuts are created by adding new edges as follows: for each edge $(u, v)$ in the underlying "$n$-ring with $k$ nearest neighbors" with probability $p$ add a new edge $(u, w)$ with randomly-chosen existing node $w$.  In contrast with `watts_strogatz_graph`, no edges are removed.
+    + References: M. E. J. Newman and D. J. Watts, [Renormalization group analysis of the small-world network model](http://dx.doi.org/10.1016/S0375-9601(99)00757-4), Physics Letters A, 263, 341, 1999.
 
 
 ### Lecture Video
@@ -545,6 +580,8 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         + 2 measures that require community information:
             + Common Neighbor Soundarajan-Hopcroft Score
             + Resource Allocation Soundarajan-Hopcroft Score
+
+
 
 
 ### Lecture Video
