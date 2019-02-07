@@ -538,7 +538,10 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
 
 ### Notebook Sources
 
-
++ [Launchiong Web Page](https://www.coursera.org/learn/python-social-network-analysis/notebook/ntrdh/extracting-features-from-graphs)
++ [Web Notebook](https://bajwjsbbpcxhnmzzoyjrrp.coursera-apps.org/notebooks/Graph%20Features.ipynb)
++ [Local Notebook](notebooks/04-GraphFeatures.ipynb)
++ [Python Code](notebooks/04-GraphFeatures.py)
 
 ## Quiz: Module 4 Quiz
 
