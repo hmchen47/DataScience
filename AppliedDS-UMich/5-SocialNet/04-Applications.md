@@ -39,6 +39,7 @@
         in_degrees = G.in_degree()
         in_degree_values = sorted(set(in_degrees.values()))
         histogram = [list(in_degrees.values()).count(i)/float(nx.number_of_nodes(G)) for i in in_degree_values]
+
         plt.bar(in_degree_values,histogram)
         plt.xlabel('In Degree')
         plt.ylabel('Fraction of Nodes')
@@ -68,7 +69,7 @@
     + At each time step, add a new node with an edge connecting it to an existing node.
     + Choose the node to connect to at random with probability proportional to each node’s degree.
     + The probability of connecting to a node $u$ of degree:
-    
+
         $$k_u = k_u/\sum_j k_j$$
     + As the number of nodes increases, the degree distribution of the network under the preferential attachment model approaches the power law $𝑃(k) = Ck^{-3}$ with constant $𝐶$.
     + The preferential attachment model produces networks with degree distributions similar to real networks.
@@ -108,6 +109,25 @@
     + Models of network generation allow us to identify mechanisms that give rise to observed patterns in real data.
     + The Preferential Attachment Model produces networks with a power law degree distribution.
     + Use `barabasi_albert_graph(n,m)` to construct a n-node preferential attachment network, where each new node attaches to m existing nodes.
+
++ `G.in_degree` method
+    + Signature: `nx.DiGraph.in_degree(nbunch=None, weight=None)`
+    + Docstring: Return the in-degree of a node or nodes. The node in-degree is the number of edges pointing in to the node.
+    + Parameters
+        + `nbunch` (iterable container, optional (default=all nodes)): A container of nodes.  The container will be iterated through once.
+        + `weight` (string or None, optional (default=None)): The edge attribute that holds the numerical value used as a weight.  If None, then each edge has weight 1. The degree is the sum of the edge weights adjacent to the node.
+    + Returns: `nd` (dictionary, or number): A dictionary with nodes as keys and in-degree as values or a number if a single node is specified.
+
++ `nx.barabasi_albert_graph` function
+    + Signature: `nx.barabasi_albert_graph(n, m, seed=None)`
+    + Docstring: Returns a random graph according to the Barabási–Albert preferential attachment model.
+    + Note: A graph of `n` nodes is grown by attaching new nodes each with `m` edges that are preferentially attached to existing nodes with high degree.
+    + Parameters
+        + `n` (int): Number of nodes
+        + `m` (int): Number of edges to attach from a new node to existing nodes
+        + `seed` (int, optional): Seed for random number generator (default=None).
+    + Returns: `G`: Graph
+    + References: A. L. Barabási and R. Albert "Emergence of scaling in random networks", Science 286, pp 509-512, 1999.
 
 
 ### Lecture Video
