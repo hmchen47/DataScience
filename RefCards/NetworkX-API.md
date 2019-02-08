@@ -202,10 +202,10 @@ from networksx.algorithms import bipartie
 
 | API | Description | links |
 |-------|-------------|-------|
-| `nx.degree_centrality(G)` | Compute the degree centrality for nodes | [Centralityy][009] |
-| `nx.in_degree_centrality(G)` | Compute the in-degree centrality for nodes | [Centralityy][009] |
-| `nx.out_degree_centrality(G)` | Compute the out-degree centrality for nodes | [Centralityy][009] |
-| `nx.closeness_centrality(G, *args)` | Compute closeness centrality for nodes | [Centralityy][009] |
+| `nx.degree_centrality(G)` | Compute the degree centrality for nodes | [Centrality][009] |
+| `nx.in_degree_centrality(G)` | Compute the in-degree centrality for nodes | [Centrality][009] |
+| `nx.out_degree_centrality(G)` | Compute the out-degree centrality for nodes | [Centrality][009] |
+| `nx.closeness_centrality(G, *args)` | Compute closeness centrality for nodes | [Centrality][009] |
 | `nx.betweenness_centrality(G, *args)` | Compute the shortest-path betweenness centrality for nodes | [Betweenness][010] |
 | `nx.betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for a subset of nodes | [Betweenness][010] |
 | `nx.edge_betweenness_centrality(G, *args)` | Compute betweenness centrality for edges | [Betweenness][010] |
