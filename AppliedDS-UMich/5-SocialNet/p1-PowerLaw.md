@@ -58,11 +58,30 @@
     </a>
 
 
-
-
-
 ## Rich-Get-Richer Models
 
++ Power laws arise from the feedback introduced by correlated decisions across a population.
+
++ Simple Model
+    + Assume simply that people have a tendency to copy the decisions of people who act before them.
+    + The creation of links among Web pages
+        1. Pages are created in order, and named $1, 2, 3, \ldots ,N$.
+        2. When page $j$ is created, it produces a link to an earlier Web page according to the following probabilistic rule, $p \in [0, 1]$.
+            1. With probability $p$, page $j$ chooses a page $i$ uniformly at random from among all earlier pages, and creates a link to this page $i$.
+            2. With probability $1−p$, page $j$ instead chooses a page $i$ uniformly at random from among all earlier pages, and creates a link to the page that i points to.
+            3. This describes the creation of a single link from page $j$; one can repeat this process to create multiple, independently generated links from page $j$. (However, to keep things simple, we will suppose that each page creates just one outbound link.)
+    + The fraction of pages with $k$ in-links will be distributed approximately according to a power law $1/k^c$, where the value of the exponent $c$ depends on the choice of $p$.
+    + as $p$ gets smaller, so that copying becomes more frequent, the exponent $c$ gets smaller as well, making one more likely to see extremely popular pages.
+
++ Rich-get-richer Model
+    + the copying mechanism in (2.2) is really an implementation of the  “rich-get-richer” dynamics
+    + when copying the decision of a random earlier page, the probability linking to some page $l$ is directly proportional to the total number of pages that currently link to $l$.
+    + “Rich-get-richer” rule: The equivalent way to write copying process
+        > With probability $1 − p$, page $j$ chooses a page $l$ with probability proportional to $l$’s current number of in-links, and creates a link to $l$.
+    + __Preferential attachment__: the probability that page $l$ experiences an increase in popularity is directly proportional to $l$’s current popularity
+    + Links formed “preferentially” to pages that already have high popularity.
+    + essentially,
+    + The more well-known someone is, the more likely you are to hear their name come up in conversation, and hence the more likely you are to end up knowing about them as well.
 
 
 ## The Unpredictability of Rich-Get-Richer Effects
