@@ -1,5 +1,6 @@
 # Chapter 18. Power Laws and Rich-Get-Richer Phenomena
 
+[Original Chapter](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch18.pdf)
 
 ## Popularity as a Network Phenomenon
 
@@ -85,6 +86,29 @@
 
 
 ## The Unpredictability of Rich-Get-Richer Effects
+
++ The initial stages of its rise to popularity is a relatively fragile thing.
+
++ The rich-get-richer dynamics of popularity are likely to push it even higher; but getting this rich-get-richer process ignited in the first place seems like a precarious process, full of potential accidents and near-misses.
+
++ Sensitivity to unpredictable initial fluctuations
+    + Information cascades can depend on the outcome of a small number of initial decisions in the population, and a worse technology can win because it reaches a certain critical audience size before its competitors do.
+    + The dynamics of popularity suggest that random effects early in the process should play a role here as well.
+
++ Salgankik, Dodds, and Watts experiment:
+    + a music download site, populated with 48 obscure songs of varying quality written by actual performing groups
+    + site with a list of the songs and the opportunity to listen to them
+    + visitors assigned at random to one of eight “parallel” copies of the site
+    + Conclusion: the “market share” of the different songs varied considerably across the different parallel copies, although the best songs never ended up at the bottom and the worst songs never ended up at the top.
+    + overall, feedback produced greater inequality in outcomes.
+    + the future success of a book, movie, celebrity, or Web site is strongly influenced by these types of feedback effects, and hence may to some extent be inherently unpredictable.
+
++ Closer Relationships between Power Laws and Information Cascades?
+    + information cascades: how a population in which people were aware of earlier decisions made between two alternatives could end up in a cascade, even if each person is making an optimal decision given what they’ve observed.
+    + The copying model for power laws
+        + a model for popularity including choices among many possible options (e.g. all possible Web pages), rather than just two options.
+        + involving a set of people who engage in very limited observation of the population: when you create a new Web page, the model assumes you consult the decision of just one other randomly selected person.
+        + based on the idea that later people imitate the decisions of earlier people, but not derive this imitation from a more fundamental model of rational decision-making.
 
 
 
