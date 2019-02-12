@@ -154,7 +154,95 @@
         + essentially search tools designed to expose people to items that may not be generally popular, but which match user interests as inferred from their history of past purchases.
 
 
-
 ## Advanced Material: Analysis of Rich-Get-Richer Processes
+
++ The fraction of nodes with $k$ in-links is distributed approximately according to a power law $1/k^c$, where $c$ depends on the behavior of nodes in the model.
+
++ Model Analysis
+    + analysis based on the simple differential equation governing exponential growth that one sees in introductory calculus.
+    + Model Description
+        1. Pages are created in order, and named $1, 2, 3, \ldots ,N$.
+        2. When page $j$ is created, it produces a link to an earlier Web page according to the following probabilistic rule, $p \in [0, 1]$.
+            1. With probability $p$, page $j$ chooses a page $i$ uniformly at random from among all earlier pages, and creates a link to this page $i$.
+            2. With probability $1−p$, page $j$ instead chooses a page $i$ uniformly at random from among all earlier pages, and creates a link to the page that i points to.
+            3. This describes the creation of a single link from page $j$; one can repeat this process to create multiple, independently generated links from page $j$. (However, to keep things simple, we will suppose that each page creates just one outbound link.)
+    + using the rich-get-richer version of step (2.2)
+    + specify a randomized process that runs for N steps (as the $N$ pages are created one at a time),
+    + simply determine the expected number of pages with $k$ in-links at the end of the process.
+
++ A deterministic approximation of the rich-get-richer process
+    + Notations
+        + $X_j(t)$: the number of in-links to a node $j$ at a time step $t \geq j$; a random variable
+    + Properties of the original probabilistic model
+        + Initial condition: $X_j(j) = 0$, node $j$ ceated at time $j$ w/o any in-links
+        + The expected change to $X_j$ over time
+            + Node $j$ gains an in-link in step $t + 1 \Longleftrightarrow$ the link from the newly created node $t+1$ point to it
+            + Probability $p$: 
+                + node $t+1$ links to an earlier node chosen uniformly at random
+                + node $t + 1$ links to node $j$ with probability $1/t$.
+            + probability $1 - p$: 
+                + mode $t+1$ links to an earlier node with probability proportional to the node’s current number of in-links
+                + at the moment node $t + 1$ is created, the total number of links in the network is $t$ (one out of each prior node), and of these, $X_j(t)$ point to node $j$.
+                + the overall probability that node $t + 1$ links to node $j$
+
+                    $$\frac{p}{t} + \frac{(1-p)X_j(t)}{t}$$
+    + The basic plan in building an approximation to the model is to analyze a different, closely analogous, but simpler rich-get-richer process, in which it is correspondingly easier to discover the power law.
+    + The central idea in formulating the simpler model is to make it __deterministic__, a model in which there are no probabilities
+    + Approximate $X_j(t)$, the number of in-links of node $j$, by a continuous function of time $x_j(t)$
+    + Properties of the function $x_j$
+        1. the initial condition: $x_j(j) = 0$
+        2. The growth equation: the rate of growth of the deterministic approximation 
+
+            $$\frac{dx_j}{dt} = \frac{p}{t} + \frac{(1-p) x_j}{t}$$
+    + Random variables $X_j(t)$ that move in small probabilistic "jumps" at discrete points in time $\Longrightarrow$ a quantity $x_j$ that grows completely smoothly over time, at a rate tuned to macth the expected changes in the corresponding random variables
+
++ Solving the deterministic approximation
+
+    Let $q = 1 - p$, 
+
+    $$\frac{dx_j}{dt} = \frac{p + 1 x_j}{t} \; \Longrightarrow \; \frac{1}{p + qx_j} \frac{dx_j}{dt} = \frac{1}{t} \; \Longrightarrow \; \int \frac{1}{p + q x_j} \frac{dx_j}{dt} dt = \int \frac{1}{t} dt \; \Longrightarrow \; \ln (p+qx_j) = q \ln t + c$$
+
+    For a constant $c$.  Let $A = e^c$,
+
+    $$p + q x_j = A t^q  \; \Longrightarrow \; x_j(t) = \frac{1}{q} (A t^q - p)$$
+
+    Determine the value of the constant $A$ by using the initial consition $x_j(j) = 0$
+
+    $$0 = x_j(j) = \frac{1}{q} (A j^q - p)$$
+
+    With $A = p/j^q$. plugging into the above equation (3)
+
+    $$x_j(t) = \frac{1}{q} (\frac{p}{j^q} \cdot t^q - p) = \frac{p}{q} [(\frac{t}{j})^q - 1]$$
+
++ Identifying a power law in the deterministic approximation
+    + Eq. (3) is a closed-form expression for how each $x_j$ grows over time
+    + Original question: for a given value of $k$, and a time $t$, what fraction of all nodes have at least $k$ in-links at time $t$?
+    + Question for simplified mode: For a given value of $k$, and a time $t$, what fraction of all functions $x_j$ satisfy $x_j(t) \geq k$?
+
+        $$x_j(t) = \frac{p}{q} [(\frac{t}{j})^q - 1] \geq k  \; \Longrightarrow \; j \leq [\frac{q}{p} \cdot k +_ 1]^{-1/q}$$
+
+    + Out of all the functions $x_1, x_2, \ldots, x_t$ at time $t$, the fraction value $j$ that satisfy
+
+        $$\frac{1}{t} \cdot t [\frac{q}{p} \cdot k + 1]^{-1/q} = [\frac{q}{p} \cdot k + 1]^{-1/q}$$
+    + Power law: since $p$ and $q$ are constancts, the expression inside brackets on the right-hand-side is proportional to $k$, and so the feation of $x_j$ that are at least $k$ is proportional to $k^{-1/q}$
+    + The fraction of nodes $F(k)$ with at least $k$ in-links $\; \longrightarrow \;$ the fraction of nodes $f(k)$ with exactly $k$ in-links simply by taking the derivative
+    + Approximating $f(k)$ by $-dF/dk$
+
+        $$\frac{1}{q} \frac{q}{p} [\frac{q}{p} \cdot k + 1]^{-1-1/q}$$
+    + The deterministics model predicts that the fraction of nodes with $k$ in-links is proportional to $k^{-(1+1/q)}$ - a power law with exponent
+
+        $$1 | |frac{1}{q} = 1 + \frac{1}{1 - p}$$
+    + With high probability over the random formation of links, the fraction of nodes with $k$ in-links indeed proportaional to $k^{-(1+1/q)}$
+    + The heuristic argument supplied by the deterministic approximation to the model thus provides a simple way to see where this power-law exponent $1 + 1/(1-p)$ comes from.
+    + $p \longrightarrpow 1$:
+        + link formation mainly based on uniform random choices
+        + the role of reah-get-richer dynamics is muted
+        + the power law exponent tends to infinity
+        + nodes w/ very large numbers of in-links become increasing rare
+    + $p \longrightarrow 1$:
+        + the growth of the network strongly governed by rich-get-richer behavior
+        + the power law exponent decreases toward $2$, allowing for many nodes with very large numbers of in-links
+        + $2$: a natural number limit for the exponents as rich-get-richer dyhnamics become stronger also provides a nice way to think about the fact that many power-law exponents in real networks tend to be slightly above $2$
+
 
 
