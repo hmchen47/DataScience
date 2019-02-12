@@ -141,8 +141,17 @@
     + The frequency of the jth most common word in English (or most other widespread human languages) is proportional to $1/j$.
 
 
-
 ## The Effect of Search Tools and Recommendation Systems
+
++ Google 
+    + using popularity measures to rank Web pages, and the highly-ranked pages are in turn the main ones that users see in order to formulate their own decisions about linking.
+    + tools used in this style, targetedbmore closely to users’ specific interests, can in fact provide ways around universally popularbpages, enabling people to find unpopular items more easily, and potentially counteracting the rich-get-richer dynamics.
+
++ Anderson’s Long-Tail argument:
+    + to make money from a giant inventory of niche products, a company crucially needs for its customers to be aware of these products, and to have some reasonable way to explore them
+    + recommendation systems: 
+        + companies like Amazon and Netflix have popularized can be seen as integral to their business strategies
+        + essentially search tools designed to expose people to items that may not be generally popular, but which match user interests as inferred from their history of past purchases.
 
 
 
