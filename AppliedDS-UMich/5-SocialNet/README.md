@@ -78,7 +78,7 @@
     + [Graphs](p2-Graphs.md)
         + [Basic Definitions](p2-Graphs.md#)
         + [Paths and Connectivity](p2-Graphs.md#)
-        + [Distance and Breadth-First Seqrch](p2-Graphs.md#)
+        + [Distance and Breadth-First Search](p2-Graphs.md#)
         + [Network Datasets: An Overview](p2-Graphs.md#)
 
 ### [Module 4 Assignment](asgn04.md)
