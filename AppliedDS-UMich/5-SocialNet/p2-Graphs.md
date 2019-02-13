@@ -51,6 +51,42 @@
 
 ## Distance and Breadth-First Search
 
++ The length of a path: 
+    + the number of steps it contains from beginning to end
+    + the number of edges in the sequence that comprises it
+    + the distance between two nodes in a graph = the length of the shortest path between them
+
++ Breadth-First Search
+    + searching tyhe graph outward from a starting node, reaching the closest nodes first
+    + providing a method of determining 
+    + serving as a useful conceptual framework to organize the structure of a graph, arranging the nodes based on their distances from a fixed starting point
+
++ The Small-World Phenomenon
+    + the idea that the world looks "small" when you think of how short a path of friends it takes to get from you to almost anyone else.
+    + six degrees of separation
+    + social networks tend to have very short paths between essentially arbitrary pairs of people
+
++ Instant Messaging, Paul Erdos, and Kevin Bacon
+    + Jure Leskovec and Eric Horvitz: 240 million active user accounts om MS Instant Messenger
+    + a graph: node = user; edge = two user if they are engaged in a two-way conversation at any point during a month-long observation period
+    + the graph forms a giant component containing almost all of the nodes
+    + the distances within this giant component were very small
+    + estimated average distance = 6.6
+    + estimated median = 7
+    + The graph was so large that performing breadth-first search from every single node would have taken an astronomical amount of time.
+    + Limitation: only track people who are technologically-endowed enough to have access instant messaging, and rather than basing the graph on who is truly friends with whom, it can only observe who talks to whom during an observation period
+
++ Scientist Collaboration Networks
+    + Very short paths in the collaboration networks within professional communities
+    + a mathematician's Erdos number = the distance from him or her to Erdos in the graph
+    + most mathematicians Erdos numbers $< 4/5$
+    + Extending the collaboration graph to include co-authorship across all the sciences
+    + most scientist in other fields w/ Erdos numbers: Albert Einstein = 2, Enrico Fermi = 3, Noam Chomsky = = Linus Pauling = 4, Francis Crick = 5, James Watson = 6
+
++ Collaboration Networks of Actors and Actresses
+    + nodes = performers; edges = two performers if they've appeared together in a movie
+    + Performer's Bacon number = his or her distance in the graph to Kevin Bacon
+    + Over all performers in the IMDB: average Backon number ~ 2.9; rare $> 5$
 
 
 ## Network Datasets: An Overview
