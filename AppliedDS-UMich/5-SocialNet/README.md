@@ -75,6 +75,11 @@
 + [Notebook: Extracting Features from Graphs](04-Applications.md#)
 + [Quiz: Module 4 Quiz](04-Applications.md#)
 + [The Small-World Phenomenon (Optional)](04-Applications.md#)
+    + [Graphs](p2-Graphs.md)
+        + [Basic Definitions](p2-Graphs.md#)
+        + [Paths and Connectivity](p2-Graphs.md#)
+        + [Distance and Breadth-First Seqrch](p2-Graphs.md#)
+        + [Network Datasets: An Overview](p2-Graphs.md#)
 
 ### [Module 4 Assignment](asgn04.md)
 
