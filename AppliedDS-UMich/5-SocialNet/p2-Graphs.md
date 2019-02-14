@@ -91,6 +91,56 @@
 
 ## Network Datasets: An Overview
 
++ Several distinct reasons for studying a particular network dataset
+    1. actual domain it comes from , so that fine-grained details of the data itself are potentially as interesting as the broaderpicture
+    2. as proxy for a related network that may be impossible to measure
+    3. network properties that appear to be common access many different domains and so finding a similar effect in unrelated settings can suggest that it has a certain universal nature
+
++ The result of the IM graph analysis fit into the broader framework of small-world phenomena that span many domains.
+
++ Collaboration Graphs
+    + who works with whom in a specific setting
+    + Examples: co-authorships among scientists; co-appearance in movies; highly-placed people on the board directors of the same Fortune 500 company
+    + On-line world: Wikipedia collaboration graph; World-of-Warcraft collaboration graph
+    + Learn about the specific domain it comes from
+    + the sociological context of scientific resarch, a broader community of people is interested in scientific co-authorship network precisely, pre-digested snapshots of a rich form of social interaction tha unfolds over a long period of time
+
++ Who-talks-to-Whoom Graphs
+    + MS IM graph: a snapshot of a large community engaged in several billion conversations over the course of a month
+    + Examples
+        + e-mail logs within a company or a university
+        + records of phone cells -> structure of call graphs
+    + "face-to-face" graphs
+        + mobile phones w/ short-range wireless technology to detect other similar devices nearby
+        + record physical proximity
+        + node = a person carrying one of the mobile devices
+        + edge = joining two people if they were detected to be in close physical proximity over a given observation period
+    + Issue: strong expecation of privacy
+    + "who-transacts-with-whom" structure of a market or financial community
+
++ Information Linkage Graphs
+    + Snapshots of the Web are central examples of network datasets: nodes = web pages; edges = links from one page to another
+    + Scale of full Web: well-defined subsets of the Web to simplify
+    + E.g., linkages among bloggers; pages on Wikipedia; pages on social-networking sites such as Facebook or MySpace; discussions and product reviews on shopping sites
+    + Information linkage graphs significantly updates the Web
+        + citation analysis - the network structure of citations among scientific papers or patents, a way of tracking of the evolution of the science
+        + Citation networks: popular research datasets
+
++ Technological Networks
+    + The Web is built on a lot of sophisticated technology, it would be mistake to think of it primarily as a technological network
+    + projection onto a technological backdrop of ideas, information, and social economic structure created by humans
+    + convergence of social and technological networks: much interesting network data comes from the more overly technological end of the spectrum -- with nodes representing physical devices and edges representing physical connections between them
+    + Internet - two-level view of network
+        + lowest level: nodes = individual routers and computers; edge = two devices have a physical connection to each other
+        + higher level (autonomous systems): nodes = grouped into what are essentially little "nation-states", AS, controlled by different Internet service-providers $\longrightarrow$ who-transacts-with-whom graph on AS, known as AS graph
+
++ Networks in the Natural World
+    + graph structure: biology, natural sciences, and network research has devoted particular attention to several different types of biological networks
+    + Examples
+        + food webs: who-eats-whom relationships
+        + structure of neural connections within an organism's brain
+        + cell's metabolism
+
 
 
 
