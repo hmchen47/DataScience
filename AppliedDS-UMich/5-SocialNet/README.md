@@ -80,7 +80,14 @@
         + [Paths and Connectivity](p2-Graphs.md#paths-and-connectivity)
         + [Distance and Breadth-First Search](p2-Graphs.md#distance-and-breadth---first-search)
         + [Network Datasets: An Overview](p2-Graphs.md#network-datasets-an-overview)
-    + [Small-World Phenomenon]
+    + [Small-World Phenomenon](p3-SmallWorld.md)
+        + [Six Degrees of Separation](p3-SmallWorld.md#)
+        + [Structure and Randomness](p3-SmallWorld.md#)
+        + [Decentralized Search](p3-SmallWorld.md#)
+        + [Modeling the Process of Decentralized Search](p3-SmallWorld.md#)
+        + [Empirical Analysis and Generalized Models](p3-SmallWorld.md#)
+        + [Core-Periphery Structures and Difficulties in Decentralized Search](p3-SmallWorld.md#)
+        + [Advanced Material: Analysis of Decentralized Search](p3-SmallWorld.md#)
 
 ### [Module 4 Assignment](asgn04.md)
 
