@@ -63,13 +63,13 @@
 
 + [Preferential Attachment Model](04-Applications.md#)
 + [Power Laws and Rich-Get-Richer Phenomena (Optional)](04-Applications.md#)
-    + [Popularity as a Network Phenomenon](p1-PowerLaw.md#)
-    + [Power Laws](p1-PowerLaw.md#)
-    + [Rich-Get-Richer Models](p1-PowerLaw.md#)
-    + [The Unpredictability of Rich-Get-Richer Effects](p1-PowerLaw.md#)
-    + [The Long Tail](p1-PowerLaw.md#)
-    + [The Effect of Search Tools and Recommendation Systems](p1-PowerLaw.md#)
-    + [Advanced Material: Analysis of Rich-Get-Richer Processes](p1-PowerLaw.md#)
+    + [Popularity as a Network Phenomenon](p1-PowerLaw.md#popularity-as-a-network-phenomenon)
+    + [Power Laws](p1-PowerLaw.md#power-laws)
+    + [Rich-Get-Richer Models](p1-PowerLaw.md#rich---get---richer-effects)
+    + [The Unpredictability of Rich-Get-Richer Effects](p1-PowerLaw.md#the-unpredictability-of-rich---get---richer-effects)
+    + [The Long Tail](p1-PowerLaw.md#the-long-tail)
+    + [The Effect of Search Tools and Recommendation Systems](p1-PowerLaw.md#the-effect-of-search-tools-and-recommendation-systems)
+    + [Advanced Material: Analysis of Rich-Get-Richer Processes](p1-PowerLaw.md#advanced-material-analysis-of-rich---get---richer-processes)
 + [Small World Networks](04-Applications.md#)
 + [Link Prediction](04-Applications.md#)
 + [Notebook: Extracting Features from Graphs](04-Applications.md#)
@@ -80,6 +80,7 @@
         + [Paths and Connectivity](p2-Graphs.md#)
         + [Distance and Breadth-First Search](p2-Graphs.md#)
         + [Network Datasets: An Overview](p2-Graphs.md#)
+    + [Small-World Phenomenon]
 
 ### [Module 4 Assignment](asgn04.md)
 

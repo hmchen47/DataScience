@@ -141,6 +141,14 @@
 
 Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch18.pdf)) from "Networks, Crowds, and Markets: Reasoning about a Highly Connected World" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for an interesting read on Power Laws and Rich-Get-Richer phenomena such as the preferential attachment model.
 
++ [Popularity as a Network Phenomenon](p1-PowerLaw.md#popularity-as-a-network-phenomenon)
++ [Power Laws](p1-PowerLaw.md#power-laws)
++ [Rich-Get-Richer Models](p1-PowerLaw.md#rich---get---richer-effects)
++ [The Unpredictability of Rich-Get-Richer Effects](p1-PowerLaw.md#the-unpredictability-of-rich---get---richer-effects)
++ [The Long Tail](p1-PowerLaw.md#the-long-tail)
++ [The Effect of Search Tools and Recommendation Systems](p1-PowerLaw.md#the-effect-of-search-tools-and-recommendation-systems)
++ [Advanced Material: Analysis of Rich-Get-Richer Processes](p1-PowerLaw.md#advanced-material-analysis-of-rich---get---richer-processes)
+
 
 ## Small World Networks
 
@@ -469,10 +477,10 @@ Read [Chapter 18]((http://www.cs.cornell.edu/home/kleinber/networks-book/network
         #  ('D', 'H', 0), ('D', 'G', 0)]
         ```
 
-+ Measure 5: Pref. Attachment
++ Measure 5: Preferential Attachment
     + In the preferential attachment model, nodes with high degree get more neighbors.
     + Product of the nodes' degree.
-    + The preferential attachment score of nodes 𝑋 and 𝑌 is
+    + The preferential attachment score of nodes $X$ and $Y$ is
 
         $$\text{pref\_attach}(X, Y) = |N(X)||N(Y)|$$
     + E.g., $\text{pref\_attach}(A, C) = 3 * 3 = 9$
