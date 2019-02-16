@@ -70,6 +70,33 @@
 
 ## Decentralized Search
 
++ Basic aspect of the Milfram small-world experiment
+    + people were actually able to collectively find short paths to the designated target
+    + Social search task: a necessary consequence of the way Milgram formulated the experiment for participants
+    + the shortest path:
+        + instruct the starter to forward a letter to _all_ of his/her friends, who in turn should have forwarded the letter to all of their friends, and so forth
+        + flooding: reach the target as rapid as possible
+        + breadth-first search: not a feaible option
+    + "Tunneling" through the network: a process that could well hav failed to reach the target, even if a short path existed
+
++ The power of collective search
+    + Q: why should it have been structured so as to make this type of _decentralized search_ so effective?
+    + The Watts-Strogatz model: provide a simple framework for thinking about short path in highly clustered networks
+    + Q: Can we construct a random network network in which decentralize routing succeeds, and if so, what are the qualitative properties that are crucial for success?
+
++ A model for decentralized search
+    + Grid-based model of Watts-Strogatz: s starting node $s$ is given a message that it must forward to a target node $t$, passing it along edges of the network
+    + Initially $s$ only knows the location of $t$ on the grid, but not knowing the random edges out of any node other than itself.
+    + __delivery time__: the expected number of steps required to reach the target, over a randomly generated set of long-range contacts, and randomly chosen starting and target nodes
+    + Decentralized search in the Watts-Strogatz model: require a large number of steps to reach a target
+    Mathematical mode: effect at capturing the density of triangles and the existence of short paths, but not the ability of people, working together in the network, to actually find the paths
+    + Problem: the weak ties that make the world small are "too random" in this model $\; \longrightarrow \;$ completely unrelated
+
++ To reach a far-away target:
+    + Use long-range weak ties in a fairly structured, methodical way, constantly reducing the distance tot he target.
+    + a progressive closing in on the target area as each new person is added to the chain
+    + not enough to have a network model in which weak ties span only the very long ranges
+
 
 
 ## Modeling the Process of Decentralized Search
