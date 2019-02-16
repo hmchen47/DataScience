@@ -939,9 +939,14 @@ Q10: Assume there are two communities in this network: `{A, B, C, D, G}` and `{E
 
 ## The Small-World Phenomenon (Optional)
 
-Read chapters 2 and 20 from "Networks, Crowds, and Markets: Reasoning about a Highly Connected World" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for a more in-depth take on the Small World Phenomenon.
+Read chapters 2 and 20 from "[Networks, Crowds, and Markets: Reasoning about a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)" By David Easley and Jon Kleinberg. Cambridge University Press, 2010 for a more in-depth take on the Small World Phenomenon.
 
-+ [Chapter 2](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch02.pdf)
++ [Chapter 2: Graphs](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch02.pdf)
+    + [Basic Definitions](p2-Graphs.md#basic-definitions)
+    + [Paths and Connectivity](p2-Graphs.md#paths-and-connectivity)
+    + [Distance and Breadth-First Search](p2-Graphs.md#distance-and-breadth---first-search)
+    + [Network Datasets: An Overview](p2-Graphs.md#network-datasets-an-overview)
+
 + [Chapter 20:](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch20.pdf)
 
 
