@@ -98,9 +98,37 @@
     + not enough to have a network model in which weak ties span only the very long ranges
 
 
-
 ## Modeling the Process of Decentralized Search
 
++ Generalizing the network model
+    + nodes on a grid and edges to each other nodes within $r$ grid steps
+    + each of its $k$ random edges is generated in a way that decays with distance, controlled by a __clustering exponent $q$__
+    + $d(v, w)$: the number of grid steps between nodes $v$ and $w$
+    + In generating a random edge out of $v$, edge link to $w$ with probability proportional to $d(v, w)^{-q}$
+    + Different value $q$
+        + $q=0$: original grid-based model
+        + $q$ very small: the long-range links are "too random"; not used effectively for decentralized search
+        + $q$ large: the long-range links are "not random enough"; not provide enough of the long-distance jumps that are needed to create a small world
+        + optimal operating point?
+    + decentralized search is most efficient with $q=2$
+    <a href="https://slideplayer.com/slide/8594393"> <br/>
+        <img src="https://player.slideplayer.com/26/8594393/data/images/img6.jpg" alt="Pictorially, this variation in q can be seen in the difference between the two networks in Figure 20.5." title="With a small clustering exponent, the random edges tend to span long distances on the grid; as the clustering exponent increases, the random edges become shorter." height="200">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlK5DrK_6PJPiuHF22m7mImGznEKhkehNB3BDyS5V6zelANU65zQ" alt="the performance of a basic decentralized search method across different values of q, for a network of several hundred million nodes." title="Simulation of decentralized search in the grid-based model with clustering exponent q. Each point is the average of 1000 runs on (a slight variant of) a grid with 400 million nodes. The delivery time is best in the vicinity of exponent q = 2, as expected; but even with this number of nodes, the delivery time is comparable over the range between 1.5 and 2" height="200">
+    </a>
+    + network size $\rightarrow \infty$: decentralized search has not about the same efficiency on networks of this size all exponents $q \in [1.5, 2.0]$
+    + network size $\uparrow \implies$ the best performance occurs at exponents $q \rightarrow 2$
+
++ A Rough Calculation Motivating the Inverse-Square Network
+    + decentralized search is efficient when $q=2$ and sketch why search is more efficient with $q=2$ than with any other exponent
+    + effecive decentralized search "funnels inward" through these different scales of resolution
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img9.jpg" alt="So now let’s look at how the inverse-square exponent q = 2 interacts with these scales of resolution. We can work concretely with a single scale by taking a node v in the network, and a fixed distance d, and considering the group of nodes lying at distances between d and 2d from v," title="The concentric scales of resolution around a particular node." height="250">
+    </a>
+    + what is the probability that $v$ forms a link to some node inside this group?
+    + With the sqaure of the radius, the total number of nodes in this group is proportional to $d^2$
+    + The probability that $v$ links to any one node in the group varies depending on exactly how far out it is, but each individual probability is proportional to $d^{-2}$.
+    + The probability that a random edge links into some node in this ring is approximately independent of the value of $d$.
+    + $q=2$: long-range weak ties are being formed in a way that's spread roughly uniformly over all different scales of resolution.
 
 
 ## Empirical Analysis and Generalized Models
