@@ -133,6 +133,64 @@
 
 ## Empirical Analysis and Generalized Models
 
++ Geographic Data on Friendship
+    + Liben-Nowell et al.: the blogging site LiveJournal of roughly 500,000 users w/ ZIP code
+    + The population of the users is extremely non-uniform
+
++ Rank-Based Friendship
+    + As a node $v$ looks out at all other nodes, it _ranks_ them by proximity
+    + $\text{rank}(w)$: the rank of a node $w$
+    + $\text{rank}(w)$ = the number of other nodes that are closerto $v$ than $w$ is
+    + rank-based friendship with exponent $p$: for som eexponent $p$, node $v$ creates a random link that chooses a node $w$ as the other end with probability proportional to $\text{rank}(w)^{-q}$
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img13.jpg" alt="When the population density is non-uniform, it can be useful to understand how far w is from v in terms of its rank rather than its physical distance. In (a), we say that w has rank 7 with respect to v because it is the 7th closest node to v, counting outward in order of distance. In (b), we see that for the original case in which the nodes have a uniform population density, a node w at distance d from v will have a rank that is proportional to d2, since all the nodes inside the circle of radius d will be closer to v than w is." title="Figure 20.9(a), node w would have rank seven, since seven others nodes (including v itself) are closer to v than w is. Figure 20.9(b) shows, if a node w in a uniformly-spaced grid is at distance d from v, then it lies on the circumference of a disc of radius d, which contains about $d^2$ closer nodes — so its rank is approximately $d^2$." height="250">
+    </a>
+    + Fig (b): a node $w$ in a uniformly-spaced grid is at distance $d$ from $v \; \implies \;$ node $w$ lies on the circumference of a disc of radius $d$, which contains about $d^2$ closer node $\;\;\; \therefore$ its rank is approximately $d^2$
+    + linking to $w$ with probability proportional to $d^{-2}$ is approximately the same as linking with probability $\text{rank}(w)^{-1} \; \implies \;$ exponent $p = 1$ is the right generalization of the inverse-sqaure distribution
+    + For essentially any population density, if random links are constructed using rank-based friendship with exponent $1$, the resulting network allows for efficient decentaslized search with high probability.
+    + quantative summary: to construct a network that is efficienly searchable, create a link to each node with probability that is inversely proportional to the number of closer nodes
+    + Pairs of nodes where one assigns to other a rank of $r$
+    + What fraction $f$ of these pairs are actually friends, as a function of $r$?
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img14.jpg" alt="Figure 20.10(a) shows this result for the LiveJournal data; we see that much of the body of the curve is approximately a straight line sandwiched between slopes of −1.15 and −1.2, and hence close to the optimal exponent of −1. It is also interesting to work separately with the more structurally homogeneous subsets of the data consisting of West-Coast users and East-Coast users, and when one does this the exponent becomes very close to the optimal value of −1. Figure 20.10(b) shows this result: The lower dotted line is what you should see if the points followed the distribution rank−1, and the upper dotted line is what you should see if the points followed the distribution rank−1.05. The proximity of the rankbased exponent on real networks to the optimal value of −1 has also been corroborated by subsequent research." title="The probability of a friendship as a function of geographic rank on the blogging site LiveJournal." height="250">
+    </a>
+    + Figure shows the close alignment of theory and measurement.
+    + Why real social networks have arranged themselves in a pattern of friendships across distance that is close to optimal for forwarding messages to far-away targets.
+    + dynamic forces or selective pressures driving the network toward this shape
+    + Open problem: determine wether such forces exist and how they might operate
+
++ Socail Foci and Social Distance
+    + social foci: provide a flexible and general way to produce models of networks exhibiting both an abundance of short paths and efficient decentralized search
+    + a socail focus is any type of community, occupational pursuit, neighborhood, shared interest, or activity that serves to organize social life around it.
+    + Foci are a way of summarizing the many possible reasons that two people can know each other or become friends - live on the same block, work at the same company, frequent the same cafe, or attend the same kinds of concerts.
+    + a natural way to define the social distance between two people is to declare it to be the size of the smallest focus that includes both of them.
+    + $\text{dist}(v, w)$: the social distance between node $v$ and $w$
+    + Shared foci: $\text{dist}(v, w)$ is the size of the smallest focus that contains both $v$ and $w$
+    + construct a link between each pair of nodes $v$ and $w$ with probability proportional to $\text{dist}(v, w)^{-p}$
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img18.jpg" alt="When nodes belong to multiple foci, we can define the social distance between two nodes to be the smallest focus that contains both of them. In the figure, the foci are represented by ovals; the node labeled v belongs to five foci of sizes 2, 3, 5, 7, and 9 (with the largest focus containing all the nodes shown)." title="The node labeled v construct links to three other nodes at social distances 2, 3, and 5." height="250">
+    </a>
+    + the node labeled $v$ construct links to three other nodes at social distances 2, 3, and 5.
+    + Subject to some technical assumptions on the structure of the foci, that when links are generated this way with exponent $p=1$, the resulting network supports efficient decentralized search with high probability.
+    + Aspects of result
+        1. with rank-based friendship, a simple description of underlying principle: when nodes link to each other with probability inversely proportional to their social distance, the resulting network is efficiently searchable.
+        2. the exponent $p=1$ is again the natural generalization of the inverse-square law for the simple grid model.
+    + For each location $v$ on the grid, and each possible radius $r$ around that location, there is a focus consisting of all nodes who are within distance $r$ of $v$.
+    + For two nodes who are a distance $d$ apart, their smallest shared focus has a number of nodes proportional to $d^{-2}$.
+    + linking with probability proportional to $d^{-2}$ is essentially the same as linking with probability inversely proportional to their social distance.
+
++ Adamic and Adar
+    + a social network on employees of Hewlett Parkard Research Lab
+    + defined a focus for each of the groups within the organizational structure (i.e. a group of employees all reporting a common manager)
+    + the probability of a link between two employees at social distance $d$ within the organization scaled proportionally to $d^{-3/4}$
+    + The best exponent for making decentralized search within the network efficient
+
++ Search as an Instance of Decentralized Problem-Solving
+    + designated to test the hypothesis that people are connected by short paths in the global social network
+    + using only very local information, and by communicating only with their neighbors in the social network
+    + social networks can be effective at this type of decentralized problem-solving is an intriguing and general premise that applied more broadly than just to the problem of path-finding that Milgram considered.
+    + their effectiveness will depend both on the difficulty of the problem being solved and on the network that connects them.
+
 
 
 ## Core-Periphery Structures and Difficulties in Decentralized Search
