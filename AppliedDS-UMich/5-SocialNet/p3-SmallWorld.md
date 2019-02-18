@@ -195,6 +195,19 @@
 
 ## Core-Periphery Structures and Difficulties in Decentralized Search
 
++ Critique of the Milgram experiment:
+    + Judith Kleinfeld: the success rate at finding targets in recreations of the experiment has often been much lower than it was in the original work.
+    + 18 different targets were used, drawn from a wide range of backgrounds.
+    + Completion rates to all targets were small, due to lack of participation in the e-mail based forwarding messages.
+
++ Core-Periphery Structures
+    + Social networks are structured to make high-status individuals much easier to find than low-status ones.
+    + Homophily suggests that high-status people will mainly know other high-status people, and low-status people will mainly know other low-status people.
+    + __Core-periphery structure__
+        + large social networks tend to be organized
+        + the high-status people are linked in a densely-connected _core_, while the low-status people aer atomized around the _periphery_ of the network
+    + As moving toward a high-status target, the link structure tends to become richer, based on connections with an increasing array of underlying social reasons. $\; \rightarrow \;$ find a low-status target.
+    + The link structure becomes structurally more impoverished as you move toward the periphery.
 
 
 ## Advanced Material: Analysis of Decentralized Search
