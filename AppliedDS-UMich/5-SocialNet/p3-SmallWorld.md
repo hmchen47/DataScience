@@ -212,4 +212,136 @@
 
 ## Advanced Material: Analysis of Decentralized Search
 
++ The best exponent for seach is equal to the dimension.
+
++ choice of $q$ is in fact the best for decentralized search in the limit of increasing network size
+
+### The oOptimal Exponent in One Dimension
+
++ Analysis of decentralized search
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img3.jpg" alt="The analysis of decentralized search is a bit cleaner in one dimension than in two, although it is conceptually easy to adapt the arguments to two dimensions. As a result, we focus most of the discussion on a one-dimensional ring augmented with random long-range links." title="(a) A set of $n$ nodes are arranged on a one-dimensional ring. (b) a ring augmented with random long-range links" height="250">
+    </a>
+    + Fig. (a)
+        + A set of $n$ nodes are arranged on a one-dimensional ring.
+        + With each node connected by directed edges to the two others immediately adjacent to it.
+    + Fig. (b)
+        + Each node $v$ alos has a single directed edge to some other node on the ring
+        + $d(v, w)$: the distance between nodes $v$ and $w$ on the ring
+        + the probability that $v$ links to any particular node $w$ is proportional to $d(v, w)^{-1}$
+        + contacts: an edge existed between nodes
+            + _local contact_: two nodes adjacent on the ring
+            + _long-range contact_: two nodes with edge other than adjacent
+
++ Myopic Search
+    + Random start and target nodes on this argument ring network: $s$ and $t$
+    + goal: to forward a message from the start to the target, with each intermediate node on the way only knowing the locations of its own neighbors, and the location of $t$, but nothing else about the full network
+    + myopic search
+        + forwarding strategy
+        + work well on the ring when $q=1$
+        + when a node $v$ is holding the message, it passes it to the contact that lies as close to $t$ on the ring as possible
+        + a reasonable approximation to the strategies used by most people in Milgram-style experiments
+    + Myopic path
+        <a href="https://slideplayer.com/slide/4169089/"> <br/>
+            <img src="https://player.slideplayer.com/13/4169089/data/images/img5.jpg" alt="In myopic search, the current message-holder chooses the contact that lies closest to the target (as measured on the ring), and it forwards the message to this contact." title="The myopic path that would be constructed if we chose a as the start node and i as the target node in the network." height="300">
+        </a>
+        1. Node $a$ first sends the message to node $d$, since among $a$'s contact $p$, $b$, and $d$, node $d$ lies closest to $i$ on the ring.
+        2. The $d$ passes the message to its local contact $e$, and $e$ likewise passes the message to its local contact $f$, since the long-range contacts of both $d$ and $e$ lead away from $i$ on the ring, not closer to it.
+        3. Node $f$ has a long-range contact $h$ that proves useful, so it passes it to $h$. Node $h$ actally has the target as a local contact , so it hands it directly to $i$, completing the path in five steps.
+    + The myopic path is not the shortest path from $a$ to $i$ but a three-step $a-b-h-i$ path.
+
++ Analyzing Mypoic Search: The Basic Plan
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img21.jpg" alt="We analyze the progress of myopic search in phases." title="We analyze the progress of myopic search in phases. Phase j consists of the portion of the search in which the message’s distance from the target is between $2^j$ and $2^{j+1}$." height="300">
+    </a>
+    + generate a random network by adding long-range edges to a ring as above
+    + $X$: a random variable as the number of steps required by myopic search
+    + The expected value of $X$, $E[X]$, is relatively small
+    + track how long it takes for the message to reduce its distance by factors of two as it closes in on the target
+    + As the message moves from $s$ to $t$, it's in _phase j_ of the search if its distance from the target is between $2^j$ and $2^{j+1}$.
+    + Notice that the number of different phases is at most $\log_2 n$, that is, the number of doublings needed to go from $1$ to $n$.
+    + $X$, the number of steps taken by the full search
+
+        $$X = X_1 + X_2 + \cdots + X_{\log n} \; \Longrightarrow \; E[X] = E[X_1 + X_2 + \cdots + X_{\log n}] = E[X_1] + E[X_2] + \cdots + E[X_{\log n}]$$
+    + The expected value of each $X_j$ is at most proportional to $\log n$ and $E[X]$ is at most proportional to $(\log n)^2$
+    + The full network has $n$ nodes, but myopic search constructs a path that is _exponentially smaller_: proportional to $(\log n)^2$
+
++ Intermediate Step: The Normalizing Constant
+    + $v$ forms its long-range link to $w$ with probability _proportional to_ $d(v, w)^{-1}$
+    + Q: what is the constant of proportionality?
+    + a set of probabilities up to a missing constant of proportionality $1/Z$
+    + $Z = \sum_{v} d(v, w)^{-1} \; \forall \; v \neq w$ on the ring
+    + Normalizing constant $Z$, the probability of $v$ linking to $w$ is equal to $\frac{1}{Z} d(v, w)^{-1}$
+    + The value of $Z$
+        + there are two nodes at distance $1$ from $v$, two at distance $2$ an two at each distance $d$ up to $n/2$
+        + Assuming $n$ is even there is also a single node at distance $n/2$ from $v$, i.e., the node diametrically opposite it on the ring.
+
+        $$Z \leq 2(1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots + \frac{1}{n/2})$$
+    + The quantity inside parentheses on the right is a common expression in the probabilistic calculation: the sum of the first $k$ reciprocials, for some $k$, in the case $n/2$.
+    + Determining the normalizing constant for the probability of links involves evaluating the sum of the first $n/2$ reciprocals. An upper bound on the value of this sum can be determined from the area under the curve $y = 1/x$.
+    + A sequence of rectabngles of unit widths and heights $1/2, 1/3, 1/4, \ldots, 1/k$ fits under the curve $y=1/x, \; x = 1, 2, \ldots, k$
+
+        $$1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots + \frac{1}{k} \leq 1 + \int_1^k \frac{1}{x} dx = 1 + \ln k$$
+    + Let $k = n/2$ and known $\ln x \leq \log_2 x$
+
+        $$ Z \leq 2 (1+\ln(n/2)) = 2 + 2 \ln(n/2) \; \Longrightarrow \; Z \leq 2 + 2 \log_2 (n/2) = 2 + 2 (\log_2 n) - 2(log_2 2) = 2\log_2 n$$
+    + The probability $v$ links to $w$
+
+        $$\frac{1}{Z} d(v, w)^{-1} \geq \frac{1}{2 \log n} d(v, w)^{-1}$$
+
++ Analyzing the Time Spent in One Phase of Myopic Search
+    <a href="url"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img24.jpg" alt="At any given point in time, the search is in some phase j, with the message residing at a node v at distance d from the target. The phase will come to an end if v’s longrange contact lies at distance $ d/2 from the target t, and so arguing that the probability of this event is large provides a way to show that the phase will not last too long." title="A particular phase j of the search, when the message is at a node v whose distance to the target t is some number d between $2^j$ and $^{j+1}$." height="300">
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img25.jpg" alt="Showing that, with reasonable probability, v’s long-range contact lies within half the distance to the target." title="Let I be the set of nodes at distance $\leq d/2$ from t; this is where we hope v’s long-range contact will lie." height="300">
+    </a>
+    + The time spent by the search in any one phase is not very large.
+    + Choose a particular phase $j$ of the search, when the message is at node $v$ whose distance to the target $w$ is some number $d \in [2^j, 2^{j+1}]$.
+    + The phase will come to an end once the distance to the target decreases below $2^j$.
+    + One way for the phase to come to an end immediately would be for $v$'s long-range contact $w$ to be at $d(v, tw \leq d/2$ from $t$.
+    + $v$ would necessarily be the last node to belong to phase $j$.
+    + The immediate halving of the distance in fact happens with reasonably large probability.
+    + $I$: the set of nodes at $d(v, t) \leq \frac{d}{2} \; \forall v \not\in\{s, t\}$ where $v$'s long-range contact lies hopefully
+    + $d+1$ nodes in $I$: include node $t$ and $d/2$ nodes consecutively on each side of it
+    + Each node $w \in I$ has distance at most $3d/2$ from $v$: the farthest one is on the "far side" of $t$ from $v$, at distance $d + d/2$.
+    + Each node $w \in I$ has probability of being the long-range contact of $v$
+
+        $$\frac{1}{2\log n} d(v, w)^{-1} \geq \frac{1}{2\log n} \cdot \frac{1}{3d/2} = \frac{1}{3d\log n}$$
+    + There more than $d$ nodes in $I$, the probability that one of thenm is the long-range contact of $v$ is at least
+
+        $$d \cdot \frac{1}{3d\log n} = \frac{1}{3 \log n}$$
+    + If one of these nodes is the long-range contact of $v$, then phase $j$ ends immediately in this step.
+    + In each step that it proceeds, phase $j$ has a probability of at least $1/(3\log n)$ of coming to an end, independetly of what has happened so far. 
+    + To run for at least $i$ steps, phase $j$ has to fail to come to an end $i-1$ times in a row, and so the probability that phase $j$ runs for at least $i$ steps is at most
+
+        $$(1 - \frac{1}{3 \log n})^{i-1}$$
+    + Substitute with
+
+        $$Pr[X_j \geq i] \leq (1 - \frac{1}{3 \log n})^{i-1}$$
+
+        The expect value of a random variable
+
+        $$E[X_j] = 1 \cdot Pr[X_j = 1] + 2 \cdot Pr[X_j = 2] + 3 \cdot Pr[X_j = 3] + \cdots = Pr[X_j \geq 1] + Pr[X_j \geq 2] + Pr[X_j \geq 3] + \cdots$$
+
+        Therefore, 
+
+        $$E[X_j] \leq 1 + (1 - \frac{1}{3 \log n}) + (1 - \frac{1}{3 \log n})^2 +  (1 - \frac{1}{3 \log n})^3 + \cdots$$
+
+        The right-hand side is a geometric sum with multiplier $(1 - \frac{1}{3 \log n})$ and converges to
+
+        $$\frac{1}{1 - (1 - \frac{1}{3 \log n})} = 3 \log n$$
+
+        Thus,
+
+        $$ E[X_j] \leq 3 \log n$$
+    + $E[X]$ = a sum of the $\log n$ terms $E[X_1] + E[X_2] + \cdots + E[X_{\log n}]$ and each of them at most $3 \log n$.
+    + Therefore, th eexpected value of $X$
+
+        $$ E[X] \leq 3(\log n)^2 \; \propto \; (\log n)^2$$
+
+
+
+
+
+
+
 
