@@ -196,12 +196,12 @@
 
 ## Optional: [Unsupervised Machine Learning](./05-Unsupervised.md)
 
-+ [Unsupervised Learning Notebook](./05-Unsupervised.md#)
-+ [Introduction](./05-Unsupervised.md#)
-+ [Dimensionality Reduction and Manifold Learning](./05-Unsupervised.md#)
-+ [Clustering](./05-Unsupervised.md#)
-+ [How to Use t-SNE Effectively](./05-Unsupervised.md#)
-+ [How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](./05-Unsupervised.md#)
++ [Unsupervised Learning Notebook](./05-Unsupervised.md#unsupervised-learning-notebook)
++ [Introduction](./05-Unsupervised.md#introduction)
++ [Dimensionality Reduction and Manifold Learning](./05-Unsupervised.md#dimensionality-reduction-and-manifold-learning)
++ [Clustering](./05-Unsupervised.md#clustering)
++ [How to Use t-SNE Effectively](./05-Unsupervised.md#how-to-use-t-sne-effectively)
++ [How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](./05-Unsupervised.md#how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms)
 
 
 

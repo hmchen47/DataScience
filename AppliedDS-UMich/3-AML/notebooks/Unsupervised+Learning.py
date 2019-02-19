@@ -10,9 +10,6 @@
 # # Applied Machine Learning: Unsupervised Learning
 
 # ## Preamble and Datasets
-
-# In[ ]:
-
 get_ipython().magic('matplotlib notebook')
 import numpy as np
 import pandas as pd
@@ -35,9 +32,6 @@ y_fruits = fruits[['fruit_label']] - 1
 # ### Principal Components Analysis (PCA)
 
 # #### Using PCA to find the first two principal components of the breast cancer dataset
-
-# In[ ]:
-
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.datasets import load_breast_cancer
@@ -55,9 +49,6 @@ print(X_cancer.shape, X_pca.shape)
 
 
 # #### Plotting the PCA-transformed version of the breast cancer dataset
-
-# In[ ]:
-
 from adspy_shared_utilities import plot_labelled_scatter
 plot_labelled_scatter(X_pca, y_cancer, ['malignant', 'benign'])
 
@@ -67,9 +58,6 @@ plt.title('Breast Cancer Dataset PCA (n_components = 2)');
 
 
 # #### Plotting the magnitude of each feature value for the first two principal components
-
-# In[ ]:
-
 fig = plt.figure(figsize=(8, 4))
 plt.imshow(pca.components_, interpolation = 'none', cmap = 'plasma')
 feature_names = list(cancer.feature_names)
@@ -84,9 +72,6 @@ plt.colorbar(orientation='horizontal', ticks=[pca.components_.min(), 0,
 
 
 # #### PCA on the fruit dataset (for comparison)
-
-# In[ ]:
-
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
@@ -107,9 +92,6 @@ plt.title('Fruits Dataset PCA (n_components = 2)');
 # ### Manifold learning methods
 
 # #### Multidimensional scaling (MDS) on the fruit dataset
-
-# In[ ]:
-
 from adspy_shared_utilities import plot_labelled_scatter
 from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import MDS
@@ -130,9 +112,6 @@ plt.title('Fruit sample dataset MDS');
 # #### Multidimensional scaling (MDS) on the breast cancer dataset
 
 # (This example is not covered in the lecture video, but is included here so you can compare it to the results from PCA.)
-
-# In[ ]:
-
 from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import MDS
 from sklearn.datasets import load_breast_cancer
@@ -158,9 +137,6 @@ plt.title('Breast Cancer Dataset MDS (n_components = 2)');
 # #### t-SNE on the fruit dataset
 
 # (This example from the lecture video is included so that you can see how some dimensionality reduction methods may be less successful on some datasets. Here, it doesn't work as well at finding structure in the small fruits dataset, compared to other methods like MDS.)
-
-# In[ ]:
-
 from sklearn.manifold import TSNE
 
 tsne = TSNE(random_state = 0)
@@ -177,9 +153,6 @@ plt.title('Fruits dataset t-SNE');
 # #### t-SNE on the breast cancer dataset
 
 # Although not shown in the lecture video, this example is included for comparison, showing the results of running t-SNE on the breast cancer dataset.  See the reading "How to Use t-SNE effectively" for further details on how the visualizations from t-SNE are affected by specific parameter settings.
-
-# In[ ]:
-
 tsne = TSNE(random_state = 0)
 
 X_tsne = tsne.fit_transform(X_normalized)
@@ -196,9 +169,6 @@ plt.title('Breast cancer dataset t-SNE');
 # ### K-means
 
 # This example from the lecture video creates an artificial dataset with make_blobs, then applies k-means to find 3 clusters, and plots the points in each cluster identified by a corresponding color.
-
-# In[ ]:
-
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from adspy_shared_utilities import plot_labelled_scatter
@@ -212,9 +182,6 @@ plot_labelled_scatter(X, kmeans.labels_, ['Cluster 1', 'Cluster 2', 'Cluster 3']
 
 
 # Example showing k-means used to find 4 clusters in the fruits dataset.  Note that in general, it's important to scale the individual features before applying k-means clustering.
-
-# In[ ]:
-
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from adspy_shared_utilities import plot_labelled_scatter
@@ -234,9 +201,6 @@ plot_labelled_scatter(X_fruits_normalized, kmeans.labels_,
 
 
 # ### Agglomerative clustering
-
-# In[ ]:
-
 from sklearn.datasets import make_blobs
 from sklearn.cluster import AgglomerativeClustering
 from adspy_shared_utilities import plot_labelled_scatter
@@ -253,9 +217,6 @@ plot_labelled_scatter(X, cls_assignment,
 # #### Creating a dendrogram (using scipy)
 
 # This dendrogram plot is based on the dataset created in the previous step with make_blobs, but for clarity, only 10 samples have been selected for this example, as plotted here:
-
-# In[ ]:
-
 X, y = make_blobs(random_state = 10, n_samples = 10)
 plot_labelled_scatter(X, y, 
         ['Cluster 1', 'Cluster 2', 'Cluster 3'])
@@ -263,9 +224,6 @@ print(X)
 
 
 # And here's the dendrogram corresponding to agglomerative clustering of the 10 points above using Ward's method.  The index 0..9 of the points corresponds to the index of the points in the X array above.  For example, point 0 (5.69, -9.47) and point 9 (5.43, -9.76) are the closest two points and are clustered first.
-
-# In[ ]:
-
 from scipy.cluster.hierarchy import ward, dendrogram
 plt.figure()
 dendrogram(ward(X))
@@ -273,9 +231,6 @@ plt.show()
 
 
 # ### DBSCAN clustering
-
-# In[ ]:
-
 from sklearn.cluster import DBSCAN
 from sklearn.datasets import make_blobs
 
