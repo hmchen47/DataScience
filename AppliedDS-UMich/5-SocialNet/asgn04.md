@@ -1176,7 +1176,9 @@
 
     I have a problem with my long running script when I add more features for prediction model.
 
+    ```python
     # features = ['Preferential Attachment','Jaccard Coefficient','Resource Allocation']
+    ```
 
     is it possible to upload my future_connectioned dataframe with all populated features?
 
