@@ -26,22 +26,20 @@
 
 ## Module 2: [Network Connectivity](02-Connectivity.md)
 
-+ [Clustering Coefficient](02-Connectivity.md#)
-+ [Distance Measures](02-Connectivity.md#)
-+ [Connected Components](02-Connectivity.md#)
-+ [Network Robustness](02-Connectivity.md#)
-+ [Notebook: Simple Network Visualizations in NetworkX](02-Connectivity.md#)
-+ [TA Demonstration: Simple Network Visualizations in NetworkX](02-Connectivity.md#)
-+ [Quiz: Module 2 Quiz](02-Connectivity.md#)
++ [Clustering Coefficient](02-Connectivity.md#clustering-coefficient)
++ [Distance Measures](02-Connectivity.md#distance-measures)
++ [Connected Components](02-Connectivity.md#connected-components)
++ [Network Robustness](02-Connectivity.md#network-robustness)
++ [Notebook: Simple Network Visualizations in NetworkX](02-Connectivity.md#notebook-simple-network-visualizations-in-networkx)
++ [TA Demonstration: Simple Network Visualizations in NetworkX](02-Connectivity.md#ta-demonstration-simple-network-visualizations-in-networkx)
++ [Quiz: Module 2 Quiz](02-Connectivity.md#quiz-module-2-quiz)
 
 ### [Module 2 Assignment](asgn02.md)
 
-+ [Assignment Notebooks](asgn02.md#)
-+ [Discussion Forum](asgn02.md#)
-+ [Solution](asgn02.md#)
-+ [Assignment APIs](asgn02.md#)
-
-
++ [Assignment Notebooks](asgn02.md#assignment-notebooks)
++ [Discussion Forum](asgn02.md#discussion-forum)
++ [Solution](asgn02.md#solution)
++ [Assignment APIs](asgn02.md#assignment-apis)
 
 
 
