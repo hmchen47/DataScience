@@ -216,7 +216,7 @@
 
 + choice of $q$ is in fact the best for decentralized search in the limit of increasing network size
 
-### The oOptimal Exponent in One Dimension
+### The Optimal Exponent in One Dimension
 
 + Analysis of decentralized search
     <a href="https://slideplayer.com/slide/4169089/"> <br/>
@@ -339,9 +339,50 @@
         $$ E[X] \leq 3(\log n)^2 \; \propto \; (\log n)^2$$
 
 
+### Higher Dimensions and Other Exponents
 
++ Issues
+    + sketch how it can be used to analyze networks built by adding long-range contacts to nodes arranged in two dimensions
+    + more efficient search when $q$ is equal to the underlying dimension that when it it equal to other value
 
++ The Analysis in Two Dimensions
+    + Two distinct places used in one dimension for the analysis
+        + determine the normalizing constant $Z$
+        + ay lease $d$ nodes within distance $d/2$ of the target $t$
+    + The factor of $d$ canceled the $d^{-1}$ in the link probability and the probability of halving the distance to the target in any given step was at least proportional tp $1/(\log n)$, regardless of the value $d$.
+    + quantative level: with link probability $d^{-1}$ on the ring, the probability of linking to any one exactly offsets the number of nodes close to $t$, and so myopic search makes at every possible distance away from the target.
+    + Two dimensional analysis: the number of nodes within distance $d/2$ of the target will be proportional to $d^2$.
+    + cancellation property: $v$ link to each node $w$ with probability proportional to $d(v, w)^{-2}$ and this exponent $-2$ is what we will use.
+    + The analysis for two dimensions is almost exactly the same as what we just saw for the one-dimensional ring.
+    + the normalizing constant $Z$ is still proportional to $\log n$ when the probability of $v$ linking to $w$ is proportional to $d(v, w)^{-2}$
+    + consider $\log n$ different phases. the probability that at any given moment, the current message holder $v$ has a long-range contact $w$ that halves the distance to the target, ending the phase immediately.
+    + The number of nodes within distance $d/2$ of the target is proportional to $d^2$, and the probability that $v$ links to each is proportional to $1/(d^2 \log n)$.
+    + The probability that the message halves its distance to the target in this step is at least $d^2/(d^2 \log n) = 1/(\log n)$, and the rest of the analysis then finishes as before.
+    + decentralized search is efficient for networks built by adding long-range contacts to grids in $D > 2$ dimensions, when the exponent $q = D$.
 
++ Why Search is Less Efficicent with Other Exponents
+    + why search doesn't work well when $q=0$: the original Watts-Strogatz model when long-range links are chosen uniformly at random
+    + Using one-dimensional ring rather than the two-dimensional grid
+    + key idea: consider the set of all nodes within some distance of the target $t$
+    + with $q=1$ it is easy to enter smaller and smaller sets centered around $t \; \Longrightarrow \;$ identify a set of nodes centered at $t$ that is somehow "impenetrable", a set hard for the search to enter
+    <a href="https://slideplayer.com/slide/4169089/"> <br/>
+        <img src="https://player.slideplayer.com/13/4169089/data/images/img27.jpg" alt="To show that decentralized search strategies require large amounts of time with exponent q = 0, we argue that it is difficult for the search to cross the set of &n nodes closest to the target. Similar arguments hold for other exponents q < 1." title="Decentralized seach requires time" height="400">
+    </a>
+    + $K$: a set of all nodes within distance less than $\sqrt{n}$ of the target $t$.
+    With high probability, the starting point of the search lies outside $K$.
+    + Because long-range contacts are created unformly at random ($q=0$), the probability that any one node has a long-range contact inside $K$ is equal to the size of $K$ divided by $n$: less than $2\sqrt{n}/n = 2/\sqrt{n}$
+    + any decentralized search strategy will need at least $\sqrt{n}/2$ steps in expectation to find a node with a long-range contact $K$.
+    + as long as it doesn't find a long-range link leading into $K$, it can't reach the target in less than $\sqrt{n}$ steps, since it would take this long to "walk" step-by-step through $K$ using only the connection among local contacts.
+    + The expected time for any decentralized search strategy to reach $t$ must be at least proportional to $\sqrt{n}$.
+    + $q \in [0, 1]$: a version of argument above works, with a set $K$ centered at $t$ whose width depnds on the value of $q$
+    + $q > 1$, decentralized search is inefficient: even with relative short long-range links, it takes a long time for decentralized search to find links that span sufficiently long distances $\implies$ hard to quickly traverse the distance from the starting node to the target
+    + $q \neq 1$, $\exists \: c>0 \: \ni$ at least proportional to $n^c$ steps in expectation for any decentralized search strategy to search the target in the network generated with exponent $q$
+    + $n \: \rightarrow \infty$: decentralized search time $\mathcal{t}$
+        + $q=1$: $\mathcal{t} \propto \log n$
+        + $q \neq 1$: $\mathcal{t} \propto n$ (exponentially worse)
+    + Optimal balance between producing network that are "too random" for search and those that are not rondom enoughy:
+        + ring: $q=1$
+        + plane: $q=2$
 
 
 
