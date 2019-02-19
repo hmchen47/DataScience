@@ -133,20 +133,26 @@ from networksx.algorithms import bipartie
 | `nx.random_layout(G, *args)` | Position nodes uniformly at random | [Demo 2][008] |
 | `nx.circular_layout(G, *args)` | Position nodes on a circle | [Demo 2][008] |
 | `nx.get_node_attributes(G, name)` | Get node attributes from graph | [Demo 2][008] |
-| `nx.Graph.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [Definition][002] |
-| `nx.Graph.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [Definition][002] |
-| `nx.Graph.add_nodes_from(nodes, **attr)` | Add multiple nodes | [Definition][002] |
-| `nx.Graph.add_edges_from(ebunch, attr_dict=None, **attr)` | Add all the edges in ebunch | [Definition][002] |
-| `nx.Graph.remove_edge(u, v)` | Remove the edge between `u` and `v` | [Definition][002] |
-| `nx.Graph.nodes(data=False)` | Return a list of the nodes in the graph | [Definition][002] |
-| `nx.Graph.edges(nbunch=None, data=False, default=None)` | Return a list of edges | [Definition][002] |
-| `nx.Graph.is_directed()` | Return True if graph is directed, False otherwise | [Definition][002] |
-| `nx.Graph.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [Definition][002] |
-| `nx.Graph.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [Definition][002] |
-| `nx.Graph.subgraph(nbunch)` | Return the subgraph induced on nodes in `nbunch` | [Asgn02][008] |
-| `nx.Graph.to_directed()` | Return a directed representation of the graph | [Asgn02][008] |
-| `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
 | `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][009] |
+| `nx.non_edges(graph)` | Returns the non-existent edges in the graph | [Prediction][015] |
+| `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
+| `nx.barabasi_albert_graph(n, m, seed=None)` | Returns a random graph according to the Barabási–Albert preferential attachment model | [Preferential Attachment Model][013] |
+| `nx.watts_strogatz_graph(n, k, p, seed=None)` | Return a Watts–Strogatz small-world graph | [Small World Model][014] |
+| `nx.connected_watts_strogatz_graph(n, k, p, *args)` | Returns a connected Watts–Strogatz small-world graph | [Small World Model][014] |
+| `nx.newman_watts_strogatz_graph(n, k, p, seed=None)` | Return a Newman–Watts–Strogatz small-world graph | [Small World Model][014] |
+| `G.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [Definition][002] |
+| `G.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [Definition][002] |
+| `G.add_nodes_from(nodes, **attr)` | Add multiple nodes | [Definition][002] |
+| `G.add_edges_from(ebunch, attr_dict=None, **attr)` | Add all the edges in ebunch | [Definition][002] |
+| `G.remove_edge(u, v)` | Remove the edge between `u` and `v` | [Definition][002] |
+| `G.nodes(data=False)` | Return a list of the nodes in the graph | [Definition][002] |
+| `G.edges(nbunch=None, data=False, default=None)` | Return a list of edges | [Definition][002] |
+| `G.in_degree(nbunch=None, weight=None)` | Return the in-degree of a node or nodes | [Preferential Attachment Model][013] |
+| `G.is_directed()` | Return True if graph is directed, False otherwise | [Definition][002] |
+| `G.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [Definition][002] |
+| `G.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [Definition][002] |
+| `G.subgraph(nbunch)` | Return the subgraph induced on nodes in `nbunch` | [Asgn02][008] |
+| `G.to_directed()` | Return a directed representation of the graph | [Asgn02][008] |
 
 
 
@@ -196,10 +202,10 @@ from networksx.algorithms import bipartie
 
 | API | Description | links |
 |-------|-------------|-------|
-| `nx.degree_centrality(G)` | Compute the degree centrality for nodes | [Centralityy][009] |
-| `nx.in_degree_centrality(G)` | Compute the in-degree centrality for nodes | [Centralityy][009] |
-| `nx.out_degree_centrality(G)` | Compute the out-degree centrality for nodes | [Centralityy][009] |
-| `nx.closeness_centrality(G, *args)` | Compute closeness centrality for nodes | [Centralityy][009] |
+| `nx.degree_centrality(G)` | Compute the degree centrality for nodes | [Centrality][009] |
+| `nx.in_degree_centrality(G)` | Compute the in-degree centrality for nodes | [Centrality][009] |
+| `nx.out_degree_centrality(G)` | Compute the out-degree centrality for nodes | [Centrality][009] |
+| `nx.closeness_centrality(G, *args)` | Compute closeness centrality for nodes | [Centrality][009] |
 | `nx.betweenness_centrality(G, *args)` | Compute the shortest-path betweenness centrality for nodes | [Betweenness][010] |
 | `nx.betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for a subset of nodes | [Betweenness][010] |
 | `nx.edge_betweenness_centrality(G, *args)` | Compute betweenness centrality for edges | [Betweenness][010] |
@@ -208,12 +214,25 @@ from networksx.algorithms import bipartie
 | `nx.hits(G, *args)` | Return HITS hubs and authorities values for nodes | (Hub & Auth][012] |)
 
 
+## Link Prediction
+
+| API | Description | links |
+|-------|-------------|-------|
+| `nx.common_neighbors(G, u, v)` | Return the common neighbors of two nodes in a graph | [Prediction][015] |
+| `nx.jaccard_coefficient(G, ebunch=None)` | Docstring: Compute the Jaccard coefficient of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.resource_allocation_index(G, ebunch=None)` | Compute the resource allocation index of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.adamic_adar_index(G, ebunch=None)`| Compute the Adamic-Adar index of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.preferential_attachment(G, ebunch=None)` | Compute the preferential attachment score of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.cn_soundarajan_hopcroft(G, ebunch=None, community='community')` | Count the number of common neighbors of all node pairs in ebunch using community information | [Prediction][015] |
+| `nx.ra_index_soundarajan_hopcroft(G, ebunch=None, community='community')` | Compute the resource allocation index of all node pairs in ebunch using community information | [Prediction][015] |
+
+
 
 -----------------------------------------------
 <--
-[013]: 
-[014]: 
-[015]: 
+[013]: ../AppliedDS-UMich/5-SocialNet/04-Applications.md#preferential-attachment-model
+[014]: ../AppliedDS-UMich/5-SocialNet/04-Applications.md#small-world-networks
+[015]: ../AppliedDS-UMich/5-SocialNet/04-Applications.md#link-prediction
 [016]: 
 [017]: 
 [018]: 
