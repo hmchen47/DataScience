@@ -39,7 +39,7 @@
         + Not_Relevant(__N__): the _negative_ class
     + Out of 1000 randomly selected items, on average
         + One item is relevant and has an R label
-        + The rest of the items (999 of them) are not relevant and labelled N.
+        + The rest of the items (999 of them) are not relevant and labeled N.
     + Recall that:
 
         $$\text{Accuracy} = \frac{\text{\# correct predictions}}{\text{\# total instances}}$$
@@ -60,7 +60,7 @@
         + __constant__: always predicts a constant label provided by the user.
             + A major motivation of this method is F1-scoring, when the positive class is in the minority.
     + Use metrics other than accuracy
-    + AUC: under the curve
+    + AUC: area under the curve
 
 + What if my classifier accuracy is close to the null accuracy baseline? <br/>
     This could be a sign of:
@@ -95,7 +95,7 @@
     + Thus, provides more information than simple accuracy.
     + Helps you choose an evaluation metric that matches project goals.
     + Not a single number like accuracy.. but there are many possible metrics that can be derived from the confusion matrix.
-    + Multi-class classifier with k classes: $k x k$ matrix
+    + Multi-class classifier with k classes: $k \times k$ matrix
 
 
 + Demo
