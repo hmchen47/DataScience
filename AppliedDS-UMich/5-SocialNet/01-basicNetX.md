@@ -1368,7 +1368,7 @@ Q8. Based on the bipartite network below, select all the edges you can add to th
     + Returns: `nd` (dictionary, or number): A dictionary with nodes as keys and degree as values or a number if a single node is specified.
 
 
-### Bipartite Algotithm
+### Bipartite Algorithm
 
 + `bipartite.is_bipartite` method
     + Signature: `bipartite.is_bipartite(G)`
