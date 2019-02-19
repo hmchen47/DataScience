@@ -1,4 +1,4 @@
-# Module 2: [Network Connectivity](02-Connectivity.md)
+# Module 2: Network Connectivity
 
 ## Clustering Coefficient
 
