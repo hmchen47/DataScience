@@ -1045,8 +1045,27 @@ Q4. Select all that apply for the network below.
     c. The local clustering coefficient of node I is higher than node J and K.
     d. We can make the graph connected by adding edge (E,J).
 
-    ANs: ad, xabd, xab, xabc
-    c. LLC(I) = LLC(J) = LLC(K) = 0
+    ANs: abd, xab, xabc
+    ```python
+    import networkx as nx
+
+    G = nx.Graph()
+    G.add_edges_from([('A', 'C'), ('A', 'D'), ('B', 'D'), ('B', 'F'), ('C', 'G'), ('D', 'E'), ('E', 'G'), ('E', 'H'), ('F', 'H'), ('D', 'H'), ('I', 'J'), ('I', 'K')])
+
+    nx.number_connected_components(G)       # 2
+
+    nx.clustering(G, 'I')                   # 0.0
+    nx.clustering(G, 'J')                   # 0.0
+    nx.clustering(G, 'K')                   # 0.0
+
+    G.remove_edge('E', 'G')
+    nx.number_connected_components(G)       # 2
+    G.add_edges_from([('E', 'G')])
+
+    G.add_edges_from([('E', 'J')])
+    nx.is_connected(G)                      # true
+    G.remove_edge('E', 'J')
+    ```
 
 Q5. Consider three networks (A), (B) and (C) below and select all that apply.
     <a href="https://www.coursera.org/learn/python-social-network-analysis/exam/tZYRH/module-2-quiz"> <br/>
@@ -1069,7 +1088,7 @@ Q6. Which of the following is true about network robustness and connectivity? Se
     d. Network robustness measures a network’s ability to maintain its connectivity.
     e. Adding edges to a network can never make the network less robust.
 
-    ANs: xac, xabc, xabde
+    ANs: ade, xad, xac, xabc, xabde
 
 
 Q7. Consider the network given below. What's the node connectivity of the network?
