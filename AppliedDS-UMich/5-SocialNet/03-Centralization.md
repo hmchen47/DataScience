@@ -49,16 +49,15 @@
     <a href="https://anthonybonato.com/2016/04/13/the-mathematics-of-game-of-thrones/"> <br/>
         <img src="https://lh3.googleusercontent.com/OQqUIVdAO_KrEiIsfGN4mARt24rHxQzWZ9IndHfY3DEvgvYp-m7PW4BzaaKpb9Trp2w8UKvvkuW3tSN6O7pJ7L7vm9P_pBX-eLOf03QKFd9y2jVQ" alt="the degree centrality of a node V is going to be the ratio between its degree and the number of nodes in the graph minus one. So, in this case a node would have a centrality of one if it's connected to every single node in the network and a centrality of zero if it's connected to no node in the network. And so, this measure goes between zero and one, with one being the case where you're most connected. Let's see how we can use network X to find the degree centrality of nodes in this network. So, first let me load up the karate club graph and then let me convert the labels of the nodes so that they match what we see here in this figure. And now, we can use the function degree centrality to measure the centrality of all the nodes in the network. And so here, these returns a dictionary of centralities of every node and we can for example, look at the degree centrality of node number 34 which is 0.515 and that's because node 34 has 17 connections and there are 34 nodes in the network, so that is 17 or 33. The Degree Centrality of note 33 is 0.364 and that is 12 over 33." title="Friendship network in a 34-person karate club [Zachary 1977]" height="200">
     </a>
+
     ```python
     G = nx.karate_club_graph()
     G = nx.convert_node_labels_to_integers(G,first_label=1)
     degCent = nx.degree_centrality(G)
 
-    degCent[34]
-    # 0.515 # 17/33
+    degCent[34]     # 0.515 = 17/33
 
-    degCent[33]
-    # 0.182 # 6/33
+    degCent[33]     # 0.182 = 6/33
     ```
 
 + Degree Centrality – Directed
@@ -73,11 +72,9 @@
         ```python
         indegCent = nx.in_degree_centrality(G)
 
-        indegCent['A']
-        # 0.143 # 2/14
+        indegCent['A']  # 0.143 = 2/14
 
-        indegCent['L']
-        # 0.214 # 3/14
+        indegCent['L']  # 0.214 = 3/14
         ```
     + Outbound:
 
@@ -88,11 +85,9 @@
         ```python
         outdegCent = nx.out_degree_centrality(G)
 
-        outdegCent['A']
-        # 0.214 # 3/14
+        outdegCent['A']        # 0.214 = 3/14
 
-        indegCent['L']
-        # 0.071 # 1/14
+        indegCent['L']         # 0.071 = 1/14
         ```
 
 + Closeness Centrality <br/>
