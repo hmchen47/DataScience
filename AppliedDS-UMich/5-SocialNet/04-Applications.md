@@ -948,7 +948,15 @@ Read chapters 2 and 20 from "[Networks, Crowds, and Markets: Reasoning about a H
     + [Network Datasets: An Overview](p2-Graphs.md#network-datasets-an-overview)
 
 + [Chapter 20:](http://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch20.pdf)
-
+    + [Six Degrees of Separation](p3-SmallWorld.md#six-degrees-of-separation)
+        + [Structure and Randomness](p3-SmallWorld.md#structure-and-randomness)
+        + [Decentralized Search](p3-SmallWorld.md#decentralized-search)
+        + [Modeling the Process of Decentralized Search](p3-SmallWorld.md#modeling-the-process-of-decentralized-search)
+        + [Empirical Analysis and Generalized Models](p3-SmallWorld.md#empirical-analysis-and-generalized-models)
+        + [Core-Periphery Structures and Difficulties in Decentralized Search](p3-SmallWorld.md#core-periphery-structures-and-difficulties-in-decentralized-search)
+        + [Advanced Material: Analysis of Decentralized Search](p3-SmallWorld.md#advanced-material-analysis-of-decentralized-search)
+            + [The Optimal Exponent in One Dimension](p3-SmallWorld.md#the-optimal-exponent-in-one-dimension)
+            + [Higher Dimensions and Other Exponents](p3-SmallWorld.md#higher-dimensions-and-other-exponents)
 
 
 
