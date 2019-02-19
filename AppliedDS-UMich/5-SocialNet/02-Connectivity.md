@@ -465,6 +465,7 @@
         <img src="images/m2-09.png" alt="Is the subset of nodes N, O, K a connected component? All right, these are the nodes. Now in this case, condition number one is actually met. There is a path from any node in N, O, K to any other node in N, O, K. For example, if you wanted to find a path from N to K, you would go N-O-K. However, condition number two fails because there are other nodes that can actually reach nodes in the subset. For example, L can actually reach N, O and K, there is a path from L to all three of those nodes. So therefore, this is not a connected component because condition number two fails. " title="Fig. 2: condition 2 failed" height="200">
         <img src="images/m2-10.png" alt="the only things that satisfy the definition of connected component are the things that we originally started with. These three communities such that every node is connected within and no nodes are connected across. And these are the three connected components in this particular graph." title="Fig. 3" height="200">
     </a>
+
     ```python
     nx.number_connected_components(G)       # 3
 
