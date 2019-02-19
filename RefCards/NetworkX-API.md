@@ -114,27 +114,47 @@ from networksx.algorithms import bipartie
 | `nx.Graph(data=None, **attr)` | Base class for undirected graphs | [Classes][001] |
 | `nx.DiGraph(data=None, **attr)` | Base class for directed graphs | [Classes][001] |
 | `nx.MultiGraph(data=None, **attr)` | An undirected graph class that can store multiedges | [Classes][001] |
-|`nx.MultiDiGraph(data=None, **attr)` | A directed graph class that can store multiedges | [Classes][001] |
+| `nx.MultiDiGraph(data=None, **attr)` | A directed graph class that can store multiedges | [Classes][001] |
+
 
 
 ## Common APIs
 
 | API | Description | links |
 |-------|-------------|-------|
-| `nx.read_adjlist(path, *args)v` | Read graph in adjacency list format from path | [API][002] |
-| `nx.read_edgelist(path, *args)` | Read a graph from a list of edges | [API][002] |
-| `nx.from_pandas_dataframe(df, source, target, *args)` | Return a graph from Pandas DataFrame | [API][002] |
-| `nx.draw_networkx(G, **kwds)` | Draw the graph G using Matplotlib | [API][002] |
-| `nx.Graph.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [API][002] |
-| `nx.Graph.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [API][002] |
-| `nx.Graph.add_nodes_from(nodes, **attr)` | Add multiple nodes | [API][002] |
-| `nx.Graph.add_edges_from(ebunch, attr_dict=None, **attr)` | Add all the edges in ebunch | [API][002] |
-| `nx.Graph.remove_edge(u, v)` | Remove the edge between `u` and `v` | [API][002] |
-| `nx.Graph.nodes(data=False)` | Return a list of the nodes in the graph | [API][002] |
-| `nx.Graph.edges(nbunch=None, data=False, default=None)` | Return a list of edges | [API][002] |
-| `nx.Graph.is_directed()` | Return True if graph is directed, False otherwise | [API][002] |
-| `nx.Graph.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [API][002] |
-| `nx.Graph.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [API][002] |
+| `nx.read_adjlist(path, *args)v` | Read graph in adjacency list format from path | [Definition][002] |
+| `nx.read_edgelist(path, *args)` | Read a graph from a list of edges | [Definition][002] |
+| `nx.read_gpickle(path)` | Read graph object in Python pickle format | [Demo 2][008] |
+| `nx.from_pandas_dataframe(df, source, target, *args)` | Return a graph from Pandas DataFrame | [Definition][002] |
+| `nx.draw_networkx(G, **kwds)` | Draw the graph G using Matplotlib | [Definition][002] |
+| `nx.draw_networkx_edges(G, pos, *args, **kwds)` | Draw the edges of the graph G. This draws only the edges of the graph G | [Demo 2][008] |
+| `nx.draw_networkx_nodes(G, pos, *args, **kwds)` | Draw the nodes of the graph G. This draws only the nodes of the graph G | [Demo 2][008] |
+| `nx.draw_networkx_labels(G, pos, *args, **kwds)` | Draw node labels on the graph G | [Demo 2][008] |
+| `nx.random_layout(G, *args)` | Position nodes uniformly at random | [Demo 2][008] |
+| `nx.circular_layout(G, *args)` | Position nodes on a circle | [Demo 2][008] |
+| `nx.get_node_attributes(G, name)` | Get node attributes from graph | [Demo 2][008] |
+| `nx.convert_node_labels_to_integers(G, *args)` |Return a copy of the graph G with the nodes relabeled using consecutive integers | [Dist Measure][005], [Centrality][009] |
+| `nx.non_edges(graph)` | Returns the non-existent edges in the graph | [Prediction][015] |
+| `nx.karate_club_graph()` | Return Zachary's Karate Club graph | [Dist Measure][005] |
+| `nx.barabasi_albert_graph(n, m, seed=None)` | Returns a random graph according to the Barabási–Albert preferential attachment model | [Preferential Attachment Model][013] |
+| `nx.watts_strogatz_graph(n, k, p, seed=None)` | Return a Watts–Strogatz small-world graph | [Small World Model][014] |
+| `nx.connected_watts_strogatz_graph(n, k, p, *args)` | Returns a connected Watts–Strogatz small-world graph | [Small World Model][014] |
+| `nx.newman_watts_strogatz_graph(n, k, p, seed=None)` | Return a Newman–Watts–Strogatz small-world graph | [Small World Model][014] |
+| `G.add_edge(u, v, attr_dict=None, **attr)` | Add an edge between `u` and `v` | [Definition][002] |
+| `G.add_node(n, attr_dict=None, **attr)` | Add a single node n and update node attributes | [Definition][002] |
+| `G.add_nodes_from(nodes, **attr)` | Add multiple nodes | [Definition][002] |
+| `G.add_edges_from(ebunch, attr_dict=None, **attr)` | Add all the edges in ebunch | [Definition][002] |
+| `G.remove_edge(u, v)` | Remove the edge between `u` and `v` | [Definition][002] |
+| `G.nodes(data=False)` | Return a list of the nodes in the graph | [Definition][002] |
+| `G.edges(nbunch=None, data=False, default=None)` | Return a list of edges | [Definition][002] |
+| `G.in_degree(nbunch=None, weight=None)` | Return the in-degree of a node or nodes | [Preferential Attachment Model][013] |
+| `G.is_directed()` | Return True if graph is directed, False otherwise | [Definition][002] |
+| `G.is_multigraph()` | Return True if graph is a multigraph, False otherwise | [Definition][002] |
+| `G.degree(nbunch=None, weight=None)` | Return the degree of a node or nodes | [Definition][002] |
+| `G.subgraph(nbunch)` | Return the subgraph induced on nodes in `nbunch` | [Asgn02][008] |
+| `G.to_directed()` | Return a directed representation of the graph | [Asgn02][008] |
+
+
 
 ## Bipartite APIS
 
@@ -147,23 +167,72 @@ from networksx.algorithms import bipartie
 | `bipartite.weighted_projected_graph(B, nodes, ratio=False)` | Returns a weighted projection of `B` onto one of its node sets |[Bipartite][003] |
 
 
+## Network Connectivity
+
+| API | Description | links |
+|-------|-------------|-------|
+| `nx.clustering(G, nodes=None, weight=None)` | Compute the clustering coefficient for nodes | [Clustering][004] |
+| `nx.average_clustering(G, *args)` | Compute the average clustering coefficient for the graph G | [Clustering][004] |
+| `nx.transitivity(G)` | Compute graph transitivity, the fraction of all possible triangles  present in G | [Clustering][004] |
+| `nx.shortest_path(G, *args)` | Compute shortest paths in the graph | [Dist Measure][005] |
+| `nx.shortest_path_length(G, *args)` | Compute shortest path lengths in the graph | [Dist Measure][005] |
+| `nx.average_shortest_path_length(G, weight=None)` | Return the average shortest path length | [Dist Measure][005] |
+| `nx.bfs_tree(G, source, reverse=False)` |  Return an oriented tree constructed from of a breadth-first-search starting at source | [Dist Measure][005] |
+| `nx.average_shortest_path_length(G, weight=None)` | Return the average shortest path length | [Dist Measure][005] |
+| `nx.diameter(G, e=None)` | Return the diameter of the graph G | [Dist Measure][005] |
+| `nx.eccentricity(G, v=None, sp=None)` | Return the eccentricity of nodes in G | [Dist Measure][005] |
+| `nx.radius(G, e=None)` | Return the radius of the graph G | [Dist Measure][005] |
+| `nx.periphery(G, e=None)` | Return the periphery of the graph G | [Dist Measure][005] |
+| `nx.center(G, e=None)` | Return the center of the graph G | [Dist Measure][005] |
+| `nx.is_connected(G)` | Return True if the graph is connected, false otherwise | [Connected Components][006] |
+| `nx.is_strongly_connected(G)` | Test directed graph for strong connectivity | [Connected Components][006] |
+| `nx.is_weakly_connected(G)` | Test directed graph for weak connectivity | [Connected Components][006] |
+| `nx.number_connected_components(G)` | Return the number of connected components | [Connected Components][006] |
+| `nx.connected_components(G)` | Generate connected components | [Connected Components][006] |
+| `nx.strongly_connected_components(G)` | Generate nodes in strongly connected components of graph | [Connected Components][006] |
+| `nx.weakly_connected_components(G)` | Generate weakly connected components of G | [Connected Components][006] |
+| `nx.node_connectivity(G, *args)` | Returns node connectivity for a graph or digraph G | [Robustness][007] |
+| `nx.edge_connectivity(G, *args)` | Returns the edge connectivity of the graph or digraph G | [Robustness][007] |
+| `nx.minimum_node_cut(G, *args)` | Returns a set of nodes of minimum cardinality that disconnects G | [Robustness][007] |
+| `nx.minimum_edge_cut(G, *args)` | Returns a set of edges of minimum cardinality that disconnects G | [Robustness][007] |
+| `nx.all_simple_paths(G, source, target, cutoff=None)` | Generate all simple paths in the graph G from source to target | [Robustness][007] |
+
+
+## Centrality Measurement
+
+| API | Description | links |
+|-------|-------------|-------|
+| `nx.degree_centrality(G)` | Compute the degree centrality for nodes | [Centrality][009] |
+| `nx.in_degree_centrality(G)` | Compute the in-degree centrality for nodes | [Centrality][009] |
+| `nx.out_degree_centrality(G)` | Compute the out-degree centrality for nodes | [Centrality][009] |
+| `nx.closeness_centrality(G, *args)` | Compute closeness centrality for nodes | [Centrality][009] |
+| `nx.betweenness_centrality(G, *args)` | Compute the shortest-path betweenness centrality for nodes | [Betweenness][010] |
+| `nx.betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for a subset of nodes | [Betweenness][010] |
+| `nx.edge_betweenness_centrality(G, *args)` | Compute betweenness centrality for edges | [Betweenness][010] |
+| `nx.edge_betweenness_centrality_subset(G, sources, targets, *args)` | Compute betweenness centrality for edges for a subset of nodes | [Betweenness][010] |
+| `nx.pagerank(G, *argts)` | eturn the PageRank of the nodes in the graph | [PageRank][011] |
+| `nx.hits(G, *args)` | Return HITS hubs and authorities values for nodes | (Hub & Auth][012] |)
+
+
+## Link Prediction
+
+| API | Description | links |
+|-------|-------------|-------|
+| `nx.common_neighbors(G, u, v)` | Return the common neighbors of two nodes in a graph | [Prediction][015] |
+| `nx.jaccard_coefficient(G, ebunch=None)` | Docstring: Compute the Jaccard coefficient of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.resource_allocation_index(G, ebunch=None)` | Compute the resource allocation index of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.adamic_adar_index(G, ebunch=None)`| Compute the Adamic-Adar index of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.preferential_attachment(G, ebunch=None)` | Compute the preferential attachment score of all node pairs in `ebunch` | [Prediction][015] |
+| `nx.cn_soundarajan_hopcroft(G, ebunch=None, community='community')` | Count the number of common neighbors of all node pairs in ebunch using community information | [Prediction][015] |
+| `nx.ra_index_soundarajan_hopcroft(G, ebunch=None, community='community')` | Compute the resource allocation index of all node pairs in ebunch using community information | [Prediction][015] |
 
 
 
 -----------------------------------------------
 <--
-[004]: 
-[005]: 
-[006]: 
-[007]: 
-[008]: 
-[009]: 
-[010]: 
-[011]: 
-[012]: 
-[013]: 
-[014]: 
-[015]: 
+[013]: ../AppliedDS-UMich/5-SocialNet/04-Applications.md#preferential-attachment-model
+[014]: ../AppliedDS-UMich/5-SocialNet/04-Applications.md#small-world-networks
+[015]: ../AppliedDS-UMich/5-SocialNet/04-Applications.md#link-prediction
 [016]: 
 [017]: 
 [018]: 
@@ -254,3 +323,12 @@ from networksx.algorithms import bipartie
 [001]: ../AppliedDS-UMich/5-SocialNet/01-basicNetX.md#classes
 [002]: ../AppliedDS-UMich/5-SocialNet/01-basicNetX.md#common-classes
 [003]: ../AppliedDS-UMich/5-SocialNet/01-basicNetX.md#bipartities-algorithm
+[004]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#clustering-coefficient
+[005]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#distance-measures
+[006]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#connected-componnets
+[007]: ../AppliedDS-UMich/5-SocialNet/02-Connectivity.md#network-robustness
+[008]: ../AppliedDS-UMich/5-SocialNet/asgn02.md#assignment-apis
+[009]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#degree-and-closeness-centrality
+[010]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#betweenness-centrality
+[011]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#scaled-page-rank
+[012]: ../AppliedDS-UMich/5-SocialNet/03-Centralization.md#hubs-and-authorities
