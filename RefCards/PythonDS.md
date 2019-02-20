@@ -5,6 +5,7 @@
 + [General](#general)
     + [Open CSV File](open-cvs-file)
     + [Method](methods)
++ [Regular Expressions](regular-expressions)
 + [Date and Time](date-and-times)
     + [Import Files](import-files)
     + [Attributes](attributes)
@@ -43,7 +44,7 @@
     + [Color abbreviations](color-abbreviations)
 + [Seaborn](seaborn)
     + [Seaborn API](seaborn-api)
-
++ [NLTK](natural-language-toolkit)
 
 
 ## General
@@ -72,15 +73,60 @@
 | `dict.values()` | return values from dictionary | [CSV Files][001] |
 | `dict.items()` | return (key, value) pairs of dictionary | [CSV Files][001] |
 | `set(obj)` | return the unique values for the class types; set theory in math | [CSV Files][001] |
-| `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000] |
+| `str.split('char')` | separates string at `char` w/o keeping `char` | [Types and Sequence][000], [Handle Text][048] |
 | `map(func, iterable, ...)` | return an iterator that applies `func` to every iterable | [Objects & map][003] |
 | `func = lambda var1, ...: expr` | anonymous function, usage: `func(var1, ...)` | [Lambda & List Comprehension][004] |
 | `enumerate(iterable[, start])` | Return an enumerate object, obtaining an indexed list:  `(0, seq[0]), (1, seq[1]), (2, seq[2]), ...` | [NumPy][005] |
 | `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] [Scatterplots][026] |
+| `str.startswith(prefix[, start[, end]])` | Return True if `S` starts with the specified prefix, False otherwise. | [Handle Text][048] |
+| `str.endswith(suffix[, start[, end]])` | Return True if `S` ends with the specified suffix, False otherwise. [Handle Text][048] |
+| `str.isupper()` | Return True if all cased characters in `S` are uppercase and there is at least one cased character in `S`, False otherwise. | [Handle Text][048] |
+| `str.islower()` | Return True if all cased characters in `S` are lowercase and there is at least one cased character in `S`, False otherwise. | [Handle Text][048] |
+| `str.istitle()` | Return True if `S` is a titlecased string and there is at least one character in `S`, i.e. upper- and titlecase characters may only follow uncased characters and lowercase characters only cased ones. Return False otherwise. | [Handle Text][048] |
+| `str.isalpha()` | Return True if all characters in `S` are alphabetic and there is at least one character in `S`, False otherwise. | [Handle Text][048] |
+| `str.isdigit()` | Return True if all characters in `S` are digits and there is at least one character in `S`, False otherwise. | [Handle Text][048] |
+| `str.isalnum()` | Return True if all characters in `S` are alphanumeric and there is at least one character in `S`, False otherwise. | [Handle Text][048] |
+| `str.lower()` | Return a copy of the string `S` converted to lowercase. | [Handle Text][048] |
+| `str.upper()` | Return a copy of `S` converted to uppercase. | [Handle Text][048] |
+| `str.splitlines([keepends])` | Return a list of the lines in `S`, breaking at line boundaries. Line breaks are not included in the resulting list unless keepends is given and true. | [Handle Text][048] |
+| `str.join(iterable)` | Return a string which is the concatenation of the strings in the iterable.  The separator between elements is `S`. | [Handle Text][048] |
+| `str.rstrip([chars])` | Return a copy of the string `S` with trailing whitespace removed. If `chars` is given and not None, remove characters in chars instead. | [Handle Text][048] |
+| `str.find(sub[, start[, end]])` | Return the lowest index in S where substring sub is found, such that sub is contained within `S[start:end]`.  Optional arguments start and end are interpreted as in slice notation. Return `-1` on failure. | [Handle Text][048] |
+| `str.rfind(sub[, start[, end]])` | Return the highest index in `S` where substring `sub` is found, such that `sub` is contained within `S[start:end]`. | [Handle Text][048] |
+| `str.replace(old, new[, count])` | Return a copy of `S` with all occurrences of substring old replaced by new. | [Handle Text][048] |
+| `fd = open(file, mode='r', buffering=-1, args*)` | Open file and return a stream.  Raise `IOErro`r upon failure. | [Handle Text][048] |
+| `fd.read(size=-1, /)` | Read at most n characters from stream. Read from underlying buffer until we have n characters or we hit EOF. | [Handle Text][048] |
+| `fd.readline(self, size=-1, /)` | Read until newline or EOF. Returns an empty string if EOF is hit immediately. | [Handle Text][048] |
+| `fd.seek(self, cookie, whence=0, /)` | Change stream position. Change the stream position to the given byte offset. | [Handle Text][048] |
+| `fd.write(self, text, /)` | Write string to stream. Returns the number of characters written (which is always equal to the length of the string). | [Handle Text][048] |
+| `fd.close(self, /)` | Flush and close the IO object. This method has no effect if the file is already closed. | [Handle Text][048] |
 
 
 [TOC](#table-of-contents)
 
+
+## [Regular Expression][049]
+
+```python
+import re
+```
+
+| Attribute | Description | Link |
+|--------|-------------|------|
+| `compile(pattern, flags=0)` | Compile a regular expression pattern, returning a pattern object. | [RegEx][049] |
+| `escape(pattern)` |  Escape all the characters in pattern except ASCII letters, numbers and '_'. | [RegEx][049] |
+| `findall(pattern, string, flags=0)` | Return a list of all non-overlapping matches in the string. | [RegEx][049] |
+| `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [RegEx][049] |
+| `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [RegEx][049] |
+| `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [RegEx][049] |
+| `purge()`: Clear the regular expression caches | [RegEx][049] |
+| `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [RegEx][049] |
+| `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [RegEx][049] |
+| `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [RegEx][049] |
+| `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [RegEx][049] |
+| `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [RegEx][049] |
+
+[Regular Expressions 101](https://regex101.com/)
 
 ## [Date and Times][003]
 
@@ -117,7 +163,7 @@ import time as tm
 [TOC](#table-of-contents)
 
 
-## SciPy 
+## SciPy
 
 ### Import Files
 
@@ -152,7 +198,7 @@ import numpy as np
 | `np.nan` | Not a number | [Series][006] |
 | `np.isnan(ary)` | Return ndarray or tuple of ndarray with bool value | [Series][006] |
 | `np.std(a, axis=None, out=None, ddof=0)` | ompute the standard deviation along the specified axis; `a`: array_like; `axis`: Axis or axes along which the standard deviation is computed; `out`: Alternative output array in which to place the result; `dof`: Means Delta Degrees of Freedom | [More Distribution][022] |
-| `np.concatenate
+| `np.bincount(x, weights=None, minlength=0)` | Count number of occurrences of each value in array of non-negative ints | [Model Evaluation][052] |
 
 
 
@@ -162,9 +208,9 @@ import numpy as np
 |--------|-------------|------|
 | `np.array(object, ndmin=0)` | Create an array; `object`: array_like, `ndim`: minimum dimensions | [NumPy][005] |
 | `np.arange([start,] stop[, step,])` | Return evenly spaced values within a given interval | [NumPy][005] |
-| `np.reshape(ary, newshape, order='C')` | Gives a new shape to an array without changing its data. | [NumPy][005] |
+| `np.reshape(ary, newshape, order='C')` | Gives a new shape to an array without changing its data. | [NumPy][005]; [KNN Reg][052] |
 | `np.linspace(start, stop)` | Returns `num` evenly spaced samples, calculated over the interval [`start`, `stop`]. | [NumPy][005] |
-| `np.resize(ary, new_shape)` | Return a new array with the specified shape. | [NumPy][005] |
+| `np.resize(ary, new_shape)` | Return a new array with the specified shape. | [NumPy][005]; [KNN Reg][052] |
 | `np.ones(shape)` | Return a new array of given shape and type, filled with ones. | [NumPy][005] |
 | `np.zeros(shape)` | Return a new array of given shape and type, filled with zeros. | [NumPy][005] |
 | `np.eye(N)` | Return a 2-D array with ones on the diagonal and zeros elsewhere. `N`=number of rows | [NumPy][005] |
@@ -259,8 +305,10 @@ import pandas as pd
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018] |
-| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
+| `pd.cut(x, bins, right=True, labels=None)` | Return indices of half-open bins to which each value of `x` belongs. Useful for creating bins | [Scales][018], [Asgn04-3][055] |
+| `pd.concat(objs, axis=0, join='outer', join_axes=None, *args)` | Concatenate pandas objects along a particular axis with optional set logic along the other axes | [Asgn01][054] |
+| `get_dummies(data, *args)` | Convert categorical variable into dummy/indicator variables | [Asgn04-3][055] |
+
 
 
 
@@ -304,58 +352,59 @@ import pandas as pd
 | `L`     | milliseonds | | `U`     | microseconds |
 | `N`     | nanoseconds |
 
-
+## Series
 
 | Attribute | Description |
 |-----------|-------------|
 | `s.index` | array-like or Index (1d),  Values must be hashable and have the same length as data. Non-unique index values are allowed. Will default to RangeIndex (len(data)) if not provided. If both a dict and index sequence are used, the index will override the keys found in the dict. |
-| `s.at ` | Fast label-based scalar accessor |
-| `s.axes ` | Return a list of the row axis labels |
-| `s.base ` | return the base object if the memory of the underlying data is |
-| `s.blocks ` | Internal property, property synonym for as_blocks() |
-| `s.data ` | return the data pointer of the underlying data |
-| `s.dtype ` | return the dtype object of the underlying data |
-| `s.dtypes ` | return the dtype object of the underlying data |
-| `s.empty ` |  |
-| `s.flags ` |  |
-| `s.ftype ` | return if the data is sparse|dense |
-| `s.ftypes ` | return if the data is sparse|dense |
-| `s.hasnans ` |  |
-| `s.iat ` | Fast integer location scalar accessor. |
-| `s.iloc ` | Purely integer-location based indexing for selection by position. |
-| `s.imag ` |  |
-| `s.is_copy ` |  |
-| `s.is_monotonic ` | Return boolean if values in the object are |
-| `s.is_monotonic_decreasing ` | Return boolean if values in the object are |
-| `s.is_monotonic_increasing ` | Return boolean if values in the object are |
-| `s.is_unique ` | Return boolean if values in the object are unique |
-| `s.itemsize ` | return the size of the dtype of the item of the underlying data |
-| `s.ix ` | A primarily label-location based indexer, with integer position fallback. |
-| `s.loc ` | Purely label-location based indexer for selection by label. |
-| `s.name ` |  |
-| `s.nbytes ` | return the number of bytes in the underlying data |
-| `s.ndim ` | return the number of dimensions of the underlying data, |
-| `s.real ` |  |
-| `s.shape ` | return a tuple of the shape of the underlying data |
-| `s.size ` | return the number of elements in the underlying data |
-| `s.strides ` | return the strides of the underlying data |
-| `s.values ` | Return Series as ndarray or ndarray-like |
+| `s.at` | Fast label-based scalar accessor |
+| `s.axes` | Return a list of the row axis labels |
+| `s.base` | return the base object if the memory of the underlying data is |
+| `s.blocks` | Internal property, property synonym for as_blocks() |
+| `s.data` | return the data pointer of the underlying data |
+| `s.dtype` | return the dtype object of the underlying data |
+| `s.dtypes` | return the dtype object of the underlying data |
+| `s.empty` |  |
+| `s.flags` |  |
+| `s.ftype` | return if the data is sparse|dense |
+| `s.ftypes` | return if the data is sparse|dense |
+| `s.hasnans` |  |
+| `s.iat` | Fast integer location scalar accessor. |
+| `s.iloc` | Purely integer-location based indexing for selection by position. |
+| `s.imag` |  |
+| `s.is_copy` |  |
+| `s.is_monotonic` | Return boolean if values in the object are |
+| `s.is_monotonic_decreasing` | Return boolean if values in the object are |
+| `s.is_monotonic_increasing` | Return boolean if values in the object are |
+| `s.is_unique` | Return boolean if values in the object are unique |
+| `s.itemsize` | return the size of the dtype of the item of the underlying data |
+| `s.ix` | A primarily label-location based indexer, with integer position fallback. |
+| `s.loc` | Purely label-location based indexer for selection by label. |
+| `s.name` |  |
+| `s.nbytes` | return the number of bytes in the underlying data |
+| `s.ndim` | return the number of dimensions of the underlying data, |
+| `s.real` |  |
+| `s.shape` | return a tuple of the shape of the underlying data |
+| `s.size` | return the number of elements in the underlying data |
+| `s.strides` | return the strides of the underlying data |
+| `s.values` | Return Series as ndarray or ndarray-like |
 
-
-[TOC](#table-of-contents)
 
 ### Lecture Methods
 
 | Method | Description | Link |
 |--------|-------------|------|
-| `pd.Series(data=None, Index=None)` | One-dimensional ndarray with axis labels (including time series). Labels need not be unique but must be a hashable type. `data`: array-like, dict, or scalar, `Index`: labels | [Series][006] |
+| `pd.Series(data=None, Index=None)` | One-dimensional ndarray with axis labels (including time series). Labels need not be unique but must be a hashable type | [Series][006] |
 | `s.iloc[idx]` | Purely integer-location based indexing for selection by position | [Querying Series][007] |
 | `s.loc[label]` | Purely label-location based indexer for selection by label, or adding w/ assign | [Querying Series][007] |
 | `s.head(n=5)` | Return the first n rows | [Querying Series][007] |
 | `s.set_value(label, value)` | Quickly set single value at passed label.  If label not existed, create and append. | [Querying Series][007] |
 | `s.iteritems()` | Lazily iterate over (index, value) tuples | [Querying Series][007] |
 | `s.append(ser)` | Concatenate two or more Series; `ser`: Series or list/tuple of Series  | [Querying Series][007] |
+| `s.rename(index=None, **kwargs)` | Alter axes input function or functions | [Asgn04-3][055] |
 
+
+[TOC](#table-of-contents)
 
 
 ### DataFrame
@@ -464,9 +513,42 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | `df.astype(dtype)` | Cast a pandas object to a specified dtype `dtype`; <br/>`dtype`: data type, or dict of column name -> data type | [Scales][018] |
 | `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean')` | Create a spreadsheet-style pivot table as a DataFrame. The levels in the pivot table will be stored in MultiIndex objects (hierarchical indexes) on the index and columns of the result DataFrame; <br/> values`: column to aggregate; `index`: column, Grouper, array, or list of the previous; `columns`: column, Grouper, array, or list of the previous; `aggfunc`: function or list of functions, default numpy.mean | [Pivot Tables][019] |
 | `df.describe(percentiles=None, include=None, exclude=None)` | Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding `NaN` values. | [Box Plots][039] |
+| `df.index.duplicated(keep='first')` | Return boolean np.ndarray denoting duplicate values | [Asgn01][054] |
+| `df.sort_values(axis=0, ascending=True, *args)` | Sort by the values along either axis | [Asgn01][054] |
+| `df.diff(periods=1, axis=0)` | 1st discrete difference of object; `periods`: Periods to shift for forming difference; `axis`: {0 or 'index', 1 or 'columns'} | [Date Functionality][020] |
 | `df.plot.box(by=None, **kwds)` | Boxplot | [Plotting w/ Pandas][044] |
 | `df.plot.hist(by=None, bins=10, **kwds)` | Histogram | [Plotting w/ Pandas][044] |
 | `df.plot.kde(**kwds)` | Kernel Density Estimate plot | [Plotting w/ Pandas][044] |
+
+
+[TOC](#table-of-contents)
+
+### `pandas.core.strings.StringMethods` Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
+| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
+| `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
+| `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
+| `[Asgn04-3][055].str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
+| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
+| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050], [Asgn04-3][055] |
+| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
+| `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
+| 
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
+| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
+| `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
+| `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
+| `[Asgn04-3][055].str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
+| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
+| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050], [Asgn04-3][055] |
+| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
+| `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
 
 
 [TOC](#table-of-contents)
@@ -481,14 +563,11 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 %matplotlib notebook                    # provides an interactive environment in Jupyter and IPuthon
 
 import matplotlib as mpl                # load module in CLI
-
 import matplotlib.pyplot as plt         # load pyplot module
-
 import matplotlib.gridspec as gridspec
-
 import mpl_toolkits.axes_grid1.inset_locator as mpl_il
-
 import matplotlib.animation as animation
+from matplotlib.colors import ListedColormap
 ```
 
 ### Classes
@@ -510,6 +589,7 @@ import matplotlib.animation as animation
     + [text][036]
 
 
+[TOC](#table-of-contents)
 
 ### Methods
 
@@ -548,18 +628,25 @@ import matplotlib.animation as animation
 | `annotate(s, xy, *args, **kwargs)` | Annotate the point `xy` with text `s`<br/> `args`: xytext=None, xycoords=None, textcoords =None, arrowprops=None, annotation_clip=None | [Animation][041] |
 | `animation.FuncAnimation(fig, func, *args)` | Makes an animation by repeatedly calling a function `func` <br/> `args`: frames=None, init_func=None, fargs=None, save_count=0, interval=200, repeat_delay=None, repeat=True, blit=False | [Animation][041] |
 | `mpl.connect(s, func)` | Connect event with string `s` to `func`.  The signature of `func` is `def func(event)` where event is a `matplotlib.backend_bases.Event` instance | [Interactivity][042] |
-| `plterrorbar(x, y, *args, **kwargs)` | Plot an errorbar graph. Plot x versus y with error deltas in `yerr` and `xerr`. Vertical errorbars are plotted if `yerr` is not None. Horizontal errorbars are plotted if `xerr` is not None.<br/> `*args`: yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None | [Assignment 3][043] |
-| `plt.colormaps()` | Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called. | [Assignment 3][043] |
-| `plt.imshow(X, *args, **kwargs)` | Display an image on the axes <br/> `*args`: cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None | [Assignment 3][043] |
-| `cm.to_rgba(x, alpha=None, bytes=False, norm=True)` | Return a normalized rgba array corresponding to *x* | [Assignment 3][043] |
-| `plt.twinx(ax=None)` | Make a second axes that shares the *x*-axis.  The new axes will overlay *ax* (or the current axes if *ax* is *None*).  The ticks for *ax2* will be  placed on the right, and the *ax2* instance is returned. | [Assignment 3][043] |
-| `get_legend_handles_labels( legend_handler_map=None)` | Return handles and labels for legend | [Assignment 3][043] |
-| `ax.set_zorder(level)` | Set the zorder for the artist.  Artists with lower zorder values are drawn first. | [Assignment 3][043] |
-| `ax.set_visible(b)` | Set the artist's visiblity. | [Assignment 3][043] |
-| `fig.tight_layout(renderer=None, pad=1.08, h_pad=None, w_pad=None, rect=None)` | Adjust subplot parameters to give specified padding. | [Assignment 3][043] |
-| `plt.show(*args, **kw)` | Display a figure. | [Assignment 3][043] |
+| `plterrorbar(x, y, *args, **kwargs)` | Plot an errorbar graph. Plot x versus y with error deltas in `yerr` and `xerr`. Vertical errorbars are plotted if `yerr` is not None. Horizontal errorbars are plotted if `xerr` is not None.<br/> `*args`: yerr=None, xerr=None, fmt='', ecolor=None, elinewidth=None, capsize=None, barsabove=False, lolims=False, uplims=False, xlolims=False, xuplims=False, errorevery=1, capthick=None, hold=None, data=None | [Agmt 3][043] |
+| `plt.colormaps()` | Matplotlib provides a number of colormaps, and others can be added using `~matplotlib.cm.register_cmap`.  This function documents the built-in colormaps, and will also return a list of all registered colormaps if called. | [Agmt 3][043] |
+| `plt.imshow(X, *args, **kwargs)` | Display an image on the axes <br/> `*args`: cmap=None, norm=None, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, shape=None, filternorm=1, filterrad=4.0, imlim=None, resample=None, url=None, hold=None, data=None | [Agmt 3][043] |
+| `cm.to_rgba(x, alpha=None, bytes=False, norm=True)` | Return a normalized rgba array corresponding to *x* | [Agmt 3][043] |
+| `plt.twinx(ax=None)` | Make a second axes that shares the *x*-axis.  The new axes will overlay *ax* (or the current axes if *ax* is *None*).  The ticks for *ax2* will be  placed on the right, and the *ax2* instance is returned. | [Agmt 3][043] |
+| `get_legend_handles_labels( legend_handler_map=None)` | Return handles and labels for legend | [Agmt 3][043] |
+| `ax.set_zorder(level)` | Set the zorder for the artist.  Artists with lower zorder values are drawn first. | [Agmt 3][043] |
+| `ax.set_visible(b)` | Set the artist's visiblity. | [Agmt 3][043] |
+| `fig.tight_layout(renderer=None, pad=1.08, h_pad=None, w_pad=None, rect=None)` | Adjust subplot parameters to give specified padding. | [Agmt 3][043] |
+| `plt.show(*args, **kw)` | Display a figure. | [Agmt 3][043] |
 | `plt,style.user(style)` | Use matplotlib style settings from a style specification. | [Plotting w/ Pandas][044] |
 | `ax.set_aspect(aspect, adjustable=None, anchor=None)` | set aspect |   [Plotting w/ Pandas][044] |
+| `cm.get_cmap(name=None, lut=None)` | Get a colormap instance, defaulting to rc values if *name* is None. | [Exame Data][050] |
+| `plt.savefig(fname, *kwargs*)` | Save the current figure.  | [Exame Data][050] |
+| `savefig(fname, *kwargs*)` | Save the current figure.  | [Exame Data][050] |
+| `ListedColormap(colors, name='from_list', N=None)` | Colormap object generated from a list of colors | [Datasets][051] |
+
+
+[TOC](#table-of-contents)
 
 
 
@@ -603,6 +690,8 @@ plt.plot([1,2,3], [1,4,9], 'rs',  label='line 2')
 plt.axis([0, 4, 0, 10])
 plt.legend()
 ```
+
+[TOC](#table-of-contents)
 
 # Seaborn
 
@@ -683,7 +772,93 @@ import seaborn as sns
 | `saturate(color)` | Return a fully saturated color with the same hue. | [Link](https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate) |
 | `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
 
+
+[TOC](#table-of-contents)
+
+
+## Natural Language Toolkit
+
+```python
+import nltk
+
+nltk.download()     # fownload corpora
+```
+
+### Methods
+
+| Method | Description | Link |
+|--------|-------------|------|
+| `FreqDist(samples=None)` | A frequency distribution for the outcomes of an experiment | [Basic NLP][051] |
+| `nltk.corpus` | NLTK corpus readers, create a LazyModule instance wrapping module name | [Basic NLP][051] |
+| `nltk.corpus.udhr` | Construct a new plaintext corpus reader for a set of documents located at the given root directory | [Basic NLP][051] |
+| `nltk.corpus.udhr.words(fileids=None)` | return the given file(s) as a list of words and punctuation symbols | [Basic NLP][051] |
+| `nltk.PorterStemmer(mode='NLTK_EXTENSIONS')` | A word stemmer based on the Porter stemming algorithm | [Basic NLP][051] |
+| `nltk.PorterStemmer.stem(word)` | Strip affixes from the token and return the stem | [Basic NLP][051] |
+| `nltk.WordNetLemmatizer()` | Initizlize lemmatization by using WordNet's built-in morphy function | [Basic NLP][051] |
+| `nltk.WordNetLemmatizer.lemmatize(word, pos='n')` | Lemmatize using WordNet's built-in morphy function | [Basic NLP][051] |
+| `nltk.word_tokenize(text, *args)` | Return a tokenized copy of text, using NLTK's recommended word tokenizer | [Basic NLP][051] |
+| `nltk.sent_tokenize(text, language='english')`| Return a sentence-tokenized copy of text, using NLTK's recommended sentence tokenizer | [Basic NLP][051] |
+| `nltk.help.upenn_tagset(tagpattern=None)` | detail explanation of given tag | [Adv NLP][052] |
+| `nltk.pos_tag(tokens, tagset=None, lang='eng')` | Use NLTK's currently recommended part of speech tagger to tag the given list of tokens | [Adv NLP][052] |
+| `nltk.CFG(start, productions, calculate_leftcorners=True)` | A context-free grammar.  A grammar consists of a start state and a set of productions. | [Adv NLP][052] |
+| `nltk.CFG.fromstring(input, encoding=None)` | Return the `CFG` corresponding to the input string(s) | [Adv NLP][052] |
+| `nltk.ChartParser(grammar, *args)` | A generic chart parser | [Adv NLP][052] |
+| `nltk.ChartParser.parse_all(sent, *args, **kwargs)` | list of tree structure | [Adv NLP][052] |
+| `nltk.data.load(resource_url, *args)` | Load a given resource from the NLTK data package | [Adv NLP][052] |
+| `nltk.corpus.treebank()` | Reader for corpora that consist of parenthesis-delineated parse trees | [Adv NLP][052] |
+| `nltk.corpus.treebank.parsed_sents(fileids=None)` | parsing sentences with parenthesis-delineated parse trees | [Adv NLP][052] |
+| `nltk.edit_distance(s1, s2, *args)` | Calculate the Levenshtein edit-distance between two strings [Asgn02][053] |
+| `nltk.jaccard_distance(label1, label2)` | Distance metric comparing set-similarity [Asgn02][053] |
+| `nltk.ngrams(sequence, n, *args)` | Return the ngrams generated from a sequence of items, as an iterator [Asgn02][053] |
+
+
 -------------------------------------
+
+<!--
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
+[063]: 
+[064]: 
+[065]: 
+[066]: 
+[067]: 
+[068]: 
+[069]: 
+[070]: 
+[071]: 
+[072]: 
+[073]: 
+[074]: 
+[075]: 
+[076]: 
+[077]: 
+[078]: 
+[079]: 
+[080]: 
+[081]: 
+[082]: 
+[083]: 
+[084]: 
+[085]: 
+[086]: 
+[087]: 
+[088]: 
+[089]: 
+[090]: 
+[091]: 
+[092]: 
+[093]: 
+[094]: 
+[095]: 
+[096]: 
+[097]: 
+[098]: 
+[099]: 
+-->
 
 [000]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-types-and-sequences
 [001]: ../AppliedDS-UMich/1-IntroDS/01-PythonFund.md#python-demonstration-reading-and-writing-csv-files
@@ -728,13 +903,17 @@ import seaborn as sns
 [040]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#heatmaps
 [041]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#animations
 [042]: ../AppliedDS-UMich/2-InfoVis/03-ChartFund.md#interactivity
-[043]: ../AppliedDS-UMich/2-InfoVis/asgn03.md#related-methods-used
+[043]: ../AppliedDS-UMich/2-InfoVis/Assigment03.md#related-methods-used
 [044]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#plotting-with-pandas
 [045]: https://seaborn.pydata.org/api.html#api-ref
 [046]: https://seaborn.pydata.org/
 [047]: https://seaborn.pydata.org/tutorial.html
 [048]: ../AppliedDS-UMich/2-InfoVis/04-AppliedVis.md#seaborn
-
-
-
-
+[049]: ../AppliedDS-UMich/4-TextMining/01-Working.md#handling-text-in-python
+[050]: ../AppliedDS-UMich/4-TextMining/01-Working.md#regular-expressions
+[051]: ../AppliedDS-UMich/4-TextMining/01-Working.md#demonstration-regex-with-pandas-and-named-groups
+[052]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#basic-nlp-tasks-with-nltk
+[053]: ../AppliedDS-UMich/4-TextMining/02-BasicNLP.md#advanced-nlp-tasks-with-nltk
+[054]: ../AppliedDS-UMich/4-TextMining/asgn02.md#edit-distance-and-jaccard-distance-calculation-with-nltk
+[055]: ../AppliedDS-UMich/4-TextMining/asgn01.md#solution
+[056]: ../AppliedDS-UMich/3-AML/asgn04.md#solution-3

@@ -35,6 +35,8 @@
 *.jpg
 *.gif
 *.jpeg
+*.png
+*.svg
 
 # Logs and databases #
 ######################
@@ -55,10 +57,7 @@ Thumbs.db
 # package generated files in folder #
 #####################################
 .ipynb_checkpoints/
+__pycache__/
 
-.gitignore
 
-# Exception #
-# ###########
-!./DSFund-BerkeleyX/1-CompThinkWPython/Diagrams/*.png
 
