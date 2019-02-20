@@ -170,7 +170,6 @@ for thisaxis, K in zip(subaxes, [1, 3, 7, 15, 55]):
     y_predict_output = knnreg.predict(X_predict_input)
     train_score = knnreg.score(X_train, y_train)
     test_score = knnreg.score(X_test, y_test)
-    thisaxis.plot(X_predict_input, y_predict_output)
     thisaxis.plot(X_train, y_train, 'o', alpha=0.9, label='Train')
     thisaxis.plot(X_test, y_test, '^', alpha=0.9, label='Test')
     thisaxis.set_xlabel('Input feature')
@@ -202,7 +201,7 @@ print('R-squared score (test): {:.3f}'
 
 # ### Linear regression: example plot 
 plt.figure(figsize=(5,4))
-plt.scatter(X_R1, y_R1, marker= 'o', s=50, alpha=0.8)
+plt.scatter(X_R1, y_R1, marker= 'o', s=10, alpha=0.8)
 plt.plot(X_R1, linreg.coef_ * X_R1 + linreg.intercept_, 'r-')
 plt.title('Least-squares linear regression')
 plt.xlabel('Feature value (x)')
@@ -794,4 +793,6 @@ plot_feature_importances(clf, cancer.feature_names)
 plt.tight_layout()
 
 plt.show()
+
+
 

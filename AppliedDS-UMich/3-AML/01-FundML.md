@@ -429,7 +429,7 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 + Feature pair plots
     + A pairwise feature scatterplot visualizes the data using all possible pairs of features, with one scatterplot per feature pair, and histograms for each feature along the diagonal.
     <a href="https://d3c33hcgiwev3.cloudfront.net/d_CORDmaEeeRMwreAZ0UVg.processed/full/540p/index.mp4?Expires=1535673600&Signature=La411GGE4Wg3PH1EHmh90OL3gIvVTR1XLxvSi3JsVmJCmI8kG66neYZtMBrkoIOG-76Yhfy~2O607f6xy4Ra8jAwRKWkdFWJaGpbJsjxE059XoEoh61ORDchGJR-gKZgweCTYe0MS2uRL9cazJJKwEZp4t4U76jrERlPojtKejE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-        <br/><img src="images/fig1-15.png" title= "Pairwise feature scatterplots and individual scatter plot" alt="A matrix scatterplots represent all combination of features while individual scatterplot represents the height and color_score plot" width="350">
+        <br/><img src="images/fig1-15.png" title= "Pairwise feature scatterplots and individual scatter plot" alt="But for now, the first visualization tool we'll use is called a feature pair plot and that's shown here. So this plot shows all possible pairs of features and produces a scatter plot for each pair, showing how the features are correlated to each other or not. Each point in the scatter plot represents a piece of fruit, colored according to the class it belongs to. And positioned using the parafeatures assigned to that scatter plot. Along the diagonal is a histogram showing the distribution of feature values for that feature. So in this pair plot, the dimensions shown here in order are, height, width, mass. And color score of the fruit examples in our training set.  So the upper left corner of the histogram here shows the distribution of the height feature for all samples in the training set. And the scatter plot to its immediate right plots the width of each sample on the x-axis and the height of the sample on the y-axis.  Just by looking at this pair plot, we can already see that some pairs of features, like the height and color score in the top right corner here, are good for separating out different classes of fruit. And this suggests that a classifier that was trained using those features could likely learn to classify the various fruit types reasonably well. Here's the code that we'll use to create this plot, and let's run this now on our training set. Note that a pair plot like this does not show interactions between all features that might exist, just between pairs of them. So the plot itself may not show all the interesting relationships that do exist between the features." width="350">
     </a>
     ```python
     cmap = cm.get_cmap('gnuplot')
@@ -438,14 +438,15 @@ Ebook ISBN:978-1-4493-6940-8 | ISBN 10:1-4493-6940-5
 
 + A three-dimensional feature scatterplot
     <a href="https://d3c33hcgiwev3.cloudfront.net/d_CORDmaEeeRMwreAZ0UVg.processed/full/540p/index.mp4?Expires=1535673600&Signature=La411GGE4Wg3PH1EHmh90OL3gIvVTR1XLxvSi3JsVmJCmI8kG66neYZtMBrkoIOG-76Yhfy~2O607f6xy4Ra8jAwRKWkdFWJaGpbJsjxE059XoEoh61ORDchGJR-gKZgweCTYe0MS2uRL9cazJJKwEZp4t4U76jrERlPojtKejE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-        <br/><img src="images/fig1-17.png" title= "caption" alt="text" width="250">
+        <img src="images/fig1-17.png" title= "A three-dimensional feature scatterplot" alt="We can also look at features that use a subset of three features by creating a three dimensional plot. And here's the code that we can use to do this. So in this example, we plot different fruits using three coordinates. So here we'll the show the width, the height, and the color score. Here again, each point represents a single piece of fruit and its color according to its fruit label value. So in this 3D plot, you could actually rotate the plot along the various axes by holding down the mouse button and then dragging. And you can clearly see that the different fruit types are in pretty well-defined clusters that are also well-separated in feature space. " width="250">
     </a>
     ```python
     from mpl_toolkits.mplot3d import Axes3D
 
     fig = plt.figure()
     ax = fig.add_subplot(111, projection = '3d')
-    ax.scatter(X_train['width'], X_train['height'], X_train['color_score'], c = y_train, marker = 'o', s=100)
+    ax.scatter(X_train['width'], X_train['height'], X_train['color_score'], 
+        c = y_train, marker = 'o', s=100)
     ax.set_xlabel('width')
     ax.set_ylabel('height')
     ax.set_zlabel('color_score')
