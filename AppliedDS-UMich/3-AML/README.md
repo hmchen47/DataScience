@@ -69,10 +69,10 @@
 + [Neural Networks Made Easy (optional)](./04-Supervised2.md#neural-networks-made-easy-optional)
     + [Thinking by brute force](./04-Supervised2.md#thinking-by-brute-force)
     + [Teaching machines to learn](./04-Supervised2.md#teaching-machines-to-learn)
-    + [Machines — they’re just like us!](./04-Supervised2.md#machines---theyre-just-like-us)
-    + [All aboard the network training](./04-Supervised2.md#all-abord-the-network-training)
+    + [Machines — they’re just like us!](./04-Supervised2.md#machines-theyre-just-like-us)
+    + [All aboard the network training](./04-Supervised2.md#all-aboard-the-network-training)
     + [So many layers…](./04-Supervised2.md#so-many-layers)
-    + [If at first you don’t succeed, try, try, try again](./04-Supervised2.md#if-at-first-you-dont-success-try-try-try-again)
+    + [If at first you don’t succeed, try, try, try again](./04-Supervised2.md#if-at-first-you-dont-succeed-try-try-try-again)
 + [Play with Neural Networks: TensorFlow Playground (optional)](./04-Supervised2.md#play-with-neural-networks-tensorflow-playground-optional)
 + [Deep Learning (Optional)](./04-Supervised2.md#deep-learning-optional)
 + [Deep Learning in a Nutshell: Core Concepts (optional)](./04-Supervised2.md#deep-learning-in-a-nutshell-core-concepts-optional)
@@ -98,7 +98,7 @@
         + [Methodology](p3-Leakage.md#methodology)
         + [External Leakage in Comparisons](p3-Leakage.md#external-leakage-in-comparisons)
     + [Detection](p3-Leakage.md#detection)
-    + [(Not) Fixing Leakage](p3-Leakage.md#not-fixing-leakaging)
+    + [(Not) Fixing Leakage](p3-Leakage.md#not-fixing-leakage)
     + [Conclusion](p3-Leakage.md#conclusion)
 + [Data Leakage Example: The ICML 2013 Whale Challenge (optional)](./04-Supervised2.md#data-leakage-example-the-icml-2013-whale-challenge-optional)
 + [Rules of Machine Learning: Best Practices for ML Engineering (optional)](./04-Supervised2.md#rules-of-machine-learning-best-practices-for-ml-engineering-optional)
@@ -138,7 +138,7 @@
         + [Rule #26](p4-MLRules.md#rule-26): Look for patterns in the measured errors, and create new features.
         + [Rule #27](p4-MLRules.md#rule-27): Try to quantify observed undesirable behavior.
         + [Rule #28](p4-MLRules.md#rule-28): Be aware that identical shortterm behavior does not imply identical longterm behavior.
-    + [Training-Serving Skew](p4-MLRules.md#training---serving-skew)
+    + [Training-Serving Skew](p4-MLRules.md#training-serving-skew)
         + [Rule #29](p4-MLRules.md#rule-29): The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
         + [Rule #30](p4-MLRules.md#rule-30): Importance weight sampled data, don’t arbitrarily drop it!
         + [Rule #31](p4-MLRules.md#rule-31): Beware that if you join data from a table at training and serving time, the data in the table may change.
@@ -215,7 +215,7 @@
     + [For topology, you may need more than one plot](05-Unsupervised.md#for-topology-you-may-need-more-than-one-plot)
     + [Conclusion](05-Unsupervised.md#conclusion)
 + [How Machines Make Sense of Big Data: an Introduction to Clustering Algorithms](./05-Unsupervised.md#how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms)
-    + [Introduction]05-Unsupervised.md#introduction-2
+    + [Introduction](05-Unsupervised.md#introduction-2)
     + [K-means clustering](05-Unsupervised.md#k-means-clustering)
     + [Hierarchical clustering](05-Unsupervised.md#hierarchical-clustering)
     + [Graph Community Detection](05-Unsupervised.md#graph-community-detection)
