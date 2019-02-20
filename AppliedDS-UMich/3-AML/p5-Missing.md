@@ -303,9 +303,9 @@ the other in some domains.
 
 + larger and unbiased sample, DBI’s “smoothed” estimate should lead to better predictions on average
 
-+ Example - Fig.3: 
++ Example - Fig.3:
     <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
-        <img src="images/p5-01.png" alt="Assume that there is no feature imputability at all (note that A and B are marginally independent) and assume that A is missing at prediction time. Since there is no feature imputability, A cannot be inferred using B and the imputation model should predict the mode (A=2). As a result every test example is passed to the A = 2 subtree. Now, consider test instances with B = 1. Although (A = 2, B = 1) is the path chosen by PVI, it does not correspond to the majority of training examples with B = 1. Assuming that test instances follow the same distribution as training instances, on B = 1 examples PVI will have an accuracy of 38%. DBI will have an accuracy of 62%. In sum, DBI will 'marginalize' across the missing feature and always will predict the plurality class. PVI sometimes will predict a minority class. Generalizing, DBI should outperform PVI for data sets with low feature imputability." title="Classification tree example: consider an instance at prediction time for which feature A is unknown and B=1." height="150">
+        <img src="images/plt5-01.png" alt="Assume that there is no feature imputability at all (note that A and B are marginally independent) and assume that A is missing at prediction time. Since there is no feature imputability, A cannot be inferred using B and the imputation model should predict the mode (A=2). As a result every test example is passed to the A = 2 subtree. Now, consider test instances with B = 1. Although (A = 2, B = 1) is the path chosen by PVI, it does not correspond to the majority of training examples with B = 1. Assuming that test instances follow the same distribution as training instances, on B = 1 examples PVI will have an accuracy of 38%. DBI will have an accuracy of 62%. In sum, DBI will 'marginalize' across the missing feature and always will predict the plurality class. PVI sometimes will predict a minority class. Generalizing, DBI should outperform PVI for data sets with low feature imputability." title="Classification tree example: consider an instance at prediction time for which feature A is unknown and B=1." height="250">
     </a>
     + no feature imputability
     + A and B are marginally independent
@@ -321,7 +321,7 @@ the other in some domains.
     + DBI should outperform PVI for data sets with low feature imputability.
 
 
-####  Demonstration
+#### Demonstration
 
 + PVI vs DBI
     <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
@@ -497,7 +497,7 @@ the other in some domains.
 
 + Accuracies of hybrid strategies for combining reduced modeling and imputation
     <a href="http://jmlr.csail.mit.edu/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf"> <br/>
-        <img src="images/p5-03.png" alt="The horizontal, dashed line in Figure 11 shows the performance of pure predictive value imputation for the CalHouse data set. The lower of the two curves in Figure 11 shows the performance of a likelihood-based reduced-models/imputation hybrid. The hybrid approach allows one to choose an appropriate space-usage/accuracy tradeoff, and the figure shows that storing even a few reduced models can result in considerable improvement. The curve was generated as follows. Given enough space to store k models, the hybrid induces and stores reduced models for the top-k most likely missing-feature patterns, and uses distribution-based imputation for the rest. The Calhouse data set has eight attributes, corresponding to 256 patterns of missing features. We assigned a random probability of occurrence for each pattern as follows. The frequency of each pattern was drawn at random from the unit uniform distribution and subsequently normalized so that the frequencies added up to one. For each test instance we sampled a pattern from the resulting distribution and removed the values of features specified by the pattern." title="Accuracies of hybrid strategies for combining reduced modeling and imputation" height="250">
+        <img src="images/p5-03.png" alt="The horizontal, dashed line in Figure 11 shows the performance of pure predictive value imputation for the CalHouse data set. The lower of the two curves in Figure 11 shows the performance of a likelihood-based reduced-models/imputation hybrid. The hybrid approach allows one to choose an appropriate space-usage & accuracy tradeoff, and the figure shows that storing even a few reduced models can result in considerable improvement. The curve was generated as follows. Given enough space to store k models, the hybrid induces and stores reduced models for the top-k most likely missing-feature patterns, and uses distribution-based imputation for the rest. The Calhouse data set has eight attributes, corresponding to 256 patterns of missing features. We assigned a random probability of occurrence for each pattern as follows. The frequency of each pattern was drawn at random from the unit uniform distribution and subsequently normalized so that the frequencies added up to one. For each test instance we sampled a pattern from the resulting distribution and removed the values of features specified by the pattern." title="Accuracies of hybrid strategies for combining reduced modeling and imputation" height="250">
     </a>
     + storing even a few reduced models can result in considerable improvement
     + Given enough space to store $k$ models, the hybrid induces and stores reduced models for the top-k most likely missing-feature patterns, and uses distribution-based imputation for the rest.
@@ -596,7 +596,7 @@ for all treatments, for almost all data sets
 
 + Percentage improvement in accuracy compared to a single model with imputation, for bagging with imputation, ReFE, and bagging with reduced models
 
-    | Data Sets | Bagging with Imputation | Bagging with ReFE Reduced Model |
+    | Data Sets | Bagging with Imputation | Bagging with ReFE | Reduced Model |
     |:----------|----------:|-----:|-----:|
     | Abalone | 0.34 | 0.49 | 0.83 |
     | BreastCancer | 5.10 | 5.89 | 5.15 |
