@@ -69,7 +69,7 @@
 + [Neural Networks Made Easy (optional)](./04-Supervised2.md#neural-networks-made-easy-optional)
     + [Thinking by brute force](./04-Supervised2.md#thinking-by-brute-force)
     + [Teaching machines to learn](./04-Supervised2.md#teaching-machines-to-learn)
-    + [Machines — they’re just like us!](./04-Supervised2.md#machines-theyre-just-like-us)
+    + [Machines — they’re just like us!](./04-Supervised2.md#machines--theyre-just-like-us)
     + [All aboard the network training](./04-Supervised2.md#all-aboard-the-network-training)
     + [So many layers…](./04-Supervised2.md#so-many-layers)
     + [If at first you don’t succeed, try, try, try again](./04-Supervised2.md#if-at-first-you-dont-succeed-try-try-try-again)
