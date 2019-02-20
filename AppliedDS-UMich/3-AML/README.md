@@ -11,7 +11,7 @@
 + [Examining the Data](./01-FundML.md#examining-the-data)
 + [K-Nearest Neighbors Classification](./01-FundML.md#k-nearest-neighbors-classification)
 + [Zachary Lipton: The Foundations of Algorithmic Bias (optional)](./01-FundML.md#zachary-lipton-the-foundations-of-algorithmic-bias-optional)
-    + [Introduction](./01-FundML.md#introduction)
+    + [Introduction](./01-FundML.md#introduction-1)
     + [Algorithms](./01-FundML.md#algorithms)
     + [Machine Learning](./01-FundML.md#machine-learning)
     + [Bias](./01-FundML.md#bias)
