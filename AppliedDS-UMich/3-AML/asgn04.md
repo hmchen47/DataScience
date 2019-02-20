@@ -30,8 +30,7 @@ To debug this, try the following steps:
 
 ### [Assignment 4 FAQs](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/4/threads/Gs4NE2CeEeeqKgpTZZjjFg)
 
-+ 
-This Assignment is highly reliant on the material introduced in Course 1, I recommend reviewing that, specially column selection, series creation, dealing with missing values, querying series/dataframes.
++ This Assignment is highly reliant on the material introduced in Course 1, I recommend reviewing that, specially column selection, series creation, dealing with missing values, querying series/dataframes.
 
 Desired Output/Sanity Check
 
