@@ -133,7 +133,7 @@ so y_predict will contain large negative numbers, using broadcasting , y_predict
     for multi-class classification the overall precision of a classification model, is calculated using macro averaging of the values you see in the classification report
 
 
-### [Assignment Q 5]
+### Assignment Q 5
 
 + Issue
 
@@ -154,13 +154,11 @@ so y_predict will contain large negative numbers, using broadcasting , y_predict
 
 + Thread 2
 
-    I think that I too got the same plot but it should have more than 3 points? I looked at the documentation for precision_recall and it says it returns array of size "len(unique(values passed))". How did others get the jagged graph? https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/GfmnBlEpEeeuixKUKINPng/replies/zGjBeVFFEeexEgqqsTMOtA/comments/ByqU61JNEee3RwoqcUym2A
+    I think that I too got the same plot but it should have more than 3 points? I looked at the documentation for precision_recall and it says it returns array of size "len(unique(values passed))". [How did others get the jagged graph?](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/3/threads/GfmnBlEpEeeuixKUKINPng/replies/zGjBeVFFEeexEgqqsTMOtA/comments/ByqU61JNEee3RwoqcUym2A)
 
 + Thread 3
 
-    All of you can take a look at this post from Stack Overflow. You can get your y-axis points from a corresponding x-axis point very easily from the information contained in the return type of plot()
-
-    https://stackoverflow.com/questions/9850845/how-to-extract-points-from-a-graph
+    All of you can take a look at this [post from Stack Overflow](https://stackoverflow.com/questions/9850845/how-to-extract-points-from-a-graph). You can get your y-axis points from a corresponding x-axis point very easily from the information contained in the return type of plot()
 
 + Thread 4
 
