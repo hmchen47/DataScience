@@ -9,7 +9,7 @@
 
 ## Useful Links
 
-###  [Q1 and Q2 - answer not matching grader answer](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/2/threads/ahAIGlc4Eee7qw4C9eIhHA)
+### [Q1 and Q2 - answer not matching grader answer](https://www.coursera.org/learn/python-machine-learning/discussions/weeks/2/threads/ahAIGlc4Eee7qw4C9eIhHA)
 
 The data is already split to train/ test, you don't need to do that in the function. so you need to remove the steps that contains data splitting
 
@@ -167,22 +167,22 @@ def part1_scatter():
         from sklearn.linear_model import LinearRegression
         from sklearn.preprocessing import PolynomialFeatures
         from sklearn.metrics.regression import r2_score
-    
+
         r2_train = np.zeros(10)
         r2_test = np.zeros(10)
-        
+
         for deg in range(10):
-            
+
             poly = PolynomialFeatures(degree=deg)
-            
+
             X_train_poly = poly.fit_transform(X_train.reshape(-1,1))
             X_test_poly  = poly.fit_transform(X_test.reshape(-1, 1))
-            
+
             linreg = LinearRegression().fit(X_train_poly, y_train)
-                    
+
             r2_train[deg] = linreg.score(X_train_poly, y_train)
             r2_test[deg]  = linreg.score(X_test_poly, y_test)
-            
+
         if debug:
             print("\nR2 Train: \n{}".format(r2_train))
             print("R2 Test: \n {}".format(r2_test))
@@ -207,16 +207,16 @@ def part1_scatter():
 
         rlt = np.zeros((10, 2))
         for deg in np.arange(10):
-            
+
             poly = PolynomialFeatures(degree=deg)
-            
+
             X_poly = poly.fit_transform(X_train.reshape(-1,1))
             X_test_poly = poly.fit_transform(X_test.reshape(-1, 1))
             linreg = LinearRegression().fit(X_poly, y_train)
-            
+
             result = [linreg.score(X_poly, y_train), linreg.score(X_test_poly, y_test)]          
             rlt[deg, :] = result
-            
+
         good_value = rlt[:, 1].max()
         good_idx = np.where(rlt == good_value)[0][0]
 
@@ -238,15 +238,15 @@ def part1_scatter():
         from sklearn.preprocessing import PolynomialFeatures
         from sklearn.linear_model import Lasso, LinearRegression
         from sklearn.metrics.regression import r2_score
-        
+
         poly = PolynomialFeatures(degree=12)
-            
+
         X_train_poly = poly.fit_transform(X_train.reshape(-1,1))
         X_test_poly = poly.fit_transform(X_test.reshape(-1, 1))
-        
+
         # Non-regularized Linear Regression Model
         linreg = LinearRegression().fit(X_train_poly, y_train)
-        
+
         # Regularized Lasso Regression Model
         linlasso = Lasso(alpha=0.01, max_iter = 10000).fit(X_train_poly, y_train)
 
@@ -319,26 +319,26 @@ y_subset = y_test2
 
         # Your code here
         tree_clf = DecisionTreeClassifier(random_state=0).fit(X_train2, y_train2)
-        
+
         feature_names = []
-        
+
         for index, importance in enumerate(tree_clf.feature_importances_):
             # Add importance so we can further order this list, and add feature name with index
             feature_names.append([importance, X_train2.columns[index]])
 
         if debug:
             print("Feature importance and name - unsorted: \n{}".format(feature_names))
-            
+
         # sort importances in decnding ordor
         feature_names.sort(reverse=True)
 
         if debug:
             print("\nFeature importance and name - sorted: \n{}".format(feature_names))
-            
+
         top5_features =[]
         for idx in range(5):
             top5_features.append(feature_names[idx][1])
-        
+
         return top5_features # Your answer here
 
     answer_five(debug=False)
@@ -357,9 +357,9 @@ y_subset = y_test2
         # Your code here
         # initial SVC with default, kernel='rbf', C=1
         svc = SVC(kernel='rbf', C=1, random_state=0)
-        
+
         gamma = np.logspace(-4, 1, 6)
-        
+
         train_scores, test_scores = validation_curve(
             svc, X_subset, y_subset, 
             param_name = 'gamma',
@@ -380,9 +380,9 @@ y_subset = y_test2
     def part2_line():
         import matplotlib.pyplot as plt
         %matplotlib notebook
-        
+
         train_scores, test_scores = answer_six()
-        
+
         plt.figure()
         plt.semilogx(np.logspace(-4, 1, 6), train_scores, label='training scores')
         plt.semilogx(np.logspace(-4, 1, 6), test_scores, label='test scores')
@@ -397,10 +397,10 @@ y_subset = y_test2
 
     ```python
     def answer_seven():
-        
+
         # Your code here
         # based oion the figure ploted in the last cell
-        
+
         return (0.0001, 10, 0.1) # Return your answer
     ```
 
