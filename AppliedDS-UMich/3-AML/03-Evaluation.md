@@ -1,4 +1,4 @@
-# Module 3: [Evaluation](./03-Evaluation.md)
+# Module 3: Evaluation
 
 ## Module 3 Notebook
 
@@ -68,7 +68,7 @@
     + Poor choice of kernel or hyperparameter
     + Large class imbalance 
 
-+ Dummy regressors <br/>
++ Dummy regressors
     + `DummyRegression` for Regression as counterpart of `DummyClassifier` for Classifier
     + `strategy` parameter options:
         + _mean_: predicts the mean of the training targets.
@@ -770,7 +770,7 @@
         + As with other single-number metrics, AUC loses information, e.g. about tradeoffs and the shape of the ROC curve.
         + This may be a factor to consider when e.g. wanting to compare the performance of classifiers with overlapping ROC curves.
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/8v6DL/precision-recall-and-roc-curves"><br/>
-        <img src="images/plt3-04.png" alt="We can qualify the goodness of a classifier in some sense by looking at how much area there is underneath the curve. So the area underneath the random classifier is going to be 0.5 but then the area, as you can see, the size of the bumpiness of the classifier as it approaches the top left corner. Well, the area underneath the curve will get larger and larger. It will approach 1.  We use something called area under the curve, AUC. That's the single number that measures this total area underneath the ROC curve as a way to summarize a classifier's performance. So, an AUC of zero represents a very bad classifier, and an AUC of one will represent an optimal classifier." title= "Area Under the Curve (AUC)" height="200">
+        <img src="images/plt3-01.png" alt="We can qualify the goodness of a classifier in some sense by looking at how much area there is underneath the curve. So the area underneath the random classifier is going to be 0.5 but then the area, as you can see, the size of the bumpiness of the classifier as it approaches the top left corner. Well, the area underneath the curve will get larger and larger. It will approach 1.  We use something called area under the curve, AUC. That's the single number that measures this total area underneath the ROC curve as a way to summarize a classifier's performance. So, an AUC of zero represents a very bad classifier, and an AUC of one will represent an optimal classifier." title= "Area Under the Curve (AUC)" height="200">
     </a>
 
 
@@ -883,7 +883,7 @@
 
 + Multi-Class Confusion Matrix
     <a href="https://www.coursera.org/learn/python-machine-learning/lecture/1ugJR/multi-class-evaluation"><br/>
-        <img src="images/plt3-04-1.png" alt="There are different ways to average multi-class results that we'll cover shortly. And the support, the number of instances for each class is important to consider. So just as we're all interested in how to handle imbalance classes in the binary case, it's important as you will see to consider similar issues of how the support for classes might vary to a large or small extent across multiple classes. There is a case of multi-label classification in which each instance could have multiple labels. For example, a web page might be labeled with different topics that come from a predefined set of areas of interest. We won't cover multi-label classification in this lecture. Instead, we'll focus exclusively on multi-class evaluation. The multi-class confusion matrix is a straightforward extension of the binary classifier two by two confusion matrix. For example, in our digits data set, there are ten classes for the digits, zero through nine. So, the ten class confusion matrix is a ten by ten matrix with the true digit class indexed by row and the predicted digit class indexed by column. As with the two by two case, the correct prediction is by the classifier where the true class matches the predicted class are all along the diagonal and misclassifications are off the diagonal. " title= "Multi-Class Confusion Matrix" height="200">
+        <img src="images/plt3-04-1.png" alt="There are different ways to average multi-class results that we'll cover shortly. And the support, the number of instances for each class is important to consider. So just as we're all interested in how to handle imbalance classes in the binary case, it's important as you will see to consider similar issues of how the support for classes might vary to a large or small extent across multiple classes. There is a case of multi-label classification in which each instance could have multiple labels. For example, a web page might be labeled with different topics that come from a predefined set of areas of interest. We won't cover multi-label classification in this lecture. Instead, we'll focus exclusively on multi-class evaluation. The multi-class confusion matrix is a straightforward extension of the binary classifier two by two confusion matrix. For example, in our digits data set, there are ten classes for the digits, zero through nine. So, the ten class confusion matrix is a ten by ten matrix with the true digit class indexed by row and the predicted digit class indexed by column. As with the two by two case, the correct prediction is by the classifier where the true class matches the predicted class are all along the diagonal and misclassifications are off the diagonal. " title= "Multi-Class Confusion Matrix" height="300">
     </a>
 
 + Micro vs Macro Average - Example
@@ -906,7 +906,7 @@
             1. Compute metric within each class
             2. Average resulting metrics across classes <br/>&nbsp;&nbsp;&nbsp;&nbsp;
                 Class       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precision<br/>&nbsp;&nbsp;&nbsp;&nbsp;
-                `--------------`<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+                `-------------------`<br/>&nbsp;&nbsp;&nbsp;&nbsp;
                 orange      &nbsp;&nbsp;&nbsp;&nbsp;$1/5 = 0.20$ <br/>&nbsp;&nbsp;&nbsp;&nbsp;
                 lemon       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1/2 = 0.50$ <br/>&nbsp;&nbsp;&nbsp;&nbsp;
                 apple       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$2/2 = 1.00$ <br/>
@@ -1034,13 +1034,14 @@
 + Dummy regressors
     + As in classification, comparison to a 'dummy' prediction model that uses a fixed rule can be useful. 
     + For this, scikit.learn provides __dummy regressors__.
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation"><br/>
-        <img src="images/plt3-05.png" alt="We saw how using how dummy classifiers could give us simple but useful baselines to compared against when evaluating a classifier. The same functionality exist for regression. There's a dummy regressor class that provides predictions using simple strategies that do not look at the input data. This example which is available as the regression example from this lecture's notebook shows a scatter plot using database on a single input variable, which is plotted along the x axis from the diabetes data set. The points are the data instances from the test split and form a cloud that looks like it may trend down slightly to the right. " title= "Dummy regressors" height="200">
-    </a>
-    <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation">
-        <img src="images/fig3-16.png" alt="The green line, which is also labeled fitted model is the default linear regression that was fit to the training points. We can see that it’s not a particularly strong fit to the test data. The red line labeled dummy mean, shows a linear model that uses the strategy of always predicting the mean of the training data. So this is an example of a dummy regressor. " title= "Dummy regressors" height="200">
-    </a>
-        + Linear model, coefficients: [-698.80206267]
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation"><br/>
+            <img src="images/plt3-05.png" alt="We saw how using how dummy classifiers could give us simple but useful baselines to compared against when evaluating a classifier. The same functionality exist for regression. There's a dummy regressor class that provides predictions using simple strategies that do not look at the input data. This example which is available as the regression example from this lecture's notebook shows a scatter plot using database on a single input variable, which is plotted along the x axis from the diabetes data set. The points are the data instances from the test split and form a cloud that looks like it may trend down slightly to the right. " title= "Dummy regressors" height="200">
+        </a>
+        <a href="https://www.coursera.org/learn/python-machine-learning/lecture/iKS4j/regression-evaluation">
+            <img src="images/fig3-16.png" alt="The green line, which is also labeled fitted model is the default linear regression that was fit to the training points. We can see that it’s not a particularly strong fit to the test data. The red line labeled dummy mean, shows a linear model that uses the strategy of always predicting the mean of the training data. So this is an example of a dummy regressor. " title= "Dummy regressors" height="200">
+        </a>
+
+        + Linear model, coefficients: `[-698.80206267]`
         + Mean squared error (dummy): 4965.13
         + Mean squared error (linear model): 4646.74
         + r2_score (dummy): -0.00
@@ -1324,7 +1325,7 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
         plt.subplots_adjust(wspace=0.3, hspace=0.3)
         plot_class_regions_for_classifier_subplot(grid_clf_custom, X_twovar_test, y_test,
             None, None, None,  plt.subplot(2, 2, i+1))
-        
+
         plt.title(eval_metric+'-oriented SVC')
     plt.tight_layout()
     plt.show()                      # left plot
@@ -1469,26 +1470,26 @@ Kohavi, R., Henne, R. M., & Sommerfield, D. (2007). [Practical guide to controll
             will be represented by a `cv_results_` dict of:
             ```json
             {
-            'param_kernel': masked_array(data = ['poly', 'poly', 'rbf', 'rbf'],
-                                        mask = [False False False False]...)
-            'param_gamma': masked_array(data = [-- -- 0.1 0.2],
-                                        mask = [ True  True False False]...),
-            'param_degree': masked_array(data = [2.0 3.0 -- --],
-                                        mask = [False False  True  True]...),
-            'split0_test_score'  : [0.8, 0.7, 0.8, 0.9],
-            'split1_test_score'  : [0.82, 0.5, 0.7, 0.78],
-            'mean_test_score'    : [0.81, 0.60, 0.75, 0.82],
-            'std_test_score'     : [0.02, 0.01, 0.03, 0.03],
-            'rank_test_score'    : [2, 4, 3, 1],
-            'split0_train_score' : [0.8, 0.9, 0.7],
-            'split1_train_score' : [0.82, 0.5, 0.7],
-            'mean_train_score'   : [0.81, 0.7, 0.7],
-            'std_train_score'    : [0.03, 0.03, 0.04],
-            'mean_fit_time'      : [0.73, 0.63, 0.43, 0.49],
-            'std_fit_time'       : [0.01, 0.02, 0.01, 0.01],
-            'mean_score_time'    : [0.007, 0.06, 0.04, 0.04],
-            'std_score_time'     : [0.001, 0.002, 0.003, 0.005],
-            'params'             : [{'kernel': 'poly', 'degree': 2}, ...],
+                'param_kernel': masked_array(data = ['poly', 'poly', 'rbf', 'rbf'],
+                                            mask = [False False False False]...)
+                'param_gamma': masked_array(data = [-- -- 0.1 0.2],
+                                            mask = [ True  True False False]...),
+                'param_degree': masked_array(data = [2.0 3.0 -- --],
+                                            mask = [False False  True  True]...),
+                'split0_test_score'  : [0.8, 0.7, 0.8, 0.9],
+                'split1_test_score'  : [0.82, 0.5, 0.7, 0.78],
+                'mean_test_score'    : [0.81, 0.60, 0.75, 0.82],
+                'std_test_score'     : [0.02, 0.01, 0.03, 0.03],
+                'rank_test_score'    : [2, 4, 3, 1],
+                'split0_train_score' : [0.8, 0.9, 0.7],
+                'split1_train_score' : [0.82, 0.5, 0.7],
+                'mean_train_score'   : [0.81, 0.7, 0.7],
+                'std_train_score'    : [0.03, 0.03, 0.04],
+                'mean_fit_time'      : [0.73, 0.63, 0.43, 0.49],
+                'std_fit_time'       : [0.01, 0.02, 0.01, 0.01],
+                'mean_score_time'    : [0.007, 0.06, 0.04, 0.04],
+                'std_score_time'     : [0.001, 0.002, 0.003, 0.005],
+                'params'             : [{'kernel': 'poly', 'degree': 2}, ...],
             }
             ```
 
