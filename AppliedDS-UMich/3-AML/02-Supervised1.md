@@ -19,7 +19,10 @@
 
 + Review of important terms
     + Feature representation, e.g. `mass`, `width`, `height`, `color_score`
-    + Data instances/samples/examples (X); i.e., rows, e.g. <br/> row(0) = `| 1 | 0 | 1 | apple | granny_smith | 192 | 8.4 | 7.3 | 0.55 |`, <br/>row(2) = `| 3 | 2 | 1 | apple | granny_smith | 176 | 7.4 | 7.2 | 0.60 |`; <br/>in Python `X` represent the set of features, e.g., row(0) = `| 192 | 8.4 | 7.3 | 0.55 |`
+    + Data instances/samples/examples (X); i.e., rows, e.g. <br/> 
+        row(0) = `| 1 | 0 | 1 | apple | granny_smith | 192 | 8.4 | 7.3 | 0.55 |`, <br/>
+        row(2) = `| 3 | 2 | 1 | apple | granny_smith | 176 | 7.4 | 7.2 | 0.60 |`; <br/>
+        in Python `X` represent the set of features, e.g., row(0) = `| 192 | 8.4 | 7.3 | 0.55 |`
     + Target value (y), e.g., label = `fruit_label`, `fruit_name` & `fruit_subtype`: only for labeling purpose as more readable for humans
     + Training and test sets: using `train_test_split` function from `sklearn.model_selection` module, default as $75\%:25\%$, e.g., `X_train, X_test, y_train, y_test = train_test_split(X_fruits, y_fruits, random_state=0)`
     + Model/Estimator
@@ -34,7 +37,7 @@
             # Apply model to predict a given instance
             knn.predict(example_fruit_scaled)
             ```
-    + Evaluation method
+    + Evaluation method:
         ```python
         # accuracy of the model
         knn.score(X_test_scaled, y_test)
@@ -58,14 +61,6 @@
     + For regression, that target value is _continuous_ (floating point/real-value), e.g., predicting the selling price of house from its attributes
     + Looking at the target value's type will guide you on what supervised learning method to use
     + Many supervised learning methods have 'flavors' for both classification and regression
-
-+ Supervised learning methods: Overview
-    + To start with, we'll look at two simple but powerful prediction algorithms
-        + K-nearest neighbors (review from week 1, plus regression)
-        + Linear model fit using least-squares
-    + These represent two complementary approaches to supervised learning
-        + K-nearest neighbors makes few assumptions about the structure of the data and gives potentially accurate but sometimes unstable predictions (sensitive to small changes in the training data)
-        + Linear models make strong assumptions about structure of the data and give stable but potentially inaccurate predictions
 
 + Supervised learning methods: Overview
     + To start with, we'll look at two simple but powerful prediction algorithms:
@@ -308,7 +303,7 @@
     </a>
     + Input features: socio-economic data by location from U.S. Census
     + Target variable: Per capita violent crimes
-    + Derived from the original UCI dataset at: https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime+Unnormalized
+    + Derived from the [original UCI dataset](https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime+Unnormalized)
     + Import Python code
         ```python
         from adspy_shared_utilities import load_crime_dataset
@@ -429,7 +424,7 @@
 ### Lecture Video
 
 <a href="https://d3c33hcgiwev3.cloudfront.net/9W-NIzzCEeeW0g5QrK3QnA.processed/full/360p/index.mp4?Expires=1536278400&Signature=hiR0kqhBB1RBP4F4Sxe0W9i2CMCQrKugrV0J15f1npMuvmTGJVy96VvZtirnb-iUzkMWtptbFLwg-R73k6Gizk8tb7G0bgFIkht1U5IGPiHEJvmVbFYtg1HK2apYvQqWd1xoYvl2zKvo2tAIiUKeqRyvhKE09jxODtXz3ofpfWk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="Supervised Learning: Datasets" target="_blank">
-    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px"> 
+    <img src="http://files.softicons.com/download/system-icons/windows-8-metro-invert-icons-by-dakirby309/png/64x64/Folders%20&%20OS/My%20Videos.png" alt="Video" width="40px">
 </a>
 
 
