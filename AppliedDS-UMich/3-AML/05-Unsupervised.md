@@ -781,6 +781,7 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
     + Selection of whale and dolphin species.
     + The typical body lengths for these six species
     + Dataset
+    
         | Species            | Initials | Length(m) |
         |:-------------------|---------:|----------:|
         | Bottlenose Dolphin |     BD |       3.0 |
@@ -792,6 +793,7 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
     + Procedure:
         1. compute a distance matrix between each species. <br/>
             The difference in length between any pair of species can be looked up by reading the value at the intersection of the relevant row and column.
+
             |    | BD   | RD   | PW   | KW   | HW |
             |:---|-----:|-----:|-----:|-----:|---:|
             | RD |  0.6 |      |      |      |      |
@@ -801,6 +803,7 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
             | FW | 17.0 | 16.4 | 13.5 | 12.5 |  5.0 |
         2. Pair up the two closest species. Here the Bottlenose & Risso’s Dolphins, with an average length of 3.3m.
         3. Repeat Step 1 by recalculating the distance matrix, but this time merge the Bottlenose & Risso’s Dolphins into a single object with length 3.3m.
+
             |    | [BD, RD]  | PW  | KW  | HW |
             |:---|----------:|----:|----:|---:|
             | PW |      3.2  |     |     |    |
@@ -809,6 +812,7 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
             | FW |     16.7  |13.5 |12.5 | 5.0 |
         4. Repeat Step 2 with this new distance matrix. Here, the smallest distance is between the Pilot & Killer Whales, so we pair them up and take their average — which gives us 7.0m.
         5. Repeat Step 1 — recalculate the distance matrix, but now we’ve merged the Pilot & Killer Whales into a single object of length 7.0m.
+
             |          | [BD, RD] | [PW, KW] | HW  |
             |:---------|---------:|---------:|----:|
             | [PW, KW] |      3.7 |          |     |
@@ -816,12 +820,14 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
             | FW       |     16.7 |     13.0 | 5.0 |
         6. Repeat Step 2 with this distance matrix. The smallest distance (3.7m) is between the two merged objects — so now we merge them into an even bigger object, and take the average (which is 5.2m).
         7. Repeat Step 1 and compute a new distance matrix, having merged the Bottlenose & Risso’s Dolphins with the Pilot & Killer Whales.
+
             |    | [[BD, RD] , [PW, KW]]  |  HW |
             |:---|-----------------------:|----:|
             | HW |                   9.8  |     |
             | FW |                  14.8  | 5.0 |
         8. repeat Step 2. The smallest distance (5.0m) is between the Humpback & Fin Whales, so we merge them into a single object, and take the average (17.5m).
         9. Repeat Step 1 — compute the distance matrix, having merged the Humpback & Fin Whales.
+
             |          | [[BD, RD] , [PW, KW]] |
             |:---------|----------------------:|
             | [HW, FW] |                  12.3 |
