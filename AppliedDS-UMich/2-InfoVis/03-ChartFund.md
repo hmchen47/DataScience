@@ -382,6 +382,11 @@
 
 He, K., & Meeden, G. (1997). [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](http://users.stat.umn.edu/~gmeeden/papers/hist.pdf). Journal of Statistical Planning and inference, 61(1), 49-59.
 
++ [Introduction](p01-Bins.md#introduction)
++ [Selecting the Number of Bins](p01-Bins.md#selecting-the-number-of-bins)
++ [The stepwise Bayes justification](p01-Bins.md#the-stepwise-bayes-justification)
+
+
 ## Box Plots
 
 + `pd.describe` method of `pandas.core.frame.DataFrame`

@@ -66,8 +66,6 @@
     + These represent two complementary approaches to supervised learning
         + K-nearest neighbors makes few assumptions about the structure of the data and gives potentially accurate but sometimes unstable predictions (sensitive to small changes in the training data)
         + Linear models make strong assumptions about structure of the data and give stable but potentially inaccurate predictions
-    
-
 + Supervised learning methods: Overview
     + To start with, we'll look at two simple but powerful prediction algorithms:
         + K-nearest neighbors (review from week 1, plus regression)

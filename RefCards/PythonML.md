@@ -710,7 +710,7 @@ The estimators provided in this module are meta-estimators: they require a base 
 
 All classifiers in scikit-learn implement multiclass classification; you only need to use this module if you want to experiment with custom multiclass strategies.
 
-The one-vs-the-rest meta-classifier also implements a predict_proba method, so long as such a method is implemented by the base classifier. This method returns probabilities of class membership in both the single label and multilabel case. Note that in the multilabel case, probabilities are the marginal probability that a given sample falls in the given class. As such, in the multilabel case the sum of these probabilities over all possible labels for a given sample will not sum to unity, as they do in the single label case.
+The one-vs-the-rest meta-classifier also implements a `predict_proba` method, so long as such a method is implemented by the base classifier. This method returns probabilities of class membership in both the single label and multilabel case. Note that in the multilabel case, probabilities are the marginal probability that a given sample falls in the given class. As such, in the multilabel case the sum of these probabilities over all possible labels for a given sample will not sum to unity, as they do in the single label case.
 
 User guide: See the [Multiclass and multilabel algorithms][406] section for further details.
 
@@ -1008,7 +1008,9 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `validation_curve(estimator, X, y, param_name, param_range, *args*)` | Compute scores for an estimator with different values of a specified parameter | [Cross-Validation][572] |
 | `cross_val_score(estimator, X, *args*)` | Evaluate a score by cross-validation | [Model Selection]][580] |
 | `GridSearchCV(estimator, param_grid, *args)` | Exhaustive search over specified parameter values for an estimator | [Model Selection][580] |
-| `GridSearchCV.decision_function(self, X)` | Call decision_function on the estimator with the best found parameters | [Model Selection][580] |
+| `GridSearchCV.decision_function(X)` | Call decision_function on the estimator with the best found parameters | [Model Selection][580] |
+| `GridSearchCV.predict_proba(X)` | Call `predict_proba` on the estimator with the best found parameters | [Asgn04-3][585] |
+
 
 
 ## Classification
@@ -1020,6 +1022,9 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.svm import LinearSVC                           # linsvc
     from sklearn.tree import DecisionTreeClassifier             # dtclf
     from sklearn.dummy import DummyClassifier                   # dummy
+    from sklearn.naive_bayes import GaussianNB                  # nbclf
+    from sklearn.ensemble import GradientBoostingClassifier     # gbdtclf
+    from sklearn.neural_network import MLPClassifier            # mlpclf
     ```
 
 | Function | Description | Link |
@@ -1029,21 +1034,38 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `knn.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [KNN][564] |
 | `knn.predict(X)` | Predict the class labels for the provided data | [KNN][564] |
 | `svc = SVC(C=1.0, kernel='rbf', *args)` | C-Support Vector Classification | [SVM][571] |
-| `svc.fit(self, X, y, sample_weight=None)` | Fit the SVM model according to the given training data  | [SVM][571] |
-| `svc.predict(self, X)` | Perform classification on samples in X.  For an one-class model, $+1$ or $-1$ is returned  | [SVM][571] |
-| `svc.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
+| `svc.fit(X, y, sample_weight=None)` | Fit the SVM model according to the given training data  | [SVM][571] |
+| `svc.predict(X)` | Perform classification on samples in X.  For an one-class model, $+1$ or $-1$ is returned  | [SVM][571] |
+| `svc.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
 | `linsvc = LinearSVC(penalty='l2', *args)` | Linear Support Vector Classification  | [SVM][571] |
-| `linsvc.fit(self, X, y, sample_weight=None)` | Fit the model according to the given training data  | [SVM][571] |
-| `linsvc.predict(self, X)` | Predict class labels for samples in X  | [SVM][571] |
-| `linsvc.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
+| `linsvc.fit(X, y, sample_weight=None)` | Fit the model according to the given training data  | [SVM][571] |
+| `linsvc.predict(X)` | Predict class labels for samples in X  | [SVM][571] |
+| `linsvc.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels  | [SVM][571] |
 | `dtclf = DecisionTreeClassifier(criterion='gini', *args)` | A decision tree classifier | [Decision Tree][573] |
-| `dtclf.fit(self, X, y, *args)`  | Build a decision tree classifier from the training set $(X, y)$. | [Decision Tree][573] |
+| `dtclf.fit(X, y, *args)`  | Build a decision tree classifier from the training set $(X, y)$. | [Decision Tree][573] |
 | `dtclf.predict(X, check_input=True)` | Predict class or regression value for X | [Decision Tree][573] |
 | `dtclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Decision Tree][573] |
 | `dummy = DummyClassifier(strategy='stratified', random_state=None, constant=None)` | DummyClassifier is a classifier that makes predictions using simple rules | [Model Evaluation][574] |
-| `dummy.fit(self, X, y, sample_weight=None)` | Fit the random classifier | [Model Evaluation][574] |
+| `dummy.fit(X, y, sample_weight=None)` | Fit the random classifier | [Model Evaluation][574] |
 | `dummy.predict(X)` | Perform classification on test vectors X | [Model Evaluation][574] |
 | `dummy.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Model Evaluation][574] |
+| `nbclf = GaussianNB(priors=None)` | Gaussian Naive Bayes | [Naive Bayes][581] |
+| `nbclf.fit(X, y, sample_weight=None)` | Fit Gaussian Naive Bayes according to `X`, `y` | [Naive Bayes][581] |
+| `nbclf.predict(X)` | Perform classification on an array of test vectors `X` | [Naive Bayes][581] |
+| `nbclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Naive Bayes][581] |
+| `rfclf = RandomForestClassifier(n_estimators=10, criterion='gini', *args)` | A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and use averaging to improve the predictive accuracy and control over-fitting. | [Random Forest][582] |
+| `rfclf.fit(X, y, sample_weight=None)` | Build a forest of trees from the training set (X, y) | [Random Forest][582] |
+| `rfclf.predict(X)` | The predicted class of an input sample is a vote by the trees in the forest, weighted by their probability estimates. | [Random Forest][582] |
+| `rfclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Random Forest][582] |
+| `gbdtclf = GradientBoostingClassifier(loss='deviance', *args)` | GB builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. | [GBDT][583] |
+| `gbdtclf..fit(X, y, *args)` | Fit the gradient boosting model | [GBDT][583] |
+| `gbdtclf..predict(X)` | Predict class for X | [GBDT][583] |
+| `gbdtclf..score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [GBDT][583] |
+| `mlpclf = MLPClassifier(hidden_layer_sizes=(100,), activation='relu', solver='adam', *args)` | Multi-layer Perceptron classifier; optimize the log-loss function using LBFGS or stochastic gradient descent | [NN][584] |
+| `mlpclf.fit(X, y)` | Fit the model to data matrix X and target(s) y | [NN][584] |
+| `mlpclf..predict(X)` | Predict using the multi-layer perceptron classifier | [NN][584] |
+| `mlpclf.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [NN][584] |
+
 
 
 
@@ -1057,6 +1079,7 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.linear_model import Lasso                      # linlasso
     from sklearn.preprocessing import PolynomialFeatures        # poly
     from sklearn.linear_model import LogisticRegression         # logreg
+    from sklearn.neural_network import MLPRegressor             # mlpreg
     ```
 
 | Function | Description | Link |
@@ -1080,11 +1103,15 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `poly = PolynomialFeatures(degree=2, *args)` | Generate polynomial and interaction features | [Poly][569] |
 | `poly.fit_transform(X, y=None, **fit_params)` | Fit to data, then transform it. | [Poly][569] |
 | `logreg = LogisticRegression(penalty='l2', dual=False, tol=0.0001, C=1.0. *args)` | Logistic Regression (aka logit, MaxEnt) classifier | [Logistic][570] |
-| `logreg.LogisticRegression.fit(self, X, y, sample_weight=None)` | Fit the model according to the given training data | [Logistic][570] |
-| `logreg.predict(self, X)` | Predict class labels for samples in X | [Logistic][570] |
-| `logreg.score(self, X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Logistic][570] |
+| `logreg.LogisticRegression.fit(X, y, sample_weight=None)` | Fit the model according to the given training data | [Logistic][570] |
+| `logreg.predict(X)` | Predict class labels for samples in X | [Logistic][570] |
+| `logreg.score(X, y, sample_weight=None)` | Returns the mean accuracy on the given test data and labels | [Logistic][570] |
 | `logreg.decision_function(X)` | The confidence score for a sample is the signed distance of that sample to the hyperplane | [Decision Functions][576] |
 | `logreg.predict_proba(X)` | Probability estimates. The returned estimates for all classes are ordered by the label of classes. | [Decision Functions][576] |
+| `mplreg = MLPRegressor(hidden_layer_sizes=(100,), activation='relu', solver='adam', *args)` | Multi-layer Perceptron regressor; optimize the squared-loss using LBFGS or stochastic gradient descent | [NN][584] |
+| `mlpreg.fit(X, y)` | Fit the model to data matrix X and target(s) `y` | [NN][584] |
+| `mlpreg.predict(X)` | Predict using the multi-layer perceptron model | [NN][584] |
+| `mlpreg.score(X, y, sample_weight=None)` | Returns the coefficient of determination $R^2$ of the prediction | [NN][584] |
 
 
 ## Clustering
@@ -1143,16 +1170,6 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 
 ------------------------------
 <!-- 
-[576]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#classifier-decision-functions
-[577]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#precision-recall-and-roc-curves
-[578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
-[579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
-[580]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics
-[581]: 
-[582]: 
-[583]: 
-[584]: 
-[585]: 
 [586]: 
 [587]: 
 [588]: 
@@ -1848,3 +1865,13 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 [573]: ../AppliedDS-UMich/3-AML/02-Supervised1.md#decision-trees
 [574]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-evaluation--selection
 [575]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#confusion-matrices--basic-evaluation-metrics
+[576]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#classifier-decision-functions
+[577]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#precision-recall-and-roc-curves
+[578]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#multi-class-evaluation
+[579]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#regression-evaluation
+[580]: ../AppliedDS-UMich/3-AML/03-Evaluation.md#model-selection-optimizing-classifiers-for-different-evaluation-metrics
+[581]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#naive-bayes-classifiers
+[582]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#random-forests
+[583]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#gradient-boosted-decision-trees
+[584]: ../AppliedDS-UMich/3-AML/04-Supervised2.md#neural-networks
+[585]: ../AppliedDS-UMich/3-AML/asgn04.md#solution-3
