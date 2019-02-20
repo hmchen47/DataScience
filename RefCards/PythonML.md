@@ -710,11 +710,9 @@ The estimators provided in this module are meta-estimators: they require a base 
 
 All classifiers in scikit-learn implement multiclass classification; you only need to use this module if you want to experiment with custom multiclass strategies.
 
-<<<<<<< HEAD
-The one-vs-the-rest meta-classifier also implements a predict_proba method, so long as such a method is implemented by the base classifier. This method returns probabilities of class membership in both the single label and multilabel case. Note that in the multilabel case, probabilities are the marginal probability that a given sample falls in the given class. As such, in the multilabel case the sum of these probabilities over all possible labels for a given sample will not sum to unity, as they do in the single label case.
-=======
+
 The one-vs-the-rest meta-classifier also implements a `predict_proba` method, so long as such a method is implemented by the base classifier. This method returns probabilities of class membership in both the single label and multilabel case. Note that in the multilabel case, probabilities are the marginal probability that a given sample falls in the given class. As such, in the multilabel case the sum of these probabilities over all possible labels for a given sample will not sum to unity, as they do in the single label case.
->>>>>>> aml03
+
 
 User guide: See the [Multiclass and multilabel algorithms][406] section for further details.
 
@@ -974,13 +972,6 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
 | `utils.parallel_backend(backend[, n_jobs])` | Change the default backend used by Parallel inside a with block. | [API][562] |
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> aml03
 ## Preprocessing
 
 + Library Import 
@@ -1004,11 +995,8 @@ Developer guide: See the [Utilities for Developers][505] page for further detail
     from sklearn.model_selection import train_test_split
     from sklearn.model_selection import cross_val_score
     from sklearn.model_selection import validation_curve
-<<<<<<< HEAD
-=======
     from sklearn.model_selection import cross_val_score
     from sklearn.model_selection import GridSearchCV
->>>>>>> aml03
     ```
 
 | Function | Description | Link |
