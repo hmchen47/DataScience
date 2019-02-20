@@ -865,6 +865,7 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
     + The yellow vertices are generally reference/look-up sites; the blue vertices are all used for online publishing (of articles, tweets, or code); and the red vertices include YouTube, which was of course founded by former PayPal employees.
     + The real power of networks comes from their mathematical analysis.
     + _Adjacency matrix_ of the network
+
         |          | GH | Gl | M | P | Q | T | W | Y |
         |----------|----|----|---|---|---|---|---|---|
         | GitHub   |  0 |  1 | 0 | 0 | 0 | 1 | 0 | 0 |
@@ -883,9 +884,9 @@ Gleesen, Peter. "[How Machines Make Sense of Big Data: an Introduction to Cluste
         + Knowing just $k, L, N$ and the value of each cell in the adjacency matrix $A$
         + Use the modularity score to assess the ‘quality’ of this clustering.
         + A higher score will show we’ve split the network into ‘accurate’ communities, whereas a low score suggests our clusters are more random than insightful.
-    <a href="https://medium.freecodecamp.org/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba"> <br/>
-        <img src="https://cdn-images-1.medium.com/max/1000/1*6_kSe1q4nDbvnnghF4yJwA.png" alt="Say we’ve clustered the network into a number of communities. We can use the modularity score to assess the ‘quality’ of this clustering. A higher score will show we’ve split the network into ‘accurate’ communities, whereas a low score suggests our clusters are more random than insightful. The image below illustrates this." title="Modularity serves as a measure of the ‘quality’ of a partition" height="150">
-    </a>
+        <a href="https://medium.freecodecamp.org/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba"> <br/>
+            <img src="https://cdn-images-1.medium.com/max/1000/1*6_kSe1q4nDbvnnghF4yJwA.png" alt="Say we’ve clustered the network into a number of communities. We can use the modularity score to assess the ‘quality’ of this clustering. A higher score will show we’ve split the network into ‘accurate’ communities, whereas a low score suggests our clusters are more random than insightful. The image below illustrates this." title="Modularity serves as a measure of the ‘quality’ of a partition" height="150">
+        </a>
     + Formula:
 
         $$M = \frac{1}{2L} \sum_{i,j=1}^N (A_{ij} - \frac{k_i k_j}{2L}) \delta c_i c_j$$
