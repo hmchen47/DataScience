@@ -352,20 +352,35 @@ Authors: S. Kaufman, S. Rosset, & C. Perlich
 ## References
 
 [1] Hastie T., Tibshirani, R. and Friedman, J. H. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Second Edition. Springer.
+
 [2] Kohavi, R., Brodley, C., Frasca, B., Mason, L., and Zheng, Z. 2000. KDD-cup 2000 organizers‟ report: peeling the onion. ACM SIGKDD Explorations Newsletter. 2(2).
+
 [3] Kohavi, R. and Parekh, R. 2003. Ten supplementary analyses to improve e-commerce web sites. In Proceedings of the Fifth WEBKDD Workshop.
+
 [4] Kohavi, R., Mason L., Parekh, R. and Zheng Z. 2004. Lessons and challenges from mining retail e-commerce data. Machine Learning. 57(1-2).
+
 [5] Lo, A.W. and MacKinlay A.C. 1990. Data-snooping biases in tests of financial asset pricing models. Review of Financial Studies. 3(3) 431-467.
+
 [6] Narayanan, A., Shi, E., and Rubinstein, B. 2011. Link Prediction by De-anonymization: How We Won the Kaggle Social Network Challenge. Proceedings of the 2011 International Joint Conference on Neural Networks (IJCNN). Pre-print.
+
 [7] Nisbet, R., Elder, J. and Miner, G. 2009. Handbook of Statistical Analysis and Data Mining Applications. Academic Press.
+
 [8] Perlich C., Melville P., Liu Y., Swirszcz G., Lawrence R., Rosset S. 2008. Breast cancer identification: KDD cup winner's report. SIGKDD Explorations Newsletter. 10(2) 39-42.
+
 [9] Pyle, D. 1999. Data Preparation for Data Mining. Morgan Kaufmann Publishers.
+
 [10] Pyle, D. 2003. Business Modeling and Data Mining. Morgan Kaufmann Publishers.
+
 [11] Pyle, D. 2009. Data Mining: Know it All. Ch. 9. Morgan Kaufmann Publishers.
+
 [12] Rosset, S., Perlich, C. and Liu, Y. 2007. Making the most of your data: KDD-Cup 2007 "How Many Ratings" Winner's Report. ACM SIGKDD Explorations Newsletter. 9(2).
+
 [13] Rosset, S., Perlich, C., Swirszcz, G., Liu, Y., and Prem, M. 2010. Medical data mining: lessons from winning two competitions. Data Mining and Knowledge Discovery. 20(3) 439-468.
+
 [14] Tukey, J. 1977. Exploratory Data Analysis. Addison-Wesley.
+
 [15] Widmer, G. and Kubat, M. 1996. Learning in the presence of concept drift and hidden contexts. Machine Learning. 23(1).
+
 [16] Xie, J. and Coggeshall, S. 2010. Prediction of transfers to tertiary care and hospital mortality: A gradient boosting decision tree approach. Statistical Analysis and Data Mining, 3: 253–258.
 
 
