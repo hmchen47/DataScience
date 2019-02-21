@@ -29,9 +29,6 @@
 + [Solution](asgn01.md#solution)
 
 
-
-
-
 ## Module 2: [Network Connectivity](02-Connectivity.md)
 
 + [Clustering Coefficient](02-Connectivity.md#clustering-coefficient)
