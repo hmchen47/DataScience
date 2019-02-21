@@ -74,7 +74,7 @@
 + [Power Laws and Rich-Get-Richer Phenomena (Optional)](04-Applications.md#power-laws-and-rich-get-richer-phenomena-optional)
     + [Popularity as a Network Phenomenon](p1-PowerLaw.md#popularity-as-a-network-phenomenon)
     + [Power Laws](p1-PowerLaw.md#power-laws)
-    + [Rich-Get-Richer Models](p1-PowerLaw.md#rich-get-richer-effects)
+    + [Rich-Get-Richer Models](p1-PowerLaw.md#rich-get-richer-models)
     + [The Unpredictability of Rich-Get-Richer Effects](p1-PowerLaw.md#the-unpredictability-of-rich-get-richer-effects)
     + [The Long Tail](p1-PowerLaw.md#the-long-tail)
     + [The Effect of Search Tools and Recommendation Systems](p1-PowerLaw.md#the-effect-of-search-tools-and-recommendation-systems)
