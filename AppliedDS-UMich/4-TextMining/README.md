@@ -8,20 +8,20 @@
 + [Handling Text in Python](01-Working.md#handling-text-in-python)
 + [Notice for Auditing Learners: Assignment Submission](01-Working.md#notice-for-auditing-learners-assignment-submission)
 + [Notebook: Working with Text](01-Working.md#notebook-working-with-text)
-+ [Regular Expressions](01-Working.md#regular-expression)
++ [Regular Expressions](01-Working.md#regular-expressions)
 + [Notebook: Regex with Pandas and Named Groups](01-Working.md#notebook-regex-with-pandas-and-named-groups)
 + [Demonstration: Regex with Pandas and Named Groups](01-Working.md#demonstration-regex-with-pandas-and-named-groups)
 + [Practice Quiz](01-Working.md#practice-quiz-2)
-+ [Internationalization and Issues with Non-ASCII Characters](01-Working.md#internationalization-and-issues-with-non---ascii-characters)
++ [Internationalization and Issues with Non-ASCII Characters](01-Working.md#internationalization-and-issues-with-non-ascii-characters)
 + [Resources: Common issues with free text](01-Working.md#resources-common-issues-with-free-text)
 + [Module 1 Quiz](01-Working.md#module-1-quiz)
 
 ### [Assignment 1](asgn01.md)
 
-+ [Extra resources on Regex](asgn01.md#)
-+ [Something wrong with the grader](asgn01.md#)
-+ [Notice for Auditing Learners: Assignment Submission](asgn01.md#)
-+ [Solution](asgn01.md#)
++ [Extra resources on Regex](asgn01.md#extra-resources-on-regex)
++ [Something wrong with the grader](asgn01.md#something-wrong-with-the-grader)
++ [Notice for Auditing Learners: Assignment Submission](asgn01.md#notice-for-auditing-learners-assignment-submission)
++ [Solution](asgn01.md#solution)
 
 
 ## Module 2: [Basic Natural Language Processing](02-BasicNLP.md)
