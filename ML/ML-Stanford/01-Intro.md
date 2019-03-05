@@ -33,6 +33,13 @@
     + Arthur Samuel (1959). Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed.
     + Tom Mitchell (1998) Well-posed Learning Problem: A computer program is said to learn from experience __E__ with respect to some task __T__ and some performance measure __P__, if its performance on T, as measured by P, improves with experience E.
 
++ Example: playing checkers.
+    + E = the experience of playing many games of checkers
+    + T = the task of playing checkers.
+    + P = the probability that the program will win the next game.
+
+Supervised learning and Unsupervised learning.
+
 + IVQ: Suppose your email program watches which emails you do or do not mark as spam, and based on that learns how to better filter spam. What is the task T in this setting?
 
     a. Classifying emails as spam or not spam. <br/>
