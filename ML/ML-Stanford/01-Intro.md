@@ -2,6 +2,23 @@
 
 ## Welcome
 
+### Lecture Notes
+
++ Machine Learning
+    + Grew out of work in AI
+    + New capability for computers
++ Examples:
+    + Database mining
+        + Large datasets from growth of automation/web.
+        + E.g., Web click data, medical records, biology, engineering
+    + Applications can’t program by hand.
+        + E.g., Autonomous helicopter, handwriting recognition, most of Natural Language Processing (NLP), Computer Vision.
+    + Self-customizing programs
+        + E.g., Amazon, Netflix product recommendations
+    + Understanding human learning (brain, real AI).
+
+### Lecture Video
+
 <video src="https://d3c33hcgiwev3.cloudfront.net/01.1-V3-Introduction-Welcome.49abef20b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1551916800&Signature=Qa8m7P7kXSOcM2PJ~BeRk3A0b4S-LVATIBZFxlgIbbEkollCLevcEBnsfYiJq~J~n~DXLQl4XLeytpCeQUllz2feuyRvBb220yOKtGkGAoLvDjb1P9URygWS3HHbiSnXeqCtgzBfWA3kWfS2DnPIzWqSzhuWEai-xzylPFIZzfo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180" alt="Welcome">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/OajtTUNVSJqo7U1DVcia_w?expiry=1551916800000&hmac=doYGysJbj4AzkrX31UeeSwa4OvGFWxEVtaXucb3cu30&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
