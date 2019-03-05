@@ -95,7 +95,7 @@ Enhancements to plotDecisionBoundary() - not required, just handy - [link](https
 
 -------------
 
-ex3
+#### ex3
 
 Note: a change to displayData.m for MacOS users: ([link](https://www.coursera.org/learn/machine-learning/discussions/YlOmkiWsEeWeUyIAC44Ejw/replies/0A7DZi_BEeWOkCIAC4UG7w))
 
@@ -167,5 +167,82 @@ Tip for estimateGaussian(): Compute the mean using "mean()". You can compute sig
 
 -------------
 
+
+### Test Cases
+
+Ref: [Programming Exercise Test Cases](https://www.coursera.org/learn/machine-learning/discussions/0SxufTSrEeWPACIACw4G5w)
+
+This post contains links to test cases for each programming exercise.
+
+You may need to scroll down to the highlighted post.
+
+-------------
+
+### ex1
+
+[All ex1 test cases](https://www.coursera.org/learn/machine-learning/discussions/5wftpZnyEeWKNwpBrKr_Fw)
+
+-------------
+
+#### ex2
+
+[sigmoid() and predict() test cases](https://www.coursera.org/learn/machine-learning/discussions/JHorKeknEeS0tyIAC9RBcw)
+
+[costFunction() and costFunctionReg() test cases](https://www.coursera.org/learn/machine-learning/module/6okke/discussions/tA3ESpq0EeW70BJZtLVfGQ)
+
+-------------
+
+#### ex3
+
+[All ex3 test cases](https://www.coursera.org/learn/machine-learning/discussions/5g8LaZTCEeW0dw6k4EUmPw)
+
+-------------
+
+#### ex4
+
+[sigmoidGradient()](https://www.coursera.org/learn/machine-learning/module/Aah2H/discussions/oRjv1jr2EeWm9SIAC5HAew) test case
+
+[nnCostFunction()](https://www.coursera.org/learn/machine-learning/module/Aah2H/discussions/uPd5FJqnEeWWpRIGHRsuuw) test cases
+
+-------------
+
+#### ex5
+
+[linearRegCostFunction()](https://www.coursera.org/learn/machine-learning/discussions/O25D0QykEeWZSyIAC5bWOg) test case
+
+[learningCurve()](https://www.coursera.org/learn/machine-learning/discussions/weeks/6/threads/DLXINNI4EeaJrBIAwnTPnA) test case
+
+[polyFeatures()](https://www.coursera.org/learn/machine-learning/discussions/6VACvWbKEeWjjQ6zloxUzw) test case
+
+[validationCurve()](https://www.coursera.org/learn/machine-learning/discussions/w7-BWWbLEeWjjQ6zloxUzw) test case
+
+-------------
+
+#### ex6
+
+[gaussianKernel()](https://www.coursera.org/learn/machine-learning/module/SSmw6/discussions/Q75iGsATEeW4VAonMO7H9Q) - test case
+
+[dataset3Params()](https://www.coursera.org/learn/machine-learning/discussions/weeks/7/threads/JosoJ5ZREeau6AqOJYpH0w) - test case
+
+[processEmail()](https://www.coursera.org/learn/machine-learning/discussions/gQ55c3aHEeWGywq_F70CwQ) - test case
+
+[emailFeatures()](https://www.coursera.org/learn/machine-learning/module/SSmw6/discussions/XToNxd22EeW81Q4r-1eYEQ) - test case
+
+-------------
+
+#### ex7
+
+[All ex7 test cases](https://www.coursera.org/learn/machine-learning/discussions/dvK0u5U5EeWy0Q7ABZMsnQ)
+
+-------------
+#### ex8
+
+Note: There is an error in ex8_cofi.m <Use this [link](https://www.coursera.org/learn/machine-learning/discussions/YD0v9TL_EeWj5iIACwIAYw)> to fix it.
+
+[ex8.m](https://www.coursera.org/learn/machine-learning/module/HjnB4/discussions/DdRYL0Q6EeWSTg7F_5iDhQ) test cases for Anomaly Detection
+
+[ex8_cofi.m](https://www.coursera.org/learn/machine-learning/module/Oag3J/discussions/X0DEZEQ6EeWPFgp1wk3USw) test cases for Recommender Systems - cofiCostFunc()
+
+------------
 
 
