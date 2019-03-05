@@ -393,3 +393,104 @@ Massive collection of academic papers are available here: [Machine Learning Libr
 Deep Learning School, Sept. 2016 (URL includes links to video archives)
 
 https://www.bayareadlschool.org/
+
+
+### Tips on Octave OS X
+
+Try installing a later version of Octave than the one recommended on the course content (3.8.0).
+
+http://wiki.octave.org/Octave_for_MacOS_X. Under "Installing a Mac OS X Bundle," you can click on "download Octave 4.0.3 with Graphical User Interface."
+
+Error message "unknown or ambiguous terminal type"
+A) Try changing the terminal type with this command, for any of "qt", "x11", or "aqua":
+
+```bash
+setenv("GNUTERM","qt")
+```
+
+Alternatively you can install the AquaTerm backend from SourceForge: http://sourceforge.net/projects/aquaterm/
+
+and then reinstalling GNUplot with Aqua terminal support:
+
+```bash
+brew uninstall gnuplot
+brew install gnuplot ----with-aquaterm
+```
+
+B) You may also try this:
+
+```bash
+brew uninstall fontconfig
+brew install fontconfig --universal
+brew uninstall gnuplot
+brew install gnuplot --with-qt
+```
+
+... then add this to ~/.octaverc
+
+```bash
+setenv("GNUTERM","qt")
+```
+
+
+#### The hist() or plot () function hangs
+
+It's not really hung - on some distributions of Octave, the first plotting function you call causes the font library to generated. This can take a minute or so the first time, then after that the plotting functions will work much faster.
+
+Alternatively if Octave still does not respond after some time, you may have to change your fontconfig. I also installed gnuplot with-x11 and changed the file octaverc. These are the terminal commands:
+
+```bash
+brew install fltk
+brew install gnuplot --with-x11
+brew uninstall fontconfig
+brew install fontconfig --universal
+
+then edit /usr/local/share/octave/site/m/startup/octaverc , put this in the file
+```
+
+-------- (start copy) --------
+
+```bash
+setenv ("GNUTERM", "X11")
+gnuplot_binary("/usr/local/bin/gnuplot")
+graphics_toolkit('gnuplot')
+```
+
+-------- (end copy) --------
+
+save the file and start octave
+
+verify by running:
+
+```bash
+available_graphics_toolkits       % this will show the available graphics toolkits that can be loaded
+loaded_graphics_toolkits          % this will show the graphics toolkit that is currently loaded
+```
+
+other useful command examples:
+
+```bash
+register_graphics_toolkit("fltk") % this will add the fltk graphics toolkit to the available graphics toolkits list
+graphics_toolkit("qt")            % this will load the qt graphics toolkit
+```
+
+Errors when editing ex1 "plotData.m"
+
+If you get an error like:
+
+```bash
+: invalid character '�' (ASCII 226) near line 14, column 14
+```
+
+Then try to uncheck the TextEdit Preference - Smart quotes and Smart dashes; then use double quotes(") instead of single quotes(')
+
+#### Try Using Vagrant and Virtualbox
+
+If you are using OS X (and some brands of Linux), you can have a lot of trouble getting the visualizations to work natively. One solution is to turn to virtualization; you can find a vagrant file that gets an ubuntu machine configured in virtual box, along with scripts to make this feel like a native OS X app [here](http://deepneural.blogspot.fr/p/welcome.html). Another script can be found here, but this one is just the Vagrant file and does not have all the nice [OS X scripts bundled](https://gist.github.com/Starefossen/9353638) with it.
+
+You'll additionally need [virtualbox and vagrant](https://www.virtualbox.orghttps://www.vagrantup.com) to go down this route, which are thankfully both free.
+
+You'll need an X server, which you almost certainly are using in Linux already, but does not come out of the box with OS X. OS X users can get it [here](http://www.xquartz.org).
+
+
+
