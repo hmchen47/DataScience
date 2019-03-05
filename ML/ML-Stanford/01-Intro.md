@@ -27,10 +27,36 @@
 
 ## What is Machine Learning?
 
+### Lecture Notes
+
++ Machine Learning definition
+    + Arthur Samuel (1959). Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed.
+    + Tom Mitchell (1998) Well-posed Learning Problem: A computer program is said to learn from experience __E__ with respect to some task __T__ and some performance measure __P__, if its performance on T, as measured by P, improves with experience E.
+
++ IVQ: Suppose your email program watches which emails you do or do not mark as spam, and based on that learns how to better filter spam. What is the task T in this setting?
+
+    a. Classifying emails as spam or not spam. <br/>
+    b. Watching you label emails as spam or not spam. <br/>
+    c. The number (or fraction) of emails correctly classified as spam/not spam. <br/>
+    d. None of the above—this is not a machine learning problem.
+
+    Ans: a <br/>
+    Explanation: “A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.” <br/>
+    a. classifying emails -> T; b. label emails -> E; c. correctly classified -> P
+
++ Algorithm classification
+    + Machine learning algorithms:
+        + Supervised learning
+        + Unsupervised learning
+    + Others: Reinforcement learning, recommender systems.
 
 
-## What is Machine Learning?
+### Lecture Video
 
+<video src="https://d3c33hcgiwev3.cloudfront.net/IRPs0hQ3EeelIwrMcHgCog.processed/full/360p/index.mp4?Expires=1551916800&Signature=BFHUgjno0G0OyRStcxYdXmab5HFjIJGczhyBeowgH0JSdfiJgR9sWXyxVWbdd15hZVRlLXzCTpKacaTSJd~fjTl60y-2Ao3ZpTqXtE7v~ERI5zFqTxgSkni7KRT80Z2pNjYBQBCjnnsYwRFniy-0NaqNh5-5xMsmfOrsKZA0dA4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Nwmp7RSHEee9zwpiIySM9A?expiry=1551916800000&hmac=w_zH9VmrykQfpuJ5e0r9vgADjKWUi43r3al-Hnbx-lk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
 ## How to Use Discussion Forums
@@ -39,9 +65,6 @@
 
 ## Supervised Learning
 
-
-
-## Supervised Learning
 
 
 
