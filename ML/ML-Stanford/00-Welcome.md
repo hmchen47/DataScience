@@ -545,8 +545,37 @@ Community Mentors are successful, dedicated Coursera learners who volunteer to a
 As you use the [discussion areas](https://www.coursera.org/learn/machine-learning/discussions), please be aware that the ideas expressed by participants in this course, including the Mentors, do not represent the views of Stanford University. The mentors are not employed by Stanford University and they have not been vetted by Stanford University as experts on course content or course facilitation.
 
 
-
 ## Get to Know Your Classmates
+
+### Overview
+
+Working well with your classmates is an important part of this online course. Thus, at the beginning of this course, we would like you to take time to break the ice and get to know each other. You may already know some of your classmates or have just met them. Establishing personal interaction with other students will make your online learning experience much more enjoyable and engaging. As such, we encourage you to participate in this activity, though it is optional.
+
+### Meet and Greet
+
+Tell everyone your story! Optionally, you are asked to provide a brief introduction to your classmates. If you don't know what to include in your introduction, you may want to provide information that you'd like to share with your classmates by answering some of the following questions.
+
+
+### Suggested Topics
+
++ Where are you from? If you wish to include this information in your post, you can also include it below the body of your post in the "tags" area. For example, include your state (if living within the United States) or country in the tags section.
++ Career and education? What is your educational background? What do you currently do? Are you currently pursuing a change in careers and/or more education?
++ Hopes? Why did you decide to take this course? What are your expectations of this course? What problem are you trying to solve? What do you hope to put into place in your life the day this course is over?
++ Other info? Share with us any other information that might help others in the class find you when searching the forums. What common interests might you share with your classmates? We have tens of thousands of students enrolled in this course – put something in your post that will help others who are like you to find you.
+
+Go to the [Meet and Greet](https://www.coursera.org/learn/machine-learning/forum/FsTdcb2TEeS_cyIACw-CIA/discussions?sort=lastActivityAtDesc&page=1) forum and click the New Thread button to begin a __new thread__. Use your name and a brief summary as the subject of your post. For example, __Robert Smith: Exploring Career Options__. Read some your classmates' postings. Pick at least 2 classmates' postings that are most interesting to you and add your friendly comments.
+
+
+### Updating Your Profile
+
+Optionally, please consider updating your profile, which can also be accessed by clicking the Profile link in the menu that appears when you click on your name at the top-right corner of this screen. When people find you in the forums, they can click on your name to view your complete profile and get to know you more.
+
+### Time
+
+This activity will take approximately 1 hour to complete.
+
+These guidelines for interacting with fellow classmates via the forums were originally compiled by The University of Illinois.
+
 
 
 
