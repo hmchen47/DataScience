@@ -204,6 +204,18 @@ Some may find the following [video](https://www.youtube.com/watch?v=WnqQrPNYz5Q)
 
 ### Errata
 
+#### Linear Regression With One Variable
+
++ A general note about the graphs that Prof Ng sketches when discussing the cost function. The vertical axis can be labeled either 'y' or 'h(x)' interchangeably. 'y' is the true value of the training example, and is indicated with a marker. 'h(x)' is the hypothesis, and is typically drawn as a curve. The scale of the vertical axis is the same, so both can be plotted on the same axis.
++ In the video "Cost Function - Intuition I", at about 6:34, the value given for J(0.5) is incorrect.
++ Parameter Learning: Video "Gradient Descent for Linear Regression": At 6:15, the equation Prof Ng writes in blue "h(x) = -900 - 0.1x" is incorrect, it should use "+900".
+
+
+#### Gradient Descent for Linear Regression
+
++ At Timestamp 3:27 of this video lecture, the equation for θ1 is wrong, please refer to first line of Page 6 of ex1.pdf (Week 2 programming Assignment) for model equation (The last x is X superscript i, subscript j (Which is 1 in this case, as it is of θ1)). θ0 is correct as it will be multiplied by 1 anyways(value of X superscript i, subscript 0 is 1), as per the model equation.
+
+<br/>
 
 ## Quiz: Linear Regression with One Variable
 
