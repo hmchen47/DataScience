@@ -577,6 +577,54 @@ This activity will take approximately 1 hour to complete.
 These guidelines for interacting with fellow classmates via the forums were originally compiled by The University of Illinois.
 
 
-
-
 ## Frequently Asked Questions
+
+The following Machine Learning Mentors volunteered time to compile this list of Frequently Asked Questions: Colin Beckingham, Kevin Burnham, Maxim Haytovich, Tom Mosher, Richard Gayle, Simon Crase, Michael Reardon and Paul Mielke.
+
+Be sure to thank them when you see them in the discussion forums!
+
+### General Questions
+
+__Q: Is the grader server down?__ A: First step is to check here.
+
+__Q: The audio in the videos is quite bad sometimes, muffled or low volume. Please fix it.__ A: You can mitigate the audio issues by turning down the bass and up the treble if you have those controls, or using a headset, which naturally emphasizes the higher frequencies. Also you may want to switch on the English closed captioning. It is unlikely to be fixed in the near term because most students do not have serious problems and therefore it is low on the priority list.
+
+__Q: What does it mean when I see “Math Processing Error?”__ A: The page is attempting to use MathJax to render math symbols. Sometimes the content delivery network can be sluggish or you have caught the web page Ajax javascript code in an incomplete state. Normally just refreshing the page to make it load fully fixes the problem
+
+__Q: How can I download lectures?__ A: On Demand videos cannot be downloaded.
+
+__Q: Is there a prerequisite for this course?__ A: Students are expected to have the following background:
+
+  + Knowledge of basic computer science principles and skills, at a level sufficient to write a reasonably non-trivial computer program.
+  + Familiarity with the basic probability theory.
+  + Familiarity with the basic linear algebra.
+
+__Q: Why do we have to use Matlab or Octave? Why not Clojure, Julia, Python, R or [Insert favourite language here]?__ A: As Prof. Ng explained in the 1st video of the Octave tutorial, he has tried teaching Machine Learning in a variety of languages, and found that students come up to speed faster with Matlab/Octave. Therefore the course was designed using Octave/Matlab, and the automatic submission grader uses those program interfaces. Octave and Matlab are optimized for rapid vectorized calculations, which is very useful in Machine Learning. R is a nice tool, but:
+
+1. It is a bit too high level. This course shows how to actually implement the algorithms of machine learning, while R already has them implemented. Since the focus of this course is to show you what happens in ML algorithms under the hood, you need to use Octave 
+2. This course offers some starter code in Octave/Matlab, which will really save you tons of time solving the tasks.
+
+__Q: Has anyone figured out the how to solve this problem? Here is my code [Insert code].__ A: This is a violation of the Coursera Honor Code. Find the Honor Code here.
+
+__Q: I've submitted correct answers for [insert problem]. However I would like to compare my implementation with other who did correctly.__ A: This is a violation of the Coursera Honor Code. Find the Honor Code here.
+
+__Q: This is my email: [insert email]. Can we get the answer for the quiz?__ A: This is a violation of the Coursera Honor Code. Find the Honor Code here.
+
+__Q: Do I receive a certificate once I complete this course?__ A: Course Certificate is available in this course. Click here to learn about how Course Certificate works and how to purchase.
+
+__Q: Why do all the answers in a multiple correct question say correct response when you submit the answer to an in-video question?__ A: Coursera's software is designed to suggest the correctness of each state of the check box. Therefore, an answer having a correct answer tag below it means that the state of that check box is correct.
+
+__Q: What is the correct technique of entering a numeric answer to a text box question?__ A: Coursera's software for numeric answers only supports '.' as the decimal delimiter (not ',') and require that fractions be simplified to decimals. For answers with many decimal digits, please use a 2 digits after decimal point rounding method when entering solutions if not mentioned in the question.
+
+__Q: What is the correct technique of entering a 1 element matrix?__ A: They should be entered as just the element without brackets.
+
+__Q: What does a A being a 3 element vector or a 3 dimensional vector mean?__ A: If not described a vector as mentioned in the questions is 
+
+$$A = \left[ \begin{array}{c} element1 \\ element2 \\ element3 \end{array} \right]$$
+
+__Q: I think I found an error in a video. What should I do__? A: First, check the errata section under resources menu. If you are unsure if it is an error, create a new thread in the discussion forum describing the error.
+
+__Q: My quiz grade displayed is wrong or I have a verification issue or I cannot retake a quiz. What should I do?__ A: Contact Help Center. These queries can only be resolved by learner support and it is best if they are contacted directly.
+
+
+
