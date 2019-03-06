@@ -1,5 +1,8 @@
 # Introduction
 
+(setq markdown-css-paths '("https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.css"))
+
+
 ## Welcome
 
 ### Lecture Notes
@@ -66,13 +69,68 @@ Supervised learning and Unsupervised learning.
 </video>
 
 
-## How to Use Discussion Forums
-
-
-
 ## Supervised Learning
 
+### Lecture Notes
 
++ Example: Housing price prediction
+    <a href="https://d3c33hcgiwev3.cloudfront.net/_974fa7509d583eabb592839f9716fe25_Lecture1.pdf?Expires=1551916800&Signature=ZILTvhlOrgYPbYCg2v6JSsVxuBZg9vGodmWHRP2AoVvslmHGtRsc1o2NcR-jjK11JlkES5mvnO1BTPj2e0~IcGTOd3aT5EzTp0UI~LkQrFv2Hyuh-k409wRbIfazVUprsf9bafSxFFzsYKkJMMt1MhbzP5MvMdZqYMpI~sCunE0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
+        <img style="background-color: black" src="images/m01-01.png" alt="A while back a student collected data sets from the City of Portland, Oregon, and let's say you plot the data set and it looks like this. Here on the horizontal axis, the size of different houses in square feet, and on the vertical axis, the price of different houses in thousands of dollars. So, given this data, let's say you have a friend who owns a house that is say 750 square feet, and they are hoping to sell the house, and they want to know how much they can get for the house. So, how can the learning algorithm help you? One thing a learning algorithm might be want to do is put a straight line through the data, also fit a straight line to the data. Based on that, it looks like maybe their house can be sold for maybe about $150,000. But maybe this isn't the only learning algorithm you can use, and there might be a better one. For example, instead of fitting a straight line to the data, we might decide that it's better to fit a quadratic function, or a second-order polynomial to this data. If you do that and make a prediction here, then it looks like, well, maybe they can sell the house for closer to $200,000. One of the things we'll talk about later is how to choose, and how to decide, do you want to fit a straight line to the data? Or do you want to fit a quadratic function to the data? There's no fair picking whichever one gives your friend the better house to sell. But each of these would be a fine example of a learning algorithm. So, this is an example of a Supervised Learning algorithm. The term Supervised Learning refers to the fact that we gave the algorithm a data set in which the, called, 'right answers' were given. That is we gave it a data set of houses in which for every example in this data set, we told it what is the right price. So, what was the actual price that that house sold for, and the task of the algorithm was to just produce more of these right answers such as for this new house that your friend may be trying to sell. To define a bit more terminology, this is also called a regression problem. By regression problem, I mean we're trying to predict a continuous valued output. Namely the price. So technically, I guess prices can be rounded off to the nearest cent. So, maybe prices are actually discrete value. But usually, we think of the price of a house as a real number, as a scalar value, as a continuous value number, and the term regression refers to the fact that we're trying to predict the sort of continuous values attribute." title="Housing price prediction" width="350" >
+    </a>
+    + Supervised Learning: “right answers” given
+    + Regression: Predict continuous valued output (price)
+
++ Example: Breast cancer (malignant, benign)
+    <a href="https://d3c33hcgiwev3.cloudfront.net/_974fa7509d583eabb592839f9716fe25_Lecture1.pdf?Expires=1551916800&Signature=ZILTvhlOrgYPbYCg2v6JSsVxuBZg9vGodmWHRP2AoVvslmHGtRsc1o2NcR-jjK11JlkES5mvnO1BTPj2e0~IcGTOd3aT5EzTp0UI~LkQrFv2Hyuh-k409wRbIfazVUprsf9bafSxFFzsYKkJMMt1MhbzP5MvMdZqYMpI~sCunE0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
+        <img style="background-color: black" src="images/m01-02.png" alt="Let's say you want to look at medical records and try to predict of a breast cancer as malignant or benign. If someone discovers a breast tumor, a lump in their breast, a malignant tumor is a tumor that is harmful and dangerous, and a benign tumor is a tumor that is harmless. So obviously, people care a lot about this. Let's see collected data set. Suppose you are in your dataset, you have on your horizontal axis the size of the tumor, and on the vertical axis, I'm going to plot one or zero, yes or no, whether or not these are examples of tumors we've seen before are malignant, which is one, or zero or not malignant or benign. So, let's say your dataset looks like this, where we saw a tumor of this size that turned out to be benign, one of this size, one of this size, and so on. Sadly, we also saw a few malignant tumors cell, one of that size, one of that size, one of that size, so on. So in this example, I have five examples of benign tumors shown down here, and five examples of malignant tumors shown with a vertical axis value of one. Let's say a friend who tragically has a breast tumor, and let's say her breast tumor size is maybe somewhere around this value, the Machine Learning question is, can you estimate what is the probability, what's the chance that a tumor as malignant versus benign? To introduce a bit more terminology, this is an example of a classification problem. The term classification refers to the fact, that here, we're trying to predict a discrete value output zero or one, malignant or benign. It turns out that in classification problems, sometimes you can have more than two possible values for the output. As a concrete example, maybe there are three types of breast cancers. So, you may try to predict a discrete value output zero, one, two, or three, where zero may mean benign, benign tumor, so no cancer, and one may mean type one cancer, maybe three types of cancer, whatever type one means, and two mean a second type of cancer, and three may mean a third type of cancer. But this will also be a classification problem because this are the discrete value set of output corresponding to you're no cancer, or cancer type one, or cancer type two, or cancer types three. In classification problems, there is another way to plot this data. Let me show you what I mean. I'm going to use a slightly different set of symbols to plot this data. So, if tumor size is going to be the attribute that I'm going to use to predict malignancy or benignness, I can also draw my data like this. I'm going to use different symbols to denote my benign and malignant, or my negative and positive examples. So, instead of drawing crosses, I'm now going to draw O's for the benign tumors, like so, and I'm going to keep using X's to denote my malignant tumors. I hope this figure makes sense. All I did was I took my data set on top, and I just mapped it down to this real line like so, and started to use different symbols, circles and crosses to denote malignant versus benign example." title="Breast cancer" width="350" >
+        <img style="background-color: black" src="images/m01-03.png" alt="Here's an example, let's say that instead of just knowing the tumor size, we know both the age of the patients and the tumor size. In that case, maybe your data set would look like this, where I may have a set of patients with those ages, and that tumor size, and they look like this, and different set of patients that look a little different, whose tumors turn out to be malignant as denoted by the crosses. So, let's say you have a friend who tragically has a tumor, and maybe their tumor size and age falls around there. So, given a data set like this, what the learning algorithm might do is fit a straight line to the data to try to separate out the malignant tumors from the benign ones, and so the learning algorithm may decide to put a straight line like that to separate out the two causes of tumors. With this, hopefully we can decide that your friend's tumor is more likely, if it's over there that hopefully your learning algorithm will say that your friend's tumor falls on this benign side and is therefore more likely to be benign than malignant. In this example, we had two features namely, the age of the patient and the size of the tumor. In other Machine Learning problems, we will often have more features. My friends that worked on this problem actually used other features like these, which is clump thickness, clump thickness of the breast tumor, uniformity of cell size of the tumor, uniformity of cell shape the tumor, and so on, and other features as well." title="Breast cancer" width="250" >
+    </a>
+    + Classification: Discrete valued output (0 or 1)
+    + Other features:
+        + Clump Thickness
+        + Uniformity of Cell Size
+        + Uniformity of Cell Shape
+        + ... 
+
++ IVQ: You’re running a company, and you want to develop learning algorithms to address each of two problems. 
+
+    Problem 1:You have a large inventory of identical items. You want to predict how many of these items will sell over the next 3 months.
+
+    Problem 2: You’d like software to examine individual customer accounts, and for each account decide if it has been hacked/compromised. Should you treat these as classification or as regression problems?
+
+    a. Treat both as classification problems.<br/>
+    b. Treat problem 1 as a classification problem, problem 2 as a regression problem.<br/>
+    c. Treat problem 1 as a regression problem, problem 2 as a classification problem.<br/>
+    d. Treat both as regression problems.
+
+    Ans: c <br/>
+    Problem 1: predict  <br/>
+    Problem  2: 0 - not hacked, 1 - hacked -> classification <br/>
+
+In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
+
+Supervised learning problems are categorized into "regression" and "classification" problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.
+
+Example 1:
+
+    Given data about the size of houses on the real estate market, try to predict their price. Price as a function of size is a continuous output, so this is a regression problem.
+
+    We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.
+
+Example 2:
+
+    (a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture
+
+    (b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign.
+
+
+
+### Lecture Video
+
+<video src="https://d3c33hcgiwev3.cloudfront.net/01.3-V2-Introduction-SupervisedLearning.d4483f80b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1551916800&Signature=W6rFP3cUULdys2keNOnJqqySSQsa5HWdrzVha~I-pveoXZMzgtrGHvm~yhcJkvsnQZzSHykBS519t66~8izBPitvIqg9Mq9ubV2XPlMwPRHKB6O7lwfykHnHcFdBrZSNImDL1KqPB44aYK8wU8twDSqOFiPAzoSmxY1lXYPg9Oc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/qOhuT5u6Sv2obk-bugr9Gw?expiry=1551916800000&hmac=cmHqG5w5IPF_t6_VVECgK36Sc0BJlUnsyD4SOyuWR6o&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
 ## Unsupervised Learning
