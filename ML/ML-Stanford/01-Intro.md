@@ -195,9 +195,9 @@ Example:
 </video>
 
 
-## Lecture Slides
+## Review
 
-### [Week 1 Lecture Notes](https://www.coursera.org/learn/machine-learning/resources/JXWWS)
+### [Lecture Slides](https://www.coursera.org/learn/machine-learning/resources/JXWWS)
 
 #### What is Machine Learning?
 
@@ -255,7 +255,7 @@ Non-clustering: The "Cocktail Party Algorithm", which can find structure in mess
 
 
 
-### Errata Week 1
+### Errata
 
 + Supervised Learning: 1:25: Describing the curve as quadratic is confusing since the independent variable is price, but the plot's X-axis represents area.
 + Unsupervised Learning: 6:56 - the mouse does not point to the correct audio sample being played on the slide. Each subsequent audio sample has the mouse pointing to the previous sample.
