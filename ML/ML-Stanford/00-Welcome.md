@@ -585,7 +585,7 @@ Be sure to thank them when you see them in the discussion forums!
 
 ### General Questions
 
-__Q: Is the grader server down?__ A: First step is to check here.
+__Q: Is the grader server down?__ A: First step is to check [here](http://status.coursera.org/).
 
 __Q: The audio in the videos is quite bad sometimes, muffled or low volume. Please fix it.__ A: You can mitigate the audio issues by turning down the bass and up the treble if you have those controls, or using a headset, which naturally emphasizes the higher frequencies. Also you may want to switch on the English closed captioning. It is unlikely to be fixed in the near term because most students do not have serious problems and therefore it is low on the priority list.
 
@@ -601,16 +601,16 @@ __Q: Is there a prerequisite for this course?__ A: Students are expected to have
 
 __Q: Why do we have to use Matlab or Octave? Why not Clojure, Julia, Python, R or [Insert favourite language here]?__ A: As Prof. Ng explained in the 1st video of the Octave tutorial, he has tried teaching Machine Learning in a variety of languages, and found that students come up to speed faster with Matlab/Octave. Therefore the course was designed using Octave/Matlab, and the automatic submission grader uses those program interfaces. Octave and Matlab are optimized for rapid vectorized calculations, which is very useful in Machine Learning. R is a nice tool, but:
 
-1. It is a bit too high level. This course shows how to actually implement the algorithms of machine learning, while R already has them implemented. Since the focus of this course is to show you what happens in ML algorithms under the hood, you need to use Octave 
+1. It is a bit too high level. This course shows how to actually implement the algorithms of machine learning, while R already has them implemented. Since the focus of this course is to show you what happens in ML algorithms under the hood, you need to use Octave.
 2. This course offers some starter code in Octave/Matlab, which will really save you tons of time solving the tasks.
 
-__Q: Has anyone figured out the how to solve this problem? Here is my code [Insert code].__ A: This is a violation of the Coursera Honor Code. Find the Honor Code here.
+__Q: Has anyone figured out the how to solve this problem? Here is my code [Insert code].__ A: This is a violation of the Coursera Honor Code. Find the Honor Code [here](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code).
 
-__Q: I've submitted correct answers for [insert problem]. However I would like to compare my implementation with other who did correctly.__ A: This is a violation of the Coursera Honor Code. Find the Honor Code here.
+__Q: I've submitted correct answers for [insert problem]. However I would like to compare my implementation with other who did correctly.__ A: This is a violation of the Coursera Honor Code. Find the Honor Code [here](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code).
 
-__Q: This is my email: [insert email]. Can we get the answer for the quiz?__ A: This is a violation of the Coursera Honor Code. Find the Honor Code here.
+__Q: This is my email: [insert email]. Can we get the answer for the quiz?__ A: This is a violation of the Coursera Honor Code. Find the Honor Code [here](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code).
 
-__Q: Do I receive a certificate once I complete this course?__ A: Course Certificate is available in this course. Click here to learn about how Course Certificate works and how to purchase.
+__Q: Do I receive a certificate once I complete this course?__ A: Course Certificate is available in this course. Click [here](https://www.coursera.org/certificate/machine-learning) to learn about how Course Certificate works and how to purchase.
 
 __Q: Why do all the answers in a multiple correct question say correct response when you submit the answer to an in-video question?__ A: Coursera's software is designed to suggest the correctness of each state of the check box. Therefore, an answer having a correct answer tag below it means that the state of that check box is correct.
 
