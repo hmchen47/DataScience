@@ -536,3 +536,18 @@ You'll need an X server, which you almost certainly are using in Linux already, 
 
 
 
+## Who are Mentors?
+
+Mentor Program Overview:
+
+Community Mentors are successful, dedicated Coursera learners who volunteer to assist with support and discussion forum moderation in courses that they have already completed. They have been recruited by Coursera to encourage newer learners, answer questions, set an example by posting thoughtful and timely content, and report platform bugs and inappropriate content to Coursera.
+
+As you use the [discussion areas](https://www.coursera.org/learn/machine-learning/discussions), please be aware that the ideas expressed by participants in this course, including the Mentors, do not represent the views of Stanford University. The mentors are not employed by Stanford University and they have not been vetted by Stanford University as experts on course content or course facilitation.
+
+
+
+## Get to Know Your Classmates
+
+
+
+## Frequently Asked Questions
