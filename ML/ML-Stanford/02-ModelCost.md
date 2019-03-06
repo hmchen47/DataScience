@@ -70,6 +70,55 @@ When the target variable that we’re trying to predict is _continuous_, such as
 
 ### Lecture Notes
 
++ Training set -> Linear Regression <br/>
+    Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
+    + $\theta_i$: parameters
+    + How to choose $\theta_i$'s?
+    <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation"> <br/>
+      <img src="images/m02-04.png" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="450" >
+    </a>
+    + IVQ: Consider the plot below of $h_\theta(x) = \theta_0 + \theta_1x$. What are $\theta_0$ and $\theta_1$?
+
+        <a href="url"> <br/>
+            <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="caption" width="150" >
+        </a>
+
+        a. $\theta_0 = 0, \theta_1 = 1$ <br/>
+        b. $\theta_0 = 0.5, \theta_1 = 1$ <br/>
+        c. $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
+        d. $\theta_0 = 1, \theta_1 = 1$
+
+        Ans: b
+
++ The cost function
+  + Idea: Choose $\theta_0$, $\theta_1$ so that $h_\theta (x)$ is close to $y$ for our training examples $(x, y)$
+  + Objective:
+
+    $$\min_{\theta_0, \theta_1} \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
+
+    where $h_\theta (x^{(i)}) = \theta_0 + \theta_1 \cdot x^{(i)}$
+  + Cost function = Squared error function: $J(\theta_0, \theta_1)$
+
+    $$J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
+
+    <br/>
+
+    $$\min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$$
+
+----------------------------------------
+
+We can measure the accuracy of our hypothesis function by using a __cost function__. This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
+
+$$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left ( \hat{y}_{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$$
+ 
+
+To break it apart, it is $\frac{1}{2} \bar{x}$ where $\bar{x}$ is the mean of the squares of $h_\theta (x_{i}) - y_{i}$, or the difference between the predicted value and the actual value.
+
+This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved $\left(\frac{1}{2}\right)$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $\frac{1}{2}$ ​	 term. The following image summarizes what the cost function does:
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/nhzyF/cost-function">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/R2YF5Lj3EeajLxLfjQiSjg_110c901f58043f995a35b31431935290_Screen-Shot-2016-12-02-at-5.23.31-PM.png?expiry=1552003200000&hmac=yrnrGUcnPynJQzUJwxp0F_61mbGjDb6HPGzPJOk5ohs" style="display: block; margin: auto; background-color: black" alt="text" title="Cost Function Analysis" width="450">
+</a>
 
 ### Lecture Video
 
