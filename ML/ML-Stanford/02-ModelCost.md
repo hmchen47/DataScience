@@ -131,13 +131,64 @@ This function is otherwise called the "Squared error function", or "Mean squared
 
 ### Lecture Notes
 
++ Linear Regression
+    + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
+    + Parameters: $\theta_0$, $\theta_1$
+    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+    + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
+
++ Simplified Linear Regression - $\theta_0 = 0$
+    + Hypothesis: $h_\theta (x) = \theta_1 \cdot x$
+    + Parameter: $\theta_1$
+    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ &nbsp;&nbsp; with &nbsp;$h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
+    + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_1)$
+
++ Example: samples - $(1, 1), (2, 2), (3, 3)$
+    + $h_\theta (x)$: $\forall \;$ fixed $\theta_1 \implies$ a function of $x$
+    + $J(\theta_1)$: function of the parameter $\theta_1$
+    + $\displaystyle \theta_1 = 1 \Longrightarrow J(\theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 = \frac{1}{2m} \sum_{i=1}^m (\theta_1 x^{(i)} - y^{(i)})^2 = \frac{1}{2m} (0 + 0 + 0)^2 = 0$.
+    + $\displaystyle \theta_1 = 0.5 \Longrightarrow J(\theta_1) = \frac{1}{2m} [(0.5 - 1)^2 + (1 - 2)^2 + (1.5 - 3)^2] = 0.58$
+    + IVQ: Suppose we have a training set with m=3 examples, plotted below. Our hypothesis representation is $h_\theta(x) = \theta_1 x$, with parameter $\theta_1$. The cost function $J(\theta_1)$ is $J(\theta_1) = \frac{1}{2m} \sum^m_{i=1} (h_\theta (x^{(i)}) - y^{(i)})^2$. What is $J(0)$?
+
+        Ans: $\displaystyle \theta_1 = 0 \Longrightarrow J(0) = \frac{1}{2m} [(0 - 1)^2 + (0 - 2)^2 + (0 - 3)^2] = \frac{1}{6} \cdot 14 \approx 2.3$
+    + Cost Function:
+        <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
+            <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="background-color: black; margin-right: 2em;" alt="Sample values" title="Samples" width="250" >
+            <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/fph0S5tTEeajtg5TyD0vYA_9b28bdfeb34b2d4914d0b64903735cf1_Screenshot-2016-10-26-01.09.05.png?expiry=1552003200000&hmac=Bs3Bof2Tuoxu6hHIq48mjhBGq_eZilTn0oEsYxm8EFQ" style="background-color: black" alt="Cost function" title="Cost function" width="250" >
+        </a>
+
+---------------------------
+
+If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by $h_\theta(x)$ which passes through these scattered data points.
+
+Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of $J(\theta_0, \theta_1)$ will be $0$. The following example shows the ideal situation where we have a cost function of $0$.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/_B8TJZtREea33w76dwnDIg_3e3d4433e32478f8df446d0b6da26c27_Screenshot-2016-10-26-00.57.56.png?expiry=1552003200000&hmac=3jx6NYib8V-a-WwcXcN1QI9yLqv--lI2AT17INmnS9Y" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
+</a>
+
+When $\theta_1 = 1$, we get a slope of $1$ which goes through every single data point in our model. Conversely, when $\theta_1 = 0.5$, we see the vertical distance from our fit to the data points increase.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/8guexptSEeanbxIMvDC87g_3d86874dfd37b8e3c53c9f6cfa94676c_Screenshot-2016-10-26-01.03.07.png?expiry=1552003200000&hmac=qVn9V1G6K8TjG9YOIMmcE2CHRAfI6ng4Kp4HMH1ID3o" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
+</a>
+
+This increases our cost function to 0.58. Plotting several other points yields to the following graph:
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/fph0S5tTEeajtg5TyD0vYA_9b28bdfeb34b2d4914d0b64903735cf1_Screenshot-2016-10-26-01.09.05.png?expiry=1552003200000&hmac=Bs3Bof2Tuoxu6hHIq48mjhBGq_eZilTn0oEsYxm8EFQ" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="250" >
+</a>
+
+Thus as a goal, we should try to minimize the cost function. In this case, $\theta_1 = 1$ is our global minimum.
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/02.3-V2-LinearRegressionWithOneVariable-CostFunctionIntuitionI.b1dc4c20b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1552003200&Signature=HSeW2MqsxSgZG03tokcoijSAUcSWiPPEQJvlwjU5HNzUYd22lToIC8uHqBt1~W8Pli-iUB5MTirXtF-puAPDFIClaOuLliaZiI9~~S8C2KDbHBIkb-KedMyypMFaKWNLwHPTvvFEhe0-bbGgCap5laf2BlYFmjUHCs67gDu45Xs_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/TO-3vcj1Eea4ORI689i_OA?expiry=1552003200000&hmac=An8mckESG8bPNWVKpnB-64UEFawDuUpqoEglCczCLbg&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
+
+<br/>
 
 ## Cost Function - Intuition II
 
