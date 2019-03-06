@@ -22,10 +22,10 @@
 
 ### Lecture Video
 
-<video src="https://d3c33hcgiwev3.cloudfront.net/01.1-V3-Introduction-Welcome.49abef20b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1551916800&Signature=Qa8m7P7kXSOcM2PJ~BeRk3A0b4S-LVATIBZFxlgIbbEkollCLevcEBnsfYiJq~J~n~DXLQl4XLeytpCeQUllz2feuyRvBb220yOKtGkGAoLvDjb1P9URygWS3HHbiSnXeqCtgzBfWA3kWfS2DnPIzWqSzhuWEai-xzylPFIZzfo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180" alt="Welcome">
+<video src="https://d3c33hcgiwev3.cloudfront.net/01.1-V3-Introduction-Welcome.49abef20b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1551916800&Signature=Qa8m7P7kXSOcM2PJ~BeRk3A0b4S-LVATIBZFxlgIbbEkollCLevcEBnsfYiJq~J~n~DXLQl4XLeytpCeQUllz2feuyRvBb220yOKtGkGAoLvDjb1P9URygWS3HHbiSnXeqCtgzBfWA3kWfS2DnPIzWqSzhuWEai-xzylPFIZzfo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180" alt="Welcome">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/OajtTUNVSJqo7U1DVcia_w?expiry=1551916800000&hmac=doYGysJbj4AzkrX31UeeSwa4OvGFWxEVtaXucb3cu30&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
-</video>
+</video><br/>
 
 
 ## What is Machine Learning?
@@ -63,10 +63,10 @@ Supervised learning and Unsupervised learning.
 
 ### Lecture Video
 
-<video src="https://d3c33hcgiwev3.cloudfront.net/IRPs0hQ3EeelIwrMcHgCog.processed/full/360p/index.mp4?Expires=1551916800&Signature=BFHUgjno0G0OyRStcxYdXmab5HFjIJGczhyBeowgH0JSdfiJgR9sWXyxVWbdd15hZVRlLXzCTpKacaTSJd~fjTl60y-2Ao3ZpTqXtE7v~ERI5zFqTxgSkni7KRT80Z2pNjYBQBCjnnsYwRFniy-0NaqNh5-5xMsmfOrsKZA0dA4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+<video src="https://d3c33hcgiwev3.cloudfront.net/IRPs0hQ3EeelIwrMcHgCog.processed/full/360p/index.mp4?Expires=1551916800&Signature=BFHUgjno0G0OyRStcxYdXmab5HFjIJGczhyBeowgH0JSdfiJgR9sWXyxVWbdd15hZVRlLXzCTpKacaTSJd~fjTl60y-2Ao3ZpTqXtE7v~ERI5zFqTxgSkni7KRT80Z2pNjYBQBCjnnsYwRFniy-0NaqNh5-5xMsmfOrsKZA0dA4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Nwmp7RSHEee9zwpiIySM9A?expiry=1551916800000&hmac=w_zH9VmrykQfpuJ5e0r9vgADjKWUi43r3al-Hnbx-lk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
-</video>
+</video> <br/>
 
 
 ## Supervised Learning
@@ -107,6 +107,8 @@ Supervised learning and Unsupervised learning.
     Problem 1: predict  <br/>
     Problem  2: 0 - not hacked, 1 - hacked -> classification <br/>
 
+<br/>
+
 In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
 
 Supervised learning problems are categorized into "regression" and "classification" problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.
@@ -127,7 +129,7 @@ Example 2:
 
 ### Lecture Video
 
-<video src="https://d3c33hcgiwev3.cloudfront.net/01.3-V2-Introduction-SupervisedLearning.d4483f80b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1551916800&Signature=W6rFP3cUULdys2keNOnJqqySSQsa5HWdrzVha~I-pveoXZMzgtrGHvm~yhcJkvsnQZzSHykBS519t66~8izBPitvIqg9Mq9ubV2XPlMwPRHKB6O7lwfykHnHcFdBrZSNImDL1KqPB44aYK8wU8twDSqOFiPAzoSmxY1lXYPg9Oc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+<video src="https://d3c33hcgiwev3.cloudfront.net/01.3-V2-Introduction-SupervisedLearning.d4483f80b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1551916800&Signature=W6rFP3cUULdys2keNOnJqqySSQsa5HWdrzVha~I-pveoXZMzgtrGHvm~yhcJkvsnQZzSHykBS519t66~8izBPitvIqg9Mq9ubV2XPlMwPRHKB6O7lwfykHnHcFdBrZSNImDL1KqPB44aYK8wU8twDSqOFiPAzoSmxY1lXYPg9Oc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/qOhuT5u6Sv2obk-bugr9Gw?expiry=1551916800000&hmac=cmHqG5w5IPF_t6_VVECgK36Sc0BJlUnsyD4SOyuWR6o&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
@@ -135,10 +137,62 @@ Example 2:
 
 ## Unsupervised Learning
 
+### Lecture Notes
+
++ Supervised Learning vs Unsupervised Learning
+    <a href="https://d3c33hcgiwev3.cloudfront.net/_974fa7509d583eabb592839f9716fe25_Lecture1.pdf?Expires=1551916800&Signature=ZILTvhlOrgYPbYCg2v6JSsVxuBZg9vGodmWHRP2AoVvslmHGtRsc1o2NcR-jjK11JlkES5mvnO1BTPj2e0~IcGTOd3aT5EzTp0UI~LkQrFv2Hyuh-k409wRbIfazVUprsf9bafSxFFzsYKkJMMt1MhbzP5MvMdZqYMpI~sCunE0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
+        <img style="background-color: black" src="images/m01-04.png" alt="text" title="Supervised Learning" width="250">
+        <img style="background-color: black" src="images/m01-05.png" alt="txt" title="Unsupervised Learning" width="250">
+    </a>
+    + Supervised: two set of data with labeled values
+    + Unsupervised: data not distinguished prior but mapping into two clusters
+
++ Examples of Unsupervised learning
+    + Googl search: clustering similar news from different sources
+    + DNA microarry data: cluster into different types of people
+    + Organize computing clusters
+    + Social network analysis
+    + Market segmentation
+    + Astronomical data analysis - how galaxies formed
+
++ Cocktail party problem
+    + 2 speakers & 2 microphones
+    + both microphones record both speakers
+    + Problem: separate sources
+    + Algorithm: 
+        ```octave
+        [W,s,v] = svd((repmat(sum(x.*x,1),size(x,1),1).*x)*x');
+        ```
+
++ IVQ: Of the following examples, which would you address using an unsupervised learning algorithm? (Check all that apply.)
+
+    a. Given email labeled as spam/not spam, learn a spam filter. <br/>
+    b. Given a set of news articles found on the web, group them into sets of articles about the same stories.<br/>
+    c. Given a database of customer data, automatically discover market segments and group customers into different market segments.<br/>
+    d. Given a dataset of patients diagnosed as either having diabetes or not, learn to classify new patients as having diabetes or not.
+
+    Ans: bc
+
+<br/>
+
+Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don't necessarily know the effect of the variables.
+
+We can derive this structure by clustering the data based on relationships among the variables in the data.
+
+With unsupervised learning there is no feedback based on the prediction results.
+
+Example:
+
++ Clustering: Take a collection of 1,000,000 different genes, and find a way to automatically group these genes into groups that are somehow similar or related by different variables, such as lifespan, location, roles, and so on.
++ Non-clustering: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environment. (i.e. identifying individual voices and music from a mesh of sounds at a [cocktail party](https://en.wikipedia.org/wiki/Cocktail_party_effect)).
 
 
-## Unsupervised Learning
+### Lecture Video
 
+<video src="https://d3c33hcgiwev3.cloudfront.net/01.4-V2-Introduction-UnsupervisedLearning-FairUse.8f251df0b23611e4af4203f82f647410/full/360p/index.mp4?Expires=1552003200&Signature=OAhO8~SrI4iFkMpszlrmNf8AfABwCGRQkGkG2FVvR4u39iyXGkNJldf0rCjTAQhmOenOZXj88ULpAjz~jNuCzuowui1Q6nUTbY1fDY7Rr2kodb4azA6lLazpcKTjCTS9sm4S8Q5q2jvzQ~-X61XHppIkRpBPszU7SQ0oUlm7uK4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180" style="margin-left: 2em;">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/bGb5mMjxEeaNVw6jIXujBA?expiry=1552003200000&hmac=-T31HJAvMP9gdys9Uggad1Z7-KUfAtcxLRElOKgPoyI&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
 ## Who are Mentors?
