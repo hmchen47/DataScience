@@ -353,19 +353,97 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
 
 ## Gradient Descent Intuition
 
+
 ### Lecture Notes
+
++ Gradient descent algorithm
+  + Repeat until convergence {
+
+      $$\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) \;\; \text{(simultaneously update } i = 0, 1 \text{)}$$
+    }
+    + $\alpha$: learning rate, step size
+    + $\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1$: derivative; sign (+, -) as slope and value as steepness
+  + Concern
+
+      $$\min_{\theta_1} J(\theta_1) \;\; \theta_1 \in \mathcal{R}$$
+  
++ Tagent line & Derivative: $J^\prime (\theta_0, \theta_1) = \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$
+  + $J^\prime (\theta_0, \theta_1) \geq 0$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (positive number)}$
+  + $J^\prime (\theta_0, \theta_1) \leq 0$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (negative number)}$  
+  <a href="http://xaktly.com/TheDerivative.html"> <br/>
+    <img src="http://xaktly.com/Images/Mathematics/TheDerivative/DerivativeOfXSquared.png" style="display: block; margin: auto; background-color: white;" alt="When x < 0, any tangent to the curve will have a negative slope. For points close to zero, the steepness of those slopes approaches zero, and at x = 0, the global minimum of the function, the slope of the tangent is zero. Finally, for x > 0, the slope of the tangent to any point is positive." title="Derivative and tangent line" width="250" >
+  </a>
+
++ Learning rate ($\alpha$)
+  + If $\alpha$ is _too small_, gradient descent can be slow.
+  + If $\alpha$ is _too large_, gradient descent can overshoot the minimum.  It may fail to converge, or even diverge.
+  + IVQ: Suppose $\theta_1$ is at a local optimum of $J(\theta_1)$, such as shown in the figure.
+
+    What will one step of gradient descent $\theta_1 := \theta_1 -\alpha \displaystyle \frac{d}{d \theta_1} J(\theta_1)$ do?
+    <a href="http://xaktly.com/TheDerivative.html"> <br/>
+      <img src="http://spark-public.s3.amazonaws.com/ml/images/2.6-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black;" alt="Local optimal" title="Local Optimal" width="250">
+    </a>
+
+    a. Leave $\theta_1$ unchanged <br/>
+    b. Change $\theta_1$ in a random direction <br/>
+    c. Move $\theta_1$ in the direction of the global minimum of $J(\theta_1)$ <br/>
+    d. Decrease $\theta_1$ <br/>
+​	
+    Ans: a <br/>
+    $J^\prime(\theta_1) = 0$ at $\theta_1$, $\;\therefore \; \theta_1 := \theta_1 - \alpha \cdot 0 = \theta_1$
+
+
++ Gradient descent <br/>
+  Gradient descent can converge to a local minimum, even with the learning rate $\alpha$ fixed.
+
+  $$\theta_1 := \theta_1 - \displaystyle \alpha \frac{d}{d \theta_1} J(\theta_1)$$
+
+  As we approach a local minimum, gradient descent will automa6cally take smaller steps. So, no need to decrease $\alpha$ over time.
+
+
+---------------------------------------------
+
+
+In this video we explored the scenario where we used one parameter $\theta_1$ and plotted its cost function to implement a gradient descent. Our formula for a single parameter was :
+
+Repeat until convergence:
+
+$$\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)$$
+
+Regardless of the slope's sign for $\frac{d}{d\theta_1} J(\theta_1)$, $\theta_1$ eventually converges to its minimum value. The following graph shows that when the slope is negative, the value of $\theta_1$ increases and when it is positive, the value of $\theta_1$ decreases.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/SMSIxKGUEeav5QpTGIv-Pg_ad3404010579ac16068105cfdc8e950a_Screenshot-2016-11-03-00.05.06.png?expiry=1552089600000&hmac=zL8sDtA882iL2Io1e9fp1ENE_xsPiF1S9ZIXc7AT34o" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
+</a>
+
+On a side note, we should adjust our parameter $\alpha$ to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/UJpiD6GWEeai9RKvXdDYag_3c3ad6625a2a4ec8456f421a2f4daf2e_Screenshot-2016-11-03-00.05.27.png?expiry=1552089600000&hmac=UaJgDpXtGhlBr-V7rB527qllW4fV6yyGTkyv50m1Fak" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
+</a>
+
+How does gradient descent converge with a fixed step size $\alpha$?
+The intuition behind the convergence is that $\frac{d}{d\theta_1} J(\theta_1)$ approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
+
+$$\theta_1:=\theta_1-\alpha * 0$$
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition"><br/>
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/RDcJ-KGXEeaVChLw2Vaaug_cb782d34d272321e88f202940c36afe9_Screenshot-2016-11-03-00.06.00.png?expiry=1552089600000&hmac=Ro2ajhHNKiwkBCLeHrVj8umTNqFlz8IV8_MlVL85nl8" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
+</a>
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/02.6-V2-LinearRegressionWithOneVariable-GradientDescentIntuition.c2de3d80b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1552089600&Signature=CLNmMP53U5v4-U~VnPnMDJ1n7aQ-jNELzrJyNeOHCwKqV~lnPkRyqOfwtXdY8-oGOZ6Pl5LfoSSd3R0tDB0QGYwG7WXKNuamefNrVpt-lYT0KwL-t53hMFqcqWURGgQgwCygLkWpYlaMbrZhlP-lSzVnEOoge1prZYtEBsXZSkw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/awiAqv82S6-IgKr_NluvGQ?expiry=1552089600000&hmac=N3KBad8eRVXQHv4U5NHNZaDe1DQMwqo6XhHqhF9pgys&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
-</video>
+</video> <br/>
+
 
 ## Gradient Descent For Linear Regression
 
 ### Lecture Notes
+
 
 
 ### Lecture Video
