@@ -198,7 +198,7 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 + Linear Regression
   + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
     + Parameters: $\theta_0$, $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+    + Cost Function: $\displaystyle J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
     + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
   + Example: $h_\theta (x) = 50 + 0.06 \cdot x$
     <a href="https://www.coursera.org/learn/machine-learning/lecture/nwpe2/cost-function-intuition-ii"> <br/>
@@ -215,7 +215,7 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
       <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/26RZhJ34EeaiZBL80Yza_A_0f38a99c8ceb8aa5b90a5f12136fdf43_Screenshot-2016-10-29-01.14.57.png?expiry=1552089600000&hmac=BqDr2d3GZL3h8tUTwBdHeT7PBqvlPAWB1SFXChKP7KA" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. " title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="285" >
   </a>
 
-+ Minimized cost function
++ Minimized cost function: $\theta_0 = 250$ and $\theta_1 = .12$
 
   <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
       <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hsGgT536Eeai9RKvXdDYag_2a61803b5f4f86d4290b6e878befc44f_Screenshot-2016-10-29-09.59.41.png?expiry=1552089600000&hmac=k28KfhXiOqnzzRcJHIwjyCLSzJ7hqPzkgST2xsergns" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
@@ -255,27 +255,101 @@ The graph above minimizes the cost function as much as possible and consequently
 
 ## Parameter Learning
 
-### Lecture Notes
-
-
-### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video>
 
 ## Gradient Descent
 
 ### Lecture Notes
 
++ Simpliest Gradient descent
+  + Objective: Have some function $J(\theta_0, \theta_1)$ <br/>
+    Want $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
+  + Outline
+    + start with some $\theta_0, \theta_1$
+    + keep changing $\theta_0, \theta_1$ to reduce $J(\theta_0, \theta_1)$ until we hopefully end up with at a minimum
+
++ Generalized gradient decent
+  + Objective: Have some function $J(\Theta)$ where $\Theta = (\theta_0, \theta_1, \ldots, \theta_n)$ <br/>
+    Want $\displaystyle \min_{\Theta} J(\Theta)$
+  + Outline
+    + start with some $\Theta$
+    + keep changing $\Theta$ to reduce $J(\Theta)$ until we hopefully end up with at a minimum
+
++ Examples of Gradient Decent
+  <a href="url"> <br/>
+      <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="310" >
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bn9SyaDIEeav5QpTGIv-Pg_0d06dca3d225f3de8b5a4a7e92254153_Screenshot-2016-11-01-23.48.26.png?expiry=1552089600000&hmac=JlEz_gvm4vxzrv4qHvdM79jBfV6i4M2G-YeRgkDB9tY" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="300" >
+  </a>
+
++ Gradient descent algorithm
+  + Def: repeat until convergence
+
+    $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) \;\; \text{for } j = 0, 1$$
+    + $:=$: assignment, take the right-hand side value asn assign to the symbol right-hand side
+    + $=$: truth association, comparison
+    + $\alpha$: learning rate, step size
+  + Correct: Simultaneous update
+
+    $$\begin{array}{rcl} \text{temp0} & := & \theta_0 - \alpha \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta_1) \\ \\
+    \text{temp1} & := & \theta_1 - \alpha \displaystyle \frac{\partial}{\partial \theta_1} J(\theta_0, \theta_1) \\ \\
+    \theta_0 & := & \text{temp0} \\ \\
+    \theta_1 & := & \text{temp1} \end{array}$$
+  + Incorrect execution order:
+
+    $$\begin{array}{lrcl} 1. &\text{temp0} & := & \theta_0 - \alpha \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta_1) \\ \\
+    2. &\theta_0 & := & \text{temp0} \\ \\
+    3. &\text{temp1} & := & \theta_1 - \alpha \displaystyle \frac{\partial}{\partial \theta_1} J(\theta_0, \theta_1) \\ \\
+    4. & \theta_1 & := & \text{temp1} \end{array}$$
+  + IVQ: Suppose $\theta_0= 1$, $\theta_1= 2$, and we simultaneously update $\theta_0$ and $\theta_1$ using the rule: $\theta_j := \theta_j + \sqrt{\theta_0 \theta_1}$ (for j = 0 and j=1) What are the resulting values of $\theta_0$ and $\theta_1$?
+
+      a. $\theta_0 = 1, \theta_1 =2$ <br/>
+      b. $\theta_0 = 1+\sqrt{2}$, $\theta_1 =2 + \sqrt{2}$ <br/>
+      c. $\theta_0 = 2 + \sqrt{2}$, $\theta_1 =1 + \sqrt{2}$ <br/>
+      d. $\theta_0 = 1+\sqrt{2}$, $\theta_1 =2 + \sqrt{(1 + \sqrt{2})\cdot 2}$ <br/>
+
+      Ans: b
+
+
+-------------------------------------------------
+
+So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate the parameters in the hypothesis function. That's where __gradient descent__ comes in.
+
+Imagine that we graph our hypothesis function based on its fields $\theta_0$ and $\theta_1$ (actually we are graphing the cost function as a function of the parameter estimates). We are not graphing x and y itself, but the parameter range of our hypothesis function and the cost resulting from selecting a particular set of parameters.
+
+We put $\theta_0$ on the x axis and $\theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters. The graph below depicts such a setup.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bn9SyaDIEeav5QpTGIv-Pg_0d06dca3d225f3de8b5a4a7e92254153_Screenshot-2016-11-01-23.48.26.png?expiry=1552089600000&hmac=JlEz_gvm4vxzrv4qHvdM79jBfV6i4M2G-YeRgkDB9tY" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350" >
+</a>
+
+We will know that we have succeeded when our cost function is at the very bottom of the pits in our graph, i.e. when its value is the minimum. The red arrows show the minimum points in the graph.
+
+The way we do this is by taking the derivative (the tangential line to a function) of our cost function. The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter α, which is called the learning rate.
+
+For example, the distance between each 'star' in the graph above represents a step determined by our parameter α. A smaller α would result in a smaller step and a larger α results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0,\theta_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.
+
+The gradient descent algorithm is:
+
+repeat until convergence:
+
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+
+where $j=0,1$ represents the feature index number.
+
+At each iteration j, one should simultaneously update the parameters $\theta_1, \theta_2,\cdots,\theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/yr-D1aDMEeai9RKvXdDYag_627e5ab52d5ff941c0fcc741c2b162a0_Screenshot-2016-11-02-00.19.56.png?expiry=1552089600000&hmac=xG3dZq13G0Z6bFReQHcR34QVWgKpGkeGjCWfaQ6S2hU" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="450" >
+</a>
+
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/02.5-V2-LinearRegressionWithOneVariable-GradientDescent.c89f04c0b22b11e4964ea1de90934151/full/360p/index.mp4?Expires=1552089600&Signature=OYexzUWHuwS-sEwyjF5QPgFtbtz8NuDt1NNwnkOYR~jrgO~hPVx~H1xVVdE2I58APwHu8yctYhYJ~HVXeIUtW81sXtnw5bRPN5veRU3KO-MhXyw09cWWA-Pw5ViNyzGgY7DB-TIgIwfT5QLF86X4kYjyb6b6-THcF576BoCZsmw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/hxyZ4qoIQbacmeKqCIG2-g?expiry=1552089600000&hmac=3bFuP_SKsOc5I3K_RmTXgw1dJmv2TAcD0cIwJTimJXY&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
+
+<br/>
 
 ## Gradient Descent Intuition
 
