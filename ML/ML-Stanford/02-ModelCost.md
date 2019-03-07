@@ -134,19 +134,19 @@ This function is otherwise called the "Squared error function", or "Mean squared
 + Linear Regression
     + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
     + Parameters: $\theta_0$, $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
     + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
 
 + Simplified Linear Regression - $\theta_0 = 0$
     + Hypothesis: $h_\theta (x) = \theta_1 \cdot x$
     + Parameter: $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ &nbsp;&nbsp; with &nbsp;$h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
+    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ &nbsp;&nbsp; with &nbsp;$h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
     + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_1)$
 
 + Example: samples - $(1, 1), (2, 2), (3, 3)$
     + $h_\theta (x)$: $\forall \;$ fixed $\theta_1 \implies$ a function of $x$
     + $J(\theta_1)$: function of the parameter $\theta_1$
-    + $\displaystyle \theta_1 = 1 \Longrightarrow J(\theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 = \frac{1}{2m} \sum_{i=1}^m (\theta_1 x^{(i)} - y^{(i)})^2 = \frac{1}{2m} (0 + 0 + 0)^2 = 0$.
+    + $\displaystyle \theta_1 = 1 \Longrightarrow J(\theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 = \displaystyle \frac{1}{2m} \sum_{i=1}^m (\theta_1 x^{(i)} - y^{(i)})^2 = \frac{1}{2m} (0 + 0 + 0)^2 = 0$.
     + $\displaystyle \theta_1 = 0.5 \Longrightarrow J(\theta_1) = \frac{1}{2m} [(0.5 - 1)^2 + (1 - 2)^2 + (1.5 - 3)^2] = 0.58$
     + IVQ: Suppose we have a training set with m=3 examples, plotted below. Our hypothesis representation is $h_\theta(x) = \theta_1 x$, with parameter $\theta_1$. The cost function $J(\theta_1)$ is $J(\theta_1) = \frac{1}{2m} \sum^m_{i=1} (h_\theta (x^{(i)}) - y^{(i)})^2$. What is $J(0)$?
 
@@ -156,6 +156,7 @@ This function is otherwise called the "Squared error function", or "Mean squared
             <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="background-color: black; margin-right: 2em;" alt="Sample values" title="Samples" width="250" >
             <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/fph0S5tTEeajtg5TyD0vYA_9b28bdfeb34b2d4914d0b64903735cf1_Screenshot-2016-10-26-01.09.05.png?expiry=1552003200000&hmac=Bs3Bof2Tuoxu6hHIq48mjhBGq_eZilTn0oEsYxm8EFQ" style="background-color: black" alt="Cost function" title="Cost function" width="250" >
         </a>
+    + Simplified hypothesis: $\theta_1 = 1$ with minimized cost function
 
 ---------------------------
 
@@ -194,6 +195,54 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 
 ### Lecture Notes
 
++ Linear Regression
+  + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
+    + Parameters: $\theta_0$, $\theta_1$
+    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+    + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
+  + Example: $h_\theta (x) = 50 + 0.06 \cdot x$
+    <a href="https://www.coursera.org/learn/machine-learning/lecture/nwpe2/cost-function-intuition-ii"> <br/>
+      <img src="images/m02-05.png" alt="Samples, Cost Function" title="Linear regression: 50 + 0.06x" width="300">
+      <img src="images/m02-06.png" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="260">
+    </a>
+
++ Examples of Cost Function with $\theta_0$ & $\theta_1$
+  + $\theta_0 = 800$ and $\theta_1 = -0.15$ (left fig)
+  + $\theta_0 = 360$ and $\theta_1 = 0$ (right fig)
+
+  <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/N2oKYp2wEeaVChLw2Vaaug_d4d1c5b1c90578b32a6672e3b7e4b3a4_Screenshot-2016-10-29-01.14.37.png?expiry=1552089600000&hmac=gYmT8EQiUJeiGPlZ_4W7fJySu6qHvu2x0K8sEdcxEhI" alt="Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="300">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/26RZhJ34EeaiZBL80Yza_A_0f38a99c8ceb8aa5b90a5f12136fdf43_Screenshot-2016-10-29-01.14.57.png?expiry=1552089600000&hmac=BqDr2d3GZL3h8tUTwBdHeT7PBqvlPAWB1SFXChKP7KA" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. " title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="285" >
+  </a>
+
++ Minimized cost function
+
+  <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hsGgT536Eeai9RKvXdDYag_2a61803b5f4f86d4290b6e878befc44f_Screenshot-2016-10-29-09.59.41.png?expiry=1552089600000&hmac=k28KfhXiOqnzzRcJHIwjyCLSzJ7hqPzkgST2xsergns" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
+  </a>
+
+----------------------------------
+
+A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line. An example of such a graph is the one to the right below.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/N2oKYp2wEeaVChLw2Vaaug_d4d1c5b1c90578b32a6672e3b7e4b3a4_Screenshot-2016-10-29-01.14.37.png?expiry=1552089600000&hmac=gYmT8EQiUJeiGPlZ_4W7fJySu6qHvu2x0K8sEdcxEhI" style="display: block; margin: auto; background-color: black;" alt="the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Vaueof cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350">
+</a>
+
+Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$. Taking another $h(x)$ and plotting its contour plot, one gets the following graphs:
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/26RZhJ34EeaiZBL80Yza_A_0f38a99c8ceb8aa5b90a5f12136fdf43_Screenshot-2016-10-29-01.14.57.png?expiry=1552089600000&hmac=BqDr2d3GZL3h8tUTwBdHeT7PBqvlPAWB1SFXChKP7KA" style="display: block; margin: auto; background-color: black;" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350" >
+</a>
+
+When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hsGgT536Eeai9RKvXdDYag_2a61803b5f4f86d4290b6e878befc44f_Screenshot-2016-10-29-09.59.41.png?expiry=1552089600000&hmac=k28KfhXiOqnzzRcJHIwjyCLSzJ7hqPzkgST2xsergns" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
+</a>
+
+The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most 'circle'.
+
 
 ### Lecture Video
 
@@ -201,6 +250,8 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
+
+<br/>
 
 ## Parameter Learning
 
