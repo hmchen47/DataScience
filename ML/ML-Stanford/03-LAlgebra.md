@@ -112,11 +112,107 @@
 
 ### Lecture Slides
 
+#### ML:Linear Algebra Review
+
+Khan Academy has excellent [Linear Algebra Tutorials](https://www.khanacademy.org/#linear-algebra)
+
+#### Matrices and Vectors
+
+Matrices are 2-dimensional arrays:
+
+$$\left [ \begin{array}{ccc}
+    a & b & c \\ d & e & f \\ g & h & i \\ j & k & l
+\end{array} \right ]$$
+
+The above matrix has four rows and three columns, so it is a 4 x 3 matrix.
+
+A vector is a matrix with one column and many rows:
+
+$$\left [ \begin{array}{c} w \\ x\\ y\\ z \end{array} \right ]$$
+
+So vectors are a subset of matrices. The above vector is a 4 x 1 matrix.
+
+__Notation and terms:__
+
++ $A_{ij}$ refers to the element in the ith row and jth column of matrix $A$.
++ A vector with 'n' rows is referred to as an 'n'-dimensional vector
++ $v_i$ refers to the element in the ith row of the vector.
++ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.
++ Matrices are usually denoted by uppercase names while vectors are lowercase.
++ "Scalar" means that an object is a single value, not a vector or matrix.
++ $\mathbb{R}$ refers to the set of scalar real numbers
++ $\mathbb{R^n}$ refers to the set of n-dimensional vectors of real numbers
+
+
+#### Addition and Scalar Multiplication
+
+Addition and subtraction are __element-wise__, so you simply add or subtract each corresponding element:
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] + \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a+w & b+x \\ c+y & d+z \end{array} \right ]$$
+
+To add or subtract two matrices, their dimensions must be __the same__.
+
+In scalar multiplication, we simply multiply every element by the scalar value:
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] * x = \left [ \begin{array}{cc} a*x & b*x \\ c*x & d*x \end{array} \right ]$$
+
+
+#### Matrix-Vector Multiplication
+
+We map the column of the vector onto each row of the matrix, multiplying each element and summing the result.
+
+$$ \left [ \begin{array}{cc} a & b \\ c & d \\ e & f \end{array} \right ] * \left [ \begin{array}{c} x \\ y \end{array} \right ] = \left [ \begin{array}{cc} a*x + b*y \\ c*x + d*y \\ e*x+f*y \end{array} \right ]$$
+
+The result is a __vector__. The vector must be the __second__ term of the multiplication. The number of __columns__ of the matrix must equal the number of __rows__ of the vector.
+
+An __m x n matrix__ multiplied by an __n x 1__ vector results in an __m x 1__ vector.
+
+
+#### Matrix-Matrix Multiplication
+
+We multiply two matrices by breaking it into several vector multiplications and concatenating the result
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \\ e & f \end{array} \right ] * \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a*w + b*y & a*x+b*z \\ c*w+d*y & dc*x+d*z \\ e*w+f*y & e*x+f*z \end{array} \right ] $$
+
+An __m x n matrix__ multiplied by an __n x o matrix__ results in an __m x o__ matrix. In the above example, a 3 x 2 matrix times a 2 x 2 matrix resulted in a 3 x 2 matrix.
+
+To multiply two matrices, the number of __columns__ of the first matrix must equal the number of __rows__ of the second matrix.
+
+#### Matrix Multiplication Properties
+
++ Not commutative. $A∗B \neq B∗A$
++ Associative. $(A∗B)∗C=A∗(B∗C)$
+
+The __identity matrix__, when multiplied by any matrix of the same dimensions, results in the original matrix. It's just like multiplying numbers by 1. The identity matrix simply has 1's on the diagonal (upper left to lower right diagonal) and 0's elsewhere.
+
+$$\left [ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array} \right ] $$
+
+When multiplying the identity matrix after some matrix $(A∗I)$, the square identity matrix should match the other matrix's __columns__. When multiplying the identity matrix before some other matrix $(I∗A)$, the square identity matrix should match the other matrix's __rows__.
+
+
+#### Inverse and Transpose
+
+The __inverse__ of a matrix A is denoted A−1. Multiplying by the inverse results in the identity matrix.
+
+A non square matrix does not have an inverse matrix. We can compute inverses of matrices in octave with the pinv(A) function [1] and in matlab with the inv(A) function. Matrices that don't have an inverse are singular or degenerate.
+
+The __transposition__ of a matrix is like rotating the matrix 90° in clockwise direction and then reversing it. We can compute transposition of matrices in matlab with the transpose(A) function or A':
+
+$$A = \left [ \begin{array}{cc} a & b \\ c & d \\ e & f \end{array} \right ]$$
+
+$$ A^T = \left [ \begin{array}{ccc} a & c & e \\ b & d & f \end{array} \right ]$$
 
 
 
 ### Errata
 
+#### Linear Algebra Review
+
++ Matrix-Matrix Multiplication: 7:14 to 7:33 - While exploring a matrix multiplication, Andrew solved the problem correctly below, but when he tried to rewrite the answer in the original problem, one of the numbers was written incorrectly. The correct result was (matrix 9 15) and (matrix 7 12), but when it was rewritten above it was written as (matrix 9 15) and (matrix 4 12). The 4 should have been a 7. (Thanks to John Kemp and others). This has been partially corrected in the video - third subresult matrix shows 7 but the sound is still 4 for both subresult and result matrices. Subtitle at 6:48 should be “two is seven and two”, and subtitle at 7:14 should be “seven twelve and you”.
++ 3.4: Matrix-Matrix Multiplication: 8:12 - Andrew says that the matrix on the bottom left shows the housing prices, but those are the house sizes as written above
++ 3.6: Transpose and Inverse: 9:23 - While demonstrating a transpose, an example was used to identify B(subscript 12) and A(subscript 21). The correct number 3 was circled in both cases above, but when it was written below, it was written as a 2. The 2 should have been a 3. (Thanks to John Kemp and others)
+Addition and scalar multiplication video
+Spanish subtitles for this video are wrong. Seems that those subtitles are from another video.
 
 
 
