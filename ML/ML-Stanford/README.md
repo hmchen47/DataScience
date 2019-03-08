@@ -44,4 +44,17 @@
 + [Quiz: Linear Regression with One Variable](02-ModelCost.md#)
 
 
+## Linear Algebra Review
+
++ [Matrices and Vectors](03-LAlgebra.md#)
++ [Addition and Scalar Multiplication](03-LAlgebra.md#)
++ [Matrix Vector Multiplication](03-LAlgebra.md#)
++ [Matrix Matrix Multiplication](03-LAlgebra.md#)
++ [Matrix Multiplication Properties](03-LAlgebra.md#)
++ [Inverse and Transpose](03-LAlgebra.md#)
++ [Review](03-LAlgebra.md#)
++ [Lecture Slides](03-LAlgebra.md#)
++ [Errata](03-LAlgebra.md#)
++ [Practice Quiz: Linear Algebra](03-LAlgebra.md#)
+
 
