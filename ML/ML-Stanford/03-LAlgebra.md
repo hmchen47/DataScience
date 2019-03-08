@@ -56,17 +56,13 @@
 
 Matrices are 2-dimensional arrays:
 
-$$\left [ \begin{array}{ccc}
-    a & b & c \\ d & e & f \\ g & h & i \\ j & k & l
-\end{array} \right ]$$
+$$\left [ \begin{array}{ccc} a & b & c \\ d & e & f \\ g & h & i \\ j & k & l \end{array} \right ]$$
 
 The above matrix has four rows and three columns, so it is a $4 \times 3$ matrix.
 
 A vector is a matrix with one column and many rows:
 
-$$\left [ \begin{array}{c}
-    w \\ x \\ y \\ z 
-\end{array} \right ]$$
+$$\left [ \begin{array}{c}  w \\ x \\ y \\ z \end{array} \right ]$$
 
 So vectors are a subset of matrices. The above vector is a $4 \times 1$ matrix.
 
@@ -96,7 +92,7 @@ v = [1;2;3]
 % You could also store it this way
 dim_A = size(A)
 
-% Get the dimension of the vector v 
+% Get the dimension of the vector v
 dim_v = size(v)
 
 % Now let's index into the 2nd row 3rd column of matrix A
@@ -106,8 +102,8 @@ A_23 = A(2,3)
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/03.1-V2-LinearAlgebraReview%28Optional%29-MatricesAndVectors.3248b0c0b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1552176000&Signature=Q34XxhHAnk-M21exAsvwr7yc3pOziJ3NQrNKm9-RKojjdZowpZq0sTNNByKp0hp6WMungsT6vMZUQfeLHYG~MgjNoy2cgX~cMmFcv6QjHNqf0OL-3KI7qkpX~qehA2b5ssNNVTtphe-duB0T4PeXmmks6YFOEBVI0XHILGDJB30_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/QBUzAug0SeaVMwLoNJnmKg?expiry=1552176000000&hmac=yWMBD-0chszweNWWR9lIo5tbEc1gvkPIMxE-lEYLJXM&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
@@ -118,14 +114,97 @@ A_23 = A(2,3)
 
 ### Lecture Notes
 
++ Matrix Addition
+
+    $$\left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] + \left [ \begin{array}{cc} 4 & 0.5 \\ 2 5 \\ 0 & 1 \end{array} \right ] = \left [ \begin{array}{cc} 5 & 0.5 \\ 4 & 3 \\ 3 & 2 \end{array} \right ]$$
+
+    $$3 \times 2 \text{ matrix   } + 3 \times 2 \text{ matrix   } = 3 \times 2 \text{ matrix   }$$
+
+    <br/>
+
+    $$\left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] + \left [ \begin{array}{cc} 4 & 0.5 \\ 2 & 5 \end{array} \right ] = \text{ error }$$
+
+    $$3 \times 2 \text{ matrix    } + 2 \times 2 \text{ matrix     } = \text{error}$$
+
++ IVQ: what is $\left [ \begin{array}{ccc} 8 & 6 & 9 \\ 10 & 1 & 10 \end{array} \right ] + \left [ \begin{array}{ccc} 3 & 10 & 2 \\ 6 & 1 &-1 \end{array} \right ]$?
+
+    Ans: $\left [ \begin{array}{ccc} 11 & 16 & 11 \\ 16 & 2 7 9 \end{array} \right ]$
+
++ Scalar Multiplication
+
+    $$3 \times \left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] = \left [ \begin{array}{cc} 3 & 0 \\ 6 & 15 \\ 9 & 3 \end{array} \right ] = \left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] \times 3$$
+
+    <br/>
+
+    $$\left [ \begin{array}{cc} 4 & 0 \\ 6 & 3 \end{array} \right ] / 4 = \frac{1}{4} \times \left [ \begin{array}{cc} 4 & 0 \\ 6 & 3 \end{array} \right ] = \left [ \begin{array}{cc} 1 & 0 \\ 2/3 & 3/4 \end{array} \right ]$$
+
++ IVQ: What is $2 \times \left [ \begin{array}{cc} 4 & 5 \\ 1 & 7 \end{array} \right ]$?
+
+    Ans: $\left [ \begin{array}{cc} 8 & 10 \\ 2 & 14 \end{array} \right ]$
+
++ Combination of Operands
+
+    $$3 \times \left [ \begin{array}{c} 1\\ 4 \\ 2 \end{array} \right ] + \left [ \begin{array}{c} 0 \\ 0 \\ 5 \end{array} \right ] - \left [ \begin{array}{c} 3 \\ 0 \\ 2 \end{array} \right ] / 3 = \left [ \begin{array}{c} 3\\12\\6 \end{array} \right ] + \left [ \begin{array}{c} 0\\0\\5 \end{array} \right ] - \left [ \begin{array}{c} 1\\0\\2/3 \end{array} \right ] = \left [ \begin{array}{c} 2\\12\\10 \frac{1}{3} \end{array} \right ]$$
+    <br/>
+    + Operation order: scalar multiplication & scalar division > matrix/vector addition & subtraction
+    + 3 x 1 matrix; 3-dimensional vector
+
++ IVQ: What is $\left [ \begin{array}{c} 4\\6\\7 \end{array} \right ] / 2 - 3 \times \left [ \begin{array}{c} 3\\1\\0 \end{array} \right ]$?
+
+    Ans: $\left [ \begin{array}{c} -4\\0\\3.5 \end{array} \right ]$
+
 
 -------------------------------
+
+Addition and subtraction are __element-wise__, so you simply add or subtract each corresponding element:
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] + \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a+w & b+x \\ c+y & d+z \end{array} \right ]$$
+
+Subtracting Matrices:
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] - \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a-w & b-x \\ c-y & d-z \end{array} \right ]$$
+
+To add or subtract two matrices, their dimensions must be __the same__.
+
+In scalar multiplication, we simply multiply every element by the scalar value:
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] * x = \left [ \begin{array}{cc} a*x & b*x \\ c*x & d*x \end{array} \right ]$$
+
+In scalar division, we simply divide every element by the scalar value:
+
+$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] / x = \left [ \begin{array}{cc} a/x & b/x \\ c/x & d/x \end{array} \right ]$$
+
+Experiment below with the Octave/Matlab commands for matrix addition and scalar multiplication. Feel free to try out different commands. Try to write out your answers for each command before running the cell below.
+
+```matlab
+% Initialize matrix A and B
+A = [1, 2, 4; 5, 3, 2]
+B = [1, 3, 4; 1, 1, 1]
+
+% Initialize constant s
+s = 2
+
+% See how element-wise addition works
+add_AB = A + B 
+
+% See how element-wise subtraction works
+sub_AB = A - B
+
+% See how scalar multiplication works
+mult_As = A * s
+
+% Divide A by s
+div_As = A / s
+
+% What happens if we have a Matrix + scalar?
+add_As = A + s
+```
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/03.2-V2-LinearAlgebraReview%28Optional%29-AdditionAndScalarMultiplication.0c7f88a0b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1552176000&Signature=VKo8DujcBmnBkF9KGkX1rZLIcZTGIr~R3bu3fjZa7rYU~EwOVkWbqdBjczdaLg-pJe49qQrZjJwAlET1LlC9YBs6yclGHlCgcafKaDHSkhxIGf128Ens-jt21qpF4xx7-58NbhJmQV3oQrQmqMCCeYRXL8bTYJdgy-mR2Qgt9~c_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/WfU8T8Y5RCC1PE_GObQg8Q?expiry=1552176000000&hmac=LEb3Y6ja93I-sBpOOv3jar40XHl0iRhstrRjePxafe0&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
