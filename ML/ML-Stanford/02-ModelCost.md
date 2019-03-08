@@ -51,7 +51,7 @@ To establish notation for future use, we’ll use $x^{(i)}$ to denote the “inp
 To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function $h : X \implies Y$ so that $h(x)$ is a “good” predictor for the corresponding value of $y$. For historical reasons, this function $h$ is called a __hypothesis__. Seen pictorially, the process is therefore like this:
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation"> <br/>
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/H6qTdZmYEeaagxL7xdFKxA_2f0f671110e8f7446bb2b5b2f75a8874_Screenshot-2016-10-23-20.14.58.png?expiry=1552003200000&hmac=04jS07nGMhKt8IEBPIDY0EvFbbQUXPyTxOfRcEr3-pg" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="300" >
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/H6qTdZmYEeaagxL7xdFKxA_2f0f671110e8f7446bb2b5b2f75a8874_Screenshot-2016-10-23-20.14.58.png?expiry=1552176000000&hmac=-0haGepDY4YkcB8_5PR0P6cOD6sLIu3yC4KVOGriORI" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="300" >
 </a>
 
 When the target variable that we’re trying to predict is _continuous_, such as in our housing example, we call the learning problem a __regression problem__. When $y$ can take on only a small number of _discrete_ values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a __classification problem__.
@@ -687,6 +687,84 @@ Some may find the following [video](https://www.youtube.com/watch?v=WnqQrPNYz5Q)
 
 ## Quiz: Linear Regression with One Variable
 
+1. Consider the problem of predicting how well a student does in her second year of college/university, given how well she did in her first year.
 
+    Specifically, let $x$ be equal to the number of "A" grades (including A-. A and A+ grades) that a student receives in their first year of college (freshmen year). We would like to predict the value of y, which we define as the number of "A" grades they get in their second year (sophomore year).
+
+    Here each row is one training example. Recall that in linear regression, our hypothesis is $h_\theta(x) = \theta_0 + \theta_1x$, and we use mm to denote the number of training examples.
+
+    <img src="https://d396qusza40orc.cloudfront.net/flex-ml/quizIIq1v2.png" alt="Q1" width="100" style="display: block; margin: auto;">
+
+    For the training set given above (note that this training set may also be referenced in other questions in this quiz), what is the value of $m$? In the box below, please enter your answer (which should be a number between 0 and 10).
+
+    Ans: 4
+
+
+2. Consider the following training set of m=4m=4 training examples:
+
+    <table><tbody><tr><th style="width: 5em;">&nbsp;&nbsp;&nbsp;x  &nbsp;&nbsp;</td><th style="width: 5em;">  &nbsp;&nbsp;&nbsp;y  &nbsp;&nbsp;</td></tr><tr><td> &nbsp;&nbsp; 1 &nbsp;&nbsp; </td><td> &nbsp;&nbsp; 0.5 &nbsp;&nbsp; </td></tr><tr><td> &nbsp;&nbsp; 2 &nbsp;&nbsp;  </td><td> &nbsp;&nbsp; 1 &nbsp;&nbsp; </td></tr><tr><td> &nbsp;&nbsp; 4 &nbsp;&nbsp; </td><td> &nbsp;&nbsp; 2 &nbsp;&nbsp; </td></tr><tr><td> &nbsp;&nbsp; 0 &nbsp;&nbsp; </td><td> &nbsp;&nbsp; 0  &nbsp;&nbsp;</td></tr></tbody></table>
+
+    Consider the linear regression model $h_\theta(x) = \theta_0 + \theta_1x$. What are the values of $\theta_0$ and $\theta_1$ that you would expect to obtain upon running gradient descent on this model? (Linear regression will be able to fit this data perfectly.)
+
+    a. $\theta_0 = 0,\; \theta_1 = 0.5$ <br/>
+    b. $\theta_0 = 1, \; \theta_1 = 1$ <br/>
+    c. $\theta_0 = 0.5, \; \theta_1 = 0.5$ <br/>
+    d. $\theta_0 = 0.5, \; \theta_1 = 0$ <br/>
+    e. $\theta_0 = 1, \; \theta_1 = 0.5$
+
+    Ans: a
+
+
+3. Suppose we set $\theta_0 = 0, \; \theta_1 = 1.5$ in the linear regression hypothesis from Q1. What is $h_{\theta}(2)$?
+
+    Ans: 3
+
+3. Suppose we set $\theta_0 = -1$, \$theta_1 = 0.5$. What is $h_{\theta}(4)$?
+
+    Ans: 1
+
+
+4. Let $f$ be some function so that $f(\theta_0, \theta_1)$ outputs a number. For this problem, $f$ is some arbitrary/unknown smooth function (not necessarily the cost function of linear regression, so $f$ may have local optima).
+
+    Suppose we use gradient descent to try to minimize $f(\theta_0, \theta_1)$ as a function of$\theta_0$ and $\theta_1$. Which of the following statements are true? (Check all that apply.)
+
+    1. No matter how $\theta_0$ and $\theta_1$ are initialized, so long as $\alpha$ is sufficiently small, we can safely expect gradient descent to converge to the same solution. <br/>
+    2. If $\theta_0$ and $\theta_1$ are initialized at the global minimum, then one iteration will not change their values. <br/>
+    3. If the first few iterations of gradient descent cause $f(\theta_0, \theta_1)$ to increase rather than decrease, then the most likely cause is that we have set learning rate $\alpha$ to too large a value. <br/>
+    4. Setting the learning rate $\alpha$ to be very small is not harmful, and can only speed up the convergence of gradient descent.
+    5. Even if the learning rate \alphaα is very large, every iteration of gradient descent will decrease the value of $f(\theta_0, \theta_1)$
+    6. If the learning rate is too small, then gradient descent may take a very long time to converge.
+    7. If $\theta_0$ and $\theta_1$ are initialized so that $\theta_0 = \theta_1$, then by symmetry (because we do simultaneous updates to the two parameters), after one iteration of gradient descent, we will still have $\theta_0 = \theta_1$.
+    8. If $\theta_0$ and $\theta_1$ are initialized at a local minimum, then one iteration will not change their values.
+
+    Ans: 23, 68
+
+
+5. Suppose that for some linear regression problem (say, predicting housing prices as in the lecture), we have some training set, and for our training set we managed to find some $\theta_0$, $\theta_1$ such that $J(\theta_0, \theta_1)=0$.
+
+    Which of the statements below must then be true? (Check all that apply.)
+
+    1. Our training set can be fit perfectly by a straight line, i.e., all of our training examples lie perfectly on some straight line. 
+    2. For this to be true, we must have $\theta_0 = 0$ and $\theta_1 = 0$, so that $h_\theta(x) = 0$ 
+    3. For this to be true, we must have $y^{(i)} = 0$ for every value of $i = 1, 2, \ldots, m$ 
+    4. Gradient descent is likely to get stuck at a local minimum and fail to find the global minimum.
+    5. This is not possible: By the definition of $J(\theta_0, \theta_1)$, it is not possible for there to exist $\theta_0$ and $\theta_1$ so that $J(\theta_0, \theta_1) = 0$ 
+    6. We can perfectly predict the value of $y$ even for new examples that we have not yet seen. (e.g., we can perfectly predict prices of even new houses that we have not yet seen.)
+    7. For these values of $\theta_0$ and $\theta_1$ that satisfy $J(\theta_0, \theta_1) = 0$, we have that $h_\theta(x^{(i)}) = y^{(i)}$
+
+    Ans: 47, x14, x67
+
+6. Many substances that can burn (such as gasoline and alcohol) have a chemical structure based on carbon atoms; for this reason they are called hydrocarbons. A chemist wants to understand how the number of carbon atoms in a molecule affects how much energy is released when that molecule combusts (meaning that it is burned). The chemist obtains the dataset below. In the column on the right, “kJ/mol” is the unit measuring the amount of energy released.
+
+    <img src="https://d396qusza40orc.cloudfront.net/ml/images/2.2-quiz1.png" style="display:block; margin: auto;" width="500">
+
+    You would like to use linear regression $(h_{\theta}(x) = \theta_0 + \theta_1 x$ to estimate the amount of energy released ($y$) as a function of the number of carbon atoms ($x$). Which of the following do you think will be the values you obtain for $\theta_0$ and $\theta_1$? You should be able to select the right answer without actually implementing linear regression.
+
+    1. $\theta_0 = -1780.0, \theta_1 = -530.9$
+    2. $\theta_0 = -1780.0, \theta_1 = 530.9$
+    3. $\theta_0 = -569.6, \theta_1 = -530.9$
+    4. $\theta_0 = -569.6, \theta_1 = 530.9$
+
+    Ans: 3
 
 
