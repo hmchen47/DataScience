@@ -633,6 +633,38 @@ Spanish subtitles for this video are wrong. Seems that those subtitles are from 
 
 ## Practice Quiz: Linear Algebra
 
+1. Let two matrices be $A = \begin{bmatrix} 1&−4\\-2&1 \end{bmatrix}, \;\;\;\;\;\;\;\;\;\; B = \begin{bmatrix} 0&3\\5&8 \end{bmatrix}$. What is $A - B$?
+
+    Ans: $\begin{bmatrix} 1&-7\\-7&-7 \end{bmatrix}$
+
+
+2. Let $x = \begin{bmatrix} 8\\2\\5\\1 \end{bmatrix}$.  Whatis $2*x$?
+
+    Ans: $\begin{bmatrix} 16\\4\\10\\2 \end{bmatrix}$<br/>
+    To multiply the vector x by 2, take each element of x and multiply that element by 2.
+
+
+3. Let $u$ be a 3-dimensional vector, where specifically $u = \begin{bmatrix} 8\\1\\4 \end{bmatrix}$.  What is $u^T$?
+
+    Ans: $\begin{bmatrix} 8&1&4 \end{bmatrix}$
+
+
+4. Let $u$ and $v$ be 3-dimensional vectors, where specifically $u = \begin{bmatrix} -3\\4\\3 \end{bmatrix}$ and $v = \begin{bmatrix} 3 \\1\\5 \end{bmatrix}$. What $u^Tv$ is?
+
+    Ans: 10
+
+
+5. Let $A$ and $B$ be 3x3 (square) matrices. Which of the following must necessarily hold true? Check all that apply.
+
+    1. If $A$ is the 3x3 identity matrix, then $A * B = B * A$
+    2. $A * B = B * A$
+    3. $A + B = B + A$
+    4. $A*B*A = B*A*B$
+
+    Ans: 13
+    1. Even though matrix multiplication is not commutative in general ($A*B \neq B*A$ for general matrices $A$, $B$), for the special case where $A=I$, we have $A*B = I*B = B$, and also $B*A = B*I = B$. So, $A*B = B*A$.
+    3. We add matrices element-wise. So, this must be true.
+
 
 
 
