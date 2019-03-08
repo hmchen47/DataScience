@@ -393,12 +393,12 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
     $J^\prime(\theta_1) = 0$ at $\theta_1$, $\;\therefore \; \theta_1 := \theta_1 - \alpha \cdot 0 = \theta_1$
 
 
-+ Gradient descent <br/>
++ Gradient descent operation <br/>
   Gradient descent can converge to a local minimum, even with the learning rate $\alpha$ fixed.
 
   $$\theta_1 := \theta_1 - \displaystyle \alpha \frac{d}{d \theta_1} J(\theta_1)$$
 
-  As we approach a local minimum, gradient descent will automa6cally take smaller steps. So, no need to decrease $\alpha$ over time.
+  As we approach a local minimum, gradient descent will automatically take smaller steps. So, no need to decrease $\alpha$ over time.
 
 
 ---------------------------------------------
@@ -444,12 +444,123 @@ $$\theta_1:=\theta_1-\alpha * 0$$
 
 ### Lecture Notes
 
++ Gradient descent algorithm
+
+  repeat until convergence: {
+
+    $$\begin{array}{rcl} \theta_0 & := & \theta_0 - \alpha \displaystyle \sum_{i=1}^m (h_\theta(x_i) - y_i) \\ \\ \theta_1 & := & \theta_1 - \alpha \displaystyle \sum_{i=1}^m ((h_\theta(x_i) - y_i) \cdot x_i)\end{array}$$
+  }
+
++ Linear Regression Model: 
+
+  $$h_\theta (x) = \theta_0 + \theta_1 \cdot x$$
+  
+  <br/>
+
+  $$J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
+
+  Apply gradient descent algorithm to linear regression: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta1)$
+
+  <br/>
+
+  $$\begin{array}{rcl} \displaystyle
+    \frac{\partial}{\partial \theta_0, \theta_1} & = & \displaystyle \frac{2}{\partial \theta_j} \frac{1}{2m} \sum_{i=1}^{m} (h_\theta (x^{(i)}) - y^{(i)})^2 \\\\
+    & = & \displaystyle \frac{2}{\partial \theta_j} \frac{1}{2m} \displaystyle \sum_{i=1}^m (\theta_0 + \theta_1 \cdot x^{(i)} - y^{(i)})^2
+  \end{array}$$
+
+  Therefor,
+
+  $$\begin{array}{rcl}
+    j = 0 & : & \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta1) = \frac{1}{m} \sum_{i=0}^m (h_\theta (x^{(i)}) y{(i)}) \\ \\
+    j = 1 & : & \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta1) = \frac{1}{m} \sum_{i=0}^m (h_\theta (x^{(i)}) y{(i)}) \cdot x^{(i)}
+  \end{array}$$
+
++ Gradient descent algorithm updated with linear regression result
+
+  repeat until convergence: {
+
+    $$\begin{array}{rcl} \theta_0 & := & \theta_0 - \alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \\ \\ \theta_1 & := & \theta_1 - \alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}\end{array}$$
+  }
+
+  update $\theta_0$ and $\theta_1$ simultaneously, where
+  + $\displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta_1) = \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})$
+  + $\displaystyle \frac{\partial}{\partial \theta_1} J(\theta_0, \theta_1) = \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x^{(i)}$
+
+  + Illustration of gradient descent algorithm w/ different starting point
+
+    <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
+      <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="300" >
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bn9SyaDIEeav5QpTGIv-Pg_0d06dca3d225f3de8b5a4a7e92254153_Screenshot-2016-11-01-23.48.26.png?expiry=1552089600000&hmac=JlEz_gvm4vxzrv4qHvdM79jBfV6i4M2G-YeRgkDB9tY" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="290" >
+    </a>
+  + Convex function: bowl-shaped
+    <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
+      <img src="images/m02-06.png" style="display: block; margin: auto; background-color: black;" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="300">
+    </a>
+
+  + Example process of gradient descent
+    <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression"> <br/>
+      <img src="images/m02-09.png" alt="$Initial: \theta_0 = 900, \theta = -0.1" title="Fig. 1: $\theta_0 = 900, \theta = -0.1" width="300" >
+      <img src="images/m02-10.png" alt="Fig.2" title="Fig.2" width="300"><br/>
+      <img src="images/m02-11.png" alt="Fig.3" title="Fig.3" width="300">
+      <img src="images/m02-12.png" alt="Fig.4" title="Fig.4" width="300"><br/>
+      <img src="images/m02-13.png" alt="Fig.5" title="Fig.5" width="300">
+      <img src="images/m02-14.png" alt="Fig.6" title="Fig.6" width="300"><br/>
+      <img src="images/m02-15.png" alt="Fig.7" title="Fig.7" width="300">
+      <img src="images/m02-16.png" alt="Fig.8" title="Fig.8" width="300">
+  </a>
+
++ "Batch" Gradient Descent <br/>
+  "Batch": Each step of gradient descent uses all the training examples, i.e.,
+
+  $$\displaystyle \sum_{i=0}^m (h_\theta (x^{(i)}) - y^{(i)})$$
+
++ IVQ:Which of the following are true statements? Select all that apply.
+
+  a. To make gradient descent converge, we must slowly decrease $\alpha$ over time. <br/>
+  b. Gradient descent is guaranteed to find the global minimum for any function $J(\theta_0, \theta_1)$. <br/>
+  c. Gradient descent can converge even if $\alpha$ is kept fixed. (But $\alpha$ cannot be too large, or else it may fail to converge.) <br/>
+  d. For the specific choice of cost function $J(\theta_0, \theta_1)$ used in linear regression, there are no local optima (other than the global optimum). <br/>
+
+  Ans: cd
+
+--------------------------------------------
+
+
+When specifically applied to the case of linear regression, a new form of the gradient descent equation can be derived. We can substitute our actual cost function and our actual hypothesis function and modify the equation to :
+
+repeat until convergence: {
+  
+  $$\begin{array}{rcl} \theta_0 & := & \theta_0 - \alpha \displaystyle \sum_{i=1}^m (h_\theta(x_i) - y_i) \\ \\ \theta_1 & := & \theta_1 - \alpha \displaystyle \sum_{i=1}^m ((h_\theta(x_i) - y_i) \cdot x_i)\end{array}$$
+}
+
+where m is the size of the training set, $\theta_0$ a constant that will be changing simultaneously with $\theta_1$ and $x_{i}, y_{i}$ are values of the given training set (data).
+
+Note that we have separated out the two cases for $\theta_j$ into separate equations for $\theta_0$ and $\theta_1$; and that for $\theta_1$ we are multiplying $x_{i}$ at the end due to the derivative. The following is a derivation of $\displaystyle \frac {\partial}{\partial \theta_j}J(\theta)$ for a single example:
+
+
+$$\begin{array}{rcl} 
+  \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \displaystyle \frac{\partial}{\partial \theta_j} \dfrac{1}{2} (h_\theta (x) - y)^2 \\\\
+  & = & 2 \cdot \dfrac{1}{2} (h_\theta (x) - y) \cdot \dfrac{\partial}{\partial \theta_j} (h_\theta (x) - y) \\\\
+  & = & (h_\theta (x) - y) \cdot \dfrac{\partial}{\partial \theta_j} (\displaystyle \sum_{i=0}^n \theta_i x_i - y) \\\\
+  & = & (h_\theta (x) - y) \cdot x_i
+\end{array}$$
+
+
+The point of all this is that if we start with a guess for our hypothesis and then repeatedly apply these gradient descent equations, our hypothesis will become more and more accurate.
+
+So, this is simply gradient descent on the original cost function $J$. This method looks at every example in the entire training set on every step, and is called __batch gradient descent__. Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate $\alpha$ is not too large) to the global minimum. Indeed, $J$ is a convex quadratic function. Here is an example of gradient descent as it is run to minimize a quadratic function.
+
+<a href="https://www.coursera.org/learn/machine-learning/supplement/U90DX/gradient-descent-for-linear-regression">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/xAQBlqaaEeawbAp5ByfpEg_24e9420f16fdd758ccb7097788f879e7_Screenshot-2016-11-09-08.36.49.png?expiry=1552089600000&hmac=bM2ybGZOElsSQIr7XMM2VnuXIHgxq-kniI3Hj8jx2FU" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="250" >
+</a>
+
+The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at $(48,30)$. The x’s in the figure (joined by straight lines) mark the successive values of $\theta$ that gradient descent went through as it converged to its minimum.
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/02.7-V2-LinearRegressionWithOneVariable-GradientDescentForLinearRegression.c6037250b22b11e498c1339642deb798/full/360p/index.mp4?Expires=1552089600&Signature=C01Zmsq7bE3hhaFmISs3QqMQ9Ybr2A7CAn3gTLLpR2OgOnvayjInAMbu3OBLyEHK~oiIntLCGLcAaG808ZYNQFwNbd8bEjWW5JYQZ1PazCObBjnYtpRojkjijtMWEcnS673URoCEU0oaqD3IpSUZGe8mkcP5SpcP~kLekERv2vY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/heZjCswQEeaTLA5NOVzoSA?expiry=1552089600000&hmac=yRCwfL9tc7QN2kea9HbNCQ1kvluS-YzHZVh4kAAfeXI&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video> <br/>
 
