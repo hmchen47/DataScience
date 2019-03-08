@@ -4,8 +4,104 @@
 
 ### Lecture Notes
 
++ __Matrix__: Rectangular array of numbers:
+
+    $$\left[ \begin{array}{cc} 1420 & 191 \\ 1271 & 821 \\         949 & 1437 \\ 147 & 1448 \end{array} \right] \Longrightarrow \mathbb{R}^{4 \times 2}, 4 \times 2 \text{ matrix} \;\;\;\;\;\;\;\; \left[ \begin{array}{ccc} 1 & 2 & 3 \\ 4 & 5 & 6 \end{array} \right] \Longrightarrow \mathbb{R}^{2 \times 3}, 2 \times 3 \text{ matrix}$$
+
+    __Dimension of matrix__: number of rows x number oof 
+
++ IVQ: Which of the following statements are true? Check all that apply.
+
+    1. $\displaystyle \left[ \begin{array}{cc} 1 & 2 \\ 4 & 0 \\ 0 & 1 \end{array} \right]$ is a $3\times2$ matrix.
+    2. $\displaystyle \left[ \begin{array}{cccc} 0 & 1 & 4 & 2 \\ 3 & 4 & 0 & 9 \end{array} \right]$ is a $x \times 2$ matrix
+    3. $\left[ \begin{array}{ccc} 0 & 4 & 2 \\ 3 & 4 & 9 \\ 5 & -1 & 0 \end{array} \right]$ is a $3 \times 3$ matrix
+    4. $\left[ \begin{array}{c} 1 & 2 \end{array} \right]$ is a $1 \times 2$ matrix
+
+    Ans: 134
+
++ __Matrix Elements__ (entries of matrix)
+
+    $$A = \left[ \begin{array}{cc} 1420 & 191 \\ 1271 & 821 \\ 949 & 1437 \\ 147 & 1448 \end{array} \right] $$  
+
+    $A_{ij} = \text{"}i, j \text{entry"}$ in the $i^{th}$ row, $j^{th}$ column
+
+    $A_{11} = 1402, A_{12} = 192, A_{32} = 1437, A_{41} = 147$ and $A_{43} =$ undefined (error)
+
++ IVQ: Let A be a matrix shown below. $A_{32}$ is one of the elements of this matrix.
+
+    $$A = \left[ \begin{array}{cccc} 85 & 76 & 66 & 5 \\ 94 & 75 & 18 & 28 \\ 68 & 40 & 71 & 5 \end{array} \right]$$
+
+    What is the value of $A_{32}$?
+
+    1. 18
+    2. 28
+    3. 76
+    4. 40
+
+    Ans: 4
+
+
++ __Vector__: an $n x 1$ matrix
+
+    $$y = \left[ \begin{array}{c} 460 \\ 232 \\ 315 \\ 178 \end{array} \right] \Longrightarrow \mathbb{R}^4, n = 4, 4-\text{dimensional  vector}$$
+
+    + $y_i = i^{th}$ element: $y_1 = 460, y_2 = 232, y_3 = 315$
+    + 1-indexed vs 0-indexed:
+
+        $$y = \left[ \begin{array}{c} y_1 \\ y_2 \\y_3 \\ y_4 \end{array} \right] \Longrightarrow y[1], \text{1-indexed} \;\;\;\;\;\;\;\;\;\;\;\; y = \left[ \begin{array}{c} y_0 \\ y_1 \\y_2 \\ y_3 \end{array} \right] \Longrightarrow y[0], \text{0-indexed}$$
+    + Notation: $A, B, C, D, \ldots$ as vector, $a, b, c, d, \ldots$ as scalar/number or element 
+
 
 -------------------------------
+
+Matrices are 2-dimensional arrays:
+
+$$\left [ \begin{array}{ccc}
+    a & b & c \\ d & e & f \\ g & h & i \\ j & k & l
+\end{array} \right ]$$
+
+The above matrix has four rows and three columns, so it is a $4 \times 3$ matrix.
+
+A vector is a matrix with one column and many rows:
+
+$$\left [ \begin{array}{c}
+    w \\ x \\ y \\ z 
+\end{array} \right ]$$
+
+So vectors are a subset of matrices. The above vector is a $4 \times 1$ matrix.
+
+Notation and terms:
+
++ $A_{ij}$ refers to the element in the $i^{th}$ row and $j^{th}$ column of matrix $A$.
++ A vector with 'n' rows is referred to as an 'n'-dimensional vector.
++ $v_i$ refers to the element in the $i^{th}$ row of the vector.
++ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.
+Matrices are usually denoted by uppercase names while vectors are lowercase.
++ "Scalar" means that an object is a single value, not a vector or matrix.
++ $\mathbb{R}$ refers to the set of scalar real numbers.
++ $\mathbb{R^n}$ refers to the set of n-dimensional vectors of real numbers.
+
+Run the cell below to get familiar with the commands in Octave/Matlab. Feel free to create matrices and vectors and try out different things.
+
+```matlab
+% The ; denotes we are going back to a new row.
+A = [1, 2, 3; 4, 5, 6; 7, 8, 9; 10, 11, 12]
+
+% Initialize a vector
+v = [1;2;3]
+
+% Get the dimension of the matrix A where m = rows and n = columns
+[m,n] = size(A)
+
+% You could also store it this way
+dim_A = size(A)
+
+% Get the dimension of the vector v 
+dim_v = size(v)
+
+% Now let's index into the 2nd row 3rd column of matrix A
+A_23 = A(2,3)
+```
 
 
 ### Lecture Video
