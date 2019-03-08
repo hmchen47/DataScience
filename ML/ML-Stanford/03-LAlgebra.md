@@ -385,14 +385,76 @@ mult_AB = A*B
 
 ### Lecture Notes
 
++ Commutative property
+    + Let $A$ and $B$ be matrices.  Then in general $A \times B \neq B \times A \Longrightarrow \text{not commutative}$
+    + Ssame dimension: Counter example
+
+        $$\begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} 0 & 0 \\ 2 & 0 \end{bmatrix} = \begin{bmatrix} 2 & 0 \\ 0 & 0 \end{bmatrix} \neq \begin{bmatrix} 0 & 0 \\ 2 & 2 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 2 & 0 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix}$$
+    + Different dimensions: $A_{m \times n}$  and $B_{n \times m}$
+
+        $$\begin{array}{rcl} A_{nm} \times B_{mn} = C_{nn} & \Longrightarrow & n \times n \text{ matrix} \\ B_{mn} \times A_{nm} = D_{mm} & \Longrightarrow & m \times m \text{ matrix} \end{array}$$
+
++ Associative property
+    + Let $A$, $B$ and $C$ be matrices. $A \times (B \times C) = (A \times B) \times C \Longrightarrow \text{ associatve}$
+    + Proof (simplified):
+        + Let $D = B \times C$. Computer $A \times D$
+        + Let $E = A \times B$. Computer $E \times C$
+        + $A \times D = E \times C$
+
++ Identity Matrix
+    + Denoted $I$ or $I_{n \times n}$; 1 is identity $\in \mathbb{R}$
+    + Examples of identity matrices
+
+        $I_{2\times2} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \;\;\;\;\; I_{3\times 3} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \;\;\;\;\; I_{4\times 4} = \begin{bmatrix} 1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0 \\ 0&0&0&1\end{bmatrix} \;\;\;\;\; I_{n\times n} = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1\end{bmatrix}$
+    + For any matrix $\displaystyle A_{m \times n}$, $\displaystyle \;\;\;\;A_{m \times n} \cdot I_{n \times n} =  I_{m \times m} \cdot A_{m \times n} = A_{m \times n}$
+    + NB: 
+        + In general: $AB \neq BA$
+        + Identity matrix: $AI = IA$
+    + IVQ: what is $\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix} \times \begin{bmatrix} 1\\3\\2 \end{bmatrix}$?
+
+        Ans: $\begin{bmatrix} 1\\3\\2 \end{bmatrix}$
 
 -------------------------------
+
++ Matrices are not commutative: $A∗B \neq B∗A$
++ Matrices are associative: $(A∗B)∗C=A∗(B∗C)$
+
+The __identity matrix__, when multiplied by any matrix of the same dimensions, results in the original matrix. It's just like multiplying numbers by 1. The identity matrix simply has 1's on the diagonal (upper left to lower right diagonal) and 0's elsewhere.
+
+$$\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}$$
+
+When multiplying the identity matrix after some matrix (A∗I), the square identity matrix's dimension should match the other matrix's __columns__. When multiplying the identity matrix before some other matrix (I∗A), the square identity matrix's dimension should match the other matrix's __rows__.
+
+```matlab
+% Initialize random matrices A and B 
+A = [1,2;4,5]
+B = [1,1;0,2]
+
+% Initialize a 2 by 2 identity matrix
+I = eye(2)
+
+% The above notation is the same as I = [1,0;0,1]
+
+% What happens when we multiply I*A ? 
+IA = I*A 
+
+% How about A*I ? 
+AI = A*I 
+
+% Compute A*B 
+AB = A*B 
+
+% Is it equal to B*A? 
+BA = B*A 
+
+% Note that IA = AI but AB != BA
+```
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/03.5-V2-LinearAlgebraReview%28Optional%29-MatrixMultiplicationProperties.c0b73ed0b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1552176000&Signature=QU2PpmNkGFz8BZL2fcINY2ylYs2Gxh4I4CIDtTYkpSVK2gKie6n-4OK6KkWLaJFPLWrE9HyT1Zeoi4xpfVZIHU5toL4KXCFelvgqDeK5I0UYHEvGVonWpVgtUGlWLboGjX0mfZKqy9xVHxYWc0niOaCYkGAvsc-3qo17FyqIx2U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/acd9p-bdQjaHfafm3QI2yg?expiry=1552176000000&hmac=zOMAZT8_vPdljvQa-i2Tt-WQkmyJ90-YOy7EVa8w9-w&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
