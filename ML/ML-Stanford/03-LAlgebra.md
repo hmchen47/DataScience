@@ -4,24 +4,24 @@
 
 ### Lecture Notes
 
-+ __Matrix__: Rectangular array of numbers:
++ __Matrix__: Rectangular bmatrix of numbers:
 
-    $$\left[ \begin{array}{cc} 1420 & 191 \\ 1271 & 821 \\         949 & 1437 \\ 147 & 1448 \end{array} \right] \Longrightarrow \mathbb{R}^{4 \times 2}, 4 \times 2 \text{ matrix} \;\;\;\;\;\;\;\; \left[ \begin{array}{ccc} 1 & 2 & 3 \\ 4 & 5 & 6 \end{array} \right] \Longrightarrow \mathbb{R}^{2 \times 3}, 2 \times 3 \text{ matrix}$$
+    $$\begin{bmatrix} 1420 & 191 \\ 1271 & 821 \\         949 & 1437 \\ 147 & 1448 \end{bmatrix} \Longrightarrow \mathbb{R}^{4 \times 2}, 4 \times 2 \text{ matrix} \;\;\;\;\;\;\;\; \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \Longrightarrow \mathbb{R}^{2 \times 3}, 2 \times 3 \text{ matrix}$$
 
     __Dimension of matrix__: number of rows x number oof 
 
 + IVQ: Which of the following statements are true? Check all that apply.
 
-    1. $\displaystyle \left[ \begin{array}{cc} 1 & 2 \\ 4 & 0 \\ 0 & 1 \end{array} \right]$ is a $3\times2$ matrix.
-    2. $\displaystyle \left[ \begin{array}{cccc} 0 & 1 & 4 & 2 \\ 3 & 4 & 0 & 9 \end{array} \right]$ is a $x \times 2$ matrix
-    3. $\left[ \begin{array}{ccc} 0 & 4 & 2 \\ 3 & 4 & 9 \\ 5 & -1 & 0 \end{array} \right]$ is a $3 \times 3$ matrix
-    4. $\left[ \begin{array}{c} 1 & 2 \end{array} \right]$ is a $1 \times 2$ matrix
+    1. $\displaystyle \begin{bmatrix} 1 & 2 \\ 4 & 0 \\ 0 & 1 \end{bmatrix}$ is a $3\times2$ matrix.
+    2. $\displaystyle \begin{bmatrix} 0 & 1 & 4 & 2 \\ 3 & 4 & 0 & 9 \end{bmatrix}$ is a $x \times 2$ matrix
+    3. $\begin{bmatrix} 0 & 4 & 2 \\ 3 & 4 & 9 \\ 5 & -1 & 0 \end{bmatrix}$ is a $3 \times 3$ matrix
+    4. $\begin{bmatrix} 1 & 2 \end{bmatrix}$ is a $1 \times 2$ matrix
 
     Ans: 134
 
 + __Matrix Elements__ (entries of matrix)
 
-    $$A = \left[ \begin{array}{cc} 1420 & 191 \\ 1271 & 821 \\ 949 & 1437 \\ 147 & 1448 \end{array} \right] $$  
+    $$A = \begin{bmatrix} 1420 & 191 \\ 1271 & 821 \\ 949 & 1437 \\ 147 & 1448 \end{bmatrix} $$  
 
     $A_{ij} = \text{"}i, j \text{entry"}$ in the $i^{th}$ row, $j^{th}$ column
 
@@ -29,7 +29,7 @@
 
 + IVQ: Let A be a matrix shown below. $A_{32}$ is one of the elements of this matrix.
 
-    $$A = \left[ \begin{array}{cccc} 85 & 76 & 66 & 5 \\ 94 & 75 & 18 & 28 \\ 68 & 40 & 71 & 5 \end{array} \right]$$
+    $$A = \begin{bmatrix} 85 & 76 & 66 & 5 \\ 94 & 75 & 18 & 28 \\ 68 & 40 & 71 & 5 \end{bmatrix}$$
 
     What is the value of $A_{32}$?
 
@@ -43,26 +43,26 @@
 
 + __Vector__: an $n x 1$ matrix
 
-    $$y = \left[ \begin{array}{c} 460 \\ 232 \\ 315 \\ 178 \end{array} \right] \Longrightarrow \mathbb{R}^4, n = 4, 4-\text{dimensional  vector}$$
+    $$y = \begin{bmatrix} 460 \\ 232 \\ 315 \\ 178 \end{bmatrix} \Longrightarrow \mathbb{R}^4, n = 4, 4-\text{dimensional  vector}$$
 
     + $y_i = i^{th}$ element: $y_1 = 460, y_2 = 232, y_3 = 315$
     + 1-indexed vs 0-indexed:
 
-        $$y = \left[ \begin{array}{c} y_1 \\ y_2 \\y_3 \\ y_4 \end{array} \right] \Longrightarrow y[1], \text{1-indexed} \;\;\;\;\;\;\;\;\;\;\;\; y = \left[ \begin{array}{c} y_0 \\ y_1 \\y_2 \\ y_3 \end{array} \right] \Longrightarrow y[0], \text{0-indexed}$$
+        $$y = \begin{bmatrix} y_1 \\ y_2 \\y_3 \\ y_4 \end{bmatrix} \Longrightarrow y[1], \text{1-indexed} \;\;\;\;\;\;\;\;\;\;\;\; y = \begin{bmatrix} y_0 \\ y_1 \\y_2 \\ y_3 \end{bmatrix} \Longrightarrow y[0], \text{0-indexed}$$
     + Notation: $A, B, C, D, \ldots$ as vector, $a, b, c, d, \ldots$ as scalar/number or element 
 
 
 -------------------------------
 
-Matrices are 2-dimensional arrays:
+Matrices are 2-dimensional bmatrixs:
 
-$$\left [ \begin{array}{ccc} a & b & c \\ d & e & f \\ g & h & i \\ j & k & l \end{array} \right ]$$
+$$\begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \\ j & k & l \end{bmatrix}$$
 
 The above matrix has four rows and three columns, so it is a $4 \times 3$ matrix.
 
 A vector is a matrix with one column and many rows:
 
-$$\left [ \begin{array}{c}  w \\ x \\ y \\ z \end{array} \right ]$$
+$$\begin{bmatrix}  w \\ x \\ y \\ z \end{bmatrix}$$
 
 So vectors are a subset of matrices. The above vector is a $4 \times 1$ matrix.
 
@@ -71,7 +71,7 @@ Notation and terms:
 + $A_{ij}$ refers to the element in the $i^{th}$ row and $j^{th}$ column of matrix $A$.
 + A vector with 'n' rows is referred to as an 'n'-dimensional vector.
 + $v_i$ refers to the element in the $i^{th}$ row of the vector.
-+ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.
++ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the bmatrixs are 0-indexed.
 Matrices are usually denoted by uppercase names while vectors are lowercase.
 + "Scalar" means that an object is a single value, not a vector or matrix.
 + $\mathbb{R}$ refers to the set of scalar real numbers.
@@ -116,63 +116,63 @@ A_23 = A(2,3)
 
 + Matrix Addition
 
-    $$\left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] + \left [ \begin{array}{cc} 4 & 0.5 \\ 2 5 \\ 0 & 1 \end{array} \right ] = \left [ \begin{array}{cc} 5 & 0.5 \\ 4 & 3 \\ 3 & 2 \end{array} \right ]$$
+    $$\begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \;\;\; + \;\;\;\begin{bmatrix} 4 & 0.5 \\ 2 5 \\ 0 & 1 \end{bmatrix} \;\;\; = \;\;\; \begin{bmatrix} 5 & 0.5 \\ 4 & 3 \\ 3 & 2 \end{bmatrix}$$
 
     $$3 \times 2 \text{ matrix   } + 3 \times 2 \text{ matrix   } = 3 \times 2 \text{ matrix   }$$
 
     <br/>
 
-    $$\left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] + \left [ \begin{array}{cc} 4 & 0.5 \\ 2 & 5 \end{array} \right ] = \text{ error }$$
+    $$\begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \;\;\; + \;\;\; \begin{bmatrix} 4 & 0.5 \\ 2 & 5 \end{bmatrix} \;\;\; = \;\;\; \text{ error }$$
 
     $$3 \times 2 \text{ matrix    } + 2 \times 2 \text{ matrix     } = \text{error}$$
 
-+ IVQ: what is $\left [ \begin{array}{ccc} 8 & 6 & 9 \\ 10 & 1 & 10 \end{array} \right ] + \left [ \begin{array}{ccc} 3 & 10 & 2 \\ 6 & 1 &-1 \end{array} \right ]$?
++ IVQ: what is $\begin{bmatrix} 8 & 6 & 9 \\ 10 & 1 & 10 \end{bmatrix} + \begin{bmatrix} 3 & 10 & 2 \\ 6 & 1 &-1 \end{bmatrix}$?
 
-    Ans: $\left [ \begin{array}{ccc} 11 & 16 & 11 \\ 16 & 2 7 9 \end{array} \right ]$
+    Ans: $\begin{bmatrix} 11 & 16 & 11 \\ 16 & 2 7 9 \end{bmatrix}$
 
 + Scalar Multiplication
 
-    $$3 \times \left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] = \left [ \begin{array}{cc} 3 & 0 \\ 6 & 15 \\ 9 & 3 \end{array} \right ] = \left [ \begin{array}{cc} 1 & 0 \\ 2 & 5 \\3 & 1 \end{array} \right ] \times 3$$
+    $$3 \times \begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} = \begin{bmatrix} 3 & 0 \\ 6 & 15 \\ 9 & 3 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \times 3$$
 
     <br/>
 
-    $$\left [ \begin{array}{cc} 4 & 0 \\ 6 & 3 \end{array} \right ] / 4 = \frac{1}{4} \times \left [ \begin{array}{cc} 4 & 0 \\ 6 & 3 \end{array} \right ] = \left [ \begin{array}{cc} 1 & 0 \\ 2/3 & 3/4 \end{array} \right ]$$
+    $$\begin{bmatrix} 4 & 0 \\ 6 & 3 \end{bmatrix} / 4 = \frac{1}{4} \times \begin{bmatrix} 4 & 0 \\ 6 & 3 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2/3 & 3/4 \end{bmatrix}$$
 
-+ IVQ: What is $2 \times \left [ \begin{array}{cc} 4 & 5 \\ 1 & 7 \end{array} \right ]$?
++ IVQ: What is $2 \times \begin{bmatrix} 4 & 5 \\ 1 & 7 \end{bmatrix}$?
 
-    Ans: $\left [ \begin{array}{cc} 8 & 10 \\ 2 & 14 \end{array} \right ]$
+    Ans: $\begin{bmatrix} 8 & 10 \\ 2 & 14 \end{bmatrix}$
 
 + Combination of Operands
 
-    $$3 \times \left [ \begin{array}{c} 1\\ 4 \\ 2 \end{array} \right ] + \left [ \begin{array}{c} 0 \\ 0 \\ 5 \end{array} \right ] - \left [ \begin{array}{c} 3 \\ 0 \\ 2 \end{array} \right ] / 3 = \left [ \begin{array}{c} 3\\12\\6 \end{array} \right ] + \left [ \begin{array}{c} 0\\0\\5 \end{array} \right ] - \left [ \begin{array}{c} 1\\0\\2/3 \end{array} \right ] = \left [ \begin{array}{c} 2\\12\\10 \frac{1}{3} \end{array} \right ]$$
+    $$3 \times \begin{bmatrix} 1\\ 4 \\ 2 \end{bmatrix} + \begin{bmatrix} 0 \\ 0 \\ 5 \end{bmatrix} - \begin{bmatrix} 3 \\ 0 \\ 2 \end{bmatrix} / 3 = \begin{bmatrix} 3\\12\\6 \end{bmatrix} + \begin{bmatrix} 0\\0\\5 \end{bmatrix} - \begin{bmatrix} 1\\0\\2/3 \end{bmatrix} = \begin{bmatrix} 2\\12\\10 \frac{1}{3} \end{bmatrix}$$
     <br/>
     + Operation order: scalar multiplication & scalar division > matrix/vector addition & subtraction
     + 3 x 1 matrix; 3-dimensional vector
 
-+ IVQ: What is $\left [ \begin{array}{c} 4\\6\\7 \end{array} \right ] / 2 - 3 \times \left [ \begin{array}{c} 3\\1\\0 \end{array} \right ]$?
++ IVQ: What is $\begin{bmatrix} 4\\6\\7 \end{bmatrix} / 2 - 3 \times \begin{bmatrix} 3\\1\\0 \end{bmatrix}$?
 
-    Ans: $\left [ \begin{array}{c} -4\\0\\3.5 \end{array} \right ]$
+    Ans: $\begin{bmatrix} -4\\0\\3.5 \end{bmatrix}$
 
 
 -------------------------------
 
 Addition and subtraction are __element-wise__, so you simply add or subtract each corresponding element:
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] + \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a+w & b+x \\ c+y & d+z \end{array} \right ]$$
+$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} w & x \\ y & z \end{bmatrix} = \begin{bmatrix} a+w & b+x \\ c+y & d+z \end{bmatrix}$$
 
 Subtracting Matrices:
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] - \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a-w & b-x \\ c-y & d-z \end{array} \right ]$$
+$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} - \begin{bmatrix} w & x \\ y & z \end{bmatrix} = \begin{bmatrix} a-w & b-x \\ c-y & d-z \end{bmatrix}$$
 
 To add or subtract two matrices, their dimensions must be __the same__.
 
 In scalar multiplication, we simply multiply every element by the scalar value:
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] * x = \left [ \begin{array}{cc} a*x & b*x \\ c*x & d*x \end{array} \right ]$$
+$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} * x = \begin{bmatrix} a*x & b*x \\ c*x & d*x \end{bmatrix}$$
 
 In scalar division, we simply divide every element by the scalar value:
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] / x = \left [ \begin{array}{cc} a/x & b/x \\ c/x & d/x \end{array} \right ]$$
+$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} / x = \begin{bmatrix} a/x & b/x \\ c/x & d/x \end{bmatrix}$$
 
 Experiment below with the Octave/Matlab commands for matrix addition and scalar multiplication. Feel free to try out different commands. Try to write out your answers for each command before running the cell below.
 
@@ -215,14 +215,77 @@ add_As = A + s
 
 ### Lecture Notes
 
++ Matrix-Vector Manipulation
+
+    $$\;\;\;\;\;\;\;\;\;\; A \;\;\;\;\;\;\;\;\;\; \times \;\;\; x \;\;\;\; = \;\;\; y$$
+
+    <br/>
+
+    $$\begin{bmatrix} a_{11} & \cdots & a_{1n} \\ \vdots &  \ddots & \vdots \\ a_{m1} & \cdots & a_{mn} \end{bmatrix} \times \begin{bmatrix} x_1 \\ \vdots \\x_{n} \end{bmatrix} = \begin{bmatrix} y_1 \\ \vdots \\y_{m} \end{bmatrix}$$
+
+    $m \times n$ matrix ($m$ rows, $n$ columns) $\times n \times 1$ matrix ($n$-dimensional vector) = $m$-dimensional vector
+
+    To get $y_i$, multiply $A$'s $i^{th}$ row with elements of vector $x$, and add them up, i.e.,
+
+    $$y_i = \sum_{j=1}^n a_{ij} * x_j$$
+
++ Example 1
+
+    $$\begin{bmatrix} 1 & 3 \\ 4 & 0 \\2 & 1 \end{bmatrix} \;\;\; \times \;\;\; \begin{bmatrix} 1 \\ 5 \end{bmatrix} \;\;\; = \;\;\; \begin{bmatrix} 16\\4\\7 \end{bmatrix}$$
+
+    $$3 \times 2 \text{ matrix   }  * 2 \times 1 \text{ vector   } = 3 \times 1 \text{ vector}$$
+
+    $1 * 1 + 3 * 5 = 16$; $4 * 1 + 0 * 5 = 4$; $2 * 1 + 1 * 5 = 7$
+
++ Example 2
+    + IVQ: Consider the product of these two matrices:$\begin{bmatrix} 1 & 2 & 1 & 5 \\ 0 & 3 & 0 & 4 \\-1 & -2 & 0 & \end{bmatrix} \begin{bmatrix} 1\\ 3\\2\\1 \end{bmatrix}$
+
+        What is the dimension of the product?
+
+        Ans: $3 \times 1$
+    + Calculation
+
+        $\begin{bmatrix} 1&2&1&5 \\ 0&3&0&4 \\ -1 & -2 & 0 & 0 \end{bmatrix} \; \begin{bmatrix} 1 \\ 3\\2\\1 \end{bmatrix}  = \begin{bmatrix} 1*1+2*3+1*2+5*1 \\ 0*1+3*3+0*2+4*1 \\ (-1)*1+(-2)*3+0*2+0*1 \end{bmatrix} = \begin{bmatrix} 14\\13\\-7 \end{bmatrix}$
+    + IVQ: What is $\begin{bmatrix} 1 & 0 & 3 \\ 2 & 1 & 5 \\ 3 & 1 7 2 \end{bmatrix} \times \begin{bmatrix} 1\\6\\2 \end{bmatrix}$?
+
+        Ans: $\begin{bmatrix} 7 \\ 18 \\ 13 \end{bmatrix}$
+
++ Example: House price
+    + Hourse size: 2014, 1416, 1534, 853
+    + Hypothesis function: $h_\theta (x) = -40 + 0.25x$
+    + Predicted house price?
+
+        $$\begin{bmatrix} h_\theta(2014) \\ h_\theta(1416) \\ h_\theta(1534) \\ h_\theta(852) \end{bmatrix} = \begin{bmatrix} 1 & 2104 \\ 1 & 1416 \\ 1 & 1534 \\ 1 & 852 \end{bmatrix} \begin{bmatrix} -40 \\ 0.25 \end{bmatrix} = \begin{bmatrix} -40 + 0.25 * 2104 \\ -40 + 0.25 * 1416 \\ -40 + 0.25 * 1534 \\ -40 + 0.25 * 852 \end{bmatrix}$$
+    + Prediction ($4$-dimensional vector) = Data matrix ($4 \times 1$ matrix) * parameters ($2 \times 1$ matrix, $2$-dimsional vector)
+
 
 -------------------------------
 
+We map the column of the vector onto each row of the matrix, multiplying each element and summing the result.
+
+$$\begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix} * \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} a*x+b*y \\ c*x+d*y \\ e*x+f*y \end{bmatrix}$$
+
+The result is a __vector__. The number of __columns__ of the matrix must equal the number of __rows__ of the vector.
+
+An __m x n matrix__ multiplied by an __n x 1__ vector results in an __m x 1 vector__.
+
+Below is an example of a matrix-vector multiplication. Make sure you understand how the multiplication works. Feel free to try different matrix-vector multiplications.
+
+```matlab
+% Initialize matrix A 
+A = [1, 2, 3; 4, 5, 6;7, 8, 9] 
+
+% Initialize vector v 
+v = [1; 1; 1] 
+
+% Multiply A * v
+Av = A * v
+```
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/03.3-V2-LinearAlgebraReview%28Optional%29-MatrixVectorMultiplication.20caffb0b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1552176000&Signature=ABvoiuScr9H2CZEp69aeZrBF-afCrM54rbgwfKpYl-5qBNnsyBWehvUHydq6jo3sb3vpuV7T5RpRjq03Vui0WJCur0TY6pWZ39NcVFlAKxrVpx5M2D2XiZQPjD-2YpnAV4WBHQOoo0cbbQb2KYfTlhkYqeYNXyFde5oXKdF~Xr4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/P654rbDkTI-ueK2w5AyPRg?expiry=1552176000000&hmac=lSYPRja0K2aBRvQLGdBInbAJ7vyFLldn8a_7J92TM8Q&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
@@ -293,17 +356,17 @@ Khan Academy has excellent [Linear Algebra Tutorials](https://www.khanacademy.or
 
 #### Matrices and Vectors
 
-Matrices are 2-dimensional arrays:
+Matrices are 2-dimensional bmatrixs:
 
-$$\left [ \begin{array}{ccc}
+$$\begin{bmatrix}
     a & b & c \\ d & e & f \\ g & h & i \\ j & k & l
-\end{array} \right ]$$
+\end{bmatrix}$$
 
 The above matrix has four rows and three columns, so it is a 4 x 3 matrix.
 
 A vector is a matrix with one column and many rows:
 
-$$\left [ \begin{array}{c} w \\ x\\ y\\ z \end{array} \right ]$$
+$$\begin{bmatrix} w \\ x\\ y\\ z \end{bmatrix}$$
 
 So vectors are a subset of matrices. The above vector is a 4 x 1 matrix.
 
@@ -312,7 +375,7 @@ __Notation and terms:__
 + $A_{ij}$ refers to the element in the ith row and jth column of matrix $A$.
 + A vector with 'n' rows is referred to as an 'n'-dimensional vector
 + $v_i$ refers to the element in the ith row of the vector.
-+ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.
++ In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the bmatrixs are 0-indexed.
 + Matrices are usually denoted by uppercase names while vectors are lowercase.
 + "Scalar" means that an object is a single value, not a vector or matrix.
 + $\mathbb{R}$ refers to the set of scalar real numbers
@@ -323,20 +386,20 @@ __Notation and terms:__
 
 Addition and subtraction are __element-wise__, so you simply add or subtract each corresponding element:
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] + \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a+w & b+x \\ c+y & d+z \end{array} \right ]$$
+$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} w & x \\ y & z \end{bmatrix} = \begin{bmatrix} a+w & b+x \\ c+y & d+z \end{bmatrix}$$
 
 To add or subtract two matrices, their dimensions must be __the same__.
 
 In scalar multiplication, we simply multiply every element by the scalar value:
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \end{array} \right ] * x = \left [ \begin{array}{cc} a*x & b*x \\ c*x & d*x \end{array} \right ]$$
+$$\begin{bmatrix} a & b \\ c & d \end{bmatrix} * x = \begin{bmatrix} a*x & b*x \\ c*x & d*x \end{bmatrix}$$
 
 
 #### Matrix-Vector Multiplication
 
 We map the column of the vector onto each row of the matrix, multiplying each element and summing the result.
 
-$$ \left [ \begin{array}{cc} a & b \\ c & d \\ e & f \end{array} \right ] * \left [ \begin{array}{c} x \\ y \end{array} \right ] = \left [ \begin{array}{cc} a*x + b*y \\ c*x + d*y \\ e*x+f*y \end{array} \right ]$$
+$$ \begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix} * \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} a*x + b*y \\ c*x + d*y \\ e*x+f*y \end{bmatrix}$$
 
 The result is a __vector__. The vector must be the __second__ term of the multiplication. The number of __columns__ of the matrix must equal the number of __rows__ of the vector.
 
@@ -347,7 +410,7 @@ An __m x n matrix__ multiplied by an __n x 1__ vector results in an __m x 1__ ve
 
 We multiply two matrices by breaking it into several vector multiplications and concatenating the result
 
-$$\left [ \begin{array}{cc} a & b \\ c & d \\ e & f \end{array} \right ] * \left [ \begin{array}{cc} w & x \\ y & z \end{array} \right ] = \left [ \begin{array}{cc} a*w + b*y & a*x+b*z \\ c*w+d*y & dc*x+d*z \\ e*w+f*y & e*x+f*z \end{array} \right ] $$
+$$\begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix} * \begin{bmatrix} w & x \\ y & z \end{bmatrix} = \begin{bmatrix} a*w + b*y & a*x+b*z \\ c*w+d*y & dc*x+d*z \\ e*w+f*y & e*x+f*z \end{bmatrix} $$
 
 An __m x n matrix__ multiplied by an __n x o matrix__ results in an __m x o__ matrix. In the above example, a 3 x 2 matrix times a 2 x 2 matrix resulted in a 3 x 2 matrix.
 
@@ -360,7 +423,7 @@ To multiply two matrices, the number of __columns__ of the first matrix must equ
 
 The __identity matrix__, when multiplied by any matrix of the same dimensions, results in the original matrix. It's just like multiplying numbers by 1. The identity matrix simply has 1's on the diagonal (upper left to lower right diagonal) and 0's elsewhere.
 
-$$\left [ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array} \right ] $$
+$$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
 
 When multiplying the identity matrix after some matrix $(A∗I)$, the square identity matrix should match the other matrix's __columns__. When multiplying the identity matrix before some other matrix $(I∗A)$, the square identity matrix should match the other matrix's __rows__.
 
@@ -373,9 +436,9 @@ A non square matrix does not have an inverse matrix. We can compute inverses of 
 
 The __transposition__ of a matrix is like rotating the matrix 90° in clockwise direction and then reversing it. We can compute transposition of matrices in matlab with the transpose(A) function or A':
 
-$$A = \left [ \begin{array}{cc} a & b \\ c & d \\ e & f \end{array} \right ]$$
+$$A = \begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix}$$
 
-$$ A^T = \left [ \begin{array}{ccc} a & c & e \\ b & d & f \end{array} \right ]$$
+$$ A^T = \begin{bmatrix} a & c & e \\ b & d & f \end{bmatrix}$$
 
 
 
