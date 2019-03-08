@@ -1,3 +1,5 @@
+(setq markdown-css-paths '("https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.css"))
+
 # Linear Algebra Review
 
 ## Matrices and Vectors
@@ -227,7 +229,7 @@ add_As = A + s
 
     To get $y_i$, multiply $A$'s $i^{th}$ row with elements of vector $x$, and add them up, i.e.,
 
-    $$y_i = \sum_{j=1}^n a_{ij} * x_j$$
+    $$y_i = \sum_{j=1}^n a_{ij} * x_j, \;\; \text{for } i = 1, 2, \ldots, m$$
 
 + Example 1
 
@@ -296,14 +298,83 @@ Av = A * v
 
 ### Lecture Notes
 
++ Matrix-Matrix Multiplication
+
+    $$A \;\;\;\;\;\;\;\;\;\;\;\; \times \;\;\;\;\;\;\;\;\;\;\;\; B \;\;\;\;\;\;\;\;\;\;\;\;\;\; = \;\;\;\;\;\;\;\;\;\;\;\; C$$
+
+    <br/>
+
+    $$\begin{bmatrix} a_{11} & \cdots & a_{1n} \\ \vdots &  \ddots & \vdots \\ a_{m1} & \cdots & a_{mn} \end{bmatrix} \times \begin{bmatrix} b_{11} & \cdots & b_{n1} \\ \vdots &  \ddots & \vdots \\ b_{o1} & \cdots & b_{on} \end{bmatrix} = \begin{bmatrix} c_{11} & \cdots & c_{1o} \\ \vdots &  \ddots & \vdots \\ c_{m1} & \cdots & c_{mo} \end{bmatrix}$$
+
+    The $i^{th}$ column of the matrix $C$ is obtained by multiplying $A$ with the $i^{th}$ column of $B$. (for $i=1, 2, \ldots, o$), i.e., 
+
+    $$c_{ij} = \sum_{k=1}^n a_{ik} * b_{lj}, \; \text{ for } i = 1, 2, \ldots, m, j = 1, 2, \ldots, o$$
+
++ Example 1
+
+    $\begin{bmatrix} 1&3&2\\0&4&1 \end{bmatrix} * \begin{bmatrix} 1&3\\0&1\\5&2 \end{bmatrix} = \begin{bmatrix} 11&10\\9&14 \end{bmatrix}$
+
+    $\begin{bmatrix} 1&3&2\\0&4&1 \end{bmatrix} * \begin{bmatrix} 1\\0\\5 \end{bmatrix} = \begin{bmatrix} 11\\9 \end{bmatrix}$
+
+    $\begin{bmatrix} 1&3&2\\0&4&1 \end{bmatrix} * \begin{bmatrix} 3\\1\\2 \end{bmatrix} = \begin{bmatrix} 10\\14 \end{bmatrix}$
+
++ Example 2
+
+    $\begin{bmatrix} 1&3\\2&5 \end{bmatrix} * \begin{bmatrix} 0&1\\3&2 \end{bmatrix} = \begin{bmatrix} 9&7\\15&12 \end{bmatrix}$
+
+    $\begin{bmatrix} 1&3\\2&5 \end{bmatrix} * \begin{bmatrix} 0\\3 \end{bmatrix} = \begin{bmatrix} 9\\15 \end{bmatrix}$
+
+    $\begin{bmatrix} 1&3\\2&5 \end{bmatrix} * \begin{bmatrix} 1\\2 \end{bmatrix} = \begin{bmatrix} 7\\12 \end{bmatrix}$
+
++ IVQ: In the equation $\begin{bmatrix} 1&3\\2&4\\0&5 \end{bmatrix} \begin{bmatrix} 1&0\\2&3 \end{bmatrix} = \begin{bmatrix} 7&9\\a&b\\c&d \end{bmatrix}$, what are $a, b, c, \text{ and } d$?
+
+    Ans: 10, 12, 10, 15
+
+
++ Example: House Price with Different Hypothesis Function
+    + Hourse size: 2014, 1416, 1534, 853
+    + Hypothesis functions: 
+        1. $h_\theta (x) = -40 + 0.25x$
+        2. $h_\theta (x) = 200 + 0.1x$
+        3. $h_\theta (x) = -150 + 0.4x$
+    + Predicted house price?
+
+        $\begin{bmatrix} 1 & 2104 \\ 1 & 1416 \\ 1 & 1534 \\ 1 & 852 \end{bmatrix} \times \begin{bmatrix} -40 & 200 & -150 \\ 0.25 & 0.1 & 0.4 \end{bmatrix} = \begin{bmatrix} 486 & 410 & 692 \\ 314 & 342 & 416 \\ 344 & 353 & 464 \\ 172 & 284 & 191 \end{bmatrix}$
+    + Prediction of the $h_\theta$: <br/>
+        First = $\begin{bmatrix} 486 \\ 314 \\ 344 \\ 172 \end{bmatrix} \;\;\;\;\;\;$ 
+        Second = $\begin{bmatrix} 410 \\ 342 \\ 353 \\ 285 \end{bmatrix} \;\;\;\;\;\;$
+        Third = $\begin{bmatrix} 692 \\ 416 \\ 464 \\ 191 \end{bmatrix}$
+
 
 -------------------------------
 
+We multiply two matrices by breaking it into several vector multiplications and concatenating the result.
+
+$$\begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix} * \begin{bmatrix} w & x \\ y & z \end{bmatrix} = \begin{bmatrix} a*w+b*x & a*x + b*z \\ c*w +d*y & c*x+d*z \\ e*w+f*y & e*x+f*z \end{bmatrix}$$
+
+An __m x n matrix__ multiplied by an __n x o matrix__ results in an __m x o matrix__. In the above example, a 3 x 2 matrix times a 2 x 2 matrix resulted in a 3 x 2 matrix.
+
+To multiply two matrices, the number of __columns__ of the first matrix must equal the number of __rows__ of the second matrix.
+
+For example:
+
+```matlab
+% Initialize a 3 by 2 matrix
+A = [1, 2; 3, 4; 5, 6]
+
+% Initialize a 2 by 1 matrix
+B = [1; 2]
+
+% We expect a resulting matrix of (3 by 2)*(2 by 1) = (3 by 1)
+mult_AB = A*B
+
+% Make sure you understand why we got that result
+```
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/03.4-V2-LinearAlgebraReview%28Optional%29-MatrixMatrixMultiplication.0db57090b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1552176000&Signature=kkEkt7ArgNPx8PAYNLMVp1GQ8wyJxVS9gkLNIgKGdeNJtE2lvTlQPTQdRN5H2B7rzlxiksDSDrYgXpOnkx3XiQv1LmtFIxyldYmgIk2~iqvczR5jvIdg5qpSRbNYPlHUMZ~2rLXnFHi~NyfK8fE~CZWtQvc7eba~M4XKOwZf1ho_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/HSCcS8wTEeabaQqy7nURwA?expiry=1552176000000&hmac=7psfifRZxPmZVthuwMx_reKjPC9cLL5mSaRAX-mjaao&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
