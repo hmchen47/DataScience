@@ -465,14 +465,58 @@ BA = B*A
 
 ### Lecture Notes
 
++ Matrix Inverse
+    + Inverse in real number $\mathbb{R}$:
+        + Identity: 1
+        + Inverse: $3 * 3^{-1} = 3 * 1/3 = 1$
+        + Not all numbers have an inverse: $0^{-1}$ undefined
+    + If $A$ is an $m \times m$ matrix (squared matrix w/ $m$ rows and $m$ columns), and if it has an inverse, $\;\;\;\; AA^{-1} = A^{-1}A = I$
+    + Example: 
+
+        $$\begin{bmatrix} 3&4\\2&16 \end{bmatrix} \begin{bmatrix} 0.4&-0.1\\-0.05&0.075 \end{bmatrix} = \begin{bmatrix} 1&0\\0&1 \end{bmatrix} = I_{2\times2}$$
+    + __singular matrix__ / __degenerate matrix__: Matrices that don't have an inverse
+
++ Matrix Transpose
+    + Let $A$ ba an $m\times n$ matrix, and let $B = A^T$. Then $B$ is an $n\times m$ matrix, and 
+
+        $$B_{ij} = A_{ji}$$
+    + Example: $A = \begin{bmatrix} 1&2&0\\3&5&9 \end{bmatrix} \;\;\;\;\;\; B = A^T = \begin{bmatrix} 1&3\\2&5\\0&9 \end{bmatrix}$
+    + IVQ: What is $\begin{bmatrix} 0&3\\1&4 \end{bmatrix}^T$?
+
+        Ans: $\begin{bmatrix} 0&1\\3&4 \end{bmatrix}$
+
 
 -------------------------------
+
+The __inverse__ of a matrix A is denoted $A^{-1}$. Multiplying by the inverse results in the identity matrix.
+
+A non square matrix does not have an inverse matrix. We can compute inverses of matrices in octave with the `pinv(A)` function and in Matlab with the `inv(A)` function. Matrices that don't have an inverse are singular or degenerate.
+
+The __transposition__ of a matrix is like rotating the matrix 90° in clockwise direction and then reversing it. We can compute transposition of matrices in matlab with the transpose(A) function or A':
+
+$$ A = \begin{bmatrix} a&b\\c&d\\e&f \end{bmatrix} \Longrightarrow A^T = \begin{bmatrix} a&b&c\\d&e&f \end{bmatrix}$$
+
+In other words: $\;\;\;\;\; A_{ij} = A^T_{ji}$
+
+```matlab
+% Initialize matrix A 
+A = [1,2,0;0,5,6;7,0,9]
+
+% Transpose A 
+A_trans = A' 
+
+% Take the inverse of A 
+A_inv = inv(A)
+
+% What is A^(-1)*A? 
+A_invA = inv(A)*A
+```
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/03.6-V2-LinearAlgebraReview%28Optional%29-InverseAndTranspose.114b8fa0b22b11e48803b9598c8534ce/full/360p/index.mp4?Expires=1552176000&Signature=XUKTMESbISzW~31sJq3Iep2iFlecm1EwD2PTc5BBa1Kw1Bp2E7EvzcFYIUZ25f~8ofcl4J2m7wPXLuEt62-j6DdEOcawjgHSOX3GiRWaPyKM8-Tzc7cVRFEW9pjqIPt8wnXcqdZ5BowhBfR-HcF3dj1qf23r9vjWJUt~E36oypE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/7AlKE8wVEeax7Q7v7IdiLA?expiry=1552176000000&hmac=z0pFXpTljgJAe0ykTeYhOPmc22boLrjIstBEjTyYRBw&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
