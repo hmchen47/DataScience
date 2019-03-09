@@ -726,6 +726,9 @@ Note: If you use a package manager (like MacPorts or Homebrew), we recommend you
 
 ### Installing Octave on Mac OS X (10.8 Mountain Lion and Earlier)
 
+If you use Mac OS X 10.9, we recommend following the [instructions above](https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-matlab-on-mac-os-x-10-10-yosemite-and-10-9-mavericks). For other Mac OS X versions, the Octave project doesn’t distribute installers. We recommend installing Homebrew, a package manager, using [their instructions](http://wiki.octave.org/Octave_for_MacOS_X#Homebrew).
+
+"Warning: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
 
 
 ### Installing Octave on GNU/Linux
