@@ -693,6 +693,14 @@ __IMPORTANT__: The exercise files above been updated specifically for MATLAB Onl
 
 ### Installing Octave on Windows
 
+Use this link to install [Octave for windows](http://wiki.octave.org/Octave_for_Microsoft_Windows)
+
+Octave on Windows can be used to submit programming assignments in this course but will likely need a patch provided in the discussion forum. Refer to [Sumitting your work](https://www.coursera.org/learn/machine-learning/discussions/vgCyrQoMEeWv5yIAC00Eog?) for more information about the patch for your version.
+
+"__Warning__: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
+
+
+### Installing Octave on Mac OS X (10.10 Yosemite and 10.9 Mavericks and Later)
 
 
 
