@@ -626,5 +626,38 @@ __Q: I think I found an error in a video. What should I do__? A: First, check th
 
 __Q: My quiz grade displayed is wrong or I have a verification issue or I cannot retake a quiz. What should I do?__ A: Contact Help Center. These queries can only be resolved by learner support and it is best if they are contacted directly.
 
+## Programming Environment
+
+### Environment Setup Instructions
+
+
+
+### Setting Up Your Programming Assignment Environment
+
+
+
+### Access MATLAB Online and Upload the Exercise Files
+
+
+
+### Installing Octave on Windows
+
+
+
+### Installing Octave on Mac OS X (10.10 Yosemite and 10.9 Mavericks and Later)
+
+
+
+### Installing Octave on Mac OS X (10.8 Mountain Lion and Earlier)
+
+
+
+### Installing Octave on GNU/Linux
+
+
+
+### More Octave/MATLAB resources
+
+
 
 
