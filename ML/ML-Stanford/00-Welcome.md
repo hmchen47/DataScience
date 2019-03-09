@@ -626,9 +626,9 @@ __Q: I think I found an error in a video. What should I do__? A: First, check th
 
 __Q: My quiz grade displayed is wrong or I have a verification issue or I cannot retake a quiz. What should I do?__ A: Contact Help Center. These queries can only be resolved by learner support and it is best if they are contacted directly.
 
-## Programming Environment
+## Programming Environment - Environment Setup Instructions
 
-### Environment Setup Instructions
+### Setting Up Your Programming Assignment Environment
 
 The Machine Learning course includes several programming assignments which you’ll need to finish to complete the course. The assignments require the Octave or MATLAB scientific computing languages.
 
@@ -648,11 +648,6 @@ There are several subtle differences between the two software packages. MATLAB m
 __How do I install one of them?__
 
 See installation instructions for [Windows](https://www.coursera.org/learn/machine-learning/supplement/p9ckf/installing-octave-matlab-on-windows), [Mac OS X (10.10 Yosemite and 10.9 Mavericks)](https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-matlab-on-mac-os-x-10-10-yosemite-and-10-9-mavericks), [other Mac OS X](https://www.coursera.org/learn/machine-learning/supplement/M16Qr/installing-octave-matlab-on-mac-os-x-10-8-mountain-lion-and-earlier), or [GNU/Linux](https://www.coursera.org/learn/machine-learning/supplement/NSG5j/installing-octave-matlab-on-gnu-linux).
-
-
-
-### Setting Up Your Programming Assignment Environment
-
 
 
 ### Access MATLAB Online and Upload the Exercise Files
