@@ -13,6 +13,15 @@
 + [Who are Mentors?](00-Welcome.md#)
 + [Get to Know Your Classmates](00-Welcome.md#)
 + [Frequently Asked Questions](00-Welcome.md#)
++ [Programming Environment](00-Welcome.md#)
+    + [Environment Setup Instructions](00-Welcome.md#)
+    + [Setting Up Your Programming Assignment Environment](00-Welcome.md#)
+    + [Access MATLAB Online and Upload the Exercise Files](00-Welcome.md#)
+    + [Installing Octave on Windows](00-Welcome.md#)
+    + [Installing Octave on Mac OS X (10.10 Yosemite and 10.9 Mavericks and Later)](00-Welcome.md#)
+    + [Installing Octave on Mac OS X (10.8 Mountain Lion and Earlier)](00-Welcome.md#)
+    + [Installing Octave on GNU/Linux](00-Welcome.md#)
+    + [More Octave/MATLAB resources](00-Welcome.md#)
 
 
 ## Introduction
@@ -56,5 +65,24 @@
 + [Lecture Slides](03-LAlgebra.md#)
 + [Errata](03-LAlgebra.md#)
 + [Practice Quiz: Linear Algebra](03-LAlgebra.md#)
+
+
+## Linear Regression with Multiple Variables
+
++ [Multivariate Linear Regression](04-LRegMVar.md#)
+    + [Multiple Features](04-LRegMVar.md#)
+    + [Gradient Descent for Multiple ](04-LRegMVar.md#)
+    + [Gradient Descent in Practice I - Feature ](04-LRegMVar.md#)
+    + [Gradient Descent in Practice II - Learning Rate](04-LRegMVar.md#)
+    + [Features and Polynomial Regression](04-LRegMVar.md#)
++ [Computing Parameters Analytically](04-LRegMVar.md#)
+    + [Normal Equation](04-LRegMVar.md#)
+    + [Normal Equation](04-LRegMVar.md#)
+    + [Submitting Programming Assignments](04-LRegMVar.md#)
+    + [Working on and Submitting Programming Assignments](04-LRegMVar.md#)
+    + [Programming tips from Mentors](04-LRegMVar.md#)
++ [Review](04-LRegMVar.md#)
+    + [Lecture Slides](04-LRegMVar.md#)
+    + [Quiz: Linear Regression with Multiple Variables](04-LRegMVar.md#)
 
 
