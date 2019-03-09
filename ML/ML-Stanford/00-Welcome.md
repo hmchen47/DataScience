@@ -652,13 +652,48 @@ See installation instructions for [Windows](https://www.coursera.org/learn/machi
 
 ### Access MATLAB Online and Upload the Exercise Files
 
+Access to MATLAB Online is being provided by MathWorks to Machine Learning students for the duration of the course. MATLAB Online is the online version of the MATLAB desktop program. It provides most features of the original program in a web-based interface. No download or installation is required, and the program can be accessed from any computer running a common web browser.
+
+
+#### Follow the steps below to access MATLAB Online
+
+1. If you do not already have one, [create a MathWorks account](https://www.mathworks.com/mwaccount/register).
+2. Click on the [MATLAB Online license link](https://www.mathworks.com/licensecenter/classroom/machine_learning/) and provide your MathWorks account credentials (if requested).
+3. Click on the blue 'Access MATLAB Online' button, and log-in to MATLAB Online with your MathWorks account credentials.
+4. Confirm that you have access to MATLAB Online. For help with MATLAB Online access or technical issues, see the MATLAB Help discussion forum.
+
+Bookmark https://matlab.mathworks.com/ for quicker access to MATLAB Online in the future.
+
+
+#### Follow the steps below to add the programming exercise files to MATLAB Online
+
+_The files below have been modified for use in MATLAB Online only. MATLAB Desktop and Octave users should access the exercise files provided later in the course._
+
+Your MathWorks account comes with free cloud storage via [MATLAB Drive](https://drive.matlab.com/) which you can access in MATLAB Online. To add the programming exercise files to MATLAB Online, download them files as a zip file to your desktop using the link below, then rename the file to: __machine-learning-ex__ (Coursera adds extra characters to the filename upon download that must be removed)
+
+```
+machine-learning-ex.zip
+```
+
+To add the exercise files to MATLAB Online,
+
+1. Open MATLAB Online and click the 'Upload' button in the 'Home' tab.
+2. Use the folder window that opens to find and select the 'machine-learning-ex.zip' file, then click 'Open'. You should see the file in MATLAB Online after upload is complete.
+3. Unzip the file by entering the command: `unzip machine-learning-ex.zip` at the command line.
+
+Note that you can access your files even after your MATLAB Online license expires through MATLAB Drive.
+
+
+#### Completing the programming exercises in MATLAB Online
+
+There are eight programming exercises in the course, the first is posted at the end of Week 2. When you reach a programming exercise page in the course, you do not need to download the exercise zip file, as the necessary files for all exercises are included in the zip folder above. __Make note of your assignment token, however, you will need it to submit your solutions__.
+
+__IMPORTANT__: The exercise files above been updated specifically for MATLAB Online users. Instructions for completing the exercises in MATLAB Online and tips for troubleshooting problems are found in the included __README.mlx__ file. Before attempting your first programming exercise, read all of the instructions in __README.mlx__. Note that the instructions for MATLAB Online users differ from the instructions and video demonstration provided later in the course which only apply to Octave and MATLAB Desktop users.
 
 
 ### Installing Octave on Windows
 
 
-
-### Installing Octave on Mac OS X (10.10 Yosemite and 10.9 Mavericks and Later)
 
 
 
