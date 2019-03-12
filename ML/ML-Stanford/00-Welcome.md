@@ -626,6 +626,8 @@ __Q: I think I found an error in a video. What should I do__? A: First, check th
 
 __Q: My quiz grade displayed is wrong or I have a verification issue or I cannot retake a quiz. What should I do?__ A: Contact Help Center. These queries can only be resolved by learner support and it is best if they are contacted directly.
 
+<br/>
+
 ## Programming Environment - Environment Setup Instructions
 
 ### Setting Up Your Programming Assignment Environment
@@ -693,7 +695,7 @@ __IMPORTANT__: The exercise files above been updated specifically for MATLAB Onl
 
 ### Installing Octave on Windows
 
-Use this link to install [Octave for windows](http://wiki.octave.org/Octave_for_Microsoft_Windows)
+__Use this [link](](http://wiki.octave.org/Octave_for_Microsoft_Windows)) to install Octave for windows__
 
 Octave on Windows can be used to submit programming assignments in this course but will likely need a patch provided in the discussion forum. Refer to [Sumitting your work](https://www.coursera.org/learn/machine-learning/discussions/vgCyrQoMEeWv5yIAC00Eog?) for more information about the patch for your version.
 
@@ -703,10 +705,12 @@ Octave on Windows can be used to submit programming assignments in this course b
 ### Installing Octave on Mac OS X (10.10 Yosemite and 10.9 Mavericks and Later)
 
 1. Mac OS X has a feature called Gatekeeper that may only let you install applications from the Mac App Store. You may need to configure it to allow the Octave installer. Visit your System Preferences, click Security & Privacy, and check the setting to allow apps downloaded from Anywhere. You may need to enter your password to unlock the settings page.
-    <a href="https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-on-mac-os-x-10-10-yosemite-and-10-9-mavericks-and-later"> <br/>
-        <img src="https://d3c33hcgiwev3.cloudfront.net/arLNW76tEeSGOCIAC3iXdw_Screen-Shot-2015-02-26-at-2.29.10-PM.png?Expires=1552262400&Signature=OJPwydEzm2uCpanSVUuScRLTl-ycAaKqgxkbbIl9GsYvdTi-LG34VktSbcTr53a1cb0GHzrTeeGVW0rzjMkWmv-sdIHG-Sm9whUYZgl6u5oNIH94ozMhWltl3b1g0PID0NDRsNsRtI7gu-0Fd45oTNjHGkGfYuyOobLvQjeVv~U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="text" title="caption" width="300" >
-        <img src="https://d3c33hcgiwev3.cloudfront.net/WHgAqb7NEeSjMiIAC7MDiQ_gatekeeper-screeneshot.png?Expires=1552262400&Signature=HLcz16~dlld1u9XxMTk8uZANCho6WZX7DTW~9ZyRM9CHmumy0G2TlxiflbQG59JM-haD4yU7EhPpzSeNQ6umAq3s4HNxzHdFMtOHX2Mm~9Sb2WKbCxzTekici5RRDVWYmop9CyCyRK7Dc14BF9kK2r8jdupnDKtU9HGXZO0cJd0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" alt="text" title="caption" width="300" >
-    </a>
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-on-mac-os-x-10-10-yosemite-and-10-9-mavericks-and-later">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/arLNW76tEeSGOCIAC3iXdw_Screen-Shot-2015-02-26-at-2.29.10-PM.png?Expires=1552521600&Signature=PXS9xe8Z7YqLQms78qY2VLQlmUpN9uIj-dsafgeLoJrRNRhBQ4PMLPS8yuJvXJFauTe5CNBb7pYT3BohgmEi-jIGvpUMdEcDwwYGZfpbzUFgow~YXcJ4vh3b99CYgNxXqgk~AtMyrfwY6sBpvyJsU4CDltAVlrVuUIRIf3XTzsI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin-left: 0.1em;" alt="text" title="caption" width="250">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/WHgAqb7NEeSjMiIAC7MDiQ_gatekeeper-screeneshot.png?Expires=1552521600&Signature=HLATU0b5KQACES55qUPuB1ieM-Be2FM8ai~p3MS-ZithaEQBGqDWlyZfaZLVcCFHn-36OkJ1cGCRdHTh9zGvrTNG0-blwAbT-UW8YCGLtkmEgleYOXg2g37lLej1-CEsKstWAOiA-j4QqR7sXbZa7nKfYTTWD-bX9ghQ2upw9Js_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin-lwft: 0.1em;" alt="text" title="caption" width="300">
+  </a></div>
 
 2. Download [the Octave 3.8.0 installer](http://sourceforge.net/projects/octave/files/Octave%20MacOSX%20Binary/2013-12-30%20binary%20installer%20of%20Octave%203.8.0%20for%20OSX%2010.9.1%20%28beta%29/GNU_Octave_3.8.0-6.dmg/download) or the latest version that isn't 4.0.0. The file is large so this may take some time.
 
@@ -718,10 +722,9 @@ Octave on Windows can be used to submit programming assignments in this course b
 
 Octave also includes an experimental graphical interface which is called Octave-gui, also in your Mac’s Applications, but we recommend using Octave-cli because it’s more stable.
 
-Note: If you use a package manager (like MacPorts or Homebrew), we recommend you follow [the package manager installation instructions](http://wiki.octave.org/Octave_for_MacOS_X#Package_Managers).
+Note: If you use a package manager (like MacPorts or Homebrew), we recommend you follow the [package manager installation instructions](http://wiki.octave.org/Octave_for_MacOS_X#Package_Managers).
 
 "Warning: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
-
 
 
 ### Installing Octave on Mac OS X (10.8 Mountain Lion and Earlier)
@@ -754,9 +757,11 @@ Please consult [the Octave maintainer’s instructions](http://wiki.octave.org/O
 
 At the Octave command line, typing __help__ followed by a function name displays documentation for a built-in function. For example, __help plot__ will bring up help information for plotting. Further documentation can be found at the Octave [documentation pages](http://www.gnu.org/software/octave/doc/interpreter/).
 
+
 #### MATLAB Resources
 
 At the MATLAB command line, typing help followed by a function name displays documentation for a built-in function. For example, help plot will bring up help information for plotting. Further documentation can be found at the MATLAB [documentation pages](http://www.mathworks.com/help/matlab/).
+
 
 #### Introduction to MATLAB with Onramp
 
