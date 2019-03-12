@@ -774,9 +774,10 @@ Made for MATLAB beginners or those looking for a quick refresh, the MATLAB Onram
 
 #### MATLAB Programming Tutorials
 
-These short tutorial videos introduce MATLAB and cover various programming topics used in the assignments. Feel free to watch some now and return to reference them as you work through the programming assignments. Many of the topics below are also covered in MATLAB Onramp. *Indicates content covered in Onramp.
+These short tutorial videos introduce MATLAB and cover various programming topics used in the assignments. Feel free to watch some now and return to reference them as you work through the programming assignments. Many of the topics below are also covered in MATLAB Onramp. *__Indicates content covered in Onramp.__
 
 Get Started with MATLAB and MATLAB Online
+
 + [What is MATLAB?*](https://youtu.be/WYG2ZZjgp5M)
 + [MATLAB Variables*](https://youtu.be/0w9NKt6Fixk)
 + [MATLAB as a Calculator*](https://youtu.be/aRSkNpCSgWY)
@@ -785,6 +786,7 @@ Get Started with MATLAB and MATLAB Online
 + [Managing Files in MATLAB Online](https://youtu.be/B3lWLIrYjC0)
 
 Vectors
+
 + [Creating Vectors*](https://youtu.be/R5Mnkrk9Mos)
 + [Creating Uniformly Spaced Vectors*](https://youtu.be/_zqTOV5yl8Y)
 + [Accessing Elements of a Vector Using Conditions*](https://youtu.be/8D04GW_foQ0)
@@ -792,11 +794,13 @@ Vectors
 + [Vector Transpose](https://youtu.be/vgRLwjHBmsg)
 
 Visualization
+
 + [Line Plots*](https://youtu.be/-hhJoveE4sY)
 + [Annotating Graphs*](https://youtu.be/JyovEGPSdoI)
 + [Multiple Plots*](https://youtu.be/fBx8EFuXFLM)
 
 Matrices
+
 + [Creating Matrices*](https://youtu.be/qdTdwTh6jMo)
 + [Calculations with Matrices*](https://youtu.be/mzzJ9gnMrYE)
 + [Accessing Elements of a Matrix*](https://youtu.be/uWPHxpTuZRA)
@@ -808,6 +812,7 @@ Matrices
 + [Statistical Functions with Matrices](https://youtu.be/Y97W3_u7cM4)
 
 MATLAB Programming
+
 + [Logical Variables*](https://youtu.be/bRMg4GsFDQ8)
 + [If-Else Statements*](https://youtu.be/JZSuU-Laigo)
 + [Writing a FOR loop*](https://youtu.be/lg65bzgvI5c)
@@ -816,9 +821,24 @@ MATLAB Programming
 + [Passing Functions as Inputs](https://youtu.be/aNCwR9dRjHs)
 
 Troubleshooting
+
 + [Using Online Documentation*](https://youtu.be/54n5zJwR8aM)
 + [Which File or Variable Am I Using?](https://youtu.be/Z09BvGeYNdE)
 + [Troubleshooting Code with the Debugger](https://youtu.be/DB4aJMnZtNQ)
+
+
+## Submitting Programming Assignments
+
+### Working on and Submitting Programming Assignments
+
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.7-OctaveTutorial-WorkingOnAndSubmittingProgrammingExercises.48caddf0b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1552521600&Signature=AY5eRRV2lf0AmBaPVRY2XIn0A-tSS6afZ0FG2LvH9SI1qN9VcGs87r-njvWF3W80I-hSA-x~~3rG2uhxT0sqzOjwWAIMA6s6GE~w-7yhFdiI72xGzpFzjXSv97Nydx-Zuoq70T84t0z8ld25WNItpp15EPn7RnMQb1In40aDV1o_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/jgv4tx6QS4aL-LcekGuGpQ?expiry=1552521600000&hmac=2O8kwDTLciF_R0KJ78IQPV0FjHX4Fo19e9Lntn2eIs8&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+
+### Programming tips from Mentors
+
 
 
 
