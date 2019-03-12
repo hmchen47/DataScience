@@ -22,6 +22,9 @@
     + [Installing Octave on Mac OS X (10.8 Mountain Lion and Earlier)](00-Welcome.md#)
     + [Installing Octave on GNU/Linux](00-Welcome.md#)
     + [More Octave/MATLAB resources](00-Welcome.md#)
++ [Submitting Programming Assignments](00-Welcome.md#)
+    + [Working on and Submitting Programming Assignments](00-Welcome.md#)
+    + [Programming tips from Mentors](00-Welcome.md#)
 
 
 ## Introduction
@@ -78,11 +81,11 @@
 + [Computing Parameters Analytically](04-LRegMVar.md#)
     + [Normal Equation](04-LRegMVar.md#)
     + [Normal Equation](04-LRegMVar.md#)
-    + [Submitting Programming Assignments](04-LRegMVar.md#)
-    + [Working on and Submitting Programming Assignments](04-LRegMVar.md#)
-    + [Programming tips from Mentors](04-LRegMVar.md#)
 + [Review](04-LRegMVar.md#)
     + [Lecture Slides](04-LRegMVar.md#)
     + [Quiz: Linear Regression with Multiple Variables](04-LRegMVar.md#)
+
+
+
 
 
