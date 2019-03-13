@@ -200,14 +200,69 @@ The following image compares gradient descent with one variable to gradient desc
 
 #### Lecture Notes
 
++ Feature Scaling
+  + Idea: Make sure features are on a similar scale.
+  + Example: 
+    + $x_1 = \text{size } (0-2000 \text{ feet}^2) \Longrightarrow x_1 = \dfrac{\text{ size } (\text{feet}^2)}{2000} \rightarrow 0 \leq x_1 \leq 1$
+    + $x_2 = \text{ number of bedrooms} (1-5) \Longrightarrow x_2 = \dfrac{\text{  number of bedrooms  }}{5} \rightarrow 0 \leq x_1 \leq 1$
+  + General rule: Get every feature into approximately a $-1 \leq x_i \leq 1$ range.
+  + Example:
+
+    $$\begin{array}{rclcl}
+      0 & \leq x_1 \leq & 3 & \rightarrow & \surd \text{ (close enough)} \\
+      -2 & \leq x_2 \leq & 0.5 & \rightarrow & \surd \text{ (close enough)}\\
+      -100 & \leq x_3 \leq & 100 & \rightarrow & \text{ scaling} \\
+      -0.0001 & \leq x_4 \leq & 0.0001 & \rightarrow & \text{ scaling}
+    \end{array}$$
+  + General rule of thumb: (acceptable ranges)
+    + $-3$ to $3$
+    + $-1/3$ to $1/3$
+
++ Mean Normalization
+  + Replace $x_i$ with $x_i - \mu_i$ to make features have approximately zero mean (Do not apply to $x_0 = 1$).
+  + Examples:
+    + average size = 1000: $\quad x_1 = \dfrac{size - 1000}{2000}$
+
+    + 1~5 bedrooms: $\quad x_2 = \dfrac{\#bedrooms - 2}{5}$ (acceptable though $4 = 5 -1$)
+  + General rule:
+
+    $$ x_i := \dfrac{x_i - \mu_i}{s_i}$$
+    + $\mu_i\;$: average value of $x_i$ in training set
+    + $s_i\;$: range ($\max - \min$) or standard deviation ($\sigma_i$)of $x_i$ value set
+  + IVQ: Suppose you are using a learning algorithm to estimate the price of houses in a city. You want one of your features $x_i$ to capture the age of the house. In your training set, all of your houses have an age between 30 and 50 years, with an average age of 38 years. Which of the following would you use as features, assuming you use feature scaling and mean normalization?
+    1. $x_1 = \text{ age of house}$
+    2. $x_i = \text{ age of house} / 50$
+    3. $x_i = (\text{ age of house } - 38) / 50$
+    4. $x_i = (\text{ age of house } - 38) / 20$
+
+    Ans: 4
+
 
 ---------------------------------------
+
+We can speed up gradient descent by having each of our input values in roughly the same range. This is because $\theta$ will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven.
+
+The way to prevent this is to modify the ranges of our input variables so that they are all roughly the same. Ideally:
+
+$$−1 \leq x_{(i)} \leq 1 \quad\quad \text{or} \quad\quad −0.5 \leq x_{(i)} \leq 0.5$$
+
+These aren't exact requirements; we are only trying to speed things up. The goal is to get all input variables into roughly one of these ranges, give or take a few.
+
+Two techniques to help with this are __feature scaling__ and __mean normalization__. Feature scaling involves dividing the input values by the range (i.e. the maximum value minus the minimum value) of the input variable, resulting in a new range of just 1. Mean normalization involves subtracting the average value for an input variable from the values for that input variable resulting in a new average value for the input variable of just zero. To implement both of these techniques, adjust your input values as shown in this formula:
+
+$$x_i := \dfrac{x_i - \mu_i}{s_i}$$​
+
+Where $μ_i$ is the average of all the values for feature ($i$) and $s_i$ is the range of values $(\max - \min)$, or $s_i$ is the standard deviation.
+
+Note that dividing by the range, or dividing by the standard deviation, give different results. The quizzes in this course use range - the programming exercises use standard deviation.
+
+For example, if $x_i$ represents housing prices with a range of 100 to 2000 and a mean value of 1000, then, $x_i := \dfrac{\text{price}-1000}{1900}$.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/04.3-LinearRegressionWithMultipleVariables-GradientDescentInPracticeIFeatureScaling.1d388a20b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1552608000&Signature=YuT6lbftkWikDFbV13T27VCb09dNRotJYj6k-uQbsQ4lwMNoCtJzhKSiQc98N2S1Vyslph3E-C0l0pU1NOTBcfaaopbqDGLak0GDMVitZH9fJW7C3d5fjOfmmgNnTsn-7ULF0MffgwpeU6FGZ8yI7bFj4ylzBiL1vwEldb5xjFE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/sTG3UqavTLuxt1Kmr2y7LA?expiry=1552608000000&hmac=rnsTdJwMKZMxRoaaOuWb2Wf_XvbNY6g6EPDlAC-CPC8&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
