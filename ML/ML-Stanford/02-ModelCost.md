@@ -38,9 +38,9 @@
         <img src="images/m02-02.png" alt="So here's how this supervised learning algorithm works. We saw that with the training set like our training set of housing prices and we feed that to our learning algorithm. Is the job of a learning algorithm to then output a function which by convention is usually denoted lowercase h and h stands for hypothesis And what the job of the hypothesis is, is, is a function that takes as input the size of a house like maybe the size of the new house your friend's trying to sell so it takes in the value of x and it tries to output the estimated value of y for the corresponding house. So h is a function that maps from x's to y's. People often ask me, you know, why is this function called hypothesis. Some of you may know the meaning of the term hypothesis, from the dictionary or from science or whatever. It turns out that in machine learning, this is a name that was used in the early days of machine learning and it kinda stuck. 'Cause maybe not a great name for this sort of function, for mapping from sizes of houses to the predictions, that you know.... I think the term hypothesis, maybe isn't the best possible name for this, but this is the standard terminology that people use in machine learning." title="ML Modeling Flow" width="250"> &nbsp;&nbsp;
         <img src="images/m02-03.png" alt="the next thing we need to decide is how do we represent this hypothesis h. For this and the next few videos, I'm going to choose our initial choice , for representing the hypothesis, will be the following. We're going to represent h as follows. And we will write this as h<u>theta(x) equals theta<u>0</u></u> plus theta<u>1 of x. And as a shorthand, sometimes instead of writing, you</u> know, h subscript theta of x, sometimes there's a shorthand, I'll just write as a h of x. But more often I'll write it as a subscript theta over there. And plotting this in the pictures, all this means is that, we are going to predict that y is a linear function of x. Right, so that's the data set and what this function is doing, is predicting that y is some straight line function of x. That's h of x equals theta 0 plus theta 1 x, okay? And why a linear function? Well, sometimes we'll want to fit more complicated, perhaps non-linear functions as well. But since this linear case is the simple building block, we will start with this example first of fitting linear functions, and we will build on this to eventually have more complex models, and more complex learning algorithms. Let me also give this particular model a name. This model is called linear regression or this, for example, is actually linear regression with one variable, with the variable being x. Predicting all the prices as functions of one variable X. And another name for this model is univariate linear regression. And univariate is just a fancy way of saying one variable. So, that's linear regression." title="How to represent h?" width="300" >
     </a>
-    + Machine Learning Flowchart (right fig)
-    + How do we represent $h$? (left fig)
-    + $h$: hypothesis
+    + Machine Learning Flowchart (left fig)
+    + How do we represent $h$? (right fig)
+    + $h$: hypothesis function
     + Linear regression with one variable $(x)$
     + Univariate linear regression
 
@@ -50,8 +50,8 @@ To establish notation for future use, we’ll use $x^{(i)}$ to denote the “inp
 
 To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function $h : X \implies Y$ so that $h(x)$ is a “good” predictor for the corresponding value of $y$. For historical reasons, this function $h$ is called a __hypothesis__. Seen pictorially, the process is therefore like this:
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation"> <br/>
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/H6qTdZmYEeaagxL7xdFKxA_2f0f671110e8f7446bb2b5b2f75a8874_Screenshot-2016-10-23-20.14.58.png?expiry=1552176000000&hmac=-0haGepDY4YkcB8_5PR0P6cOD6sLIu3yC4KVOGriORI" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="300" >
+<a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation">
+    <img src="images/m02-17.png" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="300" >
 </a>
 
 When the target variable that we’re trying to predict is _continuous_, such as in our housing example, we call the learning problem a __regression problem__. When $y$ can take on only a small number of _discrete_ values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a __classification problem__.
@@ -94,7 +94,7 @@ When the target variable that we’re trying to predict is _continuous_, such as
   + Idea: Choose $\theta_0$, $\theta_1$ so that $h_\theta (x)$ is close to $y$ for our training examples $(x, y)$
   + Objective:
 
-    $$\min_{\theta_0, \theta_1} \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
+    $$\displaystyle \min_{\theta_0, \theta_1} \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
 
     where $h_\theta (x^{(i)}) = \theta_0 + \theta_1 \cdot x^{(i)}$
   + Cost function = Squared error function: $J(\theta_0, \theta_1)$
@@ -103,7 +103,7 @@ When the target variable that we’re trying to predict is _continuous_, such as
 
     <br/>
 
-    $$\min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$$
+    $$\therefore \text{Objective}: \quad \displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$$
 
 ----------------------------------------
 
@@ -117,8 +117,9 @@ To break it apart, it is $\frac{1}{2} \bar{x}$ where $\bar{x}$ is the mean of th
 This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved $\left(\frac{1}{2}\right)$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $\frac{1}{2}$ ​	 term. The following image summarizes what the cost function does:
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/nhzyF/cost-function">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/R2YF5Lj3EeajLxLfjQiSjg_110c901f58043f995a35b31431935290_Screen-Shot-2016-12-02-at-5.23.31-PM.png?expiry=1552003200000&hmac=yrnrGUcnPynJQzUJwxp0F_61mbGjDb6HPGzPJOk5ohs" style="display: block; margin: auto; background-color: black" alt="text" title="Cost Function Analysis" width="450">
+    <img src="images/m02-18.png" style="display: block; margin: auto; background-color: black" alt="text" title="Cost Function Analysis" width="450">
 </a>
+
 
 ### Lecture Video
 
@@ -134,13 +135,13 @@ This function is otherwise called the "Squared error function", or "Mean squared
 + Linear Regression
     + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
     + Parameters: $\theta_0$, $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+    + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
     + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
 
 + Simplified Linear Regression - $\theta_0 = 0$
     + Hypothesis: $h_\theta (x) = \theta_1 \cdot x$
     + Parameter: $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ &nbsp;&nbsp; with &nbsp;$h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
+    + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \quad$ and $\quad h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
     + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_1)$
 
 + Example: samples - $(1, 1), (2, 2), (3, 3)$
@@ -154,7 +155,7 @@ This function is otherwise called the "Squared error function", or "Mean squared
     + Cost Function:
         <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
             <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="background-color: black; margin-right: 2em;" alt="Sample values" title="Samples" width="250" >
-            <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/fph0S5tTEeajtg5TyD0vYA_9b28bdfeb34b2d4914d0b64903735cf1_Screenshot-2016-10-26-01.09.05.png?expiry=1552003200000&hmac=Bs3Bof2Tuoxu6hHIq48mjhBGq_eZilTn0oEsYxm8EFQ" style="background-color: black" alt="Cost function" title="Cost function" width="250" >
+            <img src="images/m02-21.png" style="background-color: black" alt="Cost function" title="Cost function" width="225" >
         </a>
     + Simplified hypothesis: $\theta_1 = 1$ with minimized cost function
 
@@ -165,19 +166,19 @@ If we try to think of it in visual terms, our training data set is scattered on 
 Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of $J(\theta_0, \theta_1)$ will be $0$. The following example shows the ideal situation where we have a cost function of $0$.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/_B8TJZtREea33w76dwnDIg_3e3d4433e32478f8df446d0b6da26c27_Screenshot-2016-10-26-00.57.56.png?expiry=1552003200000&hmac=3jx6NYib8V-a-WwcXcN1QI9yLqv--lI2AT17INmnS9Y" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
+    <img src="images/m02-19.png" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
 </a>
 
 When $\theta_1 = 1$, we get a slope of $1$ which goes through every single data point in our model. Conversely, when $\theta_1 = 0.5$, we see the vertical distance from our fit to the data points increase.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/8guexptSEeanbxIMvDC87g_3d86874dfd37b8e3c53c9f6cfa94676c_Screenshot-2016-10-26-01.03.07.png?expiry=1552003200000&hmac=qVn9V1G6K8TjG9YOIMmcE2CHRAfI6ng4Kp4HMH1ID3o" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
+    <img src="images/m02-20.png" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
 </a>
 
 This increases our cost function to 0.58. Plotting several other points yields to the following graph:
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/fph0S5tTEeajtg5TyD0vYA_9b28bdfeb34b2d4914d0b64903735cf1_Screenshot-2016-10-26-01.09.05.png?expiry=1552003200000&hmac=Bs3Bof2Tuoxu6hHIq48mjhBGq_eZilTn0oEsYxm8EFQ" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="250" >
+<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+    <img src="images/m02-21.png" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="250" >
 </a>
 
 Thus as a goal, we should try to minimize the cost function. In this case, $\theta_1 = 1$ is our global minimum.
@@ -197,11 +198,13 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 
 + Linear Regression
   + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
-    + Parameters: $\theta_0$, $\theta_1$
-    + Cost Function: $\displaystyle J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
-    + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
-  + Example: $h_\theta (x) = 50 + 0.06 \cdot x$
-    <a href="https://www.coursera.org/learn/machine-learning/lecture/nwpe2/cost-function-intuition-ii"> <br/>
+  + Parameters: $\theta_0$, $\theta_1$
+  + Cost Function: $\displaystyle J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+  + Goal: $\quad \displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
+
++ Example: $h_\theta (x) = 50 + 0.06 \cdot x$
+
+    <a href="https://www.coursera.org/learn/machine-learning/lecture/nwpe2/cost-function-intuition-ii">
       <img src="images/m02-05.png" alt="Samples, Cost Function" title="Linear regression: 50 + 0.06x" width="300">
       <img src="images/m02-06.png" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="260">
     </a>
@@ -210,15 +213,16 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
   + $\theta_0 = 800$ and $\theta_1 = -0.15$ (left fig)
   + $\theta_0 = 360$ and $\theta_1 = 0$ (right fig)
 
+
   <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/N2oKYp2wEeaVChLw2Vaaug_d4d1c5b1c90578b32a6672e3b7e4b3a4_Screenshot-2016-10-29-01.14.37.png?expiry=1552089600000&hmac=gYmT8EQiUJeiGPlZ_4W7fJySu6qHvu2x0K8sEdcxEhI" alt="Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="300">
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/26RZhJ34EeaiZBL80Yza_A_0f38a99c8ceb8aa5b90a5f12136fdf43_Screenshot-2016-10-29-01.14.57.png?expiry=1552089600000&hmac=BqDr2d3GZL3h8tUTwBdHeT7PBqvlPAWB1SFXChKP7KA" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. " title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="285" >
+      <img src="images/m02-22.png" alt="Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="300">
+      <img src="images/m02-23.png" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. " title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="285" >
   </a>
 
 + Minimized cost function: $\theta_0 = 250$ and $\theta_1 = .12$
 
   <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hsGgT536Eeai9RKvXdDYag_2a61803b5f4f86d4290b6e878befc44f_Screenshot-2016-10-29-09.59.41.png?expiry=1552089600000&hmac=k28KfhXiOqnzzRcJHIwjyCLSzJ7hqPzkgST2xsergns" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
+      <img src="images/m02-24.png" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
   </a>
 
 ----------------------------------
@@ -226,19 +230,19 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line. An example of such a graph is the one to the right below.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/N2oKYp2wEeaVChLw2Vaaug_d4d1c5b1c90578b32a6672e3b7e4b3a4_Screenshot-2016-10-29-01.14.37.png?expiry=1552089600000&hmac=gYmT8EQiUJeiGPlZ_4W7fJySu6qHvu2x0K8sEdcxEhI" style="display: block; margin: auto; background-color: black;" alt="the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Vaueof cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350">
+    <img src="images/m02-22.png" style="display: block; margin: auto; background-color: black;" alt="the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Vaueof cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350">
 </a>
 
 Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$. Taking another $h(x)$ and plotting its contour plot, one gets the following graphs:
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/26RZhJ34EeaiZBL80Yza_A_0f38a99c8ceb8aa5b90a5f12136fdf43_Screenshot-2016-10-29-01.14.57.png?expiry=1552089600000&hmac=BqDr2d3GZL3h8tUTwBdHeT7PBqvlPAWB1SFXChKP7KA" style="display: block; margin: auto; background-color: black;" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350" >
+    <img src="images/m02-23.png" style="display: block; margin: auto; background-color: black;" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350" >
 </a>
 
 When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hsGgT536Eeai9RKvXdDYag_2a61803b5f4f86d4290b6e878befc44f_Screenshot-2016-10-29-09.59.41.png?expiry=1552089600000&hmac=k28KfhXiOqnzzRcJHIwjyCLSzJ7hqPzkgST2xsergns" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
+    <img src="images/m02-24.png" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
 </a>
 
 The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most 'circle'.
@@ -262,37 +266,37 @@ The graph above minimizes the cost function as much as possible and consequently
 
 + Simpliest Gradient descent
   + Objective: Have some function $J(\theta_0, \theta_1)$ <br/>
-    Want $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
+    Want $\;\;\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
   + Outline
     + start with some $\theta_0, \theta_1$
     + keep changing $\theta_0, \theta_1$ to reduce $J(\theta_0, \theta_1)$ until we hopefully end up with at a minimum
 
 + Generalized gradient decent
   + Objective: Have some function $J(\Theta)$ where $\Theta = (\theta_0, \theta_1, \ldots, \theta_n)$ <br/>
-    Want $\displaystyle \min_{\Theta} J(\Theta)$
+    Want $\;\;\displaystyle \min_{\Theta} J(\Theta)$
   + Outline
     + start with some $\Theta$
     + keep changing $\Theta$ to reduce $J(\Theta)$ until we hopefully end up with at a minimum
 
 + Examples of Gradient Decent
   <a href="url"> <br/>
-      <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="310" >
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bn9SyaDIEeav5QpTGIv-Pg_0d06dca3d225f3de8b5a4a7e92254153_Screenshot-2016-11-01-23.48.26.png?expiry=1552089600000&hmac=JlEz_gvm4vxzrv4qHvdM79jBfV6i4M2G-YeRgkDB9tY" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="300" >
+      <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="250" >
+      <img src="images/m02-25.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="400" >
   </a>
 
 + Gradient descent algorithm
   + Def: repeat until convergence
 
     $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) \;\; \text{for } j = 0, 1$$
-    + $:=$: assignment, take the right-hand side value asn assign to the symbol right-hand side
-    + $=$: truth association, comparison
-    + $\alpha$: learning rate, step size
+    + $:=\;$: assignment, take the right-hand side value asn assign to the symbol right-hand side
+    + $=\;$: truth association, comparison
+    + $\alpha\;$: learning rate, step size
   + Correct: Simultaneous update
 
-    $$\begin{array}{rcl} \text{temp0} & := & \theta_0 - \alpha \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta_1) \\ \\
-    \text{temp1} & := & \theta_1 - \alpha \displaystyle \frac{\partial}{\partial \theta_1} J(\theta_0, \theta_1) \\ \\
-    \theta_0 & := & \text{temp0} \\ \\
-    \theta_1 & := & \text{temp1} \end{array}$$
+    $$\begin{array}{lrcl} 1. & \text{temp0} & := & \theta_0 - \alpha \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta_1) \\ \\
+    2. & \text{temp1} & := & \theta_1 - \alpha \displaystyle \frac{\partial}{\partial \theta_1} J(\theta_0, \theta_1) \\ \\
+    3. & \theta_0 & := & \text{temp0} \\ \\
+    4. & \theta_1 & := & \text{temp1} \end{array}$$
   + Incorrect execution order:
 
     $$\begin{array}{lrcl} 1. &\text{temp0} & := & \theta_0 - \alpha \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta_1) \\ \\
@@ -301,12 +305,12 @@ The graph above minimizes the cost function as much as possible and consequently
     4. & \theta_1 & := & \text{temp1} \end{array}$$
   + IVQ: Suppose $\theta_0= 1$, $\theta_1= 2$, and we simultaneously update $\theta_0$ and $\theta_1$ using the rule: $\theta_j := \theta_j + \sqrt{\theta_0 \theta_1}$ (for j = 0 and j=1) What are the resulting values of $\theta_0$ and $\theta_1$?
 
-      a. $\theta_0 = 1, \theta_1 =2$ <br/>
-      b. $\theta_0 = 1+\sqrt{2}$, $\theta_1 =2 + \sqrt{2}$ <br/>
-      c. $\theta_0 = 2 + \sqrt{2}$, $\theta_1 =1 + \sqrt{2}$ <br/>
-      d. $\theta_0 = 1+\sqrt{2}$, $\theta_1 =2 + \sqrt{(1 + \sqrt{2})\cdot 2}$ <br/>
+      1. $\theta_0 = 1, \theta_1 =2$
+      2. $\theta_0 = 1+\sqrt{2}$, $\theta_1 =2 + \sqrt{2}$
+      3. $\theta_0 = 2 + \sqrt{2}$, $\theta_1 =1 + \sqrt{2}$
+      4. $\theta_0 = 1+\sqrt{2}$, $\theta_1 =2 + \sqrt{(1 + \sqrt{2})\cdot 2}$
 
-      Ans: b
+      Ans: 2
 
 
 -------------------------------------------------
@@ -318,7 +322,7 @@ Imagine that we graph our hypothesis function based on its fields $\theta_0$ and
 We put $\theta_0$ on the x axis and $\theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters. The graph below depicts such a setup.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bn9SyaDIEeav5QpTGIv-Pg_0d06dca3d225f3de8b5a4a7e92254153_Screenshot-2016-11-01-23.48.26.png?expiry=1552089600000&hmac=JlEz_gvm4vxzrv4qHvdM79jBfV6i4M2G-YeRgkDB9tY" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350" >
+    <img src="images/m02-07.png" style="display: block; margin: auto; background-color: black;" alt="We put $\theta_0$ on the x axis and $\theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters." title="Contour diagram of $J(\theta_0, \theta_1$)" width="350" >
 </a>
 
 We will know that we have succeeded when our cost function is at the very bottom of the pits in our graph, i.e. when its value is the minimum. The red arrows show the minimum points in the graph.
@@ -338,7 +342,7 @@ where $j=0,1$ represents the feature index number.
 At each iteration j, one should simultaneously update the parameters $\theta_1, \theta_2,\cdots,\theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/yr-D1aDMEeai9RKvXdDYag_627e5ab52d5ff941c0fcc741c2b162a0_Screenshot-2016-11-02-00.19.56.png?expiry=1552089600000&hmac=xG3dZq13G0Z6bFReQHcR34QVWgKpGkeGjCWfaQ6S2hU" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="450" >
+    <img src="images/m02-25.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="450" >
 </a>
 
 
@@ -359,17 +363,18 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
 + Gradient descent algorithm
   + Repeat until convergence {
 
-      $$\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) \;\; \text{(simultaneously update } i = 0, 1 \text{)}$$
+      $$\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) $$
+      <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);">(simultaneously update</span> $i = 0, 1$)<br/>
     }
-    + $\alpha$: learning rate, step size
-    + $\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1$: derivative; sign (+, -) as slope and value as steepness
+    + $\alpha\;$: learning rate, step size
+    + $\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\;$: derivative; sign (+, -) as slope and value as steepness
   + Concern
 
-      $$\min_{\theta_1} J(\theta_1) \;\; \theta_1 \in \mathcal{R}$$
+      $$\min_{\theta_1} J(\theta_1) \;\; \theta_1 \in \mathbb{R}$$
   
-+ Tagent line & Derivative: $J^\prime (\theta_0, \theta_1) = \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$
-  + $J^\prime (\theta_0, \theta_1) \geq 0$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (positive number)}$
-  + $J^\prime (\theta_0, \theta_1) \leq 0$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (negative number)}$  
++ Tangent line & Derivative: $J^\prime (\theta_0, \theta_1) = \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$
+  + $J^\prime (\theta_0, \theta_1) \geq 0\;$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (positive number)}$
+  + $J^\prime (\theta_0, \theta_1) \leq 0\;$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (negative number)}$  
   <a href="http://xaktly.com/TheDerivative.html"> <br/>
     <img src="http://xaktly.com/Images/Mathematics/TheDerivative/DerivativeOfXSquared.png" style="display: block; margin: auto; background-color: white;" alt="When x < 0, any tangent to the curve will have a negative slope. For points close to zero, the steepness of those slopes approaches zero, and at x = 0, the global minimum of the function, the slope of the tangent is zero. Finally, for x > 0, the slope of the tangent to any point is positive." title="Derivative and tangent line" width="250" >
   </a>
@@ -384,13 +389,14 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
       <img src="http://spark-public.s3.amazonaws.com/ml/images/2.6-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black;" alt="Local optimal" title="Local Optimal" width="250">
     </a>
 
-    a. Leave $\theta_1$ unchanged <br/>
-    b. Change $\theta_1$ in a random direction <br/>
-    c. Move $\theta_1$ in the direction of the global minimum of $J(\theta_1)$ <br/>
-    d. Decrease $\theta_1$ <br/>
-​	
-    Ans: a <br/>
-    $J^\prime(\theta_1) = 0$ at $\theta_1$, $\;\therefore \; \theta_1 := \theta_1 - \alpha \cdot 0 = \theta_1$
+    1. Leave $\theta_1$ unchanged
+    2. Change $\theta_1$ in a random direction
+    3. Move $\theta_1$ in the direction of the global minimum of $J(\theta_1)$
+    4. Decrease $\theta_1$
+​
+
+    Ans: 1 <br/>
+    $J^\prime(\theta_1) = 0$ at $\; \theta_1$, $\;\therefore \; \theta_1 := \theta_1 - \alpha \cdot 0 = \theta_1$
 
 
 + Gradient descent operation <br/>
@@ -413,13 +419,13 @@ $$\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)$$
 Regardless of the slope's sign for $\frac{d}{d\theta_1} J(\theta_1)$, $\theta_1$ eventually converges to its minimum value. The following graph shows that when the slope is negative, the value of $\theta_1$ increases and when it is positive, the value of $\theta_1$ decreases.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/SMSIxKGUEeav5QpTGIv-Pg_ad3404010579ac16068105cfdc8e950a_Screenshot-2016-11-03-00.05.06.png?expiry=1552089600000&hmac=zL8sDtA882iL2Io1e9fp1ENE_xsPiF1S9ZIXc7AT34o" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
+    <img src="images/m02-26.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
 </a>
 
 On a side note, we should adjust our parameter $\alpha$ to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/UJpiD6GWEeai9RKvXdDYag_3c3ad6625a2a4ec8456f421a2f4daf2e_Screenshot-2016-11-03-00.05.27.png?expiry=1552089600000&hmac=UaJgDpXtGhlBr-V7rB527qllW4fV6yyGTkyv50m1Fak" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
+    <img src="images/m02-27.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
 </a>
 
 How does gradient descent converge with a fixed step size $\alpha$?
@@ -428,7 +434,7 @@ The intuition behind the convergence is that $\frac{d}{d\theta_1} J(\theta_1)$ a
 $$\theta_1:=\theta_1-\alpha * 0$$
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition"><br/>
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/RDcJ-KGXEeaVChLw2Vaaug_cb782d34d272321e88f202940c36afe9_Screenshot-2016-11-03-00.06.00.png?expiry=1552089600000&hmac=Ro2ajhHNKiwkBCLeHrVj8umTNqFlz8IV8_MlVL85nl8" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
+    <img src="images/m02-28.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
 </a>
 
 
@@ -451,7 +457,7 @@ $$\theta_1:=\theta_1-\alpha * 0$$
     $$\begin{array}{rcl} \theta_0 & := & \theta_0 - \alpha \displaystyle \sum_{i=1}^m (h_\theta(x_i) - y_i) \\ \\ \theta_1 & := & \theta_1 - \alpha \displaystyle \sum_{i=1}^m ((h_\theta(x_i) - y_i) \cdot x_i)\end{array}$$
   }
 
-+ Linear Regression Model: 
++ Linear Regression Model:
 
   $$h_\theta (x) = \theta_0 + \theta_1 \cdot x$$
   
@@ -459,21 +465,12 @@ $$\theta_1:=\theta_1-\alpha * 0$$
 
   $$J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
 
-  Apply gradient descent algorithm to linear regression: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta1)$
++  Apply gradient descent algorithm to linear regression: $\;\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
 
-  <br/>
-
-  $$\begin{array}{rcl} \displaystyle
-    \frac{\partial}{\partial \theta_0, \theta_1} & = & \displaystyle \frac{2}{\partial \theta_j} \frac{1}{2m} \sum_{i=1}^{m} (h_\theta (x^{(i)}) - y^{(i)})^2 \\\\
-    & = & \displaystyle \frac{2}{\partial \theta_j} \frac{1}{2m} \displaystyle \sum_{i=1}^m (\theta_0 + \theta_1 \cdot x^{(i)} - y^{(i)})^2
-  \end{array}$$
-
-  Therefor,
-
-  $$\begin{array}{rcl}
-    j = 0 & : & \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta1) = \frac{1}{m} \sum_{i=0}^m (h_\theta (x^{(i)}) y{(i)}) \\ \\
-    j = 1 & : & \displaystyle \frac{\partial}{\partial \theta_0} J(\theta_0, \theta1) = \frac{1}{m} \sum_{i=0}^m (h_\theta (x^{(i)}) y{(i)}) \cdot x^{(i)}
-  \end{array}$$
+    $$\begin{array}{rcl} \displaystyle
+      \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) & = & \displaystyle \frac{\partial}{\partial \theta_j} \frac{1}{2m} \sum_{i=1}^{m} (h_\theta (x^{(i)}) - y^{(i)})^2 \\\\
+      & = & \displaystyle \frac{\partial}{\partial \theta_j} \frac{1}{2m} \displaystyle \sum_{i=1}^m (\theta_0 + \theta_1 \cdot x^{(i)} - y^{(i)})^2
+    \end{array}$$
 
 + Gradient descent algorithm updated with linear regression result
 
@@ -490,7 +487,7 @@ $$\theta_1:=\theta_1-\alpha * 0$$
 
     <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
       <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="300" >
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bn9SyaDIEeav5QpTGIv-Pg_0d06dca3d225f3de8b5a4a7e92254153_Screenshot-2016-11-01-23.48.26.png?expiry=1552089600000&hmac=JlEz_gvm4vxzrv4qHvdM79jBfV6i4M2G-YeRgkDB9tY" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="290" >
+      <img src="images/m02-29.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="200" >
     </a>
   + Convex function: bowl-shaped
     <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
@@ -551,7 +548,7 @@ The point of all this is that if we start with a guess for our hypothesis and th
 So, this is simply gradient descent on the original cost function $J$. This method looks at every example in the entire training set on every step, and is called __batch gradient descent__. Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate $\alpha$ is not too large) to the global minimum. Indeed, $J$ is a convex quadratic function. Here is an example of gradient descent as it is run to minimize a quadratic function.
 
 <a href="https://www.coursera.org/learn/machine-learning/supplement/U90DX/gradient-descent-for-linear-regression">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/xAQBlqaaEeawbAp5ByfpEg_24e9420f16fdd758ccb7097788f879e7_Screenshot-2016-11-09-08.36.49.png?expiry=1552089600000&hmac=bM2ybGZOElsSQIr7XMM2VnuXIHgxq-kniI3Hj8jx2FU" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="250" >
+    <img src="images/m02-29.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350" >
 </a>
 
 The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at $(48,30)$. The x’s in the figure (joined by straight lines) mark the successive values of $\theta$ that gradient descent went through as it converged to its minimum.
