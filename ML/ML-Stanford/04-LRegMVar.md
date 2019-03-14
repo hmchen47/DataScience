@@ -273,14 +273,90 @@ For example, if $x_i$ represents housing prices with a range of 100 to 2000 and 
 
 #### Lecture Notes
 
++ Gradient descent
+
+  $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\Theta)$$
+  + "Debugging": how to make suer gradient descent is working correctly
+  + How to choose learning rate $\alpha$
+
++ Automatic convergence test: Convergence threshold
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
+      <img src="images/m04-02.png" style="margin: 0.1em;" alt="text" title="No of iterations vs $\min J(\theta)$" width="350">
+    </a></div>
+  </div>
+
+  + $J(\Theta)$ should decrease each iteration
+  + Declare convergence if $J(\Theta)$ decreases by less than $\varepsilon = 10^{-3}$ in one iteration.
+
++ Learning rate
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
+        <img src="images/m04-03.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      </a></div>
+    </div>
+
+    + $J(\Theta) \uparrow$ as number of iterations $\uparrow \quad \Longrightarrow \quad$ gradient not working, $\alpha$ too big
+    + For sufficiently small $\alpha$, $J(\Theta)$ should decrease on every iteration.
+    + If $\alpha$ is too small, gradient descent can be slow to converge.
+    + IVQ: Suppose a friend ran gradient descent three times, with $\alpha = 0.01$, $\alpha = 0.1$, and $\alpha = 1$, and got the following three plots (labeled A, B, and C):
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/4.4-quiz-1-plots.png" style="margin: 0.1em;" alt="Plot A shows $$J(\theta)$$ sharply decreasing after the first few iterations, and then leveling off. Plot B shows $J(\theta)$ slowly decreasing at every iteration, and still decreasing at the last iteration. Plot C shows $$J(\theta)$$ increasing every iteration, with the increase growing in every iteration." title="Diagrams for IVQ" width="450">
+      </a></div>
+    </div>
+
+    Which plots corresponds to which values of \alphaα?
+    1. A is $\alpha=0.01$, B is $\alpha = 0.1$, C is $\alpha =1$.
+    2. A is $\alpha=0.1$, B is $\alpha = 0.01$, C is $\alpha =1$.
+    3. A is $\alpha=1$, B is $\alpha = 0.01$, C is $\alpha =0.1$.
+    4. A is $\alpha=1$, B is $\alpha = 0.1$, C is $\alpha =0.01$.
+
+    Ans: 2 <br/>
+    Explanation: In graph C, the cost function is increasing, so the learning rate is set too high. Both graphs A and B converge to an optimum of the cost function, but graph B does so very slowly, so its learning rate is set too low. Graph A lies between the two.
+
+
++ Summary
+  + If $\alpha$ too small: slow convergence.
+  + If $\alpha$ too large: $J(\Theta)$ may not decrease on every iteration; may not converge; slow converge also possible
+  + Best practice: to choose $\alpha$, try
+
+    $$\ldots, 0.001, 0.003, , 0.01, 0.03, 0.1, 0.3, 1, \ldots$$
+
+
 
 ---------------------------------------
+
+__Debugging gradient descent__. Make a plot with number of iterations on the x-axis. Now plot the cost function, $J(\theta)$ over the number of iterations of gradient descent. If $J(\theta)$ ever increases, then you probably need to decrease $\alpha$.
+
+__Automatic convergence test__. Declare convergence if $J(\theta)$ decreases by less than $E$ in one iteration, where $E$ is some small value such as $10^{−3}$. However in practice it's difficult to choose this threshold value.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
+    <img src="images/m04-02.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+It has been proven that if learning rate α is sufficiently small, then J(θ) will decrease on every iteration.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
+    <img src="images/m04-03.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+To summarize:
+
++ If $\alpha$ is too small: slow convergence.
++ If $\alpha$ is too large: ￼may not decrease on every iteration and thus may not converge.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/04.4-LinearRegressionWithMultipleVariables-GradientDescentInPracticeIILearningRate.0f202420b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1552694400&Signature=Ivon6YjQJpvHHPHkviOja3BtxADiZMMZQAvX4BVTygCC0QkogFWqvuLFqHS-fWh11BHIQaHRU0fISam21DJQ9hmSzYu1VWFWtVzdYb4fdrmDsxM~GFRE5OG1lqYpQ1-YYIrP5-oI6wygrbzvOay4esGxd36w5SBFZiU0wjrqknU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/R7F5CEt0R8uxeQhLdNfLQA?expiry=1552694400000&hmac=XWt-7i8N_5-hQeBGd_WftWywfOOpIKoiVgJhfNzBoSY&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
