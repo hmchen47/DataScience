@@ -367,14 +367,101 @@ To summarize:
 
 #### Lecture Notes
 
++ Housing prices prediction
+
+    $$h_\Theta(x) = \theta_0 + \theta_1 \times \text{ frontage } + \theta_2 \times \text{ depth}$$
+
+    where $\text{frontage } = x_1$ and $\text{depth } = x_2$
+
+    Area: $\;x = x_1 \times x_2 \;$ as land area
+
+    $$\begin{array}{l}
+      x = \text{ frontage } \times \text{ depth } \\\\
+      h_\theta (x) = \theta_0 + \theta_1 x
+    \end{array}$$
+
++ Polynomial regression
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m04-04.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      </a></div>
+    </div>
+
+    $$\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots$$
+
+    + If cubic model fits, 
+
+        $$\begin{array}{rcl}
+            h_\theta(x) & = & \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \\\\
+            & = & \theta_0 + \theta(size) + \theta_2 (size)^2 + \theta_3 (size)^3
+        \end{array}$$
+
+        where $x_1 = (size), x_2 = (size)^2, x_3 = (size)^3$
+
+    + Value range: if $size \in [1, 1000]$
+        + $x_1 = (size) \in [1, 10^3]$
+        + $x_2 = (size)^2 \in [1, 10^6]$
+        + $x_3 = (size)^3 \in [1, 10^9]$
+
++ Choose of features
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m04-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      </a></div>
+    </div>
+
+    $$\begin{array}{rcl}
+      h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 (size)^3 \\\\
+      h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 \sqrt{(size)}
+    \end{array}$$
+    + IVQ: Suppose you want to predict a house's price as a function of its size. Your model is
+
+      $h_\theta(x) = \theta_0 + \theta_1(\text{size}) + \theta_2\sqrt{(\text{size})}$.
+
+      Suppose size ranges from 1 to 1000 ($\text{feet}^2$). You will implement this by fitting a model
+
+      $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2$.
+
+      Finally, suppose you want to use feature scaling (without mean normalization).
+
+      Which of the following choices for $x_1$ and $x_2$ should you use? (Note:$\sqrt{1000} \approx 32$)
+      1. $x_1 = \text{size},\ x_2 = 32\sqrt{(\text{size})}$
+      2. $x_1 = 32(\text{size}),\ x_2=\sqrt{(\text{size})}$
+      3. $x_1 = \frac{\text{size}}{1000},\ x_2 = \frac{\sqrt{(\text{size})}}{32}$
+      4. $x_1 = \frac{\text{size}}{32},\ x_2=\sqrt{(\text{size})}$
+
+      Ans: 3
+
 
 ---------------------------------------
+
+We can improve our features and the form of our hypothesis function in a couple different ways.
+
+We can __combine__ multiple features into one. For example, we can combine $x_1$ and $x_2$ into a new feature $x_3$ by taking $x_1 \cdot x_2$.
+
+__Polynomial Regression__
+
+Our hypothesis function need not be linear (a straight line) if that does not fit the data well.
+
+We can __change the behavior or curve__ of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).
+
+For example, if our hypothesis function is $h_\theta(x) = \theta_0 + \theta_1 x_1$ then we can create additional features based on $x_1$, to get the quadratic function $\; h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 \;$ or the cubic function $\; h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3$
+
+In the cubic version, we have created new features $x_2$ and $x_3$ where $\; x_2 = x_1^2 \;$ and $\; x_3 = x_1^3$.
+
+To make it a square root function, we could do: $\; h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}$
+
+One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.
+
+eg. if $\; x_1 \;$ has range $1 - 1000$ then range of $\; x_1^2 \;$ becomes $1 - 1000000$ and that of $\; x_1^3 \;$ becomes $1 - 1000000000$
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/04.5-LinearRegressionWithMultipleVariables-FeaturesAndPolynomialRegression.c49aba90b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1552694400&Signature=N~5J~YbmV57H3NKAxaD9JUlVn4FgfaUHXiWias7c4nZepQI~8rNwmEnR2aqbpT7GMmGraAsai6JtnIUbkmK9tHSe6bgvIWXGnm9AW0AtzBQziSSNbWd57PBN8f6YdO4xavbvVzq~LdqqRykKAs0773XKy9OMGfFdYte9vsyhlHQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/WMiiN5doSRSIojeXaBkUKw?expiry=1552694400000&hmac=vaCG4nEafo_Sx1o80Katg8QR_04xbQNV76-FOG4LNyc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
