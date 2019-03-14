@@ -648,41 +648,6 @@ Solutions to the above problems include deleting a feature that is linearly depe
 <br/>
 
 
-### Working on and Submitting Programming Assignments
-
-#### Lecture Notes
-
-
----------------------------------------
-
-
-#### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video>
-
-<br/>
-
-
-### Programming tips from Mentors
-
-#### Lecture Notes
-
-
----------------------------------------
-
-
-#### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video>
-
-<br/>
-
 
 ## Review
 
