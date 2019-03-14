@@ -613,14 +613,35 @@ With the normal equation, computing the inversion has complexity $\mathcal{O}(n^
 
 #### Lecture Notes
 
++ Normal Equation
+
+  $$\theta = (X^TX)^{-1} X^T y$$
+
+  + What if $X^TX is non-invertible? (singular/degenerate)
+  + Octave: `pinv(X'*X)* X' * y`
+
++ What if $X^TX$ is non-invertible?
+  + Redundant features (linearly dependent).
+    + E.g. $x_1$ = size in $\text{feet}^2$, $x_2$ = size in $m^2 \quad \rightarrow \quad x_1 = (3.28)^2 x_2$
+  + Too many features (e.g. $m \leq n$)
+    + Delete some features, or use regularization
 
 ---------------------------------------
+
+When implementing the normal equation in octave we want to use the `pinv` function rather than `inv`. The `pinv` function will give you a value of $\theta$ even if $X^TX$ is not invertible.
+
+If $X^TX$ is __non-invertible__, the common causes might be having :
+
++ Redundant features, where two features are very closely related (i.e. they are linearly dependent)
++ Too many features (e.g. $m leq n$). In this case, delete some features or use "regularization" (to be explained in a later lesson).
+
+Solutions to the above problems include deleting a feature that is linearly dependent with another or deleting one or more features when there are too many features.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/04.7-LinearRegressionWithMultipleVariables-NormalEquationNonInvertibility%28Optional%29.0e3f3a00b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1552694400&Signature=jWBBJ8gjdokMUUDD8UfBTd27N5yeTrYpBMor1OBtKQUUN8F5G3m~h8yqHxJi4sGkrWG3A9PhP0d2DisQJ61KhG~TCF6EYQIkfV0T9H-336Gw5lm6vaxNWlNyPXFd1Vt43Y~oydK-aSBjdUotmOvZcHidWC6R8NFK9tRVXZt~cPY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/T43JfNHlTguNyXzR5Z4LpQ?expiry=1552694400000&hmac=UGOyLYUDUhCKayQtt6y6rfutydz1WTgDsc1AKyN8QzQ&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
