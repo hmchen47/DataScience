@@ -470,19 +470,121 @@ eg. if $\; x_1 \;$ has range $1 - 1000$ then range of $\; x_1^2 \;$ becomes $1 -
 
 ## Computing Parameters Analytically
 
-
 ### Normal Equation
 
 #### Lecture Notes
 
++ Normal equation: Method to solve for $\theta$ analytically.
+
++ Intuition: If 1D ($\theta \in \mathbb{R}$)
+
+    $$J(\theta) = a \theta^2 + b \theta + c$$
+    <br/>
+
+    $$\dfrac{d}{d\theta} J(\theta) = \cdots = 0 \Longrightarrow \text{solve for } \theta$$
+
++ Generalized: for $\; \theta \in \mathbb{R}^{n+1}$
+
+  $$J(\theta_0, \theta_1, \ldots, \theta_m) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)} - y^{(i)})^2$$
+  <br/>
+
+  $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \cdots = 0, \quad \forall j \Longrightarrow \text{solve for } \theta_0, \theta_1, \ldots, \theta_n$$
+
++ Example: $m=4$
+
+  | <br/>$x_0$ | Size ($\text{feet}^2$) <br/> $x_2$ | Number of bedrooms <br/> $x_3$ | Number of floors <br/> $x_4$ | Age of home (years) <br/> $x_4$ | Price ($1000) <br/> $y$ |
+  |:-:|:--:|:--:|:--:|:--:|:--:|
+  | 1 | 2104 | 5 | 1 | 45 | 460 |
+  | 1 | 1416 | 3 | 2 | 40 | 232 |
+  | 1 | 1534 | 3 | 2 | 30 | 315 |
+  | 1 | 852 | 2 | 1 | 36 | 178 |
+
+  <br/>
+
+  $$\begin{array}{ccccccl} X & = &  \begin{bmatrix} 1 & 2104 & 5 & 1 & 45 \\ 1 & 1416 & 3 & 2 & 40 \\ 1 & 1534 & 3 & 2 & 30 \\ 1 &  852 & 2 & 1 & 36 \end{bmatrix} & \quad \quad \quad & y & = &  \begin{bmatrix} 460 \\ 232 \\ 315 \\ 178 \end{bmatrix} \\ & & m \times (n+1) \text{ matrix} & & & & m-\text{dimensional vector} \end{array}$$
+
+  <br/>
+
+  $$\theta = (X^TX)^{-1} X^T y$$
+
++ Normal Equation
+  + Suppose $\;m\;$ examples $\;(x{(1)}, y^{(1)}), \ldots, (x{(1)}, y^{(1)})$; $\;n$ features, then
+
+    $$x^{(i)} = \begin{bmatrix} x_0^{(i)} \\ x_1^{(i)} \\ \vdots \\ x_n^{(i)} \end{bmatrix} \in \mathbb{R}^{n+1}  \quad\quad \Longrightarrow \quad\quad X = \begin{bmatrix} (x^{(1)})^T \\ (x^{(2)})^T \\ \vdots \\ (x^{(m)})^T \end{bmatrix} m \times (n+1) \text{matrix (design matrix})$$
+
+  + Example: $n=2$
+  
+    $$x^{(i)} = \begin{bmatrix} 1 \\ x_1^{(i)} \end{bmatrix} \quad\quad \Longrightarrow \quad\quad X = \begin{bmatrix} 1 & x_1^{(1)} \\ 1 & x_2^{(1)} \\ \vdots & \vdots \\ 1 & x_m^{(1)} \end{bmatrix} (m \times 2) \text{ matrix} \quad \text{  and    } \quad y = \begin{bmatrix} y^{(1} \\ y^{(2)} \\ \vdots \\ y^{(m)} \end{bmatrix}$$
+
+  + IVQ: Suppose you have the training in the table below:
+
+    | age ($x_1$) | height in cm ($x_2$) | weight in kg ($x_3$) |
+    |:--:|:--:|:--:|
+    | 4| 89 | 16 |
+    | 9 | 124 | 28 |
+    | 5 | 103 | 20 |
+
+    You would like to predict a child's weight as a function of his age and height with the model
+
+    $$\text{weight} = \theta_0 + \theta_1\text{age}+\theta_2\text{height}$$.
+
+    What are XX and yy?
+
+    Ans: $X = \begin{bmatrix} 1 & 4 & 89 \\ 1 & 9 7 124 \\ 1 & 5 & 103 \end{bmatrix}, \quad\quad y = \begin{bmatrix} 16 \\ 28 \\ 20 \end{bmatrix}$
+  
+  + Substitution
+
+    $\theta = (X^TX)^{-1} X^T y \quad \Longrightarrow \quad \text{solution for } \displaystyle \min_{\theta} J(\theta)$
+
+    where $(X^TX)^{-1}$ is inverse of matrix $(X^TX)$.
+
+    Let $A = X^TX$, then $\;(X^TX)^{-1} = A^{-1}$
+  
+  + Octave: `pinv(X' * X) * X' * y`
+
++ Comparison: $m$ training examples, $n$ features
+  + Gradient Descent
+    + Need to choose $\alpha$
+    + Need many iterations
+    + Work well even when $n$ is large
+  + Normal Equation
+    + No need to choose $\alpha$
+    + Don't need to iterate
+    + Need to compute $(X^TX)^{-1}$ ($\mathcal{O}(n^3)$ for inverse matrix)
+    + Slow if $n$ is very large, $n \leq 10000$ might be ok
+    + No need to feature scaling
+
 
 ---------------------------------------
+
+Gradient descent gives one way of minimizing J. Let’s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the "Normal Equation" method, we will minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:
+
+$\theta = (X^T X)^{-1}X^T y$
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/bjjZW/normal-equation">
+    <img src="images/m04-07.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+There is __no need__ to do feature scaling with the normal equation.
+
+The following is a comparison of gradient descent and the normal equation:
+
+| Gradient Descent | Normal Equation |
+|------------------|-----------------|
+| Need to choose $\alpha$ | Not need to choose $\alpha$ |
+| Need many iterations | No need to iterate |
+| $\mathcal{O}(kn^2)$ | $\mathcal{O}(n^3)$, need to calculate inverse of $X^TX$ |
+| Works well when $n$ is large | Slow if $n$ is very large |
+
+With the normal equation, computing the inversion has complexity $\mathcal{O}(n^3)$). So if we have a very large number of features, the normal equation will be slow. In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/04.6-V2-LinearRegressionWithMultipleVariables-NormalEquation.245e86b0b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1552694400&Signature=fL0VFHgRKnoiUp8U9T6z1AMmpw7E9xeemv1q6zMsXn8SMH~7CR8zs48bOQy1bFXSc8WrfqUb52mi8OLyWtGDrCRlo9-r8R~sY9Ef5cdTYxtwKWPPtJC8JJhXucBq-hTn--lm2S~VMLLexB2ZxkSZM2Y1wmJvKMszPrfc8rJzZrA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Cn1S8V3aTKe9UvFd2pynXA?expiry=1552694400000&hmac=LJnmBmYwegrMSwMepAuALXwDRRwVqdOavGtunMlFdF8&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
