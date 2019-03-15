@@ -436,6 +436,24 @@ If you recall the definition multiplying vectors, you'll see that this one opera
 
 ### Errata
 
+#### Errors in the video lectures
+
++ Ex1.pdf, page 9; code segmentPrior to defining J_vals, we must initialize theta0_vals and theta1_vals. Add "theta0_vals = -10:0.01:10; theta1_vals = -1:0.01:4;" to the beginning of the code segment.
++ Ex1.pdf, page 9; code segmentcomputeCost(x, y, t) - should be capital X (as it is correctly in ex1.m)
++ Ex1.pdf, page 14; normal equations in closed-form solution to linear regression:Inconsistency in notation: Whereas the column vector $\vec{y}$ of dimension m×1is denoted by an over line vector, the (n+1)×1 vector θ lacks the over line vector.Same applies to definition of vector θ in lecture notes - I would suggest to always denote column and row vectors by over line vectors, increases readability enormously to distinguish vectors from matrices. Matlab itself of course does not distinguish between vectors and matrices, vectors are just special matrices with only one row resp. column.
++ Ex1.pdf, page 14:In section 3.3, there is the following sentence: "The code in ex1.m will add the column of 1’s to X for you." But in this section, it is talking about ex1_multi.m. Of course, it is also true that ex1.m adds the bias units for you, but that is not the script being referred to here.
++ Octave Tutorial:When Prof Ng enters this line: "w = -6 + sqrt(10) * randn(1,10000))", add a semicolon at the end to prevent its display.If Octave crashes when you type "hist(w)", try the command "graphics_toolkit('gnu_plot')".
++ Vectorization video at 2:19. The comma at the end of the line "for j=1:n+1," is a typo. The comma is not needed.
+
+#### Errors in the Programming Exercise Instructions
+
++ ex1.pdf Page 2 1st paragraph: Students are required to modify ex1_muilt.m to complete the optional portion of this exercise. So ignore the sentence "You do not need to modify either of them.
+
+
+#### Errors in the programming exercise scripts
+
++ In plotData.m, the statement "figure" at line 17 should be above the "===== YOUR CODE HERE ===" section. The code you add must be below the "figure" statement.
+
 
 
 ### Quiz: Octave/Matlab Tutorial
