@@ -80,7 +80,7 @@
     + [Features and Polynomial Regression](04-LRegMVar.md#)
 + [Computing Parameters Analytically](04-LRegMVar.md#)
     + [Normal Equation](04-LRegMVar.md#)
-    + [Normal Equation](04-LRegMVar.md#)
+    + [Normal Equation Noninvertibility](04-LRegMVar.md#)
 + [Review](04-LRegMVar.md#)
     + [Lecture Slides](04-LRegMVar.md#)
     + [Quiz: Linear Regression with Multiple Variables](04-LRegMVar.md#)
