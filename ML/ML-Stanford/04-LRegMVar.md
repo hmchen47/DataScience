@@ -40,13 +40,13 @@
 
   For convenience of notation, define $x_0 = 1$ (a.k.a. $x_0^{(i)}=1 \; \text{ for } i = 1, \ldots, m$)
 
-  $X = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} \in \mathbb{R}^{n+1} \quad \quad \quad \Theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix} \in \mathbb{R}^{n+1}$
+  $X = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} \in \mathbb{R}^{n+1} \quad \quad \quad \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix} \in \mathbb{R}^{n+1}$
 
-  $\Theta^T = \begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_n \end{bmatrix}$ as a $1 \times (n+1)$ matrix
+  $\theta^T = \begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_n \end{bmatrix}$ as a $1 \times (n+1)$ matrix
 
   $\begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_n \end{bmatrix} \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix}$
 
-  $\therefore h_\theta (x) = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n = \Theta^T X \Longrightarrow$ Multivariate linear regression.
+  $\therefore h_\theta (x) = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n = \theta^T X \Longrightarrow$ Multivariate linear regression.
 
 ---------------------------------------
 
@@ -91,32 +91,32 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
 + Linear Regression Model
   + Hypothesis function
 
-    $$h_\theta(x) =\theta^T x = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \Theta^T \cdot X$$
+    $$h_\theta(x) =\theta^T x = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot X$$
 
   + Parameters: 
   
-    $$\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \Theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}\quad$$
+    $$\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}\quad$$
 
-    $\Theta$: a $(n+1)$-dimensional vector
+    $\theta$: a $(n+1)$-dimensional vector
 
   + Cost function: 
 
     $$\begin{array}{cc}
       J(\theta_0, \theta_1, \ldots, \theta_n) & = & \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 \\ \\
-      J(\Theta) &= & \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2
+      J(\theta) &= & \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2
     \end{array}$$
 
   + IVQ: When there are n features, we define the cost function as
 
-    $$\displaystyle J(\Theta) = \frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^2$$.
+    $$\displaystyle J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^2$$.
 
     For linear regression, which of the following are also equivalent and correct definitions of $J(\theta)$?
 
     $$\begin{array}{lrcl}
-      1. & J(\Theta) & = & \frac{1}{2m} \sum_{i=1}^m (\Theta^T x^{(i)} - y^{(i)})^2 \\\\
-      2. & J(\Theta) & = & \frac{1}{2m} \sum_{i=1}^m ((\sum_{j=0}^n \theta_j x_j^{(i)}) - y^{(i)})^2 \text{(inner sum starts at 0)} \\\\
-      3. & J(\Theta) & = & \frac{1}{2m} \sum_{i=1}^m ((\sum_{j=1}^n \theta_j x_j^{(i)}) - y^{(i)})^2 \text{(inner sum starts at 1)} \\\\
-      4. & J(\Theta) & = & \frac{1}{2m} \sum_{i=1}^m ((\sum_{j=0}^n \theta_j x_j^{(i)}) - (\sum_{j=0}^n y_j^{(i)}))^2 \text{(inner sum starts at 0)} \\\\
+      1. & J(\theta) & = & \frac{1}{2m} \sum_{i=1}^m (\theta^T x^{(i)} - y^{(i)})^2 \\\\
+      2. & J(\theta) & = & \frac{1}{2m} \sum_{i=1}^m ((\sum_{j=0}^n \theta_j x_j^{(i)}) - y^{(i)})^2 \text{(inner sum starts at 0)} \\\\
+      3. & J(\theta) & = & \frac{1}{2m} \sum_{i=1}^m ((\sum_{j=1}^n \theta_j x_j^{(i)}) - y^{(i)})^2 \text{(inner sum starts at 1)} \\\\
+      4. & J(\theta) & = & \frac{1}{2m} \sum_{i=1}^m ((\sum_{j=0}^n \theta_j x_j^{(i)}) - (\sum_{j=0}^n y_j^{(i)}))^2 \text{(inner sum starts at 0)} \\\\
     \end{array}$$
 
     Ans: 12
@@ -125,7 +125,7 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
 
     Repeat {
 
-    $$\theta_j := \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\Theta) = \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1, \ldots, \theta_n)$$
+    $$\theta_j := \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta) = \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1, \ldots, \theta_n)$$
     <div style="text-align: center; padding-top: 0.5em;padding-left: calc(50vw - 5em);"> (simultaneously update for every j = 0, 1, ..., n$) </div><br/>}
 
 + Gradient Descent Algorithm
@@ -133,8 +133,8 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
 
     Repeat {
 
-      $$\begin{array}{ccc}\theta_0 &:=& \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_0 -\alpha \frac{\partial}{\partial \theta_0} J(\Theta) \\\\
-      \theta_1 & := & \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_0 -\alpha \frac{\partial}{\partial \theta_1} J(\Theta) \end{array}$$
+      $$\begin{array}{ccc}\theta_0 &:=& \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_0 -\alpha \frac{\partial}{\partial \theta_0} J(\theta) \\\\
+      \theta_1 & := & \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_0 -\alpha \frac{\partial}{\partial \theta_1} J(\theta) \end{array}$$
       <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update for </span> $\theta_0, \theta_1$)<br/>
     }
   
@@ -142,7 +142,7 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
 
     Repeat {
 
-      $$\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\Theta)$$
+      $$\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
       <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update </span> $\theta_j \;$ for $j=0, 1, \ldots, n$)<br/>
     }
   
@@ -275,7 +275,7 @@ For example, if $x_i$ represents housing prices with a range of 100 to 2000 and 
 
 + Gradient descent
 
-  $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\Theta)$$
+  $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
   + "Debugging": how to make suer gradient descent is working correctly
   + How to choose learning rate $\alpha$
 
@@ -287,8 +287,8 @@ For example, if $x_i$ represents housing prices with a range of 100 to 2000 and 
     </a></div>
   </div>
 
-  + $J(\Theta)$ should decrease each iteration
-  + Declare convergence if $J(\Theta)$ decreases by less than $\varepsilon = 10^{-3}$ in one iteration.
+  + $J(\theta)$ should decrease each iteration
+  + Declare convergence if $J(\theta)$ decreases by less than $\varepsilon = 10^{-3}$ in one iteration.
 
 + Learning rate
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -297,8 +297,8 @@ For example, if $x_i$ represents housing prices with a range of 100 to 2000 and 
       </a></div>
     </div>
 
-    + $J(\Theta) \uparrow$ as number of iterations $\uparrow \quad \Longrightarrow \quad$ gradient not working, $\alpha$ too big
-    + For sufficiently small $\alpha$, $J(\Theta)$ should decrease on every iteration.
+    + $J(\theta) \uparrow$ as number of iterations $\uparrow \quad \Longrightarrow \quad$ gradient not working, $\alpha$ too big
+    + For sufficiently small $\alpha$, $J(\theta)$ should decrease on every iteration.
     + If $\alpha$ is too small, gradient descent can be slow to converge.
     + IVQ: Suppose a friend ran gradient descent three times, with $\alpha = 0.01$, $\alpha = 0.1$, and $\alpha = 1$, and got the following three plots (labeled A, B, and C):
 
@@ -320,7 +320,7 @@ For example, if $x_i$ represents housing prices with a range of 100 to 2000 and 
 
 + Summary
   + If $\alpha$ too small: slow convergence.
-  + If $\alpha$ too large: $J(\Theta)$ may not decrease on every iteration; may not converge; slow converge also possible
+  + If $\alpha$ too large: $J(\theta)$ may not decrease on every iteration; may not converge; slow converge also possible
   + Best practice: to choose $\alpha$, try
 
     $$\ldots, 0.001, 0.003, , 0.01, 0.03, 0.1, 0.3, 1, \ldots$$
@@ -369,7 +369,7 @@ To summarize:
 
 + Housing prices prediction
 
-    $$h_\Theta(x) = \theta_0 + \theta_1 \times \text{ frontage } + \theta_2 \times \text{ depth}$$
+    $$h_\theta(x) = \theta_0 + \theta_1 \times \text{ frontage } + \theta_2 \times \text{ depth}$$
 
     where $\text{frontage } = x_1$ and $\text{depth } = x_2$
 
@@ -591,25 +591,7 @@ With the normal equation, computing the inversion has complexity $\mathcal{O}(n^
 <br/>
 
 
-### Normal Equation
-
-#### Lecture Notes
-
-
----------------------------------------
-
-
-#### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video>
-
-<br/>
-
-
-### Submitting Programming Assignments
+### Normal Equation Noninvertibility
 
 #### Lecture Notes
 
