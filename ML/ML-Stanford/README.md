@@ -86,6 +86,22 @@
     + [Quiz: Linear Regression with Multiple Variables](04-LRegMVar.md#)
 
 
+## Octave/Matlab Tutorial
+
++ [Basic Operations](05-Octave.md#)
++ [Moving Data Around](05-Octave.md#)
++ [Computing on Data](05-Octave.md#)
++ [Plotting Data](05-Octave.md#)
++ [Control Statements: for, while, if statement](05-Octave.md#)
++ [Vectorization](05-Octave.md#)
++ [Review](05-Octave.md#)
+    + [Reading: ReadingLecture Slides](05-Octave.md#)
+    + [Quiz: Octave/Matlab Tutorial](05-Octave.md#)
+
+
+## Programming Assignment: Linear Regression
+
+
 
 
 
