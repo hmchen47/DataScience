@@ -11,8 +11,8 @@
 
 ## Moving Data Around
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.2-OctaveTutorial-MovingDataAround.6690c8e0b22b11e48803b9598c8534ce/full/360p/index.mp4?Expires=1552780800&Signature=d87NeRlgi9rAXpyjAqdc0rz20Q1PwM56ABbisO-CkRqTn1O3W2wmSC6ZhZj0Tw6rx5eitqyhJzbCh8mOy14HazhfL1Il2Rg2Cz7pCyt-JAWDx2j~~prNiBiowYQbLbpz09y0mPJ8~uL320FZ4VuWscSb1atxvA3eoNUQVwrqo30_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/qrmg05P_RZO5oNOT_yWT_w?expiry=1552780800000&hmac=eM6vijY9jKqnOT9kxKQkuT4g-lE8zNKFHZlbcs8XqZ0&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -312,35 +312,35 @@ To call the function in Octave, do either:
 1) Navigate to the directory of the functionName.m file and call the function:
 
 ```matlab
-    % Navigate to directory:
-    cd /path/to/function
+% Navigate to directory:
+cd /path/to/function
 
-    % Call the function:
-    functionName(args)
+% Call the function:
+functionName(args)
 ```
 
 2) Add the directory of the function to the load path and save it:You should not use addpath/savepath for any of the assignments in this course. Instead use 'cd' to change the current working directory. Watch the video on submitting assignments in week 2 for instructions.
 
 ```matlab
-    % To add the path for the current session of Octave:
-    addpath('/path/to/function/')
+% To add the path for the current session of Octave:
+addpath('/path/to/function/')
 
-    % To remember the path for future sessions of Octave, after executing addpath above, also do:
-    savepath
+% To remember the path for future sessions of Octave, after executing addpath above, also do:
+savepath
 ```
 
 Octave's functions can return more than one value:
 
 ```matlab
-    function [y1, y2] = squareandCubeThisNo(x)
-    y1 = x^2
-    y2 = x^3
+function [y1, y2] = squareandCubeThisNo(x)
+y1 = x^2
+y2 = x^3
 ```
 
 Call the above function this way:
 
 ```matlab
-    [a,b] = squareandCubeThisNo(x)
+[a,b] = squareandCubeThisNo(x)
 ```
 
 
