@@ -835,6 +835,16 @@ $X^TX$ may be noninvertible. The common causes are:
 Solutions to the above problems include deleting a feature that is linearly dependent with another or deleting one or more features when there are too many features.
 
 
+### Errors in the video lectures
+
++ Multiple Features, at 7:25 to 7:30. It is recorded that $\theta^T$ is an $(n+1)\times1$ matrix; it should be 1×(n+1) matrix since it has 1 row with n+1 columns.
++ Gradient Descent in Practice I - Feature Scaling, at 6:20 to 6:24. It is recorded that the average price of the house is 1,000 but he writes 100 on the slide. The slide should show "Average size = 1000" instead of "Average size = 100".
++ Gradient Descent in Practice II - Learning Rate, at 5:00. The plot on the right-hand side is not of $J(\theta)$ against the number of iterations, but rather against the parameters; so the x axis should say "θ", not "No. of iterations".
++ Error in Normal Equation at 2:19. The range shown for $\theta$ is 0 to $m$, but it should be 0 to $n$.
++ Normal Equation, from 8:00 to 8:44The design matrix $X$ (in the bottom right side of the slide) given in the example should have elements $x$ with subscript $1$ and superscripts varying from $1$ to $m$ because for all $m$ training set there are only 2 features $x_0$ and $x_1$.
++ Normal Equation, at 12:56 $(X^TX)^{−1}$ is described as an $n\times n$ matrix, but it should be $n+1 \times n+1$
++ Error in "Normal Equation Noninvertibility" at 3:20. Prof Ng states that $X$ is non-invertible if $m \leq n$. The correct statement should be that $X$ is non-invertible if $m < n$, and may be non-invertible if $m = n$.
+
 
 ### Quiz: Linear Regression with Multiple Variables
 
