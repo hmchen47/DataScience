@@ -835,6 +835,94 @@ Troubleshooting
 </video>
 
 
+
+#### Working on and Submitting Programming Exercises
+
+1. Download and extract the assignment's zip file.
+2. Edit the proper file 'a.m', where a is the name of the exercise you're working on.
+3. Run octave and cd to the assignment's extracted directory
+4. Run the 'submit' function and enter the assignment number, your email, and a password (found on the top of the "Programming Exercises" page on coursera)
+
+
+#### Video Lecture Table of Contents
+
+Basic Operations
+
+```matlab
+0:00    Introduction
+3:15    Elementary and Logical operations
+5:12    Variables
+7:38    Matrices
+8:30    Vectors
+11:53   Histograms
+12:44   Identity matrices
+13:14   Help command
+```
+
+Moving Data Around
+
+```matlab
+0:24    The size command
+1:39    The length command
+2:18    File system commands
+2:25    File handling
+4:50    Who, whos, and clear
+6:50    Saving data
+8:35    Manipulating data
+12:10   Unrolling a matrix
+12:35   Examples
+14:50   Summary
+```
+
+Computing on Data
+
+```matlab
+0:00    Matrix operations
+0:57    Element-wise operations
+4:28    Min and max
+5:10    Element-wise comparisons
+5:43    The find command
+6:00    Various commands and operations
+```
+
+Plotting data
+
+```matlab
+0:00    Introduction
+0:54    Basic plotting
+2:04    Superimposing plots and colors
+3:15    Saving a plot to an image
+4:19    Clearing a plot and multiple figures
+4:59    Subplots
+6:15    The axis command
+6:39    Color square plots
+8:35    Wrapping up
+```
+
+Control statements
+
+```matlab
+0:10    For loops
+1:33    While loops
+3:35    If statements
+4:54    Functions
+6:15    Search paths
+7:40    Multiple return values
+8:59    Cost function example (machine learning)
+12:24   Summary
+```
+
+Vectorization
+
+```matlab
+0:00    Why vectorize?
+1:30    Example
+4:22    C++ example
+5:40    Vectorization applied to gradient descent
+9:45    Python
+```
+
+
 ### Programming tips from Mentors
 
 #### Subject: Confused about "$h(x) = \theta * x$" vs. "$h(x) = X * \theta$?"
