@@ -2,36 +2,14 @@
 
 ## Basic Operations
 
-### Lecture Notes
-
-
-
--------------------------------------
-
-
-
-
-### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.1-OctaveTutorial-BasicOperations.7476fb50b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1552780800&Signature=gvcsY47R4ShW4IfVOBVuOq0t1X3ad7hkdZTfVovd-sBZ-tRFzWgApcCAgZkFg8NnVICM37J8Z1ote1Ycza8X--WXBjuZ9kI-oRjRIi7XhaqL-2q9WzmDlAFRNYHqJo8m059V9f6ZKa7GO5rCf6lijvoZ1z3n9No3-owqLzmuTxQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/jSr8J0YuQOqq_CdGLqDq3w?expiry=1552780800000&hmac=0XGRlOsF-egK4DDOFIQEQVG623opi0p2YVnrUiGEplo&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
 
 
 ## Moving Data Around
-
-### Lecture Notes
-
-
-
--------------------------------------
-
-
-
-
-### Lecture Video
 
 <video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
@@ -42,17 +20,6 @@
 
 ## Computing on Data
 
-### Lecture Notes
-
-
-
--------------------------------------
-
-
-
-
-### Lecture Video
-
 <video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
@@ -61,17 +28,6 @@
 
 
 ## Plotting Data
-
-### Lecture Notes
-
-
-
--------------------------------------
-
-
-
-
-### Lecture Video
 
 <video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
@@ -82,17 +38,6 @@
 
 ## Control Statements: for, while, if statement
 
-### Lecture Notes
-
-
-
--------------------------------------
-
-
-
-
-### Lecture Video
-
 <video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
@@ -101,17 +46,6 @@
 
 
 ## Vectorization
-
-### Lecture Notes
-
-
-
--------------------------------------
-
-
-
-
-### Lecture Video
 
 <video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
