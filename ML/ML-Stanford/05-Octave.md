@@ -47,6 +47,54 @@
 
 ## Vectorization
 
++ Vectorization example
+
+  $$h_\theta (x) = \sum_{j=0}^n \theta_j x_j = \theta^T x$$
+
+  + unvectorized implementation
+
+    ```matlab
+    prediction = 0.0;
+    for j = 1:n+1,
+      prediction += theta(j) * x(j);
+    end;
+    ```
+
+  +  vectorization:
+
+    ```matlab
+    prediction = theta' * x;
+    ```
+
++ Gradient descent
+
+    $$\theta_j := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) x^{(i)} \quad \forall j$$
+
+    Vectorized implementation:
+
+    Lect $\delta =  \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) x^{(i)}$
+
+    $$\theta := \theta - \alpha \delta$$
+
+    <br/>
+
+    $$\theta, \delta \in \mathbb{R}^{n+1}, \quad \alpha \in \mathbb{R}, \quad (h_\theta (x^{(i)}) - y^{(i)}) \in \mathbb{R}, \quad x^{(i)} \in \mathbb{R}^{n+1}$$
+
+    + IVQ: Suppose you have three vector valued variables $u, v, w$:
+
+    $$u = \begin{bmatrix}u_1 \\ u_2 \\u_3 \end{bmatrix}, \quad v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix}, \quad w = \begin{bmatrix} w_1 \\ w_2 \\ w_3 \end{bmatrix}.$$
+
+    Your code implements the following: 
+
+    ```matlab
+    for j = 1:3,
+      u(j) = 2 * v(j) + 5 * w(j);
+    end
+    ```
+    How would you vectorize this code?
+
+    Ans: $u = w*v + 5 * w$
+
 <video src="https://d3c33hcgiwev3.cloudfront.net/05.6-OctaveTutorial-Vectorization.bf6b0fc0b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1552867200&Signature=S5BeBOlEDRtU9C5BxN2fJfQBoA833HwKe~kM4vjmVpWmk97G~PQ8VEbcjavJ9qHPiCK8BAc3vUe-1osMC~4w5FHiEQc7Q5xkDXzAsTVJfGfYF3s5stzd8GUaGPf~lo4w3kJPoFqE9mO-JrxRI5~RnpnGJJoxG5TbQGSm4VhEf6I_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Yp5LirZhSKmeS4q2YYipvg?expiry=1552867200000&hmac=KHNXeOlJJGaDYtaXovTBaeH4VD4dL9ljkZS2yq18ItI&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
@@ -348,9 +396,12 @@ Call the above function this way:
 
 Vectorization is the process of taking code that relies on __loops__ and converting it into __matrix operations__. It is more efficient, more elegant, and more concise.
 
-As an example, let's compute our prediction from a hypothesis. Theta is the vector of fields for the hypothesis and x is a vector of variables.
+As an example, let's compute our prediction from a hypothesis. $\theta$ is the vector of fields for the hypothesis and $x$ is a vector of variables.
 
-With loops:
+$$h_\theta (x) = \sum_{j=0}^n \theta_j x_j = \theta^T x$$
+
+
+With loops: unvectorized implementation
 
 ```matlab
 prediction = 0.0;
