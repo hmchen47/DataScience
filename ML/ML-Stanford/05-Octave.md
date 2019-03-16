@@ -47,8 +47,8 @@
 
 ## Vectorization
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.6-OctaveTutorial-Vectorization.bf6b0fc0b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1552867200&Signature=S5BeBOlEDRtU9C5BxN2fJfQBoA833HwKe~kM4vjmVpWmk97G~PQ8VEbcjavJ9qHPiCK8BAc3vUe-1osMC~4w5FHiEQc7Q5xkDXzAsTVJfGfYF3s5stzd8GUaGPf~lo4w3kJPoFqE9mO-JrxRI5~RnpnGJJoxG5TbQGSm4VhEf6I_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Yp5LirZhSKmeS4q2YYipvg?expiry=1552867200000&hmac=KHNXeOlJJGaDYtaXovTBaeH4VD4dL9ljkZS2yq18ItI&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
