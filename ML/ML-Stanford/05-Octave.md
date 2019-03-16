@@ -38,8 +38,8 @@
 
 ## Control Statements: for, while, if statement
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.5-OctaveTutorial-ForWhileIfStatementsAndFunctions.657baf60b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1552867200&Signature=b0s49ppGVp04w1zR9x2aHh5SgmCvx7Y1T1glb1pb0PQUGSyBELz7O4BGHsIsOexK8Y37km2dWkYYNORJOGlThSiUzvgpKzNu-L8bSMu4gC2lM9XWKwfO57H3Nr-T1WuJEGEuKI3dBYIqY1Tc7d21o4nzDR-X2JjBaaen2uhONzo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Pvs22u2eRn-7NtrtniZ_Pw?expiry=1552867200000&hmac=v5vNRUSaXWp0bA29YqgrM6dvCmqcAhp1kiKttKWhzO0&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
