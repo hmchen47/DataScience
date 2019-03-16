@@ -20,8 +20,8 @@
 
 ## Computing on Data
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.3-OctaveTutorial-ComputingOnData.23182400b22b11e498c1339642deb798/full/360p/index.mp4?Expires=1552867200&Signature=lbfcpTG~mlWsI3jAGukh24aiPoUD79wyDGXPM7R9R6WUAV6SLQTzszP7ODwCvscOHn8GLWDyTgp1eJpTRgcYR9QScuSCXhjeAWgo3J7d-qYwA0WEqK3gtyHqjV-atCsiFUMTFKzb~RpHQm48hINesPSGht6aFZ6fNUIBWtO1yoY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/QtBkr9pZSCyQZK_aWegsmA?expiry=1552867200000&hmac=nx2n6VFwq3q9Gx1UtXb8pFoaCJqZB3acDvGM6Fuo7Qo&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
