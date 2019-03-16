@@ -29,8 +29,8 @@
 
 ## Plotting Data
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.4-OctaveTutorial-PlottingData.d42c2c00b22b11e495a62138f9b52d3f/full/360p/index.mp4?Expires=1552867200&Signature=NAb~wPUoqDri-PRAE9VxJsZhiRsxy-3ojH1D81D32rTg-tq3aNym-J6gh3PLVj-los6oPSKDOwKReinF~oW55KVKvoWW7X3JdOL0zBUWZddkDa7lvxg1RIlEFv6xuisveKmMI0qieHbG1ZiFB8~sqFmsp7-fPAL730AWMQ~5bUg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/H7jGfzL8TDC4xn8y_IwwEg?expiry=1552867200000&hmac=1pSPH1FPEg-3S32YT000PQixPtUGAzC_NV25o3HAnMk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
