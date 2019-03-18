@@ -487,7 +487,7 @@ If you recall the definition multiplying vectors, you'll see that this one opera
     4. `v = sum (A * x);`
     5. `v = x' * A;`
 
-    Ans: 1x12
+    Ans: 13, x12
 
 
 4. Say you have two column vectors $v$ and $w$, each with 7 elements (i.e., they have dimensions 7x1). Consider the following code:
