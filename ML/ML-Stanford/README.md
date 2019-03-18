@@ -96,10 +96,26 @@
 + [Vectorization](05-Octave.md#)
 + [Review](05-Octave.md#)
     + [Reading: ReadingLecture Slides](05-Octave.md#)
+    + [Errata](05-Octave.md#)
     + [Quiz: Octave/Matlab Tutorial](05-Octave.md#)
 
 
-## Programming Assignment: Linear Regression
+## Programming Assignment 1: Linear Regression
+
++ [Simple Octave/MATLAB function](ex01.md#)
++ [Linear regression with one variable](ex01.md#)
+    + [Plotting the Data](ex01.md#)
+    + [Gradient Descent](ex01.md#)
+    + [Debugging](ex01.md#)
++ [Visualizing $J(\theta)$](ex01.md#)
+    + [Linear regression with multiple variables](ex01.md#)
+    + [Feature Normalization](ex01.md#)
+    + [Gradient Descent](ex01.md#)
+    + [Normal Equations](ex01.md#)
+
+
+
+
 
 
 
