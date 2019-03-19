@@ -126,7 +126,7 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
     Repeat {
 
     $$\theta_j := \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta) = \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1, \ldots, \theta_n)$$
-    <div style="text-align: center; padding-top: 0.5em;padding-left: calc(50vw - 5em);"> (simultaneously update for every j = 0, 1, ..., n$) </div><br/>}
+    <span style="text-align: center; padding-top: 0.5em;padding-left: calc(50vw - 5em);"> (simultaneously update for every </span> $\;j = 0, 1, \cdots, n$) <br/>}
 
 + Gradient Descent Algorithm
   + Linear regression: $n = 1$
