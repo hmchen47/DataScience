@@ -114,6 +114,21 @@
     + [Normal Equations](ex01.md#)
 
 
+## Logistic Regression
+
++ [Classification and Representation](06-Logistic.md#)
+    + [Classification](06-Logistic.md#)
+    + [Hypothesis Representation](06-Logistic.md#)
+    + [Decision Boundary](06-Logistic.md#)
++ [Logistic Regression Model](06-Logistic.md#)
+    + [Cost Function](06-Logistic.md#)
+    + [Simplified Cost Function and Gradient Descent](06-Logistic.md#)
+    + [Advanced Optimization](06-Logistic.md#)
++ [Multiclass Classification](06-Logistic.md#)
++ [Review](06-Logistic.md#)
+    + [Lecture Slides](06-Logistic.md#)
+    + [Errata](06-Logistic.md#)
+    + [Quiz: Logistic Regression](06-Logistic.md#)
 
 
 
