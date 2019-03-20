@@ -26,13 +26,18 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+[m, n] = size(X);
 
+mu = mean(X);
+sigma = std(X);
 
+for iter = 1:m,
+    X_norm(iter, :) = (X_norm(iter, :) - mu) ./ sigma;
+end;
 
-
-
-
-
+%fprintf(' x = [%+0.6f %+0.6f]\n', [X_norm(1:10,:)]');
+%fprintf('mu = [%+0.6f %+0.6f]\n', [mu(1, :)]);
+%fprintf('sigma = [%+0.6f %+0.6f]\n', [sigma(1, :)]);
 
 % ============================================================
 
