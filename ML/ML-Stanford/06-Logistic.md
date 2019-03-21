@@ -97,7 +97,7 @@ We could approach the classification problem ignoring the fact that y is discret
 
 Our new form uses the "Sigmoid Function," also called the "Logistic Function":
 
-$$hθ(x)=g(θ^Tx) \quad\quad z=θ^Tx \quad\quad g(z) = \dfrac{1}{1+e^{−z}}$$
+$$h_\theta(x)=g(θ^Tx) \quad\quad z=θ^Tx \quad\quad g(z) = \dfrac{1}{1+e^{−z}}$$
 
 The following image shows us what the sigmoid function looks like:
 
@@ -116,7 +116,7 @@ $$\begin{array}{l} h_\theta(x) =  P(y=1|x;θ) = 1 − P(y=0|x;θ) \\\\ P(y=0|x;�
 
 #### Lecture Video 
 
-<video src="https://d3c33hcgiwev3.cloudfront.net/06.2-LogisticRegression-HypothesisRepresentation.219617e0b22b11e4bfb32bc54f4c0527/full/360p/index.mp4?Expires=1553299200&Signature=fJNtlLEVc~eDsJKx2Z4pJ3hKYw2tgHx0~VF6fJ8mbbMH9-pwyMgEPJ5yKadTl5RTtxlr91Ge6aGCJXEYzuEfXBLvcpwBvqdJ-oWzGLvrB6jsiVC~f3pwEOIpb98Koo2ZEpHQVNI8Mm318lXh4joluo4km257rM1~GPPc~8JCpQc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.2-LogisticRegression-HypothesisRepresentation.219617e^0b22b11e4bfb32bc54f4c0527/full/360p/index.mp4?Expires=1553299200&Signature=fJNtlLEVc~eDsJKx2Z4pJ3hKYw2tgHx0~VF6fJ8mbbMH9-pwyMgEPJ5yKadTl5RTtxlr91Ge6aGCJXEYzuEfXBLvcpwBvqdJ-oWzGLvrB6jsiVC~f3pwEOIpb98Koo2ZEpHQVNI8Mm318lXh4joluo4km257rM1~GPPc~8JCpQc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Hn9tP60RQkm_bT-tEZJJfw?expiry=1553299200000&hmac=TZNDFstnCLpRKYo5kwl8Kn1SlQlYCspC1KkTzIzMEiU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
@@ -128,18 +128,88 @@ $$\begin{array}{l} h_\theta(x) =  P(y=1|x;θ) = 1 − P(y=0|x;θ) \\\\ P(y=0|x;�
 
 #### Lecture Notes
 
++ Logistic regression
+
+  $$\begin{array}{rcl} h_\theta(x) & = & g(\theta^T x) = P(y=1 | x; \theta)  \\\\ g(z) & = & \dfrac{1}{1 + e^{-z}} \end{array}$$
+
+  + Suppose predict "$y = 1$" if $\;\; h_\theta(x) \geq 0.5$:
+
+    $$g(z) \geq 0.5 \text{ when } z \geq 0 \quad \Longrightarrow \quad h_\theta(x) = g(\theta^Tx) \geq 0.5 \;\;\text{  whenever  } \theta^Tx \geq 0$$
+  + Suppose predict "$y = 0$" if $\;\; h_\theta(x) < 0.5$:
+
+    $$g(z) < 0.5 \text{ when } z < 0 \quad \Longrightarrow \quad h_\theta(x) = g(\theta^Tx) < 0.5 \;\;\text{  whenever  } \theta^Tx < 0$$
+
++ Linear Decision Boundary
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/WuL1H/decision-boundary">
+      <img src="images/m06-05.png" style="margin: 0.1em;" alt="Let's use this to better understand how the hypothesis of logistic regression makes those predictions. Now, let's suppose we have a training set like that shown on the slide. And suppose a hypothesis is h of x equals g of theta zero plus theta one x one plus theta two x two. We haven't talked yet about how to fit the parameters of this model. We'll talk about that in the next video. But suppose that via a procedure to specified. We end up choosing the following values for the parameters. Let's say we choose theta 0 equals 3, theta 1 equals 1, theta 2 equals 1. So this means that my parameter vector is going to be theta equals minus 3, 1, 1. So, when given this choice of my hypothesis parameters, let's try to figure out where a hypothesis would end up predicting y equals one and where it would end up predicting y equals zero. Using the formulas that we were taught on the previous slide, we know that y equals one is more likely, that is the probability that y equals one is greater than or equal to 0.5, whenever theta transpose x is greater than zero. And this formula that I just underlined, -3 + x1 + x2, is, of course, theta transpose x when theta is equal to this value of the parameters that we just chose. So for any example, for any example which features x1 and x2 that satisfy this equation, that minus 3 plus x1 plus x2 is greater than or equal to 0, our hypothesis will think that y equals 1, the small x will predict that y is equal to 1. We can also take -3 and bring this to the right and rewrite this as x1+x2 is greater than or equal to 3, so equivalently, we found that this hypothesis would predict y=1 whenever x1+x2 is greater than or equal to 3. Let's see what that means on the figure, if I write down the equation, X1 + X2 = 3, this defines the equation of a straight line and if I draw what that straight line looks like, it gives me the following line which passes through 3 and 3 on the x1 and the x2 axis. So the part of the infospace, the part of the X1 X2 plane that corresponds to when X1 plus X2 is greater than or equal to 3, that's going to be this right half thing, that is everything to the up and everything to the upper right portion of this magenta line that I just drew. And so, the region where our hypothesis will predict y = 1, is this region, just really this huge region, this half space over to the upper right. And let me just write that down, I'm gonna call this the y = 1 region. And, in contrast, the region where x1 + x2 is less than 3, that's when we will predict that y is equal to 0. And that corresponds to this region. And there's really a half plane, but that region on the left is the region where our hypothesis will predict y = 0. I wanna give this line, this magenta line that I drew a name. This line, there, is called the decision boundary." title="Linear decision boundary" width="250">
+    </a></div>
+  </div>
+
+  + IVQ: Consider logistic regression with two features $x_1$ and $x_2$. Suppose $\theta_0 = 5$, $\theta_1 = -1$, $\theta_2 = 0$, so that $h_\theta(x) = g(5 - x_1)$. Which of these shows the decision boundary of $h_\theta(x)$?
+
+    Ans: $y = 1: x_1 \leq 5$; Predict $Y = 0$ if $x_1 \geq 5$
+
+  + Hypothesis: $h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_2)$
+  + Predict "$y=1$ if $-3 + x_1 + x_+ 3 \geq 0$
+
+    $$x_1 + x_2 \geq 3 \quad \rightarrow \quad \theta = \begin{bmatrix} -3 \\ 1 \\ 1 \end{bmatrix} \quad \Longrightarrow \quad h_\theta(x) = 0.5 \text{ if } x_1 + x_2 = 3$$
+
++ Non-linear decision boundaries
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m06-06.png" style="margin: 0.1em;" alt="Concretely, let's say my hypothesis looks like this where I've added two extra features, x1 squared and x2 squared, to my features. So that I now have five parameters, theta zero through theta four. As before, we'll defer to the next video, our discussion on how to automatically choose values for the parameters theta zero through theta four. But let's say that varied procedure to be specified, I end up choosing theta zero equals minus one, theta one equals zero, theta two equals zero, theta three equals one and theta four equals one. What this means is that with this particular choose of parameters, my parameter effect theta theta looks like minus one, zero, zero, one, one. Following our earlier discussion, this means that my hypothesis will predict that y=1 whenever -1 + x1 squared + x2 squared is greater than or equal to 0. This is whenever theta transpose times my theta transfers, my features is greater than or equal to zero. And if I take minus 1 and just bring this to the right, I'm saying that my hypothesis will predict that y is equal to 1 whenever x1 squared plus x2 squared is greater than or equal to 1. So what does this decision boundary look like? Well, if you were to plot the curve for x1 squared plus x2 squared equals 1 Some of you will recognize that, that is the equation for circle of radius one, centered around the origin. So that is my decision boundary. And everything outside the circle, I'm going to predict as y=1. So out here is my y equals 1 region, we'll predict y equals 1 out here and inside the circle is where I'll predict y is equal to 0. So by adding these more complex, or these polynomial terms to my features as well, I can get more complex decision boundaries that don't just try to separate the positive and negative examples in a straight line that I can get in this example, a decision boundary that's a circle. Once again, the decision boundary is a property, not of the trading set, but of the hypothesis under the parameters. So, so long as we're given my parameter vector theta, that defines the decision boundary, which is the circle. But the training set is not what we use to define the decision boundary. The training set may be used to fit the parameters theta. We'll talk about how to do that later. But, once you have the parameters theta, that is what defines the decisions boundary." title="Non-linear decision boundary: circle" width="250">
+        <img src="images/m06-07.png" style="margin: 0.1em;" alt="If I have even higher polynomial terms so things like X1 squared, X1 squared X2, X1 squared equals squared and so on. And have much higher polynomials, then it's possible to show that you can get even more complex decision boundaries and the regression can be used to find decision boundaries that may, for example, be an ellipse like that or maybe a little bit different setting of the parameters maybe you can get instead a different decision boundary which may even look like some funny shape like that. Or for even more complete examples maybe you can also get this decision boundaries that could look like more complex shapes like that where everything in here you predict y = 1 and everything outside you predict y = 0. So this higher autopolynomial features you can a very complex decision boundaries." title="Non-linear decision boundary: arbitary curve" width="240">
+      </a></div>
+    </div>
+
+    + Circle boundary: $h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 + \theta_4 x_4)$
+
+      Predict "y = 1" if $-1 + x_1^2 + x_2^2 \geq 0 \quad \longrightarrow  x_1^2 + x_2^2 \geq 1 \quad \Longrightarrow \quad \theta = \begin{bmatrix} -1 \\ 0 \\ 0 \\ 1 \\ 1 \end{bmatrix}$
+
+    + Arbitary boundary: $h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_1^2 + \theta_4 x_1^2x_2 + \theta_5 x_1^2 x_2^2 + \theta_6 x_1^3 x_2 + \ldots)$
 
 
 
 -------------------------------------------------
 
+In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
+
+$$\begin{array}{cc} h_\theta(x)\geq 0.5 & \rightarrow & y=1 \\ h_\theta(x)< 0.5 & \rightarrow & y=0 \end{array}$$
+
+The way our logistic function $g$ behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:
+
+$$g(z) \geq 0.5 \quad \text{ when } z \geq 0$$
+
+Remember.
+
+$$\begin{array}{rcl} z=0,\quad e^0=1 & \Rightarrow & g(z)=1/2 \\ z \rightarrow  \infty, \quad e^{−\infty} \rightarrow  0 & \Rightarrow & g(z)=1 \\ z \rightarrow −\infty, \quad e^{\infty} \rightarrow \infty & \Rightarrow & g(z)=0 \end{array}$$
+
+So if our input to g is $\theta^T X$, then that means:
+
+$$h_\theta(x)=g(θ^Tx) \geq 0.5 \quad \text{ when } \;\; θ^Tx \geq 0$$
+
+From these statements we can now say:
+
+$$\begin{array}{rcl} θ^Tx \geq 0 & \Rightarrow & y=1 \\\\ θ^Tx < 0 & \Rightarrow & y=0 \end{array}$$
+
+The __decision boundary__ is the line that separates the area where $y = 0$ and where $y = 1$. It is created by our hypothesis function.
+
+Example:
+
+$$\begin{array}{c} \theta = \begin{bmatrix} 5 \\ −1 \\ 0 \end{bmatrix} \\\\ y = 1 \;\; \text{  if  } \;\; 5+(−1)x_1 + 0x_2 \geq 0 \;\Rightarrow\; 5−x_1 \geq 0 \;\Rightarrow\; −x_1 \geq −5 \;\Rightarrow\; x_1  \leq  5 \end{array}$$
+
+In this case, our decision boundary is a straight vertical line placed on the graph where $x_1 = 5$, and everything to the left of that denotes $y = 1$, while everything to the right denotes $y = 0$.
+
+Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need to be linear, and could be a function that describes a circle (e.g. $z = \theta_0 + \theta_1 x_1^2 +\theta_2 x_2^2$) or any shape to fit our data.
 
 
 
 #### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.3-LogisticRegression-DecisionBoundary.58336aa0b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1553299200&Signature=ICuUtcmKyA7i7jJDdL9COV3yTWS6FBvA0SzzgjErBCQDsAISYwxa0iTa39WqtBv3sDUKhb6XotgjjrPmxHe11H1LIpLzmEhbNASZlT9mL85KOzL2ma-Hcuni~gfOS2DNaXSYvxst4Na~f9rKvulkveMooeDBx6noDie53Rfpq1s_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dplDYUS-EeezRQ75FFeBxA?expiry=1553299200000&hmac=eDjrJLvpkoJn5elIiER_XePCskoJxe4jxP1GLXNQVbU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
@@ -296,7 +366,7 @@ $g(z) \geq 0.5$ when $z \geq 0$
 
 Remember.-
 
-$$\begin{array}{rcl} z=0,e0=1 & \longrightarrow & g(z)=1/2 \\ z \rightarrow \infty, e^{−\infty} \rightarrow 0 & \longrightarrow & g(z)=1 \\ z→−\infty,e^{\infty} \rightarrow \infty & \longrightarrow & g(z)=0 \end{array}$$
+$$\begin{array}{rcl} z=0,e^0=1 & \longrightarrow & g(z)=1/2 \\ z \rightarrow \infty, e^{−\infty} \rightarrow 0 & \longrightarrow & g(z)=1 \\ z \rightarrow −\infty,e^{\infty} \rightarrow \infty & \longrightarrow & g(z)=0 \end{array}$$
 
 So if our input to $g$ is $\theta^T X$, then that means:
 
