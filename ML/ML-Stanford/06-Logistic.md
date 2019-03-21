@@ -223,18 +223,113 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
 #### Lecture Notes
 
++ Classification problem
+  + Training set: $\quad \{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})\}$
+  + $m$ examples: $\quad x \in \begin{bmatrix} x_0 \\ x_1 \\ \cdots \\ x_n \end{bmatrix} \in \mathbb{R}^{n+1} \quad\quad x_0 = 1, y \in \{0, 1\}$
+  + Hypothesis function: $\quad h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}$
+  + How to choose parameters $\theta$?
 
++ Cost function
+
+    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
+
+  + IVQ: Consider minimizing a cost function $J(\theta)$. Which one of these functions is convex?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/6.4-quiz-1-option1.png" style="margin: 0.1em;" alt="IVQ: Fig. (A)" title="(A)" width="150">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/6.4-quiz-1-option2.png" style="margin: 0.1em;" alt="IVQ: Fig. (B)" title="(B)" width="150">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/6.4-quiz-1-option3.png" style="margin: 0.1em;" alt="IVQ: Fig. (C)" title="(C)" width="150">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/6.4-quiz-1-option4.png" style="margin: 0.1em;" alt="IVQ: Fig. (D)" title="(D)" width="150">
+      </a></div>
+    </div>
+
+    Ans: B
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url"><br/>
+        <img src="images/m06-08.png" style="margin: 0.1em;" alt="text" title="Non-convex vs. Convex" width="450">
+      </a></div>
+    </div>
+
+  + Linear regression:
+
+    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+
+    <br/>
+
+    $$\mathrm{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \mathrm{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (h_\theta(x) - y)^2  \quad \Rightarrow \quad \text{Convex}$$
+
+  + Logistic regression:
+
+    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
+
+    <br/>
+
+    $$\mathrm{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \mathrm{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (\dfrac{1}{1+ e^{-\theta^Tx}} - y)^2  \quad \Rightarrow \quad \text{Non-Convex}$$
+    <br/>
+
++ Logistic regression cost function
+
+  $$\mathrm{Cost}(h_\theta(x), y) = \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \quad \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \quad \text{if } y = 0 \end{array} \right.$$
+
+  <br/>
+
+  $\mathrm{Cost} = 0\;\;$ if $\;\; y = 1, \;\; h_\theta(x) = 1$
+  
+  As $\quad h_\theta(x) \rightarrow 0 \quad \implies \quad \mathrm{Cost} \rightarrow \infty$:
+
+  Captures intuition that if $h_\theta(x) = 0$, predict $P(y=1|x, \theta) = 0$, but $y=1$, penalize learning algorithm by a very large cost.
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t">
+        <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="450">
+      </a></div>
+    </div>
+
+  + IVQ: In logistic regression, the cost function for our hypothesis outputting (predicting) $h_\theta(x)$ on a training example that has label $y\in\{0,1\}$ is:
+
+    $$\text{cost}(h_\theta(x),y) = \left\{ \begin{array}{ll} −\log h_\theta(x) & \text{ if } y=1 \\ − \log(1−h_\theta(x)) & \text{ if } y=0 \end{array} \right.​$$
+
+    Which of the following are true? Check all that apply.
+    1. If $h_\theta(x) = y$, then $\text{cost}(h_\theta(x),y) = 0$ (for $y=0$ and $y=1$).
+    2. If $y=0$, then $\text{cost}(h_\theta(x),y)\rightarrow\infty$ as $h_\theta(x)\rightarrow 1$.
+    3. If $y=0$, then $\text{cost}(h_\theta(x),y)\rightarrow\infty$ as $h_\theta(x)\rightarrow 0$.
+    4. Regardless of whether $y=0$ or $y=1$, if $h_\theta(x)=0.5$, then $\text{cost}(h_\theta(x),y) > 0$.
+
+    Ans: 124
 
 
 -------------------------------------------------
 
+We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.
 
+Instead, our cost function, __[Cross-Entropy](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#loss-cross-entropy)__, also known as __Log Loss__, for logistic regression looks like:
+
+$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \mathrm{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
+
+When $y = 1$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$. Similarly, when $y = 0$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t">
+    <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="450">
+  </a></div>
+</div>
+<br/>
+
+$$\begin{array}{lcl} \mathrm{Cost}(h_\theta(x),y) & = & 0 \quad \text{ if } \quad h_\theta(x)=y \\\\ \mathrm{Cost}(h_\theta(x),y) & \rightarrow & \infty \quad \left \{ \begin{array}{l} \text{ if } y=0 \text{ and } h_\theta(x) \rightarrow 1 \\ \text{ if } y=1 \text{ and } h_\theta(x) \rightarrow 0 \end{array} \right. \end{array}$$
+
+If our correct answer 'y' is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.
+
+If our correct answer 'y' is 1, then the cost function will be 0 if our hypothesis function outputs 1. If our hypothesis approaches 0, then the cost function will approach infinity.
+
+Note that writing the cost function in this way guarantees that $J(\theta)$ is convex for logistic regression.
 
 
 #### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/o3wwluRqEeaT5goxRj9mkA.processed/full/360p/index.mp4?Expires=1553299200&Signature=i63Wtqggn8tbRilP67flLSUr7bcBSyKU1LoAMfSCjXITvIBlFe2V7~hRpJKPv2b6NVu7NK4NqQxmtH44a-6TZOdWr9pe4iOD6Tu8dA69XrJm7QH5~aCgVcaufxA4k2B-QSxwYqTOydWC642fdCgmTtJxagSiTilFEq9HAj4ya5U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/7tRD5eaWEeadCwrDq_Zvig?expiry=1553299200000&hmac=7snPEKZXzRHaYCpD7oy_cjXzF_3vxiG-Bm6876ILHko&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
@@ -315,7 +410,7 @@ Now we are switching from regression problems to __classification problems__. Do
 
 #### Binary Classification
 
-Instead of our output vector y being a continuous range of values, it will only be 0 or 1.
+Instead of our output vector $y$ being a continuous range of values, it will only be 0 or 1.
 
 $y \in \{0,1\}$
 
@@ -395,12 +490,11 @@ We cannot use the same cost function that we use for linear regression because t
 
 Instead, our cost function for logistic regression looks like:
 
-$$\begin{array}{lcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \mathrm{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
+$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \mathrm{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t"><br/>
-    <img src="images/m06-02.png" style="margin: 0.1em;" alt="text" title="caption" width="250">
-    <img src="images/m06-03.png" style="margin: 0.1em;" alt="text" title="caption" width="218">
+    <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="450">
   </a></div>
 </div>
 
