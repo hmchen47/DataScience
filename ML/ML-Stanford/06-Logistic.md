@@ -57,18 +57,67 @@ The classification problem is just like the regression problem, except that the 
 
 #### Lecture Notes
 
++ Logistic Regression Model
+    + Want: $\quad 0 \leq h_\theta (x) \leq 1$
 
+        $$h_\theta(x) = \theta^T x = $$
+    + Sigmoid/Logistic function
+      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+        <div style="background-color: white;"><a href="https://en.wikipedia.org/wiki/Logistic_function">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/640px-Logistic-curve.svg.png" style="margin: 0.1em;" alt="Sigmoid function" title="Sigmoid curve" width="250">
+        </a></div>
+      </div><br/>
+
+      $$h_\theta(x) = \dfrac{1}{1+e^{-x}} \quad \Longrightarrow \quad g(z) = h_\theta(x) = g(\theta^Tx) = \dfrac{1}{1 + e^{-\theta^T x}}$$
+    + Parameter: $\theta \;\; \longleftarrow \;\;$ find the value to fit parameter
+
++ Interpretation of Hypothesis Output
+    + $h_\theta (x) = \;$ estimated probability that $y = 1$ on input $x$
+    + Example: if $x = \begin{bmatrix} x_0 \\ x_1 \end{bmatrix} = \begin{bmatrix} 1 \\ \text{tumorSize} \end{bmatrix} \quad \Longrightarrow \quad h_\theta (x) = 0.7$
+    
+      Tell patient that $70\%$ chance of tumor being malignant
+
+      $h_\theta(x) = P(y = 1 | x; \theta)$
+
+      mean: "probability that y = 1, given x, parameterized by $\theta$"
+
+      $$\begin{array}{l} P(y = 0 | x; \theta) + P(y=1|x; \theta) = 1 \\\\ P(y=0|x;\theta) = 1 - P(y=1 | x; \theta) \end{array}$$
+    + IVQ: Suppose we want to predict, from data $x$ about a tumor, whether it is malignant ($y=1$) or benign ($y=0$). Our logistic regression classifier outputs, for a specific tumor, $h_\theta(x) = P(y=1\vert x;\theta) = 0.7$, so we estimate that there is a 70% chance of this tumor being malignant. What should be our estimate for $P(y=0\vert x;\theta)$, the probability the tumor is benign?
+      1. $P(y=0\vert x;\theta) = 0.3$
+      2. $P(y=0\vert x;\theta) = 0.7$
+      3. $P(y=0\vert x;\theta) = 0.7^2$
+      4. $P(y=0\vert x;\theta) = 0.3\times 0.7$
+
+      Ans: 1
 
 
 -------------------------------------------------
 
+We could approach the classification problem ignoring the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for $h_\theta (x)$ to take values larger than 1 or smaller than 0 when we know that $y \in \{0, 1\}$. To fix this, let’s change the form for our hypotheses $h_\theta (x)$ to satisfy $0 \leq h_\theta (x) \leq 1$. This is accomplished by plugging $\theta^Tx$ into the Logistic Function.
 
+Our new form uses the "Sigmoid Function," also called the "Logistic Function":
+
+$$hθ(x)=g(θ^Tx) \quad\quad z=θ^Tx \quad\quad g(z) = \dfrac{1}{1+e^{−z}}$$
+
+The following image shows us what the sigmoid function looks like:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/AqSH6/hypothesis-representation">
+    <img src="images/m06-01.png" style="margin: 0.1em;" alt="Diagram of sigmoid function" title="Sigmoid function" width="450">
+  </a></div>
+</div>
+
+The function $g(z)$, shown here, maps any real number to the $(0, 1)$ interval, making it useful for transforming an arbitrary-valued function into a function better suited for classification.
+
+$h_\theta(x)$ will give us the __probability__ that our output is 1. For example, $h_\theta(x)=0.7$ gives us a probability of $70\%$ that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is $70\%$, then the probability that it is 0 is $30\%$).
+
+$$\begin{array}{l} h_\theta(x) =  P(y=1|x;θ) = 1 − P(y=0|x;θ) \\\\ P(y=0|x;θ) + P(y=1|x;θ) = 1 \end{array}$$
 
 
 #### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.2-LogisticRegression-HypothesisRepresentation.219617e0b22b11e4bfb32bc54f4c0527/full/360p/index.mp4?Expires=1553299200&Signature=fJNtlLEVc~eDsJKx2Z4pJ3hKYw2tgHx0~VF6fJ8mbbMH9-pwyMgEPJ5yKadTl5RTtxlr91Ge6aGCJXEYzuEfXBLvcpwBvqdJ-oWzGLvrB6jsiVC~f3pwEOIpb98Koo2ZEpHQVNI8Mm318lXh4joluo4km257rM1~GPPc~8JCpQc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Hn9tP60RQkm_bT-tEZJJfw?expiry=1553299200000&hmac=TZNDFstnCLpRKYo5kwl8Kn1SlQlYCspC1KkTzIzMEiU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
