@@ -366,7 +366,26 @@ We are basically choosing one class and then lumping all the others into a singl
 
 ### Errata
 
+#### Decision Boundary
 
+At 1:56 in the transcript, it should read 'sigmoid function' instead of 'sec y function'.
+
+
+#### Cost Function
+
+The section between 8:30 and 9:20 is then repeated from 9:20 to the quiz. The case for y=0 is explained twice.
+
+#### Simplified Cost Function and Gradient Descent
+
+These following mistakes also exist in the video:
+
++ 6.5: On page 19 in the PDF, the leftmost square bracket seems to be slightly misplaced.
++ 6.5: It seems that the factor 1/m is accidentally omitted between pages 20 and 21 when the handwritten expression is converted to a typeset one (starting at 6:53 of the video)
+
+
+#### Advanced Optimization
+
+In the video at 7:30, the notation for specifying MaxIter is incorrect. The value provided should be an integer, not a character string. So (...'MaxIter', '100') is incorrect. It should be (...'MaxIter', 100). This error only exists in the video - the exercise script files are correct.
 
 
 ### Quiz: Logistic Regression
