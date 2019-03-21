@@ -7,18 +7,46 @@
 
 #### Lecture Notes
 
++ Classification
+  + Email: Spam / Not Spam?
+  + Online Transactions: Fraudulent (Yes/No)?
+  + Tumor: Malignant / Benign?
+  + binary classes: $y \in \{0, 1 \} \quad\quad \left\{ \begin{array}{ll} 0: & \text{"Negative Class" (e.g., benign tumor)} \\ 1: & \text{"Positive Class" (e.g., malignant tumor)} \end{array} \right.$
+  + Multi-class: e.g., $y \in \{0, 1, 2, 3\}$
 
++ Binary classification with Linear Regression
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/wlPeP/classification">
+        <img src="images/m06-04.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      </a></div>
+    </div>
 
+    + Threshold  classifier output $h_\theta(x)$ at 0.5:
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\left \{ \begin{array}{cc} \text{If } h_\theta (x) \geq 0.5, \text{ predict "y=1"} \\\\ \text{If } h_\theta (x) < 0.5, \text{ predict "y=0"} \end{array} \right.$
+
+    + Classification (y = 0 or 1): $\quad h_\theta(x)$ can be > 1 or < 1
+    + Logistic Regression (classification than regression): $\quad 0 \leq h_\theta (x) \leq 1$
+    + IVQ: Which of the following statements is true?
+      1. If linear regression doesn't work on a classification task as in the previous example shown in the video, applying feature scaling may help.
+      2. If the training set satisfies $0 \leq y^{(i)} \leq 1$ for every training example $(x^{(i)},y^{(i)})$, then linear regression's prediction will also satisfy $0 \leq h_\theta(x) \leq 1$ for all values of $x$.
+      3. If there is a feature $x$ that perfectly predicts $y$, i.e. if $y=1$ when $x \geq c$ and $y=0$ whenever $x < c$ (for some constant $c$), then linear regression will obtain zero classification error.
+      4. None of the above statements are true.
+
+        Ans: 4
 
 -------------------------------------------------
 
+To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. However, this method doesn't work well because classification is not actually a linear function.
+
+The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values. For now, we will focus on the __binary classification problem__ in which y can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then $x^{(i)}$ may be some features of a piece of email, and y may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, $y \in \{0,1\}$. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.” Given $x^{(i)}$, the corresponding $y^{(i)}$ is also called the label for the training example.
 
 
 
-#### Lecture Video 
+#### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.1-LogisticRegression-Classification.b2fadb80b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1553299200&Signature=QL1NgMe3Kns4J~jCvY-IP970i8y3ap-z0Wt9ISZ1NWgRdpNbngPwLrRiKgWehcrfACUz-njiR3AnR~1Y5knxGcj43os8CwBjbJO6QxkAnt7rierHu0jHmBGx6FsXLnHO~3iKTYuJoS4xaA6XNCzCjIpKLH0UHbXDsvNVKyzqQAY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dZkBwCt-TXiZAcArfv14nA?expiry=1553299200000&hmac=y8jMm6Llxi7p5TjKxk439xfrc3g3k--uvJIxRBjyoSE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
