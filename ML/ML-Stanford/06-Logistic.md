@@ -531,7 +531,7 @@ $$\theta := \theta - \dfrac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})$$
 + IVQ: Suppose you want to use an advanced optimization algorithm to minimize the cost function for logistic regression with parameters $\theta_0$ and $\theta_1$. You write the following code:
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="url">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/licwf/advanced-optimization">
       <img src="https://coursera-forum-screenshots.s3.amazonaws.com/14/cead80d82b11e4b390fb94e489e9db/Screen-Shot-2015-03-31-at-9.52.10-PM.png" style="margin: 0.1em;" alt="cost function implementation" title="IVQ Code for Advanced Optimization" width="450">
     </a></div>
   </div>
@@ -583,22 +583,75 @@ We give to the function `fminunc()` our cost function, our initial vector of the
 <br/>
 
 
-## Multiclass Classification
+## Multiclass Classification: One-vs-all
+
 
 #### Lecture Notes
 
++ Multiclass classification
+  + Email foldering/tagging: Work, Friends, Family, Hobby
+  + Medical diagrams: Not ill, Cold, Flu
+  + Weather: Sunny, Cloudy, Rain, Snow
 
++ Binary vs. Multi-class classification
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/HuE6M/multiclass-classification-one-vs-all">
+      <img src="images/m06-10.png" style="margin: 0.1em;" alt="Comparisons of Binary and Multi-class classification" title="Binary vs. Multi-class classification" width="300">
+    </a></div>
+  </div>
+
++ One-vs-All (one-vs-rest)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/HuE6M/multiclass-classification-one-vs-all">
+      <img src="images/m06-09.png" style="margin: 0.1em;" alt="Ways to classify the classes" title="One-vs-All" width="350">
+    </a></div>
+  </div>
+
+  + Hypothesis: $h_\theta^{(i)} = P(y=i | x; \theta) \quad \forall \; i$
+  + Train a logistic regression classifier $\;\; h_\theta^{(i)}(x)\;$ for each class $i$ to predict the probability that $y=i$.
+  + On a new input $x$ to make a prediction, pick the class $i$ that maximizes $\;\max_i h_\theta^{(i)}(x)$.
+
++ IVQ: Suppose you have a multi-class classification problem with $k$ classes (so $y\in \{1,2,\dots,k\}$). Using the 1-vs.-all method, how many different logistic regression classifiers will you end up training?
+
+  1. $k-1$
+  2. $k$
+  3. $k+1$
+  4. Approximately $\log_2(k)$
+  
+  Ans: 3
 
 
 -------------------------------------------------
 
+Now we will approach the classification of data when we have more than two categories. Instead of $y = \{0,1\}$ we will expand our definition so that $y = \{0,1 \cdots n\}$.
 
+Since $y = \{0,1 \cdots n\}$, we divide our problem into $n+1$ ($+1$ because the index starts at 0) binary classification problems; in each one, we predict the probability that 'y' is a member of one of our classes.
+
+$$\begin{array}{ccc} y & \in & \{0,1 \cdots n\} \\\\ h^{(0)}_\theta(x) & = & P(y=0|x;\theta) \\ h^{(1)}_\theta(x) & = & P(y=1|x;\theta) \\  & \vdots & \\ h^{(n)}_\theta(x) & = & P(y=n|x;\theta) \\\\ \text{prediction } & = & \displaystyle \max_i (h^{(i)}\theta(x)) \end{array}$$
+
+We are basically choosing one class and then lumping all the others into a single second class. We do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.
+
+The following image shows how one could classify 3 classes:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/HuE6M/multiclass-classification-one-vs-all">
+    <img src="images/m06-09.png" style="margin: 0.1em;" alt="Ways to classify the classes: one-and-rest" title="One-vs-All" width="350">
+  </a></div>
+</div>
+
+__To summarize:__
+
+Train a logistic regression classifier $h_\theta(x)$ for each class￼ to predict the probability that ￼ ￼$y = i￼$￼.
+
+To make a prediction on a new $x$, pick the class ￼that maximizes $h_\theta (x)$
 
 
 #### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.7-LogisticRegression-MultiClassClassificationOneVsAll.a9eb1050b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1553385600&Signature=hbWDCVQEyLYN9T3dpNLxeCS0C-wo6grRI-aewgKoAF8xK2e94tQ-MVMFSvU4mzi94ogNLi1MHpjBexQP4kBTB8fR~7gCX6SrEZrUKsv~QBx7PA1iPrnldXY0usf4ji227lCzxc18gqV4yF59CUMadT60MyPqxqD5i1VLpHmzLrk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/b0pgK5zdQROKYCuc3fETZg?expiry=1553385600000&hmac=MHCGsWbFkWxS6JcWjXRSmtbXpu3Fmxu-qY1wNLWL3Bc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
