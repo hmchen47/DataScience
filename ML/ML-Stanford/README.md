@@ -124,7 +124,7 @@
     + [Cost Function](06-Logistic.md#)
     + [Simplified Cost Function and Gradient Descent](06-Logistic.md#)
     + [Advanced Optimization](06-Logistic.md#)
-+ [Multiclass Classification](06-Logistic.md#)
++ [Multiclass Classification: One-vs-all](06-Logistic.md#)
 + [Review](06-Logistic.md#)
     + [Lecture Slides](06-Logistic.md#)
     + [Errata](06-Logistic.md#)
