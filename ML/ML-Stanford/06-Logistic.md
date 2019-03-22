@@ -887,5 +887,67 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
 
 ### Quiz: Logistic Regression
 
+1. Suppose that you have trained a logistic regression classifier, and it outputs on a new example $x$ a prediction $h_\theta(x) = 0.2$. This means (check all that apply):
+
+    1. Our estimate for $P(y=1|x;\theta)$ is 0.8.
+    2. Our estimate for $P(y=1|x;\theta)$ is 0.2.
+    3. Our estimate for $P(y=0|x;\theta)$ is 0.8.
+    4. Our estimate for $P(y=0|x;\theta)$ is 0.2.
+
+    Ans: x14
+
+
+2. Suppose you have the following training set, and fit a logistic regression classifier $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)$.
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/Fd9cu/logistic-regression">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/vDH1Eb5xEeSVRiIAC2sM-Q_Screen-Shot-2015-02-27-at-3.09.52-AM.png?Expires=1553385600&Signature=M1MKVWGoU9TYWzjUHSE5pJ2U0B6Obsa1K4aJiu1VQYqEfzU0dXOUCh7i4mCi-l0enQaVc5rDbFS9CzWPa~BvTIlYFoeZLDefgnnTbKp8rIA6BBUpmkWqJR9TfoHDfM7tT9HxXUsKOWy~54GPGhZHfztYB7QLBfeh4ZWU0Vpj6DM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Table of values" width="180">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/x6wwkr5xEeSVRiIAC2sM-Q_Screen-Shot-2015-02-27-at-3.10.20-AM.png?Expires=1553385600&Signature=EGo6YPNpWWxmjshaBMwAXttjiIdwWtkBPZa4y29OqQtcgPVsSqZtcrLKGTNgGIS2id4bpBqsqLGGsZvHwZJBl5ox0KwJiXMj2Yd8rfYN9eAuIctGh3ZVJaeZZXySbjiCMip2ymw-cwR-1k38ACsWwAI9MsodLnAivhB-hGmoNyE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="caption" width="170">
+      </a></div>
+    </div>
+
+    Which of the following are true? Check all that apply.
+
+    1. Adding polynomial features (e.g., instead using $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2 + \theta_3 x_1^2 + \theta_4 x_1 x_2 + \theta_5 x_2^2)$) could increase how well we can fit the training data.
+    2. At the optimal value of $\theta$ (e.g., found by fminunc), we will have $J(\theta) \geq 0$.
+    3. Adding polynomial features (e.g., instead using $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2 + \theta_3 x_1^2 + \theta_4 x_1 x_2 + \theta_5 x_2^2)$) would increase $J(\theta)$ because we are now summing over more terms.
+    3. If we train gradient descent for enough iterations, for some examples $x^{(i)}$ in the training set it is possible to obtain $h_\theta(x^{(i)}) > 1$.
+
+    Ans: 12
+
+
+3. For logistic regression, the gradient is given by $\frac{\partial}{\partial \theta_j} J(\theta) =\frac{1}{m}\sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}}$. Which of these is a correct gradient descent update for logistic regression with a learning rate of $\alpha$? Check all that apply.
+
+    1. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ \left(\frac{1}{1 + e^{-\theta^T x^{(i)}}} - y^{(i)}\right) x_j^{(i)}} (simultaneously update for all $j$).
+    2. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}}$ (simultaneously update for all $j$).
+    3. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}}$ (simultaneously update for all $j$).
+    4. $\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^m{ \left(\theta^T x - y^{(i)}\right) x^{(i)}}$.
+
+    Ans: 12
+
+
+4. Which of the following statements are true? Check all that apply.
+
+    1. Since we train one classifier when there are two classes, we train two classifiers when there are three classes (and we do one-vs-all classification).
+    2. The cost function $J(\theta)$ for logistic regression trained with $m \geq 1$ examples is always greater than or equal to zero.
+    3. The one-vs-all technique allows you to use logistic regression for problems in which each $y^{(i)}$ comes from a fixed, discrete set of values.
+    4. For logistic regression, sometimes gradient descent will converge to a local minimum (and fail to find the global minimum). This is the reason we prefer more advanced optimization algorithms such as fminunc (conjugate gradient/BFGS/L-BFGS/etc).
+
+    Ans: x234
+
+
+5. Suppose you train a logistic classifier $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)$. Suppose $\theta_0 = -6$, $\theta_1 = 0$, $\theta_2 = 1$. Which of the following figures represents the decision boundary found by your classifier?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/Fd9cu/logistic-regression">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/vQ1aWL7jEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.32.48-PM.png?Expires=1553385600&Signature=dX8zgGhuSrhBStncrlqVSDulTU-fGrJwjCsNwtofAoIfCpBP1RzXG2kLE~zhDAGEPXuHPvQFINzzwmy2k5KZtFdVmabinjgVAIdmBoL66dEydtYFbShUbwDSnb0NmlKibxLHe5Z73uzX3JGXf32109L7KLZ~7u0O~H2Pm01SH30_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Fig.1" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/3-XyOb7jEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.34.53-PM.png?Expires=1553385600&Signature=KsTZ4TCBX22NNKIYZlw27JJwCpm2j7TwhefqmjsGejWzKqgRaGl7lTkyb6S77hn9~AMlJxSNWmOHpN7mAEdy6ibcS-XjiWwCZR6IVBS1LgL7J4Kn9dESPyXX~L-XpziJFU7A1yet5TFfNiWfAG0JpMinHv3378cHlbWW9FFXeEI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="fig.2" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/8Lxmyr7jEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.51.03-PM.png?Expires=1553385600&Signature=Sfs3SO5WfIQP-nej8aLFODang3PJqKU7b9Pub5UvFT9frAwa5xkD2IJ0TE87hJkc0xqz3k51a61RvhCxAC6njW-1KfRTAqsIxJE7bZdUvhICUh5jQxI67Q7pBEapMEfV-HW8PgQLO~wsJT2GoCCTAFcwzSZv4iLiu9-kpUtNokc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Fig.3" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/8HjYsb7kEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.53.08-PM.png?Expires=1553385600&Signature=X0u1W1JHDpKXLJnWf3KQzV9e6MsuBoVwJM7AsM0oHeuyRcvRpXP~w4acta6cFYo58lRW7cTjkU6nWPovv5U6AhzMnX58zLJRLrW~lYTIko7PqCliETS4JfIt5Zvi53MokdrW1hChuB9HOvg6wlnT72kAt7NpQI4eZXwuytid-lQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Fig.4" width="150">
+      </a></div>
+    </div>
+
+    Ans: x2
+
 
 
