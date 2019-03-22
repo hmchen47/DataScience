@@ -231,7 +231,7 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
 + Cost function
 
-    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
+    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
 
   + IVQ: Consider minimizing a cost function $J(\theta)$. Which one of these functions is convex?
 
@@ -258,26 +258,26 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
     <br/>
 
-    $$\mathrm{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \mathrm{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (h_\theta(x) - y)^2  \quad \Rightarrow \quad \text{Convex}$$
+    $$\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (h_\theta(x) - y)^2  \quad \Rightarrow \quad \text{Convex}$$
 
   + Logistic regression:
 
-    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
+    $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
 
     <br/>
 
-    $$\mathrm{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \mathrm{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (\dfrac{1}{1+ e^{-\theta^Tx}} - y)^2  \quad \Rightarrow \quad \text{Non-Convex}$$
+    $$\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (\dfrac{1}{1+ e^{-\theta^Tx}} - y)^2  \quad \Rightarrow \quad \text{Non-Convex}$$
     <br/>
 
 + Logistic regression cost function
 
-  $$\mathrm{Cost}(h_\theta(x), y) = \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \quad \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \quad \text{if } y = 0 \end{array} \right.$$
+  $$\text{Cost}(h_\theta(x), y) = \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \quad \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \quad \text{if } y = 0 \end{array} \right.$$
 
   <br/>
 
-  $\mathrm{Cost} = 0\;\;$ if $\;\; y = 1, \;\; h_\theta(x) = 1$
+  $\text{Cost} = 0\;\;$ if $\;\; y = 1, \;\; h_\theta(x) = 1$
   
-  As $\quad h_\theta(x) \rightarrow 0 \quad \implies \quad \mathrm{Cost} \rightarrow \infty$:
+  As $\quad h_\theta(x) \rightarrow 0 \quad \implies \quad \text{Cost} \rightarrow \infty$:
 
   Captures intuition that if $h_\theta(x) = 0$, predict $P(y=1|x, \theta) = 0$, but $y=1$, penalize learning algorithm by a very large cost.
 
@@ -306,7 +306,7 @@ We cannot use the same cost function that we use for linear regression because t
 
 Instead, our cost function, __[Cross-Entropy](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#loss-cross-entropy)__, also known as __Log Loss__, for logistic regression looks like:
 
-$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \mathrm{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
+$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \text{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \text{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
 
 When $y = 1$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$. Similarly, when $y = 0$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$:
 
@@ -317,7 +317,7 @@ When $y = 1$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$. Simil
 </div>
 <br/>
 
-$$\begin{array}{lcl} \mathrm{Cost}(h_\theta(x),y) & = & 0 \quad \text{ if } \quad h_\theta(x)=y \\\\ \mathrm{Cost}(h_\theta(x),y) & \rightarrow & \infty \quad \left \{ \begin{array}{l} \text{ if } y=0 \text{ and } h_\theta(x) \rightarrow 1 \\ \text{ if } y=1 \text{ and } h_\theta(x) \rightarrow 0 \end{array} \right. \end{array}$$
+$$\begin{array}{lcl} \text{Cost}(h_\theta(x),y) & = & 0 \quad \text{ if } \quad h_\theta(x)=y \\\\ \text{Cost}(h_\theta(x),y) & \rightarrow & \infty \quad \left \{ \begin{array}{l} \text{ if } y=0 \text{ and } h_\theta(x) \rightarrow 1 \\ \text{ if } y=1 \text{ and } h_\theta(x) \rightarrow 0 \end{array} \right. \end{array}$$
 
 If our correct answer 'y' is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.
 
@@ -340,18 +340,139 @@ Note that writing the cost function in this way guarantees that $J(\theta)$ is c
 
 #### Lecture Notes
 
++ Logistic regression cost function
 
+  $$\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \text{Cost}(h_\theta(x^{(i)}), y^{(i)}) \\\\\\ \text{Cost}(h_\theta(x), y) & = & \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \;\; \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \;\; \text{if } y = 0 \end{array} \right. \\\\ & & \Downarrow \\\\ \text{Cost}(h_\theta(x), y) & = & -y \cdot \log(h_\theta(x)) - (1-y) \cdot \log(1 - h_\theta(x)) \quad y \in \{0, 1\} \\\\ \text{If } y=1 & : & \text{Cost}(h_\theta(x), y) = -y \cdot \log(h_\theta(x)) \\ \text{If } y=0 & : & \text{Cost}(h_\theta(x), y) = (1-y) \cdot \log(1 - h_\theta(x)) \end{array}$$
+  
+  Therefore,
+
+  $$\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)}) \\\\ & = & - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]  \end{array}$$
+
+  To fit parameter $\theta$:
+
+  $$\min_{\theta} J(\theta)$$
+
+  To make a prediction given new $x$:
+
+  Output $h_\theta(x) = \dfrac{1}{1 + e^{\theta^Tx}} \quad \Leftarrow P(y = 1 | x; \theta)$$
+
++ Gradient Descent
+
+  $$J(\theta) = - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
+
+  Objective: $\min_{\theta} J(\theta)$
+
+  Repeat {
+
+    $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+    <span style="text-align: center; padding-top: 0.5em;padding-left: calc(50vw - 2em);"> (Simultaneously update all </span> $\theta_j$)
+  
+  }
+
+  $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
+
+  + Linear regression: $h_\theta(x) = \theta^Tx$
+  + Logistic regression: $h_\theta(x) = \dfrac{1}{1 + e^{\theta^Tx}}$
+  + IVQ: Suppose you are running gradient descent to fit a logistic regression model with parameter $\theta\in\mathbb{R}^{n+1}$. Which of the following is a reasonable way to make sure the learning rate $\alpha$ is set properly and that gradient descent is running correctly?
+
+    1. Plot $J(\theta) = \frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2$ as a function of the number of iterations (i.e. the horizontal axis is the iteration number) and make sure $J(\theta)$ is decreasing on every iteration.
+    2. Plot $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\log h_\theta(x^{(i)}) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$ as a function of the number of iterations and make sure $J(\theta)$ is decreasing on every iteration.
+    3. Plot $J(\theta)$ as a function of $\theta$ and make sure it is decreasing on every iteration.
+    4. Plot $J(\theta)$ as a function of $\theta$ and make sure it is convex.
+
+    Ans: 2
+  + IVQ: One iteration of gradient descent simultaneously performs these updates:
+
+    $$\begin{matrix} \theta_0 := \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_0 \\\\ \theta_1 := \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_1 \\​	 \vdots \\ \theta_n := \theta_n - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_n \end{matrix}$$
+
+
+    We would like a vectorized implementation of the form $\theta := \theta - \alpha\delta$ (for some vector $\delta\in\mathbb{R}^{n+1}$). What should the vectorized implementation be?
+
+    1) $\theta := \theta - \alpha\frac{1}{m}\sum_{i=1}^{m}[(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}]$
+    2) $\theta := \theta - \alpha\frac{1}{m}[\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})] \cdot x^{(i)}$
+    3) $\theta := \theta - \alpha\frac{1}{m}x^{(i)}[\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})]$
+    4) All of the above are correct implementations.
+
+    Ans: 1
+
+
++ Derivation of Vectorized Cost and Hypothesis function
+
+  $$X = \begin{bmatrix} x_0^{(1)} & x_1^{(1)} & \cdots & x_n^{(1)} \\ x_0^{(2)} & x_1^{(2)} & \cdots & x_n^{(2)} \\ \vdots & \vdots & \ddots & \vdots \\ x_0^{(m)} & x_1^{(m)} & \cdots & x_n^{(m)} \\ \end{bmatrix} \quad\quad \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix} \quad\quad y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(m)}  \end{bmatrix}\quad\quad  h_\theta(x) = h = g(X\theta) = \begin{bmatrix} h_\theta(x^{(1)}) \\ h_\theta(x^{(2)}) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix}$$
+
+  __Cost function:__
+
+  $$\begin{array}{rcl} J(\theta) & = & - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] \\\\ & = & \dfrac{-1}{m} \left[ \underbrace{\sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)})))}_{(A)} + \underbrace{\sum_{i=1}^m (1 - y^{(i)})\cdot \log(1 - h_\theta(x^{(i)}))}_{(B)}   \right]
+  \end{array}$$
+
+  Part (A): 
+
+  $$\begin{array}{rcl} (A) & = & \sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)}))) = y^{(1)} \cdot \log(h_\theta(x^{(1)})) + y^{(2)} \cdot \log(h_\theta(x^{(2)})) + \ldots + y^{(m)} \cdot \log(h_\theta(x^{(m)})) \\\\ & = & \begin{bmatrix} y^{(1)} & y^{(2)} & \cdots & y^{(m)} \end{bmatrix} \begin{bmatrix} \log(h_\theta(x^{(1)})) \\ \log(h_\theta(x^{(2)})) \\ \vdots \\ \log(h_\theta(x^{(m)})) \end{bmatrix} = y^T \cdot \log \left(\begin{bmatrix} h_\theta(x^{(1)} \\ h_\theta(x^{(2)})) \\ \vdots \\ \log(h_\theta(x^{(m)})) \end{bmatrix} \right) = y^T \cdot \log(h) \end{array}$$
+
+  Part (B):
+
+  $$(B) = \sum_{i=1}^m (1 - y^{(i)})\cdot \log(1 - h_\theta(x^{(i)})) = ( 1 - y)^T \cdot \log(1-h)$$
+
+  Therefore,
+
+  $$J(\theta) = \dfrac{1}{m} \left[ -y^T  \cdot \log(h) - (1-y)^T \cdot \log(1-h)  \right]$$
+
+  __Gradient Descent:__
+
+  $$\begin{array}{rcl} \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta) & \text{ and } & \dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \\\\ \theta_j := \theta_j & - \;\; \dfrac{\alpha}{m} & \left( \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \begin{bmatrix} h_\theta(x^{(1)}) \\ h_\theta(x^{(2)}) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix} \right)\end{array}$$
+
+  <br/>
+
+  $$\begin{array}{rcl} 
+    \theta & := & \theta - \alpha \dfrac{1}{m} \begin{bmatrix} \sum_{i=1}^m (h_\theta(x^{(i)})) \cdot x^{(i)}_0 - \sum_{i=1}^m y^{(i)} \cdot x^{(i)}_0 \\ \sum_{i=1}^m (h_\theta(x^{(i)})) \cdot x^{(i)}_1 - \sum_{i=1}^m y^{(i)} \cdot x^{(i)}_0 \\ \vdots \\ \sum_{i=1}^m (h_\theta(x^{(i)})) \cdot x^{(i)}_n - \sum_{i=1}^m y^{(i)} \cdot x^{(i)}_n  \end{bmatrix}  =  \theta -\alpha \dfrac{1}{m} \left( \begin{bmatrix} \sum_{i=1}^m (h_\theta(x^{(i)})) \cdot x^{(i)}_0 \\ \sum_{i=1}^m (h_\theta(x^{(i)})) \cdot x^{(i)}_1 \\ \vdots \\ \sum_{i=1}^m (h_\theta(x^{(i)})) \cdot x^{(i)}_n \end{bmatrix} - \begin{bmatrix} \sum_{i=1}^m y^{(i)} \cdot x^{(i)}_0 \\ \sum_{i=1}^m y^{(i)} \cdot x^{(i)}_1 \\ \vdots \\ \sum_{i=1}^m y^{(i)} \cdot x^{(i)}_n \end{bmatrix} \right) \\\\ & = & \theta - \dfrac{\alpha}{m} \left( \begin{bmatrix} x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\ x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\ \vdots & \vdots & \ddots & \vdots \\ x_n^{(1)} & x_n^{(2)} & \cdots & x_n^{(m)} \end{bmatrix} \begin{bmatrix} h_\theta(x_0^{(1)})  \\ h_\theta(x^{(2)}) \\ \vdots  \\ h_\theta(x^{(m)})  \end{bmatrix} - \begin{bmatrix} x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\ x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\ \vdots & \vdots & \ddots & \vdots \\ x_n^{(1)} & x_n^{(2)} & \cdots & x_n^{(m)} \end{bmatrix} \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(m)} \end{bmatrix} \right) \\\\ & = &  \theta - \dfrac{\alpha}{m} \left( X^T \cdot g(X\theta) - X^T \cdot y \right) = \theta - \dfrac{\alpha}{m}\; X^T \left( g(X\theta) - y \right)
+  \end{array}$$
 
 
 -------------------------------------------------
 
+We can compress our cost function's two conditional cases into one case:
+
+$$\text{Cost}(h_\theta(x),y) = - y \cdot \log(h_\theta(x)) - (1 - y) \cdot \log(1 - h_\theta(x))$$
+
+Notice that when $y$ is equal to 1, then the second term $(1-y)\log(1-h_\theta(x))(1−y)$ will be zero and will not affect the result. If $y$ is equal to 0, then the first term $-y \log(h_\theta(x))−y$ will be zero and will not affect the result.
+
+We can fully write out our entire cost function as follows:
+
+$$J(\theta) = - \frac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}\log (h_\theta (x^{(i)})) + (1 - y^{(i)})\log (1 - h_\theta(x^{(i)})) \right]$$
+
+A vectorized implementation is:
+
+$$\begin{array}{rcl} h & = & g(X\theta) \\\\ J(θ) & = & \dfrac{1}{m} \cdot (−y^T \log(h) − (1−y)^T \log(1−h)) \end{array}$$
+
+__Gradient Descent__
+
+Remember that the general form of gradient descent is:
+
+Repeat {
+  
+$$θ_j := \theta_j − \alpha \dfrac{\partial}{\partial \theta_j} J(θ)$$
+
+}
+
+We can work out the derivative part using calculus to get:
+
+Repeat {
+
+$$\theta_j := \theta_j − \dfrac{\alpha}{m} \sum_{i=1}{m} (h_\theta(x^{(i)}) − y^{(i)}) x^{(i)}_j$$
+
+}
+
+Notice that this algorithm is identical to the one we used in linear regression. We still have to simultaneously update all values in theta.
+
+A vectorized implementation is:
+
+$$\theta := \theta - \dfrac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})$$
 
 
+#### Lecture Video
 
-#### Lecture Video 
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.5-LogisticRegression-SimplifiedCostFunctionAndGradientDescent.cb565c90b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1553385600&Signature=FHJLcQc5bOe4U8cA6~yXXTmSnVVkbQbW3IwNqNRluxvdZW-0KgK2LMaBLzCOAu9lxpo4X4mixmb04YybcGeBUnnNZ7tkKI1OT2bxh6O-Xfl3q2lnQeTiQvbTHiTFp3QVYBh24pvo4KfK-scektz-KEMU0CwoaujOCUveiTJLakk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/V6fJHvhUS_2nyR74VAv9mA?expiry=1553385600000&hmac=MCQy8oMXQqkQy4o8CWitMosV9liVRgk8b7Yii0OYOvU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
@@ -490,7 +611,7 @@ We cannot use the same cost function that we use for linear regression because t
 
 Instead, our cost function for logistic regression looks like:
 
-$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \mathrm{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
+$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \text{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \text{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t"><br/>
@@ -500,7 +621,7 @@ $$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \m
 
 The more our hypothesis is off from y, the larger the cost function output. If our hypothesis is equal to y, then our cost is 0:
 
-$$\begin{array}{lcl} \mathrm{Cost}(h_\theta(x),y) & = & 0 \quad \text{ if } \quad h_\theta(x)=y \\\\ \mathrm{Cost}(h_\theta(x),y) & \rightarrow & \infty \left \{ \begin{array}{l} \text{ if } y=0 \text{ and } h_\theta(x) \rightarrow 1 \\ \text{ if } y=1 \text{ and } h_\theta(x) \rightarrow 0 \end{array} \right. \end{array}$$
+$$\begin{array}{lcl} \text{Cost}(h_\theta(x),y) & = & 0 \quad \text{ if } \quad h_\theta(x)=y \\\\ \text{Cost}(h_\theta(x),y) & \rightarrow & \infty \left \{ \begin{array}{l} \text{ if } y=0 \text{ and } h_\theta(x) \rightarrow 1 \\ \text{ if } y=1 \text{ and } h_\theta(x) \rightarrow 0 \end{array} \right. \end{array}$$
 
 If our correct answer 'y' is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.
 
@@ -513,7 +634,7 @@ Note that writing the cost function in this way guarantees that $J(\theta)$ is c
 
 We can compress our cost function's two conditional cases into one case:
 
-$$\mathrm{Cost}(h_\theta(x),y) = - y \; \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))$$
+$$\text{Cost}(h_\theta(x),y) = - y \; \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))$$
 
 Notice that when y is equal to 1, then the second term $(1-y)\log(1-h_\theta(x))$ will be zero and will not affect the result. If y is equal to 0, then the first term $-y \log(h_\theta(x))−y$ will be zero and will not affect the result.
 
