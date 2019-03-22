@@ -483,18 +483,100 @@ $$\theta := \theta - \dfrac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})$$
 
 #### Lecture Notes
 
++ Optimization algorithm
+  + Cost function $J(\theta)$. Objective: $\;\; min_{\theta} J(\theta)$
+  + Given $\theta$, we have code that can compute
+    + $J(\theta)$
+    + $\dfrac{\partial}{\partial \theta_j} J(\theta) \quad \forall \;j = 0, 1, \ldots, n$
+  + Gradient descent:
 
+    Repeat{
+
+      $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+    }
+  + Optimization algorithms:
+    + Gradient descent
+    + Conjugate gradient
+    + BFGS
+    + L-BFGS
+  + Advantages: 
+    + No need to manually pick $\alpha$
+    + Often faster than gradient descent
+  + Disadvantages:
+    + More complex
+
++ Example:
+
+  $$\begin{array}{rcl} \theta = \begin{bmatrix} \theta_1 \\ \theta_2 \end{bmatrix} \quad \theta_1 &=& 5, \quad \theta_2 \quad = \quad 5 \quad \Rightarrow \quad min_\theta J(\theta) \\\\ J(\theta) &=& (\theta_1 - 5)^32 + (\theta_2 -5)^2 \\ \dfrac{\partial}{\partial \theta_1} &=& 2(\theta_1 - 5) \\ \dfrac{\partial}{\partial \theta_2} &=& 2(\theta_2 - 5) \end{array}$$
+
+  ```matlab
+  fucntion [jVal, gradient] = costFucntion(theta)
+    jVal = (theta(1) - 5)^2 + (theta(2) - 5)^2;
+    gradient = seros(2, 1);
+    gradient(1) = 2 * (theta(1) - 5);
+    gradient(2) = 2 * (theta(2) - 5);
+
+  options = opyimset('GradObj', 'on', 'MaxIter', '100');
+  initialTheta = zeros(2, 1);
+  [optTheta, functionVal, existFlag] = fminunc(@costFucntion, initialTheta, options);
+  ```
+
++ Implementation
+  + Hypothesis: theta = $\begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix} \quad \Longrightarrow \quad \begin{bmatrix} \text{theta(1)} \\ \text{theta(2)} \\ \vdots \\ \text{theta(n+1)}  \end{bmatrix}$
+  + Cost function: `fucntion [jVal, gradient] = costFunction(theta)`
+  + gradient descent:
+
+    $$\begin{array}{rcl} \text{gradient(1)} & = &  [ \text{code to compute} \frac{\partial}{\partial \theta_0} J(\theta)]; \\\\ \text{gradient(2)} & = &  [ \text{code to compute} \frac{\partial}{\partial \theta_1} J(\theta)]; \\ & \vdots & \\  \text{gradient(n+1)} & = &  [ \text{code to compute} \frac{\partial}{\partial \theta_n} J(\theta)]; \end{array}$$
+
++ IVQ: Suppose you want to use an advanced optimization algorithm to minimize the cost function for logistic regression with parameters $\theta_0$ and $\theta_1$. You write the following code:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="https://coursera-forum-screenshots.s3.amazonaws.com/14/cead80d82b11e4b390fb94e489e9db/Screen-Shot-2015-03-31-at-9.52.10-PM.png" style="margin: 0.1em;" alt="cost function implementation" title="IVQ Code for Advanced Optimization" width="450">
+    </a></div>
+  </div>
+
+  What should CODE#1 and CODE#2 above compute?
+  1. CODE#1 and CODE#2 should compute $J(\theta)$.
+  2. CODE#1 should be theta(1) and CODE#2 should be theta(2).
+  3. CODE#1 should compute $\frac{1}{m}\sum_{i=1}^m[(h_\theta(x^{(i)}) - y^{(i)})\cdot x^{(i)}_0] (= \frac{\partial}{\partial\theta_0})$, and       CODE#2 should compute $\frac{1}{m}\sum_{i=1}^m[(h_\theta(x^{(i)}) - y^{(i)})\cdot x^{(i)}_1] (= \frac{\partial}{\partial\theta_1})$.
+  4. None of the above.
+
+  Ans: 3
 
 
 -------------------------------------------------
 
+"Conjugate gradient", "BFGS", and "L-BFGS" are more sophisticated, faster ways to optimize $\theta$ that can be used instead of gradient descent. We suggest that you should not write these more sophisticated algorithms yourself (unless you are an expert in numerical computing) but use the libraries instead, as they're already tested and highly optimized. Octave provides them.
 
+We first need to provide a function that evaluates the following two functions for a given input value θ:
+
+$$J(\theta) \quad \text{and} \quad \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+
+We can write a single function that returns both of these:
+
+```matlab
+function [jVal, gradient] = costFunction(theta)
+  jVal = [...code to compute J(theta)...];
+  gradient = [...code to compute derivative of J(theta)...];
+end
+```
+
+Then we can use octave's `fminunc()` optimization algorithm along with the `optimset()` function that creates an object containing the options we want to send to `fminunc()`. (Note: the value for `MaxIter` should be an integer, not a character string - errata in the video at 7:30)
+
+```matlab
+options = optimset('GradObj', 'on', 'MaxIter', 100);
+initialTheta = zeros(2,1);
+   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+```
+
+We give to the function `fminunc()` our cost function, our initial vector of theta values, and the "options" object that we created beforehand.
 
 
 #### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/06.6-LogisticRegression-AdvancedOptimization.25b2a500b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1553385600&Signature=jg-zpJbYekk3TwI6favmOhdqVS4Qz01-ayUbD8zyX1UOTFqhPZPiXuWpn-TrV-TCRxYQVgm6qh3Sqdaa5tmrh1uVxXlqWCdJGyWQF9G7IDRAJVNiIiP8xheR95KguIp5pt093vVAKnqbSldCNT5xIkI6VOlNXuCh0t2DBFnwYqw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/BnT26fpCTdy09un6Qh3cpw?expiry=1553385600000&hmac=NUYlV1tJKvjIr0j3hH2ZRLW3Xyqf-ezxauLVueROX7Q&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
