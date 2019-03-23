@@ -248,7 +248,7 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="url"><br/>
-        <img src="images/m06-08.png" style="margin: 0.1em;" alt="text" title="Non-convex vs. Convex" width="450">
+        <img src="images/m06-08.png" style="margin: 0.1em;" alt="text" title="Non-convex vs. Convex" width="350">
       </a></div>
     </div>
 
@@ -283,7 +283,7 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t">
-        <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="450">
+        <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="250">
       </a></div>
     </div>
 
@@ -970,3 +970,5 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     </div>
 
     Ans: 3
+
+
