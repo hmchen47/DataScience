@@ -80,18 +80,83 @@ This terminology is applied to both linear and logistic regression. There are tw
 
 ### Lecture Notes
 
++ Intution
 
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/1tJlY/cost-function">
+        <img src="images/m07-04.png
+        " style="margin: 0.1em;" alt="text" title="caption" width="400">
+    </a></div>
+    </div>
+
+    + Suppose we penalize and make $\theta_3, \theta_4$ really small
+
+        $$\min_{\theta} \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2 \quad \Longrightarrow \quad \theta_3 \approx 0 \;\; \theta_4 \approx 0$$
+
++ Regularization
+  + Small values for parameters $\theta_0, \theta_1, \ldots, \theta_n$
+    + "Simpler" hypothesis
+    + Less prone to overfitting (e.g. $\theta_3 \approx 0, \;\; \theta_4 \approx 4$)
+  + Example: Housing
+    + Features: $x_1, x_2, \ldots, x_{100}$
+    + parameters: $\theta_0, \theta_1, \theta_2, \ldots, \theta_{100}$
+
+    $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right] \quad \Longrightarrow \quad \min_\theta J(\theta)$$
+
+    + $\lambda\;$: regularization parameter
+  + In regularized linear regression, we choose $\theta$ to minimize
+
+    $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right]$$
+
+    what if $\lambda$ is set to an extremely large value (perhaps for too large for our problem, say $\lambda = 10^{10}$)?
+    + Algorithm works fine; setting $\lambda$ to be very large can't hurt it
+    + Algorithm fails to eliminate overfitting
+    + Algorithm results in underfitting. (Fails to fit even training data well)
+    + Gradient descent will fail to converge.
+      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+          <img src="images/m07-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      </a></div>
+      </div>
+      <br/>
+
+        $$\theta_1 \approx 0, \;\theta_2 \approx 0, \;\theta_3 \approx 0, \;\theta_4 \approx 0 \quad \Longrightarrow \quad h_\theta(x) = \theta_0$$
 
 
 -------------------------------------------
 
+If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost.
 
+Say we wanted to make the following function more quadratic:
+
+$$\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4$$
+
+We'll want to eliminate the influence of $\theta_3x^3$ and $\theta_4x^4$. Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our __cost function__:
+
+$$min_{\theta} \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2$$
+
+We've added two extra terms at the end to inflate the cost of $\theta_3$ and $\theta_4$. Now, in order for the cost function to get close to zero, we will have to reduce the values of $\theta_3$ and $\theta_4$ to near zero. This will in turn greatly reduce the values of $\theta_3x^3$ and $\theta_4x^4$ in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms $\theta_3x^3$ and $\theta_4x^4$.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/1tJlY/cost-function">
+    <img src="images/m07-04.png
+    " style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+We could also regularize all of our theta parameters in a single summation as:
+
+$$min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2$$
+​
+The $\lambda$, or lambda, is the __regularization parameter__. It determines how much the costs of our theta parameters are inflated.
+
+Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting. Hence, what would happen if $\lambda = 0$ or is too small ?
 
 
 ### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/07.2-Regularization-CostFunction.c0929fd0b22b11e495a62138f9b52d3f/full/360p/index.mp4?Expires=1553472000&Signature=H4Ggi7y09dO3AUBDCqrufPEY50tfgBmf0TNjL55JH5h0-A~kwbIyMxFSxVHq5vGpcxD0VHp153AcCMyMMYjQSAdu8HolKUyd5lQ1GWNZAEANxiB13p2fxZ~g4jPatq~nHiF630LLTJhWKNveunk6iPfnXR5oDaewKCCez9cLp-U_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/l93kCv8tR0Od5Ar_LRdDcg?expiry=1553472000000&hmac=kPOjGvyJ34rw1dyZYbJn9_K9xH80wpSe8matOvT7lvM&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
