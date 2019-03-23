@@ -560,7 +560,7 @@ In the original videos for the course (ML-001 through ML-008), there were typos 
     3. Introducing regularization to the model always results in equal or better performance on examples not in the training set.
     4. Introducing regularization to the model always results in equal or better performance on the training set.
 
-    Ans: x23
+    Ans: 2, x23
 
 
 2. Suppose you ran logistic regression twice, once with $\lambda = 0$, and once with $\lambda = 1$. One of the times, you got parameters $\theta=\begin{bmatrix}23.4\\37.9\end{bmatrix}$, and the other time you got $\theta=\begin{bmatrix}1.03\\0.28\end{bmatrix}$. However, you forgot which value of $\lambda$ corresponds to which value of $\theta$. Which one do you think corresponds to $\lambda = 1$?
@@ -580,7 +580,7 @@ In the original videos for the course (ML-001 through ML-008), there were typos 
     5. Because regularization causes $J(\theta)$ to no longer be convex, gradient descent may not always converge to the global minimum (when $\lambda > 0$, and when using an appropriate learning rate $\alphaα$).
     6. Using too large a value of $\lambda$ can cause your hypothesis to underfit the data.
 
-    Ans: x14(1234)
+    Ans: 6(1563), x14(1234)
 
 
 4. In which one of the following figures do you think the hypothesis has overfit the training set?
@@ -608,7 +608,7 @@ In the original videos for the course (ML-001 through ML-008), there were typos 
       </a></div>
     </div>
 
-    Ans: x4
+    Ans: x3, x4
 
 
 
