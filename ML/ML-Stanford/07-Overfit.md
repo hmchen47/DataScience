@@ -104,23 +104,26 @@ This terminology is applied to both linear and logistic regression. There are tw
     $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right] \quad \Longrightarrow \quad \min_\theta J(\theta)$$
 
     + $\lambda\;$: regularization parameter
-  + In regularized linear regression, we choose $\theta$ to minimize
+  + IVQ: In regularized linear regression, we choose $\theta$ to minimize:
 
     $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right]$$
 
-    what if $\lambda$ is set to an extremely large value (perhaps for too large for our problem, say $\lambda = 10^{10}$)?
-    + Algorithm works fine; setting $\lambda$ to be very large can't hurt it
-    + Algorithm fails to eliminate overfitting
-    + Algorithm results in underfitting. (Fails to fit even training data well)
-    + Gradient descent will fail to converge.
-      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
-          <img src="images/m07-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
-      </a></div>
-      </div>
-      <br/>
+    What if $\lambda$ is set to an extremely large value (perhaps too large for our problem, say $\lambda=10^{10}$)?
+    1. Algorithm works fine; setting $\lambda$ to be very large can't hurt it
+    2. Algorithm fails to eliminate overfitting
+    3. Algorithm results in underfitting. (Fails to fit even training data well)
+    4. Gradient descent will fail to converge.
 
-        $$\theta_1 \approx 0, \;\theta_2 \approx 0, \;\theta_3 \approx 0, \;\theta_4 \approx 0 \quad \Longrightarrow \quad h_\theta(x) = \theta_0$$
+    Ans: 3
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+        <img src="images/m07-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+    </div>
+    <br/>
+
+    $$n = m \quad \Longrightarrow \quad \theta_1 \approx 0, \;\theta_2 \approx 0, \;\theta_3 \approx 0, \;\theta_4 \approx 0 \quad \Longrightarrow \quad h_\theta(x) = \theta_0 \quad \Longrightarrow \quad \text{underfitting}$$
 
 
 -------------------------------------------
@@ -133,7 +136,7 @@ $$\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4$$
 
 We'll want to eliminate the influence of $\theta_3x^3$ and $\theta_4x^4$. Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our __cost function__:
 
-$$min_{\theta} \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2$$
+$$\min_{\theta} \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2$$
 
 We've added two extra terms at the end to inflate the cost of $\theta_3$ and $\theta_4$. Now, in order for the cost function to get close to zero, we will have to reduce the values of $\theta_3$ and $\theta_4$ to near zero. This will in turn greatly reduce the values of $\theta_3x^3$ and $\theta_4x^4$ in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms $\theta_3x^3$ and $\theta_4x^4$.
 
@@ -146,7 +149,7 @@ We've added two extra terms at the end to inflate the cost of $\theta_3$ and $\t
 
 We could also regularize all of our theta parameters in a single summation as:
 
-$$min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2$$
+$$\min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2$$
 ​
 The $\lambda$, or lambda, is the __regularization parameter__. It determines how much the costs of our theta parameters are inflated.
 
@@ -166,18 +169,89 @@ Using the above cost function with the extra summation, we can smooth the output
 
 ### Lecture Notes
 
++ Regularization linear regression
 
+  $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right] \quad \Longrightarrow \quad \min_\theta J(\theta)$$
+
++ Gradient Descent
+
+  Repeat {
+  
+    $$\begin{array}{rcl} \theta_0 &:=& \theta_0 − \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) − y^{(i)}) x^{(i)}_0 \\\\  \theta_j &:=& \theta_j − \alpha \left[(\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})−y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j \right] \quad\quad j \in \{1,2\ldots n\} \end{array}$$
+  }
+
+  $$\theta_j := \underbrace{\theta_j (1 - \alpha \dfrac{\lambda}{m})}_{ \approx \theta_j, \text{ eg. }\theta_j \times 0.99} - \underbrace{\alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}}_{\text{same as } J(\theta)}$$
+
+  + IVQ: Suppose you are doing gradient descent on a training set of $m > 0$ examples, using a fairly small learning rate $\alpha > 0$ and some regularization parameter $\lambda > 0$. Consider the update rule:
+
+    $$\theta_j := \theta_j (1 - \alpha \dfrac{\lambda}{m}) - \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}$$
+
+    Which of the following statements about the term $(1-\alpha\frac{\lambda}{m})$ must be true?
+      1. $1-\alpha\frac{\lambda}{m} > 1$
+      2. $1-\alpha\frac{\lambda}{m} = 1$
+      3. $1-\alpha\frac{\lambda}{m} < 1$
+      4. None of the above.
+
+      Ans: 3, e.g. $(1-\alpha \dfrac{\lambda}{m} = 0.99$)
+
++ Normal Equation
+
+  $$X = \underbrace{\begin{bmatrix}(x^{(1)})^T \\ \vdots \\ (x^{(m)})^T \end{bmatrix}}_{m \times (n+1) \text{ matrix}} \qquad\qquad y = \underbrace{\begin{bmatrix} y^{(1)} \\ \vdots \\ y^{(m)} \end{bmatrix}}_{\in \mathbb{R}^m}$$
+
+  To $\min_\theta J(\theta) \qquad \Longrightarrow \qquad \text{(set) }\dfrac{\partial}{\partial \theta_j} J(\theta) = 0$,
+
+  $$\theta = \left(X^TX + \lambda \underbrace{\begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}}_{(n+1) \times (n+1) \text{ matrix}} \right)^{-1} X^Ty$$
+
++ Non-invertibility
+
+  Suppose $m \leq n$, $m$ as the number of examples and $n$ as the number of features
+
+  $$\theta = (X^TX)^{-1}X^T y$$
+
+  where $((X^TX)^{-1}$ is non-invertible / singular.
+
+  If $\lambda > 0$, the regularization will solve the non-invertible issue, 
+
+  $$\theta = \left(\underbrace{X^TX + \lambda \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}}_{invertible} \right)^{-1} X^Ty$$
 
 
 -------------------------------------------
 
+We can apply regularization to both linear regression and logistic regression. We will approach linear regression first.
 
+__Gradient Descent__
+
+We will modify our gradient descent function to separate out $\theta_0$ from the rest of the parameters because we do not want to penalize $\theta_0$.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Repeat {
+  
+$$\begin{array}{rcl} \theta_0 &:=& \theta_0 − \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) − y^{(i)}) x^{(i)}_0 \\\\  \theta_j &:=& \theta_j − \alpha [(\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})−y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j] \quad\quad j \in \{1,2\ldots n\} \end{array}$$
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+The term $\frac{\lambda}{m}\theta_j$ performs our regularization. With some manipulation our update rule can also be represented as:
+
+$$\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}$$
+
+The first term in the above equation, $1 - \alpha\frac{\lambda}{m}$ will always be less than 1. Intuitively you can see it as reducing the value of $\theta_j$ by some amount on every update. Notice that the second term is now exactly the same as it was before.
+
+
+__Normal Equation__
+
+Now let's approach regularization using the alternate method of the non-iterative normal equation.
+
+To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:
+
+$$\theta = (X^TX + λ \cdot L)^{−1} X^T y \quad\quad \text{where} \quad L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1 \end{bmatrix}$$
+
+$L$ is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension $(n+1)\times(n+1)$. Intuitively, this is the identity matrix (though we are not including $x_0$), multiplied with a single real number $\lambda$.
+
+Recall that if $m < n$, then $X^TX$ is non-invertible. However, when we add the term $\lambda \cdot L$, then $X^TX + \lambda \cdot L$ becomes invertible.
 
 
 ### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/07.3-Regularization-RegularizedLinearRegression.58149800b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1553472000&Signature=lEjru-a2jgY9qE4QOd6GyRd03IZwDhEO-PFksr26ryoQxgwrmZHB~bot~Yag0NbWOage0KvrspAf52BeIydcU7AcwGvAzu2TIpt93tT1Bph5irZAK5xiv6Jq6Fuoju2cYZN7rq7z0FL0T1L~Wv8IQ1K83~bcOhQ-lkcvSIHFYmM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/MJwHwFDaSbicB8BQ2tm4KQ?expiry=1553472000000&hmac=2nad3YHoKxRbVMCpMDH7BSyaYUKjPvArbajRk2l28f4&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
