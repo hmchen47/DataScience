@@ -897,6 +897,7 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     Ans: 23, x14
 
 
+
 2. Suppose you have the following training set, and fit a logistic regression classifier $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)$.
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -911,9 +912,12 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     1. Adding polynomial features (e.g., instead using $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2 + \theta_3 x_1^2 + \theta_4 x_1 x_2 + \theta_5 x_2^2)$) could increase how well we can fit the training data.
     2. At the optimal value of $\theta$ (e.g., found by fminunc), we will have $J(\theta) \geq 0$.
     3. Adding polynomial features (e.g., instead using $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2 + \theta_3 x_1^2 + \theta_4 x_1 x_2 + \theta_5 x_2^2)$) would increase $J(\theta)$ because we are now summing over more terms.
-    3. If we train gradient descent for enough iterations, for some examples $x^{(i)}$ in the training set it is possible to obtain $h_\theta(x^{(i)}) > 1$.
+    4. If we train gradient descent for enough iterations, for some examples $x^{(i)}$ in the training set it is possible to obtain $h_\theta(x^{(i)}) > 1$.
+    5. $J(\theta)$ will be a convex function, so gradient descent should converge to the global minimum
+    6. The positive and negative examples cannot be separated using a straight line. So, gradient descent will fail to converge.
+    7. Because the positive and negative examples cannot be separated using a straight line, linear regression will perform as well as logistic regression on this data.
 
-    Ans: 12
+    Ans: 126
 
 
 3. For logistic regression, the gradient is given by $\frac{\partial}{\partial \theta_j} J(\theta) =\frac{1}{m}\sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}}$. Which of these is a correct gradient descent update for logistic regression with a learning rate of $\alpha$? Check all that apply.
@@ -922,8 +926,11 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     2. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}}$ (simultaneously update for all $j$).
     3. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}}$ (simultaneously update for all $j$).
     4. $\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^m{ \left(\theta^T x - y^{(i)}\right) x^{(i)}}$.
+    5. $\theta := \theta − \alpha \frac{1}{m} \sum_{i=1}^m (\dfrac{1}{1+e^{-\theta^Tx^{(i)}} }- y^{(i)})x^{(i)}$.
+    6. $\theta := \theta − \alpha \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})- y^{(i)})x^{(i)}$.
 
-    Ans: 12
+
+    Ans: 12, 5?
 
 
 4. Which of the following statements are true? Check all that apply.
@@ -932,8 +939,10 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     2. The cost function $J(\theta)$ for logistic regression trained with $m \geq 1$ examples is always greater than or equal to zero.
     3. The one-vs-all technique allows you to use logistic regression for problems in which each $y^{(i)}$ comes from a fixed, discrete set of values.
     4. For logistic regression, sometimes gradient descent will converge to a local minimum (and fail to find the global minimum). This is the reason we prefer more advanced optimization algorithms such as fminunc (conjugate gradient/BFGS/L-BFGS/etc).
+    5. The sigmoid function $g(z) = \frac{1}{1 + e^{-z}}$ is never greater than one (is greater than, $> 1$).
+    6. Linear regression always works well for classification if you classify by using a threshold on the prediction made by linear regression.
 
-    Ans: 23, x234
+    Ans: 235, x234
 
 
 5. Suppose you train a logistic classifier $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)$. Suppose $\theta_0 = -6$, $\theta_1 = 0$, $\theta_2 = 1$. Which of the following figures represents the decision boundary found by your classifier?
@@ -947,7 +956,17 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
       </a></div>
     </div>
 
-    Ans: x4, x2
+    Ans: 4, x2
 
+5. Suppose you train a logistic classifier $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)$. Suppose $\theta_0 = 6, \theta_1 = 0, \theta_2 = -1$. Which of the following figures represents the decision boundary found by your classifier?
 
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/Fd9cu/logistic-regression">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/vQ1aWL7jEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.32.48-PM.png?Expires=1553385600&Signature=dX8zgGhuSrhBStncrlqVSDulTU-fGrJwjCsNwtofAoIfCpBP1RzXG2kLE~zhDAGEPXuHPvQFINzzwmy2k5KZtFdVmabinjgVAIdmBoL66dEydtYFbShUbwDSnb0NmlKibxLHe5Z73uzX3JGXf32109L7KLZ~7u0O~H2Pm01SH30_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Fig.1" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/3-XyOb7jEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.34.53-PM.png?Expires=1553385600&Signature=KsTZ4TCBX22NNKIYZlw27JJwCpm2j7TwhefqmjsGejWzKqgRaGl7lTkyb6S77hn9~AMlJxSNWmOHpN7mAEdy6ibcS-XjiWwCZR6IVBS1LgL7J4Kn9dESPyXX~L-XpziJFU7A1yet5TFfNiWfAG0JpMinHv3378cHlbWW9FFXeEI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="fig.2" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/8Lxmyr7jEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.51.03-PM.png?Expires=1553385600&Signature=Sfs3SO5WfIQP-nej8aLFODang3PJqKU7b9Pub5UvFT9frAwa5xkD2IJ0TE87hJkc0xqz3k51a61RvhCxAC6njW-1KfRTAqsIxJE7bZdUvhICUh5jQxI67Q7pBEapMEfV-HW8PgQLO~wsJT2GoCCTAFcwzSZv4iLiu9-kpUtNokc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Fig.3" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/8HjYsb7kEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-2.53.08-PM.png?Expires=1553385600&Signature=X0u1W1JHDpKXLJnWf3KQzV9e6MsuBoVwJM7AsM0oHeuyRcvRpXP~w4acta6cFYo58lRW7cTjkU6nWPovv5U6AhzMnX58zLJRLrW~lYTIko7PqCliETS4JfIt5Zvi53MokdrW1hChuB9HOvg6wlnT72kAt7NpQI4eZXwuytid-lQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="Fig.4" width="150">
+      </a></div>
+    </div>
 
+    Ans: 3
