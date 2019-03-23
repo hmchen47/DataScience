@@ -917,7 +917,7 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     6. The positive and negative examples cannot be separated using a straight line. So, gradient descent will fail to converge.
     7. Because the positive and negative examples cannot be separated using a straight line, linear regression will perform as well as logistic regression on this data.
 
-    Ans: 12, 6x
+    Ans: 125, x6
 
 
 3. For logistic regression, the gradient is given by $\frac{\partial}{\partial \theta_j} J(\theta) =\frac{1}{m}\sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}}$. Which of these is a correct gradient descent update for logistic regression with a learning rate of $\alpha$? Check all that apply.
@@ -930,7 +930,7 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     6. $\theta := \theta − \alpha \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})- y^{(i)})x^{(i)}$.
 
 
-    Ans: 12, 5x
+    Ans: 126, 5x
 
 
 4. Which of the following statements are true? Check all that apply.
