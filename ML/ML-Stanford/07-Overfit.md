@@ -4,18 +4,73 @@
 
 ### Lecture Notes
 
++ Example: Linear regression (housing prices)
 
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/ACpTQ/the-problem-of-overfitting">
+        <img src="images/m07-02.png" style="margin: 0.1em;" alt="Let's keep using our running example of predicting housing prices with linear regression where we want to predict the price as a function of the size of the house. One thing we could do is fit a linear function to this data, and if we do that, maybe we get that sort of straight line fit to the data. But this isn't a very good model. Looking at the data, it seems pretty clear that as the size of the housing increases, the housing prices plateau, or kind of flattens out as we move to the right and so this algorithm does not fit the training and we call this problem underfitting, and another term for this is that this algorithm has high bias. Both of these roughly mean that it's just not even fitting the training data very well. The term is kind of a historical or technical one, but the idea is that if a fitting a straight line to the data, then, it's as if the algorithm has a very strong preconception, or a very strong bias that housing prices are going to vary linearly with their size and despite the data to the contrary. Despite the evidence of the contrary is preconceptions still are bias, still closes it to fit a straight line and this ends up being a poor fit to the data. Now, in the middle, we could fit a quadratic functions enter and, with this data set, we fit the quadratic function, maybe, we get that kind of curve and, that works pretty well. And, at the other extreme, would be if we were to fit, say a fourth other polynomial to the data. So, here we have five parameters, theta zero through theta four, and, with that, we can actually fill a curve that process through all five of our training examples. You might get a curve that looks like this. That, on the one hand, seems to do a very good job fitting the training set and, that is processed through all of my data, at least. But, this is still a very wiggly curve, right? So, it's going up and down all over the place, and, we don't actually think that's such a good model for predicting housing prices. So, this problem we call overfitting, and, another term for this is that this algorithm has high variance.. The term high variance is another historical or technical one. But, the intuition is that, if we're fitting such a high order polynomial, then, the hypothesis can fit, you know, it's almost as if it can fit almost any function and this face of possible hypothesis is just too large, it's too variable. And we don't have enough data to constrain it to give us a good hypothesis so that's called overfitting. And in the middle, there isn't really a name but I'm just going to write, you know, just right. Where a second degree polynomial, quadratic function seems to be just right for fitting this data. " title="Example of house pricing with underfti, overfit & just right models" width="500">
+    </a></div>
+    </div>
+
+    + __Overfitting__: if we have too many features, the learned hypothesis may fit the training set very well ( $J(\theta) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \approx 0$ ), but fail to generalize to new examples (predict prices on new examples).
+
++ Example Logistic regression
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/ACpTQ/the-problem-of-overfitting">
+        <img src="images/m07-03.png" style="margin: 0.1em;" alt="Here is a logistic regression example with two features X1 and x2. One thing we could do, is fit logistic regression with just a simple hypothesis like this, where, as usual, G is my sigmoid function. And if you do that, you end up with a hypothesis, trying to use, maybe, just a straight line to separate the positive and the negative examples. And this doesn't look like a very good fit to the hypothesis. So, once again, this is an example of underfitting or of the hypothesis having high bias. In contrast, if you were to add to your features these quadratic terms, then, you could get a decision boundary that might look more like this. And, you know, that's a pretty good fit to the data. Probably, about as good as we could get, on this training set. And, finally, at the other extreme, if you were to fit a very high-order polynomial, if you were to generate lots of high-order polynomial terms of speeches, then, logistical regression may contort itself, may try really hard to find a decision boundary that fits your training data or go to great lengths to contort itself, to fit every single training example well. And, you know, if the features X1 and X2 offer predicting, maybe, the cancer to the, you know, cancer is a malignant, benign breast tumors. This doesn't, this really doesn't look like a very good hypothesis, for making predictions. And so, once again, this is an instance of overfitting and, of a hypothesis having high variance and not really, and, being unlikely to generalize well to new examples. " title="Classification example with underfit, overfit and just right model" width="500">
+    </a></div>
+    </div>
+
+    + IVQ: Consider the medical diagnosis problem of classifying tumors as malignant or benign. If a hypothesis $h_\theta(x)$ has overfit the training set, it means that:
+        1. It makes accurate predictions for examples in the training set and generalizes well to make accurate predictions on new, previously unseen examples.
+        2. It does not make accurate predictions for examples in the training set, but it does generalize well to make accurate predictions on new, previously unseen examples.
+        3. It makes accurate predictions for examples in the training set, but it does not generalize well to make accurate predictions on new, previously unseen examples.
+        4. It does not make accurate predictions for examples in the training set and does not generalize well to make accurate predictions on new, previously unseen examples.
+
+        Ans: 3
+
++ Addressing overfitting
+  + Example: house prices
+
+    $$\begin{array}{ccl} x_1 &=& \text{size of house} \\ x_2 &=& \text{no. of bedrooms} \\ x_3 &=& \text{no. of floors} \\ x_4 &=& \text{age of house} \\ x_5 &=& \text{average income in neighborhood}  \\ x_6 &=& \text{kitchen size} \\ \vdots & & \\ x_{100} \end{array}$$
+  + Options:
+    1) Reduce number if features
+        + Manually select which features to keep.
+        + Model selection algorithm
+    2) Regularization
+        + Keep all the features, but reduce magnitude/values of parameters $\theta_j$
+        + Works well when we have a lot fo features, each of which contributes a bit to predicting $y$
 
 
 -------------------------------------------
 
+Consider the problem of predicting y from $x \in R$. The leftmost figure below shows the result of fitting a $y = \theta_0 + \theta_1 x$ to a dataset. We see that the data doesn’t really lie on straight line, and so the fit is not very good.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/lecture/ACpTQ/the-problem-of-overfitting">
+    <img src="images/m07-01.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+Instead, if we had added an extra feature $x^2$, and fit $y = \theta_0 + \theta_1x + \theta_2x^2$, then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a $5^{th}$ order polynomial $y = \sum_{j=0}^5 \theta_j x^j$. We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices ($y$) for different living areas ($x$). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of __underfitting__ — in which the data clearly shows structure not captured by the model—and the figure on the right is an example of __overfitting__.
+
+__Underfitting__, or __high bias__, is when the form of our hypothesis function $h$ maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. At the other extreme, __overfitting__, or __high variance__, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.
+
+This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:
+
+1) Reduce the number of features:
+    + Manually select which features to keep.
+    + Use a model selection algorithm (studied later in the course).
+2) Regularization
+    + Keep all the features, but reduce the magnitude of parameters $\theta_j$.
+    + Regularization works well when we have a lot of slightly useful features.
 
 
+### Lecture Video
 
-### Lecture Video 
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/07.1-Regularization-TheProblemOfOverfitting.77a5cd10b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1553472000&Signature=Sr4hYEk8P0PGmwM2ptEKWQN6n~ZCz58kydPUmN42ulWCRL4FZtA2me~bJ~6qMbc4TMGzdvYOulyoI8Muo8CKYoztzhDLjxCUVs8LocLQTiN1xsoCjTcV61j5Ggy1NrP242Cxp92~2KlsIgWlvI8hmSOU8NBE2O4fgIObtd3QG1M_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/I9_Ji7BbRTqfyYuwW-U6yA?expiry=1553472000000&hmac=YD9bLbaAn1lVKjoxv5ks4JHCagPCxjw0w4dFMWJiFjI&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
