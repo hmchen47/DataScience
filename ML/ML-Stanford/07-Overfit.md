@@ -261,20 +261,93 @@ Recall that if $m < n$, then $X^TX$ is non-invertible. However, when we add the 
 
 ### Lecture Notes
 
++ Regularization logistic regression
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/v51eg/regularized-logistic-regression">
+      <img src="images/m07-06.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  Hypothesis: 
+
+  $$h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^2x_2 + \theta_4 x_1^2 x_2^2 + \theta_5 x_1^2 x_2^3 + \ldots)$$
+
+  Cost Function
+
+  $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+
++ Gradient Descent
+
+  Repeat {
+
+    $$\begin{array}{rcl} \theta &:=& \theta_0 - \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) - y^{(i)}) x_0^{(i)} \\\\ \theta_j &:=& \theta_j - \alpha \underbrace{ \left[\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j \right] }_{\frac{\partial}{\partial \theta_j} J(\theta) = 0}\qquad (j = 1, 2, 3, \ldots, n)  \end{array}$$
+  }
+
+  For logistic regression 
+
+  $$h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}$$
+
+  + IVQ: When using regularized logistic regression, which of these is the best way to monitor whether gradient descent is working correctly?
+    1. Plot $-[\frac{1}{m}\sum_{i=1}^m y^{(i)}\log h_\theta(x^{(i)}) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$ as a function of the number of iterations and make sure it's decreasing.
+    2. Plot $-[\frac{1}{m}\sum_{i=1}^m y^{(i)}\log h_\theta(x^{(i)}) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))] - \frac{\lambda}{2m}\sum_{j=1}^n\theta_j^2$ as a function of the number of iterations and make sure it's decreasing.
+    3. Plot $-[\frac{1}{m}\sum_{i=1}^m y^{(i)}\log h_\theta(x^{(i)}) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^n\theta_j^2$ as a function of the number of iterations and make sure it's decreasing.
+    4. Plot $\sum_{j=1}^n\theta_j^2$ as a function of the number of iterations and make sure it's decreasing.
+
+    Ans: 3
 
 
++ Advanced optimization
+
+  fucntion [jVal, gradient] = costFunction(theta)<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jVal = [code to compute $J(\theta)$]; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient(1) = [code to computer $\dfrac{\partial}{\partial \theta_0} J(\theta)$]; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient(2) = [code to computer $\dfrac{\partial}{\partial \theta_1} J(\theta)$]; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient(3) = [code to computer $\dfrac{\partial}{\partial \theta_2} J(\theta)$]; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\vdots$ <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient(n+1) = [code to computer $\dfrac{\partial}{\partial \theta_n} J(\theta)$]; <br/>
+
+  where
+
+  $$\begin{array}{rcl} J(\theta) & = & \left[ -\dfrac{1}{m} \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)} + (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \theta_j^2 \\\\ \dfrac{\partial}{\partial \theta_0} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} - \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n\end{array}$$
 
 -------------------------------------------
 
+We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/v51eg/regularized-logistic-regression">
+    <img src="images/m07-06.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+__Cost Function__
+
+Recall that our cost function for logistic regression was:
+
+$$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \right]$$
+
+We can regularize this equation by adding a term to the end:
+
+$$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+​	 
+The second sum, $\sum_{j=1}^n \theta_j^2$ means to explicitly exclude the bias term, $\theta_0$. I.e. the θ vector is indexed from $\theta$ to $n$ (holding $n+1$ values, $\theta_0$ through $\theta_n$), and this sum explicitly skips $\theta_0$, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/v51eg/regularized-logistic-regression">
+    <img src="images/m07-07.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
 
 
 
 ### Lecture Video 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/07.4-Regularization-RegularizedLogisticRegression.3f6ca4a0b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1553472000&Signature=fROmQFcj28xdrQiAqpnG99lJabzS2NeISB71G021NyREiWkKbD0XiNp86iZ74Axv22Fnz2MPiPaz0Sl8q1JYkeF89Atj3HX4f1tBOhEjejXUurf3nAg3Bbvrt-2nF5C2reQC8-Reixrgk4pY5tqcHEvTG8amApCY3HlcfO7bDjY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/WR9QkNvBQ4-fUJDbwbOPUw?expiry=1553472000000&hmac=hEVwgLBgV1w2mtaLegXk5fT2uN3D3BpY3O4h0MewGXg&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
+<br/>
 <br/>
 
 
@@ -286,9 +359,9 @@ Recall that if $m < n$, then $X^TX$ is non-invertible. However, when we add the 
 
 Regularization is designed to address the problem of overfitting.
 
-High bias or underfitting is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. eg. if we take $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2$ then we are making an initial assumption that a linear model will fit the training data well and will be able to generalize but that may not be the case.
+__High bias__ or __underfitting__ is when the form of our hypothesis function $h$ maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. eg. if we take $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2$ then we are making an initial assumption that a linear model will fit the training data well and will be able to generalize but that may not be the case.
 
-At the other extreme, overfitting or high variance is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.
+At the other extreme, __overfitting__ or __high variance__ is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.
 
 This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:
 
@@ -371,7 +444,7 @@ We can regularize logistic regression in a similar way that we regularize linear
 
 Recall that our cost function for logistic regression was:
 
-$$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]$$
+$$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \right]$$
 
 We can regularize this equation by adding a term to the end:
 
