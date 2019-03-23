@@ -580,7 +580,7 @@ In the original videos for the course (ML-001 through ML-008), there were typos 
     5. Because regularization causes $J(\theta)$ to no longer be convex, gradient descent may not always converge to the global minimum (when $\lambda > 0$, and when using an appropriate learning rate $\alphaα$).
     6. Using too large a value of $\lambda$ can cause your hypothesis to underfit the data.
 
-    Ans: 6(1563), x14(1234)
+    Ans: 4(4312), 6(1563), x14(1234)
 
 
 4. In which one of the following figures do you think the hypothesis has overfit the training set?
@@ -608,7 +608,7 @@ In the original videos for the course (ML-001 through ML-008), there were typos 
       </a></div>
     </div>
 
-    Ans: x3, x4
+    Ans: 1, x3, x4
 
 
 
