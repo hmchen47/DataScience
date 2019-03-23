@@ -546,12 +546,71 @@ In the original videos for the course (ML-001 through ML-008), there were typos 
 
 #### Quizzes
 
-+ Typo "it's" in question «Because logistic regression outputs values $0≤h_\theta(x) \leq 1$, it's range [...]»
-+ 1/m factor missing in the definition of the gradient in question «For logistic regression, the gradient is given by $\frac{\partial}{\partial \theta_j} J(θ) = \sum^m_{i=1}$. It should be $\frac{\partial}{\partial \theta_j} J(θ) = \frac{1}{m} \sum^m_{i=1}$.
++ Typo "it's" in question «Because logistic regression outputs values $0 \leq h_\theta(x) \leq 1$, it's range [...]»
++ $\frac{1}{m}$ factor missing in the definition of the gradient in question «For logistic regression, the gradient is given by $\frac{\partial}{\partial \theta_j} J(θ) = \sum^m_{i=1}$. It should be $\frac{\partial}{\partial \theta_j} J(θ) = \frac{1}{m} \sum^m_{i=1}$.
 
 
 
 ### Quiz: Regularization
+
+1. You are training a classification model with logistic regression. Which of the following statements are true? Check all that apply.
+
+    1. Adding many new features to the model helps prevent overfitting on the training set.
+    2. Adding a new feature to the model always results in equal or better performance on the training set.
+    3. Introducing regularization to the model always results in equal or better performance on examples not in the training set.
+    4. Introducing regularization to the model always results in equal or better performance on the training set.
+
+    Ans: x23
+
+
+2. Suppose you ran logistic regression twice, once with $\lambda = 0$, and once with $\lambda = 1$. One of the times, you got parameters $\theta=\begin{bmatrix}23.4\\37.9\end{bmatrix}$, and the other time you got $\theta=\begin{bmatrix}1.03\\0.28\end{bmatrix}$. However, you forgot which value of $\lambda$ corresponds to which value of $\theta$. Which one do you think corresponds to $\lambda = 1$?
+
+    1. $\theta=\begin{bmatrix}23.4\\37.9\end{bmatrix}$
+    2. $\theta=\begin{bmatrix}1.03\\0.28\end{bmatrix}$
+
+    Ans: 2
+
+
+3. Which of the following statements about regularization are true? Check all that apply.
+
+    1. Using a very large value of $\lambda$ cannot hurt the performance of your hypothesis; the only reason we do not set $\lambda$ to be too large is to avoid numerical problems.
+    2. Using too large a value of $\lambda$ can cause your hypothesis to overfit the data; this can be avoided by reducing $\lambda$.
+    3. Because logistic regression outputs values $\leq h_\theta(x) \leq 1$, it's range of output values can only be "shrunk" slightly by regularization anyway, so regularization is generally not helpful for it.
+    4. Consider a classification problem. Adding regularization may cause your classifier to incorrectly classify some training examples (which it had correctly classified when not using regularization, i.e. when $\lambda = 0$).
+    5. Because regularization causes $J(\theta)$ to no longer be convex, gradient descent may not always converge to the global minimum (when $\lambda > 0$, and when using an appropriate learning rate $\alphaα$).
+    6. Using too large a value of $\lambda$ can cause your hypothesis to underfit the data.
+
+    Ans: x14(1234)
+
+
+4. In which one of the following figures do you think the hypothesis has overfit the training set?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/lehkt/regularization">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/6w-qg77oEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-5.24.59-PM.png?Expires=1553472000&Signature=jSoL5m5ZJHBPDQQuhdIUHt1tWz5zFjB97RtSuRjPa-psCdpWSMChVCRbxW4z2w0aR8WXMnjN0M5zvzmz6Sv6biP1VKlIQjFpayH9Qb4Ic-jBxXFvQgg3YKLC3xTJI~GhblmXxn-fwHtGmyTuzPHuDrqz827PyT4KYGrZwubYHLg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q4 in Mod07" title="Fig.1" width="170">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/B--iib7pEeSjMiIAC7MDiQ_Screen-Shot-2015-02-27-at-5.25.16-PM.png?Expires=1553472000&Signature=MhR0sDutUasBDqcxqEcT41hD4itePN4MlBtLsJgXzY~OXbBGjnzyA86EOBgKaR~esbZ8OtT66xVHtwcGN7Xrz~bGWnEbIIuStDZQwFmVbp32i0FgsN5w9uahTlyh-tHL2s-HWEDRK3WGuxPRvhAGz0c9LXngknNBoalL~MmoEOM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q4 in Mod07" title="Fig.2" width="153">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/MMTSK77pEeSjMiIAC7MDiQ_Screen-Shot-2015-02-27-at-5.25.39-PM.png?Expires=1553472000&Signature=JQChmd7RGrUHdywTZM4XT9GaCP4rhBEpKyy7wyTCuFZIuM83YzdRPo6x2EhHFSObIIbCbgorw0~~GXjZ-dxuRhtM3YWS0eAjxxIpfIdiVhTKGE~M-9EhnSJGiSsksiFPEE6162VY~t2aMLB0jvBObd6Zk2OuC-P5Z7Vby3dabXE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q4 in Mod07" title="Fig.3" width="145">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/SlZinr7pEeSKOiIAC1ARFQ_Screen-Shot-2015-02-27-at-5.25.45-PM.png?Expires=1553472000&Signature=OJGREf~FKZ1UQCsbrBOzkpTb3L7pwFQ2bfVJ82RbhiHDo1bWT-~fYdXtJ4PeIVxldwrI~P8K7nWxYzwHbQSQEKqJdZB9XiraAJvrb5vyl2zJJJvW~m1j1dKrBCkFQnFOznfnm4IVk7yy2aMVJzHox1aiesSZwNwuQKCXYrK5dUI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q4 in Mod07" title="Fig.4" width="150">
+      </a></div>
+    </div>
+
+    Ans: 1
+
+
+5. In which one of the following figures do you think the hypothesis has underfit the training set?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/lehkt/regularization">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/4qRnjr7pEeSjMiIAC7MDiQ_Screen-Shot-2015-02-27-at-5.30.48-PM.png?Expires=1553472000&Signature=auQEt-G2NhgY~pjtp3fo4EWpuFCqi~mrGGLQEHmNW-ZthNXeEuTOERaN74BsDrJob2YjwiuUSJIkPrTzxxYYXqyjCPZoWc7d9EtAzr2XtI1tLwkZj~YHNXLhzF67Dbgxdar5Wicr-9VbhZCqACeKR4YwPIuy-ydyR1pnbbqx~kg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q5 in Mod07" title="Fig.1" width="150">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/8kfaFb7pEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-5.30.56-PM.png?Expires=1553472000&Signature=WLVJnXyWponCaiqTUC7GJsFlXmowaYb279Lyj4~PJUnml3U1ows3n5Tn7k6fbaRxX3AGyucA4Zg9CZrSWZDqvJzM9b9dUiXFcEhA2uxYSMwoK8vu4FLAeI2IUr5QbxBxyaTIeY1cxcxRXbiTQ~LSw1e8yqPkqdSZd4B2kMkiRZE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q5 in Mod07" title="Fig.2" width="145">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/BRZOFr7qEeSZtCIACx4DqA_Screen-Shot-2015-02-27-at-5.31.02-PM.png?Expires=1553472000&Signature=VEugaeTep5pcL77yM3cJSlSqgAsBNd0m~h7DRFsc~peoHxW8DUl8zS3O5TeZHmUbc~AbRrjdn9HhiVlrhrud28qMGASv2Voj2I2-IrpNRoJ6Sq53JLHpG9vNyivLz8zW5G7jZgrUEdADIBz5GQrKVLA1rTLKfKZ71QoviXk47M8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q5 in Mod07" title="Fig.3" width="155">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/GX7qX77qEeSjMiIAC7MDiQ_Screen-Shot-2015-02-27-at-5.31.10-PM.png?Expires=1553472000&Signature=UWRGuYatqaYCrqgZ1eMRxjr9XAX0faGVkDiJhOisHy0--0IP3R3hEnEQCk2Sk-GPr1Mb8YGKH8A-KemKUpfWjSeC7PHPfACWuTqXKqK8OxqdJrOP02LdRFq1eSxEGmRG61UZmNk3qzeB~RO4V3tvgny2A-6w9f0PbTs57WeO6ww_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="Figure for Q5 in Mod07" title="Fig.4" width="145">
+      </a></div>
+    </div>
+
+    Ans: x4
+
+
 
 
 
