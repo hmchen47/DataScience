@@ -22,7 +22,8 @@ grad = zeros(size(theta));
 
 [m, n] = size(X);
 
-J = 1.0 / m * (-1.0 * y' * log(sigmoid(X * theta)) - (1.0 - y)' * log(1.0 - sigmoid(X * theta)));
+J = 1.0 / m * (-1.0 * y' * log(sigmoid(X * theta)) - ...
+    (1.0 - y)' * log(1.0 - sigmoid(X * theta)));
 
 for iter =1:n,
     grad(iter) = X(:, iter)' * (sigmoid(X * theta) - y) / m;
