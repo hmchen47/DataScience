@@ -15,11 +15,15 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
+expVal = sigmoid(X * theta);
 
-
-
-
-
+for iter=1:m,
+    if expVal(iter) >= 0.5,
+        p(iter) = 1;
+    elseif expVal(iter) < 0.5,
+        p(iter) = 0;
+    end;
+end;
 
 % =========================================================================
 
