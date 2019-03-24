@@ -376,7 +376,22 @@ Our final value of our hypothesis for a set of inputs will be one of the element
 
 ### Errata
 
+#### Errata in the video lectures
 
++ In the videos "Model Representation I" and "Model Representation II:, the diagram of the NN does not show the added bias units in the input and hidden layers. The bias units are represented in the equations as the variable x0.
++ In the video "Model representation I", in the in-video quiz, the figure is incorrect in that it does not show the added bias units. The bias units must be included when you calculate the size of a Theta matrix.
++ In the video "Model Representation II" at 2:42, Prof Ng mistakenly says that z(2) is a 3-dimensional vector. What he means is that the vector z(2) has three features - i.e it is size (3 x 1).
+
+
+#### Errata in the programming exercise
+
++ In ex3.pdf at Section 1.3.2 "Vectorizing the gradient", there is a typo in the series of entries demonstrating how to compute the partial derivatives for all $\theta_j$ where $h_\theta(x) - y$ is defined. The last row in the array has $h_\theta(x^{(1)}) - y^{(m)}$ but it should be $h_\theta(x^{(m)}) - y^{(m)}$
++ Clarification: The instructions in ex3.pdf ask you to first write the unregularized portions of cost function (in Section 1.3.1 for cost and 1.3.2 for the gradients), then to add the regularized portions of the cost function (in Section 1.3.3).
++ Note: The test case for lrCostFunction() in ex3.m includes regularization, so you should first complete through Section 1.3.3.
+
+#### Errata in the quiz
+
++ In question 4 of the Neural Networks: Representation quiz, one potential answer may include the variable Theta2, even though this variable is undefined (the question only defines Theta1). When answering the question, treat Theta2 as Theta with a superscript "(2)", or $\Theta_(2)$, from lecture.
 
 
 
