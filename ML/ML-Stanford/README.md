@@ -142,6 +142,7 @@
     + [Quiz: Regularization](07-Overfit.md#)
 
 
+
 ## Programming Assignment: Logistic Regression
 
 + [Logistic Regression](ex02.md#)
@@ -155,6 +156,27 @@
     + [Optional exercises](ex02.md#)
 
 
+
+## Neural Networks: Representation
+
++ [Motivations](08-NNRepres.md#)
+    + [Non-linear Hypotheses](08-NNRepres.md#)
+    + [Neurons and the Brain](08-NNRepres.md#)
++ [Neural Networks](08-NNRepres.md#)
+    + [Model Representation I](08-NNRepres.md#)
+    + [Model Representation II](08-NNRepres.md#)
++ [Applications](08-NNRepres.md#)
+    + [Examples and Intuitions I](08-NNRepres.md#)
+    + [Examples and Intuitions II](08-NNRepres.md#)
+    + [Multiclass Classification](08-NNRepres.md#)
++ [Review](08-NNRepres.md#)
+    + [Lecture Slides](08-NNRepres.md#)
+    + [Errata](08-NNRepres.md#)
+    + [Quiz: Neural Networks: Representation](08-NNRepres.md#)
+
+
+
+## Programming Assignment: Multi-class Classification and Neural Networks
 
 
 
