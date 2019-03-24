@@ -271,7 +271,7 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
 + Logistic regression cost function
 
-  $$\text{Cost}(h_\theta(x), y) = \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \quad \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \quad \text{if } y = 0 \end{array} \right.$$
+  $$\text{Cost}(h_\theta(x), y) = \begin{cases} -\log(h_\theta(x)) & \quad \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \quad \text{if } y = 0 \end{cases}$$
 
   <br/>
 
@@ -312,7 +312,7 @@ When $y = 1$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$. Simil
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t">
-    <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="450">
+    <img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" style="margin: 0.1em;" alt="text" title="Cost function of Logistic Regression" width="350">
   </a></div>
 </div>
 <br/>
@@ -407,7 +407,7 @@ Note that writing the cost function in this way guarantees that $J(\theta)$ is c
 
   Part (A): 
 
-  $$\begin{array}{rcl} (A) & = & \sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)}))) = y^{(1)} \cdot \log(h_\theta(x^{(1)})) + y^{(2)} \cdot \log(h_\theta(x^{(2)})) + \ldots + y^{(m)} \cdot \log(h_\theta(x^{(m)})) \\\\ & = & \begin{bmatrix} y^{(1)} & y^{(2)} & \cdots & y^{(m)} \end{bmatrix} \begin{bmatrix} \log(h_\theta(x^{(1)})) \\ \log(h_\theta(x^{(2)})) \\ \vdots \\ \log(h_\theta(x^{(m)})) \end{bmatrix} = y^T \cdot \log \left(\begin{bmatrix} h_\theta(x^{(1)} \\ h_\theta(x^{(2)})) \\ \vdots \\ \log(h_\theta(x^{(m)})) \end{bmatrix} \right) = y^T \cdot \log(h) \end{array}$$
+  $$\begin{array}{rcl} (A) & = & \sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)}))) = y^{(1)} \cdot \log(h_\theta(x^{(1)})) + y^{(2)} \cdot \log(h_\theta(x^{(2)})) + \ldots + y^{(m)} \cdot \log(h_\theta(x^{(m)})) \\\\ & = & \begin{bmatrix} y^{(1)} & y^{(2)} & \cdots & y^{(m)} \end{bmatrix} \begin{bmatrix} \log(h_\theta(x^{(1)})) \\ \log(h_\theta(x^{(2)})) \\ \vdots \\ \log(h_\theta(x^{(m)})) \end{bmatrix} = y^T \cdot \log \left(\begin{bmatrix} h_\theta(x^{(1)} \\ h_\theta(x^{(2)})) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix} \right) = y^T \cdot \log(h) \end{array}$$
 
   Part (B):
 
