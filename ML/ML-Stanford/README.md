@@ -144,6 +144,16 @@
 
 ## Programming Assignment: Logistic Regression
 
++ [Logistic Regression](ex02.md#)
++ [Visualizing the data](ex02.md#)
++ [Implementation](ex02.md#)
++ [Regularized logistic regression](ex02.md#)
++ [Visualizing the data](ex02.md#)
++ [Feature mapping](ex02.md#)
++ [Cost function and gradient](ex02.md#)
++ [Plotting the decision boundaryOptional exercises](ex02.md#)
+
+
 
 
 
