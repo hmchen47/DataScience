@@ -5,16 +5,53 @@
 #### Lecture Notes
 
 
++ Non-linear Classification
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="images/m08-01.png" style="margin: 0.1em;" alt="non-linear classification with two classes" title="Non-linear classification" width="250">
+    </a></div>
+  </div>
 
---------------------------------------
+  $$g(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_1x_2 + \theta_4 x_1^2x_2 + \theta_5 x_1^3x_2 + \theta_6 x_1x_2^2 + \ldots)$$
 
+  For $n = 100, x_1, x_2, \ldots, x_{100}$
+  + $x_1^2, x_1x_2, x_1, x_3, \ldots, x_1x_{100}, x_2^2, x_2x_3, \ldots \approx \frac{n^2}{2} \approx 5000$ features $\quad \Rightarrow \mathcal{O}(n^2)$
+  + $x_1^2, x_2^2, \ldots, x_{100}^2 \Rightarrow 100$ features, but not good enough
+  + $x_1x_2x_3, x_1^2x_2, X_{10}x_{11}x_{17}, \ldots \approx 170,000 \quad\Rightarrow \mathcal{O}(n^3)$
 
++ Computer Vision: Car Detection
+  + What is this?
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m08-02.png" style="margin: 0.1em;" alt="A car that sees from a camera as a combination of pixels" title="Deta for a car" width="350">
+      </a></div>
+    </div>
+  + Testing
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m08-03.png" style="margin: 0.1em;" alt="One sample puts into learning algorithm into training" title="Training for Learning Algorithm" width="250">
+        <img src="images/m08-04.png" style="margin: 0.1em;" alt="The diagram depicts the results of 2-dim pixels with the label of car" title="Diagram to separate the label of car and non-car objects." width="150">
+      </a></div>
+    </div>
 
+  + $50 \times 50$ pixel images $\rightarrow 2500$ pixels, $\;\;\therefore n=2500$, (if RGB, $n=7500$)
+
+    $$x = \begin{bmatrix} \text{pixel 1 intensity} \\ \text{pixel 2 intensity} \\ \vdots \\ \text{pixel 2500 intensity}\end{bmatrix}$$
+
+  + Quadratic features $(x_i \times x_j): \;\approx 3$ million features
+  + IVQ: Suppose you are learning to recognize cars from $100 \times 100$ pixel images (grayscale, not RGB). Let the features be pixel intensity values. If you train logistic regression including all the quadratic terms ($x_ix_j$) as features, about how many features will you have?
+
+    1) 5,000
+    2) 100,000
+    3) 50 million ($5\times10^7$)
+    4) 5 billion ($5\times10^9$)
+
+    Ans: 3
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.1-NeuralNetworksRepresentation-NonLinearHypotheses-new.8f376d70b23611e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1553904000&Signature=jIpXIeyhNzV1xzu8Af7kn1e-lqmIUZwA9l47EsaC0-22Ku4wJaEHrz7Zacpi-z0n4x8IWoSPWpaiZ8eqFr4X0KSK1paY1aB1CyfsHmdtVOCASKcLnbjf5A~mcTsLqNry6C9RoJOFOxaUHpBhrMmRsETj0ScEHE3WJ6u21WK7Kvc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/RVjTsODRQpKY07Dg0UKSYw?expiry=1553904000000&hmac=TQ7KpcmTUiBmm6ddadPcBBgWISYhHc83gOzbMLK3e4U&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
