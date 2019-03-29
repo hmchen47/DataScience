@@ -7,7 +7,7 @@
 
 + Non-linear Classification
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="url">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/OAOhO/non-linear-hypotheses">
       <img src="images/m08-01.png" style="margin: 0.1em;" alt="non-linear classification with two classes" title="Non-linear classification" width="250">
     </a></div>
   </div>
@@ -22,13 +22,13 @@
 + Computer Vision: Car Detection
   + What is this?
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/OAOhO/non-linear-hypotheses">
         <img src="images/m08-02.png" style="margin: 0.1em;" alt="A car that sees from a camera as a combination of pixels" title="Deta for a car" width="350">
       </a></div>
     </div>
   + Testing
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/OAOhO/non-linear-hypotheses">
         <img src="images/m08-03.png" style="margin: 0.1em;" alt="One sample puts into learning algorithm into training" title="Training for Learning Algorithm" width="250">
         <img src="images/m08-04.png" style="margin: 0.1em;" alt="The diagram depicts the results of 2-dim pixels with the label of car" title="Diagram to separate the label of car and non-car objects." width="150">
       </a></div>
@@ -61,17 +61,30 @@
 
 #### Lecture Notes
 
++ Neural Networks
+  + Origins: algorithms that try to mimic the brain
+  + Was very widely used in 80s and early 90s; popularity diminished in late 90s
+  Recently resurgence: state-of-the-art technique for many applications
 
++ The "one-learning algorithm" hypothesis
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/IPmzw/neurons-and-the-brain">
+      <img src="images/m08-05.png" style="margin: 0.1em;" alt="Visual responses of neurons in somatosensory cortex of hamsters with experimentally induced retinal projections to somatosensory thalamus, C Métin and D O Frost, PNAS January 1, 1989 86 (1) 357-361; https://doi.org/10.1073/pnas.86.1.357" title="Somatosensory cortex learns to see" width="250">
+    </a></div>
+  </div>
 
---------------------------------------
-
-
++ Sensor representations in the brain
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/example2.png" style="margin: 0.1em;" alt="Brainport, https://en.wikipedia.org/wiki/Brainport; Foundations of Orientation and Mobility, Richard L. Welsh, Ph.D. Bruce B. Blasch, Ph.D., 1980; Millisecond-timescale, genetically targeted optical control of neural activity, Edward S Boyden, Feng Zhang, Ernst Bamberg, Georg Nagel & Karl Deisseroth Nature Neurosciencevolume 8, pages1263–1268 (2005); Eye-specific termination bands in tecta of three-eyed frogs, Constantine-Paton M, Law MI. Science. 1978 Nov 10;202(4368):639-41." title="Sensor representations in the brain" width="250">
+    </a></div>
+  </div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.2-NeuralNetworksRepresentation-NeuronsAndTheBrain.665ce7a0b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1553990400&Signature=R~pbckkkgDeghLpb1Fz5Bnrq6YLq5FSwYi2Rors55ynpqjbnsJrNZV~dZLdjuVniwgXUzDx46ce4-wECRPb35UDnx67TN~Hco~K2RQM0UzX1fvnxzbTcqzt6cw05Jk4sN7qY-udNxyknVSj7eJBczu4tilOAbfOqh7XAt94YML4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/QLlvC9RcRC65bwvUXOQu7Q?expiry=1553990400000&hmac=3VftAYM0KkFeqHVdbbUw8Clh6ZQfMyXCZg2aM53ks1w&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -81,40 +94,46 @@
 
 #### Lecture Notes
 
++ Neuron in the brain
+  + Many neurons in our brain
+  + Dendrite: receive input (input wire)
+  + Axon: produce output (output wire)
+    + When it sends a message through the Axon to another neuron
+    + It sends to another neuron’s Dendrite
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://simple.wikipedia.org/wiki/Neuron">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Neuron.svg/600px-Neuron.svg.png" style="margin: 0.1em; background-color: white;" alt="The units which make up the nervous system are called nerve cells or neurons. So, neuron is the structural and functional unit of the nervous system. We can now say that- A neuron (also called neurone or nerve cell) is a cell that carries electrical impulses.[1] Neurons are the basic units of the nervous system." title="Diagram of neuron" width="300">
+    </a></div>
+    <div><a href="https://en.wikipedia.org/wiki/Chemical_synapse">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Chemical_synapse_schema_cropped.jpg/440px-Chemical_synapse_schema_cropped.jpg" style="margin: 0.1em; background-color: white;" alt="Chemical synapses are biological junctions through which neurons' signals can be exchanged to each other and to non-neuronal cells such as those in muscles or glands. Chemical synapses allow neurons to form circuits within the central nervous system. They are crucial to the biological computations that underlie perception and thought. They allow the nervous system to connect to and control other systems of the body." title="Synaptic transmission in neurons" width="200">
+    </a></div>
+  </div>
 
---------------------------------------
++ Neuron model: Logistic unit
+  + Yellow circle: body of neuron
+  + Input wires: dendrites
+  + Output wire: axon
+  + bias unit: $x_0 = 1$
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neuron_model.png" style="margin: 0.1em;" alt=" In a neuron network, or rather, in an artificial neuron network that we've implemented on the computer, we're going to use a very simple model of what a neuron does we're going to model a neuron as just a logistic unit. So, when I draw a yellow circle like that, you should think of that as a playing a role analysis, who's maybe the body of a neuron, and we then feed the neuron a few inputs who's various dendrites or input wiles. And the neuron does some computation. And output some value on this output wire, or in the biological neuron, this is an axon. And whenever I draw a diagram like this, what this means is that this represents a computation of h of x equals one over one plus e to the negative theta transpose x, where as usual, x and theta are our parameter vectors, like so. So this is a very simple, maybe a vastly oversimplified model, of the computations that the neuron does, where it gets a number of inputs, x1, x2, x3 and it outputs some value computed like so. When I draw a neural network, usually I draw only the input nodes x1, x2, x3. Sometimes when it's useful to do so, I'll draw an extra node for x0. This x0 now that's sometimes called the bias unit or the bias neuron, but because x0 is already equal to 1, sometimes, I draw this, sometimes I won't just depending on whatever is more notationally convenient for that example. Finally, one last bit of terminology when we talk about neural networks, sometimes we'll say that this is a neuron or an artificial neuron with a Sigmoid or logistic activation function. So this activation function in the neural network terminology. This is just another term for that function for that non-linearity g(z) = 1 over 1+e to the -z. And whereas so far I've been calling theta the parameters of the model, I'll mostly continue to use that terminology. Here, it's a copy to the parameters, but in neural networks, in the neural network literature sometimes you might hear people talk about weights of a model and weights just means exactly the same thing as parameters of a model. But I'll mostly continue to use the terminology parameters in these videos, but sometimes, you might hear others use the weights terminology. So, this little diagram represents a single neuron." title="A neuron network" width="400">
+    </a></div>
+  </div>
 
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.3-NeuralNetworksRepresentation-ModelRepresentationI.d459a4a0b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1553990400&Signature=eIyPsLn~9jx077ANvwDn3ahj4Hx0n2xowRge8qLJkP5dNoYyimBHM-~IMq1X3zS889LewIcRJGj6rz~byVdeWASa-OBbK2ldSRqRRu2ttb0f7muPOa1qtkhUd5ALBDN3v4Cf9oQAEzBSJfnizlx-WnMv6323js3XhYC5aVHcxko_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dOF88pENQ5qhfPKRDaOaXg?expiry=1553990400000&hmac=-p6XBsD1_i5G3pSnGK2Xtja2RWKjxMuSb8w63DhaZyE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
 
 
 ## Neural Networks
-
-#### Lecture Notes
-
-
-
---------------------------------------
-
-
-
-
-#### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video>
-<br/>
 
 
 ### Model Representation I
@@ -123,15 +142,12 @@
 
 
 
---------------------------------------
-
-
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.3-NeuralNetworksRepresentation-ModelRepresentationI.d459a4a0b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1553990400&Signature=eIyPsLn~9jx077ANvwDn3ahj4Hx0n2xowRge8qLJkP5dNoYyimBHM-~IMq1X3zS889LewIcRJGj6rz~byVdeWASa-OBbK2ldSRqRRu2ttb0f7muPOa1qtkhUd5ALBDN3v4Cf9oQAEzBSJfnizlx-WnMv6323js3XhYC5aVHcxko_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dOF88pENQ5qhfPKRDaOaXg?expiry=1553990400000&hmac=-p6XBsD1_i5G3pSnGK2Xtja2RWKjxMuSb8w63DhaZyE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
