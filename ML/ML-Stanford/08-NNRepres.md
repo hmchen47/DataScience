@@ -463,17 +463,73 @@ Where $g(z)$ is the following:
 
 #### Lecture Notes
 
++ NOT/XNOR function
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/not.png" style="margin: 0.1em;" alt="NOT function" title="Neural network to represent NOT function" width="340">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/intuition.png" style="margin: 0.1em;" alt="XNOR function" title="Neural network to represent XNOR function" width="300">
+    </a></div>
+  </div>
+  + IVQ: Suppose that $x_1$ and $x_2$ are binary valued (0 or 1). Which of the following networks (approximately) computes the boolean function (NOT $x_1$) AND (NOT $x_2$)?
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii">
+      <img src="http://spark-public.s3.amazonaws.com/ml/images/8.6-quiz-1-option1.png" style="margin: 0.1em;" alt="text" title="Fig.1" width="150">
+      <img src="http://spark-public.s3.amazonaws.com/ml/images/8.6-quiz-1-option2.png" style="margin: 0.1em;" alt="text" title="Fig.2" width="150">
+      <img src="http://spark-public.s3.amazonaws.com/ml/images/8.6-quiz-1-option3.png" style="margin: 0.1em;" alt="text" title="Fig.3" width="150">
+      <img src="http://spark-public.s3.amazonaws.com/ml/images/8.6-quiz-1-option4.png" style="margin: 0.1em;" alt="text" title="Fig.4" width="150">
+    </a></div>
+  </div>
+
+    Ans: 1
+
+
+
++ Neural Network intuition
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network3.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
 
 
 --------------------------------------
 
+The $\Theta^{(1)}$ matrices for AND, NOR, and OR are:
 
+$$\begin{array}{rcl} \text{AND } &:& \Theta^{(1)} = \begin{bmatrix} -30 & 20 & 20 \end{bmatrix} \\ \text{NOR } &:& \Theta^{(1)}  = \begin{bmatrix} 10 & -20 & -20 \end{bmatrix} \\ \text{OR } &:& \Theta^{(1)}  = \begin{bmatrix} -10 & 20 & 20 \end{bmatrix} \end{array}$$
+
+We can combine these to get the XNOR logical operator (which gives 1 if $x_1$ and $x_2$ are both 0 or both 1).
+
+$$\begin{bmatrix} x_0 \\ x_1 \\ x_2 \end{bmatrix} \quad \rightarrow \quad \begin{bmatrix} a^{(2)}_1 \\ a^{(2)}_2 \end{bmatrix} \quad \rightarrow \quad [a^{(3)}] \quad\rightarrow\quad h_\Theta(x)$$
+
+For the transition between the first and second layer, we'll use a $\Theta^{(1)}$ matrix that combines the values for AND and NOR:
+
+$$\Theta^{(1)} = \begin{bmatrix} −30 & 10 & 20 \\ −20 & 20 & −20 \end{bmatrix}$$
+
+For the transition between the second and third layer, we'll use a $\Theta^{(2)}$ matrix that uses the value for OR:
+
+$$\Theta^{(2)} = \begin{bmatrix} −10 & 20 & 20 \end{bmatrix}$$
+
+Let's write out the values for all our nodes:
+
+$$\begin{array}{rcl} a^{(2)}&=& g(\Theta^{(1)} \cdot x) \\ a^{(3)} &=& g(\Theta^{(2)} \cdot a^{(2)}) \\ h_\Theta(x) & = & a^{(3)} \end{array}$$
+
+And there we have the XNOR operator using a hidden layer with two nodes! The following summarizes the above algorithm:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/5iqtV/examples-and-intuitions-ii">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/rag_zbGqEeaSmhJaoV5QvA_52c04a987dcb692da8979a2198f3d8d7_Screenshot-2016-11-23-10.28.41.png?expiry=1554076800000&hmac=i7omSgictfz4tvLWOxpbyCYST48j8hPtYEgQnlWkpus" style="margin: 0.1em;" alt="XNOR function" title="Neural network to represents XNOR fucntion" width="350">
+  </a></div>
+</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.6-NeuralNetworksRepresentation-ExamplesAndIntuitionsII.d43098d0b22b11e487451d0772c554c0/full/360p/index.mp4?Expires=1554076800&Signature=hY9my5EtHAsnrJNugmzQpLOb-aFeC~BePBntXqeDDADbQoqHb2B7S5lAQsCslquiPuCHFplJ0IT3ZbP8pvlb6ZOJCWTVU5kQxG8d7mhQSRYliwFduVLWiPCP-5KlMvZnhq8vXTjNlHU8CvK3jeNDw1DuYPu9E7Q2E~NTQmSU2r0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/WVol0PyJTgCaJdD8iR4Atw?expiry=1554076800000&hmac=FHEut9cO0-khDSu1tsrCYfLz7Adh8TRxEjDlwfl9RxQ&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
