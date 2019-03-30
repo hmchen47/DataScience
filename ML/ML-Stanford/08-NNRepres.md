@@ -216,16 +216,6 @@
         + row length = the number of units in the current layer $+1$ (bias unit required)
         + E.g., 2 layers with 101 and 21 units in each $\qquad \Rightarrow \quad \Theta^j \text{ is a } 21 \times 102$ matrix
 
-+ General Neural Network
-
-  + $A^{(j+1)} = \begin{bmatrix} a^{(j+1)}_1 & a^{(j+1)}_2 & a^{(j+1)}_2 & \cdots & a^{(j+1)}_{s_{(j+1)}} \end{bmatrix} \;\;$: the output of the $l$ layer
-  + $[a^{(j+1)}_0 A^{(j+1)}]$: the input of layer $l+2$ with $a^{(j+1)}_0 =  1 \qquad \Rightarrow \qquad \begin{bmatrix} a^{(l)}_0 & a^{(l)}_1 & a^{(l)}_2 & \cdots & a^{(l)}_{s_j} \end{bmatrix}$ as input of layer $j+1$
-  + $\Theta^{(l)}_{ji}\;\;$: activation function of $j$ unit of $l+1$ layer from $i$ unit of layer $l$
-  + $\Theta^{(l)}_{j0} = 1$: activation function for bias input in layer $l$
-
-  <br/>
-
-  $$A^{(j+1)} = \begin{bmatrix} a_o^{(l)} & a_1^{(l)} & \cdots & a_{s_{j+1}}^{(l)} \end{bmatrix} \begin{bmatrix} \Theta_{10}^{(l)} & \Theta_{20}^{(l)} & \cdots & \Theta_{s_{j+1}0}^{(l)} \\ \Theta_{11}^{(l)} & \Theta_{21}^{(l)} & \cdots & \Theta_{s_{j+1}1}^{(l)} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta_{1s_j}^{(l)} & \Theta_{2s_j}^{(l)} & \cdots & \Theta_{s_{j+1}s_j}^{(l)} \end{bmatrix} = \begin{bmatrix} a_o^{(l)} & a_1^{(l)} & \cdots & a_{s_{j+1}}^{(l)} \end{bmatrix} \Theta^{(l)}$$
 
 --------------------------------------
 
@@ -284,17 +274,95 @@ Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimens
 
 #### Lecture Notes
 
++ Forward propagation: Vectorized implementation
 
+  $$\begin{array}{rcccl} a^{(2)}_1 &=& g(z^{(2)}_1) & = & g(\underbrace{\Theta^{(1)}_{10} x_ 0 + \Theta^{(1)}_{11} x_1 + \Theta^{(1)}_{12} x_2 + \Theta^{(1)}_{13} x_3}_{z_1^{(2)}}) \\\\ a^{(2)}_2  &=& g(z^{(2)}_2) &=& g(\underbrace{\Theta^{(1)}_{20} x_0 + \Theta^{(1)}_{21} x_1 + \Theta^{(1)}_{22} x_2 + \Theta^{(1)}_{23} x_3}_{z^{(2)}_2}) \\\\ a^{(2)}_3  &=& g(z^{(2)}_3) &=& g(\underbrace{\Theta^{(1)}_{30} x_0 + \Theta^{(1)}_{31} x_1 + \Theta^{(1)}_{32} x_2 + \Theta^{(1)}_{33} x_3}_{z_3^{(3)}}) \\\\ h_\Theta(x) &=& \Theta^{(1)}x & = & g(\underbrace{\Theta^{(2)}_{10} a^{(2)}_0 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{12} a^{(2)}_2 + \Theta^{(2)}_{13} a^{(2)}_3}_{z^{(3)}}) \end{array}$$
+
+  <br/>
+
+  $$x = \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} \qquad z^{(2)} = \begin{bmatrix} z^{(2)}_1 \\ z^{(2)}_2 \\ z^{(2)}_3 \end{bmatrix} = \begin{bmatrix} \Theta_{10}^{(1)} & \Theta_{11}^{(1)} & \Theta_{12}^{(1)} & \Theta_{13}^{(1)} \\ \Theta_{20}^{(1)} & \Theta_{21}^{(1)} & \Theta_{22}^{(1)} & \Theta_{23}^{(1)} \\ \Theta_{30}^{(1)} & \Theta_{31}^{(1)} & \Theta_{32}^{(1)} & \Theta_{33}^{(1)} \end{bmatrix} \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} = \Theta^{(1)} x \qquad a^{(2)} = g(z^{(2)}) = \begin{bmatrix} a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix}$$
+
+  Add $a_0^{(2)} = \bf{1} \quad \Rightarrow \quad a^{(2)} \; \in \mathbb{R}^4$
+
+  $$\begin{array}{c} z^{(3)} = \begin{bmatrix} \Theta_{10}^{(2)} & \Theta_{11}^{(2)} & \Theta_{12}^{(2)} & \Theta_{13}^{(2)} \end{bmatrix}  \begin{bmatrix} a_0^{(2)} \\ a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix} = \Theta^{(2)}a^{(2)} \\\\ h_\theta(x) = a^{(3)} = g(z^{(3)}) \end{array}$$
+
++ Similar to logistic regression if you leave out the first layer
+  + Only second and third layer
+  + Third layer resembles a logistic regression node
+  + The features in layer 2 are calculated/learned, not original features
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/logistic_regression.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
++ Neural network, learns its own features
+  + The features a’s are learned from x’s
+  + It learns its own features to feed into logistic regression
+  + Better hypothesis than if we were constrained with just x1, x2, x3
+  + We can have whatever features we want to feed to the final logistic regression function
+  + Implementation in Octave for a2: `a2 = sigmoid(Theta1 * x);`
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_learn_features.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
++ Other network architectures
+  + Layer 2 and 3 are hidden layers
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network3.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
 
 --------------------------------------
 
+To re-iterate, the following is an example of a neural network:
+
+$$\begin{array}{rcccl} & & a^{(2)}_1 &=& g(\Theta^{(1)}_{10} x_ 0 + \Theta^{(1)}_{11} x_1 + \Theta^{(1)}_{12} x_2 + \Theta^{(1)}_{13} x_3) \\\\ & & a^{(2)}_2 &=& g(\Theta^{(1)}_{20} x_0 + \Theta^{(1)}_{21} x_1 + \Theta^{(1)}_{22} x_2 + \Theta^{(1)}_{23} x_3) \\\\ & & a^{(2)}_3 &=& g(\Theta^{(1)}_{30} x_0 + \Theta^{(1)}_{31} x_1 + \Theta^{(1)}_{32} x_2 + \Theta^{(1)}_{33} x_3) \\\\ h_\theta(x) &=& a^{(3)}_1 & = & g(\Theta^{(2)}_{10} a^{(2)}_0 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{12} a^{(2)}_2 + \Theta^{(2)}_{13} a^{(2)}_3) \end{array}$$
+
+In this section we'll do a vectorized implementation of the above functions. We're going to define a new variable $z_k^{(j)}$ that encompasses the parameters inside our g function. In our previous example if we replaced by the variable z for all the parameters we would get:
+
+$$\begin{array}{rcl} a^{(2)}_1 & = & g(z^{(2)}_1) \\\\ a^{(2)}_2 & = & g(z^{(2)}_2) \\\\ a^{(2)}_3 & = & g(z^{(2)}_3) \end{array}$$
+
+In other words, for layer $j=2$ and node $k$, the variable $z$ will be:
+
+$$z^{(2)}_k = \Theta^{(1)}_{k,0} x_0 + \Theta^{(1)}_{k,1} x_1 + \ldots + \Theta^{(1)}_{k,n}x_n$$
+
+The vector representation of x and $z^{j}$ is:
+
+$$x = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} \qquad z^{(j)} = \begin{bmatrix} z^{(j)}_1 \\ z^{(j)}_2 \\ \vdots \\ z^{(j)}_n \end{bmatrix}$$
+
+Setting$x = a^{(1)}$, we can rewrite the equation as:
+
+$$z^{(j)} = \Theta^{(j−1)}a^{(j−1)}$$
+
+We are multiplying our matrix $\Theta^{(j−1)}$ with dimensions $s_j\times (n+1)$ (where $s_j$ is the number of our activation nodes) by our vector $a^{(j-1)}$ with height $(n+1)$. This gives us our vector $z^{(j)}$ with height $s_j$. Now we can get a vector of our activation nodes for layer $j$ as follows:
+
+$$a^{(j)} = g(z^{(j)})$$
+
+Where our function g can be applied element-wise to our vector $z^{(j)}$.
+
+We can then add a bias unit (equal to 1) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to 1. To compute our final hypothesis, let's first compute another z vector:
+
+$$z^{(j+1)}= \Theta^{(j)}a^{(j)}$$
+
+We get this final $z$ vector by multiplying the next theta matrix after $\Theta^{(j−1)}$ with the values of all the activation nodes we just got. This last theta matrix $\Theta^{(j)}$ will have only one row which is multiplied by one column $a^{(j)}$ so that our result is a single number. We then get our final result with:
+
+$$h_\Theta^{(x)} = a^{(j+1)} = g(z^{(j+1)})$$
+
+Notice that in this __last step__, between layer $j$ and layer $j+1$, we are doing __exactly the same thing__ as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hypotheses.
 
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.4-NeuralNetworksRepresentation-ModelRepresentationII.a7edb9b0b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1553990400&Signature=VdBvo4Nfsk4D69kwS0zatU34YlgOQuA7qyOXlUKh3puHyjpAHIjVeQNDztKtF3CrfWxzH9GoQF2ClQ6dstwCA9OgcdSy-ZYtpwSzVqZZ9F3zkvbNeRV6QByvmHSdm031oJ998AR-38LRYW2KlkO6S7KcP-2TSFW2k6IJEi89pe8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/DZc338wdQumXN9_MHbLpZQ?expiry=1553990400000&hmac=tugE6DMxrvVGyBbEjnaimWdJ32s8uk4nsDGGK0biIac&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
