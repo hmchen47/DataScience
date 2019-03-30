@@ -286,18 +286,10 @@ Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimens
 
   $$\begin{array}{c} z^{(3)} = \begin{bmatrix} \Theta_{10}^{(2)} & \Theta_{11}^{(2)} & \Theta_{12}^{(2)} & \Theta_{13}^{(2)} \end{bmatrix}  \begin{bmatrix} a_0^{(2)} \\ a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix} = \Theta^{(2)}a^{(2)} \\\\ h_\theta(x) = a^{(3)} = g(z^{(3)}) \end{array}$$
 
-+ Similar to logistic regression if you leave out the first layer
++ Neural network, learns its own features
   + Only second and third layer
   + Third layer resembles a logistic regression node
   + The features in layer 2 are calculated/learned, not original features
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/logistic_regression.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
-    </a></div>
-  </div>
-
-+ Neural network, learns its own features
   + The features a’s are learned from x’s
   + It learns its own features to feed into logistic regression
   + Better hypothesis than if we were constrained with just x1, x2, x3
@@ -306,7 +298,8 @@ Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimens
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/neural-networks-representation/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_learn_features.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/logistic_regression.png" style="margin: 0.1em;" alt="calculate the output layer " title="formula of the output layer" width="300">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_learn_features.png" style="margin: 0.1em;" alt="calculate ethe whole neural network" title="Notation ofr the neural network" width="300">
     </a></div>
   </div>
 
@@ -318,6 +311,23 @@ Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimens
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network3.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
     </a></div>
   </div>
+  + IVQ: Consider the network:
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/8.4-quiz-1-q.png" style="margin: 0.1em;background-color: white;" alt="A four-layer neural network with full connections. There are 3 inputs, 3 units in the first hidden layer, 2 units in the second hidden layer, and one output unit. The inputs are labeled $x_1$, $x_2$, and $x_3$." title="Neural network diagram for IVQ" width="250">
+      </a></div>
+    </div>
+
+    Let $^{a(1)} = x \in \mathbb{R}^{n+1}$ denote the input (with $a^{(1)}_0 = 1$. How would you compute $a^{(2)}$?
+
+    1) $a^{(2)} = \Theta^{(1)}a^{(1)}$
+    2) $z^{(2)} = \Theta^{(2)}a^{(1)}; a^{(2)} = g(z^{(2)})$
+    3) $z^{(2)} = \Theta^{(1)}a^{(1)}; a^{(2)} = g(z^{(2)})$
+    4) $z^{(2)} = \Theta^{(2)}g(a^{(1)}); a^{(2)} = g(z^{(2)})$
+
+    Ans: 3
+
 
 --------------------------------------
 
@@ -333,9 +343,9 @@ In other words, for layer $j=2$ and node $k$, the variable $z$ will be:
 
 $$z^{(2)}_k = \Theta^{(1)}_{k,0} x_0 + \Theta^{(1)}_{k,1} x_1 + \ldots + \Theta^{(1)}_{k,n}x_n$$
 
-The vector representation of x and $z^{j}$ is:
+The vector representation of x and $z^{j}$ is ($n=s_j$):
 
-$$x = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} \qquad z^{(j)} = \begin{bmatrix} z^{(j)}_1 \\ z^{(j)}_2 \\ \vdots \\ z^{(j)}_n \end{bmatrix}$$
+$$x = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} = a^{(1)} \qquad z^{(j)} = \begin{bmatrix} z^{(j)}_1 \\ z^{(j)}_2 \\ \vdots \\ z^{(j)}_n \end{bmatrix} = \begin{bmatrix} \Theta^{(j-1)}_{1,0} & \Theta^{(j-1)}_{1,1} & \cdots & \Theta^{(j-1)}_{1,s_{j-1}} \\ \Theta^{(j-1)}_{2,0} & \Theta^{(j-1)}_{2,1} & \cdots & \Theta^{(j-1)}_{2,s_{j-1}} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta^{(j-1)}_{s_j,0} & \Theta^{(j-1)}_{s_j,1} & \cdots & \Theta^{(j-1)}_{s_j,s_{j-1}} \end{bmatrix} \begin{bmatrix} a^{j-1}_0 \\ a^{j-1}_1 \\ \vdots \\a^{j-1}_{s_{j-1}} \end{bmatrix}$$
 
 Setting$x = a^{(1)}$, we can rewrite the equation as:
 
@@ -348,8 +358,8 @@ $$a^{(j)} = g(z^{(j)})$$
 Where our function g can be applied element-wise to our vector $z^{(j)}$.
 
 We can then add a bias unit (equal to 1) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to 1. To compute our final hypothesis, let's first compute another z vector:
-
-$$z^{(j+1)}= \Theta^{(j)}a^{(j)}$$
+ 
+$$z^{(j+1)}= \begin{bmatrix} \Theta_{1,0}^{(j)} & \Theta_{1,1}^{(j)} & \cdots & \Theta_{1,s_j}^{(j)} \\ \Theta_{2,0}^{(j)} & \Theta_{2,1}^{(j)} & \cdots & \Theta_{2,s_j}^{(j)} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta_{s_{j+1},0}^{(j)} & \Theta_{s_{{j+1}},1}^{(j)} & \cdots & \Theta_{s_{j+1},s_j}^{(j)} \end{bmatrix} \begin{bmatrix} a_0^{(i)} \\ a_1^{(i)} \\ \vdots \\ a_{s_j}^{(i)}  \end{bmatrix} = \Theta^{(j)}a^{(j)} \qquad \Longrightarrow \quad a^{j+1} - a^{(j+1)}_0 = g(z^{(j+1)})$$
 
 We get this final $z$ vector by multiplying the next theta matrix after $\Theta^{(j−1)}$ with the values of all the activation nodes we just got. This last theta matrix $\Theta^{(j)}$ will have only one row which is multiplied by one column $a^{(j)}$ so that our result is a single number. We then get our final result with:
 
