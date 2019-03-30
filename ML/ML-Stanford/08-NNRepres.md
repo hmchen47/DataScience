@@ -385,17 +385,75 @@ Notice that in this __last step__, between layer $j$ and layer $j+1$, we are doi
 
 #### Lecture Notes
 
++ Non-linear classification example: XOR/NXOR
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/xnor.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/xnor2.png" style="margin: 0.1em;" alt="text" title="caption" width="200">
+    </a></div>
+  </div>
+
++ Simple example:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/and.png" style="margin: 0.1em;" alt="AND function" title="AND Function" width="360">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/NAND.png" style="margin: 0.1em;" alt="NAMD Function" title="NAND Function" width="150">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/or2.png" style="margin: 0.1em;" alt="OR function" title="OR function" width="150">
+    </a></div>
+  </div>
+
++ IVQ: Suppose $x_1$ and $x_2$ are binary valued (0 or 1). What boolean function does the network shown below (approximately) compute? (Hint: One possible way to answer this is to draw out a truth table, similar to what we did in the video).
+
+    A two-layer neural network, with two inputs and one output. Weights from the input layer: 20 from $x_1$ and $x_2$, and -10 from the bias unit.
+    1) $x_1$ AND $x_2$
+    2) (NOT $x_1$) OR (NOT $x_2$)
+    3) $x_1$ OR $x_2$
+    4) (NOT $x_1$) AND (NOT $x_2$)
+
+    Ans: 3
 
 
 --------------------------------------
 
+A simple example of applying neural networks is by predicting ($x_1$ AND $x_2$), which is the logical 'and' operator and is only true if both $x_1$ and $x_2$ are 1.
 
+The graph of our functions will look like:
+
+$$\begin{bmatrix} x_0 \\ x_1 \\ x_2 \end{bmatrix} \rightarrow [g(z^{(2)})] \rightarrow h_\Theta(x)$$
+
+Remember that $x_0$ is our bias variable and is always 1.
+
+Let's set our first theta matrix as:
+
+$$\Theta^{(1)} = \begin{bmatrix} −30 & 20 & 20 \end{bmatrix}$$
+
+This will cause the output of our hypothesis to only be positive if both $x_1$ and $x_2$ are 1. In other words:
+
+$$\begin{array}{l} h_\Theta(x) = g(−30+20x_1+20x_2) \\ x_1=0 \text{ and } x_2=0 \text{ then } g(−30) \approx 0 \\ x_1=0 \text{ and } x_2=1 \text{ then } g(−10) \approx 0 \\ x_1=1 \text{ and } x_2=0 \text{ then } g(−10) \approx 0 \\ x_1 = 1 \text{ and } x_2=1 \text{ then } g(10) \approx 1 \end{array}$$
+
+So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual AND gate. Neural networks can also be used to simulate all the other logical gates. The following is an example of the logical operator 'OR', meaning either $x_1$ is true or $x_2$ is true, or both:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/kivO9/examples-and-intuitions-i">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/f_ueJLGnEea3qApInhZCFg_a5ff8edc62c9a09900eae075e8502e34_Screenshot-2016-11-23-10.03.48.png?expiry=1554076800000&hmac=WuRrkJmFoWJpu3mai-8CF_b4r_M2nYOaSrW7ySexrWw" style="margin: 0.1em;" alt="OR function" title="Neural network of OR function" width="350">
+  </a></div>
+</div>
+
+Where $g(z)$ is the following:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/kivO9/examples-and-intuitions-i">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/wMOiMrGnEeajLxLfjQiSjg_bbbdad80f5c95068bde7c9134babdd77_Screenshot-2016-11-23-10.07.24.png?expiry=1554076800000&hmac=Y77fteh2Tdu-vCGzUha9702DYo9d0wMp2B_iMHTRGg4" style="margin: 0.1em;" alt="Sigmoid function" title="Diagram of sigmoid function" width="350">
+  </a></div>
+</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.5-NeuralNetworksRepresentation-ExamplesAndIntuitionsI.08a89000b22b11e487451d0772c554c0/full/360p/index.mp4?Expires=1554076800&Signature=OyyEWIxBxaSmMdaHheq63VB6~w9wAPbFvql2JWKFcTsA62Ic-UbLkzU3K6E41AbHb8njSSKcxO6muZUFFhaotaoaJf-8wA2v6RbzNniBomLOsOPe8uJ96AxCxCDbNvUN6YGbDzK8WgMO4vI~M~6dH7eJDxRC~c70NHjxeLfgNeQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/TP-iOXICQfK_ojlyAuHyEg?expiry=1554076800000&hmac=sLKJD8U9OhO17eEbh_c4xIHUFRef6uZ33TU-JKOq9lU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
