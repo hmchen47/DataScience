@@ -814,14 +814,15 @@ Our final value of our hypothesis for a set of inputs will be one of the element
     3) The activation values of the hidden units in a neural network, with the sigmoid activation function applied at every layer, are always in the range (0, 1).
     4) A two layer (one input layer, one output layer; no hidden layer) neural network can represent the XOR function.
 
-    Ans: x123(3421), 123
+    Ans: 13, x123
 
 
 2. Consider the following neural network which takes two binary-valued inputs $x_1,x_2 \in \{0,1\}$ and outputs $h_\Theta(x)$. Which of the following logical functions does it (approximately) compute?
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
-        <img src="https://d3c33hcgiwev3.cloudfront.net/Kf1MZL5zEeSVRiIAC2sM-Q_Screen-Shot-2015-02-27-at-3.24.00-AM.png?Expires=1554076800&Signature=Yy3JRbl4moWlOivi4BTzBNZx72-Q7qN50tWA6PhL91hsjKtgFJt60ouYzDCCCg7ZDsWYYiXdUbO3YHkIv0JQZ-3e4H~ikI~8F0rtlF0HaImxxNG1BcQ-Y49vTEQ4Ra~bdVTkD1akxnBMA~RiJmCW5yaDw0iRf1neXKtpYStomXc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="diagram for Q2" title="Q2 Diagram" width="200">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/HrMM9/neural-networks-representation">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/Kf1MZL5zEeSVRiIAC2sM-Q_Screen-Shot-2015-02-27-at-3.24.00-AM.png?Expires=1554076800&Signature=Yy3JRbl4moWlOivi4BTzBNZx72-Q7qN50tWA6PhL91hsjKtgFJt60ouYzDCCCg7ZDsWYYiXdUbO3YHkIv0JQZ-3e4H~ikI~8F0rtlF0HaImxxNG1BcQ-Y49vTEQ4Ra~bdVTkD1akxnBMA~RiJmCW5yaDw0iRf1neXKtpYStomXc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="diagram for Q2" title="Q2 Diagram-Fig.1" width="200">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/i6ah-L5yEeShsSIACwKbzw_Screen-Shot-2015-02-27-at-3.18.19-AM.png?Expires=1554076800&Signature=JuSe7xKOGizh254ExBCNIiNqMwhQdOTgsbVdvvZWonhIX7fQKh7hrduUnCmw-7LPxag8RTCCtf58WNy~FRQ9m3wbS-KIRiY6OxLxQkHQkZG6Izkiik80Q~OtCyGegVRzCQp1jINkzgccWJNRKbN2Xxik1YYPK0OjRzCsOIioK64_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="diagram for Q2" title="Q2 Diagram-Fig.2" width="200">
       </a></div>
     </div>
 
@@ -830,7 +831,7 @@ Our final value of our hypothesis for a set of inputs will be one of the element
     3) NAND (meaning "NOT AND")
     4) XOR (exclusive OR)
 
-    Ans: 2, x3, x1
+    Ans: 1 (fig.2), 2 (fig.1), x3, x1
 
 
 3. Consider the neural network given below. Which of the following equations correctly computes the activation $a_1^{(3)}$? Note: $g(z)$ is the sigmoid activation function.
@@ -874,7 +875,8 @@ Our final value of our hypothesis for a set of inputs will be one of the element
     5) `z = Theta1 * x; a2 = sigmoid (z);`
     6) `z = sigmoid(x); a2 = sigmoid (Theta1 * z);`
 
-    Ans: x56 (5236), x5 (5236), x3
+    Ans: 5 (5236), x56 (5236), x5 (5236), x3
+
 
 
 5. You are using the neural network pictured below and have learned the parameters $\Theta^{(1)} = \begin{bmatrix} 1&1&2.4\\1&1.7&33.2 \end{bmatrix}$ (used to compute $a^{(2)}$) and $\Theta^{(2)} = \begin{bmatrix} 1 & 0.3 & −1.2 \end{bmatrix}$ (used to compute $a^{(3)}$ as a function of $a^{(2)}$). Suppose you swap the parameters for the first hidden layer between its two units so $\Theta^{(1)} = \begin{bmatrix} 1&1.7&3.2 \\ 1 & 1 & 2.4 \end{bmatrix}$ and also swap the output layer so $\Theta^{(2)} = \begin{bmatrix} 1&−1.2&0.3 \end{bmatrix}$. How will this change the value of the output $h_\Theta(x)$?
