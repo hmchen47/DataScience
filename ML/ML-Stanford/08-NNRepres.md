@@ -539,17 +539,56 @@ And there we have the XNOR operator using a hidden layer with two nodes! The fol
 
 #### Lecture Notes
 
++ Multiple output: one-vs-all
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/xSUml/multiclass-classification">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/9Aeo6bGtEea4MxKdJPaTxA_4febc7ec9ac9dd0e4309bd1778171d36_Screenshot-2016-11-23-10.49.05.png?expiry=1554076800000&hmac=-ufHp7_D4Aqcblwts5Ti3Ua7U89OY1Y1q4LKHX9gmcU" style="margin: 0.1em;" alt="Multiple output: one-to-all" title="Multiple output: one-to-all" width="300">
+    </a></div>
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/xSUml/multiclass-classification">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/multiclass2.png" style="margin: 0.1em;" alt="Multiple output: one-to-all" title="Multiple output: one-to-all" width="300">
+    </a></div>
+  </div>
+
++ IVQ: Suppose you have a multi-class classification problem with 10 classes. Your neural network has 3 layers, and the hidden layer (layer 2) has 5 units. Using the one-vs-all method described here, how many elements does $\Theta^{(2)}$ have?
+
+    1) 50
+    2) 55
+    3) 60
+    4) 66
+
+    Ans: 3
 
 
 --------------------------------------
 
+To classify data into multiple classes, we let our hypothesis function return a vector of values. Say we wanted to classify our data into one of four categories. We will use the following example to see how this classification is done. This algorithm takes as input an image and classifies it accordingly:
 
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/xSUml/multiclass-classification">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/9Aeo6bGtEea4MxKdJPaTxA_4febc7ec9ac9dd0e4309bd1778171d36_Screenshot-2016-11-23-10.49.05.png?expiry=1554076800000&hmac=-ufHp7_D4Aqcblwts5Ti3Ua7U89OY1Y1q4LKHX9gmcU" style="margin: 0.1em;" alt="Multiple output: one-to-all" title="Multiple output: one-to-all" width="350">
+  </a></div>
+</div>
+
+We can define our set of resulting classes as y:
+
+$$y^{(i)} = \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \; \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \; \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \; \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},$$
+
+Each $y^{(i)}$ represents a different image corresponding to either a car, pedestrian, truck, or motorcycle. The inner layers, each provide us with some new information which leads to our final hypothesis function. The setup looks like:
+
+$$\begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ \cdots \\ x_n \end{bmatrix} \;\rightarrow\;\begin{bmatrix} a^{(2)}_0 \\ a^{(2)}_1 \\ a^{(2)}_2 \\ \cdots \end{bmatrix} \;\rightarrow\; \begin{bmatrix} a^{(3)}_0 \\ a^{(3)}_1 \\ a^{(3)}_2 \\ \cdots \end{bmatrix} \;\rightarrow\; \cdots \;\rightarrow\;\begin{bmatrix} h_\Theta(x)_1 \\ h_\Theta(x)_2 \\ h_\Theta(x)_3 \\ h_\Theta(x)_4 \end{bmatrix}$$
+
+Our resulting hypothesis for one set of inputs may look like:
+
+$$h_\Theta(x) = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}$$
+
+In which case our resulting class is the third one down, or $h_\Theta(x)_3$, which represents the motorcycle.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/08.7-NeuralNetworksRepresentation-MultiClassClassification.54188b30b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1554076800&Signature=eS~whHpqfqzZTM2ED53mIr-uMdaGSyKdCKmFS2PSO15bpx-WO7uKMYhqsGU3juKlVcdZVN34g-BH5aVDAhL7z4E9RqiYEZjiRmQm6xDKYn1oF5VC2YTTQjYxrjP8ca34re5JD1bxMD1SKwICLzPWf0UfwtxbIPf-UVgwJKLihTU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/I2zozepvTzWs6M3qb881iQ?expiry=1554076800000&hmac=GbzWN21YWRAX6c7ePiZYJ0UCPDzrAY_PAgg4UEyMj18&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -728,7 +767,7 @@ And there we have the XNOR operator using two hidden layers!
 
 To classify data into multiple classes, we let our hypothesis function return a vector of values. Say we wanted to classify our data into one of four final resulting classes:
 
-$$\begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ \cdots \\ x_n \end{bmatrix} \;\rightarrow\;\begin{bmatrix} a^{(2)}_0 \\ a^{(2)}_1 \\ a^{(2)}_2 \\ \cdots \end{bmatrix} \;\rightarrow\; \begin{bmatrix} a^{(3)}_0 \\ a^{(3)}_1 \\ a^{(3)}_2 \\ \cdots \end{bmatrix} \;\rightarrow\; \cdots \;\rightarrow\;\begin{bmatrix} h_\Theta(x)_1 \\ h_\Theta(x)_2 \\ h_\Theta(x)_3 \\ h_\Theta(x)_4 \end{bmatrix} \;\rightarrow\;$$
+$$\begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ \cdots \\ x_n \end{bmatrix} \;\rightarrow\;\begin{bmatrix} a^{(2)}_0 \\ a^{(2)}_1 \\ a^{(2)}_2 \\ \cdots \end{bmatrix} \;\rightarrow\; \begin{bmatrix} a^{(3)}_0 \\ a^{(3)}_1 \\ a^{(3)}_2 \\ \cdots \end{bmatrix} \;\rightarrow\; \cdots \;\rightarrow\;\begin{bmatrix} h_\Theta(x)_1 \\ h_\Theta(x)_2 \\ h_\Theta(x)_3 \\ h_\Theta(x)_4 \end{bmatrix}$$
 
 Our final layer of nodes, when multiplied by its theta matrix, will result in another vector, on which we will apply the g() logistic function to get a vector of hypothesis values.
 
