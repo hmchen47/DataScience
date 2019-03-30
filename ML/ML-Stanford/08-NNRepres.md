@@ -805,9 +805,90 @@ Our final value of our hypothesis for a set of inputs will be one of the element
 + In question 4 of the Neural Networks: Representation quiz, one potential answer may include the variable Theta2, even though this variable is undefined (the question only defines Theta1). When answering the question, treat Theta2 as Theta with a superscript "(2)", or $\Theta_(2)$, from lecture.
 
 
-
 ### Quiz: Neural Networks: Representation
 
+1. Which of the following statements are true? Check all that apply.
+
+    1) Any logical function over binary-valued (0 or 1) inputs $x_1$ and $x_2$ can be (approximately) represented using some neural network.
+    2) Suppose you have a multi-class classification problem with three classes, trained with a 3 layer network. Let $a^{(3)}_1 = (h_\Theta(x))_1$ be the activation of the first output unit, and similarly $a^{(3)}_2 = (h_\Theta(x))_2$ and $a^{(3)}_3 = (h_\Theta(x))_3$. Then for any input $x$, it must be the case that $a^{(3)}_1 + a^{(3)}_2 + a^{(3)}_3 = 1$.
+    3) The activation values of the hidden units in a neural network, with the sigmoid activation function applied at every layer, are always in the range (0, 1).
+    4) A two layer (one input layer, one output layer; no hidden layer) neural network can represent the XOR function.
+
+    Ans: 123
+
+
+2. Consider the following neural network which takes two binary-valued inputs $x_1,x_2 \in \{0,1\}$ and outputs $h_\Theta(x)$. Which of the following logical functions does it (approximately) compute?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/i6ah-L5yEeShsSIACwKbzw_Screen-Shot-2015-02-27-at-3.18.19-AM.png?Expires=1554076800&Signature=JuSe7xKOGizh254ExBCNIiNqMwhQdOTgsbVdvvZWonhIX7fQKh7hrduUnCmw-7LPxag8RTCCtf58WNy~FRQ9m3wbS-KIRiY6OxLxQkHQkZG6Izkiik80Q~OtCyGegVRzCQp1jINkzgccWJNRKbN2Xxik1YYPK0OjRzCsOIioK64_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="diagram for Q2" title="Q2 Diagram" width="200">
+      </a></div>
+    </div>
+
+    1) OR
+    2) AND
+    3) NAND (meaning "NOT AND")
+    4) XOR (exclusive OR)
+
+    Ans: x1
+
+
+3. Consider the neural network given below. Which of the following equations correctly computes the activation $a_1^{(3)}$? Note: $g(z)$ is the sigmoid activation function.
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/FflwP750EeSGOCIAC3iXdw_Screen-Shot-2015-02-27-at-3.28.08-AM.png?Expires=1554076800&Signature=bMsfFeOVpPzR5YNppyY4Z~XLl4WNy4GE~LP4O8EsJ8IPyrnjnU5kZ-glCCg-iAQuqYLUyvQXburPsiaSj3xuf34nTR-C6p8HuI-l6J4zN87ma5wMNdGoH4mWQJj3D53GBQkiVZE-ftYLjhXxaK1oBhAAVcV6I86lklcLHhfLpeg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="diagram for Q3" title="Q3 Diagram" width="200">
+      </a></div>
+    </div>
+
+    1) $a^{(3)}_1 = g(\Theta^{(2)}_{1,0} a^{(2)}_0 + \Theta^{(2)}_{1,1} a^{(2)}_1 + \Theta^{(2)}_{1,2} a^{(2)}_2)$
+    2) $a^{(3)}_1 = g(\Theta^{(1)}_{1,0} a^{(1)}_0 + \Theta^{(1)}_{1,1} a^{(1)}_1 + \Theta^{(1)}_{1,2} a^{(1)}_2)$
+    3) $a^{(3)}_1 = g(\Theta^{(1)}_{1,0} a^{(2)}_0 + \Theta^{(1)}_{1,1} a^{(2)}_1 + \Theta^{(1)}_{1,2} a^{(2)}_2)$
+    4) The activation $a_1^{(3)}$ is not present in this network.
+
+    Ans: 1
+
+
+4. You have the following neural network:
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/HrMM9/neural-networks-representation">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/lvSx8L50EeSGOCIAC3iXdw_Screen-Shot-2015-02-27-at-3.32.25-AM.png?Expires=1554076800&Signature=esoX9mECNbNLkYYYI4n8Zqaiu~R~e70ll1KgMeCKA6yx~Ifn4U4AGddcUWIhOYldPfaHFGqGlOZtjfNv51unK1wcAERZSpsepvgZ1gifzalIznwYh7sq9SG0WXO42qxhUw61uuRqXpm1dHVPgsa7193~TkIOdxW0XIR6vFeYAM4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="caption" width="250">
+      </a></div>
+    </div>
+
+    You'd like to compute the activations of the hidden layer $a^{(2)} \in \mathbb{R}^3$. One way to do so is the following Octave code:
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/HrMM9/neural-networks-representation">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/uLXmWL50EeSVRiIAC2sM-Q_Screen-Shot-2015-02-27-at-3.32.38-AM.png?Expires=1554076800&Signature=OVUHb~ei1g7LJ65Q3e8E4FFzkSZRlxdvHE58-6srGO0pDxPQcbrge6qAdZOWIm3KNLgkOmWh53eqOrA-eNg-cLq-CByaGYSsOhzrLXojNOJGCvJxPhUKdqECkehHzNmmfvMdox6vdk3PqY9Sgr~Gw2u8s82jzjs~gPjQ~aJiAjA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      </a></div>
+    </div>
+
+    You want to have a vectorized implementation of this (i.e., one that does not use for loops). Which of the following implementations correctly compute $a^{(2)}$? Check all that apply.
+
+    1) `a2 = sigmoid (Theta1 * x);`
+    2) `a2 = sigmoid (x * Theta1);`
+    3) `a2 = sigmoid (Theta2 * x);`
+    4) `z = sigmoid(x); a2 = Theta1 * z;`
+
+    Ans: x3
+
+
+5. You are using the neural network pictured below and have learned the parameters $\Theta^{(1)} = \begin{bmatrix} 1&1&2.4\\1&1.7&33.2 \end{bmatrix}$ (used to compute $a^{(2)}$) and $\Theta^{(2)} = \begin{bmatrix} 1 & 0.3 & −1.2 \end{bmatrix}$ (used to compute $a^{(3)}$ as a function of $a^{(2)}$). Suppose you swap the parameters for the first hidden layer between its two units so $\Theta^{(1)} = \begin{bmatrix} 1&1.7&3.2 \\ 1 & 1 & 2.4 \end{bmatrix}$ and also swap the output layer so $\Theta^{(2)} = \begin{bmatrix} 1&−1.2&0.3 \end{bmatrix}$. How will this change the value of the output $h_\Theta(x)$?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/HrMM9/neural-networks-representation">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/uHeIXL51EeSVRiIAC2sM-Q_Screen-Shot-2015-02-27-at-3.42.00-AM.png?Expires=1554076800&Signature=g5uwMgHCpgvmlrFQ85oIBcSMhHx4A9rKg04o5z4bE2vBLcSgIX0lyAqbeR8ly7sfUs57o0oFp62G96sdIKxtwPiliWT6zzDaThXZXDQiLgOVFB1~2tvyyfKSmDw76ar3YrsDjJ0Netad~1qdfGGQ3PAV~OCLQWJuhSAUVpV15PU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin: 0.1em;" alt="text" title="caption" width="250">
+      </a></div>
+    </div>
+
+    1) It will stay the same.
+    2) It will increase.
+    3) It will decrease
+    4) Insufficient information to tell: it may increase or decrease.
+
+    Ans: 1
 
 
 
