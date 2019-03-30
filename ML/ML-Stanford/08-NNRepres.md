@@ -830,7 +830,7 @@ Our final value of our hypothesis for a set of inputs will be one of the element
     3) NAND (meaning "NOT AND")
     4) XOR (exclusive OR)
 
-    Ans: x1
+    Ans: x3, x1
 
 
 3. Consider the neural network given below. Which of the following equations correctly computes the activation $a_1^{(3)}$? Note: $g(z)$ is the sigmoid activation function.
@@ -871,8 +871,10 @@ Our final value of our hypothesis for a set of inputs will be one of the element
     2) `a2 = sigmoid (x * Theta1);`
     3) `a2 = sigmoid (Theta2 * x);`
     4) `z = sigmoid(x); a2 = Theta1 * z;`
+    5) `z = Theta1 * x; a2 = sigmoid (z);`
+    6) `z = sigmoid(x); a2 = sigmoid (Theta1 * z);`
 
-    Ans: x3
+    Ans: 5 (5236), x3
 
 
 5. You are using the neural network pictured below and have learned the parameters $\Theta^{(1)} = \begin{bmatrix} 1&1&2.4\\1&1.7&33.2 \end{bmatrix}$ (used to compute $a^{(2)}$) and $\Theta^{(2)} = \begin{bmatrix} 1 & 0.3 & −1.2 \end{bmatrix}$ (used to compute $a^{(3)}$ as a function of $a^{(2)}$). Suppose you swap the parameters for the first hidden layer between its two units so $\Theta^{(1)} = \begin{bmatrix} 1&1.7&3.2 \\ 1 & 1 & 2.4 \end{bmatrix}$ and also swap the output layer so $\Theta^{(2)} = \begin{bmatrix} 1&−1.2&0.3 \end{bmatrix}$. How will this change the value of the output $h_\Theta(x)$?
