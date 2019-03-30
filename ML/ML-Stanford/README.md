@@ -178,6 +178,15 @@
 
 ## Programming Assignment: Multi-class Classification and Neural Networks
 
++ [Multi-class Classification](ex03.md#)
+    + [Dataset](ex03.md#)
+    + [Visualizing the data](ex03.md#)
+    + [Vectorizing Logistic Regression](ex03.md#)
+    + [One-vs-all Classification](ex03.md#)
++ [Neural Networks](ex03.md#)
+    + [Model representation](ex03.md#)
+    + [Freedforward Propagation and Prediction](ex03.md#)
+
 
 
 
