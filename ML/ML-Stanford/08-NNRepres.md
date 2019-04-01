@@ -687,7 +687,7 @@ $$z^{(2)}_k = \Theta^{(1)}_{k,0} x_0 + \Theta^{(1)}_{k,1} x_1 + \ldots + \Theta^
 
 The vector representation of $x$ and $z^{j}$ is:
 
-$$x = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} z^{(j)} = \begin{bmatrix} z^{(j)}_1 \\ z^{(j)}_2 \\ \vdots \\ z^{(j)}_n \end{bmatrix}$$
+$$x = \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix} \qquad\qquad z^{(j)} = \begin{bmatrix} z^{(j)}_1 \\ z^{(j)}_2 \\ \vdots \\ z^{(j)}_n \end{bmatrix}$$
 
 Setting $x = a^{(1)}$, we can rewrite the equation as:
 
