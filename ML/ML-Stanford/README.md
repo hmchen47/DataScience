@@ -185,7 +185,8 @@
     + [One-vs-all Classification](ex03.md#)
 + [Neural Networks](ex03.md#)
     + [Model representation](ex03.md#)
-    + [Freedforward Propagation and Prediction](ex03.md#)
+    + [Feedforward Propagation and Prediction](ex03.md#)
++ [Debugging Tip](ex03.md#)
 
 
 
