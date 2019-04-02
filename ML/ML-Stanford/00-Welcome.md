@@ -44,8 +44,50 @@ We strongly encourage students to form study groups, and discuss the lecture vid
 
     The above is always acceptable (in my understanding). Demonstrating techniques and learning the language/syntax are important Forum activities.
 
+## How to Use Discussion Forums
 
-### Resources
+When you enter the [discussion forum](https://www.coursera.org/learn/machine-learning/discussions?sort=lastActivityAtDesc&page=1) for your course, you will see an Upvote button under each post. We encourage you to upvote posts you find thoughtful, interesting, or helpful. This is the best way to ensure that quality posts will be seen by other learners in the course. Upvoting will also increase the likelihood that important questions get addressed and answered.
+
+### Report Abuse
+
+Coursera's Code of Conduct prohibits:
+
++ Bullying or threatening other users
++ Posting spam or promotional content
++ Posting mature content
++ Posting assignment solutions (or other violations of the [Honor Code](https://www.coursera.org/learn/machine-learning/supplement/nh65Z/machine-learning-honor-code))
+
+Please report any posts that infringe upon copyright or are abusive, offensive, or that otherwise violate [Coursera’s Honor Code](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code) by using the Report this option found under the menu arrow to the right of each post.
+
+
+### Following
+
+If you find a particular thread interesting, click the __Follow__ button under the original post of that thread page. When you follow a post, you will receive an email notification anytime a new post is made.
+
+### Improving Your Posts
+
+Course discussion forums are your chance to interact with thousands of like-minded individuals around the world. Getting their attention is one way to do well in this course. In any social interaction, certain rules of etiquette are expected and contribute to more enjoyable and productive communication. The following are tips for interacting in this course via the forums, adapted from guidelines originally compiled by AHA! and Chuq Von Rospach & Gene Spafford:
+
+1. Stay on topic in existing forums and threads. Off-topic posts make it hard for other learners to find information they need. Post in the most appropriate forum for your topic, and do not post the same thing in multiple forums.
+2. Use the filters at the top of the forum page (Latest, Top, and Unanswered) to find active, interesting content.
+3. Upvote posts that are helpful and interesting.
+4. Be civil. If you disagree, explain your position with respect and refrain from any and all personal attacks.
+5. Stay on topic. In particular, don’t change the subject in the middle of an existing thread – just start a new topic.
+6. Make sure you’re understood, even by non-native English speakers. Try to write full sentences, and avoid text-message abbreviations or slang. Be careful when you use humor and sarcasm as these messages are easy to misinterpret.
+7. If asking a question, provide as much information as possible, what you’ve already considered, what you’ve already read, etc.
+8. Cite appropriate references when using someone else’s ideas, thoughts, or words.
+9. Do not use a forum to promote your product, service, or business.
+10. Conclude posts by inviting other learners to extend the discussion. For example, you could say “I would love to understand what others think.”
+11. Do not post personal information about other posters in the forum.
+12. Report spammers.
+
+For more details, refer to [Coursera's Forum Code of Conduct](https://learner.coursera.help/hc/en-us/articles/208280036-Coursera-Code-of-Conduct).
+
+These tips and tools for interacting in this course via the forums were adapted from guidelines originally by The University of Illinois.
+
+
+
+## Resources
 
 ### Tutorials
 
@@ -491,6 +533,493 @@ If you are using OS X (and some brands of Linux), you can have a lot of trouble 
 You'll additionally need [virtualbox and vagrant](https://www.virtualbox.orghttps://www.vagrantup.com) to go down this route, which are thankfully both free.
 
 You'll need an X server, which you almost certainly are using in Linux already, but does not come out of the box with OS X. OS X users can get it [here](http://www.xquartz.org).
+
+
+
+## Who are Mentors?
+
+Mentor Program Overview:
+
+Community Mentors are successful, dedicated Coursera learners who volunteer to assist with support and discussion forum moderation in courses that they have already completed. They have been recruited by Coursera to encourage newer learners, answer questions, set an example by posting thoughtful and timely content, and report platform bugs and inappropriate content to Coursera.
+
+As you use the [discussion areas](https://www.coursera.org/learn/machine-learning/discussions), please be aware that the ideas expressed by participants in this course, including the Mentors, do not represent the views of Stanford University. The mentors are not employed by Stanford University and they have not been vetted by Stanford University as experts on course content or course facilitation.
+
+
+## Get to Know Your Classmates
+
+### Overview
+
+Working well with your classmates is an important part of this online course. Thus, at the beginning of this course, we would like you to take time to break the ice and get to know each other. You may already know some of your classmates or have just met them. Establishing personal interaction with other students will make your online learning experience much more enjoyable and engaging. As such, we encourage you to participate in this activity, though it is optional.
+
+### Meet and Greet
+
+Tell everyone your story! Optionally, you are asked to provide a brief introduction to your classmates. If you don't know what to include in your introduction, you may want to provide information that you'd like to share with your classmates by answering some of the following questions.
+
+
+### Suggested Topics
+
++ Where are you from? If you wish to include this information in your post, you can also include it below the body of your post in the "tags" area. For example, include your state (if living within the United States) or country in the tags section.
++ Career and education? What is your educational background? What do you currently do? Are you currently pursuing a change in careers and/or more education?
++ Hopes? Why did you decide to take this course? What are your expectations of this course? What problem are you trying to solve? What do you hope to put into place in your life the day this course is over?
++ Other info? Share with us any other information that might help others in the class find you when searching the forums. What common interests might you share with your classmates? We have tens of thousands of students enrolled in this course – put something in your post that will help others who are like you to find you.
+
+Go to the [Meet and Greet](https://www.coursera.org/learn/machine-learning/forum/FsTdcb2TEeS_cyIACw-CIA/discussions?sort=lastActivityAtDesc&page=1) forum and click the New Thread button to begin a __new thread__. Use your name and a brief summary as the subject of your post. For example, __Robert Smith: Exploring Career Options__. Read some your classmates' postings. Pick at least 2 classmates' postings that are most interesting to you and add your friendly comments.
+
+
+### Updating Your Profile
+
+Optionally, please consider updating your profile, which can also be accessed by clicking the Profile link in the menu that appears when you click on your name at the top-right corner of this screen. When people find you in the forums, they can click on your name to view your complete profile and get to know you more.
+
+### Time
+
+This activity will take approximately 1 hour to complete.
+
+These guidelines for interacting with fellow classmates via the forums were originally compiled by The University of Illinois.
+
+
+## Frequently Asked Questions
+
+The following Machine Learning Mentors volunteered time to compile this list of Frequently Asked Questions: Colin Beckingham, Kevin Burnham, Maxim Haytovich, Tom Mosher, Richard Gayle, Simon Crase, Michael Reardon and Paul Mielke.
+
+Be sure to thank them when you see them in the discussion forums!
+
+### General Questions
+
+__Q: Is the grader server down?__ A: First step is to check [here](http://status.coursera.org/).
+
+__Q: The audio in the videos is quite bad sometimes, muffled or low volume. Please fix it.__ A: You can mitigate the audio issues by turning down the bass and up the treble if you have those controls, or using a headset, which naturally emphasizes the higher frequencies. Also you may want to switch on the English closed captioning. It is unlikely to be fixed in the near term because most students do not have serious problems and therefore it is low on the priority list.
+
+__Q: What does it mean when I see “Math Processing Error?”__ A: The page is attempting to use MathJax to render math symbols. Sometimes the content delivery network can be sluggish or you have caught the web page Ajax javascript code in an incomplete state. Normally just refreshing the page to make it load fully fixes the problem
+
+__Q: How can I download lectures?__ A: On Demand videos cannot be downloaded.
+
+__Q: Is there a prerequisite for this course?__ A: Students are expected to have the following background:
+
+  + Knowledge of basic computer science principles and skills, at a level sufficient to write a reasonably non-trivial computer program.
+  + Familiarity with the basic probability theory.
+  + Familiarity with the basic linear algebra.
+
+__Q: Why do we have to use Matlab or Octave? Why not Clojure, Julia, Python, R or [Insert favourite language here]?__ A: As Prof. Ng explained in the 1st video of the Octave tutorial, he has tried teaching Machine Learning in a variety of languages, and found that students come up to speed faster with Matlab/Octave. Therefore the course was designed using Octave/Matlab, and the automatic submission grader uses those program interfaces. Octave and Matlab are optimized for rapid vectorized calculations, which is very useful in Machine Learning. R is a nice tool, but:
+
+1. It is a bit too high level. This course shows how to actually implement the algorithms of machine learning, while R already has them implemented. Since the focus of this course is to show you what happens in ML algorithms under the hood, you need to use Octave.
+2. This course offers some starter code in Octave/Matlab, which will really save you tons of time solving the tasks.
+
+__Q: Has anyone figured out the how to solve this problem? Here is my code [Insert code].__ A: This is a violation of the Coursera Honor Code. Find the Honor Code [here](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code).
+
+__Q: I've submitted correct answers for [insert problem]. However I would like to compare my implementation with other who did correctly.__ A: This is a violation of the Coursera Honor Code. Find the Honor Code [here](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code).
+
+__Q: This is my email: [insert email]. Can we get the answer for the quiz?__ A: This is a violation of the Coursera Honor Code. Find the Honor Code [here](https://learner.coursera.help/hc/en-us/articles/209818863-Coursera-Honor-Code).
+
+__Q: Do I receive a certificate once I complete this course?__ A: Course Certificate is available in this course. Click [here](https://www.coursera.org/certificate/machine-learning) to learn about how Course Certificate works and how to purchase.
+
+__Q: Why do all the answers in a multiple correct question say correct response when you submit the answer to an in-video question?__ A: Coursera's software is designed to suggest the correctness of each state of the check box. Therefore, an answer having a correct answer tag below it means that the state of that check box is correct.
+
+__Q: What is the correct technique of entering a numeric answer to a text box question?__ A: Coursera's software for numeric answers only supports '.' as the decimal delimiter (not ',') and require that fractions be simplified to decimals. For answers with many decimal digits, please use a 2 digits after decimal point rounding method when entering solutions if not mentioned in the question.
+
+__Q: What is the correct technique of entering a 1 element matrix?__ A: They should be entered as just the element without brackets.
+
+__Q: What does a A being a 3 element vector or a 3 dimensional vector mean?__ A: If not described a vector as mentioned in the questions is 
+
+$$A = \left[ \begin{array}{c} element1 \\ element2 \\ element3 \end{array} \right]$$
+
+__Q: I think I found an error in a video. What should I do__? A: First, check the errata section under resources menu. If you are unsure if it is an error, create a new thread in the discussion forum describing the error.
+
+__Q: My quiz grade displayed is wrong or I have a verification issue or I cannot retake a quiz. What should I do?__ A: Contact Help Center. These queries can only be resolved by learner support and it is best if they are contacted directly.
+
+<br/>
+
+## Programming Environment - Environment Setup Instructions
+
+### Setting Up Your Programming Assignment Environment
+
+The Machine Learning course includes several programming assignments which you’ll need to finish to complete the course. The assignments require the Octave or MATLAB scientific computing languages.
+
++ Octave is a free, open-source application available for many platforms. It has a text interface and an experimental graphical one.
++ MATLAB is proprietary software, but a free trial license to MATLAB Online is being offered for the completion of this course.
+
+#### FAQ
+
+__Does it cost money?__
+
+While you’re taking the course, both software packages are available free of charge. Octave is distributed under the GNU Public License, which means that it is always free to download and distribute. MATLAB Online licenses are available for completing the programming assignments in the course only. For any other purposes (like your own work after you complete the course), MATLAB can be licensed to [individuals](https://www.mathworks.com/products/matlab-home.html) or companies from Mathworks directly.
+
+__Is there a difference in quality?__
+
+There are several subtle differences between the two software packages. MATLAB may offer a smoother experience (especially for Mac users), contains a larger number of functions, and can be more robust to failure. However, the functions used in this course are available in both packages, and many students have successfully completed the course using either.
+
+__How do I install one of them?__
+
+See installation instructions for [Windows](https://www.coursera.org/learn/machine-learning/supplement/p9ckf/installing-octave-matlab-on-windows), [Mac OS X (10.10 Yosemite and 10.9 Mavericks)](https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-matlab-on-mac-os-x-10-10-yosemite-and-10-9-mavericks), [other Mac OS X](https://www.coursera.org/learn/machine-learning/supplement/M16Qr/installing-octave-matlab-on-mac-os-x-10-8-mountain-lion-and-earlier), or [GNU/Linux](https://www.coursera.org/learn/machine-learning/supplement/NSG5j/installing-octave-matlab-on-gnu-linux).
+
+
+### Access MATLAB Online and Upload the Exercise Files
+
+Access to MATLAB Online is being provided by MathWorks to Machine Learning students for the duration of the course. MATLAB Online is the online version of the MATLAB desktop program. It provides most features of the original program in a web-based interface. No download or installation is required, and the program can be accessed from any computer running a common web browser.
+
+
+#### Follow the steps below to access MATLAB Online
+
+1. If you do not already have one, [create a MathWorks account](https://www.mathworks.com/mwaccount/register).
+2. Click on the [MATLAB Online license link](https://www.mathworks.com/licensecenter/classroom/machine_learning/) and provide your MathWorks account credentials (if requested).
+3. Click on the blue 'Access MATLAB Online' button, and log-in to MATLAB Online with your MathWorks account credentials.
+4. Confirm that you have access to MATLAB Online. For help with MATLAB Online access or technical issues, see the MATLAB Help discussion forum.
+
+Bookmark https://matlab.mathworks.com/ for quicker access to MATLAB Online in the future.
+
+
+#### Follow the steps below to add the programming exercise files to MATLAB Online
+
+_The files below have been modified for use in MATLAB Online only. MATLAB Desktop and Octave users should access the exercise files provided later in the course._
+
+Your MathWorks account comes with free cloud storage via [MATLAB Drive](https://drive.matlab.com/) which you can access in MATLAB Online. To add the programming exercise files to MATLAB Online, download them files as a zip file to your desktop using the link below, then rename the file to: __machine-learning-ex__ (Coursera adds extra characters to the filename upon download that must be removed)
+
+```
+machine-learning-ex.zip
+```
+
+To add the exercise files to MATLAB Online,
+
+1. Open MATLAB Online and click the 'Upload' button in the 'Home' tab.
+2. Use the folder window that opens to find and select the 'machine-learning-ex.zip' file, then click 'Open'. You should see the file in MATLAB Online after upload is complete.
+3. Unzip the file by entering the command: `unzip machine-learning-ex.zip` at the command line.
+
+Note that you can access your files even after your MATLAB Online license expires through MATLAB Drive.
+
+
+#### Completing the programming exercises in MATLAB Online
+
+There are eight programming exercises in the course, the first is posted at the end of Week 2. When you reach a programming exercise page in the course, you do not need to download the exercise zip file, as the necessary files for all exercises are included in the zip folder above. __Make note of your assignment token, however, you will need it to submit your solutions__.
+
+__IMPORTANT__: The exercise files above been updated specifically for MATLAB Online users. Instructions for completing the exercises in MATLAB Online and tips for troubleshooting problems are found in the included __README.mlx__ file. Before attempting your first programming exercise, read all of the instructions in __README.mlx__. Note that the instructions for MATLAB Online users differ from the instructions and video demonstration provided later in the course which only apply to Octave and MATLAB Desktop users.
+
+
+### Installing Octave on Windows
+
+__Use this [link](](http://wiki.octave.org/Octave_for_Microsoft_Windows)) to install Octave for windows__
+
+Octave on Windows can be used to submit programming assignments in this course but will likely need a patch provided in the discussion forum. Refer to [Sumitting your work](https://www.coursera.org/learn/machine-learning/discussions/vgCyrQoMEeWv5yIAC00Eog?) for more information about the patch for your version.
+
+"__Warning__: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
+
+
+### Installing Octave on Mac OS X (10.10 Yosemite and 10.9 Mavericks and Later)
+
+1. Mac OS X has a feature called Gatekeeper that may only let you install applications from the Mac App Store. You may need to configure it to allow the Octave installer. Visit your System Preferences, click Security & Privacy, and check the setting to allow apps downloaded from Anywhere. You may need to enter your password to unlock the settings page.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-on-mac-os-x-10-10-yosemite-and-10-9-mavericks-and-later">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/arLNW76tEeSGOCIAC3iXdw_Screen-Shot-2015-02-26-at-2.29.10-PM.png?Expires=1552521600&Signature=PXS9xe8Z7YqLQms78qY2VLQlmUpN9uIj-dsafgeLoJrRNRhBQ4PMLPS8yuJvXJFauTe5CNBb7pYT3BohgmEi-jIGvpUMdEcDwwYGZfpbzUFgow~YXcJ4vh3b99CYgNxXqgk~AtMyrfwY6sBpvyJsU4CDltAVlrVuUIRIf3XTzsI_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin-left: 0.1em;" alt="text" title="caption" width="250">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/WHgAqb7NEeSjMiIAC7MDiQ_gatekeeper-screeneshot.png?Expires=1552521600&Signature=HLATU0b5KQACES55qUPuB1ieM-Be2FM8ai~p3MS-ZithaEQBGqDWlyZfaZLVcCFHn-36OkJ1cGCRdHTh9zGvrTNG0-blwAbT-UW8YCGLtkmEgleYOXg2g37lLej1-CEsKstWAOiA-j4QqR7sXbZa7nKfYTTWD-bX9ghQ2upw9Js_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" style="margin-lwft: 0.1em;" alt="text" title="caption" width="300">
+    </a></div>
+  </div>
+
+2. Download [the Octave 3.8.0 installer](http://sourceforge.net/projects/octave/files/Octave%20MacOSX%20Binary/2013-12-30%20binary%20installer%20of%20Octave%203.8.0%20for%20OSX%2010.9.1%20%28beta%29/GNU_Octave_3.8.0-6.dmg/download) or the latest version that isn't 4.0.0. The file is large so this may take some time.
+3. Open the downloaded image, probably named GNU_Octave_3.8.0-6.dmg on your computer, and then open Octave-3.8.0-6.mpkg inside.
+4. Follow the installer’s instructions. You may need to enter the administrator password for your computer.
+5. After the installer completes, Octave should be installed on your computer. You can find Octave-cli in your Mac’s Applications, which is a text interface for Octave that you can use to complete Machine Learning’s programming assignments.
+
+Octave also includes an experimental graphical interface which is called Octave-gui, also in your Mac’s Applications, but we recommend using Octave-cli because it’s more stable.
+
+Note: If you use a package manager (like MacPorts or Homebrew), we recommend you follow the [package manager installation instructions](http://wiki.octave.org/Octave_for_MacOS_X#Package_Managers).
+
+"Warning: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
+
+
+### Installing Octave on Mac OS X (10.8 Mountain Lion and Earlier)
+
+If you use Mac OS X 10.9, we recommend following the [instructions above](https://www.coursera.org/learn/machine-learning/supplement/ykU6M/installing-octave-matlab-on-mac-os-x-10-10-yosemite-and-10-9-mavericks). For other Mac OS X versions, the Octave project doesn’t distribute installers. We recommend installing Homebrew, a package manager, using [their instructions](http://wiki.octave.org/Octave_for_MacOS_X#Homebrew).
+
+"Warning: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
+
+
+### Installing Octave on GNU/Linux
+
+We recommend [using your system package manager to install Octave](http://wiki.octave.org/Octave_for_GNU/Linux).
+
+On Ubuntu, you can use:
+
++ `sudo apt-get update && sudo apt-get install octave`
+
+On Fedora, you can use:
+
++ `sudo yum install octave-forge`
+
+Please consult [the Octave maintainer’s instructions](http://wiki.octave.org/Octave_for_GNU/Linux) for other GNU/Linux systems.
+
+"Warning: Do not install Octave 4.0.0"; checkout the "Resources" menu's section of "Installation Issues".
+
+
+### More Octave/MATLAB resources
+
+#### Octave Resources
+
+At the Octave command line, typing __help__ followed by a function name displays documentation for a built-in function. For example, __help plot__ will bring up help information for plotting. Further documentation can be found at the Octave [documentation pages](http://www.gnu.org/software/octave/doc/interpreter/).
+
+
+#### MATLAB Resources
+
+At the MATLAB command line, typing help followed by a function name displays documentation for a built-in function. For example, help plot will bring up help information for plotting. Further documentation can be found at the MATLAB [documentation pages](http://www.mathworks.com/help/matlab/).
+
+
+#### Introduction to MATLAB with Onramp
+
+Made for MATLAB beginners or those looking for a quick refresh, the MATLAB Onramp is a 1-2 hour interactive introduction to the basics of MATLAB programming. Octave users are also welcome to use Onramp (requires creation of a free MathWorks account). To access Onramp:
+
+1. If you don’t already have one, create a MathWorks account [here](https://www.mathworks.com/mwaccount/register)
+
+2. Go to: [Academy](https://matlabacademy.mathworks.com/) and click on the MATLAB Onramp button to start learning MATLAB!
+
+
+#### MATLAB Programming Tutorials
+
+These short tutorial videos introduce MATLAB and cover various programming topics used in the assignments. Feel free to watch some now and return to reference them as you work through the programming assignments. Many of the topics below are also covered in MATLAB Onramp. *__Indicates content covered in Onramp.__
+
+Get Started with MATLAB and MATLAB Online
+
++ [What is MATLAB?*](https://youtu.be/WYG2ZZjgp5M)
++ [MATLAB Variables*](https://youtu.be/0w9NKt6Fixk)
++ [MATLAB as a Calculator*](https://youtu.be/aRSkNpCSgWY)
++ [MATLAB Functions*](https://youtu.be/RJp46UVQBic)
++ [Getting Started with MATLAB Online](https://youtu.be/XjzxCVWKz58)
++ [Managing Files in MATLAB Online](https://youtu.be/B3lWLIrYjC0)
+
+Vectors
+
++ [Creating Vectors*](https://youtu.be/R5Mnkrk9Mos)
++ [Creating Uniformly Spaced Vectors*](https://youtu.be/_zqTOV5yl8Y)
++ [Accessing Elements of a Vector Using Conditions*](https://youtu.be/8D04GW_foQ0)
++ [Calculations with Vectors*](https://youtu.be/VQaZ0TvjF0c)
++ [Vector Transpose](https://youtu.be/vgRLwjHBmsg)
+
+Visualization
+
++ [Line Plots*](https://youtu.be/-hhJoveE4sY)
++ [Annotating Graphs*](https://youtu.be/JyovEGPSdoI)
++ [Multiple Plots*](https://youtu.be/fBx8EFuXFLM)
+
+Matrices
+
++ [Creating Matrices*](https://youtu.be/qdTdwTh6jMo)
++ [Calculations with Matrices*](https://youtu.be/mzzJ9gnMrYE)
++ [Accessing Elements of a Matrix*](https://youtu.be/uWPHxpTuZRA)
++ [Matrix Creation Functions*](https://youtu.be/VPcbpVd_mPA)
++ [Combining Matrices](https://youtu.be/ejTr3ekTTyA)
++ [Determining Array Size and Length](https://youtu.be/IF9-ffmxuy8)
++ [Matrix Multiplication](https://youtu.be/4hsx3bdNjGk)
++ [Reshaping Arrays](https://youtu.be/UQpDIHlFo8A)
++ [Statistical Functions with Matrices](https://youtu.be/Y97W3_u7cM4)
+
+MATLAB Programming
+
++ [Logical Variables*](https://youtu.be/bRMg4GsFDQ8)
++ [If-Else Statements*](https://youtu.be/JZSuU-Laigo)
++ [Writing a FOR loop*](https://youtu.be/lg65bzgvI5c)
++ [Writing a WHILE Loop](https://youtu.be/PKH5lCMJXbk)
++ [Writing Functions](https://youtu.be/GrcNN04eqXU)
++ [Passing Functions as Inputs](https://youtu.be/aNCwR9dRjHs)
+
+Troubleshooting
+
++ [Using Online Documentation*](https://youtu.be/54n5zJwR8aM)
++ [Which File or Variable Am I Using?](https://youtu.be/Z09BvGeYNdE)
++ [Troubleshooting Code with the Debugger](https://youtu.be/DB4aJMnZtNQ)
+
+
+## Submitting Programming Assignments
+
+### Working on and Submitting Programming Assignments
+
+<video src="https://d3c33hcgiwev3.cloudfront.net/05.7-OctaveTutorial-WorkingOnAndSubmittingProgrammingExercises.48caddf0b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1552521600&Signature=AY5eRRV2lf0AmBaPVRY2XIn0A-tSS6afZ0FG2LvH9SI1qN9VcGs87r-njvWF3W80I-hSA-x~~3rG2uhxT0sqzOjwWAIMA6s6GE~w-7yhFdiI72xGzpFzjXSv97Nydx-Zuoq70T84t0z8ld25WNItpp15EPn7RnMQb1In40aDV1o_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/jgv4tx6QS4aL-LcekGuGpQ?expiry=1552521600000&hmac=2O8kwDTLciF_R0KJ78IQPV0FjHX4Fo19e9Lntn2eIs8&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+
+
+#### Working on and Submitting Programming Exercises
+
+1. Download and extract the assignment's zip file.
+2. Edit the proper file 'a.m', where a is the name of the exercise you're working on.
+3. Run octave and cd to the assignment's extracted directory
+4. Run the 'submit' function and enter the assignment number, your email, and a password (found on the top of the "Programming Exercises" page on coursera)
+
+
+#### Video Lecture Table of Contents
+
+Basic Operations
+
+```matlab
+0:00    Introduction
+3:15    Elementary and Logical operations
+5:12    Variables
+7:38    Matrices
+8:30    Vectors
+11:53   Histograms
+12:44   Identity matrices
+13:14   Help command
+```
+
+Moving Data Around
+
+```matlab
+0:24    The size command
+1:39    The length command
+2:18    File system commands
+2:25    File handling
+4:50    Who, whos, and clear
+6:50    Saving data
+8:35    Manipulating data
+12:10   Unrolling a matrix
+12:35   Examples
+14:50   Summary
+```
+
+Computing on Data
+
+```matlab
+0:00    Matrix operations
+0:57    Element-wise operations
+4:28    Min and max
+5:10    Element-wise comparisons
+5:43    The find command
+6:00    Various commands and operations
+```
+
+Plotting data
+
+```matlab
+0:00    Introduction
+0:54    Basic plotting
+2:04    Superimposing plots and colors
+3:15    Saving a plot to an image
+4:19    Clearing a plot and multiple figures
+4:59    Subplots
+6:15    The axis command
+6:39    Color square plots
+8:35    Wrapping up
+```
+
+Control statements
+
+```matlab
+0:10    For loops
+1:33    While loops
+3:35    If statements
+4:54    Functions
+6:15    Search paths
+7:40    Multiple return values
+8:59    Cost function example (machine learning)
+12:24   Summary
+```
+
+Vectorization
+
+```matlab
+0:00    Why vectorize?
+1:30    Example
+4:22    C++ example
+5:40    Vectorization applied to gradient descent
+9:45    Python
+```
+
+
+### Programming tips from Mentors
+
+#### Subject: Confused about "$h(x) = \theta * x$" vs. "$h(x) = X * \theta$?"
+
+__Text:__
+
+The lectures and exercise PDF files are based on Prof. Ng's feeling that novice programmers will adapt to for-loop techniques more readily than vectorized methods. So the videos (and PDF files) are organized toward processing one training example at a time. The course uses column vectors (in most cases), so h (a scalar for one training example) is $\theta * x$.
+
+Lower-case $x$ typically indicates a single training example.
+
+The more efficient vectorized techniques always use $X$ as a matrix of all training examples, with each example as a row, and the features as columns. That makes $X$ have dimensions of ($m \times n$). where $m$ is the number of training examples. This leaves us with $h$ (a vector of all the hypothesis values for the entire training set) as $X * \theta$, with dimensions of ($m \times 1$).
+
+X (as a matrix of all training examples) is denoted as upper-case X.
+
+Throughout this course, dimensional analysis is your friend.
+
+#### Subject: Tips from the Mentors: submit problems and fixing program errors
+
+__Text:__
+
+This post contains some frequently-used tips about the course, and to help get your programs working correctly.
+
+__The Most Important Tip:__
+
+Search the forum before posting a new question. If you've got a question, the chances are that someone else has already posted it, and received an answer. Save time for yourself and the Forum users by searching for topics before posting a new one.
+
+__Running your scripts:__
+
+At the Octave/Matlab command line, you do not need to include the ".m" portion of the script file name. If you include the ".m", you'll get an error message about an invalid indexing operation. So, run the Exercise 1 script by typing just "ex1" at the command line.
+
+You also do not need to include parenthesis () when using the submit script. Just type "submit".
+
+You cannot execute your functions by simply typing the name. All of the functions you will work on require a set of parameter values, enter between a set of parenthesis. Your three methods of testing your code are:
+
+1. use an exercise script, such as "ex1"
+2. use a Unit Test (see below) where you type-in the entire command line including the parameters.
+3. use the submit script.
+
+__Making the grader happy:__
+
+The submit grader uses a different test case than what is in the PDF file. These test cases use a different size of data set and are more sensitive to small errors than the ex test cases. Your code must work correctly with any size of data set.
+
+Your functions must handle the general case. This means:
+
++ You should avoid using hard-coded array indexes.
++ You should avoid having fixed-length arrays and matrices.
+
+It is very common for students to think that getting the same answer as listed in the PDF file means they should get full credit from the grader. This is a false hope. The PDF file is just one test case. The grader uses a different test case.
+
+Also, the grader does not like your code to send any additional outputs to the workspace. So, every line of code should end with a semicolon.
+
+__Getting Help:__
+
+When you want help from the Forum community, please use this two-step procedure:
+
+1. Search the Forum for keywords that relate to your problem. Searching by the function name is a good start.
+2. If you don't find a suitable thread, then do this:
+    + Find the unit tests for that exercise (see below), and run the appropriate test. Attempt to debug your code.
+    + Take a screen capture of your whole console workspace (including the command line), and post it to the forum, along with any other useful information (computer type, Octave/Matlab version, other tests you've tried, etc).
+
+__Debugging:__
+
+If your code runs but gives the wrong answers, you can insert a "keyboard" command in your script, just before the function ends. This will cause the program to exit to the debugger, so you can inspect all your variables from the command line. This often is very helpful in analysing math errors, or trying out what commands to use to implement your function.
+
+There are additional test cases and tutorials listed in pinned threads under "All Course Discussions". The test cases are especially helpful in debugging in situations where you get the expected output in ex but get no points or an error when submitting.
+
+__Unit Tests:__
+
+Each programming assignment has a "Discussions" area in the Forum. In this section you can often find "unit tests". These are additional test cases, which give you a command to type, and provides the expected results. It is always a good idea to test your functions using the unit tests before submitting to the grader.
+
+If you run a unit test and do not get the correct results, you can most easily get help on the forums by posting a screen capture of your workspace - including the command line you entered, and the results.
+
+Having trouble submitting your work to the grader?:
+- This section will need to be supplemented with info appropriate to the new submission system. If you run the submit script and get a message that your identity can't be verified, be sure that you have logged-in using your Coursera account email and your Programming Assignment submission password.
+
+- If you get the message "submit undefined", first check that you are in the working directory where you extracted the files from the ZIP archive. Use "cd" to get there if necessary.
+
++ If the "submit undefined" error persists, or any other "function undefined" messages appear, try using the "addpath(pwd)" command to add your present working directory (pwd) to the Octave execution path.
++ If the submit script crashes with an error message, please see the thread "Mentor tips for submitting your work" under "All Course Discussions".
++ The submit script does not ask for what part of the exercise you want to submit. It automatically grades any function you have modified.
+
+__Found some errata in the course materials?__
+
+This course material has been used for many previous sessions. Most likely all of the errata has been discovered, and it's all documented in the 'Errata' section under 'Supplementary Materials'. Please check there before posting errata to the Forum.
+
+Error messages with `fmincg()`
+
+The "short-circuit" warnings are due to use a change in the syntax for conditional expressions (`|` and `&` vs `||` and `&&`) in the newer versions of Matlab. You can edit the `fmincg.m` file and the warnings may be resolved.
+
+__Warning messages about "automatic broadcasting"?__
+
+See [this](https://www.gnu.org/software/octave/doc/interpreter/Broadcasting.html) link for info.
+
+__Warnings about "divide by zero"__
+
+These are normal in some of the exercises, and do not represent a problem in your function. You can ignore them - Octave senses the issue and substitutes a `+Inf` or `-Inf` value so your program continues to execute.
+
 
 
 
