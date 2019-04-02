@@ -145,17 +145,22 @@
 
 ## Programming Assignment: Logistic Regression
 
-+ [Logistic Regression](ex02.md#)
-    + [Visualizing the data](ex02.md#)
-    + [Implementation](ex02.md#)
-+ [Regularized logistic regression](ex02.md#)
-    + [Visualizing the data](ex02.md#)
-    + [Feature mapping](ex02.md#)
-    + [Cost function and gradient](ex02.md#)
-    + [Plotting the decision boundary](ex02.md#)
-    + [Optional exercises](ex02.md#)
-
-
++ [Logistic Regression](ex02.md#logistic-regression)
+    + [Visualizing the data](ex02.md#visualizing-the-data)
+    + [Implementation](ex02.md#implementation)
++ [Regularized logistic regression](ex02.md#regularized-logistic-regression)
+    + [Visualizing the data](ex02.md#visualizing-the-data-1)
+    + [Feature mapping](ex02.md#feature-mapping)
+    + [Cost function and gradient](ex02.md#cost-function-and-gradient)
+    + [Plotting the decision boundary](ex02.md#plotting-the-decision-boundary)
+    + [Optional exercises](ex02.md#optional-exercises)
++ [Programming Ex.2](ex02.md#programming-ex2)
+    + [Gradient and theta values for ex2.m](ex02.md#gradient-and-theta-values-forex2m)
+    + [mapFeature() discussion](ex02.md#mapfeature-discussion)
+    + [plotData.m - color attributes](ex02.md#plotdatam---color-attributes)
+    + [Logistic Regression Gradient](ex02.md#logistic-regression-gradient)
+    + [Sigmoid function](ex02.md#sigmoid-function)
+    + [Decision Boundary](ex02.md#decision-boundary)
 
 
 
