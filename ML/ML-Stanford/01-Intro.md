@@ -1,7 +1,8 @@
 # Introduction
 
+<!--
 (setq markdown-css-paths '("https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.css"))
-
+-->
 
 ## Welcome
 
@@ -115,15 +116,22 @@ Supervised learning problems are categorized into "regression" and "classificati
 
 Example 1:
 
-    Given data about the size of houses on the real estate market, try to predict their price. Price as a function of size is a continuous output, so this is a regression problem.
+    Given data about the size of houses on the real estate market, try to
+    predict their price. Price as a function of size is a continuous
+    output, so this is a regression problem.
 
-    We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.
+    We could turn this example into a classification problem by instead
+    making our output about whether the house "sells for more or less
+    than the asking price." Here we are classifying the houses based
+    on price into two discrete categories.
 
 Example 2:
 
-    (a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture
+    (a) Regression - Given a picture of a person, we have to predict
+        their age on the basis of the given picture
 
-    (b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign.
+    (b) Classification - Given a patient with a tumor, we have to 
+        predict whether the tumor is malignant or benign.
 
 
 
@@ -207,15 +215,14 @@ Tom Mitchell provides a more modern definition: "A computer program is said to l
 
 Example: playing checkers.
 
-    + E = the experience of playing many games of checkers
-    + T = the task of playing checkers.
-    + P = the probability that the program will win the next game.
++ E = the experience of playing many games of checkers
++ T = the task of playing checkers.
++ P = the probability that the program will win the next game.
 
 In general, any machine learning problem can be assigned to one of two broad classifications:
 
-    supervised learning, OR
-
-    unsupervised learning.
++ supervised learning, OR
++ unsupervised learning.
 
 
 #### Supervised Learning
