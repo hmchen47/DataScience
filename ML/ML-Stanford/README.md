@@ -102,28 +102,88 @@
 
 ## Programming Assignment 1: Linear Regression
 
-+ [Simple Octave/MATLAB function](ex01.md#simple-octavematlab-function)
-+ [Linear regression with one variable](ex01.md#linear-regression-with-one-variable)
-    + [Plotting the Data](ex01.md#plotting-the-data)
-    + [Gradient Descent](ex01.md#gradient-descent)
-    + [Debugging](ex01.md#debugging)
-+ [Visualizing $J(\theta)$](ex01.md#visualizing-jvectheta)
-    + [Linear regression with multiple variables](ex01.md#linear-regression-with-multiple-variables)
-    + [Feature Normalization](ex01.md#feature-normalization)
-    + [Gradient Descent](ex01.md#gradient-descent-2)
-    + [Normal Equations](ex01.md#normal-equations)
-+ [Programming Ex.1](ex01.md#programming-ex1)
-    + [Tutorials](ex01.md#tutorials)
-    + [Test Cases](ex01.md#text-cases)
-    + [Debugging Tip](ex01.md#debugging-tip)
-    + [Testing matrix operations in Octave](ex01.md#testing-matrix-operations-in-octave)
-    + [Repeating previous operations in Octave](ex01.md#repeating-previous-operations-in-octave)
-    + [Warm up exercise](ex01.md#wam-up-exercise)
-    + [Compute cost for one variable](ex01.md#compute-cost-for-one-variable)
-    + [Gradient descent for one variable](ex01.md#gradient-descent-for-one-variable)
-    + [Feature normalization](ex01.md#feature-normalization)
-    + [Gradient descent for multiple variables](ex01.md#gradient-descent-for-multiple-variables)
-    + [Normal Equations](ex01.md#normal-equations)
+## Logistic Regression
+
++ [Classification and Representation](06-Logistic.md#classification-and-representation)
+    + [Classification](06-Logistic.md#classification)
+    + [Hypothesis Representation](06-Logistic.md#hypothesis-representation)
+    + [Decision Boundary](06-Logistic.md#decision-boundary)
++ [Logistic Regression Model](06-Logistic.md#logistic-regression-model)
+    + [Cost Function](06-Logistic.md#cost-function)
+    + [Simplified Cost Function and Gradient Descent](06-Logistic.md#simplified-cost-function-and-gradient-descent)
+    + [Advanced Optimization](06-Logistic.md#advanced-optimization)
++ [Multiclass Classification: One-vs-all](06-Logistic.md#multiclass-classification-one-vs-all)
++ [Review](06-Logistic.md#review)
+    + [Lecture Slides](06-Logistic.md#lecture-slides)
+    + [Errata](06-Logistic.md#errata)
+    + [Quiz: Logistic Regression](06-Logistic.md#quiz-logistic-regression)
+
+
+## Regularization: Solving the Problem of Overfitting
+
++ [The Problem of Overfitting](07-Overfit.md#the-problem-of-overfitting)
++ [Cost Function](07-Overfit.md#cost-function)
++ [Regularized Linear Regression](07-Overfit.md#regularized-linear-regression)
++ [Regularized Logistic Regression](07-Overfit.md#regularized-logistic-regression)
++ [Review](07-Overfit.md#review)
+    + [Lecture Slides](07-Overfit.md#lecture-slides)
+    + [Errata]()(07-Overfit.md#errata)
+    + [Quiz: Regularization](07-Overfit.md#quiz-regularization)
+
+
+
+## Programming Assignment: Logistic Regression
+
++ [Logistic Regression](ex02.md#logistic-regression)
+    + [Visualizing the data](ex02.md#visualizing-the-data)
+    + [Implementation](ex02.md#implementation)
++ [Regularized logistic regression](ex02.md#regularized-logistic-regression)
+    + [Visualizing the data](ex02.md#visualizing-the-data-1)
+    + [Feature mapping](ex02.md#feature-mapping)
+    + [Cost function and gradient](ex02.md#cost-function-and-gradient)
+    + [Plotting the decision boundary](ex02.md#plotting-the-decision-boundary)
+    + [Optional exercises](ex02.md#optional-exercises)
++ [Programming Ex.2](ex02.md#programming-ex2)
+    + [Gradient and theta values for ex2.m](ex02.md#gradient-and-theta-values-forex2m)
+    + [mapFeature() discussion](ex02.md#mapfeature-discussion)
+    + [plotData.m - color attributes](ex02.md#plotdatam---color-attributes)
+    + [Logistic Regression Gradient](ex02.md#logistic-regression-gradient)
+    + [Sigmoid function](ex02.md#sigmoid-function)
+    + [Decision Boundary](ex02.md#decision-boundary)
+
+## Neural Networks: Representation
+
++ [Motivations](08-NNRepres.md#motivations)
+    + [Non-linear Hypotheses](08-NNRepres.md#non-linear-hypotheses)
+    + [Neurons and the Brain](08-NNRepres.md#neurons-and-the-brain)
++ [Neural Networks](08-NNRepres.md#neural-networks)
+    + [Model Representation I](08-NNRepres.md#model-representation-i)
+    + [Model Representation II](08-NNRepres.md#model-representation-ii)
++ [Applications](08-NNRepres.md#applications)
+    + [Examples and Intuitions I](08-NNRepres.md#examples-and-intuitions-i)
+    + [Examples and Intuitions II](08-NNRepres.md#examples-and-intuitions-ii)
+    + [Multiclass Classification](08-NNRepres.md#multiclass-classification)
++ [Review](08-NNRepres.md#review)
+    + [Lecture Slides](08-NNRepres.md#lecture-slides)
+    + [Errata](08-NNRepres.md#errata)
+    + [Quiz: Neural Networks: Representation](08-NNRepres.md#quiz-neural-networks-representation)
+
+
+
+## Programming Assignment: Multi-class Classification and Neural Networks
+
++ [Multi-class Classification](ex03.md#multi-class-classification)
+    + [Dataset](ex03.md#dataset)
+    + [Visualizing the data](ex03.md#visualizing-the-data)
+    + [Vectorizing Logistic Regression](ex03.md#vectorizing-logistic-regression)
+    + [One-vs-all Classification](ex03.md#one-vs-all-classification)
++ [Neural Networks](ex03.md#neural-networks)
+    + [Model representation](ex03.md#model-representation)
+    + [Feedforward Propagation and Prediction](ex03.md#feedforward-propagation-and-prediction)
++ [Debugging Tip](ex03.md#debugging-tip)
+    + [1.4.1 One-vs-all Prediction](ex03.md#141-one-vs-all-prediction)
+    + [2.2 Feedforward Propagation and Prediction (Neural network)](ex03.md#22-feedforward-propagation-and-prediction-neural-network)
+    + [Prediction of an image outside the dataset (Neural Network)](ex03.md#prediction-of-an-image-outside-the-dataset-neural-network)
 
 
 
