@@ -159,20 +159,20 @@
 
 ## Neural Networks: Representation
 
-+ [Motivations](08-NNRepres.md#)
-    + [Non-linear Hypotheses](08-NNRepres.md#)
-    + [Neurons and the Brain](08-NNRepres.md#)
-+ [Neural Networks](08-NNRepres.md#)
-    + [Model Representation I](08-NNRepres.md#)
-    + [Model Representation II](08-NNRepres.md#)
-+ [Applications](08-NNRepres.md#)
-    + [Examples and Intuitions I](08-NNRepres.md#)
-    + [Examples and Intuitions II](08-NNRepres.md#)
-    + [Multiclass Classification](08-NNRepres.md#)
-+ [Review](08-NNRepres.md#)
-    + [Lecture Slides](08-NNRepres.md#)
-    + [Errata](08-NNRepres.md#)
-    + [Quiz: Neural Networks: Representation](08-NNRepres.md#)
++ [Motivations](08-NNRepres.md#motivations)
+    + [Non-linear Hypotheses](08-NNRepres.md#non-linear-hypotheses)
+    + [Neurons and the Brain](08-NNRepres.md#neurons-and-the-brain)
++ [Neural Networks](08-NNRepres.md#neural-networks)
+    + [Model Representation I](08-NNRepres.md#model-representation-i)
+    + [Model Representation II](08-NNRepres.md#model-representation-ii)
++ [Applications](08-NNRepres.md#applications)
+    + [Examples and Intuitions I](08-NNRepres.md#examples-and-intuitions-i)
+    + [Examples and Intuitions II](08-NNRepres.md#examples-and-intuitions-ii)
+    + [Multiclass Classification](08-NNRepres.md#multiclass-classification)
++ [Review](08-NNRepres.md#review)
+    + [Lecture Slides](08-NNRepres.md#lecture-slides)
+    + [Errata](08-NNRepres.md#errata)
+    + [Quiz: Neural Networks: Representation](08-NNRepres.md#quiz-neural-networks-representation)
 
 
 
