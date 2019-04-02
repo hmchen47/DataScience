@@ -133,13 +133,14 @@
 
 ## Regularization: Solving the Problem of Overfitting
 
-+ [The Problem of Overfitting](07-Overfit.md#)
-+ [Cost Function](07-Overfit.md#)
-+ [Regularized Linear Regression](07-Overfit.md#)
-+ [Regularized Logistic Regression](07-Overfit.md#)
-+ [Review](07-Overfit.md#)
-    + [Lecture Slides](07-Overfit.md#)
-    + [Quiz: Regularization](07-Overfit.md#)
++ [The Problem of Overfitting](07-Overfit.md#the-problem-of-overfitting)
++ [Cost Function](07-Overfit.md#cost-function)
++ [Regularized Linear Regression](07-Overfit.md#regularized-linear-regression)
++ [Regularized Logistic Regression](07-Overfit.md#regularized-logistic-regression)
++ [Review](07-Overfit.md#review)
+    + [Lecture Slides](07-Overfit.md#lecture-slides)
+    + [Errata]()(07-Overfit.md#errata)
+    + [Quiz: Regularization](07-Overfit.md#quiz-regularization)
 
 
 ## Programming Assignment: Logistic Regression
