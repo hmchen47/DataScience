@@ -178,15 +178,18 @@
 
 ## Programming Assignment: Multi-class Classification and Neural Networks
 
-+ [Multi-class Classification](ex03.md#)
-    + [Dataset](ex03.md#)
-    + [Visualizing the data](ex03.md#)
-    + [Vectorizing Logistic Regression](ex03.md#)
-    + [One-vs-all Classification](ex03.md#)
-+ [Neural Networks](ex03.md#)
-    + [Model representation](ex03.md#)
-    + [Feedforward Propagation and Prediction](ex03.md#)
-+ [Debugging Tip](ex03.md#)
++ [Multi-class Classification](ex03.md#multi-class-classification)
+    + [Dataset](ex03.md#dataset)
+    + [Visualizing the data](ex03.md#visualizing-the-data)
+    + [Vectorizing Logistic Regression](ex03.md#vectorizing-logistic-regression)
+    + [One-vs-all Classification](ex03.md#one-vs-all-classification)
++ [Neural Networks](ex03.md#neural-networks)
+    + [Model representation](ex03.md#model-representation)
+    + [Feedforward Propagation and Prediction](ex03.md#feedforward-propagation-and-prediction)
++ [Debugging Tip](ex03.md#debugging-tip)
+    + [1.4.1 One-vs-all Prediction](ex03.md#141-one-vs-all-prediction)
+    + [2.2 Feedforward Propagation and Prediction (Neural network)](ex03.md#22-feedforward-propagation-and-prediction-neural-network)
+    + [Prediction of an image outside the dataset (Neural Network)](ex03.md#prediction-of-an-image-outside-the-dataset-neural-network)
 
 
 
