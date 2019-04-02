@@ -102,21 +102,28 @@
 
 ## Programming Assignment 1: Linear Regression
 
-+ [Simple Octave/MATLAB function](ex01.md#)
-+ [Linear regression with one variable](ex01.md#)
-    + [Plotting the Data](ex01.md#)
-    + [Gradient Descent](ex01.md#)
-    + [Debugging](ex01.md#)
-+ [Visualizing $J(\theta)$](ex01.md#)
-    + [Linear regression with multiple variables](ex01.md#)
-    + [Feature Normalization](ex01.md#)
-    + [Gradient Descent](ex01.md#)
-    + [Normal Equations](ex01.md#)
-
-
-
-
-
++ [Simple Octave/MATLAB function](ex01.md#simple-octavematlab-function)
++ [Linear regression with one variable](ex01.md#linear-regression-with-one-variable)
+    + [Plotting the Data](ex01.md#plotting-the-data)
+    + [Gradient Descent](ex01.md#gradient-descent)
+    + [Debugging](ex01.md#debugging)
++ [Visualizing $J(\theta)$](ex01.md#visualizing-jvectheta)
+    + [Linear regression with multiple variables](ex01.md#linear-regression-with-multiple-variables)
+    + [Feature Normalization](ex01.md#feature-normalization)
+    + [Gradient Descent](ex01.md#gradient-descent-2)
+    + [Normal Equations](ex01.md#normal-equations)
++ [Programming Ex.1](ex01.md#programming-ex1)
+    + [Tutorials](ex01.md#tutorials)
+    + [Test Cases](ex01.md#text-cases)
+    + [Debugging Tip](ex01.md#debugging-tip)
+    + [Testing matrix operations in Octave](ex01.md#testing-matrix-operations-in-octave)
+    + [Repeating previous operations in Octave](ex01.md#repeating-previous-operations-in-octave)
+    + [Warm up exercise](ex01.md#wam-up-exercise)
+    + [Compute cost for one variable](ex01.md#compute-cost-for-one-variable)
+    + [Gradient descent for one variable](ex01.md#gradient-descent-for-one-variable)
+    + [Feature normalization](ex01.md#feature-normalization)
+    + [Gradient descent for multiple variables](ex01.md#gradient-descent-for-multiple-variables)
+    + [Normal Equations](ex01.md#normal-equations)
 
 
 
