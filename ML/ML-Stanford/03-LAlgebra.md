@@ -1,5 +1,3 @@
-(setq markdown-css-paths '("https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.css"))
-
 # Linear Algebra Review
 
 ## Matrices and Vectors
@@ -8,7 +6,7 @@
 
 + __Matrix__: Rectangular bmatrix of numbers:
 
-    $$\begin{bmatrix} 1420 & 191 \\ 1271 & 821 \\         949 & 1437 \\ 147 & 1448 \end{bmatrix} \Longrightarrow \mathbb{R}^{4 \times 2}, 4 \times 2 \text{ matrix} \;\;\;\;\;\;\;\; \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \Longrightarrow \mathbb{R}^{2 \times 3}, 2 \times 3 \text{ matrix}$$
+    $$\begin{bmatrix} 1420 & 191 \\ 1271 & 821 \\         949 & 1437 \\ 147 & 1448 \end{bmatrix} \Longrightarrow \mathbb{R}^{4 \times 2}, 4 \times 2 \text{ matrix} \qquad \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \Longrightarrow \mathbb{R}^{2 \times 3}, 2 \times 3 \text{ matrix}$$
 
     __Dimension of matrix__: number of rows x number oof 
 
@@ -50,13 +48,13 @@
     + $y_i = i^{th}$ element: $y_1 = 460, y_2 = 232, y_3 = 315$
     + 1-indexed vs 0-indexed:
 
-        $$y = \begin{bmatrix} y_1 \\ y_2 \\y_3 \\ y_4 \end{bmatrix} \Longrightarrow y[1], \text{1-indexed} \;\;\;\;\;\;\;\;\;\;\;\; y = \begin{bmatrix} y_0 \\ y_1 \\y_2 \\ y_3 \end{bmatrix} \Longrightarrow y[0], \text{0-indexed}$$
-    + Notation: $A, B, C, D, \ldots$ as vector, $a, b, c, d, \ldots$ as scalar/number or element 
+        $$y = \begin{bmatrix} y_1 \\ y_2 \\y_3 \\ y_4 \end{bmatrix} \Longrightarrow y[1], \text{1-indexed} \qquad\qquad y = \begin{bmatrix} y_0 \\ y_1 \\y_2 \\ y_3 \end{bmatrix} \Longrightarrow y[0], \text{0-indexed}$$
+    + Notation: $A, B, C, D, \ldots$ as vector, $a, b, c, d, \ldots$ as scalar/number or element
 
 
 -------------------------------
 
-Matrices are 2-dimensional bmatrixs:
+Matrices are 2-dimensional matrix:
 
 $$\begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \\ j & k & l \end{bmatrix}$$
 
@@ -118,13 +116,13 @@ A_23 = A(2,3)
 
 + Matrix Addition
 
-    $$\begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \;\;\; + \;\;\;\begin{bmatrix} 4 & 0.5 \\ 2 5 \\ 0 & 1 \end{bmatrix} \;\;\; = \;\;\; \begin{bmatrix} 5 & 0.5 \\ 4 & 3 \\ 3 & 2 \end{bmatrix}$$
+    $$\begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \quad + \quad\begin{bmatrix} 4 & 0.5 \\ 2 5 \\ 0 & 1 \end{bmatrix} \quad = \quad \begin{bmatrix} 5 & 0.5 \\ 4 & 3 \\ 3 & 2 \end{bmatrix}$$
 
     $$3 \times 2 \text{ matrix   } + 3 \times 2 \text{ matrix   } = 3 \times 2 \text{ matrix   }$$
 
     <br/>
 
-    $$\begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \;\;\; + \;\;\; \begin{bmatrix} 4 & 0.5 \\ 2 & 5 \end{bmatrix} \;\;\; = \;\;\; \text{ error }$$
+    $$\begin{bmatrix} 1 & 0 \\ 2 & 5 \\3 & 1 \end{bmatrix} \quad + \quad \begin{bmatrix} 4 & 0.5 \\ 2 & 5 \end{bmatrix} \quad = \quad \text{ error }$$
 
     $$3 \times 2 \text{ matrix    } + 2 \times 2 \text{ matrix     } = \text{error}$$
 
@@ -219,7 +217,7 @@ add_As = A + s
 
 + Matrix-Vector Manipulation
 
-    $$\;\;\;\;\;\;\;\;\;\; A \;\;\;\;\;\;\;\;\;\; \times \;\;\; x \;\;\;\; = \;\;\; y$$
+    $$\qquad\quad\; A \qquad\quad\; \times \quad x \quad\; = \quad y$$
 
     <br/>
 
@@ -233,7 +231,7 @@ add_As = A + s
 
 + Example 1
 
-    $$\begin{bmatrix} 1 & 3 \\ 4 & 0 \\2 & 1 \end{bmatrix} \;\;\; \times \;\;\; \begin{bmatrix} 1 \\ 5 \end{bmatrix} \;\;\; = \;\;\; \begin{bmatrix} 16\\4\\7 \end{bmatrix}$$
+    $$\begin{bmatrix} 1 & 3 \\ 4 & 0 \\2 & 1 \end{bmatrix} \quad \times \quad \begin{bmatrix} 1 \\ 5 \end{bmatrix} \quad = \quad \begin{bmatrix} 16\\4\\7 \end{bmatrix}$$
 
     $$3 \times 2 \text{ matrix   }  * 2 \times 1 \text{ vector   } = 3 \times 1 \text{ vector}$$
 
@@ -300,7 +298,7 @@ Av = A * v
 
 + Matrix-Matrix Multiplication
 
-    $$A \;\;\;\;\;\;\;\;\;\;\;\; \times \;\;\;\;\;\;\;\;\;\;\;\; B \;\;\;\;\;\;\;\;\;\;\;\;\;\; = \;\;\;\;\;\;\;\;\;\;\;\; C$$
+    $$A \qquad\qquad \times \qquad\qquad B \qquad\qquad = \qquad\qquad C$$
 
     <br/>
 
@@ -341,8 +339,8 @@ Av = A * v
 
         $\begin{bmatrix} 1 & 2104 \\ 1 & 1416 \\ 1 & 1534 \\ 1 & 852 \end{bmatrix} \times \begin{bmatrix} -40 & 200 & -150 \\ 0.25 & 0.1 & 0.4 \end{bmatrix} = \begin{bmatrix} 486 & 410 & 692 \\ 314 & 342 & 416 \\ 344 & 353 & 464 \\ 172 & 284 & 191 \end{bmatrix}$
     + Prediction of the $h_\theta$: <br/>
-        First = $\begin{bmatrix} 486 \\ 314 \\ 344 \\ 172 \end{bmatrix} \;\;\;\;\;\;$ 
-        Second = $\begin{bmatrix} 410 \\ 342 \\ 353 \\ 285 \end{bmatrix} \;\;\;\;\;\;$
+        First = $\begin{bmatrix} 486 \\ 314 \\ 344 \\ 172 \end{bmatrix} \qquad$ 
+        Second = $\begin{bmatrix} 410 \\ 342 \\ 353 \\ 285 \end{bmatrix} \qquad$
         Third = $\begin{bmatrix} 692 \\ 416 \\ 464 \\ 191 \end{bmatrix}$
 
 
@@ -405,8 +403,8 @@ mult_AB = A*B
     + Denoted $I$ or $I_{n \times n}$; 1 is identity $\in \mathbb{R}$
     + Examples of identity matrices
 
-        $I_{2\times2} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \;\;\;\;\; I_{3\times 3} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \;\;\;\;\; I_{4\times 4} = \begin{bmatrix} 1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0 \\ 0&0&0&1\end{bmatrix} \;\;\;\;\; I_{n\times n} = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1\end{bmatrix}$
-    + For any matrix $\displaystyle A_{m \times n}$, $\displaystyle \;\;\;\;A_{m \times n} \cdot I_{n \times n} =  I_{m \times m} \cdot A_{m \times n} = A_{m \times n}$
+        $I_{2\times2} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \quad\;\; I_{3\times 3} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \quad\;\; I_{4\times 4} = \begin{bmatrix} 1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0 \\ 0&0&0&1\end{bmatrix} \quad\;\; I_{n\times n} = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1\end{bmatrix}$
+    + For any matrix $\displaystyle A_{m \times n}$, $\displaystyle \quad\;A_{m \times n} \cdot I_{n \times n} =  I_{m \times m} \cdot A_{m \times n} = A_{m \times n}$
     + NB: 
         + In general: $AB \neq BA$
         + Identity matrix: $AI = IA$
@@ -470,7 +468,7 @@ BA = B*A
         + Identity: 1
         + Inverse: $3 * 3^{-1} = 3 * 1/3 = 1$
         + Not all numbers have an inverse: $0^{-1}$ undefined
-    + If $A$ is an $m \times m$ matrix (squared matrix w/ $m$ rows and $m$ columns), and if it has an inverse, $\;\;\;\; AA^{-1} = A^{-1}A = I$
+    + If $A$ is an $m \times m$ matrix (squared matrix w/ $m$ rows and $m$ columns), and if it has an inverse, $\quad\; AA^{-1} = A^{-1}A = I$
     + Example: 
 
         $$\begin{bmatrix} 3&4\\2&16 \end{bmatrix} \begin{bmatrix} 0.4&-0.1\\-0.05&0.075 \end{bmatrix} = \begin{bmatrix} 1&0\\0&1 \end{bmatrix} = I_{2\times2}$$
@@ -480,7 +478,7 @@ BA = B*A
     + Let $A$ ba an $m\times n$ matrix, and let $B = A^T$. Then $B$ is an $n\times m$ matrix, and 
 
         $$B_{ij} = A_{ji}$$
-    + Example: $A = \begin{bmatrix} 1&2&0\\3&5&9 \end{bmatrix} \;\;\;\;\;\; B = A^T = \begin{bmatrix} 1&3\\2&5\\0&9 \end{bmatrix}$
+    + Example: $A = \begin{bmatrix} 1&2&0\\3&5&9 \end{bmatrix} \qquad B = A^T = \begin{bmatrix} 1&3\\2&5\\0&9 \end{bmatrix}$
     + IVQ: What is $\begin{bmatrix} 0&3\\1&4 \end{bmatrix}^T$?
 
         Ans: $\begin{bmatrix} 0&1\\3&4 \end{bmatrix}$
@@ -496,19 +494,19 @@ The __transposition__ of a matrix is like rotating the matrix 90° in clockwise 
 
 $$ A = \begin{bmatrix} a&b\\c&d\\e&f \end{bmatrix} \Longrightarrow A^T = \begin{bmatrix} a&b&c\\d&e&f \end{bmatrix}$$
 
-In other words: $\;\;\;\;\; A_{ij} = A^T_{ji}$
+In other words: $\quad\;\; A_{ij} = A^T_{ji}$
 
 ```matlab
-% Initialize matrix A 
+% Initialize matrix A
 A = [1,2,0;0,5,6;7,0,9]
 
-% Transpose A 
-A_trans = A' 
+% Transpose A
+A_trans = A'
 
-% Take the inverse of A 
+% Take the inverse of A
 A_inv = inv(A)
 
-% What is A^(-1)*A? 
+% What is A^(-1)*A?
 A_invA = inv(A)*A
 ```
 
@@ -633,7 +631,7 @@ Spanish subtitles for this video are wrong. Seems that those subtitles are from 
 
 ## Practice Quiz: Linear Algebra
 
-1. Let two matrices be $A = \begin{bmatrix} 1&−4\\-2&1 \end{bmatrix}, \;\;\;\;\;\;\;\;\;\; B = \begin{bmatrix} 0&3\\5&8 \end{bmatrix}$. What is $A - B$?
+1. Let two matrices be $A = \begin{bmatrix} 1&−4\\-2&1 \end{bmatrix}, \qquad\quad\; B = \begin{bmatrix} 0&3\\5&8 \end{bmatrix}$. What is $A - B$?
 
     Ans: $\begin{bmatrix} 1&-7\\-7&-7 \end{bmatrix}$
 
