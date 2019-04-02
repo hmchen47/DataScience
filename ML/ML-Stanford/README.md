@@ -116,19 +116,19 @@
 
 ## Logistic Regression
 
-+ [Classification and Representation](06-Logistic.md#)
-    + [Classification](06-Logistic.md#)
-    + [Hypothesis Representation](06-Logistic.md#)
-    + [Decision Boundary](06-Logistic.md#)
-+ [Logistic Regression Model](06-Logistic.md#)
-    + [Cost Function](06-Logistic.md#)
-    + [Simplified Cost Function and Gradient Descent](06-Logistic.md#)
-    + [Advanced Optimization](06-Logistic.md#)
-+ [Multiclass Classification: One-vs-all](06-Logistic.md#)
-+ [Review](06-Logistic.md#)
-    + [Lecture Slides](06-Logistic.md#)
-    + [Errata](06-Logistic.md#)
-    + [Quiz: Logistic Regression](06-Logistic.md#)
++ [Classification and Representation](06-Logistic.md#classification-and-representation)
+    + [Classification](06-Logistic.md#classification)
+    + [Hypothesis Representation](06-Logistic.md#hypothesis-representation)
+    + [Decision Boundary](06-Logistic.md#decision-boundary)
++ [Logistic Regression Model](06-Logistic.md#logistic-regression-model)
+    + [Cost Function](06-Logistic.md#cost-function)
+    + [Simplified Cost Function and Gradient Descent](06-Logistic.md#simplified-cost-function-and-gradient-descent)
+    + [Advanced Optimization](06-Logistic.md#advanced-optimization)
++ [Multiclass Classification: One-vs-all](06-Logistic.md#multiclass-classification-one-vs-all)
++ [Review](06-Logistic.md#review)
+    + [Lecture Slides](06-Logistic.md#lecture-slides)
+    + [Errata](06-Logistic.md#errata)
+    + [Quiz: Logistic Regression](06-Logistic.md#quiz-logistic-regression)
 
 
 ## Regularization: Solving the Problem of Overfitting
