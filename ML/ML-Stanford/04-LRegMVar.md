@@ -1,5 +1,3 @@
-(setq markdown-css-paths '("https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.css"))
-
 # Linear Regression with Multiple Variables
 
 ## Multivariate Linear Regression
@@ -390,7 +388,7 @@ To summarize:
 
     $$\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots$$
 
-    + If cubic model fits, 
+    + If cubic model fits,
 
         $$\begin{array}{rcl}
             h_\theta(x) & = & \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \\\\
@@ -770,7 +768,7 @@ Automatic convergence test. Declare convergence if $J(\theta)$ decreases by less
 It has been proven that if learning rate α is sufficiently small, then $J(\theta)$ will decrease on every iteration. Andrew Ng recommends decreasing $\alpha$ by multiples of 3.
 
 
-### Features and Polynomial Regression
+#### Features and Polynomial Regression
 
 We can improve our features and the form of our hypothesis function in a couple different ways.
 
