@@ -633,7 +633,7 @@ Solutions to the above problems include deleting a feature that is linearly depe
 
 ## Review
 
-### Lecture Slides
+### [Lecture Slides](https://d3c33hcgiwev3.cloudfront.net/_7d030d67103ce0e7f39dee1d7f78525c_Lecture7.pdf?Expires=1554336000&Signature=V6OUy-Z-7L4F7QdfLsuqJ0yLyCMO4TsCCfB2djUlTCDJl064jq-r-RpTpUHJg7RQyFeSXbkVeFWFSsL14ePp2bwImeoUY6pSnSrGSh46o8ww1twzjxbLDPZijBFN1RU7teZeHknSlwa~Fj8Rmi1xCAE0GeVOGDHlgSRo2yXTr8A_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
 
 Linear regression with multiple variables is also known as "multivariate linear regression".
