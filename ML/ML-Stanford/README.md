@@ -143,6 +143,7 @@
     + [Quiz: Regularization](07-Overfit.md#quiz-regularization)
 
 
+
 ## Programming Assignment: Logistic Regression
 
 + [Logistic Regression](ex02.md#logistic-regression)
@@ -161,6 +162,40 @@
     + [Logistic Regression Gradient](ex02.md#logistic-regression-gradient)
     + [Sigmoid function](ex02.md#sigmoid-function)
     + [Decision Boundary](ex02.md#decision-boundary)
+
+## Neural Networks: Representation
+
++ [Motivations](08-NNRepres.md#motivations)
+    + [Non-linear Hypotheses](08-NNRepres.md#non-linear-hypotheses)
+    + [Neurons and the Brain](08-NNRepres.md#neurons-and-the-brain)
++ [Neural Networks](08-NNRepres.md#neural-networks)
+    + [Model Representation I](08-NNRepres.md#model-representation-i)
+    + [Model Representation II](08-NNRepres.md#model-representation-ii)
++ [Applications](08-NNRepres.md#applications)
+    + [Examples and Intuitions I](08-NNRepres.md#examples-and-intuitions-i)
+    + [Examples and Intuitions II](08-NNRepres.md#examples-and-intuitions-ii)
+    + [Multiclass Classification](08-NNRepres.md#multiclass-classification)
++ [Review](08-NNRepres.md#review)
+    + [Lecture Slides](08-NNRepres.md#lecture-slides)
+    + [Errata](08-NNRepres.md#errata)
+    + [Quiz: Neural Networks: Representation](08-NNRepres.md#quiz-neural-networks-representation)
+
+
+
+## Programming Assignment: Multi-class Classification and Neural Networks
+
++ [Multi-class Classification](ex03.md#multi-class-classification)
+    + [Dataset](ex03.md#dataset)
+    + [Visualizing the data](ex03.md#visualizing-the-data)
+    + [Vectorizing Logistic Regression](ex03.md#vectorizing-logistic-regression)
+    + [One-vs-all Classification](ex03.md#one-vs-all-classification)
++ [Neural Networks](ex03.md#neural-networks)
+    + [Model representation](ex03.md#model-representation)
+    + [Feedforward Propagation and Prediction](ex03.md#feedforward-propagation-and-prediction)
++ [Debugging Tip](ex03.md#debugging-tip)
+    + [1.4.1 One-vs-all Prediction](ex03.md#141-one-vs-all-prediction)
+    + [2.2 Feedforward Propagation and Prediction (Neural network)](ex03.md#22-feedforward-propagation-and-prediction-neural-network)
+    + [Prediction of an image outside the dataset (Neural Network)](ex03.md#prediction-of-an-image-outside-the-dataset-neural-network)
 
 
 
