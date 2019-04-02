@@ -1,6 +1,3 @@
-(setq markdown-css-paths '("https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.css"))
-
-
 # Model and Cost Function
 
 ## Model Representation
@@ -79,16 +76,16 @@ When the target variable that we’re trying to predict is _continuous_, such as
     </a>
     + IVQ: Consider the plot below of $h_\theta(x) = \theta_0 + \theta_1x$. What are $\theta_0$ and $\theta_1$?
 
-        <a href="url"> <br/>
-            <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="caption" width="150" >
-        </a>
+      <a href="url"> <br/>
+          <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="caption" width="150" >
+      </a>
 
-        a. $\theta_0 = 0, \theta_1 = 1$ <br/>
-        b. $\theta_0 = 0.5, \theta_1 = 1$ <br/>
-        c. $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
-        d. $\theta_0 = 1, \theta_1 = 1$
+      1) $\theta_0 = 0, \theta_1 = 1$ <br/>
+      2) $\theta_0 = 0.5, \theta_1 = 1$ <br/>
+      3) $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
+      4) $\theta_0 = 1, \theta_1 = 1$
 
-        Ans: b
+          Ans: 2
 
 + The cost function
   + Idea: Choose $\theta_0$, $\theta_1$ so that $h_\theta (x)$ is close to $y$ for our training examples $(x, y)$
