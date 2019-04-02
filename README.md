@@ -8,21 +8,15 @@
     3.  [Foundations of Data Science: Prediction and Machine Learning - Data8.3x](./DSFund-BerkeleyX/3-PredictML/README.md)
 
 + Applied Data Science with Python - UMich & Coursera
-<<<<<<< HEAD
     1. [Introduction to Data Science in Python](./AppliedDS-UMich/1-IntroDS/README.md)
     2. [Applied Plotting, Charting & Data Representation in Python](./AppliedDS-UMich/2-InfoVis/README.md)
     3. [Applied Machine Learning in Python](./AppliedDS-UMich/3-AML/README.md)
     4. [Applied Text Mining in Python](./AppliedDS-UMich/4-TextMining/README.md)
-    5. [Applied Social Network Analysis in Python]
-=======
-    1.  [Introduction to Data Science in Python](./AppliedDS-UMich/1-IntroDS/README.md)
-    2.  [Applied Plotting, Charting & Data Representation in Python](./AppliedDS-UMich/2-InfoVis/README.md)
-    3.  [Applied Machine Learning in Python]
-    4.  [Applied Text Mining in Python]
-    5.  [Applied Social Network Analysis in Python](./AppliedDS-UMich/5-SocialNet/README.md)
->>>>>>> snet
+    5. [Applied Social Network Analysis in Python](./AppliedDS-UMich/5-SocialNet/README.md)
 
 ## Machine Learning
+
+    + [Machine Learning - Stanford, Andrew Ng](./ML/ML-Stanford/README.md)
 
 ## Statistics
 
