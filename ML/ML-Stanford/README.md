@@ -29,14 +29,15 @@
 
 ## Introduction
 
-+ [Welcome](01-Intro.md#)
-+ [What is Machine Learning?](01-Intro.md#)
-+ [Supervised Learning](01-Intro.md#)
-+ [Unsupervised Learning](01-Intro.md#)
-+ [Review](01-Intro.md#)
-    + [Lecture Slides](01-Intro.md#)
-    + [Errata](01-Intro.md#)
-+ [Quiz: Introduction](01-Intro.md#)
++ [Welcome](01-Intro.md#lecture-notes)
++ [What is Machine Learning?](01-Intro.md#what-is-machine-learning)
++ [Supervised Learning](01-Intro.md#supervised-learning)
++ [Unsupervised Learning](01-Intro.md#unsupervised-learning)
++ [Review](01-Intro.md#review)
+    + [Lecture Slides](01-Intro.md#lecture-slides)
+    + [Errata](01-Intro.md#errata)
++ [Quiz: Introduction](01-Intro.md#quiz-introduction)
+
 
 
 ## Linear Regression with One Variable
