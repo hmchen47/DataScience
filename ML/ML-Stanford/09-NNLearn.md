@@ -899,7 +899,28 @@ Additional Resources for Backpropagation
 
 ### Errata
 
+#### Errata in video "Putting It Together"
 
++ In minute 11 while Prof Ng is explaining gradient descent, the vertical axis on the graph of the cost function has a range (-3,+3) but the cost function is positive by definition
+
+#### Errata in the lecture slides (Lecture9.pdf)
+
++ On page 5: The final term in the expression for $J(\theta$) has a subscript i missing i.e. $\theta_{j}^{(l)}$ becomes $\theta_{ij}^{(l)}$, and i,j index allows every element in array l to contribute to the matrix norm. This matches the final equation on page 3.
++ On page 6: The first line of forward propagation omits adding the bias units.
++ On page 8: The equation for D when j ≠ 0 should include λmΘ.
++ On page 8: Name collision! The loop/training example index "i" is overloaded with the node index for the next layer.
+
+#### Errata in ex4.pdf
+
++ On page 3: Below Figure 1 text says "...5000 training examples in ex3data1.mat". The text should say "...in ex4data1.mat".
++ On page 9: In Step 5, the text says "...by dividing the accumulated gradients by $\frac{1}{m}$:". The text should say "... by multiplying...".
+
+#### Errata in the programming exercise scripts
+
++ In ex4.m at line 114 and 115, the vector of test values for sigmoidGradient() should start with '-1', not '1'.
++ In ex4.m at line 168, the fprintf() statement is hard-coded to output "lambda = 10", even though the variable lambda is set to 3.
++ checkNNGradients.m: Line 41 should read "'(Right-Your Numerical Gradient, Left-Analytical Gradient)\n\n']);"
++ randInitializeWeights : line 19 "Note: The first row of W corresponds to the parameters for the bias units" it is column not row. also it's bias unit.
 
 ### Quiz: Neural Networks: Learning
 
