@@ -6,16 +6,85 @@
 
 #### Lecture Notes
 
++ Neural Network Introduction
+  + One of the most powerful learning algorithm
+  + Learning algorithm for fittoing the derived parameters given a training set
+
++ Neural Network (Classification)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m09-01.png" style="margin: 0.1em;background-color: white;" alt="Milti-class Neural Network architecture: s_L = s_2 = 1 , K = 1." title="Neural Network Architecture" width="250">
+    </a></div>
+  </div>
+
+  + Dataset: $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)}),\}$
+  + Notations
+    + $L\;$ = total no. of layers in network
+    + $s_l\;$: no. of units (not counting bias unit) in layer $l$
+    + E.g, $L = 4, s_1 = 3, s_2 = 5, s_3 = 5, s_4 = s_L = 4$
+  + Binary classification: $y \in \{0, 1 \}$
+    + 1 output unit: $h_\Theta(x) \in \mathbb{R}$
+    + $L = 2, s_L = s_2 = 1 , K = 1$
+  + Multi-class classification ($K$ classes)
+    + K Output units ($K$ classes): $y \in \mathbb{R}^K$
+    + E.g, 
+
+      $$\underbrace{\begin{bmatrix} 1\\0\\0\\0 \end{bmatrix}}_{pedestrian}, \qquad \underbrace{\begin{bmatrix} 0\\1\\0\\0 \end{bmatrix}}_{car}, \qquad \underbrace{\begin{bmatrix} 0\\0\\1\\0 \end{bmatrix}}_{motocycle}, \quad \underbrace{\begin{bmatrix} 0\\0\\0\\1 \end{bmatrix}}_{truck}$$
+    + In gneral, $K \geq 3$
+
++ Cost Function
+  + Logistic regression
+
+    $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+
+  + Neural network
+
+    $$h_\Theta(x) \; \in \; \mathbb{R}^K \quad \Rightarrow \quad (h_\Theta(x))_i = i^{th} \text{output}$$
+
+    <br/>
+
+    $$J(\Theta) = −\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1−y^{(i)}_k) \log(1−(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+  + IVQ: Suppose we want to try to minimize $J(\Theta)$ as a function of $\Theta$, using one of the advanced optimization methods (fminunc, conjugate gradient, BFGS, L-BFGS, etc.). What do we need to supply code to compute (as a function of $\Theta$)?
+
+    1) $\Theta$
+    2) $J(\Theta)$
+    3) The (partial) derivative terms $\frac{\partial}{\partial \Theta_{ij}^{(l)}}$ for every $i,j,l$
+    4) $J(\Theta)$ and the (partial) derivative terms ∂∂Θ(l)ij for every $i,j,l$
+
+    Ans: 4
 
 
 ---------------------------------------------------
 
+Let's first define a few variables that we will need to use:
 
++ L = total number of layers in the network
++ $s_l$ = number of units (not counting bias unit) in layer l
++ K = number of output units/classes
+
+Recall that in neural networks, we may have many output nodes. We denote $h_\Theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output. Our cost function for neural networks is going to be a generalization of the one we used for logistic regression. Recall that the cost function for regularized logistic regression was:
+
+$$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+​	 
+For neural networks, it is going to be slightly more complicated:
+
+$$J(\Theta) = −\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1−y^{(i)}_k) \log(1−(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+
+We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.
+
+In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.
+
+Note:
+
++ the double sum simply adds up the logistic regression costs calculated for each cell in the output layer
++ the triple sum simply adds up the squares of all the individual Θs in the entire network.
++ the $i$ in the triple sum does not refer to training example $i$
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.1-NeuralNetworksLearning-CostFunction.073d4030b22b11e498c1339642deb798/full/360p/index.mp4?Expires=1554422400&Signature=hEpu6Z2J6JvfOAx7De6EUPCngknKQzvg6Jl~PNjnsbhFRbziS27TkZfJgUX~Ut2-Y4Mof~IAsu-VXkL0052Rf2Q6ygTIMmVz9h7jljvKp2S371sqMluepBvle46G3GkvNcy7cPgAX02vQIXU5vKe9GE3yoM1w2~iK3M1QPczZ-k_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/5TMd0GdKSDWzHdBnSpg1sA?expiry=1554422400000&hmac=bem1h4KeU3N-rGYEcpmB9gCct-HF-z4KKzxJhz2VtAc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -186,13 +255,13 @@ Let's first define a few variables that we will need to use:
 2) $s_l$ = number of units (not counting bias unit) in layer l
 3) K= number of output units/classes
 
-Recall that in neural networks, we may have many output nodes. We denote $h_\Theta(x)_$k as being a hypothesis that results in the $k^{th}$ output.
+Recall that in neural networks, we may have many output nodes. We denote $h_\Theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.
 
 Our cost function for neural networks is going to be a generalization of the one we used for logistic regression.
 
 Recall that the cost function for regularized logistic regression was:
 
-$$J(\theta) = -\frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+$$J(\theta) = -\frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)}) \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
 ​	 
 For neural networks, it is going to be slightly more complicated:
 
