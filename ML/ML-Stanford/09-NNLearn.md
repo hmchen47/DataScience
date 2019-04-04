@@ -94,7 +94,7 @@ In the regularization part, after the square brackets, we must account for multi
 Note:
 
 + the double sum simply adds up the logistic regression costs calculated for each cell in the output layer
-+ the triple sum simply adds up the squares of all the individual Θs in the entire network.
++ the triple sum simply adds up the squares of all the individual \Thetas in the entire network.
 + the $i$ in the triple sum does not refer to training example $i$
 
 #### Lecture Video
@@ -260,16 +260,87 @@ The capital-delta matrix $D$ is used as an "accumulator" to add up our values as
 
 #### Lecture Notes
 
++ Forward propagation
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m09-03.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  $$z^{(3)}_1 = \Theta^{(2)}_{10} \times 1 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{1} a^{(2)}_2$$
+
++ What is backpropagation doing?
+
+  $$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
+
+  Focusing on a single example $x^{(i)}, y^{(i)}$, the case of 1 output unit, and ignoring regularization ($\lambda = 0$),
+
+  $$cost(i) = y^{(i)} \log h_\Theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\Theta(x^{(i)}))$$
+
+  (Think of $cost(i) \approx (h_\Theta(x^{(i)}) - y^{(i)})^2$ with linear regression)
+
+  I.e., how well is the network doing on example $i$?
+
++ Forward propagation
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/v5Bu8/backpropagation-intuition">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/qc309rdcEea4MxKdJPaTxA_324034f1a3c3a3be8e7c6cfca90d3445_fixx.png?expiry=1554508800000&hmac=AcQDkG0y7s_LE7u_-lnqPFvxU45pNoVMtZzyVZNvOXU" style="margin: 0.1em;" alt="Example of derivation of forward propagation and cost function" title="Derivation of Forward propagation" width="450">
+    </a></div>
+  </div>
+
+  + $\delta^{(i)}_j\;$: "error" of cost for $a^{(l)}_j$ (unit $j$ in layer $l$)
+  + Formally, $\delta^{(l)}_j = \dfrac{\partial}{\partial z^{(l)}_j} cost(i) \;$ (for $j \geq 0$), where
+
+    $$cost(i) = y^{(i)} \log h_\Theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\Theta(x^{(i)}))$$
+  + IVQ: Consider the following neural network:
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/9.3-quiz-1-q.png" style="margin: 0.1em;background-color: white;" alt="A four layer neural network, with two units in each layer except for the output, which has one unit. There are full connections between layers. $z_i^l$, $a_i^l$, and $\delta_i^l$ are all defined as in lecture. Both connections coming out of the first non-bias unit in the second layer are red (and are 0)." title="Neural Network Architecture for IVQ" width="350">
+      </a></div>
+    </div>
+
+    Suppose both of the weights shown in red ($\Theta^{(2)}_{11}$ and $\Theta^{(2)}_{21}$) are equal to 0. After running backpropagation, what can we say about the value of $\delta_1^{(3)}$?
+
+    1. $\delta_1^{(3)} > 0$
+    2. $\delta_1^{(3)} = 0$ only if $\delta_1^{(2)} = \delta_2^{(2)} = 0$, but not necessarily otherwise
+    3. $\delta_1^{(3)} \leq 0$ regardless of the values of $\delta_1^{(2)}$ and $\delta_2^{(2)}$
+    4. There is insufficient information to tell
+
+    Ans: 4
 
 
 ---------------------------------------------------
 
+Recall that the cost function for a neural network is:
+
+$$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
+
+If we consider simple non-multiclass classification $(k = 1$) and disregard regularization, the cost is computed with:
+
+$$cost(t) = y^{(t)} \log(h_\Theta(x^{(t)})) + (1−y^{(t)}) \log(1−h_\Theta(x^{(t)}))$$
+
+Intuitively, $\delta_j^{(l)}$ is the "error" for $a^{(l)}_j$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function:
+
+$$\delta^{(l)}_j = \dfrac{\partial}{\partial z^{(l)}_j} \; cost(t)$$
+
+Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some $\delta_j^{(l)}$:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/v5Bu8/backpropagation-intuition">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/qc309rdcEea4MxKdJPaTxA_324034f1a3c3a3be8e7c6cfca90d3445_fixx.png?expiry=1554508800000&hmac=AcQDkG0y7s_LE7u_-lnqPFvxU45pNoVMtZzyVZNvOXU" style="margin: 0.1em;" alt="Example of derivation of forward propagation and cost function" title="Derivation of Forward propagation" width="450">
+  </a></div>
+</div>
+
+In the image above, to calculate $\delta_2^{(2)}$, we multiply the weights $\Theta^{(2)}_{12}$ and $\Theta^{(2)}_{22}$ by their respective $\delta$ values found to the right of each edge. So we get $\delta_2^{(2)} = \Theta^{(2)}_{12} \ast \delta_1^{(3)} +\Theta^{(2)}_{22} \ast \delta_2^{(3)}$. To calculate every single possible $\delta_j^{(l)}$, we could start from the right of our diagram. We can think of our edges as our $\Theta_{ij}$. Going from right to left, to calculate the value of $\delta_j^{(l)}$, you can just take the over all sum of each weight times the $\delta$ it is coming from. Hence, another example would be $\delta_2^{(3)} = \Theta^{(3)}_{12} \ast \delta_1^{(4)}$.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.3-NeuralNetworksLearning-BackpropagationIntuition.4012cfb0b22b11e48803b9598c8534ce/full/360p/index.mp4?Expires=1554508800&Signature=Q~qkkRtRj1A4iNn8tA6XNj0VqfbV~KQ-U47T3WBr1ZRUE7ORNHghiPhvxbhC~rGJrhr1o57nuGQfmIDX18wIpyX391zyil3~eSnXrR3wSb51iozYtSeefIPTPhCBDb9GpvHu7caGMznxtj-Ovh9CAhlKzo9c9mdquoU~woeV0RA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/c_3KEk83R269yhJPN5dudw?expiry=1554508800000&hmac=NZz9F2jWOjDjU_3_TBaJLDCV7Iqer2KaYNmLuVDxNyM&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -1123,7 +1194,7 @@ Additional Resources for Backpropagation
 
 + On page 5: The final term in the expression for $J(\theta$) has a subscript i missing i.e. $\theta_{j}^{(l)}$ becomes $\theta_{ij}^{(l)}$, and i,j index allows every element in array l to contribute to the matrix norm. This matches the final equation on page 3.
 + On page 6: The first line of forward propagation omits adding the bias units.
-+ On page 8: The equation for D when j ≠ 0 should include λmΘ.
++ On page 8: The equation for D when j ≠ 0 should include λm\Theta.
 + On page 8: Name collision! The loop/training example index "i" is overloaded with the node index for the next layer.
 
 #### Errata in ex4.pdf
