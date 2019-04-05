@@ -352,16 +352,95 @@ In the image above, to calculate $\delta_2^{(2)}$, we multiply the weights $\The
 
 #### Lecture Notes
 
++ Advanced optimization
+
+  > function [jVal, gradient] = costFunction (theta) <br/>
+  > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+  >
+  > optTheta = fminunc(@costFunction, initialTheta, options)
+
+  where `gradient`, `theta` & `initialTheta` $\;\in\; \mathbb{R}^{n+1}$ vectors
+
+  + Example: Neural Network ($L=4$)
+    + $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$ - matrices (Theta1, Theta2, Theta3)
+    + $D^{(1)}, D^{(2)}, D^{(3)}$ - matrices (D1, D2, D3)
+
+  + Purpose:  "Unroll" into vectors
+
++ Example: Technique to unroll into  vector and reverse
+  + $s_1 = 10, s_2 = 10, s_3 = 1$
+  + $\Theta^{(1)} \;\in\; \mathbb{R}^{10 \times 11}, \quad \Theta^{(2)} \;\in\; \mathbb{R}^{10 \times 11}, \quad \Theta^{(3)} \;\in\; \mathbb{R}^{1 \times 11}$
+  + $D^{(1)} \;\in\; \mathbb{R}^{10 \times 11}, \quad D^{(2)} \;\in\; \mathbb{R}^{10 \times 11}, \quad D^{(3)} \;\in\; \mathbb{R}^{1 \times 11}$
+
+  ```matlab
+  % unroll all matrices into a big long 
+  thetaVec = [ Theta1(:); Theta2(:); Theta3(:) ];
+  DVec = [D1(:); D2(:); D3(:)];
+
+  % revert vector representation into origin matrices
+  Theta1 = reshape(thetaVec(1:110), 10, 11);
+  Theta2 = reshape(thetaVec(111:220), 10, 11);
+  Theta3 = reshape(thetaVec(221:231), 1, 11);
+  ```
+  + IVQ: Suppose D1 is a $10 \times 6$ matrix and D2 is a $1 \times 11$ matrix. You set:
+
+    ```matlab
+    DVec = [D1(:); D2(:)];
+    ```
+
+    Which of the following would get D2 back from DVec?
+
+    1. `reshape(DVec(60:71), 1, 11)`
+    2. `reshape(DVec(61:72), 1, 11)`
+    3. `reshape(DVec(61:71), 1, 11)`
+    4. `reshape(DVec(60:70), 11, 1)`
+
+    Ans: 3
+
++ Learning Algorithm
+  + Have initial parameters: $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$
+  + Unroll to get `initialTheta` to pass to `fminunc(@costFunction, initialTheta, options)`
+  + CostFunction:<br/><br/>
+    function [jval, gradientVec] = costFuinction(thetaVec) <br/>
+    <span style="padding-left: 2em;" />From thetaVec, get $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$ (reshape)<br/>
+    <span style="padding-left: 2em;" />Use forward prop/bacl prop to compute $D^{(1)}, D^{(2)}, D^{(3)}$ $\quad (J(\Theta),$ and $D^{(1)}, D^{(2)}, D^{(3)}$<br/>
+    <span style="padding-left: 2em;" />Unroll $D^{(1)}, D^{(2)}, D^{(3)}$ to get `gradientVec`
 
 
 ---------------------------------------------------
 
+With neural networks, we are working with sets of matrices:
+
+$$\begin{array}{c} \Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}, \ldots \\ D^{(1)}, D^{(2)}, D^{(3)}, \ldots \end{array}$$
+
+In order to use optimizing functions such as `fminunc()`, we will want to "unroll" all the elements and put them into one long vector:
+
+```matlab
+thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]
+deltaVector = [ D1(:); D2(:); D3(:) ]
+```
+
+If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11, then we can get back our original matrices from the "unrolled" versions as follows:
+
+```matlab
+Theta1 = reshape(thetaVector(1:110),10,11)
+Theta2 = reshape(thetaVector(111:220),10,11)
+Theta3 = reshape(thetaVector(221:231),1,11)
+```
+
+To summarize:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kdK7ubT2EeajLxLfjQiSjg_d35545b8d6b6940e8577b5a8d75c8657_Screenshot-2016-11-27-15.09.24.png?expiry=1554508800000&hmac=2jSyKLUEjnK7zrW52pdPysQquoNM27qrZInT32MXkIM" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.3-NeuralNetworksLearning-ImplementationNoteUnrollingParameters.103bf460b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1554595200&Signature=gl08IVlrQA4EXolo8IIo3a~QH738FrLVvPQBzX4~yqTc41XR39qX4JwfWCNdIuTv5xHrFMp-n7cBiEtzJ2NTTTi83IyiS-PIZX4uXKFwreWi2fLWYcwcUMMPt4zql9Jh-4z2zZkNTfihw-JiGhflBxRD1lVuotNXqEt7v0lIVzU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/tF-VOlWTQoWflTpVk-KF-A?expiry=1554595200000&hmac=-bOaH2U8ilPogi0ggtht9OWXlKmGaWJIJO1v09P4gIw&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
