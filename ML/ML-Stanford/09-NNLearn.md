@@ -686,8 +686,8 @@ Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
     + Able to fit non-linear functions
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="https://www.ritchieng.com/neural-networks-learning/">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/jtheta2.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Uskwd/putting-it-together">
+        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hGk18LsaEea7TQ6MHcgMPA_8de173808f362583eb39cdd0c89ef43e_Screen-Shot-2016-12-05-at-10.40.35-AM.png?expiry=1554595200000&hmac=pY2sLsy9hcyJr_N5N0h488zWOzno5WHkqJMUAQ28CDs" style="margin: 0.1em;" alt="text" title="caption" width="350">
       </a></div>
     </div>
   + IVQ: Suppose you are using gradient descent together with backpropagation to try to minimize $J(\Theta)$ as a function of $\Theta$. Which of the following would be a useful step for verifying that the learning algorithm is running correctly?
@@ -750,39 +750,26 @@ Ideally, you want $h_\Theta(x^{(i)}) \approx y^{(i)}$. This will minimize our co
 
 #### Lecture Notes
 
-
-
----------------------------------------------------
-
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://spectrum.ieee.org/transportation/advanced-cars/6-key-connectivity-requirements-of-autonomous-driving">
+    <img src="https://spectrum.ieee.org/image/MzE0NDk3NA.jpeg" style="margin: 0.1em;" alt="Autonomous driving will increasingly demand more and more reliable network-based structures, requiring redundant, real-time architectures. These architectures will organize high performance clusters in functional domains and be connected via a central gateway in a high-speed data backbone structure. Group sensors and actuators will be organized hierarchically." title="Functional domains for connected, autonomous vehicles with high speed in-vehicle networks." width="350">
+  </a></div>
+  <div><a href="https://spectrum.ieee.org/transportation/advanced-cars/6-key-connectivity-requirements-of-autonomous-driving">
+    <img src="http://i.gzn.jp/img/2016/11/28/alvinn/cap00018.jpg" style="margin: 0.1em;" alt="Autonomous driving will increasingly demand more and more reliable network-based structures, requiring redundant, real-time architectures. These architectures will organize high performance clusters in functional domains and be connected via a central gateway in a high-speed data backbone structure. Group sensors and actuators will be organized hierarchically." title="Analyze the driving behavior,neural networkLearn how to drive. The image is updated once every 2 seconds." width="350">
+  </a></div>
+</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.8-NeuralNetworksLearning-AutonomousDrivingExample.76891270b22b11e487451d0772c554c0/full/360p/index.mp4?Expires=1554595200&Signature=TfuKl5Xc7szSnvPnPtXfqGR0JwemnRfzAvkszXBVV0VS57PGazNb6mtcCTOiYLf0~y42TJjkBdYKozcW4Kx-G-J1UBjTXV9NvtsyKBg6ZuHwr-OToGiaT3~okvEaZEhMkrIS0wsIE7cImIBhgFQp4fHPXp8S3ZZKp-RGFu-XnLQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/D9Rjclp1RSaUY3JadWUmoQ?expiry=1554595200000&hmac=GUcX8x-CAUo2QAN7n86qlZ-k3m_hzJyqWjB-4xfvJ9o&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
 
 
 ### Review
-
-#### Lecture Notes
-
-
-
----------------------------------------------------
-
-
-
-#### Lecture Video
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video>
-<br/>
-
 
 ### [Lecture Slides](https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554336000&Signature=AS8kcZSZqYHgQqLeqVPFBgOdCipUrPIyDsmVGqtKZJtZWYvBws3Q~IujlrxXPlLcx7MsP2Cp5f~mzSkkHenLFqD0Q062VAE4z8BvlQ1wbvu0s4SZINV0nsva-VpcZeLVo7NiM9RLu2qHL8pGSVuDAV6fiSlYRBYti4wH3iXMNuc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
