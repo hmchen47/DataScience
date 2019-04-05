@@ -559,16 +559,85 @@ Once you have verified __once__ that your backpropagation algorithm is correct, 
 
 #### Lecture Notes
 
++ Initial value of $\Theta$
+  + For gradient descent and advanced optimization method, need initial value for $\Theta$
+
+    ```matlab
+    optTheta = fminunc(@costFunction, initialTheta, options)
+    ```
+
+  + Consider gradient descent: set `initialTheta = zeros(n, 1)`?
+
++ Zero initialization
+  + Initializing $\Theta$ with zeros not working for neural network: $\Theta^{(l)}_{ij} = 0 \;\; \forall i,j, l$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/zerotheta_initialisation.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  + $\Theta^{(l)}_{ij} = 0 \implies a^{(2)}_1 = a^{(2)}_2 \text{ and } \delta^{(2)}_2 = \delta^{(2)}_2 \implies \dfrac{\partial}{\partial \Theta_{01}^{(1)}} J(\Theta) = \dfrac{\partial}{\partial \Theta^{(1)}_{02}} J(\Theta) \implies \Theta^{(1)}_{01} = \Theta^{(1)}_{02}$
+  + after each update, parameters corresponding to inputs going into each of two hidden units are identical
+  + Neural network not learn anything interesting
+  + solution is to have a random initialization
+
+
++ Random initialization: Symmetry breaking
+  + Initialize each $\Theta^{(l)}_{ij}$ to a random value in $[-\epsilon, \epsilon]\;\;$ (i.e. $-\epsilon \leq \Theta^{(l)}_{ij} \leq \epsilon$)
+  + Example:
+
+    ```matlab
+    Theta1 = rand(10, 11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+    Theta2 = rand(1, 11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+    ```
+    + `rand(10, 11)` generates random $10 \times 11$ matrix w/ values in $[0, 1]$
+    + `Theta1` and `Theta2` $\;\in\; [-\epsilon, \epsilon]$
+  + IVQ: Consider this procedure for initializing the parameters of a neural network:
+
+    a) Pick a random number `r = rand(1,1) * (2 * INIT_EPSILON) - INIT_EPSILON;`
+    b) Set $\Theta^{(l)}_{ij} = r \;\forall\; i,j,l$.
+
+    Does this work?
+
+    1. Yes, because the parameters are chosen randomly.
+    2. Yes, unless we are unlucky and get r=0 (up to numerical precision).
+    3. Maybe, depending on the training set inputs x(i).
+    4. No, because this fails to break symmetry.
+
+    Ans: 4
+
 
 
 ---------------------------------------------------
 
+Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our $\Theta$ matrices using the following method:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/KMzY7/random-initialization">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/y7gaS7pXEeaCrQqTpeD5ng_8868ccda2c387f5d481d0c54ab78a86e_Screen-Shot-2016-12-04-at-11.27.28-AM.png?expiry=1554595200000&hmac=Yr1YuvVtL1bugTshPa9sAk7FVkqdXS0idYwQ6Eyxal0" style="margin: 0.1em;" alt="Random iniitialization with symmetric breaking algorithm" title="Random initialization: Symmetric breaking" width="350">
+  </a></div>
+</div>
+
+Hence, we initialize each $\Theta^{(l)}_{ij}$ to a random value between$[−\epsilon, \epsilon]$. Using the above formula guarantees that we get the desired bound. The same procedure applies to all the $\Theta$'s. Below is some working code you could use to experiment.
+
+```matlab
+% If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.
+
+Theta1 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta2 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+```
+
+`rand(x,y)` is just a function in octave that will initialize a matrix of random real numbers between 0 and 1.
+
+(Note: the epsilon used above is unrelated to the epsilon from Gradient Checking)
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.5-NeuralNetworksLearning-RandomInitialization.2690a8f0b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1554595200&Signature=QkdQfVQnCT3aGvzZZgLg4fZh4vuSm8BpbYUabuU-2PIl2W-27IzBI7GpMsNR1lo5rKMxNgxrixPwEcG-f5aPjCJVFVoSOFYQ0KCBqGYyeTnDaZ001z3DmlU3Qt6s9B4J3dpXNjohubbR-3sTZkzf3Cd2-iOshPRzaRofmI3B8~M_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/PxUem1KYRpuVHptSmPabeA?expiry=1554595200000&hmac=EnmNsVcSGnu6y30Q703f9ApbzFSp7mmAg5GhsslrEE0&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -578,16 +647,100 @@ Once you have verified __once__ that your backpropagation algorithm is correct, 
 
 #### Lecture Notes
 
++ Neural Network Architecture
+  + Pick a network architecture (connectivity pattern between neurons)
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+        <img src="images/m09-04.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      </a></div>
+    </div>
+  + No. of input yunits: Dimension of features $x^{(i)}$
+  + No. output units: Number of classese E.g.,
+    
+    $y \in \{ 1,2, 3, \ldots, 10 \} \implies y = \underbrace{\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0\end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \cdots, \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}}_{\text{10 items}}$
+  + Reasonable default: 1 hidden layer, or if $>1$ hidden layer, have same no. of hidden units in every layer (usually the more the better)
+
++ Training Neural Network
+  1. Randomly initialize weights
+  2. Implement forward propagation to get $h_\Theta(x^{(i)}) \;\forall x^{(i)}$
+  3. Implement code to compute cost function $J(\Theta)$
+  4. Implement backprop to compute partial derivative $\dfrac{\partial}{\partial \Theta^{(l)}_{ij} J(\Theta)}$
+
+    <span style="padding-left: 4em;" />for i = 1:m <br/>
+    <span style="padding-left: 6em;" />Perform forward propagation and backpropagation using example $(x^{(i)}, y^{(i)})$ <br/>
+    <span style="padding-left: 6em;" />(Get activations $a^{(l)}$ and delta terms $\delta^{(l)}$ for $l =2, \ldots, L$)<br/>
+    <span style="padding-left: 6em;" />$\Delta^{(l)} := \Delta^{(l)}\delta^{(l)} (a^{(l)})^T$ <br/>
+    <span style="padding-left: 6em;" /> ...<br/>
+    <span style="padding-left: 4em;" /> end;<br/>
+    <span style="padding-left: 4em;" /> ... <br/>
+    <span style="padding-left: 4em;" />Compute $\dfrac{\partial}{\partial \Theta^{(l)}_{jk}} J(\Theta)$
+
+  5. Use gradient checking to compare $\dfrac{\partial}{\partial \Theta^{(l)}_{ik}} J(\Theta)$ computed using backpropagation vs. using numerical estimate of gradient of $J(\Theta)$
+
+      Then disable gradient checking code.
+  6. Use gradient descent or advanced optimization method with backpropagation ($\dfrac{\partial}{\partial \Theta^{(l)}_{jk}} J(\Theta)$) to try to minimize $J(\Theta)$ as a function of parameters $\Theta$ ($J(\Theta)$ - non-convex)
+
++ $J(\Theta)$ closeness to actual values
+  + Gradient descent: taking little steps downhill to find lowest $J(\Theta)$
+  + Backpropagation: computing direction of gradient
+    + Able to fit non-linear functions
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/jtheta2.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      </a></div>
+    </div>
+  + IVQ: Suppose you are using gradient descent together with backpropagation to try to minimize $J(\Theta)$ as a function of $\Theta$. Which of the following would be a useful step for verifying that the learning algorithm is running correctly?
+
+    1. Plot $J(\Theta)$ as a function of $\Theta$, to make sure gradient descent is going downhill.
+    2. Plot $J(\Theta)$ as a function of the number of iterations and make sure it is increasing (or at least non-decreasing) with every iteration.
+    3. Plot $J(\Theta)$ as a function of the number of iterations and make sure it is decreasing (or at least non-increasing) with every iteration.
+    4. Plot $J(\Theta)$ as a function of the number of iterations to make sure the parameter values are improving in classification accuracy.
+
+    Ans: 3
 
 
 ---------------------------------------------------
 
+First, pick a network architecture; choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have.
+
++ Number of input units = dimension of features $x^{(i)}$
++ Number of output units = number of classes
++ Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)
++ Defaults: 1 hidden layer. If you have more than 1 hidden layer, then it is recommended that you have the same number of units in every hidden layer.
+
+__Training a Neural Network__
+
+1. Randomly initialize the weights
+2. Implement forward propagation to get $h_\Theta(x^{(i)})$ for any $x^{(i)}$
+3. Implement the cost function
+4. Implement backpropagation to compute partial derivatives
+5. Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.
+6. Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.
+
+When we perform forward and back propagation, we loop on every training example:
+
+```matlab
+for i = 1:m,
+   Perform forward propagation and backpropagation using example (x(i),y(i))
+   (Get activations a(l) and delta terms d(l) for l = 2,...,L
+```
+
+The following image gives us an intuition of what is happening as we are implementing our neural network:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Uskwd/putting-it-together">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hGk18LsaEea7TQ6MHcgMPA_8de173808f362583eb39cdd0c89ef43e_Screen-Shot-2016-12-05-at-10.40.35-AM.png?expiry=1554595200000&hmac=pY2sLsy9hcyJr_N5N0h488zWOzno5WHkqJMUAQ28CDs" style="margin: 0.1em;" alt="minimize our cost function. However, keep in mind that J(Θ) is not convex and thus we can end up in a local minimum instead." title="intuition of what is happening as we are implementing our neural network" width="350">
+  </a></div>
+</div>
+
+Ideally, you want $h_\Theta(x^{(i)}) \approx y^{(i)}$. This will minimize our cost function. However, keep in mind that $J(\Theta)$ is not convex and thus we can end up in a local minimum instead.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.7-NeuralNetworksLearning-PuttingItTogether.697ff990b22b11e495a62138f9b52d3f/full/360p/index.mp4?Expires=1554595200&Signature=dtqULEyQSiE9X-0ccqHRrXQLS1yvSlAdAbcH~KxB1eqMXp~VNJ9jymBjviSFF9Et6~K0~bMEpsK3c~~smJGWxUdzkKRpDv6n9JTDzYwFZp5cqIO3E-vGY3mjkT7MoW02~1WiM4g-vXnEQneBJVuQxrIpJJgT09zrZ1~IRGzXr44_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/E94KZFJyTfueCmRScj377g?expiry=1554595200000&hmac=gnqAXkPiEs3pOP5oQ4pau5t-_wrjeLVHICZ4L2hdX7w&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
