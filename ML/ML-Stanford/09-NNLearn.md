@@ -450,16 +450,106 @@ To summarize:
 
 #### Lecture Notes
 
++ It might look like $J(\Theta)$ is decreasing
+  + But you might not know that there is a bug
+  + You can do gradient checking to ensure your implementation is 100% correct
+
++ Numerically estimate gradients
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/numerical_gradient_est.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+    </a></div>
+  </div>
+
+  + Two-sided difference: $\dfrac{d}{d \Theta} \approx \dfrac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2\epsilon}$
+  + One-side difference (less accuracy): $\dfrac{d}{d \Theta} \approx \dfrac{J(\Theta + \epsilon) - J(\Theta)}{\epsilon}$
+  + Implement: `gradApprox = (J(theta + EPSILON) - J(theta - EPSILON)) / (2*EPSILON)`
+  + IVQ: Let $J(\theta) = \theta^3$. Furthermore, let $\theta = 1$ and $\epsilon=0.01$. You use the formula:
+
+    $$\dfrac{J(\Theta + \epsilon) − J(\Theta − \epsilon)}{2\epsilon}$$
+
+    to approximate the derivative. What value do you get using this approximation? (When $\theta = 1$, the true, exact derivative is $\frac{d}{d\theta}J(\theta)=3$).
+
+    1. 3.0000
+    2. 3.0001
+    3. 3.0301
+    4. 6.0002
+
+    Ans: 2
+
++ Generalization: Parameter vector $\theta$
+  + $\theta \;\in\; \mathbb{R}^n \quad$ (E.g. $\theta$ is "unrolled" version of $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$)
+  + $\theta = \theta_1, \theta_2, \theta_3, \ldots, \theta_n$
+
+  $$\begin{array}{ccc} \dfrac{\partial}{\partial \theta_1} J(\theta) &\approx& \dfrac{J(\theta_1+\epsilon, \theta_2, \theta_3, \ldots,\theta_n) - J(\theta_1-\epsilon, \theta_2, \theta_3, \ldots,\theta_n)}{2\epsilon} \\\\ \dfrac{\partial}{\partial \theta_2} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2+\epsilon, \theta_3, \ldots,\theta_n) - J(\theta_1, \theta_2-\epsilon, \theta_3, \ldots,\theta_n)}{2\epsilon} \\ \vdots & & \vdots \\ \dfrac{\partial}{\partial \theta_2} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n+\epsilon) - J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n-\epsilon)}{2\epsilon} \end{array}$$
+
++ Octave implementation
+  + $n\;$: the dimension of $\Theta$
+  + Code
+
+    ```matlab
+    for i =1:n,
+      thetaPlus = theta;
+      thetaPlus(i) = thetaPlus(i) + EPSILON;
+      thetaMinus = theta;
+      thetaMinus(i) = thetaMinus(i) - EPSILON;
+      gradApprox(i) = (J(thetaPlus) - J(thetaMinus)) / (2*EPSILON);
+    end;
+    ```
+  + Check that `gradApprox ≈ DVec` (where `DVec` retained from backprop)
+
++ Implementation Note:
+  + Implement backprop to compute `DVec` (unrolled $D^{(1)}, D^{(2)}, D^{(3)}$)
+  + Implement numerical gradient check to compute `gradApprox`
+  + Make sure they give similar values
+  + Turn off gradient checking. Using backprop code for learning.
+  + IVQ: What is the main reason that we use the backpropagation algorithm rather than the numerical gradient computation method during learning?
+
+    1. The numerical gradient computation method is much harder to implement.
+    2. The numerical gradient algorithm is very slow.
+    3. Backpropagation does not require setting the parameter EPSILON.
+    4. None of the above.
+
+    Ans: 2
+
++ Important: Be sure to disable your gradient checking code before training your classifier.  If you run numerical gradient computation on every iterations of gradient descent (or in the inner loop of `costFunction(...)`) your code will be _very_ slow.
 
 
 ---------------------------------------------------
 
+Gradient checking will assure that our backpropagation works as intended. We can approximate the derivative of our cost function with:
+
+$$\dfrac{\partial}{\partial \Theta} J(\Theta) \approx \dfrac{J(\Theta+\epsilon) − J(\Theta − \epsilon)}{2ϵ}$$
+
+With multiple theta matrices, we can approximate the derivative __with respect to $\Theta_j$__ as follows:
+
+$$\dfrac{\partial}{\partial \Theta_j} J(\Theta) \approx \dfrac{J(\Theta_1, \ldots, \Theta_j + \epsilon, \ldots, \Theta_n) − J(\Theta_1, \ldots, \Theta_j − \epsilon, \ldots, \Theta_n)}{2ϵ}$$
+
+A small value for $\epsilon$ (epsilon) such as $\epsilon \approx 10^{−4}$, guarantees that the math works out properly. If the value for $\epsilon$ is too small, we can end up with numerical problems.
+
+Hence, we are only adding or subtracting epsilon to the $\Theta_j$ matrix. In octave we can do it as follows:
+
+```matlab
+epsilon = 1e-4;
+for i = 1:n,
+  thetaPlus = theta;
+  thetaPlus(i) += epsilon;
+  thetaMinus = theta;
+  thetaMinus(i) -= epsilon;
+  gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*epsilon)
+end;
+```
+
+We previously saw how to calculate the deltaVector. So once we compute our `gradApprox` vector, we can check that `gradApprox ≈ deltaVector`.
+
+Once you have verified __once__ that your backpropagation algorithm is correct, you don't need to compute gradApprox again. The code to compute `gradApprox` can be very slow.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/09.4-NeuralNetworksLearning-GradientChecking.362d3df0b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1554595200&Signature=WPj5IPqNCfcEf6n3ggUob64L~L9UsTZECWb8A-5hJYNwQuRrNhk9yaB3DWFQpRsJEnE12A01PNQKRygEALBnG69P4HIZVV8WGQCUw5Bmg3jjlXztd9qCZEsPeFb4E2LfpyeLNsHTFDrVN7RiL3RNAHA3H8vcPD91FxWu71tCNAs_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/6iEaKZikTrqhGimYpB663w?expiry=1554595200000&hmac=S3Wq3R4o2mPvKzUpbzpmVcUXOcMpLLit9KANNqoY8ik&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
