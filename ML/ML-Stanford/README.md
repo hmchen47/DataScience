@@ -222,6 +222,20 @@
 
 ## Programming Assignment: Neural Network Learning
 
-
++ 1. [Neural Network](ex04.md#)
+    + 1.1 [Visualizing the data](ex04.md#)
+    + 1.2 [Model representation](ex04.md#)
+    + 1.3 [Feedbackforward and cost function](ex04.md#)
+    + 1.4 [Regularized cost function](ex04.md#)
++ 2. [Backpropagation](ex04.md#)
+    + 2.1 [Sigmoid gradient](ex04.md#)
+    + 2.2 [Random initialization](ex04.md#)
+    + 2.3 [Backpropagation](ex04.md#)
+    + 2.4 [Gradient checking](ex04.md#)
+    + 2.5 [Regularized Neural Networks](ex04.md#)
+    + 2.6 [Learning parameters using `fmincg`](ex04.md#)
++ 3. [Visualizing the hidden layer](ex04.md#)
+    + 3.1 [Optional exercise](ex04.md#)
++ [Programming Ex.4](ex04.md#)
 
 
