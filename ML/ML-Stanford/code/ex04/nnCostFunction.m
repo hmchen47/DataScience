@@ -62,11 +62,23 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+% Part 1: Feedforward the neural network and return the cost in the
+%         variable J. Verify with ex4.m
 
+[m, n] = size(X);
 
+y_matrix = eye(num_labels)(y,:);
 
+X = [ones(m, 1) X];
 
+a1 = sigmoid(X * Theta1');
 
+a1 = [ones(size(a1, 1), 1) a1];
+
+h_theta = sigmoid(a1 * Theta2');
+
+J = sum(sum((-1.0 / m) * (y_matrix .* log(h_theta) + ...
+    (1.0 - y_matrix) .* log(1.0 - h_theta))));
 
 
 
