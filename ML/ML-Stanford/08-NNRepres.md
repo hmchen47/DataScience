@@ -41,10 +41,10 @@
   + Quadratic features $(x_i \times x_j): \;\approx 3$ million features
   + IVQ: Suppose you are learning to recognize cars from $100 \times 100$ pixel images (grayscale, not RGB). Let the features be pixel intensity values. If you train logistic regression including all the quadratic terms ($x_ix_j$) as features, about how many features will you have?
 
-    1) 5,000
-    2) 100,000
-    3) 50 million ($5\times10^7$)
-    4) 5 billion ($5\times10^9$)
+    1. 5,000
+    2. 100,000
+    3. 50 million ($5\times10^7$)
+    4. 5 billion ($5\times10^9$)
 
     Ans: 3
 
@@ -149,10 +149,10 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Bln5m/model-representation-i">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network.png" style="margin: 0.1em;" alt="What a neural network is, is just a group of this different neurons strong together. Completely, here we have input units x1, x2, x3 and once again, sometimes you can draw this extra note x0 and Sometimes not, just flow that in here. And here we have three neurons which have written a1, a2, a3. I'll talk about those indices later. And once again we can if we want add in just a0 and add the mixture bias unit there. There's always a value of 1. And then finally we have this third node and the final layer, and there's this third node that outputs the value that the hypothesis h(x) computes. To introduce a bit more terminology, in a neural network, the first layer, this is also called the input layer because this is where we Input our features, x1, x2, x3. The final layer is also called the output layer because that layer has a neuron, this one over here, that outputs the final value computed by a hypothesis. And then, layer 2 in between, this is called the hidden layer. The term hidden layer isn't a great terminology, but this ideation is that, you know, you supervised early, where you get to see the inputs and get to see the correct outputs, where there's a hidden layer of values you don't get to observe in the training setup. It's not x, and it's not y, and so we call those hidden. And they try to see neural nets with more than one hidden layer but in this example, we have one input layer, Layer 1, one hidden layer, Layer 2, and one output layer, Layer 3. But basically, anything that isn't an input layer and isn't an output layer is called a hidden layer. So I want to be really clear about what this neural network is doing. Let's step through the computational steps that are and body represented by this diagram. To explain these specific computations represented by a neural network, here's a little bit more notation. I'm going to use a superscript j subscript i to denote the activation of neuron i or of unit i in layer j. So completely this gave superscript to sub group one, that's the activation of the first unit in layer two, in our hidden layer. And by activation I just mean the value that's computed by and as output by a specific. In addition, new network is parametrize by these matrixes, theta super script j Where theta j is going to be a matrix of weights controlling the function mapping form one layer, maybe the first layer to the second layer, or from the second layer to the third layer." title="a neural network" width="300">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network.png" style="margin: 0.1em;" alt="What a neural network is, is just a group of this different neurons strong together. Completely, here we have input units x1, x2, x3 and once again, sometimes you can draw this extra note x0 and Sometimes not, just flow that in here. And here we have three neurons which have written a1, a2, a3. I'll talk about those indices later. And once again we can if we want add in just a0 and add the mixture bias unit there. There's always a value of 1. And then finally we have this third node and the final layer, and there's this third node that outputs the value that the hypothesis h(x) computes. To introduce a bit more terminology, in a neural network, the first layer, this is also called the input layer because this is where we Input our features, x1, x2, x3. The final layer is also called the output layer because that layer has a neuron, this one over here, that outputs the final value computed by a hypothesis. And then, layer 2 in between, this is called the hidden layer. The term hidden layer isn't a great terminology, but this ideation is that, you know, you supervised early, where you get to see the inputs and get to see the correct outputs, where there's a hidden layer of values you don't get to observe in the training setup. It's not x, and it's not y, and so we call those hidden. And they try to see neural nets with more than one hidden layer but in this example, we have one input layer, Layer 1, one hidden layer, Layer 2, and one output layer, Layer 3. But basically, anything that isn't an input layer and isn't an output layer is called a hidden layer. So I want to be really clear about what this neural network is doing. Let's step through the computational steps that are and body represented by this diagram. To explain these specific computations represented by a neural network, here's a little bit more notation. I'm going to use a superscript j subscript i to denote the activation of neuron i or of unit i in layer j. So completely this gave superscript to sub group one, that's the activation of the first unit in layer two, in our hidden layer. And by activation I just mean the value that's computed by and as output by a specific. In addition, new network is parametrize by these matrixes, theta super script j Where theta j is going to be a matrix of weights controlling the function mapping form one layer, maybe the first layer to the second layer, or from the second layer to the third layer." title="a neural network" width="500">
     </a></div>
     <div><a href="https://www.ritchieng.com/neural-networks-representation/">
-    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network2.png" style="margin: 0.1em;" alt="So I want to be really clear about what this neural network is doing. Let's step through the computational steps that are and body represented by this diagram. To explain these specific computations represented by a neural network, here's a little bit more notation. I'm going to use a superscript j subscript i to denote the activation of neuron i or of unit i in layer j. So completely this gave superscript to sub group one, that's the activation of the first unit in layer two, in our hidden layer. And by activation I just mean the value that's computed by and as output by a specific. In addition, new network is parametrize by these matrixes, theta super script j Where theta j is going to be a matrix of weights controlling the function mapping form one layer, maybe the first layer to the second layer, or from the second layer to the third layer.So here are the computations that are represented by this diagram. This first hidden unit here has it's value computed as follows, there's a is a21 is equal to the sigma function of the sigmoid activation function, also called the logistics activation function, apply to this sort of linear combination of these inputs. And then this second hidden unit has this activation value computer as sigmoid of this. And similarly for this third hidden unit is computed by that formula. So here we have 3 theta 1 which is matrix of parameters governing our mapping from our three different units, our hidden units. Theta 1 is going to be a 3. Theta 1 is going to be a 3x4-dimensional matrix. And more generally, if a network has SJU units in there j and sj + 1 units and sj + 1 then the matrix theta j which governs the function mapping from there sj + 1. That will have to mention sj +1 by sj + 1 I'll just be clear about this notation right. This is Subscript j + 1 and that's s subscript j, and then this whole thing, plus 1, this whole thing (sj + 1), okay? So that's s subscript j + 1 by." title="Representation of Neural Networks" width="320">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network2.png" style="margin: 0.1em;" alt="So I want to be really clear about what this neural network is doing. Let's step through the computational steps that are and body represented by this diagram. To explain these specific computations represented by a neural network, here's a little bit more notation. I'm going to use a superscript j subscript i to denote the activation of neuron i or of unit i in layer j. So completely this gave superscript to sub group one, that's the activation of the first unit in layer two, in our hidden layer. And by activation I just mean the value that's computed by and as output by a specific. In addition, new network is parametrize by these matrixes, theta super script j Where theta j is going to be a matrix of weights controlling the function mapping form one layer, maybe the first layer to the second layer, or from the second layer to the third layer.So here are the computations that are represented by this diagram. This first hidden unit here has it's value computed as follows, there's a is a21 is equal to the sigma function of the sigmoid activation function, also called the logistics activation function, apply to this sort of linear combination of these inputs. And then this second hidden unit has this activation value computer as sigmoid of this. And similarly for this third hidden unit is computed by that formula. So here we have 3 theta 1 which is matrix of parameters governing our mapping from our three different units, our hidden units. Theta 1 is going to be a 3. Theta 1 is going to be a 3x4-dimensional matrix. And more generally, if a network has SJU units in there j and sj + 1 units and sj + 1 then the matrix theta j which governs the function mapping from there sj + 1. That will have to mention sj +1 by sj + 1 I'll just be clear about this notation right. This is Subscript j + 1 and that's s subscript j, and then this whole thing, plus 1, this whole thing (sj + 1), okay? So that's s subscript j + 1 by." title="Representation of Neural Networks" width="540">
     </a></div>
   </div>
   <br/>
@@ -168,15 +168,15 @@
   + IVQ: Consider the following neural network:
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="url">
-        <img src="http://spark-public.s3.amazonaws.com/ml/images/8.3-quiz-1-q.png" style="margin: 0.1em; background-color: white;" alt="Example neural network" title="Example neural network for IVQ" width="250">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/8.3-quiz-1-q.png" style="margin: 0.1em; background-color: white;" alt="Example neural network" title="Example neural network for IVQ" width="350">
       </a></div>
     </div>
 
     What is the dimension of Θ(1) (Hint: add a bias unit to the input and hidden layers)?
-    1) $2\times4$
-    2) $4\times2$
-    3) $3\times4$
-    4) $4\times3$
+    1. $2\times4$
+    2. $4\times2$
+    3. $3\times4$
+    4. $4\times3$
 
     Ans: 4
 
@@ -247,7 +247,7 @@ Each layer gets its own matrix of weights, $\Theta^{(j)}$.
 
 The dimensions of these matrices of weights is determined as follows:
 
-__If network has $s_j$ units in layer $$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j+1)$.__
+__If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j+1)$.__
 
 The $+1$ comes from the addition in $\Theta^{(j)}$ of the "bias nodes," $x_0$ and $\Theta^{(j)}_0$. In other words the output nodes will not include the bias nodes while the inputs will. The following image summarizes our model representation:
 
@@ -298,8 +298,8 @@ Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimens
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/neural-networks-representation/">
-    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/logistic_regression.png" style="margin: 0.1em;" alt="calculate the output layer " title="formula of the output layer" width="300">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_learn_features.png" style="margin: 0.1em;" alt="calculate ethe whole neural network" title="Notation ofr the neural network" width="300">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/logistic_regression.png" style="margin: 0.1em;" alt="calculate the output layer " title="formula of the output layer" width="500">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_learn_features.png" style="margin: 0.1em;" alt="calculate ethe whole neural network" title="Notation ofr the neural network" width="500">
     </a></div>
   </div>
 
@@ -321,10 +321,10 @@ Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimens
 
     Let $^{a(1)} = x \in \mathbb{R}^{n+1}$ denote the input (with $a^{(1)}_0 = 1$. How would you compute $a^{(2)}$?
 
-    1) $a^{(2)} = \Theta^{(1)}a^{(1)}$
-    2) $z^{(2)} = \Theta^{(2)}a^{(1)}; a^{(2)} = g(z^{(2)})$
-    3) $z^{(2)} = \Theta^{(1)}a^{(1)}; a^{(2)} = g(z^{(2)})$
-    4) $z^{(2)} = \Theta^{(2)}g(a^{(1)}); a^{(2)} = g(z^{(2)})$
+    1. $a^{(2)} = \Theta^{(1)}a^{(1)}$
+    2. $z^{(2)} = \Theta^{(2)}a^{(1)}; a^{(2)} = g(z^{(2)})$
+    3. $z^{(2)} = \Theta^{(1)}a^{(1)}; a^{(2)} = g(z^{(2)})$
+    4. $z^{(2)} = \Theta^{(2)}g(a^{(1)}); a^{(2)} = g(z^{(2)})$
 
     Ans: 3
 
@@ -407,10 +407,10 @@ Notice that in this __last step__, between layer $j$ and layer $j+1$, we are doi
 + IVQ: Suppose $x_1$ and $x_2$ are binary valued (0 or 1). What boolean function does the network shown below (approximately) compute? (Hint: One possible way to answer this is to draw out a truth table, similar to what we did in the video).
 
     A two-layer neural network, with two inputs and one output. Weights from the input layer: 20 from $x_1$ and $x_2$, and -10 from the bias unit.
-    1) $x_1$ AND $x_2$
-    2) (NOT $x_1$) OR (NOT $x_2$)
-    3) $x_1$ OR $x_2$
-    4) (NOT $x_1$) AND (NOT $x_2$)
+    1. $x_1$ AND $x_2$
+    2. (NOT $x_1$) OR (NOT $x_2$)
+    3. $x_1$ OR $x_2$
+    4. (NOT $x_1$) AND (NOT $x_2$)
 
     Ans: 3
 
@@ -552,10 +552,10 @@ And there we have the XNOR operator using a hidden layer with two nodes! The fol
 
 + IVQ: Suppose you have a multi-class classification problem with 10 classes. Your neural network has 3 layers, and the hidden layer (layer 2) has 5 units. Using the one-vs-all method described here, how many elements does $\Theta^{(2)}$ have?
 
-    1) 50
-    2) 55
-    3) 60
-    4) 66
+    1. 50
+    2. 55
+    3. 60
+    4. 66
 
     Ans: 3
 
@@ -668,7 +668,7 @@ Each layer gets its own matrix of weights, $\Theta^{(j)}$.
 
 The dimensions of these matrices of weights is determined as follows:
 
-__If network has sj units in layer j and sj+1 units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j+1)$.__
+__If network has $s_j$ units in layer j and sj+1 units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j+1)$.__
 
 The +1 comes from the addition in $\Theta^{(j)}$ of the "bias nodes," $x_0$ and $\Theta^{(j)}_0$. In other words the output nodes will not include the bias nodes while the inputs will.
 
@@ -809,10 +809,10 @@ Our final value of our hypothesis for a set of inputs will be one of the element
 
 1. Which of the following statements are true? Check all that apply.
 
-    1) Any logical function over binary-valued (0 or 1) inputs $x_1$ and $x_2$ can be (approximately) represented using some neural network.
-    2) Suppose you have a multi-class classification problem with three classes, trained with a 3 layer network. Let $a^{(3)}_1 = (h_\Theta(x))_1$ be the activation of the first output unit, and similarly $a^{(3)}_2 = (h_\Theta(x))_2$ and $a^{(3)}_3 = (h_\Theta(x))_3$. Then for any input $x$, it must be the case that $a^{(3)}_1 + a^{(3)}_2 + a^{(3)}_3 = 1$.
-    3) The activation values of the hidden units in a neural network, with the sigmoid activation function applied at every layer, are always in the range (0, 1).
-    4) A two layer (one input layer, one output layer; no hidden layer) neural network can represent the XOR function.
+    1. Any logical function over binary-valued (0 or 1) inputs $x_1$ and $x_2$ can be (approximately) represented using some neural network.
+    2. Suppose you have a multi-class classification problem with three classes, trained with a 3 layer network. Let $a^{(3)}_1 = (h_\Theta(x))_1$ be the activation of the first output unit, and similarly $a^{(3)}_2 = (h_\Theta(x))_2$ and $a^{(3)}_3 = (h_\Theta(x))_3$. Then for any input $x$, it must be the case that $a^{(3)}_1 + a^{(3)}_2 + a^{(3)}_3 = 1$.
+    3. The activation values of the hidden units in a neural network, with the sigmoid activation function applied at every layer, are always in the range (0, 1).
+    4. A two layer (one input layer, one output layer; no hidden layer) neural network can represent the XOR function.
 
     Ans: 13, x123
 
@@ -826,10 +826,10 @@ Our final value of our hypothesis for a set of inputs will be one of the element
       </a></div>
     </div>
 
-    1) OR
-    2) AND
-    3) NAND (meaning "NOT AND")
-    4) XOR (exclusive OR)
+    1. OR
+    2. AND
+    3. NAND (meaning "NOT AND")
+    4. XOR (exclusive OR)
 
     Ans: 1 (fig.2), 2 (fig.1), x3, x1
 
@@ -842,10 +842,10 @@ Our final value of our hypothesis for a set of inputs will be one of the element
       </a></div>
     </div>
 
-    1) $a^{(3)}_1 = g(\Theta^{(2)}_{1,0} a^{(2)}_0 + \Theta^{(2)}_{1,1} a^{(2)}_1 + \Theta^{(2)}_{1,2} a^{(2)}_2)$
-    2) $a^{(3)}_1 = g(\Theta^{(1)}_{1,0} a^{(1)}_0 + \Theta^{(1)}_{1,1} a^{(1)}_1 + \Theta^{(1)}_{1,2} a^{(1)}_2)$
-    3) $a^{(3)}_1 = g(\Theta^{(1)}_{1,0} a^{(2)}_0 + \Theta^{(1)}_{1,1} a^{(2)}_1 + \Theta^{(1)}_{1,2} a^{(2)}_2)$
-    4) The activation $a_1^{(3)}$ is not present in this network.
+    1. $a^{(3)}_1 = g(\Theta^{(2)}_{1,0} a^{(2)}_0 + \Theta^{(2)}_{1,1} a^{(2)}_1 + \Theta^{(2)}_{1,2} a^{(2)}_2)$
+    2. $a^{(3)}_1 = g(\Theta^{(1)}_{1,0} a^{(1)}_0 + \Theta^{(1)}_{1,1} a^{(1)}_1 + \Theta^{(1)}_{1,2} a^{(1)}_2)$
+    3. $a^{(3)}_1 = g(\Theta^{(1)}_{1,0} a^{(2)}_0 + \Theta^{(1)}_{1,1} a^{(2)}_1 + \Theta^{(1)}_{1,2} a^{(2)}_2)$
+    4. The activation $a_1^{(3)}$ is not present in this network.
 
     Ans: 1
 
@@ -868,12 +868,12 @@ Our final value of our hypothesis for a set of inputs will be one of the element
 
     You want to have a vectorized implementation of this (i.e., one that does not use for loops). Which of the following implementations correctly compute $a^{(2)}$? Check all that apply.
 
-    1) `a2 = sigmoid (Theta1 * x);`
-    2) `a2 = sigmoid (x * Theta1);`
-    3) `a2 = sigmoid (Theta2 * x);`
-    4) `z = sigmoid(x); a2 = Theta1 * z;`
-    5) `z = Theta1 * x; a2 = sigmoid (z);`
-    6) `z = sigmoid(x); a2 = sigmoid (Theta1 * z);`
+    1. `a2 = sigmoid (Theta1 * x);`
+    2. `a2 = sigmoid (x * Theta1);`
+    3. `a2 = sigmoid (Theta2 * x);`
+    4. `z = sigmoid(x); a2 = Theta1 * z;`
+    5. `z = Theta1 * x; a2 = sigmoid (z);`
+    6. `z = sigmoid(x); a2 = sigmoid (Theta1 * z);`
 
     Ans: 5 (5236), x56 (5236), x5 (5236), x3
 
@@ -887,10 +887,10 @@ Our final value of our hypothesis for a set of inputs will be one of the element
       </a></div>
     </div>
 
-    1) It will stay the same.
-    2) It will increase.
-    3) It will decrease
-    4) Insufficient information to tell: it may increase or decrease.
+    1. It will stay the same.
+    2. It will increase.
+    3. It will decrease
+    4. Insufficient information to tell: it may increase or decrease.
 
     Ans: 1
 
