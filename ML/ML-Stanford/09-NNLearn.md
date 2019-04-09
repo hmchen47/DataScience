@@ -430,11 +430,14 @@ Theta3 = reshape(thetaVector(221:231),1,11)
 
 To summarize:
 
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kdK7ubT2EeajLxLfjQiSjg_d35545b8d6b6940e8577b5a8d75c8657_Screenshot-2016-11-27-15.09.24.png?expiry=1554508800000&hmac=2jSyKLUEjnK7zrW52pdPysQquoNM27qrZInT32MXkIM" style="margin: 0.1em;" alt="text" title="caption" width="350">
-  </a></div>
-</div>
++ Learning Algorithm
+  + Have initial parameters: $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$
+  + Unroll to get `initialTheta` to pass to `fminunc(@costFunction, initialTheta, options)`
+  + CostFunction:<br/><br/>
+    function [jval, gradientVec] = costFuinction(thetaVec) <br/>
+    <span style="padding-left: 2em;" />From thetaVec, get $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$ (reshape)<br/>
+    <span style="padding-left: 2em;" />Use forward prop/bacl prop to compute $D^{(1)}, D^{(2)}, D^{(3)}$ $\quad (J(\Theta),$ and $D^{(1)}, D^{(2)}, D^{(3)}$<br/>
+    <span style="padding-left: 2em;" />Unroll $D^{(1)}, D^{(2)}, D^{(3)}$ to get `gradientVec`
 
 
 #### Lecture Video
@@ -458,7 +461,7 @@ To summarize:
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/neural-networks-learning/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/numerical_gradient_est.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/numerical_gradient_est.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
     </a></div>
   </div>
 
