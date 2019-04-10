@@ -1023,11 +1023,12 @@ These are normal in some of the exercises, and do not represent a problem in you
 
 ### [Programming Exercise Tutorials (list)](https://www.coursera.org/learn/machine-learning/discussions/all/threads/m0ZdvjSrEeWddiIAC9pDDA)
 
+
 This post contains links to all of the programming exercise tutorials.
 
 After clicking on a link, you may need to scroll down to find the highlighted post.
 
---- Note: Additional test cases can be found ([here](https://www.coursera.org/learn/machine-learning/discussions/0SxufTSrEeWPACIACw4G5w)) ---
+Note: Additional test cases can be found ([here](https://www.coursera.org/learn/machine-learning/discussions/0SxufTSrEeWPACIACw4G5w))
 
 
 #### ex1
