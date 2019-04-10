@@ -40,6 +40,7 @@
 + [Submitting Programming Assignments](00-Welcome.md#submitting-programming-assignments)
     + [Working on and Submitting Programming Assignments](00-Welcome.md#working-on-and-submitting-programming-assignments)
     + [Programming tips from Mentors](00-Welcome.md#programming-tips-from-mentors)
+    + [Programming Exercise Tutorials (list)](00-Elecome.md#programming-exercisetutorials-list)
 
 
 ## Introduction
