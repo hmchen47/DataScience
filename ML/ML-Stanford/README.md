@@ -239,4 +239,24 @@
     + 3.1 [Optional exercise](ex04.md#)
 + [Programming Ex.4](ex04.md#)
 
+## Advice for Applying Machine Learning
+
++ [Evaluating a Learning Algorithm](10-Advice.md#)
+    + [Deciding What to Try Next](10-Advice.md#)
+    + [Evaluating a Hypothesis](10-Advice.md#)
+    + [Model Selection and Train/Validation/Test Sets](10-Advice.md#)
++ [Bias vs. Variance](10-Advice.md#)
+    + [Diagnosing Bias vs. Variance](10-Advice.md#)
+    + [Regularization and Bias/Variance](10-Advice.md#)
+    + [Learning Curves](10-Advice.md#)
+    + [Deciding What to Do Next Revisited](10-Advice.md#)
++ [Review](10-Advice.md#)
+    + [Lecture Slides](10-Advice.md#)
+    + [Errata](10-Advice.md#)
+    + [Quiz: Advice for Applying Machine Learning](10-Advice.md#)
+
+
+## Programming Assignment: Regularized Linear Regression and Bias/Variance
+
+
 
