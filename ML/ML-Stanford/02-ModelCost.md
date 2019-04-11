@@ -5,41 +5,46 @@
 ### Lecture Notes
 
 + Housing Prices (Portland, OR)
-    <a href="https://d3c33hcgiwev3.cloudfront.net/_ec21cea314b2ac7d9e627706501b5baa_Lecture2.pdf?Expires=1552003200&Signature=TGQs5L1O0PHw2SBFtYJ4q5n3rNLp0mWpKigVJHX~vOlMdHSuPvqHnyuQGUSCPtonZ-IFHiq3F~SWhBMrwxbzerZQlLdy9-SGe5UBrMDE0rOLj-mj5VO3QchKzHbRLnmyxGu-C65y2r-CV8wmRqvN5JpKOKeqGzpWT0mV8InqUoQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
-        <img src="images/m02-01.png" style="display: block; margin: auto; background-color: black" alt="We're going to use a data set of housing prices from the city of Portland, Oregon. And here I'm gonna plot my data set of a number of houses that were different sizes that were sold for a range of different prices. Let's say that given this data set, you have a friend that's trying to sell a house and let's see if friend's house is size of 1250 square feet and you want to tell them how much they might be able to sell the house for. Well one thing you could do is fit a model. Maybe fit a straight line to this data. Looks something like that and based on that, maybe you could tell your friend that let's say maybe he can sell the house for around $220,000. So this is an example of a supervised learning algorithm." title="Example: Housing Prices (Portland, OR)" width="350" >
-    </a>
-    + Supervised Learning: Given the "right answer" for each example in the data
-    + Regression Problem: Predict real-valued output
-    + cf: Classification - discrete-valued output
-    + Training set of housing prices (Portland, OR)
+  <a href="https://d3c33hcgiwev3.cloudfront.net/_ec21cea314b2ac7d9e627706501b5baa_Lecture2.pdf?Expires=1552003200&Signature=TGQs5L1O0PHw2SBFtYJ4q5n3rNLp0mWpKigVJHX~vOlMdHSuPvqHnyuQGUSCPtonZ-IFHiq3F~SWhBMrwxbzerZQlLdy9-SGe5UBrMDE0rOLj-mj5VO3QchKzHbRLnmyxGu-C65y2r-CV8wmRqvN5JpKOKeqGzpWT0mV8InqUoQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
+    <img src="images/m02-01.png" style="display: block; margin: auto; background-color: black" alt="We're going to use a data set of housing prices from the city of Portland, Oregon. And here I'm gonna plot my data set of a number of houses that were different sizes that were sold for a range of different prices. Let's say that given this data set, you have a friend that's trying to sell a house and let's see if friend's house is size of 1250 square feet and you want to tell them how much they might be able to sell the house for. Well one thing you could do is fit a model. Maybe fit a straight line to this data. Looks something like that and based on that, maybe you could tell your friend that let's say maybe he can sell the house for around $220,000. So this is an example of a supervised learning algorithm." title="Example: Housing Prices (Portland, OR)" width="350" >
+  </a>
+  + Supervised Learning: Given the "right answer" for each example in the data
+  + Regression Problem: Predict real-valued output
+  + cf: Classification - discrete-valued output
+  + Training set of housing prices (Portland, OR)
 
-        | Size in feet$^2$ (x) | Price (\$) in 1000's (y) |
-        |----------------------|--------------------------|
-        | 2104 | 460 |
-        | 1416 | 232 |
-        | 1534 | 315 |
-        | 852 | 178 |
-        | ... | ... |
-    + Notation: 
-        + $m$: Number of training examples
-        + $x$: "input" variables / features
-        + $y$: "output" variable / "target" feature
-    + $(x, y)$: one training example
-    + $(x^{(i)}, y^{(i)})$: ith training example, e.g., $x^{(1)} = 2104$, $y^{(1)} = 460$, $x^{(2)} = 1416$, $y^{(1)} = 232$
-    + IVQ: Consider the training set shown below. $(x^{(i)}, y^{(i)})$ is the $i^{th}$ training example. What is $y^{(3)}$?
+| Size in feet$^2$ (x) | Price (\$) in 1000's (y) |
+|----------------------|--------------------------|
+| 2104 | 460 |
+| 1416 | 232 |
+| 1534 | 315 |
+| 852 | 178 |
+| ... | ... |
 
-        Ans: 315
+  + Notation: 
+      + $m$: Number of training examples
+      + $x$: "input" variables / features
+      + $y$: "output" variable / "target" feature
+  + $(x, y)$: one training example
+  + $(x^{(i)}, y^{(i)})$: ith training example, e.g., $x^{(1)} = 2104$, $y^{(1)} = 460$, $x^{(2)} = 1416$, $y^{(1)} = 232$
+  + IVQ: Consider the training set shown below. $(x^{(i)}, y^{(i)})$ is the $i^{th}$ training example. What is $y^{(3)}$?
+
+    Ans: 315
 
 + Modeling
-    <a href="https://d3c33hcgiwev3.cloudfront.net/_ec21cea314b2ac7d9e627706501b5baa_Lecture2.pdf?Expires=1552003200&Signature=TGQs5L1O0PHw2SBFtYJ4q5n3rNLp0mWpKigVJHX~vOlMdHSuPvqHnyuQGUSCPtonZ-IFHiq3F~SWhBMrwxbzerZQlLdy9-SGe5UBrMDE0rOLj-mj5VO3QchKzHbRLnmyxGu-C65y2r-CV8wmRqvN5JpKOKeqGzpWT0mV8InqUoQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
-        <img src="images/m02-02.png" alt="So here's how this supervised learning algorithm works. We saw that with the training set like our training set of housing prices and we feed that to our learning algorithm. Is the job of a learning algorithm to then output a function which by convention is usually denoted lowercase h and h stands for hypothesis And what the job of the hypothesis is, is, is a function that takes as input the size of a house like maybe the size of the new house your friend's trying to sell so it takes in the value of x and it tries to output the estimated value of y for the corresponding house. So h is a function that maps from x's to y's. People often ask me, you know, why is this function called hypothesis. Some of you may know the meaning of the term hypothesis, from the dictionary or from science or whatever. It turns out that in machine learning, this is a name that was used in the early days of machine learning and it kinda stuck. 'Cause maybe not a great name for this sort of function, for mapping from sizes of houses to the predictions, that you know.... I think the term hypothesis, maybe isn't the best possible name for this, but this is the standard terminology that people use in machine learning." title="ML Modeling Flow" width="250"> &nbsp;&nbsp;
-        <img src="images/m02-03.png" alt="the next thing we need to decide is how do we represent this hypothesis h. For this and the next few videos, I'm going to choose our initial choice , for representing the hypothesis, will be the following. We're going to represent h as follows. And we will write this as h<u>theta(x) equals theta<u>0</u></u> plus theta<u>1 of x. And as a shorthand, sometimes instead of writing, you</u> know, h subscript theta of x, sometimes there's a shorthand, I'll just write as a h of x. But more often I'll write it as a subscript theta over there. And plotting this in the pictures, all this means is that, we are going to predict that y is a linear function of x. Right, so that's the data set and what this function is doing, is predicting that y is some straight line function of x. That's h of x equals theta 0 plus theta 1 x, okay? And why a linear function? Well, sometimes we'll want to fit more complicated, perhaps non-linear functions as well. But since this linear case is the simple building block, we will start with this example first of fitting linear functions, and we will build on this to eventually have more complex models, and more complex learning algorithms. Let me also give this particular model a name. This model is called linear regression or this, for example, is actually linear regression with one variable, with the variable being x. Predicting all the prices as functions of one variable X. And another name for this model is univariate linear regression. And univariate is just a fancy way of saying one variable. So, that's linear regression." title="How to represent h?" width="300" >
-    </a>
-    + Machine Learning Flowchart (left fig)
-    + How do we represent $h$? (right fig)
-    + $h$: hypothesis function
-    + Linear regression with one variable $(x)$
-    + Univariate linear regression
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_ec21cea314b2ac7d9e627706501b5baa_Lecture2.pdf?Expires=1552003200&Signature=TGQs5L1O0PHw2SBFtYJ4q5n3rNLp0mWpKigVJHX~vOlMdHSuPvqHnyuQGUSCPtonZ-IFHiq3F~SWhBMrwxbzerZQlLdy9-SGe5UBrMDE0rOLj-mj5VO3QchKzHbRLnmyxGu-C65y2r-CV8wmRqvN5JpKOKeqGzpWT0mV8InqUoQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m02-02.png" style="margin: 0.1em;" alt="So here's how this supervised learning algorithm works. We saw that with the training set like our training set of housing prices and we feed that to our learning algorithm. Is the job of a learning algorithm to then output a function which by convention is usually denoted lowercase h and h stands for hypothesis And what the job of the hypothesis is, is, is a function that takes as input the size of a house like maybe the size of the new house your friend's trying to sell so it takes in the value of x and it tries to output the estimated value of y for the corresponding house. So h is a function that maps from x's to y's. People often ask me, you know, why is this function called hypothesis. Some of you may know the meaning of the term hypothesis, from the dictionary or from science or whatever. It turns out that in machine learning, this is a name that was used in the early days of machine learning and it kinda stuck. 'Cause maybe not a great name for this sort of function, for mapping from sizes of houses to the predictions, that you know.... I think the term hypothesis, maybe isn't the best possible name for this, but this is the standard terminology that people use in machine learning." title="ML Modeling Flow" width="350">
+      <img src="images/m02-03.png" style="margin: 0.1em;" alt="the next thing we need to decide is how do we represent this hypothesis h. For this and the next few videos, I'm going to choose our initial choice , for representing the hypothesis, will be the following. We're going to represent h as follows. And we will write this as h<u>theta(x) equals theta<u>0</u></u> plus theta<u>1 of x. And as a shorthand, sometimes instead of writing, you</u> know, h subscript theta of x, sometimes there's a shorthand, I'll just write as a h of x. But more often I'll write it as a subscript theta over there. And plotting this in the pictures, all this means is that, we are going to predict that y is a linear function of x. Right, so that's the data set and what this function is doing, is predicting that y is some straight line function of x. That's h of x equals theta 0 plus theta 1 x, okay? And why a linear function? Well, sometimes we'll want to fit more complicated, perhaps non-linear functions as well. But since this linear case is the simple building block, we will start with this example first of fitting linear functions, and we will build on this to eventually have more complex models, and more complex learning algorithms. Let me also give this particular model a name. This model is called linear regression or this, for example, is actually linear regression with one variable, with the variable being x. Predicting all the prices as functions of one variable X. And another name for this model is univariate linear regression. And univariate is just a fancy way of saying one variable. So, that's linear regression." title="How to represent h?" width="350">
+    </a></div>
+  </div>
+
+  + Machine Learning Flowchart (left fig)
+  + How do we represent $h$? (right fig)
+  + $h$: hypothesis function
+  + Linear regression with one variable $(x)$
+  + Univariate linear regression
 
 -----------------------------
 
@@ -68,24 +73,24 @@ When the target variable that we’re trying to predict is _continuous_, such as
 ### Lecture Notes
 
 + Training set -> Linear Regression <br/>
-    Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
-    + $\theta_i$: parameters
-    + How to choose $\theta_i$'s?
-    <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation"> <br/>
-      <img src="images/m02-04.png" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="450" >
+  Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
+  + $\theta_i$: parameters
+  + How to choose $\theta_i$'s?
+  <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation"> <br/>
+    <img src="images/m02-04.png" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="450" >
+  </a>
+  + IVQ: Consider the plot below of $h_\theta(x) = \theta_0 + \theta_1x$. What are $\theta_0$ and $\theta_1$?
+
+    <a href="url"> <br/>
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="caption" width="150" >
     </a>
-    + IVQ: Consider the plot below of $h_\theta(x) = \theta_0 + \theta_1x$. What are $\theta_0$ and $\theta_1$?
 
-      <a href="url"> <br/>
-          <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="caption" width="150" >
-      </a>
+    1) $\theta_0 = 0, \theta_1 = 1$ <br/>
+    2) $\theta_0 = 0.5, \theta_1 = 1$ <br/>
+    3) $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
+    4) $\theta_0 = 1, \theta_1 = 1$
 
-      1) $\theta_0 = 0, \theta_1 = 1$ <br/>
-      2) $\theta_0 = 0.5, \theta_1 = 1$ <br/>
-      3) $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
-      4) $\theta_0 = 1, \theta_1 = 1$
-
-          Ans: 2
+        Ans: 2
 
 + The cost function
   + Idea: Choose $\theta_0$, $\theta_1$ so that $h_\theta (x)$ is close to $y$ for our training examples $(x, y)$
@@ -130,31 +135,31 @@ This function is otherwise called the "Squared error function", or "Mean squared
 ### Lecture Notes
 
 + Linear Regression
-    + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
-    + Parameters: $\theta_0$, $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
-    + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
+  + Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
+  + Parameters: $\theta_0$, $\theta_1$
+  + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
+  + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
 
 + Simplified Linear Regression - $\theta_0 = 0$
-    + Hypothesis: $h_\theta (x) = \theta_1 \cdot x$
-    + Parameter: $\theta_1$
-    + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \quad$ and $\quad h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
-    + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_1)$
+  + Hypothesis: $h_\theta (x) = \theta_1 \cdot x$
+  + Parameter: $\theta_1$
+  + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \quad$ and $\quad h_\theta (x^{(i)}) = \theta_1 \cdot x^{(i)}$
+  + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_1)$
 
 + Example: samples - $(1, 1), (2, 2), (3, 3)$
-    + $h_\theta (x)$: $\forall \;$ fixed $\theta_1 \implies$ a function of $x$
-    + $J(\theta_1)$: function of the parameter $\theta_1$
-    + $\displaystyle \theta_1 = 1 \Longrightarrow J(\theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 = \displaystyle \frac{1}{2m} \sum_{i=1}^m (\theta_1 x^{(i)} - y^{(i)})^2 = \frac{1}{2m} (0 + 0 + 0)^2 = 0$.
-    + $\displaystyle \theta_1 = 0.5 \Longrightarrow J(\theta_1) = \frac{1}{2m} [(0.5 - 1)^2 + (1 - 2)^2 + (1.5 - 3)^2] = 0.58$
-    + IVQ: Suppose we have a training set with m=3 examples, plotted below. Our hypothesis representation is $h_\theta(x) = \theta_1 x$, with parameter $\theta_1$. The cost function $J(\theta_1)$ is $J(\theta_1) = \frac{1}{2m} \sum^m_{i=1} (h_\theta (x^{(i)}) - y^{(i)})^2$. What is $J(0)$?
+  + $h_\theta (x)$: $\forall \;$ fixed $\theta_1 \implies$ a function of $x$
+  + $J(\theta_1)$: function of the parameter $\theta_1$
+  + $\displaystyle \theta_1 = 1 \Longrightarrow J(\theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 = \displaystyle \frac{1}{2m} \sum_{i=1}^m (\theta_1 x^{(i)} - y^{(i)})^2 = \frac{1}{2m} (0 + 0 + 0)^2 = 0$.
+  + $\displaystyle \theta_1 = 0.5 \Longrightarrow J(\theta_1) = \frac{1}{2m} [(0.5 - 1)^2 + (1 - 2)^2 + (1.5 - 3)^2] = 0.58$
+  + IVQ: Suppose we have a training set with m=3 examples, plotted below. Our hypothesis representation is $h_\theta(x) = \theta_1 x$, with parameter $\theta_1$. The cost function $J(\theta_1)$ is $J(\theta_1) = \frac{1}{2m} \sum^m_{i=1} (h_\theta (x^{(i)}) - y^{(i)})^2$. What is $J(0)$?
 
-        Ans: $\displaystyle \theta_1 = 0 \Longrightarrow J(0) = \frac{1}{2m} [(0 - 1)^2 + (0 - 2)^2 + (0 - 3)^2] = \frac{1}{6} \cdot 14 \approx 2.3$
-    + Cost Function:
-        <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
-            <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="background-color: black; margin-right: 2em;" alt="Sample values" title="Samples" width="250" >
-            <img src="images/m02-21.png" style="background-color: black" alt="Cost function" title="Cost function" width="225" >
-        </a>
-    + Simplified hypothesis: $\theta_1 = 1$ with minimized cost function
+    Ans: $\displaystyle \theta_1 = 0 \Longrightarrow J(0) = \frac{1}{2m} [(0 - 1)^2 + (0 - 2)^2 + (0 - 3)^2] = \frac{1}{6} \cdot 14 \approx 2.3$
+  + Cost Function:
+    <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="background-color: black; margin-right: 2em;" alt="Sample values" title="Samples" width="250" >
+        <img src="images/m02-21.png" style="background-color: black" alt="Cost function" title="Cost function" width="225" >
+    </a>
++ Simplified hypothesis: $\theta_1 = 1$ with minimized cost function
 
 ---------------------------
 
@@ -276,10 +281,13 @@ The graph above minimizes the cost function as much as possible and consequently
     + keep changing $\Theta$ to reduce $J(\Theta)$ until we hopefully end up with at a minimum
 
 + Examples of Gradient Decent
-  <a href="url"> <br/>
-      <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="250" >
-      <img src="images/m02-25.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="400" >
-  </a>
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/gradient-descent">
+      <img src="images/m02-07.png" style="margin: 0.1em;" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="250">
+      <img src="images/m02-25.png" style="margin: 0.1em;" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="400">
+    </a></div>
+  </div>
 
 + Gradient descent algorithm
   + Def: repeat until convergence
