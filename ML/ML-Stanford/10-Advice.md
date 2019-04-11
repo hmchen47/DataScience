@@ -942,7 +942,7 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     5. We always prefer models with high variance (over those with high bias) as they will able to better fit the training set.
     6. When debugging learning algorithms, it is useful to plot a learning curve to understand if there is a high bias or high variance problem.
 
-    Ans: x36, x26(5326), x124(1234)
+    Ans: x36 (2356), x26(5326), x124(1234)
 
 
 
