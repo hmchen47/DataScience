@@ -10,7 +10,7 @@
 
   Suppose you have implemented regularized linear regression to predict housing prices.
 
-  $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^m \theta_j^2 \right]$$
+  $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right]$$
 
   + However, when you test your hypothesis your hypothesis on new set of houses, you find that it makes unacceptably large errors. You can do the following
 
@@ -86,11 +86,11 @@
   + Learn parameter $\theta$ from training data
   + compute test set error:
 
-    $$J_{test}(\theta) = 1\dfrac{1}{m_{test}} \sum_{i=1}^{m_{test}} \left[ y^{(i)}_{test} \log(h_\theta(x_{test}^{(i)})) + (1 - y_{test}^{(i)}) \log(1 - h_\theta(x_{test}^{(i)}))\right]$$
+    $$J_{test}(\theta) = -\dfrac{1}{m_{test}} \sum_{i=1}^{m_{test}} \left[ y^{(i)}_{test} \log(h_\theta(x_{test}^{(i)})) + (1 - y_{test}^{(i)}) \log(1 - h_\theta(x_{test}^{(i)}))\right]$$
 
   + Misclassification error (0/1 misclassification error):
 
-    $$\begin{array}{rcl} err(h_\theta(x),\; y) &=& \begin{cases} 1 & \text{if }\; h_\theta(x) \geq 0.5), \; y= 0 \\ & \text{or if } \;h_\theta(x) < 0.5, \;y = 1 \\ 0 & \text{otherwise} \end{cases} \\\\ \text{Test error} & = & \dfrac{1}{m_{test}} \sum_{i=1}^{m_{test}} err(h_\theta(x_{test}^{(i)}, \;y^{(i)} \end{array}$$
+    $$\begin{array}{rcl} err(h_\theta(x),\; y) &=& \begin{cases} 1 & \text{if }\; h_\theta(x) \geq 0.5, \; y= 0 \\ & \text{or if } \;h_\theta(x) < 0.5, \;y = 1 \\ 0 & \text{otherwise} \end{cases} \\\\ \text{Test error} & = & \dfrac{1}{m_{test}} \displaystyle \sum_{i=1}^{m_{test}} err(h_\theta(x_{test}^{(i)}), \;y^{(i)}) \end{array}$$
 
 
 
@@ -147,7 +147,7 @@ This gives us the proportion of the test data that was misclassified.
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://d3c33hcgiwev3.cloudfront.net/_b0cf48c6b7bc9f194310e6bc90dec220_Lecture10.pdf?Expires=1555113600&Signature=OWZGJ7XPJwSarMa5gOxrdIsbg9MrLI3PYOoU0xIUmL6-mFSvDZiEI4lNbfluPLil-D9IJ-UZsfqYXxfS~lJWQjCSp8ViScW120f3TI8xP9ap7OKvfuy5lCRNxldId0P75~PLG02kcda72mRsQllNBELdztCt3l99AUaFPopIRlM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-      <img src="images/m10-01.png" style="margin: 0.1em;" alt="The diagram illustrates a overfit polynomial for a given dataset." title="Overfitting example" width="150">
+      <img src="images/m10-01.png" style="margin: 0.1em;" alt="The diagram illustrates a overfit polynomial for a given dataset." title="Overfitting example" width="250">
     </a></div>
   </div>
 
@@ -176,7 +176,7 @@ This gives us the proportion of the test data that was misclassified.
 
   + Cross Validation error:
 
-    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x^{(i)}_{cv}) - y^{(i)_{cv}})^2$$
+    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x^{(i)}_{cv}) - y^{(i)}_{cv})^2$$
 
   + Test error: 
 
@@ -312,7 +312,7 @@ The is summarized in the figure below:
 #### Lecture Notes
 
 + Linear regression with regularization
-  + Model: $h_\theta(x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4$$
+  + Model: $h_\theta(x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4$
 
     $$J(\theta) = \dfrac{1}{2m} \sum(h_\theta(x^{(i)}) - y^{(i)})^2 + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$$
 
@@ -324,17 +324,17 @@ The is summarized in the figure below:
 
 + Choosing the regularization parameter $\lambda$
 
-  $$\begin{array}{rcl} h_\theta) &=& \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4 \\ J(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta_j^2 \\\\ J_{train}(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ J_{cv}(\theta) &=& \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x_{cv}^{(i)}) - y_{cv}^{(i)})^2 \\J_{test}(\theta) &=& \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x_{test}^{(i)}) - y_{test}^{(i)})^2 \end{array}$$
+  $$\begin{array}{rcl} h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4 \\ J(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta_j^2 \\\\ J_{train}(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ J_{cv}(\theta) &=& \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x_{cv}^{(i)}) - y_{cv}^{(i)})^2 \\J_{test}(\theta) &=& \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x_{test}^{(i)}) - y_{test}^{(i)})^2 \end{array}$$
 
-  $ 1. \lambda = 0.00 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(1)} \;\rightarrow\; J_{cv}(\theta^{(1)})$<br/>
-  $ 2. \lambda = 0.01 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(2)} \;\rightarrow\; J_{cv}(\theta^{(2)})$<br/>
-  $ 3. \lambda = 0.02 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(3)} \;\rightarrow\; J_{cv}(\theta^{(3)})$<br/>
-  $ 4. \lambda = 0.04 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(4)} \;\rightarrow\; J_{cv}(\theta^{(4)})$<br/>
-  $ 5. \lambda = 0.08 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(5)} \;\rightarrow\; J_{cv}(\theta^{(5)})$<br/>
+  $ 1. \;\;\lambda = 0.00 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(1)} \;\rightarrow\; J_{cv}(\theta^{(1)})$<br/>
+  $ 2. \;\;\lambda = 0.01 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(2)} \;\rightarrow\; J_{cv}(\theta^{(2)})$<br/>
+  $ 3. \;\;\lambda = 0.02 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(3)} \;\rightarrow\; J_{cv}(\theta^{(3)})$<br/>
+  $ 4. \;\;\lambda = 0.04 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(4)} \;\rightarrow\; J_{cv}(\theta^{(4)})$<br/>
+  $ 5. \;\;\lambda = 0.08 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(5)} \;\rightarrow\; J_{cv}(\theta^{(5)})$<br/>
   ...<br/>
   $12. \lambda = 10.24 \approx 10 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(12)} \;\rightarrow\; J_{cv}(\theta^{(12)})$
 
-  pick (say with lowest $J(\theta)$ value) $\quad\theta^{(5)} \;\rightarrow\; \text{Test error: } J_{test}(\theta^{(5)}$
+  pick (say with lowest $J(\theta)$ value) $\quad\theta^{(5)} \;\rightarrow\; \text{Test error: } J_{test}(\theta^{(5)})$
 
 + Bias/Variance as a function of the regularization parameter $\lambda$
 
@@ -379,11 +379,9 @@ The is summarized in the figure below:
   6. Compute the train error using the learned $\theta$ (computed with λ ) on the $J_{train}(\theta)$ without regularization or $\lambda = 0$;
   7. Compute the cross validation error using the learned $\theta$ (computed with λ) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$;
   8. Do this for the entire model set and lambdas, then select the best combo that produces the lowest error on the cross validation set;
-  9. Now if you need visualize to help you understand your decision, you can plot to the figure like above with: ($\lambda \times J_{train}(\theta)$ and ($\lambda \times J_{cv}(\theta)$);
+  9. Now if you need visualize to help you understand your decision, you can plot to the figure like above with: ($\lambda \times J_{train}(\theta)$) and ($\lambda \times J_{cv}(\theta)$);
   10. Now using the best combo $\theta$ and $\lambda$, apply it on $J_{cv}(\theta)$ to see if it has a good generalization of the problem.
   11. To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.
-
-
 
 
 -----------------------------------------------------------
@@ -578,7 +576,7 @@ Our decision process can be broken down as follows:
 + __Adding features__: Fixes high bias
 + __Adding polynomial features__: Fixes high bias
 + __Decreasing $\lambda$__: Fixes high bias
-+ __Increasing $\lambda__: Fixes high variance.
++ __Increasing $\lambda$__: Fixes high variance.
 
 
 __Diagnosing Neural Networks__
@@ -885,5 +883,63 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
 
 ### Quiz: Advice for Applying Machine Learning
 
+1. You train a learning algorithm, and find that it has unacceptably high error on the test set. You plot the learning curve, and obtain the figure below. Is the algorithm suffering from high bias, high variance, or neither?
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/w1FgU/advice-for-applying-machine-learning">
+      <img src="images/e10-01.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.1" width="250">
+      <img src="images/e10-02.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.2" width="250">
+    </a></div>
+  </div>
+
+    1. High bias
+    2. High variance
+    3. Neither
+
+    Ans: 2(Fig.1), 1 (Fig.2)
+
+
+2. Suppose you have implemented regularized logistic regression to classify what object is in an image (i.e., to do object recognition). However, when you test your hypothesis on a new set of images, you find that it makes unacceptably large errors with its predictions on the new images. However, your hypothesis performs __well__ (has low error) on the training set. Which of the following are promising steps to take? Check all that apply.
+
+    1. Use fewer training examples.
+    2. Get more training examples.
+    3. Try using a smaller set of features.
+    4. Try adding polynomial features.
+    5. Try using a smaller set of features.
+    6. Try evaluating the hypothesis on a cross validation set rather than the test set.
+    7. Try decreasing the regularization parameter $\lambda$.
+    8. Try increasing the regularization parameter $\lambda$.
+
+    Ans:  23(1234)
+
+
+3. Suppose you have implemented regularized logistic regression to predict what items customers will purchase on a web shopping site. However, when you test your hypothesis on a new set of customers, you find that it makes unacceptably large errors in its predictions. Furthermore, the hypothesis performs __poorly__ on the training set. Which of the following might be promising steps to take? Check all that apply.
+
+    1. Try adding polynomial features.
+    2. Try evaluating the hypothesis on a cross validation set rather than the test set.
+    3. Use fewer training examples.
+    4. Try decreasing the regularization parameter $\lambda$.
+
+    Ans: x124(1234)
+
+
+4. Which of the following statements are true? Check all that apply.
+
+    1. Suppose you are training a regularized linear regression model.The recommended way to choose what value of regularization parameter $\lambda$ to use is to choose the value of $\lambda$ which gives the lowest __training set__ error.
+    2. Suppose you are training a regularized linear regression model. The recommended way to choose what value of regularization parameter $\lambda$ to use is to choose the value of $\lambda$ which gives the lowest __cross validation__ error.
+    3. The performance of a learning algorithm on the training set will typically be better than its performance on the test set.
+    4. Suppose you are training a regularized linear regression model. The recommended way to choose what value of regularization parameter $\lambda$ to use is to choose the value of $\lambda$ which gives the lowest __test set__ error.
+
+    Ans: x234(1234)
+
+
+5. Which of the following statements are true? Check all that apply.
+
+    1. A model with more parameters is more prone to overfitting and typically has higher variance.
+    2. If a learning algorithm is suffering from high variance, adding more training examples is likely to improve the test error.
+    3. If a learning algorithm is suffering from high bias, only adding more training examples may __not__ improve the test error significantly.
+    4. If the training and test errors are about the same, adding more features will __not__ help improve the results.
+
+    Ans: x124(1234)
 
 
