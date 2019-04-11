@@ -272,7 +272,11 @@
     + 3.4 [Computing test set error (Optional)](ex05.md#)
     + 3.5 [Plotting learning curves with randomly selected (Optional)](ex05.md#)
 + [Programming Ex.5](ex05.md#)
-+ [Ex6 Tutorials](ex05.md#)
++ [Ex5 Tutorials](ex05.md#)
+    + [ex5 tutorial linearRegCostFunction](ex05.md#)
+    + [Tutorial for polyFeatures()](ex05.md#)
+    + [ex5: tips for learningCurve()](ex05.md#)
+    + [Validation curve question](ex05.md#)
 
 
 
