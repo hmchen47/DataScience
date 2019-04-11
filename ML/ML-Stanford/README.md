@@ -258,5 +258,22 @@
 
 ## Programming Assignment: Regularized Linear Regression and Bias/Variance
 
++ 1 [Regularized Linear Regression](ex05.md#)
+    + 1.1 [Visualizing the dataset](ex05.md#)
+    + 1.2 [Regularized linear regression cost function](ex05.md#)
+    + 1.3 [Regularized linear regression gradient](ex05.md#)
+    + 1.4 [Fitting linear regression](ex05.md#)
++ 2 [Bias-variance](ex05.md#)
+    + 2.1 [Learning curves](ex05.md#)
++ 3 [Polynomial regression](ex05.md#)
+    + 3.1 [Learning Polynomial Regression](ex05.md#)
+    + 3.2 [Adjusting the regularization parameter (Optional)](ex05.md#)
+    + 3.3 [Selecting $\lambda$ using a cross validation set](ex05.md#)
+    + 3.4 [Computing test set error (Optional)](ex05.md#)
+    + 3.5 [Plotting learning curves with randomly selected (Optional)](ex05.md#)
++ [Programming Ex.5](ex05.md#)
++ [Ex6 Tutorials](ex05.md#)
+
+
 
 
