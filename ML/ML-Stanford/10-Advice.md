@@ -143,12 +143,88 @@ This gives us the proportion of the test data that was misclassified.
 
 #### Lecture Notes
 
++ Overfitting example
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_b0cf48c6b7bc9f194310e6bc90dec220_Lecture10.pdf?Expires=1555113600&Signature=OWZGJ7XPJwSarMa5gOxrdIsbg9MrLI3PYOoU0xIUmL6-mFSvDZiEI4lNbfluPLil-D9IJ-UZsfqYXxfS~lJWQjCSp8ViScW120f3TI8xP9ap7OKvfuy5lCRNxldId0P75~PLG02kcda72mRsQllNBELdztCt3l99AUaFPopIRlM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m10-01.png" style="margin: 0.1em;" alt="The diagram illustrates a overfit polynomial for a given dataset." title="Overfitting example" width="150">
+    </a></div>
+  </div>
+
+  Once parameter $\theta_1, \theta_2, \theta_3, \theta_4$ were fit to some set of data (training set), the error of the parameters as measured on that data (the training error $J(\theta)$) is like;y to be lower that the actual generalization error.
+
++ Model selection ($d\;$ = degree of polynomial)
+
+  $$\begin{array}{crclcccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad & \theta^{(1)} & \quad\rightarrow\quad & J_{test}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad & \theta^{(2)} & \quad\rightarrow\quad & J_{test}(\theta^{(2)}) \\d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad & \theta^{(3)} & \quad\rightarrow\quad & J_{test}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad & \theta^{(10)} & \quad\rightarrow\quad & J_{test}(\theta^{(10)}) \end{array}$$
+
+  + Choose $\theta_0 + \ldots + \theta_5 x^5$
+  + How well does the model generalize? Report test set error $J_{test}(\theta^{(5)})$
+  + Problem: $J_{test}(\theta^{(5)})$ is likely yo be the optimistic estimate of generalization error. I.e., out extra parameter ($d$ = degree of polynomial) is fit to test set.
+
++ Evaluate hypothesis
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/cv.png" style="margin: 0.1em;" alt="Split dataset into 3 categories: training (60%), cross validation (20%), and test (20%)" title="Evaluation model with 3 split categories" width="450">
+    </a></div>
+  </div>
+
++ Train/validation/test error
+  + Training error:
+
+    $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$$
+
+  + Cross Validation error:
+
+    $$J_{CV}(\theta) = \dfrac{1}{2m_{CV}} \sum_{i=1}^{m_{CV}} (h_\theta(x^{(i)}_{CV}) - y^{(i)_{CV}})^2$$
+
+  + Test error: 
+
+  $$J_{test}(\theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x^{(i)}_{test}) - y^{(i)}_{test})^2$$
+
++ Model selection
+
+  $$\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{CV}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{CV}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{CV}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{CV}(\theta^{(10)}) \end{array}$$
+
+  + Pick $\theta_0 + \theta_1 x + \ldots + \theta_4 x^4$
+  + Estimate generalization error for test set $J_{test}(\theta^{(4)})$
+
++ IVQ: Consider the model selection procedure where we choose the degree of polynomial using a cross validation set. For the final model (with parameters $\theta$), we might generally expect $J_{\text{CV}}(\theta)$ To be lower than $J_\text{test}(\theta)$ because:
+
+  1. An extra parameter ($d$, the degree of the polynomial) has been fit to the cross validation set.
+  2. An extra parameter ($d$, the degree of the polynomial) has been fit to the test set.
+  3. The cross validation set is usually smaller than the test set.
+  4. The cross validation set is usually larger than the test set.
+
+  Ans: 1
+
+
+
+------------------------------------------------------
+
+Just because a learning algorithm fits a training set well, that does not mean it is a good hypothesis. It could over fit and as a result your predictions on the test set would be poor. The error of your hypothesis as measured on the data set with which you trained the parameters will be lower than the error on any other data set.
+
+Given many models with different polynomial degrees, we can use a systematic approach to identify the 'best' function. In order to choose the model of your hypothesis, you can test each degree of polynomial and look at the error result.
+
+One way to break down our dataset into the three sets is:
+
++ Training set: 60%
++ Cross validation set: 20%
++ Test set: 20%
+
+We can now calculate three separate error values for the three different sets using the following method:
+
+1. Optimize the parameters in $\theta$ using the training set for each polynomial degree.
+2. Find the polynomial degree $d$ with the least error using the cross validation set.
+3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error);
+
+This way, the degree of the polynomial $d$ has not been trained using the test set.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/10.3-AdviceForApplyingMachineLearning-ModelSelectionAndTrainValidationTestSets.c9df62b01ceb11e49e31953afc6bb754/full/360p/index.mp4?Expires=1555113600&Signature=f83LTszL7tUV-qrIP~i~luuNOZ2jvA9BwdVL1mDwHwmq-yUQljxeP~4rfbolWqdJjemOMBE1ANd~Ny02YKIwSLmJHl5FsHKftLxLOs8~zO6LS07fW7QRxGOYJVsQ1THjY9HS8mV~AI7J0t-o-01p5sy43d~TKXXigTy9b-bqov8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/73vkBMPVSNm75ATD1bjZAQ?expiry=1555113600000&hmac=-pmp31l2n-vgfxKCAQcSG0YcFjD9oTN_tuYplDbUOdc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
