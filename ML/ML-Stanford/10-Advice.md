@@ -361,6 +361,29 @@ The is summarized in the figure below:
 
     Ans: Fig.4
 
++ Relationship between lambda and the hypothesis:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/">
+    <img src="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/7.png" style="margin: 0.1em;" alt="The diagram shows the regularization and Cost function, the increase of the lambda will result in increase of cost value while the cost of cross validation cost value will decrease and then increase.  With high cost and cross validation cost values, the model is with high bias (underfitting).  With low cost error and high cross validation error, the model exhibits high variance (overfitting)." title="Relationship between lambda and the hypothesis" width="250">
+  </a></div>
+</div>
+
++ [Procedure to choose the model and the regularization $\lambda$](http://www.saberismywife.com/2016/12/13/Machine-Learning-6/)
+
+1. Create a list of lambda (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
+2. Select a lambda to compute;
+3. Create a model set like degree of the polynomial or others;
+4. Select a model to learn $\theta$;
+5. Learn the parameter $\theta$ for the model selected, using $J_{train}(\theta)$ with λ selected (this will learn $\theta$ for the next step);
+6. Compute the train error using the learned $\theta$ (computed with λ ) on the $J_{train}(\theta)$ without regularization or $\lambda = 0$;
+7. Compute the cross validation error using the learned $\theta$ (computed with λ) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$;
+8. Do this for the entire model set and lambdas, then select the best combo that produces the lowest error on the cross validation set;
+9. Now if you need visualize to help you understand your decision, you can plot to the figure like above with: ($\lambda \times J_{train}(\theta)$ and ($\lambda \times J_{cv}(\theta)$);
+10. Now using the best combo $\theta$ and $\lambda$, apply it on $J_{cv}(\theta)$ to see if it has a good generalization of the problem.
+11. To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.
+
+
 
 
 -----------------------------------------------------------
