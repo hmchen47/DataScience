@@ -348,7 +348,7 @@ The is summarized in the figure below:
 
     $$\begin{array}{rcl} J_{train}(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ J_{cv}(\theta) &=& \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x_{cv}^{(i)}) - y_{cv}^{(i)})^2 \\J_{test}(\theta) &=& \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x_{test}^{(i)}) - y_{test}^{(i)})^2 \end{array}$$
 
-    Suppose you plot $J_\text{train}$ and $J_\text{CV}$ as a function of the regularization parameter $\lambda$. which of the following plots do you expect to get?
+    Suppose you plot $J_\text{train}$ and $J_\text{cv}$ as a function of the regularization parameter $\lambda$. which of the following plots do you expect to get?
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="url">
@@ -401,7 +401,7 @@ In the figure above, we see that as $\lambda$ increases, our fit becomes more ri
 1. Create a list of lambdas (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
 2. Create a set of models with different degrees or any other variants.
 3. Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\theta$.
-4. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{CV}(\theta)$ without regularization or $\lambda = 0$.
+4. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$.
 5. Select the best combo that produces the lowest error on the cross validation set.
 6. Using the best combo $\theta$ and $\lambda$, apply it on $J_{test}(\theta)$ to see if it has a good generalization of the problem.
 
@@ -475,8 +475,8 @@ In the figure above, we see that as $\lambda$ increases, our fit becomes more ri
 
   1. Algorithm is suffering from high bias.
   2. Algorithm is suffering from high variance.
-  3. $J_\text{CV}(\theta)$ (cross validation error) is much larger than $J_\text{train}(\theta)$ (training error).
-  4. $J_\text{CV}(\theta)$ (cross validation error) is about the same as $J_\text{train}(\theta)$ (training error).
+  3. $J_\text{cv}(\theta)$ (cross validation error) is much larger than $J_\text{train}(\theta)$ (training error).
+  4. $J_\text{cv}(\theta)$ (cross validation error) is about the same as $J_\text{train}(\theta)$ (training error).
 
   Ans: 23
 
@@ -530,14 +530,75 @@ If a learning algorithm is suffering from __high variance__, getting more traini
 
 #### Lecture Notes
 
++ Debugging a learning algorithm
+
+  Suppose you have implemented regularized linear regression to predict housing prices.  However, when you test your hypothesis in a new set of houses, you find that it makes unacceptably large error in its prediction.  What should you try next?
+
+  + Get more training data: Fixes high variance
+  + Smaller set of features: Fixes high variance (Features are too complicated)
+  + Get additional features: Fixes high bias (Features are too simple)
+  + Try adding polynomial features: Fixes high bias ($d$ too low)
+  + Try decreasing lambda: Fixes high bias (Because you would have a smaller regularized term, giving more importance to other features)
+  + Try increasing lambda: Fixes high variance (Because you would have a larger regularized term, giving less importance to other features)
+
++ Neural networks and overfitting
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/nn_overfit.png" style="margin: 0.1em;" alt="Small neural network prone to underfit while complex neural network tends to overfitting" title="Control bias/variance with neural network" width="450">
+    </a></div>
+  </div>
+
+  + Small neural network: (typical)
+    + 1 hidden layer
+    + 1 input layer
+    + 1 output layer
+    + Computationally cheaper
+  + Large neural network (typical)
+    + Multiple hidden layers
+    + 1 input layer
+    + 1 output layer
+    + Computationally expensive
+  + IVQ: Suppose you fit a neural network with one hidden layer to a training set. You find that the cross validation error $J_\text{CV}(\theta)$ is much larger than the training error $J_\text{train}(\theta)$. Is increasing the number of hidden units likely to help?
+
+    1. Yes, because this increases the number of parameters and lets the network represent more complex functions.
+    2. Yes, because it is currently suffering from high bias.
+    3. No, because it is currently suffering from high bias, so adding hidden units is unlikely to help.
+    4. No, because it is currently suffering from high variance, so adding hidden units is unlikely to help.
+
+    Ans: 4
 
 
+---------------------------------------------------------------
+
+Our decision process can be broken down as follows:
+
++ __Getting more training examples__: Fixes high variance
++ __Trying smaller sets of features__: Fixes high variance
++ __Adding features__: Fixes high bias
++ __Adding polynomial features__: Fixes high bias
++ __Decreasing $\lambda$__: Fixes high bias
++ __Increasing $\lambda__: Fixes high variance.
+
+
+__Diagnosing Neural Networks__
+
++ A neural network with fewer parameters is __prone to underfitting__. It is also __computationally cheaper__.
++ A large neural network with more parameters is __prone to overfitting__. It is also __computationally expensive__. In this case you can use regularization (increase λ) to address the overfitting.
+
+Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using your cross validation set. You can then select the one that performs best.
+
+__Model Complexity Effects:__
+
++ Lower-order polynomials (low model complexity) have high bias and low variance. In this case, the model fits poorly consistently.
++ Higher-order polynomials (high model complexity) fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance.
++ In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/10.7-AdviceForApplyingMachineLearning-DecidingWhatToDoNextRevisited.09766750b22b11e487451d0772c554c0/full/360p/index.mp4?Expires=1555113600&Signature=Re12eh94KdIUm06bYJtj5MmNmQBvLiSLDgq3TyPr8M8QndCtFr9Jk5QN-eUgwdsZAL37veQ~vuhMsHYUxUY523ci9ruCCm0eRkoU6u~rGUNNz4Ryq48hgNDGQg6WXruO2iFqC15iJvuyB314QLzE9voo2-5R1XNVJ2vPr3z-b-E_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/GUxhCJgGTFiMYQiYBjxYaA?expiry=1555113600000&hmac=oG3hLgP0LWkA2UHrqBtKImg1dqTAg0heAvB7n_cvF9s&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
