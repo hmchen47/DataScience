@@ -910,7 +910,7 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     7. Try decreasing the regularization parameter $\lambda$.
     8. Try increasing the regularization parameter $\lambda$.
 
-    Ans:  23(1234)
+    Ans: 58(5678), 23(1234)
 
 
 3. Suppose you have implemented regularized logistic regression to predict what items customers will purchase on a web shopping site. However, when you test your hypothesis on a new set of customers, you find that it makes unacceptably large errors in its predictions. Furthermore, the hypothesis performs __poorly__ on the training set. Which of the following might be promising steps to take? Check all that apply.
@@ -920,7 +920,7 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     3. Use fewer training examples.
     4. Try decreasing the regularization parameter $\lambda$.
 
-    Ans: x124(1234)
+    Ans: 14, x124(1234)
 
 
 4. Which of the following statements are true? Check all that apply.
@@ -930,7 +930,7 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     3. The performance of a learning algorithm on the training set will typically be better than its performance on the test set.
     4. Suppose you are training a regularized linear regression model. The recommended way to choose what value of regularization parameter $\lambda$ to use is to choose the value of $\lambda$ which gives the lowest __test set__ error.
 
-    Ans: x234(1234)
+    Ans: x24, x234(1234)
 
 
 5. Which of the following statements are true? Check all that apply.
@@ -939,7 +939,11 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     2. If a learning algorithm is suffering from high variance, adding more training examples is likely to improve the test error.
     3. If a learning algorithm is suffering from high bias, only adding more training examples may __not__ improve the test error significantly.
     4. If the training and test errors are about the same, adding more features will __not__ help improve the results.
+    5. We always prefer models with high variance (over those with high bias) as they will able to better fit the training set.
+    6. When debugging learning algorithms, it is useful to plot a learning curve to understand if there is a high bias or high variance problem.
 
-    Ans: x124(1234)
+    Ans: x26(5326), x124(1234)
+
+
 
 
