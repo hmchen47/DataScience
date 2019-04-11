@@ -10,20 +10,19 @@
 
   Suppose you have implemented regularized linear regression to predict housing prices.
 
-  $$J(\Theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^m \theta_j^2 \right]$$
+  $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^m \theta_j^2 \right]$$
 
-  However, when you test your hypothesis your hypothesis on new set of houses, you find that it makes unacceptably large errors You can do the following
+  + However, when you test your hypothesis your hypothesis on new set of houses, you find that it makes unacceptably large errors. You can do the following
 
     + Get more training data
     + Smaller set of features
     + Get additional features
-    + Try adding polynomial features
+    + Try adding polynomial features ($x_1^2, x_2^2, x_1x_2,$ etc.)
     + Try decreasing lambda
     + Try increasing lambda
 
-  Typically people randomly choose these avenues and then figure out it may not be suitable
-  
-  There is a simple technique to weed out avenues that are not suitable
+  + Typically people randomly choose these avenues and then figure out it may not be suitable
+  + There is a simple technique to weed out avenues that are not suitable
 
 
 + Machine Learning Diagnostic
@@ -53,12 +52,88 @@
 
 #### Lecture Notes
 
++ Evaluating your hypothesis
+  
+  Fails to generalize to new examples not in training set
+
+  $$\begin{array}{rclcrcl} x_1 & = & \text{size of house} & \qquad & x_2 & = & \text{no. of bedrooms} \\ x_3 & = & \text{no. of floors} &\qquad & x_4 & = & \text{age of house} \\ x_5 & = & \text{average income in neighborhood} & \qquad & x_6 & = & \text{kitchen size} \\ & & & \cdots \\ x_{100} & & \cdots \end{array}$$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_b0cf48c6b7bc9f194310e6bc90dec220_Lecture10.pdf?Expires=1555113600&Signature=OWZGJ7XPJwSarMa5gOxrdIsbg9MrLI3PYOoU0xIUmL6-mFSvDZiEI4lNbfluPLil-D9IJ-UZsfqYXxfS~lJWQjCSp8ViScW120f3TI8xP9ap7OKvfuy5lCRNxldId0P75~PLG02kcda72mRsQllNBELdztCt3l99AUaFPopIRlM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m10-01.png" style="margin: 0.1em;" alt="Overfit with non-linear regression function on house prices" title="Non-linear regression function for house prices" width="250">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/test.png" style="margin: 0.1em;" alt="Exhibit the splitting of dataset for training and test" title="Dataset splitting" width="450">
+    </a></div>
+  </div>
+
+  + $m_{test}\;$: no. of test sample
+  + $(x^{(i)}_{test},\; y^{(i)})\;$: $i$-th sample of the test samples
+  + Typical proportions of training and test dataset: $70\%$ vs $30\%$
+  + IVQ: Suppose an implementation of linear regression (without regularization) is badly overfitting the training set. In this case, we would expect:
+    
+    1. The training error $J(\theta)$ to be __low__ and the test error $J_{\text{test}}(\theta)$ to be __high__
+    2. The training error $J(\theta)$ to be __low__ and the test error $J_{\text{test}}(\theta)$ to be __low__
+    3. The training error $J(\theta)$ to be __high__ and the test error $J_{\text{test}}(\theta)$ to be __low__
+    4. The training error $J(\theta)$ to be __high__ and the test error $J_{\text{test}}(\theta)$ to be __high__
+
+    Ans: 1
+
+
++ Training/testing procedure for linear regression
+  + Learn parameter $\theta$ from training data (minimizing training error $J(\theta)$); $70\%$ of the whole dataset
+  + Compute test set error (another $30\%$): $J_{test} (\theta) = \dfrac{1}{2m_{test}} \displaystyle \sum_{i=1}^{m_{test}} (h_\theta(x^{(i)}_{test}) - y^{(i)}_{test})^2$
+
++ Training/testing procedure for logistic regression
+  + Learn parameter $\theta$ from training data
+  + compute test set error:
+
+    $$J_{test}(\theta) = 1\dfrac{1}{m_{test}} \sum_{i=1}^{m_{test}} \left[ y^{(i)}_{test} \log(h_\theta(x_{test}^{(i)})) + (1 - y_{test}^{(i)}) \log(1 - h_\theta(x_{test}^{(i)}))\right]$$
+
+  + Misclassification error (0/1 misclassification error):
+
+    $$\begin{array}{rcl} err(h_\theta(x),\; y) &=& \begin{cases} 1 & \text{if }\; h_\theta(x) \geq 0.5), \; y= 0 \\ & \text{or if } \;h_\theta(x) < 0.5, \;y = 1 \\ 0 & \text{otherwise} \end{cases} \\\\ \text{Test error} & = & \dfrac{1}{m_{test}} \sum_{i=1}^{m_{test}} err(h_\theta(x_{test}^{(i)}, \;y^{(i)} \end{array}$$
+
+
+
+-----------------------------------------------------------
+
+Once we have done some trouble shooting for errors in our predictions by:
+
++ Getting more training examples
++ Trying smaller sets of features
++ Trying additional features
++ Trying polynomial features
++ Increasing or decreasing $\lambda$
+
+We can move on to evaluate our new hypothesis.
+
+A hypothesis may have a low error for the training examples but still be inaccurate (because of overfitting). Thus, to evaluate a hypothesis, given a dataset of training examples, we can split up the data into two sets: a training set and a test set. Typically, the training set consists of 70% of your data and the test set is the remaining 30%.
+
+The new procedure using these two sets is then:
+
++ Learn $\theta$ and minimize $J_{train}(\theta)$ using the training set
++ Compute the test set error $J_{test}(\theta)$
+
+
+__The test set error__
+
+1. For linear regression: $J_{test}(\theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x^{(i)}_{test}) − y^{(i)}_{test})^2$
+2. For classification ~ Misclassification error (aka 0/1 misclassification error):
+
+  $$err(h_\theta(x), \;y) = \begin{cases} 1 & \text{if } h_\theta(x) \geq 0.5 \text{ and } y=0 \\ & \text{or } h_\theta(x)< 0.5 \text{ and } y=1 \\ 0 & \text{otherwise} \end{cases}$$
+
+This gives us a binary 0 or 1 error result based on a misclassification.
+
+The average test error for the test set is
+
+$$\text{Test Error } = \dfrac{1}{m_{test}} \sum_{i=1}^{m_{test}} err(h_\theta(x^{(i)}_{test}),y^{(i)}_{test})$$
+
+This gives us the proportion of the test data that was misclassified.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/10.2-AdviceForApplyingMachineLearning-EvaluatingAHypothesis.c45721e0b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1555113600&Signature=AOmEgzbFWI4VWblh9HkZ0dc0vbrjOGoBPMo5sexdwaYRAZQVRtLIJkuuplZs3XsG8gxMhQk0JVSr6h-5OpGSpVMUxh8hR6gFq3s2MsMO3KJMWabn6h6IdlMsbI4LVSV1QSEVTBYJnMAhYB4d8O61XMCNNonW3KtylV7guAMC3Xc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dXB5OF6rRQWweTheq9UFfg?expiry=1555113600000&hmac=4YMcKQ7w0fWeNrFHD26ofOvS9lilneN4vNiAgYl6IQw&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -166,22 +241,22 @@ With a given dataset of training examples, we can split up the data into two set
 
 The new procedure using these two sets is then:
 
-1. Learn \Theta and minimize $J_{train}(\Theta)$ using the training set
-2. Compute the test set error $J_{test}(\Theta)$
+1. Learn \theta and minimize $J_{train}(\theta)$ using the training set
+2. Compute the test set error $J_{test}(\theta)$
 
 
 __The test set error__
 
-1. For linear regression: $J_{test}(\Theta) = \frac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\Theta(x^{(i)}_{test}) − y^{(i)}_{test})^2$
+1. For linear regression: $J_{test}(\theta) = \frac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x^{(i)}_{test}) − y^{(i)}_{test})^2$
 2. For classification ~ Misclassification error (aka 0/1 misclassification error):
 
-  $$err(h_\Theta(x),y) = \begin{cases} 1 & \text{if } h_\Theta(x) \geq 0.5 \text{ and } y=0 \text{ or } h_\Theta(x)<0.5 \text{ and } y=1 \\ 0 & \text{otherwise} \end{cases}$$
+  $$err(h_\theta(x),y) = \begin{cases} 1 & \text{if } h_\theta(x) \geq 0.5 \text{ and } y=0 \text{ or } h_\theta(x)<0.5 \text{ and } y=1 \\ 0 & \text{otherwise} \end{cases}$$
 
 This gives us a binary 0 or 1 error result based on a misclassification.
 
 The average test error for the test set is
 
-$$\text{Test Error } = \dfrac{1}{m_{test}} \sum_{i=1}^{test} err(h_\Theta(x^{(i)}_{test}),y^{(i)}_{test})$$
+$$\text{Test Error } = \dfrac{1}{m_{test}} \sum_{i=1}^{test} err(h_\theta(x^{(i)}_{test}),y^{(i)}_{test})$$
 
 This gives us the proportion of the test data that was misclassified.
 
@@ -194,9 +269,9 @@ In order to choose the model of your hypothesis, you can test each degree of pol
 
 __Without the Validation Set (note: this is a bad method - do not use it)__
 
-1. Optimize the parameters in \Theta using the training set for each polynomial degree.
+1. Optimize the parameters in \theta using the training set for each polynomial degree.
 2. Find the polynomial degree d with the least error using the test set.
-3. Estimate the generalization error also using the test set with $J_{test}(\Theta^{(d)})$, (d = theta from polynomial with lower error);
+3. Estimate the generalization error also using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error);
 
 In this case, we have trained one variable, d, or the degree of the polynomial, using the test set. This will cause our error value to be greater for any other set of data.
 
@@ -215,9 +290,9 @@ We can now calculate three separate error values for the three different sets.
 
 __With the Validation Set (note: this method presumes we do not also use the CV set for regularization)__
 
-1. Optimize the parameters in \Theta using the training set for each polynomial degree.
+1. Optimize the parameters in \theta using the training set for each polynomial degree.
 2. Find the polynomial degree d with the least error using the cross validation set.
-3. Estimate the generalization error using the test set with $J_{test}(\Theta^{(d)})$, (d = theta from polynomial with lower error);
+3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error);
 
 This way, the degree of the polynomial d has not been trained using the test set.
 
@@ -234,9 +309,9 @@ The training error will tend to __decrease__ as we increase the degree d of the 
 
 At the same time, the cross validation error will tend to __decrease__ as we increase d up to a point, and then it will __increase__ as d is increased, forming a convex curve.
 
-__High bias (underfitting)__: both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ will be high. Also, $J_{CV}(\Theta) \approx J_{train}(\Theta)$.
+__High bias (underfitting)__: both $J_{train}(\theta)$ and $J_{CV}(\theta)$ will be high. Also, $J_{CV}(\theta) \approx J_{train}(\theta)$.
 
-__High variance (overfitting)__: $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be much greater than $J_{train}(\Theta)$.
+__High variance (overfitting)__: $J_{train}(\theta)$ will be low and $J_{CV}(\theta)$ will be much greater than $J_{train}(\theta)$.
 
 The is represented in the figure below:
 
@@ -255,19 +330,19 @@ Instead of looking at the degree d contributing to bias/variance, now we will lo
 + Intermediate $\lambda\;$: just right
 + Small $\lambda\;$: High variance (overfitting)
 
-A large lambda heavily penalizes all the \Theta parameters, which greatly simplifies the line of our resulting function, so causes underfitting.
+A large lambda heavily penalizes all the \theta parameters, which greatly simplifies the line of our resulting function, so causes underfitting.
 
 The relationship of \lambda to the training set and the variance set is as follows:
 
-+ Low $\lambda\;$: $J_{train}(\Theta)$ is low and $J_{CV}(\Theta)$ is high (high variance/overfitting).
-+ Intermediate $\lambda\;$: $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ are somewhat low and $J_{train}(\Theta) \approx J_{CV}(\Theta)$.
-+ Large $\lambda\;$: both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ will be high (underfitting /high bias)
++ Low $\lambda\;$: $J_{train}(\theta)$ is low and $J_{CV}(\theta)$ is high (high variance/overfitting).
++ Intermediate $\lambda\;$: $J_{train}(\theta)$ and $J_{CV}(\theta)$ are somewhat low and $J_{train}(\theta) \approx J_{CV}(\theta)$.
++ Large $\lambda\;$: both $J_{train}(\theta)$ and $J_{CV}(\theta)$ will be high (underfitting /high bias)
 
 The figure below illustrates the relationship between lambda and the hypothesis:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/">
-    <img src="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/7.png" style="margin: 0.1em;" alt="regularization parameter \lambda. Large \lambda: High bias (underfitting); Intermediate \lambda: just right; Small \lambda: High variance (overfitting); A large lambda heavily penalizes all the \Theta parameters, which greatly simplifies the line of our resulting function, so causes underfitting." title="Regularization and Bias/Variance" width="350">
+    <img src="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/7.png" style="margin: 0.1em;" alt="regularization parameter \lambda. Large \lambda: High bias (underfitting); Intermediate \lambda: just right; Small \lambda: High variance (overfitting); A large lambda heavily penalizes all the \theta parameters, which greatly simplifies the line of our resulting function, so causes underfitting." title="Regularization and Bias/Variance" width="350">
   </a></div>
 </div>
 
@@ -275,10 +350,10 @@ In order to choose the model and the regularization \lambda, we need:
 
 1. Create a list of lambdas (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
 2. Create a set of models with different degrees or any other variants.
-3. Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\Theta$.
-4. Compute the cross validation error using the learned $\Theta$ (computed with $\lambda$) on the $J_{CV}(\Theta)$ without regularization or $\lambda = 0$.
+3. Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\theta$.
+4. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{CV}(\theta)$ without regularization or $\lambda = 0$.
 5. Select the best combo that produces the lowest error on the cross validation set.
-6. Using the best combo $\Theta$ and $\lambda$, apply it on $J_{test}(\Theta)$ to see if it has a good generalization of the problem.
+6. Using the best combo $\theta$ and $\lambda$, apply it on $J_{test}(\theta)$ to see if it has a good generalization of the problem.
 
 #### Learning Curves
 
@@ -290,8 +365,8 @@ Training 3 examples will easily have 0 errors because we can always find a quadr
 
 __With high bias__
 
-+ Low training set size: causes $J_{train}(\Theta)$ to be low and $J_{CV}(\Theta)$ to be high.
-+ Large training set size: causes both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ to be high with $J_{train}(\Theta) \approx J_{CV}(\Theta)$.
++ Low training set size: causes $J_{train}(\theta)$ to be low and $J_{CV}(\theta)$ to be high.
++ Large training set size: causes both $J_{train}(\theta)$ and $J_{CV}(\theta)$ to be high with $J_{train}(\theta) \approx J_{CV}(\theta)$.
 
 If a learning algorithm is suffering from high bias, getting more training data will not (by itself) help much.
 
@@ -299,8 +374,8 @@ For high variance, we have the following relationships in terms of the training 
 
 __With high variance__
 
-+ Low training set size: $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be high.
-+ Large training set size: $J_{train}(\Theta)$ increases with training set size and $J_{CV}(\Theta)$ continues to decrease without leveling off. Also, $J_{train}(\Theta) < J_{CV}(\Theta)$ but the difference between them remains significant.
++ Low training set size: $J_{train}(\theta)$ will be low and $J_{CV}(\theta)$ will be high.
++ Large training set size: $J_{train}(\theta)$ increases with training set size and $J_{CV}(\theta)$ continues to decrease without leveling off. Also, $J_{train}(\theta) < J_{CV}(\theta)$ but the difference between them remains significant.
 
 If a learning algorithm is suffering from __high variance__, getting more training data is __likely to help__.
 
@@ -334,7 +409,7 @@ Using a single hidden layer is a good starting default. You can train your neura
 
 Choosing M the order of polynomials.
 
-How can we tell which parameters \Theta to leave in the model (known as "model selection")?
+How can we tell which parameters \theta to leave in the model (known as "model selection")?
 
 There are several ways to solve this problem:
 
@@ -345,12 +420,12 @@ There are several ways to solve this problem:
 __Bias: approximation error (Difference between expected value and optimal value)__
 
 + High Bias = UnderFitting (BU)
-+ $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ both will be high and $J_{train}(\Theta) \approx J_{CV}(\Theta)$
++ $J_{train}(\theta)$ and $J_{CV}(\theta)$ both will be high and $J_{train}(\theta) \approx J_{CV}(\theta)$
 
 __Variance: estimation error due to finite data__
 
 + High Variance = OverFitting (VO)
-+ $J_{train}(\Theta)$ is low and $J_{CV}(\Theta)\gg J_{train}(\Theta)$
++ $J_{train}(\theta)$ is low and $J_{CV}(\theta)\gg J_{train}(\theta)$
 
 __Intuition for the bias-variance trade-off:__
 
@@ -391,13 +466,13 @@ Quiz questions in Week 6 should refer to linear regression, not logistic regress
 
 In the "Regularization and Bias/Variance" video
 
-The slide "Linear Regression with Regularization" has an error in the formula for $J(\Theta)\;$: the regularization term should go from $j=1$ up to $n$ (and not $m$), that is $\frac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$. The quiz in the video "Regularization and Bias/Variance" has regularization terms for $J_{train}$ and $J_{CV}$, while the rest of the video stresses that these should not be there. Also, the quiz says "Consider regularized logistic regression," but exhibits cost functions for regularized linear regression.
+The slide "Linear Regression with Regularization" has an error in the formula for $J(\theta)\;$: the regularization term should go from $j=1$ up to $n$ (and not $m$), that is $\frac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$. The quiz in the video "Regularization and Bias/Variance" has regularization terms for $J_{train}$ and $J_{CV}$, while the rest of the video stresses that these should not be there. Also, the quiz says "Consider regularized logistic regression," but exhibits cost functions for regularized linear regression.
 
 At around 5:58, Prof. Ng says, "picking theta-5, the fifth order polynomial". Instead, he should have said the fifth value of $\lambda (0.08)$, because in this example, the polynomial degree is fixed at $d = 4$ and we are varying $\lambda$.
 
 In the "Advice for applying ML" set of videos
 
-Often (if not always) the sums corresponding to the regularization terms in J(\Theta) are (erroneously) written with j running from 1 to m. In fact, j should run from 1 to n, that is, the regularization term should be $\lambda \sum_{j=1}^n \theta_j^2\lambda \sum_{j=1}^n \Theta_j^2$. The variable m is the number of $(x,y)$ pairs in the set used to calculate the cost, while n is the largest index of $j$ in the $\Theta_j$ parameters or in the elements $x_j$ of the vector of features.
+Often (if not always) the sums corresponding to the regularization terms in J(\theta) are (erroneously) written with j running from 1 to m. In fact, j should run from 1 to n, that is, the regularization term should be $\lambda \sum_{j=1}^n \theta_j^2\lambda \sum_{j=1}^n \theta_j^2$. The variable m is the number of $(x,y)$ pairs in the set used to calculate the cost, while n is the largest index of $j$ in the $\theta_j$ parameters or in the elements $x_j$ of the vector of features.
 
 In the "Advice for Applying Machine Learning" section, the figure that illustrates the relationship between lambda and the hypothesis. used to detect high variance or high bias, is incorrect. $J_{train}$ is low when lambda is small (indicating a high variance problem) and high when lambda is high (indicating a high bias problem).
 
@@ -405,7 +480,7 @@ Video (10-2: Advice for Applying Machine Learning -- hypothesis testing)
 
 The slide that introduces Training/Testing procedure for logistic regression, (around 04:50) the cost function is incorrect. It should be:
 
-$$J_{test}(\Theta) = −\dfrac{1}{m_{test}} \sum^{m_{test}}_{i=1} (y^{(i)}_{test} \cdot \log(h\Theta(x^{(i)}_{test}))+(1−y^{(i)}_{test}) \cdot \log(1−h\Theta(x^{(i)}_{test})))$$
+$$J_{test}(\theta) = −\dfrac{1}{m_{test}} \sum^{m_{test}}_{i=1} (y^{(i)}_{test} \cdot \log(h\theta(x^{(i)}_{test}))+(1−y^{(i)}_{test}) \cdot \log(1−h\theta(x^{(i)}_{test})))$$
 
 Video Regularization and Bias/Variance (00:48)
 
