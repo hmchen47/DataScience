@@ -311,12 +311,82 @@ The is summarized in the figure below:
 
 #### Lecture Notes
 
++ Linear regression with regularization
+  + Model: $h_\theta(x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4$$
+
+    $$J(\theta) = \dfrac{1}{2m} \sum(h_\theta(x^{(i)}) - y^{(i)})^2 + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/lg_reg_error.png" style="margin: 0.1em;" alt="large \lambda -> high bias; small lambda -> high variance" title="Linear regression with regularization" width="450">
+    </a></div>
+  </div>
+
++ Choosing the regularization parameter $\lambda$
+
+  $$\begin{array}{rcl} h_\theta) &=& \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4 \\ J(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta_j^2 \\\\ J_{train}(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ J_{cv}(\theta) &=& \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x_{cv}^{(i)}) - y_{cv}^{(i)})^2 \\J_{test}(\theta) &=& \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x_{test}^{(i)}) - y_{test}^{(i)})^2 \end{array}$$
+
+  $ 1. \lambda = 0.00 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(1)} \;\rightarrow\; J_{cv}(\theta^{(1)})$<br/>
+  $ 2. \lambda = 0.01 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(2)} \;\rightarrow\; J_{cv}(\theta^{(2)})$<br/>
+  $ 3. \lambda = 0.02 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(3)} \;\rightarrow\; J_{cv}(\theta^{(3)})$<br/>
+  $ 4. \lambda = 0.04 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(4)} \;\rightarrow\; J_{cv}(\theta^{(4)})$<br/>
+  $ 5. \lambda = 0.08 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(5)} \;\rightarrow\; J_{cv}(\theta^{(5)})$<br/>
+  ...<br/>
+  $12. \lambda = 10.24 \approx 10 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(12)} \;\rightarrow\; J_{cv}(\theta^{(12)})$
+
+  pick (say with lowest $J(\theta)$ value) $\theta^{(5)} \;\rightarrow\; \text{Test error: } J_{test}(\theta^{(5)}$
+
++ Bias/Variance as a function of the regularization parameter $\lambda$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/jcv_jtest2.png" style="margin: 0.1em;" alt="Bias/Variance as a function of the regularization parameter $\lambda$" title="Bias/Variance as a function of the regularization parameter $\lambda$" width="450">
+    </a></div>
+  </div>
+
+  + IVQ: Consider regularized logistic regression. Let
+
+    $$\begin{array}{rcl} J_{train}(\theta) &=& \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ J_{cv}(\theta) &=& \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x_{cv}^{(i)}) - y_{cv}^{(i)})^2 \\J_{test}(\theta) &=& \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x_{test}^{(i)}) - y_{test}^{(i)})^2 \end{array}$$
+
+    Suppose you plot $J_\text{train}$ and $J_\text{CV}$ as a function of the regularization parameter $\lambda$. which of the following plots do you expect to get?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/10.5-quiz-1-option1.png" style="margin: 0.1em;" alt="$J_{train}$ at first decreases as a function of lambda, but then increases. $J_{cv}$ continually decreases as a function of lambda. $J_{cv}$ is lower than $J_{train}$." title="IVQ: Fig.1" width="250">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/10.5-quiz-1-option2.png" style="margin: 0.1em;" alt="$J_{train}$ at first decreases as a function of lambda, but then increases. $J_{cv}$ continually increases as a function of lambda. $J_{cv}$ is lower than $J_{train}$." title="IVQ: Fig.1" width="250">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/10.5-quiz-1-option3.png" style="margin: 0.1em;" alt="$J_{train}$  continually decreases as a function of lambda. $J_{cv}$ at first decreases as a function of lambda, but then increases. $J_{cv}$ is higher than $J_{train}$." title="IVQ: Fig.3" width="250">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/10.5-quiz-1-option4.png" style="margin: 0.1em;" alt="$J_{train}$  continually increases as a function of lambda. $J_{cv}$ at first decreases as a function of lambda, but then increases. $J_{cv}$ is higher than $J_{train}$." title="IVQ: Fig.4" width="250">
+      </a></div>
+    </div>
+
+    Ans: Fig.4
+
+
+
+-----------------------------------------------------------
+
+Note: [The regularization term below and through out the video should be $\frac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$ and NOT $\frac{\lambda}{2m} \sum_{j=1}^m \theta_j^2$]
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/JPJJj/regularization-and-bias-variance">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/3XyCytntEeataRJ74fuL6g_3b6c06d065d24e0bf8d557e59027e87a_Screenshot-2017-01-13-16.09.36.png?expiry=1555113600000&hmac=wfLQiMRrMNlrOfNXnEx8HM9MvVF0qXKLaM_0-mURWcI" style="margin: 0.1em;" alt="Impact of regularization of linear regression" title="Bias vs. Variance: Linear Regression with Regularization" width="450">
+  </a></div>
+</div>
+
+In the figure above, we see that as $\lambda$ increases, our fit becomes more rigid. On the other hand, as $\lambda$ approaches 0, we tend to over overfit the data. So how do we choose our parameter $\lambda$ to get it 'just right' ? In order to choose the model and the regularization term $\lambda$, we need to:
+
+1. Create a list of lambdas (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
+2. Create a set of models with different degrees or any other variants.
+3. Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\theta$.
+4. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{CV}(\theta)$ without regularization or $\lambda = 0$.
+5. Select the best combo that produces the lowest error on the cross validation set.
+6. Using the best combo $\theta$ and $\lambda$, apply it on $J_{test}(\theta)$ to see if it has a good generalization of the problem.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/10.5-AdviceForApplyingMachineLearning-RegularizationAndBiasVariance.b34e0490b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1555113600&Signature=DfT934FSEg~ltRYbEhiqTdQk-UAJQC~ACIROu5wMdbIR~AmJmRMBf62UhKyYIxO6ViOqh4s5Lz6mb7ksuIZhdW75eFUBXbrdHK46i0w6A~TtA3tPBuRyKIFZ29zX3u82C68sUy-KtiiWC2EFxf0EzwwL232xtDxrKQa1rf2Tifo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/t43e6dRNTgWN3unUTV4FSg?expiry=1555113600000&hmac=YQUSqrOLoNSJCu0dtuBZ0Pm8kOvsQWpWBlbb8xlUc9M&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
