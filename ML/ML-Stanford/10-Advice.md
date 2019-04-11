@@ -334,7 +334,7 @@ The is summarized in the figure below:
   ...<br/>
   $12. \lambda = 10.24 \approx 10 \;\rightarrow\; \min_\theta J(\theta) \;\rightarrow\; \theta^{(12)} \;\rightarrow\; J_{cv}(\theta^{(12)})$
 
-  pick (say with lowest $J(\theta)$ value) $\theta^{(5)} \;\rightarrow\; \text{Test error: } J_{test}(\theta^{(5)}$
+  pick (say with lowest $J(\theta)$ value) $\quad\theta^{(5)} \;\rightarrow\; \text{Test error: } J_{test}(\theta^{(5)}$
 
 + Bias/Variance as a function of the regularization parameter $\lambda$
 
@@ -371,17 +371,17 @@ The is summarized in the figure below:
 
 + [Procedure to choose the model and the regularization $\lambda$](http://www.saberismywife.com/2016/12/13/Machine-Learning-6/)
 
-1. Create a list of lambda (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
-2. Select a lambda to compute;
-3. Create a model set like degree of the polynomial or others;
-4. Select a model to learn $\theta$;
-5. Learn the parameter $\theta$ for the model selected, using $J_{train}(\theta)$ with λ selected (this will learn $\theta$ for the next step);
-6. Compute the train error using the learned $\theta$ (computed with λ ) on the $J_{train}(\theta)$ without regularization or $\lambda = 0$;
-7. Compute the cross validation error using the learned $\theta$ (computed with λ) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$;
-8. Do this for the entire model set and lambdas, then select the best combo that produces the lowest error on the cross validation set;
-9. Now if you need visualize to help you understand your decision, you can plot to the figure like above with: ($\lambda \times J_{train}(\theta)$ and ($\lambda \times J_{cv}(\theta)$);
-10. Now using the best combo $\theta$ and $\lambda$, apply it on $J_{cv}(\theta)$ to see if it has a good generalization of the problem.
-11. To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.
+  1. Create a list of lambda (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
+  2. Select a lambda to compute;
+  3. Create a model set like degree of the polynomial or others;
+  4. Select a model to learn $\theta$;
+  5. Learn the parameter $\theta$ for the model selected, using $J_{train}(\theta)$ with λ selected (this will learn $\theta$ for the next step);
+  6. Compute the train error using the learned $\theta$ (computed with λ ) on the $J_{train}(\theta)$ without regularization or $\lambda = 0$;
+  7. Compute the cross validation error using the learned $\theta$ (computed with λ) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$;
+  8. Do this for the entire model set and lambdas, then select the best combo that produces the lowest error on the cross validation set;
+  9. Now if you need visualize to help you understand your decision, you can plot to the figure like above with: ($\lambda \times J_{train}(\theta)$ and ($\lambda \times J_{cv}(\theta)$);
+  10. Now using the best combo $\theta$ and $\lambda$, apply it on $J_{cv}(\theta)$ to see if it has a good generalization of the problem.
+  11. To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.
 
 
 
@@ -419,12 +419,108 @@ In the figure above, we see that as $\lambda$ increases, our fit becomes more ri
 
 #### Lecture Notes
 
++ Learning curves
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning1.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+    </a></div>
+  </div>
+
+  + What is the effect of $m$, number of training examples, on training error?
+    + For $m = 1, 2, 3$ in the example
+      + If the training set is small
+      + Easier to fit every single training example perfectly
+      + Your training error = 0 or small
+    + For $m = 4, 5, 6$
+      + If the training set grows larger
+      + Harder to fit every single training example perfectly
+      + Your training error increases
+    + In general, when $m$ increases, training error increases
+  + The more data you have, where $m$ increases
+      + Your cross validation error decreases
+
+
++ High Bias (Underfit)
+  + Poor performance on both training and test sets
+  + Your cross validation error decreases, but it decreases to a high value
+    + Even if you have large m, you still have a straight line with a high bias
+    + Your cross validation error would still be high
+  + Your training error increases close to the level achieve from your cross validation error
+  + If a learning algorithm is suffering from high bias, getting more training data will not (by itself) help much
+    + As seen from the two graphs, even with a higher m, there’s no use collecting more data to decrease your cross validation error
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning2.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+    </a></div>
+  </div>
+
++ High Variance (Overfit)
+  + Gap in errors where training error is low but test error is high
+  + Training error would remain small
+    + This happens when you use a small λ
+    + Your training error increases with m because it becomes harder to fit your data
+  + Cross validation error would remain high
+    + This happens when you use a small λ
+  + If a learning algorithm is suffering from high variance, getting more data is likely to help
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning3.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+    </a></div>
+  </div>
+
++ IVQ: In which of the following circumstances is getting more training data likely to significantly help a learning algorithm’s performance?
+
+  1. Algorithm is suffering from high bias.
+  2. Algorithm is suffering from high variance.
+  3. $J_\text{CV}(\theta)$ (cross validation error) is much larger than $J_\text{train}(\theta)$ (training error).
+  4. $J_\text{CV}(\theta)$ (cross validation error) is about the same as $J_\text{train}(\theta)$ (training error).
+
+  Ans: 23
+
+
+------------------------------------------------
+
+Training an algorithm on a very few number of data points (such as 1, 2 or 3) will easily have 0 errors because we can always find a quadratic curve that touches exactly those number of points. Hence:
+
++ As the training set gets larger, the error for a quadratic function increases.
++ The error value will plateau out after a certain m, or training set size.
+
+__Experiencing high bias:__
+
+__Low training set size__: causes $J_{train}(\theta)$ to be low and $J_{cv}(\theta)$ to be high.
+
+__Large training set size__: causes both $J_{train}(\theta)$ and $J_{cv}(\theta)$ to be high with $J_{train}(\theta) \approx J_{cv}(\theta)$.
+
+If a learning algorithm is suffering from __high bias__, getting more training data will not (__by itself__) help much.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/79woL/learning-curves">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bpAOvt9uEeaQlg5FcsXQDA_ecad653e01ee824b231ff8b5df7208d9_2-am.png?expiry=1555113600000&hmac=ARxQ8oUoPorDchhpzIWjybIoF61ubXVBK7WnTX__ERA" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
+
+__Experiencing high variance:__
+
+__Low training set size__: $J_{train}(\theta)$ will be low and $J_{cv}(\theta)$ will be high.
+
+__Large training set size__: $J_{train}(\theta)$ increases with training set size and $J_{cv}(\theta)$ continues to decrease without leveling off. Also, $J_{train}(\theta)$ < $J_{cv}(\theta)$ but the difference between them remains significant.
+
+If a learning algorithm is suffering from __high variance__, getting more training data is likely to help.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/79woL/learning-curves">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vqlG7t9uEeaizBK307J26A_3e3e9f42b5e3ce9e3466a0416c4368ee_ITu3antfEeam4BLcQYZr8Q_37fe6be97e7b0740d1871ba99d4c2ed9_300px-Learning1.png?expiry=1555113600000&hmac=BWeZJI1YK1pzP9t8WYZOnaGngBXCTx3Op0F54QxwwCo" style="margin: 0.1em;" alt="text" title="caption" width="350">
+  </a></div>
+</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/10.6-AdviceForApplyingMachineLearning-LearningCurves.114ca110b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1555113600&Signature=ezSNsWxaDdHy8lD5y-aWS2D4Er1XsrtSTnu4Dze-pfGFvIebc~soB7jVmqqBIDtElWDjcpX-4TIHaghT7NriQR~vvEr3iXpuIXUsWjgA7SQB5Rq~~6MQ3e8Lxq73kVvrkFm0jrURqMMQjXRdBjL2UT5-VikXsyqHFnnt7rLJEms_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/A14kNoRUSo2eJDaEVMqNlw?expiry=1555113600000&hmac=y-RPYb7-bU5QE9Om5nXgXtpZgTL4R1AXlpiyAx972UQ&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -433,6 +529,8 @@ In the figure above, we see that as $\lambda$ increases, our fit becomes more ri
 ### Deciding What to Do Next Revisited
 
 #### Lecture Notes
+
+
 
 
 
