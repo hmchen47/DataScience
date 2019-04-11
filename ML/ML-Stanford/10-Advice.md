@@ -42,7 +42,7 @@
 #### Lecture Video
 
 <video src="https://d3c33hcgiwev3.cloudfront.net/10.1-AdviceForApplyingMachineLearning-DecidingWhatToTryNext.c45ffb80b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1555027200&Signature=G6qZQfvjvanJYSPo9p1fGHEzj4gYPiyjtD9rrhTYx2HYDDXiS4ZMXzTp6Gr4zkRpgA5-DrSvgvt7smx5AnVaNrUTCEh5gfkLgHyfOZcQG2-jOJcrgKKEhR8GthkXr9fxZEDIiCWm0HQ92lhimEg6n~W-dnnZz4-IQP9tJF07Nj8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/gW252s0RSIStudrNETiEow?expiry=1555027200000&hmac=e3fCh0AMP6u9UMsU9iJSfz_8xOIligRLLGGkLXpgCVY&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/gW252s0RSIStudrNETiEow?expiry=1555027200000&hmac=e3fCh0AMP6u9UMsU9iJSfz_8xOIligRLLGGkLXpgcvY&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -69,7 +69,7 @@
   + $(x^{(i)}_{test},\; y^{(i)})\;$: $i$-th sample of the test samples
   + Typical proportions of training and test dataset: $70\%$ vs $30\%$
   + IVQ: Suppose an implementation of linear regression (without regularization) is badly overfitting the training set. In this case, we would expect:
-    
+
     1. The training error $J(\theta)$ to be __low__ and the test error $J_{\text{test}}(\theta)$ to be __high__
     2. The training error $J(\theta)$ to be __low__ and the test error $J_{\text{test}}(\theta)$ to be __low__
     3. The training error $J(\theta)$ to be __high__ and the test error $J_{\text{test}}(\theta)$ to be __low__
@@ -151,7 +151,7 @@ This gives us the proportion of the test data that was misclassified.
     </a></div>
   </div>
 
-  Once parameter $\theta_1, \theta_2, \theta_3, \theta_4$ were fit to some set of data (training set), the error of the parameters as measured on that data (the training error $J(\theta)$) is like;y to be lower that the actual generalization error.
+  Once parameter $\theta_1, \theta_2, \theta_3, \theta_4$ were fit to some set of data (training set), the error of the parameters as measured on that data (the training error $J(\theta)$) is likely to be lower that the actual generalization error.
 
 + Model selection ($d\;$ = degree of polynomial)
 
@@ -176,7 +176,7 @@ This gives us the proportion of the test data that was misclassified.
 
   + Cross Validation error:
 
-    $$J_{CV}(\theta) = \dfrac{1}{2m_{CV}} \sum_{i=1}^{m_{CV}} (h_\theta(x^{(i)}_{CV}) - y^{(i)_{CV}})^2$$
+    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x^{(i)}_{cv}) - y^{(i)_{cv}})^2$$
 
   + Test error: 
 
@@ -184,12 +184,12 @@ This gives us the proportion of the test data that was misclassified.
 
 + Model selection
 
-  $$\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{CV}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{CV}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{CV}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{CV}(\theta^{(10)}) \end{array}$$
+  $$\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{cv}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{cv}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{cv}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{cv}(\theta^{(10)}) \end{array}$$
 
   + Pick $\theta_0 + \theta_1 x + \ldots + \theta_4 x^4$
   + Estimate generalization error for test set $J_{test}(\theta^{(4)})$
 
-+ IVQ: Consider the model selection procedure where we choose the degree of polynomial using a cross validation set. For the final model (with parameters $\theta$), we might generally expect $J_{\text{CV}}(\theta)$ To be lower than $J_\text{test}(\theta)$ because:
++ IVQ: Consider the model selection procedure where we choose the degree of polynomial using a cross validation set. For the final model (with parameters $\theta$), we might generally expect $J_{\text{cv}}(\theta)$ To be lower than $J_\text{test}(\theta)$ because:
 
   1. An extra parameter ($d$, the degree of the polynomial) has been fit to the cross validation set.
   2. An extra parameter ($d$, the degree of the polynomial) has been fit to the test set.
@@ -236,12 +236,72 @@ This way, the degree of the polynomial $d$ has not been trained using the test s
 
 #### Lecture Notes
 
++ Bias vs. Variance
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/variance_bias.png" style="margin: 0.1em;" alt="Bias: underfit & variance: overfit" title="Bias nv. Variance" width="450">
+    </a></div>
+  </div>
+
+  + Training error:
+
+    $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{_(i)})^2$$
+
+  + Cross validation error:
+
+    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x_{cv}^{(i)}) - y_{cv}^{_(i)})^2$$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/plot_error.png" style="margin: 0.1em;" alt="Plot error against degree of polynomial, d" title="Plot error against degree of polynomial, d" width="450">
+    </a></div>
+  </div>
+
+  + Diagram applied for $J_{test}(\theta)$ as well
+
++ Diagnosing bias vs. variance
+  + Suppose the learning algorithm is performing less well than expected.  ($J_{cv}(\theta)$ or $J_{test}(\theta)$ is high.) Is it a bias problem or a variance problem?
+  + Bias (underfit): $J_{train}(\theta)$ will be high, while $J_{cv}(\theta) \approx J_{train}(\theta)$
+  + Variance (overfit): $J_{train}(\theta)$ will be low, while $J_{cv}(\theta) \gg J_{train}(\theta)$
+  + IVQ: Suppose you have a classification problem. The (misclassification) error is defined as $\frac{1}{m}\sum_{i=1}^m\text{err}(h_\theta(x^{(i)}),y^{(i)})$, and the cross validation (misclassification) error is similarly defined, using the cross validation examples ($x_\text{cv}^{(1)}, y_\text{cv}^{(1)}),\ldots,(x_\text{cv}^{(m_\text{cv})}, y_\text{cv}^{(m_\text{cv})})$. Suppose your training error is 0.10, and your cross validation error is 0.30. What problem is the algorithm most likely to be suffering from?
+
+    1. High bias (overfitting)
+    2. High bias (underfitting)
+    3. High variance (overfitting)
+    4. High variance (underfitting)
+
+    Ans: 3
+
+
+---------------------------------------------------
+
+In this section we examine the relationship between the degree of the polynomial $d$ and the underfitting or overfitting of our hypothesis.
+
++ We need to distinguish whether __bias__ or __variance__ is the problem contributing to bad predictions.
++ High bias is underfitting and high variance is overfitting. Ideally, we need to find a golden mean between these two.
+
+The training error will tend to __decrease__ as we increase the degree d of the polynomial.
+
+At the same time, the cross validation error will tend to __decrease__ as we increase d up to a point, and then it will increase as d is increased, forming a convex curve.
+
+__High bias (underfitting)__: both $J_{train}(\theta)$ and $J_{cv}(\theta)$ will be high. Also, $J_{cv}(\theta) \approx J_{train}(\theta)$.
+
+__High variance (overfitting)__: $J_{train}(\theta)$ will be low and $J_{cv}(\theta) \gg J_{train}(\theta)$.
+
+The is summarized in the figure below:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/81vp0/diagnosing-bias-vs-variance">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1555113600000&hmac=SZGKBWy9EFhhmGd9p7TkkTIHNk2gEi56o8CMIFCgdp8" style="margin: 0.1em;" alt="text" title="caption" width="250">
+  </a></div>
+</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/10.4-AdviceForApplyingMachineLearning-DiagnosingBiasVsVariance.a8c702b0b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1555113600&Signature=Hn~Ert97edvR53iV47beHMEuEqn8W1VUliZBEihAkT2aY3fiL~PEi3NgdgA4seLU4l0VaJPMeTJk3E7JcU6WTIlLDC2MxS2xIvm23yZv9aP0-mx8MuM4wWaRap4OMhPiYjmImSTh9QdbkYUhWArAPTtmoKjU8uYVv1Ne1EgcDEg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/PuZ5D9xXSEqmeQ_cV5hKWg?expiry=1555113600000&hmac=UmdaP8S_DJf3j4jUIivoztpdFUaHftOOL-juQkTjD3I&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -352,7 +412,7 @@ __Without the Validation Set (note: this is a bad method - do not use it)__
 In this case, we have trained one variable, d, or the degree of the polynomial, using the test set. This will cause our error value to be greater for any other set of data.
 
 
-__Use of the CV set__
+__Use of the cv set__
 
 To solve this, we can introduce a third set, the __Cross Validation Set__, to serve as an intermediate set that we can train d with. Then our test set will give us an accurate, non-optimistic error.
 
@@ -364,7 +424,7 @@ One example way to break down our dataset into the three sets is:
 
 We can now calculate three separate error values for the three different sets.
 
-__With the Validation Set (note: this method presumes we do not also use the CV set for regularization)__
+__With the Validation Set (note: this method presumes we do not also use the cv set for regularization)__
 
 1. Optimize the parameters in \theta using the training set for each polynomial degree.
 2. Find the polynomial degree d with the least error using the cross validation set.
@@ -372,7 +432,7 @@ __With the Validation Set (note: this method presumes we do not also use the CV 
 
 This way, the degree of the polynomial d has not been trained using the test set.
 
-(Mentor note: be aware that using the CV set to select 'd' means that we cannot also use it for the validation curve process of setting the lambda value).
+(Mentor note: be aware that using the cv set to select 'd' means that we cannot also use it for the validation curve process of setting the lambda value).
 
 #### Diagnosing Bias vs. Variance
 
@@ -385,9 +445,9 @@ The training error will tend to __decrease__ as we increase the degree d of the 
 
 At the same time, the cross validation error will tend to __decrease__ as we increase d up to a point, and then it will __increase__ as d is increased, forming a convex curve.
 
-__High bias (underfitting)__: both $J_{train}(\theta)$ and $J_{CV}(\theta)$ will be high. Also, $J_{CV}(\theta) \approx J_{train}(\theta)$.
+__High bias (underfitting)__: both $J_{train}(\theta)$ and $J_{cv}(\theta)$ will be high. Also, $J_{cv}(\theta) \approx J_{train}(\theta)$.
 
-__High variance (overfitting)__: $J_{train}(\theta)$ will be low and $J_{CV}(\theta)$ will be much greater than $J_{train}(\theta)$.
+__High variance (overfitting)__: $J_{train}(\theta)$ will be low and $J_{cv}(\theta)$ will be much greater than $J_{train}(\theta)$.
 
 The is represented in the figure below:
 
@@ -410,9 +470,9 @@ A large lambda heavily penalizes all the \theta parameters, which greatly simpli
 
 The relationship of \lambda to the training set and the variance set is as follows:
 
-+ Low $\lambda\;$: $J_{train}(\theta)$ is low and $J_{CV}(\theta)$ is high (high variance/overfitting).
-+ Intermediate $\lambda\;$: $J_{train}(\theta)$ and $J_{CV}(\theta)$ are somewhat low and $J_{train}(\theta) \approx J_{CV}(\theta)$.
-+ Large $\lambda\;$: both $J_{train}(\theta)$ and $J_{CV}(\theta)$ will be high (underfitting /high bias)
++ Low $\lambda\;$: $J_{train}(\theta)$ is low and $J_{cv}(\theta)$ is high (high variance/overfitting).
++ Intermediate $\lambda\;$: $J_{train}(\theta)$ and $J_{cv}(\theta)$ are somewhat low and $J_{train}(\theta) \approx J_{cv}(\theta)$.
++ Large $\lambda\;$: both $J_{train}(\theta)$ and $J_{cv}(\theta)$ will be high (underfitting /high bias)
 
 The figure below illustrates the relationship between lambda and the hypothesis:
 
@@ -427,7 +487,7 @@ In order to choose the model and the regularization \lambda, we need:
 1. Create a list of lambdas (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
 2. Create a set of models with different degrees or any other variants.
 3. Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\theta$.
-4. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{CV}(\theta)$ without regularization or $\lambda = 0$.
+4. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$.
 5. Select the best combo that produces the lowest error on the cross validation set.
 6. Using the best combo $\theta$ and $\lambda$, apply it on $J_{test}(\theta)$ to see if it has a good generalization of the problem.
 
@@ -441,8 +501,8 @@ Training 3 examples will easily have 0 errors because we can always find a quadr
 
 __With high bias__
 
-+ Low training set size: causes $J_{train}(\theta)$ to be low and $J_{CV}(\theta)$ to be high.
-+ Large training set size: causes both $J_{train}(\theta)$ and $J_{CV}(\theta)$ to be high with $J_{train}(\theta) \approx J_{CV}(\theta)$.
++ Low training set size: causes $J_{train}(\theta)$ to be low and $J_{cv}(\theta)$ to be high.
++ Large training set size: causes both $J_{train}(\theta)$ and $J_{cv}(\theta)$ to be high with $J_{train}(\theta) \approx J_{cv}(\theta)$.
 
 If a learning algorithm is suffering from high bias, getting more training data will not (by itself) help much.
 
@@ -450,8 +510,8 @@ For high variance, we have the following relationships in terms of the training 
 
 __With high variance__
 
-+ Low training set size: $J_{train}(\theta)$ will be low and $J_{CV}(\theta)$ will be high.
-+ Large training set size: $J_{train}(\theta)$ increases with training set size and $J_{CV}(\theta)$ continues to decrease without leveling off. Also, $J_{train}(\theta) < J_{CV}(\theta)$ but the difference between them remains significant.
++ Low training set size: $J_{train}(\theta)$ will be low and $J_{cv}(\theta)$ will be high.
++ Large training set size: $J_{train}(\theta)$ increases with training set size and $J_{cv}(\theta)$ continues to decrease without leveling off. Also, $J_{train}(\theta) < J_{cv}(\theta)$ but the difference between them remains significant.
 
 If a learning algorithm is suffering from __high variance__, getting more training data is __likely to help__.
 
@@ -496,12 +556,12 @@ There are several ways to solve this problem:
 __Bias: approximation error (Difference between expected value and optimal value)__
 
 + High Bias = UnderFitting (BU)
-+ $J_{train}(\theta)$ and $J_{CV}(\theta)$ both will be high and $J_{train}(\theta) \approx J_{CV}(\theta)$
++ $J_{train}(\theta)$ and $J_{cv}(\theta)$ both will be high and $J_{train}(\theta) \approx J_{cv}(\theta)$
 
 __Variance: estimation error due to finite data__
 
 + High Variance = OverFitting (VO)
-+ $J_{train}(\theta)$ is low and $J_{CV}(\theta)\gg J_{train}(\theta)$
++ $J_{train}(\theta)$ is low and $J_{cv}(\theta)\gg J_{train}(\theta)$
 
 __Intuition for the bias-variance trade-off:__
 
@@ -542,7 +602,7 @@ Quiz questions in Week 6 should refer to linear regression, not logistic regress
 
 In the "Regularization and Bias/Variance" video
 
-The slide "Linear Regression with Regularization" has an error in the formula for $J(\theta)\;$: the regularization term should go from $j=1$ up to $n$ (and not $m$), that is $\frac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$. The quiz in the video "Regularization and Bias/Variance" has regularization terms for $J_{train}$ and $J_{CV}$, while the rest of the video stresses that these should not be there. Also, the quiz says "Consider regularized logistic regression," but exhibits cost functions for regularized linear regression.
+The slide "Linear Regression with Regularization" has an error in the formula for $J(\theta)\;$: the regularization term should go from $j=1$ up to $n$ (and not $m$), that is $\frac{\lambda}{2m} \sum_{j=1}^n \theta_j^2$. The quiz in the video "Regularization and Bias/Variance" has regularization terms for $J_{train}$ and $J_{cv}$, while the rest of the video stresses that these should not be there. Also, the quiz says "Consider regularized logistic regression," but exhibits cost functions for regularized linear regression.
 
 At around 5:58, Prof. Ng says, "picking theta-5, the fifth order polynomial". Instead, he should have said the fifth value of $\lambda (0.08)$, because in this example, the polynomial degree is fixed at $d = 4$ and we are varying $\lambda$.
 
