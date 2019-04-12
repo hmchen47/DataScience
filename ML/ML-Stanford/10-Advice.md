@@ -919,8 +919,11 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     2. Try evaluating the hypothesis on a cross validation set rather than the test set.
     3. Use fewer training examples.
     4. Try decreasing the regularization parameter $\lambda$.
+    5. Try to obtain and use additional features.
+    6. Try using a smaller set of features.
+    7. Try increasing the regularization parameter $\lambda$
 
-    Ans: 14, x124(1234)
+    Ans: 15(5617), 14(1234), x124(1234)
 
 
 4. Which of the following statements are true? Check all that apply.
@@ -929,8 +932,12 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     2. Suppose you are training a regularized linear regression model. The recommended way to choose what value of regularization parameter $\lambda$ to use is to choose the value of $\lambda$ which gives the lowest __cross validation__ error.
     3. The performance of a learning algorithm on the training set will typically be better than its performance on the test set.
     4. Suppose you are training a regularized linear regression model. The recommended way to choose what value of regularization parameter $\lambda$ to use is to choose the value of $\lambda$ which gives the lowest __test set__ error.
+    5. Suppose you are using linear regression to predict housing prices, and your dataset comes sorted in order of increasing sizes of houses. It is then important to randomly shuffle the dataset before splitting it into training, validation and test sets, so that we don’t have all the smallest houses going into the training set, and all the largest houses going into the test set.
+    6. Suppose you are training a logistic regression classifier using polynomial features and want to select what degree polynomial (denoted $d$ in the lecture videos) to use. After training the classifier on the entire training set, you decide to use a subset of the training examples as a validation set. This will work just as well as having a validation set that is separate (disjoint) from the training set.
+    7. It is okay to use data from the test set to choose the regularization parameter $\lambda$, but not the model parameters ($\theta$).
+    8. A typical split of a dataset into training, validation and test sets might be 60% training set, 20% validation set, and 20% test set.
 
-    Ans: 23, x24, x234(1234)
+    Ans: 58(5678), 23, x24, x234(1234)
 
 
 5. Which of the following statements are true? Check all that apply.
@@ -942,7 +949,7 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     5. We always prefer models with high variance (over those with high bias) as they will able to better fit the training set.
     6. When debugging learning algorithms, it is useful to plot a learning curve to understand if there is a high bias or high variance problem.
 
-    Ans: x36 (2356), x26(5326), x124(1234)
+    Ans: , x6(2653), x36(2356), x26(5326), x124(1234)
 
 
 
