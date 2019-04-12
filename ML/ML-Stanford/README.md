@@ -277,6 +277,8 @@
     + [Tutorial for polyFeatures()](ex05.md#)
     + [ex5: tips for learningCurve()](ex05.md#)
     + [Validation curve question](ex05.md#)
+    + [FAQ for Week 6 and programming exercise 5](ex05.md#)
+
 
 
 
