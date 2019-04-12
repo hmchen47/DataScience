@@ -950,7 +950,7 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
     6. When debugging learning algorithms, it is useful to plot a learning curve to understand if there is a high bias or high variance problem.
     7. If a neural network has much lower training error than test error, then adding more layers will help bring the test error down because we can fit the test set better.
 
-    Ans: x16(7361), x6(2653), x36(2356), x26(5326), x124(1234)
+    Ans: 136(6317), x16(7361), x6(2653), x36(2356), x26(5326), x124(1234)
 
 
 
