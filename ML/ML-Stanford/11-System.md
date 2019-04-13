@@ -223,11 +223,6 @@ References:
 + [Bias-Variance Tradeoff in ML](https://cedar.buffalo.edu/~srihari/CSE574/Chap3/3.3-Bias-Variance.pdf)
 
 
-
-### Errata
-
-
-
 ### Quiz: Machine Learning System Design
 
 

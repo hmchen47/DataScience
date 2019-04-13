@@ -291,7 +291,6 @@
 + [Using Large Data Sets](11-System.md#)
 + [Review](11-System.md#)
     + [Lecture Slides](11-System.md#)
-    + [Errata](11-System.md#)
     + [Quiz: Machine Learning System Design](11-System.md#)
 
 
