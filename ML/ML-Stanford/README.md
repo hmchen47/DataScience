@@ -280,6 +280,25 @@
     + [FAQ for Week 6 and programming exercise 5](ex05.md#)
 
 
+## Machine Learning System Design
 
++ [Building a Spam Classifier](11-System.md#)
+    + [Prioritizing What to Work On](11-System.md#)
+    + [Error Analysis](11-System.md#)
++ [Handling Skewed Data](11-System.md#)
+    + [Error Metrics for Skewed Classes](11-System.md#)
+    + [Trading Off Precision and Recall](11-System.md#)
++ [Using Large Data Sets](11-System.md#)
++ [Review](11-System.md#)
+    + [Lecture Slides](11-System.md#)
+    + [Errata](11-System.md#)
+    + [Quiz: Machine Learning System Design](11-System.md#)
+
+
+
+
+
+
+Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
 
 
