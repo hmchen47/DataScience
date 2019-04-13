@@ -262,12 +262,10 @@ It is very important to get error results as a single, numerical value. Otherwis
     + The boxes and connecting lines indicate the respective entropy subsets. The MI I(X;Y) is a measure of what these two quantities share.
 
 
-
-
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/11.3-MachineLearningSystemDesign-ErrorMetricsForSkewedClasses.48a3a6e0b22b11e498c1339642deb798/full/360p/index.mp4?Expires=1555286400&Signature=YmI-cnLUNOuDXfM7Os31FjqVQhXLMQSxp6sOB7Yaxkra-9x-0spSNQ7xfpbIIA9X~BJG129rmGJEcBMZ~jL2Q~sGX-Oj2VrM1fUqWGjppO~0wmfgM7AnqsUAdkHDXVac-5aWhu0AEbmYiKM68o5dbcE30gb2TfhHaHcxDITiJm0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/AaMltXoMS-ujJbV6DFvrIg?expiry=1555286400000&hmac=etmRle0rLxlbLof5r0nx3v3wVwt6yRFcjC7udZCtZEc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
