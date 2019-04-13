@@ -517,11 +517,11 @@ References:
   + Recall = (true positives) / (true positives + false negatives)
   + $F_1 \text{ score } = (2 \cdot \text{ precision } \cdot \text{ recall }) / (\text{ precision } + \text{ recall })$
 
-  What is the classifier's recall (as a value from 0 to 1)?
+  What is the classifier's recall/precision (as a value from 0 to 1)?
 
   Enter your answer in the box below. If necessary, provide at least two values after the decimal point.
 
-  Ans: Recall = 0.85;
+  Ans: Recall = 0.85; Precision = 0.087
 
 
 2. Suppose a massive dataset is available for training a learning algorithm. Training on a lot of data is likely to give good performance when two of the following conditions hold true.
@@ -529,15 +529,15 @@ References:
   Which are the two?
 
   1. We train a learning algorithm with a small number of parameters (that is thus unlikely to overfit).
-  2. The features xx contain sufficient information to predict yy accurately. (For example, one way to verify this is if a human expert on the domain can confidently predict yy when given only xx).
+  2. The features $x$ contain sufficient information to predict yy accurately. (For example, one way to verify this is if a human expert on the domain can confidently predict yy when given only xx).
   3. We train a learning algorithm with a large number of parameters (that is able to learn/represent fairly complex functions).
   4. We train a model that does not use regularization.
-
+  
   Ans: 23 <br/>
   Explanation: <br/>
   1. False
-  2. It is important that the features contain sufficient information, as otherwise no amount of data can solve a learning problem in which the features do not contain enough information to make an accurate prediction.
-  3. You should use a "low bias" algorithm with many parameters, as it will be able to make use of the large dataset provided. If the model has too few parameters, it will underfit the large training set.
+  2. True - It is important that the features contain sufficient information, as otherwise no amount of data can solve a learning problem in which the features do not contain enough information to make an accurate prediction.
+  3. True - You should use a "low bias" algorithm with many parameters, as it will be able to make use of the large dataset provided. If the model has too few parameters, it will underfit the large training set.
   4. False
 
 
@@ -551,13 +551,19 @@ References:
   2. The classifier is likely to now have lower recall.
   3. The classifier is likely to now have lower precision.
   4. The classifier is likely to have unchanged precision and recall, and thus the same $F_1$ score.
+  5. The classifier is likely to now have higher precision.
+  6. The classifier is likely to now have higher recall.
+  7. The classifier is likely to have unchanged precision and recall, but lower accuracy.
 
-  Ans: x13 <br/>
+  Ans: 6(5167), x13(1234) <br/>
   Explanation: <br/>
   1. False - By making more y = 1 predictions, we increase true and false positives and decrease true and false negatives. Thus, precision and recall will certainly change. We cannot say whether accuracy will increase or decrease.
   2. False
   3. True - Lowering the threshold means more y = 1 predictions. This will increase both true and false positives, so precision will decrease.
   4. False
+  5. False
+  6. True - Lowering the threshold means more y = 1 predictions. This will increase the number of true positives and decrease the number of false negatives, so recall will increase.
+  6. False
 
 
 
@@ -567,13 +573,19 @@ References:
   2. If you always predict spam (output $y=1$), your classifier will have a recall of 100% and precision of 1%.
   3. If you always predict spam (output $y=1$, your classifier will have a recall of 0% and precision of 99%.
   4. If you always predict non-spam (output $y=0$), your classifier will have a recall of 0%.
+  5. A good classifier should have both a high precision and high recall on the cross validation set.
+  6. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, and it will likely perform similarly on the cross validation set.
+  7. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, but it will do much worse on the cross validation set because it has overfit the training data.
 
-  Ans: x4 <br/>
+  Ans: x5 (5671), x4 <br/>
   Explanation:
   1. Fasle
   2. False
   3. True
   4. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%.
+  5. True - For data with skewed classes like these spam data, we want to achieve a high $F_1$ score, which requires high precision and high recall.
+  6. True
+  7. False
 
 
 5. Which of the following statements are true? Check all that apply.
