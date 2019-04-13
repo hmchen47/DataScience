@@ -317,13 +317,62 @@ It is very important to get error results as a single, numerical value. Otherwis
 
 ### Lecture Notes
 
++ Designing a high accuracy learning system
+  + E.g., Classify between confusable words
+    + {to, too, two}, {then, than}
+    + For breakfast I ate ________ eggs. (two)
+  + Algorithms
+    + Perceptron (Logistic regression)
+    + Winnow
+    + Memory-based
+    + Naaive Bayes
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-systems-design/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/banko_brill.png" style="margin: 0.1em;" alt="Threshold and tradeoff between precision & recall" title="Tradeoff of precision & recall" width="350">
+    </a></div>
+  </div>
+
+  + With larger training set, all algorithms’ precision increase
+  + "It's not who has the best algorithm that wins.  It's who has the most data." [Banko and Brill, 2001]
+
++ Large data rationale
+  + Assume feature $x \in \mathbb{R}^{n+1}$ has sufficient information to predict $y$ accurately.
+  + Example: For breakfast I ate _______ eggs.
+  + Counterexample: Predict housing price from only size ($\text{feet}^2$) and no other features.
+  + Useful test: Given the input $x$, can a human expert confidently predict $y$?
+  + Use a learning algorithm with many parameters $\implies$ low bias algorithms $\implies J_{train}(\theta)$ will be small
+    + logistic regression/linear regression with many features
+    + neural network with many hidden units
+  + Use very large training set (unlikely to overfit) $\implies$ low variance algorithm $\implies J_{train}(\theta) \approx J_{test}(\theta) \text{ and } J_{train}(\theta) \approx 0 \implies J_{test}(\theta)$ will be small.
+
++ IVQ: Having a large training set can help significantly improve a learning algorithm’s performance. However, the large training set is __unlikely__ to help when:
+
+  1. The features $x$ do not contain enough information to predict y accurately (such as predicting a house’s price from only its size), and we are using a simple learning algorithm such as logistic regression.
+  2. We are using a learning algorithm with a large number of features (i.e. one with “low bias”).
+  3. The features $x$ do not contain enough information to predict y accurately (such as predicting a house’s price from only its size), even if we are using a neural network with a large number of hidden units.
+  4. We are not using regularization (e.g. the regularization parameter $\lambda = 0$).
+
+  Ans: 13
+
++ Summary:
+  + Low bias: use complex algorithm
+  + Low variance: use large training set
+
++ Classifier performance
+  + Figure 1a presents the ROC curve corresponding to the average performance of the SVM classifier considering 100 repetitions of the stratified 5-fold cross-validation.
+  + Figure 1b presents a plot showing how Precision, Recall and F-Measure vary according to the ROC curve operating points, such that the user can choose the most appropriate operating point for his/her application. 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1415-47572009000300029">
+      <img src="http://www.scielo.br/img/revistas/gmb/v32n3/a29fig01.gif" style="margin: 0.1em;" alt="Figure 1a presents the ROC curve corresponding to the average performance of the SVM classifier considering 100 repetitions of the stratified 5-fold cross-validation. This corresponds to an AUC of 0.8386 (±0.0380) which represents the probability that the classifier ranks a positive sample higher than a negative one, both randomly chosen. Given that our work is based on the dataset compiled by Darnell et al. (2007), it is convenient to compare their results to ours. In their work, Darnell et al. (2007) used a decision tree as classifier and achieved a performance of 55%, as measured by the F-measure, corresponding to a Precision of 44% and a Recall of 72%. At this level of Precision, our method achieves a Recall of 83.8% (±5.1), corresponding to an F-Measure of 57.9% (±3.7). In Figure 1b, we present a plot showing how Precision, Recall and F-Measure vary according to the ROC curve operating points, such that the user can choose the most appropriate operating point for his/her application. For instance, if we choose the ROC operating point resulting in the maximum F-Measure value (threshold 0.2427), the classifier achieves a performance of 60.4% (±3.9), as measured by F-Measure, corresponding to a Recall of 78.1% (±5.1) and a Precision of 49.5% (± 4.2). According to the one tail t-test with significance level of 1%, these results are higher than those reported by previous studies using the same dataset (Darnell et al., 2007)." title="Classifier performance" width="550">
+    </a></div>
+  </div>
 
 
 ### Lecture Video
 
-<video src="text" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/11.5-MachineLearningSystemDesign-DataForMachineLearning.78d377a0b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1555286400&Signature=XdJCS1b-d-ax48g6zmDltS1ywqbb4wOPNsBs58xz190hbHl9T8K0PpzRMuZ3PF2mUpQBRoCeyeUH0EqCNKMeJ6GvfMZVrLGMGm1965YiTxOWCGexic0yBStv-t~RsjfP4MTPgDK2TExynV5Af77sdcvjyezp2-PKS5cA99bnINc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/wnCGnXmmRc2whp15prXNAg?expiry=1555286400000&hmac=uuNNscIsJJdv7r9MbcfZDBVU4k3148Udgu9Odnz0Smk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
