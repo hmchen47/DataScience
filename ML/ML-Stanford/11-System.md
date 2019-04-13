@@ -224,7 +224,49 @@ It is very important to get error results as a single, numerical value. Otherwis
 
 #### Lecture Notes
 
++ Trading off precision and recall
+  + Model: logistic regression $0 leq h_\theta(x) \leq 1$
+  + E.g., increasing the confidence (0.5 -> 0.7 -> 0.9) or avoid the missing (0.3)
+    + Predict 1 if $h_\theta(x) \geq 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
+    + Predict 0 if $h_\theta(x) > 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
+  + Suppose that we want to predict $y=1$ (cancer) only if very confident $\implies$ high precision & low recall
+  + Suppose that we want to avoid missing too many cases of cancer (avoid false negatives) $\implies$ higher recall, lower precision
+  + More generally, predict 1 if $h_\theta (x) \geq\;$ threshold
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_bfa875d182c5d3c11e9a44e72b1e0f49_Lecture11.pdf?Expires=1555286400&Signature=SprONOFv0wfUZV4RPjjzYNs51TlfoMxaigbaYF~zl6vlLoUvuneIU8R17uIG5VHUY0OVgE8XrIBJHx8wv7nYtfrWj~obcWWNfurE-aNaIxwZA4zAIFhCG5xznUnfXhJEVemUJFXIy3TMXUn71T7DQ~blPwD7kqevty4WlWndaDk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m11-03.png" style="margin: 0.1em;" alt="Threhold and tradoff between precision & recall" title="Tradoff of precision & recall" width="250">
+    </a></div>
+  </div>
+
++ $F_1$ Score (F score)
+  + How to compare precision/recall numbers?
+
+    |    | Precision (P) | Recall (R) | Average | $F_1$ score |
+    |----|:-------------:|:----------:|:-------:|:-----------:|
+    |Algorithm 1 | 0.5 | 0.4 | 0.45 | 0.444 |
+    |Algorithm 2 | 0.7 | 0.1 | 0.4 | 0.175 |
+    |Algorithm 3 | 0.02 | 1.0 | 0.51 | 0.0392 |
+
+  + Algorithm 3 predict $y=1$ all the time
+  + Average: $\dfrac{\text{P + R}}{2} \implies$ not a good classifier with skewed classes
+  + $F_1$ Score: $2 \dfrac{PR}{P + R}$
+    + $P = 0 \text{ or } R = 0 \implies F_1 \text{score} = 0$
+    + $P = 1 \text{ and } R = 1 \implies F_1 \text{score} = 1$
+
+  + IVQ: You have trained a logistic regression classifier and plan to make predictions according to:
+
+    + Predict $y = 1 \text{ if } h_\theta(x) \geq \text{threshold}$
+    + Predict $y = 0 \text{ if } h_\theta(x) < \text{threshold}$
+
+    For different values of the threshold parameter, you get different values of precision (P) and recall (R). Which of of the following would be a reasonable way to pick the value to use for the threshold?
+
+    1. Measure precision (P) and recall (R) on the __test set__ and choose the value of threshold which maximizes $\frac{P+R}{2}$
+    2. Measure precision (P) and recall (R) on the __test set__ and choose the value of threshold which maximizes $2\frac{PR}{P+R}$
+    3. Measure precision (P) and recall (R) on the __cross validation__ set and choose the value of threshold which maximizes $\frac{P+R}{2}$
+    4. Measure precision (P) and recall (R) on the __cross validation__ set and choose the value of threshold which maximizes $2\frac{PR}{P+R}$
+
+    Ans: 4
 
 
 + Contingency matrix and measures
@@ -264,7 +306,7 @@ It is very important to get error results as a single, numerical value. Otherwis
 
 #### Lecture Video
 
-<video src="https://d3c33hcgiwev3.cloudfront.net/11.3-MachineLearningSystemDesign-ErrorMetricsForSkewedClasses.48a3a6e0b22b11e498c1339642deb798/full/360p/index.mp4?Expires=1555286400&Signature=YmI-cnLUNOuDXfM7Os31FjqVQhXLMQSxp6sOB7Yaxkra-9x-0spSNQ7xfpbIIA9X~BJG129rmGJEcBMZ~jL2Q~sGX-Oj2VrM1fUqWGjppO~0wmfgM7AnqsUAdkHDXVac-5aWhu0AEbmYiKM68o5dbcE30gb2TfhHaHcxDITiJm0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+<video src="https://d3c33hcgiwev3.cloudfront.net/11.4-MachineLearningSystemDesign-TradingOffPrecisionAndRecall.440391e1b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1555286400&Signature=esmyZyRysEHPbszHeRL4OjZHA5Re7xd3L1aiANAF6GwqIH1OLibRusk3P~8KPx1IFzgkXYJNLsG73FTghu8UjIfjQX~IQiY8SPV35AhKyMc9GTsRK6ybkj9o-ZCXbobO5cMf4u9vfbMWrHRPHzrB1NMklEZUyv4PDVBlr5kf41o_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/AaMltXoMS-ujJbV6DFvrIg?expiry=1555286400000&hmac=etmRle0rLxlbLof5r0nx3v3wVwt6yRFcjC7udZCtZEc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
@@ -277,13 +319,10 @@ It is very important to get error results as a single, numerical value. Otherwis
 
 
 
-----------------------------------------
-
-
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+<video src="text" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
