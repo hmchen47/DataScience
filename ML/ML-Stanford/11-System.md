@@ -71,16 +71,66 @@ It is difficult to tell which of the options will be most helpful.
 
 #### Lecture Notes
 
++ Recommended approach
+  + Start with a __simple algorithm__ that you can implement quickly. Implement it and test it on your cross­‐validation data.
+  + Plot __learning curves__ to decide if more data, more features, etc. are likely to help.
+  + __Error analysis__: 
+    + Manually examine the examples (in cross validation set) that your algorithm made errors on.
+    + See if you spot any systematic trend in what type of examples it is making errors on.
+    + Don't base anything oo your gut feeling.
+
++ Error Analysis Example
+  + $m_{cv}\;$ = 500 examples in cross validation set
+  + Algorithm misclassifies 100 emails
+  + Manually examine the 100 errors, and categorize then based on:
+    1. what type of email it is, e.g. pharma (12), replica/fake (4), steal passwords (53), other (31)
+    2. what cues (features) you think would have helped the algorithm classify them correctly.
+      + Deliberate misspellings (m0rgage, med1cine, etc.): 5
+      + Unusual email routing: 16
+      + Unusual (spamming) punctuation" 32 (might be worthwhile to spend time to develop sophisticated features)
+  + Find out what makes the algorithm misclassification most
+  + The reason to develop quick and dirty implementation to discover errors and identify areas to focus on
+
++ The importance of numerical evaluation
+  + Should discount/discounts/discounted/distounting be treated as the same work?
+  + Can use "stemming" software (e.g. "Porter stemmer"), e.g. universe/university?
+  + Error analysis may not be helpful for deciding of this is likely to improve performance. Only solution is to try it and see if it works.
+  + Need numerical evaluation (e.g., cross validation error) of algorithm's performance with and without stemming.
+    + without stemming: 5% error; with stemming: 3% error ==> better with stemming
+    + distinguish upper vs. lower case (Mom/mon): 3.2%
+  + IVQ: Why is the recommended approach to perform error analysis using the cross validation data used to compute $J_\text{CV}(\theta)$ rather than the test data used to compute $J_\text{test}(\theta)$?
+
+    1. The cross validation data set is usually large.
+    2. This process will give a lower error on the test set.
+    3. If we develop new features by examining the test set, then we may end up choosing features that work well specifically for the test set, so $J_{test}(\theta)$ is no longer a good estimate of how well we generalize to new examples.
+    4. Doing so is less likely to lead to choosing an excessive number of features.
+
+    Ans: 3
 
 
 ----------------------------------------
 
+The recommended approach to solving machine learning problems is to:
+
++ Start with a simple algorithm, implement it quickly, and test it early on your cross validation data.
++ Plot learning curves to decide if more data, more features, etc. are likely to help.
++ Manually examine the errors on examples in the cross validation set and try to spot a trend where most of the errors were made.
+
+For example, assume that we have 500 emails and our algorithm misclassifies a 100 of them. We could manually analyze the 100 emails and categorize them based on what type of emails they are. We could then try to come up with new cues and features that would help us classify these 100 emails correctly. Hence, if most of our misclassified emails are those which try to steal passwords, then we could find some features that are particular to those emails and add them to our model. We could also see how classifying each word according to its root changes our error rate:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Z11RP/error-analysis">
+    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kky-ouM6EeacbA6ydECl3A_01b1fa64fcc9a7eb5da8e946f6a12636_Screenshot-2017-01-25-12.08.23.png?expiry=1555286400000&hmac=Sq34Pjpc1sjOjxKM6DIrquDl01dtZxMNkFxyMpxcDFU" style="margin: 0.1em;" alt="text" title="The importance of numerical evaluation" width="350">
+  </a></div>
+</div>
+
+It is very important to get error results as a single, numerical value. Otherwise it is difficult to assess your algorithm's performance. For example if we use stemming, which is the process of treating the same word with different forms (fail/failing/failed) as one word (fail), and get a $3\%$ error rate instead of $5\%$, then we should definitely add it to our model. However, if we try to distinguish between upper case and lower case letters and end up getting a $3.2\%$ error rate instead of $3\%$, then we should avoid using this new feature. Hence, we should try new things, get a numerical value for our error rate, and based on our result decide whether we want to keep the new feature or not.
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/11.2-MachineLearningSystemDesign-ErrorAnalysis.b1ab7820b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1555286400&Signature=d2SN0EOxF1j4LnYayKeb8jTLWJw1rZAuyeOHu0Up9aFHT-rgRdYVGbmidS5pNyTk-ir~cksoP0PevHtaEJrMkzqTI0I1SCnE49cWFVVvwlBSVAJHk1CaNIk6VmZYqurRumMbW0NIaBe0r3i6JKAYTVWQxwx1fAdq6fxowIu-p8E_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/aA3ixgmVSquN4sYJlbqrDA?expiry=1555286400000&hmac=379XtCSqhWH_0sjnRK87mCH7NbB0qxX32l4wFPr9llc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
