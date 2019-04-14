@@ -517,11 +517,11 @@ References:
   + Recall = (true positives) / (true positives + false negatives)
   + $F_1 \text{ score } = (2 \cdot \text{ precision } \cdot \text{ recall }) / (\text{ precision } + \text{ recall })$
 
-  What is the classifier's recall/precision (as a value from 0 to 1)?
+  What is the classifier's recall/precision/F1 score (as a value from 0 to 1)?
 
   Enter your answer in the box below. If necessary, provide at least two values after the decimal point.
 
-  Ans: Recall = 0.85; Precision = 0.087
+  Ans: Recall = 0.85; Precision = 0.087; F1 score = 0.158 (0.16)
 
 
 2. Suppose a massive dataset is available for training a learning algorithm. Training on a lot of data is likely to give good performance when two of the following conditions hold true.
@@ -532,8 +532,12 @@ References:
   2. The features $x$ contain sufficient information to predict yy accurately. (For example, one way to verify this is if a human expert on the domain can confidently predict yy when given only xx).
   3. We train a learning algorithm with a large number of parameters (that is able to learn/represent fairly complex functions).
   4. We train a model that does not use regularization.
-  
-  Ans: 23 <br/>
+  5. A human expert on the application domain can confidently predict $y$ when given only the features $x$ (or more generally, if we have some way to be confident that $x$ contains sufficient information to predict $y$ accurately).
+  6. When we are willing to include high order polynomial features of $x$ (such as $x_1^2$, $x_2^2$, $x_1x_2$, etc.).
+  7. The classes are not too skewed.
+  8. Our learning algorithm is able to represent fairly complex functions (for example, if we train a neural network or other model with a large number of parameters).
+
+  Ans: 58 (5678), 23 (1234)<br/>
   Explanation: <br/>
   1. False
   2. True - It is important that the features contain sufficient information, as otherwise no amount of data can solve a learning problem in which the features do not contain enough information to make an accurate prediction.
@@ -545,7 +549,7 @@ References:
 
   Currently, you predict 1 if $h_\theta(x) \geq \text{threshold}$, and predict 0 if $h_\theta(x) < \text{ threshold}$, where currently the threshold is set to 0.5.
 
-  Suppose you __decrease__ the threshold to 0.1. Which of the following are true? Check all that apply.
+  Suppose you __decrease__ the threshold to 0.1/0.3/0.7. Which of the following are true? Check all that apply.
 
   1. The classifier is likely to have unchanged precision and recall, but higher accuracy.
   2. The classifier is likely to now have lower recall.
@@ -555,16 +559,15 @@ References:
   6. The classifier is likely to now have higher recall.
   7. The classifier is likely to have unchanged precision and recall, but lower accuracy.
 
-  Ans: 6(5167), x13(1234) <br/>
+  Ans: 5 x6 (0.7-5614), 6 (0.3-5167), x13 (0.1-1234) <br/>
   Explanation: <br/>
-  1. False - By making more y = 1 predictions, we increase true and false positives and decrease true and false negatives. Thus, precision and recall will certainly change. We cannot say whether accuracy will increase or decrease.
+  1. False - By making more $y = 1$ predictions, we increase true and false positives and decrease true and false negatives. Thus, precision and recall will certainly change. We cannot say whether accuracy will increase or decrease.
   2. False
-  3. True - Lowering the threshold means more y = 1 predictions. This will increase both true and false positives, so precision will decrease.
+  3. True (0.1/0.3) - Lowering the threshold means more $y = 1$ predictions. This will increase both true and false positives, so precision will decrease.
   4. False
-  5. False
-  6. True - Lowering the threshold means more y = 1 predictions. This will increase the number of true positives and decrease the number of false negatives, so recall will increase.
+  5. True (0.7) - Increasing the threshold means more y = 0 predictions. This will increase the decrease of true positives and increase the number of false negatives, so recall will decrease, not increase.
+  6. True (0.1/0.3)- Lowering the threshold means more $y = 1$ predictions. This will increase the number of true positives and decrease the number of false negatives, so recall will increase.
   6. False
-
 
 
 4. Suppose you are working on a spam classifier, where spam emails are positive examples ($y=1$) and non-spam emails are negative examples ($y=0$). You have a training set of emails in which 99% of the emails are non-spam and the other 1% is spam. Which of the following statements are true? Check all that apply.
@@ -577,14 +580,14 @@ References:
   6. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, and it will likely perform similarly on the cross validation set.
   7. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, but it will do much worse on the cross validation set because it has overfit the training data.
 
-  Ans: x5 (5671), x4 <br/>
+  Ans: x56 (5167), x5 (5671), x4 (1234) <br/>
   Explanation:
-  1. Fasle
+  1. True
   2. False
   3. True
   4. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%.
   5. True - For data with skewed classes like these spam data, we want to achieve a high $F_1$ score, which requires high precision and high recall.
-  6. True
+  6. True - The classifier achieves 99% accuracy on the training set because of how skewed the classes are. We can expect that the cross-validation set will be skewed in the same fashion, so the classifier will have approximately the same accuracy.
   7. False
 
 
@@ -595,14 +598,15 @@ References:
   3. The "error analysis" process of manually examining the examples which your algorithm got wrong can help suggest what are good steps to take (e.g., developing new features) to improve your algorithm's performance.
   4. Using a __very large__ training set makes it unlikely for model to overfit the training data.
   5. It is a good idea to spend a lot of time collecting a __large__ amount of data before building your first version of a learning algorithm.
+  6. On skewed datasets (e.g., when there are more positive examples than negative examples), accuracy is not a good measure of performance and you should instead use $F_1$ score based on the precision and recall.
 
-  Ans: 34<br/>
+  Ans: 46 (45126), 34 (12345)<br/>
   Explanation:
   1. False
   2. False
   3. True - This process of error analysis is crucial in developing high performance learning systems, as the space of possible improvements to your system is very large, and it gives you direction about what to work on next.
   4. True - A sufficiently large training set will not be overfit, as the model cannot overfit some of the examples without doing poorly on the others.
   5. False
-
+  6. You can always achieve high accuracy on skewed datasets by predicting the most the same output (the most common one) for every input. Thus the $F_1$ score is a better way to measure performance.
 
 
