@@ -294,6 +294,23 @@
     + [Quiz: Machine Learning System Design](11-System.md#)
 
 
+## Support Vector Machines
+
++ [Large Margin Classification](12-SVM.md#)
+    + [Optimization Objective](12-SVM.md#)
+    + [Large Margin Intuition](12-SVM.md#)
+    + [Mathematics Behind Large Margin Classification](12-SVM.md#)
++ [Kernels](12-SVM.md#)
+    + [Kernels I](12-SVM.md#)
+    + [Kernels II](12-SVM.md#)
++ [SVMs in Practice: Using An SVM](12-SVM.md#)
++ [Review](12-SVM.md#)
+    + [Lecture Slides](12-SVM.md#)
+    + [Errata](12-SVM.md#)
+    + [Quiz: Support Vector Machines](12-SVM.md#)
+
+
+## Programming Assignment: Support Vector Machines
 
 
 
