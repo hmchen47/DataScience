@@ -549,7 +549,7 @@ References:
 
   Currently, you predict 1 if $h_\theta(x) \geq \text{threshold}$, and predict 0 if $h_\theta(x) < \text{ threshold}$, where currently the threshold is set to 0.5.
 
-  Suppose you __decrease__ the threshold to 0.1/0.3/0.7. Which of the following are true? Check all that apply.
+  Suppose you __decrease/increase__ the threshold to 0.1/0.3/0.7. Which of the following are true? Check all that apply.
 
   1. The classifier is likely to have unchanged precision and recall, but higher accuracy.
   2. The classifier is likely to now have lower recall.
