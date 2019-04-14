@@ -517,11 +517,11 @@ References:
   + Recall = (true positives) / (true positives + false negatives)
   + $F_1 \text{ score } = (2 \cdot \text{ precision } \cdot \text{ recall }) / (\text{ precision } + \text{ recall })$
 
-  What is the classifier's recall/precision/F1 score (as a value from 0 to 1)?
+  What is the classifier's recall/precision/F1 score/Accuracy (as a value from 0 to 1)?
 
   Enter your answer in the box below. If necessary, provide at least two values after the decimal point.
 
-  Ans: Recall = 0.85; Precision = 0.087; F1 score = 0.158 (0.16)
+  Ans: Recall = 0.85; Precision = 0.087; F1 score = 0.158 (0.16), Accuracy = 0.095
 
 
 2. Suppose a massive dataset is available for training a learning algorithm. Training on a lot of data is likely to give good performance when two of the following conditions hold true.
@@ -537,7 +537,7 @@ References:
   7. The classes are not too skewed.
   8. Our learning algorithm is able to represent fairly complex functions (for example, if we train a neural network or other model with a large number of parameters).
 
-  Ans: 58 (5678), 23 (1234)<br/>
+  Ans: (7568), 58 (5678), 23 (1234)<br/>
   Explanation: <br/>
   1. False
   2. True - It is important that the features contain sufficient information, as otherwise no amount of data can solve a learning problem in which the features do not contain enough information to make an accurate prediction.
@@ -559,7 +559,7 @@ References:
   6. The classifier is likely to now have higher recall.
   7. The classifier is likely to have unchanged precision and recall, but lower accuracy.
 
-  Ans: 5 x6 (0.7-5614), 6 (0.3-5167), x13 (0.1-1234) <br/>
+  Ans: 5 (0.7-6451), x6 (0.7-5614), 6 (0.3-5167), x13 (0.1-1234) <br/>
   Explanation: <br/>
   1. False - By making more $y = 1$ predictions, we increase true and false positives and decrease true and false negatives. Thus, precision and recall will certainly change. We cannot say whether accuracy will increase or decrease.
   2. False
@@ -580,11 +580,11 @@ References:
   6. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, and it will likely perform similarly on the cross validation set.
   7. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, but it will do much worse on the cross validation set because it has overfit the training data.
 
-  Ans: x56 (5167), x5 (5671), x4 (1234) <br/>
+  Ans: x134 (4213), x56 (5167), x5 (5671), x4 (1234) <br/>
   Explanation:
-  1. True
-  2. False
-  3. True
+  1. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%. Since 99% of the examples are y = 0, always predicting 0 gives an accuracy of 99%. Note, however, that this is not a good spam system, as you will never catch any spam.
+  2. True
+  3. False - Every prediction is y = 1, so recall is 100% and precision is only 1%.
   4. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%.
   5. True - For data with skewed classes like these spam data, we want to achieve a high $F_1$ score, which requires high precision and high recall.
   6. True - The classifier achieves 99% accuracy on the training set because of how skewed the classes are. We can expect that the cross-validation set will be skewed in the same fashion, so the classifier will have approximately the same accuracy.
