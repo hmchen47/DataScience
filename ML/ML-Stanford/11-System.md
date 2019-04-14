@@ -537,7 +537,7 @@ References:
   7. The classes are not too skewed.
   8. Our learning algorithm is able to represent fairly complex functions (for example, if we train a neural network or other model with a large number of parameters).
 
-  Ans: (7568), 58 (5678), 23 (1234)<br/>
+  Ans: 58 (5678), 23 (1234)<br/>
   Explanation: <br/>
   1. False
   2. True - It is important that the features contain sufficient information, as otherwise no amount of data can solve a learning problem in which the features do not contain enough information to make an accurate prediction.
@@ -581,8 +581,11 @@ References:
   7. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, but it will do much worse on the cross validation set because it has overfit the training data.
 
   Ans: x134 (4213), x56 (5167), x5 (5671), x4 (1234) <br/>
-  Explanation:
-  1. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%. Since 99% of the examples are y = 0, always predicting 0 gives an accuracy of 99%. Note, however, that this is not a good spam system, as you will never catch any spam.
+  Explanation: <br/>
+  y = 0: TP = 0, TN = 99, FN = 1,  FP = 0 => Accuracy = 99%, Recall = 0%, Precision = 0% <br/>
+  y = 1: TP = 1, TN = 0, FN = 0, FP = 99 => Accuracy = 1%, Recall = 100%, Precision = 1%
+
+  1. True - Since 99% of the examples are y = 0, always predicting 0 gives an accuracy of 99%. Note, however, that this is not a good spam system, as you will never catch any spam.
   2. True
   3. False - Every prediction is y = 1, so recall is 100% and precision is only 1%.
   4. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%.
