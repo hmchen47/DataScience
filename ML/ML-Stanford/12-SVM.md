@@ -82,6 +82,63 @@
 
 #### Lecture Notes
 
++ Support Vector Machine
+  + Objective:
+
+    $$\min_\theta C \cdot \sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
+  + cost functions
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://d3c33hcgiwev3.cloudfront.net/_246c2a4e4c249f94c895f607ea1e6407_Lecture12.pdf?Expires=1555459200&Signature=Aibx4MyH1R-oUJMXRrW3chKna-a~XoCJd-c~g3UwUpgnzRFULWlxriuLCniD~Q92GzKqNrslw0CwCyCyMBKemvQnjt-iVThjFe9Q23SDi3qmcAPq1eprZTr84Vq2IccOXYuPf7XaHwBj~r16BTEDnkiLWOZ79H1d1zTG6DBQpT0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+        <img src="images/m12-04.png" style="margin: 0.1em;" alt="cost functions to represent the y = 1 (left diagram) and y = 0 (right diagram)" title="Cost functions: left(y=1) right(y=0)" width="350">
+      </a></div>
+    </div>
+
+  + If $y=1$, we want $\theta^T x \geq 1$ (not just $\geq 0$) <br/>
+    If $y=0$, we want $\theta^T x \leq -1$ (not just $< 0$)
+
++ SVM Decision Boundary
+  + Objective:
+
+    $$\min_\theta C \underbrace{\sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right]}_{(A)} + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
+
+  + $C \gg 0$, $(A) = 0\;$ to minimize the cost function
+  + Wherever $y^{(i)} = 1\;: \theta^T x^{(i)} \geq 1$ <br/>
+    Wherever $y^{(i)} = 0\;: \theta^T x^{(i)} \leq -1$
+
+    $$\begin{array}{rl} min_\theta & C \cdot 0 + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t.} & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+  
+  + Linearly separable case & large margin classifier
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm6.png" style="margin: 0.1em;" alt="Decision boundary: linear separable cases" title="SVM decision boundary: linearly separable case" width="250">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm7.png" style="margin: 0.1em;" alt="Decision boundary: large margin classifier" title="SVM decision boundary: large margin classifier" width="420">
+      </a></div>
+    </div>
+
+    + black decision boundary: larger minimum difference
+    + magenta & green boundaries: close to examples
+    + __margin__: distance btw blue & black line
+    + $C\;$ value
+      + Very large: decision boundary would change from black to magenta line
+      + not very large: 
+        + decision boundary would be the black line
+    + SVM being a large margin classifier is only relevant when you have no outliers
+  + IVQ: Consider the training set to the right, where "x" denotes positive examples ($y=1$) and "o" denotes negative examples ($y=0$). Suppose you train an SVM (which will predict 1 when $\theta_0 + \theta_1x_1 + \theta_2x_2 \geq 0$. What values might the SVM give for $\theta_0$, $\theta_1$, and $\theta_2$?
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m12-05.png" style="margin: 0.1em;" alt="Diagram for IVQ w/ SVM Decision boundary" title="IVQ: SVM decision boundary" width="250">
+      </a></div>
+    </div>
+
+    1. $\theta_0=3,\theta_1=1,\theta_2=0$ 
+    2. $\theta_0=-3,\theta_1=1,\theta_2=0$
+    3. $\theta_0=3,\theta_1=0,\theta_2=1$
+    4. $\theta_0=-3,\theta_1=0,\theta_2=1$
+
+    Ans: 2
 
 
 #### Lecture Video
