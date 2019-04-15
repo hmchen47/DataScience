@@ -345,6 +345,25 @@ __Note__: a neural network is likely to work well for any of these situations, b
 
 ### Errata
 
+#### Errata in video lectures
+
++ In 'Optimization Objective', starting at 9:25, the SVM regularization term should start from $j=1$, not $j=0$.
++ In 'Optimization Objective', starting at 13:37, the SVM regularization term should be summing over $j$ instead of $i$: $\sum_{j=1}^n\theta{j}^2$.
++ In 'Large Margin Intuition', starting from 1:04, should be labelled $z \leq −1$, for graphic on the right. (It is drawn correctly).
++ In 'Mathematics Behind Large Margin Classification', starting from 11:22, second condition should be $p^{(i)} \cdot |\theta| \leq -1$ if $y^{(i)} = 0$ instead of $y^{(i)} = 1$. This persists also in the quiz.
++ In 'Mathematics Behind Large Margin Classification', at 16:33, Dr. Ng writes towards the right of the slide that for a vertical decision boundary, $p^{(1)} \cdot \parallel \theta \paralle > 0$, while it should be $p^{(1)} \cdot \parallel \theta \parallel > 1$.
++ In the 'Kernels I' video quiz, the notation surrounding $x_1-l^{(1)}$ inside the $\exp( )$ function is the norm notation.
++ In 'Using An SVM', at 13:51, Dr. Ng writes $\theta = K$ instead of class $y=K$
+
+
+#### Errata in programming assignment ex6
+
++ In ex6.pdf, typo on page 1: "SVM rraining function" should be "SVM training function"
++ In ex6.m at line 69: Inside the `fprintf()` statement, the text "sigma = 0.5" should be "sigma = 2"
++ In ex6.pdf, typo in section 1.2.2 on page 6: "obserse" should be ‘observe’.
++ In ex6.pdf, in section 1.2.3 on page 7: The submit grader requires that you use exactly the eight values listed for both C and sigma.
++ In dataset3Params.m, at line 2 "EX6PARAMS" should be "DATASET3PARAMS".
++ In visualizeBoundary.m at line 21, the statement `contour(X1, X2, vals, [0 0], 'Color', 'b');` does not reliably display the contour plot on all platforms. The form `contour(X1, X2, vals, [0.5 0.5], 'linecolor', 'b');` seems to be a better choice.
 
 
 ### Quiz: Support Vector Machines
