@@ -6,12 +6,73 @@
 
 #### Lecture Notes
 
++ Alternative view of logistic regression ($z = \theta^Tx$)
+
+  $$h_\theta(x) = \dfrac{1}{1 + e^{-\theta^T x}}$$
+
+  + Cost of example: diagram of cost contributions (y-axis)
+
+    $$-(y \cdot \log h_\theta(x) + (1 - y) \cdot \log(1 - h_\theta(x))) = \underbrace{-y \cdot \log(\dfrac{1}{1 + e^{-\theta^Tx}})}_{z \geq 0 \;\rightarrow\; \theta^Tx \geq 0} \underbrace{- (1 - y) \cdot \log(1 - \dfrac{1}{1 + e^{-\theta^T x}})}_{z < 0 \;\rightarrow\; \theta^Tx < 0}$$
+
+  + If $y = 1$, we want $h_\theta(x) \approx 1, \theta^T x \gg 0$
+    + only the first term in cost function would matter
+    + Graph on the left
+    + When $z$ is large, cost function would be small
+    + Magenta curve is a close approximation of the log cost function
+  + If $y = 0$, we want $h_\theta(x) \approx 1, \theta^T x \ll 0$
+    + only the second term in cost function would matter
+    + Magenta curve is a close approximation of the log cost function
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_246c2a4e4c249f94c895f607ea1e6407_Lecture12.pdf?Expires=1555459200&Signature=Aibx4MyH1R-oUJMXRrW3chKna-a~XoCJd-c~g3UwUpgnzRFULWlxriuLCniD~Q92GzKqNrslw0CwCyCyMBKemvQnjt-iVThjFe9Q23SDi3qmcAPq1eprZTr84Vq2IccOXYuPf7XaHwBj~r16BTEDnkiLWOZ79H1d1zTG6DBQpT0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m12-03.png" style="margin: 0.1em;" alt="text" title="caption" width="250">
+    </a></div>
+        <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/lg2.png" style="margin: 0.1em;" alt="text" title="caption" width="400">
+    </a></div>
+  </div>
+
++ Support vector machine
+  + a cleaner and powerful way of learning complex non-linear functions
+  + Logistic regression
+
+    $$ \min_\theta \underbrace{\dfrac{1}{m} \left[ \sum_{i=1}^m y^{(i)}\underbrace{(-\log h_\theta(x^{(i)}))}_{\text{cost}_1(\theta^Tx^{(i)})} + (1 - y^{(i)}) \underbrace{(-\log(1 - h_\theta(x^{(i)})))}_{\text{cost}_0(\theta^T x^{(i)})} \right]}_{(A)} + \underbrace{\dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j}_{(B)}$$
+
+  + Support vector machine
+
+    $$\min_\Theta \underbrace{\;\;C\;\;}_{1/m} \sum_{j=1}^m \left[ y^{(i)} \text{cost}_1 (\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\Theta^T x^{(i)}) \right] + \underbrace{\;\;\dfrac{1}{2}\;\;}_{\lambda/2m} \sum_{j=0}^n \Theta_j^2$$
+
+    + Replace the 1st & 2nd terms with cost function respectively
+    + Remove $1/m$ which not effect the minimization: $\min_u (u-5)^2 + 1 \;\rightarrow\; u = 5 \Longleftrightarrow \min_u 10(u-5)^2 + 10 \;\rightarrow\; u = 5$
+    + Let $C = \frac{1}{\lambda}\;$: $(A) + \lambda \cdot (B) \implies C \cdot (A) + (B)$
+
+    $$\min_\theta C \cdot \sum_{j=1}^m \left[y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 - y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
+
+  + IVQ: Consider the following minimization problems:
+
+    $$\begin{array}{l} \min_\theta \dfrac{1}{m} \left[ \sum_{i=1}^m y^{(i)} \text{cost}_1(\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0(\theta^T x^{(i)}) \right] + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j \\ \min_\theta C \left[ \sum_{i=1}^m y^{(i)} \text{cost_1}(\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \end{array}$$
+
+    These two optimization problems will give the same value of $\theta$ (i.e., the same value of $\theta$ gives the optimal solution to both problems) if:
+
+    1. $C = \lambda$
+    2. $C = -\lambda$
+    3. $C = \frac{1}{\lambda}$
+    4. $C = \frac{2}{\lambda}$
+
+    Ans: 2
+
+
++ SVM Hypothesis
+  + $y \in \{0, 1\}$ not probability as logistic regression
+  
+  $$h_\theta (x) = \begin{cases} 1 & \text{if } \theta^Tx \geq 0 \\ 0 & \text{otherwise} \end{cases}$$
+
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/12.1-SupportVectorMachines-OptimizationObjective.23b59c80b22b11e4964ea1de90934151/full/360p/index.mp4?Expires=1555459200&Signature=P9LKgNX5Hqc6lMm-5XAxjLPSHFJ3s0LQzHKrcaiNJDcMR3SIBRc8pwl5M7~Ayh0z5kESyNhT5A~hRfrt5vjM6SjWOS3JiMWYits7j1SexDswVfsyryrno7DcYq908TOz04y7s~A1BI-TZviXoCqP6n8RPVrxmF6TRWoOQG6tNjk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/l9mcJSM1TdKZnCUjNR3SpQ?expiry=1555459200000&hmac=-vQeY4vqDgjKg1thVUWB4NgYN3lSAfrYgRH7DeJDry4&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -25,8 +86,8 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/12.2-SupportVectorMachines-LargeMarginIntuition.32aeeca0b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1555459200&Signature=jNxpLu-SzNgsmDd0W4HVgfmLGOshh--UF1Sx~2PUrP4agZALSu86xbcRuWjsBxYAbl7grHOQ7~Vd97eeXDDVsqFBVA3UjDWlw5m0ddUT~pAzDMXEl~BhVBp7QQWN1g8Kk9jJA2O1quFNQBE9nGukgml8uosEOOIV34KK5KyEyng_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/tVkxiW6tTICZMYlurYyAOg?expiry=1555459200000&hmac=889FJnt1dee-DTdkfNGfBoAaa4Nlx5YUtq6R2O75BBU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
