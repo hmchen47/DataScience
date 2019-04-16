@@ -252,12 +252,98 @@
 
 #### Lecture Notes
 
++ Non-linear decision boundary
+  + high order polynomials: computationally expensive
+  + Predict $y = 1$ if $\theta_0 + \theta_1 x_1 + \theta_2 x_1 x_2 + \theta_4 x_1^2 + \theta_5 x_2^2 + \ldots \geq 0$
+
+    $$h_\theta(x) = \begin{cases} 1 & \text{if } \theta_0 + \theta_1 x_1 + \ldots \geq 0 \\ 0 & \text{otherwise} \end{cases}$$
+
+  + Let $\theta_0 + \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 + \theta_4 f_4 + \theta_5 f_5 + \ldots$ where $f_1 = x_1, f_2 = x_2, f_3  = x_1 x_2, f_4 = x_1^2, f_5 = x_2^2, \ldots$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm11.png" style="margin: 0.1em;" alt="Non-linear decision boundary" title="Non-linear decision boundary" width="450">
+    </a></div>
+  </div>
+
+  + Given a dataset, is there a different or better choice of the features $f_1, f_2,  \ldots$?
+
+
++ Gaussian kernel
+  + Given $x$, compute new feature depending on proximity ti landmarks $l^{(1)}, l^{(2)}, l^{*(3)}, \ldots$
+  
+    $$\begin{array}{rlc} f_1 & = & similarity(x, l^{(1)}) = \exp \left( -\dfrac{\parallel x - l^{(1)} \parallel^2}{2 \sigma^2} \right) \\ f_1 & = & similarity(x, l^{(2)}) = \exp \left( -\dfrac{\parallel x - l^{(2)} \parallel^2}{2 \sigma^2} \right) \\  f_1 & = & similarity(x, l^{(3)}) = \exp \left( -\dfrac{\parallel x - l^{(3)} \parallel^2}{2 \sigma^2} \right) \\ & \vdots \end{array}$$S
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm12.png" style="margin: 0.1em;" alt="Gaussian kernel" title="Gaussian Kernel" width="450">
+    </a></div>
+  </div>
+
+  + manually pick 3 landmarks
+  + given an example $x$, define the features as a measure of similarity between $x$ ans the landmarks
+  
+    $$\begin{array}{rcl} f_1 &=& similarity(x, l^{(1)}) \\ f_2 &=& similarity(x, l^{(2)}) \\ f_3 &=& similarity(x, l^{(3)}) \end{array}$$
+
+  + kernel: $k(x, l^{(i)}) = similarity(x, l^{(i)})$
+  + The similarity functions are __Gaussian kernels__, $\exp\left( - \dfrac{\parallel x - l^{(i)} \parallel^2}{2\sigma^2} \right)$.
+
++ Kernels and Similarity
+
+  $$f_1 = similarity(x, l^{(1)}) = exp \left(-\dfrac{\parallel x - l^{(1)} \parallel^2}{2\sigma^2} \right) = \exp \left( -\dfrac{\sum_{j=1}^n (x_j - l_j^{(1)})^2}{2 \sigma^2} \right)$$
+
+  + If $x \approx l^{(1)}: f_1 \approx \exp \left( -\dfrac{0^2}{2\sigma^2} \right) \approx 1$
+  + If $x$ is far from $l^{(1)}: f_1 = \exp \left( - \dfrac{(\text{large number})^2}{2\sigma^2} \right) \approx 0$
+  + Example 1: $l^{(1)} = \begin{bmatrix} 3 \\ 5 \end{bmatrix} \qquad f_1 = \exp \left( - \dfrac{\parallel x - l^{(1)} \parallel^2}{2\sigma^2} \right)$
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm14.png" style="margin: 0.1em;" alt="Gaussian kernels with different sigma" title="Kernel example width different $\sigma^2$" width="550">
+      </a></div>
+    </div>
+
+  + IVQ: Consider a 1-D example with one feature $x_1$. Suppose $l^{(1)}=5$. To the right is a plot of $f_1 = \exp(− \dfrac{\parallel x_1 - l^{(1)} \parallel^2}{2\sigma^2})$ when $\sigma^2 = 1$. Suppose we now change $\sigma^2=4$. Which of the following is a plot of $f_1$ with the new value of $\sigma^2$?
+
+    A plot of a Gaussian kernel centered at 5. It has a peak at (5,1).
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="url">
+        <img src="images/m12-07.png" style="margin: 0.1em;" alt="G(5, 1) fucntion" title="IVQ: Original" width="250">
+        <img src="images/m12-08.png" style="margin: 0.1em;" alt="IVQ: Fig.1" title="IVQ: Fig.1" width="250">
+        <img src="images/m12-09.png" style="margin: 0.1em;" alt="IVQ: Fig.2" title="IVQ: Fig.2" width="250">
+        <img src="images/m12-10.png" style="margin: 0.1em;" alt="IVQ: Fig.3" title="IVQ: Fig.3" width="250">
+        <img src="images/m12-11.png" style="margin: 0.1em;" alt="IVQ: Fig.4" title="IVQ: Fig.4" width="250">
+      </a></div>
+    </div>
+
+    Ans: 3
+
+  + Example 2: Predict "1" when $\theta_0 + \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 \geq 0$
+
+    $$x = \begin{bmatrix} f_1 \\ f_2 \\ f_3 \end{bmatrix} \qquad \theta_0 = -0.5, \theta_1 = 1, \theta_2 = 1, \theta_3 =0 \text{ with } f_1 \approx 1, f_2 \approx 0, f_3 \approx 0$$
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm15.png" style="margin: 0.1em;" alt="Gaussian kernels with different sigma" title="Kernel example width different $\sigma^2$" width="550">
+      </a></div>
+    </div>
+
+    + Predict "1" (magenta dot) because $h_\theta(x) \geq 0\;: \theta_0 + \theta_1 \times 1 + \theta_2 \times 0 + \theta_3 \times 0 = -0.5 + 1 = 0.5 \geq 0$
+    + Predict "0" (cyan dot) because $h_\theta(x) < 0\;:  f_1, f_2, f_3 \approx 0 \implies \theta_1 + \theta_1 f_1 + \ldots \approx -0.5 < 0$
+  + learn complex non-linear decision boundaries
+    + predict positive when close to the landmarks
+    + predict negative when far away from the landmarks
+
++ Questions we have yet to answer
+  + How do we get these landmarks?
+  + How do we choose these landmarks?
+  + What other similarity functions can we use beside the Gaussian kernel?
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/12.4-SupportVectorMachines-KernelsI.57fe50e0b22b11e487451d0772c554c0/full/360p/index.mp4?Expires=1555545600&Signature=RxLa8iob2kBC98vgxYNWEwFZj8h8W7yrfqdT1SoQoCzDO2tgxxlV6R0oWvPubPzVs3wETOTvTeXh7go29oibDVabk8i7qzcjYa4wOzube--gONq0AZ6se1CLBF99UNR0MFcqFZy5Jz3v39P~1OT6B4zcX1T2RN8uI1aeGF-DAaQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/F3vXHMmGQqq71xzJhnKqmg?expiry=1555545600000&hmac=XF28XhYFFuBtAF0bRF51R20QN0kWIVBrNQ0EVqI4YkM&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -475,7 +561,7 @@ $f_1 = similarity(x,l^{(1)})$, $f_2 = similarity(x,l^{(2)})$, $f_3 = similarity(
 
 This gives us a "feature vector," $f_{(i)}$ of all our features for example $x_{(i)}$. We may also set $f_0 = 1$ to correspond with $\Theta_0$. Thus given training example $x_{(i)}$:
 
-$$x(i) \;\rightarrow\; \begin{bmatrix} f^{(i)}_1 = similarity(x^{(i)},l^{(1)}) \\ f^{(i)}_2 = similarity(x^{(i)},l^{(2)}) \\ \vdots \\ f^{(i))_m = similarity(x^{(i)}, l^{(m)}) \end{bmatrix}$$
+$$x(i) \;\rightarrow\; \begin{bmatrix} f^{(i)}_1 = similarity(x^{(i)},l^{(1)}) \\ f^{(i)}_2 = similarity(x^{(i)},l^{(2)}) \\ \vdots \\ f^{(i)}_m = similarity(x^{(i)}, l^{(m)}) \end{bmatrix}$$
 
 Now to get the parameters Θ we can use the SVM minimization algorithm but with $f^{(i)}$ substituted in for $x^{(i)}$:
 
