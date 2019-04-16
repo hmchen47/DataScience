@@ -154,12 +154,92 @@
 
 #### Lecture Notes
 
++ Vector Inner Product
+
+  $$u = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} \qquad v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \qquad\qquad u^Tv = ?$$
+
+  + $\parallel u \parallel = \text{ norm of vector } u = \text{ length of vector } u = \sqrt{u_1^2 + u_2^2} \;\in\; \mathbb{R}$
+  + $p = \text{signed length of projection of } v \text{ onto } u \;\in \mathbb{R}$
+
+    $$u^T v = v^T u = p \cdot \parallel u \parallel = u_1 v_1 + u_2 v_2$$
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm8.png" style="margin: 0.1em;" alt="vector inner product" title="Vector inner product" width="450">
+      </a></div>
+    </div>
+
+    + inner product: $u^Tv$
+    + $\parallel u \parallel\;$: hypotenuse calculated by using Pythagoras' Theorem
+    + Projection: project vector $v$ onto $u$
+    + negative: angle between $u$ and $v > 90\;$ degrees
+
++ SVM decision boundary
+  + Introduction
+
+    $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t. } & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+
+    + Simplification: $\theta_0 = 0, n= 2, \theta = \begin{bmatrix} \theta1 \\ \theta_2 \end{bmatrix} \in \mathbb{R}^2$
+
+      $$\dfrac{1}{2} \sum_{j=1}^2 \theta_j^2 = \dfrac{1}{2} (\theta_1^2 + \theta_2^2) = \dfrac{1}{2} \left( \sqrt{\theta_1^2 + \theta_2^2} \right)^2 = \dfrac{1}{2} \parallel \theta \parallel^2$$
+
+      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+        <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+          <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm9.png" style="margin: 0.1em;" alt="Projection vector u to vector v" title="Projection vector u to vector v" width="450">
+        </a></div>
+      </div>
+
+      + $\theta^T x^{(i)} = p^{(i)} \cdot \parallel \theta \parallel = \theta_1 x^{(i)}_1 + \theta_2 x^{(i)}_2$
+  + Projections and hypothesis
+
+    $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \displaystyle \sum_{j=1}^n \theta^2_j = \dfrac{1}{2} \parallel \theta \parallel^2 \\\\ \text{s.t. } & p^{(i)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } y^{(i)} = 1 \\ & p^{(i)} \cdot \parallel \theta \parallel \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+
+    where $p^{(i)}$ is the projection of $x^{(i)}$ onto the vector $\theta$.
+
+    + Simplification: $\theta_0 = 0$
+
+      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+        <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+          <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm10.png" style="margin: 0.1em;" alt="Projection and hypothesis" title="Projection and hypothesis" width="550">
+        </a></div>
+      </div>
+    + When $\theta_0 = 0$, the vector passes through the origin.
+    + $\theta$ projection: always 90 degrees to the decision boundary
+    + Decision boundary choice 1: graph on the left
+      + $p^{(1)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } \parallel \theta \parallel \gg 1$
+      + $p^{(2)}\;$ is the projection of $x_2$ example on $\theta$ (magenta): $\;p^{(2)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } \parallel \theta \parallel \ll -1$
+      + Purpose: minimize $\parallel \theta \parallel^2\;$: this decision boundary choice not suitable
+    + Decision boundary choice 2: graph on the right
+      + $p^{(1)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)}\;$ much bigger $\Rightarrow\; \parallel \theta \parallel$ can be smaller
+      + $p^{(2)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)}\;$ much bigger $\Rightarrow\; \parallel \theta \parallel$ can be smaller
+      + $\therefore\; \parallel \theta \parallel^2$ would be smaller $\implies$ reason to choose this decision boundary
+  + IVQ: The SVM optimization problem we used is:
+
+    $$\begin{array}{ll} \min_\theta & \dfrac{1}{2} \sum_{j=1}^n \theta^2_j = \dfrac{1}{2} \parallel \theta \parallel^2 \\\\ \text{s.t. } & \parallel \theta \parallel \cdot p^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \parallel \theta \parallel \cdot p^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/3eNnh/mathematics-behind-large-margin-classification">
+        <img src="images/m12-06.png" style="margin: 0.1em; background-color: white;" alt="SVM optimization" title="SVM optimization problem" width="350">
+      </a></div>
+    </div>
+
+    where $p^{(i)}$ is the (signed - positive or negative) projection of $x^{(i)}$ onto $\theta$. Consider the training set above. At the optimal value of $\theta$. what is $\parallel \theta \parallel$?
+
+    1. 1/4
+    2. 1/2
+    3. 1
+    4. 2
+
+    Ans: 2
+
+  + Magnitude of margin is value $p^{(1)}, p^{(2)}, p^{(3)}$, and so on
+    + SVM would end up with a large margin because it tries to maximize the margin to minimize the squared norm of $\theta$, $\parallel \theta \parallel^2$
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/12.3-SupportVectorMachines-MathematicsBehindLargeMarginClassificationOptional.3bda0800b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1555459200&Signature=er9Lien2xxIGtbcIGFlCKvYgiyVoND6F8exhAKDK~zlBBhongj7i4Y44jR3LLv74E8-SEAqzy3oJgteGSWQsN2~T42Hz0AHR4AUjrxb-aXxsqxgZTJSEDIFkhQk9xhWjrLJ8oTZF0VL9lKvB9~I0-BQJrXXKYSuIWJ9CLkDW5bg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/A0ZIub9NQj6GSLm_TXI-bA?expiry=1555459200000&hmac=JIZHx4JJrRua_hqDEhjv-PPtS8Wf8SHp42U8PjNtmn8&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
