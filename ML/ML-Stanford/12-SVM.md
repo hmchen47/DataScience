@@ -353,12 +353,70 @@
 
 #### Lecture Notes
 
++ Choosing the landmarks
+  
+  Given $x\;$:
+
+  $$f_i = similarity(x, j^{(i)}) = \exp \left( - \dfrac{\parallel x - l^{(i)} \parallel^2}{2\sigma^2} \right)$$
+
+  Predict $y=1$ if $\theta_0 + \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 \geq 0$
+
+  Where to get $l^{(1)}, l^{(2)}, l^{(3)}, \ldots?$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/#2b-kernels-ii">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm16.png" style="margin: 0.1em;" alt="Choosing the locations of landmarks" title="Locations of the landmarks" width="450">
+    </a></div>
+  </div>
+
+  The landmarks locate the same position as the training examples: $x^{(1)} \rightarrow l^{(1)}, x^{(2)} \rightarrow l^{(2)}, \ldots$
+
++ SVM with kernels
+  + Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(3)}, y^{(3)})$, choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, ldots, l^{(3)} = x^{(3)}$
+  + Given example $x$:
+
+    $$\begin{array}{rcl} f_1 = similarity(x, l^{(1)}) \\ f_1 = similarity(x, l^{(2)})  \\ \cdots \end{array} \implies f = \begin{bmatrix} f_0 = 1 \\ f_1 \\ \vdots \\ f_m \end{bmatrix}$$
+
+  + For training example $(x^{(i)}, y^{(i)})\;$:
+
+    $$x^{(i)} \quad\implies\quad \begin{array}{rcl} f_0^{(i)} &=& 1 \\ f_1^{(i)} &=& sim(x^{(i)}, l^{(1)}) \\ f_2^{(i)} &=& sim(x^{(i)}, l^{(2)}) \\ &\cdots& \\ f_i^{(i)} &=& sim(x^{(i)}, l^{(i)}) = \exp \left( -\dfrac{0}{2\sigma^2} \right) \\ &\cdots& \\ f_m^{(i)} &=& sim(x^{(i)}, l^{(m)}) \end{array} \implies f^{(i)} = \begin{bmatrix} f_0^{(i)} \\ f_1^{(1)} \\\vdots \\ f_m^{(i)} \end{bmatrix}$$
+
+  + Hypothesis: Given $x$, compute features $f \in \mathbb{R}^{m+1}$
+
+    Predict "y=1" if $\theta^Tf = \theta_0 f_0  + \theta_1 f_1 + \ldots + \theta_m f_m \geq 0, \quad \theta \in \mathbb{R}^{m+1}$
+
+  + Training
+
+    $$min_\theta C \cdot \sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^T f^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^T f^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^{n (=m)} \theta_j^2$$
+
+    $$\begin{array}{crl} \sum_{j} \theta_j^2 &=& \theta^T \theta = \begin{bmatrix} \theta_1 & \theta_2 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} \theta_1 \\ \theta_2 \ \vdots \\ \theta_m \end{bmatrix} = \parallel \theta \parallel^2 \\\\ &=& \theta^TM\theta = \begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} 0 & 0 & 0 & \cdots & 0 \\ 0 & 1 & 0 & \cdots & 0 \\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{bmatrix} \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_m \end{bmatrix} \end{array}$$
+
+  + applying kernel's idea to other algorithm
+    + able to do so by applying the kernel's idea and define the source of features using landmarks
+    + unable to generalize SVM's computational tricks to other algorithms
+
++ SVM parameters
+  + $C (= 1/\lambda)$
+    + Large C (small $\lambda$): lower bias, high variance
+    + Small C (large $\lambda$): higher bias, lower variance
+  + $\sigma^2$
+    + Large $\sigma^2\;$: feature $f_i$ vary more smoothly $\implies$ higher bias, lower variance
+    + Small $\sigma^2\;$: feature $f_i$ vary less smoothly $\implies$ lower bias, higher variance
+  + IVQ: Suppose you train an SVM and find it overfits your training data. Which of these would be a reasonable next step? Check all that apply.
+
+    1. Increase $C$
+    2. Decrease $C$
+    3. Increase $\sigma^2$
+    4. Decrease $\sigma^2$
+
+    Ans: 23
+
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/12.5-SupportVectorMachines-KernelsII.a7ce4ad0b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1555545600&Signature=kDfdoPb4aALU5QEMWaWGoT4ZdBgM23a9gNKB4SYWhp6F3iv~3MKk0MjdO3aoL~sfs6tCkp879JhSpmi9CbhSAxcvT1TlZReVQi-I9oxbe4PPcqJPBPC3deuYhGcu1j18UDMEOGvqYyOqfjIgemE2qjjOKXYM5uFgLrErZ78koNw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/6r6th7fYTKe-rYe32GynPg?expiry=1555545600000&hmac=BdwRfUPDUsKoeYClWesVM9Qnh8gpu5khtCB9H2pO6ZE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
