@@ -426,6 +426,80 @@
 
 ### Lecture Notes
 
++ SVM software package
+  + Use SVM software package (e.g. `liblinear`, `libsvm`, ...) to solve for parameter $\theta$
+  + Need to specify
+    + choice of parameter $C$
+    + choice of kernel (similarity function):
+  + Similarity functions
+    + linear kernel (no kernel):
+      + using SVM w/o a kernel
+      + a version of SVM to predict "y=1" if $\theta^T x \geq 0$
+      + $\theta_0 + \theta_1 x_1 + \ldots + \theta_n x_n \geq 0, \quad x \in \mathbb{R}^{n_+1}$ 
+      + use case: large $n$ and small $m$
+    + Gaussian kernel
+      + $f_i = \exp \left( - \dfrac{\parallel x - l^{(i)} \parallel^2}{2\sigma^2} \right)$, where $l^{(i)} = x^{(i)}$
+      + need to choose $\sigma^2$
+      + $x \in \mathbb{R}^{n}, n$ small, and/or $m$ large
+
++ Kernel (similarity) functions
+
+  ```matlab
+  function f = kernel(x1, x2)
+    f = exp(- ||x1 - x2||^2 / (2*sigma^2))  % kernel function implementation
+  return
+  ```
+
+  $$f = \exp\left( - \dfrac{\parallel x_1 - x_2 \parallel^2}{2\sigma^2} \right)$$
+
+  + $f = f_1$
+  + $x_1 = c^{(i)}$ and  $x_2 = l^{(j)} = x^{(j)}$
+
+  + Note: do perform feature scaling before using the Gaussian kernel
+    + $\parallel x - l \parallel^2$
+    + Let $v = x - l, \; x \;\in\; \mathbb{R}^n$, then
+
+      $$\parallel v \parallel^2 = v_1^2 + v_2^2 + \ldots + v_n^2 = \underbrace{(x_1 - l_1)^2}_{1000 \text{ feet}^2} + \underbrace{(x_2 - l_2)^2}_{\text{1-5 bedrooms}} + \ldots + (x_n - l_n)^2$$
+    + Otherwise, $\parallel x -l \parallel$ will be dominated mainly by the features with large scale
+    + Gaussian kernel also parameterized by a bandwidth parameter, $\sigma$, which determines how fat the similarlity metric decreases (to 0) as the examples are further apart
+  + SVM always convex optimal
+
++ Other choice of kernel
+  + Note: not all similarity functions $similarity(x, l)$ make valid kernels. (Need to satisfy technical condition called "Mercer's Theorem" to make sure SVM packages' optimizations run correctly, and do not diverge).
+  + Many off-the-shelf kernels available
+    + Polynomial kernel: $k(x, l) = (x^Tl + \text{constant})^{\text{degree}}$ such as $(x^T l)^2, (x^T l)^3, (x^T l) + 1^3, (x^T l)^4, \ldots$
+    + More esoteric: String kernel, chi-suqare kernel, histogram intersection kernel, ...
+  + IVQ: Suppose you are trying to decide among a few different choices of kernel and are also choosing parameters such as $C$, $\sigma^2$, etc. How should you make the choice?
+
+    1. Choose whatever performs best on the training data.
+    2. Choose whatever performs best on the cross-validation data.
+    3. Choose whatever performs best on the test data.
+    4. Choose whatever gives the largest SVM margin.
+
+    Ans: 2
+
++ Multi-class classification
+  + classes: $y \;\in\; \{1, 2, 3, \ldots, K\]$
+  + Many SVM packages already have built-in multi-class classification functionality
+  + Otherwise, use one-vs-all method. (Train $K$ SVMs, one to distinguish $y=i$ from the rest, for $i=1, 2, \ldots, K$), get $\theta^{(1)}, \theta^{(2)}, \ldots, \theta^{(K)}$. Pick class $i$ with largest $(\theta^{(i)})^Tx$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/#2b-kernels-ii">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm22.png" style="margin: 0.1em;" alt="Multi-class classification" title="Multi-class classification" width="450">
+    </a></div>
+  </div>
+
++ Logistic regression vs SVMs
+  + logistic regression or SVM
+    $n =\;$ number of features ($x \in \mathbb{R}^{n+1}$), $m = \;$ number of training examples <br/>
+    if $n$ is large (relative to $m$): <br/>
+    <span style="padding-left: 1em;"/>Use logistic regression, or SVM without a kernel ("linear kernel") <br/>
+    <span style="padding-left: 2em;"/>if $n$ is mall, $m$ is intermediate: (e.g, n = 1~1,000, m = 10~10,000) <br/>
+    <span style="padding-left: 3em;"/>Use SVM with Gaussian kernel<br/><br/>
+    <span style="padding-left: 2em;"/>if $n$ is small, $m$ is large: (e.g., n = 1~1,000, m = 50,000+) <br/>
+    <span style="padding-left: 3em;"/>Creat/add more features, then use logistic regression or SVM without a kernel
+  
+  + Neural network likely to work well for most of these settings, but may be slower to train
 
 
 ### Lecture Video
@@ -693,7 +767,7 @@ __Note__: a neural network is likely to work well for any of these situations, b
 + In 'Optimization Objective', starting at 13:37, the SVM regularization term should be summing over $j$ instead of $i$: $\sum_{j=1}^n\theta{j}^2$.
 + In 'Large Margin Intuition', starting from 1:04, should be labelled $z \leq −1$, for graphic on the right. (It is drawn correctly).
 + In 'Mathematics Behind Large Margin Classification', starting from 11:22, second condition should be $p^{(i)} \cdot |\theta| \leq -1$ if $y^{(i)} = 0$ instead of $y^{(i)} = 1$. This persists also in the quiz.
-+ In 'Mathematics Behind Large Margin Classification', at 16:33, Dr. Ng writes towards the right of the slide that for a vertical decision boundary, $p^{(1)} \cdot \parallel \theta \paralle > 0$, while it should be $p^{(1)} \cdot \parallel \theta \parallel > 1$.
++ In 'Mathematics Behind Large Margin Classification', at 16:33, Dr. Ng writes towards the right of the slide that for a vertical decision boundary, $p^{(1)} \cdot \parallel \theta \parallel > 0$, while it should be $p^{(1)} \cdot \parallel \theta \parallel > 1$.
 + In the 'Kernels I' video quiz, the notation surrounding $x_1-l^{(1)}$ inside the $\exp( )$ function is the norm notation.
 + In 'Using An SVM', at 13:51, Dr. Ng writes $\theta = K$ instead of class $y=K$
 
