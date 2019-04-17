@@ -430,7 +430,7 @@ $$\dfrac{\text{True Positives}}{\text{Total number of predicted positives}} = \d
 __Recall__: Of all the patients that actually have cancer, what fraction did we correctly detect as having cancer?
 
 $$\dfrac{\text{True Positives}}{\text{Total number of actual positives}}= \dfrac{\text{True Positives}}{\text{True Positives}+\text{False negatives}}$$
-​ |  
+​
 These two metrics give us a better sense of how our classifier is doing. We want both precision and recall to be high.
 
 In the example at the beginning of the section, if we classify all patients as 0, then our __recall__ will be $\dfrac{0}{0 + f} = 0$, so despite having a lower error percentage, we can quickly see it has worse recall.
