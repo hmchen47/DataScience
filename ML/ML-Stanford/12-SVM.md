@@ -19,10 +19,11 @@
     + Graph on the left
     + When $z$ is large, cost function would be small
     + Magenta curve is a close approximation of the log cost function
-  + If $y = 0$, we want $h_\theta(x) \approx 1, \theta^T x \ll 0$
+  + If $y = 0$, we want $h_\theta(x) \approx 0, \theta^T x \ll 0$
     + only the second term in cost function would matter
     + Magenta curve is a close approximation of the log cost function
 
+  <br/>
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://d3c33hcgiwev3.cloudfront.net/_246c2a4e4c249f94c895f607ea1e6407_Lecture12.pdf?Expires=1555459200&Signature=Aibx4MyH1R-oUJMXRrW3chKna-a~XoCJd-c~g3UwUpgnzRFULWlxriuLCniD~Q92GzKqNrslw0CwCyCyMBKemvQnjt-iVThjFe9Q23SDi3qmcAPq1eprZTr84Vq2IccOXYuPf7XaHwBj~r16BTEDnkiLWOZ79H1d1zTG6DBQpT0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
       <img src="images/m12-03.png" style="margin: 0.1em;" alt="text" title="caption" width="250">
@@ -30,17 +31,17 @@
         <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/lg2.png" style="margin: 0.1em;" alt="text" title="caption" width="400">
     </a></div>
-  </div>
+  </div><br/>
 
 + Support vector machine
   + a cleaner and powerful way of learning complex non-linear functions
   + Logistic regression
 
-    $$ \min_\theta \underbrace{\dfrac{1}{m} \left[ \sum_{i=1}^m y^{(i)}\underbrace{(-\log h_\theta(x^{(i)}))}_{\text{cost}_1(\theta^Tx^{(i)})} + (1 - y^{(i)}) \underbrace{(-\log(1 - h_\theta(x^{(i)})))}_{\text{cost}_0(\theta^T x^{(i)})} \right]}_{(A)} + \underbrace{\dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j}_{(B)}$$
+    $$ \min_\theta \underbrace{\dfrac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\underbrace{(-\log h_\theta(x^{(i)}))}_{\text{cost}_1(\theta^Tx^{(i)})} + (1 - y^{(i)}) \underbrace{(-\log(1 - h_\theta(x^{(i)})))}_{\text{cost}_0(\theta^T x^{(i)})} \right]}_{(A)} + \underbrace{\dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j}_{(B)}$$
 
   + Support vector machine
 
-    $$\min_\Theta \underbrace{\;\;C\;\;}_{1/m} \sum_{j=1}^m \left[ y^{(i)} \text{cost}_1 (\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\Theta^T x^{(i)}) \right] + \underbrace{\;\;\dfrac{1}{2}\;\;}_{\lambda/2m} \sum_{j=0}^n \Theta_j^2$$
+    $$\min_\theta \underbrace{\;\;C\;\;}_{1/m} \sum_{j=1}^m \left[ y^{(i)} \text{cost}_1 (\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^T x^{(i)}) \right] + \underbrace{\;\;\dfrac{1}{2}\;\;}_{\lambda/2m} \sum_{j=0}^n \theta_j^2$$
 
     + Replace the 1st & 2nd terms with cost function respectively
     + Remove $1/m$ which not effect the minimization: $\min_u (u-5)^2 + 1 \;\rightarrow\; u = 5 \Longleftrightarrow \min_u 10(u-5)^2 + 10 \;\rightarrow\; u = 5$
@@ -50,7 +51,7 @@
 
   + IVQ: Consider the following minimization problems:
 
-    $$\begin{array}{l} \min_\theta \dfrac{1}{m} \left[ \sum_{i=1}^m y^{(i)} \text{cost}_1(\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0(\theta^T x^{(i)}) \right] + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j \\ \min_\theta C \left[ \sum_{i=1}^m y^{(i)} \text{cost_1}(\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \end{array}$$
+    $$\begin{array}{l} \min_\theta \dfrac{1}{m} \sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^T x^{(i)}) + (1 − y^{(i)}) \text{cost}_0(\theta^T x^{(i)}) \right] + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j \\ \min_\theta C \sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^T x^{(i)}) + (1 − y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \end{array}$$
 
     These two optimization problems will give the same value of $\theta$ (i.e., the same value of $\theta$ gives the optimal solution to both problems) if:
 
@@ -92,7 +93,7 @@
       <div><a href="https://d3c33hcgiwev3.cloudfront.net/_246c2a4e4c249f94c895f607ea1e6407_Lecture12.pdf?Expires=1555459200&Signature=Aibx4MyH1R-oUJMXRrW3chKna-a~XoCJd-c~g3UwUpgnzRFULWlxriuLCniD~Q92GzKqNrslw0CwCyCyMBKemvQnjt-iVThjFe9Q23SDi3qmcAPq1eprZTr84Vq2IccOXYuPf7XaHwBj~r16BTEDnkiLWOZ79H1d1zTG6DBQpT0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
         <img src="images/m12-04.png" style="margin: 0.1em;" alt="cost functions to represent the y = 1 (left diagram) and y = 0 (right diagram)" title="Cost functions: left(y=1) right(y=0)" width="350">
       </a></div>
-    </div>
+    </div><br/>
 
   + If $y=1$, we want $\theta^T x \geq 1$ (not just $\geq 0$) <br/>
     If $y=0$, we want $\theta^T x \leq -1$ (not just $< 0$)
@@ -106,30 +107,29 @@
   + Wherever $y^{(i)} = 1\;: \theta^T x^{(i)} \geq 1$ <br/>
     Wherever $y^{(i)} = 0\;: \theta^T x^{(i)} \leq -1$
 
-    $$\begin{array}{rl} min_\theta & C \cdot 0 + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t.} & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+    $$\begin{array}{rl} \min_\theta & C \cdot 0 + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t.} & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
   
   + Linearly separable case & large margin classifier
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
         <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm6.png" style="margin: 0.1em;" alt="Decision boundary: linear separable cases" title="SVM decision boundary: linearly separable case" width="250">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm7.png" style="margin: 0.1em;" alt="Decision boundary: large margin classifier" title="SVM decision boundary: large margin classifier" width="420">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm7.png" style="margin: 0.1em;" alt="Decision boundary: large margin classifier" title="SVM decision boundary w/ outliers" width="420">
       </a></div>
-    </div>
+    </div><br/>
 
     + black decision boundary: larger minimum difference
     + magenta & green boundaries: close to examples
     + __margin__: distance btw blue & black line
     + $C\;$ value
       + Very large: decision boundary would change from black to magenta line
-      + not very large: 
-        + decision boundary would be the black line
+      + not very large: decision boundary would be the black line
     + SVM being a large margin classifier is only relevant when you have no outliers
   + IVQ: Consider the training set to the right, where "x" denotes positive examples ($y=1$) and "o" denotes negative examples ($y=0$). Suppose you train an SVM (which will predict 1 when $\theta_0 + \theta_1x_1 + \theta_2x_2 \geq 0$. What values might the SVM give for $\theta_0$, $\theta_1$, and $\theta_2$?
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="url">
-        <img src="images/m12-05.png" style="margin: 0.1em;" alt="Diagram for IVQ w/ SVM Decision boundary" title="IVQ: SVM decision boundary" width="250">
+        <img src="images/m12-05.png" style="margin: 0.1em;background-color: white;" alt="Diagram for IVQ w/ SVM Decision boundary" title="IVQ: SVM decision boundary" width="350">
       </a></div>
     </div>
 
@@ -167,12 +167,12 @@
       <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
         <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm8.png" style="margin: 0.1em;" alt="vector inner product" title="Vector inner product" width="450">
       </a></div>
-    </div>
+    </div><br/>
 
     + inner product: $u^Tv$
     + $\parallel u \parallel\;$: hypotenuse calculated by using Pythagoras' Theorem
     + Projection: project vector $v$ onto $u$
-    + negative: angle between $u$ and $v > 90\;$ degrees
+    + negative: angle between $u$ and $v > 90^o$
 
 + SVM decision boundary
   + Introduction
@@ -187,9 +187,10 @@
         <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
           <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm9.png" style="margin: 0.1em;" alt="Projection vector u to vector v" title="Projection vector u to vector v" width="450">
         </a></div>
-      </div>
+      </div><br/>
 
       + $\theta^T x^{(i)} = p^{(i)} \cdot \parallel \theta \parallel = \theta_1 x^{(i)}_1 + \theta_2 x^{(i)}_2$
+  
   + Projections and hypothesis
 
     $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \displaystyle \sum_{j=1}^n \theta^2_j = \dfrac{1}{2} \parallel \theta \parallel^2 \\\\ \text{s.t. } & p^{(i)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } y^{(i)} = 1 \\ & p^{(i)} \cdot \parallel \theta \parallel \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
@@ -202,9 +203,10 @@
         <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
           <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm10.png" style="margin: 0.1em;" alt="Projection and hypothesis" title="Projection and hypothesis" width="550">
         </a></div>
-      </div>
+      </div><br/>
+
     + When $\theta_0 = 0$, the vector passes through the origin.
-    + $\theta$ projection: always 90 degrees to the decision boundary
+    + $\theta$ projection: always $90^o$ to the decision boundary
     + Decision boundary choice 1: graph on the left
       + $p^{(1)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } \parallel \theta \parallel \gg 1$
       + $p^{(2)}\;$ is the projection of $x_2$ example on $\theta$ (magenta): $\;p^{(2)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } \parallel \theta \parallel \ll -1$
@@ -219,7 +221,7 @@
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="https://www.coursera.org/learn/machine-learning/lecture/3eNnh/mathematics-behind-large-margin-classification">
-        <img src="images/m12-06.png" style="margin: 0.1em; background-color: white;" alt="SVM optimization" title="SVM optimization problem" width="350">
+        <img src="images/m12-06.png" style="margin: 0.1em; background-color: white;" alt="SVM optimization" title="SVM optimization problem" width="250">
       </a></div>
     </div>
 
@@ -247,7 +249,6 @@
 
 ## Kernels
 
-
 ### Kernels I
 
 #### Lecture Notes
@@ -268,11 +269,10 @@
 
   + Given a dataset, is there a different or better choice of the features $f_1, f_2,  \ldots$?
 
-
 + Gaussian kernel
-  + Given $x$, compute new feature depending on proximity ti landmarks $l^{(1)}, l^{(2)}, l^{*(3)}, \ldots$
+  + Given $x$, compute new feature depending on proximity to landmarks $l^{(1)}, l^{(2)}, l^{(3)}, \ldots$
   
-    $$\begin{array}{rlc} f_1 & = & similarity(x, l^{(1)}) = \exp \left( -\dfrac{\parallel x - l^{(1)} \parallel^2}{2 \sigma^2} \right) \\ f_1 & = & similarity(x, l^{(2)}) = \exp \left( -\dfrac{\parallel x - l^{(2)} \parallel^2}{2 \sigma^2} \right) \\  f_1 & = & similarity(x, l^{(3)}) = \exp \left( -\dfrac{\parallel x - l^{(3)} \parallel^2}{2 \sigma^2} \right) \\ & \vdots \end{array}$$S
+    $$\begin{array}{rcl} f_1 & = & similarity(x, l^{(1)}) = \exp \left( -\dfrac{\parallel x - l^{(1)} \parallel^2}{2 \sigma^2} \right) \\ f_2 & = & similarity(x, l^{(2)}) = \exp \left( -\dfrac{\parallel x - l^{(2)} \parallel^2}{2 \sigma^2} \right) \\  f_3 & = & similarity(x, l^{(3)}) = \exp \left( -\dfrac{\parallel x - l^{(3)} \parallel^2}{2 \sigma^2} \right) \\ & \cdots \end{array}$$
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
@@ -357,7 +357,7 @@
   
   Given $x\;$:
 
-  $$f_i = similarity(x, j^{(i)}) = \exp \left( - \dfrac{\parallel x - l^{(i)} \parallel^2}{2\sigma^2} \right)$$
+  $$f_i = similarity(x, l^{(i)}) = \exp \left( - \dfrac{\parallel x - l^{(i)} \parallel^2}{2\sigma^2} \right)$$
 
   Predict $y=1$ if $\theta_0 + \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 \geq 0$
 
@@ -372,14 +372,14 @@
   The landmarks locate the same position as the training examples: $x^{(1)} \rightarrow l^{(1)}, x^{(2)} \rightarrow l^{(2)}, \ldots$
 
 + SVM with kernels
-  + Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(3)}, y^{(3)})$, choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, ldots, l^{(3)} = x^{(3)}$
+  + Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})$, choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, \ldots, l^{(m)} = x^{(m)}$
   + Given example $x$:
 
-    $$\begin{array}{rcl} f_1 = similarity(x, l^{(1)}) \\ f_1 = similarity(x, l^{(2)})  \\ \cdots \end{array} \implies f = \begin{bmatrix} f_0 = 1 \\ f_1 \\ \vdots \\ f_m \end{bmatrix}$$
+    $$\begin{array}{lcl} f_0  =  1 \\f_1 = similarity(x, l^{(1)}) \\ f_1 = similarity(x, l^{(2)})  \\ \cdots \end{array} \implies f = \begin{bmatrix} f_0 \\ f_1 \\ \vdots \\ f_m \end{bmatrix}$$
 
   + For training example $(x^{(i)}, y^{(i)})\;$:
 
-    $$x^{(i)} \quad\implies\quad \begin{array}{rcl} f_0^{(i)} &=& 1 \\ f_1^{(i)} &=& sim(x^{(i)}, l^{(1)}) \\ f_2^{(i)} &=& sim(x^{(i)}, l^{(2)}) \\ &\cdots& \\ f_i^{(i)} &=& sim(x^{(i)}, l^{(i)}) = \exp \left( -\dfrac{0}{2\sigma^2} \right) \\ &\cdots& \\ f_m^{(i)} &=& sim(x^{(i)}, l^{(m)}) \end{array} \implies f^{(i)} = \begin{bmatrix} f_0^{(i)} \\ f_1^{(1)} \\\vdots \\ f_m^{(i)} \end{bmatrix}$$
+    $$x^{(i)} \quad\implies\quad \begin{array}{rcl} f_0^{(i)} &=& 1 \\ f_1^{(i)} &=& sim(x^{(i)}, l^{(1)}) \\ f_2^{(i)} &=& sim(x^{(i)}, l^{(2)}) \\ &\cdots& \\ f_i^{(i)} &=& sim(x^{(i)}, l^{(i)}) = \exp \left( -\dfrac{0}{2\sigma^2} \right) \\ &\cdots& \\ f_m^{(i)} &=& sim(x^{(i)}, l^{(m)}) \end{array} \implies f^{(i)} = \begin{bmatrix} f_0^{(i)} \\ f_1^{(1)} \\ \vdots \\ f_m^{(i)} \end{bmatrix}$$
 
   + Hypothesis: Given $x$, compute features $f \in \mathbb{R}^{m+1}$
 
@@ -391,7 +391,7 @@
 
     $$\begin{array}{crl} \sum_{j} \theta_j^2 &=& \theta^T \theta = \begin{bmatrix} \theta_1 & \theta_2 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} \theta_1 \\ \theta_2 \ \vdots \\ \theta_m \end{bmatrix} = \parallel \theta \parallel^2 \\\\ &=& \theta^TM\theta = \begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} 0 & 0 & 0 & \cdots & 0 \\ 0 & 1 & 0 & \cdots & 0 \\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{bmatrix} \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_m \end{bmatrix} \end{array}$$
 
-  + applying kernel's idea to other algorithm
+  + applying kernel's idea to other algorithms
     + able to do so by applying the kernel's idea and define the source of features using landmarks
     + unable to generalize SVM's computational tricks to other algorithms
 
@@ -453,11 +453,11 @@
   $$f = \exp\left( - \dfrac{\parallel x_1 - x_2 \parallel^2}{2\sigma^2} \right)$$
 
   + $f = f_1$
-  + $x_1 = c^{(i)}$ and  $x_2 = l^{(j)} = x^{(j)}$
+  + $x_1 = x^{(i)}$ and  $x_2 = l^{(j)} = x^{(j)}$
 
   + Note: do perform feature scaling before using the Gaussian kernel
-    + $\parallel x - l \parallel^2$
-    + Let $v = x - l, \; x \;\in\; \mathbb{R}^n$, then
+    + main factors need to be scaled: $\parallel x - l \parallel^2$
+    + let $v = x - l, \; x \;\in\; \mathbb{R}^n$, then
 
       $$\parallel v \parallel^2 = v_1^2 + v_2^2 + \ldots + v_n^2 = \underbrace{(x_1 - l_1)^2}_{1000 \text{ feet}^2} + \underbrace{(x_2 - l_2)^2}_{\text{1-5 bedrooms}} + \ldots + (x_n - l_n)^2$$
     + Otherwise, $\parallel x -l \parallel$ will be dominated mainly by the features with large scale
@@ -479,7 +479,7 @@
     Ans: 2
 
 + Multi-class classification
-  + classes: $y \;\in\; \{1, 2, 3, \ldots, K\]$
+  + classes: $y \;\in\; \{1, 2, 3, \ldots, K\}$
   + Many SVM packages already have built-in multi-class classification functionality
   + Otherwise, use one-vs-all method. (Train $K$ SVMs, one to distinguish $y=i$ from the rest, for $i=1, 2, \ldots, K$), get $\theta^{(1)}, \theta^{(2)}, \ldots, \theta^{(K)}$. Pick class $i$ with largest $(\theta^{(i)})^Tx$
 
@@ -521,9 +521,9 @@ The __Support Vector Machine__ (SVM) is yet another type of supervised machine l
 
 Recall that in logistic regression, we use the following rules:
 
-if $y=1$, then $h_\theta(x) \approx 1$ and $\Theta^Tx \gg 0$
+if $y=1$, then $h_\theta(x) \approx 1$ and $\theta^Tx \gg 0$
 
-if $y=0$, then $h_\theta(x) \approx 0$ and $\Theta^Tx \ll 0$
+if $y=0$, then $h_\theta(x) \approx 0$ and $\theta^Tx \ll 0$
 
 Recall the cost function for (unregularized) logistic regression:
 
@@ -551,21 +551,21 @@ $$\begin{array}{rcl} z &=& \theta^Tx \\ cost_0(z) &=& \max(0,k(1+z)) \\ cost_1(z
 
 Recall the full cost function from (regularized) logistic regression:
 
-$$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m y^{(i)}(−\log(h_\theta(x^{(i)}))) + (1−y^{(i)}) (−\log(1−h_\theta(x^{(i)}))) + \dfrac{\lambda}{2m} \sum_{j=1}^n \Theta^2_j$$
+$$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m y^{(i)}(−\log(h_\theta(x^{(i)}))) + (1−y^{(i)}) (−\log(1−h_\theta(x^{(i)}))) + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j$$
 
 Note that the negative sign has been distributed into the sum in the above equation.
 
 We may transform this into the cost function for support vector machines by substituting $\text{cost}_0(z)$ and $\text{cost}_1(z)$:
 
-$$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 − y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) + \dfrac{\lambda}{2m} \sum_{j=1}^n \Theta^2_j$$
+$$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 − y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) + \dfrac{\lambda}{2m} \sum_{j=1}^n \theta^2_j$$
 
 We can optimize this a bit by multiplying this by m (thus removing the m factor in the denominators). Note that this does not affect our optimization, since we're simply multiplying our cost function by a positive constant (for example, minimizing $(u-5)^2 + 1$ gives us 5; multiplying it by 10 to make it $10(u-5)^2 + 10$ still gives us 5 when minimized).
 
-$$J(\theta) = \sum_{i=1}^m y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) + \dfrac{\lambda}{2} \sum_{j=1}^n \Theta^2_j$$
+$$J(\theta) = \sum_{i=1}^m y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) + \dfrac{\lambda}{2} \sum_{j=1}^n \theta^2_j$$
 
 Furthermore, convention dictates that we regularize using a factor $C$, instead of $\lambda$, like so:
 
-$$J(\theta) = C \cdot \sum_{i=1}^m y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) + \dfrac{1}{2} \sum_{j=1}^n \Theta_j^2$$
+$$J(\theta) = C \cdot \sum_{i=1}^m y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
 
 This is equivalent to multiplying the equation by $C = \dfrac{1}{\lambda}$, and thus results in the same values when optimized. Now, when we wish to regularize more (that is, reduce overfitting), we decrease $C$, and when we wish to regularize less (that is, reduce underfitting), we _increase_ $C$.
 
@@ -578,21 +578,21 @@ $$h_\theta(x) = \begin{cases} 1 & \text{if } \theta^T x \geq 0 \\ 0 & \text{othe
 
 A useful way to think about Support Vector Machines is to think of them as Large Margin Classifiers.
 
-If $y=1$, we want $\Theta^T x \geq 1$ (not just $\geq 0$)
+If $y=1$, we want $\theta^T x \geq 1$ (not just $\geq 0$)
 
-If $y=0$, we want $\Theta^T x \leq −1$ (not just $< 0$)
+If $y=0$, we want $\theta^T x \leq −1$ (not just $< 0$)
 
 Now when we set our constant $C$ to a very __large__ value (e.g. 100,000), our optimizing function will constrain Θ such that the equation A (the summation of the cost of each example) equals 0. We impose the following constraints on Θ:
 
-$\theta^T x \geq 1$ if $y=1$ and $\Theta^T x \leq −1$ if $y=0$.
+$\theta^T x \geq 1$ if $y=1$ and $\theta^T x \leq −1$ if $y=0$.
 
 If $C$ is very large, we must choose Θ parameters such that:
 
-$$\sum_{i=1}^m y^{(i)} \text{cost}_1(\Theta^T x) + (1−y^{(i)}) \text{cost}_0(\Theta^T x) = 0$$
+$$\sum_{i=1}^m y^{(i)} \text{cost}_1(\theta^T x) + (1−y^{(i)}) \text{cost}_0(\theta^T x) = 0$$
 
 This reduces our cost function to:
 
-$$J(\theta) = C \cdot 0 + \frac{1}{2} \sum_{j=1}^n \Theta_j^2 = \frac{1}{2} \sum_{j=1}^n \Theta_j^2$$
+$$J(\theta) = C \cdot 0 + \frac{1}{2} \sum_{j=1}^n \theta_j^2 = \frac{1}{2} \sum_{j=1}^n \theta_j^2$$
 
 Recall the decision boundary from logistic regression (the line separating the positive and negative examples). In SVMs, the decision boundary has the special property that it is as far away as possible from both the positive and the negative examples.
 
@@ -636,20 +636,20 @@ $$u^Tv = v^Tu = p \;\cdot \parallel u \parallel = u_1v_1 + u_2v_2$$
 ​
 If the __angle__ between the lines for $v$ and $u$ is __greater than 90 degrees__, then the projection $p$ will be __negative__.
 
-$$\min_{\Theta} \dfrac{1}{2} \sum_{j=1}^n \Theta_j^2 = \dfrac{1}{2} (\Theta^2_1 + \Theta^2_2 + \ldots + \Theta^2_n) = \dfrac{1}{2} (\sqrt{\Theta^2_1 + \Theta^2_2 + \ldots + \Theta^2_n}) = \dfrac{1}{2} \parallel \Theta \parallel^2$$
+$$\min_{\theta} \dfrac{1}{2} \sum_{j=1}^n \theta_j^2 = \dfrac{1}{2} (\theta^2_1 + \theta^2_2 + \ldots + \theta^2_n) = \dfrac{1}{2} (\sqrt{\theta^2_1 + \theta^2_2 + \ldots + \theta^2_n}) = \dfrac{1}{2} \parallel \theta \parallel^2$$
 
-We can use the same rules to rewrite $\Theta^Tx^{(i)}$:
+We can use the same rules to rewrite $\theta^Tx^{(i)}$:
 
-$$\Theta^T x^{(i)} = p^{(i)} \cdot \parallel \Theta \parallel = \Theta_1 x^{(i)}_1 + \Theta_2 x^{(i)}_2 + \ldots + \Theta_n x^{(i)}_n$$
+$$\theta^T x^{(i)} = p^{(i)} \cdot \parallel \theta \parallel = \theta_1 x^{(i)}_1 + \theta_2 x^{(i)}_2 + \ldots + \theta_n x^{(i)}_n$$
 
-So we now have a new __optimization objective__ by substituting $p^{(i)} \cdot \parallel \Theta \parallel$ in for $\Theta^T x^{(i)}$:
+So we now have a new __optimization objective__ by substituting $p^{(i)} \cdot \parallel \theta \parallel$ in for $\theta^T x^{(i)}$:
 
-+ If $y=1$, we want $p^{(i)} \cdot \parallel \Theta \parallel \geq 1$
-+ If $y=0$, we want $p^{(i)} \cdot \parallel \Theta \parallel \leq −1$
++ If $y=1$, we want $p^{(i)} \cdot \parallel \theta \parallel \geq 1$
++ If $y=0$, we want $p^{(i)} \cdot \parallel \theta \parallel \leq −1$
 
-The reason this causes a "large margin" is because: the vector for $\Theta$ is perpendicular to the decision boundary. In order for our optimization objective (above) to hold true, we need the absolute value of our projections $p^{(i)}$ to be as large as possible.
+The reason this causes a "large margin" is because: the vector for $\theta$ is perpendicular to the decision boundary. In order for our optimization objective (above) to hold true, we need the absolute value of our projections $p^{(i)}$ to be as large as possible.
 
-If $\Theta_0 = 0$, then all our decision boundaries will intersect $(0,0)$. If $\Theta_0 \neq 0$, the support vector machine will still find a large margin for the decision boundary.
+If $\theta_0 = 0$, then all our decision boundaries will intersect $(0,0)$. If $\theta_0 \neq 0$, the support vector machine will still find a large margin for the decision boundary.
 
 
 __Kernels I__
@@ -678,9 +678,9 @@ In other words, if $x$ and the landmark are close, then the similarity will be c
 
 Each landmark gives us the features in our hypothesis:
 
-$$\begin{array}{c} l^{(1)} \longrightarrow f_1 \qquad l^{(2)} \longrightarrow f_2 \qquad l^{(3)} \longrightarrow f_3 \qquad \ldots \\ h-\Theta(x) = \Theta_1 f_1 + \Theta_2 f_2 + \Theta_3 f_3 + \ldots$$
+$$\begin{array}{c} l^{(1)} \longrightarrow f_1 \qquad l^{(2)} \longrightarrow f_2 \qquad l^{(3)} \longrightarrow f_3 \qquad \ldots \\ h_\theta(x) = \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 + \ldots \end{array}$$
 
-$\sigma^2$ is a parameter of the Gaussian Kernel, and it can be modified to increase or decrease the __drop-off__ of our feature $f_i$. Combined with looking at the values inside $\Theta$, we can choose these landmarks to get the general shape of the decision boundary.
+$\sigma^2$ is a parameter of the Gaussian Kernel, and it can be modified to increase or decrease the __drop-off__ of our feature $f_i$. Combined with looking at the values inside $\theta$, we can choose these landmarks to get the general shape of the decision boundary.
 
 
 #### Kernels II
@@ -691,13 +691,13 @@ Given example $x$:
 
 $f_1 = similarity(x,l^{(1)})$, $f_2 = similarity(x,l^{(2)})$, $f_3 = similarity(x,l^{(3)})$, and so on.
 
-This gives us a "feature vector," $f_{(i)}$ of all our features for example $x_{(i)}$. We may also set $f_0 = 1$ to correspond with $\Theta_0$. Thus given training example $x_{(i)}$:
+This gives us a "feature vector," $f_{(i)}$ of all our features for example $x_{(i)}$. We may also set $f_0 = 1$ to correspond with $\theta_0$. Thus given training example $x_{(i)}$:
 
 $$x(i) \;\rightarrow\; \begin{bmatrix} f^{(i)}_1 = similarity(x^{(i)},l^{(1)}) \\ f^{(i)}_2 = similarity(x^{(i)},l^{(2)}) \\ \vdots \\ f^{(i)}_m = similarity(x^{(i)}, l^{(m)}) \end{bmatrix}$$
 
 Now to get the parameters Θ we can use the SVM minimization algorithm but with $f^{(i)}$ substituted in for $x^{(i)}$:
 
-$$\min_\Theta C \sum_{i=1}^m y^{(i)} \text{cost}_1(\Theta^T f^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\Theta^T f^{(i)}) + \dfrac{1}{2} \sum_{j=1}^n \Theta^2j$$
+$$\min_\theta C \sum_{i=1}^m y^{(i)} \text{cost}_1(\theta^T f^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^T f^{(i)}) + \dfrac{1}{2} \sum_{j=1}^n \theta^2j$$
 
 Using kernels to generate $f^{(i)}$ is not exclusive to SVMs and may also be applied to logistic regression. However, because of computational optimizations on SVMs, kernels combined with SVMs is much faster than with other algorithms, so kernels are almost always found combined only with SVMs.
 
@@ -741,7 +741,7 @@ __Multi-class Classification__
 
 Many SVM libraries have multi-class classification built-in.
 
-You can use the _one-vs-all_ method just like we did for logistic regression, where $y \in 1,2,3,…,K$ with $\Theta(1), \Theta(2), \ldots, \Theta(K)$. We pick class $i$ with the largest $(\Theta^{(i)})^Tx$.
+You can use the _one-vs-all_ method just like we did for logistic regression, where $y \in 1,2,3,…,K$ with $\theta(1), \theta(2), \ldots, \theta(K)$. We pick class $i$ with the largest $(\theta^{(i)})^Tx$.
 
 
 __Logistic Regression vs. SVMs__
@@ -784,7 +784,106 @@ __Note__: a neural network is likely to work well for any of these situations, b
 
 ### Quiz: Support Vector Machines
 
+1. Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
+      <img src="images/m12-q01.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q1 Figure" width="250">
+    </a></div>
+  </div>
+
+  You suspect that the SVM is underfitting your dataset. Should you try increasing or decreasing $C$? Increasing or decreasing $\sigma^2$?
+
+  1. It would be reasonable to try __decreasing__ $C$. It would also be reasonable to try __increasing__ $\sigma^2$
+  2. It would be reasonable to try __increasing__ $C$. It would also be reasonable to try __increasing__ $\sigma^2$
+  3. It would be reasonable to try __decreasing__ $C$. It would also be reasonable to try __decreasing__ $\sigma^2$
+  4. It would be reasonable to try __increasing__ $C$. It would also be reasonable to try __decreasing__ $\sigma^2$
+
+  Ans: 4 <br/>
+  Explanation: <br/>
+  (4) (underfitting) The figure shows a decision boundary that is underfit to the training set, so we'd like to lower the bias / increase the variance of the SVM. We can do so by either increasing the parameter CC or decreasing $\sigma^2$.
 
 
+2. The formula for the Gaussian kernel is given by $similarity(x,l^{(1)}) = \exp(− \dfrac{\parallel x−l^{(1)} \parallel^2}{2\sigma^2})$.
+
+  The figure below shows a plot of $f_1 = \text{similarity}(x,l^{(1)})$ when $\sigma^2 = 1$.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
+      <img src="images/m12-q01.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q2" title="Mod12 Quiz Q2 Figure" width="250">
+    </a></div>
+  </div>
+
+  Which of the following is a plot of $f_1$ when $\sigma^2 = 0.25$?
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
+      <img src="images/m12-q02-a.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.1" width="250">
+      <img src="images/m12-q02-b.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.2" width="250">
+      <img src="images/m12-q02-c.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.3" width="250">
+      <img src="images/m12-q02-d.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.4" width="250">
+    </a></div>
+  </div>
+
+  Ans: 1 (0.25) <br/>
+  (1) This figure shows a "narrower" Gaussian kernel centered at the same location which is the effect of decreasing $\sigma^2$.
+
+
+3. The SVM solves
+
+  $$\min-\theta C \sum_{i=1}^m y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1−y^{(i)}) \text{cost}_0 (\theta^Tx^{(i)}) + \sum_{j=1}^n \theta^2_j$$
+
+  where the functions $\text{cost}_0(z)$ and $\text{cost}_1(z)$ look like this:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
+      <img src="images/m12-q03.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q3" title="Mod12 Quiz Q3 Figure" width="250">
+    </a></div>
+  </div>
+
+  The first term in the objective is:
+
+  $$C \sum_{i=1}^m y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1-y^{(i)}) \text{cost}_0(\theta^Tx^{(i)})$$
+
+  This first term will be zero if two of the following four conditions hold true. Which are the two conditions that would guarantee that this term equals zero?
+
+  1. For every example with $y^{(i)} = 0$, we have that $\theta^Tx^{(i)} \leq -1$.
+  2. For every example with $y^{(i)} = 0$, we have that $\theta^Tx^{(i)} \leq 0$.
+  3. For every example with $y^{(i)} = 1$, we have that $\theta^Tx^{(i)} \geq 0$.
+  4. For every example with $y^{(i)} = 1$, we have that $\theta^Tx^{(i)} \geq 1$.
+
+  Ans: 14 <br/>
+  (1) For examples with $y^{(i)} = 0$, only the $\text{cost}_0(\theta^Tx^{(i)})$ term is present. As you can see in the graph, this will be zero for all inputs less than or equal to -1.
+  (4) For examples with $y^{(i)} = 1$, only the $\text{cost}_1(\theta^Tx^{(i)})$ term is present. As you can see in the graph, this will be zero for all inputs greater than or equal to 1.
+
+
+4. Suppose you have a dataset with $n = 10$ features and $m = 5000$ examples.
+
+  After training your logistic regression classifier with gradient descent, you find that it has underfit the training set and does not achieve the desired performance on the training or cross validation sets.
+
+  Which of the following might be promising steps to take? Check all that apply.
+
+  1. Try using a neural network with a large number of hidden units.
+  2. Use a different optimization method since using gradient descent to train logistic regression might result in a local minimum.
+  3. Reduce the number of examples in the training set.
+  4. Create / add new polynomial features.
+
+  Ans: x12 <br/>
+  (1) A neural network with many hidden units is a more complex (higher variance) model than logistic regression, so it is less likely to underfit the data.
+  (2) False: The logistic regression cost function is convex, so gradient descent will always find the global minimum.
+  (4) True
+
+
+5. Which of the following statements are true? Check all that apply.
+
+  1. The maximum value of the Gaussian kernel (i.e., $sim(x, l^{(1)})$ is 1.
+  2. Suppose you have 2D input examples (ie, $x^{(i)} \in \mathbb{R}^2$). The decision boundary of the SVM (with the linear kernel) is a straight line.
+  3. If you are training multi-class SVMs with the one-vs-all method, it is not possible to use a kernel.
+  4. If the data are linearly separable, an SVM using a linear kernel will return the same parameters $\theta$ regardless of the chosen value of $C$ (i.e., the resulting value of $\theta$ does not depend on $C$).
+
+  Ans: x124<br/>
+  (1) When $x = l^{(1)}$, the Gaussian kernel has value exp(0)=1, and it is less than 1 otherwise.
+  (2) The SVM without any kernel (ie, the linear kernel) predicts output based only on $\theta^Tx$, so it gives a linear / straight-line decision boundary, just as logistic regression does.
+  (4) False: A linearly separable dataset can usually be separated by many different lines. Varying the parameter $C$ will cause the SVM's decision boundary to vary among these possibilities. For example, for a very large value of $C$, it might learn larger values of $\theta$ in order to increase the margin on certain examples.
 
 
