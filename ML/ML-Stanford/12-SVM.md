@@ -867,11 +867,15 @@ __Note__: a neural network is likely to work well for any of these situations, b
   2. Use a different optimization method since using gradient descent to train logistic regression might result in a local minimum.
   3. Reduce the number of examples in the training set.
   4. Create / add new polynomial features.
+  5. Increase the regularization parameter $\lambda$.
+  6. Use an SVM with a Gaussian Kernel.
+  7. Use an SVM with a linear kernel, without introducing new features.
 
-  Ans: x12 <br/>
+  Ans: 46 (4567), x12 (1234) <br/>
   (1) A neural network with many hidden units is a more complex (higher variance) model than logistic regression, so it is less likely to underfit the data.
   (2) False: The logistic regression cost function is convex, so gradient descent will always find the global minimum.
-  (4) True
+  (4) When you add more features, you increase the variance of your model, reducing the chances of underfitting.
+  (6) By using a Gaussian kernel, your model will have greater complexity and can avoid underfitting the data.
 
 
 5. Which of the following statements are true? Check all that apply.
@@ -881,7 +885,7 @@ __Note__: a neural network is likely to work well for any of these situations, b
   3. If you are training multi-class SVMs with the one-vs-all method, it is not possible to use a kernel.
   4. If the data are linearly separable, an SVM using a linear kernel will return the same parameters $\theta$ regardless of the chosen value of $C$ (i.e., the resulting value of $\theta$ does not depend on $C$).
 
-  Ans: x124<br/>
+  Ans: 12, x124<br/>
   (1) When $x = l^{(1)}$, the Gaussian kernel has value exp(0)=1, and it is less than 1 otherwise.
   (2) The SVM without any kernel (ie, the linear kernel) predicts output based only on $\theta^Tx$, so it gives a linear / straight-line decision boundary, just as logistic regression does.
   (4) False: A linearly separable dataset can usually be separated by many different lines. Varying the parameter $C$ will cause the SVM's decision boundary to vary among these possibilities. For example, for a very large value of $C$, it might learn larger values of $\theta$ in order to increase the margin on certain examples.
