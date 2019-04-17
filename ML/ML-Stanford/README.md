@@ -312,6 +312,19 @@
 
 ## Programming Assignment: Support Vector Machines
 
++ 1 [Support Vector Machines](ex06.md#)
+    + 1.1 [Example Dataset 1](ex06.md#)
+    + 1.2 [SVM with Gaussian Kernels](ex06.md#)
++ 2 [Spam Classification](ex06.md#)
+    + 2.1 [Preprocessing Emails](ex06.md#)
+    + 2.2 [Extracting Features from Emails](ex06.md#)
+    + 2.3 [Training SVM for Spam Classification](ex06.md#)
+    + 2.4 [Top Predictors for Spam](ex06.md#)
+    + 2.5 [Try your own emails (optional)](ex06.md#)
+    + 2.6 [Build your own dataset (optional)](ex06.md#)
++ [Programming Ex.6](ex06.md#)
++ [Ex6 Tutorials](ex06.md#)
+
 
 
 
