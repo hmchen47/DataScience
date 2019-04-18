@@ -230,6 +230,41 @@ This [links](http://stats.stackexchange.com/questions/133656/how-to-understand-t
 
 ### Errata
 
+#### Video Lecture Errata
+
+In the video ‘Motivation II: Visualization’, around 2:45, prof. Ng says R2, but writes ℝ. The latter is incorrect and should be R2.
+
+In the video ‘Motivation II: Visualization’, the quiz at 5:00 has a typo where the reduced data set should be go up to $z^{(n)}$ rather than $z^{(m)}$.
+
+In the video "Principal Component Analysis Algorithm", around 1:00 the slide should read "Replace each $x_j^{(i)}$ with $x_j^{(i)}-\mu_j$." (The second x is missing the superscript (i).)
+
+In the video "Principal Component Analysis Algorithm", the formula shown at around 5:00 incorrectly shows summation from 1 to n. The correct summation (shown later in the video) is from 1 to m. In the matrix U shown at around 9:00 incorrectly shows superscript of last column-vector "u" as m, the correct superscript is n.
+
+In the video "Reconstruction from Compressed Representation", the quiz refers to a formula which is defined in the next video, "Choosing the Number of Principal Components"
+
+In the video "Choosing the number of principal components" at 8:45, the summation in the denominator should be from 1 to n (not 1 to m).
+
+In the in-video quiz in "Data Compression" at 9:47 the correct answer contains k≤n but it should be $k < n$.
+
+
+#### Programming Exercise Errata
+
+In the ex7.pdf file, Section 2.2 says “You task is to complete the code” but it should be “Your task”
+
+In the ex7.pdf file, Section 2.4.1 should say that each column (not row) vector of U represents a principal component.
+
+In the ex7.pdf file, Section 2.4.2 there is a typo: “predict the identitfy of the person” (the 'f' is unneeded).
+
+In the ex7_pca.m file at line 126, the fprintf string says '(this mght take a minute or two ...)'. The 'mght' should be 'might'.
+
+In the ex7 projectData.m file, update the Instructions to read:
+
+```matlab
+%    projection_k = x' * U(:, k);
+
+```
+
+In the function script "pca.m", the 3rd line should read "[U, S] = pca(X)" not "[U, S, X] = pca(X)"
 
 
 ### Quiz: Unsupervised Learning
