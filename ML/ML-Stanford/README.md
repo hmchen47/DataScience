@@ -328,6 +328,19 @@
     + [FAQ for Week 7 and programming exercise 6](ex06.md#)
 
 
+## Unsupervised Learning: Clustering
+
++ [Unsupervised Learning: Introduction](13-Clustering.md#)
++ [K-Means Algorithm](13-Clustering.md#)
++ [Optimization Objective](13-Clustering.md#)
++ [Random Initialization](13-Clustering.md#)
++ [Choosing the Number of Clusters](13-Clustering.md#)
++ [Review](13-Clustering.md#)
+    + [Lecture Slides](13-Clustering.md#)
+    + [Errata](13-Clustering.md#)
++ [Quiz: Unsupervised Learning](13-Clustering.md#)
+
+
 
 
 Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
