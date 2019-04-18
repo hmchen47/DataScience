@@ -324,6 +324,8 @@
     + 2.6 [Build your own dataset (optional)](ex06.md#)
 + [Programming Ex.6](ex06.md#)
 + [Ex6 Tutorials](ex06.md#)
+    + [Tutorial for emailfeatures()](ex06.md#)
+    + [FAQ for Week 7 and programming exercise 6](ex06.md#)
 
 
 
