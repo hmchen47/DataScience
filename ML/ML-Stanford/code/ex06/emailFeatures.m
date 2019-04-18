@@ -48,14 +48,7 @@ x = zeros(n, 1);
 %
 %
 
-for idx = 1:size(word_indices, 2)
-    
-    x(word_indices(idx)) = 1;
-   
-end;
-
-
-
+x(word_indices) = 1;
 
 
 
