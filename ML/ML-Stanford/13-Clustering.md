@@ -4,13 +4,47 @@
 
 ### Lecture Notes
 
++ Supervised learning
+  + Given a set of labels, fit a hypothesis to it
+  + Training set: $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), (x^{(3)}, y^{(3)}), \ldots, (x^{(m)}, y^{(m)})\}$
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_0104e918fbf0762326a187fdcf615f9d_Lecture13.pdf?Expires=1556150400&Signature=TZ-XGNIm4bzG7FzM3k98Zc0UcM0hTBY5EiGaPI1GgMZyWk00j0FFKzWKc31gYe-95KVoyTB3gGbfkRpnAvVbtYs7djB6h7ltljXNCbkKOMNE4cy~OywO600pEdfYOMQw5JMVxwbxS5C213qwXwMYAV6FFm7Hhm8NPFyi84h2VlQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m01-04.png" style="margin: 0.1em;" alt="text" title="caption" width="200">
+    </a></div>
+  </div>
 
++ Unsupervised learning
+  + While supervised learning algorithms need labeled examples $(x,y)$, unsupervised learning algorithms need only the input $(x)$
+  + No label
+  + Objective: find structure in data
+  + Clustering: find cluster in the data, one of many unsupervised learning algorithm
+  + Trainging set: $\{(x^{(1)}), (x^{(2)}), (x^{(3)}), \ldots, (x^{(m)}) \}$
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning2.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
++ Applications of clustering
+  + Market segmentation
+  + Social network analysis
+  + Organize computing clusters
+  + Astronomical data analysis
+
++ IVQ: Which of the following statements are true? Check all that apply.
+
+  1. In unsupervised learning, the training set is of the form $\{x^{(1)},x^{(2)},\ldots,x^{(m)}\}$.
+  2. Clustering is an example of unsupervised learning.
+  3. In unsupervised learning, you are given an unlabeled dataset and are asked to find "structure" in the data.
+  4. Clustering is the only unsupervised learning algorithm.
+
+  Ans: 123
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/14.1-Clustering-UnsupervisedLearningIntroduction.714d0b90b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1556150400&Signature=boepJsvSLXikL~w69XnWQuWqfoBBgcFTh7IFfg7V6T9yhz~29rmk1ByaS1o82Sqikk-jchuYtycWKhOMHhB20rYW1QAfiWfZyR9qX9wFbfIX0rUTHIR0ntXeG~MGml7tOaNdpXIPThA3O9LrUSNo2dKPrmm~gw2tBFemgNBoKUg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/8EOLpwD9Qh6Di6cA_TIe3Q?expiry=1556150400000&hmac=-fOq5pLXNR5ga_p8UpryxxO6dCX7iv_BC_ByxdVK7rY&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
