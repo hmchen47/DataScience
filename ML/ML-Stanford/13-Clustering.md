@@ -26,10 +26,10 @@
   </div>
 
 + Applications of clustering
-  + Market segmentation
-  + Social network analysis
+  + Market segmentation: Group people into different segments
+  + Social network analysis: Smart lists
   + Organize computing clusters
-  + Astronomical data analysis
+  + Astronomical data analysis: Understanding galaxy formation
 
 + IVQ: Which of the following statements are true? Check all that apply.
 
@@ -54,13 +54,68 @@
 
 ### Lecture Notes
 
++ Introduction
+  + automatically group the data into clusters
+  + most widely used clustering algorithm
+
++ Example: choose our cluster centroids
+  + simplest with $K = 2$
+  + K-Means is an iterative algorithm and it does these steps
+    1. Randomly allocate points as cluster centroids
+      + able to have many but the exact "ideal" number can be determined and will be explained subsequently
+      + here, $K=2$
+    2. Cluster assignment step
+      + each sample assigned to one of the two cluster centroids
+      + calculate the distances of each point with the two centroids and then assign to the closer centroid
+    3. Move centroid step
+      + calcuate new centroids with their assigned points
+      + the calculation is the average of the points
+      + continue until converge
+
++ K-Means Algorithm
+  + Input: 
+    + $K\;$: number of clusters
+    + Training set: $\{x^{(1)},x^{(2)},\ldots,x^{(m)}\}$
+  + $x^{(i)} \;\in\; \mathbb{R}^n$ (drop $x_0 = 1$ convention)
+  + Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
+
+    Repeat { <br/>
+    <span style="padding-left: 1em"/> for $i$ = 1 to $m$ [Cluster assignment step]<br/>
+    <span style="padding-left: 2em"/> $c^{(i)} :=\;$ index (from 1 to $K$) of cluster centroid closest to $x^{(i)} \implies c^{(i)} = \min_k \parallel x^{(i)} - \mu_k \parallel^2$ <br/>
+    <span style="padding-left: 1em"/> for $k$ = 1 to $K$ [Move centroid] <br/>
+    <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
+    }
+  + IVQ: Suppose you run k-means and after the algorithm converges, you have: $c^{(1)} = 3, c^{(2)} = 3, c^{(3)} = 5, \dots$
+
+    Which of the following statements are true? Check all that apply.
+
+    1. The third example $x^{(3)}$ has been assigned to cluster 5.
+    2. The first and second training examples $x^{(1)}$ and $x^{(2)}$ have been assigned to the same cluster.
+    3. The second and third training examples have been assigned to the same cluster.
+    4. Out of all the possible values of $k \;\in\; \{1,2,\ldots,K\}$ the value $k=3$ minimizes $\parallel x^{(2)} − μ_k \parallel^2$.
+
+    Ans: 124
+
++ K-means for non-separated clusters
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/#optimization-objective">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning6.png" style="margin: 0.1em;" alt="text" title="K-means for non-separated clusters" width="350">
+    </a></div>
+  </div><br/>
+
+  + K-means would try to separate the data into multiple clusters like the graph on the right
+  + Often times, you may not find clusters that are obvious like the graph on the left
+  + look at the clusters and find meaning
+    + e.g., design a small, medium and large shirt based on the data shown
+    + similar to market segmentation
 
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/14.2-Clustering-KMeansAlgorithm.440391e0b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1556150400&Signature=OM-ixD5Nyk-cWlLkHwnCWWitRZVrO8lmdVf1ZeP8LP-lWpHvVzKEVJFEsRJ49YkHKxfhPKe6G-9SNrsuzw~CXdoOYS7za62B1DvpJOaY3rKfHeYnpuoKX6wHslQ~idvkSjZGZV7xTmQ~idFbkv0oOfYC0KFQdlH-fohK3-IR5FA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/-40WKd_ZQmaNFinf2dJmHA?expiry=1556150400000&hmac=rq3aEAOJjiCpr3Ot8niThW-4F1Oxp4r548ZRAT5j4SQ&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
