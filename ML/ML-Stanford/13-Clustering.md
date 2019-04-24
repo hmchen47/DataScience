@@ -462,5 +462,63 @@ In the function script "pca.m", the 3rd line should read "[U, S] = pca(X)" not "
 
 ### Quiz: Unsupervised Learning
 
+1. For which of the following tasks might K-means clustering be a suitable algorithm? Select all that apply.
+
+    1. Given a database of information about your users, automatically group them into different market segments.
+    2. Given sales data from a large number of products in a supermarket, figure out which products tend to form coherent groups (say are frequently purchased together) and thus should be put on the same shelf.
+    3. Given historical weather records, predict the amount of rainfall tomorrow (this would be a real-valued output)
+    4. Given sales data from a large number of products in a supermarket, estimate future sales for each of these products.
+
+  Ans: 12 <br/>
+  (1) You can use K-means to cluster the database entries, and each cluster will correspond to a different market segment. <br/>
+  (2) If you cluster the sales data with K-means, each cluster should correspond to coherent groups of items.
+
+
+2. Suppose we have three cluster centroids $\mu_1=\begin{bmatrix} 1 \\ 2\end{bmatrix}, \mu_2= \begin{bmatrix}−3 \\ 0 \end{bmatrix}$ and $\mu_3=\begin{bmatrix}4 \\2 \end{bmatrix}$. Furthermore, we have a training example $x^{(i)}= \begin{bmatrix}−2 \\1 \end{bmatrix}$. After a cluster assignment step, what will $c^{(i)}$ be?
+
+    1. $c^{(i)}$ is not assigned
+    2. $c^{(i)} = 3$
+    3. $c^{(i)} = 1$
+    4. $c^{(i)} = 2$
+
+  Ans: 2 <br/>
+  $x^{(i)}$ is closest to $\mu_2$, so $c^{(i)} = 2$
+
+
+3. K-means is an iterative algorithm, and two of the following steps are repeatedly carried out in its inner-loop. Which two?
+
+    1. Move each cluster centroid $\mu_k$, by setting it to be equal to the closest training example $x^{(i)}$
+    2. Move the cluster centroids, where the centroids $\mu_k$ are updated.
+    3. The cluster assignment step, where the parameters $c^{(i)}$ are updated.
+    4. The cluster centroid assignment step, where each cluster centroid $\mu_i$μ is assigned (by setting $c^{(i)}$) to the closest training example $x^{(i)}$.
+
+  Ans: 23 <br/>
+  (2) The cluster update is the second step of the K-means loop.<br/>
+  (3) This is the correct first step of the K-means loop.
+
+
+4. Suppose you have an unlabeled dataset $\{x^{(1)}, \ldots, x^{(m)}\}$. You run K-means with 50 different random initializations, and obtain 50 different clusterings of the data. What is the recommended way for choosing which one of these 50 clusterings to use?
+
+    1. Manually examine the clusterings, and pick the best one.
+    2. Compute the distortion function $J(c^{(1)}, \ldots, c^{(m)}, \mu_1, \ldots,\mu_k)$, and pick the one that minimizes this.
+    3. Plot the data and the cluster centroids, and pick the clustering that gives the most "coherent" cluster centroids.
+    4. Use the elbow method.
+
+  Ans: 2 <br/>
+  (2) A lower value for the distortion function implies a better clustering, so you should choose the clustering with the smallest value for the distortion function.
+
+
+5. Which of the following statements are true? Select all that apply.
+
+    1. For some datasets, the "right" or "correct" value of K (the number of clusters) can be ambiguous, and hard even for a human expert looking carefully at the data to decide.
+    2. Since K-Means is an unsupervised learning algorithm, it cannot overfit the data, and thus it is always better to have as large a number of clusters as is computationally feasible.
+    3. The standard way of initializing K-means is setting μ1=⋯=μk to be equal to a vector of zeros.
+    4. If we are worried about K-means getting stuck in bad local optima, one way to ameliorate (reduce) this problem is if we try using multiple random initializations.
+
+  Ans: 14 <br/>
+  (1) In many datasets, different choices of K will give different clusterings which appear quite reasonable. With no labels on the data, we cannot say one is better than the other. <br/>
+  (4) Since each run of K-means is independent, multiple runs can find different optima, and some should avoid bad local optima.
+
+
 
 
