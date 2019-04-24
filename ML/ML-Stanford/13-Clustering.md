@@ -125,13 +125,54 @@
 
 ### Lecture Notes
 
++ Cost function of K-Means Algorithm
+  + help debug the algorithm
+  + help K-Means to find better clusters
+
++ K-Means optimization objective: Cost function (distortion function)
+  + Objective: find $c^{(i)}$ and $\mu_k$ to minimize the cost function
+  + Notations:
+    + $c^{(i)}\;$: index of cluster $\{1, 2, \dots, K \}$ to which example $x^{(i)}$ is currently assigned
+    + $\mu_k\;$: cluster centroid $k$ ($\mu_k \;\in\; \mathbb{R}^n$)
+    + $\mu_c(i)\;$: cluster centroid of cluster to which example $x^{(i)}$ has been assigned
+  + Optimization objective (Cost function = Distortion function)
+
+    $$\begin{array}{l} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) = \dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - \mu_c(i) \parallel^2 \\\\ \displaystyle \min_{\begin{array}{c}c^{(1)},\dots,c^{(m)},\\ \mu_1,\dots,\mu_K\end{array}} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) \end{array}$$
+
++ K-Mean Algorithm
+
+  Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
+
+  Repeat { <br/>
+  <span style="padding-left: 1em"/> for $i$ = 1 to $m$ $\qquad$[Cluster assignment step: minimize$J(\dots)$ w.r.t $c^{(1)}, c^{(2)}, \dots, c^{(m)}$ (holding $\mu_1, \mu_2, \dots, \mu_K$ fixed)]<br/>
+  <span style="padding-left: 2em"/> $c^{(i)} :=\;$ index (from 1 to $K$) of cluster centroid closest to $x^{(i)} \implies c^{(i)} = \min_k \parallel x^{(i)} - \mu_k \parallel^2$ <br/>
+  <span style="padding-left: 1em"/> for $k$ = 1 to $K$ $\qquad$[Move centroid step: minimize $J(\dots)$ w.r.t $\mu_1, \mu_2, \dots, \mu_K$] <br/>
+  <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
+  }
+
++ IVQ: Suppose you have implemented k-means and to check that it is running correctly, you plot the cost function $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_k)$ as a function of the number of iterations. Your plot looks like this
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="images/m13-01.png" style="margin: 0.1em;" alt="Diagram for IVQ in Optimization objective" title="Diagram for IVQ in Optimization objective" width="250">
+    </a></div>
+  </div>
+
+  What does this mean?
+
+  1. The learning rate is too large.
+  2. The algorithm is working correctly.
+  3. The algorithm is working, but kk is too large.
+  4. It is not possible for the cost function to sometimes increase. There must be a bug in the code.
+
+  Ans: 4
 
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/14.3-Clustering-OptimizationObjective.0adde690b22b11e495a62138f9b52d3f/full/360p/index.mp4?Expires=1556150400&Signature=dxvD7enx06X2TadgWIJCP24V5~P8z~efVM36aBjf4suGebDiwqNRnqrnRn7n21mOMJE3yjG7CzlzUl8BNcL4jLprVMSOFfFyRSf95l8lM~H0MdunFZGCW81qDYZLZko3iJB8ccP-MxjlBijxtZPPCGjBpF716KN5NxHjBo8q0eE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/VeOTF_-PRvyjkxf_j6b87A?expiry=1556150400000&hmac=EKWcRnY1Wlu-8-xqKm8tVV8iMH468MBct5ToaFkjyeE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
@@ -141,13 +182,48 @@
 
 ### Lecture Notes
 
++ Random initialization - conditions & recommended
+  + Should have $K < m$
+  + Randomly pick $K$ training examples
+  + Set $\mu_1, \mu_2, \dots, \mu_K$ equal to these $K$ examples $\implies \mu_1 = x^{(1)}, \mu_2 = x^{(2)}, \dots$
 
++ K-means can end up at different solutions depending on different initialization
+
++ Local optima
+  + K-Means might be with local optima
+  + The bottom two diagrams with local optima
+  + solution: run K-Means many times with different initialization
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/#random-initialization">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning10.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
++ Random Initialization - multiple trials
+
+  for i = 1 to 100 { <br/>
+  <span style="padding-left: 1em;" /> randomly initialize K-Means <br/>
+  <span style="padding-left: 1em;" /> run k-means. Get $c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K$ <br/>
+  <span style="padding-left: 1em;" /> compute cost function (distortion): $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K)$ <br/>
+  }
+
+  Pick clustering that gave the lowest cost $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) \qquad K=2~10$
+
++ IVQ: Which of the following is the recommended way to initialize k-means?
+
+  1. Pick a random integer ii from $\{1,\dots,k\}$. Set $\mu_1 = \mu_2 = \cdots = \mu_K = x^{(i)}$.
+  2. Pick $k$ distinct random integers $i_1, \dots, i_k$ from $\{1,\dots,k\}$. Set $\mu_1 = x^{(i_1)}, \mu_2 = x^{(i_2)}, \dots, \mu_k = x^{(i_k)}$.
+  3. Pick $k$ distinct random integers $i_1, \dots, i_k$ from $\{1,\dots,m\}$.  Set $\mu_1 = x^{(i_1)}, \mu_2 = x^{(i_2)}, \dots, \mu_k = x^{(i_k)}$.
+  4. Set every element of μi∈Rn to a random value between $–\epsilon$ and $\epsilon$, for some small $\epsilon$.
+
+  Ans: 3
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/14.4-Clustering-RandomInitialization.b17f5f10b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1556150400&Signature=XYB8NNq1Uv-ZCsxXDT-m4JKVhYjFs-cF6IVQLQ1lFuiv8WHwOMX~epBMiABqLq1PoeK6gKNSJ4o5e0ZIheDLcPdLUxftJRvavLNvQRog2cHC7RpaHTBS7TdI7AjLUHNc3Q3BkmKsEbXS4bfJWgKK6af6GQQqjh9S9Fm6mJzlOaQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/zQKTYtdiRPyCk2LXYiT85g?expiry=1556150400000&hmac=Nd-21B4JNKT-KwyIRiLh9_X_LcgisBZ-Mr85_15ocIQ&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
