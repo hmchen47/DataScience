@@ -341,6 +341,25 @@
 + [Quiz: Unsupervised Learning](13-Clustering.md#)
 
 
+## Dimensionality Reduction
+
++ [Motivation](14-Dimension.md#)
+    + [Motivation I: Data Compression](14-Dimension.md#)
+    + [Motivation II: Visualization](14-Dimension.md#)
++ [Principal Component Analysis](14-Dimension.md#)
+    + [Principal Component Analysis Problem Formulation](14-Dimension.md#)
+    + [Principal Component Analysis Algorithm](14-Dimension.md#)
++ [Applying PCA](14-Dimension.md#)
+    + [Reconstruction from Compressed Representation](14-Dimension.md#)
+    + [Choosing the Number of Principal Components](14-Dimension.md#)
+    + [Advice for Applying PCA](14-Dimension.md#)
++ [Review](14-Dimension.md#)
+    + [Lecture Slides](14-Dimension.md#)
+    + [Quiz: Principal Component Analysis](14-Dimension.md#)
+
+
+## Programming Assignment: K-Means Clustering and PCA
+
 
 
 Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
