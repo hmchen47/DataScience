@@ -355,6 +355,7 @@
     + [Advice for Applying PCA](14-Dimension.md#)
 + [Review](14-Dimension.md#)
     + [Lecture Slides](14-Dimension.md#)
+    + [Errata](14-Dimension.md#)
     + [Quiz: Principal Component Analysis](14-Dimension.md#)
 
 
