@@ -323,7 +323,7 @@ The first for-loop is the 'Cluster Assignment' step. We make a vector $c$ where 
 
 We can write the operation of the Cluster Assignment step more mathematically as follows:
 
-$$c^{(i)} = \arg\min_k\ \parallel x^{(i)} - \mu_k \parallel^2$
+$$c^{(i)} = \arg\min_k\ \parallel x^{(i)} - \mu_k \parallel^2$$
  
 That is, each $c^{(i)}$ contains the index of the centroid that has minimal distance to $x^{(i)}$.
 
@@ -364,7 +364,7 @@ Recall some of the parameters we used in our algorithm:
 
 Using these variables we can define our __cost function__:
 
-$$J(c^{(i)},\dots,c^{(m)},\mu_1,\dots,\mu_K) = \dfrac{1}{m}\sum_{i=1}^m \parallelx^{(i)} - \mu_{c^{(i)}}\parallel^2$$
+$$J(c^{(i)},\dots,c^{(m)},\mu_1,\dots,\mu_K) = \dfrac{1}{m}\sum_{i=1}^m \parallel x^{(i)} - \mu_{c^{(i)}}\parallel^2$$
  
 
 Our __optimization objective__ is to minimize all our parameters using the above cost function:
