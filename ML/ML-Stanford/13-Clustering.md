@@ -233,13 +233,41 @@
 
 ### Lecture Notes
 
++ What is the right value of $K$?
 
++ Choosing the value of $K$
+  + Elbow method
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/#random-initialization">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning12.png" style="margin: 0.1em;" alt="K-Means algorithm: Elbow method" title="K-Means algorithm: Elbow method" width="350">
+      </a></div>
+    </div>
+
+    + Left diagram: often there is no clear Elbow $\rightarrow$ difficult to choose, just best guest, plot cost function vs K value not necessary
+  + IVQ: Suppose you run k-means using k = 3 and k = 5. You find that the cost function J is much higher for k = 5 than for k = 3. What can you conclude?
+
+    1. This is mathematically impossible. There must be a bug in the code.
+    2. The correct number of clusters is $k = 3$.
+    3. In the run with $k = 5$, k-means got stuck in a bad local minimum. You should try re-running k-means with multiple random initializations.
+    4. In the run with $k = 3$, k-means got lucky. You should try re-running k-means with k = 3 and different random initializations until it performs no better than with $k = 5$.
+
+    Ans: 3
+
+  + Sometimes, you're running K-means to get clusters to use for some later/downstream purpose.  Evaluate K-means based on metric for how well it performs for that later purpose.
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/#random-initialization">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning13.png" style="margin: 0.1em;" alt="K-Means algorithm: clusters for other clusters" title="K-Means algorithm: clusters for other clusters" width="350">
+      </a></div>
+    </div
+
+    + the choice of $K$ value depends on the business decision itself
 
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/14.5-Clustering-ChoosingTheNumberOfClusters.c11600a0b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1556236800&Signature=KjLCUZN8uFIK63wAagm~RPfQDzYu9RFsUqlLYZWAQT~UxgMimd9BptiyNUrT28ao92lps4zwc~lTRyfm2hgfiHbAqPwmtIESa8PRi7jEgSz9wxvEjD4fYyaNilRKxGyS6xo9kOHcMGdLOQ0ac9vQEjhwfLNwBnK2~PYvQF-PinE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dVXdLhKFSNmV3S4ShYjZdw?expiry=1556236800000&hmac=p62QnxpNyaulmrYvayTDk4KJ_RSAMEjSpBqNapye0R0&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 <br/>
