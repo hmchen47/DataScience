@@ -53,7 +53,48 @@
 
 #### Lecture Notes
 
++ Data Visualization
+  + Original data with 50 features: $x^{(i)} \in \mathbb{R}^{50}$
 
+    | Country | GDP (trillions of US\$) $\rightarrow x_1$ | Per capita GDP (thousands od intl. \$) $\rightarrow x_2$ | Human Development Index $\rightarrow x_3$ | Life expectancy $\rightarrow x_4$ | Poverty Index (Gini as percentage) $\rightarrow x_5$ | Mean Household income (thousands of US\$) $\rightarrow x_6$ | $\cdots |
+    |---|---|---|---|---|---|---|---|
+    | Canada | 1.577 | 39.17 | 0.908 | 80.7 | 32.6| 67.293 | $\cdots$ |
+    | China | 5.878 | 7.54 | .687 | 73 | 46.9 | 10.22 | $\cdots$ |
+    | India | 1.632 | 3.41 | 0.547 | 64.7 | 36.8 | 0.573 | $\cdots$ |
+    | Russia | 1.48 | 19.84 | 0.755 | 65.5 | 39.9 | 0.72 | $\cdots$ |
+    | Singapore | 0.223 | 56.69 | 0.866 | 80 | 42.5 | 67.1 | $\cdots$ |
+    | USA | 14.527 | 46.86 | 0.91 | 78.3 | 40.8 | 84.3 | $\cdots$ |
+    |  $\cdots$ | $\cdots$ | $\cdots$ | $\cdots$ | $\cdots$ | $\cdots$ | $\cdots$ | $\cdots$ |
+
+  + Reduce data from 50D to 2D
+    + $z^{(i)} \in \mathbb{R}^2$
+    + Typically the meaning is unknown for the 2D
+    + able to make sense of out of the 2D
+
+    | Country | $z_1$ | $z_2$ |
+    |---------|-------|-------|
+    | Canada | 1.6 | 1.2 |
+    | China | 1.7 | 0.3 |
+    | India | 1.6 | 0.2 |
+    | Russia | 1.4 | 0.5 |
+    | Singapore | 0.5 | 1.7 |
+    | USA | 2 | 1.5|
+    | $\cdots$ | $\cdots$ | $\cdots$ |
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning19.png" style="margin: 0.1em;" alt="text" title="caption" width="250">
+    </a></div>
+  </div>
+
++ IVQ: Suppose you have a dataset $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$ where $x^{(i)} \in \mathbb{R}^n$. In order to visualize it, we apply dimensionality reduction and get $\{z^{(1)}, z^{(2)}, \dots, z^{(m)}\}$ where $z^{(i)} \in \mathbb{R}^k$ is $k$-dimensional. In a typical setting, which of the following would you expect to be true? Check all that apply.
+
+  1. $k > n$
+  2. $k \leq n$
+  3. $k \geq 4$
+  4. $k = 2$ or $k = 3$ (since we can plot 2D or 3D data but don’t have ways to visualize higher dimensional data)
+
+  Ans: 24
 
 
 #### Lecture Video
