@@ -26,10 +26,13 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+selector = zeros(m, K);
 
+for k = 1:K
+    selector(:, k) = (idx == k);
+end;
 
-
-
+centroids = (selector' * X ) ./ sum(selector)'
 
 
 
