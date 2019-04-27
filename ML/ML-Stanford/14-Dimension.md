@@ -180,7 +180,67 @@
 
 #### Lecture Notes
 
++ Data preprorcessing
 
+  Training set: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ <br/>
+  Preprocessing (feature scaling/mean normalization): <br/>
+  <span style="padding-left:2em;"/>$\mu_j = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)}$
+  <span style="padding-left:2em;"/>Replace each $x_j^{(i)}$ with $x_j - \mu_j$.<br/>
+  <span style="padding-left:2em;"/>If different featues on different scales (e.g., $x_1 = \;$ size of house, $x_2 =\;$ number of bedrooms), scale features to have comparable range of values, i.e.,
+
+  $$x_j^{(i)} := \dfrac{x_j^{(i)} - \mu_j}{s_j}$$
+
++ Principle Component Analysis (PCA) algorithm
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning24.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  + Reduce data from 2D to 1D: compute vector $x$
+  + Reduce data from 3D to 2D: compute vectors $z_1$ and $z_2$
+  + Procedure
+    + using eigen vector (`eig()`) or singular value decomposition (`svd()`), but later more stable
+    + get 3 matrix: $U, S$, and $V$
+
+    Reduce data from $n$-dimensions to $k$-dimensions<br/>
+    Compute "covariance matrix":
+
+      $$\Sigma = \dfrac{1}{m} \sum_{i=1}^m \underbrace{(x^{(i)})}_{n\times 1} \underbrace{(x^{(i)})^T}_{1 \times n} \implies Sigma$$
+
+    Compute "eigenvectors"/"singular value decomposition" of matrix $\Sigma \;(n \times n \text{ matrix})$: `[U, S, V] = svd(Sigma);`
+
+      $$U = \begin{bmatrix} | & | & & | & & |\\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} & \cdots & u^{(m)} \\ | & | & & | & & | \end{bmatrix} \implies U \in \mathbb{R}^{n \times n} \text{ but take the first $k$ columns as } U_{reduced}$$
+
+  + With matrix $U_{reduced} \implies x \in \mathbb{R}^{n} \longrightarrow z \in \mathbb{R}^k$
+
+    $$z = \underbrace{\begin{bmatrix} | & | & & | \\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} \\ | & | & & | \end{bmatrix}^T}_{k \times n}  x = \begin{bmatrix} - & (u^{(1)})^T & - \\ - & (u^{(1)})^T & - \\ & \vdots & \\ - & (u^{(k)})^T & - \end{bmatrix} x$$
+
++ Summary of PCA algorithm in octave
+
+  After mean normalization (ensure every feature has zero mean) and optionally feature scaling
+
+    $$\text{Sigma } = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)})(x^{(i)})^T = \dfrac{1}{m} x^T \cdot x$$
+
+  where $x = \begin{bmatrix} - & x^{(1)} & - \\ & \vdots & \\ - & x^{(m)} & - \end{bmatrix}$ and `Sigma = (1/m) * x' * x;`
+
+  [U S V] = svd(Sigma); <br/>
+  Ureduce = U(:, 1:k);<br/>
+  z = Ureduce' * x;
+
++ IVQ: In PCA, we obtain $z \in \mathbb{R}^k$ from $x \in \mathbb{R}^n$ as follows:
+
+  $$z = \begin{bmatrix} | & | & & | \\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} \\ | & | & & | \end{bmatrix}^T x =\begin{bmatrix} - & (u^{(1)})^T & - \\ - & (u^{(1)})^T & - \\ & \vdots & \\ - & (u^{(k)})^T & - \end{bmatrix} x$$
+
+  Which of the following is a correct expression for $z_j$?
+
+  1. $z_j = (u^{(k)})^T x$
+  2. $z_j = (u^{(j)})^T x_j$
+  3. $z_j = (u^{(j)})^T x_k$
+  4. $z_j = (u^{(j)})^T x$
+
+  Ans: 4
 
 
 #### Lecture Video
