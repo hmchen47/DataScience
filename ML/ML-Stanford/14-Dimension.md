@@ -608,6 +608,76 @@ In the in-video quiz in "Data Compression" at 9:47 the correct answer contains k
 
 ### Quiz: Principal Component Analysis
 
+1. Consider the following 2D dataset:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/B20Bx/principal-component-analysis">
+      <img src="images/m14-q1.jpg" style="margin: 0.1em;" alt="PCA: Question 1" title="PCA: Q1" width="450">
+    </a></div>
+  </div>
+
+  Which of the following figures correspond to possible values that PCA may return for $u^{(1)}$ (the first eigenvector / first principal component)? Check all that apply (you may have to check more than one figure).
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/B20Bx/principal-component-analysis">
+      <img src="images/m14-q1a.jpg" style="margin: 0.1em;" alt="PCA: Q1 Answer a" title="PCA: Q1 Answer a" width="250">
+      <img src="images/m14-q1b.jpg" style="margin: 0.1em;" alt="PCA: Q1 Answer b" title="PCA: Q1 Answer b" width="250">
+      <img src="images/m14-q1c.jpg" style="margin: 0.1em;" alt="PCA: Q1 Answer c" title="PCA: Q1 Answer c" width="250">
+      <img src="images/m14-q1d.jpg" style="margin: 0.1em;" alt="PCA: Q1 Answer d" title="PCA: Q1 Answer d" width="250">
+    </a></div>
+  </div>
+
+  Ans: 12 <br/>
+  (1) The maximal variance is along the y = x line, so this option is correct. <br/>
+  (2) The maximal variance is along the y = x line, so the negative vector along that line is correct for the first principal component.
+
+
+2. Which of the following is a reasonable way to select the number of principal components $k$?
+
+  (Recall that nn is the dimensionality of the input data and mm is the number of input examples.)
+
+  1. Choose $k$ to be 99% of $m$ (i.e., $k = 0.99*m$, rounded to the nearest integer).
+  2. Choose $k$ to be the smallest value so that at least 99% of the variance is retained.
+  3. Choose $k$ to be the largest value so that at least 99% of the variance is retained
+  4. Use the elbow method.
+
+  Ans: 2 <br/>
+  (2) This is correct, as it maintains the structure of the data while maximally reducing its dimension.
+
+
+3. Suppose someone tells you that they ran PCA in such a way that "95% of the variance was retained." What is an equivalent statement to this?
+
+  1. $\dfrac{\frac{1}{m} \sum_{i=1}^m \parallel x^{(i)} − x^{(i)}_{approx} \parallel^2}{\frac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.05$
+  2. $\dfrac{\frac{1}{m} \sum_{i=1}^m \parallel x^{(i)}\parallel^2}{\frac{1}{m}\sum_{i=1}^m \parallel x^{(i)} − x^{(i)}_{approx} \parallel^2} \leq 0.95$
+  3. $\dfrac{\frac{1}{m} \sum_{i=1}^m \parallel x^{(i)}\parallel^2}{\frac{1}{m}\sum_{i=1}^m \parallel x^{(i)} − x^{(i)}_{approx} \parallel^2} \leq 0.05$
+  4. $\dfrac{\frac{1}{m} \sum_{i=1}^m \parallel x^{(i)}\parallel^2}{\frac{1}{m}\sum_{i=1}^m \parallel x^{(i)} − x^{(i)}_{approx} \parallel^2} \geq 0.05$
+
+  Ans: 1
+
+
+4. Which of the following statements are true? Check all that apply.
+
+  1. If the input features are on very different scales, it is a good idea to perform feature scaling before applying PCA.
+  2. PCA can be used only to reduce the dimensionality of data by 1 (such as 3D to 2D, or 2D to 1D).
+  3. Feature scaling is not useful for PCA, since the eigenvector calculation (such as using Octave's `svd(Sigma)` routine) takes care of this automatically.
+  4. Given an input $x \in \mathbb{R}^n$, PCA compresses it to a lower-dimensional vector $z \in \mathbb{R}^k$.
+
+  Ans: 14 <br/>
+  (1) Feature scaling prevents one feature dimension from becoming a strong principal component only because of the large magnitude of the feature values (as opposed to large variance on that dimension).
+  (4) PCA compresses it to a lower dimensional vector by projecting it onto the learned principal components.
+
+
+5. Which of the following are recommended applications of PCA? Select all that apply.
+
+  1. Clustering: To automatically group examples into coherent groups.
+  2. Data visualization: Reduce data to 2D (or 3D) so that it can be plotted.
+  3. Data compression: Reduce the dimension of your input data $x^{(i)}x$, which will be used in a supervised learning algorithm (i.e., use PCA so that your supervised learning algorithm runs faster).
+  4. To get more features to feed into a learning algorithm.
+
+  Ans: 23 <br/>
+  (2) This is a good use of PCA, as it can give you intuition about your data that would otherwise be impossible to see.
+  (3) If your learning algorithm is too slow because the input dimension is too high, then using PCA to speed it up is a reasonable choice.
+
 
 
 
