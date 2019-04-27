@@ -112,7 +112,60 @@
 #### Lecture Notes
 
 
++ Principle Component Analysis (PAC) problem formulation
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning20.png" style="margin: 0.1em;" alt="Example of PCA algorithm" title="Example of PCA algorithm" width="350">
+    </a></div>
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning21.png" style="margin: 0.1em;" alt="PCA problem formulation" title="PCA Problem formulation" width="350">
+    </a></div>
+  </div>
+
+  + Example of PCA algorithm
+    1. Project a diagonal line (red line)
+      + perform mean normalization (mean = 0) and feature scaling
+      + using PCA to reduce the projection error (the blue lines)
+    2. Project with another diagonal line (magenta line)
+      + much larger projection error
+      + PCA chooses the red line instead of the magenta line
+
+  + Goal
+    + find the lowest dimensional surface onto which to project the data with minimal squared projection error
+    + minimize the square distance between each point and the location of where it gets projected
+
+  + Reduce from 2D to 1D: find a direction (a vector $u^{(1)} \in \mathbb{R}$ onto which to project the data so as to minimize the projection error
+  + Reduce from $n$-dimensional to $k$-dimensional: find $k$ vectors $u^{(1)}, u^{(2)}, \dots, u^{(k)}$ onto which to project the data so as to minimize the projection error
+
++ PCA is not linear regression
+  + Linear regression:
+    + predict $y$ according to given $x$
+    + minimize the squared error between point and the regression line
+    + 2D Example: the distance between point and regression line (might along $y$-axis)
+  + PCA to minimize the orthogonal distance
+    + minimize the projection distance between point and the given line
+    + no specific value to predict and all variables treat equally
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning22.png" style="margin: 0.1em;" alt="Example of projection error: 2D & 3D" title="Projection error of 2D & 3D" width="350">
+    </a></div>
+  </div>
+
+  + IVQ: Suppose you run PCA on the dataset below. Which of the following would be a reasonable vector $u^{(1)}$ onto which to project the data? (By convention, we choose $u^{(1)}$ so that $\parallel u^{(1)} \parallel = \sqrt{(u^{(1)})^2 + (u^{(1)})^2}$, the length of the vector $u^{(1)}$, equals 1.)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/GBFTt/principal-component-analysis-problem-formulation">
+      <img src="images/m14-01.png" style="margin: 0.1em;" alt="points scattered about the line y = -x" title="Diagram for IVQ" width="250">
+    </a></div>
+  </div>
+
+  1. $u^{(1)} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$
+  2. $u^{(1)} = \begin{bmatrix} 0 \\1 \end{bmatrix}$
+  3. $u^{(1)} = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}$
+  4. $u^{(1)} = \begin{bmatrix} −1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}$
+
+  Ans: 4
 
 
 #### Lecture Video
