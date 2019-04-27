@@ -377,6 +377,8 @@
     + [`indClosestCentroids()` tutorial](ex07.md#)
     + [`computeCentroids()` tutorial](ex07.md#)
     + [Tutorials for ex7_pca functions](ex07.md#)
+    + [Programming Exercise 7:K-Means Clustering and PCA](ex07.md#)
+    + [FAQ for Week 8 and programming assignment 7](ex07.md#)
 
 
 
