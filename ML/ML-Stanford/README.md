@@ -365,7 +365,7 @@
     + 1.1 [Implementing K-means](ex07.md#)
     + 1.2 [K-means on example dataset](ex07.md#)
     + 1.3 [Random initialization](ex07.md#)
-    + 1.4 [Image compression with K-means1.5](ex07.md#)
+    + 1.4 [Image compression with K-means](ex07.md#)
     + 1.5 [Use your own image](ex07.md#)
 + 2   [Principal Component Analysis](ex07.md#)
     + 2.1 [Example Dataset](ex07.md#)
