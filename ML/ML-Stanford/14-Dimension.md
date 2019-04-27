@@ -6,7 +6,39 @@
 
 #### Lecture Notes
 
++ Data Compression
+  + Reduce data from 2D to 1D
+    + pilot skill and pilot happiness can be reduced to pilot’s aptitude
+    + Generally, reduce $x_1, x_2$ to $z_1$
 
+      $$\begin{array}{rcl} x^{(1)} \in \mathbb{R}^2 & \rightarrow& z^{(1)} \in \mathbb{R} \\ x^{(2)} \in \mathbb{R}^2 & \rightarrow& z^{(2)} \in \mathbb{R} \\ \& \vdots & \\ x^{(m)} \in \mathbb{R}^2 & \rightarrow& z^{(m)} \in \mathbb{R} \end{array}$$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning14.png" style="margin: 0.1em;" alt="pilot skill and pilot happiness can be reduced to pilot’s aptitude" title="pilot skill and pilot happiness can be reduced to pilot’s aptitude" width="220">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning15.png" style="margin: 0.1em;" alt="reduce x1 and x2 to z1" title="reduce x1 and x2 to z1" width="350">
+    </a></div>
+  </div>
+
+  + Reduce data from 3D to 2D
+    + Project the data such that they lie on a plane
+    + Specify 2 axes: $z_1$ & $z_2$ as the basis of vectors
+
+      $$z = \begin{bmatrix} z_1 \\ z_2 \end{bmatrix} \qquad z^{(i)} = \begin{bmatrix} z_1^{(i)} \\ z_2^{(i)} \end{bmatrix}$$ 
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning16.png" style="margin: 0.1em;" alt="Project the data such that they lie on a plane title="Project the data such that they lie on a plane" width="450">    </a></div>
+  </div>
+
+  + IVQ: Suppose we apply dimensionality reduction to a dataset of m examples $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$, where $x^{(i)}\in\mathbb{R}^n$. As a result of this, we will get out:
+
+    1. A lower dimensional dataset $\{z^{(1)}, z^{(2)},\dots, z^{(k)}\}$ of $k$ examples where $k\leq n$.
+    2. A lower dimensional dataset $\{z^{(1)}, z^{(2)},\dots, z^{(k)}\}$ of k examples where $k > n$.
+    3. A lower dimensional dataset $\{z^{(1)}, z^{(2)},\dots, z^{(m)}\}$ of m examples where $z^{(i)} \in \mathbb{R}^k$ for some value of $k$ and $k\leq n$.
+    4. A lower dimensional dataset $\{z^{(1)}, z^{(2)},\dots, z^{(m)}\}$ of m examples where $z^{(i)} \in \mathbb{R}^k$ for some value of $k$ and $k > n$.
+
+    Ans: 3
 
 
 #### Lecture Video
