@@ -291,7 +291,44 @@
 
 #### Lecture Notes
 
++ Choosing $k$ (number of principle components)
+  + Average squared projection error $\dfrac{1}{m} \sum_{i=1}^m  \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2$
+  + Total variation in the data: $\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2$
+  + Typically, choose $k$ to be smallest value so that
 
+    $$\dfrac{\\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01 \quad (1\%)$$
+
+  + "99\%" of variance is retained"
+  + Algorithm:
+
+    Try PCA with $k=1, 2, 3, \dots$ <br/>
+    Compute $U_{reduce}, z^{(1)}, z^{(2)}, \dots, z^{(m)}, x_{approx}^{(1)}, \dots, x_{approx}^{(m)}$<br/>
+    Check if 
+    
+    $$\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01?$$
+
+  + Compute hypothesis checking equation
+
+    Apply Octave `[U, S, V] = svd(Sigma)`, where
+
+    $$S = \begin{bmatrix} S_{11} & 0 & 0 & \cdots & 0 \\ 0 & S_{22} & 0 & \cdots & 0 \\ 0 & 0 & S_{33} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & S_{nn} \end{bmatrix}$$
+
+    For given $k$
+
+      $$1 - \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \leq 0.01 \implies \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \geq 0.99$$
+
+    Pick smallest  value of $k$ for which $\dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^m S_{ii}} \geq 0.99$ (99% of variance retained)
+  
+  + Typical hypothesis significance values: $0.01, 0.05. 0.10 \implies 99\%, 95\%, 90\%$
+
++ IVQ: Previously, we said that PCA chooses a direction $u^{(1)}$ (or $k$ directions $u^{(1)}, \dots, u^{(k)}$) onto which to project the data so as to minimize the (squared) projection error. Another way to say the same is that PCA tries to minimize:
+
+  1. $\frac{1}{m} \sum_{i=1}^m = \parallel x^{(i)}\parallel^2$
+  2. $\frac{1}{m} \sum_{i=1}^m = \parallel x^{(i)}_{approx}\parallel^2$
+  3. $\frac{1}{m} \sum_{i=1}^m = \parallel x^{(i)} − x^{(i)}_{approx}\parallel^2$
+  4. $\frac{1}{m} \sum_{i=1}^m = \parallel x^{(i)} + x^{(i)}_{approx}\parallel^2$
+
+  Ans: 3
 
 
 #### Lecture Video
