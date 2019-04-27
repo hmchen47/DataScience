@@ -343,7 +343,48 @@
 
 #### Lecture Notes
 
++ Supervised learning speedup
+  + Training dataset: $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})$
+  + Extract inputs: Unlabeled dataset
 
+    $$\begin{array}{ccl} x^{(1)}, x^{(2)}, \dots, x^{(m)} & \in & \mathbb{R}^{10000} \\ \downarrow PCA & & \\ z^{(1)}, z^{(2)}, \dots, z^{(m)} & \in & \mathbb{R}^{1000} \end{array}$$
+  
+  + With $z$ vector, the logistic regression function: $h_\theta(z)  = \dfrac{1}{1 + e^{-\theta^T z}}$
+  + New training set: $(z^{(1)}, y^{(1)}), (z^{(2)}, y^{(2)}) \dots, (z^{(m)}, y^{(m)})$
+  + Note: Mapping $x^{(i)} \;\rightarrow\; z^{(i)}$ (i.e., compute $U_{reduce}\;$) should be defined by running PCA only on the training set.  This mapping can be applied as well to the examples $x_{cv}^{(i)}$ and $x_{test}^{(i)}$ in the cross validation and test sets.
+
++ Application of PCA
+  + Compression
+    + Reduce memory/risk needed to store data
+    + Speed up learning algorithm
+    + Choose $k$ by given significance level ($\alpha = 90\%, 95\%, 99\%$) (variance $1\%, 5\%, 10\%$ retained)
+  + Visualization
+    + Choose $k = 2$ or $k= 3$
+
++ Bad use of PCA: to prevent overfitting
+  + Use $z^{(i)}$ instead of $x^{(i)}$ to reduce number of features to $k < n$
+  + Thus, fewer features, lss likely to overfit. $\implies$ bad usage, PCA not intend to solve overfitting issue
+  + This might work OK, but isn't a good way to address overfitting.  Using __regularization__ instead.
+
+    $$\min_\theta \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \underbrace{\dfrac{1}{2m} \sum_{j=1}^n \theta_j^2}_{\text{regularization}}$$
+
++ PCA is sometimes used where it shouldn't be
+  + Design of ML system:
+    + Get training set $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})\}$
+    + Run PCA to reduce $x^{(i)}$ in dimension to get $z^{(i)}$
+    + Train logistic regression on $\{(z^{(1)}, y^{(1)}), (z^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})\}$
+    + Test on test set: Map $x_{test}^{(i)}$ to $z_{test}^{(i)}$.  Run $h_\theta(z)$ on $\{(z_{test}^{(1)}, y_{test}^{(1)}), (z_{test}^{(2)}, y_{test}^{(2)}), \dots, (z_{test}^{(m)}, y_{test}^{(m)}) \}$
+  + How about doing the whole thing without using PCA?
+  + Before implementing PCA, first try running whatever you wnt to do with the original/raw data $x^{(i)}$. Only if that doesn't do what you want, then implement PCA and consider using $z^{(i)}$.
+
+ + IVQ: Which of the following are good / recommended applications of PCA? Select all that apply.
+
+  1. To compress the data so it takes up less computer memory / disk space
+  2. To reduce the dimension of the input data so as to speed up a learning algorithm
+  3. Instead of using regularization, use PCA to reduce the number of features to reduce overfitting
+  4. To visualize high-dimensional data (by choosing k = 2 or k = 3)
+
+  Ans: 124
 
 
 
