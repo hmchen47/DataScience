@@ -11,8 +11,8 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/15.1-DimensionalityReduction-MotivationIDataCompression.71895140b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1556236800&Signature=dDT6M63OK6TF0xCCnxSwuRXXOu5y~YYVpXzwE5mT-LUsKgDAhwRvCe~FGCKGEiU4oUbSkLAlqFpsNDme50wYcmKT-LudBX6PpgQx8zRHFjLegYp3Cj6xw6fwlfKrt2a2HnqkZQtkRM8fzfowkGKjJZGtq65LzQqzMyiZs4KYBgg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/OVB2xEXhQ2CQdsRF4YNgTQ?expiry=1556236800000&hmac=l09QI63lD5RMtkiULIiwaQN3dWajnl8X6AVItWtKxBU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
@@ -26,8 +26,8 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/15.2-DimensionalityReduction-MotivationIIVisualization.3d2f10b0b22b11e4bb7e93e7536260ed/full/360p/index.mp4?Expires=1556236800&Signature=jdxNI9BlSBmnehgnW6Rd~5p51NYBvqS8Yhb8oO0j25BHzQSjFmUWp7sxVI3XV~41ruU3z2t20UMFgAQoI3BCHHxt0dMjmBJ-Gc8xfh8ihjpqowomXCNr0MPuLS~xsPBxS0D2UdFfwM8RoOdcnpfDo2LXMxA~Uz9C~H9WI5rIpVA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/GzkaggVLQ9K5GoIFS1PS1A?expiry=1556236800000&hmac=mScR2j-r5Tj-14ZxHa69tTy3MNIMhKCs6MGqRv3YlSo&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
@@ -41,10 +41,11 @@
 
 
 
+
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/15.3-DimensionalityReduction-PrincipalComponentAnalysisProblemFormulation.35ff7730b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1556323200&Signature=MmbPisVri9nroEOC6UJShCtbsKFUDpBiXsKlm-tIr4AAWKdPWocvr2fCXGCcEp~dgUCekpm8w8zl9c~7GqD3cERTY32auz65QH~WPIteVKMyE2gv1WDnTxfzwkNpYlNjmO6JIKmBxTiUhrCbtsl-sV~LPcC0X0uAl6jDo~Z0bag_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/uWcaBB1jRk2nGgQdY8ZNpQ?expiry=1556323200000&hmac=OhFcaSVfRqmUv0AHq6bdh4bbbVAOd0vB40te4u8wzZ0&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
@@ -58,13 +59,15 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/15.3-DimensionalityReduction-PrincipalComponentAnalysisProblemFormulation.35ff7730b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1556236800&Signature=bXfhOKHJnsqIIBG4GstC9VdhJgEHFbjj8cEtc6XfZxtKERkYRk47QFqCnzJ5X6Ov5QiEpGm145TGwzOpgiisOD4kfKe7r0TW~oqHb9TFdqWqjjmmvU4QoTopBjx7eBfRYXJDYWQ0gLHsICDaAC9uDTQLyQksDumsYqilCDyXzZc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/uWcaBB1jRk2nGgQdY8ZNpQ?expiry=1556236800000&hmac=K9N5sq-eJXuzMZtBt5Vebq8WmYG0NXo_HX_pRquw6LE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
 
-### Applying PCA
+## Applying PCA
+
+### Reconstruction from Compressed Representation
 
 #### Lecture Notes
 
@@ -73,13 +76,11 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/15.6-DimensionalityReduction-ReconstructionFromCompressedRepresentation.c55ea6d0b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1556409600&Signature=E3SsmeZ80renIC1ysphu45RRfLTnPZB7Afmp9fuw8nlkNREuydv5ekeYunMadMD~wyVTlYlCObmF5cWmgceVyx0r5M3q-Nrs6JyJ8nNS8NPm~n9D-hQnO1GFVCKVbWYgMU4dvKt5ng3xnJ7X5Vsh67p-wt~xp9X9UfpvbeSPot4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/OmTwKw3pR6ik8CsN6Reofg?expiry=1556409600000&hmac=7IwWNIBFSPk5V89npl2LkfgXUARMyvC0NGSCQqw83Zc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
-
-## Reconstruction from Compressed Representation
 
 ### Choosing the Number of Principal Components
 
@@ -90,8 +91,8 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/15.5-DimensionalityReduction-ChoosingTheNumberOfPrincipalComponents.403f0fd0b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1556409600&Signature=lMjpI3I6S8LpKdWKX9KobEZwwFCLtQDndT~SBa65~XttozlANDz0fIhTB3AV1eYUc0XEpjjq-YbGPBzAhMwUXdTnfbTJZaFhgcsxGZP5QJgdPDdsnL2r11DRDx~rykCz-N-0ILpInMshslbTDa-uiZOQer6zHelsHMl9Z8rbST8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/80G44YfVSM6BuOGH1bjONA?expiry=1556409600000&hmac=iutZmw81OK-Wu_WnFKwOknBPhqtB4Zazm12zUF0zndE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
@@ -99,6 +100,7 @@
 ### Advice for Applying PCA
 
 #### Lecture Notes
+
 
 
 
@@ -306,11 +308,22 @@ Don't assume you need to do PCA. __Try your full machine learning algorithm with
 
 ### Errata
 
+In the video ‘Motivation II: Visualization’, around 2:45, prof. Ng says R2, but writes ℝ. The latter is incorrect and should be R2.
 
+In the video ‘Motivation II: Visualization’, the quiz at 5:00 has a typo where the reduced data set should be go up to $^{(n)}$ rather than $z^{(m)}$.
+
+In the video "Principal Component Analysis Algorithm", around 1:00 the slide should read "Replace each $x_j^{(i)}$ with $x_j^{(i)}-\mu_jx$." (The second $x$ is missing the superscript (i).)
+
+In the video "Principal Component Analysis Algorithm", the formula shown at around 5:00 incorrectly shows summation from 1 to n. The correct summation (shown later in the video) is from 1 to m. In the matrix U shown at around 9:00 incorrectly shows superscript of last column-vector "u" as m, the correct superscript is n.
+
+In the video "Reconstruction from Compressed Representation", the quiz refers to a formula which is defined in the next video, "Choosing the Number of Principal Components"
+
+In the video "Choosing the number of principal components" at 8:45, the summation in the denominator should be from 1 to n (not 1 to m).
+
+In the in-video quiz in "Data Compression" at 9:47 the correct answer contains k≤n but it should be $k<n$.
 
 
 ### Quiz: Principal Component Analysis
-
 
 
 
