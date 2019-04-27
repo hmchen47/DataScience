@@ -257,7 +257,26 @@
 
 #### Lecture Notes
 
++ Reconstruction from compressed representation
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning28.png" style="margin: 0.1em;" alt="Diagrsms for reconstruction from compressed representation" title="Illustration examples for reconstruction from compressed representation" width="250">
+    </a></div>
+  </div>
+
+  + Reconstruction from 1D to 2D:
+
+    $$x_{approx} = \underbrace{U_{reduce}}_{n \times k} \cdot \underbrace{z}_{k \times 1} \approx x$$
+
++ IVQ: Suppose we run PCA with k = n, so that the dimension of the data is not reduced at all. (This is not useful in practice but is a good thought exercise.) Recall that the percent / fraction of variance retained is given by: $\dfrac{\sum_{i=1}^kS_{ii}}{\sum_{i=1}^nS_{ii}}$. Which of the following will be true? Check all that apply.
+
+  1. $U_\text{reduce}$ will be an $n \times n$ matrix.
+  2. $x_\text{approx} = x$ for every example $x$.
+  3. The percentage of variance retained will be 100%.
+  4. We have that $\dfrac{\sum_{i=1}^kS_{ii}}{\sum_{i=1}^nS_{ii}} > 1$.
+
+  Ans: 123
 
 
 #### Lecture Video
