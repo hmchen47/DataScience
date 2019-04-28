@@ -18,7 +18,7 @@
     </a></div>
   </div>
 
-  + Dataset: $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)}),\}$
+  + Dataset: $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})\}$
   + Notations
     + $L\;$ = total no. of layers in network
     + $s_l\;$: no. of units (not counting bias unit) in layer $l$
@@ -44,7 +44,7 @@
 
     <br/>
 
-    $$J(\Theta) = −\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1−y^{(i)}_k) \log(1−(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+    $$J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
   + IVQ: Suppose we want to try to minimize $J(\Theta)$ as a function of $\Theta$, using one of the advanced optimization methods (fminunc, conjugate gradient, BFGS, L-BFGS, etc.). What do we need to supply code to compute (as a function of $\Theta$)?
 
     1. $\Theta$
@@ -60,7 +60,7 @@
   + Back propagation
     + Takes output from your neural network $H(\Theta)$
       + Compares it to actual output $y$
-      + Calculates $H(|theta)$’s deviation from actual output
+      + Calculates $H(\theta)$’s deviation from actual output
     + Takes the error $H(\Theta)$ - $y$ from layer $L$
       + Back calculates error associated with each unit from the preceding layer $L - 1$
       + Error calculated from each unit used to calculate partial derivatives
@@ -85,7 +85,7 @@ $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)}
 ​	 
 For neural networks, it is going to be slightly more complicated:
 
-$$J(\Theta) = −\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1−y^{(i)}_k) \log(1−(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+$$J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
 
 We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.
 
@@ -94,7 +94,7 @@ In the regularization part, after the square brackets, we must account for multi
 Note:
 
 + the double sum simply adds up the logistic regression costs calculated for each cell in the output layer
-+ the triple sum simply adds up the squares of all the individual \Thetas in the entire network.
++ the triple sum simply adds up the squares of all the individual $\Theta$ in the entire network.
 + the $i$ in the triple sum does not refer to training example $i$
 
 #### Lecture Video
@@ -113,7 +113,7 @@ Note:
 + Gradient computation
   + Cost function
 
-    $$J(\Theta) = −\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1−y^{(i)}_k) \log(1−(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+    $$J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
   + Objective:
 
     $$\min_\Theta J(\Theta)$$
@@ -232,7 +232,7 @@ For training example $t =1$ to $m$:
 
     Where $L$ is our total number of layers and $a^{(L)}$ is the vector of outputs of the activation units for the last layer. So our "error values" for the last layer are simply the differences of our actual results in the last layer and the correct outputs in y. To get the delta values of the layers before the last layer, we can use an equation that steps us back from right to left:
 
-4. Compute $\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) .\ast a^{(l)} .\ast (1−a^{(l)})$
+4. Compute $\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) .\ast a^{(l)} .\ast (1-a^{(l)})$
 
     The delta values of layer l are calculated by multiplying the delta values in the next layer with the theta matrix of layer l. We then element-wise multiply that with a function called $g^\prime$, or g-prime, which is the derivative of the activation function g evaluated with the input values given by $z^{(l)}$.
 
@@ -264,8 +264,9 @@ The capital-delta matrix $D$ is used as an "accumulator" to add up our values as
 + Forward propagation
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-      <img src="images/m09-03.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/forwardpropagation2.png" style="margin: 0.1em;" alt="Diagram exhibits Forward propagation" title="Forward propagation" width="400">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/forwardpropagation3.png" style="margin: 0.1em;" alt="Diagram exhibits Forward propagation with errors" title="Forward propagation with errors" width="350">
     </a></div>
   </div>
 
@@ -273,7 +274,7 @@ The capital-delta matrix $D$ is used as an "accumulator" to add up our values as
 
 + What is backpropagation doing?
 
-  $$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
+  $$J(\Theta) = -\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1-y^{(t)}_k) \log (1 - h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
 
   Focusing on a single example $x^{(i)}, y^{(i)}$, the case of 1 output unit, and ignoring regularization ($\lambda = 0$),
 
@@ -286,8 +287,8 @@ The capital-delta matrix $D$ is used as an "accumulator" to add up our values as
 + Forward propagation
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/v5Bu8/backpropagation-intuition">
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/qc309rdcEea4MxKdJPaTxA_324034f1a3c3a3be8e7c6cfca90d3445_fixx.png?expiry=1554508800000&hmac=AcQDkG0y7s_LE7u_-lnqPFvxU45pNoVMtZzyVZNvOXU" style="margin: 0.1em;" alt="Example of derivation of forward propagation and cost function" title="Derivation of Forward propagation" width="450">
+    <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/backpropagation4.png" style="margin: 0.1em;" alt="Example of derivation of forward propagation and cost function" title="Derivation of Forward propagation" width="450">
     </a></div>
   </div>
 
@@ -317,11 +318,11 @@ The capital-delta matrix $D$ is used as an "accumulator" to add up our values as
 
 Recall that the cost function for a neural network is:
 
-$$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
+$$J(\Theta) = -\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1-y^{(t)}_k) \log (1 - h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
 
 If we consider simple non-multiclass classification $(k = 1$) and disregard regularization, the cost is computed with:
 
-$$cost(t) = y^{(t)} \log(h_\Theta(x^{(t)})) + (1−y^{(t)}) \log(1−h_\Theta(x^{(t)}))$$
+$$cost(t) = y^{(t)} \log(h_\Theta(x^{(t)})) + (1-y^{(t)}) \log(1-h_\Theta(x^{(t)}))$$
 
 Intuitively, $\delta_j^{(l)}$ is the "error" for $a^{(l)}_j$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function:
 
@@ -471,7 +472,7 @@ To summarize:
   + Implement: `gradApprox = (J(theta + EPSILON) - J(theta - EPSILON)) / (2*EPSILON)`
   + IVQ: Let $J(\theta) = \theta^3$. Furthermore, let $\theta = 1$ and $\epsilon=0.01$. You use the formula:
 
-    $$\dfrac{J(\Theta + \epsilon) − J(\Theta − \epsilon)}{2\epsilon}$$
+    $$\dfrac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2\epsilon}$$
 
     to approximate the derivative. What value do you get using this approximation? (When $\theta = 1$, the true, exact derivative is $\frac{d}{d\theta}J(\theta)=3$).
 
@@ -524,13 +525,13 @@ To summarize:
 
 Gradient checking will assure that our backpropagation works as intended. We can approximate the derivative of our cost function with:
 
-$$\dfrac{\partial}{\partial \Theta} J(\Theta) \approx \dfrac{J(\Theta+\epsilon) − J(\Theta − \epsilon)}{2ϵ}$$
+$$\dfrac{\partial}{\partial \Theta} J(\Theta) \approx \dfrac{J(\Theta+\epsilon) - J(\Theta - \epsilon)}{2ϵ}$$
 
 With multiple theta matrices, we can approximate the derivative __with respect to $\Theta_j$__ as follows:
 
-$$\dfrac{\partial}{\partial \Theta_j} J(\Theta) \approx \dfrac{J(\Theta_1, \ldots, \Theta_j + \epsilon, \ldots, \Theta_n) − J(\Theta_1, \ldots, \Theta_j − \epsilon, \ldots, \Theta_n)}{2ϵ}$$
+$$\dfrac{\partial}{\partial \Theta_j} J(\Theta) \approx \dfrac{J(\Theta_1, \ldots, \Theta_j + \epsilon, \ldots, \Theta_n) - J(\Theta_1, \ldots, \Theta_j - \epsilon, \ldots, \Theta_n)}{2ϵ}$$
 
-A small value for $\epsilon$ (epsilon) such as $\epsilon \approx 10^{−4}$, guarantees that the math works out properly. If the value for $\epsilon$ is too small, we can end up with numerical problems.
+A small value for $\epsilon$ (epsilon) such as $\epsilon \approx 10^{-4}$, guarantees that the math works out properly. If the value for $\epsilon$ is too small, we can end up with numerical problems.
 
 Hence, we are only adding or subtracting epsilon to the $\Theta_j$ matrix. In octave we can do it as follows:
 
@@ -618,12 +619,12 @@ Once you have verified __once__ that your backpropagation algorithm is correct, 
 Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our $\Theta$ matrices using the following method:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/KMzY7/random-initialization">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/y7gaS7pXEeaCrQqTpeD5ng_8868ccda2c387f5d481d0c54ab78a86e_Screen-Shot-2016-12-04-at-11.27.28-AM.png?expiry=1554595200000&hmac=Yr1YuvVtL1bugTshPa9sAk7FVkqdXS0idYwQ6Eyxal0" style="margin: 0.1em;" alt="Random iniitialization with symmetric breaking algorithm" title="Random initialization: Symmetric breaking" width="350">
+  <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/random_initialisation.png" style="margin: 0.1em;" alt="Random iniitialization with symmetric breaking algorithm" title="Random initialization: Symmetric breaking" width="350">
   </a></div>
 </div>
 
-Hence, we initialize each $\Theta^{(l)}_{ij}$ to a random value between$[−\epsilon, \epsilon]$. Using the above formula guarantees that we get the desired bound. The same procedure applies to all the $\Theta$'s. Below is some working code you could use to experiment.
+Hence, we initialize each $\Theta^{(l)}_{ij}$ to a random value between$[-\epsilon, \epsilon]$. Using the above formula guarantees that we get the desired bound. The same procedure applies to all the $\Theta$'s. Below is some working code you could use to experiment.
 
 ```matlab
 % If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.
@@ -672,7 +673,7 @@ Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
 
     <span style="padding-left: 4em;" />for i = 1:m <br/>
     <span style="padding-left: 6em;" />Perform forward propagation and backpropagation using example $(x^{(i)}, y^{(i)})$ <br/>
-    <span style="padding-left: 6em;" />(Get activations $a^{(l)}$ and delta terms $\delta^{(l)}$ for $l =2, \ldots, L$)<br/>
+    <span style="padding-left: 6em;" />(Get activations $a^{(l)}$ and delta terms $\delta^{(l)} \text{ for } l =2, \ldots, L$)<br/>
     <span style="padding-left: 6em;" />$\Delta^{(l)} := \Delta^{(l)}\delta^{(l)} (a^{(l)})^T$ <br/>
     <span style="padding-left: 6em;" /> ...<br/>
     <span style="padding-left: 4em;" /> end;<br/>
@@ -690,8 +691,8 @@ Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
     + Able to fit non-linear functions
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Uskwd/putting-it-together">
-        <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hGk18LsaEea7TQ6MHcgMPA_8de173808f362583eb39cdd0c89ef43e_Screen-Shot-2016-12-05-at-10.40.35-AM.png?expiry=1554595200000&hmac=pY2sLsy9hcyJr_N5N0h488zWOzno5WHkqJMUAQ28CDs" style="margin: 0.1em;" alt="text" title="caption" width="350">
+      <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/jtheta2.png" style="margin: 0.1em;" alt="Backpropagation: non-linear function fit" title="Backpropagation: non-linear function fit" width="350">
       </a></div>
     </div>
   + IVQ: Suppose you are using gradient descent together with backpropagation to try to minimize $J(\Theta)$ as a function of $\Theta$. Which of the following would be a useful step for verifying that the learning algorithm is running correctly?
@@ -733,8 +734,8 @@ for i = 1:m,
 The following image gives us an intuition of what is happening as we are implementing our neural network:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Uskwd/putting-it-together">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/hGk18LsaEea7TQ6MHcgMPA_8de173808f362583eb39cdd0c89ef43e_Screen-Shot-2016-12-05-at-10.40.35-AM.png?expiry=1554595200000&hmac=pY2sLsy9hcyJr_N5N0h488zWOzno5WHkqJMUAQ28CDs" style="margin: 0.1em;" alt="minimize our cost function. However, keep in mind that J(Θ) is not convex and thus we can end up in a local minimum instead." title="intuition of what is happening as we are implementing our neural network" width="350">
+  <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/jtheta2.png" style="margin: 0.1em;" alt="minimize our cost function. However, keep in mind that J(Θ) is not convex and thus we can end up in a local minimum instead." title="intuition of what is happening as we are implementing our neural network" width="350">
   </a></div>
 </div>
 
@@ -773,7 +774,7 @@ Ideally, you want $h_\Theta(x^{(i)}) \approx y^{(i)}$. This will minimize our co
 <br/>
 
 
-### Review
+## Review
 
 ### [Lecture Slides](https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554336000&Signature=AS8kcZSZqYHgQqLeqVPFBgOdCipUrPIyDsmVGqtKZJtZWYvBws3Q~IujlrxXPlLcx7MsP2Cp5f~mzSkkHenLFqD0Q062VAE4z8BvlQ1wbvu0s4SZINV0nsva-VpcZeLVo7NiM9RLu2qHL8pGSVuDAV6fiSlYRBYti4wH3iXMNuc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
 
@@ -782,9 +783,9 @@ Ideally, you want $h_\Theta(x^{(i)}) \approx y^{(i)}$. This will minimize our co
 
 Let's first define a few variables that we will need to use:
 
-1) L= total number of layers in the network
-2) $s_l$ = number of units (not counting bias unit) in layer l
-3) K= number of output units/classes
+1. $L =\;$ total number of layers in the network
+2. $s_l =\;$ number of units (not counting bias unit) in layer $l$
+3. $K =\;$ number of output units/classes
 
 Recall that in neural networks, we may have many output nodes. We denote $h_\Theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.
 
@@ -796,7 +797,7 @@ $$J(\theta) = -\frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)}
 ​	 
 For neural networks, it is going to be slightly more complicated:
 
-$$J(\Theta) = −\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h\Theta(x^{(i)}))_k) + (1−y^{(i)}_k) \ log(1−(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}}(\Theta^{(l)}_{j,i})^2$$
+$$J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \ log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}}(\Theta^{(l)}_{j,i})^2$$
 
 We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, between the square brackets, we have an additional nested summation that loops through the number of output nodes.
 
@@ -847,7 +848,7 @@ $$g^{\prime}(u) = g(u) \;.\ast\; (1 - g(u))$$
 
 The full back propagation equation for the inner nodes is then:
 
-$$\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) \;.\ast\; a^{(l)} \;.\ast\; (1 − a^{(l)})$$
+$$\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) \;.\ast\; a^{(l)} \;.\ast\; (1 - a^{(l)})$$
 
 A. Ng states that the derivation and proofs are complicated and involved, but you can still implement the above equations to do back propagation without knowing the details.
 
@@ -872,7 +873,7 @@ For training example $t =1$ to $m$:
 + Set $a^{(1)} \;:=\; x^{(t)}$
 + Perform forward propagation to compute $a^{(l)}a$ for $l=2,3, \ldots,L$
 + Using $y^{(t)}$, compute $\delta^{(L)} = a^{(L)} - y^{(t)}$
-+ Compute $\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) \;.\ast\; a^{(l)} \;.\ast\; (1−a^{(l)})$
++ Compute $\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) \;.\ast\; a^{(l)} \;.\ast\; (1-a^{(l)})$
 + $\Delta^{(l)}_{i,j} \;:=\; \Delta^{(l)}_{i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)} \;:=\; \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$
 + $D^{(l)}_{i,j} \;:= \; \dfrac{1}{m}(\Delta^{(l)}_{i,j} + \lambda \Theta^{(l)}_{i,j}) \quad$ If $j \neq 0$ NOTE: Typo in lecture slide omits outside parentheses. This version is correct.
 + $D^{(l)}_{i,j} \;:=\; \dfrac{1}{m}\Delta^{(l)}_{i,j} \quad$ If $j=0$
@@ -888,7 +889,7 @@ $$D^{(l)}_{i,j} = \dfrac{\partial J(\Theta)}{\partial \Theta^{(l)}_{i, j}}$$.
 
 The cost function is:
 
-$$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log(h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log(1−h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\theta a^{(l)}_{j,i})^2$$
+$$J(\Theta) = -\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log(h_\Theta(x^{(t)}))_k + (1-y^{(t)}_k) \log(1-h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\theta a^{(l)}_{j,i})^2$$
 
 If we consider simple non-multiclass classification (k = 1) and disregard regularization, the cost is computed with:
 
@@ -938,13 +939,13 @@ Gradient checking will assure that our backpropagation works as intended.
 
 We can approximate the derivative of our cost function with:
 
-$$\dfrac{\partial}{\partial \Theta} J(\Theta) \approx \dfrac{J(\Theta + \epsilon)− J(\Theta − \epsilon)}{2ϵ}$$
+$$\dfrac{\partial}{\partial \Theta} J(\Theta) \approx \dfrac{J(\Theta + \epsilon)- J(\Theta - \epsilon)}{2ϵ}$$
 
 With multiple theta matrices, we can approximate the derivative with respect to $\Theta_j$ as follows:
 
-$$\dfrac{\partial}{\partial \Theta_j} J(\Theta) \approx \dfrac{J(\Theta_1, \ldots,\Theta_j + \epsilon, \ldots, \Theta_n) − J(\Theta_1,…,\Theta_j − \epsilon, \ldots, \Theta_n)}{2ϵ}$$
+$$\dfrac{\partial}{\partial \Theta_j} J(\Theta) \approx \dfrac{J(\Theta_1, \ldots,\Theta_j + \epsilon, \ldots, \Theta_n) - J(\Theta_1,…,\Theta_j - \epsilon, \ldots, \Theta_n)}{2ϵ}$$
 
-A good small value for $\epsilon$ (epsilon), guarantees the math above to become true. If the value be much smaller, may we will end up with numerical problems. The professor Andrew usually uses the value $\epsilon \apprx 10^{−4}$.
+A good small value for $\epsilon$ (epsilon), guarantees the math above to become true. If the value be much smaller, may we will end up with numerical problems. The professor Andrew usually uses the value $\epsilon \approx 10^{-4}$.
 
 We are only adding or subtracting epsilon to the $Theta_j$ matrix. In octave we can do it as follows:
 
@@ -970,9 +971,9 @@ Initializing all theta weights to zero does not work with neural networks. When 
 
 Instead we can randomly initialize our weights:
 
-Initialize each $\Theta^{(l)}_{ij}$ to a random value between $[−\epsilon,\epsilon]$:
+Initialize each $\Theta^{(l)}_{ij}$ to a random value between $[-\epsilon,\epsilon]$:
 
-$$\begin{array}{rcl} \epsilon &=& \dfrac{\sqrt{6}}{\sqrt{Loutput+Linput}} \\\\ \Theta^{(l)} = 2 \epsilon \text{ rand(Loutput,Linput+1) } − \epsilon$$
+$$\begin{array}{rcl} \epsilon &=& \dfrac{\sqrt{6}}{\sqrt{Loutput+Linput}} \\\\ \Theta^{(l)} = 2 \epsilon \text{ rand(Loutput,Linput+1) } - \epsilon$$
 
 ```matlab
 %If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.
@@ -1018,8 +1019,8 @@ for i = 1:m,
 This tutorial will guide you on how to use the classifier provided in exercise 3 to classify you own images like this:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="EcbzQ">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ACaeM3q8EeaTyQp_BD0w6w_48cf074e90214d540533308aa9dd4ab0_ML-Ex3-MyPhotoToDataDigit-4.jpg?expiry=1554422400000&hmac=wom-ZF4_PoY4K5fjxHwN1KmIp6lMiPAmTzA5xMiF03c" style="margin: 0.1em;" alt="It will also explain how the images are converted thru several formats to be processed and displayed." title="It will also explain how the images are converted thru several formats to be processed and displayed." width="350">
+  <div><a href="https://www.coursera.org/learn/machine-learning/resources/EcbzQ">
+    <img src="images/m09-05.jpg" style="margin: 0.1em;" alt="It will also explain how the images are converted thru several formats to be processed and displayed." title="It will also explain how the images are converted thru several formats to be processed and displayed." width="350">
   </a></div>
 </div>
 
@@ -1338,8 +1339,8 @@ Digit 2 & 6
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/EcbzQ">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/CiREznq_Eead-BJkoDOYOw_2c6ef6611383b708e3a4a9b2fe93e292_ML-Ex3-MyPhotoToDataDigit-2.jpg?expiry=1554422400000&hmac=dcLVP38Q1JIv-dC_3MZ265Z4-k1nELwi01dpmeR8F9A" style="margin: 0.1em;" alt="text" title="caption" width="250">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/KA9DrHq_EeaTyQp_BD0w6w_e642a6104be729110862bfb46ac48673_ML-Ex3-MyPhotoToDataDigit-6.jpg?expiry=1554422400000&hmac=tnVGbop25sraexBvsxiw0nJPvqIQP-kgbtvUdl3Pglo" style="margin: 0.1em;" alt="text" title="caption" width="250">
+    <img src="images/m09-06.jpg" style="margin: 0.1em;" alt="Pattern recognition: digit 2" title="Pattern recognition: digit 2" width="250">
+    <img src="images/m09-07.jpg" style="margin: 0.1em;" alt="Pattern recognition: digit 6" title="Pattern recognition: digit 6" width="250">
   </a></div>
 </div>
 
@@ -1347,8 +1348,8 @@ Digit 6 inverted is digit 9. This is the same photo of a six but rotated. Also, 
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/EcbzQ">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/S4L2cHtREead-BJkoDOYOw_3ab7938d6b6dbfbd9d3f8fcbde41b730_ML-Ex3-MyPhotoToDataDigit-9.jpg?expiry=1554422400000&hmac=ANEVPtZi3Vh70C0XzZWH1wJHNrXX8QLFRW-KpCeJNAA" style="margin: 0.1em;" alt="text" title="caption" width="250">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/R23Gv3tSEeaxYA6oVw19Xw_e2fce3219f3c9c316cbf43b1de41cd03_ML-Ex3-MyPhotoToDataDigit-3.jpg?expiry=1554422400000&hmac=ewvGbjsgUc4gvoAUorynoYYZQGnW27oiHWESj9f_3w4" style="margin: 0.1em;" alt="text" title="caption" width="250">
+    <img src="images/m09-08.jpg" style="margin: 0.1em;" alt="Pattern recognition: digit 6 & 9" title="Pattern recognition: digit 6 & 9" width="250">
+    <img src="images/m09-09.jpg" style="margin: 0.1em;" alt="Pattern recognition: digit 3" title="Pattern recognition: digit 3" width="250">
   </a></div>
 </div>
 
@@ -1368,9 +1369,9 @@ Digit 6 inverted is digit 9. This is the same photo of a six but rotated. Also, 
 
   $$\delta^{(L)} = \dfrac{\partial J(\theta)}{\partial a^{(L)}} \; \dfrac{a^{(L)}}{\partial z^{(L)}}$$
 
-+ And we can go ahead and use another delta term ($\delta^{(L−1)}$) for the pieces that would be shared by the final hidden layer and a hidden layer before that, if we had one. Regardless, this delta term will still serve to make the math and implementation more concise.
++ And we can go ahead and use another delta term ($\delta^{(L-1)}$) for the pieces that would be shared by the final hidden layer and a hidden layer before that, if we had one. Regardless, this delta term will still serve to make the math and implementation more concise.
 
-  $$\delta^{(L−1)} = \dfrac{\partial J(\theta)}{\partial a^{(L)}} \;\dfrac{\partial a^{(L)}}{\partial z^{(L)}} \;\dfrac{\partial z^{(L)}}{\partial a^{(L-1)}} \;\dfrac{\partial a^{(L-1)}}{\partial z^{(L-1)}} \;=\; \delta^{(L)} \;\dfrac{\partial z^{(L)}}{\partial a^{(L-1)}}  \;\dfrac{\partial a^{(L-1)}}{\partial z^{(L-1)}}$$
+  $$\delta^{(L-1)} = \dfrac{\partial J(\theta)}{\partial a^{(L)}} \;\dfrac{\partial a^{(L)}}{\partial z^{(L)}} \;\dfrac{\partial z^{(L)}}{\partial a^{(L-1)}} \;\dfrac{\partial a^{(L-1)}}{\partial z^{(L-1)}} \;=\; \delta^{(L)} \;\dfrac{\partial z^{(L)}}{\partial a^{(L-1)}}  \;\dfrac{\partial a^{(L-1)}}{\partial z^{(L-1)}}$$
 
 + With these delta terms, our equations become:
 
@@ -1388,7 +1389,7 @@ Digit 6 inverted is digit 9. This is the same photo of a six but rotated. Also, 
 
 + And given $a=g(z)$, where $g = \frac{1}{1+e^{-z}}$, the partial derivative is:
 
-  $$\dfrac{\partial J(\theta)}{z^{(L)}} = a^{(L)} (1 - a^{(L)})
+  $$\dfrac{\partial J(\theta)}{z^{(L)}} = a^{(L)} (1 - a^{(L)})$$
 
 + So, let's substitute these in for $\delta^{(L)}$:
 
@@ -1399,7 +1400,7 @@ Digit 6 inverted is digit 9. This is the same photo of a six but rotated. Also, 
   $$\delta^{(3)} = a^{(3)} - y$$
 
 + Note that this is the correct equation, as given in our notes.
-+ Now, given $z=\Theta \ast input$, and in layer $L$ the input is $a^{(L−1)}$, the partial derivative is:
++ Now, given $z=\Theta \ast input$, and in layer $L$ the input is $a^{(L-1)}$, the partial derivative is:
 
   $$\dfrac{\partial z^{(L)}}{\partial z^{(L)}} = a^{(L-1)}$$
 
@@ -1411,12 +1412,12 @@ Digit 6 inverted is digit 9. This is the same photo of a six but rotated. Also, 
 
   $$\dfrac{\partial J(\theta)}{\partial \theta^{(L-2)}} = \delta^{(L-1)} \;\dfrac{\partial z^{(L-1)}}{\partial \theta^{(L-2)}}$$
 
-+ Let's figure out $\delta(L−1)$.
++ Let's figure out $\delta(L-1)$.
 + Once again, given $z=\Theta \ast input$, the partial derivative is: $\frac{\partial z^{(L-1)}}{\partial a^{(L-1)}} = \theta^{(L-1)}$
 
 + And: $\frac{\partial z^{(L-1)}}{\partial z^{(L-1)}} = a^{(L-1)} (1 - a^{(L-1)})$
 
-+ So, let's substitute these in for $\delta^{(L−1)}$:
++ So, let's substitute these in for $\delta^{(L-1)}$:
 
   $$\delta^{(L-1)} = \delta^{(L)} \;\dfrac{\partial z^{(L)}}{\partial a^{(L-1)}} \;\dfrac{\partial a^{(L-1)}}{\partial z^{(L-1)}} = \delta^{(L)} (\theta^{(L-1)})(a^{(L-1)}(1-a^{(L-1)}) = \delta^{(L)}\theta^{(L-1)}(1-a^{(L-1)})$$
 
@@ -1487,7 +1488,7 @@ We let the sigmoid function be $\sigma(x) = \frac{1}{1 + e^{-x}}$​
 
 Deriving the equation above yields to $(\frac{1}{1 + e^{-x}})^2 \frac {d}{ds} \frac{1}{1 + e^{-x}}$
 ​
-Which is equal to $(\frac{1}{1 + e^{-x}})^2 e^{-x} (-1) = (\frac{1}{1 + e^{-x}}) (\frac{1}{1 + e^{-x}}) (-e^{-x}) = (\frac{1}{1 + e^{-x}}) (\frac{-e^{-x}}{1 + e^{-x}}) = \sigma(x)(1- \sigma(x))σ(x)(1−σ(x))$
+Which is equal to $(\frac{1}{1 + e^{-x}})^2 e^{-x} (-1) = (\frac{1}{1 + e^{-x}}) (\frac{1}{1 + e^{-x}}) (-e^{-x}) = (\frac{1}{1 + e^{-x}}) (\frac{-e^{-x}}{1 + e^{-x}}) = \sigma(x)(1- \sigma(x))σ(x)(1-σ(x))$
 
 Additional Resources for Backpropagation
 
@@ -1551,7 +1552,7 @@ Additional Resources for Backpropagation
     Explanation: This choice is correct, since Theta1 has 15 elements, so Theta2 begins at index 16 and ends at index $16 + 24 - 1 = 39$.
 
 
-3. Let $J(\theta) = 2 \theta^4 + 2$. Let $\theta=1$, and $\epsilon=0.01$. Use the formula $\frac{J(\Theta+\epsilon) − J(\Theta−\epsilon)}{2\epsilon}$ to numerically compute an approximation to the derivative at $\theta=1$. What value do you get? (When $\theta = 1$, the true/exact derivative is $\frac{dJ(\theta)}{d\theta} = 8$)
+3. Let $J(\theta) = 2 \theta^4 + 2$. Let $\theta=1$, and $\epsilon=0.01$. Use the formula $\frac{J(\Theta+\epsilon) - J(\Theta-\epsilon)}{2\epsilon}$ to numerically compute an approximation to the derivative at $\theta=1$. What value do you get? (When $\theta = 1$, the true/exact derivative is $\frac{dJ(\theta)}{d\theta} = 8$)
 
     1. 7.9992
     2. 8
