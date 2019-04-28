@@ -205,21 +205,22 @@
 
 ## Neural Networks: Learning
 
-+ [Cost Function and Backpropagation](09-NNLearn.md#)
-    + [Cost](09-NNLearn.md#)
-    + [Backpropagation Algorithm](09-NNLearn.md#)
-    + [Backpropagation Intuition](09-NNLearn.md#)
-+ [Backpropagation in Practice](09-NNLearn.md#)
-    + [Implementation Note: Unrolling Parameters](09-NNLearn.md#)
-    + [Gradient Checking](09-NNLearn.md#)
-    + [Random Initialization](09-NNLearn.md#)
-    + [Putting It Together](09-NNLearn.md#)
-+ [Application of Neural Networks-Autonomous Driving](09-NNLearn.md#)
-+ [Review](09-NNLearn.md#)
-    + [Lecture Slides](09-NNLearn.md#)
-    + [Errata](09-NNLearn.md#)
-    + [Quiz: Neural Networks: Learning](09-NNLearn.md#)
-    
++ [Cost Function and Backpropagation](09-NNLearn.md#cost-function-and-backpropagation)
+    + [Cost](09-NNLearn.md#cost-function)
+    + [Backpropagation Algorithm](09-NNLearn.md#backpropagation-algorithm)
+    + [Backpropagation Intuition](09-NNLearn.md#backpropagation-intuition)
++ [Backpropagation in Practice](09-NNLearn.md#backpropagation-in-practice)
+    + [Implementation Note: Unrolling Parameters](09-NNLearn.md#implementation-note-unrolling-parameters)
+    + [Gradient Checking](09-NNLearn.md#gradient-checking)
+    + [Random Initialization](09-NNLearn.md#random-initialization)
+    + [Putting It Together](09-NNLearn.md#putting-it-together)
++ [Application of Neural Networks-Autonomous Driving](09-NNLearn.md#application-of-neural-networks-autonomous-driving)
++ [Review](09-NNLearn.md#review)
+    + [Lecture Slides](09-NNLearn.md#lecture-slides)
+    + [Errata](09-NNLearn.md#errata)
+    + [Quiz: Neural Networks: Learning](09-NNLearn.md#quiz-neural-networks-learning)
+
+
 
 ## Programming Assignment: Neural Network Learning
 
