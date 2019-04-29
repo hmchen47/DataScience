@@ -241,19 +241,19 @@
 
 ## Advice for Applying Machine Learning
 
-+ [Evaluating a Learning Algorithm](10-Advice.md#)
-    + [Deciding What to Try Next](10-Advice.md#)
-    + [Evaluating a Hypothesis](10-Advice.md#)
-    + [Model Selection and Train/Validation/Test Sets](10-Advice.md#)
-+ [Bias vs. Variance](10-Advice.md#)
-    + [Diagnosing Bias vs. Variance](10-Advice.md#)
-    + [Regularization and Bias/Variance](10-Advice.md#)
-    + [Learning Curves](10-Advice.md#)
-    + [Deciding What to Do Next Revisited](10-Advice.md#)
-+ [Review](10-Advice.md#)
-    + [Lecture Slides](10-Advice.md#)
-    + [Errata](10-Advice.md#)
-    + [Quiz: Advice for Applying Machine Learning](10-Advice.md#)
++ [Evaluating a Learning Algorithm](10-Advice.md#evaluating-a-learning-algorithm)
+    + [Deciding What to Try Next](10-Advice.md#deciding-what-to-try-next)
+    + [Evaluating a Hypothesis](10-Advice.md#evaluating-a-hypothesis)
+    + [Model Selection and Train/Validation/Test Sets](10-Advice.md#model-selection-and-train-validation-test-sets)
++ [Bias vs. Variance](10-Advice.md#bias-vs-variance)
+    + [Diagnosing Bias vs. Variance](10-Advice.md#diagnosing-bias-vs-variance)
+    + [Regularization and Bias/Variance](10-Advice.md#regularization-and-bias-variance)
+    + [Learning Curves](10-Advice.md#learning-curves)
+    + [Deciding What to Do Next Revisited](10-Advice.md#deciding-what-to-do-next-revisited)
++ [Review](10-Advice.md#review)
+    + [Lecture Slides](10-Advice.md#lecture-slides)
+    + [Errata](10-Advice.md#errata)
+    + [Quiz: Advice for Applying Machine Learning](10-Advice.md#quiz-advice-for-applying-machine-learning)
 
 
 ## Programming Assignment: Regularized Linear Regression and Bias/Variance
