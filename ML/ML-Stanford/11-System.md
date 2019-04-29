@@ -234,8 +234,8 @@ It is very important to get error results as a single, numerical value. Otherwis
   + More generally, predict 1 if $h_\theta (x) \geq\;$ threshold
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_bfa875d182c5d3c11e9a44e72b1e0f49_Lecture11.pdf?Expires=1555286400&Signature=SprONOFv0wfUZV4RPjjzYNs51TlfoMxaigbaYF~zl6vlLoUvuneIU8R17uIG5VHUY0OVgE8XrIBJHx8wv7nYtfrWj~obcWWNfurE-aNaIxwZA4zAIFhCG5xznUnfXhJEVemUJFXIy3TMXUn71T7DQ~blPwD7kqevty4WlWndaDk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-      <img src="images/m11-03.png" style="margin: 0.1em;" alt="Threhold and tradoff between precision & recall" title="Tradoff of precision & recall" width="250">
+    <div><a href="https://www.ritchieng.com/machine-learning-systems-design/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/precision_recall.png" style="margin: 0.1em;" alt="Threhold and tradoff between precision & recall" title="Tradeoff of precision & recall" width="450">
     </a></div>
   </div>
 
@@ -430,7 +430,7 @@ $$\dfrac{\text{True Positives}}{\text{Total number of predicted positives}} = \d
 __Recall__: Of all the patients that actually have cancer, what fraction did we correctly detect as having cancer?
 
 $$\dfrac{\text{True Positives}}{\text{Total number of actual positives}}= \dfrac{\text{True Positives}}{\text{True Positives}+\text{False negatives}}$$
-​ |  
+
 These two metrics give us a better sense of how our classifier is doing. We want both precision and recall to be high.
 
 In the example at the beginning of the section, if we classify all patients as 0, then our __recall__ will be $\dfrac{0}{0 + f} = 0$, so despite having a lower error percentage, we can quickly see it has worse recall.
