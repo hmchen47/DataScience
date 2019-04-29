@@ -296,18 +296,18 @@
 
 ## Support Vector Machines
 
-+ [Large Margin Classification](12-SVM.md#)
-    + [Optimization Objective](12-SVM.md#)
-    + [Large Margin Intuition](12-SVM.md#)
-    + [Mathematics Behind Large Margin Classification](12-SVM.md#)
-+ [Kernels](12-SVM.md#)
-    + [Kernels I](12-SVM.md#)
-    + [Kernels II](12-SVM.md#)
-+ [SVMs in Practice: Using An SVM](12-SVM.md#)
-+ [Review](12-SVM.md#)
-    + [Lecture Slides](12-SVM.md#)
-    + [Errata](12-SVM.md#)
-    + [Quiz: Support Vector Machines](12-SVM.md#)
++ [Large Margin Classification](12-SVM.md#large-margin-classification)
+    + [Optimization Objective](12-SVM.md#optimization-objective)
+    + [Large Margin Intuition](12-SVM.md#large-margin-intuition)
+    + [Mathematics Behind Large Margin Classification](12-SVM.md#mathematics-behind-large-margin-classification)
++ [Kernels](12-SVM.md#kernels)
+    + [Kernels I](12-SVM.md#kernels-i)
+    + [Kernels II](12-SVM.md#kernels-ii)
++ [SVMs in Practice: Using An SVM](12-SVM.md#svms-in-practice-using-an-svm)
++ [Review](12-SVM.md#review)
+    + [Lecture Slides](12-SVM.md#lecture-slides)
+    + [Errata](12-SVM.md#errata)
+    + [Quiz: Support Vector Machines](12-SVM.md#quiz-support-vector-machines)
 
 
 ## Programming Assignment: Support Vector Machines
