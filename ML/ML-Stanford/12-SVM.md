@@ -28,7 +28,7 @@
     <div><a href="https://d3c33hcgiwev3.cloudfront.net/_246c2a4e4c249f94c895f607ea1e6407_Lecture12.pdf?Expires=1555459200&Signature=Aibx4MyH1R-oUJMXRrW3chKna-a~XoCJd-c~g3UwUpgnzRFULWlxriuLCniD~Q92GzKqNrslw0CwCyCyMBKemvQnjt-iVThjFe9Q23SDi3qmcAPq1eprZTr84Vq2IccOXYuPf7XaHwBj~r16BTEDnkiLWOZ79H1d1zTG6DBQpT0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
       <img src="images/m12-03.png" style="margin: 0.1em;" alt="text" title="caption" width="250">
     </a></div>
-        <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
+    <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/lg2.png" style="margin: 0.1em;" alt="text" title="caption" width="400">
     </a></div>
   </div><br/>
@@ -788,7 +788,7 @@ __Note__: a neural network is likely to work well for any of these situations, b
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
-      <img src="images/m12-q01.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q1 Figure" width="250">
+      <img src="images/m12-12.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q1 Figure" width="250">
     </a></div>
   </div>
 
@@ -810,7 +810,7 @@ __Note__: a neural network is likely to work well for any of these situations, b
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
-      <img src="images/m12-q01.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q2" title="Mod12 Quiz Q2 Figure" width="250">
+      <img src="images/m12-13.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q2" title="Mod12 Quiz Q2 Figure" width="250">
     </a></div>
   </div>
 
@@ -818,10 +818,10 @@ __Note__: a neural network is likely to work well for any of these situations, b
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
-      <img src="images/m12-q02-a.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.1" width="250">
-      <img src="images/m12-q02-b.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.2" width="250">
-      <img src="images/m12-q02-c.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.3" width="250">
-      <img src="images/m12-q02-d.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.4" width="250">
+      <img src="images/m12-13a.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.1" width="250">
+      <img src="images/m12-13b.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.2" width="250">
+      <img src="images/m12-13c.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.3" width="250">
+      <img src="images/m12-13d.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q1" title="Mod12 Quiz Q2 Fig.4" width="250">
     </a></div>
   </div>
 
@@ -837,7 +837,7 @@ __Note__: a neural network is likely to work well for any of these situations, b
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/PLdSa/support-vector-machines">
-      <img src="images/m12-q03.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q3" title="Mod12 Quiz Q3 Figure" width="250">
+      <img src="images/m12-14.jpg" style="margin: 0.1em;" alt="Mod12 Quiz Q3" title="Mod12 Quiz Q3 Figure" width="350">
     </a></div>
   </div>
 
