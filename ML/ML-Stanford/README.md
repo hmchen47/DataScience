@@ -282,16 +282,16 @@
 
 ## Machine Learning System Design
 
-+ [Building a Spam Classifier](11-System.md#)
-    + [Prioritizing What to Work On](11-System.md#)
-    + [Error Analysis](11-System.md#)
-+ [Handling Skewed Data](11-System.md#)
-    + [Error Metrics for Skewed Classes](11-System.md#)
-    + [Trading Off Precision and Recall](11-System.md#)
-+ [Using Large Data Sets](11-System.md#)
-+ [Review](11-System.md#)
-    + [Lecture Slides](11-System.md#)
-    + [Quiz: Machine Learning System Design](11-System.md#)
++ [Building a Spam Classifier](11-System.md#building-a-spam-classifier)
+    + [Prioritizing What to Work On](11-System.md#prioritizing-what-to-work-on)
+    + [Error Analysis](11-System.md#error-analysis)
++ [Handling Skewed Data](11-System.md#handling-skewed-data)
+    + [Error Metrics for Skewed Classes](11-System.md#error-metrics-for-skewed-classes)
+    + [Trading Off Precision and Recall](11-System.md#trading-off-precision-and-recall)
++ [Using Large Data Sets](11-System.md#using-large-data-sets)
++ [Review](11-System.md#review)
+    + [Lecture Slides](11-System.md#lecture-slides)
+    + [Quiz: Machine Learning System Design](11-System.md#quiz-machine-learning-system-design)
 
 
 
