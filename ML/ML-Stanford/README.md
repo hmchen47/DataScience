@@ -335,6 +335,47 @@
     + [PROGRAMMING ASSIGNMENT FAQ](ex06.md#programming-assignment-faq)
 
 
+## Dimensionality Reduction
+
++ [Motivation](14-Dimension.md#)motivation
+    + [Motivation I: Data Compression](14-Dimension.md#motivation-i-data-compression)
+    + [Motivation II: Visualization](14-Dimension.md#motivation-ii-visualization)
++ [Principal Component Analysis](14-Dimension.md#principal-component-analysis)
+    + [Principal Component Analysis Problem Formulation](14-Dimension.md#principal-component-analysis-problem-formulation)
+    + [Principal Component Analysis Algorithm](14-Dimension.md#principal-component-analysis-algorithm)
++ [Applying PCA](14-Dimension.md#applying-pca)
+    + [Reconstruction from Compressed Representation](14-Dimension.md#reconstruction-from-compressed-representation)
+    + [Choosing the Number of Principal Components](14-Dimension.md#choosing-the-number-of-principal-components)
+    + [Advice for Applying PCA](14-Dimension.md#advice-for-applying-pca)
++ [Review](14-Dimension.md#review)
+    + [Lecture Slides](14-Dimension.md#lecture-slides)
+    + [Errata](14-Dimension.md#errata)
+    + [Quiz: Principal Component Analysis](14-Dimension.md#quiz-principal-component-analysis)
+
+
+## Programming Assignment: K-Means Clustering and PCA
+
++ 1   [K-means Clustering](ex07.md#1-k-means-clustering)
+    + 1.1 [Implementing K-means](ex07.md#1-1-implementing-k-means)
+    + 1.2 [K-means on example dataset](ex07.md#1-2-k-means-on-example-dataset)
+    + 1.3 [Random initialization](ex07.md#1-3-random-initialization)
+    + 1.4 [Image compression with K-means](ex07.md#1-4-image-compression-with-k-means)
+    + 1.5 [Use your own image](ex07.md#1-5-use-your-own-image)
++ 2   [Principal Component Analysis](ex07.md#2-principal-component-analysis)
+    + 2.1 [Example Dataset](ex07.md#2-1-example-dataset)
+    + 2.2 [Implementing PCA](ex07.md#2-2-implementing-pca)
+    + 2.3 [Dimensionality Reduction with PCA](ex07.md#2-3-dimensionality-reduction-with-pca)
+    + 2.4 [Face image Dataset](ex07.md#2-4-face-image-dataset)
+    + 2.5 [PCA for visualization (optional)](ex07.md#2-5-pca-for-visualization-optional-)
++ [Programming Exercise Tutorial](ex07.md#programming-exercise-tutorial)
+    + [`indClosestCentroids()` tutorial](ex07.md#findclosestcentroids-tutorial)
+    + [`computeCentroids()` tutorial](ex07.md#computecentroids-tutorial)
+    + [Tutorials for ex7_pca functions](ex07.md#tutorials-for-ex7_pca-functions-pca-projectdata-recoverdata-)
+    + [Programming Exercise 7:K-Means Clustering and PCA](ex07.md#programming-exercise-7-k-means-clustering-and-pca)
+    + [FAQ for Week 8 and programming assignment 7](ex07.md#faq-for-week-8-and-programming-assignment-7)
+    + [vectorized - computeCentroid](ex07.md#vectorized-computecentroid)
+
+
 
 
 Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
