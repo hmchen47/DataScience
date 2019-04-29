@@ -234,8 +234,8 @@ It is very important to get error results as a single, numerical value. Otherwis
   + More generally, predict 1 if $h_\theta (x) \geq\;$ threshold
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.ritchieng.com/machine-learning-systems-design/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/precision_recall.png" style="margin: 0.1em;" alt="Threhold and tradoff between precision & recall" title="Tradeoff of precision & recall" width="450">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_bfa875d182c5d3c11e9a44e72b1e0f49_Lecture11.pdf?Expires=1555286400&Signature=SprONOFv0wfUZV4RPjjzYNs51TlfoMxaigbaYF~zl6vlLoUvuneIU8R17uIG5VHUY0OVgE8XrIBJHx8wv7nYtfrWj~obcWWNfurE-aNaIxwZA4zAIFhCG5xznUnfXhJEVemUJFXIy3TMXUn71T7DQ~blPwD7kqevty4WlWndaDk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m11-03.png" style="margin: 0.1em;" alt="Threhold and tradoff between precision & recall" title="Tradoff of precision & recall" width="250">
     </a></div>
   </div>
 
@@ -430,7 +430,7 @@ $$\dfrac{\text{True Positives}}{\text{Total number of predicted positives}} = \d
 __Recall__: Of all the patients that actually have cancer, what fraction did we correctly detect as having cancer?
 
 $$\dfrac{\text{True Positives}}{\text{Total number of actual positives}}= \dfrac{\text{True Positives}}{\text{True Positives}+\text{False negatives}}$$
-
+​
 These two metrics give us a better sense of how our classifier is doing. We want both precision and recall to be high.
 
 In the example at the beginning of the section, if we classify all patients as 0, then our __recall__ will be $\dfrac{0}{0 + f} = 0$, so despite having a lower error percentage, we can quickly see it has worse recall.
@@ -517,11 +517,11 @@ References:
   + Recall = (true positives) / (true positives + false negatives)
   + $F_1 \text{ score } = (2 \cdot \text{ precision } \cdot \text{ recall }) / (\text{ precision } + \text{ recall })$
 
-  What is the classifier's recall/precision/F1 score/Accuracy (as a value from 0 to 1)?
+  What is the classifier's recall/precision/F1 score (as a value from 0 to 1)?
 
   Enter your answer in the box below. If necessary, provide at least two values after the decimal point.
 
-  Ans: Recall = 0.85; Precision = 0.087; F1 score = 0.158 (0.16), Accuracy = 0.095
+  Ans: Recall = 0.85; Precision = 0.087; F1 score = 0.158 (0.16)
 
 
 2. Suppose a massive dataset is available for training a learning algorithm. Training on a lot of data is likely to give good performance when two of the following conditions hold true.
@@ -559,7 +559,7 @@ References:
   6. The classifier is likely to now have higher recall.
   7. The classifier is likely to have unchanged precision and recall, but lower accuracy.
 
-  Ans: 5 (0.7-6451), x6 (0.7-5614), 6 (0.3-5167), x13 (0.1-1234) <br/>
+  Ans: 5 x6 (0.7-5614), 6 (0.3-5167), x13 (0.1-1234) <br/>
   Explanation: <br/>
   1. False - By making more $y = 1$ predictions, we increase true and false positives and decrease true and false negatives. Thus, precision and recall will certainly change. We cannot say whether accuracy will increase or decrease.
   2. False
@@ -580,14 +580,11 @@ References:
   6. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, and it will likely perform similarly on the cross validation set.
   7. If you always predict non-spam (output $y=0$), your classifier will have 99% accuracy on the training set, but it will do much worse on the cross validation set because it has overfit the training data.
 
-  Ans: x134 (4213), x56 (5167), x5 (5671), x4 (1234) <br/>
-  Explanation: <br/>
-  y = 0: TP = 0, TN = 99, FN = 1,  FP = 0 => Accuracy = 99%, Recall = 0%, Precision = 0% <br/>
-  y = 1: TP = 1, TN = 0, FN = 0, FP = 99 => Accuracy = 1%, Recall = 100%, Precision = 1%
-
-  1. True - Since 99% of the examples are y = 0, always predicting 0 gives an accuracy of 99%. Note, however, that this is not a good spam system, as you will never catch any spam.
-  2. True
-  3. False - Every prediction is y = 1, so recall is 100% and precision is only 1%.
+  Ans: x56 (5167), x5 (5671), x4 (1234) <br/>
+  Explanation:
+  1. True
+  2. False
+  3. True
   4. True - Since every prediction is y = 0, there will be no true positives, so recall is 0%.
   5. True - For data with skewed classes like these spam data, we want to achieve a high $F_1$ score, which requires high precision and high recall.
   6. True - The classifier achieves 99% accuracy on the training set because of how skewed the classes are. We can expect that the cross-validation set will be skewed in the same fashion, so the classifier will have approximately the same accuracy.

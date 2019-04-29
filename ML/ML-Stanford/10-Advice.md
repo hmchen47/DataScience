@@ -653,13 +653,14 @@ This gives us the proportion of the test data that was misclassified.
 
 In order to choose the model of your hypothesis, you can test each degree of polynomial and look at the error result.
 
+
 __Without the Validation Set (note: this is a bad method - do not use it)__
 
-1. Optimize the parameters in \theta using the training set for each polynomial degree.
-2. Find the polynomial degree d with the least error using the test set.
-3. Estimate the generalization error also using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error);
+1. Optimize the parameters in $\theta$ using the training set for each polynomial degree.
+2. Find the polynomial degree $d$ with the least error using the test set.
+3. Estimate the generalization error also using the test set with $J_{test}(\theta^{(d)})$, ($d$ = theta from polynomial with lower error);
 
-In this case, we have trained one variable, d, or the degree of the polynomial, using the test set. This will cause our error value to be greater for any other set of data.
+In this case, we have trained one variable, $d$, or the degree of the polynomial, using the test set. This will cause our error value to be greater for any other set of data.
 
 
 __Use of the cv set__
@@ -676,9 +677,9 @@ We can now calculate three separate error values for the three different sets.
 
 __With the Validation Set (note: this method presumes we do not also use the cv set for regularization)__
 
-1. Optimize the parameters in \theta using the training set for each polynomial degree.
-2. Find the polynomial degree d with the least error using the cross validation set.
-3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error);
+1. Optimize the parameters in $\theta$ using the training set for each polynomial degree.
+2. Find the polynomial degree $d$ with the least error using the cross validation set.
+3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, ($d$ = theta from polynomial with lower error);
 
 This way, the degree of the polynomial d has not been trained using the test set.
 
@@ -710,13 +711,13 @@ The is represented in the figure below:
 
 #### Regularization and Bias/Variance
 
-Instead of looking at the degree d contributing to bias/variance, now we will look at the regularization parameter \lambda.
+Instead of looking at the degree d contributing to bias/variance, now we will look at the regularization parameter $\lambda$.
 
 + Large $\lambda\;$: High bias (underfitting)
 + Intermediate $\lambda\;$: just right
 + Small $\lambda\;$: High variance (overfitting)
 
-A large lambda heavily penalizes all the \theta parameters, which greatly simplifies the line of our resulting function, so causes underfitting.
+A large lambda heavily penalizes all the $\theta$ parameters, which greatly simplifies the line of our resulting function, so causes underfitting.
 
 The relationship of \lambda to the training set and the variance set is as follows:
 
@@ -732,7 +733,7 @@ The figure below illustrates the relationship between lambda and the hypothesis:
   </a></div>
 </div>
 
-In order to choose the model and the regularization \lambda, we need:
+In order to choose the model and the regularization $\lambda$, we need:
 
 1. Create a list of lambdas (i.e. $\lambda \in \{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\}$);
 2. Create a set of models with different degrees or any other variants.
@@ -781,13 +782,13 @@ Our decision process can be broken down as follows:
 + Trying smaller sets of features: Fixes high variance
 + Adding features: Fixes high bias
 + Adding polynomial features: Fixes high bias
-+ Decreasing \lambda: Fixes high bias
-+ Increasing \lambda: Fixes high variance
++ Decreasing $\lambda$: Fixes high bias
++ Increasing $\lambda$: Fixes high variance
 
 ##### Diagnosing Neural Networks
 
 + A neural network with fewer parameters is __prone to underfitting__. It is also __computationally cheaper__.
-+ A large neural network with more parameters is __prone to overfitting__. It is also __computationally expensive__. In this case you can use regularization (increase \lambda) to address the overfitting.
++ A large neural network with more parameters is __prone to overfitting__. It is also __computationally expensive__. In this case you can use regularization (increase $\lambda$) to address the overfitting.
 
 Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using your cross validation set.
 
@@ -795,7 +796,7 @@ Using a single hidden layer is a good starting default. You can train your neura
 
 Choosing M the order of polynomials.
 
-How can we tell which parameters \theta to leave in the model (known as "model selection")?
+How can we tell which parameters $\theta$ to leave in the model (known as "model selection")?
 
 There are several ways to solve this problem:
 
@@ -887,8 +888,8 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/w1FgU/advice-for-applying-machine-learning">
-      <img src="images/m10-01.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.1" width="250">
-      <img src="images/m10-02.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.2" width="250">
+      <img src="images/e10-01.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.1" width="250">
+      <img src="images/e10-02.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.2" width="250">
     </a></div>
   </div>
 
