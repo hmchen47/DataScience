@@ -343,7 +343,7 @@ The __second for-loop__ is the 'Move Centroid' step where we move each centroid 
 
 More formally, the equation for this loop is as follows:
 
-$$\mu_k = \1n [x(k1)+x(k2)+⋯+x(kn)] \in \mathbb{R}^n$$
+$$\mu_k = \dfrac{1}{n} [x(k1)+x(k2)+\dots+x(kn)] \in \mathbb{R}^n$$
 
 Where each of $x^{(k_1)}, x^{(k_2)}, \dots, x^{(k_n)}$ are the training examples assigned to group $m_{\mu_k}$.
 
@@ -512,7 +512,7 @@ In the function script "pca.m", the 3rd line should read "[U, S] = pca(X)" not "
 
     1. For some datasets, the "right" or "correct" value of K (the number of clusters) can be ambiguous, and hard even for a human expert looking carefully at the data to decide.
     2. Since K-Means is an unsupervised learning algorithm, it cannot overfit the data, and thus it is always better to have as large a number of clusters as is computationally feasible.
-    3. The standard way of initializing K-means is setting μ1=⋯=μk to be equal to a vector of zeros.
+    3. The standard way of initializing K-means is setting μ1=\dots=μk to be equal to a vector of zeros.
     4. If we are worried about K-means getting stuck in bad local optima, one way to ameliorate (reduce) this problem is if we try using multiple random initializations.
 
   Ans: 14 <br/>
