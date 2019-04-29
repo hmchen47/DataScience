@@ -343,20 +343,20 @@
 
 ## Dimensionality Reduction
 
-+ [Motivation](14-Dimension.md#)
-    + [Motivation I: Data Compression](14-Dimension.md#)
-    + [Motivation II: Visualization](14-Dimension.md#)
-+ [Principal Component Analysis](14-Dimension.md#)
-    + [Principal Component Analysis Problem Formulation](14-Dimension.md#)
-    + [Principal Component Analysis Algorithm](14-Dimension.md#)
-+ [Applying PCA](14-Dimension.md#)
-    + [Reconstruction from Compressed Representation](14-Dimension.md#)
-    + [Choosing the Number of Principal Components](14-Dimension.md#)
-    + [Advice for Applying PCA](14-Dimension.md#)
-+ [Review](14-Dimension.md#)
-    + [Lecture Slides](14-Dimension.md#)
-    + [Errata](14-Dimension.md#)
-    + [Quiz: Principal Component Analysis](14-Dimension.md#)
++ [Motivation](14-Dimension.md#)motivation
+    + [Motivation I: Data Compression](14-Dimension.md#motivation-i-data-compression)
+    + [Motivation II: Visualization](14-Dimension.md#motivation-ii-visualization)
++ [Principal Component Analysis](14-Dimension.md#principal-component-analysis)
+    + [Principal Component Analysis Problem Formulation](14-Dimension.md#principal-component-analysis-problem-formulation)
+    + [Principal Component Analysis Algorithm](14-Dimension.md#principal-component-analysis-algorithm)
++ [Applying PCA](14-Dimension.md#applying-pca)
+    + [Reconstruction from Compressed Representation](14-Dimension.md#reconstruction-from-compressed-representation)
+    + [Choosing the Number of Principal Components](14-Dimension.md#choosing-the-number-of-principal-components)
+    + [Advice for Applying PCA](14-Dimension.md#advice-for-applying-pca)
++ [Review](14-Dimension.md#review)
+    + [Lecture Slides](14-Dimension.md#lecture-slides)
+    + [Errata](14-Dimension.md#errata)
+    + [Quiz: Principal Component Analysis](14-Dimension.md#quiz-principal-component-analysis)
 
 
 ## Programming Assignment: K-Means Clustering and PCA
