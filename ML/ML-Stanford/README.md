@@ -294,6 +294,86 @@
     + [Quiz: Machine Learning System Design](11-System.md#quiz-machine-learning-system-design)
 
 
+## Support Vector Machines
+
++ [Large Margin Classification](12-SVM.md#large-margin-classification)
+    + [Optimization Objective](12-SVM.md#optimization-objective)
+    + [Large Margin Intuition](12-SVM.md#large-margin-intuition)
+    + [Mathematics Behind Large Margin Classification](12-SVM.md#mathematics-behind-large-margin-classification)
++ [Kernels](12-SVM.md#kernels)
+    + [Kernels I](12-SVM.md#kernels-i)
+    + [Kernels II](12-SVM.md#kernels-ii)
++ [SVMs in Practice: Using An SVM](12-SVM.md#svms-in-practice-using-an-svm)
++ [Review](12-SVM.md#review)
+    + [Lecture Slides](12-SVM.md#lecture-slides)
+    + [Errata](12-SVM.md#errata)
+    + [Quiz: Support Vector Machines](12-SVM.md#quiz-support-vector-machines)
+
+
+## Programming Assignment: Support Vector Machines
+
++ 1 [Support Vector Machines](ex06.md#1-support-vector-machines)
+    + 1.1 [Example Dataset 1](ex06.md#1-1-example-dataset-1)
+    + 1.2 [SVM with Gaussian Kernels](ex06.md#1-2-svm-with-gaussian-kernels)
++ 2 [Spam Classification](ex06.md#2-spam-classification)
+    + 2.1 [Preprocessing Emails](ex06.md#2-1-preprocessing-emails)
+    + 2.2 [Extracting Features from Emails](ex06.md#2-2-extracting-features-from-emails)
+    + 2.3 [Training SVM for Spam Classification](ex06.md#2-3-training-svm-for-spam-classification)
+    + 2.4 [Top Predictors for Spam](ex06.md#2-4-top-predictors-for-spam)
+    + 2.5 [Try your own emails (optional)](ex06.md#2-5-try-your-own-emails-optional-)
+    + 2.6 [Build your own dataset (optional)](ex06.md#2-6-build-your-own-dataset-optional-)
++ [Programming Ex.6](ex06.md#programming-ex-6)
+    + [Update to ex6.m](ex06.md#update-to-ex6-m)
+    + [Trouble with the contour plot visualizeBoundary.m](ex06.md#trouble-with-the-contour-plot-visualizeboundary-m-)
+    + [processEmail no loop possible](ex06.md#processemail-no-loop-possible)
+    + [Understanding SMO and the svmTrain() and svmPredict() methods](ex06.md#understanding-smo-and-the-svmtrain-and-svmpredict-methods)
+    + [More SVM explanations](ex06.md#more-svm-explanations)
+    + [Information on SVMLIB](ex06.md#information-on-svmlib)
+    + [Using LIBSVM in MATLAB/Octave](ex06.md#using-libsvm-in-matlab-octave)
++ [Ex6 Tutorials](ex06.md#ex6-tutorials)
+    + [Tutorial for emailfeatures()](ex06.md#tutorial-for-emailfeatures-)
+    + [PROGRAMMING ASSIGNMENT FAQ](ex06.md#programming-assignment-faq)
+
+
+## Dimensionality Reduction
+
++ [Motivation](14-Dimension.md#)motivation
+    + [Motivation I: Data Compression](14-Dimension.md#motivation-i-data-compression)
+    + [Motivation II: Visualization](14-Dimension.md#motivation-ii-visualization)
++ [Principal Component Analysis](14-Dimension.md#principal-component-analysis)
+    + [Principal Component Analysis Problem Formulation](14-Dimension.md#principal-component-analysis-problem-formulation)
+    + [Principal Component Analysis Algorithm](14-Dimension.md#principal-component-analysis-algorithm)
++ [Applying PCA](14-Dimension.md#applying-pca)
+    + [Reconstruction from Compressed Representation](14-Dimension.md#reconstruction-from-compressed-representation)
+    + [Choosing the Number of Principal Components](14-Dimension.md#choosing-the-number-of-principal-components)
+    + [Advice for Applying PCA](14-Dimension.md#advice-for-applying-pca)
++ [Review](14-Dimension.md#review)
+    + [Lecture Slides](14-Dimension.md#lecture-slides)
+    + [Errata](14-Dimension.md#errata)
+    + [Quiz: Principal Component Analysis](14-Dimension.md#quiz-principal-component-analysis)
+
+
+## Programming Assignment: K-Means Clustering and PCA
+
++ 1   [K-means Clustering](ex07.md#1-k-means-clustering)
+    + 1.1 [Implementing K-means](ex07.md#1-1-implementing-k-means)
+    + 1.2 [K-means on example dataset](ex07.md#1-2-k-means-on-example-dataset)
+    + 1.3 [Random initialization](ex07.md#1-3-random-initialization)
+    + 1.4 [Image compression with K-means](ex07.md#1-4-image-compression-with-k-means)
+    + 1.5 [Use your own image](ex07.md#1-5-use-your-own-image)
++ 2   [Principal Component Analysis](ex07.md#2-principal-component-analysis)
+    + 2.1 [Example Dataset](ex07.md#2-1-example-dataset)
+    + 2.2 [Implementing PCA](ex07.md#2-2-implementing-pca)
+    + 2.3 [Dimensionality Reduction with PCA](ex07.md#2-3-dimensionality-reduction-with-pca)
+    + 2.4 [Face image Dataset](ex07.md#2-4-face-image-dataset)
+    + 2.5 [PCA for visualization (optional)](ex07.md#2-5-pca-for-visualization-optional-)
++ [Programming Exercise Tutorial](ex07.md#programming-exercise-tutorial)
+    + [`indClosestCentroids()` tutorial](ex07.md#findclosestcentroids-tutorial)
+    + [`computeCentroids()` tutorial](ex07.md#computecentroids-tutorial)
+    + [Tutorials for ex7_pca functions](ex07.md#tutorials-for-ex7_pca-functions-pca-projectdata-recoverdata-)
+    + [Programming Exercise 7:K-Means Clustering and PCA](ex07.md#programming-exercise-7-k-means-clustering-and-pca)
+    + [FAQ for Week 8 and programming assignment 7](ex07.md#faq-for-week-8-and-programming-assignment-7)
+    + [vectorized - computeCentroid](ex07.md#vectorized-computecentroid)
 
 
 
