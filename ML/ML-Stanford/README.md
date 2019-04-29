@@ -330,15 +330,15 @@
 
 ## Unsupervised Learning: Clustering
 
-+ [Unsupervised Learning: Introduction](13-Clustering.md#)
-+ [K-Means Algorithm](13-Clustering.md#)
-+ [Optimization Objective](13-Clustering.md#)
-+ [Random Initialization](13-Clustering.md#)
-+ [Choosing the Number of Clusters](13-Clustering.md#)
-+ [Review](13-Clustering.md#)
-    + [Lecture Slides](13-Clustering.md#)
-    + [Errata](13-Clustering.md#)
-+ [Quiz: Unsupervised Learning](13-Clustering.md#)
++ [Unsupervised Learning: Introduction](13-Clustering.md#unsupervised-learning-introduction)
++ [K-Means Algorithm](13-Clustering.md#k-means-algorithm)
++ [Optimization Objective](13-Clustering.md#optimization-objective)
++ [Random Initialization](13-Clustering.md#random-initialization)
++ [Choosing the Number of Clusters](13-Clustering.md#choosing-the-number-of-clusters)
++ [Review](13-Clustering.md#review)
+    + [Lecture Slides](13-Clustering.md#lecture-slides)
+    + [Errata](13-Clustering.md#errata)
++ [Quiz: Unsupervised Learning](13-Clustering.md#quiz-unsupervised-learning)
 
 
 ## Dimensionality Reduction
