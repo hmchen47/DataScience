@@ -887,8 +887,8 @@ In ex5.m at line 104, the reference to "slide 8 in ML-advice.pdf" should be "Fig
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/w1FgU/advice-for-applying-machine-learning">
-      <img src="images/e10-01.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.1" width="250">
-      <img src="images/e10-02.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.2" width="250">
+      <img src="images/m10-01.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.1" width="250">
+      <img src="images/m10-02.png" style="margin: 0.1em;" alt="Question 1" title="Question 1 of Mod10: Fig.2" width="250">
     </a></div>
   </div>
 
