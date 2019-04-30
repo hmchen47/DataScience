@@ -6,13 +6,60 @@
 
 #### Lecture Notes
 
++ Anomaly detection example
+	+ Aircraft engine features:
+		+ $x_1\;$ = heat generated
+		+ $x_2\;$ = vibration intensity
+		+ ...
+	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$
+	+ New engine: $x_{test}$
 
+	<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+		<div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/">
+			<img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection.png" style="margin: 0.1em;" alt="Scatter plot for the relationship of heat and vibration" title="The relationship of heat vs. vibration" width="350">
+		</a></div>
+	</div>
+
+
++ Density estimation
+	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$
+	+ Is $X_{test}$ anomalous?
+	+ Given model $p(x)$ to predict $x_{test}$
+
+		$$ \text{Decision } = \begin{cases} \text{anomaly} & \text{if } p(x_{test}) < \epsilon \\ \text{ok} & \text{if }  p(x_{test}) \geq \epsilon  \end{cases}$$
+
+	<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+		<div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/">
+			<img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection2.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+		</a></div>
+	</div>
+
++ Anomaly detection examples
+	+ Fraud detection:
+		+ $x^{(i)}\;$ = features of user $i$'s activities
+		+ Model $p(x)$ from data
+		+ Identify unusual users by checking which have $p(x) < \epsilon$
+	+ Manufacturing
+	+ Monitoring computers in a data center
+		+ $x^{(i)}\;$ = features of machine $i$
+		+ $x_1\;$ = memory use
+		+ $x_2\;$ = number of disk accesses/sec
+		+ $x_3\;$ = CPU load
+		+ $x_4\;$ = CPU load/network traffic
+		+ ...
+
++ IVQ: Your anomaly detection system flags $x$ as anomalous whenever $p(x) \leq \epsilon$. Suppose your system is flagging too many things as anomalous that are not actually so (similar to supervised learning, these mistakes are called false positives). What should you do?
+
+	1. Try increasing $\epsilon$
+	2. Try decreasing $\epsilon$
+
+	Ans: 2
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.1-AnomalyDetection-ProblemMotivation-V1.33a3d3f0b22b11e495a62138f9b52d3f/full/360p/index.mp4?Expires=1556755200&Signature=J5r9Pnk3EzfJHNky-MOEJNaAdWYKcaUS3hWu8NSwXJrROgZF3JMkdPJQQK0N4oNttd6MD4ruIwalcfiK5A4s8FyBu0Ykq4noHU5dj3KIwwj4paXXXu88a1UMv19Wh58diXHb2B1BMV7VvAAqgqsGIa9XxpRkm9K04N9TW7RQb~w_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/_BSlVBF8SdGUpVQRfJnR8Q?expiry=1556755200000&hmac=AWMcjAMzac1LNG4ov0IIJjcA6TbbRLhbnAa5HUtwQ7k&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
