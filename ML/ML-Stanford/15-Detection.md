@@ -295,6 +295,9 @@ The [Multivariate Gaussian Distribution](http://cs229.stanford.edu/section/gauss
 
 ### Errata
 
+At the risk of being pedantic, it should be noted that p(x) is not a probability but rather the normalized probability density as parameterized by the feature vector, $x$; therefore, $\epsilon$ is a threshold condition on the probability density. Determination of the actual probability would require integration of this density over the appropriate extent of phase space.
+
+In the Developing and Evaluating an Anomaly Detection System video an alternative way for some people to split the data is to use the same data for the cv and test sets, therefore the number of anomalous engines (y = 1) in each set would be 20 rather than 10 as it states on the slide.
 
 
 ### Quiz: Anomaly Detection
