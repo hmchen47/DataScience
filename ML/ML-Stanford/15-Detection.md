@@ -693,22 +693,26 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
   5. In a computer chip fabrication plant, identify microchips that might be defective.
   6. From a large set of hospital patient records, predict which patients have a particular disease (say, the flu).
 
-  Ans: 52 (5261), x13 <br/>
+  Ans: 25 (6251), 52 (5261), x13 <br/>
   (1) False: Anomaly detection is not appropriate for a traditional classification problem. <br/>
   (2) True: Since you are just looking for unusual conditions instead of a particular disease, this is a good application of anomaly detection.
   (3) True: By modeling "normal" credit card transactions, you can then use anomaly detection to flag the unusuals ones which might be fraudulent.
   (4) False
   (5) True: The defective chips are the anomalies you are looking for by modeling the properties of non-defective chips.
+  (6) False
 
 
 2. Suppose you have trained an anomaly detection system that flags anomalies when $p(x)$ is less than $\epsilon$, and you find on the cross-validation set that it has too many false negatives (failing to flag a lot of anomalies) / false positives (flagging too many things as anomalies). What should you do?
 
+  Suppose you have trained an anomaly detection system for fraud detection, and your system that flags anomalies when p(x)p(x) is less than ε, and you find on the cross-validation set that it mis-flagging far too many good transactions as fradulent. What should you do?
+
   1. Decrease ε
   2. Increase ε
 
-  Ans: 1 (false positives), x1 (false negatives) <br/>
+  Ans: 1 (good transaction), 1 (false positives), x1 (false negatives) <br/>
   false negatives: By decreasing $\epsilon$, you will flag more anomalies, not fewer. <br/>
   false positives: By decreasing ε, you will flag fewer anomalies, as desired.
+  good transaction: false positives
 
 
 3. Suppose you are developing an anomaly detection system to catch manufacturing defects in airplane engines. You model uses
@@ -737,7 +741,7 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
   7. When choosing features for an anomaly detection system, it is a good idea to look for features that take on unusually large or small values for (mainly the) anomalous examples.
   8. If you do not have any labeled data (or if all your data has label $y=0$), then is still possible to learn $p(x)$, but it may be harder to evaluate the system or choose a good value of $\epsilon$.
 
-  Ans: (5678), 14 (1234)<br/>
+  Ans: 78 (8765), x67 (5678), 14 (1234)<br/>
   (1) True: We want to model "normal" examples, so we only use negative examples in training. <br/>
   (2) False
   (3) False
@@ -745,7 +749,7 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
   (5) False
   (6) False: Labeled data are useful in cross-validation and testing for evaluating the system and setting the parameter $\epsilon$.
   (7) True: These are good features, as they will lie outside the learned model, so you will have small values for $p(x)$ with these examples.
-  (8) True
+  (8) True: Only negative examples are used in training, but it is good to have some labeled data of both types for cross-validation.
 
 
 5. You have a 1-D dataset $\{x^{(1)}, \ldots, x^{(m)}\}$ and you want to detect outliers in the dataset. You first plot the dataset and it looks like this:
