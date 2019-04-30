@@ -386,6 +386,24 @@
     + [vectorized - computeCentroid](ex07.md#vectorized-computecentroid)
 
 
+## Anomaly Detection
+
++ [Density Estimation](15-Detection.md#)
+    + [Problem Motivation](15-Detection.md#)
+    + [Gaussian Distribution](15-Detection.md#)
+    + [Algorithm](15-Detection.md#)
++ [Building an Anomaly Detection System](15-Detection.md#)
+    + [Developing and Evaluating an Anomaly Detection System](15-Detection.md#)
+    + [Anomaly Detection vs. Supervised Learning](15-Detection.md#)
+    + [Choosing What Features to Use](15-Detection.md#)
++ [Multivariate Gaussian Distribution (Optional)](15-Detection.md#)
+    + [Multivariate Gaussian Distribution](15-Detection.md#)
+    + [Anomaly Detection using the Multivariate Gaussian Distribution](15-Detection.md#)
++ [Review](15-Detection.md#)
+    + [Lecture Slides](15-Detection.md#)
+    + [Errata](15-Detection.md#)
+    + [Quiz: Anomaly Detection](15-Detection.md#)
+
 
 
 Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
