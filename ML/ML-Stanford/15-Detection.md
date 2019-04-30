@@ -186,6 +186,49 @@
 
 #### Lecture Notes
 
++ The importance of real-number evaluation
+	+ When developing a learning algorithm (choosing features, etc.), making decisions is much easier if we have a way of evaluating our learning algorithm
+	+ Assume we have some labeled data, of anomalous and non-anomalous examples, ($y = 0$ if normal, $y=1$ if anomalous)
+	+ Training dataset: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ (assume normal examples/not anomalous)
+	+ Cross validation set: $(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{m_{cv}})$
+  + Test set: $(x_{test}^{(1)}, y_{test}^{(1)}), \dots, (x_{test}^{(m_{test})}, y_{test}^{m_{test}})$
+
++ Example: Aircraft engines motivating example
+  + Whole dataset:
+    + 10,000 good (normal) engines
+    + 20 flawed engines (anomalous)
+  + Dataset separation
+    + Training set: 6000 good engines ($y=0$) $\implies p(x) = p(x_1; \mu_1, \sigma_1^2) \dots p(x_n; \mu_n, \sigma_n^2)$
+    + CV: 2000 good engines ($y=0$), 10 anomalous ($y=1$)
+    + Test: 2000 good engines ($y=0), 10 anomalous ($y=1$)
+  + Alternative (not recommended)
+    + Training set: 6000 good engines ($y=0$)
+    + CV: 4000 good engines ($y=0$), 10 anomalous ($y=1$)
+    + Test: =4000 good engines ($y=0), 10 anomalous ($y=1$)
+
++ Algorithm evaluation
+  + Fit model $p(x)$ on training set $\{x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$
+  + On a cross validation/test example $x$ predict
+
+    $$y = \begin{cases} 1 & \text{if } p(x) < \epsilon \text{ (anomaly)} \\ 0 & \text{if } p(x) \geq \epsilon \text{ (normal)} \end{cases}$$
+  + Possible evaluation metrics:
+    + True positive, false positive, false negative, true negative
+    + Prediction/recall
+    + $F_1$-score
+  + Can also use cross validation set to choose parameters $\epsilon$ (maximize $F_1$-score)
+
++ IVQ?: Suppose you have fit a model $p(x)$. When evaluating on the cross validation set or test set, your algorithm predicts:
+
+  $$y = \begin{cases} 1 & \text{if } p(x) < \epsilon \\ 0 & \text{if } p(x) \geq \epsilon \end{cases}$$
+
+  Is classification accuracy a good way to measure the algorithm's performance?
+
+  1. Yes, because we have labels in the cross validation / test sets.
+  2. No, because we do not have labels in the cross validation / test sets.
+  3. No, because of skewed classes (so an algorithm that always predicts y = 0 will have high accuracy).
+  4. No for the cross validation set; yes for the test set.
+
+  Ans: 3
 
 
 
