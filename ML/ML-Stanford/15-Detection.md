@@ -68,13 +68,56 @@
 
 #### Lecture Notes
 
++ Gaussian (Normal) Distribution
+	+ Say $x \in \mathbb{R}$. If $x$ is a distributed Gaussian with mena $\mu$, variance $\sigma^2$ with $\sigma$ as standard deviation.
+	+ Normal distribution: $x ~ \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
 
+		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
+
+	<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+		<div><a href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/normal-distributions/">
+			<img src="https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2013/09/standard-normal-distribution.jpg" style="margin: 0.1em;" alt="One way of figuring out how data are distributed is to plot them in a graph. If the data is evenly distributed, you may come up with a bell curve. A bell curve has a small percentage of the points on both tails and the bigger percentage on the inner part of the curve. In the standard normal model, about 5 percent of your data would fall into the “tails” (colored darker orange in the image below) and 90 percent will be in between. For example, for test scores of students, the normal distribution would show 2.5 percent of students getting very low scores and 2.5 percent getting very high scores. The rest will be in the middle; not too high or too low. The shape of the standard normal distribution looks like this:" title="Standard normal model" width="350">
+		</a></div>
+	</div>
+
++ Gaussian distribution example
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection5.png" style="margin: 0.1em;" alt="Normal distribution with (mean, standard deviation) = (0, 1), (0, 0.5), (0, 2), (3, 0.5)" title="Normal distribution with various means and standard deviations" width="350">
+  </a></div>
+</div>
+
++ Parameter estimation
+	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\} \quad x^{(i)} \in \mathbb{R}$
+	+ mean ($\mu$): 
+
+		$$\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)}$$
+
+	+ Standard deviation($\sigma$): (maximum likelihood estimation form or statistics form)
+
+		$$\sigma^2 = \dfrac{1}{m} \sum_{j=1}^m (x^{(i)} - \mu)^2 \qquad \text{ or } \qquad \sigma^2 = \dfrac{1}{m-1} \sum_{j=1}^{m-1} (x^{(i)} - \mu)^2$$
+
++ IVQ: The formula for the Gaussian density is:
+
+	$$p(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \exp \left(−\dfrac{(x−\mu)^2}{2\sigma^2} \right)$$
+
+	Which of the following is the formula for the density to the right?
+
+	[A gaussian curve centered at -3 with standard deviation 2]
+
+	1. $p(x) = \dfrac{1}{\sqrt{2\pi} \times 2} \exp(- \dfrac{(x-3)^2}{2 \times 4})$
+	2. $p(x) = \dfrac{1}{\sqrt{2\pi} \times 4} \exp(- \dfrac{(x-3)^2}{2 \times 2})$
+	3. $p(x) = \dfrac{1}{\sqrt{2\pi} \times 2} \exp(- \dfrac{(x+3)^2}{2 \times 4})$
+	4. $p(x) = \dfrac{1}{\sqrt{2\pi} \times 4} \exp(- \dfrac{(x+3)^2}{2 \times 2})$
+
+	Ans: 3
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.2-AnomalyDetection-GaussianDistribution.bfc64f20b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1556755200&Signature=ie7FEzBFcOhhQBmM04zWqqU~IQ4U4jUM0cjjAcEhQsqmkvAT9rjy9kEsqtnVNN4Kk-CgPgrSHPseoJ072DHwTbFUwEoEP7FVb3T205PETz2xhtxQpnvvZHYPT8ZEsNTaryKQ44dUyVkYkyYv~bUFDErBWBNA2bnEsCRg3kx7YMM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/KoYUOLI2SuaGFDiyNormlg?expiry=1556755200000&hmac=J8QoEq5dq1yOtqMFUh_dnjytShkFUDlvJHDHuiyZ6kY&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
