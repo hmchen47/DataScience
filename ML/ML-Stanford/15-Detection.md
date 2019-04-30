@@ -503,8 +503,8 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.8-AnomalyDetection-AnomalyDetectionUsingTheMultivariateGaussianDistribution-OPTIONAL.200e3f60b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1556755200&Signature=JnNaxXQDtyCa-kyi82DyTBuLwb51q4KQUCT3hKcbOvxIlQ1Pe-1qM0hNCcCLpV4ScBzmmKavKd1E5K5AgQe70zrW77-GlyirPWlXgjUlux2KppbbG68o-2vJN4oErhbqv81j1Oi65gCdDaLQuBH5uVMlTwTyaROyFgJfZWvyQN4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/qqLZIzCOS7Ki2SMwjmuyUw?expiry=1556755200000&hmac=Wv05eFYpeYFQwFzohzWPRytvaSyfO8EmKZV2ra2o-a4&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
