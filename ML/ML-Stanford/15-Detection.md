@@ -684,7 +684,71 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
 
 ### Quiz: Anomaly Detection
 
+1. For which of the following problems would anomaly detection be a suitable algorithm?
+
+  1. Given data from credit card transactions, classify each transaction according to type of purchase (for example: food, transportation, clothing).
+  2. From a large set of primary care patient records, identify individuals who might have unusual health conditions.
+  3. Given a dataset of credit card transactions, identify unusual transactions to flag them as possibly fraudulent.
+  4. Given an image of a face, determine whether or not it is the face of a particular famous individual.
+
+  Ans: 13 <br/>
+  (1) False: Anomaly detection is not appropriate for a traditional classification problem. <br/>
+  (2) True
+  (3) True: By modeling "normal" credit card transactions, you can then use anomaly detection to flag the unusuals ones which might be fraudulent.
+  (4) False
 
 
+2. Suppose you have trained an anomaly detection system that flags anomalies when $p(x)$ is less than $\epsilon$, and you find on the cross-validation set that it has too many false negatives (failing to flag a lot of anomalies). What should you do?
 
+  1. Decrease ε
+  2. Increase ε
+
+  Ans: x1 <br/>
+  Explain: By decreasing $\epsilon$, you will flag more anomalies, not fewer.
+
+
+3. Suppose you are developing an anomaly detection system to catch manufacturing defects in airplane engines. You model uses
+
+  $$p(x) = \prod_{j=1}^n p(x_j; \mu_j, \sigma^2_j)$$.
+
+  You have two features $x_1$ = vibration intensity, and $x_2$ = heat generated. Both $x_1$ and $x_2$ take on values between 0 and 1 (and are strictly greater than 0), and for most "normal" engines you expect that $x_1 \approx x_2$. One of the suspected anomalies is that a flawed engine may vibrate very intensely even without generating much heat (large $x_1$, small $x_2$), even though the particular values of $x_1$ and $x_2$ may not fall outside their typical ranges of values. What additional feature $x_3$ should you create to capture these types of anomalies:
+
+  1. $x_3 = x_1 \times x_2^2$
+  2. $x_3 = x_1^2 \times x_2^2$
+  3. $x_3 = (x_1 + x_2)^2$
+  4. $x_3 = \frac{x_1}{x_2}$
+
+  Ans: 4 <br/>
+  (4) This is correct, as it will take on large values for anomalous examples and smaller values for normal examples.
+
+
+4. Which of the following are true? Check all that apply.
+
+  1. In anomaly detection, we fit a model $p(x)$ to a set of negative ($y=0$) examples, without using any positive examples we may have collected of previously observed anomalies.
+  2. In a typical anomaly detection setting, we have a large number of anomalous examples, and a relatively small number of normal/non-anomalous examples.
+  3. When evaluating an anomaly detection algorithm on the cross validation set (containing some positive and some negative examples), classification accuracy is usually a good evaluation metric to use.
+  4. When developing an anomaly detection system, it is often useful to select an appropriate numerical performance metric to evaluate the effectiveness of the learning algorithm.
+
+  Ans: 14 <br/>
+  (1) We want to model "normal" examples, so we only use negative examples in training. <br/>
+  (4) You should have a good evaluation metric, so you can evaluate changes to the model such as new features.
+
+
+5. You have a 1-D dataset $\{x^{(1)}, \ldots, x^{(m)}\}$ and you want to detect outliers in the dataset. You first plot the dataset and it looks like this:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/Dx28I/anomaly-detection">
+      <img src="images/m15-04.png" style="margin: 0.1em;" alt="Diagram for Q5" title="Diagram for Q5" width="350">
+    </a></div>
+  </div>
+
+  Suppose you fit the gaussian distribution parameters $\mu_1$ and $\sigma_1^2$ to this dataset. Which of the following values for $\mu_1$ and $\sigma_1^2$ might you get?
+
+  1. $\mu_1 = -3, \sigma_1^2 = 4$
+  2. $\mu_1 = -6, \sigma_1^2 = 4$
+  3. $\mu_1 = -3, \sigma_1^2 = 2$
+  4. $\mu_1 = -6, \sigma_1^2 = 2$
+
+  Ans: 1 <br/>
+  (1) This is correct, as the data are centered around -3 and tail most of the points lie in [-5, -1].
 
