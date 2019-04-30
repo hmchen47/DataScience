@@ -70,7 +70,7 @@
 
 + Gaussian (Normal) Distribution
 	+ Say $x \in \mathbb{R}$. If $x$ is a distributed Gaussian with mena $\mu$, variance $\sigma^2$ with $\sigma$ as standard deviation.
-	+ Normal distribution: $x ~ \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
+	+ Normal distribution: $x \backsim \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
 
 		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
 
@@ -126,13 +126,56 @@
 
 #### Lecture Notes
 
++ Density estimation
+	+ Training set: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$
+	+ Each example is $x \in \mathbb{R}^n$ and independent
+	+ Gaussian distribution for each feature: $x_i \backsim \mathcal{N}(\mu_i, \sigma_i^2) \quad \forall i = 1, 2, \dots, n$
+	+ the probability density
 
+		$$\begin{array}{rcl} p(x) & =& p(x_1,; \mu_1, \sigma_1^2)p(x_2,; \mu_2, \sigma_2^2)p(x_3,; \mu_3, \sigma_3^2) \dots p(x_n,; \mu_n, \sigma_n^2) \\ &=& \displaystyle \prod_{j=1}^n p(x_j,; \mu_j, \sigma_j^2) \end{array}$$
+
+	+ IVQ: Given a training set $\{x^{(1)}, \dots, x^{(m)}\}$, how would you estimate each $\mu_j$ and $\sigma_j^2$ (Note $\mu_j \in \mathbb{R}, \sigma_j^2 \in \mathbb{R}$.)
+
+		1. $\displaystyle \mu_j = \frac{1}{m}\sum_{i=1}^m x^{(i)},\ \sigma_j^2 = \frac{1}{m}\sum_{i=1}^m(x^{(i)} - \mu)^2$
+		2. $\displaystyle \mu_j = \frac{1}{m}\sum_{i=1}^m (x_j^{(i)})^2,\ \sigma_j^2 = \frac{1}{m}\sum_{i=1}^m(x_j^{(i)} - \mu_j)^2$
+		3. $\displaystyle \mu_j = \frac{1}{m}\sum_{i=1}^m x_j^{(i)},\ \sigma_j^2 = \frac{1}{m}\sum_{i=1}^m(x^{(i)} - \mu)^2$
+		4. $\displaystyle \mu_j = \frac{1}{m}\sum_{i=1}^m x_j^{(i)},\ \sigma_j^2 = \frac{1}{m}\sum_{i=1}^m(x_j^{(i)} - \mu_j)^2$
+
+		Ans: 4
+
+
++ Anomaly detection algorithm
+	1. Choose features $x_i$ that you think might be indicative of anomalous examples.
+	2. Fit parameters $\mu_1, \dots, \mu_n, \sigma_1^2, \dots, \sigma_n^2$ 
+
+		$$\mu_j = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)} \qquad\qquad \sigma_j^2 = \dfrac{1}{m} \sum_{j=1}^m (x_j^{(i)} - \mu_j)^2$$
+
+		Vectorized form:
+
+		$$\mu = \begin{bmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix} = \dfrac{1}{m} \sum_{i=1}^m x^{(i)}$$
+
+	3. Given new example $x$, compute $p(x)$:
+
+		$$p(x) = \prod_{j-1}^n p(x_j; \mu_j, \sigma_j^2) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( - \dfrac{(x_j - \mu_j)^2}{2\sigma^2}  \right)$$
+
+		Anomaly if $p(x) < \epsilon$
+
++ Anomaly detection example
+	+ Height of contour graph = $p(x)$
+	+ Set some value of $\epsilon$
+	+ The pink shaded area on the contour graph have a low probability hence they’re anomalous
+
+	<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+		<div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/">
+			<img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection9.png" style="margin: 0.1em;" alt="Anomaly detection example with different mean, standard deviation and epsilon" title="Anomaly detection example" width="450">
+		</a></div>
+	</div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.3-AnomalyDetection-Algorithm.0a287940b22b11e48803b9598c8534ce/full/360p/index.mp4?Expires=1556755200&Signature=SnVPhBoZlrSs17NT280tFKbMSV2LhqGYx3vwEu4uoUVjcpUKncvdV-iCYFYA6fQWj2JP~XstJ4Rl5fNRHOoECWqJuvL4nYXze~~bSpS7OtHS-Vt7yG1yIiZ5VoexK5z1rDBW3mIY9F5UQJQvsk3XnMxL-sLf7SZaisY2GMo9U00_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/JLo-aK-TRta6Pmivk7bWOQ?expiry=1556755200000&hmac=pTFR3N_4fYgkB8zWCln5PoxJGFGDHqQfSM0Oi2lPHrg&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
