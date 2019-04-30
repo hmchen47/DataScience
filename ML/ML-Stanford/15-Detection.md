@@ -344,7 +344,7 @@
   3. Get a larger training set (of normal examples) with which to fit $p(x)$.
   4. Try changing $\epsilon$.
 
-  Ans: 
+  Ans: 2
 
 
 
@@ -363,8 +363,57 @@
 
 #### Lecture Notes
 
++ Motivation example: Monitoring machines in ad data center
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#3a-introduction">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection14.png" style="margin: 0.1em;" alt="Multivariate Gaussian distribution: left diagram - unable to detect the anomaly; " title="Example of Multivariate Gaussian distribution" width="400">
+    </a></div>
+  </div>
 
+  + both right diagrams are independent Gaussian distributions for $x_1$ and $x_2$
+  + unable to be detected w/ anomaly detection algorithm only with $x_1$ or $x_2$
+  + the left plot: $x_1$ vs. $x_2$
+  + the green cross on left diagram: high probability
+  + Modified version with two parameters
+
++ Multivariate Gaussian (Normal) Distribution
+  + With $x \in \mathbb{R}$.  Don't model $p(x_1), p(x_2), \dots$, etc. separately
+  + Model $p(x)$ all in one
+  + Parameters: $\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}$ (covariance matrix)
+
+    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)$$
+
+    where $|\Sigma|\;$ = determent of $\Sigma = \det(\Sigma)$
+
++ Multivariate Gaussian (Normal) examples
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#3a-introduction">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection15.png" style="margin: 0.1em;" alt="Multivariate Gaussian Examples: variance changes" title="Multivariate Gaussian Examples: varying variances" width="400">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection16.png" style="margin: 0.1em;" alt="Multivariate Gaussian Examples: variance changes" title="Multivariate Gaussian Examples: varying variance" width="400"><br/>
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection18.png" style="margin: 0.1em;" alt="Multivariate Gaussian Examples: correlation changes" title="Multivariate Gaussian Examples: varying corrections" width="400">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection17.png" style="margin: 0.1em;" alt="Multivariate Gaussian Examples: correlation changes" title="Multivariate Gaussian Examples: varying correlation" width="400"> <br/>
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection19.png" style="margin: 0.1em;" alt="Multivariate Gaussian Examples: mean changes" title="Multivariate Gaussian Examples: varying means" width="400">
+    </a></div>
+  </div>
+
++ IVQ: Consider the following multivariate Gaussian:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="images/m16-01.png" style="margin: 0.1em;" alt="Bivariate Gaussian density, centered at (1,0). Both variables have unit variance and are inversely correlated." title="IVQ: Bivariate Gaussian density, centered at (1,0). Both variables have unit variance and are inversely correlated." width="450">
+    </a></div>
+  </div>
+
+  Which of the following are the \muμ and Σ for this distribution?
+
+  1. $\mu = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \Sigma = \begin{bmatrix}1& 0.3 \\ 0.3 & 1 \end{bmatrix}$
+  2. $\mu = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & 0.3 \\ 0.3 & 1 \end{bmatrix}$
+  3. $\mu = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & −0.3 \\ −0.3 & 1 \end{bmatrix}$
+  4. $\mu = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & −0.3 \\ −0.3  & 1 \end{bmatrix}$
+
+  Ans: 3
 
 #### Lecture Video
 
