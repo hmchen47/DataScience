@@ -286,13 +286,72 @@
 
 #### Lecture Notes
 
++ Non-Gaussian features
+  + With non-Gaussian distribution, transform the distribution to Gaussian distribution
+  + Examples:
+    + $x_1 \;\longleftarrow\; \log(x_1)$
+    + $x_2 \;\longleftarrow\; \log(x_2 + c)$
+    + $x_3 \;\longleftarrow\; \sqrt{x_3} = x_3^{1/2}$
+    + $x_4 \;\longleftarrow\; x_4^{1/3}$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#2c-choosing-what-features-to-use">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection11.png" style="margin: 0.1em;" alt="Non-Gaussian features: Pareto distribution and transform to Gaussian distribution" title="Non-Gaussian features" width="350">
+    </a></div>
+  </div>
+
++ Error analysis for anomaly detection
+  + Allows us to come up with extra features to extract anomaly
+  + Similar to the error analysis procedure for supervised learning
+  + Procedure
+    + train a complete algorithm
+    + run the algorithm on a cross validation set
+    + look at the examples it gets wrong
+    + see if extra features come up to help the algorithm do better on the examples that it got wrong in the cross-validation set
+  + Objective:
+    + $p(x)\;$ large for normal examples $x$
+    + $p(x)\;$ small for anomalous examples $x$
+  + Most common problems
+    + $p(x)\;$ is comparable (say, both large) for normal and anomalous examples
+  + Diagrams
+    + plot with unlabeled data with feature $x_1$ (left diagram)
+    + fit the data with Gaussian distribution
+    + an anomaly example happened at $x_1 = 2.5$ and buried in the middle of a bunch of normal examples
+    + exam the data and observe what went wrong
+    + the examination might inspire to come up a new feature $x_2$ to distinguish the anomaly
+    + plot the feature $x_2$ with $x_1$, hopefully the anomaly can be identify with the new feature, e.g., $x_2 = 3.5$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#2c-choosing-what-features-to-use">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection12.png" style="margin: 0.1em;" alt="Error analysis for anomalous detection" title="Error analysis for anomalous detection" width="350">
+    </a></div>
+  </div>  
+
++ Example: Monitoring computers in a data center
+
+  Choose features that might take on unusually large or small values in the event of an anomaly
+  + $x_1\;$ = memory use of computer
+  + $x_2\;$ = number of disk access/sec
+  + $x_3\;$ = CPU load
+  + $x_4\;$ = network traffic
+  + new feature: $x_5 = \dfrac{\text{CPU load}}{\text{network traffic}}$: could be vary huge with large "CPU load" and small "network traffic"
+  + new feature: $x_6 =  \dfrac{(\text{CPU load})^2}{\text{network traffic}}$
+  
++ IVQ: Suppose your anomaly detection algorithm is performing poorly and outputs a large value of $p(x)$ for many normal examples and for many anomalous examples in your cross validation dataset. Which of the following changes to your algorithm is most likely to help?
+
+  1. Try using fewer features.
+  2. Try coming up with more features to distinguish between the normal and the anomalous examples.
+  3. Get a larger training set (of normal examples) with which to fit $p(x)$.
+  4. Try changing $\epsilon$.
+
+  Ans: 
 
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.6-AnomalyDetection-ChoosingWhatFeaturesToUse.cc993cd0b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1556755200&Signature=YMQZ4b1U7UuIzqvJb2qXso9Z80~aXQKyDF7DmMZXHaH69zncvKwqtMoIGiib2hsL5~YTWyvsWSwHqWn8t91ZvFgT4Z7iJHkADhnAqUglQ51J5BNBViG6tqmrRdmKOSFUEaq~WkfKXUa-Bjn2-c2ZCGtWVdDKqDQBcWeYmJtJ-8E_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/4QC7hPw-ThSAu4T8Pp4Ucg?expiry=1556755200000&hmac=7DS8lKWUCDtI0chI5UuBVc0RwgXJ-RrfKssCFcd9WEk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
