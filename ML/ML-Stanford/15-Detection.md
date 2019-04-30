@@ -402,7 +402,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="url">
-      <img src="images/m16-01.png" style="margin: 0.1em;" alt="Bivariate Gaussian density, centered at (1,0). Both variables have unit variance and are inversely correlated." title="IVQ: Bivariate Gaussian density, centered at (1,0). Both variables have unit variance and are inversely correlated." width="450">
+      <img src="images/m15-01.png" style="margin: 0.1em;" alt="Bivariate Gaussian density, centered at (1,0). Both variables have unit variance and are inversely correlated." title="IVQ: Bivariate Gaussian density, centered at (1,0). Both variables have unit variance and are inversely correlated." width="450">
     </a></div>
   </div>
 
@@ -427,7 +427,78 @@
 
 #### Lecture Notes
 
++ Multivariate Gaussian (Normal) Distribution
+  + Parameters: $\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}$
+  
+    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)$$
 
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#3b-anomaly-detection-using-multivariate-gaussian-distribution">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection20.png" style="margin: 0.1em;" alt="text" title="caption" width="400">
+      </a></div>
+    </div>
+  
+  + Parameter fitting:
+  
+    Given training set: $\{ x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$ with $x^{(i)} \in \mathbb{R}^n$
+
+    $$ \mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T$$
+
++ Anomaly detection with the multivariate Gaussian
+
+  1. Fit model $p(x)$ by setting
+
+    $$\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T$$
+
+  2. Given a new example $x$, compute
+
+    $$p(x) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( - \dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x-\mu) \right)$$
+
+    Flag and anomaly if $p(x) < \epsilon$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_76dc0f4717572c816be29a39cdd2237a_Lecture15.pdf?Expires=1556755200&Signature=DTYe3QSPM-Y3QsNgYKQdrdSZ1qER7iRM2W29fz3pQhrj00~D3KKoT6Lh8cLXn~AgenhNVBTtSVRU6lrATK~VD6HaYDLpsYeLyIsyDUWZmveOF7Th1E-VCp3nZ6gjNrw3uNq5wHoQkXADhxATIZwN78LVHIvQQAg4a90rYPcYJCk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m15-02.png" style="margin: 0.1em;" alt="Anomaly detection with the multivariate Gaussian" title="Anomaly detection with the multivariate Gaussian" width="250">
+    </a></div>
+  </div>
+
++ Relationship to original model
+  + Original model: $p(x) = p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://d3c33hcgiwev3.cloudfront.net/_76dc0f4717572c816be29a39cdd2237a_Lecture15.pdf?Expires=1556755200&Signature=DTYe3QSPM-Y3QsNgYKQdrdSZ1qER7iRM2W29fz3pQhrj00~D3KKoT6Lh8cLXn~AgenhNVBTtSVRU6lrATK~VD6HaYDLpsYeLyIsyDUWZmveOF7Th1E-VCp3nZ6gjNrw3uNq5wHoQkXADhxATIZwN78LVHIvQQAg4a90rYPcYJCk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+        <img src="images/m15-03.png" style="margin: 0.1em;" alt="P(x) with Gaussian distribution convolution" title="Individual parameters with i.i.i.d Gaussian distribution" width="600">
+      </a></div>
+    </div>
+  
+  + Corresponding to multivariate Gaussian
+
+    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( -\dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x - \mu) \right)$$
+
+    where 
+
+    $$\Sigma = \begin{bmatrix} \sigma_1^2 & 0 & \cdots & 0 \\ 0 & \sigma_2^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix}$$
+
++ Original Model vs. Multivariate Gaussian odel
+  + Original model
+    + $p(x) = p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$
+    + Manually create features to capture anomalies where $x_1, x_2,$ take unusual combinations of values, e.g., $x_3 = \dfrac{x_1}{x_2} = \dfrac{\text{CPU load}}{\text{memory}}$
+    + Computationally cheaper (alternatively, scales better to large); e.g., $n = 10,000, n=100,000$
+    + OK even if $m$ (training size) is small
+  + Multivariate Gaussian model
+    + $p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( -\dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x - \mu) \right)$
+    + Automatically captures correlations between features; $\Sigma \in \mathbb{R}^{n \times n}$ and $\Sigma^{-1}$
+    + Computationally more expensive: $\Sigma \backsim \frac{n^2}{2}$ parameters
+    + Must have $m > n$ (typical condition: $m \geq 10 \cdot n$), or else $\Sigma$ is non-invertible (redundant features, including duplicate or linear relation)
+
++ IVQ: Consider applying anomaly detection using a training set $\{x^{(1)}, \dots, x^{(m)}\}$ where $x^{(i)}\in \mathbb{R}^n$. Which of the following statements are true? Check all that apply.
+
+  1. The original model $p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$ corresponds to a multivariate Gaussian where the contours of $p(x;\mu,\Sigma)$ are axis-aligned.
+  2. Using the multivariate Gaussian model is advantageous when $m$ (the training set size) is very small ($m < n$).
+  3. The multivariate Gaussian model can automatically capture correlations between different features in $x$.
+  4. The original model can be more computationally efficient than the multivariate Gaussian model, and thus might scale better to very large values of n (number of features).
+
+  Ans: 124
 
 
 #### Lecture Video
