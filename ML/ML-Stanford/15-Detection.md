@@ -690,21 +690,25 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
   2. From a large set of primary care patient records, identify individuals who might have unusual health conditions.
   3. Given a dataset of credit card transactions, identify unusual transactions to flag them as possibly fraudulent.
   4. Given an image of a face, determine whether or not it is the face of a particular famous individual.
+  5. In a computer chip fabrication plant, identify microchips that might be defective.
+  6. From a large set of hospital patient records, predict which patients have a particular disease (say, the flu).
 
-  Ans: 13 <br/>
+  Ans: 52 (5261), x13 <br/>
   (1) False: Anomaly detection is not appropriate for a traditional classification problem. <br/>
-  (2) True
+  (2) True: Since you are just looking for unusual conditions instead of a particular disease, this is a good application of anomaly detection.
   (3) True: By modeling "normal" credit card transactions, you can then use anomaly detection to flag the unusuals ones which might be fraudulent.
   (4) False
+  (5) True: The defective chips are the anomalies you are looking for by modeling the properties of non-defective chips.
 
 
-2. Suppose you have trained an anomaly detection system that flags anomalies when $p(x)$ is less than $\epsilon$, and you find on the cross-validation set that it has too many false negatives (failing to flag a lot of anomalies). What should you do?
+2. Suppose you have trained an anomaly detection system that flags anomalies when $p(x)$ is less than $\epsilon$, and you find on the cross-validation set that it has too many false negatives (failing to flag a lot of anomalies) / false positives (flagging too many things as anomalies). What should you do?
 
   1. Decrease ε
   2. Increase ε
 
-  Ans: x1 <br/>
-  Explain: By decreasing $\epsilon$, you will flag more anomalies, not fewer.
+  Ans: 1 (false positives), x1 (false negatives) <br/>
+  false negatives: By decreasing $\epsilon$, you will flag more anomalies, not fewer. <br/>
+  false positives: By decreasing ε, you will flag fewer anomalies, as desired.
 
 
 3. Suppose you are developing an anomaly detection system to catch manufacturing defects in airplane engines. You model uses
@@ -728,10 +732,20 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
   2. In a typical anomaly detection setting, we have a large number of anomalous examples, and a relatively small number of normal/non-anomalous examples.
   3. When evaluating an anomaly detection algorithm on the cross validation set (containing some positive and some negative examples), classification accuracy is usually a good evaluation metric to use.
   4. When developing an anomaly detection system, it is often useful to select an appropriate numerical performance metric to evaluate the effectiveness of the learning algorithm.
+  5. If you have a large labeled training set with many positive examples and many negative examples, the anomaly detection algorithm will likely perform just as well as a supervised learning algorithm such as an SVM.
+  6. If you are developing an anomaly detection system, there is no way to make use of labeled data to improve your system.
+  7. When choosing features for an anomaly detection system, it is a good idea to look for features that take on unusually large or small values for (mainly the) anomalous examples.
+  8. If you do not have any labeled data (or if all your data has label $y=0$), then is still possible to learn $p(x)$, but it may be harder to evaluate the system or choose a good value of $\epsilon$.
 
-  Ans: 14 <br/>
-  (1) We want to model "normal" examples, so we only use negative examples in training. <br/>
-  (4) You should have a good evaluation metric, so you can evaluate changes to the model such as new features.
+  Ans: (5678), 14 (1234)<br/>
+  (1) True: We want to model "normal" examples, so we only use negative examples in training. <br/>
+  (2) False
+  (3) False
+  (4) True: You should have a good evaluation metric, so you can evaluate changes to the model such as new features.
+  (5) False
+  (6) False: Labeled data are useful in cross-validation and testing for evaluating the system and setting the parameter $\epsilon$.
+  (7) True: These are good features, as they will lie outside the learned model, so you will have small values for $p(x)$ with these examples.
+  (8) True
 
 
 5. You have a 1-D dataset $\{x^{(1)}, \ldots, x^{(m)}\}$ and you want to detect outliers in the dataset. You first plot the dataset and it looks like this:
@@ -751,4 +765,7 @@ In the Developing and Evaluating an Anomaly Detection System video an alternativ
 
   Ans: 1 <br/>
   (1) This is correct, as the data are centered around -3 and tail most of the points lie in [-5, -1].
+
+
+
 
