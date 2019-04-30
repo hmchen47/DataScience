@@ -404,6 +404,27 @@
     + [Errata](15-Detection.md#)
     + [Quiz: Anomaly Detection](15-Detection.md#)
 
+## Recommender Systems
+
++ [Predicting Movie Ratings](16-Recommend.md#)
+    + [Problem Formulation](16-Recommend.md#)
+    + [Content Based Recommendations](16-Recommend.md#)
++ [Collaborative Filtering](16-Recommend.md#)
+    + [Collaborative Filtering](16-Recommend.md#)
+    + [Collaborative Filtering Algorithm](16-Recommend.md#)
++ [Low Rank Matrix Factorization](16-Recommend.md#)
+    + [Vectorization: Low Rank Matrix Factorization](16-Recommend.md#)
+    + [Implementational Detail: Mean Normalization](16-Recommend.md#)
++ [Review](16-Recommend.md#)
+    + [Lecture Slides](16-Recommend.md#)
+    + [Errata](16-Recommend.md#)
+    + [Quiz: Recommender Systems](16-Recommend.md#)
+
+
+## Programming Assignment: Anomaly Detection and Recommender Systems
+
+
+
 
 
 Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
