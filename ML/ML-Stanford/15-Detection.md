@@ -234,8 +234,8 @@
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.4-AnomalyDetection-DevelopingAndEvaluatingAnAnomalyDetectionSystem.232124b0b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1556755200&Signature=TG19dMp6RPhDSKlWCdYBqAjAP8nbsqulBYcEy1rjbrYC8OYCNgIEJk6xDaDc0LfEBuPJs6UEy6hN2TGfJkdGCngMVgl23kFafUS4lw1hKDsor1fuigVMbM3-jU6BVWqUg9TGmwNcnJtb-OYXv90qS2oe9s4EZkC43w8TepWPieA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/OO6CYLguTTmugmC4Li05KQ?expiry=1556755200000&hmac=0PuuNWo4s7e56fQpLKQBZEJplpoqcSmy146F_h2V0xs&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
