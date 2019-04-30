@@ -244,13 +244,40 @@
 
 #### Lecture Notes
 
++ Anomaly detection vs. Supervised learning
+  + Anomaly detection
+    + Very small number of positive examples ($y=1$). (__0-20__ is common)
+    + Large number of negative ($y=0$) examples (to fit $p(x)$ with Gaussian distribution)
+    + Many different "types" of anomalies.  hard for any algorithm to learn from positive examples what the anomalies look like
+    + Future anomalies may look nothing like any of the anomalous examples we've see so far
+    + Examples
+      + Fraud detection
+      + Manufacturing (e.g., aircraft engines)
+      + Monitoring machines in a data center
+  + Supervised learning
+    + Large number of positive and negative examples
+    + Enough positive examples for algorithm= to get a sense of what positive examples are like
+    + Future positive examples likely to be similar to ones in training set
+    + Examples
+      + Email spam classification
+      + Weather prediction (sunny/rainy/etc.)
+      + Cancer classification
+
++ IVQ: Which of the following problems would you approach with an anomaly detection algorithm (rather than a supervised learning algorithm)? Check all that apply.
+
+  1. You run a power utility (supplying electricity to customers) and want to monitor your electric plants to see if any one of them might be behaving strangely.
+  2. You run a power utility and want to predict tomorrow’s expected demand for electricity (so that you can plan to ramp up an appropriate amount of generation capacity).
+  3. A computer vision / security application, where you examine video images to see if anyone in your company’s parking lot is acting in an unusual way.
+  4. A computer vision application, where you examine an image of a person entering your retail store to determine if the person is male or female.
+
+  Ans: 13
 
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/16.5-AnomalyDetection-AnomalyDetectionVsSupervisedLearning-V1.b295d820b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1556755200&Signature=Fox8p8daSvX8wNpmhS~xFrGxCG03xqpiBvU8Q7tNUcVnG8NSHsNH~9m3Vf~qIB3j5C7cvifHHLDcpAicpJQHO3cEmOOPTFaFAltpZ-jIefQ4BE7XFAWIvH7G4e8DM0G2hYgurZnazRJH6zGqCEU9Qbk4~NI4Na82qLfZmsEmED8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/1O25ppNNShqtuaaTTQoaaQ?expiry=1556755200000&hmac=NSyrf92cCuc6Yb52jAWNWLCZacjr5RxzfuF1pFTKsLg&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
