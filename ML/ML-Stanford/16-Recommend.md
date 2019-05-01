@@ -258,14 +258,55 @@
 
 #### Lecture Note
 
++ Example for Collaborative filtering
+
+  | Movie | Alice (1) | Bob (2) | Carol (3) | Dave (4) |
+  |-------|-----------|---------|-----------|----------|
+  | Love at last | 5 | 5 | 0 | 0 |
+  |Romance forever | 5 | ? | ? | 0 |
+  | Cute puppies of love | ? | 4 | 0 | ? |
+  | Nonstop car chases | 0 | 0 | 5 | 4 |
+  | Swords vs. karate | 0 | 0 | 5 | ? |
+  <br/>
+
+  $$Y = [y^{(i, j)}] = \begin{bmatrix} 5 & 5 & 0 & 0 \\ 5 & ? & ? & 0 \\ ? & 4 & 0 & ? \\ 0 & 0 & 5 & 4 \\ 0 & 0 & 5 & 0 \end{bmatrix}$$
+
++ Collaborative filtering
+  + Predicted ratings: $(i,j) \rightarrow (\theta^{(j)})^T(x^{(i)})$
+
+    $$X \Theta^T = \begin{bmatrix} (\theta^{(1)})^T(x^{(1)}) & (\theta^{(2)})^T(x^{(1)}) & \cdots & (\theta^{(n_u)})^T(x^{(1)}) \\ (\theta^{(1)})^T(x^{(2)}) & (\theta^{(2)})^T(x^{(2)}) & \cdots & (\theta^{(n_u)})^T(x^{(2)}) \\ \vdots & \vdots & \ddots & \vdots \\ (\theta^{(1)})^T(x^{(n_m)}) & (\theta^{(2)})^T(x^{(n_m)}) & \cdots & (\theta^{(n_u)})^T(x^{(n_m)}) \end{bmatrix}$$ 
+    <br/>
+
+    $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}$$
+  + a.k.a Low rank matrix factorization
+
+  + IVQ: Let $X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}$
+
+    What is another way of writing the following:
+
+    $$\begin{bmatrix} (x^{(1)})^T(θ^{(1)}) & \cdots & (x(1))T(θ(n_u)) \\ \vdots & \ddots & \vdots \\ (x(n_m))^T(θ(1)) & \cdots & (x(n_m))^T(θ(n_u)) \end{bmatrix}$$
+
+    1. $X\Theta$
+    2. $X^T\Theta$
+    3. $X\Theta^T$
+    4. $\Theta^TX^T$
+
+    Ans: 3
+
++ Finding related movies
+  + For each product $i$, we learn a feature vector $x^{(i)} \in \mathbb{R}^n$; e.g., $x_1$ = romance, $x_2$ = action, $x_3$ = comedy, $x_4 = \dots$
+  + How to fidn movies $j$ related to movie $i$?
+
+    $$\parallel x^{(i)} - x^{(j)} \parallel \rightarrow 0 \implies \text{movie } j \text{ and } i \text { are "similar"}$$
+  + 5 most similar movies to movie $i$: find the 5 movies with the smallest $\parallel x^{(i)} - x^{(j)} \parallel$
 
 
 
 #### Lecture Video
 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/17.5-RecommenderSystems-VectorizationLowRankMatrixFactorization.3f9b07a0b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1556841600&Signature=Meauz1tCZb0teRaNL2AGdYX~m6lk1qzsnbXiXeUKlWCNqBCby5xR8KykNZuUdJj6TIgFREIiHl85ZXq1raKDs9ErPUwqY4zlTZyzA5kRkU~mARS2YZ1v-G08mWYDQ2VCeXHJE9p3ajj-yuzHysyReCbtZiX1vY9q1Wc1jXdeQP4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/IJUQPlfaSVyVED5X2vlctg?expiry=1556841600000&hmac=dq4186hWUBr93LyJYukbbB4jY4Xw55vLZLdMPxHPskk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
