@@ -95,7 +95,7 @@
     $$\min_{\theta^{(i, j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}$$
   + To learn $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$:
 
-    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} = \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
 
 + Optimization algorithm:
   + Objective: 
@@ -122,14 +122,82 @@
 
 #### Lecture Note
 
++ Problem Motivation
 
+  | Example  | Movie | Alice (1) <br/> $\theta^{(1)}$ | Bob (2) <br/> $\theta^{(2)}$ | Carol (3) <br/> $\theta^{(3)}$  | Dave (4) <br/> $\theta^{(4)}$  | $x_1$ <br/> (romance) | $x_2$ <br/> (action) |
+  |:---------:|:-----:|:--------:|:-------:|:---------:|:-------:|:---:|:---:|
+  | $x^{(1)}$ | Love at last | 5 | 5 | 0 | 0 | ? | ? |
+  | $x^{(2)}$ |Romance forever | 5 | ? | ? | 0 | ? | ? |
+  | $x^{(3)}$ | Cute puppies of love | ? | 4 | 0 | ? | ? | ? |
+  | $x^{(4)}$ | Nonstop car chases | 0 | 0 | 5 | 4 | ? | ? |
+  | $x^{(5)}$ | Swords vs. karate | 0 | 0 | 5 | ? | ? | ? |
+
+  + Initial guess based on the info from table
+
+    $$\theta^{(1)} = \begin{bmatrix} 0 \\ 5 \\ 0 \end{bmatrix}, \quad \theta^{(2)} = \begin{bmatrix} 0 \\5 \\ 0 \end{bmatrix}, \quad \theta^{(3)} = \begin{bmatrix} 0 \\ 0 \\ 5 \end{bmatrix}, \quad \theta^{(4)} = \begin{bmatrix} 0 \\ 0 \\ 5 \end{bmatrix} \implies \theta^{(j)}$$
+    <br/>
+  
+  + Guess $x^{(i))}$ based on the info in rows
+    + $x^{(1)} = \begin{bmatrix} 1 \\ 1.0 \\ 0.0 \end{bmatrix} \longrightarrow$ the 1st sample rated as romance than action
+
+  + Based on the guess, expect to have the following result
+
+    $$(\theta^{(1)})^T x^{(1)} \approx 5 \qquad (\theta^{(2)})^T x^{(2)} \approx 5  \qquad (\theta^{(3)})^T x^{(3)} \approx 0 \qquad (\theta^{(4)})^T x^{(4)} \approx 0$$
+
+  + IVQ: Consider the following movie ratings:
+
+    | . | User 1 | User 2 | User 3 | (romance) |
+    |--|--|--|--|--|
+    | Movie 1 | 0 | 1.5 | 2.5 | ? |
+    
+    Note that there is only one feature $x_1$. Suppose that:
+
+    $$\theta^{(1)} = \begin{bmatrix} 0 \\0 \end{bmatrix}, \ \theta^{(2)} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}, \ \theta^{(3)} = \begin{bmatrix} 0 \\ 5 \end{bmatrix}$$
+
+    What would be a reasonable value for $x_1^{(1)}$ (the value denoted "?" in the table above)?
+
+    1. 0.5
+    2. 1
+    3. 2
+    4. Any of these values would be equally reasonable.
+
+    Ans: 1
+
+
++ Optimization algorithm
+  + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$. to learn $x^{(i)}$:
+
+    $$\min_{x^{(i)}} \dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+
+  + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$. to learn $x^{(i)}. \dots, x^{(n_m)}$:
+
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+
+  + IVQ: Suppose you use gradient descent to minimize:
+
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+
+    Which of the following is a correct gradient descent update rule for $i\neq 0$?
+
+    1. $x_k^{(i)} := x_k^{(i)} + \alpha\left(\sum_{j:r(i,j)=1}\left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)}\right)\theta_k^{(j)}\right)$
+    2. $x_k^{(i)} := x_k^{(i)} - \alpha\left(\sum_{j:r(i,j)=1}\left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)}\right)\theta_k^{(j)}\right)$
+    3. $x_k^{(i)} := x_k^{(i)} + \alpha\left(\sum_{j:r(i,j)=1}\left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)}\right)\theta_k^{(j)} + \lambda x_k^{(i)}\right)$
+    4. $x_k^{(i)} := x_k^{(i)} - \alpha\left(\sum_{j:r(i,j)=1}\left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)}\right)\theta_k^{(j)}+ \lambda x_k^{(i)}\right)$
+
+    Ans: 4
+
+
++ Collaborative filtering
+  + Given $x^{(1)}, \dots, x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \dots, \theta^{(n_u)}$
+  + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
+  + Guess $\theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \dots$
 
 
 #### Lecture Video
 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/17.3-RecommenderSystems-CollaborativeFiltering-V1.b51cf830b22b11e49f072fa475844d6b/full/360p/index.mp4?Expires=1556841600&Signature=Qaz73CPbRjOh-ndSh77gNvUzfrEtFF90O8xNvJQU460DuKGj6DJRzYuh6ySV9cGMmV1zAqsF6ZtEBD5ooJpdopIqI7EGxOg052yT~eAc9h~B2K-0pplw2N~dXaqfLXOHddEFPOEVOMhTJmOf73cNL8PIIl4f2oBC~tKlGZAb~Bg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/lv6r7GOkSjO-q-xjpCozkg?expiry=1556841600000&hmac=2yUD_IBSJYDZGqEsBqwxpOUJQBmefSBL1c2JsxQn_4o&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
