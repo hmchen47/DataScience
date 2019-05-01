@@ -220,7 +220,7 @@
     $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2$$
     <br/>
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$$
+    $$\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$$
   
   + $\theta_0$ and $x_0$ are not required: $x \in \mathbb{R}^n, \theta \in \mathbb{R}^n$
 
@@ -315,14 +315,56 @@
 
 #### Lecture Note
 
++ users who have not rated any movies
 
+  | Example  | Movie | Alice (1) <br/> $\theta^{(1)}$ | Bob (2) <br/> $\theta^{(2)}$ | Carol (3) <br/> $\theta^{(3)}$  | Dave (4) <br/> $\theta^{(4)}$  | Eve(5) <br/> $\theta^{(5)}$ |
+  |:---------:|:-----:|:--------:|:-------:|:---------:|:-------:|:---:|
+  | $x^{(1)}$ | Love at last | 5 | 5 | 0 | 0 | ? |
+  | $x^{(2)}$ |Romance forever | 5 | ? | ? | 0 | ? |
+  | $x^{(3)}$ | Cute puppies of love | ? | 4 | 0 | ? | ? |
+  | $x^{(4)}$ | Nonstop car chases | 0 | 0 | 5 | 4 | ? |
+  | $x^{(5)}$ | Swords vs. karate | 0 | 0 | 5 | ? | ? |
+  <br/>
+
+  $$Y =  \begin{bmatrix} 5 & 5 & 0 & 0 & ? \\ 5 & ? & ? & 0 & ? \\ ? & 4 & 0 & ? & ? \\ 0 & 0 & 5 & 4 & ? \\ 0 & 0 & 5 & 0 & ? \end{bmatrix}$$
+  <br/>
+
+  $$\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2$$
+
+  + Example: $n=2, \theta^{(5)} \in \mathbb{R}^2 \longrightarrow \theta^{(5)} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$
+  
+    $$\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \underbrace{\dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2}_{\frac{\lambda}{2} \left[ (\theta_1^{(5)})^2 + (\theta_2^{(5)})^2 \right]}$$
+    <br/>
+
+    $$\theta^{(5)})^Tx^{(i)} = 0 \rightarrow \text{ all rated } 0$$
+  
++ Mean normalization
+
+  $$Y = \begin{bmatrix} 5 & 5 & 0 & 0 & ? \\ 5 & ? & ? & 0 & ? \\ ? & 4 & 0 & ? & ? \\ 0 & 0 & 5 & 4 & ? \\ 0 & 0 & 5 & 0 & ? \end{bmatrix} \qquad\qquad \mu = \begin{bmatrix} 2.5 \\ 2.5 \\2 \\ 2.25 \\ 1.25  \end{bmatrix} \rightarrow Y = \begin{bmatrix} 2.5 & 2.5 & -2.5 & -2.5 & ? \\2.5 & ? & ? & -2.5 & ? \\ ? & 2 & -2 & ? & ? \\ -2.25 & -2.25 & 2.75 & 1.75 & ? \\ -1.25 & -1.25 & 3.75 & -1.25 & ? \end{bmatrix} \rightarrow \text{ learn } \theta^{(j)}, x^{(i)}$$
+
+  + For user $j$, on movie $i$ predict: 
+  
+    $$(\theta^{(j)})^T (x^{(i)}) + \mu_i$$
+
+  + User 5 (Eve): 
+
+    $$\theta^{(5)} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \;\rightarrow\; \underbrace{(\theta^{(j)})^T (x^{(i)})}_{ = 0} + \mu_i = \mu_i$$
+
+  + IVQ: We talked about mean normalization. However, unlike some other applications of feature scaling, we did not scale the movie ratings by dividing by the range (max – min value). This is because:
+
+    1. This sort of scaling is not useful when the value being predicted is real-valued.
+    2. All the movie ratings are already comparable (e.g., 0 to 5 stars), so they are already on similar scales.
+    3. Subtracting the mean is mathematically equivalent to dividing by the range.
+    4. This makes the overall algorithm significantly more computationally efficient.
+
+  Ans: 2
 
 
 #### Lecture Video
 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/17.6-RecommenderSystems-ImplementationalDetailMeanNormalization.536281a0b22b11e48803b9598c8534ce/full/360p/index.mp4?Expires=1556841600&Signature=eiXk0JTMr83ujViKtzRyxjKgNsQKeki1F0j4S3~PC4RwYeGcpwjph28ihx7h10yotfQwaDvv1mmWrJLefkzN4gv4grICCb8qSgHc-l6-nhBaJV9q2y6uynd97-0LuFZEqK3t6B6N1BsT0wTvWt5qB5UHkfiCLHICwyhiYuysDDU_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/HzBcIU_4QDGwXCFP-IAxRw?expiry=1556841600000&hmac=hXWjhVy7tE9qct10o9EFUiNSKfVKKd8gxKYpDUTYKuE&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
