@@ -167,15 +167,15 @@
 + Optimization algorithm
   + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$. to learn $x^{(i)}$:
 
-    $$\min_{x^{(i)}} \dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(i)}} \dfrac{1}{2} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
 
   + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$. to learn $x^{(i)}. \dots, x^{(n_m)}$:
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
 
   + IVQ: Suppose you use gradient descent to minimize:
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
 
     Which of the following is a correct gradient descent update rule for $i\neq 0$?
 
@@ -206,14 +206,47 @@
 
 #### Lecture Note
 
++ Collaboration filtering optimization objective
+  + Given $x^{(1)}, \dots, x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \dots, \theta^{(n_u)}$
+
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+
+  + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
+
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+
+  + Minimizing $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)}, \dots, \theta^{(n_u)}$ simultaneously:
+
+    $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2$$
+    <br/>
+
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$$
+  
+  + $\theta_0$ and $x_0$ are not required: $x \in \mathbb{R}^n, \theta \in \mathbb{R}^n$
+
++ Collaborative filtering algorithm
+  1. Initialize $x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}$ to small random values
+  2. Minimize $J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$ using gradient decent (or an advanced optimization algorithm)., e.g., for every $j = 1, \dots, n_u, i=1, \dots, n_m$:
+
+    $$\begin{array}{rcl} x_k^{(i)} &:=& x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)\end{array}$$
+  3. For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a start rating of $\theta^Tx$. [rating for user $j$ and movie $i$: $(\theta^{(j)})^T(x^{(i)})$]
+
+  + IVQ: In the algorithm we described, we initialized $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)},\dots,\theta^{(n_u)}$ to small random values. Why is this?
+
+    1. This step is optional. Initializing to all 0’s would work just as well.
+    2. Random initialization is always necessary when using gradient descent on any problem.
+    3. This ensures that $x^{(i)} \neq \theta^{(j)}$ for any $i,j$.
+    4. This serves as symmetry breaking (similar to the random initialization of a neural network’s parameters) and ensures the algorithm learns features $x^{(1)}, \dots, x^{(n_m)}$ that are different from each other.
+
+    Ans: 4
 
 
 
 #### Lecture Video
 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/17.4-RecommenderSystems-CollaborativeFilteringAlgorithm.c265b220b22b11e4a416e948628da1fd/full/360p/index.mp4?Expires=1556841600&Signature=MKZnUQ5YdDRv7~1~0UACFRKPucREISV~9GlF8PjSt6tmnLo5FlFwyA1KIXDaJb8aBoDU4NOGVdIHqh~3zalLArwqkAH~UwURb48DsCuHzPsc4C-b5k7FRLkthAGFyUxixOx4ZhN8msaWNbKH1GCAuVN4yCUczNqje4Nh2y67l~k_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/pnw6TUaXTLa8Ok1Glxy2sw?expiry=1556841600000&hmac=1jjKVTNL6Brr-WnLl_sCrgQrc6iYnnmgYQ0HVdV2lHQ&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
@@ -325,7 +358,7 @@ These are the steps in the algorithm:
 1. Initialize $x^{(i)},...,x^{(n_m)},\theta^{(1)},...,\theta^{(n_u)}$ to small random values. This serves to break symmetry and ensures that the algorithm learns features $x^{(i)},...,x^{(n_m)}$ that are different from each other.
 2. Minimize $J(x^{(i)},...,x^{(n_m)},\theta^{(1)},...,\theta^{(n_u)})$ using gradient descent (or an advanced optimization algorithm).E.g. for every $j=1,\dots,n_u,i=1,\dots n_m$:
 
-  $$x_k^{(i)} := x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \theta_k^{(j)} := \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)$$
+  $$\begin{array}{rcl} x_k^{(i)} &:=& x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)\end{array}$$
 ​ |  
 3. For a user with parameters θ and a movie with (learned) features $x$, predict a star rating of $\theta^Tx$.
 
