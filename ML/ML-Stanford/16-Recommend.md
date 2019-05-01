@@ -7,14 +7,45 @@
 
 #### Lecture Note
 
++ Example: Predicting movie ratings
+  + User rates movies using zero to five starts
 
+    | Movie | Alice (1) | Bob (2) | Carol (3) | Dave (4) |
+    |-------|-----------|---------|-----------|----------|
+    | Love at last | 5 | 5 | 0 | 0 |
+    |Romance forever | 5 | ? | ? | 0 |
+    | Cute puppies of love | ? | 4 | 0 | ? |
+    | Nonstop car chases | 0 | 0 | 5 | 4 |
+    | Swords vs. karate | 0 | 0 | 5 | ? |
 
+  + Notations:
+    + $n_u\;$: no. users
+    + $n_m\;$: no. movies
+    + $r(i, j)\;$: 1 if user $j$ has rated movie $i$; 0 for others
+    + $y^{(i, j)}\;$: rating given by user $j$ to movie $i$ (defined only if $r(i, j) = 1$); $y^{(i, j)} \in \{1, 2, 3, 4, 5\}$
+
+  + Parameters: $n_u = 4, n_m = 5$
+
+  + IVQ: In our notation, $r(i,j)=1$ if user $j$ has rated movie $i$, and $y^{(i,j)}$ is his rating on that movie. Consider the following example (no. of movies $n_m=2$, no. of users $n_u=3$
+  
+    | Movie  | User 1 | User 2 | User 3 |
+    |--------|--------|--------|--------|
+    | Movie 1 | 0 | 1 | ?
+    | Movie 2 | ? | 5 | 5
+
+    What is $r(2,1)$? How about $y^{(2,1)}$?
+
+    1. $r(2,1) = 0,\ y^{(2,1)} = 1$
+    2. $r(2,1) = 1,\ y^{(2,1)} = 1$
+    3. $r(2,1) = 0,\ y^{(2,1)} = \text{undefined}$
+    4. $r(2,1) = 1,\ y^{(2,1)} = \text{undefined}$
+
+    Ans: 3
 
 #### Lecture Video
 
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/17.1-RecommenderSystems-ProblemFormulation.68db7c30b22b11e4aca907c8d9623f2b/full/360p/index.mp4?Expires=1556755200&Signature=CtDjHXBd4CsmFyCc6uQUK7WPZ-3MoRxQcpzjkaKWiIGyeCRC60y0GfhxNAGO4TdM5p0HYqBfk2CvFbeCanPY2vzIcp~p~phuyvkGRvn5hLVVBHdeVcvUEcdtSxoiDhgHf2hACM99AoW~MTY71EscQY4VkYep00VL7KPLUlfTHEk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/ktecjTO-SX6XnI0zvrl-sA?expiry=1556755200000&hmac=mMdYynsAyrnhY2f3UENYH7w985vZj6K9y2rXZL706rg&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
@@ -177,7 +208,7 @@ These are the steps in the algorithm:
 2. Minimize $J(x^{(i)},...,x^{(n_m)},\theta^{(1)},...,\theta^{(n_u)})$ using gradient descent (or an advanced optimization algorithm).E.g. for every $j=1,\dots,n_u,i=1,\dots n_m$:
 
   $$x_k^{(i)} := x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \theta_k^{(j)} := \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)$$
-​	 
+​ |  
 3. For a user with parameters θ and a movie with (learned) features $x$, predict a star rating of $\theta^Tx$.
 
 
@@ -215,7 +246,7 @@ $$Y^\prime = \begin{bmatrix} 2.5 & 2.5 & -2.5 & -2.5 \\ 2 & ? & ? & -2 \\ -2.25 
 Now we must slightly modify the linear regression prediction to include the mean normalization term:
 
 $$(\theta^{(j)})^T x^{(i)} + \mu_i$$
-​	 
+​ |  
 
 Now, for a new user, the initial predicted values will be equal to the μ term instead of simply being initialized to zero, which is more accurate.
 
