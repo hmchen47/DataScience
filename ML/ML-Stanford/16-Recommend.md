@@ -54,14 +54,64 @@
 
 #### Lecture Note
 
++ Content-based recommender systems
 
+  | Example  | Movie | Alice (1) <br/> $\theta^{(1)}$ | Bob (2) <br/> $\theta^{(2)}$ | Carol (3) <br/> $\theta^{(3)}$  | Dave (4) <br/> $\theta^{(4)}$  | $x_1$ <br/> (romance) | $x_2$ <br/> (action) |
+  |:---------:|:-----:|:--------:|:-------:|:---------:|:-------:|:---:|:---:|
+  | $x^{(1)}$ | Love at last | 5 | 5 | 0 | 0 | 0.9 | 0 |
+  | $x^{(2)}$ |Romance forever | 5 | ? | ? | 0 | 1.0 | 0.01 |
+  | $x^{(3)}$ | Cute puppies of love | ? | 4 | 0 | ? | 0.99 | 0 |
+  | $x^{(4)}$ | Nonstop car chases | 0 | 0 | 5 | 4 | 0.1 | 1.0 |
+  | $x^{(5)}$ | Swords vs. karate | 0 | 0 | 5 | ? | 0 | 0.9 |
+
+  + Parameters: $n_u = 4, n_m = 5, x_0 = 1, n = 2$
+  + For each user $j$, learn a parameter $\theta^{(j)} \in \mathbb{R}^3$.  Predict user $j$ as rating movie $i$ with $(\theta^{(j)})^Tx^{(i)}$ starts. ($\theta^{(j)}$ values discussed later)
+
+    $$x^{(3)} = \begin{bmatrix} 1 \\ 0.99 \\ 0 \end{bmatrix} \quad\longleftrightarrow\quad \theta^{(1)} = \begin{bmatrix} 0 \\ 5 \\ 0 \end{bmatrix} \implies (\theta^{(1)})^Tx^{(3)} = 5 \times 0.99 = 4.95$$
+  + IVQ: Consider the following set of movie ratings (see above table). Which of the following is a reasonable value for $\theta^{(3)}$? Recall that $x_0 = 1$.
+
+    1. $\theta^{(3)} = \begin{bmatrix} 0 \\ 5 \\ 0 \end{bmatrix}$
+    2. $\theta^{(3)} = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$
+    3. $\theta^{(3)} = \begin{bmatrix} 1 \\ 0 \\ 4 \end{bmatrix}$
+    4. $\theta^{(3)} = \begin{bmatrix} 0 \\ 0 \\ 5 \end{bmatrix}$
+
+    Ans: 4
+
+
++ Problem formulation
+  + $r(i, j)$ = 1 if user $j$ has rated movie $i$ (0 otherwise)
+  + $y^{(i, j)}$ = rating by user $j$ on movie $i$ (if defiuned)
+  + $\theta^{(j)}$ = parameter vector for user $j$; $\theta^{(j)} \in \mathbb{R}^{n+1}$
+  + $x^{(i)}$ = feature vector for movie $i$
+  + Predicted rating: $(\theta^{(j)})^T(x^{(i)})$ for user $j$, movie $i$
+  + $m^{(j)}$ = no. of movies rated by user $j$
+  + Objective: to learn $\theta^{(j)}$
+
+    $$\min_{\theta^{(i, j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+
++ Optimization objective:
+  + To learn $\theta^{(j)}$ (parameter for user $j$): (with $m^{(j)}$ factor removed)
+
+    $$\min_{\theta^{(i, j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}$$
+  + To learn $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$:
+
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} = \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+
++ Optimization algorithm:
+  + Objective: 
+
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \underbrace{\dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2}_{J(\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)})}$$
+
+  + Gradient descent update:
+
+    $$\begin{array}{rcll} \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha \sum_{i: r(i, j) = 1} \left( (\theta^{(i, j)})^T x^{(i)} - y^{(i, j)} \right)^2 &\quad (\text{for } k = 0) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha \underbrace{\left( \sum_{i: r(i, j) = 1} ((\theta^{(i, j)})^T x^{(i)} - y^{(i, j)})x_k^{(i)} + \lambda \theta_k^{(j)} \right)}_{\frac{\partial}{\partial \theta_k^{(j)}} J(\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)})} & \quad (\text{for } k \neq 0) \end{array}$$
 
 
 #### Lecture Video
 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/17.2-RecommenderSystems-ContentBasedRecommendations.0d0f1e70b22b11e48803b9598c8534ce/full/360p/index.mp4?Expires=1556841600&Signature=FcnKwZMJhqzIR-UddYAgH-bgTt~ZHO0LdWZNPKbOSERakpLUOgUNYfpC9sHoL42J-OlnjB21Q0u~H6ez-XPVm3KNeJ0jO1GfPGki90ucpe2GRqE0OmebTeuAlI4g1XsQBlAP~02S4O7hhrGSv57xsag3oHp7XmqWp3Z2GMdKk-0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/dT8f9QRDSA2_H_UEQxgNWw?expiry=1556841600000&hmac=F3gtOz7Hwv3oI7eHC4WiNDTqiDH5pFtoGCpj1QoIJDo&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
