@@ -528,7 +528,7 @@ In `ex8.pdf` at the bottom of page 8, the text says that the number of features 
     3. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} (( \theta^{(j)})_i x^{(i)}_j - y^{(i,j)} )^2$
     4. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} ( \sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
   
-    Ans: X23 (4312), x13 (1234)
+    Ans: x14, X23 (4312), x13 (1234)
 
 
 
@@ -543,7 +543,7 @@ In `ex8.pdf` at the bottom of page 8, the text says that the number of features 
     7. You run an online bookstore and collect the ratings of many users. You want to use this to identify what books are "similar" to each other (i.e., if one user likes a certain book, what are other books that she might also like?)
     8. You're an artist and hand-paint portraits for your clients. Each client gets a different portrait (of themselves) and gives you 1-5 star rating feedback, and each client purchases at most 1 portrait. You'd like to predict what rating your next customer will give you.
 
-    Ans: X78 (5678), 12 (1234)
+    Ans: 67 (7658) X78 (5678), 12 (1234)
 
 
 
@@ -554,8 +554,10 @@ In `ex8.pdf` at the bottom of page 8, the text says that the number of features 
     2. Assuming that there is at least one movie/user in one database that doesn't also appear in a second database, there is no sound way to merge the datasets, because of the missing data.
     3. It is not possible to combine these websites' data. You must build three separate recommendation systems.
     4. You can combine all three training sets into one without any modification and expect high performance from a recommendation system.
+    5. You can merge the three datasets into one, but you should first normalize each dataset separately by subtracting the mean and then dividing by (max - min) where the max and min (5-1) or (10-1) or (100-1) for the three websites respectively.
+    6. You can combine all three training sets into one as long as your perform mean normalization and feature scaling after you merge the data.
 
-    Ans: 1
+    Ans: 5 (5374), 1 (1234)
 
 
 4. Which of the following are true of collaborative filtering systems? Check all that apply.
@@ -569,7 +571,7 @@ In `ex8.pdf` at the bottom of page 8, the text says that the number of features 
     7. Even if each user has rated only a small fraction of all of your products (so $r(i,j)=0$ for the vast majority of $(i,j)$ pairs), you can still build a recommender system by using collaborative filtering.
     8. For collaborative filtering, it is possible to use one of the advanced optimization algoirthms (L-BFGS/conjugate gradient/etc.) to solve for both the $x^{(i)}$'s and $\theta^{(j)}$'s simultaneously.
 
-    Ans: 78 (5678), 23 (1234)
+    Ans: 23 (2134), 78 (5678), 23 (1234)
 
 
 
