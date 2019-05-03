@@ -518,8 +518,65 @@ In `ex8.pdf` at the bottom of page 8, the text says that the number of features 
 ### Quiz: Recommender Systems
 
 
+1. Suppose you run a bookstore, and have ratings (1 to 5 stars) of books. Your collaborative filtering algorithm has learned a parameter vector $\theta^{(j)}$ for user $j$, and a feature vector $x^{(i)}$ for each book. You would like to compute the 
+"training error", meaning the average squared error of your system's predictions on all the ratings that you have gotten from your users. Which of these are correct ways of doing so (check all that apply)?
+
+    For this problem, let mm be the total number of ratings you have gotten from your users. (Another way of saying this is that $m = \sum_{i=1}^{n_m} \sum_{j=1}^{n_u} r(i,j)$. [Hint: Two of the four options below are correct.]
+
+    1. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} \sum_{k=1}^n (( \theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+    2. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} (\sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+    3. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} (( \theta^{(j)})_i x^{(i)}_j - y^{(i,j)} )^2$
+    4. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} ( \sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+  
+    Ans: x13 (1234)
 
 
+2. In which of the following situations will a collaborative filtering system be the most appropriate learning algorithm (compared to linear or logistic regression)?
+
+    1. You run an online news aggregator, and for every user, you know some subset of articles that the user likes and some different subset that the user dislikes. You'd want to use this to find other articles that the user likes.
+    2. You manage an online bookstore and you have the book ratings from many users. For each user, you want to recommend other books she will enjoy, based on her own ratings and the ratings of other users.
+    3. You manage an online bookstore and you have the book ratings from many users. You want to learn to predict the expected sales volume (number of books sold) as a function of the average rating of a book.
+    4. You've written a piece of software that has downloaded news articles from many news websites. In your system, you also keep track of which articles you personally like vs. dislike, and the system also stores away features of these articles (e.g., word counts, name of author). Using this information, you want to build a system to try to find additional new articles that you personally will like.
+
+    Ans: 12
+
+
+3. You run a movie empire, and want to build a movie recommendation system based on collaborative filtering. There were three popular review websites (which we'll call $A$, $B$ and $C$) which users to go to rate movies, and you have just acquired all three companies that run these websites. You'd like to merge the three companies' datasets together to build a single/unified system. On website $A$, users rank a movie as having 1 through 5 stars. On website $B$, users rank on a scale of 1 - 10, and decimal values (e.g., 7.5) are allowed. On website $C$, the ratings are from 1 to 100. You also have enough information to identify users/movies on one website with users/movies on a different website. Which of the following statements is true?
+
+    1. You can merge the three datasets into one, but you should first normalize each dataset's ratings (say rescale each dataset's ratings to a 1-100 range).
+    2. Assuming that there is at least one movie/user in one database that doesn't also appear in a second database, there is no sound way to merge the datasets, because of the missing data.
+    3. It is not possible to combine these websites' data. You must build three separate recommendation systems.
+    4. You can combine all three training sets into one without any modification and expect high performance from a recommendation system.
+
+    Ans: 1
+
+
+4. Which of the following are true of collaborative filtering systems? Check all that apply.
+
+    1. When using gradient descent to train a collaborative filtering system, it is okay to initialize all the parameters $(x^{(i)}$ and $\theta^{(j)}$ to zero.
+    2. Recall that the cost function for the content-based recommendation system is $J(\theta) = \frac{1}{2} \sum_{j=1}^{n_u} \sum_{i:r(i,j) =1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n (\theta_k^{(j)})^2$. Suppose there is only one user and he has rated every movie in the training set. This implies that $n_u = 1$ and $r(i,j) = 1$ for every $i,j$. In this case, the cost function $J(\theta)$ is equivalent to the one used for regularized linear regression.
+    3. If you have a dataset of users ratings' on some products, you can use these to predict one user's preferences on products he has not rated.
+    4. To use collaborative filtering, you need to manually design a feature vector for every item (e.g., movie) in your dataset, that describes that item's most important properties.
+
+    Ans: 23
+
+
+5. Suppose you have two matrices AA and BB, where AA is 5x3 and BB is 3x5. Their product is $C = AB$, a 5x5 matrix. Furthermore, you have a 5x5 matrix $\mathbb{R}$ where every entry is 0 or 1. You want to find the sum of all elements $C(i,j)$ for which the corresponding $R(i,j)$ is 1, and ignore all elements $C(i,j)$ where $R(i,j) = 0$. One way to do so is the following code:
+
+    Which of the following pieces of Octave code will also correctly compute this total? Check all that apply. Assume all options are in code.
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/3HGvu/recommender-systems">
+        <img src="iamges/m16-01.png" style="margin: 0.1em;" alt="Diagram for Q5 in Mod16" title="Diagram for Q5 in Mod16" width="350">
+      </a></div>
+    </div>
+
+    1. `total = sum(sum((A * B) .* R))`
+    2. `C = (A * B) .* R; total = sum(C(:));`
+    3. `total = sum(sum((A * B) * R));`
+    4. `C = (A * B) * R; total = sum(C(:));`
+
+    Ans: 12
 
 
 
