@@ -189,9 +189,9 @@
 + The importance of real-number evaluation
 	+ When developing a learning algorithm (choosing features, etc.), making decisions is much easier if we have a way of evaluating our learning algorithm
 	+ Assume we have some labeled data, of anomalous and non-anomalous examples, ($y = 0$ if normal, $y=1$ if anomalous)
-	+ Training dataset: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ (assume normal examples/not anomalous)
-	+ Cross validation set: $(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{m_{cv}})$
-  + Test set: $(x_{test}^{(1)}, y_{test}^{(1)}), \dots, (x_{test}^{(m_{test})}, y_{test}^{m_{test}})$
+	+ Training dataset: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ (assume normal examples/not anomalous)  
+	+ Cross validation set: $(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{(m_{cv})})$  
+  + Test set: $(x_{test}^{(1)}, y_{test}^{(1)}), \dots, (x_{test}^{(m_{test})}, y_{test}^{(m_{test})})$  
 
 + Example: Aircraft engines motivating example
   + Whole dataset:
@@ -200,11 +200,11 @@
   + Dataset separation
     + Training set: 6000 good engines ($y=0$) $\implies p(x) = p(x_1; \mu_1, \sigma_1^2) \dots p(x_n; \mu_n, \sigma_n^2)$
     + CV: 2000 good engines ($y=0$), 10 anomalous ($y=1$)
-    + Test: 2000 good engines ($y=0), 10 anomalous ($y=1$)
+    + Test: 2000 good engines ($y=0$), 10 anomalous ($y=1$)
   + Alternative (not recommended)
     + Training set: 6000 good engines ($y=0$)
     + CV: 4000 good engines ($y=0$), 10 anomalous ($y=1$)
-    + Test: =4000 good engines ($y=0), 10 anomalous ($y=1$)
+    + Test: 4000 good engines ($y=0$), 10 anomalous ($y=1$)
 
 + Algorithm evaluation
   + Fit model $p(x)$ on training set $\{x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$
@@ -213,11 +213,11 @@
     $$y = \begin{cases} 1 & \text{if } p(x) < \epsilon \text{ (anomaly)} \\ 0 & \text{if } p(x) \geq \epsilon \text{ (normal)} \end{cases}$$
   + Possible evaluation metrics:
     + True positive, false positive, false negative, true negative
-    + Prediction/recall
+    + Precision/recall
     + $F_1$-score
   + Can also use cross validation set to choose parameters $\epsilon$ (maximize $F_1$-score)
 
-+ IVQ?: Suppose you have fit a model $p(x)$. When evaluating on the cross validation set or test set, your algorithm predicts:
++ IVQ: Suppose you have fit a model $p(x)$. When evaluating on the cross validation set or test set, your algorithm predicts:
 
   $$y = \begin{cases} 1 & \text{if } p(x) < \epsilon \\ 0 & \text{if } p(x) \geq \epsilon \end{cases}$$
 
@@ -256,7 +256,7 @@
       + Monitoring machines in a data center
   + Supervised learning
     + Large number of positive and negative examples
-    + Enough positive examples for algorithm= to get a sense of what positive examples are like
+    + Enough positive examples for algorithm to get a sense of what positive examples are like
     + Future positive examples likely to be similar to ones in training set
     + Examples
       + Email spam classification
