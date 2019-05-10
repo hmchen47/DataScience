@@ -148,15 +148,15 @@
 	1. Choose features $x_i$ that you think might be indicative of anomalous examples.
 	2. Fit parameters $\mu_1, \dots, \mu_n, \sigma_1^2, \dots, \sigma_n^2$ 
 
-		$$\mu_j = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)} \qquad\qquad \sigma_j^2 = \dfrac{1}{m} \sum_{j=1}^m (x_j^{(i)} - \mu_j)^2$$
+		$$\mu_j = E(x_j) = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)} \qquad\qquad \sigma_j^2 = \dfrac{1}{m} \sum_{j=1}^m (x_j^{(i)} - \mu_j)^2$$
 
 		Vectorized form:
 
-		$$\mu = \begin{bmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix} = \dfrac{1}{m} \sum_{i=1}^m x^{(i)}$$
+		$$\mu = \begin{bmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix} = E(X) = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \sigma^2 = Var(X) = E(X \cdot X^T) - E(X) \cdot E(X)^T$$
 
 	3. Given new example $x$, compute $p(x)$:
 
-		$$p(x) = \prod_{j-1}^n p(x_j; \mu_j, \sigma_j^2) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( - \dfrac{(x_j - \mu_j)^2}{2\sigma^2}  \right)$$
+		$$p(x) = \prod_{j-1}^n p(x_j; \mu_j, \sigma_j^2) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( - \dfrac{(x_j - \mu_j)^2}{2\sigma_j^2}  \right)$$
 
 		Anomaly if $p(x) < \epsilon$
 
