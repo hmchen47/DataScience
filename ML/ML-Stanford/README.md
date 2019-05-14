@@ -423,7 +423,22 @@
 
 ## Programming Assignment: Anomaly Detection and Recommender Systems
 
-
++ 1 [Anomaly detection](ex08.md#)
+    + 1.1 [Gaussian distribution](ex08.md#)
+    + 1.2 [Estimating parameters for a Gaussian](ex08.md#)
+    + 1.3 [Selecting the threshold, $\epsilon$](ex08.md#)
+    + 1.4 [High dimensional dataset](ex08.md#)
++ 2 [Recommender Systems](ex08.md#)
+    + 2.1 [Movie ratings dataset](ex08.md#)
+    + 2.2 [Collaborative filtering learning algorithm](ex08.md#)
+        + 2.2.1 [Collaborative filtering cost function](ex08.md#)
+        + 2.2.2 [Collaborative filtering gradient](ex08.md#)
+        + 2.2.3 [Regularized cost function](ex08.md#)
+        + 2.2.4 [Regularized gradient](ex08.md#)
+    + 2.3 [Learning movie recommendations](ex08.md#)
+        + 2.3.1 [Recommendations](ex08.md#)
++ [Programming Exercise Tutorial](ex08.md#)
+    + [Error in `ex8_cofi.m`]
 
 
 
