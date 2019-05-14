@@ -441,7 +441,7 @@
     + [Error in `ex8_cofi.m`](ex08.md#)
     + [ex8 tutorial for `cofiCostFunc()`](ex08.md#)
     + [Programming Exercise 8](ex08.md#)
-
+    + [FAQ for Week 9 and programming exercise 8](ex08.md#)
 
 
 
