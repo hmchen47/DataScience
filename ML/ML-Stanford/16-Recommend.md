@@ -80,19 +80,19 @@
 
 + Problem formulation
   + $r(i, j)$ = 1 if user $j$ has rated movie $i$ (0 otherwise)
-  + $y^{(i, j)}$ = rating by user $j$ on movie $i$ (if defiuned)
+  + $y^{(i, j)}$ = rating by user $j$ on movie $i$ (if defined)
   + $\theta^{(j)}$ = parameter vector for user $j$; $\theta^{(j)} \in \mathbb{R}^{n+1}$
   + $x^{(i)}$ = feature vector for movie $i$
   + Predicted rating: $(\theta^{(j)})^T(x^{(i)})$ for user $j$, movie $i$
   + $m^{(j)}$ = no. of movies rated by user $j$
   + Objective: to learn $\theta^{(j)}$
 
-    $$\min_{\theta^{(i, j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{\theta^{(j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
 
 + Optimization objective:
   + To learn $\theta^{(j)}$ (parameter for user $j$): (with $m^{(j)}$ factor removed)
 
-    $$\min_{\theta^{(i, j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}$$
+    $$\min_{\theta^{(j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}$$
   + To learn $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$:
 
     $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
@@ -104,7 +104,7 @@
 
   + Gradient descent update:
 
-    $$\begin{array}{rcll} \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha \sum_{i: r(i, j) = 1} \left( (\theta^{(i, j)})^T x^{(i)} - y^{(i, j)} \right)^2 &\quad (\text{for } k = 0) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha \underbrace{\left( \sum_{i: r(i, j) = 1} ((\theta^{(i, j)})^T x^{(i)} - y^{(i, j)})x_k^{(i)} + \lambda \theta_k^{(j)} \right)}_{\frac{\partial}{\partial \theta_k^{(j)}} J(\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)})} & \quad (\text{for } k \neq 0) \end{array}$$
+    $$\theta_k^{(j)} := \begin{cases} \theta_k^{(j)} - \alpha \displaystyle \sum_{i: r(i, j) = 1} \left( (\theta^{(i, j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(i)} &\quad (\text{for } k = 0) \\\\  \theta_k^{(j)} - \alpha \underbrace{\left( \sum_{i: r(i, j) = 1} \left((\theta^{(i, j)})^T x^{(i)} - y^{(i, j)} \right)x_k^{(i)} + \lambda \theta_k^{(j)} \right)}_{\frac{\partial}{\partial \theta_k^{(j)}} J(\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)})} & \quad (\text{for } k \neq 0) \end{cases}$$
 
 
 #### Lecture Video
@@ -137,7 +137,7 @@
     $$\theta^{(1)} = \begin{bmatrix} 0 \\ 5 \\ 0 \end{bmatrix}, \quad \theta^{(2)} = \begin{bmatrix} 0 \\5 \\ 0 \end{bmatrix}, \quad \theta^{(3)} = \begin{bmatrix} 0 \\ 0 \\ 5 \end{bmatrix}, \quad \theta^{(4)} = \begin{bmatrix} 0 \\ 0 \\ 5 \end{bmatrix} \implies \theta^{(j)}$$
     <br/>
   
-  + Guess $x^{(i))}$ based on the info in rows
+  + Guess $x^{(i)}$ based on the info in rows ( with $\ x_1, x_2$)
     + $x^{(1)} = \begin{bmatrix} 1 \\ 1.0 \\ 0.0 \end{bmatrix} \longrightarrow$ the 1st sample rated as romance than action
 
   + Based on the guess, expect to have the following result
@@ -149,7 +149,7 @@
     | . | User 1 | User 2 | User 3 | (romance) |
     |--|--|--|--|--|
     | Movie 1 | 0 | 1.5 | 2.5 | ? |
-    
+
     Note that there is only one feature $x_1$. Suppose that:
 
     $$\theta^{(1)} = \begin{bmatrix} 0 \\0 \end{bmatrix}, \ \theta^{(2)} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}, \ \theta^{(3)} = \begin{bmatrix} 0 \\ 5 \end{bmatrix}$$
@@ -165,17 +165,17 @@
 
 
 + Optimization algorithm
-  + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$. to learn $x^{(i)}$:
+  + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$, to learn $x^{(i)}$:
 
-    $$\min_{x^{(i)}} \dfrac{1}{2} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(i)}} \dfrac{1}{2} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2$$
 
-  + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$. to learn $x^{(i)}. \dots, x^{(n_m)}$:
+  + Given $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$, to learn $x^{(i)}. \dots, x^{(n_m)}$:
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2$$
 
   + IVQ: Suppose you use gradient descent to minimize:
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2$$
 
     Which of the following is a correct gradient descent update rule for $i\neq 0$?
 
@@ -209,16 +209,18 @@
 + Collaboration filtering optimization objective
   + Given $x^{(1)}, \dots, x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \dots, \theta^{(n_u)}$
 
-    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T x^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
 
   + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(i)})^T(x^{(i)}) - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2$$
 
   + Minimizing $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)}, \dots, \theta^{(n_u)}$ simultaneously:
 
     $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2$$
     <br/>
+
+  + Objective:
 
     $$\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$$
   
@@ -340,7 +342,7 @@
   
 + Mean normalization
 
-  $$Y = \begin{bmatrix} 5 & 5 & 0 & 0 & ? \\ 5 & ? & ? & 0 & ? \\ ? & 4 & 0 & ? & ? \\ 0 & 0 & 5 & 4 & ? \\ 0 & 0 & 5 & 0 & ? \end{bmatrix} \qquad\qquad \mu = \begin{bmatrix} 2.5 \\ 2.5 \\2 \\ 2.25 \\ 1.25  \end{bmatrix} \rightarrow Y = \begin{bmatrix} 2.5 & 2.5 & -2.5 & -2.5 & ? \\2.5 & ? & ? & -2.5 & ? \\ ? & 2 & -2 & ? & ? \\ -2.25 & -2.25 & 2.75 & 1.75 & ? \\ -1.25 & -1.25 & 3.75 & -1.25 & ? \end{bmatrix} \rightarrow \text{ learn } \theta^{(j)}, x^{(i)}$$
+  $$Y = \begin{bmatrix} 5 & 5 & 0 & 0 & ? \\ 5 & ? & ? & 0 & ? \\ ? & 4 & 0 & ? & ? \\ 0 & 0 & 5 & 4 & ? \\ 0 & 0 & 5 & 0 & ? \end{bmatrix} \quad \mu = \begin{bmatrix} 2.5 \\ 2.5 \\2 \\ 2.25 \\ 1.25  \end{bmatrix} \rightarrow Y = \begin{bmatrix} 2.5 & 2.5 & -2.5 & -2.5 & ? \\2.5 & ? & ? & -2.5 & ? \\ ? & 2 & -2 & ? & ? \\ -2.25 & -2.25 & 2.75 & 1.75 & ? \\ -1.25 & -1.25 & 3.75 & -1.25 & ? \end{bmatrix} \rightarrow \text{ learn } \theta^{(j)}, x^{(i)}$$
 
   + For user $j$, on movie $i$ predict: 
   
@@ -521,76 +523,80 @@ In `ex8.pdf` at the bottom of page 8, the text says that the number of features 
 1. Suppose you run a bookstore, and have ratings (1 to 5 stars) of books. Your collaborative filtering algorithm has learned a parameter vector $\theta^{(j)}$ for user $j$, and a feature vector $x^{(i)}$ for each book. You would like to compute the 
 "training error", meaning the average squared error of your system's predictions on all the ratings that you have gotten from your users. Which of these are correct ways of doing so (check all that apply)?
 
-    For this problem, let mm be the total number of ratings you have gotten from your users. (Another way of saying this is that $m = \sum_{i=1}^{n_m} \sum_{j=1}^{n_u} r(i,j)$. [Hint: Two of the four options below are correct.]
+  For this problem, let $m$ be the total number of ratings you have gotten from your users. (Another way of saying this is that $m = \sum_{i=1}^{n_m} \sum_{j=1}^{n_u} r(i,j)$. [Hint: Two of the four options below are correct.]
 
-    1. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} \sum_{k=1}^n (( \theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
-    2. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} (\sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
-    3. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} (( \theta^{(j)})_i x^{(i)}_j - y^{(i,j)} )^2$
-    4. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} ( \sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
-  
-    Ans: x14, X23 (4312), x13 (1234)
+  1. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} \sum_{k=1}^n (( \theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+  2. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} (\sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+  3. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} (( \theta^{(j)})_i x^{(i)}_j - y^{(i,j)} )^2$
+  4. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} ( \sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+
+  5. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} ((\theta^{(j)})^T x^{(i)} - y^{(i,j)} )^2$
+  6. $\frac{1}{m} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} (\sum_{k=1}^n (\theta^{(k)})_j x^{(k)}_i - y^{(i,j)} )^2$
+  7. $\frac{1}{m} \sum_{(i,j):r(i,j)=1} ((\theta^{(j)})^T x^{(i)} - r(i,j) )^2$
+  8. $\frac{1}{m} \sum_{i=1}^{n_m} \sum_{j:r(i,j)=1} ( \sum_{k=1}^n (\theta^{(j)})_k x^{(i)}_k - y^{(i,j)} )^2$
+
+  Ans: 58 (5678), x14, X23 (4312), x13 (1234)
 
 
 
 2. In which of the following situations will a collaborative filtering system be the most appropriate learning algorithm (compared to linear or logistic regression)?
 
-    1. You run an online news aggregator, and for every user, you know some subset of articles that the user likes and some different subset that the user dislikes. You'd want to use this to find other articles that the user likes.
-    2. You manage an online bookstore and you have the book ratings from many users. For each user, you want to recommend other books she will enjoy, based on her own ratings and the ratings of other users.
-    3. You manage an online bookstore and you have the book ratings from many users. You want to learn to predict the expected sales volume (number of books sold) as a function of the average rating of a book.
-    4. You've written a piece of software that has downloaded news articles from many news websites. In your system, you also keep track of which articles you personally like vs. dislike, and the system also stores away features of these articles (e.g., word counts, name of author). Using this information, you want to build a system to try to find additional new articles that you personally will like.
-    5. You manage an online bookstore and you have the book ratings from many users. You want to learn to predict the expected sales volume (number of books sold) as a function of the average rating of a book.
-    6. You own a clothing store that sells many styles and brands of jeans. You have collected reviews of the different styles and brands from frequent shoppers, and you want to use these reviews to offer those shoppers discounts on the jeans you think they are most likely to purchase
-    7. You run an online bookstore and collect the ratings of many users. You want to use this to identify what books are "similar" to each other (i.e., if one user likes a certain book, what are other books that she might also like?)
-    8. You're an artist and hand-paint portraits for your clients. Each client gets a different portrait (of themselves) and gives you 1-5 star rating feedback, and each client purchases at most 1 portrait. You'd like to predict what rating your next customer will give you.
+  1. You run an online news aggregator, and for every user, you know some subset of articles that the user likes and some different subset that the user dislikes. You'd want to use this to find other articles that the user likes.
+  2. You manage an online bookstore and you have the book ratings from many users. For each user, you want to recommend other books she will enjoy, based on her own ratings and the ratings of other users.
+  3. You manage an online bookstore and you have the book ratings from many users. You want to learn to predict the expected sales volume (number of books sold) as a function of the average rating of a book.
+  4. You've written a piece of software that has downloaded news articles from many news websites. In your system, you also keep track of which articles you personally like vs. dislike, and the system also stores away features of these articles (e.g., word counts, name of author). Using this information, you want to build a system to try to find additional new articles that you personally will like.
+  5. You manage an online bookstore and you have the book ratings from many users. You want to learn to predict the expected sales volume (number of books sold) as a function of the average rating of a book.
+  6. You own a clothing store that sells many styles and brands of jeans. You have collected reviews of the different styles and brands from frequent shoppers, and you want to use these reviews to offer those shoppers discounts on the jeans you think they are most likely to purchase
+  7. You run an online bookstore and collect the ratings of many users. You want to use this to identify what books are "similar" to each other (i.e., if one user likes a certain book, what are other books that she might also like?)
+  8. You're an artist and hand-paint portraits for your clients. Each client gets a different portrait (of themselves) and gives you 1-5 star rating feedback, and each client purchases at most 1 portrait. You'd like to predict what rating your next customer will give you.
 
-    Ans: 67 (7658) X78 (5678), 12 (1234)
-
+  Ans: 12 (1432), 67 (7658) X78 (5678), 12 (1234)
 
 
 
 3. You run a movie empire, and want to build a movie recommendation system based on collaborative filtering. There were three popular review websites (which we'll call $A$, $B$ and $C$) which users to go to rate movies, and you have just acquired all three companies that run these websites. You'd like to merge the three companies' datasets together to build a single/unified system. On website $A$, users rank a movie as having 1 through 5 stars. On website $B$, users rank on a scale of 1 - 10, and decimal values (e.g., 7.5) are allowed. On website $C$, the ratings are from 1 to 100. You also have enough information to identify users/movies on one website with users/movies on a different website. Which of the following statements is true?
 
-    1. You can merge the three datasets into one, but you should first normalize each dataset's ratings (say rescale each dataset's ratings to a 1-100 range).
-    2. Assuming that there is at least one movie/user in one database that doesn't also appear in a second database, there is no sound way to merge the datasets, because of the missing data.
-    3. It is not possible to combine these websites' data. You must build three separate recommendation systems.
-    4. You can combine all three training sets into one without any modification and expect high performance from a recommendation system.
-    5. You can merge the three datasets into one, but you should first normalize each dataset separately by subtracting the mean and then dividing by (max - min) where the max and min (5-1) or (10-1) or (100-1) for the three websites respectively.
-    6. You can combine all three training sets into one as long as your perform mean normalization and feature scaling after you merge the data.
+  1. You can merge the three datasets into one, but you should first normalize each dataset's ratings (say rescale each dataset's ratings to a 1-100 range).
+  2. Assuming that there is at least one movie/user in one database that doesn't also appear in a second database, there is no sound way to merge the datasets, because of the missing data.
+  3. It is not possible to combine these websites' data. You must build three separate recommendation systems.
+  4. You can combine all three training sets into one without any modification and expect high performance from a recommendation system.
+  5. You can merge the three datasets into one, but you should first normalize each dataset separately by subtracting the mean and then dividing by (max - min) where the max and min (5-1) or (10-1) or (100-1) for the three websites respectively.
+  6. You can combine all three training sets into one as long as your perform mean normalization and feature scaling after you merge the data.
 
-    Ans: 5 (5374), 1 (1234)
+  Ans: 5 (5634), 5 (5374), 1 (1234)
 
 
 4. Which of the following are true of collaborative filtering systems? Check all that apply.
 
-    1. When using gradient descent to train a collaborative filtering system, it is okay to initialize all the parameters $(x^{(i)}$ and $\theta^{(j)}$ to zero.
-    2. Recall that the cost function for the content-based recommendation system is $J(\theta) = \frac{1}{2} \sum_{j=1}^{n_u} \sum_{i:r(i,j) =1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n (\theta_k^{(j)})^2$. Suppose there is only one user and he has rated every movie in the training set. This implies that $n_u = 1$ and $r(i,j) = 1$ for every $i,j$. In this case, the cost function $J(\theta)$ is equivalent to the one used for regularized linear regression.
-    3. If you have a dataset of users ratings' on some products, you can use these to predict one user's preferences on products he has not rated.
-    4. To use collaborative filtering, you need to manually design a feature vector for every item (e.g., movie) in your dataset, that describes that item's most important properties.
-    5. Suppose you are writing a recommender system to predict a user's book preferences. In order to build such a system, you need that user to rate all the other books in your training set.
-    6. For collaborative filtering, the optimization algorithm you should use is gradient descent. In particular, you cannot use more advanced optimization algorithms (L-BFGS/conjugate gradient/etc.) for collaborative filtering, since you have to solve for both the $x^{(i)}$'s and $\theta^{(j)}$'s simultaneously.
-    7. Even if each user has rated only a small fraction of all of your products (so $r(i,j)=0$ for the vast majority of $(i,j)$ pairs), you can still build a recommender system by using collaborative filtering.
-    8. For collaborative filtering, it is possible to use one of the advanced optimization algoirthms (L-BFGS/conjugate gradient/etc.) to solve for both the $x^{(i)}$'s and $\theta^{(j)}$'s simultaneously.
+  1. When using gradient descent to train a collaborative filtering system, it is okay to initialize all the parameters $(x^{(i)}$ and $\theta^{(j)}$ to zero.
+  2. Recall that the cost function for the content-based recommendation system is $J(\theta) = \frac{1}{2} \sum_{j=1}^{n_u} \sum_{i:r(i,j) =1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n (\theta_k^{(j)})^2$. Suppose there is only one user and he has rated every movie in the training set. This implies that $n_u = 1$ and $r(i,j) = 1$ for every $i,j$. In this case, the cost function $J(\theta)$ is equivalent to the one used for regularized linear regression.
+  3. If you have a dataset of users ratings' on some products, you can use these to predict one user's preferences on products he has not rated.
+  4. To use collaborative filtering, you need to manually design a feature vector for every item (e.g., movie) in your dataset, that describes that item's most important properties.
+  5. Suppose you are writing a recommender system to predict a user's book preferences. In order to build such a system, you need that user to rate all the other books in your training set.
+  6. For collaborative filtering, the optimization algorithm you should use is gradient descent. In particular, you cannot use more advanced optimization algorithms (L-BFGS/conjugate gradient/etc.) for collaborative filtering, since you have to solve for both the $x^{(i)}$'s and $\theta^{(j)}$'s simultaneously.
+  7. Even if each user has rated only a small fraction of all of your products (so $r(i,j)=0$ for the vast majority of $(i,j)$ pairs), you can still build a recommender system by using collaborative filtering.
+  8. For collaborative filtering, it is possible to use one of the advanced optimization algoirthms (L-BFGS/conjugate gradient/etc.) to solve for both the $x^{(i)}$'s and $\theta^{(j)}$'s simultaneously.
 
-    Ans: 23 (2134), 78 (5678), 23 (1234)
+  Ans: 32 (4312), 23 (2134), 78 (5678), 23 (1234)
 
 
 
 5. Suppose you have two matrices AA and BB, where AA is 5x3 and BB is 3x5. Their product is $C = AB$, a 5x5 matrix. Furthermore, you have a 5x5 matrix $\mathbb{R}$ where every entry is 0 or 1. You want to find the sum of all elements $C(i,j)$ for which the corresponding $R(i,j)$ is 1, and ignore all elements $C(i,j)$ where $R(i,j) = 0$. One way to do so is the following code:
 
-    Which of the following pieces of Octave code will also correctly compute this total? Check all that apply. Assume all options are in code.
+  Which of the following pieces of Octave code will also correctly compute this total? Check all that apply. Assume all options are in code.
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="https://www.coursera.org/learn/machine-learning/exam/3HGvu/recommender-systems">
-        <img src="iamges/m16-01.png" style="margin: 0.1em;" alt="Diagram for Q5 in Mod16" title="Diagram for Q5 in Mod16" width="350">
-      </a></div>
-    </div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/exam/3HGvu/recommender-systems">
+      <img src="images/m16-01.png" style="margin: 0.1em;" alt="Diagram for Q5 in Mod16" title="Diagram for Q5 in Mod16" width="350">
+    </a></div>
+  </div>
 
-    1. `total = sum(sum((A * B) .* R))`
-    2. `C = (A * B) .* R; total = sum(C(:));`
-    3. `total = sum(sum((A * B) * R));`
-    4. `C = (A * B) * R; total = sum(C(:));`
+  1. `total = sum(sum((A * B) .* R))`
+  2. `C = (A * B) .* R; total = sum(C(:));`
+  3. `total = sum(sum((A * B) * R));`
+  4. `C = (A * B) * R; total = sum(C(:));`
 
-    Ans: 12
+  Ans: 12
 
 
 
