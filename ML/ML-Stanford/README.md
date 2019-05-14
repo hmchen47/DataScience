@@ -438,7 +438,11 @@
     + 2.3 [Learning movie recommendations](ex08.md#)
         + 2.3.1 [Recommendations](ex08.md#)
 + [Programming Exercise Tutorial](ex08.md#)
-    + [Error in `ex8_cofi.m`]
+    + [Error in `ex8_cofi.m`](ex08.md#)
+    + [ex8 tutorial for `cofiCostFunc()`](ex08.md#)
+
+
+
 
 
 
