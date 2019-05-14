@@ -440,6 +440,7 @@
 + [Programming Exercise Tutorial](ex08.md#)
     + [Error in `ex8_cofi.m`](ex08.md#)
     + [ex8 tutorial for `cofiCostFunc()`](ex08.md#)
+    + [Programming Exercise 8](ex08.md#)
 
 
 
