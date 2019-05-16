@@ -437,11 +437,19 @@
         + 2.2.4 [Regularized gradient](ex08.md#)
     + 2.3 [Learning movie recommendations](ex08.md#)
         + 2.3.1 [Recommendations](ex08.md#)
++ [Vectorized Collaborative Filtering Cost Function & Gradients](ex08.md#)
+    + [Notations](ex08.md#)
+    + [Cost Function](ex08.md#)
+    + [Gradients](ex08.md#)
 + [Programming Exercise Tutorial](ex08.md#)
     + [Error in `ex8_cofi.m`](ex08.md#)
     + [ex8 tutorial for `cofiCostFunc()`](ex08.md#)
     + [Programming Exercise 8](ex08.md#)
     + [FAQ for Week 9 and programming exercise 8](ex08.md#)
+    + [Test cases for ex8_cofi - Recommender Systems](ex08.md#)
+    + [Vectorized Implementation of Computing Gradient](ex08.md#)
+    + [Computing gradient can be fully vectorized](ex08.md#)
+    + [Some matrix math useful in vectorization](ex08.md#)
 
 
 
