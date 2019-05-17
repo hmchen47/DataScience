@@ -455,6 +455,6 @@
 
 
 
-Quiz https://github.com/mGalarnyk/datasciencecoursera/tree/master/Stanford_Machine_Learning
+
 
 
