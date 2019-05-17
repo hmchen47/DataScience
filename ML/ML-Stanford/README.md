@@ -452,6 +452,21 @@
     + [Some matrix math useful in vectorization](ex08.md#)
 
 
+## Large Scale Machine Learning
+
++ [Gradient Descent with Large Datasets](17-LargeScale.md#)
+    + [Learning With Large Datasets](17-LargeScale.md#)
+    + [Stochastic Gradient Descent](17-LargeScale.md#)
+    + [Mini-Batch Gradient Descent](17-LargeScale.md#)
+    + [Stochastic Gradient Descent Convergence](17-LargeScale.md#)
++ [Advanced Topics](17-LargeScale.md#)
+    + [Online Learning](17-LargeScale.md#)
+    + [Map Reduce and Data Parallelism](17-LargeScale.md#)
++ [Review](17-LargeScale.md#)
+    + [Lecture Slides](17-LargeScale.md#)
+    + [Errata](17-LargeScale.md#)
+    + [Quiz: Large Scale Machine Learning](17-LargeScale.md#)
+
 
 
 
