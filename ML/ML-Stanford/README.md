@@ -464,7 +464,6 @@
     + [Map Reduce and Data Parallelism](17-LargeScale.md#)
 + [Review](17-LargeScale.md#)
     + [Lecture Slides](17-LargeScale.md#)
-    + [Errata](17-LargeScale.md#)
     + [Quiz: Large Scale Machine Learning](17-LargeScale.md#)
 
 

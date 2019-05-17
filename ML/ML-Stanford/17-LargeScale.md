@@ -96,7 +96,6 @@
 
 ## Review
 
-
 ### Lecture Slides
 
 #### Learning with Large Datasets
@@ -186,12 +185,6 @@ This is simply taking the computed cost from all the machines, calculating their
 Your learning algorithm is MapReduceable if it can be _expressed as computing sums of functions over the training set_. Linear regression and logistic regression are easily parallelizable.
 
 For neural networks, you can compute forward propagation and back propagation on subsets of your data on many machines. Those machines can report their derivatives back to a 'master' server that will combine them.
-
-
-
-### Errata
-
-
 
 
 ### Quiz: Large Scale Machine Learning
