@@ -57,7 +57,6 @@
 
 ### Stochastic Gradient Descent
 
-
 #### Lecture Notes
 
 + Linear regression with gradient descent
@@ -132,15 +131,42 @@
 
 ### Mini-Batch Gradient Descent
 
-
 #### Lecture Notes
 
++ Comparisons of gradient descent methods
+  + Batch gradient descent: use all $m$ examples in each iteration
+  + Stochastic gradient descent: use $1$ example in each iteration
+  + Min-batch gradient descent: use $b$ examples in each iteration
+    + sometimes faster than stochastic gradient descent
+    + $b = \;$ mini-batch size; e.g., $b \in [2, 100]$, typical $b = 10$,
+    + Get $b=10$ examples, $(x^{(i)}, y^{(i)}), \dots, (x^{(i+9)}, y^{(i+9)})$, then perform
+
+      $$\theta_j := \theta_j - \alpha \dfrac{1}{10} \displaystyle \sum_{k=i}^{i+9} (h_\theta(x^{(k)}) - y^{(k)}) x_j^{(k)}$$
+
++ Mini-batch gradient descent
+
+  Say $b=10, m = 1000$ <br/>
+  Repeat { <br/>
+  <span style="padding-left: 1em;"/> for $i = 1, 11, 21, 31, \dots, 991$ { <br/>
+  <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \dfrac{1}{10} \displaystyle \sum_{k=i}^{i+9} \left( h_\theta(x^{(k)}) - y^{(k)} \right) x_j^{(k)} \quad (\forall j=0,\dots,n)$ <br/>
+  <span style="padding-left: 1em;"/>} <br/>
+  }
+
+  + vectorization with $b$ examples
+  + IVQ: Suppose you use mini-batch gradient descent on a training set of size $m$, and you use a mini-batch size of $b$. The algorithm becomes the same as batch gradient descent if:
+
+    1. b = 1
+    2. b = m / 2
+    3. b = m
+    4. None of the above
+
+    Ans: 3
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/18.2-LargeScaleMachineLearning-StochasticGradientDescent.bf8834b0b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1558310400&Signature=Ydu7JmdsPLPPZVsbOIFK3iOxTQj-XzsbMnMRkoMV-AeTYFl-cKJ2vxM8vDeO2PzznGFaTzWSfrhbrrIcbUEEHmhKZuDld774HOeRUly6yiZLE6o93u6e2iI0BqpLRsqgwb2RAtFq7a2NvSZtJsYOWIFixsvIz3-P0EFBpBO0G3g_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Ma7B-4oJRqSuwfuKCdakNQ?expiry=1558310400000&hmac=XY-0Yf5CgkNIYvcMgmjOe0XrvCL_FwFdLMev8TS-Jmc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
