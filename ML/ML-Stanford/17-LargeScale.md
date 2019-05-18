@@ -113,7 +113,7 @@
   + Differences
     + Rather than waiting to take the parts of all the training examples (batch gradient descent), we look at a single training example and we are making progress towards moving to the global minimum
     + Batch gradient descent (red path)
-    + Stochastic gradient descent (magenta path with a more random-looking path where it wonders around near the global minimum)
+    + Stochastic gradient descent (magenta path with a more random-looking path where it wonders around near the global minimum) not converge ti global minimum but oscillate around it
     + In practice, as long as the parameters close to the global minimum, it’s sufficient (within a region of global minimum)
     + repeat the loop maybe 1 to 10 times depending on the size of training set
     + It is possible even with 1 loop, where your $m$ is large, you can have good parameters
@@ -176,12 +176,80 @@
 
 #### Lecture Notes
 
++ Checking for convergence
+  + Batch gradient descent:
+    + Plot $J_{train}(\theta)$ as function of the number of iterations of gradient descent
+    + Cost function
+
+      $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
+
+  + Stochastic gradient descent
+
+    $$cost(\theta, (x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+
+    + During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$
+    + Every $1000$ iterations (say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last $1000$ examples processed by algorithm
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1d-stochastic-gradient-descent-convergence">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml8.png" style="margin: 0.1em;" alt="Examples of different situations of errors vs. number of iterations" title="Examples of situations of errors vs. number of iterations" width="450">
+      </a></div>
+    </div>
+
+      + top left diagram:
+        + different learning rate (blue line > red line)
+        + smaller learning rate with smaller oscillation
+        + the difference of cost values sometimes will be negligible
+      + top right diagram:
+        + different size of examples (1000 vs 5000)
+        + red line (5000) having a smoother curve than blue line (1000)
+        + slower with bigger example size
+      + bottom left diagram:
+        + blue curve looks like not learning at all
+        + increase example size might see the slightly decrease curve (5000 - red curve)
+        + sometime the increasing size of examples not learning much for whatever reason (magenta curve), then either changing learning rate, the features or something else about the algorithm
+      + bottom right diagram:
+        + blue curve is divergent
+        + use smaller learning rate ($\alpha$)
+
+
++ Stochastic gradient descent
+  + Cost functions
+
+    $$\begin{array}{c} cost \left(\theta, (x^{(i)}, y^{(i)}) \right) = \frac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \\\\ J_{train} = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m cost(\theta, (x^{(i)}, y^{(i)})) \end{array}$$
+  
+  + Algorithm
+    1. Randomly shuffle dataset
+    2. Repeat { <br/>
+      <span style="paddin-left: 1em;"/> for $i = 1, \dots, m$ { <br/>
+      <span style="paddin-left: 2em;"/> $\theta_j := \theta_j - \alpha (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \quad (\forall j = 0, \dots, n)$
+      <span style="paddin-left: 1em;"/>} <br/>
+      }
+
+  + Learning rate $\alpha$ is typically held constant.  Can slowly decrease $\alpha$ over time if we want $\theta$ to converge. (E.g., $\alpha = \dfrac{\text{const1}}{\text{iterationNumber + const2}}$)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/fKi0M/stochastic-gradient-descent-convergence">
+      <img src="images/m17-03.png" style="margin: 0.1em;" alt="Example of trajector of gradient descent" title="Example of trajectory of gradient descent" width="350">
+    </a></div>
+  </div>
+
+  + Which of the following statements about stochastic gradient descent are true? Check all that apply.
+
+    1. Picking a learning rate α that is very small has no disadvantage and can only speed up learning.
+    2. If we reduce the learning rate $\alpha$ (and run stochastic gradient descent long enough), it’s possible that we may find a set of better parameters than with larger $\alpha$.
+    3. If we want stochastic gradient descent to converge to a (local) minimum rather than wander of "oscillate" around it, we should slowly increase $\alpha$ over time.
+    4. If we plot $\text{cost}(\theta, (x^{(i)}, y^{(i)}))$ (averaged over the last 1000 examples) and stochastic gradient descent does not seem to be reducing the cost, one possible problem may be that the learning rate $\alpha$ is poorly tuned.
+
+    Ans: 24, 3x - decrease
+
+
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/18.4-LargeScaleMachineLearning-StochasticGradientDescentConvergence.6dc93c00b22b11e4beb61117ba5cda9e/full/360p/index.mp4?Expires=1558310400&Signature=SEtskzx3bfqycqsoYJhB8M7Swii1gdqDyyHJCRGaFCr-sjzQCkd5Vk0JLM6nDd2yu-5p3RXE0Mh2elO1U4PK53Ugjaihh~cxYyiA~jSryFlDqKTK-dc8e-x~P1JEvJLC1SXnorPGehyiJzRAplIqIqXvayshVAsHSwtV7-gcZKM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/_wDawd-uRV-A2sHfrgVftA?expiry=1558310400000&hmac=K4cbT9Ba7AFoW0kwlVzhukAEAV2TC6GD8RR3b1hhW1k&fileExtension=vtt " kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
