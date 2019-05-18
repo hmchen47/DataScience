@@ -308,12 +308,72 @@
 
 #### Lecture Notes
 
++ Map-reduce
+  + Batch gradient descent: $m = 400$
+
+    $$\theta_j := \theta - \alpha \dfrac{1}{400} \displaystyle \sum_{i=1}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+  + Map-reduce gradient descent
+    + Training set: $(x^{(1)}, y^{(1)}), \dots, (x^{(m)}, y^{(m)})$, said $m=400$
+    + split the training set into different subsets for servers, said 4 machines
+    + Machine 1: use $(x^{(1)}, y^{(1)}), \dots, (x^{(100)}, y^{(100)})$
+
+      $$temp_j^{(1)} = \sum_{i=1}^{100} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+    + Machine 2: use $(x^{(101)}, y^{(101)}), \dots, (x^{(200)}, y^{(100)})$
+
+      $$temp_j^{(2)} = \sum_{i=101}^{200} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+    + Machine 3: use $(x^{(201)}, y^{(201)}), \dots, (x^{(300)}, y^{(300)})$
+
+      $$temp_j^{(3)} = \sum_{i=201}^{300} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+    + Machine 4: use $(x^{(301)}, y^{(301)}), \dots, (x^{(400)}, y^{(400)})$
+
+      $$temp_j^{(4)} = \sum_{i=031}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+  + Combine Machine 1~4:
+
+    $$\theta_j := \theta_j - \alpha \dfrac{1}{400} (temp_j^{(1)} + temp_j^{(2)} + temp_j^{(3)} + temp_j^{(4)}) \quad (j = 0, \dots, n)$$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://lyusungwon.github.io/distributed-processing/2018/09/12/mr.html">
+      <img src="https://lyusungwon.github.io/assets/images/mr1.png" style="margin: 0.1em;" alt="The computation consists of two functions: a map and a reduce function. First, input data are partitioned into M splits. Map function takes a partition of inputs and produce a set of intermediate key/value pairs. By partitioning the key space(hash(key mod R)), the result can be split into R pieces. Intermediate pairs can be stored in R regions of local disk. Reduce function accesses the local disks of the map workers and groups intermediate pairs with the same key. The master coordinate the location and size of intermediate file regions." title="MapReduce is a programming model that parallelize the computation on large data." width="450">
+    </a></div>
+    <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1d-stochastic-gradient-descent-convergence">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml12.png" style="margin: 0.1em;" alt="text" title="Model for Map-reduce to parallize processing the training dataset" width="450">
+    </a></div>
+  </div>
+
++ Map-reduce and summation over the training set
+  + Many learning algorithms can be expressed as computing sums of functions over the training set.
+  + Example: for advanced optimization, with logistic regression, need:
+
+    $$\begin{array}{rcl} J_{train}(\theta) &=& - \dfrac{1}{m} \displaystyle \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \\\\ \dfrac{\partial}{\partial \theta_j} J_{train}(\theta) &=& \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \end{array}$$
+
++ Map reduce and neural network
+  + Suppose you want to apply map-reduce to train a neural network on 10 machines
+  + In each iteration, compute forward propagation and back propagation on 1/10 of the data to compute the derivative with respect to that 1/10 of the data
+
++ Multi-core machines
+  + split training sets to different cores and then combine the results
+  + “Parallelizing” over multiple cores in the same machine makes network latency less of an issue
+  + There are some libraries to automatically “parallelize” by just implementing the usual vectorized implementation
+
++ IVQ: Suppose you apply the map-reduce method to train a neural network on ten machines. In each iteration, what will each of the machines do?
+
+  1. Compute either forward propagation or back propagation on 1/5 of the data.
+  2. Compute forward propagation and back propagation on 1/10 of the data to compute the derivative with respect to that 1/10 of the data.
+  3. Compute only forward propagation on 1/10 of the data. (The centralized machine then performs back propagation on all the data).
+  4. Compute back propagation on 1/10 of the data (after the centralized machine has computed forward propagation on all of the data).
+
+  Ans: 2
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/18.6-LargeScaleMachineLearning-MapReduceAndDataParallelism.351e6600b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1558310400&Signature=OKG9SXJyJlWrAEiJq51qFhb44IUQuos0XGHooomP9Jjej6zHFZqO~24T4CgJ7pvG2YLMAR-hwEXm5ikbkr-rGS~ZQF6RDezOiRAAofKBNJ1EqXGqo~MIdKjSj3bm6uBUDeL2jIOQOqOaCqUq0APgaPVy6bKF~0mc93vqbiUOclg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/mSG_ceh3RWGhv3Hod5Vh3w?expiry=1558310400000&hmac=bb7PXpeti6iMB-DRb-w-2gOKOwfmb38kwUkvFRmAc3w&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
