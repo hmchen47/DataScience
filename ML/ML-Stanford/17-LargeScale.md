@@ -6,12 +6,51 @@
 
 #### Lecture Notes
 
++ Machine learning and data
+  + Why do we want large data set?
+    + This is evident when we take a low-bias learning algorithm and train it on a lot of data
+  + Example: how “I ate two (two) eggs” shows how the algorithm performs well when we feed it a lot of data
+    + Classify between confusable words
+    + E.g., {to, two, too}, {then, than}
+    + For breakfast I ate __________ eggs.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.semanticscholar.org/paper/Scaling-to-Very-Very-Large-Corpora-for-Natural-Banko-Brill/639b4cac06148e9f91736ba36ad4a1b97fcdfd6a">
+      <img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/639b4cac06148e9f91736ba36ad4a1b97fcdfd6a/2-Figure1-1.png" style="margin: 0.1em;" alt="Accuracy of algorithms vs. size of dataset" title="Learning Curves for Confusion Set Disambiguation" width="250">
+    </a></div>
+  </div>
+
+  + "It's not who has the best algorithm that wins. It's who has the most data."
+
++ Learning with large data sets has computational problems
+  + $m = 100 \times 10^6$, to sum over $10^8$ entries to compute one step of gradient descent
+  + Train with linear regression model
+
+    $$\theta_j := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right) x_j^{(i)}$$
+
+  + IVQ: Suppose you are facing a supervised learning problem and have a very large data set ($m = 100 \times 10^6$), how can you tell if the data is likely to perform much better than using a small subset ($m = 1000$) of the data?
+
+    1. There is no need to verify this; using a larger dataset always gives much better performance.
+    2. Plot $J_\text{train}(\theta)$ as a function of the number of iterations of the optimization algorithm (such as gradient descent).
+    3. Plot a learning curve ($J_\text{train}(\theta)$ and $J_\text{CV}(\theta)$, plotted as a function of $m$) for some range of values of $m$ (say up to $m = 1,000$) and verify that the algorithm has bias when m is small.
+    4. Plot a learning curve for a range of values of $m$ and verify that the algorithm has high variance when $m$ is small.
+
+    Ans: 4
+
+  + High variance: adding more training examples would increase the accuracy
+  + High bias: need to plot to a large value of $m$ -> add extra features or units (in neural networks)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1-gradient-descent-with-large-data-sets">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml1.png" style="margin: 0.1em;" alt="Relationship between size of dataset error: left diagram - high variance (overfitting), right diagram - high bias (underfitting)" title="Relationship between size of dataset error: left diagram - high variance (overfitting), right diagram - high bias (underfitting)" width="350">
+    </a></div>
+  </div>
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/18.1-LargeScaleMachineLearning-LearningWithLargeDatasets.06644550b22b11e487451d0772c554c0/full/360p/index.mp4?Expires=1558310400&Signature=UagqJUiz0nlcgkVQUeEjAjL1ftBBMAxt3~T88w0N7hFjMP7VNlBbFuaasknggorOWQP5VyWaTZv6W0P-nhmf3FgkqOX01iYxj8KA7z7vTlsavZE2qDyHVLj0zFU9enIViuK3VJAOsbp48ogF30~xrm6MU~S2kz1tY8TUC4qM1ns_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/In93d44xSpK_d3eOMdqS3g?expiry=1558310400000&hmac=hqZvlZNj8ZXPVFLvs8trwFnPejSX2NSICfWsqvOic3I&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
