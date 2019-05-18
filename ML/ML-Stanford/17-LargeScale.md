@@ -479,8 +479,12 @@ For neural networks, you can compute forward propagation and back propagation on
   2. Try averaging the cost over a smaller number of examples (say 250 examples instead of 500) in the plot.
   3. Try halving (decreasing) the learning rate $\alpha$, and see if that causes the cost to now consistently go down; and if not, keep halving it until it does.
   4. This is not possible with stochastic gradient descent, as it is guaranteed to converge to the optimal parameters $\theta$.
+  5. This is not an issue, as we expect this to occur with stochastic gradient descent.
+  6. Try using a larger learning rate $\alpha$.
+  7. Try averaging the cost over a larger number of examples (say 1000 examples instead of 500) in the plot.
+  8. Try using a smaller learning rate $\alpha$.
 
-  Ans: 3
+  Ans: 8 (5678) , 3 (1234)
 
 
 2. Which of the following statements about stochastic gradient descent are true? Check all that apply.
@@ -490,7 +494,7 @@ For neural networks, you can compute forward propagation and back propagation on
   3. If you have a huge training set, then stochastic gradient descent may be much faster than batch gradient descent.
   4. One of the advantages of stochastic gradient descent is that it uses parallelization and thus runs much faster than batch gradient descent.
 
-  Ans: x123 (1234)
+  Ans: 13 (1234), x123 (1234)
 
 
 3. Which of the following statements about online learning are true? Check all that apply.
@@ -499,15 +503,19 @@ For neural networks, you can compute forward propagation and back propagation on
   2. One of the advantages of online learning is that if the function we're modeling changes over time (such as if we are modeling the probability of users clicking on different URLs, and user tastes/preferences are changing over time), the online learning algorithm will automatically adapt to these changes.
   3. When using online learning, you must save every new training example you get, as you will need to reuse past examples to re-train the model even after you get new training examples in the future.
   4. Online learning algorithms are usually best suited to problems were we have a continuous/non-stop stream of data that we want to learn from.
+  5. One of the disadvantages of online learning is that it requires a large amount of computer memory/disk space to store all the training examples we have seen.
+  6. In the approach to online learning discussed in the lecture video, we repeatedly get a single training example, take one step of stochastic gradient descent using that example, and then move on to the next example.
+  7. When using online learning, in each step we get a new example $(x,y)$, perform one step of (essentially stochastic gradient descent) learning on that example, and then discard that example and move on to the next.
+  8. One of the advantages of online learning is that there is no need to pick a learning rate $\alpha$.
 
-  Ans: 24
+  Ans: 67 (5678), 24 (1234)
   
 
 4. Assuming that you have a very large training set, which of the following algorithms do you think can be parallelized using map-reduce and splitting the training set across different machines? Check all that apply.
 
   1. Logistic regression trained using stochastic gradient descent.
   2. Linear regression trained using batch gradient descent.
-  3. An online learning setting, where you repeatedly get a single example (x,y)(x,y), and want to learn from that single example before moving on.
+  3. An online learning setting, where you repeatedly get a single example $(x,y)$, and want to learn from that single example before moving on.
   4. A neural network trained using batch gradient descent.
 
   Ans: 24
@@ -519,7 +527,8 @@ For neural networks, you can compute forward propagation and back propagation on
   2. Linear regression and logistic regression can be parallelized using map-reduce, but not neural network training.
   3. If you have only 1 computer with 1 computing core, then map-reduce is unlikely to help.
   4. Because of network latency and other overhead associated with map-reduce, if we run map-reduce using $N$ computers, we might get less than an $N$-fold speedup compared to using 1 computer.
+  5. If we run map-reduce using $N$ computers, then we will always get at least an $N$-fold speedup compared to using 1 computer.
 
-  Ans: x34 (1234)
+  Ans: 134 (1354), x34 (1234)
 
 
