@@ -60,12 +60,72 @@
 
 #### Lecture Notes
 
++ Linear regression with gradient descent
+
+  + Hypothesis and Cost functions
+
+    $$\begin{array}{rcl} h_\theta(x) & = & \displaystyle \sum_{j=0}^n \theta_j x_j \\ J_{train}(\theta) & = & \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2 \end{array}$$
+
+  + Algorithm
+
+    Repeat { <br/>
+    <span style="padding-left: 2em;" /> $\theta_j := \theta_j - \alpha \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)}) \right) x^{(i)} \quad (\forall j = 0, \dots, n)$ <br/>
+    }
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/DoRHJ/stochastic-gradient-descent">
+      <img src="images/m02-06.png" style="margin: 0.1em;" alt="Contour of Cost function and Weighting parameters (theta1, theta2)" title="Contour of Cost function and Weighting parameters ($\theta_1, \theta_2$)" width="350">
+      <img src="images/m17-02.png" style="margin: 0.1em;" alt="Contour of Cost function with weighting parameters, theta_1 & theta_2" title="Contour of cost function with weighting parameters, \theta_1 & \theta_2" width="300">
+    </a></div>
+  </div>
+
+  + With large $m$ (said $m = 300,000,000$), sum across all the examples
+  + __Batch gradient descent__: observe all the training examples at a time
+
++ Batch vs. Stochastic gradient descent
+  + Batch gradient descent
+
+    $$J_{train}(\theta) = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2$$
+
+    Repeat { <br/>
+    <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \underbrace{\frac{1}{m} \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)}) \right) x^{(i)}}_{\frac{\partial}{\partial \theta_j}J_{train} (\theta)} \quad (\forall j = 0, \dots, n)$ <br/>
+    }
+  + Stochastic gradient descent
+
+    $$\begin{array}{rcl} cost \left( \theta, (x^{(i)}, y^{(i)}) \right) &=& \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)}) \right)^2 \\\\ J_{train}(\theta) &=& \frac{1}{m} \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}$$
+
+    + General Algorithm
+      1. Randomly shuffle (reorder) training examples
+      2. Repeat { <br/>
+        <span style="padding-left: 1em;"/> for $i=1, \dots, m$ { <br/>
+        <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \underbrace{\left( h_\theta(x^{(i)}) - y^{(i)} \right) x_j^{(i)}}_{\frac{\partial}{\partial \theta_j} cost \left(\theta, (x^{(i)}, y^{(i)}) \right)} \quad (\forall j=0, \dots, n) \Rightarrow (x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), (x^{(3)}, y^{(3)}), \dots$ <br/>
+        <span style="padding-left: 1em;"/>} <br/>
+        } <br/>
+
+  + IVQ: Which of the following statements about stochastic gradient descent are true? Check all that apply.
+
+    1. When the training set size $m$ is very large, stochastic gradient descent can be much faster than gradient descent.
+    2. The cost function $J_\text{train}(\theta) = \frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ should go down with every iteration of batch gradient descent (assuming a well-tuned learning rate $\alpha$) but not necessarily with stochastic gradient descent.
+    3. Stochastic gradient descent is applicable only to linear regression but not to other models (such as logistic regression or neural networks).
+    4. Before beginning the main loop of stochastic gradient descent, it is a good idea to "shuffle" your training data into a random order.
+
+    Ans: 124
+
+  + Differences
+    + Rather than waiting to take the parts of all the training examples (batch gradient descent), we look at a single training example and we are making progress towards moving to the global minimum
+    + Batch gradient descent (red path)
+    + Stochastic gradient descent (magenta path with a more random-looking path where it wonders around near the global minimum)
+    + In practice, as long as the parameters close to the global minimum, it’s sufficient (within a region of global minimum)
+    + repeat the loop maybe 1 to 10 times depending on the size of training set
+    + It is possible even with 1 loop, where your $m$ is large, you can have good parameters
+    + the $J_{train}$ (cost function) may not decrease with every iteration for stochastic gradient descent
+
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/18.2-LargeScaleMachineLearning-StochasticGradientDescent.bf8834b0b22b11e4960bf70a8782e569/full/360p/index.mp4?Expires=1558310400&Signature=Ydu7JmdsPLPPZVsbOIFK3iOxTQj-XzsbMnMRkoMV-AeTYFl-cKJ2vxM8vDeO2PzznGFaTzWSfrhbrrIcbUEEHmhKZuDld774HOeRUly6yiZLE6o93u6e2iI0BqpLRsqgwb2RAtFq7a2NvSZtJsYOWIFixsvIz3-P0EFBpBO0G3g_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Ma7B-4oJRqSuwfuKCdakNQ?expiry=1558310400000&hmac=XY-0Yf5CgkNIYvcMgmjOe0XrvCL_FwFdLMev8TS-Jmc&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
