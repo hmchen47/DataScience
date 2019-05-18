@@ -467,6 +467,17 @@
     + [Quiz: Large Scale Machine Learning](17-LargeScale.md#)
 
 
+## Application Example: Photo OCR
+
++ [Photo OCR](18-OCR.md#)
+    + [Problem Description and Pipeline](18-OCR.md#)
+    + [Sliding Windows](18-OCR.md#)
+    + [Getting Lots of Data and Artificial Data](18-OCR.md#)
+    + [Ceiling Analysis: What Part of the Pipeline to Work on Next](18-OCR.md#)
++ [Review](18-OCR.md#)
+    + [Lecture Slides](18-OCR.md#)
+    + [Quiz: Application: Photo OCR](18-OCR.md#)
+
 
 
 
