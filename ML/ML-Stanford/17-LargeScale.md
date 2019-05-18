@@ -173,7 +173,6 @@
 
 ### Stochastic Gradient Descent Convergence
 
-
 #### Lecture Notes
 
 + Checking for convergence
@@ -256,18 +255,50 @@
 
 ## Advanced Topics
 
-
 ### Online Learning
-
 
 #### Lecture Notes
 
++ Online learning
+  + Shipping service website where user comes, specifies origin and destination, you offer to ship their package for some asking price, and users sometimes choose to use your shipping service ($y = 1$), sometimes not ($y = 0$)
+  + Features $x$ captures properties of user, of origin/destination and asking price.  We want to learn $p(y=1 | x; \theta)$ to optimize price ($x$).
+  + Model wih logistic regression
+
+    Repeat forever { <br/>
+    <span style="padding-left: 1em;"/> Get $(x, y)$ corresponding to user <br/>
+    <span style="padding-left: 1em;"/> Update $\theta$ using $(x, y)$: [$(x, y) \leftarrow (x^{(i)}, y^{(i)})$]<br/>
+    <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha (h_\theta(x) - y) x_j \quad (j=0, \dots, n)$ <br/>
+    }
+  + Can adapt to changing user preference
+
++ Other online learning example
+  + Product search (learning to search)
+    + User searches for "Android phone 1080p camera"
+    + Have 100 phones in store.  Will return 10 results
+    + $x = \;$ features of phone, how many words in user query match name of phone, how many words in query match description of phone, etc.
+    + $y = 1\;$ if user clicks on link.  $y = 0\;$ otherwise
+    + Learn $p(y =1 | x; \theta) \quad \rightarrow$ learn predicted CTR (click through rate)
+    + Use to show user the 10 phones they're most likely to click on.
+  + Other examples:
+    + choosing special offers to sho user
+    + customized selection of news articles
+    + product recommendation
+    + ...
+
++ IVQ: Some of the advantages of using an online learning algorithm are:
+
+  1. It can adapt to changing user tastes (i.e., if $p(y|x;\theta)$ changes over time).
+  2. There is no need to pick a learning rate $\alpha$.
+  3. It allows us to learn from a continuous stream of data, since we use each example once then no longer need to process it again.
+  4. It does not require that good features be chosen for the learning task.
+
+  Ans: 13
 
 
 #### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/18.5-LargeScaleMachineLearning-OnlineLearning.3ff92d30b22b11e48fb04b0729dc3316/full/360p/index.mp4?Expires=1558310400&Signature=Xb9SpnWpI2bcbHh9j3w7KDnzSYGhGqe5FOXqnb~h4a66bM7KxE8mXEhlMwizNIUZeKMdufX1lVF3sDmbkYafNQRHgv80WHg89yrYL4v0HNYke7EULl~JbI9GLdWLGbGPc16~Zu8ZeOFM3bawUJEhvwz0KM~WRGqxSnMLXJJZ29o_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/O-SCTzzyTNmkgk888tzZRQ?expiry=1558310400000&hmac=0bJYLxl0YMZQ_HF0My37rFvi6JgDcZ-3IvHUX9jvEC4&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
