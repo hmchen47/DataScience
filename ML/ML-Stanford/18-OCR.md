@@ -63,11 +63,12 @@
     </a></div>
   </div>
 
-  + identify pedestrians easily because the aspect ratio of most pedestrians are similar
+  + identify pedestrians easily because the aspect ratio of most pedestrians are pretty similar
+  + 
 
 + Supervised learning for pedestrian detection
-  + x = pixels in 82 x 36 image patches
-  + train a neural network to classify image patch as either containing a pedestrian or not
+  + standardizing the image: x = pixels in 82 x 36 image patches
+  + train model with given positive nad negative classified image patches
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
@@ -76,10 +77,13 @@
   </div>
 
 + Sliding window detection for pedestrians
-  + step-size/stride
   + slide a green box (82 x 36) with a defined step-size/stride
+    + usually step-size/stride = 1 performs the best
+    + step-size/stride = 4/8 or more pixels are more cost efficient
   + continue sliding the window over the whole image
-    + take a large box and resize to 82 x 36
+    + slide the window row by row with the given step-size/stride (row-wise & column-wise)
+    + take a large box and sliding window again
+    + resize the larger box to 82 x 36
     + way to train a supervised learning classifier to identify pedestrians
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -94,12 +98,16 @@
 + Text detection
   + Positive examples ($y = 1$), patches with text
   + Negative examples ($y = 0$), patches without text
-  + Let us run a sliding window classifier on the image
-    + We have (on the bottom left) white areas that indicate text areas
+  + Run a sliding window classifier on the image
+    + the bottom left: white areas that indicate text areas
     + Bright white: classifier output a very high probability of text in the location
   + If we take one more text by taking the output of the classifier and apply an expansion operator
     + It takes the white region and expand them
     + If we use heuristics and discard those with abnormal height-to-width ratio
+  + 1D Sliding window for character segmentation
+    + classify the patches with two characters (some whitespace in the middle) as positive examples and others are negative examples
+    + using the sliding windows with positive examples to segment the characters
+  + Character classification with the segments
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
@@ -108,6 +116,15 @@
       <img src="images/m18-08.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: identify blocks for text" width="300">
     </a></div>
   </div>
+
+  + IVQ: Suppose you are running a text detector using 20x20 image patches. You run the classifier on a 200x200 image and when using sliding window, you “step” the detector by 4 pixels each time. (For this problem assume you apply the algorithm at only one scale.) About how many times will you end up running your classifier on a single image? (Pick the closest answer.)
+
+    1. About 100 times.
+    2. About 400 times.
+    3. About 2,500 times.
+    4. About 40,000 times.
+
+    Ans: 3
 
 + Photo OCR Pipeline
   1. Text detection
