@@ -13,7 +13,6 @@
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/lecture/iDBMm/problem-description-and-pipeline">
       <img src="images/m18-01.png" style="margin: 0.1em;" alt="Text detection and recognition" title="Text detection and recognition" width="400">
-      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
     </a></div>
   </div>
 
@@ -24,6 +23,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr.png" style="margin: 0.1em;" alt="Text OCR pipeline" title="Text OCR pipeline" width="400">
     </a></div>
   </div>
@@ -55,12 +55,76 @@
 #### Lecture Notes
 
 
++ Text detection & Pedestrian detection
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr1.png" style="margin: 0.1em;" alt="Text detection without similar ratio but pedestrian with similar ratio" title="Detection of text & pedestrian" width="350">
+    </a></div>
+  </div>
+
+  + identify pedestrians easily because the aspect ratio of most pedestrians are similar
+
++ Supervised learning for pedestrian detection
+  + x = pixels in 82 x 36 image patches
+  + train a neural network to classify image patch as either containing a pedestrian or not
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr2.png" style="margin: 0.1em;" alt="Training examples to train pedestrian detection in an image" title="Training examples to train pedestrian detection in an image" width="350">
+    </a></div>
+  </div>
+
++ Sliding window detection for pedestrians
+  + step-size/stride
+  + slide a green box (82 x 36) with a defined step-size/stride
+  + continue sliding the window over the whole image
+    + take a large box and resize to 82 x 36
+    + way to train a supervised learning classifier to identify pedestrians
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
+        <img src="images/m18-03.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  1" title="Sliding windows for pedestrian detection 1" width="200">
+        <img src="images/m18-04.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  2" title="Sliding windows for pedestrian detection 2" width="200">
+        <img src="images/m18-05.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  3" title="Sliding windows for pedestrian detection 3" width="200">
+        <img src="images/m18-06.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  4" title="Sliding windows for pedestrian detection 4" width="200">
+      </a></div>
+    </div>
+
++ Text detection
+  + Positive examples ($y = 1$), patches with text
+  + Negative examples ($y = 0$), patches without text
+  + Let us run a sliding window classifier on the image
+    + We have (on the bottom left) white areas that indicate text areas
+    + Bright white: classifier output a very high probability of text in the location
+  + If we take one more text by taking the output of the classifier and apply an expansion operator
+    + It takes the white region and expand them
+    + If we use heuristics and discard those with abnormal height-to-width ratio
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
+      <img src="images/m18-01.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection for prediction" width="250">
+      <img src="images/m18-07.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: examples for training" width="250">
+      <img src="images/m18-08.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: identify blocks for text" width="300">
+    </a></div>
+  </div>
+
++ Photo OCR Pipeline
+  1. Text detection
+  2. Character segmentation: Splitting “ANTIQUE” for example
+  3. Character classification: First character “A”, second “N”, and so on
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+    </a></div>
+  </div>
+
 
 #### Lecture Video
 
-
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d18ky98rnyall9.cloudfront.net/19.2-ApplicationExamplePhotoOCR-SlidingWindows.05487510b22b11e4901abd97e8288176/full/360p/index.mp4?Expires=1558396800&Signature=HAIhv~ZkTHjUDMTsqeGqeyWTaWa3nf1PA6FFeSIPawFmlb5LEx8VAKyjFS~Z15rp3Jq7iuY~jMUzALNG-ROcczb-sAJcl33w3gBUVkpzm0T3hEA-XU94YbzPOz-~ijinty8rPlHBf0RDo9~79vLvtJcmGWLJRgqh-o8kt6MTaPE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/2cmqYan8TYmJqmGp_L2Jtg?expiry=1558396800000&hmac=XEAw2LOGxZe6mrHwB3YE98LL278Ln94oOYSXuyRfE5E&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
