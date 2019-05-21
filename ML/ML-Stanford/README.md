@@ -388,21 +388,21 @@
 
 ## Anomaly Detection
 
-+ [Density Estimation](15-Detection.md#)
-    + [Problem Motivation](15-Detection.md#)
-    + [Gaussian Distribution](15-Detection.md#)
-    + [Algorithm](15-Detection.md#)
-+ [Building an Anomaly Detection System](15-Detection.md#)
-    + [Developing and Evaluating an Anomaly Detection System](15-Detection.md#)
-    + [Anomaly Detection vs. Supervised Learning](15-Detection.md#)
-    + [Choosing What Features to Use](15-Detection.md#)
-+ [Multivariate Gaussian Distribution (Optional)](15-Detection.md#)
-    + [Multivariate Gaussian Distribution](15-Detection.md#)
-    + [Anomaly Detection using the Multivariate Gaussian Distribution](15-Detection.md#)
-+ [Review](15-Detection.md#)
-    + [Lecture Slides](15-Detection.md#)
-    + [Errata](15-Detection.md#)
-    + [Quiz: Anomaly Detection](15-Detection.md#)
++ [Density Estimation](15-Detection.md#density-estimation)
+    + [Problem Motivation](15-Detection.md#problem-motivation)
+    + [Gaussian Distribution](15-Detection.md#gaussian-distribution)
+    + [Algorithm](15-Detection.md#algorithm)
++ [Building an Anomaly Detection System](15-Detection.md#building-an-anomaly-detection-system)
+    + [Developing and Evaluating an Anomaly Detection System](15-Detection.md#developing-and-evaluating-an-anomaly-detection-system)
+    + [Anomaly Detection vs. Supervised Learning](15-Detection.md#anomaly-detection-vs-supervised-learning)
+    + [Choosing What Features to Use](15-Detection.md#choosing-what-features-to-use)
++ [Multivariate Gaussian Distribution (Optional)](15-Detection.md#multivariate-gaussian-distribution-optional-)
+    + [Multivariate Gaussian Distribution](15-Detection.md#multivariate-gaussian-distribution)
+    + [Anomaly Detection using the Multivariate Gaussian Distribution](15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
++ [Review](15-Detection.md#review)
+    + [Lecture Slides](15-Detection.md#lecture-slides)
+    + [Errata](15-Detection.md#errata)
+    + [Quiz: Anomaly Detection](15-Detection.md#quiz-anomaly-detection)
 
 ## Recommender Systems
 
