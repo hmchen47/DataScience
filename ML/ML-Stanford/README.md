@@ -452,7 +452,48 @@
     + [Some matrix math useful in vectorization](ex08.md#some-matrix-math-useful-in-vectorization)
 
 
+## Large Scale Machine Learning
 
++ [Gradient Descent with Large Datasets](17-LargeScale.md#gradient-descent-with-large-datasets)
+    + [Learning With Large Datasets](17-LargeScale.md#learning-with-large-datasets)
+    + [Stochastic Gradient Descent](17-LargeScale.md#stochastic-gradient-descent)
+    + [Mini-Batch Gradient Descent](17-LargeScale.md#mini-batch-gradient-descent)
+    + [Stochastic Gradient Descent Convergence](17-LargeScale.md#stochastic-gradient-descent-convergence)
++ [Advanced Topics](17-LargeScale.md#advanced-topics)
+    + [Online Learning](17-LargeScale.md#online-learning)
+    + [Map Reduce and Data Parallelism](17-LargeScale.md#map-reduce-and-data-parallelism)
++ [Review](17-LargeScale.md#review)
+    + [Lecture Slides](17-LargeScale.md#lecture-slides)
+    + [Quiz: Large Scale Machine Learning](17-LargeScale.md#quiz-large-scale-machine-learning)
+
+
+## Application Example: Photo OCR
+
++ [Photo OCR](18-OCR.md#photo-ocr)
+    + [Problem Description and Pipeline](18-OCR.md#problem-description-and-pipeline)
+    + [Sliding Windows](18-OCR.md#sliding-windows)
+    + [Getting Lots of Data and Artificial Data](18-OCR.md#getting-lots-of-data-and-artificial-data)
+    + [Ceiling Analysis: What Part of the Pipeline to Work on Next](18-OCR.md#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next)
++ [Review](18-OCR.md#review)
+    + [Lecture Slides](18-OCR.md#lecture-slides)
+    + [Quiz: Application: Photo OCR](18-OCR.md#quiz-application-photo-ocr)
+
+
+## Conclusion - Summary: Main Topics
+
++ Supervised Learning
+  + Linear regression, logistic regression, neural networks, SVMs
+  + Problem: labelled data and labelled examples; $(X^{(i)}, y^{(i)})$
+
++ Unsupervised dLearning
+  + K-means, PCA, Anomaly detection
+  + Problem: unlabelled data $x^{(i)}$
+
++ Special applications/special topics
+  + Recommender systems, large scale machine learning
+
++ Advice on building a machine learning system
+  + Bias/variance, regularization, decision what to work on next, evaluation of learning algorithms, learning curves, error analysis, ceiling analysis
 
 
 
