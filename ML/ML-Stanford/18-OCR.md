@@ -223,13 +223,70 @@
 
 #### Lecture Notes
 
++ Estimating the errors due to each component (ceiling analysis)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr10.png" style="margin: 0.1em;" alt="Text OCR pipeline for Ceiling analysis" title="Text OCR pipeline for Ceiling analysis" width="400">
+    </a></div>
+  </div>
+
+  + What part of the pipeline should you spend the most time trying to improve?
+  + execute the text detection and find out the accuracy of text detection
+  + Manually identify the text segments on test set with correct answers as inputs for the character segmentation
+  + the inputs of each stage must be 100% accuracy for test set
+
+    | Component | Accuracy |
+    |-----------|:--------:|
+    | Overall system | 72% |
+    | Text detection | 89% |
+    | Character segmentation | 90% |
+    | Character recognition | 100% |
+
+    + Performance gain: Overall system --(17%)--> Text detection --(1%)--> Character segmentation --(10%)--> Character recognition
+    + a great indication for resource allocation
+
++ Face recognition from images (Artificial example)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr11.png" style="margin: 0.1em;" alt="Face Detection Pipeline" title="Face Detection Pipeline" width="450">
+    </a></div>
+  </div>
+
+  + Perfect face detection (5.9%)
+  + Perfect eye segmentation (4%)
+  + Ceiling analysis
+
+  | Component | Accuracy |
+  |-----------|:--------:|
+  | Overall system | 85% |
+  | Preprocess (remove background) | 85.1% |
+  | Face detection | 91% |
+  | Eyes segmentation | 95% |
+  | Noise segmentation | 96% |
+  | Mouth segmentation | 97% |
+  | Logistic regression | 100% |
+
+  + Performance gain: Overall system --(0.1%)--> Preprocess --(5.9%)--> Face detection --(4%)--> Eyes segmentation --(1%)--> Nose segmentation --(1%)--> Mouth segmentation --(3%)--> Logistic regression
+  + Preprocessing is not necessary
+
++ IVQ: Suppose you perform ceiling analysis on a pipelined machine learning system, and when we plug in the ground-truth labels for one of the components, the performance of the overall system improves very little. This probably means: (check all that apply)
+
+  1. We should dedicate significant effort to collecting more data for that component.
+  2. It is probably not worth dedicating engineering resources to improving that component of the system.
+  3. If that component is a classifier training using gradient descent, it is probably not worth running gradient descent for 10x as long to see if it converges to better classifier parameters.
+  4. Choosing more features for that component may help (reducing bias), and reducing the number of features for that component (reducing variance) is unlikely to do so.
+
+  Ans: 23
 
 
 #### Lecture Video
 
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+<video src="https://d3c33hcgiwev3.cloudfront.net/19.4-ApplicationExamplePhotoOCR-CeilingAnalysisWhatPartOfThePipelineToWorkOnNext.6acb6550b22b11e49c064db6ead92550/full/360p/index.mp4?Expires=1558396800&Signature=cXu1k2C90u10uNRECPXylGm0OYxqfcu-rm1LgxIwx1SZXFrCnbuFR9pVx9MwCPqk6L7Hkwb74AAh6pAhoTbT5GffRvfSUK2TPQ~pZbfLGfmvzCojQ7~0jbfir~uymVNycDmSdZaiMBLsHENRH9mW7HMwbGxeBc47NujHF9MsNdA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/BgKrq05RTyOCq6tOUf8jLw?expiry=1558396800000&hmac=IH5hDHZ70X9fPsr9E7P5ERNl058EO-fh0EG8HT1bROk&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
