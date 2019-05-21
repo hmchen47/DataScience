@@ -454,17 +454,17 @@
 
 ## Large Scale Machine Learning
 
-+ [Gradient Descent with Large Datasets](17-LargeScale.md#)
-    + [Learning With Large Datasets](17-LargeScale.md#)
-    + [Stochastic Gradient Descent](17-LargeScale.md#)
-    + [Mini-Batch Gradient Descent](17-LargeScale.md#)
-    + [Stochastic Gradient Descent Convergence](17-LargeScale.md#)
-+ [Advanced Topics](17-LargeScale.md#)
-    + [Online Learning](17-LargeScale.md#)
-    + [Map Reduce and Data Parallelism](17-LargeScale.md#)
-+ [Review](17-LargeScale.md#)
-    + [Lecture Slides](17-LargeScale.md#)
-    + [Quiz: Large Scale Machine Learning](17-LargeScale.md#)
++ [Gradient Descent with Large Datasets](17-LargeScale.md#gradient-descent-with-large-datasets)
+    + [Learning With Large Datasets](17-LargeScale.md#learning-with-large-datasets)
+    + [Stochastic Gradient Descent](17-LargeScale.md#stochastic-gradient-descent)
+    + [Mini-Batch Gradient Descent](17-LargeScale.md#mini-batch-gradient-descent)
+    + [Stochastic Gradient Descent Convergence](17-LargeScale.md#stochastic-gradient-descent-convergence)
++ [Advanced Topics](17-LargeScale.md#advanced-topics)
+    + [Online Learning](17-LargeScale.md#online-learning)
+    + [Map Reduce and Data Parallelism](17-LargeScale.md#map-reduce-and-data-parallelism)
++ [Review](17-LargeScale.md#review)
+    + [Lecture Slides](17-LargeScale.md#lecture-slides)
+    + [Quiz: Large Scale Machine Learning](17-LargeScale.md#quiz-large-scale-machine-learning)
 
 
 
