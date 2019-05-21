@@ -307,17 +307,19 @@ These are the [lecture slides](https://d18ky98rnyall9.cloudfront.net/_cff4fea7ea
   3. 1,000,000
   4. 100,000
 
-  Ans: 
+  Ans: 2 <br/>
+  With a stride of 2, you will run your classifier approximately 500 times for each dimension. Since you run the classifier twice (at two scales), you will run it 2 * 500 * 500 = 500,000 times.
 
 
 2. Suppose that you just joined a product team that has been developing a machine learning application, using $m = 1,000$ training examples. You discover that you have the option of hiring additional personnel to help collect and label data. You estimate that you would have to pay each of the labellers `$10` per hour, and that each labeller can label 4 examples per minute. About how much will it cost to hire labellers to label 10,000 new training examples?
 
-  1. $400
-  2. $250
-  3. $10,000
-  4. $600
+  1. `$400`
+  2. `$250`
+  3. `$10,000`
+  4. `$600`
 
-  Ans: 
+  Ans: 1 <br/>
+  On labeller can label 4 \times 60 = 2404×60=240 examples in one hour. It will thus take him 10,000 / 240 \approx 4010,000/240≈40 hours to complete 10,000 examples. At $10 an hour, this is $400.
 
 
 3. What are the benefits of performing a ceiling analysis? Check all that apply.
@@ -326,11 +328,15 @@ These are the [lecture slides](https://d18ky98rnyall9.cloudfront.net/_cff4fea7ea
   2. If we have a low-performing component, the ceiling analysis can tell us if that component has a high bias problem or a high variance problem.
   3. A ceiling analysis helps us to decide what is the most promising learning algorithm (e.g., logistic regression vs. a neural network vs. an SVM) to apply to a specific component of a machine learning pipeline.
   4. It can help indicate that certain components of a system might not be worth a significant amount of work improving, because even if it had perfect performance its impact on the overall system may be small.
+  5. It is a way of providing additional training data to the algorithm.
+  6. It helps us decide on allocation of resources in terms of which component in a machine learning pipeline to spend more effort on.
 
-  Ans: 
+  Ans: 46 (4526), 14 (1234) <br/>
+  (1) The ceiling analysis gives us this information by comparing the baseline overall system performance with ground truth results from each component of the pipeline. <br/>
+  (4) An unpromising component will have little effect on overall performance when it is replaced with ground truth.
 
 
-4. Suppose you are building an object classifier, that takes as input an image, and recognizes that image as either containing a car (y=1y=1) or not (y=0y=0). For example, here are a positive example and a negative example:
+4. Suppose you are building an object classifier, that takes as input an image, and recognizes that image as either containing a car ($y=1$) or not ($y=0$). For example, here are a positive example and a negative example:
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/exam/lsjML/application-photo-ocr">
@@ -338,14 +344,15 @@ These are the [lecture slides](https://d18ky98rnyall9.cloudfront.net/_cff4fea7ea
     </a></div>
   </div>
 
-  After carefully analyzing the performance of your algorithm, you conclude that you need more positive (y=1y=1) training examples. Which of the following might be a good way to get additional positive examples?
+  After carefully analyzing the performance of your algorithm, you conclude that you need more positive ($y=1$) training examples. Which of the following might be a good way to get additional positive examples?
 
   1. Mirror your training images across the vertical axis (so that a left-facing car now becomes a right-facing one).
   2. Take a few images from your training set, and add random, gaussian noise to every pixel.
   3. Take a training example and set a random subset of its pixel to 0 to generate a new example.
   4. Select two car images and average them to make a third example.
 
-  Ans: 
+  Ans: 1 <br/>
+  A mirrored example is different from the original but equally likely to occur, so mirroring is a good way to generate new data.
   
 
 5. Suppose you have a PhotoOCR system, where you have the following pipeline:
@@ -371,7 +378,10 @@ These are the [lecture slides](https://d18ky98rnyall9.cloudfront.net/_cff4fea7ea
   3. The least promising component to work on is the character recognition system, since it is already obtaining 100% accuracy.
   4. The most promising component to work on is the text detection system, since it has the lowest performance (72%) and thus the biggest potential gain.
 
-  Ans: 
+  Ans: x1 <br/>
+  (1) Plugging in ground truth character recognition gives an 18% improvement over running the character recognition system on ground truth character segmentation. Thus there is a good deal of room for overall improvement by improving character recognition. <br/>
+  (2) At each step, we provide the system with the ground-truth output of the previous step in the pipeline. This requires ground truth for every step of the pipeline.
+
 
 
 
