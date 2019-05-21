@@ -479,6 +479,22 @@
     + [Quiz: Application: Photo OCR](18-OCR.md#)
 
 
+## Conclusion - Summary: Main Topics
+
++ Supervised Learning
+  + Linear regression, logistic regression, neural networks, SVMs
+  + Problem: labelled data and labelled examples; $(X^{(i)}, y^{(i)})$
+
++ Unsupervised dLearning
+  + K-means, PCA, Anomaly detection
+  + Problem: unlabelled data $x^{(i)}$
+
++ Special applications/special topics
+  + Recommender systems, large scale machine learning
+
++ Advice on building a machine learning system
+  + Bias/variance, regularization, decision what to work on next, evaluation of learning algorithms, learning curves, error analysis, ceiling analysis
+
 
 
 
