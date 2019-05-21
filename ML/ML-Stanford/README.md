@@ -406,19 +406,19 @@
 
 ## Recommender Systems
 
-+ [Predicting Movie Ratings](16-Recommend.md#)
-    + [Problem Formulation](16-Recommend.md#)
-    + [Content Based Recommendations](16-Recommend.md#)
-+ [Collaborative Filtering](16-Recommend.md#)
-    + [Collaborative Filtering](16-Recommend.md#)
-    + [Collaborative Filtering Algorithm](16-Recommend.md#)
-+ [Low Rank Matrix Factorization](16-Recommend.md#)
-    + [Vectorization: Low Rank Matrix Factorization](16-Recommend.md#)
-    + [Implementational Detail: Mean Normalization](16-Recommend.md#)
-+ [Review](16-Recommend.md#)
-    + [Lecture Slides](16-Recommend.md#)
-    + [Errata](16-Recommend.md#)
-    + [Quiz: Recommender Systems](16-Recommend.md#)
++ [Predicting Movie Ratings](16-Recommend.md#predicting-movie-ratings)
+    + [Problem Formulation](16-Recommend.md#problem-formulation)
+    + [Content Based Recommendations](16-Recommend.md#content-based-recommendations)
++ [Collaborative Filtering](16-Recommend.md#collaborative-filtering)
+    + [Collaborative Filtering](16-Recommend.md#collaborative-filtering)
+    + [Collaborative Filtering Algorithm](16-Recommend.md#collaborative-filtering-algorithm)
++ [Low Rank Matrix Factorization](16-Recommend.md#low-rank-matrix-factorization)
+    + [Vectorization: Low Rank Matrix Factorization](16-Recommend.md#vectorization-low-rank-matrix-factorization)
+    + [Implementational Detail: Mean Normalization](16-Recommend.md#implementational-detail-mean-normalization)
++ [Review](16-Recommend.md#review)
+    + [Lecture Slides](16-Recommend.md#lecture-slides)
+    + [Errata](16-Recommend.md#errata)
+    + [Quiz: Recommender Systems](16-Recommend.md#quiz-recommender-systems)
 
 
 ## Programming Assignment: Anomaly Detection and Recommender Systems
