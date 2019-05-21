@@ -469,14 +469,14 @@
 
 ## Application Example: Photo OCR
 
-+ [Photo OCR](18-OCR.md#)
-    + [Problem Description and Pipeline](18-OCR.md#)
-    + [Sliding Windows](18-OCR.md#)
-    + [Getting Lots of Data and Artificial Data](18-OCR.md#)
-    + [Ceiling Analysis: What Part of the Pipeline to Work on Next](18-OCR.md#)
-+ [Review](18-OCR.md#)
-    + [Lecture Slides](18-OCR.md#)
-    + [Quiz: Application: Photo OCR](18-OCR.md#)
++ [Photo OCR](18-OCR.md#photo-ocr)
+    + [Problem Description and Pipeline](18-OCR.md#problem-description-and-pipeline)
+    + [Sliding Windows](18-OCR.md#sliding-windows)
+    + [Getting Lots of Data and Artificial Data](18-OCR.md#getting-lots-of-data-and-artificial-data)
+    + [Ceiling Analysis: What Part of the Pipeline to Work on Next](18-OCR.md#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next)
++ [Review](18-OCR.md#review)
+    + [Lecture Slides](18-OCR.md#lecture-slides)
+    + [Quiz: Application: Photo OCR](18-OCR.md#quiz-application-photo-ocr)
 
 
 ## Conclusion - Summary: Main Topics
