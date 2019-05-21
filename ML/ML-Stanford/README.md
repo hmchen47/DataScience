@@ -467,6 +467,33 @@
     + [Quiz: Large Scale Machine Learning](17-LargeScale.md#quiz-large-scale-machine-learning)
 
 
+## Application Example: Photo OCR
+
++ [Photo OCR](18-OCR.md#photo-ocr)
+    + [Problem Description and Pipeline](18-OCR.md#problem-description-and-pipeline)
+    + [Sliding Windows](18-OCR.md#sliding-windows)
+    + [Getting Lots of Data and Artificial Data](18-OCR.md#getting-lots-of-data-and-artificial-data)
+    + [Ceiling Analysis: What Part of the Pipeline to Work on Next](18-OCR.md#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next)
++ [Review](18-OCR.md#review)
+    + [Lecture Slides](18-OCR.md#lecture-slides)
+    + [Quiz: Application: Photo OCR](18-OCR.md#quiz-application-photo-ocr)
+
+
+## Conclusion - Summary: Main Topics
+
++ Supervised Learning
+  + Linear regression, logistic regression, neural networks, SVMs
+  + Problem: labelled data and labelled examples; $(X^{(i)}, y^{(i)})$
+
++ Unsupervised dLearning
+  + K-means, PCA, Anomaly detection
+  + Problem: unlabelled data $x^{(i)}$
+
++ Special applications/special topics
+  + Recommender systems, large scale machine learning
+
++ Advice on building a machine learning system
+  + Bias/variance, regularization, decision what to work on next, evaluation of learning algorithms, learning curves, error analysis, ceiling analysis
 
 
 
