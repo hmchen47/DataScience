@@ -57,21 +57,28 @@
     + start with some $\theta_0, \theta_1$
     + keep changing $\theta_0, \theta_1$ to reduce $J(\theta_0, \theta_1)$ until we hopefully end up with at a minimum
 
+
++ [Simplest Gradient descent algorithm](ML-Stanford/02-ModelCost.md#gradient-descent):
+
+   Repeat until convergence {
+
+	<span style="padding-left: 2em;"/>$$\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+
+	<span style="padding-left: calc(50vw - 10em);">(simultaneously update</span> $i = 0, 1$)<br/>
+	}
+
+	+ $\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\;$: derivative; sign (+, -) as slope and value as steepness
+	+ $:=\;$: assignment, take the right-hand side value asn assign to the symbol right-hand side
+	+ $=\;$: truth association, comparison
+	+ $\alpha\;$: learning rate, step size
+
+
 + [Generalized gradient decent](ML-Stanford/02-ModelCost.md#gradient-descent)
   + Objective: Have some function $J(\theta)$ where $\theta = (\theta_0, \theta_1, \ldots, \theta_n)$ <br/>
     Want $\;\;\displaystyle \min_{\theta} J(\theta)$
   + Outline
     + start with some $\theta$
     + keep changing $\theta$ to reduce $J(\theta)$ until we hopefully end up with at a minimum
-
-+ [Gradient descent algorithm](ML-Stanford/02-ModelCost.md#gradient-descent):
-
-  repeat until convergence
-
-    $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) \;\; \text{for } j = 0, 1$$
-    + $:=\;$: assignment, take the right-hand side value asn assign to the symbol right-hand side
-    + $=\;$: truth association, comparison
-    + $\alpha\;$: learning rate, step size
 
 
 
