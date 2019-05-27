@@ -118,6 +118,30 @@
 #### Vectorization: Linear Regression
 
 
++ The Gradient Descent rule can be expressed as:
+
+  $$\theta := \theta - \alpha \nabla J(\theta)$$
+
+  Where $\nabla J(\theta)$ is a column vector of the form:
+
+  $$\nabla J(\theta) = \begin{bmatrix} \dfrac{\partial J(\theta)}{\partial \theta_0} \\\\ \dfrac{\partial J(\theta)}{\partial \theta_1} \\ \vdots \\  \dfrac{\partial J(\theta)}{\partial \theta_n} \end{bmatrix}$$
+
+  The $j$-th component of the gradient is the summation of the product of two terms:
+
+  $$\begin{array}{ccc} \dfrac{\partial J(\theta)}{\partial \theta_j} & = &\dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \\\\ & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m x_j^{(i)} \cdot (h_\theta(x^{(i)}) - y^{(i)}) \end{array}$$
+
+  Sometimes, the summation of the product of two terms can be expressed as the product of two vectors.
+
+  Here, $x_j^{(i)}$, for $i = 1, \ldots, m$, represents the $m$ elements of the j-th column, $\vec{x_j}$, of the training set $X$.
+
+  The other term $\left(h_\theta(x^{(i)}) - y^{(i)} \right)$ is the vector of the deviations between the predictions $h_\theta(x^{(i)})$ and the true values $y^{(i)}$. Re-writing $\frac{\partial J(\theta)}{\partial \theta_j}$, we have:
+
+  $$\begin{array}{ccc} \dfrac{\partial J(\theta)}{\partial \theta_j} & = & \dfrac{1}{m} \vec{x_j}^T (X\theta - \vec{y}) \\\\ \nabla J(\theta) &=& \dfrac{1}{m} X^T (X\theta - \vec{y}) \end{array}$$
+
+  Finally, the matrix notation (vectorized) of the Gradient Descent rule is:
+
+  $$\theta := \theta - \dfrac{\alpha}{m} X^T (X\theta - \vec{y})$$
+
 
 
 
