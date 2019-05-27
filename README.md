@@ -36,20 +36,27 @@
     </thead>
     <tbody>
     <tr>
-      <th style="text-align: left;"> Modeling </th>
+      <th style="text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#model-representation"> Model representation </a> </td>
       <td style="text-align: center;">  </td>
       <td style="text-align: center;">  </td>
       <td style="text-align: center;">  </td>
     </tr>
-    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; height: 1.2em;"> Supervised Machine Learning </td> </tr>
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.5; vertical-align: middle;"> Supervised Machine Learning </td> </tr>
     <tr>
-      <th style="text-align: left;"> Linear Regression </th>
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Regression </th>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#cost-function-linear-regression"> Cost Function </a></td>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression"> Gradient Descent </a></td>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> Vectorization </a></td>
     </a></tr>
+      <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#polynomial-regression"> Polynomial Regression</a></td>
+      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#cost-function-linear-regression">  </a></td>
+      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression">  </a></td>
+      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> </a></td>
+    </a></tr>
+  
     <tr>
       <th style="text-align: left;"> Logistic Regression </th>
       <td style="text-align: center;"> Cost Function </td>
