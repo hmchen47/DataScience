@@ -58,35 +58,35 @@ The classification problem is just like the regression problem, except that the 
 #### Lecture Notes
 
 + Logistic Regression Model
-    + Want: $\quad 0 \leq h_\theta (x) \leq 1$
+  + Want: $\quad 0 \leq h_\theta (x) \leq 1$
 
-        $$h_\theta(x) = \theta^T x = $$
-    + Sigmoid/Logistic function
-      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-        <div style="background-color: white;"><a href="https://en.wikipedia.org/wiki/Logistic_function">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/640px-Logistic-curve.svg.png" style="margin: 0.1em;" alt="Sigmoid function" title="Sigmoid curve" width="250">
-        </a></div>
-      </div><br/>
+      $$h_\theta(x) = \theta^T x =  \dfrac{1}{1 + e^{-\theta^T x}}$$
+  + Sigmoid/Logistic function
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div style="background-color: white;"><a href="https://en.wikipedia.org/wiki/Logistic_function">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/640px-Logistic-curve.svg.png" style="margin: 0.1em;" alt="Sigmoid function" title="Sigmoid curve" width="250">
+      </a></div>
+    </div><br/>
 
-      $$h_\theta(x) = \dfrac{1}{1+e^{-x}} \quad \Longrightarrow \quad g(z) = h_\theta(x) = g(\theta^Tx) = \dfrac{1}{1 + e^{-\theta^T x}}$$
-    + Parameter: $\theta \;\; \longleftarrow \;\;$ find the value to fit parameter
+    $$h_\theta(x) = \dfrac{1}{1+e^{-x}} \quad \Longrightarrow \quad g(z) = h_\theta(x) = g(\theta^Tx) = \dfrac{1}{1 + e^{-\theta^T x}}$$
+  + Parameter: $\theta \;\; \longleftarrow \;\;$ find the value to fit parameter
 
 + Interpretation of Hypothesis Output
-    + $h_\theta (x) = \;$ estimated probability that $y = 1$ on input $x$
-    + Example: if $x = \begin{bmatrix} x_0 \\ x_1 \end{bmatrix} = \begin{bmatrix} 1 \\ \text{tumorSize} \end{bmatrix} \quad \Longrightarrow \quad h_\theta (x) = 0.7$
-    
-      Tell patient that $70\%$ chance of tumor being malignant
+  + $h_\theta (x) = \;$ estimated probability that $y = 1$ on input $x$
+  + Example: if $x = \begin{bmatrix} x_0 \\ x_1 \end{bmatrix} = \begin{bmatrix} 1 \\ \text{tumorSize} \end{bmatrix} \quad \Longrightarrow \quad h_\theta (x) = 0.7$
+  
+    Tell patient that $70\%$ chance of tumor being malignant
 
-      $h_\theta(x) = P(y = 1 | x; \theta)$
+    $h_\theta(x) = P(y = 1 | x; \theta)$
 
-      mean: "probability that y = 1, given x, parameterized by $\theta$"
+    mean: "probability that y = 1, given x, parameterized by $\theta$"
 
-      $$\begin{array}{l} P(y = 0 | x; \theta) + P(y=1|x; \theta) = 1 \\\\ P(y=0|x;\theta) = 1 - P(y=1 | x; \theta) \end{array}$$
-    + IVQ: Suppose we want to predict, from data $x$ about a tumor, whether it is malignant ($y=1$) or benign ($y=0$). Our logistic regression classifier outputs, for a specific tumor, $h_\theta(x) = P(y=1\vert x;\theta) = 0.7$, so we estimate that there is a 70% chance of this tumor being malignant. What should be our estimate for $P(y=0\vert x;\theta)$, the probability the tumor is benign?
-      1. $P(y=0\vert x;\theta) = 0.3$
-      2. $P(y=0\vert x;\theta) = 0.7$
-      3. $P(y=0\vert x;\theta) = 0.7^2$
-      4. $P(y=0\vert x;\theta) = 0.3\times 0.7$
+    $$\begin{array}{l} P(y = 0 | x; \theta) + P(y=1|x; \theta) = 1 \\\\ P(y=0|x;\theta) = 1 - P(y=1 | x; \theta) \end{array}$$
+  + IVQ: Suppose we want to predict, from data $x$ about a tumor, whether it is malignant ($y=1$) or benign ($y=0$). Our logistic regression classifier outputs, for a specific tumor, $h_\theta(x) = P(y=1\vert x;\theta) = 0.7$, so we estimate that there is a 70% chance of this tumor being malignant. What should be our estimate for $P(y=0\vert x;\theta)$, the probability the tumor is benign?
+    1. $P(y=0\vert x;\theta) = 0.3$
+    2. $P(y=0\vert x;\theta) = 0.7$
+    3. $P(y=0\vert x;\theta) = 0.7^2$
+    4. $P(y=0\vert x;\theta) = 0.3\times 0.7$
 
       Ans: 1
 
@@ -97,7 +97,7 @@ We could approach the classification problem ignoring the fact that y is discret
 
 Our new form uses the "Sigmoid Function," also called the "Logistic Function":
 
-$$h_\theta(x)=g(θ^Tx) \quad\quad z=θ^Tx \quad\quad g(z) = \dfrac{1}{1+e^{−z}}$$
+$$h_\theta(x)=g(\theta^Tx) \quad\quad z=\theta^Tx \quad\quad g(z) = \dfrac{1}{1+e^{-z}}$$
 
 The following image shows us what the sigmoid function looks like:
 
@@ -111,10 +111,10 @@ The function $g(z)$, shown here, maps any real number to the $(0, 1)$ interval, 
 
 $h_\theta(x)$ will give us the __probability__ that our output is 1. For example, $h_\theta(x)=0.7$ gives us a probability of $70\%$ that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is $70\%$, then the probability that it is 0 is $30\%$).
 
-$$\begin{array}{l} h_\theta(x) =  P(y=1|x;θ) = 1 − P(y=0|x;θ) \\\\ P(y=0|x;θ) + P(y=1|x;θ) = 1 \end{array}$$
+$$\begin{array}{l} h_\theta(x) =  P(y=1|x;\theta) = 1 - P(y=0|x;\theta) \\\\ P(y=0|x;\theta) + P(y=1|x;\theta) = 1 \end{array}$$
 
 
-#### Lecture Video 
+#### Lecture Video
 
 <video src="https://d3c33hcgiwev3.cloudfront.net/06.2-LogisticRegression-HypothesisRepresentation.219617e^0b22b11e4bfb32bc54f4c0527/full/360p/index.mp4?Expires=1553299200&Signature=fJNtlLEVc~eDsJKx2Z4pJ3hKYw2tgHx0~VF6fJ8mbbMH9-pwyMgEPJ5yKadTl5RTtxlr91Ge6aGCJXEYzuEfXBLvcpwBvqdJ-oWzGLvrB6jsiVC~f3pwEOIpb98Koo2ZEpHQVNI8Mm318lXh4joluo4km257rM1~GPPc~8JCpQc_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://www.coursera.org/api/subtitleAssetProxy.v1/Hn9tP60RQkm_bT-tEZJJfw?expiry=1553299200000&hmac=TZNDFstnCLpRKYo5kwl8Kn1SlQlYCspC1KkTzIzMEiU&fileExtension=vtt" kind="captions" srclang="en" label="English" default>
@@ -184,21 +184,21 @@ $$g(z) \geq 0.5 \quad \text{ when } z \geq 0$$
 
 Remember.
 
-$$\begin{array}{rcl} z=0,\quad e^0=1 & \Rightarrow & g(z)=1/2 \\ z \rightarrow  \infty, \quad e^{−\infty} \rightarrow  0 & \Rightarrow & g(z)=1 \\ z \rightarrow −\infty, \quad e^{\infty} \rightarrow \infty & \Rightarrow & g(z)=0 \end{array}$$
+$$\begin{array}{rcl} z=0,\quad e^0=1 & \Rightarrow & g(z)=1/2 \\ z \rightarrow  \infty, \quad e^{-\infty} \rightarrow  0 & \Rightarrow & g(z)=1 \\ z \rightarrow -\infty, \quad e^{\infty} \rightarrow \infty & \Rightarrow & g(z)=0 \end{array}$$
 
 So if our input to g is $\theta^T X$, then that means:
 
-$$h_\theta(x)=g(θ^Tx) \geq 0.5 \quad \text{ when } \;\; θ^Tx \geq 0$$
+$$h_\theta(x)=g(\theta^Tx) \geq 0.5 \quad \text{ when } \;\; \theta^Tx \geq 0$$
 
 From these statements we can now say:
 
-$$\begin{array}{rcl} θ^Tx \geq 0 & \Rightarrow & y=1 \\\\ θ^Tx < 0 & \Rightarrow & y=0 \end{array}$$
+$$\begin{array}{rcl} \theta^Tx \geq 0 & \Rightarrow & y=1 \\\\ \theta^Tx < 0 & \Rightarrow & y=0 \end{array}$$
 
 The __decision boundary__ is the line that separates the area where $y = 0$ and where $y = 1$. It is created by our hypothesis function.
 
 Example:
 
-$$\begin{array}{c} \theta = \begin{bmatrix} 5 \\ −1 \\ 0 \end{bmatrix} \\\\ y = 1 \;\; \text{  if  } \;\; 5+(−1)x_1 + 0x_2 \geq 0 \;\Rightarrow\; 5−x_1 \geq 0 \;\Rightarrow\; −x_1 \geq −5 \;\Rightarrow\; x_1  \leq  5 \end{array}$$
+$$\begin{array}{c} \theta = \begin{bmatrix} 5 \\ -1 \\ 0 \end{bmatrix} \\\\ y = 1 \;\; \text{  if  } \;\; 5+(-1)x_1 + 0x_2 \geq 0 \;\Rightarrow\; 5-x_1 \geq 0 \;\Rightarrow\; -x_1 \geq -5 \;\Rightarrow\; x_1  \leq  5 \end{array}$$
 
 In this case, our decision boundary is a straight vertical line placed on the graph where $x_1 = 5$, and everything to the left of that denotes $y = 1$, while everything to the right denotes $y = 0$.
 
@@ -289,7 +289,7 @@ Again, the input to the sigmoid function $g(z)$ (e.g. $\theta^T X$) doesn't need
 
   + IVQ: In logistic regression, the cost function for our hypothesis outputting (predicting) $h_\theta(x)$ on a training example that has label $y\in\{0,1\}$ is:
 
-    $$\text{cost}(h_\theta(x),y) = \left\{ \begin{array}{ll} −\log h_\theta(x) & \text{ if } y=1 \\ − \log(1−h_\theta(x)) & \text{ if } y=0 \end{array} \right.​$$
+    $$\text{cost}(h_\theta(x),y) = \left\{ \begin{array}{ll} -\log h_\theta(x) & \text{ if } y=1 \\ - \log(1-h_\theta(x)) & \text{ if } y=0 \end{array} \right.​$$
 
     Which of the following are true? Check all that apply.
     1. If $h_\theta(x) = y$, then $\text{cost}(h_\theta(x),y) = 0$ (for $y=0$ and $y=1$).
@@ -306,7 +306,7 @@ We cannot use the same cost function that we use for linear regression because t
 
 Instead, our cost function, __[Cross-Entropy](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#loss-cross-entropy)__, also known as __Log Loss__, for logistic regression looks like:
 
-$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \text{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \text{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
+$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \text{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \text{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} -\log(h_\theta(x)), & \text{ if } y=1, \\  -\log(1-h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
 
 When $y = 1$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$. Similarly, when $y = 0$, we get the following plot for $J(\theta)$ vs $h_\theta (x)$:
 
@@ -354,7 +354,7 @@ Note that writing the cost function in this way guarantees that $J(\theta)$ is c
 
   To make a prediction given new $x$:
 
-  Output $h_\theta(x) = \dfrac{1}{1 + e^{\theta^Tx}} \quad \Leftarrow P(y = 1 | x; \theta)$$
+  Output $h_\theta(x) = \dfrac{1}{1 + e^{\theta^Tx}} \quad \Leftarrow P(y = 1 | x; \theta)$
 
 + Gradient Descent
 
@@ -373,6 +373,7 @@ Note that writing the cost function in this way guarantees that $J(\theta)$ is c
 
   + Linear regression: $h_\theta(x) = \theta^Tx$
   + Logistic regression: $h_\theta(x) = \dfrac{1}{1 + e^{\theta^Tx}}$
+
   + IVQ: Suppose you are running gradient descent to fit a logistic regression model with parameter $\theta\in\mathbb{R}^{n+1}$. Which of the following is a reasonable way to make sure the learning rate $\alpha$ is set properly and that gradient descent is running correctly?
 
     1. Plot $J(\theta) = \frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2$ as a function of the number of iterations (i.e. the horizontal axis is the iteration number) and make sure $J(\theta)$ is decreasing on every iteration.
@@ -381,17 +382,17 @@ Note that writing the cost function in this way guarantees that $J(\theta)$ is c
     4. Plot $J(\theta)$ as a function of $\theta$ and make sure it is convex.
 
     Ans: 2
+
   + IVQ: One iteration of gradient descent simultaneously performs these updates:
 
     $$\begin{matrix} \theta_0 := \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_0 \\\\ \theta_1 := \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_1 \\​	 \vdots \\ \theta_n := \theta_n - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_n \end{matrix}$$
 
-
     We would like a vectorized implementation of the form $\theta := \theta - \alpha\delta$ (for some vector $\delta\in\mathbb{R}^{n+1}$). What should the vectorized implementation be?
 
-    1) $\theta := \theta - \alpha\frac{1}{m}\sum_{i=1}^{m}[(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}]$
-    2) $\theta := \theta - \alpha\frac{1}{m}[\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})] \cdot x^{(i)}$
-    3) $\theta := \theta - \alpha\frac{1}{m}x^{(i)}[\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})]$
-    4) All of the above are correct implementations.
+    1. $\theta := \theta - \alpha\frac{1}{m}\sum_{i=1}^{m}[(h_\theta(x^{(i)}) - y^{(i)}) \cdot x^{(i)}]$
+    2. $\theta := \theta - \alpha\frac{1}{m}[\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})] \cdot x^{(i)}$
+    3. $\theta := \theta - \alpha\frac{1}{m}x^{(i)}[\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})]$
+    4. All of the above are correct implementations.
 
     Ans: 1
 
@@ -434,7 +435,7 @@ We can compress our cost function's two conditional cases into one case:
 
 $$\text{Cost}(h_\theta(x),y) = - y \cdot \log(h_\theta(x)) - (1 - y) \cdot \log(1 - h_\theta(x))$$
 
-Notice that when $y$ is equal to 1, then the second term $(1-y)\log(1-h_\theta(x))(1−y)$ will be zero and will not affect the result. If $y$ is equal to 0, then the first term $-y \log(h_\theta(x))−y$ will be zero and will not affect the result.
+Notice that when $y$ is equal to 1, then the second term $(1-y)\log(1-h_\theta(x))(1-y)$ will be zero and will not affect the result. If $y$ is equal to 0, then the first term $-y \log(h_\theta(x))-y$ will be zero and will not affect the result.
 
 We can fully write out our entire cost function as follows:
 
@@ -442,7 +443,7 @@ $$J(\theta) = - \frac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}\log (h_\th
 
 A vectorized implementation is:
 
-$$\begin{array}{rcl} h & = & g(X\theta) \\\\ J(θ) & = & \dfrac{1}{m} \cdot (−y^T \log(h) − (1−y)^T \log(1−h)) \end{array}$$
+$$\begin{array}{rcl} h & = & g(X\theta) \\\\ J(\theta) & = & \dfrac{1}{m} \cdot (-y^T \log(h) - (1-y)^T \log(1-h)) \end{array}$$
 
 __Gradient Descent__
 
@@ -450,7 +451,7 @@ Remember that the general form of gradient descent is:
 
 Repeat {
   
-$$θ_j := \theta_j − \alpha \dfrac{\partial}{\partial \theta_j} J(θ)$$
+$$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
 
 }
 
@@ -458,7 +459,7 @@ We can work out the derivative part using calculus to get:
 
 Repeat {
 
-$$\theta_j := \theta_j − \dfrac{\alpha}{m} \sum_{i=1}{m} (h_\theta(x^{(i)}) − y^{(i)}) x^{(i)}_j$$
+$$\theta_j := \theta_j - \dfrac{\alpha}{m} \sum_{i=1}{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}_j$$
 
 }
 
@@ -549,7 +550,7 @@ $$\theta := \theta - \dfrac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})$$
 
 "Conjugate gradient", "BFGS", and "L-BFGS" are more sophisticated, faster ways to optimize $\theta$ that can be used instead of gradient descent. We suggest that you should not write these more sophisticated algorithms yourself (unless you are an expert in numerical computing) but use the libraries instead, as they're already tested and highly optimized. Octave provides them.
 
-We first need to provide a function that evaluates the following two functions for a given input value θ:
+We first need to provide a function that evaluates the following two functions for a given input value $\theta$:
 
 $$J(\theta) \quad \text{and} \quad \dfrac{\partial}{\partial \theta_j} J(\theta)$$
 
@@ -684,7 +685,7 @@ $$0 \leq h_\theta (x) \leq 1$$
 
 Our new form uses the "__Sigmoid Function__," also called the "__Logistic Function__":
 
-$$\begin{array}{rcl} h_\theta(x) & = & g(\theta^Tx) \\\\ z & = & \theta^Tx \\\\ g(z) & = & \dfrac{1}{1+e^{−z}} \end{array}$$
+$$\begin{array}{rcl} h_\theta(x) & = & g(\theta^Tx) \\\\ z & = & \theta^Tx \\\\ g(z) & = & \dfrac{1}{1+e^{-z}} \end{array}$$
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t"><br/>
@@ -698,7 +699,7 @@ We start with our old hypothesis (linear regression), except that we want to res
 
 $h_\theta$ will give us the __probability__ that our output is 1. For example, $h_\theta(x)=0.7$ gives us the probability of $70\%$ that our output is 1.
 
-$$h_\theta(x)=P(y=1|x;\theta)=1−P(y=0|x;\theta)$$
+$$h_\theta(x)=P(y=1|x;\theta)=1-P(y=0|x;\theta)$$
 <br/>
 
 $$P(y=0|x;\theta)+P(y=1|x;\theta)=1$$
@@ -717,7 +718,7 @@ $g(z) \geq 0.5$ when $z \geq 0$
 
 Remember.-
 
-$$\begin{array}{rcl} z=0,e^0=1 & \longrightarrow & g(z)=1/2 \\ z \rightarrow \infty, e^{−\infty} \rightarrow 0 & \longrightarrow & g(z)=1 \\ z \rightarrow −\infty,e^{\infty} \rightarrow \infty & \longrightarrow & g(z)=0 \end{array}$$
+$$\begin{array}{rcl} z=0,e^0=1 & \longrightarrow & g(z)=1/2 \\ z \rightarrow \infty, e^{-\infty} \rightarrow 0 & \longrightarrow & g(z)=1 \\ z \rightarrow -\infty,e^{\infty} \rightarrow \infty & \longrightarrow & g(z)=0 \end{array}$$
 
 So if our input to $g$ is $\theta^T X$, then that means:
 
@@ -733,7 +734,7 @@ The __decision boundary__ is the line that separates the area where $y = 0$ and 
 
 Example:
 
-$$\begin{array}{c} \theta = \begin{bmatrix} 5 \\ −1 \\ 0 \end{bmatrix} \\\\ y = 1 \text{  if  } 5+(−1)x_1 + 0x_2 \geq 0 \;\rightarrow\; 5−x_1 \geq 0 \;\rightarrow\; −x_1 \geq −5 \;\rightarrow\; x_1  \leq  5 \end{array}$$
+$$\begin{array}{c} \theta = \begin{bmatrix} 5 \\ -1 \\ 0 \end{bmatrix} \\\\ y = 1 \text{  if  } 5+(-1)x_1 + 0x_2 \geq 0 \;\rightarrow\; 5-x_1 \geq 0 \;\rightarrow\; -x_1 \geq -5 \;\rightarrow\; x_1  \leq  5 \end{array}$$
 
 In this case, our decision boundary is a straight vertical line placed on the graph where $x_1 = 5$, and everything to the left of that denotes $y = 1$, while everything to the right denotes $y = 0$.
 
@@ -746,7 +747,7 @@ We cannot use the same cost function that we use for linear regression because t
 
 Instead, our cost function for logistic regression looks like:
 
-$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \text{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \text{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} −\log(h_\theta(x)), & \text{ if } y=1, \\  −\log(1−h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
+$$\begin{array}{rcl}J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^{m} \text{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\\\ \text{Cost}(h_\theta(x),y) & = & \left\{ \begin{array}{ll} -\log(h_\theta(x)), & \text{ if } y=1, \\  -\log(1-h_\theta(x)), & \text{  if  } y = 0 \end{array} \right. \end{array}$$
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.coursera.org/learn/machine-learning/resources/Zi29t"><br/>
@@ -771,7 +772,7 @@ We can compress our cost function's two conditional cases into one case:
 
 $$\text{Cost}(h_\theta(x),y) = - y \; \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))$$
 
-Notice that when y is equal to 1, then the second term $(1-y)\log(1-h_\theta(x))$ will be zero and will not affect the result. If y is equal to 0, then the first term $-y \log(h_\theta(x))−y$ will be zero and will not affect the result.
+Notice that when y is equal to 1, then the second term $(1-y)\log(1-h_\theta(x))$ will be zero and will not affect the result. If y is equal to 0, then the first term $-y \log(h_\theta(x))-y$ will be zero and will not affect the result.
 
 We can fully write out our entire cost function as follows:
 
@@ -779,7 +780,7 @@ $$J(\theta) = - \dfrac{1}{m} \displaystyle \sum_{i=1}^m [y^{(i)}\log (h_\theta (
 
 A vectorized implementation is:
 
-$$\begin{array}{rcl} h & = & g(X\theta) \\\\ J(\theta) & = & \dfrac{1}{m}\cdot (−y^T \log(h) − (1−y)^T \log(1−h)) \end{array}$$
+$$\begin{array}{rcl} h & = & g(X\theta) \\\\ J(\theta) & = & \dfrac{1}{m}\cdot (-y^T \log(h) - (1-y)^T \log(1-h)) \end{array}$$
 
 
 ##### Gradient Descent
@@ -788,7 +789,7 @@ Remember that the general form of gradient descent is:
 
 Repeat{
 
-$$\theta_j := \theta_j − \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+$$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
 
 }
 
@@ -796,7 +797,7 @@ We can work out the derivative part using calculus to get:
 
 Repeat{
   
-$$\theta_j := \theta_j − \dfrac{\alpha}{m} \sum_{i=1}^m (h_\theta(x^{(i)})−y^{(i)})x^{(i)}_j$$
+$$\theta_j := \theta_j - \dfrac{\alpha}{m} \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})x^{(i)}_j$$
 
 }
 
@@ -812,11 +813,11 @@ $$\theta := \theta - \frac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})$$
 
 First calculate derivative of sigmoid function (it will be useful while finding partial derivative of $J(\theta))$:
 
-$$\begin{array}{rcl} \sigma(x)^\prime & = & (\dfrac{1}{1+e^{−x}})^\prime = \dfrac{−(1+e^{−x})^\prime}{(1+e^{−x})^2} = \dfrac{−1^\prime − (e^{−x})^\prime}{(1+e^{−x})^2} = \dfrac{0 − (−x)^\prime (e^{−x})}{(1+e^{−x})^2} = \dfrac{−(−1)(e^{−x})}{(1+e^{−x})^2} = \dfrac{e^{−x}}{(1+e^{−x})^2} \\\\ & = & (\dfrac{1}{1+e^{−x}})(\dfrac{e^{−x}}{1+e^{−x}}) = \sigma(x)(\dfrac{+1−1+e^{-x}}{1+e^{-x}}) = \sigma(x)(\dfrac{1+e^{-x}}{1+e^{-x}} − \dfrac{1}{1+e^{-x}}) = \sigma(x)(1−\sigma(x)) \end{array}$$
+$$\begin{array}{rcl} \sigma(x)^\prime & = & (\dfrac{1}{1+e^{-x}})^\prime = \dfrac{-(1+e^{-x})^\prime}{(1+e^{-x})^2} = \dfrac{-1^\prime - (e^{-x})^\prime}{(1+e^{-x})^2} = \dfrac{0 - (-x)^\prime (e^{-x})}{(1+e^{-x})^2} = \dfrac{-(-1)(e^{-x})}{(1+e^{-x})^2} = \dfrac{e^{-x}}{(1+e^{-x})^2} \\\\ & = & (\dfrac{1}{1+e^{-x}})(\dfrac{e^{-x}}{1+e^{-x}}) = \sigma(x)(\dfrac{+1-1+e^{-x}}{1+e^{-x}}) = \sigma(x)(\dfrac{1+e^{-x}}{1+e^{-x}} - \dfrac{1}{1+e^{-x}}) = \sigma(x)(1-\sigma(x)) \end{array}$$
 
 Now we are ready to find out resulting partial derivative:
 
-$$\begin{array}{rcl} \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{\partial}{\partial \theta_j} \dfrac{-1}{m} \displaystyle \sum_{i=1}^m [y^{(i)} \log(h_\theta(x^{(i)}))+(1−y^{(i)}) \log(1−h_\theta(x^{(i)}))] \\\\ & = &  -\dfrac{1}{m} \displaystyle \sum_{i=1}^m [y^{(i)} \dfrac{\partial}{\partial \theta_j} \log(h_\theta(x^{(i)}))+(1−y^{(i)}) \dfrac{\partial}{\partial \theta_j} \log(1−h_\theta(x^{(i)}))] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}\frac{\partial}{\partial \theta_j} h_\theta(x^{(i)})}{h_\theta(x^{(i)})} + \dfrac{(1−y^{(i)}) \frac{\partial}{\partial \theta_j}(1−h_\theta(x^{(i)}))}{1−h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}\frac{\partial}{\partial \theta_j} \sigma(\theta^Tx^{(i)})}{h_\theta(x^{(i)})} + \dfrac{(1−y^{(i)})\frac{\partial}{\partial \theta_j} (1−\sigma(\theta^Tx^{(i)}))}{1−h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}\sigma(\theta^Tx^{(i)})(1−\sigma(\theta^Tx^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{h_\theta(x^{(i)})} + \dfrac{−(1−y^{(i)})\sigma(\theta^Tx^{(i)})(1−\sigma(\theta^Tx^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{1−h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}h_\theta(x^{(i)})(1−h_\theta(x^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{h_\theta(x^{(i)})} − \dfrac{(1−y^{(i)})h_\theta(x^{(i)})(1−h_\theta(x^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{1−h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}(1−h_\theta(x^{(i)}))x^{(i)}j−(1−y^{(i)})h_\theta(x^{(i)})x^{(i)}_j \right] = -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}(1−h_\theta(x^{(i)}))−(1−y^{(i)})h_\theta(x^{(i)}) \right] x^{(i)}_j \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}−y^{(i)}h_\theta(x^{(i)})−h_\theta(x^{(i)})+y^{(i)}h_\theta(x^{(i)}) \right] x^{(i)}_j = -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}−h_\theta(x^{(i)}) \right] x^{(i)}_j \\\\ & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ h_\theta(x^{(i)})−y^{(i)} \right] x^{(i)}_j \end{array}$$
+$$\begin{array}{rcl} \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{\partial}{\partial \theta_j} \dfrac{-1}{m} \displaystyle \sum_{i=1}^m [y^{(i)} \log(h_\theta(x^{(i)}))+(1-y^{(i)}) \log(1-h_\theta(x^{(i)}))] \\\\ & = &  -\dfrac{1}{m} \displaystyle \sum_{i=1}^m [y^{(i)} \dfrac{\partial}{\partial \theta_j} \log(h_\theta(x^{(i)}))+(1-y^{(i)}) \dfrac{\partial}{\partial \theta_j} \log(1-h_\theta(x^{(i)}))] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}\frac{\partial}{\partial \theta_j} h_\theta(x^{(i)})}{h_\theta(x^{(i)})} + \dfrac{(1-y^{(i)}) \frac{\partial}{\partial \theta_j}(1-h_\theta(x^{(i)}))}{1-h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}\frac{\partial}{\partial \theta_j} \sigma(\theta^Tx^{(i)})}{h_\theta(x^{(i)})} + \dfrac{(1-y^{(i)})\frac{\partial}{\partial \theta_j} (1-\sigma(\theta^Tx^{(i)}))}{1-h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}\sigma(\theta^Tx^{(i)})(1-\sigma(\theta^Tx^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{h_\theta(x^{(i)})} + \dfrac{-(1-y^{(i)})\sigma(\theta^Tx^{(i)})(1-\sigma(\theta^Tx^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{1-h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ \dfrac{y^{(i)}h_\theta(x^{(i)})(1-h_\theta(x^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{h_\theta(x^{(i)})} - \dfrac{(1-y^{(i)})h_\theta(x^{(i)})(1-h_\theta(x^{(i)}))\frac{\partial}{\partial \theta_j} \theta^Tx^{(i)}}{1-h_\theta(x^{(i)})} \right] \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}(1-h_\theta(x^{(i)}))x^{(i)}j-(1-y^{(i)})h_\theta(x^{(i)})x^{(i)}_j \right] = -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}(1-h_\theta(x^{(i)}))-(1-y^{(i)})h_\theta(x^{(i)}) \right] x^{(i)}_j \\\\ & = & -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}-y^{(i)}h_\theta(x^{(i)})-h_\theta(x^{(i)})+y^{(i)}h_\theta(x^{(i)}) \right] x^{(i)}_j = -\dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ y^{(i)}-h_\theta(x^{(i)}) \right] x^{(i)}_j \\\\ & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ h_\theta(x^{(i)})-y^{(i)} \right] x^{(i)}_j \end{array}$$
 
 The vectorized version;
 
@@ -926,8 +927,8 @@ In the video at 7:30, the notation for specifying MaxIter is incorrect. The valu
     2. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}}$ (simultaneously update for all $j$).
     3. $\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}}$ (simultaneously update for all $j$).
     4. $\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^m{ \left(\theta^T x - y^{(i)}\right) x^{(i)}}$.
-    5. $\theta := \theta − \alpha \frac{1}{m} \sum_{i=1}^m (\dfrac{1}{1+e^{-\theta^Tx^{(i)}} }- y^{(i)})x^{(i)}$.
-    6. $\theta := \theta − \alpha \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})- y^{(i)})x^{(i)}$.
+    5. $\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^m (\dfrac{1}{1+e^{-\theta^Tx^{(i)}} }- y^{(i)})x^{(i)}$.
+    6. $\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})- y^{(i)})x^{(i)}$.
 
 
     Ans: 126, 5x
