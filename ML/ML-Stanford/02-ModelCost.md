@@ -5,9 +5,13 @@
 ### Lecture Notes
 
 + Housing Prices (Portland, OR)
-  <a href="https://d3c33hcgiwev3.cloudfront.net/_ec21cea314b2ac7d9e627706501b5baa_Lecture2.pdf?Expires=1552003200&Signature=TGQs5L1O0PHw2SBFtYJ4q5n3rNLp0mWpKigVJHX~vOlMdHSuPvqHnyuQGUSCPtonZ-IFHiq3F~SWhBMrwxbzerZQlLdy9-SGe5UBrMDE0rOLj-mj5VO3QchKzHbRLnmyxGu-C65y2r-CV8wmRqvN5JpKOKeqGzpWT0mV8InqUoQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"> <br/>
-    <img src="images/m02-01.png" style="display: block; margin: auto; background-color: black" alt="We're going to use a data set of housing prices from the city of Portland, Oregon. And here I'm gonna plot my data set of a number of houses that were different sizes that were sold for a range of different prices. Let's say that given this data set, you have a friend that's trying to sell a house and let's see if friend's house is size of 1250 square feet and you want to tell them how much they might be able to sell the house for. Well one thing you could do is fit a model. Maybe fit a straight line to this data. Looks something like that and based on that, maybe you could tell your friend that let's say maybe he can sell the house for around $220,000. So this is an example of a supervised learning algorithm." title="Example: Housing Prices (Portland, OR)" width="350" >
-  </a>
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_ec21cea314b2ac7d9e627706501b5baa_Lecture2.pdf?Expires=1552003200&Signature=TGQs5L1O0PHw2SBFtYJ4q5n3rNLp0mWpKigVJHX~vOlMdHSuPvqHnyuQGUSCPtonZ-IFHiq3F~SWhBMrwxbzerZQlLdy9-SGe5UBrMDE0rOLj-mj5VO3QchKzHbRLnmyxGu-C65y2r-CV8wmRqvN5JpKOKeqGzpWT0mV8InqUoQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="images/m02-01.png" style="margin: 0.1em;" alt="We're going to use a data set of housing prices from the city of Portland, Oregon. And here I'm gonna plot my data set of a number of houses that were different sizes that were sold for a range of different prices. Let's say that given this data set, you have a friend that's trying to sell a house and let's see if friend's house is size of 1250 square feet and you want to tell them how much they might be able to sell the house for. Well one thing you could do is fit a model. Maybe fit a straight line to this data. Looks something like that and based on that, maybe you could tell your friend that let's say maybe he can sell the house for around $220,000. So this is an example of a supervised learning algorithm." title="Example: Housing Prices (Portland, OR)" width="350">
+    </a></div>
+  </div>
+
   + Supervised Learning: Given the "right answer" for each example in the data
   + Regression Problem: Predict real-valued output
   + cf: Classification - discrete-valued output
@@ -22,9 +26,9 @@
 | ... | ... |
 
   + Notation: 
-      + $m$: Number of training examples
-      + $x$: "input" variables / features
-      + $y$: "output" variable / "target" feature
+    + $m$: Number of training examples
+    + $x$: "input" variables / features
+    + $y$: "output" variable / "target" feature
   + $(x, y)$: one training example
   + $(x^{(i)}, y^{(i)})$: ith training example, e.g., $x^{(1)} = 2104$, $y^{(1)} = 460$, $x^{(2)} = 1416$, $y^{(1)} = 232$
   + IVQ: Consider the training set shown below. $(x^{(i)}, y^{(i)})$ is the $i^{th}$ training example. What is $y^{(3)}$?
@@ -52,6 +56,11 @@ To establish notation for future use, we’ll use $x^{(i)}$ to denote the “inp
 
 To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function $h : X \implies Y$ so that $h(x)$ is a “good” predictor for the corresponding value of $y$. For historical reasons, this function $h$ is called a __hypothesis__. Seen pictorially, the process is therefore like this:
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="url" style="margin: 0.1em;" alt="text" title="caption" width="250">
+    </a></div>
+  </div>
 <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation">
     <img src="images/m02-17.png" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="300" >
 </a>
@@ -76,21 +85,27 @@ When the target variable that we’re trying to predict is _continuous_, such as
   Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
   + $\theta_i$: parameters
   + How to choose $\theta_i$'s?
-  <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation"> <br/>
-    <img src="images/m02-04.png" style="display: block; margin: auto; background-color: black" alt="Flowchart" title="Modeling Process" width="450" >
-  </a>
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation">
+      <img src="images/m02-04.png" style="margin: 0.1em;" alt="Flowchart" title="Modeling Process" width="450">
+    </a></div>
+  </div>
+
   + IVQ: Consider the plot below of $h_\theta(x) = \theta_0 + \theta_1x$. What are $\theta_0$ and $\theta_1$?
 
-    <a href="url"> <br/>
-        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="caption" width="150" >
-    </a>
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.2-quiz-1-fig.jpg" style="margin: 0.1em;" alt="A line of $h_\theta(x)$ as a function of $$x$$. The line goes through points (0, 0.5), (1, 1.5), and (2, 2.5)." title="Curve for IVQ" width="150">
+      </a></div>
+    </div>
 
-    1) $\theta_0 = 0, \theta_1 = 1$ <br/>
-    2) $\theta_0 = 0.5, \theta_1 = 1$ <br/>
-    3) $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
-    4) $\theta_0 = 1, \theta_1 = 1$
+    1. $\theta_0 = 0, \theta_1 = 1$ <br/>
+    2. $\theta_0 = 0.5, \theta_1 = 1$ <br/>
+    3. $\theta_0 = 1, \theta_1 = 0.5$ <br/> 
+    4. $\theta_0 = 1, \theta_1 = 1$
 
-        Ans: 2
+  Ans: 2
 
 + The cost function
   + Idea: Choose $\theta_0$, $\theta_1$ so that $h_\theta (x)$ is close to $y$ for our training examples $(x, y)$
@@ -99,6 +114,7 @@ When the target variable that we’re trying to predict is _continuous_, such as
     $$\displaystyle \min_{\theta_0, \theta_1} \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
 
     where $h_\theta (x^{(i)}) = \theta_0 + \theta_1 \cdot x^{(i)}$
+
   + Cost function = Squared error function: $J(\theta_0, \theta_1)$
 
     $$J(\theta_0, \theta_1) = \frac{1}{2m} \displaystyle \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
@@ -118,9 +134,11 @@ To break it apart, it is $\frac{1}{2} \bar{x}$ where $\bar{x}$ is the mean of th
 
 This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved $\left(\frac{1}{2}\right)$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $\frac{1}{2}$ ​	 term. The following image summarizes what the cost function does:
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/nhzyF/cost-function">
-    <img src="images/m02-18.png" style="display: block; margin: auto; background-color: black" alt="text" title="Cost Function Analysis" width="450">
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/nhzyF/cost-function">
+    <img src="images/m02-18.png" style="margin: 0.1em;" alt="Cost Function Analysis" title="Cost Function Analysis" width="450">
+  </a></div>
+</div>
 
 
 ### Lecture Video
@@ -155,10 +173,14 @@ This function is otherwise called the "Squared error function", or "Mean squared
 
     Ans: $\displaystyle \theta_1 = 0 \Longrightarrow J(0) = \frac{1}{2m} [(0 - 1)^2 + (0 - 2)^2 + (0 - 3)^2] = \frac{1}{6} \cdot 14 \approx 2.3$
   + Cost Function:
-    <a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i"> <br/>
-        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="background-color: black; margin-right: 2em;" alt="Sample values" title="Samples" width="250" >
-        <img src="images/m02-21.png" style="background-color: black" alt="Cost function" title="Cost function" width="225" >
-    </a>
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.3-quiz-1-fig.jpg" style="margin: 0.1em;" alt="Sample values" title="Sample" width="250">
+        <img src="images/m02-21.png" style="margin: 0.1em;" alt="Cost function" title="Cost function" width="225">
+      </a></div>
+    </div>
+
 + Simplified hypothesis: $\theta_1 = 1$ with minimized cost function
 
 ---------------------------
@@ -167,21 +189,28 @@ If we try to think of it in visual terms, our training data set is scattered on 
 
 Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of $J(\theta_0, \theta_1)$ will be $0$. The following example shows the ideal situation where we have a cost function of $0$.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
-    <img src="images/m02-19.png" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+    <img src="images/m02-19.png" style="margin: 0.1em;" alt="text" title="Contour plot of Cost Function with \theta_1 & \theta_2" width="450">
+  </a></div>
+</div>
 
 When $\theta_1 = 1$, we get a slope of $1$ which goes through every single data point in our model. Conversely, when $\theta_1 = 0.5$, we see the vertical distance from our fit to the data points increase.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
-    <img src="images/m02-20.png" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="450" >
-</a>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+      <img src="images/m02-20.png" style="margin: 0.1em;" alt="text" title="caption" width="250">
+    </a></div>
+  </div>
+
 
 This increases our cost function to 0.58. Plotting several other points yields to the following graph:
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
-    <img src="images/m02-21.png" style="display: block; margin: auto; background-color: black" alt="text" title="caption" width="250" >
-</a>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/u3qF5/cost-function-intuition-i">
+      <img src="images/m02-21.png" style="margin: 0.1em;" alt="Cost Function" title="Cost Function" width="250">
+    </a></div>
+  </div>
 
 Thus as a goal, we should try to minimize the cost function. In this case, $\theta_1 = 1$ is our global minimum.
 
@@ -206,46 +235,62 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 
 + Example: $h_\theta (x) = 50 + 0.06 \cdot x$
 
-    <a href="https://www.coursera.org/learn/machine-learning/lecture/nwpe2/cost-function-intuition-ii">
-      <img src="images/m02-05.png" alt="Samples, Cost Function" title="Linear regression: 50 + 0.06x" width="300">
-      <img src="images/m02-06.png" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="260">
-    </a>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/nwpe2/cost-function-intuition-ii">
+      <img src="images/m02-05.png" style="margin: 0.1em;" alt="Samples, Cost Function" title="Linear regression: 50 + 0.06x" width="300">
+      <img src="images/m02-06.png" style="margin: 0.1em;" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="260">
+    </a></div>
+  </div>
 
 + Examples of Cost Function with $\theta_0$ & $\theta_1$
   + $\theta_0 = 800$ and $\theta_1 = -0.15$ (left fig)
   + $\theta_0 = 360$ and $\theta_1 = 0$ (right fig)
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+      <img src="images/m02-22.png" style="margin: 0.1em;" alt="Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="300">
+      <img src="images/m02-23.png" style="margin: 0.1em;" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="285">
+    </a></div>
+  </div>
 
-  <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-      <img src="images/m02-22.png" alt="Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="300">
-      <img src="images/m02-23.png" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. " title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="285" >
-  </a>
 
 + Minimized cost function: $\theta_0 = 250$ and $\theta_1 = .12$
 
-  <a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-      <img src="images/m02-24.png" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
-  </a>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+      <img src="images/m02-24.png" style="margin: 0.1em;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350">
+    </a></div>
+  </div>
+
 
 ----------------------------------
 
 A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line. An example of such a graph is the one to the right below.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-    <img src="images/m02-22.png" style="display: block; margin: auto; background-color: black;" alt="the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Vaueof cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350">
-</a>
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+    <img src="images/m02-22.png" style="margin: 0.1em;" alt="the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350">
+  </a></div>
+</div>
+
 
 Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\theta_0,\theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\theta_0 = 800$ and $\theta_1 = -0.15$. Taking another $h(x)$ and plotting its contour plot, one gets the following graphs:
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-    <img src="images/m02-23.png" style="display: block; margin: auto; background-color: black;" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350" >
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+    <img src="images/m02-23.png" style="margin: 0.1em;" alt="When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error." title="Value of cost function w/ $\theta_0 = 800$ and $\theta_1 = -0.15$" width="350">
+  </a></div>
+</div>
 
 When $\theta_0 = 360$ and $\theta_1 = 0$, the value of $J(\theta_0,\theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
-    <img src="images/m02-24.png" style="display: block; margin: auto; background-color: black;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350" >
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/9SEeJ/cost-function-intuition-ii">
+    <img src="images/m02-24.png" style="margin: 0.1em;" alt="The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively." title="Minimized Cost function with $\theta_0 = 250$ and $\theta_1 = .12$" width="350">
+  </a></div>
+</div>
+
 
 The graph above minimizes the cost function as much as possible and consequently, the result of $\theta_1$ and $\theta_0$ tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most 'circle'.
 
@@ -266,7 +311,7 @@ The graph above minimizes the cost function as much as possible and consequently
 
 ### Lecture Notes
 
-+ Simpliest Gradient descent
++ Simplest Gradient descent
   + Objective: Have some function $J(\theta_0, \theta_1)$ <br/>
     Want $\;\;\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
   + Outline
@@ -274,11 +319,11 @@ The graph above minimizes the cost function as much as possible and consequently
     + keep changing $\theta_0, \theta_1$ to reduce $J(\theta_0, \theta_1)$ until we hopefully end up with at a minimum
 
 + Generalized gradient decent
-  + Objective: Have some function $J(\Theta)$ where $\Theta = (\theta_0, \theta_1, \ldots, \theta_n)$ <br/>
-    Want $\;\;\displaystyle \min_{\Theta} J(\Theta)$
+  + Objective: Have some function $J(\theta)$ where $\theta = (\theta_0, \theta_1, \ldots, \theta_n)$ <br/>
+    Want $\;\;\displaystyle \min_{\theta} J(\theta)$
   + Outline
-    + start with some $\Theta$
-    + keep changing $\Theta$ to reduce $J(\Theta)$ until we hopefully end up with at a minimum
+    + start with some $\theta$
+    + keep changing $\theta$ to reduce $J(\theta)$ until we hopefully end up with at a minimum
 
 + Examples of Gradient Decent
 
@@ -326,9 +371,12 @@ Imagine that we graph our hypothesis function based on its fields $\theta_0$ and
 
 We put $\theta_0$ on the x axis and $\theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters. The graph below depicts such a setup.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
-    <img src="images/m02-07.png" style="display: block; margin: auto; background-color: black;" alt="We put $\theta_0$ on the x axis and $\theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters." title="Contour diagram of $J(\theta_0, \theta_1$)" width="350" >
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
+    <img src="images/m02-07.png" style="margin: 0.1em;" alt="We put $\theta_0$ on the x axis and $\theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters." title="Contour diagram of $J(\theta_0, \theta_1$)" width="350">
+  </a></div>
+</div>
+
 
 We will know that we have succeeded when our cost function is at the very bottom of the pits in our graph, i.e. when its value is the minimum. The red arrows show the minimum points in the graph.
 
@@ -346,9 +394,11 @@ where $j=0,1$ represents the feature index number.
 
 At each iteration j, one should simultaneously update the parameters $\theta_1, \theta_2,\cdots,\theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
-    <img src="images/m02-25.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="450" >
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/2GnUg/gradient-descent">
+    <img src="images/m02-25.png" style="margin: 0.1em;" alt="Gradient Descent Update Sequence" title="Gradient Descent Update Sequence" width="350">
+  </a></div>
+</div>
 
 
 ### Lecture Video
@@ -361,7 +411,6 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
 <br/>
 
 ## Gradient Descent Intuition
-
 
 ### Lecture Notes
 
@@ -379,10 +428,14 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
   
 + Tangent line & Derivative: $J^\prime (\theta_0, \theta_1) = \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$
   + $J^\prime (\theta_0, \theta_1) \geq 0\;$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (positive number)}$
-  + $J^\prime (\theta_0, \theta_1) \leq 0\;$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (negative number)}$  
-  <a href="http://xaktly.com/TheDerivative.html"> <br/>
-    <img src="http://xaktly.com/Images/Mathematics/TheDerivative/DerivativeOfXSquared.png" style="display: block; margin: auto; background-color: white;" alt="When x < 0, any tangent to the curve will have a negative slope. For points close to zero, the steepness of those slopes approaches zero, and at x = 0, the global minimum of the function, the slope of the tangent is zero. Finally, for x > 0, the slope of the tangent to any point is positive." title="Derivative and tangent line" width="250" >
-  </a>
+  + $J^\prime (\theta_0, \theta_1) \leq 0\;$: $\;\; \theta_1 := \theta_1 - \alpha \cdot \text{ (negative number)}$ 
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="http://xaktly.com/TheDerivative.html">
+      <img src="http://xaktly.com/Images/Mathematics/TheDerivative/DerivativeOfXSquared.png" style="margin: 0.1em; background-color: white;" alt="When x < 0, any tangent to the curve will have a negative slope. For points close to zero, the steepness of those slopes approaches zero, and at x = 0, the global minimum of the function, the slope of the tangent is zero. Finally, for x > 0, the slope of the tangent to any point is positive." title="Derivative and tangent line" width="250">
+    </a></div>
+  </div>
+
 
 + Learning rate ($\alpha$)
   + If $\alpha$ is _too small_, gradient descent can be slow.
@@ -390,9 +443,12 @@ At each iteration j, one should simultaneously update the parameters $\theta_1, 
   + IVQ: Suppose $\theta_1$ is at a local optimum of $J(\theta_1)$, such as shown in the figure.
 
     What will one step of gradient descent $\theta_1 := \theta_1 -\alpha \displaystyle \frac{d}{d \theta_1} J(\theta_1)$ do?
-    <a href="http://xaktly.com/TheDerivative.html"> <br/>
-      <img src="http://spark-public.s3.amazonaws.com/ml/images/2.6-quiz-1-fig.jpg" style="display: block; margin: auto; background-color: black;" alt="Local optimal" title="Local Optimal" width="250">
-    </a>
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="http://xaktly.com/TheDerivative.html">
+        <img src="http://spark-public.s3.amazonaws.com/ml/images/2.6-quiz-1-fig.jpg" style="margin: 0.1em;" alt="Local optimal" title="Local optimal" width="250">
+      </a></div>
+    </div>
 
     1. Leave $\theta_1$ unchanged
     2. Change $\theta_1$ in a random direction
@@ -423,24 +479,31 @@ $$\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)$$
 
 Regardless of the slope's sign for $\frac{d}{d\theta_1} J(\theta_1)$, $\theta_1$ eventually converges to its minimum value. The following graph shows that when the slope is negative, the value of $\theta_1$ increases and when it is positive, the value of $\theta_1$ decreases.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
-    <img src="images/m02-26.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
+    <img src="images/m02-26.png" style="margin: 0.1em;" alt="Tangent slope for gradient descent" title="Tangent slope for gradient descent" width="350">
+  </a></div>
+</div>
 
 On a side note, we should adjust our parameter $\alpha$ to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
-    <img src="images/m02-27.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
+    <img src="images/m02-27.png" style="margin: 0.1em;" alt="Convergence vs. learnig rate" title="Convergence vs. learning rate" width="350">
+  </a></div>
+</div>
 
 How does gradient descent converge with a fixed step size $\alpha$?
 The intuition behind the convergence is that $\frac{d}{d\theta_1} J(\theta_1)$ approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
 
 $$\theta_1:=\theta_1-\alpha * 0$$
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition"><br/>
-    <img src="images/m02-28.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350">
-</a>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/QKEdR/gradient-descent-intuition">
+      <img src="images/m02-28.png" style="margin: 0.1em;" alt="Gradient descent with local minimum" title="Gradient descent with local minimum" width="350">
+    </a></div>
+  </div>
+
 
 
 ### Lecture Video
@@ -490,26 +553,36 @@ $$\theta_1:=\theta_1-\alpha * 0$$
 
   + Illustration of gradient descent algorithm w/ different starting point
 
-    <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
-      <img src="images/m02-07.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="300" >
-      <img src="images/m02-29.png" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="200" >
-    </a>
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
+        <img src="images/m02-07.png" style="margin: 0.1em;" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 1" width="300">
+        <img src="images/m02-29.png" style="margin: 0.1em;" alt="start at some point (star sign), then take a step to a lowest point around, and repeat to find the lowest point of the countour as reaching a local optimum" title="Gradient descent start at a given point 2" width="200">
+      </a></div>
+    </div>
+
   + Convex function: bowl-shaped
-    <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
-      <img src="images/m02-06.png" style="display: block; margin: auto; background-color: black;" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="300">
-    </a>
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
+        <img src="images/m02-06.png" style="margin: 0.1em;" alt="Cost functionwith $\theta_0$ and $\theta_1$" title="Linear regression: 50 + 0.06x" width="300">
+      </a></div>
+    </div>
 
   + Example process of gradient descent
-    <a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression"> <br/>
-      <img src="images/m02-09.png" alt="$Initial: \theta_0 = 900, \theta = -0.1" title="Fig. 1: $\theta_0 = 900, \theta = -0.1" width="300" >
-      <img src="images/m02-10.png" alt="Fig.2" title="Fig.2" width="300"><br/>
-      <img src="images/m02-11.png" alt="Fig.3" title="Fig.3" width="300">
-      <img src="images/m02-12.png" alt="Fig.4" title="Fig.4" width="300"><br/>
-      <img src="images/m02-13.png" alt="Fig.5" title="Fig.5" width="300">
-      <img src="images/m02-14.png" alt="Fig.6" title="Fig.6" width="300"><br/>
-      <img src="images/m02-15.png" alt="Fig.7" title="Fig.7" width="300">
-      <img src="images/m02-16.png" alt="Fig.8" title="Fig.8" width="300">
-  </a>
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/kCvQc/gradient-descent-for-linear-regression">
+        <img src="images/m02-09.png" style="margin: 0.1em;" alt="$Initial: \theta_0 = 900, \theta = -0.1" title="Fig. 1: $\theta_0 = 900, \theta = -0.1" width="300">
+        <img src="images/m02-10.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300"><br/>
+        <img src="images/m02-11.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300">
+        <img src="images/m02-12.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300"><br/>
+        <img src="images/m02-13.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300">
+        <img src="images/m02-14.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300"><br/>
+        <img src="images/m02-15.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300">
+        <img src="images/m02-16.png" style="margin: 0.1em;" alt="Fig.2" title="Fig.2" width="300">
+      </a></div>
+    </div>
+
 
 + "Batch" Gradient Descent <br/>
   "Batch": Each step of gradient descent uses all the training examples, i.e.,
@@ -552,9 +625,11 @@ The point of all this is that if we start with a guess for our hypothesis and th
 
 So, this is simply gradient descent on the original cost function $J$. This method looks at every example in the entire training set on every step, and is called __batch gradient descent__. Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate $\alpha$ is not too large) to the global minimum. Indeed, $J$ is a convex quadratic function. Here is an example of gradient descent as it is run to minimize a quadratic function.
 
-<a href="https://www.coursera.org/learn/machine-learning/supplement/U90DX/gradient-descent-for-linear-regression">
-    <img src="images/m02-29.png" style="display: block; margin: auto; background-color: black;" alt="text" title="caption" width="350" >
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/U90DX/gradient-descent-for-linear-regression">
+    <img src="images/m02-29.png" style="margin: 0.1em;" alt="Contours of a quadratic function" title="Contours of a quadratic function" width="250">
+  </a></div>
+</div>
 
 The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at $(48,30)$. The x’s in the figure (joined by straight lines) mark the successive values of $\theta$ that gradient descent went through as it converged to its minimum.
 
@@ -695,7 +770,11 @@ Some may find the following [video](https://www.youtube.com/watch?v=WnqQrPNYz5Q)
 
     Here each row is one training example. Recall that in linear regression, our hypothesis is $h_\theta(x) = \theta_0 + \theta_1x$, and we use mm to denote the number of training examples.
 
-    <img src="https://d396qusza40orc.cloudfront.net/flex-ml/quizIIq1v2.png" alt="Q1" width="100" style="display: block; margin: auto;">
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/dbM1J/octave-matlab-tutorial">
+        <img src="https://d396qusza40orc.cloudfront.net/flex-ml/quizIIq1v2.png" style="margin: 0.1em;" alt="Mod02 Quiz 1" title="Mod02 Quiz 1" width="150">
+      </a></div>
+    </div>
 
     For the training set given above (note that this training set may also be referenced in other questions in this quiz), what is the value of $m$? In the box below, please enter your answer (which should be a number between 0 and 10).
 
@@ -758,7 +837,11 @@ Some may find the following [video](https://www.youtube.com/watch?v=WnqQrPNYz5Q)
 
 6. Many substances that can burn (such as gasoline and alcohol) have a chemical structure based on carbon atoms; for this reason they are called hydrocarbons. A chemist wants to understand how the number of carbon atoms in a molecule affects how much energy is released when that molecule combusts (meaning that it is burned). The chemist obtains the dataset below. In the column on the right, “kJ/mol” is the unit measuring the amount of energy released.
 
-    <img src="https://d396qusza40orc.cloudfront.net/ml/images/2.2-quiz1.png" style="display:block; margin: auto;" width="500">
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/exam/dbM1J/octave-matlab-tutorial">
+        <img src="https://d396qusza40orc.cloudfront.net/ml/images/2.2-quiz1.png" style="margin: 0.1em;" alt="Mod02 Quiz 6" title="Mod02 Quiz 6" width="450">
+      </a></div>
+    </div>
 
     You would like to use linear regression $(h_{\theta}(x) = \theta_0 + \theta_1 x$ to estimate the amount of energy released ($y$) as a function of the number of carbon atoms ($x$). Which of the following do you think will be the values you obtain for $\theta_0$ and $\theta_1$? You should be able to select the right answer without actually implementing linear regression.
 
