@@ -45,7 +45,7 @@
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; height: 1.2em;"> Supervised Machine Learning </td> </tr>
     <tr>
       <th style="text-align: left;"> Linear Regression </th>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#objective-linear-regression"> Objective </a></td>
+      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#cost-function-linear-regression"> Cost Function </a></td>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression"> Gradient Descent </a></td>
       <td style="text-align: center;"> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> Vectorization </a></td>
