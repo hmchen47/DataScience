@@ -155,6 +155,39 @@
     h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 \sqrt{(size)}
   \end{array}$$
 
+
+#### [Normal Equation](../ML/ML-Stanford/04-LRegMVar.md#normal-equation)
+
++ Normal equation: Method to solve for $\theta$ analytically.
+
++ Generalized: for $\; \theta \in \mathbb{R}^{n+1}$
+
+  $$J(\theta_0, \theta_1, \ldots, \theta_m) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$$
+  <br/>
+
+  $$\theta = \begin{bmatrix} \theta_1 \\ \theta_2 \\ \vdots \\ \theta_m \end{bmatrix} = (X^TX)^{-1} X^T y$$
+  <br/>
+
+  $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \cdots = 0, \quad \forall j \Longrightarrow \text{solve for } \theta_0, \theta_1, \ldots, \theta_n$$
+
+
++ comparison of gradient descent and the normal equation:
+  + Gradient descent
+    + Need to choose $\alpha$
+    + Need many iterations
+    + $\mathcal{O}(kn^2)$
+    + Works well when $n$ is large
+  + Normal Equation
+    + Not need to choose $\alpha$
+    + No need to iterate
+    + $\mathcal{O}(n^3)$, need to calculate inverse of $X^TX$ 
+    + Slow if $n$ is very large
+
++ [What if $X^TX$ is non-invertible?](../ML/ML-Stanford/04-LRegMVar.md#normal-equation-noninvertibility)
+  + Redundant features (linearly dependent)
+  + Too many features (e.g. $m \leq n$): Delete some features, or use regularization
+
+
 ### Logistic Regression
 
 
