@@ -19,9 +19,9 @@
 
 ### Learn Regression
 
-#### Objective: Learn Regression
+#### Model: Learn Regression
 
-+ [Simple Linear Regression](../ML-Stanford/02-ModelCost.md#cost-function-intuition-ii):
++ [Simple Linear Regression](../ML/ML-Stanford/02-ModelCost.md#cost-function-intuition-ii):
 
 	+ Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
 
@@ -32,25 +32,41 @@
   + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
 
 
++ [Multivariate Linear Regression Model](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
+
+  + Hypothesis function
+
+    $$h_\theta(x) =\theta^T x = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot X$$
+
+  + Parameters: 
+  
+    $$\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}\quad$$
+
+    $\theta$: a $(n+1)$-dimensional vector
+
+  + Cost function:
+
+    $$J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
 
 
 
 #### Cost Function: Learn Regression
 
-+ [Squared error function](../ML-Stanford/02-ModelCost.md#cost-function-intuition-ii): $J(\theta_0, \theta_1)$
++ [Squared error function](../ML/ML-Stanford/02-ModelCost.md#cost-function-intuition-ii): $J(\theta_0, \theta_1)$
 
 	An average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
 
 	$$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left ( \hat{y}_{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$$
 
++ [Multivariate Cost Function](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
 
-
+  $$J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
 
 
 
 #### Gradient Descent: Linear Regression
 
-+ [Simplest Gradient descent](..ML-Stanford/02-ModelCost.md#gradient-descent)
++ [Simplest Gradient descent](../ML/ML-Stanford/02-ModelCost.md#gradient-descent)
   + Objective: Have some function $J(\theta_0, \theta_1)$ <br/>
     Want $\;\;\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
   + Outline
@@ -58,7 +74,7 @@
     + keep changing $\theta_0, \theta_1$ to reduce $J(\theta_0, \theta_1)$ until we hopefully end up with at a minimum
 
 
-+ [Simplest Gradient descent algorithm](ML-Stanford/02-ModelCost.md#gradient-descent):
++ [Simplest Gradient descent algorithm](../ML/ML-Stanford/02-ModelCost.md#gradient-descent):
 
    Repeat until convergence {
 
@@ -73,13 +89,29 @@
 	+ $\alpha\;$: learning rate, step size
 
 
-+ [Generalized gradient decent](ML-Stanford/02-ModelCost.md#gradient-descent)
++ [Multivariate gradient decent](../ML/ML-Stanford/02-ModelCost.md#gradient-descent)
   + Objective: Have some function $J(\theta)$ where $\theta = (\theta_0, \theta_1, \ldots, \theta_n)$ <br/>
     Want $\;\;\displaystyle \min_{\theta} J(\theta)$
   + Outline
     + start with some $\theta$
     + keep changing $\theta$ to reduce $J(\theta)$ until we hopefully end up with at a minimum
 
++ [Multivariate linear repression ($n \geq 1$) algorithm](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
+
+  Repeat {
+
+    $$\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+    <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update </span> $\theta_j \;$ for $j=0, 1, \ldots, n$)<br/>
+  }
+
+  Extended version: with $x_0^{(i)} = 1$
+
+    $$\begin{array}{ccc}
+      \theta_0 &:=& \theta_0 -\alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x_0^{(i)} \\\\
+      \theta_1 &:=& \theta_1 -\alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x_1^{(i)} \\\\
+      \theta_2 &:=& \theta_2 -\alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x_2^{(i)} \\\\
+      & \cdots &
+    \end{array}$$
 
 
 
@@ -131,6 +163,9 @@
 
 
 ## Advice on building a Machine Learning System
+
+
+
 
 ### Bias/Variance
 
