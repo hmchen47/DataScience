@@ -30,46 +30,46 @@
   <table style="align: center; border: 1px solid black; border-collapse: collapse; width: 90vw">
     <thead>
     <tr style="border-bottom: double black;">
-      <th style="width: 15vw; font-size: 1.3em; border-right: double back; text-align: center;"> Topic </th>
-      <th colspan="4" style="text-align: center; font-size: 1.3em;"> Sub-topics </th>
+      <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50;"> Topic </th>
+      <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50;"> Sub-topics </th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <th style="text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#model-representation"> Model representation </a> </td>
-      <td style="text-align: center;">  </td>
-      <td style="text-align: center;">  </td>
-      <td style="text-align: center;">  </td>
+      <th style="text-align: left; line-height: 1.5; vertical-align: middle; border-right: 1px solid black;"> Modeling </th>
+      <td> <a href="RefCards/MLTheory.md#model-representation"> Model representation </a> </td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
     </tr>
-    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.5; vertical-align: middle;"> Supervised Machine Learning </td> </tr>
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: #999999;"> Supervised Machine Learning </td> </tr>
     <tr>
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Regression </th>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#cost-function-linear-regression"> Cost Function </a></td>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression"> Gradient Descent </a></td>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> Vectorization </a></td>
+      <td> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
+      <td> <a href="RefCards/MLTheory.md#cost-function-linear-regression"> Cost Function </a></td>
+      <td> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression"> Gradient Descent </a></td>
+      <td> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> Vectorization </a></td>
     </a></tr>
       <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#polynomial-regression"> Polynomial Regression</a></td>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#cost-function-linear-regression">  </a></td>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression">  </a></td>
-      <td style="text-align: center;"> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> </a></td>
+      <td> <a href="RefCards/MLTheory.md#polynomial-regression"> Polynomial Regression</a></td>
+      <td> <a href="RefCards/MLTheory.md#cost-function-linear-regression">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> </a></td>
     </a></tr>
   
     <tr>
       <th style="text-align: left;"> Logistic Regression </th>
-      <td style="text-align: center;"> Cost Function </td>
-      <td style="text-align: center;"> Gradient Descent </td>
-      <td style="text-align: center;"> Vectorization </td>
-      <td style="text-align: center;"> Regularization </td>
+      <td> Cost Function </td>
+      <td> Gradient Descent </td>
+      <td> Vectorization </td>
+      <td> Regularization </td>
     </tr>
     <tr>
       <th style="text-align: left;"> Support Vector Machine (SVM) </th>
-      <td style="text-align: center;"> Cost Function </td>
-      <td style="text-align: center;"> Gradient Descent </td>
-      <td style="text-align: center;"> Vectorization </td>
-      <td style="text-align: center;"> Regularization </td>
+      <td> Cost Function </td>
+      <td> Gradient Descent </td>
+      <td> Vectorization </td>
+      <td> Regularization </td>
     </tr>
     </tbody>
   </table>
@@ -87,24 +87,24 @@
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder;" height="1.5em"> Supervised Machine Learning </td> </tr>
     <tr>
       <th style="text-align: left;"> <a href="./RefCards./PythonDS.md#general"> General </a></th>
-      <td style="text-align: center;"> Cost Function </td>
-      <td style="text-align: center;"> Gradient Descent </td>
-      <td style="text-align: center;"> Vectorization </td>
-      <td style="text-align: center;"> Regularization </td>
+      <td> Cost Function </td>
+      <td> Gradient Descent </td>
+      <td> Vectorization </td>
+      <td> Regularization </td>
     </tr>
     <tr>
       <th style="text-align: left;"> Logistic Regression </th>
-      <td style="text-align: center;"> Cost Function </td>
-      <td style="text-align: center;"> Gradient Descent </td>
-      <td style="text-align: center;"> Vectorization </td>
-      <td style="text-align: center;"> Regularization </td>
+      <td> Cost Function </td>
+      <td> Gradient Descent </td>
+      <td> Vectorization </td>
+      <td> Regularization </td>
     </tr>
     <tr>
       <th style="text-align: left;"> Support Vector Machine (SVM) </th>
-      <td style="text-align: center;"> Cost Function </td>
-      <td style="text-align: center;"> Gradient Descent </td>
-      <td style="text-align: center;"> Vectorization </td>
-      <td style="text-align: center;"> Regularization </td>
+      <td> Cost Function </td>
+      <td> Gradient Descent </td>
+      <td> Vectorization </td>
+      <td> Regularization </td>
     </tr>
     </tbody>
   </table>
