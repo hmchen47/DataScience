@@ -43,71 +43,68 @@
       <td>  </td>
     </tr>
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: #999999;"> Supervised Machine Learning </td> </tr>
-    <tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Regression </th>
       <td> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
       <td> <a href="RefCards/MLTheory.md#cost-function-linear-regression"> Cost Function </a></td>
       <td> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression"> Gradient Descent </a></td>
       <td> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> Vectorization </a></td>
     </a></tr>
-      <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td> <a href="RefCards/MLTheory.md#polynomial-regression"> Polynomial Regression</a></td>
-      <td> <a href="RefCards/MLTheory.md#cost-function-linear-regression">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#gradient-descent-linear-regression">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#vectorization-linear-regression"> </a></td>
+      <td> <a href="RefCards/MLTheory.md#normal-equation"> Normal Equation </a></td>
+      <td>  </td>
+      <td>  </td>
     </a></tr>
   
-    <tr>
-      <th style="text-align: left;"> Logistic Regression </th>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Regression </th>
+      <td> Model </td>
       <td> Cost Function </td>
       <td> Gradient Descent </td>
       <td> Vectorization </td>
-      <td> Regularization </td>
     </tr>
-    <tr>
-      <th style="text-align: left;"> Support Vector Machine (SVM) </th>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+    </tr>
+
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
+      <td> Model </td>
       <td> Cost Function </td>
       <td> Gradient Descent </td>
       <td> Vectorization </td>
-      <td> Regularization </td>
     </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+    </tr>
+
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
+      <td> Model </td>
+      <td> Cost Function </td>
+      <td> Gradient Descent </td>
+      <td> Vectorization </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+    </tr>
+
     </tbody>
   </table>
 
 + [Data Science with Python](./RefCards/PythonDS.md)
 
-  <table style="border: 1px solid black;" align="center" width="90%">
-    <thead>
-    <tr style="border-bottom: double black;">
-      <th width="15vw" style="font-size: 1.3em; border-right: double back; text-align: center;"> Topic </th>
-      <th colspan="4" style="text-align: center; font-size: 1.3em;"> Sub-topics </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr> <td colspan="5" style="text-align: center; font-weight: bolder;" height="1.5em"> Supervised Machine Learning </td> </tr>
-    <tr>
-      <th style="text-align: left;"> <a href="./RefCards./PythonDS.md#general"> General </a></th>
-      <td> Cost Function </td>
-      <td> Gradient Descent </td>
-      <td> Vectorization </td>
-      <td> Regularization </td>
-    </tr>
-    <tr>
-      <th style="text-align: left;"> Logistic Regression </th>
-      <td> Cost Function </td>
-      <td> Gradient Descent </td>
-      <td> Vectorization </td>
-      <td> Regularization </td>
-    </tr>
-    <tr>
-      <th style="text-align: left;"> Support Vector Machine (SVM) </th>
-      <td> Cost Function </td>
-      <td> Gradient Descent </td>
-      <td> Vectorization </td>
-      <td> Regularization </td>
-    </tr>
-    </tbody>
-  </table>
+
 
     | Topic | | Item Col 1 | Item Col 2 | Item Col 3 | Item Col 4|
     |-------|-|------------|------------|------------|-----------|
