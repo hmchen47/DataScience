@@ -17,9 +17,9 @@
 
 ## Supervised Learning
 
-### Learn Regression
+### Linear Regression
 
-#### Model: Learn Regression
+#### Model: Linear Regression
 
 + [Simple Linear Regression](../ML/ML-Stanford/02-ModelCost.md#cost-function-intuition-ii):
 
@@ -50,7 +50,7 @@
 
 
 
-#### Cost Function: Learn Regression
+#### Cost Function: Linear Regression
 
 + [Squared error function](../ML/ML-Stanford/02-ModelCost.md#cost-function-intuition-ii): $J(\theta_0, \theta_1)$
 
@@ -121,6 +121,39 @@
 
 
 
+#### [Polynomial Regression](../ML/ML-Stanford/04-LRegMVar.md#features-and-polynomial-regression)
+
++ Polynomial regression
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="../ML/ML-Stanford/images/m04-04.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  $$\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots$$
+
+  + If cubic model fits,
+
+      $$\begin{array}{rcl}
+          h_\theta(x) & = & \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \\\\
+          & = & \theta_0 + \theta(size) + \theta_2 (size)^2 + \theta_3 (size)^3
+      \end{array}$$
+
+      where $x_1 = (size), x_2 = (size)^2, x_3 = (size)^3$
+
++ Choose of features
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="../ML/ML-Stanford/images/m04-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  $$\begin{array}{rcl}
+    h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 (size)^3 \\\\
+    h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 \sqrt{(size)}
+  \end{array}$$
 
 ### Logistic Regression
 
