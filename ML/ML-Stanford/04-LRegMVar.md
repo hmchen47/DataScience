@@ -86,7 +86,7 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
 
 #### Lecture Notes
 
-+ Linear Regression Model
+/+ Linear Regression Model
   + Hypothesis function
 
     $$h_\theta(x) =\theta^T x = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot X$$
@@ -136,7 +136,7 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
       <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update for </span> $\theta_0, \theta_1$)<br/>
     }
   
-  + Multivariate linear repression ($n \geq 1$)
+  + Multivariate linear regression ($n \geq 1$)
 
     Repeat {
 
@@ -289,31 +289,31 @@ For example, if $x_i$ represents housing prices with a range of 100 to 2000 and 
   + Declare convergence if $J(\theta)$ decreases by less than $\varepsilon = 10^{-3}$ in one iteration.
 
 + Learning rate
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
-        <img src="images/m04-03.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
-      </a></div>
-    </div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
+      <img src="images/m04-03.png" style="margin: 0.1em;" alt="Learning rate vs gradient descent" title="Learning rate vs gradient descent" width="350">
+    </a></div>
+  </div>
 
-    + $J(\theta) \uparrow$ as number of iterations $\uparrow \quad \Longrightarrow \quad$ gradient not working, $\alpha$ too big
-    + For sufficiently small $\alpha$, $J(\theta)$ should decrease on every iteration.
-    + If $\alpha$ is too small, gradient descent can be slow to converge.
-    + IVQ: Suppose a friend ran gradient descent three times, with $\alpha = 0.01$, $\alpha = 0.1$, and $\alpha = 1$, and got the following three plots (labeled A, B, and C):
+  + $J(\theta) \uparrow$ as number of iterations $\uparrow \quad \Longrightarrow \quad$ gradient not working, $\alpha$ too big
+  + For sufficiently small $\alpha$, $J(\theta)$ should decrease on every iteration.
+  + If $\alpha$ is too small, gradient descent can be slow to converge.
+  + IVQ: Suppose a friend ran gradient descent three times, with $\alpha = 0.01$, $\alpha = 0.1$, and $\alpha = 1$, and got the following three plots (labeled A, B, and C):
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
-        <img src="http://spark-public.s3.amazonaws.com/ml/images/4.4-quiz-1-plots.png" style="margin: 0.1em;" alt="Plot A shows $$J(\theta)$$ sharply decreasing after the first few iterations, and then leveling off. Plot B shows $J(\theta)$ slowly decreasing at every iteration, and still decreasing at the last iteration. Plot C shows $$J(\theta)$$ increasing every iteration, with the increase growing in every iteration." title="Diagrams for IVQ" width="450">
-      </a></div>
-    </div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="http://spark-public.s3.amazonaws.com/ml/images/4.4-quiz-1-plots.png" style="margin: 0.1em;" alt="Plot A shows $$J(\theta)$$ sharply decreasing after the first few iterations, and then leveling off. Plot B shows $J(\theta)$ slowly decreasing at every iteration, and still decreasing at the last iteration. Plot C shows $$J(\theta)$$ increasing every iteration, with the increase growing in every iteration." title="Diagrams for IVQ" width="450">
+    </a></div>
+  </div>
 
-    Which plots corresponds to which values of \alphaα?
-    1. A is $\alpha=0.01$, B is $\alpha = 0.1$, C is $\alpha =1$.
-    2. A is $\alpha=0.1$, B is $\alpha = 0.01$, C is $\alpha =1$.
-    3. A is $\alpha=1$, B is $\alpha = 0.01$, C is $\alpha =0.1$.
-    4. A is $\alpha=1$, B is $\alpha = 0.1$, C is $\alpha =0.01$.
+  Which plots corresponds to which values of \alphaα?
+  1. A is $\alpha=0.01$, B is $\alpha = 0.1$, C is $\alpha =1$.
+  2. A is $\alpha=0.1$, B is $\alpha = 0.01$, C is $\alpha =1$.
+  3. A is $\alpha=1$, B is $\alpha = 0.01$, C is $\alpha =0.1$.
+  4. A is $\alpha=1$, B is $\alpha = 0.1$, C is $\alpha =0.01$.
 
-    Ans: 2 <br/>
-    Explanation: In graph C, the cost function is increasing, so the learning rate is set too high. Both graphs A and B converge to an optimum of the cost function, but graph B does so very slowly, so its learning rate is set too low. Graph A lies between the two.
+  Ans: 2 <br/>
+  Explanation: In graph C, the cost function is increasing, so the learning rate is set too high. Both graphs A and B converge to an optimum of the cost function, but graph B does so very slowly, so its learning rate is set too low. Graph A lies between the two.
 
 
 + Summary
@@ -380,57 +380,57 @@ To summarize:
 
 + Polynomial regression
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
-        <img src="images/m04-04.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
-      </a></div>
-    </div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="images/m04-04.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
 
-    $$\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots$$
+  $$\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots$$
 
-    + If cubic model fits,
+  + If cubic model fits,
 
-        $$\begin{array}{rcl}
-            h_\theta(x) & = & \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \\\\
-            & = & \theta_0 + \theta(size) + \theta_2 (size)^2 + \theta_3 (size)^3
-        \end{array}$$
+      $$\begin{array}{rcl}
+          h_\theta(x) & = & \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \\\\
+          & = & \theta_0 + \theta(size) + \theta_2 (size)^2 + \theta_3 (size)^3
+      \end{array}$$
 
-        where $x_1 = (size), x_2 = (size)^2, x_3 = (size)^3$
+      where $x_1 = (size), x_2 = (size)^2, x_3 = (size)^3$
 
-    + Value range: if $size \in [1, 1000]$
-        + $x_1 = (size) \in [1, 10^3]$
-        + $x_2 = (size)^2 \in [1, 10^6]$
-        + $x_3 = (size)^3 \in [1, 10^9]$
+  + Value range: if $size \in [1, 1000]$
+      + $x_1 = (size) \in [1, 10^3]$
+      + $x_2 = (size)^2 \in [1, 10^6]$
+      + $x_3 = (size)^3 \in [1, 10^9]$
 
 + Choose of features
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="url">
-        <img src="images/m04-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
-      </a></div>
-    </div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="url">
+      <img src="images/m04-05.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
 
-    $$\begin{array}{rcl}
-      h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 (size)^3 \\\\
-      h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 \sqrt{(size)}
-    \end{array}$$
-    + IVQ: Suppose you want to predict a house's price as a function of its size. Your model is
+  $$\begin{array}{rcl}
+    h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 (size)^3 \\\\
+    h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 \sqrt{(size)}
+  \end{array}$$
+  + IVQ: Suppose you want to predict a house's price as a function of its size. Your model is
 
-      $h_\theta(x) = \theta_0 + \theta_1(\text{size}) + \theta_2\sqrt{(\text{size})}$.
+    $h_\theta(x) = \theta_0 + \theta_1(\text{size}) + \theta_2\sqrt{(\text{size})}$.
 
-      Suppose size ranges from 1 to 1000 ($\text{feet}^2$). You will implement this by fitting a model
+    Suppose size ranges from 1 to 1000 ($\text{feet}^2$). You will implement this by fitting a model
 
-      $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2$.
+    $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2$.
 
-      Finally, suppose you want to use feature scaling (without mean normalization).
+    Finally, suppose you want to use feature scaling (without mean normalization).
 
-      Which of the following choices for $x_1$ and $x_2$ should you use? (Note:$\sqrt{1000} \approx 32$)
-      1. $x_1 = \text{size},\ x_2 = 32\sqrt{(\text{size})}$
-      2. $x_1 = 32(\text{size}),\ x_2=\sqrt{(\text{size})}$
-      3. $x_1 = \frac{\text{size}}{1000},\ x_2 = \frac{\sqrt{(\text{size})}}{32}$
-      4. $x_1 = \frac{\text{size}}{32},\ x_2=\sqrt{(\text{size})}$
+    Which of the following choices for $x_1$ and $x_2$ should you use? (Note:$\sqrt{1000} \approx 32$)
+    1. $x_1 = \text{size},\ x_2 = 32\sqrt{(\text{size})}$
+    2. $x_1 = 32(\text{size}),\ x_2=\sqrt{(\text{size})}$
+    3. $x_1 = \frac{\text{size}}{1000},\ x_2 = \frac{\sqrt{(\text{size})}}{32}$
+    4. $x_1 = \frac{\text{size}}{32},\ x_2=\sqrt{(\text{size})}$
 
-      Ans: 3
+    Ans: 3
 
 
 ---------------------------------------
@@ -483,7 +483,7 @@ eg. if $\; x_1 \;$ has range $1 - 1000$ then range of $\; x_1^2 \;$ becomes $1 -
 
 + Generalized: for $\; \theta \in \mathbb{R}^{n+1}$
 
-  $$J(\theta_0, \theta_1, \ldots, \theta_m) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)} - y^{(i)})^2$$
+  $$J(\theta_0, \theta_1, \ldots, \theta_m) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$$
   <br/>
 
   $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \cdots = 0, \quad \forall j \Longrightarrow \text{solve for } \theta_0, \theta_1, \ldots, \theta_n$$
