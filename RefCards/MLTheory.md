@@ -165,6 +165,26 @@
 ## Advice on building a Machine Learning System
 
 
+### [Learning Rate $\alpha$](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-in-practice-ii-learning-rate)
+
++ Learning rate & Gradient Descent
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/TnHvV/gradient-descent-in-practice-ii-learning-rate">
+      <img src="../ML/ML-Stanford/images/m04-03.png" style="margin: 0.1em;" alt="Learning rate vs gradient descent" title="Learning rate vs gradient descent" width="350">
+    </a></div>
+  </div>
+
+  + $J(\theta) \uparrow$ as number of iterations $\uparrow \quad \Longrightarrow \quad$ gradient not working, $\alpha$ too big
+  + For sufficiently small $\alpha$, $J(\theta)$ should decrease on every iteration.
+  + If $\alpha$ is too small, gradient descent can be slow to converge.
+
++ Summary
+  + If $\alpha$ too small: slow convergence.
+  + If $\alpha$ too large: $J(\theta)$ may not decrease on every iteration; may not converge; slow converge also possible
+  + Best practice: to choose $\alpha$, try
+
+    $$\ldots, 0.001, 0.003, , 0.01, 0.03, 0.1, 0.3, 1, \ldots$$
 
 
 ### Bias/Variance
