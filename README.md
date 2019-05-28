@@ -69,13 +69,13 @@
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
       <td> <a href="RefCards/MLTheory.md#model-neural-network"> Model </a> </td>
       <td> <a href="RefCards/MLTheory.md#forward-propagation-neural-network"> Forward Propagation </a> </td>
-      <td> <a href="RefCards/MLTheory.md#baclward-propagation-neural-network"> Backward Propagation </a> </td>
+      <td> <a href="RefCards/MLTheory.md#back-propagation-neural-network"> Back Propagation </a> </td>
       <td> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
+      <td> <a href="RefCards/MLTheory.md#applications"> Applications </a> </td>
+      <td> <a href="RefCards/MLTheory.md#initialization-neural-network"> Initialization </a> </td>
+      <td> <a href="RefCards/MLTheory.md#training-neural-network"> Training </a> </td>
       <td>  </td>
     </tr>
 
