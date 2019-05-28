@@ -399,6 +399,7 @@
   $$\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (\dfrac{1}{1+ e^{-\theta^Tx}} - y)^2  \quad \Rightarrow \quad \text{Non-Convex}$$
 
 
+
 #### Gradient Descent: Logistic Regression
 
 + [Simple Gradient Descent](../ML/ML-Stanford/06-Logistic.md#simplified-cost-function-and-gradient-descent)
@@ -474,6 +475,56 @@
   $$\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_j} & = &\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)} \\\\ & = & \dfrac{1}{m} \left( \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} \begin{bmatrix} h_\theta(x^{(0)}) \\ h_\theta(x^{(2)}) \\ \cdots \\ h_\theta(x^{(m)}) \end{bmatrix} - \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} \begin{bmatrix}  y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(m)} \end{bmatrix} \right) \\\\ & = & \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (h_\theta(x) - y) = \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (g(X\theta) - y) \end{array}$$
 
 
++ [Cost function in (unregularized) logistic regression](../ML/ML-Stanford/ex03.md#vectorizing-logistic-regression)
+
+  $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
+
+  + To compute each element in the summation, compute $h_\theta(x^{(i)})$ for every example $i$, where $h_\theta(x^{(i)}) = g(\theta^T x^{(i)})$ and $g(z) = \dfrac{1}{1+e^{-z}})$ is the sigmoid function,
+  + Define $X$ and $\theta$
+
+    $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots \\ - & (x^{(m)})^T & - \end{bmatrix} \quad \text{ and } \quad  \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}$$
+
+  + Computing the matrix product $X\theta$,
+
+    $$X\theta = \begin{bmatrix} - & (x^{(1)})^T\theta & - \\ - & (x^{(2)})^T\theta & - \\ & \vdots & \\ - & (x^{(m)})^T\theta & - \end{bmatrix} = \begin{bmatrix} - & \theta^T(x^{(1)}) & - \\ - & \theta^T(x^{(2)}) & - \\ & \vdots & \\ - & \theta^T(x^{(m)}) & - \end{bmatrix}$$
+
+  + Property: $a^T b = b^T a$ if $a$ and $b$ are vectors.
+  + Compute the products $\theta^Tx^{(i)}$ for all examples $i$ in one line of code.
+  + No loop with fully vectorized approach to calculate $\theta^Tx^{(i)}$
+  + Hint: use element-wise multiplication operation (`.*`) and the sum operation `sum`
+
++ [Gradient of the (unregularized) logistic regression cost](../ML/ML-Stanford/ex03.md#vectorizing-logistic-regression)
+
+  + A vector where the $j^{th}$ element defined as
+
+    $$\dfrac{\partial J}{\partial \theta_j} = \dfrac{1}{m} \sum_{i=1}^m ((h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}_j)$$
+
+  + The partial derivatives explicitly for all$\theta_j$
+
+    $$\begin{array}{rcl} \begin{bmatrix} \frac{\partial J}{\partial \theta_0} \\ \frac{\partial J}{\partial \theta_1}  \\ \frac{\partial J}{\partial \theta_2} \\\vdots \\ \frac{\partial J}{\partial \theta_n} \end{bmatrix} & = & \dfrac{1}{m} \begin{bmatrix} \sum_{i=1}^m ((h_\theta(x^{(i)} - y^{(i)}) x_0^{(i)} \\ \sum_{i=1}^m ((h_\theta(x^{(i)} - y^{(i)}) x_1^{(i)} \\ \sum_{i=1}^m ((h_\theta(x^{(i)} - y^{(i)}) x_2^{(i)} \\ \vdots \\ \sum_{i=1}^m ((h_\theta(x^{(i)} - y^{(i)}) x_n^{(i)} \end{bmatrix} \\\\ & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left((h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \right) = \frac{1}{m} X^T (h_\theta(x) - y) \end{array}$$
+
+    where
+
+    $$h_\theta(x) -y = \begin{bmatrix} h_\theta(x^{(1)}) - y^{(1)} \\ h_\theta(x^{(2)}) - y^{(2)} \\ \vdots \\ h_\theta(x^{(m)}) - y^{(m)} \end{bmatrix}$$
+
+  + Note that $x^{(i)}$ is a vector, while $(h_\theta(x^{(i)}) - y^{(i)})$ is a scalar (single number).  Let $\beta_i = (h_\theta(x^{(i)})- y^{(i)})$
+
+    $$\sum_i \beta_i x^{(i)} = \begin{bmatrix}  \mid & \mid & & \mid \\ x^{(1)} & x^{(2)} & \cdots & x^{(m)} \\ \mid & \mid & & \mid \end{bmatrix} \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_m \end{bmatrix} = X^T \beta$$
+
+    where $\beta_i = (h_\theta(x^{(i)}) - y^{(i)})$
+
+  + Compute all the partial derivatives without any loops.  
+
++ [Regularized logistic regression, the cost function](../ML/ML-Stanford/ex03.md#vectorizing-logistic-regression)
+
+  $$J(\theta) = \frac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(H_\theta(x^{(i)})) - (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \sum_{i=1}^n \theta_j^2$$
+
+  Note that not regularizing $\theta_0$ used for the bias term.
+
+  The partial derivative of regularized logistic regression cost for $\theta_j$ defined as 
+
+  $$\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_0} &=& \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \qquad \text{ for } \; j = 0 \\\\ \dfrac{\partial J(\theta)}{\partial \theta_j} & = & (\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j \qquad \text {for } \; j \geq 1 \end{array}$$
+
 
 
 ### Neural Network
@@ -489,7 +540,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Bln5m/model-representation-i">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network.png" style="margin: 0.1em;" alt="What a neural network is, is just a group of this different neurons strong together. Completely, here we have input units x1, x2, x3 and once again, sometimes you can draw this extra note x0 and Sometimes not, just flow that in here. And here we have three neurons which have written a1, a2, a3. And once again we can if we want add in just a0 and add the mixture bias unit there. There's always a value of 1. And then finally we have this third node and the final layer, and there's this third node that outputs the value that the hypothesis h(x) computes. To introduce a bit more terminology, in a neural network, the first layer, this is also called the input layer because this is where we Input our features, x1, x2, x3. The final layer is also called the output layer because that layer has a neuron, this one over here, that outputs the final value computed by a hypothesis. And then, layer 2 in between, this is called the hidden layer. The term hidden layer isn't a great terminology, but this ideation is that, you know, you supervised early, where you get to see the inputs and get to see the correct outputs, where there's a hidden layer of values you don't get to observe in the training setup. It's not x, and it's not y, and so we call those hidden. And they try to see neural nets with more than one hidden layer but in this example, we have one input layer, Layer 1, one hidden layer, Layer 2, and one output layer, Layer 3. But basically, anything that isn't an input layer and isn't an output layer is called a hidden layer. So I want to be really clear about what this neural network is doing. Let's step through the computational steps that are and body represented by this diagram. To explain these specific computations represented by a neural network, here's a little bit more notation. I'm going to use a superscript j subscript i to denote the activation of neuron i or of unit i in layer j. So completely this gave superscript to sub group one, that's the activation of the first unit in layer two, in our hidden layer. And by activation I just mean the value that's computed by and as output by a specific. In addition, new network is parametrize by these matrixes, theta super script j Where theta j is going to be a matrix of weights controlling the function mapping form one layer, maybe the first layer to the second layer, or from the second layer to the third layer." title="a neural network" width="300">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network.png" style="margin: 0.1em;" alt="3-layer neural network" title="3-layer neural network" width="300">
     </a></div>
   </div>
   <br/>
@@ -517,17 +568,155 @@
         + column length = the number of units in the following layer
         + row length = the number of units in the current layer $+1$ (bias unit required)
 
++ [Neural Network (Classification)](../ML/ML-Stanford/09-NNLearn.md#cost-function)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="../ML/ML-Stanford/images/m09-01.png" style="margin: 0.1em;background-color: white;" alt="Milti-class Neural Network architecture: s_L = s_2 = 1 , K = 1." title="Neural Network Architecture" width="250">
+    </a></div>
+  </div>
+
+  + Dataset: $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})\}$
+  + Notations
+    + $L\;$ = total no. of layers in network
+    + $s_l\;$: no. of units (not counting bias unit) in layer $l$
+    + E.g, $L = 4, s_1 = 3, s_2 = 5, s_3 = 5, s_4 = s_L = 4$
+  + Binary classification: $y \in \{0, 1 \}$
+    + 1 output unit: $h_\Theta(x) \in \mathbb{R}$
+    + $L = 2, s_L = s_2 = 1 , K = 1$
+  + Multi-class classification ($K$ classes)
+    + K Output units ($K$ classes): $y \in \mathbb{R}^K$
+    + E.g, 
+
+      $$\underbrace{\begin{bmatrix} 1\\0\\0\\0 \end{bmatrix}}_{pedestrian}, \qquad \underbrace{\begin{bmatrix} 0\\1\\0\\0 \end{bmatrix}}_{car}, \qquad \underbrace{\begin{bmatrix} 0\\0\\1\\0 \end{bmatrix}}_{motocycle}, \quad \underbrace{\begin{bmatrix} 0\\0\\0\\1 \end{bmatrix}}_{truck}$$
+    + In general, $K \geq 3$
+
++ [Overview](../ML/ML-Stanford/09-NNLearn.md#cost-function) ([Ref](https://www.ritchieng.com/neural-networks-learning/#1b-overview))
+  + Forward propagation
+    + Algorithm that takes your neural network and the initial input ($x$) and pushes the input through the network
+  + Back propagation
+    + Takes output from your neural network $H(\Theta)$
+      + Compares it to actual output $y$
+      + Calculates $H(\theta)$’s deviation from actual output
+    + Takes the error $H(\Theta)$ - $y$ from layer $L$
+      + Back calculates error associated with each unit from the preceding layer $L - 1$
+      + Error calculated from each unit used to calculate partial derivatives
+    + Use partial derivatives with gradient descent to minimise cost function $J(\Theta)$
+  + Basic things to note
+    + $\Theta$ matrix for each layer in the network
+      + This has each node in layer $l$ as one dimension and each node in $l+ 1$ as the other dimension
+    + $\Delta$ matrix for each layer
+      + This has each node as one dimension and each training data example as the other
 
 
++ [Generalization: Parameter vector $\theta$](../ML/ML-Stanford/09-NNLearn.md#gradient-checking)
+  + $\theta \;\in\; \mathbb{R}^n \quad$ (E.g. $\theta$ is "unrolled" version of $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$)
+  + $\theta = \theta_1, \theta_2, \theta_3, \ldots, \theta_n$
+
+  $$\begin{array}{ccc} \dfrac{\partial}{\partial \theta_1} J(\theta) &\approx& \dfrac{J(\theta_1+\epsilon, \theta_2, \theta_3, \ldots,\theta_n) - J(\theta_1-\epsilon, \theta_2, \theta_3, \ldots,\theta_n)}{2\epsilon} \\\\ \dfrac{\partial}{\partial \theta_2} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2+\epsilon, \theta_3, \ldots,\theta_n) - J(\theta_1, \theta_2-\epsilon, \theta_3, \ldots,\theta_n)}{2\epsilon} \\ \vdots & & \vdots \\ \dfrac{\partial}{\partial \theta_n} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n+\epsilon) - J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n-\epsilon)}{2\epsilon} \end{array}$$
 
 
 #### Forward Propagation
 
++ [Cost Function: Neural network](/ML/ML-Stanford/09-NNLearn.md#cost-function)
+
+  $$h_\Theta(x) \; \in \; \mathbb{R}^K \quad \Rightarrow \quad (h_\Theta(x))_i = i^{th} \text{output}$$
+
+  <br/>
+
+  $$J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+
++ [Gradient computation: Forward propagation](../ML/ML-Stanford/09-NNLearn.md#backpropagation-intuition)
+
+  Given one training example $(x, y)$,
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="../ML/ML-Stanford/images/m09-02.png" style="margin: 0.1em;background-color: white;" alt="Milti-class Neural Network architecture: s_L = s_2 = 1 , K = 1." title="Example Neural Network Architecture" width="200">
+    </a></div>
+  </div>
+  <br/>
+
+  $$\begin{array}{rcl} a^{(1)} &=& x = \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} \quad (x_0 = +1) \\ 
+  z^{(2)} &=& \Theta^{(1)} a^{(1)} = \begin{bmatrix} \Theta^{(1)}_{10} & \Theta^{(1)}_{11} & \Theta^{(1)}_{12} & \Theta^{(1)}_{13} \\ \Theta^{(1)}_{20} & \Theta^{(1)}_{21} & \Theta^{(1)}_{22} & \Theta^{(1)}_{23} \\ \Theta^{(1)}_{30} & \Theta^{(1)}_{31} & \Theta^{(1)}_{32} & \Theta^{(1)}_{33} \\ \Theta^{(1)}_{40} & \Theta^{(1)}_{41} & \Theta^{(1)}_{42} & \Theta^{(1)}_{43} \\ \Theta^{(1)}_{50} & \Theta^{(1)}_{51} & \Theta^{(1)}_{52} & \Theta^{(1)}_{53} \end{bmatrix} \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} z^{(2)}_1 \\ z^{(2)}_2 \\ z^{(2)}_3 \\z^{(2)}_4 \\ z^{(2)}_5 \end{bmatrix} \\ 
+  a^{(2)} &=& g(z^{(2)}) = g \left( \begin{bmatrix} z^{(2)}_0 \\ z^{(2)}_1 \\ z^{(2)}_2 \\ z^{(2)}_3 \\z^{(2)}_4 \\ z^{(2)}_5 \end{bmatrix} \right) = \begin{bmatrix} a^{(2)}_0 \\ a^{(2)}_1 \\ a^{(2)}_2 \\ a^{(2)}_3 \\ a^{(2)}_4 \\ a^{(2)}_5 \end{bmatrix} \quad (\text{ add } z^{(2)}_0 \;\;\&\;\; a^{(2)}_0 = g(z^{(2)}_0) = +1) \\ 
+  z^{(3)} &=& \Theta^{(2)} a^{(2)} = \begin{bmatrix} \Theta^{(2)}_{10} &  \Theta^{(2)}_{11} &  \Theta^{(2)}_{12} &  \Theta^{(2)}_{13} &  \Theta^{(2)}_{14} &  \Theta^{(2)}_{15} \\ \Theta^{(2)}_{20} &  \Theta^{(2)}_{21} & \Theta^{(2)}_{22} &  \Theta^{(2)}_{23} &  \Theta^{(2)}_{24} &  \Theta^{(2)}_{25} \\ \Theta^{(2)}_{30} &  \Theta^{(2)}_{31} &  \Theta^{(2)}_{32} &  \Theta^{(2)}_{33} &  \Theta^{(2)}_{34} &  \Theta^{(2)}_{35} \\ \Theta^{(2)}_{40} &  \Theta^{(2)}_{41} &  \Theta^{(2)}_{42} &  \Theta^{(2)}_{43} &  \Theta^{(2)}_{44} &  \Theta^{(2)}_{45} \\ \Theta^{(2)}_{50} &  \Theta^{(2)}_{51} &  \Theta^{(2)}_{52} &  \Theta^{(2)}_{53} &  \Theta^{(2)}_{54} &  \Theta^{(2)}_{55} \end{bmatrix} \begin{bmatrix} a^{(2)}_0 \\ a^{(2)}_1 \\ a^{(2)}_2 \\ a^{(2)}_3 \\ a^{(2)}_4 \\ a^{(2)}_5 \end{bmatrix} = \begin{bmatrix} z^{(3)}_1 \\ z^{(3)}_2 \\ z^{(3)}_3 \\z^{(3)}_4 \\ z^{(3)}_5 \end{bmatrix} \\ 
+  a^{(3)} &=& g(z^{(3)}) = g \left( \begin{bmatrix} z^{(3)}_0 \\ z^{(3)}_1 \\ z^{(3)}_2 \\ z^{(3)}_3 \\z^{(3)}_4 \\ z^{(3)}_5 \end{bmatrix} \right) = \begin{bmatrix} a^{(3)}_0 \\ a^{(3)}_1 \\ a^{(3)}_2 \\ a^{(3)}_3 \\ a^{(3)}_4 \\ a^{(3)}_5 \end{bmatrix} \quad (\text{ add } z^{(3)}_0 \;\&\; a^{(3)}_0 = g(z^{(3)}_0) = +1) \\
+  z^{(4)} &=& \Theta^{(3)} a^{(3)} = \begin{bmatrix} \Theta^{(3)}_{10} &  \Theta^{(3)}_{11} &  \Theta^{(3)}_{12} &  \Theta^{(3)}_{13} &  \Theta^{(3)}_{14} &  \Theta^{(3)}_{15} \\ \Theta^{(3)}_{20} &  \Theta^{(3)}_{21} & \Theta^{(3)}_{22} &  \Theta^{(3)}_{23} &  \Theta^{(3)}_{24} &  \Theta^{(3)}_{25} \\ \Theta^{(3)}_{30} &  \Theta^{(3)}_{31} &  \Theta^{(3)}_{32} &  \Theta^{(3)}_{33} &  \Theta^{(3)}_{34} &  \Theta^{(3)}_{35} \\ \Theta^{(3)}_{40} &  \Theta^{(3)}_{41} &  \Theta^{(3)}_{42} &  \Theta^{(3)}_{43} &  \Theta^{(3)}_{44} &  \Theta^{(3)}_{45} \end{bmatrix} \begin{bmatrix} a^{(3)}_0 \\ a^{(3)}_1 \\ a^{(3)}_2 \\ a^{(3)}_3 \\ a^{(3)}_4 \\ a^{(3)}_5 \end{bmatrix} = \begin{bmatrix} z^{(4)}_1 \\ z^{(4)}_2 \\ z^{(4)}_3 \\z^{(4)}_4 \end{bmatrix}\\ 
+  a^{(4)} & = & h_\Theta(x) = h_\Theta \left( \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} \right) = g(z^{(4)}) = g \left( \begin{bmatrix} z^{(4)}_1 \\ z^{(4)}_2 \\ z^{(4)}_3 \\ z^{(4)}_4 \end{bmatrix} \right) = \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{bmatrix} \end{array}$$
+
+  Generalization: Transformation from layer $l$ to layer $l+1$
+
+  $$\begin{array}{rcl} z^{(l+1)} & = & \Theta^{(l)} a^{(l)} = \begin{bmatrix} \Theta^{(l)}_{10} & \Theta^{(l)}_{11} & \cdots & \Theta^{(l)}_{1s_{l}} \\ \Theta^{(l)}_{20} & \Theta^{(l)}_{21} & \cdots & \Theta^{(l)}_{2s_{l}} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta^{(l)}_{s_{l+1}0} & \Theta^{(l)}_{s_{l+1}1} & \cdots & \Theta^{(l)}_{s_{l+1}s_{l}} \end{bmatrix} \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+1)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} = \begin{bmatrix} z^{(l+1)}_1 \\ z^{(l+1)}_2 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix} \\\\ a^{(l+1)} & = & g(z^{(l+1)}) = g \left( \begin{bmatrix} z^{(l+1)}_0 \\ z^{(l+1)}_1 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix}  \right) = \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} \end{array}$$
 
 
 
 #### Backward Propagation
 
++ [Gradient computation: Backpropagation algorithm](../ML/ML-Stanford/09-NNLearn.md#backpropagation-intuition)
+  + Intuition: $\delta^{(l)}_j = \;$ "error" of node $j$ in layer $l$
+  + For each output unit (layer $L=4$)
+
+    $$\begin{array}{rcl} \delta^{(4)}_j = a^{(4)}_j - y_j = (h_\Theta(x))_j - y_j & \Rightarrow & \delta^{(4)} = a^{(4)} - y \\\\ \delta^{(3)} = (\Theta^{(3)})^T \delta^{(4)} .\ast g^\prime (z^{(3)}) &=& (\Theta^{(3)})^T \delta^{(4)} \;.\ast\; a^{(3)} \;.\ast\; (1-a^{(3)}) \\ \delta^{(2)} = (\Theta^{(2)})^T \delta^{(4)} \;.\ast\; g^\prime (z^{(2)}) & = & (\Theta^{(2)})^T \delta^{(3)} .\ast a^{(3)} \;.\ast\; (1-a^{(2)}) \end{array}$$
+
+    No $\delta^{(1)}$ term
+
+    $$\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = a^{(l)}_j \delta^{(l+1)}_i \qquad (\text{ignore } \lambda; \text{ if } \lambda = 0)$$
+  + Algorithm
+
+    Set $\Delta_{ij}^{(l)} = 0 \;\; \forall \;\; l, i, j\quad\Longrightarrow\quad \text{ use to compute } \frac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta)$ <br/>
+    For $i=1$ to $m \qquad \rightarrow (x^{(i)}, y^{(i)})$ <br/>
+    <span style="padding-left: 2em" />Set $a^{(1)} = x^{(i)}$<br/>
+    <span style="padding-left: 2em" />Perform forward propagation to compute $a^{(l)}$ for $l = 2, 3, \ldots, L$ <br/>
+    <span style="padding-left: 2em" />Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$ [Last later error]<br/>
+    <span style="padding-left: 2em" />Computer $\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}$ (without $\delta^{(1)}$)<br/><br/>
+    <span style="padding-left: 2em" />$\Delta_{ij}^{(l)} \;:=\; \Delta_{ij}^{(l)} + a^{(l)}_j \delta^{(l+1)}_i \quad \Rightarrow \quad \Delta^{(l)} \;:=\; \Delta^{(l)} + \delta^{(l+1)} (a^{(l)})^T$ <br/><br/>
+    $D_{ij}^{(l)} \;:=\; \begin{cases} \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} & \text{if } \; j \neq 0 \\\\ \frac{1}{m} \Delta_{ij}^{(l)} & \text{if } \; j = 0 \end{cases}$
+  + Gradeint
+
+    $$\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)}$$
+
++ Back propagation Algorithm
+
+  Given training set $\{(x^{(1)},y^{(1)}) \cdots (x^{(m)},y^{(m)})\}$
+  + Set $\Delta^{(l)}_{i,j} \;:=\; 0$ for all $(l,i,j)$, (hence you end up having a matrix full of zeros)
+
+  For training example $t =1$ to $m$:
+
+  1. Set $a^{(1)} := x^{(t)}$
+
+  2. Perform forward propagation to compute $a^{(l)}$ for $l=2,3, \ldots,L$
+
+      Given one training example: $(x, y)$<br/>
+      Forward propagation: (example: 4-layer Neural Network)
+
+      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+        <div><a href="https://d3c33hcgiwev3.cloudfront.net/_1afdf5a2e2e24350ec9bad90aefd19fe_Lecture9.pdf?Expires=1554422400&Signature=Fdn-74XPrEq818ccQ~1kycVY5vHzeUq6aDckAhRkPSHa3v~v8fr5K335M0tkDkxhPl~8s~RK2yY2U0DwViXUT0pZMKSho0zZczW0MGhZ0ojYRe2UcjiVaH1YSft6cDdSWVQUi16uV44NNTFQA71N~55TdCkEXd9RiqR1DCaGF20_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+          <img src="../ML/ML-Stanford/images/m09-01.png" style="margin: 0.1em;background-color: white;" alt="Milti-class Neural Network architecture: s_L = s_2 = 1 , K = 1." title="Neural Network Architecture" width="200">
+        </a></div>
+      </div>
+      <br/>
+
+      $$\begin{array}{rcl} a^{(1)} &=& x &\quad\Longrightarrow\quad& z^{(2)} &=& \Theta^{(1)} a^{(1)} \\ a^{(2)} &=& g(z^{(2)}) \quad (\text{ add } a^{(2)}_0) &\quad\Longrightarrow\quad& z^{(3)} &=& \Theta^{(2)} a^{(2)} \\ a^{(3)} &=& g(z^{(3)}) \quad (\text{ add } a^{(3)}_0) &\quad\Longrightarrow\quad& z^{(4)} &=& \Theta^{(3)} a^{(3)} \\ a^{(4)} & = & h_\Theta(x) = g(z^{(4)}) \end{array}$$
+
+  3. Using $y^{(t)}$, compute $\delta^{(L)} = a^{(L)} - y^{(t)}$
+
+      Where $L$ is our total number of layers and $a^{(L)}$ is the vector of outputs of the activation units for the last layer. So our "error values" for the last layer are simply the differences of our actual results in the last layer and the correct outputs in y. To get the delta values of the layers before the last layer, we can use an equation that steps us back from right to left:
+
+  4. Compute $\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) .\ast a^{(l)} .\ast (1-a^{(l)})$
+
+      The delta values of layer l are calculated by multiplying the delta values in the next layer with the theta matrix of layer l. We then element-wise multiply that with a function called $g^\prime$, or g-prime, which is the derivative of the activation function g evaluated with the input values given by $z^{(l)}$.
+
+      The g-prime derivative terms can also be written out as:
+
+      $$g'(z^{(l)}) = a^{(l)}\ .\ast \ (1 - a^{(l)})$$
+  5. $\Delta^{(l)}_{i,j}\ :=\ \Delta^{(l)}_{i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)}\ :=\ \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$
+
+  Update our new $\Delta$ matrix.
+
+  $$D^{(l)}_{i,j}\ := \begin{cases} \dfrac{1}{m} (\Delta^{(l)}_{i,j} + \lambda \Theta^{(l)}_{i,j}), & \text{ if } j \neq 0. \\\\ \dfrac{1}{m}\Delta^{(l)}_{i,j}& \text { if } j=0 \end{cases}$$
+
+  The capital-delta matrix $D$ is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get $\frac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D_{ij}^{(l)}$
 
 
 
@@ -577,6 +766,65 @@
     </a></div>
   </div>
 
+
+#### Gradient Check & Initialization
+
++ [Numerically estimate gradients](../ML/ML-Stanford/09-NNLearn.md#gradient-checking)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/numerical_gradient_est.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  + Two-sided difference: $\dfrac{d}{d \Theta} \approx \dfrac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2\epsilon}$
+  + One-side difference (less accuracy): $\dfrac{d}{d \Theta} \approx \dfrac{J(\Theta + \epsilon) - J(\Theta)}{\epsilon}$
+  + Implement: `gradApprox = (J(theta + EPSILON) - J(theta - EPSILON)) / (2*EPSILON)`
+
++ [Random initialization: Symmetry breaking](../ML/ML-Stanford/09-NNLearn.md#random-initialization)
+  + Initialize each $\Theta^{(l)}_{ij}$ to a random value in $[-\epsilon, \epsilon]\;\;$ (i.e. $-\epsilon \leq \Theta^{(l)}_{ij} \leq \epsilon$)
+  + Example:
+
+    ```matlab
+    Theta1 = rand(10, 11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+    Theta2 = rand(1, 11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+    ```
+    + `rand(10, 11)` generates random $10 \times 11$ matrix w/ values in $[0, 1]$
+    + `Theta1` and `Theta2` $\;\in\; [-\epsilon, \epsilon]$
+
+
+#### [Neural Network Algorithm](../ML/ML-Stanford/09-NNLearn.md#putting-it-together)
+
++ Training Neural Network
+  1. Randomly initialize weights
+  2. Implement forward propagation to get $h_\Theta(x^{(i)}) \;\forall x^{(i)}$
+  3. Implement code to compute cost function $J(\Theta)$
+  4. Implement backprop to compute partial derivative $\dfrac{\partial}{\partial \Theta^{(l)}_{ij} J(\Theta)}$
+
+    <span style="padding-left: 4em;" />for i = 1:m <br/>
+    <span style="padding-left: 6em;" />Perform forward propagation and backpropagation using example $(x^{(i)}, y^{(i)})$ <br/>
+    <span style="padding-left: 6em;" />(Get activations $a^{(l)}$ and delta terms $\delta^{(l)} \text{ for } l =2, \ldots, L$)<br/>
+    <span style="padding-left: 6em;" />$\Delta^{(l)} := \Delta^{(l)}\delta^{(l)} (a^{(l)})^T$ <br/>
+    <span style="padding-left: 6em;" /> ...<br/>
+    <span style="padding-left: 4em;" /> end;<br/>
+    <span style="padding-left: 4em;" /> ... <br/>
+    <span style="padding-left: 4em;" />Compute $\dfrac{\partial}{\partial \Theta^{(l)}_{jk}} J(\Theta)$
+
+  5. Use gradient checking to compare $\dfrac{\partial}{\partial \Theta^{(l)}_{ik}} J(\Theta)$ computed using backpropagation vs. using numerical estimate of gradient of $J(\Theta)$
+
+      Then disable gradient checking code.
+  6. Use gradient descent or advanced optimization method with backpropagation ($\dfrac{\partial}{\partial \Theta^{(l)}_{jk}} J(\Theta)$) to try to minimize $J(\Theta)$ as a function of parameters $\Theta$ ($J(\Theta)$ - non-convex)
+
++ $J(\Theta)$ closeness to actual values
+  + Gradient descent: taking little steps downhill to find lowest $J(\Theta)$
+  + Backpropagation: computing direction of gradient
+    + Able to fit non-linear functions
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/neural-networks-learning/">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w5_neural_networks_learning/jtheta2.png" style="margin: 0.1em;" alt="Backpropagation: non-linear function fit" title="Backpropagation: non-linear function fit" width="350">
+      </a></div>
+    </div>
 
 
 ### Support Vector Machine (SVM)
