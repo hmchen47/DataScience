@@ -661,7 +661,7 @@ Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
     </div>
   + No. of input yunits: Dimension of features $x^{(i)}$
   + No. output units: Number of classese E.g.,
-    
+
     $y \in \{ 1,2, 3, \ldots, 10 \} \implies y = \underbrace{\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0\end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \cdots, \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}}_{\text{10 items}}$
   + Reasonable default: 1 hidden layer, or if $>1$ hidden layer, have same no. of hidden units in every layer (usually the more the better)
 
