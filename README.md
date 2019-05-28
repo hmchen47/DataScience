@@ -75,7 +75,7 @@
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td> <a href="RefCards/MLTheory.md#applications"> Applications </a> </td>
       <td> <a href="RefCards/MLTheory.md#initialization-neural-network"> Initialization </a> </td>
-      <td> <a href="RefCards/MLTheory.md#training-neural-network"> Training </a> </td>
+      <td> <a href="RefCards/MLTheory.md#neural-network-algorithm"> Training </a> </td>
       <td>  </td>
     </tr>
 
