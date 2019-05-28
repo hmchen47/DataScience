@@ -229,7 +229,7 @@ Our input nodes (layer 1), also known as the "input layer", go into another node
 
 We can have intermediate layers of nodes between the input and output layers called the "hidden layers."
 
-In this example, we label these intermediate or "hidden" layer nodes $a^2)0 \ldots a^2_n$ and call them "activation units."
+In this example, we label these intermediate or "hidden" layer nodes $a^2_0 \ldots a^2_n$ and call them "activation units."
 
 $$\begin{array}{rcl} a^{(j)}_i & = & \text{"activation" of unit } i \text{in layer} j \\\\ \Theta^{(j)} & = & \text{matrix of weights controlling function mapping from layer } j \text{ to layer} j+1 \end{array}$$
 
@@ -252,8 +252,8 @@ __If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, th
 The $+1$ comes from the addition in $\Theta^{(j)}$ of the "bias nodes," $x_0$ and $\Theta^{(j)}_0$. In other words the output nodes will not include the bias nodes while the inputs will. The following image summarizes our model representation:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/Bln5m/model-representation-i">
-    <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/0rgjYLDeEeajLxLfjQiSjg_0c07c56839f8d6e8d7b0d09acedc88fd_Screenshot-2016-11-22-10.08.51.png?expiry=1554681600000&hmac=qjAFDoHKrKfTyhgCuusg1x9QZ9FYFkNkwvejmRbCTqM" style="margin: 0.1em;" alt="Neural Network" title="Representation of Neural Networks" width="350">
+  <div><a href="https://www.ritchieng.com/neural-networks-representation/">
+  <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w4_neural_networks_representation/neural_network2.png" style="margin: 0.1em;" alt="So I want to be really clear about what this neural network is doing. Let's step through the computational steps that are and body represented by this diagram. To explain these specific computations represented by a neural network, here's a little bit more notation. I'm going to use a superscript j subscript i to denote the activation of neuron i or of unit i in layer j. So completely this gave superscript to sub group one, that's the activation of the first unit in layer two, in our hidden layer. And by activation I just mean the value that's computed by and as output by a specific. In addition, new network is parametrize by these matrixes, theta super script j Where theta j is going to be a matrix of weights controlling the function mapping form one layer, maybe the first layer to the second layer, or from the second layer to the third layer.So here are the computations that are represented by this diagram. This first hidden unit here has it's value computed as follows, there's a is a21 is equal to the sigma function of the sigmoid activation function, also called the logistics activation function, apply to this sort of linear combination of these inputs. And then this second hidden unit has this activation value computer as sigmoid of this. And similarly for this third hidden unit is computed by that formula. So here we have 3 theta 1 which is matrix of parameters governing our mapping from our three different units, our hidden units. Theta 1 is going to be a 3. Theta 1 is going to be a 3x4-dimensional matrix. And more generally, if a network has SJU units in there j and sj + 1 units and sj + 1 then the matrix theta j which governs the function mapping from there sj + 1. That will have to mention sj +1 by sj + 1 I'll just be clear about this notation right. This is Subscript j + 1 and that's s subscript j, and then this whole thing, plus 1, this whole thing (sj + 1), okay? So that's s subscript j + 1 by." title="Representation of Neural Networks" width="350">
   </a></div>
 </div>
 
