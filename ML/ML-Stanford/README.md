@@ -119,6 +119,35 @@
 
 ## Programming Assignment 1: Linear Regression
 
++ 1 [Simple Octave/MATLAB function](ex01.md#simple-octave-matlab-function)
++ 2 [Linear regression with one variable](ex01.md#linear-regression-with-one-variable)
+    + 2.1 [Plotting the Data](ex01.md#plotting-the-data)
+    + 2.2 [Gradient Descent](ex01.md#gradient-descent)
+        + 2.2.1 [Update Equations (Derivation)](ex01.md#update-equations-derivation-)
+        + 2.2.2 [Implementation](ex01.md#implementation)
+        + 2.2.3 [Computing the cost $J(\vec{\theta})$](ex01.md#computing-the-cost-8589-)
+        + 2.2.4 [Gradient descent](ex01.md#gradient-descent)
+    + 2.3 [Debugging](ex01.md#debugging)
+    + 2.4 [Visualizing $J(\vec{\theta})$](ex01.md#visualizing-10621-)
++ 3 [Linear regression with multiple variables](ex01.md#linear-regression-with-multiple-variables)
+    + 3.1 [Feature Normalization](ex01.md#feature-normalization)
+    + 3.2 [Gradient Descent](ex01.md#gradient-descent)
+    + 3.2.1 [Selecting learning rate](ex01.md#selecting-learning-rate)
+    + 3.3 [Normal Equations](ex01.md#normal-equations)
++ [Programming Ex.1](ex01.md#programming-ex-1)
+    + [Tutorials](ex01.md#tutorials)
+    + [Test Cases](ex01.md#test-cases)
+    + [Debugging Tip](ex01.md#debugging-tip)
+    + [Testing matrix operations in Octave](ex01.md#testing-matrix-operations-in-octave)
+    + [Repeating previous operations in Octave](ex01.md#repeating-previous-operations-in-octave)
+    + [Warm up exercise](ex01.md#warm-up-exercise)
+    + [Compute cost for one variable](ex01.md#compute-cost-for-one-variable)
+    + [Gradient descent for one variable](ex01.md#gradient-descent-for-one-variable)
+    + [Feature normalization](ex01.md#feature-normalization)
+    + [Gradient descent for multiple variables](ex01.md#gradient-descent-for-multiple-variables)
+    + [Normal Equations](ex01.md#normal-equations)
+
+
 ## Logistic Regression
 
 + [Classification and Representation](06-Logistic.md#classification-and-representation)
@@ -144,7 +173,7 @@
 + [Regularized Logistic Regression](07-Overfit.md#regularized-logistic-regression)
 + [Review](07-Overfit.md#review)
     + [Lecture Slides](07-Overfit.md#lecture-slides)
-    + [Errata]()(07-Overfit.md#errata)
+    + [Errata](07-Overfit.md#errata)
     + [Quiz: Regularization](07-Overfit.md#quiz-regularization)
 
 
