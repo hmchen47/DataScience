@@ -276,7 +276,6 @@
 
   $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \cdots = 0, \quad \forall j \Longrightarrow \text{solve for } \theta_0, \theta_1, \ldots, \theta_n$$
 
-
 + comparison of gradient descent and the normal equation:
   + Gradient descent
     + Need to choose $\alpha$
@@ -568,6 +567,20 @@
         + column length = the number of units in the following layer
         + row length = the number of units in the current layer $+1$ (bias unit required)
 
++ [Glossary](../ML/ML-Stanford/ex04.md#ex4-tutorial-for-forward-propagation-and-cost)
+
+  Each of these variables will have a subscript, noting which NN layer it is associated with.
+
+  + $\Theta\;$: A Theta matrix of weights to compute the inner values of the neural network. When we used a vector theta, it was noted with the lower-case theta character $\theta$.
+  + $z\;$ is the result of multiplying a data vector with a Θ matrix. A typical variable name would be "z2".
+  + $a\;$: The "activation" output from a neural layer. This is always generated using a sigmoid function `g()` on a z value. A typical variable name would be "a2".
+  + $\delta\;$: lower-case delta is used for the "error" term in each layer. A typical variable name would be "d2".
+  + $\Delta\;$: upper-case delta is used to hold the sum of the product of a $\delta$ value with the previous layer's $a$ value. In the vectorized solution, these sums are calculated automatically though the magic of matrix algebra. A typical variable name would be "Delta2".
+  + $\Theta$`_`gradient: This is the thing we're solving for, the partial derivative of theta. There is one of these variables associated with each $\Delta$. These values are returned by `nnCostFunction()`, so the variable names must be "Theta1_grad" and "Theta2_grad".
+  + $g()\;$: the sigmoid function.
+  + $g^\prime()\;$: the sigmoid gradient function.
+
+
 + [Neural Network (Classification)](../ML/ML-Stanford/09-NNLearn.md#cost-function)
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -649,7 +662,28 @@
 
   $$\begin{array}{rcl} z^{(l+1)} & = & \Theta^{(l)} a^{(l)} = \begin{bmatrix} \Theta^{(l)}_{10} & \Theta^{(l)}_{11} & \cdots & \Theta^{(l)}_{1s_{l}} \\ \Theta^{(l)}_{20} & \Theta^{(l)}_{21} & \cdots & \Theta^{(l)}_{2s_{l}} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta^{(l)}_{s_{l+1}0} & \Theta^{(l)}_{s_{l+1}1} & \cdots & \Theta^{(l)}_{s_{l+1}s_{l}} \end{bmatrix} \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+1)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} = \begin{bmatrix} z^{(l+1)}_1 \\ z^{(l+1)}_2 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix} \\\\ a^{(l+1)} & = & g(z^{(l+1)}) = g \left( \begin{bmatrix} z^{(l+1)}_0 \\ z^{(l+1)}_1 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix}  \right) = \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} \end{array}$$
 
++ [Cost function for the neural network (w/o regularization)](../ML/ML-Stanford/ex04.md#1-3-feedbackforward-and-cost-function)
 
+  $$J(\Theta) = \dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ -y^{(i)} \log((h_\theta(x^{(i)}))_k) - (1 - y^{(i)}_k) \log(1 - (h_\theta(x^{(i)}))_k) \right]$$
+
++ [Formula for the 3-layer neural network](../ML/ML-Stanford/ex04.md#1-3-feedbackforward-and-cost-function)
+  + $K = 10\;$: the total number of possible labels
+  + $h_\theta(x^{(i)})_k = a^{(3)}_k$: the activation (output value) of the $k$-th output unit
+  + the original labels: $1, 2, \ldots, 10$
+
+    $$y = \underbrace{\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \cdots \quad,  \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}}_{\text{10 items}}$$
+
++ [The cost function for neural network with regularization](../ML/ML-Stanford/ex04.md#1-4-regularized-cost-function)
+
+  $$J(\Theta) = \dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ -y^{(i)} \log((h_\theta(x^{(i)}))_k) - (1 - y^{(i)}_k) \log(1 - (h_\theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \left[ \sum_{j=1}^{25}\sum_{k=1}^{400} (\Theta^{(1)}_{j,k})^2 + \sum_{j=1}^{10}\sum_{k=1}^{25} (\Theta^{(2)}_{j,k})^2 \right]$$
+
+  + assume that the cost function for 3-layer
+  + The code can be generalized to any number of input units, hidden units, and output units
+  + explicitly listed the indices for $\Theta^{(1)}$ and $\Theta^{(2)}$ for clarity
+
++ [Generalized cost function with regularization](../ML/ML-Stanford/ex04.md#1-4-regularized-cost-function)
+
+  $$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
 
 #### Backward Propagation
 
@@ -676,7 +710,12 @@
 
     $$\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)}$$
 
-+ Back propagation Algorithm
++ [The gradient with regularization](../ML/ML-Stanford/ex04.md#2-5-regularized-neural-networks)
+
+  $$\dfrac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D^{((l)}_{ij} = \begin{cases} \frac{1}{m} \Delta^{(l)}_{ij} & \text{for } j = 0 \\ \frac{1}{m} \Delta^{(l)}_{ij} + \frac{\lambda}{m} \Theta^{(l)}_{ij} & \text{for } j \geq 1 \end{cases}$$
+
+
++ [Back propagation Algorithm](../ML/ML-Stanford/09-NNLearn.md#backpropagation-algorithm)
 
   Given training set $\{(x^{(1)},y^{(1)}) \cdots (x^{(m)},y^{(m)})\}$
   + Set $\Delta^{(l)}_{i,j} \;:=\; 0$ for all $(l,i,j)$, (hence you end up having a matrix full of zeros)
@@ -718,6 +757,12 @@
 
   The capital-delta matrix $D$ is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get $\frac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D_{ij}^{(l)}$
 
++ [implement backpropagation algorithm](../ML/ML-Stanford/ex04.md#2-3-backpropagation)
+  1. given a training example $(x^{(t)}, y^{(t)})$ and run a "forward pass" to compute all the activations through the network and obtain the output value of the hypothesis $h_\Theta(x)$
+  2. compute the error term $\delta^{(l)}_j \;\forall \text{ node } j \text{ and layer } l$ to measure the how much the error terms of the nodes was "responsible" for any errors in the output
+  3. output node - $\delta^{(L)}_j\;$: directly measure the difference btw the network's activation and true target value, e.g., $\delta^{(3)}_j$ where L$L=3$
+  4. hidden node - $\delta^{(l)}\;$: compute $\delta^{(l)}\;$ based on a weighted average of the error terms of the nodes in layer $(l+1)$
+  5. divided the accumulated gradients by $m$ to obtain the gradients for the neural network cost function
 
 
 #### Vectorization: Neural Network
@@ -734,6 +779,24 @@
 
   $$\begin{array}{c} z^{(3)} = \begin{bmatrix} \Theta_{10}^{(2)} & \Theta_{11}^{(2)} & \Theta_{12}^{(2)} & \Theta_{13}^{(2)} \end{bmatrix}  \begin{bmatrix} a_0^{(2)} \\ a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix} = \Theta^{(2)}a^{(2)} \\\\ h_\theta(x) = a^{(3)} = g(z^{(3)}) \end{array}$$
 
++ [Vectorized Backpropagation Algorithm](../ML/ML-Stanford/ex04.md#vectorized-backpropagation-algorithm)
+
+  1. Perform forward propagation, see the separate tutorial if necessary.
+
+  2. $\delta_3$ or `d3` is the difference between `a3` and the `y_matrix`. The dimensions are the same as both, $(m \times r)$.
+
+  3. `z2` comes from the forward propagation process - it's the product of `a1` and `Theta1`, prior to applying the `sigmoid()` function. Dimensions are $(m \times n) \cdot (n \times h) \;\rightarrow\; (m \times h)$. In step 4, you're going to need the sigmoid gradient of `z2`. From ex4.pdf section 2.1, we know that if `u = sigmoid(z2)`, then `sigmoidGradient(z2) = u .* (1-u)`.
+
+  4. $\delta_2$ or `d2` is tricky. It uses the `(:,2:end)` columns of `Theta2`. `d2` is the product of `d3` and `Theta2` (without the first column), then multiplied element-wise by the sigmoid gradient of `z2`. The size is $(m \times r) \cdot (r \times h) \;\rightarrow\; (m \times h)$. The size is the same as `z2`.<br/>
+    Note: Excluding the first column of `Theta2` is because the hidden layer bias unit has no connection to the input layer - so we do not use backpropagation for it. See Figure 3 in ex4.pdf for a diagram showing this.
+
+  5. $\Delta_1$ or `Delta1` is the product of `d2` and `a1`. The size is $(h \times m) \cdot (m \times n) \;\rightarrow\; (h \times n)$
+
+  6. $\Delta_2$ or `Delta2` is the product of `d3` and `a2`. The size is $(r \times m) \cdot (m \times [h+1]) \;\rightarrow\; (r \times [h+1])$
+
+  7. `Theta1_grad` and `Theta2_grad` are the same size as their respective Deltas, just scaled by $1/m$.
+
+  Now you have the unregularized gradients. Check your results using ex4.m, and submit this portion to the grader.
 
 
 #### Applications: Logic Operations
@@ -781,6 +844,22 @@
   + One-side difference (less accuracy): $\dfrac{d}{d \Theta} \approx \dfrac{J(\Theta + \epsilon) - J(\Theta)}{\epsilon}$
   + Implement: `gradApprox = (J(theta + EPSILON) - J(theta - EPSILON)) / (2*EPSILON)`
 
++ [Gradient checking](../ML/ML-Stanford/ex04.md#2-4-gradient-checking)
+  + "unrolling" the paramters $\Theta^{(1)}, \Theta^{(2)}$ into a given long vector $\theta$
+  + the cost function being $J(\theta)$ instead
+  + suppose that a function $f_i(\theta)$ that purportedly computes $\frac{\partial}{\partial \theta_i} J(\theta)$
+  + check if $f_i$ is outputting correct derivative values
+
+    $$\theta^{(i+)} = \theta + \begin{bmatrix} 0 \\ 0\\ \vdots \\ \epsilon \\ \vdots \\ 0 \end{bmatrix} \quad \text{and} \quad \theta^{(i-)} = \theta - \begin{bmatrix} 0 \\ 0\\ \vdots \\ \epsilon \\ \vdots \\ 0 \end{bmatrix}$$
+
+  + $\theta^{(i+)}\;$: same as $\theta$ except th e$i$-th element incremented by $\epsilon$
+  + $\theta^{(i-)}\;$: same as $\theta$ except th e$i$-th element decreased by $\epsilon$
+  + numerically verify $f_i(\theta)$'s correctness by checking, $\forall\; i\;$,
+
+    $$f_i(\theta) \approx \dfrac{J(\theta^{(i+)} - J(\theta^{(i-)}))}{2\epsilon}$$
+
+  + assuming $\epsilon = 10^{-4} \implies$ the left-side and right-hand sides of the above will agree at least 4 significant digits (and oten many more)
+
 + [Random initialization: Symmetry breaking](../ML/ML-Stanford/09-NNLearn.md#random-initialization)
   + Initialize each $\Theta^{(l)}_{ij}$ to a random value in $[-\epsilon, \epsilon]\;\;$ (i.e. $-\epsilon \leq \Theta^{(l)}_{ij} \leq \epsilon$)
   + Example:
@@ -792,10 +871,15 @@
     + `rand(10, 11)` generates random $10 \times 11$ matrix w/ values in $[0, 1]$
     + `Theta1` and `Theta2` $\;\in\; [-\epsilon, \epsilon]$
 
++ [Effective strategy](../ML/ML-Stanford/ex04.md#2-2-random-initialization)
+  + select values for $\Theta^{(l)}$ uniformly in the range $[-\epsilon_{init}, \epsilon_{init}]$ w/ $\epsilon_init = 0.12$
+  + choosing $\epsilon_{init}$ based on the number of units in the network
+  + good choice: $\epsilon_{init} = \dfrac{\sqrt{6}}{\sqrt{L_in + L_out}}$ where $L_{in} - s_l$ and $L_{out} = s_{l+1}$ are number of units in the layers adjacent to $\Theta^{(l)}$
 
-#### [Neural Network Algorithm](../ML/ML-Stanford/09-NNLearn.md#putting-it-together)
 
-+ Training Neural Network
+#### Neural Network Algorithm
+
++ [Training Neural Network](../ML/ML-Stanford/09-NNLearn.md#putting-it-together)
   1. Randomly initialize weights
   2. Implement forward propagation to get $h_\Theta(x^{(i)}) \;\forall x^{(i)}$
   3. Implement code to compute cost function $J(\Theta)$
@@ -826,6 +910,23 @@
       </a></div>
     </div>
 
+
++ [Neural Network Algorithm](../ML/ML-Stanford/ex04.md#2-3-backpropagation)
+  1. set the input layer's values $(a^{(1)})$ to the $t$-th training example $x^{(t)}$
+    + perform a feedforward pass, computing the activations $(z^{(2)}, a^{(2)}, z^{(3)}, a^{(3)})$ for layer 2 and 3
+    + need to add $a+1$ term to ensure that vectors off activations for layer $a^{(1)}$ and $a^{(2)}$ also include the bias unit
+  2. for each output unit $k$ in layer 3 (the output layer)
+    + set $\delta^{(3)}_k = a^{(3)}_k - y_k$
+    + $y_k \in \{0, 1\}$ indicates whether the current training example belongs to class $k (y_k=1)$ or it is belongs to a different class $(y_k = 0)$
+    + logical arrays might be helpful
+  3. for hidden layer $l=2$
+    + set $\delta^{(2)} = (\Theta^{(2)})^T \delta^{(3)} \;.\ast\; g^\prime(z^{(2)})$
+  4. accumulate the gradients from this example using the following formula.
+    + skip and remove $\delta^{(2)}_0\;$: `delta_2 = delta_2(2:end)`
+    + compute with $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)} (a^{(l)})^T$
+  5. obtain the (unregularized) gradient for the neural network cost function by dividing the accumulated gradients by $1/m$:
+
+    $$\dfrac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D^{(l)}_{ij} = \dfrac{1}{m} \Delta^{(l)}_{ij}$$
 
 ### Support Vector Machine (SVM)
 
