@@ -340,6 +340,11 @@
 
   + Parameter: $\theta \;\; \longleftarrow \;\;$ find the value to fit parameter
 
++ [Regularization logistic regression](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
+
+  $$h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^2x_2 + \theta_4 x_1^2 x_2^2 + \theta_5 x_1^2 x_2^3 + \ldots)$$
+
+
 + [Decision Boundary](../ML/ML-Stanford/06-Logistic.md#decision-boundary)
 
   $$h_\theta(x) = g(\theta^T x) = P(y=1 | x; \theta)$$
@@ -376,6 +381,10 @@
 
     Output of $h_\theta(x) = \dfrac{1}{1 + e^{\theta^Tx}} \quad \Leftarrow P(y = 1 | x; \theta)$
 
++ [Cost Function with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
+
+  $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+
 
 + [Convergence](../ML/ML-Stanford/06-Logistic.md#logistic-regression-model):
 
@@ -403,6 +412,16 @@
 
   $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
 
++ [Gradient Descent with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
+
+  Repeat {
+
+    $$\begin{array}{rcl} \theta &:=& \theta_0 - \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) - y^{(i)}) x_0^{(i)} \\\\ \theta_j &:=& \theta_j - \alpha \underbrace{ \left[\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j \right] }_{\frac{\partial}{\partial \theta_j} J(\theta) = 0}\qquad (j = 1, 2, 3, \ldots, n)  \end{array}$$
+  }
+
+  For logistic regression 
+
+  $$h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}$$
 
 
 #### Vectorization: Logistic Regression
@@ -499,28 +518,45 @@
 
     $$\ldots, 0.001, 0.003, , 0.01, 0.03, 0.1, 0.3, 1, \ldots$$
 
-### [Optimization](../ML/ML-Stanford/06-Logistic.md#advanced-optimization)
+### Optimization
 
-+ Cost function $J(\theta)$. Objective: $\;\; min_{\theta} J(\theta)$
-+ Given $\theta$, we have code that can compute
-  + $J(\theta)$
-  + $\dfrac{\partial}{\partial \theta_j} J(\theta) \quad \forall \;j = 0, 1, \ldots, n$
-+ Gradient descent:
++ [Advanced Optimization for Linear Regression](../ML/ML-Stanford/06-Logistic.md#advanced-optimization)
+  + Cost function $J(\theta)$. Objective: $\;\; min_{\theta} J(\theta)$
+  + Given $\theta$, we have code that can compute
+    + $J(\theta)$
+    + $\dfrac{\partial}{\partial \theta_j} J(\theta) \quad \forall \;j = 0, 1, \ldots, n$
+  + Gradient descent:
 
-  Repeat{
+    Repeat{
 
-    $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
-  }
-+ Optimization algorithms:
-  + Gradient descent
-  + Conjugate gradient
-  + BFGS
-  + L-BFGS
-+ Advantages: 
-  + No need to manually pick $\alpha$
-  + Often faster than gradient descent
-+ Disadvantages:
-  + More complex
+      $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+    }
+  + Optimization algorithms:
+    + Gradient descent
+    + Conjugate gradient
+    + BFGS
+    + L-BFGS
+  + Advantages:
+    + No need to manually pick $\alpha$
+    + Often faster than gradient descent
+  + Disadvantages:
+    + More complex
+
++ Optimization for Logistic Regression with Regularization
+
++ [Advanced optimization for Logistic Regression with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
+
+  <span style="padding-left: 2em;"/> fucntion [jVal, gradient] = costFunction(theta)<br/>
+  <span style="padding-left: 4em;"/> jVal = [code to compute $J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(1) = [code to computer $\dfrac{\partial}{\partial \theta_0} J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(2) = [code to computer $\dfrac{\partial}{\partial \theta_1} J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(3) = [code to computer $\dfrac{\partial}{\partial \theta_2} J(\theta)$]; <br/>
+  <span style="padding-left: 8em;"/> $\vdots$ <br/>
+  <span style="padding-left: 4em;"/> gradient(n+1) = [code to computer $\dfrac{\partial}{\partial \theta_n} J(\theta)$]; <br/>
+
+  where
+
+  $$\begin{array}{rcl} J(\theta) & = & \left[ -\dfrac{1}{m} \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)}) + (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \theta_j^2 \\\\ \dfrac{\partial}{\partial \theta_0} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} - \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n\end{array}$$
 
 
 ### [Multiclass Classification: One-vs-all](../ML/ML-Stanford/06-Logistic.md#multiclass-classification-one-vs-all)
