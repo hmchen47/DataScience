@@ -296,7 +296,6 @@ Recall that if $m < n$, then $X^TX$ is non-invertible. However, when we add the 
 
     Ans: 3
 
-
 + Advanced optimization
 
   fucntion [jVal, gradient] = costFunction(theta)<br/>
