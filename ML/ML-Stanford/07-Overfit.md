@@ -80,18 +80,18 @@ This terminology is applied to both linear and logistic regression. There are tw
 
 ### Lecture Notes
 
-+ Intution
++ Intuition
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.coursera.org/learn/machine-learning/supplement/1tJlY/cost-function">
-        <img src="images/m07-04.png
-        " style="margin: 0.1em;" alt="text" title="caption" width="400">
-    </a></div>
-    </div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.coursera.org/learn/machine-learning/supplement/1tJlY/cost-function">
+      <img src="images/m07-04.png
+      " style="margin: 0.1em;" alt="text" title="caption" width="400">
+  </a></div>
+  </div>
 
-    + Suppose we penalize and make $\theta_3, \theta_4$ really small
+  + Suppose we penalize and make $\theta_3, \theta_4$ really small
 
-        $$\min_{\theta} \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2 \quad \Longrightarrow \quad \theta_3 \approx 0 \;\; \theta_4 \approx 0$$
+      $$\min_{\theta} \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2 \quad \Longrightarrow \quad \theta_3 \approx 0 \;\; \theta_4 \approx 0$$
 
 + Regularization
   + Small values for parameters $\theta_0, \theta_1, \ldots, \theta_n$
@@ -309,7 +309,7 @@ Recall that if $m < n$, then $X^TX$ is non-invertible. However, when we add the 
 
   where
 
-  $$\begin{array}{rcl} J(\theta) & = & \left[ -\dfrac{1}{m} \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)} + (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \theta_j^2 \\\\ \dfrac{\partial}{\partial \theta_0} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} - \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n\end{array}$$
+  $$\begin{array}{rcl} J(\theta) & = & \left[ -\dfrac{1}{m} \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)}) + (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \theta_j^2 \\\\ \dfrac{\partial}{\partial \theta_0} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} - \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n\end{array}$$
 
 -------------------------------------------
 
