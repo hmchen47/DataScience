@@ -58,25 +58,19 @@
     </a></tr>
   
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Regression </th>
+      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Regression </th>
       <td> <a href="RefCards/MLTheory.md#model-logistic-regression"> Model </a> </td>
       <td> <a href="RefCards/MLTheory.md#cost-function-logistic-regression"> Cost Function </a> </td>
       <td> <a href="RefCards/MLTheory.md#gradient-descent-logistic-regression"> Gradient Descent </a> </td>
       <td> <a href="RefCards/MLTheory.md#vectorization-logistic-regression"> Vectorization </a> </td>
     </tr>
-    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-    </tr>
 
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
-      <td> Model </td>
-      <td> Cost Function </td>
-      <td> Gradient Descent </td>
-      <td> Vectorization </td>
+      <td> <a href="RefCards/MLTheory.md#model-neural-network"> Model </a> </td>
+      <td> <a href="RefCards/MLTheory.md#forward-propagation-neural-network"> Forward Propagation </a> </td>
+      <td> <a href="RefCards/MLTheory.md#baclward-propagation-neural-network"> Backward Propagation </a> </td>
+      <td> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td>  </td>
