@@ -59,10 +59,10 @@
   
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Regression </th>
-      <td> Model </td>
-      <td> Cost Function </td>
-      <td> Gradient Descent </td>
-      <td> Vectorization </td>
+      <td> <a href="RefCards/MLTheory.md#model-logistic-regression"> Model </a> </td>
+      <td> <a href="RefCards/MLTheory.md#cost-function-logistic-regression"> Cost Function </a> </td>
+      <td> <a href="RefCards/MLTheory.md#gradient-descent-logistic-regression"> Gradient Descent </a> </td>
+      <td> <a href="RefCards/MLTheory.md#vectorization-logistic-regression"> Vectorization </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td>  </td>
