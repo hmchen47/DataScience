@@ -22,18 +22,13 @@
 #### Model: Linear Regression
 
 + [Simple Linear Regression](../ML/ML-Stanford/02-ModelCost.md#cost-function-intuition-ii):
-
 	+ Hypothesis: $h_\theta (x) = \theta_0 + \theta_1 \cdot x$
-
   + Parameters: $\theta_0$, $\theta_1$
-
   + Cost Function: $J(\theta_0, \theta_1) = \displaystyle \frac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$
-
   + Goal: $\displaystyle \min_{\theta_0, \theta_1} J(\theta_0, \theta_1)$
 
 
 + [Multivariate Linear Regression Model](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
-
   + Hypothesis function
 
     $$h_\theta(x) =\theta^T x = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot X$$
@@ -47,11 +42,6 @@
   + Cost function:
 
     $$J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
-
-
-+ [Regularization linear regression](../ML/ML-Stanford/07-Overfit.md#the-problem-of-overfitting)
-
-  $$\min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2$$
 
 
 
@@ -79,6 +69,18 @@
 + [Cost Function with regularization](../ML/ML-Stanford/07-Overfit.md#regularized-linear-regression)
 
   $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right] \quad \Longrightarrow \quad \min_\theta J(\theta)$$
+
++ [Regularization linear regression](../ML/ML-Stanford/07-Overfit.md#the-problem-of-overfitting)
+
+  $$\min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2$$
+
++ [Cost function of regularized linear regression](../ML/ML-Stanford/ex05.md#1-2-regularized-linear-regression-cost-function)
+
+  $$J(\theta) = \dfrac{1}{2m} \left( \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \right) + \dfrac{\lambda}{2m} \left( \sum_{j=1}^n \theta_j^2 \right)$$
+
+  + $\lambda\;$: regularization parameter to control the degree of regularization [prevent from overfitting]
+  + put a penalty on the overall cost $J$
+  + $\theta\uparrow \implies J \uparrow$
 
 
 #### Gradient Descent: Linear Regression
@@ -139,6 +141,9 @@
 
   $$\theta_j := \underbrace{\theta_j (1 - \alpha \dfrac{\lambda}{m})}_{ \approx \theta_j, \text{ eg. }\theta_j \times 0.99} - \underbrace{\alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}}_{\text{same as } J(\theta)}$$
 
++ [The partial derivatives of regularized linear regression's cost for $\theta_j$](../ML/ML-Stanford/ex05.md#1-3-regularized-linear-regression-gradient)
+
+  $$\dfrac{\partial J(\theta)}{\partial \theta_0}  = \begin{cases} \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} & \text{for } j = 0 \\\\ \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j & \text{for } j \geq 1 \end{cases}$$
 
 
 #### Vectorization: Linear Regression
@@ -948,17 +953,6 @@
 
 
 
-## Special Applications
-
-### Recommender System
-
-
-
-
-### Large Scale Machine Learning
-
-
-
 
 ## Advice on building a Machine Learning System
 
@@ -1083,6 +1077,16 @@
   10. Now using the best combo $\theta$ and $\lambda$, apply it on $J_{cv}(\theta)$ to see if it has a good generalization of the problem.
   11. To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.
 
++ [Large data rationale](../ML/ML-Stanford/11-System.md#using-large-data-sets)
+  + Assume feature $x \in \mathbb{R}^{n+1}$ has sufficient information to predict $y$ accurately.
+  + Example: For breakfast I ate _______ eggs.
+  + Counterexample: Predict housing price from only size ($\text{feet}^2$) and no other features.
+  + Useful test: Given the input $x$, can a human expert confidently predict $y$?
+  + Use a learning algorithm with many parameters $\implies$ low bias algorithms $\implies J_{train}(\theta)$ will be small
+    + logistic regression/linear regression with many features
+    + neural network with many hidden units
+  + Use very large training set (unlikely to overfit) $\implies$ low variance algorithm $\implies J_{train}(\theta) \approx J_{test}(\theta) \text{ and } J_{train}(\theta) \approx 0 \implies J_{test}(\theta)$ will be small.
+
 
 ### Evaluation
 
@@ -1129,14 +1133,13 @@
   3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error)
 
 
-
 ### [Learning Curve](../ML/ML-Stanford/10-Advice.md#learning-curves)
 
 + Learning curves
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning1.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning1.png" style="margin: 0.1em;" alt="text" title="caption" width="4350">
     </a></div>
   </div>
 
@@ -1151,7 +1154,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning2.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning2.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
     </a></div>
   </div>
 
@@ -1166,7 +1169,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning3.png" style="margin: 0.1em;" alt="text" title="caption" width="450">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning3.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
     </a></div>
   </div>
 
@@ -1186,7 +1189,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/nn_overfit.png" style="margin: 0.1em;" alt="Small neural network prone to underfit while complex neural network tends to overfitting" title="Control bias/variance with neural network" width="450">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/nn_overfit.png" style="margin: 0.1em;" alt="Small neural network prone to underfit while complex neural network tends to overfitting" title="Control bias/variance with neural network" width="350">
     </a></div>
   </div>
 
@@ -1201,8 +1204,167 @@
     + 1 output layer
     + Computationally expensive
 
+
 ### Error Analysis
+
++ [Recommended approach](../ML/ML-Stanford/11-System.md#error-analysis)
+  + Start with a __simple algorithm__ that you can implement quickly. Implement it and test it on your cross­‐validation data.
+  + Plot __learning curves__ to decide if more data, more features, etc. are likely to help.
+  + __Error analysis__: 
+    + Manually examine the examples (in cross validation set) that your algorithm made errors on.
+    + See if you spot any systematic trend in what type of examples it is making errors on.
+    + Don't base anything oo your gut feeling.
+
 
 
 
 ### Ceiling Analysis
+
+
+
+
+### Performance Measurement
+
++ [Accuracy](https://blog.exsilio.com/all/accuracy-precision-recall-f1-score-interpretation-of-performance-measures/)
+  + the most intuitive performance measure
+  + the ratio of correctly predicted observation to the total observations
+  + high accuracy then our model is best
+  + a great measure but only when you have symmetric datasets where values of false positive and false negatives are almost same
+
++ Precision and Recall
+  + $y=1$ in presence of rare class that we want to detect
+  + Confusion matrix
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c">
+        <img src="https://cdn-images-1.medium.com/max/1600/1*CPnO_bcdbE8FXTejQiV2dg.png" style="margin: 0.1em;" alt="First up is the confusion matrix which is useful for quickly calculating precision and recall given the predicted labels from a model. A confusion matrix for binary classification shows the four different outcomes: true positive, false positive, true negative, and false negative. The actual values form the columns, and the predicted values (labels) form the rows. The intersection of the rows and columns show one of the four outcomes. For example, if we predict a data point is positive, but it actually is negative, this is a false positive." title="Confusion matrix" width="350">
+      </a></div>
+    </div>
+
+    + A confusion matrix for binary classification shows the four different outcomes: true positive, false positive, true negative, and false negative.
+    + The actual values form the columns, and the predicted values (labels) form the rows. 
+    + The intersection of the rows and columns show one of the four outcomes.
+  + __Precision__ (Positive predictive value, PPV)
+    + the ratio of correctly predicted positive observations to the total predicted positive observations.
+    + the ability of a classification model to identify only the relevant data points
+    + of all patients where we predicted $y=1$, what fraction actually has cancer
+
+    $$\dfrac{\text{True positive}}{\text{Total predicted positive}} = \dfrac{\text{True positive}}{\text{True positive} + \text{False positive}}$$
+
+  + __Recall__ (Sensitivity)
+    + the ratio of correctly predicted positive observations to the all observations in actual class 
+    + the ability of a model to find all the relevant cases within a dataset
+    + of all patients that actually have cancer, what fraction did we correctly detect as having cancer?
+
+    $$\dfrac{\text{True positive}}{\text{Total actual positive}} = \dfrac{\text{True positive}}{\text{True positive} + \text{False negative}}$$
+
+  + While recall expresses the ability to find all relevant instances in a dataset, precision expresses the proportion of the data points our model says was relevant actually were relevant.
+
++ [Trading off precision and recall](../ML/ML-Stanford/11-System.md#trading-off-precision-and-recall)
+  + Model: logistic regression $0 \leq h_\theta(x) \leq 1$
+  + E.g., increasing the confidence (0.5 -> 0.7 -> 0.9) or avoid the missing (0.3)
+    + Predict 1 if $h_\theta(x) \geq 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
+    + Predict 0 if $h_\theta(x) > 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
+  + Suppose that we want to predict $y=1$ (cancer) only if very confident $\implies$ high precision & low recall
+  + Suppose that we want to avoid missing too many cases of cancer (avoid false negatives) $\implies$ higher recall, lower precision
+  + More generally, predict 1 if $h_\theta (x) \geq\;$ threshold
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_bfa875d182c5d3c11e9a44e72b1e0f49_Lecture11.pdf?Expires=1555286400&Signature=SprONOFv0wfUZV4RPjjzYNs51TlfoMxaigbaYF~zl6vlLoUvuneIU8R17uIG5VHUY0OVgE8XrIBJHx8wv7nYtfrWj~obcWWNfurE-aNaIxwZA4zAIFhCG5xznUnfXhJEVemUJFXIy3TMXUn71T7DQ~blPwD7kqevty4WlWndaDk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="../ML/ML-Stanford/images/m11-03.png" style="margin: 0.1em;" alt="Threadhold and tradeoff between precision & recall" title="Tradeoff of precision & recall" width="200">
+    </a></div>
+  </div>
+
++ [$F_1$ Score (F score)](../ML/ML-Stanford/11-System.md#trading-off-precision-and-recall)
+  + Average: $\dfrac{\text{P + R}}{2} \implies$ not a good classifier with skewed classes
+  + $F_1$ Score: $2 \dfrac{PR}{P + R}$
+    + $P = 0 \text{ or } R = 0 \implies F_1 \text{score} = 0$
+    + $P = 1 \text{ and } R = 1 \implies F_1 \text{score} = 1$
+
++ Contingency matrix and measures
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.researchgate.net/figure/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for_fig4_230614354">
+      <img src="https://www.researchgate.net/profile/Mauno_Vihinen/publication/230614354/figure/fig4/AS:216471646019585@1428622270943/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for.png" style="margin: 0.1em;" alt="tContingency matrix and measures calculated based on it 2x2 contigency table for displaying the outcome of predictions. Based on the table it is possible to calculate row and column wise parameters, PPV and NVP, and sensitivity and specificity, respectively. These parameters are useful, but are not based on all the information in the table. Accuracy is a measure that is calculated based on all the four figures in the table.ext" title="Contingency matrix and measures" width="350">
+    </a></div>
+  </div>
+
++ Classification performance metrics based on the confusion matrix
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.researchgate.net/figure/Classification-performance-metrics-based-on-the-confusion-matrix_tbl3_324952663">
+      <img src="https://www.researchgate.net/publication/324952663/figure/tbl3/AS:668540650672148@1536403920749/Classification-performance-metrics-based-on-the-confusion-matrix.png" style="margin: 0.1em;" alt="The most relevant metrics and their deﬁnitions are shown in Table 5, where theyare computed for each class that is considered ‘positive,’ as compared to the remaining classes, which are considered ‘negative.’ Additionally, an average value per class can be deﬁned for each metric." title="Classification performance metrics based on the confusion matrix" width="650">
+    </a></div>
+  </div>
+
++ Confusion matrix and metrics
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.researchgate.net/figure/Confusion-matrix-and-metrics-A-The-performance-of-an-agent-discriminating-between-two_fig2_261999456">
+      <img src="https://www.researchgate.net/publication/261999456/figure/fig2/AS:272125080633373@1441891083905/Confusion-matrix-and-metrics-A-The-performance-of-an-agent-discriminating-between-two.png" style="margin: 0.1em;" alt="Confusion matrix and metrics. (A) The performance of an agent discriminating between two classes (positives and negatives) is described by a confusion matrix. Top: The probabilities of the two classes are overlapping in the discrimination space as illustrated by class distributions. The agent deals with this using a decision boundary to make a prediction. Middle: The resulting confusion matrix shows how the prediction by the agent (columns) is related to the actual class (rows). Bottom: The true positive rate (TPR) and the true negative rate (TNR) quantify the proportion of correctly predicted elements of the respective class. The TPR is also called Sensitivity or Recall. The TNR is equal to the Specificity. (B) Metrics based on the confusion matrix (see text) grouped into sensitive and non-sensitive metrics for class imbalance when both classes are considered. When the two classes are balanced, the ACC and the BA are equal with the WA being a more general version introducing a class weight w (for BA: w = 0.5). The BA is sometimes also referred to as the balanced classification rate (Lannoy et al., 2011), classwise balanced binary classification accuracy (Hohne and Tangermann, 2012), or as a simplified version of the AUC (Sokolova et al., 2006; Sokolova and Lapalme, 2009). Another simplification of the AUC is to assume standard normal distributions so that each value of the AUC corresponds to a particular shape of the ROC curve. This simplification is denoted AUCz and it is the shape of the AUC that is assumed when using the performance measure d′. This measure is the distance between the means of signal and noise distributions in standard deviation units given by the z-score. The two are related by AUCz=Θ(d′/2) where Θ is the normal distribution function. An exceptional metric is the illustrated MI, because it is based on the calculation of entropies from the confusion matrix. It can be used as a metric by computing the difference between the prior entropy H(X) determined by the class ratios and the entropy of the agent's result H(X|Y) (calculated from the confusion matrix). The boxes and connecting lines indicate the respective entropy subsets. The MI I(X;Y) is a measure of what these two quantities share." title="Confusion matrix and metrics." width="550">
+    </a></div>
+  </div>
+
+  + (A) The performance of an agent discriminating between two classes (positives and negatives) is described by a confusion matrix. 
+    + Top: The probabilities of the two classes are overlapping in the discrimination space as illustrated by class distributions. The agent deals with this using a decision boundary to make a prediction.
+    + Middle: The resulting confusion matrix shows how the prediction by the agent (columns) is related to the actual class (rows). 
+    + Bottom: The true positive rate (TPR) and the true negative rate (TNR) quantify the proportion of correctly predicted elements of the respective class. The TPR is also called Sensitivity or Recall. The TNR is equal to the Specificity. 
+  + (B) Metrics based on the confusion matrix (see text) grouped into sensitive and non-sensitive metrics for class imbalance when both classes are considered. When the two classes are balanced, the ACC and the BA are equal with the WA being a more general version introducing a class weight w (for BA: w = 0.5). 
+    + The BA is sometimes also referred to as the balanced classification rate (Lannoy et al., 2011), classwise balanced binary classification accuracy (Hohne and Tangermann, 2012), or as a simplified version of the AUC (Sokolova et al., 2006; Sokolova and Lapalme, 2009). 
+    + Another simplification of the AUC is to assume standard normal distributions so that each value of the AUC corresponds to a particular shape of the ROC curve. This simplification is denoted AUCz and it is the shape of the AUC that is assumed when using the performance measure d′. This measure is the distance between the means of signal and noise distributions in standard deviation units given by the z-score. The two are related by AUCz=Θ(d′/2) where Θ is the normal distribution function. 
+    + An exceptional metric is the illustrated MI, because it is based on the calculation of entropies from the confusion matrix. It can be used as a metric by computing the difference between the prior entropy $H(X)$ determined by the class ratios and the entropy of the agent's result $H(X|Y)$ (calculated from the confusion matrix).
+    + The boxes and connecting lines indicate the respective entropy subsets. The MI I(X;Y) is a measure of what these two quantities share.
+
+
+
+## Special Applications
+
+### Spam Classifier
+
++ [Building a spam classifier](../ML/ML-Stanford/11-System.md#building-a-spam-classifier)
+  + Classes: Spam (1), Non-spam (0)
+  + Supervised learning
+  + $x\;$ = features of emails
+  + $y\;$ = spam(1) or not spam (0)
+  + Features: choose 100 word indicative of spam/not spam, e.g. deal, buy, discount, andrew, now, ...
+
+    $$x_j = \begin{cases} 1 & \text{if word } j \text{ appears in email} \\ 0 & \text{otherwose} \end{cases}$$
+
+    $$X = \begin{bmatrix} 0 \\ 1 \\ 1 \\ 0 \\ \vdots \\ 1 \\ \vdots \end{bmatrix} \quad \begin{matrix} \text{andrew} \\ \text{buy} \\ \text{deal} \\ \text{discount} \\ \vdots \\ \text{now} \\ \vdots \end{matrix} \quad\implies X \;\in\; \mathbb{R}^{100}$$
+  
+  + Note: In practice, take most frequently occurring $n$ words (10,000 to 50,000) in training set, rather than manually pick 100 words.
+  + How to spend your time to make it have low error?
+    + Collect lots of data, e.g., "honeypot" project
+    + Develop sophisticated features based on email routing information (from email header)
+    + Develop sophisticated feature for message body
+      + Should "discount" and "discounts" be treated as the same word?
+      + How about "deal" and "Dealer"?
+      + Features about punctuation?
+    + Develop sophisticated algorithm to detect misspellings (e.g. m0rtgage, med1cine, w4tches)
+
++ [Error Analysis](../ML/ML-Stanford/11-System.md#error-analysis)
+  + $m_{cv}\;$ = 500 examples in cross validation set
+  + Algorithm misclassifies 100 emails
+  + Manually examine the 100 errors, and categorize then based on:
+    1. what type of email it is, e.g. pharma (12), replica/fake (4), steal passwords (53), other (31)
+    2. what cues (features) you think would have helped the algorithm classify them correctly.
+      + Deliberate misspellings (m0rgage, med1cine, etc.): 5
+      + Unusual email routing: 16
+      + Unusual (spamming) punctuation" 32 (might be worthwhile to spend time to develop sophisticated features)
+  + Find out what makes the algorithm misclassification most
+  + The reason to develop quick and dirty implementation to discover errors and identify areas to focus on
+
+
+
+
+
+
+### Recommender System
+
+
+
+
+### Large Scale Machine Learning
+
+
+
