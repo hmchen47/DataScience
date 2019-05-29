@@ -114,7 +114,7 @@
 
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Principal Component Analysis (PCA) </th>
-      <td> <a href="RefCards/MLTheory.md#"> Model </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
@@ -164,9 +164,9 @@
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Special Applications / Special Topics </td> </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
-      <td> <a href="RefCards/MLTheory.md#"> Spam Classifier </a></td>
-      <td> <a href="RefCards/MLTheory.md#"> Recommender Systems </a></td>
-      <td> <a href="RefCards/MLTheory.md#"> Large Scale Machine Learning </a></td>
+      <td> <a href="RefCards/MLTheory.md#spam-classifier"> Spam Classifier </a></td>
+      <td> <a href="RefCards/MLTheory.md#recommender-system"> Recommender Systems </a></td>
+      <td> <a href="RefCards/MLTheory.md#large-scale-machine-learning"> Large Scale Machine Learning </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
     </tr>
 
