@@ -42,7 +42,7 @@
       <td>  </td>
       <td>  </td>
     </tr>
-    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: #999999;"> Supervised Machine Learning </td> </tr>
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Supervised Machine Learning </td> </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Regression </th>
       <td> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
@@ -81,16 +81,101 @@
 
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
-      <td> Model </td>
-      <td> Cost Function </td>
-      <td> Gradient Descent </td>
-      <td> Vectorization </td>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgray;"> Unsupervised Machine Learning </td> </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> K-Means </th>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Principal Component Analysis (PCA) </th>
+      <td> <a href="RefCards/MLTheory.md#"> Model </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+  
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Anomaly Detection </th>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Special Applications / Special Topics </td> </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Recommender Systems </th>
+      <td> <a href="RefCards/MLTheory.md#"> Model </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+    </tr>
+
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Large Scale Machine Learning </th>
+      <td> <a href="RefCards/MLTheory.md#"> Model </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+    </a></tr>
+
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Advice on Machine Learning System </td> </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="3" style="text-align: left; line-height: 1.5; vertical-align: middle;"> System Considerations </th>
+      <td> <a href="RefCards/MLTheory.md#learning-rate"> Learning Rate $\alpha$ </a></td>
+      <td> <a href="RefCards/MLTheory.md#optimization"> Optimization </a></td>
+      <td> <a href="RefCards/MLTheory.md#one-vs-all"> One-vs-all </a></td>
+      <td> <a href="RefCards/MLTheory.md#bias-variance"> Bias/Variance </a></td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#evaluation"> Evaluation </a></td>
+      <td> <a href="RefCards/MLTheory.md#learning-curve"> Learning Curve </a></td>
+      <td> <a href="RefCards/MLTheory.md#diagnostic"> Diagnostic </a> </td>
+      <td> <a href="RefCards/MLTheory.md#error-analysis"> Error Analysis </a> </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#ceiling-analysis"> Ceiling Analysis </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
     </tr>
 
     </tbody>
