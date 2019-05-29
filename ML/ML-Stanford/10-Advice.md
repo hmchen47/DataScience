@@ -363,11 +363,11 @@ The is summarized in the figure below:
 
 + Relationship between lambda and the hypothesis:
 
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/">
-    <img src="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/7.png" style="margin: 0.1em;" alt="The diagram shows the regularization and Cost function, the increase of the lambda will result in increase of cost value while the cost of cross validation cost value will decrease and then increase.  With high cost and cross validation cost values, the model is with high bias (underfitting).  With low cost error and high cross validation error, the model exhibits high variance (overfitting)." title="Relationship between lambda and the hypothesis" width="250">
-  </a></div>
-</div>
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/">
+      <img src="http://www.saberismywife.com/2016/12/13/Machine-Learning-6/7.png" style="margin: 0.1em;" alt="The diagram shows the regularization and Cost function, the increase of the lambda will result in increase of cost value while the cost of cross validation cost value will decrease and then increase.  With high cost and cross validation cost values, the model is with high bias (underfitting).  With low cost error and high cross validation error, the model exhibits high variance (overfitting)." title="Relationship between lambda and the hypothesis" width="250">
+    </a></div>
+  </div>
 
 + [Procedure to choose the model and the regularization $\lambda$](http://www.saberismywife.com/2016/12/13/Machine-Learning-6/)
 
