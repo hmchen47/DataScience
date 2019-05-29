@@ -140,23 +140,6 @@
       <td> <a href="RefCards/MLTheory.md#">  </a> </td>
     </tr>
 
-    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Special Applications / Special Topics </td> </tr>
-    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Recommender Systems </th>
-      <td> <a href="RefCards/MLTheory.md#"> Model </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-    </tr>
-
-    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Large Scale Machine Learning </th>
-      <td> <a href="RefCards/MLTheory.md#"> Model </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-    </a></tr>
-
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Advice on Machine Learning System </td> </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="3" style="text-align: left; line-height: 1.5; vertical-align: middle;"> System Considerations </th>
@@ -173,9 +156,18 @@
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td> <a href="RefCards/MLTheory.md#ceiling-analysis"> Ceiling Analysis </a></td>
+      <td> <a href="RefCards/MLTheory.md#performance-measurement"> Performance </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
+
+    <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Special Applications / Special Topics </td> </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
+      <td> <a href="RefCards/MLTheory.md#"> Spam Classifier </a></td>
+      <td> <a href="RefCards/MLTheory.md#"> Recommender Systems </a></td>
+      <td> <a href="RefCards/MLTheory.md#"> Large Scale Machine Learning </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
-      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
     </tr>
 
     </tbody>
