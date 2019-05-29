@@ -468,7 +468,7 @@
   + Note: not all similarity functions $similarity(x, l)$ make valid kernels. (Need to satisfy technical condition called "Mercer's Theorem" to make sure SVM packages' optimizations run correctly, and do not diverge).
   + Many off-the-shelf kernels available
     + Polynomial kernel: $k(x, l) = (x^Tl + \text{constant})^{\text{degree}}$ such as $(x^T l)^2, (x^T l)^3, (x^T l) + 1^3, (x^T l)^4, \ldots$
-    + More esoteric: String kernel, chi-suqare kernel, histogram intersection kernel, ...
+    + More esoteric: String kernel, chi-square kernel, histogram intersection kernel, ...
   + IVQ: Suppose you are trying to decide among a few different choices of kernel and are also choosing parameters such as $C$, $\sigma^2$, etc. How should you make the choice?
 
     1. Choose whatever performs best on the training data.
@@ -652,7 +652,7 @@ The reason this causes a "large margin" is because: the vector for $\theta$ is p
 If $\theta_0 = 0$, then all our decision boundaries will intersect $(0,0)$. If $\theta_0 \neq 0$, the support vector machine will still find a large margin for the decision boundary.
 
 
-__Kernels I__
+#### Kernels I
 
 Kernels allow us to make complex, non-linear classifiers using Support Vector Machines.
 
