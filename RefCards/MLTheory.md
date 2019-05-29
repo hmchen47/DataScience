@@ -1543,8 +1543,22 @@
   + Find out what makes the algorithm misclassification most
   + The reason to develop quick and dirty implementation to discover errors and identify areas to focus on
 
++ [Implement email preprocessing and normalization](../ML/ML-Stanford/ex06.md#2-1-preprocessing-emails)
+  + __Lower-casing__: convert all character into lower case
+  + __Stripping HTML__: remove all HTML tags
+  + __Normalizing URLs__: replace all URLs with "httpaddr"
+  + __Normalizing Email Addresses__: replace email address with "emailaddr"
+  + __Normalizing Numbers__: replace numbers with "number"
+  + __Normalizing Dollars__: replace all dollar signs ($) with "dollar"
+  + __Word Stemming__: reduce the words to their stemmed form
+    + "discount": "discount", "discounts", "discounted", "discounting"
+    + "includ": "include", "includes", "included", :including"
+  + __Removal of non-words__: remove all non-words, punctuation, and white spaces (tabs, newlines, spaces)
 
-
++ [Vocabulary List](../ML/ML-Stanford/ex06.md#2-1-1-vocabulary-list)
+  + choose which words used in classifier and which to leave out
+  + Choose only the most frequently occurring words as out set of words considered
+  + map each word in the preprocessed emails into a list of word indices that contains the index of the word in the vocabulary list
 
 
 
