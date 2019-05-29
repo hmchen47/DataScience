@@ -73,7 +73,7 @@
       <td> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td> <a href="RefCards/MLTheory.md#applications"> Applications </a> </td>
+      <td> <a href="RefCards/MLTheory.md#applications"> Logic Operators </a> </td>
       <td> <a href="RefCards/MLTheory.md#initialization-neural-network"> Initialization </a> </td>
       <td> <a href="RefCards/MLTheory.md#neural-network-algorithm"> Training </a> </td>
       <td>  </td>
