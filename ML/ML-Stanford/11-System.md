@@ -203,7 +203,7 @@ It is very important to get error results as a single, numerical value. Otherwis
       </a></div>
     </div>
 
-    $$\begin{array}{rcl} \text{\Precision} &=& \dfrac{\text{True positives}}{\text{# predicted as positive}} = \dfrac{\text{True positives}}{\text{True positive} + \text{False positives}} \\ \text{Recall} &=& \dfrac{\text{True positives}}{\text{# actual positives}} = \dfrac{\text{True positives}}{\text{True positives} + \text{False negatives}} \end{array}$$
+    $$\begin{array}{rcl} \text{Precision} &=& \dfrac{\text{True positives}}{\text{# predicted as positive}} = \dfrac{\text{True positives}}{\text{True positive} + \text{False positives}} \\ \text{Recall} &=& \dfrac{\text{True positives}}{\text{# actual positives}} = \dfrac{\text{True positives}}{\text{True positives} + \text{False negatives}} \end{array}$$
 
     Your algorithm’s performance on the test set is given to the right. What is the algorithm’s precision and recall?
 
@@ -225,7 +225,7 @@ It is very important to get error results as a single, numerical value. Otherwis
 #### Lecture Notes
 
 + Trading off precision and recall
-  + Model: logistic regression $0 leq h_\theta(x) \leq 1$
+  + Model: logistic regression $0 \leq h_\theta(x) \leq 1$
   + E.g., increasing the confidence (0.5 -> 0.7 -> 0.9) or avoid the missing (0.3)
     + Predict 1 if $h_\theta(x) \geq 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
     + Predict 0 if $h_\theta(x) > 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
@@ -235,7 +235,7 @@ It is very important to get error results as a single, numerical value. Otherwis
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://d3c33hcgiwev3.cloudfront.net/_bfa875d182c5d3c11e9a44e72b1e0f49_Lecture11.pdf?Expires=1555286400&Signature=SprONOFv0wfUZV4RPjjzYNs51TlfoMxaigbaYF~zl6vlLoUvuneIU8R17uIG5VHUY0OVgE8XrIBJHx8wv7nYtfrWj~obcWWNfurE-aNaIxwZA4zAIFhCG5xznUnfXhJEVemUJFXIy3TMXUn71T7DQ~blPwD7kqevty4WlWndaDk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-      <img src="images/m11-03.png" style="margin: 0.1em;" alt="Threhold and tradoff between precision & recall" title="Tradoff of precision & recall" width="250">
+      <img src="images/m11-03.png" style="margin: 0.1em;" alt="Threadhold and tradeoff between precision & recall" title="Tradeoff of precision & recall" width="250">
     </a></div>
   </div>
 
@@ -273,7 +273,7 @@ It is very important to get error results as a single, numerical value. Otherwis
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.researchgate.net/figure/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for_fig4_230614354">
-      <img src="https://www.researchgate.net/profile/Mauno_Vihinen/publication/230614354/figure/fig4/AS:216471646019585@1428622270943/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for.png" style="margin: 0.1em;" alt="tContingency matrix and measures calculated based on it 2x2 contigency table for displaying the outcome of predictions. Based on the table it is possible to calculate row and column wise parameters, PPV and NVP, and sensitivity and specificity, respectively. These parameters are useful, but are not based on all the information in the table. Accuracy is a measure that is calculated based on all the four figures in the table.ext" title="Contingency matrix and measures" width="350">
+      <img src="https://www.researchgate.net/profile/Mauno_Vihinen/publication/230614354/figure/fig4/AS:216471646019585@1428622270943/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for.png" style="margin: 0.1em;" alt="tContingency matrix and measures calculated based on it 2x2 contingency table for displaying the outcome of predictions. Based on the table it is possible to calculate row and column wise parameters, PPV and NVP, and sensitivity and specificity, respectively. These parameters are useful, but are not based on all the information in the table. Accuracy is a measure that is calculated based on all the four figures in the table.ext" title="Contingency matrix and measures" width="350">
     </a></div>
   </div>
 
