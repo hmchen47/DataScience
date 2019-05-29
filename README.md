@@ -82,9 +82,9 @@
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#model-svm"> Model </a></td>
+      <td> <a href="RefCards/MLTheory.md#decision-boundary"> Decision Boundary </a></td>
+      <td> <a href="RefCards/MLTheory.md#kernels"> Kernels </a> </td>
       <td> <a href="RefCards/MLTheory.md#">  </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
