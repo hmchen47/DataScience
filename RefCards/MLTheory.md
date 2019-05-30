@@ -1131,10 +1131,260 @@
 
 ### K-means
 
+#### Model: K-Means
+
++ [K-Means optimization objective: Cost function (distortion function)](../ML/ML-Stanford/13-Clustering.md#optimization-objective)
+  + Objective: find $c^{(i)}$ and $\mu_k$ to minimize the cost function
+  + Notations:
+    + $c^{(i)}\;$: index of cluster $\{1, 2, \dots, K \}$ to which example $x^{(i)}$ is currently assigned
+    + $\mu_k\;$: cluster centroid $k$ ($\mu_k \;\in\; \mathbb{R}^n$)
+    + $\mu_c(i)\;$: cluster centroid of cluster to which example $x^{(i)}$ has been assigned
+  + Optimization objective (Cost function = Distortion function)
+
+    $$\begin{array}{l} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) = \dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - \mu_c(i) \parallel^2 \\\\ \displaystyle \min_{\begin{array}{c}c^{(1)},\dots,c^{(m)},\\ \mu_1,\dots,\mu_K\end{array}} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) \end{array}$$
+
++ [K-means for non-separated clusters](../ML/ML-Stanford/13-Clustering.md#k-means-algorithm)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/#optimization-objective">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning6.png" style="margin: 0.1em;" alt="text" title="K-means for non-separated clusters" width="350">
+    </a></div>
+  </div><br/>
+
+  + K-means would try to separate the data into multiple clusters like the graph on the right
+  + Often times, you may not find clusters that are obvious like the graph on the left
+  + look at the clusters and find meaning
+    + e.g., design a small, medium and large shirt based on the data shown
+    + similar to market segmentation
+
++ [Typical Clustering Applications](../ML/ML-Stanford/13-Clustering.md#unsupervised-learning-introduction-1)
+  + Market segmentation
+  + Social network analysis
+  + Organizing computer clusters
+  + Astronomical data analysis
+
+
+
+#### Algorithm: K-Mean
+
++ [K-Means Algorithm](../ML/ML-Stanford/13-Clustering.md#k-means-algorithm)
+  + Input: 
+    + $K\;$: number of clusters
+    + Training set: $\{x^{(1)},x^{(2)},\ldots,x^{(m)}\}$
+  + $x^{(i)} \;\in\; \mathbb{R}^n$ (drop $x_0 = 1$ convention)
+  + Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
+
+    Repeat { <br/>
+    <span style="padding-left: 1em"/> for $i$ = 1 to $m$ [Cluster assignment step]<br/>
+    <span style="padding-left: 2em"/> $c^{(i)} :=\;$ index (from 1 to $K$) of cluster centroid closest to $x^{(i)} \implies c^{(i)} = \min_k \parallel x^{(i)} - \mu_k \parallel^2$ <br/>
+    <span style="padding-left: 1em"/> for $k$ = 1 to $K$ [Move centroid] <br/>
+    <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
+    }
+
+
++ [K-Mean Algorithm](../ML/ML-Stanford/13-Clustering.md#optimization-objective)
+
+  Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
+
+  Repeat { <br/>
+  <span style="padding-left: 1em"/> for $i$ = 1 to $m$ $\qquad$[Cluster assignment step: minimize$J(\dots)$ w.r.t $c^{(1)}, c^{(2)}, \dots, c^{(m)}$ (holding $\mu_1, \mu_2, \dots, \mu_K$ fixed)]<br/>
+  <span style="padding-left: 2em"/> $c^{(i)} :=\;$ index (from 1 to $K$) of cluster centroid closest to $x^{(i)} \implies c^{(i)} = \min_k \parallel x^{(i)} - \mu_k \parallel^2$ <br/>
+  <span style="padding-left: 1em"/> for $k$ = 1 to $K$ $\qquad$[Move centroid step: minimize $J(\dots)$ w.r.t $\mu_1, \mu_2, \dots, \mu_K$] <br/>
+  <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
+  }
+  
+
+#### Initialization: K-Mean
+
++ [conditions & recommended](../ML/ML-Stanford/13-Clustering.md#random-initialization)
+  + Should have $K < m$
+  + Randomly pick $K$ training examples
+  + Set $\mu_1, \mu_2, \dots, \mu_K$ equal to these $K$ examples $\implies \mu_1 = x^{(1)}, \mu_2 = x^{(2)}, \dots$
+
++ [multiple trials](../ML/ML-Stanford/13-Clustering.md#random-initialization)
+
+  for i = 1 to 100 { <br/>
+  <span style="padding-left: 1em;" /> randomly initialize K-Means <br/>
+  <span style="padding-left: 1em;" /> run k-means. Get $c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K$ <br/>
+  <span style="padding-left: 1em;" /> compute cost function (distortion): $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K)$ <br/>
+  }
+
+  Pick clustering that gave the lowest cost $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) \qquad K=2~10$
+
+
+#### Parameter
+
++ [Choosing the value of $K$](/ML/ML-Stanford/13-Clustering.md#choosing-the-number-of-clusters)
+  + Elbow method
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-unsupervised-learning/#random-initialization">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning12.png" style="margin: 0.1em;" alt="K-Means algorithm: Elbow method" title="K-Means algorithm: Elbow method" width="350">
+      </a></div>
+    </div>
+
+  + Left diagram: often there is no clear Elbow $\rightarrow$ difficult to choose, just best guest, plot cost function vs K value not necessary
 
 
 ### Principal Component Analysis (PCA)
 
+#### Model: PCA
+
++ [Problem formulation](../ML/ML-Stanford/14-Dimension.md#principal-component-analysis-problem-formulation)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning20.png" style="margin: 0.1em;" alt="Example of PCA algorithm" title="Example of PCA algorithm" width="350">
+    </a></div>
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning21.png" style="margin: 0.1em;" alt="PCA problem formulation" title="PCA Problem formulation" width="350">
+    </a></div>
+  </div>
+
+  + Goal
+    + find the lowest dimensional surface onto which to project the data with minimal squared projection error
+    + minimize the square distance between each point and the location of where it gets projected
+
+  + Reduce from 2D to 1D: find a direction (a vector $u^{(1)} \in \mathbb{R}$ onto which to project the data so as to minimize the projection error
+  + Reduce from $n$-dimensional to $k$-dimensional: find $k$ vectors $u^{(1)}, u^{(2)}, \dots, u^{(k)}$ onto which to project the data so as to minimize the projection error
+
++ [PCA is not linear regression](,,/ML/ML-Stanford/14-Dimension.md#principal-component-analysis-problem-formulation)
+  + Linear regression:
+    + predict $y$ according to given $x$
+    + minimize the squared error between point and the regression line
+    + 2D Example: the distance between point and regression line (might along $y$-axis)
+  + PCA to minimize the orthogonal distance
+    + minimize the projection distance between point and the given line
+    + no specific value to predict and all variables treat equally
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning22.png" style="margin: 0.1em;" alt="Example of projection error: 2D & 3D" title="Projection error of 2D & 3D" width="350">
+    </a></div>
+  </div>
+
+
+
+#### Algorithm: PCA
+
++ [Principle Component Analysis (PCA) algorithm](../ML/ML-Stanford/14-Dimension.md#principal-component-analysis-algorithm)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning24.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
+    </a></div>
+  </div>
+
+  + Reduce data from 2D to 1D: compute vector $x$
+  + Reduce data from 3D to 2D: compute vectors $z_1$ and $z_2$
+  + Procedure
+    + using eigen vector (`eig()`) or singular value decomposition (`svd()`), but later more stable
+    + get 3 matrix: $U, S$, and $V$
+
+    Reduce data from $n$-dimensions to $k$-dimensions<br/>
+    Compute "covariance matrix":
+
+      $$\Sigma = \dfrac{1}{m} \sum_{i=1}^m \underbrace{(x^{(i)})}_{n\times 1} \underbrace{(x^{(i)})^T}_{1 \times n} \implies Sigma$$
+
+    Compute "eigenvectors"/"singular value decomposition" of matrix $\Sigma \;(n \times n \text{ matrix})$: `[U, S, V] = svd(Sigma);`
+
+      $$U = \begin{bmatrix} | & | & & | & & |\\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} & \cdots & u^{(m)} \\ | & | & & | & & | \end{bmatrix} \implies U \in \mathbb{R}^{n \times n} \text{ but take the first $k$ columns as } U_{reduced}$$
+
+  + With matrix $U_{reduced} \implies x \in \mathbb{R}^{n} \longrightarrow z \in \mathbb{R}^k$
+
+    $$z = \underbrace{\begin{bmatrix} | & | & & | \\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} \\ | & | & & | \end{bmatrix}^T}_{k \times n}  x = \begin{bmatrix} - & (u^{(1)})^T & - \\ - & (u^{(1)})^T & - \\ & \vdots & \\ - & (u^{(k)})^T & - \end{bmatrix} x$$
+
++ [Summary of PCA algorithm](../ML/ML-Stanford/14-Dimension.md#principal-component-analysis-algorithm)
+
+  After mean normalization (ensure every feature has zero mean) and optionally feature scaling
+
+    $$\text{Sigma } = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)})(x^{(i)})^T = \dfrac{1}{m} x^T \cdot x$$
+
+  where $x = \begin{bmatrix} - & x^{(1)} & - \\ & \vdots & \\ - & x^{(m)} & - \end{bmatrix}$ and `Sigma = (1/m) * x' * x;`
+
+
+#### Reconstruction of PCA
+
++ [Reconstruction from compressed representation](../ML/ML-Stanford/14-Dimension.md#reconstruction-from-compressed-representation)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning28.png" style="margin: 0.1em;" alt="Diagrsms for reconstruction from compressed representation" title="Illustration examples for reconstruction from compressed representation" width="250">
+    </a></div>
+  </div>
+
+  + Reconstruction from 1D to 2D:
+
+    $$x_{approx} = \underbrace{U_{reduce}}_{n \times k} \cdot \underbrace{z}_{k \times 1} \approx x$$
+
+
+#### Number of PA
+
++ [Choosing $k$ (number of principle components)](/ML/ML-Stanford/14-Dimension.md#choosing-the-number-of-principal-components)
+  + Average squared projection error $\dfrac{1}{m} \sum_{i=1}^m  \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2$
+  + Total variation in the data: $\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2$
+  + Typically, choose $k$ to be smallest value so that
+
+    $$\dfrac{\\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01 \quad (1\%)$$
+
+  + "99\%" of variance is retained"
+  + Algorithm:
+
+    Try PCA with $k=1, 2, 3, \dots$ <br/>
+    Compute $U_{reduce}, z^{(1)}, z^{(2)}, \dots, z^{(m)}, x_{approx}^{(1)}, \dots, x_{approx}^{(m)}$<br/>
+    Check if
+
+    $$\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01?$$
+
+  + Compute hypothesis checking equation
+
+    Apply Octave `[U, S, V] = svd(Sigma)`, where
+
+    $$S = \begin{bmatrix} S_{11} & 0 & 0 & \cdots & 0 \\ 0 & S_{22} & 0 & \cdots & 0 \\ 0 & 0 & S_{33} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & S_{nn} \end{bmatrix}$$
+
+    For given $k$
+
+      $$1 - \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \leq 0.01 \implies \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \geq 0.99$$
+
+    Pick smallest  value of $k$ for which $\dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^m S_{ii}} \geq 0.99$ (99% of variance retained)
+  
+  + Typical hypothesis significance values: $0.01, 0.05. 0.10 \implies 99\%, 95\%, 90\%$
+
+
+#### Advice of PCA
+
+
++ [Supervised learning speedup](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
+  + Training dataset: $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})$
+  + Extract inputs: Unlabeled dataset
+
+    $$\begin{array}{ccl} x^{(1)}, x^{(2)}, \dots, x^{(m)} & \in & \mathbb{R}^{10000} \\ \downarrow PCA & & \\ z^{(1)}, z^{(2)}, \dots, z^{(m)} & \in & \mathbb{R}^{1000} \end{array}$$
+  
+  + With $z$ vector, the logistic regression function: $h_\theta(z)  = \dfrac{1}{1 + e^{-\theta^T z}}$
+  + New training set: $(z^{(1)}, y^{(1)}), (z^{(2)}, y^{(2)}) \dots, (z^{(m)}, y^{(m)})$
+  + Note: Mapping $x^{(i)} \;\rightarrow\; z^{(i)}$ (i.e., compute $U_{reduce}\;$) should be defined by running PCA only on the training set.  This mapping can be applied as well to the examples $x_{cv}^{(i)}$ and $x_{test}^{(i)}$ in the cross validation and test sets.
+
++ [Application of PCA](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
+  + Compression
+    + Reduce memory/risk needed to store data
+    + Speed up learning algorithm
+    + Choose $k$ by given significance level ($\alpha = 90\%, 95\%, 99\%$) (variance $1\%, 5\%, 10\%$ retained)
+  + Visualization
+    + Choose $k = 2$ or $k= 3$
+
++ [Bad use of PCA: to prevent overfitting](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
+  + Use $z^{(i)}$ instead of $x^{(i)}$ to reduce number of features to $k < n$
+  + Thus, fewer features, lss likely to overfit. $\implies$ bad usage, PCA not intend to solve overfitting issue
+  + This might work OK, but isn't a good way to address overfitting.  Using __regularization__ instead.
+
+    $$\min_\theta \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \underbrace{\dfrac{1}{2m} \sum_{j=1}^n \theta_j^2}_{\text{regularization}}$$
+
++ [PCA is sometimes used where it shouldn't be](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
+  + Design of ML system:
+    + Get training set $\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})\}$
+    + Run PCA to reduce $x^{(i)}$ in dimension to get $z^{(i)}$
+    + Train logistic regression on $\{(z^{(1)}, y^{(1)}), (z^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})\}$
+    + Test on test set: Map $x_{test}^{(i)}$ to $z_{test}^{(i)}$.  Run $h_\theta(z)$ on $\{(z_{test}^{(1)}, y_{test}^{(1)}), (z_{test}^{(2)}, y_{test}^{(2)}), \dots, (z_{test}^{(m)}, y_{test}^{(m)}) \}$
+  + How about doing the whole thing without using PCA?
+  + Before implementing PCA, first try running whatever you wnt to do with the original/raw data $x^{(i)}$. Only if that doesn't do what you want, then implement PCA and consider using $z^{(i)}$.
 
 
 ### Anomaly Detection
@@ -1505,6 +1755,27 @@
     + The boxes and connecting lines indicate the respective entropy subsets. The MI I(X;Y) is a measure of what these two quantities share.
 
 
+### Dimensionality Reduction
+
++ [Data Compression](/ML/ML-Stanford/14-Dimension.md#motivation-i-data-compression)
+  + Reduce data from 2D to 1D
+    + pilot skill and pilot happiness can be reduced to pilot’s aptitude
+    + Generally, reduce $x_1, x_2$ to $z_1$
+
+      $$\begin{array}{rcl} x^{(1)} \in \mathbb{R}^2 & \rightarrow& z^{(1)} \in \mathbb{R} \\ x^{(2)} \in \mathbb{R}^2 & \rightarrow& z^{(2)} \in \mathbb{R} \\ \& \vdots & \\ x^{(m)} \in \mathbb{R}^2 & \rightarrow& z^{(m)} \in \mathbb{R} \end{array}$$
+
+  + Reduce data from 3D to 2D
+    + Project the data such that they lie on a plane
+    + Specify 2 axes: $z_1$ & $z_2$ as the basis of vectors
+
+      $$z = \begin{bmatrix} z_1 \\ z_2 \end{bmatrix} \qquad z^{(i)} = \begin{bmatrix} z_1^{(i)} \\ z_2^{(i)} \end{bmatrix}$$ 
+
++ [Reduce data for Data Visualization](../ML/ML-Stanford/14-Dimension.md#motivation-ii-visualization)
+  + $z^{(i)} \in \mathbb{R}^2$
+  + Typically the meaning is unknown for the 2D
+  + able to make sense of out of the 2D
+
+
 
 ## Special Applications
 
@@ -1559,6 +1830,7 @@
   + choose which words used in classifier and which to leave out
   + Choose only the most frequently occurring words as out set of words considered
   + map each word in the preprocessed emails into a list of word indices that contains the index of the word in the vocabulary list
+
 
 
 
