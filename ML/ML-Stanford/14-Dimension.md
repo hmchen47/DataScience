@@ -303,8 +303,8 @@
 
     Try PCA with $k=1, 2, 3, \dots$ <br/>
     Compute $U_{reduce}, z^{(1)}, z^{(2)}, \dots, z^{(m)}, x_{approx}^{(1)}, \dots, x_{approx}^{(m)}$<br/>
-    Check if 
-    
+    Check if
+
     $$\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01?$$
 
   + Compute hypothesis checking equation
@@ -377,7 +377,7 @@
   + How about doing the whole thing without using PCA?
   + Before implementing PCA, first try running whatever you wnt to do with the original/raw data $x^{(i)}$. Only if that doesn't do what you want, then implement PCA and consider using $z^{(i)}$.
 
- + IVQ: Which of the following are good / recommended applications of PCA? Select all that apply.
++ IVQ: Which of the following are good / recommended applications of PCA? Select all that apply.
 
   1. To compress the data so it takes up less computer memory / disk space
   2. To reduce the dimension of the input data so as to speed up a learning algorithm
