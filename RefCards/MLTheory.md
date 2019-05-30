@@ -1157,12 +1157,21 @@
     + e.g., design a small, medium and large shirt based on the data shown
     + similar to market segmentation
 
+
++ [Centroid Means](../ML/ML-Stanford/ex07.md#1-1-2-computing-centroid-means)
+
+  for every centroid $k$
+
+  $$\mu_k := \dfrac{1}{|C_k|} \sum_{k \in C_k} x^{i}$$
+
+  + $C_k\;$ = the set of examples assigned to centroid $k$
+
+
 + [Typical Clustering Applications](../ML/ML-Stanford/13-Clustering.md#unsupervised-learning-introduction-1)
   + Market segmentation
   + Social network analysis
   + Organizing computer clusters
   + Astronomical data analysis
-
 
 
 #### Algorithm: K-Mean
@@ -1181,7 +1190,6 @@
     <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
     }
 
-
 + [K-Mean Algorithm](../ML/ML-Stanford/13-Clustering.md#optimization-objective)
 
   Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
@@ -1192,7 +1200,8 @@
   <span style="padding-left: 1em"/> for $k$ = 1 to $K$ $\qquad$[Move centroid step: minimize $J(\dots)$ w.r.t $\mu_1, \mu_2, \dots, \mu_K$] <br/>
   <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
   }
-  
+
+
 
 #### Initialization: K-Mean
 
@@ -1263,6 +1272,7 @@
 
 
 
+
 #### Algorithm: PCA
 
 + [Principle Component Analysis (PCA) algorithm](../ML/ML-Stanford/14-Dimension.md#principal-component-analysis-algorithm)
@@ -1299,6 +1309,18 @@
     $$\text{Sigma } = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)})(x^{(i)})^T = \dfrac{1}{m} x^T \cdot x$$
 
   where $x = \begin{bmatrix} - & x^{(1)} & - \\ & \vdots & \\ - & x^{(m)} & - \end{bmatrix}$ and `Sigma = (1/m) * x' * x;`
+
++ [PCA: two computational steps](../ML/ML-Stanford/ex07.md#2-2-implementing-pca)
+  + compute the covariance matrix of the data
+  + use `svd` function to compute the eigenvectors $U_1, U_2, \dots, U_n$ as the principle components of variation in the data
+
++ [Covariance matrix of the data](../ML/ML-Stanford/ex07.md#2-2-implementing-pca)
+
+  $$\Sigma = \frac{1}{m} X^TX$$
+
+  + $X = \;$ the data matrix with examples in rows
+  + $m = \;$ the number of examplres
+  + $\Sigma\;$: a $n \times n$ matrix
 
 
 #### Reconstruction of PCA
@@ -1351,7 +1373,6 @@
 
 #### Advice of PCA
 
-
 + [Supervised learning speedup](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
   + Training dataset: $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})$
   + Extract inputs: Unlabeled dataset
@@ -1385,6 +1406,20 @@
     + Test on test set: Map $x_{test}^{(i)}$ to $z_{test}^{(i)}$.  Run $h_\theta(z)$ on $\{(z_{test}^{(1)}, y_{test}^{(1)}), (z_{test}^{(2)}, y_{test}^{(2)}), \dots, (z_{test}^{(m)}, y_{test}^{(m)}) \}$
   + How about doing the whole thing without using PCA?
   + Before implementing PCA, first try running whatever you wnt to do with the original/raw data $x^{(i)}$. Only if that doesn't do what you want, then implement PCA and consider using $z^{(i)}$.
+
+
+#### Vectorization: PCA
+
++ [Dimensional analysis](../ML/ML-Stanford/ex07.md#vectorized-computecentroid)
+  + The input "sample matrix" $X$ is $m \times n$, where each of the $m$ rows is one sample. 
+  + The input index vector $idx$ is $m \times 1$, where each row gives the $k$ value for the corresponding row of $X$ to tell which centroid it is assigned to. 
+  + The output centroid matrix will be $K \times n$ where each row is the new $k^{th}$ centroid and is the average of all the rows of $X$ that are assigned to centroid number $k$.
+  + Result: 
+
+  $$K \times m * m \times n \implies K \times n$$
+
+  + The $k^{th}$ row of it needs to "select" the rows of $X$ that are assigned to centroid $k$. So row $k$ needs to have a $1$ in the corresponding column positions that map to each of the mm rows of $X$ assigned to centroid $k$. 
+
 
 
 ### Anomaly Detection
