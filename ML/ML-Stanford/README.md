@@ -388,7 +388,7 @@
 
 ## Dimensionality Reduction
 
-+ [Motivation](14-Dimension.md#)motivation
++ [Motivation](14-Dimension.md#motivation)
     + [Motivation I: Data Compression](14-Dimension.md#motivation-i-data-compression)
     + [Motivation II: Visualization](14-Dimension.md#motivation-ii-visualization)
 + [Principal Component Analysis](14-Dimension.md#principal-component-analysis)
