@@ -2060,9 +2060,82 @@
   + map each word in the preprocessed emails into a list of word indices that contains the index of the word in the vocabulary list
 
 
-
-
 ### Recommender System
+
+#### System: Recommender System
+
++ [Problem formulation](../ML/ML-Stanford/16-Recommend.md#content-based-recommendations)
+  + $r(i, j)$ = 1 if user $j$ has rated movie $i$ (0 otherwise)
+  + $y^{(i, j)}$ = rating by user $j$ on movie $i$ (if defined)
+  + $\theta^{(j)}$ = parameter vector for user $j$; $\theta^{(j)} \in \mathbb{R}^{n+1}$
+  + $x^{(i)}$ = feature vector for movie $i$
+  + Predicted rating: $(\theta^{(j)})^T(x^{(i)})$ for user $j$, movie $i$
+  + $m^{(j)}$ = no. of movies rated by user $j$
+  + Objective: to learn $\theta^{(j)}$
+
+    $$\min_{\theta^{(j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+
++ [Optimization objective](../ML/ML-Stanford/16-Recommend.md#content-based-recommendations)
+  + To learn $\theta^{(j)}$ (parameter for user $j$): (with $m^{(j)}$ factor removed)
+
+    $$\min_{\theta^{(j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}$$
+  + To learn $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$:
+
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+
++ [Collaboration filtering optimization objective](../ML/ML-Stanford/16-Recommend.md#collaborative-filtering-algorithm)
+  + Given $x^{(1)}, \dots, x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \dots, \theta^{(n_u)}$
+
+    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T x^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+
+  + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
+
+    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2$$
+
+  + Minimizing $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)}, \dots, \theta^{(n_u)}$ simultaneously:
+
+    $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2$$
+    <br/>
+
+  + Objective:
+
+    $$\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$$
+  
+  + $\theta_0$ and $x_0$ are not required: $x \in \mathbb{R}^n, \theta \in \mathbb{R}^n$
+
+
+#### Algorithm
+
++ [Collaborative filtering algorithm](../ML/ML-Stanford/16-Recommend.md#collaborative-filtering-algorithm)
+  1. Initialize $x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}$ to small random values
+  2. Minimize $J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$ using gradient decent (or an advanced optimization algorithm)., e.g., for every $j = 1, \dots, n_u, i=1, \dots, n_m$:
+
+    $$\begin{array}{rcl} x_k^{(i)} &:=& x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)\end{array}$$
+  3. For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a start rating of $\theta^Tx$. [rating for user $j$ and movie $i$: $(\theta^{(j)})^T(x^{(i)})$]
+
++ [Collaborative filtering](../ML/ML-Stanford/16-Recommend.md#collaborative-filtering)
+  + Given $x^{(1)}, \dots, x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \dots, \theta^{(n_u)}$
+  + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
+  + Guess $\theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \dots$
+
+
+#### Vectorization
+
++ [Collaborative filtering](../ML/ML-Stanford/16-Recommend.md#vectorization-low-rank-matrix-factorization)
+  + Predicted ratings: $(i,j) \rightarrow (\theta^{(j)})^T(x^{(i)})$
+
+    $$X \Theta^T = \begin{bmatrix} (\theta^{(1)})^T(x^{(1)}) & (\theta^{(2)})^T(x^{(1)}) & \cdots & (\theta^{(n_u)})^T(x^{(1)}) \\ (\theta^{(1)})^T(x^{(2)}) & (\theta^{(2)})^T(x^{(2)}) & \cdots & (\theta^{(n_u)})^T(x^{(2)}) \\ \vdots & \vdots & \ddots & \vdots \\ (\theta^{(1)})^T(x^{(n_m)}) & (\theta^{(2)})^T(x^{(n_m)}) & \cdots & (\theta^{(n_u)})^T(x^{(n_m)}) \end{bmatrix}$$ 
+    <br/>
+
+    $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}$$
+  + a.k.a Low rank matrix factorization
+
++ Finding related movies
+  + For each product $i$, we learn a feature vector $x^{(i)} \in \mathbb{R}^n$; e.g., $x_1$ = romance, $x_2$ = action, $x_3$ = comedy, $x_4 = \dots$
+  + How to fidn movies $j$ related to movie $i$?
+
+    $$\parallel x^{(i)} - x^{(j)} \parallel \rightarrow 0 \implies \text{movie } j \text{ and } i \text { are "similar"}$$
+  + 5 most similar movies to movie $i$: find the 5 movies with the smallest $\parallel x^{(i)} - x^{(j)} \parallel$
 
 
 
