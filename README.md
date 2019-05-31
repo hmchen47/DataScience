@@ -106,19 +106,25 @@
     </tr>
 
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Principal Component Analysis (PCA) </th>
+      <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Principal Component Analysis (PCA) </th>
       <td> <a href="RefCards/MLTheory.md#model-pca"> Model </a></td>
       <td> <a href="RefCards/MLTheory.md#algorithm-pca"> Algorithm </a></td>
       <td> <a href="RefCards/MLTheory.md#reconstruction-of-pca"> Reconstruct </a></td>
       <td> <a href="RefCards/MLTheory.md#number-of-pa"> PA Number </a></td>
     </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <td> <a href="RefCards/MLTheory.md#"> Advice </a></td>
+      <td> <a href="RefCards/MLTheory.md#"> Vectorization </a></td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+    </tr>
   
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="text-align: left; line-height: 1.5; vertical-align: middle;"> Anomaly Detection </th>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
-      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#problem-description"> Problem </a></td>
+      <td> <a href="RefCards/MLTheory.md#gaussian-distribution"> Gaussian Distribution </a></td>
+      <td> <a href="RefCards/MLTheory.md#algorithm-anomaly-detection"> Algorithm </a> </td>
+      <td> <a href="RefCards/MLTheory.md#system-anomaly-detection"> System </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
