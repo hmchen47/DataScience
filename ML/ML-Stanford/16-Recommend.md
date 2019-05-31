@@ -98,7 +98,7 @@
     $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
 
 + Optimization algorithm:
-  + Objective: 
+  + Objective:
 
     $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \underbrace{\dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2}_{J(\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)})}$$
 
@@ -233,14 +233,15 @@
     $$\begin{array}{rcl} x_k^{(i)} &:=& x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)\end{array}$$
   3. For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a start rating of $\theta^Tx$. [rating for user $j$ and movie $i$: $(\theta^{(j)})^T(x^{(i)})$]
 
-  + IVQ: In the algorithm we described, we initialized $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)},\dots,\theta^{(n_u)}$ to small random values. Why is this?
 
-    1. This step is optional. Initializing to all 0’s would work just as well.
-    2. Random initialization is always necessary when using gradient descent on any problem.
-    3. This ensures that $x^{(i)} \neq \theta^{(j)}$ for any $i,j$.
-    4. This serves as symmetry breaking (similar to the random initialization of a neural network’s parameters) and ensures the algorithm learns features $x^{(1)}, \dots, x^{(n_m)}$ that are different from each other.
++ IVQ: In the algorithm we described, we initialized $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)},\dots,\theta^{(n_u)}$ to small random values. Why is this?
 
-    Ans: 4
+  1. This step is optional. Initializing to all 0’s would work just as well.
+  2. Random initialization is always necessary when using gradient descent on any problem.
+  3. This ensures that $x^{(i)} \neq \theta^{(j)}$ for any $i,j$.
+  4. This serves as symmetry breaking (similar to the random initialization of a neural network’s parameters) and ensures the algorithm learns features $x^{(1)}, \dots, x^{(n_m)}$ that are different from each other.
+
+  Ans: 4
 
 
 
@@ -254,7 +255,6 @@
 
 
 ## Low Rank Matrix Factorization
-
 
 ### Vectorization: Low Rank Matrix Factorization
 
@@ -286,7 +286,7 @@
 
     What is another way of writing the following:
 
-    $$\begin{bmatrix} (x^{(1)})^T(θ^{(1)}) & \cdots & (x(1))T(θ(n_u)) \\ \vdots & \ddots & \vdots \\ (x(n_m))^T(θ(1)) & \cdots & (x(n_m))^T(θ(n_u)) \end{bmatrix}$$
+    $$\begin{bmatrix} (x^{(1)})^T(θ^{(1)}) & \cdots & (x^{(1)})T(\theta^{(n_u)}) \\ \vdots & \ddots & \vdots \\ (x^{(n_m)})^T(\theta^{(1)}) & \cdots & (x^{(n_m)})^T(\theta^{(n_u)}) \end{bmatrix}$$
 
     1. $X\Theta$
     2. $X^T\Theta$
