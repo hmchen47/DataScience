@@ -1424,11 +1424,178 @@
 
 ### Anomaly Detection
 
+#### Problem Description
 
++ [Density estimation](../ML/ML-Stanford/15-Detection.md#problem-motivation)
+	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$
+	+ Is $X_{test}$ anomalous?
+	+ Given model $p(x)$ to predict $x_{test}$
+
+		$$ \text{Decision } = \begin{cases} \text{anomaly} & \text{if } p(x_{test}) < \epsilon \\ \text{ok} & \text{if }  p(x_{test}) \geq \epsilon  \end{cases}$$
+
++ [Anomaly detection examples](../ML/ML-Stanford/15-Detection.md#problem-motivation)
+	+ Fraud detection:
+		+ $x^{(i)}\;$ = features of user $i$'s activities
+		+ Model $p(x)$ from data
+		+ Identify unusual users by checking which have $p(x) < \epsilon$
+	+ Manufacturing
+	+ Monitoring computers in a data center
+		+ $x^{(i)}\;$ = features of machine $i$
+		+ $x_1\;$ = memory use
+		+ $x_2\;$ = number of disk accesses/sec
+		+ $x_3\;$ = CPU load
+		+ $x_4\;$ = CPU load/network traffic
+		+ ...
+
++ [Anomaly detection vs. Supervised learning](../ML/ML-Stanford/15-Detection.md#anomaly-detection-vs-supervised-learning)
+  + Anomaly detection
+    + Very small number of positive examples ($y=1$). (__0-20__ is common)
+    + Large number of negative ($y=0$) examples (to fit $p(x)$ with Gaussian distribution)
+    + Many different "types" of anomalies.  hard for any algorithm to learn from positive examples what the anomalies look like
+    + Future anomalies may look nothing like any of the anomalous examples we've see so far
+    + Examples
+      + Fraud detection
+      + Manufacturing (e.g., aircraft engines)
+      + Monitoring machines in a data center
+  + Supervised learning
+    + Large number of positive and negative examples
+    + Enough positive examples for algorithm to get a sense of what positive examples are like
+    + Future positive examples likely to be similar to ones in training set
+    + Examples
+      + Email spam classification
+      + Weather prediction (sunny/rainy/etc.)
+      + Cancer classification
+
+
+#### Gaussian Distribution
+
++ [Gaussian (Normal) Distribution](../ML/ML-Stanford/15-Detection.md#gaussian-distribution)
+	+ Say $x \in \mathbb{R}$. If $x$ is a distributed Gaussian with mena $\mu$, variance $\sigma^2$ with $\sigma$ as standard deviation.
+	+ Normal distribution: $x \backsim \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
+
+		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
+
++ [Parameter estimation](../ML/ML-Stanford/15-Detection.md#gaussian-distribution)
+	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\} \quad x^{(i)} \in \mathbb{R}$
+	+ mean ($\mu$): 
+
+		$$\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)}$$
+
+	+ Standard deviation($\sigma$): (maximum likelihood estimation form or statistics form)
+
+		$$\sigma^2 = \dfrac{1}{m} \sum_{j=1}^m (x^{(i)} - \mu)^2 \qquad \text{ or } \qquad \sigma^2 = \dfrac{1}{m-1} \sum_{j=1}^{m-1} (x^{(i)} - \mu)^2$$
+
++ [Multivariate Gaussian (Normal) Distribution](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
+  + Parameters: $\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}$
+  
+    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)$$
+
+    where $|\Sigma|\;$ = determent of $\Sigma = \det(\Sigma)$
+
+  + Parameter fitting:
+  
+    Given training set: $\{ x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$ with $x^{(i)} \in \mathbb{R}^n$
+
+    $$ \mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T$$
+
+
+#### Algorithm: Anomaly Detection
+
++ [Density estimation](../ML/ML-Stanford/15-Detection.md#algorithm)
+	+ Training set: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\}$
+	+ Each example is $x \in \mathbb{R}^n$ and independent
+	+ Gaussian distribution for each feature: $x_i \backsim \mathcal{N}(\mu_i, \sigma_i^2) \quad \forall i = 1, 2, \dots, n$
+	+ the probability density
+
+		$$\begin{array}{rcl} p(x) & =& p(x_1,; \mu_1, \sigma_1^2)p(x_2,; \mu_2, \sigma_2^2)p(x_3,; \mu_3, \sigma_3^2) \dots p(x_n,; \mu_n, \sigma_n^2) \\ &=& \displaystyle \prod_{j=1}^n p(x_j,; \mu_j, \sigma_j^2) \end{array}$$
+
++ [Anomaly detection algorithm](../ML/ML-Stanford/15-Detection.md#algorithm)
+	1. Choose features $x_i$ that you think might be indicative of anomalous examples.
+	2. Fit parameters $\mu_1, \dots, \mu_n, \sigma_1^2, \dots, \sigma_n^2$ 
+
+		$$\mu_j = E(x_j) = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)} \qquad\qquad \sigma_j^2 = \dfrac{1}{m} \sum_{j=1}^m (x_j^{(i)} - \mu_j)^2$$
+
+		Vectorized form:
+
+		$$\mu = \begin{bmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix} = E(X) = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \sigma^2 = Var(X) = E(X \cdot X^T) - E(X) \cdot E(X)^T$$
+
+	3. Given new example $x$, compute $p(x)$:
+
+		$$p(x) = \prod_{j-1}^n p(x_j; \mu_j, \sigma_j^2) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( - \dfrac{(x_j - \mu_j)^2}{2\sigma_j^2}  \right)$$
+
+		Anomaly if $p(x) < \epsilon$
+
++ [Anomaly detection with the multivariate Gaussian](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
+
+  1. Fit model $p(x)$ by setting
+
+    $$\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T$$
+
+  2. Given a new example $x$, compute
+
+    $$p(x) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( - \dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x-\mu) \right)$$
+
+    Flag and anomaly if $p(x) < \epsilon$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_76dc0f4717572c816be29a39cdd2237a_Lecture15.pdf?Expires=1556755200&Signature=DTYe3QSPM-Y3QsNgYKQdrdSZ1qER7iRM2W29fz3pQhrj00~D3KKoT6Lh8cLXn~AgenhNVBTtSVRU6lrATK~VD6HaYDLpsYeLyIsyDUWZmveOF7Th1E-VCp3nZ6gjNrw3uNq5wHoQkXADhxATIZwN78LVHIvQQAg4a90rYPcYJCk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+      <img src="../ML/ML-Stanford/images/m15-02.png" style="margin: 0.1em;" alt="Anomaly detection with the multivariate Gaussian" title="Anomaly detection with the multivariate Gaussian" width="250">
+    </a></div>
+  </div>
+
+
+
+#### System: Anomaly Detection
+
++ The importance of real-number evaluation
+	+ When developing a learning algorithm (choosing features, etc.), making decisions is much easier if we have a way of evaluating our learning algorithm
+	+ Assume we have some labeled data, of anomalous and non-anomalous examples, ($y = 0$ if normal, $y=1$ if anomalous)
+	+ Training dataset: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ (assume normal examples/not anomalous)  
+	+ Cross validation set: $(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{(m_{cv})})$  
+  + Test set: $(x_{test}^{(1)}, y_{test}^{(1)}), \dots, (x_{test}^{(m_{test})}, y_{test}^{(m_{test})})$  
+
++ Algorithm evaluation
+  + Fit model $p(x)$ on training set $\{x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$
+  + On a cross validation/test example $x$ predict
+
+    $$y = \begin{cases} 1 & \text{if } p(x) < \epsilon \text{ (anomaly)} \\ 0 & \text{if } p(x) \geq \epsilon \text{ (normal)} \end{cases}$$
+  + Possible evaluation metrics:
+    + True positive, false positive, false negative, true negative
+    + Precision/recall
+    + $F_1$-score
+  + Can also use cross validation set to choose parameters $\epsilon$ (maximize $F_1$-score)
+
++ [Relationship to original model](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
+  + Original model: $p(x) = p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://d3c33hcgiwev3.cloudfront.net/_76dc0f4717572c816be29a39cdd2237a_Lecture15.pdf?Expires=1556755200&Signature=DTYe3QSPM-Y3QsNgYKQdrdSZ1qER7iRM2W29fz3pQhrj00~D3KKoT6Lh8cLXn~AgenhNVBTtSVRU6lrATK~VD6HaYDLpsYeLyIsyDUWZmveOF7Th1E-VCp3nZ6gjNrw3uNq5wHoQkXADhxATIZwN78LVHIvQQAg4a90rYPcYJCk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
+        <img src="../ML/ML-Stanford/images/m15-03.png" style="margin: 0.1em;" alt="P(x) with Gaussian distribution convolution" title="Individual parameters with i.i.i.d Gaussian distribution" width="600">
+      </a></div>
+    </div>
+  
+  + Corresponding to multivariate Gaussian
+
+    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( -\dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x - \mu) \right)$$
+
+    where
+
+    $$\Sigma = \begin{bmatrix} \sigma_1^2 & 0 & \cdots & 0 \\ 0 & \sigma_2^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix}$$
+
++ [Original Model vs. Multivariate Gaussian odel](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
+  + Original model
+    + $p(x) = p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$
+    + Manually create features to capture anomalies where $x_1, x_2,$ take unusual combinations of values, e.g., $x_3 = \dfrac{x_1}{x_2} = \dfrac{\text{CPU load}}{\text{memory}}$
+    + Computationally cheaper (alternatively, scales better to large); e.g., $n = 10,000, n=100,000$
+    + OK even if $m$ (training size) is small
+  + Multivariate Gaussian model
+    + $p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( -\dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x - \mu) \right)$
+    + Automatically captures correlations between features; $\Sigma \in \mathbb{R}^{n \times n}$ and $\Sigma^{-1}$
+    + Computationally more expensive: $\Sigma \backsim \frac{n^2}{2}$ parameters
+    + Must have $m > n$ (typical condition: $m \geq 10 \cdot n$), or else $\Sigma$ is non-invertible (redundant features, including duplicate or linear relation)
 
 
 ## Advice on building a Machine Learning System
-
 
 ### [Learning Rate $\alpha$](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-in-practice-ii-learning-rate)
 
@@ -1688,6 +1855,32 @@
     + See if you spot any systematic trend in what type of examples it is making errors on.
     + Don't base anything oo your gut feeling.
 
++ [Error analysis for anomaly detection](..)
+  + Allows us to come up with extra features to extract anomaly
+  + Similar to the error analysis procedure for supervised learning
+  + Procedure
+    + train a complete algorithm
+    + run the algorithm on a cross validation set
+    + look at the examples it gets wrong
+    + see if extra features come up to help the algorithm do better on the examples that it got wrong in the cross-validation set
+  + Objective:
+    + $p(x)\;$ large for normal examples $x$
+    + $p(x)\;$ small for anomalous examples $x$
+  + Most common problems
+    + $p(x)\;$ is comparable (say, both large) for normal and anomalous examples
+  + Diagrams
+    + plot with unlabeled data with feature $x_1$ (left diagram)
+    + fit the data with Gaussian distribution
+    + an anomaly example happened at $x_1 = 2.5$ and buried in the middle of a bunch of normal examples
+    + exam the data and observe what went wrong
+    + the examination might inspire to come up a new feature $x_2$ to distinguish the anomaly
+    + plot the feature $x_2$ with $x_1$, hopefully the anomaly can be identify with the new feature, e.g., $x_2 = 3.5$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#2c-choosing-what-features-to-use">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection12.png" style="margin: 0.1em;" alt="Error analysis for anomalous detection" title="Error analysis for anomalous detection" width="350">
+    </a></div>
+  </div>  
 
 
 
