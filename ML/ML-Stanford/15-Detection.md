@@ -100,7 +100,7 @@
 
 + IVQ: The formula for the Gaussian density is:
 
-	$$p(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \exp \left(−\dfrac{(x−\mu)^2}{2\sigma^2} \right)$$
+	$$p(x) = \dfrac{1}{\sqrt{2\pi}\sigma} \exp \left(-\dfrac{(x-\mu)^2}{2\sigma^2} \right)$$
 
 	Which of the following is the formula for the density to the right?
 
@@ -410,8 +410,8 @@
 
   1. $\mu = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \Sigma = \begin{bmatrix}1& 0.3 \\ 0.3 & 1 \end{bmatrix}$
   2. $\mu = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & 0.3 \\ 0.3 & 1 \end{bmatrix}$
-  3. $\mu = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & −0.3 \\ −0.3 & 1 \end{bmatrix}$
-  4. $\mu = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & −0.3 \\ −0.3  & 1 \end{bmatrix}$
+  3. $\mu = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & -0.3 \\ -0.3 & 1 \end{bmatrix}$
+  4. $\mu = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \Sigma = \begin{bmatrix}1 & -0.3 \\ -0.3  & 1 \end{bmatrix}$
 
   Ans: 3
 
@@ -479,7 +479,7 @@
 
     $$\Sigma = \begin{bmatrix} \sigma_1^2 & 0 & \cdots & 0 \\ 0 & \sigma_2^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix}$$
 
-+ Original Model vs. Multivariate Gaussian odel
++ Original Model vs. Multivariate Gaussian Model
   + Original model
     + $p(x) = p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$
     + Manually create features to capture anomalies where $x_1, x_2,$ take unusual combinations of values, e.g., $x_3 = \dfrac{x_1}{x_2} = \dfrac{\text{CPU load}}{\text{memory}}$
@@ -581,7 +581,7 @@ Calculate $\sigma^2_j = \dfrac{1}{m}\displaystyle \sum_{i=1}^m(x_j^{(i)} - \mu_j
 
 Given a new example $x$, compute $p(x)$:
 
-$$p(x) = \prod_{j=1}^n p(x_j; \mu_j,\sigma^2_j) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( −\dfrac{(x_j−\mu_j)^2}{2\sigma^2_j} \right)$$
+$$p(x) = \prod_{j=1}^n p(x_j; \mu_j,\sigma^2_j) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( -\dfrac{(x_j-\mu_j)^2}{2\sigma^2_j} \right)$$
 
 Anomaly if $p(x) < \epsilon$
 
@@ -664,7 +664,7 @@ The multivariate gaussian distribution is an extension of anomaly detection and 
 
 Instead of modeling $p(x_1),p(x_2),\dots$ separately, we will model $p(x)$ all in one go. Our parameters will be: $\mu \in \mathbb{R}^n$ and $\sigma \in \mathbb{R}^{n×n}$
 
-$$p(x;\mu,\sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left(−1/2(x − \mu)^T \Sigma^{−1}(x−\mu) \right)$$
+$$p(x;\mu,\sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left(-1/2(x - \mu)^T \Sigma^{-1}(x-\mu) \right)$$
 
 The important effect is that we can model oblong gaussian contours, allowing us to better fit data that might not fit into the normal circular contours.
 
