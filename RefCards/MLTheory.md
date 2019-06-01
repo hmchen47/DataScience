@@ -1765,6 +1765,11 @@
     + neural network with many hidden units
   + Use very large training set (unlikely to overfit) $\implies$ low variance algorithm $\implies J_{train}(\theta) \approx J_{test}(\theta) \text{ and } J_{train}(\theta) \approx 0 \implies J_{test}(\theta)$ will be small.
 
++ [Impacts](../ML/ML-Stanford/17-LargeScale.md#learning-with-large-datasets)
+  + High variance: adding more training examples would increase the accuracy
+  + High bias: need to plot to a large value of m -> add extra features or units (in neural networks)
+
+
 
 ### Evaluation
 
@@ -2317,6 +2322,199 @@
 
 
 ### Large Scale Machine Learning
+
++ [Linear regression with gradient descent](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent)
+
+  + Hypothesis and Cost functions
+
+    $$\begin{array}{rcl} h_\theta(x) & = & \displaystyle \sum_{j=0}^n \theta_j x_j \\ J_{train}(\theta) & = & \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2 \end{array}$$
+
+  + Algorithm
+
+    Repeat { <br/>
+    <span style="padding-left: 2em;" /> $\theta_j := \theta_j - \alpha \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)}) \right) x^{(i)} \quad (\forall j = 0, \dots, n)$ <br/>
+    }
+
++ [Batch vs. Stochastic gradient descent](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent)
+  + Batch gradient descent
+
+    $$J_{train}(\theta) = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2$$
+
+    Repeat { <br/>
+    <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \underbrace{\frac{1}{m} \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)}) \right) x^{(i)}}_{\frac{\partial}{\partial \theta_j}J_{train} (\theta)} \quad (\forall j = 0, \dots, n)$ <br/>
+    }
+  + Stochastic gradient descent
+
+    $$\begin{array}{rcl} cost \left( \theta, (x^{(i)}, y^{(i)}) \right) &=& \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)}) \right)^2 \\\\ J_{train}(\theta) &=& \frac{1}{m} \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}$$
+
+    + General Algorithm
+      1. Randomly shuffle (reorder) training examples
+      2. Repeat { <br/>
+        <span style="padding-left: 1em;"/> for $i=1, \dots, m$ { <br/>
+        <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \underbrace{\left( h_\theta(x^{(i)}) - y^{(i)} \right) x_j^{(i)}}_{\frac{\partial}{\partial \theta_j} cost \left(\theta, (x^{(i)}, y^{(i)}) \right)} \quad (\forall j=0, \dots, n) \Rightarrow (x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), (x^{(3)}, y^{(3)}), \dots$ <br/>
+        <span style="padding-left: 1em;"/>} <br/>
+        } <br/>
+  + Differences
+    + Rather than waiting to take the parts of all the training examples (batch gradient descent), we look at a single training example and we are making progress towards moving to the global minimum
+    + Batch gradient descent (red path)
+    + Stochastic gradient descent (magenta path with a more random-looking path where it wonders around near the global minimum) not converge ti global minimum but oscillate around it
+    + In practice, as long as the parameters close to the global minimum, it’s sufficient (within a region of global minimum)
+    + repeat the loop maybe 1 to 10 times depending on the size of training set
+    + It is possible even with 1 loop, where your $m$ is large, you can have good parameters
+    + the $J_{train}$ (cost function) may not decrease with every iteration for stochastic gradient descent
+
++ [Mini-batch gradient descent](../ML/ML-Stanford/17-LargeScale.md#mini-batch-gradient-descent)
+
+  Say $b=10, m = 1000$ <br/>
+  Repeat { <br/>
+  <span style="padding-left: 1em;"/> for $i = 1, 11, 21, 31, \dots, 991$ { <br/>
+  <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \dfrac{1}{10} \displaystyle \sum_{k=i}^{i+9} \left( h_\theta(x^{(k)}) - y^{(k)} \right) x_j^{(k)} \quad (\forall j=0,\dots,n)$ <br/>
+  <span style="padding-left: 1em;"/>} <br/>
+  }
+
+  + vectorization with $b$ examples
+
++ [Checking for convergence](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent-convergence)
+  + Batch gradient descent:
+    + Plot $J_{train}(\theta)$ as function of the number of iterations of gradient descent
+    + Cost function
+
+      $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
+
+  + Stochastic gradient descent
+
+    $$cost(\theta, (x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+
+    + During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$
+    + Every $1000$ iterations (say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last $1000$ examples processed by algorithm
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1d-stochastic-gradient-descent-convergence">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml8.png" style="margin: 0.1em;" alt="Examples of different situations of errors vs. number of iterations" title="Examples of situations of errors vs. number of iterations" width="450">
+      </a></div>
+    </div>
+
+      + top left diagram:
+        + different learning rate (blue line > red line)
+        + smaller learning rate with smaller oscillation
+        + the difference of cost values sometimes will be negligible
+      + top right diagram:
+        + different size of examples (1000 vs 5000)
+        + red line (5000) having a smoother curve than blue line (1000)
+        + slower with bigger example size
+      + bottom left diagram:
+        + blue curve looks like not learning at all
+        + increase example size might see the slightly decrease curve (5000 - red curve)
+        + sometime the increasing size of examples not learning much for whatever reason (magenta curve), then either changing learning rate, the features or something else about the algorithm
+      + bottom right diagram:
+        + blue curve is divergent
+        + use smaller learning rate ($\alpha$)
+
++ [Stochastic gradient descent](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent-convergence)
+  + Cost functions
+
+    $$\begin{array}{c} cost \left(\theta, (x^{(i)}, y^{(i)}) \right) = \frac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \\\\ J_{train} = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m cost(\theta, (x^{(i)}, y^{(i)})) \end{array}$$
+  
+  + Algorithm
+    1. Randomly shuffle dataset
+    2. Repeat { <br/>
+      <span style="paddin-left: 1em;"/> for $i = 1, \dots, m$ { <br/>
+      <span style="paddin-left: 2em;"/> $\theta_j := \theta_j - \alpha (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \quad (\forall j = 0, \dots, n)$
+      <span style="paddin-left: 1em;"/>} <br/>
+      }
+
+  + Learning rate $\alpha$ is typically held constant.  Can slowly decrease $\alpha$ over time if we want $\theta$ to converge. (E.g., $\alpha = \dfrac{\text{const1}}{\text{iterationNumber + const2}}$)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/fKi0M/stochastic-gradient-descent-convergence">
+      <img src="images/m17-03.png" style="margin: 0.1em;" alt="Example of trajector of gradient descent" title="Example of trajectory of gradient descent" width="350">
+    </a></div>
+  </div>
+
+
+### Online Learning
+
++ [Online learning](../ML/ML-Stanford/17-LargeScale.md#online-learning)
+  + Shipping service website where user comes, specifies origin and destination, you offer to ship their package for some asking price, and users sometimes choose to use your shipping service ($y = 1$), sometimes not ($y = 0$)
+  + Features $x$ captures properties of user, of origin/destination and asking price.  We want to learn $p(y=1 | x; \theta)$ to optimize price ($x$).
+  + Model wih logistic regression
+
+    Repeat forever { <br/>
+    <span style="padding-left: 1em;"/> Get $(x, y)$ corresponding to user <br/>
+    <span style="padding-left: 1em;"/> Update $\theta$ using $(x, y)$: [$(x, y) \leftarrow (x^{(i)}, y^{(i)})$]<br/>
+    <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha (h_\theta(x) - y) x_j \quad (j=0, \dots, n)$ <br/>
+    }
+  + Can adapt to changing user preference
+
++ [Other online learning example](../ML/ML-Stanford/17-LargeScale.md#online-learning)
+  + Product search (learning to search)
+    + User searches for "Android phone 1080p camera"
+    + Have 100 phones in store.  Will return 10 results
+    + $x = \;$ features of phone, how many words in user query match name of phone, how many words in query match description of phone, etc.
+    + $y = 1\;$ if user clicks on link.  $y = 0\;$ otherwise
+    + Learn $p(y =1 | x; \theta) \quad \rightarrow$ learn predicted CTR (click through rate)
+    + Use to show user the 10 phones they're most likely to click on.
+  + Other examples:
+    + choosing special offers to sho user
+    + customized selection of news articles
+    + product recommendation
+    + ...
+
+
+### Map Reduce
+
++ [Map-reduce](../ML/ML-Stanford/17-LargeScale.md#map-reduce-and-data-parallelism)
+  + Batch gradient descent: $m = 400$
+
+    $$\theta_j := \theta - \alpha \dfrac{1}{400} \displaystyle \sum_{i=1}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+  + Map-reduce gradient descent
+    + Training set: $(x^{(1)}, y^{(1)}), \dots, (x^{(m)}, y^{(m)})$, said $m=400$
+    + split the training set into different subsets for servers, said 4 machines
+    + Machine 1: use $(x^{(1)}, y^{(1)}), \dots, (x^{(100)}, y^{(100)})$
+
+      $$temp_j^{(1)} = \sum_{i=1}^{100} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+    + Machine 2: use $(x^{(101)}, y^{(101)}), \dots, (x^{(200)}, y^{(100)})$
+
+      $$temp_j^{(2)} = \sum_{i=101}^{200} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+    + Machine 3: use $(x^{(201)}, y^{(201)}), \dots, (x^{(300)}, y^{(300)})$
+
+      $$temp_j^{(3)} = \sum_{i=201}^{300} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+    + Machine 4: use $(x^{(301)}, y^{(301)}), \dots, (x^{(400)}, y^{(400)})$
+
+      $$temp_j^{(4)} = \sum_{i=031}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+
+  + Combine Machine 1~4:
+
+    $$\theta_j := \theta_j - \alpha \dfrac{1}{400} (temp_j^{(1)} + temp_j^{(2)} + temp_j^{(3)} + temp_j^{(4)}) \quad (j = 0, \dots, n)$$
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://lyusungwon.github.io/distributed-processing/2018/09/12/mr.html">
+      <img src="https://lyusungwon.github.io/assets/images/mr1.png" style="margin: 0.1em;" alt="The computation consists of two functions: a map and a reduce function. First, input data are partitioned into M splits. Map function takes a partition of inputs and produce a set of intermediate key/value pairs. By partitioning the key space(hash(key mod R)), the result can be split into R pieces. Intermediate pairs can be stored in R regions of local disk. Reduce function accesses the local disks of the map workers and groups intermediate pairs with the same key. The master coordinate the location and size of intermediate file regions." title="MapReduce is a programming model that parallelize the computation on large data." width="450">
+    </a></div>
+    <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1d-stochastic-gradient-descent-convergence">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml12.png" style="margin: 0.1em;" alt="text" title="Model for Map-reduce to parallize processing the training dataset" width="450">
+    </a></div>
+  </div>
+
++ [Map-reduce and summation over the training set](../ML/ML-Stanford/17-LargeScale.md#map-reduce-and-data-parallelism)
+  + Many learning algorithms can be expressed as computing sums of functions over the training set.
+  + Example: for advanced optimization, with logistic regression, need:
+
+    $$\begin{array}{rcl} J_{train}(\theta) &=& - \dfrac{1}{m} \displaystyle \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \\\\ \dfrac{\partial}{\partial \theta_j} J_{train}(\theta) &=& \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \end{array}$$
+
++ [Map reduce and neural network](../ML/ML-Stanford/17-LargeScale.md#map-reduce-and-data-parallelism)
+  + Suppose you want to apply map-reduce to train a neural network on 10 machines
+  + In each iteration, compute forward propagation and back propagation on 1/10 of the data to compute the derivative with respect to that 1/10 of the data
+
++ [Multi-core machines](../ML/ML-Stanford/17-LargeScale.md#map-reduce-and-data-parallelism)
+  + split training sets to different cores and then combine the results
+  + “Parallelizing” over multiple cores in the same machine makes network latency less of an issue
+  + There are some libraries to automatically “parallelize” by just implementing the usual vectorized implementation
+
 
 
 
