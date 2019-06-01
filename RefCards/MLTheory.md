@@ -1926,9 +1926,56 @@
   </div>  
 
 
-
 ### Ceiling Analysis
 
++ [Estimating the errors due to each component (ceiling analysis)](../ML/ML-Stanford/18-OCR.md#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr10.png" style="margin: 0.1em;" alt="Text OCR pipeline for Ceiling analysis" title="Text OCR pipeline for Ceiling analysis" width="400">
+    </a></div>
+  </div>
+
+  + What part of the pipeline should you spend the most time trying to improve?
+  + execute the text detection and find out the accuracy of text detection
+  + Manually identify the text segments on test set with correct answers as inputs for the character segmentation
+  + the inputs of each stage must be 100% accuracy for test set
+
+    | Component | Accuracy |
+    |-----------|:--------:|
+    | Overall system | 72% |
+    | Text detection | 89% |
+    | Character segmentation | 90% |
+    | Character recognition | 100% |
+
+    + Performance gain: Overall system --(17%)--> Text detection --(1%)--> Character segmentation --(10%)--> Character recognition
+    + a great indication for resource allocation
+
++ [Face recognition from images (Artificial example)](../ML/ML-Stanford/18-OCR.md#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#ceiling-analysis-what-part-of-the-pipeline-to-work-on-next">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr11.png" style="margin: 0.1em;" alt="Face Detection Pipeline" title="Face Detection Pipeline" width="450">
+    </a></div>
+  </div>
+
+  + Perfect face detection (5.9%)
+  + Perfect eye segmentation (4%)
+  + Ceiling analysis
+
+  | Component | Accuracy |
+  |-----------|:--------:|
+  | Overall system | 85% |
+  | Preprocess (remove background) | 85.1% |
+  | Face detection | 91% |
+  | Eyes segmentation | 95% |
+  | Noise segmentation | 96% |
+  | Mouth segmentation | 97% |
+  | Logistic regression | 100% |
+
+  + Performance gain: Overall system --(0.1%)--> Preprocess --(5.9%)--> Face detection --(4%)--> Eyes segmentation --(1%)--> Nose segmentation --(1%)--> Mouth segmentation --(3%)--> Logistic regression
+  + Preprocessing is not necessary
 
 
 
@@ -2059,6 +2106,46 @@
   + Typically the meaning is unknown for the 2D
   + able to make sense of out of the 2D
 
+
+#### Artificial Data
+
++ [Artificial data synthesis for photo OCR](../ML/ML-Stanford/18-OCR.md#getting-lots-of-data-and-artificial-data)
+  + Creating data from scratch
+  + having a small training set, turn that into a large training set
+  + take free fonts, copy the alphabets and paste them on random backgrounds
+  + Right diagram: synthesized image
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="http://ai.stanford.edu/~twangcat/">
+      <img src="http://ai.stanford.edu/~twangcat/figures/synthetic_data.png" style="margin: 0.1em;" alt="Reading text from photographs is a challenging problem with wide range of potential applications. Many recent methods have been proposed to design an end-to-end scene text recognition systems. Most of them are based on hand-crafted features and cleverly engineered algorithms. Our approch is to design machine learning-specifically, large-scale algorithms for learning the features automatically from unlabeled data, and construct highly effective classifiers for both detection and recognition to be used in a high accuracy end-to-end system. " title="Real and Synthesis text" width="350">
+    </a></div>
+  </div>
+
++ [Synthesizing data by introducing distortions](../ML/ML-Stanford/18-OCR.md#getting-lots-of-data-and-artificial-data)
+  + distort existing examples to create new data
+  + the way to distort is through warping the image
+  + Distortion introduced should be representation of the type of noise/distortions in the test set
+    + Text: distortion as shown in diagram
+    + [Audio](www.pdsounds.org]): background noise, bad cellphone connection
+  + Usually does not help to add purely random/meaningless noise to your data
+    + $x_i =\;$ intensity (brightness) of pixel $i$
+    + $x_i \leftarrow x_1 +\;$ random noise
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#getting-lots-of-data-and-artificial-data">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr8.png" style="margin: 0.1em;" alt="Synthesis text with distortion" title="Synthesis text with distortion" width="350">
+    </a></div>
+  </div>
+
++ [Discussion on getting more data](../ML/ML-Stanford/18-OCR.md#getting-lots-of-data-and-artificial-data)
+  1. Make sure you have a low bias (high variance) classifier before expending the effort to get more data
+    + Plot the learning curves to find out
+    + Keep increasing the number of features or number of hidden units in the neural network until you have a low bias classifier
+  2. How much work would it be to get 10x as much data as you currently have
+    + Artificial data synthesis
+    + Collect/label it yourself: # of hours? E.g., $10 \text{ secs/example }$, how about $m-1,000 \rightarrow m=10,000$?
+    + Crowd source: Hire people on the web to label data (amazon mechanical turk)
+  
 
 
 ## Special Applications
@@ -2514,6 +2601,73 @@
   + split training sets to different cores and then combine the results
   + “Parallelizing” over multiple cores in the same machine makes network latency less of an issue
   + There are some libraries to automatically “parallelize” by just implementing the usual vectorized implementation
+
+
+### Photo OCR
+
++ [Photo OCR Pipeline](../ML/ML-Stanford/18-OCR.md#problem-description-and-pipeline)
+  1. Text detection
+  2. Character segmentation: Splitting “ADD” for example
+  3. Character classification: First character “A”, second “D”, and so on
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr.png" style="margin: 0.1em;" alt="Text OCR pipeline" title="Text OCR pipeline" width="400">
+    </a></div>
+  </div>
+
++ [Supervised learning for pedestrian detection](../ML/ML-Stanford/18-OCR.md#sliding-windows)
+  + standardizing the image: x = pixels in 82 x 36 image patches
+  + train model with given positive nad negative classified image patches
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr2.png" style="margin: 0.1em;" alt="Training examples to train pedestrian detection in an image" title="Training examples to train pedestrian detection in an image" width="350">
+    </a></div>
+  </div>
+
++ [Sliding window detection for pedestrians](../ML/ML-Stanford/18-OCR.md#sliding-windows)
+  + slide a green box (82 x 36) with a defined step-size/stride
+    + usually step-size/stride = 1 performs the best
+    + step-size/stride = 4/8 or more pixels are more cost efficient
+  + continue sliding the window over the whole image
+    + slide the window row by row with the given step-size/stride (row-wise & column-wise)
+    + take a large box and sliding window again
+    + resize the larger box to 82 x 36
+    + way to train a supervised learning classifier to identify pedestrians
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
+        <img src="images/m18-03.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  1" title="Sliding windows for pedestrian detection 1" width="200">
+        <img src="images/m18-04.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  2" title="Sliding windows for pedestrian detection 2" width="200">
+        <img src="images/m18-05.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  3" title="Sliding windows for pedestrian detection 3" width="200">
+        <img src="images/m18-06.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  4" title="Sliding windows for pedestrian detection 4" width="200">
+      </a></div>
+    </div>
+
++ [Text detection](../ML/ML-Stanford/18-OCR.md#sliding-windows)
+  + Positive examples ($y = 1$), patches with text
+  + Negative examples ($y = 0$), patches without text
+  + Run a sliding window classifier on the image
+    + the bottom left: white areas that indicate text areas
+    + Bright white: classifier output a very high probability of text in the location
+  + If we take one more text by taking the output of the classifier and apply an expansion operator
+    + It takes the white region and expand them
+    + If we use heuristics and discard those with abnormal height-to-width ratio
+  + 1D Sliding window for character segmentation
+    + classify the patches with two characters (some whitespace in the middle) as positive examples and others are negative examples
+    + using the sliding windows with positive examples to segment the characters
+  + Character classification with the segments
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
+      <img src="images/m18-01.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection for prediction" width="250">
+      <img src="images/m18-07.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: examples for training" width="250">
+      <img src="images/m18-08.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: identify blocks for text" width="300">
+    </a></div>
+  </div>
+
 
 
 
