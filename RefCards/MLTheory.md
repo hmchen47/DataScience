@@ -2612,7 +2612,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
-      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+      <img src="../ML/ML-Stanford/images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr.png" style="margin: 0.1em;" alt="Text OCR pipeline" title="Text OCR pipeline" width="400">
     </a></div>
   </div>
@@ -2639,10 +2639,10 @@
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
-        <img src="images/m18-03.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  1" title="Sliding windows for pedestrian detection 1" width="200">
-        <img src="images/m18-04.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  2" title="Sliding windows for pedestrian detection 2" width="200">
-        <img src="images/m18-05.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  3" title="Sliding windows for pedestrian detection 3" width="200">
-        <img src="images/m18-06.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  4" title="Sliding windows for pedestrian detection 4" width="200">
+        <img src="../ML/ML-Stanford/images/m18-03.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  1" title="Sliding windows for pedestrian detection 1" width="200">
+        <img src="../ML/ML-Stanford/images/m18-04.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  2" title="Sliding windows for pedestrian detection 2" width="200">
+        <img src="../ML/ML-Stanford/images/m18-05.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  3" title="Sliding windows for pedestrian detection 3" width="200">
+        <img src="../ML/ML-Stanford/images/m18-06.png" style="margin: 0.1em;" alt="Sliding windows for pedestrian detection  4" title="Sliding windows for pedestrian detection 4" width="200">
       </a></div>
     </div>
 
@@ -2662,9 +2662,9 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/lecture/bQhq3/sliding-windows">
-      <img src="images/m18-01.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection for prediction" width="250">
-      <img src="images/m18-07.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: examples for training" width="250">
-      <img src="images/m18-08.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: identify blocks for text" width="300">
+      <img src="../ML/ML-Stanford/images/m18-01.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection for prediction" width="250">
+      <img src="../ML/ML-Stanford/images/m18-07.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: examples for training" width="250">
+      <img src="../ML/ML-Stanford/images/m18-08.png" style="margin: 0.1em;" alt="Text detection 1" title="Text detection: identify blocks for text" width="300">
     </a></div>
   </div>
 
