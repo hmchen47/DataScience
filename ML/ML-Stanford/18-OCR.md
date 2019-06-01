@@ -64,7 +64,6 @@
   </div>
 
   + identify pedestrians easily because the aspect ratio of most pedestrians are pretty similar
-  + 
 
 + Supervised learning for pedestrian detection
   + standardizing the image: x = pixels in 82 x 36 image patches
@@ -199,7 +198,7 @@
     + Artificial data synthesis
     + Collect/label it yourself: # of hours? E.g., $10 \text{ secs/example }$, how about $m-1,000 \rightarrow m=10,000$?
     + Crowd source: Hire people on the web to label data (amazon mechanical turk)
-  
+
 + IVQ: You’ve just joined a product group that has been developing a machine learning application for the last 12 months using 1,000 training examples. Suppose that by manually collecting and labeling examples, it takes you an average of 10 seconds to obtain one extra training example. Suppose you work 8 hours a day. How many days will it take you to get 10,000 examples? (Pick the closest answer.)
 
   1. About 1 day.
