@@ -211,7 +211,6 @@
         + blue curve is divergent
         + use smaller learning rate ($\alpha$)
 
-
 + Stochastic gradient descent
   + Cost functions
 
@@ -233,7 +232,7 @@
     </a></div>
   </div>
 
-  + Which of the following statements about stochastic gradient descent are true? Check all that apply.
+  + IVQ: Which of the following statements about stochastic gradient descent are true? Check all that apply.
 
     1. Picking a learning rate α that is very small has no disadvantage and can only speed up learning.
     2. If we reduce the learning rate $\alpha$ (and run stochastic gradient descent long enough), it’s possible that we may find a set of better parameters than with larger $\alpha$.
