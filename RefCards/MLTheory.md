@@ -14,6 +14,18 @@
 
 ### Pipeline
 
++ [Photo OCR Pipeline](../ML/ML-Stanford/18-OCR.md#problem-description-and-pipeline)
+  1. Text detection
+  2. Character segmentation: Splitting “ADD” for example
+  3. Character classification: First character “A”, second “D”, and so on
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
+      <img src="../ML/ML-Stanford/images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr.png" style="margin: 0.1em;" alt="Text OCR pipeline" title="Text OCR pipeline" width="400">
+    </a></div>
+  </div>
+
 
 ## Supervised Learning
 
@@ -1932,7 +1944,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/machine-learning-photo-ocr/#problem-description-and-pipeline">
-      <img src="images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
+      <img src="../ML/ML-Stanford/images/m18-02.png" style="margin: 0.1em;" alt="Text OCR" title="Text OCR" width="250">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w11_application_example_ocr/photoocr10.png" style="margin: 0.1em;" alt="Text OCR pipeline for Ceiling analysis" title="Text OCR pipeline for Ceiling analysis" width="400">
     </a></div>
   </div>
@@ -1942,12 +1954,30 @@
   + Manually identify the text segments on test set with correct answers as inputs for the character segmentation
   + the inputs of each stage must be 100% accuracy for test set
 
-    | Component | Accuracy |
-    |-----------|:--------:|
-    | Overall system | 72% |
-    | Text detection | 89% |
-    | Character segmentation | 90% |
-    | Character recognition | 100% |
+    <table style="border: 1px solid black; border-collapse: collapse; margin: 0 auto;">
+      <thead style=" padding-left: 10em; border-bottom: 1px double black;"><tr style="">
+        <th style="width-min: 15em;"> Component </th>
+        <th style="width-min: 10em;"> Accuracy </th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td> Overall system </td>
+          <td style="text-align: center;"> 72% </td>
+        </tr>
+        <tr>
+          <td> Text detection </td>
+          <td style="text-align: center;"> 89% </td>
+        </tr>
+        <tr>
+          <td> Character segmentation </td>
+          <td style="text-align: center;"> 90% </td>
+        </tr>
+        <tr>
+          <td> Character recognition </td>
+          <td style="text-align: center;"> 100% </td>
+        </tr>
+      <tbody>
+    </table> <br/>
 
     + Performance gain: Overall system --(17%)--> Text detection --(1%)--> Character segmentation --(10%)--> Character recognition
     + a great indication for resource allocation
@@ -1964,15 +1994,46 @@
   + Perfect eye segmentation (4%)
   + Ceiling analysis
 
-  | Component | Accuracy |
-  |-----------|:--------:|
-  | Overall system | 85% |
-  | Preprocess (remove background) | 85.1% |
-  | Face detection | 91% |
-  | Eyes segmentation | 95% |
-  | Noise segmentation | 96% |
-  | Mouth segmentation | 97% |
-  | Logistic regression | 100% |
+    <table style="border: 1px solid black; border-collapse: collapse; margin: 0 auto;">
+      <thead style=" padding-left: 10em; border-bottom: 1px double black;"><tr style="">
+        <th style="width-min: 15em;"> Component </th>
+        <th style="width-min: 10em;"> Accuracy </th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td> Overall system </td>
+          <td style="text-align: center;"> 85% </td>
+        </tr>
+        <tr>
+          <td> Preprocess (remove background) </td>
+          <td style="text-align: center;"> 85.1% </td>
+        </tr>
+        <tr>
+          <td> Face detection </td>
+          <td style="text-align: center;"> 91% </td>
+        </tr>
+        <tr>
+          <td> Face detection </td>
+          <td style="text-align: center;"> 91% </td>
+        </tr>
+        <tr>
+          <td> Eyes segmentation </td>
+          <td style="text-align: center;"> 95% </td>
+        </tr>
+        <tr>
+          <td> Noise detection </td>
+          <td style="text-align: center;"> 96% </td>
+        </tr>
+        <tr>
+          <td> Mouth segmentatio </td>
+          <td style="text-align: center;"> 97% </td>
+        </tr>
+        <tr>
+          <td> Logistic regression </td>
+          <td style="text-align: center;"> 100% </td>
+        </tr>
+      <tbody>
+    </table> <br/>
 
   + Performance gain: Overall system --(0.1%)--> Preprocess --(5.9%)--> Face detection --(4%)--> Eyes segmentation --(1%)--> Nose segmentation --(1%)--> Mouth segmentation --(3%)--> Logistic regression
   + Preprocessing is not necessary
@@ -2107,7 +2168,7 @@
   + able to make sense of out of the 2D
 
 
-#### Artificial Data
+### Artificial Data
 
 + [Artificial data synthesis for photo OCR](../ML/ML-Stanford/18-OCR.md#getting-lots-of-data-and-artificial-data)
   + Creating data from scratch
@@ -2514,7 +2575,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/lecture/fKi0M/stochastic-gradient-descent-convergence">
-      <img src="images/m17-03.png" style="margin: 0.1em;" alt="Example of trajector of gradient descent" title="Example of trajectory of gradient descent" width="350">
+      <img src="../ML/ML-Stanford/images/m17-03.png" style="margin: 0.1em;" alt="Example of trajector of gradient descent" title="Example of trajectory of gradient descent" width="350">
     </a></div>
   </div>
 
