@@ -150,8 +150,8 @@
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <td> <a href="RefCards/MLTheory.md#ceiling-analysis"> Ceiling Analysis </a></td>
       <td> <a href="RefCards/MLTheory.md#performance-measurement"> Performance </a></td>
-      <td> <a href="RefCards/MLTheory.md#"> Dimensionality Reduction </a> </td>
-      <td> <a href="RefCards/MLTheory.md#">  </a> </td>
+      <td> <a href="RefCards/MLTheory.md#dimensionality-reduction"> Dimensionality Reduction </a> </td>
+      <td> <a href="RefCards/MLTheory.md#artificial-data"> Artificial Data </a> </td>
     </tr>
 
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Special Applications / Special Topics </td> </tr>
@@ -163,8 +163,8 @@
       <td> <a href="RefCards/MLTheory.md#online-learning"> Online Learning </a></td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <td> <a href="RefCards/MLTheory.md#map-reduce-and-data-parallelism"> Map Reduce </a></td>
-      <td> <a href="RefCards/MLTheory.md#">  </a></td>
+      <td> <a href="RefCards/MLTheory.md#map-reduce"> Map Reduce </a></td>
+      <td> <a href="RefCards/MLTheory.md#photo-ocr"> Photo OCR </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
       <td> <a href="RefCards/MLTheory.md#">  </a></td>
     </tr>
