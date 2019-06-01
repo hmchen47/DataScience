@@ -1466,6 +1466,12 @@
       + Weather prediction (sunny/rainy/etc.)
       + Cancer classification
 
++ [Procedure](../ML/ML-Stanford/ex08.md#1-anomaly-detection)
+  + visualize the dataset
+  + fit a Gaussian distribution
+  + find values with low probability
+  + considered as anomalies w/ low probability
+
 
 #### Gaussian Distribution
 
@@ -1484,6 +1490,25 @@
 	+ Standard deviation($\sigma$): (maximum likelihood estimation form or statistics form)
 
 		$$\sigma^2 = \dfrac{1}{m} \sum_{j=1}^m (x^{(i)} - \mu)^2 \qquad \text{ or } \qquad \sigma^2 = \dfrac{1}{m-1} \sum_{j=1}^{m-1} (x^{(i)} - \mu)^2$$
+
+
++ [Estimate the Gaussian distribution for each of the features $x_i$](../ML/ML-Stanford/ex08.md#1-1-gaussian-distribution)
+  + find parameters $\mu_i$ and $\sigma_i$ that fit the data inb the $i$-th dimension $x_i^{(1)}, \dots, x_i^{(m)}, \forall i = 1, \dots, n$
+  + Gaussian distribution
+
+    $$p(x; \mu_, \sigma) = \dfrac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+
+    where $\mu$ = mean, $\sigma^2$ = variance
+
++ [Estimate the parameters, $(\mu_i, \sigma_i^2)$](../ML/ML-Stanford/ex08.md#1-2-estimating-parameters-for-a-gaussian)
+  + the mean
+
+    $$\mu_i = \dfrac{1}{m} \sum_{j=1}^m x_i^{(i)}$$
+
+  + the variance
+
+    $$\sigma_i^2 = \dfrac{1}{m} \sum_{j=1}^m (x_i^{(j)} - \mu_i)^2$$
+
 
 + [Multivariate Gaussian (Normal) Distribution](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
   + Parameters: $\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}$
@@ -1543,6 +1568,19 @@
     </a></div>
   </div>
 
+
++ [Practical Procedure](../ML/ML-Stanford/ex08.md#1-3-selecting-the-threshold-1963-)
+  + use a cross validation set $\{(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{(m_{cv})}) \}$
+  + $y=1\;$: anomalous example
+  + $y=0\;$: normal example
+  + compute $p(x_{cv}^{(i)})$ for each cross validation  example
+  + `selectThreshold.m` arguments
+    + `pval`: the vector of all of these probabilities $p(x_{cv}^{(1)}), \dots, p(x_{cv}^{(m_{cv})})$
+    + `yval`: the corresponding labels $y_{cv}^{(1)}, \dots, y_{cv}^{(m_{cv})}$
+  + return two values:
+    + the threshold $\epsilon$
+    + the $F_1$ score
+  + Anomaly: an example $x$ with low probability $p(x) < \epsilon$
 
 
 #### System: Anomaly Detection
@@ -1889,6 +1927,7 @@
 
 
 
+
 ### Performance Measurement
 
 + [Accuracy](https://blog.exsilio.com/all/accuracy-precision-recall-f1-score-interpretation-of-performance-measures/)
@@ -1946,6 +1985,18 @@
   + $F_1$ Score: $2 \dfrac{PR}{P + R}$
     + $P = 0 \text{ or } R = 0 \implies F_1 \text{score} = 0$
     + $P = 1 \text{ and } R = 1 \implies F_1 \text{score} = 1$
+
++ [The $F_1$ score](../ML/ML-Stanford/ex08.md#1-3-selecting-the-threshold-1963-)
+  + computed using precision ($prec$) and recall ($rec$)
+  
+    $$F_1 = \dfrac{2 \cdot prec \cdot rec}{prec + rec}$$
+  + compute precision and recall
+
+    $$prec = \dfrac{tp}{tp + fp} \qquad rec = \dfrac{tp}{tp + fn}$$
+  + Notation
+    + $tp$ is the number of true positive: the ground truth label says it's an anomaly and our algorithm correctly classified it is an anomaly
+    + $fp$ is the number of false positive: the ground truth label says it's not an anomaly, but our incorrectly classified it is as an anomaly
+    + $fn$ is the number of false negative: thr ground truth label says it's an anomaly, but our algorithm incorrectly classified it as not being anomalous
 
 + Contingency matrix and measures
 
@@ -2075,6 +2126,9 @@
 
     $$\min_{\theta^{(j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
 
+
+#### Model: Recommender System
+
 + [Optimization objective](../ML/ML-Stanford/16-Recommend.md#content-based-recommendations)
   + To learn $\theta^{(j)}$ (parameter for user $j$): (with $m^{(j)}$ factor removed)
 
@@ -2103,6 +2157,24 @@
   
   + $\theta_0$ and $x_0$ are not required: $x \in \mathbb{R}^n, \theta \in \mathbb{R}^n$
 
++ [Notation and objecive](../ML/ML-Stanford/ex08.md#2-1-movie-ratings-dataset)
+  + The matrix `Y` (a num_movies x num_users matrix) stores the rating $y^{(i, j)}$ (from 1 to 5).
+  + The matrix `R`: an binary-valued indicator matrix, where $R(i, j) = 1$ if user $j$ gave a rating to movie $i$, and $R(i, j) = 0$ otherwise.
+  + objective of collaborative filtering: predict movie ratings for the movies that users have not yet rated, that is, the entries with $R(i, j) = 0$.
+  + The matrices
+
+    $$\text{X } = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix},  \qquad\qquad \text{Theta } = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \ \end{bmatrix}$$
+
+    + the $i$-th row of `X`  corresponding to the feature vector $x^{(i)}$ for the $i$-th movie
+    + the $j$-th row of `Theta` corresponding to one parameter vector $\theta^{(j)}$, for the $j$-th user
+    + both $x^{(i)}$ and $\theta^{(i)}$ are $n$-dim vectors
+
+
++ [Gradients of cost function](../ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
+
+  $$\begin{array}{rcl} \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} \\\\ \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} \end{array}$$
+
+
 
 #### Algorithm
 
@@ -2118,6 +2190,25 @@
   + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
   + Guess $\theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \theta \;\rightarrow\; x \;\rightarrow\; \dots$
 
++ [collaborative filtering cost function (without regularization)](../ML/ML-Stanford/ex08.md#2-2-1-collaborative-filtering-cost-function)
+
+  $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2$$
+
++ [Implementation Note](../ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
+  + able to implement the gradient with a for-loop over movies (for computing $\frac{\partial J}{\partial x_k^{(i)}}$) and a for-loop over users (for computing $\frac{\partial J}{\theta_k^{(j)}}$)
+  + initial implement: start with an unconvectorized version, by implementing another inner for-loop that computes each element in the summation
+  + vectorized the inner for-loops: left with only two for-loops (one for looping over movies to compute $\frac{\partial J}{\partial x_k^{(i)}}$ for each movie, and one for looping over users to compute $\frac{\partial J}{\partial \theta_k^{(j)}}$ for each user)
+
++ [The cost function for collaborative filtering with regularization](../ML/ML-Stanford/ex08.md#2-2-3-regularized-cost-function)
+  $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^T \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right)$$
+
++ [The gradients for the regularized cost function](../ML/ML-Stanford/ex08.md#2-2-4-regularized-gradient)
+
+  $$\begin{array}{rcl} \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \end{array}$$
+
+  + add $\lambda x^{(i)}$ to `X_grad(i, :)`
+  + add $\lambda \theta^{(j)}$ to `Theta_grad(i, :)`
+
 
 #### Vectorization
 
@@ -2130,13 +2221,98 @@
     $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}$$
   + a.k.a Low rank matrix factorization
 
-+ Finding related movies
++ [Finding related movies](../ML/ML-Stanford/16-Recommend.md#vectorization-low-rank-matrix-factorization)
   + For each product $i$, we learn a feature vector $x^{(i)} \in \mathbb{R}^n$; e.g., $x_1$ = romance, $x_2$ = action, $x_3$ = comedy, $x_4 = \dots$
   + How to fidn movies $j$ related to movie $i$?
 
     $$\parallel x^{(i)} - x^{(j)} \parallel \rightarrow 0 \implies \text{movie } j \text{ and } i \text { are "similar"}$$
   + 5 most similar movies to movie $i$: find the 5 movies with the smallest $\parallel x^{(i)} - x^{(j)} \parallel$
 
++ [Implementation Tip](/ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
+  + come up a way to compute all the derivatives associated with $x_1^{(i)}, x_2^{(i)}, \dots, x_n^{(i)}$ (i.e., the derivative terms associated with the feature vector $x^{(i)]}$) at the sam etime
+  + define the derivatives for the feature vector of the $i$-th movie
+
+    $$(X_{grad}(i,:))^T = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(i)}} \\ \frac{\partial J}{\partial x_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}$$
+
+    + start by indexing into `Theta` and `Y` to select only the elements of interests (i.e., those with $r(i, j) = 1$)
+    + consider the features for the $i$-th movie
+    + only concern the users who had given ratings to the movie
+    + allow to remove all the other users from `Theta` and `Y`
+  + set `idx = find(R(i, :) == 1)`to be a list if all the users that have rated movie $i$
+  + allow to create the temporary matrices $Theta_{temp} = Theta(idx, :)$ and $Y_{temp} = Y(idx, :)$ that index into `Theta` and `Y` to give you only the set of users which have rated the $i$-th movie
+  + The derivatives
+
+    $$X_{grad}(i, :) = (X(i, :) \ast Theta_{temp}^T - y_{temp}) \ast Theta_{temp}$$
+
+    + the vectorized computation returns a row-vector
+  + After vectorized he computations of the derivatives wrt $x^{(i)}$, use a similar method to vectorize the derivatives wrt $\theta^{(j)}$
+
++ [Notations](../ML/ML-Stanford/ex08.md#notations)
+
+  $$\begin{array}{crl} x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_n^{(i)} \end{bmatrix} & \implies & X = \underbrace{\begin{bmatrix} (x^{(1)})^T \\ (x^{(2)})^T \\ \vdots \\ (x^{(n_m)})^T \end{bmatrix}}_{n_m \times n} = \begin{bmatrix} x_1^{(1)} & x_2^{(1)} & \cdots & x_n^{(1)} \\ x_1^{(2)} & x_2^{(2)} & \cdots & x_n^{(2)}  \\ \vdots & \vdots & \ddots & \vdots \\ x_1^{(n_m)} & x_2^{(n_m)} & \cdots & x_n^{(n_m)} \end{bmatrix} \\\\ \theta^{(j)} = \begin{bmatrix} \theta_1^{(i)} \\ \theta_2^{(i)} \\ \vdots \\ \theta_n^{(i)} \end{bmatrix} & \implies & \theta = \underbrace{\begin{bmatrix} (\theta^{(1)})^T \\ (\theta^{(2)})^T \\ \vdots \\ (\theta^{(n_m)})^T \end{bmatrix}}_{n_u \times n} = \begin{bmatrix} \theta_1^{(1)} & \theta_2^{(1)} & \cdots & \theta_n^{(1)} \\ \theta_1^{(2)} & \theta_2^{(2)} & \cdots & \theta_n^{(2)}  \\ \vdots & \vdots & \ddots & \vdots \\ \theta_1^{(n_m)} & \theta_2^{(n_m)} & \cdots & \theta_n^{(n_m)} \end{bmatrix} \end{array}$$
+
+  <br/>
+
+  $$ e_{n_m} = \underbrace{\begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}}_{n_m \times 1} \qquad e_{n_u} = \underbrace{\begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}}_{n_u \times 1} \qquad R = \begin{bmatrix} r(1,1) & r(1, 2) & \cdots & r(1, n_u) \\ r(2,1) & r(2, 2) & \cdots & r(2, n_u) \\ \vdots & \vdots & \ddots & \vdots \\ r(n_m, 1) & r(n_m, 2) & \cdots & r(n_m, n_u) \\ \end{bmatrix} \quad Y = \begin{bmatrix} y^{(1, 1)} & y^{(1, 2)} & \cdots & y^{(1, n_u)} \\ y^{(2, 1)} & y^{(2, 2)} & \cdots & y^{(2, n_u)} \\ \vdots & \vdots & \ddots & \vdots \\ y^{(n_m, 1)} & y^{(n_m, 2)} & \cdots & y^{(n_m, n_u)} \end{bmatrix}$$
+
++ [Cost Function](../ML/ML-Stanford/ex08.md#cost-function)
+  + Dimension analysis:
+
+    $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} (\underbrace{(\theta^{(j)})^Tx^{(i)}}_{(A)} - y^{(i, j)})^2$$
+
+    Term (A): $Y_{pred} (n_m \times n_u) \Leftarrow (n_m \times n) \times (n \times n_u) \;\therefore\; Y_{pred} = X \cdot \theta^T$
+
+  + Vectorized Cost Function
+
+    $$\begin{array}{rcl} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) & = & \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 \\\\ & = & \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} \end{array}$$
+
+    + Hadamard product ($\circ$)
+      + Def:
+
+        $$[A \circ B]_{ij} = [A]_{ij} \cdot [B]_{ij}$$
+
+      + Analogous operations
+
+        $$\begin{array}{rcl} B = A^{\circ 2} & \implies & B_{ij} = A_{ij}^2 \\\\ B = A^{\circ \frac{1}{2}} & \implies & B_{ij} = A_{ij}^{\frac{1}{2}} \\\\ B = A^{\circ -1} & \implies & B_{ij} = A_{ij}^{-1} \\\\ C = A \oslash B & \implies & C_{ij} = \dfrac{A_{ij}}{B_{ij}} \end{array}$$
+
+
++ [Gradient](../ML/ML-Stanford/ex08.md#gradient)
+
+  + Dimension analysis for feature vector:
+
+    $$(X_{grad}(i,:))^T = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(i)}} \\ \frac{\partial J}{\partial x_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}}_{(A)}$$
+
+    Term (A): $X_{grad} (n_m \times n) \;\Leftarrow\; \text{error term } (n_m \times n_u) \times \theta (n_u \times n)$
+
+  + derivatives of the feature vector
+
+    $$\begin{array}{rcl} X_{grad}(i, :) & = & \begin{bmatrix} \dfrac{\partial J}{\partial x_1^{(i)}} & \dfrac{\partial J}{\partial x_2^{(i)}} & \cdots & \dfrac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} \\\\ X_{grad} & = & \begin{bmatrix} \frac{\partial J}{\partial x_1^{(1)}} & \frac{\partial J}{\partial x_2^{(1)}} & \cdots & \frac{\partial J}{\partial x_n^{(1)}} \\ \frac{\partial J}{\partial x_1^{(2)}} & \frac{\partial J}{\partial x_2^{(2)}} & \cdots & \frac{\partial J}{\partial x_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial x_1^{(n_m)}} & \frac{\partial J}{\partial x_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial x_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta \end{array}$$
+
+  + Dimension analysis for feature weighting vector
+
+    $$\theta_{grad}(:, j) = \begin{bmatrix} \frac{\partial J}{\partial \theta_1^{(i)}} \\ \frac{\partial J}{\partial \theta_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial \theta_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x^{(i)}}_{(B)}$$
+
+    Term (B): $\theta_{grad} (n_u \times n) \;\Leftarrow\; \text{error term}^T \ (n_u \times n_m) \times X (n_m \times n)$
+
+  + derivatives of the feature weighting matrix
+
+    $$\theta_{grad} = \begin{bmatrix} \frac{\partial J}{\partial \theta_1^{(1)}} & \frac{\partial J}{\partial \theta_2^{(1)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(1)}} \\ \frac{\partial J}{\partial \theta_1^{(2)}} & \frac{\partial J}{\partial \theta_2^{(2)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial \theta_1^{(n_m)}} & \frac{\partial J}{\partial \theta_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X$$
+
+
+### Regularization
+
++ The cost function for collaborative filtering with regularization
+
+  $$\begin{array}{c} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \displaystyle \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^2 \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right) \\\\ \downarrow \\\\ J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} + \dfrac{\lambda}{2} e_{n_u}^T \theta^{\circ 2} e_{n_u} + \dfrac{\lambda}{2} e_{n_m}^T X^{\circ 2} e_{n_m} \end{array}$$
+
++ Gradient for features: derivatives of the feature vector with regularization
+
+ $$\begin{array}{c} \dfrac{\partial J}{\partial x_k^{(i)}} = \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \downarrow \\\\ X_{grad} = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(1)}} & \frac{\partial J}{\partial x_2^{(1)}} & \cdots & \frac{\partial J}{\partial x_n^{(1)}} \\ \frac{\partial J}{\partial x_1^{(2)}} & \frac{\partial J}{\partial x_2^{(2)}} & \cdots & \frac{\partial J}{\partial x_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial x_1^{(n_m)}} & \frac{\partial J}{\partial x_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial x_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta + \lambda \cdot X \end{array}$$
+
+
++ Gradient for feature weights: derivatives of the feature weighting vector with regularization
+
+ $$\begin{array}{c} \dfrac{\partial J}{\partial \theta_k^{(j)}} = \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \\\\ \downarrow \\\\ \theta_{grad} = \begin{bmatrix} \frac{\partial J}{\partial \theta_1^{(1)}} & \frac{\partial J}{\partial \theta_2^{(1)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(1)}} \\ \frac{\partial J}{\partial \theta_1^{(2)}} & \frac{\partial J}{\partial \theta_2^{(2)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial \theta_1^{(n_m)}} & \frac{\partial J}{\partial \theta_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X + \lambda \cdot \theta \end{array}$$
 
 
 
