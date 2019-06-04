@@ -27,7 +27,7 @@
 
 + [Machine Learning Theory](./RefCards/MLTheory.md)
 
-  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 80vw; padding: 0.2em;">
+  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
     <thead>
     <tr style="border-bottom: double black;">
       <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50;"> Topic </th>
@@ -174,7 +174,7 @@
 
 + [Data Science with Python](./RefCards/PythonDS.md)
 
-  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 80vw;">
+  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
     <thead>
     <tr style="border-bottom: double black;">
       <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em;"> Topic </th>
@@ -292,15 +292,44 @@
 ----------------------------
 NB: keywords for Git Commits
 
-| Symbol   | Description |
-|----------|-------------|
-| feat     | new feature |
-| fix      | a bug fix |
-| docs     | changes to documentation |
-| style    | format, missing semicolons, etc.; no code change |
-| refactor | refactoring production code |
-| test     | add tests, refactoring test; no production code change |
-| chore    | updating build tasks, package manager config, etc.; no production code change |
+  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 50vw;">
+    <thead>
+    <tr style="border-bottom: double black;">
+      <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em;"> Symbol </th>
+      <th style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;"> Description </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  feat </th>
+      <td style="padding: 0.3em;">  new feature </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  fix </th>
+      <td style="padding: 0.3em;"> a bug fix </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  docs </th>
+      <td style="padding: 0.3em;">  changes to documentation </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  style </th>
+      <td style="padding: 0.3em;"> format, missing semicolons, etc.; no code change </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  refact </th>
+      <td style="padding: 0.3em;"> refactoring production code </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  test </th>
+      <td style="padding: 0.3em;"> add tests, refactoring test; no production code change </td>
+    </tr>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  chore </th>
+      <td style="padding: 0.3em;">  updating build tasks, package manager config, etc.; no production code change </td>
+    </tr>
+    </tbody>
+  </table>
 
 
 
