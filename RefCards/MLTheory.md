@@ -930,16 +930,9 @@
     </a></div>
   </div>
 
-+ [Support vector machine](../ML/ML-Stanford/12-SVM.md#large-margin-classification)
-  + Objective
++ [Support vector machine: Objective](../ML/ML-Stanford/12-SVM.md#large-margin-classification)
 
-    $$\min_\theta \underbrace{\;\;C\;\;}_{1/m} \sum_{j=1}^m \left[ y^{(i)} \text{cost}_1 (\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^T x^{(i)}) \right] + \underbrace{\;\;\dfrac{1}{2}\;\;}_{\lambda/2m} \sum_{j=0}^n \theta_j^2$$
-
-  + Replace the 1st & 2nd terms with cost function respectively
-  + Remove $1/m$ which not effect the minimization: $\min_u (u-5)^2 + 1 \;\rightarrow\; u = 5 \Longleftrightarrow \min_u 10(u-5)^2 + 10 \;\rightarrow\; u = 5$
-  + Let $C = \frac{1}{\lambda}\;$: $(A) + \lambda \cdot (B) \implies C \cdot (A) + (B)$
-
-    $$\min_\theta C \cdot \sum_{j=1}^m \left[y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 - y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
+  $$\min_\theta C \cdot \sum_{j=1}^m \left[y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 - y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
 
 + [cost functions](../ML/ML-Stanford/12-SVM.md#large-margin-intuition)
 
@@ -978,7 +971,7 @@
 
 #### Decision Boundary
 
-+ [SVM Decision Boundary](../ML/ML-Stanford/12-SVM.md#large-margin-intuition)
++ [Simplification for Decision Boundary](../ML/ML-Stanford/12-SVM.md#large-margin-intuition)
   + Objective:
 
     $$\min_\theta C \underbrace{\sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right]}_{(A)} + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
@@ -988,65 +981,21 @@
     Wherever $y^{(i)} = 0\;: \theta^T x^{(i)} \leq -1$
 
     $$\begin{array}{rl} \min_\theta & C \cdot 0 + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t.} & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
-  
-  + Linearly separable case & large margin classifier
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm6.png" style="margin: 0.1em;" alt="Decision boundary: linear separable cases" title="SVM decision boundary: linearly separable case" width="200">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm7.png" style="margin: 0.1em;" alt="Decision boundary: large margin classifier" title="SVM decision boundary w/ outliers" width="340">
-      </a></div>
-    </div><br/>
-
-    + black decision boundary: larger minimum difference
-    + magenta & green boundaries: close to examples
-    + __margin__: distance btw blue & black line
-    + $C\;$ value
-      + Very large: decision boundary would change from black to magenta line
-      + not very large: decision boundary would be the black line
-    + SVM being a large margin classifier is only relevant when you have no outliers
 
 + [SVM decision boundary](../ML/ML-Stanford/12-SVM.md#mathematics-behind-large-margin-classification)
   + Objective
 
     $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t. } & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
 
-  + Simplification: $\theta_0 = 0, n= 2, \theta = \begin{bmatrix} \theta1 \\ \theta_2 \end{bmatrix} \in \mathbb{R}^2$
-
-    $$\dfrac{1}{2} \sum_{j=1}^2 \theta_j^2 = \dfrac{1}{2} (\theta_1^2 + \theta_2^2) = \dfrac{1}{2} \left( \sqrt{\theta_1^2 + \theta_2^2} \right)^2 = \dfrac{1}{2} \parallel \theta \parallel^2$$
-
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm9.png" style="margin: 0.1em;" alt="Projection vector u to vector v" title="Projection vector u to vector v" width="350">
-      </a></div>
-    </div><br/>
-
-    + $\theta^T x^{(i)} = p^{(i)} \cdot \parallel \theta \parallel = \theta_1 x^{(i)}_1 + \theta_2 x^{(i)}_2$
-  
   + Projections and hypothesis
 
     $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \displaystyle \sum_{j=1}^n \theta^2_j = \dfrac{1}{2} \parallel \theta \parallel^2 \\\\ \text{s.t. } & p^{(i)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } y^{(i)} = 1 \\ & p^{(i)} \cdot \parallel \theta \parallel \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
 
     where $p^{(i)}$ is the projection of $x^{(i)}$ onto the vector $\theta$.
 
-    + Simplification: $\theta_0 = 0$
-
-      <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-        <div><a href="https://www.ritchieng.com/machine-learning-svms-support-vector-machines/">
-          <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w7_support_vector_machines/svm10.png" style="margin: 0.1em;" alt="Projection and hypothesis" title="Projection and hypothesis" width="350">
-        </a></div>
-      </div><br/>
-
-    + When $\theta_0 = 0$, the vector passes through the origin.
+    + Simplification: $\theta_0 = 0$ - When $\theta_0 = 0$, the vector passes through the origin.
     + $\theta$ projection: always $90^o$ to the decision boundary
-    + Decision boundary choice 1: graph on the left
-      + $p^{(1)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } \parallel \theta \parallel \gg 1$
-      + $p^{(2)}\;$ is the projection of $x_2$ example on $\theta$ (magenta): $\;p^{(2)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } \parallel \theta \parallel \ll -1$
-      + Purpose: minimize $\parallel \theta \parallel^2\;$: this decision boundary choice not suitable
-    + Decision boundary choice 2: graph on the right
-      + $p^{(1)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)}\;$ much bigger $\Rightarrow\; \parallel \theta \parallel$ can be smaller
-      + $p^{(2)}\;$ is the projection of $x_1$ example on $\theta$ (red): $\;p^{(1)}\;$ much bigger $\Rightarrow\; \parallel \theta \parallel$ can be smaller
-      + $\therefore\; \parallel \theta \parallel^2$ would be smaller $\implies$ reason to choose this decision boundary
 
 
 #### Kernels
