@@ -89,13 +89,11 @@ Remark: Note that for convenience reasons in this course we assume $x_{0}^{(i)} 
 /+ Linear Regression Model
   + Hypothesis function
 
-    $$h_\theta(x) =\theta^T x = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot X$$
+    $$h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot x$$
 
   + Parameters: 
   
-    $$\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}\quad$$
-
-    $\theta$: a $(n+1)$-dimensional vector
+    $$\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \theta = \underbrace{\begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}}_{(n+1)-\text{dim vector}}$$
 
   + Cost function: 
 
