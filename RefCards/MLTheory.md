@@ -1117,23 +1117,11 @@
   + Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
 
     Repeat { <br/>
-    <span style="padding-left: 1em"/> for $i$ = 1 to $m$ [Cluster assignment step]<br/>
+    <span style="padding-left: 1em"/> for $i$ = 1 to $m$ [Cluster assignment step: minimize$J(\dots)$ w.r.t $c^{(1)}, c^{(2)}, \dots, c^{(m)}$ (holding $\mu_1, \mu_2, \dots, \mu_K$ fixed)]<br/>
     <span style="padding-left: 2em"/> $c^{(i)} :=\;$ index (from 1 to $K$) of cluster centroid closest to $x^{(i)} \implies c^{(i)} = \min_k \parallel x^{(i)} - \mu_k \parallel^2$ <br/>
-    <span style="padding-left: 1em"/> for $k$ = 1 to $K$ [Move centroid] <br/>
+    <span style="padding-left: 1em"/> for $k$ = 1 to $K$ [Move centroid step: minimize $J(\dots)$ w.r.t $\mu_1, \mu_2, \dots, \mu_K$] <br/>
     <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
     }
-
-+ [K-Mean Algorithm](../ML/ML-Stanford/13-Clustering.md#optimization-objective)
-
-  Randomly initialize $K$ cluster centroids $\mu_1, \mu_2, \ldots, \mu_K \;\in\; \mathbb{R}^n$
-
-  Repeat { <br/>
-  <span style="padding-left: 1em"/> for $i$ = 1 to $m$ $\qquad$[Cluster assignment step: minimize$J(\dots)$ w.r.t $c^{(1)}, c^{(2)}, \dots, c^{(m)}$ (holding $\mu_1, \mu_2, \dots, \mu_K$ fixed)]<br/>
-  <span style="padding-left: 2em"/> $c^{(i)} :=\;$ index (from 1 to $K$) of cluster centroid closest to $x^{(i)} \implies c^{(i)} = \min_k \parallel x^{(i)} - \mu_k \parallel^2$ <br/>
-  <span style="padding-left: 1em"/> for $k$ = 1 to $K$ $\qquad$[Move centroid step: minimize $J(\dots)$ w.r.t $\mu_1, \mu_2, \dots, \mu_K$] <br/>
-  <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
-  }
-
 
 
 #### Initialization: K-Mean
