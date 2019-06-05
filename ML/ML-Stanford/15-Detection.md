@@ -80,6 +80,7 @@
 		</a></div>
 	</div>
 
+
 + Gaussian distribution example
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
