@@ -1165,7 +1165,7 @@
     <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning20.png" style="margin: 0.1em;" alt="Example of PCA algorithm" title="Example of PCA algorithm" width="350">
     </a></div>
-    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning21.png" style="margin: 0.1em;" alt="PCA problem formulation" title="PCA Problem formulation" width="350">
+    <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning24.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
     </a></div>
   </div>
 
@@ -1185,24 +1185,11 @@
     + minimize the projection distance between point and the given line
     + no specific value to predict and all variables treat equally
 
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning22.png" style="margin: 0.1em;" alt="Example of projection error: 2D & 3D" title="Projection error of 2D & 3D" width="350">
-    </a></div>
-  </div>
-
-
 
 
 #### Algorithm: PCA
 
 + [Principle Component Analysis (PCA) algorithm](../ML/ML-Stanford/14-Dimension.md#principal-component-analysis-algorithm)
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.ritchieng.com/machine-learning-dimensionality-reduction/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w8_unsupervised_learning/unsupervisedlearning24.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
-    </a></div>
-  </div>
 
   + Reduce data from 2D to 1D: compute vector $x$
   + Reduce data from 3D to 2D: compute vectors $z_1$ and $z_2$
@@ -1215,7 +1202,7 @@
 
       $$\Sigma = \dfrac{1}{m} \sum_{i=1}^m \underbrace{(x^{(i)})}_{n\times 1} \underbrace{(x^{(i)})^T}_{1 \times n} \implies Sigma$$
 
-    Compute "eigenvectors"/"singular value decomposition" of matrix $\Sigma \;(n \times n \text{ matrix})$: `[U, S, V] = svd(Sigma);`
+    Compute "eigenvectors"/"singular value decomposition" of matrix $\Sigma \;(n \times n \text{ matrix})$:
 
       $$U = \begin{bmatrix} | & | & & | & & |\\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} & \cdots & u^{(m)} \\ | & | & & | & & | \end{bmatrix} \implies U \in \mathbb{R}^{n \times n} \text{ but take the first $k$ columns as } U_{reduced}$$
 
@@ -1229,11 +1216,11 @@
 
     $$\text{Sigma } = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)})(x^{(i)})^T = \dfrac{1}{m} x^T \cdot x$$
 
-  where $x = \begin{bmatrix} - & x^{(1)} & - \\ & \vdots & \\ - & x^{(m)} & - \end{bmatrix}$ and `Sigma = (1/m) * x' * x;`
+  where $x = \begin{bmatrix} - & x^{(1)} & - \\ & \vdots & \\ - & x^{(m)} & - \end{bmatrix}$
 
 + [PCA: two computational steps](../ML/ML-Stanford/ex07.md#2-2-implementing-pca)
-  + compute the covariance matrix of the data
-  + use `svd` function to compute the eigenvectors $U_1, U_2, \dots, U_n$ as the principle components of variation in the data
+  1. compute the covariance matrix of the data
+  2. use `svd` function to compute the eigenvectors $U_1, U_2, \dots, U_n$ as the principle components of variation in the data
 
 + [Covariance matrix of the data](../ML/ML-Stanford/ex07.md#2-2-implementing-pca)
 
@@ -1256,7 +1243,7 @@
 
   + Reconstruction from 1D to 2D:
 
-    $$x_{approx} = \underbrace{U_{reduce}}_{n \times k} \cdot \underbrace{z}_{k \times 1} \approx x$$
+    $$x_{approx} = \underbrace{U_{reduce}}_{n \times k} \cdot \underbrace{z}_{k \times 1}$$
 
 
 #### Number of PA
@@ -1266,7 +1253,7 @@
   + Total variation in the data: $\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2$
   + Typically, choose $k$ to be smallest value so that
 
-    $$\dfrac{\\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01 \quad (1\%)$$
+    $$\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01 \quad (1\%)$$
 
   + "99\%" of variance is retained"
   + Algorithm:
@@ -1314,7 +1301,7 @@
 
 + [Bad use of PCA: to prevent overfitting](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
   + Use $z^{(i)}$ instead of $x^{(i)}$ to reduce number of features to $k < n$
-  + Thus, fewer features, lss likely to overfit. $\implies$ bad usage, PCA not intend to solve overfitting issue
+  + Thus, fewer features, less likely to overfit. $\implies$ bad usage, PCA not intend to solve overfitting issue
   + This might work OK, but isn't a good way to address overfitting.  Using __regularization__ instead.
 
     $$\min_\theta \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \underbrace{\dfrac{1}{2m} \sum_{j=1}^n \theta_j^2}_{\text{regularization}}$$
@@ -1359,7 +1346,7 @@
 		+ $x^{(i)}\;$ = features of user $i$'s activities
 		+ Model $p(x)$ from data
 		+ Identify unusual users by checking which have $p(x) < \epsilon$
-	+ Manufacturing
+	+ Manufacturing (e.g., aircraft engines)
 	+ Monitoring computers in a data center
 		+ $x^{(i)}\;$ = features of machine $i$
 		+ $x_1\;$ = memory use
@@ -1374,18 +1361,10 @@
     + Large number of negative ($y=0$) examples (to fit $p(x)$ with Gaussian distribution)
     + Many different "types" of anomalies.  hard for any algorithm to learn from positive examples what the anomalies look like
     + Future anomalies may look nothing like any of the anomalous examples we've see so far
-    + Examples
-      + Fraud detection
-      + Manufacturing (e.g., aircraft engines)
-      + Monitoring machines in a data center
   + Supervised learning
     + Large number of positive and negative examples
     + Enough positive examples for algorithm to get a sense of what positive examples are like
     + Future positive examples likely to be similar to ones in training set
-    + Examples
-      + Email spam classification
-      + Weather prediction (sunny/rainy/etc.)
-      + Cancer classification
 
 + [Procedure](../ML/ML-Stanford/ex08.md#1-anomaly-detection)
   + visualize the dataset
@@ -1400,7 +1379,7 @@
 	+ Say $x \in \mathbb{R}$. If $x$ is a distributed Gaussian with mena $\mu$, variance $\sigma^2$ with $\sigma$ as standard deviation.
 	+ Normal distribution: $x \backsim \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
 
-		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
+		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi \sigma^2}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
 
 + [Parameter estimation](../ML/ML-Stanford/15-Detection.md#gaussian-distribution)
 	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\} \quad x^{(i)} \in \mathbb{R}$
