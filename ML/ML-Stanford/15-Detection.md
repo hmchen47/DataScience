@@ -72,7 +72,7 @@
 	+ Say $x \in \mathbb{R}$. If $x$ is a distributed Gaussian with mena $\mu$, variance $\sigma^2$ with $\sigma$ as standard deviation.
 	+ Normal distribution: $x \backsim \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
 
-		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
+		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi \sigma^2}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
 
 	<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
 		<div><a href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/normal-distributions/">
