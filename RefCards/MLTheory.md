@@ -1432,7 +1432,7 @@
 	+ Gaussian distribution for each feature: $x_i \backsim \mathcal{N}(\mu_i, \sigma_i^2) \quad \forall i = 1, 2, \dots, n$
 	+ the probability density
 
-		$$\begin{array}{rcl} p(x) & =& p(x_1,; \mu_1, \sigma_1^2)p(x_2,; \mu_2, \sigma_2^2)p(x_3,; \mu_3, \sigma_3^2) \dots p(x_n,; \mu_n, \sigma_n^2) \\ &=& \displaystyle \prod_{j=1}^n p(x_j,; \mu_j, \sigma_j^2) \end{array}$$
+		$$\begin{array}{rcl} p(x) & =& p(x_1; \mu_1, \sigma_1^2)p(x_2,; \mu_2, \sigma_2^2)p(x_3,; \mu_3, \sigma_3^2) \dots p(x_n,; \mu_n, \sigma_n^2) \\ &=& \displaystyle \prod_{j=1}^n p(x_j,; \mu_j, \sigma_j^2) \end{array}$$
 
 + [Anomaly detection algorithm](../ML/ML-Stanford/15-Detection.md#algorithm)
 	1. Choose features $x_i$ that you think might be indicative of anomalous examples.
@@ -1460,13 +1460,7 @@
 
     $$p(x) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( - \dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x-\mu) \right)$$
 
-    Flag and anomaly if $p(x) < \epsilon$
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://d3c33hcgiwev3.cloudfront.net/_76dc0f4717572c816be29a39cdd2237a_Lecture15.pdf?Expires=1556755200&Signature=DTYe3QSPM-Y3QsNgYKQdrdSZ1qER7iRM2W29fz3pQhrj00~D3KKoT6Lh8cLXn~AgenhNVBTtSVRU6lrATK~VD6HaYDLpsYeLyIsyDUWZmveOF7Th1E-VCp3nZ6gjNrw3uNq5wHoQkXADhxATIZwN78LVHIvQQAg4a90rYPcYJCk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A">
-      <img src="../ML/ML-Stanford/images/m15-02.png" style="margin: 0.1em;" alt="Anomaly detection with the multivariate Gaussian" title="Anomaly detection with the multivariate Gaussian" width="250">
-    </a></div>
-  </div>
+    Flag anomaly if $p(x) < \epsilon$
 
 
 + [Practical Procedure](../ML/ML-Stanford/ex08.md#1-3-selecting-the-threshold-1963-)
@@ -1474,10 +1468,10 @@
   + $y=1\;$: anomalous example
   + $y=0\;$: normal example
   + compute $p(x_{cv}^{(i)})$ for each cross validation  example
-  + `selectThreshold.m` arguments
+  + required inputs
     + `pval`: the vector of all of these probabilities $p(x_{cv}^{(1)}), \dots, p(x_{cv}^{(m_{cv})})$
     + `yval`: the corresponding labels $y_{cv}^{(1)}, \dots, y_{cv}^{(m_{cv})}$
-  + return two values:
+  + outputs
     + the threshold $\epsilon$
     + the $F_1$ score
   + Anomaly: an example $x$ with low probability $p(x) < \epsilon$
@@ -1485,14 +1479,16 @@
 
 #### System: Anomaly Detection
 
-+ The importance of real-number evaluation
++ [The importance of real-number evaluation](../ML/ML-Stanford/15-Detection.md#developing-and-evaluating-an-anomaly-detection-system)
 	+ When developing a learning algorithm (choosing features, etc.), making decisions is much easier if we have a way of evaluating our learning algorithm
 	+ Assume we have some labeled data, of anomalous and non-anomalous examples, ($y = 0$ if normal, $y=1$ if anomalous)
-	+ Training dataset: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ (assume normal examples/not anomalous)  
-	+ Cross validation set: $(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{(m_{cv})})$  
+	+ Training dataset: $x^{(1)}, x^{(2)}, \dots, x^{(m)}$ (assume normal examples/not anomalous)
+
+	+ Cross validation set: $(x_{cv}^{(1)}, y_{cv}^{(1)}), \dots, (x_{cv}^{(m_{cv})}, y_{cv}^{(m_{cv})})$
+
   + Test set: $(x_{test}^{(1)}, y_{test}^{(1)}), \dots, (x_{test}^{(m_{test})}, y_{test}^{(m_{test})})$  
 
-+ Algorithm evaluation
++ [Algorithm evaluation](../ML/ML-Stanford/15-Detection.md#developing-and-evaluating-an-anomaly-detection-system)
   + Fit model $p(x)$ on training set $\{x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$
   + On a cross validation/test example $x$ predict
 
@@ -1520,7 +1516,7 @@
 
     $$\Sigma = \begin{bmatrix} \sigma_1^2 & 0 & \cdots & 0 \\ 0 & \sigma_2^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix}$$
 
-+ [Original Model vs. Multivariate Gaussian odel](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
++ [Original Model vs. Multivariate Gaussian Model](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
   + Original model
     + $p(x) = p(x_1; \mu_1, \sigma_1^2) \times p(x_2; \mu_2, \sigma_2^2) \times \cdots \times p(x_n; \mu_n, \sigma_n^2)$
     + Manually create features to capture anomalies where $x_1, x_2,$ take unusual combinations of values, e.g., $x_3 = \dfrac{x_1}{x_2} = \dfrac{\text{CPU load}}{\text{memory}}$
