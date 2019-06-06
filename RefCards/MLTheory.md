@@ -2088,9 +2088,7 @@
   + $y\;$ = spam(1) or not spam (0)
   + Features: choose 100 word indicative of spam/not spam, e.g. deal, buy, discount, andrew, now, ...
 
-    $$x_j = \begin{cases} 1 & \text{if word } j \text{ appears in email} \\ 0 & \text{otherwose} \end{cases}$$
-
-    $$X = \begin{bmatrix} 0 \\ 1 \\ 1 \\ 0 \\ \vdots \\ 1 \\ \vdots \end{bmatrix} \quad \begin{matrix} \text{andrew} \\ \text{buy} \\ \text{deal} \\ \text{discount} \\ \vdots \\ \text{now} \\ \vdots \end{matrix} \quad\implies X \;\in\; \mathbb{R}^{100}$$
+    $$\begin{array}{rcl} x_j &=& \begin{cases} 1 & \text{if word } j \text{ appears in email} \\ 0 & \text{otherwose} \end{cases} \\\\ X &=& \begin{bmatrix} 0 \\ 1 \\ 1 \\ 0 \\ \vdots \\ 1 \\ \vdots \end{bmatrix} \quad \begin{matrix} \text{andrew} \\ \text{buy} \\ \text{deal} \\ \text{discount} \\ \vdots \\ \text{now} \\ \vdots \end{matrix} \quad\implies X \;\in\; \mathbb{R}^{100} \end{array}$$
   
   + Note: In practice, take most frequently occurring $n$ words (10,000 to 50,000) in training set, rather than manually pick 100 words.
   + How to spend your time to make it have low error?
@@ -2225,7 +2223,7 @@
 
 + [The gradients for the regularized cost function](../ML/ML-Stanford/ex08.md#2-2-4-regularized-gradient)
 
-  $$\begin{array}{rcl} \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \end{array}$$
+  $$\begin{array}{rcl} \displaystyle \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \displaystyle \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \end{array}$$
 
   + add $\lambda x^{(i)}$ to `X_grad(i, :)`
   + add $\lambda \theta^{(j)}$ to `Theta_grad(i, :)`
@@ -2240,6 +2238,7 @@
     <br/>
 
     $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}$$
+
   + a.k.a Low rank matrix factorization
 
 + [Finding related movies](../ML/ML-Stanford/16-Recommend.md#vectorization-low-rank-matrix-factorization)
@@ -2249,7 +2248,7 @@
     $$\parallel x^{(i)} - x^{(j)} \parallel \rightarrow 0 \implies \text{movie } j \text{ and } i \text { are "similar"}$$
   + 5 most similar movies to movie $i$: find the 5 movies with the smallest $\parallel x^{(i)} - x^{(j)} \parallel$
 
-+ [Implementation Tip](/ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
++ [Implementation Tip](../ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
   + come up a way to compute all the derivatives associated with $x_1^{(i)}, x_2^{(i)}, \dots, x_n^{(i)}$ (i.e., the derivative terms associated with the feature vector $x^{(i)]}$) at the sam etime
   + define the derivatives for the feature vector of the $i$-th movie
 
@@ -2287,53 +2286,45 @@
 
     $$\begin{array}{rcl} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) & = & \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 \\\\ & = & \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} \end{array}$$
 
-    + Hadamard product ($\circ$)
-      + Def:
-
-        $$[A \circ B]_{ij} = [A]_{ij} \cdot [B]_{ij}$$
-
-      + Analogous operations
-
-        $$\begin{array}{rcl} B = A^{\circ 2} & \implies & B_{ij} = A_{ij}^2 \\\\ B = A^{\circ \frac{1}{2}} & \implies & B_{ij} = A_{ij}^{\frac{1}{2}} \\\\ B = A^{\circ -1} & \implies & B_{ij} = A_{ij}^{-1} \\\\ C = A \oslash B & \implies & C_{ij} = \dfrac{A_{ij}}{B_{ij}} \end{array}$$
-
+    + Hadamard product ($\circ$): $[A \circ B]_{ij} = [A]_{ij} \cdot [B]_{ij}$
 
 + [Gradient](../ML/ML-Stanford/ex08.md#gradient)
 
   + Dimension analysis for feature vector:
 
-    $$(X_{grad}(i,:))^T = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(i)}} \\ \frac{\partial J}{\partial x_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}}_{(A)}$$
+    $$(X_{grad}(i,:))^T = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}}_{(A)}$$
 
     Term (A): $X_{grad} (n_m \times n) \;\Leftarrow\; \text{error term } (n_m \times n_u) \times \theta (n_u \times n)$
 
   + derivatives of the feature vector
 
-    $$\begin{array}{rcl} X_{grad}(i, :) & = & \begin{bmatrix} \dfrac{\partial J}{\partial x_1^{(i)}} & \dfrac{\partial J}{\partial x_2^{(i)}} & \cdots & \dfrac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} \\\\ X_{grad} & = & \begin{bmatrix} \frac{\partial J}{\partial x_1^{(1)}} & \frac{\partial J}{\partial x_2^{(1)}} & \cdots & \frac{\partial J}{\partial x_n^{(1)}} \\ \frac{\partial J}{\partial x_1^{(2)}} & \frac{\partial J}{\partial x_2^{(2)}} & \cdots & \frac{\partial J}{\partial x_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial x_1^{(n_m)}} & \frac{\partial J}{\partial x_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial x_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta \end{array}$$
+    $$\begin{array}{rcl} X_{grad}(i, :) & = & \begin{bmatrix} \dfrac{\partial J}{\partial x_1^{(i)}} & \dfrac{\partial J}{\partial x_2^{(i)}} & \cdots & \dfrac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} \\\\ X_{grad} & = &  ((X \cdot \theta^T) \circ R - Y) \cdot \theta \end{array}$$
 
   + Dimension analysis for feature weighting vector
 
-    $$\theta_{grad}(:, j) = \begin{bmatrix} \frac{\partial J}{\partial \theta_1^{(i)}} \\ \frac{\partial J}{\partial \theta_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial \theta_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x^{(i)}}_{(B)}$$
+    $$\theta_{grad}(:, j) = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x^{(i)}}_{(B)}$$
 
     Term (B): $\theta_{grad} (n_u \times n) \;\Leftarrow\; \text{error term}^T \ (n_u \times n_m) \times X (n_m \times n)$
 
   + derivatives of the feature weighting matrix
 
-    $$\theta_{grad} = \begin{bmatrix} \frac{\partial J}{\partial \theta_1^{(1)}} & \frac{\partial J}{\partial \theta_2^{(1)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(1)}} \\ \frac{\partial J}{\partial \theta_1^{(2)}} & \frac{\partial J}{\partial \theta_2^{(2)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial \theta_1^{(n_m)}} & \frac{\partial J}{\partial \theta_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X$$
+    $$\theta_{grad} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X$$
 
 
-### Regularization
+#### Regularization
 
 + The cost function for collaborative filtering with regularization
 
-  $$\begin{array}{c} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \displaystyle \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^2 \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right) \\\\ \downarrow \\\\ J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} + \dfrac{\lambda}{2} e_{n_u}^T \theta^{\circ 2} e_{n_u} + \dfrac{\lambda}{2} e_{n_m}^T X^{\circ 2} e_{n_m} \end{array}$$
+  $$\begin{array}{c} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \displaystyle \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^2 \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right) \\ \downarrow \\ J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} + \dfrac{\lambda}{2} e_{n_u}^T \theta^{\circ 2} e_{n_u} + \dfrac{\lambda}{2} e_{n_m}^T X^{\circ 2} e_{n_m} \end{array}$$
 
 + Gradient for features: derivatives of the feature vector with regularization
 
- $$\begin{array}{c} \dfrac{\partial J}{\partial x_k^{(i)}} = \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \downarrow \\\\ X_{grad} = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(1)}} & \frac{\partial J}{\partial x_2^{(1)}} & \cdots & \frac{\partial J}{\partial x_n^{(1)}} \\ \frac{\partial J}{\partial x_1^{(2)}} & \frac{\partial J}{\partial x_2^{(2)}} & \cdots & \frac{\partial J}{\partial x_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial x_1^{(n_m)}} & \frac{\partial J}{\partial x_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial x_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta + \lambda \cdot X \end{array}$$
+ $$\begin{array}{c} \dfrac{\partial J}{\partial x_k^{(i)}} = \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\ \downarrow \\ X_{grad} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta + \lambda \cdot X \end{array}$$
 
 
 + Gradient for feature weights: derivatives of the feature weighting vector with regularization
 
- $$\begin{array}{c} \dfrac{\partial J}{\partial \theta_k^{(j)}} = \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \\\\ \downarrow \\\\ \theta_{grad} = \begin{bmatrix} \frac{\partial J}{\partial \theta_1^{(1)}} & \frac{\partial J}{\partial \theta_2^{(1)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(1)}} \\ \frac{\partial J}{\partial \theta_1^{(2)}} & \frac{\partial J}{\partial \theta_2^{(2)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(2)}} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial J}{\partial \theta_1^{(n_m)}} & \frac{\partial J}{\partial \theta_2^{(n_m)}} & \cdots & \frac{\partial J}{\partial \theta_n^{(n_m)}} \end{bmatrix} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X + \lambda \cdot \theta \end{array}$$
+ $$\begin{array}{c} \dfrac{\partial J}{\partial \theta_k^{(j)}} = \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \\ \downarrow \\ \theta_{grad} =  ((X \cdot \theta^T) \circ R - Y)^T \cdot X + \lambda \cdot \theta \end{array}$$
 
 
 
@@ -2399,14 +2390,14 @@
 
   + Stochastic gradient descent
 
-    $$cost(\theta, (x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+    $$cost(\theta, (x^{(i)}, y^{(i)})) = \dfrac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
 
     + During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$
     + Every $1000$ iterations (say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last $1000$ examples processed by algorithm
 
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1d-stochastic-gradient-descent-convergence">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml8.png" style="margin: 0.1em;" alt="Examples of different situations of errors vs. number of iterations" title="Examples of situations of errors vs. number of iterations" width="450">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml8.png" style="margin: 0.1em;" alt="Examples of different situations of errors vs. number of iterations" title="Examples of situations of errors vs. number of iterations" width="350">
       </a></div>
     </div>
 
@@ -2429,7 +2420,7 @@
 + [Stochastic gradient descent](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent-convergence)
   + Cost functions
 
-    $$\begin{array}{c} cost \left(\theta, (x^{(i)}, y^{(i)}) \right) = \frac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \\\\ J_{train} = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m cost(\theta, (x^{(i)}, y^{(i)})) \end{array}$$
+    $$\begin{array}{c} cost \left(\theta, (x^{(i)}, y^{(i)}) \right) = \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 \\\\ J_{train} = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}$$
   
   + Algorithm
     1. Randomly shuffle dataset
@@ -2443,7 +2434,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/lecture/fKi0M/stochastic-gradient-descent-convergence">
-      <img src="../ML/ML-Stanford/images/m17-03.png" style="margin: 0.1em;" alt="Example of trajector of gradient descent" title="Example of trajectory of gradient descent" width="350">
+      <img src="../ML/ML-Stanford/images/m17-03.png" style="margin: 0.1em;" alt="Example of trajector of gradient descent" title="Example of trajectory of gradient descent" width="250">
     </a></div>
   </div>
 
@@ -2468,7 +2459,7 @@
     + Have 100 phones in store.  Will return 10 results
     + $x = \;$ features of phone, how many words in user query match name of phone, how many words in query match description of phone, etc.
     + $y = 1\;$ if user clicks on link.  $y = 0\;$ otherwise
-    + Learn $p(y =1 | x; \theta) \quad \rightarrow$ learn predicted CTR (click through rate)
+    + Learn $p(y =1 | x; \theta) \; \rightarrow$ learn predicted CTR (click through rate)
     + Use to show user the 10 phones they're most likely to click on.
   + Other examples:
     + choosing special offers to sho user
@@ -2509,10 +2500,10 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://lyusungwon.github.io/distributed-processing/2018/09/12/mr.html">
-      <img src="https://lyusungwon.github.io/assets/images/mr1.png" style="margin: 0.1em;" alt="The computation consists of two functions: a map and a reduce function. First, input data are partitioned into M splits. Map function takes a partition of inputs and produce a set of intermediate key/value pairs. By partitioning the key space(hash(key mod R)), the result can be split into R pieces. Intermediate pairs can be stored in R regions of local disk. Reduce function accesses the local disks of the map workers and groups intermediate pairs with the same key. The master coordinate the location and size of intermediate file regions." title="MapReduce is a programming model that parallelize the computation on large data." width="450">
+      <img src="https://lyusungwon.github.io/assets/images/mr1.png" style="margin: 0.1em;" alt="The computation consists of two functions: a map and a reduce function. First, input data are partitioned into M splits. Map function takes a partition of inputs and produce a set of intermediate key/value pairs. By partitioning the key space(hash(key mod R)), the result can be split into R pieces. Intermediate pairs can be stored in R regions of local disk. Reduce function accesses the local disks of the map workers and groups intermediate pairs with the same key. The master coordinate the location and size of intermediate file regions." title="MapReduce is a programming model that parallelize the computation on large data." width="400">
     </a></div>
     <div><a href="https://www.ritchieng.com/machine-learning-large-scale/#1d-stochastic-gradient-descent-convergence">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml12.png" style="margin: 0.1em;" alt="text" title="Model for Map-reduce to parallize processing the training dataset" width="450">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w10_large_scale_ml/largescaleml12.png" style="margin: 0.1em;" alt="text" title="Model for Map-reduce to parallize processing the training dataset" width="400">
     </a></div>
   </div>
 
