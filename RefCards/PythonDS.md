@@ -79,7 +79,7 @@
 | `enumerate(iterable[, start])` | Return an enumerate object, obtaining an indexed list:  `(0, seq[0]), (1, seq[1]), (2, seq[2]), ...` | [NumPy][005] |
 | `zip(iter1 [,iter2 [...]])` | Return a zip object whose `.__next__()` method returns a tuple where the i-th element comes from the i-th iterable argument. | [NumPy][005] [Scatterplots][026] |
 | `str.startswith(prefix[, start[, end]])` | Return True if `S` starts with the specified prefix, False otherwise. | [Handle Text][048] |
-| `str.endswith(suffix[, start[, end]])` | Return True if `S` ends with the specified suffix, False otherwise. [Handle Text][048] |
+| `str.endswith(suffix[, start[, end]])` | Return True if `S` ends with the specified suffix, False otherwise. | [Handle Text][048] |
 | `str.isupper()` | Return True if all cased characters in `S` are uppercase and there is at least one cased character in `S`, False otherwise. | [Handle Text][048] |
 | `str.islower()` | Return True if all cased characters in `S` are lowercase and there is at least one cased character in `S`, False otherwise. | [Handle Text][048] |
 | `str.istitle()` | Return True if `S` is a titlecased string and there is at least one character in `S`, i.e. upper- and titlecase characters may only follow uncased characters and lowercase characters only cased ones. Return False otherwise. | [Handle Text][048] |
@@ -119,13 +119,14 @@ import re
 | `finditer(pattern, string, flags=0)` | Return an iterator over all non-overlapping matches in the string. | [RegEx][049] |
 | `fullmatch(pattern, string, flags=0)` | Try to apply the pattern to all of the string, returning a match object, or None if no match was found. | [RegEx][049] |
 | `match(pattern, string, flags=0)` | Try to apply the pattern at the start of the string, returning a match object, or None if no match was found. | [RegEx][049] |
-| `purge()`: Clear the regular expression caches | [RegEx][049] |
+| `purge()` | Clear the regular expression caches | [RegEx][049] |
 | `search(pattern, string, flags=0)` | Scan through string looking for a match to the pattern, returning a match object, or None if no match was found. | [RegEx][049] |
 | `split(pattern, string, maxsplit=0, flags=0)` | Split the source string by the occurrences of the pattern, returning a list containing the resulting substrings. | [RegEx][049] |
 | `sub(pattern, repl, string, count=0, flags=0)` | Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl. | [RegEx][049] |
 | `subn(pattern, repl, string, count=0, flags=0)` | Return a 2-tuple containing (new_string, number). | [RegEx][049] |
 | `template(pattern, flags=0)` | Compile a template pattern, returning a pattern object | [RegEx][049] |
 
+<br/>
 [Regular Expressions 101](https://regex101.com/)
 
 ## [Date and Times][003]
@@ -176,8 +177,7 @@ import scipy.stats as stats
 | Method | Description | Link |
 |--------|-------------|------|
 | `skew(a, axis=0, bias=True, nan_policy='propagate')` | For normally distributed data, the skewness should be about $0$. For unimodal continuous distributions, a skewness value > 0 means that there is more weight in the right tail of the distribution. The function `skewtest` can be used to determine if the skewness value is close enough to 0, statistically speaking;  `a`: ndarray; `axis`: Axis along which the kurtosis is calculated; `bias`: False=statistical bias;  `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
-| `kurtosis(a, axis=0, fisher=True, bias=True, nan_policy='propagate')` | Kurtosis is the fourth central moment divided by the square of the variance. If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution; `a`: array data; `axis`: Axis along which the kurtosis is calculated.; `fisher`: True=Fisher's definition (normal ==> 0.0), False=Pearson's definition (normal ==> 3.0); `bias`: False=statistical bias; 
-    + `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
+| `kurtosis(a, axis=0, fisher=True, bias=True, nan_policy='propagate')` | Kurtosis is the fourth central moment divided by the square of the variance. If Fisher's definition is used, then 3.0 is subtracted from the result to give 0.0 for a normal distribution; `a`: array data; `axis`: Axis along which the kurtosis is calculated.; `fisher`: True=Fisher's definition (normal ==> 0.0), False=Pearson's definition (normal ==> 3.0); `bias`: False=statistical bias; `nan_policy`: {'propagate', 'raise', 'omit'} | [More Distribution][022] |
 | `ttest_ind(a, b, axis=0, equal_var=True, nan_policy='propagate')` | Calculates the T-test for the means of two independent samples of scores; `a`, `b`: array_like; `axis`: Axis along which to compute test; `equal_var`: True=perform a standard independent 2 sample test that assumes equal population variances, False=perform Welch's t-test, which does not assume equal population variance; `nan_policy`: {'propagate', 'raise', 'omit'}, | [Hypothesis Testing][023] |
 
 
@@ -335,22 +335,107 @@ import pandas as pd
 | `pd.Period(**kwargs)` | <br/> `kwargs`: value=None, freq=None, year=None, month=1, quarter=None, day=1, hour=0, minute=0, second=0 | [Date Functionality][020] |
 
 
-| Alias | Description | | Alias | Description |
-|--------|------------|-|--------|------------|
-| `B`     | business day frequency |     | `C`     | custom business day frequency (experimental) | 
-| `D`     | calendar day frequency |    | `W`     | weekly frequency |
-| `M`     | month end frequency |    | `SM`    | semi-month end frequency (15th and end of month) |
-| `BM`    | business month end frequency | | `CBM`   | custom business month end frequency |
-| `MS`    | month start frequency | | `SMS`   | semi-month start frequency (1st and 15th) |
-| `BMS`   | business month start frequency | | `CBMS`  | custom business month start frequency |
-| `Q`     | quarter end frequency | | `BQ`    | business quarter endfrequency |
-| `QS`    | quarter start frequency | | `BQS`   | business quarter start frequency |
-| `A`     | year end frequency | | `BA`    | business year end frequency |
-| `AS`    | year start frequency | | `BAS`   | business year start frequency |
-| `BH`    | business hour frequency | | `H`     | hourly frequency |
-| `T`     | minutely frequency | | `S`     | secondly frequency |
-| `L`     | milliseonds | | `U`     | microseconds |
-| `N`     | nanoseconds |
+<br/>
+
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 5vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Alias </th>
+    <th style="width: 25vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; border-right: double white;"> Description </th>
+    <th style="width: 5vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Alias </th>
+    <th style="width: 25vw; text-align: left; font-size: 1.2em; background-color: #4CAF50;"> Description </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> B </td>
+    <td style="padding: 0.3em;"> business day frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> C </td>
+    <td style="padding: 0.3em;"> custom business day frequency (experimental) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> D </td>
+    <td style="padding: 0.3em;"> calendar day frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> W </td>
+    <td style="padding: 0.3em;"> weekly frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> M </td>
+    <td style="padding: 0.3em;"> month end frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> SM </td>
+    <td style="padding: 0.3em;"> semi-month end frequency (15th and end of month) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BM </td>
+    <td style="padding: 0.3em;"> business month end frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> CBM </td>
+    <td style="padding: 0.3em;"> custom business month end frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> MS </td>
+    <td style="padding: 0.3em;"> month start frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> SMS </td>
+    <td style="padding: 0.3em;"> semi-month start frequency (1st and 15th) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BMS </td>
+    <td style="padding: 0.3em;"> business month start frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> CBMS </td>
+    <td style="padding: 0.3em;"> custom business month start frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> Q </td>
+    <td style="padding: 0.3em;"> quarter end frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BQ </td>
+    <td style="padding: 0.3em;"> business quarter end frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> QS </td>
+    <td style="padding: 0.3em;"> quarter start frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BQS </td>
+    <td style="padding: 0.3em;"> business quarter start frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> A </td>
+    <td style="padding: 0.3em;"> year end frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BA </td>
+    <td style="padding: 0.3em;"> business year end frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> AS </td>
+    <td style="padding: 0.3em;"> year start frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BAS </td>
+    <td style="padding: 0.3em;"> business year start frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> BH </td>
+    <td style="padding: 0.3em;"> business hour frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> H </td>
+    <td style="padding: 0.3em;"> hourly frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> T </td>
+    <td style="padding: 0.3em;"> minutely frequency </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> S </td>
+    <td style="padding: 0.3em;"> secondly frequency </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> L </td>
+    <td style="padding: 0.3em;"> milliseconds </td>
+    <td style="padding: 0.3em; font-weight: bold; padding-left: 0.5em;"> U </td>
+    <td style="padding: 0.3em;"> microseconds </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold;"> N </td>
+    <td style="padding: 0.3em;"> nanoseconds </td>
+    <td style="padding: 0.3em; font-weight: bold;">  </td>
+    <td style="padding: 0.3em;">  </td>
+  </tr>
+  </tbody>
+</table>  
+
+
 
 ## Series
 
@@ -528,27 +613,15 @@ df = pd.read_excel('<fname>.xlsx', sheet_name=0, header=0, skiprows=None, index_
 | Method | Description | Link |
 |--------|-------------|------|
 | `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
-| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
-| `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
-| `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
+| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. | [Pandas Regex][050], [Asgn01][054] |
+| `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index | [Pandas Regex][050] |
+| `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index | [Pandas Regex][050] |
 | `df.str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
-| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
-| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050], [Asgn04-3][055] |
-| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
+| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index | [Pandas Regex][050], [Asgn01][054] |
+| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string | [Pandas Regex][050], [Asgn04-3][055] |
+| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` | [Pandas Regex][050], [Asgn01][054] |
 | `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
 | 
-
-| Method | Description | Link |
-|--------|-------------|------|
-| `len()` | Compute length of each string in the Series/Index. | [Pandas Regex][050] |
-| `split(pat=None, n=-1, expand=False)` | Split each string (a la re.split) in the Series/Index by given pattern, propagating NA values. [Pandas Regex][050], [Asgn01][054] |
-| `contains(pat, case=True, flags=0, na=nan, regex=True)` | Return boolean Series/array whether given pattern/regex is contained in each string in the Series/Index [Pandas Regex][050] |
-| `str_count(pat, flags=0, **kwargs)` | Count occurrences of pattern in each string of the Series/Index [Pandas Regex][050] |
-| `[Asgn04-3][055].str.find(sub, start=0, end=None)` | Return lowest indexes in each strings in the Series/Index where the substring is fully contained between [start:end]. Return -1 on failure | [Asgn01][054] |
-| `str_findall(pat, flags=0, **kwargs)` | Find all occurrences of pattern or regular expression in the Series/Index [Pandas Regex][050], [Asgn01][054] |
-| `replace(pat, repl, n=-1, case=None, flags=0)` | Replace occurrences of pattern/regex in the Series/Index with some other string [Pandas Regex][050], [Asgn04-3][055] |
-| `extract(pat, flags=0, expand=None)` | For each subject string in the Series, extract groups from the first match of regular expression `pat` [Pandas Regex][050], [Asgn01][054] |
-| `df.str.extractall(pat, flags=0)` | For each subject string in the Series, extract groups from all matches of regular expression pat. When each subject string in the Series has exactly one match, extractall(pat).xs(0, level='match') is the same as extract(pat). | [Asgn01][054] |
 
 
 [TOC](#table-of-contents)
@@ -651,30 +724,139 @@ from matplotlib.colors import ListedColormap
 
 ### Line style or marker
 
-| character | description | | character | description |
-|-----------|-------------|-|-----------|-------------|
-| `'-'`  |  solid line style | | `'1'`  |  tri_down marker |
-| `'--'` |  dashed line style | | `'2'`  |  tri_up marker |
-| `'-.'` |  dash-dot line style | | `'3'`  |  tri_left marker |
-| `':'`  |  dotted line style | | `'4'`  |  tri_right marker |
-| `'.'`  |  point marker | | `'*'`  |  star marker |
-| `','`  |  pixel marker | | `'+'`  |  plus marker |
-| `'o'`  |  circle marker | | `'_'`  |  hline marker |
-| `'v'`  |  triangle_down marker | | `'^'`  |  triangle_up marker |
-| `'<'`  |  triangle_left marker | | `'>'`  |  triangle_right marker |
-| `'s'`  |  square marker | | `'p'`  |  pentagon marker |
-| `'h'`  |  hexagon1 marker | | `'H'`  |  hexagon2 marker |
-| `'x'`  |  x marker | | `'|'`  |  vline marker |
-| `'D'`  |  diamond marker | | `'d'`  |  thin_diamond marker |
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
+    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; border-right: double white;"> Description </th>
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
+    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50;"> Description </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '-' </td>
+    <td style="padding: 0.3em;">  solid line style </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '1' </td>
+    <td style="padding: 0.3em;"> tri_down marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '--' </td>
+    <td style="padding: 0.3em;"> dashed line style </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '2' </td>
+    <td style="padding: 0.3em;"> tri_up marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '-.' </td>
+    <td style="padding: 0.3em;"> dash-dot line style </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '3' </td>
+    <td style="padding: 0.3em;"> tri_left marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> ':' </td>
+    <td style="padding: 0.3em;"> dotted line style </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '4' </td>
+    <td style="padding: 0.3em;"> tri_right marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '.' </td>
+    <td style="padding: 0.3em;"> point marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '*' </td>
+    <td style="padding: 0.3em;"> star marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> ',' </td>
+    <td style="padding: 0.3em;"> pixel marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '+' </td>
+    <td style="padding: 0.3em;"> plus marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'o' </td>
+    <td style="padding: 0.3em;"> circle marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '_' </td>
+    <td style="padding: 0.3em;"> hline marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'v' </td>
+    <td style="padding: 0.3em;"> triangle_down marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '^' </td>
+    <td style="padding: 0.3em;"> triangle_up marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '<' </td>
+    <td style="padding: 0.3em;"> triangle_left marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '>' </td>
+    <td style="padding: 0.3em;"> triangle_right marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 's' </td>
+    <td style="padding: 0.3em;"> square marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'p' </td>
+    <td style="padding: 0.3em;"> pentagon marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'h' </td>
+    <td style="padding: 0.3em;"> hexagon1 marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'H' </td>
+    <td style="padding: 0.3em;"> hexagon2 marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'x' </td>
+    <td style="padding: 0.3em;"> x marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> '|' </td>
+    <td style="padding: 0.3em;"> vline marker </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'D' </td>
+    <td style="padding: 0.3em;"> diamond marker </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'd' </td>
+    <td style="padding: 0.3em;"> thin_diamond marker </td>
+  </tr>
+  </tbody>
+</table>  
+
 
 ### Color abbreviations
 
-| character |  color | | character |  color |
-|-----------|--------|-|-----------|--------|
-| 'b'       |  blue  | | 'm'       |  magenta |
-| 'g'       |  green | | 'y'       |  yellow |
-| 'r'       |  red   | | 'k'       |  black |
-| 'c'       |  cyan  | | 'w'       |  white |
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 40vw;">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
+    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; border-right: double white;"> Color </th>
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
+    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50;"> Color </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'b' </td>
+    <td style="padding: 0.3em;"> blue  </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'm' </td>
+    <td style="padding: 0.3em;"> magenta </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'g' </td>
+    <td style="padding: 0.3em;"> green </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'y' </td>
+    <td style="padding: 0.3em;"> yellow </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'r' </td>
+    <td style="padding: 0.3em;"> red </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'k' </td>
+    <td style="padding: 0.3em;"> black </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'c' </td>
+    <td style="padding: 0.3em;"> cyan </td>
+    <td style="padding: 0.3em; font-weight: bold; text-align: center;"> 'w' </td>
+    <td style="padding: 0.3em;"> white </td>
+  </tr>
+  </tr>
+  </tbody>
+</table>  
+
 
 ### Examples - Line Plots
 
@@ -806,9 +988,9 @@ nltk.download()     # fownload corpora
 | `nltk.data.load(resource_url, *args)` | Load a given resource from the NLTK data package | [Adv NLP][052] |
 | `nltk.corpus.treebank()` | Reader for corpora that consist of parenthesis-delineated parse trees | [Adv NLP][052] |
 | `nltk.corpus.treebank.parsed_sents(fileids=None)` | parsing sentences with parenthesis-delineated parse trees | [Adv NLP][052] |
-| `nltk.edit_distance(s1, s2, *args)` | Calculate the Levenshtein edit-distance between two strings [Asgn02][053] |
-| `nltk.jaccard_distance(label1, label2)` | Distance metric comparing set-similarity [Asgn02][053] |
-| `nltk.ngrams(sequence, n, *args)` | Return the ngrams generated from a sequence of items, as an iterator [Asgn02][053] |
+| `nltk.edit_distance(s1, s2, *args)` | Calculate the Levenshtein edit-distance between two strings | [Asgn02][053] |
+| `nltk.jaccard_distance(label1, label2)` | Distance metric comparing set-similarity | [Asgn02][053] |
+| `nltk.ngrams(sequence, n, *args)` | Return the ngrams generated from a sequence of items, as an iterator | [Asgn02][053] |
 
 
 -------------------------------------
