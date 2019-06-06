@@ -17,6 +17,8 @@
 ## Machine Learning
 
   + [Machine Learning - Stanford, Andrew Ng](./ML/ML-Stanford/README.md)
+  + [Machine Learning & Neural Networks - Hinton](./ML/MLNN-Hinton/README.md)
+
 
 ## Statistics
 
