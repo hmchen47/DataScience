@@ -1950,7 +1950,7 @@
   + Model: logistic regression $0 \leq h_\theta(x) \leq 1$
   + E.g., increasing the confidence (0.5 -> 0.7 -> 0.9) or avoid the missing (0.3)
     + Predict 1 if $h_\theta(x) \geq 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
-    + Predict 0 if $h_\theta(x) > 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
+    + Predict 0 if $h_\theta(x) < 0.5 \quad 0.7 \quad 0.9 \quad 0.3$
   + Suppose that we want to predict $y=1$ (cancer) only if very confident $\implies$ high precision & low recall
   + Suppose that we want to avoid missing too many cases of cancer (avoid false negatives) $\implies$ higher recall, lower precision
   + More generally, predict 1 if $h_\theta (x) \geq\;$ threshold
@@ -1979,7 +1979,7 @@
     + $fp$ is the number of false positive: the ground truth label says it's not an anomaly, but our incorrectly classified it is as an anomaly
     + $fn$ is the number of false negative: thr ground truth label says it's an anomaly, but our algorithm incorrectly classified it as not being anomalous
 
-+ Contingency matrix and measures
++ [Contingency matrix and measures](../ML/ML-Stanford/11-System.md#trading-off-precision-and-recall)
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.researchgate.net/figure/Contingency-matrix-and-measures-calculated-based-on-it-2x2-contigency-table-for_fig4_230614354">
@@ -1987,15 +1987,15 @@
     </a></div>
   </div>
 
-+ Classification performance metrics based on the confusion matrix
++ [Classification performance metrics based on the confusion matrix](../ML/ML-Stanford/11-System.md#trading-off-precision-and-recall)
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.researchgate.net/figure/Classification-performance-metrics-based-on-the-confusion-matrix_tbl3_324952663">
-      <img src="https://www.researchgate.net/publication/324952663/figure/tbl3/AS:668540650672148@1536403920749/Classification-performance-metrics-based-on-the-confusion-matrix.png" style="margin: 0.1em;" alt="The most relevant metrics and their deﬁnitions are shown in Table 5, where theyare computed for each class that is considered ‘positive,’ as compared to the remaining classes, which are considered ‘negative.’ Additionally, an average value per class can be deﬁned for each metric." title="Classification performance metrics based on the confusion matrix" width="650">
+      <img src="https://www.researchgate.net/publication/324952663/figure/tbl3/AS:668540650672148@1536403920749/Classification-performance-metrics-based-on-the-confusion-matrix.png" style="margin: 0.1em;" alt="The most relevant metrics and their deﬁnitions are shown in Table 5, where theyare computed for each class that is considered ‘positive,’ as compared to the remaining classes, which are considered ‘negative.’ Additionally, an average value per class can be deﬁned for each metric." title="Classification performance metrics based on the confusion matrix" width="850">
     </a></div>
   </div>
 
-+ Confusion matrix and metrics
++ [Confusion matrix and metrics](../ML/ML-Stanford/11-System.md#trading-off-precision-and-recall)
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.researchgate.net/figure/Confusion-matrix-and-metrics-A-The-performance-of-an-agent-discriminating-between-two_fig2_261999456">
@@ -2017,12 +2017,12 @@
 
 ### Dimensionality Reduction
 
-+ [Data Compression](/ML/ML-Stanford/14-Dimension.md#motivation-i-data-compression)
++ [Data Compression](../ML/ML-Stanford/14-Dimension.md#motivation-i-data-compression)
   + Reduce data from 2D to 1D
     + pilot skill and pilot happiness can be reduced to pilot’s aptitude
     + Generally, reduce $x_1, x_2$ to $z_1$
 
-      $$\begin{array}{rcl} x^{(1)} \in \mathbb{R}^2 & \rightarrow& z^{(1)} \in \mathbb{R} \\ x^{(2)} \in \mathbb{R}^2 & \rightarrow& z^{(2)} \in \mathbb{R} \\ \& \vdots & \\ x^{(m)} \in \mathbb{R}^2 & \rightarrow& z^{(m)} \in \mathbb{R} \end{array}$$
+      $$\begin{array}{rcl} x^{(1)} \in \mathbb{R}^2 & \rightarrow& z^{(1)} \in \mathbb{R} \\ x^{(2)} \in \mathbb{R}^2 & \rightarrow& z^{(2)} \in \mathbb{R} \\ & \vdots & \\ x^{(m)} \in \mathbb{R}^2 & \rightarrow& z^{(m)} \in \mathbb{R} \end{array}$$
 
   + Reduce data from 3D to 2D
     + Project the data such that they lie on a plane
