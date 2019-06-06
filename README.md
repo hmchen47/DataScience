@@ -68,8 +68,8 @@
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
       <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-neural-network"> Model </a> </td>
-      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#forward-propagation-neural-network"> Forward Propagation </a> </td>
-      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#back-propagation-neural-network"> Back Propagation </a> </td>
+      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#forward-propagation"> Forward Propagation </a> </td>
+      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#backward-propagation"> Back Propagation </a> </td>
       <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -136,9 +136,9 @@
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Advice on Machine Learning System </td> </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="3" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> System Considerations </th>
-      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#learning-rate"> Learning Rate $\alpha$ </a></td>
+      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#learning-rate-98183-"> Learning Rate $\alpha$ </a></td>
       <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#optimization"> Optimization </a></td>
-      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#one-vs-all"> One-vs-all </a></td>
+      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#multiclass-classification-one-vs-all"> One-vs-all </a></td>
       <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#bias-variance"> Bias/Variance </a></td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
