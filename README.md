@@ -39,7 +39,7 @@
       <th style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
       <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-representation"> Model representation </a> </td>
       <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#pipeline"> Pipeline </a> </td>
-      <td style="padding: 0.3em;">  </td>
+      <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-selection"> Model Selection </a> </td>
       <td style="padding: 0.3em;">  </td>
     </tr>
     <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Supervised Machine Learning </td> </tr>
