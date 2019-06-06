@@ -27,6 +27,26 @@
   </div>
 
 
+### Model Selection
+
++ [Recommended approach](../ML/ML-Stanford/11-System.md#error-analysis)
+  + Start with a __simple algorithm__ that you can implement quickly. Implement it and test it on your cross­‐validation data.
+  + Plot __learning curves__ to decide if more data, more features, etc. are likely to help.
+  + __Error analysis__: 
+    + Manually examine the examples (in cross validation set) that your algorithm made errors on.
+    + See if you spot any systematic trend in what type of examples it is making errors on.
+    + Don't base anything oo your gut feeling.
+
+
++ [Model selection with number of features](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
+
+  $$\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{cv}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{cv}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{cv}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{cv}(\theta^{(10)}) \end{array}$$
+
+  + Pick $\theta_0 + \theta_1 x + \ldots + \theta_4 x^4$
+  + Estimate generalization error for test set $J_{test}(\theta^{(4)})$
+
+
+
 ## Supervised Learning
 
 ### Linear Regression
@@ -1556,9 +1576,9 @@
 
 + [Advanced Optimization for Linear Regression](../ML/ML-Stanford/06-Logistic.md#advanced-optimization)
   + Cost function $J(\theta)$. Objective: $\;\; min_{\theta} J(\theta)$
-  + Given $\theta$, we have code that can compute
+  + Given $\theta$, compute
     + $J(\theta)$
-    + $\dfrac{\partial}{\partial \theta_j} J(\theta) \quad \forall \;j = 0, 1, \ldots, n$
+    + $\frac{\partial}{\partial \theta_j} J(\theta) \quad \forall \;j = 0, 1, \ldots, n$
   + Gradient descent:
 
     Repeat{
@@ -1576,17 +1596,15 @@
   + Disadvantages:
     + More complex
 
-+ Optimization for Logistic Regression with Regularization
-
 + [Advanced optimization for Logistic Regression with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
 
   <span style="padding-left: 2em;"/> fucntion [jVal, gradient] = costFunction(theta)<br/>
   <span style="padding-left: 4em;"/> jVal = [code to compute $J(\theta)$]; <br/>
-  <span style="padding-left: 4em;"/> gradient(1) = [code to computer $\dfrac{\partial}{\partial \theta_0} J(\theta)$]; <br/>
-  <span style="padding-left: 4em;"/> gradient(2) = [code to computer $\dfrac{\partial}{\partial \theta_1} J(\theta)$]; <br/>
-  <span style="padding-left: 4em;"/> gradient(3) = [code to computer $\dfrac{\partial}{\partial \theta_2} J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(1) = [code to computer $\frac{\partial}{\partial \theta_0} J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(2) = [code to computer $\frac{\partial}{\partial \theta_1} J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(3) = [code to computer $\frac{\partial}{\partial \theta_2} J(\theta)$]; <br/>
   <span style="padding-left: 8em;"/> $\vdots$ <br/>
-  <span style="padding-left: 4em;"/> gradient(n+1) = [code to computer $\dfrac{\partial}{\partial \theta_n} J(\theta)$]; <br/>
+  <span style="padding-left: 4em;"/> gradient(n+1) = [code to computer $\frac{\partial}{\partial \theta_n} J(\theta)$]; <br/>
 
   where
 
@@ -1608,7 +1626,7 @@
 
 ### Bias/Variance
 
-+ [Diagnosing bias vs. variance](../ML/ML-Stanford/10-Advice.md#bias-vs-variance)
++ [Diagnosing bias vs. variance for Polynomial Regression](../ML/ML-Stanford/10-Advice.md#bias-vs-variance)
   + Suppose the learning algorithm is performing less well than expected.  ($J_{cv}(\theta)$ or $J_{test}(\theta)$ is high.) Is it a bias problem or a variance problem?
   + Bias (underfit): $J_{train}(\theta)$ will be high, while $J_{cv}(\theta) \approx J_{train}(\theta)$
   + Variance (overfit): $J_{train}(\theta)$ will be low, while $J_{cv}(\theta) \gg J_{train}(\theta)$
@@ -1616,18 +1634,9 @@
   <br/>
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.coursera.org/learn/machine-learning/supplement/81vp0/diagnosing-bias-vs-variance">
-      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1555113600000&hmac=SZGKBWy9EFhhmGd9p7TkkTIHNk2gEi56o8CMIFCgdp8" style="margin: 0.1em;" alt="text" title="caption" width="250">
+      <img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png?expiry=1555113600000&hmac=SZGKBWy9EFhhmGd9p7TkkTIHNk2gEi56o8CMIFCgdp8" style="margin: 0.1em;background-color:white;" alt="text" title="caption" width="250">
     </a></div>
   </div>
-
-+ [Bias/Variance as a function of the regularization parameter $\lambda$](../ML/ML-Stanford/10-Advice.md#regularization-and-bias-variance)
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/jcv_jtest2.png" style="margin: 0.1em;" alt="Bias/Variance as a function of the regularization parameter $\lambda$" title="Bias/Variance as a function of the regularization parameter $\lambda$" width="450">
-    </a></div>
-  </div>
-
 
 + [Relationship between lambda and the hypothesis](../ML/ML-Stanford/10-Advice.md#regularization-and-bias-variance):
 
@@ -1643,13 +1652,13 @@
   2. Select a lambda to compute;
   3. Create a model set like degree of the polynomial or others;
   4. Select a model to learn $\theta$;
-  5. Learn the parameter $\theta$ for the model selected, using $J_{train}(\theta)$ with λ selected (this will learn $\theta$ for the next step);
-  6. Compute the train error using the learned $\theta$ (computed with λ ) on the $J_{train}(\theta)$ without regularization or $\lambda = 0$;
-  7. Compute the cross validation error using the learned $\theta$ (computed with λ) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$;
+  5. Learn the parameter $\theta$ for the model selected, using $J_{train}(\theta)$ with $\lambda$ selected (this will learn $\theta$ for the next step);
+  6. Compute the train error using the learned $\theta$ (computed with $\lambda$ ) on the $J_{train}(\theta)$ without regularization or $\lambda = 0$;
+  7. Compute the cross validation error using the learned $\theta$ (computed with $\lambda$) on the $J_{cv}(\theta)$ without regularization or $\lambda = 0$;
   8. Do this for the entire model set and lambdas, then select the best combo that produces the lowest error on the cross validation set;
   9. Now if you need visualize to help you understand your decision, you can plot to the figure like above with: ($\lambda \times J_{train}(\theta)$) and ($\lambda \times J_{cv}(\theta)$);
   10. Now using the best combo $\theta$ and $\lambda$, apply it on $J_{cv}(\theta)$ to see if it has a good generalization of the problem.
-  11. To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.
+  11. To help decide the best polynomial degree and $\lambda$ to use, we can diagnose with the learning curves, that is the next subject.
 
 + [Large data rationale](../ML/ML-Stanford/11-System.md#using-large-data-sets)
   + Assume feature $x \in \mathbb{R}^{n+1}$ has sufficient information to predict $y$ accurately.
@@ -1663,8 +1672,7 @@
 
 + [Impacts](../ML/ML-Stanford/17-LargeScale.md#learning-with-large-datasets)
   + High variance: adding more training examples would increase the accuracy
-  + High bias: need to plot to a large value of m -> add extra features or units (in neural networks)
-
+  + High bias: need to plot to a large value of $m$ -> add extra features or units (in neural networks)
 
 
 ### Evaluation
@@ -1674,14 +1682,14 @@
   + Diagnostics can take time to implement, but doing so can be a very good use of your time
   + But it’s worth the time compared to spending months on unsuitable avenues
 
-+ [Troubleshooting for errors in our predictions by](../ML/ML-Stanford/10-Advice.md#evaluating-a-hypothesis):
++ [Troubleshooting for errors in predictions by](../ML/ML-Stanford/10-Advice.md#evaluating-a-hypothesis):
   + Getting more training examples
   + Trying smaller sets of features
   + Trying additional features
   + Trying polynomial features
   + Increasing or decreasing $\lambda$
 
-+ [break down our dataset into the three sets](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
++ [break down dataset into the three sets](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
   + Training set: 60%
   + Cross validation set: 20%
   + Test set: 20%
@@ -1689,47 +1697,40 @@
 + [Train/validation/test error](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
   + Training error:
 
-    $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$$
+    $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
 
   + Cross Validation error:
 
-    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} (h_\theta(x^{(i)}_{cv}) - y^{(i)}_{cv})^2$$
+    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} \left( h_\theta(x^{(i)}_{cv}) - y^{(i)}_{cv} \right)^2$$
 
   + Test error: 
 
-    $$J_{test}(\theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} (h_\theta(x^{(i)}_{test}) - y^{(i)}_{test})^2$$
-
-+ [Model selection](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
-
-  $$\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{cv}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{cv}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{cv}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{cv}(\theta^{(10)}) \end{array}$$
-
-  + Pick $\theta_0 + \theta_1 x + \ldots + \theta_4 x^4$
-  + Estimate generalization error for test set $J_{test}(\theta^{(4)})$
+    $$J_{test}(\theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} \left( h_\theta(x^{(i)}_{test}) - y^{(i)}_{test} \right)^2$$
 
 + [Error values for the three different sets using the following method](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
   1. Optimize the parameters in $\theta$ using the training set for each polynomial degree.
   2. Find the polynomial degree $d$ with the least error using the cross validation set.
-  3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, (d = theta from polynomial with lower error)
+  3. Estimate the generalization error using the test set with $J_{test}(\theta^{(d)})$, ($d =\$ theta from polynomial with lower error)
 
 
-### [Learning Curve](../ML/ML-Stanford/10-Advice.md#learning-curves)
+### Learning Curve
 
-+ Learning curves
++ [Learning curves](../ML/ML-Stanford/10-Advice.md#learning-curves)
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning1.png" style="margin: 0.1em;" alt="text" title="caption" width="4350">
+      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/learning1.png" style="margin: 0.1em;" alt="text" title="caption" width="350">
     </a></div>
   </div>
 
-+ High Bias (Underfit)
++ [High Bias (Underfit)](../ML/ML-Stanford/10-Advice.md#learning-curves)
   + Poor performance on both training and test sets
-  + Your cross validation error decreases, but it decreases to a high value
-    + Even if you have large m, you still have a straight line with a high bias
-    + Your cross validation error would still be high
-  + Your training error increases close to the level achieve from your cross validation error
+  + Cross validation error decreases, but it decreases to a high value
+    + Even if you have large $m$, you still have a straight line with a high bias
+    + Cross validation error would still be high
+  + Training error increases close to the level achieve from cross validation error
   + If a learning algorithm is suffering from high bias, getting more training data will not (by itself) help much
-    + As seen from the two graphs, even with a higher m, there’s no use collecting more data to decrease your cross validation error
+    + As seen from the two graphs, even with a higher $m$, there’s no use collecting more data to decrease cross validation error
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
@@ -1737,14 +1738,14 @@
     </a></div>
   </div>
 
-+ High Variance (Overfit)
++ [High Variance (Overfit)](../ML/ML-Stanford/10-Advice.md#learning-curves)
   + Gap in errors where training error is low but test error is high
   + Training error would remain small
-    + This happens when you use a small λ
-    + Your training error increases with m because it becomes harder to fit your data
+    + Happen when using a small $\lambda$
+    + Training error increases with $m$ because it becomes harder to fit data
   + Cross validation error would remain high
-    + This happens when you use a small λ
-  + If a learning algorithm is suffering from high variance, getting more data is likely to help
+    + Happen when using a small $\lambda$
+  + If a learning algorithm is suffering from high variance, getting __more data__ is likely to help
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.ritchieng.com/applying-machine-learning/#1a-deciding-what-to-try-next">
@@ -1753,9 +1754,9 @@
   </div>
 
 
-### [Diagnostic](../ML/ML-Stanford/10-Advice.md#deciding-what-to-do-next-revisited)
+### Diagnostic
 
-+ Debugging a learning algorithm
++ [Debugging a learning algorithm](../ML/ML-Stanford/10-Advice.md#deciding-what-to-do-next-revisited)
 
   + __Getting more training examples__: Fixes high variance
   + __Trying smaller sets of features__: Fixes high variance
@@ -1764,14 +1765,7 @@
   + __Decreasing $\lambda$__: Fixes high bias
   + __Increasing $\lambda$__: Fixes high variance.
 
-+ Diagnosing Neural Networks
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.ritchieng.com/applying-machine-learning/">
-      <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w6_ml_design/nn_overfit.png" style="margin: 0.1em;" alt="Small neural network prone to underfit while complex neural network tends to overfitting" title="Control bias/variance with neural network" width="350">
-    </a></div>
-  </div>
-
++ [Diagnosing Neural Networks](../ML/ML-Stanford/10-Advice.md#deciding-what-to-do-next-revisited)
   + Small neural network: (typical)
     + 1 hidden layer
     + 1 input layer
@@ -1786,15 +1780,7 @@
 
 ### Error Analysis
 
-+ [Recommended approach](../ML/ML-Stanford/11-System.md#error-analysis)
-  + Start with a __simple algorithm__ that you can implement quickly. Implement it and test it on your cross­‐validation data.
-  + Plot __learning curves__ to decide if more data, more features, etc. are likely to help.
-  + __Error analysis__: 
-    + Manually examine the examples (in cross validation set) that your algorithm made errors on.
-    + See if you spot any systematic trend in what type of examples it is making errors on.
-    + Don't base anything oo your gut feeling.
-
-+ [Error analysis for anomaly detection](..)
++ [Error analysis for anomaly detection](../ML/ML-Stanford/15-Detection.md#choosing-what-features-to-use)
   + Allows us to come up with extra features to extract anomaly
   + Similar to the error analysis procedure for supervised learning
   + Procedure
@@ -1819,7 +1805,7 @@
     <div><a href="https://www.ritchieng.com/machine-learning-anomaly-detection/#2c-choosing-what-features-to-use">
       <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-stanford/master/w9_anomaly_recommender/anomaly_detection12.png" style="margin: 0.1em;" alt="Error analysis for anomalous detection" title="Error analysis for anomalous detection" width="350">
     </a></div>
-  </div>  
+  </div>
 
 
 ### Ceiling Analysis
@@ -1836,7 +1822,7 @@
   + What part of the pipeline should you spend the most time trying to improve?
   + execute the text detection and find out the accuracy of text detection
   + Manually identify the text segments on test set with correct answers as inputs for the character segmentation
-  + the inputs of each stage must be 100% accuracy for test set
+  + the inputs of each stage must be 100% accuracy for test set; e.g., assume that the overall system as iput of text detecction is 100% acuracy.
 
     <table style="border: 1px solid black; border-collapse: collapse; margin: 0 auto;">
       <thead style=" padding-left: 10em; border-bottom: 1px double black;"><tr style="">
@@ -1874,8 +1860,6 @@
     </a></div>
   </div>
 
-  + Perfect face detection (5.9%)
-  + Perfect eye segmentation (4%)
   + Ceiling analysis
 
     <table style="border: 1px solid black; border-collapse: collapse; margin: 0 auto;">
@@ -1933,7 +1917,7 @@
   + high accuracy then our model is best
   + a great measure but only when you have symmetric datasets where values of false positive and false negatives are almost same
 
-+ Precision and Recall
++ [Precision and Recall](../ML/ML-Stanford/11-System.md#trading-off-precision-and-recall)
   + $y=1$ in presence of rare class that we want to detect
   + Confusion matrix
 
