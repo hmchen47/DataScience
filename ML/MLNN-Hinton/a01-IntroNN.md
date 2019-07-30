@@ -206,5 +206,28 @@ Author: Matthew Stewart
   </div>
 
 
+## More Complex Networks
+
++ Universal approximation theorem
+  + given an infinite amount of neurons in a neural network, an arbitrarily complex continuous function can be represented exactly
+  + given enough computational power, approximate essentially any function
+  + Issues
+    + limited by the data: limit potential accuracy in predicting categories or estimating values
+    + limited by computational power: fairly easy to design a network that far exceeds the capabilities of even the most powerful supercomputers in the world
+
++ Design a network architecture
+  + able to achieve high accuracy using relatively little computational power, with minimal data
+  + one hidden layer is enough to represent an approximation of any function to an arbitrary degree of accuracy
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*OpyCfDW8RIjfgr7o6kX2hw.png" style="margin: 0.1em;" alt="A neural architecture with multiple hidden layers." title="A neural architecture with multiple hidden layers." width=350>
+    </a>
+  </div>
+
+  + a neural architecture that is very wide since shallow networks require (exponentially) more width than a deep network
+  + The stimulus behind why the field of deep learning exists (deep referring to the multiple layers of a neural network) and dominates contemporary research literature in machine learning and most fields involving data classification and prediction.
+
+
 
 
