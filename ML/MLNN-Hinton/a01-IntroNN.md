@@ -76,6 +76,63 @@ Author: Matthew Stewart
   </div>
 
 
+## Gradient Descent
+
++ Gradient descent
+  + an iterative method for finding the minimum of a function
+  + a.k.a. delta rule
+  + Making a step means: $w_{new} = w^{old} + step$
+  + Opposite direction of the derivative means: $w^{new} = w^{old} - \lambda \frac{d\mathcal{L}}{dw}$
+  + change to move conventional notation: $w^{(i+1)} = w^{(i)} - \lambda \frac{d\mathcal{L}}{dw}$
+  + learning rate ($\lambda$):
+    + large learning rate:
+      + put more weight on the derivative
+      + made larger step for each iteration of the algorithm
+    + smaller learning rate
+      + less weight is put on the derivative
+      + smaller steps made for each iteration
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=250>
+    </a>
+  </div>
+
++ Considerations for gradient descent
+  + derive the derivatives
+  + know what the learning rate is or how to set it
+  + avoid local minima
+  + the full loss function includes summing up all individual 'errors'
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" width=250>
+      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" width=200>
+      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" width=200>
+    </a>
+  </div>
+
++ Local minimum: problematic for neural networks
+
++ Batch and stochastic gradient descent
+  + use a batch (a subset) of data as opposed to the whole set of data, such that the loss surface is partially morphed during each iteration
+  + the loss (likelihood) function used to derive the derivatives for iteration $k$
+
+    $$\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]$$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*OLk3R-i5C_oVfRjPd8niPA.png" style="margin: 0.1em;" alt="start off with the full loss (likelihood) surface, and our randomly assigned network weights provide us an initial value" title="Randomly assigned network weights" width=300>
+      <img src="https://miro.medium.com/max/875/1*EqJnB-tlbjCsR-bIIk_YPw.png" style="margin: 0.1em;" alt="select a batch of data, perhaps 10% of the full dataset, and construct a new loss surface" title="Batch and Full sets of data" width=300>
+      <img src="https://miro.medium.com/max/875/1*JkzxQTDszPNnMNbZ7xjc_w.png" style="margin: 0.1em;" alt="perform gradient descent on this batch and perform our update" title="perform gradient descent and update" width=300><br/>
+      <img src="https://miro.medium.com/max/875/1*pkB-a5CHXilyqiCgjOzv-g.png" style="margin: 0.1em;" alt="select a new random subset of the full data set and again construct our loss surface" title="new random subset" width=300>
+      <img src="https://miro.medium.com/max/875/1*lFfeBDkyVUWtKrMf2S74HQ.png" style="margin: 0.1em;" alt="perform gradient descent on this batch and perform our update" title="perform gradient descent on new batch" width=300>
+      <img src="https://miro.medium.com/max/875/1*3acc4wR7Vz-768LdAQQHiw.png" style="margin: 0.1em;" alt="continue this procedure again with a new subset" title="continue with a new subset" width=300><br/>
+      <img src="https://miro.medium.com/max/875/1*nY08LihdetZjB9svFqi1Hw.png" style="margin: 0.1em;" alt="perform our update" title="perform update" width=300>
+      <img src="https://miro.medium.com/max/875/1*xg-JYwr6K215lh0-y8R5PQ.png" style="margin: 0.1em;" alt="continues for multiple iterations" title="perform multiple iterations" width=300>
+      <img src="https://miro.medium.com/max/875/1*jE7iqvFS6oOWyZ-7lvrTUg.png" style="margin: 0.1em;" alt="converge to the global minimum" title="converge to global minimum" width=300>
+    </a>
+  </div>
 
 
 
