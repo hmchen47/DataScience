@@ -135,5 +135,40 @@ Author: Matthew Stewart
   </div>
 
 
+## Artificial Neural Network (ANN)
+
++ Structure of neurons & model
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/0*6CQ5E2qYm1kOwEW2.png" style="margin: 0.1em;" alt="The structure of a neuron looks a lot more complicated than a neural network, but the functioning is similar." title="Structure of neuron" width=350>
+      <img src="https://miro.medium.com/max/875/1*TiQJRO4b3--hIBmEccukUg.png" style="margin: 0.1em;" alt="a neural diagram that makes the analogy between the neuron structure and the artificial neurons in a neural network." title="artificial neurons in a neural network" width=350>
+    </a>
+  </div>
+
++ Affine transformation
+  + basically an addition (or subtraction) and/or multiplication
+  + resembling a regression equation
+  + becomes important with multiple nodes converging at a node in a multilayer perceptron
+  + abstract the affine and activation blocks into a single block
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*t5H6ohP8hC2bMr680XX9xw.png" style="margin: 0.1em;" alt="Analogous of single neural network with perceptron" title="Analogous of single neural network with perceptron" width=450>
+    </a>
+  </div>
+
+  + the amalgamation of the outputs from upstream nodes and the summed output is then passed to an activation function, which assesses the probability to determine whether it’s the quantiative value (the probability) sufficient to make the neuron fire
+
++ Illustration of Neural network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*YcB1yVwwp_k4x9S-rIOerw.png" style="margin: 0.1em;" alt="string together (sum) multiple functions such that with a large number of functions — which come from a large number of neurons — we are able to produce highly non-linear functions" title="a network with increased flexibility due to the increased number of degrees of freedom" height=150>
+      <img src="https://miro.medium.com/max/1250/1*rPTA7qs3xdpeVZBWlGqhlw.png" style="margin: 0.1em;" alt=" calculate the derivatives of the loss function with respect to these weights. In order to learn the missing weights, w₁, w₂, and w₃, we need to utilize something known as backpropagation" title="Backpropogation to learn W1, W2, & W3" height=150>
+    </a>
+  </div>
+
+
 
 
