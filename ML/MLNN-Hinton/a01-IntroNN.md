@@ -238,4 +238,8 @@ Author: Matthew Stewart
 </div>
 
 
+## References
+
++ J. Nocedal y S. Wright, “Numerical optimization”, Springer, 1999
++ TLDR: J. Bullinaria, “Learning with Momentum, Conjugate Gradient Learning”, 2015
 
