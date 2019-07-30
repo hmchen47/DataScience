@@ -229,5 +229,13 @@ Author: Matthew Stewart
   + The stimulus behind why the field of deep learning exists (deep referring to the multiple layers of a neural network) and dominates contemporary research literature in machine learning and most fields involving data classification and prediction.
 
 
+## Summary
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1400/1*mi-10dMgdMLQbIHkrG6-jQ.png" style="margin: 0.1em;" alt="Neural networks step-by-step." title="Neural networks step-by-step." width=650>
+  </a>
+</div>
+
 
 
