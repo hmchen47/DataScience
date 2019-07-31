@@ -137,8 +137,8 @@
 
 ## Related Articles
 
-+ Matthew Stewart, [Introduction to Neural Networks](https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c)
-+ Matthew Stewart, [Intermediate Topics in Neural networks](https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98)
++ Matthew Stewart, [Introduction to Neural Networks](a01-IntroNN.md)
++ Matthew Stewart, [Intermediate Topics in Neural networks](a02-IntermediateNN.md)
 
 
 ## Reference:
