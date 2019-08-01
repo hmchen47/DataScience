@@ -1,6 +1,6 @@
 # Neural Networks for Machine Learning
 
-## Introduction to Machine Learning
+## 01. Introduction to Machine Learning
 
 + [Why do we need machine learning](01-IntroML.md#)
 + [What are neural networks](01-IntroML.md#)
@@ -8,40 +8,41 @@
 + [A simple example of learning](01-IntroML.md#)
 + [Three types of learning](01-IntroML.md#)
 
-## Introduction to Neural Networks
+## 02. Perceptrons
 
-+ [An overview of the main types of network architecture](02-IntroNN.md#)
-+ [Perceptrons](02-IntroNN.md#)
-+ [A geometrical view of perceptrons](02-IntroNN.md#)
-+ [Why the learning works](02-IntroNN.md#)
-+ [What perceptrons can not do](02-IntroNN.md#)
++ [An overview of the main types of network architecture](02-Perceprtons.md#)
++ [Perceptrons](02-Perceprtons.md#)
++ [A geometrical view of perceptrons](02-Perceprtons.md#)
++ [Why the learning works](02-Perceprtons.md#)
++ [What perceptrons can not do](02-Perceprtons.md#)
 
-## Neuron Weight
+## 03. Backpropagation
   
-+ [Learning the weights of a linear neuron](03-Weighting.md#)
-+ [The error surface for a linear neuron](03-Weighting.md#)
-+ [Learning the weights of a logistic output neuron](03-Weighting.md#)
-+ [The backpropagation algorithm](03-Weighting.md#)
-+ [How to use the derivatives computed by the backpropagation algorithm](03-Weighting.md#)
++ [Learning the weights of a linear neuron](03-Backpropagation.md#)
++ [The error surface for a linear neuron](03-Backpropagation.md#)
++ [Learning the weights of a logistic output neuron](03-Backpropagation.md#)
++ [The backpropagation algorithm](03-Backpropagation.md#)
++ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#)
 
 
-## Cognitive Learning
+## 04. Multiclasses
 
-+ [Learning to predict the next word](04-Cognitive.md#)
-+ [A brief diversion into cognitive science](04-Cognitive.md#)
-+ [Another diversion_The softmax output function](04-Cognitive.md#)
-+ [Neuro-probabilistic language models](04-Cognitive.md#)
-+ [ways to deal with large number of possible outputs](04-Cognitive.md#)
++ [Learning to predict the next word](04-Multiclasses.md#)
++ [A brief diversion into cognitive science](04-Multiclasses.md#)
++ [Another diversion_The softmax output function](04-Multiclasses.md#)
++ [Neuro-probabilistic language models](04-Multiclasses.md#)
++ [ways to deal with large number of possible outputs](04-Multiclasses.md#)
 
 
-## Convolution Neural Networks
+## 05. Convolution Neural Networks
 
-+ [Why object recognition is difficult](05-Convolution.md#)
-+ [Ways to achieve viewpoint invariance](05-Convolution.md#)
-+ [Convolutional neural networks for hand-written digit recognition](05-Convolution.md#)
-+ [Convolutional neural networks for object recognition](05-Convolution.md#)
++ [Why object recognition is difficult](05-CNN.md#)
++ [Ways to achieve viewpoint invariance](05-CNN.md#)
++ [Convolutional neural networks for hand-written digit recognition](05-CNN.md#)
++ [Convolutional neural networks for object recognition](05-CNN.md#)
 
-## Mini-batch Gradient Descent
+
+## 06. Mini-batch Gradient Descent
   
 + [Overview of mini-batch gradient descent](06-MiniBatch.md#)
 + [A bag of tricks for mini-batch descent](06-MiniBatch.md#)
@@ -50,7 +51,7 @@
 + [rmsprop_divide the gradient](06-MiniBatch.md#)
 
 
-## Recurrent Neural Networks
+## 07. Recurrent Neural Networks
 
 + [Modeling sequences: A brief overview](07-RNN.md#)
 + [Training RNNs with backpropagation](07-RNN.md#)
@@ -59,33 +60,34 @@
 + [Long term short term memory](07-RNN.md#)
 
 
-## Hessian-free optimization
+## 08. Multicaptive Connections
   
-+ [A brief overview of Hessian-free optimization](08-HFOptima.md#)
-+ [Modeling character strings with multiplicative connections](08-HFOptima.md#)
-+ [Learning to predict the next character using HF](08-HFOptima.md#)
-+ [Echo state networks](08-HFOptima.md#)
++ [A brief overview of Hessian-free optimization](08-Multicaptive.md#)
++ [Modeling character strings with multiplicative connections](08-Multicaptive.md#)
++ [Learning to predict the next character using HF](08-Multicaptive.md#)
++ [Echo state networks](08-Multicaptive.md#)
 
 
-## Weight Cost
+## 09. Overfitting
   
-+ [Overview of ways to improve generalization](09-WeightCost.md#)
-+ [Limiting size of the weights](09-WeightCost.md#)
-+ [Using noise as a regularizer](09-WeightCost.md#)
-+ [Introduction to the bayesian approach](09-WeightCost.md#)
-+ [The bayesian interpretation of weight decay](09-WeightCost.md#)
-+ [MacKays quick and dirty method of fixing weight costs](09-WeightCost.md#)
++ [Overview of ways to improve generalization](09-Overfitting.md#)
++ [Limiting size of the weights](09-Overfitting.md#)
++ [Using noise as a regularizer](09-Overfitting.md#)
++ [Introduction to the bayesian approach](09-Overfitting.md#)
++ [The bayesian interpretation of weight decay](09-Overfitting.md#)
++ [MacKays quick and dirty method of fixing weight costs](09-Overfitting.md#)
 
 
-## Model Combination
+## 10. Model Combination and Dropouts
   
-+ [Why it helps to combine models](10-Combine.md#)
-+ [Mixtures of experts](10-Combine.md#)
-+ [The idea of full bayesian learning](10-Combine.md#)
-+ [Making full bayesian learning practical](10-Combine.md#)
-+ [Dropout an efficient way to combine neural nets](10-Combine.md#)
++ [Why it helps to combine models](10-CombineDropout.md#)
++ [Mixtures of experts](10-CombineDropout.md#)
++ [The idea of full bayesian learning](10-CombineDropout.md#)
++ [Making full bayesian learning practical](10-CombineDropout.md#)
++ [Dropout an efficient way to combine neural nets](10-CombineDropout.md#)
 
-## Hopfield Neural Networks
+
+## 11. Hopfield Nets
 
 + [Hopfield Nets](11-Hopfield.md#)
 + [Dealing with spurious minima in hopfield nets](11-Hopfield.md#)
@@ -94,7 +96,7 @@
 + [How a boltzmann machine models data](11-Hopfield.md#)
 
 
-## Boltzmann Machine Learning
+## 12. Boltzmann Machine
 
 + [The boltzmann machine learning algorithm](12-Boltzmann.md#)
 + [More efficient ways to get the statistics](12-Boltzmann.md#)
@@ -103,14 +105,14 @@
 + [RBMs for collaborative filtering](12-Boltzmann.md#)
 
 
-## Backpropagation Algorithms
+## 13. Belief Nets
 
-+ [The ups and downs of backpropagation](13-Backpropagate.md#)
-+ [Belief nets](13-Backpropagate.md#)
-+ [The wake-sleep algorithm](13-Backpropagate.md#)
++ [The ups and downs of backpropagation](13-BeliefNets.md#)
++ [Belief nets](13-BeliefNets.md#)
++ [The wake-sleep algorithm](13-BeliefNets.md#)
 
 
-## Restricted Boltzmann Machines
+## 14. Restricted Boltzmann Machines
   
 + [Learning layers of features by stacking RBMs](14-RBM.md#)
 + [Discriminative fine-tuning for DBNs](14-RBM.md#)
@@ -118,7 +120,8 @@
 + [Modeling real-valued data with an RBM](14-RBM.md#)
 + [RBMs are infinite sigmoid belief nets](14-RBM.md#)
 
-## Autoencoders
+
+## 15. Autoencoders
 
 + [From principal components analysis to autoencoders](15-Autoencoder.md#)
 + [Deep Autoencoders](15-Autoencoder.md#)
@@ -128,11 +131,11 @@
 + [Shallow autoencoders for pre-training](15-Autoencoder.md#)
 
 
-## Joint Model for Images and Caption
+## 16. Bayesian Optimization
   
-+ [Learning a joint model of images and captions](16-JointModel.md#)
-+ [Hierarchical coordinate frames](16-JointModel.md#)
-+ [Bayesian optimization of neural network hyperparameters](16-JointModel.md#)
++ [Learning a joint model of images and captions](16-Bayesian.md#)
++ [Hierarchical coordinate frames](16-Bayesian.md#)
++ [Bayesian optimization of neural network hyperparameters](16-Bayesian.md#)
 
 
 ## Related Articles
