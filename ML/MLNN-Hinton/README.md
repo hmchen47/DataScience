@@ -8,7 +8,7 @@
 + [A simple example of learning](01-IntroML.md#)
 + [Three types of learning](01-IntroML.md#)
 
-## 02. Perceptrons
+## 02. Perceptron Learning Procedure
 
 + [An overview of the main types of network architecture](02-Perceprtons.md#)
 + [Perceptrons](02-Perceprtons.md#)
@@ -16,7 +16,7 @@
 + [Why the learning works](02-Perceprtons.md#)
 + [What perceptrons can not do](02-Perceprtons.md#)
 
-## 03. Backpropagation
+## 03. Backpropagation Learning Procedure
   
 + [Learning the weights of a linear neuron](03-Backpropagation.md#)
 + [The error surface for a linear neuron](03-Backpropagation.md#)
@@ -87,7 +87,7 @@
 + [Dropout an efficient way to combine neural nets](10-CombineDropout.md#)
 
 
-## 11. Hopfield Nets
+## 11. Hopfield Nets and Boltzmann Machines
 
 + [Hopfield Nets](11-Hopfield.md#)
 + [Dealing with spurious minima in hopfield nets](11-Hopfield.md#)
@@ -96,7 +96,7 @@
 + [How a boltzmann machine models data](11-Hopfield.md#)
 
 
-## 12. Boltzmann Machine
+## 12. Restricted Boltzmann Machine (RBMs)
 
 + [The boltzmann machine learning algorithm](12-Boltzmann.md#)
 + [More efficient ways to get the statistics](12-Boltzmann.md#)
@@ -105,37 +105,37 @@
 + [RBMs for collaborative filtering](12-Boltzmann.md#)
 
 
-## 13. Belief Nets
+## 13. Deep Belief Nets
 
 + [The ups and downs of backpropagation](13-BeliefNets.md#)
 + [Belief nets](13-BeliefNets.md#)
 + [The wake-sleep algorithm](13-BeliefNets.md#)
 
 
-## 14. Restricted Boltzmann Machines
+## 14. Generative Adversarial Networks (GANs)
   
-+ [Learning layers of features by stacking RBMs](14-RBM.md#)
-+ [Discriminative fine-tuning for DBNs](14-RBM.md#)
-+ [What happens during discriminative fine-tuning](14-RBM.md#)
-+ [Modeling real-valued data with an RBM](14-RBM.md#)
-+ [RBMs are infinite sigmoid belief nets](14-RBM.md#)
++ [Learning layers of features by stacking RBMs](14-GANs.md#)
++ [Discriminative fine-tuning for DBNs](14-GANs.md#)
++ [What happens during discriminative fine-tuning](14-GANs.md#)
++ [Modeling real-valued data with an RBM](14-GANs.md#)
++ [RBMs are infinite sigmoid belief nets](14-GANs.md#)
 
 
-## 15. Autoencoders
+## 15. Hierarchical Structure with Neural Networks
 
-+ [From principal components analysis to autoencoders](15-Autoencoder.md#)
-+ [Deep Autoencoders](15-Autoencoder.md#)
-+ [Deep autoencoders for document retrieval and visualization](15-Autoencoder.md#)
-+ [Semantic hashing](15-Autoencoder.md#)
-+ [Learning binary codes for image retrieval](15-Autoencoder.md#)
-+ [Shallow autoencoders for pre-training](15-Autoencoder.md#)
++ [From principal components analysis to autoencoders](15-Hierarchy.md#)
++ [Deep Autoencoders](15-Hierarchy.md#)
++ [Deep autoencoders for document retrieval and visualization](15-Hierarchy.md#)
++ [Semantic hashing](15-Hierarchy.md#)
++ [Learning binary codes for image retrieval](15-Hierarchy.md#)
++ [Shallow autoencoders for pre-training](15-Hierarchy.md#)
 
 
-## 16. Bayesian Optimization
+## 16. Deep Neural Networks
   
-+ [Learning a joint model of images and captions](16-Bayesian.md#)
-+ [Hierarchical coordinate frames](16-Bayesian.md#)
-+ [Bayesian optimization of neural network hyperparameters](16-Bayesian.md#)
++ [Learning a joint model of images and captions](16-DeepNN.md#)
++ [Hierarchical coordinate frames](16-DeepNN.md#)
++ [Bayesian optimization of neural network hyperparameters](16-DeepNN.md#)
 
 
 ## Related Articles
