@@ -16,6 +16,7 @@
 + [Why the learning works](02-Perceprtons.md#)
 + [What perceptrons can not do](02-Perceprtons.md#)
 
+
 ## 03. Backpropagation Learning Procedure
   
 + [Learning the weights of a linear neuron](03-Backpropagation.md#)
@@ -25,7 +26,7 @@
 + [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#)
 
 
-## 04. Multiclasses
+## 04. Multiclasses Machine Learning
 
 + [Learning to predict the next word](04-Multiclasses.md#)
 + [A brief diversion into cognitive science](04-Multiclasses.md#)
@@ -155,4 +156,8 @@
 + [2012 COURSERA COURSE LECTURES: Neural Networks for Machine Learning](http://www.cs.toronto.edu/~hinton/nntut.html)
   + [Lecture Videos](http://www.cs.toronto.edu/~hinton/coursera_lectures.html)
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
-
++ Github Related Links
+    + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
+    + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
+    + [Chouffe](https://github.com/Chouffe/hinton-coursera)
+    + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
