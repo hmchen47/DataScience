@@ -369,5 +369,37 @@ Author: Matthew Stewart
   </div>
 
 
+## Further Reading
+
++ Deep learning courses:
+  + [Andrew Ng’s course on machine learning](https://www.coursera.org/course/ml) has a nice introductory section on neural networks.
+  + [Geoffrey Hinton’s course: [Coursera Neural Networks for Machine Learning (fall 2012)](https://www.coursera.org/course/neuralnets)
+  + [Michael Nielsen’s free book Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+  + [Yoshua Bengio, Ian Goodfellow and Aaron Courville wrote a [book on deep learning](http://www.iro.umontreal.ca/~bengioy/dlbook/) (2016)
+  + [Hugo Larochelle’s course (videos + slides) at Université de Sherbrooke](http://info.usherbrooke.ca/hlarochelle/neural_networks/content.html)
+  + [Stanford’s tutorial (Andrew Ng et al.) on Unsupervised Feature Learning and Deep Learning](http://ufldl.stanford.edu/wiki/index.php/Main_Page)
+  + [Oxford’s ML 2014–2015 course](https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/)
+  + [NVIDIA Deep learning course (summer 2015)](https://developer.nvidia.com/deep-learning-courses)
+  + [Google’s Deep Learning course on Udacity (January 2016)](https://www.udacity.com/course/deep-learning--ud730)
+
++ NLP-oriented:
+  + [Stanford CS224d: Deep Learning for Natural Language Processing (spring 2015) by Richard Socher](http://cs224d.stanford.edu/syllabus.html)
+  + [Tutorial given at NAACL HLT 2013: Deep Learning for Natural Language Processing (without Magic) (videos + slides)](http://nlp.stanford.edu/courses/NAACL2013/)
+
++ Vision-oriented:
+  + CS231n Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/) by Andrej Karpathy (a previous version, shorter and less polished: [Hacker’s guide to Neural Networks](http://karpathy.github.io/neuralnets/)).
+
++ Important neural network articles:
+  + [Deep learning in neural networks: An overview](https://www.sciencedirect.com/science/article/pii/S0893608014002135)
+  + [Continual lifelong learning with neural networks: A review — Open access](https://www.sciencedirect.com/science/article/pii/S0893608019300231)
+  + [Recent advances in physical reservoir computing: A review — Open access](https://www.sciencedirect.com/science/article/pii/S0893608019300784)
+  + [Deep learning in spiking neural networks](https://www.sciencedirect.com/science/article/pii/S0893608018303332)
+  + [Ensemble Neural Networks (ENN): A gradient-free stochastic method — Open access](https://www.sciencedirect.com/science/article/pii/S0893608018303319)
+  + [Multilayer feedforward networks are universal approximators](https://www.sciencedirect.com/science/article/pii/0893608089900208)
+  + [A comparison of deep networks with ReLU activation function and linear spline-type methods — Open access](https://www.sciencedirect.com/science/article/pii/S0893608018303277)
+  + [Networks of spiking neurons: The third generation of neural network models](https://www.sciencedirect.com/science/article/pii/S0893608097000117)
+  + [Approximation capabilities of multilayer feedforward networks](https://www.sciencedirect.com/science/article/pii/089360809190009T)
+  + [On the momentum term in gradient descent learning algorithms](https://www.sciencedirect.com/science/article/pii/S0893608098001166)
+
 
 
