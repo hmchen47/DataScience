@@ -105,8 +105,156 @@ Author: Matthew Stewart
 
 ## Activation functions
 
++ Activation functions
+  + a very important part of the neural network
+  + analogous to the build-up of electrical potential in biological neurons
+  + activation potential: mimicked in artificial neural networks using a probability
+  + Characteristics:
+    + Ensures not linearity - non-linearity
+    + Ensure gradients remain large through the hidden unit - differentiable
+  + The general form of an activation function
+
+    $$h = f(W^T X + b)$$
+    + $h$: the neural output
+    + $f(.)$: the activation function acting on the weights and bases
+
++ Non-linearity
+  + linear function
+    + a polynomial of one degree
+    + linear equation easy to solve
+    + limited in complexity and less power to learn complex functional mappings from data
+  + Neural network w/o activation function
+    + a linear regression model
+    + limited in the set of functions able to approximate
+  + Universal approximation theorem: generalized non-linear function approximators
+  + non-linear activation able to generate non-linear mappings from inputs to outputs
+
++ Differentiable
+  + required to perform backpropagation in the network
+  + required to compute gradients of errors (loss) w.r.t. to the weights updated using gradient descent
+  + linear activation function
+    + an easily differentiable function
+    + optimized using convex optimization
+    + limited model capacity
+
++ Vanishing gradient problem
+  + small gradients and several hidden layers results in multiplied gradient during backpropagation
+  + computer limitation on precision when multiply many small numbers
+  + the value of the gradient quickly vanished
+  + important challenge generated in deep neural networks
+  + the derivative is zero for half of the values of the input $x$
+  + result in a large proportion of dead neurons (as high as 40%) in the neural network
+
++ Common choices of activation function
+  + Sigmoid
+  + ReLU (rectified linear unit)
+  + Leaky ReLU
+  + Generalized ReLU
+  + MaxOut
+  + Softplus
+  + Tanh
+  + Swish
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=650>
+    </a>
+  </div>
+
++ Sigmoid and softmax functions
+
+  $$\phi(z) = \frac{1}{1 + e^{-z}}$$
+
+  + reasons to be active function
+    + sigmoids suffer from the vanishing gradient problem
+    + sigmoids are not zero centered; gradient updates go too far in different directions, making optimization more difficult
+    + sigmoids saturate and kill gradients
+    + sigmoids have slow convergence
+  + used as output functions for binary classification
+  + generally not used within hidden layers
+  + softmax function
+    + multidimensional version of the sigmoid
+    + used for multiclass classification
+  + issue: zero centeredness
+
++ Hyperbolic tangent function (Tanh) function
+
+  $$\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$$
+
+  + resolving the zero centeredness issue of the sigmoid function
+  + always preferred to the sigmoid function within hidden layers
+  + suffer from the other problems plaguing the sigmoid function, including the vanishing gradient problem
+
++ Rectified Linear Unit (ReLU) and Softplus functions
+  + Rectified linear function
+
+    $$\phi(z) = max(o, x)$$
+
+    + one of the simplest possible activation functions
+    + simplest non-linear activation function
+    + avoid and rectify the vanishing gradient problem
+    + used by almost all deep learning models
+    + only used within hidden layers of a neural network
+    + not for output layer
+    + issue: maybe unstable during training and die
+    + the most successful and widely-used activation function
+
+  + Softplus function
+
+    $$\phi(z) = \ln(1 + e^z)$$
+
+    + a slight variation of ReLU where the transition at zero is somewhat smooth
+    + benefit: no discontinuities in the activation function
+
+  + sigmoid for binary classification
+  + softmax for multiclass classification
+  + linear for a regression problem
+
++ Leaky ReLU and Generalized ReLU
+  + dead neurons: ReLU unstable causes network never activated on any data point
+  + Leaky ReLU
+
+    $$g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}$$
+
+    + contain a small slope
+    + purpose of slope: keep the updates alive and prevent the production of dead neurons
+    + still discontinuity at zero
+    + no longer flat below zero
+    + merely having a reduced gradient
+    + a subset of generalized ReLU
+
+  + Leaky ReLU & Generalized ReLU
+    + slight variations on the basic ReLU function
+    + difference: merely depend on the chosen value of $\alpha$
+
++ Maxout function
+
+  $$g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta$$
+
+  + simply the maximum of $k$ linear functions
+  + a hybrid approach consisting of linear combinations of ReLU and leaky ReLU units
+
++ Swish: A Self-Gated Activation Function
+
+  $$f(x) = x \cdot sigmoid(x)$$
+
+  + tend to work better than ReLU on deeper models across a number of challenging datasets
+  + developed by Google in 2017
+  + a smooth non-monotonic function that does not suffer from the problem of zero derivatives
+  + seen as a somewhat magical improvement to neural networks
+  + a clear improvement for deep networks
 
 
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=200>
+    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=200>
+    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=200><br/>
+    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=200>
+    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=200>
+    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="caption" height=200>
+  </a>
+</div>
 
 
 
