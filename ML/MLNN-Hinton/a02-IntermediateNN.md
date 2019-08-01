@@ -290,7 +290,36 @@ Author: Matthew Stewart
 
 ## Output units
 
++ Binary classification
+  + Example: determining whether a hospital patient has cancer (y=1) or does not have cancer (y=0), the sigmoid function is used as the output
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*Vvu7gX6gClWrxTRx5eAkWQ.png" style="margin: 0.1em;" alt="Sigmoid output function used for binary classification." title="Sigmoid output function used for binary classification." width=400>
+    </a>
+  </div>
+
++ Multiclass classification
+  + Example: dataset trying to filter images into the categories of dogs, cats, and humans
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*-bXQOXPFX03nqSNe2IeoiQ.png" style="margin: 0.1em;" alt="Softmax function for multiclass classification output units." title="Softmax function for multiclass classification output units." width=450>
+    </a>
+  </div>
+
++ Specific loss functions
+  + MSE on binary data makes very little sense
+  + Binary data uses the binary cross entropy loss function
+  + more complex deep learning problems: generative adversarial networks (GANs) or autoencoders
+
++ Summary of data types, distributions, output layers and cost functions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=550>
+    </a>
+  </div>
 
 
 
