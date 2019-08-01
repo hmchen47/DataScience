@@ -260,8 +260,31 @@ Author: Matthew Stewart
 
 ## Loss functions
 
++ Loss function
+  + a.k.a cost function
+  + an important aspect of neural networks
+  + NN trained using an optimization process that requires a loss functon to calculate the model error
+  + many functions used to estimate the error of a set of weights in a neural network
+  + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
+  + maximum likelihood: a framework for choosing a loss function when training neural networks and machine models in general
+  + what loss function to use depends on the output data distribution and is closely coupled to the output unit
+  + main types of loss functions: cross-entry and mean squared error
+  + Neural networks for classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly using a cross-entropy loss function than using mean squared error
+  + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturatoin and slow learning when using the mean squared error loss. - Deep Learning, 2016
 
++ Cross-entropy vs. Mean Squared Error
+  + form for training data and model distribution (i.e., negative log-likelihood)
 
+    $$J(W) = - \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{model}(y|x))$$
+
+  + Examples
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+        <img src="https://miro.medium.com/max/1250/1*ERuk0wZZw7sejFI9zwd7zQ.png" style="margin: 0.1em;" alt="an example of a sigmoid output coupled with a mean squared error loss" title="an example of a sigmoid output coupled with a mean squared error loss" height=200>
+        <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=200>
+      </a>
+    </div>
 
 
 
