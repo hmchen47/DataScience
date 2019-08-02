@@ -106,6 +106,56 @@
   </div>
 
 
+### Vanishing/Exploding Gradients
+
++ additional issues associated with the architecure of the neural network with deep learning
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*Hae-goX40dfHmNFmgd5jZw.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
+    </a>
+  </div>
+
++ deep neural network:
+  + $n$ hidden layers
+  + features at the 1st layer propagated through the network
+  + affine transformation followed by an activation function (a single layer)
+
+    $$\begin{array}{lll} \text{Linear} \qquad & h_i = W_x & \\ \text{activation} & h_i = W h_{i-1}, & i = 2, \dots, n\end{array}$$
+
+  + output for an $n$-layer network
+
+    $$\text{Suppose } \mathbf{W} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}: \qquad \begin{bmatrix} h_1^1 \\ h_2^1 \end{bmatrix} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \quad \cdots \begin{bmatrix} h_1^n \\ h_2^n \end{bmatrix} = \begin{bmatrix} a^n & 0 \\ 0 & b^n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$$
+
++ Two possible cases depending on the magnitude of $a$ and $b$
+
+  $$\begin{array}{lll} \text{Suppose } x = \begin{bmatrix} 1 \\ 1 \end{bmatrix} & & \\ \text{Case 1: } a = 1, b =2: & y \rightarrow 1, \Delta_y \rightarrow \begin{bmatrix} n \\ n \cdot 2^{n-1} \end{bmatrix} & \quad \text{Explodes!} \\ \text{Case 2: } a = 0.5, b = 0.9: & y \rightarrow 0, \Delta_y \rightarrow \begin{bmatrix} 0 \\ 0 \end{bmatrix} & \quad \text{Vanishes!} \end{array}$$
+
+  + for $a$, $b$ greater than 1
+    + for a large value of $n$ ( a deep neural network), the gradient values will quickly explode as they propagate through the network
+    + exploding gradients lead to "cliffs" unless gradient clipping implemented
+    + the gradient clipped if it exceeds a certain threshold value
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+          <img src="https://miro.medium.com/max/875/1*LVV54iSMBfO0BC0B5g5okQ.png" style="margin: 0.1em;" alt="An example of clipped vs. unclipped gradients." title="An example of clipped vs. unclipped gradients." width=350>
+        </a>
+      </div>
+
+    + Gradient clipping rule
+
+      $$\text{if } \parallel g \parallel > u, \quad g \leftarrow \dfrac{gu}{\parallel g \parallel}$$
+
+  + for $a$, $b$ less than 1
+    + the gradients quickly tends to zero
+    + gradient values smaller than the precision threshold recognized as zero
+
++ Neural Networks optimization
+  + neural networks doomed to have large numbers of local optima
+  + often containing both sharp and flat valleys which result in the stagnation of learning and unstable learning
+  + regarding NN optimization, starting with momentum
+
+
 
 ## Momentum
 
