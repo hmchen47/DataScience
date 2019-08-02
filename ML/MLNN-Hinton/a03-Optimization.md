@@ -192,6 +192,42 @@
   </div>
 
 
+### Classical Momentum
+
++ Formula for Momentum
+  + using past gradients for updating values
+  + $v$: velocity
+  + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
+
+  $$\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\epsilon g) \end{array}$$
+
+  + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
+  + $\epsilon$: current gradient update
+
++ Compute gradient estimate:
+
+    $$g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})$$
+  + Update velocity: $v = \alpha v - \epsilon g$
+  + Update parameters: $\theta = \theta + v$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+        <img src="https://miro.medium.com/max/518/0*TTwIwHORCcMARMRB.png" style="margin: 0.1em;" alt="SGD without momentum (black) compared with SGD with momentum (red)" title="SGD without momentum (black) compared with SGD with momentum (red)" width=200>
+      </a>
+    </div>
+
+    + the effects of adding momentum on an optimization algorithm
+    + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
+    + As the number of updates increases the momentum kickstarts and allows faster convergence.
+
+  + Matlab code
+
+    ```matlab
+    vW(t+1) = momentum.*Vw(t) - scaling .* gradient_F( W(t) )
+    W(t+1) = W(t) + vW(t+1)
+    ```
+
+
 
 
 ## Adaptive Learning Rates
