@@ -159,6 +159,37 @@
 
 ## Momentum
 
++ Stochastic gradient descent (SGD)
+  + the presence of oscillations which result from updates not exploiting curvature information
+  + slow SDG with high curvature
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/0*sdxfb4SSSxqwON8W.png" style="margin: 0.1em;" alt="(Left) Vanilla SGD, (right) SGD with momentum. Goodfellow et al. (2016)" title="(Left) Vanilla SGD, (right) SGD with momentum. Goodfellow et al. (2016)" width=350>
+    </a>
+  </div>
+
+  + taking the average gradient, obtain a faster path to optimization
+  + dampen oscillations: gradients in opposite directions get canceled out
+
++ Momentum
+  + an inertia motion of object to move in the direction of motion
+  + the general direction that the optimization algorithm is moving
+  + optimization algorithm moving in a general direction, the momentum causes it to 'resist' changes in the direction
+  + dampening of oscillations for high curvature surfaces
+  + an added term in the objective function
+  + a value in $[0, 1]$ increasing the size of the steps taken towards the minimum by trying to jump from a local minimum
+  + large momentum & small learning rate: fast convergence
+  + large momentum & large learning rate: skip the minimum with a huge step
+  + small momentum: not reliably avoid local minima and slow down  the training of the system
+  + help in smoothing out the variations, if the gradient keeps changing direction
+  + right value of momentum: either learned by hit and trial or through cross-validation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*95U8-BTfu-U_YXte2M6TFQ.png" style="margin: 0.1em;" alt="Momentum is what results in the dampening of oscillations for high curvature surfaces" title="Momentum is what results in the dampening of oscillations for high curvature surfaces" width=300>
+    </a>
+  </div>
 
 
 
