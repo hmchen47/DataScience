@@ -199,15 +199,15 @@
   + $v$: velocity
   + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
 
-  $$\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\epsilon g) \end{array}$$
+  $$\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}$$
 
   + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
-  + $\epsilon$: current gradient update
+  + $\varepsilon$: current gradient update
 
 + Compute gradient estimate:
 
     $$g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})$$
-  + Update velocity: $v = \alpha v - \epsilon g$
+  + Update velocity: $v = \alpha v - \varepsilon g$
   + Update parameters: $\theta = \theta + v$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -251,7 +251,7 @@
   + Apply an interim update: $\tilde{\theta} = \theta + v$
   + Perform a correction based on gradient at the interim point
 
-    $$\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \epsilon g \\ \theta & = & \theta + v \end{array}$$
+    $$\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}$$
 
   + momentum based on look-ahead slope
   + visual representation of the difference between the traditional momentum update and Nesterov momentum
@@ -270,11 +270,34 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*0v0zucWChoudFcJRPpB74Q.png" style="margin: 0.1em;" alt="text" title="caption" width=300>
+      <img src="https://miro.medium.com/max/875/1*0v0zucWChoudFcJRPpB74Q.png" style="margin: 0.1em;" alt="Gradient descent oscillates along vertical direction" title="Gradient descent oscillates along vertical direction" width=300>
     </a>
   </div>
 
 
+### AdaGrad
+
++ Momentum adds updates to the slope of error function and speeds up SGD in turn.
+
++ AdaGrad adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
+
++ Accumulate squared gradients: $r_i = r_i + g_i^2$
+
++ Update each parameter:
+
+  $$\theta_i = \theta_1 - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i$$
+
+  + inversely proportional to cumulative squared gradient
+
++ Benefits:
+  + eliminate the need to manually tune the learning rate
+  + result in greater progress along gently sloped directions
+
++ Disadvantages:
+  + accumulation of the squared gradients in the denominator
+  + positive added term:
+    + the accumulated sum keeps growing during training
+    + the learning rate shrink and eventually become infinitesimally small
 
 
 ## Parameter Initialization
