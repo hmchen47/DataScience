@@ -228,6 +228,40 @@
     ```
 
 
+### Nesterov Momentum
+
++ Ref: Sutskever, Martens et al. "[On the importance of initialization and momentum in deep learning](http://proceedings.mlr.press/v28/sutskever13.pdf)" 2013
+
++ Classical vs Nesterov Momentum
+  + Classical
+    + first correct velocity
+    + make a big step according to that velocity (and then repeat)
+  + Nesterov
+    + first make a step into velocity direction
+    + make a correction to a velocity vector based on a new location (then repeat)
+
++ Matlab code
+
+  ```matlab
+  vW(t+1) = momentum.*Vw(t) - scaling .* gradient_F( W(t) + momentum.*vW(t) )
+  W(t+1) = W(t) + vW(t+1)
+  ```
+
++ Hugh difference in practice
+  + Apply an interim update: $\tilde{\theta} = \theta + v$
+  + Perform a correction based on gradient at the interim point
+
+    $$\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \epsilon g \\ \theta & = & \theta + v \end{array}$$
+
+  + momentum based on look-ahead slope
+  + visual representation of the difference between the traditional momentum update and Nesterov momentum
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*hJSLxZMjYVzgF5A_MoqeVQ.jpeg" style="margin: 0.1em;" alt="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." title="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." width=350>
+    </a>
+  </div>  
+
 
 
 ## Adaptive Learning Rates
