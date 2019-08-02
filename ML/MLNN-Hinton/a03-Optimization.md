@@ -28,6 +28,19 @@
     + importance: make the training and test datasets representative of the total data distribution
 
 
+### Local optima
+
++ viewed as a major problem in neural network training
++ using insufficiently large neural networks, most local minima incur a low cost
++ not particularly important to find the true global minimum
++ a local minimum with reasonably low error is acceptable
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+    <img src="https://miro.medium.com/max/875/1*fGx-IJkvPLuurfR9VWlu2g.png" style="margin: 0.1em;" alt="Curve of loss function with local and global minimum" title="Curve of loss function with local and global minimum" width=350>
+  </a>
+</div>
+
 
 
 ## Momentum
