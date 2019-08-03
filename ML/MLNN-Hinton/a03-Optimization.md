@@ -419,7 +419,7 @@
 
 
 
-## Batch Normalization
+## Normalization
 
 + Topics covered so far
   + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
@@ -487,6 +487,61 @@
 + Whitened inputs
   + converge faster and uncorrelated
   + internal covariate shift leads to just the opposite
+
+
+### Batch Normalization
+
++ Batch normalization
+  + a method intended to mitigate internal covariate shift for neral networks
+  + an extension to the idea of feature standardization to other layers of the neural network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*x3FtLuoYjWeNctiNPlTBjw.png" style="margin: 0.1em;" alt="Matrix representation of weights for hidden layers" title="Matrix representation of weights for hidden layers" width=350>
+    </a>
+  </div>
+
+  + reducing overfit due to a slight regularization effect
+  + similar to dropout, add some noise to each hidden layer's activations
+
++ Batch normalization transformation
+  + normalizes the output of a previous activation layer by subtracting the batch mean and dividing by the batch standard deviation.
+
+    $$\begin{array}{lcl} H^\prime &=& \frac{H - \mu}{\sigma} \\ \mu &=& \frac{1}{m} \sum_i H_{i,:} \\ \sigma &=& \sqrt{\frac{1}{m} \sum_i (H - \mu)^2 + \delta}\end{array}$$
+
+    + $\mu$: vector of mean activations across mini-batch
+    + $\sigma$: vector of SD of each unit across mini-batch
+  + allowing each layer of a network to learn by itself more independently of other layers
+  + after shift/scale of activation outputs by some randomly initialized parameters, the weights in the next layer are no longer optimal.
+  + Adding two trainable (learnable) parameters to each layer
+    + normalized output multiplied by a "standard deviation" parameter ($\gamma$) and add a "mean" parameter ($\beta$)
+    + let SGD do the denormalization by changing only these two wrights for each activation
+    + not losing the stability of the network by changing all the weights
+
+    $$\gamma H^\prime + \beta$$
+
+  + For each of the N mini-batches, calculate the mean and standard deviation of the output
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+        <img src="https://miro.medium.com/max/875/1*a-B6jX8B-8lfz5ZrIFQyFw.png" style="margin: 0.1em;" alt="Add normalization operations for layer 1" title="Add normalization operations for layer 1" width=400>
+        <img src="https://miro.medium.com/max/875/1*LdQ7HKaqDYtszL8R0bdb4Q.png" style="margin: 0.1em;" alt="Add normalization operations for layer 2" title="Add normalization operations for layer 2" width=400>
+      </a>
+    </div>
+
+  + subsequently repeated for all subsequent hidden layers
+  + differentiate the joint loss for the N mini-batches and then backpropagate through the normalization operations
+
++ Testing time
+  + the mean and standard deviations replaced with running average collected during training time
+  + same as using the population statistics instead of mini-batch statistics
+  + the output deterministically depends on the input
+
++ Advantages
+  1. reduces internal coariate shift
+  2. reduces the dependence of gradients on the scale of the parameters or their initial values
+  3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
+  4. allows use of saturating nonlinearities and higher learning rates
 
 
 
