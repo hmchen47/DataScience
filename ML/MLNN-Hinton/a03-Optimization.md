@@ -471,3 +471,22 @@
     </div>
 
 
+### Internal Covariate Shift
+
++ Internal Covariate Shift:
+  + the change in the distribution of network activation due to the change in network parameters during training
+  + the parameters of a layer changed, the distribution of inputs to subsequent layers also changes
+  + Issue: the shifts in input distributions tend to slow down learning, especially deep neural networks
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*Dnxnj2STbo-42DfalLMi-g.png" style="margin: 0.1em;" alt="Deep neural network: multiple hidden layers" title="Deep neural network: multiple hidden layers" width=350>
+    </a>
+  </div>
+
++ Whitened inputs
+  + converge faster and uncorrelated
+  + internal covariate shift leads to just the opposite
+
+
+
