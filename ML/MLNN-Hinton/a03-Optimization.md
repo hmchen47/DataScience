@@ -360,6 +360,26 @@
   + not a priori but inferred through trial and error
 
 
+### Xavier Initialization
+
++ Xavier initialization is a simple heuristic for assigning network weights.
+
++ Objective: the variance to remain the same with each passing layer
+
++ Keep the signal from exploding to high values or vanishing to zero
+
++ To initialize the weights in such a way that the variance remains the same for both the input and the output
+
++ The weights drawn from a distribution with zero mean and a specific variance.
+
++ For a fully-connected layer with $m$ inputs:
+
+  $$W_{ij} \sim N(0, \frac{1}{m})$$
+
+  + $m$: fan-in; the number of incoming neurons (input units in the weight tensor)
+  + heuristic value: merely empirically observed to perform well
+
+
 
 
 ## Batch Normalization
