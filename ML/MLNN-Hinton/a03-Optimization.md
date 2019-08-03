@@ -300,6 +300,17 @@
     + the learning rate shrink and eventually become infinitesimally small
 
 
+### RMSProp
+
++ For non-convex problems, AdaGrad can prematurely decrease the learning rate.
+
++ Use an exponentially weighted average for gradient accumulation.
+
+  $$\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}$$
+
+
+
+
 ## Parameter Initialization
 
 
