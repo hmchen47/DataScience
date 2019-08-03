@@ -421,6 +421,53 @@
 
 ## Batch Normalization
 
++ Topics covered so far
+  + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
+  + methods of parameter initialization to minimize a prior biases within the network
 
+
+### Future Normalization
+
++ Normalizing features before applying the learning algorithm
+
++ Ref: [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/abs/1502.03167)
+  + gradient descent converges much faster with feature scaling than without it
+
++ Min-max normalization
+  + simplest method to scale data
+  + rescaling the range of features to scale the range in [0, 1] or [-1, 0]
+  + subtracting each value by the minimum value and scaling by the range of values present in the dataset
+  + Issue: highly skewed data results in many values clustered inn one location
+  + Solution: taking the logarithm of the feature variable
+
+  $$x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}$$
+
++ Mean normalization
+  + essentially the same as min-max normalization except the average value is subtracted from each value
+  + the least common way
+
+  $$x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}$$
+
++ Feature normalization
+  + make each feature normalized with zero mean and unit variance
+  + widely used for normalization in many machine learning algorithms
+  + typically involving distance-based methods
+  + general method
+    + determine the distribution mean and standard variation for each feature
+    + subtract the mean from each feature
+    + divide the values of each feature by its standard deviation
+  + Formula
+
+    $$x^\prime = \frac{x - \mu}{\sigma}$$
+
+    + $x$: feature vector
+    + $\mu$: vector of mean feature values
+    + $\sigma$: vector of SD of feature values
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+        <img src="https://miro.medium.com/max/875/1*bo1Utxme6zS2nr0IHtATRg.png" style="margin: 0.1em;" alt="Contour to represent feature normalization" title="Contour to represent feature normalization" width=350>
+      </a>
+    </div>
 
 
