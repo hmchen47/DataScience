@@ -299,7 +299,6 @@
     + the accumulated sum keeps growing during training
     + the learning rate shrink and eventually become infinitesimally small
 
-
 ### RMSProp
 
 + For non-convex problems, AdaGrad can prematurely decrease the learning rate.
@@ -308,6 +307,33 @@
 
   $$\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}$$
 
+
+### Adam
+
++ Adaptive moment estimation (Adam)
+  + a combination of RMSprop and momentum
+  + the most popular optimizer used for neural networks
+
++ Nadam: a combination of MRSprop and Nesterov momentum
+
++ Adam computes adaptive learning rates for each parameters.
+
++ Adam keeps an exponentially decaying average of past gradients, similar to momentum.
+  + Estimate first moment: 
+
+    $$v_i = \rho_1 v_i + (1 - \rho_1) g_i$$
+  
+  + Estimate second moment:
+
+    $$r_i = \rho_2 r_i + 91 - \rho_2) g_i^2$$
+
+    + applies bias correction to $v$ and $r$
+
+  + Update parameters:
+
+    $$\theta_i = \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} v_i$$
+
+    + works well in practice, is fairly robust to hyper-parameters
 
 
 
