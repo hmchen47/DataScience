@@ -374,10 +374,24 @@
 
 + For a fully-connected layer with $m$ inputs:
 
-  $$W_{ij} \sim N(0, \frac{1}{m})$$
+  $$W_{ij} \sim N \left(0, \frac{1}{m} \right)$$
 
   + $m$: fan-in; the number of incoming neurons (input units in the weight tensor)
   + heuristic value: merely empirically observed to perform well
+
+
+### He Normal Initialization
+
++ HE normal initialization
+  + the same as Xavier Initialization, except that the variance multiplied by a factor of two
+  + initialized the size of the previous layer which helps in attaining a global minimum of the cost function faster and more efficiently
+  + random but differ in range depending on the size of the previous layer of neurons
+  + controlled initialization hence the faster and more efficient gradient descent
+
++ For ReLU units
+
+  $$W_{ij} \sim N \left(0, \frac{2}{m} \right)$$
+
 
 
 
