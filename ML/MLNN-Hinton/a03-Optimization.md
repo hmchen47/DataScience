@@ -393,6 +393,22 @@
   $$W_{ij} \sim N \left(0, \frac{2}{m} \right)$$
 
 
+### Bias Initialization
+
++ Bias initialization: how the biases of the neurons should be initialized
+
++ The simplest and a common way of initializing biases is to set them to zero.
+
++ Asymmetry breaking: provided by the small random numbers in th weights
+
++ ReLU non-linearity
+  + using small constant values such as 0.01 for all biases
+  + ensure that all ReLU units fire in the beginning and obtain and propagate some gradient
+
++ Main concern: avoid saturation at initialization within hidden units, ReLU by initializing biases to 0.1 instead of zero
+
+
+
 
 
 
