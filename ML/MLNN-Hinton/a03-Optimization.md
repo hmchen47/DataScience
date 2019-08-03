@@ -339,6 +339,25 @@
 
 ## Parameter Initialization
 
++ Initialization of network weights
+  + overlooked characteristics of developing neural networks
+  + poorly initialized networks determined to network performance
+  + initialized with all values of zero
+    + the network not learn anything at all
+    + after a gradient update, all weights would be zero
+  + initialized with all weights 0.5
+    + actually learn something
+    + prematurely prescribed some form of symmetry between neural units
+
++ Randomizing weights
+  + avoid presupposing any form of a neural structure by randomizing weights according to a normal distribution
+  + often done in Keras by specifying a random state
+
++ Scale of initialization
+  + large values for the weights: lead to exploding gradients
+  + small values for the weights: lead to vanishing gradients
+  + sweet spot that provides the optimum tradeoff between these two
+  + not a priori but inferred through trial and error
 
 
 
