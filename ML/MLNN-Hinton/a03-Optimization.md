@@ -408,7 +408,14 @@
 + Main concern: avoid saturation at initialization within hidden units, ReLU by initializing biases to 0.1 instead of zero
 
 
+### Pre-initialization
 
++ Pre-initialization:
+  + common for convolutional networks used for examining images
+  + involve importing the weights of an already trained network
+  + used as the initial weights of the network to be trained
+  + a tenable method to utilize for analyzing images with few data samples
+  + underlying concept behind transfer learning
 
 
 
