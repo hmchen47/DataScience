@@ -102,7 +102,51 @@ URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neu
 
 ### Callbacks: taking a peek into our model while it's training
 
++ Callbacks
+  + how to examine the performance of the model
+  + what happening in various stages of the model
+  + a set of functions to be applied at given stages of the training procedure
+  + get a view on internal states and statistics of the model during training
+  + pass a list of callbacks (as the keyword arguments callbacks) to the `.fit()` method of th eSequential or Model classes
 
++ Relevant methods of the callbacks at each stage of the training
+  + `keras.callbacks.History()`: a callback function automatically included in `.fit()`
+  + `keras.callbacks.ModelCheckPoint` saves the model with its weights at a certain point in the training; e.g., a good practice to save the model weights only when an improvement is observed as measured by the `acc`
+  + `keras.callbacks.EarlySStopping`: stop the training when a monitored quantity has stopped improving
+  + `keras.callbacks.LearningRateScheduler`: change the learning rate during training
+
++ Keras documentation: [Usage of Callbacks](https://keras.io/callbacks/)
+
++ Example Code
+
+  ```python
+  import tensorflow as tf
+  import keras
+  from keras import layers
+  from keras import models
+  from keras import utils
+  from keras.layers import Dense
+  from keras.models import Sequential
+  from keras.layers import Flatten
+  from keras.layers import Dropout
+  from keras.layers import Activation
+  from keras.regularizers import l2
+  from keras.optimizers import SGD
+  from keras.optimizers import RMSprop
+  from keras import datasets
+
+  from keras.callbacks import LearningRateScheduler
+  from keras.callbacks import History
+
+  from keras import losses
+  from sklearn.utils import shuffle
+
+  print(tf.VERSION)
+  print(tf.keras.__version__)
+
+  # fix random seed for reproducibility
+  np.random.seed(5)
+  ```
 
 
 ### Step 1 - Deciding on the network topology
