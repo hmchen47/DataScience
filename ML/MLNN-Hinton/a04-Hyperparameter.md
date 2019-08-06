@@ -151,7 +151,35 @@ URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neu
 
 ### Step 1 - Deciding on the network topology
 
++ The MNIST dataset
+  + consist of grayscale images of handwritten digits (0-9) whose dimension is 28x28 pixels
+  + each pixel is 8 b its si its value ranges from 0~255
 
++ Sample Code
+
+```python
+#mnist = tf.keras.datasets.mnist
+mnist = keras.datasets.mnist
+(x_train, y_train),(x_test, y_test) = mnist.load_data()
+x_train.shape, y_train.shape
+# (60000, 28, 28)
+# (60000, 1)
+
+plt.figure(figsize=(10,10))
+for i in range(10):
+    plt.subplot(5,5,i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(x_train[i], cmap=plt.cm.binary)
+    plt.xlabel(y_train[i])
+
+x_train[45].shape
+x_train[45, 15:20, 15:20]
+
+print(f'We have {x_train.shape[0]} train samples')
+print(f'We have {x_test.shape[0]} test samples')
+```
 
 
 #### Preprocessing the data
