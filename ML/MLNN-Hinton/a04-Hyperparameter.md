@@ -87,7 +87,17 @@ URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neu
 
 ### A Keras Refresher
 
++ Keras
+  + a Python library for deep learning that can run on top of both Theano or TensorFlow, tow powerful Python libraries for fast numerical computing created and released by Facebook and Google, respective
+  + developed to make developing deep learning models as fast and easy and easy as possible for research and practical applications
+  + built on the idea of a model
+  + Sequential model: a sequence of layers, a linear stack of layers
 
++ Summarize the construction of deep learning models in Keras using the Sequential model
+  1. Define model: create a Sequential model and add layers
+  2. Compile model: specify loss function and optimizers and call the `.compile()` function
+  3. Fit model: train the model on data by calling the `.fit()` function
+  4. Make prediction: use the model to generate predictions on new data by calling functionbs such as `.evaluate()` or `.predict()`
 
 
 ### Callbacks: taking a peek into our model while it's training
