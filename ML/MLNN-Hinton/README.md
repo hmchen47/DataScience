@@ -143,6 +143,9 @@
 
 + Matthew Stewart, [Introduction to Neural Networks](a01-IntroNN.md)
 + Matthew Stewart, [Intermediate Topics in Neural networks](a02-IntermediateNN.md)
++ Matthew Stewart, [Neural Network Optimization](a03-Optimization.md)
++ Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](a04-Hyperparameter.md)
++ Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
 
 
 ## Reference:
