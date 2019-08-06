@@ -184,7 +184,32 @@ print(f'We have {x_test.shape[0]} test samples')
 
 #### Preprocessing the data
 
++ Preprocess the data
+  + make the 2D image arrays into 1D (flatten them); using array reshaping with `numpy.reshape()`; the `keras.layers.Flatten` transforms the format of the images from a 2d-array (of 28 by 28 pixels), to a 1D-array of 28*28 = 784 pixels.
+  + normalize the pixel values (give them values between 0 and 1) using 
 
+    $$x := \frac{x - x_{min}}{x_{max} - x_{min}}$$
+
++ Sample code
+
+```python
+# normalize the data
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+# reshape the data into 1D vectors
+x_train = x_train.reshape(60000, 784)
+x_test = x_test.reshape(10000, 784)
+
+num_classes = 10
+
+x_train.shape[1]
+
+# Convert class vectors to binary class matrices
+y_train = keras.utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.to_categorical(y_test, num_classes)
+
+y_train[0]
+```
 
 
 ### Step 2 - Adjusting the `learning rate`
