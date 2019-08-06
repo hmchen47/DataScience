@@ -78,6 +78,11 @@ URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neu
 
 ## Optimization in Neural Networks
 
++ Neural network: a framework combines inputs and tries to guess the outputs
+
++ Optimization procedure: the network guesses, calculates some error function, guesses again, trying to minimize the error, guesses again, until the error does not go down any more
+
++ Object function: used in gradient descent is the loss function to minimize
 
 
 ### A Keras Refresher
