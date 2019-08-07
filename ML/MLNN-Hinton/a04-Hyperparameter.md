@@ -359,6 +359,45 @@ y_train[0]
 
 ### Step 3 - Choosing an optimizer and a loss function
 
++ goal of optimization: efficiently calculate the parameters/weights that minimize the loss fucntion
+
++ [types of loss functions in keras](https://github.com/keras-team/keras/blob/master/keras/losses.py)
+  + MSE = mean_squared_error
+  + MAE = mean_absolute_error
+  + MAPE = mean_absolute_percentage_error
+  + MSLE = mean_squared_logarithmic_error
+  + KLD = kullback_leibler_divergence
+  + cosine = cosine_proximity
+
++ Distance
+  + sometimes the 'loss' function measures the 'distance'
+  + types of distance
+    + Euclidean
+    + Manhattan
+    + Hamming distance: distances between strings, e.g., H('carolin', 'cathrin') = 3
+  + types of loss fucntions
+    + MSE (for regression)
+    + categorical cross-entropy (for classification)
+    + binary cross entropy (for classification)
+
++ Sample code
+
+  ```python
+  # build the model
+  input_dim = x_train.shape[1]
+
+  model = Sequential()
+  model.add(Dense(64, activation=tf.nn.relu, kernel_initializer='uniform', 
+                  input_dim = input_dim)) # fully-connected layer with 64 hidden units
+  model.add(Dropout(0.1))
+  model.add(Dense(64, kernel_initializer='uniform', activation=tf.nn.relu))
+  model.add(Dense(num_classes, kernel_initializer='uniform', activation=tf.nn.softmax))
+
+  # defining the parameters for RMSprop (I used the keras defaults here)
+  rms = RMSprop(lr=0.001, rho=0.9, epsilon=None, decay=0.0)
+
+  model.compile(loss='categorical_crossentropy', optimizer=rms, metrics=['acc'])
+  ```
 
 
 
