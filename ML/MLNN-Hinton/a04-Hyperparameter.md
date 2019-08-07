@@ -464,6 +464,11 @@ y_train[0]
 
 ### Step 5 - Random restarts
 
++ Not implemented in Keras
+
++ Easily done by altering `keras.callbacks.LearningRateScheduler`
+
++ Resetting the learning rate after a specified number of epoch for a finite number of times
 
 
 
