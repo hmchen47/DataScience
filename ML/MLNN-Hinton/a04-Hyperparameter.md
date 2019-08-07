@@ -402,6 +402,63 @@ y_train[0]
 
 ### Step 4 - Deciding on the batch szie and number of epochs
 
++ batch size: the number of samples propagated through the network
+
++ Example:
+  + batch size = 100
+  + take the first 100 samples (1st~100th) from the training dataset and trains the network
+  + take the second 100 samples (101st~200th) and trains the network again
+
++ advantages od using a batch size < number of all samples
+  + less memory: using fewer samples, the overall training procedure requires less memory
+  + train faster with mini-batches: update the weights after each propagation
+
++ Disadvantages of using a batch size < number of all samples
+  + the smaller the batch the less accurate the estimate of the gradient will be
+
++ epoch
+  + number of epochs: a hyperparameter defines the number times that the learning algorithm will work through the entire training dataset
+  + one epoch: each sample in the training dataseet has had an opportunity to update the internal model parameters
+
++ Sample code
+
+  ```python
+  %%time
+  batch_size = input_dim
+  epochs = 60
+
+  model_history = model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1,
+      validation_data=(x_test, y_test))
+
+  score = model.evaluate(x_test, y_test, verbose=0)
+  print('Test loss:', score[0])
+  print('Test accuracy:', score[1])
+  # Test loss: 0.09620895183624088
+  # Test accuracy: 0.9761
+
+  fig, ax = plt.subplots(1, 1, figsize=(10,6))
+  ax.plot(np.sqrt(model_history.history['acc']), 'r', label='train_acc')
+  ax.plot(np.sqrt(model_history.history['val_acc']), 'b' ,label='val_acc')
+  ax.set_xlabel(r'Epoch', fontsize=20)
+  ax.set_ylabel(r'Accuracy', fontsize=20)
+  ax.legend()
+  ax.tick_params(labelsize=20)
+
+  fig, ax = plt.subplots(1, 1, figsize=(10,6))
+  ax.plot(np.sqrt(model_history.history['loss']), 'r', label='train')
+  ax.plot(np.sqrt(model_history.history['val_loss']), 'b' ,label='val')
+  ax.set_xlabel(r'Epoch', fontsize=20)
+  ax.set_ylabel(r'Loss', fontsize=20)
+  ax.legend()
+  ax.tick_params(labelsize=20)
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/a04-01.png" style="margin: 0.1em;" alt="Accuracy vs epoch" title="Accuracy vs epoch" width=350>
+      <img src="img/a04-02.png" style="margin: 0.1em;" alt="Loss function vs Epoch" title="Loss fucntion vs Epoch" width=350>
+    </a>
+  </div>
 
 
 
