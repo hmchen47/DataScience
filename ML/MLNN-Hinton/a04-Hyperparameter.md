@@ -143,6 +143,8 @@ URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neu
 
   print(tf.VERSION)
   print(tf.keras.__version__)
+  # 1.12.0
+  # 2.1.6-tf
 
   # fix random seed for reproducibility
   np.random.seed(5)
@@ -162,8 +164,9 @@ URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neu
 mnist = keras.datasets.mnist
 (x_train, y_train),(x_test, y_test) = mnist.load_data()
 x_train.shape, y_train.shape
-# (60000, 28, 28)
-# (60000, 1)
+# ((60000, 28, 28), (60000,))
+
+print(y_train)    # [5 0 4 ... 5 6 8]
 
 plt.figure(figsize=(10,10))
 for i in range(10):
@@ -176,9 +179,16 @@ for i in range(10):
 
 x_train[45].shape
 x_train[45, 15:20, 15:20]
+# array([[ 11, 198, 231,  41,   0],
+#        [ 82, 252, 204,   0,   0],
+#        [253, 253, 141,   0,   0],
+#        [252, 220,  36,   0,   0],
+#        [252,  96,   0,   0,   0]], dtype=uint8)
 
 print(f'We have {x_train.shape[0]} train samples')
 print(f'We have {x_test.shape[0]} test samples')
+# We have 60000 train samples
+# We have 10000 test samples
 ```
 
 
@@ -202,13 +212,14 @@ x_test = x_test.reshape(10000, 784)
 
 num_classes = 10
 
-x_train.shape[1]
+x_train.shape[1]    # 784
 
 # Convert class vectors to binary class matrices
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
 y_train[0]
+# array([0., 0., 0., 0., 0., 1., 0., 0., 0., 0.], dtype=float32)
 ```
 
 
@@ -560,34 +571,369 @@ y_train[0]
 
 + Sample code
 
-```python
-from keras.models import model_from_json
+  ```python
+  from keras.models import model_from_json
 
-# serialize model to JSON
-model_json = model.to_json()
+  # serialize model to JSON
+  model_json = model.to_json()
 
-with open("model.json", "w") as json_file:
-    json_file.write(model_json)
+  with open("model.json", "w") as json_file:
+      json_file.write(model_json)
 
-# save weights to HDF5
-model.save_weights("model.h5")
-print("Model saved")
+  # save weights to HDF5
+  model.save_weights("model.h5")
+  print("Model saved")
+  # Model saved
+  # Model loaded
 
-# when you want to retrieve the model: load json and create model
-json_file = open('model.json', 'r')
-saved_model = json_file.read()
-# close the file as good practice
-json_file.close()
-model_from_json = model_from_json(saved_model)
-# load weights into new model
-model_from_json.load_weights("model.h5")
-print("Model loaded")
-```
+  # when you want to retrieve the model: load json and create model
+  json_file = open('model.json', 'r')
+  saved_model = json_file.read()
+  # close the file as good practice
+  json_file.close()
+  model_from_json = model_from_json(saved_model)
+  # load weights into new model
+  model_from_json.load_weights("model.h5")
+  print("Model loaded")
+  ```
 
 
 ### Cross-Validation with more than one hyperparameters
 
++ Cross-validation with more than one parameters simultaneously, effectively trying out combinations of them.
+
++ Cross-validation in neural networks is computationally expensive.
+  + each combination evaluated using the k-fold cross-validation (k is a parameter we choose)
+  + Example: choose to search for different values of
+    + batch size
+    + number of epochs
+    + initialization mode
+
++ Sample code
+
+  ```python
+  # repeat some of the initial values here so we make sure they were not changed
+  input_dim = x_train.shape[1]
+  num_classes = 10
+
+  # let's create a function that creates the model (required for KerasClassifier) 
+  # while accepting the hyperparameters we want to tune 
+  # we also pass some default values such as optimizer='rmsprop'
+  def create_model_2(optimizer='rmsprop', init='glorot_uniform'):
+      model = Sequential()
+      model.add(Dense(64, input_dim=input_dim, kernel_initializer=init, activation='relu'))
+      model.add(Dropout(0.1))
+      model.add(Dense(64, kernel_initializer=init, activation=tf.nn.relu))
+      model.add(Dense(num_classes, kernel_initializer=init, activation=tf.nn.softmax))
+
+      # compile model
+      model.compile(loss='categorical_crossentropy',  optimizer=optimizer,  metrics=['accuracy'])
+
+      return model
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform']
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
 
 
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ``` = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform'] 
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ```
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform'] 
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ```ers that came at the top in our previous cross-validation!!
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform'] 
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ```orm', 'uniform'] 
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform'] 
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ```
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform'] 
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ```
+
+  %%time
+  # fix random seed for reproducibility (this might work or might not work 
+  # depending on each library's implenentation)
+  seed = 7
+  numpy.random.seed(seed)
+
+  # create the sklearn model for the network
+  model_init_batch_epoch_CV = KerasClassifier(build_fn=create_model_2, verbose=1)
+
+  # we choose the initializers that came at the top in our previous cross-validation!!
+  init_mode = ['glorot_uniform', 'uniform'] 
+  batches = [128, 512]
+  epochs = [10, 20]
+
+  # grid search for initializer, batch size and number of epochs
+  param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+  grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+  # mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+  # mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+  # mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+  # mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+  ```
+# grid search for initializer, batch size and number of epochs
+param_grid = dict(epochs=epochs, batch_size=batches, init=init_mode)
+grid = GridSearchCV(estimator=model_init_batch_epoch_CV,  param_grid=param_grid, cv=3)
+grid_result = grid.fit(x_train, y_train)
+
+
+# print results
+print(f'Best Accuracy for {grid_result.best_score_:.4} using {grid_result.best_params_}')
+means = grid_result.cv_results_['mean_test_score']
+stds = grid_result.cv_results_['std_test_score']
+params = grid_result.cv_results_['params']
+for mean, stdev, param in zip(means, stds, params):
+    print(f'mean={mean:.4}, std={stdev:.4} using {param}')
+
+# Best Accuracy for 0.9712 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+# mean=0.9687, std=0.002174 using {'batch_size': 128, 'epochs': 10, 'init': 'glorot_uniform'}
+# mean=0.966, std=0.000827 using {'batch_size': 128, 'epochs': 10, 'init': 'uniform'}
+# mean=0.9712, std=0.0006276 using {'batch_size': 128, 'epochs': 20, 'init': 'glorot_uniform'}
+# mean=0.97, std=0.001214 using {'batch_size': 128, 'epochs': 20, 'init': 'uniform'}
+# mean=0.9594, std=0.001476 using {'batch_size': 512, 'epochs': 10, 'init': 'glorot_uniform'}
+# mean=0.9516, std=0.003239 using {'batch_size': 512, 'epochs': 10, 'init': 'uniform'}
+# mean=0.9684, std=0.003607 using {'batch_size': 512, 'epochs': 20, 'init': 'glorot_uniform'}
+# mean=0.9633, std=0.0007962 using {'batch_size': 512, 'epochs': 20, 'init': 'uniform'}
+```
 
 
