@@ -552,7 +552,37 @@ y_train[0]
 
 ### Save Neural Network Model to JSON
 
++ Hierarchical Data Format (HDF50): a data storage format for storing large arrays of data including values for the weights in a neural networks
 
++ HDF5 Python module installatiom: `pip install h5py`
+
++ Keras gives the ability to describe and save any model using the JSON format.
+
++ Sample code
+
+```python
+from keras.models import model_from_json
+
+# serialize model to JSON
+model_json = model.to_json()
+
+with open("model.json", "w") as json_file:
+    json_file.write(model_json)
+
+# save weights to HDF5
+model.save_weights("model.h5")
+print("Model saved")
+
+# when you want to retrieve the model: load json and create model
+json_file = open('model.json', 'r')
+saved_model = json_file.read()
+# close the file as good practice
+json_file.close()
+model_from_json = model_from_json(saved_model)
+# load weights into new model
+model_from_json.load_weights("model.h5")
+print("Model loaded")
+```
 
 
 ### Cross-Validation with more than one hyperparameters
