@@ -214,6 +214,146 @@ y_train[0]
 
 ### Step 2 - Adjusting the `learning rate`
 
++ Stochastic Gradient Descent (SGD)
+  + one of the most common optimization algorithms
+  + hyperparameters obtained: learning rate, momentum, decay, and nesterov
+    + learning rate: control the weight at the end of each batch
+    + momentum: control how much to let the previous update influence the current weight update
+    + delay: indicate the learning rate decay over each update
+    + nesterov: take the value "True" or "False" depending on whether Nesterov momentum applied
+
+  + Typical values for hyperparameter: $lr = 0.01$, $decay = 1e^{-6}$, $momentum = 0.9$, and nesterov = True
+
++ Learning rate hyperparameter
+  + default learning rate scheduler of Keras in the SGD optimizer that decreases the learning rate during the stochastic gradient descent optimization algorithm
+  + formula:
+
+    $$lr = lr \times 1/(1 + decay * epoch)$$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://cs231n.github.io/neural-networks-3/" ismap target="_blank">
+      <img src="http://cs231n.github.io/assets/nn3/learningrates.jpeg" style="margin: 0.1em;" alt="A cartoon depicting the effects of different learning rates. With low learning rates the improvements will be linear. With high learning rates they will start to look more exponential. Higher learning rates will decay the loss faster, but they get stuck at worse values of loss (green line). This is because there is too much 'energy' in the optimization and the parameters are bouncing around chaotically, unable to settle in a nice spot in the optimization landscape." title="the effects of different learning rates" width=250>
+    </a>
+  </div>
+
+  + Implement a learning rate adaption schedule in Keras
+    + a learning rate value = 0.1
+    + train the model for 60 epochs
+    + decay = 0.0016 (0.1/60)
+    + momentum = 0.8
+
++ Sample code
+
+  ```python
+  epochs=60
+  learning_rate = 0.1
+  decay_rate = learning_rate / epochs
+  momentum = 0.8
+
+  sgd = SGD(lr=learning_rate, momentum=momentum, decay=decay_rate, nesterov=False)
+
+  # build the model
+  input_dim = x_train.shape[1]
+
+  lr_model = Sequential()
+  lr_model.add(Dense(64, activation=tf.nn.relu, kernel_initializer='uniform', 
+                  input_dim = input_dim)) 
+  lr_model.add(Dropout(0.1))
+  lr_model.add(Dense(64, kernel_initializer='uniform', activation=tf.nn.relu))
+  lr_model.add(Dense(num_classes, kernel_initializer='uniform', activation=tf.nn.softmax))
+
+  # compile the model
+  lr_model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['acc'])
+
+  %%time
+  # Fit the model
+  batch_size = int(input_dim/100)
+
+  lr_model_history = lr_model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,
+                      verbose=1, validation_data=(x_test, y_test))
+
+  # plot the loss function
+  fig, ax = plt.subplots(1, 1, figsize=(10,6))
+  ax.plot(np.sqrt(lr_model_history.history['loss']), 'r', label='train')
+  ax.plot(np.sqrt(lr_model_history.history['val_loss']), 'b' ,label='val')
+  ax.set_xlabel(r'Epoch', fontsize=20)
+  ax.set_ylabel(r'Loss', fontsize=20)
+  ax.legend()
+  ax.tick_params(labelsize=20)
+
+  # plot the accuracy
+  fig, ax = plt.subplots(1, 1, figsize=(10,6))
+  ax.plot(np.sqrt(lr_model_history.history['acc']), 'r', label='train')
+  ax.plot(np.sqrt(lr_model_history.history['val_acc']), 'b' ,label='val')
+  ax.set_xlabel(r'Epoch', fontsize=20)
+  ax.set_ylabel(r'Accuracy', fontsize=20)
+  ax.legend()
+  ax.tick_params(labelsize=20)
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*IDJEIMe9NBG_7bzsxZgkuw.png" style="margin: 0.1em;" alt="Curve of loss function" title="Curve of loss function" width=350>
+      <img src="https://miro.medium.com/max/875/1*8uESik57fagFSjnTEIIsiQ.png" style="margin: 0.1em;" alt="Curve of accuracy" title="Curve of accuracy" width=350>
+    </a>
+  </div>
+
+
+#### Apply a custom learning rate change using `LearningRateScheduler`
+
++ A function performs the exponential learning rate decay as indicated by the formula:
+
+  $$lr = lr0 \times e^{(-kr)}$$
+
+  ```python
+  input_dim = x_train.shape[1]
+  num_classes = 10
+  batch_size = 196
+
+  # build the model
+  exponential_decay_model = Sequential()
+  exponential_decay_model.add(Dense(64, activation=tf.nn.relu, kernel_initializer='uniform',
+    input_dim = input_dim))
+  exponential_decay_model.add(Dropout(0.1))
+  exponential_decay_model.add(Dense(64, kernel_initializer='uniform', activation=tf.nn.relu))
+  exponential_decay_model.add(Dense(num_classes, kernel_initializer='uniform', activation=tf.nn.softmax))
+
+  # compile the model
+  exponential_decay_model.compile(loss='categorical_crossentropy',  optimizer=sgd,  metrics=['acc'])
+
+  # define the learning rate change
+  def exp_decay(epoch):
+      lrate = learning_rate * np.exp(-decay_rate*epoch)
+      return lrate
+
+  # learning schedule callback
+  loss_history = History()
+  lr_rate = LearningRateScheduler(exp_decay)
+  callbacks_list = [loss_history, lr_rate]
+
+  # you invoke the LearningRateScheduler during the .fit() phase
+  exponential_decay_model_history = exponential_decay_model.fit(x_train, y_train, batch_size=batch_size,
+          epochs=epochs, callbacks=callbacks_list, verbose=1, validation_data=(x_test, y_test))
+
+  # check on the variables that can show me the learning rate decay
+  exponential_decay_model_history.history.keys()
+  # dict_keys(['val_loss', 'val_acc', 'loss', 'acc', 'lr'])
+
+  fig, ax = plt.subplots(1, 1, figsize=(10,6))
+  ax.plot(exponential_decay_model_history.history['lr'] ,'r') #, label='learn rate')
+  ax.set_xlabel(r'Epoch', fontsize=20)
+  ax.set_ylabel(r'Learning Rate', fontsize=20)
+  #ax.legend()
+  ax.tick_params(labelsize=20)
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*UBD06yf8bO0ccdAUWrK85Q.png" style="margin: 0.1em;" alt="the learning rate as functions of the number of epochs" title="the learning rate as functions of the number of epochs" width=350>
+    <img src="https://miro.medium.com/max/875/1*mZec321rOyWlxKrNmMYlOA.png" style="margin: 0.1em;" alt="loss function as functions of the number of epoch" title="Loss fucntion as functions of the number of epoch" width=350>
+    </a>
+  </div>
+
 
 
 
