@@ -494,6 +494,59 @@ y_train[0]
 
 ### Trying Different Weight Initializations
 
++ the first hyperparameter to optimize via cross-validation is different weight initializations
+
++ Sample code
+
+  ```python
+  # let's create a function that creates the model (required for KerasClassifier) 
+  # while accepting the hyperparameters we want to tune 
+  # we also pass some default values such as optimizer='rmsprop'
+  def create_model(init_mode='uniform'):
+      # define model
+      model = Sequential()
+      model.add(Dense(64, kernel_initializer=init_mode, activation=tf.nn.relu, input_dim=784))
+      model.add(Dropout(0.1))
+      model.add(Dense(64, kernel_initializer=init_mode, activation=tf.nn.relu))
+      model.add(Dense(10, kernel_initializer=init_mode, activation=tf.nn.softmax))
+      # compile model
+      model.compile(loss='categorical_crossentropy', optimizer=RMSprop(), metrics=['accuracy'])
+      return model
+
+  %%time
+  seed = 7
+  numpy.random.seed(seed)
+  batch_size = 128
+  epochs = 10
+
+  model_CV = KerasClassifier(build_fn=create_model, epochs=epochs,
+                            batch_size=batch_size, verbose=1)
+  # define the grid search parameters
+  init_mode = ['uniform', 'lecun_uniform', 'normal', 'zero', 
+              'glorot_normal', 'glorot_uniform', 'he_normal', 'he_uniform']
+
+  param_grid = dict(init_mode=init_mode)
+  grid = GridSearchCV(estimator=model_CV, param_grid=param_grid, n_jobs=-1, cv=3)
+  grid_result = grid.fit(x_train, y_train)
+
+  # print results
+  print(f'Best Accuracy for {grid_result.best_score_} using {grid_result.best_params_}')
+  means = grid_result.cv_results_['mean_test_score']
+  stds = grid_result.cv_results_['std_test_score']
+  params = grid_result.cv_results_['params']
+  for mean, stdev, param in zip(means, stds, params):
+      print(f' mean={mean:.4}, std={stdev:.4} using {param}')
+
+  # Best Accuracy for 0.9689333333333333 using {'init_mode': 'lecun_uniform'}
+  #  mean=0.9647, std=0.001438 using {'init_mode': 'uniform'}
+  #  mean=0.9689, std=0.001044 using {'init_mode': 'lecun_uniform'}
+  #  mean=0.9651, std=0.001515 using {'init_mode': 'normal'}
+  #  mean=0.1124, std=0.002416 using {'init_mode': 'zero'}
+  #  mean=0.9657, std=0.0005104 using {'init_mode': 'glorot_normal'}
+  #  mean=0.9687, std=0.0008436 using {'init_mode': 'glorot_uniform'}
+  #  mean=0.9681, std=0.002145 using {'init_mode': 'he_normal'}
+  #  mean=0.9685, std=0.001952 using {'init_mode': 'he_uniform'}
+  ```
 
 
 
