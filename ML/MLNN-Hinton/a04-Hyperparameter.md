@@ -400,7 +400,6 @@ y_train[0]
   ```
 
 
-
 ### Step 4 - Deciding on the batch szie and number of epochs
 
 
