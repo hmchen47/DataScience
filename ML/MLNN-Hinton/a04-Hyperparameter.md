@@ -474,6 +474,22 @@ y_train[0]
 
 ## Tuning Hyperparameters using Cross-Validation
 
++ Use `GridSearchCV` from Scikit-Learn to try out several values for hyperparameters and compare the results
+
++ Cross-validation with `keras`
+  + use the wrappers for the Scikit-Learn API
+  + Provide a way to use Sequential Keras models (single-input only) as part of Sckikit-Learn workflow
+  + wrappers
+    + Scikit-Learn classifier interface: `keras.wrappers.scikit_learn.KerasClassifier(build_fn=None, **sk_params)`
+    + Scikit-Learn regressor interface: `keras.wrappers.scikit_learn.KerasRegressor(build_fn=None, **sk_params)`
+
++ Sample code
+
+  ```python
+  import numpy
+  from sklearn.model_selection import GridSearchCV
+  from keras.wrappers.scikit_learn import KerasClassifier
+  ```
 
 
 ### Trying Different Weight Initializations
