@@ -278,19 +278,19 @@
 
 + A very simple way to recognize handwritten shapes
   + consider a neural network with 2 layers of neurons
-    + neurons in the top layer: shapes
-    + neurons in the bottom: pixel intensities
-  + a pixel gets to vote if it has ink on it
-    + each inked pixel can vote for several different shapes
-  + the shape that gets the most votes wins
+    + input layer: neurons as pixel intensities
+    + output layer: neurons as shapes / classes
+  + a pixel gets to vote with ink on it
+    + a candidate for several different shapes
+  + the shape wins with the most votes
 
 + Handwritten shape recognition
-  + How to display the weights: the input image
+  + How to display the weights: the input image with smooth random weights
     + give each output unit its own "map" of the input image
     + display the weight coming from each pixel in the location of that pixel in the map
     + use a black or white blob with the area representing the magnitude of the weight and the color representing the sign
   + How to learn the weights
-    + show the network an image
+    + pass an image to image
     + __increment__ the weights from active pixels to the correct class
     + __decrement__ the weights from active pixels to whatever class the network guesses
   + The learned weights
@@ -299,7 +299,7 @@
     + weight below the half horizontal lines quite small
     + pixels below the half horizontal line doesn't matter a lot
     + handwritten below the half horizontal line varies a lot
-    + only focus whether the handwritten has a horizontal line with a sharp turn at the top (class 7) or a loop (claa 9)
+    + only focus whether the handwritten has a horizontal line with a sharp turn at the top (class 7) or a loop (class 9)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
