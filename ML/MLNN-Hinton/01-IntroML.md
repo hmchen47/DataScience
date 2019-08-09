@@ -17,7 +17,7 @@
   + Develop a ML algorithm and then take these examples and produce a program to do the job
     + ML program different from typical hand-written program
     + Right solution works both on prediction and training datasets
-    + Data changes result in program changes
+    + Data changes result in parameter changes in program
   + Cheaper massive amounts of computation than salary to write a task-specific program
 
 + Examples for Machine Learning
@@ -32,7 +32,7 @@
     + Future stock prices or currency exchange rates
     + Which movies will a person like?
 
-+ A Standard Example of Machine Learning
++ A Standard Example of Machine Learning in the course
   + lot of genetics done on fruit flies
     + convenient due to breed fast
     + well known
@@ -114,8 +114,71 @@
 
 ### Lecture Notes
 
++ Reasons to study neural computation
+  + to understand how the brain actually works
+    + big, complicated, and then die when poking --> computer simulation required
+  + to understand a style of parallel computation inspired by neurons and their adaptive connections
+    + different from sequential computation
+    + good for things that brands are good at, e.g., vision
+    + bad for things that brains are bad at, e.g., 23 x 71
+  + to solve practical problems by using novel learning algorithms inspired by the brain
+    + learning algorithms very useful even if they are not how the brain actually works
 
++ A typical cortical neuron
+  + gross physical structure
+    + axon: branches
+    + dendritic tree: collect input from other neurons
+  + Axons typically contact dendritic trees at synapses
+    + a spike of activity in the axon causes charge to be injected into the post-synaptic neuron
+  + Spike generation
+    + axon hillock: generate outgoing spikes whenever enough charge has flowed in at synapses to depolarize the cell membrane
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://en.wikipedia.org/wiki/Multipolar_neuron" ismap target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Blausen_0657_MultipolarNeuron.png/500px-Blausen_0657_MultipolarNeuron.png" style="margin: 0.1em;" alt="A multipolar neuron (or multipolar neurone) is a type of neuron that possesses a single axon and many dendrites (and dendritic branches), allowing for the integration of a great deal of information from other neurons. These processes are projections from the nerve cell body. " title="Anatomy of multipolar neuron" width=350>
+    </a>
+  </div>
+
++ Synapses
+  + when a spike of activity travels along an axon and arrives at a synapses it causes vesicles of transmitter chemical to be released
+    + several kinds of transmitter
+  + the transmitter molecules diffuse across the synaptic cleft and bind too receptor molecules in the membrane of the post-synaptic neuron thus changing their shape
+    + open up holes to allow specific ions in or our
+
++ How synapses adapt
+  + effectiveness of the synapse changes
+    + vary the number of vesicles of transmitter
+    + vary the number of receptor molecules
+  + synapses are slow, but have advantages over RAM
+    + small and low-power
+    + adapt using locally available signals
+      + what rules do they use to decide how to change?
+
++ How the brain works on one slide
+  + each neuron receives inputs from other neurons
+    + a few neurons also connect to receptors
+    + cortical neurons use spikes to communicate
+  + the effect of each input line on the neuron controlled by a synaptic weight
+    + weights either positive or negative
+  + synaptic weights adapt so that the whole network learns to perform useful computations
+    + recognizing objects
+    + understanding language
+    + making plans
+    + controlling the body
+  + about $10^{11}$ neurons each with about $10^4$ weights
+    + huge number of weights effect the computation in a very short time
+    + better than a workstation
+
++ Modularity and the brain
+  + different bits of the cortex do different things
+    + local damage to the brain has specific effects
+    + specific tasks increase the blood flow to specific regions
+  + cortex looks pretty much the same all over
+    + early brain damage makes functions relocate
+  + cortex made of general purpose stuff that has the ability to turn into special purpose hardware in response to experience
+    + rapid parallel computation plus flexibility
+    + conventional computers get flexibility by having store sequential programs
+    + require very fast central processors to perform long sequential computations
 
 
 ### Lecture Video
