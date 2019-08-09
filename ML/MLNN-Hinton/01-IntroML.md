@@ -201,7 +201,8 @@
   + to model things we have to idealize them (e.g., atoms)
     + idealization removes complicated details not essential for understanding the main principles
     + applying mathematics and analogies to other, familiar systems
-    + understanding the basic principles, add complexity to make the model more faithful
+    + understanding the basic principles
+    + adding complexity to make the model more faithful
   + Worth understanding models known to be wrong
     + E.g., neurons that communicate real values rather than discrete spikes of activity
 
@@ -232,7 +233,7 @@
   + compute a linear weighted sum of their inputs
   + output: a non-linear function of the total input
 
-    $$z = b + \sum_i x_i w_i \quad y = \begin{cases} z & \text{if } x > 0 \\ 0 & \text{otherwise} \end{cases}$$
+    $$z = b + \sum_i x_i w_i \quad y = \begin{cases} z & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}$$
 
 + Sigmoid neurons
   + a real-valued output that is a smooth and bounded function of their total input
@@ -252,13 +253,12 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://blog.zaletskyy.com/some-simple-models-of-neurons" ismap target="_blank">
-    <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="graphical representation with case if threshold = 1" title="graphical representation with case if threshold = 1" width=110>
+    <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="graphical representation with case if threshold = 1" title="graphical representation with case if threshold = 1" height=150>
   </a>
   <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
-    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="a non-linear function of the total input" title="a non-linear function of the total input" width=225>
-  </a>
-  <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
-    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="The sigmoid function consists of 2 functions, logistic and tangential. The values of logistic function range from 0 and 1 and -1 to +1 for tangential function." title="Sigmoid function" width=200>
+    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="a non-linear function of the total input" title="a non-linear function of the total input" height=150>
+    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="The sigmoid function consists of 2 functions, logistic and tangential. The values of logistic function range from 0 and 1 and -1 to +1 for tangential function." title="Sigmoid function" height=150>
+    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-6.png" style="margin: 0.1em;" alt="Stochastic binary function" title="Stochastic binary function" height=150>
   </a>
 </div>
 
