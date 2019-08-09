@@ -350,7 +350,62 @@
 
 ### Lecture Notes
 
++ Types of learning task
+  + Supervised learning
+    + learn to predict an output when given an input vector
+  + Reinforcement learning
+    + learn to select an action to maximize payoff
+  + Unsupervised learning
+    + discover a good internal representation of the input
 
++ Two types of supervised learning
+  + each training case consists of an input vector $x$ and a target output $t$
+  + __Regression__
+    + target output: a real number or a whole vector of real number
+    + vector of real number, e.g., price of s stock in 6 months time
+    + real number, e.g., temperature at noon tomorrow
+  + __Classification__
+    + target output: class label
+    + simplest case: a choice between 1 and 0
+    + multiple alternative labels
+
++ How supervised learning typically works
+  + start by choosing a model class: $y = f(\mathbf{x}; \mathbf{W})$
+    + model class $\mathbf{f}$: a way of using some numerical parameters $\mathbf{W}$
+    + map each input vector $\mathbf{x}$ into a predicted output $y$
+  + learning
+    + adjusting the parameters to reduce the discrepancy between the target output $t$ on each training case and the actual output $y$ produced by the model
+    + regression: $\frac{1}{2} (y-t)^2$ as a sensible measure of the discrepancy
+    + classification: other measures generally more sensible
+
++ Reinforcement learning
+  + Objective
+    + an action or sequence of actions
+    + the only supervisory signal: an occasional scalar reward
+    + goal in selecting each action: to maximize the expected sum of the future rewards
+    + usually use a discount factor for delayed rewards, so not look too far into the future
+  + Reinforcement learning is difficult
+    + typically delayed so hard to know where went wrong (or right)
+    + scalar reward not much information
+  + not covered this course
+
++ Unsupervised learning
+  + largely ignored by the machine learning community for about 40 years
+    + widely used definitions of machine learning actually excluded it
+    + clustering the only form of unsupervised learning
+  + hard to say what the aim of unsupervised learning
+    + to create an internal representation of the input
+    + useful for subsequent supervised or reinforcement learning
+    + compute the distance to a surface by using the disparity between two images
+    + Not want to learn to compute disparities by stubbing your toe thousands of times
+  + provide a compact, low-dimensional representation of the input
+    + high-dimensional inputs typically live on or near a low-dimensional manifold (or several such manifolds)
+    + Principal Component Analysis (PCA): a widely used linear method for finding a low-dimensional representation
+  + provide an economical high-dimensional representation of the input in terms of learned features
+    + binary features
+    + real-value features nearly all zero
+  + find sensible clusters in the input
+    + example of a very sparse code where only one of the feature is non-zero
 
 
 
