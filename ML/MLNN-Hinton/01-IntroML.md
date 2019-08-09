@@ -362,11 +362,11 @@
   + each training case consists of an input vector $x$ and a target output $t$
   + __Regression__
     + target output: a real number or a whole vector of real number
-    + vector of real number, e.g., price of s stock in 6 months time
+    + vector of real number, e.g., price of a stock in 6 months time
     + real number, e.g., temperature at noon tomorrow
   + __Classification__
     + target output: class label
-    + simplest case: a choice between 1 and 0
+    + binary classification: simplest case; a choice between 1 and 0
     + multiple alternative labels
 
 + How supervised learning typically works
@@ -375,7 +375,7 @@
     + map each input vector $\mathbf{x}$ into a predicted output $y$
   + learning
     + adjusting the parameters to reduce the discrepancy between the target output $t$ on each training case and the actual output $y$ produced by the model
-    + regression: $\frac{1}{2} (y-t)^2$ as a sensible measure of the discrepancy
+    + regression: often $\frac{1}{2} (y-t)^2$ as a sensible measure of the discrepancy
     + classification: other measures generally more sensible
 
 + Reinforcement learning
@@ -387,6 +387,7 @@
   + Reinforcement learning is difficult
     + typically delayed so hard to know where went wrong (or right)
     + scalar reward not much information
+    + typically used to learn thousands parameters, not as many as supervised and unsupervised learning
   + not covered this course
 
 + Unsupervised learning
@@ -394,15 +395,16 @@
     + widely used definitions of machine learning actually excluded it
     + clustering the only form of unsupervised learning
   + hard to say what the aim of unsupervised learning
-    + to create an internal representation of the input
+    + one major aim is to create an internal representation of the input
     + useful for subsequent supervised or reinforcement learning
     + compute the distance to a surface by using the disparity between two images
     + Not want to learn to compute disparities by stubbing your toe thousands of times
   + provide a compact, low-dimensional representation of the input
     + high-dimensional inputs typically live on or near a low-dimensional manifold (or several such manifolds)
+    + e.g. 100M pixel image represented by hundred degrees of freedom
     + Principal Component Analysis (PCA): a widely used linear method for finding a low-dimensional representation
   + provide an economical high-dimensional representation of the input in terms of learned features
-    + binary features
+    + binary features are economical
     + real-value features nearly all zero
   + find sensible clusters in the input
     + example of a very sparse code where only one of the feature is non-zero
