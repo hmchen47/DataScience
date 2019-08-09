@@ -276,8 +276,66 @@
 
 ### Lecture Notes
 
++ A very simple way to recognize handwritten shapes
+  + consider a neural network with 2 layers of neurons
+    + neurons in the top layer: shapes
+    + neurons in the bottom: pixel intensities
+  + a pixel gets to vote if it has ink on it
+    + each inked pixel can vote for several different shapes
+  + the shape that gets the most votes wins
 
++ Handwritten shape recognition
+  + How to display the weights: the input image
+    + give each output unit its own "map" of the input image
+    + display the weight coming from each pixel in the location of that pixel in the map
+    + use a black or white blob with the area representing the magnitude of the weight and the color representing the sign
+  + How to learn the weights
+    + show the network an image
+    + __increment__ the weights from active pixels to the correct class
+    + __decrement__ the weights from active pixels to whatever class the network guesses
+  + The learned weights
+    + the details of the learning algorithm will be explained in future lectures
+  + E.g., Class 7 & 9
+    + weight below the half horizontal lines quite small
+    + pixels below the half horizontal line doesn't matter a lot
+    + handwritten below the half horizontal line varies a lot
+    + only focus whether the handwritten has a horizontal line with a sharp turn at the top (class 7) or a loop (claa 9)
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-7.png" style="margin: 0.1em;" alt="The picture depicts a simple neural network with one input layer and one output layer — no hidden layers." title="Simple 2-layer neural network for handwritten recognition" width=550>
+    </a>
+  </div>
+
++ IVQ: Consider a two-class classification problem where we see the following training examples (these are 5x5 binary images)
+
+  According to a model with the learning algorithm from this lecture, which category does this test image belong to?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
+      <img src="img/m01-02.png" style="margin: 0.1em;" alt="Training examples with 2 categories" title="Training examples with 2 class" width=100>
+      <img src="img/m01-03.png" style="margin: 0.1em; margin-left: 1em;" alt="Test image" title="Test image" width=50>
+    </a>
+  </div>
+
+  Ans: Category 1<br/>
+  Even through the images from category 2 contain horizontal bars, none of the training examples ever overlap with the middle row of pixels so category 2 will get 0 "votes" for this example.  Conversely, all three of the images from category 1 have a pixel that overlaps with the middle row so the test image will receive 3 "votes" for category 1.
+
++ Why the simple learning algorithm is insufficient
+  + 2-layer network
+    + a single winner in the top layer equivalent to having a rigid template for each shape
+    + winner: the template having the biggest overlap with the ink
+  + handwritten digits too complicated
+    + ways to be captured by simple template matches of whole shapes
+    + capture all the allowable variations of a digit
+    + require to learn the features composed of
+  + Examples of handwritten digits that can be recognized correctly the first time seen
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/m01-01.png" style="margin: 0.1em;" alt="Examples of handwritten digits" title="Examples of handwritten digits" width=350>
+    </a>
+  </div>
 
 
 ### Lecture Video
