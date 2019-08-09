@@ -116,7 +116,7 @@
 
 + Reasons to study neural computation
   + to understand how the brain actually works
-    + big, complicated, and then die when poking --> computer simulation required
+    + big, complicated, and then die when poking --> computer simulation used
   + to understand a style of parallel computation inspired by neurons and their adaptive connections
     + different from sequential computation
     + good for things that brands are good at, e.g., vision
@@ -126,7 +126,7 @@
 
 + A typical cortical neuron
   + gross physical structure
-    + axon: branches
+    + axon: branches, path to transmit
     + dendritic tree: collect input from other neurons
   + Axons typically contact dendritic trees at synapses
     + a spike of activity in the axon causes charge to be injected into the post-synaptic neuron
@@ -135,11 +135,15 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://en.wikipedia.org/wiki/Multipolar_neuron" ismap target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Blausen_0657_MultipolarNeuron.png/500px-Blausen_0657_MultipolarNeuron.png" style="margin: 0.1em;" alt="A multipolar neuron (or multipolar neurone) is a type of neuron that possesses a single axon and many dendrites (and dendritic branches), allowing for the integration of a great deal of information from other neurons. These processes are projections from the nerve cell body. " title="Anatomy of multipolar neuron" width=350>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Blausen_0657_MultipolarNeuron.png/500px-Blausen_0657_MultipolarNeuron.png" style="margin: 0.1em;" alt="A multipolar neuron (or multipolar neurone) is a type of neuron that possesses a single axon and many dendrites (and dendritic branches), allowing for the integration of a great deal of information from other neurons. These processes are projections from the nerve cell body. " title="Anatomy of multipolar neuron" width=450>
+    <a href="https://www.researchgate.net/figure/Biological-neuron-and-synapse_fig1_324229756" ismap target="_blank">
+      <img src="https://www.researchgate.net/publication/324229756/figure/fig1/AS:612287031308289@1522992012648/Biological-neuron-and-synapse.png" style="margin: 0.1em;" alt="In human brain, excitatory and inhibitory postsynaptic potentials are delivered from pre-synaptic neuron to postsynaptic neuron through chemical and electrical signal at synapses, driving the change of synaptic weight." title="Biological neuron and synapse" width=450>
+    </a>
     </a>
   </div>
 
 + Synapses
+  + a small gap separating neurons
   + when a spike of activity travels along an axon and arrives at a synapses it causes vesicles of transmitter chemical to be released
     + several kinds of transmitter
   + the transmitter molecules diffuse across the synaptic cleft and bind too receptor molecules in the membrane of the post-synaptic neuron thus changing their shape
@@ -149,8 +153,8 @@
   + effectiveness of the synapse changes
     + vary the number of vesicles of transmitter
     + vary the number of receptor molecules
-  + synapses are slow, but have advantages over RAM
-    + small and low-power
+  + synapses slow, but having advantages over RAM
+    + very small and very low-power
     + adapt using locally available signals
       + what rules do they use to decide how to change?
 
@@ -167,7 +171,7 @@
     + controlling the body
   + about $10^{11}$ neurons each with about $10^4$ weights
     + huge number of weights effect the computation in a very short time
-    + better than a workstation
+    + better bandwidth than a workstation
 
 + Modularity and the brain
   + different bits of the cortex do different things
@@ -193,7 +197,70 @@
 
 ### Lecture Notes
 
++ Idealized neurons
+  + to model things we have to idealize them (e.g., atoms)
+    + idealization removes complicated details not essential for understanding the main principles
+    + applying mathematics and analogies to other, familiar systems
+    + understanding the basic principles, add complexity to make the model more faithful
+  + Worth understanding models known to be wrong
+    + E.g., neurons that communicate real values rather than discrete spikes of activity
 
++ Linear neurons
+  + Simple but computationally limited
+  + make them learn we __may__ get insight into more complicated neurons
+
+    $$y = b + \sum_i x_i w_i$$
+
+    + $y$: output
+    + $b$: bias
+    + $i$: index over input connections
+    + $x_i$: $i^{th}$ input
+    + $w_i$: wight on $i^{th}$ input
+
++ Binary threshold neurons
+  + McCulloch-Pitts (1943): influenced Von Neumann
+    + first compute a weighted sum of the inputs
+    + send out a fixed size spike of activity if the weighted sum exceeds a threshold
+    + each spike is like the true value of a proposition
+    + each neuron combines true values to compute the true value of another proposition
+  + two equivalent ways to write the equations for a binary threshold neuron
+
+    $$\begin{array}{rcl}z = \displaystyle \sum_i x_i w_i & \quad & y = \begin{cases} 1 & \text{if } z \geq \theta \\ 0 & \text{otherwise} \end{cases} \\ & \theta = -b & \\ & \Downarrow & \\ z = b + \displaystyle \sum_i x_i w_i & \quad & y = \begin{cases} 1 & \text{if } z \geq 0 \\ 0 & \text{otherwise} \end{cases} \end{array}$$
+
++ Rectified Linear Neurons
+  + a.k.a, Linear threshold neurons
+  + compute a linear weighted sum of their inputs
+  + output: a non-linear function of the total input
+
+    $$z = b + \sum_i x_i w_i \quad y = \begin{cases} z & \text{if } x > 0 \\ 0 & \text{otherwise} \end{cases}$$
+
++ Sigmoid neurons
+  + a real-valued output that is a smooth and bounded function of their total input
+  + use the logistic function
+  + nice derivatives to make learning easy
+
+  $$z = b + \sum_i x_i w_i \quad y = \frac{1}{1 + e^{-z}}$$
+
++ Stochastic binary neurons
+  + same equations as logistic units
+    + treat the output of the logistic as the probability of producing a spike in a short time window
+  + similar trick for rectified linear units
+    + treat the output as the Poisson rate for spikes
+
+  $$z = b + \displaystyle \sum_i x_i w_i \quad p(s = 1) = \frac{1}{1 + e^{-z}}$$
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://blog.zaletskyy.com/some-simple-models-of-neurons" ismap target="_blank">
+    <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="graphical representation with case if threshold = 1" title="graphical representation with case if threshold = 1" width=110>
+  </a>
+  <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
+    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="a non-linear function of the total input" title="a non-linear function of the total input" width=225>
+  </a>
+  <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
+    <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="The sigmoid function consists of 2 functions, logistic and tangential. The values of logistic function range from 0 and 1 and -1 to +1 for tangential function." title="Sigmoid function" width=200>
+  </a>
+</div>
 
 
 
