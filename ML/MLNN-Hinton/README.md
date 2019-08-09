@@ -159,6 +159,7 @@
 + [2012 COURSERA COURSE LECTURES: Neural Networks for Machine Learning](http://www.cs.toronto.edu/~hinton/nntut.html)
   + [Lecture Videos](http://www.cs.toronto.edu/~hinton/coursera_lectures.html)
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
+  + [Youtube Videos](https://www.youtube.com/playlist?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9)
 + Github Related Links
     + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
     + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
