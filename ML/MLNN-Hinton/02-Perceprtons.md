@@ -14,17 +14,17 @@
     + non-linear function of the activities in the layer below
 
 + Recurrent networks
-  + a special case with the hidden to hidden connections missing
   + directed cycles in their connection graph
     + sometime get back to where started by following the arrows
   + complicated dynamics and difficult to train
     + a lot of interest ar present in finding efficient ways of training recurrent nets
   + more biologically realistic
+  + recurrent nets with multiple hidden layers: a special case that has some of the hidden-->hidden connections missing
 
 + Recurrent neural networks for modeling sequences
   + a very natural way to model sequential data
     + equivalent to very deep nets with one hidden layer per time slice
-    + except using the same weights at every time slice and input at every time slice
+    + using the same weights at every time slice and input at every time slice
   + the ability to remember information in their hidden state for a long time
     + hard to train them to use this potential
 
@@ -35,10 +35,26 @@
     + sampling a character from this distribution
   + example of this kind of text it generates: some text generated one character at a time
 
+    ```txt
+    In 1974 Northern Denver had been
+    overshadowed by CNL, and several Irish
+    intelligence agencies in the Mediterranean
+    region. However, on the Victoria, Kings
+    Hebrew stated that Charles decided to
+    escape during an alliance. The mansion
+    house was completed in 1882, the second in
+    its bridge are omitted, while closing is the
+    proton reticulum composed below it aims,
+    such that it is the blurring of appearing on any
+    well-paid type of box printer
+    ```
+
 + Symmetrically connected networks
-  + symmetrical connections between units
+  + symmetrical connections between units, similar to recurrent networks
     + John Hopfield (and others): much easier to analyze than recurrent networks
-    + more restricted in what they can do; e.g., no model cycles
+    + more restricted in what they can do <-- obey an energy function
+    + e.g., no model cycles
+    + the same weight in both directions
   + Hopfield nets: symmetrically connected nets without hidden units
   + Boltzmann machines
     + symmetrically connected networks with hidden units
