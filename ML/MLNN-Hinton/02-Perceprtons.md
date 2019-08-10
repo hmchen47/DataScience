@@ -149,8 +149,30 @@
 
 ### Lecture Notes
 
++ Weight space
+  + the space: 1-dim per weight
+  + point in the space: a particular setting of all the weights
+  + each training case as a hyperplane through the origin (threshold eliminated) - black line
+    + weights must lie on one side of this hyper-plan to get the answer correct
+    + plane through the origin
+    + perpendicular to the input vector
+    + the output is wrong because the scalar product of the weight vector with the input vector has the wrong sign
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2.pptx" ismap target="_blank">
+      <img src="img/m02-05.png" style="margin: 0.1em;" alt="Weight space: input vector with correct answer=1" title="Weight space: input vector with correct answer=1" height=250>
+      <img src="img/m02-06.png" style="margin: 0.1em;" alt="Weight space: input vector with correct answer=0" title="Weight space: input vector with correct answer=0" height=250>
+      <img src="img/m02-07.png" style="margin: 0.1em; margin-left: 2em;" alt="Feasible solutions" title="Feasible solutions" height=250>
+    </a>
+  </div>
 
++ The cone of feasible solutions
+  + to get all training cases right, find a point on the right side of all the planes
+    + may no be any such point
+  + any weight vectors that get the right answer for all cases
+    + lie in a hyper-cone with its apex at the origin
+    + the average of two good weight vectors is a good weight vector
+    + convex problem
 
 
 ### Lecture Video
