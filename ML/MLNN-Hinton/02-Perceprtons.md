@@ -187,8 +187,24 @@
 
 ### Lecture Notes
 
++ Why the learning procedure works
+  + consider the squared distance $d_a^2 + d_b^2$ btw any feasible weight vector and the current weight vector
+    + Hopeful claim: every time the perceptron makes a mistake, then learning algorithm moves the current weight closer to all feasible weight vectors
+  + "generously feasible" weight vectors
+    + lie within the feasible region by a margin at least as great as the length of the input vector that defines each constraint plane
+    + every time the perceptron makes a mistake, the squared distance to all of these generously feasible weight vectors is always decreased by at least the squared length of the outdate vector
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/m02-08.png" style="margin: 0.1em;" alt="Distance btw the current and feasible vectors" title="Distance btw the current & feasible vectors" height=130>
+      <img src="img/m02-09.png" style="margin: 0.1em;" alt="margin: the squared length btw hyperplan and feasible weight vectors" title="margin: the squared length btw hyperplan and feasible weight vectors" height=130>
+    </a>
+  </div>
 
++ Informal sketch of proof of convergence
+  + each time the perceptron makes a mistake, the current weight vector moves to decrease its squared distance from every weight vector in the "generously feasible" region
+  + Squared distance decreases by at least the squared length of the input vector
+  + after a finite number of mistakes, the weight vector must lie in the feasible region if this region exists
 
 
 ### Lecture Video
