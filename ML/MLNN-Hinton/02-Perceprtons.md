@@ -177,7 +177,7 @@
 
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2c.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2d.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
@@ -189,10 +189,10 @@
 
 + Why the learning procedure works
   + consider the squared distance $d_a^2 + d_b^2$ btw any feasible weight vector and the current weight vector
-    + Hopeful claim: every time the perceptron makes a mistake, then learning algorithm moves the current weight closer to all feasible weight vectors
-  + "generously feasible" weight vectors
-    + lie within the feasible region by a margin at least as great as the length of the input vector that defines each constraint plane
-    + every time the perceptron makes a mistake, the squared distance to all of these generously feasible weight vectors is always decreased by at least the squared length of the outdate vector
+  + Hopeful claim: every time the perceptron makes a mistake, then learning algorithm moves the current weight closer to all feasible weight vectors
+    + Problem: weight vector not closer to this feasible vector (the left figure)
+  + Solution: consider "generously feasible" weight vectors that lie within the feasible region by a margin at least as great as the length of the input vector that defines each constraint plane (the right figure)
+  + Claim: every time the perceptron makes a mistake, the squared distance to all of these generously feasible weight vectors is always decreased by at least the squared length of the outdate vector
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
@@ -209,7 +209,7 @@
 
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2d.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2e.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
@@ -219,13 +219,84 @@
 
 ### Lecture Notes
 
++ The limitations of Perceptrons
+  + choosing the enough features by hand do almost anything
+  + binary input vectors
+    + a separate feature unit for each of the exponentially many binary vectors
+    + make any possible discrimination on binary input vectors
+    + this type pf table look-up won't generalize
+  + determined hand-coded features: very strong limitations on what a perceptron can learn
 
++ What binary threshold neurons cannot do
+  + a binary threshold output unit cannot even tell if two single bit eatures are the same
+    + Positive cases (same): $(1, 1) \rightarrow 1; \quad (0, 0) \rightarrow 1$
+    + Negative cases (different): $(1, 0) \rightarrow 0; \quad (0, 1) \rightarrow 0$
+  + Four input-output pairs: four inequalities not possible to satisfy
 
+    $$w_1 + w_2 \geq \theta, \; 0 \geq \theta$$
+
+    where $w_1 < \theta, \quad w_2 < \theta$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
+      <img src="img/m02-04.png" style="margin: 0.1em;" alt="Biases for lrarning rate" title="Biases for lrarning rate" height=150>
+    </a>
+  </div>
+
++ Limitation of Binary Threshold
+  + A geometric view of what binary threshold neurons cannot do
+    + data-space: the axes correspond to components of an input vector
+    + input vector: a point in this space
+    + weight vector: a plane in data-space
+    + the weight plane is perpendicular to the weight vector and misses the origin by a distance equal to the threshold
+    + Example: positive & negative cases not able to separated by a plane
+  + Discriminating simple patterns under translation with wrap-around
+    + Use pixels as the features
+    + Can a binary threshold unit discriminate between different patterns that have the same number of on pixels?<br/>
+      Not if the patterns can translate with wrap-around!
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.youtube.com/watch?v=mI6jTc-8sUY&list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9&index=11&t=0s" ismap target="_blank">
+      <img src="img/m02-10.png" style="margin: 0.1em;" alt="A geometric view of what binary threshold neurons cannot do" title="A geometric view of what binary threshold neurons cannot do" height=200>
+      <img src="img/m02-11.png" style="margin: 0.1em;" alt="A geometric view of what binary threshold neurons cannot do" title="A geometric view of what binary threshold neurons cannot do" height=200>
+    </a>
+  </div>
+
++ Sketch proof
+  + a binary decision unit cannot discriminate patterns with the same number of on pixels
+  + Assumption: translation with wrap-around
+  + Pattern A: using training cases in all possible translations
+    + each pixel activated by 4 different translations of pattern A
+    + total input received by the decision unit over all these patterns will be four times the sum of all the weights
+  + Pattern B: using training cases in all possible translations
+    + each pixel activated by 4 different translations of a pattern B
+    + total input received by the decision unit over all these patterns will be four times the sum of all the weights
+  + to discriminate correctly, every single case of pattern A must provide more input to the decision unit than every single case of pattern B
+    + impossible if the sums over cases are the same
+
++ Why devastating for Preceptrons
+  + The whole point of pattern recognition is to recognize patterns despite transformations like translations.
+  + Minsky & Papert, "Group Invariance Theorem"
+    + the part of a Perceptron that leas cannot learn to do this if the transformations from the group
+    + translations with wrap-around from a group
+  + a Perceptron to use multiple feature units to recognize transformations of informative sub-patterns
+  + the tricky part of pattern recognition must be solved by the hand-coded feature detectors, not the learning procedure
+
++ Learning with hidden units
+  + Networks without hidden units
+    + very limited in the input-output mappings they can learn to model
+    + more layers of linear units still linear
+    + fixed output non-linearities not enough
+  + Using multiple layers of adaptive, non-linear hidden units
+    + how to train such nets?
+    + required an efficient way of adapting all the weights, not just the last layer
+    + learning the weights going into hidden units equivalent to learning features
+    + difficulty: no obvious solution what the hidden units should do
 
 
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2e.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="https://youtu.be/mI6jTc-8sUY?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
