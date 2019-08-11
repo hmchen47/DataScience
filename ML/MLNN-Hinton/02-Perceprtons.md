@@ -224,18 +224,18 @@
   + binary input vectors
     + a separate feature unit for each of the exponentially many binary vectors
     + make any possible discrimination on binary input vectors
-    + this type pf table look-up won't generalize
+    + this type of table look-up won't generalize
   + determined hand-coded features: very strong limitations on what a perceptron can learn
 
-+ What binary threshold neurons cannot do
++ Example: What binary threshold neurons cannot do
   + a binary threshold output unit cannot even tell if two single bit eatures are the same
     + Positive cases (same): $(1, 1) \rightarrow 1; \quad (0, 0) \rightarrow 1$
     + Negative cases (different): $(1, 0) \rightarrow 0; \quad (0, 1) \rightarrow 0$
   + Four input-output pairs: four inequalities not possible to satisfy
 
-    $$w_1 + w_2 \geq \theta, \; 0 \geq \theta$$
+    $$(1, 1): w_1 + w_2 \geq \theta; \quad (0, 0): 0 \geq \theta; \quad (1, 0): w_1 < \theta; \quad (0, 1): w_2 < \theta$$
 
-    where $w_1 < \theta, \quad w_2 < \theta$
+    + unable to satisfy the four conditions
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
@@ -243,32 +243,34 @@
     </a>
   </div>
 
-+ Limitation of Binary Threshold
++ Limitations of Binary Threshold
   + A geometric view of what binary threshold neurons cannot do
     + data-space: the axes correspond to components of an input vector
     + input vector: a point in this space
     + weight vector: a plane in data-space
     + the weight plane is perpendicular to the weight vector and misses the origin by a distance equal to the threshold
-    + Example: positive & negative cases not able to separated by a plane
+    + Example: positive & negative cases not able to separated by a plane (left figure)
   + Discriminating simple patterns under translation with wrap-around
-    + Use pixels as the features
+    + Use pixels as the features (right figure)
+      + Pattern A (positive): four pixels of black and translate to the right, 3rd pattern translates with wrap-around
+      + Pattern B (negative): four pixels of black and translate to the right, 3rd pattern translates with wrap-around
     + Can a binary threshold unit discriminate between different patterns that have the same number of on pixels?<br/>
-      Not if the patterns can translate with wrap-around!
+      No, it cannot discriminate two patterns with same number of pixels if the discrimination has to work when the patterns are translated and wrap-around
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.youtube.com/watch?v=mI6jTc-8sUY&list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9&index=11&t=0s" ismap target="_blank">
       <img src="img/m02-10.png" style="margin: 0.1em;" alt="A geometric view of what binary threshold neurons cannot do" title="A geometric view of what binary threshold neurons cannot do" height=200>
-      <img src="img/m02-11.png" style="margin: 0.1em;" alt="A geometric view of what binary threshold neurons cannot do" title="A geometric view of what binary threshold neurons cannot do" height=200>
+      <img src="img/m02-11.png" style="margin: 0.1em;" alt="Discriminating simple patterns under translation with wrap-around" title="Discriminating simple patterns under translation with wrap-around" height=200>
     </a>
   </div>
 
-+ Sketch proof
++ Sketch proof of Discriminating simple patterns under translation with wrap-around
   + a binary decision unit cannot discriminate patterns with the same number of on pixels
   + Assumption: translation with wrap-around
-  + Pattern A: using training cases in all possible translations
+  + Positive cases (Pattern A): using training cases in all possible translations
     + each pixel activated by 4 different translations of pattern A
     + total input received by the decision unit over all these patterns will be four times the sum of all the weights
-  + Pattern B: using training cases in all possible translations
+  + Negative cases (Pattern B): using training cases in all possible translations
     + each pixel activated by 4 different translations of a pattern B
     + total input received by the decision unit over all these patterns will be four times the sum of all the weights
   + to discriminate correctly, every single case of pattern A must provide more input to the decision unit than every single case of pattern B
@@ -277,19 +279,22 @@
 + Why devastating for Preceptrons
   + The whole point of pattern recognition is to recognize patterns despite transformations like translations.
   + Minsky & Papert, "Group Invariance Theorem"
-    + the part of a Perceptron that leas cannot learn to do this if the transformations from the group
-    + translations with wrap-around from a group
+    + the part of a Perceptron that learns CANNOT learn to do this if the transformations form the group
+    + the exaggerated claim: perceptrons could learn anything
+    + careful chosen features to make it easy for the last stage to learn the classification
+    + translations with wrap-around form a group -> impossible to discriminate
   + a Perceptron to use multiple feature units to recognize transformations of informative sub-patterns
-  + the tricky part of pattern recognition must be solved by the hand-coded feature detectors, not the learning procedure
+    + required separate feature units for each position of those informative sub-patterns
+    + the tricky part of pattern recognition must be solved by the hand-coded feature detectors, not the learning procedure
 
 + Learning with hidden units
   + Networks without hidden units
     + very limited in the input-output mappings they can learn to model
     + more layers of linear units still linear
-    + fixed output non-linearities not enough
-  + Using multiple layers of adaptive, non-linear hidden units
+    + fixed output non-linearity not enough to represent the non-linearity characteristics of problem
+  + Solution: using multiple layers of adaptive, non-linear hidden units
     + how to train such nets?
-    + required an efficient way of adapting all the weights, not just the last layer
+    + required an efficient way of adapting __all__ the weights, not just the last layer
     + learning the weights going into hidden units equivalent to learning features
     + difficulty: no obvious solution what the hidden units should do
 
