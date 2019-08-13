@@ -242,41 +242,36 @@
 
 + The limitations of Perceptrons
   + choosing the enough features by hand do almost anything
-  + binary input vectors
-    + a separate feature unit for each of the exponentially many binary vectors
-    + make any possible discrimination on binary input vectors
+  + E.g., discriminate binary input vectors
+    + with a binary input unit vector, create a separate feature unit that gets activated by exactly one of those binary input vectors
+    + required exponentially many feature units to make any possible discrimination on binary input vectors
+    + no limitation if making enough feature units
     + this type of table look-up won't generalize
-  + determined hand-coded features: very strong limitations on what a perceptron can learn
+  + hand-coded features determined: very strong limitations on what a perceptron can learn
+  + E.g., what binary threshold neurons cannot do
+    + a binary threshold output unit cannot even tell if two single bit features are the same
+      + Positive cases (same): $(1, 1) \rightarrow 1; \quad (0, 0) \rightarrow 1$
+      + Negative cases (different): $(1, 0) \rightarrow 0; \quad (0, 1) \rightarrow 0$
+    + Four input-output pairs: four inequalities not possible to satisfy
 
-+ Example: What binary threshold neurons cannot do
-  + a binary threshold output unit cannot even tell if two single bit eatures are the same
-    + Positive cases (same): $(1, 1) \rightarrow 1; \quad (0, 0) \rightarrow 1$
-    + Negative cases (different): $(1, 0) \rightarrow 0; \quad (0, 1) \rightarrow 0$
-  + Four input-output pairs: four inequalities not possible to satisfy
+      $$(1, 1): w_1 + w_2 \geq \theta; \quad (0, 0): 0 \geq \theta; \quad (1, 0): w_1 < \theta; \quad (0, 1): w_2 < \theta$$
 
-    $$(1, 1): w_1 + w_2 \geq \theta; \quad (0, 0): 0 \geq \theta; \quad (1, 0): w_1 < \theta; \quad (0, 1): w_2 < \theta$$
+    + standard perceptron model unable to satisfy the four conditions
 
-    + unable to satisfy the four conditions
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
-      <img src="img/m02-04.png" style="margin: 0.1em;" alt="Biases for lrarning rate" title="Biases for lrarning rate" height=150>
-    </a>
-  </div>
-
-+ Limitations of Binary Threshold
-  + A geometric view of what binary threshold neurons cannot do
++ Interpretation of Binary Threshold
+  + A geometric view of what binary threshold neurons cannot do (left figure)
     + data-space: the axes correspond to components of an input vector
-    + input vector: a point in this space
+    + input vector: a point in data space
     + weight vector: a plane in data-space
     + the weight plane is perpendicular to the weight vector and misses the origin by a distance equal to the threshold
-    + Example: positive & negative cases not able to separated by a plane (left figure)
-  + Discriminating simple patterns under translation with wrap-around
-    + Use pixels as the features (right figure)
+    + positive & negative cases not able to separated by a plane
+  + Discriminating simple patterns under translation with wrap-around (right figure)
+    + Use pixels as the features
       + Pattern A (positive): four pixels of black and translate to the right, 3rd pattern translates with wrap-around
       + Pattern B (negative): four pixels of black and translate to the right, 3rd pattern translates with wrap-around
-    + Can a binary threshold unit discriminate between different patterns that have the same number of on pixels?<br/>
-      No, it cannot discriminate two patterns with same number of pixels if the discrimination has to work when the patterns are translated and wrap-around
+    + Can a binary threshold unit discriminate between different patterns that have the same number of on pixels?
+      + No, it cannot discriminate two patterns with same number of pixels if the discrimination has to work when the patterns are translated and wrap-around
+      + No threshold can always accept Pattern A and reject Pattern B
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.youtube.com/watch?v=mI6jTc-8sUY&list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9&index=11&t=0s" ismap target="_blank">
@@ -286,14 +281,14 @@
   </div>
 
 + Sketch proof of Discriminating simple patterns under translation with wrap-around
-  + a binary decision unit cannot discriminate patterns with the same number of on pixels
-  + Assumption: translation with wrap-around
-  + Positive cases (Pattern A): using training cases in all possible translations
-    + each pixel activated by 4 different translations of pattern A
-    + total input received by the decision unit over all these patterns will be four times the sum of all the weights
-  + Negative cases (Pattern B): using training cases in all possible translations
-    + each pixel activated by 4 different translations of a pattern B
-    + total input received by the decision unit over all these patterns will be four times the sum of all the weights
+  + Claim: a binary decision unit cannot discriminate patterns with the same number of on pixels with <span style="color: darkred;">translation and wrap-around</span>
+  + Each pixel is activated by 4 different translations of both Pattern A and B
+    + 4 different positions in which pattern A/B will activate that pixel
+    + each pixel will be activated by 4 different translations of pattern A/B
+  + Total input received by the decision unit over all these patterns will be four times the sum of all the weights for both Pattern A & B
+    + each pixel will activate the decision unit 4 different times
+    + sum of the pattern will get 4 times the sum of the weights
+  + No threshold can always accept A & reject B
   + to discriminate correctly, every single case of pattern A must provide more input to the decision unit than every single case of pattern B
     + impossible if the sums over cases are the same
 
@@ -307,13 +302,14 @@
   + a Perceptron to use multiple feature units to recognize transformations of informative sub-patterns
     + required separate feature units for each position of those informative sub-patterns
     + the tricky part of pattern recognition must be solved by the hand-coded feature detectors, not the learning procedure
+  + Is Neural network bad according to the above theorem??
 
 + Learning with hidden units
   + Networks without hidden units
     + very limited in the input-output mappings they can learn to model
     + more layers of linear units still linear
     + fixed output non-linearity not enough to represent the non-linearity characteristics of problem
-  + Solution: using multiple layers of adaptive, non-linear hidden units
+  + Solution: using multiple layers of __adaptive__, non-linear hidden units
     + how to train such nets?
     + required an efficient way of adapting __all__ the weights, not just the last layer
     + learning the weights going into hidden units equivalent to learning features
