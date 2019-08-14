@@ -239,11 +239,9 @@
   </div>
 
 
-
-
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3c.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="https://youtu.be/Z8jzCvb62e8?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
@@ -253,12 +251,62 @@
 
 ### Lectue Notes
 
++ Learning with hidden units
+  + network w/o hidden units: limited in the input-output mappings they can model
+  + adding a layer of hand-coded features (as in a perceptron)
+    + more powerful but hard to design the features
+    + finding good features w/o requiring insights into the task or repeated trial and error
+    + guess features and see how well they work
+  + automate the loop of designing features for a particular task and seeing ho well they work
 
++ Learning by perturbing weights
+  + randomly pertub one weight and see if it improves performance
+  + save the change if performance improved
+  + a form of reinforcement learning
+  + Very efficient:
+    + multiple forward passes on a representatives set of training cases just to change one weight
+    + backpropagation much better
+    + large weight perturbations always make things worse when towards the end of learning
+    weights required to have the right relative values
+  + Straight and simple: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
+    + not any better
+    + required lots of trials on each training case
+    + observe the effect of changing one weight through the noise created by the changes to other weights
+  + Better idea: randomly perturb the activities of the hidden units
+    + compute how to change the weights once a hidden activity to change on a given training case well known
+    + fewer activities than weights
+    + backpropagation wins by a factor of the number of neurons
+
++ The ideal behind backpropagation
+  + Knowing what actions in the hidden units
+    + compute how fast the error changes as a hidden activity changed
+    + using error derivatives w.r.t. hidden activities instead of using desired activities to train the hidden units
+    + each hidden activity able to effect many output units
+    + combining the separate effect of errors
+  + compute error derivatives for all the hidden unit efficiently at the same time
+    + obtain the error derivatives for the weights going into a hidden unit
+
++ Sketch of the backpropagation algorithm on a single case
+  + convert the discrepancy btw each output and its target value into an error derivative
+  + compute error derivatives in each hidden layer from error derivatives in he layer above
+  + using error derivatives w.r.t activities to get error derivatives w.r.t. the incoming weights
+
+  $$\begin{array}{rcl}E &=& \frac{1}{2} \displaystyle \sum_{j \in output} (t_j - y_j)^2 \\ \frac{\partial E}{\partial y_j} & = & -(t_j - y_j) \end{array}$$
+
++ Backpropagating $dE/dy$
+
+  $$\begin{array}{rcl} \dfrac{\partial E}{\partial z_j} & = & \dfrac{dy_j}{dz_j} \dfrac{\partial E}{\partial y_j} = y_j(1- y_j)\dfrac{\partial E}{\partial y_j} \\ \dfrac{\partial E}{\partial y_j} &=& \displaystyle \sum_j \dfrac{dz_j}{dy_i} \dfrac{\partial E}{\partial z_j} = \sum_j w_{ij} \dfrac{\partial E}{\partial z_j} \\ \dfrac{\partial E}{\partial w_{ij}} &=& \dfrac{\partial z_j}{\partial w_{ij}} \dfrac{\partial E}{\partial z_j} = y_i \dfrac{\partial E}{\partial z_j} \end{array}$$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+      <img src="img/m03-08.png" style="margin: 0.1em;" alt="Diagram to represent the backpropagation" title="Diagram to represent the backpropagation" width=200>
+    </a>
+  </div>
 
 
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3d.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="https://youtu.be/LOc_y67AzCA?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
