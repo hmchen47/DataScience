@@ -123,10 +123,12 @@
 + online delta-rule vs learning rule for perceptrons
   + perceptron learning
     + increment or decrement the weight vector by the input vector
-    + only change the wights when making an error
+    + only change the weights when making an error
   + online version of the delta-rule
-    + increment or decrement the weight vector by the input vector scaled by the residual error and the learning rate
+    + increment or decrement the weight vector by the input vector but scaled by the residual error and the learning rate
     + choose a learning rate --> annoying
+      + too big --> unstable
+      + too small --> slow
 
 
 ### Lecture Video
