@@ -147,10 +147,14 @@
   + error surface in a space
     + horizontal axis: weight
     + vertical axis: error
+  + Linear neuron with a squared error
     + quadratic bowl: linear neuron with a squared error
     + parabolas: vertical cross-sections
     + ellipses: horizontal cross-sections
   + multi-layer, non-linear nets: much more complicated
+    + smooth curves
+    + local minima
+  + pictorial view of gradient descent learning using Delta rule
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
@@ -159,10 +163,13 @@
   </div>
 
 + Online vs batch learning
-  + Simplest kind of batch learning
+  + Simplest kind of batch learning (left diagram)
+    + elliptical contour lines
     + steepest descent on the error surface
     + travel perpendicular to the contour lines
-  + simplest kind of online learning
+    + batch learning: the gradient descent summed over all training cases
+  + simplest kind of online learning (right diagram)
+    + online learning: update the weights in proportion to the gradient after each training case
     + zig-zag around the direction of steepest descent
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -190,7 +197,7 @@
 
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3b.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="https://youtu.be/tIovUOirJkE?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
