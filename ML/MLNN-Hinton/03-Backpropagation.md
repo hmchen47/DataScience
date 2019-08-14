@@ -260,22 +260,22 @@
   + automate the loop of designing features for a particular task and seeing ho well they work
 
 + Learning by perturbing weights
-  + randomly pertub one weight and see if it improves performance
+  + randomly perturb one weight and see if it improves performance
   + save the change if performance improved
   + a form of reinforcement learning
-  + Very efficient:
+  + Very inefficient:
     + multiple forward passes on a representatives set of training cases just to change one weight
     + backpropagation much better
     + large weight perturbations always make things worse when towards the end of learning
     weights required to have the right relative values
-  + Straight and simple: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
+  + Improvement: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
     + not any better
     + required lots of trials on each training case
     + observe the effect of changing one weight through the noise created by the changes to other weights
   + Better idea: randomly perturb the activities of the hidden units
     + compute how to change the weights once a hidden activity to change on a given training case well known
     + fewer activities than weights
-    + backpropagation wins by a factor of the number of neurons
+  + backpropagation still wins by a factor of the number of neurons
 
 + The ideal behind backpropagation
   + Knowing what actions in the hidden units
@@ -303,6 +303,12 @@
     </a>
   </div>
 
+  + assume using sigmoid function w/ output unit (logistic unit) $j$
+  + $z_j$: the combined outputs as the input of unit $j$
+  + $y_i$: output of unit $i$
+  + $\frac{\partial E}{\partial y_i}$: the change of $E$ equals to the sum of all changes on outputs w.r.t. the change of $y_i$
+  + $\frac{\partial E}{\partial w_{ij}}$: the change of $E$ w.r.t. the change of weights $w_{ij}$
+
 
 ### Lecture Video
 
@@ -321,7 +327,7 @@
 
 ### Lecture Video
 
-<video src="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3e.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="https://youtu.be/vlSI79ringA?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
