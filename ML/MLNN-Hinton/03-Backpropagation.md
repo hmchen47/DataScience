@@ -143,6 +143,48 @@
 
 ### Lectue Notes
 
++ The error surface in extended weight space
+  + error surface in a space
+    + horizontal axis: weight
+    + vertical axis: error
+    + quadratic bowl: linear neuron with a squared error
+    + parabolas: vertical cross-sections
+    + ellipses: horizontal cross-sections
+  + multi-layer, non-linear nets: much more complicated
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+      <img src="img/m03-03.png" style="margin: 0.1em;" alt="error surface" title="caption" width=200>
+    </a>
+  </div>
+
++ Online vs batch learning
+  + Simplest kind of batch learning
+    + steepest descent on the error surface
+    + travel perpendicular to the contour lines
+  + simplest kind of online learning
+    + zig-zag around the direction of steepest descent
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+      <img src="img/m03-04.png" style="margin: 0.1em;" alt="Contour for batch learning" title="Contour for batch learning" height=150>
+      <img src="img/m03-05.png" style="margin: 0.1em;" alt="Contour for online learning" title="Contour for online learning" height=150>
+    </a>
+  </div>
+
++ Why learning can be slow
+  + elongated ellipse: the direction of steepest descent almost perpendicular to the direction towards the minimum
+  + the red gradient descent: 
+    + large component along the short axis of the ellipse
+    + small component along the long axis of th ellipse
+  + opposite of what intended
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+      <img src="img/m03-06.png" style="margin: 0.1em;" alt="enlongated ellipse with slow learning" title="enlongated ellipse with slow learning" width=200>
+    </a>
+  </div>
+
 
 
 
