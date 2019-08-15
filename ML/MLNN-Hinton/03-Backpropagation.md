@@ -323,47 +323,58 @@
 ### Lectue Notes
 
 + Converting error derivatives into a learning procedure
-  + the backpropagation algorithm: an efficient way of computing the error derivate $dE/dw$ for every weight on a single case
+  + the backpropagation algorithm: an efficient way of computing the error derivative $dE/dw$ for every weight on a single case
   + for a fully specified learning procedures, many other decisions about how to use the error derivatives
-    + Optimization issues: how to discover a good set of weights with the error derivatives on individual cases?
-    + Generalization issues: how to ensure non-seen cases during training work well with trained weights?
+    + Optimization issues: how to discover a good set of weights with the error derivatives on individual cases? (Mod06)
+    + Generalization issues: how to ensure non-seen cases during training work well with trained weights? (Mod07)
 
 + Optimization issues
   + how often to update the weights
-    + Online: after each training case
-    + Full batch: after a full sweep through the training data
-    + Mini-batch: after a small sample of training cases
+    + __Online__: after each training case -> zig-zag but small enough to get into right direction
+    + __Full batch__: after a full sweep through the training data -> if start with a bad set of weights with big training set, progress slow
+    + __Mini-batch__: after a small sample of training cases -> typical use for big neural network on big data set
   + How much to update
     + use a fixed learning rate?
     + adapt the global learning rate?
     + adapt the learning rate on each connection separately?
-    Don't use steepest descent?
+    + Don't use steepest descent?
+      + elongated ellipse as the typical case
 
 + Overfitting: the downside of using powerful models
   + training data
     + containing information about the regularities in the mapping from input to output
     + containing two types of noise as well
       + unreliable target values (usually only a minor worry)
-      + sample error: accidental regularities due to the particular training cases choosen
+      + sample error: accidental regularities due to the particular training cases chosen
   + Unable to identify which regularities causing errors
     + fit both kinds of regularity
     + flexible model fits the sampling error really well (<span style="color: red;">diaster</span>)
   + Simple example
+    + Diagram illustrated
+      + 6 data points shown in black dots
+      + fit with a straight line (2 degree of freedom) - green line
+      + fit with a polynomial with 6 degree of freedom - red line
     + Which model do you trust?
       + complicated model fits the data better
       + but not economical
-    + convincing model as fitting many data surprisingly well
+    + convincing model as a simple model fits many data surprisingly well
     + Not surprising that a complicated model can fit a small amount of data well
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+        <img src="img//m03-09.png" style="margin: 0.1em;" alt="text" title="caption" width=250>
+      </a>
+    </div>
 
 + Ways to reduce overfitting
   + a large number of different methods developed
-  + Examples
-    + Weight-decay
-    + Weight-sharing
-    + Early stopping
-    + Model averaging
-    + Bayesian fitting of neural nets
-    + Dropout
+  + Some examples
+    + Weight-decay: make model simpler by keeping weights of the network small or keeping many of the weight zero
+    + Weight-sharing: make model simpler by insisting that many of the weights exactly same as others
+    + Early stopping: make fake test set and train with it, then stop training as the training gets worse
+    + Model averaging: train with many different neural network and average them
+    + Bayesian fitting of neural nets: fancy formal model averaging
+    + Dropout: make model more robust by randomly emitting hidden units when training yet
     + Generative pre-training
 
 
