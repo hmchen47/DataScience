@@ -322,7 +322,49 @@
 
 ### Lectue Notes
 
++ Converting error derivatives into a learning procedure
+  + the backpropagation algorithm: an efficient way of computing the error derivate $dE/dw$ for every weight on a single case
+  + for a fully specified learning procedures, many other decisions about how to use the error derivatives
+    + Optimization issues: how to discover a good set of weights with the error derivatives on individual cases?
+    + Generalization issues: how to ensure non-seen cases during training work well with trained weights?
 
++ Optimization issues
+  + how often to update the weights
+    + Online: after each training case
+    + Full batch: after a full sweep through the training data
+    + Mini-batch: after a small sample of training cases
+  + How much to update
+    + use a fixed learning rate?
+    + adapt the global learning rate?
+    + adapt the learning rate on each connection separately?
+    Don't use steepest descent?
+
++ Overfitting: the downside of using powerful models
+  + training data
+    + containing information about the regularities in the mapping from input to output
+    + containing two types of noise as well
+      + unreliable target values (usually only a minor worry)
+      + sample error: accidental regularities due to the particular training cases choosen
+  + Unable to identify which regularities causing errors
+    + fit both kinds of regularity
+    + flexible model fits the sampling error really well (<span style="color: red;">diaster</span>)
+  + Simple example
+    + Which model do you trust?
+      + complicated model fits the data better
+      + but not economical
+    + convincing model as fitting many data surprisingly well
+    + Not surprising that a complicated model can fit a small amount of data well
+
++ Ways to reduce overfitting
+  + a large number of different methods developed
+  + Examples
+    + Weight-decay
+    + Weight-sharing
+    + Early stopping
+    + Model averaging
+    + Bayesian fitting of neural nets
+    + Dropout
+    + Generative pre-training
 
 
 ### Lecture Video
