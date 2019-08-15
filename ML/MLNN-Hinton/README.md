@@ -115,7 +115,7 @@
 
 ## 14. Generative Adversarial Networks (GANs)
   
-+ [Learning layers of features by stacking RBMs](14-GANs.md#)
++ [Learning layers of features by stacking RBMs](14-GANs.md#)https://www.youtube.com/playlist?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9
 + [Discriminative fine-tuning for DBNs](14-GANs.md#)
 + [What happens during discriminative fine-tuning](14-GANs.md#)
 + [Modeling real-valued data with an RBM](14-GANs.md#)
@@ -161,7 +161,7 @@
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
   + [Youtube Videos](https://www.youtube.com/playlist?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9)
 + Github Related Links
-    + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
-    + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
-    + [Chouffe](https://github.com/Chouffe/hinton-coursera)
-    + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+  + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
+  + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
+  + [Chouffe](https://github.com/Chouffe/hinton-coursera)
+  + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
