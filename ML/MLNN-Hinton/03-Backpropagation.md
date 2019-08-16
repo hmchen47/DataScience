@@ -17,9 +17,9 @@
     + Never called multi-layer perceptrons
 
 + A different way to show that a learning procedure makes progress
-  + Weight vs. target values
-    + Instead of showing the weights get closer to a good set of weights, show that the actual output values get closer the target values
-    + true even for non-convex problems in which there are many quite different sets of weights that work well and averaging two good sets of weights may give a bad set of weights
+  + Weight and target values
+    + Statement: Instead of showing the weights get closer to a good set of weights, show that the actual output values get closer the target values
+    + true even for non-convex problems that averaging different good sets of weights may give a bad set of weights
     + Not true for perceptron learning
       + the outputs as a whole can get further away from the target output even the weights are getting closer to good sets of weights
   + simplest example: a linear neuron with a squared error measure
@@ -43,11 +43,11 @@
     + to solve for the best set of weights
     + but not used, why?
   + Scientific answer
+    + objective: find a method that real neurons could use
     + understand what real neurons might be doing
     + probably not solving equations symbolically
-    + find a method that real neurons could use
   + Engineering answer
-    + find a method that can be generalized to multi-layer, non-linear neural networks
+    + objective: find a method that can be generalized to multi-layer, non-linear neural networks
     + analytic solution: based on linearity and squared error measure
     + iterative methods: less efficient but much easier to generalize
 
@@ -102,8 +102,8 @@
     + applying chain rule
     + explain how the output changes as we change the weights times how the error changes as we change the output
     + $\partial w_i$: many ways to change the output but just considering the change of the weight $w_i$
-    + $\frac{\partial y}{\partial w_i} = x_i$: $y = w_i \times x_i$
-    + $\frac{d E}{dy} = (t-y)$: $1/2 \times 2 \cdot (t - y)$
+    + $\partial y^n / \partial w_i = x_i^n$ where $y^n = w_i \times x_i^n$
+    + $d E / dy^n = (t^n - y^n)$ where $1/2 \times 2 \cdot (t^n - y^n)$
 
   + The batch delta rule changes the weights in portion to their derivatives <span style="color: green;">summed over all training cases</span>
 
