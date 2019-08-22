@@ -1,4 +1,4 @@
-# Introduction to Data Science in PythApplied Plotting, Charting & Data Representation in Pythonon
+# Applied Plotting, Charting & Data Representation in Python
 
 [RefCard](../../RefCards/PythonDS.md)
 
