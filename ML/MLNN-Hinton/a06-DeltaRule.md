@@ -104,5 +104,30 @@ Date: Apr. 19, 2018
     $$\frac{\partial E_p}{\partial w_{ij_x}} = -(t_{j_z} - a _{j_z})(a_{i_x})$$
 
 
+## Delta Rule
+
++ Delta rule for preceptrons
+  + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
+  + The change in a given weight must be proportional to the negative of the prior equation
+
+  $$\Delta w_{ij_x} = - \varepsilon \frac{\partial E}{\partial w_{ij}} = \varepsilon \partial a_{i_x}$$
+
+  + $\Delta$: the difference btw the target and actual activation of the relevant output node
+  + $\varepsilon$: learning rate
+
++ Linear Activation function instead of a Threshold Activation function
+  + Threshold Activation function:
+    + characterize both the McColloch and Pitts network and the perceptron is not differentiable at the transition between the activations of $0$ and $1$ (slope = $\infty$) 
+    + derivative = 0 over the remainder of the function
+  + Linear Activation function or other differentiable functions
+    + allow the derivative of the error to be calculable
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/@neuralnets/delta-learning-rule-gradient-descent-neural-networks-f880c168a804" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1191/1*t9qCtZ_hMGTYiEGt7kwT6w.jpeg" style="margin: 0.1em;" alt="Three-dimensional depiction of an Actual error surface (Leverington, 2001)" title="Three-dimensional depiction of an Actual error surface (Leverington, 2001)" height=250>
+      <img src="https://miro.medium.com/max/1139/1*jnG5--4AcQSNHaFqquiu7A.jpeg" style="margin: 0.1em;" alt="Two-dimensional depiction of the error surface" title="Two-dimensional depiction of the error surface" height=250>
+    </a>
+  </div>
+
 
 
