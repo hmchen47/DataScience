@@ -24,9 +24,27 @@ Date: Apr. 19, 2018
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/@neuralnets/delta-learning-rule-gradient-descent-neural-networks-f880c168a804" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1156/1*mKJG6c8gHPOpc6oCf7DlHw.jpeg" style="margin: 0.1em;" alt="A graphical depiction of a simple two-layer network capable of deploying the Delta Rule" title="A graphical depiction of a simple two-layer network capable of deploying the Delta Rule" width=350>
+      <img src="https://miro.medium.com/max/1156/1*mKJG6c8gHPOpc6oCf7DlHw.jpeg" style="margin: 0.1em;" alt="A graphical depiction of a simple two-layer network capable of deploying the Delta Rule" title="A graphical depiction of a simple two-layer network capable of deploying the Delta Rule" width=250>
     </a>
   </div>
+
++ Similar Model representation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.ebc.cat/2017/01/08/understanding-neural-networks-part-2-vectorized-forward-propagation/" ismap target="_blank">
+      <img src="http://www.ebc.cat/wp-content/uploads/2017/01/notation_forw_prop_vect.png" style="margin: 0.1em;" alt="Notation for Vectorization of the Forward Propagation Algorithm (single unit)" title="Notation for Vectorization of the Forward Propagation Algorithm (single unit)" width=300>
+      <img src="http://www.ebc.cat/wp-content/uploads/2017/01/forw_prop_with_notation.png" style="margin: 0.1em; margin-left: 2em;" alt="Forward Propagation with formal notation" title="Forward Propagation with formal notation" width=500>
+      <img src="http://www.ebc.cat/wp-content/uploads/2017/01/forw_prop_vectorization_matrices.png" style="margin: 0.1em;" alt="Forward Propagation Vectorization Matrices" title="Forward Propagation Vectorization Matrices" width=850>
+    </a>
+  </div>
+
+  + $a_i^{(n)}$: value if the unit $i$ in layer $n$
+  + $z_i^{(n)}$: internal value in each unit that sums all (weighted) inputs
+  + $g(Z)$: activation function (usually sigmoid function)
+  + $\theta_{ab}^{(n)}$: weight of the link that connects unit $b$ in layer $n$ to unit $a$ in layer $n+1$ (note $a$ and $b$ are in the opposite order)
+  + $X_m$: value of input sample $m$
+  + $h_k$: value of output prediction $k$
+
 
 + Forward propagation:
   + the output (activation) of a given node is a function of its inputs
