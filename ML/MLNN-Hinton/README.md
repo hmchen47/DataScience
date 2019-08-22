@@ -146,6 +146,7 @@
 + Matthew Stewart, [Neural Network Optimization](a03-Optimization.md)
 + Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](a04-Hyperparameter.md)
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
++ Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
 
 
 ## Reference:
