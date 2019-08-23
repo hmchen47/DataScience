@@ -157,7 +157,10 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
-      <img src="img/m03-03.png" style="margin: 0.1em;" alt="error surface" title="caption" width=200>
+      <img src="img/m03-03.png" style="margin: 0.1em;" alt="error surface" title="error surface" height=300>
+    </a>
+    <a href="https://math.stackexchange.com/questions/1249308/what-is-the-difference-between-an-elliptical-and-circular-paraboloid-3d/1249309#1249309" ismap target="_blank">
+      <img src="https://i.stack.imgur.com/goYnm.gif" style="margin: 0.1em;" alt="An elliptical paraboloid" title="An elliptical paraboloid" height=300>
     </a>
   </div>
 
@@ -173,8 +176,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
-      <img src="img/m03-04.png" style="margin: 0.1em;" alt="Contour for batch learning" title="Contour for batch learning" height=150>
-      <img src="img/m03-05.png" style="margin: 0.1em;" alt="Contour for online learning" title="Contour for online learning" height=150>
+      <img src="img/m03-04.png" style="margin: 0.1em;" alt="Contour for batch learning" title="Contour for batch learning" height=200>
+      <img src="img/m03-05.png" style="margin: 0.1em;" alt="Contour for online learning" title="Contour for online learning" height=200>
     </a>
   </div>
 
