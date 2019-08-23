@@ -105,9 +105,10 @@ Date: Apr. 19, 2018
 
     $$\frac{\partial  E_p}{\partial {w_{ij_x}}} = \frac{\partial E_p}{\partial a_{j_z}} \frac{\partial a_{j_z}}{\partial w_{ij_x}}$$
 
-    + $a_{j_z}$: activation of the node in the output layer that corresponds to weight $w_{ij_x}$
-    + $j$ and $ij$ refer to a particular layers of nodes or weights
-    + $z$ and $x$ refer to individual weights and node within these layers
+    + $a_{j_z}$: activation of the node in the output layer 
+    + $w_{ij_x}$: weight with
+      + $i$ and $j$ refer to a particular layers of nodes or weights
+      + $x$ refers to individual weights and node within these layers
 
   + extend derivative
 
