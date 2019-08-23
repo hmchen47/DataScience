@@ -222,7 +222,7 @@
 
   + Derivatives of the logit, $z$ w.r.t. the inputs and the weights are very simple
 
-    $$z = b + \sum_i x_i w_i \quad \Rightarrow \quad \frac{\partial z}{\partial w_i} = x_i \quad \frac{\partial z}{\partial x_i} = w_i$$
+    $$z = b + \sum_i x_i w_i \quad \Rightarrow \quad \frac{\partial z}{\partial w_i} = x_i \quad \& \quad \frac{\partial z}{\partial x_i} = w_i$$
 
   + Derivative of the output w.r.t. the logit
 
@@ -230,13 +230,13 @@
 
 + Derivatives of a logistic neuron
 
-  $$\begin{array}{rcl} y & = & \frac{1}{1 + e^{-z}} = (1 + e^{-z})^{-1} \\ \frac{dy}{dz} &=& \frac{-1 (-e^{-z})}{1 + e^{-z}} = \left( \frac{1}{1 + e^{-z}} \right) \left( e^{-z}{1+e^{-z}} \right) = y(1-y) \\ \text{because } & & \frac{e^{-z}}{1 + e^{-z}} = \frac{(1+e^{-z}) - 1}{1 + e^{-z}} = \frac{(1+e^{-z})}{1+e^{-z}} \frac{-1}{1+e^{-z}} = 1- y \end{array}$$
+  $$\begin{array}{rcl} y & = & \dfrac{1}{1 + e^{-z}} = (1 + e^{-z})^{-1} \\ \dfrac{dy}{dz} &=& \frac{-1 (-e^{-z})}{1 + e^{-z}} = \left( \frac{1}{1 + e^{-z}} \right) \left( \frac{e^{-z}}{1+e^{-z}} \right) = y(1-y) \\ \text{because } & & \frac{e^{-z}}{1 + e^{-z}} = \frac{(1+e^{-z}) - 1}{1 + e^{-z}} = \frac{(1+e^{-z})}{1+e^{-z}} \frac{-1}{1+e^{-z}} = 1- y \end{array}$$
 
 + Using the chain rule to get the derivatives
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
-      <img src="img/m03-07.png" style="margin: 0.1em;" alt="Chain rule for derivatives" title="Chain rule for derivatives" width=400>
+      <img src="img/m03-07.png" style="margin: 0.1em;" alt="Chain rule for derivatives" title="Chain rule for derivatives" width=500>
     </a>
   </div>
 
