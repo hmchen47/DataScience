@@ -2,7 +2,7 @@
   
 ## Learning the weights of a linear neuron
 
-### Lectue Notes
+### Lecture Notes
 
 + Perceptron: the weights are always getting closer to a good set of weights
 
@@ -20,8 +20,7 @@
   + Weight and target values
     + Statement: Instead of showing the weights get closer to a good set of weights, show that the actual output values get closer the target values
     + true even for non-convex problems that averaging different good sets of weights may give a bad set of weights
-    + Not true for perceptron learning
-      + the outputs as a whole can get further away from the target output even the weights are getting closer to good sets of weights
+    + Not true for perceptron learning: the outputs as a whole can get further away from the target output even the weights are getting closer to good sets of weights
   + simplest example: a linear neuron with a squared error measure
 
 + Linear neurons
@@ -61,32 +60,32 @@
     + start with random guesses for the prices
     + adjust them to get a better fir to the observed prices of whole meals
 
-+ Solving the equations iteratively
-  + Each meal price gives a linear constraint on the prices of the portions
+  + Solving the equations iteratively
+    + Each meal price gives a linear constraint on the prices of the portions
 
-    $$price = x_{fish} w_{fish} + x_{chips} w_{chips} + x_{ketchup} w_{ketchup}$$
-  
-  + The prices of the portions are like the weights in of a linear neuron
+      $$price = x_{fish} w_{fish} + x_{chips} w_{chips} + x_{ketchup} w_{ketchup}$$
+    
+    + The prices of the portions are like the weights in of a linear neuron
 
-    $$\mathbf{W} = (x_{fish}, w_{chips}, w_{ketchup})$$
+      $$\mathbf{W} = (w_{fish}, w_{chips}, w_{ketchup})$$
 
-  + Start with guesses for the weights and then adjust the guesses slightly to give a better fit to the prices given by the cashier
+    + Start with guesses for the weights and then adjust the guesses slightly to give a better fit to the prices given by the cashier
 
-+ A model of the cashier with arbitrary initial weights
-  + Residual error = 350
-  + the "delta-rule" for learning is: $\Delta w_i = \varepsilon x_i(t - y)$
-  + with a learning rate $\varepsilon = 1/35$, the weight changes $ = (+20, +50, +30)$
-  + The new weights: $(70, 100, 80)$
-  + The weight for chips got worse
-  + No guarantee the way of learning theta individual weights will keep getting better
-  + Only the difference btw cashier & estimation
+  + A model of the cashier with arbitrary initial weights
+    + Residual error = 350
+    + the "delta-rule" for learning is: $\Delta w_i = \varepsilon x_i(t - y)$
+    + with a learning rate $\varepsilon = 1/35$, the weight changes $ = (+20, +50, +30)$
+    + The new weights: $(70, 100, 80)$
+    + The weight for chips got worse
+    + No guarantee the way of learning theta individual weights will keep getting better
+    + Only the difference btw cashier & estimation
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
-      <img src="img/m03-01.png" style="margin: 0.1em;" alt="The true wights used by the cashier" title="The true wights used by the cashier" height=200>
-      <img src="img/m03-02.png" style="margin: 0.1em;" alt="A model of the cashier with arbitrary initial weights" title="A model of the cashier with arbitrary initial weights" height=200>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+        <img src="img/m03-01.png" style="margin: 0.1em;" alt="The true wights used by the cashier" title="The true wights used by the cashier" height=200>
+        <img src="img/m03-02.png" style="margin: 0.1em;" alt="A model of the cashier with arbitrary initial weights" title="A model of the cashier with arbitrary initial weights" height=200>
+      </a>
+    </div>
 
 + Deriving the delta rule
   + Define the error as the squared residuals summed over all training cases
@@ -103,7 +102,7 @@
     + explain how the output changes as we change the weights times how the error changes as we change the output
     + $\partial w_i$: many ways to change the output but just considering the change of the weight $w_i$
     + $\partial y^n / \partial w_i = x_i^n$ where $y^n = w_i \times x_i^n$
-    + $d E / dy^n = (t^n - y^n)$ where $1/2 \times 2 \cdot (t^n - y^n)$
+    + $d E / dy^n = 1/2 \times 2 \cdot (t^n - y^n) \cdot \frac{\partial}{\partial y^n} (t^n - y^n) = - (t^n - y^n)$
 
   + The batch delta rule changes the weights in portion to their derivatives <span style="color: green;">summed over all training cases</span>
 
@@ -141,7 +140,7 @@
 
 ## The error surface for a linear neuron
 
-### Lectue Notes
+### Lecture Notes
 
 + The error surface in extended weight space
   + error surface in a space
@@ -203,7 +202,7 @@
 
 ## Learning the weights of a logistic output neuron
 
-### Lectue Notes
+### Lecture Notes
 
 + Logistic neurons
   + output: real value
@@ -249,7 +248,7 @@
 
 ## The backpropagation algorithm
 
-### Lectue Notes
+### Lecture Notes
 
 + Learning with hidden units
   + network w/o hidden units: limited in the input-output mappings they can model
@@ -320,7 +319,7 @@
 
 ## How to use the derivatives computed by the backpropagation algorithm
 
-### Lectue Notes
+### Lecture Notes
 
 + Converting error derivatives into a learning procedure
   + the backpropagation algorithm: an efficient way of computing the error derivative $dE/dw$ for every weight on a single case
