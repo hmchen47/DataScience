@@ -64,7 +64,7 @@
     + Each meal price gives a linear constraint on the prices of the portions
 
       $$price = x_{fish} w_{fish} + x_{chips} w_{chips} + x_{ketchup} w_{ketchup}$$
-    
+
     + The prices of the portions are like the weights in of a linear neuron
 
       $$\mathbf{W} = (w_{fish}, w_{chips}, w_{ketchup})$$
@@ -372,7 +372,7 @@
 
 + Ways to reduce overfitting
   + a large number of different methods developed
-  + Some examples
+  + Some ways
     + Weight-decay: make model simpler by keeping weights of the network small or keeping many of the weight zero
     + Weight-sharing: make model simpler by insisting that many of the weights exactly same as others
     + Early stopping: make fake test set and train with it, then stop training as the training gets worse
