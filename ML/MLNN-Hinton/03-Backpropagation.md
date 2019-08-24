@@ -262,22 +262,24 @@
   + automate the loop of designing features for a particular task and seeing ho well they work
 
 + Learning by perturbing weights
-  + randomly perturb one weight and see if it improves performance
-  + save the change if performance improved
-  + a form of reinforcement learning
-  + Very inefficient:
-    + multiple forward passes on a representatives set of training cases just to change one weight
-    + backpropagation much better
-    + large weight perturbations always make things worse when towards the end of learning
-    weights required to have the right relative values
-  + Improvement: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
+  + Original idea
+    + randomly perturb __one weight__ and see if it improves performance
+    + save the change if performance improved
+    + a form of reinforcement learning
+    + Very inefficient:
+      + multiple forward passes on a representative set of training cases just to change one weight
+      + backpropagation much better
+    + large weight perturbations always make things __worse__ when towards the end of learning weights required to have the right relative values
+  + Alternative - slightly improved
+    + randomly perturb all the __weights in parallel__ and correlate the performance gain with the weight changes
     + not any better
     + required lots of trials on each training case
     + observe the effect of changing one weight through the noise created by the changes to other weights
-  + Better idea: randomly perturb the activities of the hidden units
-    + compute how to change the weights once a hidden activity to change on a given training case well known
+  + Better idea
+    + randomly perturb the __activities__ of the hidden units
+    + compute how to change the weights once the objective of a hidden activity on a given training case is   known
     + fewer activities than weights
-  + backpropagation still wins by a factor of the number of neurons
+    + backpropagation still wins by a factor of the number of neurons
 
 + The ideal behind backpropagation
   + Knowing what actions in the hidden units
@@ -290,7 +292,7 @@
 
 + Sketch of the backpropagation algorithm on a single case
   + convert the discrepancy btw each output and its target value into an error derivative
-  + compute error derivatives in each hidden layer from error derivatives in he layer above
+  + compute error derivatives in each hidden layer from error derivatives in the layer above
   + using error derivatives w.r.t activities to get error derivatives w.r.t. the incoming weights
 
   $$\begin{array}{rcl}E &=& \frac{1}{2} \displaystyle \sum_{j \in output} (t_j - y_j)^2 \\ \frac{\partial E}{\partial y_j} & = & -(t_j - y_j) \end{array}$$
@@ -308,7 +310,7 @@
   + assume using sigmoid function w/ output unit (logistic unit) $j$
   + $z_j$: the combined outputs as the input of unit $j$
   + $y_i$: output of unit $i$
-  + $\frac{\partial E}{\partial y_i}$: the change of $E$ equals to the sum of all changes on outputs w.r.t. the change of $y_i$
+  + $\frac{\partial E}{\partial y_i}$: the change of $E$ (equals to the sum of all changes on outputs) w.r.t. the change of $y_i$
   + $\frac{\partial E}{\partial w_{ij}}$: the change of $E$ w.r.t. the change of weights $w_{ij}$
 
 
