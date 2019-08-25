@@ -211,13 +211,22 @@
 
 + Problem with squared error
   + Drawbacks
-    + target value >> actual output: no gradient for a logistic unit to fix up the error
-    + summed outputs = 1 when assigning probability to mutually exclusive class, but depriving the network of this knowledge
-  + Other better cost function
+    + target value >> actual output: 
+      + almost no gradient for a logistic unit to fix up the error
+      + e.g., target = 1 & actual = 0.00000001
+      + slope $\simeq$ horizontal $\implies$ slow convergence
+    + summed outputs = 1 when assigning probability to mutually exclusive class
+      + e.g., $p(a) = p(b) = 3/4$ impossible
+      + depriving the network of mutually exclusive knowledge
+  + appropriate cost function for mutually exclusive function
     + force the outputs to represent a probability distribution across discrete alternatives
+    + softmax is one of such functions
 
 + Softmax function
   + the output units in a softmax group use a non-local non-linearity
+  + a soft continuous version of tht maximum function
+  + $z_i$ depends on the $z$'s accumulated by their arrivals as well
+  + $\sum_i y_i = 1$ and $y_i \in[0, 1]$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
@@ -264,7 +273,11 @@
 
     $$C = - \sum_j \underbrace{t_j}_{\text{target value}} \log y_j$$
 
-  + $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
+    + if $t_i = 1$ and $t_j = 0, \text{ for } j \neq i$
+    + simply put 0 on the wrong answers and 1 for the right answer ($t_i$)
+    + Cross-entropy cost function
+
+  + __Property__. $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
 
     $$\frac{\partial C}{\partial z_i} = \sum_j \frac{\partial C}{\partial y_j} \frac{y_j}{\partial z_i} = y_i - t_i$$
 
