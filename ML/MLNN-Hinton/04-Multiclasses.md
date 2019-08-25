@@ -205,11 +205,71 @@
 </video><br/>
 
 
-## Another diversion_The softmax output function
+## Another diversion: The softmax output function
 
 ### Lecture Notes
 
++ Problem with squared error
+  + Drawbacks
+    + target value >> actual output: no gradient for a logistic unit to fix up the error
+    + summed outputs = 1 when assigning probability to mutually exclusive class, but depriving the network of this knowledge
+  + Other better cost function
+    + force the outputs to represent a probability distribution across discrete alternatives
 
++ Softmax function
+  + the output units in a softmax group use a non-local non-linearity
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+        <img src="img/m04-13.png" style="margin: 0.1em;" alt="Representation of Softmax group" title="Representation of Softmax group" width=250>
+      </a>
+    </div>
+
+  + __Definition__. A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by 
+
+    $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_i}}$$
+
+    so that the outputs sum to 1. The cost functon is given by 
+
+    $$C = - \sum_j t_j \log(y_j)$$
+  
+  + __Proposition__. By the Quotient Rule, the derivatives are
+
+    $$\frac{\partial y_i}{\partial z_i} = y_i(1 - y_i) = - y_i y_j$$
+
+    or more fancy-like using the Kronecker Delta:
+
+    $$\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)$$
+
+  + __Proposition__. The derivatives of the cost function are
+
+    $$\frac{\partial C}{\partial z_i} = y_i - t_i.$$
+
+  + _Proof_. Apply the Chain rule
+
+    $$\frac{\partial C}{\partial z_i} = - \sum_j t_j \frac{\partial \log y_j}{\partial z_i} = - \sum_j t_j \frac{\partial \log y_j}{\partial y_j} \frac{\partial y_j}{\partial z_i}$$
+
+    Using the formula for $\partial y_j / \partial z_i$, we get
+
+    $$\frac{\partial C}{\partial z_i} = -\sum_j \frac{t_j}{y_j} y_j (\delta_{ij} - y_i) = -\sum_j t_j(\delta_{ij} - y_i)$$
+
+    Recall that this is a multiclass classification problem, and so exactly one of the $t_j$'s is 1 and the rest are zro. Therefore,
+
+    $$\frac{\partial C}{\partial z_i} = -t_i (1 - y_i) + \sum_{j \neq i} t_j y_i = -t_i + y_i \sum_j t_j = y_i - t_i$$
+
+    $$\tag*{$\blacksquare$}$$
+
++ Cross-entropy: the right cost function to use with softmax
+  + the right cost function: the negative log probability of the right answer
+
+    $$C = - \sum_j \underbrace{t_j}_{\text{target value}} \log y_j$$
+
+  + $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
+
+    $$\frac{\partial C}{\partial z_i} = \sum_j \frac{\partial C}{\partial y_j} \frac{y_j}{\partial z_i} = y_i - t_i$$
+
+    + e.g., 0.000001 much better than 0.000000001
+    + the steepness of $d C / d y$ exactly balances the flatness of $dy / dz$
 
 
 
