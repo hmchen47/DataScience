@@ -164,14 +164,19 @@
   + The structuralist theory
     + the meaning of a concept lies in its relationships to other concepts
     + conceptual knowledge: best expressed as a relational graph
-    + Minsky:
+    + Minsky (1970s):
       + using the limitations of perceptrons as evidence against feature vectors
       + in favor of relational graph representations
-  + Both wrong
+  + Hinton - Both wrong
     + not rivals - neural networks
       + able to use vectors of semantic features to implement a relational graph
       + learns family trees: no explicit inference required to arrive at the intuitively obvious consequences of the facts that have been explicitly learned
+      + micro features:
+        + many probabilistic features influencing each other
+        + not like explicit conscious features in real brain w/ millions of them and millions of interactions
+        + one step of explicit influence to represent all interactions
       + intuit the answer in a forward pass
+      + no intervening conscious steps but many computation in interactions of neurons
     + using both
       + explicit rules for conscious, deliberate, reasoning
       + commonsense, analogical reasoning: seeing the answer w/o conscious intervening steps
@@ -189,6 +194,7 @@
     + open issue: how to implement relational knowledge in a neural net
     + many neurons probably used for each concept
     + each neuron probably involved in many concepts
+    + many-to-many mapping btw concepts and neurons
 
 
 ### Lecture Video
