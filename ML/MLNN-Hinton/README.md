@@ -30,7 +30,7 @@
 
 + [Learning to predict the next word](04-Multiclasses.md#)
 + [A brief diversion into cognitive science](04-Multiclasses.md#)
-+ [Another diversion_The softmax output function](04-Multiclasses.md#)
++ [Another diversion: The softmax output function](04-Multiclasses.md#)
 + [Neuro-probabilistic language models](04-Multiclasses.md#)
 + [ways to deal with large number of possible outputs](04-Multiclasses.md#)
 
@@ -166,3 +166,4 @@
   + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
   + [Chouffe](https://github.com/Chouffe/hinton-coursera)
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+  + [Neural Networks](https://trongr.github.io/neural-network-course/neuralnetworks.html)
