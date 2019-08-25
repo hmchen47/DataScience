@@ -223,6 +223,8 @@
     + softmax is one of such functions
 
 + Softmax function
+  + a.k.a. softargmax or normalized exponential function
+  + a function that takes as input a vector of $K$ real numbers, and normalizes it into a probability distribution consisting of $K$ probabilities proportional to the exponential of the input numbers
   + the output units in a softmax group use a non-local non-linearity
   + a soft continuous version of tht maximum function
   + $z_i$ depends on the $z$'s accumulated by their arrivals as well
@@ -232,13 +234,16 @@
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
         <img src="img/m04-13.png" style="margin: 0.1em;" alt="Representation of Softmax group" title="Representation of Softmax group" width=250>
       </a>
+      <a href="https://www.ritchieng.com/machine-learning/deep-learning/neural-nets/" ismap target="_blank">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-nanodegree/master/deep_learning/introduction/lr2.png" style="margin: 0.1em;" alt=" multinomial logistic regression or softmax logistic regression" title=" multinomial logistic regression or softmax logistic regression" width=350>
+      </a>
     </div>
 
-  + __Definition__. A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by 
+  + __Definition__. A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by
 
     $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_i}}$$
 
-    so that the outputs sum to 1. The cost functon is given by 
+    so that the outputs sum to 1. The cost function is given by
 
     $$C = - \sum_j t_j \log(y_j)$$
   
