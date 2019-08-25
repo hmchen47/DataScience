@@ -155,8 +155,40 @@
 
 ### Lecture Notes
 
++ Concepts
+  + debate in cognitive science about what it means to have a concept
+  + The feature theory
+    + a concept is a set of semantic features
+    + good for explaining similarities between concepts
+    + convenience: a concept is a vector of feature activities
+  + The structuralist theory
+    + the meaning of a concept lies in its relationships to other concepts
+    + conceptual knowledge: best expressed as a relational graph
+    + Minsky:
+      + using the limitations of perceptrons as evidence against feature vectors
+      + in favor of relational graph representations
+  + Both wrong
+    + not rivals - neural networks
+      + able to use vectors of semantic features to implement a relational graph
+      + learns family trees: no explicit inference required to arrive at the intuitively obvious consequences of the facts that have been explicitly learned
+      + intuit the answer in a forward pass
+    + using both
+      + explicit rules for conscious, deliberate, reasoning
+      + commonsense, analogical reasoning: seeing the answer w/o conscious intervening steps
+      + even using explicit rules, just see which rules to apply
 
-
++ Localist and distributed representations of concepts
+  + Localist representation
+    + implementation of relational graph in a neural net
+      + neuron = node in the graph
+      + connection = a binary relationship
+    + "localist" method not working
+      + many different types of relationship and the connections in neural nets w/o discrete labels
+      + ternary relationships required as well as binary ones; e.g., A is between B and C
+  + Distributed representations
+    + open issue: how to implement relational knowledge in a neural net
+    + many neurons probably used for each concept
+    + each neuron probably involved in many concepts
 
 
 ### Lecture Video
