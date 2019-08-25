@@ -34,7 +34,7 @@
 + A relational learning task
   + Figuring out the regularities from given family trees
     + express with symbolic rules
-    + e.g., <span style="color: darkgreen;">(x has-mother y) & (y has-husband z) $\Rightarrow$ (x has-father z)</span>
+    + e.g., <span style="color: darkgreen; font-weight: bold;">(x has-mother y) & (y has-husband z) $\Rightarrow$ (x has-father z)</span>
   + Form a combinatorial space of discrete probabilities
   + Finding the symbolic rules: difficult search through a very large discrete space of possibilities
   + Q: using neural network to capture the same knowledge of rules?
@@ -110,7 +110,7 @@
     + features: only useful if the other bottlenecks use similar representations
     + central layer: learn how the features of input person and the features of the relationship predict the features of output
     + e.g., <br/>
-      input personal of generation 3 <span style="color: red;">and</span><br/>
+      input personal of generation 3 <span style="color: red;">and</span>
       relationship requires answer to be one generation up<br/><span style="color: red;">implies</span><br/>
       Output person is of generation 2
     + Requirements for the prediction
