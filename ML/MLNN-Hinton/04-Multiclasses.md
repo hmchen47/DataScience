@@ -302,8 +302,50 @@
 
 ### Lecture Notes
 
++ A basic problem in speech recognition
+  + Not able to identify phonemes perfectly in noisy speech
+  + Ambiguous acoustic input: several different words fitting the acoustic signal equally well
+  + Human using their understanding of the meaning of the utterance to hear the right words
+    + unconsciously
+    + good at it
+  + knowing which words are likely to come next and which are not in speech recognition
+    + able to predict pretty well
+    + no fully understanding required
 
++ The standard Trigram method
+  + Gather a huge amount of text and count the frequencies of all triples or words
+  + Use the formula to bet the relative probabilities of words with the two previous words
 
+    $$\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}$$
+
+  + The state-of-the-art recently
+    + unable to use a much bigger context
+      + too many possibilities to store
+      + counts almost zero
+    + fall back to diagram if trigram frequencies too low
+  + drawback: not understand similarity btw words
+  
++ Information that the trigram model fails to use
+  + Seeing the 1st sentence: "the cat got squashed in the garden on Friday"
+  + Help to predict words in the sentence: "the dog flattened in the yard on Monday"
+  + Trigram not understanding the similarities between the terms: <span style="color: red; margin-right: 1.5em;">cat/dog</span><span style="color: red; margin-right: 1.5em;">squashed/flattened</span><span style="color: red; margin-right: 1.5em;">garden/yard</span><span style="color: red; margin-right: 1.5em;">Friday/Monday</span>
+  + Solution
+    + using semantic and syntactic features of previous words to predict the features of the next word
+    + using a feature representation allows a context that contains many more previous words; e.g., 10
+
++ Bengio's neural net for predicting the next word
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/m04-04.png" style="margin: 0.1em;" alt="Bengio's neural net for predicting the next word" title="Bengio's neural net for predicting the next word" width=450>
+    </a>
+  </div>
+
++ A problem w/ a very large vector of weights
+  + each unit in the last hidden layer w/ 100,000 outgoing weights
+    + unable to afford to have so many hidden units except for a huge number of training cases
+    + reduce the size of weight vector bt hard to get right probabilities
+  + Any solution?
 
 
 ### Lecture Video
