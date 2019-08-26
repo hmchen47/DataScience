@@ -323,6 +323,7 @@
       + too many possibilities to store
       + counts almost zero
     + fall back to diagram if trigram frequencies too low
+    + probability = 0 not mean never happened but not include in the training examples
   + drawback: not understand similarity btw words
   
 + Information that the trigram model fails to use
@@ -340,11 +341,29 @@
       <img src="img/m04-04.png" style="margin: 0.1em;" alt="Bengio's neural net for predicting the next word" title="Bengio's neural net for predicting the next word" width=450>
     </a>
   </div>
+  + similar to family tree problem but larger scale
+  + bottom layer:
+    + a set of neurons for index of word: turn on just one is on
+    + the weight of the neuron determined the pattern of activity in the next hidden layer
+    + the weight through the active neuron in the bottom layer will give the pattern of activity in the layer w/ distributed representation of the word (feature vector)
+    + i.e., table look-up a feature vector for each word
+    + when learning, modify the feature vector equals to modifying the weights from a single active input
+  + Typical 5 previous words used but shown 2 in the diagram
+  + Using distributed representations via hidden layers to predict via huge sofmax to get probabilities for all various words might coming next
+  + refinement: 
+    + skip layer connection to skip from input to output
+    + input words individually informative about what the word might be
+  + Slight worse than Trigram model
+  + Combining both improved
 
 + A problem w/ a very large vector of weights
+  + unnecessary duplicates: plural of a word and tenses of verbs
   + each unit in the last hidden layer w/ 100,000 outgoing weights
-    + unable to afford to have so many hidden units except for a huge number of training cases
-    + reduce the size of weight vector bt hard to get right probabilities
+    + unable to afford to have so many hidden units unless a huge number of training cases
+    + reduce the size of weight vector but hard to get right probabilities
+      + ideally a big probability and many small probabilities
+      + in practice, many words w/ small probabilities and relevant
+      + two different rare words judged from the context
   + Any solution?
 
 
