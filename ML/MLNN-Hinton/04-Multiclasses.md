@@ -375,12 +375,70 @@
 </video><br/>
 
 
-## ways to deal with large number of possible outputs
+## Dealing with large number of possible outputs
 
 ### Lecture Notes
 
++ A serial architecture
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+      <img src="img/m04-05.png" style="margin: 0.1em;" alt="A serial architecture for speech recognition" title="A serial architecture for speech recognition" width=450>
+    </a>
+  </div>
 
+  + Learning
+    + computing the logit score for each candidate word
+    + using all of the logits in a softmax to get word probabilities
+    + retaining cross-entropy error derivative by the difference btw the word probabilities and their target probabilities
+      + raise the score of the correct candidate
+      + lower the scores of its high-scoring rivals
+    + Use a small set of candidates
+      + time saving
+      + e.g., use the neural net to revise the probabilities of the words w/ trigram model
+
++ Learning to predict the next word
+  + predicting s path through a tree (Minih and Hinton, 2009)
+  + arranging all the words in a binary tree with words as the leaves
+  + using the previous context to generate a __prediction vector__, $v$
+    + compare $v$ with a learned vector, $u$, at each node of the tree
+    + apply the logistic function to the scalar product of $u$ and $v$ to predict the probabilities of taking the two branches of the tree
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/m04-06.png" style="margin: 0.1em;" alt="Tree structure for word searching with computed probabilities" title="Tree structure for word searching with computed probabilities" height=200>
+      <img src="img/m04-07.png" style="margin: 0.1em;" alt="Neural network architecture for speech recognition" title="Neural network architecture for speech recognition" height=200>
+      <img src="img/m04-08.png" style="margin: 0.1em;" alt="The path for word searching with computed probabilities" title="The path for word searching with computed probabilities" height=200>
+    </a>
+  </div>
+
++ A convenient decomposition
+  + maximizing the log probability of picking the target word
+    + equivalent to maximizing the sum of the log probabilities of taking all the branches on the path
+    + $\mathcal{O}(\log(N))$ instead of $\mathcal{O}(N)$: only consider the nodes on the correct path
+    + knowing the correct branch and the current probability of each node
+    + able to get derivatives for learning both the prediction vector $v$ and node vector $u$
+  + Still slow at test time
+
++ Improvement: Collobert and Weston, 2008
+  + a simpler way to learn feature vectors for words
+    + represent the learned feature vectors in a 2-D map
+    + display similar vectors close to each other
+    + T-SNE: a multi-scale method to display similar clusters near each other
+  + Checking strings of words
+    + learned feature vectors capturing  lots of subtle semantic distinctions
+    + no extra supervision required
+    + information of all words in the context
+    + Consider "She scrommed him with the frying pan."
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+      <img src="img/m04-09.png" style="margin: 0.1em;" alt="Neural network architecture for feature vectors learning (Collobert & Weston, 2008)" title="Neural network architecture for feature vectors learning (Collobert & Weston, 2008)" height=250>
+      <img src="img/m04-10.png" style="margin: 0.1em;" alt="Part of a 2-D map of the 2500 most common words (1)" title="Part of a 2-D map of the 2500 most common words (1)" height=250><br/>
+      <img src="img/m04-11.png" style="margin: 0.1em;" alt="Part of a 2-D map of the 2500 most common words (2)" title="Part of a 2-D map of the 2500 most common words (2)" height=250>
+      <img src="img/m04-12.png" style="margin: 0.1em;" alt="Part of a 2-D map of the 2500 most common words (3)" title="Part of a 2-D map of the 2500 most common words (3)" height=250>
+    </a>
+  </div>
 
 
 ### Lecture Video
