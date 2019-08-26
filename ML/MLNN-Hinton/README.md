@@ -32,7 +32,7 @@
 + [A brief diversion into cognitive science](04-Multiclasses.md#)
 + [Another diversion: The softmax output function](04-Multiclasses.md#)
 + [Neuro-probabilistic language models](04-Multiclasses.md#)
-+ [ways to deal with large number of possible outputs](04-Multiclasses.md#)
++ [Dealing with large number of possible outputs](04-Multiclasses.md#)
 
 
 ## 05. Convolution Neural Networks
