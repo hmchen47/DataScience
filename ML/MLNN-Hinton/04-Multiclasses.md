@@ -387,6 +387,11 @@
     </a>
   </div>
 
+  + a method to avoid using a huge number of different output units in softmax
+  + adding an extra input as candidate for the next word same as the context word
+  + output: score for how good the candidate in the context
+  + execute the net many times but most of them only one required
+
   + Learning
     + computing the logit score for each candidate word
     + using all of the logits in a softmax to get word probabilities
@@ -397,12 +402,14 @@
       + time saving
       + e.g., use the neural net to revise the probabilities of the words w/ trigram model
 
-+ Learning to predict the next word
-  + predicting s path through a tree (Minih and Hinton, 2009)
++ Structure words as a tree (Minih and Hinton, 2009)
+  + predicting a path through a tree
   + arranging all the words in a binary tree with words as the leaves
   + using the previous context to generate a __prediction vector__, $v$
-    + compare $v$ with a learned vector, $u$, at each node of the tree
+    + compare $v$ with a learned vector, $u$, at each node of the tree: a scalar product of $u$ and $v$
     + apply the logistic function to the scalar product of $u$ and $v$ to predict the probabilities of taking the two branches of the tree
+      + the calculated probability to take the right branch
+      + the (1 - probability) chance to take the left branch
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
@@ -412,24 +419,61 @@
     </a>
   </div>
 
-+ A convenient decomposition
-  + maximizing the log probability of picking the target word
-    + equivalent to maximizing the sum of the log probabilities of taking all the branches on the path
-    + $\mathcal{O}(\log(N))$ instead of $\mathcal{O}(N)$: only consider the nodes on the correct path
-    + knowing the correct branch and the current probability of each node
-    + able to get derivatives for learning both the prediction vector $v$ and node vector $u$
-  + Still slow at test time
+  + $\sigma$: the logistic function
+  + along the path to get the word intended
+  + using contexts to learn a prediction vector with the neural net
+  + prediction vector: adding feature vector of each word and feature vectors directly contribute evidence in favor of a prediction vector
+  + the prediction vector compared with the vectors learned for all the nodes on the path to the correct next word
+  + e.g., $U-i$, $u_j$, and $u_m$ are words need to consider during learning
+  + take the path with high sum of their log probabilities: take the high probability on each node
+
+  + A convenient decomposition
+    + maximizing the log probability of picking the target word
+      + equivalent to maximizing the sum of the log probabilities of taking all the branches on the path
+      + $\mathcal{O}(\log(N))$ instead of $\mathcal{O}(N)$: only consider the nodes on the correct path
+      + knowing the correct branch and the current probability of each node
+      + able to get derivatives for learning both the prediction vector $v$ and node vector $u$
+    + Still slow at test time though a few hundred times faster
+      + required to know the probabilities of many words
+      + unable to consider on path only
 
 + Improvement: Collobert and Weston, 2008
-  + a simpler way to learn feature vectors for words
-    + represent the learned feature vectors in a 2-D map
+  + a simpler way to learn feature vectors for words (left figure)
+    + learned feature vectors for words
+    + applied to many different natural language processing tasks well
+    + not try to predict the next word but good feature vectors for words
+    + use both the past and future contexts
+    + observe a window with 11 words, 5 in the past and 5 in the future
+    + the middle word either the correct word actually occurred in the text or a random word
+    + train the neural net to produce the output
+      + high probability: correct word
+      + low probability: random word
+    + map the individual words to feature vectors
+    + use the feature vectors in the neural net (possible many hidden layers) to predict whether the word correct or not
+  + Displaying the learned feature vectors in a 2-D map
+    + get idea of the quality of the learned feature vectors
     + display similar vectors close to each other
-    + T-SNE: a multi-scale method to display similar clusters near each other
+    + T-SNE: a multi-scale method to display similarity at different scale
+      + able to put very similar words close to each other
+      + able to put similar cluster close to each other
   + Checking strings of words
     + learned feature vectors capturing  lots of subtle semantic distinctions
     + no extra supervision required
     + information of all words in the context
     + Consider "She scrommed him with the frying pan."
+  + Examples
+    + Diagram 1: words about games
+      + similar kinds of words together
+      + e.g., matches, games, races, clubs, teams, etc.
+      + e.g., players, team, club, league, etc.
+      + e.g., cup, bowl, medal, etc.
+      + e.g., rugby, hockey, soccer, baseball, etc.
+    + Diagram 2: places in map
+      + Cambridge with a city very similar to it just underneath
+      + Toronto close to Detroit, Boston while Quebec closer to Berlin and Paris
+      + Iraq similar to Vietnam
+    + Diagram 3: adverbs
+      + which close to that, whom and what, how, whether, and why
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
