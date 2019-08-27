@@ -197,7 +197,7 @@
       + ternary relationships required as well as binary ones; e.g., A is between B and C
   + Distributed representations
     + open issue: how to implement relational knowledge in a neural net
-    + many neurons probably used for each concept
+    + many neurons probably used for one concept
     + each neuron probably involved in many concepts
     + many-to-many mapping btw concepts and neurons
 
