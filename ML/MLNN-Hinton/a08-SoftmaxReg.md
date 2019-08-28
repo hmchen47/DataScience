@@ -35,7 +35,7 @@ Date: 13 Jun 2014
 
 ## Logistic Regression as a Specific Case
 
-
++ Logistic regression as a special case of Softmax regression with 2 classes
 
 
 ## Cost Function
