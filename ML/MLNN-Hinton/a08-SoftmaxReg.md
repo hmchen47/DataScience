@@ -40,7 +40,13 @@ Date: 13 Jun 2014
 
 ## Cost Function
 
+The cost function with weight decay for Softmax Regression
 
+\[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
+
++ $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
++ $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
++ if the classifier outputs 1 for the training example, then the cos is zero.
 
 
 ## Gradients
