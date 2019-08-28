@@ -149,6 +149,8 @@
 + Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
 + Drew Rollins, [Delta Functions](a07-DeltaFunc.md), Aug, 27, 2007
 + Chris McCormick, [Deep Learning Tutorial - Softmax Regression](a08-SoftmaxReg.md)
++ [Softmax Classifier](a09-SoftmaxClass.md) in CS231n: Convolutional Neural Networks for Visual Recognition, Stanford CS Class
+
 
 ## Reference:
 
