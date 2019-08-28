@@ -160,6 +160,7 @@
   + [Optional Readings](http://www.cs.toronto.edu/~tijmen/csc321/texts.shtml)
   + [Computing](http://www.cs.toronto.edu/~tijmen/csc321/computing.shtml)
   + [Exam](http://www.cs.toronto.edu/~tijmen/csc321/tests.shtml)
+  + [Intro to Neural Networks and Machine Learning - Winter 2018](http://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/)
 + [2012 COURSERA COURSE LECTURES: Neural Networks for Machine Learning](http://www.cs.toronto.edu/~hinton/nntut.html)
   + [Lecture Videos](http://www.cs.toronto.edu/~hinton/coursera_lectures.html)
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
