@@ -22,9 +22,15 @@ Date: 13 Jun 2014
   + The output is a vector of the probability w/ actual output value of $y^{(k)} = i$ where $i = 1, 2, \dots, k$
 
 
-## Over-Parameterization
+## Over-Parameterization (<span style="color: red;">NOT GET THE POINT</span>)
 
++ Able to fix the vector of parameters for one of the $k$ classifiers to a vector of all zeros
 
++ Able to function by learning the parameters for the other $k-1$ classifiers
+
++ E.g., set $\theta_1$ to all zeros, the first component of the un-normalized output vector would always be equal to 1, no matter what input is.
+
++ The normalization allows this component to take on different values depending on the un-normalized outputs of the other 9 classifiers.
 
 
 ## Logistic Regression as a Specific Case
