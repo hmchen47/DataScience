@@ -51,8 +51,24 @@ The cost function with weight decay for Softmax Regression
 
 ## Gradients
 
+The gradient descent function
 
+\[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
 
++ the function computes the gradients for a single class $j$
 
++ $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
+
++ multiplied by a vector $x^{}(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
+
+Vectorization and dimensional analysis
+
++ $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
+
++ $grad$: gradient matrix; dimension: [numClass x input Size]
+
++ $data$: data matrix; dimension: [inputSize x numExamples]
+
+\[grad = M * data\]
 
 
