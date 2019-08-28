@@ -148,6 +148,7 @@
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
 + Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
 + Drew Rollins, [Delta Functions](a07-DeltaFunc.md), Aug, 27, 2007
++ Chris McCormick, [Deep Learning Tutorial - Softmax Regression](a08-SoftmaxReg.md)
 
 ## Reference:
 
