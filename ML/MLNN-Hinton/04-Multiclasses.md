@@ -225,11 +225,12 @@
       + depriving the network of mutually exclusive knowledge
   + appropriate cost function for mutually exclusive function
     + force the outputs to represent a probability distribution across discrete alternatives
-    + softmax is one of such functions
+    + a function to transform real values into a probability distribution
+    + softmax: one of such functions
 
 + Softmax function
   + a.k.a. softargmax or normalized exponential function
-  + a function that takes as input a vector of $K$ real numbers, and normalizes it into a probability distribution consisting of $K$ probabilities proportional to the exponential of the input numbers
+  + a function that takes as input a vector of $K$ real numbers and normalizes it into a probability distribution consisting of $K$ probabilities proportional to the exponential of the input numbers
   + the output units in a softmax group use a non-local non-linearity
   + a soft continuous version of tht maximum function
   + $z_i$ depends on the $z$'s accumulated by their arrivals as well
@@ -246,15 +247,15 @@
 
   + __Definition__. A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by
 
-    $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_i}}$$
+    $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}$$
 
     so that the outputs sum to 1. The cost function is given by
 
-    $$C = - \sum_j t_j \log(y_j)$$
+    $$C = - \sum_j t_j \ln(y_j)$$
   
   + __Proposition__. By the Quotient Rule, the derivatives are
 
-    $$\frac{\partial y_i}{\partial z_i} = y_i(1 - y_i) = - y_i y_j$$
+    $$\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j$$
 
     or more fancy-like using the Kronecker Delta:
 
@@ -264,35 +265,37 @@
 
     $$\frac{\partial C}{\partial z_i} = y_i - t_i.$$
 
-  + _Proof_. Apply the Chain rule
+    _Proof_. Apply the Chain rule
 
-    $$\frac{\partial C}{\partial z_i} = - \sum_j t_j \frac{\partial \log y_j}{\partial z_i} = - \sum_j t_j \frac{\partial \log y_j}{\partial y_j} \frac{\partial y_j}{\partial z_i}$$
+    $$\frac{\partial C}{\partial z_i} = - \sum_j t_j \frac{\partial \ln(y_j)}{\partial z_i} = - \sum_j t_j \frac{\partial \ln(y_j)}{\partial y_j} \frac{\partial y_j}{\partial z_i}$$
 
     Using the formula for $\partial y_j / \partial z_i$, we get
 
-    $$\frac{\partial C}{\partial z_i} = -\sum_j \frac{t_j}{y_j} y_j (\delta_{ij} - y_i) = -\sum_j t_j(\delta_{ij} - y_i)$$
+    \[\frac{\partial C}{\partial z_i} = -\sum_j \frac{t_j}{y_j} y_j (\delta_{ij} - y_i) = -\sum_j t_j(\delta_{ij} - y_i)\]
 
     Recall that this is a multiclass classification problem, and so exactly one of the $t_j$'s is 1 and the rest are zro. Therefore,
 
-    $$\frac{\partial C}{\partial z_i} = -t_i (1 - y_i) + \sum_{j \neq i} t_j y_i = -t_i + y_i \sum_j t_j = y_i - t_i$$
+    \[\frac{\partial C}{\partial z_i} = -t_i (1 - y_i) + \sum_{j \neq i} t_j y_i = -t_i + y_i \sum_j t_j = y_i - t_i \tag*{$\square$}\]
 
-    $$\tag*{$\blacksquare$}$$
 
-+ Cross-entropy: the right cost function to use with softmax
++ __Cross-entropy__: the suggested cost function to use with softmax
   + the right cost function: the negative log probability of the right answer
 
-    $$C = - \sum_j \underbrace{t_j}_{\text{target value}} \log y_j$$
+    $$C = - \sum_j t_j \ln(y_j) = -\ln(y_i)$$
 
-    + if $t_i = 1$ and $t_j = 0, \text{ for } j \neq i$
+    + $t_j$: target values
+    + $t_j = \begin{cases} 1 & j \in I \subset G \\ 0 & j \in G-I \end{cases}$
+    + $y_i$: the probability of the input belonging to class $I$
     + simply put 0 on the wrong answers and 1 for the right answer ($t_i$)
     + Cross-entropy cost function
 
   + __Property__. $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
 
-    $$\frac{\partial C}{\partial z_i} = \sum_j \frac{\partial C}{\partial y_j} \frac{y_j}{\partial z_i} = y_i - t_i$$
+    __Proof__. $$\frac{\partial C}{\partial z_i} = \sum_j \frac{\partial C}{\partial y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i$$
 
     + e.g., 0.000001 much better than 0.000000001
     + the steepness of $d C / d y$ exactly balances the flatness of $dy / dz$
+  + better than the gradient descent w/ squared error
 
 
 ### Lecture Video
