@@ -48,7 +48,7 @@
 
 + The (normalized) probability assigned to the correct label $y_i$ given the image $x_i$ and parameterized by $W$
 
-  \[P(y_i | x_i; W) = \frac{e^{f_i}{\sum_j e^{f_j}\]
+  \[P(y_i | x_i; W) = \frac{e^{f_i}}{\sum_j e^{f_j}}\]
 
 + The softmax classifier interprets the scores inside the output vector $f$ as the unnormalized log probabilities.
 
@@ -61,7 +61,24 @@
 
 ## Practical Issues: Numeric stability
 
++ The intermediate terms $e^{f_{y_i}}$ and $\sum_j e^{f_j}$ might very large due to exponential when coding.
 
++ Solution: normalization
+
+  \[\frac{e^{f_{y_i}}}{\sum_j e^{f_j}} = \frac{C e^{f_{y_i}}}{C \sum_j e^{f_j}} = \frac{e^{f_{y_i}+\log C}}{\sum_j e^{f_j+\log C}}\]
+
+  + not change any of the result
+  + improve the numerical stability of the computation
+  + Common choice $C$: $\log C = -\max_j f_j$
+
+  ```python
+  f = np.array([123, 456, 789]) # example with 3 classes and each having large scores
+  p = np.exp(f) / np.sum(np.exp(f)) # Bad: Numeric problem, potential blowup
+
+  # instead: first shift the values of f so that the highest number is 0:
+  f -= np.max(f) # f becomes [-666, -333, 0]
+  p = np.exp(f) / np.sum(np.exp(f)) # safe to do, gives the correct answer
+  ```
 
 
 ## Possible confusion naming conventions
