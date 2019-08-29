@@ -83,7 +83,12 @@
 
 ## Possible confusion naming conventions
 
++ SVM classifier
+  + using the hinge loss, or max-margin loss
 
++ Softmax classifier
+  + using the cross-entropy loss
+  + using softmax function: used to squash the raw class scores into normalized positive values that sum to one
 
 
 
