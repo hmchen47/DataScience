@@ -24,7 +24,24 @@
 
 ## Information Theory View
 
++ The cross-entropy btw a "true" distribution $p$ and an estimated distribution $q$
 
+  \[H(p, q) = - \sum_x p(x) \log q(x)\]
+
+  + $p = [0, \dots 1, \dots]$ with 1 at the $y_i$-th position
+  + $q = e^{f_{y_i}} / \sum_j e^{f_j}$
+
++ Minimizing the cross-entropy btw the estimated class probability ($q$) and the "true" distribution
+
++ Cross-entropy can be written as entropy and the Kullback-Leibler divergence
+
+  \[H(p, q) = H(p) + D_{KL}(p || q)\]
+
+  + the entropy of the delta function $H(p) = 0$ 
+
++ Minimizing the cross-entropy equivalent to minimizing the KL divergence between two distributions (a measure of distance)
+
++ Objective: the predicted distribution to have all of its mass on the correct answer
 
 
 ## Probabilistic Interpretation
