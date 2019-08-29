@@ -59,7 +59,7 @@ The gradient descent function
 
 + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
 
-+ multiplied by a vector $x^{}(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
++ multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
 
 Vectorization and dimensional analysis
 
