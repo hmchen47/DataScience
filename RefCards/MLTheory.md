@@ -40,7 +40,7 @@
 
 + [Model selection with number of features](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
 
-  $$\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{cv}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{cv}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{cv}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{cv}(\theta^{(10)}) \end{array}$$
+  \[\begin{array}{crclcccccc} d = 1 & h_\theta(x) &=& \theta_0 + \theta_1 x & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(1)} & \rightarrow & J_{cv}(\theta^{(1)}) \\ d = 2 & h_\theta(x) &=& \theta_0 + \theta_1 x + \theta_2 x^2 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(2)} & \rightarrow & J_{cv}(\theta^{(2)}) \\ d = 3 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_3 x^3 & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(3)} & \rightarrow & J_{cv}(\theta^{(3)}) \\ & & \vdots & & & \vdots & & \vdots \\ d = 10 & h_\theta(x) &=& \theta_0 + \theta_1 x + \ldots + \theta_{10} x^{10} & \quad\rightarrow\quad  \min_{\theta} J(\theta) & \rightarrow & \theta^{(10)} & \rightarrow & J_{cv}(\theta^{(10)}) \end{array}\]
 
   + Pick $\theta_0 + \theta_1 x + \ldots + \theta_4 x^4$
   + Estimate generalization error for test set $J_{test}(\theta^{(4)})$
@@ -63,15 +63,15 @@
 + [Multivariate Linear Regression Model](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
   + Hypothesis function
 
-    $$h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot x$$
+    \[h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \ldots + \theta_n x_n \Longrightarrow \theta^T \cdot x\]
 
   + Parameters: 
   
-    $$\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \theta = \underbrace{\begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}}_{(n+1)-\text{dim vector}}$$
+    \[\quad \theta_0, \theta_1, \ldots, \theta_n \Longrightarrow \theta = \underbrace{\begin{bmatrix} \theta_0 \\ \theta_1 \\ \ldots \\ \theta_n \end{bmatrix}}_{(n+1)-\text{dim vector}}\]
 
   + Cost function:
 
-    $$J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
+    \[J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2\]
 
 
 
@@ -81,32 +81,32 @@
 
 	An average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
 
-	$$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left ( \hat{y}_{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$$
+	\[J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left ( \hat{y}_{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2\]
 
 + [Multivariate Cost Function](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
 
-  $$J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2$$
+  \[J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2\]
 
 + [Convergence](../ML/ML-Stanford/06-Logistic.md#logistic-regression-model)
 
-  $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+  \[J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2\]
 
   <br/>
 
-  $$\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (h_\theta(x) - y)^2  \quad \Rightarrow \quad \text{Convex}$$
+  \[\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (h_\theta(x) - y)^2  \quad \Rightarrow \quad \text{Convex}\]
 
 
 + [Cost Function with regularization](../ML/ML-Stanford/07-Overfit.md#regularized-linear-regression)
 
-  $$J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right] \quad \Longrightarrow \quad \min_\theta J(\theta)$$
+  \[J(\theta) = \dfrac{1}{2m} \left[ \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2 + \lambda \sum_{j=1}^n \theta_j^2 \right] \quad \Longrightarrow \quad \min_\theta J(\theta)\]
 
 + [Regularization linear regression](../ML/ML-Stanford/07-Overfit.md#the-problem-of-overfitting)
 
-  $$\min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2$$
+  \[\min_\theta\ \dfrac{1}{2m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2\]
 
 + [Cost function of regularized linear regression](../ML/ML-Stanford/ex05.md#1-2-regularized-linear-regression-cost-function)
 
-  $$J(\theta) = \dfrac{1}{2m} \left( \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \right) + \dfrac{\lambda}{2m} \left( \sum_{j=1}^n \theta_j^2 \right)$$
+  \[J(\theta) = \dfrac{1}{2m} \left( \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \right) + \dfrac{\lambda}{2m} \left( \sum_{j=1}^n \theta_j^2 \right)\]
 
   + $\lambda\;$: regularization parameter to control the degree of regularization [prevent from overfitting]
   + put a penalty on the overall cost $J$
@@ -127,7 +127,7 @@
 
    Repeat until convergence {
 
-	<span style="padding-left: 2em;"/> $$\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+	<span style="padding-left: 2em;"/> \[\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\]
 
 	<span style="padding-left: calc(50vw - 10em);">(simultaneously update</span> $i = 0, 1$)<br/>
 	}
@@ -149,31 +149,31 @@
 
   Repeat {
 
-    $$\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+    \[\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta)\[
     <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update </span> $\theta_j \;$ for $j=0, 1, \ldots, n$)<br/>
   }
 
   Extended version: with $x_0^{(i)} = 1$
 
-    $$\begin{array}{ccc}
+    \[\begin{array}{ccc}
       \theta_0 &:=& \theta_0 -\alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x_0^{(i)} \\
       \theta_1 &:=& \theta_1 -\alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x_1^{(i)} \\
       \theta_2 &:=& \theta_2 -\alpha \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)}) \cdot x_2^{(i)} \\
       & \cdots &
-    \end{array}$$
+    \end{array}\]
 
 + [Gradient Descent with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-linear-regression)
 
   Repeat {
   
-    $$\begin{array}{rcl} \theta_0 &:=& \theta_0 − \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) − y^{(i)}) x^{(i)}_0 \\\\  \theta_j &:=& \theta_j − \alpha \left[(\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})−y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j \right] \quad\quad j \in \{1,2\ldots n\} \end{array}$$
+    \[\begin{array}{rcl} \theta_0 &:=& \theta_0 − \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) − y^{(i)}) x^{(i)}_0 \\\\  \theta_j &:=& \theta_j − \alpha \left[(\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)})−y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j \right] \quad\quad j \in \{1,2\ldots n\} \end{array}\]
   }
 
-  $$\theta_j := \underbrace{\theta_j (1 - \alpha \dfrac{\lambda}{m})}_{ \approx \theta_j, \text{ eg. }\theta_j \times 0.99} - \underbrace{\alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}}_{\text{same as } J(\theta)}$$
+  \[\theta_j := \underbrace{\theta_j (1 - \alpha \dfrac{\lambda}{m})}_{ \approx \theta_j, \text{ eg. }\theta_j \times 0.99} - \underbrace{\alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}}_{\text{same as } J(\theta)}\]
 
 + [The partial derivatives of regularized linear regression's cost for $\theta_j$](../ML/ML-Stanford/ex05.md#1-3-regularized-linear-regression-gradient)
 
-  $$\dfrac{\partial J(\theta)}{\partial \theta_0}  = \begin{cases} \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} & \text{for } j = 0 \\\\ \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j & \text{for } j \geq 1 \end{cases}$$
+  \[\dfrac{\partial J(\theta)}{\partial \theta_0}  = \begin{cases} \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} & \text{for } j = 0 \\\\ \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j & \text{for } j \geq 1 \end{cases}\]
 
 
 #### Vectorization: Linear Regression
@@ -181,15 +181,15 @@
 
 + The Gradient Descent rule can be expressed as:
 
-  $$\theta := \theta - \alpha \nabla J(\theta)$$
+  \[\theta := \theta - \alpha \nabla J(\theta)\]
 
   Where $\nabla J(\theta)$ is a column vector of the form:
 
-  $$\nabla J(\theta) = \begin{bmatrix} \partial J(\theta) / \partial \theta_0 \\ \partial J(\theta) / \partial \theta_1 \\ \vdots \\  \partial J(\theta) / \partial \theta_n \end{bmatrix}$$
+  \[\nabla J(\theta) = \begin{bmatrix} \partial J(\theta) / \partial \theta_0 \\ \partial J(\theta) / \partial \theta_1 \\ \vdots \\  \partial J(\theta) / \partial \theta_n \end{bmatrix}\]
 
   The $j$-th component of the gradient is the summation of the product of two terms:
 
-  $$\dfrac{\partial J(\theta)}{\partial \theta_j}  = \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} =  \dfrac{1}{m} \displaystyle \sum_{i=1}^m x_j^{(i)} \cdot (h_\theta(x^{(i)}) - y^{(i)})$$
+  \[\dfrac{\partial J(\theta)}{\partial \theta_j}  = \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} =  \dfrac{1}{m} \displaystyle \sum_{i=1}^m x_j^{(i)} \cdot (h_\theta(x^{(i)}) - y^{(i)})\]
 
   Sometimes, the summation of the product of two terms can be expressed as the product of two vectors.
 
@@ -197,64 +197,64 @@
 
   The other term $\left(h_\theta(x^{(i)}) - y^{(i)} \right)$ is the vector of the deviations between the predictions $h_\theta(x^{(i)})$ and the true values $y^{(i)}$. Re-writing $\frac{\partial J(\theta)}{\partial \theta_j}$, we have:
 
-  $$\begin{array}{ccc} \dfrac{\partial J(\theta)}{\partial \theta_j} & = & \dfrac{1}{m} \vec{x_j}^T (x\theta - \vec{y}) \\\\ \nabla J(\theta) &=& \dfrac{1}{m} X^T (x\theta - \vec{y}) \end{array}$$
+  \[\begin{array}{ccc} \dfrac{\partial J(\theta)}{\partial \theta_j} & = & \dfrac{1}{m} \vec{x_j}^T (x\theta - \vec{y}) \\\\ \nabla J(\theta) &=& \dfrac{1}{m} X^T (x\theta - \vec{y}) \end{array}\]
 
   Finally, the matrix notation (vectorized) of the Gradient Descent rule is:
 
-  $$\theta := \theta - \dfrac{\alpha}{m} x^T (x\theta - \vec{y})$$
+  \[\theta := \theta - \dfrac{\alpha}{m} x^T (x\theta - \vec{y})\]
 
 + [Batch gradient descent for each iteration](../ML/ML-Stanford/ex01.md#update-equations-derivation-)
 
-  $$\theta_j := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+  \[\theta_j := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}\]
   <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update </span>
   $\; \theta_j, \;\; \forall j$)<br/>
 
   + Notations:
 
-    $$x = \underbrace{\begin{bmatrix} x_0^{(1)} & x_1^{(1)} & \cdots & x_n^{(1)} \\
+    \[x = \underbrace{\begin{bmatrix} x_0^{(1)} & x_1^{(1)} & \cdots & x_n^{(1)} \\
     x_0^{(2)} & x_1^{(2)} & \cdots & x_n^{(2)} \\
     \vdots & \vdots & \ddots & \vdots \\
     x_0^{(m)} & x_1^{(m)} & \cdots & x_n^{(m)}
     \end{bmatrix}}_{(m \times n) \text{ matrix }} = \begin{bmatrix} x^{(1)} \\ x^{(2)} \\ \vdots \\ x^{(m)} \end{bmatrix}\quad\quad\quad
     \vec{y} = \underbrace{\begin{bmatrix} y^{(0)} \\ y^{(2)} \\ \vdots \\ y^{(m)}  \end{bmatrix}}_{(m \times 1) \text{ vector}} \quad\quad\quad
     \vec{\theta} = \underbrace{\begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_m \end{bmatrix}}_{(m \times 1) \text{ vector}}
-    $$
+    \]
     <br/>
 
   + Vectorization of Hypothesis Function
 
-    $$\begin{array}{rcl}
+    \[\begin{array}{rcl}
     h_\theta (x^{(i)}) & = & \theta_0 x_0^{(i)} + \theta_1 x_1^{(i)} + \cdots + \theta_n x_n^{(i)} \\\\
     h_\theta (x) & = & x \vec{\theta}
-    \end{array}$$
+    \end{array}\]
 
   + Vectorization for Cost function
 
-    $$\begin{array}{rcl} J(\vec{\theta}) & = & \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\\\ & = & \dfrac{1}{2m} (x\vec{\theta} - \vec{y})^T (x\vec{\theta} - \vec{y}) \end{array}$$
+    \[\begin{array}{rcl} J(\vec{\theta}) & = & \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\\\ & = & \dfrac{1}{2m} (x\vec{\theta} - \vec{y})^T (x\vec{\theta} - \vec{y}) \end{array}\]
 
   + Vectorization for Batch Gradient Descent
 
-    $$\vec{\theta} := \vec{\theta} - \alpha \dfrac{1}{m} \begin{bmatrix} \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_0^{(i)} \\\\ \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m (h_\theta (x^{(m)} - y^{(m)}) x_1^{(m)} \end{bmatrix}  = \vec{\theta} - \dfrac{\alpha}{m} \left( \underbrace{\begin{bmatrix} \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_0^{(i)} \\\\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_m^{(i)}  \end{bmatrix}}_{(A)} - \underbrace{\begin{bmatrix} \sum_{i=1}^m y^{(i)}) \cdot x_0^{(i)} \\\\ \sum_{i=1}^m y^{(i)}) \cdot x_1^{(i)} \\ vdots \\ \sum_{i=1}^m y^{(i)}) \cdot x_m^{(i)}  \end{bmatrix}}_{(B)} \right)$$
+    \[\vec{\theta} := \vec{\theta} - \alpha \dfrac{1}{m} \begin{bmatrix} \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_0^{(i)} \\\\ \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m (h_\theta (x^{(m)} - y^{(m)}) x_1^{(m)} \end{bmatrix}  = \vec{\theta} - \dfrac{\alpha}{m} \left( \underbrace{\begin{bmatrix} \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_0^{(i)} \\\\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_m^{(i)}  \end{bmatrix}}_{(A)} - \underbrace{\begin{bmatrix} \sum_{i=1}^m y^{(i)}) \cdot x_0^{(i)} \\\\ \sum_{i=1}^m y^{(i)}) \cdot x_1^{(i)} \\ vdots \\ \sum_{i=1}^m y^{(i)}) \cdot x_m^{(i)}  \end{bmatrix}}_{(B)} \right)\]
 
     Part (A) with $j$
 
-    $$\displaystyle \sum_{i=1}^m h_\theta(x^{(i)}) \cdot x_j^{(i)} =  h_\theta(x^{(1)}) x_j^{(1)} + h_\theta(x^{(2)}) x_j^{(2)} + \cdots + h_\theta(x^{(n)}) x_j^{(n)} = \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} x\vec{\theta}$$
+    \[\displaystyle \sum_{i=1}^m h_\theta(x^{(i)}) \cdot x_j^{(i)} =  h_\theta(x^{(1)}) x_j^{(1)} + h_\theta(x^{(2)}) x_j^{(2)} + \cdots + h_\theta(x^{(n)}) x_j^{(n)} = \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} x\vec{\theta}\]
 
     Part (A) $\;\forall j$
 
-    $$\begin{bmatrix} \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_0^{(i)} \\\\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_m^{(i)}  \end{bmatrix} = \begin{bmatrix} x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\ x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\ \vdots & \vdots & \ddots & \vdots \\ x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} h_\theta(x) = x^Tx\vec{\theta}$$
+    \[\begin{bmatrix} \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_0^{(i)} \\\\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m h_\theta (x^{(i)} \cdot x_m^{(i)}  \end{bmatrix} = \begin{bmatrix} x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\ x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\ \vdots & \vdots & \ddots & \vdots \\ x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} h_\theta(x) = x^Tx\vec{\theta}\]
 
     Part (B) for $j$
 
-    $$\sum_{i=1}^m y^{(i)} x_j^{(i)} = x_j^{(1)} y^{(1)} + x_j^{(2)} y^{(2)} + \cdots + x_j^{(m)} y^{(m)} = \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \vec{y}$$
+    \[\sum_{i=1}^m y^{(i)} x_j^{(i)} = x_j^{(1)} y^{(1)} + x_j^{(2)} y^{(2)} + \cdots + x_j^{(m)} y^{(m)} = \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \vec{y}\]
 
     Part (B) $\;\forall j$
 
-    $$\begin{bmatrix} \sum_{i=1}^m y^{(i)}) \cdot x_0^{(i)} \\\\ \sum_{i=1}^m y^{(i)}) \cdot x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m y^{(i)}) \cdot x_m^{(i)}  \end{bmatrix} = \begin{bmatrix} x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\ x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\ \vdots & \vdots & \ddots & \vdots \\ x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \vec{y} = x^T \vec{y}$$
+    \[\begin{bmatrix} \sum_{i=1}^m y^{(i)}) \cdot x_0^{(i)} \\\\ \sum_{i=1}^m y^{(i)}) \cdot x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m y^{(i)}) \cdot x_m^{(i)}  \end{bmatrix} = \begin{bmatrix} x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\ x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\ \vdots & \vdots & \ddots & \vdots \\ x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \vec{y} = x^T \vec{y}\]
 
     Therefore, the batch gradient descent iteration can be obtained with
 
-    $$\vec{\theta} := \vec{\theta} - \alpha \dfrac{1}{m} \begin{bmatrix} \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_0^{(i)} \\\\ \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m (h_\theta (x^{(m)} - y^{(m)}) x_1^{(m)} \end{bmatrix} = \vec{\theta} - \dfrac{\alpha}{m} (x^Tx\vec{\theta} - x^T\vec{Y}) = \vec{\theta} - \dfrac{\alpha}{m} x^T (x\vec{\theta} - \vec{y})$$
+    \[\vec{\theta} := \vec{\theta} - \alpha \dfrac{1}{m} \begin{bmatrix} \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_0^{(i)} \\\\ \sum_{i=1}^m (h_\theta (x^{(i)} - y^{(i)}) x_1^{(i)} \\ \vdots \\ \sum_{i=1}^m (h_\theta (x^{(m)} - y^{(m)}) x_1^{(m)} \end{bmatrix} = \vec{\theta} - \dfrac{\alpha}{m} (x^Tx\vec{\theta} - x^T\vec{Y}) = \vec{\theta} - \dfrac{\alpha}{m} x^T (x\vec{\theta} - \vec{y})\]
 
 
 #### Polynomial Regression
@@ -267,14 +267,14 @@
     </a></div>
   </div>
 
-  $$\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots$$
+  \[\theta_0 + \theta_1 x + \theta_2 x^2 \quad \text{or} \quad \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 \quad \text {or} \quad \ldots\]
 
   + If cubic model fits,
 
-      $$\begin{array}{rcl}
+      \[\begin{array}{rcl}
           h_\theta(x) & = & \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \\\\
           & = & \theta_0 + \theta(size) + \theta_2 (size)^2 + \theta_3 (size)^3
-      \end{array}$$
+      \end{array}\]
 
       where $x_1 = (size), x_2 = (size)^2, x_3 = (size)^3$
 
@@ -286,10 +286,10 @@
     </a></div>
   </div>
 
-  $$\begin{array}{rcl}
+  \[\begin{array}{rcl}
     h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 (size)^3 \\\\
     h_\theta(x) & = & \theta_0 + \theta_1 (size) + \theta_2 \sqrt{(size)}
-  \end{array}$$
+  \end{array}\]
 
 
 #### Normal Equation
@@ -298,7 +298,7 @@
 
 + [Generalized](../ML/ML-Stanford/04-LRegMVar.md#normal-equation): for $\; \theta \in \mathbb{R}^{n+1}$
 
-  $$\begin{array}{c} J(\theta_0, \theta_1, \ldots, \theta_m) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ \theta = \begin{bmatrix} \theta_1 \\ \theta_2 \\ \vdots \\ \theta_m \end{bmatrix} = (X^TX)^{-1} X^T y \\ \dfrac{\partial}{\partial \theta_j} J(\theta) = \cdots = 0, \quad \forall j \Longrightarrow \text{solve for } \theta_0, \theta_1, \ldots, \theta_n \end{array}$$
+  \[\begin{array}{c} J(\theta_0, \theta_1, \ldots, \theta_m) = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 \\ \theta = \begin{bmatrix} \theta_1 \\ \theta_2 \\ \vdots \\ \theta_m \end{bmatrix} = (X^TX)^{-1} X^T y \\ \dfrac{\partial}{\partial \theta_j} J(\theta) = \cdots = 0, \quad \forall j \Longrightarrow \text{solve for } \theta_0, \theta_1, \ldots, \theta_n \end{array}\]
 
 + [Comparison of gradient descent and the normal equation:](../ML/ML-Stanford/04-LRegMVar.md#normal-equation)
   + Gradient descent
@@ -318,23 +318,23 @@
 
 + [Vectorized Normal Equation](../ML/ML-Stanford/07-Overfit.md#regularized-linear-regression)
 
-  $$X = \underbrace{\begin{bmatrix}(x^{(1)})^T \\ \vdots \\ (x^{(m)})^T \end{bmatrix}}_{m \times (n+1) \text{ matrix}} \qquad\qquad y = \underbrace{\begin{bmatrix} y^{(1)} \\ \vdots \\ y^{(m)} \end{bmatrix}}_{\in \mathbb{R}^m}$$
+  \[X = \underbrace{\begin{bmatrix}(x^{(1)})^T \\ \vdots \\ (x^{(m)})^T \end{bmatrix}}_{m \times (n+1) \text{ matrix}} \qquad\qquad y = \underbrace{\begin{bmatrix} y^{(1)} \\ \vdots \\ y^{(m)} \end{bmatrix}}_{\in \mathbb{R}^m}\]
 
   To $\min_\theta J(\theta) \qquad \Longrightarrow \qquad \text{(set) }\dfrac{\partial}{\partial \theta_j} J(\theta) = 0$,
 
-  $$\theta = \left(X^TX + \lambda \underbrace{\begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}}_{(n+1) \times (n+1) \text{ matrix}} \right)^{-1} X^Ty$$
+  \[\theta = \left(X^TX + \lambda \underbrace{\begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}}_{(n+1) \times (n+1) \text{ matrix}} \right)^{-1} X^Ty\]
 
 + [Non-invertibility for Vectorized Normal Equation](../ML/ML-Stanford/07-Overfit.md#regularized-linear-regression)
 
   Suppose $m \leq n$, $m$ as the number of examples and $n$ as the number of features
 
-  $$\theta = (X^TX)^{-1}X^T y$$
+  \[\theta = (X^TX)^{-1}X^T y\]
 
   where $((X^TX)^{-1}$ is non-invertible / singular.
 
   If $\lambda > 0$, the regularization will solve the non-invertible issue, 
 
-  $$\theta = \left(\underbrace{X^TX + \lambda \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}}_{invertible} \right)^{-1} X^Ty$$
+  \[\theta = \left(\underbrace{X^TX + \lambda \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}}_{invertible} \right)^{-1} X^Ty\]
 
 
 
@@ -351,7 +351,7 @@
 + [Logistic Regression Model](../ML/ML-Stanford/06-Logistic.md#hypothesis-representation)
   + Want: $\quad 0 \leq h_\theta (x) \leq 1$
 
-      $$h_\theta(x) = \theta^T x$$
+      \[h_\theta(x) = \theta^T x\]
   + Sigmoid/Logistic function
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <div style="background-color: white;"><a href="https://en.wikipedia.org/wiki/Logistic_function">
@@ -359,29 +359,29 @@
       </a></div>
     </div><br/>
 
-    $$h_\theta(x) = \dfrac{1}{1+e^{-x}} \quad \Longrightarrow \quad g(z) = h_\theta(x) = g(\theta^Tx) = \dfrac{1}{1 + e^{-\theta^T x}}$$
+    \[h_\theta(x) = \dfrac{1}{1+e^{-x}} \quad \Longrightarrow \quad g(z) = h_\theta(x) = g(\theta^Tx) = \dfrac{1}{1 + e^{-\theta^T x}}\]
 
   + Parameter: $\theta \;\; \longleftarrow \;\;$ find the value to fit parameter
 
 + [Regularization logistic regression](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
 
-  $$h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^2x_2 + \theta_4 x_1^2 x_2^2 + \theta_5 x_1^2 x_2^3 + \ldots)$$
+  \[h_\theta(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^2x_2 + \theta_4 x_1^2 x_2^2 + \theta_5 x_1^2 x_2^3 + \ldots)\]
 
 
 + [Decision Boundary](../ML/ML-Stanford/06-Logistic.md#decision-boundary)
 
-  $$h_\theta(x) = g(\theta^T x) = P(y=1 | x; \theta)$$
+  \[h_\theta(x) = g(\theta^T x) = P(y=1 | x; \theta)\]
 
   + Logistic Function
 
-    $$\begin{array}{rcl} g(z) =  \dfrac{1}{1 + e^{-z}} & & \\\\ z=0,\quad e^0=1 & \Rightarrow & g(z)=1/2 \\ z \rightarrow  \infty, \quad e^{−\infty} \rightarrow  0 & \Rightarrow & g(z)=1 \\ z \rightarrow −\infty, \quad e^{\infty} \rightarrow \infty & \Rightarrow & g(z)=0 \end{array}$$
+    \[\begin{array}{rcl} g(z) =  \dfrac{1}{1 + e^{-z}} & & \\\\ z=0,\quad e^0=1 & \Rightarrow & g(z)=1/2 \\ z \rightarrow  \infty, \quad e^{−\infty} \rightarrow  0 & \Rightarrow & g(z)=1 \\ z \rightarrow −\infty, \quad e^{\infty} \rightarrow \infty & \Rightarrow & g(z)=0 \end{array}\]
 
   + Suppose predict "$y = 1$" if $\;\; h_\theta(x) \geq 0.5$:
 
-    $$g(z) \geq 0.5 \text{ when } z \geq 0 \quad \Longrightarrow \quad h_\theta(x) = g(\theta^Tx) \geq 0.5 \;\;\text{  whenever  } \theta^Tx \geq 0$$
+    \[g(z) \geq 0.5 \text{ when } z \geq 0 \quad \Longrightarrow \quad h_\theta(x) = g(\theta^Tx) \geq 0.5 \;\;\text{  whenever  } \theta^Tx \geq 0\]
   + Suppose predict "$y = 0$" if $\;\; h_\theta(x) < 0.5$:
 
-    $$g(z) < 0.5 \text{ when } z < 0 \quad \Longrightarrow \quad h_\theta(x) = g(\theta^Tx) < 0.5 \;\;\text{  whenever  } \theta^Tx < 0$$
+    \[g(z) < 0.5 \text{ when } z < 0 \quad \Longrightarrow \quad h_\theta(x) = g(\theta^Tx) < 0.5 \;\;\text{  whenever  } \theta^Tx < 0\]
 
 
 #### Cost Function: Logistic Regression
@@ -390,15 +390,15 @@
 
   + cost function, __[Cross-Entropy](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#loss-cross-entropy)__, also known as __Log Loss__,
 
-    $$\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \text{Cost}(h_\theta(x^{(i)}), y^{(i)}) \\\\\\ \text{Cost}(h_\theta(x), y) & = & \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \;\; \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \;\; \text{if } y = 0 \end{array} \right. \\\\ & & \Downarrow \\\\ \text{Cost}(h_\theta(x), y) & = & -y \cdot \log(h_\theta(x)) - (1-y) \cdot \log(1 - h_\theta(x)) \quad y \in \{0, 1\} \\\\ \text{If } y=1 & : & \text{Cost}(h_\theta(x), y) = -y \cdot \log(h_\theta(x)) \\ \text{If } y=0 & : & \text{Cost}(h_\theta(x), y) = (1-y) \cdot \log(1 - h_\theta(x)) \end{array}$$
+    \[\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \text{Cost}(h_\theta(x^{(i)}), y^{(i)}) \\\\\\ \text{Cost}(h_\theta(x), y) & = & \left\{ \begin{array}{rl} -\log(h_\theta(x)) & \;\; \text{if } y = 1 \\ -\log(1 - h_\theta(x)) & \;\; \text{if } y = 0 \end{array} \right. \\\\ & & \Downarrow \\\\ \text{Cost}(h_\theta(x), y) & = & -y \cdot \log(h_\theta(x)) - (1-y) \cdot \log(1 - h_\theta(x)) \quad y \in \{0, 1\} \\\\ \text{If } y=1 & : & \text{Cost}(h_\theta(x), y) = -y \cdot \log(h_\theta(x)) \\ \text{If } y=0 & : & \text{Cost}(h_\theta(x), y) = (1-y) \cdot \log(1 - h_\theta(x)) \end{array}\]
   
     Therefore,
 
-    $$\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)}) \\\\ & = & - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]  \end{array}$$
+    \[\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)}) \\\\ & = & - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]  \end{array}\]
 
   + fit parameter $\theta$:
 
-    $$\min_{\theta} J(\theta)$$
+    \[\min_{\theta} J(\theta)\]
 
   + prediction with new $x$:
 
@@ -406,20 +406,20 @@
 
 + [Cost Function with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
 
-  $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+  \[J(\theta) = - \frac{1}{m} \sum_{i=1}^m \left[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\right] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\]
 
 + [Regularized cost function in logistic regression](../ML/ML-Stanford/ex02.md#cost-function-and-gradient)
 
-  $$\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta)x^{(i)}) -(1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \displaystyle \sum_{j=1}^n \theta_j^2 \\\\ & = & \dfrac{1}{m} \left[ -y^T \cdot \log(h) - (1 - y)^T \cdot \log(1 - h) \right] + \dfrac{\lambda}{2m} (\theta^T \theta - \theta_0^2)\end{array}$$
+  \[\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta)x^{(i)}) -(1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \displaystyle \sum_{j=1}^n \theta_j^2 \\\\ & = & \dfrac{1}{m} \left[ -y^T \cdot \log(h) - (1 - y)^T \cdot \log(1 - h) \right] + \dfrac{\lambda}{2m} (\theta^T \theta - \theta_0^2)\end{array}\]
 
 
 + [Convergence](../ML/ML-Stanford/06-Logistic.md#logistic-regression-model):
 
-  $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)})$$
+  \[J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \text{Cost}(h_\theta(x^{(i)}), y^{(i)})\]
 
   <br/>
 
-  $$\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (\dfrac{1}{1+ e^{-\theta^Tx}} - y)^2  \quad \Rightarrow \quad \text{Non-Convex}$$
+  \[\text{Cost}(h_\theta(x^{(i)}, y^{(i)})) = \dfrac{1}{2} (h_\theta(x^{(i)}) - y^{(i)})^2 \quad \Longrightarrow \quad \text{Cost}(h_\theta(x, y)) = \dfrac{1}{2} (\dfrac{1}{1+ e^{-\theta^Tx}} - y)^2  \quad \Rightarrow \quad \text{Non-Convex}\]
 
 
 
@@ -427,86 +427,86 @@
 
 + [Simple Gradient Descent](../ML/ML-Stanford/06-Logistic.md#simplified-cost-function-and-gradient-descent)
 
-  $$J(\theta) = - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
+  \[J(\theta) = - \dfrac{1}{m} \left[ \displaystyle \sum_{i=1}^m \log(h_\theta(x^{(i)}) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]\]
 
   Objective: $\min_{\theta} J(\theta)$
 
   Repeat {
 
-    $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+    \[\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)\]
     <span style="text-align: center; padding-top: 0.5em;padding-left: calc(50vw - 2em);"> (Simultaneously update all </span> $\theta_j$)
   
   }
 
-  $$\dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}$$
+  \[\dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)}\]
 
 + [Gradient Descent with Regularization](../ML/ML-Stanford/07-Overfit.md#regularized-logistic-regression)
 
   Repeat {
 
-    $$\begin{array}{rcl} \theta &:=& \theta_0 - \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) - y^{(i)}) x_0^{(i)} \\\\ \theta_j &:=& \theta_j - \alpha \underbrace{ \left[\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j \right] }_{\frac{\partial}{\partial \theta_j} J(\theta) = 0}\qquad (j = 1, 2, 3, \ldots, n)  \end{array}$$
+    \[\begin{array}{rcl} \theta &:=& \theta_0 - \alpha \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) - y^{(i)}) x_0^{(i)} \\\\ \theta_j &:=& \theta_j - \alpha \underbrace{ \left[\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \dfrac{\lambda}{m} \theta_j \right] }_{\frac{\partial}{\partial \theta_j} J(\theta) = 0}\qquad (j = 1, 2, 3, \ldots, n)  \end{array}\]
   }
 
   For logistic regression 
 
-  $$h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}$$
+  \[h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}\]
 
 + [The gradient of the cost function](../ML/ML-Stanford/ex02.md#cost-function-and-gradient)
 
-  $$\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_0} & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial J(\theta)}{\partial \theta_j} & = & \left( \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n \\\\    & = &  \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (g(X\theta) - y) + \dfrac{\lambda}{m} \theta_j \end{array}$$
+  \[\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_0} & = & \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial J(\theta)}{\partial \theta_j} & = & \left( \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n \\\\    & = &  \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (g(X\theta) - y) + \dfrac{\lambda}{m} \theta_j \end{array}\]
 
 
 #### Vectorization: Logistic Regression
 
 + [Derivation of Vectorized Cost and Hypothesis function](../ML/ML-Stanford/06-Logistic.md#simplified-cost-function-and-gradient-descent)
 
-  $$X = \begin{bmatrix} x_0^{(1)} & x_1^{(1)} & \cdots & x_n^{(1)} \\ x_0^{(2)} & x_1^{(2)} & \cdots & x_n^{(2)} \\ \vdots & \vdots & \ddots & \vdots \\ x_0^{(m)} & x_1^{(m)} & \cdots & x_n^{(m)} \\ \end{bmatrix} \quad\quad \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix} \quad\quad y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(m)}  \end{bmatrix}\quad\quad  h_\theta(x) = h = g(X\theta) = \begin{bmatrix} h_\theta(x^{(1)}) \\ h_\theta(x^{(2)}) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix}$$
+  \[X = \begin{bmatrix} x_0^{(1)} & x_1^{(1)} & \cdots & x_n^{(1)} \\ x_0^{(2)} & x_1^{(2)} & \cdots & x_n^{(2)} \\ \vdots & \vdots & \ddots & \vdots \\ x_0^{(m)} & x_1^{(m)} & \cdots & x_n^{(m)} \\ \end{bmatrix} \quad\quad \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix} \quad\quad y = \begin{bmatrix} y^{(1)} \\ y^{(2)} \\ \vdots \\ y^{(m)}  \end{bmatrix}\quad\quad  h_\theta(x) = h = g(X\theta) = \begin{bmatrix} h_\theta(x^{(1)}) \\ h_\theta(x^{(2)}) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix}\]
 
   __Cost function:__
 
-  $$J(\theta) =  \dfrac{-1}{m} \left[ \underbrace{\sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)})))}_{(A)} + \underbrace{\sum_{i=1}^m (1 - y^{(i)})\cdot \log(1 - h_\theta(x^{(i)}))}_{(B)}   \right]$$
+  \[J(\theta) =  \dfrac{-1}{m} \left[ \underbrace{\sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)})))}_{(A)} + \underbrace{\sum_{i=1}^m (1 - y^{(i)})\cdot \log(1 - h_\theta(x^{(i)}))}_{(B)}   \right]\]
 
   Part (A):
 
-  $$(A)  = \sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)}))) = y^T \cdot \log(h)$$
+  \[(A)  = \sum_{i=1}^m (y^{(i)} \cdot \log(h_\theta(x^{(i)}))) = y^T \cdot \log(h)\]
 
   Part (B):
 
-  $$(B) = \sum_{i=1}^m (1 - y^{(i)})\cdot \log(1 - h_\theta(x^{(i)})) = ( 1 - y)^T \cdot \log(1-h)$$
+  \[(B) = \sum_{i=1}^m (1 - y^{(i)})\cdot \log(1 - h_\theta(x^{(i)})) = ( 1 - y)^T \cdot \log(1-h)\]
 
   Therefore,
 
-  $$J(\theta) = \dfrac{1}{m} \left[ -y^T  \cdot \log(h) - (1-y)^T \cdot \log(1-h)  \right]$$
+  \[J(\theta) = \dfrac{1}{m} \left[ -y^T  \cdot \log(h) - (1-y)^T \cdot \log(1-h)  \right]\]
 
   __Gradient Descent:__
 
-  $$\begin{array}{rcl} \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta) & \text{ and } & \dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \\\\ \theta_j := \theta_j & - \;\; \dfrac{\alpha}{m} & \left( \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \begin{bmatrix} h_\theta(x^{(1)}) \\ h_\theta(x^{(2)}) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix} \right)\end{array}$$
+  \[\begin{array}{rcl} \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta) & \text{ and } & \dfrac{\partial}{\partial \theta_j} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \\\\ \theta_j := \theta_j & - \;\; \dfrac{\alpha}{m} & \left( \begin{bmatrix} x_j^{(1)} & x_j^{(2)} & \cdots & x_j^{(m)} \end{bmatrix} \begin{bmatrix} h_\theta(x^{(1)}) \\ h_\theta(x^{(2)}) \\ \vdots \\ h_\theta(x^{(m)}) \end{bmatrix} \right)\end{array}\]
 
   <br/>
 
-  $$\theta :=  \theta - \dfrac{\alpha}{m} \left( X^T \cdot g(X\theta) - X^T \cdot y \right) = \theta - \dfrac{\alpha}{m}\; X^T \left( g(X\theta) - y \right)$$
+  \[\theta :=  \theta - \dfrac{\alpha}{m} \left( X^T \cdot g(X\theta) - X^T \cdot y \right) = \theta - \dfrac{\alpha}{m}\; X^T \left( g(X\theta) - y \right)\]
 
 + [Vectorized Cost function in logistic regression](../ML/ML-Stanford/ex02.md#1-2-2-cost-function-and-gradient)
 
-  $$\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] \\\\ & = & \dfrac{1}{m} \left[ -y^T \cdot \log(g(X\theta)) - (1-y)^T \cdot \log(1 - g(X\theta)) \right] \end{array}$$
+  \[\begin{array}{rcl} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] \\\\ & = & \dfrac{1}{m} \left[ -y^T \cdot \log(g(X\theta)) - (1-y)^T \cdot \log(1 - g(X\theta)) \right] \end{array}\]
 
 + [Vectorized Gradient Descent of Logistic Regression](../ML/ML-Stanford/ex02.md#1-2-2-cost-function-and-gradient)
 
-  $$\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_j} & = &\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)} \\\\ & = & \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (h_\theta(x) - y) = \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (g(X\theta) - y) \end{array}$$
+  \[\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_j} & = &\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)} \\\\ & = & \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (h_\theta(x) - y) = \dfrac{1}{m} \begin{bmatrix} x^{(1)}_j & x^{(2)}_j & \cdots & x^{(m)}_j \end{bmatrix} (g(X\theta) - y) \end{array}\]
 
 
 + [Cost function in (unregularized) logistic regression](../ML/ML-Stanford/ex03.md#vectorizing-logistic-regression)
 
-  $$J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
+  \[J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]\]
 
   + To compute each element in the summation, compute $h_\theta(x^{(i)})$ for every example $i$, where $h_\theta(x^{(i)}) = g(\theta^T x^{(i)})$ and $g(z) = \dfrac{1}{1+e^{-z}})$ is the sigmoid function,
   + Define $X$ and $\theta$
 
-    $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots \\ - & (x^{(m)})^T & - \end{bmatrix} \quad \text{ and } \quad  \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}$$
+    \[X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots \\ - & (x^{(m)})^T & - \end{bmatrix} \quad \text{ and } \quad  \theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}\]
 
   + Computing the matrix product $X\theta$,
 
-    $$X\theta = \begin{bmatrix} - & (x^{(1)})^T\theta & - \\ - & (x^{(2)})^T\theta & - \\ & \vdots & \\ - & (x^{(m)})^T\theta & - \end{bmatrix} = \begin{bmatrix} - & \theta^T(x^{(1)}) & - \\ - & \theta^T(x^{(2)}) & - \\ & \vdots & \\ - & \theta^T(x^{(m)}) & - \end{bmatrix}$$
+    \[X\theta = \begin{bmatrix} - & (x^{(1)})^T\theta & - \\ - & (x^{(2)})^T\theta & - \\ & \vdots & \\ - & (x^{(m)})^T\theta & - \end{bmatrix} = \begin{bmatrix} - & \theta^T(x^{(1)}) & - \\ - & \theta^T(x^{(2)}) & - \\ & \vdots & \\ - & \theta^T(x^{(m)}) & - \end{bmatrix}\]
 
   + Property: $a^T b = b^T a$ if $a$ and $b$ are vectors.
   + Compute the products $\theta^Tx^{(i)}$ for all examples $i$ in one line of code.
@@ -517,15 +517,15 @@
 
   + A vector where the $j^{th}$ element defined as
 
-    $$\dfrac{\partial J}{\partial \theta_j} = \dfrac{1}{m} \sum_{i=1}^m ((h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}_j)$$
+    \[\dfrac{\partial J}{\partial \theta_j} = \dfrac{1}{m} \sum_{i=1}^m ((h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}_j)\]
 
   + The partial derivatives explicitly for all$\theta_j$
 
-    $$\begin{bmatrix} \frac{\partial J}{\partial \theta_0} & \frac{\partial J}{\partial \theta_1}  & \frac{\partial J}{\partial \theta_2} & \cdots & \frac{\partial J}{\partial \theta_n} \end{bmatrix}^T = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left((h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \right) = \frac{1}{m} X^T (h_\theta(x) - y)$$
+    \[\begin{bmatrix} \frac{\partial J}{\partial \theta_0} & \frac{\partial J}{\partial \theta_1}  & \frac{\partial J}{\partial \theta_2} & \cdots & \frac{\partial J}{\partial \theta_n} \end{bmatrix}^T = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \left((h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \right) = \frac{1}{m} X^T (h_\theta(x) - y)\]
 
   + Note that $x^{(i)}$ is a vector, while $(h_\theta(x^{(i)}) - y^{(i)})$ is a scalar (single number).  Let $\beta_i = (h_\theta(x^{(i)})- y^{(i)})$
 
-    $$\sum_i \beta_i x^{(i)} = \begin{bmatrix}  \mid & \mid & & \mid \\ x^{(1)} & x^{(2)} & \cdots & x^{(m)} \\ \mid & \mid & & \mid \end{bmatrix} \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_m \end{bmatrix} = X^T \beta$$
+    \[\sum_i \beta_i x^{(i)} = \begin{bmatrix}  \mid & \mid & & \mid \\ x^{(1)} & x^{(2)} & \cdots & x^{(m)} \\ \mid & \mid & & \mid \end{bmatrix} \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_m \end{bmatrix} = X^T \beta\]
 
     where $\beta_i = (h_\theta(x^{(i)}) - y^{(i)})$
 
@@ -533,13 +533,13 @@
 
 + [Regularized logistic regression, the cost function](../ML/ML-Stanford/ex03.md#vectorizing-logistic-regression)
 
-  $$J(\theta) = \frac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(H_\theta(x^{(i)})) - (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \sum_{i=1}^n \theta_j^2$$
+  \[J(\theta) = \frac{1}{m} \sum_{i=1}^m \left[ -y^{(i)} \log(H_\theta(x^{(i)})) - (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \sum_{i=1}^n \theta_j^2\]
 
   Note that not regularizing $\theta_0$ used for the bias term.
 
   The partial derivative of regularized logistic regression cost for $\theta_j$ defined as 
 
-  $$\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_0} &=& \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \qquad \text{ for } \; j = 0 \\\\ \dfrac{\partial J(\theta)}{\partial \theta_j} & = & (\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j \qquad \text {for } \; j \geq 1 \end{array}$$
+  \[\begin{array}{rcl} \dfrac{\partial J(\theta)}{\partial \theta_0} &=& \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \qquad \text{ for } \; j = 0 \\\\ \dfrac{\partial J(\theta)}{\partial \theta_j} & = & (\dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j) + \dfrac{\lambda}{m} \theta_j \qquad \text {for } \; j \geq 1 \end{array}\]
 
 
 
@@ -561,11 +561,11 @@
   </div>
   <br/>
 
-  $$\begin{array}{rcccl} & & a^{(2)}_1 &=& g(\Theta^{(1)}_{10} x_ 0 + \Theta^{(1)}_{11} x_1 + \Theta^{(1)}_{12} x_2 + \Theta^{(1)}_{13} x_3) \\\\ & & a^{(2)}_2 &=& g(\Theta^{(1)}_{20} x_0 + \Theta^{(1)}_{21} x_1 + \Theta^{(1)}_{22} x_2 + \Theta^{(1)}_{23} x_3) \\\\ & & a^{(2)}_3 &=& g(\Theta^{(1)}_{30} x_0 + \Theta^{(1)}_{31} x_1 + \Theta^{(1)}_{32} x_2 + \Theta^{(1)}_{33} x_3) \\\\ h_\theta(x) &=& a^{(3)}_1 & = & g(\Theta^{(2)}_{10} a^{(2)}_0 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{12} a^{(2)}_2 + \Theta^{(2)}_{13} a^{(2)}_3) \end{array}$$
+  \[\begin{array}{rcccl} & & a^{(2)}_1 &=& g(\Theta^{(1)}_{10} x_ 0 + \Theta^{(1)}_{11} x_1 + \Theta^{(1)}_{12} x_2 + \Theta^{(1)}_{13} x_3) \\\\ & & a^{(2)}_2 &=& g(\Theta^{(1)}_{20} x_0 + \Theta^{(1)}_{21} x_1 + \Theta^{(1)}_{22} x_2 + \Theta^{(1)}_{23} x_3) \\\\ & & a^{(2)}_3 &=& g(\Theta^{(1)}_{30} x_0 + \Theta^{(1)}_{31} x_1 + \Theta^{(1)}_{32} x_2 + \Theta^{(1)}_{33} x_3) \\\\ h_\theta(x) &=& a^{(3)}_1 & = & g(\Theta^{(2)}_{10} a^{(2)}_0 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{12} a^{(2)}_2 + \Theta^{(2)}_{13} a^{(2)}_3) \end{array}\]
 
   <br/>
 
-  $$\Theta^{(1)} \; \in  \; \mathbb{R}^{3 \times 4}  \qquad \& \qquad \Theta^{(2)} \; \in \; \mathbb{R}^{1 \times 4}$$
+  \[\Theta^{(1)} \; \in  \; \mathbb{R}^{3 \times 4}  \qquad \& \qquad \Theta^{(2)} \; \in \; \mathbb{R}^{1 \times 4}\]
 
   + __If network has $s_j$ units in layer and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j+1)$.__
   + Notation:
@@ -618,7 +618,7 @@
     + K Output units ($K$ classes): $y \in \mathbb{R}^K$
     + E.g, 
 
-      $$\underbrace{\begin{bmatrix} 1\\0\\0\\0 \end{bmatrix}}_{pedestrian}, \qquad \underbrace{\begin{bmatrix} 0\\1\\0\\0 \end{bmatrix}}_{car}, \qquad \underbrace{\begin{bmatrix} 0\\0\\1\\0 \end{bmatrix}}_{motocycle}, \quad \underbrace{\begin{bmatrix} 0\\0\\0\\1 \end{bmatrix}}_{truck}$$
+      \[\underbrace{\begin{bmatrix} 1\\0\\0\\0 \end{bmatrix}}_{pedestrian}, \qquad \underbrace{\begin{bmatrix} 0\\1\\0\\0 \end{bmatrix}}_{car}, \qquad \underbrace{\begin{bmatrix} 0\\0\\1\\0 \end{bmatrix}}_{motocycle}, \quad \underbrace{\begin{bmatrix} 0\\0\\0\\1 \end{bmatrix}}_{truck}\]
     + In general, $K \geq 3$
 
 + [Overview](../ML/ML-Stanford/09-NNLearn.md#cost-function) ([Ref](https://www.ritchieng.com/neural-networks-learning/#1b-overview))
@@ -643,18 +643,18 @@
   + $\theta \;\in\; \mathbb{R}^n \quad$ (E.g. $\theta$ is "unrolled" version of $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$)
   + $\theta = \theta_1, \theta_2, \theta_3, \ldots, \theta_n$
 
-  $$\begin{array}{ccc} \dfrac{\partial}{\partial \theta_1} J(\theta) &\approx& \dfrac{J(\theta_1+\epsilon, \theta_2, \theta_3, \ldots,\theta_n) - J(\theta_1-\epsilon, \theta_2, \theta_3, \ldots,\theta_n)}{2\epsilon} \\\\ \dfrac{\partial}{\partial \theta_2} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2+\epsilon, \theta_3, \ldots,\theta_n) - J(\theta_1, \theta_2-\epsilon, \theta_3, \ldots,\theta_n)}{2\epsilon} \\ \vdots & & \vdots \\ \dfrac{\partial}{\partial \theta_n} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n+\epsilon) - J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n-\epsilon)}{2\epsilon} \end{array}$$
+  \[\begin{array}{ccc} \dfrac{\partial}{\partial \theta_1} J(\theta) &\approx& \dfrac{J(\theta_1+\epsilon, \theta_2, \theta_3, \ldots,\theta_n) - J(\theta_1-\epsilon, \theta_2, \theta_3, \ldots,\theta_n)}{2\epsilon} \\\\ \dfrac{\partial}{\partial \theta_2} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2+\epsilon, \theta_3, \ldots,\theta_n) - J(\theta_1, \theta_2-\epsilon, \theta_3, \ldots,\theta_n)}{2\epsilon} \\ \vdots & & \vdots \\ \dfrac{\partial}{\partial \theta_n} J(\theta) &\approx& \dfrac{J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n+\epsilon) - J(\theta_1, \theta_2, \theta_3, \ldots,\theta_n-\epsilon)}{2\epsilon} \end{array}\]
 
 
 #### Forward Propagation
 
 + [Cost Function: Neural network](/ML/ML-Stanford/09-NNLearn.md#cost-function)
 
-  $$h_\Theta(x) \; \in \; \mathbb{R}^K \quad \Rightarrow \quad (h_\Theta(x))_i = i^{th} \text{output}$$
+  \[h_\Theta(x) \; \in \; \mathbb{R}^K \quad \Rightarrow \quad (h_\Theta(x))_i = i^{th} \text{output}\]
 
   <br/>
 
-  $$J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2$$
+  \[J(\Theta) = -\dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ y^{(i)}_k \log((h_\Theta(x^{(i)}))_k) + (1-y^{(i)}_k) \log(1-(h_\Theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} (\Theta^{(l)}_{j,i})^2\]
 
 + [Gradient computation: Forward propagation](../ML/ML-Stanford/09-NNLearn.md#backpropagation-intuition)
 
@@ -669,22 +669,22 @@
 
   Transformation from layer $l$ to layer $l+1$
 
-  $$\begin{array}{rcl} z^{(l+1)} & = & \Theta^{(l)} a^{(l)} = \begin{bmatrix} \Theta^{(l)}_{10} & \Theta^{(l)}_{11} & \cdots & \Theta^{(l)}_{1s_{l}} \\ \Theta^{(l)}_{20} & \Theta^{(l)}_{21} & \cdots & \Theta^{(l)}_{2s_{l}} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta^{(l)}_{s_{l+1}0} & \Theta^{(l)}_{s_{l+1}1} & \cdots & \Theta^{(l)}_{s_{l+1}s_{l}} \end{bmatrix} \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+1)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} = \begin{bmatrix} z^{(l+1)}_1 \\ z^{(l+1)}_2 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix} \\\\ a^{(l+1)} & = & g(z^{(l+1)}) = g \left( \begin{bmatrix} z^{(l+1)}_0 \\ z^{(l+1)}_1 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix}  \right) = \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} \end{array}$$
+  \[\begin{array}{rcl} z^{(l+1)} & = & \Theta^{(l)} a^{(l)} = \begin{bmatrix} \Theta^{(l)}_{10} & \Theta^{(l)}_{11} & \cdots & \Theta^{(l)}_{1s_{l}} \\ \Theta^{(l)}_{20} & \Theta^{(l)}_{21} & \cdots & \Theta^{(l)}_{2s_{l}} \\ \vdots & \vdots & \ddots & \vdots \\ \Theta^{(l)}_{s_{l+1}0} & \Theta^{(l)}_{s_{l+1}1} & \cdots & \Theta^{(l)}_{s_{l+1}s_{l}} \end{bmatrix} \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+1)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} = \begin{bmatrix} z^{(l+1)}_1 \\ z^{(l+1)}_2 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix} \\\\ a^{(l+1)} & = & g(z^{(l+1)}) = g \left( \begin{bmatrix} z^{(l+1)}_0 \\ z^{(l+1)}_1 \\ \vdots \\ z^{(l+1)}_{s_{l+1}} \end{bmatrix}  \right) = \begin{bmatrix} a^{(l+1)}_0 \\ a^{(l+)}_1 \\ \vdots \\ a^{(l+1)}_{s_{l+1}} \end{bmatrix} \end{array}\]
 
 + [Cost function for the neural network (w/o regularization)](../ML/ML-Stanford/ex04.md#1-3-feedbackforward-and-cost-function)
 
-  $$J(\Theta) = \dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ -y^{(i)} \log((h_\theta(x^{(i)}))_k) - (1 - y^{(i)}_k) \log(1 - (h_\theta(x^{(i)}))_k) \right]$$
+  \[J(\Theta) = \dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ -y^{(i)} \log((h_\theta(x^{(i)}))_k) - (1 - y^{(i)}_k) \log(1 - (h_\theta(x^{(i)}))_k) \right]\]
 
 + [Formula for the 3-layer neural network](../ML/ML-Stanford/ex04.md#1-3-feedbackforward-and-cost-function)
   + $K = 10\;$: the total number of possible labels
   + $h_\theta(x^{(i)})_k = a^{(3)}_k$: the activation (output value) of the $k$-th output unit
   + the original labels: $1, 2, \ldots, 10$
 
-    $$y = \underbrace{\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \cdots \quad,  \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}}_{\text{10 items}}$$
+    \[y = \underbrace{\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \cdots \quad,  \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}}_{\text{10 items}}\]
 
 + [The cost function for neural network with regularization](../ML/ML-Stanford/ex04.md#1-4-regularized-cost-function)
 
-  $$J(\Theta) = \dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ -y^{(i)} \log((h_\theta(x^{(i)}))_k) - (1 - y^{(i)}_k) \log(1 - (h_\theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \left[ \sum_{j=1}^{25}\sum_{k=1}^{400} (\Theta^{(1)}_{j,k})^2 + \sum_{j=1}^{10}\sum_{k=1}^{25} (\Theta^{(2)}_{j,k})^2 \right]$$
+  \[J(\Theta) = \dfrac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[ -y^{(i)} \log((h_\theta(x^{(i)}))_k) - (1 - y^{(i)}_k) \log(1 - (h_\theta(x^{(i)}))_k) \right] + \dfrac{\lambda}{2m} \left[ \sum_{j=1}^{25}\sum_{k=1}^{400} (\Theta^{(1)}_{j,k})^2 + \sum_{j=1}^{10}\sum_{k=1}^{25} (\Theta^{(2)}_{j,k})^2 \right]\]
 
   + assume that the cost function for 3-layer
   + The code can be generalized to any number of input units, hidden units, and output units
@@ -692,7 +692,7 @@
 
 + [Generalized cost function with regularization](../ML/ML-Stanford/ex04.md#1-4-regularized-cost-function)
 
-  $$J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2$$
+  \[J(\Theta) = −\dfrac{1}{m} \sum_{t=1}^m \sum_{k=1}^K \left[ y^{(t)}_k \log (h_\Theta(x^{(t)}))_k + (1−y^{(t)}_k) \log (1 − h_\Theta(x^{(t)})_k) \right] + \dfrac{\lambda}{2m} \sum_{l=1}^{L−1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l + 1}} (\Theta^{(l)}_{j,i})^2\]
 
 
 #### Backward Propagation
@@ -701,11 +701,11 @@
   + Intuition: $\delta^{(l)}_j = \;$ "error" of node $j$ in layer $l$
   + For each output unit (layer $L=4$)
 
-    $$\begin{array}{rcl} \delta^{(4)}_j = a^{(4)}_j - y_j = (h_\Theta(x))_j - y_j & \Rightarrow & \delta^{(4)} = a^{(4)} - y \\\\ \delta^{(3)} = (\Theta^{(3)})^T \delta^{(4)} .\ast g^\prime (z^{(3)}) &=& (\Theta^{(3)})^T \delta^{(4)} \;.\ast\; a^{(3)} \;.\ast\; (1-a^{(3)}) \\ \delta^{(2)} = (\Theta^{(2)})^T \delta^{(4)} \;.\ast\; g^\prime (z^{(2)}) & = & (\Theta^{(2)})^T \delta^{(3)} .\ast a^{(3)} \;.\ast\; (1-a^{(2)}) \end{array}$$
+    \[\begin{array}{rcl} \delta^{(4)}_j = a^{(4)}_j - y_j = (h_\Theta(x))_j - y_j & \Rightarrow & \delta^{(4)} = a^{(4)} - y \\\\ \delta^{(3)} = (\Theta^{(3)})^T \delta^{(4)} .\ast g^\prime (z^{(3)}) &=& (\Theta^{(3)})^T \delta^{(4)} \;.\ast\; a^{(3)} \;.\ast\; (1-a^{(3)}) \\ \delta^{(2)} = (\Theta^{(2)})^T \delta^{(4)} \;.\ast\; g^\prime (z^{(2)}) & = & (\Theta^{(2)})^T \delta^{(3)} .\ast a^{(3)} \;.\ast\; (1-a^{(2)}) \end{array}\]
 
     No $\delta^{(1)}$ term
 
-    $$\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = a^{(l)}_j \delta^{(l+1)}_i \qquad (\text{ignore } \lambda; \text{ if } \lambda = 0)$$
+    \[\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = a^{(l)}_j \delta^{(l+1)}_i \qquad (\text{ignore } \lambda; \text{ if } \lambda = 0)\]
   + Algorithm
 
     Set $\Delta_{ij}^{(l)} = 0 \;\; \forall \;\; l, i, j\quad\Longrightarrow\quad \text{ use to compute } \frac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta)$ <br/>
@@ -718,11 +718,11 @@
     $D_{ij}^{(l)} \;:=\; \begin{cases} \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} & \text{if } \; j \neq 0 \\\\ \frac{1}{m} \Delta_{ij}^{(l)} & \text{if } \; j = 0 \end{cases}$
   + Gradeint
 
-    $$\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)}$$
+    \[\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)}\]
 
 + [The gradient with regularization](../ML/ML-Stanford/ex04.md#2-5-regularized-neural-networks)
 
-  $$\dfrac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D^{((l)}_{ij} = \begin{cases} \frac{1}{m} \Delta^{(l)}_{ij} & \text{for } j = 0 \\ \frac{1}{m} \Delta^{(l)}_{ij} + \frac{\lambda}{m} \Theta^{(l)}_{ij} & \text{for } j \geq 1 \end{cases}$$
+  \[\dfrac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D^{((l)}_{ij} = \begin{cases} \frac{1}{m} \Delta^{(l)}_{ij} & \text{for } j = 0 \\ \frac{1}{m} \Delta^{(l)}_{ij} + \frac{\lambda}{m} \Theta^{(l)}_{ij} & \text{for } j \geq 1 \end{cases}\]
 
 + [Back propagation Algorithm](../ML/ML-Stanford/09-NNLearn.md#backpropagation-algorithm)
 
@@ -745,7 +745,7 @@
       </div>
       <br/>
 
-      $$\begin{array}{rcl} a^{(1)} &=& x &\quad\Longrightarrow\quad& z^{(2)} &=& \Theta^{(1)} a^{(1)} \\ a^{(2)} &=& g(z^{(2)}) \quad (\text{ add } a^{(2)}_0) &\quad\Longrightarrow\quad& z^{(3)} &=& \Theta^{(2)} a^{(2)} \\ a^{(3)} &=& g(z^{(3)}) \quad (\text{ add } a^{(3)}_0) &\quad\Longrightarrow\quad& z^{(4)} &=& \Theta^{(3)} a^{(3)} \\ a^{(4)} & = & h_\Theta(x) = g(z^{(4)}) \end{array}$$
+      \[\begin{array}{rcl} a^{(1)} &=& x &\quad\Longrightarrow\quad& z^{(2)} &=& \Theta^{(1)} a^{(1)} \\ a^{(2)} &=& g(z^{(2)}) \quad (\text{ add } a^{(2)}_0) &\quad\Longrightarrow\quad& z^{(3)} &=& \Theta^{(2)} a^{(2)} \\ a^{(3)} &=& g(z^{(3)}) \quad (\text{ add } a^{(3)}_0) &\quad\Longrightarrow\quad& z^{(4)} &=& \Theta^{(3)} a^{(3)} \\ a^{(4)} & = & h_\Theta(x) = g(z^{(4)}) \end{array}\]
 
   3. Using $y^{(t)}$, compute $\delta^{(L)} = a^{(L)} - y^{(t)}$
 
@@ -757,12 +757,12 @@
 
       The g-prime derivative terms can also be written out as:
 
-      $$g'(z^{(l)}) = a^{(l)}\ .\ast \ (1 - a^{(l)})$$
+      \[g'(z^{(l)}) = a^{(l)}\ .\ast \ (1 - a^{(l)})\]
   5. $\Delta^{(l)}_{i,j}\ :=\ \Delta^{(l)}_{i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)}\ :=\ \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$
 
   Update our new $\Delta$ matrix.
 
-  $$D^{(l)}_{i,j}\ := \begin{cases} \dfrac{1}{m} (\Delta^{(l)}_{i,j} + \lambda \Theta^{(l)}_{i,j}), & \text{ if } j \neq 0. \\\\ \dfrac{1}{m}\Delta^{(l)}_{i,j}& \text { if } j=0 \end{cases}$$
+  \[D^{(l)}_{i,j}\ := \begin{cases} \dfrac{1}{m} (\Delta^{(l)}_{i,j} + \lambda \Theta^{(l)}_{i,j}), & \text{ if } j \neq 0. \\\\ \dfrac{1}{m}\Delta^{(l)}_{i,j}& \text { if } j=0 \end{cases}\]
 
   The capital-delta matrix $D$ is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get $\frac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D_{ij}^{(l)}$
 
@@ -778,15 +778,15 @@
 
 + [Forward propagation: Vectorized implementation](../ML/ML-Stanford/08-NNRepres.md#model-representation-ii)
 
-  $$\begin{array}{rcccl} a^{(2)}_1 &=& g(z^{(2)}_1) & = & g(\underbrace{\Theta^{(1)}_{10} x_ 0 + \Theta^{(1)}_{11} x_1 + \Theta^{(1)}_{12} x_2 + \Theta^{(1)}_{13} x_3}_{z_1^{(2)}}) \\\\ a^{(2)}_2  &=& g(z^{(2)}_2) &=& g(\underbrace{\Theta^{(1)}_{20} x_0 + \Theta^{(1)}_{21} x_1 + \Theta^{(1)}_{22} x_2 + \Theta^{(1)}_{23} x_3}_{z^{(2)}_2}) \\\\ a^{(2)}_3  &=& g(z^{(2)}_3) &=& g(\underbrace{\Theta^{(1)}_{30} x_0 + \Theta^{(1)}_{31} x_1 + \Theta^{(1)}_{32} x_2 + \Theta^{(1)}_{33} x_3}_{z_3^{(3)}}) \\\\ h_\Theta(x) &=& \Theta^{(1)}x & = & g(\underbrace{\Theta^{(2)}_{10} a^{(2)}_0 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{12} a^{(2)}_2 + \Theta^{(2)}_{13} a^{(2)}_3}_{z^{(3)}}) \end{array}$$
+  \[\begin{array}{rcccl} a^{(2)}_1 &=& g(z^{(2)}_1) & = & g(\underbrace{\Theta^{(1)}_{10} x_ 0 + \Theta^{(1)}_{11} x_1 + \Theta^{(1)}_{12} x_2 + \Theta^{(1)}_{13} x_3}_{z_1^{(2)}}) \\\\ a^{(2)}_2  &=& g(z^{(2)}_2) &=& g(\underbrace{\Theta^{(1)}_{20} x_0 + \Theta^{(1)}_{21} x_1 + \Theta^{(1)}_{22} x_2 + \Theta^{(1)}_{23} x_3}_{z^{(2)}_2}) \\\\ a^{(2)}_3  &=& g(z^{(2)}_3) &=& g(\underbrace{\Theta^{(1)}_{30} x_0 + \Theta^{(1)}_{31} x_1 + \Theta^{(1)}_{32} x_2 + \Theta^{(1)}_{33} x_3}_{z_3^{(3)}}) \\\\ h_\Theta(x) &=& \Theta^{(1)}x & = & g(\underbrace{\Theta^{(2)}_{10} a^{(2)}_0 + \Theta^{(2)}_{11} a^{(2)}_1 + \Theta^{(2)}_{12} a^{(2)}_2 + \Theta^{(2)}_{13} a^{(2)}_3}_{z^{(3)}}) \end{array}\]
 
   <br/>
 
-  $$x = \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} \qquad z^{(2)} = \begin{bmatrix} z^{(2)}_1 \\ z^{(2)}_2 \\ z^{(2)}_3 \end{bmatrix} = \begin{bmatrix} \Theta_{10}^{(1)} & \Theta_{11}^{(1)} & \Theta_{12}^{(1)} & \Theta_{13}^{(1)} \\ \Theta_{20}^{(1)} & \Theta_{21}^{(1)} & \Theta_{22}^{(1)} & \Theta_{23}^{(1)} \\ \Theta_{30}^{(1)} & \Theta_{31}^{(1)} & \Theta_{32}^{(1)} & \Theta_{33}^{(1)} \end{bmatrix} \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} = \Theta^{(1)} x \qquad a^{(2)} = g(z^{(2)}) = \begin{bmatrix} a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix}$$
+  \[x = \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} \qquad z^{(2)} = \begin{bmatrix} z^{(2)}_1 \\ z^{(2)}_2 \\ z^{(2)}_3 \end{bmatrix} = \begin{bmatrix} \Theta_{10}^{(1)} & \Theta_{11}^{(1)} & \Theta_{12}^{(1)} & \Theta_{13}^{(1)} \\ \Theta_{20}^{(1)} & \Theta_{21}^{(1)} & \Theta_{22}^{(1)} & \Theta_{23}^{(1)} \\ \Theta_{30}^{(1)} & \Theta_{31}^{(1)} & \Theta_{32}^{(1)} & \Theta_{33}^{(1)} \end{bmatrix} \begin{bmatrix} x_0 \\ x_1 \\ x_2 \\ x_3 \end{bmatrix} = \Theta^{(1)} x \qquad a^{(2)} = g(z^{(2)}) = \begin{bmatrix} a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix}\]
 
   Add $a_0^{(2)} = \bf{1} \quad \Rightarrow \quad a^{(2)} \; \in \mathbb{R}^4$
 
-  $$\begin{array}{c} z^{(3)} = \begin{bmatrix} \Theta_{10}^{(2)} & \Theta_{11}^{(2)} & \Theta_{12}^{(2)} & \Theta_{13}^{(2)} \end{bmatrix}  \begin{bmatrix} a_0^{(2)} \\ a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix} = \Theta^{(2)}a^{(2)} \\\\ h_\theta(x) = a^{(3)} = g(z^{(3)}) \end{array}$$
+  \[\begin{array}{c} z^{(3)} = \begin{bmatrix} \Theta_{10}^{(2)} & \Theta_{11}^{(2)} & \Theta_{12}^{(2)} & \Theta_{13}^{(2)} \end{bmatrix}  \begin{bmatrix} a_0^{(2)} \\ a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)} \end{bmatrix} = \Theta^{(2)}a^{(2)} \\\\ h_\theta(x) = a^{(3)} = g(z^{(3)}) \end{array}\]
 
 + [Vectorized Backpropagation Algorithm](../ML/ML-Stanford/ex04.md#vectorized-backpropagation-algorithm)
 
@@ -859,13 +859,13 @@
   + suppose that a function $f_i(\theta)$ that purportedly computes $\frac{\partial}{\partial \theta_i} J(\theta)$
   + check if $f_i$ is outputting correct derivative values
 
-    $$\theta^{(i+)} = \theta + \begin{bmatrix} 0 \\ 0\\ \vdots \\ \epsilon \\ \vdots \\ 0 \end{bmatrix} \quad \text{and} \quad \theta^{(i-)} = \theta - \begin{bmatrix} 0 \\ 0\\ \vdots \\ \epsilon \\ \vdots \\ 0 \end{bmatrix}$$
+    \[\theta^{(i+)} = \theta + \begin{bmatrix} 0 \\ 0\\ \vdots \\ \epsilon \\ \vdots \\ 0 \end{bmatrix} \quad \text{and} \quad \theta^{(i-)} = \theta - \begin{bmatrix} 0 \\ 0\\ \vdots \\ \epsilon \\ \vdots \\ 0 \end{bmatrix}\]
 
   + $\theta^{(i+)}\;$: same as $\theta$ except the $i$-th element incremented by $\epsilon$
   + $\theta^{(i-)}\;$: same as $\theta$ except the $i$-th element decreased by $\epsilon$
   + numerically verify $f_i(\theta)$'s correctness by checking, $\forall\; i\;$,
 
-    $$f_i(\theta) \approx \dfrac{J(\theta^{(i+)} - J(\theta^{(i-)}))}{2\epsilon}$$
+    \[f_i(\theta) \approx \dfrac{J(\theta^{(i+)} - J(\theta^{(i-)}))}{2\epsilon}\]
 
   + assuming $\epsilon = 10^{-4} \implies$ the left-side and right-hand sides of the above will agree at least 4 significant digits (and oten many more)
 
@@ -935,7 +935,7 @@
     + compute with $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)} (a^{(l)})^T$
   5. obtain the (unregularized) gradient for the neural network cost function by dividing the accumulated gradients by $1/m$:
 
-    $$\dfrac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D^{(l)}_{ij} = \dfrac{1}{m} \Delta^{(l)}_{ij}$$
+    \[\dfrac{\partial}{\partial \Theta^{(l)}_{ij}} J(\Theta) = D^{(l)}_{ij} = \dfrac{1}{m} \Delta^{(l)}_{ij}\]
 
 ### Support Vector Machine (SVM)
 
@@ -952,7 +952,7 @@
 
 + [Support vector machine: Objective](../ML/ML-Stanford/12-SVM.md#large-margin-classification)
 
-  $$\min_\theta C \cdot \sum_{j=1}^m \left[y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 - y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
+  \[\min_\theta C \cdot \sum_{j=1}^m \left[y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 - y^{(i)}) \text{cost}_0 (\theta^T x^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2\]
 
 + [cost functions](../ML/ML-Stanford/12-SVM.md#large-margin-intuition)
 
@@ -994,23 +994,23 @@
 + [Simplification for Decision Boundary](../ML/ML-Stanford/12-SVM.md#large-margin-intuition)
   + Objective:
 
-    $$\min_\theta C \underbrace{\sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right]}_{(A)} + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2$$
+    \[\min_\theta C \underbrace{\sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right]}_{(A)} + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2\]
 
   + $C \gg 0$, $(A) = 0\;$ to minimize the cost function
   + Wherever $y^{(i)} = 1\;: \theta^T x^{(i)} \geq 1$ <br/>
     Wherever $y^{(i)} = 0\;: \theta^T x^{(i)} \leq -1$
 
-    $$\begin{array}{rl} \min_\theta & C \cdot 0 + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t.} & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+    \[\begin{array}{rl} \min_\theta & C \cdot 0 + \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t.} & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}\]
 
 
 + [SVM decision boundary](../ML/ML-Stanford/12-SVM.md#mathematics-behind-large-margin-classification)
   + Objective
 
-    $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t. } & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+    \[\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \sum_{j=1}^n \theta^2_j \\\\ \text{s.t. } & \theta^T x^{(i)} \geq 1 \quad \text{if } y^{(i)} = 1 \\ & \theta^T x^{(i)} \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}\]
 
   + Projections and hypothesis
 
-    $$\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \displaystyle \sum_{j=1}^n \theta^2_j = \dfrac{1}{2} \parallel \theta \parallel^2 \\\\ \text{s.t. } & p^{(i)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } y^{(i)} = 1 \\ & p^{(i)} \cdot \parallel \theta \parallel \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}$$
+    \[\begin{array}{ll} \displaystyle \min_\theta & \dfrac{1}{2} \displaystyle \sum_{j=1}^n \theta^2_j = \dfrac{1}{2} \parallel \theta \parallel^2 \\\\ \text{s.t. } & p^{(i)} \cdot \parallel \theta \parallel \geq 1 \quad \text{if } y^{(i)} = 1 \\ & p^{(i)} \cdot \parallel \theta \parallel \leq -1 \quad \text{if } y^{(i)} = 0 \end{array}\]
 
     where $p^{(i)}$ is the projection of $x^{(i)}$ onto the vector $\theta$.
 
@@ -1023,19 +1023,19 @@
 + [Gaussian kernel](../ML/ML-Stanford/12-SVM.md#kernels-i)
   + Given $x$, compute new feature depending on proximity to landmarks $l^{(1)}, l^{(2)}, l^{(3)}, \ldots$
   
-    $$\begin{array}{rcl} f_1 & = & similarity(x, l^{(1)}) = \exp \left( -\dfrac{\parallel x - l^{(1)} \parallel^2}{2 \sigma^2} \right) \\ f_2 & = & similarity(x, l^{(2)}) = \exp \left( -\dfrac{\parallel x - l^{(2)} \parallel^2}{2 \sigma^2} \right) \\  f_3 & = & similarity(x, l^{(3)}) = \exp \left( -\dfrac{\parallel x - l^{(3)} \parallel^2}{2 \sigma^2} \right) \\ & \cdots \end{array}$$
+    \[\begin{array}{rcl} f_1 & = & similarity(x, l^{(1)}) = \exp \left( -\dfrac{\parallel x - l^{(1)} \parallel^2}{2 \sigma^2} \right) \\ f_2 & = & similarity(x, l^{(2)}) = \exp \left( -\dfrac{\parallel x - l^{(2)} \parallel^2}{2 \sigma^2} \right) \\  f_3 & = & similarity(x, l^{(3)}) = \exp \left( -\dfrac{\parallel x - l^{(3)} \parallel^2}{2 \sigma^2} \right) \\ & \cdots \end{array}\]
 
   + manually pick 3 landmarks
   + given an example $x$, define the features as a measure of similarity between $x$ ans the landmarks
   
-    $$\begin{array}{rcl} f_1 &=& similarity(x, l^{(1)}) \\ f_2 &=& similarity(x, l^{(2)}) \\ f_3 &=& similarity(x, l^{(3)}) \end{array}$$
+    \[\begin{array}{rcl} f_1 &=& similarity(x, l^{(1)}) \\ f_2 &=& similarity(x, l^{(2)}) \\ f_3 &=& similarity(x, l^{(3)}) \end{array}\]
 
   + kernel: $k(x, l^{(i)}) = similarity(x, l^{(i)})$
   + The similarity functions are __Gaussian kernels__, $\exp\left( - \dfrac{\parallel x - l^{(i)} \parallel^2}{2\sigma^2} \right)$.
 
 + [Kernels and Similarity](../ML/ML-Stanford/12-SVM.md#kernels-i)
 
-  $$f_1 = similarity(x, l^{(1)}) = exp \left(-\dfrac{\parallel x - l^{(1)} \parallel^2}{2\sigma^2} \right) = \exp \left( -\dfrac{\sum_{j=1}^n (x_j - l_j^{(1)})^2}{2 \sigma^2} \right)$$
+  \[f_1 = similarity(x, l^{(1)}) = exp \left(-\dfrac{\parallel x - l^{(1)} \parallel^2}{2\sigma^2} \right) = \exp \left( -\dfrac{\sum_{j=1}^n (x_j - l_j^{(1)})^2}{2 \sigma^2} \right)\]
 
   + If $x \approx l^{(1)}: f_1 \approx \exp \left( -\dfrac{0^2}{2\sigma^2} \right) \approx 1$
   + If $x$ is far from $l^{(1)}: f_1 = \exp \left( - \dfrac{(\text{large number})^2}{2\sigma^2} \right) \approx 0$
@@ -1044,11 +1044,11 @@
   + Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})$, choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, \ldots, l^{(m)} = x^{(m)}$
   + Given example $x$:
 
-    $$\begin{array}{lcl} f_0  =  1 \\f_1 = similarity(x, l^{(1)}) \\ f_1 = similarity(x, l^{(2)})  \\ \cdots \end{array} \implies f = \begin{bmatrix} f_0 \\ f_1 \\ \vdots \\ f_m \end{bmatrix}$$
+    \[\begin{array}{lcl} f_0  =  1 \\f_1 = similarity(x, l^{(1)}) \\ f_1 = similarity(x, l^{(2)})  \\ \cdots \end{array} \implies f = \begin{bmatrix} f_0 \\ f_1 \\ \vdots \\ f_m \end{bmatrix}\]
 
   + For training example $(x^{(i)}, y^{(i)})\;$:
 
-    $$x^{(i)} \quad\implies\quad \begin{array}{rcl} f_0^{(i)} &=& 1 \\ f_1^{(i)} &=& sim(x^{(i)}, l^{(1)}) \\ f_2^{(i)} &=& sim(x^{(i)}, l^{(2)}) \\ &\cdots& \\ f_i^{(i)} &=& sim(x^{(i)}, l^{(i)}) = \exp \left( -\dfrac{0}{2\sigma^2} \right) \\ &\cdots& \\ f_m^{(i)} &=& sim(x^{(i)}, l^{(m)}) \end{array} \implies f^{(i)} = \begin{bmatrix} f_0^{(i)} \\ f_1^{(1)} \\ \vdots \\ f_m^{(i)} \end{bmatrix}$$
+    \[x^{(i)} \quad\implies\quad \begin{array}{rcl} f_0^{(i)} &=& 1 \\ f_1^{(i)} &=& sim(x^{(i)}, l^{(1)}) \\ f_2^{(i)} &=& sim(x^{(i)}, l^{(2)}) \\ &\cdots& \\ f_i^{(i)} &=& sim(x^{(i)}, l^{(i)}) = \exp \left( -\dfrac{0}{2\sigma^2} \right) \\ &\cdots& \\ f_m^{(i)} &=& sim(x^{(i)}, l^{(m)}) \end{array} \implies f^{(i)} = \begin{bmatrix} f_0^{(i)} \\ f_1^{(1)} \\ \vdots \\ f_m^{(i)} \end{bmatrix}\]
 
   + Hypothesis: Given $x$, compute features $f \in \mathbb{R}^{m+1}$
 
@@ -1056,9 +1056,9 @@
 
   + Training
 
-    $$min_\theta C \cdot \sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^T f^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^T f^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^{n (=m)} \theta_j^2$$
+    \[min_\theta C \cdot \sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^T f^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^T f^{(i)}) \right] + \dfrac{1}{2} \sum_{j=1}^{n (=m)} \theta_j^2\]
 
-    $$\begin{array}{crl} \sum_{j} \theta_j^2 &=& \theta^T \theta = \begin{bmatrix} \theta_1 & \theta_2 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} \theta_1 \\ \theta_2 \ \vdots \\ \theta_m \end{bmatrix} = \parallel \theta \parallel^2 \\\\ &=& \theta^TM\theta = \begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} 0 & 0 & 0 & \cdots & 0 \\ 0 & 1 & 0 & \cdots & 0 \\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{bmatrix} \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_m \end{bmatrix} \end{array}$$
+    \[\begin{array}{crl} \sum_{j} \theta_j^2 &=& \theta^T \theta = \begin{bmatrix} \theta_1 & \theta_2 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} \theta_1 \\ \theta_2 \ \vdots \\ \theta_m \end{bmatrix} = \parallel \theta \parallel^2 \\\\ &=& \theta^TM\theta = \begin{bmatrix} \theta_0 & \theta_1 & \cdots & \theta_m \end{bmatrix} \begin{bmatrix} 0 & 0 & 0 & \cdots & 0 \\ 0 & 1 & 0 & \cdots & 0 \\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{bmatrix} \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_m \end{bmatrix} \end{array}\]
 
   + applying kernel's idea to other algorithms
     + able to do so by applying the kernel's idea and define the source of features using landmarks
@@ -1094,7 +1094,7 @@
     + $\mu_c(i)\;$: cluster centroid of cluster to which example $x^{(i)}$ has been assigned
   + Optimization objective (Cost function = Distortion function)
 
-    $$\begin{array}{l} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) = \dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - \mu_c(i) \parallel^2 \\\\ \displaystyle \min_{\begin{array}{c}c^{(1)},\dots,c^{(m)},\\ \mu_1,\dots,\mu_K\end{array}} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) \end{array}$$
+    \[\begin{array}{l} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) = \dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - \mu_c(i) \parallel^2 \\\\ \displaystyle \min_{\begin{array}{c}c^{(1)},\dots,c^{(m)},\\ \mu_1,\dots,\mu_K\end{array}} J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_K) \end{array}\]
 
 + [K-means for non-separated clusters](../ML/ML-Stanford/13-Clustering.md#k-means-algorithm)
 
@@ -1115,7 +1115,7 @@
 
   for every centroid $k$
 
-  $$\mu_k := \dfrac{1}{|C_k|} \sum_{k \in C_k} x^{i}$$
+  \[\mu_k := \dfrac{1}{|C_k|} \sum_{k \in C_k} x^{i}\[
 
   + $C_k\;$ = the set of examples assigned to centroid $k$
 
@@ -1220,21 +1220,21 @@
     Reduce data from $n$-dimensions to $k$-dimensions<br/>
     Compute "covariance matrix":
 
-      $$\Sigma = \dfrac{1}{m} \sum_{i=1}^m \underbrace{(x^{(i)})}_{n\times 1} \underbrace{(x^{(i)})^T}_{1 \times n} \implies Sigma$$
+      \[\Sigma = \dfrac{1}{m} \sum_{i=1}^m \underbrace{(x^{(i)})}_{n\times 1} \underbrace{(x^{(i)})^T}_{1 \times n} \implies Sigma\]
 
     Compute "eigenvectors"/"singular value decomposition" of matrix $\Sigma \;(n \times n \text{ matrix})$:
 
-      $$U = \begin{bmatrix} | & | & & | & & |\\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} & \cdots & u^{(m)} \\ | & | & & | & & | \end{bmatrix} \implies U \in \mathbb{R}^{n \times n} \text{ but take the first $k$ columns as } U_{reduced}$$
+      \[U = \begin{bmatrix} | & | & & | & & |\\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} & \cdots & u^{(m)} \\ | & | & & | & & | \end{bmatrix} \implies U \in \mathbb{R}^{n \times n} \text{ but take the first $k$ columns as } U_{reduced}\]
 
   + With matrix $U_{reduced} \implies x \in \mathbb{R}^{n} \longrightarrow z \in \mathbb{R}^k$
 
-    $$z = \underbrace{\begin{bmatrix} | & | & & | \\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} \\ | & | & & | \end{bmatrix}^T}_{k \times n}  x = \begin{bmatrix} - & (u^{(1)})^T & - \\ - & (u^{(1)})^T & - \\ & \vdots & \\ - & (u^{(k)})^T & - \end{bmatrix} x$$
+    \[z = \underbrace{\begin{bmatrix} | & | & & | \\ u^{(1)} & u^{(2)} & \cdots & u^{(k)} \\ | & | & & | \end{bmatrix}^T}_{k \times n}  x = \begin{bmatrix} - & (u^{(1)})^T & - \\ - & (u^{(1)})^T & - \\ & \vdots & \\ - & (u^{(k)})^T & - \end{bmatrix} x\]
 
 + [Summary of PCA algorithm](../ML/ML-Stanford/14-Dimension.md#principal-component-analysis-algorithm)
 
   After mean normalization (ensure every feature has zero mean) and optionally feature scaling
 
-    $$\text{Sigma } = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)})(x^{(i)})^T = \dfrac{1}{m} x^T \cdot x$$
+    \[\text{Sigma } = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)})(x^{(i)})^T = \dfrac{1}{m} x^T \cdot x\]
 
   where $x = \begin{bmatrix} - & x^{(1)} & - \\ & \vdots & \\ - & x^{(m)} & - \end{bmatrix}$
 
@@ -1244,7 +1244,7 @@
 
 + [Covariance matrix of the data](../ML/ML-Stanford/ex07.md#2-2-implementing-pca)
 
-  $$\Sigma = \frac{1}{m} X^TX$$
+  \[\Sigma = \frac{1}{m} X^TX\]
 
   + $X = \;$ the data matrix with examples in rows
   + $m = \;$ the number of examplres
@@ -1263,7 +1263,7 @@
 
   + Reconstruction from 1D to 2D:
 
-    $$x_{approx} = \underbrace{U_{reduce}}_{n \times k} \cdot \underbrace{z}_{k \times 1}$$
+    \[x_{approx} = \underbrace{U_{reduce}}_{n \times k} \cdot \underbrace{z}_{k \times 1}\]
 
 
 #### Number of PA
@@ -1273,7 +1273,7 @@
   + Total variation in the data: $\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2$
   + Typically, choose $k$ to be smallest value so that
 
-    $$\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01 \quad (1\%)$$
+    \[\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01 \quad (1\%)\]
 
   + "99\%" of variance is retained"
   + Algorithm:
@@ -1282,17 +1282,17 @@
     Compute $U_{reduce}, z^{(1)}, z^{(2)}, \dots, z^{(m)}, x_{approx}^{(1)}, \dots, x_{approx}^{(m)}$<br/>
     Check if
 
-    $$\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01?$$
+    \[\dfrac{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} - x_{approx}^{(i)} \parallel^2}{\dfrac{1}{m} \sum_{i=1}^m \parallel x^{(i)} \parallel^2} \leq 0.01?\]
 
   + Compute hypothesis checking equation
 
     Apply Octave `[U, S, V] = svd(Sigma)`, where
 
-    $$S = \begin{bmatrix} S_{11} & 0 & 0 & \cdots & 0 \\ 0 & S_{22} & 0 & \cdots & 0 \\ 0 & 0 & S_{33} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & S_{nn} \end{bmatrix}$$
+    \[S = \begin{bmatrix} S_{11} & 0 & 0 & \cdots & 0 \\ 0 & S_{22} & 0 & \cdots & 0 \\ 0 & 0 & S_{33} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & S_{nn} \end{bmatrix}\]
 
     For given $k$
 
-      $$1 - \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \leq 0.01 \implies \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \geq 0.99$$
+      \[1 - \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \leq 0.01 \implies \dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \geq 0.99\]
 
     Pick smallest  value of $k$ for which $\dfrac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^m S_{ii}} \geq 0.99$ (99% of variance retained)
   
@@ -1305,7 +1305,7 @@
   + Training dataset: $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \dots, (x^{(m)}, y^{(m)})$
   + Extract inputs: Unlabeled dataset
 
-    $$\begin{array}{ccl} x^{(1)}, x^{(2)}, \dots, x^{(m)} & \in & \mathbb{R}^{10000} \\ \downarrow PCA & & \\ z^{(1)}, z^{(2)}, \dots, z^{(m)} & \in & \mathbb{R}^{1000} \end{array}$$
+    \[\begin{array}{ccl} x^{(1)}, x^{(2)}, \dots, x^{(m)} & \in & \mathbb{R}^{10000} \\ \downarrow PCA & & \\ z^{(1)}, z^{(2)}, \dots, z^{(m)} & \in & \mathbb{R}^{1000} \end{array}\]
   
   + With $z$ vector, the logistic regression function: $h_\theta(z)  = \dfrac{1}{1 + e^{-\theta^T z}}$
   + New training set: $(z^{(1)}, y^{(1)}), (z^{(2)}, y^{(2)}) \dots, (z^{(m)}, y^{(m)})$
@@ -1324,7 +1324,7 @@
   + Thus, fewer features, less likely to overfit. $\implies$ bad usage, PCA not intend to solve overfitting issue
   + This might work OK, but isn't a good way to address overfitting.  Using __regularization__ instead.
 
-    $$\min_\theta \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \underbrace{\dfrac{1}{2m} \sum_{j=1}^n \theta_j^2}_{\text{regularization}}$$
+    \[\min_\theta \dfrac{1}{2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \underbrace{\dfrac{1}{2m} \sum_{j=1}^n \theta_j^2}_{\text{regularization}}\]
 
 + [PCA is sometimes used where it shouldn't be](/ML/ML-Stanford/14-Dimension.md#advice-for-applying-pca)
   + Design of ML system:
@@ -1344,7 +1344,7 @@
   + The output centroid matrix will be $K \times n$ where each row is the new $k^{th}$ centroid and is the average of all the rows of $X$ that are assigned to centroid number $k$.
   + Result: 
 
-  $$K \times m * m \times n \implies K \times n$$
+  \[K \times m * m \times n \implies K \times n\]
 
   + The $k^{th}$ row of it needs to "select" the rows of $X$ that are assigned to centroid $k$. So row $k$ needs to have a $1$ in the corresponding column positions that map to each of the mm rows of $X$ assigned to centroid $k$. 
 
@@ -1359,7 +1359,7 @@
 	+ Is $X_{test}$ anomalous?
 	+ Given model $p(x)$ to predict $x_{test}$
 
-		$$ \text{Decision } = \begin{cases} \text{anomaly} & \text{if } p(x_{test}) < \epsilon \\ \text{ok} & \text{if }  p(x_{test}) \geq \epsilon  \end{cases}$$
+		\[ \text{Decision } = \begin{cases} \text{anomaly} & \text{if } p(x_{test}) < \epsilon \\ \text{ok} & \text{if }  p(x_{test}) \geq \epsilon  \end{cases}\]
 
 + [Anomaly detection examples](../ML/ML-Stanford/15-Detection.md#problem-motivation)
 	+ Fraud detection:
@@ -1399,41 +1399,41 @@
 	+ Say $x \in \mathbb{R}$. If $x$ is a distributed Gaussian with mena $\mu$, variance $\sigma^2$ with $\sigma$ as standard deviation.
 	+ Normal distribution: $x \backsim \mathcal{N}(\mu, \sigma^2)$ where `~` means "distributed as"
 
-		$$p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi \sigma^2}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)$$
+		\[p(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi \sigma^2}} \exp \left(- \dfrac{(x - \mu)^2}{2\sigma^2} \right)\]
 
 + [Parameter estimation](../ML/ML-Stanford/15-Detection.md#gaussian-distribution)
 	+ Dataset: $\{x^{(1)}, x^{(2)}, \dots, x^{(m)}\} \quad x^{(i)} \in \mathbb{R}$
 	+ mean ($\mu$): 
 
-		$$\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)}$$
+		\[\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)}\]
 
 	+ Standard deviation($\sigma$): (maximum likelihood estimation form or statistics form)
 
-		$$\sigma^2 = \dfrac{1}{m} \sum_{j=1}^m (x^{(i)} - \mu)^2 \qquad \text{ or } \qquad \sigma^2 = \dfrac{1}{m-1} \sum_{j=1}^{m-1} (x^{(i)} - \mu)^2$$
+		\[\sigma^2 = \dfrac{1}{m} \sum_{j=1}^m (x^{(i)} - \mu)^2 \qquad \text{ or } \qquad \sigma^2 = \dfrac{1}{m-1} \sum_{j=1}^{m-1} (x^{(i)} - \mu)^2\]
 
 
 + [Estimate the Gaussian distribution for each of the features $x_i$](../ML/ML-Stanford/ex08.md#1-1-gaussian-distribution)
   + find parameters $\mu_i$ and $\sigma_i$ that fit the data inb the $i$-th dimension $x_i^{(1)}, \dots, x_i^{(m)}, \forall i = 1, \dots, n$
   + Gaussian distribution
 
-    $$p(x; \mu_, \sigma) = \dfrac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+    \[p(x; \mu_, \sigma) = \dfrac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]
 
     where $\mu$ = mean, $\sigma^2$ = variance
 
 + [Estimate the parameters, $(\mu_i, \sigma_i^2)$](../ML/ML-Stanford/ex08.md#1-2-estimating-parameters-for-a-gaussian)
   + the mean
 
-    $$\mu_i = \dfrac{1}{m} \sum_{j=1}^m x_i^{(i)}$$
+    \[\mu_i = \dfrac{1}{m} \sum_{j=1}^m x_i^{(i)}\]
 
   + the variance
 
-    $$\sigma_i^2 = \dfrac{1}{m} \sum_{j=1}^m (x_i^{(j)} - \mu_i)^2$$
+    \[\sigma_i^2 = \dfrac{1}{m} \sum_{j=1}^m (x_i^{(j)} - \mu_i)^2\]
 
 
 + [Multivariate Gaussian (Normal) Distribution](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
   + Parameters: $\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}$
   
-    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)$$
+    \[p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)\]
 
     where $|\Sigma|\;$ = determent of $\Sigma = \det(\Sigma)$
 
@@ -1441,7 +1441,7 @@
   
     Given training set: $\{ x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$ with $x^{(i)} \in \mathbb{R}^n$
 
-    $$ \mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T$$
+    \[ \mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T\]
 
 
 #### Algorithm: Anomaly Detection
@@ -1452,21 +1452,21 @@
 	+ Gaussian distribution for each feature: $x_i \backsim \mathcal{N}(\mu_i, \sigma_i^2) \quad \forall i = 1, 2, \dots, n$
 	+ the probability density
 
-		$$\begin{array}{rcl} p(x) & =& p(x_1; \mu_1, \sigma_1^2)p(x_2,; \mu_2, \sigma_2^2)p(x_3,; \mu_3, \sigma_3^2) \dots p(x_n,; \mu_n, \sigma_n^2) \\ &=& \displaystyle \prod_{j=1}^n p(x_j,; \mu_j, \sigma_j^2) \end{array}$$
+		\[\begin{array}{rcl} p(x) & =& p(x_1; \mu_1, \sigma_1^2)p(x_2,; \mu_2, \sigma_2^2)p(x_3,; \mu_3, \sigma_3^2) \dots p(x_n,; \mu_n, \sigma_n^2) \\ &=& \displaystyle \prod_{j=1}^n p(x_j,; \mu_j, \sigma_j^2) \end{array}\]
 
 + [Anomaly detection algorithm](../ML/ML-Stanford/15-Detection.md#algorithm)
 	1. Choose features $x_i$ that you think might be indicative of anomalous examples.
 	2. Fit parameters $\mu_1, \dots, \mu_n, \sigma_1^2, \dots, \sigma_n^2$ 
 
-		$$\mu_j = E(x_j) = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)} \qquad\qquad \sigma_j^2 = \dfrac{1}{m} \sum_{j=1}^m (x_j^{(i)} - \mu_j)^2$$
+		\[\mu_j = E(x_j) = \dfrac{1}{m} \sum_{i=1}^m x_j^{(i)} \qquad\qquad \sigma_j^2 = \dfrac{1}{m} \sum_{j=1}^m (x_j^{(i)} - \mu_j)^2\]
 
 		Vectorized form:
 
-		$$\mu = \begin{bmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix} = E(X) = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \sigma^2 = Var(X) = E(X \cdot X^T) - E(X) \cdot E(X)^T$$
+		\[\mu = \begin{bmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix} = E(X) = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \sigma^2 = Var(X) = E(X \cdot X^T) - E(X) \cdot E(X)^T\]
 
 	3. Given new example $x$, compute $p(x)$:
 
-		$$p(x) = \prod_{j-1}^n p(x_j; \mu_j, \sigma_j^2) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( - \dfrac{(x_j - \mu_j)^2}{2\sigma_j^2}  \right)$$
+		\[p(x) = \prod_{j-1}^n p(x_j; \mu_j, \sigma_j^2) = \prod_{j=1}^n \dfrac{1}{\sqrt{2\pi} \sigma_j} \exp \left( - \dfrac{(x_j - \mu_j)^2}{2\sigma_j^2}  \right)\]
 
 		Anomaly if $p(x) < \epsilon$
 
@@ -1474,11 +1474,11 @@
 
   1. Fit model $p(x)$ by setting
 
-    $$\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T$$
+    \[\mu = \dfrac{1}{m} \sum_{i=1}^m x^{(i)} \qquad\qquad \Sigma = \dfrac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T\]
 
   2. Given a new example $x$, compute
 
-    $$p(x) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( - \dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x-\mu) \right)$$
+    \[p(x) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( - \dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x-\mu) \right)\]
 
     Flag anomaly if $p(x) < \epsilon$
 
@@ -1512,7 +1512,7 @@
   + Fit model $p(x)$ on training set $\{x^{(1)}, x^{(2)}, \dots, x^{(m)} \}$
   + On a cross validation/test example $x$ predict
 
-    $$y = \begin{cases} 1 & \text{if } p(x) < \epsilon \text{ (anomaly)} \\ 0 & \text{if } p(x) \geq \epsilon \text{ (normal)} \end{cases}$$
+    \[y = \begin{cases} 1 & \text{if } p(x) < \epsilon \text{ (anomaly)} \\ 0 & \text{if } p(x) \geq \epsilon \text{ (normal)} \end{cases}\]
   + Possible evaluation metrics:
     + True positive, false positive, false negative, true negative
     + Precision/recall
@@ -1530,11 +1530,11 @@
   
   + Corresponding to multivariate Gaussian
 
-    $$p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( -\dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x - \mu) \right)$$
+    \[p(x; \mu, \Sigma) = \dfrac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}} \exp \left( -\dfrac{1}{2} (x - \mu)^T\Sigma^{-1}(x - \mu) \right)\]
 
     where
 
-    $$\Sigma = \begin{bmatrix} \sigma_1^2 & 0 & \cdots & 0 \\ 0 & \sigma_2^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix}$$
+    \[\Sigma = \begin{bmatrix} \sigma_1^2 & 0 & \cdots & 0 \\ 0 & \sigma_2^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix}\]
 
 + [Original Model vs. Multivariate Gaussian Model](../ML/ML-Stanford/15-Detection.md#anomaly-detection-using-the-multivariate-gaussian-distribution)
   + Original model
@@ -1570,7 +1570,7 @@
   + If $\alpha$ too large: $J(\theta)$ may not decrease on every iteration; may not converge; slow converge also possible
   + Best practice: to choose $\alpha$, try
 
-    $$\ldots, 0.001, 0.003, , 0.01, 0.03, 0.1, 0.3, 1, \ldots$$
+    \[\ldots, 0.001, 0.003, , 0.01, 0.03, 0.1, 0.3, 1, \ldots\]
 
 ### Optimization
 
@@ -1583,7 +1583,7 @@
 
     Repeat{
 
-      $$\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)$$
+      \[\theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j} J(\theta)\]
     }
   + Optimization algorithms:
     + Gradient descent
@@ -1608,7 +1608,7 @@
 
   where
 
-  $$\begin{array}{rcl} J(\theta) & = & \left[ -\dfrac{1}{m} \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)}) + (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \theta_j^2 \\\\ \dfrac{\partial}{\partial \theta_0} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} - \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n\end{array}$$
+  \[\begin{array}{rcl} J(\theta) & = & \left[ -\dfrac{1}{m} \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)}) + (1-y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right] + \dfrac{\lambda}{2m} \theta_j^2 \\\\ \dfrac{\partial}{\partial \theta_0} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\\\ \dfrac{\partial}{\partial \theta_j} J(\theta) & = & \dfrac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} - \dfrac{\lambda}{m} \theta_j \qquad j = 1, 2, \ldots, n\end{array}\]
 
 
 ### [Multiclass Classification: One-vs-all](../ML/ML-Stanford/06-Logistic.md#multiclass-classification-one-vs-all)
@@ -1697,15 +1697,15 @@
 + [Train/validation/test error](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
   + Training error:
 
-    $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
+    \[J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2\]
 
   + Cross Validation error:
 
-    $$J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} \left( h_\theta(x^{(i)}_{cv}) - y^{(i)}_{cv} \right)^2$$
+    \[J_{cv}(\theta) = \dfrac{1}{2m_{cv}} \sum_{i=1}^{m_{cv}} \left( h_\theta(x^{(i)}_{cv}) - y^{(i)}_{cv} \right)^2\]
 
   + Test error: 
 
-    $$J_{test}(\theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} \left( h_\theta(x^{(i)}_{test}) - y^{(i)}_{test} \right)^2$$
+    \[J_{test}(\theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}} \left( h_\theta(x^{(i)}_{test}) - y^{(i)}_{test} \right)^2\]
 
 + [Error values for the three different sets using the following method](../ML/ML-Stanford/10-Advice.md#model-selection-and-train-validation-test-sets)
   1. Optimize the parameters in $\theta$ using the training set for each polynomial degree.
@@ -1935,14 +1935,14 @@
     + the ability of a classification model to identify only the relevant data points
     + of all patients where we predicted $y=1$, what fraction actually has cancer
 
-    $$\dfrac{\text{True positive}}{\text{Total predicted positive}} = \dfrac{\text{True positive}}{\text{True positive} + \text{False positive}}$$
+    \[\dfrac{\text{True positive}}{\text{Total predicted positive}} = \dfrac{\text{True positive}}{\text{True positive} + \text{False positive}}\]
 
   + __Recall__ (Sensitivity)
     + the ratio of correctly predicted positive observations to the all observations in actual class 
     + the ability of a model to find all the relevant cases within a dataset
     + of all patients that actually have cancer, what fraction did we correctly detect as having cancer?
 
-    $$\dfrac{\text{True positive}}{\text{Total actual positive}} = \dfrac{\text{True positive}}{\text{True positive} + \text{False negative}}$$
+    \[\dfrac{\text{True positive}}{\text{Total actual positive}} = \dfrac{\text{True positive}}{\text{True positive} + \text{False negative}}\]
 
   + While recall expresses the ability to find all relevant instances in a dataset, precision expresses the proportion of the data points our model says was relevant actually were relevant.
 
@@ -1970,10 +1970,10 @@
 + [The $F_1$ score](../ML/ML-Stanford/ex08.md#1-3-selecting-the-threshold-1963-)
   + computed using precision ($prec$) and recall ($rec$)
   
-    $$F_1 = \dfrac{2 \cdot prec \cdot rec}{prec + rec}$$
+    \[F_1 = \dfrac{2 \cdot prec \cdot rec}{prec + rec}\]
   + compute precision and recall
 
-    $$prec = \dfrac{tp}{tp + fp} \qquad rec = \dfrac{tp}{tp + fn}$$
+    \[prec = \dfrac{tp}{tp + fp} \qquad rec = \dfrac{tp}{tp + fn}\]
   + Notation
     + $tp$ is the number of true positive: the ground truth label says it's an anomaly and our algorithm correctly classified it is an anomaly
     + $fp$ is the number of false positive: the ground truth label says it's not an anomaly, but our incorrectly classified it is as an anomaly
@@ -2022,13 +2022,13 @@
     + pilot skill and pilot happiness can be reduced to pilot’s aptitude
     + Generally, reduce $x_1, x_2$ to $z_1$
 
-      $$\begin{array}{rcl} x^{(1)} \in \mathbb{R}^2 & \rightarrow& z^{(1)} \in \mathbb{R} \\ x^{(2)} \in \mathbb{R}^2 & \rightarrow& z^{(2)} \in \mathbb{R} \\ & \vdots & \\ x^{(m)} \in \mathbb{R}^2 & \rightarrow& z^{(m)} \in \mathbb{R} \end{array}$$
+      \[\begin{array}{rcl} x^{(1)} \in \mathbb{R}^2 & \rightarrow& z^{(1)} \in \mathbb{R} \\ x^{(2)} \in \mathbb{R}^2 & \rightarrow& z^{(2)} \in \mathbb{R} \\ & \vdots & \\ x^{(m)} \in \mathbb{R}^2 & \rightarrow& z^{(m)} \in \mathbb{R} \end{array}\]
 
   + Reduce data from 3D to 2D
     + Project the data such that they lie on a plane
     + Specify 2 axes: $z_1$ & $z_2$ as the basis of vectors
 
-      $$z = \begin{bmatrix} z_1 \\ z_2 \end{bmatrix} \qquad z^{(i)} = \begin{bmatrix} z_1^{(i)} \\ z_2^{(i)} \end{bmatrix}$$ 
+      \[z = \begin{bmatrix} z_1 \\ z_2 \end{bmatrix} \qquad z^{(i)} = \begin{bmatrix} z_1^{(i)} \\ z_2^{(i)} \end{bmatrix}\] 
 
 + [Reduce data for Data Visualization](../ML/ML-Stanford/14-Dimension.md#motivation-ii-visualization)
   + $z^{(i)} \in \mathbb{R}^2$
@@ -2088,7 +2088,7 @@
   + $y\;$ = spam(1) or not spam (0)
   + Features: choose 100 word indicative of spam/not spam, e.g. deal, buy, discount, andrew, now, ...
 
-    $$\begin{array}{rcl} x_j &=& \begin{cases} 1 & \text{if word } j \text{ appears in email} \\ 0 & \text{otherwose} \end{cases} \\\\ X &=& \begin{bmatrix} 0 \\ 1 \\ 1 \\ 0 \\ \vdots \\ 1 \\ \vdots \end{bmatrix} \quad \begin{matrix} \text{andrew} \\ \text{buy} \\ \text{deal} \\ \text{discount} \\ \vdots \\ \text{now} \\ \vdots \end{matrix} \quad\implies X \;\in\; \mathbb{R}^{100} \end{array}$$
+    \[\begin{array}{rcl} x_j &=& \begin{cases} 1 & \text{if word } j \text{ appears in email} \\ 0 & \text{otherwose} \end{cases} \\\\ X &=& \begin{bmatrix} 0 \\ 1 \\ 1 \\ 0 \\ \vdots \\ 1 \\ \vdots \end{bmatrix} \quad \begin{matrix} \text{andrew} \\ \text{buy} \\ \text{deal} \\ \text{discount} \\ \vdots \\ \text{now} \\ \vdots \end{matrix} \quad\implies X \;\in\; \mathbb{R}^{100} \end{array}\]
   
   + Note: In practice, take most frequently occurring $n$ words (10,000 to 50,000) in training set, rather than manually pick 100 words.
   + How to spend your time to make it have low error?
@@ -2143,7 +2143,7 @@
   + $m^{(j)}$ = no. of movies rated by user $j$
   + Objective: to learn $\theta^{(j)}$
 
-    $$\min_{\theta^{(j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2$$
+    \[\min_{\theta^{(j)}} \dfrac{1}{2m^{(j)}} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2 + \dfrac{\lambda}{2m^{(j)}} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2\]
 
 
 #### Model: Recommender System
@@ -2151,28 +2151,28 @@
 + [Optimization objective](../ML/ML-Stanford/16-Recommend.md#content-based-recommendations)
   + To learn $\theta^{(j)}$ (parameter for user $j$): (with $m^{(j)}$ factor removed)
 
-    $$\min_{\theta^{(j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}$$
+    \[\min_{\theta^{(j)}} \underbrace{\dfrac{1}{2} \sum_{i: r(i, j) = 1} \left( (\theta^{(j)})^T(x^{(i)}) - y^{(i, j)} \right)^2}_{\text{cost function}} + \underbrace{\dfrac{\lambda}{2} \sum_{k=1}^n  \left(\theta_k^{(j)}\right)^2}_{\text{regularization}}\]
   + To learn $\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}$:
 
-    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+    \[\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \underbrace{\sum_{i:r(i,j)=1} \left((\theta^{(j)})^T(x^{(i)}) - y^{(i,j)} \right)^2}_{\theta^{(1)}, \theta^{(2)}, \dots, \theta^{(n_u)}} + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2\]
 
 + [Collaboration filtering optimization objective](../ML/ML-Stanford/16-Recommend.md#collaborative-filtering-algorithm)
   + Given $x^{(1)}, \dots, x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \dots, \theta^{(n_u)}$
 
-    $$\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T x^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2$$
+    \[\min_{\theta^{(1)},\dots,\theta^{(n_u)}} \dfrac{1}{2}\displaystyle \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^T x^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left(\theta_k^{(j)}\right)^2\]
 
   + Given $\theta^{(1)}, \dots, \theta^{(n_u)}$, can estimate  $x^{(1)}, \dots, x^{(n_m)}$
 
-    $$\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2$$
+    \[\min_{x^{(1)}, \dots, x^{(n_m)}} \dfrac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i, j) = 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)}) \right)^2 + \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n  \left(x_k^{(i)}\right)^2\]
 
   + Minimizing $x^{(1)}, \dots, x^{(n_m)}$ and $\theta^{(1)}, \dots, \theta^{(n_u)}$ simultaneously:
 
-    $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2$$
+    \[J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^Tx^{(i)} - y^{(i,j)} \right)^2 + \dfrac{\lambda}{2}\sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 + \dfrac{\lambda}{2}\sum_{j=1}^{n_u} \sum_{k=1}^{n} \left(\theta_k^{(j)}\right)^2\]
     <br/>
 
   + Objective:
 
-    $$\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$$
+    \[\min_{\substack{x^{(1)}, \dots, x^{(n_m)},\\ \theta^{(1)}, \dots, \theta^{(n_u)}}} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})\]
   
   + $\theta_0$ and $x_0$ are not required: $x \in \mathbb{R}^n, \theta \in \mathbb{R}^n$
 
@@ -2182,7 +2182,7 @@
   + objective of collaborative filtering: predict movie ratings for the movies that users have not yet rated, that is, the entries with $R(i, j) = 0$.
   + The matrices
 
-    $$\text{X } = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix},  \qquad\qquad \text{Theta } = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \ \end{bmatrix}$$
+    \[\text{X } = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix},  \qquad\qquad \text{Theta } = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \ \end{bmatrix}\]
 
     + the $i$-th row of `X`  corresponding to the feature vector $x^{(i)}$ for the $i$-th movie
     + the $j$-th row of `Theta` corresponding to one parameter vector $\theta^{(j)}$, for the $j$-th user
@@ -2191,7 +2191,7 @@
 
 + [Gradients of cost function](../ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
 
-  $$\begin{array}{rcl} \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} \\\\ \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} \end{array}$$
+  \[\begin{array}{rcl} \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} \\\\ \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} \end{array}\]
 
 
 
@@ -2201,7 +2201,7 @@
   1. Initialize $x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}$ to small random values
   2. Minimize $J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)})$ using gradient decent (or an advanced optimization algorithm)., e.g., for every $j = 1, \dots, n_u, i=1, \dots, n_m$:
 
-    $$\begin{array}{rcl} x_k^{(i)} &:=& x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)\end{array}$$
+    \[\begin{array}{rcl} x_k^{(i)} &:=& x_k^{(i)} - \alpha\left (\displaystyle \sum_{j:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) \theta_k^{(j)}} + \lambda x_k^{(i)} \right) \\\\ \theta_k^{(j)} &:=& \theta_k^{(j)} - \alpha\left (\displaystyle \sum_{i:r(i,j)=1}{((\theta^{(j)})^T x^{(i)} - y^{(i,j)}) x_k^{(i)}} + \lambda \theta_k^{(j)} \right)\end{array}\]
   3. For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a start rating of $\theta^Tx$. [rating for user $j$ and movie $i$: $(\theta^{(j)})^T(x^{(i)})$]
 
 + [Collaborative filtering](../ML/ML-Stanford/16-Recommend.md#collaborative-filtering)
@@ -2211,7 +2211,7 @@
 
 + [collaborative filtering cost function (without regularization)](../ML/ML-Stanford/ex08.md#2-2-1-collaborative-filtering-cost-function)
 
-  $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2$$
+  \[J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2\]
 
 + [Implementation Note](../ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
   + able to implement the gradient with a for-loop over movies (for computing $\frac{\partial J}{\partial x_k^{(i)}}$) and a for-loop over users (for computing $\frac{\partial J}{\theta_k^{(j)}}$)
@@ -2219,11 +2219,11 @@
   + vectorized the inner for-loops: left with only two for-loops (one for looping over movies to compute $\frac{\partial J}{\partial x_k^{(i)}}$ for each movie, and one for looping over users to compute $\frac{\partial J}{\partial \theta_k^{(j)}}$ for each user)
 
 + [The cost function for collaborative filtering with regularization](../ML/ML-Stanford/ex08.md#2-2-3-regularized-cost-function)
-  $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^T \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right)$$
+  \[J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^T \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right)\]
 
 + [The gradients for the regularized cost function](../ML/ML-Stanford/ex08.md#2-2-4-regularized-gradient)
 
-  $$\begin{array}{rcl} \displaystyle \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \displaystyle \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \end{array}$$
+  \[\begin{array}{rcl} \displaystyle \dfrac{\partial J}{\partial x_k^{(i)}} & = & \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\\\ \displaystyle \dfrac{\partial J}{\partial \theta_k^{(j)}} & = & \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \end{array}\]
 
   + add $\lambda x^{(i)}$ to `X_grad(i, :)`
   + add $\lambda \theta^{(j)}$ to `Theta_grad(i, :)`
@@ -2234,10 +2234,10 @@
 + [Collaborative filtering](../ML/ML-Stanford/16-Recommend.md#vectorization-low-rank-matrix-factorization)
   + Predicted ratings: $(i,j) \rightarrow (\theta^{(j)})^T(x^{(i)})$
 
-    $$X \Theta^T = \begin{bmatrix} (\theta^{(1)})^T(x^{(1)}) & (\theta^{(2)})^T(x^{(1)}) & \cdots & (\theta^{(n_u)})^T(x^{(1)}) \\ (\theta^{(1)})^T(x^{(2)}) & (\theta^{(2)})^T(x^{(2)}) & \cdots & (\theta^{(n_u)})^T(x^{(2)}) \\ \vdots & \vdots & \ddots & \vdots \\ (\theta^{(1)})^T(x^{(n_m)}) & (\theta^{(2)})^T(x^{(n_m)}) & \cdots & (\theta^{(n_u)})^T(x^{(n_m)}) \end{bmatrix}$$ 
+    \[X \Theta^T = \begin{bmatrix} (\theta^{(1)})^T(x^{(1)}) & (\theta^{(2)})^T(x^{(1)}) & \cdots & (\theta^{(n_u)})^T(x^{(1)}) \\ (\theta^{(1)})^T(x^{(2)}) & (\theta^{(2)})^T(x^{(2)}) & \cdots & (\theta^{(n_u)})^T(x^{(2)}) \\ \vdots & \vdots & \ddots & \vdots \\ (\theta^{(1)})^T(x^{(n_m)}) & (\theta^{(2)})^T(x^{(n_m)}) & \cdots & (\theta^{(n_u)})^T(x^{(n_m)}) \end{bmatrix}\] 
     <br/>
 
-    $$X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}$$
+    \[X = \begin{bmatrix} - & (x^{(1)})^T & - \\ - & (x^{(2)})^T & - \\ & \vdots & \\ - & (x^{(n_m)})^T & - \end{bmatrix} \qquad\qquad \Theta = \begin{bmatrix} - & (\theta^{(1)})^T & - \\ - & (\theta^{(2)})^T & - \\ & \vdots & \\ - & (\theta^{(n_u)})^T & - \end{bmatrix}\]
 
   + a.k.a Low rank matrix factorization
 
@@ -2245,14 +2245,14 @@
   + For each product $i$, we learn a feature vector $x^{(i)} \in \mathbb{R}^n$; e.g., $x_1$ = romance, $x_2$ = action, $x_3$ = comedy, $x_4 = \dots$
   + How to fidn movies $j$ related to movie $i$?
 
-    $$\parallel x^{(i)} - x^{(j)} \parallel \rightarrow 0 \implies \text{movie } j \text{ and } i \text { are "similar"}$$
+    \[\parallel x^{(i)} - x^{(j)} \parallel \rightarrow 0 \implies \text{movie } j \text{ and } i \text { are "similar"}\]
   + 5 most similar movies to movie $i$: find the 5 movies with the smallest $\parallel x^{(i)} - x^{(j)} \parallel$
 
 + [Implementation Tip](../ML/ML-Stanford/ex08.md#2-2-2-collaborative-filtering-gradient)
   + come up a way to compute all the derivatives associated with $x_1^{(i)}, x_2^{(i)}, \dots, x_n^{(i)}$ (i.e., the derivative terms associated with the feature vector $x^{(i)]}$) at the sam etime
   + define the derivatives for the feature vector of the $i$-th movie
 
-    $$(X_{grad}(i,:))^T = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(i)}} \\ \frac{\partial J}{\partial x_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}$$
+    \[(X_{grad}(i,:))^T = \begin{bmatrix} \frac{\partial J}{\partial x_1^{(i)}} \\ \frac{\partial J}{\partial x_2^{(i)}} \\ \vdots \\ \frac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} = \sum_{j: r(i, j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}\]
 
     + start by indexing into `Theta` and `Y` to select only the elements of interests (i.e., those with $r(i, j) = 1$)
     + consider the features for the $i$-th movie
@@ -2262,29 +2262,29 @@
   + allow to create the temporary matrices $Theta_{temp} = Theta(idx, :)$ and $Y_{temp} = Y(idx, :)$ that index into `Theta` and `Y` to give you only the set of users which have rated the $i$-th movie
   + The derivatives
 
-    $$X_{grad}(i, :) = (X(i, :) \ast Theta_{temp}^T - y_{temp}) \ast Theta_{temp}$$
+    \[X_{grad}(i, :) = (X(i, :) \ast Theta_{temp}^T - y_{temp}) \ast Theta_{temp}\]
 
     + the vectorized computation returns a row-vector
   + After vectorized he computations of the derivatives wrt $x^{(i)}$, use a similar method to vectorize the derivatives wrt $\theta^{(j)}$
 
 + [Notations](../ML/ML-Stanford/ex08.md#notations)
 
-  $$\begin{array}{crl} x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_n^{(i)} \end{bmatrix} & \implies & X = \underbrace{\begin{bmatrix} (x^{(1)})^T \\ (x^{(2)})^T \\ \vdots \\ (x^{(n_m)})^T \end{bmatrix}}_{n_m \times n} = \begin{bmatrix} x_1^{(1)} & x_2^{(1)} & \cdots & x_n^{(1)} \\ x_1^{(2)} & x_2^{(2)} & \cdots & x_n^{(2)}  \\ \vdots & \vdots & \ddots & \vdots \\ x_1^{(n_m)} & x_2^{(n_m)} & \cdots & x_n^{(n_m)} \end{bmatrix} \\\\ \theta^{(j)} = \begin{bmatrix} \theta_1^{(i)} \\ \theta_2^{(i)} \\ \vdots \\ \theta_n^{(i)} \end{bmatrix} & \implies & \theta = \underbrace{\begin{bmatrix} (\theta^{(1)})^T \\ (\theta^{(2)})^T \\ \vdots \\ (\theta^{(n_m)})^T \end{bmatrix}}_{n_u \times n} = \begin{bmatrix} \theta_1^{(1)} & \theta_2^{(1)} & \cdots & \theta_n^{(1)} \\ \theta_1^{(2)} & \theta_2^{(2)} & \cdots & \theta_n^{(2)}  \\ \vdots & \vdots & \ddots & \vdots \\ \theta_1^{(n_m)} & \theta_2^{(n_m)} & \cdots & \theta_n^{(n_m)} \end{bmatrix} \end{array}$$
+  \[\begin{array}{crl} x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_n^{(i)} \end{bmatrix} & \implies & X = \underbrace{\begin{bmatrix} (x^{(1)})^T \\ (x^{(2)})^T \\ \vdots \\ (x^{(n_m)})^T \end{bmatrix}}_{n_m \times n} = \begin{bmatrix} x_1^{(1)} & x_2^{(1)} & \cdots & x_n^{(1)} \\ x_1^{(2)} & x_2^{(2)} & \cdots & x_n^{(2)}  \\ \vdots & \vdots & \ddots & \vdots \\ x_1^{(n_m)} & x_2^{(n_m)} & \cdots & x_n^{(n_m)} \end{bmatrix} \\\\ \theta^{(j)} = \begin{bmatrix} \theta_1^{(i)} \\ \theta_2^{(i)} \\ \vdots \\ \theta_n^{(i)} \end{bmatrix} & \implies & \theta = \underbrace{\begin{bmatrix} (\theta^{(1)})^T \\ (\theta^{(2)})^T \\ \vdots \\ (\theta^{(n_m)})^T \end{bmatrix}}_{n_u \times n} = \begin{bmatrix} \theta_1^{(1)} & \theta_2^{(1)} & \cdots & \theta_n^{(1)} \\ \theta_1^{(2)} & \theta_2^{(2)} & \cdots & \theta_n^{(2)}  \\ \vdots & \vdots & \ddots & \vdots \\ \theta_1^{(n_m)} & \theta_2^{(n_m)} & \cdots & \theta_n^{(n_m)} \end{bmatrix} \end{array}\]
 
   <br/>
 
-  $$ e_{n_m} = \underbrace{\begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}}_{n_m \times 1} \qquad e_{n_u} = \underbrace{\begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}}_{n_u \times 1} \qquad R = \begin{bmatrix} r(1,1) & r(1, 2) & \cdots & r(1, n_u) \\ r(2,1) & r(2, 2) & \cdots & r(2, n_u) \\ \vdots & \vdots & \ddots & \vdots \\ r(n_m, 1) & r(n_m, 2) & \cdots & r(n_m, n_u) \\ \end{bmatrix} \quad Y = \begin{bmatrix} y^{(1, 1)} & y^{(1, 2)} & \cdots & y^{(1, n_u)} \\ y^{(2, 1)} & y^{(2, 2)} & \cdots & y^{(2, n_u)} \\ \vdots & \vdots & \ddots & \vdots \\ y^{(n_m, 1)} & y^{(n_m, 2)} & \cdots & y^{(n_m, n_u)} \end{bmatrix}$$
+  \[ e_{n_m} = \underbrace{\begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}}_{n_m \times 1} \qquad e_{n_u} = \underbrace{\begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}}_{n_u \times 1} \qquad R = \begin{bmatrix} r(1,1) & r(1, 2) & \cdots & r(1, n_u) \\ r(2,1) & r(2, 2) & \cdots & r(2, n_u) \\ \vdots & \vdots & \ddots & \vdots \\ r(n_m, 1) & r(n_m, 2) & \cdots & r(n_m, n_u) \\ \end{bmatrix} \quad Y = \begin{bmatrix} y^{(1, 1)} & y^{(1, 2)} & \cdots & y^{(1, n_u)} \\ y^{(2, 1)} & y^{(2, 2)} & \cdots & y^{(2, n_u)} \\ \vdots & \vdots & \ddots & \vdots \\ y^{(n_m, 1)} & y^{(n_m, 2)} & \cdots & y^{(n_m, n_u)} \end{bmatrix}\]
 
 + [Cost Function](../ML/ML-Stanford/ex08.md#cost-function)
   + Dimension analysis:
 
-    $$J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} (\underbrace{(\theta^{(j)})^Tx^{(i)}}_{(A)} - y^{(i, j)})^2$$
+    \[J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} (\underbrace{(\theta^{(j)})^Tx^{(i)}}_{(A)} - y^{(i, j)})^2\]
 
     Term (A): $Y_{pred} (n_m \times n_u) \Leftarrow (n_m \times n) \times (n \times n_u) \;\therefore\; Y_{pred} = X \cdot \theta^T$
 
   + Vectorized Cost Function
 
-    $$\begin{array}{rcl} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) & = & \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 \\\\ & = & \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} \end{array}$$
+    \[\begin{array}{rcl} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) & = & \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 \\\\ & = & \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} \end{array}\]
 
     + Hadamard product ($\circ$): $[A \circ B]_{ij} = [A]_{ij} \cdot [B]_{ij}$
 
@@ -2292,39 +2292,39 @@
 
   + Dimension analysis for feature vector:
 
-    $$(X_{grad}(i,:))^T = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}}_{(A)}$$
+    \[(X_{grad}(i,:))^T = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta^{(j)}}_{(A)}\]
 
     Term (A): $X_{grad} (n_m \times n) \;\Leftarrow\; \text{error term } (n_m \times n_u) \times \theta (n_u \times n)$
 
   + derivatives of the feature vector
 
-    $$\begin{array}{rcl} X_{grad}(i, :) & = & \begin{bmatrix} \dfrac{\partial J}{\partial x_1^{(i)}} & \dfrac{\partial J}{\partial x_2^{(i)}} & \cdots & \dfrac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} \\\\ X_{grad} & = &  ((X \cdot \theta^T) \circ R - Y) \cdot \theta \end{array}$$
+    \[\begin{array}{rcl} X_{grad}(i, :) & = & \begin{bmatrix} \dfrac{\partial J}{\partial x_1^{(i)}} & \dfrac{\partial J}{\partial x_2^{(i)}} & \cdots & \dfrac{\partial J}{\partial x_n^{(i)}} \end{bmatrix} \\\\ X_{grad} & = &  ((X \cdot \theta^T) \circ R - Y) \cdot \theta \end{array}\]
 
   + Dimension analysis for feature weighting vector
 
-    $$\theta_{grad}(:, j) = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x^{(i)}}_{(B)}$$
+    \[\theta_{grad}(:, j) = \sum_{j: r(i, j)=1} \underbrace{\left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x^{(i)}}_{(B)}\]
 
     Term (B): $\theta_{grad} (n_u \times n) \;\Leftarrow\; \text{error term}^T \ (n_u \times n_m) \times X (n_m \times n)$
 
   + derivatives of the feature weighting matrix
 
-    $$\theta_{grad} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X$$
+    \[\theta_{grad} = ((X \cdot \theta^T) \circ R - Y)^T \cdot X\]
 
 
 #### Regularization
 
 + The cost function for collaborative filtering with regularization
 
-  $$\begin{array}{c} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \displaystyle \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^2 \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right) \\ \downarrow \\ J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} + \dfrac{\lambda}{2} e_{n_u}^T \theta^{\circ 2} e_{n_u} + \dfrac{\lambda}{2} e_{n_m}^T X^{\circ 2} e_{n_m} \end{array}$$
+  \[\begin{array}{c} J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \displaystyle \dfrac{1}{2} \sum_{(i, j): r(i, j) = 1} ((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})^2 + \left( \dfrac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (\theta_k^{(j)})^2 \right) + \left( \dfrac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2 \right) \\ \downarrow \\ J(x^{(1)}, \dots, x^{(n_m)}, \theta^{(1)}, \dots, \theta^{(n_u)}) = \frac{1}{2} \cdot e_{n_m}^T \left( ((X \cdot \theta^T) \circ R) -  Y \right)^{\circ 2} \cdot e_{n_u} + \dfrac{\lambda}{2} e_{n_u}^T \theta^{\circ 2} e_{n_u} + \dfrac{\lambda}{2} e_{n_m}^T X^{\circ 2} e_{n_m} \end{array}\]
 
 + Gradient for features: derivatives of the feature vector with regularization
 
- $$\begin{array}{c} \dfrac{\partial J}{\partial x_k^{(i)}} = \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\ \downarrow \\ X_{grad} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta + \lambda \cdot X \end{array}$$
+ \[\begin{array}{c} \dfrac{\partial J}{\partial x_k^{(i)}} = \sum_{j:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \\ \downarrow \\ X_{grad} = ((X \cdot \theta^T) \circ R - Y) \cdot \theta + \lambda \cdot X \end{array}\]
 
 
 + Gradient for feature weights: derivatives of the feature weighting vector with regularization
 
- $$\begin{array}{c} \dfrac{\partial J}{\partial \theta_k^{(j)}} = \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \\ \downarrow \\ \theta_{grad} =  ((X \cdot \theta^T) \circ R - Y)^T \cdot X + \lambda \cdot \theta \end{array}$$
+ \[\begin{array}{c} \dfrac{\partial J}{\partial \theta_k^{(j)}} = \sum_{i:r(i, j)= 1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i, j)} \right) x_k^{(j)} + \lambda \theta_k^{(j)} \\ \downarrow \\ \theta_{grad} =  ((X \cdot \theta^T) \circ R - Y)^T \cdot X + \lambda \cdot \theta \end{array}\]
 
 
 
@@ -2334,7 +2334,7 @@
 
   + Hypothesis and Cost functions
 
-    $$\begin{array}{rcl} h_\theta(x) & = & \displaystyle \sum_{j=0}^n \theta_j x_j \\ J_{train}(\theta) & = & \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2 \end{array}$$
+    \[\begin{array}{rcl} h_\theta(x) & = & \displaystyle \sum_{j=0}^n \theta_j x_j \\ J_{train}(\theta) & = & \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2 \end{array}\]
 
   + Algorithm
 
@@ -2345,14 +2345,14 @@
 + [Batch vs. Stochastic gradient descent](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent)
   + Batch gradient descent
 
-    $$J_{train}(\theta) = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2$$
+    \[J_{train}(\theta) = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)} \right)^2\]
 
     Repeat { <br/>
     <span style="padding-left: 2em;"/> $\theta_j := \theta_j - \alpha \underbrace{\frac{1}{m} \sum_{i=1}^m \left( h_\theta(x^{(i)} - y^{(i)}) \right) x^{(i)}}_{\frac{\partial}{\partial \theta_j}J_{train} (\theta)} \quad (\forall j = 0, \dots, n)$ <br/>
     }
   + Stochastic gradient descent
 
-    $$\begin{array}{rcl} cost \left( \theta, (x^{(i)}, y^{(i)}) \right) &=& \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)}) \right)^2 \\\\ J_{train}(\theta) &=& \frac{1}{m} \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}$$
+    \[\begin{array}{rcl} cost \left( \theta, (x^{(i)}, y^{(i)}) \right) &=& \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)}) \right)^2 \\\\ J_{train}(\theta) &=& \frac{1}{m} \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}\]
 
     + General Algorithm
       1. Randomly shuffle (reorder) training examples
@@ -2386,11 +2386,11 @@
     + Plot $J_{train}(\theta)$ as function of the number of iterations of gradient descent
     + Cost function
 
-      $$J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
+      \[J_{train}(\theta) = \dfrac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2\]
 
   + Stochastic gradient descent
 
-    $$cost(\theta, (x^{(i)}, y^{(i)})) = \dfrac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$$
+    \[cost(\theta, (x^{(i)}, y^{(i)})) = \dfrac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2\]
 
     + During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$
     + Every $1000$ iterations (say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last $1000$ examples processed by algorithm
@@ -2420,7 +2420,7 @@
 + [Stochastic gradient descent](../ML/ML-Stanford/17-LargeScale.md#stochastic-gradient-descent-convergence)
   + Cost functions
 
-    $$\begin{array}{c} cost \left(\theta, (x^{(i)}, y^{(i)}) \right) = \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 \\\\ J_{train} = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}$$
+    \[\begin{array}{c} cost \left(\theta, (x^{(i)}, y^{(i)}) \right) = \frac{1}{2} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 \\\\ J_{train} = \dfrac{1}{2m} \displaystyle \sum_{i=1}^m cost \left( \theta, (x^{(i)}, y^{(i)}) \right) \end{array}\]
   
   + Algorithm
     1. Randomly shuffle dataset
@@ -2473,30 +2473,30 @@
 + [Map-reduce](../ML/ML-Stanford/17-LargeScale.md#map-reduce-and-data-parallelism)
   + Batch gradient descent: $m = 400$
 
-    $$\theta_j := \theta - \alpha \dfrac{1}{400} \displaystyle \sum_{i=1}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+    \[\theta_j := \theta - \alpha \dfrac{1}{400} \displaystyle \sum_{i=1}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}\]
 
   + Map-reduce gradient descent
     + Training set: $(x^{(1)}, y^{(1)}), \dots, (x^{(m)}, y^{(m)})$, said $m=400$
     + split the training set into different subsets for servers, said 4 machines
     + Machine 1: use $(x^{(1)}, y^{(1)}), \dots, (x^{(100)}, y^{(100)})$
 
-      $$temp_j^{(1)} = \sum_{i=1}^{100} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+      \[temp_j^{(1)} = \sum_{i=1}^{100} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}\]
 
     + Machine 2: use $(x^{(101)}, y^{(101)}), \dots, (x^{(200)}, y^{(100)})$
 
-      $$temp_j^{(2)} = \sum_{i=101}^{200} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+      \[temp_j^{(2)} = \sum_{i=101}^{200} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}\]
 
     + Machine 3: use $(x^{(201)}, y^{(201)}), \dots, (x^{(300)}, y^{(300)})$
 
-      $$temp_j^{(3)} = \sum_{i=201}^{300} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+      \[temp_j^{(3)} = \sum_{i=201}^{300} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}\]
 
     + Machine 4: use $(x^{(301)}, y^{(301)}), \dots, (x^{(400)}, y^{(400)})$
 
-      $$temp_j^{(4)} = \sum_{i=031}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}$$
+      \[temp_j^{(4)} = \sum_{i=031}^{400} \left( h_\theta(x^{(i)} - y^{(i)}) \right) x_j^{(i)}\]
 
   + Combine Machine 1~4:
 
-    $$\theta_j := \theta_j - \alpha \dfrac{1}{400} (temp_j^{(1)} + temp_j^{(2)} + temp_j^{(3)} + temp_j^{(4)}) \quad (j = 0, \dots, n)$$
+    \[\theta_j := \theta_j - \alpha \dfrac{1}{400} (temp_j^{(1)} + temp_j^{(2)} + temp_j^{(3)} + temp_j^{(4)}) \quad (j = 0, \dots, n)\]
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://lyusungwon.github.io/distributed-processing/2018/09/12/mr.html">
@@ -2511,7 +2511,7 @@
   + Many learning algorithms can be expressed as computing sums of functions over the training set.
   + Example: for advanced optimization, with logistic regression, need:
 
-    $$\begin{array}{rcl} J_{train}(\theta) &=& - \dfrac{1}{m} \displaystyle \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \\\\ \dfrac{\partial}{\partial \theta_j} J_{train}(\theta) &=& \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \end{array}$$
+    \[\begin{array}{rcl} J_{train}(\theta) &=& - \dfrac{1}{m} \displaystyle \sum_{i=1}^m y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \\\\ \dfrac{\partial}{\partial \theta_j} J_{train}(\theta) &=& \dfrac{1}{m} \displaystyle \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \end{array}\]
 
 + [Map reduce and neural network](../ML/ML-Stanford/17-LargeScale.md#map-reduce-and-data-parallelism)
   + Suppose you want to apply map-reduce to train a neural network on 10 machines
