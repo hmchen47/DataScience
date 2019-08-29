@@ -46,8 +46,17 @@
 
 ## Probabilistic Interpretation
 
++ The (normalized) probability assigned to the correct label $y_i$ given the image $x_i$ and parameterized by $W$
 
+  \[P(y_i | x_i; W) = \frac{e^{f_i}{\sum_j e^{f_j}\]
 
++ The softmax classifier interprets the scores inside the output vector $f$ as the unnormalized log probabilities.
+
++ Objective: Minimizing the negative log likelihood of the correct class, as performing __Maximum Likelihood Estimation__ (MLE)
+
++ Viewing $R(W)$, the regularization term, as coming from a Gaussian prior over the weight matrix $W$
+
++ Performing __Maximum a posteriori__ (MAP) estimation instead of performing MLE
 
 
 ## Practical Issues: Numeric stability
