@@ -2,11 +2,11 @@
 
 ## 01. Introduction to Machine Learning
 
-+ [Why do we need machine learning](01-IntroML.md#)
-+ [What are neural networks](01-IntroML.md#)
-+ [Some simple models of neurons](01-IntroML.md#)
-+ [A simple example of learning](01-IntroML.md#)
-+ [Three types of learning](01-IntroML.md#)
++ [Why do we need machine learning](01-IntroML.md#why-do-we-need-machine-learning)
++ [What are neural networks](01-IntroML.md#what-are-neural-networks)
++ [Some simple models of neurons](01-IntroML.md#some-simple-models-of-neurons)
++ [A simple example of learning](01-IntroML.md#a-simple-example-of-learning)
++ [Three types of learning](01-IntroML.md#three-types-of-learning)
 
 ## 02. Perceptron Learning Procedure
 
