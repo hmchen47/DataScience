@@ -326,7 +326,7 @@
 
     $$\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}$$
 
-  + The state-of-the-art recently
+  + The state-of-the-art methodology recently
     + unable to use a much bigger context
       + too many possibilities to store
       + counts almost zero
@@ -342,13 +342,14 @@
     + using semantic and syntactic features of previous words to predict the features of the next word
     + using a feature representation allows a context that contains many more previous words; e.g., 10
 
-+ Bengio's neural net for predicting the next word
++ Bengio's neural net f19970701hkor predicting the next word
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
       <img src="img/m04-04.png" style="margin: 0.1em;" alt="Bengio's neural net for predicting the next word" title="Bengio's neural net for predicting the next word" width=450>
     </a>
   </div>
+
   + similar to family tree problem but larger scale
   + bottom layer:
     + a set of neurons for index of word: turn on just one is on
@@ -358,7 +359,7 @@
     + when learning, modify the feature vector equals to modifying the weights from a single active input
   + Typical 5 previous words used but shown 2 in the diagram
   + Using distributed representations via hidden layers to predict via huge sofmax to get probabilities for all various words might coming next
-  + refinement: 
+  + refinement:
     + skip layer connection to skip from input to output
     + input words individually informative about what the word might be
   + Slight worse than Trigram model
