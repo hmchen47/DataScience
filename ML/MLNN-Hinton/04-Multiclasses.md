@@ -407,12 +407,12 @@
     + retaining cross-entropy error derivative by the difference btw the word probabilities and their target probabilities
       + raise the score of the correct candidate
       + lower the scores of its high-scoring rivals
-    + Use a small set of candidates
+    + Use a small set of candidates (e.g., a set of candidates from other predictors)
       + time saving
       + e.g., use the neural net to revise the probabilities of the words w/ trigram model
 
 + Structure words as a tree (Minih and Hinton, 2009)
-  + predicting a path through a tree
+  + predicting a path through a binary tree
   + arranging all the words in a binary tree with words as the leaves
   + using the previous context to generate a __prediction vector__, $v$
     + compare $v$ with a learned vector, $u$, at each node of the tree: a scalar product of $u$ and $v$
@@ -433,8 +433,8 @@
   + using contexts to learn a prediction vector with the neural net
   + prediction vector: adding feature vector of each word and feature vectors directly contribute evidence in favor of a prediction vector
   + the prediction vector compared with the vectors learned for all the nodes on the path to the correct next word
-  + e.g., $U-i$, $u_j$, and $u_m$ are words need to consider during learning
-  + take the path with high sum of their log probabilities: take the high probability on each node
+  + e.g., $u_i$, $u_j$, and $u_m$ are words need to consider during prediction
+  + take the path with high sum of their log probabilities: take the higher probability on each node
 
   + A convenient decomposition
     + maximizing the log probability of picking the target word
@@ -479,7 +479,7 @@
       + e.g., rugby, hockey, soccer, baseball, etc.
     + Diagram 2: places in map
       + Cambridge with a city very similar to it just underneath
-      + Toronto close to Detroit, Boston while Quebec closer to Berlin and Paris
+      + Toronto close to Detroit, Boston while Quebec closer to Berlin and Paris in terms of languages
       + Iraq similar to Vietnam
     + Diagram 3: adverbs
       + which close to that, whom and what, how, whether, and why
