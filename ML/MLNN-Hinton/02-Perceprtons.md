@@ -92,7 +92,7 @@
     1. Convert the raw input vector into a vector of feature activations; <span style="color: green;">use hand-written programs based on common-sense to define the features</span>
     2. <span style="color: red;">Learn</span> how to weight each of the feature activations to get a single scalar quantity
     3. quantity > threshold, decide that the input vector is a positive example of the target class
-  + The standard Perceptron architecture and orthers
+  + The standard Perceptron architecture and others
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2.pptx" ismap target="_blank">
