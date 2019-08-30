@@ -217,7 +217,6 @@
     </a>
   </div>
 
-
 + [Learning procedure](../ML/MLNN-Hinton/02-Perceprtons.md#why-the-learning-works)
   + using margin instead of squared distance
   + provide a feasible region by a margin at least as large as the length of the input vector
@@ -226,6 +225,19 @@
     <a href="url" ismap target="_blank">
       <img src="../ML/MLNN-Hinton/img/m02-08.png" style="margin: 0.1em;" alt="Distance btw the current and feasible vectors" title="Distance btw the current & feasible vectors" height=100>
       <img src="../ML/MLNN-Hinton/img/m02-09.png" style="margin: 0.1em;" alt="margin: the squared length btw hyperplan and feasible weight vectors" title="margin: the squared length btw hyperplan and feasible weight vectors" height=100>
+    </a>
+  </div>
+
++ [Limitations of Perceptrons](../ML/MLNN-Hinton/02-Perceprtons.md#what-perceptrons-can-not-do)
+  + hard-coded features restrict what a perceptron do
+    + Solution: adding extra feature(s) to separate
+  + Minsky & Papert, "Group Invariance Theorem": unable to discriminating simple patterns under translation w/ wrap-around
+    + Solution: adding multiple layers of adaptive, non-linear hidden units
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.youtube.com/watch?v=mI6jTc-8sUY&list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9&index=11&t=0s" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m02-10.png" style="margin: 0.1em;" alt="A geometric view of what binary threshold neurons cannot do" title="A geometric view of what binary threshold neurons cannot do" height=150>
+      <img src="../ML/MLNN-Hinton/img/m02-11.png" style="margin: 0.1em;" alt="Discriminating simple patterns under translation with wrap-around" title="Discriminating simple patterns under translation with wrap-around" height=150>
     </a>
   </div>
 
