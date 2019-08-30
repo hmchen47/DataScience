@@ -27,7 +27,7 @@
   + a.k.a linear filters in EE
   + real-valued output = weighted sum of its inputs
 
-    $$y = \sum_i w_i x_i = \mathbf{W}^T \mathbf{x}$$
+    \[y = \sum_i w_i x_i = \mathbf{W}^T \mathbf{x}\]
 
     + $y$: neuron's estimate the desired output
     + $\mathbf{W}$: weight vector
@@ -63,11 +63,11 @@
   + Solving the equations iteratively
     + Each meal price gives a linear constraint on the prices of the portions
 
-      $$price = x_{fish} w_{fish} + x_{chips} w_{chips} + x_{ketchup} w_{ketchup}$$
+      \[price = x_{fish} w_{fish} + x_{chips} w_{chips} + x_{ketchup} w_{ketchup}\]
 
     + The prices of the portions are like the weights in of a linear neuron
 
-      $$\mathbf{W} = (w_{fish}, w_{chips}, w_{ketchup})$$
+      \mathbf{W} = (w_{fish}, w_{chips}, w_{ketchup})\]
 
     + Start with guesses for the weights and then adjust the guesses slightly to give a better fit to the prices given by the cashier
 
@@ -90,13 +90,13 @@
 + Deriving the delta rule
   + Define the error as the squared residuals summed over all training cases
 
-    $$E = \displaystyle \frac{1}{2} \sum_{n \in training} (t^n - y ^n)^2$$
+    \[E = \displaystyle \frac{1}{2} \sum_{n \in training} (t^n - y ^n)^2\]
 
     + $1/2$: cancel 2 when differentiating
 
   + Now differentiate to get error derivatives for weights
 
-    $$\dfrac{\partial E}{\partial w_i} = \frac{1}{2} \sum_n \dfrac{\partial y^n}{\partial w_i} \dfrac{dE^n}{dy^n} = - \sum_n x_i^n (t^n - y^n)$$
+    \[\dfrac{\partial E}{\partial w_i} = \frac{1}{2} \sum_n \dfrac{\partial y^n}{\partial w_i} \dfrac{dE^n}{dy^n} = - \sum_n x_i^n (t^n - y^n)\]
 
     + applying chain rule
     + explain how the output changes as we change the weights times how the error changes as we change the output
@@ -106,7 +106,7 @@
 
   + The batch delta rule changes the weights in portion to their derivatives <span style="color: green;">summed over all training cases</span>
 
-    $$\Delta w_i = -\varepsilon \dfrac{\partial E}{\partial w_i} = \sum_n \varepsilon x_i^n (t^n - y^n)$$
+    \[\Delta w_i = -\varepsilon \dfrac{\partial E}{\partial w_i} = \sum_n \varepsilon x_i^n (t^n - y^n)\]
 
 + Behavior of the iterative learning procedure
   + Does the learning procedure eventually get the right answer?
@@ -212,7 +212,7 @@
   + a smooth and bounded function of their total input
   + nice derivatives making learning easy
 
-  $$z = b + \sum_i x_i w_i \qquad y = \frac{1}{1 + e^{-z}}$$
+  \[z = b + \sum_i x_i w_i \qquad y = \frac{1}{1 + e^{-z}}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
@@ -222,15 +222,15 @@
 
   + Derivatives of the logit, $z$ w.r.t. the inputs and the weights are very simple
 
-    $$z = b + \sum_i x_i w_i \quad \Rightarrow \quad \frac{\partial z}{\partial w_i} = x_i \quad \& \quad \frac{\partial z}{\partial x_i} = w_i$$
+    \[z = b + \sum_i x_i w_i \quad \implies \quad \frac{\partial z}{\partial w_i} = x_i \quad \& \quad \frac{\partial z}{\partial x_i} = w_i\]
 
   + Derivative of the output w.r.t. the logit
 
-    $$y = \frac{1}{1 + e^{-z}} \quad \Rightarrow \quad \frac{dy}{dz} = y(1-y)$$
+    \[y = \frac{1}{1 + e^{-z}} \quad \implies \quad \frac{dy}{dz} = y(1-y)\]
 
 + Derivatives of a logistic neuron
 
-  $$\begin{array}{rcl} y & = & \dfrac{1}{1 + e^{-z}} = (1 + e^{-z})^{-1} \\ \dfrac{dy}{dz} &=& \frac{-1 (-e^{-z})}{1 + e^{-z}} = \left( \frac{1}{1 + e^{-z}} \right) \left( \frac{e^{-z}}{1+e^{-z}} \right) = y(1-y) \\ \text{because } & & \frac{e^{-z}}{1 + e^{-z}} = \frac{(1+e^{-z}) - 1}{1 + e^{-z}} = \frac{(1+e^{-z})}{1+e^{-z}} \frac{-1}{1+e^{-z}} = 1- y \end{array}$$
+  \[\begin{array}{rcl} y & = & \dfrac{1}{1 + e^{-z}} = (1 + e^{-z})^{-1} \\ \dfrac{dy}{dz} &=& \frac{-1 (-e^{-z})}{1 + e^{-z}} = \left( \frac{1}{1 + e^{-z}} \right) \left( \frac{e^{-z}}{1+e^{-z}} \right) = y(1-y) \\ \text{because } & & \frac{e^{-z}}{1 + e^{-z}} = \frac{(1+e^{-z}) - 1}{1 + e^{-z}} = \frac{(1+e^{-z})}{1+e^{-z}} \frac{-1}{1+e^{-z}} = 1- y \end{array}\]
 
 + Using the chain rule to get the derivatives
 
@@ -295,11 +295,11 @@
   + compute error derivatives in each hidden layer from error derivatives in the layer above
   + using error derivatives w.r.t activities to get error derivatives w.r.t. the incoming weights
 
-  $$\begin{array}{rcl}E &=& \frac{1}{2} \displaystyle \sum_{j \in output} (t_j - y_j)^2 \\ \frac{\partial E}{\partial y_j} & = & -(t_j - y_j) \end{array}$$
+  \[\begin{array}{rcl}E &=& \frac{1}{2} \displaystyle \sum_{j \in output} (t_j - y_j)^2 \\ \frac{\partial E}{\partial y_j} & = & -(t_j - y_j) \end{array}\]
 
 + Backpropagating $dE/dy$
 
-  $$\begin{array}{rcl} \dfrac{\partial E}{\partial z_j} & = & \dfrac{dy_j}{dz_j} \dfrac{\partial E}{\partial y_j} = y_j(1- y_j)\dfrac{\partial E}{\partial y_j} \\ \dfrac{\partial E}{\partial y_j} &=& \displaystyle \sum_j \dfrac{dz_j}{dy_i} \dfrac{\partial E}{\partial z_j} = \sum_j w_{ij} \dfrac{\partial E}{\partial z_j} \\ \dfrac{\partial E}{\partial w_{ij}} &=& \dfrac{\partial z_j}{\partial w_{ij}} \dfrac{\partial E}{\partial z_j} = y_i \dfrac{\partial E}{\partial z_j} \end{array}$$
+  \[\begin{array}{rcl} \dfrac{\partial E}{\partial z_j} & = & \dfrac{dy_j}{dz_j} \dfrac{\partial E}{\partial y_j} = y_j(1- y_j)\dfrac{\partial E}{\partial y_j} \\ \dfrac{\partial E}{\partial y_j} &=& \displaystyle \sum_j \dfrac{dz_j}{dy_i} \dfrac{\partial E}{\partial z_j} = \sum_j w_{ij} \dfrac{\partial E}{\partial z_j} \\ \dfrac{\partial E}{\partial w_{ij}} &=& \dfrac{\partial z_j}{\partial w_{ij}} \dfrac{\partial E}{\partial z_j} = y_i \dfrac{\partial E}{\partial z_j} \end{array}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
