@@ -32,8 +32,8 @@
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50;"> Sub-topics </th>
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
@@ -181,43 +181,45 @@
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50;"> Sub-topics </th>
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks in Machine Learning</th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> NN in Machine Learning</th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#forward-propagation"> Forward Propagation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#backward-propagation"> Back Propagation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#applications"> Logic Operators </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#applications"> Logic Operators </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#initialization-neural-network"> Initialization </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#neural-network-algorithm"> Training </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;">  </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#"> Models </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Models </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   </tbody>
 </table>
@@ -228,8 +230,8 @@
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;"> Sub-topics </th>
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
