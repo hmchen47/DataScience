@@ -53,6 +53,32 @@
   </div>
 
 
+### Types of Learning
+
++ [Problem Modeling](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  + Supervised learning: Regression & Classification
+  + Reinforcement learning
+  + Unsupervised learning
+
++ [Typical Supervised learning procedure](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  1. Choosing a model class: $y = f(\mathbf{x}; \mathbf{W})$
+    + $\mathbf{x}$: input vector
+    + $\mathbf{W}$: weight vector
+    + $f$: activation function to transform input $\mathbf{x}$ with weight vector $\mathbf{W}$ to the output $y$
+  2. Learning by adjust $\mathbf{W}$ with cost function
+    + reduce the difference between target value $t$ and actual output $y$
+    + Regression measurement: usually $\frac{1}{2} (t - y)^2$
+    + Classification measurement: other sensible measures
+
++ [Reinforcement learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  + Output: an action or sequence of actions
+  + The only supervisory signal: an occasional scalar reward
+  + Decision of action(s) selected: maximize the expected sum of the future reward
+  + typically delayed reward makes model hard
+
++ [Unsupervised learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  + no clear goal
+  + typically find sensible clusters
 
 
 ## Architectures
