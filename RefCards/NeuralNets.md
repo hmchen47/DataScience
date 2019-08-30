@@ -298,9 +298,45 @@
       + too small $\rightarrow$ slow
 
 
-### Logistic and Softmax Functions
+### Error Surface for Linear Neuron
 
++ [Error surface in extended weight space](../ML/MLNN-Hinton/03-Backpropagation.md#the-error-surface-for-a-linear-neuron)
+  + Linear neuron with a squared error
+    + quadratic bowl: linear neuron with a squared error
+    + parabolas: vertical cross-sections
+    + ellipses: horizontal cross-sections
+  + multi-layer, non-linear nets: much more complicated
+    + smooth curves
+    + local minima
+  + pictorial view of gradient descent learning using Delta rule
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m03-03.png" style="margin: 0.1em;" alt="error surface" title="error surface" height=150>
+    </a>
+    <a href="https://math.stackexchange.com/questions/1249308/what-is-the-difference-between-an-elliptical-and-circular-paraboloid-3d/1249309#1249309" ismap target="_blank">
+      <img src="https://i.stack.imgur.com/goYnm.gif" style="margin: 0.1em;" alt="An elliptical paraboloid" title="An elliptical paraboloid" height=150>
+    </a>
+  </div>
+
++ [Online vs batch learning](../ML/MLNN-Hinton/03-Backpropagation.md#the-error-surface-for-a-linear-neuron)
+  + Simplest kind of batch learning (left diagram)
+    + elliptical contour lines
+    + steepest descent on the error surface
+    + travel perpendicular to the contour lines
+    + batch learning: the gradient descent summed over all training cases
+  + simplest kind of online learning (right diagram)
+    + online learning: update the weights in proportion to the gradient after each training case
+    + zig-zag around the direction of steepest descent
+  + elongated ellipse: the direction of steepest descent almost perpendicular to the direction towards the minimum
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture3/lec3.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m03-04.png" style="margin: 0.1em;" alt="Contour for batch learning" title="Contour for batch learning" height=150>
+      <img src="../ML/MLNN-Hinton/img/m03-05.png" style="margin: 0.1em;" alt="Contour for online learning" title="Contour for online learning" height=150>
+      <img src="../ML/MLNN-Hinton/img/m03-06.png" style="margin: 0.1em;" alt="enlongated ellipse with slow learning" title="enlongated ellipse with slow learning" height=150>
+    </a>
+  </div>
 
 
 
