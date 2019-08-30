@@ -265,6 +265,39 @@
   + error (measure): the squared difference btw the desired output and the actual output
 
 
+### Cost Function for Linear Neurons
+
++ [Definition](../ML/MLNN-Hinton/03-Backpropagation.md#learning-the-weights-of-a-linear-neuron):
+  
+  \[E = \frac{1}{2} \sum_{n \in training} (t^n - y^n)^2\]
+
+  + $E$: total error
+  + $t^n$: the target value of $n$-th sampling case
+  + $y^n$: the actual value of $n$-th sampling case
+  + $1/2$: factor to cancel the derivative constant
+
++ [Derivative of Error function for weights](../ML/MLNN-Hinton/03-Backpropagation.md#learning-the-weights-of-a-linear-neuron)
+
+  \[\dfrac{\partial E}{\partial w_i} = \frac{1}{2} \sum_n \dfrac{\partial y^n}{\partial w_i} \dfrac{dE^n}{dy^n} = - \sum_n x_i^n (t^n - y^n)\]
+
+  + applying chain rule
+  + explain how the output changes as we change the weights times how the error changes as we change the output
+
++ [Batch delta rule](../ML/MLNN-Hinton/03-Backpropagation.md#learning-the-weights-of-a-linear-neuron)
+
+  \[\Delta w_i = -\varepsilon \dfrac{\partial E}{\partial w_i} = \sum_n \varepsilon x_i^n (t^n - y^n)\]
+
++ [online delta-rule vs learning rule for perceptrons]((../ML/MLNN-Hinton/03-Backpropagation.md#learning-the-weights-of-a-linear-neuron))
+  + perceptron learning
+    + increment or decrement the weight vector by the input vector
+    + only change the weights when making an error
+  + online version of the delta-rule
+    + increment or decrement the weight vector by the input vector but scaled by the residual error and the learning rate
+    + choose a learning rate $\rightarrow$ annoying
+      + too big $\rightarrow$ unstable
+      + too small $\rightarrow$ slow
+
+
 ### Logistic and Softmax Functions
 
 
