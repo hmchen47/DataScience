@@ -382,7 +382,7 @@
 
 + Reinforcement learning
   + Objective
-    + an action or sequence of actions
+    + Output: an action or sequence of actions
     + the only supervisory signal: an occasional scalar reward
     + goal in selecting each action: to maximize the expected sum of the future rewards
     + usually use a discount factor for delayed rewards, so not look too far into the future
