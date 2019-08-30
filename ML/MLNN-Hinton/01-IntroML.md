@@ -335,7 +335,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
-      <img src="img/m01-01.png" style="margin: 0.1em;" alt="Examples of handwritten digits" title="Examples of handwritten digits" width=350>
+      <img src="img/m01-01.png" style="margin: 0.1em;" alt="Examples of handwritten digits" title="Examples of handwritten digits" width=250>
     </a>
   </div>
 
