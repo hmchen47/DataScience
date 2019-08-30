@@ -83,8 +83,84 @@
 
 ## Architectures
 
+### Types of Architectures
 
++ [A mostly complete chart of Neural Networks](https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464)
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2500/1*cuTSPlTq0a_327iTPJyD-Q.png" style="margin: 0.1em;" alt="Mostly complete neural network architecture" title="Mostly complete neural network architecture" width=100%>
+    </a>
+  </div>
+
+  + Perceptron (P)
+    + simplest and oldest model
+    + takes some inputs, sums them up, applies activation function and pass them to output layer
+
+  + Feed-forward neural networks
+    + all nodes fully connected
+    + activation flows from input layer to output, w/o back loops
+    + one hidden layer between input and output layers
+    + training using backpropagation method
+
+  + Radical Basis Neural (RBF) Networks
+    + FF (feed-forward) NNs
+    + activation function: radial basis function
+    + perfect for function approximation, and machine control
+
+  + Deep Feed Forward (DFF) Neural Network
+    + FF NN w/ more than one hidden layer
+    + stacking errors with more layers resulted in exponential growth of training times
+    + approaches developed in 00s allowed to train DFFs effectively
+
+  + Recurrent Neural network (RNN)
+    + a.k.a Jordan network
+    + each of hidden cell received its own output with fixed delay
+    + mainly used =when context is important
+
++ [Feed-forward neural Networks](../ML/MLNN-Hinton/02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture)
+  + Input layer: the first layer
+  + Output layer: the last layer
+  + Hidden layer(s): layer(s) between the Input & Output layers
+  + Deep Neural network: more than one hidden layer
+
++ [Recurrent neural network](../ML/MLNN-Hinton/02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture) (RNN)
+  + the previous network state influencing the output
+  + a function with inputs $x_t$ (input vector) and previous state $h_{t-1}$
+  + complicated dynamics and difficult to train
+  + a very natural way to model sequential data
+  + able to remember information in their hidden state for a long time
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788397872/1/ch01lvl1sec21/feed-forward-and-feedback-networks" ismap target="_blank">
+    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" width=350>
+  </a>
+  <a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/recurrent_neural_networks.html" ismap target="_blank">
+    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" width=350>
+  </a>
+</div>
+
++ [Symmetrically connected neural networks](../ML/MLNN-Hinton/02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture)
+  + Hopfield neural networks
+    + an example of recurrent network
+    + output of neurons connected to input of every neuron by means of appropriate weights
+    + much easier to analyze than recurrent networks
+    + the same weight in both direction
+  + Boltzman machines
+    + symmetrically connected networks with hidden units
+    + more powerful than Hopfield networks but less powerful than recurrent networks
+    + fully connected within and between layers
+    + the stochastic, generative counterpart of Hopfield networks
+    + Restricted Boltzmann Machine (RBM): the lateral connections in the visible and hidden layers are removed
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng.html" ismap target="_blank">
+    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" width=350>
+  </a>
+  <a href="https://www.researchgate.net/figure/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected_fig8_257649811" ismap target="_blank">
+    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" width=350>
+  </a>
+</div>
 
 
 ## Activation function: Logistic and Softmax Functions
