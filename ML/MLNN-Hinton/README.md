@@ -19,11 +19,11 @@
 
 ## 03. Backpropagation Learning Procedure
   
-+ [Learning the weights of a linear neuron](03-Backpropagation.md#)
-+ [The error surface for a linear neuron](03-Backpropagation.md#)
-+ [Learning the weights of a logistic output neuron](03-Backpropagation.md#)
-+ [The backpropagation algorithm](03-Backpropagation.md#)
-+ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#)
++ [Learning the weights of a linear neuron](03-Backpropagation.md#learning-the-weights-of-a-linear-neuron)
++ [The error surface for a linear neuron](03-Backpropagation.md#the-error-surface-for-a-linear-neuron)
++ [Learning the weights of a logistic output neuron](03-Backpropagation.md#learning-the-weights-of-a-logistic-output-neuron)
++ [The backpropagation algorithm](03-Backpropagation.md#the-backpropagation-algorithm)
++ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
 
 
 ## 04. Multiclasses Machine Learning
