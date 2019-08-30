@@ -199,6 +199,22 @@
   + using policy to ensure the correct cases should be picked
   + find a set of weights to pick all correct ones
 
++ [Weight space](../ML/MLNN-Hinton/02-Perceprtons.md#a-geometrical-view-of-perceptrons)
+  + 1-dim per weight
+  + point: a particular setting of all the weights
+  + a training case as a hyperplane though the origin
+  + cone of feasible solutions
+    + find a point on the right side of all planes
+    + any weight vectors for all training cases correct
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture2/lec2.pptx" ismap target="_blank">
+      <img src="img/m02-05.png" style="margin: 0.1em;" alt="Weight space: input vector with correct answer=1" title="Weight space: input vector with correct answer=1" height=250>
+      <img src="img/m02-06.png" style="margin: 0.1em;" alt="Weight space: input vector with correct answer=0" title="Weight space: input vector with correct answer=0" height=250>
+      <img src="img/m02-07.png" style="margin: 0.1em; margin-left: 2em;" alt="Feasible solutions" title="Feasible solutions" height=250>
+    </a>
+  </div>
+
 
 
 ## Activation function
