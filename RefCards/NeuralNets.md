@@ -40,7 +40,6 @@
 
     \[z = b + \displaystyle \sum_i x_i w_i \implies p(s = 1) = \frac{1}{1 + e^{-z}}\]
 
-
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://blog.zaletskyy.com/some-simple-models-of-neurons" ismap target="_blank">
       <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="Binary threshold neuron" title="Binary threshold neuron" height=150>
@@ -79,6 +78,21 @@
 + [Unsupervised learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
   + no clear goal
   + typically find sensible clusters
+
+
+### Learning Methodologies
+
++ [Learning by perturbing weights](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
+  + randomly perturb one weight and see if it improves performance: very inefficient
+  + Alternative: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
+  + Better: randomly perturb the activities of the hidden units
+
++ [Randomly perturb the activities of the hidden units](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
+  + adding a layer of hand-coded features
+    + more powerful but hard to design the features
+    + finding good features w/o requiring insights into the task or repeated trial and error
+    + guess features and see how well they work
+  + automate the loop of designing features for a particular task and seeing ho well they work
 
 
 ## Architectures
@@ -357,7 +371,9 @@
 
   \[y = \frac{1}{1 + e^{-z}} \quad \implies \quad \frac{dy}{dz} = y(1-y)\]
 
+### Bacpropagation for Logistic Neurons
 
++ 
 
 
 
