@@ -43,7 +43,7 @@
 + Hard to say what makes a 2
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="url" ismap target="_blank">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture1/lec1.pptx" ismap target="_blank">
       <img src="img/m01-01.png" style="margin: 0.1em;" alt="Example of digits" title="Example of digits" width=350>
     </a>
   </div>
@@ -69,7 +69,9 @@
     + replacing the previous ML method for the acoustic model
 
 + Phone recognition on the TIMIT benchmark
-  + Procedures: 15 frames pf 40 filterbank output + their temporal derivatives --> 2000 logistic hidden units --> 2000 logistic hidden units -- (5 more layers of pre-trained weights) --> 2000 logistic hidden units -- (not pre-trained) --> 183 HMM-state labels
+  + Procedures:
+  
+    15 frames of 40 filterbank output + their temporal derivatives $\rightarrow$<br/><br/> 2000 logistic hidden units$\rightarrow$<br/><br/> 2000 logistic hidden units $\xrightarrow{\text{5 more layers of pre-trained weights}}$<br/><br/> 2000 logistic hidden units $\xrightarrow{\text{not pre-trained}}$<br/><br/> 183 HMM-state labels
   + After standard post-processing using a bi-phone model, a deep net with 8 layers gets `20.7%` error rate
   + best previous speaker-independent result in TIMIT: `24.4%` and required averaging several models
   + Li Deng (at MSR) realized that this result could change the way speech recognition was done
@@ -88,13 +90,13 @@
     </thead>
     <tbody>
     <tr>
-      <td>Switchboard (Microsoft Research)</td><td>309</td><td>18.5%</td><td>27.4%</td><td>18.6% (2000 hrs)</td>
+      <td>Switchboard (Microsoft Research)</td><td style="text-align: center;">309</td><td style="text-align: center;">18.5%</td><td style="text-align: center;">27.4%</td><td style="text-align: center;">18.6% (2000 hrs)</td>
     </tr>
     <tr>
-      <td>English broadcast news (IBM)</td><td>50</td><td>17.5%</td><td>18.8%</td><td></td>
+      <td>English broadcast news (IBM)</td><td style="text-align: center;">50</td><td style="text-align: center;">17.5%</td><td style="text-align: center;">18.8%</td><td></td>
     </tr>
     <tr>
-      <td>Google voice search (Android 4.1)</td><td>5,870</td><td>12.3% (and falling)</td><td></td><td>16.0% (>>5,870 hrs)</td>
+      <td>Google voice search (Android 4.1)</td><td style="text-align: center;">5,870</td><td style="text-align: center;">12.3% (and falling)</td><td></td><td style="text-align: center;">16.0% (>>5,870 hrs)</td>
     </tr>
     </tbody>
   </table>
@@ -210,7 +212,7 @@
   + Simple but computationally limited
   + make them learn we __may__ get insight into more complicated neurons
 
-    $$y = b + \sum_i x_i w_i$$
+    \[y = b + \sum_i x_i w_i\]
 
     + $y$: output
     + $b$: bias
@@ -226,21 +228,21 @@
     + each neuron combines true values to compute the true value of another proposition
   + two equivalent ways to write the equations for a binary threshold neuron
 
-    $$\begin{array}{rcl}z = \displaystyle \sum_i x_i w_i & \quad & y = \begin{cases} 1 & \text{if } z \geq \theta \\ 0 & \text{otherwise} \end{cases} \\ & \theta = -b & \\ & \Downarrow & \\ z = b + \displaystyle \sum_i x_i w_i & \quad & y = \begin{cases} 1 & \text{if } z \geq 0 \\ 0 & \text{otherwise} \end{cases} \end{array}$$
+    \[\begin{array}{rcl}z = \displaystyle \sum_i x_i w_i & \quad & y = \begin{cases} 1 & \text{if } z \geq \theta \\ 0 & \text{otherwise} \end{cases} \\ & \theta = -b & \\ & \Downarrow & \\ z = b + \displaystyle \sum_i x_i w_i & \quad & y = \begin{cases} 1 & \text{if } z \geq 0 \\ 0 & \text{otherwise} \end{cases} \end{array}\]
 
 + Rectified Linear Neurons
   + a.k.a, Linear threshold neurons
   + compute a linear weighted sum of their inputs
   + output: a non-linear function of the total input
 
-    $$z = b + \sum_i x_i w_i \quad y = \begin{cases} z & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}$$
+    \[z = b + \sum_i x_i w_i \quad y = \begin{cases} z & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}\]
 
 + Sigmoid neurons
   + a real-valued output that is a smooth and bounded function of their total input
   + use the logistic function
   + nice derivatives to make learning easy
 
-  $$z = b + \sum_i x_i w_i \quad y = \frac{1}{1 + e^{-z}}$$
+  \[z = b + \sum_i x_i w_i \quad y = \frac{1}{1 + e^{-z}}\]
 
 + Stochastic binary neurons
   + same equations as logistic units
@@ -248,7 +250,7 @@
   + similar trick for rectified linear units
     + treat the output as the Poisson rate for spikes
 
-  $$z = b + \displaystyle \sum_i x_i w_i \quad p(s = 1) = \frac{1}{1 + e^{-z}}$$
+  \[z = b + \displaystyle \sum_i x_i w_i \quad p(s = 1) = \frac{1}{1 + e^{-z}}\]
 
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
