@@ -242,7 +242,28 @@
   </div>
 
 
-## Activation function
+
+## Linear Neurons
+
+### Model of Linear Neurons
+
++ Comparisons
+  + Perceptron: the weights getting closer to a good set of weights
+  + Linear neurons: the output getting closer to target outputs
+  + perceptron unable to generalize to hidden layers
+
++ [Linear neurons](../ML/MLNN-Hinton/03-Backpropagation.md#learning-the-weights-of-a-linear-neuron)
+  + linear filter in EE
+  + real-valued output: weighted sum of outputs
+
+    \[y = \sum_i x_i w_i = \mathbf{W}^T \mathbf{x}\]
+
+    + $y$: neuron's estimate the desired output
+    + $\mathbf{W}$: weight vector
+    + $\mathbf{x}$: input vector
+  + aim of learning (objective): to minimize the error summed over all training cases
+  + error (measure): the squared difference btw the desired output and the actual output
+
 
 ### Logistic and Softmax Functions
 
@@ -250,5 +271,5 @@
 
 
 
-## 
+
 
