@@ -10,11 +10,11 @@
 
 ## 02. Perceptron Learning Procedure
 
-+ [An overview of the main types of network architecture](02-Perceprtons.md#)
-+ [Perceptrons](02-Perceprtons.md#)
-+ [A geometrical view of perceptrons](02-Perceprtons.md#)
-+ [Why the learning works](02-Perceprtons.md#)
-+ [What perceptrons can not do](02-Perceprtons.md#)
++ [An overview of the main types of network architecture](02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture)
++ [Perceptrons](02-Perceprtons.md#perceptrons-the-first-generation-of-neural-networks)
++ [A geometrical view of perceptrons](02-Perceprtons.md#a-geometrical-view-of-perceptrons)
++ [Why the learning works](02-Perceprtons.md#why-the-learning-works)
++ [What perceptrons can not do](02-Perceprtons.md#what-perceptrons-can-not-do)
 
 
 ## 03. Backpropagation Learning Procedure
