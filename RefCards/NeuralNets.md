@@ -123,6 +123,29 @@
     + Generative pre-training
 
 
+### Concepts and Neural Networks
+
++ [Concepts in cognition science](../ML/MLNN-Hinton/04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
+  + The feature theory: a concept is a set of semantic features
+  + The structuralist theory: the meaning of a concept lies in its relationships to other concepts
+  + Minsky (1970s): in favor of relational graph representations with structuralist theory
+  + Hinton - both applicable
+    + able to use vectors of semantic features to implement a relational graph
+    + no intervening conscious steps but many computation in interactions of neurons
+    + explicit rules for conscious, deliberate, reasoning
+    + commonsense, analogical reasoning: seeing the answer w/o conscious intervening steps
+
++ [Localist and distributed representations of concepts](../ML/MLNN-Hinton/04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
+  + Localist representation
+    + implementation of relational graph in a neural net
+    + neuron = node in the graph
+    + connection = a binary relationship
+    + "localist" method not working: many different types of relationship and the connections in neural nets w/o discrete labels
+  + Distributed representations
+    + open issue: how to implement relational knowledge in a neural net
+    + many-to-many mapping btw concepts and neurons
+
+
 ## Architectures
 
 ### Types of Architectures
