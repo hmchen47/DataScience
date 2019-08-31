@@ -247,27 +247,27 @@
 
   + __Definition__. A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by
 
-    $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}$$
+    \[y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}\]
 
     so that the outputs sum to 1. The cost function is given by
 
-    $$C = - \sum_j t_j \ln(y_j)$$
+    \[C = - \sum_j t_j \ln(y_j)\]
   
   + __Proposition__. By the Quotient Rule, the derivatives are
 
-    $$\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j$$
+    \[\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j\]
 
     or more fancy-like using the Kronecker Delta:
 
-    $$\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)$$
+    \[\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)\]
 
   + __Proposition__. The derivatives of the cost function are
 
-    $$\frac{\partial C}{\partial z_i} = y_i - t_i.$$
+    \[\frac{\partial C}{\partial z_i} = y_i - t_i.\]
 
     _Proof_. Apply the Chain rule
 
-    $$\frac{\partial C}{\partial z_i} = - \sum_j t_j \frac{\partial \ln(y_j)}{\partial z_i} = - \sum_j t_j \frac{\partial \ln(y_j)}{\partial y_j} \frac{\partial y_j}{\partial z_i}$$
+    \[\frac{\partial C}{\partial z_i} = - \sum_j t_j \frac{\partial \ln(y_j)}{\partial z_i} = - \sum_j t_j \frac{\partial \ln(y_j)}{\partial y_j} \frac{\partial y_j}{\partial z_i}\]
 
     Using the formula for $\partial y_j / \partial z_i$, we get
 
@@ -281,7 +281,7 @@
 + __Cross-entropy__: the suggested cost function to use with softmax
   + the right cost function: the negative log probability of the right answer
 
-    $$C = - \sum_j t_j \ln(y_j) = -\ln(y_i)$$
+    \[C = - \sum_j t_j \ln(y_j) = -\ln(y_i)\]
 
     + $t_j$: target values
     + $t_j = \begin{cases} 1 & j \in I \subset G \\ 0 & j \in G-I \end{cases}$
@@ -291,7 +291,7 @@
 
   + __Property__. $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
 
-    __Proof__. $$\frac{\partial C}{\partial z_i} = \sum_j \frac{\partial C}{\partial y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i$$
+    __Proof__. \[\frac{\partial C}{\partial z_i} = \sum_j \frac{\partial C}{\partial y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i\]
 
     + e.g., 0.000001 much better than 0.000000001
     + the steepness of $d C / d y$ exactly balances the flatness of $dy / dz$
@@ -324,7 +324,7 @@
   + Gather a huge amount of text and count the frequencies of all triples or words
   + Use the formula to bet the relative probabilities of words with the two previous words
 
-    $$\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}$$
+    \[\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}\]
 
   + The state-of-the-art methodology recently
     + unable to use a much bigger context
@@ -342,7 +342,7 @@
     + using semantic and syntactic features of previous words to predict the features of the next word
     + using a feature representation allows a context that contains many more previous words; e.g., 10
 
-+ Bengio's neural net f19970701hkor predicting the next word
++ Bengio's neural net to predicting the next word
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
