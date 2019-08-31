@@ -437,10 +437,67 @@
   \[\begin{array}{rcl} \dfrac{\partial E}{\partial z_j} & = & \dfrac{dy_j}{dz_j} \dfrac{\partial E}{\partial y_j} = y_j(1- y_j)\dfrac{\partial E}{\partial y_j} \\\\ \dfrac{\partial E}{\partial y_j} &=& \displaystyle \sum_j \dfrac{dz_j}{dy_i} \dfrac{\partial E}{\partial z_j} = \sum_j w_{ij} \dfrac{\partial E}{\partial z_j} \\\\ \dfrac{\partial E}{\partial w_{ij}} &=& \dfrac{\partial z_j}{\partial w_{ij}} \dfrac{\partial E}{\partial z_j} = y_i \dfrac{\partial E}{\partial z_j} \end{array}\]
 
 
+### The Softmax Function
+
++ [The architecture](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+        <img src="img/m04-13.png" style="margin: 0.1em;" alt="Representation of Softmax group" title="Representation of Softmax group" width=250>
+      </a>
+      <a href="https://www.ritchieng.com/machine-learning/deep-learning/neural-nets/" ismap target="_blank">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-nanodegree/master/deep_learning/introduction/lr2.png" style="margin: 0.1em;" alt=" multinomial logistic regression or softmax logistic regression" title=" multinomial logistic regression or softmax logistic regression" width=350>
+      </a>
+    </div>
+
++ [Definition](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by
+
+  $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}$$
+
+  so that the outputs sum to 1. The cost function is given by
+
+  $$C = - \sum_j t_j \ln(y_j)$$
+
++ [Proposition](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  By the Quotient Rule, the derivatives are
+
+  $$\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j$$
+
+  or more fancy-like using the Kronecker Delta:
+
+  $$\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)$$
+
++ [Proposition](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  The derivatives of the cost function are
+
+  $$\frac{\partial C}{\partial z_i} = y_i - t_i.$$
+
++ [Cross-entropy](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  the suggested cost function to use with softmax
+
+  $$C = - \sum_j t_j \ln(y_j) = -\ln(y_i)$$
+
+  + $t_j$: target values
+  + $t_j = \begin{cases} 1 & j \in I \subset G \\ 0 & j \in G-I \end{cases}$
+  + $y_i$: the probability of the input belonging to class $I$
+  + simply put 0 on the wrong answers and 1 for the right answer ($t_i$)
+  + Cross-entropy cost function
+
++ [Property](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
+
++ better than the gradient descent w/ squared error
+
 
 ## Applications
 
-### Multiclass Learning
+### Multiclass Learning - Family Tree
 
 + [Family tree](../ML/MLNN-Hinton/04-Multiclasses.md#learning-to-predict-the-next-word)
   + Q: Figuring out the regularities from given family trees
