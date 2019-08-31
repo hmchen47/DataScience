@@ -28,11 +28,11 @@
 
 ## 04. Multiclasses Machine Learning
 
-+ [Learning to predict the next word](04-Multiclasses.md#)
-+ [A brief diversion into cognitive science](04-Multiclasses.md#)
-+ [Another diversion_The softmax output function](04-Multiclasses.md#)
-+ [Neuro-probabilistic language models](04-Multiclasses.md#)
-+ [ways to deal with large number of possible outputs](04-Multiclasses.md#)
++ [Learning to predict the next word](04-Multiclasses.md#earning-to-predict-the-next-word)
++ [A brief diversion into cognitive science](04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
++ [Another diversion: The softmax output function](04-Multiclasses.md#another-diversion-the-softmax-output-function)
++ [Neuro-probabilistic language models](04-Multiclasses.md#neuro-probabilistic-language-models)
++ [Dealing with large number of possible outputs](04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
 
 
 ## 05. Convolution Neural Networks
@@ -147,6 +147,9 @@
 + Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](a04-Hyperparameter.md)
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
 + Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
++ Drew Rollins, [Delta Functions](a07-DeltaFunc.md), Aug, 27, 2007
++ Chris McCormick, [Deep Learning Tutorial - Softmax Regression](a08-SoftmaxReg.md)
++ [Softmax Classifier](a09-SoftmaxClass.md) in CS231n: Convolutional Neural Networks for Visual Recognition, Stanford CS Class
 
 
 ## Reference:
@@ -157,6 +160,7 @@
   + [Optional Readings](http://www.cs.toronto.edu/~tijmen/csc321/texts.shtml)
   + [Computing](http://www.cs.toronto.edu/~tijmen/csc321/computing.shtml)
   + [Exam](http://www.cs.toronto.edu/~tijmen/csc321/tests.shtml)
+  + [Intro to Neural Networks and Machine Learning - Winter 2018](http://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/)
 + [2012 COURSERA COURSE LECTURES: Neural Networks for Machine Learning](http://www.cs.toronto.edu/~hinton/nntut.html)
   + [Lecture Videos](http://www.cs.toronto.edu/~hinton/coursera_lectures.html)
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
@@ -166,3 +170,4 @@
   + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
   + [Chouffe](https://github.com/Chouffe/hinton-coursera)
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+  + [Neural Networks](https://trongr.github.io/neural-network-course/neuralnetworks.html)

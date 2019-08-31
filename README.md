@@ -201,15 +201,21 @@
     <td style="padding: 0.3em;">  </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#simple-neuron-model"> Simple Neuron Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-learning"> Types of Learning </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methodologies </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#concepts-and-neural-networks"> Concepts & NN </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-architectures"> Types of Architectures </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-architectures"> Types </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#perceptrons"> Perceptrons </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
@@ -225,6 +231,20 @@
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Neurons </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-for-logistic-neurons"> Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation-for-logistic-neurons"> Backpropagation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#the-softmax-function"> Softmax </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#family-tree-multiclass-learning"> Family Tree </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#speech-recognition"> Speech Recognition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#a-unified-architecture-for-natural-language-processing"> Architecture for NLP </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
