@@ -32,8 +32,8 @@
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50;"> Sub-topics </th>
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
@@ -175,14 +175,84 @@
 </table>
 
 
+### Neural Networks
+
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> NN in Machine Learning</th>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#forward-propagation"> Forward Propagation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#backward-propagation"> Back Propagation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#applications"> Logic Operators </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#initialization-neural-network"> Initialization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#neural-network-algorithm"> Training </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#"> Learning Methodologies </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;">  </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#simple-neuron-model"> Simple Neuron Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-learning"> Types of Learning </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methodologies </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-architectures"> Types of Architectures </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#perceptrons"> Perceptrons </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Neurons </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-of-linear-neurons"> Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#cost-function-for-linear-neurons"> Cost Function </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#error-surface-for-linear-neuron"> Error Surface </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Neurons </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-for-logistic-neurons"> Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation-for-logistic-neurons"> Backpropagation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  </tbody>
+</table>
+
 
 ### [Data Science with Python](./RefCards/PythonDS.md)
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;"> Sub-topics </th>
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
@@ -278,19 +348,17 @@
 </table>
 
 
-### [Machine Learning with Python](./RefCards/PythonML.md)
++ [Machine Learning with Python](./RefCards/PythonML.md)
 
-### [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
-
-
-+ [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
-+ [Numpy](./RefCards/DataScience-UCB.md#numpy)
-+ [Array](./RefCards/DataScience-UCB.md#array)
-+ [Table](./RefCards/DataScience-UCB.md#table)
-+ [Visualizations](./DataScience-UCB.md#visualizations)
-+ [iPython](./RefCards/DataScience-UCB.md#ipython)
-+ [Conditions](./RefCards/DataScience-UCB.md#conditions)
-+ [Utility](./RefCards/DataScience-UCB.md#utility)
++ [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
+    + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
+    + [Numpy](./RefCards/DataScience-UCB.md#numpy)
+    + [Array](./RefCards/DataScience-UCB.md#array)
+    + [Table](./RefCards/DataScience-UCB.md#table)
+    + [Visualizations](./DataScience-UCB.md#visualizations)
+    + [iPython](./RefCards/DataScience-UCB.md#ipython)
+    + [Conditions](./RefCards/DataScience-UCB.md#conditions)
+    + [Utility](./RefCards/DataScience-UCB.md#utility)
 
 
 
