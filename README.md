@@ -82,18 +82,11 @@
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-svm"> Model </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#decision-boundary"> Decision Boundary </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#kernels"> Kernels </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
   </tr>
 
@@ -122,17 +115,11 @@
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Anomaly Detection </th>
+    <th rowspan="1" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Anomaly Detection </th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#problem-description"> Problem </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#gaussian-distribution"> Gaussian Distribution </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#algorithm-anomaly-detection"> Algorithm </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#system-anomaly-detection"> System </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
   </tr>
 
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Advice on Machine Learning System </td> </tr>
