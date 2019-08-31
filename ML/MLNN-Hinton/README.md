@@ -10,29 +10,29 @@
 
 ## 02. Perceptron Learning Procedure
 
-+ [An overview of the main types of network architecture](02-Perceprtons.md#)
-+ [Perceptrons](02-Perceprtons.md#)
-+ [A geometrical view of perceptrons](02-Perceprtons.md#)
-+ [Why the learning works](02-Perceprtons.md#)
-+ [What perceptrons can not do](02-Perceprtons.md#)
++ [An overview of the main types of network architecture](02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture)
++ [Perceptrons](02-Perceprtons.md#perceptrons-the-first-generation-of-neural-networks)
++ [A geometrical view of perceptrons](02-Perceprtons.md#a-geometrical-view-of-perceptrons)
++ [Why the learning works](02-Perceprtons.md#why-the-learning-works)
++ [What perceptrons can not do](02-Perceprtons.md#what-perceptrons-can-not-do)
 
 
 ## 03. Backpropagation Learning Procedure
   
-+ [Learning the weights of a linear neuron](03-Backpropagation.md#)
-+ [The error surface for a linear neuron](03-Backpropagation.md#)
-+ [Learning the weights of a logistic output neuron](03-Backpropagation.md#)
-+ [The backpropagation algorithm](03-Backpropagation.md#)
-+ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#)
++ [Learning the weights of a linear neuron](03-Backpropagation.md#learning-the-weights-of-a-linear-neuron)
++ [The error surface for a linear neuron](03-Backpropagation.md#the-error-surface-for-a-linear-neuron)
++ [Learning the weights of a logistic output neuron](03-Backpropagation.md#learning-the-weights-of-a-logistic-output-neuron)
++ [The backpropagation algorithm](03-Backpropagation.md#the-backpropagation-algorithm)
++ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
 
 
 ## 04. Multiclasses Machine Learning
 
-+ [Learning to predict the next word](04-Multiclasses.md#)
-+ [A brief diversion into cognitive science](04-Multiclasses.md#)
-+ [Another diversion_The softmax output function](04-Multiclasses.md#)
-+ [Neuro-probabilistic language models](04-Multiclasses.md#)
-+ [ways to deal with large number of possible outputs](04-Multiclasses.md#)
++ [Learning to predict the next word](04-Multiclasses.md#learning-to-predict-the-next-word)
++ [A brief diversion into cognitive science](04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
++ [Another diversion_The softmax output function](04-Multiclasses.md#another-diversion-the-softmax-output-function)
++ [Neuro-probabilistic language models](04-Multiclasses.md#neuro-probabilistic-language-models)
++ [ways to deal with large number of possible outputs](04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
 
 
 ## 05. Convolution Neural Networks
