@@ -198,10 +198,10 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788397872/1/ch01lvl1sec21/feed-forward-and-feedback-networks" ismap target="_blank">
-    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" height=200>
+    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" height=150>
   </a>
   <a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/recurrent_neural_networks.html" ismap target="_blank">
-    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" height=200>
+    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" height=150>
   </a>
 </div>
 
@@ -220,10 +220,10 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng.html" ismap target="_blank">
-    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" height=200>
+    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" height=150>
   </a>
   <a href="https://www.researchgate.net/figure/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected_fig8_257649811" ismap target="_blank">
-    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=200>
+    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=150>
   </a>
 </div>
 
@@ -523,5 +523,76 @@
     <img src="../ML/MLNN-Hinton/img/m04-03.png" style="margin: 0.1em;" alt="The example to search symbolic rules" title="The example to search symbolic rules" height=150>
   </a>
 </div>
+
+
+### Speech Recognition
+
++ A basic problem in speech recognition
+  + Not able to identify phonemes perfectly in noisy speech
+  + Ambiguous acoustic input: several different words fitting the acoustic signal equally well
+  + Human using their understanding of the meaning of the utterance to hear the right words
+  + knowing which words are likely to come next and which are not in speech recognition
+
++ [The standard Trigram method](../ML/MLNN-Hinton/04-Multiclasses.md#neuro-probabilistic-language-models)
+  + Gather a huge amount of text and count the frequencies of all triples or words
+  + Use the formula to bet the relative probabilities of words with the two previous words
+
+    $$\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}$$
+
+  + The state-of-the-art methodology recently
+  + drawback: not understand similarity btw words
+
++ [Bengio's neural net](../ML/MLNN-Hinton/04-Multiclasses.md#neuro-probabilistic-language-models)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m04-04.png" style="margin: 0.1em;" alt="Bengio's neural net for predicting the next word" title="Bengio's neural net for predicting the next word" width=350>
+    </a>
+  </div>
+
+  + similar to family tree problem but larger scale
+  + Typical 5 previous words used but shown 2 in the diagram
+  + Using distributed representations via hidden layers to predict via huge sofmax to get probabilities for all various words might coming next
+  + refinement:
+    + skip layer connection to skip from input to output
+    + input words individually informative about what the word might be
+  + A problem w/ a very large vector of weights
+    + unnecessary duplicates: plural of a word and tenses of verbs
+    + each unit in the last hidden layer w/ 100,000 outgoing weights
+
++ [A serial architecture](../ML/MLNN-Hinton/04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m04-05.png" style="margin: 0.1em;" alt="A serial architecture for speech recognition" title="A serial architecture for speech recognition" width=350>
+    </a>
+  </div>
+
+  + adding an extra input as candidate for the next word same as the context word
+  + output: score for how good the candidate in the context
+  + execute the net many times but most of them only one required
+
++ [Structure words as a tree](../ML/MLNN-Hinton/04-Multiclasses.md#dealing-with-large-number-of-possible-outputs) (Minih and Hinton, 2009)
+  + predicting a path through a binary tree
+  + arranging all the words in a binary tree with words as the leaves
+  + using the previous context to generate a __prediction vector__, $v$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m04-07.png" style="margin: 0.1em;" alt="Neural network architecture for speech recognition" title="Neural network architecture for speech recognition" height=150>
+      <img src="../ML/MLNN-Hinton/img/m04-08.png" style="margin: 0.1em;" alt="The path for word searching with computed probabilities" title="The path for word searching with computed probabilities" height=150>
+    </a>
+  </div>
+
+  + $\sigma$: the logistic function
+  + using contexts to learn a prediction vector with the neural net
+  + the prediction vector compared with the vectors learned for all the nodes on the path to the correct next word
+  + take the path with high sum of their log probabilities: take the higher probability on each node
+
+  + A convenient decomposition
+    + maximizing the log probability of picking the target word: $\mathcal{O}(\log(N))$
+    + Still slow at test time though a few hundred times faster
+
+
 
 
