@@ -28,11 +28,11 @@
 
 ## 04. Multiclasses Machine Learning
 
-+ [Learning to predict the next word](04-Multiclasses.md#)
-+ [A brief diversion into cognitive science](04-Multiclasses.md#)
-+ [Another diversion: The softmax output function](04-Multiclasses.md#)
-+ [Neuro-probabilistic language models](04-Multiclasses.md#)
-+ [Dealing with large number of possible outputs](04-Multiclasses.md#)
++ [Learning to predict the next word](04-Multiclasses.md#earning-to-predict-the-next-word)
++ [A brief diversion into cognitive science](04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
++ [Another diversion: The softmax output function](04-Multiclasses.md#another-diversion-the-softmax-output-function)
++ [Neuro-probabilistic language models](04-Multiclasses.md#neuro-probabilistic-language-models)
++ [Dealing with large number of possible outputs](04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
 
 
 ## 05. Convolution Neural Networks
