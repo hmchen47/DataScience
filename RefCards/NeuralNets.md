@@ -443,10 +443,10 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
-        <img src="img/m04-13.png" style="margin: 0.1em;" alt="Representation of Softmax group" title="Representation of Softmax group" width=250>
+        <img src="../ML/MLNN-Hinton/img/m04-13.png" style="margin: 0.1em;" alt="Representation of Softmax group" title="Representation of Softmax group" width=200>
       </a>
       <a href="https://www.ritchieng.com/machine-learning/deep-learning/neural-nets/" ismap target="_blank">
-        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-nanodegree/master/deep_learning/introduction/lr2.png" style="margin: 0.1em;" alt=" multinomial logistic regression or softmax logistic regression" title=" multinomial logistic regression or softmax logistic regression" width=350>
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-nanodegree/master/deep_learning/introduction/lr2.png" style="margin: 0.1em;" alt=" multinomial logistic regression or softmax logistic regression" title=" multinomial logistic regression or softmax logistic regression" width=300>
       </a>
     </div>
 
@@ -497,7 +497,7 @@
 
 ## Applications
 
-### Multiclass Learning - Family Tree
+### Family Tree - Multiclass Learning
 
 + [Family tree](../ML/MLNN-Hinton/04-Multiclasses.md#learning-to-predict-the-next-word)
   + Q: Figuring out the regularities from given family trees
@@ -592,6 +592,40 @@
   + A convenient decomposition
     + maximizing the log probability of picking the target word: $\mathcal{O}(\log(N))$
     + Still slow at test time though a few hundred times faster
+
+
+### A Unified Architecture for Natural Language Processing
+
++ Collobert and Weston, [A unified architecture for natural language processing: deep neural networks with multitask learning](https://ronan.collobert.com/pub/matos/2008_nlp_icml.pdf), ICML'08, 2008
+
++ [Architecture](../ML/MLNN-Hinton/04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
+  + learned feature vectors for words
+  + applied to many different natural language processing tasks well
+  + not try to predict the next word but good feature vectors for words
+  + use both the past and future contexts
+  + observe a window with 11 words, 5 in the past and 5 in the future
+  + the middle word either the correct word actually occurred in the text or a random word
+  + train the neural net to produce the output
+    + high probability: correct word
+    + low probability: random word
+  + map the individual words to feature vectors
+  + use the feature vectors in the neural net (possible many hidden layers) to predict whether the word correct or not
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m04-09.png" style="margin: 0.1em;" alt="Neural network architecture for feature vectors learning (Collobert & Weston, 2008)" title="Neural network architecture for feature vectors learning (Collobert & Weston, 2008)" height=150>
+    </a>
+  </div>
+
++ [2D map to display the learned feature vectors](../ML/MLNN-Hinton/04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
+  + get idea of the quality of the learned feature vectors
+  + display similar vectors close to each other
+  + T-SNE: a multi-scale method to display similarity at different scale
+
++ [Checking strings of words](../ML/MLNN-Hinton/04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
+  + learned feature vectors capturing lots of subtle semantic distinctions
+  + no extra supervision required
+  + information of all words in the context
 
 
 
