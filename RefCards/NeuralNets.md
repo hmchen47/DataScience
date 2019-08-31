@@ -95,6 +95,34 @@
   + automate the loop of designing features for a particular task and seeing ho well they work
 
 
+### Considerations of Learning Procedures
+
++ [Main decisions about how to use error derivatives](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + Optimization issue: how to discover a good set of weights with the error derivatives on individual cases?
+  + Generalization issue: how to ensure non-seen cases during training work well with trained weights?
+
++ [Optimization Concerns](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + How often to update the weights
+    + Online
+    + Full batch
+    + Mini-batch
+  + How much to update the weights
+    + fixed learning rate
+    + adaptive learning rate globally
+    + adaptive learning rate on each connection separately
+
++ [Generalization Concern - Overfitting](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + Unable to identify which regularities causing errors
+  + Possible solutions:
+    + Weight-decay
+    + Weight-sharing
+    + Early stopping
+    + Model averaging
+    + Bayesian fitting on neural nets
+    + Dropout
+    + Generative pre-training
+
+
 ## Architectures
 
 ### Types of Architectures
