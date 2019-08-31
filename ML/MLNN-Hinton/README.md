@@ -19,20 +19,20 @@
 
 ## 03. Backpropagation Learning Procedure
   
-+ [Learning the weights of a linear neuron](03-Backpropagation.md#)
-+ [The error surface for a linear neuron](03-Backpropagation.md#)
-+ [Learning the weights of a logistic output neuron](03-Backpropagation.md#)
-+ [The backpropagation algorithm](03-Backpropagation.md#)
-+ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#)
++ [Learning the weights of a linear neuron](03-Backpropagation.md#learning-the-weights-of-a-linear-neuron)
++ [The error surface for a linear neuron](03-Backpropagation.md#the-error-surface-for-a-linear-neuron)
++ [Learning the weights of a logistic output neuron](03-Backpropagation.md#learning-the-weights-of-a-logistic-output-neuron)
++ [The backpropagation algorithm](03-Backpropagation.md#the-backpropagation-algorithm)
++ [How to use the derivatives computed by the backpropagation algorithm](03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
 
 
 ## 04. Multiclasses Machine Learning
 
-+ [Learning to predict the next word](04-Multiclasses.md#)
-+ [A brief diversion into cognitive science](04-Multiclasses.md#)
-+ [Another diversion_The softmax output function](04-Multiclasses.md#)
-+ [Neuro-probabilistic language models](04-Multiclasses.md#)
-+ [ways to deal with large number of possible outputs](04-Multiclasses.md#)
++ [Learning to predict the next word](04-Multiclasses.md#earning-to-predict-the-next-word)
++ [A brief diversion into cognitive science](04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
++ [Another diversion: The softmax output function](04-Multiclasses.md#another-diversion-the-softmax-output-function)
++ [Neuro-probabilistic language models](04-Multiclasses.md#neuro-probabilistic-language-models)
++ [Dealing with large number of possible outputs](04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
 
 
 ## 05. Convolution Neural Networks
@@ -115,7 +115,7 @@
 
 ## 14. Generative Adversarial Networks (GANs)
   
-+ [Learning layers of features by stacking RBMs](14-GANs.md#)
++ [Learning layers of features by stacking RBMs](14-GANs.md#)https://www.youtube.com/playlist?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9
 + [Discriminative fine-tuning for DBNs](14-GANs.md#)
 + [What happens during discriminative fine-tuning](14-GANs.md#)
 + [Modeling real-valued data with an RBM](14-GANs.md#)
@@ -146,6 +146,10 @@
 + Matthew Stewart, [Neural Network Optimization](a03-Optimization.md)
 + Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](a04-Hyperparameter.md)
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
++ Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
++ Drew Rollins, [Delta Functions](a07-DeltaFunc.md), Aug, 27, 2007
++ Chris McCormick, [Deep Learning Tutorial - Softmax Regression](a08-SoftmaxReg.md)
++ [Softmax Classifier](a09-SoftmaxClass.md) in CS231n: Convolutional Neural Networks for Visual Recognition, Stanford CS Class
 
 
 ## Reference:
@@ -156,12 +160,14 @@
   + [Optional Readings](http://www.cs.toronto.edu/~tijmen/csc321/texts.shtml)
   + [Computing](http://www.cs.toronto.edu/~tijmen/csc321/computing.shtml)
   + [Exam](http://www.cs.toronto.edu/~tijmen/csc321/tests.shtml)
+  + [Intro to Neural Networks and Machine Learning - Winter 2018](http://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/)
 + [2012 COURSERA COURSE LECTURES: Neural Networks for Machine Learning](http://www.cs.toronto.edu/~hinton/nntut.html)
   + [Lecture Videos](http://www.cs.toronto.edu/~hinton/coursera_lectures.html)
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
   + [Youtube Videos](https://www.youtube.com/playlist?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9)
 + Github Related Links
-    + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
-    + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
-    + [Chouffe](https://github.com/Chouffe/hinton-coursera)
-    + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+  + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
+  + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
+  + [Chouffe](https://github.com/Chouffe/hinton-coursera)
+  + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+  + [Neural Networks](https://trongr.github.io/neural-network-course/neuralnetworks.html)
