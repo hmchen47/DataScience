@@ -415,5 +415,33 @@
 
 
 
+## Applications
+
+### Multiclass Learning
+
++ [Family tree](../ML/MLNN-Hinton/04-Multiclasses.md#learning-to-predict-the-next-word)
+  + Q: Figuring out the regularities from given family trees
+  + Block - local encoding of person 1: 24 people: 12 British & 12 Italian
+  + Block - local encoding of relationship: 12 relationships
+  + Block - Distributed encoding of person 1: 6 big gray boxes
+  + Observe the patterns from the right diagram
+    + top right unit (big grey block): nationality
+    + 2nd right block: generation
+    + left bottom block: branches of family tree
+  + features: only useful if the other bottlenecks use similar representations
+  + Generalization: able to complete those triples correctly?
+    + trained with 108 triples instead of 112 triples
+    + Validate on the 4 held-out cases
+  + (A r B): A has a relationship r with B
+    + predict 3rd term (B) from the first two terms (A & r)
+    + using the trained net to find very unlikely triples
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+    <img src="../ML/MLNN-Hinton/img/m04-01.png" style="margin: 0.1em;" alt="Example of family trees" title="Example of family trees" height=150>
+    <img src="../ML/MLNN-Hinton/img/m04-02.png" style="margin: 0.1em;" alt="The structure of neural network to search symbolic rules" title="The structure of neural network to search symbolic rules" height=150>
+    <img src="../ML/MLNN-Hinton/img/m04-03.png" style="margin: 0.1em;" alt="The example to search symbolic rules" title="The example to search symbolic rules" height=150>
+  </a>
+</div>
 
 
