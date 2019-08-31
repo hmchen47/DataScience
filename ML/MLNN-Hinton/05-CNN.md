@@ -24,7 +24,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
-      <img src="img/m05-01.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
+      <img src="img/m05-01.png" style="margin: 0.1em;" alt="text" title="caption" width=200>
     </a>
   </div>
 
@@ -35,7 +35,7 @@
 
 ### Lecture Video
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+<video src="https://youtu.be/Qx3i7VWYwhI?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
