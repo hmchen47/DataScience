@@ -131,8 +131,129 @@
 
 ### Lecture Notes
 
++ The replicated feature approach
+  + using many different copies of the same feature detector w/ different positions
+    + might replicate across scale and orientation (tricky and expensive)
+    + replication greatly reducing the number of free parameters to be learned
+  + using several different feature types, each with tits own map of replicated detectors
+    + allowing each patch of image to be represented in several ways
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+      <img src="img/m05-03.png" style="margin: 0.1em;" alt="Illustriation for replicated features" title="Illustriation for replicated features" width=150>
+    </a>
+  </div>
 
++ Backpropagation with weight constraints
+  + modify the backpropagation algorithm to incorporated linear constraints btw the weights
+  + compute the gradients as usual
+  + modify the gradients to satisfy yje constraints
+    + once the weights satisfying the constrains, they continue satisfying them
+  + Procedure
+  
+    \[\text{To constraint: } w_1 = w_2 \implies \text{we need: } \Delta w_1 = \Delta w_2\]
+  
+    \[\text{Compute  }\frac{\partial E}{\partial w_1} \text{   and   } \frac{\partial E}{\partial w_2}\]
+
+    \[\text{Use   } \frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2} \text{   for  } w_1 \text{ and } w_2\]
+
++ What replicating the feature detectors achieve?
+  + Equivalent activities
+    + replicated features not make the neural activities invariant to translation
+    + activities equivalent
+  + Invariant knowledge
+    + a feature useful in some locations during training $\implies$ the feature available in all locations during testing
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+      <img src="img/m05-04.png" style="margin: 0.1em;" alt="Illustriation of equivalent activities" title="Illustriation of equivalent activities" width=350>
+    </a>
+  </div>
+
++ Pooling the outputs of replicated feature detectors
+  + Gget a small amount of translational invariance at each level by averaging four neighboring neighboring replicated detectors to give a single output to the next level
+      + reducing the number of input to the next layer of feature extraction
+      + allowing much more different feature maps
+      + taking the maximum of the four works slightly better
+  + Problem
+      + lost information about the precise positions of things after several levels of pooling
+      + impossible to use the precise spatial relationships btw high-level parts for recognition
+
++ Le Net
+  + Yann LeCun & collaborators
+    + developed a really good recognizer for handwritten digits
+    + using backpropagation in feedforward net
+    + Architecture
+      + many hidden layers
+      + many maps of replicated units in each layer
+      + pooling of the outputs of nearby replicated units
+      + a wide net able to cope with several characters at once even if they overlap
+      + a clever way of training a complete system, not just a recognizer
+  + Used for reading~10% of the checks in North America
+  + [Demons of LENET](http://yann.lecun.com)
+  + The 82 errors made by LeNet5
+    + most of the errors able to find easily by human
+    + human error rate: 20~30 errors
+    + but no patience to measure it
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://engmrk.com/lenet-5-a-classic-cnn-architecture/" ismap target="_blank">
+      <img src="https://engmrk.com/wp-content/uploads/2018/09/LeNet_Original_Image.jpg" style="margin: 0.1em;" alt="The LeNet-5 architecture consists of two sets of convolutional and average pooling layers, followed by a flattening convolutional layer, then two fully-connected layers and finally a softmax classifier." title="Architecture of LeNet5" height=200>
+    </a>
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+      <img src="img/m05-06.jpg" style="margin: 0.1em;" alt="Errors made by LeNet5" title="Errors made by LeNet5" height=200>
+    </a>
+  </div>
+
++ Priors and Prejudice
+  + design appropriately by applying prior knowledge about the task into the network
+    + connectivity
+    + weight constraints
+    + neuron activation functions
+  + less intrusive than hand-designing the features
+    + still prejudices the network towards the particular way of solving the problem in mind
+  + Alternatively using prior knowledge to create a more training data
+    + may require a lot of work (Hoffman & Tresp, 1993)
+    + may take longer to learn
+  + Allowing optimization to discover clever ways of using the multilayer network
+    + never fully understand how it does it
+
++ The brute force approach
+  + Designing LeNet w/ the invariant knowledge
+    + local connectivity
+    + weight-sharing
+    + pooling
+  + about 80 errors w/ origin LeNet
+    + reduced to ~40 errors w/ many different transformations of input and other tricks (Ranzato 2008)
+  + Ciresan et. al. net (2010)
+    + applying knowledge of invariance
+    + creating a huge amount of carefully designed extra training data
+    + producing many new training examples by applying many different transformations on each training image
+    + Achieving about 35 errors
+    + Error example
+      + top printed digit: the right answer
+      + bottom two printed digits: the network's best two guesses
+      + the right answer is almost always in the top 2 guesses
+      + model averaging: ~ 25 errors
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+      <img src="img/m05-07.png" style="margin: 0.1em;" alt="Illustration of errors with the right answers and top to guesses" title="Illustration of errors with the right answers and top to guesses" width=250>
+    </a>
+  </div>
+
++ How to detect a significant drop in the error rate
+  + Q: is 30 errors in 10,000 test cases significantly better than 40 errors?
+  + depend on the particular errors
+  + McNemar test
+    + using the particular errors in diagrams
+    + much more powerful than a test counting the numbers of errors
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+      <img src="img/m05-08.png" style="margin: 0.1em;" alt="McNemar test for error rate comparisons" title="McNemar test for error rate comparisons" width=450>
+    </a>
+  </div>
 
 
 ### Lecture Video
