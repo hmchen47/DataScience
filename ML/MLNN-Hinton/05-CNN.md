@@ -60,33 +60,49 @@
 + Viewpoint invariance
   + Human good at viewpoint invariant
   + one of the main difficulties in making computers perceive
+  + still no accepted solutions
   + Approaches
     + using redundant invariant features
     + putting a box around the object w/ normalized pixels
-    + convolutional neural networks to replicate features with pooling
-    + using a hierarchy of parts that have explicit poses relative tot the camera
+    + convolutional neural networks by replicating features with pooling
+    + using a hierarchy of parts that have explicit poses relative to the camera
 
 + Invariant feature approach
   + extract a large, redundant set of invariant features under transformations
     + e.g., pair of roughly parallel lines w/ a red dot btw them
     + what baby herring gulls used to know where to peck for food
+    + if paint that feature on a piece of wood, the baby herring gulls will peck at the appropriate place on the piece of wood.
   + with enough invariant features, only one way to assemble them into an object
     + no need to represent the relationships btw features directly
     + relationship captured by other features
+    + Psychologist Wayne: Strings of letters
+      + Shimon Ullman envisioned it
+      + sort of acute point requiring a big bag of features
+      + with overlapping and redundant features, one feature will tell how two other features are related
   + avoid forming features from parts of different objects
+    + human recognition: having a whole bunch of features composed of parts of different objects
+    + very misleading for recognition
 
 + Judicious normalization approach
   + putting a box around the object
   + using the box as a coordinate frame for a set of normalized pixels
   + solving the dimension-hopping problem
+    + the box on the rigid shape avoid the effect of changes in viewpoint
     + correctly choosing the box results in the same normalized pixels for the same part of an object
-    + box providing invariant to many degrees of freedom: <span style="color: red;">translation, rotation, scale, shear, stretch, ...</span>
-  + difficulties to choose the box
+    + box not required to be rectangular
+    + any box providing invariant to many degrees of freedom: <span style="color: red;">translation, rotation, scale, shear, stretch, ...</span>
+  + difficulties on choosing the box
     + segmentation errors
-    + occlusion
-    + unusual orientations
-  + required to recognize the shape to the the box right
-  + e.g., Recognizing the letter before human do mental rotation to decide if it's a mirror image
+    + occlusion: not just shrinking a box around things
+    + unusual orientations: a 'd' with an extra stroke w/ the loop D as upright one of those characters
+  + chicken-egr problem
+    + to get the box right requires to recognize the shape
+    + to recognize the shape requires to get the box right
+  + Human recognizes the letter before doing mental rotation to decide if it's a mirror image
+    + letter R w/ a vertical stroke at the back and a loop facing forwards at the top
+    + recognize the letter R perfect well before any mental rotation
+    + then recognized its upside down to know how to rotate it
+    + mental rotation for dealing with judgement like handedness, e.g., correct R or mirror, not used for dealing with upside down
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
@@ -97,9 +113,10 @@
 + Brute force normalization approach
   + Using well-segmented, upright images to fit the correct box for training
   + Designing period - try all possible boxes in a range of positions and scales
-    + widely used for detecting upright like faces and house numbers in unsegmented images
+    + widely used for computer vision
+    + particularly to detect upright things like faces and house numbers in unsegmented images
     + much more efficient if the recognizer can cope with some variation in position and scale
-    + able to use a coarse grid when trying all possible boxes
+    + then able to use a coarse grid when trying all possible boxes
 
 
 ### Lecture Video
