@@ -33,7 +33,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
-      <img src="img/m05-01.png" style="margin: 0.1em;" alt="text" title="caption" width=200>
+      <img src="img/m05-01.png" style="margin: 0.1em;" alt="Digit with different viewpoints" title="Digit with different viewpoints" width=150>
     </a>
   </div>
 
@@ -43,7 +43,6 @@
     + some coders change the info dimension
     + swap the age and weight fields
   + viewpoint carried
-
 
 
 ### Lecture Video
@@ -58,8 +57,49 @@
 
 ### Lecture Notes
 
++ Viewpoint invariance
+  + Human good at viewpoint invariant
+  + one of the main difficulties in making computers perceive
+  + Approaches
+    + using redundant invariant features
+    + putting a box around the object w/ normalized pixels
+    + convolutional neural networks to replicate features with pooling
+    + using a hierarchy of parts that have explicit poses relative tot the camera
 
++ Invariant feature approach
+  + extract a large, redundant set of invariant features under transformations
+    + e.g., pair of roughly parallel lines w/ a red dot btw them
+    + what baby herring gulls used to know where to peck for food
+  + with enough invariant features, only one way to assemble them into an object
+    + no need to represent the relationships btw features directly
+    + relationship captured by other features
+  + avoid forming features from parts of different objects
 
++ Judicious normalization approach
+  + putting a box around the object
+  + using the box as a coordinate frame for a set of normalized pixels
+  + solving the dimension-hopping problem
+    + correctly choosing the box results in the same normalized pixels for the same part of an object
+    + box providing invariant to many degrees of freedom: <span style="color: red;">translation, rotation, scale, shear, stretch, ...</span>
+  + difficulties to choose the box
+    + segmentation errors
+    + occlusion
+    + unusual orientations
+  + required to recognize the shape to the the box right
+  + e.g., Recognizing the letter before human do mental rotation to decide if it's a mirror image
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/m05-02.png" style="margin: 0.1em;" alt="Recognizing letter after rotation mentally" title="Recognizing letter after rotation mentally" width=100>
+    </a>
+  </div>
+
++ Brute force normalization approach
+  + Using well-segmented, upright images to fit the correct box for training
+  + Designing period - try all possible boxes in a range of positions and scales
+    + widely used for detecting upright like faces and house numbers in unsegmented images
+    + much more efficient if the recognizer can cope with some variation in position and scale
+    + able to use a coarse grid when trying all possible boxes
 
 
 ### Lecture Video
