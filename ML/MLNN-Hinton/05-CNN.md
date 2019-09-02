@@ -334,9 +334,117 @@
 
 ### Lecture Notes
 
++ 3-D objects recognition
+  + Object recognition more complicated than hand-written digits
+    + hundred times as many classes (1000 vs 10)
+    + hundred times as many pixels (256 x 256 color vs 28 x 28 gray)
+    + two dimensional image of 3-D scene
+    + cluttered scenes requiring segmentation
+    + multiple objects in each image
+  + Will convolutional neural network work for 3-D object?
 
++ The ILSVRC-2012 competition on ImageNet
+  + dataset: 12 million high-resolution training images
+  + classification task
+    + 1000 classes
+    + get the "correct" class in the top 5 bets
+  + localization task
+    + put a box around the object for each bet
+    + at least 50% overlap with the correct box
+  + Best existing computer vision methods by groups from Oxford, INRIA, XRCE, ...
+    + using complicated multi-stage computer vision systems
+    + typically hand-tuned by optimizing a few parameters at the early stage
+  + Examples for test set
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+        <img src="img/m05-09.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
+      </a>
+    </div>
 
+  + Error rates of some groups
+
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:50%;">Institution</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Classification</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Classification & Localization</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>University of Tokyo</td> <td style="text-align: center;">26.1%</td> <td style="text-align: center;">53.6%</td>
+    </tr>
+    <tr>
+      <td>Oxford University Computer Vision Group</td> <td style="text-align: center;">26.9%</td> <td style="text-align: center;">50.3%</td>
+    </tr>
+      <td>INRIA (French national research institute in CS) + XRCE (Xerox Research Center Europe)</td>
+      <td style="text-align: center;">27.0%</td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td>University of Amsterdam</td> <td style="text-align: center;">29.5%</td> <td style="text-align: center;"></td>
+    </tr>
+    <tr>
+      <td>University of Toronto (Alex Krizhevsky</td> <td style="text-align: center;">16.4%</td> <td style="text-align: center;">24.1%</td>
+    </tr>
+    </tbody>
+  </table>
+
++ A Neural Network for ImageNet - Alex Krizhevsky (NIPS 2012)
+  + a very deep convolution neural net
+  + Architecture
+    + 7 hidden layers not counting max pooling layers
+    + early layers: convolutional
+    + last two layers: globally connected
+  + Activation functions
+    + Rectified linear units (ReLu) in every hidden layer
+      + much faster
+      + more expensive than logistic units
+    + Normalization
+      + competitive normalization to suppress hidden activities when nearby units have stronger activities
+      + help with variations in intensity
+  + Generalization tricks
+    + training on random 224x224 patches from the 256x256 images to get more data
+      + using left-right reflections of the images
+      + combine the opinions from the ten different patches
+      + 4@224x224 corner patches + the central 224x224 patch + reflection of those five patches
+    + Regularizing the weights
+      + using dropout to regularize the weights in globally connected layers
+      + the layers containing most of the parameters
+      + dropout: half of the hidden units in a layer randomly removed for each training example
+      + stop hidden units from relying too much on other hidden units
+  + Hardware
+    + Very efficient implementation of concolutional nets on two Nvidia GTX 580 GPUs
+    + GPU
+      + over 1000 fast little cores
+      + good for matrix-matrix multiplies
+      + high bandwidth to memory
+    + train the network in a week
+    + quickly combining results from 10 patches at the same time
+    + spreading a network over many cores if communicating the states fast enough
+    + improving faster than old-fashioned computer vision systems (i.e. pre Oct 2012)
+
++ Vald Mnih (ICML 2012) - Finding roads
+  + a non-convolutional net w/ local fields and multiple layers of rectified linear units to find roads in cluttered aerial images
+  + taking a large image patch
+  + predicting a binary road label for the central 16x16 pixels
+  + lots of labeled training data available for this task
+  + Difficulty
+    + occlusion by buildings trees and cars
+    + shadows, lighting changes
+    + minor viewpoint changes
+  + Worse problems: incorrect labels
+    + badly registered maps
+    + arbitrary decisions about what counts as a road
+  + Only hope: trained on big image patches w/ millions of examples
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+      <img src="img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
+    </a>
+  </div>
 
 ### Lecture Video
 
