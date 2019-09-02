@@ -136,20 +136,31 @@
     + might replicate across scale and orientation (tricky and expensive)
     + replication greatly reducing the number of free parameters to be learned
   + using several different feature types, each with tits own map of replicated detectors
-    + allowing each patch of image to be represented in several ways
+    + allowing each patch of image to be represented by features in several ways
+    + extend one feature type to many maps
+    + each map replicas of the same feature
+    + features constrained to be identical in different places
+    + different map will learn to protect different features
+  + Example
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
-      <img src="img/m05-03.png" style="margin: 0.1em;" alt="Illustriation for replicated features" title="Illustriation for replicated features" width=150>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+        <img src="img/m05-03.png" style="margin: 0.1em;" alt="Illustriation for replicated features" title="Illustriation for replicated features" width=150>
+      </a>
+    </div>
+
+    + three feature detectors replicating each other
+    + each of them has weights to nine pixels
+    + those weights are identical btw the three feature detectors
+    + therefore, the red arrow has the same weight on it for them all, same with the green and blue arrows
+    + the 27 pixels in three different feature detectors with only 9 different weights
 
 + Backpropagation with weight constraints
-  + modify the backpropagation algorithm to incorporated linear constraints btw the weights
+  + modify the backpropagation algorithm to incorporated linear constraints btw the weights for replicated features
   + compute the gradients as usual
-  + modify the gradients to satisfy yje constraints
-    + once the weights satisfying the constrains, they continue satisfying them
-  + Procedure
+  + modify the gradients to satisfy the constraints
+  + once the weights satisfying the linear constrains, they continue satisfying the linear constrain after weight update
+  + Proof with two simple weights
   
     \[\text{To constraint: } w_1 = w_2 \implies \text{we need: } \Delta w_1 = \Delta w_2\]
   
@@ -157,12 +168,20 @@
 
     \[\text{Use   } \frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2} \text{   for  } w_1 \text{ and } w_2\]
 
-+ What replicating the feature detectors achieve?
-  + Equivalent activities
++ What replicated feature detectors achieve?
+  + False: translation invariance
+    + at least not true in the activities of the neurons
+  + Equivariant activities
     + replicated features not make the neural activities invariant to translation
     + activities equivalent
+    + Example with diagram below
+      + black dot: activated neurons
+      + the image changed and the representation also changed by just as much as the image
+      + it's equivariance not invariance
   + Invariant knowledge
     + a feature useful in some locations during training $\implies$ the feature available in all locations during testing
+    + knowing how to detect a feature in one place $\implies$ knowing how to detect same feature in another place
+  + Achieving eqivaliance in the activities and invariance in the weights
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
@@ -170,14 +189,20 @@
     </a>
   </div>
 
-+ Pooling the outputs of replicated feature detectors
-  + Gget a small amount of translational invariance at each level by averaging four neighboring neighboring replicated detectors to give a single output to the next level
-      + reducing the number of input to the next layer of feature extraction
-      + allowing much more different feature maps
-      + taking the maximum of the four works slightly better
++ Pooling for invariant activities
+  + to achieve some invariance in the activities, pull the outputs of replicated feature detectors
+  + Get a small amount of translational invariance at each level by averaging four neighboring neighboring replicated detectors to give a single output to the next level
+    + reducing the number of input to the next layer of feature extraction
+    + much more different feature maps allowing to learn more different kinds of features in the next layer
+  + slightly better to take the maximum of the four neighboring feature detectors than averaging them
   + Problem
-      + lost information about the precise positions of things after several levels of pooling
-      + impossible to use the precise spatial relationships btw high-level parts for recognition
+    + lost information about the precise positions of things after several levels of pooling, said 7 levels
+    + face recognize w/ a few eyes, a nose and a mouth floating about in vaguely the same position
+      + not an issue to recognize as a face
+      + not able to recognize whose face
+    + impossible to use the precise spatial relationships btw high-level parts for recognition
+      + whose face recognition needs to use the precise spatial relationships btw eyes and btw the nose and the mouth
+      + the information lost by convolutional neural networks
 
 + Le Net
   + Yann LeCun & collaborators
@@ -186,12 +211,28 @@
     + Architecture
       + many hidden layers
       + many maps of replicated units in each layer
-      + pooling of the outputs of nearby replicated units
+      + pooling of the outputs of nearby replicated units btw layers
       + a wide net able to cope with several characters at once even if they overlap
-      + a clever way of training a complete system, not just a recognizer
+      + no segmented individual characters required before fed into the net
+      + a clever way of training a complete system, not just a recognizer for individual characters
+      + maximum margined method: way before maximum margin invented
+    + Architecture diagram (left figure)
+      + input: pixels
+      + feature maps (c1):
+        + 6 different maps w/ 28x28 containing small features (as seen 3x3 pixels)
+        + only about 9 parameters that their weights constrained together
+        + much more efficient learning w/ much less data
+      + Subsamling/pooling:
+        + pull together the output of a bunch of neighboring replicated features in c1
+        + providing a smaller map as input for next layer (S2)
+      + built the hierarchy to get more complicated features but more invariant to position
   + Used for reading~10% of the checks in North America
   + [Demons of LENET](http://yann.lecun.com)
-  + The 82 errors made by LeNet5
+    + showing how well the system cope with variations
+    + variations: size, orientation, position, overlapping and all sorts of background noises
+  + The 82 errors made by LeNet5 (right figure)
+    + dealing with tricky 10,000 test cases
+    + better than 99% correct
     + most of the errors able to find easily by human
     + human error rate: 20~30 errors
     + but no patience to measure it
@@ -212,11 +253,25 @@
     + neuron activation functions
   + less intrusive than hand-designing the features
     + still prejudices the network towards the particular way of solving the problem in mind
+    + having an idea bout how to do object cognition by
+      + gradually making bigger and bigger features
+      + replicating these features across space
+    + force the network to do the way
   + Alternatively using prior knowledge to create a more training data
     + may require a lot of work (Hoffman & Tresp, 1993)
+      + model what happen in a steel mill
+      + find relationship btw what comes out of the steel mill and various input variables
+      + Fortran simulator to simulate the steel mill
+      + making all sorts of approximations
+      + data: real + simulator (synthetic)
+      + better result than just real data
     + may take longer to learn
+      + much more efficient in terms of speed of learning
+      + put in knowledge by using connectivity and weight constraints
+      + generating synthetic data performs better as computer faster
   + Allowing optimization to discover clever ways of using the multilayer network
     + never fully understand how it does it
+    + fine if only cares the good solutions to a problem
 
 + The brute force approach
   + Designing LeNet w/ the invariant knowledge
@@ -227,8 +282,10 @@
     + reduced to ~40 errors w/ many different transformations of input and other tricks (Ranzato 2008)
   + Ciresan et. al. net (2010)
     + applying knowledge of invariance
-    + creating a huge amount of carefully designed extra training data
+    + creating a huge amount of carefully designed extra training data (synthetic data)
     + producing many new training examples by applying many different transformations on each training image
+    + train a large deep, dumb net on a GPU w/o much overfitting
+    + 3 tricks used to prevent from overfitting when generating synthetic data
     + Achieving about 35 errors
     + Error example
       + top printed digit: the right answer
@@ -248,6 +305,15 @@
   + McNemar test
     + using the particular errors in diagrams
     + much more powerful than a test counting the numbers of errors
+  + Example:
+    + left figure:
+      + 29 errors for both models and 9959 for both model correct - not care
+      + 1 case: model 1 right but model 2 wrong
+      + 11 cases: model 2 right and model 1 wrong
+      + 11:1 ratio - model 2 much better than model 1
+    + right figure:
+      + model 1 making 40 errors while model 2 making 30 errors
+      + insignificant difference - no clear conclusion
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
