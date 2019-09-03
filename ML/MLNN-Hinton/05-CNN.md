@@ -334,26 +334,35 @@
 
 ### Lecture Notes
 
-+ 3-D objects recognition
++ 3-D object recognition
   + Object recognition more complicated than hand-written digits
     + hundred times as many classes (1000 vs 10)
-    + hundred times as many pixels (256 x 256 color vs 28 x 28 gray)
-    + two dimensional image of 3-D scene
-    + cluttered scenes requiring segmentation
+    + hundred times as many pixels (256 x 256 color vs 28 x 28 gray) - around 300 times more
+    + two dimensional image of 3-D scene - lost many info
+    + cluttered scenes requiring segmentation - occlusion of large parts of of objects by opaque other objects
     + multiple objects in each image
-  + Will convolutional neural network work for 3-D object?
+    + lighting issue
+  + Will convolutional neural network work for 3-D color object?
+    + prior knowledge required
+    + generating extra training examples
 
 + The ILSVRC-2012 competition on ImageNet
-  + dataset: 12 million high-resolution training images
+  + dataset: a subset with 12 million high-resolution training images
   + classification task
     + 1000 classes
+    + images manually labeled but not reliable
+    + images could contain 2 or more objects but only one labeled
     + get the "correct" class in the top 5 bets
   + localization task
+    + many computer vision systems using a bag of features approach for the whole image or said a quadrant of the image
+    + knowing what features are but w/o knowing where they are
+    + balance syndrome: a curious kind of brain damage recognizing objects w/o knowing where they are
     + put a box around the object for each bet
     + at least 50% overlap with the correct box
   + Best existing computer vision methods by groups from Oxford, INRIA, XRCE, ...
     + using complicated multi-stage computer vision systems
     + typically hand-tuned by optimizing a few parameters at the early stage
+    + early stage of the systems: a learning algorithm but not learn a deep neural network with backpropagation
   + Examples for test set
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -361,6 +370,10 @@
         <img src="img/m05-09.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
       </a>
     </div>
+
+    + the first two examples pretty confident
+    + the last example within top 5 guesses
+    + relative probabilities applied for th choosing top 5 guesses
 
   + Error rates of some groups
 
@@ -396,27 +409,45 @@
   + a very deep convolution neural net
   + Architecture
     + 7 hidden layers not counting max pooling layers
-    + early layers: convolutional
-    + last two layers: globally connected
+    + early layers: convolutional reducing
+      + a lot of parameters
+      + training data
+      + computation time
+      + local receptive fields w/o trying an weights required a much bigger computer
+    + last two layers
+      + globally connected using most of parameters
+      + ~16 millions of parameters btw each pair of layers
+      + objective: figure out the combinations of local features extracted by the early layers
   + Activation functions
     + Rectified linear units (ReLu) in every hidden layer
       + much faster
       + more expensive than logistic units
-    + Normalization
-      + competitive normalization to suppress hidden activities when nearby units have stronger activities
-      + help with variations in intensity
+    + Competitive normalization with a layer
+      + suppressing hidden activities that are looking nearby active localities
+      + help a lot with variations in intensity
+      + having edge detector to get somewhat active due to some fairly faint edge
+      + irrelevant if much more intense things around
   + Generalization tricks
-    + training on random 224x224 patches from the 256x256 images to get more data
-      + using left-right reflections of the images
+    + Transformations to enhance the training data
+      + training on random 224x224 patches from the 256x256 images to get more data
+      + much more image to train and help to deal with translation invariance
+      + using left-right reflections of the images to double the images
+      + no up-down reflection due to gravity
       + combine the opinions from the ten different patches
-      + 4@224x224 corner patches + the central 224x224 patch + reflection of those five patches
-    + Regularizing the weights
+      + (4@224x224 corner patches + the central 224x224 patch) + reflection of those five patches
+    + Dropout - regularizing the weights
       + using dropout to regularize the weights in globally connected layers
+      + prevent from overfitting
       + the layers containing most of the parameters
-      + dropout: half of the hidden units in a layer randomly removed for each training example
+      + dropout:
+        + half of the hidden units in a layer randomly removed for each training example
+        + the remaining half survived
+        + unable to learn to fix up the errors left over by the other hidden units
+        + the other might not exist to fix up an error
       + stop hidden units from relying too much on other hidden units
+      + a lot of cooperation good for fitting the training data but bad for test distribution different significantly
   + Hardware
-    + Very efficient implementation of concolutional nets on two Nvidia GTX 580 GPUs
+    + Very efficient implementation of convolutional nets on two Nvidia GTX 580 GPUs
     + GPU
       + over 1000 fast little cores
       + good for matrix-matrix multiplies
@@ -427,24 +458,33 @@
     + improving faster than old-fashioned computer vision systems (i.e. pre Oct 2012)
 
 + Vald Mnih (ICML 2012) - Finding roads
-  + a non-convolutional net w/ local fields and multiple layers of rectified linear units to find roads in cluttered aerial images
+  + extra roads from cluttered aerial images of urban scenes 
+  + a non-convolutional net w/ local fields and multiple layers of rectified linear units
   + taking a large image patch
   + predicting a binary road label for the central 16x16 pixels
   + lots of labeled training data available for this task
+    + maps indicating where the center lines of roads w/ roughly fixed width
+    + estimating the pixels of road from the vector of center lines of roads
   + Difficulty
     + occlusion by buildings trees and cars
     + shadows, lighting changes
     + minor viewpoint changes
   + Worse problems: incorrect labels
-    + badly registered maps
-    + arbitrary decisions about what counts as a road
+    + badly registered maps: a pixel ~ 1 squared meter
+    + arbitrary decisions about what counts as a road and what counts as a laneway
   + Only hope: trained on big image patches w/ millions of examples
+  + Examples
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
-      <img src="img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+        <img src="img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
+      </a>
+    </div>
+
+    + green line: the correct answer
+    + red lines: incorrect answer
+
+
 
 ### Lecture Video
 
