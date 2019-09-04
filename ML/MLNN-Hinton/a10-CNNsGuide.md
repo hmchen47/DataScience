@@ -69,13 +69,39 @@ Author: Adit Deshpande
 ## Structure
 
 
-
-
-
 ### First Layer - Math Part
 
++ Convolutional Layer
+  + always the first layer in CNNs
+  + remember what the input to this convolutional layer is
+  + Definition
+    + filter: the flashlight (or sometimes referred to as a neuron or a kernel)
+    + receptive field: the region shining over
+    + weights or parameters: numbers containing in the filter
+    + convolving: sliding
+    + activation map or feature map: all the numbers of multiplications
+  + Analogy for convolutional layer
+    + a flashlight that is shining over the top left of the image
+    + flashlight sliding across all the areas of the input image
+    + the depth of this filter has to be the same as the depth of the input
+    + multiplying the values in the filter with the original pixel values of the image (aka computing element wise multiplications)
+    + summed up all multiplications
+  + Example
+    + Input: 32 x 32 x 3 array of pixel values
+    + the light this flashlight shines covers a 5 x 5 area
+    + the dimensions of this filter: 5 x 5 x 3
+    + total multiplications for one snapshot: 5 x 5 x 3 = 75
+    + activation map: (32 - 5 + 1) x (32 - 5 + 1) x 1 = 784
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/ActivationMap.png" style="margin: 0.1em;" alt="Visualization of 5 x 5 filter convolving around an input and producing an activation map" title="Visualization of 5 x 5 filter convolving around an input and producing an activation map" width=450>
+    </a>
+  </div>
 
++ Spatial dimension concern
+  + using more filters to preserrve the spatial dimensions better
+  + eg. total output volume: 28 x 28 x 2 with 2 filters
 
 
 ### First Layer - High Level Perspective
