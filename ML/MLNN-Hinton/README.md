@@ -35,7 +35,7 @@
 + [ways to deal with large number of possible outputs](04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
 
 
-## 05. Convolution Neural Networks
+## 05. Convolutional Neural Networks
 
 + [Why object recognition is difficult](05-CNN.md#)
 + [Ways to achieve viewpoint invariance](05-CNN.md#)
