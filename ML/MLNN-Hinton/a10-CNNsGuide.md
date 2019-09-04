@@ -8,6 +8,22 @@ Author: Adit Deshpande
 
 ## Introduction
 
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/Cover.png" style="margin: 0.1em;" alt="text" title="caption" width=550>
+  </a>
+</div>
+
++ Convolutional neural networks
+  + some of the most influential innovations in the field of computer vision
+  + Alex Krizhevsky (2012) used them to win that year’s ImageNet competition
+    + classification error: 26% to 15%
+  + Company applications
+    + Facebook: automatic tagging algorithms
+    + Google: photo search
+    + Amazon: product recommendations
+    + Pinterest: home feed personalization
+    + Instagram: search infrastructure
 
 
 ## The problem space
