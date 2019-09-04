@@ -54,6 +54,15 @@ Author: Adit Deshpande
 
 ### Biological Connection
 
++ Visual cortex
+  + CNNs do take a biological inspiration from the visual cortex.
+  + small regions of cells sensitive to specific regions of the visual field
+
++ Experiment by Hubel and Wiesel in 1962
+  + some individual neuronal cells in the brain responded (or fired) only in the presence of edges of a certain orientation
+  + all of these neurons were organized in a columnar architecture and that together, they were able to produce visual perception
+
++ the basis behind CNNs: specialized components inside of a system having specific tasks (the neuronal cells in the visual cortex looking for specific characteristics) is one that machines use as well
 
 
 
