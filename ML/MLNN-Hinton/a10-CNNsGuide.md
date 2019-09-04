@@ -100,13 +100,43 @@ Author: Adit Deshpande
   </div>
 
 + Spatial dimension concern
-  + using more filters to preserrve the spatial dimensions better
+  + using more filters to preserve the spatial dimensions better
+  + The more filters, the greater the depth of the activation map, and the more information about the input volume.
   + eg. total output volume: 28 x 28 x 2 with 2 filters
 
 
 ### First Layer - High Level Perspective
 
++ Interpretation fo Convolutional Layer
+  + feature identifier = filter
+  + features: straight edges, simple colors, and curves
+  + curve detector: a pixel structure w/ higher numerical values along the area that is a shape of a curve
+  + Example
+    + first filter (curve detector): 7 x 7 x 3
+    + only considering the top depth slice of the filter
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Filter.png" style="margin: 0.1em;" alt="Visualization of a curve detector filter and its pixel representation" title="Visualization of a curve detector filter and its pixel representation" width=350>
+    </a>
+  </div>
+
++ Example for first layer
+  + feature identifier: 7 x 7
+  + put filter at the top left corner
+  + multiply the values in the filter with the original pixel values of the image
+  + remove receptive field with the filter (summed multiplication = 0)
+  + activation map: the output of this convolutional layer (26 x 26 x 1)
+  + The filters on the first layer convolve around the input image and “activate” (or compute high values) when the specific feature it is looking for is in the input volume.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/OriginalAndFilter.png" style="margin: 0.1em;" alt="Original image and visualization of the filter" title="Original image and visualization of the filter" height=150>
+      <img src="https://adeshpande3.github.io/assets/FirstPixelMulitiplication.png" style="margin: 0.1em;" alt="Pixel representation of the receptive field and filter" title="Pixel representation of the receptive field and filter" height=150>
+      <img src="https://adeshpande3.github.io/assets/SecondMultiplication.png" style="margin: 0.1em;" alt="Another pixel representation of the receptive field and filter" title="Another pixel representation of the receptive field and filter" height=150>
+      <img src="https://adeshpande3.github.io/assets/FirstLayers.png" style="margin: 0.1em;" alt="Visualization of filters" title="Visualization of filters" height=150>
+    </a>
+  </div>
 
 
 
