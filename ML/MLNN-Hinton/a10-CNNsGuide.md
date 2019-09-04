@@ -37,6 +37,12 @@ Author: Adit Deshpande
 
 ### Inputs and Outputs
 
++ Input
+  + Image: an array of pixel values
+  + resolution & size: e.g., 32 x 32 x 3 (RGB) array of numbers
+  + intensity at a point: values from 0 to 255
+
++ Output: the probability of the image being a certain class
 
 
 ### What We Want the Computer to Do
