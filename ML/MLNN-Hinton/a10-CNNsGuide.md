@@ -47,6 +47,9 @@ Author: Adit Deshpande
 
 ### What We Want the Computer to Do
 
++ able to differentiate between all the images it’s given and figure out the unique features that make a dog a dog or that make a cat a ca
+
++ able perform image classification by looking for low level features such as edges and curves, and then building up to more abstract concepts through a series of convolutional layers
 
 
 ### Biological Connection
