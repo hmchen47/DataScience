@@ -142,11 +142,54 @@ Author: Adit Deshpande
 
 ### Going Deeper Through the Network
 
++ Traditional convolutional neural network architecture
+  + A classic CNN architecture
 
+    input $\rightarrow$ Conv $\rightarrow$ ReLU $\rightarrow$ Conv $\rightarrow$ ReLU $\rightarrow$ Pool $\rightarrow$ ReLU $\rightarrow$ Conv $\rightarrow$ ReLU $\rightarrow$ Fully Connected
+
+  + The first convolutional layer
+    + filters in this layer designed to detect
+    + detect low level features such as edges and curves
+  + network needs to recognize higher level features such as hands or paws or ears
+  + 2nd convolutional layer
+    + the output of the first convolutional layer as the input
+    + input of 1st convolutional layer: original image
+    + input of 2nd convolutional layer: activation map of 1st convolutional layer
+  + each layer of the input is basically describing the locations in the original image for where certain low level features appear.
+  + output of higher level features: semicircles (combination of a curve and straight edge) or squares (combination of several straight edges)
+  + activation maps that represent more and more complex features as more convolutional layer went through
+  + as deeper into the network, the filters w/ a larger and larger receptive
+  + able to consider information from a larger area of the original input volume (more responsive to a larger region of pixel space)
+
++ References
+  + [Matt Zeiler and Rob Fergus](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf)
+  + [Jason Yosinski](https://www.youtube.com/watch?v=AgkfIQ4IGaM)
 
 
 
 ### Fully Connected Layer
+
+
+
+
+### ReLU (Rectified Linear Units) Layers
+
+
+
+
+
+### Pooling Layers
+
+
+
+
+### Dropout Layers
+
+
+
+
+### Network in Network layers
+
 
 
 
@@ -175,28 +218,6 @@ Author: Adit Deshpande
 
 
 ## Choosing Hyperparameters
-
-
-
-
-
-## ReLU (Rectified Linear Units) Layers
-
-
-
-
-
-## Pooling Layers
-
-
-
-
-## Dropout Layers
-
-
-
-
-## Network in Network layers
 
 
 
