@@ -1,4 +1,4 @@
-# Convolution Neural Networks (CNN)
+# Convolutional Neural Networks (CNN)
 
 ## Why object recognition is difficult
 
@@ -20,6 +20,7 @@
     + deforming objects in various non-affine ways
     + e.g., hand-written 2 w/ a large loop or just a cusp
   + <span style="color: darkblue; font-weight: bold;">Affordances</span>
+    + the quality or property of an object that defines its possible uses or makes clear how it can or should be used
     + object classes defined by how they are used
     + e.g., chairs designed for sitting on w/ a wide variety of physical shapes, including armchairs, modern chairs mad with steel frames and wood backs
   + <span style="color: darkblue; font-weight: bold;">Viewpoint</span>
@@ -67,7 +68,7 @@
     + convolutional neural networks by replicating features with pooling
     + using a hierarchy of parts that have explicit poses relative to the camera
 
-+ Invariant feature approach
++ Redundant invariant feature approach
   + extract a large, redundant set of invariant features under transformations
     + e.g., pair of roughly parallel lines w/ a red dot btw them
     + what baby herring gulls used to know where to peck for food
@@ -135,7 +136,7 @@
   + using many different copies of the same feature detector w/ different positions
     + might replicate across scale and orientation (tricky and expensive)
     + replication greatly reducing the number of free parameters to be learned
-  + using several different feature types, each with tits own map of replicated detectors
+  + using several different feature types, each with its own map of replicated detectors
     + allowing each patch of image to be represented by features in several ways
     + extend one feature type to many maps
     + each map replicas of the same feature
@@ -191,8 +192,8 @@
 
 + Pooling for invariant activities
   + to achieve some invariance in the activities, pull the outputs of replicated feature detectors
-  + Get a small amount of translational invariance at each level by averaging four neighboring neighboring replicated detectors to give a single output to the next level
-    + reducing the number of input to the next layer of feature extraction
+  + Get a small amount of translational invariance at each level by averaging four neighboring replicated detectors to give a single output to the next level
+    + reducing the number of inputs to the next layer of feature extraction
     + much more different feature maps allowing to learn more different kinds of features in the next layer
   + slightly better to take the maximum of the four neighboring feature detectors than averaging them
   + Problem
@@ -205,28 +206,27 @@
       + the information lost by convolutional neural networks
 
 + Le Net
-  + Yann LeCun & collaborators
-    + developed a really good recognizer for handwritten digits
-    + using backpropagation in feedforward net
-    + Architecture
-      + many hidden layers
-      + many maps of replicated units in each layer
-      + pooling of the outputs of nearby replicated units btw layers
-      + a wide net able to cope with several characters at once even if they overlap
-      + no segmented individual characters required before fed into the net
-      + a clever way of training a complete system, not just a recognizer for individual characters
-      + maximum margined method: way before maximum margin invented
-    + Architecture diagram (left figure)
-      + input: pixels
-      + feature maps (c1):
-        + 6 different maps w/ 28x28 containing small features (as seen 3x3 pixels)
-        + only about 9 parameters that their weights constrained together
-        + much more efficient learning w/ much less data
-      + Subsamling/pooling:
-        + pull together the output of a bunch of neighboring replicated features in c1
-        + providing a smaller map as input for next layer (S2)
-      + built the hierarchy to get more complicated features but more invariant to position
-  + Used for reading~10% of the checks in North America
+  + developed by Yann LeCun & collaborators
+  + a really good recognizer for hand-written digits
+  + using backpropagation in feed-forward net
+  + Architecture (left figure)
+    + many hidden layers
+    + many maps of replicated units in each layer
+    + pooling of the outputs of nearby replicated units btw layers
+    + a wide net able to cope with several characters at once even if they overlap
+    + no segmented individual characters required before fed into the net
+    + a clever way of training a complete system, not just a recognizer for individual characters
+    + maximum margined method: way before maximum margin invented
+    + input:  (A)
+    + feature maps (c1):
+      + 6 different maps w/ 28x28 containing small features (as seen 3x3 pixels)
+      + only about 9 parameters that their weights constrained together
+      + much more efficient learning w/ much less data
+    + Subsampling/pooling:
+      + pull together the output of a bunch of neighboring replicated features in c1
+      + providing a smaller map as input for next layer (S2)
+    + built the hierarchy to get more complicated features but more invariant to position
+  + Used for reading ~10% of the checks in North America
   + [Demons of LENET](http://yann.lecun.com)
     + showing how well the system cope with variations
     + variations: size, orientation, position, overlapping and all sorts of background noises
