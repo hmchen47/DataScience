@@ -253,7 +253,7 @@
     + neuron activation functions
   + less intrusive than hand-designing the features
     + still prejudices the network towards the particular way of solving the problem in mind
-    + having an idea bout how to do object cognition by
+    + having an idea bout how to do object recognition by
       + gradually making bigger and bigger features
       + replicating these features across space
     + force the network to do the way
@@ -419,7 +419,7 @@
       + ~16 millions of parameters btw each pair of layers
       + objective: figure out the combinations of local features extracted by the early layers
   + Activation functions
-    + Rectified linear units (ReLu) in every hidden layer
+    + Rectified linear units (ReLU) in every hidden layer
       + much faster
       + more expensive than logistic units
     + Competitive normalization with a layer
