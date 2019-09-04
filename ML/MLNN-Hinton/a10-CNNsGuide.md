@@ -28,22 +28,22 @@ Author: Adit Deshpande
 
 ## The problem space
 
-  
++ Image classification:
+  + the task of taking an input image and outputting a class (a cat, dog, etc) or a probability of classes that best describes the image
+  + humans: one of the first skills learned from the moment we are born and one that comes naturally and effortlessly as adults
+    + able to immediately characterize the scene and give each object a label, all without even consciously noticing
+    + able to quickly recognize patterns, generalize from prior knowledge, and adapt to different image environments
 
 
-## Inputs and Outputs
-
-
-
-
-## What We Want the Computer to Do
-
-
+### Inputs and Outputs
 
 
 
-## Biological Connecction
+### What We Want the Computer to Do
 
+
+
+### Biological Connection
 
 
 
@@ -54,25 +54,25 @@ Author: Adit Deshpande
 
 
 
-## First Layer - Math Part
+### First Layer - Math Part
 
 
 
 
 
-## First Layer - High Level Perspective
+### First Layer - High Level Perspective
 
 
 
 
 
-## Going Deeper Through the Network
+### Going Deeper Through the Network
 
 
 
 
 
-## Fully Connected Layer
+### Fully Connected Layer
 
 
 
@@ -106,7 +106,7 @@ Author: Adit Deshpande
 
 
 
-## eLU (Rectified Linear Units) Layers
+## ReLU (Rectified Linear Units) Layers
 
 
 
