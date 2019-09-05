@@ -189,6 +189,82 @@ Author: Adit Deshpande
   </div>
 
 
+## Training (aka: What Makes this Stuff Work)
+
++ Backpropagation procedure
+  + forward pass
+  + loss function
+  + backward pass
+  + weight update
+
++ Forward pass
+  + take a training image, eg, 32 x 32 x 3 array of numbers
+  + pass through the whole network
+  + first training example
+    + all weights or filter values randomly initialized
+    + No preference to any number in particular
+    + not able to look for a ny low level features
+    + no reasonable conclusion about what the classification might be
+
++ Loss function
+  + training data w/ image and label
+  + Definition: commonly used MSE (mean squared error)
+
+    \[E_{total} = \sum \frac{1}{2} (taregt - output)^2\]
+
+  + expect the predict label (output of the ConvNet) same as the training data
+  + a.k.a. minimize the amount of loss
+  + visualizing as an optimization problem
+  + the mathematical equivalent of a $dL/dW$ where $W$ = weights at a particular layer
+
++ Backward pass & weight update
+  + determining which weights contributed most to the loss and finding ways to adjust them to make the loss decreases
+  + using the derivative to do weight update
+  + Gradient descent
+
+    \[w = w_i - \eta \frac{dL}{dW}\]
+
+    + $w$ = weight
+    + $w_i$ = initial weight
+    + $\eta$ = learning rate
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Loss.png" style="margin: 0.1em;" alt="Visualization for the idea to minimize the loss function" title="Visualization for the idea to minimize the loss function" height=150>
+      <img src="https://adeshpande3.github.io/assets/HighLR.png" style="margin: 0.1em;" alt="Consequence of a high learning rate" title="Consequence of a high learning rate" height=150>
+    </a>
+  </div>
+
++ Learning rate
+  + a parameter chosen by the programmer
+  + high learning rate
+    + bigger step taken in the weight update
+    + less time for the model to converge on an optimal set ot weight
+    + too high result in large jump
+    + no precise enough to reach the optimal point
+  + low learning rate
+    + smaller step taken in the weight update
+    + make the convergence too slow
+
++ Process
+  + one training iteration: forward pass, loss function, backward pass and parameter update
+  + repeat the process for a fixed number iterations for each set of training images (commonly called a batch)
+  + hopefully yje weights of the layers tuned correctly once the parameter update on the last training example
+
+
+## Testing
+
+
+
+
+
+## How Companies Use CNNs
+
+
+
+
+
+
 ### ReLU (Rectified Linear Units) Layers
 
 
@@ -207,23 +283,6 @@ Author: Adit Deshpande
 
 ### Network in Network layers
 
-
-
-
-
-
-## Training (aka: What Makes this Stuff Work)
-
-
-
-
-## Testing
-
-
-
-
-
-## How Companies Use CNNs
 
 
 
