@@ -273,6 +273,25 @@ Author: Adit Deshpande
 + Amazon: use data from the millions of products that are bought every day
 
 
+## Choosing Hyperparameters
+
++ Parameters to choose
+  + How do we know how many layers to use?
+  + How many convolution layers?
+  + What are the filter sizes?
+  + What are the values for stride and padding?
+
++ Considerations
+  + not trivial questions and there isn’t a set standard that is used by all researchers
+  + depend on the type of data that you have
+  + find the right combination that creates abstractions of the image at a proper scale
+
+
+### Stride and Padding
+
+
+
+
 
 ### ReLU (Rectified Linear Units) Layers
 
@@ -291,19 +310,6 @@ Author: Adit Deshpande
 
 
 ### Network in Network layers
-
-
-
-
-
-## Stride and Padding
-
-
-
-
-
-## Choosing Hyperparameters
-
 
 
 
