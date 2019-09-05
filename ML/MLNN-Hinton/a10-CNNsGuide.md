@@ -166,10 +166,27 @@ Author: Adit Deshpande
   + [Jason Yosinski](https://www.youtube.com/watch?v=AgkfIQ4IGaM)
 
 
-
 ### Fully Connected Layer
 
++ Fully connected layer
+  + end of the network
+  + input volume: whatever the output is of the convolutional or ReLU or pool layer preceding it
+  + outputs: an N dimensional vector where N is the number of classes that the program has to choose from
+    + Each number in this N dimensional vector represents the probability of a certain class.
+    + eg, [0 .1 .1 .75 0 0 0 0 0 .05], then this represents a 10% probability that the image is a 1, a 10% probability that the image is a 2, a 75% probability that the image is a 3, and a 5% probability that the image is a 9
+  + look at the output of the previous layer and determine which features most correlate to a particular class
+  + Example:
+    + dog; high values in the activation maps that represent high level features like a paw or 4 legs, etc
+    + bird: high values in the activation maps that represent high level features like wings or a beak, etc.
+  + what high level features most strongly correlate to a particular class
+  + particular weights so that when you compute the products between the weights and the previous layer
+  + get the correct probabilities for the different classes
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/LeNet.png" style="margin: 0.1em;" alt="A full convolutional neural network (LeNet)" title="A full convolutional neural network (LeNet)" width=550>
+    </a>
+  </div>
 
 
 ### ReLU (Rectified Linear Units) Layers
