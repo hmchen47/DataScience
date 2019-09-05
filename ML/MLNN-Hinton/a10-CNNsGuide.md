@@ -262,8 +262,15 @@ Author: Adit Deshpande
 
 ## How Companies Use CNNs
 
++ The more training data that you can give to a network, the more training iterations you can make, the more weight updates you can make, and the better tuned to the network is when it goes to production.
 
++ Facebook & Instagram: use all the photos of the billion users it currently has
 
++ Pinterest: use information of the 50 billion pins that are on its site
+
++ Google: use search data
+
++ Amazon: use data from the millions of products that are bought every day
 
 
 
