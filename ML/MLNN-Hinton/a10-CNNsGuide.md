@@ -254,8 +254,10 @@ Author: Adit Deshpande
 
 ## Testing
 
-
-
++ to see whether or not CNN works
+  + a different set of images and labels
+  + pass the images through the CNN
+  + compare the outputs to the ground truth
 
 
 ## How Companies Use CNNs
