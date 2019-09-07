@@ -409,7 +409,22 @@ Author: Adit Deshpande
 
 ## Classification, Localization, Detection, Segmentation
 
-+ object localization: 
++ object localization: not only to produce a class label but also a bounding box
+
++ object detection: localization done on all of the objects in the image
+
++ object segmentation: a class label as well as an outline of every object in the input image
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/Localization.png" style="margin: 0.1em;" alt="Object classification & Object localization" title="Object classification & Object localization" height=200>
+    <img src="https://adeshpande3.github.io/assets/Detection.png" style="margin: 0.1em;" alt="Object detection & Object segmentation " title="caption" height=200>
+  </a>
+</div>
+
++ Detection/ Localization: [RCNN](https://arxiv.org/pdf/1311.2524v5.pdf), [Fast RCNN](https://arxiv.org/pdf/1504.08083.pdf), [Faster RCNN](http://arxiv.org/pdf/1506.01497v3.pdf), [MultiBox](http://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Erhan_Scalable_Object_Detection_2014_CVPR_paper.pdf), [Bayesian Optimization](http://web.eecs.umich.edu/~honglak/cvpr15-cnn-detection.pdf), [Multi-region](http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Gidaris_Object_Detection_via_ICCV_2015_paper.pdf), [RCNN Minus R](http://www.robots.ox.ac.uk/~vedaldi/assets/pubs/lenc15rcnn.pdf), [Image Windows](http://calvin.inf.ed.ac.uk/wp-content/uploads/Publications/alexe12pami.pdf)
+
++ Segmentation: [Semantic Seg](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Long_Fully_Convolutional_Networks_2015_CVPR_paper.pdf), [Unconstrained Video](http://calvin.inf.ed.ac.uk/wp-content/uploads/Publications/papazoglouICCV2013-camera-ready.pdf), [Shape Guided](http://crcv.ucf.edu/papers/cvpr2013/VideoObjectSegmentation.pdf), [Object Regions](http://crcv.ucf.edu/papers/cvpr2013/VideoObjectSegmentation.pdf), [Shape Sharing](http://www.cs.utexas.edu/~grauman/papers/shape-sharing-ECCV2012.pdf)
 
 
 ## Transfer Learning
