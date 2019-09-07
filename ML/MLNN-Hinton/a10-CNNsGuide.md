@@ -362,7 +362,19 @@ Author: Adit Deshpande
 
 ### Pooling Layers
 
-
++ Pooling layer
+  + a downsampling layer
+  + maxipooling being the most popular option
+    + taking a filter (normally of size 2x2) and a stride of the same length
+    + applied to the input volume and outputs the maximum number in every subregion that the filter convolves
+  + other options: average pooling and L2-norm pooling
+  + intuitive reasoning: knowing a specific feature in the origin input volume, its exact location is not as important as its relative location to the other features
+  + drastically reducing the spatial dimension (the length and the width change but not the depth) of the input volume
+  + purposes:
+    + the amount of parameters or weights reduced by 75%, thus lessening the computation cost
+    + control overfitting
+      + model tuned to the training examples that sre not able to generalize well for the validation and test sets
+      + eg., a model getting 100% or 99% on the training set, but only 50% on the test data
 
 
 ### Dropout Layers
