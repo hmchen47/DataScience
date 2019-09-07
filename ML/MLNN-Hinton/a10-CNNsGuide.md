@@ -376,6 +376,12 @@ Author: Adit Deshpande
       + model tuned to the training examples that sre not able to generalize well for the validation and test sets
       + eg., a model getting 100% or 99% on the training set, but only 50% on the test data
 
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/MaxPool.png" style="margin: 0.1em;" alt="Example of Maxpool with a 2x2 filter and a stride of 2" title="Example of Maxpool with a 2x2 filter and a stride of 2" width=350>
+  </a>
+</div>
+
 
 ### Dropout Layers
 
@@ -403,7 +409,7 @@ Author: Adit Deshpande
 
 ## Classification, Localization, Detection, Segmentation
 
-
++ object localization: 
 
 
 ## Transfer Learning
