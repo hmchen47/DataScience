@@ -453,13 +453,16 @@ Author: Adit Deshpande
 
 ## Data Argumentation Techniques
 
-
-
-
-
-
-
-
-
++ Data argumentation
+  + approaches that alter the training data in ways that change the array representation while keeping the label the same
+  + eg. enlarging existing dataset
+  + popular ways to artificially expand dataset
+    + grayscales
+    + horizontal flips
+    + vertical flips
+    + random crops
+    + color jitters
+    + translations
+    + rotations
 
 
