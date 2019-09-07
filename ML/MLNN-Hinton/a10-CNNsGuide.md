@@ -379,7 +379,13 @@ Author: Adit Deshpande
 
 ### Dropout Layers
 
-
++ Dropout layers
+  + a very specific function in neural networks
+  + randomly drop out a set of activations by setting them to zero
+  + forcing the network to be redundant
+  + able to provide the right classification or output a specific example even if some of the activations are dropped out
+  + ensuring the network not too "fitting" to the training data and to alleviate the overfitting problem
+  + only used during training not during test time
 
 
 ### Network in Network layers
