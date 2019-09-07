@@ -339,8 +339,23 @@ Author: Adit Deshpande
 
 ### ReLU (Rectified Linear Units) Layers
 
++ nonlinear layer (or activation layer)
+  + introduce nonlinearity to system that basically has been computing linear operations during the convolutional layer
+  + linear operation: element wise multiplications and summations
+  + nonlinearity: tanh, sigmoid, and ReLU
+  + increasing the nonlinearity properties of the model and the overall network without affecting the receptive fields of the convolutional layer
 
++ Rectified Linear Units
+  + working far better
+  + able to train a lot faster (computational efficiency) w/o making a significant difference to the accuracy
+  + alleviating the vanishing gradient problem
+  + applying yje function $f(x) = \max(0, x)$ to all of the values in the input volume
 
++ Vanishing gradient issue
+  + the lower layers of the network training very slowly
+  + the gradient decreasing exponentially through the layers
+  + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
+  + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
 ### Pooling Layers
