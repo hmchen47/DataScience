@@ -387,6 +387,8 @@ Author: Adit Deshpande
   + ensuring the network not too "fitting" to the training data and to alleviate the overfitting problem
   + only used during training not during test time
 
++ N. Srivastava, el. al., [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
+
 
 ### Network in Network layers
 
