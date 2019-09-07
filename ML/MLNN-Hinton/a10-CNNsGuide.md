@@ -392,8 +392,13 @@ Author: Adit Deshpande
 
 ### Network in Network layers
 
++ Network in Network Layers
+  + a convolutional layer where a 1 x 1 size filter is used
+  + receptive fields normally larger than space they map to
+  + a 1 x 1 x N convolution where N is the number of filters applied in the layer
+  + performing a N-D element-wise multiplication where $N$ = the depth of the input volume into the layer
 
-
++ M. Lin, Q. Chen, and S. Yan, [Network in Network](https://arxiv.org/pdf/1312.4400v3.pdf)
 
 
 ## Classification, Localization, Detection, Segmentation
