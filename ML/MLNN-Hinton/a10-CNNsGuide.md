@@ -289,8 +289,52 @@ Author: Adit Deshpande
 
 ### Stride and Padding
 
++ Stride
+  + control how the filter convolves around the input volume
+  + the filter convolves around the input volume by shifting one unit at a time
+  + The amount by which the filter shifts is the stride.
+  + the output volume is an integer and not a fraction
+  + Example:
+    + left figure: a 7 x 7 input volume, a 3 x 3 filter (Disregard the 3rd dimension for simplicity), and a stride of 1
+    + right figure: a 7 x 7 input volume, a 3 x 3 filter, and a stride of 2
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Stride1.png" style="margin: 0.1em;" alt="a 7 x 7 input volume, a 3 x 3 filter (Disregard the 3rd dimension for simplicity), and a stride of 1." title="a 7 x 7 input volume, a 3 x 3 filter (Disregard the 3rd dimension for simplicity), and a stride of 1." width=350>
+      <img src="https://adeshpande3.github.io/assets/Stride2.png" style="margin: 0.1em;" alt="a 7 x 7 input volume, a 3 x 3 filter, and a stride of 2" title="a 7 x 7 input volume, a 3 x 3 filter, and a stride of 2" width=350>
+    </a>
+  </div>
 
++ Padding
+  + applying convolution layers, the size of the volume decreasing faster than expected
+  + preserve as much information about the original input volume to extract those low level features
+  + zero padding pads the input volume with zeros around he border
+  + Example
+    + output volume: 28 x 28 x 3
+    + filters: 5 x 5 x 3 and 32 x 32 x 3
+    + a zero padding of two result in a 36 x 36 x 3 input volume
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="urhttps://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/l" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Pad.png" style="margin: 0.1em;" alt="text" title="caption" width=450>
+    </a>
+  </div>
+
+  + Set the size of zero padding
+
+    \[zero padding = \frac{(K - 1)}{2}\]
+
+    + $K$ = filter size
+    + input & output w/ the same spatial dimensions
+  + formula for calculating the output size for any given convolutional layer
+
+    \[o = \frac{(W - K - 2P}{S} + 1\]
+
+    + $O$ = the output height/length
+    + $W$ = the input height/length
+    + $K$ = filter size
+    + $P$ = the padding
+    + $S$ = the stride
 
 
 ### ReLU (Rectified Linear Units) Layers
