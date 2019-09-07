@@ -429,7 +429,26 @@ Author: Adit Deshpande
 
 ## Transfer Learning
 
++ Transfer learning
+  + the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by someone else) and "fine-tuning" the model with own dataset
+  + pre-trained model acting as a feature extractors
+  + Procedure
+    + remove the last layer of the network and replace it with own classifier (depending on what your problem space is)
+    + freeze the weights (not  changing the weights during gradient descent/optimization) of all the other layers and train the network normally
 
++ Example w/ pre-trained on ImageNet
+  + ImageNet containing 14 million images with over 1,000 classes
+  + lower layers of the network detecting features like edges & curves
+  + unless very unique problem space and dataset, network needs to detect curves and edges as well
+  + using the weights of the pre-trained model (and freeze them) and focus on the more important layers (ones higher up) for training
+  + dataset quite different than something like ImageNet, just train more of your layers and freeze only a couple of the low layers
+
++ References
+  + J. Yoshinski, et. al., [How transferable are features in deep neural networks?](https://arxiv.org/pdf/1411.1792v1.pdf)
+  + A. Razavian, et. al., [CNN Feature off-the-shelf: an Astounding Baseline for Recognition](https://arxiv.org/pdf/1403.6382.pdf)
+  + J. Donahue, et. al., [DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition](https://arxiv.org/pdf/1310.1531.pdf)
+  + D. Garcia-Gasulla, et. al., [An Out-of-the-box Full-network Embedding for Convolutional Neural networks](https://arxiv.org/pdf/1705.07706.pdf)
+  + A. Vilalta, et. al., [Full-Network Embedding in a Multimodal Embedding Pipeline](https://arxiv.org/pdf/1707.09872.pdf)
 
 
 ## Data Argumentation Techniques
