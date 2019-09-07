@@ -357,6 +357,8 @@ Author: Adit Deshpande
   + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
   + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
++ Vinod Nair and Geoffrey E. Hinton, []Rectified Linear Units Improve Restricted Boltzmann Machines], Univ. of Toronto
+
 
 ### Pooling Layers
 
