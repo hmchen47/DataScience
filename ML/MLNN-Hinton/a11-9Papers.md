@@ -48,5 +48,72 @@ Author: Adit Deshpande
   + illustrated the benefits of CNNs and backed up with record breaking performance iin the competition
 
 
+## ZF Net (2013)
+
++ M. Zeiler and R. Fergus, [Visualizing and Understanding Convolutional Networks](https://arxiv.org/pdf/1311.2901v3.pdf)
+
++ a large increase in the number of CNN models
+
++ model achieved an 11.2% error rate
+
++ developed some very keys ideas about improving performance
+
++ a good amount of time explaining a lot of the intuition behind ConvNets and showing how to visualize the filters and weights correctly
+
++ the renewed interest in CNNs is due to the accessibility of large training sets and increased computational power with the usage of GPUs
+
++ the limited knowledge that researchers had on inner mechanisms of these models, saying that without this insight, the “development of better models is reduced to trial and error”
+
++ main contributions: details of a slightly modified AlexNet model and a very interesting way of visualizing feature maps
+
++ Architecture
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/zfnet.png" style="margin: 0.1em;" alt="ZF Net Architecture" title="ZF Net Architecture" width=750>
+    </a>
+  </div>
+
++ Main Points
+  + Very similar architecture to AlexNet, except for a few minor modifications.
+  + AlexNet trained on 15 million images, while ZF Net trained on only 1.3 million images.
+  + using filters of size 7x7 and a decreased stride value in the first layer instead of using 11x11 sized filters
+    + a smaller filter size in the first convolutional layer helps retain a lot of original pixel information in the input volume
+    + skipping a lot of relevant information
+  + a rise in the number of filters used as the network growth
+  + using ReLUs for their activation functions, cross-entropy loss for the error function, and trained using batch stochastic gradient descent
+  + training on a GTX 580 GPU for twelve days
+  + Developed a visualization technique named Deconvolutional Network
+    + help to examine different feature activations and their relation to the input space
+    + deconvnet: mapping features to pixels (the opposite of what a convolutional layer does)
+
++ DeConvNet
+  + at every layer of the trained CNN, attach a “deconvnet” which has a path back to the image pixels
+  + forward pass: an input image is fed into the CNN and activations are computed at each level
+  + examine the activations of a certain feature in the 4th convolutional layer
+  + store the activations of this one feature map, but set all of the other activations in the layer to 0
+  + pass this feature map as the input into the deconvnet
+  + this deconvnet has the same filters as the original CNN
+  + the input then goes through a series of unpool (reverse maxpooling), rectify, and filter operations for each preceding layer until the input space is reached
+
++ Visualization of layers
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/deconvnet.png" style="margin: 0.1em;" alt="Visualization of Layer 1 & 2" title="Visualization of Layer 1 & 2" width=500>
+      <img src="https://adeshpande3.github.io/assets/deconvnet2.png" style="margin: 0.1em;" alt="Visualization of Layer 3, 4 & 5" title="Visualization of Layer 3, 4 & 5" width=400>
+    </a>
+  </div>
+
+  + a pooling layer that downsamples the image
+  + the 2nd layer has a broader scope of what it can see in the original image
+  + [Demo of DeConvNet](https://www.youtube.com/watch?v=ghEmQSxT6tw)
+
++ Why It’s Important
+  + provide great intuition as to the workings on CNNs and illustrated more ways to improve performance
+  + visualization approach: not only to explain the inner workings of CNNs, but also provides insight for improvements to network architectures
+
+
+
 
 
