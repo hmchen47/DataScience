@@ -114,6 +114,38 @@ Author: Adit Deshpande
   + visualization approach: not only to explain the inner workings of CNNs, but also provides insight for improvements to network architectures
 
 
+## VGG Net (2014)
+
++ K. Simonyan and A. Zisserman, [Very Deep Convolutional Networks for Large-scale Image Recognition](https://arxiv.org/pdf/1409.1556v6.pdf)
+
++ the winners of ILSVRC 2014, best utilized with its 7.3% error rate
+
++ Architecture: a 19 layer CNN that strictly used 3x3 filters with stride and pad of 1, along with 2x2 maxpooling layers with stride 2
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/VGGNet.png" style="margin: 0.1em;" alt="The 6 different architectures of VGG Net" title="The 6 different architectures of VGG Net" width=450>
+  </a>
+</div>
+
++ Main points
+  + use of only 3x3 sized filters
+    + the combination of two 3x3 convolutional layers has an effective receptive field of 5x5
+    + simulating a larger filter while keeping the benefits of smaller filter sizes
+    + benefit: a decrease in the number of parameters
+    + with two convolutional layers, able to use two ReLU layers instead of one
+  + 3 convolutional layers back to back have an effective receptive field of 7x7
+  + As the spatial size of the input volumes at each layer decrease (result of the convolutional and pool layers), the depth of the volumes increase due to the increased number of filters as you go down the network.
+  + the number of filters doubles after each maxpool layer, reinforcing the idea of shrinking spatial dimensions, but growing depth
+  + worked well on both image classification and localization tasks, used a form of localization as regression
+  + built model with the Caffe toolbox
+  + used scale jittering as one data augmentation technique during training
+  + used ReLU layers after each convolutional layer and trained with batch gradient descent
+  + trained on 4 Nvidia Titan Black GPUs for two to three weeks
+
++ Why It’s Important
+  + one of the most influential papers
+  + reinforcing the notion that convolutional neural networks have to have a deep network of layers in order for this hierarchical representation of visual data to work
 
 
 
