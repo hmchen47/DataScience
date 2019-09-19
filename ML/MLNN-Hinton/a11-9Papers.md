@@ -318,6 +318,24 @@ Author: Adit Deshpande
 
   + non-maxima suppression: used to suppress bounding boxes that have a significant overlap with each other
 
+### Fast R-CNN
+
++ R-CNN problems
+  + multiple stages (ConvNets to SVMs to bounding box regressors)
+  + computationally expensive
+  + extremely slow: RCNN - 53 seconds per image
+
++ Fast R-CNN
+  + able to solve the problem of speed
+  + basically sharing computation of convolutional layers between different proposals and swapping the order of generating region proposals and running th CNN
+  + first fed through a ConvNet to obtain features of the region proposals from the last feature map of the ConvNet
+  + lastly connected layers as well as regression and classification heads
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="fast R-CNN workflow" width=550>
+    </a>
+  </div>
 
 
 
