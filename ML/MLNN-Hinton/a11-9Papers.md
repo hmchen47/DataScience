@@ -355,6 +355,53 @@ Author: Adit Deshpande
 </div>
 
 
+### What it's Important
+
++ able to determine that a specific object in an image is one thing, but able to determine that object's exact location is a huge jump in knowledge for the computer
+
++ Fast R-CNN: the standard for object detection programs today
+
+
+
+## Generative Adversarial Networks (2014)
+
++ I. Goodfellow, et. al., [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661v1.pdf), 2014
+
++ The next big development - Yann LeCun
+
++ Example
+  + taking an example image and applying a perturbation, or a slight modification
+  + the prediction error maximized
+  + the object category of the prediction changes, while the image itself looks the same when compared to the image without the perturbation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Adversarial.png" style="margin: 0.1em;" alt="ConvNet examples with distortion" title="ConvNet examples with distortion" width=550>
+    </a>
+  </div>
+
+  + ConvNet makes drastic errors in classification even the difference btw the images imperceptible to human
+
++ C. Szegedy, et. al., [Intriguing properties of neural networks](https://arxiv.org/pdf/1312.6199v4.pdf)
+
++ Generative adversarial networks
+  + consisting of two models
+    + a generative model
+    + a discriminative model
+  + generative model
+    + determining whether a given image looks natural (an image from the dataset) or artificially created
+    + similar to "a team of counterfeiters, trying to produce and use fake currency"
+    + the generator trying to fool the discriminator
+  + discriminative model
+    + creating images so that the discriminator gets trained to produce the correct outputs
+    + similar to "the police, trying to detect the counterfeit currency"
+    + the discriminator trying to not get indistinguishable the genuine articles
+
++ Why it's important
+  + the discriminator is aware of the "internal representation of the data"
+  + the discriminator trained to understand the differences btw real images from the dataset and artificially created ones
+  + used as a feature extractor using in CNN
+
 
 
 
