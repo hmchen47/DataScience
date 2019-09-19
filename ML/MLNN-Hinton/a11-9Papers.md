@@ -234,7 +234,7 @@ Author: Adit Deshpande
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-    <img src="https://adeshpande3.github.io/assets/ResNet.gif" style="margin: 0.1em;" alt="ResNet" title="ResNet" width=350>
+    <img src="https://adeshpande3.github.io/assets/ResNet.gif" style="margin: 0.1em;" alt="ResNet" title="ResNet" width=250>
   </a>
 </div>
 
@@ -254,7 +254,6 @@ Author: Adit Deshpande
 + might be effective during the backward pass of backpropagation
 
 + the gradient will flow easily through the graph because addition operations distribute the gradient
-
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
@@ -280,6 +279,46 @@ Author: Adit Deshpande
 + stacking more layers on top of each other isn't going to result in a substantial performance boost
 
 + Ref: K. Zhang, et. al., [Residual Networks of Residual Networks: Multilevel Residual Networks](https://arxiv.org/pdf/1608.02908.pdf)
+
+
+## Region Based CNNs (R-CNN - 2013, Fast R-CNN - 2015, Faster R-CNN - 2015)
+
++ R. Girshick, J. Donahue, T. Darrell, and J. Malik, [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/pdf/1311.2524v5.pdf), 2013
+
++ R. Girshick, [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf), 2015
+
++ S. Ren, K. He, R. Girshick, and J. Sun, [Faster R-CNN: Toward Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1504.08083.pdf), 2015
+
++ R-CNN
+  + one of the most impactful advancement in computer vision
+  + Fast R-CNN and Faster R-CNN: making the model faster and better for modern object detection tasks
+  + Purpose of R-CNNs
+    + solving the problem of object detection
+    + able to draw bounding boxes over all the objects
+  + split into two general components:
+    + the region proposal step
+    + the classification step
+
++ Region proposal method
+  + any class agnostic region proposal method should fit
+  + Selective Search:
+    + J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, [Selective Search for Object Recognition](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
+    + used in particular for R-CNN
+  + perform the function of generating 2000 different regions that have the highest probability of containing an object
+  + obtained a set of region proposals
+  + proposals wrapped into an an image size that can be fed into a trained CNN (AlexNet in this case) that extracts a feature vector of each region
+  + vector used as the input to a set of linear SVMs trained for each class and output a classification
+  + the vector gets into a bounding box regressor to obtain the most accurate coordinates
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/rcnn.png" style="margin: 0.1em;" alt="R-CNN workflow" title="R-CNN workflow" width=550>
+    </a>
+  </div>
+
+  + non-maxima suppression: used to suppress bounding boxes that have a significant overlap with each other
+
+
 
 
 
