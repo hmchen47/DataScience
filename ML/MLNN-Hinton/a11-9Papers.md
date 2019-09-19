@@ -323,7 +323,7 @@ Author: Adit Deshpande
 + R-CNN problems
   + multiple stages (ConvNets to SVMs to bounding box regressors)
   + computationally expensive
-  + extremely slow: RCNN - 53 seconds per image
+  + extremely slow: R-CNN - 53 seconds per image
 
 + Fast R-CNN
   + able to solve the problem of speed
@@ -331,12 +331,28 @@ Author: Adit Deshpande
   + first fed through a ConvNet to obtain features of the region proposals from the last feature map of the ConvNet
   + lastly connected layers as well as regression and classification heads
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="fast R-CNN workflow" width=550>
-    </a>
-  </div>
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="Fast R-CNN workflow" width=550>
+  </a>
+</div>
 
+
+### Faster R-CNN
+
++ Combat the complex training pipeline that both R-CNN and Fast R-CNN exhibited
+
++ inserting a region proposal network (RPN) after the last convolutional layer
+
++ able to just look at the last convolutional feature map and produce region proposals from that
+
++ the same pipeline as R-CNN used (ROI pooling, FC, and then classification and regression heads)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/FasterRCNN.png" style="margin: 0.1em;" alt="Faster R-CNN workflow" title="Faster R-CNN workflow" width=350>
+  </a>
+</div>
 
 
 
