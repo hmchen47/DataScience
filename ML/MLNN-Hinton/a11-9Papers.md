@@ -514,5 +514,10 @@ Author: Adit Deshpande
     </a>
   </div>
 
++ What it's important
+  + improvements in CNN's not necessarily from changes in network architecture
+  + the simple idea of making affine transformations to the input image to help models become more invariant to translation, scale, and rotation
+  + [video](https://drive.google.com/file/d/0B1nQa_sA3W2iN3RQLXVFRkNXN0k/view) from Deepmind w/ a great animation of the results of placing a Spatial Transformer module in CNN
+  + Quora [discussion](https://www.quora.com/How-do-spatial-transformer-networks-work)
 
 
