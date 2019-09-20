@@ -430,8 +430,30 @@ Author: Adit Deshpande
   + Another neural network takes in the image as input and generates a description in text.
   + Two components: alignment and generation
 
+### Alignment model
+
++ goal: align the visual and textual data
+
++ Alignment model
+  + input: an image and a sentence
+  + output: a score for how well they match
+  + trained on compatible and incompatible image-sentence pairs
+
++ Representation:
+  + information about image
+    + feeding the image into an R-CNN to detect the individual objects
+    + trained on ImageNet data
+    + the top 19 (plus the original image) object regions are embedded to a 500 dimensional space
+    + having 20 different 500 dimensional vectors for each image
+  + information about the sentence
+    + embedding words into the same multimodal space
+    + using a bidirectional recurrent neural network
+    + illustrating information about the context of words in a given sentence
+  + information about the picture and the sentence in the same space
+  + compute inner products to show a measure of similarity
 
 
+  
 
 
 
