@@ -403,6 +403,36 @@ Author: Adit Deshpande
   + used as a feature extractor using in CNN
 
 
+## Generating Image Descriptions (2014)
+
++ A. Karpathy and F. Li, [Deep visual semantic alignment for Generating Image Descriptions](https://arxiv.org/pdf/1412.2306v2.pdf), 2015
+
++ A. Karpathy, A. Joulin and F. Li, [Deep fragment embeddings for bidirectional image sentence mapping](https://arxiv.org/pdf/1406.5679v1.pdf), 2014
+
++ Combining CNNs and bidirectional RNNs (Recurrent Neural Networks) to generate natural language descriptions of different image regions
+
++ Example of Generating image descriptions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Caption.png" style="margin: 0.1em;" alt="Example output of the model" title="Example output of the model" width=450>
+    </a>
+  </div>
+
++ Comparison w/ normal CNNs
+  + traditional CNNs: a single clear label associated with each image in the training data
+  + image descriptions:
+    + having a sentence (or caption) associated with each image
+    + weak label: segments of the sentence refer to (unknown) parts of the image
+
++ Generating image descriptions
+  + Using this training data, a deep neural network "infers the latent alignment between segments of the sentences and the region that they described".
+  + Another neural network takes in the image as input and generates a description in text.
+  + Two components: alignment and generation
+
+
+
+
 
 
 
