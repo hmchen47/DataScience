@@ -453,7 +453,31 @@ Author: Adit Deshpande
   + compute inner products to show a measure of similarity
 
 
-  
+### Generative Model
+
++ the main purpose of creating a dataset where you have a set of image regions (found by the R-CNN) and corresponding text (BRNN)
+
++ learning from that dataset to generate descriptions given an image
+
++ taking in an image abd feeding it through a CNN
+
++ softmax layer: disregarded as the outputs of the fully connected layer become the inputs to another RNN
+
++ RNN: the function basically form probability distributions on the different words in a sentence
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/GeneratingImageDescriptions.png" style="margin: 0.1em;" alt="Workflow of alignment and generative model" title="orkflow of alignment and generative model" width=850>
+  </a>
+</div>
+
+### What it's Important
+
++ Using seemingly different RNN and CNN models to create a very useful application that in a way combines the fields of Computer Vision and Natural Language Processing
+
++ New idea in terms of how to make computers and models smarter when dealing with tasks that cross different fields
+
+
 
 
 
