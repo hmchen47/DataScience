@@ -146,6 +146,12 @@
 + Matthew Stewart, [Neural Network Optimization](a03-Optimization.md)
 + Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](a04-Hyperparameter.md)
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
++ Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
++ Drew Rollins, [Delta Function](a07-DeltaFunc.md)
++ Chris McCormick, [Deep Learning Tutorial - Softmax Regression](a08-SoftmaxReg.md)
++ [Softmax Classifier](a09-SoftmaxClass.md) in CS231n Convolutional Neural Networks for Visual Recognition, Stanford University
++ Adit Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](a10-CNNsGuide.md)
++ Adit Deshpande, [The 9 Deep Learning Papers You Need to Know About](a11-9Papers.md)
 
 
 ## Reference:
@@ -159,8 +165,12 @@
 + [2012 COURSERA COURSE LECTURES: Neural Networks for Machine Learning](http://www.cs.toronto.edu/~hinton/nntut.html)
   + [Lecture Videos](http://www.cs.toronto.edu/~hinton/coursera_lectures.html)
   + [Lecture Slides](http://www.cs.toronto.edu/~hinton/coursera_slides.html)
++ [CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)
+  + [Course Notes](http://cs231n.github.io/)
+  + [Course Video](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv)
 + Github Related Links
-    + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
-    + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
-    + [Chouffe](https://github.com/Chouffe/hinton-coursera)
-    + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+  + [Fuyang Liu](https://github.com/liufuyang/course-Neural-Networks-for-Machine-Learning)
+  + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
+  + [Chouffe](https://github.com/Chouffe/hinton-coursera)
+  + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
+
