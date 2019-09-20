@@ -478,7 +478,41 @@ Author: Adit Deshpande
 + New idea in terms of how to make computers and models smarter when dealing with tasks that cross different fields
 
 
+## Spatial Transformer Networks (2015)
 
++ M. Jaderberg, K. Simonyan, A. Zisserman, and K. Kavukcuoglu, [Spatial Transformer Networks](https://arxiv.org/pdf/1506.02025.pdf), 2016
+
++ The basic idea: transform the input image in a way so that the subsequent layers have an easier time making a classification
+
++ issue: making changes on image before fed into the specific convolutional layer
+
++ this module intends to correct: pose normalization (scenarios where the object is tilted or scaled) and spatial attention (brining attention to the correct object in a crowded image)
+
++ traditional CNNs: make model invariant to images with different scales and rotations requiring a lot of training examples for the model to learn properly
+
++ Spatial transformer
+  + traditional CNN models
+    + the maxpooling layer dealing with spatial invariant
+    + knowing a specific feature in the original input volume
+    + relative location not as important as exact location
+  + dynamically to produce different behavior (different distortions/transformations) for each input image
+  + module components
+    + localization network
+      + take input volume and output parameters of the spatial transformation applied
+      + parameters $\theta$: 6 dimensions for an affine transformation
+    + grid generator
+      + creation of a sampling grid
+      + the result of wrapping the regular grid with affine transformation ($\theta$) created in the localization network
+    + sampler: perform a wrapping of the input feature map
+  + the module dropped into a CNN at any point and basically helps the network learn how to transform feature maps in a way that minimizes the cost fiunction during training
+  + example of spatial transformer
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/SpatialTransformer.png" style="margin: 0.1em;" alt="A spatial transformer module" title="A spatial transformer module" height=200>
+      <img src="https://adeshpande3.github.io/assets/SpatialTransformer2.png" style="margin: 0.1em;" alt="Overview of the function of a spatial transformer module" title="Overview of the function of a spatial transformer module" height=200>
+    </a>
+  </div>
 
 
 
