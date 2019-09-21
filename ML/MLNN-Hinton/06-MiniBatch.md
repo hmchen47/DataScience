@@ -205,7 +205,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
-      <img src="img/m06-04.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="llustration of learning rate" width=350>
+      <img src="img/m06-04.png" style="margin: 0.1em;" alt="Curve of learning rate" title="Curve of learning rate" width=350>
     </a>
   </div>
 
@@ -246,6 +246,71 @@
 
 ### Lecture Notes
 
++ The intuition behind the momentum method
+  + Analogy
+    + image a ball on the error surface
+    + weight vector: the location of the ball in the horizontal plane
+    + the ball starting off by following the gradient
+    + once gaining velocity, the ball not longer using steepest descent
+    + its momentum making it keep going in the previous direction
+  + damping oscillations in directions of high curvature by combining gradients w/ opposite signs
+  + built up speed in directions w/ a gradient but consistent gradient
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-07.png" style="margin: 0.1em;" alt="Illustration of the momentum method for neural nets" title="Illustration of the momentum method for neural nets" width=300>
+    </a>
+  </div>
+
++ Mathematical representation of the momentum method
+  
+  \[\begin{align*}
+    \mathbf{v}(t) &= \alpha \, \mathbf{v}(t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(1)} \\\\
+    \Delta \mathbf{w}(t) &= \mathbf{v} (t) \tag*{(2)} \\
+     &= \alpha \, \mathbf{v}(t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \\
+     &= \alpha \, \Delta \mathbf{w} (t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(3)}
+  \end{align*}\]
+
+  + Eq. (1): The effect of the gradient is to increment the previous velocity. The velocity also decays by $\alpha$ which is slightly less than 1.
+  + Eq. (2): The weight change is equal to the current velocity.
+  + Eq. (3): The weight change can be expressed in terms of the previous weight change and the current gradient.
+
++ The behavior of the momentum method
+  + error surface as a tilted plane
+    + the ball reaches a terminal velocity
+    + if momentum $\simeq 1$, much faster than simple gradient descent
+
+    \[\mathbf{v}(\infty) = \frac{1}{1 - \alpha} \left( -\varepsilon \frac{\partial E}{\partial \mathbf{w}} \right)\]
+  + Beginning of learning
+    + may be very large gradients
+    + playing w/ a small momentum (e.g. 0.5)
+    + smoothly raised to the final value (e.g. 09 or even 0.99) once the large gradients disappeared and the weights stuck in a ravine the momentum
+  + learn at a rate that would cause divergent oscillations without the momentum
+
++ A better type of momentum (Nesterov 1983)
+  + standard momentum method
+    1. compute the gradient at the current location
+    2. take a big jump in the direction of the updated accumulated gradient
+  + Ilya Sutskever (2012)
+    + a new form of momentum working better
+    + inspired by the Nesterov method for optimizing convex functions
+  + Nesterov approach
+    1. make a big jump in the direction of the previous accumulated gradient
+    2. measure the gradient where ending up and making a correction: better to correct a mistake after you have made it
+  + Pictorial approach
+    1. make a big jump in the direction of the previous accumulated gradient (brown)
+    2. measure the gradient where end up and make a correction (red)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-08.png" style="margin: 0.1em;" alt="Illustration of the Nesterov method" title="Illustration of the Nesterov method" width=450>
+    </a>
+  </div>
+
+  + <span style="color: brown;">brown vector = jump</span>
+  + <span style="color: red;">red vector = correction</span>
+  + <span style="color: green;">green vector = accumulated gradient</span>
+  + <span style="color: blue;">blue vector = standard momentum</span>
 
 
 
