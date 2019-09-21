@@ -99,7 +99,79 @@
 
 ### Lecture Notes
 
++ Criteria to stop the learning
+  + error fluctuations caused by the different gradients on different mini-batches
+  + turing down the learning rate reduces the random fluctuations in the error
+    + a quicker win
+    + a slower learning
+  + Don't turn down the learning rate too soon!
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-04.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="llustration of learning rate" width=350>
+    </a>
+  </div>
+
++ Initializing the weights
+  + two different units w/ exactly the same bias and exactly the same incoming and outgoing weights
+    + exactly the same gradients
+    + never learn to be different features
+    + break symmetry by initializing the weights to have small random values
+  + overshooting learning
+    + a hidden unit w/ a big fan-in, small changes on many of its incoming weights
+    + generally smaller incoming weights when the fan-in is big
+    + initialize the weights to be proportional to sqrt(fan-in)
+  + scale the learning rate the same way
+
++ Shifting and scaling the inputs
+  + Shifting
+    + when using steepest descent, shifting the input values makes a big difference
+    + help to transform each component of the input vector so that it has zero mean over the whole training set
+    + the hyperbolic tangent (2*logistic - 1) produces hidden activations roughly zero mean
+      + better than the logistic
+  + Scaling
+    + when using steepest descent, scaling the input values makes a big difference
+    + help to transform each component of the input vector so that it has unit variance over the whole training set
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-05.png" style="margin: 0.1em;" alt="Illustration for shifting the inputs" title="Illustration for shifting the inputs" height=350>
+      <img src="img/m06-06.png" style="margin: 0.1em;" alt="Illustration for scaling the inputs" title="Illustration for scaling the inputs" height=350>
+    </a>
+  </div>
+
++ Decorrelating the input components - a thorough method
+  + linear neuron: a big win by decorrelating each component of the input from the other input components
+  + ways to decorrelate inputs
+    + reasonable method: Principal Components Analysis
+    + drop the principal components with the smallest eigenvalues
+    + achieving some dimensionality reduction
+    + divide the remaining principal components by the square roots of their eigenvalues
+    + linear neuron: convert an axis aligned elliptical error surface into a circular one
+  + circular error surface: the gradient points straight towards the minimum
+
++ Common problems occurring in multilayer networks
+  + Starting w/ a very big learning rate
+    + the weights of each hidden unit will all become very big and positive or very big and negative
+    + tiny error derivatives for the hidden units and not decreasing
+    + a plateau: mistaken for a local minimum
+  + Strategy for learning
+    + classification networks: using a squared error or a cross-entropy error
+    + the best guessing strategy: to make each output unit always produce an output equal to the proportion of time it should be a 1
+    + take a time to improve on it by making use of the input
+    + another plateau like a local minimum
+
++ Methods to speed up mini-batch learning
+  + use "momentum"
+    + instead of using the gradient to change the position of the weight "particle", use it to change the velocity
+  + use separate adaptive learning rates for each parameter
+    + slowly adjust the rate using the consistency of the gradient for that parameter
+  + rmsprop
+    + divide the learning rate for a weight by a running average of the magnitudes of recent gradients for that weight
+    + the mini-batch version of just using the sign of the gradient
+  + take a fancy method from the optimization literature that makes use of curvature information
+    + adapt it to work for neural nets
+    + adapt it to work for mini-batches
 
 
 ### Lecture Video
