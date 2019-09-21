@@ -246,15 +246,31 @@
 
 ### Lecture Notes
 
++ Momentum method
+  + applied to both full batch or mini-batch learning
+  + probably the commonest recipe for big neural nets: combining stochastic gradient descent with mini matches and momentum
+
 + The intuition behind the momentum method
   + Analogy
-    + image a ball on the error surface
+    + a ball on the error surface
     + weight vector: the location of the ball in the horizontal plane
-    + the ball starting off by following the gradient
-    + once gaining velocity, the ball not longer using steepest descent
+    + the ball starting stationary
+    + initialized by following the direction of steepest descent, the gradient
+    + once gaining velocity, the ball not longer in the same direction as the gradient
     + its momentum making it keep going in the previous direction
   + damping oscillations in directions of high curvature by combining gradients w/ opposite signs
+    + eventually getting to a low point on the surface
+    + viscosity: making the velocity die off gently on each or update
   + built up speed in directions w/ a gradient but consistent gradient
+  + Example:
+    + red dot: starting point
+    + green dot: the weights after two steps
+    + the gradients pretty much equal and opposite
+    + the gradient across the ravine canceled out
+    + the gradient along the ravines not canceled
+    + kept building up a speed along the ravine
+    + once momentum settle down, tend to go along the bottom of the ravine accumulating velocity as it goes
+    + might go faster than steepest descent
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
@@ -271,21 +287,36 @@
      &= \alpha \, \Delta \mathbf{w} (t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(3)}
   \end{align*}\]
 
-  + Eq. (1): The effect of the gradient is to increment the previous velocity. The velocity also decays by $\alpha$ which is slightly less than 1.
+  + Eq. (1):
+    + the velocity at time $t$: the mini-batch w/ $t-1$ attenuated by a number, like $0.9$, and adding the effect of the current gradient
+    + $t$: the updates of weights
+    + (alpha) momentum = the viscosity (0.9)
+    + effect of gradient: downhill by a given learning rate times the gradient at time $t$
+    + The effect of the gradient is to increment the previous velocity.
+    + The velocity also decays by $\alpha$ which is slightly less than 1.
   + Eq. (2): The weight change is equal to the current velocity.
   + Eq. (3): The weight change can be expressed in terms of the previous weight change and the current gradient.
 
 + The behavior of the momentum method
   + error surface as a tilted plane
+    + the gain of velocity from the gradient balanced by the multiplicative attenuation of the velocity due to the momentum term
     + the ball reaches a terminal velocity
-    + if momentum $\simeq 1$, much faster than simple gradient descent
+    + if momentum $\rightarrow 1$, going down much faster than simple gradient descent
+    + terminal velocity: as $t \rightarrow \infty$
 
     \[\mathbf{v}(\infty) = \frac{1}{1 - \alpha} \left( -\varepsilon \frac{\partial E}{\partial \mathbf{w}} \right)\]
-  + Beginning of learning
-    + may be very large gradients
-    + playing w/ a small momentum (e.g. 0.5)
-    + smoothly raised to the final value (e.g. 09 or even 0.99) once the large gradients disappeared and the weights stuck in a ravine the momentum
-  + learn at a rate that would cause divergent oscillations without the momentum
+
+    + $\alpha = 0.99$: 100 times as fast as the learning rate alone
+  + Initialized w/ big random weights
+    + there may be very large gradients w/ many weights
+    + no good for the task (?)
+    + preventing big momentum to change quickly $\rightarrow$ difficult to find the right relative values of different weights
+    + playing w/ a small momentum (e.g. 0.5) to average out sloshes in obvious ravines
+    + once once the large gradients disappeared and the weights stuck in a ravine the momentum
+      + along the bottom of the ravine w/o sloshing to and fro
+      + smoothly raised to the final value (e.g. 0.9 or even 0.99)
+  + using a small learning rate with a big momentum to get rid of an overall learning rate
+  + learning at a rate alone that would cause divergent oscillations without the momentum
 
 + A better type of momentum (Nesterov 1983)
   + standard momentum method
@@ -297,9 +328,20 @@
   + Nesterov approach
     1. make a big jump in the direction of the previous accumulated gradient
     2. measure the gradient where ending up and making a correction: better to correct a mistake after you have made it
-  + Pictorial approach
-    1. make a big jump in the direction of the previous accumulated gradient (brown)
-    2. measure the gradient where end up and make a correction (red)
+  + standard vs Nesterov
+    + standard: adding the current gradient and then gambling on the big jump
+    + Nesterov: using the previous accumulated gradient to make the big  and then correct itself at the place
+  + Pictorial of Nesterov approach
+    1. make a big jump in the direction of the previous accumulated gradient (brown vector)
+    2. measure the gradient where end up and make a correction (red vector)
+    3. combine the little correction step with the big jump to get the new accumulated gradient (green vector)
+    4. attenuate the gradient (green vector) by a given number ($\alpha = 0.9 \text{ or } 0.99$)
+    5. repeat the steps
+  + Pictirial standard momentum approach
+    1. start with an accumulated gradient (initialized brown vector)
+    2. measure the gradient at current location (small blue vector)
+    3. add to the accumulated gradient (brown vector) to make a big jump as the big blue vector (brown vector + little blue vector)
+  + gamble need: better to (gamble first then make a correction) than (make a correct and then gamble)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
