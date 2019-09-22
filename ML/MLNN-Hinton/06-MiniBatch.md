@@ -368,7 +368,46 @@
 
 ### Lecture Notes
 
++ The intuition behind separate adaptive learning rates
+  + appropriate learning rates vary widely between weights
+    + different layers w/ different magnitudes of the gradients, in particular, small initial weights
+    + the fan-in of a unit determining the size of the "overshoot" effect
+    + overshoot effect: simultaneously changing many of the incoming weights of a unit to correct the same error
+  + using a global learning rate (set by hand) multiplied by an appropriate local gain that is determined empirically for each weight
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-09.png" style="margin: 0.1em;" alt="Illustration of adaptive learning rates" title="Illustration of adaptive learning rates" width=200>
+    </a>
+  </div>
+
+  + gradients: very small in the early layers of very deep nets
+  + the fan-in varies widely between layers
+
++ Approach to determine the individual learning rates
+  + start with a local gain of 1 for every weight
+  + increase the local gain if the gradient for that weight not changing sign
+  + using small additive increases nad multiplicative decreases (for mini0batch)
+    + ensuring big gains decay rapidly when oscillations start
+    + totally radom gradient, the gain hovering around 1 when
+      + increasing by <span style="color: red;">plus</span> $\delta$ half the time
+      + decreasing by <span style="color: red;">times</span> $1 - \delta$ half the time
+
+  \[\begin{align*} 
+    \Delta w_{ij} &= -\varepsilon \, g_{ij} \; \frac{\partial E}{\partial w_{ij}} \\\\
+    \text{if } & \; \left( \frac{\partial E}{\partial{w_{ij}}}(t) \frac{\partial E}{\partial w_{ij}} (t-1) \right) > 0 \\
+    \text{then } & \; g_{ij}(t) = g_{ij}(t-1) + .05 \\
+    \text{else } & \; g_{ij}(t) = g_{ij}(t-1) * .95
+  \end{align*}\]
+
++ Tricks for making adaptive learning rates work better
+  + limit the gains to lie in some reasonable range, e.g. $[0.1, 10]$ or $[.01, 100]$
+  + use full batch learning or big min-batches
+    + ensuring changes in the sign of the gradient are not mainly due to the sampling error of a mini-batch
+  + Adaptive learning rates combined with momentum
+    + using the agreement in sign btw the current gradient for a weight and the velocity for that weight (Jacobs, 1989)
+  + Adaptive learning rates only dealt with axis-aligned effects
+    + momentum not care about the alignment of the axes
 
 
 ### Lecture Video
