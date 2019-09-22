@@ -444,7 +444,59 @@
 
 ### Lecture Notes
 
++ rprop: using only the sign of the gradient
+  + the magnitude of the gradient
+    + different for different weights
+    + change during learning
+    + hard to choose a single global learning rate
+  + full batch learning
+    + deal with this variation by only using the sign of the gradient
+    + updating weight w/ all of the same magnitude
+    + escaping from plateau w/ tiny gradients quickly
+  + rprop approach
+    + combining the idea of only using the sign of the gradient w/ the idea of adapting the step size separately for each weight
+    + increasing the step size for a weight <span style="color: red;">multiplicatively</span> (e.g. times 1.2) if the sign of its last two gradients agree
+    + decrease the step size multiplicatively (e.g. times 0.5)
+    + limit the step sizes to be less than 50 and more than a million (Mike Shuster's advice)
 
++ rprop not working with mini-batches
+  + idea of stochastic gradient descent
+    + average the gradients over successive mini-batches w/ small learning rate
+    + considering a weight that gets a gradients of +0.1 on nine mini-batches and a gradient of -0.9 on the tenth mini-batch
+    + let the weight to stay roughly where it is
+  + rprop:
+    + assumption: any adaptation of the step sizes is small on this time-scale
+    + increasing the weight nine times; e.g., +0.1 x 9
+    + decreasing the weight once; e.g., -0.9 x 1
+    + the same amount on decrement and increment
+    + weight vector grows
+  + criteria to combine
+    + the robustness of rprop
+    + the efficiency of mini-batches
+    + the effective averaging of the gradients over mini-batches
+
++ rmsprop: A mini-batch version of rprop
+  + problem w/ mini-batch rprop
+    + rprop: equivalent to using the gradient but also dividing by the size of the gradient
+    + dividing by a different number for each mini-batch
+    + why not force the number we divide by to be very similar for adjacent mini-batches?
+  + rmsprop: keep a moving average of the squared gradient for each weight
+
+    \[MeanSquare(w, t) = 0.9 \, MeanSquare(w, t-1) + 0.1 \, (\frac{\partial E}{\partial w}(t))^2\]
+  
+  + dividing the gradient by $\sqrt{MeanSquare(w, t)}$ makes the learning work much better (Tijmen Tieleman, unpublished).
+
++ Further developments of rmsprop
+  + combining rmsprop with standard momentum
+    + momentum not help as much as it normally does
+    + more investigation required
+  + combining rmsprop w/ Nesterov momentum (Sutskever 2012)
+    + work best if the RMS of the recent gradients used
+    + divide the correction rather than the jump in the direction of accumulated corrections
+  + combining rmsprop with adaptive learning rates for each connection
+    + more investigation required
+  + other methods related to rmsprop
+    + Yann LeCun's group: a fancy version in "No more pesky learning rates"
 
 
 ### Lecture Video
@@ -453,6 +505,5 @@
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
-
 
 
