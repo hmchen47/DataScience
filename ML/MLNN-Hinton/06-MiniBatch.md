@@ -368,12 +368,25 @@
 
 ### Lecture Notes
 
++ Adaptive Learning rate
+  + Robbie Jacobs initiated in 1980s
+  + each connection in neural network should have its own adaptive learning rate
+  + empirical setting by observing what happen to the weight on that connection when updating
+  + if the weights
+    + keep reversing the gradient, decreasing the learning rate
+    + stay consistent w/ the gradient, increasing the learning rate
+
 + The intuition behind separate adaptive learning rates
   + appropriate learning rates vary widely between weights
     + different layers w/ different magnitudes of the gradients, in particular, small initial weights
     + the fan-in of a unit determining the size of the "overshoot" effect
     + overshoot effect: simultaneously changing many of the incoming weights of a unit to correct the same error
-  + using a global learning rate (set by hand) multiplied by an appropriate local gain that is determined empirically for each weight
+    + unit might not get enough input when changing all the weights at the same time to fix up the area causing too much input
+  + using a global learning rate (set by hand) multiplied by an appropriate local gain determined empirically for each weight
+  + Example
+    + starting with small weights
+    + the gradients often much smaller in the initial layers than the laters
+    + more or less the same fan-in values for both layers
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
@@ -386,12 +399,18 @@
 
 + Approach to determine the individual learning rates
   + start with a local gain of 1 for every weight
+    + changing the weight $w_{ij}$ by the learning rate times te gain of $g_{ij}$ times the error derivative for that weight
   + increase the local gain if the gradient for that weight not changing sign
-  + using small additive increases nad multiplicative decreases (for mini0batch)
+    + increase $g_{ij}$ if the gradient for the weight not change sign
+  + using small additive increases and multiplicative decreases (for mini-batch)
     + ensuring big gains decay rapidly when oscillations start
-    + totally radom gradient, the gain hovering around 1 when
-      + increasing by <span style="color: red;">plus</span> $\delta$ half the time
-      + decreasing by <span style="color: red;">times</span> $1 - \delta$ half the time
+      + $t$ refers to weight updates
+      + positive derivative product: two positive or two negative gradient
+    + the gain hovering around 1
+      + increasing $g_{ij}$ by <span style="color: red;">plus</span> $\delta$ half the time, small additive amount
+      + decreasing $g_{ij}$ by <span style="color: red;">times</span> $1 - \delta$ half the time, larger decrement if oscillation starts
+      + evenly distributed with totally random gradient
+      + equilibrium point of gain as 1
 
   \[\begin{align*} 
     \Delta w_{ij} &= -\varepsilon \, g_{ij} \; \frac{\partial E}{\partial w_{ij}} \\\\
@@ -401,13 +420,16 @@
   \end{align*}\]
 
 + Tricks for making adaptive learning rates work better
-  + limit the gains to lie in some reasonable range, e.g. $[0.1, 10]$ or $[.01, 100]$
-  + use full batch learning or big min-batches
+  + limit the gains to lie in some reasonable range
+    + e.g. $[0.1, 10]$ or $[.01, 100]$
+    + no huge gains to prevent instability and fast convergence
+  + designed for full batch learning or big min-batches
     + ensuring changes in the sign of the gradient are not mainly due to the sampling error of a mini-batch
   + Adaptive learning rates combined with momentum
     + using the agreement in sign btw the current gradient for a weight and the velocity for that weight (Jacobs, 1989)
   + Adaptive learning rates only dealt with axis-aligned effects
     + momentum not care about the alignment of the axes
+    + momentum deal with diagonal ellipses and along the diagonal direction quickly
 
 
 ### Lecture Video
