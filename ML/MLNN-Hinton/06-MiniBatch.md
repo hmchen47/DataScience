@@ -25,7 +25,7 @@
   + the direction of steepest descent not point at the minimum unless the ellipse is circle (see figure)
   + big gradient in the direction traveling a small distance
   + small gradient in the direction traveling a large distance  
-  + locally quadratic error surface applying the same speed issues even for non-linear multi-layer nets
+  + extended to non-linear multi-layer nets: locally quadratic error surface applying the same speed issues
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
@@ -58,9 +58,9 @@
       + less computation to update the weights
       + using matrix-matrix multiplies to compute the gradient for many cases simultaneously
     + efficient matrix multiplications, especially on GPUs
-  + mini-batches required to be balanced for classes
+  + mini-batches require to be balanced for classes
     + allocating the same class in a batch causing sloshing weights
-    + random permutation for mini batches and randomly select the mini  batches for training
+    + random permutation for mini-atches and randomly select the mini-batches for training
 
 + Two types of learning algorithm
   + full gradient computed from all the training cases
@@ -81,7 +81,7 @@
   + toward end of mini-batch learning
     + nearly always help to turn down the learning rate
     + remove fluctuations in the final weights caused by the variations btw mini-batches
-  + cease the learning (criteria)
+  + criteria to cease the learning
     + the error stops decreasing
     + using the error on a separate validation set
 
