@@ -49,7 +49,7 @@
 + [A bag of tricks for mini-batch descent](06-MiniBatch.md#)
 + [The momentum method](06-MiniBatch.md#)
 + [A separate, adaptive learning rate for each connection](06-MiniBatch.md#)
-+ [rmsprop_divide the gradient](06-MiniBatch.md#)
++ [rmsprop: Normalized the gradient](06-MiniBatch.md#)
 
 
 ## 07. Recurrent Neural Networks
