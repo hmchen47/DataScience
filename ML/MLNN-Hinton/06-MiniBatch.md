@@ -364,7 +364,7 @@
 </video><br/>
 
 
-## A separate, adaptive learning rate for each connection
+## Adaptive learning rate for each connection
 
 ### Lecture Notes
 
@@ -440,63 +440,102 @@
 </video><br/>
 
 
-## rmsprop_divide the gradient
+## rmsprop: Normalized the gradient
 
 ### Lecture Notes
 
 + rprop: using only the sign of the gradient
   + the magnitude of the gradient
-    + different for different weights
+    + different widely for different weights
     + change during learning
     + hard to choose a single global learning rate
   + full batch learning
     + deal with this variation by only using the sign of the gradient
-    + updating weight w/ all of the same magnitude
-    + escaping from plateau w/ tiny gradients quickly
-  + rprop approach
+    + just using the sign of the gradient
+    + updating weight w/ the same magnitude
+    + solution for quickly escaping from plateau even with tiny gradients
+    + unable to achieve just by turning up the learning rate
+  + approach
     + combining the idea of only using the sign of the gradient w/ the idea of adapting the step size separately for each weight
-    + increasing the step size for a weight <span style="color: red;">multiplicatively</span> (e.g. times 1.2) if the sign of its last two gradients agree
-    + decrease the step size multiplicatively (e.g. times 0.5)
-    + limit the step sizes to be less than 50 and more than a million (Mike Shuster's advice)
+    + the sign of the last two gradients, not the magnitude of the gradients
+      + agree: increasing the step size for a weight <span style="color: red;">multiplicatively</span> (e.g. times 1.2)
+      + decrease the step size multiplicatively (e.g. times 0.5)
+    + Mike Shuster's advice: limiting the step sizes to be less than 50 and more than a millionth ($10^{-6}$)
+    + the step size depends on the problem dealing with
+      + tiny inputs: big weights required for the inputs
 
 + rprop not working with mini-batches
-  + idea of stochastic gradient descent
-    + average the gradients over successive mini-batches w/ small learning rate
-    + considering a weight that gets a gradients of +0.1 on nine mini-batches and a gradient of -0.9 on the tenth mini-batch
-    + let the weight to stay roughly where it is
+  + rprop works with very big mini-batches where much more conservative changes to the step sizes
+  + violate central idea of stochastic gradient descent
+    + for small learning rate, the gradient gets effectively averaged over successive mini-batches
+    + considering a weight
+      + a gradients of +0.1 on nine mini-batches and a gradient of -0.9 on the tenth mini-batch (0.1 x 9 + (-0.9) x 1)
+      + roughly average out the gradients
+      + the weight to stay roughly where it is
   + rprop:
-    + assumption: any adaptation of the step sizes is small on this time-scale
-    + increasing the weight nine times; e.g., +0.1 x 9
-    + decreasing the weight once; e.g., -0.9 x 1
-    + the same amount on decrement and increment
+    + not following the idea of stochastic gradient descent
+    + assumption: any adaptation of the step sizes is smaller on the time scale of the mini-batches
+    + increasing the weight nine times by whatever it's current step size is
+    + decreasing the weight only once
+    + making the weight much bigger
     + weight vector grows
-  + criteria to combine
-    + the robustness of rprop
+  + Criteria to judge the combination
+    + the robustness of rprop: just using the sign of the gradient
     + the efficiency of mini-batches
     + the effective averaging of the gradients over mini-batches
 
 + rmsprop: A mini-batch version of rprop
   + problem w/ mini-batch rprop
-    + rprop: equivalent to using the gradient but also dividing by the size of the gradient
-    + dividing by a different number for each mini-batch
-    + why not force the number we divide by to be very similar for adjacent mini-batches?
-  + rmsprop: keep a moving average of the squared gradient for each weight
+    + using the gradient but also divided by the different magnitude of the gradient for each mini-batch
+    + solution: force the number divided by to be very similar for adjacent mini-batches
+  + rmsprop: keep a moving average of the squared gradient for each weight (e.g. $\alpha = 0.9$)
 
-    \[MeanSquare(w, t) = 0.9 \, MeanSquare(w, t-1) + 0.1 \, (\frac{\partial E}{\partial w}(t))^2\]
+    \[MeanSquare(w, t) = \alpha \, MeanSquare(w, t-1) + (1 - \alpha) \, (\frac{\partial E}{\partial w}(t))^2\]
   
-  + dividing the gradient by $\sqrt{MeanSquare(w, t)}$ makes the learning work much better (Tijmen Tieleman, unpublished).
+  + dividing the gradient by $\sqrt{MeanSquare(w, t)}$ makes the learning work much better (Tijmen Tieleman, unpublished)
+  + not adapting the learning rate separately for each connection
+  + A simple approach: for each connection keep a running average of the root mean squared gradient and the gradient divides by that RMS
 
-+ Further developments of rmsprop
++ Extension of rmsprop
   + combining rmsprop with standard momentum
-    + momentum not help as much as it normally does
+    + not help as much as momentum normally does
     + more investigation required
   + combining rmsprop w/ Nesterov momentum (Sutskever 2012)
+    + making the jump first then make a correction
     + work best if the RMS of the recent gradients used
-    + divide the correction rather than the jump in the direction of accumulated corrections
+    + divide the correction term rather than the large jump made in the direction of accumulated corrections
   + combining rmsprop with adaptive learning rates for each connection
     + more investigation required
   + other methods related to rmsprop
     + Yann LeCun's group: a fancy version in "No more pesky learning rates"
+
++ Summary of learning methods for neural networks
+  + full-batch method
+    + small datasets (e.g. 10,000 cases) or bigger datasets w/o much redundancy
+    + optimization: non-linear conjugate gradient, LBFGS, ...
+      + usually off-shelf packages existed
+    + learning rate: adaptive learning rates, rprop, ...
+  + mini-batch method
+    + big, redundant datasets
+    + try gradient descent w/ momentum
+      + choose global learning rate
+      + loop to adapt global learning rate based on whether the gradients change sign
+    + try rmsprop (w/ momentum ?)
+    + try LeCunn's latest recipe
+  + No simple recipe
+    + Very different neural nets
+      + very deep nets (especially ones w/ narrow bottlenecks)
+        + difficult to optimize
+        + sensitive to very small gradients
+      + recurrent nets
+        + difficult to optimize
+        + long memory required
+      + wide shallow nets
+        + use a lot in practice
+        + often optimized w/ methods not very accurate due to stop too early before overfitting
+    + Very different tasks
+      + very different accuracy requirements on weights
+      + cases w/ weird properties, e.g. many very rare cases, words as inputs
 
 
 ### Lecture Video
