@@ -109,7 +109,7 @@
     + a hidden unit w/ a small fan-in: bigger weights
     + generally smaller incoming weights when the fan-in is big
     + principle: initialize the weights to be proportional to sqrt(fan-in)
-  + scale the learning rate the same way
+  + scale the learning rate the same way as initialization
  
 + Shifting and scaling the inputs
   + Shifting
@@ -129,7 +129,7 @@
         + a parabolic through along the red line
         + the red line: the bottom of this parabolic trough
         + another parabolic through along the green line
-      + adding these two parabolic troughs #\rightarrow$ a quadratic bowl
+      + adding these two parabolic troughs $\rightarrow$ a quadratic bowl
       + subtract 100 from each case
         + 1st case: 1 & 1 $\rightarrow$ 2
         + 2ns case: 1 & -1 $\rightarrow$ 0
@@ -142,7 +142,7 @@
       + hyperbolic tangent btw $[-1, 1]$
       + faster learning in the next layer only if the inputs to the hyperbolic tangents distributed sensibly around 0
       + better than the logistic
-    + Logistic better performance
+    + Logistic performs better
       + logistic sweeps things under
       + output = 0 no matter how small the inputs are
       + fluctuations ignore in big negative inputs
