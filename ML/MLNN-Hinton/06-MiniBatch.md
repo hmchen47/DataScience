@@ -317,7 +317,7 @@
     + $\alpha = 0.99$: 100 times as fast as the learning rate alone
   + Initialized w/ big random weights
     + there may be very large gradients w/ many weights
-    + no good for the task (?)
+    + not good for the task 
     + preventing big momentum to change quickly $\rightarrow$ difficult to find the right relative values of different weights
     + playing w/ a small momentum (e.g. 0.5) to average out sloshes in obvious ravines
     + once the large gradients disappeared and the weights stuck in a ravine the momentum
@@ -393,38 +393,35 @@
   + using a global learning rate (set by hand) multiplied by an appropriate local gain determined empirically for each weight
   + Example
     + starting with small weights
-    + the gradients often much smaller in the initial layers than the laters
+    + the gradients often much smaller in the initial layers than the later ones
     + more or less the same fan-in values for both layers
+    + the fan-in varies widely between layers
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
-      <img src="img/m06-09.png" style="margin: 0.1em;" alt="Illustration of adaptive learning rates" title="Illustration of adaptive learning rates" width=200>
-    </a>
-  </div>
-
-  + gradients: very small in the early layers of very deep nets
-  + the fan-in varies widely between layers
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+        <img src="img/m06-09.png" style="margin: 0.1em;" alt="Illustration of adaptive learning rates" title="Illustration of adaptive learning rates" width=200>
+      </a>
+    </div>
 
 + Approach to determine the individual learning rates
-  + start with a local gain of 1 for every weight
-    + changing the weight $w_{ij}$ by the learning rate times te gain of $g_{ij}$ times the error derivative for that weight
-  + increase the local gain if the gradient for that weight not changing sign
-    + increase $g_{ij}$ if the gradient for the weight not change sign
+  + starting with a local gain of 1 for every weight
+    + changing the weight $w_{ij}$ by the learning rate times the gain of $g_{ij}$ times the error derivative for that weight
+  + increasing the local gain $g_{ij}$ if the gradient not changing sign for that weight
   + using small additive increases and multiplicative decreases (for mini-batch)
     + ensuring big gains decay rapidly when oscillations start
       + $t$ refers to weight updates
-      + positive derivative product: two positive or two negative gradient
+      + positive derivative product: two positive or two negative gradients
     + the gain hovering around 1
       + increasing $g_{ij}$ by <span style="color: red;">plus</span> $\delta$ half the time, small additive amount
       + decreasing $g_{ij}$ by <span style="color: red;">times</span> $1 - \delta$ half the time, larger decrement if oscillation starts
       + evenly distributed with totally random gradient
       + equilibrium point of gain as 1
 
-  \[\begin{align*} 
+  \[\begin{align*}
     \Delta w_{ij} &= -\varepsilon \, g_{ij} \; \frac{\partial E}{\partial w_{ij}} \\\\
     \text{if } & \; \left( \frac{\partial E}{\partial{w_{ij}}}(t) \frac{\partial E}{\partial w_{ij}} (t-1) \right) > 0 \\
     \text{then } & \; g_{ij}(t) = g_{ij}(t-1) + .05 \\
-    \text{else } & \; g_{ij}(t) = g_{ij}(t-1) * .95
+    \text{else } & \; g_{ij}(t) = g_{ij}(t-1) \times .95
   \end{align*}\]
 
 + Tricks for making adaptive learning rates work better
