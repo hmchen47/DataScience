@@ -256,7 +256,7 @@
     + weight vector: the location of the ball in the horizontal plane
     + the ball starting stationary
     + initialized by following the direction of steepest descent, the gradient
-    + once gaining velocity, the ball not longer in the same direction as the gradient
+    + once gaining velocity, the ball no longer in the same direction as the gradient
     + its momentum making it keep going in the previous direction
   + damping oscillations in directions of high curvature by combining gradients w/ opposite signs
     + eventually getting to a low point on the surface
@@ -306,13 +306,21 @@
 
     \[\mathbf{v}(\infty) = \frac{1}{1 - \alpha} \left( -\varepsilon \frac{\partial E}{\partial \mathbf{w}} \right)\]
 
+    + Derivation
+
+      \[\begin{align*}
+        & v(\infty) = \alpha \, v(\infty) - \varepsilon \, \frac{\partial E}{\partial w} (t) \\
+        & (1 - \alpha) \, v(\infty) = - \varepsilon \frac{\partial E}{\partial w} (t) \\
+        & v(\infty) = \frac{1}{(1 - \alpha)} \, \left(-\varepsilon \frac{\partial E}{\partial w}(t)\right)
+      \end{align*}\]
+
     + $\alpha = 0.99$: 100 times as fast as the learning rate alone
   + Initialized w/ big random weights
     + there may be very large gradients w/ many weights
     + no good for the task (?)
     + preventing big momentum to change quickly $\rightarrow$ difficult to find the right relative values of different weights
     + playing w/ a small momentum (e.g. 0.5) to average out sloshes in obvious ravines
-    + once once the large gradients disappeared and the weights stuck in a ravine the momentum
+    + once the large gradients disappeared and the weights stuck in a ravine the momentum
       + along the bottom of the ravine w/o sloshing to and fro
       + smoothly raised to the final value (e.g. 0.9 or even 0.99)
   + using a small learning rate with a big momentum to get rid of an overall learning rate
