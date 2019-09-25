@@ -464,7 +464,7 @@
     + combining the idea of only using the sign of the gradient w/ the idea of adapting the step size separately for each weight
     + the sign of the last two gradients, not the magnitude of the gradients
       + agree: increasing the step size for a weight <span style="color: red;">multiplicatively</span> (e.g. times 1.2)
-      + decrease the step size multiplicatively (e.g. times 0.5)
+      + disagree: decreasing the step size multiplicatively (e.g. times 0.5)
     + Mike Shuster's advice: limiting the step sizes to be less than 50 and more than a millionth ($10^{-6}$)
     + the step size depends on the problem dealing with
       + tiny inputs: big weights required for the inputs
@@ -473,7 +473,7 @@
   + rprop works with very big mini-batches where much more conservative changes to the step sizes
   + violate central idea of stochastic gradient descent
     + for small learning rate, the gradient gets effectively averaged over successive mini-batches
-    + considering a weight
+    + example: considering a weight
       + a gradients of +0.1 on nine mini-batches and a gradient of -0.9 on the tenth mini-batch (0.1 x 9 + (-0.9) x 1)
       + roughly average out the gradients
       + the weight to stay roughly where it is
@@ -495,11 +495,11 @@
     + solution: force the number divided by to be very similar for adjacent mini-batches
   + rmsprop: keep a moving average of the squared gradient for each weight (e.g. $\alpha = 0.9$)
 
-    \[MeanSquare(w, t) = \alpha \, MeanSquare(w, t-1) + (1 - \alpha) \, (\frac{\partial E}{\partial w}(t))^2\]
+    \[MeanSquare(w, t) = \alpha \cdot MeanSquare(w, t-1) + (1 - \alpha) \, \left(\frac{\partial E}{\partial w}(t)\right)^2\]
   
   + dividing the gradient by $\sqrt{MeanSquare(w, t)}$ makes the learning work much better (Tijmen Tieleman, unpublished)
   + not adapting the learning rate separately for each connection
-  + A simple approach: for each connection keep a running average of the root mean squared gradient and the gradient divides by that RMS
+  + simple solution: for each connection keep a running average of the root mean squared gradient and the gradient divides by that RMS
 
 + Extension of rmsprop
   + combining rmsprop with standard momentum
