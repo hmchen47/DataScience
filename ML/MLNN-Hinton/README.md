@@ -48,7 +48,7 @@
 + [Overview of mini-batch gradient descent](06-MiniBatch.md#)
 + [A bag of tricks for mini-batch descent](06-MiniBatch.md#)
 + [The momentum method](06-MiniBatch.md#)
-+ [A separate, adaptive learning rate for each connection](06-MiniBatch.md#)
++ [Adaptive learning rate for each connection](06-MiniBatch.md#)
 + [rmsprop: Normalized the gradient](06-MiniBatch.md#)
 
 
@@ -152,6 +152,8 @@
 + [Softmax Classifier](a09-SoftmaxClass.md) in CS231n Convolutional Neural Networks for Visual Recognition, Stanford University
 + Adit Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](a10-CNNsGuide.md)
 + Adit Deshpande, [The 9 Deep Learning Papers You Need to Know About](a11-9Papers.md)
++ P. Rajos, [Fast Learning Algorithms](a12-Learning.md)
++ 
 
 
 ## Reference:
