@@ -5,7 +5,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
-    <img src="img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=350>
+    <img src="img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=450>
   </a>
 </div>
 
@@ -32,6 +32,36 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.1.1 Backpropagation with momentum
 
++ Momentum method
+  + minimizing the error function: wide oscillation of the search process w/ the gradient descent
+  + traditional gradient descent: computed for each new combination of weights
+  + momentum approach: compute the negative gradient direction a weighted average of the current gradient and the previous correction direction for each step
+  + Example: a network w/ two weights $w_1$ and $w_2$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-01.png" style="margin: 0.1em;" alt="Backpropagation without (a) or with (b) momentum" title="Backpropagation without (a) or with (b) momentum" width=350>
+    </a>
+  </div>
+  + accelerating convergence: increasing the learning rate up to an optimal value
+  + purpose: allowing the attenuation of oscillations in the iteration process
+
++ Mathematical representation
+  + A network with $n$ different weights $w_1, w_2, \dots, w_n$
+  + Assumption and Notations
+    + $E$: the error function
+    + $\gamma$: the learning rate
+    + $\alpha$: the momentum rate
+    + 
+  + The $i$-th correction for weight $w_k$
+
+    \[\Delta w_k(i) = -\gamma \, \frac{\partial E}{\partial w_k} + \alpha \, \Delta w_k (i-1)\]
+
++ Optimization
+  + optimal parameters highly depends on the learning task
+  + no general strategy to deal with the problem
+  + tradeoffs: choosing the a specific learning and momentum rates
+  + observing the oscillating behavior on backpropagation feedback rule and large momentum rates
 
 
 ### 8.1.2 The fractal geometry of backpropagation
