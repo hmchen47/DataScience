@@ -185,12 +185,16 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + statistical preprocessing of the learning set w/ decorrelation; ie. no excessively large eigenvalues of the correlation matrix
 
 
-  + 
-
-
-
-
 ### 8.1.2 The fractal geometry of backpropagation
+
++ standard backpropagation
+  + very sensitive to the initial learning rate
+  + path: fractal in weight space
+    + the form based on the learning rate
+    + a threshold value for which the attractor of the iteration path is dense in a region of weight space around a local minimum of the error function
+
+
+
 
 
 
