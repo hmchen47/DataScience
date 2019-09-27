@@ -193,6 +193,67 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     + the form based on the learning rate
     + a threshold value for which the attractor of the iteration path is dense in a region of weight space around a local minimum of the error function
 
+#### The Gauss-Jacobi and Gauss-Seidel methods and backpropagation
+
++ online backpropagation
+  + not converge to a single point in weight space
+  + oscillation around the minimum of the error function
+  + expected value of the derivation based on the learning step size used
+  + linear associator = Iterated Function System [Barnsley, M. (1988), Fractals Everywhere, Academic Press, London.]
+
++ Visualization online & offline backpropagation approach
+  + three input-output patterns
+
+    \[\begin{align*}
+      x_1^1 w_1 + x_2^1 w_2 & = y_1 \tag{1}\\
+      x_1^2 w_1 + x_2^2 w_2 & = y_2 \tag{2}\\
+      x_1^3 w_1 + x_2^3 w_2 & = y_3 \tag{3}
+    \end{align*}\]
+
+  + intersect at the same point: using Gaussian elimination
+  + not intersect the same point: no exact solution but ask for the combination of $w_1$ and $w_2$ to minimize the quadratic error
+  + minimal cumulative quadratic distance to the three sides of the triangle (left figure)
+  + the Gauss-Jacobi and Gauss-Seidel methods (middle figures)
+  + Gauss-Jacobi method
+    + starting at some point in search space
+    + projecting the point in the directions of the axes on the two lines considered
+    + next iteration point: the $x$-coordinate of the horizontal projection & $y$-coordinate of the vertical projection
+  + Gauss-Seidel method
+    + dealing with each line equation individually
+    + 1st projection in the $x$ direction
+    + 2nd projection in the $y$ direction
+    + usually converge faster than the Gauss-Jacobi method
+  + Online backpropagation (middle figures)
+    + the error function
+
+      \[\frac{1}{2}(x_1^1w_1 + x_2^1 w_2 - y_1)^2\]
+
+    + the gradient (w.r.t. $w_1$ and $w_2$) is $(x_1, x_2)$
+    + the Gauss-Siedel method w/ a learning constant
+  + Offline backpropagation (middle figure)
+    + iterating by adding the corrections for each pattern
+    + the corrections in the direction normal to each linear constraint
+    + the new iteration point obtained by combining them
+    + similar to the Gauss-Jacobi method of linear algebra
+  + the size of learning constant determining whether the iteration stops short of reaching the linear constant or goes beyond it
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-07.png" style="margin: 0.1em;" alt="Three linear constraints in weight space" title="Three linear constraints in weight space." height=150>
+      <img src="img/a12-08.png" style="margin: 0.1em;" alt="The Gauss-Jacobi and Gauss-Seidel methods" title="The Gauss-Jacobi and Gauss-Seidel methods" height=150>
+      <img src="img/a12-09.png" style="margin: 0.1em;" alt="Offline and Online backpropagation" title="Offline and Online backpropagation" height=150>
+    </a>
+  </div>
+
++ Nonlinear activation function: sigmoid
+  + online propagation always moves in the direction normal to the constraints
+  + the length of the search step is multiplied by the derivative of the sigmoid
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-10.png" style="margin: 0.1em;" alt="Online backpropagation iterations for sigmoid units" title="Online backpropagation iterations for sigmoid units" width=250>
+    </a>
+  </div>
 
 
 
