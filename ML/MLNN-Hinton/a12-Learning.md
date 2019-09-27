@@ -147,6 +147,47 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   </div>
 
 
+#### Critical parameter combinations
+
++ Backpropagation: choosing a learn rate $\gamma$ w/o any previous knowledge of the correlation matrix of the input
+
++ Conservative approach: choosing a very small learning rate
+
++ In case of a correlation matrix $\mathbf{X}^T\mathbf{X}$ with some very large eigenvalues, a given choice of $\gamma$ could led to divergence in the associated direction in weight space.
+
++ Error function in weight space
+  + Paths for backpropagation learning w/ linear associator (left figure)
+    + the minimum of the error function located at the origin
+    + some paths in a 2-dim weight space for several associated trained with momentum rates to one and different $\gamma$ values
+    + a momentum rate equal to one precludes convergence of the iteration process
+    + difficult to adjust the learning and momentum rate in the nonlinear case
+    + the divergence regions of the quadratic case: oscillatory regions
+  + Bounded nonlinear error function and the result of several iterations (right figure)
+    + the possible shape of the error function for a linear associator w/ sigmoid output and oscillation process for this kind of error function in the one-dim case
+    + jagged curve w/ nonlinear neural networks
+    + oscillation: 
+      + large momentum rates
+      + excessively large $\gamma$ w/o momentum
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-05.png" style="margin: 0.1em;" alt="Paths in weight space for backpropagation learning (linear associator)." title="Paths in weight space for backpropagation learning (linear associator)." width=250>
+      <img src="img/a12-06.png" style="margin: 0.1em;" alt="Bounded nonlinear error function and the result of several iterations." title="Bounded nonlinear error function and the result of several iterations." width=450>
+    </a>
+  </div>
+
++ learning rate considerations
+  + too small: possible to get stuck in local minima
+  + too big: possible oscillatory traps
+
++ Remedy
+  + adaptive learning rates
+  + statistical preprocessing of the learning set w/ decorrelation; ie. no excessively large eigenvalues of the correlation matrix
+
+
+  + 
+
+
 
 
 ### 8.1.2 The fractal geometry of backpropagation
