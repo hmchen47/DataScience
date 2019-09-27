@@ -104,8 +104,8 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     \end{align*}\]
 
   + an optimal parameter combination
-    + in the $x$ direction: $\gamma = 1/2 a$ and $\alpha = 0$
-    + in the $y$ direction: $\gamma = 1/2 b$ and $\alpha = 0$
+    + in the $x$ direction: $\gamma = 1/2a$ and $\alpha = 0$
+    + in the $y$ direction: $\gamma = 1/2b$ and $\alpha = 0$
   + Example
     + The number of iterations needed to find the minimum of the error function to a given precision as a function of $\gamma$, when $a = 0.9$ nd $b = 0.5$.
     + optimal value: $\gamma = 0.7$ at the intersection of the two curves.
@@ -116,6 +116,35 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
         <img src="img/a12-03.png" style="margin: 0.1em;" alt="Optimal gamma in the two-dimensional case" title="Optimal gamma in the two-dimensional case" width=300>
       </a>
     </div>
+
+
+#### Minimizing oscillations
+
++ Eigenvlaues in the correlation matrix $\mathbf{X}^T\mathbf{X}$
+  + the eigenvalues $\rightarrow$ the lengths of the principal axes of the error function
+  + the range of possible values of $\gamma$ reduces as one of these eigenvalues much larger than the others
+
++ Example: $kx^2$
+  + optimal learning rate: $\gamma = 1/2k$
+  + the rate $\gamma = 1/k \rightarrow$ oscillation btw the initial point $x_0$ and $-x_0$
+  + $\gamma > 2/k \rightarrow$ "explosion" of iteration process
+
++ Convergence and Divergence zones
+  + parameters combinations in the boundary btw regions: stable oscillations
+  + $\gamma > 4 \cdot 2/k$: not balanced with any value of $\alpha$
+  + $\gamma > 1$: a geometric explosion of the iteration process
+  + $1/k < \gamma < 2/k$: stable oscillation; the boundaries between regions
+  + $\gamma < 1/2k$: optimal convergence speed w/ a unique $\alpha$
+  + jagged line: the optimal combinations of $\gamma$ and $\alpha$
+  + issue: With certain direction in weight space, the principle axis of the error function is much smaller compared to another axes.
+  + solution: a compromise by adjusting the momentum rate such that the direction w/ less oscillating and improving convergence speed
+  + the compromise could be dominated by a single direction w/ $n$ axes in weight space
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-04.png" style="margin: 0.1em;" alt="Convergence zone for combinations of gamma and alpha" title="Convergence zone for combinations of gamma and alpha" width=300>
+    </a>
+  </div>
 
 
 
