@@ -362,6 +362,7 @@
   + <span style="color: green;">green vector = accumulated gradient</span>
   + <span style="color: blue;">blue vector = standard momentum</span>
 
++ Ryan Harris, [Visualize Back propagation: (5) Momentum](https://www.youtube.com/watch?v=7HZk7kGk5bU&list=PL29C61214F2146796&index=8&t=11s)
 
 
 ### Lecture Video
