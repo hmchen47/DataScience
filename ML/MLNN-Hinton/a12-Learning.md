@@ -347,6 +347,21 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + the iteration path thus remains trapped in a certain region of weight space near to the optimum.
 
 
+#### Summary of Classical Backpropagation
+
++ Online backpropagation w/ random selection of the input patterns yields iterations dynamics equivalent to those of IFS.
+
++ The learning constant: the affine transformations overlap, the iteration path densely covers a certain region of weight space around the local minimum of the error function.
+
++ linear associator &  online backpropagation: fractal iteration path
+
++ Sigmoid units: 
+  + error correction step: no longer equivalent to an affine transformation
+  + similar updating step
+  + able to approximate a quadratic function for suitable parameter combinations
+  + nonlinear updating steps: fractal iteration paths
+
+
 ## 8.2 Some simple improvements to backpropagation
 
 
