@@ -364,6 +364,9 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ## 8.2 Some simple improvements to backpropagation
 
++ Issues on learning in neural networks
+  + an NP complete complete problem
+  + traditional gradient descent methods are slow
 
 
 ### 8.2.1 Initial weight selection
