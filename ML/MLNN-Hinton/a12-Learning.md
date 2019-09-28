@@ -256,6 +256,43 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   </div>
 
 
+#### Iterated Function Systems (IFS)
+
++ a set of affine transformations in a metric space producing fractal structures when applied repetitively to a compact subset of points and its subsequenct images
+
++ Iterated Function Systems
+  + Assumptions & Notations
+    + $\mathbf{X}$: a space of points
+    + $\mathbf{x} = (x_1, x_2, \dots, x_n)$: a point $\in \mathbf{X}$
+    + $d$: a metric in the space
+    + $h_i \; : \; X \rightarrow X, i = 1, 2, \dots, N$: a set of affine contraction mappings
+    + $\mathbf{M}$: a matrix for transformation
+    + $\mathbf{t}$: a vector for transformation
+    + given a nonvoid compact subset $A_0$ of points of $X$
+    + $a_0$: any point belonging to the attractor
+    + $h_k$: affine transformation selected randomly from the IFS
+    + $\{a_n\}$: a dense subset of the attractor
+  + recursive formula for new image subsets
+
+    \[A_{n+1} = \bigcup_{j=1}^N h_j(A_n), \text{ for } n = 1, 2, \dots\]
+
+  + attractor of the IFS: the sequence $\{A_n\}$ converging to a fixed point
+  + Collage Theorem: given any nonvoid compact subset $X$, always find an IFS whose associated attractor can arbitrarily approximate the given subset under a suitable metric
+  + The transformation
+
+    \[\mathbf{x} \rightarrow \mathbf{M}\mathbf{x} + \mathbf{t}\]
+
+    + contractive if the determinant of $\mathbf{M} < 1$
+
+  + The sequence $a_n$
+
+    \[a_{n+1} = h_k(a_n)\]
+
+    therefore, able to produce a good graphical approximation of the attractor oof the IFS w/ simple randomized method
+
++ fractal: online backpropagation on linear associator $\rightarrow$ a set of affine transformations applied in the course of the learning process either randomly or in a fixed sequence
+
+
 
 
 
