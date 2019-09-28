@@ -293,7 +293,58 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 + fractal: online backpropagation on linear associator $\rightarrow$ a set of affine transformations applied in the course of the learning process either randomly or in a fixed sequence
 
 
+#### Online Backpropagation and IFS
 
++ Assumptions & Notations
+  + a linear associator
+  + $\mathbf{x^1}, \mathbf{x^2}, \dots, \mathbf{x^p}$: the $p \; n$-dim patterns
+  + $y^1, y^2, \dots, y^p$: the targets of training set
+  + $w_1, w_2, \dots, w_n$: the weights of the linear associator
+  + $\gamma$: the learning constant
+  + $\mathbf{M_j}$: the matrix w/ elements $m_{ik} = x_i^j x_k^j$ for $i, k = 1, \dots, n$
+  + $\mathbf{t_j}$: the column vector w/ components $x^j, y^j$ for $i = 1, \dots, n$
+  + \mathbf{I}$: the identity matrix
+  + $l$: the distance to the hyperplane w/ a given point $(w_1^{\prime}, w_2^{\prime}, \cdots, w_n^{\prime})$ in weight space
+
++ The error function for pattern $j$
+
+  \[E_j = \frac{1}{2} \left(w_1 x_1^j + w_2 x_2^j + \cdots + w_n x_n^j - y^j \right)^2 \]
+
++ The correction for each weight $w_i, i = 1, \dots, n$
+
+  \[\begin{align*}
+    w_i & \rightarrow w_i - \gamma \, x_i^j (w_1 x_1^j + w_2 x_2^j + \cdots + w_n x_n^j - y^j) \\
+      & \rightarrow w_i - \gamma \left(w_1 x_i^j x_1^j + w_2 x_i^j x_2^j + \cdots + w_n x_i^j x_n^j \right) - \gamma \, x_i^j y^j \tag{4}
+  \end{align*}\]
+
++ Weight Vectorization
+
+  \[\begin{align*}
+    \mathbf{w} & \rightarrow \mathbf{I}\mathbf{w} - \gamma \mathbf{M_j} \mathbf{w} - \mathbf{t_j} \\
+      & \rightarrow (\mathbf{I} - \gamma \mathbf{M_j})\mathbf{w} - \mathbf{t_j}
+  \end{align*}\]
+
++ Affine transformation
+  + mapping the current point in weight space into a new one
+  + each pattern in the training set: a different affine transformation of the current point $(w_1, w_2, \dots, w_n)$
+
++ Online backpropagation w/ a randomly selected input patterns
+  + the initial point in weight space transformed by a randomized IFS algorithm
+  + the sequence of updated weights approximates the attractor of th IFS defined by the input patterns
+  + the iteration path in the weight space is a fractal
+
++ The square of the distance $l$ of a given point $(w_1^{\prime}, w_2^{\prime}, \cdots, w_n^{\prime})$ to the hyperplane $w_1 x_1^j + w_2 x_2^j + \cdots + w_n x_n^j = y^j$
+
+  \[l^2 = \frac{(w_1^\prime x_1^j + w_1^\prime x_2^j + \cdots + w_1^\prime x_n^j - y^j)^2}{(x_1^j)^2 + (x_2^j)^2 + \cdots + (x_n^j)^2}\]
+
++ Learning rate
+  + Each propagation step amounts to displacing the current point in weight space in the direction normal to the hyperplane defined by the input and target patterns.
+  + learning rate $\gamma$ for $j$-th pattern
+
+    \[\gamma = \frac{1}{(x_1^j)^2 + (x_2^j)^2 + \cdots + (x_n^j)^2} \tag{5}\]
+
+  + any value of $\gamma$ below this threshold displaces the iteration path just a fraction of the distance to the hyperplane.
+  + the iteration path thus remains trapped in a certain region of weight space near to the optimum.
 
 
 ## 8.2 Some simple improvements to backpropagation
