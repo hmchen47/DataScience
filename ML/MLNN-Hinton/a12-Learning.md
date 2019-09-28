@@ -371,6 +371,20 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.2.1 Initial weight selection
 
++ Heuristic initialization
+  + feed-forward network with sigmoid units: selecting its weights with uniform probability in $[-\alpha, \alpha]$
+  + expected zero value of the total input to each node in the network
+  + the maximum value for sigmoid: 1/4
+  + small weights (or all zero):
+    + small (or zero) values of the output w/ the backpropagation error
+    + no weight adjustment between input and hidden layer
+  + momentum rate $\alpha$
+    + very small: slow learning and suboptimal local minimum
+    + large: saturation of the nodes in the network and flat zones of the error function
+
++ Related research
+  + issue: not considering the relation between step and weight initialization
+  + a very broad range of values with basically the same convergence efficiency
 
 
 ### 8.2.2 Clipped derivatives and offset term
