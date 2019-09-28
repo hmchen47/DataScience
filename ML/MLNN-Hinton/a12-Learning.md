@@ -387,6 +387,33 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + a very broad range of values with basically the same convergence efficiency
 
 
+#### Maximizing the derivatives at the nodes
+
++ Output layer
+  + Assumptions & Notations
+    + $n$ different edges
+    + associated weights $w_1, w_2, \dots, \w_n$ point to this node
+    + selecting weights with uniform probability from $[-\alpha, \alpha]$
+    + $x_1, x_2, \dots, \x_n$: the input values transported through each edge
+    + assumption: $x_i$ and initial weights uncorrelated
+    + $\sigma$: standard variation
+
+  + the expected total input to the node
+
+    \[\langle \sum_{i=1}^n w_ix_i\rangle\]
+
+  + By the law of large numbers
+    + $\sigma = 0$, the expected value: 0.25
+    + $\sigma = 4$, the expected value: 0.12
+    + the variance of the total input
+
+      \[\sigma^2 = E\left[\left(\sum_{i=1}^n w_i x_i \right)^2\right] - E\left[ \left( \sum_{i=1}^n w_i x_i \right) \right]^2 = \sum_{i=1}^n E[w_i^2] E[x_i^2] \tag{5}\]
+
+  + for binary vectors, $E(x_i^2) = 1/3$, Eq.(5) simplifies to
+
+    \[\sigma = \frac{1}{3} \sqrt{n} \alpha\]
+
+
 ### 8.2.2 Clipped derivatives and offset term
 
 
