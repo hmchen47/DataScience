@@ -503,6 +503,23 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + only more knowledge about the specific application to decide the elimination of nonlinearity
 
 
+#### Fixed-point arithmetic
+
++ Reason
+  + integer operations faster than floating-point operations in general
+  + output values in the interval $(0, 1)$ or $(-1, 1)$
+  + adopting a fixed-point representation and executing operations with integers
+
++ 12-bit operation
+  + a sign bit to represent number s in the interval %(-8, 8)$ with the precision of $2^{-12} \approx 0.00025$
+  + define the tables for the sigmoid and its derivatives to implement the correct arithmetic (avoid overflow by a shift multiplications and tests)
+
++ Research on arithmetic
+  + Holt & Baker: 16-bit doe the weights and 8-bit for the coding of the outputs w/o effecting the convergence of the learning algorithm
+  + Reyneri & Filippi: the necessary word length of the representation depends on the learning constant and the learning algorithm used
+  + standard backpropagation can diverge in some cases when the fixed-point representation includes less than 6 bits.
+
+
 ### 8.2.4 Data decorrelation
 
 
