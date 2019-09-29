@@ -414,6 +414,38 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     \[\sigma = \frac{1}{3} \sqrt{n} \alpha\]
 
 
+#### Maximizing the backpropagation error
+
++ Assumptions & Notations
+  + neural network w/ $n$ nodes in the hidden layer and $k$ nodes in output layer
+  + $\delta_h$: a backpropagated input of hidden node $h$ from the $k$ output nodes
+  + $w_{h_i}, i = 1, 2, \dots, k$: the weights associated with the edges from hidden node $h$ to output node $i$
+  + $s_i^\prime$: the sigmoid's derivative at the output node $i$
+  + $\delta_i^0$: the difference between output and target at output node  $i$
+
++ The backpropagated input from the $k$ output nodes
+
+  \[\delta_h = \sum_{i=1}^k w_{h_i} s_i^\prime \delta_i^0\]
+
++ Breaking the symmetry of the hidden node
+  + expected weight of $\delta_h = 0$
+  + making the initialization level $[-\alpha, \alpha]$ wider
+  + the variance bigger but the expected value of the derivative $s_i^\prime$ lower
+  + target: making $\delta_h$ as large as possible, but without making $\delta_i^\prime$ too low
+
++ Expected values of the backpropagated error and the sigmoid's derivative (figure)
+  + the backpropagation error: sensitive to small values of $\alpha$
+  + $\alpha \in [0.5, 1.5]$: virtually the same performance
+  + best $\alpha$: depending on the exact number of input, hidden, and output units
+  + constraint: learning algorithm not too sensitive to the exact $\alpha$ chosen from a certain range of values
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-12.png" style="margin: 0.1em;" alt="Expected values of the backpropagated error and the sigmoid's derivative" title="Expected values of the backpropagated error and the sigmoid's derivative" width=350>
+    </a>
+  </div>
+
+
 ### 8.2.2 Clipped derivatives and offset term
 
 
