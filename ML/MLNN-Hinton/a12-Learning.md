@@ -470,7 +470,24 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + problems of precision and stability normally avoided by using 32-bit or 64-bit floating point arithmetic
 
 
+#### Avoiding the computation of the squashing function
 
++ nonlinear function
+  + sigmoid or hyperbolic tangent used
+  + requirements: computing exponential function and sequence of float-point operations
+  + tables stored at each unit to avoid the computation
+  + an interval $[x_1, x_{i+1}] \in \mathcal{R}$ stored 
+
++ Sigmoid example
+  + the output of the unit: $y = a_i + a_{i+1}(x - x_i)$ at $x_i \leq x \leq x_{i+1}$ and where $a_1 = s(x_i)$$a_{i+1} = s(x_{i+1})$
+  + interpolation used with a table
+  + another table stored for sigmoid's derivative to compute the backpropagation step
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-13.png" style="margin: 0.1em;" alt="Piecewise linear approximation to the sigmoid" title="Piecewise linear approximation to the sigmoid" width=250>
+    </a>
+  </div>
 
 
 ### 8.2.4 Data decorrelation
