@@ -448,6 +448,19 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.2.2 Clipped derivatives and offset term
 
++ Clipping the derivative of the sigmoid
+  + the derivatives of the sigmoid stored at the computing units can easily approach values near to zero
+  + after several layers multiply in the backpropagation, the length of the gradient becomes too small
+  + Solution. clipping the derivatives; e.g., $s^\prime \geq 0.01$
+
++ Offset
+  + adding a small constant $\varepsilon$ to the derivative
+  + using $s^\prime + \varepsilon$ for the backpropagation step
+  + net effect of an offset value of the sigmoid's derivative: pull the iteration process out of flat regions of the error function
+  + backpropagation continues iterating with the exact gradient direction
+  + implemented with reading values form table than computation
+
++ Implementation: combining the table of derivative, clipping of the sigmoid values, and adding an offset term
 
 
 ### 8.2.3 Reducing the number of floating-point operations
