@@ -465,6 +465,12 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.2.3 Reducing the number of floating-point operations
 
++ Backpropagation algorithm
+  + straightforward implementation based on floating-point operations
+  + problems of precision and stability normally avoided by using 32-bit or 64-bit floating point arithmetic
+
+
+
 
 
 ### 8.2.4 Data decorrelation
