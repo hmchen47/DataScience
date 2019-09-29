@@ -531,6 +531,52 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 + If the input data consists of $N$ real vectors $\mathbf{x_1}, \mathbf{x_2}, \dots, \mathbf{x_N}$ , it is usually helpful to center the data around the origin by subtracting the centroid $\mathbf{\hat{x}}$ of the distribution, in such a way that the new input data consists of the vector $\mathbf{x_i} - \mathbf{\hat{x}}$
 
 
+#### PCA and adaptive decorrelation
+
++ using PCA to reduce the number of vector components and to order the remaining ones according to their importance
+
++ Data distribution
+  + Any elliptic shape of points as a future input vector
+  + two randomly selected vectors w/ large probability not orthogonal
+  + preprocessing: rotating axes and scaling the data (see figure)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-14.png" style="margin: 0.1em;" alt="Data distribution before and after preconditioing" title="Data distribution before and after preconditioing" width=350>
+    </a>
+  </div>
+
+  + transformation: one-to-one mapping & invertible
+  + performing PCA on the available data
+  + scaling factor: the reciprocal of the variances of each component
+  + speeding backpropagation in most cases
+
++ Adaptive Data Decorrelation
+  + Silva, F., and L. Almeida (1991), “Speeding-up Backpropagation by Data Orthonormalization”, in: [Kohonen et al. 1991], pp. 1503–1506
+  + linear layer used
+    + to transform input vectors
+    + to transform the outputs of the hidden units
+  + Assumptions & Notations
+    + $\mathbf{x} = (x_1, x_2, \dots, x_n)$: an $n$-dim input vector
+    + ($y_1, y_2, \dots, y_n)$: the output of the linear layer
+    + $\mathbf{w_m^p}$: the weight vector of the $m$-the unit at the $p$-th iteration
+    + $\beta$: a constant
+    + 
+  + objective: making the expected value of the correction coefficient $r_{ij}$ of the $i$-th and %j%-th output units equal to Kronecker's delta $\delta_{ij}$
+
+    \[r_{ij} = <y_iy_j> = \delta_{ij}\]
+  + expected value computed over all vectors in the data set
+  + pulling the weight vector of the $i$-th unit away from the weight vector $j$-th unit, whenever $r_{ij} > 0$ and in the direction of $w_i$ when $r_{ij} < 0$
+  + the precision formula
+
+    \[\begin{align*}
+      \mathbf{w}_i^{k=1} &= \mathbf{w_i^k} - \beta \, \sum_{j \neq i}^n r_{ij} \mathbf{w_j^k} \\
+        &= (1 + \beta) \mathbf{w_i^k} - \beta \, \sum_{j=1}^n\, r_{ij} \mathbf{w_j^k}
+    \end{align*}\]
+
+  + accelerating the convergence of backpropagation as well as PCA
+  + sensitive top the choice of the constant $\beta$ and the data selection process
+
 
 
 ## 8.3 Adaptive step algorithms
