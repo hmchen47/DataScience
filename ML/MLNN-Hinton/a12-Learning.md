@@ -490,6 +490,19 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   </div>
 
 
+#### Avoiding the nonlinear function at the output
+
++ Output vectors
+  + $m$-dim vectors
+  + $(t_1, t_2, \dots, t_m)$ with $0 < t_i < 1$ for $i = 1, 2, \dots, m$
+  + a new training set resulting in the output form $s^{-1}(y_1), \dots, s^{-1}(y_m))$, where $s^{-1}$ as the inverse of the sigmoid
+  + the sigmoid eliminates from the output units
+  + the network trained with standard backpropagation
+  + the sigmoid equivalent to a kind of weighting of the output error
+  + e.g., 100 and 1000 almost with the same sigmoid output
+  + only more knowledge about the specific application to decide the elimination of nonlinearity
+
+
 ### 8.2.4 Data decorrelation
 
 
