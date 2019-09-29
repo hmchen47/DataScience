@@ -522,6 +522,15 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.2.4 Data decorrelation
 
++ Issue: the principal axes of the quadratic approximation of the error function are too dissimilar, gradient descent can be slowed down arbitrarily
+
++ Solution: decorrelation the data set
+
++ solution regions defined by bipolar data fro perceptrons: symmetrically distributed than the binary vectors used
+
++ If the input data consists of $N$ real vectors $\mathbf{x_1}, \mathbf{x_2}, \dots, \mathbf{x_N}$ , it is usually helpful to center the data around the origin by subtracting the centroid $\mathbf{\hat{x}}$ of the distribution, in such a way that the new input data consists of the vector $\mathbf{x_i} - \mathbf{\hat{x}}$
+
+
 
 
 ## 8.3 Adaptive step algorithms
