@@ -578,6 +578,12 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + sensitive top the choice of the constant $\beta$ and the data selection process
 
 
+#### Active data selection
+
++ online backpropagation performing under these conditions if the training pairs selected randomly
+
++ off-line backpropagation: a strong motivation to explore methods of reducing the size of the effective training set
+
 
 ## 8.3 Adaptive step algorithms
 
