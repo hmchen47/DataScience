@@ -620,6 +620,65 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.3.1 Silva and Almeida´s algorithm
 
++ Proposal: different learning rates for each weight in a network
+
++ Assumptions & Notations
+  + a network consists of $n$ weights $w_1, w_2, \dots, w_n$
+  + $\gamma_1, \gamma_2, \dots, \gamma_n$: individual learning rates associated to the weights
+  + $c_1, c_2, \dots, c_n$, $d_{ij}$ & $C$: constants
+  + $k_1$ & $k_2$: constants depending on the values of the "frozen" variables at the current iteration point
+  + $u > 1$: a constant for up manually
+  + $d < 1$: a constant for down manually
+  
++ Example
+  + One-dimensional cuts: family of parabolas (diagram)
+    + left: the level curves of a quadratic approximation to the error function
+    + right: minimizing quadratic functions as parabolas
+      + the first parabola considered
+      + the negative gradient direction followed 
+
+  <div style="margin: 0.5em; display: flex; justify-conten縷t: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chap縷ter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-16.png" style="margin: 0.1em;" alt縷="One-dimensional cuts: family of parabolas" title="One-dimensional cuts: family of parabolas" width=350>
+    </a>縷
+  </div>縷
+縷
++ Algorithm縷
+  + performing several optimization steps in the horizonta縷l direction
+  + horizontal cuts to a quadratic function: quadratic縷
+  + minimizing at each step: parabola縷
+  + general form of a quadratic function w/ $n$ variable w縷eights
+縷
+    \[c_1^2 w_1^2 + c_2^2 w_2^2 + \cdots + c_n^2 w_n^2 + \縷sum_{i \neq j{ \, d_{ij}w_iw_j + C\]
+縷
+  + Minimize the form of the $i$-th direction for a 1-dim minimization step
+
+    \[c_i^2 w_i^2 + k_1 w_i + k_2\]
+
+  + the learning rate for each weight at $k$-th iteration for the next step
+
+    \[\gamma_i^{(k+1) = 
+    \begin{cases}
+      \gamma_i^{(k)} \, u & \text{if } \Delta_i E^{(k-1)} \geq 0 \\
+      \gamma_i^{(k)} \, d & \text{if } \Delta_i E^{(k-1)} < 0
+    \end{cases}\]
+  
+  + Weight update
+
+    \[\Delta^{(k)} w_i = -\gamma_i^{(k)} \Delta_i E^{(k)}\]
+
+  + With constants $u$ and $d$, the learning rate grow and decease exponentially.
+  + not follow the gradient direction directly
+  + With perfect circles for the level curves of the quadratic approximation, successive 1-dim optimizations reached after $n$ steps.
+
++ Slow convergency
+  + if the quadratic approximation w/ semi-axes of very different lengths, the iteration process can be arbitrary slowed.
+  + Solution: adding momentum $\alpha$
+  + Contradictory: 
+    + the individual learning rates optimized if updates are strictly 1-dimensional
+    + tuning the constant $\alpha$ quite problem-specific
+  + Solution: preprocessing the original data to achieve a more regular error function
+  + dramatically effecting the convergence speed of algorithms
 
 
 ### 8.3.2 Delta-bar-delta
