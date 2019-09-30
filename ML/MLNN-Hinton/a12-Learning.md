@@ -587,6 +587,35 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ## 8.3 Adaptive step algorithms
 
++ Basic strategy
+  + increasing step size: the algorithm proceeds down the error function over several iterations
+  + decreasing step size: the algorithm jumps over a valley of the error function
+
++ Learning rates
+  + global learning rate
+    + used to update all weights in the network
+    + made bigger or smaller according to the iterations made so far
+  + local learning rate
+    + different local rate on each weight
+    + $\gamma$ used to compute the weight corrections
+
++ Model for algorithms
+  + each weight $w_i$ w/ an associated learning constant $\gamma_i$
+
+    \[\Delta w_i = -\gamma_i \frac{\partial E}{\partial w_i}\]
+
+  + motivation: use of different learning constants for each weight to correct the direction of the negative gradient to make it point directly to the minimum of the error function
+  + with degenerate function, the gradient direction leads to many oscillations
+  + adequate scaling of the gradient components: reaching the minimum in fewer steps
+  + how the optimization of the error function proceeds when only 1-dim optimization steps are used (diagram)
+    + the lengths of the principal axes of the quadratic approximation very different
+    + the algorithm slowed by an arbitrary factor
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-15.png" style="margin: 0.1em;" alt="Optimization of the error fucntion with updates in the directions of the axes" title="Optimization of the error fucntion with updates in the directions of the axes" width=350>
+    </a>
+  </div>
 
 
 ### 8.3.1 Silva and Almeida´s algorithm
