@@ -637,20 +637,20 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
       + the first parabola considered
       + the negative gradient direction followed 
 
-  <div style="margin: 0.5em; display: flex; justify-conten縷t: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://page.mi.fu-berlin.de/rojas/neural/chap縷ter/K8.pdf" ismap target="_blank">
-      <img src="img/a12-16.png" style="margin: 0.1em;" alt縷="One-dimensional cuts: family of parabolas" title="One-dimensional cuts: family of parabolas" width=350>
-    </a>縷
-  </div>縷
-縷
-+ Algorithm縷
-  + performing several optimization steps in the horizonta縷l direction
-  + horizontal cuts to a quadratic function: quadratic縷
-  + minimizing at each step: parabola縷
-  + general form of a quadratic function w/ $n$ variable w縷eights
-縷
-    \[c_1^2 w_1^2 + c_2^2 w_2^2 + \cdots + c_n^2 w_n^2 + \縷sum_{i \neq j{ \, d_{ij}w_iw_j + C\]
-縷
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-16.png" style="margin: 0.1em;" alt="One-dimensional cuts: family of parabolas" title="One-dimensional cuts: family of parabolas" width=350>
+    </a>
+  </div>
+
++ Algorithm
+  + performing several optimization steps in the horizontal direction
+  + horizontal cuts to a quadratic function: quadratic
+  + minimizing at each step: parabola
+  + general form of a quadratic function w/ $n$ variable weights
+
+    \[c_1^2 w_1^2 + c_2^2 w_2^2 + \cdots + c_n^2 w_n^2 + \sum_{i \neq j{ \, d_{ij}w_iw_j + C\]
+
   + Minimize the form of the $i$-th direction for a 1-dim minimization step
 
     \[c_i^2 w_i^2 + k_1 w_i + k_2\]
@@ -715,6 +715,70 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.3.3 RPROP
 
++ Riedmiller and Braun proposal
+  + main idea: update the network weight using just the learning rate and the sign of the partial derivative of the error function w.r.t. each weight
+  + accelerating learning mainly in the flat regions of the error function and approaching a local minimum
+  + set $\gamma_{min}$ and $\gamma_{max}$ to avoid accelerating and decelerating too much
+
++ Modeling algorithm
+  + covering the weight space between $\gamma_{min}$ and $\gamma_{max}$
+  + $\gamma_{min}$, $\gamma_{max}$: $n$-dim grid of side length
+  + individual 1-dim optimization steps: moving all possible intermediate grids
+  + the learning rates updated at $k$-th iteration
+
+    \[\gamma_i^{(k+1)} = \begin{cases}
+      \min(\gamma_i^{(k)} \, u, \gamma_{max}) & \text{if } \Delta_i E^{(k-1)} \cdot \Delta_i^{(k-1)} > 0 \\
+      \max(\gamma_i^{(k)} \, d, \gamma_{min}) & \text{if } \Delta_i E^{(k-1)} \cdot \Delta_i^{(k-1)} < 0 \\
+      \gamma_i^{(k)} & \text{otherwise}
+    \end{cases}\]
+
+    + $u > 1$ and $d < 1$
+  + the weight updated
+
+    \[\Delta^{(k)} w_i = \begin{cases} -\gamma_i^{(k)} sgn(\Delta_i E^{(k)}) & \text{if } \Delta_i E^{(k-1)} \cdot \Delta_i^{(k-1)} \geq 0 \\ 0 & \text{otherwise} \end{cases}\]
+
++ One-dimensional approximation of the error function
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-17.png" style="margin: 0.1em;" alt="Local approximation of RPROP" title="Local approximation of RPROP" width=350>
+    </a>
+  </div>
+
++ Comparison of Rprop and batch backpropagation
+
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=50%>
+    <thead>
+    <tr>
+      <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Benchmark</th>
+      <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Generations</th>
+      <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Time</th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">BP</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Rprop</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">BP</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Rprop</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td>sonar signal</td> <td style="text-align: right;">109.7</td> <td style="text-align: right;">82.0</td> <td style="text-align: right;">8.6 s</td> <td style="text-align: right;">6.9 s</td>
+    </tr>
+    <tr> <td>vowels</td> <td style="text-align: right;">---</td> <td style="text-align: right;">1532.9</td> <td style="text-align: right;">---</td> <td style="text-align: right;">593.6 s</td>
+    </tr>
+    <tr> <td>vowels (decorrelated)</td> <td style="text-align: right;">331.4</td> <td style="text-align: right;">319.1</td> <td style="text-align: right;">127.8 s</td> <td style="text-align: right;">123.6 s</td>
+    </tr>
+    <tr> <td>NETtalk (200 words)</td> <td style="text-align: right;">268.9</td> <td style="text-align: right;">108.7</td> <td style="text-align: right;">961.5 s</td> <td style="text-align: right;">389.6 s</td>
+    </tr>
+    <tr> <td>protein structure</td> <td style="text-align: right;">347.5</td> <td style="text-align: right;">139.2</td> <td style="text-align: right;">670.1 s</td> <td style="text-align: right;">269.1 s</td>
+    </tr>
+    <tr> <td>digits</td> <td style="text-align: right;">---</td> <td style="text-align: right;">159.5</td> <td style="text-align: right;">---</td> <td style="text-align: right;">344.7</td>
+    </tr>
+    </tbody>
+  </table>
+
+  + backpropagation: failed to converge in two cases
+  + Rprop: converge almsot all cases and faster up to about 2.5 factor w.r.t. BP
 
 
 ### 8.3.4 The Dynamic Adaption Algorithm
