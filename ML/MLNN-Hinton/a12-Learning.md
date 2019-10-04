@@ -783,6 +783,29 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.3.4 The Dynamic Adaption Algorithm
 
++ Salomon's Proposal
+  +  Salomon, R. (1992), Verbesserung konnektionistischer Lernverfahren, die nachder Gradientenmethode arbeiten, PhD Thesis, Technical University of Berlin
+  + Idea: using the negative gradient direction to generate tow new points instead of one, the one w/ lowest error used for the next iteration
+
++ Modeling the algorithm
+  + Assumptions & Notations
+    + $\eta$: a small constant; e.g., $\xi = 1.7$
+  + the $k$-th iteration
+
+    \[\begin{align*}
+      \mathbf{w}^{(k_1)} &= \mathbf{w}^{(k)} - \Delta E(\mathbf{w}^{(k)}) \gamma^{(k-1)} \cdot \xi \\
+      \mathbf{w}^{(k_2)} &= \mathbf{w}^{(k)} - \Delta E(\mathbf{w}^{(k)}) \gamma^{(k-1)} / \xi
+    \end{align*}\]
+
+  + Update e learning rate
+
+    \[\gamma = \begin{cases} \gamma^{(k-1)} \cdot \xi & \text{if } E(\mathbf{w}^{(k_1)}) \leq E(\mathbf{w}^{(k_2)}) \\ \gamma^{(k-1)} / \xi & \text{otherwise} \end{cases}\]
+
+  + Update the weight
+
+    \[\mathbf{w}^{(k+1)} = \begin{cases} \mathbf{w}^{(k_1)} & \text{if } E(\mathbf{w}^{(k_1)}) \leq E(\mathbf{w}^{(k_2)}) \\ \mathbf{w}^{(k_2)} & \text{otherwise}\end{cases}\]
+
++ The algorithm is not as good as the adaptive step methods w/ a local learning constant but easy to implement.
 
 
 ## 8.4 Second-order algorithms
