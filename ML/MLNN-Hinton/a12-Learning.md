@@ -871,6 +871,35 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.4.1 Quickprop
 
++ Idea
+  + considering the 1-dim minimization steps
+  + obtaining the current and the last partial derivative of the error function in the update directions about the curvature of the error function
+  + based on the independent optimization step for each weight
+
++ Modeling algorithm
+  + Quadratic one-dimensional approximation of th error function
+  + Assumption & Notations
+    + $\Delta^{(k-1)} w_i$: the weight difference w/ the computed error functions at $(k-1)$-th and $k$-th steps
+  + the update term for each weight at the $k$-th step obtained from a previous Quickprop or a standard gradient descent step
+
+    \[\begin{align*}
+      \Delta^{(k)} w_i &= \Delta^{(k-1)} w_i \left( \frac{\Delta_i E^{(k)}}{\Delta_i E^{(k=1)} - \Delta_i E^{(k)}} \right) \tag{10} \\
+       &= - \frac{\Delta_i E^{(k-1)}}{(\Delta_i E^{(k)} - \Delta_i E^{(k)}) / \Delta^{(k-1)} w_i} \tag{11}
+    \end{align*}\]
+
+  + Eq. (11) same as the weight update in Eq. (9)
+  + secant steps:
+    + the denominator: a discrete approximation to the second-order derivative $\partial^2 E(\mathbf{w}) / \partial w_i^2$
+    + a discrete pseudo-Newton method
+
++ Problematic situations
+  + update issue
+    + updates may become very large
+    + solution: limiting $\Delat^{(k)} w_i$ to a constant times $\Delta^{(k-1)}$
+  + Convergence issue
+    + assumption used based on a far-fetched than the assumptions used by Rprop
+    + Solution: careful handling of the weight updates w/ the problematic tasks
+
 
 
 ### 8.4.2 Second-order backpropagation
