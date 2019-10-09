@@ -1087,6 +1087,47 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   </div>
 
 
+#### Example of second-order backpropagation
+
++ XOR function
+  + Assumptions & Notations
+    + a two unit network (see diagram)
+    + $x$: the input value, fixed
+    + $y$: the input value, fixed
+    + $F_2(x, y)$: the second-order partial derivative of the network function w.r.t #w_i$ and $w_j$
+    + $(w_4 f^{\prime}(w_1 x+ w_2y)x)$: the backpropagation path value from the output of the node which computes the function $f$, including multiplication by the weight $w_4$, up to the weight $w_1$
+    + $(w_4 f^{\prime}(w_1 x + w_2 y) y)$: the result of backpropagation for $w_4F_1$ up to $w_1$
+  + using the recursive method
+  + the first term of $\partial^2 F_2/\partial w_1 \partial w_2$
+
+    \[g^{\prime\prime}(w_3 x + w_5 y + w_4f(w_1x + w_2y))(w_4 f^{\prime}(w_1 x+ w_2y)x)(w_4 f^{\prime}(w_1 x + w_2 y) y)\]
+
+  + the second-order correction for computing of $\partial F_2/\partial w_1 \partial w_2$
+
+    \[g^{\prime}(w_3 x + w_5 y + w_4 f(w_1x + w_2y))\frac{\partial^2 w_4F_1}{\partial w_1 \partial w_2}\]
+
+    where
+
+    \[\frac{\partial^2 w_4 F_1}{\partial w_1 \partial w_2} = w_4 \frac{\partial^2 F_1}{\partial w_1 \partial w_2} = w_4 f^{\prime\prime}(w_1x + w_2y)xy\]
+
+  + the second-order derivative
+
+    \[\begin{align*}
+      \frac{\partial^2 F_2}{\partial w_1 \partial w_2} &= g^{\prime\prime}(w_3x + w_5y + w_4f(w_1x + w_2y)) \times (w_4 f^{\prime}(w_1x + w_2y)x)(w_4f^{\prime}(w_1x + w_2y)y) \\
+      &\quad + g^{\prime}(w_3x + w_5y + w_4f(w_1x + w_2y))w_4f^{\prime\prime}(w_1x + w_2y)xy
+    \end{align*}\]
+
+  + the second-order derivatives
+
+    \[\frac{\partial^2 F_2}{\partial w_1 \partial w_5} = g^{\prime\prime}(w_3x + w_5y + w_4f(w_1x + w_2y))(w_4 f^{\prime}(w_1x + w_2y)x)y\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-22.png" style="margin: 0.1em;" alt="A two unit network" title="A two unit network" height=200>
+    </a>
+  </div>
+
+
 ## 8.5 Relaxation methods
 
 
