@@ -1055,7 +1055,6 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
       <img src="img/a12-21.png" style="margin: 0.1em;" alt="Multilayer perceptron" title="Multilayer perceptron" height=200>
-      <img src="img/a12-22.png" style="margin: 0.1em;" alt="Multilayer perceptron - the special case" title="Multilayer perceptron - the special case" height=200>
     </a>
   </div>
 
@@ -1081,7 +1080,11 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
       + which belongs to the intersection of the backpropagation path of $w_i$ and $w_j$
     3. special case: one of the weights connected to node $h$ directly to node $G$, the second-order corrections is just $g^{\prime}$ multiplied by the backpropagation path value of the subnetwork function $F_h$ w.r.t. $w_j$
 
-
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-22.png" style="margin: 0.1em;" alt="Multilayer perceptron - the special case" title="Multilayer perceptron - the special case" height=200>
+    </a>
+  </div>
 
 
 ## 8.5 Relaxation methods
