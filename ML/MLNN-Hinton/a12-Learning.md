@@ -1060,6 +1060,28 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   </div>
 
 
+#### Explicit calculation of the Hessian
+
++ considering the case of a single input pattern into the network
+
++ Algorithm: second-order backpropagation
+  1. extend the neural network
+    + adding node which compute the squared difference of each component of the output and the expected target values
+    + collecting all these differences at a single node whose output is the error function of the network
+    + activation function of the node: the identity
+  2. label all nodes in the feed-forward phase with the result of computing $f(x)$, $f^{\prime}(x)$, and $f^{\prime\prime}(x)$
+    + $x$: the global input to each node
+    + $f$: the associated activation function of the node
+  3. starting from the error function node in the extended network, compute the second-order function $g$, compute the second-order derivative of $E$ w.r.t. two weights $w_i$ and $w_j$, by proceeding recursively in the following way
+    1. the second-order derivative of the output of a node $G$ w/ activation function $g$ w.r.t. two weights $w_i$ and $w_j$
+      + the product of the stored $g^{\prime\prime}$ value w/ the backpropagation path values between $w_i$ and the node $G$ and between $w_j$ and the node $G$
+      + a second-order correction require if both propagation paths intersect
+    2. the second-order correction equals to the product of
+      + the stored $g^{\prime}$ value w/ the sum of the second-order derivative (w.r.t. $w_i$ & $w_j$) of each node whose output goes directly to $G$
+      + which belongs to the intersection of the backpropagation path of $w_i$ and $w_j$
+    3. special case: one of the weights connected to node $h$ directly to node $G$, the second-order corrections is just $g^{\prime}$ multiplied by the backpropagation path value of the subnetwork function $F_h$ w.r.t. $w_j$
+
+
 
 
 ## 8.5 Relaxation methods
