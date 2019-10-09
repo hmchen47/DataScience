@@ -981,6 +981,85 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + restriction: no cycles on the network
 
 
+#### Second-order derivatives
+
++ Second-order derivatives
+  + investigating the expressions of the form $\partial^2 F / \partial w_i \partial w_j$
+  + Assumptions & Notations
+    + $F$: network function
+    + $w_i$ & $w_j$: network's weights
+
++ Second-order computation
+  + Assumptions & Notations (left diagram)
+    + $x$: the input to the network, 1-dim value
+    + $F$: the network function computed at the output node with label $q$ for the given input value
+    + $F_{l_1q}, F_{l_2q}, \dots, F_{l_mq}$: the network functions computed by subnetworks of the original network
+    + $q$: the 1-dim function at the output node
+  + the network function
+
+    \[F(x) = g\left(F_{l_1q}(x) + F_{l_2q}(x) + \cdots + F_{l_mq}(x)\right)\]
+
+  + objective: computing $\partial^2 F(x)/\partial w_i \partial w_j$ for two given network weights $w_i$ and $w_j$
+
+    \[\frac{\partial^2F(x)}{\partial w_i \partial w_j} = g^{\prime\prime}(s) \frac{\partial s}{\partial w_i} \frac{\partial s}{\partial w_j} + g^{\prime}(s) \left(\frac{\partial^2 F_{l_1q}(x)}{\partial w_i \partial w_j} + \cdots + \frac{\partial^2 F_{l_mq}(x)}{\partial w_i \partial w_j}\right)\]
+
+    + $s = F_{l_1q}(x) + F_{l_2q}(x) + \cdots + F_{l_mq}(x)$
+    + the desired second-order partial derivative w/ two terms
+      + the second derivative of $q$ evaluated at its input multiplied by the partial derivatives of the sum of the $m$ subnetwork functions $F_{l_1q}, \dots, F_{l_mq}$ w.r.t. $w_i$ and $w_j$
+      + the second-order correction: the second derivative of $q$ multiplied the sum of the of the second-order partial derivatives of each subnetwork function w.r.t. $w_i$ and $w_j$
+    + compute the first partial derivatives of any network function w.r.t. a weight
+
++ The feed-forward labeling phase of the backpropagation algorithm
+  + computing a 1-dim function $f$ at each node
+  + store 3 values at each node: $f(x)$, $f^{\prime}(x)$, and $f^{\prime\prime}(x)$ where $x$ represents the input to this node
+  + Idea: (middle diagram)
+    + performing the feed-forward labeling step in the usual manner, but storing additionally at each node the second derivative of the node's function evaluated at the input
+    + selecting $w_1$ and $w_2$ and deriving network function of an output node
+      + the second-order partial derivative of the stored network function w.r.t. those weights: the product of the stored $g^{\prime\prime}$ value with the backpropagation path values from the output node up to weight $w_i$ and $w_j$
+      + intersection of the backpropagation paths of $w_i$ and $w_j$: requiring a second-order correction
+      + the second-order correction: the stored value of $g^{\prime}$ multiplied by the sum of the second-order derivative w.r.t $w_i$ and $w_j$ of all subnetwork function inputs to the node which belong to intersecting paths
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-19.png" style="margin: 0.1em;" alt="Second-order computation" title="Second-order computation" height=200>
+      <img src="img/a12-20.png" style="margin: 0.1em;" alt="Interescting paths to a node" title="Interescting paths to a node" height=200>
+    </a>
+  </div>
+
++ Multilayer perceptron
+  + Assumption and Notations
+    + model sees the left diagram
+    + $w_{ih}$: a weight in the first layer of weights
+    + $w_{jm}$: a weight in the second layer
+    + $w_{ih}$ and $w_{jm}$: only intersect at node $m$
+  + The second derivative of $F_m$ w.r.t. $w_{ih}$ and $w_{jm}$: the stored value of $f^{\prime\prime}$ multiplied by the stored output of the hidden unit $j$ and the backpropagation path up to $w_{ih}$, i.e., $w_{hm} h^{\prime} x_i$
+
++ Adjustment for one weight lying in the backpropagation path of another
+  + Assumptions & Notations
+    + $w_{ik}$: a weight lies in the backpropagation path of weight $w_j$
+  + performing the second-order backpropagation algorithm as usual
+  + the backward computation proceeds up to the point where $w_{ik}$ transports an input to a node $k$ for which a second-order correction required
+  + the information transported through the edge with weight $w_{ik}$ is the subnetwork function $F_{ik}$
+  + the second-order correction for the node w/ primitive function $g$
+
+    \[g^{\prime} \frac{\partial^2 F_{ik}}{\partial w_{ik} \partial{w_j}} = g^{\prime} \frac{\partial^2 w_{ik} F_i}{\partial w_{ik} \partial w_j}\]
+  
+  + simplified the previous equation as
+
+    \[g^{\prime} \frac{\partial F_i}{\partial w_j}\]
+  
+  + The subnetwork function $F_i$ does not depend on $w_{ik}$, thus, the second-order backpropagation method complemented by the following rule
+    + the second-order correction to a node $k$ with activation function $q$ involves a weight $w_{ik}$ and a node $w_j$
+    + the second-order correction is just $g^{\prime}$ multiplied by the backpropagation path value of the subnetwork function $F_i$ w.r.t. $w_j$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-21.png" style="margin: 0.1em;" alt="Multilayer perceptron" title="Multilayer perceptron" height=200>
+      <img src="img/a12-22.png" style="margin: 0.1em;" alt="Multilayer perceptron - the special case" title="Multilayer perceptron - the special case" height=200>
+    </a>
+  </div>
+
+
 
 
 ## 8.5 Relaxation methods
