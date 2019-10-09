@@ -901,7 +901,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     + Solution: careful handling of the weight updates w/ the problematic tasks
 
 
-### 8.4.2 Second-order backpropagation
+### 8.4.2 QRProp
 
 + Pfister and Rojas proposal
   + Pfister, M., and R. Rojas (1993), “Speeding-up Backpropagation – A Comparison of Orthogonal Techniques”, International Joint Conference on Neural Networks, Nagoya, Japan, pp. 517–523.
@@ -964,6 +964,23 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     \end{cases}\]
 
     If $(\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} < 0)$ set $\Delta_i E^{(k)} := 0$
+
+
+### 8.4.3 Second-order backpropagation
+
++ second-order backpropagation
+  + a method to efficiently compute the Hessian of a linear network of 1-dim functions
+  + used to get explicit symbolic expressions or numerical approximations of the Hessian
+  + able to use in parallel computers to improve second-order learning algorithms for neural networks
+
++ Methods for the determination of the Hessian matrix
+  + Bishop, C. (1992), “Exact Calculation of the Hessian Matrix for the Multilayer Perceptron”, Neural Computation, Vol. 4, pp. 494–501.
+  + using a graphical approach
+  + reducing the whole problem to a computation by inspection
+  + able to handle arbitrary topologies
+  + restriction: no cycles on the network
+
+
 
 
 ## 8.5 Relaxation methods
