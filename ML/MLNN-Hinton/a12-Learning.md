@@ -1110,14 +1110,14 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
     \[\frac{\partial^2 w_4 F_1}{\partial w_1 \partial w_2} = w_4 \frac{\partial^2 F_1}{\partial w_1 \partial w_2} = w_4 f^{\prime\prime}(w_1x + w_2y)xy\]
 
-  + the second-order derivative
+  + the second-order derivative w/ $w_1$ and $w_2$ intersected
 
     \[\begin{align*}
       \frac{\partial^2 F_2}{\partial w_1 \partial w_2} &= g^{\prime\prime}(w_3x + w_5y + w_4f(w_1x + w_2y)) \times (w_4 f^{\prime}(w_1x + w_2y)x)(w_4f^{\prime}(w_1x + w_2y)y) \\
       &\quad + g^{\prime}(w_3x + w_5y + w_4f(w_1x + w_2y))w_4f^{\prime\prime}(w_1x + w_2y)xy
     \end{align*}\]
 
-  + the second-order derivatives
+  + the second-order derivatives w/ $w_1$ & $w_5$ not intersected
 
     \[\frac{\partial^2 F_2}{\partial w_1 \partial w_5} = g^{\prime\prime}(w_3x + w_5y + w_4f(w_1x + w_2y))(w_4 f^{\prime}(w_1x + w_2y)x)y\]
 
@@ -1126,6 +1126,28 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
       <img src="img/a12-22.png" style="margin: 0.1em;" alt="A two unit network" title="A two unit network" height=200>
     </a>
   </div>
+
++ Example
+  + objective: the calculation of the whole Hessian matrix for the network w/ the above diagram
+  + omitting the error function expression and computing the Hessian of the network function $F_2$ w.r.t. the network's five weights
+  + labeling the nodes: 
+    + $f$,  $f^{\prime}$, and $f^{\prime\prime}$ computed over the input $w_1x + w_2y$
+    + $g$, $g^{\prime}$ and $g^{\prime\prime}$ computed over the input $w_4f(w_1x + w_2y) + w_3x + w_5y$
+  + assumptions: the components of the triangular part of the Hessian
+
+    \[\begin{align*}
+      H_{11} &= g^{\prime\prime} w_4^2 f^{\prime 2} x^2 + g^{\prime} w_4 f^{\prime\prime} x^2 \\
+      H_{22} &= g^{\prime\prime} w_4^2 f^{\prime 2} y^2 + g^{\prime} w_4 f^{\prime\prime} y^2 \\
+      H_{33} &= g^{\prime\prime} x^2 \\ H_{44} &= g^{\prime\prime} f^2 \\ H_{55} &= g^{\prime\prime} y^2 \\
+      H_{12} &= g^{\prime\prime} w_4^2 f^{\prime 2} xy + g^{\prime} w_4 f^{\prime\prime} xy \\
+      H_{14} &= g^{\prime\prime} w_4 f^{\prime} xf + g^{\prime} f^{\prime} x \\
+      H_{15} &= g^{\prime\prime} w_4 f^{\prime} xy \\ H_{23} &= g^{\prime\prime} w_4 f^{\prime} yx \\
+      H_{24} &= g^{\prime\prime} w_4 f^{\prime} xf + g^{\prime} f^{\prime} y \\
+      H_{25} &= g^{\prime\prime} w_4 f^{\prime} y^2 \\
+      H_{34} &= g^{\prime\prime} xf \\ H_{35} &= g^{\prime\prime} xy \\ H_{45} &= g^{\prime\prime} yf
+    \end{align*}\]
+
+  + the method is totally general in the sense that each node can compute a different activation function
 
 
 ## 8.5 Relaxation methods
