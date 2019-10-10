@@ -1174,6 +1174,9 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ## 8.5 Relaxation methods
 
++ Class of relaxation methods
+  + perturbed network weights
+  + comparing to the new network error with the directly previous one
 
 
 ### 8.5.1 Weight and node perturbation
