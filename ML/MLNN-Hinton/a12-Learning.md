@@ -1181,6 +1181,37 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.5.1 Weight and node perturbation
 
++ weight perturbation
+  + a learning strategy proposed to avoid calculating the gradient of the error function at each step
+  + discrete approximation to the gradient at each iteration
+    + taking the initial weight $\mathbf{w}$ in weight space
+    + the value $E(w)$ of the error function for this computation of parameters
+  + Assumptions & Notations
+    + $\beta$: a small perturbation added to the weight $w_i$
+    + $E(\mathbf{w}^{\prime})$: the error at the new point $\mathbf{w}^{\prime}$ in weight space
+  + updating the weight $w_i$
+
+    \[\Delta w_i = - \gamma \frac{E(w^{\prime}) - E(w)}{\beta}\]
+
+    + repeating iteratively, randomly selecting the weight to be updated
+  + the discrete approximation to be gradient: important for chip where the learning algorithm implemented w/ minimal hardware additional to that needed for the feed-forward phase
+
++ Node perturbation
+  + perturbing the output $o_i$ of the $i$-th node by $\Delta o_i$
+  + Assumptions & Notations
+    + $E - E^{\prime}$: the difference in the error function
+    + $E^{\prime}$: the new error achieved with the output $o_i + \Delta o_i$
+    + activation function: sigmoid
+  + the desired weighted input to node $i$ w/ sigmoid
+
+    \[\sum_{k=1}^m w_k^{\prime}x_k = s^{-1}(o_i + \Delta o_i)\]
+
+  + the new weight w/ the previous weighted input $\sum_{k=1}^m w_k x_k$
+
+    \[w_k^{\prime} = w_k \frac{s^{-1} (o_i + \Delta o_i)}{\sum_{k=1}^m w_k x_k} \qquad \text{for } k=1, \dots, m\]
+
+  + weights updated in proportion to their relative size
+  + a stochastic introduced or a node perturbation step alternated w/ a weight perturbation step
 
 
 ### 8.5.2 Symmetric and asymmetric relaxation
