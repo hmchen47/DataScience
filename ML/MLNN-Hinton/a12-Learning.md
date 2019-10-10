@@ -1150,6 +1150,28 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + the method is totally general in the sense that each node can compute a different activation function
 
 
+#### Some conclusions
+
++ the Hessian matrix
+  + easily computing the matrix even for convoluted feed-forward topologies
+  + done either symbolically or numerically
+  + once the recursive strategy has been defined, it is easy to implement in a computer
+  + backpropagation tries to organize the data in such a way that redundant computations are avoided
+  + calculation of the Hessian matrix involves repeated computation of the same terms
+  + the network providing a data structure where to store partial results  and organizing the computation
+  + explaining why the standard and second-order backpropagation are also of interest for computer algebra systems
+  + minimizing the number of arithmetic operations required
+  + the backpropagation path values stored to be used repetitively
+  + the node w/ the backpropagation paths of different weights intersect need to be calculated only once
+  + possibly using graph traversing algorithms to optimize computation of the Hessian
+
++ Diagonal of the Hessian matrix
+  + only involving a local communication in a neural network
+  + the backpropagation path to a weight intersects itself in its whole length
+  + computation of the second-order derivative of the associated network function of an output unit w.r.t. a given weight organized as a recursive backward computation over this path
+  + able to apply Pseudo-Newton methods
+
+
 ## 8.5 Relaxation methods
 
 
