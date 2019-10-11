@@ -156,7 +156,7 @@
 + 
 
 
-## Reference:
+## References
 
 + [Introduction to Neural Networks and Machine Learning - CSC321 Winter 2014](http://www.cs.toronto.edu/~tijmen/csc321/)
   + [Lecture Notes](http://www.cs.toronto.edu/~tijmen/csc321/lecture_notes.shtml)
@@ -175,4 +175,8 @@
   + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
   + [Chouffe](https://github.com/Chouffe/hinton-coursera)
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
++ Ryan Harris, [Neural Network Tutorial](https://www.youtube.com/playlist?list=PL29C61214F2146796) videos
+
+
+
 
