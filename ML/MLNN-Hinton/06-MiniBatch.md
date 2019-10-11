@@ -233,6 +233,21 @@
     + adapt it to work for neural nets
     + adapt it to work for mini-batches
 
++ [Momentum Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+  
+  __Intuition: rolling ball.__ Modify the Delta Rule
+
+    \[\Delta w(t) = -\varepsilon \frac{\partial E}{\partial w}(t)\]
+
+  to include a "momentum" term
+
+    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
+
+  + $\alpha$: a factor slightly less than 1
+  + $\Delta w(t)$ remembers a little bit of its previous direction via $\alpha \Delta w(t-1)$
+  + [Implementation of Stochastic Gradient Descent w/ Momentum](src/sgd_momentum.py)
+
+
 
 ### Lecture Video
 
