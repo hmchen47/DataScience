@@ -1216,6 +1216,92 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.5.2 Symmetric and asymmetric relaxation
 
++ Assumptions & Notations
+  + Three layered neural network
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/a12-25.png" style="margin: 0.1em;" alt="Notation for the three-layered network" title="Notation for the three-layered network" width=350>
+      </a>
+    </div>
+
+  + $o_j^{(1)}$: the output w/ sigmoid activation function
+
+    \[o_j^{(1)} = s \left(\sum_{i=1}^{n+1} w_{ij}^{(1)} \hat{o}_i\right)\]
+
+  + $\mathbf{o}^{(1)}$: the outputs of the hidden units
+
+    \[\mathbf{o}^{(1)} = s(\mathbf{\hat{o}} \mathbf{\overline{W}_1})\]
+
+  + $\mathbf{o}^{(2)}$: the outputs of the network, 
+
+    \[\mathbf{o}^{(1)} = s(\mathbf{\hat{o}}^{(1)} \mathbf{\overline{W}_2})\]
+
+  + $\mathbf{e}$: the column vector whose components are the derivatives of the corresponding components of the quadratic error
+
+    \[\mathbf{e} = \begin{bmatrix}
+      (o_1^{(2)} - t_1) \\ (o_2^{(2)} - t_2) \\ \vdots \\ (o_3^{(2)} - t_3)
+    \end{bmatrix}\]
+
+  + $\mathbf{D_1}$: a diagonal matrix
+
+    \[\mathbf{D_1} = \begin{bmatrix}
+      o_1^{(1)}(1 - o_1^{(1)}) & 0 & \cdots & 0 \\
+      0 & o_2^{(1)}(1 - o_2^{(1)}) & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & o_k^{(1)}(1 - o_k^{(1)}) \\
+    \end{bmatrix}\]
+
+  + $\mathbf{D_2}$: a diagonal matrix
+
+    \[\mathbf{D_2} = \begin{bmatrix}
+      o_1^{(2)}(1 - o_1^{(2)}) & 0 & \cdots & 0 \\
+      0 & o_2^{(2)}(1 - o_2^{(2)}) & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & o_m^{(2)}(1 - o_m^{(2)}) \\
+    \end{bmatrix}\]
+
+  + $\mathbf{W_2}$: a connection/weight matrix between hidden and output layers
+  + $\mathbf{O_1}$: the output $p \times k$ matrix of the hidden layer w/ the arranged all rows, $o^{(1)}$
+  + $\mathbf{T}$: target matrix w/ all targets as the rows of a $p \times m$ matrix
+  + $\mathbf{O}_1^+$: pseudoinverse of $\mathbf{O}_1$
+
++ Objective: the target vector $\mathbf{t}$
+  + the backpropagated error of the output layer
+
+    \[\delta^{(2)} = \mathbf{D_2 e}\]
+
+  + reducing the magnitude of the error $\mathbf{e}$ to zero by adjusting the matrix $\mathbf{W_2}$ in a single step
+  + $s^{-1}(t)$: the necessary weighted input at the output nodes
+  + the following equation holds for all the $p$ possible input patterns
+
+    \[\mathbf{o}^{(1)} \mathbf{W_2} = s^{-1}(\mathbf{t})\]
+
+    therefore,the matrix $\mathbf{W_2}$ for which
+
+    \[\mathbf{O_1 W_2} = s^{-1}(\mathbf{T}) \tag{12}\]
+
+  + the matrix equation may have no solution for $\mathbf{W_2}$, but compute the matrix minimizing the quadratic error for this equality
+  + Computing the connection matrix $\mathbf{W}_2$
+
+    \[\mathbf{W}_2 = \mathbf{O}_1^+ s^{-1}(\mathbf{T})\]
+
+  + obtaining the matrix $\mathbf{O}_1$ by minimizing the quadratic deviation from Eq.(12)
+  + computing intermediate targets for the hidden units, which are given by the rows of the matrix
+
+    \[\mathbf{O}_1^{\prime} = s^{(-1)}(\mathbf{T})\mathbf{W}_2^+\]
+
+  + the new intermediate targets used to obtain an update for the matrix $\mathbf{W}_1$ of weights between input and hidden units
+
++ Computing complexity
+  + computationally intensively for every "pseudoinverse" step
+  + weight corrections of the method
+    + more accurate than other algorithms
+    + these high-powered iterations demand many computations for each of the two matrices
+  + highly redundant data: pseudoinverse step very inefficient
+  + symmetric relaxation
+    + the targets $\mathbf{T}$
+    + the outputs of the hidden units are determined in the back and forth kind of approach
 
 
 ### 8.5.3 A final thought on taxonomy
