@@ -233,21 +233,6 @@
     + adapt it to work for neural nets
     + adapt it to work for mini-batches
 
-+ [Momentum Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
-  
-  __Intuition: rolling ball.__ Modify the Delta Rule
-
-    \[\Delta w(t) = -\varepsilon \frac{\partial E}{\partial w}(t)\]
-
-  to include a "momentum" term
-
-    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
-
-  + $\alpha$: a factor slightly less than 1
-  + $\Delta w(t)$ remembers a little bit of its previous direction via $\alpha \Delta w(t-1)$
-  + [Implementation of Stochastic Gradient Descent w/ Momentum](src/sgd_momentum.py)
-
-
 
 ### Lecture Video
 
@@ -264,6 +249,20 @@
 + Momentum method
   + applied to both full batch or mini-batch learning
   + probably the commonest recipe for big neural nets: combining stochastic gradient descent with mini matches and momentum
+
++ [Momentum Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+  
+  __Intuition: rolling ball.__ Modify the Delta Rule
+
+    \[\Delta w(t) = -\varepsilon \frac{\partial E}{\partial w}(t)\]
+
+  to include a "momentum" term
+
+    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
+
+  + $\alpha$: a factor slightly less than 1
+  + $\Delta w(t)$ remembers a little bit of its previous direction via $\alpha \Delta w(t-1)$
+  + [Implementation of Stochastic Gradient Descent w/ Momentum](src/sgd_momentum.py)
 
 + The intuition behind the momentum method
   + Analogy
@@ -376,6 +375,15 @@
   + <span style="color: red;">red vector = correction</span>
   + <span style="color: green;">green vector = accumulated gradient</span>
   + <span style="color: blue;">blue vector = standard momentum</span>
+
++ [Nesterov Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+  + old momentum method: calculate gradient, i.e., correct your previous mistake, at current point, then jump
+
+    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t-1)\]
+
+  + new and improved momentum method: jump first, then correct your mistake at the description
+
+    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
 
 + Ryan Harris, [Visualize Back propagation: (5) Momentum](https://www.youtube.com/watch?v=7HZk7kGk5bU&list=PL29C61214F2146796&index=8&t=11s)
 
