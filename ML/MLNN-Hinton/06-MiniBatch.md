@@ -460,6 +460,20 @@
     + momentum not care about the alignment of the axes
     + momentum deal with diagonal ellipses and along the diagonal direction quickly
 
++ [Per Connection Adaptive Learning Rate](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+
+  __Definition__. Define a gain parameter $g_{ij}$ for each connection
+
+  \[\Delta w_{ij} = - \varepsilon g_{ij} \frac{\partial E}{\partial w_{ij}}\]
+
+  and increase $g_{ij}$ if the gradient does not change signs, otherwise decrease it:
+
+  \[g_{ij} = \begin{cases}
+    g_{ij}(t-1) + \alpha & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}} (t-1) > 0 \\
+    g_{ij}(t-1) \times \beta & \text{otw}
+  \end{cases}\]
+
+  where $\alpha$ is close to 0 and $\beta$ is close to 1, e.g., 0.05 and 0.95 resp.
 
 ### Lecture Video
 
