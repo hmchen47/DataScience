@@ -527,6 +527,29 @@
     + the efficiency of mini-batches
     + the effective averaging of the gradients over mini-batches
 
++ [RPROP: resilient backpropagation](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+
+  __Definition__. Instead of relying on the gradient and a learning rate as in the Delta Rule, RPROP keeps track of a step size $\Delta_{ij}$ per weight:
+
+  \[\Delta_{ij}(t) = \begin{cases}
+    \eta^+ \Delta_{ij}(t-1) & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}}(t-1) > 0 \\
+    \eta^- \Delta_{ij}(t-1) & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}}(t-1) < 0 \\
+    \Delta_{ij}(t-1) & \text{otw.}
+  \end{cases}\]
+
+  where $0 < \eta^- < 1 < \eta^+$, usually $0.5% and $1.2$. Next, the weight update is
+
+  \[\Delta w_{ij} (t) = \begin{cases}
+    - \Delta_{ij} (t) & \text{if } \frac{\partial E}{\partial w_{ij}} > 0 \\
+    + \Delta_{ij} (t) & \text{if } \frac{\partial E}{\partial w_{ij}} < 0 \\
+    0 & \text{otw.}
+  \end{cases}\]
+
+  In other words, if the gradient changes sign, then our last step size $\Delta_{ij}(t-1)$ was too big, so wee need to scale it back by $\eta^-$.  On the owther hand, if the gradient keeps its sign, then we're going in the right direction, and we scale up the step size by $\eta^+$ to go faster.  Otherwise, the gradient is zero and there's no need to change the weight.
+
+  __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at tiem $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ mihght be nonzero.
+
+
 + rmsprop: A mini-batch version of rprop
   + problem w/ mini-batch rprop
     + using the gradient but also divided by the different magnitude of the gradient for each mini-batch
@@ -551,6 +574,28 @@
     + more investigation required
   + other methods related to rmsprop
     + Yann LeCun's group: a fancy version in "No more pesky learning rates"
+
++ [RMSPROP: root mean square backpropagation/mini-batch RPROP](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+
+  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divid successive gradients not by themselves individually but by their root mean square: first define the running mean square
+
+  \[\mu_{ij}(t) = \gamma \mu_{ij}(t-1) + (1-\gamma) \left(\frac{\partial E}{\partial w_{ij}}\right)^2\]
+
+  where $\gamma$ is the forgetting factor: bigger $\gamma \in (0, 1)$ makes $\mu_{ij}$ remember more of its previous values.  Then the weight updates is
+
+  \[\Delta w_{ij} = - \frac{\alpha}{\sqrt{\mu_{ij}}} \frac{\partial E}{\partial w}\]
+
+  In vector form,
+
+  \[\begin{align*}
+    \mu &\gets \gamma \mu + (1 - \gamma)\left(\frac{\partial E}{\partial w}\right)^2 \\
+    \Delta w &= - \frac{\alpha}{\sqrt{\mu}} \frac{\partial E}{\partial w} \\
+    w &\gets w + \Delta w
+  \end{align*}\]
+
+  where all operations are done components wise with broadcasting if necessary.
+
+  [RMSPROP implementation](src/rmsprop.py)
 
 + Summary of learning methods for neural networks
   + full-batch method
