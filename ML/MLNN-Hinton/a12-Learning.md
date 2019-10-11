@@ -1306,9 +1306,29 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
 ### 8.5.3 A final thought on taxonomy
 
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+    <img src="img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=450>
+  </a>
+</div>
 
++ The fast variations of backpropagation divided into two main methods
+  + gradient descent
+    + using information about the error function's partial derivatives
+  + relaxation
+    + trying to adjust the weights to fit the problem in stochastic way or solving a linear subproblem
 
-### 8.6 Historical and bibliographical remarks
++ Class of derivatives
+  + first order
+    + standard backpropagation
+    + on-line propagation not exactly following the gradient's direction, but also partially qualify as a relaxation method
+  + adaptive first order
+    + a combination of gradient descent and relaxation
+    + two groups
+      + single global learning rate
+      + a learning rate for each weight
+  + second order
+    + the conjugate gradient methods of numerical analysis rely also on a first-order approximation of second-order features of the error function
 
 
 
