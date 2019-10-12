@@ -46,7 +46,34 @@ Author: Leslie N. Smith
 
 ## 2. Related Work
 
++ Deep learning 
+  + Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio. Deep learning, volume 1. MIT press Cambridge, 2016.
+  + Yoshua Bengio. Practical recommendations for gradient-based training of deep architectures. In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
+  + Genevieve B Orr and Klaus-Robert Müller. Neural networks: tricks of the trade. Springer, 2003.
 
++ early works of Leslie N. Smith
+  + Leslie N Smith. No more pesky learning rate guessing games. arXiv preprint arXiv:1506.01186, 2015.
+  + Leslie N Smith. [Cyclical learning rates for training neural networks](https://www.arxiv-vanity.com/papers/1506.01186/). In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
+  + Samuel L Smith, Pieter-Jan Kindermans, and Quoc V Le. [Don’t decay the learning rate, increase the batch size](https://www.arxiv-vanity.com/papers/1711.00489/). arXiv preprint arXiv:1711.00489, 2017.
+
++ use of large learning rate and small batch size
+  + Stanisław Jastrzebski, Devansh Arpit, Nicolas Ballas, Vikas Verma, Tong Che, and Yoshua Bengio. [Residual connections encourage iterative inference](https://www.arxiv-vanity.com/papers/1710.04773/). arXiv preprint arXiv:1710.04773, 2017a.
+  + Stanisław Jastrzebski, Zachary Kenton, Devansh Arpit, Nicolas Ballas, Asja Fischer, Yoshua Bengio, and Amos Storkey. [Three factors influencing minima in sgd](https://www.arxiv-vanity.com/papers/1711.04623/). arXiv preprint arXiv:1711.04623, 2017b.
+  + Chen Xing, Devansh Arpit, Christos Tsirigotis, and Yoshua Bengio. [A walk with sgd](https://www.arxiv-vanity.com/papers/1802.08770/). arXiv preprint arXiv:1802.08770, 2018.
+  + different optimal setting of learning rates and batch sizes in this report
+
++ exploring batch sizes and correlating the optimal batch size to the learning rate, size of the dataset, and momentum
+  + Samuel L Smith and Quoc V Le. [Understanding generalization and stochastic gradient descent](https://www.arxiv-vanity.com/papers/1710.06451/). arXiv preprint arXiv:1710.06451, 2017.
+  + more comprehensive and more practical in Sec. 4.2
+
++ use of regularization by weight decay and dropout
+  + Alex Hernández-García and Peter König. [Do deep nets really need weight decay and dropout?](https://www.arxiv-vanity.com/papers/1802.07042/) arXiv preprint arXiv:1802.07042, 2018.
+  + this report: the total regularization needs to be in balance for a given dataset and architecture
+  + experiments suggestion: only add regularization by data augmentation to replace the regularization by weight decay and dropout w/o a full study of regularization
+
++ approaches to learn optimal hyper-parameters by differentiating the gradient w.r.t the hyper-parameters
+  + Jonathan Lorraine and David Duvenaud. [Stochastic hyperparameter optimization through hypernetworks](https://www.arxiv-vanity.com/papers/1802.09419/). arXiv preprint arXiv:1802.09419, 2018.
+  + this report: simpler to perform
 
 
 ## 3. The Unreasonable Effectiveness of Validation/Test Loss
