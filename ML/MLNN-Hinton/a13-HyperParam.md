@@ -9,7 +9,15 @@ Author: Leslie N. Smith
 
 ## Abstract
 
++ how to examine the training validation/test loss function for subtle clues of underfitting and overfitting
 
++ suggesting guidelines for moving toward the optimal balancing point
+
++ experiments show that it is crucial to balance every manner of regularization for each dataset and architecture
+
++ weight decay used as a sample regularizer to show how its optimal value is tightly coupled with the learning rate and momentum
+
++ Files to replicate the results](https://github.com/lnsmith54/hyperParam1)
 
 
 ## 1. Introduction
