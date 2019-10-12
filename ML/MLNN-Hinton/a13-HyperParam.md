@@ -4,6 +4,8 @@ Author: Leslie N. Smith
 
 [Original Article](https://arxiv.org/pdf/1803.09820)
 
+[Original Article HTML Version](https://www.arxiv-vanity.com/papers/1803.09820/)
+
 
 ## Abstract
 
@@ -103,6 +105,27 @@ Author: Leslie N. Smith
 
 ## 6. Discussion
 
+
+
+
+
+## 7. References
+
+
+
+
+## A. Appendix
+
+
+
+
+### A.1 Experimental Methods: Detailed Information about the Experiments to Enable Replication
+
+
+
+
+
+### A.2 Implementation of Cyclical Momentum in Caffe
 
 
 
