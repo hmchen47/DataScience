@@ -22,7 +22,26 @@ Author: Leslie N. Smith
 
 ## 1. Introduction
 
++ the process of setting the hyper-parameters
+  + including the designing the network architecture
+  + requiring expertise and extensive trial and error and time consuming
 
++ no simple and easy ways to set hyper-parameters
+  + learning rate, batch size, momentum and weight decay
+  + grid search or random search: computationally expensive and time consuming
+  + James Bergstra and Yoshua Bengio. Random search for hyper-parameter optimization. Journal of Machine Learning Research, 13(Feb):281–305, 2012.
+  + training time and final performance: highly dependent on good choice
+  + choosing the standard architecture and the hyper-parameter files freely available in model zoo or from gitgub.com
+
++ proposed methodologies for finding optimal settings for several hyper-parameters
+  
++ goal: providing practical advice that saves time and effort, yet improves performance
+
++ basis of the approach
+  + well-known concept of the balance between underfitting and overfitting
+  + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
+  + paying close attention while using cyclical learning rates and cyclical momentum
+  + Leslie N Smith. Cyclical learning rates for training neural networks. In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
 
 
 ## 2. Related Work
