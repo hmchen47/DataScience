@@ -153,8 +153,7 @@
 + Adit Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](a10-CNNsGuide.md)
 + Adit Deshpande, [The 9 Deep Learning Papers You Need to Know About](a11-9Papers.md)
 + P. Rajos, [Fast Learning Algorithms](a12-Learning.md)
-+ 
-
++ L. Smith, [A Disciplined Approach to Neural Network Hyper-Parameters: Part-I - Learning Rate, Batch Size, Momentum, and Weight Decay](a13-HyperParam.md)
 
 ## References
 
