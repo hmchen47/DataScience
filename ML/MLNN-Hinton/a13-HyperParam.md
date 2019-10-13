@@ -211,7 +211,7 @@ Author: Leslie N. Smith
 
 ## 4. Cyclical Learning Rates, Batch Sizes, Cyclical Momentum, and Weight Decay
 
-
++ The conventional method: perform a grid or a random search, which can be computationally expensive and time consuming
 
 
 ### 4.1 Cyclical Learning Rates and Super-convergence Revisited
