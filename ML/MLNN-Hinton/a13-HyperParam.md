@@ -99,8 +99,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/testLoss1.png" style="margin: 0.1em;" alt="(a) Characteristic plot of training loss, validation accuracy, and validation loss." title="(a) Characteristic plot of training loss, validation accuracy, and validation loss." height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/generalizationError.png" style="margin: 0.1em;" alt="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." title="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/testLoss1.png" style="margin: 0.1em;" alt="Figure 1(a): Characteristic plot of training loss, validation accuracy, and validation loss." title="(a) Characteristic plot of training loss, validation accuracy, and validation loss." height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/generalizationError.png" style="margin: 0.1em;" alt="Figure 1(b): Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." title="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." height=250>
     </a>
   </div>
 
@@ -125,7 +125,7 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Pictorial explanation of the tradeoff between underfitting and overfitting." height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Figure 2. Pictorial explanation of the tradeoff between underfitting and overfitting." height=250>
     </a>
   </div>
 
@@ -147,8 +147,27 @@ Author: Leslie N. Smith
 
 ### 3.2 Underfitting
 
++ Underfitting visible during the training on two different datasets, Cifar-10 abd Imagenet (Fig. 3)
+  + Underfitting is characterized by a continuously decreasing test loss, rather than a horizontal plateau.
+  + Fig. 3(a) (a) Test loss for the Cifar-10 dataset with a shallow 3 layer network
+    + red curve
+      + decreasing test loss w/ a learning rate ($LR = 0.001$)
+      + Underfitting: continue to decrease
+    + blue curve
+      + decreasing more rapidly during the initial iterations and then is horizontal
+      + __a positive clue__: the configuration producing a better final accuracy than other configuration
+  + Fig. 3(b) (b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2
+    + underfitting: underlying complexities of the data distributions
+    + the test loss continues decreasing over the 100,000 iterations (about 3 epochs)
+    + the inception-resnet-v2 decreasing more and becoming more horizontal
+    + the inception-resnet-v2 less underfitting
 
-
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerLoss.png" style="margin: 0.1em;" alt="(a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." title="Figure 3. (a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetTestLoss3.png" style="margin: 0.1em;" alt="(b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." title="Figure 3. (b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." height=250>
+    </a>
+  </div>
 
 
 ### 3.3 Overfitting
