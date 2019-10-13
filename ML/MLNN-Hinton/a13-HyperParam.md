@@ -90,7 +90,7 @@ Author: Leslie N. Smith
   + epoch defined as once through the entire training data
   + eliminating the necessary of running complete grid or random searches
 
-+ comparison of training loss, validation accuracy, validation loss, and generalization error
++ comparison of training loss, validation accuracy, validation loss, and generalization error (Fig. 1)
   + These runs are a learning rate range test with the resnet-56 architecture and Cifar-10 dataset.
   + Characteristic plot of training loss, validation accuracy, and validation loss (left diagram)
     + plots of the training loss, validation accuracy, and validation loss for a learning rate range test of a residual network on the Cifar dataset to find reasonable learning rates for training
@@ -111,7 +111,38 @@ Author: Leslie N. Smith
 
 ### 3.1 A Review of the Underfitting and Overfitting Trade-off
 
++ Underfitting
+  + unable to reduce the error for either the test or training set
+  + cause: an under capacity of the machine learning model
+  + not powerful enough to fit the underlying complexities of the data distribution
 
++ Overfitting: model so powerful as to fit the training set too well and the generalization error increases
+
++ Pictorial explanation of the tradeoff between underfitting and overfitting (Fig. 2)
+  + model complexity (the x axis) refers to the capacity or powerfulness of the machine learning model
+  + the optimal capacity falls between underfitting and overfitting
+  + achieving a horizontal test loss during the training of a network can also point to the optimal balance of the hyper-parameter
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Pictorial explanation of the tradeoff between underfitting and overfitting." height=250>
+    </a>
+  </div>
+
++ __REMARK 2.__ achieving the horizontal part of the test loss is the goal of hyper-parameter tuning
+  + difficult with deep neural network
+  + with networks becoming more powerful with greater depth (i.e., more layers), width (i.e., more neurons or filters per layer), and the addition of skip connections to its architecture
+  + various forms of regularization, such as weight decay or dropout
+  + Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: A simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
+  + important hyper-parameters
+  + using a variety of optimization methods
+  + Diederik Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.
+
++ Insight of underfitting and overfitting
+  + signs of the underfitting and overfitting of the test or validation loss early in the training process useful for tuning the hyper-parameters
+  + Fig. 1a: some overfitting within the black square indicates a suboptimal choice of hyper-parameters
+  + well set initial values for hyper-parameters results in performing well through the entire training process
+  + the test loss during the training process used to find the optimal network architecture and hyper-parameters w/o performing a full training to compare the final performance results
 
 
 ### 3.2 Underfitting
