@@ -78,7 +78,35 @@ Author: Leslie N. Smith
 
 ## 3. The Unreasonable Effectiveness of Validation/Test Loss
 
++ a good detective observes subtle clues that the less observant miss.
 
++ purpose
+  + draw attention to the clues in the training process
+  + provide guidance as to their meaning
+
++ architecture & hyper-parameters
+  + observing and understanding the clues available early during training
+  + tuning w/ short runs of a few epochs
+  + epoch defined as once through the entire training data
+  + eliminating the necessary of running complete grid or random searches
+
++ comparison of training loss, validation accuracy, validation loss, and generalization error
+  + These runs are a learning rate range test with the resnet-56 architecture and Cifar-10 dataset.
+  + Characteristic plot of training loss, validation accuracy, and validation loss (left diagram)
+    + plots of the training loss, validation accuracy, and validation loss for a learning rate range test of a residual network on the Cifar dataset to find reasonable learning rates for training
+    + the test loss within the black box: signs of overfitting at learning rates of $0.01 - 0.04$
+    + example where the test loss provide valuable information
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/testLoss1.png" style="margin: 0.1em;" alt="(a) Characteristic plot of training loss, validation accuracy, and validation loss." title="(a) Characteristic plot of training loss, validation accuracy, and validation loss." height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/generalizationError.png" style="margin: 0.1em;" alt="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." title="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." height=250>
+    </a>
+  </div>
+
++ __REMARK 1.__ the test/validation loss is a good indicator of the network's convergence.
+  + the test/validation loss used to provide insights on the training process
+  + the final test accuracy used for comparing performance
 
 
 ### 3.1 A Review of the Underfitting and Overfitting Trade-off
