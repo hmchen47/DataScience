@@ -147,7 +147,7 @@ Author: Leslie N. Smith
 
 ### 3.2 Underfitting
 
-+ Underfitting visible during the training on two different datasets, Cifar-10 abd Imagenet (Fig. 3)
++ Underfitting visible during the training (Fig. 3)
   + Underfitting is characterized by a continuously decreasing test loss, rather than a horizontal plateau.
   + Fig. 3(a) (a) Test loss for the Cifar-10 dataset with a shallow 3 layer network
     + red curve
@@ -172,7 +172,41 @@ Author: Leslie N. Smith
 
 ### 3.3 Overfitting
 
++ Previous examples
+  + Overfitting more complicated than underfitting but clues are visible in the test loss
+  + Fig. 2: the test loss from underfitting (deceasing) to overfitting (increasing), but overfitting in neural network is often not so simple
+  + Fig. 1 the test loss (blue curve)
+    + signs of overfitting at small learning rate $(0.01 \sim 0.04)$
+    + decreasing at higher rates as though it is underfitting
+    + too small learning rate exhibits overfitting behavior
 
++ Examples of overfitting (Fig. 4)
+  + increasing validation/test loss indicates overfitting
+  + Fig. 4(a): Cifar-10 dataset with a shallow 3 layer network
+    + $WD = 10^{-4}$ (blue curve): minimizing near at $LR = 0.002$, then increasing (overfitting)
+    + $WD = 4 \times 10^{-3}$: (red curve)
+      + stable at a larger LR range
+      + attain a lower loss value
+      + better than the previous one
+      + diverging at $LR = 0.008$
+    + $WD = 10^{-2}$ (yellow curve): sharp increasing at $LR = 0.005$
+      + not a sign of overfitting
+      + caused by instabilities in the training due to the large learning rate
+  + Fig. 4(b): Imagenet dataset with resnet-50 architecture
+    + blue curve: underfitting w/ $LR = 0.1$ and $WD = 10^{-4}$
+    + red curve: overfittign w/ a ver small $WD = 10^{-7}$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Figure 4(a): Cifar-10 dataset with a shallow 3 layer network." height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Figure 4(b) Imagenet dataset with resnet-50 architecture." height=250>
+    </a>
+  </div>
+
++ Additional examples of overfitting
+  + Fig. 7(a): Cyclical momentum tests for the Cifar-10 dataset with a shallow 3 layer network
+    + the value of momentum matters
+    + yellow curve: 
 
 
 ## 4. Cyclical Learning Rates, Batch Sizes, Cyclical Momentum, and Weight Decay
