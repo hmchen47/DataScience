@@ -216,8 +216,82 @@ Author: Leslie N. Smith
 
 ### 4.1 Cyclical Learning Rates and Super-convergence Revisited
 
++ Learning Rate (LR)
+  + too small: overfitting
+  + too large: diverge
+  + large: regularize the training
 
++ Cyclical learning rates (CLR)
+  + Leslie N Smith. [No more pesky learning rate guessing games](https://www.arxiv-vanity.com/papers/1506.01186/). arXiv preprint arXiv:1506.01186, 2015.
+  + Leslie N Smith. Cyclical learning rates for training neural networks. In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
+  + Hyper-parameters required: minimum and maximum learning rate boundaries and a stepsize
+  + stepsize: the number of of iterations (or epochs) used for each step
+  + a cycle consisting of two such steps
+    + the learning rate linearly increasing from the minimum to the maximum
+    + the learning rate linearly decreasing from the maximum to the minimum
 
++ Learning rate range test (LR range test)
+  + starting with a small learning rate which is slowly increased linearly throughout a pre-training run
+  + this single run providing valuable information on how well the network can be trained over a range of learning rates abd what is the maximum learning rate
+  + the increasing of the learning rate will cause the test/validation loss to increase and the accuracy to decrease
+  + the learning rate at the extrema as the largest value used as the maximum bound
+  + ways to choice the minimum bound
+    + a factor of 3 or 4 less than the maximum bound
+    + a factor of 10 or 20 less than the maximum bound if only one cycle used
+    + by a short test of hundreds of iterations with a few initial learning rates and pick the largest one that allows convergence to begin w/o signs of overfitting
+  + there is a maximum speed the learning rate can increase w/o the training becoming unstable, which effects the choices for the minimum and maximum learning rates
+
++ Super-convergence
+  + Leslie N Smith and Nicholay Topin. [Super-convergence: Very fast training of residual networks using large learning rates](https://www.arxiv-vanity.com/papers/1708.07120/). arXiv preprint arXiv:1708.07120, 2017.
+  + happen when using deep resnets on cifar-10 or cifat-100 data
+  + the test loss and accuracy remain nearly constant for this LR range test, even up to very large learning rates
+  + the network trained quickly with one learning rate cycle by using an unusually large learning rate
+  + very large learning rates used providing the twin benefits of regularization that prevented overfitting and faster training of the networks
+  + Faster training is possible by allowing the learning rates to become large.
+  + other regularization methods must be reduced to compensate for the regularization effects of large learning rates
+  + super-convergence is universal and provides additional guidance on why, when, and where this is possible
+  + Fig. 5(a): An example of super-convergence
+    + thee training was completed in 10,000 iterations by using learning rates up to 3.0 instead of needing 80,000 iterations w/ a constant initial learning rate of 0.1
+    + modification of cyclical learning rate policy for super-convergence
+  + Fig. 5(b): The effect of weight decay
+    + $WD \leq 10^{-4}$: allowing the use of large learning rates (i.e., up to 3)
+    + $WD = 10^{-3}$: eliminating the ability to train the networks with such a large learning rate
+    + the regularization needs to be balanced
+    + required to reduce other forms of regularization to utilize the regularization from large learning rates ad gain the other benefit  - faster training
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/LRvsCLRresnet56.png" style="margin: 0.1em;" alt="(a) An example of super-convergence" title="Figure 5(a): An example of super-convergence" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/clr3SS5kResnet56WD.png" style="margin: 0.1em;" alt="(b) The effect of weight decay" title="Figure 5(b) The effect of weight decay" height=250>
+    </a>
+  </div>
+
++ "1cycle" learning rate policy
+  + always using one cycle that is smaller than the total number of iterations/epochs and allow the learning rate to decrease several orders of magnitude less than the initial learning rate for the remaining iterations
+  + experiments shows the accuracy to plateau before the training ends
+  + a combination of curriculum learning and simulated annealing
+  + Yoshua Bengio, Jerome Louradour, Ronan Collobert, and Jason Weston. [Curriculum learning. In Proceedings of the 26th annual international conference on machine learning](https://dx.doi.org/10.1145/1553374.1553380), pp. 41–48. ACM, 2009.
+  + Emile Aarts and Jan Korst. Simulated annealing and boltzmann machines. 1988.
+
++ Regularization
+  + forms of regularization
+    + large learning rates
+    + small batch sizes
+    + weight decay
+    + dropout
+  + Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: A simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
+  + balancing the various forms of regularization for each dataset and architecture in order to obtain good performance
+
++ __REMARK 3.__ the amount of regularization must be balanced for each dataset and architecture
+  + permit general use of super-convergence
+  + reducing other forms of regularization
+  + regularized w/ very large learning rates makes training significantly and efficient
+
++ More experiments
+  + datasets: MINIST, Cifar10, Cifar-100, imagenet
+  + architectures: shallow nets, resnets, wide resnets, densenets, inception-resnet
+  + trained more quickly w/ large learning rates
+  + provided other forms of regularization reduced to an optimal balanced point
 
 
 ### 4.2 Batch Size
