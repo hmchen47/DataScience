@@ -262,7 +262,7 @@ Author: Leslie N. Smith
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
       <img src="https://media.arxiv-vanity.com/render-output/1492523/LRvsCLRresnet56.png" style="margin: 0.1em;" alt="(a) An example of super-convergence" title="Figure 5(a): An example of super-convergence" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/clr3SS5kResnet56WD.png" style="margin: 0.1em;" alt="(b) The effect of weight decay" title="Figure 5(b) The effect of weight decay" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/clr3SS5kResnet56WD.png" style="margin: 0.1em;" alt="(b) The effect of weight decay" title="Figure 5(b): The effect of weight decay" height=250>
     </a>
   </div>
 
@@ -296,7 +296,54 @@ Author: Leslie N. Smith
 
 ### 4.2 Batch Size
 
++ small batch sizes
+  + recommended for regularization effects
+  + D Randall Wilson and Tony R Martinez. [The general inefficiency of batch training for gradient descent learning](http://axon.cs.byu.edu/papers/Wilson.nn03.batch.pdf). Neural Networks, 16(10):1429–1451, 2003.
+  + optimal batch size on the order of 80 for Cifar-10
+  + Samuel L Smith and Quoc V Le. [Understanding generalization and stochastic gradient descent](https://www.arxiv-vanity.com/papers/1710.06451/). arXiv preprint arXiv:1710.06451, 2017.
+  + using a large batch size when using the 1cycle learning rate schedule
 
++ comparing batch sizes
+  + issue: conflicting results if one maintains a constant number of epochs vs. a constant number of iterations
+  + neither appropriate for comparing different batch sizes
+    + constant epochs: not account for the significant computational efficient of large batch size so it penalizes larger batch sizes
+    + constant iterations: favor of larger batch sizes too much
+  + larger batch sizes $\to$ the use of larger learning rate in the 1cycle learning rate schedule
+  + best practice: maintaining a near constant execution time
+  + people interested in minimizing training time while maintaining high performance
+
++ __REMARK 4.__ the practitioner's goal is obtaining the highest performance while minimizing the needed computational time
+  + examined in conjunction with the execution time of the training
+  + choosing the number of epochs/iterations for training should be large enough to maximize the final test performance but no larger
+
++ The effects of total batch size (TBS)
+  + The effects of total batch size (TBS) on validation loss for the Cifar-10 with resnet-56 and a 1cycle learning rate schedule.
+  + For a fixed computational budget, larger TBS yields higher test accuracy but smaller TBS has lower test loss.
+  + Fig 6(a): The effect of batch size on test accuracy
+    + 4 curves for TBS = 128, 256, 512, and 1024
+    + nearly fixed number of iterations/epochs about 26 mins on an IBM Power8
+    + found by a grid search on the minimum number of epochs on the minimum number of epochs needed for the TBS=128 case to obtain an optimal accuracy
+    + larger batch size ran  in fewer iterations
+    + larger batch sizes had more epochs (TBS/epochs = 128/48, 256/70, 512/95, 1024/116)
+    + larger learning rates used with the larger batch sizes
+    + TBS = 512: a good choice for this dataset, architecture, and computer architecture
+  + Fig. 6(b): the validation loss for the same runs
+    + the larger batch sizes w/ lower loss values early in the training
+    + the final loss values are lower as the batch sizes decrease, opposite performance as accuracy results
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56CifarTBSAcc.png" style="margin: 0.1em;" alt="(a) The effect of batch size on test accuracy" title="Figure 6(a): The effect of batch size on test accuracy" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56CifarTBSLoss.png" style="margin: 0.1em;" alt="(b) The effect of batch size on test loss" title="Figure 6(b): The effect of batch size on test loss" height=250>
+    </a>
+  </div>
+
++ Other recommendations
+  + modifying the batch size, rather than the learning rates
+    + Samuel L Smith, Pieter-Jan Kindermans, and Quoc V Le. [Don’t decay the learning rate, increase the batch size](https://www.arxiv-vanity.com/papers/1711.00489/). arXiv preprint arXiv:1711.00489, 2017.
+    + Stanisław Jastrzebski, Zachary Kenton, Devansh Arpit, Nicolas Ballas, Asja Fischer, Yoshua Bengio, and Amos Storkey. [Three factors influencing minima in sgd](https://www.arxiv-vanity.com/papers/1711.04623/). arXiv preprint arXiv:1711.04623, 2017b.
+  + the batch size limited by the hardware's memory, while the learning rate not
+  + using a batch size that fits in the hardware's memory and enable using lasrger learning rates
 
 
 ### 4.3 Cyclical Momentum
