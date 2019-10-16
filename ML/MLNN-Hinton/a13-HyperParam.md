@@ -348,7 +348,204 @@ Author: Leslie N. Smith
 
 ### 4.3 Cyclical Momentum
 
++ Momentum and learning rate
+  + closely related
+  + optimal learning rate dependent on the momentum; momentum dependent on th elearning rate
+  + learning rate: the most important hyper-parameter to tune
+  + Yoshua Bengio. [Practical recommendations for gradient-based training of deep architectures](https://www.arxiv-vanity.com/papers/1206.5533/). In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
+  + momentum also important
+  + setting momentum as large as possible w/o causing instabilities during training
 
++ Mathematicatical Representation of Momentum
+  + momentum: designed to accelerate network training but its effect on updating the weights is of the sam magnitude as the learning rate
+  + Assumptions & Notations
+    + $\theta$: all the network parameter
+    + $\epsilon$: the learning rate
+    + $\delta F(x, \theta)$: the gradient
+    + $\v$: velocity
+    + $\alpha$: the momentum coefficient
+  + Stochastic gradient descent (SGD): updating the weight using the negative gradient
+
+    \[\theta_{iter + 1} = \theta_{iter} - \epsilon \delta L(F(x, \theta), \theta) \tag{1}\]
+
+  + update weight with momenum
+
+    \[v_{iter + 1} = \alpha \, v_{iter} - \epsilon \delta F(x, \theta), \theta) \tag{2}\]
+
+    \[\theta_{iter + 1} = \theta_{iter} + v \tag{3}\]
+
+  + momentum: similar impact on the weight updates as the learning rate
+  + velocity: a moving average of the gradient
+
++ Cyclic Momentum
+  + cyclic learning rate, in particular, the learning rate range test: usful methods to find an optimal learning rate
+  + experiment: moment range test NOT useful for finding an optimal momentum (Fig. 7(b))
+  + using a decreasing cyclical momentum when the learning rate increases provides an equivalent result to the best constant momentum value but stablizes the training to allow larger learning rates
+  + useful for starting with a large momentum and decreasing momentum while the learning rate is increasing
+  + the learning rate improves the test accuracy and makes the training more robust to large learning rates
+  + implementation is straightforward
+  + example code in Appendix
+
++ __REMARK 5.__ optimal momentum value(s) will improve network training
+  + the optimal training procedure: a combination of
+    + an increasing cyclical learning rate w/ an initial small learning rate permits convergence to begin
+    + a decreasing cyclical momentum w/ allowing the learning rate to become larger in the early to middle parts of training
+  + a constant learning rate and a decreasing cyclical momentum (0.9 ~ 0.99):
+    + acting like a pseudo increasing rate
+    + speeding up the training
+  + too large momentum value
+    + poor training results
+    + visible early in the training
+    + quickly tested
+
++ Cyclical momentum tests for the Cifar-10 dataset with a shallow 3 layer network
+  + Fig. 7(a): the importance of the momentum with a 3-layer network on the Cifar-10 dataset
+    + best momentum: 0.9
+    + optimal choice for learning rate clearly depends on the momentum
+    + Momentum = 0.99 (yellow curve): signs of overfitting (the upward slant after the minimum loss) before diverging (near the learning rate of 0.01)
+    + Momentum = 0.9 (blue curve): no sign of overfitting
+  + Fig. 7(b): increasing the momentum not found an optimal value
+    + the momentum increases from 0.7 to 1 w/o
+      + test loss continues decreasing
+      + accuracy continues increasinng
+    + no optimal momentum
+  + Fig. 7(c): a LR range test for a shallow, 3-layer architecture on Cifar-10
+    + learning rate: $0.002 \sim 0.02$
+    + blue curve: constant momentum 
+    + red curve: a increasing learning rate w/ a linearly increasing momentum (0.8 - 1.0)
+    + trade-offs
+      + the increasing momentum stablizes the convergence to a larger learning rate
+      + the minimum test loss is higher than the minimum test loss for the constant momentum case
+    + benefits for decreasing the momentum while increasing the learning rate
+      + a lower minimum test loss (yellow & purple curves)
+      + faster initial convergence (yellow & purple curves)
+      + greater convergence stability over a larger range of learning rates (yellow curve)
+  + Fig. 7(d): Comparisons of a constant momentum and cyclical momentum
+    + each curve is the avereage of four runs
+    + each run has a slightly different TBS
+    + average TBS = 536
+    + the learning rate drops by a factor or 0.316 at iterations 10k, 15k, 17.5k, and 19k
+    + the test accuracy for the constant momentum w/o plateau
+    + some degree of underfitting while the cyclical case plateau before iterations 10,000 and 20,000
+
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerMomCLRTestLoss.png" style="margin: 0.1em;" alt="(a) Showing that the value of momentum matters" title="Figure 7(a): Showing that the value of momentum matters" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerCMtestAccLoss.png" style="margin: 0.1em;" alt="(b) Increasing momentum does not find an optimal value" title="Figure 7(b): Increasing momentum does not find an optimal value" height=250>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerCMtestLoss.png" style="margin: 0.1em;" alt="(c) Cyclical momentum combined with cyclical learning rates" title="Figure 7(c): Cyclical momentum combined with cyclical learning rates" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerCMtestAccLoss2.png" style="margin: 0.1em;" alt="(d) Comparing using a constant momentum to cyclical momentum" title="Figure 7(d): Comparing using a constant momentum to cyclical momentum" height=250>
+    </a>
+  </div>
+
++ Momentum effect
+  + a larger value of momentum
+    + speeding up the training
+    + threaten the stability
+    + causing divergence
+  + a large momentum helping escape saddle points but can hurt the final convergence
+  + Tianyi Liu, Zhehui Chen, Enlu Zhou, and Tuo Zhao. [Toward deeper understanding of nonconvex stochastic optimization with momentum using diffusion approximations](https://www.arxiv-vanity.com/papers/1802.05155/). arXiv preprint arXiv:1802.05155, 2018.
+  + cyclical momentum not better than a constant value
+  + better proceure: test momentum in the range $[0.9, 0.99]$ and choose a value that performs best
+  + 
+
++ Cyclical momentum tests
+  + a cyclical momentum of $0.95-0.85$ provides an equivalent result as to the optimal choice of $0.95$
+
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.arxiv-vanity.com/papers/1803.09820/">Cyclical momentum tests: final accuracy and standard deviation for the Cifar-10 dataset with various architectures</a></caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Architecture</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">LR/SS</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">momentum/SS</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">WD</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">TBS/Epochs</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Accuracy (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;">
+      <td rowspan="10">3-layer</td><td rowspan="5">0.0005-0.005/11</td><td>0.95-0.85/11</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$81.3 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90-1.00/11</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$80.2 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.85</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$79.5 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$80.2 \pm 0.4$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.95</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$81.2 \pm 0.2$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td rowspan="5">0.0005</td><td>0.95-0.85/11</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$80.8 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90-1.00/11</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$80.9 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.85</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$80.2 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$81.0 \pm 0.2$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.95</td><td>$3 \times 10^{-3}$</td><td>128/25</td><td>$81.0 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td rowspan="10">resnet-56</td><td rowspan="5">0.08-0.80/41</td><td>0.95-0.8/41</td><td>$10^{-4}$</td><td>512/95</td><td>$92.0 \pm 0.2$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90-1.00/41</td><td>$10^{-4}$</td><td>512/95</td><td>$91.4 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.85</td><td>$10^{-4}$</td><td>512/95</td><td>$90.8 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90</td><td>$10^{-4}$</td><td>512/95</td><td>$91.4 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.95</td><td>$10^{-4}$</td><td>512/95</td><td>$92.1 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td rowspan="5">0.1</td><td>0.95-0.85/41</td><td>$10^{-4}$</td><td>512/95</td><td>$89.1 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90-1.00/41</td><td>$10^{-4}$</td><td>512/95</td><td>$88.1 \pm 0.5$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.85</td><td>$10^{-4}$</td><td>512/95</td><td>$87.8 \pm 0.3$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.90</td><td>$10^{-4}$</td><td>512/95</td><td>$88.1 \pm 0.1$</td>
+    </tr>
+    <tr  style="text-align: center;">
+      <td>0.95</td><td>$10^{-4}$</td><td>512/95</td><td>$88.8 \pm 0.3$</td>
+    </tr>
+    </tbody>
+  </table>
+
++ Examples of the cyclical momentum with the Cifar-10 dataset and resnet-56
+  + Fig. 8(a): Constant momentum versus two forms for cyclical momentum
+    + a test of cyclical momentum on resnet-56
+    + fast convergence at large learning rates by cycling up from 0.1 to 1.0 in 9,000 iterations, then down to 0.001 at iteration 18,000
+    + decreasing the momentum while increasing the learning rate produces a better performance than a constant momentum or increasing the momentum with the learnig rate
+  + Fig. 8(b): same experiement as Fig. 6(a) but with cyclical momentum
+    + all the general lession learned from the shallow network carried over to the deep networks
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnetCifarSCtestLoss2.png" style="margin: 0.1em;" alt="(a) Constant momentum versus two forms for cyclical momentum" title="Figure 8(a): Constant momentum versus two forms for cyclical momentum" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56CifarTBSAcc2.png" style="margin: 0.1em;" alt="(b) Same as Figure 5(a) but with cyclical momentum" title="Figure 8(b): Same as Figure 5(a) but with cyclical momentum" height=250>
+    </a>
+  </div>
 
 
 ### 4.4 Weight Decay
