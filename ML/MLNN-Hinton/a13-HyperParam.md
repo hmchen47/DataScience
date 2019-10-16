@@ -17,7 +17,7 @@ Author: Leslie N. Smith
 
 + weight decay used as a sample regularizer to show how its optimal value is tightly coupled with the learning rate and momentum
 
-+ Files to replicate the results](https://github.com/lnsmith54/hyperParam1)
++ Files to replicate the [results](https://github.com/lnsmith54/hyperParam1)
 
 
 ## 1. Introduction
@@ -455,6 +455,8 @@ Author: Leslie N. Smith
 
 + Cyclical momentum tests
   + a cyclical momentum of $0.95-0.85$ provides an equivalent result as to the optimal choice of $0.95$
+  + For deep architectures, such as resnet-56, combining cyclical learning and cyclical momentum is best, while for shallow architectures optimal constant values work as well as cyclical ones.
+  + SS = stepsize, where two steps in a cycle in epochs, WD = weight decay.
 
   <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.arxiv-vanity.com/papers/1803.09820/">Cyclical momentum tests: final accuracy and standard deviation for the Cifar-10 dataset with various architectures</a></caption>
@@ -550,7 +552,106 @@ Author: Leslie N. Smith
 
 ### 4.4 Weight Decay
 
++ Weight decay
+  + a form of regularization
+  + balancing the various forms of regularization to obtain good performance
+  + review of regularization methods: Jan Kukačka, Vladimir Golkov, and Daniel Cremers. [Regularization for deep learning: A taxonomy](https://www.arxiv-vanity.com/papers/1710.10686/). arXiv preprint arXiv:1710.10686, 2017.
+  + bese practice: remaining constant through the training
+  + generally apllied for regularization
+  + network perfromance: proper weight decay value
+  + the validation loss early in the training: sufficient for determining a good value
+  + reasonable procedure: combined CLR and CM runs at a few values of the weight decay to simultaneously determine the best learning rates, momentum and weight decay
 
++ Weight decay values
+  + reasonable values: $10^{-3}, 10^{-4}, 10^{-5}$ and $0$
+  + smaller datasets and architectures: larger values for weight decay
+  + larger datasets and deeper architectures: maller values
+  + hypothesis: complex data provides its own regularization and other regularization should be reduced
+  + experince: $10^{-4}$ about right w/ initial runs at $3 \times 10^{-5}, 10^{-4}, 3 \times 10^{-4}$
+  + bisection of the expoonent rather than bisecting the value ($10^{-3.5} = 3.16 \times 10^{-4}$)
+  + make a follow up run that bisects the exponent of the best two of these if none seem best, extrapolate toward an improved value
+
++ __REMARK 6.__ the amount of regularization must be balanced for each dataset and architecture
+  + the value of weight decay: key knob to tune regularization against the regualrization from an increasing learning rate
+  + other regularization generally fixed
+  + weight decay changed easily when experitmenting with maximum learning rate and stepsize values
+
++ Examples of weight decay search using a 3-layer network on the Cifar-10 dataset
+  + Training used a constant learning rate (0.005) and constant momentum (0.95).
+  + The best value for weight decay is easier to interpret from the loss than from the accuracy.
+  + Fig. 9(a): the validation loss of a grid search for a 3-layer network on Cifar-10 data
+    + LR = 0.005 and Momentum = 0.95
+    + $WD = 1 \times 10^{-2}$ (yellow curve): too large
+    + $WD = 10^{-3)} (blue curve): too small; overfitting
+    + $WD = 3.2 \times 10^{-3}$ (red curve): a goof choice
+    + $WD = 10^{-2.75} = 1.8 \times 10^{-3}$ (purple curve)
+  + Fig. 9(b): the accuracy results from tainings
+    + the validation loss: predictive of the best final accuracy
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDTestLoss.png" style="margin: 0.1em;" alt="(a) Comparing WD by test loss" title="Figure 9(a): Comparing WD by test loss" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDTestAcc.png" style="margin: 0.1em;" alt="(b) Comparing WD by test accuracy" title="Figure 9(b): Comparing WD by test accuracy" height=250>
+    </a>
+  </div>
+
++ More examples of weight decay search using a 3-layer network on the Cifar-10 dataset
+  + Training used cyclical learning rates (0.001 - 0.01) and cyclical momentum (0.98 - 0.9).
+  + The best value of weight decay is smaller when using CLR because the larger learning rates help with regularization.
+  + the runs of a learning rate range test w/ a decreaseing momentum
+    + learning rate range: $LR=0.001 - 0.01$
+    + momentum: $0.98 - 0.8$
+    + $weight decay: $WD = 10^{-2}, 3.2 \times 10^{-3}, 10^{-3}$
+  + Fig. 10(a): test loss
+    + $WD = 3.2 \times 10^{-3}$: seem the best result
+    + $WD = 1.8 \times 10^{-3}$: better due to remaining stable for larger learning rates w/ a slightly lower validation loss
+  + Fig. 10(b): the accuracy
+    + a slightly improved accuracy at learning rates above 0.005
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDCLRCMTestLoss.png" style="margin: 0.1em;" alt="(a) Comparing WD by test loss" title="Figure 10(a): Comparing WD by test loss" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDCLRCMTestAcc.png" style="margin: 0.1em;" alt="(b) Comparing WD by test accuracy" title="Figure 10(b): Comparing WD by test accuracy" height=250>
+    </a>
+  </div>
+
++ Grid search for weight decay (WD) on Cifar-10 with resnet-56 and a constant momentum=0.95 and TBS = 1,030
+  + The optimal weight decay is different if you search with a constant learning rate (left) versus using a learning rate range (right) due to the regularization by large learning rates.
+  + different optimal weight decay: a constat learning rate vs. a learning rate range
+  + the larger learning rates provide regularizatoin so a smaller weight decay value is optimal
+  + Fig. 11(a): the results of a weight decay search with a constant learning rate of 0.1
+    + $WD = 10^{-4}$: overfitting
+    + $WD = 10^{-3}$: better
+    + $WD = 3.2 \times 10^{-4}$ and $WD = 5.6 \times 10^{-4}$: similar
+  + Fig. 11(b): the results of a weight decay search using a learning rate range test from 0.1 to 1.0
+    + $WD = 10^{-4}$: the best
+    + $LR \in [0.5, 0.8]$: recommended
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/ResnetCifarWDLRtestLoss.png" style="margin: 0.1em;" alt="(a) Constant learning rate (=0.1)" title="Figure 11(a): Constant learning rate (=0.1)" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/ResnetCifarWDCLRtestLoss.png" style="margin: 0.1em;" alt="(b) Learning rate range (=0.1-1)" title="Figure 11(b): Learning rate range (=0.1-1)" height=250>
+    </a>
+  </div>
+
++ Grid search for the optimal WD restarting from a snapshot
+  + dataset: Cifar-10
+  + a grid search for aweight decay to make a single run at a middle value for weight decay and save a snapshot after the loss plateau
+  + using the snapshot to restart runs w/ different WD values
+  + Fig. 12(a): 3-layer network
+    + the initial run w/ a sun-optimal $WD = 10^{-3}$
+    + continuation runs: $WD = 10^{-3}, 3 \times 10^{-3}$ and $10^{-2}$
+    + best perfromance $WD = 3 \times 10^{-3}$
+  + Fig. 12(b): a weight-decay grid search from a snaoshot for resnet-56
+    + the first half of the range test w/ $WD = 10^{-4}$
+    + $WD = 10^{-4}$: best result
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(a) 3-layer network" title="Figure 12(a): 3-layer network" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56WDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(b) Resnet-56" title="Figure 11(b): Resnet-56" height=250>
+    </a>
+  </div>
 
 
 ## 5. Experiments with Other Architectures and Datasets
