@@ -821,6 +821,14 @@ Author: Leslie N. Smith
     </a>
   </div>
 
++ Wide resnet in Table 2
+  + using the 1cycle learning rate shcedule w/ learning rate bounds from 0.1 to 1.0
+  + wide32 network w/ 100 epochs:
+    + converged
+    + test accuracy: $91.9 \% \pm 0.2$
+  + wide32 network w/ 800 epochs
+    + test accuracy: $90.3 \pm 1.0$
+
 
 ### 5.2 Densenets on Cifar-10
 
