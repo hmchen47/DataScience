@@ -649,7 +649,7 @@ Author: Leslie N. Smith
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
       <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(a) 3-layer network" title="Figure 12(a): 3-layer network" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56WDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(b) Resnet-56" title="Figure 11(b): Resnet-56" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56WDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(b) Resnet-56" title="Figure 12(b): Resnet-56" height=250>
     </a>
   </div>
 
@@ -693,7 +693,33 @@ Author: Leslie N. Smith
 
 ### 5.1 Wide Resents on Cifar-10
 
++ Wide resnet: created from a resnet w/ 32 layers by increasing the number of channels by a factor of 4 instead of the factor of 2 used by resnet
 
++ Assumptions
+  + TBS = 512
+  + learning rate range: 0.1 to 1.0
+  + momentum range: 0.95 to 0.85
+
++ Illustration of hyper-parameter search for wide resnet and densenet on Cifar-10
+  + Training follows the learning rate range test of (LR=0.1 – 1) for widenet and (LR=0.1 – 4) for densenet, and cycling momentum (=0.95 – 0.85).
+  + For the densenet architecture, the test accuracy is easier to interpret for the best weight decay (WD) than the test loss.
+  + Fig 13(a): a grid search on weight decay w/ three runs
+    + $WD = 10^{-3}$: poor performance
+    + $10^{-4}$ a little bit better tahn $10^{-5}$
+    + $3 \times 10^{-5}$: similar to both $10^{-4} and $10^{-5}$, indicating any value in this range is good
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/wide32cifarWDTestLoss.png" style="margin: 0.1em;" alt="(a) Comparison of WD with a 32 layer wide resnet" title="Figure 13(a): Comparison of WD with a 32 layer wide resnet" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/dense40cifarCM.png" style="margin: 0.1em;" alt="(b) Comparison of momentum with a 40 layer densenet" title="Figure 13(b): Comparison of momentum with a 40 layer densenet" height=250>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/dense40cifarWD.png" style="margin: 0.1em;" alt="(c) Comparison of WD with 40 layer densesnet" title="Figure 13(c): Comparison of WD with 40 layer densesnet" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/dense40cifarTBS.png" style="margin: 0.1em;" alt="(d) Comparison of TBS with 40 layer densenet" title="Figure 13(d): Comparison of TBS with 40 layer densenet" height=250>
+    </a>
+  </div>
 
 
 ### 5.2 Densenets on Cifar-10
