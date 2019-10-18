@@ -724,7 +724,31 @@ Author: Leslie N. Smith
 
 ### 5.2 Densenets on Cifar-10
 
++ Densenet
+  + 40 layer densenet architectire created fron the [code](https://github.com/liuzhuang13/DenseNetCaffe)
+  + Default hyper-parameters: LR = 0.1, momentum = 0.9, WD = 0.0001
+  + finding the hyper-parameters more challenging than width wide resnets
 
+
++ Illustration of hyper-parameter search for wide resnet and densenet on Cifar-10
+  + fir steps for testing hyparametres: running a LR range test with a few maximum values for momentum
+  + Fig. 13(b): Comparison of momentum with a 40 layer densenet
+    + momentum = 0.99: diverge
+    + viaible test loss easier to interpret to find the best hyper-parameters values than the test loss
+    + smaller momentum performing better
+    + using momentum values from 0.9 to 0.85 for subsequent tests
+  + Fig. 13(c): Comparison of WD with 40 layer densesnet
+    + the densenet architecture stable even with a learning rate range from 0.1 to 4.0
+    + initial guess for TBS = 256
+    + momentum range: 0.95 ~ 0.85
+    + weight decay: $10^{-3}, 10^{-4}$, and $10^{-5}$
+    + $WD = 10^{-3}$: poor performance
+    + $WD = 10^{-5}$: best performance
+    + stochasticity of the ciurve: architecture complexity adding regularization to reduce the weigh decay makes intuitive sense
+  + Fig. 13(d): Comparison of TBS with 40 layer densenet
+    + TBS: 256 & 512 (1024 not fit to author's hardware)
+    + TBS = 256 performs better
+    + larger batch size reducing the regularization (refklectedd in the slightly noisy curve)
 
 
 
