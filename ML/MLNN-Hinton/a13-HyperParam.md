@@ -656,7 +656,38 @@ Author: Leslie N. Smith
 
 ## 5. Experiments with Other Architectures and Datasets
 
++ recommendations for finding a good set of hyper-parameters w/ a given dataset and architecture
+  1. Learning rate (LR)
+    + perform a learning rate range test to a "large" learning rate
+    + max LR depends onm architecture
+      + shallow 3-layer architecture: 0.01
+      + resnet: 3.0
+    + 1cycle LR policy
+      + max LR: from an LR range test
+      + min LR: $LR_{max} / 10$ but othger facts relevant, such as the rate of learning rate increase
+  2. Total batch size (TBS):
+    + larget batch size working well
+    + constrainted by the GPU memory
+    + TBS = batch size on a GPU x the number of GPUs
+    + able to comapre different performance w/ batch sizes if archecture small or hardware permitted very large batch size
+    + small batch sizes add regularizaton wjile large batch sizes add less $\to$ balacing the proepr amount of regularization
+    + better to use  a large batch size  $\implies$ able to use larger learning rate
+  3. Momentum
+    + short runs w/ momentum values: 0.99, 0.97, 0.95, and 0.9 to attain the best value for momentum
+    + 1cycle learning rate schedule: using cyclical momentum (CM)
+    + CM procedure: starting at the maximum momentum and decreasing with increasing learning rate (0.8 or 0.85)
+    + performance almosy indepent of the minimum momentum value
+    + cyclical momentum + LR range test: stablizeing the convergence when using large learning rate values more than a constant momentum does
+  4. Weight decsy (WD)
+    + a grid search to determine the proper magnitude
+    + usually not requiring more than one significant figure accuracy
+    + value setting: knowledge of the dataset and architecture used
+    + more complex dataset requiring less regularization: test smaller WD, such as $10^{-4}, 10^{-5}, 10^{-6}$ and 0
+    + shallow architecture requireing more regularization: test larger WD values, such as $10^{-2}, 10^{-3}, 10^{4}$
 
++ Hyper-parameter optimization: reasonably quicl if searching for clues in the test loss early in the training
+
++ [Files](https://github.com/lnsmith54/hyperParam1) to replicate the results
 
 
 
