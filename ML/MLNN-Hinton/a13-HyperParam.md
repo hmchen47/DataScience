@@ -689,6 +689,106 @@ Author: Leslie N. Smith
 
 + [Files](https://github.com/lnsmith54/hyperParam1) to replicate the results
 
++ Final accuracy and standard deviation for various datasets and architectures
+  + The total batch size (TBS) for all of the reported runs was 512. 
+  + PL = learning rate policy, SS = stepsize in epochs, where two steps are in a cycle, WD = weight decay, CM = cyclical momentum. 
+  + Either SS or PL is provide in the Table and SS implies the cycle learning rate policy.
+
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.arxiv-vanity.com/papers/1803.09820/">Final accuracy and standard deviation for various datasets and architectures</a></caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Dataset</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Architecture</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CLR/SS/PL</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CM/SS</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">WD</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Epochs</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Accuracy (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;">
+      <td rowspan="14">Cifar-10</td> <td rowspan="7">wide resnet</td> <td rowspan="4">0.1/Step</td> <td rowspan="4">0.9</td> <td rowspan="4">$10^{-4}$</td> <td>100</td> <td>$86.7 \pm 0.6</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>200</td> <td>$88.7 \pm 0.6$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>400</td> <td>$98.8 \pm 0.4$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>800</td> <td>$90.3 \pm 1.0$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-0.5/12</td> <td>0.95-0.85/12</td> <td>$10^{-4}$</td> <td>25</td> <td>$87.3 \pm 0.8$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-1.0/23</td> <td>0.95-0.85/23</td> <td>$10^{-4}$</td> <td>50</td> <td>$91.3 \pm 0.1$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-1.0/45</td> <td>0.95-0.85/45</td> <td>$10^{-4}$</td> <td>100</td> <td>$91.9 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td rowspan="7">densenet</td> <td rowspan="3">0.1/Step</td> <td rowspan="3">0.9</td> <td>$10^{-4}$</td> <td>100</td> <td>$91.3 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>$10^{-4}$</td> <td>200</td> <td>$92.1 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>$10^{-4}$</td> <td>400</td> <td>$92.7 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-4/22</td> <td>0.90-0.85/22</td> <td>$10^{-6}$</td> <td>50</td> <td>$91.7 \pm 0.3$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-4.0/34</td> <td>0.9-0.85/34</td> <td>$10^{-6}$</td> <td>75</td> <td>$92.1 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-4.0/45</td> <td>0.90-0.85/45</td> <td>$10^{-6}$</td> <td>100</td> <td>$92.2 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.1-4.0/70</td> <td>0.90-0.85/70</td> <td>$10^{-6}$</td> <td>150</td> <td>$92.8 \pm 0.1$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td rowspan="6">MNIST</td> <td rowspan="6">LeNet</td> <td>0.01/inv</td> <td>0.9</td> <td>$5 \times 10^{-4}$</td> <td>85</td> <td>$99.03 \pm 0.04$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.01/step</td> <td>0.9</td> <td>$5 \times 10^{-4}$</td> <td>85</td> <td>$99.00 \pm 0.04$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.01-0.10/5</td> <td>0.95-0.8/5</td> <td>$5 \times 10^{-4}$</td> <td>12</td> <td>$99.25 \pm 0.03$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.01-0.10/12</td> <td>0.95-0.80/12</td> <td>$5 \times 10^{-4}$</td> <td>25</td> <td>$99.28 \pm 0.06$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.01-0.10/23</td> <td>0.95-0.80/23</td> <td>$5 \times 10^{-4}$</td> <td>50</td> <td>$99.27 \pm 0.07$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.02-0.20/40</td> <td>0.95-0.80/40</td> <td>$5 \times 10^{-4}$</td> <td>85</td> <td>$99.35 \pm 0.03$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td rowspan="6">Cifar-100</td> <td rowspan="6">resnet-56</td> <td rowspan="3">0.005/step</td> <td rowspan="3">0.9</td> <td>$10^{-4}$</td> <td>100</td> <td>$60.8 \pm 0.4$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>$10^{-4}$</td> <td>200</td> <td>$61.6 \pm 0.9$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>$10^{-4}$</td> <td>400</td> <td>$61.0 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.10-0.50/12</td> <td>0.95-0.85/12</td> <td>$10^{-4}$</td> <td>25</td> <td>$65.4 \pm 0.2$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.10-0.50/23</td> <td>0.95-0.85/23</td> <td>$10^{-4}$</td> <td>50</td> <td>$66.4 \pm 0.6$</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>0.09-0.90/45</td> <td>0.95-0.85/45</td> <td>$10^{-4}$</td> <td>100</td> <td>$69.0 \pm 0.4$</td>
+    </tr>
+    </tbody>
+  </table>
+
 
 
 ### 5.1 Wide Resents on Cifar-10
