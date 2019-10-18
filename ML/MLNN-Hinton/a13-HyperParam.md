@@ -858,6 +858,13 @@ Author: Leslie N. Smith
     + TBS = 256 performs better
     + larger batch size reducing the regularization (refklectedd in the slightly noisy curve)
 
++ Final accuracy results of Densenet in Table 2
+  + 1cycle learn rate schedule with LR range: $[0.1, 4.0]$
+  + cyclical momentum range: 0.90 - 0.95
+  + improvement on accuracy w/ Longer traininng length 
+    + 50 epochs (4,882 iterations): $91.7 \%$
+    + 150 epochs (14,648 iteraions): $92.9 \%$
+  + step learning rate policy requiring longer training length (400 epochs) to retain equivalent accuracy of $92.7 \%$
 
 
 ### 5.3 MNIST
