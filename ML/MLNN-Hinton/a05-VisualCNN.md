@@ -125,12 +125,16 @@ Author: Matthew Stewart
     </a>
   </div>
 
++ How do we know this is the best architecture?
+  + comparison of two architectures (see diagram)
+  + less dead unit on the modified (left) network
+  + more defined features on modified network
 
-
-### How do we know this is the best architecture?
-
-
-
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1818/1*i0DWeHo8uqAVr_586BIWUw.png" style="margin: 0.1em;" alt="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" title="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" width=500>
+    </a>
+  </div>
 
 
 ## Image reconstruction
