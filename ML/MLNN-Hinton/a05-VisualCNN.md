@@ -89,8 +89,28 @@ Author: Matthew Stewart
   + transposed convolution projects feature maps back to input space
   + transposed convolution corresponds to the backpropagation of the gradient
 
++ How do we perform feature visualization?
+  1. evaluate the validation database on the trained network
+  2. record the nine highest activation values of each filter's output
+  3. project the recorded 9 outputs into input space for every neuron
+    + projecting: all other activation units in the given layer set to zero
+    + only observing the gradient of a single channel
+    + switch variables used in the unpooling layers
+  + earlier layers learn more fundamental features such as lines and shapes
+  + latter layers learn more complex features
 
-### How do we perform feature visualization?
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2095/1*ANPwlSZ36smDSgiYXAcAbQ.png" style="margin: 0.1em;" alt="AlexNet first layer" title="AlexNet first layer" height=200>
+      <img src="https://miro.medium.com/max/2095/1*nrrIv5uriFmn8sRBlLAswQ.png" style="margin: 0.1em;" alt="AlexNet second layer" title="AlexNet second layer" height=200>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2095/1*DQxut5xSVZ4qrexLbijPZA.png" style="margin: 0.1em;" alt="AlexNet fourth layer" title="AlexNet fourth layer" height=200>
+      <img src="https://miro.medium.com/max/2095/1*8eqV8qklluFcD_q1J5uZnQ.png" style="margin: 0.1em;" alt="AlexNet fifth layer" title="AlexNet fifth layer" height=200>
+    </a>
+  </div>
 
 
 
