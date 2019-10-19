@@ -112,11 +112,18 @@ Author: Matthew Stewart
     </a>
   </div>
 
++ How do we test feature evolution during training?
+  + the feature evolution after 1, 2, 5, 10, 20, 39, 40 and 64 (see diagram)
+  + notes about the network
+    + lower layers converge soon after a few single passes
+    + fifth layer not converged until a very large numver of epochs
+    + lower layers may change their features correspondence after converging
 
-
-
-### How do we test feature evolution during training?
-
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2323/1*exTfLFv6y0LYIseZRUsJ1g.png" style="margin: 0.1em;" alt="Example output of five layers at a specified number of epochs" title="Example output of five layers at a specified number of epochs" width=800>
+    </a>
+  </div>
 
 
 
