@@ -1011,13 +1011,21 @@ Author: Leslie N. Smith
 
 ## A. Appendix
 
-
-
-
 ### A.1 Experimental Methods: Detailed Information about the Experiments to Enable Replication
 
++ Hardware:
+  + IBM Power8, 32 compute nodes, 20 cores/node, 4 Tesla P100 GPUs/node with 255 GB available memory/node
+  + additional server: a 64 node cluster with 8 Nvidia Titan Black GPUs, 128 GB memory, and dual Intel Xenon E5-2620 v2 CPUs per node
 
-
++ Improvement opf genality
+  + each curve in the plots is an average of four runs
+  + each run with slightly different batch sizes and different initialization schemes
+  + marginalizing the batch size and initialization to help insure that the results are independent of precise choices.
+  + Two even and two odd batch sizes used within in a range from a minimum batch size to that size plus 12
+  + Total batch size: an average batch size of the four runs
+  + two initialization schemes
+    + msra and xavier
+    + the runs alternated between these two
 
 
 ### A.2 Implementation of Cyclical Momentum in Caffe
