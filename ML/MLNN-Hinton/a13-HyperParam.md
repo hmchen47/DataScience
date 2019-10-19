@@ -869,8 +869,41 @@ Author: Leslie N. Smith
 
 ### 5.3 MNIST
 
++ The MNIST ddatabase
+  + handwritten digits from 0 to 9
+  + 60,000 examples
+  + test set: 10,000 examples
+  
++ Framework
+  + architecture: shallow, 3-layer LeNet
+  + [Caffe framework](https://github.com/BVLC/caffe):
+    + architecture & its associated hyper-parameters
+    + LR = 0.01
+    + momentum = 0.9
+    + WD = 0.0005
 
++ hyper-parameter search for MNIST dataset with a shallow, 3-layer network
+  + learning rate range: 0.001 ~ 0.04
+  + Fig. 14(a): Comparison of momentum
+    + default momentum value = 0.9
+    + visible inferio to a cyclical momentum decreasing from 0.95 to 0.8
+  + Fig. 14(b): a search for the optimal weight decay value
+    + default weigh decay: 0.0005
+    + using WD = 0.001 to define the optimal weight decay range
+    + default value providing better performance with similar result as WD = 0.001
+    + both larger (WD = 0.003) and smaller (WD = 0.0001) increasing the loss
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerCM2.png" style="margin: 0.1em;" alt="(a) Comparison of momentum" title="Fig. 14(a): Comparison of momentum" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerWD2.png" style="margin: 0.1em;" alt="(b) Comparison of weight decay)" title="Fig. 14(b): Comparison of weight decay" height=250>
+    </a>
+  </div>
+
++ Final accuracy results of LeNet in Table 2
+  + inv LR policy: $99.03 \%$ in 85 epochs
+  + step policy ~ inv learning rate policy
+  + 1cycle poliicy: $99.3 \%$ in only 12 epochs
 
 
 ### 5.4 Cifar-100
