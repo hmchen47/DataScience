@@ -982,17 +982,31 @@ Author: Leslie N. Smith
   </div>
 
 
+## 6. References
 
-
-## 6. Discussion
-
-
-
-
-
-## 7. References
-
-
++ Emile Aarts and Jan Korst. Simulated annealing and boltzmann machines. 1988.
++ Yoshua Bengio. [Practical recommendations for gradient-based training of deep architectures](https://www.arxiv-vanity.com/papers/1206.5533/). In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
++ Yoshua Bengio, Jerome Louradour, Ronan Collobert, and Jason Weston. [Curriculum learning](https://dx.doi.org/10.1145/1553374.1553380). In Proceedings of the 26th annual international conference on machine learning, pp. 41–48. ACM, 2009.
++ James Bergstra and Yoshua Bengio. Random search for hyper-parameter optimization. Journal of Machine Learning Research, 13(Feb):281–305, 2012.
++ Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio. Deep learning, volume 1. MIT press Cambridge, 2016.
++ Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. [Deep residual learning for image recognition](https://www.arxiv-vanity.com/papers/1512.03385/). In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770–778, 2016.
++ Alex Hernández-García and Peter König. [Do deep nets really need weight decay and dropout?](https://www.arxiv-vanity.com/papers/1802.07042/) arXiv preprint arXiv:1802.07042, 2018.
++ Stanisław Jastrzebski, Devansh Arpit, Nicolas Ballas, Vikas Verma, Tong Che, and Yoshua Bengio. [Residual connections encourage iterative inference](https://www.arxiv-vanity.com/papers/1710.04773/). arXiv preprint arXiv:1710.04773, 2017a.
++ Stanisław Jastrzebski, Zachary Kenton, Devansh Arpit, Nicolas Ballas, Asja Fischer, Yoshua Bengio, and Amos Storkey. [Three factors influencing minima in sgd](https://www.arxiv-vanity.com/papers/1711.04623/). arXiv preprint arXiv:1711.04623, 2017b.
++ Diederik Kingma and Jimmy Ba. [Adam: A method for stochastic optimization](https://www.arxiv-vanity.com/papers/1412.6980/). arXiv preprint arXiv:1412.6980, 2014.
++ Jan Kukačka, Vladimir Golkov, and Daniel Cremers. [Regularization for deep learning: A taxonomy](https://www.arxiv-vanity.com/papers/1710.10686/). arXiv preprint arXiv:1710.10686, 2017.
++ Tianyi Liu, Zhehui Chen, Enlu Zhou, and Tuo Zhao. [Toward deeper understanding of nonconvex stochastic optimization with momentum using diffusion approximations](https://www.arxiv-vanity.com/papers/1802.05155/). arXiv preprint arXiv:1802.05155, 2018.
++ Jonathan Lorraine and David Duvenaud. [Stochastic hyperparameter optimization through hypernetworks](https://www.arxiv-vanity.com/papers/1802.09419/). arXiv preprint arXiv:1802.09419, 2018.
++ Genevieve B Orr and Klaus-Robert Müller. Neural networks: tricks of the trade. Springer, 2003.
++ Leslie N Smith. [No more pesky learning rate guessing games](https://www.arxiv-vanity.com/papers/1506.01186/). arXiv preprint arXiv:1506.01186, 2015.
++ Leslie N Smith. Cyclical learning rates for training neural networks. In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
++ Leslie N Smith and Nicholay Topin. [Super-convergence: Very fast training of residual networks using large learning rates](https://www.arxiv-vanity.com/papers/1708.07120/). arXiv preprint arXiv:1708.07120, 2017.
++ Samuel L Smith and Quoc V Le. Understanding generalization and stochastic gradient descent. arXiv preprint arXiv:1710.06451, 2017.
++ Samuel L Smith, Pieter-Jan Kindermans, and Quoc V Le. Don’t decay the learning rate, increase the batch size. arXiv preprint arXiv:1711.00489, 2017.
++ Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: A simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
++ Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, and Alexander A Alemi. Inception-v4, inception-resnet and the impact of residual connections on learning. In AAAI, volume 4, pp.  12, 2017.
++ D Randall Wilson and Tony R Martinez. [The general inefficiency of batch training for gradient descent learning. Neural Networks](http://axon.cs.byu.edu/papers/Wilson.nn03.batch.pdf), 16(10):1429–1451, 2003.
++ Chen Xing, Devansh Arpit, Christos Tsirigotis, and Yoshua Bengio. [A walk with sgd](https://www.arxiv-vanity.com/papers/1802.08770/). arXiv preprint arXiv:1802.08770, 2018.
 
 
 ## A. Appendix
