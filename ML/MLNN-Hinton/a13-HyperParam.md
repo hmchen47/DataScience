@@ -1030,7 +1030,32 @@ Author: Leslie N. Smith
 
 ### A.2 Implementation of Cyclical Momentum in Caffe
 
++ Repalcing the following line in ComputeUpdateValue function of SGDSolver (near line 314)
 
+  > Dtype momentum = this->param_.momentum();
 
+  with the following lines
+
+  ```c
+  Dtype momentum = this->param_.momentum();
+
+  if (this->param_.cyclical_momentum_size() == 2) {
+    int cycle = this->iter_  /
+      (2*this->param_.cyclical_momentum(1));
+    float x = (float) (this->iter_ -
+      (2*cycle+1)*this->param_.cyclical_momentum(1));
+    x = x / this->param_.cyclical_momentum(1);
+    momentum  = this->param_.momentum() +
+      (this->param_.cyclical_momentum(0)- this->param_.momentum()) *
+      std::min(double(1), std::max(double(0),
+      (1.0 - fabs(x))/pow(2.0,double(cycle))));
+  }
+  ```
+
+  + Add the following line in SolverParameter add near line 174 of caffe.proto
+
+  ```c
+  repeated float cyclical_momentum = 44;
+  ```
 
 
