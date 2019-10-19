@@ -896,7 +896,7 @@ Author: Leslie N. Smith
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
       <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerCM2.png" style="margin: 0.1em;" alt="(a) Comparison of momentum" title="Fig. 14(a): Comparison of momentum" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerWD2.png" style="margin: 0.1em;" alt="(b) Comparison of weight decay)" title="Fig. 14(b): Comparison of weight decay" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerWD2.png" style="margin: 0.1em;" alt="(b) Comparison of weight decay" title="Fig. 14(b): Comparison of weight decay" height=250>
     </a>
   </div>
 
@@ -908,7 +908,31 @@ Author: Leslie N. Smith
 
 ### 5.4 Cifar-100
 
++ Cifar-100 dataset
+  + similar to Cifar-10 but 100 classes
+  + 500 training images and 100 testing images per class
+  + expect the sam optimal hyper-parameter as Cifar-10
 
++ Hyper-parameter search for the Cifar-100 dataset with the resnet-56 architecture
+  + resnet-56 architecture as used in Cifar-10
+  + Cifar-10 optimal: $LR = 0.1 - 1.0, batch size = 512, cyclical momentum = 095 - 0.85, WD = 10^{-4}$
+  + Fig 15 (a): the valiadton loss for weight decay at values of $3 \times 10^{-3}, 10^{-4}$ and $10^{-5}%
+    + $WD = 10^{-4}$: best result
+    + both two others w/ higher loss
+  + Fig 15 (b): accuracies training curves for $WD = 256, 512, 1024$
+    + epochs/iterations asjusted to provide similar execution time
+    + all within standard deviation of each other
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56Cifar100WD.png" style="margin: 0.1em;" alt="(a) Weight decay search" title="Fig. 15 (a): Weight decay search" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56Cifar100TBS.png" style="margin: 0.1em;" alt="(b) Total Batch Size search" title="Fig. 15 (b): Total Batch Size search" height=250>
+    </a>
+  </div>
+
++ Final accuracy result of Cifar-100 on resnet-56 in Table 2
+  + 1cycle training rate policy significantly better than the step learning rate policy
+  + the learing length (epochs): 1 cycle LR policy reducing by an order of magnitude
 
 
 ### 5.5 Imagnet
