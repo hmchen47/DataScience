@@ -937,6 +937,49 @@ Author: Leslie N. Smith
 
 ### 5.5 Imagnet
 
++ Imagnet dataset
+  + a large image database w/ 1.24 million training images
+  + 1000 classes
+  + downloadable from the [site](http://image-net.org/download-images)
+  
++ Network architectures
+  + Archiecture: resnet-50 & inception-resnet-v2
+  + downloadable fro the [site](https://github.com/soeaver/caffe-model)
+  + With high dimensaional data, reducing or eliminating regularization in the form of weight decay allows the use of larger learning rates and produces much faster convergence and higher final accuracy
+
++ Training resnet and inception architectures on the imagenet dataset
+  + the standard learning rate policy (blue curve) versus a 1cycle policy that displays super-convergence
+  + deep neural networks can be trained much faster (20 versus 100 epochs) than by using the standard training methods
+  + Fig. 16 (a): the comparison of training a resnet-50 architecture on Imagenetw/ the current traininng methodology vs the super-convergence method
+    + hyper-paramaters for original training (blue curve):
+      + recommended values in "Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, and Alexander A Alemi. Inception-v4, inception-resnet and the impact of residual connections on learning. In AAAI, volume 4, pp.  12, 2017."
+      + momentum = 0.9, LR = 0.045 decaying every 2 epochs using an exponential rate of 0.94, WD = $10^{-4}$
+    + runs not executed to completion of the training (time constrainted)
+    + accuracy: $63.7 \%$ after 130 epochs
+    + extrapolated accuracy: $\sim 65 \%$
+    + 1 cycle learning arte schedule for 20 epochs (red and yellow curves)
+      + LR = 0.05 - 1.0
+      + reducing the vlaue of weight decay due to large LR
+      + $WD = 3 \times 10^{-6} \sim 10^{-5}$: best accuracy at $67.6 \%$
+      + smaller WD: aigns of underfitting 
+      + displaying small amount of overfitting (in particular $WD = 3 \times 10^{-6}$)
+      + overfitting: a good indicator of the best value and helping to search for the optimal WD early in the training
+  + Fig. 16 (b): the training a inception-resnet-v2 architecture on Imagenet
+    + standard way: blue curve
+    + 1 cycle learing rate policy: red & yellow curves
+    + siliar results as shown in resnet architecture
+    + accuracy: $67.6 \%$ after 100 epochs
+    + extrapolated accuracy: $69-70 \%$
+    + reducing the WD permitted to use 1cycle LR policy w/ LR on $[0.05, 1.0]$
+    + $WD = 3 \times 10^{-6} - 10^{-6}$ works well
+    + $WD = 3 \times 10^{-6}$: best accuracy at $74.0 \%$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetResnetSC2.png" style="margin: 0.1em;" alt="(a) Resnet-50" title="Fig. 16 (a): Resnet-50" height=250>
+      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetInceptionSC2.png" style="margin: 0.1em;" alt="(b) Inception-resnet-v2" title="Fig. 16 (b): Inception-resnet-v2" height=250>
+    </a>
+  </div>
 
 
 
