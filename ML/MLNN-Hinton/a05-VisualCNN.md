@@ -248,7 +248,26 @@ Author: Matthew Stewart
 
 ## Neural Style Transfer
 
++ Neural Style Transfer
+  + first publication: Gatys, Leon A.; Ecker, Alexander S.; Bethge, Matthias (26 August 2015). “A Neural Algorithm of Artistic Style”
+  + combining content and style reconstruction
+  + procedure of NST
+    + choose a layer (or set of layers) to represent content - the middle layers recommended (not too shall, not too deep) for best results
+    + minimizing the total cost by using backpropagation
 
+      \[J_{total}(\mathbf{x}, \mathbf{y}) = \alpha J_C^{[l]}(\mathbf{x}, \mathbf{y}) + \beta J_S(\mathbf{x}, \mathbf{y})\]
+
+    + initializing the input with random noise (necessary of generating gradients)
+    + replacing max-pool layers with average pooling to improve the gradient flow and to produce more appealing pictures
+  + Example
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1343/1*CAMHku2Bars3sxUUktH9aA.png" style="margin: 0.1em;" alt="Examples of neural style transfer" title="Examples of neural style transfer" height=250>
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1883/1*90t9BwVJ--zzGzJnwXJkgQ.png" style="margin: 0.1em;" alt="Procedure of neural style transfer" title="procedure of neural style transfer" height=250>
+    </a>
+  </div>
 
 
 ### Code Implementation
