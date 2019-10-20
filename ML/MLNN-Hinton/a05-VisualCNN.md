@@ -184,8 +184,38 @@ Author: Matthew Stewart
 
 ### Texture Synthesis
 
++ textture synthesis
+  + purpose: to generate high perceptual quality images that imitate a given texture
+  + using a trained convolutional neural network for object classification
+  + employing correlation of features among layers as a generative process
+  + Example
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+        <img src="https://miro.medium.com/max/1613/1*-kBlSklZBtqVGkECajwF3w.png" style="margin: 0.1em;" alt="Example of texture synthesis" title="Example of texture synthesis" width=450>
+      </a>
+    </div>
+  
++ Output of a given layer
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1035/1*PBwlcoL2R7zvQ1SBIOT_zA.png" style="margin: 0.1em;" alt="Output layer of texture synthesis" title="Output layer of texture synthesis" width=300>
+    </a>
+  </div>
+
++ Computing the cross-correlation of the feature maps
+  + Notations
+    + $a_{ijk}^{[l]}$: the output of a given filter $k$ at layer $l$
+  + the cross-correlation btw output and a different channel $k$
+
+    \[G_{kk^\prime}^{[l]} = \sum_{i=1}^{n_{H}^{[l]}} \sum_{j=1}^{n_W^{[l]}} a_{ijk}^{[l]} a_{ijk^\prime}^{[l]}\]
+
+  + The Gram matrix: vectorized cross-correlation
+
+    \[G^{[l]} = A^{[l]}(A^{[l]})^T\]
+
+    \[\left(A^{[l]}\right)^T = (a_{::1}^{[l]}, \dots, a_{::n_C^{[l]}}^{[l]})\]
 
 
 ### Generating new textures
