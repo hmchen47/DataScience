@@ -243,6 +243,8 @@ Author: Matthew Stewart
   </a>
 </div>
 
++ Ref: Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “Texture synthesis using convolutional neural networks”
+
 
 ## Neural Style Transfer
 
