@@ -139,7 +139,47 @@ Author: Matthew Stewart
 
 ## Image reconstruction
 
++ Deep image representation
+  + Aravindh Mahendran and Andrea Vedaldi, “Understanding deep image representations by inverting them,” Nov. 2014.
+  + able to reconstruct an image from latent features
+  + training network to retain an accuracy photographic representation about the image, retaining geometric and photometric invariance
 
++ Mathematical representation
+  + Assumptions & Notations
+    + $a^{[l]}$: the latent representation of layer $l$
+  + Optimization problem
+
+    \[\hat{x} = \underset{\mathbf{y}}{\operatorname{arg min}} J_C^{[l]}(\mathbf{x}, \mathbf{y}) + \lambda R(\mathbf{y})\]
+
+    \[J_C^{[l]}(\mathbf{x}, \mathbf{y}) = \left\| a^{[l](G)} - a^{[l](C)} \right\|_{\mathcal{F}}^2\]
+
+  + Regularization w/ $\alpha$-norm regularizer
+
+    \[R_{\alpha} (\mathbf{y}) = \lambda_\alpha \left\| \mathbf{y} \right\|_{\alpha}^{\alpha}\]
+
+  + Regularization w/ total variation regularizer
+
+    \[R_{V_\beta} (\mathbf{y}) = \lambda_{V_\beta} \sum_{i, j, k} \left( \left(y_{i, j+1, k} - y_{i, j, k}\right)^2 + \left(y_{i+1, j, k} - y_{i, j, k}\right)^2 \right)^{\beta/2}\]
+
++ Procedure for image reconstruction
+  1. initialize $\mathbf{y}$ with random noise
+  2. feedforward pass the image
+  3. computing the loss function
+  4. computing the gradients of the cost and backpropagate to input space
+  5. updating general image $G$ w/ a gradient step
+
+  + Example
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+        <img src="https://miro.medium.com/max/1520/1*905yAP40kq9lhZ8_9PcDAg.png" style="margin: 0.1em;" alt="Example of image reconstruction" title="Example of image reconstruction" height=250>
+      </a>
+    </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+        <img src="https://miro.medium.com/max/2103/1*JYRkcMkObMUi4w2Md4RALw.png" style="margin: 0.1em;" alt="Example of image reconstruction" title="Example of image reconstruction" height=300>
+      </a>
+    </div>
 
 
 ### Texture Synthesis
