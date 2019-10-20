@@ -272,7 +272,85 @@ Author: Matthew Stewart
 
 ### Code Implementation
 
++ the [Jupyter notebook](https://github.com/mrdragonbear/Neural-Networks/blob/master/Neural-Style-Transfer/Neural-Style-Transfer.ipynb) located in the GitHub repository
 
++ [local Neural Style Transfer Jupyter notebook](src\Neural-Style-Transfer/Neural-Style-Transfer.ipynb)
+
++ Code Implementation
+  + Part 1: import necessary functions
+    ```python
+    import time
+    import numpy as np
+
+    from keras import backend as K
+    from keras.applications import vgg16, vgg19
+    from keras.preprocessing.image import load_img
+
+    from scipy.misc import imsave
+    from scipy.optimize import fmin_l_bfgs_b
+
+    # preprocessing
+    from utils import preprocess_image, deprocess_image
+    ```
+
+  + Part 2: content loss
+    + combining the content and style of a pair w/ a loss function that incorporates this information
+      + mimic the specific activations of a certain layer for the content image
+      + mimic the style
+    + the variable to optimize on the loss function will be generated image that aims to minimize the proposed cost
+    + performing gradient descent on the pixel values, rather than on the neural network weights
+    + trained neural network: VGG-16
+    + using the activation values obtained for an image of interest to represent the content and style
+    + measuring how much the feature map pf the generated image differs from the feature map of the source image
+
+  + Part 3: style loss
+    + the style measures the similarity among filters in a set of layers
+    + similarity: compute the Gram matrix of the activation values for the style layers
+    + Gram matrix: related to the empirical covariance matrix and reflecting the statistics of the activation values
+
+  + Part 4: style loss - layer's loss
+    + compute the style loss at a set of layers rather than just a single layer
+    + total style loss: the sum of style losses at each layer
+
+  + Part 5: total-variation regularizer
+    + encouraging smoothness in the image using a total-variation regularizer
+    + penalty: reducing variation among the neighboring pixel values
+
+  + Part 6: style transfer
+    + put all together to generate some images
+    + style_transfer function: combining the losses and optimizing for the image to minimize the total loss
+
+  + Part 6: generate picture
+    + run you own compositions and test out variations of hyper-parameters
+    + list of hyper-parameters to vary
+      + base_img_path: filename of content image
+      + style_img_path: filename of style image
+      + compute_img_path: filename of the generated image
+      + convnet: specifying the neural network weights, VGG-16 or VGG-19
+      + content_layer: specifying layer to use for content loss
+      + content_weight:
+        + weighting the content loss in the overall composite loss function
+        + increasing the value of this parameter will make the final image look more realistic (closer to the original content)
+      + style_layers: specifying a list of which layers to use for the style loss
+      + style_weight
+        + specifying a list of weights to use for each layer in style_layers (each of which will contribute a term to the overall style loss)
+        + using higher weights for the earlier style layers
+          + describing more local/smaller-scale features
+          + local features: more important to texture than features over larger receptive fields
+        + increasing these weights to make the resulting image look less like the original content and more distorted towards the appearance of the style image
+      + tv_weight:
+        + specifying the weighting of total variation regularization in the overall loss function
+        + increasing the value makes the resulting image look smoother and less jagged, at the cost of lower fidelity to style and content
+
++ Examples
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1224/1*f3gT72gXAbOgtQ9a2sXDGA.png" style="margin: 0.1em;" alt="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" title="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" height=300>
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1280/1*8s1L0x7HOS6saNomlSXagA.png" style="margin: 0.1em;" alt="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" title="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" height=300>
+    </a>
+  </div>
 
 
 ### DeepDream
