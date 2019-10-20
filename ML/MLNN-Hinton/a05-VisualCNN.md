@@ -237,8 +237,11 @@ Author: Matthew Stewart
 
 ### Process description
 
-
-
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1485/1*cXUh1aw7Q3i5ZRq1CIlyng.png" style="margin: 0.1em;" alt="Full texture synthesis process" title="Full texture synthesis process" width=700>
+  </a>
+</div>
 
 
 ## Neural Style Transfer
