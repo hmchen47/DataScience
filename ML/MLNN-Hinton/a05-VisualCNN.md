@@ -220,8 +220,19 @@ Author: Matthew Stewart
 
 ### Generating new textures
 
++ Notations
+  + $G^{[l](S)}$: the Gram matrix of the style image
+  + $G^{[l](G)}$: the Gram matrix of the newly generated matrix
+  + $\|G\|_\mathcal{F}$: the Frobenius norm
 
++ creating new texture
+  + synthesize an image w/ similar correlation to the one to reproduce
+  
+  \[J^{[l]}_S (G^{[l]}(S), G^{[l](G)}) = \frac{1}{4\left(n_W^{[l]} n_H^{[l]}\right)^2} \left\| G^{[l](S)} - G^{[l](G)} \right\|_\mathcal{F}^2\]
 
++ global cost function: with given weights $\lambda_1, \dots, \lambda_L$
+
+  \[J_S(\mathbf{x}, \mathbf{y}) = \sum_{l=0}^L \lambda_l J_S^{[l]} \left(G^{[l](S)}, G^{[l](G)}\right)\]
 
 
 ### Process description
