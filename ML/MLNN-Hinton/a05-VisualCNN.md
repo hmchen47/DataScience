@@ -372,6 +372,76 @@ Author: Matthew Stewart
 
 ### Inceptionism: Going Deeper into Neural Networks
 
++ Inceptionism
+  + having a reasonable intuition about what types of features encapsulated by each of the layers in a neural network
+  + network
+    + first layer: edges or corners
+    + intermediate layers: interpreting the basic features to look for overall shapes or components, like a door or a leaf
+    + final layer: assembling shapes or components into complete interpretations, like trees, building, etc.
+
++ Example
+  + what kind of image would result in a banana
+  + one way: turning the neural network upside down, starting with an image full of random noise, and then gradually tweak the image toward what the neural neural network considers a banana
+  + if imposing a prior constraint, the image should have similar characteristics to natural images
+  + a correlation between neighboring pixels (see diagram)
+  + neural networks trained to discriminate between different image classes
+  + having a substantial amount if information needed to generate image too
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1238/1*SilWmiEZXN6CnQmrasARyg.png" style="margin: 0.1em;" alt="Example of Inceptionism" title="Example of Inceptionism" width=400>
+    </a>
+  </div>
+
++ class generation
+  + purpose: flipping the discriminative model into a generative model
+  + useful to ensure that the network is learning the right features and not cheating
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1668/1*StKK6yiXhSrlSjGwSGgxQg.png" style="margin: 0.1em;" alt="Example of class generation" title="Example of class generation" width=400>
+    </a>
+  </div>
+
++ visualizing mistakes
+  + cheating with dumbbells
+  + training a network w/ a set of pictures of dumbbells
+  + using random noise w/ prior constraints to imagine some dumbbells (see diagram)
+  + failed tto completely distill the essence of a dumbbell
+  + none of the training pictures having any weightlifters
+  + visualization help to correct these kinds of training mishaps
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1280/1*A6jsI8cxorXp-7fhBo6WaA.png" style="margin: 0.1em;" alt="Example of visualizing mistakes" title="Example of visualizing mistakes" width=400>
+    </a>
+  </div>
+
++ Enhancing feature maps
+  + feeding an image and then picking a layer and asking the network to enhance whatever it detect
+  + lower layer: producing strokes and simple ornament-like patters (top left diagram)
+  + higher layer: emerging into complex features or even whole objects (top right diagram)
+  + training w/ pictures of animals, look more like an animal (middle diagram)
+  + features entered bias as the network toward certain interpretations (bottom left diagram)
+  + applying the algorithm iteratively on its own outputs and zooming after each iteration (bottom right diagram)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1498/1*Enhancing feature map: lower layerb9hjaHnItz168bZ3YE-8XQ.png" style="margin: 0.1em;" alt="Enhancing feature map: lower layer" title="Enhancing feature map: lower layer" height=150>
+      <img src="https://miro.medium.com/max/1193/1*feBHqMc81crBnZFhSKo1Ag.png" style="margin: 0.1em;" alt="Enhancing feature map: higher layer" title="Enhancing feature map: higher layer" height=150>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1390/1*jqvzS7yIE1NUbRyIENyLlw.png" style="margin: 0.1em;" alt="Examples of clouds w/ animals" title="Examples of clouds w/ animals" height=150>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1173/1*KQ3uF6qStNlQ421qj5f9Fw.png" style="margin: 0.1em;" alt="Horizon lines tend to get filled with towers and pagodas" title="Horizon lines tend to get filled with towers and pagodas" height=250>
+      <img src="https://miro.medium.com/max/1490/1*e8w7E1mAMsJhL9C2NBOJqw.png" style="margin: 0.1em;" alt="Examples of applied output and some zooming after each iteration" title="Examples of applied output and some zooming after each iteration" height=250>
+    </a>
+  </div>
 
 
 ## Final Comments
