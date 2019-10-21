@@ -347,7 +347,6 @@ Author: Matthew Stewart
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
       <img src="https://miro.medium.com/max/1224/1*f3gT72gXAbOgtQ9a2sXDGA.png" style="margin: 0.1em;" alt="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" title="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" height=300>
-    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
       <img src="https://miro.medium.com/max/1280/1*8s1L0x7HOS6saNomlSXagA.png" style="margin: 0.1em;" alt="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" title="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" height=300>
     </a>
   </div>
@@ -355,12 +354,23 @@ Author: Matthew Stewart
 
 ### DeepDream
 
++ DeepDreamer
+  + a computer vision program created by Alexander Mordvintsev at Google
+  + using a convolutional neural network to find and enhance patterns in images via algorithm pareidolia
+  + creating a dream-like hallucinogenic appearance in the deliberately over-processed images
+  + dreaming:
+    + the generation of images that produce desired activation in a trained deep network
+    + a collection of related approaches
 
++ Example
 
-
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1045/1*iADSYV8WCtqGBhkqNqNlnQ.png" style="margin: 0.1em;" alt="Example of DeeDream" title="Example of DeepDream" height=300>
+    </a>
+  </div>
 
 ### Inceptionism: Going Deeper into Neural Networks
-
 
 
 
