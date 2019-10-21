@@ -444,7 +444,15 @@ Author: Matthew Stewart
   </div>
 
 
-## Final Comments
+## References
+
+1. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “A neural algorithm of artistic style,” Aug. 2015.
+2. Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton, “Imagenet classification with deep convolutional neural networks,” in Advances in neural information processing systems, 2012, pp. 1097–1105.
+3. Matthew D. Zeiler and Rob Fergus, “Visualizing and understanding convolutional networks” in Computer Vision. 2014, pp. 818–833, Springer.
+4. Matthew D Zeiler, Graham W Taylor, and Rob Fergus, “Adaptive deconvolutional networks for mid and high-level feature learning,” in IEEE International Conference on Computer Vision (ICCV), 2011, pp. 2018–2025.
+5. Aravindh Mahendran and Andrea Vedaldi, “Understanding deep image representations by inverting them,” Nov. 2014.
+6. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “Texture synthesis using convolutional neural networks”.
+7. Gatys, Leon A.; Ecker, Alexander S.; Bethge, Matthias (26 August 2015). “A Neural Algorithm of Artistic Style”.
 
 
 
