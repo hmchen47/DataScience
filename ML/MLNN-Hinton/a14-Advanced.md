@@ -49,11 +49,53 @@ Author: Matthew Stewart
 + Limitation: only worked if two datasets very similar
 
 
+## 2. Pruning
 
-## Pruning
++ Model pruning
+  + induce sparsity in a deep neural network's various connection matrices
+  + reducing the number of non-zero-valued parameters in the model
+  + originally used in decision trees where branches of the tree are pruned as a form of model regularization
+  + pruning weights unimportant or rarely fired w/ little to no consequence
+  + Fact: the majority of neurons relatively small impact on the model performance, i.e., achieving high accuracy even eliminating a large numbers of parameters
 
++ Reducing the number of parameters in a network
+  + neural architectures and datasets get larger to obtain reasonable execution times of models
+  + increasing important
 
++ Efficacy of pruning
+  + research paper: [To prune, or not to prune: exploring the efficacy of pruning for model compression](https://arxiv.org/pdf/1710.01878.pdf)
+  + examining the performance of neural networks as a function of sparsity (effectively the percentage of neurons removed)
+  + even removing 75% of the neurons w/o significantly affected the model performance
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1965/1*GdcBOqBhQw4GsA7wxfLMAg.png" style="margin: 0.1em;" alt="(a) the gradual sparsity function and expontentially decaying learning rate used for training sparse-Inception V3 model; (b) evolution of the model's accuracy during the training process" title="Illustration of sparsity and accuracy" width=400>
+      <img src="https://miro.medium.com/max/1328/1*_MvV8ttzId69GzMeJCvBLQ.png" style="margin: 0.1em;" alt="Table 1: model size and accuracy tradeoff for sparse-Inception V3" title="Table for model size an daccuracy tradeoff" width=300>
+    </a>
+  </div>
+
++ Performing pruning
+  + pruning typing done in convolutional neural networks
+  + the majority of parameters in convolutional models occur in the fully connected (vanilla) neural layers
+  + most of the parameters eliminated from this portion of the network
+
++ Approaches of performing pruning
+  + weight pruning:
+    + weight pruning rank-orders the weights by their magnitude
+    + parameters with larger weights more likely to fire and thus more likely to be important
+  + unit pruning
+    + set entire columns in the weight matrix to zero, in effect deleting the corresponding output neuron
+    + to achieve sparsity of $k\%$, ranking the columns of a weight matrix according to their L2-norm and delete teh smallest $k\%$
+  + Fisher pruning
+    + relying on the Fisher information
+    + generating a norm known as the Fisher-Rao norm which can be used to rank-order parameters
+    + conjecture: a link between the Fisher information and the redundancy of parameters
+
++ Two recent papers
+  + Christos Louizos, Max Welling, Diederik P. Kingma (2018) [Learning Sparse Neural Networks through L0 Regularization](https://arxiv.org/abs/1712.01312)
+  + Lucas Theis, Iryna Korshunova, Alykhan Tejani, Ferenc Huszár (2018) [Faster gaze prediction with dense networks and Fisher pruning](https://arxiv.org/abs/1801.05787)
+
++ code implementation of pruning on the standard VGG16 network: [code implementation of pruning on the standard VGG16 network](https://jacobgil.github.io/deeplearning/pruning-deep-learning?source=post_page-----f27fbcc638ae----------------------)
 
 
 ## Tuning the learning rate
