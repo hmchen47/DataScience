@@ -399,7 +399,26 @@ Author: Matthew Stewart
 
 ## 6. Initialization Strategies
 
++ Convergence w/ initialization
+  + convex problem w/ a small learning rate: convergence guaranteed, no matter what the initialization
+  + non-convex
+    + not well understood to have principled, mathematically nice initialization strategies
+    + heuristics used to select a reasonable set of starting weights from which the network is trained
 
++ Initialization strategies
+  + architecture: a fully connected layer with $m$ inputs and $n$ outputs
+  + uniform distributed to obtain the initial weights
+
+    \[ W_{ij} \sim U \left( 1\frac{1}{\sqrt{m}}, \frac{1}{sqrt{m}} \right) \]
+
+  + popular Xavier initialization for its uniform distribution
+
+    \[ w_{ij} \sim U \left( -\frac{6}{\sqrt{m+n}}, \frac{6}{\sqrt{m+n}} \right) \]
+
+    + derived considering that the network consists of matrix multiplication with no nonlinearites
+    + seems to perform well in practice
+
++ List of wright initialization: [initializers section of the Kreas documentation](https://keras.io/initializers/)
 
 
 
