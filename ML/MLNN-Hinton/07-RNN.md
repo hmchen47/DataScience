@@ -4,7 +4,110 @@
 
 ### Lecture Notes
 
++ Getting targets when modeling sequences
+  + when applying machine learning to sequences, often turn an input sequence into an output sequence that lives in a different domain
+    + e.g., turn a sequence of sound pressures into a sequence of word identities
+  + when no separate target sequence, get a teaching signal by trying to predict the next term in the input sequence
+    + target output sequence: the input sequence with an advance of 1 step
+    + seeming much more natural than trying to predict one pixel in an image from other pixels, or one patch of an image from the rest of the image
+    + temporal sequences: a natural order for the predictions
+  + predicting the next terms in a sequence blurs the distinction between supervised and unsupervised learning
+    + using methods designed for supervised learning but not require a separate teaching signal
 
++ Memoryless models for sequences
+  + autoregressive models: predict the next term in a sequence from a fixed number of previous terms using "delay taps"
+  + feed-forward neural nets
+    + these generalize autoregressive models by using one or more layers of non-linear hidden units
+    + e.g. Bengio's first language model
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-01.png" style="margin: 0.1em;" alt="Autoregressive models" title="Autoregressive models" height=80>
+      <img src="img/m07-02.png" style="margin: 0.1em;" alt="Feed-forward neural nets" title="Feed-forward neural nets" height=80>
+    </a>
+  </div>
+
++ Beyond memoryless models
+  + generative model w/ hidden state that has its own internal dynamics
+    + providing a much more interesting kind of model
+    + storing information in its hidden state for a long time
+    + dynamics is noisy $\to$ outputs generated from its hidden states is noisy %\to$ the exact hidden state unknown
+    + best practice: infer a probability distribution over the space of hidden state vectors
+  + inference: only tractable for two types of hidden state model
+    + two types of hidden state model: linear dynamic systems & hidden Markov models
+    + showing how RNNs differ
+
++ Linear dynamical systems (engineers perspective)
+  + generative models
+    + a real-value hidden state not able to observed directly
+    + hidden state having linear dynamics w/ Gaussian noise
+    + producing the observations using a linear model w/ Gaussian noise
+    + there may also be <span style="color: red;">driving inputs</span>
+  + to predict the next output
+    + required to infer the hidden state
+    + a linear transformed Gaussian is a Gaussian
+    + distribution over the hidden state given the data so far is Gaussian
+    + computed using "Kalman filtering"
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-03.png" style="margin: 0.1em;" alt="Linear dynamical systems" title="Linear dynamical systems" width=150>
+  </div>
+
++ Hidden Markov Models (computer scientists perspective)
+  + a discrete one-of-N hidden state
+    + transition btw states are stochastic
+    + controlled by a transition matrix
+    + outputs produced by a state are stochastic
+    + not sure which state produced a given output $\to$ the state is "hidden"
+    + easy to represent a probability distribution across $N$ states w/ $N$ numbers
+  + to predict the next output
+    + required to infer probability distribution over hidden states
+    + HMMs w/ efficient algorithms for inference and learning
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-04.png" style="margin: 0.1em;" alt="Hidden Markov models" title="Hidden Markov models" width=150>
+  </div>
+
++ A fundamental limitation of HMMs
+  + considering what happens when a hidden Markov model generates data
+    + select one of its hidden states at each time step
+    + with $N$ hidden states, only remember $\log(N)$ bits about hat it generated
+  + considering the first half of an utterance contains about the second half
+    + syntax to fit, e.g., number and tense agreement
+    + semantic to fit; intonation to fit
+    + accent, rate, volume and vocal tract characteristics must all fit
+  + all aspects combined could be 100 bits of information that the fist half of an utterance needs to convey to the second half. $2^{100}$ is big!
+
++ Recurrent neural networks
+  + very powerful
+  + Properties of RNNs
+    + distributed hidden state allowing them to store a lot of information about the past efficiently
+    + non-linear dynamics allowing them to update their hidden state in complicated ways
+  + with enough neurons and time RNNs able to compute anything that can be computed by your computer
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-05.png" style="margin: 0.1em;" alt="Recurrent neural networks" title="Recurrent neural networks" width=150>
+  </div>
+
++ Do generative models need to be stochastic?
+  + linear dynamical systems and hidden Markov models are stochastic models
+    + the posterior probability distribution over their hidden states given the observed data so far is a deterministic function of the data
+  + recurrent neural networks ae deterministic
+    + think of the hidden state of an RNN as the equivalent of the deterministic probability distribution over hidden states in a linear dynamical system or hidden Markov model
+
++ Recurrent neural networks
+  + what kinds of behavior can RNNs exhibit?
+    + able to oscillate; good for motor control?
+    + able to settle to point attractors; good for retrieving memories?
+    + able behave chaotically; bad for information processing?
+    + RNNs potentially learn to implement lots small programs
+    + each capture a nugget of knowledge and run in parallel
+    + interacting to produce very complicated effects
+  + the computational power of RNNs makes them very hard to train
+    + unable to exploit the computational power of RNNs
 
 
 ### Lecture Video
