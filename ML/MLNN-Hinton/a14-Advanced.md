@@ -253,7 +253,9 @@ Author: Matthew Stewart
 
 ## 4. How to address overfitting
 
-
++ overfitting in deep neural networks
+  + never truly believe that the results from a trained network are optimal
+  + very common
 
 
 ### 4.1 Estimators
