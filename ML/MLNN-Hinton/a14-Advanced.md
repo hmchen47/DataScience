@@ -275,10 +275,55 @@ Author: Matthew Stewart
     + bias: expected deviation from the true value
     + variance: deviation from the expected estimator
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1475/1*hk99PbiLpVCHnMPEkP2YdA.png" style="margin: 0.1em;" alt="Examples of bais and variance" title="Examples of bais and variance" width=350>
+    </a>
+  </div>
+
 
 ### 4.2 Diagnosing bias-variance
 
++ Bas-variance trade-off
+  + high dimensions: no decision curves to inspect bias-variance
+  + calculating error values to infer the source of errors on the training set, as well as on the validation set
 
++ Bayes error rate
+  + bias: baseline required, such as human-level performance
+  + the lowest possible error rate for any classifier of a random outcome
+  + the minimum error able to obtain with a perfect model stripped of all avoidable bias and variance
+
++ Analyzing the errors
+  + analyzing and comparing the errors on the training and validation sets to deduce the cause of the error (see diagram)
+  + techniques to analyze the errors of estimator
+    + orthogonalization:
+      + decompose the process to adjust neural network performance
+      + assumption: errors from different sources
+      + using a systematic approach to minimize them
+    + early stopping
+      + a popular regularization mechanism
+      + coupling the biases and variance errors
+  + ways to reduce the bias
+    + train a bigger model (increasing the explainability of the model)
+    + train longer (reaching convergence)
+    + adapt the neural architecture or perform an extensive hyperparameter search
+  + ways to reduce the variance
+    + get more data
+    + use regularization mechanisms
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1670/1*6Pv1elIKtPWWxZ0fWM3JMA.png" style="margin: 0.1em;" alt="Training error consists of Bayes error and validation error" title="Training error consists of Bayes error and validation error" height=70>
+      <img src="https://miro.medium.com/max/2035/1*X6VOmPFi3cjlrBgTYbCwag.png" style="margin: 0.1em;" alt="Training error consists of Bayes error and validation error" title="Training error consists of Bayes error and validation error" height=70>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1840/1*Ok4oY8Mlz-4Eh-qnQrzTWw.png" style="margin: 0.1em;" alt="Training error consists of Bayes error and validation error" title="Training error consists of Bayes error and validation error" height=150>
+    </a>
+  </div>
+
++ extremely helpful way to troubleshoot the network: analyze network's results and determine whether the issue is caused by biasing or variance
 
 
 
