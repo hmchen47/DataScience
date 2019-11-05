@@ -177,6 +177,6 @@
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
 + Ryan Harris, [Neural Network Tutorial](https://www.youtube.com/playlist?list=PL29C61214F2146796) videos
 + Matthew Stewart, [Neural Networks](https://github.com/mrdragonbear/Neural-Networks)
-
++ Trong, [Neural Networks](https://trongr.github.io/neural-network-course/neuralnetworks.html)
 
 
