@@ -146,6 +146,7 @@
 + Matthew Stewart, [Neural Network Optimization](a03-Optimization.md)
 + Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](a04-Hyperparameter.md)
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](a05-VisualCNN.md)
++ Matthew Stewart, [Advanced Topics in Neural Networks](a14-Advanced.md)
 + Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](a06-DeltaRule.md)
 + Drew Rollins, [Delta Function](a07-DeltaFunc.md)
 + Chris McCormick, [Deep Learning Tutorial - Softmax Regression](a08-SoftmaxReg.md)
@@ -175,7 +176,7 @@
   + [Chouffe](https://github.com/Chouffe/hinton-coursera)
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
 + Ryan Harris, [Neural Network Tutorial](https://www.youtube.com/playlist?list=PL29C61214F2146796) videos
-
++ Matthew Stewart, [Neural Networks](https://github.com/mrdragonbear/Neural-Networks)
 
 
 
