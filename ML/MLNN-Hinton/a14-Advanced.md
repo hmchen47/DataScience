@@ -424,7 +424,41 @@ Author: Matthew Stewart
 
 ## 7. Further Reading
 
+### 7.1 Important Neural Network Articles
+
++ [Deep learning in neural networks: An overview](https://www.sciencedirect.com/science/article/pii/S0893608014002135?source=post_page---------------------------)
++ [Continual lifelong learning with neural networks: A review — Open access](https://www.sciencedirect.com/science/article/pii/S0893608019300231?source=post_page---------------------------)
++ [Recent advances in physical reservoir computing: A review — Open access](https://www.sciencedirect.com/science/article/pii/S0893608019300784?source=post_page---------------------------)
++ [Deep learning in spiking neural networks](https://www.sciencedirect.com/science/article/pii/S0893608018303332?source=post_page---------------------------)
++ [Ensemble Neural Networks (ENN): A gradient-free stochastic method — Open access](https://www.sciencedirect.com/science/article/pii/S0893608018303319?source=post_page---------------------------)
++ [Multilayer feedforward networks are universal approximators](https://www.sciencedirect.com/science/article/pii/0893608089900208?source=post_page---------------------------)
++ [A comparison of deep networks with ReLU activation function and linear spline-type methods — Open access](https://www.sciencedirect.com/science/article/pii/S0893608018303277?source=post_page---------------------------)
++ [Networks of spiking neurons: The third generation of neural network models](https://www.sciencedirect.com/science/article/pii/S0893608097000117?source=post_page---------------------------)
++ [Approximation capabilities of multilayer feedforward networks](https://www.sciencedirect.com/science/article/pii/089360809190009T?source=post_page---------------------------)
++ [On the momentum term in gradient descent learning algorithms]()
 
 
+### 7.2 Pruning Articles
+
++ [Runtime Neural Pruning](https://papers.nips.cc/paper/6813-runtime-neural-pruning.pdf) by Lin et al, 2017.
++ [Structured Pruning of Deep Convolutional Neural Networks](https://arxiv.org/abs/1512.08571) by Anjar, Hwang and Sung, 2015.
++ [Fast Algorithms for Convolutional Neural Networks](https://arxiv.org/pdf/1509.09308.pdf) by Lavin and Gray, 2015.
++ [Learning to Prune Filters in Convolutional Neural Networks](https://arxiv.org/pdf/1801.07365.pdf) by Huang et al, 2018.
++ [To prune, or not to prune: exploring the efficacy of pruning for model compression](https://arxiv.org/pdf/1710.01878.pdf) by Zhu and Gupta, 2017.
++ [Pruning Convolutional Neural Networks for Resource Efficient Inference](https://arxiv.org/abs/1611.06440) by Molchanov et al., 2017.
++ [Learning Sparse Neural Networks through L0 Regularization](https://arxiv.org/abs/1712.01312) by Louizos et al, 2018.
++ [Faster gaze prediction with dense networks and Fisher pruning](https://arxiv.org/abs/1801.05787) by Theis et al, 2018.
+
+
+### 7.3 Weight Initialization
+
++ Understanding the difficulty of training deep feedforward neural networks by Glorot and Bengio, 2010.
++ Exact solutions to the nonlinear dynamics of learning in deep linear neural networks by Saxe et al, 2013.
++ Random walk initialization for training very deep feedforward networks by Sussillo and Abbott, 2014.
++ Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification by He et al., 2015.
++ Data-dependent Initializations of Convolutional Neural Networks by Krähenbühl et al., 2015.
++ All you need is a good init, Mishkin and Matas, 2015.
++ Fixup Initialization: Residual Learning Without Normalization, Zhang et al, 2019.
++ The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks, Frankle and Carbin, 2019.
 
 
