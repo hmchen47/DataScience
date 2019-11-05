@@ -260,7 +260,20 @@ Author: Matthew Stewart
 
 ### 4.1 Estimators
 
++ point estimation
+  + providing the single "best" prediction of some quantity of interest
 
+    \[ \hat{\mathbf{\theta}}_m = g(\mathbf{x}^{(1)}, \dots, \mathbf{x}^{(m)}) \]
+
+    + $\mathbf{\theta}$: true value
+    + $\hat{\mathbf{\theta}}_m$: estimator for $m$ samples
+  + more often, $\mathbf{\theta}$ fixed but unknown and the data is random
+
++ Bias & Variance
+  + estimator: a random variable
+  + random variable susceptible to bias and variance
+    + bias: expected deviation from the true value
+    + variance: deviation from the expected estimator
 
 
 ### 4.2 Diagnosing bias-variance
