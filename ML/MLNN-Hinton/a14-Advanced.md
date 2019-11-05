@@ -145,6 +145,24 @@ Author: Matthew Stewart
 
 ### 3.3 SGD with Warm Restarts
 
++ Warm restarts
+  + restart the learning after a specified number of epochs
+  + example
+    + the learning rate starts at 0.1 initially and decreases exponentially over time
+    + after 30 iterations, the learning rate scheduler resets the learning rate to the same value as epoch 1
+    + the learning rate scheduler repeats the same exponentially decay
+  + record the best estimates each time before resetting the learning rate
+  + restarts not from scratch but from the last estimate
+  + providing most of the benefits as cyclical learning rates
+  + able to escape extreme local minima
+
++ Warm restarts with cosine annealing
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/805/1*Iymc7F6RF_PKije9dhZA2g.png" style="margin: 0.1em;" alt="Warm restarts with cosine annealing done every 50 iterations of Cifar10 dataset" title="Warm restarts with cosine annealing done every 50 iterations of Cifar10 dataset" width=350>
+    </a>
+  </div>
 
 
 
