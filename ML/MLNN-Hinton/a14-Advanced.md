@@ -166,7 +166,58 @@ Author: Matthew Stewart
 
 
 
-### 3.4 Snapshot ensembles: Train 1, get M for free
+### 3.4 Snapshot ensembles
+
++ G. Huang, et. al proposal: [Snapshot Ensembles: Train 1, get M for free](https://arxiv.org/pdf/1704.00109)
+
++ Ensemble networks
+  + training a single neural network with $M$ different models
+  + much more robust and accurate than individual networks
+  + another type of regularization technique
+  + converge to $M$ different local optima and save network parameters
+  + training w/ many different neural networks and then optimizing w/ major vote, or averaging of the prediction output
+
++ Example of snapshot ensembles
+  + Left diagram: Illustration of SGD optimization with a typical learning rate schedule. The model converges to a minimum at the end of training.
+  + Right diagram: Illustration of Snapshot Ensembling. The model undergoes several learning rate annealing cycles, converging to and escaping from multiple local minima.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2118/1*Lp8rhR6C_TWuSIcF_QXXfA.png" style="margin: 0.1em;" alt="Left: Illustration of SGD optimization with a typical learning rate schedule. The model converges to a minimum at the end of training. Right: Illustration of Snapshot Ensembling. The model undergoes several learning rate annealing cycles, converging to and escaping from multiple local minima." title="Snapshot ensembles" width=650>
+    </a>
+  </div>
+
++ Classification
+  + often developing ensembled or blended models
+  + providing superior results to any single model
+  + constraint: high correlation btw models
+
++ Procedure
+  + Model training
+    + training w/ each model to reach local minimum w.r.t the training loss
+    + take a snapshot of the model weights before raising the training rate
+    + after $M$ cycles, $M$ model snapshots $f_1, f_2, \dots, f_M$ obtained
+  + mode ensemble
+    + taking average of snapshots
+    + used to obtain result
+
++ Advantages
+  + achieving a neural network w/ smoothened parameters
+  + reducing the total noise and the total error
+  + w/o any additional training cost: total training time of $M$ snapshots same as training a model w/ a standard schedule
+
++ Not perfect: different initialization points or hyperparameter choices converging to different local minimum
+
++ Results of the snapshot ensemble on several common datasets
+  + Error rates (%) on CIFAR-10 and CIFAR-100 datasets.
+  + All methods in the same group are trained for the same number of iterations.
+  + Results of the ensemble method are colored in blue, and the best result for each network/dataset pair are bolded.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1695/1*aGAFkgUcikcm81E6EOX04g.png" style="margin: 0.1em;" alt="Error rates (%) on CIFAR-10 and CIFAR-100 datasets. All methods in the same group are trained for the same number of iterations. Results of the ensemble method are colored in blue, and the best result for each network/dataset pair are bolded." title="Snapshot ensembles" width=650>
+    </a>
+  </div>
 
 
 
