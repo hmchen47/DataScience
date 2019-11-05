@@ -98,69 +98,85 @@ Author: Matthew Stewart
 + code implementation of pruning on the standard VGG16 network: [code implementation of pruning on the standard VGG16 network](https://jacobgil.github.io/deeplearning/pruning-deep-learning?source=post_page-----f27fbcc638ae----------------------)
 
 
-## Tuning the learning rate
+
+### 3.1 Cyclical Learning Rates for Neural Networks
+
++ Cyclical learning rates
+  + main use: escape local extreme points, especially sharp local minima (overfitting)
+  + saddle points:
+    + abundant in high dimensions
+    + convergence very slow if not impossible
+  + increasing the learning rate periodically
+    + a short term negative effects but help to achieve a long-term beneficial effect
+  + decreasing the learning rate
+    + reduce error towards the end
+
++ Examples of cyclical learning rates
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/780/1*kk4fq-pLk95ZWN6KyXM3RA.png" style="margin: 0.1em;" alt="Examples of cyclical learning rates" title="Examples of cyclical learning rates" width=300>
+    </a>
+  </div>
+
++ Limitations: what learning rate scheme set and the magnitude of these learning rates
 
 
-
-
-### Cyclical Learning Rates for Neural Networks
-
-
-
-
-### Estimating the Learning Rate
-
-
-
-
-### SGD with Warm Restarts
-
-
-
-
-### Snapshot ensembles: Train 1, get M for free
-
-
-
-
-### Polyak-Ruppert averaging
-
-
-
-
-
-## How to address overfitting
-
-
-
-
-### Estimators
-
-
-
-
-### Diagnosing bias-variance
+### 3.2 Estimating the Learning Rate
 
 
 
 
 
-## Dropout
+### 3.3 SGD with Warm Restarts
 
 
 
 
-### Diagnosing bias-variance
+### 3.4 Snapshot ensembles: Train 1, get M for free
 
 
 
 
-## Initialization Strategies
+### 3.5 Polyak-Ruppert averaging
 
 
 
 
-## Final Comment
+
+## 4. How to address overfitting
+
+
+
+
+### 4.1 Estimators
+
+
+
+
+### 4.2 Diagnosing bias-variance
+
+
+
+
+
+## 5. Dropout
+
+
+
+
+### 5.1 Diagnosing bias-variance
+
+
+
+
+## 6. Initialization Strategies
+
+
+
+
+
+## 7. Further Reading
 
 
 
