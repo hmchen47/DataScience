@@ -124,7 +124,22 @@ Author: Matthew Stewart
 
 ### 3.2 Estimating the Learning Rate
 
++ starting w/ a small learning rate and increasing it on every batch exponentially
 
++ computing the loss function on a validation set
+
++ working for finding bounds for cyclic learning rates
+
++ Learning rates and loss function
+  + the cliff region in between the two extremes
+  + steadily decreasing and stable learning occurring
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/933/1*J-PZ-RanI1Ve-_kbuYzghQ.png" style="margin: 0.1em;" alt="Exponentially increasing learning rate across epochs" title="Exponentially increasing learning rate across epochs" height=200>
+      <img src="https://miro.medium.com/max/1220/1*Pep5Xicj_1C1WhFQAgL-nA.png" style="margin: 0.1em;" alt="Loss function as a function of learning rate" title="Loss function as a function of learning rate" height=200>
+    </a>
+  </div>
 
 
 
