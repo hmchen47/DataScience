@@ -326,10 +326,29 @@ Author: Matthew Stewart
 + extremely helpful way to troubleshoot the network: analyze network's results and determine whether the issue is caused by biasing or variance
 
 
-
 ## 5. Dropout
 
++ Dropout
+  + easy to implement but more difficult to grasp its underlying philosophy
+  + a regularization technique for deep neural networks
+  + employed at training time
+    + eliminated the dropout od some units randomly
+    + preventing the network from relying on individual neurons too much
+    + preventing from overfitting
+  + testing time
+    + all neurons presented
+    + firing probability scaled
+    + more neurons than previously present at training time
 
++ Dropout technique
+  + used in combination with other regularization techniques (such as L2, batch normalization, etc.)
+  + Purpose: prevent the co-adaption of feature detectors for a set of neurons, and avoid overfitting
+    + enforcing the neurons to develop an individual role on their own given an overall population behavior
+    + training weights encouraged to be spread across the neural network because no neuron is permanent
+  + Interpretation: training examples provide gradients from different, randomly sampled architectures
+  + direct implementation
+    + at training time: eliminate the output of some units randomly
+    + at test time: all units are present
 
 
 ### 5.1 Diagnosing bias-variance
