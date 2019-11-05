@@ -350,6 +350,13 @@ Author: Matthew Stewart
     + at training time: eliminate the output of some units randomly
     + at test time: all units are present
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1375/1*J_l09l2Fo4k5EHwUSRenQA.png" style="margin: 0.1em;" alt="Example of applying dropout" title="Example of applying dropout" height=150>
+      <img src="https://miro.medium.com/max/1395/1*pBncBWIkmogWIQ_6AhWCeQ.png" style="margin: 0.1em;" alt="Implement of dropout at traing and test times" title="Implement of dropout at traing and test times" height=150>
+    </a>
+  </div>
+
 
 ### 5.1 Diagnosing bias-variance
 
