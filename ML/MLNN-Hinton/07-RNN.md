@@ -204,8 +204,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
-      <img src="img/m07-08.png" style="margin: 0.1em;" alt="Inputs of recurrent nets" title="Inputs of recurrent nets" height=250>
-      <img src="img/m07-09.png" style="margin: 0.1em;" alt="Targets of recurrent nets" title="Targets of recurrent nets" height=250>
+      <img src="img/m07-08.png" style="margin: 0.1em;" alt="Inputs of recurrent nets" title="Inputs of recurrent nets" height=200>
+      <img src="img/m07-09.png" style="margin: 0.1em;" alt="Targets of recurrent nets" title="Targets of recurrent nets" height=200>
     </a>
   </div>
 
@@ -222,6 +222,67 @@
 
 ### Lecture Notes
 
++ A good toy problem for a recurrent network
+  + training a feed-forward net to do binary addition
+    + there are obvious regularities that it cannot capture efficiently
+    + decide in advance the maximum number of digits in each number
+    + processing applied to the beginning of a long number doe not generalize to the end of long number because ut uses different weights
+  + feed-forward nets not generalized well on the binary addition task
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-10.png" style="margin: 0.1em;" alt="Feed-forwad net w/ binary addition" title="Feed-forwad net w/ binary addition" height=150>
+    </a>
+  </div>
+
++ The algorithm for binary addition
+  + a finite state automation
+  + deciding what transition to make by looking at the next column
+  + making the transition
+  + moving from right to left over the two input numbers
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-11.png" style="margin: 0.1em;" alt="Finite state automation" title="Finite state automation" height=150>
+    </a>
+  </div>
+
++ A recurrent net for binary addition
+  + Architecture: two input units and one output unit
+  + given two input digits at each time step
+  + desired output at each time step: the output for the column that was provided as input two time step ago
+    + taking one time step to update the hidden units based on the two input digits
+    + taking another time step for the hidden units to cause the output
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-12.png" style="margin: 0.1em;" alt="A recurrent net for binary addition" title="A recurrent net for binary addition" height=100>
+    </a>
+  </div>
+
++ The connectivity of the network
+  + 3 hidden units fully interconnected in both directions
+    + allowing a hidden activity pattern at one time step to vote for the hidden activity pattern at the next time step
+  + input units having feed-forward connections that allow then to vote for the next hidden activity pattern
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-13.png" style="margin: 0.1em;" alt="The connectivity of the network" title="The connectivity of the network" height=150>
+    </a>
+  </div>
+
++ What the network learns
+  + learning 4 distinct patterns of activity for the 3 hidden units
+    + the __patterns__ correspond to the nodes in the finite state automaton
+    + not confusing units in a neural network w/ nodes in a finite state automaton
+    + automaton restricted to be in exactly one __state__ at each time
+    + hidden units restricted to have exactly one __vector__ of activity at each time
+  + recurrent network emulating a finite state automaton
+    + exponentially more powerful
+    + with $N$ hidden neurons, it has $2^N$ possible binary activity vectors (but only $N^2$ weights)
+    + this is important when the input stream has two separate things going on at once
+    + finite state automaton requiring to square its number of states
+    + RNN required to double its number of __units__
 
 
 
