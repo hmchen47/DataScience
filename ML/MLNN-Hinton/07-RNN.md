@@ -12,7 +12,7 @@
     + seeming much more natural than trying to predict one pixel in an image from other pixels, or one patch of an image from the rest of the image
     + temporal sequences: a natural order for the predictions
   + predicting the next terms in a sequence blurs the distinction between supervised and unsupervised learning
-    + using methods designed for supervised learning but not require a separate teaching signal
+    + using methods designed for supervised learning but not require a separate teaching signal (sounds like unsupervised)
 
 + Memoryless models for sequences
   + autoregressive models: predict the next term in a sequence from a fixed number of previous terms using "delay taps"
@@ -31,7 +31,7 @@
   + generative model w/ hidden state that has its own internal dynamics
     + providing a much more interesting kind of model
     + storing information in its hidden state for a long time
-    + dynamics is noisy $\to$ outputs generated from its hidden states is noisy %\to$ the exact hidden state unknown
+    + dynamics is noisy $\to$ outputs generated from its hidden states is noisy $\to$ the exact hidden state unknown
     + best practice: infer a probability distribution over the space of hidden state vectors
   + inference: only tractable for two types of hidden state model
     + two types of hidden state model: linear dynamic systems & hidden Markov models
@@ -47,33 +47,38 @@
     + required to infer the hidden state
     + a linear transformed Gaussian is a Gaussian
     + distribution over the hidden state given the data so far is Gaussian
-    + computed using "Kalman filtering"
+    + computed using "Kalman filtering", an efficient recursive way of updating the representation of the hidden state given a new observation
+  + Summary: 
+    + given the observations of the output system, not sure what hidden state in but able to estimate a Gaussian distribution over the possible hidden state it might have been in
+    + always assuming the model is the correct one
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
-      <img src="img/m07-03.png" style="margin: 0.1em;" alt="Linear dynamical systems" title="Linear dynamical systems" width=150>
+      <img src="img/m07-03.png" style="margin: 0.1em;" alt="Linear dynamical systems" title="Linear dynamical systems" width=200>
+    </a>
   </div>
 
 + Hidden Markov Models (computer scientists perspective)
   + a discrete one-of-N hidden state
-    + transition btw states are stochastic
-    + controlled by a transition matrix
-    + outputs produced by a state are stochastic
+    + transition btw states are stochastic and controlled by a transition matrix
+    + stochastic outputs w/ a state
     + not sure which state produced a given output $\to$ the state is "hidden"
     + easy to represent a probability distribution across $N$ states w/ $N$ numbers
   + to predict the next output
     + required to infer probability distribution over hidden states
     + HMMs w/ efficient algorithms for inference and learning
+  + an easy method based on dynamic programming to observer the output and compute the probability distribution across the hidden states
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
-      <img src="img/m07-04.png" style="margin: 0.1em;" alt="Hidden Markov models" title="Hidden Markov models" width=150>
+      <img src="img/m07-04.png" style="margin: 0.1em;" alt="Hidden Markov models" title="Hidden Markov models" width=200>
+    </a>
   </div>
 
 + A fundamental limitation of HMMs
   + considering what happens when a hidden Markov model generates data
     + select one of its hidden states at each time step
-    + with $N$ hidden states, only remember $\log(N)$ bits about hat it generated
+    + with $N$ hidden states, only remember $\log(N)$ bits about what it generated
   + considering the first half of an utterance contains about the second half
     + syntax to fit, e.g., number and tense agreement
     + semantic to fit; intonation to fit
@@ -81,33 +86,39 @@
   + all aspects combined could be 100 bits of information that the fist half of an utterance needs to convey to the second half. $2^{100}$ is big!
 
 + Recurrent neural networks
+  + efficient way to remember the information
   + very powerful
   + Properties of RNNs
-    + distributed hidden state allowing them to store a lot of information about the past efficiently
-    + non-linear dynamics allowing them to update their hidden state in complicated ways
+    + distributed hidden state: to store a lot of information about the past efficiently
+    + non-linear dynamics: to update their hidden state in complicated ways
   + with enough neurons and time RNNs able to compute anything that can be computed by your computer
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
       <img src="img/m07-05.png" style="margin: 0.1em;" alt="Recurrent neural networks" title="Recurrent neural networks" width=150>
+    </a>
   </div>
 
 + Do generative models need to be stochastic?
-  + linear dynamical systems and hidden Markov models are stochastic models
+  + stochastic models: both linear dynamical systems and hidden Markov models
     + the posterior probability distribution over their hidden states given the observed data so far is a deterministic function of the data
-  + recurrent neural networks ae deterministic
+    + probability distribution: a bunch of numbers that are a deterministic function of the data
+  + recurrent neural networks are deterministic
     + think of the hidden state of an RNN as the equivalent of the deterministic probability distribution over hidden states in a linear dynamical system or hidden Markov model
+    + the numbers constitute the hidden state of a recurrent neural network
 
 + Recurrent neural networks
   + what kinds of behavior can RNNs exhibit?
-    + able to oscillate; good for motor control?
-    + able to settle to point attractors; good for retrieving memories?
-    + able behave chaotically; bad for information processing?
-    + RNNs potentially learn to implement lots small programs
-    + each capture a nugget of knowledge and run in parallel
-    + interacting to produce very complicated effects
+    + oscillate: good for motor control?
+    + settle to point attractors: good for retrieving memories?
+    + chaotic behavior: bad for information processing? randomness?
+    + RNNs potentially learn to implement lots small programs using different subsets of its hidden state
+    + each program able to capture a nugget of knowledge
+    + the programs able to run in parallel
+    + interacting each other to produce very complicated effects
   + the computational power of RNNs makes them very hard to train
     + unable to exploit the computational power of RNNs
+    + implementing on a parallel computer
 
 
 ### Lecture Video
