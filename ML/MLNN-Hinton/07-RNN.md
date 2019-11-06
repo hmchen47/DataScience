@@ -226,7 +226,7 @@
   + training a feed-forward net to do binary addition
     + there are obvious regularities that it cannot capture efficiently
     + decide in advance the maximum number of digits in each number
-    + processing applied to the beginning of a long number doe not generalize to the end of long number because ut uses different weights
+    + processing applied to the beginning of a long number does not generalize to the end of long number because it uses different weights
   + feed-forward nets not generalized well on the binary addition task
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -237,9 +237,16 @@
 
 + The algorithm for binary addition
   + a finite state automation
-  + deciding what transition to make by looking at the next column
+  + system in one state at a time
+  + performing the action to print 1 or 0 once entering a state
+  + get input (the two number in the next column) when staying a state
+  + the input deciding what transition to make by looking at the next column
   + making the transition
   + moving from right to left over the two input numbers
+  + Binary addition algorithm example: top right state: a carry state to print 1 (see diagram)
+    + (1, 1): back into itself
+    + (0, 1) or (1, 0): entering carry state (bottom right) and printing 0
+    + (0, 0): entering no carry state (top left) and print 1
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -251,6 +258,7 @@
   + Architecture: two input units and one output unit
   + given two input digits at each time step
   + desired output at each time step: the output for the column that was provided as input two time step ago
+    + e.g., generate the bottom right $1$ as the output of (1, 1) inputs on the 3rd left column
     + taking one time step to update the hidden units based on the two input digits
     + taking another time step for the hidden units to cause the output
 
@@ -261,9 +269,9 @@
   </div>
 
 + The connectivity of the network
-  + 3 hidden units fully interconnected in both directions
+  + 3 hidden units fully interconnected in both directions (might be w/ different weights)
     + allowing a hidden activity pattern at one time step to vote for the hidden activity pattern at the next time step
-  + input units having feed-forward connections that allow then to vote for the next hidden activity pattern
+  + input units having feed-forward connections (two-digit column) that allow them (the connection to the output unit) to vote (producing output) for the next hidden activity pattern
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -271,19 +279,21 @@
     </a>
   </div>
 
-+ What the network learns
++ What the network learns (the example)
   + learning 4 distinct patterns of activity for the 3 hidden units
     + the __patterns__ correspond to the nodes in the finite state automaton
     + not confusing units in a neural network w/ nodes in a finite state automaton
+    + nodes in finite state automaton like activity vectors of the recurrent neural network
     + automaton restricted to be in exactly one __state__ at each time
     + hidden units restricted to have exactly one __vector__ of activity at each time
   + recurrent network emulating a finite state automaton
-    + exponentially more powerful
-    + with $N$ hidden neurons, it has $2^N$ possible binary activity vectors (but only $N^2$ weights)
+    + exponentially more powerful in representation
+    + with $N$ hidden neurons, it has $2^N$ possible binary activity vectors
+    + bottleneck in the representation: only $N^2$ weights; not able to make full use of all that representational power
+    + a recurrent neural network able to do much better than a finite state automaton
     + this is important when the input stream has two separate things going on at once
-    + finite state automaton requiring to square its number of states
-    + RNN required to double its number of __units__
-
+    + finite state automaton requiring to square its number of states to deal w/ the fact that there's 2 things going on at once
+    + RNN required to double its number of the hidden __units__; the doubling the number of units $\to$ square the number of binary vector states
 
 
 ### Lecture Video
@@ -298,16 +308,17 @@
 
 ### Lecture Notes
 
-<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video><br/>
-
 
 
 
 
 ### Lecture Video
+
+<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
 
 ## 7.5 Long term short term memory
 
