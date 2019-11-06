@@ -133,6 +133,67 @@
 
 ### Lecture Notes
 
++ The equivalence between feed-forward nets and recurrent nets
+  + assumption: a time delay of 1 in using each connection
+  + the recurrent net is just a layered net that keeps reusing the same weights
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-06.png" style="margin: 0.1em;" alt="Feedforward nets" title="Feedforward networks" width=250>
+      <img src="img/m07-07.png" style="margin: 0.1em;" alt="Recurrent neural networks" title="Recurrent neural networks" width=250>
+    </a>
+  </div>
+
++ Recall: backpropagation w/ weight constraints
+  + easy to modify the backpropagation algorithm to incorporate linear constraints between the weights
+  + computing the gradients as usual, and then modify the gradients to satisfy then constraints
+  + continuing process to satisfy the constraints if the weights not satisfied<br/><br/>
+
+    To constraint: $w_1 = w_2$
+
+    we need: $\Delta w_1 = \Delta w_2$
+
+    compute: $\frac{\partial E}{\partial w_1}$ and $\frac{\partial E}{\partial w_2}$
+
+    use $\frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2}$ for $w_1$ and w_2$
+
++ backpropagation through time
+  + recurrent net: a layered, feed-forward net with shared weights
+  + training the feed-forward net w/ weight constraints
+  + training algorithm in the time domain
+    + forward pass: a stack of the activities of all the units at each time step
+    + backward pass: peeling activities off the stack to compute the error derivatives at each time step
+    + adding the derivatives at all the different times for each weight after backward pass
+
++ An irritating extra issue
+  + specifying the initial activity state of all the hidden and output units
+  + just fixing these initial states to have some default value like 0.5
+  + better to treat the initial states as learned parameters
+  + training them in the same way as we learn the weights
+    + starting off w/ an initial random guess for the initial states
+    + at the end of each training sequence, backpropagate through time all the way to the initial states to get the gradient of the error function w.r.t. each initial state
+    + adjusting the initial states by following the negative gradient
+
++ Input and Output of recurrent networks
+  + specifying inputs in several ways
+    + the initial states of all the units
+    + the initial states of a subset of the units
+    + the states of the same subset of the units at every time step
+      + the natural way to model most sequential data
+  + specifying targets in several ways
+    + desired final activities of all the units
+    + desired activities of all units for the last few steps
+      + good for learning attractors
+      + easy to add in extra error derivatives as backpropagating
+    + the desired activity of a subset of the units
+      + other units: input or hidden units
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-08.png" style="margin: 0.1em;" alt="Inputs of recurrent nets" title="Inputs of recurrent nets" height=250>
+      <img src="img/m07-09.png" style="margin: 0.1em;" alt="Targets of recurrent nets" title="Targets of recurrent nets" height=250>
+    </a>
+  </div>
 
 
 
