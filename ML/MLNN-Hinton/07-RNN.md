@@ -134,13 +134,23 @@
 ### Lecture Notes
 
 + The equivalence between feed-forward nets and recurrent nets
+  + Architecture: 3 interconnected neurons
+  + network running in discrete time, i.e., a clock w/ integer ticks
   + assumption: a time delay of 1 in using each connection
+  + objective: how to train a recurrent network
+  + recurrent network expended in time same as a feed-forward network
+  + Activities:
+    + time 0: network starts off in some initial state
+    + time 1: using the weights on its connections to get new state
+    + time 2: using the same weights again to get another new state
+    + time 3: using the same weights again to get another new state
+    + ...
   + the recurrent net is just a layered net that keeps reusing the same weights
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
-      <img src="img/m07-06.png" style="margin: 0.1em;" alt="Feedforward nets" title="Feedforward networks" width=250>
-      <img src="img/m07-07.png" style="margin: 0.1em;" alt="Recurrent neural networks" title="Recurrent neural networks" width=250>
+      <img src="img/m07-06.png" style="margin: 0.1em;" alt="Feedforward nets" title="Feedforward networks" width=200>
+      <img src="img/m07-07.png" style="margin: 0.1em;" alt="Recurrent neural networks" title="Recurrent neural networks" width=200>
     </a>
   </div>
 
@@ -155,37 +165,41 @@
 
     compute: $\frac{\partial E}{\partial w_1}$ and $\frac{\partial E}{\partial w_2}$
 
-    use $\frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2}$ for $w_1$ and w_2$
-
+    use $\frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2}$ for $w_1$ and $w_2$
+ 
 + backpropagation through time
   + recurrent net: a layered, feed-forward net with shared weights
   + training the feed-forward net w/ weight constraints
   + training algorithm in the time domain
     + forward pass: a stack of the activities of all the units at each time step
     + backward pass: peeling activities off the stack to compute the error derivatives at each time step
-    + adding the derivatives at all the different times for each weight after backward pass
+    + adding the sum or average of the derivatives at all the different times for each weight after backward pass; i.e., changing all the copies of that weight by the same amount which is proportional to the sum or average of all those derivatives
 
 + An irritating extra issue
   + specifying the initial activity state of all the hidden and output units
-  + just fixing these initial states to have some default value like 0.5
-  + better to treat the initial states as learned parameters
+  + could just fix these initial states to have some default value like 0.5
+  + better to treat the initial states as learned parameters rather than activities
   + training them in the same way as we learn the weights
-    + starting off w/ an initial random guess for the initial states
+    + starting off w/ an initial random guess for the initial states for all units except for input units
     + at the end of each training sequence, backpropagate through time all the way to the initial states to get the gradient of the error function w.r.t. each initial state
     + adjusting the initial states by following the negative gradient
 
 + Input and Output of recurrent networks
-  + specifying inputs in several ways
-    + the initial states of all the units
-    + the initial states of a subset of the units
-    + the states of the same subset of the units at every time step
+  + specifying inputs in several ways (left diagram)
+    + the initial states of all the units (e.g., bottom layer units):
+      + the most natural thing to do when thinking of a recurrent net
+      + like feed-forward network constrained weights
+    + the initial states of a subset of the units (e.g. the only unit on bottom left of the network)
+    + the states of the same subset of the units at every time step (e.g., the vertical units with $w_1$ weight connection)
       + the natural way to model most sequential data
-  + specifying targets in several ways
-    + desired final activities of all the units
-    + desired activities of all units for the last few steps
+  + specifying targets in several ways (right diagram)
+    + desired final activities of all the units (e.g., the units on the top layer)
+      + the most natural way for a feed-forward network w/ constrained weights
+    + desired activities of all units for the last few steps (e.g. units on the last two top layers)
       + good for learning attractors
-      + easy to add in extra error derivatives as backpropagating
-    + the desired activity of a subset of the units
+      + easy to add in extra error derivatives as backpropagated
+      + e.g., get derivatives of the final time step, then go back through the layer before the top and add in the derivatives for that layer
+    + the desired activity of a subset of the units (e.g., the right units of each layer)
       + other units: input or hidden units
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
