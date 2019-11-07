@@ -308,7 +308,49 @@
 
 ### Lecture Notes
 
++ Linear backward pass
+  + big difference between the forward and backward passes
+  + forward pass: using squashing functions (like the logistic) to prevent the activity vector frcom exploding
+  + backward pass:
+    + completely linear
+    + if double the error derivatives at the final layer, all error derivatives will be doubled
+    + the forward pass determines the slope of the linear function used for backpropagating through each neuron
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-14.png" style="margin: 0.1em;" alt="Example of the slopes of the linear function used for backpropagation" title="Example of the slopes of the linear function used for backpropagation" width=150>
+    </a>
+  </div>
+
++ The problem of exploding or vanishing gradients
+  + magnitude of gradient backpropagted through may layers
+    + small weight: shrinking exponentially
+    + large weight: growing exponentially
+  + typical feed-forward neural network can cope w/ these exponential effects because they only have a few hidden layers
+  + RNN trained on long sequences (e.g. 100 steps)
+    + gradient easily exploding or vanishing
+    + solution: carefully initializing the weights
+  + Hard to detect in advance
+    + even w/ good initial weights, the current target output depends on an output from many time-steps ago
+    + RNNs difficult to deal w/ long-range dependencies
+
++ Why the back-propagated gradient blows up
+  + starting a trajectory within an attractor: small changes on initialization makes no difference to where the result end up
+  + stating exactly on the boundary: tiny changes could mak ea hugh difference
+
++ Four effective ways to learn an RNN
+  + Long Short Term Memory:
+    + making RNN out of little modules
+    + designed to remember values for a long time
+  + Hessian Free Optimization
+    + dealing with the vanishing gradient problem by using a fancy optimizer that can detect directions w/ a tiny gradient but even smaller curvature
+    + FP Optimizer (Matens & Sutskever, 2011)
+  + Echo State Networks
+    + initialize the input $\to$ hidden and hidden $\to$ hidden and output $\to$ hidden connections very carefully so that the hidden state has a huge reservior of weakly coupled oscillators which can be selectively driven by the input
+    + ESNs only need to learn the hidden $\to$  output connections
+  + Good initialization w/ momentum
+    + initialize like in Echo State Networks
+    + learn all of the connections using momentum
 
 
 
