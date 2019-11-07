@@ -407,14 +407,14 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
-      <img src="img/m07-16.png" style="margin: 0.1em;" alt="Circuit of a memory cell" title="Circuit of a memory cell" height=150>
-      <img src="img/m07-17.png" style="margin: 0.1em;" alt="Backpropagation through a memory cell" title="Backpropagation through a memory cell" height=150>
+      <img src="img/m07-16.png" style="margin: 0.1em;" alt="Circuit of a memory cell" title="Circuit of a memory cell" height=200>
+      <img src="img/m07-17.png" style="margin: 0.1em;" alt="Backpropagation through a memory cell" title="Backpropagation through a memory cell" height=200>
     </a>
   </div>
 
 + Reading cursive handwriting
   + a natural task for an RNN
-  + input: a sequence of $(x, y, p)$ coordinates of the tip of the pen, wher $p$ indicates whether the pen is up or down
+  + input: a sequence of $(x, y, p)$ coordinates of the tip of the pen, where $p$ indicates whether the pen is up or down
   + output: a sequence of characters
   + Graves & Schmidhuber (2000)
     + RNNs w/ LSTM are currently the best systems for reading cursive writing
@@ -434,6 +434,11 @@
   + Row 4:
     + the gradient backpropagted all the way to the $x$ and $y$ inputs from the currently most active character
     + let you see which bits of the data are influencing the decision
+
+  <video src="https://youtu.be/mLxsbWAYIpw" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+    <track src="subtitle" kind="captions" srclang="en" label="English" default>
+    Your browser does not support the HTML5 video element.
+  </video><br/>
 
 
 ### Lecture Video
