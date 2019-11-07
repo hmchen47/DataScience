@@ -310,11 +310,16 @@
 
 + Linear backward pass
   + big difference between the forward and backward passes
-  + forward pass: using squashing functions (like the logistic) to prevent the activity vector frcom exploding
+  + forward pass: using squashing functions (like the logistic) to prevent the activity vector from exploding
   + backward pass:
-    + completely linear
+    + completely __linear__
     + if double the error derivatives at the final layer, all error derivatives will be doubled
-    + the forward pass determines the slope of the linear function used for backpropagating through each neuron
+    + once the forward pass done, the slope of that tangent fixed
+    + the forward pass determines the slope (red line) of the linear function (blue curve) used for backpropagating through each neuron
+      + the slope of non-linearity fixed by the forward pass
+      + different slopes for each step of backpropagation
+      + linear backward pass suffers from a problem of linear system
+      + the results tends to explode or shrink as iteration continues
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -329,26 +334,45 @@
   + typical feed-forward neural network can cope w/ these exponential effects because they only have a few hidden layers
   + RNN trained on long sequences (e.g. 100 steps)
     + gradient easily exploding or vanishing
+    + growth/decaying rate about 100 times
     + solution: carefully initializing the weights
-  + Hard to detect in advance
+  + Hard to detect the current output
     + even w/ good initial weights, the current target output depends on an output from many time-steps ago
     + RNNs difficult to deal w/ long-range dependencies
 
 + Why the back-propagated gradient blows up
   + starting a trajectory within an attractor: small changes on initialization makes no difference to where the result end up
   + stating exactly on the boundary: tiny changes could mak ea hugh difference
+  + Example of trajectory of gradients (see diagram)
+    + two attractor states
+    + vanishing gradient: end up the same point if starting within the blue/ping basin of attraction $\to$ no idea where it starts
+    + exploding gradient:
+      + starting point very close to the boundary btw blue and pink
+      + a tiny difference at start point results in huge different where the dynamic system ends up
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="img/m07-15.png" style="margin: 0.1em;" alt="Example trajectory w/ back-propgagted gradient" title="Example trajectory w/ back-propgagted gradient" width=250>
+    </a>
+  </div>
 
 + Four effective ways to learn an RNN
-  + Long Short Term Memory:
-    + making RNN out of little modules
-    + designed to remember values for a long time
-  + Hessian Free Optimization
+  + __Long Short Term Memory__
+    + making RNN out of little modules (architecture of neural network)
+    + modules designed to remember values for a long time
+  + __Hessian Free Optimization__
     + dealing with the vanishing gradient problem by using a fancy optimizer that can detect directions w/ a tiny gradient but even smaller curvature
-    + FP Optimizer (Matens & Sutskever, 2011)
-  + Echo State Networks
-    + initialize the input $\to$ hidden and hidden $\to$ hidden and output $\to$ hidden connections very carefully so that the hidden state has a huge reservior of weakly coupled oscillators which can be selectively driven by the input
-    + ESNs only need to learn the hidden $\to$  output connections
-  + Good initialization w/ momentum
+    + e.g. FP Optimizer (Matens & Sutskever, 2011)
+  + __Echo State Networks__
+    + kind of evading the problem 
+    + initialize the input$\to$hidden and hidden$\to$hidden and hidden$\to$output connections very carefully so that the hidden state has a huge reservoir of weakly coupled oscillators which can be selectively driven by the input
+      + hit with an input sequence: reverberating for a long time and those reverberations and remembering what happened in the input sequence
+      + then couple those reverberations to the output required
+    + ESNs only need to learn the hidden$\to$output connections
+      + linear output: easy to train
+      + not used a fixed random recurrent bit but a carefully chosen one
+      + just learned the hidden$\to$output connections 
+  + __Good initialization w/ momentum__
     + initialize like in Echo State Networks
     + learn all of the connections using momentum
 
