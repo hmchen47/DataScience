@@ -390,20 +390,54 @@
 ### Lecture Notes
 
 + Long short term memory (LSTM)
-  + Hochreiter & Schmidhuber (197) proposed
+  + Hochreiter & Schmidhuber (1997) proposed
   + solving the problem of getting an RNN to remember things for a long time (like hundreds of time steps)
-  + designed a memory cell using logistic and linear units w/ multiplicative iteractions
+  + designed a memory cell using logistic and linear units (gates) w/ multiplicative iterations
   + "write" gate on: information get into the cell
   + "keep" gate on: information stayed in the cell
   + "read" gate on: information read from the cell
 
 + Implementing a memory cell in a neural network
   + using a circuit to implement an analog memory cell
-  + to preserve information for a long time in activities of an RNN
-    + linear unit to maintain its state: a self-link w/ a eight of 1
-    + "write" gate activated: information stored in the cell
-    + "read" gate activated: information retrieved
+  + to preserve information for a long time in activities of an RNN (left diagram)
+    + a linear unit to maintain its state (keep gate & 1.73):
+      + a self-link w/ a weight of 1
+      + the rest of the system determines the state of that logistic keep gate
+      + input $\backsimeq 1 \to$ the information just cycles around $\to$ the value of 1.73 will stay
+      + system would like to get rid of the value: set the keep gate to have value of 0 $\to$ information disappeared
+    + "write" gate activated (write gate & input from rest of RMM):
+      + information stored in the cell
+      + rest of the system turns on the write gate
+      + whatever the input provided to the memory cell from the rest of the system will get written into the memory cell (1.73 changed)
+    + "read" gate activated (read gate & output to rest of RMM)
+      + information retrieved
+      + the rest of the system turn on the logistic read gate
+      + value in the memory cell (1.73) comes out and affect the rest of the recurrent neural network
     + backpropagating through this circuit because logistics have nice derivatives
+      + learn by using this kind of circuit over many time steps
+  + Example of backpropagation through a memory cell block (right diagram)
+    + forward pass (from left to right as time elapsed)
+      + time step 0 (initial)
+        + keep = 0 $\to$ wiped out whatever the information was and 
+        + write = 1: value = 1.7 coming from the rest of the neural network and get written into the memory cell
+        + read = 0: no output
+      + time step 1:
+        + keep = 1 (manually or by the rest of the system): value written back into memory cell it stored
+        + write = read = 0: information not influenced by what's going on in the rest of the net and not influence what's going on in the rest of the net $\to$ insulated
+      + time step 2:
+        + keep = 1: information stored for one more time step
+        + write = 0: no information written
+        + read = 1: retrieve the information stored in memory cell and come out of the memory cell $\to$ influence the rest of the network
+      + time step 3:
+        + keep = 0: information removed
+    + backward pass
+      + the triangular symbol triggers the connection if the value next to it is 1
+      + along the path from the 1.7 stored to retrieve
+      + whatever error derivative we have when 1.7 retrieved get back propagated to where the value (1.7) 
+      + rather retrieved a bigger value to make the right things happen now
+      + send the information back and tell it to store a bigger value
+      + as long as the relevant gates with values of 1, no attenuation in this back propagated signal
+      + the attenuation of logistic gate is too small to ignore $\to$ information can travel back through hundreds of time steps
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -420,8 +454,7 @@
     + RNNs w/ LSTM are currently the best systems for reading cursive writing
     + used a sequence of small images as input rather than pen coordinates
 
-+ A demonstration of online handwriting recognition by an RNN w/ Long Term Memory (from Alex Graves)
-  + Several different things of the movie
++ A [demonstration](https://youtu.be/mLxsbWAYIpw) of online handwriting recognition by an RNN w/ Long Term Memory (from Alex Graves)
   + Row 1:
     + the characters are recognized
     + never revise its output so different decisions are more delayed
@@ -429,16 +462,12 @@
     + the states of a subset of the memory cells
     + notice how they get reset when it recognizes a character
   + Row 3:
+    + the writing
     + the net sees the $x$ and $y$ coordinates
     + optical input actually works a bit better than pen coordinates
   + Row 4:
     + the gradient backpropagted all the way to the $x$ and $y$ inputs from the currently most active character
     + let you see which bits of the data are influencing the decision
-
-  <video src="https://youtu.be/mLxsbWAYIpw" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
-    <track src="subtitle" kind="captions" srclang="en" label="English" default>
-    Your browser does not support the HTML5 video element.
-  </video><br/>
 
 
 ### Lecture Video
