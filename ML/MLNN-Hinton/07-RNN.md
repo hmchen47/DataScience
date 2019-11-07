@@ -17,7 +17,7 @@
 + Memoryless models for sequences
   + autoregressive models: predict the next term in a sequence from a fixed number of previous terms using "delay taps"
   + feed-forward neural nets
-    + these generalize autoregressive models by using one or more layers of non-linear hidden units
+    + these generalized autoregressive models by using one or more layers of non-linear hidden units
     + e.g. Bengio's first language model
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -34,7 +34,7 @@
     + dynamics is noisy $\to$ outputs generated from its hidden states is noisy $\to$ the exact hidden state unknown
     + best practice: infer a probability distribution over the space of hidden state vectors
   + inference: only tractable for two types of hidden state model
-    + two types of hidden state model: linear dynamic systems & hidden Markov models
+    + two types of hidden state models: linear dynamic systems & hidden Markov models
     + showing how RNNs differ
 
 + Linear dynamical systems (engineers perspective)
@@ -48,7 +48,18 @@
     + a linear transformed Gaussian is a Gaussian
     + distribution over the hidden state given the data so far is Gaussian
     + computed using "Kalman filtering", an efficient recursive way of updating the representation of the hidden state given a new observation
-  + Summary: 
+      + [Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter) a.k.a linear quadratic estimation (LQE)
+      + an algorithm using a series of measurements observed over time, containing statistical noise and other inaccuracies
+      + producing estimates of unknown variables that tend to be more accurate than those based on a single measurement alone
+      + estimation produced by a joint probability distribution over the variables for each time frame
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://en.wikipedia.org/wiki/Kalman_filter" ismap target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Basic_concept_of_Kalman_filtering.svg" style="margin: 0.1em;" alt="The Kalman filter keeps track of the estimated state of the system and the variance or uncertainty of the estimate. The estimate is updated using a state transition model and measurements. {\displaystyle {\hat {x}}_{k\mid k-1}}{\hat {x}}_{k\mid k-1} denotes the estimate of the system's state at time step k before the k-th measurement yk has been taken into account; {\displaystyle P_{k\mid k-1}}{\displaystyle P_{k\mid k-1}} is the corresponding uncertainty." title="The Kalman filter" width=450>
+        </a>
+      </div>
+
+  + Summary:
     + given the observations of the output system, not sure what hidden state in but able to estimate a Gaussian distribution over the possible hidden state it might have been in
     + always assuming the model is the correct one
 
