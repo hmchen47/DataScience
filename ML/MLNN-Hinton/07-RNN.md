@@ -78,7 +78,7 @@
   + to predict the next output
     + required to infer probability distribution over hidden states
     + HMMs w/ efficient algorithms for inference and learning
-  + an easy method based on dynamic programming to observer the output and compute the probability distribution across the hidden states
+  + an easy method based on dynamic programming to observe the output and compute the probability distribution across the hidden states
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -167,7 +167,7 @@
 
 + Recall: backpropagation w/ weight constraints
   + easy to modify the backpropagation algorithm to incorporate linear constraints between the weights
-  + computing the gradients as usual, and then modify the gradients to satisfy then constraints
+  + computing the gradients as usual, and then modify the gradients to satisfy the constraints
   + continuing process to satisfy the constraints if the weights not satisfied<br/><br/>
 
     To constraint: $w_1 = w_2$
@@ -236,8 +236,9 @@
 + A good toy problem for a recurrent network
   + training a feed-forward net to do binary addition
     + there are obvious regularities that it cannot capture efficiently
-    + decide in advance the maximum number of digits in each number
-    + processing applied to the beginning of a long number does not generalize to the end of long number because it uses different weights
+    + decided in advance the maximum number of digits in each number
+    + processing applied to the beginning of a long number does not gen
+    eralize to the end of long number because it uses different weights
   + feed-forward nets not generalized well on the binary addition task
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -326,11 +327,11 @@
     + completely __linear__
     + if double the error derivatives at the final layer, all error derivatives will be doubled
     + once the forward pass done, the slope of that tangent fixed
-    + the forward pass determines the slope (red line) of the linear function (blue curve) used for backpropagating through each neuron
+    + the forward pass determines the slope (red line) of the linear function (the linear system with blue curve) used for backpropagating through each neuron
       + the slope of non-linearity fixed by the forward pass
       + different slopes for each step of backpropagation
       + linear backward pass suffers from a problem of linear system
-      + the results tends to explode or shrink as iteration continues
+      + the results tend to explode or shrink as iteration continues
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -339,7 +340,7 @@
   </div>
 
 + The problem of exploding or vanishing gradients
-  + magnitude of gradient backpropagted through may layers
+  + magnitude of gradient for backpropagation through may layers
     + small weight: shrinking exponentially
     + large weight: growing exponentially
   + typical feed-forward neural network can cope w/ these exponential effects because they only have a few hidden layers
@@ -353,13 +354,13 @@
 
 + Why the back-propagated gradient blows up
   + starting a trajectory within an attractor: small changes on initialization makes no difference to where the result end up
-  + stating exactly on the boundary: tiny changes could mak ea hugh difference
+  + stating exactly on the boundary: tiny changes could make enough difference
   + Example of trajectory of gradients (see diagram)
     + two attractor states
     + vanishing gradient: end up the same point if starting within the blue/ping basin of attraction $\to$ no idea where it starts
     + exploding gradient:
       + starting point very close to the boundary btw blue and pink
-      + a tiny difference at start point results in huge different where the dynamic system ends up
+      + a tiny difference at start point $\to$ huge difference where the dynamic system ends up
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
@@ -401,7 +402,7 @@
 ### Lecture Notes
 
 + Long short term memory (LSTM)
-  + Hochreiter & Schmidhuber (1997) proposed
+  + Hochreiter & Schmidhuber (1997) proposed: [Long Short-Term Memory](https://www.bioinf.jku.at/publications/older/2604.pdf)
   + solving the problem of getting an RNN to remember things for a long time (like hundreds of time steps)
   + designed a memory cell using logistic and linear units (gates) w/ multiplicative iterations
   + "write" gate on: information get into the cell
@@ -411,11 +412,12 @@
 + Implementing a memory cell in a neural network
   + using a circuit to implement an analog memory cell
   + to preserve information for a long time in activities of an RNN (left diagram)
+    + the triangular symbol triggers the connection if the value next to it is 1
     + a linear unit to maintain its state (keep gate & 1.73):
       + a self-link w/ a weight of 1
       + the rest of the system determines the state of that logistic keep gate
       + input $\backsimeq 1 \to$ the information just cycles around $\to$ the value of 1.73 will stay
-      + system would like to get rid of the value: set the keep gate to have value of 0 $\to$ information disappeared
+      + reset value: set keep = 0 $\to$ information disappeared
     + "write" gate activated (write gate & input from rest of RMM):
       + information stored in the cell
       + rest of the system turns on the write gate
@@ -425,7 +427,6 @@
       + the rest of the system turn on the logistic read gate
       + value in the memory cell (1.73) comes out and affect the rest of the recurrent neural network
     + backpropagating through this circuit because logistics have nice derivatives
-      + learn by using this kind of circuit over many time steps
   + Example of backpropagation through a memory cell block (right diagram)
     + forward pass (from left to right as time elapsed)
       + time step 0 (initial)
@@ -442,7 +443,6 @@
       + time step 3:
         + keep = 0: information removed
     + backward pass
-      + the triangular symbol triggers the connection if the value next to it is 1
       + along the path from the 1.7 stored to retrieve
       + whatever error derivative we have when 1.7 retrieved get back propagated to where the value (1.7) 
       + rather retrieved a bigger value to make the right things happen now
@@ -462,6 +462,7 @@
   + input: a sequence of $(x, y, p)$ coordinates of the tip of the pen, where $p$ indicates whether the pen is up or down
   + output: a sequence of characters
   + Graves & Schmidhuber (2000)
+    + [Offline Handwriting Recognition with Multidimensional Recurrent Neural Networks](http://papers.nips.cc/paper/3449-offline-handwriting-recognition-with-multidimensional-recurrent-neural-networks.pdf)
     + RNNs w/ LSTM are currently the best systems for reading cursive writing
     + used a sequence of small images as input rather than pen coordinates
 
@@ -480,6 +481,7 @@
     + the gradient backpropagted all the way to the $x$ and $y$ inputs from the currently most active character
     + let you see which bits of the data are influencing the decision
 
++ Ref: A. Graves, [Supervised Sequence Labelling with Recurrent Neural Networks](https://www.cs.toronto.edu/~graves/preprint.pdf)
 
 ### Lecture Video
 
