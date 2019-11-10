@@ -63,10 +63,10 @@
 
 ## 08. Recurrent Neural Networks II
   
-+ [A brief overview of Hessian-free optimization](08-Multicaptive.md#)
-+ [Modeling character strings with multiplicative connections](08-Multicaptive.md#)
-+ [Learning to predict the next character using HF](08-Multicaptive.md#)
-+ [Echo state networks](08-Multicaptive.md#)
++ [A brief overview of Hessian-free optimization](08-RNN2.md#)
++ [Modeling character strings with multiplicative connections](08-RNN2.md#)
++ [Learning to predict the next character using HF](08-RNN2.md#)
++ [Echo state networks](08-RNN2.md#)
 
 
 ## 09. Overfitting
