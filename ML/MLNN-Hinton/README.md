@@ -52,7 +52,7 @@
 + [rmsprop: Normalized the gradient](06-MiniBatch.md#)
 
 
-## 07. Recurrent Neural Networks
+## 07. Recurrent Neural Networks I
 
 + [Modeling sequences: A brief overview](07-RNN.md#)
 + [Training RNNs with backpropagation](07-RNN.md#)
@@ -61,7 +61,7 @@
 + [Long term short term memory](07-RNN.md#)
 
 
-## 08. Multicaptive Connections
+## 08. Recurrent Neural Networks II
   
 + [A brief overview of Hessian-free optimization](08-Multicaptive.md#)
 + [Modeling character strings with multiplicative connections](08-Multicaptive.md#)
