@@ -160,7 +160,7 @@
 
 + [Introduction to Neural Networks and Machine Learning - CSC321 Winter 2014](http://www.cs.toronto.edu/~tijmen/csc321/)
   + [Lecture Notes](http://www.cs.toronto.edu/~tijmen/csc321/lecture_notes.shtml)
-  + [Assignmenets](http://www.cs.toronto.edu/~tijmen/csc321/assignments.shtml)
+  + [Assignments](http://www.cs.toronto.edu/~tijmen/csc321/assignments.shtml)
   + [Optional Readings](http://www.cs.toronto.edu/~tijmen/csc321/texts.shtml)
   + [Computing](http://www.cs.toronto.edu/~tijmen/csc321/computing.shtml)
   + [Exam](http://www.cs.toronto.edu/~tijmen/csc321/tests.shtml)
