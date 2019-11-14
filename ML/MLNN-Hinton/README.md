@@ -37,10 +37,10 @@
 
 ## 05. Convolutional Neural Networks
 
-+ [Why object recognition is difficult](05-CNN.md#)
-+ [Ways to achieve viewpoint invariance](05-CNN.md#)
-+ [Convolutional neural networks for hand-written digit recognition](05-CNN.md#)
-+ [Convolutional neural networks for object recognition](05-CNN.md#)
++ [Why object recognition is difficult](05-CNN.md#why-object-recognition-is-difficult)
++ [Ways to achieve viewpoint invariance](05-CNN.md#ways-to-achieve-viewpoint-invariance)
++ [Convolutional neural networks for hand-written digit recognition](05-CNN.md#convolutional-neural-networks-for-hand-written-digit-recognition)
++ [Convolutional neural networks for object recognition](05-CNN.md#convolutional-neural-networks-for-object-recognition)
 
 
 ## 06. Mini-batch Gradient Descent
