@@ -464,7 +464,7 @@
 
 ### Lost/Cost Function
 
-+ Loss function/cost function
++ [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
   + NN trained using an optimization process that requires a loss function to calculate the model error
   + many functions used to estimate the error of a set of weights in a neural network
   + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
@@ -474,7 +474,7 @@
   + cross-entropy loss function > mean squared error: classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly
   + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturation and slow learning when using the mean squared error loss. - Deep Learning, 2016
 
-+ Cross-entropy vs. Mean Squared Error
++ [Cross-entropy vs. Mean Squared Error](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
   + form for training data and model distribution (i.e., negative log-likelihood)
 
     \[J(W) = - \displaystyle \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{\text{model}}(y|x))\]
@@ -487,6 +487,18 @@
         <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=180>
       </a>
     </div>
+
+
+### Output Units
+
++ [Summary of data types, distributions, output layers and cost functions]/ML/MLNN-Hinton/a02-IntermediateNN.md#output-units
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=700>
+    </a>
+  </div>
+
 
 ## Architectures
 
