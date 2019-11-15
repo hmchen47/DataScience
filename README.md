@@ -38,13 +38,13 @@
   </thead>
   <tbody>
   <tr>
-    <th style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-representation"> Model representation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#pipeline"> Pipeline </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-selection"> Model Selection </a> </td>
-    <td style="padding: 0.3em;">  </td>
+    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/MLTheory.md#model-representation"> Model representation </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/MLTheory.md#pipeline"> Pipeline </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/MLTheory.md#model-selection"> Model Selection </a> </td>
+    <td style="padding: 0.3em; width: 10%;">  </td>
   </tr>
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Supervised Machine Learning </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Supervised Machine Learning </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Regression </th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-linear-regression"> Model </a></td>
@@ -83,14 +83,13 @@
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-svm"> Model </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#decision-boundary"> Decision Boundary </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#kernels"> Kernels </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
   </tr>
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgray;"> Unsupervised Machine Learning </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgray; color: gray;"> Unsupervised Machine Learning </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
   <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> K-Mean </th>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -122,7 +121,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#system-anomaly-detection"> System </a> </td>
   </tr>
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Advice on Machine Learning System </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Advice on Machine Learning System </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> System Considerations </th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#learning-rate-98183-"> Learning Rate $\alpha$ </a></td>
@@ -143,7 +142,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#artificial-data"> Artificial Data </a> </td>
   </tr>
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Special Applications / Special Topics </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: grey; color: gray;"> Special Applications / Special Topics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#spam-classifier"> Spam Classifier </a></td>
@@ -173,31 +172,31 @@
   </tr>
   </thead>
   <tbody>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Basic Neural Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> NN in Machine Learning</th>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#forward-propagation"> Forward Propagation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#backward-propagation"> Back Propagation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#applications"> Logic Operators </a> </td>
+    <th rowspan="2" style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> NN in Machine Learning</th>
+    <td style="padding: 0.3em;width: 10%;"> <a href="RefCards/MLTheory.md#forward-propagation"> Forward Propagation </a> </td>
+    <td style="padding: 0.3em;width: 10%;"> <a href="RefCards/MLTheory.md#backward-propagation"> Back Propagation </a> </td>
+    <td style="padding: 0.3em;width: 10%;"> <a href="RefCards/MLTheory.md#vectorization-neural-network"> Vectorization </a> </td>
+    <td style="padding: 0.3em;width: 10%;"> <a href="RefCards/MLTheory.md#applications"> Logic Operators </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#initialization-neural-network"> Initialization </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#neural-network-algorithm"> Training </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#"> Learning Methodologies </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
-    <td style="padding: 0.3em;">  </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#motivations"> Motivation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#simple-neuron-model"> Simple Neuron Model </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-learning"> Types of Learning </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methodologies </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-learning"> Learning Types </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#concepts-and-neural-networks"> Concepts & NN </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -226,6 +225,35 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#family-tree-multiclass-learning"> Family Tree </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#speech-recognition"> Speech Recognition </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#a-unified-architecture-for-natural-language-processing"> Architecture for NLP </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Convolutional Neural Networks </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#object-recognition-and-classification"> General Issue </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#solutions-for-viewpoint-invariance"> Viewpoint Invariance </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#replicated-feature-approach"> Replicated Features </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hand-written Recognition</th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#le-net-yann-lecun--collaborators"> Le Net </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#brute-force-approach-for-hand-written-recognition"> Brute Force </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#measurement-for-hand-written-recognition"> Measurement </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Object Recognition </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#alex-krizhevsky-nips-2012"> AlexNet (2012) </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#vald-mnih-icml-2012---finding-roads"> Finding Roads ICML 2012</a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -264,11 +292,11 @@
   </thead>
   <tbody>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; width: 10%; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Date & Time </a> </th>
