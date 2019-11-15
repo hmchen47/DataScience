@@ -675,19 +675,7 @@
   + Designing period - try all possible boxes in a range of positions and scales
 
 
-### Pooling for Invariant Activities
-
-+ Pooling for invariant activities
-  + to achieve some invariance in the activities, pull the outputs of replicated feature detectors
-  + get a small amount of translational invariance at each level by averaging four neighboring replicated detectors to give a single output to the next level
-  + slightly better to take the maximum of the four neighboring feature detectors than averaging them
-  + Problem: lost information about the precise positions of things after several levels of pooling
-  + impossible to use the precise spatial relationships btw high-level parts for recognition
-
-
-### CNN Application - Hand-written Digit Recognition
-
-#### Replicated Feature Approach
+### Replicated Feature Approach
 
 + [The replicated feature approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
   + using many different copies of the same feature detector w/ different positions
@@ -700,13 +688,13 @@
       </a>
     </div>
 
-+ Backpropagation with weight constraints
++ [Backpropagation with weight constraints](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
   + modify the backpropagation algorithm to incorporated linear constraints btw the weights for replicated features
   + compute the gradients as usual
   + modify the gradients to satisfy the constraints
   + once the weights satisfying the linear constrains, they continue satisfying the linear constrain after weight update
 
-+ Replicated feature
++ [Replicated feature](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
   + not translation invariant
   + Equivariant activities
     + replicated features not make the neural activities invariant to translation
@@ -715,7 +703,15 @@
     + a feature useful in some locations during training $\to$ the feature available in all locations during testing
     + knowing how to detect a feature in one place $\to$ knowing how to detect same feature in another place
 
++ [Pooling for invariant activities](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
+  + to achieve some invariance in the activities, pull the outputs of replicated feature detectors
+  + get a small amount of translational invariance at each level by averaging four neighboring replicated detectors to give a single output to the next level
+  + slightly better to take the maximum of the four neighboring feature detectors than averaging them
+  + Problem: lost information about the precise positions of things after several levels of pooling
+  + impossible to use the precise spatial relationships btw high-level parts for recognition
 
+
+#### Le Net (Yann LeCun & collaborators)
 
 
 
