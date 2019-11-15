@@ -491,7 +491,7 @@
 
 ### Output Units
 
-+ [Summary of data types, distributions, output layers and cost functions]/ML/MLNN-Hinton/a02-IntermediateNN.md#output-units
++ [Summary of data types, distributions, output layers and cost functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#output-units)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
@@ -580,6 +580,51 @@
     <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=150>
   </a>
 </div>
+
++ [Model the function $y = x \cdot sin(x)$ using a neural network (NN)](../ML/MLNN-Hinton/a02-IntermediateNN.md#architecture)
+  + Assume NN using ReLU activation function (Fig.1)
+  + NN with a two-node single hidden layer as one degree of freedom (Fig.2)
+  + NN with a three-node single hidden layer as two degree of freedom (Fig.3)
+  + NN with a multi-node hidden layer (Fig.4)
+  + NN with 2 one-node hidden layers (Fig.5) approximates the function as a single hidden layer (Fig.1)
+  + NN with 3 hidden layers and 3 nodes in each layer (Fig.7) gives a pretty good approximation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*Ghcl9sY_91pf7EY4H35SvQ.png" style="margin: 0.1em;" alt="neural network using ReLU activation functions" title="Fig.1 neural network using ReLU activation functions" height=200>
+      <img src="https://miro.medium.com/max/875/1*xelnKarSd6ueNrROyOuCrA.png" style="margin: 0.1em;" alt="neural network with a single hidden layer" title="Fig.2 neural network with a single hidden layer" height=200>
+      <img src="https://miro.medium.com/max/875/1*3JeEUpze45bJFMvKpE8_MQ.png" style="margin: 0.1em;" alt="neural network with a hidden layer adding another hidden node" title="Fig.3 neural network with a hidden layer adding another hidden node" height=200>
+      <img src="https://miro.medium.com/max/875/1*qCxqhOgQeE_7fonbIMTIOw.png" style="margin: 0.1em;" alt="neural network with a multi-node hidden layer" title="Fig.4 neural network with a multi-node hidden layer" height=200>
+    </a>
+  </div>
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*Hg3nySTNWb9N9sMYXRJ32g.png" style="margin: 0.1em;" alt="neural network with 2 one-node hidden layers" title="Fig.5 neural network with 2 one-node hidden layers" height=200>
+      <img src="https://miro.medium.com/max/875/1*RkQ1s4RXBaz909vXnPBzJg.png" style="margin: 0.1em;" alt="neural network with 2 2-node hidden layers" title="Fig.6 neural network with 2 2-node hidden layers" height=200>
+      <img src="https://miro.medium.com/max/875/1*Jx9Pol3A-ofo8Xl1oalpVw.png" style="margin: 0.1em;" alt="neural network with 3 3-node hidden layers" title="Fig.7 neural network with 3 3-node hidden layers" height=200>
+    </a>
+  </div>
+
++ [Architectures for neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md#architecture)
+  + tradeoff by selecting a network architecture 
+    + large enough to approximate the function of interest
+    + not too large taken an excessive amount of time to train
+  + large network requiring large amounts of data to train
+
++ [Good practice](../ML/MLNN-Hinton/a02-IntermediateNN.md#architecture)
+  + using multiple hidden layers as well as multiple nodes within the hidden layers
+  + Goodfellow shown that
+    + increasing the number of layers of neural networks tends to improve overall test set accuracy
+    + large, shallow networks tend to overfit more
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*LtzuTUh0kkCfvlwKxx2zvw.png" style="margin: 0.1em;" alt="increasing the number of layers of neural networks tends to improve overall test set accuracy" title="increasing the number of layers of neural networks tends to improve overall test set accuracy" width=350>
+      <img src="https://miro.medium.com/max/875/1*nUHyEEaHEMy3Kl72xTu9Pg.png" style="margin: 0.1em;" alt="large, shallow networks tend to overfit more" title="large, shallow networks tend to overfit more" width=405>
+    </a>
+  </div>
+
 
 
 ### Perceptrons
