@@ -538,6 +538,42 @@
   </div>
 
 
+### Backpropagation
+
++ [Backpropagation](../ML/MLNN-Hinton/a01-IntroNN.md#backpropagation)
+  + the central mechanism by which neural networks learn
+  + During prediction, a neural network propagates signal forward through the nodes of the network until it reaches the output layer where a decision is made.
+  + A neural network propagates signal forward through the nodes of the network until it reaches the output layer where a decision is made.
+  + The network then backpropagates information about this error backward through the network such that it can alter each of the parameters.
+  + Backpropagation performed first in order to gain the information necessary to perform gradient descent.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*q1M7LGiDTirwU-4LcFq7_Q.png" style="margin: 0.1em;" alt="The forward pass on the left calculates z as a function f(x,y) using the input variables x and y. The right side of the figures shows the backward pass. Receiving dL/dz, the gradient of the loss function with respect to z from above, the gradients of x and y on the loss function can be calculate by applying the chain rule, as shown in the figure." title="Forward propagation and Back propagation" width=550>
+    </a>
+  </div>
+
+
++ [Automatic differentiation](../ML/MLNN-Hinton/a01-IntroNN.md#backpropagation)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*fdYrXF6IGhS0nitxkoHJcA.png" style="margin: 0.1em;" alt="Derivative of Loss function with differentiation" title="Derivative of Loss function with differentiation" width=450>
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*fdYrXF6IGhS0nitxkoHJcA.png" style="margin: 0.1em;" alt="function library to the architecture such that the procedure is abstracted and update automatically as the network architecture" title="Function library" width=450>
+    </a>
+    </a>
+  </div>
+
+  + a function library that is inherently linked to the architecture such that the procedure is abstracted and updates automatically as the network architecture is updated
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*fdYrXF6IGhS0nitxkoHJcA.png" style="margin: 0.1em;" alt="function library to the architecture such that the procedure is abstracted and update automatically as the network architecture" title="Function library" width=650>
+    </a>
+  </div>
+
+
 ## Logistic Neurons
 
 ### Model for Logistic Neurons
