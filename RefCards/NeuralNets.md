@@ -711,7 +711,38 @@
   + impossible to use the precise spatial relationships btw high-level parts for recognition
 
 
-#### Le Net (Yann LeCun & collaborators)
+### Le Net (Yann LeCun & collaborators)
+
++ Objective
+  + a really good recognizer for hand-written digits
+  + using backpropagation in feed-forward net
+
++ Architecture (left figure)
+  + many hidden layers
+  + many maps of replicated units in each layer
+  + pooling of the outputs of nearby replicated units btw layers
+  + a wide net able to cope with several characters at once even if they overlap
+  + no segmented individual characters required before fed into the net
+  + a clever way of training a complete system, not just a recognizer for individual characters
+  + maximum margined method: way before maximum margin invented
+  + input: (A)
+  + feature maps (c1)
+  + Subsampling/pooling
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://engmrk.com/lenet-5-a-classic-cnn-architecture/" ismap target="_blank">
+      <img src="https://engmrk.com/wp-content/uploads/2018/09/LeNet_Original_Image.jpg" style="margin: 0.1em;" alt="The LeNet-5 architecture consists of two sets of convolutional and average pooling layers, followed by a flattening convolutional layer, then two fully-connected layers and finally a softmax classifier." title="Architecture of LeNet5" height=200>
+    </a>
+  </div>
+
++ Priors and Prejudice
+  + design appropriately by applying prior knowledge about the task into the network
+  + using prior knowledge to create a more training data
+  + allowing optimization to discover clever ways of using the multilayer network
+
+
+
+
 
 
 
