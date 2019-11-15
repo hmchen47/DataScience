@@ -184,5 +184,34 @@
   + Dropout - regularizing the weights
 
 
+### Vald Mnih (ICML 2012) - Finding roads
+
++ Finding Roads
+  + extra roads from cluttered aerial images of urban scenes
+  + Objective: predicting a binary road label for the central 16x16 pixels
+
++ Modeling
+  + a non-convolutional net w/ local fields and multiple layers of rectified linear units
+  + lots of labeled training data available for this task
+  + Difficulties
+    + occlusion by buildings trees and cars
+    + shadows, lighting changes
+    + minor viewpoint changes
+  + Worse problems: incorrect labels
+    + badly registered maps: a pixel ~ 1 squared meter
+    + arbitrary decisions about what counts as a road and what counts as a laneway
+  + Only hope: trained on big image patches w/ millions of examples
+  + Examples
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+        <img src="img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
+      </a>
+    </div>
+
+    + green line: the correct answer
+    + red lines: incorrect answer
+
+
 
 
