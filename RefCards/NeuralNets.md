@@ -711,7 +711,9 @@
   + impossible to use the precise spatial relationships btw high-level parts for recognition
 
 
-### Le Net (Yann LeCun & collaborators)
+### Application - Hand-written Recognition
+
+#### Le Net (Yann LeCun & collaborators)
 
 + Objective
   + a really good recognizer for hand-written digits
@@ -741,7 +743,22 @@
   + allowing optimization to discover clever ways of using the multilayer network
 
 
+#### Brute Force Approach for Hand-written Recognition
 
++ Brute force approach
+  + Designing LeNet w/ the invariant knowledge
+    + local connectivity
+    + weight-sharing
+    + pooling
+  + about 80 errors w/ origin LeNet
+
++ Ciresan et. al. net (2010)
+  + applying knowledge of invariance
+  + creating a huge amount of carefully designed extra training data (synthetic data)
+  + producing many new training examples by applying many different transformations on each training image
+  + train a large deep, dumb net on a GPU w/o much overfitting
+  + 3 tricks used to prevent from overfitting when generating synthetic data
+  + Achieving about 35 errors
 
 
 
