@@ -9,37 +9,6 @@
   + classification problem
   + binary classification problem
 
-+ [Logistic regression](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
-  + the problem of estimating a probability that someone has heart disease, P(y=1), given an input value X.
-  + the logistic function, to model P(y=1):
-
-    \[P(Y=1) = \frac{e^{\beta_0+\beta_1 X}}{1 + e^{\beta_0+\beta_1 X}} = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}\]
-
-  + general shape: the model will predict P(y=1) with an S-shaped curve
-  + $\beta_0$ shifts the curve right or left by $c = − \beta_0 / \beta_1$, whereas $\beta_1$ controls the steepness of the S-shaped curve.
-  + change of the $beta_0$ value to move offset
-  + change of the $beta_1$ value to distort gradient
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;margin: 0.5em;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*PD7DZlFWkYCxrg5Y1-OOXQ.png" style="margin: 0.1em;" alt="Diagram of logistic regression" title="Diagram of logistic regression" width=250>
-      <img src="https://miro.medium.com/max/875/1*B0W_JthGRm6NFEvtD3ZxIA.png" style="margin: 0.1em;" alt="Diagram of logistic regression with beta_0" title="Diagram of logistic regression with beta_0=80" width=250>
-      <img src="https://miro.medium.com/max/875/1*YpPeJSaOwD0Pv83KQgj3Iw.png" style="margin: 0.1em;" alt="Diagram of logistic regression with beta_1 = 1.0" title="Diagram of logistic regression with beta_1 = 1.0" width=250>
-    </a>
-  </div>
-
-+ [Optimization of Logistic Regression](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
-  + using a loss function in order to quantify the level of error that belongs to our current parameters
-  + find the coefficients that minimize this loss function
-  + the parameters of the neural network have a relationship with the error the net produces
-  + gradient descent:
-    + changing the parameters using an optimization algorithm
-    + useful for finding the minimum of a function
-
-  + the loss function or the objective function
-
-    \]\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
-
 
 ### Gradient Descent
 
@@ -880,6 +849,25 @@
 
   \[y = \frac{1}{1 + e^{-z}} \quad \implies \quad \frac{dy}{dz} = y(1-y)\]
 
++ [Logistic regression](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+  + the problem of estimating a probability that someone has heart disease, P(y=1), given an input value X.
+  + the logistic function, to model P(y=1):
+
+    \[P(Y=1) = \frac{e^{\beta_0+\beta_1 X}}{1 + e^{\beta_0+\beta_1 X}} = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}\]
+
+  + general shape: the model will predict P(y=1) with an S-shaped curve
+  + $\beta_0$ shifts the curve right or left by $c = − \beta_0 / \beta_1$, whereas $\beta_1$ controls the steepness of the S-shaped curve.
+  + change of the $beta_0$ value to move offset
+  + change of the $beta_1$ value to distort gradient
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;margin: 0.5em;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*PD7DZlFWkYCxrg5Y1-OOXQ.png" style="margin: 0.1em;" alt="Diagram of logistic regression" title="Diagram of logistic regression" width=250>
+      <img src="https://miro.medium.com/max/875/1*B0W_JthGRm6NFEvtD3ZxIA.png" style="margin: 0.1em;" alt="Diagram of logistic regression with beta_0" title="Diagram of logistic regression with beta_0=80" width=250>
+      <img src="https://miro.medium.com/max/875/1*YpPeJSaOwD0Pv83KQgj3Iw.png" style="margin: 0.1em;" alt="Diagram of logistic regression with beta_1 = 1.0" title="Diagram of logistic regression with beta_1 = 1.0" width=250>
+    </a>
+  </div>
+
 
 ### Backpropagation for Logistic Neurons
 
@@ -894,6 +882,19 @@
 + [Total error derivatives w.r.t. various factors](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
 
   \[\begin{array}{rcl} \dfrac{\partial E}{\partial z_j} & = & \dfrac{dy_j}{dz_j} \dfrac{\partial E}{\partial y_j} = y_j(1- y_j)\dfrac{\partial E}{\partial y_j} \\\\ \dfrac{\partial E}{\partial y_j} &=& \displaystyle \sum_j \dfrac{dz_j}{dy_i} \dfrac{\partial E}{\partial z_j} = \sum_j w_{ij} \dfrac{\partial E}{\partial z_j} \\\\ \dfrac{\partial E}{\partial w_{ij}} &=& \dfrac{\partial z_j}{\partial w_{ij}} \dfrac{\partial E}{\partial z_j} = y_i \dfrac{\partial E}{\partial z_j} \end{array}\]
+
++ [Optimization of Logistic Regression](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+  + using a loss function in order to quantify the level of error that belongs to our current parameters
+  + find the coefficients that minimize this loss function
+  + the parameters of the neural network have a relationship with the error the net produces
+  + gradient descent:
+    + changing the parameters using an optimization algorithm
+    + useful for finding the minimum of a function
+
+  + the loss function or the objective function
+
+    \]\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
+
 
 
 ### The Softmax Function
