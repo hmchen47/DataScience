@@ -38,7 +38,7 @@
 
   + the loss function or the objective function
 
-    \[\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
+    \]\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
 
 
 ### Gradient Descent
@@ -80,7 +80,7 @@
   + use a batch (a subset) of data as opposed to the whole set of data, such that the loss surface is partially morphed during each iteration
   + the loss (likelihood) function used to derive the derivatives for iteration $k$
 
-    $$\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]$$
+    \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
 
 
 ### Anatomy
@@ -300,8 +300,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=600> <br/>
-      <img src="https://miro.medium.com/max/1250/1*yaFDjDACzD1cDSERb7U1Sw.png" style="margin: 0.1em;" alt="Example of Neural Networks" title="Example of Neural Networks" width=600>
+      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=500>
     </a>
   </div>
 
@@ -322,10 +321,146 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*qbvfebFdO7rxU4QVl6tQtw.png" style="margin: 0.1em;" alt="Diagram of the loss function" title="Diagram of the loss function" height=200>
-      <img src="https://miro.medium.com/max/875/1*4l_ZpZRZ6mwKAXWo4Q20QA.png" style="margin: 0.1em;" alt="Diagram of the loss function with starting point" title="Diagram of the loss function with starting point" height=200>
+      <img src="https://miro.medium.com/max/875/1*qbvfebFdO7rxU4QVl6tQtw.png" style="margin: 0.1em;" alt="Diagram of the loss function" title="Diagram of the loss function" height=150>
+      <img src="https://miro.medium.com/max/875/1*4l_ZpZRZ6mwKAXWo4Q20QA.png" style="margin: 0.1em;" alt="Diagram of the loss function with starting point" title="Diagram of the loss function with starting point" height=150>
     </a>
   </div>
+
+
+### Activation Functions
+
++ [Activation functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + analogous to the build-up of electrical potential in biological neurons
+  + activation potential: mimicked in artificial neural networks using a probability
+  + Characteristics:
+    + non-linearity: ensures not linearity
+    + differentiable: ensure gradients remain large through the hidden unit
+  + The general form of an activation function
+
+    \[h = f(W^T X + b)\]
+
+    + $h$: the neural output
+    + $f(.)$: the activation function acting on the weights and bases
+
++ [Non-linearity](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + linear function
+    + a polynomial of one degree
+    + linear equation easy to solve
+    + limited in complexity and less power to learn complex functional mappings from data
+  + Neural network w/o activation function
+    + a linear regression model
+    + limited in the set of functions able to approximate
+  + Universal approximation theorem: generalized non-linear function approximations
+  + non-linear activation able to generate non-linear mappings from inputs to outputs
+
++ [Differentiable](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + required to perform backpropagation in the network
+  + required to compute gradients of errors (loss) w.r.t. to the weights updated using gradient descent
+  + linear activation function
+    + an easily differentiable function
+    + optimized using convex optimization
+    + limited model capacity
+
++ [Vanishing gradient problem](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + small gradients and several hidden layers results in multiplied gradient during backpropagation
+  + computer limitation on precision when multiply many small numbers
+  + the value of the gradient quickly vanished
+  + important challenge generated in deep neural networks
+
++ [Common choices of activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=650>
+    </a>
+  </div>
+
++ [Sigmoid and softmax functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \frac{1}{1 + e^{-z}}\]
+
+  + used as output functions for binary classification
+  + generally not used within hidden layers
+  + softmax function
+    + multidimensional version of the sigmoid
+    + used for multiclass classification
+  + issue: zero centeredness
+
++ [Hyperbolic tangent function (Tanh) function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\]
+
+  + resolving the zero centeredness issue of the sigmoid function
+  + always preferred to the sigmoid function within hidden layers
+  + suffer from the other problems plaguing the sigmoid function, including the vanishing gradient problem
+
++ [Rectified Linear Unit (ReLU)](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = max(o, x)\]
+
+  + simplest non-linear activation function
+  + avoid and rectify the vanishing gradient problem
+  + used by almost all deep learning models
+  + only used within hidden layers of a neural network
+  + issue: maybe unstable during training and die
+  + the most successful and widely-used activation function
+
++ [Softplus functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \ln(1 + e^z)\]
+
+  + a slight variation of ReLU where the transition at zero is somewhat smooth
+  + benefit: no discontinuities in the activation function
+
+  + sigmoid for binary classification
+  + softmax for multiclass classification
+  + linear for a regression problem
+
++ [Leaky ReLU and Generalized ReLU](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + dead neurons: ReLU unstable causes network never activated on any data point
+  + Leaky ReLU
+
+    \[g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}\]
+
+    + contain a small slope
+    + purpose of slope: keep the updates alive and prevent the production of dead neurons
+    + still discontinuity at zero
+    + no longer flat below zero
+    + merely having a reduced gradient
+    + a subset of generalized ReLU
+
+  + Leaky ReLU & Generalized ReLU
+    + slight variations on the basic ReLU function
+    + difference: merely depend on the chosen value of $\alpha$
+
++ [Maxout function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta\]
+
+  + simply the maximum of $k$ linear functions
+  + a hybrid approach consisting of linear combinations of ReLU and leaky ReLU units
+
++ [Swish: A Self-Gated Activation Function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[f(x) = x \cdot sigmoid(x)\]
+
+  + tend to work better than ReLU on deeper models across a number of challenging datasets
+  + a smooth non-monotonic function that does not suffer from the problem of zero derivatives
+  + seen as a somewhat magical improvement to neural networks
+  + a clear improvement for deep networks
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=200>
+    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=200>
+    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=200><br/>
+    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=200>
+    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=200>
+    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="caption" height=200>
+  </a>
+</div>
+
 
 
 ## Architectures
@@ -696,33 +831,33 @@
 
   A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by
 
-  $$y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}$$
+  \[y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}\]
 
   so that the outputs sum to 1. The cost function is given by
 
-  $$C = - \sum_j t_j \ln(y_j)$$
+  \[C = - \sum_j t_j \ln(y_j)\]
 
 + [Proposition](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
 
   By the Quotient Rule, the derivatives are
 
-  $$\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j$$
+  \[\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j\]
 
   or more fancy-like using the Kronecker Delta:
 
-  $$\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)$$
+  \[\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)\]
 
 + [Proposition](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
 
   The derivatives of the cost function are
 
-  $$\frac{\partial C}{\partial z_i} = y_i - t_i.$$
+  \[\frac{\partial C}{\partial z_i} = y_i - t_i.\]
 
 + [Cross-entropy](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
 
   the suggested cost function to use with softmax
 
-  $$C = - \sum_j t_j \ln(y_j) = -\ln(y_i)$$
+  \[C = - \sum_j t_j \ln(y_j) = -\ln(y_i)\]
 
   + $t_j$: target values
   + $t_j = \begin{cases} 1 & j \in I \subset G \\ 0 & j \in G-I \end{cases}$
@@ -779,7 +914,7 @@
   + Gather a huge amount of text and count the frequencies of all triples or words
   + Use the formula to bet the relative probabilities of words with the two previous words
 
-    $$\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}$$
+    \[\frac{p(w_3 = c | w_2 = b, w_1 = a)}{p(w_3 = d | w_2 =b, w_1 = a)} = \frac{\text{count}(abc)}{\text{count}(abd)}\]
 
   + The state-of-the-art methodology recently
   + drawback: not understand similarity btw words
