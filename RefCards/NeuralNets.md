@@ -1,6 +1,6 @@
 # Neural Networks
 
-## General Basis
+## Fundamentals
 
 ### Motivations
 
@@ -83,6 +83,77 @@
     $$\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]$$
 
 
+### Anatomy
+
++ [Neural networks:](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + excellent tools for finding patterns
+  + backpropagation
+  + make use of affine __transformations__ to concatenate input features
+  + concatenated input passed through an activation function
+  + Neural network
+    + an abstract representation of the data at each stage of the network
+    + designed to detect specific features of the network
+
++ [Activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + evaluate the signal response and determine whether the neuron should be activated given the current inputs
+  + extended to multilayer and multi feature networks
+    + the number of degrees of freedom (weights and biases) of the network
+    + the number of features available which the network can use to make predictions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*L_lfAEddxxAg2EqJfB5i6Q.png" style="margin: 0.1em;" alt="Activation function with affine transformation" title="Activation function with affine transformation" height=150>
+      <img src="https://miro.medium.com/max/1250/1*l57B0pjXoO-1H1xZYV7QBA.png" style="margin: 0.1em;" alt="A neural network with one hidden layer and two features (the simplest possible multi-layer multi-feature network)." title="A neural network with one hidden layer and two features (the simplest possible multi-layer multi-feature network)." height=150>
+    </a>
+  </div>
+
++ [Network parameters (weights and biases)](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + updated by assigning the error of the network
+  + using backpropagation through the network to obtain the derivatives for each of the parameters w.r.t. the loss function
+  + gradient descent used to update these parameters
+
++ [Training network](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + the process of accessing the error and updating the parameters
+  + a training set to generate a functional network
+  + performance of the network
+  + test set: unseen data accessed by testing
+
++ [Degrees of freedom](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + neural network having a large number of degrees
+  + required a large amount of data for training to be able to make adequate predictions
+  + useful for high dimensionality of the data
+
++ [Generalized multilayer and multi-feature network](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*GApLZ60775yXfUzO65PfEA.png" style="margin: 0.1em;" alt="Generalized multilayer perceptron with n hidden layers, m nodes, and d input features." title="Generalized multilayer perceptron with n hidden layers, m nodes, and d input features." width=350>
+    </a>
+  </div>
+
+  + $m$ nodes: the width of a layer within the network
+  + $n$ hidden layers: the depth of the network
+  + $d$ inputs: pre-specified by the available data
+    + normal Pandas data frame: equal to the number of feature columns
+  + the hidden layers of the network have the same width (number of nodes)
+  + the number of nodes may vary across the hidden layers
+  + the output layer may also be of an arbitrary dimension depending on the required output
+
++ [Convolutional neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + commonly used to study images
+  + hidden layers closer to the output of a deep network, the highly interpretable representations, such as faces, clothing, etc.
+  + the first layers of the network: detecting very basic features such as corners, curves, and so on
+  + abstract representations quickly become too complex to comprehend
+  + the workings of neural networks to produce highly complex abstractions seen as somewhat magical
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*9AC8C_ybj-yeAS8OqpK1Eg.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying an image of a human face." title="An example of a neural network with multiple hidden layers classifying an image of a human face." width=400>
+      <img src="https://miro.medium.com/max/1250/1*qpdTBdx8D-Z2WAMT24onLQ.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." title="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." width=400>
+    </a>
+  </div>
+
+
 ### Simple Neuron Model
 
 + A biological neuron with a basic mathematical mode
@@ -122,12 +193,12 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://blog.zaletskyy.com/some-simple-models-of-neurons" ismap target="_blank">
-      <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="Binary threshold neuron" title="Binary threshold neuron" height=150>
+      <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="Binary threshold neuron" title="Binary threshold neuron" height=120>
     </a>
     <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
-      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="Rectified Linear Neurons" title="Rectified Linear Neurons  (ReLU)" height=150>
-      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="Sigmoid neurons" title="Sigmoid neurons" height=150>
-      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-6.png" style="margin: 0.1em;" alt="Stochastic binary neurons" title="Stochastic binary neurons" height=150>
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="Rectified Linear Neurons" title="Rectified Linear Neurons  (ReLU)" height=120>
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="Sigmoid neurons" title="Sigmoid neurons" height=120>
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-6.png" style="margin: 0.1em;" alt="Stochastic binary neurons" title="Stochastic binary neurons" height=120>
     </a>
   </div>
 
@@ -372,8 +443,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/0*6CQ5E2qYm1kOwEW2.png" style="margin: 0.1em;" alt="The structure of a neuron looks a lot more complicated than a neural network, but the functioning is similar." title="Structure of neuron" width=350>
-      <img src="https://miro.medium.com/max/875/1*TiQJRO4b3--hIBmEccukUg.png" style="margin: 0.1em;" alt="a neural diagram that makes the analogy between the neuron structure and the artificial neurons in a neural network." title="artificial neurons in a neural network" width=350>
+      <img src="https://miro.medium.com/max/875/0*6CQ5E2qYm1kOwEW2.png" style="margin: 0.1em;" alt="The structure of a neuron looks a lot more complicated than a neural network, but the functioning is similar." title="Structure of neuron" height=150>
+      <img src="https://miro.medium.com/max/875/1*TiQJRO4b3--hIBmEccukUg.png" style="margin: 0.1em;" alt="a neural diagram that makes the analogy between the neuron structure and the artificial neurons in a neural network." title="artificial neurons in a neural network" height=150>
     </a>
   </div>
 
