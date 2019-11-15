@@ -96,7 +96,7 @@
     + segmentation errors
     + occlusion: not just shrinking a box around things
     + unusual orientations: a 'd' with an extra stroke w/ the loop D as upright one of those characters
-  + chicken-egr problem
+  + chicken-egg problem
     + to get the box right requires to recognize the shape
     + to recognize the shape requires to get the box right
   + Human recognizes the letter before doing mental rotation to decide if it's a mirror image
@@ -113,7 +113,7 @@
 
 + Brute force normalization approach
   + Using well-segmented, upright images to fit the correct box for training
-  + Designing period - try all possible boxes in a range of positions and scales
+  + Designing phase - try all possible boxes in a range of positions and scales
     + widely used for computer vision
     + particularly to detect upright things like faces and house numbers in unsegmented images
     + much more efficient if the recognizer can cope with some variation in position and scale
