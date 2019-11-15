@@ -225,6 +225,37 @@
     + open issue: how to implement relational knowledge in a neural net
     + many-to-many mapping btw concepts and neurons
 
++ [Neural Network Algorithm](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=600> <br/>
+      <img src="https://miro.medium.com/max/1250/1*yaFDjDACzD1cDSERb7U1Sw.png" style="margin: 0.1em;" alt="Example of Neural Networks" title="Example of Neural Networks" width=600>
+    </a>
+  </div>
+
+  + weights in neural networks: these regression parameters of our various incoming functions
+  + passed to an activation function which decides whether the result is significant enough to 'fire' the node
+  + start with some arbitrary formulation of values in order for us to start updating and optimizing the parameters
+  + assessing the loss function after each update and performing gradient descent
+
++ [Ways to minimize the loss function](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+  + Descent
+    + The value of $w$ to minimize $\mathcal{L}(w)$
+    + to find the optimal point of a function$\mathcal{L}(w)$: $\frac{d \mathcal{L}(W)}{dW} = 0$
+    + find the $w$ that satisfies the equation
+  + more flexible method
+    + start from any point and then determine which direction to go to reduce the loss (left or right in this case)
+    + calculate the slope of the function at this point
+    + then shift to the right if the slope is negative or shift to the left if the slope is positive
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*qbvfebFdO7rxU4QVl6tQtw.png" style="margin: 0.1em;" alt="Diagram of the loss function" title="Diagram of the loss function" height=200>
+      <img src="https://miro.medium.com/max/875/1*4l_ZpZRZ6mwKAXWo4Q20QA.png" style="margin: 0.1em;" alt="Diagram of the loss function with starting point" title="Diagram of the loss function with starting point" height=200>
+    </a>
+  </div>
+
 
 ## Architectures
 
