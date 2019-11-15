@@ -151,5 +151,24 @@
 
 ## CNN for Object Recognition
 
++ [3-D object recognition](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
+  + object recognition more complicated than hand-written digits
+  + convolutional neural network work for 3-D color object?
+
++ [ILSVRC competition on ImageNet](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
+  + dataset: a subset with 12 million high-resolution training images
+  + classification task
+    + 1000 classes
+    + images manually labeled but not reliable
+    + images could contain 2 or more objects but only one labeled
+    + get the "correct" class in the top 5 bets
+  + localization task
+    + many computer vision systems using a bag of features approach for the whole image or said a quadrant of the image
+    + knowing what features are but w/o knowing where they are
+    + balance syndrome: a curious kind of brain damage recognizing objects w/o knowing where they are
+    + put a box around the object for each bet
+    + at least 50% overlap with the correct box
+
+
 
 
