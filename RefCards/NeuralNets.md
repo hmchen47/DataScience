@@ -652,12 +652,12 @@
     + convolutional neural networks by replicating features with pooling
     + hierarchy of parts that have explicit poses relative to the camera
 
-+ Redundant invariant feature approach
++ [Redundant invariant feature approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-1)
   + extract a large, redundant set of invariant features under transformations
   + with enough invariant features, only one way to assemble them into an object
   + avoid forming features from parts of different objects
 
-+ Judicious normalization approach
++ [Judicious normalization approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-1)
   + putting a box around the object
   + using the box as a coordinate frame for a set of normalized pixels
   + solving the dimension-hopping problem
@@ -670,9 +670,51 @@
   + chicken-egg problem: getting the box right $\leftrightarrow$ recognizing the shape
   + Human recognizes the letter before doing mental rotation to decide if it's a mirror image
 
-+ Brute force normalization approach
++ [Brute force normalization approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-1)
   + Using well-segmented, upright images to fit the correct box for training
   + Designing period - try all possible boxes in a range of positions and scales
+
+
+### Pooling for Invariant Activities
+
++ Pooling for invariant activities
+  + to achieve some invariance in the activities, pull the outputs of replicated feature detectors
+  + get a small amount of translational invariance at each level by averaging four neighboring replicated detectors to give a single output to the next level
+  + slightly better to take the maximum of the four neighboring feature detectors than averaging them
+  + Problem: lost information about the precise positions of things after several levels of pooling
+  + impossible to use the precise spatial relationships btw high-level parts for recognition
+
+
+### CNN Application - Hand-written Digit Recognition
+
+#### Replicated Feature Approach
+
++ [The replicated feature approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
+  + using many different copies of the same feature detector w/ different positions
+  + using several different feature types, each with its own map of replicated detectors
+  + Example
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m05-03.png" style="margin: 0.1em;" alt="Illustriation for replicated features" title="Illustriation for replicated features" width=150>
+      </a>
+    </div>
+
++ Backpropagation with weight constraints
+  + modify the backpropagation algorithm to incorporated linear constraints btw the weights for replicated features
+  + compute the gradients as usual
+  + modify the gradients to satisfy the constraints
+  + once the weights satisfying the linear constrains, they continue satisfying the linear constrain after weight update
+
++ Replicated feature
+  + not translation invariant
+  + Equivariant activities
+    + replicated features not make the neural activities invariant to translation
+    + activities equivalent
+  + Invariant knowledge
+    + a feature useful in some locations during training $\to$ the feature available in all locations during testing
+    + knowing how to detect a feature in one place $\to$ knowing how to detect same feature in another place
+
 
 
 
