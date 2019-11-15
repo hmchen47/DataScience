@@ -641,6 +641,39 @@
   + e.g., age and weight of a patient are inputs
 
 
+### Solutions for Viewpoint Invariance
+
++ [Viewpoint invariance](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-1)
+  + one of the main difficulties in making computers perceive
+  + still no accepted solutions
+  + Approaches
+    + redundant invariant features
+    + a box around the object w/ normalized pixels
+    + convolutional neural networks by replicating features with pooling
+    + hierarchy of parts that have explicit poses relative to the camera
+
++ Redundant invariant feature approach
+  + extract a large, redundant set of invariant features under transformations
+  + with enough invariant features, only one way to assemble them into an object
+  + avoid forming features from parts of different objects
+
++ Judicious normalization approach
+  + putting a box around the object
+  + using the box as a coordinate frame for a set of normalized pixels
+  + solving the dimension-hopping problem
+    + correctly choosing the box results in the same normalized pixels for the same part of an object
+    + any box providing invariant to many degrees of freedom: translation, rotation, scale, shear, stretch, ...
+  + Issues
+    + segmentation errors
+    + occlusion
+    + unusual orientations
+  + chicken-egg problem: getting the box right $\leftrightarrow$ recognizing the shape
+  + Human recognizes the letter before doing mental rotation to decide if it's a mirror image
+
++ Brute force normalization approach
+  + Using well-segmented, upright images to fit the correct box for training
+  + Designing period - try all possible boxes in a range of positions and scales
+
 
 
 
