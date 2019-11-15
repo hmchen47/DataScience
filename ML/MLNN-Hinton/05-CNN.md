@@ -253,11 +253,11 @@
     + neuron activation functions
   + less intrusive than hand-designing the features
     + still prejudices the network towards the particular way of solving the problem in mind
-    + having an idea bout how to do object recognition by
+    + having an idea about how to do object recognition by
       + gradually making bigger and bigger features
       + replicating these features across space
     + force the network to do the way
-  + Alternatively using prior knowledge to create a more training data
+  + alternatively using prior knowledge to create a more training data
     + may require a lot of work (Hoffman & Tresp, 1993)
       + model what happen in a steel mill
       + find relationship btw what comes out of the steel mill and various input variables
