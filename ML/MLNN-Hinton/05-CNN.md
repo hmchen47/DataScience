@@ -25,7 +25,7 @@
     + e.g., chairs designed for sitting on w/ a wide variety of physical shapes, including armchairs, modern chairs mad with steel frames and wood backs
   + <span style="color: darkblue; font-weight: bold;">Viewpoint</span>
     + 3-D object w/ variety of viewpoints
-    + viewpoint changes $\implies$ changes in images
+    + viewpoint changes $\to$ changes in images
     + not coped with by standard learning methods
     + information hops btw input dimensions (i.e. pixels)
       + envision the input dimensions correspond to pixels
@@ -163,7 +163,7 @@
   + once the weights satisfying the linear constrains, they continue satisfying the linear constrain after weight update
   + Proof with two simple weights
   
-    \[\text{To constraint: } w_1 = w_2 \implies \text{we need: } \Delta w_1 = \Delta w_2\]
+    \[\text{To constraint: } w_1 = w_2 \to \text{we need: } \Delta w_1 = \Delta w_2\]
   
     \[\text{Compute  }\frac{\partial E}{\partial w_1} \text{   and   } \frac{\partial E}{\partial w_2}\]
 
@@ -180,8 +180,8 @@
       + the image changed and the representation also changed by just as much as the image
       + it's equivariance not invariance
   + Invariant knowledge
-    + a feature useful in some locations during training $\implies$ the feature available in all locations during testing
-    + knowing how to detect a feature in one place $\implies$ knowing how to detect same feature in another place
+    + a feature useful in some locations during training $\to$ the feature available in all locations during testing
+    + knowing how to detect a feature in one place $\to$ knowing how to detect same feature in another place
   + Achieving eqivaliance in the activities and invariance in the weights
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
