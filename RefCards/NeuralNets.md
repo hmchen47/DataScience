@@ -596,8 +596,7 @@
 ### A Unified Architecture for Natural Language Processing
 
 + Collobert and Weston, [A unified architecture for natural language processing: deep neural networks with multitask learning](https://ronan.collobert.com/pub/matos/2008_nlp_icml.pdf), ICML'08, 2008
-
-+ [Architecture](../ML/MLNN-Hinton/04-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
+4-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
   + learned feature vectors for words
   + applied to many different natural language processing tasks well
   + not try to predict the next word but good feature vectors for words
@@ -625,6 +624,22 @@
   + learned feature vectors capturing lots of subtle semantic distinctions
   + no extra supervision required
   + information of all words in the context
+
+## Convolutional Neural Network
+
+### Object Recognition and Classification
+
++ [Issues about object recognition](../ML/MLNN-Hinton/05-CNN.md#lecture-notes)
+  + Segmentation: real scenes cluttered with other objects
+  + Lighting: intensities of pixels determined by the nature of the object
+  + Deformation: deforming objects in various non-affine ways
+  + Affordances: the quality or property of an object that defines its possible uses or makes clear how it can or should be used
+  + Viewpoint: 3-D object w/ variety of viewpoints
+
++ [Dimension-hopping phenomenon](../ML/MLNN-Hinton/05-CNN.md#lecture-notes):
+  + info jumping from one input dimension to another
+  + e.g., age and weight of a patient are inputs
+
 
 
 
