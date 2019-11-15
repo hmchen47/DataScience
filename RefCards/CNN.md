@@ -170,5 +170,19 @@
     + at least 50% overlap with the correct box
 
 
+### Alex Krizhevsky (NIPS 2012)
+
++ Architecture
+  + 7 hidden layers not counting max pooling layers
+  + early layers: convolutional reducing
+  + last two layers: globally connected using most of parameters
++ Activation functions
+  + Rectified linear units (ReLU) in every hidden layer
+  + Competitive normalization with a layer
++ Generalization tricks
+  + Transformations to enhance the training data
+  + Dropout - regularizing the weights
+
+
 
 
