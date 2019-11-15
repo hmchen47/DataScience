@@ -1,8 +1,8 @@
 # Neural Networks
 
-## Modeling
+## General Basis
 
-### Motivation
+### Motivations
 
 + [Machine learning problems](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
   + regressions (and Ridge, LASSO, etc.)
@@ -13,7 +13,7 @@
   + the problem of estimating a probability that someone has heart disease, P(y=1), given an input value X.
   + the logistic function, to model P(y=1):
 
-    $$P(Y=1) = \frac{e^{\beta_0+\beta_1 X}}{1 + e^{\beta_0+\beta_1 X}} = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}$$
+    \[P(Y=1) = \frac{e^{\beta_0+\beta_1 X}}{1 + e^{\beta_0+\beta_1 X}} = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}\]
 
   + general shape: the model will predict P(y=1) with an S-shaped curve
   + $\beta_0$ shifts the curve right or left by $c = − \beta_0 / \beta_1$, whereas $\beta_1$ controls the steepness of the S-shaped curve.
@@ -27,7 +27,20 @@
       <img src="https://miro.medium.com/max/875/1*YpPeJSaOwD0Pv83KQgj3Iw.png" style="margin: 0.1em;" alt="Diagram of logistic regression with beta_1 = 1.0" title="Diagram of logistic regression with beta_1 = 1.0" width=250>
     </a>
   </div>
-  
+
++ [Optimization of Logistic Regression](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+  + using a loss function in order to quantify the level of error that belongs to our current parameters
+  + find the coefficients that minimize this loss function
+  + the parameters of the neural network have a relationship with the error the net produces
+  + gradient descent:
+    + changing the parameters using an optimization algorithm
+    + useful for finding the minimum of a function
+
+  + the loss function or the objective function
+
+    \[\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
+
+
 
 ### Simple Neuron Model
 
@@ -282,7 +295,31 @@
 
   \[z = b + \sum_i x_i w_i \implies y = \begin{cases}1 & \text{if } z > 0 \\ 0 & \text{otherwise}\end{cases}\]
 
-+ Perceptron convergence procedure:
+
++ [Structure of neurons & model](../ML/MLNN-Hinton/a01-IntroNN.md#artificial-neural-network-ann)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/0*6CQ5E2qYm1kOwEW2.png" style="margin: 0.1em;" alt="The structure of a neuron looks a lot more complicated than a neural network, but the functioning is similar." title="Structure of neuron" width=350>
+      <img src="https://miro.medium.com/max/875/1*TiQJRO4b3--hIBmEccukUg.png" style="margin: 0.1em;" alt="a neural diagram that makes the analogy between the neuron structure and the artificial neurons in a neural network." title="artificial neurons in a neural network" width=350>
+    </a>
+  </div>
+
++ [Affine transformation](../ML/MLNN-Hinton/a01-IntroNN.md#artificial-neural-network-ann)
+  + basically an addition (or subtraction) and/or multiplication
+  + resembling a regression equation
+  + becomes important with multiple nodes converging at a node in a multilayer perceptron
+  + abstract the affine and activation blocks into a single block
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*t5H6ohP8hC2bMr680XX9xw.png" style="margin: 0.1em;" alt="Analogous of single neural network with perceptron" title="Analogous of single neural network with perceptron" width=450>
+    </a>
+  </div>
+
+  + the amalgamation of the outputs from upstream nodes and the summed output is then passed to an activation function, which assesses the probability to determine whether it’s the quantitative value (the probability) sufficient to make the neuron fire
+
++ [Perceptron convergence procedure:](../ML/MLNN-Hinton/02-Perceprtons.md#perceptrons-the-first-generation-of-neural-networks)
   + training binary output as classifier
   + bias
     + adding extra component with value 1 to each input vector
