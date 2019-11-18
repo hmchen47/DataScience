@@ -79,7 +79,7 @@
   + a square matrix of second-order partial derivatives of a scalar-valued function
   + the Hessian describes the local curvature of a function of many variables
 
-  $$H = \begin{bmatrix} \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\\\ \dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2 \partial x_n} \\ \vdots & \vdots & \ddots & \vdots \\ \dfrac{\partial^2 f}{\partial x_n \partial x_1} & \dfrac{\partial^2 f}{\partial x_n \partial x_n \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2} \end{bmatrix}$$
+  \[H = \begin{bmatrix} \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\\\ \dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2 \partial x_n} \\ \vdots & \vdots & \ddots & \vdots \\ \dfrac{\partial^2 f}{\partial x_n \partial x_1} & \dfrac{\partial^2 f}{\partial x_n \partial x_n \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2} \end{bmatrix}\]
 
   + used to determine whether a given stationary points is a saddle point or not
   + a similar way by looking at the eigenvalues
@@ -94,6 +94,7 @@
   + use [truncated-Newton](https://en.wikipedia.org/wiki/Truncated_Newton_method) and [quasi-Newton](https://en.wikipedia.org/wiki/Quasi-Newton_method) algorithms to optimize
   + the quasi-Newton family of algorithms using approximations to the Hessian
   + [Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm): the most popular quasi-Newton algorithms
+
 + Neural network:
   + the Hessian matrix is poorly conditioned - the output changes rapidly for a small change of input
   + undesirable property: the optimization process is not particularly stable
@@ -121,15 +122,15 @@
   + features at the 1st layer propagated through the network
   + affine transformation followed by an activation function (a single layer)
 
-    $$\begin{array}{lll} \text{Linear} \qquad & h_i = W_x & \\ \text{activation} & h_i = W h_{i-1}, & i = 2, \dots, n\end{array}$$
+    \[\begin{array}{lll} \text{Linear} \qquad & h_i = W_x & \\ \text{activation} & h_i = W h_{i-1}, & i = 2, \dots, n\end{array}\]
 
   + output for an $n$-layer network
 
-    $$\text{Suppose } \mathbf{W} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}: \qquad \begin{bmatrix} h_1^1 \\ h_2^1 \end{bmatrix} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \quad \cdots \begin{bmatrix} h_1^n \\ h_2^n \end{bmatrix} = \begin{bmatrix} a^n & 0 \\ 0 & b^n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$$
+    \[\text{Suppose } \mathbf{W} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}: \qquad \begin{bmatrix} h_1^1 \\ h_2^1 \end{bmatrix} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \quad \cdots \begin{bmatrix} h_1^n \\ h_2^n \end{bmatrix} = \begin{bmatrix} a^n & 0 \\ 0 & b^n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\]
 
 + Two possible cases depending on the magnitude of $a$ and $b$
 
-  $$\begin{array}{lll} \text{Suppose } x = \begin{bmatrix} 1 \\ 1 \end{bmatrix} & & \\ \text{Case 1: } a = 1, b =2: & y \rightarrow 1, \Delta_y \rightarrow \begin{bmatrix} n \\ n \cdot 2^{n-1} \end{bmatrix} & \quad \text{Explodes!} \\ \text{Case 2: } a = 0.5, b = 0.9: & y \rightarrow 0, \Delta_y \rightarrow \begin{bmatrix} 0 \\ 0 \end{bmatrix} & \quad \text{Vanishes!} \end{array}$$
+  \[\begin{array}{lll} \text{Suppose } x = \begin{bmatrix} 1 \\ 1 \end{bmatrix} & & \\ \text{Case 1: } a = 1, b =2: & y \rightarrow 1, \Delta_y \rightarrow \begin{bmatrix} n \\ n \cdot 2^{n-1} \end{bmatrix} & \quad \text{Explodes!} \\ \text{Case 2: } a = 0.5, b = 0.9: & y \rightarrow 0, \Delta_y \rightarrow \begin{bmatrix} 0 \\ 0 \end{bmatrix} & \quad \text{Vanishes!} \end{array}\]
 
   + for $a$, $b$ greater than 1
     + for a large value of $n$ ( a deep neural network), the gradient values will quickly explode as they propagate through the network
@@ -144,7 +145,7 @@
 
     + Gradient clipping rule
 
-      $$\text{if } \parallel g \parallel > u, \quad g \leftarrow \dfrac{gu}{\parallel g \parallel}$$
+      \[\text{if } \parallel g \parallel > u, \quad g \leftarrow \dfrac{gu}{\parallel g \parallel}\]
 
   + for $a$, $b$ less than 1
     + the gradients quickly tends to zero
@@ -199,14 +200,14 @@
   + $v$: velocity
   + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
 
-  $$\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}$$
+  \[\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}\]
 
   + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
   + $\varepsilon$: current gradient update
 
 + Compute gradient estimate:
 
-    $$g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})$$
+    \[g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})\]
   + Update velocity: $v = \alpha v - \varepsilon g$
   + Update parameters: $\theta = \theta + v$
 
@@ -251,7 +252,7 @@
   + Apply an interim update: $\tilde{\theta} = \theta + v$
   + Perform a correction based on gradient at the interim point
 
-    $$\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}$$
+    \[\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}\]
 
   + momentum based on look-ahead slope
   + visual representation of the difference between the traditional momentum update and Nesterov momentum
@@ -285,7 +286,7 @@
 
 + Update each parameter:
 
-  $$\theta_i = \theta_1 - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i$$
+  \[\theta_i = \theta_1 - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i\]
 
   + inversely proportional to cumulative squared gradient
 
@@ -305,7 +306,7 @@
 
 + Use an exponentially weighted average for gradient accumulation.
 
-  $$\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}$$
+  \[\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}\]
 
 
 ### Adam
@@ -321,17 +322,17 @@
 + Adam keeps an exponentially decaying average of past gradients, similar to momentum.
   + Estimate first moment: 
 
-    $$v_i = \rho_1 v_i + (1 - \rho_1) g_i$$
+    \[v_i = \rho_1 v_i + (1 - \rho_1) g_i\]
   
   + Estimate second moment:
 
-    $$r_i = \rho_2 r_i + 91 - \rho_2) g_i^2$$
+    \[r_i = \rho_2 r_i + 91 - \rho_2) g_i^2\]
 
     + applies bias correction to $v$ and $r$
 
   + Update parameters:
 
-    $$\theta_i = \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} v_i$$
+    \[\theta_i = \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} v_i\]
 
     + works well in practice, is fairly robust to hyper-parameters
 
@@ -374,7 +375,7 @@
 
 + For a fully-connected layer with $m$ inputs:
 
-  $$W_{ij} \sim N \left(0, \frac{1}{m} \right)$$
+  \[W_{ij} \sim N \left(0, \frac{1}{m} \right)\]
 
   + $m$: fan-in; the number of incoming neurons (input units in the weight tensor)
   + heuristic value: merely empirically observed to perform well
@@ -390,7 +391,7 @@
 
 + For ReLU units
 
-  $$W_{ij} \sim N \left(0, \frac{2}{m} \right)$$
+  \[W_{ij} \sim N \left(0, \frac{2}{m} \right)\]
 
 
 ### Bias Initialization
@@ -440,13 +441,13 @@
   + Issue: highly skewed data results in many values clustered inn one location
   + Solution: taking the logarithm of the feature variable
 
-  $$x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}$$
+  \[x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}\]
 
 + Mean normalization
   + essentially the same as min-max normalization except the average value is subtracted from each value
   + the least common way
 
-  $$x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}$$
+  \[x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}\]
 
 + Feature normalization
   + make each feature normalized with zero mean and unit variance
@@ -458,7 +459,7 @@
     + divide the values of each feature by its standard deviation
   + Formula
 
-    $$x^\prime = \frac{x - \mu}{\sigma}$$
+    \[x^\prime = \frac{x - \mu}{\sigma}\]
 
     + $x$: feature vector
     + $\mu$: vector of mean feature values
@@ -507,7 +508,7 @@
 + Batch normalization transformation
   + normalizes the output of a previous activation layer by subtracting the batch mean and dividing by the batch standard deviation.
 
-    $$\begin{array}{lcl} H^\prime &=& \frac{H - \mu}{\sigma} \\ \mu &=& \frac{1}{m} \sum_i H_{i,:} \\ \sigma &=& \sqrt{\frac{1}{m} \sum_i (H - \mu)^2 + \delta}\end{array}$$
+    \[\begin{array}{lcl} H^\prime &=& \frac{H - \mu}{\sigma} \\ \mu &=& \frac{1}{m} \sum_i H_{i,:} \\ \sigma &=& \sqrt{\frac{1}{m} \sum_i (H - \mu)^2 + \delta}\end{array}\]
 
     + $\mu$: vector of mean activations across mini-batch
     + $\sigma$: vector of SD of each unit across mini-batch
@@ -518,7 +519,7 @@
     + let SGD do the denormalization by changing only these two wrights for each activation
     + not losing the stability of the network by changing all the weights
 
-    $$\gamma H^\prime + \beta$$
+    \[\gamma H^\prime + \beta\]
 
   + For each of the N mini-batches, calculate the mean and standard deviation of the output
 
