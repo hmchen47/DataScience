@@ -1027,6 +1027,36 @@
   </div>
 
 
+### Poor Conditioning
+
++ [Derivative Issues](../ML/MLNN-Hinton/a03-Optimization.md#poor-conditioning)
+  + ill-conditioned derivatives of the error function
+  + reflected in error landscapes containing many saddle points and flat areas
+
++ [Hessian matrix](../ML/MLNN-Hinton/a03-Optimization.md#poor-conditioning)
+  + a square matrix of second-order partial derivatives of a scalar-valued function
+  + the Hessian describes the local curvature of a function of many variables
+
+  \[H = \begin{bmatrix} \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\\\ \dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2 \partial x_n} \\ \vdots & \vdots & \ddots & \vdots \\ \dfrac{\partial^2 f}{\partial x_n \partial x_1} & \dfrac{\partial^2 f}{\partial x_n \partial x_n \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2} \end{bmatrix}\]
+
+  + used to determine whether a given stationary points is a saddle point or not
+  + full Hessian matrix takes $\mathcal{O}(n^2)$ memory, infeasible for high dimensional functions such as the loss functions of neural networks
+  + use [truncated-Newton](https://en.wikipedia.org/wiki/Truncated_Newton_method) and [quasi-Newton](https://en.wikipedia.org/wiki/Quasi-Newton_method) algorithms to optimize
+  + the quasi-Newton family of algorithms using approximations to the Hessian
+  + [Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm): the most popular quasi-Newton algorithms
+
++ Neural network:
+  + the Hessian matrix is poorly conditioned - the output changes rapidly for a small change of input
+  + undesirable property: the optimization process is not particularly stable
+  + learning is slow despite the presence of strong gradients because oscillations slow the learning process down
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*hT12fHjYZJPXCCxjCWvM3w.png" style="margin: 0.1em;" alt="slow learning w.r.t poorly conditioned" title="slow learning w.r.t poorly conditioned" width=250>
+    </a>
+  </div>
+
+
 ## Applications
 
 ### Family Tree - Multiclass Learning
