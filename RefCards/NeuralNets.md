@@ -957,7 +957,7 @@
 + better than the gradient descent w/ squared error
 
 
-## Fast Algorithms and Issues for Optimization
+## Issues and Algorithms for Optimization
 
 ### Challenges with optimization
 
@@ -985,6 +985,9 @@
     + trained dataset not representative of the actual data distribution
     + different dataset might with different loss surface
     + importance: make the training and test datasets representative of the total data distribution
+
+
+### Local optima and Saddle Points
 
 + [Local optima](../ML/MLNN-Hinton/a03-Optimization.md#local-optima)
   + viewed as a major problem in neural network training
