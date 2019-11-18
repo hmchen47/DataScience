@@ -27,7 +27,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=250>
+      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=200>
     </a>
   </div>
 
@@ -39,9 +39,9 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" width=250>
-      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" width=200>
-      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" width=200>
+      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" height=150>
+      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" height=150>
+      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" height=150>
     </a>
   </div>
 
@@ -123,53 +123,6 @@
   </div>
 
 
-### Simple Neuron Model
-
-+ A biological neuron with a basic mathematical mode
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://www.embedded-vision.com/platinum-members/cadence/embedded-vision-training/documents/pages/neuralnetworksimagerecognition" ismap target="_blank">
-      <img src="https://www.embedded-vision.com/sites/default/files/technical-articles/CadenceCNN/Figure3a.jpg" style="margin: 0.1em;" alt="Illustration of a biological neuron" title="Illustration of a biological neuron" width=350>
-      <img src="https://www.embedded-vision.com/sites/default/files/technical-articles/CadenceCNN/Figure3b.jpg" style="margin: 0.1em;" alt="Illustration of a biological neuron's mathematical model" title="Illustration of a biological neuron's mathematical model" width=350>
-    </a>
-  </div>
-
-+ [Linear neuron](../ML/MLNN-Hinton/01-IntroML.md#some-simple-models-of-neurons)
-
-  \[z = b + \sum_i w_i x_i\]
-
-  + $y$: the output
-  + $b$: the bias
-  + $w_i$: the weight on the $i$-th input
-  + $x_i$: the $i$-th input
-
-+ [Typical Activation functions $f(\cdot)$](../ML/MLNN-Hinton/01-IntroML.md#some-simple-models-of-neurons)
-  + Binary threshold
-
-    \[z = b + \sum_i w_i x_i \implies y = \begin{cases} 1 & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}\]
-
-  + Rectified Linear Neurons
-
-      \[z = b + \sum_i x_i w_i \implies y = \begin{cases} z & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}\]
-
-  + Sigmoid neurons
-
-    \[z = b + \sum_i x_i w_i \implies y = \frac{1}{1 + e^{-z}}\]
-
-  + Stochastic binary neurons
-
-    \[z = b + \displaystyle \sum_i x_i w_i \implies p(s = 1) = \frac{1}{1 + e^{-z}}\]
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://blog.zaletskyy.com/some-simple-models-of-neurons" ismap target="_blank">
-      <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="Binary threshold neuron" title="Binary threshold neuron" height=120>
-    </a>
-    <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
-      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="Rectified Linear Neurons" title="Rectified Linear Neurons  (ReLU)" height=120>
-      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="Sigmoid neurons" title="Sigmoid neurons" height=120>
-      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-6.png" style="margin: 0.1em;" alt="Stochastic binary neurons" title="Stochastic binary neurons" height=120>
-    </a>
-  </div>
 
 
 ### Types of Learning
@@ -269,7 +222,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=500>
+      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=400>
     </a>
   </div>
 
@@ -340,7 +293,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=650>
+      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=550>
     </a>
   </div>
 
@@ -421,12 +374,12 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=200>
-    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=200>
-    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=200><br/>
-    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=200>
-    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=200>
-    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="caption" height=200>
+    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=140>
+    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=140>
+    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=140>
+    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=140><br/>
+    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=150>
+    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="Curves of swish functions" height=150>
   </a>
 </div>
 
@@ -464,7 +417,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=700>
+      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=500>
     </a>
   </div>
 
@@ -594,6 +547,55 @@
     </a>
   </div>
 
+
+
+### Simple Neuron Model
+
++ A biological neuron with a basic mathematical mode
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.embedded-vision.com/platinum-members/cadence/embedded-vision-training/documents/pages/neuralnetworksimagerecognition" ismap target="_blank">
+      <img src="https://www.embedded-vision.com/sites/default/files/technical-articles/CadenceCNN/Figure3a.jpg" style="margin: 0.1em;" alt="Illustration of a biological neuron" title="Illustration of a biological neuron" width=350>
+      <img src="https://www.embedded-vision.com/sites/default/files/technical-articles/CadenceCNN/Figure3b.jpg" style="margin: 0.1em;" alt="Illustration of a biological neuron's mathematical model" title="Illustration of a biological neuron's mathematical model" width=350>
+    </a>
+  </div>
+
++ [Linear neuron](../ML/MLNN-Hinton/01-IntroML.md#some-simple-models-of-neurons)
+
+  \[z = b + \sum_i w_i x_i\]
+
+  + $y$: the output
+  + $b$: the bias
+  + $w_i$: the weight on the $i$-th input
+  + $x_i$: the $i$-th input
+
++ [Typical Activation functions $f(\cdot)$](../ML/MLNN-Hinton/01-IntroML.md#some-simple-models-of-neurons)
+  + Binary threshold
+
+    \[z = b + \sum_i w_i x_i \implies y = \begin{cases} 1 & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}\]
+
+  + Rectified Linear Neurons
+
+      \[z = b + \sum_i x_i w_i \implies y = \begin{cases} z & \text{if } z > 0 \\ 0 & \text{otherwise} \end{cases}\]
+
+  + Sigmoid neurons
+
+    \[z = b + \sum_i x_i w_i \implies y = \frac{1}{1 + e^{-z}}\]
+
+  + Stochastic binary neurons
+
+    \[z = b + \displaystyle \sum_i x_i w_i \implies p(s = 1) = \frac{1}{1 + e^{-z}}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://blog.zaletskyy.com/some-simple-models-of-neurons" ismap target="_blank">
+      <img src="https://blog.zaletskyy.com/Media/Default/NeuralNetworks/binaryNeuron.png" style="margin: 0.1em;" alt="Binary threshold neuron" title="Binary threshold neuron" height=120>
+    </a>
+    <a href="https://www.bo-song.com/coursera-neural-networks-for-machine-learning/" ismap target="_blank">
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-2.png" style="margin: 0.1em;" alt="Rectified Linear Neurons" title="Rectified Linear Neurons  (ReLU)" height=120>
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-5.png" style="margin: 0.1em;" alt="Sigmoid neurons" title="Sigmoid neurons" height=120>
+      <img src="https://www.bo-song.com/wp-content/uploads/2015/12/Untitled-6.png" style="margin: 0.1em;" alt="Stochastic binary neurons" title="Stochastic binary neurons" height=120>
+    </a>
+  </div>
 
 
 ### Perceptrons
