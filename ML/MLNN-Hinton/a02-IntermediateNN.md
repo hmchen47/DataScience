@@ -2,7 +2,7 @@
 
 Author: Matthew Stewart
 
-[URL](https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98)
+[Original Article](https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98)
 
 
 ## Anatomy of a neural network
@@ -45,7 +45,7 @@ Author: Matthew Stewart
   + required a large amount of data for training to be able to make adequate predictions
   + useful for high dimensionality of the data
 
-+ Generalized numtilayer and multi-feature network
++ Generalized multilayer and multi-feature network
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
@@ -114,7 +114,7 @@ Author: Matthew Stewart
     + Ensure gradients remain large through the hidden unit - differentiable
   + The general form of an activation function
 
-    $$h = f(W^T X + b)$$
+    \[h = f(W^T X + b)\]
     + $h$: the neural output
     + $f(.)$: the activation function acting on the weights and bases
 
@@ -163,7 +163,7 @@ Author: Matthew Stewart
 
 + Sigmoid and softmax functions
 
-  $$\phi(z) = \frac{1}{1 + e^{-z}}$$
+  \[\phi(z) = \frac{1}{1 + e^{-z}}\]
 
   + reasons to be active function
     + sigmoids suffer from the vanishing gradient problem
@@ -179,7 +179,7 @@ Author: Matthew Stewart
 
 + Hyperbolic tangent function (Tanh) function
 
-  $$\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$$
+  \[\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\]
 
   + resolving the zero centeredness issue of the sigmoid function
   + always preferred to the sigmoid function within hidden layers
@@ -188,7 +188,7 @@ Author: Matthew Stewart
 + Rectified Linear Unit (ReLU) and Softplus functions
   + Rectified linear function
 
-    $$\phi(z) = max(o, x)$$
+    \[\phi(z) = max(o, x)\]
 
     + one of the simplest possible activation functions
     + simplest non-linear activation function
@@ -201,7 +201,7 @@ Author: Matthew Stewart
 
   + Softplus function
 
-    $$\phi(z) = \ln(1 + e^z)$$
+    \[\phi(z) = \ln(1 + e^z)\]
 
     + a slight variation of ReLU where the transition at zero is somewhat smooth
     + benefit: no discontinuities in the activation function
@@ -214,7 +214,7 @@ Author: Matthew Stewart
   + dead neurons: ReLU unstable causes network never activated on any data point
   + Leaky ReLU
 
-    $$g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}$$
+    \[g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}\]
 
     + contain a small slope
     + purpose of slope: keep the updates alive and prevent the production of dead neurons
@@ -229,14 +229,14 @@ Author: Matthew Stewart
 
 + Maxout function
 
-  $$g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta$$
+  \[g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta\]
 
   + simply the maximum of $k$ linear functions
   + a hybrid approach consisting of linear combinations of ReLU and leaky ReLU units
 
 + Swish: A Self-Gated Activation Function
 
-  $$f(x) = x \cdot sigmoid(x)$$
+  \[f(x) = x \cdot sigmoid(x)\]
 
   + tend to work better than ReLU on deeper models across a number of challenging datasets
   + developed by Google in 2017
@@ -252,7 +252,7 @@ Author: Matthew Stewart
     <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=200><br/>
     <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=200>
     <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=200>
-    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="caption" height=200>
+    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="Curves of swish functions" height=200>
   </a>
 </div>
 
@@ -263,21 +263,21 @@ Author: Matthew Stewart
 + Loss function
   + a.k.a cost function
   + an important aspect of neural networks
-  + NN trained using an optimization process that requires a loss functon to calculate the model error
+  + NN trained using an optimization process that requires a loss function to calculate the model error
   + many functions used to estimate the error of a set of weights in a neural network
   + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
   + maximum likelihood: a framework for choosing a loss function when training neural networks and machine models in general
   + what loss function to use depends on the output data distribution and is closely coupled to the output unit
-  + main types of loss functions: cross-entry and mean squared error
+  + main types of loss functions: cross-entropy and mean squared error
   + Neural networks for classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly using a cross-entropy loss function than using mean squared error
   + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturatoin and slow learning when using the mean squared error loss. - Deep Learning, 2016
 
 + Cross-entropy vs. Mean Squared Error
   + form for training data and model distribution (i.e., negative log-likelihood)
 
-    $$J(W) = - \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{model}(y|x))$$
+    \[J(W) = - \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{model}(y|x))\]
 
-  + Examples
+  + examples of cost functions
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
