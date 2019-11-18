@@ -14,7 +14,7 @@
   + loss surface: minimize the prediction error of the network
   + interested in finding the global minimum on this loss surface
 
-+ Multiple problem on neural network training
++ Multiple problems on neural network training
   + What is a reasonable learning rate to use?
     + small learning rate: long to converge
     + large learning rate: not converge
