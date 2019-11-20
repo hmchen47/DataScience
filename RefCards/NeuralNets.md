@@ -1320,9 +1320,9 @@
   + heuristic value: merely empirically observed to perform well
 
 
-### He Normal Initialization
+### HE Normal Initialization
 
-+ HE normal initialization
++ [HE normal initialization](../ML/MLNN-Hinton/a03-Optimization.md#he-normal-initialization)
   + the same as Xavier Initialization, except that the variance multiplied by a factor of two
   + initialized the size of the previous layer which helps in attaining a global minimum of the cost function faster and more efficiently
   + random but differ in range depending on the size of the previous layer of neurons
