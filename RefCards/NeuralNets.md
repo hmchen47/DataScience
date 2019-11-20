@@ -1384,7 +1384,7 @@
 
 ### Batch Normalization
 
-+ Batch normalization
++ [Batch normalization](../ML/MLNN-Hinton/a03-Optimization.md#batch-normalization)
   + a method intended to mitigate internal covariate shift for neral networks
   + an extension to the idea of feature standardization to other layers of the neural network
 
@@ -1397,7 +1397,7 @@
   + reducing overfit due to a slight regularization effect
   + similar to dropout, add some noise to each hidden layer's activations
 
-+ Batch normalization transformation
++ [Batch normalization transformation](../ML/MLNN-Hinton/a03-Optimization.md#batch-normalization)
   + normalizes the output of a previous activation layer by subtracting the batch mean and dividing by the batch standard deviation.
 
     \[\begin{array}{lcl} H^\prime &=& \frac{H - \mu}{\sigma} \\ \mu &=& \frac{1}{m} \sum_i H_{i,:} \\ \sigma &=& \sqrt{\frac{1}{m} \sum_i (H - \mu)^2 + \delta}\end{array}\]
