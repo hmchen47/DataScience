@@ -1320,6 +1320,126 @@
 
 
 
+## Normalization
+
+
+### Future Normalization
+
++ Normalizing features before applying the learning algorithm
+
++ Ref: [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/abs/1502.03167)
+  + gradient descent converges much faster with feature scaling than without it
+
++ Min-max normalization
+  + simplest method to scale data
+  + rescaling the range of features to scale the range in [0, 1] or [-1, 0]
+  + subtracting each value by the minimum value and scaling by the range of values present in the dataset
+  + Issue: highly skewed data results in many values clustered inn one location
+  + Solution: taking the logarithm of the feature variable
+
+  \[x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}\]
+
++ Mean normalization
+  + essentially the same as min-max normalization except the average value is subtracted from each value
+  + the least common way
+
+  \[x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}\]
+
++ Feature normalization
+  + make each feature normalized with zero mean and unit variance
+  + widely used for normalization in many machine learning algorithms
+  + typically involving distance-based methods
+  + general method
+    + determine the distribution mean and standard variation for each feature
+    + subtract the mean from each feature
+    + divide the values of each feature by its standard deviation
+  + Formula
+
+    \[x^\prime = \frac{x - \mu}{\sigma}\]
+
+    + $x$: feature vector
+    + $\mu$: vector of mean feature values
+    + $\sigma$: vector of SD of feature values
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+        <img src="https://miro.medium.com/max/875/1*bo1Utxme6zS2nr0IHtATRg.png" style="margin: 0.1em;" alt="Contour to represent feature normalization" title="Contour to represent feature normalization" width=350>
+      </a>
+    </div>
+
+### Internal Covariate Shift
+
++ Internal Covariate Shift:
+  + the change in the distribution of network activation due to the change in network parameters during training
+  + the parameters of a layer changed, the distribution of inputs to subsequent layers also changes
+  + Issue: the shifts in input distributions tend to slow down learning, especially deep neural networks
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*Dnxnj2STbo-42DfalLMi-g.png" style="margin: 0.1em;" alt="Deep neural network: multiple hidden layers" title="Deep neural network: multiple hidden layers" width=350>
+    </a>
+  </div>
+
++ Whitened inputs
+  + converge faster and uncorrelated
+  + internal covariate shift leads to just the opposite
+
+
+### Batch Normalization
+
++ Batch normalization
+  + a method intended to mitigate internal covariate shift for neral networks
+  + an extension to the idea of feature standardization to other layers of the neural network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*x3FtLuoYjWeNctiNPlTBjw.png" style="margin: 0.1em;" alt="Matrix representation of weights for hidden layers" title="Matrix representation of weights for hidden layers" width=350>
+    </a>
+  </div>
+
+  + reducing overfit due to a slight regularization effect
+  + similar to dropout, add some noise to each hidden layer's activations
+
++ Batch normalization transformation
+  + normalizes the output of a previous activation layer by subtracting the batch mean and dividing by the batch standard deviation.
+
+    \[\begin{array}{lcl} H^\prime &=& \frac{H - \mu}{\sigma} \\ \mu &=& \frac{1}{m} \sum_i H_{i,:} \\ \sigma &=& \sqrt{\frac{1}{m} \sum_i (H - \mu)^2 + \delta}\end{array}\]
+
+    + $\mu$: vector of mean activations across mini-batch
+    + $\sigma$: vector of SD of each unit across mini-batch
+  + allowing each layer of a network to learn by itself more independently of other layers
+  + after shift/scale of activation outputs by some randomly initialized parameters, the weights in the next layer are no longer optimal.
+  + Adding two trainable (learnable) parameters to each layer
+    + normalized output multiplied by a "standard deviation" parameter ($\gamma$) and add a "mean" parameter ($\beta$)
+    + let SGD do the denormalization by changing only these two wrights for each activation
+    + not losing the stability of the network by changing all the weights
+
+    \[\gamma H^\prime + \beta\]
+
+  + For each of the N mini-batches, calculate the mean and standard deviation of the output
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+        <img src="https://miro.medium.com/max/875/1*a-B6jX8B-8lfz5ZrIFQyFw.png" style="margin: 0.1em;" alt="Add normalization operations for layer 1" title="Add normalization operations for layer 1" width=400>
+        <img src="https://miro.medium.com/max/875/1*LdQ7HKaqDYtszL8R0bdb4Q.png" style="margin: 0.1em;" alt="Add normalization operations for layer 2" title="Add normalization operations for layer 2" width=400>
+      </a>
+    </div>
+
+  + subsequently repeated for all subsequent hidden layers
+  + differentiate the joint loss for the N mini-batches and then backpropagate through the normalization operations
+
++ Testing time
+  + the mean and standard deviations replaced with running average collected during training time
+  + same as using the population statistics instead of mini-batch statistics
+  + the output deterministically depends on the input
+
++ Advantages
+  1. reduces internal coariate shift
+  2. reduces the dependence of gradients on the scale of the parameters or their initial values
+  3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
+  4. allows use of saturating nonlinearities and higher learning rates
+
+
 
 
 ## Applications
