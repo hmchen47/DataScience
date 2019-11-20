@@ -1233,6 +1233,35 @@
     </div>
 
 
+### Measurement with Beale's Function
+
++ [Beale's function](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
+  + one of many test functions commonly used for studying the effectiveness of various optimization techniques
+  + a test function accesses how well the optimization algorithms perform when in flat regions with very well shallow gradients
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/0*b6VbjuQQJVXxd_rE.jpg" style="margin: 0.1em;" alt="The Beale function." title="The Beale function." width=350>
+    </a>
+  </div>
+
+  + Optimizing a function $f: A \rightarrow R$, from some set A to the real numbers is finding an element $x_0 \in A$ such that $f(x_0) \leq f(x)$ for all $x \in A$ (finding the minimum) or such that $f(x_0) \geq f(x)$ fro all $x \in A$ (finding the maximum).
+  + Formula:
+
+    $$f(x,, y) = (1.5 -x +xy)^2 + (2.25 -x + xy^2)^2 + (2.625 - x +xy^3)^2$$
+
+    Answer: $(x, y) = (3, 0.5)$
+
++ [Artificial landscape](../ML/MLNN-Hinton/a04-Hyperparameter.md#beales-function)
+  + find a way of comparing the performance of various algorithms
+    + Convergence (how fast they reach the answer)
+    + Precision (how close do they approximate the exact answer)
+    + Robustness (so they perform well for all functions or just a small subset)
+    + General performance (e.g., computational complexity)
+  + analogous to the loss surface of a neural network
+  + goal of NN training: find the global minimum on the loss surface by performing some form of optimization - typically stochastic gradient
+
+
 
 ## Adaptive Learning Rates
 
@@ -1356,7 +1385,6 @@
   + used as the initial weights of the network to be trained
   + a tenable method to utilize for analyzing images with few data samples
   + underlying concept behind transfer learning
-
 
 
 ## Normalization
