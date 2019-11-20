@@ -2,7 +2,7 @@
 
 Matthew Stewart
 
-URL: https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594
+[Original article](https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594)
 
 
 ## Beale's Function
