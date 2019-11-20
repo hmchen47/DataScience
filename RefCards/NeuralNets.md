@@ -1302,7 +1302,7 @@
 
 ### Xavier Initialization
 
-+ Xavier initialization is a simple heuristic for assigning network weights.
++ [Xavier initialization](../ML/MLNN-Hinton/a03-Optimization.md#xavier-initialization) is a simple heuristic for assigning network weights.
 
 + Objective: the variance to remain the same with each passing layer
 
