@@ -1148,6 +1148,22 @@
     </div>  
 
 
+### Adaptive Learning Rates
+
++ Oscillations along vertical direction
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*0v0zucWChoudFcJRPpB74Q.png" style="margin: 0.1em;" alt="Gradient descent oscillates along vertical direction" title="Gradient descent oscillates along vertical direction" width=300>
+    </a>
+  </div>
+
++ List of Proposals
+  + AdaGrad
+  + RMSProp
+  + Adam
+
+
 
 ## Applications
 
