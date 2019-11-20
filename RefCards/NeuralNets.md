@@ -1363,7 +1363,7 @@
 
 ### Internal Covariate Shift
 
-+ Internal Covariate Shift:
++ [Internal Covariate Shift](../ML/MLNN-Hinton/a03-Optimization.md#internal-covariate-shift):
   + the change in the distribution of network activation due to the change in network parameters during training
   + the parameters of a layer changed, the distribution of inputs to subsequent layers also changes
   + Issue: the shifts in input distributions tend to slow down learning, especially deep neural networks
