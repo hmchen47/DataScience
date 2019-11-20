@@ -1271,7 +1271,7 @@
 
 #### Adam
 
-+ Adaptive moment estimation (Adam)
++ [Adaptive moment estimation (Adam)](..](../ML/MLNN-Hinton/a03-Optimization.md#adam))
   + a combination of RMSprop and momentum
   + the most popular optimizer used for neural networks
 
