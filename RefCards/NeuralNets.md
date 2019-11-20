@@ -1195,6 +1195,70 @@
 
 
 
+## Adaptive Learning Rates
+
+#### AdaGrad
+
++ Momentum adds updates to the slope of error function and speeds up SGD in turn.
+
++ AdaGrad adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
+
++ Accumulate squared gradients: $r_i = r_i + g_i^2$
+
++ Update each parameter:
+
+  \[\theta_i = \theta_1 - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i\]
+
+  + inversely proportional to cumulative squared gradient
+
++ Benefits:
+  + eliminate the need to manually tune the learning rate
+  + result in greater progress along gently sloped directions
+
++ Disadvantages:
+  + accumulation of the squared gradients in the denominator
+  + positive added term:
+    + the accumulated sum keeps growing during training
+    + the learning rate shrink and eventually become infinitesimally small
+
+#### RMSProp
+
++ For non-convex problems, AdaGrad can prematurely decrease the learning rate.
+
++ Use an exponentially weighted average for gradient accumulation.
+
+  \[\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}\]
+
+
+#### Adam
+
++ Adaptive moment estimation (Adam)
+  + a combination of RMSprop and momentum
+  + the most popular optimizer used for neural networks
+
++ Nadam: a combination of MRSprop and Nesterov momentum
+
++ Adam computes adaptive learning rates for each parameters.
+
++ Adam keeps an exponentially decaying average of past gradients, similar to momentum.
+  + Estimate first moment: 
+
+    \[v_i = \rho_1 v_i + (1 - \rho_1) g_i\]
+  
+  + Estimate second moment:
+
+    \[r_i = \rho_2 r_i + 91 - \rho_2) g_i^2\]
+
+    + applies bias correction to $v$ and $r$
+
+  + Update parameters:
+
+    \[\theta_i = \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} v_i\]
+
+    + works well in practice, is fairly robust to hyper-parameters
+
+
+
 
 ## Applications
 
