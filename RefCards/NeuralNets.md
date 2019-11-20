@@ -1150,7 +1150,7 @@
 
 ### Adaptive Learning Rates
 
-+ Oscillations along vertical direction
++ [Oscillations along vertical direction](../ML/MLNN-Hinton/a03-Optimization.md#adaptive-learning-rates)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
@@ -1166,7 +1166,7 @@
 
 ### Parameter Initialization
 
-+ Initialization of network weights
++ [Initialization of network weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
   + overlooked characteristics of developing neural networks
   + poorly initialized networks determined to network performance
   + initialized with all values of zero
@@ -1176,11 +1176,11 @@
     + actually learn something
     + prematurely prescribed some form of symmetry between neural units
 
-+ Randomizing weights
++ [Randomizing weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
   + avoid presupposing any form of a neural structure by randomizing weights according to a normal distribution
   + often done in Keras by specifying a random state
 
-+ Scale of initialization
++ [Scale of initialization](/ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
   + large values for the weights: lead to exploding gradients
   + small values for the weights: lead to vanishing gradients
   + sweet spot that provides the optimum tradeoff between these two
@@ -1192,6 +1192,7 @@
 + Topics covered so far
   + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
   + methods of parameter initialization to minimize a prior biases within the network
+
 
 
 
