@@ -1350,7 +1350,7 @@
 
 ### Pre-initialization
 
-+ Pre-initialization:
++ [Pre-initialization](../ML/MLNN-Hinton/a03-Optimization.md#pre-initialization):
   + common for convolutional networks used for examining images
   + involve importing the weights of an already trained network
   + used as the initial weights of the network to be trained
