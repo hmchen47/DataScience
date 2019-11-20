@@ -1187,7 +1187,7 @@
   + not a priori but inferred through trial and error
 
 
-### Feature Normalization
+### Normalization
 
 + Purpose
   + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
@@ -1195,7 +1195,7 @@
 
 + Normalizing features before applying the learning algorithm
 
-+ Min-max normalization
++ [Min-max normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
   + simplest method to scale data
   + rescaling the range of features to scale the range in [0, 1] or [-1, 0]
   + subtracting each value by the minimum value and scaling by the range of values present in the dataset
@@ -1204,13 +1204,13 @@
 
   \[x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}\]
 
-+ Mean normalization
++ [Mean normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
   + essentially the same as min-max normalization except the average value is subtracted from each value
   + the least common way
 
   \[x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}\]
 
-+ Feature normalization
++ [Feature normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
   + make each feature normalized with zero mean and unit variance
   + widely used for normalization in many machine learning algorithms
   + typically involving distance-based methods
@@ -1231,6 +1231,8 @@
         <img src="https://miro.medium.com/max/875/1*bo1Utxme6zS2nr0IHtATRg.png" style="margin: 0.1em;" alt="Contour to represent feature normalization" title="Contour to represent feature normalization" width=350>
       </a>
     </div>
+
+
 
 ## Adaptive Learning Rates
 
