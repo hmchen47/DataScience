@@ -1240,7 +1240,7 @@
 
 + Momentum adds updates to the slope of error function and speeds up SGD in turn.
 
-+ AdaGrad adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
++ [AdaGrad]](../ML/MLNN-Hinton/a03-Optimization.md#adagrad) adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
 
 + Accumulate squared gradients: $r_i = r_i + g_i^2$
 
