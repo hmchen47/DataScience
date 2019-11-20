@@ -1335,7 +1335,7 @@
 
 ### Bias Initialization
 
-+ Bias initialization: how the biases of the neurons should be initialized
++ [Bias initialization](../ML/MLNN-Hinton/a03-Optimization.md#bias-initialization): how the biases of the neurons should be initialized
 
 + The simplest and a common way of initializing biases is to set them to zero.
 
