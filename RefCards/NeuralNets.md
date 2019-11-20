@@ -1258,6 +1258,68 @@
     + works well in practice, is fairly robust to hyper-parameters
 
 
+## Parameter Initialization
+
+
+### Xavier Initialization
+
++ Xavier initialization is a simple heuristic for assigning network weights.
+
++ Objective: the variance to remain the same with each passing layer
+
++ Keep the signal from exploding to high values or vanishing to zero
+
++ To initialize the weights in such a way that the variance remains the same for both the input and the output
+
++ The weights drawn from a distribution with zero mean and a specific variance.
+
++ For a fully-connected layer with $m$ inputs:
+
+  \[W_{ij} \sim N \left(0, \frac{1}{m} \right)\]
+
+  + $m$: fan-in; the number of incoming neurons (input units in the weight tensor)
+  + heuristic value: merely empirically observed to perform well
+
+
+### He Normal Initialization
+
++ HE normal initialization
+  + the same as Xavier Initialization, except that the variance multiplied by a factor of two
+  + initialized the size of the previous layer which helps in attaining a global minimum of the cost function faster and more efficiently
+  + random but differ in range depending on the size of the previous layer of neurons
+  + controlled initialization hence the faster and more efficient gradient descent
+
++ For ReLU units
+
+  \[W_{ij} \sim N \left(0, \frac{2}{m} \right)\]
+
+
+### Bias Initialization
+
++ Bias initialization: how the biases of the neurons should be initialized
+
++ The simplest and a common way of initializing biases is to set them to zero.
+
++ Asymmetry breaking: provided by the small random numbers in th weights
+
++ ReLU non-linearity
+  + using small constant values such as 0.01 for all biases
+  + ensure that all ReLU units fire in the beginning and obtain and propagate some gradient
+
++ Main concern: avoid saturation at initialization within hidden units, ReLU by initializing biases to 0.1 instead of zero
+
+
+### Pre-initialization
+
++ Pre-initialization:
+  + common for convolutional networks used for examining images
+  + involve importing the weights of an already trained network
+  + used as the initial weights of the network to be trained
+  + a tenable method to utilize for analyzing images with few data samples
+  + underlying concept behind transfer learning
+
+
+
 
 
 ## Applications
