@@ -52,6 +52,53 @@
     \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
 
 
+### Delta Rule
+
++ [Delta rule for perceptrons](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
+  + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
+  + The change in a given weight must be proportional to the negative of the prior equation
+
+    \[\Delta w_{ij_x} = - \varepsilon \frac{\partial E}{\partial w_{ij}} = \varepsilon \partial a_{i_x}\]
+
+  + $\Delta$: the difference btw the target and actual activation of the relevant output node
+  + $\varepsilon$: learning rate
+
++ [Linear Activation function instead of a Threshold Activation function](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
+  + Threshold Activation function:
+    + characterize both the McColloch and Pitts network and the perceptron is not differentiable at the transition between the activations of $0$ and $1$ (slope = $\infty$) 
+    + derivative = 0 over the remainder of the function
+  + Linear Activation function or other differentiable functions
+    + allow the derivative of the error to be calculable
+
++ [Kronecker Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#kronecker-delta)
+  + Definition
+
+    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \tag*{(3)}\]
+
+  + __property__. Simplify
+
+    \[\sum_k \delta_{ik}\delta{kj} = \delta_{ij}\]
+
++ [Dirac Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#dirac-delta)
+  + Definition
+
+    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \tag*{(4)}\]
+
+    The value at which the delta function become infinite can be controlled by substituting $x - x_0$ for $x$
+
+    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \tag*{(5)}\]
+
+  + Alternative definition
+
+    \[ \int_{-\infty}^{\infty} f(x) \delta(x - x_0) dx = f(x_0) \tag*{(7)}\]
+
+    + continuous around $x=x_0$
+    + most common way used for the dirac delta function
+  + __Property__.
+
+    \[\int_{-\infty}^{\infty} f(x) \delta(x - x_0)dx = f(x_0) \\ \delta(ax) = \frac{1}{|a|} \delta(x)\]
+
+
 ### Anatomy
 
 + [Neural networks:](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
@@ -121,8 +168,6 @@
       <img src="https://miro.medium.com/max/1250/1*qpdTBdx8D-Z2WAMT24onLQ.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." title="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." width=400>
     </a>
   </div>
-
-
 
 
 ### Types of Learning
