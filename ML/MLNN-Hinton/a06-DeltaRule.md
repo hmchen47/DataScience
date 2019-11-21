@@ -33,7 +33,7 @@ Date: Apr. 19, 2018
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.ebc.cat/2017/01/08/understanding-neural-networks-part-2-vectorized-forward-propagation/" ismap target="_blank">
       <img src="http://www.ebc.cat/wp-content/uploads/2017/01/notation_forw_prop_vect.png" style="margin: 0.1em;" alt="Notation for Vectorization of the Forward Propagation Algorithm (single unit)" title="Notation for Vectorization of the Forward Propagation Algorithm (single unit)" width=300>
-      <img src="http://www.ebc.cat/wp-content/uploads/2017/01/forw_prop_with_notation.png" style="margin: 0.1em; margin-left: 2em;" alt="Forward Propagation with formal notation" title="Forward Propagation with formal notation" width=500>
+      <img src="http://www.ebc.cat/wp-content/uploads/2017/01/forw_prop_with_notation.png" style="margin: 0.1em; margin-left: 2em;" alt="Forward Propagation with formal notation" title="Forward Propagation with formal notation" width=450>
       <img src="http://www.ebc.cat/wp-content/uploads/2017/01/forw_prop_vectorization_matrices.png" style="margin: 0.1em;" alt="Forward Propagation Vectorization Matrices" title="Forward Propagation Vectorization Matrices" width=850>
     </a>
   </div>
@@ -125,7 +125,7 @@ Date: Apr. 19, 2018
 
 ## Delta Rule
 
-+ Delta rule for preceptrons
++ Delta rule for perceptrons
   + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
   + The change in a given weight must be proportional to the negative of the prior equation
 
@@ -143,8 +143,8 @@ Date: Apr. 19, 2018
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/@neuralnets/delta-learning-rule-gradient-descent-neural-networks-f880c168a804" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1191/1*t9qCtZ_hMGTYiEGt7kwT6w.jpeg" style="margin: 0.1em;" alt="Three-dimensional depiction of an Actual error surface (Leverington, 2001)" title="Three-dimensional depiction of an Actual error surface (Leverington, 2001)" height=250>
-      <img src="https://miro.medium.com/max/1139/1*jnG5--4AcQSNHaFqquiu7A.jpeg" style="margin: 0.1em;" alt="Two-dimensional depiction of the error surface" title="Two-dimensional depiction of the error surface" height=250>
+      <img src="https://miro.medium.com/max/1191/1*t9qCtZ_hMGTYiEGt7kwT6w.jpeg" style="margin: 0.1em;" alt="Three-dimensional depiction of an Actual error surface (Leverington, 2001)" title="Three-dimensional depiction of an Actual error surface (Leverington, 2001)" height=240>
+      <img src="https://miro.medium.com/max/1139/1*jnG5--4AcQSNHaFqquiu7A.jpeg" style="margin: 0.1em;" alt="Two-dimensional depiction of the error surface" title="Two-dimensional depiction of the error surface" height=240>
     </a>
   </div>
 
