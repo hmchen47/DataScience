@@ -370,7 +370,7 @@ y_train[0]
 
 ### Step 3 - Choosing an optimizer and a loss function
 
-+ goal of optimization: efficiently calculate the parameters/weights that minimize the loss fucntion
++ goal of optimization: efficiently calculate the parameters/weights that minimize the loss function
 
 + [types of loss functions in keras](https://github.com/keras-team/keras/blob/master/keras/losses.py)
   + MSE = mean_squared_error
@@ -386,7 +386,7 @@ y_train[0]
     + Euclidean
     + Manhattan
     + Hamming distance: distances between strings, e.g., H('carolin', 'cathrin') = 3
-  + types of loss fucntions
+  + types of loss functions
     + MSE (for regression)
     + categorical cross-entropy (for classification)
     + binary cross entropy (for classification)
@@ -411,7 +411,7 @@ y_train[0]
   ```
 
 
-### Step 4 - Deciding on the batch szie and number of epochs
+### Step 4 - Deciding on the batch size and number of epochs
 
 + batch size: the number of samples propagated through the network
 
@@ -429,7 +429,7 @@ y_train[0]
 
 + epoch
   + number of epochs: a hyperparameter defines the number times that the learning algorithm will work through the entire training dataset
-  + one epoch: each sample in the training dataseet has had an opportunity to update the internal model parameters
+  + one epoch: each sample in the training dataset has had an opportunity to update the internal model parameters
 
 + Sample code
 
