@@ -1313,6 +1313,22 @@
     + Easily done by altering `keras.callbacks.LearningRateScheduler`
     + Resetting the learning rate after a specified number of epoch for a finite number of times
 
+### Implementation for Cross-Validation
+
++ [Tuning Hyperparameters using Cross-Validation](../ML/MLNN-Hinton/a04-Hyperparameter.md#tuning-hyperparameters-using-cross-validation)
+  + Use `GridSearchCV` from Scikit-Learn to try out several values for hyperparameters and compare the results
+  + Cross-validation with `keras`
+    + use the wrappers for the Scikit-Learn API
+    + Provide a way to use Sequential Keras models (single-input only) as part of Sckikit-Learn workflow
+    + wrappers
+      + Scikit-Learn classifier interface: `keras.wrappers.scikit_learn.KerasClassifier(build_fn=None, **sk_params)`
+      + Scikit-Learn regressor interface: `keras.wrappers.scikit_learn.KerasRegressor(build_fn=None, **sk_params)`
+
++ [Cross-Validation with more than one hyperparameters](../ML/MLNN-Hinton/a04-Hyperparameter.md#cross-validation-with-more-than-one-hyperparameters)
+  + effectively trying out combinations of them.
+  + Cross-validation in neural networks is computationally expensive.
+    + each combination evaluated using the k-fold cross-validation (k is a parameter we choose)
+
 
 ## Adaptive Learning Rates
 
