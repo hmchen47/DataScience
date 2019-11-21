@@ -1233,7 +1233,7 @@
     </div>
 
 
-### Measurement with Beale's Function
+### Assessment with Beale's Function
 
 + [Beale's function](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
   + one of many test functions commonly used for studying the effectiveness of various optimization techniques
@@ -1261,6 +1261,57 @@
   + analogous to the loss surface of a neural network
   + goal of NN training: find the global minimum on the loss surface by performing some form of optimization - typically stochastic gradient
 
+
+### Implementation with Keras
+
++ [Keras](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
+  + a Python library for deep learning that can run on top of both Theano or TensorFlow, tow powerful Python libraries for fast numerical computing created and released by Facebook and Google, respective
+  + developed to make developing deep learning models as fast and easy and easy as possible for research and practical applications
+  + built on the idea of a model
+  + Sequential model: a sequence of layers, a linear stack of layers
+
++ [Summarize the construction of deep learning models in Keras using the Sequential model](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
+  1. Define model: create a Sequential model and add layers
+  2. Compile model: specify loss function and optimizers and call the `.compile()` function
+  3. Fit model: train the model on data by calling the `.fit()` function
+  4. Make prediction: use the model to generate predictions on new data by calling functionbs such as `.evaluate()` or `.predict()`
+
++ [Callbacks](../ML/MLNN-Hinton/a04-Hyperparameter.md#callbacks-taking-a-peek-into-our-model-while-its-training)
+  + how to examine the performance of the model
+  + what happening in various stages of the model
+  + a set of functions to be applied at given stages of the training procedure
+  + get a view on internal states and statistics of the model during training
+  + pass a list of callbacks (as the keyword arguments callbacks) to the `.fit()` method of th eSequential or Model classes
+
++ [Relevant methods of the callbacks at each stage of the training](../ML/MLNN-Hinton/a04-Hyperparameter.md#callbacks-taking-a-peek-into-our-model-while-its-training)
+  + `keras.callbacks.History()`: a callback function automatically included in `.fit()`
+  + `keras.callbacks.ModelCheckPoint` saves the model with its weights at a certain point in the training; e.g., a good practice to save the model weights only when an improvement is observed as measured by the `acc`
+  + `keras.callbacks.EarlySStopping`: stop the training when a monitored quantity has stopped improving
+  + `keras.callbacks.LearningRateScheduler`: change the learning rate during training
+
++ Procedure by Example
+  + Step 1 - [Deciding on the network topology](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-1---deciding-on-the-network-topology)
+    + Preprocess the data
+  + Step 2 - [Adjusting the `learning rate`](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-2---adjusting-the-learning-rate)
+    + Stochastic Gradient Descent (SGD)
+    + Typical values for hyperparameter: $lr = 0.01$, $decay = 1e^{-6}$, $momentum = 0.9$, and nesterov = True
+    + Learning rate hyperparameter
+    + Implement a learning rate adaption schedule in Keras
+    + Apply a custom learning rate change using `LearningRateScheduler`
+  + Step 3 - [Choosing an optimizer and a loss function](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-3---choosing-an-optimizer-and-a-loss-function)
+    + goal of optimization: efficiently calculate the parameters/weights that minimize the loss function
+    + [types of loss functions in keras](https://github.com/keras-team/keras/blob/master/keras/losses.py)
+    + Distance: the 'loss' function
+    + types of loss functions: MSE (for regression); categorical cross-entropy (for classification); binary cross entropy (for classification)
+  + Step 4 - [Deciding on the batch size and number of epochs](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-4---deciding-on-the-batch-szie-and-number-of-epochs)
+    + batch size: the number of samples propagated through the network
+    + advantages od using a batch size < number of all samples
+    + Disadvantages of using a batch size < number of all samples
+    + epoch: a hyperparameter defines the number times that the learning algorithm will work through the entire training dataset
+  + Step 5 - [Random restarts](/ML/MLNN-Hinton/a04-Hyperparameter.md#step-5---random-restarts)
+    + Not implemented in Keras
+    + Easily done by altering `keras.callbacks.LearningRateScheduler`
+    + Resetting the learning rate after a specified number of epoch for a finite number of times
 
 
 ## Adaptive Learning Rates
