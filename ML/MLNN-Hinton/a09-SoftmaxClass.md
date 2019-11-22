@@ -1,6 +1,6 @@
 # Softmax Classifier
 
-[URL](http://cs231n.github.io/linear-classify/#softmax)
+[Original Article](http://cs231n.github.io/linear-classify/#softmax)
 
 ## Introduction
 
@@ -35,9 +35,9 @@
 
 + Cross-entropy can be written as entropy and the Kullback-Leibler divergence
 
-  \[H(p, q) = H(p) + D_{KL}(p || q)\]
+  \[H(p, q) = H(p) + D_{KL}(p | q)\]
 
-  + the entropy of the delta function $H(p) = 0$ 
+  + the entropy of the delta function $H(p) = 0$
 
 + Minimizing the cross-entropy equivalent to minimizing the KL divergence between two distributions (a measure of distance)
 
@@ -56,7 +56,7 @@
 
 + Viewing $R(W)$, the regularization term, as coming from a Gaussian prior over the weight matrix $W$
 
-+ Performing __Maximum a posteriori__ (MAP) estimation instead of performing MLE
++ Performing __Maximum a posterior__ (MAP) estimation instead of performing MLE
 
 
 ## Practical Issues: Numeric stability
