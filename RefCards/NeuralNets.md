@@ -73,7 +73,7 @@
 + [Kronecker Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#kronecker-delta)
   + Definition
 
-    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \tag*{(3)}\]
+    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \]
 
   + __property__. Simplify
 
@@ -82,11 +82,11 @@
 + [Dirac Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#dirac-delta)
   + Definition
 
-    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \tag*{(4)}\]
+    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \]
 
     The value at which the delta function become infinite can be controlled by substituting $x - x_0$ for $x$
 
-    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \tag*{(5)}\]
+    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \]
 
   + Alternative definition
 
