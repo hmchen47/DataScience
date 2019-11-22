@@ -577,7 +577,7 @@
 
 ## Activation Functions
 
-### Overview
+### Overview of Activation Functions
 
 + [Activation functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
   + analogous to the build-up of electrical potential in biological neurons
@@ -625,7 +625,10 @@
     </a>
   </div>
 
-### Sigmoid and Softmax
+
+### Sigmoid and Softmax Functions
+
++ Logistic regression as a special case of Softmax regression with 2 classes
 
 + [Sigmoid and softmax functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
 
@@ -638,6 +641,17 @@
     + used for multiclass classification
   + issue: zero centeredness
 
++ [Softmax regression](../ML/MLNN-Hinton/a08-SoftmaxReg.md#introduction)
+  + a generalized form of logistic regression
+  + used in multi-class classification problems where the classes are mutually exclusive
+  + Formula
+
+    \[h_\theta(x^{(i)}) = \begin{bmatrix} p(y^{(i)} = 1 | x^{(i)}; \theta) \\ p(y^{(i)} = 2 | x^{(i)}; \theta) \\ \vdots \\ p(y^{(i)} = k | x^{(i)}; \theta) \end{bmatrix} = \frac{1}{\sum_{j=1}^k e^{\theta_j^T} x{(i)}} \begin{bmatrix} e^{\theta_1^T x^{(i)}} \\ e^{\theta_2^T x^{(i)}} \\ \vdots \\ e^{\theta_k^T x^{(i)}}\end{bmatrix}\]
+
+  + $x^{(i)}$: the input vector of the $i$th sampling case
+  + $y^{(i)}$: the actual calculated output value of the $i$th sampling case
+  + The output is a vector of the probability w/ actual output value of $y^{(k)} = i$ where $i = 1, 2, \dots, k$
+
 
 ### Hyperbolic Tangent (tanh) Function 
 
@@ -648,17 +662,6 @@
   + resolving the zero centeredness issue of the sigmoid function
   + always preferred to the sigmoid function within hidden layers
   + suffer from the other problems plaguing the sigmoid function, including the vanishing gradient problem
-
-+ [Rectified Linear Unit (ReLU)](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[\phi(z) = max(o, x)\]
-
-  + simplest non-linear activation function
-  + avoid and rectify the vanishing gradient problem
-  + used by almost all deep learning models
-  + only used within hidden layers of a neural network
-  + issue: maybe unstable during training and die
-  + the most successful and widely-used activation function
 
 
 ### Softplus Functions
@@ -675,7 +678,18 @@
   + linear for a regression problem
 
 
-### 
+### Rectified Linear Unit (ReLU)
+
++ [Rectified Linear Unit (ReLU)](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = max(o, x)\]
+
+  + simplest non-linear activation function
+  + avoid and rectify the vanishing gradient problem
+  + used by almost all deep learning models
+  + only used within hidden layers of a neural network
+  + issue: maybe unstable during training and die
+  + the most successful and widely-used activation function
 
 + [Leaky ReLU and Generalized ReLU](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
   + dead neurons: ReLU unstable causes network never activated on any data point
@@ -695,7 +709,7 @@
     + difference: merely depend on the chosen value of $\alpha$
 
 
-###  Maxout Function
+### Maxout Function
 
 + [Maxout function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
 
@@ -731,7 +745,9 @@
 
 
 
-## Lost/Cost Function
+## Lost/Cost Function and Gradient Descent
+
+### Overview of Lost Function
 
 + [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
   + NN trained using an optimization process that requires a loss function to calculate the model error
@@ -758,7 +774,42 @@
     </div>
 
 
+### Lost Function for Softmax Function
+
++ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
+
+  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
+
+  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
+  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
+  + if the classifier outputs 1 for the training example, then the cos is zero.
+
+
+### Gradient Descent for Softmax Function
+
++ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+
+  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
+
+  + the function computes the gradients for a single class $j$
+
+  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
+
+  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
+
++ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
+  + $grad$: gradient matrix; dimension: [numClass x input Size]
+  + $data$: data matrix; dimension: [inputSize x numExamples]
+
+  \[grad = M * data\]
+
+
+
+
 ## Output Units
+
+### Overview of Output Units
 
 + [Summary of data types, distributions, output layers and cost functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#output-units)
 
