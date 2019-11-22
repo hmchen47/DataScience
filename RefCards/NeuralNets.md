@@ -294,178 +294,6 @@
   </div>
 
 
-### Activation Functions
-
-+ [Activation functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-  + analogous to the build-up of electrical potential in biological neurons
-  + activation potential: mimicked in artificial neural networks using a probability
-  + Characteristics:
-    + non-linearity: ensures not linearity
-    + differentiable: ensure gradients remain large through the hidden unit
-  + The general form of an activation function
-
-    \[h = f(W^T X + b)\]
-
-    + $h$: the neural output
-    + $f(.)$: the activation function acting on the weights and bases
-
-+ [Non-linearity](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-  + linear function
-    + a polynomial of one degree
-    + linear equation easy to solve
-    + limited in complexity and less power to learn complex functional mappings from data
-  + Neural network w/o activation function
-    + a linear regression model
-    + limited in the set of functions able to approximate
-  + Universal approximation theorem: generalized non-linear function approximations
-  + non-linear activation able to generate non-linear mappings from inputs to outputs
-
-+ [Differentiable](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-  + required to perform backpropagation in the network
-  + required to compute gradients of errors (loss) w.r.t. to the weights updated using gradient descent
-  + linear activation function
-    + an easily differentiable function
-    + optimized using convex optimization
-    + limited model capacity
-
-+ [Vanishing gradient problem](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-  + small gradients and several hidden layers results in multiplied gradient during backpropagation
-  + computer limitation on precision when multiply many small numbers
-  + the value of the gradient quickly vanished
-  + important challenge generated in deep neural networks
-
-+ [Common choices of activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=550>
-    </a>
-  </div>
-
-+ [Sigmoid and softmax functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[\phi(z) = \frac{1}{1 + e^{-z}}\]
-
-  + used as output functions for binary classification
-  + generally not used within hidden layers
-  + softmax function
-    + multidimensional version of the sigmoid
-    + used for multiclass classification
-  + issue: zero centeredness
-
-+ [Hyperbolic tangent function (Tanh) function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\]
-
-  + resolving the zero centeredness issue of the sigmoid function
-  + always preferred to the sigmoid function within hidden layers
-  + suffer from the other problems plaguing the sigmoid function, including the vanishing gradient problem
-
-+ [Rectified Linear Unit (ReLU)](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[\phi(z) = max(o, x)\]
-
-  + simplest non-linear activation function
-  + avoid and rectify the vanishing gradient problem
-  + used by almost all deep learning models
-  + only used within hidden layers of a neural network
-  + issue: maybe unstable during training and die
-  + the most successful and widely-used activation function
-
-+ [Softplus functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[\phi(z) = \ln(1 + e^z)\]
-
-  + a slight variation of ReLU where the transition at zero is somewhat smooth
-  + benefit: no discontinuities in the activation function
-
-  + sigmoid for binary classification
-  + softmax for multiclass classification
-  + linear for a regression problem
-
-+ [Leaky ReLU and Generalized ReLU](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-  + dead neurons: ReLU unstable causes network never activated on any data point
-  + Leaky ReLU
-
-    \[g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}\]
-
-    + contain a small slope
-    + purpose of slope: keep the updates alive and prevent the production of dead neurons
-    + still discontinuity at zero
-    + no longer flat below zero
-    + merely having a reduced gradient
-    + a subset of generalized ReLU
-
-  + Leaky ReLU & Generalized ReLU
-    + slight variations on the basic ReLU function
-    + difference: merely depend on the chosen value of $\alpha$
-
-+ [Maxout function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta\]
-
-  + simply the maximum of $k$ linear functions
-  + a hybrid approach consisting of linear combinations of ReLU and leaky ReLU units
-
-+ [Swish: A Self-Gated Activation Function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
-
-  \[f(x) = x \cdot sigmoid(x)\]
-
-  + tend to work better than ReLU on deeper models across a number of challenging datasets
-  + a smooth non-monotonic function that does not suffer from the problem of zero derivatives
-  + seen as a somewhat magical improvement to neural networks
-  + a clear improvement for deep networks
-
-
-<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-  <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=140>
-    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=140>
-    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=140>
-    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=140><br/>
-    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=150>
-    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="Curves of swish functions" height=150>
-  </a>
-</div>
-
-
-### Lost/Cost Function
-
-+ [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
-  + NN trained using an optimization process that requires a loss function to calculate the model error
-  + many functions used to estimate the error of a set of weights in a neural network
-  + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
-  + maximum likelihood: a framework for choosing a loss function when training neural networks and machine models in general
-  + what loss function to use depends on the output data distribution and is closely coupled to the output unit
-  + main types of loss functions: cross-entropy and mean squared error
-  + cross-entropy loss function > mean squared error: classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly
-  + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturation and slow learning when using the mean squared error loss. - Deep Learning, 2016
-
-+ [Cross-entropy vs. Mean Squared Error](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
-  + form for training data and model distribution (i.e., negative log-likelihood)
-
-    \[J(W) = - \displaystyle \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{\text{model}}(y|x))\]
-
-  + example of cost functions
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-        <img src="https://miro.medium.com/max/1250/1*ERuk0wZZw7sejFI9zwd7zQ.png" style="margin: 0.1em;" alt="an example of a sigmoid output coupled with a mean squared error loss" title="an example of a sigmoid output coupled with a mean squared error loss" height=180>
-        <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=180>
-      </a>
-    </div>
-
-
-### Output Units
-
-+ [Summary of data types, distributions, output layers and cost functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#output-units)
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=500>
-    </a>
-  </div>
-
 
 ## Architectures
 
@@ -744,6 +572,203 @@
       <img src="../ML/MLNN-Hinton/img/m02-11.png" style="margin: 0.1em;" alt="Discriminating simple patterns under translation with wrap-around" title="Discriminating simple patterns under translation with wrap-around" height=150>
     </a>
   </div>
+
+
+
+## Activation Functions
+
+### Overview
+
++ [Activation functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + analogous to the build-up of electrical potential in biological neurons
+  + activation potential: mimicked in artificial neural networks using a probability
+  + Characteristics:
+    + non-linearity: ensures not linearity
+    + differentiable: ensure gradients remain large through the hidden unit
+  + The general form of an activation function
+
+    \[h = f(W^T X + b)\]
+
+    + $h$: the neural output
+    + $f(.)$: the activation function acting on the weights and bases
+
++ [Non-linearity](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + linear function
+    + a polynomial of one degree
+    + linear equation easy to solve
+    + limited in complexity and less power to learn complex functional mappings from data
+  + Neural network w/o activation function
+    + a linear regression model
+    + limited in the set of functions able to approximate
+  + Universal approximation theorem: generalized non-linear function approximations
+  + non-linear activation able to generate non-linear mappings from inputs to outputs
+
++ [Differentiable](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + required to perform backpropagation in the network
+  + required to compute gradients of errors (loss) w.r.t. to the weights updated using gradient descent
+  + linear activation function
+    + an easily differentiable function
+    + optimized using convex optimization
+    + limited model capacity
+
++ [Vanishing gradient problem](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + small gradients and several hidden layers results in multiplied gradient during backpropagation
+  + computer limitation on precision when multiply many small numbers
+  + the value of the gradient quickly vanished
+  + important challenge generated in deep neural networks
+
++ [Common choices of activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=550>
+    </a>
+  </div>
+
+### Sigmoid and Softmax
+
++ [Sigmoid and softmax functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \frac{1}{1 + e^{-z}}\]
+
+  + used as output functions for binary classification
+  + generally not used within hidden layers
+  + softmax function
+    + multidimensional version of the sigmoid
+    + used for multiclass classification
+  + issue: zero centeredness
+
+
+### Hyperbolic Tangent (tanh) Function 
+
++ [Hyperbolic tangent function (Tanh) function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\]
+
+  + resolving the zero centeredness issue of the sigmoid function
+  + always preferred to the sigmoid function within hidden layers
+  + suffer from the other problems plaguing the sigmoid function, including the vanishing gradient problem
+
++ [Rectified Linear Unit (ReLU)](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = max(o, x)\]
+
+  + simplest non-linear activation function
+  + avoid and rectify the vanishing gradient problem
+  + used by almost all deep learning models
+  + only used within hidden layers of a neural network
+  + issue: maybe unstable during training and die
+  + the most successful and widely-used activation function
+
+
+### Softplus Functions
+
++ [Softplus functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \ln(1 + e^z)\]
+
+  + a slight variation of ReLU where the transition at zero is somewhat smooth
+  + benefit: no discontinuities in the activation function
+
+  + sigmoid for binary classification
+  + softmax for multiclass classification
+  + linear for a regression problem
+
+
+### 
+
++ [Leaky ReLU and Generalized ReLU](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + dead neurons: ReLU unstable causes network never activated on any data point
+  + Leaky ReLU
+
+    \[g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}\]
+
+    + contain a small slope
+    + purpose of slope: keep the updates alive and prevent the production of dead neurons
+    + still discontinuity at zero
+    + no longer flat below zero
+    + merely having a reduced gradient
+    + a subset of generalized ReLU
+
+  + Leaky ReLU & Generalized ReLU
+    + slight variations on the basic ReLU function
+    + difference: merely depend on the chosen value of $\alpha$
+
+
+###  Maxout Function
+
++ [Maxout function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta\]
+
+  + simply the maximum of $k$ linear functions
+  + a hybrid approach consisting of linear combinations of ReLU and leaky ReLU units
+
+
+### Self-Gated Activation Function
+
++ [Swish: A Self-Gated Activation Function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[f(x) = x \cdot sigmoid(x)\]
+
+  + tend to work better than ReLU on deeper models across a number of challenging datasets
+  + a smooth non-monotonic function that does not suffer from the problem of zero derivatives
+  + seen as a somewhat magical improvement to neural networks
+  + a clear improvement for deep networks
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=140>
+    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=140>
+    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=140>
+    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=140><br/>
+    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=150>
+    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="Curves of swish functions" height=150>
+  </a>
+</div>
+
+
+
+
+## Lost/Cost Function
+
++ [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
+  + NN trained using an optimization process that requires a loss function to calculate the model error
+  + many functions used to estimate the error of a set of weights in a neural network
+  + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
+  + maximum likelihood: a framework for choosing a loss function when training neural networks and machine models in general
+  + what loss function to use depends on the output data distribution and is closely coupled to the output unit
+  + main types of loss functions: cross-entropy and mean squared error
+  + cross-entropy loss function > mean squared error: classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly
+  + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturation and slow learning when using the mean squared error loss. - Deep Learning, 2016
+
++ [Cross-entropy vs. Mean Squared Error](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
+  + form for training data and model distribution (i.e., negative log-likelihood)
+
+    \[J(W) = - \displaystyle \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{\text{model}}(y|x))\]
+
+  + example of cost functions
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+        <img src="https://miro.medium.com/max/1250/1*ERuk0wZZw7sejFI9zwd7zQ.png" style="margin: 0.1em;" alt="an example of a sigmoid output coupled with a mean squared error loss" title="an example of a sigmoid output coupled with a mean squared error loss" height=180>
+        <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=180>
+      </a>
+    </div>
+
+
+## Output Units
+
++ [Summary of data types, distributions, output layers and cost functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#output-units)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=500>
+    </a>
+  </div>
+
+
 
 
 ## Linear Neurons
