@@ -2,7 +2,7 @@
 
 Author: Chris McCormick
 
-[URL](http://mccormickml.com/2014/06/13/deep-learning-tutorial-softmax-regression/)
+[Original Article](http://mccormickml.com/2014/06/13/deep-learning-tutorial-softmax-regression/)
 
 Date: 13 Jun 2014
 
