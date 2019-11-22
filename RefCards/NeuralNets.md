@@ -630,6 +630,10 @@
 
 + Logistic regression as a special case of Softmax regression with 2 classes
 
++ [Softmax classifier](../ML/MLNN-Hinton/a09-SoftmaxClass.md#possible-confusion-naming-conventions)
+  + using the cross-entropy loss
+  + using softmax function: used to squash the raw class scores into normalized positive values that sum to one
+
 + [Sigmoid and softmax functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
 
   \[\phi(z) = \frac{1}{1 + e^{-z}}\]
@@ -651,6 +655,14 @@
   + $x^{(i)}$: the input vector of the $i$th sampling case
   + $y^{(i)}$: the actual calculated output value of the $i$th sampling case
   + The output is a vector of the probability w/ actual output value of $y^{(k)} = i$ where $i = 1, 2, \dots, k$
+
++ [Softmax classifier](../ML/MLNN-Hinton/a09-SoftmaxClass.md#introduction)
+  + a generalization of Logistic Regression classifier to multiple classes
+  + providing a intuitive output (normalized class probabilities)
+  + a probabilistic interpretation 
+  + function mapping $f(x_i; W) - Wx_i$ stays unchanged
+  + interpret these scores as the uncommonalized log probabilities for each class
+
 
 
 ### Hyperbolic Tangent (tanh) Function 
@@ -759,6 +771,14 @@
   + cross-entropy loss function > mean squared error: classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly
   + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturation and slow learning when using the mean squared error loss. - Deep Learning, 2016
 
++ [Cross-entropy loss function](../ML/MLNN-Hinton/a09-SoftmaxClass.md#introduction)
+
+  \[L_i = -\log \left( \frac{e^{f_{y_i}}}{\sum_j e^{f_j}} \right) \qquad \text{or equivalently} \qquad L_i = -f_{y_i} + \log \sum_j e^{f_j}\]
+
+  + $f_j$: the $i$-th element of the vector of class score $f$
+  + the full loss for the database: the mean of $L-i$ over all training examples together with a regularization term $R(W)$
+  + softmax function: $f_j(z) = \frac{e^{z_j}}{\sum_k e^{f_j}}$; taking a vector of arbitrary real-valued scores (in $z$) and squashing it to a vector of values between zero and one that sum to one
+
 + [Cross-entropy vs. Mean Squared Error](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
   + form for training data and model distribution (i.e., negative log-likelihood)
 
@@ -772,6 +792,7 @@
         <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=180>
       </a>
     </div>
+
 
 
 ### Lost Function for Softmax Function
