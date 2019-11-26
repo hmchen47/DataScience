@@ -603,6 +603,12 @@
   + Universal approximation theorem: generalized non-linear function approximations
   + non-linear activation able to generate non-linear mappings from inputs to outputs
 
++ [nonlinear layer (or activation layer)](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + introduce nonlinearity to system that basically has been computing linear operations during the convolutional layer
+  + linear operation: element wise multiplications and summations
+  + nonlinearity: tanh, sigmoid, and ReLU
+  + increasing the nonlinearity properties of the model and the overall network without affecting the receptive fields of the convolutional layer
+
 + [Differentiable](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
   + required to perform backpropagation in the network
   + required to compute gradients of errors (loss) w.r.t. to the weights updated using gradient descent
@@ -719,6 +725,18 @@
   + Leaky ReLU & Generalized ReLU
     + slight variations on the basic ReLU function
     + difference: merely depend on the chosen value of $\alpha$
+
++ [Rectified Linear Units](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + working far better
+  + able to train a lot faster (computational efficiency) w/o making a significant difference to the accuracy
+  + alleviating the vanishing gradient problem
+  + applying yje function $f(x) = \max(0, x)$ to all of the values in the input volume
+
++ [Vanishing gradient issue](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + the lower layers of the network training very slowly
+  + the gradient decreasing exponentially through the layers
+  + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
+  + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
 ### Maxout Function
