@@ -13,6 +13,12 @@
   + info jumping from one input dimension to another
   + e.g., age and weight of a patient are inputs
 
++ [Image classification](../ML/MLNN-Hinton/a10-CNNsGuide.md#the-problem-space):
+  + the task of taking an input image and outputting a class (a cat, dog, etc) or a probability of classes that best describes the image
+  + humans: one of the first skills learned from the moment we are born and one that comes naturally and effortlessly as adults
+    + able to immediately characterize the scene and give each object a label, all without even consciously noticing
+    + able to quickly recognize patterns, generalize from prior knowledge, and adapt to different image environments
+
 
 ## Solutions for Viewpoint Invariance
 
@@ -149,7 +155,31 @@
   </div>
 
 
+## Application - Object Classification
+
+### Problem Space and Analogy
+
++ [Objective](../ML/MLNN-Hinton/a10-CNNsGuide.md#what-we-want-the-computer-to-do)
+  + able to differentiate between all the images it’s given and figure out the unique features that make a dog a dog or that make a cat a cat
+  + able perform image classification by looking for low level features such as edges and curves, and then building up to more abstract concepts through a series of convolutional layers
+
++ [Input](../ML/MLNN-Hinton/a10-CNNsGuide.md#inputs-and-outputs)
+  + Image: an array of pixel values
+  + resolution & size: e.g., 32 x 32 x 3 (RGB) array of numbers
+  + intensity at a point: values from 0 to 255
+
++ Output: the probability of the image being a certain class
+
++ [Basis behind CNNs](../ML/MLNN-Hinton/a10-CNNsGuide.md#biological-connection): specialized components inside of a system having specific tasks (the neuronal cells in the visual cortex looking for specific characteristics) is one that machines use as well
+
+
+### Modeling for Object Classification
+
+
+
 ## CNN for Object Recognition
+
+### Overview of Object Recognition
 
 + [3-D object recognition](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + object recognition more complicated than hand-written digits
