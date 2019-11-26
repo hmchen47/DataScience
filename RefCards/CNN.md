@@ -450,7 +450,11 @@
     + at least 50% overlap with the correct box
 
 
-### Alex Krizhevsky (NIPS 2012)
+### AlexNet (2012)
+
++ A. Krizhevsky, I. Sutskever, and G. Hinton, [ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+  + using a CNN
+  + achieving a top 5 test error rate of 15.4%
 
 + [Architecture](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + 7 hidden layers not counting max pooling layers
@@ -464,6 +468,27 @@
 + [Generalization tricks](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + Transformations to enhance the training data
   + Dropout - regularizing the weights
+
++ [Architecture](../ML/MLNN-Hinton/a11-9Papers.md#alexnet-2012)
+  + 5 convolutional layers
+  + max-pooling layers
+  + dropout layers
+  + 3 fully connected layers
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/AlexNet.png" style="margin: 0.1em;" alt="AlexNet architecture" title="AlexNet architecture" width=550>
+    </a>
+  </div>
+
++ [Main Points](../ML/MLNN-Hinton/a11-9Papers.md#alexnet-2012)
+  + training on ImageNet w/ 15 million annotated images from a total of over 22,000 categories
+  + used ReLU for nonlinearity functions
+  + used data argumentation techniques w/ image translations, horizontal reflections, and patch extractions
+  + implemented dropout layers to combat the problem of overfitting to the training data
+  + trained the model using batch stochastic gradient descent, w/ specific values for momentum and weight decay
+  + trained on 2 GTX 580 GPUs for 5 or 6 days
+
 
 
 ### Vald Mnih (ICML 2012) - Finding roads
