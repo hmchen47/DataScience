@@ -280,6 +280,45 @@
   </div>
 
 
+### Spatial Transformer Networks (2015)
+
++ M. Jaderberg, K. Simonyan, A. Zisserman, and K. Kavukcuoglu, [Spatial Transformer Networks](https://arxiv.org/pdf/1506.02025.pdf), 2016
+  + The basic idea: transform the input image in a way so that the subsequent layers have an easier time making a classification
+  + issue: making changes on image before fed into the specific convolutional layer
+  + this module intends to correct: pose normalization (scenarios where the object is tilted or scaled) and spatial attention (brining attention to the correct object in a crowded image)
+  + traditional CNNs: make model invariant to images with different scales and rotations requiring a lot of training examples for the model to learn properly
+
++ [Spatial transformer](../ML/MLNN-Hinton/a11-9Papers.md#spatial-transformer-networks-2015)
+  + traditional CNN models
+    + the maxpooling layer dealing with spatial invariant
+    + knowing a specific feature in the original input volume
+    + relative location not as important as exact location
+  + dynamically to produce different behavior (different distortions/transformations) for each input image
+  + module components
+    + localization network
+      + take input volume and output parameters of the spatial transformation applied
+      + parameters $\theta$: 6 dimensions for an affine transformation
+    + grid generator
+      + creation of a sampling grid
+      + the result of wrapping the regular grid with affine transformation ($\theta$) created in the localization network
+    + sampler: perform a wrapping of the input feature map
+  + the module dropped into a CNN at any point and basically helps the network learn how to transform feature maps in a way that minimizes the cost function during training
+  + example of spatial transformer
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/SpatialTransformer.png" style="margin: 0.1em;" alt="A spatial transformer module" title="A spatial transformer module" height=160>
+      <img src="https://adeshpande3.github.io/assets/SpatialTransformer2.png" style="margin: 0.1em;" alt="Overview of the function of a spatial transformer module" title="Overview of the function of a spatial transformer module" height=160>
+    </a>
+  </div>
+
++ [What it's important](../ML/MLNN-Hinton/a11-9Papers.md#spatial-transformer-networks-2015)
+  + improvements in CNN's not necessarily from changes in network architecture
+  + the simple idea of making affine transformations to the input image to help models become more invariant to translation, scale, and rotation
+  + [video](https://drive.google.com/file/d/0B1nQa_sA3W2iN3RQLXVFRkNXN0k/view) from Deepmind w/ a great animation of the results of placing a Spatial Transformer module in CNN
+  + Quora [discussion](https://www.quora.com/How-do-spatial-transformer-networks-work)
+
+
 ## Application - Object Classification
 
 ### Problem Space and Analogy
@@ -781,6 +820,68 @@
 
 
 
+## Generating Image Descriptions (2014)
+
++ Articles
+  + A. Karpathy and F. Li, [Deep visual semantic alignment for Generating Image Descriptions](https://arxiv.org/pdf/1412.2306v2.pdf), 2015
+  + A. Karpathy, A. Joulin and F. Li, [Deep fragment embeddings for bidirectional image sentence mapping](https://arxiv.org/pdf/1406.5679v1.pdf), 2014
+
++ Combining CNNs and bidirectional RNNs (Recurrent Neural Networks) to generate natural language descriptions of different image regions
+
++ Example of Generating image descriptions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Caption.png" style="margin: 0.1em;" alt="Example output of the model" title="Example output of the model" width=350>
+    </a>
+  </div>
+
++ [Comparison w/ normal CNNs](../ML/MLNN-Hinton/a11-9Papers.md#generating-image-descriptions-2014)
+  + traditional CNNs: a single clear label associated with each image in the training data
+  + image descriptions:
+    + having a sentence (or caption) associated with each image
+    + weak label: segments of the sentence refer to (unknown) parts of the image
+
++ [Generating image descriptions](../ML/MLNN-Hinton/a11-9Papers.md#generating-image-descriptions-2014)
+  + Using this training data, a deep neural network "infers the latent alignment between segments of the sentences and the region that they described".
+  + Another neural network takes in the image as input and generates a description in text.
+  + Two components: alignment and generation
+
++ [Alignment model](../ML/MLNN-Hinton/a11-9Papers.md#alignment-model)
+  + goal: align the visual and textual data
+  + Alignment model
+    + input: an image and a sentence
+    + output: a score for how well they match
+    + trained on compatible and incompatible image-sentence pairs
+  + Representation:
+    + information about image
+      + feeding the image into an R-CNN to detect the individual objects
+      + trained on ImageNet data
+      + the top 19 (plus the original image) object regions are embedded to a 500 dimensional space
+      + having 20 different 500 dimensional vectors for each image
+    + information about the sentence
+      + embedding words into the same multimodal space
+      + using a bidirectional recurrent neural network
+      + illustrating information about the context of words in a given sentence
+    + information about the picture and the sentence in the same space
+    + compute inner products to show a measure of similarity
+
++ [Generative Model](../ML/MLNN-Hinton/a11-9Papers.md#generative-model)
+  + the main purpose of creating a dataset where you have a set of image regions (found by the R-CNN) and corresponding text (BRNN)
+  + learning from that dataset to generate descriptions given an image
+  + taking in an image abd feeding it through a CNN
+  + softmax layer: disregarded as the outputs of the fully connected layer become the inputs to another RNN
+  + RNN: the function basically form probability distributions on the different words in a sentence
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GeneratingImageDescriptions.png" style="margin: 0.1em;" alt="Workflow of alignment and generative model" title="orkflow of alignment and generative model" width=850>
+    </a>
+  </div>
+
++ [What it's Important](../ML/MLNN-Hinton/a11-9Papers.md#what-its-important-1)
+  + Using seemingly different RNN and CNN models to create a very useful application that in a way combines the fields of Computer Vision and Natural Language Processing
+  + New idea in terms of how to make computers and models smarter when dealing with tasks that cross different fields
 
 
 ### Vald Mnih (ICML 2012) - Finding roads
