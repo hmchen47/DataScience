@@ -538,7 +538,7 @@
   + visualization approach: not only to explain the inner workings of CNNs, but also provides insight for improvements to network architectures
 
 
-## VGG Net (2014)
+### VGG Net (2014)
 
 + K. Simonyan and A. Zisserman, [Very Deep Convolutional Networks for Large-scale Image Recognition](https://arxiv.org/pdf/1409.1556v6.pdf)
   + the winners of ILSVRC 2014, best utilized with its 7.3% error rate
@@ -642,13 +642,13 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/ResNet.gif" style="margin: 0.1em;" alt="ResNet" title="ResNet" width=250>
+      <img src="https://adeshpande3.github.io/assets/ResNet.gif" style="margin: 0.1em;" alt="ResNet" title="ResNet" width=200>
     </a>
-  </div>
-
-+ [Residual Block](../ML/MLNN-Hinton/a11-9Papers.md#microsoft-resnet-2015)
-  + idea behind a residual block: input x goes through conv-relu-conv series
-  + given $F(x)$ then adding to the original input $x$. the hypothesis function is $H(x) = F(x) + x$
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+        <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="Fast R-CNN workflow" width=550>
+      </a>
+    </div>original input $x$. the hypothesis function is $H(x) = F(x) + x$
   + traditional CNNs: $H(x) = F(x)$, computing $F(x)$
     + complete new representation w.r.t. input $x$
   + Residual module: computing $F(x) + x$
@@ -659,7 +659,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/ResNet.png" style="margin: 0.1em;" alt="A residual block" title="A residual block" width=350>
+      <img src="https://adeshpande3.github.io/assets/ResNet.png" style="margin: 0.1em;" alt="A residual block" title="A residual block" width=250>
     </a>
   </div>
 
@@ -675,6 +675,71 @@
   + 3.6% error rate
   + the best CNN architecture so far
   + stacking more layers on top of each other isn't going to result in a substantial performance boost
+
+
+### Region Based CNNs (R-CNN - 2013, Fast R-CNN - 2015, Faster R-CNN - 2015)
+
++ Articles
+  + R. Girshick, J. Donahue, T. Darrell, and J. Malik, [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/pdf/1311.2524v5.pdf), 2013
+  + R. Girshick, [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf), 2015
+  + S. Ren, K. He, R. Girshick, and J. Sun, [Faster R-CNN: Toward Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1504.08083.pdf), 2015
+
++ [R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
+  + one of the most impactful advancement in computer vision
+  + Fast R-CNN and Faster R-CNN: making the model faster and better for modern object detection tasks
+  + Purpose of R-CNNs
+    + solving the problem of object detection
+    + able to draw bounding boxes over all the objects
+  + split into two general components:
+    + the region proposal step
+    + the classification step
+
++ [Region proposal method](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
+  + any class agnostic region proposal method should fit
+  + Selective Search:
+    + J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, [Selective Search for Object Recognition](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
+    + used in particular for R-CNN
+  + perform the function of generating 2000 different regions that have the highest probability of containing an object
+  + obtained a set of region proposals
+  + proposals wrapped into an an image size that can be fed into a trained CNN (AlexNet in this case) that extracts a feature vector of each region
+  + vector used as the input to a set of linear SVMs trained for each class and output a classification
+  + the vector gets into a bounding box regressor to obtain the most accurate coordinates
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/rcnn.png" style="margin: 0.1em;" alt="R-CNN workflow" title="R-CNN workflow" width=450>
+    </a>
+  </div>
+
+  + non-maxima suppression: used to suppress bounding boxes that have a significant overlap with each other
+
++ [Fast R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#faster-r-cnn)
+  + R-CNN problems
+    + multiple stages (ConvNets to SVMs to bounding box regressors)
+    + computationally expensive
+    + extremely slow: R-CNN - 53 seconds per image
+  + Fast R-CNN
+    + able to solve the problem of speed
+    + basically sharing computation of convolutional layers between different proposals and swapping the order of generating region proposals and running th CNN
+    + first fed through a ConvNet to obtain features of the region proposals from the last feature map of the ConvNet
+    + lastly connected layers as well as regression and classification heads
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+        <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="Fast R-CNN workflow" width=350>
+      </a>
+    </div>
+
++ [Faster R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#faster-r-cnn)
+  + Combat the complex training pipeline that both R-CNN and Fast R-CNN exhibited
+  + inserting a region proposal network (RPN) after the last convolutional layer
+  + able to just look at the last convolutional feature map and produce region proposals from that
+  + the same pipeline as R-CNN used (ROI pooling, FC, and then classification and regression heads)
+
++ [What it's Important](../ML/MLNN-Hinton/a11-9Papers.md#what-its-important)
+  + able to determine that a specific object in an image is one thing, but able to determine that object's exact location is a huge jump in knowledge for the computer
+  + Fast R-CNN: the standard for object detection programs today
+
 
 
 
@@ -700,7 +765,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
-        <img src="img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
+        <img src="../ML/MLNN-Hinton/img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
       </a>
     </div>
 
