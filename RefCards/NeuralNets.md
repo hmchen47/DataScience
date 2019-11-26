@@ -10,6 +10,201 @@
   + binary classification problem
 
 
+### Anatomy
+
++ [Neural networks:](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + excellent tools for finding patterns
+  + backpropagation
+  + make use of affine __transformations__ to concatenate input features
+  + concatenated input passed through an activation function
+  + Neural network
+    + an abstract representation of the data at each stage of the network
+    + designed to detect specific features of the network
+
++ [Activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + evaluate the signal response and determine whether the neuron should be activated given the current inputs
+  + extended to multilayer and multi feature networks
+    + the number of degrees of freedom (weights and biases) of the network
+    + the number of features available which the network can use to make predictions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*L_lfAEddxxAg2EqJfB5i6Q.png" style="margin: 0.1em;" alt="Activation function with affine transformation" title="Activation function with affine transformation" height=150>
+      <img src="https://miro.medium.com/max/1250/1*l57B0pjXoO-1H1xZYV7QBA.png" style="margin: 0.1em;" alt="A neural network with one hidden layer and two features (the simplest possible multi-layer multi-feature network)." title="A neural network with one hidden layer and two features (the simplest possible multi-layer multi-feature network)." height=150>
+    </a>
+  </div>
+
++ [Network parameters (weights and biases)](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + updated by assigning the error of the network
+  + using backpropagation through the network to obtain the derivatives for each of the parameters w.r.t. the loss function
+  + gradient descent used to update these parameters
+
++ [Training network](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + the process of accessing the error and updating the parameters
+  + a training set to generate a functional network
+  + performance of the network
+  + test set: unseen data accessed by testing
+
++ [Degrees of freedom](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + neural network having a large number of degrees
+  + required a large amount of data for training to be able to make adequate predictions
+  + useful for high dimensionality of the data
+
++ [Generalized multilayer and multi-feature network](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*GApLZ60775yXfUzO65PfEA.png" style="margin: 0.1em;" alt="Generalized multilayer perceptron with n hidden layers, m nodes, and d input features." title="Generalized multilayer perceptron with n hidden layers, m nodes, and d input features." width=350>
+    </a>
+  </div>
+
+  + $m$ nodes: the width of a layer within the network
+  + $n$ hidden layers: the depth of the network
+  + $d$ inputs: pre-specified by the available data
+    + normal Pandas data frame: equal to the number of feature columns
+  + the hidden layers of the network have the same width (number of nodes)
+  + the number of nodes may vary across the hidden layers
+  + the output layer may also be of an arbitrary dimension depending on the required output
+
++ [Convolutional neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
+  + commonly used to study images
+  + hidden layers closer to the output of a deep network, the highly interpretable representations, such as faces, clothing, etc.
+  + the first layers of the network: detecting very basic features such as corners, curves, and so on
+  + abstract representations quickly become too complex to comprehend
+  + the workings of neural networks to produce highly complex abstractions seen as somewhat magical
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*9AC8C_ybj-yeAS8OqpK1Eg.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying an image of a human face." title="An example of a neural network with multiple hidden layers classifying an image of a human face." width=400>
+      <img src="https://miro.medium.com/max/1250/1*qpdTBdx8D-Z2WAMT24onLQ.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." title="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." width=400>
+    </a>
+  </div>
+
+
+### Concepts and Neural Networks
+
++ [Concepts in cognition science](../ML/MLNN-Hinton/04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
+  + The feature theory: a concept is a set of semantic features
+  + The structuralist theory: the meaning of a concept lies in its relationships to other concepts
+  + Minsky (1970s): in favor of relational graph representations with structuralist theory
+  + Hinton - both applicable
+    + able to use vectors of semantic features to implement a relational graph
+    + no intervening conscious steps but many computation in interactions of neurons
+    + explicit rules for conscious, deliberate, reasoning
+    + commonsense, analogical reasoning: seeing the answer w/o conscious intervening steps
+
++ [Localist and distributed representations of concepts](../ML/MLNN-Hinton/04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
+  + Localist representation
+    + implementation of relational graph in a neural net
+    + neuron = node in the graph
+    + connection = a binary relationship
+    + "localist" method not working: many different types of relationship and the connections in neural nets w/o discrete labels
+  + Distributed representations
+    + open issue: how to implement relational knowledge in a neural net
+    + many-to-many mapping btw concepts and neurons
+
++ [Neural Network Algorithm](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=400>
+    </a>
+  </div>
+
+  + weights in neural networks: these regression parameters of our various incoming functions
+  + passed to an activation function which decides whether the result is significant enough to 'fire' the node
+  + start with some arbitrary formulation of values in order for us to start updating and optimizing the parameters
+  + assessing the loss function after each update and performing gradient descent
+
++ [Ways to minimize the loss function](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
+  + Descent
+    + The value of $w$ to minimize $\mathcal{L}(w)$
+    + to find the optimal point of a function$\mathcal{L}(w)$: $\frac{d \mathcal{L}(W)}{dW} = 0$
+    + find the $w$ that satisfies the equation
+  + more flexible method
+    + start from any point and then determine which direction to go to reduce the loss (left or right in this case)
+    + calculate the slope of the function at this point
+    + then shift to the right if the slope is negative or shift to the left if the slope is positive
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*qbvfebFdO7rxU4QVl6tQtw.png" style="margin: 0.1em;" alt="Diagram of the loss function" title="Diagram of the loss function" height=150>
+      <img src="https://miro.medium.com/max/875/1*4l_ZpZRZ6mwKAXWo4Q20QA.png" style="margin: 0.1em;" alt="Diagram of the loss function with starting point" title="Diagram of the loss function with starting point" height=150>
+    </a>
+  </div>
+
+
+### Types of Learning
+
++ [Problem Modeling](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  + Supervised learning: Regression & Classification
+  + Reinforcement learning
+  + Unsupervised learning
+
++ [Typical Supervised learning procedure](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  1. Choosing a model class: $y = f(\mathbf{x}; \mathbf{W})$
+    + $\mathbf{x}$: input vector
+    + $\mathbf{W}$: weight vector
+    + $f$: activation function to transform input $\mathbf{x}$ with weight vector $\mathbf{W}$ to the output $y$
+  2. Learning by adjust $\mathbf{W}$ with cost function
+    + reduce the difference between target value $t$ and actual output $y$
+    + Regression measurement: usually $\frac{1}{2} (t - y)^2$
+    + Classification measurement: other sensible measures
+
++ [Reinforcement learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  + Output: an action or sequence of actions
+  + The only supervisory signal: an occasional scalar reward
+  + Decision of action(s) selected: maximize the expected sum of the future reward
+  + typically delayed reward makes model hard
+
++ [Unsupervised learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
+  + no clear goal
+  + typically find sensible clusters
+
+
+### Learning Methodologies
+
++ [Learning by perturbing weights](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
+  + randomly perturb one weight and see if it improves performance: very inefficient
+  + Alternative: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
+  + Better: randomly perturb the activities of the hidden units
+
++ [Randomly perturb the activities of the hidden units](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
+  + adding a layer of hand-coded features
+    + more powerful but hard to design the features
+    + finding good features w/o requiring insights into the task or repeated trial and error
+    + guess features and see how well they work
+  + automate the loop of designing features for a particular task and seeing ho well they work
+
+
+### Considerations of Learning Procedures
+
++ [Main decisions about how to use error derivatives](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + Optimization issue: how to discover a good set of weights with the error derivatives on individual cases?
+  + Generalization issue: how to ensure non-seen cases during training work well with trained weights?
+
++ [Optimization Concerns](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + How often to update the weights
+    + Online
+    + Full batch
+    + Mini-batch
+  + How much to update the weights
+    + fixed learning rate
+    + adaptive learning rate globally
+    + adaptive learning rate on each connection separately
+
++ [Generalization Concern - Overfitting](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + Unable to identify which regularities causing errors
+  + Possible solutions:
+    + Weight-decay
+    + Weight-sharing
+    + Early stopping
+    + Model averaging
+    + Bayesian fitting on neural nets
+    + Dropout
+    + Generative pre-training
+
+
 ### Gradient Descent
 
 + [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
@@ -97,202 +292,6 @@
   + __Property__.
 
     \[\int_{-\infty}^{\infty} f(x) \delta(x - x_0)dx = f(x_0) \\ \delta(ax) = \frac{1}{|a|} \delta(x)\]
-
-
-### Anatomy
-
-+ [Neural networks:](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
-  + excellent tools for finding patterns
-  + backpropagation
-  + make use of affine __transformations__ to concatenate input features
-  + concatenated input passed through an activation function
-  + Neural network
-    + an abstract representation of the data at each stage of the network
-    + designed to detect specific features of the network
-
-+ [Activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
-  + evaluate the signal response and determine whether the neuron should be activated given the current inputs
-  + extended to multilayer and multi feature networks
-    + the number of degrees of freedom (weights and biases) of the network
-    + the number of features available which the network can use to make predictions
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*L_lfAEddxxAg2EqJfB5i6Q.png" style="margin: 0.1em;" alt="Activation function with affine transformation" title="Activation function with affine transformation" height=150>
-      <img src="https://miro.medium.com/max/1250/1*l57B0pjXoO-1H1xZYV7QBA.png" style="margin: 0.1em;" alt="A neural network with one hidden layer and two features (the simplest possible multi-layer multi-feature network)." title="A neural network with one hidden layer and two features (the simplest possible multi-layer multi-feature network)." height=150>
-    </a>
-  </div>
-
-+ [Network parameters (weights and biases)](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
-  + updated by assigning the error of the network
-  + using backpropagation through the network to obtain the derivatives for each of the parameters w.r.t. the loss function
-  + gradient descent used to update these parameters
-
-+ [Training network](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
-  + the process of accessing the error and updating the parameters
-  + a training set to generate a functional network
-  + performance of the network
-  + test set: unseen data accessed by testing
-
-+ [Degrees of freedom](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
-  + neural network having a large number of degrees
-  + required a large amount of data for training to be able to make adequate predictions
-  + useful for high dimensionality of the data
-
-+ [Generalized multilayer and multi-feature network](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-)
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1250/1*GApLZ60775yXfUzO65PfEA.png" style="margin: 0.1em;" alt="Generalized multilayer perceptron with n hidden layers, m nodes, and d input features." title="Generalized multilayer perceptron with n hidden layers, m nodes, and d input features." width=350>
-    </a>
-  </div>
-
-  + $m$ nodes: the width of a layer within the network
-  + $n$ hidden layers: the depth of the network
-  + $d$ inputs: pre-specified by the available data
-    + normal Pandas data frame: equal to the number of feature columns
-  + the hidden layers of the network have the same width (number of nodes)
-  + the number of nodes may vary across the hidden layers
-  + the output layer may also be of an arbitrary dimension depending on the required output
-
-+ [Convolutional neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md#anatomy-of-a-neural-network)
-  + commonly used to study images
-  + hidden layers closer to the output of a deep network, the highly interpretable representations, such as faces, clothing, etc.
-  + the first layers of the network: detecting very basic features such as corners, curves, and so on
-  + abstract representations quickly become too complex to comprehend
-  + the workings of neural networks to produce highly complex abstractions seen as somewhat magical
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1250/1*9AC8C_ybj-yeAS8OqpK1Eg.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying an image of a human face." title="An example of a neural network with multiple hidden layers classifying an image of a human face." width=400>
-      <img src="https://miro.medium.com/max/1250/1*qpdTBdx8D-Z2WAMT24onLQ.png" style="margin: 0.1em;" alt="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." title="An example of a neural network with multiple hidden layers classifying written digits from the MNIST dataset." width=400>
-    </a>
-  </div>
-
-
-### Types of Learning
-
-+ [Problem Modeling](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
-  + Supervised learning: Regression & Classification
-  + Reinforcement learning
-  + Unsupervised learning
-
-+ [Typical Supervised learning procedure](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
-  1. Choosing a model class: $y = f(\mathbf{x}; \mathbf{W})$
-    + $\mathbf{x}$: input vector
-    + $\mathbf{W}$: weight vector
-    + $f$: activation function to transform input $\mathbf{x}$ with weight vector $\mathbf{W}$ to the output $y$
-  2. Learning by adjust $\mathbf{W}$ with cost function
-    + reduce the difference between target value $t$ and actual output $y$
-    + Regression measurement: usually $\frac{1}{2} (t - y)^2$
-    + Classification measurement: other sensible measures
-
-+ [Reinforcement learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
-  + Output: an action or sequence of actions
-  + The only supervisory signal: an occasional scalar reward
-  + Decision of action(s) selected: maximize the expected sum of the future reward
-  + typically delayed reward makes model hard
-
-+ [Unsupervised learning](../ML/MLNN-Hinton/01-IntroML.md#three-types-of-learning)
-  + no clear goal
-  + typically find sensible clusters
-
-
-### Learning Methodologies
-
-+ [Learning by perturbing weights](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
-  + randomly perturb one weight and see if it improves performance: very inefficient
-  + Alternative: randomly perturb all the weights in parallel and correlate the performance gain with the weight changes
-  + Better: randomly perturb the activities of the hidden units
-
-+ [Randomly perturb the activities of the hidden units](../ML/MLNN-Hinton/03-Backpropagation.md#the-backpropagation-algorithm)
-  + adding a layer of hand-coded features
-    + more powerful but hard to design the features
-    + finding good features w/o requiring insights into the task or repeated trial and error
-    + guess features and see how well they work
-  + automate the loop of designing features for a particular task and seeing ho well they work
-
-
-### Considerations of Learning Procedures
-
-+ [Main decisions about how to use error derivatives](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
-  + Optimization issue: how to discover a good set of weights with the error derivatives on individual cases?
-  + Generalization issue: how to ensure non-seen cases during training work well with trained weights?
-
-+ [Optimization Concerns](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
-  + How often to update the weights
-    + Online
-    + Full batch
-    + Mini-batch
-  + How much to update the weights
-    + fixed learning rate
-    + adaptive learning rate globally
-    + adaptive learning rate on each connection separately
-
-+ [Generalization Concern - Overfitting](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
-  + Unable to identify which regularities causing errors
-  + Possible solutions:
-    + Weight-decay
-    + Weight-sharing
-    + Early stopping
-    + Model averaging
-    + Bayesian fitting on neural nets
-    + Dropout
-    + Generative pre-training
-
-
-### Concepts and Neural Networks
-
-+ [Concepts in cognition science](../ML/MLNN-Hinton/04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
-  + The feature theory: a concept is a set of semantic features
-  + The structuralist theory: the meaning of a concept lies in its relationships to other concepts
-  + Minsky (1970s): in favor of relational graph representations with structuralist theory
-  + Hinton - both applicable
-    + able to use vectors of semantic features to implement a relational graph
-    + no intervening conscious steps but many computation in interactions of neurons
-    + explicit rules for conscious, deliberate, reasoning
-    + commonsense, analogical reasoning: seeing the answer w/o conscious intervening steps
-
-+ [Localist and distributed representations of concepts](../ML/MLNN-Hinton/04-Multiclasses.md#a-brief-diversion-into-cognitive-science)
-  + Localist representation
-    + implementation of relational graph in a neural net
-    + neuron = node in the graph
-    + connection = a binary relationship
-    + "localist" method not working: many different types of relationship and the connections in neural nets w/o discrete labels
-  + Distributed representations
-    + open issue: how to implement relational knowledge in a neural net
-    + many-to-many mapping btw concepts and neurons
-
-+ [Neural Network Algorithm](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1250/1*QIKMKejAH9cjXxe-PIIU7g.png" style="margin: 0.1em;" alt="Formulation of Neural Networks" title="Formulation of Neural Networks" width=400>
-    </a>
-  </div>
-
-  + weights in neural networks: these regression parameters of our various incoming functions
-  + passed to an activation function which decides whether the result is significant enough to 'fire' the node
-  + start with some arbitrary formulation of values in order for us to start updating and optimizing the parameters
-  + assessing the loss function after each update and performing gradient descent
-
-+ [Ways to minimize the loss function](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
-  + Descent
-    + The value of $w$ to minimize $\mathcal{L}(w)$
-    + to find the optimal point of a function$\mathcal{L}(w)$: $\frac{d \mathcal{L}(W)}{dW} = 0$
-    + find the $w$ that satisfies the equation
-  + more flexible method
-    + start from any point and then determine which direction to go to reduce the loss (left or right in this case)
-    + calculate the slope of the function at this point
-    + then shift to the right if the slope is negative or shift to the left if the slope is positive
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*qbvfebFdO7rxU4QVl6tQtw.png" style="margin: 0.1em;" alt="Diagram of the loss function" title="Diagram of the loss function" height=150>
-      <img src="https://miro.medium.com/max/875/1*4l_ZpZRZ6mwKAXWo4Q20QA.png" style="margin: 0.1em;" alt="Diagram of the loss function with starting point" title="Diagram of the loss function with starting point" height=150>
-    </a>
-  </div>
-
 
 
 ## Architectures
@@ -731,12 +730,6 @@
   + able to train a lot faster (computational efficiency) w/o making a significant difference to the accuracy
   + alleviating the vanishing gradient problem
   + applying yje function $f(x) = \max(0, x)$ to all of the values in the input volume
-
-+ [Vanishing gradient issue](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
-  + the lower layers of the network training very slowly
-  + the gradient decreasing exponentially through the layers
-  + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
-  + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
 ### Maxout Function
@@ -1247,6 +1240,13 @@
   + for $a$, $b$ less than 1
     + the gradients quickly tends to zero
     + gradient values smaller than the precision threshold recognized as zero
+
++ [Vanishing gradient issue](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + the lower layers of the network training very slowly
+  + the gradient decreasing exponentially through the layers
+  + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
+  + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
+
 
 ### Momentum
 
