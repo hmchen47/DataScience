@@ -90,6 +90,114 @@
   + impossible to use the precise spatial relationships btw high-level parts for recognition
 
 
+
+## Hyperparameters
+
++ [Parameters to choose](../ML/MLNN-Hinton/a10-CNNsGuide.md#choosing-hyperparameters)
+  + How do we know how many layers to use?
+  + How many convolution layers?
+  + What are the filter sizes?
+  + What are the values for stride and padding?
+
++ [Considerations](../ML/MLNN-Hinton/a10-CNNsGuide.md#choosing-hyperparameters)
+  + not trivial questions and there isn’t a set standard that is used by all researchers
+  + depend on the type of data that you have
+  + find the right combination that creates abstractions of the image at a proper scale
+
+
+### Stride and Padding
+
++ [Stride](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + control how the filter convolves around the input volume
+  + the filter convolves around the input volume by shifting one unit at a time
+  + The amount by which the filter shifts is the stride.
+  + the output volume is an integer and not a fraction
+
++ [Padding](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + applying convolution layers, the size of the volume decreasing faster than expected
+  + preserve as much information about the original input volume to extract those low level features
+  + zero padding pads the input volume with zeros around he border
+  + Set the size of zero padding
+
+    \[zero padding = \frac{(K - 1)}{2}\]
+
+    + $K$ = filter size
+    + input & output w/ the same spatial dimensions
+  + formula for calculating the output size for any given convolutional layer
+
+    \[o = \frac{(W - K - 2P}{S} + 1\]
+
+    + $O$ = the output height/length
+    + $W$ = the input height/length
+    + $K$ = filter size
+    + $P$ = the padding
+    + $S$ = the stride
+
+
+### ReLU (Rectified Linear Units) Layers
+
++ [nonlinear layer (or activation layer)](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + introduce nonlinearity to system that basically has been computing linear operations during the convolutional layer
+  + linear operation: element wise multiplications and summations
+  + nonlinearity: tanh, sigmoid, and ReLU
+  + increasing the nonlinearity properties of the model and the overall network without affecting the receptive fields of the convolutional layer
+
++ [Rectified Linear Units](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + working far better
+  + able to train a lot faster (computational efficiency) w/o making a significant difference to the accuracy
+  + alleviating the vanishing gradient problem
+  + applying yje function $f(x) = \max(0, x)$ to all of the values in the input volume
+
++ [Vanishing gradient issue](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + the lower layers of the network training very slowly
+  + the gradient decreasing exponentially through the layers
+  + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
+  + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
+
+
+### Pooling Layers
+
++ [Pooling layer](../ML/MLNN-Hinton/a10-CNNsGuide.md#pooling-layers)
+  + a downsampling layer
+  + maxipooling being the most popular option
+    + taking a filter (normally of size 2x2) and a stride of the same length
+    + applied to the input volume and outputs the maximum number in every subregion that the filter convolves
+  + other options: average pooling and L2-norm pooling
+  + intuitive reasoning: knowing a specific feature in the origin input volume, its exact location is not as important as its relative location to the other features
+  + drastically reducing the spatial dimension (the length and the width change but not the depth) of the input volume
+  + purposes:
+    + the amount of parameters or weights reduced by 75%, thus lessening the computation cost
+    + control overfitting
+      + model tuned to the training examples that sre not able to generalize well for the validation and test sets
+      + eg., a model getting 100% or 99% on the training set, but only 50% on the test data
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/MaxPool.png" style="margin: 0.1em;" alt="Example of Maxpool with a 2x2 filter and a stride of 2" title="Example of Maxpool with a 2x2 filter and a stride of 2" width=350>
+  </a>
+</div>
+
+
+### Dropout Layers
+
++ [Dropout layers](../ML/MLNN-Hinton/a10-CNNsGuide.md#dropout-layers)
+  + a very specific function in neural networks
+  + randomly drop out a set of activations by setting them to zero
+  + forcing the network to be redundant
+  + able to provide the right classification or output a specific example even if some of the activations are dropped out
+  + ensuring the network not too "fitting" to the training data and to alleviate the overfitting problem
+  + only used during training not during test time
+
+
+### Network in Network layers
+
++ [Network in Network Layers](../ML/MLNN-Hinton/a10-CNNsGuide.md#network-in-network-layers)
+  + a convolutional layer where a 1 x 1 size filter is used
+  + receptive fields normally larger than space they map to
+  + a 1 x 1 x N convolution where N is the number of filters applied in the layer
+  + performing a N-D element-wise multiplication where $N$ = the depth of the input volume into the layer
+
+
 ## Application - Hand-written Recognition
 
 ### Le Net (Yann LeCun & collaborators)
@@ -293,6 +401,12 @@
   + repeat the process for a fixed number iterations for each set of training images (commonly called a batch)
   + hopefully yje weights of the layers tuned correctly once the parameter update on the last training example
 
+### Testing of the CNN for Object Classification
+
++ [to verify whether or not CNN works](../ML/MLNN-Hinton/a10-CNNsGuide.md#testing)
+  + a different set of images and labels
+  + pass the images through the CNN
+  + compare the outputs to the ground truth
 
 
 
