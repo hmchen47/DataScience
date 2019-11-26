@@ -173,7 +173,7 @@
 + [Basis behind CNNs](../ML/MLNN-Hinton/a10-CNNsGuide.md#biological-connection): specialized components inside of a system having specific tasks (the neuronal cells in the visual cortex looking for specific characteristics) is one that machines use as well
 
 
-### Modeling for CNN
+### Modeling for the CNN for Object Classification
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
@@ -243,6 +243,55 @@
   + particular weights so that when you compute the products between the weights and the previous layer
   + get the correct probabilities for the different classes
 
+### Training the CNN for Object Classification
+
++ [Backpropagation procedure](../ML/MLNN-Hinton/a10-CNNsGuide.md#training-aka-what-makes-this-stuff-work)
+  + forward pass
+  + loss function
+  + backward pass
+  + weight update
+
++ [Forward pass](../ML/MLNN-Hinton/a10-CNNsGuide.md#training-aka-what-makes-this-stuff-work)
+  + take a training image, eg, 32 x 32 x 3 array of numbers
+  + pass through the whole network
+
++ [Loss function](../ML/MLNN-Hinton/a10-CNNsGuide.md#training-aka-what-makes-this-stuff-work)
+  + training data w/ image and label
+  + Definition: commonly used MSE (mean squared error)
+
+    \[E_{total} = \sum \frac{1}{2} (target - output)^2\]
+
+  + expect the predict label (output of the ConvNet) same as the training data
+  + a.k.a. minimize the amount of loss
+  + visualizing as an optimization problem
+  + the mathematical equivalent of a $dL/dW$ where $W$ = weights at a particular layer
+
++ [Backward pass & weight update](../ML/MLNN-Hinton/a10-CNNsGuide.md#training-aka-what-makes-this-stuff-work)
+  + determining which weights contributed most to the loss and finding ways to adjust them to make the loss decreases
+  + using the derivative to do weight update
+  + Gradient descent
+
+    \[w = w_i - \eta \frac{dL}{dW}\]
+
+    + $w$ = weight
+    + $w_i$ = initial weight
+    + $\eta$ = learning rate
+
++ [Learning rate](../ML/MLNN-Hinton/a10-CNNsGuide.md#training-aka-what-makes-this-stuff-work)
+  + a parameter chosen by the programmer
+  + high learning rate
+    + bigger step taken in the weight update
+    + less time for the model to converge on an optimal set ot weight
+    + too high result in large jump
+    + no precise enough to reach the optimal point
+  + low learning rate
+    + smaller step taken in the weight update
+    + make the convergence too slow
+
++ [Process](../ML/MLNN-Hinton/a10-CNNsGuide.md#training-aka-what-makes-this-stuff-work)
+  + one training iteration: forward pass, loss function, backward pass and parameter update
+  + repeat the process for a fixed number iterations for each set of training images (commonly called a batch)
+  + hopefully yje weights of the layers tuned correctly once the parameter update on the last training example
 
 
 
@@ -272,25 +321,27 @@
 
 ### Alex Krizhevsky (NIPS 2012)
 
-+ Architecture
++ [Architecture](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + 7 hidden layers not counting max pooling layers
   + early layers: convolutional reducing
   + last two layers: globally connected using most of parameters
-+ Activation functions
+
++ [Activation functions](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + Rectified linear units (ReLU) in every hidden layer
   + Competitive normalization with a layer
-+ Generalization tricks
+
++ [Generalization tricks](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + Transformations to enhance the training data
   + Dropout - regularizing the weights
 
 
 ### Vald Mnih (ICML 2012) - Finding roads
 
-+ Finding Roads
++ [Finding Roads](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + extra roads from cluttered aerial images of urban scenes
   + Objective: predicting a binary road label for the central 16x16 pixels
 
-+ Modeling
++ [Modeling for finding roads](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
   + a non-convolutional net w/ local fields and multiple layers of rectified linear units
   + lots of labeled training data available for this task
   + Difficulties
