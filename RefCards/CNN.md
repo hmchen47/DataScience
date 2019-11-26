@@ -90,6 +90,23 @@
   + impossible to use the precise spatial relationships btw high-level parts for recognition
 
 
+## Transfer Learning
+
++ [Transfer learning](../ML/MLNN-Hinton/a10-CNNsGuide.md#transfer-learning)
+  + the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by someone else) and "fine-tuning" the model with own dataset
+  + pre-trained model acting as a feature extractors
+  + Procedure
+    + remove the last layer of the network and replace it with own classifier (depending on what your problem space is)
+    + freeze the weights (not  changing the weights during gradient descent/optimization) of all the other layers and train the network normally
+
++ [Example w/ pre-trained on ImageNet](../ML/MLNN-Hinton/a10-CNNsGuide.md#transfer-learning)
+  + ImageNet containing 14 million images with over 1,000 classes
+  + lower layers of the network detecting features like edges & curves
+  + unless very unique problem space and dataset, network needs to detect curves and edges as well
+  + using the weights of the pre-trained model (and freeze them) and focus on the more important layers (ones higher up) for training
+  + dataset quite different than something like ImageNet, just train more of your layers and freeze only a couple of the low layers
+
+
 ## Hyperparameters
 
 + [Parameters to choose](../ML/MLNN-Hinton/a10-CNNsGuide.md#choosing-hyperparameters)
@@ -195,24 +212,6 @@
   + receptive fields normally larger than space they map to
   + a 1 x 1 x N convolution where N is the number of filters applied in the layer
   + performing a N-D element-wise multiplication where $N$ = the depth of the input volume into the layer
-
-
-## Transfer Learning
-
-+ [Transfer learning](../ML/MLNN-Hinton/a10-CNNsGuide.md#transfer-learning)
-  + the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by someone else) and "fine-tuning" the model with own dataset
-  + pre-trained model acting as a feature extractors
-  + Procedure
-    + remove the last layer of the network and replace it with own classifier (depending on what your problem space is)
-    + freeze the weights (not  changing the weights during gradient descent/optimization) of all the other layers and train the network normally
-
-+ [Example w/ pre-trained on ImageNet](../ML/MLNN-Hinton/a10-CNNsGuide.md#transfer-learning)
-  + ImageNet containing 14 million images with over 1,000 classes
-  + lower layers of the network detecting features like edges & curves
-  + unless very unique problem space and dataset, network needs to detect curves and edges as well
-  + using the weights of the pre-trained model (and freeze them) and focus on the more important layers (ones higher up) for training
-  + dataset quite different than something like ImageNet, just train more of your layers and freeze only a couple of the low layers
-
 
 
 ## Application - Hand-written Recognition
