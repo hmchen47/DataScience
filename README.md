@@ -187,23 +187,23 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Fundamentals </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#motivations"> Motivation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#simple-neuron-model"> Simple Neuron Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#anatomy"> Anatomy </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#concepts-and-neural-networks"> Concepts & NN </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-learning"> Learning Types </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methods </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#concepts-and-neural-networks"> Concepts & NN </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#delta-rule"> Delta Rule </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-architectures"> Types </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#perceptrons"> Perceptrons </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
