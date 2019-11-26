@@ -173,7 +173,77 @@
 + [Basis behind CNNs](../ML/MLNN-Hinton/a10-CNNsGuide.md#biological-connection): specialized components inside of a system having specific tasks (the neuronal cells in the visual cortex looking for specific characteristics) is one that machines use as well
 
 
-### Modeling for Object Classification
+### Modeling for CNN
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
+    <img src="https://adeshpande3.github.io/assets/Cover.png" style="margin: 0.1em;" alt="text" title="caption" width=550>
+  </a>
+</div>
+
++ [Typical convolutional network](../ML/MLNN-Hinton/a10-CNNsGuide.md#going-deeper-through-the-network)
+  + A classic CNN architecture
+
+    input $\rightarrow$ Conv $\to$ ReLU $\to$ Conv $\to$ ReLU $\to$ Pool $\to$ ReLU $\to$ Conv $\to$ ReLU $\to$ Fully Connected
+
+  + The first convolutional layer
+    + filters in this layer designed to detect
+    + detect low level features such as edges and curves
+  + network needs to recognize higher level features such as hands or paws or ears
+  + 2nd convolutional layer
+    + the output of the first convolutional layer as the input
+    + input of 1st convolutional layer: original image
+    + input of 2nd convolutional layer: activation map of 1st convolutional layer
+  + each layer of the input is basically describing the locations in the original image for where certain low level features appear.
+  + output of higher level features: semicircles (combination of a curve and straight edge) or squares (combination of several straight edges)
+  + activation maps that represent more and more complex features as more convolutional layer went through
+  + as deeper into the network, the filters w/ a larger and larger receptive
+  + able to consider information from a larger area of the original input volume (more responsive to a larger region of pixel space)
+
++ [First convolutional layer](../ML/MLNN-Hinton/a10-CNNsGuide.md#first-layer---math-part)
+  + always the first layer in CNNs
+  + remember what the input to this convolutional layer is
+  + Definition
+    + __filter__: the flashlight (or sometimes referred to as a neuron or a kernel)
+    + __receptive field__: the region shining over
+    + __weights__ or __parameters__: numbers containing in the filter
+    + __convolving__: sliding
+    + __activation map__ or __feature map__: all the numbers of multiplications
+  + Analogy for convolutional layer
+    + a flashlight that is shining over the top left of the image
+    + flashlight sliding across all the areas of the input image
+    + the depth of this filter has to be the same as the depth of the input
+    + multiplying the values in the filter with the original pixel values of the image (aka computing element wise multiplications)
+    + summed up all multiplications
+
++ [Spatial dimension concern](../ML/MLNN-Hinton/a10-CNNsGuide.md#first-layer---math-part)
+  + using more filters to preserve the spatial dimensions better
+  + The more filters, the greater the depth of the activation map, and the more information about the input volume.
+  + eg. total output volume: 28 x 28 x 2 with 2 filters
+
++ [Interpretation of the first layer](../ML/MLNN-Hinton/a10-CNNsGuide.md#first-layer---high-level-perspective)
+  + feature identifier = filter
+  + features: straight edges, simple colors, and curves
+  + curve detector: a pixel structure w/ higher numerical values along the area that is a shape of a curve
+
++ [Example for first layer](../ML/MLNN-Hinton/a10-CNNsGuide.md#first-layer---high-level-perspective)
+  + feature identifier: 7 x 7
+  + put filter at the top left corner
+  + multiply the values in the filter with the original pixel values of the image
+  + remove receptive field with the filter (summed multiplication = 0)
+  + activation map: the output of this convolutional layer (26 x 26 x 1)
+  + The filters on the first layer convolve around the input image and “activate” (or compute high values) when the specific feature it is looking for is in the input volume.
+
++ [Fully connected layer](../ML/MLNN-Hinton/a10-CNNsGuide.md#fully-connected-layer)
+  + end of the network
+  + input volume: whatever the output is of the convolutional or ReLU or pool layer preceding it
+  + outputs: an N dimensional vector where N is the number of classes that the program has to choose from
+  + look at the output of the previous layer and determine which features most correlate to a particular class
+  + what high level features most strongly correlate to a particular class
+  + particular weights so that when you compute the products between the weights and the previous layer
+  + get the correct probabilities for the different classes
+
+
 
 
 
