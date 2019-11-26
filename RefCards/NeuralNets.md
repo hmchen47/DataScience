@@ -724,7 +724,7 @@
   + interpret these scores as the uncommonalized log probabilities for each class
 
 
-### Hyperbolic Tangent (tanh) Function 
+### Hyperbolic Tangent (tanh) Function
 
 + [Hyperbolic tangent function (Tanh) function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
 
