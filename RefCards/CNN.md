@@ -564,6 +564,76 @@
   + reinforcing the notion that convolutional neural networks have to have a deep network of layers in order for this hierarchical representation of visual data to work
 
 
+### GoogLeNet (2015)
+
++ C. Szegedy, et. al., [Going Deeper with Convolutions](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf)
+
++ [GoogLeNet: a 22 layer CNN](../ML/MLNN-Hinton/a11-9Papers.md#googlenet-2015)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GoogleNet.gif" style="margin: 0.1em;" alt="GoogLeNet architecture" title="GoogLeNet architecture" height=250>
+    </a>
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet.png" style="margin: 0.1em;" alt="Another view of GoogLeNet architecture" title="Another view of GoogLeNet architecture" height=250>
+    </a>
+  </div>
+  + a top 5 error rate of 6.7%
+  + one of the first CNN architectures that really strayed from the general approach of simply stacking conv and pooling layers on top of each other in a sequential structure
+  + this new model places notable consideration on memory and power usage
+
++ [Inception module](../ML/MLNN-Hinton/a11-9Papers.md#inception-module)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet2.png" style="margin: 0.1em;" alt="Parallel region of GoogLeNet as inception module" title="Parallel region of GoogLeNet as inception module" height=250>
+    </a>
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet3.png" style="margin: 0.1em;" alt="Full inception module" title="Full inception module" height=200>
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet4.png" style="margin: 0.1em;" alt="Naive idea of an Inception module" title="Naive idea of an Inception module" height=200>
+    </a>
+  </div>
+
+  + Previous layer (bottom green box): input
+  + Filter concatenation (top green box): output
+  + traditional ConvNet:make a choice of whether to have a pooling operation or a convolutional operation (the choice of filter size)
+  + Inception module: perform all of these operations in parallel
+
++ [Naive inception module vs. Inception Module](../ML/MLNN-Hinton/a11-9Papers.md#inception-module)
+  + Naive inception module: too many output end up with extremely large depth channel for the output volume
+  + 1x1 convolutions: providing a method of dimensionality reduction
+  + eg., an input volume of 100x100x60 and applying 20 filters of 1x1 convolution would reduce the volume to 100x100x20
+  + Adding 1x1 convolutional operations before the 3x3 adn 5x5 layers $\longrightarrow$ the 3x3 and 5x5 convolutions won't have as large of a volume to deal with.
+    + Analogy: a "pooling of features" - reducing the depth of the volume
+    + Similar to how er reduce the dimensions of height and width with normal maxpooling layers.
+  + 1x1 convolutional layers followed by ReLU units
+    + [the effectiveness of 1x1 convolutions](http://iamaaditya.github.io/2016/03/one-by-one-convolution/)
+    + [visualization of the filter concatenation](https://www.youtube.com/watch?v=VxhSouuSZDY)
+
++ [How dows this architecture help?](../ML/MLNN-Hinton/a11-9Papers.md#inception-module)
+  + a module consisting of a network in network layer, a medium sized filter convolution and a pool operation
+  + network in network convolution: able to extract information about the very find grain details in the volume
+  + the 5x5 filter: able to cover a large receptive field of the input and thus able to extract its information as well
+  + pooling operation: reducing spatial sizes and combating overfitting
+  + ReLU: improving the nonlinearity of the network
+  + able to perform the functions of these different operations and still remain computationally considerate
+
++ [Main Points](../ML/MLNN-Hinton/a11-9Papers.md#main-points)
+  + used 9 inception modules in the whole architectures, with over 100 layers in total.
+  + no use of fully connected layers
+  + using an average pool instead, to go from a 7x7x1024 volume to a 1x1x1024 volume
+  + using 12x fewer parameters than AlexNet
+  + during testing, multiple corps of the same image were created, fed into the network and the maxsoft probabilities were averages to give us the final solution
+  + utilized concepts from R-CNN for their detection module
+  + there are updated versions to the Inception module 9version 6 & 7)
+  + trained on a few high-end GPUs within a week
+
++ [Why it's important](../ML/MLNN-Hinton/a11-9Papers.md#why-its-important)
+  + one of the first models that introduced the idea that CNN layers didn't always have to stacked up sequentially
+  + the Inception module: a creative structuring of layers can lead to improved performance and computationally efficiency
+
+
+
 
 
 ### Vald Mnih (ICML 2012) - Finding roads
