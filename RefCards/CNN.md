@@ -633,6 +633,49 @@
   + the Inception module: a creative structuring of layers can lead to improved performance and computationally efficiency
 
 
+### Microsoft ResNet (2015)
+
++ K. He, X. Zhang, S. Ren, and J. Sun, [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385v1.pdf)
+  + ResNet: a new 152 layer network architecture that set new records in classification, detection, and localization through one architecture
+  + ILSVRC 2015 with an incredible error rate of 3.6%
+  + humans generally hover around a 5-10% error rate
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/ResNet.gif" style="margin: 0.1em;" alt="ResNet" title="ResNet" width=250>
+    </a>
+  </div>
+
++ [Residual Block](../ML/MLNN-Hinton/a11-9Papers.md#microsoft-resnet-2015)
+  + idea behind a residual block: input x goes through conv-relu-conv series
+  + given $F(x)$ then adding to the original input $x$. the hypothesis function is $H(x) = F(x) + x$
+  + traditional CNNs: $H(x) = F(x)$, computing $F(x)$
+    + complete new representation w.r.t. input $x$
+  + Residual module: computing $F(x) + x$
+    + computing a "delta" or a slight change to the original input to get a slightly altered representation
+    + easier to optimize the residual mapping than to optimize the original
+  + might be effective during the backward pass of backpropagation
+  + the gradient will flow easily through the graph because addition operations distribute the gradient
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/ResNet.png" style="margin: 0.1em;" alt="A residual block" title="A residual block" width=350>
+    </a>
+  </div>
+
++ [Main Points](../ML/MLNN-Hinton/a11-9Papers.md#microsoft-resnet-2015)
+  + "Ultra-deep" - Yann LeCun
+  + 152 layers
+  + after fist 2 layers, the spatial size gets compressed from an input volume of 224x224 to a 56x56 volume
+  + a naive increase of layers in plain nets result in higher training and test error
+  + tried 1024-layer network but a lower test accuracy, presumably due to overfitting
+  + trained on an 8 CPU machine for 2~3 weeks
+
++ [Why it's important](../ML/MLNN-Hinton/a11-9Papers.md#microsoft-resnet-2015)
+  + 3.6% error rate
+  + the best CNN architecture so far
+  + stacking more layers on top of each other isn't going to result in a substantial performance boost
+
 
 
 
