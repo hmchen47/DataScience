@@ -100,8 +100,8 @@ Author: Adit Deshpande
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/deconvnet.png" style="margin: 0.1em;" alt="Visualization of Layer 1 & 2" title="Visualization of Layer 1 & 2" width=500>
-      <img src="https://adeshpande3.github.io/assets/deconvnet2.png" style="margin: 0.1em;" alt="Visualization of Layer 3, 4 & 5" title="Visualization of Layer 3, 4 & 5" width=400>
+      <img src="https://adeshpande3.github.io/assets/deconvnet.png" style="margin: 0.1em;" alt="Visualization of Layer 1 & 2" title="Visualization of Layer 1 & 2" width=450>
+      <img src="https://adeshpande3.github.io/assets/deconvnet2.png" style="margin: 0.1em;" alt="Visualization of Layer 3, 4 & 5" title="Visualization of Layer 3, 4 & 5" width=350>
     </a>
   </div>
 
@@ -157,7 +157,9 @@ Author: Adit Deshpande
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
       <img src="https://adeshpande3.github.io/assets/GoogleNet.gif" style="margin: 0.1em;" alt="GoogLeNet architecture" title="GoogLeNet architecture" height=250>
-      <img src="https://adeshpande3.github.io/assets/GoogLeNet.png" style="margin: 0.1em;" alt="Another view of GoogLeNet architecture" title="Another view of GoogLeNet architecture" height=200>
+    </a>
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet.png" style="margin: 0.1em;" alt="Another view of GoogLeNet architecture" title="Another view of GoogLeNet architecture" height=250>
     </a>
   </div>
 
@@ -174,8 +176,10 @@ Author: Adit Deshpande
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
       <img src="https://adeshpande3.github.io/assets/GoogLeNet2.png" style="margin: 0.1em;" alt="Parallel region of GoogLeNet as inception module" title="Parallel region of GoogLeNet as inception module" height=250>
-      <img src="https://adeshpande3.github.io/assets/GoogLeNet3.png" style="margin: 0.1em;" alt="Full inception module" title="Full inception module" height=250>
-      <img src="https://adeshpande3.github.io/assets/GoogLeNet4.png" style="margin: 0.1em;" alt="Naive idea of an Inception module" title="Naive idea of an Inception module" height=250>
+    </a>
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet3.png" style="margin: 0.1em;" alt="Full inception module" title="Full inception module" height=200>
+      <img src="https://adeshpande3.github.io/assets/GoogLeNet4.png" style="margin: 0.1em;" alt="Naive idea of an Inception module" title="Naive idea of an Inception module" height=200>
     </a>
   </div>
 
@@ -504,13 +508,13 @@ Author: Adit Deshpande
       + creation of a sampling grid
       + the result of wrapping the regular grid with affine transformation ($\theta$) created in the localization network
     + sampler: perform a wrapping of the input feature map
-  + the module dropped into a CNN at any point and basically helps the network learn how to transform feature maps in a way that minimizes the cost fiunction during training
+  + the module dropped into a CNN at any point and basically helps the network learn how to transform feature maps in a way that minimizes the cost function during training
   + example of spatial transformer
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/SpatialTransformer.png" style="margin: 0.1em;" alt="A spatial transformer module" title="A spatial transformer module" height=200>
-      <img src="https://adeshpande3.github.io/assets/SpatialTransformer2.png" style="margin: 0.1em;" alt="Overview of the function of a spatial transformer module" title="Overview of the function of a spatial transformer module" height=200>
+      <img src="https://adeshpande3.github.io/assets/SpatialTransformer.png" style="margin: 0.1em;" alt="A spatial transformer module" title="A spatial transformer module" height=160>
+      <img src="https://adeshpande3.github.io/assets/SpatialTransformer2.png" style="margin: 0.1em;" alt="Overview of the function of a spatial transformer module" title="Overview of the function of a spatial transformer module" height=160>
     </a>
   </div>
 
