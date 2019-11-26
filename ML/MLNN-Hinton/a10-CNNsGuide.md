@@ -47,9 +47,9 @@ Author: Adit Deshpande
 
 ### What We Want the Computer to Do
 
-+ able to differentiate between all the images it’s given and figure out the unique features that make a dog a dog or that make a cat a ca
++ able to differentiate between all the images it’s given and figure out the unique features that make a dog a dog or that make a cat a cat
 
-+ able perform image classification by looking for low level features such as edges and curves, and then building up to more abstract concepts through a series of convolutional layers
++ able to perform image classification by looking for low level features such as edges and curves, and then building up to more abstract concepts through a series of convolutional layers
 
 
 ### Biological Connection
@@ -67,7 +67,6 @@ Author: Adit Deshpande
 
 
 ## Structure
-
 
 ### First Layer - Math Part
 
@@ -137,7 +136,6 @@ Author: Adit Deshpande
       <img src="https://adeshpande3.github.io/assets/FirstLayers.png" style="margin: 0.1em;" alt="Visualization of filters" title="Visualization of filters" height=150>
     </a>
   </div>
-
 
 
 ### Going Deeper Through the Network
@@ -210,7 +208,7 @@ Author: Adit Deshpande
   + training data w/ image and label
   + Definition: commonly used MSE (mean squared error)
 
-    \[E_{total} = \sum \frac{1}{2} (taregt - output)^2\]
+    \[E_{total} = \sum \frac{1}{2} (target - output)^2\]
 
   + expect the predict label (output of the ConvNet) same as the training data
   + a.k.a. minimize the amount of loss
@@ -230,8 +228,8 @@ Author: Adit Deshpande
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/Loss.png" style="margin: 0.1em;" alt="Visualization for the idea to minimize the loss function" title="Visualization for the idea to minimize the loss function" height=150>
-      <img src="https://adeshpande3.github.io/assets/HighLR.png" style="margin: 0.1em;" alt="Consequence of a high learning rate" title="Consequence of a high learning rate" height=150>
+      <img src="https://adeshpande3.github.io/assets/Loss.png" style="margin: 0.1em;" alt="Visualization for the idea to minimize the loss function" title="Visualization for the idea to minimize the loss function" height=130>
+      <img src="https://adeshpande3.github.io/assets/HighLR.png" style="margin: 0.1em;" alt="Consequence of a high learning rate" title="Consequence of a high learning rate" height=130>
     </a>
   </div>
 
@@ -357,7 +355,7 @@ Author: Adit Deshpande
   + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
   + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
-+ Vinod Nair and Geoffrey E. Hinton, []Rectified Linear Units Improve Restricted Boltzmann Machines], Univ. of Toronto
++ Vinod Nair and Geoffrey E. Hinton, [Rectified Linear Units Improve Restricted Boltzmann Machines](https://www.cs.toronto.edu/~fritz/absps/reluICML.pdf), Univ. of Toronto
 
 
 ### Pooling Layers
@@ -417,8 +415,8 @@ Author: Adit Deshpande
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/" ismap target="_blank">
-    <img src="https://adeshpande3.github.io/assets/Localization.png" style="margin: 0.1em;" alt="Object classification & Object localization" title="Object classification & Object localization" height=200>
-    <img src="https://adeshpande3.github.io/assets/Detection.png" style="margin: 0.1em;" alt="Object detection & Object segmentation " title="caption" height=200>
+    <img src="https://adeshpande3.github.io/assets/Localization.png" style="margin: 0.1em;" alt="Object classification & Object localization" title="Object classification & Object localization" height=150>
+    <img src="https://adeshpande3.github.io/assets/Detection.png" style="margin: 0.1em;" alt="Object detection & Object segmentation " title="caption" height=150>
   </a>
 </div>
 
