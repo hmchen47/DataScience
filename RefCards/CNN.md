@@ -150,11 +150,6 @@
 
 ### Region Based CNNs (R-CNN - 2013, Fast R-CNN - 2015, Faster R-CNN - 2015)
 
-+ Articles
-  + R. Girshick, J. Donahue, T. Darrell, and J. Malik, [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/pdf/1311.2524v5.pdf), 2013
-  + R. Girshick, [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf), 2015
-  + S. Ren, K. He, R. Girshick, and J. Sun, [Faster R-CNN: Toward Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1504.08083.pdf), 2015
-
 + [R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
   + one of the most impactful advancement in computer vision
   + Fast R-CNN and Faster R-CNN: making the model faster and better for modern object detection tasks
@@ -213,10 +208,6 @@
 
 
 ### Generating Image Descriptions (2014)
-
-+ Articles
-  + A. Karpathy and F. Li, [Deep visual semantic alignment for Generating Image Descriptions](https://arxiv.org/pdf/1412.2306v2.pdf), 2015
-  + A. Karpathy, A. Joulin and F. Li, [Deep fragment embeddings for bidirectional image sentence mapping](https://arxiv.org/pdf/1406.5679v1.pdf), 2014
 
 + Combining CNNs and bidirectional RNNs (Recurrent Neural Networks) to generate natural language descriptions of different image regions
 
@@ -911,6 +902,19 @@
   + 3.6% error rate
   + the best CNN architecture so far
   + stacking more layers on top of each other isn't going to result in a substantial performance boost
+
+
+## Neural Style Transfer (NST)
+
+### Definition
+
++ Neural Style Transfer (NST)
+  + Def: Artistic generation of high perceptual quality images that combines the style or texture of some input image, and the elements or content from a different one.
+  + producing an image using NST, two images required
+    1. the one wishing to transfer the style of
+    2. the image to transform using the style of the first image to morph the two images
+  
+
 
 
 
