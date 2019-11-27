@@ -1,4 +1,4 @@
-# Mini-batch Gradient Descent
+# Fast Learning Algorithms
   
 ## Overview of mini-batch gradient descent
 
