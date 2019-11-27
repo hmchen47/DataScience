@@ -2263,6 +2263,44 @@
   </div>
 
 
+### Inverted Dropout
+
++ [Dropout usage](../ML/MLNN-Hinton/a14-Advanced.md#51-inverted-dropout)
+  + normal dropout
+    + scale activations by dropout rate $p$ at test time
+    + not dropping out any of the neurons
+    + required to match expected value at training
+  + inverted dropout
+    + scaling applied at training time, but inversely
+    + dropout all activations by dropout factor $p$
+    + scaling by inverse dropout factor $1/p$
+
++ [Inverted dropout](../ML/MLNN-Hinton/a14-Advanced.md#51-inverted-dropout)
+  + advantage: don't have to do anything at test time to make inference faster
+  + most current implementations
+    + weighting performed during training
+    + no re-weighting at test time required
+  + for layer $l$
+
+    \[\begin{align*}
+      z^{[l]} &= \frac{1}{p_l} W^{[l]} D^{[l]} a^{[a-1]} + b^{[l]} \\
+      a^{[l]} &= g(z^{[l]}) 
+    \end{align*}\]
+
+    + $p_l$: retention probability
+    + $D^{[l]}$: dropout activations
+    + $a^[l-1]}$: output from previous layer
+    + $W^{[l]}$: layer weights
+    + $b^{[l]}$: offset weights
+    + $z^{[l]}$: linear output
+    + $g(\cdot)$: nonlinear activation function
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+        <img src="https://miro.medium.com/max/618/1*CAcPwIHBS_-8Ms4ZqlnbFA.png" style="margin: 0.1em;" alt="Inverted dropout — weights are scaled at training time as opposed to testing time, the opposite of traditional dropout." title="Inverted dropout" width=200>
+      </a>
+    </div>
+
 
 ## Applications
 
