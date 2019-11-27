@@ -7,14 +7,14 @@ Author: Matthew Stewart
 
 ## Introduction
 
-+ neural style transfer (NST)
++ Neural Style Transfer (NST)
   + Def: Artistic generation of high perceptual quality images that combines the style or texture of some input image, and the elements or content from a different one.
   + producing an image using NST, two images required
     1. the one wishing to transfer the style of
     2. the image to transform using the style of the first image to morph the two images
   
 + Example
-  + Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “A neural algorithm of artistic style,” Aug. 2015.
+  + Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “A neural algorithm of artistic style,” Aug. 2015. ([Paper](https://arxiv.org/abs/1508.06576))
   + Image A: original image of a riverside town
   + Image B: after image translation
 
@@ -36,13 +36,13 @@ Author: Matthew Stewart
 
 + Neural network for NST
   + Architecture used
-    + Similar to AlexNet: Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton, “Imagenet classification with deep convolutional neural networks,” in Advances in neural information processing systems, 2012, pp. 1097–1105.
+    + Similar to AlexNet: Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton, “Imagenet classification with deep convolutional neural networks,” in Advances in neural information processing systems, 2012, pp. 1097–1105.([Paper](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networ))
     + Architecture (see diagram)
       + input: images size 256 x 256 x 3
       + convolutional layers
       + max-pooling layers
       + full-connected layer at the end
-      + detail outlined in "Matthew D. Zeiler and Rob Fergus, “Visualizing and understanding convolutional networks” in Computer Vision. 2014, pp. 818–833, Springer"
+      + detail outlined in "Matthew D. Zeiler and Rob Fergus, “Visualizing and understanding convolutional networks” in Computer Vision. 2014, pp. 818–833, Springer. ([Paper](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf))
   + Dataset Imagenet 2012 training database for 1,000 classes
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -55,7 +55,7 @@ Author: Matthew Stewart
   + objective: project hidden feature maps into the original input space
   + benefit: able to visualize the activations of a specific filter
   + Note: NOT performing any deconvolutions
-  + Matthew D Zeiler, Graham W Taylor, and Rob Fergus, “Adaptive deconvolutional networks for mid and high-level feature learning,” in IEEE International Conference on Computer Vision (ICCV), 2011, pp. 2018–2025.
+  + Matthew D Zeiler, Graham W Taylor, and Rob Fergus, “Adaptive deconvolutional networks for mid and high-level feature learning,” in IEEE International Conference on Computer Vision (ICCV), 2011, pp. 2018–2025. ([Paper](https://www.matthewzeiler.com/mattzeiler/adaptivedeconvolutional.pdf))
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
@@ -84,7 +84,7 @@ Author: Matthew Stewart
 
 + Rectification layer: signals go through a ReLu operation
 
-+ Filtering layer: us of transposed convolution
++ Filtering layer: use of transposed convolution
   + flipped horizontally and vertically
   + transposed convolution projects feature maps back to input space
   + transposed convolution corresponds to the backpropagation of the gradient
@@ -101,14 +101,14 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/2095/1*ANPwlSZ36smDSgiYXAcAbQ.png" style="margin: 0.1em;" alt="AlexNet first layer" title="AlexNet first layer" height=200>
-      <img src="https://miro.medium.com/max/2095/1*nrrIv5uriFmn8sRBlLAswQ.png" style="margin: 0.1em;" alt="AlexNet second layer" title="AlexNet second layer" height=200>
+      <img src="https://miro.medium.com/max/2095/1*ANPwlSZ36smDSgiYXAcAbQ.png" style="margin: 0.1em;" alt="AlexNet first layer" title="AlexNet first layer" height=180>
+      <img src="https://miro.medium.com/max/2095/1*nrrIv5uriFmn8sRBlLAswQ.png" style="margin: 0.1em;" alt="AlexNet second layer" title="AlexNet second layer" height=180>
     </a>
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/2095/1*DQxut5xSVZ4qrexLbijPZA.png" style="margin: 0.1em;" alt="AlexNet fourth layer" title="AlexNet fourth layer" height=200>
-      <img src="https://miro.medium.com/max/2095/1*8eqV8qklluFcD_q1J5uZnQ.png" style="margin: 0.1em;" alt="AlexNet fifth layer" title="AlexNet fifth layer" height=200>
+      <img src="https://miro.medium.com/max/2095/1*DQxut5xSVZ4qrexLbijPZA.png" style="margin: 0.1em;" alt="AlexNet fourth layer" title="AlexNet fourth layer" height=180>
+      <img src="https://miro.medium.com/max/2095/1*8eqV8qklluFcD_q1J5uZnQ.png" style="margin: 0.1em;" alt="AlexNet fifth layer" title="AlexNet fifth layer" height=180>
     </a>
   </div>
 
@@ -116,12 +116,12 @@ Author: Matthew Stewart
   + the feature evolution after 1, 2, 5, 10, 20, 39, 40 and 64 (see diagram)
   + notes about the network
     + lower layers converge soon after a few single passes
-    + fifth layer not converged until a very large numver of epochs
+    + fifth layer not converged until a very large number of epochs
     + lower layers may change their features correspondence after converging
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/2323/1*exTfLFv6y0LYIseZRUsJ1g.png" style="margin: 0.1em;" alt="Example output of five layers at a specified number of epochs" title="Example output of five layers at a specified number of epochs" width=800>
+      <img src="https://miro.medium.com/max/2323/1*exTfLFv6y0LYIseZRUsJ1g.png" style="margin: 0.1em;" alt="Example output of five layers at a specified number of epochs" title="Example output of five layers at a specified number of epochs" width=600>
     </a>
   </div>
 
@@ -132,7 +132,7 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1818/1*i0DWeHo8uqAVr_586BIWUw.png" style="margin: 0.1em;" alt="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" title="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" width=500>
+      <img src="https://miro.medium.com/max/1818/1*i0DWeHo8uqAVr_586BIWUw.png" style="margin: 0.1em;" alt="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" title="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" width=400>
     </a>
   </div>
 
@@ -140,7 +140,7 @@ Author: Matthew Stewart
 ## Image reconstruction
 
 + Deep image representation
-  + Aravindh Mahendran and Andrea Vedaldi, “Understanding deep image representations by inverting them,” Nov. 2014.
+  + Aravindh Mahendran and Andrea Vedaldi, “Understanding deep image representations by inverting them,” Nov. 2014. ([Paper](https://www.robots.ox.ac.uk/~vedaldi/assets/pubs/mahendran15understanding.pdf))
   + able to reconstruct an image from latent features
   + training network to retain an accuracy photographic representation about the image, retaining geometric and photometric invariance
 
@@ -172,19 +172,19 @@ Author: Matthew Stewart
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-        <img src="https://miro.medium.com/max/1520/1*905yAP40kq9lhZ8_9PcDAg.png" style="margin: 0.1em;" alt="Example of image reconstruction" title="Example of image reconstruction" height=250>
+        <img src="https://miro.medium.com/max/1520/1*905yAP40kq9lhZ8_9PcDAg.png" style="margin: 0.1em;" alt="Example of image reconstruction" title="Example of image reconstruction" height=200>
       </a>
     </div>
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-        <img src="https://miro.medium.com/max/2103/1*JYRkcMkObMUi4w2Md4RALw.png" style="margin: 0.1em;" alt="Example of image reconstruction" title="Example of image reconstruction" height=300>
+        <img src="https://miro.medium.com/max/2103/1*JYRkcMkObMUi4w2Md4RALw.png" style="margin: 0.1em;" alt="Example of image reconstruction" title="Example of image reconstruction" height=200>
       </a>
     </div>
 
 
 ### Texture Synthesis
 
-+ textture synthesis
++ Texture synthesis
   + purpose: to generate high perceptual quality images that imitate a given texture
   + using a trained convolutional neural network for object classification
   + employing correlation of features among layers as a generative process
@@ -192,7 +192,7 @@ Author: Matthew Stewart
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-        <img src="https://miro.medium.com/max/1613/1*-kBlSklZBtqVGkECajwF3w.png" style="margin: 0.1em;" alt="Example of texture synthesis" title="Example of texture synthesis" width=450>
+        <img src="https://miro.medium.com/max/1613/1*-kBlSklZBtqVGkECajwF3w.png" style="margin: 0.1em;" alt="Example of texture synthesis" title="Example of texture synthesis" width=350>
       </a>
     </div>
   
@@ -200,7 +200,7 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1035/1*PBwlcoL2R7zvQ1SBIOT_zA.png" style="margin: 0.1em;" alt="Output layer of texture synthesis" title="Output layer of texture synthesis" width=300>
+      <img src="https://miro.medium.com/max/1035/1*PBwlcoL2R7zvQ1SBIOT_zA.png" style="margin: 0.1em;" alt="Output layer of texture synthesis" title="Output layer of texture synthesis" width=250>
     </a>
   </div>
 
@@ -239,11 +239,11 @@ Author: Matthew Stewart
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-    <img src="https://miro.medium.com/max/1485/1*cXUh1aw7Q3i5ZRq1CIlyng.png" style="margin: 0.1em;" alt="Full texture synthesis process" title="Full texture synthesis process" width=700>
+    <img src="https://miro.medium.com/max/1485/1*cXUh1aw7Q3i5ZRq1CIlyng.png" style="margin: 0.1em;" alt="Full texture synthesis process" title="Full texture synthesis process" width=600>
   </a>
 </div>
 
-+ Ref: Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “Texture synthesis using convolutional neural networks”
++ Ref: Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “Texture synthesis using convolutional neural networks” ([Paper](http://papers.nips.cc/paper/5633-texture-synthesis-using-convolutional-neural-networks))
 
 
 ## Neural Style Transfer
@@ -263,9 +263,9 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1343/1*CAMHku2Bars3sxUUktH9aA.png" style="margin: 0.1em;" alt="Examples of neural style transfer" title="Examples of neural style transfer" height=250>
+      <img src="https://miro.medium.com/max/1343/1*CAMHku2Bars3sxUUktH9aA.png" style="margin: 0.1em;" alt="Examples of neural style transfer" title="Examples of neural style transfer" height=240> &nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1883/1*90t9BwVJ--zzGzJnwXJkgQ.png" style="margin: 0.1em;" alt="Procedure of neural style transfer" title="procedure of neural style transfer" height=250>
+      <img src="https://miro.medium.com/max/1883/1*90t9BwVJ--zzGzJnwXJkgQ.png" style="margin: 0.1em;" alt="Procedure of neural style transfer" title="procedure of neural style transfer" height=240>
     </a>
   </div>
 
@@ -346,8 +346,8 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1224/1*f3gT72gXAbOgtQ9a2sXDGA.png" style="margin: 0.1em;" alt="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" title="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" height=300>
-      <img src="https://miro.medium.com/max/1280/1*8s1L0x7HOS6saNomlSXagA.png" style="margin: 0.1em;" alt="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" title="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" height=300>
+      <img src="https://miro.medium.com/max/1224/1*f3gT72gXAbOgtQ9a2sXDGA.png" style="margin: 0.1em;" alt="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" title="Style of ‘Escher Sphere’ used to transform an image of the Goldengate Bridge" height=200>
+      <img src="https://miro.medium.com/max/1280/1*8s1L0x7HOS6saNomlSXagA.png" style="margin: 0.1em;" alt="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" title="Style of ‘Seated Nude’ used to transform an image of the riverbank town image" height=200>
     </a>
   </div>
 
@@ -369,6 +369,7 @@ Author: Matthew Stewart
       <img src="https://miro.medium.com/max/1045/1*iADSYV8WCtqGBhkqNqNlnQ.png" style="margin: 0.1em;" alt="Example of DeeDream" title="Example of DeepDream" height=300>
     </a>
   </div>
+
 
 ### Inceptionism: Going Deeper into Neural Networks
 
@@ -399,7 +400,7 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1668/1*StKK6yiXhSrlSjGwSGgxQg.png" style="margin: 0.1em;" alt="Example of class generation" title="Example of class generation" width=400>
+      <img src="https://miro.medium.com/max/1668/1*StKK6yiXhSrlSjGwSGgxQg.png" style="margin: 0.1em;" alt="Example of class generation" title="Example of class generation" width=300>
     </a>
   </div>
 
@@ -413,7 +414,7 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1280/1*A6jsI8cxorXp-7fhBo6WaA.png" style="margin: 0.1em;" alt="Example of visualizing mistakes" title="Example of visualizing mistakes" width=400>
+      <img src="https://miro.medium.com/max/1280/1*A6jsI8cxorXp-7fhBo6WaA.png" style="margin: 0.1em;" alt="Example of visualizing mistakes" title="Example of visualizing mistakes" width=300>
     </a>
   </div>
 
@@ -427,8 +428,8 @@ Author: Matthew Stewart
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1498/1*Enhancing feature map: lower layerb9hjaHnItz168bZ3YE-8XQ.png" style="margin: 0.1em;" alt="Enhancing feature map: lower layer" title="Enhancing feature map: lower layer" height=150>
-      <img src="https://miro.medium.com/max/1193/1*feBHqMc81crBnZFhSKo1Ag.png" style="margin: 0.1em;" alt="Enhancing feature map: higher layer" title="Enhancing feature map: higher layer" height=150>
+      <img src="https://miro.medium.com/max/1498/1*b9hjaHnItz168bZ3YE-8XQ.png" style="margin: 0.1em;" alt="Enhancing feature map: lower layer" title="Enhancing feature map: lower layer" height=130>
+      <img src="https://miro.medium.com/max/1193/1*feBHqMc81crBnZFhSKo1Ag.png" style="margin: 0.1em;" alt="Enhancing feature map: higher layer" title="Enhancing feature map: higher layer" height=130>
     </a>
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -438,21 +439,21 @@ Author: Matthew Stewart
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1173/1*KQ3uF6qStNlQ421qj5f9Fw.png" style="margin: 0.1em;" alt="Horizon lines tend to get filled with towers and pagodas" title="Horizon lines tend to get filled with towers and pagodas" height=250>
-      <img src="https://miro.medium.com/max/1490/1*e8w7E1mAMsJhL9C2NBOJqw.png" style="margin: 0.1em;" alt="Examples of applied output and some zooming after each iteration" title="Examples of applied output and some zooming after each iteration" height=250>
+      <img src="https://miro.medium.com/max/1173/1*KQ3uF6qStNlQ421qj5f9Fw.png" style="margin: 0.1em;" alt="Horizon lines tend to get filled with towers and pagodas" title="Horizon lines tend to get filled with towers and pagodas" height=200>
+      <img src="https://miro.medium.com/max/1490/1*e8w7E1mAMsJhL9C2NBOJqw.png" style="margin: 0.1em;" alt="Examples of applied output and some zooming after each iteration" title="Examples of applied output and some zooming after each iteration" height=200>
     </a>
   </div>
 
 
 ## References
 
-1. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “A neural algorithm of artistic style,” Aug. 2015.
-2. Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton, “Imagenet classification with deep convolutional neural networks,” in Advances in neural information processing systems, 2012, pp. 1097–1105.
-3. Matthew D. Zeiler and Rob Fergus, “Visualizing and understanding convolutional networks” in Computer Vision. 2014, pp. 818–833, Springer.
-4. Matthew D Zeiler, Graham W Taylor, and Rob Fergus, “Adaptive deconvolutional networks for mid and high-level feature learning,” in IEEE International Conference on Computer Vision (ICCV), 2011, pp. 2018–2025.
-5. Aravindh Mahendran and Andrea Vedaldi, “Understanding deep image representations by inverting them,” Nov. 2014.
-6. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “Texture synthesis using convolutional neural networks”.
-7. Gatys, Leon A.; Ecker, Alexander S.; Bethge, Matthias (26 August 2015). “A Neural Algorithm of Artistic Style”.
+1. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “A neural algorithm of artistic style,” Aug. 2015. ([Paper](https://arxiv.org/abs/1508.06576))
+2. Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton, “Imagenet classification with deep convolutional neural networks,” in Advances in neural information processing systems, 2012, pp. 1097–1105. ([Paper])(http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networ)
+3. Matthew D. Zeiler and Rob Fergus, “Visualizing and understanding convolutional networks” in Computer Vision. 2014, pp. 818–833, Springer. ([Paper](https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf))
+4. Matthew D Zeiler, Graham W Taylor, and Rob Fergus, “Adaptive deconvolutional networks for mid and high-level feature learning,” in IEEE International Conference on Computer Vision (ICCV), 2011, pp. 2018–2025. ([Paper](https://www.matthewzeiler.com/mattzeiler/adaptivedeconvolutional.pdf))
+5. Aravindh Mahendran and Andrea Vedaldi, “Understanding deep image representations by inverting them,” Nov. 2014. ([Paper](https://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Mahendran_Understanding_Deep_Image_2015_CVPR_paper.html))
+6. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, “Texture synthesis using convolutional neural networks”. ([Paper](http://papers.nips.cc/paper/5633-texture-synthesis-using-convolutional-neural-networks))
+7. Gatys, Leon A.; Ecker, Alexander S.; Bethge, Matthias (26 August 2015). “A Neural Algorithm of Artistic Style”. ([Paper](https://arxiv.org/abs/1508.06576))
 
 
 
