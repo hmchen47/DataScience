@@ -1377,50 +1377,6 @@
   + help in smoothing out the variations, if the gradient keeps changing direction
   + right value of momentum: either learned by hit and trial or through cross-validation
 
-+ [Formula for Momentum](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
-  + using past gradients for updating values
-  + $v$: velocity
-  + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
-
-  \[\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}\]
-
-  + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
-  + $\varepsilon$: current gradient update
-
-+ [Compute gradient estimate:](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
-
-    \[g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})\]
-  + Update velocity: $v = \alpha v - \varepsilon g$
-  + Update parameters: $\theta = \theta + v$
-  + Impacts
-    + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
-    + As the number of updates increases the momentum kickstarts and allows faster convergence.
-
-+ [Nesterov momentum](../ML/MLNN-Hinton/a03-Optimization.md#nesterov-momentum)
-  + Sutskever, Martens et al. "[On the importance of initialization and momentum in deep learning](http://proceedings.mlr.press/v28/sutskever13.pdf)" 2013
-  + Classical vs Nesterov Momentum
-    + Classical
-      + first correct velocity
-      + make a big step according to that velocity (and then repeat)
-  + Nesterov
-    + first make a step into velocity direction
-    + make a correction to a velocity vector based on a new location (then repeat)
-
-  + Hugh difference in practice
-    + Apply an interim update: $\tilde{\theta} = \theta + v$
-    + Perform a correction based on gradient at the interim point
-
-      \[\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}\]
-
-    + momentum based on look-ahead slope
-    + visual representation of the difference between the traditional momentum update and Nesterov momentum
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-        <img src="https://miro.medium.com/max/875/1*hJSLxZMjYVzgF5A_MoqeVQ.jpeg" style="margin: 0.1em;" alt="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." title="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." width=350>
-      </a>
-    </div>  
-
 
 ### Adaptive Learning Rates
 
@@ -1602,6 +1558,58 @@
   + effectively trying out combinations of them.
   + Cross-validation in neural networks is computationally expensive.
     + each combination evaluated using the k-fold cross-validation (k is a parameter we choose)
+
+
+## Momentum
+
+### Classical Momentum
+
++ [Formula for Momentum](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
+  + using past gradients for updating values
+  + $v$: velocity
+  + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
+
+  \[\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}\]
+
+  + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
+  + $\varepsilon$: current gradient update
+
++ [Compute gradient estimate](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
+
+    \[g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})\]
+  + Update velocity: $v = \alpha v - \varepsilon g$
+  + Update parameters: $\theta = \theta + v$
+  + Impacts
+    + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
+    + As the number of updates increases the momentum kickstarts and allows faster convergence.
+
+### Nesterov Momentum
+
++ [Nesterov momentum](../ML/MLNN-Hinton/a03-Optimization.md#nesterov-momentum)
+  + Sutskever, Martens et al. "[On the importance of initialization and momentum in deep learning](http://proceedings.mlr.press/v28/sutskever13.pdf)" 2013
+  + Classical vs Nesterov Momentum
+    + Classical
+      + first correct velocity
+      + make a big step according to that velocity (and then repeat)
+  + Nesterov
+    + first make a step into velocity direction
+    + make a correction to a velocity vector based on a new location (then repeat)
+
+  + Hugh difference in practice
+    + Apply an interim update: $\tilde{\theta} = \theta + v$
+    + Perform a correction based on gradient at the interim point
+
+      \[\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}\]
+
+    + momentum based on look-ahead slope
+    + visual representation of the difference between the traditional momentum update and Nesterov momentum
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
+        <img src="https://miro.medium.com/max/875/1*hJSLxZMjYVzgF5A_MoqeVQ.jpeg" style="margin: 0.1em;" alt="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." title="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." width=350>
+      </a>
+    </div>  
+
 
 
 ## Adaptive Learning Rates
