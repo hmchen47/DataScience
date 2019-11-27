@@ -1106,6 +1106,17 @@
     + replacing max-pool layers with average pooling to improve the gradient flow and to produce more appealing pictures
 
 
+### DeepDream
+
++ [DeepDreamer](../ML/MLNN-Hinton/a05-VisualCNN.md#deepdream)
+  + a computer vision program created by Alexander Mordvintsev at Google
+  + using a convolutional neural network to find and enhance patterns in images via algorithm pareidolia
+  + creating a dream-like hallucinogenic appearance in the deliberately over-processed images
+  + dreaming:
+    + the generation of images that produce desired activation in a trained deep network
+    + a collection of related approaches
+
+
 
 
 
