@@ -1092,6 +1092,19 @@
   \[J_S(\mathbf{x}, \mathbf{y}) = \sum_{l=0}^L \lambda_l J_S^{[l]} \left(G^{[l](S)}, G^{[l](G)}\right)\]
 
 
+### Neural Style Transfer
+
++ [Neural Style Transfer](../ML/MLNN-Hinton/a05-VisualCNN.md#neural-style-transfer)
+  + combining content and style reconstruction
+  + procedure of NST
+    + choose a layer (or set of layers) to represent content - the middle layers recommended (not too shall, not too deep) for best results
+    + minimizing the total cost by using backpropagation
+
+      \[J_{total}(\mathbf{x}, \mathbf{y}) = \alpha J_C^{[l]}(\mathbf{x}, \mathbf{y}) + \beta J_S(\mathbf{x}, \mathbf{y})\]
+
+    + initializing the input with random noise (necessary of generating gradients)
+    + replacing max-pool layers with average pooling to improve the gradient flow and to produce more appealing pictures
+
 
 
 
