@@ -908,13 +908,42 @@
 
 ### Definition
 
-+ Neural Style Transfer (NST)
++ [Neural Style Transfer (NST)](../ML/MLNN-Hinton/a05-VisualCNN.md#introduction)
   + Def: Artistic generation of high perceptual quality images that combines the style or texture of some input image, and the elements or content from a different one.
   + producing an image using NST, two images required
     1. the one wishing to transfer the style of
     2. the image to transform using the style of the first image to morph the two images
   
 
+### Visualizing Convolutional Networks
+
++ [Purpose of visualizing CNN](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
+  + little insight about the learning and internal operation
+  + through visualization might be able to
+    + observe how input stimuli excite the individual feature maps
+    + observe the evolution of features
+    + make more substantiated designs
+
++ [Neural network for NST](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
+  + Architecture: similar to AlexNet
+  + Dataset Imagenet 2012 training database for 1,000 classes
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2095/1*q6LNA5oP62l6Hr5yR4TnIg.png" style="margin: 0.1em;" alt="The architecture used for NST" title="The architecture used for NST" width=650>
+    </a>
+  </div>
+
++ [Deconvolution network](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
+  + objective: project hidden feature maps into the original input space
+  + benefit: able to visualize the activations of a specific filter
+  + Note: NOT performing any deconvolutions.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1665/1*47N0hNMbZtbpRXnOzZH4rw.png" style="margin: 0.1em;" alt="Deconvolutional network" title="Deconvolutional network" width=350>
+    </a>
+  </div>
 
 
 
