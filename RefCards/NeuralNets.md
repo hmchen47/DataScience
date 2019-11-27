@@ -1797,6 +1797,23 @@
   </div>
 
 
+### SGD with Warm Restarts
+
++ [Warm restarts](../ML/MLNN-Hinton/a14-Advanced.md#33-sgd-with-warm-restarts)
+  + restart the learning after a specified number of epochs
+  + record the best estimates each time before resetting the learning rate
+  + restarts not from scratch but from the last estimate
+  + providing most of the benefits as cyclical learning rates
+  + able to escape extreme local minima
+
++ [Warm restarts with cosine annealing](../ML/MLNN-Hinton/a14-Advanced.md#33-sgd-with-warm-restarts)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/805/1*Iymc7F6RF_PKije9dhZA2g.png" style="margin: 0.1em;" alt="Warm restarts with cosine annealing done every 50 iterations of Cifar10 dataset" title="Warm restarts with cosine annealing done every 50 iterations of Cifar10 dataset" width=250>
+    </a>
+  </div>
+
 
 
 ### AdaGrad
