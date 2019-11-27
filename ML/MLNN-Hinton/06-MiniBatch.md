@@ -359,7 +359,7 @@
     3. combine the little correction step with the big jump to get the new accumulated gradient (green vector)
     4. attenuate the gradient (green vector) by a given number ($\alpha = 0.9 \text{ or } 0.99$)
     5. repeat the steps
-  + Pictirial standard momentum approach
+  + Pictorial standard momentum approach
     1. start with an accumulated gradient (initialized brown vector)
     2. measure the gradient at current location (small blue vector)
     3. add to the accumulated gradient (brown vector) to make a big jump as the big blue vector (brown vector + little blue vector)
@@ -545,9 +545,9 @@
     0 & \text{otw.}
   \end{cases}\]
 
-  In other words, if the gradient changes sign, then our last step size $\Delta_{ij}(t-1)$ was too big, so wee need to scale it back by $\eta^-$.  On the owther hand, if the gradient keeps its sign, then we're going in the right direction, and we scale up the step size by $\eta^+$ to go faster.  Otherwise, the gradient is zero and there's no need to change the weight.
+  In other words, if the gradient changes sign, then our last step size $\Delta_{ij}(t-1)$ was too big, so wee need to scale it back by $\eta^-$.  On the other hand, if the gradient keeps its sign, then we're going in the right direction, and we scale up the step size by $\eta^+$ to go faster.  Otherwise, the gradient is zero and there's no need to change the weight.
 
-  __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at tiem $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ mihght be nonzero.
+  __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at time $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ might be nonzero.
 
 
 + rmsprop: A mini-batch version of rprop
@@ -577,7 +577,7 @@
 
 + [RMSPROP: root mean square backpropagation/mini-batch RPROP](https://trongr.github.io/neural-network-course/neuralnetworks.html)
 
-  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divid successive gradients not by themselves individually but by their root mean square: first define the running mean square
+  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divide successive gradients not by themselves individually but by their root mean square: first define the running mean square
 
   \[\mu_{ij}(t) = \gamma \mu_{ij}(t-1) + (1-\gamma) \left(\frac{\partial E}{\partial w_{ij}}\right)^2\]
 
