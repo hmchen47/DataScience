@@ -25,7 +25,7 @@ Author: Matthew Stewart
     2. freeze the weights of the initial layers by setting the layers to have the `trainable=False` parameter
   + the initial layers of a convolutional neural network containing  primitive information about the image
   + with deep neural network, the object becomes more complex and high-level as the network begins to differentiate more clearly between image qualities
-  + not trying to teach the network to examine images but just fine=-tue it for our use-case
+  + not trying to teach the network to examine images but just fine-tune it for our use-case
   + set the fully connected network layers at the output to be trainable, and perhaps the final convolutional layer (if enough data) to be trainable, then train the network with our data
   + benefit: fewer data to train the model because the number of network trainable parameters only a fraction of the total number of parameters in the network
 
@@ -197,7 +197,7 @@ Author: Matthew Stewart
     + training w/ each model to reach local minimum w.r.t the training loss
     + take a snapshot of the model weights before raising the training rate
     + after $M$ cycles, $M$ model snapshots $f_1, f_2, \dots, f_M$ obtained
-  + mode ensemble
+  + model ensemble
     + taking average of snapshots
     + used to obtain result
 
@@ -260,7 +260,7 @@ Author: Matthew Stewart
 
 ### 4.1 Estimators
 
-+ point estimation
++ Point estimation
   + providing the single "best" prediction of some quantity of interest
 
     \[ \hat{\mathbf{\theta}}_m = g(\mathbf{x}^{(1)}, \dots, \mathbf{x}^{(m)}) \]
@@ -284,7 +284,7 @@ Author: Matthew Stewart
 
 ### 4.2 Diagnosing bias-variance
 
-+ Bas-variance trade-off
++ Bias-variance trade-off
   + high dimensions: no decision curves to inspect bias-variance
   + calculating error values to infer the source of errors on the training set, as well as on the validation set
 
@@ -418,7 +418,7 @@ Author: Matthew Stewart
     + derived considering that the network consists of matrix multiplication with no nonlinearites
     + seems to perform well in practice
 
-+ List of wright initialization: [initializers section of the Kreas documentation](https://keras.io/initializers/)
++ List of weight initialization: [initializers section of the Kreas documentation](https://keras.io/initializers/)
 
 
 
@@ -452,13 +452,13 @@ Author: Matthew Stewart
 
 ### 7.3 Weight Initialization
 
-+ Understanding the difficulty of training deep feedforward neural networks by Glorot and Bengio, 2010.
-+ Exact solutions to the nonlinear dynamics of learning in deep linear neural networks by Saxe et al, 2013.
-+ Random walk initialization for training very deep feedforward networks by Sussillo and Abbott, 2014.
-+ Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification by He et al., 2015.
-+ Data-dependent Initializations of Convolutional Neural Networks by Krähenbühl et al., 2015.
-+ All you need is a good init, Mishkin and Matas, 2015.
-+ Fixup Initialization: Residual Learning Without Normalization, Zhang et al, 2019.
-+ The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks, Frankle and Carbin, 2019.
++ [Understanding the difficulty of training deep feedforward neural networks](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi) by Glorot and Bengio, 2010.
++ [Exact solutions to the nonlinear dynamics of learning in deep linear neural networks](https://arxiv.org/abs/1312.6120) by Saxe et al, 2013.
++ [Random walk initialization for training very deep feedforward networks](https://arxiv.org/abs/1412.6558) by Sussillo and Abbott, 2014.
++ [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html) by He et al., 2015.
++ [Data-dependent Initializations of Convolutional Neural Networks](https://arxiv.org/abs/1511.06856) by Krähenbühl et al., 2015.
++ [All you need is a good init](https://arxiv.org/abs/1511.06422), Mishkin and Matas, 2015.
++ [Fixup Initialization: Residual Learning Without Normalization](https://arxiv.org/abs/1901.09321), Zhang et al, 2019.
++ [The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks](https://openreview.net/pdf?id=rJl-b3RcF7), Frankle and Carbin, 2019.
 
 
