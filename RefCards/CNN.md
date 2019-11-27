@@ -1,6 +1,8 @@
 # Convolutional Neural Network
 
-## Object Recognition and Classification
+## Overview 
+
+### Object Recognition and Classification
 
 + [Issues about object recognition](../ML/MLNN-Hinton/05-CNN.md#lecture-notes)
   + Segmentation: real scenes cluttered with other objects
@@ -20,7 +22,7 @@
     + able to quickly recognize patterns, generalize from prior knowledge, and adapt to different image environments
 
 
-## Solutions for Viewpoint Invariance
+### Solutions for Viewpoint Invariance
 
 + [Viewpoint invariance](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-1)
   + one of the main difficulties in making computers perceive
@@ -54,7 +56,7 @@
   + Designing period - try all possible boxes in a range of positions and scales
 
 
-## Replicated Feature Approach
+### Replicated Feature Approach
 
 + [The replicated feature approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
   + using many different copies of the same feature detector w/ different positions
@@ -129,6 +131,42 @@
   </div>
 
 + Limitation: only worked if two datasets very similar
+
+
+### Pruning
+
++ [Model pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + induce sparsity in a deep neural network's various connection matrices
+  + reducing the number of non-zero-valued parameters in the model
+  + originally used in decision trees where branches of the tree are pruned as a form of model regularization
+  + pruning weights unimportant or rarely fired w/ little to no consequence
+  + Fact: the majority of neurons relatively small impact on the model performance, i.e., achieving high accuracy even eliminating a large numbers of parameters
+
++ [Reducing the number of parameters in a network](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + neural architectures and datasets get larger to obtain reasonable execution times of models
+  + increasing important
+
++ [Efficacy of pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + examining the performance of neural networks as a function of sparsity (effectively the percentage of neurons removed)
+  + even removing 75% of the neurons w/o significantly affected the model performance
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1965/1*GdcBOqBhQw4GsA7wxfLMAg.png" style="margin: 0.1em;" alt="(a) the gradual sparsity function and expontentially decaying learning rate used for training sparse-Inception V3 model; (b) evolution of the model's accuracy during the training process" title="Illustration of sparsity and accuracy" width=400>
+    </a>
+  </div>
+
++ [Performing pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + pruning typing done in convolutional neural networks
+  + the majority of parameters in convolutional models occur in the fully connected (vanilla) neural layers
+  + most of the parameters eliminated from this portion of the network
+
++ [Approaches of performing pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + weight pruning
+  + unit pruning
+  + Fisher pruning
+
+
 
 
 ## Other Models
