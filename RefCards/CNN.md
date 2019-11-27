@@ -107,6 +107,204 @@
   + dataset quite different than something like ImageNet, just train more of your layers and freeze only a couple of the low layers
 
 
+## Other Models
+
+### Generative Adversarial Networks (2014)
+
++ I. Goodfellow, et. al., [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661v1.pdf), 2014
+  + The next big development - Yann LeCun
+
++ [Example](../ML/MLNN-Hinton/a11-9Papers.md#generative-adversarial-networks-2014)
+  + taking an example image and applying a perturbation, or a slight modification
+  + the prediction error maximized
+  + the object category of the prediction changes, while the image itself looks the same when compared to the image without the perturbation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Adversarial.png" style="margin: 0.1em;" alt="ConvNet examples with distortion" title="ConvNet examples with distortion" width=350>
+    </a>
+  </div>
+
+  + ConvNet makes drastic errors in classification even the difference btw the images imperceptible to human
+
++ C. Szegedy, et. al., [Intriguing properties of neural networks](https://arxiv.org/pdf/1312.6199v4.pdf)
+
++ [Generative adversarial networks](../ML/MLNN-Hinton/a11-9Papers.md#generative-adversarial-networks-2014)
+  + consisting of two models
+    + a generative model
+    + a discriminative model
+  + generative model
+    + determining whether a given image looks natural (an image from the dataset) or artificially created
+    + similar to "a team of counterfeiters, trying to produce and use fake currency"
+    + the generator trying to fool the discriminator
+  + discriminative model
+    + creating images so that the discriminator gets trained to produce the correct outputs
+    + similar to "the police, trying to detect the counterfeit currency"
+    + the discriminator trying to not get indistinguishable the genuine articles
+
++ [Why it's important](../ML/MLNN-Hinton/a11-9Papers.md#generative-adversarial-networks-2014)
+  + the discriminator is aware of the "internal representation of the data"
+  + the discriminator trained to understand the differences btw real images from the dataset and artificially created ones
+  + used as a feature extractor using in CNN
+
+
+### Region Based CNNs (R-CNN - 2013, Fast R-CNN - 2015, Faster R-CNN - 2015)
+
++ Articles
+  + R. Girshick, J. Donahue, T. Darrell, and J. Malik, [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/pdf/1311.2524v5.pdf), 2013
+  + R. Girshick, [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf), 2015
+  + S. Ren, K. He, R. Girshick, and J. Sun, [Faster R-CNN: Toward Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1504.08083.pdf), 2015
+
++ [R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
+  + one of the most impactful advancement in computer vision
+  + Fast R-CNN and Faster R-CNN: making the model faster and better for modern object detection tasks
+  + Purpose of R-CNNs
+    + solving the problem of object detection
+    + able to draw bounding boxes over all the objects
+  + split into two general components:
+    + the region proposal step
+    + the classification step
+
++ [Region proposal method](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
+  + any class agnostic region proposal method should fit
+  + Selective Search:
+    + J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, [Selective Search for Object Recognition](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
+    + used in particular for R-CNN
+  + perform the function of generating 2000 different regions that have the highest probability of containing an object
+  + obtained a set of region proposals
+  + proposals wrapped into an an image size that can be fed into a trained CNN (AlexNet in this case) that extracts a feature vector of each region
+  + vector used as the input to a set of linear SVMs trained for each class and output a classification
+  + the vector gets into a bounding box regressor to obtain the most accurate coordinates
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/rcnn.png" style="margin: 0.1em;" alt="R-CNN workflow" title="R-CNN workflow" width=450>
+    </a>
+  </div>
+
+  + non-maxima suppression: used to suppress bounding boxes that have a significant overlap with each other
+
++ [Fast R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#faster-r-cnn)
+  + R-CNN problems
+    + multiple stages (ConvNets to SVMs to bounding box regressors)
+    + computationally expensive
+    + extremely slow: R-CNN - 53 seconds per image
+  + Fast R-CNN
+    + able to solve the problem of speed
+    + basically sharing computation of convolutional layers between different proposals and swapping the order of generating region proposals and running th CNN
+    + first fed through a ConvNet to obtain features of the region proposals from the last feature map of the ConvNet
+    + lastly connected layers as well as regression and classification heads
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+        <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="Fast R-CNN workflow" width=350>
+      </a>
+    </div>
+
++ [Faster R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#faster-r-cnn)
+  + Combat the complex training pipeline that both R-CNN and Fast R-CNN exhibited
+  + inserting a region proposal network (RPN) after the last convolutional layer
+  + able to just look at the last convolutional feature map and produce region proposals from that
+  + the same pipeline as R-CNN used (ROI pooling, FC, and then classification and regression heads)
+
++ [What it's Important](../ML/MLNN-Hinton/a11-9Papers.md#what-its-important)
+  + able to determine that a specific object in an image is one thing, but able to determine that object's exact location is a huge jump in knowledge for the computer
+  + Fast R-CNN: the standard for object detection programs today
+
+
+### Generating Image Descriptions (2014)
+
++ Articles
+  + A. Karpathy and F. Li, [Deep visual semantic alignment for Generating Image Descriptions](https://arxiv.org/pdf/1412.2306v2.pdf), 2015
+  + A. Karpathy, A. Joulin and F. Li, [Deep fragment embeddings for bidirectional image sentence mapping](https://arxiv.org/pdf/1406.5679v1.pdf), 2014
+
++ Combining CNNs and bidirectional RNNs (Recurrent Neural Networks) to generate natural language descriptions of different image regions
+
++ Example of Generating image descriptions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/Caption.png" style="margin: 0.1em;" alt="Example output of the model" title="Example output of the model" width=350>
+    </a>
+  </div>
+
++ [Comparison w/ normal CNNs](../ML/MLNN-Hinton/a11-9Papers.md#generating-image-descriptions-2014)
+  + traditional CNNs: a single clear label associated with each image in the training data
+  + image descriptions:
+    + having a sentence (or caption) associated with each image
+    + weak label: segments of the sentence refer to (unknown) parts of the image
+
++ [Generating image descriptions](../ML/MLNN-Hinton/a11-9Papers.md#generating-image-descriptions-2014)
+  + Using this training data, a deep neural network "infers the latent alignment between segments of the sentences and the region that they described".
+  + Another neural network takes in the image as input and generates a description in text.
+  + Two components: alignment and generation
+
++ [Alignment model](../ML/MLNN-Hinton/a11-9Papers.md#alignment-model)
+  + goal: align the visual and textual data
+  + Alignment model
+    + input: an image and a sentence
+    + output: a score for how well they match
+    + trained on compatible and incompatible image-sentence pairs
+  + Representation:
+    + information about image
+      + feeding the image into an R-CNN to detect the individual objects
+      + trained on ImageNet data
+      + the top 19 (plus the original image) object regions are embedded to a 500 dimensional space
+      + having 20 different 500 dimensional vectors for each image
+    + information about the sentence
+      + embedding words into the same multimodal space
+      + using a bidirectional recurrent neural network
+      + illustrating information about the context of words in a given sentence
+    + information about the picture and the sentence in the same space
+    + compute inner products to show a measure of similarity
+
++ [Generative Model](../ML/MLNN-Hinton/a11-9Papers.md#generative-model)
+  + the main purpose of creating a dataset where you have a set of image regions (found by the R-CNN) and corresponding text (BRNN)
+  + learning from that dataset to generate descriptions given an image
+  + taking in an image abd feeding it through a CNN
+  + softmax layer: disregarded as the outputs of the fully connected layer become the inputs to another RNN
+  + RNN: the function basically form probability distributions on the different words in a sentence
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
+      <img src="https://adeshpande3.github.io/assets/GeneratingImageDescriptions.png" style="margin: 0.1em;" alt="Workflow of alignment and generative model" title="orkflow of alignment and generative model" width=850>
+    </a>
+  </div>
+
++ [What it's Important](../ML/MLNN-Hinton/a11-9Papers.md#what-its-important-1)
+  + Using seemingly different RNN and CNN models to create a very useful application that in a way combines the fields of Computer Vision and Natural Language Processing
+  + New idea in terms of how to make computers and models smarter when dealing with tasks that cross different fields
+
+
+### Vald Mnih (ICML 2012) - Finding roads
+
++ [Finding Roads](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
+  + extra roads from cluttered aerial images of urban scenes
+  + Objective: predicting a binary road label for the central 16x16 pixels
+
++ [Modeling for finding roads](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
+  + a non-convolutional net w/ local fields and multiple layers of rectified linear units
+  + lots of labeled training data available for this task
+  + Difficulties
+    + occlusion by buildings trees and cars
+    + shadows, lighting changes
+    + minor viewpoint changes
+  + Worse problems: incorrect labels
+    + badly registered maps: a pixel ~ 1 squared meter
+    + arbitrary decisions about what counts as a road and what counts as a laneway
+  + Only hope: trained on big image patches w/ millions of examples
+  + Examples
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
+      </a>
+    </div>
+
+    + green line: the correct answer
+    + red lines: incorrect answer
+
+
 ## Hyperparameters
 
 + [Parameters to choose](../ML/MLNN-Hinton/a10-CNNsGuide.md#choosing-hyperparameters)
@@ -713,203 +911,6 @@
   + 3.6% error rate
   + the best CNN architecture so far
   + stacking more layers on top of each other isn't going to result in a substantial performance boost
-
-
-### Region Based CNNs (R-CNN - 2013, Fast R-CNN - 2015, Faster R-CNN - 2015)
-
-+ Articles
-  + R. Girshick, J. Donahue, T. Darrell, and J. Malik, [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/pdf/1311.2524v5.pdf), 2013
-  + R. Girshick, [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf), 2015
-  + S. Ren, K. He, R. Girshick, and J. Sun, [Faster R-CNN: Toward Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1504.08083.pdf), 2015
-
-+ [R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
-  + one of the most impactful advancement in computer vision
-  + Fast R-CNN and Faster R-CNN: making the model faster and better for modern object detection tasks
-  + Purpose of R-CNNs
-    + solving the problem of object detection
-    + able to draw bounding boxes over all the objects
-  + split into two general components:
-    + the region proposal step
-    + the classification step
-
-+ [Region proposal method](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
-  + any class agnostic region proposal method should fit
-  + Selective Search:
-    + J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, [Selective Search for Object Recognition](https://ivi.fnwi.uva.nl/isis/publications/2013/UijlingsIJCV2013/UijlingsIJCV2013.pdf)
-    + used in particular for R-CNN
-  + perform the function of generating 2000 different regions that have the highest probability of containing an object
-  + obtained a set of region proposals
-  + proposals wrapped into an an image size that can be fed into a trained CNN (AlexNet in this case) that extracts a feature vector of each region
-  + vector used as the input to a set of linear SVMs trained for each class and output a classification
-  + the vector gets into a bounding box regressor to obtain the most accurate coordinates
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/rcnn.png" style="margin: 0.1em;" alt="R-CNN workflow" title="R-CNN workflow" width=450>
-    </a>
-  </div>
-
-  + non-maxima suppression: used to suppress bounding boxes that have a significant overlap with each other
-
-+ [Fast R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#faster-r-cnn)
-  + R-CNN problems
-    + multiple stages (ConvNets to SVMs to bounding box regressors)
-    + computationally expensive
-    + extremely slow: R-CNN - 53 seconds per image
-  + Fast R-CNN
-    + able to solve the problem of speed
-    + basically sharing computation of convolutional layers between different proposals and swapping the order of generating region proposals and running th CNN
-    + first fed through a ConvNet to obtain features of the region proposals from the last feature map of the ConvNet
-    + lastly connected layers as well as regression and classification heads
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-        <img src="https://adeshpande3.github.io/assets/FastRCNN.png" style="margin: 0.1em;" alt="Fast R-CNN workflow" title="Fast R-CNN workflow" width=350>
-      </a>
-    </div>
-
-+ [Faster R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#faster-r-cnn)
-  + Combat the complex training pipeline that both R-CNN and Fast R-CNN exhibited
-  + inserting a region proposal network (RPN) after the last convolutional layer
-  + able to just look at the last convolutional feature map and produce region proposals from that
-  + the same pipeline as R-CNN used (ROI pooling, FC, and then classification and regression heads)
-
-+ [What it's Important](../ML/MLNN-Hinton/a11-9Papers.md#what-its-important)
-  + able to determine that a specific object in an image is one thing, but able to determine that object's exact location is a huge jump in knowledge for the computer
-  + Fast R-CNN: the standard for object detection programs today
-
-
-### Generative Adversarial Networks (2014)
-
-+ I. Goodfellow, et. al., [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661v1.pdf), 2014
-  + The next big development - Yann LeCun
-
-+ [Example](../ML/MLNN-Hinton/a11-9Papers.md#generative-adversarial-networks-2014)
-  + taking an example image and applying a perturbation, or a slight modification
-  + the prediction error maximized
-  + the object category of the prediction changes, while the image itself looks the same when compared to the image without the perturbation
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/Adversarial.png" style="margin: 0.1em;" alt="ConvNet examples with distortion" title="ConvNet examples with distortion" width=350>
-    </a>
-  </div>
-
-  + ConvNet makes drastic errors in classification even the difference btw the images imperceptible to human
-
-+ C. Szegedy, et. al., [Intriguing properties of neural networks](https://arxiv.org/pdf/1312.6199v4.pdf)
-
-+ [Generative adversarial networks](../ML/MLNN-Hinton/a11-9Papers.md#generative-adversarial-networks-2014)
-  + consisting of two models
-    + a generative model
-    + a discriminative model
-  + generative model
-    + determining whether a given image looks natural (an image from the dataset) or artificially created
-    + similar to "a team of counterfeiters, trying to produce and use fake currency"
-    + the generator trying to fool the discriminator
-  + discriminative model
-    + creating images so that the discriminator gets trained to produce the correct outputs
-    + similar to "the police, trying to detect the counterfeit currency"
-    + the discriminator trying to not get indistinguishable the genuine articles
-
-+ [Why it's important](../ML/MLNN-Hinton/a11-9Papers.md#generative-adversarial-networks-2014)
-  + the discriminator is aware of the "internal representation of the data"
-  + the discriminator trained to understand the differences btw real images from the dataset and artificially created ones
-  + used as a feature extractor using in CNN
-
-
-
-## Generating Image Descriptions (2014)
-
-+ Articles
-  + A. Karpathy and F. Li, [Deep visual semantic alignment for Generating Image Descriptions](https://arxiv.org/pdf/1412.2306v2.pdf), 2015
-  + A. Karpathy, A. Joulin and F. Li, [Deep fragment embeddings for bidirectional image sentence mapping](https://arxiv.org/pdf/1406.5679v1.pdf), 2014
-
-+ Combining CNNs and bidirectional RNNs (Recurrent Neural Networks) to generate natural language descriptions of different image regions
-
-+ Example of Generating image descriptions
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/Caption.png" style="margin: 0.1em;" alt="Example output of the model" title="Example output of the model" width=350>
-    </a>
-  </div>
-
-+ [Comparison w/ normal CNNs](../ML/MLNN-Hinton/a11-9Papers.md#generating-image-descriptions-2014)
-  + traditional CNNs: a single clear label associated with each image in the training data
-  + image descriptions:
-    + having a sentence (or caption) associated with each image
-    + weak label: segments of the sentence refer to (unknown) parts of the image
-
-+ [Generating image descriptions](../ML/MLNN-Hinton/a11-9Papers.md#generating-image-descriptions-2014)
-  + Using this training data, a deep neural network "infers the latent alignment between segments of the sentences and the region that they described".
-  + Another neural network takes in the image as input and generates a description in text.
-  + Two components: alignment and generation
-
-+ [Alignment model](../ML/MLNN-Hinton/a11-9Papers.md#alignment-model)
-  + goal: align the visual and textual data
-  + Alignment model
-    + input: an image and a sentence
-    + output: a score for how well they match
-    + trained on compatible and incompatible image-sentence pairs
-  + Representation:
-    + information about image
-      + feeding the image into an R-CNN to detect the individual objects
-      + trained on ImageNet data
-      + the top 19 (plus the original image) object regions are embedded to a 500 dimensional space
-      + having 20 different 500 dimensional vectors for each image
-    + information about the sentence
-      + embedding words into the same multimodal space
-      + using a bidirectional recurrent neural network
-      + illustrating information about the context of words in a given sentence
-    + information about the picture and the sentence in the same space
-    + compute inner products to show a measure of similarity
-
-+ [Generative Model](../ML/MLNN-Hinton/a11-9Papers.md#generative-model)
-  + the main purpose of creating a dataset where you have a set of image regions (found by the R-CNN) and corresponding text (BRNN)
-  + learning from that dataset to generate descriptions given an image
-  + taking in an image abd feeding it through a CNN
-  + softmax layer: disregarded as the outputs of the fully connected layer become the inputs to another RNN
-  + RNN: the function basically form probability distributions on the different words in a sentence
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html" ismap target="_blank">
-      <img src="https://adeshpande3.github.io/assets/GeneratingImageDescriptions.png" style="margin: 0.1em;" alt="Workflow of alignment and generative model" title="orkflow of alignment and generative model" width=850>
-    </a>
-  </div>
-
-+ [What it's Important](../ML/MLNN-Hinton/a11-9Papers.md#what-its-important-1)
-  + Using seemingly different RNN and CNN models to create a very useful application that in a way combines the fields of Computer Vision and Natural Language Processing
-  + New idea in terms of how to make computers and models smarter when dealing with tasks that cross different fields
-
-
-### Vald Mnih (ICML 2012) - Finding roads
-
-+ [Finding Roads](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
-  + extra roads from cluttered aerial images of urban scenes
-  + Objective: predicting a binary road label for the central 16x16 pixels
-
-+ [Modeling for finding roads](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-3)
-  + a non-convolutional net w/ local fields and multiple layers of rectified linear units
-  + lots of labeled training data available for this task
-  + Difficulties
-    + occlusion by buildings trees and cars
-    + shadows, lighting changes
-    + minor viewpoint changes
-  + Worse problems: incorrect labels
-    + badly registered maps: a pixel ~ 1 squared meter
-    + arbitrary decisions about what counts as a road and what counts as a laneway
-  + Only hope: trained on big image patches w/ millions of examples
-  + Examples
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture5/lec5.pptx" ismap target="_blank">
-        <img src="../ML/MLNN-Hinton/img/m05-10.png" style="margin: 0.1em;" alt="Example of find roads" title="Example of find roads" width=450>
-      </a>
-    </div>
-
-    + green line: the correct answer
-    + red lines: incorrect answer
 
 
 
