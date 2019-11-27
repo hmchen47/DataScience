@@ -1815,6 +1815,48 @@
   </div>
 
 
+### Snapshot ensembles
+
++ [Ensemble networks](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
+  + training a single neural network with $M$ different models
+  + much more robust and accurate than individual networks
+  + another type of regularization technique
+  + converge to $M$ different local optima and save network parameters
+  + training w/ many different neural networks and then optimizing w/ major vote, or averaging of the prediction output
+
++ [Example of snapshot ensembles](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
+  + Left diagram: Illustration of SGD optimization with a typical learning rate schedule. The model converges to a minimum at the end of training.
+  + Right diagram: Illustration of Snapshot Ensembling. The model undergoes several learning rate annealing cycles, converging to and escaping from multiple local minima.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2118/1*Lp8rhR6C_TWuSIcF_QXXfA.png" style="margin: 0.1em;" alt="Left: Illustration of SGD optimization with a typical learning rate schedule. The model converges to a minimum at the end of training. Right: Illustration of Snapshot Ensembling. The model undergoes several learning rate annealing cycles, converging to and escaping from multiple local minima." title="Snapshot ensembles" width=450>
+    </a>
+  </div>
+
++ [Classification](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
+  + often developing ensemble or blended models
+  + providing superior results to any single model
+  + constraint: high correlation btw models
+
++ [Procedure](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
+  + Model training
+    + training w/ each model to reach local minimum w.r.t the training loss
+    + take a snapshot of the model weights before raising the training rate
+    + after $M$ cycles, $M$ model snapshots $f_1, f_2, \dots, f_M$ obtained
+  + model ensemble
+    + taking average of snapshots
+    + used to obtain result
+
++ [Advantages](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
+  + achieving a neural network w/ smoothened parameters
+  + reducing the total noise and the total error
+  + w/o any additional training cost: total training time of $M$ snapshots same as training a model w/ a standard schedule
+
++ Not perfect: different initialization points or hyperparameter choices converging to different local minimum
+
+
+
 
 ### AdaGrad
 
@@ -2101,48 +2143,6 @@
   2. reduces the dependence of gradients on the scale of the parameters or their initial values
   3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
   4. allows use of saturating nonlinearities and higher learning rates
-
-
-### Snapshot ensembles
-
-+ [Ensemble networks](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
-  + training a single neural network with $M$ different models
-  + much more robust and accurate than individual networks
-  + another type of regularization technique
-  + converge to $M$ different local optima and save network parameters
-  + training w/ many different neural networks and then optimizing w/ major vote, or averaging of the prediction output
-
-+ [Example of snapshot ensembles](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
-  + Left diagram: Illustration of SGD optimization with a typical learning rate schedule. The model converges to a minimum at the end of training.
-  + Right diagram: Illustration of Snapshot Ensembling. The model undergoes several learning rate annealing cycles, converging to and escaping from multiple local minima.
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
-      <img src="https://miro.medium.com/max/2118/1*Lp8rhR6C_TWuSIcF_QXXfA.png" style="margin: 0.1em;" alt="Left: Illustration of SGD optimization with a typical learning rate schedule. The model converges to a minimum at the end of training. Right: Illustration of Snapshot Ensembling. The model undergoes several learning rate annealing cycles, converging to and escaping from multiple local minima." title="Snapshot ensembles" width=450>
-    </a>
-  </div>
-
-+ [Classification](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
-  + often developing ensemble or blended models
-  + providing superior results to any single model
-  + constraint: high correlation btw models
-
-+ [Procedure](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
-  + Model training
-    + training w/ each model to reach local minimum w.r.t the training loss
-    + take a snapshot of the model weights before raising the training rate
-    + after $M$ cycles, $M$ model snapshots $f_1, f_2, \dots, f_M$ obtained
-  + model ensemble
-    + taking average of snapshots
-    + used to obtain result
-
-+ [Advantages](..e/ML/MLNN-Hinton/a14-Advanced.md#34-snapshot-ensembles)
-  + achieving a neural network w/ smoothened parameters
-  + reducing the total noise and the total error
-  + w/o any additional training cost: total training time of $M$ snapshots same as training a model w/ a standard schedule
-
-+ Not perfect: different initialization points or hyperparameter choices converging to different local minimum
-
 
 
 
