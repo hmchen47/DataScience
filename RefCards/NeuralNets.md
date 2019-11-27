@@ -177,6 +177,62 @@
   + automate the loop of designing features for a particular task and seeing ho well they work
 
 
+### Overfitting
+
++ [Overfitting in deep neural networks](../ML/MLNN-Hinton/a14-Advanced.md#4-how-to-address-overfitting)
+  + never truly believe that the results from a trained network are optimal
+  + very common
+
+
+### Bias & Variance
+
++ [Point estimation](../ML/MLNN-Hinton/a14-Advanced.md#41-estimators)
+  + providing the single "best" prediction of some quantity of interest
+
+    \[ \hat{\mathbf{\theta}}_m = g(\mathbf{x}^{(1)}, \dots, \mathbf{x}^{(m)}) \]
+
+    + $\mathbf{\theta}$: true value
+    + $\hat{\mathbf{\theta}}_m$: estimator for $m$ samples
+  + more often, $\mathbf{\theta}$ fixed but unknown and the data is random
+
++ [Bias & Variance](../ML/MLNN-Hinton/a14-Advanced.md#41-estimators)
+  + estimator: a random variable
+  + random variable susceptible to bias and variance
+    + bias: expected deviation from the true value
+    + variance: deviation from the expected estimator
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1475/1*hk99PbiLpVCHnMPEkP2YdA.png" style="margin: 0.1em;" alt="Examples of bais and variance" title="Examples of bais and variance" width=300>
+    </a>
+  </div>
+
++ [Bias-variance trade-off](../ML/MLNN-Hinton/a14-Advanced.md#42-diagnosing-bias-variance)
+  + high dimensions: no decision curves to inspect bias-variance
+  + calculating error values to infer the source of errors on the training set, as well as on the validation set
+
++ [Bayes error rate](../ML/MLNN-Hinton/a14-Advanced.md#42-diagnosing-bias-variance)
+  + bias: baseline required, such as human-level performance
+  + the lowest possible error rate for any classifier of a random outcome
+  + the minimum error able to obtain with a perfect model stripped of all avoidable bias and variance
+
++ [Analyzing the errors](../ML/MLNN-Hinton/a14-Advanced.md#42-diagnosing-bias-variance)
+  + analyzing and comparing the errors on the training and validation sets to deduce the cause of the error (see diagram)
+  + techniques to analyze the errors of estimator
+    + orthogonalization
+    + early stopping
+  + ways to reduce the bias
+    + train a bigger model (increasing the explainability of the model)
+    + train longer (reaching convergence)
+    + adapt the neural architecture or perform an extensive hyperparameter search
+  + ways to reduce the variance
+    + get more data
+    + use regularization mechanisms
+
++ extremely helpful way to troubleshoot the network: analyze network's results and determine whether the issue is caused by biasing or variance
+
+
+
 ### Considerations of Learning Procedures
 
 + [Main decisions about how to use error derivatives](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
@@ -240,7 +296,7 @@
   + Recurrent Neural network (RNN)
     + a.k.a Jordan network
     + each of hidden cell received its own output with fixed delay
-    + mainly used =when context is important
+    + mainly used when context is important
 
 + [Feed-forward neural Networks](../ML/MLNN-Hinton/02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture)
   + Input layer: the first layer
@@ -257,10 +313,10 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788397872/1/ch01lvl1sec21/feed-forward-and-feedback-networks" ismap target="_blank">
-    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" height=150>
+    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" height=130>
   </a>
   <a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/recurrent_neural_networks.html" ismap target="_blank">
-    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" height=150>
+    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" height=130>
   </a>
 </div>
 
@@ -279,10 +335,10 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng.html" ismap target="_blank">
-    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" height=150>
+    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" height=130>
   </a>
   <a href="https://www.researchgate.net/figure/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected_fig8_257649811" ismap target="_blank">
-    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=150>
+    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=130>
   </a>
 </div>
 
@@ -325,8 +381,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*LtzuTUh0kkCfvlwKxx2zvw.png" style="margin: 0.1em;" alt="increasing the number of layers of neural networks tends to improve overall test set accuracy" title="increasing the number of layers of neural networks tends to improve overall test set accuracy" width=350>
-      <img src="https://miro.medium.com/max/875/1*nUHyEEaHEMy3Kl72xTu9Pg.png" style="margin: 0.1em;" alt="large, shallow networks tend to overfit more" title="large, shallow networks tend to overfit more" width=405>
+      <img src="https://miro.medium.com/max/875/1*LtzuTUh0kkCfvlwKxx2zvw.png" style="margin: 0.1em;" alt="increasing the number of layers of neural networks tends to improve overall test set accuracy" title="increasing the number of layers of neural networks tends to improve overall test set accuracy" height=150>
+      <img src="https://miro.medium.com/max/875/1*nUHyEEaHEMy3Kl72xTu9Pg.png" style="margin: 0.1em;" alt="large, shallow networks tend to overfit more" title="large, shallow networks tend to overfit more" height=150>
     </a>
   </div>
 
