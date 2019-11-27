@@ -1837,6 +1837,40 @@
 
 ### RMSProp
 
++ [rmsprop: A mini-batch version of rprop](../ML/MLNN-Hinton/06-MiniBatch.md#rmsprop-normalized-the-gradient)
+  + problem w/ mini-batch rprop
+    + using the gradient but also divided by the different magnitude of the gradient for each mini-batch
+    + solution: force the number divided by to be very similar for adjacent mini-batches
+  + rmsprop: keep a moving average of the squared gradient for each weight (e.g. $\alpha = 0.9$)
+
+    \[MeanSquare(w, t) = \alpha \cdot MeanSquare(w, t-1) + (1 - \alpha) \, \left(\frac{\partial E}{\partial w}(t)\right)^2\]
+  
+  + dividing the gradient by $\sqrt{MeanSquare(w, t)}$ makes the learning work much better (Tijmen Tieleman, unpublished)
+  + not adapting the learning rate separately for each connection
+  + simple solution: for each connection keep a running average of the root mean squared gradient and the gradient divides by that RMS
+
++ [RMSPROP: root mean square backpropagation/mini-batch RPROP](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+
+  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divid successive gradients not by themselves individually but by their root mean square: first define the running mean square
+
+  \[\mu_{ij}(t) = \gamma \mu_{ij}(t-1) + (1-\gamma) \left(\frac{\partial E}{\partial w_{ij}}\right)^2\]
+
+  where $\gamma$ is the forgetting factor: bigger $\gamma \in (0, 1)$ makes $\mu_{ij}$ remember more of its previous values.  Then the weight updates is
+
+  \[\Delta w_{ij} = - \frac{\alpha}{\sqrt{\mu_{ij}}} \frac{\partial E}{\partial w}\]
+
+  In vector form,
+
+  \[\begin{align*}
+    \mu &\gets \gamma \mu + (1 - \gamma)\left(\frac{\partial E}{\partial w}\right)^2 \\
+    \Delta w &= - \frac{\alpha}{\sqrt{\mu}} \frac{\partial E}{\partial w} \\
+    w &\gets w + \Delta w
+  \end{align*}\]
+
+  where all operations are done components wise with broadcasting if necessary.
+
+  [RMSPROP implementation](../ML/MLNN-Hinton/src/rmsprop.py)
+
 + For non-convex problems, AdaGrad can prematurely decrease the learning rate.
 
 + Use an exponentially weighted average for gradient accumulation.
