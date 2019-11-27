@@ -43,13 +43,13 @@
 + [Convolutional neural networks for object recognition](05-CNN.md#)
 
 
-## 06. Mini-batch Gradient Descent
+## 06. Fast Learning Algorithms
   
-+ [Overview of mini-batch gradient descent](06-MiniBatch.md#)
-+ [A bag of tricks for mini-batch descent](06-MiniBatch.md#)
-+ [The momentum method](06-MiniBatch.md#)
++ [Overview of mini-batch gradient descent](06-MiniBatch.md#overview-of-mini-batch-gradient-descent)
++ [A bag of tricks for mini-batch descent](06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
++ [The momentum method](06-MiniBatch.md#the-momentum-methodadaptive-learning-rate-for-each-connection)
 + [Adaptive learning rate for each connection](06-MiniBatch.md#)
-+ [rmsprop: Normalized the gradient](06-MiniBatch.md#)
++ [rmsprop: Normalized the gradient](06-MiniBatch.md#rmsprop-normalized-the-gradient)
 
 
 ## 07. Recurrent Neural Networks
