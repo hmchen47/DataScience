@@ -1564,6 +1564,80 @@
 
 ### Classical Momentum
 
++ Overview
+  + applied to both full batch or mini-batch learning
+  + probably the commonest recipe for big neural nets: combining stochastic gradient descent with mini matches and momentum
+
++ [Momentum Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+  
+  __Intuition: rolling ball.__ Modify the Delta Rule
+
+    \[\Delta w(t) = -\varepsilon \frac{\partial E}{\partial w}(t)\]
+
+  to include a "momentum" term
+
+    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
+
+  + $\alpha$: a factor slightly less than 1
+  + $\Delta w(t)$ remembers a little bit of its previous direction via $\alpha \Delta w(t-1)$
+  + [Implementation of Stochastic Gradient Descent w/ Momentum](../ML/MLNN-Hinton/src/sgd_momentum.py)
+
++ [The intuition behind the momentum method](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method)
+  + Analogy
+    + a ball on the error surface
+    + weight vector: the location of the ball in the horizontal plane
+    + the ball starting stationary
+    + initialized by following the direction of steepest descent, the gradient
+    + once gaining velocity, the ball no longer in the same direction as the gradient
+    + its momentum making it keep going in the previous direction
+  + damping oscillations in directions of high curvature by combining gradients w/ opposite signs
+    + eventually getting to a low point on the surface
+    + viscosity: making the velocity die off gently on each or update
+  + built up speed in directions w/ a gradient but consistent gradient
+
++ [Mathematical representation](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method)
+  
+  \[\begin{align*}
+    \mathbf{v}(t) &= \alpha \, \mathbf{v}(t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(1)} \\\\
+    \Delta \mathbf{w}(t) &= \mathbf{v} (t) \tag*{(2)} \\
+     &= \alpha \, \mathbf{v}(t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \\
+     &= \alpha \, \Delta \mathbf{w} (t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(3)}
+  \end{align*}\]
+
+  + Eq. (1):
+    + the velocity at time $t$: the mini-batch w/ $t-1$ attenuated by a number, like $0.9$, and adding the effect of the current gradient
+    + $t$: the updates of weights
+    + (alpha) momentum = the viscosity (0.9)
+    + effect of gradient: downhill by a given learning rate times the gradient at time $t$
+    + The effect of the gradient is to increment the previous velocity.
+    + The velocity also decays by $\alpha$ which is slightly less than 1.
+  + Eq. (2): The weight change is equal to the current velocity.
+  + Eq. (3): The weight change can be expressed in terms of the previous weight change and the current gradient.
+
++ [The behavior of the momentum method](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method)
+  + error surface as a tilted plane
+    + the gain of velocity from the gradient balanced by the multiplicative attenuation of the velocity due to the momentum term
+    + the ball reaches a terminal velocity
+    + if momentum $\rightarrow 1$, going down much faster than simple gradient descent
+    + terminal velocity: as $t \rightarrow \infty$
+
+    \[\mathbf{v}(\infty) = \frac{1}{1 - \alpha} \left( -\varepsilon \frac{\partial E}{\partial \mathbf{w}} \right)\]
+
+    + Derivation
+
+      \[\begin{align*}
+        & v(\infty) = \alpha \, v(\infty) - \varepsilon \, \frac{\partial E}{\partial w} (t) \\
+        & (1 - \alpha) \, v(\infty) = - \varepsilon \frac{\partial E}{\partial w} (t) \\
+        & v(\infty) = \frac{1}{(1 - \alpha)} \, \left(-\varepsilon \frac{\partial E}{\partial w}(t)\right)
+      \end{align*}\]
+
+    + $\alpha = 0.99$: 100 times as fast as the learning rate alone
+  + preventing big momentum to change quickly $\rightarrow$ difficult to find the right relative values of different weights
+    + playing w/ a small momentum (e.g. 0.5) to average out sloshes in obvious ravines
+    + once the large gradients disappeared and the weights stuck in a ravine the momentum
+  + using a small learning rate with a big momentum to get rid of an overall learning rate
+  + learning at a rate alone that would cause divergent oscillations without the momentum
+
 + [Formula for Momentum](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
   + using past gradients for updating values
   + $v$: velocity
@@ -1582,6 +1656,7 @@
   + Impacts
     + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
     + As the number of updates increases the momentum kickstarts and allows faster convergence.
+
 
 ### Nesterov Momentum
 
