@@ -1117,6 +1117,41 @@
     + a collection of related approaches
 
 
+### Inceptionism: Going Deeper into Neural Networks
+
++ Incep[tionism(../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + having a reasonable intuition about what types of features encapsulated by each of the layers in a neural network
+  + network
+    + first layer: edges or corners
+    + intermediate layers: interpreting the basic features to look for overall shapes or components, like a door or a leaf
+    + final layer: assembling shapes or components into complete interpretations, like trees, building, etc.
+
++ [class generation](../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + purpose: flipping the discriminative model into a generative model
+  + useful to ensure that the network is learning the right features and not cheating
+
++ [visualizing mistakes](../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + cheating with dumbbells
+  + training a network w/ a set of pictures of dumbbells
+  + using random noise w/ prior constraints to imagine some dumbbells (see diagram)
+  + failed tto completely distill the essence of a dumbbell
+  + none of the training pictures having any weightlifters
+  + visualization help to correct these kinds of training mishaps
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1280/1*A6jsI8cxorXp-7fhBo6WaA.png" style="margin: 0.1em;" alt="Example of visualizing mistakes" title="Example of visualizing mistakes" width=300>
+    </a>
+  </div>
+
++ [Enhancing feature maps](../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + feeding an image and then picking a layer and asking the network to enhance whatever it detect
+  + lower layer: producing strokes and simple ornament-like patters
+  + higher layer: emerging into complex features or even whole objects
+  + training w/ pictures of animals, look more like an animal
+  + features entered bias as the network toward certain interpretations
+  + applying the algorithm iteratively on its own outputs and zooming after each iteration
+
 
 
 
