@@ -90,7 +90,9 @@
   + impossible to use the precise spatial relationships btw high-level parts for recognition
 
 
-## Transfer Learning
+## Techniques to Accelerate Training
+
+### Transfer Learning
 
 + [Transfer learning](../ML/MLNN-Hinton/a10-CNNsGuide.md#transfer-learning)
   + the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by someone else) and "fine-tuning" the model with own dataset
@@ -105,6 +107,28 @@
   + unless very unique problem space and dataset, network needs to detect curves and edges as well
   + using the weights of the pre-trained model (and freeze them) and focus on the more important layers (ones higher up) for training
   + dataset quite different than something like ImageNet, just train more of your layers and freeze only a couple of the low layers
+
++ [Transfer learning](../ML/MLNN-Hinton/a14-Advanced.md#1-transfer-learning)
+  + transfer the learning from one model to a second model which examining data is similar to the data of the original model
+  + retrain the last few layers of the origin model with your own data to fine-tune the model for our specific application
+  + the weight of the pre-trained model loaded into the architecture of the new model
+  + weight from output layers trained while the other network layers frozen
+  + Procedure
+    1. build the architecture of the original model using Kersa and then load the model weights of the trained network usually `.h5` format for weight)
+    2. freeze the weights of the initial layers by setting the layers to have the `trainable=False` parameter
+  + the initial layers of a convolutional neural network containing  primitive information about the image
+  + with deep neural network, the object becomes more complex and high-level as the network begins to differentiate more clearly between image qualities
+  + not trying to teach the network to examine images but just fine-tune it for our use-case
+  + set the fully connected network layers at the output to be trainable, and perhaps the final convolutional layer (if enough data) to be trainable, then train the network with our data
+  + benefit: fewer data to train the model because the number of network trainable parameters only a fraction of the total number of parameters in the network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1750/1*lG2SWdf1fEmkIvi6MPy9Ig.png" style="margin: 0.1em;" alt="The weights from a pre-trained model are loaded into the architecture of the new model. Weights from the output layers are trained whilst the other network layers are frozen. The resulting model will be fine-tuned for the required application." title="Transfer learning" width=450>
+    </a>
+  </div>
+
++ Limitation: only worked if two datasets very similar
 
 
 ## Other Models
