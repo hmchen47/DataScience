@@ -1856,6 +1856,35 @@
 + Not perfect: different initialization points or hyperparameter choices converging to different local minimum
 
 
+### Polyak-Ruppert averaging
+
++ [Polyak averaging](../ML/MLNN-Hinton/a14-Advanced.md#35-polyak-ruppert-averaging)
+  + motivation: gradient descent w/ a large learning rate unable to converge effectively to the global minimum
+  + another approach to address the unstable learning issue that simulated the use of snapshot ensembles
+  + using an average of the weights from multiple models seen towards the end of the training run
+  + taking the time average of these parameters to obtain a smoother estimator for the true parameter, $t$ iterations
+
+    \[ \hat{\theta}(t) = \frac{1}{t} \sum_i \hat{\theta}^{(i)} \]
+
+  + leveraged in several ways
+    + time averaging: using hte weights from the same model at several different epochs towards the end of the training run
+    + ensemble averaging: using the weights from multiple models towards their individual training runs
+    + hybrid approach: using the weights from snapshots and then averaging these weights for an ensemble prediction
+  
++ [Convergence](../ML/MLNN-Hinton/a14-Advanced.md#35-polyak-ruppert-averaging)
+  + guarantee strong converge in a convex setting
+  + non-convex surfaces: the parameter space differed greatly in different regions; averaging less useful
+  + Considering the exponentially decaying average
+
+    \[ \hat{\theta}^{(t)} = \alpha \hat{\theta}^{(t-1)} + (1 - \alpha) \hat{\theta}^{(t)} \quad \text{with} \quad \alpha \in [0, 1] \]
+
+  + depending on the chosen value of $\alpha$ additional weight either placed on the newest parameter values or the older parameter values
+  + the importance of the older parameters exponentially decays over time
+
++ Polyak averaging & snapshot ensembles: different ways of smoothing the random error manifestly present in the unstable learning process of neural networks
+
+
+
 
 
 ### AdaGrad
