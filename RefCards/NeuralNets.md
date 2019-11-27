@@ -731,8 +731,6 @@
 </div>
 
 
-
-
 ## Lost/Cost Function and Gradient Descent
 
 ### Overview of Lost Function
@@ -1830,9 +1828,9 @@
     0 & \text{otw.}
   \end{cases}\]
 
-  In other words, if the gradient changes sign, then our last step size $\Delta_{ij}(t-1)$ was too big, so wee need to scale it back by $\eta^-$.  On the owther hand, if the gradient keeps its sign, then we're going in the right direction, and we scale up the step size by $\eta^+$ to go faster.  Otherwise, the gradient is zero and there's no need to change the weight.
+  In other words, if the gradient changes sign, then our last step size $\Delta_{ij}(t-1)$ was too big, so wee need to scale it back by $\eta^-$.  On the other hand, if the gradient keeps its sign, then we're going in the right direction, and we scale up the step size by $\eta^+$ to go faster.  Otherwise, the gradient is zero and there's no need to change the weight.
 
-  __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at tiem $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ mihght be nonzero.
+  __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at time $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ might be nonzero.
 
 
 ### RMSProp
@@ -1851,7 +1849,7 @@
 
 + [RMSPROP: root mean square backpropagation/mini-batch RPROP](https://trongr.github.io/neural-network-course/neuralnetworks.html)
 
-  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divid successive gradients not by themselves individually but by their root mean square: first define the running mean square
+  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divide successive gradients not by themselves individually but by their root mean square: first define the running mean square
 
   \[\mu_{ij}(t) = \gamma \mu_{ij}(t-1) + (1-\gamma) \left(\frac{\partial E}{\partial w_{ij}}\right)^2\]
 
@@ -2038,7 +2036,7 @@
   + the output deterministically depends on the input
 
 + Advantages
-  1. reduces internal coariate shift
+  1. reduces internal covariate shift
   2. reduces the dependence of gradients on the scale of the parameters or their initial values
   3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
   4. allows use of saturating nonlinearities and higher learning rates
@@ -2103,7 +2101,7 @@
 
   + similar to family tree problem but larger scale
   + Typical 5 previous words used but shown 2 in the diagram
-  + Using distributed representations via hidden layers to predict via huge sofmax to get probabilities for all various words might coming next
+  + Using distributed representations via hidden layers to predict via huge softmax to get probabilities for all various words might coming next
   + refinement:
     + skip layer connection to skip from input to output
     + input words individually informative about what the word might be
