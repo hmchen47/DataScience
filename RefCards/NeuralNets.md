@@ -1755,6 +1755,29 @@
   where $\alpha$ is close to 0 and $\beta$ is close to 1, e.g., 0.05 and 0.95 resp.
 
 
+### Cyclical Learning Rates for Neural Networks
+
++ [Cyclical learning rates](../ML/MLNN-Hinton/a14-Advanced.md#31-cyclical-learning-rates-for-neural-networks)
+  + main use: escape local extreme points, especially sharp local minima (overfitting)
+  + saddle points:
+    + abundant in high dimensions
+    + convergence very slow if not impossible
+  + increasing the learning rate periodically
+    + a short term negative effects but help to achieve a long-term beneficial effect
+  + decreasing the learning rate
+    + reduce error towards the end
+
++ [Examples of cyclical learning rates](../ML/MLNN-Hinton/a14-Advanced.md#31-cyclical-learning-rates-for-neural-networks)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/780/1*kk4fq-pLk95ZWN6KyXM3RA.png" style="margin: 0.1em;" alt="Examples of cyclical learning rates" title="Examples of cyclical learning rates" width=300>
+    </a>
+  </div>
+
++ Limitations: what learning rate scheme set and the magnitude of these learning rates
+
+
 ### AdaGrad
 
 + Momentum adds updates to the slope of error function and speeds up SGD in turn.
