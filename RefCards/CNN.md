@@ -1006,5 +1006,35 @@
   </div>
 
 
+### Image reconstruction
+
++ [Deep image representation](../ML/MLNN-Hinton/a05-VisualCNN.md#image-reconstruction)
+  + able to reconstruct an image from latent features
+  + training network to retain an accuracy photographic representation about the image, retaining geometric and photometric invariance
+
++ [Mathematical representation](../ML/MLNN-Hinton/a05-VisualCNN.md#image-reconstruction)
+  + Assumptions & Notations
+    + $a^{[l]}$: the latent representation of layer $l$
+  + Optimization problem
+
+    \[\hat{x} = \underset{\mathbf{y}}{\operatorname{arg min}} J_C^{[l]}(\mathbf{x}, \mathbf{y}) + \lambda R(\mathbf{y})\]
+
+    \[J_C^{[l]}(\mathbf{x}, \mathbf{y}) = \left\| a^{[l](G)} - a^{[l](C)} \right\|_{\mathcal{F}}^2\]
+
+  + Regularization w/ $\alpha$-norm regularizer
+
+    \[R_{\alpha} (\mathbf{y}) = \lambda_\alpha \left\| \mathbf{y} \right\|_{\alpha}^{\alpha}\]
+
+  + Regularization w/ total variation regularizer
+
+    \[R_{V_\beta} (\mathbf{y}) = \lambda_{V_\beta} \sum_{i, j, k} \left( \left(y_{i, j+1, k} - y_{i, j, k}\right)^2 + \left(y_{i+1, j, k} - y_{i, j, k}\right)^2 \right)^{\beta/2}\]
+
++ [Procedure for image reconstruction](../ML/MLNN-Hinton/a05-VisualCNN.md#image-reconstruction)
+  1. initialize $\mathbf{y}$ with random noise
+  2. feedforward pass the image
+  3. computing the loss function
+  4. computing the gradients of the cost and backpropagate to input space
+  5. updating general image $G$ w/ a gradient step
+
 
 
