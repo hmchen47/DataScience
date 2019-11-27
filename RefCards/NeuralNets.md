@@ -1781,6 +1781,60 @@
     + the accumulated sum keeps growing during training
     + the learning rate shrink and eventually become infinitesimally small
 
+
+### Rprop
+
++ [rprop: using only the sign of the gradient](../ML/MLNN-Hinton/06-MiniBatch.md#rmsprop-normalized-the-gradient)
+  + the magnitude of the gradient: different widely for different weights
+  + full batch learning
+  + approach
+    + combining the idea of only using the sign of the gradient w/ the idea of adapting the step size separately for each weight
+    + the sign of the last two gradients, not the magnitude of the gradients
+      + agree: increasing the step size for a weight <span style="color: red;">multiplicatively</span> (e.g. times 1.2)
+      + disagree: decreasing the step size multiplicatively (e.g. times 0.5)
+    + Mike Shuster's advice: limiting the step sizes to be less than 50 and more than a millionth ($10^{-6}$)
+    + the step size depends on the problem dealing with
+      + tiny inputs: big weights required for the inputs
+
++ [rprop not working with mini-batches](../ML/MLNN-Hinton/06-MiniBatch.md#rmsprop-normalized-the-gradient)
+  + rprop works with very big mini-batches where much more conservative changes to the step sizes
+  + violate central idea of stochastic gradient descent
+    + for small learning rate, the gradient gets effectively averaged over successive mini-batches
+  + rprop:
+    + not following the idea of stochastic gradient descent
+    + assumption: any adaptation of the step sizes is smaller on the time scale of the mini-batches
+    + increasing the weight nine times by whatever it's current step size is
+    + decreasing the weight only once
+    + making the weight much bigger
+    + weight vector grows
+  + criteria to judge the combination
+    + the robustness of rprop: just using the sign of the gradient
+    + the efficiency of mini-batches
+    + the effective averaging of the gradients over mini-batches
+
++ [RPROP: resilient backpropagation](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+
+  __Definition__. Instead of relying on the gradient and a learning rate as in the Delta Rule, RPROP keeps track of a step size $\Delta_{ij}$ per weight:
+
+  \[\Delta_{ij}(t) = \begin{cases}
+    \eta^+ \Delta_{ij}(t-1) & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}}(t-1) > 0 \\
+    \eta^- \Delta_{ij}(t-1) & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}}(t-1) < 0 \\
+    \Delta_{ij}(t-1) & \text{otw.}
+  \end{cases}\]
+
+  where $0 < \eta^- < 1 < \eta^+$, usually $0.5% and $1.2$. Next, the weight update is
+
+  \[\Delta w_{ij} (t) = \begin{cases}
+    - \Delta_{ij} (t) & \text{if } \frac{\partial E}{\partial w_{ij}} > 0 \\
+    + \Delta_{ij} (t) & \text{if } \frac{\partial E}{\partial w_{ij}} < 0 \\
+    0 & \text{otw.}
+  \end{cases}\]
+
+  In other words, if the gradient changes sign, then our last step size $\Delta_{ij}(t-1)$ was too big, so wee need to scale it back by $\eta^-$.  On the owther hand, if the gradient keeps its sign, then we're going in the right direction, and we scale up the step size by $\eta^+$ to go faster.  Otherwise, the gradient is zero and there's no need to change the weight.
+
+  __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at tiem $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ mihght be nonzero.
+
+
 ### RMSProp
 
 + For non-convex problems, AdaGrad can prematurely decrease the learning rate.
