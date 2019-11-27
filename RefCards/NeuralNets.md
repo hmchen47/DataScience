@@ -1712,11 +1712,56 @@
 
 ## Adaptive Learning Rates
 
-#### AdaGrad
+### Overview
+
++ [The intuition behind separate adaptive learning rates](../ML/MLNN-Hinton/06-MiniBatch.md#adaptive-learning-rate-for-each-connection)
+  + appropriate learning rates vary widely between weights
+    + different layers w/ different magnitudes of the gradients, in particular, small initial weights
+    + overshoot effect: simultaneously changing many of the incoming weights of a unit to correct the same error
+  + using a global learning rate (set by hand) multiplied by an appropriate local gain determined empirically for each weight
+
++ [Approach to determine the individual learning rates](../ML/MLNN-Hinton/06-MiniBatch.md#adaptive-learning-rate-for-each-connection)
+  + starting with a local gain of 1 for every weight
+    + changing the weight $w_{ij}$ by the learning rate times the gain of $g_{ij}$ times the error derivative for that weight
+  + increasing the local gain $g_{ij}$ if the gradient not changing sign for that weight
+  + using small additive increases and multiplicative decreases (for mini-batch)
+    + ensuring big gains decay rapidly when oscillations start
+    + the gain hovering around 1
+
+  \[\begin{align*}
+    \Delta w_{ij} &= -\varepsilon \, g_{ij} \; \frac{\partial E}{\partial w_{ij}} \\\\
+    \text{if } & \; \left( \frac{\partial E}{\partial{w_{ij}}}(t) \frac{\partial E}{\partial w_{ij}} (t-1) \right) > 0 \\
+    \text{then } & \; g_{ij}(t) = g_{ij}(t-1) + .05 \\
+    \text{else } & \; g_{ij}(t) = g_{ij}(t-1) \times .95
+  \end{align*}\]
+
++ [Tricks for making adaptive learning rates work better](../ML/MLNN-Hinton/06-MiniBatch.md#adaptive-learning-rate-for-each-connection)
+  + limit the gains to lie in some reasonable range
+  + designed for full batch learning or big min-batches
+  + Adaptive learning rates combined with momentum
+  + Adaptive learning rates only dealt with axis-aligned effects
+
++ [Per Connection Adaptive Learning Rate](https://trongr.github.io/neural-network-course/neuralnetworks.html)
+
+  __Definition__. Define a gain parameter $g_{ij}$ for each connection
+
+  \[\Delta w_{ij} = - \varepsilon g_{ij} \frac{\partial E}{\partial w_{ij}}\]
+
+  and increase $g_{ij}$ if the gradient does not change signs, otherwise decrease it:
+
+  \[g_{ij} = \begin{cases}
+    g_{ij}(t-1) + \alpha & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}} (t-1) > 0 \\
+    g_{ij}(t-1) \times \beta & \text{otw}
+  \end{cases}\]
+
+  where $\alpha$ is close to 0 and $\beta$ is close to 1, e.g., 0.05 and 0.95 resp.
+
+
+### AdaGrad
 
 + Momentum adds updates to the slope of error function and speeds up SGD in turn.
 
-+ [AdaGrad]](../ML/MLNN-Hinton/a03-Optimization.md#adagrad) adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
++ [AdaGrad](../ML/MLNN-Hinton/a03-Optimization.md#adagrad) adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
 
 + Accumulate squared gradients: $r_i = r_i + g_i^2$
 
@@ -1736,7 +1781,7 @@
     + the accumulated sum keeps growing during training
     + the learning rate shrink and eventually become infinitesimally small
 
-#### RMSProp
+### RMSProp
 
 + For non-convex problems, AdaGrad can prematurely decrease the learning rate.
 
@@ -1745,7 +1790,7 @@
   \[\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}\]
 
 
-#### Adam
+### Adam
 
 + [Adaptive moment estimation (Adam)](..](../ML/MLNN-Hinton/a03-Optimization.md#adam))
   + a combination of RMSprop and momentum
