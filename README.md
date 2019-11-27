@@ -196,8 +196,8 @@
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methods </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#delta-rule"> Delta Rule </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
@@ -220,10 +220,16 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Lost/Cost Function & Gradient Descent </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Lost/Cost Function & Gradient Descent </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-of-lost-function"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#lost-function-for-softmax-function"> Softmax Loss Fucntion </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent-for-softmax-function"> Softmax GD </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#delta-rule"> Delta Rule </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -334,7 +340,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Other Models </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Other Models </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015"> Region Based </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#generative-adversarial-networks-2014"> GAN </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#generating-image-descriptions-2014"> Generating Image Description </a> </td>
@@ -368,6 +374,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
