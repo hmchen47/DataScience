@@ -914,6 +914,14 @@
     1. the one wishing to transfer the style of
     2. the image to transform using the style of the first image to morph the two images
   
++ [Process description](../ML/MLNN-Hinton/a05-VisualCNN.md#process-description)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1485/1*cXUh1aw7Q3i5ZRq1CIlyng.png" style="margin: 0.1em;" alt="Full texture synthesis process" title="Full texture synthesis process" width=600>
+  </a>
+</div>
+
 
 ### Visualizing Convolutional Networks
 
@@ -1065,6 +1073,23 @@
     \[G^{[l]} = A^{[l]}(A^{[l]})^T\]
 
     \[\left(A^{[l]}\right)^T = (a_{::1}^{[l]}, \dots, a_{::n_C^{[l]}}^{[l]})\]
+
+
+### Generating new textures
+
++ [Notations](../ML/MLNN-Hinton/a05-VisualCNN.md#generating-new-textures)
+  + $G^{[l](S)}$: the Gram matrix of the style image
+  + $G^{[l](G)}$: the Gram matrix of the newly generated matrix
+  + $\|G\|_\mathcal{F}$: the Frobenius norm
+
++ [creating new texture](../ML/MLNN-Hinton/a05-VisualCNN.md#generating-new-textures)
+  + synthesize an image w/ similar correlation to the one to reproduce
+  
+  \[J^{[l]}_S (G^{[l]}(S), G^{[l](G)}) = \frac{1}{4\left(n_W^{[l]} n_H^{[l]}\right)^2} \left\| G^{[l](S)} - G^{[l](G)} \right\|_\mathcal{F}^2\]
+
++ [global cost function](../ML/MLNN-Hinton/a05-VisualCNN.md#generating-new-textures): with given weights $\lambda_1, \dots, \lambda_L$
+
+  \[J_S(\mathbf{x}, \mathbf{y}) = \sum_{l=0}^L \lambda_l J_S^{[l]} \left(G^{[l](S)}, G^{[l](G)}\right)\]
 
 
 
