@@ -205,95 +205,6 @@
     + Generative pre-training
 
 
-### Gradient Descent
-
-+ [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
-  + an iterative method for finding the minimum of a function
-  + Making a step means: $w^{new} = w^{old} + \text{step}$
-  + Opposite direction of the derivative means: $w^{new} = w^{old} - \lambda \frac{d\mathcal{L}}{dw}$
-  + change to move conventional notation: $w^{(i+1)} = w^{(i)} - \lambda \frac{d\mathcal{L}}{dw}$
-  + learning rate ($\lambda$):
-    + large learning rate:
-      + put more weight on the derivative
-      + made larger step for each iteration of the algorithm
-    + smaller learning rate
-      + less weight is put on the derivative
-      + smaller steps made for each iteration
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=200>
-    </a>
-  </div>
-
-+ [Considerations for gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
-  + derive the derivatives
-  + know what the learning rate is or how to set it
-  + avoid local minima
-  + the full loss function includes summing up all individual 'errors'
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" height=150>
-      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" height=150>
-      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" height=150>
-    </a>
-  </div>
-
-+ [Batch and stochastic gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
-  + use a batch (a subset) of data as opposed to the whole set of data, such that the loss surface is partially morphed during each iteration
-  + the loss (likelihood) function used to derive the derivatives for iteration $k$
-
-    \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
-
-
-### Delta Rule
-
-+ [Delta rule for perceptrons](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
-  + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
-  + The change in a given weight must be proportional to the negative of the prior equation
-
-    \[\Delta w_{ij_x} = - \varepsilon \frac{\partial E}{\partial w_{ij}} = \varepsilon \partial a_{i_x}\]
-
-  + $\Delta$: the difference btw the target and actual activation of the relevant output node
-  + $\varepsilon$: learning rate
-
-+ [Linear Activation function instead of a Threshold Activation function](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
-  + Threshold Activation function:
-    + characterize both the McColloch and Pitts network and the perceptron is not differentiable at the transition between the activations of $0$ and $1$ (slope = $\infty$) 
-    + derivative = 0 over the remainder of the function
-  + Linear Activation function or other differentiable functions
-    + allow the derivative of the error to be calculable
-
-+ [Kronecker Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#kronecker-delta)
-  + Definition
-
-    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \]
-
-  + __property__. Simplify
-
-    \[\sum_k \delta_{ik}\delta{kj} = \delta_{ij}\]
-
-+ [Dirac Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#dirac-delta)
-  + Definition
-
-    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \]
-
-    The value at which the delta function become infinite can be controlled by substituting $x - x_0$ for $x$
-
-    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \]
-
-  + Alternative definition
-
-    \[ \int_{-\infty}^{\infty} f(x) \delta(x - x_0) dx = f(x_0) \tag*{(7)}\]
-
-    + continuous around $x=x_0$
-    + most common way used for the dirac delta function
-  + __Property__.
-
-    \[\int_{-\infty}^{\infty} f(x) \delta(x - x_0)dx = f(x_0) \\ \delta(ax) = \frac{1}{|a|} \delta(x)\]
-
-
 ## Architectures
 
 ### Types of Architectures
@@ -859,6 +770,163 @@
     </div>
 
 
+### Gradient Descent
+
++ [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
+  + an iterative method for finding the minimum of a function
+  + Making a step means: $w^{new} = w^{old} + \text{step}$
+  + Opposite direction of the derivative means: $w^{new} = w^{old} - \lambda \frac{d\mathcal{L}}{dw}$
+  + change to move conventional notation: $w^{(i+1)} = w^{(i)} - \lambda \frac{d\mathcal{L}}{dw}$
+  + learning rate ($\lambda$):
+    + large learning rate:
+      + put more weight on the derivative
+      + made larger step for each iteration of the algorithm
+    + smaller learning rate
+      + less weight is put on the derivative
+      + smaller steps made for each iteration
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=200>
+    </a>
+  </div>
+
++ [Considerations for gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
+  + derive the derivatives
+  + know what the learning rate is or how to set it
+  + avoid local minima
+  + the full loss function includes summing up all individual 'errors'
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" height=150>
+      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" height=150>
+      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" height=150>
+    </a>
+  </div>
+
++ [Batch and stochastic gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
+  + use a batch (a subset) of data as opposed to the whole set of data, such that the loss surface is partially morphed during each iteration
+  + the loss (likelihood) function used to derive the derivatives for iteration $k$
+
+    \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
+
+
+### Delta Rule
+
++ [Delta rule for perceptrons](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
+  + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
+  + The change in a given weight must be proportional to the negative of the prior equation
+
+    \[\Delta w_{ij_x} = - \varepsilon \frac{\partial E}{\partial w_{ij}} = \varepsilon \partial a_{i_x}\]
+
+  + $\Delta$: the difference btw the target and actual activation of the relevant output node
+  + $\varepsilon$: learning rate
+
++ [Linear Activation function instead of a Threshold Activation function](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
+  + Threshold Activation function:
+    + characterize both the McColloch and Pitts network and the perceptron is not differentiable at the transition between the activations of $0$ and $1$ (slope = $\infty$) 
+    + derivative = 0 over the remainder of the function
+  + Linear Activation function or other differentiable functions
+    + allow the derivative of the error to be calculable
+
++ [Kronecker Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#kronecker-delta)
+  + Definition
+
+    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \]
+
+  + __property__. Simplify
+
+    \[\sum_k \delta_{ik}\delta{kj} = \delta_{ij}\]
+
++ [Dirac Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#dirac-delta)
+  + Definition
+
+    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \]
+
+    The value at which the delta function become infinite can be controlled by substituting $x - x_0$ for $x$
+
+    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \]
+
+  + Alternative definition
+
+    \[ \int_{-\infty}^{\infty} f(x) \delta(x - x_0) dx = f(x_0) \tag*{(7)}\]
+
+    + continuous around $x=x_0$
+    + most common way used for the dirac delta function
+  + __Property__.
+
+    \[\int_{-\infty}^{\infty} f(x) \delta(x - x_0)dx = f(x_0) \\ \delta(ax) = \frac{1}{|a|} \delta(x)\]
+
+
+### Mini-batch Gradient Descent
+
++ [Convergence speed of full batch learning](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + going downhill reducing the error
+  + the direction of steepest descent not point at the minimum unless the ellipse is circle (see figure)
+  + big gradient in the direction traveling a small distance
+  + small gradient in the direction traveling a large distance  
+  + extended to non-linear multi-layer nets: locally quadratic error surface applying the same speed issues
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-02.png" style="margin: 0.1em;" alt="Quadractic error surface" title="Quadractic error surface" width=200>
+    </a>
+  </div>
+
++ [How the learning goes wrong](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + big learning rate
+    + the weights slosh to and fro across the ravine
+    + too big causing oscillation diverges
+  + what to achieve
+    + quickly in directions with small but consistent gradients
+    + slowly in directions with big but inconsistent gradients
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-03.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="llustration of learning rate" width=200>
+    </a>
+  </div>
+
++ [Stochastic gradient descent (SGD)](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + highly redundant dataset
+    + the first half gradient $\simeq$ the second half gradient
+    + update the weights using the first half gradient then get a gradient for the new weights on the second half gradient
+  + online learning: update weights after each case
+  + mini-batches usually better than online
+    + typically 10, 100, even 1000 examples
+    + advantages:
+      + less computation to update the weights
+      + using matrix-matrix multiplies to compute the gradient for many cases simultaneously
+    + efficient matrix multiplications, especially on GPUs
+  + mini-batches require to be balanced for classes
+    + allocating the same class in a batch causing sloshing weights
+    + random permutation for mini-atches and randomly select the mini-batches for training
+
++ [Two types of learning algorithm](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + full gradient computed from all the training cases
+    + ways to speed up learning, eg. non-linear conjugate gradient
+    + optimization community: the general problem of optimizing smooth non-linear functions
+    + multilayer neural nets: not typical of the problems; required a lot of modification to make them work
+  + mini-batch learning for large neural networks w/ very large and highly redundant training sets
+    + mini-batches may be quite big when adapting fancy methods
+    + big mini-batches: more computationally efficient
+
++ [A basic mini-batch gradient descent algorithm](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + guess an initial learning rate
+    + measured on a validation set
+    + each mini-batch just a rough estimate of the overall gradient
+    + reducing learning rate: error getting worse or oscillated
+    + increasing learning rate: error falling fairly consistent but slowly
+  + write a simple program to automate this way to adjusting the learning rate
+  + toward end of mini-batch learning
+    + nearly always help to turn down the learning rate
+    + remove fluctuations in the final weights caused by the variations btw mini-batches
+  + criteria to cease the learning
+    + the error stops decreasing
+    + using the error on a separate validation set
+
+
 
 ### Lost Function for Softmax Function
 
@@ -889,7 +957,6 @@
   + $data$: data matrix; dimension: [inputSize x numExamples]
 
   \[grad = M * data\]
-
 
 
 
