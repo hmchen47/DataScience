@@ -934,6 +934,9 @@
     </a>
   </div>
 
+
+### Deconvolutional Network Description
+
 + [Deconvolution network](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
   + objective: project hidden feature maps into the original input space
   + benefit: able to visualize the activations of a specific filter
@@ -942,6 +945,63 @@
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
       <img src="https://miro.medium.com/max/1665/1*47N0hNMbZtbpRXnOzZH4rw.png" style="margin: 0.1em;" alt="Deconvolutional network" title="Deconvolutional network" width=350>
+    </a>
+  </div>
+
++ [Aspects of the deconvolution networks](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + unpooling
+  + rectification
+  + filtering
+
++ [Unpooling layer](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + max-pooling operation non-invertible
+  + switch variables - record the locations of maxima
+  + placing the reconstructed features into the recorded locations
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1763/1*o2xfitlqjjru1moC-5eBOw.png" style="margin: 0.1em;" alt="Unpooling layer" title="Unpooling layer" width=450>
+    </a>
+  </div>
+
++ [Rectification layer](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description): signals go through a ReLu operation
+
++ [Filtering layer](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description): use of transposed convolution
+  + flipped horizontally and vertically
+  + transposed convolution projects feature maps back to input space
+  + transposed convolution corresponds to the backpropagation of the gradient
+
++ [How do we perform feature visualization?](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  1. evaluate the validation database on the trained network
+  2. record the nine highest activation values of each filter's output
+  3. project the recorded 9 outputs into input space for every neuron
+    + projecting: all other activation units in the given layer set to zero
+    + only observing the gradient of a single channel
+    + switch variables used in the unpooling layers
+  + earlier layers learn more fundamental features such as lines and shapes
+  + latter layers learn more complex features
+
++ [How do we test feature evolution during training?](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + the feature evolution after 1, 2, 5, 10, 20, 39, 40 and 64 (see diagram)
+  + notes about the network
+    + lower layers converge soon after a few single passes
+    + fifth layer not converged until a very large number of epochs
+    + lower layers may change their features correspondence after converging
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2323/1*exTfLFv6y0LYIseZRUsJ1g.png" style="margin: 0.1em;" alt="Example output of five layers at a specified number of epochs" title="Example output of five layers at a specified number of epochs" width=600>
+    </a>
+  </div>
+
++ [How do we know this is the best architecture?](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + comparison of two architectures (see diagram)
+  + less dead unit on the modified (left) network
+  + more defined features on modified network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1818/1*i0DWeHo8uqAVr_586BIWUw.png" style="margin: 0.1em;" alt="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" title="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" width=400>
     </a>
   </div>
 
