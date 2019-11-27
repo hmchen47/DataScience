@@ -177,13 +177,6 @@
   + automate the loop of designing features for a particular task and seeing ho well they work
 
 
-### Overfitting
-
-+ [Overfitting in deep neural networks](../ML/MLNN-Hinton/a14-Advanced.md#4-how-to-address-overfitting)
-  + never truly believe that the results from a trained network are optimal
-  + very common
-
-
 ### Bias & Variance
 
 + [Point estimation](../ML/MLNN-Hinton/a14-Advanced.md#41-estimators)
@@ -230,7 +223,6 @@
     + use regularization mechanisms
 
 + extremely helpful way to troubleshoot the network: analyze network's results and determine whether the issue is caused by biasing or variance
-
 
 
 ### Considerations of Learning Procedures
@@ -2228,6 +2220,47 @@
   2. reduces the dependence of gradients on the scale of the parameters or their initial values
   3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
   4. allows use of saturating nonlinearities and higher learning rates
+
+
+## Overfitting
+
+### Overview
+
++ [Overfitting in deep neural networks](../ML/MLNN-Hinton/a14-Advanced.md#4-how-to-address-overfitting)
+  + never truly believe that the results from a trained network are optimal
+  + very common
+
+
+### Dropout
+
++ [Dropout](../ML/MLNN-Hinton/a14-Advanced.md#5-dropout)
+  + easy to implement but more difficult to grasp its underlying philosophy
+  + a regularization technique for deep neural networks
+  + employed at training time
+    + eliminated the dropout od some units randomly
+    + preventing the network from relying on individual neurons too much
+    + preventing from overfitting
+  + testing time
+    + all neurons presented
+    + firing probability scaled
+    + more neurons than previously present at training time
+
++ [Dropout technique](../ML/MLNN-Hinton/a14-Advanced.md#5-dropout)
+  + used in combination with other regularization techniques (such as L2, batch normalization, etc.)
+  + Purpose: prevent the co-adaption of feature detectors for a set of neurons, and avoid overfitting
+    + enforcing the neurons to develop an individual role on their own given an overall population behavior
+    + training weights encouraged to be spread across the neural network because no neuron is permanent
+  + Interpretation: training examples provide gradients from different, randomly sampled architectures
+  + direct implementation
+    + at training time: eliminate the output of some units randomly
+    + at test time: all units are present
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1375/1*J_l09l2Fo4k5EHwUSRenQA.png" style="margin: 0.1em;" alt="Example of applying dropout" title="Example of applying dropout" height=150>
+      <img src="https://miro.medium.com/max/1395/1*pBncBWIkmogWIQ_6AhWCeQ.png" style="margin: 0.1em;" alt="Implement of dropout at training and test times" title="Implement of dropout at training and test times" height=100>
+    </a>
+  </div>
 
 
 
