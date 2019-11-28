@@ -1434,8 +1434,6 @@
 </div>
 
 
-
-
 ### Momentum
 
 + [Momentum](../ML/MLNN-Hinton/a03-Optimization.md#momentum)
@@ -1730,6 +1728,91 @@
   + Impacts
     + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
     + As the number of updates increases the momentum kickstarts and allows faster convergence.
+
+
+### Backpropagation for Classical Momentum
+
++ [Momentum method](../ML/MLNN-Hinton/a12-Learning.md#811-backpropagation-with-momentum)
+  + minimizing the error function: wide oscillation of the search process w/ the gradient descent
+  + traditional gradient descent: computed for each new combination of weights
+  + momentum approach: compute the negative gradient direction a weighted average of the current gradient and the previous correction direction for each step
+  + accelerating convergence: increasing the learning rate up to an optimal value
+  + purpose: allowing the attenuation of oscillations in the iteration process
+
++ [Mathematical representation for momentum](../ML/MLNN-Hinton/a12-Learning.md#811-backpropagation-with-momentum)
+  + A network with $n$ different weights $w_1, w_2, \dots, w_n$
+  + Assumption and Notations
+    + $E$: the error function
+    + $\gamma$: the learning rate
+    + $\alpha$: the momentum rate
+  + The $i$-th correction for weight $w_k$
+
+    \[\Delta w_k(i) = -\gamma \, \frac{\partial E}{\partial w_k} + \alpha \, \Delta w_k (i-1)\]
+
++ [Optimization](../ML/MLNN-Hinton/a12-Learning.md#811-backpropagation-with-momentum)
+  + optimal parameters highly depends on the learning task
+  + no general strategy to deal with the problem
+  + tradeoffs: choosing the a specific learning and momentum rates
+  + observing the oscillating behavior on backpropagation feedback rule and large momentum rates
+
++ [Linear associator](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
+  + a single computing element with associated weights $w_1, w_2, \dots, w_n$
+  + input: $x_1, x_2, \dots, x_n$
+  + output: $w_1x_1 + w_2x_2 + \cdots + w_n x_n$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/a12-02.png" style="margin: 0.1em;" alt="Linear associator" title="Linear associator" width=200>
+    </a>
+  </div>
+
++ [Mathematical Representation for Linear Associator](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
+  + Assumptions & Notations
+    + $(\mathbf{x_1}, y_1), (\mathbf{x_2}, y_2), \dots, (\mathbf{x_p}, y_p)$: the input-output $p$ ordered pairs
+    + $\mathbf{x}$: vector of input patterns w/ $n$-dimensional rows
+    + $\mathbf{w}$: vector of the weights of the linear associator w/ $n$-dimensional columns
+    + $\mathbf{X}$: a $p \times m$ matrix w/ $\mathbf{x_1}, \mathbf{x_2}, \dots \mathbf{x_p}$ as rows
+    + $\mathbf{y}$: a column vector of the scalars $y_1, y_2, \dots, y_p$
+  + the learning task objective: minimize the quadratic error
+
+    \[\begin{align*}
+    E &= \sum_{i=1}^{n} \| \mathbf{x_i} \cdot \mathbf{w} - y_i \|^2 \\
+      &= \| \mathbf{X}\mathbf{w} - \mathbf{y} \|^2 = (\mathbf{X}\mathbf{w} - \mathbf{y})^T(\mathbf{X}\mathbf{w} - \mathbf{y}) \\
+      &= \mathbf{w}(\mathbf{X}^T \mathbf{X})\mathbf{w} -2 \: \mathbf{y}^T\mathbf{X}\mathbf{w} + \mathbf{y}^T\mathbf{y}
+    \end{align*}\]
+
+  + the lengths of the principal axes: determined by the magnitude of the eigenvalues of the correlation of matrix $\mathbf{X}^T\mathbf{X}$
+  + gradient descent: most effective w/ the same length when the principal axes of the quadratic form
+
++ [Eigenvlaues in the correlation matrix $\mathbf{X}^T\mathbf{X}$](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
+  + the eigenvalues $\to$ the lengths of the principal axes of the error function
+  + the range of possible values of $\gamma$ reduces as one of these eigenvalues much larger than the others
+
++ [Convergence and Divergence zones](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
+  + parameters combinations in the boundary btw regions: stable oscillations
+  + $\gamma > 4 \cdot 2/k$: not balanced with any value of $\alpha$
+  + $\gamma > 1$: a geometric explosion of the iteration process
+  + $1/k < \gamma < 2/k$: stable oscillation; the boundaries between regions
+  + $\gamma < 1/2k$: optimal convergence speed w/ a unique $\alpha$
+  + jagged line: the optimal combinations of $\gamma$ and $\alpha$
+
++ [Critical parameter combinations](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
+  + Backpropagation: choosing a learn rate $\gamma$ w/o any previous knowledge of the correlation matrix of the input
+  + Conservative approach: choosing a very small learning rate
+  + In case of a correlation matrix $\mathbf{X}^T\mathbf{X}$ with some very large eigenvalues, a given choice of $\gamma$ could led to divergence in the associated direction in weight space.
+
++ [Error function in weight space](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
+  + Paths for backpropagation learning w/ linear associator
+  + Bounded nonlinear error function and the result of several iterations
+
++ [learning rate considerations](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
+  + too small: possible to get stuck in local minima
+  + too big: possible oscillatory traps
+
++ [Remedy](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
+  + adaptive learning rates
+  + statistical preprocessing of the learning set w/ decorrelation; ie. no excessively large eigenvalues of the correlation matrix
+
 
 
 ### Nesterov Momentum
