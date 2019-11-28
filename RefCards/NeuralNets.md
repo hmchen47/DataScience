@@ -253,6 +253,23 @@
     + Generative pre-training
 
 
+### Backpropagation
+
++ [Backpropagation algorithm](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation)
+  + a rather slow learning algorithm
+  + malicious selection of parameters made even slower
+  + non-linear optimization: accelerate the training method with practically no effort
+
++ [Artificial neural networks](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation)
+  + NP-complete in the worst cases
+  + network parameters grow exponentially w/ the number of unknown
+
++ [Standard online backpropagation](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation) performs better than many fast learning algorithms when
+  + a realistic level of complexity in the learning task
+  + the size of the training set beyond a critical threshold
+
+
+
 ## Architectures
 
 ### Types of Architectures
@@ -1408,6 +1425,17 @@
   + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
+### Fast Learning Algorithms
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+    <img src="../ML/MLNN-Hinton/img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=450>
+  </a>
+</div>
+
+
+
+
 ### Momentum
 
 + [Momentum](../ML/MLNN-Hinton/a03-Optimization.md#momentum)
@@ -2253,6 +2281,17 @@
 + [Overfitting in deep neural networks](../ML/MLNN-Hinton/a14-Advanced.md#4-how-to-address-overfitting)
   + never truly believe that the results from a trained network are optimal
   + very common
+
++ [Generalization Concern - Overfitting](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + Unable to identify which regularities causing errors
+  + Possible solutions:
+    + Weight-decay
+    + Weight-sharing
+    + Early stopping
+    + Model averaging
+    + Bayesian fitting on neural nets
+    + Dropout
+    + Generative pre-training
 
 
 ### Dropout
