@@ -2452,6 +2452,67 @@
   + Convergence issue
 
 
+### QRProp
+
++ Idea: adaptively switches between the Manhattan method used by Rprop and local 1-dim secant steps as used by Quickprop
+  
++ [Qprop brief description](../ML/MLNN-Hinton/a12-Learning.md#842-qrprop)
+  + using the individual learning rate strategy of Rprop if two consecutive error function gradient components, $\Delta_i E^{(k)}$ and $\Delta_i E{(k-1)}$ w/ the same sign or one of them equals zero
+  + a fast approach to a region of minimum error
+  + if sign changed, overshoot a local minimum in the specific weight direction, take a second-order step (Quickprop)
+  + assume that the direction of the error function independent from all other weights, a step based on a quadratic approximation far more accurate than just stepping back half way as done by Rprop
+  + constraining the size of the secant step to avoid large oscillations of the weights by
+    + the error function depends on all weights
+    + the quadratic approximation will be better the closer the two investigated points lie together
+
++ [Algorithm](../ML/MLNN-Hinton/a12-Learning.md#842-qrprop)
+  1. $\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} > 0$: perform Rprop steps (assume that a local minimum lies ahead)
+  2. $\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} < 0$:
+    + indicate that a local minimum has been overshot
+    + neither the individual learning rate $\gamma_i$ nor the weight $w_i$ are changed
+    + a marker defined by setting $\Delta_i E^{(k)} := 0$
+    + the secant step is performed in the subsequent iteration
+  3. $\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} = 0$:
+    + either a marker was set in the previous step or one of the gradient components is zero (a local minimum has been directly hit))
+    + near a local minimum
+    + perform a second-order step
+    + the secant approximation: using the gradient information provided by $\Delta_i E{(k)}$ and $\Delta_i E^{(k-2)} > 0$
+    + the second-order approximation is still a better choice than just stepping halfway back when near a local minimum (and very likely overshot in the previous step)
+  4. the quadratic approximation in the secant step
+
+    \[q_i := |\Delta_i E^{(k)} / (\Delta_i E^{(k)} - \Delta_i E^{(k-2)})|\]
+
+    is constrained to a certain interval to avoid very large or very small updates
+
++ [The $k$-th iteration of Qprop](../ML/MLNN-Hinton/a12-Learning.md#842-qrprop)
+  + set constants: $d, u, \gamma_{min}$ and $\gamma_{max}$
+  + Step 1: update the individual learning rates
+
+    if $(\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} = 0)$ then <br/>
+    <span style="margin-left: 1em;">if $(\Delta_i E^{(k)} \neq \Delta_i E^{(k-1)})$ then</span></br>
+    <span style="margin-left: 2em;">$q_i = \max \left(d, \min \left(1/u, \left|\frac{\Delta_i E^{(k)}}{\Delta_i E^{(k)} - \Delta_i E^{(k-2)}} \right|\right)\right)$</span></br>
+    <span style="margin-left: 1em;">else</span></br>
+    <span style="margin-left: 2em;">$q_i = 1/u$</span></br>
+    <span style="margin-left: 1em;">endif</span></br>
+    endif
+
+    <br/>
+
+    \[\gamma_i^{(k)} = \begin{cases}
+      \min(u \cdot \gamma_i^{(k-1)}, \gamma_{max}) & \text{if } \Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} > 0 \\
+      \gamma_i^{(k-1)} & \text{if } \Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} < 0 \\
+      \max(q_i \cdot \gamma_i^{(k-1)}, \gamma_{min}) & \text{if } \Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} = 0
+    \end{cases}\]
+
+  + Step 2: update the weight
+
+    \[w_i^{(k+1)} = \begin{cases}
+      w_i^{(k)} - \gamma^{(k)} \cdot \text{sgn}(\Delta_i E^{(k)}) & \text{if } \Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} \geq 0 \\
+      w_i^{(k)} & \text{otherwise}
+    \end{cases}\]
+
+    If $(\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} < 0)$ set $\Delta_i E^{(k)} := 0$
+
 
 
 ## Parameter Initialization
