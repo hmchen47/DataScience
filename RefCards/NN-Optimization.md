@@ -139,46 +139,6 @@
   + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
-### Fast Learning Algorithms
-
-<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-  <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
-    <img src="../ML/MLNN-Hinton/img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=450>
-  </a>
-</div>
-
-
-## Momentum
-
-+ [Momentum](../ML/MLNN-Hinton/a03-Optimization.md#momentum)
-  + an inertia motion of object to move in the direction of motion
-  + the general direction that the optimization algorithm is moving
-  + optimization algorithm moving in a general direction, the momentum causes it to 'resist' changes in the direction
-  + dampening of oscillations for high curvature surfaces
-  + an added term in the objective function
-  + a value in $[0, 1]$ increasing the size of the steps taken towards the minimum by trying to jump from a local minimum
-  + large momentum & small learning rate: fast convergence
-  + large momentum & large learning rate: skip the minimum with a huge step
-  + small momentum: not reliably avoid local minima and slow down  the training of the system
-  + help in smoothing out the variations, if the gradient keeps changing direction
-  + right value of momentum: either learned by hit and trial or through cross-validation
-
-
-## Adaptive Learning Rates
-
-+ [Oscillations along vertical direction](../ML/MLNN-Hinton/a03-Optimization.md#adaptive-learning-rates)
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*0v0zucWChoudFcJRPpB74Q.png" style="margin: 0.1em;" alt="Gradient descent oscillates along vertical direction" title="Gradient descent oscillates along vertical direction" width=300>
-    </a>
-  </div>
-
-+ List of Proposals
-  + AdaGrad
-  + RMSProp
-  + Adam
-
 
 ## Parameter Initialization
 

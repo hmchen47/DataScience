@@ -1,28 +1,10 @@
-
-
-### Fast Learning Algorithms
+# Fast Learning Algorithms
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
     <img src="../ML/MLNN-Hinton/img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=450>
   </a>
 </div>
-
-
-## Momentum
-
-+ [Momentum](../ML/MLNN-Hinton/a03-Optimization.md#momentum)
-  + an inertia motion of object to move in the direction of motion
-  + the general direction that the optimization algorithm is moving
-  + optimization algorithm moving in a general direction, the momentum causes it to 'resist' changes in the direction
-  + dampening of oscillations for high curvature surfaces
-  + an added term in the objective function
-  + a value in $[0, 1]$ increasing the size of the steps taken towards the minimum by trying to jump from a local minimum
-  + large momentum & small learning rate: fast convergence
-  + large momentum & large learning rate: skip the minimum with a huge step
-  + small momentum: not reliably avoid local minima and slow down  the training of the system
-  + help in smoothing out the variations, if the gradient keeps changing direction
-  + right value of momentum: either learned by hit and trial or through cross-validation
 
 
 ## Adaptive Learning Rates
@@ -41,175 +23,22 @@
   + Adam
 
 
-## Parameter Initialization
-
-+ [Initialization of network weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
-  + overlooked characteristics of developing neural networks
-  + poorly initialized networks determined to network performance
-  + initialized with all values of zero
-    + the network not learn anything at all
-    + after a gradient update, all weights would be zero
-  + initialized with all weights 0.5
-    + actually learn something
-    + prematurely prescribed some form of symmetry between neural units
-
-+ [Randomizing weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
-  + avoid presupposing any form of a neural structure by randomizing weights according to a normal distribution
-  + often done in Keras by specifying a random state
-
-+ [Scale of initialization](/ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
-  + large values for the weights: lead to exploding gradients
-  + small values for the weights: lead to vanishing gradients
-  + sweet spot that provides the optimum tradeoff between these two
-  + not a priori but inferred through trial and error
-
-
-## Normalization
-
-+ Purpose
-  + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
-  + methods of parameter initialization to minimize a prior biases within the network
-
-+ Normalizing features before applying the learning algorithm
-
-+ [Min-max normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
-  + simplest method to scale data
-  + rescaling the range of features to scale the range in [0, 1] or [-1, 0]
-  + subtracting each value by the minimum value and scaling by the range of values present in the dataset
-  + Issue: highly skewed data results in many values clustered inn one location
-  + Solution: taking the logarithm of the feature variable
-
-  \[x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}\]
-
-+ [Mean normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
-  + essentially the same as min-max normalization except the average value is subtracted from each value
-  + the least common way
-
-  \[x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}\]
-
-+ [Feature normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
-  + make each feature normalized with zero mean and unit variance
-  + widely used for normalization in many machine learning algorithms
-  + typically involving distance-based methods
-  + general method
-    + determine the distribution mean and standard variation for each feature
-    + subtract the mean from each feature
-    + divide the values of each feature by its standard deviation
-  + Formula
-
-    \[x^\prime = \frac{x - \mu}{\sigma}\]
-
-    + $x$: feature vector
-    + $\mu$: vector of mean feature values
-    + $\sigma$: vector of SD of feature values
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-        <img src="https://miro.medium.com/max/875/1*bo1Utxme6zS2nr0IHtATRg.png" style="margin: 0.1em;" alt="Contour to represent feature normalization" title="Contour to represent feature normalization" width=350>
-      </a>
-    </div>
-
-
-## Assessment with Beale's Function
-
-+ [Beale's function](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
-  + one of many test functions commonly used for studying the effectiveness of various optimization techniques
-  + a test function accesses how well the optimization algorithms perform when in flat regions with very well shallow gradients
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/0*b6VbjuQQJVXxd_rE.jpg" style="margin: 0.1em;" alt="The Beale function." title="The Beale function." width=350>
-    </a>
-  </div>
-
-  + Optimizing a function $f: A \rightarrow R$, from some set A to the real numbers is finding an element $x_0 \in A$ such that $f(x_0) \leq f(x)$ for all $x \in A$ (finding the minimum) or such that $f(x_0) \geq f(x)$ fro all $x \in A$ (finding the maximum).
-  + Formula:
-
-    $$f(x,, y) = (1.5 -x +xy)^2 + (2.25 -x + xy^2)^2 + (2.625 - x +xy^3)^2$$
-
-    Answer: $(x, y) = (3, 0.5)$
-
-+ [Artificial landscape](../ML/MLNN-Hinton/a04-Hyperparameter.md#beales-function)
-  + find a way of comparing the performance of various algorithms
-    + Convergence (how fast they reach the answer)
-    + Precision (how close do they approximate the exact answer)
-    + Robustness (so they perform well for all functions or just a small subset)
-    + General performance (e.g., computational complexity)
-  + analogous to the loss surface of a neural network
-  + goal of NN training: find the global minimum on the loss surface by performing some form of optimization - typically stochastic gradient
-
-
-## Implementation with Keras
-
-+ [Keras](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
-  + a Python library for deep learning that can run on top of both Theano or TensorFlow, tow powerful Python libraries for fast numerical computing created and released by Facebook and Google, respective
-  + developed to make developing deep learning models as fast and easy and easy as possible for research and practical applications
-  + built on the idea of a model
-  + Sequential model: a sequence of layers, a linear stack of layers
-
-+ [Summarize the construction of deep learning models in Keras using the Sequential model](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
-  1. Define model: create a Sequential model and add layers
-  2. Compile model: specify loss function and optimizers and call the `.compile()` function
-  3. Fit model: train the model on data by calling the `.fit()` function
-  4. Make prediction: use the model to generate predictions on new data by calling functionbs such as `.evaluate()` or `.predict()`
-
-+ [Callbacks](../ML/MLNN-Hinton/a04-Hyperparameter.md#callbacks-taking-a-peek-into-our-model-while-its-training)
-  + how to examine the performance of the model
-  + what happening in various stages of the model
-  + a set of functions to be applied at given stages of the training procedure
-  + get a view on internal states and statistics of the model during training
-  + pass a list of callbacks (as the keyword arguments callbacks) to the `.fit()` method of th eSequential or Model classes
-
-+ [Relevant methods of the callbacks at each stage of the training](../ML/MLNN-Hinton/a04-Hyperparameter.md#callbacks-taking-a-peek-into-our-model-while-its-training)
-  + `keras.callbacks.History()`: a callback function automatically included in `.fit()`
-  + `keras.callbacks.ModelCheckPoint` saves the model with its weights at a certain point in the training; e.g., a good practice to save the model weights only when an improvement is observed as measured by the `acc`
-  + `keras.callbacks.EarlySStopping`: stop the training when a monitored quantity has stopped improving
-  + `keras.callbacks.LearningRateScheduler`: change the learning rate during training
-
-+ Procedure by Example
-  + Step 1 - [Deciding on the network topology](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-1---deciding-on-the-network-topology)
-    + Preprocess the data
-  + Step 2 - [Adjusting the `learning rate`](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-2---adjusting-the-learning-rate)
-    + Stochastic Gradient Descent (SGD)
-    + Typical values for hyperparameter: $lr = 0.01$, $decay = 1e^{-6}$, $momentum = 0.9$, and nesterov = True
-    + Learning rate hyperparameter
-    + Implement a learning rate adaption schedule in Keras
-    + Apply a custom learning rate change using `LearningRateScheduler`
-  + Step 3 - [Choosing an optimizer and a loss function](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-3---choosing-an-optimizer-and-a-loss-function)
-    + goal of optimization: efficiently calculate the parameters/weights that minimize the loss function
-    + [types of loss functions in keras](https://github.com/keras-team/keras/blob/master/keras/losses.py)
-    + Distance: the 'loss' function
-    + types of loss functions: MSE (for regression); categorical cross-entropy (for classification); binary cross entropy (for classification)
-  + Step 4 - [Deciding on the batch size and number of epochs](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-4---deciding-on-the-batch-szie-and-number-of-epochs)
-    + batch size: the number of samples propagated through the network
-    + advantages od using a batch size < number of all samples
-    + Disadvantages of using a batch size < number of all samples
-    + epoch: a hyperparameter defines the number times that the learning algorithm will work through the entire training dataset
-  + Step 5 - [Random restarts](/ML/MLNN-Hinton/a04-Hyperparameter.md#step-5---random-restarts)
-    + Not implemented in Keras
-    + Easily done by altering `keras.callbacks.LearningRateScheduler`
-    + Resetting the learning rate after a specified number of epoch for a finite number of times
-
-## Implementation for Cross-Validation
-
-+ [Tuning Hyperparameters using Cross-Validation](../ML/MLNN-Hinton/a04-Hyperparameter.md#tuning-hyperparameters-using-cross-validation)
-  + Use `GridSearchCV` from Scikit-Learn to try out several values for hyperparameters and compare the results
-  + Cross-validation with `keras`
-    + use the wrappers for the Scikit-Learn API
-    + Provide a way to use Sequential Keras models (single-input only) as part of Sckikit-Learn workflow
-    + wrappers
-      + Scikit-Learn classifier interface: `keras.wrappers.scikit_learn.KerasClassifier(build_fn=None, **sk_params)`
-      + Scikit-Learn regressor interface: `keras.wrappers.scikit_learn.KerasRegressor(build_fn=None, **sk_params)`
-
-+ [Cross-Validation with more than one hyperparameters](../ML/MLNN-Hinton/a04-Hyperparameter.md#cross-validation-with-more-than-one-hyperparameters)
-  + effectively trying out combinations of them.
-  + Cross-validation in neural networks is computationally expensive.
-    + each combination evaluated using the k-fold cross-validation (k is a parameter we choose)
-
-
 ## Momentum
 
 ### Classical Momentum
+
++ [Momentum](../ML/MLNN-Hinton/a03-Optimization.md#momentum)
+  + an inertia motion of object to move in the direction of motion
+  + the general direction that the optimization algorithm is moving
+  + optimization algorithm moving in a general direction, the momentum causes it to 'resist' changes in the direction
+  + dampening of oscillations for high curvature surfaces
+  + an added term in the objective function
+  + a value in $[0, 1]$ increasing the size of the steps taken towards the minimum by trying to jump from a local minimum
+  + large momentum & small learning rate: fast convergence
+  + large momentum & large learning rate: skip the minimum with a huge step
+  + small momentum: not reliably avoid local minima and slow down  the training of the system
+  + help in smoothing out the variations, if the gradient keeps changing direction
+  + right value of momentum: either learned by hit and trial or through cross-validation
 
 + Overview
   + applied to both full batch or mini-batch learning
