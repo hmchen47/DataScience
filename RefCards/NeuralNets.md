@@ -1104,6 +1104,32 @@
 
 
 
+## Hyperparameters
+
+### Overview
+
++ [the process of setting the hyper-parameters](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
+  + including the designing the network architecture
+  + requiring expertise and extensive trial and error and time consuming
+
++ [no simple and easy ways to set hyper-parameters](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
+  + learning rate, batch size, momentum and weight decay
+  + grid search or random search: computationally expensive and time consuming
+  + training time and final performance: highly dependent on good choice
+  + choosing the standard architecture and the hyper-parameter files freely available in model zoo or from gitgub.com
+
++ proposed methodologies for finding optimal settings for several hyper-parameters
+  
++ goal: providing practical advice that saves time and effort, yet improves performance
+
++ [basis of the approach](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
+  + well-known concept of the balance between underfitting and overfitting
+  + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
+  + paying close attention while using cyclical learning rates and cyclical momentum
+  
+
+
+
 
 ## Linear Neurons
 
