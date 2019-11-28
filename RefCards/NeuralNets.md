@@ -268,6 +268,22 @@
   + a realistic level of complexity in the learning task
   + the size of the training set beyond a critical threshold
 
++ [online backpropagation](../ML/MLNN-Hinton/a12-Learning.md#the-gauss-jacobi-and-gauss-seidel-methods-and-backpropagation)
+  + not converge to a single point in weight space
+  + oscillation around the minimum of the error function
+  + expected value of the derivation based on the learning step size used
+  + linear associator = Iterated Function System [Barnsley, M. (1988), Fractals Everywhere, Academic Press, London.]
+
++ [Visualization online & offline backpropagation approach](../ML/MLNN-Hinton/a12-Learning.md#the-gauss-jacobi-and-gauss-seidel-methods-and-backpropagation)
+  + Gauss-Jacobi method
+    + starting at some point in search space
+    + projecting the point in the directions of the axes on the two lines considered
+    + next iteration point: the $x$-coordinate of the horizontal projection & $y$-coordinate of the vertical projection
+  + Gauss-Seidel method
+    + dealing with each line equation individually
+    + 1st projection in the $x$ direction
+    + 2nd projection in the $y$ direction
+    + usually converge faster than the Gauss-Jacobi method
 
 
 ## Architectures
@@ -1814,7 +1830,6 @@
   + statistical preprocessing of the learning set w/ decorrelation; ie. no excessively large eigenvalues of the correlation matrix
 
 
-
 ### Nesterov Momentum
 
 + [A better type of momentum](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method) (Nesterov 1983)
@@ -1912,6 +1927,23 @@
   \end{cases}\]
 
   where $\alpha$ is close to 0 and $\beta$ is close to 1, e.g., 0.05 and 0.95 resp.
+
++ [Basic strategy](../ML/MLNN-Hinton/a12-Learning.md#83-adaptive-step-algorithms)
+  + increasing step size: the algorithm proceeds down the error function over several iterations
+  + decreasing step size: the algorithm jumps over a valley of the error function
+
++ [Learning rates](../ML/MLNN-Hinton/a12-Learning.md#83-adaptive-step-algorithms)
+  + global learning rate
+  + local learning rate
+
++ [Model for algorithms](../ML/MLNN-Hinton/a12-Learning.md#83-adaptive-step-algorithms)
+  + each weight $w_i$ w/ an associated learning constant $\gamma_i$
+
+    \[\Delta w_i = -\gamma_i \frac{\partial E}{\partial w_i}\]
+
+  + motivation: use of different learning constants for each weight to correct the direction of the negative gradient to make it point directly to the minimum of the error function
+  + with degenerate function, the gradient direction leads to many oscillations
+  + adequate scaling of the gradient components: reaching the minimum in fewer steps
 
 
 ### Cyclical Learning Rates for Neural Networks
