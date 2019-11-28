@@ -1,10 +1,31 @@
 # Fast Learning Algorithms
 
+## Overview
+
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
     <img src="../ML/MLNN-Hinton/img/a12-24.png" style="margin: 0.1em;" alt="Taxonomy of learning algorithms" title="Taxonomy of learning algorithms" width=450>
   </a>
 </div>
+
++ The fast variations of backpropagation divided into two main methods
+  + gradient descent
+    + using information about the error function's partial derivatives
+  + relaxation
+    + trying to adjust the weights to fit the problem in stochastic way or solving a linear subproblem
+
++ Class of derivatives
+  + first order
+    + standard backpropagation
+    + on-line propagation not exactly following the gradient's direction, but also partially qualify as a relaxation method
+  + adaptive first order
+    + a combination of gradient descent and relaxation
+    + two groups
+      + single global learning rate
+      + a learning rate for each weight
+  + second order
+    + the conjugate gradient methods of numerical analysis rely also on a first-order approximation of second-order features of the error function
+
 
 
 ## Adaptive Learning Rates
@@ -17,11 +38,8 @@
     </a>
   </div>
 
-+ List of Proposals
-  + AdaGrad
-  + RMSProp
-  + Adam
-
++ [List of Proposals](./NN-Adaptivelearn.md)
+  
 
 ## Momentum
 
@@ -429,6 +447,141 @@
   2. reduces the dependence of gradients on the scale of the parameters or their initial values
   3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
   4. allows use of saturating nonlinearities and higher learning rates
+
+
+## Relaxation methods
+
+### Overview
+
++ [Class of relaxation methods](../ML/MLNN-Hinton/a12-Learning.md#85-relaxation-methods)
+  + perturbed network weights
+  + comparing to the new network error with the directly previous one
+
+
+### Weight and node perturbation
+
++ [Weight perturbation](../ML/MLNN-Hinton/a12-Learning.md#851-weight-and-node-perturbation)
+  + a learning strategy proposed to avoid calculating the gradient of the error function at each step
+  + discrete approximation to the gradient at each iteration
+    + taking the initial weight $\mathbf{w}$ in weight space
+    + the value $E(w)$ of the error function for this computation of parameters
+  + Assumptions & Notations
+    + $\beta$: a small perturbation added to the weight $w_i$
+    + $E(\mathbf{w}^{\prime})$: the error at the new point $\mathbf{w}^{\prime}$ in weight space
+  + updating the weight $w_i$
+
+    \[\Delta w_i = - \gamma \frac{E(w^{\prime}) - E(w)}{\beta}\]
+
+    + repeating iteratively, randomly selecting the weight to be updated
+  + the discrete approximation to be gradient: important for chip where the learning algorithm implemented w/ minimal hardware additional to that needed for the feed-forward phase
+
++ [Node perturbation](../ML/MLNN-Hinton/a12-Learning.md#851-weight-and-node-perturbation)
+  + perturbing the output $o_i$ of the $i$-th node by $\Delta o_i$
+  + Assumptions & Notations
+    + $E - E^{\prime}$: the difference in the error function
+    + $E^{\prime}$: the new error achieved with the output $o_i + \Delta o_i$
+    + activation function: sigmoid
+  + the desired weighted input to node $i$ w/ sigmoid
+
+    \[\sum_{k=1}^m w_k^{\prime}x_k = s^{-1}(o_i + \Delta o_i)\]
+
+  + the new weight w/ the previous weighted input $\sum_{k=1}^m w_k x_k$
+
+    \[w_k^{\prime} = w_k \frac{s^{-1} (o_i + \Delta o_i)}{\sum_{k=1}^m w_k x_k} \qquad \text{for } k=1, \dots, m\]
+
+  + weights updated in proportion to their relative size
+  + a stochastic introduced or a node perturbation step alternated w/ a weight perturbation step
+
+
+### Symmetric and asymmetric relaxation
+
++ [Assumptions & Notations](../ML/MLNN-Hinton/a12-Learning.md#852-symmetric-and-asymmetric-relaxation)
+  + Three layered neural network
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/a12-25.png" style="margin: 0.1em;" alt="Notation for the three-layered network" title="Notation for the three-layered network" width=350>
+      </a>
+    </div>
+
+  + $o_j^{(1)}$: the output w/ sigmoid activation function
+
+    \[o_j^{(1)} = s \left(\sum_{i=1}^{n+1} w_{ij}^{(1)} \hat{o}_i\right)\]
+
+  + $\mathbf{o}^{(1)}$: the outputs of the hidden units
+
+    \[\mathbf{o}^{(1)} = s(\mathbf{\hat{o}} \mathbf{\overline{W}_1})\]
+
+  + $\mathbf{o}^{(2)}$: the outputs of the network, 
+
+    \[\mathbf{o}^{(1)} = s(\mathbf{\hat{o}}^{(1)} \mathbf{\overline{W}_2})\]
+
+  + $\mathbf{e}$: the column vector whose components are the derivatives of the corresponding components of the quadratic error
+
+    \[\mathbf{e} = \begin{bmatrix}
+      (o_1^{(2)} - t_1) \\ (o_2^{(2)} - t_2) \\ \vdots \\ (o_3^{(2)} - t_3)
+    \end{bmatrix}\]
+
+  + $\mathbf{D_1}$: a diagonal matrix
+
+    \[\mathbf{D_1} = \begin{bmatrix}
+      o_1^{(1)}(1 - o_1^{(1)}) & 0 & \cdots & 0 \\
+      0 & o_2^{(1)}(1 - o_2^{(1)}) & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & o_k^{(1)}(1 - o_k^{(1)}) \\
+    \end{bmatrix}\]
+
+  + $\mathbf{D_2}$: a diagonal matrix
+
+    \[\mathbf{D_2} = \begin{bmatrix}
+      o_1^{(2)}(1 - o_1^{(2)}) & 0 & \cdots & 0 \\
+      0 & o_2^{(2)}(1 - o_2^{(2)}) & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & o_m^{(2)}(1 - o_m^{(2)}) \\
+    \end{bmatrix}\]
+
+  + $\mathbf{W_2}$: a connection/weight matrix between hidden and output layers
+  + $\mathbf{O_1}$: the output $p \times k$ matrix of the hidden layer w/ the arranged all rows, $o^{(1)}$
+  + $\mathbf{T}$: target matrix w/ all targets as the rows of a $p \times m$ matrix
+  + $\mathbf{O}_1^+$: pseudoinverse of $\mathbf{O}_1$
+
++ [Objective: the target vector $\mathbf{t}$](../ML/MLNN-Hinton/a12-Learning.md#852-symmetric-and-asymmetric-relaxation)
+  + the backpropagated error of the output layer
+
+    \[\delta^{(2)} = \mathbf{D_2 e}\]
+
+  + reducing the magnitude of the error $\mathbf{e}$ to zero by adjusting the matrix $\mathbf{W_2}$ in a single step
+  + $s^{-1}(t)$: the necessary weighted input at the output nodes
+  + the following equation holds for all the $p$ possible input patterns
+
+    \[\mathbf{o}^{(1)} \mathbf{W_2} = s^{-1}(\mathbf{t})\]
+
+    therefore,the matrix $\mathbf{W_2}$ for which
+
+    \[\mathbf{O_1 W_2} = s^{-1}(\mathbf{T}) \tag{12}\]
+
+  + the matrix equation may have no solution for $\mathbf{W_2}$, but compute the matrix minimizing the quadratic error for this equality
+  + Computing the connection matrix $\mathbf{W}_2$
+
+    \[\mathbf{W}_2 = \mathbf{O}_1^+ s^{-1}(\mathbf{T})\]
+
+  + obtaining the matrix $\mathbf{O}_1$ by minimizing the quadratic deviation from Eq.(12)
+  + computing intermediate targets for the hidden units, which are given by the rows of the matrix
+
+    \[\mathbf{O}_1^{\prime} = s^{(-1)}(\mathbf{T})\mathbf{W}_2^+\]
+
+  + the new intermediate targets used to obtain an update for the matrix $\mathbf{W}_1$ of weights between input and hidden units
+
++ [Computing complexity](../ML/MLNN-Hinton/a12-Learning.md#852-symmetric-and-asymmetric-relaxation)
+  + computationally intensively for every "pseudoinverse" step
+  + weight corrections of the method
+    + more accurate than other algorithms
+    + these high-powered iterations demand many computations for each of the two matrices
+  + highly redundant data: pseudoinverse step very inefficient
+  + symmetric relaxation
+    + the targets $\mathbf{T}$
+    + the outputs of the hidden units are determined in the back and forth kind of approach
+
 
 
 
