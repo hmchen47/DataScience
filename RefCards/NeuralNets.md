@@ -2234,6 +2234,36 @@
 
   __Note.__ Even when $\frac{\partial E}{\partial w_{ij}}(t) = 0$, that doesn't we've reached a minimal $w_{ij}$, because at time $t+1$ the weights might move somewhere else and $\frac{\partial E}{\partial w_{ij}} (t+1)$ might be nonzero.
 
++ [Riedmiller and Braun proposal](../ML/MLNN-Hinton/a12-Learning.md#832-delta-bar-delta)
+  + main idea: update the network weight using just the learning rate and the sign of the partial derivative of the error function w.r.t. each weight
+  + accelerating learning mainly in the flat regions of the error function and approaching a local minimum
+  + set $\gamma_{min}$ and $\gamma_{max}$ to avoid accelerating and decelerating too much
+
++ [Modeling algorithm](../ML/MLNN-Hinton/a12-Learning.md#832-delta-bar-delta)
+  + covering the weight space between $\gamma_{min}$ and $\gamma_{max}$
+  + $\gamma_{min}$, $\gamma_{max}$: $n$-dim grid of side length
+  + individual 1-dim optimization steps: moving all possible intermediate grids
+  + the learning rates updated at $k$-th iteration
+
+    \[\gamma_i^{(k+1)} = \begin{cases}
+      \min(\gamma_i^{(k)} \, u, \gamma_{max}) & \text{if } \Delta_i E^{(k-1)} \cdot \Delta_i^{(k-1)} > 0 \\
+      \max(\gamma_i^{(k)} \, d, \gamma_{min}) & \text{if } \Delta_i E^{(k-1)} \cdot \Delta_i^{(k-1)} < 0 \\
+      \gamma_i^{(k)} & \text{otherwise}
+    \end{cases}\]
+
+    + $u > 1$ and $d < 1$
+  + the weight updated
+
+    \[\Delta^{(k)} w_i = \begin{cases} -\gamma_i^{(k)} sgn(\Delta_i E^{(k)}) & \text{if } \Delta_i E^{(k-1)} \cdot \Delta_i^{(k-1)} \geq 0 \\ 0 & \text{otherwise} \end{cases}\]
+
++ [One-dimensional approximation of the error function](../ML/MLNN-Hinton/a12-Learning.md#832-delta-bar-delta)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-17.png" style="margin: 0.1em;" alt="Local approximation of RPROP" title="Local approximation of RPROP" width=350>
+    </a>
+  </div>
+
 
 ### RMSProp
 
