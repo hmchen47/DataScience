@@ -1946,7 +1946,68 @@
   + adequate scaling of the gradient components: reaching the minimum in fewer steps
 
 
-### Cyclical Learning Rates for Neural Networks
+### Second-order algorithms
+
++ [Idea](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+  + considering more information about the shape of the error function than the mere value of the gradient
+  + considering the curvature of the error function at each step for better performance
+
++ [Quadratic approximation of the error function](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+  + Assumptions & Notations
+    + Quadratic error function
+    + $\mathbf{w}$: the vector denoting all weights of a network
+    + $E(\mathbf{w})$: the error function
+    + $\Delta^2 E(\mathbf{w})$: the $n \times n$ Hessian matrix of second order partial derivatives
+    + $\mathbf{w}^{(k)}$: the wright vector at the $k$-th iteration
+  + Truncated Taylor series to approximate the error function $E$
+
+    \[E(\mathbf{w} + \mathbf{h}) \approx E(\mathbf{w)} + \Delta E(\mathbf{w})^T \mathbf{h} + \frac{1}{2} \mathbf{h}^T \Delta^2 E(\mathbf{w}) \mathbf{h} \tag{6}\]
+  
+  + the $n \times n$ Hessian matrix of second order partial derivatives, $\Delta^2 E(\mathbf{w})$
+
+    \[\Delta^2 E(\mathbf{w}) = \begin{bmatrix}
+      \frac{\partial^2 E(\mathbf{w})}{\partial w_1^2} & \frac{\partial^2 E(\mathbf{w})}{\partial w_1 w_2} & \cdots & \frac{\partial^2 E(\mathbf{w})}{\partial w_1 w_n} \\
+      \frac{\partial^2 E(\mathbf{w})}{\partial w_2 w_1} & \frac{\partial^2 E(\mathbf{w})}{\partial w_2^2} & \cdots & \frac{\partial^2 E(\mathbf{w})}{\partial w_2 w_n} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      \frac{\partial^2 E(\mathbf{w})}{\partial w_n w_1} & \frac{\partial^2 E(\mathbf{w})}{\partial w_n w_2} & \cdots & \frac{\partial^2 E(\mathbf{w})}{\partial w_n^2}
+    \end{bmatrix}\]
+
+  + [The gradient of the error function](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+
+    \[\Delta E(\mathbf{w} + \mathbf{h})^T \approx \Delta E(\mathbf{w}^T + \mathbf{h}^2 \Delta^2 E(\mathbf{w})\]
+
+  + Solving Eq.(6) = 0
+
+    \[\mathbf{h} = -(\Delta^2 E(\mathbf{w}))^{-1} \Delta E(\mathbf{w}) \tag{7}\]
+  
+  + The solution can be done in a single step if the Hessian matrix and the gradient have computed
+  + Applying Newton's method to get the $(k+1)$-th iteration
+
+    \[\mathbf{w}^{(k+1)} = \mathbf{w}^{(k)} - (\Delta^2 E(\mathbf{w}))^{-1} \Delta E(\mathbf{w}) \tag{8}\]
+
+  + Eq. (8) as a position where the gradient w/ reduced magnitude
+  + Retain the minimum of the error function with several iterations
+
++ [Computing Hessian matrix, $\Delta^2 E(\mathbf{w})$](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+  + Becker, S., and Y. le Cun (1989), “Improving the Convergence of BackPropagation Learning with Second Order Methods”, in: [Touretzky et al. 1989], pp. 29–37.
+  + a difficult task
+  + requiring the inverse of the Hessian matrix
+  + many proposals to approximate the second-order information using certain heuristic
+  + Pseudo-Newton's methods
+    + variants of Newton's method working w/ a simplified form of the Hessian matrix
+    + non-diagonal elements set all zeros and only diagonal elements computed
+    + therefor, only computing $\partial^2 E(\mathbf{w})/\partial w_i^2$
+    + Simplifying Eq. (8) to 
+
+      \[w_i^{(k+1)} = w_i^{(k)} - \frac{\Delta_i E(\mathbf{w})}{\partial^2 E(\mathbf{w})/\partial w_i^2} \tag{9}\]
+
+    + No inverse of the Hessian matrix required
+    + limited effort in finding the second order partial derivatives
+    + working well w/ nice quadratic error function
+    + extremely large corrections required if a small second-order partial derivatives
+
+
+### Cyclical Learning Rates
 
 + [Cyclical learning rates](../ML/MLNN-Hinton/a14-Advanced.md#31-cyclical-learning-rates-for-neural-networks)
   + main use: escape local extreme points, especially sharp local minima (overfitting)
@@ -2260,7 +2321,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
-      <img src="img/a12-17.png" style="margin: 0.1em;" alt="Local approximation of RPROP" title="Local approximation of RPROP" width=350>
+      <img src="../ML/MLNN-Hinton/img/a12-17.png" style="margin: 0.1em;" alt="Local approximation of RPROP" title="Local approximation of RPROP" width=350>
     </a>
   </div>
 
@@ -2361,6 +2422,35 @@
     \[\mathbf{w}^{(k+1)} = \begin{cases} \mathbf{w}^{(k_1)} & \text{if } E(\mathbf{w}^{(k_1)}) \leq E(\mathbf{w}^{(k_2)}) \\ \mathbf{w}^{(k_2)} & \text{otherwise}\end{cases}\]
 
 + The algorithm is not as good as the adaptive step methods w/ a local learning constant but easy to implement.
+
+
+### Quickprop
+
++ [Idea](../ML/MLNN-Hinton/a12-Learning.md#841-quickprop)
+  + considering the 1-dim minimization steps
+  + obtaining the current and the last partial derivative of the error function in the update directions about the curvature of the error function
+  + based on the independent optimization step for each weight
+
++ [Modeling algorithm](../ML/MLNN-Hinton/a12-Learning.md#841-quickprop)
+  + Quadratic one-dimensional approximation of th error function
+  + Assumption & Notations
+    + $\Delta^{(k-1)} w_i$: the weight difference w/ the computed error functions at $(k-1)$-th and $k$-th steps
+  + the update term for each weight at the $k$-th step obtained from a previous Quickprop or a standard gradient descent step
+
+    \[\begin{align*}
+      \Delta^{(k)} w_i &= \Delta^{(k-1)} w_i \left( \frac{\Delta_i E^{(k)}}{\Delta_i E^{(k=1)} - \Delta_i E^{(k)}} \right) \tag{10} \\
+       &= - \frac{\Delta_i E^{(k-1)}}{(\Delta_i E^{(k)} - \Delta_i E^{(k)}) / \Delta^{(k-1)} w_i} \tag{11}
+    \end{align*}\]
+
+  + Eq. (11) same as the weight update in Eq. (9)
+  + secant steps:
+    + the denominator: a discrete approximation to the second-order derivative $\partial^2 E(\mathbf{w}) / \partial w_i^2$
+    + a discrete pseudo-Newton method
+
++ [Problematic situations](../ML/MLNN-Hinton/a12-Learning.md#841-quickprop)
+  + update issue
+  + Convergence issue
+
 
 
 
