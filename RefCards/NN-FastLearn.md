@@ -449,6 +449,68 @@
   4. allows use of saturating nonlinearities and higher learning rates
 
 
+
+## Second-order algorithms
+
++ [Idea](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+  + considering more information about the shape of the error function than the mere value of the gradient
+  + considering the curvature of the error function at each step for better performance
+
++ [Quadratic approximation of the error function](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+  + Assumptions & Notations
+    + Quadratic error function
+    + $\mathbf{w}$: the vector denoting all weights of a network
+    + $E(\mathbf{w})$: the error function
+    + $\Delta^2 E(\mathbf{w})$: the $n \times n$ Hessian matrix of second order partial derivatives
+    + $\mathbf{w}^{(k)}$: the wright vector at the $k$-th iteration
+  + Truncated Taylor series to approximate the error function $E$
+
+    \[E(\mathbf{w} + \mathbf{h}) \approx E(\mathbf{w)} + \Delta E(\mathbf{w})^T \mathbf{h} + \frac{1}{2} \mathbf{h}^T \Delta^2 E(\mathbf{w}) \mathbf{h} \tag{6}\]
+  
+  + the $n \times n$ Hessian matrix of second order partial derivatives, $\Delta^2 E(\mathbf{w})$
+
+    \[\Delta^2 E(\mathbf{w}) = \begin{bmatrix}
+      \frac{\partial^2 E(\mathbf{w})}{\partial w_1^2} & \frac{\partial^2 E(\mathbf{w})}{\partial w_1 w_2} & \cdots & \frac{\partial^2 E(\mathbf{w})}{\partial w_1 w_n} \\
+      \frac{\partial^2 E(\mathbf{w})}{\partial w_2 w_1} & \frac{\partial^2 E(\mathbf{w})}{\partial w_2^2} & \cdots & \frac{\partial^2 E(\mathbf{w})}{\partial w_2 w_n} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      \frac{\partial^2 E(\mathbf{w})}{\partial w_n w_1} & \frac{\partial^2 E(\mathbf{w})}{\partial w_n w_2} & \cdots & \frac{\partial^2 E(\mathbf{w})}{\partial w_n^2}
+    \end{bmatrix}\]
+
+  + [The gradient of the error function](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+
+    \[\Delta E(\mathbf{w} + \mathbf{h})^T \approx \Delta E(\mathbf{w}^T + \mathbf{h}^2 \Delta^2 E(\mathbf{w})\]
+
+  + Solving Eq.(6) = 0
+
+    \[\mathbf{h} = -(\Delta^2 E(\mathbf{w}))^{-1} \Delta E(\mathbf{w}) \tag{7}\]
+  
+  + The solution can be done in a single step if the Hessian matrix and the gradient have computed
+  + Applying Newton's method to get the $(k+1)$-th iteration
+
+    \[\mathbf{w}^{(k+1)} = \mathbf{w}^{(k)} - (\Delta^2 E(\mathbf{w}))^{-1} \Delta E(\mathbf{w}) \tag{8}\]
+
+  + Eq. (8) as a position where the gradient w/ reduced magnitude
+  + Retain the minimum of the error function with several iterations
+
++ [Computing Hessian matrix, $\Delta^2 E(\mathbf{w})$](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
+  + Becker, S., and Y. le Cun (1989), “Improving the Convergence of BackPropagation Learning with Second Order Methods”, in: [Touretzky et al. 1989], pp. 29–37.
+  + a difficult task
+  + requiring the inverse of the Hessian matrix
+  + many proposals to approximate the second-order information using certain heuristic
+  + Pseudo-Newton's methods
+    + variants of Newton's method working w/ a simplified form of the Hessian matrix
+    + non-diagonal elements set all zeros and only diagonal elements computed
+    + therefor, only computing $\partial^2 E(\mathbf{w})/\partial w_i^2$
+    + Simplifying Eq. (8) to 
+
+      \[w_i^{(k+1)} = w_i^{(k)} - \frac{\Delta_i E(\mathbf{w})}{\partial^2 E(\mathbf{w})/\partial w_i^2} \tag{9}\]
+
+    + No inverse of the Hessian matrix required
+    + limited effort in finding the second order partial derivatives
+    + working well w/ nice quadratic error function
+    + extremely large corrections required if a small second-order partial derivatives
+
+
 ## Relaxation methods
 
 ### Overview
