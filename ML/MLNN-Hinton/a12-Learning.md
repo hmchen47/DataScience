@@ -29,7 +29,6 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + the size of the training set beyond a critical threshold
 
 
-
 ### 8.1.1 Backpropagation with momentum
 
 + Momentum method
@@ -52,7 +51,6 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     + $E$: the error function
     + $\gamma$: the learning rate
     + $\alpha$: the momentum rate
-    + 
   + The $i$-th correction for weight $w_k$
 
     \[\Delta w_k(i) = -\gamma \, \frac{\partial E}{\partial w_k} + \alpha \, \Delta w_k (i-1)\]
@@ -92,7 +90,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
       &= \mathbf{w}(\mathbf{X}^T \mathbf{X})\mathbf{w} -2 \: \mathbf{y}^T\mathbf{X}\mathbf{w} + \mathbf{y}^T\mathbf{y}
     \end{align*}\]
 
-  + the lengths of the principal axes: determined by the magnitude of the eigenvalues of the correlation of matrix $\math{X}^T\mathbf{X}
+  + the lengths of the principal axes: determined by the magnitude of the eigenvalues of the correlation of matrix $\mathbf{X}^T\mathbf{X}$
   + gradient descent: most effective w/ the same length when the principal axes of the quadratic form
 
 + Example: quadratic function $ax^2 + b y^2$
@@ -392,15 +390,15 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 + Output layer
   + Assumptions & Notations
     + $n$ different edges
-    + associated weights $w_1, w_2, \dots, \w_n$ point to this node
+    + associated weights $w_1, w_2, \dots, w_n$ point to this node
     + selecting weights with uniform probability from $[-\alpha, \alpha]$
-    + $x_1, x_2, \dots, \x_n$: the input values transported through each edge
+    + $x_1, x_2, \dots, x_n$: the input values transported through each edge
     + assumption: $x_i$ and initial weights uncorrelated
     + $\sigma$: standard variation
 
   + the expected total input to the node
 
-    \[\langle \sum_{i=1}^n w_ix_i\rangle\]
+    \[\left\langle \;\sum_{i=1}^n w_ix_i \; \right\rangle\]
 
   + By the law of large numbers
     + $\sigma = 0$, the expected value: 0.25
@@ -561,7 +559,6 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
     + ($y_1, y_2, \dots, y_n)$: the output of the linear layer
     + $\mathbf{w_m^p}$: the weight vector of the $m$-the unit at the $p$-th iteration
     + $\beta$: a constant
-    + 
   + objective: making the expected value of the correction coefficient $r_{ij}$ of the $i$-th and %j%-th output units equal to Kronecker's delta $\delta_{ij}$
 
     \[r_{ij} = <y_iy_j> = \delta_{ij}\]
@@ -649,7 +646,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   + minimizing at each step: parabola
   + general form of a quadratic function w/ $n$ variable weights
 
-    \[c_1^2 w_1^2 + c_2^2 w_2^2 + \cdots + c_n^2 w_n^2 + \sum_{i \neq j{ \, d_{ij}w_iw_j + C\]
+    \[c_1^2 w_1^2 + c_2^2 w_2^2 + \cdots + c_n^2 w_n^2 + \sum_{i \neq j} \, d_{ij}w_iw_j + C\]
 
   + Minimize the form of the $i$-th direction for a 1-dim minimization step
 
@@ -657,8 +654,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 
   + the learning rate for each weight at $k$-th iteration for the next step
 
-    \[\gamma_i^{(k+1) = 
-    \begin{cases}
+    \[\gamma_i^{(k+1)} = \begin{cases}
       \gamma_i^{(k)} \, u & \text{if } \Delta_i E^{(k-1)} \geq 0 \\
       \gamma_i^{(k)} \, d & \text{if } \Delta_i E^{(k-1)} < 0
     \end{cases}\]
@@ -778,13 +774,13 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
   </table>
 
   + backpropagation: failed to converge in two cases
-  + Rprop: converge almsot all cases and faster up to about 2.5 factor w.r.t. BP
+  + Rprop: converge almost all cases and faster up to about 2.5 factor w.r.t. BP
 
 
 ### 8.3.4 The Dynamic Adaption Algorithm
 
 + Salomon's Proposal
-  +  Salomon, R. (1992), Verbesserung konnektionistischer Lernverfahren, die nachder Gradientenmethode arbeiten, PhD Thesis, Technical University of Berlin
+  + Salomon, R. (1992), Verbesserung konnektionistischer Lernverfahren, die nachder Gradientenmethode arbeiten, PhD Thesis, Technical University of Berlin
   + Idea: using the negative gradient direction to generate tow new points instead of one, the one w/ lowest error used for the next iteration
 
 + Modeling the algorithm
@@ -895,7 +891,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 + Problematic situations
   + update issue
     + updates may become very large
-    + solution: limiting $\Delat^{(k)} w_i$ to a constant times $\Delta^{(k-1)}$
+    + solution: limiting $\Delta^{(k)} w_i$ to a constant times $\Delta^{(k-1)}$
   + Convergence issue
     + assumption used based on a far-fetched than the assumptions used by Rprop
     + Solution: careful handling of the weight updates w/ the problematic tasks
@@ -1012,7 +1008,7 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
 + The feed-forward labeling phase of the backpropagation algorithm
   + computing a 1-dim function $f$ at each node
   + store 3 values at each node: $f(x)$, $f^{\prime}(x)$, and $f^{\prime\prime}(x)$ where $x$ represents the input to this node
-  + Idea: (middle diagram)
+  + Idea: (right diagram)
     + performing the feed-forward labeling step in the usual manner, but storing additionally at each node the second derivative of the node's function evaluated at the input
     + selecting $w_1$ and $w_2$ and deriving network function of an output node
       + the second-order partial derivative of the stored network function w.r.t. those weights: the product of the stored $g^{\prime\prime}$ value with the backpropagation path values from the output node up to weight $w_i$ and $w_j$
@@ -1329,9 +1325,6 @@ P. Rojas, [Chapter 8](http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf) i
       + a learning rate for each weight
   + second order
     + the conjugate gradient methods of numerical analysis rely also on a first-order approximation of second-order features of the error function
-
-
-
 
 
 
