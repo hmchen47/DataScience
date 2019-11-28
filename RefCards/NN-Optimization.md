@@ -140,7 +140,7 @@
 
 
 
-## Parameter Initialization
+### Parameter Initialization
 
 + [Initialization of network weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
   + overlooked characteristics of developing neural networks
@@ -163,7 +163,7 @@
   + not a priori but inferred through trial and error
 
 
-## Normalization
+### Normalization
 
 + Purpose
   + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
@@ -209,7 +209,7 @@
     </div>
 
 
-## Assessment with Beale's Function
+### Assessment with Beale's Function
 
 + [Beale's function](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
   + one of many test functions commonly used for studying the effectiveness of various optimization techniques
@@ -238,7 +238,7 @@
   + goal of NN training: find the global minimum on the loss surface by performing some form of optimization - typically stochastic gradient
 
 
-## Implementation with Keras
+### Implementation with Keras
 
 + [Keras](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
   + a Python library for deep learning that can run on top of both Theano or TensorFlow, tow powerful Python libraries for fast numerical computing created and released by Facebook and Google, respective
@@ -289,7 +289,7 @@
     + Easily done by altering `keras.callbacks.LearningRateScheduler`
     + Resetting the learning rate after a specified number of epoch for a finite number of times
 
-## Implementation for Cross-Validation
+### Implementation for Cross-Validation
 
 + [Tuning Hyperparameters using Cross-Validation](../ML/MLNN-Hinton/a04-Hyperparameter.md#tuning-hyperparameters-using-cross-validation)
   + Use `GridSearchCV` from Scikit-Learn to try out several values for hyperparameters and compare the results
@@ -304,240 +304,6 @@
   + effectively trying out combinations of them.
   + Cross-validation in neural networks is computationally expensive.
     + each combination evaluated using the k-fold cross-validation (k is a parameter we choose)
-
-
-## Momentum
-
-### Classical Momentum
-
-+ Overview
-  + applied to both full batch or mini-batch learning
-  + probably the commonest recipe for big neural nets: combining stochastic gradient descent with mini matches and momentum
-
-+ [Momentum Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
-  
-  __Intuition: rolling ball.__ Modify the Delta Rule
-
-    \[\Delta w(t) = -\varepsilon \frac{\partial E}{\partial w}(t)\]
-
-  to include a "momentum" term
-
-    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
-
-  + $\alpha$: a factor slightly less than 1
-  + $\Delta w(t)$ remembers a little bit of its previous direction via $\alpha \Delta w(t-1)$
-  + [Implementation of Stochastic Gradient Descent w/ Momentum](../ML/MLNN-Hinton/src/sgd_momentum.py)
-
-+ [The intuition behind the momentum method](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method)
-  + Analogy
-    + a ball on the error surface
-    + weight vector: the location of the ball in the horizontal plane
-    + the ball starting stationary
-    + initialized by following the direction of steepest descent, the gradient
-    + once gaining velocity, the ball no longer in the same direction as the gradient
-    + its momentum making it keep going in the previous direction
-  + damping oscillations in directions of high curvature by combining gradients w/ opposite signs
-    + eventually getting to a low point on the surface
-    + viscosity: making the velocity die off gently on each or update
-  + built up speed in directions w/ a gradient but consistent gradient
-
-+ [Mathematical representation](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method)
-  
-  \[\begin{align*}
-    \mathbf{v}(t) &= \alpha \, \mathbf{v}(t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(1)} \\\\
-    \Delta \mathbf{w}(t) &= \mathbf{v} (t) \tag*{(2)} \\
-     &= \alpha \, \mathbf{v}(t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \\
-     &= \alpha \, \Delta \mathbf{w} (t-1) - \varepsilon \frac{\partial E}{\partial \mathbf{w}}(t) \tag*{(3)}
-  \end{align*}\]
-
-  + Eq. (1):
-    + the velocity at time $t$: the mini-batch w/ $t-1$ attenuated by a number, like $0.9$, and adding the effect of the current gradient
-    + $t$: the updates of weights
-    + (alpha) momentum = the viscosity (0.9)
-    + effect of gradient: downhill by a given learning rate times the gradient at time $t$
-    + The effect of the gradient is to increment the previous velocity.
-    + The velocity also decays by $\alpha$ which is slightly less than 1.
-  + Eq. (2): The weight change is equal to the current velocity.
-  + Eq. (3): The weight change can be expressed in terms of the previous weight change and the current gradient.
-
-+ [The behavior of the momentum method](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method)
-  + error surface as a tilted plane
-    + the gain of velocity from the gradient balanced by the multiplicative attenuation of the velocity due to the momentum term
-    + the ball reaches a terminal velocity
-    + if momentum $\rightarrow 1$, going down much faster than simple gradient descent
-    + terminal velocity: as $t \rightarrow \infty$
-
-    \[\mathbf{v}(\infty) = \frac{1}{1 - \alpha} \left( -\varepsilon \frac{\partial E}{\partial \mathbf{w}} \right)\]
-
-    + Derivation
-
-      \[\begin{align*}
-        & v(\infty) = \alpha \, v(\infty) - \varepsilon \, \frac{\partial E}{\partial w} (t) \\
-        & (1 - \alpha) \, v(\infty) = - \varepsilon \frac{\partial E}{\partial w} (t) \\
-        & v(\infty) = \frac{1}{(1 - \alpha)} \, \left(-\varepsilon \frac{\partial E}{\partial w}(t)\right)
-      \end{align*}\]
-
-    + $\alpha = 0.99$: 100 times as fast as the learning rate alone
-  + preventing big momentum to change quickly $\rightarrow$ difficult to find the right relative values of different weights
-    + playing w/ a small momentum (e.g. 0.5) to average out sloshes in obvious ravines
-    + once the large gradients disappeared and the weights stuck in a ravine the momentum
-  + using a small learning rate with a big momentum to get rid of an overall learning rate
-  + learning at a rate alone that would cause divergent oscillations without the momentum
-
-+ [Formula for Momentum](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
-  + using past gradients for updating values
-  + $v$: velocity
-  + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
-
-  \[\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}\]
-
-  + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
-  + $\varepsilon$: current gradient update
-
-+ [Compute gradient estimate](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
-
-    \[g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})\]
-  + Update velocity: $v = \alpha v - \varepsilon g$
-  + Update parameters: $\theta = \theta + v$
-  + Impacts
-    + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
-    + As the number of updates increases the momentum kickstarts and allows faster convergence.
-
-
-### Backpropagation for Classical Momentum
-
-+ [Momentum method](../ML/MLNN-Hinton/a12-Learning.md#811-backpropagation-with-momentum)
-  + minimizing the error function: wide oscillation of the search process w/ the gradient descent
-  + traditional gradient descent: computed for each new combination of weights
-  + momentum approach: compute the negative gradient direction a weighted average of the current gradient and the previous correction direction for each step
-  + accelerating convergence: increasing the learning rate up to an optimal value
-  + purpose: allowing the attenuation of oscillations in the iteration process
-
-+ [Mathematical representation for momentum](../ML/MLNN-Hinton/a12-Learning.md#811-backpropagation-with-momentum)
-  + A network with $n$ different weights $w_1, w_2, \dots, w_n$
-  + Assumption and Notations
-    + $E$: the error function
-    + $\gamma$: the learning rate
-    + $\alpha$: the momentum rate
-  + The $i$-th correction for weight $w_k$
-
-    \[\Delta w_k(i) = -\gamma \, \frac{\partial E}{\partial w_k} + \alpha \, \Delta w_k (i-1)\]
-
-+ [Optimization](../ML/MLNN-Hinton/a12-Learning.md#811-backpropagation-with-momentum)
-  + optimal parameters highly depends on the learning task
-  + no general strategy to deal with the problem
-  + tradeoffs: choosing the a specific learning and momentum rates
-  + observing the oscillating behavior on backpropagation feedback rule and large momentum rates
-
-+ [Linear associator](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
-  + a single computing element with associated weights $w_1, w_2, \dots, w_n$
-  + input: $x_1, x_2, \dots, x_n$
-  + output: $w_1x_1 + w_2x_2 + \cdots + w_n x_n$
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
-      <img src="../ML/MLNN-Hinton/img/a12-02.png" style="margin: 0.1em;" alt="Linear associator" title="Linear associator" width=200>
-    </a>
-  </div>
-
-+ [Mathematical Representation for Linear Associator](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
-  + Assumptions & Notations
-    + $(\mathbf{x_1}, y_1), (\mathbf{x_2}, y_2), \dots, (\mathbf{x_p}, y_p)$: the input-output $p$ ordered pairs
-    + $\mathbf{x}$: vector of input patterns w/ $n$-dimensional rows
-    + $\mathbf{w}$: vector of the weights of the linear associator w/ $n$-dimensional columns
-    + $\mathbf{X}$: a $p \times m$ matrix w/ $\mathbf{x_1}, \mathbf{x_2}, \dots \mathbf{x_p}$ as rows
-    + $\mathbf{y}$: a column vector of the scalars $y_1, y_2, \dots, y_p$
-  + the learning task objective: minimize the quadratic error
-
-    \[\begin{align*}
-    E &= \sum_{i=1}^{n} \| \mathbf{x_i} \cdot \mathbf{w} - y_i \|^2 \\
-      &= \| \mathbf{X}\mathbf{w} - \mathbf{y} \|^2 = (\mathbf{X}\mathbf{w} - \mathbf{y})^T(\mathbf{X}\mathbf{w} - \mathbf{y}) \\
-      &= \mathbf{w}(\mathbf{X}^T \mathbf{X})\mathbf{w} -2 \: \mathbf{y}^T\mathbf{X}\mathbf{w} + \mathbf{y}^T\mathbf{y}
-    \end{align*}\]
-
-  + the lengths of the principal axes: determined by the magnitude of the eigenvalues of the correlation of matrix $\mathbf{X}^T\mathbf{X}$
-  + gradient descent: most effective w/ the same length when the principal axes of the quadratic form
-
-+ [Eigenvlaues in the correlation matrix $\mathbf{X}^T\mathbf{X}$](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
-  + the eigenvalues $\to$ the lengths of the principal axes of the error function
-  + the range of possible values of $\gamma$ reduces as one of these eigenvalues much larger than the others
-
-+ [Convergence and Divergence zones](../ML/MLNN-Hinton/a12-Learning.md#the-linear-associator)
-  + parameters combinations in the boundary btw regions: stable oscillations
-  + $\gamma > 4 \cdot 2/k$: not balanced with any value of $\alpha$
-  + $\gamma > 1$: a geometric explosion of the iteration process
-  + $1/k < \gamma < 2/k$: stable oscillation; the boundaries between regions
-  + $\gamma < 1/2k$: optimal convergence speed w/ a unique $\alpha$
-  + jagged line: the optimal combinations of $\gamma$ and $\alpha$
-
-+ [Critical parameter combinations](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
-  + Backpropagation: choosing a learn rate $\gamma$ w/o any previous knowledge of the correlation matrix of the input
-  + Conservative approach: choosing a very small learning rate
-  + In case of a correlation matrix $\mathbf{X}^T\mathbf{X}$ with some very large eigenvalues, a given choice of $\gamma$ could led to divergence in the associated direction in weight space.
-
-+ [Error function in weight space](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
-  + Paths for backpropagation learning w/ linear associator
-  + Bounded nonlinear error function and the result of several iterations
-
-+ [learning rate considerations](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
-  + too small: possible to get stuck in local minima
-  + too big: possible oscillatory traps
-
-+ [Remedy](../ML/MLNN-Hinton/a12-Learning.md#critical-parameter-combinations)
-  + adaptive learning rates
-  + statistical preprocessing of the learning set w/ decorrelation; ie. no excessively large eigenvalues of the correlation matrix
-
-
-### Nesterov Momentum
-
-+ [A better type of momentum](../ML/MLNN-Hinton/06-MiniBatch.md#the-momentum-method) (Nesterov 1983)
-  + standard momentum method
-    1. compute the gradient at the current location
-    2. take a big jump in the direction of the updated accumulated gradient
-  + Ilya Sutskever (2012)
-    + a new form of momentum working better
-    + inspired by the Nesterov method for optimizing convex functions
-  + Nesterov approach
-    1. make a big jump in the direction of the previous accumulated gradient
-    2. measure the gradient where ending up and making a correction: better to correct a mistake after you have made it
-  + standard vs Nesterov
-    + standard: adding the current gradient and then gambling on the big jump
-    + Nesterov: using the previous accumulated gradient to make the big  and then correct itself at the place
-
-+ [Nesterov Method](https://trongr.github.io/neural-network-course/neuralnetworks.html)
-  + old momentum method: calculate gradient, i.e., correct your previous mistake, at current point, then jump
-
-    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t-1)\]
-
-  + new and improved momentum method: jump first, then correct your mistake at the description
-
-    \[\Delta w(t) = \alpha \Delta w(t-1) - \varepsilon \frac{\partial E}{\partial w} (t)\]
-
-+ [Nesterov momentum](../ML/MLNN-Hinton/a03-Optimization.md#nesterov-momentum)
-  + Sutskever, Martens et al. "[On the importance of initialization and momentum in deep learning](http://proceedings.mlr.press/v28/sutskever13.pdf)" 2013
-  + Classical vs Nesterov Momentum
-    + Classical
-      + first correct velocity
-      + make a big step according to that velocity (and then repeat)
-  + Nesterov
-    + first make a step into velocity direction
-    + make a correction to a velocity vector based on a new location (then repeat)
-
-  + Hugh difference in practice
-    + Apply an interim update: $\tilde{\theta} = \theta + v$
-    + Perform a correction based on gradient at the interim point
-
-      \[\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}\]
-
-    + momentum based on look-ahead slope
-    + visual representation of the difference between the traditional momentum update and Nesterov momentum
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-        <img src="https://miro.medium.com/max/875/1*hJSLxZMjYVzgF5A_MoqeVQ.jpeg" style="margin: 0.1em;" alt="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." title="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." width=450>
-      </a>
-    </div>  
-
 
 
 ## Parameter Initialization
@@ -700,5 +466,148 @@
   2. reduces the dependence of gradients on the scale of the parameters or their initial values
   3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
   4. allows use of saturating nonlinearities and higher learning rates
+
+
+## Second-order backpropagation
+
+### Overview
+
++ [second-order backpropagation](../ML/MLNN-Hinton/a12-Learning.md#843-second-order-backpropagation)
+  + a method to efficiently compute the Hessian of a linear network of 1-dim functions
+  + used to get explicit symbolic expressions or numerical approximations of the Hessian
+  + able to use in parallel computers to improve second-order learning algorithms for neural networks
+
++ [Methods for the determination of the Hessian matrix](../ML/MLNN-Hinton/a12-Learning.md#843-second-order-backpropagation)
+  + using a graphical approach
+  + reducing the whole problem to a computation by inspection
+  + able to handle arbitrary topologies
+  + restriction: no cycles on the network
+
+
+### Second-order derivatives
+
++ [Second-order derivatives](../ML/MLNN-Hinton/a12-Learning.md#second-order-derivatives)
+  + investigating the expressions of the form $\partial^2 F / \partial w_i \partial w_j$
+  + Assumptions & Notations
+    + $F$: network function
+    + $w_i$ & $w_j$: network's weights
+
++ [Second-order computation](../ML/MLNN-Hinton/a12-Learning.md#second-order-derivatives)
+  + Assumptions & Notations (left diagram)
+    + $x$: the input to the network, 1-dim value
+    + $F$: the network function computed at the output node with label $q$ for the given input value
+    + $F_{l_1q}, F_{l_2q}, \dots, F_{l_mq}$: the network functions computed by subnetworks of the original network
+    + $q$: the 1-dim function at the output node
+  + the network function
+
+    \[F(x) = g\left(F_{l_1q}(x) + F_{l_2q}(x) + \cdots + F_{l_mq}(x)\right)\]
+
+  + objective: computing $\partial^2 F(x)/\partial w_i \partial w_j$ for two given network weights $w_i$ and $w_j$
+
+    \[\frac{\partial^2F(x)}{\partial w_i \partial w_j} = g^{\prime\prime}(s) \frac{\partial s}{\partial w_i} \frac{\partial s}{\partial w_j} + g^{\prime}(s) \left(\frac{\partial^2 F_{l_1q}(x)}{\partial w_i \partial w_j} + \cdots + \frac{\partial^2 F_{l_mq}(x)}{\partial w_i \partial w_j}\right)\]
+
+    + $s = F_{l_1q}(x) + F_{l_2q}(x) + \cdots + F_{l_mq}(x)$
+    + the desired second-order partial derivative w/ two terms
+      + the second derivative of $q$ evaluated at its input multiplied by the partial derivatives of the sum of the $m$ subnetwork functions $F_{l_1q}, \dots, F_{l_mq}$ w.r.t. $w_i$ and $w_j$
+      + the second-order correction: the second derivative of $q$ multiplied the sum of the of the second-order partial derivatives of each subnetwork function w.r.t. $w_i$ and $w_j$
+    + compute the first partial derivatives of any network function w.r.t. a weight
+
++ [The feed-forward labeling phase of the backpropagation algorithm](../ML/MLNN-Hinton/a12-Learning.md#second-order-derivatives)
+  + computing a 1-dim function $f$ at each node
+  + store 3 values at each node: $f(x)$, $f^{\prime}(x)$, and $f^{\prime\prime}(x)$ where $x$ represents the input to this node
+  + Idea: (right diagram)
+    + performing the feed-forward labeling step in the usual manner, but storing additionally at each node the second derivative of the node's function evaluated at the input
+    + selecting $w_1$ and $w_2$ and deriving network function of an output node
+      + the second-order partial derivative of the stored network function w.r.t. those weights: the product of the stored $g^{\prime\prime}$ value with the backpropagation path values from the output node up to weight $w_i$ and $w_j$
+      + intersection of the backpropagation paths of $w_i$ and $w_j$: requiring a second-order correction
+      + the second-order correction: the stored value of $g^{\prime}$ multiplied by the sum of the second-order derivative w.r.t $w_i$ and $w_j$ of all subnetwork function inputs to the node which belong to intersecting paths
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-19.png" style="margin: 0.1em;" alt="Second-order computation" title="Second-order computation" height=150>
+      <img src="img/a12-20.png" style="margin: 0.1em;" alt="Interescting paths to a node" title="Interescting paths to a node" height=150>
+    </a>
+  </div>
+
++ [Multilayer perceptron](../ML/MLNN-Hinton/a12-Learning.md#second-order-derivatives)
+  + Assumption and Notations
+    + model sees the left diagram
+    + $w_{ih}$: a weight in the first layer of weights
+    + $w_{jm}$: a weight in the second layer
+    + $w_{ih}$ and $w_{jm}$: only intersect at node $m$
+  + The second derivative of $F_m$ w.r.t. $w_{ih}$ and $w_{jm}$: the stored value of $f^{\prime\prime}$ multiplied by the stored output of the hidden unit $j$ and the backpropagation path up to $w_{ih}$, i.e., $w_{hm} h^{\prime} x_i$
+
++ [Adjustment for one weight lying in the backpropagation path of another](../ML/MLNN-Hinton/a12-Learning.md#second-order-derivatives)
+  + Assumptions & Notations
+    + $w_{ik}$: a weight lies in the backpropagation path of weight $w_j$
+  + performing the second-order backpropagation algorithm as usual
+  + the backward computation proceeds up to the point where $w_{ik}$ transports an input to a node $k$ for which a second-order correction required
+  + the information transported through the edge with weight $w_{ik}$ is the subnetwork function $F_{ik}$
+  + the second-order correction for the node w/ primitive function $g$
+
+    \[g^{\prime} \frac{\partial^2 F_{ik}}{\partial w_{ik} \partial{w_j}} = g^{\prime} \frac{\partial^2 w_{ik} F_i}{\partial w_{ik} \partial w_j}\]
+  
+  + simplified the previous equation as
+
+    \[g^{\prime} \frac{\partial F_i}{\partial w_j}\]
+  
+  + The subnetwork function $F_i$ does not depend on $w_{ik}$, thus, the second-order backpropagation method complemented by the following rule
+    + the second-order correction to a node $k$ with activation function $q$ involves a weight $w_{ik}$ and a node $w_j$
+    + the second-order correction is just $g^{\prime}$ multiplied by the backpropagation path value of the subnetwork function $F_i$ w.r.t. $w_j$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-21.png" style="margin: 0.1em;" alt="Multilayer perceptron" title="Multilayer perceptron" height=200>
+    </a>
+  </div>
+
+
+### Explicit calculation of the Hessian
+
++ considering the case of a single input pattern into the network
+
++ [Algorithm: second-order backpropagation](../ML/MLNN-Hinton/a12-Learning.md#explicit-calculation-of-the-hessian)
+  1. extend the neural network
+    + adding node which compute the squared difference of each component of the output and the expected target values
+    + collecting all these differences at a single node whose output is the error function of the network
+    + activation function of the node: the identity
+  2. label all nodes in the feed-forward phase with the result of computing $f(x)$, $f^{\prime}(x)$, and $f^{\prime\prime}(x)$
+    + $x$: the global input to each node
+    + $f$: the associated activation function of the node
+  3. starting from the error function node in the extended network, compute the second-order function $g$, compute the second-order derivative of $E$ w.r.t. two weights $w_i$ and $w_j$, by proceeding recursively in the following way
+    1. the second-order derivative of the output of a node $G$ w/ activation function $g$ w.r.t. two weights $w_i$ and $w_j$
+      + the product of the stored $g^{\prime\prime}$ value w/ the backpropagation path values between $w_i$ and the node $G$ and between $w_j$ and the node $G$
+      + a second-order correction require if both propagation paths intersect
+    2. the second-order correction equals to the product of
+      + the stored $g^{\prime}$ value w/ the sum of the second-order derivative (w.r.t. $w_i$ & $w_j$) of each node whose output goes directly to $G$
+      + which belongs to the intersection of the backpropagation path of $w_i$ and $w_j$
+    3. special case: one of the weights connected to node $h$ directly to node $G$, the second-order corrections is just $g^{\prime}$ multiplied by the backpropagation path value of the subnetwork function $F_h$ w.r.t. $w_j$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K8.pdf" ismap target="_blank">
+      <img src="img/a12-22.png" style="margin: 0.1em;" alt="Multilayer perceptron - the special case" title="Multilayer perceptron - the special case" height=200>
+    </a>
+  </div>
+
+### Some conclusions
+
++ [the Hessian matrix](../ML/MLNN-Hinton/a12-Learning.md#some-conclusions)
+  + easily computing the matrix even for convoluted feed-forward topologies
+  + done either symbolically or numerically
+  + once the recursive strategy has been defined, it is easy to implement in a computer
+  + backpropagation tries to organize the data in such a way that redundant computations are avoided
+  + calculation of the Hessian matrix involves repeated computation of the same terms
+  + the network providing a data structure where to store partial results  and organizing the computation
+  + explaining why the standard and second-order backpropagation are also of interest for computer algebra systems
+  + minimizing the number of arithmetic operations required
+  + the backpropagation path values stored to be used repetitively
+  + the node w/ the backpropagation paths of different weights intersect need to be calculated only once
+  + possibly using graph traversing algorithms to optimize computation of the Hessian
+
++ [Diagonal of the Hessian matrix](../ML/MLNN-Hinton/a12-Learning.md#some-conclusions)
+  + only involving a local communication in a neural network
+  + the backpropagation path to a weight intersects itself in its whole length
+  + computation of the second-order derivative of the associated network function of an output unit w.r.t. a given weight organized as a recursive backward computation over this path
+  + able to apply Pseudo-Newton methods
 
 
