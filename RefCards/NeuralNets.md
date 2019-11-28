@@ -2124,6 +2124,37 @@
   + dramatically effecting the convergence speed of algorithms
 
 
+### Delta-bar-Delta
+
++ Jacob's proposal: acceleration of the learning rate made more caution than deceleration
+
++ [Modeling algorithm](../ML/MLNN-Hinton/a12-Learning.md#832-delta-bar-delta)
+  + Algorithms & Notations
+    + $U$ & $d$: constants
+    + $\delta_i^{(k)}$: an exponential average partial derivative in the direction of weight $w_i$
+    + $\phi$: a constant determining what weight given to the last averaged term
+  + starting w/ individual learning rates $\gamma_1, \dots, \gamma_n$ set all to a small value
+  + the learning rate ar the $k$-th iteration
+
+    \[\gamma_i^{(k+1)} = \begin{cases}
+      \gamma_i^{(k)} + u & \text{if } \Delta_i E^{(k)} \cdot \delta_i^{(k-1)} > 0 \\
+      \gamma_i^{(k)} \cdot d & \text{if } \Delta_i E^{(k)} \cdot \delta_i^{(k-1)} < 0 \\
+      \gamma_i^{(k)} & \text{otherwise}
+    \end{cases}\]
+
+  + exponential averaged partial derivative w.r.t. $w_i$
+
+    \[\delta_i^{(k)} = (1 - \phi) \Delta_i^{(k)} + \phi \delta_i^{(k-1)}\]
+
+  + the weight updates performed w/o momentum
+
+    \[\Delta^{(k)} w_i = - \gamma_i^{(k)} \Delta_i E^{(k)}\]
+
++ [Motivation](../ML/MLNN-Hinton/a12-Learning.md#832-delta-bar-delta)
+  + avoid excessive oscillations of the basic algorithm
+  + Issue: set a new constant and its value
+  + error function: regions allowing a good quadratic approximation optimized at $\phi = 0 \to$ Silva and Almeida's algorithm
+
 
 
 ### AdaGrad
