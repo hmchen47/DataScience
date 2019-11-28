@@ -269,7 +269,6 @@
     </div>  
 
 
-
 ## Parameter Initialization
 
 ### Initialization Strategies
@@ -430,5 +429,7 @@
   2. reduces the dependence of gradients on the scale of the parameters or their initial values
   3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
   4. allows use of saturating nonlinearities and higher learning rates
+
+
 
 
