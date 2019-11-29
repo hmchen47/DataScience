@@ -564,16 +564,16 @@ Author: Leslie N. Smith
 + Weight decay values
   + reasonable values: $10^{-3}, 10^{-4}, 10^{-5}$ and $0$
   + smaller datasets and architectures: larger values for weight decay
-  + larger datasets and deeper architectures: maller values
+  + larger datasets and deeper architectures: smaller values
   + hypothesis: complex data provides its own regularization and other regularization should be reduced
-  + experince: $10^{-4}$ about right w/ initial runs at $3 \times 10^{-5}, 10^{-4}, 3 \times 10^{-4}$
-  + bisection of the expoonent rather than bisecting the value ($10^{-3.5} = 3.16 \times 10^{-4}$)
+  + experience: $10^{-4}$ about right w/ initial runs at $3 \times 10^{-5}, 10^{-4}, 3 \times 10^{-4}$
+  + bisection of the exponent rather than bisecting the value ($10^{-3.5} = 3.16 \times 10^{-4}$)
   + make a follow up run that bisects the exponent of the best two of these if none seem best, extrapolate toward an improved value
 
 + __REMARK 6.__ the amount of regularization must be balanced for each dataset and architecture
-  + the value of weight decay: key knob to tune regularization against the regualrization from an increasing learning rate
+  + the value of weight decay: key knob to tune regularization against the regularization from an increasing learning rate
   + other regularization generally fixed
-  + weight decay changed easily when experitmenting with maximum learning rate and stepsize values
+  + weight decay changed easily when experimenting with maximum learning rate and stepsize values
 
 + Examples of weight decay search using a 3-layer network on the Cifar-10 dataset
   + Training used a constant learning rate (0.005) and constant momentum (0.95).
@@ -584,7 +584,7 @@ Author: Leslie N. Smith
     + $WD = 10^{-3)} (blue curve): too small; overfitting
     + $WD = 3.2 \times 10^{-3}$ (red curve): a goof choice
     + $WD = 10^{-2.75} = 1.8 \times 10^{-3}$ (purple curve)
-  + Fig. 9(b): the accuracy results from tainings
+  + Fig. 9(b): the accuracy results from trainings
     + the validation loss: predictive of the best final accuracy
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -617,7 +617,7 @@ Author: Leslie N. Smith
 + Grid search for weight decay (WD) on Cifar-10 with resnet-56 and a constant momentum=0.95 and TBS = 1,030
   + The optimal weight decay is different if you search with a constant learning rate (left) versus using a learning rate range (right) due to the regularization by large learning rates.
   + different optimal weight decay: a constat learning rate vs. a learning rate range
-  + the larger learning rates provide regularizatoin so a smaller weight decay value is optimal
+  + the larger learning rates provide regularization so a smaller weight decay value is optimal
   + Fig. 11(a): the results of a weight decay search with a constant learning rate of 0.1
     + $WD = 10^{-4}$: overfitting
     + $WD = 10^{-3}$: better
@@ -635,13 +635,13 @@ Author: Leslie N. Smith
 
 + Grid search for the optimal WD restarting from a snapshot
   + dataset: Cifar-10
-  + a grid search for aweight decay to make a single run at a middle value for weight decay and save a snapshot after the loss plateau
+  + a grid search for a weight decay to make a single run at a middle value for weight decay and save a snapshot after the loss plateau
   + using the snapshot to restart runs w/ different WD values
   + Fig. 12(a): 3-layer network
     + the initial run w/ a sun-optimal $WD = 10^{-3}$
     + continuation runs: $WD = 10^{-3}, 3 \times 10^{-3}$ and $10^{-2}$
-    + best perfromance $WD = 3 \times 10^{-3}$
-  + Fig. 12(b): a weight-decay grid search from a snaoshot for resnet-56
+    + best performance $WD = 3 \times 10^{-3}$
+  + Fig. 12(b): a weight-decay grid search from a snapshot for resnet-56
     + the first half of the range test w/ $WD = 10^{-4}$
     + $WD = 10^{-4}$: best result
 
@@ -663,28 +663,28 @@ Author: Leslie N. Smith
       + resnet: 3.0
     + 1cycle LR policy
       + max LR: from an LR range test
-      + min LR: $LR_{max} / 10$ but othger facts relevant, such as the rate of learning rate increase
+      + min LR: $LR_{max} / 10$ but other facts relevant, such as the rate of learning rate increase
   2. Total batch size (TBS):
     + larget batch size working well
     + constrainted by the GPU memory
     + TBS = batch size on a GPU x the number of GPUs
-    + able to comapre different performance w/ batch sizes if archecture small or hardware permitted very large batch size
-    + small batch sizes add regularizaton wjile large batch sizes add less $\to$ balacing the proepr amount of regularization
+    + able to comapre different performance w/ batch sizes if architecture small or hardware permitted very large batch size
+    + small batch sizes add regularization while large batch sizes add less $\to$ balacing the proper amount of regularization
     + better to use  a large batch size  $\implies$ able to use larger learning rate
   3. Momentum
     + short runs w/ momentum values: 0.99, 0.97, 0.95, and 0.9 to attain the best value for momentum
     + 1cycle learning rate schedule: using cyclical momentum (CM)
     + CM procedure: starting at the maximum momentum and decreasing with increasing learning rate (0.8 or 0.85)
-    + performance almosy indepent of the minimum momentum value
-    + cyclical momentum + LR range test: stablizeing the convergence when using large learning rate values more than a constant momentum does
-  4. Weight decsy (WD)
+    + performance almost independent of the minimum momentum value
+    + cyclical momentum + LR range test: stablizing the convergence when using large learning rate values more than a constant momentum does
+  4. Weight decay (WD)
     + a grid search to determine the proper magnitude
     + usually not requiring more than one significant figure accuracy
     + value setting: knowledge of the dataset and architecture used
     + more complex dataset requiring less regularization: test smaller WD, such as $10^{-4}, 10^{-5}, 10^{-6}$ and 0
     + shallow architecture requireing more regularization: test larger WD values, such as $10^{-2}, 10^{-3}, 10^{4}$
 
-+ Hyper-parameter optimization: reasonably quicl if searching for clues in the test loss early in the training
++ Hyper-parameter optimization: reasonably quick if searching for clues in the test loss early in the training
 
 + [Files](https://github.com/lnsmith54/hyperParam1) to replicate the results
 
