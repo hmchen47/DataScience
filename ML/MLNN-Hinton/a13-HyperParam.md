@@ -29,7 +29,7 @@ Author: Leslie N. Smith
 + no simple and easy ways to set hyper-parameters
   + learning rate, batch size, momentum and weight decay
   + grid search or random search: computationally expensive and time consuming
-  + James Bergstra and Yoshua Bengio. Random search for hyper-parameter optimization. Journal of Machine Learning Research, 13(Feb):281–305, 2012.
+  + James Bergstra and Yoshua Bengio. [Random search for hyper-parameter optimization](http://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf). Journal of Machine Learning Research, 13(Feb):281–305, 2012.
   + training time and final performance: highly dependent on good choice
   + choosing the standard architecture and the hyper-parameter files freely available in model zoo or from gitgub.com
 
@@ -41,15 +41,15 @@ Author: Leslie N. Smith
   + well-known concept of the balance between underfitting and overfitting
   + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
   + paying close attention while using cyclical learning rates and cyclical momentum
-  + Leslie N Smith. Cyclical learning rates for training neural networks. In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
+  + Leslie N Smith. [Cyclical learning rates for training neural networks](https://arxiv.org/abs/1506.01186). In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
 
 
 ## 2. Related Work
 
 + Deep learning 
-  + Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio. Deep learning, volume 1. MIT press Cambridge, 2016.
-  + Yoshua Bengio. Practical recommendations for gradient-based training of deep architectures. In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
-  + Genevieve B Orr and Klaus-Robert Müller. Neural networks: tricks of the trade. Springer, 2003.
+  + Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio. [Deep learning, volume 1](http://www.deeplearningbook.org/). MIT press Cambridge, 2016.
+  + Yoshua Bengio. [Practical recommendations for gradient-based training of deep architectures](https://arxiv.org/abs/1206.5533). In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
+  + Klaus-Robert Müller, Grégoire Montavon, Geneviève B. Orr, Klaus-Robert Mülle. [Neural networks: tricks of the trade](http://93.174.95.29/main/950000/6b8768e619756f4e867282cfcec63f2e/%28Lecture%20Notes%20in%20Computer%20Science%207700%29%20Klaus-Robert%20M%C3%BCller%20%28auth.%29%2C%20Gr%C3%A9goire%20Montavon%2C%20Genevi%C3%A8ve%20B.%20Orr%2C%20Klaus-Robert%20M%C3%BCller%20%28eds.%29%20-%20Neural%20Networks_%20Tricks%20of%20the%20Trade_%20Second%20Edition-Springer-Ve.pdf). Springer, 2012.
 
 + early works of Leslie N. Smith
   + Leslie N Smith. No more pesky learning rate guessing games. arXiv preprint arXiv:1506.01186, 2015.
@@ -99,8 +99,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/testLoss1.png" style="margin: 0.1em;" alt="Figure 1(a): Characteristic plot of training loss, validation accuracy, and validation loss." title="(a) Characteristic plot of training loss, validation accuracy, and validation loss." height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/generalizationError.png" style="margin: 0.1em;" alt="Figure 1(b): Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." title="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." height=250>
+      <img src="img/a13-testLoss1.png" style="margin: 0.1em;" alt="Figure 1(a): Characteristic plot of training loss, validation accuracy, and validation loss." title="(a) Characteristic plot of training loss, validation accuracy, and validation loss." height=200>
+      <img src="img/a13-generalizationError.png" style="margin: 0.1em;" alt="Figure 1(b): Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." title="(b) Characteristic plot of the generalization error, which is the validation/test loss minus the training loss." height=200>
     </a>
   </div>
 
@@ -125,7 +125,7 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Figure 2. Pictorial explanation of the tradeoff between underfitting and overfitting." height=250>
+      <img src="img/a13-under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Figure 2. Pictorial explanation of the tradeoff between underfitting and overfitting." height=200>
     </a>
   </div>
 
@@ -149,14 +149,14 @@ Author: Leslie N. Smith
 
 + Underfitting visible during the training (Fig. 3)
   + Underfitting is characterized by a continuously decreasing test loss, rather than a horizontal plateau.
-  + Fig. 3(a) (a) Test loss for the Cifar-10 dataset with a shallow 3 layer network
+  + Fig. 3(a) Test loss for the Cifar-10 dataset with a shallow 3 layer network
     + red curve
       + decreasing test loss w/ a learning rate ($LR = 0.001$)
       + Underfitting: continue to decrease
     + blue curve
       + decreasing more rapidly during the initial iterations and then is horizontal
       + __a positive clue__: the configuration producing a better final accuracy than other configuration
-  + Fig. 3(b) (b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2
+  + Fig. 3(b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2
     + underfitting: underlying complexities of the data distributions
     + the test loss continues decreasing over the 100,000 iterations (about 3 epochs)
     + the inception-resnet-v2 decreasing more and becoming more horizontal
@@ -164,8 +164,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerLoss.png" style="margin: 0.1em;" alt="(a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." title="Figure 3. (a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetTestLoss3.png" style="margin: 0.1em;" alt="(b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." title="Figure 3. (b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." height=250>
+      <img src="img/a13-3layerLoss.png" style="margin: 0.1em;" alt="(a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." title="Figure 3. (a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." height=200>
+      <img src="img/a13-imagenetTestLoss3.png" style="margin: 0.1em;" alt="(b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." title="Figure 3. (b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." height=200>
     </a>
   </div>
 
@@ -198,15 +198,15 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Figure 4(a): Cifar-10 dataset with a shallow 3 layer network." height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Figure 4(b) Imagenet dataset with resnet-50 architecture." height=250>
+      <img src="img/a13-overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Figure 4(a): Cifar-10 dataset with a shallow 3 layer network." height=200>
+      <img src="img/a13-imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Figure 4(b) Imagenet dataset with resnet-50 architecture." height=200>
     </a>
   </div>
 
 + Additional examples of overfitting
   + Fig. 7(a): Cyclical momentum tests for the Cifar-10 dataset with a shallow 3 layer network
     + the value of momentum matters
-    + yellow curve: 
+    + yellow curve:
 
 
 ## 4. Cyclical Learning Rates, Batch Sizes, Cyclical Momentum, and Weight Decay
@@ -223,7 +223,7 @@ Author: Leslie N. Smith
 
 + Cyclical learning rates (CLR)
   + Leslie N Smith. [No more pesky learning rate guessing games](https://www.arxiv-vanity.com/papers/1506.01186/). arXiv preprint arXiv:1506.01186, 2015.
-  + Leslie N Smith. Cyclical learning rates for training neural networks. In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
+  + Leslie N Smith. [Cyclical learning rates for training neural networks](https://arxiv.org/abs/1506.01186). In Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on, pp. 464–472. IEEE, 2017.
   + Hyper-parameters required: minimum and maximum learning rate boundaries and a stepsize
   + stepsize: the number of of iterations (or epochs) used for each step
   + a cycle consisting of two such steps
@@ -261,8 +261,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/LRvsCLRresnet56.png" style="margin: 0.1em;" alt="(a) An example of super-convergence" title="Figure 5(a): An example of super-convergence" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/clr3SS5kResnet56WD.png" style="margin: 0.1em;" alt="(b) The effect of weight decay" title="Figure 5(b): The effect of weight decay" height=250>
+      <img src="img/a13-LRvsCLRresnet56.png" style="margin: 0.1em;" alt="(a) An example of super-convergence" title="Figure 5(a): An example of super-convergence" height=200>
+      <img src="img/a13-clr3SS5kResnet56WD.png" style="margin: 0.1em;" alt="(b) The effect of weight decay" title="Figure 5(b): The effect of weight decay" height=200>
     </a>
   </div>
 
@@ -279,7 +279,7 @@ Author: Leslie N. Smith
     + small batch sizes
     + weight decay
     + dropout
-  + Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: A simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
+  + Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. [Dropout: A simple way to prevent neural networks from overfitting](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf). The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
   + balancing the various forms of regularization for each dataset and architecture in order to obtain good performance
 
 + __REMARK 3.__ the amount of regularization must be balanced for each dataset and architecture
@@ -288,7 +288,7 @@ Author: Leslie N. Smith
   + regularized w/ very large learning rates makes training significantly and efficient
 
 + More experiments
-  + datasets: MINIST, Cifar10, Cifar-100, imagenet
+  + datasets: MNIST, Cifar10, Cifar-100, imagenet
   + architectures: shallow nets, resnets, wide resnets, densenets, inception-resnet
   + trained more quickly w/ large learning rates
   + provided other forms of regularization reduced to an optimal balanced point
@@ -333,8 +333,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56CifarTBSAcc.png" style="margin: 0.1em;" alt="(a) The effect of batch size on test accuracy" title="Figure 6(a): The effect of batch size on test accuracy" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56CifarTBSLoss.png" style="margin: 0.1em;" alt="(b) The effect of batch size on test loss" title="Figure 6(b): The effect of batch size on test loss" height=250>
+      <img src="img/a13-resnet56CifarTBSAcc.png" style="margin: 0.1em;" alt="(a) The effect of batch size on test accuracy" title="Figure 6(a): The effect of batch size on test accuracy" height=200>
+      <img src="img/a13-resnet56CifarTBSLoss.png" style="margin: 0.1em;" alt="(b) The effect of batch size on test loss" title="Figure 6(b): The effect of batch size on test loss" height=200>
     </a>
   </div>
 
@@ -343,20 +343,20 @@ Author: Leslie N. Smith
     + Samuel L Smith, Pieter-Jan Kindermans, and Quoc V Le. [Don’t decay the learning rate, increase the batch size](https://www.arxiv-vanity.com/papers/1711.00489/). arXiv preprint arXiv:1711.00489, 2017.
     + Stanisław Jastrzebski, Zachary Kenton, Devansh Arpit, Nicolas Ballas, Asja Fischer, Yoshua Bengio, and Amos Storkey. [Three factors influencing minima in sgd](https://www.arxiv-vanity.com/papers/1711.04623/). arXiv preprint arXiv:1711.04623, 2017b.
   + the batch size limited by the hardware's memory, while the learning rate not
-  + using a batch size that fits in the hardware's memory and enable using lasrger learning rates
+  + using a batch size that fits in the hardware's memory and enable using larger learning rates
 
 
 ### 4.3 Cyclical Momentum
 
 + Momentum and learning rate
   + closely related
-  + optimal learning rate dependent on the momentum; momentum dependent on th elearning rate
+  + optimal learning rate dependent on the momentum; momentum dependent on the learning rate
   + learning rate: the most important hyper-parameter to tune
   + Yoshua Bengio. [Practical recommendations for gradient-based training of deep architectures](https://www.arxiv-vanity.com/papers/1206.5533/). In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
   + momentum also important
   + setting momentum as large as possible w/o causing instabilities during training
 
-+ Mathematicatical Representation of Momentum
++ Mathematical Representation of Momentum
   + momentum: designed to accelerate network training but its effect on updating the weights is of the sam magnitude as the learning rate
   + Assumptions & Notations
     + $\theta$: all the network parameter
@@ -378,9 +378,9 @@ Author: Leslie N. Smith
   + velocity: a moving average of the gradient
 
 + Cyclic Momentum
-  + cyclic learning rate, in particular, the learning rate range test: usful methods to find an optimal learning rate
+  + cyclic learning rate, in particular, the learning rate range test: useful methods to find an optimal learning rate
   + experiment: moment range test NOT useful for finding an optimal momentum (Fig. 7(b))
-  + using a decreasing cyclical momentum when the learning rate increases provides an equivalent result to the best constant momentum value but stablizes the training to allow larger learning rates
+  + using a decreasing cyclical momentum when the learning rate increases provides an equivalent result to the best constant momentum value but stabilizes the training to allow larger learning rates
   + useful for starting with a large momentum and decreasing momentum while the learning rate is increasing
   + the learning rate improves the test accuracy and makes the training more robust to large learning rates
   + implementation is straightforward
@@ -407,21 +407,21 @@ Author: Leslie N. Smith
   + Fig. 7(b): increasing the momentum not found an optimal value
     + the momentum increases from 0.7 to 1 w/o
       + test loss continues decreasing
-      + accuracy continues increasinng
+      + accuracy continues increasing
     + no optimal momentum
   + Fig. 7(c): a LR range test for a shallow, 3-layer architecture on Cifar-10
     + learning rate: $0.002 \sim 0.02$
     + blue curve: constant momentum 
     + red curve: a increasing learning rate w/ a linearly increasing momentum (0.8 - 1.0)
     + trade-offs
-      + the increasing momentum stablizes the convergence to a larger learning rate
+      + the increasing momentum stabilizes the convergence to a larger learning rate
       + the minimum test loss is higher than the minimum test loss for the constant momentum case
     + benefits for decreasing the momentum while increasing the learning rate
       + a lower minimum test loss (yellow & purple curves)
       + faster initial convergence (yellow & purple curves)
       + greater convergence stability over a larger range of learning rates (yellow curve)
   + Fig. 7(d): Comparisons of a constant momentum and cyclical momentum
-    + each curve is the avereage of four runs
+    + each curve is the average of four runs
     + each run has a slightly different TBS
     + average TBS = 536
     + the learning rate drops by a factor or 0.316 at iterations 10k, 15k, 17.5k, and 19k
@@ -431,14 +431,14 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerMomCLRTestLoss.png" style="margin: 0.1em;" alt="(a) Showing that the value of momentum matters" title="Figure 7(a): Showing that the value of momentum matters" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerCMtestAccLoss.png" style="margin: 0.1em;" alt="(b) Increasing momentum does not find an optimal value" title="Figure 7(b): Increasing momentum does not find an optimal value" height=250>
+      <img src="img/a13-3layerMomCLRTestLoss.png" style="margin: 0.1em;" alt="(a) Showing that the value of momentum matters" title="Figure 7(a): Showing that the value of momentum matters" height=200>
+      <img src="img/a13-3layerCMtestAccLoss.png" style="margin: 0.1em;" alt="(b) Increasing momentum does not find an optimal value" title="Figure 7(b): Increasing momentum does not find an optimal value" height=200>
     </a>
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerCMtestLoss.png" style="margin: 0.1em;" alt="(c) Cyclical momentum combined with cyclical learning rates" title="Figure 7(c): Cyclical momentum combined with cyclical learning rates" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerCMtestAccLoss2.png" style="margin: 0.1em;" alt="(d) Comparing using a constant momentum to cyclical momentum" title="Figure 7(d): Comparing using a constant momentum to cyclical momentum" height=250>
+      <img src="img/a13-3layerCMtestLoss.png" style="margin: 0.1em;" alt="(c) Cyclical momentum combined with cyclical learning rates" title="Figure 7(c): Cyclical momentum combined with cyclical learning rates" height=200>
+      <img src="img/a13-3layerCMtestAccLoss2.png" style="margin: 0.1em;" alt="(d) Comparing using a constant momentum to cyclical momentum" title="Figure 7(d): Comparing using a constant momentum to cyclical momentum" height=200>
     </a>
   </div>
 
@@ -451,7 +451,6 @@ Author: Leslie N. Smith
   + Tianyi Liu, Zhehui Chen, Enlu Zhou, and Tuo Zhao. [Toward deeper understanding of nonconvex stochastic optimization with momentum using diffusion approximations](https://www.arxiv-vanity.com/papers/1802.05155/). arXiv preprint arXiv:1802.05155, 2018.
   + cyclical momentum not better than a constant value
   + better proceure: test momentum in the range $[0.9, 0.99]$ and choose a value that performs best
-  + 
 
 + Cyclical momentum tests
   + a cyclical momentum of $0.95-0.85$ provides an equivalent result as to the optimal choice of $0.95$
@@ -538,14 +537,14 @@ Author: Leslie N. Smith
   + Fig. 8(a): Constant momentum versus two forms for cyclical momentum
     + a test of cyclical momentum on resnet-56
     + fast convergence at large learning rates by cycling up from 0.1 to 1.0 in 9,000 iterations, then down to 0.001 at iteration 18,000
-    + decreasing the momentum while increasing the learning rate produces a better performance than a constant momentum or increasing the momentum with the learnig rate
-  + Fig. 8(b): same experiement as Fig. 6(a) but with cyclical momentum
+    + decreasing the momentum while increasing the learning rate produces a better performance than a constant momentum or increasing the momentum with the learning rate
+  + Fig. 8(b): same experiment as Fig. 6(a) but with cyclical momentum
     + all the general lession learned from the shallow network carried over to the deep networks
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnetCifarSCtestLoss2.png" style="margin: 0.1em;" alt="(a) Constant momentum versus two forms for cyclical momentum" title="Figure 8(a): Constant momentum versus two forms for cyclical momentum" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56CifarTBSAcc2.png" style="margin: 0.1em;" alt="(b) Same as Figure 5(a) but with cyclical momentum" title="Figure 8(b): Same as Figure 5(a) but with cyclical momentum" height=250>
+      <img src="img/a13-resnetCifarSCtestLoss2.png" style="margin: 0.1em;" alt="(a) Constant momentum versus two forms for cyclical momentum" title="Figure 8(a): Constant momentum versus two forms for cyclical momentum" height=200>
+      <img src="img/a13-resnet56CifarTBSAcc2.png" style="margin: 0.1em;" alt="(b) Same as Figure 5(a) but with cyclical momentum" title="Figure 8(b): Same as Figure 5(a) but with cyclical momentum" height=200>
     </a>
   </div>
 
@@ -556,9 +555,9 @@ Author: Leslie N. Smith
   + a form of regularization
   + balancing the various forms of regularization to obtain good performance
   + review of regularization methods: Jan Kukačka, Vladimir Golkov, and Daniel Cremers. [Regularization for deep learning: A taxonomy](https://www.arxiv-vanity.com/papers/1710.10686/). arXiv preprint arXiv:1710.10686, 2017.
-  + bese practice: remaining constant through the training
-  + generally apllied for regularization
-  + network perfromance: proper weight decay value
+  + best practice: remaining constant through the training
+  + generally applied for regularization
+  + network performance: proper weight decay value
   + the validation loss early in the training: sufficient for determining a good value
   + reasonable procedure: combined CLR and CM runs at a few values of the weight decay to simultaneously determine the best learning rates, momentum and weight decay
 
@@ -590,8 +589,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDTestLoss.png" style="margin: 0.1em;" alt="(a) Comparing WD by test loss" title="Figure 9(a): Comparing WD by test loss" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDTestAcc.png" style="margin: 0.1em;" alt="(b) Comparing WD by test accuracy" title="Figure 9(b): Comparing WD by test accuracy" height=250>
+      <img src="img/a13-3layerWDTestLoss.png" style="margin: 0.1em;" alt="(a) Comparing WD by test loss" title="Figure 9(a): Comparing WD by test loss" height=200>
+      <img src="img/a13-3layerWDTestAcc.png" style="margin: 0.1em;" alt="(b) Comparing WD by test accuracy" title="Figure 9(b): Comparing WD by test accuracy" height=200>
     </a>
   </div>
 
@@ -610,8 +609,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDCLRCMTestLoss.png" style="margin: 0.1em;" alt="(a) Comparing WD by test loss" title="Figure 10(a): Comparing WD by test loss" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDCLRCMTestAcc.png" style="margin: 0.1em;" alt="(b) Comparing WD by test accuracy" title="Figure 10(b): Comparing WD by test accuracy" height=250>
+      <img src="img/a13-3layerWDCLRCMTestLoss.png" style="margin: 0.1em;" alt="(a) Comparing WD by test loss" title="Figure 10(a): Comparing WD by test loss" height=200>
+      <img src="img/a13-3layerWDCLRCMTestAcc.png" style="margin: 0.1em;" alt="(b) Comparing WD by test accuracy" title="Figure 10(b): Comparing WD by test accuracy" height=200>
     </a>
   </div>
 
@@ -629,8 +628,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/ResnetCifarWDLRtestLoss.png" style="margin: 0.1em;" alt="(a) Constant learning rate (=0.1)" title="Figure 11(a): Constant learning rate (=0.1)" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/ResnetCifarWDCLRtestLoss.png" style="margin: 0.1em;" alt="(b) Learning rate range (=0.1-1)" title="Figure 11(b): Learning rate range (=0.1-1)" height=250>
+      <img src="img/a13-ResnetCifarWDLRtestLoss.png" style="margin: 0.1em;" alt="(a) Constant learning rate (=0.1)" title="Figure 11(a): Constant learning rate (=0.1)" height=200>
+      <img src="img/a13-ResnetCifarWDCLRtestLoss.png" style="margin: 0.1em;" alt="(b) Learning rate range (=0.1-1)" title="Figure 11(b): Learning rate range (=0.1-1)" height=200>
     </a>
   </div>
 
@@ -648,8 +647,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/3layerWDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(a) 3-layer network" title="Figure 12(a): 3-layer network" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56WDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(b) Resnet-56" title="Figure 12(b): Resnet-56" height=250>
+      <img src="img/a13-3layerWDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(a) 3-layer network" title="Figure 12(a): 3-layer network" height=200>
+      <img src="img/a13-resnet56WDsnapshotTestLoss.png" style="margin: 0.1em;" alt="(b) Resnet-56" title="Figure 12(b): Resnet-56" height=200>
     </a>
   </div>
 
@@ -810,14 +809,14 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/wide32cifarWDTestLoss.png" style="margin: 0.1em;" alt="(a) Comparison of WD with a 32 layer wide resnet" title="Figure 13(a): Comparison of WD with a 32 layer wide resnet" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/dense40cifarCM.png" style="margin: 0.1em;" alt="(b) Comparison of momentum with a 40 layer densenet" title="Figure 13(b): Comparison of momentum with a 40 layer densenet" height=250>
+      <img src="img/a13-wide32cifarWDTestLoss.png" style="margin: 0.1em;" alt="(a) Comparison of WD with a 32 layer wide resnet" title="Figure 13(a): Comparison of WD with a 32 layer wide resnet" height=200>
+      <img src="img/a13-dense40cifarCM.png" style="margin: 0.1em;" alt="(b) Comparison of momentum with a 40 layer densenet" title="Figure 13(b): Comparison of momentum with a 40 layer densenet" height=200>
     </a>
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/dense40cifarWD.png" style="margin: 0.1em;" alt="(c) Comparison of WD with 40 layer densesnet" title="Figure 13(c): Comparison of WD with 40 layer densesnet" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/dense40cifarTBS.png" style="margin: 0.1em;" alt="(d) Comparison of TBS with 40 layer densenet" title="Figure 13(d): Comparison of TBS with 40 layer densenet" height=250>
+      <img src="img/a13-dense40cifarWD.png" style="margin: 0.1em;" alt="(c) Comparison of WD with 40 layer densesnet" title="Figure 13(c): Comparison of WD with 40 layer densesnet" height=200>
+      <img src="img/a13-dense40cifarTBS.png" style="margin: 0.1em;" alt="(d) Comparison of TBS with 40 layer densenet" title="Figure 13(d): Comparison of TBS with 40 layer densenet" height=200>
     </a>
   </div>
 
@@ -895,8 +894,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerCM2.png" style="margin: 0.1em;" alt="(a) Comparison of momentum" title="Fig. 14(a): Comparison of momentum" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/mnist3layerWD2.png" style="margin: 0.1em;" alt="(b) Comparison of weight decay" title="Fig. 14(b): Comparison of weight decay" height=250>
+      <img src="img/a13-mnist3layerCM2.png" style="margin: 0.1em;" alt="(a) Comparison of momentum" title="Fig. 14(a): Comparison of momentum" height=200>
+      <img src="img/a13-mnist3layerWD2.png" style="margin: 0.1em;" alt="(b) Comparison of weight decay" title="Fig. 14(b): Comparison of weight decay" height=200>
     </a>
   </div>
 
@@ -925,8 +924,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56Cifar100WD.png" style="margin: 0.1em;" alt="(a) Weight decay search" title="Fig. 15 (a): Weight decay search" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/resnet56Cifar100TBS.png" style="margin: 0.1em;" alt="(b) Total Batch Size search" title="Fig. 15 (b): Total Batch Size search" height=250>
+      <img src="img/a13-resnet56Cifar100WD.png" style="margin: 0.1em;" alt="(a) Weight decay search" title="Fig. 15 (a): Weight decay search" height=200>
+      <img src="img/a13-resnet56Cifar100TBS.png" style="margin: 0.1em;" alt="(b) Total Batch Size search" title="Fig. 15 (b): Total Batch Size search" height=200>
     </a>
   </div>
 
@@ -976,8 +975,8 @@ Author: Leslie N. Smith
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetResnetSC2.png" style="margin: 0.1em;" alt="(a) Resnet-50" title="Fig. 16 (a): Resnet-50" height=250>
-      <img src="https://media.arxiv-vanity.com/render-output/1492523/imagenetInceptionSC2.png" style="margin: 0.1em;" alt="(b) Inception-resnet-v2" title="Fig. 16 (b): Inception-resnet-v2" height=250>
+      <img src="img/a13-imagenetResnetSC2.png" style="margin: 0.1em;" alt="(a) Resnet-50" title="Fig. 16 (a): Resnet-50" height=200>
+      <img src="img/a13-imagenetInceptionSC2.png" style="margin: 0.1em;" alt="(b) Inception-resnet-v2" title="Fig. 16 (b): Inception-resnet-v2" height=200>
     </a>
   </div>
 
