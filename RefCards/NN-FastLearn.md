@@ -287,6 +287,57 @@
     </div>  
 
 
+### Cyclical Momentum
+
++ [Momentum and learning rate](../ML/MLNN-Hinton/a13-HyperParam.md#43-cyclical-momentum)
+  + closely related
+  + optimal learning rate dependent on the momentum; momentum dependent on th elearning rate
+  + learning rate: the most important hyper-parameter to tune
+  + Yoshua Bengio. [Practical recommendations for gradient-based training of deep architectures](https://www.arxiv-vanity.com/papers/1206.5533/). In Neural networks: Tricks of the trade, pp. 437–478. Springer, 2012.
+  + momentum also important
+  + setting momentum as large as possible w/o causing instabilities during training
+
++ [Mathematical Representation of Momentum](../ML/MLNN-Hinton/a13-HyperParam.md#43-cyclical-momentum)
+  + momentum: designed to accelerate network training but its effect on updating the weights is of the sam magnitude as the learning rate
+  + Assumptions & Notations
+    + $\theta$: all the network parameter
+    + $\epsilon$: the learning rate
+    + $\delta F(x, \theta)$: the gradient
+    + $\v$: velocity
+    + $\alpha$: the momentum coefficient
+  + Stochastic gradient descent (SGD): updating the weight using the negative gradient
+
+    \[\theta_{iter + 1} = \theta_{iter} - \epsilon \delta L(F(x, \theta), \theta) \tag{1}\]
+
+  + update weight with momenum
+
+    \[v_{iter + 1} = \alpha \, v_{iter} - \epsilon \delta F(x, \theta), \theta) \tag{2}\]
+
+    \[\theta_{iter + 1} = \theta_{iter} + v \tag{3}\]
+
+  + momentum: similar impact on the weight updates as the learning rate
+  + velocity: a moving average of the gradient
+
++ [Cyclic Momentum](../ML/MLNN-Hinton/a13-HyperParam.md#43-cyclical-momentum)
+  + cyclic learning rate, in particular, the learning rate range test: usful methods to find an optimal learning rate
+  + experiment: moment range test NOT useful for finding an optimal momentum (Fig. 7(b))
+  + using a decreasing cyclical momentum when the learning rate increases provides an equivalent result to the best constant momentum value but stablizes the training to allow larger learning rates
+  + useful for starting with a large momentum and decreasing momentum while the learning rate is increasing
+  + the learning rate improves the test accuracy and makes the training more robust to large learning rates
+  + implementation is straightforward
+  + example code in Appendix
+
++ [Momentum effect](../ML/MLNN-Hinton/a13-HyperParam.md#43-cyclical-momentum)
+  + a larger value of momentum
+    + speeding up the training
+    + threaten the stability
+    + causing divergence
+  + a large momentum helping escape saddle points but can hurt the final convergence
+  + cyclical momentum not better than a constant value
+  + better proceure: test momentum in the range $[0.9, 0.99]$ and choose a value that performs best
+
+
+
 ## Parameter Initialization
 
 ### Initialization Strategies
