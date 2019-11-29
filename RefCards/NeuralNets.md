@@ -1437,6 +1437,34 @@
   </div>
 
 
+### Overfitting
+
++ [Examples of overfitting](../ML/MLNN-Hinton/a13-HyperParam.md#33-overfitting)
+  + increasing validation/test loss indicates overfitting
+  + Cifar-10 dataset with a shallow 3 layer network (left diagram)
+    + $WD = 10^{-4}$ (blue curve): minimizing near at $LR = 0.002$, then increasing (overfitting)
+    + $WD = 4 \times 10^{-3}$: (red curve)
+      + stable at a larger LR range
+      + attain a lower loss value
+      + better than the previous one
+      + diverging at $LR = 0.008$
+    + $WD = 10^{-2}$ (yellow curve): sharp increasing at $LR = 0.005$
+      + not a sign of overfitting
+      + caused by instabilities in the training due to the large learning rate
+  + Imagenet dataset with resnet-50 architecture (right diagram)
+    + blue curve: underfitting w/ $LR = 0.1$ and $WD = 10^{-4}$
+    + red curve: overfittign w/ a ver small $WD = 10^{-7}$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="img/a13-overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Cifar-10 dataset with a shallow 3 layer network." height=150>
+      <img src="img/a13-imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Imagenet dataset with resnet-50 architecture." height=150>
+    </a>
+  </div>
+
+
+
+
 
 ### Dropout
 
