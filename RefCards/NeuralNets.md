@@ -1387,9 +1387,6 @@
     + Dropout
     + Generative pre-training
 
-
-### A Review of the Underfitting and Overfitting Trade-off
-
 + [Underfitting](../ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off)
   + unable to reduce the error for either the test or training set
   + cause: an under capacity of the machine learning model
@@ -1404,7 +1401,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="img/a13-under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Figure 2. Pictorial explanation of the tradeoff between underfitting and overfitting." height=200>
+      <img src="../ML/MLNN-Hinton/img/a13-under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Pictorial explanation of the tradeoff between underfitting and overfitting." height=200>
     </a>
   </div>
 
@@ -1413,6 +1410,31 @@
   + Fig. 1a: some overfitting within the black square indicates a suboptimal choice of hyper-parameters
   + well set initial values for hyper-parameters results in performing well through the entire training process
   + the test loss during the training process used to find the optimal network architecture and hyper-parameters w/o performing a full training to compare the final performance results
+
+
+### Underfitting
+
++ [Underfitting visible during the training](../ML/MLNN-Hinton/a13-HyperParam.md#32-underfitting)
+  + Underfitting is characterized by a continuously decreasing test loss, rather than a horizontal plateau.
+  + Test loss for the Cifar-10 dataset with a shallow 3 layer network (left diagram)
+    + red curve
+      + decreasing test loss w/ a learning rate ($LR = 0.001$)
+      + Underfitting: continue to decrease
+    + blue curve
+      + decreasing more rapidly during the initial iterations and then is horizontal
+      + __a positive clue__: the configuration producing a better final accuracy than other configuration
+  + Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2 (right diagram)
+    + underfitting: underlying complexities of the data distributions
+    + the test loss continues decreasing over the 100,000 iterations (about 3 epochs)
+    + the inception-resnet-v2 decreasing more and becoming more horizontal
+    + the inception-resnet-v2 less underfitting
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/a13-3layerLoss.png" style="margin: 0.1em;" alt="(a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." title="Test loss for the Cifar-10 dataset with a shallow 3 layer network." height=150>
+      <img src="../ML/MLNN-Hinton/img/a13-imagenetTestLoss3.png" style="margin: 0.1em;" alt="(b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." title="Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." height=150>
+    </a>
+  </div>
 
 
 
