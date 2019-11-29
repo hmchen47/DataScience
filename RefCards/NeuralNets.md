@@ -1168,6 +1168,31 @@
   + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
   + paying close attention while using cyclical learning rates and cyclical momentum
 
+### Batch Size
+
++ [Small batch sizes](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + recommended for regularization effects
+  + optimal batch size on the order of 80 for Cifar-10
+  + using a large batch size when using the 1cycle learning rate schedule
+
++ [Comparing batch sizes](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + issue: conflicting results if one maintains a constant number of epochs vs. a constant number of iterations
+  + neither appropriate for comparing different batch sizes
+    + constant epochs: not account for the significant computational efficient of large batch size so it penalizes larger batch sizes
+    + constant iterations: favor of larger batch sizes too much
+  + larger batch sizes $\to$ the use of larger learning rate in the 1cycle learning rate schedule
+  + best practice: maintaining a near constant execution time
+  + people interested in minimizing training time while maintaining high performance
+
++ [The effects of total batch size (TBS)](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + The effects of total batch size (TBS) on validation loss for the Cifar-10 with resnet-56 and a 1cycle learning rate schedule.
+  + For a fixed computational budget, larger TBS yields higher test accuracy but smaller TBS has lower test loss.
+
++ [Other recommendations](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + modifying the batch size, rather than the learning rates
+  + the batch size limited by the hardware's memory, while the learning rate not
+  + using a batch size that fits in the hardware's memory and enable using larger learning rates
+
 
 
 ## Linear Neurons
@@ -1457,8 +1482,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
-      <img src="img/a13-overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Cifar-10 dataset with a shallow 3 layer network." height=150>
-      <img src="img/a13-imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Imagenet dataset with resnet-50 architecture." height=150>
+      <img src="../ML/MLNN-Hinton/img/a13-overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Cifar-10 dataset with a shallow 3 layer network." height=150>
+      <img src="../ML/MLNN-Hinton/img/a13-imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Imagenet dataset with resnet-50 architecture." height=150>
     </a>
   </div>
 
@@ -1524,7 +1549,7 @@
 
     + $p_l$: retention probability
     + $D^{[l]}$: dropout activations
-    + $a^[l-1]}$: output from previous layer
+    + $a^{[l-1]}$: output from previous layer
     + $W^{[l]}$: layer weights
     + $b^{[l]}$: offset weights
     + $z^{[l]}$: linear output
@@ -1532,7 +1557,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
-        <img src="https://miro.medium.com/max/618/1*CAcPwIHBS_-8Ms4ZqlnbFA.png" style="margin: 0.1em;" alt="Inverted dropout — weights are scaled at training time as opposed to testing time, the opposite of traditional dropout." title="Inverted dropout" width=200>
+        <img src="https://miro.medium.com/max/618/1*CAcPwIHBS_-8Ms4ZqlnbFA.png" style="margin: 0.1em;" alt="Inverted dropout — weights are scaled at training time as opposed to testing time, the opposite of traditional dropout." title="Inverted dropout" width=150>
       </a>
     </div>
 
