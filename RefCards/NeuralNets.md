@@ -1167,7 +1167,7 @@
   + well-known concept of the balance between underfitting and overfitting
   + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
   + paying close attention while using cyclical learning rates and cyclical momentum
- 
+
 
 
 ## Linear Neurons
@@ -1368,7 +1368,7 @@
 
 
 
-## Overfitting
+## Overfitting and Underfitting
 
 ### Overview
 
@@ -1386,6 +1386,34 @@
     + Bayesian fitting on neural nets
     + Dropout
     + Generative pre-training
+
+
+### A Review of the Underfitting and Overfitting Trade-off
+
++ [Underfitting](../ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off)
+  + unable to reduce the error for either the test or training set
+  + cause: an under capacity of the machine learning model
+  + not powerful enough to fit the underlying complexities of the data distribution
+
++ [Overfitting](/ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off): model so powerful as to fit the training set too well and the generalization error increases
+
++ Pictorial explanation of the tradeoff between underfitting and overfitting (Fig. 2)
+  + model complexity (the x axis) refers to the capacity or powerfulness of the machine learning model
+  + the optimal capacity falls between underfitting and overfitting
+  + achieving a horizontal test loss during the training of a network can also point to the optimal balance of the hyper-parameter
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="img/a13-under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Figure 2. Pictorial explanation of the tradeoff between underfitting and overfitting." height=200>
+    </a>
+  </div>
+
++ [Insight of underfitting and overfitting](../ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off)
+  + signs of the underfitting and overfitting of the test or validation loss early in the training process useful for tuning the hyper-parameters
+  + Fig. 1a: some overfitting within the black square indicates a suboptimal choice of hyper-parameters
+  + well set initial values for hyper-parameters results in performing well through the entire training process
+  + the test loss during the training process used to find the optimal network architecture and hyper-parameters w/o performing a full training to compare the final performance results
+
 
 
 ### Dropout
