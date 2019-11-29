@@ -1106,6 +1106,47 @@
 
 ## Hyperparameters
 
+### Summary
+
++ __REMARK 1.__ the test/validation loss is a good indicator of the network's convergence.
+  + the test/validation loss used to provide insights on the training process
+  + the final test accuracy used for comparing performance
+
++ __REMARK 2.__ achieving the horizontal part of the test loss is the goal of hyper-parameter tuning
+  + difficult with deep neural network
+  + with networks becoming more powerful with greater depth (i.e., more layers), width (i.e., more neurons or filters per layer), and the addition of skip connections to its architecture
+  + various forms of regularization, such as weight decay or dropout
+  + Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: A simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
+  + important hyper-parameters
+  + using a variety of optimization methods
+  + Diederik Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.
+
++ __REMARK 3.__ the amount of regularization must be balanced for each dataset and architecture
+  + permit general use of super-convergence
+  + reducing other forms of regularization
+  + regularized w/ very large learning rates makes training significantly and efficient
+
++ __REMARK 4.__ the practitioner's goal is obtaining the highest performance while minimizing the needed computational time
+  + examined in conjunction with the execution time of the training
+  + choosing the number of epochs/iterations for training should be large enough to maximize the final test performance but no larger
+
++ __REMARK 5.__ optimal momentum value(s) will improve network training
+  + the optimal training procedure: a combination of
+    + an increasing cyclical learning rate w/ an initial small learning rate permits convergence to begin
+    + a decreasing cyclical momentum w/ allowing the learning rate to become larger in the early to middle parts of training
+  + a constant learning rate and a decreasing cyclical momentum (0.9 ~ 0.99):
+    + acting like a pseudo increasing rate
+    + speeding up the training
+  + too large momentum value
+    + poor training results
+    + visible early in the training
+    + quickly tested
+
++ __REMARK 6.__ the amount of regularization must be balanced for each dataset and architecture
+  + the value of weight decay: key knob to tune regularization against the regualrization from an increasing learning rate
+  + other regularization generally fixed
+  + weight decay changed easily when experitmenting with maximum learning rate and stepsize values
+
 ### Overview
 
 + [the process of setting the hyper-parameters](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
@@ -1126,9 +1167,7 @@
   + well-known concept of the balance between underfitting and overfitting
   + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
   + paying close attention while using cyclical learning rates and cyclical momentum
-  
-
-
+ 
 
 
 ## Linear Neurons
