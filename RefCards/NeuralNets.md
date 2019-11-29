@@ -1194,6 +1194,45 @@
   + using a batch size that fits in the hardware's memory and enable using larger learning rates
 
 
+### Weight Decay
+
++ [Weight decay](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + a form of regularization
+  + balancing the various forms of regularization to obtain good performance
+  + best practice: remaining constant through the training
+  + generally applied for regularization
+  + network performance: proper weight decay value
+  + the validation loss early in the training: sufficient for determining a good value
+  + reasonable procedure: combined CLR and CM runs at a few values of the weight decay to simultaneously determine the best learning rates, momentum and weight decay
+
++ [Weight decay values](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + reasonable values: $10^{-3}, 10^{-4}, 10^{-5}$ and $0$
+  + smaller datasets and architectures: larger values for weight decay
+  + larger datasets and deeper architectures: smaller values
+  + hypothesis: complex data provides its own regularization and other regularization should be reduced
+  + experience: $10^{-4}$ about right w/ initial runs at $3 \times 10^{-5}, 10^{-4}, 3 \times 10^{-4}$
+  + bisection of the exponent rather than bisecting the value ($10^{-3.5} = 3.16 \times 10^{-4}$)
+  + make a follow up run that bisects the exponent of the best two of these if none seem best, extrapolate toward an improved value
+
++ Examples of weight decay search using a 3-layer network on the Cifar-10 dataset
+  + Training used a constant learning rate (0.005) and constant momentum (0.95).
+  + The best value for weight decay is easier to interpret from the loss than from the accuracy.
+
++ More examples of weight decay search using a 3-layer network on the Cifar-10 dataset
+  + Training used cyclical learning rates (0.001 - 0.01) and cyclical momentum (0.98 - 0.9).
+  + The best value of weight decay is smaller when using CLR because the larger learning rates help with regularization.
+
++ [Grid search for weight decay (WD) on Cifar-10 with resnet-56 and a constant momentum=0.95 and TBS = 1,030](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + The optimal weight decay is different if you search with a constant learning rate (left) versus using a learning rate range (right) due to the regularization by large learning rates.
+  + different optimal weight decay: a constat learning rate vs. a learning rate range
+  + the larger learning rates provide regularization so a smaller weight decay value is optimal
+
++ [Grid search for the optimal WD restarting from a snapshot](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + a grid search for a weight decay to make a single run at a middle value for weight decay and save a snapshot after the loss plateau
+  + using the snapshot to restart runs w/ different WD values
+
+
+
 
 ## Linear Neurons
 
