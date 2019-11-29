@@ -275,38 +275,38 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimization Issues & Algorithms </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#challenges-with-optimization"> Challenges </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#local-optima-and-saddle-points"> Local Optima & Saddle Points </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#poor-conditioning"> Poor Conditioning </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#vanishingexploding-gradients"> Vanishing/Exploding Gradients </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#challenges-with-optimization"> Challenges </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#local-optima-and-saddle-points"> Local Optima & Saddle Points </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#poor-conditioning"> Poor Conditioning </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#vanishingexploding-gradients"> Vanishing/Exploding Gradients </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#momentum"> Momentum </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adaptive-learning-rates"> Adaptiv Learning Rates </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#parameter-initialization"> Parameter Initialization </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#normalization"> Normalization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#parameter-initialization"> Parameter Initialization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#normalization"> Normalization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#assessment-with-beales-function"> Beale's Function for Assessment </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#implementation-with-keras"> Keras Implementation </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#assessment-with-beales-function"> Beale's Function for Assessment </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#implementation-with-keras"> Keras Implementation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#implementation-for-cross-validation"> Cross-valiation Implementation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#implementation-for-cross-validation"> Cross-valiation Implementation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Fast Learning Algorithms </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Second-order Bacpropagation </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#second-order-derivatives"> Derviatives </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#explicit-calculation-of-the-hessian"> Hessian Calculation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#some-conclusions"> Conclusions </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="5" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Fast Learning Algorithms / <br/>Adaptive Learnign Rates </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#snapshot-ensembles"> Snapshot Ensambles </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#polyak-ruppert-averaging"> Polyak-Ruppert Averaging </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#silva-and-almeida´s-algorithm"> Silva & Almeida </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#delta-bar-delta"> Delta-bar-Delta </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Adaptive Learning Rates </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#cyclical-learning-rates"> Cyclical Learning Rates </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#estimating-the-learning-rate"> Estimating the Learning Rates </a> </td>
