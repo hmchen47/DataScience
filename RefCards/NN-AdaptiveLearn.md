@@ -286,7 +286,6 @@
   + dramatically effecting the convergence speed of algorithms
 
 
-
 ## Delta-bar-Delta
 
 + Jacob's proposal: acceleration of the learning rate made more caution than deceleration
@@ -345,7 +344,7 @@
     + the learning rate shrink and eventually become infinitesimally small
 
 
-## Rprop
+## RProp
 
 + [rprop: using only the sign of the gradient](../ML/MLNN-Hinton/06-MiniBatch.md#rmsprop-normalized-the-gradient)
   + the magnitude of the gradient: different widely for different weights
@@ -375,9 +374,9 @@
     + the efficiency of mini-batches
     + the effective averaging of the gradients over mini-batches
 
-+ [RPROP: resilient backpropagation](https://trongr.github.io/neural-network-course/neuralnetworks.html)
++ [RProp: resilient backpropagation](https://trongr.github.io/neural-network-course/neuralnetworks.html)
 
-  __Definition__. Instead of relying on the gradient and a learning rate as in the Delta Rule, RPROP keeps track of a step size $\Delta_{ij}$ per weight:
+  __Definition__. Instead of relying on the gradient and a learning rate as in the Delta Rule, RProp keeps track of a step size $\Delta_{ij}$ per weight:
 
   \[\Delta_{ij}(t) = \begin{cases}
     \eta^+ \Delta_{ij}(t-1) & \text{if } \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}}(t-1) > 0 \\
@@ -442,9 +441,9 @@
   + not adapting the learning rate separately for each connection
   + simple solution: for each connection keep a running average of the root mean squared gradient and the gradient divides by that RMS
 
-+ [RMSPROP: root mean square backpropagation/mini-batch RPROP](https://trongr.github.io/neural-network-course/neuralnetworks.html)
++ [RMSPROP: root mean square backpropagation/mini-batch RProp](https://trongr.github.io/neural-network-course/neuralnetworks.html)
 
-  __Definition.__ Note that RPROP is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divide successive gradients not by themselves individually but by their root mean square: first define the running mean square
+  __Definition.__ Note that RProp is equivalent to regular per-weight adaptive learning rate with the gradient magnitude normalized out by dividing by itself. So in order to make the magnitude relevant  again, we divide successive gradients not by themselves individually but by their root mean square: first define the running mean square
 
   \[\mu_{ij}(t) = \gamma \mu_{ij}(t-1) + (1-\gamma) \left(\frac{\partial E}{\partial w_{ij}}\right)^2\]
 
@@ -501,9 +500,7 @@
 
 ## The Dynamic Adaption Algorithm
 
-+ [Salomon's Proposal](../ML/MLNN-Hinton/a12-Learning.md#834-the-dynamic-adaption-algorithm)
-  + Salomon, R. (1992), Verbesserung konnektionistischer Lernverfahren, die nachder Gradientenmethode arbeiten, PhD Thesis, Technical University of Berlin
-  + Idea: using the negative gradient direction to generate tow new points instead of one, the one w/ lowest error used for the next iteration
++ Idea: using the negative gradient direction to generate tow new points instead of one, the one w/ lowest error used for the next iteration
 
 + [Modeling the algorithm](../ML/MLNN-Hinton/a12-Learning.md#834-the-dynamic-adaption-algorithm)
   + Assumptions & Notations
@@ -614,4 +611,6 @@
     \end{cases}\]
 
     If $(\Delta_i E^{(k)} \cdot \Delta_i E^{(k-1)} < 0)$ set $\Delta_i E^{(k)} := 0$
+
+
 

@@ -139,6 +139,15 @@
   + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
+### Fast Learning Algorithms
+
++ [List of Proposals](./NN-FastLearn.md#overview)
+
+
+### Momentum
+
++ [List of Proposals](./NN-FastLearn.md#momentum)
+
 
 ### Parameter Initialization
 

@@ -26,10 +26,6 @@
   + second order
     + the conjugate gradient methods of numerical analysis rely also on a first-order approximation of second-order features of the error function
 
-
-
-## Adaptive Learning Rates
-
 + [Oscillations along vertical direction](../ML/MLNN-Hinton/a03-Optimization.md#adaptive-learning-rates)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -38,8 +34,6 @@
     </a>
   </div>
 
-+ [List of Proposals](./NN-Adaptivelearn.md)
-  
 
 ## Momentum
 
@@ -503,6 +497,8 @@
 
 ## Second-order algorithms
 
+### General Representation
+
 + [Idea](../ML/MLNN-Hinton/a12-Learning.md#84-second-order-algorithms)
   + considering more information about the shape of the error function than the mere value of the gradient
   + considering the curvature of the error function at each step for better performance
@@ -560,6 +556,16 @@
     + limited effort in finding the second order partial derivatives
     + working well w/ nice quadratic error function
     + extremely large corrections required if a small second-order partial derivatives
+
+
+### QuickProp
+
++ See info at [Fast Learning Algorithms](./NN-AdaptiveLearn.md#quickprop)
+
+
+### QRProp
+
++ See info at [Fast Learning Algorithms](./NN-AdaptiveLearn.md#qrprop)
 
 
 ## Relaxation methods

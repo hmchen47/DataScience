@@ -1058,38 +1058,6 @@
   + take a fancy method from the optimization literature that makes use of curvature information
 
 
-### Lost Function for Softmax Function
-
-+ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
-
-  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
-
-  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
-  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
-  + if the classifier outputs 1 for the training example, then the cos is zero.
-
-
-### Gradient Descent for Softmax Function
-
-+ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
-
-  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
-
-  + the function computes the gradients for a single class $j$
-
-  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
-
-  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
-
-+ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
-  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
-  + $grad$: gradient matrix; dimension: [numClass x input Size]
-  + $data$: data matrix; dimension: [inputSize x numExamples]
-
-  \[grad = M * data\]
-
-
-
 ## Output Units
 
 ### Overview of Output Units
@@ -1116,10 +1084,8 @@
   + difficult with deep neural network
   + with networks becoming more powerful with greater depth (i.e., more layers), width (i.e., more neurons or filters per layer), and the addition of skip connections to its architecture
   + various forms of regularization, such as weight decay or dropout
-  + Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: A simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929–1958, 2014.
   + important hyper-parameters
   + using a variety of optimization methods
-  + Diederik Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.
 
 + __REMARK 3.__ the amount of regularization must be balanced for each dataset and architecture
   + permit general use of super-convergence
@@ -1143,9 +1109,9 @@
     + quickly tested
 
 + __REMARK 6.__ the amount of regularization must be balanced for each dataset and architecture
-  + the value of weight decay: key knob to tune regularization against the regualrization from an increasing learning rate
+  + the value of weight decay: key knob to tune regularization against the regularization from an increasing learning rate
   + other regularization generally fixed
-  + weight decay changed easily when experitmenting with maximum learning rate and stepsize values
+  + weight decay changed easily when experimenting with maximum learning rate and stepsize values
 
 ### Overview
 
@@ -1230,8 +1196,6 @@
 + [Grid search for the optimal WD restarting from a snapshot](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
   + a grid search for a weight decay to make a single run at a middle value for weight decay and save a snapshot after the loss plateau
   + using the snapshot to restart runs w/ different WD values
-
-
 
 
 ## Linear Neurons
@@ -1430,6 +1394,36 @@
 
     \]\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
 
+
+### Lost Function for Softmax Function
+
++ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
+
+  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
+
+  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
+  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
+  + if the classifier outputs 1 for the training example, then the cos is zero.
+
+
+### Gradient Descent for Softmax Function
+
++ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+
+  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
+
+  + the function computes the gradients for a single class $j$
+
+  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
+
+  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
+
++ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
+  + $grad$: gradient matrix; dimension: [numClass x input Size]
+  + $data$: data matrix; dimension: [inputSize x numExamples]
+
+  \[grad = M * data\]
 
 
 ## Overfitting and Underfitting
