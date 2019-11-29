@@ -195,9 +195,9 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#bias--variance"> Bias & Variance </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation"> Backpropagation </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
@@ -222,21 +222,14 @@
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Lost/Cost Function & Gradient Descent </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-of-lost-function"> Overview </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#lost-function-for-softmax-function"> Softmax Loss Fucntion </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent-for-softmax-function"> Softmax GD </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#delta-rule"> Delta Rule </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#mini-batch-gradient-descent"> Mini-batch </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Neurons </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-of-linear-neurons"> Model </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#cost-function-for-linear-neurons"> Cost Function </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#error-surface-for-linear-neuron"> Error Surface </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#tricks-for-mini-batch-gradient-descent"> Tricks of Mini-batch </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -247,7 +240,14 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linearr Neurons </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Huperparameters </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#summary"> Summary </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#batch-size"> Batch Size </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#weight-decay"> Weight Decay </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Neurons </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-of-linear-neurons"> Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#cost-function-for-linear-neurons"> Cost Function </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#error-surface-for-linear-neuron"> Error Surface </a> </td>
@@ -257,7 +257,20 @@
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Neurons </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-for-logistic-neurons"> Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation-for-logistic-neurons"> Backpropagation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#the-softmax-function"> Softmax </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#lost-function-for-softmax-function"> Softmax Loss Fucntion </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent-for-softmax-function"> Softmax GD </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Overfitting & Underfitting </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-1"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#underfitting"> Underfitting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overfitting"> Overfitting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#dropout"> Dropout </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#inverted-dropout"> Inverted Dropout </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -278,6 +291,19 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#implementation-with-keras"> Keras Implementation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#implementation-for-cross-validation"> Cross-valiation Implementation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Fast Learning Algorithms </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#snapshot-ensembles"> Snapshot Ensambles </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#polyak-ruppert-averaging"> Polyak-Ruppert Averaging </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#silva-and-almeida´s-algorithm"> Silva & Almeida </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#delta-bar-delta"> Delta-bar-Delta </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Adaptive Learning Rates </th>
