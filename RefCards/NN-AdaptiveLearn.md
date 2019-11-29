@@ -62,6 +62,11 @@
   + with degenerate function, the gradient direction leads to many oscillations
   + adequate scaling of the gradient components: reaching the minimum in fewer steps
 
++ [Learning Rate (LR)](../ML/MLNN-Hinton/a13-HyperParam.md#41-cyclical-learning-rates-and-super-convergence-revisited)
+  + too small: overfitting
+  + too large: diverge
+  + large: regularize the training
+
 
 ## Cyclical Learning Rates
 
@@ -84,6 +89,46 @@
   </div>
 
 + Limitations: what learning rate scheme set and the magnitude of these learning rates
+
++ [Cyclical learning rates (CLR)](../ML/MLNN-Hinton/a13-HyperParam.md#41-cyclical-learning-rates-and-super-convergence-revisited)
+  + Hyper-parameters required: minimum and maximum learning rate boundaries and a stepsize
+  + stepsize: the number of of iterations (or epochs) used for each step
+  + a cycle consisting of two such steps
+    + the learning rate linearly increasing from the minimum to the maximum
+    + the learning rate linearly decreasing from the maximum to the minimum
+
++ [Learning rate range test (LR range test)](../ML/MLNN-Hinton/a13-HyperParam.md#41-cyclical-learning-rates-and-super-convergence-revisited)
+  + starting with a small learning rate which is slowly increased linearly throughout a pre-training run
+  + this single run providing valuable information on how well the network can be trained over a range of learning rates abd what is the maximum learning rate
+  + the increasing of the learning rate will cause the test/validation loss to increase and the accuracy to decrease
+  + the learning rate at the extrema as the largest value used as the maximum bound
+  + ways to choice the minimum bound
+    + a factor of 3 or 4 less than the maximum bound
+    + a factor of 10 or 20 less than the maximum bound if only one cycle used
+    + by a short test of hundreds of iterations with a few initial learning rates and pick the largest one that allows convergence to begin w/o signs of overfitting
+  + there is a maximum speed the learning rate can increase w/o the training becoming unstable, which effects the choices for the minimum and maximum learning rates
+
++ [Super-convergence](../ML/MLNN-Hinton/a13-HyperParam.md#41-cyclical-learning-rates-and-super-convergence-revisited)
+  + happen when using deep resnets on cifar-10 or cifat-100 data
+  + the test loss and accuracy remain nearly constant for this LR range test, even up to very large learning rates
+  + the network trained quickly with one learning rate cycle by using an unusually large learning rate
+  + very large learning rates used providing the twin benefits of regularization that prevented overfitting and faster training of the networks
+  + Faster training is possible by allowing the learning rates to become large.
+  + other regularization methods must be reduced to compensate for the regularization effects of large learning rates
+  + super-convergence is universal and provides additional guidance on why, when, and where this is possible
+
++ ["1cycle" learning rate policy](../ML/MLNN-Hinton/a13-HyperParam.md#41-cyclical-learning-rates-and-super-convergence-revisited)
+  + always using one cycle that is smaller than the total number of iterations/epochs and allow the learning rate to decrease several orders of magnitude less than the initial learning rate for the remaining iterations
+  + experiments shows the accuracy to plateau before the training ends
+  + a combination of curriculum learning and simulated annealing
+
++ [Regularization](../ML/MLNN-Hinton/a13-HyperParam.md#41-cyclical-learning-rates-and-super-convergence-revisited)
+  + forms of regularization
+    + large learning rates
+    + small batch sizes
+    + weight decay
+    + dropout
+  + balancing the various forms of regularization for each dataset and architecture in order to obtain good performance
 
 
 ## Estimating the Learning Rate
@@ -239,6 +284,7 @@
     + tuning the constant $\alpha$ quite problem-specific
   + Solution: preprocessing the original data to achieve a more regular error function
   + dramatically effecting the convergence speed of algorithms
+
 
 
 ## Delta-bar-Delta
