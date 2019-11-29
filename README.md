@@ -280,11 +280,29 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Adaptive Learning Rates </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adagrad"> AdaGrad </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#rmsprop"> RMPProp </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adam"> Adam </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Adaptive Learning Rates </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#cyclical-learning-rates"> Cyclical Learning Rates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#estimating-the-learning-rate"> Estimating the Learning Rates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#sgd-with-warm-restarts"> SGD w/ Warm Restarts </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#snapshot-ensembles"> Snapshot Ensambles </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#polyak-ruppert-averaging"> Polyak-Ruppert Averaging </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#silva-and-almeida´s-algorithm"> Silva & Almeida </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#delta-bar-delta"> Delta-bar-Delta </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#adagrad"> AdaGrad </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#rprop"> RProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#rmsprop"> RMPProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#adam"> Adam </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#the-dynamic-adaption-algorithm"> Dymamic Adaption </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#quickprop"> QuickProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#qrprop"> QRProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Parameter Initialization </th>
