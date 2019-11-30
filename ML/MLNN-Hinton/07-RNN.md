@@ -174,6 +174,7 @@
 
     we need: $\Delta w_1 = \Delta w_2$
 
+
     compute: $\frac{\partial E}{\partial w_1}$ and $\frac{\partial E}{\partial w_2}$
 
     use $\frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2}$ for $w_1$ and $w_2$
