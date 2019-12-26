@@ -189,6 +189,7 @@ df.head()
 # 4 2016-01-05  3.122827  2.130925  Car   True  2016      1     5
 ```
 
+
 ## Outliers
 
 + Outlier
@@ -220,6 +221,27 @@ df.head()
   # 7200
   ```
 
+## Binning
 
++ Binning
+  + a common technique used to smooth noisy data, by dividing a numerical or categorical feature in different bins
+  + descreasing the risk of overfitting
+
++ Binning numeric and categoric data
+
+  ```python
+  df['Vehicle Type'] = np.select([df.X4 == 'Car',df.X4 == 'Bus', df.X4 == 'Bike',
+                                  df.X4 == 'Scooter'], 
+                                ['Electric', 'Electric', 'Not-Electric',
+                                  'Not-Electric'], 
+                                default='Not Classified')
+  df.sample(5)
+  #             Date        X2        X3       X4     Y year  month day Vehicle Type
+  # 7542  2036-08-25  2.774173  1.945910  Scooter False 2036      8  25 Not-Electric
+  # 3169  2024-09-04  3.221740  2.295220      Bus  True 2024      9   4     Electric
+  # 4115  2027-04-08  2.236809  1.609438     Bike False 2027      4   8 Not-Electric
+  #  409  2017-02-13  3.331089  2.277378      Car  True 2017      2  13     Electric
+  #  649  2017-10-11  3.051198  2.244066      Car  True 2017     10  11     Electric
+  ```
 
 
