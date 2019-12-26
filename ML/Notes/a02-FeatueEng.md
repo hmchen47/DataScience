@@ -71,13 +71,97 @@
                           df[['X1','X2','X3']].min()+
                           1).transform(np.log)
   df.sample(5)
-  #       Date        X1        X2        X3        X4      Y
-  # 2496  2022-11-01  2.482055  3.270268  2.487769  Bus     True
-  #  782  2018-02-21  NaN       3.139792  1.970446  Car     True
-  # 3449  2025-06-11  NaN       3.176024  2.672777  Bus     True
-  #  148  2016-05-28  2.350232  3.434115  2.216226  Car     True
-  # 7505  2036-07-19  NaN       2.248421  NaN       Scooter False
+  #             Date        X1        X2        X3      X4         Y
+  # 2496  2022-11-01  2.482055  3.270268  2.487769      Bus     True
+  #  782  2018-02-21  NaN       3.139792  1.970446      Car     True
+  # 3449  2025-06-11  NaN       3.176024  2.672777      Bus     True
+  #  148  2016-05-28  2.350232  3.434115  2.216226      Car     True
+  # 7505  2036-07-19  NaN       2.248421  NaN       Scooter    False
   ```
 
+## Imputation
+
++ Imputation: the art of identifying and replacing missing values from a dataset using appropriate values
+
++ main types of imputation
+  + numerical imputation
+    + main method: replace missing values w/ the overall mean or mode of the affected column
+    + [advanced methods](https://towardsdatascience.com/why-using-a-mean-for-missing-data-is-a-bad-idea-alternative-imputation-algorithms-837c731c1008)
+  + categorical imputation
+    + commonly replaced using the overall column mode
+    + replace the missing values creating a new category and naming it "Unknown" or "Other" if the categorical column structure not well defined
+
++ Examing which features affected by NaN (Not a Number)
+
+  ```python
+  percent_missing = df.isnull().sum() * 100 / len(df)
+  missing_values = pd.DataFrame({'NaNs percentage': percent_missing})
+  missing_values.sort_values(by ='NaNs percentage' , ascending=False)
+  # NaNs percentage
+  # X1    21.8000
+  # X4    10.4625
+  # X3    9.5875
+  # Date  0.0000
+  # X2    0.0000
+  # Y     0.0000
+  ```
+
++ Removing all the rows w/ NaN
+
+  ```python
+  # Drop Column if at least 20% of it's elements are Nans
+  df = df.loc[:, df.isnull().sum() < 0.2*df.shape[0]]
+
+  percent_missing = df.isnull().sum() * 100 / len(df)
+  missing_values = pd.DataFrame({'NaNs percentage': percent_missing})
+  missing_values.sort_values(by ='NaNs percentage' , ascending=False)
+  #      NaNs percentage
+  #X4    10.4625
+  #X3    9.5875
+  #Date  0.0000
+  #X2    0.0000
+  #Y     0.0000
+  ```
+
++ Replacing all the NaNs w/ the column mode for both numerical and categorical data
+
+  ```python
+  # Using Mean to fill NaNs
+  #for i in range(0, len(df.columns)):
+  for i in range(1, 3):
+      df.iloc[:,i].fillna(df.iloc[:,i].median(), inplace=True)
+
+  df['X4'].fillna(df['X4'].value_counts().idxmax(), inplace=True)
+
+  percent_missing = df.isnull().sum() * 100 / len(df)
+  missing_values = pd.DataFrame({'NaNs percentage': percent_missing})
+  missing_values.sort_values(by ='NaNs percentage' , ascending=False)
+  #         NaNs percentage
+  # Date    0.0
+  # X2      0.0
+  # X3      0.0
+  # X4      0.0
+  # Y       0.0
+
+  # # Categorical Data
+  # df['X4'].fillna(df['X4'].value_counts().idxmax(), inplace=True)
+
+  # percent_missing = df.isnull().sum() * 100 / len(df)
+  # missing_values = pd.DataFrame({'NaNs percentage': percent_missing})
+  # missing_values.sort_values(by ='NaNs percentage' , ascending=False)
+
+  #Filling all missing values with 0
+  df = df.fillna(0)
+
+  percent_missing = df.isnull().sum() * 100 / len(df)
+  missing_values = pd.DataFrame({'NaNs percentage': percent_missing})
+  missing_values.sort_values(by ='NaNs percentage' , ascending=False)
+  #         NaNs percentage
+  # Date    0.0
+  # X2      0.0
+  # X3      0.0
+  # X4      0.0
+  # Y       0.0
+  ```
 
 
