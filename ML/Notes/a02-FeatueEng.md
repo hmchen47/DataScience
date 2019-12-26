@@ -245,3 +245,40 @@ df.head()
   ```
 
 
+## Categorical data encoding
+
++ Dealing w/ categorical data
+  + most of ML models not able to deal with Categorical Data
+  + usually necessary to convert all categorical features to numeric before feeding them into ML models
+
++ Different techniques implemented in Python
+  + One Hot Encoding (to convert features)
+    + taking a feature and spliting it in as many columns as the number of different categories present in the original column
+    + assigning a zero to all the rows which didn't have that particular category and one for all the ones which instead had it
+    + implementation: using Pandas get_dummies() function
+  + Label encoding (to convert labels)
+    + instead all the categorical cases by assigning them a different number and storing them in a single column
+    + highly preferable not to use w/ normal features because some ML models might get confused and think that the encoded cases which have higher values than the other ones might be more important of them (thinking about them as in hierarchical order)
+
++ Difference between One Hot Encoding and Label Encoding
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="https://cdn-images-1.medium.com/max/2600/1*ezGOW_jDDvZ9jCjHTj7hLg.jpeg" style="margin: 0.1em;" alt="Difference between One Hot Encoding and Label Encoding" title="Difference between One Hot Encoding and Label Encoding" width=550>
+    </a>
+  </div>
+
++ Dividing our dataset into features (X) and labels (Y) and then applying respectively One Hot Encoding and Label Encoder
+
+  ```python
+  from sklearn.preprocessing import LabelEncoder
+
+  X = df.drop(['Y', 'Date'], axis = 1)
+  Y = df['Y']
+
+  X = pd.get_dummies(X, prefix_sep='_')
+  Y = LabelEncoder().fit_transform(Y)
+  ```
+
+
+
