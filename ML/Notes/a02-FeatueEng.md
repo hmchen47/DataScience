@@ -164,4 +164,28 @@
   # Y       0.0
   ```
 
+## Dealing to Dates
+
++ Date objects: difficult to deal w/ for ML models because of their format
+
++ Dealing w/ Dates
+
+```python
+#Extracting Year
+df['year'] = df['Date'].dt.year
+
+#Extracting Month
+df['month'] = df['Date'].dt.month
+
+#Extracting the weekday name of the date
+df['day'] = df['Date'].dt.day #_name()
+
+df.head()
+#         Date        X2        X3  X4      Y   year  month   day
+# 0 2016-01-01  2.948228  2.348205  Car   True  2016      1     1
+# 1 2016-01-02  2.834804  2.128829  Car   True  2016      1     2
+# 2 2016-01-03  2.957205  2.133075  Car   True  2016      1     3
+# 3 2016-01-04  3.210623  2.520078  Car   True  2016      1     4
+# 4 2016-01-05  3.122827  2.130925  Car   True  2016      1     5
+```
 
