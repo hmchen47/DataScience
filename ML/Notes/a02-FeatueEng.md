@@ -189,3 +189,37 @@ df.head()
 # 4 2016-01-05  3.122827  2.130925  Car   True  2016      1     5
 ```
 
+## Outliers
+
++ Outlier
+  + a small fraction of data points which are quite distance from the rest of observations in a feature
+  + introduced in a dataset mainly because of errors when collecting the data or because of special anomalies which are characteristic of of specific feature
+
++ Main techniques used to identify outliers
+  + Data visualization: determining outlier values by visually inspecting the data distribution
+  + Z-score: used if features w/ Gaussian distribution
+  + Percentiles: assume that a certain top and bottom percent of data are outlier
+  + Capping: replace w/ the highest normal value in the column
+
++ Other advanced techniques: [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN) and [Isolation Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html)
+
++ Testing how many outliers in X2 w/ Z-score and Percentiles methods
+
+  ```python
+  print(len(df))
+  UpperLimit = df['X2'].mean() + df['X2'].std() * 2
+  LowerLimit = df['X2'].mean() - df['X2'].std() * 2
+  df2 = df[(df['X2'] < UpperLimit) & (df['X2'] > LowerLimit)]
+  print(len(df2))
+  UpperLimit = df['X2'].quantile(0.95)
+  LowerLimit = df['X2'].quantile(0.05)
+  df3 = df[(df['X2'] < UpperLimit) & (df['X2'] > LowerLimit)]
+  print(len(df3))
+  # 8000
+  # 7766
+  # 7200
+  ```
+
+
+
+
