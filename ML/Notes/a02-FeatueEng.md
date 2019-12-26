@@ -20,3 +20,39 @@
 
 + [Jupyter notebook](https://github.com/pierpaolo28/Artificial-Intelligence-Projects/blob/master/Features%20Analysis/FeatureEngineering.ipynb)
 
++ Created dataset for analysis
+
+  ```python
+  import numpy as np
+  import pandas as pd 
+
+  dataset_len = 8000
+  dlen = int(dataset_len/2)
+  X_11 = pd.Series(np.random.normal(8,2,dlen))
+  X_12 = pd.Series(np.random.randint(low=0, high=100, size=dlen))
+  X_1 = pd.concat([X_11, X_12]).reset_index(drop=True)
+  X_21 = pd.Series(np.random.normal(20,3,dlen))
+  X_22 = pd.Series(np.random.normal(9,3,dlen))
+  X_2 = pd.concat([X_21, X_22]).reset_index(drop=True)
+  X_31 = pd.Series(np.random.normal(8,2,dlen))
+  X_32 = pd.Series(np.random.randint(low=0, high=300, size=dlen))
+  X_3 = pd.concat([X_31, X_32]).reset_index(drop=True)
+  X_4 = pd.Series(np.repeat(['Car', 'Bus', 'Bike', 'Scooter'],
+                            dlen/2))
+  Y = pd.Series(np.repeat(['True','False'],dlen))
+  df = pd.concat([X_1, X_2, X_3, X_4, Y], axis=1)
+  df.columns = ['X1', 'X2', 'X3', 'X4', 'Y']
+  df['X1'] = df['X1'].mask(np.random.random(df['X1'].shape) < 0.22)
+  df[['X3', 'X4']] = df[['X3', 'X4']].mask(np.random.random(df[['X3', 
+                          'X4']].shape) < 0.10)
+  dates = pd.date_range(start='1/1/2016', periods=len(df), freq='D')
+  df.insert(loc= 0, column='Date', value= dates)
+  df.head()
+  #   	Date	X1	X2	X3	X4	Y
+  # 0	2016-01-01	11.798186	16.299548	9.466762	Car	True
+  # 1	2016-01-02	6.705743	14.254479	7.405022	Car	True
+  # 2	2016-01-03	5.451097	16.471537	7.440786	Car	True
+  # 3	2016-01-04	13.364043	22.021941	NaN	Car	True
+  # 4	2016-01-05	NaN	19.937920	7.422658	Car	True
+  ```
+
