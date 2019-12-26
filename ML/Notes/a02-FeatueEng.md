@@ -56,3 +56,28 @@
   # 4	2016-01-05	NaN	19.937920	7.422658	Car	True
   ```
 
+## Log Transformation
+
++ Log transformation
+  + the distributions of the original features get transformed to resemble more closely Gaussian distribution
+  + useful w/ models
+    + Linear Discriminant Analysis (LDA)
+    + Naive Bayes Classifier
+
++ Applying log transformation to all the numeric features
+
+  ```python
+  df[['X1', 'X2', 'X3']]=(df[['X1','X2','X3']]-
+                          df[['X1','X2','X3']].min()+
+                          1).transform(np.log)
+  df.sample(5)
+  #       Date        X1        X2        X3        X4      Y
+  # 2496  2022-11-01  2.482055  3.270268  2.487769  Bus     True
+  #  782  2018-02-21  NaN       3.139792  1.970446  Car     True
+  # 3449  2025-06-11  NaN       3.176024  2.672777  Bus     True
+  #  148  2016-05-28  2.350232  3.434115  2.216226  Car     True
+  # 7505  2036-07-19  NaN       2.248421  NaN       Scooter False
+  ```
+
+
+
