@@ -281,4 +281,30 @@ df.head()
   ```
 
 
+## Scaling
+
++ Scaling
+  + numerical features having all different ranges, e.g., Height vs. Weight
+  + distance-based models: Naive Bayes, SVM, and clustering algorithms
+
++ Common ways of scaling features
+  + Standardization
+    + scales the input features while talking into account their standard deviation
+    + reduce outliers importance
+    + lead to different ranges between features
+    + implement in scikit-learned by using `StandardScaler()`
+  + Normalization
+    + scales all the features in a range between 0 and 1
+    + able to increase the effect of outliers because the standard deviation of each of the different features not considered
+    + implement in scikit0learn by using `MinMaxScaler()`
+
++ Example using Standardization and Outlier Values
+  + scikit-learn using `RobustScaler()` to reduce the effect of outliers
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+X = StandardScaler().fit_transform(X)
+```
+
 
