@@ -308,3 +308,9 @@ X = StandardScaler().fit_transform(X)
 ```
 
 
+## Automated feature engineering
+
++ Domain knowledge about the data and expertise of the Data Scientist in modelling the raw data to best fit the analysis purpose can't yet to be repliaceable
+
++ One of the most popular library for automated feature selection in Python: [Featuretools](https://docs.featuretools.com/#)
+
