@@ -142,7 +142,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#artificial-data"> Artificial Data </a> </td>
   </tr>
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: grey; color: gray;"> Special Applications / Special Topics </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Special Applications / Special Topics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#spam-classifier"> Spam Classifier </a></td>
@@ -406,7 +406,7 @@
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Convolutional Neural Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#object-recognition-and-classification"> General Issue </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#object-recognition-and-classification"> Issues </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#solutions-for-viewpoint-invariance"> Viewpoint Invariance </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#replicated-feature-approach"> Replicated Features </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#transfer-learning"> Transfer Learning </a> </td>
@@ -472,20 +472,46 @@
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
   </tr>
+
+  <!--
+  Recurrent Neural network
+  -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Recurrent Neural Networks </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#training-for-rnn"> Training </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#binary-addition"> Binary Addition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Lon Short-term Memory </a> </td>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   </tbody>
-</table>
+</table>  
 
 
 ### [Data Science with Python](./RefCards/PythonDS.md)
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 100vw;">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
@@ -494,11 +520,11 @@
   </thead>
   <tbody>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; width: 10%; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Date & Time </a> </th>
