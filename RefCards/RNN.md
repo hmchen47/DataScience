@@ -94,5 +94,48 @@
     + the desired activity of a subset of the units
 
 
+## Binary Addition
+
++ [A good toy problem for a recurrent network](../ML/MLNN-Hinton/07-RNN.md#73-a-toy-example-of-training-an-rnn)
+  + training a feed-forward net to do binary addition
+  + feed-forward nets not generalized well on the binary addition task
+
++ [The algorithm](../ML/MLNN-Hinton/07-RNN.md#73-a-toy-example-of-training-an-rnn)
+  + a finite state automation
+  + system in one state at a time
+  + performing the action to print 1 or 0 once entering a state
+  + get input (the two number in the next column) when staying a state
+  + the input deciding what transition to make by looking at the next column
+  + making the transition
+  + moving from right to left over the two input numbers
+
+  </div>
+
++ [A recurrent net for binary addition](../ML/MLNN-Hinton/07-RNN.md#73-a-toy-example-of-training-an-rnn)
+  + Architecture: two input units and one output unit
+  + given two input digits at each time step
+  + desired output at each time step: the output for the column that was provided as input two time step ago
+    + taking one time step to update the hidden units based on the two input digits
+    + taking another time step for the hidden units to cause the output
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m07-12.png" style="margin: 0.1em;" alt="A recurrent net for binary addition" title="A recurrent net for binary addition" height=100>
+    </a>
+  </div>
+
++ [The connectivity of the network](../ML/MLNN-Hinton/07-RNN.md#73-a-toy-example-of-training-an-rnn)
+  + 3 hidden units fully interconnected in both directions (might be w/ different weights)
+    + allowing a hidden activity pattern at one time step to vote for the hidden activity pattern at the next time step
+  + input units having feed-forward connections (two-digit column) that allow them (the connection to the output unit) to vote (producing output) for the next hidden activity pattern
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m07-13.png" style="margin: 0.1em;" alt="The connectivity of the network" title="The connectivity of the network" height=150>
+    </a>
+  </div>
+
+
+
 
 
