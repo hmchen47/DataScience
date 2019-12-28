@@ -94,7 +94,7 @@
     + syntax to fit, e.g., number and tense agreement
     + semantic to fit; intonation to fit
     + accent, rate, volume and vocal tract characteristics must all fit
-  + all aspects combined could be 100 bits of information that the fist half of an utterance needs to convey to the second half. $2^{100}$ is big!
+  + all aspects combined could be 100 bits of information that the first half of an utterance needs to convey to the second half. $2^{100}$ is big!
 
 + Recurrent neural networks
   + efficient way to remember the information
@@ -174,11 +174,10 @@
 
     we need: $\Delta w_1 = \Delta w_2$
 
-
     compute: $\frac{\partial E}{\partial w_1}$ and $\frac{\partial E}{\partial w_2}$
 
     use $\frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2}$ for $w_1$ and $w_2$
- 
+
 + backpropagation through time
   + recurrent net: a layered, feed-forward net with shared weights
   + training the feed-forward net w/ weight constraints
@@ -239,7 +238,7 @@
     + there are obvious regularities that it cannot capture efficiently
     + decided in advance the maximum number of digits in each number
     + processing applied to the beginning of a long number does not gen
-    eralize to the end of long number because it uses different weights
+    + realize to the end of long number because it uses different weights
   + feed-forward nets not generalized well on the binary addition task
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -398,7 +397,7 @@
 </video><br/>
 
 
-## 7.5 Long term short term memory
+## 7.5 Long short term memory
 
 ### Lecture Notes
 
