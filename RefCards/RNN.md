@@ -54,5 +54,45 @@
     </a>
   </div>
 
++ [The equivalence between feed-forward nets and recurrent nets](../ML/MLNN-Hinton/07-RNN.md#lecture-notes-1)
+  + Architecture: 3 interconnected neurons
+  + network running in discrete time, i.e., a clock w/ integer ticks
+  + assumption: a time delay of 1 in using each connection
+  + objective: how to train a recurrent network
+  + recurrent network expended in time same as a feed-forward network
+  + the recurrent net is just a layered net that keeps reusing the same weights
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m07-06.png" style="margin: 0.1em;" alt="Feedforward nets" title="Feedforward networks" width=200>
+      <img src="../ML/MLNN-Hinton/img/m07-07.png" style="margin: 0.1em;" alt="Recurrent neural networks" title="Recurrent neural networks" width=200>
+    </a>
+  </div>
+
+
+## Training for RNN
+
++ [Training algorithm in the time domain](../ML/MLNN-Hinton/07-RNN.md#lecture-notes-1)
+  + forward pass: a stack of the activities of all the units at each time step
+  + backward pass: peeling activities off the stack to compute the error derivatives at each time step
+  + adding the sum or average of the derivatives at all the different times for each weight after backward pass
+
++ [Initialization](../ML/MLNN-Hinton/07-RNN.md#lecture-notes-1)
+  + specifying the initial activity state of all the hidden and output units
+  + could just fix these initial states to have some default value like 0.5
+  + better to treat the initial states as learned parameters rather than activities
+  + training them in the same way as we learn the weights
+
++ [Input and Output of recurrent networks](../ML/MLNN-Hinton/07-RNN.md#lecture-notes-1)
+  + specifying inputs in several ways
+    + the initial states of all the units (e.g., bottom layer units)
+    + the initial states of a subset of the units
+    + the states of the same subset of the units at every time step
+  + specifying targets in several ways
+    + desired final activities of all the units
+    + desired activities of all units for the last few steps
+    + the desired activity of a subset of the units
+
+
 
 
