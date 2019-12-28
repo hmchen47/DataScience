@@ -93,6 +93,35 @@
     + desired activities of all units for the last few steps
     + the desired activity of a subset of the units
 
++ [Linear backward pass](../ML/MLNN-Hinton/07-RNN.md#74-why-it-is-difficult-to-train-an-rnn)
+  + big difference between the forward and backward passes
+  + forward pass: using squashing functions (like the logistic) to prevent the activity vector from exploding
+  + backward pass:
+    + completely __linear__
+    + if double the error derivatives at the final layer, all error derivatives will be doubled
+    + once the forward pass done, the slope of that tangent fixed
+    + the forward pass determines the slope (red line) of the linear function
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m07-14.png" style="margin: 0.1em;" alt="Example of the slopes of the linear function used for backpropagation" title="Example of the slopes of the linear function used for backpropagation" width=150>
+    </a>
+  </div>
+
++ [The problem of exploding or vanishing gradients](../ML/MLNN-Hinton/07-RNN.md#74-why-it-is-difficult-to-train-an-rnn)
+  + magnitude of gradient for backpropagation through may layers
+    + small weight: shrinking exponentially
+    + large weight: growing exponentially
+  + typical feed-forward neural network can cope w/ these exponential effects because they only have a few hidden layers
+  + RNN trained on long sequences
+  + Hard to detect the current output
+
++ [Four effective ways to learn an RNN](../ML/MLNN-Hinton/07-RNN.md#74-why-it-is-difficult-to-train-an-rnn)
+  + __Long Short Term Memory__
+  + __Hessian Free Optimization__
+  + __Echo State Networks__
+  + __Good initialization w/ momentum__
+
 
 ## Binary Addition
 
