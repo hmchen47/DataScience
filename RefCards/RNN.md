@@ -194,4 +194,67 @@
   + output: a sequence of characters
 
 
+## Hessian-free Optimization
+
++ [Newton's method](../ML/MLNN-Hinton/08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
+  + the basic problem
+    + assumption: the steepest descent on a quadratic error surface
+    + not the direction where the gradient would go in
+    + error surface w/ circular cross-section: the gradient is a good direction which points to the minimum
+    + applying a linear transformation to turn ellipses into circles $\to$going downhill in a circular error surface
+  + Newton's method multiplies the gradient vector by the inverse of the curvature matrix $H$
+
+    \[ \Delta \mathbf{w} = -\varepsilon H(\mathbf{w})^{-1} \frac{d E}{d\mathbf{w}} \]
+
+    + $H(\mathbf{w})$: the Hessian transformation, a function of weights
+    + real quadratic surface: jump to the minimum in one step if $\varepsilon$ chosen correctly
+    + infeasible to invert the matrix w/ many parameters, e.g., a million weights ($10^6$) $\to$ trillion terms of the curvature matrix ($10^{12}$)
+
++ [Curvature Matrix](../ML/MLNN-Hinton/08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
+  + elements of curvature matrix
+    + each weight $w_i$ or $w_j$ telling how the gradient in one direction changes as you change in another direction
+    + off diagonal terms:
+      + if $w_i$ changed, how does the gradient of the error w.r.t. $w_j$ change?
+      + corresponding to twists in the error surface
+    + diagonal entries: how the gradient of the error changes in direction of the weight as you change that weight
+    + specifying how the gradient in one direction changes as moving into some other direction
+    + twist: when you travel in one direction, the gradient in another direction changes
+    + nice circular bulb: all those off diagonal terms are zero, ie, the gradient in other directions not changed
+  + reason about wrong direction w/ steepest descent
+    + the gradient for one weight messed up by the simultaneous changes to all the other weights
+    + curvature matrix determines the sizes of these interactions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture8/lec8.pdf" ismap target="_blank">
+      <img src="img/m08-02.png" style="margin: 0.1em;" alt="Curvature matrix" title="Curvature matrix" width=250>
+    </a>
+  </div>
+
++ [Hessian-free (HF) method](../ML/MLNN-Hinton/08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
+  + making an approximation to the curvature matrix
+  + assumptions:
+    + the approximation correct
+    + the curvature known
+    + the error surface really quadratic
+  + using conjugate gradient, an efficient technique to minimize the error $\to$ close to a minimum on this approximation to the curvature
+  + making another approximation and reaching the minimum w/ conjugate gradient again
+  + RNN usage
+    + adding a penalty for changing any of the hidden activities too much
+    + preventing from changing a weight early on that causes huge effects later on in the sequence
+    + putting quadratic penalty on those changes then combining it w/ the rest of the Hessian method
+
++ [Conjugate gradient](../ML/MLNN-Hinton/08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
+  + an alternative to going to the minimum in one step by multiplying the inverse of the curvature matrix
+  + using a sequence of steps, each of which finds the minimum along one direction
+  + ensuring moving in the conjugate direction
+    + conjugate: as moving in the new direction, not change the __gradients__ in the previous directions
+    + opposite: twist
+  + Goal of conjugate
+    + Objective: global minimum of an $N$-dim quadratic surface
+    + in $N$ steps, conjugate gradient guaranteed to find the minimum of an $N$-dim <span style="color: red;">quadratic</span> surface
+    + non-linear conjugate gradient: able to apply directly to a non-quadratic error surface, such as the error surface for a multilayer non-linear neural network
+    + HF optimizer:
+      + using conjugate gradient for minimization on a genuinely quadratic surface where it excels
+      + genuinely quadratic surface: the quadratic approximation to the true surface made by Hessian-free matrix
+
 
