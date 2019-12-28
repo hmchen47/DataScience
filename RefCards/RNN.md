@@ -165,6 +165,33 @@
   </div>
 
 
+## Long short term memory for hand written recognition
+
++ [Long short term memory](../ML/MLNN-Hinton/07-RNN.md#75-long-short-term-memory) (LSTM)
+  + solving the problem of getting an RNN to remember things for a long time (like hundreds of time steps)
+  + designed a memory cell using logistic and linear units (gates) w/ multiplicative iterations
+  + "write" gate on: information get into the cell
+  + "keep" gate on: information stayed in the cell
+  + "read" gate on: information read from the cell
+
++ [Implementing a memory cell in a neural network](../ML/MLNN-Hinton/07-RNN.md#75-long-short-term-memory)
+  + using a circuit to implement an analog memory cell
+  + to preserve information for a long time in activities of an RNN
+  + Example of backpropagation through a memory cell block
+    + forward pass (from left to right as time elapsed)
+    + backward pass
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture7/lec7.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m07-16.png" style="margin: 0.1em;" alt="Circuit of a memory cell" title="Circuit of a memory cell" height=200>
+      <img src="../ML/MLNN-Hinton/img/m07-17.png" style="margin: 0.1em;" alt="Backpropagation through a memory cell" title="Backpropagation through a memory cell" height=200>
+    </a>
+  </div>
+
++ [Reading cursive handwriting](../ML/MLNN-Hinton/07-RNN.md#75-long-short-term-memory)
+  + a natural task for an RNN
+  + input: a sequence of $(x, y, p)$ coordinates of the tip of the pen, where $p$ indicates whether the pen is up or down
+  + output: a sequence of characters
 
 
 
