@@ -359,5 +359,51 @@
   + the current character in group $b$: determined the weight on each of the rank 1 matrices
 
 
+## Predicting next character
+
++ [Training the character model](../ML/MLNN-Hinton/08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
+  + Model
+    + used 5 million strings of 100 characters taken from English Wikipedia
+    + very good at completing sentences in interesting ways
+    + objective: predict after 11th character of each string
+  + Procedure
+    + using RNN and starting off in a default state
+    + read 11 characters changing hidden state each time
+    + then ready to start predicting
+    + trained by back propagating the error made in prediction
+  + using HF optimizer
+
++ [Generate character strings from the model](../ML/MLNN-Hinton/08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
+  + model learned $\to$ knowing what the model knows by generating strings from the model
+  + Procedure
+    + starting the model w/ its default hidden state
+    + give it a "burn-in" sequence of characters and let it update its hidden state after each character
+    + then let it predict by looking at the probability distribution it predicts for the next character
+    + pick a character randomly from the distribution
+    + continue to let it pick character until bored
+    + look at the character string it produces to see what it "knows"
+
++ [Characteristics of model](../ML/MLNN-Hinton/08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
+  + a huge number of words in English and a lot about proper names, dates, and numbers
+  + good at balancing quotes and brackets
+  + a lot about syntax but very hard to pin down exactly what form this knowledge has
+  + a lot of weak semantic associations
+
++ [RNNs for predicting the next word](../ML/MLNN-Hinton/08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
+  + train large RNNs on quite large training sets to predict the next work by using BPTT
+    + using the technique same as the feed-forward neural networks
+    + Procedure
+      + convert a word to a real-valued feature vector
+      + ussing these features as input to the rest of the network
+    + better than feed-forward neural nets
+    + better than the best other models
+    + even better when averaged w/ other models
+  + the best language models currently used
+  + interesting RNN property:
+    + require much less training data to reach the same level of performance with other models
+    + improve faster than other methods as the dataset getting bigger
+    + similar to the role of large deep neural networks for object recognition
+
+
 
 
