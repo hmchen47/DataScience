@@ -226,7 +226,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture8/lec8.pdf" ismap target="_blank">
-      <img src="img/m08-02.png" style="margin: 0.1em;" alt="Curvature matrix" title="Curvature matrix" width=250>
+      <img src="../ML/MLNN-Hinton/img/m08-02.png" style="margin: 0.1em;" alt="Curvature matrix" title="Curvature matrix" width=250>
     </a>
   </div>
 
@@ -256,5 +256,108 @@
     + HF optimizer:
       + using conjugate gradient for minimization on a genuinely quadratic surface where it excels
       + genuinely quadratic surface: the quadratic approximation to the true surface made by Hessian-free matrix
+
+
+## Modeling text characters
+
++ [Modeling text](../ML/MLNN-Hinton/08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections): advantages of working with characters
+  + purpose: modeling character strings
+  + architecture and process: (see diagram)
+    + 1500 hidden states
+    + inputs: characters and hiddent state dynamics
+    + hidden state dynamics: the hidden state at time $t$ providing input to determine the hidden state at time $t+1$
+    + predict the next character when retaining the new hidden state (new character + previous hidden state dynamics)
+    + single softmax over the 86 characters
+    + try to find high probability to the correct next character and low probability to the others
+    + train the whole system by back propagating from that softmax the log probability of getting the correct character
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture8/lec8.pdf" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m08-04.png" style="margin: 0.1em;" alt="Recurrent neural net for character strings" title="Recurrent neural net for character strings" width=350>
+      </a>
+    </div>
+
++ [Tree structure](../ML/MLNN-Hinton/08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
+  + reason for not using RNN but instead a different kind of network
+  + modeling string w/ tree (see diagram)
+    + ranging all possible character strings into a tree w/ a branching ratio of 86 here
+    + a tiny little subtree of that great big tree: occuring many times but w/ different things represented by dots (...) before the `fix`
+    + representing many characters followed by `...fix`
+      + left branch: trailed by 'i'
+      + right branch: trailed by 'e'
+    + every new character moving one step down in the tree to a new node
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture8/lec8.pdf" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m08-05.png" style="margin: 0.1em;" alt="Sub-tree in the tree of all character strings" title="Sub-tree in the tree of all character strings" width=250>
+      </a>
+    </div>
+
+  + exponentially many nodes in the tree of all character strings of length $N$
+  + RNN modeling:
+    + enormous tree
+    + a hidden state vector to represent each node
+    + next character must transform to a new (hidden) node
+  + node implemented as hidden states in an RNN
+    + different node able to share structure
+    + operating on the part of the state representing a verb able to share with all the verbs
+    + using distributed representation
+  + next hidden representation
+    + conjunction of the current state at and the character to determine which branch to take
+    + depending on the conjunction of the current character and the current hidden representation
+
++ [Multiplicative connections](../ML/MLNN-Hinton/08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
+  + inputs of recurrent net
+    + traditional: using the character inputs to the recurrent net to provide extra additive input to the hidden states
+    + capturing inputs by using multiplicative connections
+    + naive method: 86x1500x1500 parameters $\to$ too many parameters $\to$ making the net overfit
+  + multiplicative interaction w/ fewer parameters
+    + different transition matrix for each of the 86 characters
+    + characters w/ common characteristics
+    + making these 86 character-specific weight matrices to share parameters
+
++ [factors to implement multiplicative interactions](../ML/MLNN-Hinton/08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
+  + factor
+    + the triangle w/ $f$ (left diagram)
+    + group $a$ and group $b$ interact multiplicatively to provide input to group $c$
+  + get groups $a$ and $b$ to interact multiplicatively by using "factors"
+    1. each factor first computes a weighted sum for each of its input groups
+    2. then send the product of the weighted sums to its output group
+  + mathematical representation
+
+    \[ \mathbf{c}_f = \left( \mathbf{b}^T \mathbf{w}_f \right) \left( \mathbf{a}^T \mathbf{u}_f \right) \mathbf{v}_f \]
+
+    + $\mathbf{c}_f$: vector of inputs to group $c$
+    + $(\mathbf{b}^T \mathbf{w}_f)$: scalar input to $f$ from group $b$
+    + $(\mathbf{a}^T \mathbf{u}_f)$: scalar input to $f$ from group $a$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture8/lec8.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m08-06.png" style="margin: 0.1em;" alt="Factors for multiplicative interactions" title="Factors for multiplicative interactions" width=200>
+      <img src="../ML/MLNN-Hinton/img/m08-07.png" style="margin: 0.1em;" alt="Factors for a set of basis matricess" title="Factors for a set of basis matricess" width=200>
+    </a>
+  </div>
+
++ [factors to implement a set of basis matrices](../ML/MLNN-Hinton/08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
+  + each factor defines a rank 1 transition matrix (the product of two vectors) from $a$ to $c$
+  + treat a factor as computing two scalar products multiplying them (right diagram)
+  + using the product as a weight on the outgoing vector $\mathbf{v}$
+  + mathematical representation
+
+    \[\begin{align*}
+      \mathbf{c}_f &= \left( \mathbf{b}^T \mathbf{w}_f \right) \left( \mathbf{a}^T \mathbf{u}_f \right) \mathbf{v}_f 
+        = \left( \mathbf{b}^T \mathbf{w}_f \right) \left( \mathbf{u}_f \mathbf{v}_f^T \right) \mathbf{a} \\
+      \mathbf{c} &= \left( \sum_f \left( \mathbf{b}^T \mathbf{w}_f \right) \left( \mathbf{u}_f \mathbf{v}_f^T \right) \right) \mathbf{a}
+    \end{align*}\]
+
+    + $( \mathbf{b}^T \mathbf{w}_f )$: scalar coefficient
+    + $( \mathbf{u}_f \mathbf{v}^T_f )$: outer product transition matrix with rank 1
+    + $\mathbf{c}$: the sum of all factors
+
+  + multiply the transition matrix by the current hidden state to produce a new hidden state
+  + synthesized the transition matrix out of these rank 1 matrices provided by each factor
+  + the current character in group $b$: determined the weight on each of the rank 1 matrices
+
+
 
 
