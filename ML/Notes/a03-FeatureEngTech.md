@@ -13,3 +13,10 @@ Date: Dec. 9, 2019
 + feature engineering technique w/ Python
 
 
+## Introduction
+
++ a lot of nuance to time series data to consider when working with datasets that are time-sensitive
+
++ feature engineering for time series: the potential to transform time series model from just a good one to a powerful forecasting model
+
+
