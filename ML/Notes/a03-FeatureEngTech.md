@@ -81,13 +81,63 @@ Date: Dec. 9, 2019
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
-      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fets1.png" style="margin: 0.1em;" alt="Extracting these features" title="capExtracting these featurestion" width=450>
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fets1.png" style="margin: 0.1em;" alt="Extracting these features" title="Extracting these features" width=450>
     </a>
   </div>
 
 
 ## Time-Related Features
 
++ extract more granular features if we have the time stamp
+
++ more insightful conclusions about the data
+  + extract the ‘hour’ feature from the time stamp
+  + determine the average hourly traffic throughout the week
+
++ converting the column to DateTime format and use the .dt accessor
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+  data['Hour'] = data['Datetime'].dt.hour
+  data['minute'] = data['Datetime'].dt.minute
+
+  data.head()
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fets2.png" style="margin: 0.1em;" alt="Extracting Time-Related Features" title="Extracting Time-Related Features" width=250>
+    </a>
+  </div>
+
++ Complete list of features able to generate
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/time-features.png" style="margin: 0.1em;" alt="List of time-related features" title="List of time-related features" width=650>
+    </a>
+  </div>
+
+  + example code for these features
+
+    ```python
+    # Time Based Features
+
+    # importing required libraries
+    import pandas as pd
+    data = pd.read_csv('Train_SU63ISt.csv')
+    data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+    # day
+    data['day']=data['Datetime'].dt.day
+    # hour
+    data['Hour'] = data['Datetime'].dt.hour
+
+    print(data.head())
+    ```
 
 
 ## Lag Features
