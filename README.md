@@ -485,17 +485,17 @@
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Lon Short-term Memory </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimizaton </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#hessian-free-optimization"> Hessian-free </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Application </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#modeling-text-characters"> Text Character </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#predicting-next-character"> Predict Next Character </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#echo-state-networks-esn"> Echo State networks </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
