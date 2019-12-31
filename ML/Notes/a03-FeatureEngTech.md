@@ -239,10 +239,49 @@ Date: Dec. 9, 2019
     where $w_1 > w_2 > \cdots > w_7$
 
 
-
 ## Expanding Window
 
++ rolling window, the size of the window is constant while the window slides as moveing forward in time
 
++ expanding windows
+  + The idea behind the expanding window feature is that it takes all the past values into account.
+  + pictorial example
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
+        <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/12/output_B4KHcT-225x300.gif" style="margin: 0.1em;" alt="Example of expanding window features" title="Example of expanding window features" width=150>
+      </a>
+    </div>
+
+  + the size of the window increases by one as it takes into account every new value in the series
+
++ Implementation of expanding window
+  + using the `expanding()` function
+  + code
+
+    ```python
+    import pandas as pd
+    data = pd.read_csv('Train_SU63ISt.csv')
+    data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+    data['expanding_mean'] = data['Count'].expanding(2).mean()
+    data = data[['Datetime','Count', 'expanding_mean']]
+    data.head(10)
+
+    #              Datetime  Count  expanding_mean
+    # 0 2012-08-25 00:00:00      8             NaN
+    # 1 2012-08-25 01:00:00      2        5.000000
+    # 2 2012-08-25 02:00:00      6        5.333333
+    # 3 2012-08-25 03:00:00      2        4.500000
+    # 4 2012-08-25 04:00:00      2        4.000000
+    # 5 2012-08-25 05:00:00      2        3.666667
+    # 6 2012-08-25 06:00:00      2        3.428571
+    # 7 2012-08-25 07:00:00      2        3.250000
+    # 8 2012-08-25 08:00:00      6        3.555556
+    # 9 2012-08-25 09:00:00      2        3.400000
+    ```
+
+  
 
 ## Domain-Specific
 
