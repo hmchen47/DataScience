@@ -200,6 +200,44 @@ Date: Dec. 9, 2019
 
 ## Rolling Window
 
++ How about calculating some statistical values based on past values? This method is called the rolling window method because the window would be different for every data point.
+
++ Pictorial example of rolling windows
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/3hotmk.gif" style="margin: 0.1em;" alt="Example of rolling window" title="Example of rolling window" width=150>
+    </a>
+  </div>
+
++ Example
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+  data['rolling_mean'] = data['Count'].rolling(window=7).mean()
+  data = data[['Datetime', 'rolling_mean', 'Count']]
+  data.head(10)
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/12/Screenshot-from-2019-12-07-13-33-19-300x168.png" style="margin: 0.1em;" alt="Result of rolling window features" title="Result of rolling window features" width=250>
+    </a>
+  </div>
+
++ Recency in an important factor in a time series. Values closer to the current date would hold more information.
+
++ weighted average
+  + weighted average at time t for the past 7 values
+  + math representation
+
+    \[ w_{agv} = w_1 * (t-1) + w_2 * (t-2) + \cdots + w_7 * (t-7) \]
+
+    where $w_1 > w_2 > \cdots > w_7$
+
 
 
 ## Expanding Window
