@@ -80,7 +80,7 @@ Date: Dec. 9, 2019
   ```
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
       <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fets1.png" style="margin: 0.1em;" alt="Extracting these features" title="Extracting these features" width=450>
     </a>
   </div>
@@ -108,7 +108,7 @@ Date: Dec. 9, 2019
   ```
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
       <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fets2.png" style="margin: 0.1em;" alt="Extracting Time-Related Features" title="Extracting Time-Related Features" width=250>
     </a>
   </div>
@@ -116,7 +116,7 @@ Date: Dec. 9, 2019
 + Complete list of features able to generate
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
       <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/time-features.png" style="margin: 0.1em;" alt="List of time-related features" title="List of time-related features" width=650>
     </a>
   </div>
@@ -142,6 +142,60 @@ Date: Dec. 9, 2019
 
 ## Lag Features
 
++ the value at time $t$ is greatly affected by the value at time $t-1$
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+  data['lag_1'] = data['Count'].shift(1)
+  data = data[['Datetime', 'lag_1', 'Count']]
+  data.head()
+  ```
+
++ The lag value we choose will depend on the correlation of individual values with its past values.
+
++ assign appropriate weights (or coefficients) to the lag features:
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+  data['lag_1'] = data['Count'].shift(1)
+  data['lag_2'] = data['Count'].shift(2)
+  data['lag_3'] = data['Count'].shift(3)
+  data['lag_4'] = data['Count'].shift(4)
+  data['lag_5'] = data['Count'].shift(5)
+  data['lag_6'] = data['Count'].shift(6)
+  data['lag_7'] = data['Count'].shift(7)
+
+  data = data[['Datetime', 'lag_1', 'lag_2', 'lag_3', 'lag_4', 'lag_5', 'lag_6', 'lag_7', 'Count']]
+  data.head(10)
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/" ismap target="_blank">
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fests4-300x186.png" style="margin: 0.1em;" alt="List of time-related features" title="List of time-related features" width=300>
+    </a>
+  </div>
+
++ Correlation about the lag
+  + using the ACF (Autocorrelation Function) and PACF (Partial Autocorrelation Function) plots
+    + __ACF__: The ACF plot is a measure of the correlation between the time series and the lagged version of itself
+    + __PACF__: The PACF plot is a measure of the correlation between the time series with a lagged version of itself but after eliminating the variations already explained by the intervening comparisons
+  + example for the ACF and PACF plots
+
+    ```python
+    from statsmodels.graphics.tsaplots import plot_acf
+    plot_acf(data['Count'], lags=10)
+    plot_pacf(data['Count'], lags=10)
+    ```
+
++ The partial autocorrelation function shows a high correlation with the first lag and lesser correlation with the second and third lag. The autocorrelation function shows a slow decay, which means that the future values have a very high correlation with its past values.
+
++ The number of times you shift, the same number of values will be reduced from the data. You would see some rows with NaNs at the start. That’s because the first observation has no lag. You’ll need to discard these rows from the training data.
 
 
 ## Rolling Window
