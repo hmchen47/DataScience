@@ -292,3 +292,33 @@ Date: Dec. 9, 2019
   + domain knowledge: able to pull external data that adds more value to the model
 
 
+## Validation Technique for Time Series
+
++ convert a time series problem into a supervised machine learning problem
+
++ there is one important step that you should know before you jump to the model building process – creating a validation set for time series.
+
++ Validation data set
+  + traditional machine learning problems: randomly select subsets of data for the validation and test sets
+  + time series: each data point is dependent on its past values
+  + It is important that we carefully build a validation set when working on a time series problem, without destroying the sequential order within the data.
+  + example code
+
+    ```python
+    import pandas as pd
+    data = pd.read_csv('Train_SU63ISt.csv')
+    data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+    data['Datetime'].min(), data['Datetime'].max(), (data['Datetime'].max() -data['Datetime'].min())
+    # (Timestamp('2012-08-25 00:00:00'),
+    #  Timestamp('2014-09-25 23:00:00'),
+    #  Timedelta('761 days 23:00:00'))
+
+    data.index = data.Datetime
+    Train=data.loc['2012-08-25':'2014-06-24'] 
+    valid=data.loc['2014-06-25':'2014-09-25']
+
+    Train.shape, valid.shape
+    # ((16056, 3), (2232, 3))
+    ```
+  
+
