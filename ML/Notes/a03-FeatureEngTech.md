@@ -20,3 +20,36 @@ Date: Dec. 9, 2019
 + feature engineering for time series: the potential to transform time series model from just a good one to a powerful forecasting model
 
 
+## Quick Introduction to Time Series
+
+
+
+## Setting up the Problem Statement for Time Series Data
+
+
+
+## Date-Related Features
+
+
+
+## Time-Related Features
+
+
+
+## Lag Features
+
+
+
+## Rolling Window
+
+
+
+## Expanding Window
+
+
+
+## Domain-Specific
+
+
+
+
