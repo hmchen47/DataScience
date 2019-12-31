@@ -405,5 +405,30 @@
     + similar to the role of large deep neural networks for object recognition
 
 
+## Echo state networks (ESN)
+
++ [Key idea for ESN](../ML/MLNN-Hinton/08-RNN2.md#84-echo-state-networks)
+  + not to train the hidden$\to$hidden connections
+  + just fix hidden$\to$hidden connections randomly and hope able to learn sequences by just training the way they affect the outputs
+  + a simple network w/ perceptrons (feed-forward network)
+    + make the early layers of feature detectors random and fixed
+    + put in sensible sized random weights
+    + objective: to learn the last layer w/ linear model
+    + learning a linear model from the activities of the hidden units in the last layer to the outputs $\to$ faster
+    + using the transformed input to predict the target outputs
+    + a big random expansion of the input vector often makes it easy for a linear model to fit the data
+    + if not able to fit the data well just looking at the raw input
+  + equivalent idea for RNN
+    + fix the <span style="color: red;">input$\to$hidden</span> connections
+    + randomly assigned values for the <span style="color: red;">hidden$\to$hidden</span> connections
+    + only learning the <span style="color: blue;">hidden$\to$output</span> connections
+    + simple learning w/ linear output unit assumption $\to$ fast
+    + set the random connections very careful $\to$ RNN not exploding or vanishing
+
++ [Setting the random connections](../ML/MLNN-Hinton/08-RNN2.md#84-echo-state-networks  )
+  + set the hidden$\to$hidden weights
+  + using sparse connectivity
+  + carefully choosing the scale of the input$\to$hidden connections
+  + fast learning in ESNs
 
 
