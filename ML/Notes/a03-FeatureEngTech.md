@@ -33,6 +33,27 @@ Date: Dec. 9, 2019
 
 ## Setting up the Problem Statement for Time Series Data
 
++ Problem
+  + historical data for ‘JetRail’, a form of public rail transport, that uses advanced technology to run rails at a high speed
+  + to forecast the traffic on JetRail for the next 7 months based on past data
+  + detailed problem statement and the dataset: [download](https://datahack.analyticsvidhya.com/contest/practice-problem-time-series-2/?utm_source=blog&utm_medium=6-powerful-feature-engineering-techniques-time-series)
+
++ Loading data
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data.dtypes
+  ```
+
++ Convert categorical variable into a DateTime variable
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+  data.dtypes
+  ```
 
 
 ## Date-Related Features
