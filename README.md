@@ -482,7 +482,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#training-for-rnn"> Training </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#binary-addition"> Binary Addition </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Lon Short-term Memory </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Long Short-term Memory </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimizaton </th>
@@ -614,14 +614,14 @@
 + [Machine Learning with Python](./RefCards/PythonML.md)
 
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
-    + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
-    + [Numpy](./RefCards/DataScience-UCB.md#numpy)
-    + [Array](./RefCards/DataScience-UCB.md#array)
-    + [Table](./RefCards/DataScience-UCB.md#table)
-    + [Visualizations](./DataScience-UCB.md#visualizations)
-    + [iPython](./RefCards/DataScience-UCB.md#ipython)
-    + [Conditions](./RefCards/DataScience-UCB.md#conditions)
-    + [Utility](./RefCards/DataScience-UCB.md#utility)
+  + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
+  + [Numpy](./RefCards/DataScience-UCB.md#numpy)
+  + [Array](./RefCards/DataScience-UCB.md#array)
+  + [Table](./RefCards/DataScience-UCB.md#table)
+  + [Visualizations](./DataScience-UCB.md#visualizations)
+  + [iPython](./RefCards/DataScience-UCB.md#ipython)
+  + [Conditions](./RefCards/DataScience-UCB.md#conditions)
+  + [Utility](./RefCards/DataScience-UCB.md#utility)
 
 
 
