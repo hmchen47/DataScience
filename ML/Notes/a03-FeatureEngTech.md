@@ -22,6 +22,13 @@ Date: Dec. 9, 2019
 
 ## Quick Introduction to Time Series
 
++ In a time series, the data is captured at equal intervals and each successive data point in the series depends on its past values.
+
++ Examples:
+  + predicting stock price at a certain company
+  + predicting the traffic on a website
+
++ time series data may also have certain trends or seasonality
 
 
 ## Setting up the Problem Statement for Time Series Data
