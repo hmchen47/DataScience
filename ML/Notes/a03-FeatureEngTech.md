@@ -281,10 +281,14 @@ Date: Dec. 9, 2019
     # 9 2012-08-25 09:00:00      2        3.400000
     ```
 
-  
 
 ## Domain-Specific
 
++ Having a good understanding of the problem statement, clarity of the end objective and knowledge of the available data is essential to engineer domain-specific features for the model.
 
++ creating lag features considering the store-product combination
+  + knowledge about the products and the trends in the market, we would be able to generate more accurate (and fewer) feature
+  + good understanding about the domain and data $to$ selecting the lag value and the window size
+  + domain knowledge: able to pull external data that adds more value to the model
 
 
