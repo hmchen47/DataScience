@@ -58,6 +58,32 @@ Date: Dec. 9, 2019
 
 ## Date-Related Features
 
++ the sales pattern for weekdays and weekends based on historical data
+
++ forecast the count of people who will take the JetRail on an hourly basis for the next 7 months
+
++ important factor: the day of the week (weekday or weekend) or month
+
+  ```python
+  import pandas as pd
+  data = pd.read_csv('Train_SU63ISt.csv')
+  data['Datetime'] = pd.to_datetime(data['Datetime'],format='%d-%m-%Y %H:%M')
+
+  data['year']=data['Datetime'].dt.year 
+  data['month']=data['Datetime'].dt.month 
+  data['day']=data['Datetime'].dt.day
+
+  data['dayofweek_num']=data['Datetime'].dt.dayofweek  
+  data['dayofweek_name']=data['Datetime'].dt.weekday_name
+
+  data.head()
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.analyticsvidhya.com/blog/2019/12/6-powerful-feature-engineering-techniques-time-series/url" ismap target="_blank">
+      <img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/11/fets1.png" style="margin: 0.1em;" alt="Extracting these features" title="capExtracting these featurestion" width=450>
+    </a>
+  </div>
 
 
 ## Time-Related Features
