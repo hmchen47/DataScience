@@ -32,17 +32,21 @@
 
 + Ways to limit the cpacity of a neural network
   + controlling capacity w/
-    + architecture: limit the number of hidden layers and the number of units per layer
-    + early stopping: start w/ small weights and stop the learning before it overfits
-    + weight-decay: penalize large weights using penalties or constrains on their squared values (L2 penalty) or absolute values (L1 penalty)
-    + noise: add to the weights of the activities
+    + <span style="color: blue;">architecture</span>: limit the number of hidden layers and the number of units per layer
+    + <span style="color: blue;">early stopping</span>: start w/ small weights and stop the learning before it overfits
+    + <span style="color: blue;">weight-decay</span>:
+      + given model a number of hiddent layers or units per layer which is a little too large
+      + penalize large weights using penalties or constrains on their squared values (L2 penalty) or absolute values (L1 penalty)
+    + <span style="color: blue;">noise</span>: add to the weights of the activities
   + typically, using a combinaition of several of these methods
 
 + Meta parameters to control capacity
+  + meta parameters: the number of hidden units, the number of layers, or the size of the weight penalty
   + trying lots of alternatives and choosing the one w/ the best performance on the test set
     + wrong method
     + easy to do but giving false impression of how well the methods works
     + settings w/ best performance on a test set unlikely to work on new data set drawn from the same distribution
+    + model tuned for a particular test set
   + extreme example
     + assume that the test set has random answers that does not depend on the input
     + the best architecture perform better than chance on the test set
@@ -56,8 +60,11 @@
     + <span style="color: red;">test data</span>: 
       + used to get a final, unbiased estimate of how well the network works
       + expect the estimate to be worse than on the validation data
+  + competitions:
+    + organizations held back the true test data and asked participationers to send in predictions
+    + then validate the predictions can really predict on true test data or they're just overfitting to validation data by selecting meta parameters particularly well on the validation data but won't generalize to new test sets
   + N-fold cross-validation
-    + divide the total dataset into one final test set and $N$ other subsets and
+    + divide the total dataset into one final test set and $N$ other subsets
     + train on all but one of those subsets to get $N$ different estimates of the validation error rate
     + the $N$ estimates not independent
 
@@ -67,13 +74,16 @@
     + assumption: lots of data and a big model
     + training w/ different sized penalities on the weights of different architectures
   + Solution:
-    + start e/ very small weights
+    + start w/ very small weights
     + grow the weights until the performance on the validation set starts getting worse
   + issues:
     + hard to decide when the performance getting worse
+      + performance on the validation set might fluctuate
+      + particularly, measure on error rate rather than a squared error or cross-emtropy error
     + limited capacity of the model
-      + weights not had time to grow big
       + smaller weights give the network less capacity
+      + weights not had time to grow big
+  + Why small weights lower the cpacity?
 
 + Why early stopping works
   + very small weights
@@ -83,6 +93,17 @@
   + as weights grow
     + hidden units start using the non-linear ranges
     + capacity grows
+  + example: (see diaggram)
+    + hidden units w/ logistic units
+    + small weights $\implies$ total inputs close to zero
+    + the inputs for hidden units in the middle of their linear range $\implies$ very likely linear unit
+    + multiply the inputs with weight matrice $w_1$ and $w_2$ to connect to the outputs
+    + hidden units behave much like linear net
+    + therefore, no more capacity than the linear net
+    + $(3 \times 6) + (6 \times 2)$ wights $\implies$ no more capacity than a network w/ $(3 \times 2)$ weights
+    + weight grow $\implies$ using the nonlinear region of the sigmoid
+    + start making use of all those parameters $\implies$ from 6 to 30 weights increasing smoothly
+    + early stopping: stop the learning w/ the right number of parameters $\implies$ optimize the trade-off between fitting the true regularities in the data and fitting the spurious regularities
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
@@ -102,7 +123,6 @@
 ## 9.2 Limiting size of the weights
 
 ### Lecture Notes
-
 
 
 
