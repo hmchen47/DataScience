@@ -142,7 +142,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#artificial-data"> Artificial Data </a> </td>
   </tr>
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: grey; color: gray;"> Special Applications / Special Topics </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Special Applications / Special Topics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#spam-classifier"> Spam Classifier </a></td>
@@ -195,15 +195,47 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#learning-methodologies"> Learning Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#bias--variance"> Bias & Variance </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#considerations-of-learning-procedures"> Considerations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#delta-rule"> Delta Rule </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation"> Backpropagation </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#types-of-architectures"> Types </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#simple-neuron-model"> Simple Neuron Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#perceptrons"> Perceptrons </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Activation Functions </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-of-activation-functions"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#sigmoid-and-softmax-functions"> Sigmoid & Softmax </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#hyperbolic-tangent-tanh-function"> Hyper Tangent </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#softplus-functions"> Softplus </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#rectified-linear-unit-relu"> Rectified Linear UNnit </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#maxout-function"> Maxout </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#self-gated-activation-function"> Self-gated </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Lost/Cost Function & Gradient Descent </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-of-lost-function"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent"> Gradient Descent </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#delta-rule"> Delta Rule </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#mini-batch-gradient-descent"> Mini-batch </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#tricks-for-mini-batch-gradient-descent"> Tricks of Mini-batch </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Output Unit </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-of-output-units"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -227,11 +259,18 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Huperparameters </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#summary"> Summary </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#batch-size"> Batch Size </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#weight-decay"> Weight Decay </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Neurons </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-of-linear-neurons"> Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#cost-function-for-linear-neurons"> Cost Function </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#error-surface-for-linear-neuron"> Error Surface </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation"> Backpropagation </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Output Unit </th>
@@ -251,34 +290,119 @@
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Logistic Neurons </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#model-for-logistic-neurons"> Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#backpropagation-for-logistic-neurons"> Backpropagation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#the-softmax-function"> Softmax </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#lost-function-for-softmax-function"> Softmax Loss Fucntion </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent-for-softmax-function"> Softmax Gradient Descent </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Overfitting & Underfitting </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-1"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#underfitting"> Underfitting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overfitting"> Overfitting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#dropout"> Dropout </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#inverted-dropout"> Inverted Dropout </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimization Issues & Algorithms </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#challenges-with-optimization"> Challenges </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#local-optima-and-saddle-points"> Local Optima & Saddle Points </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#poor-conditioning"> Poor Conditioning </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#vanishingexploding-gradients"> Vanishing/Exploding Gradients </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#challenges-with-optimization"> Challenges </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#local-optima-and-saddle-points"> Local Optima & Saddle Points </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#poor-conditioning"> Poor Conditioning </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#vanishingexploding-gradients"> Vanishing/Exploding Gradients </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#momentum"> Momentum </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adaptive-learning-rates"> Adaptiv Learning Rates </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#parameter-initialization"> Parameter Initialization </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#normalization"> Normalization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#adaptive-learning-rates"> Adaptivr Learning Rates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#momentum"> Momentum </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#parameter-initialization"> Parameter Initialization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#normalization"> Normalization </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#assessment-with-beales-function"> Beale's Function for Assessment </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#implementation-with-keras"> Keras Implementation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#implementation-for-cross-validation"> Cross-valiation Implementation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#assessment-with-beales-function"> Beale's Function for Assessment </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#implementation-with-keras"> Keras Implementation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#implementation-for-cross-validation"> Cross-valiation Implementation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimization.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Adaptive Learning Rates </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adagrad"> AdaGrad </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#rmsprop"> RMPProp </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adam"> Adam </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Second-order Bacpropagation </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#second-order-derivatives"> Derviatives </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#explicit-calculation-of-the-hessian"> Hessian Calculation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#some-conclusions"> Conclusions </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Momentum </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#classical-momentum"> Classical </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#backpropagation-for-classical-momentum"> Backpropagation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#nesterov-momentum"> Nesterov </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#cyclical-momentum"> Cyclical </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Parameter Initialization </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#initialization-strategies"> Strategies </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#xavier-initialization"> Xavier </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#he-normal-initialization"> HE Normal </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#bias-initialization"> Bias </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#pre-initialization"> Pre-initialization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Normalization </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#internal-covariate-shift"> Internal Covariate Shift </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#batch-normalization"> Batch Normalization </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Second-order Algorithms </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#general-representation"> General Representation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#quickprop"> QuickProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#qrprop"> QRProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Relaxation Methods </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#overview-1"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#weight-and-node-perturbation"> Weight & Node Permutation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#"> Symmetric & Asymmetric </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-FastLearn.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="5" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Adaptive Learnign Rates </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#snapshot-ensembles"> Snapshot Ensambles </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#polyak-ruppert-averaging"> Polyak-Ruppert Averaging </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#silva-and-almeida´s-algorithm"> Silva & Almeida </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#delta-bar-delta"> Delta-bar-Delta </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#cyclical-learning-rates"> Cyclical Learning Rates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#estimating-the-learning-rate"> Estimating the Learning Rates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#sgd-with-warm-restarts"> SGD w/ Warm Restarts </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#snapshot-ensembles"> Snapshot Ensambles </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#polyak-ruppert-averaging"> Polyak-Ruppert Averaging </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#silva-and-almeida´s-algorithm"> Silva & Almeida </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#delta-bar-delta"> Delta-bar-Delta </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#adagrad"> AdaGrad </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#rprop"> RProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#rmsprop"> RMPProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#adam"> Adam </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#the-dynamic-adaption-algorithm"> Dymamic Adaption </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#quickprop"> QuickProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#qrprop"> QRProp </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-AdaptiveLearn.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Parameter Initialization </th>
@@ -315,7 +439,7 @@
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Convolutional Neural Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#object-recognition-and-classification"> General Issue </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#object-recognition-and-classification"> Issues </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#solutions-for-viewpoint-invariance"> Viewpoint Invariance </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#replicated-feature-approach"> Replicated Features </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#transfer-learning"> Transfer Learning </a> </td>
@@ -334,7 +458,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Other Models </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Other Models </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015"> Region Based </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#generative-adversarial-networks-2014"> GAN </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#generating-image-descriptions-2014"> Generating Image Description </a> </td>
@@ -368,12 +492,6 @@
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
@@ -386,14 +504,47 @@
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+  </tr>
+
+  <!--
+  Recurrent Neural network
+  -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Recurrent Neural Networks </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#training-for-rnn"> Training </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#binary-addition"> Binary Addition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Long Short-term Memory </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimization </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#hessian-free-optimization"> Hessian-free </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#modeling-text-characters"> Text Characters </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#predicting-next-character"> Predicting Next Character </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#echo-state-networks-esn"> Echo State networks </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   </tbody>
-</table>
+</table>  
 
 
 ### [Data Science with Python](./RefCards/PythonDS.md)
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 100vw;">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
@@ -402,11 +553,11 @@
   </thead>
   <tbody>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; width: 10%; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Date & Time </a> </th>
@@ -496,14 +647,14 @@
 + [Machine Learning with Python](./RefCards/PythonML.md)
 
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
-    + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
-    + [Numpy](./RefCards/DataScience-UCB.md#numpy)
-    + [Array](./RefCards/DataScience-UCB.md#array)
-    + [Table](./RefCards/DataScience-UCB.md#table)
-    + [Visualizations](./DataScience-UCB.md#visualizations)
-    + [iPython](./RefCards/DataScience-UCB.md#ipython)
-    + [Conditions](./RefCards/DataScience-UCB.md#conditions)
-    + [Utility](./RefCards/DataScience-UCB.md#utility)
+  + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
+  + [Numpy](./RefCards/DataScience-UCB.md#numpy)
+  + [Array](./RefCards/DataScience-UCB.md#array)
+  + [Table](./RefCards/DataScience-UCB.md#table)
+  + [Visualizations](./DataScience-UCB.md#visualizations)
+  + [iPython](./RefCards/DataScience-UCB.md#ipython)
+  + [Conditions](./RefCards/DataScience-UCB.md#conditions)
+  + [Utility](./RefCards/DataScience-UCB.md#utility)
 
 
 

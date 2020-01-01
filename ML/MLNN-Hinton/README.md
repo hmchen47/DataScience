@@ -44,29 +44,29 @@
 
 
 ## 06. Mini-batch Gradient Descent
-  
-+ [Overview of mini-batch gradient descent](06-MiniBatch.md#)
-+ [A bag of tricks for mini-batch descent](06-MiniBatch.md#)
-+ [The momentum method](06-MiniBatch.md#)
-+ [A separate, adaptive learning rate for each connection](06-MiniBatch.md#)
-+ [rmsprop_divide the gradient](06-MiniBatch.md#)
+
++ [Overview of mini-batch gradient descent](06-MiniBatch.md#overview-of-mini-batch-gradient-descent)
++ [A bag of tricks for mini-batch descent](06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
++ [The momentum method](06-MiniBatch.md#the-momentum-methodadaptive-learning-rate-for-each-connection)
++ [Adaptive learning rate for each connection](06-MiniBatch.md#)
++ [rmsprop: Normalized the gradient](06-MiniBatch.md#rmsprop-normalized-the-gradient)
 
 
 ## 07. Recurrent Neural Networks
 
-+ [Modeling sequences: A brief overview](07-RNN.md#)
-+ [Training RNNs with backpropagation](07-RNN.md#)
-+ [A toy example of training an RNN](07-RNN.md#)
-+ [Why it is difficult to train an RNN](07-RNN.md#)
-+ [Long term short term memory](07-RNN.md#)
++ [Modeling sequences: A brief overview](07-RNN.md#71-modeling-sequences-a-brief-overview)
++ [Training RNNs with backpropagation](07-RNN.md#72-training-rnns-with-backpropagation)
++ [A toy example of training an RNN](07-RNN.md#73-a-toy-example-of-training-an-rnn)
++ [Why it is difficult to train an RNN](07-RNN.md#74-why-it-is-difficult-to-train-an-rnn)
++ [Long term short term memory](07-RNN.md#75-long-short-term-memory)
 
 
 ## 08. Multicaptive Connections
   
-+ [A brief overview of Hessian-free optimization](08-Multicaptive.md#)
-+ [Modeling character strings with multiplicative connections](08-Multicaptive.md#)
-+ [Learning to predict the next character using HF](08-Multicaptive.md#)
-+ [Echo state networks](08-Multicaptive.md#)
++ [A brief overview of Hessian-free optimization](08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
++ [Modeling character strings with multiplicative connections](08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
++ [Learning to predict the next character using HF](08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
++ [Echo state networks](08-RNN2.md#84-echo-state-networks)
 
 
 ## 09. Overfitting

@@ -1,6 +1,8 @@
 # Convolutional Neural Network
 
-## Object Recognition and Classification
+## Overview
+
+### Object Recognition and Classification
 
 + [Issues about object recognition](../ML/MLNN-Hinton/05-CNN.md#lecture-notes)
   + Segmentation: real scenes cluttered with other objects
@@ -20,7 +22,7 @@
     + able to quickly recognize patterns, generalize from prior knowledge, and adapt to different image environments
 
 
-## Solutions for Viewpoint Invariance
+### Solutions for Viewpoint Invariance
 
 + [Viewpoint invariance](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-1)
   + one of the main difficulties in making computers perceive
@@ -54,7 +56,7 @@
   + Designing period - try all possible boxes in a range of positions and scales
 
 
-## Replicated Feature Approach
+### Replicated Feature Approach
 
 + [The replicated feature approach](../ML/MLNN-Hinton/05-CNN.md#lecture-notes-2)
   + using many different copies of the same feature detector w/ different positions
@@ -90,7 +92,9 @@
   + impossible to use the precise spatial relationships btw high-level parts for recognition
 
 
-## Transfer Learning
+## Techniques to Accelerate Training
+
+### Transfer Learning
 
 + [Transfer learning](../ML/MLNN-Hinton/a10-CNNsGuide.md#transfer-learning)
   + the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by someone else) and "fine-tuning" the model with own dataset
@@ -105,6 +109,64 @@
   + unless very unique problem space and dataset, network needs to detect curves and edges as well
   + using the weights of the pre-trained model (and freeze them) and focus on the more important layers (ones higher up) for training
   + dataset quite different than something like ImageNet, just train more of your layers and freeze only a couple of the low layers
+
++ [Transfer learning](../ML/MLNN-Hinton/a14-Advanced.md#1-transfer-learning)
+  + transfer the learning from one model to a second model which examining data is similar to the data of the original model
+  + retrain the last few layers of the origin model with your own data to fine-tune the model for our specific application
+  + the weight of the pre-trained model loaded into the architecture of the new model
+  + weight from output layers trained while the other network layers frozen
+  + Procedure
+    1. build the architecture of the original model using Kersa and then load the model weights of the trained network usually `.h5` format for weight)
+    2. freeze the weights of the initial layers by setting the layers to have the `trainable=False` parameter
+  + the initial layers of a convolutional neural network containing  primitive information about the image
+  + with deep neural network, the object becomes more complex and high-level as the network begins to differentiate more clearly between image qualities
+  + not trying to teach the network to examine images but just fine-tune it for our use-case
+  + set the fully connected network layers at the output to be trainable, and perhaps the final convolutional layer (if enough data) to be trainable, then train the network with our data
+  + benefit: fewer data to train the model because the number of network trainable parameters only a fraction of the total number of parameters in the network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1750/1*lG2SWdf1fEmkIvi6MPy9Ig.png" style="margin: 0.1em;" alt="The weights from a pre-trained model are loaded into the architecture of the new model. Weights from the output layers are trained whilst the other network layers are frozen. The resulting model will be fine-tuned for the required application." title="Transfer learning" width=450>
+    </a>
+  </div>
+
++ Limitation: only worked if two datasets very similar
+
+
+### Pruning
+
++ [Model pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + induce sparsity in a deep neural network's various connection matrices
+  + reducing the number of non-zero-valued parameters in the model
+  + originally used in decision trees where branches of the tree are pruned as a form of model regularization
+  + pruning weights unimportant or rarely fired w/ little to no consequence
+  + Fact: the majority of neurons relatively small impact on the model performance, i.e., achieving high accuracy even eliminating a large numbers of parameters
+
++ [Reducing the number of parameters in a network](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + neural architectures and datasets get larger to obtain reasonable execution times of models
+  + increasing important
+
++ [Efficacy of pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + examining the performance of neural networks as a function of sparsity (effectively the percentage of neurons removed)
+  + even removing 75% of the neurons w/o significantly affected the model performance
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1965/1*GdcBOqBhQw4GsA7wxfLMAg.png" style="margin: 0.1em;" alt="(a) the gradual sparsity function and expontentially decaying learning rate used for training sparse-Inception V3 model; (b) evolution of the model's accuracy during the training process" title="Illustration of sparsity and accuracy" width=400>
+    </a>
+  </div>
+
++ [Performing pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + pruning typing done in convolutional neural networks
+  + the majority of parameters in convolutional models occur in the fully connected (vanilla) neural layers
+  + most of the parameters eliminated from this portion of the network
+
++ [Approaches of performing pruning](../ML/MLNN-Hinton/a14-Advanced.md#2-pruning)
+  + weight pruning
+  + unit pruning
+  + Fisher pruning
+
+
 
 
 ## Other Models
@@ -149,11 +211,6 @@
 
 
 ### Region Based CNNs (R-CNN - 2013, Fast R-CNN - 2015, Faster R-CNN - 2015)
-
-+ Articles
-  + R. Girshick, J. Donahue, T. Darrell, and J. Malik, [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/pdf/1311.2524v5.pdf), 2013
-  + R. Girshick, [Fast R-CNN](https://arxiv.org/pdf/1504.08083.pdf), 2015
-  + S. Ren, K. He, R. Girshick, and J. Sun, [Faster R-CNN: Toward Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/pdf/1504.08083.pdf), 2015
 
 + [R-CNN](../ML/MLNN-Hinton/a11-9Papers.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015)
   + one of the most impactful advancement in computer vision
@@ -213,10 +270,6 @@
 
 
 ### Generating Image Descriptions (2014)
-
-+ Articles
-  + A. Karpathy and F. Li, [Deep visual semantic alignment for Generating Image Descriptions](https://arxiv.org/pdf/1412.2306v2.pdf), 2015
-  + A. Karpathy, A. Joulin and F. Li, [Deep fragment embeddings for bidirectional image sentence mapping](https://arxiv.org/pdf/1406.5679v1.pdf), 2014
 
 + Combining CNNs and bidirectional RNNs (Recurrent Neural Networks) to generate natural language descriptions of different image regions
 
@@ -913,5 +966,251 @@
   + stacking more layers on top of each other isn't going to result in a substantial performance boost
 
 
+## Neural Style Transfer (NST)
 
+### Definition
+
++ [Neural Style Transfer (NST)](../ML/MLNN-Hinton/a05-VisualCNN.md#introduction)
+  + Def: Artistic generation of high perceptual quality images that combines the style or texture of some input image, and the elements or content from a different one.
+  + producing an image using NST, two images required
+    1. the one wishing to transfer the style of
+    2. the image to transform using the style of the first image to morph the two images
+  
++ [Process description](../ML/MLNN-Hinton/a05-VisualCNN.md#process-description)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1485/1*cXUh1aw7Q3i5ZRq1CIlyng.png" style="margin: 0.1em;" alt="Full texture synthesis process" title="Full texture synthesis process" width=600>
+  </a>
+</div>
+
+
+### Visualizing Convolutional Networks
+
++ [Purpose of visualizing CNN](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
+  + little insight about the learning and internal operation
+  + through visualization might be able to
+    + observe how input stimuli excite the individual feature maps
+    + observe the evolution of features
+    + make more substantiated designs
+
++ [Neural network for NST](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
+  + Architecture: similar to AlexNet
+  + Dataset Imagenet 2012 training database for 1,000 classes
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2095/1*q6LNA5oP62l6Hr5yR4TnIg.png" style="margin: 0.1em;" alt="The architecture used for NST" title="The architecture used for NST" width=650>
+    </a>
+  </div>
+
+
+### Deconvolutional Network Description
+
++ [Deconvolution network](../ML/MLNN-Hinton/a05-VisualCNN.md#visualizing-convolutional-networks)
+  + objective: project hidden feature maps into the original input space
+  + benefit: able to visualize the activations of a specific filter
+  + Note: NOT performing any deconvolutions.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1665/1*47N0hNMbZtbpRXnOzZH4rw.png" style="margin: 0.1em;" alt="Deconvolutional network" title="Deconvolutional network" width=350>
+    </a>
+  </div>
+
++ [Aspects of the deconvolution networks](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + unpooling
+  + rectification
+  + filtering
+
++ [Unpooling layer](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + max-pooling operation non-invertible
+  + switch variables - record the locations of maxima
+  + placing the reconstructed features into the recorded locations
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1763/1*o2xfitlqjjru1moC-5eBOw.png" style="margin: 0.1em;" alt="Unpooling layer" title="Unpooling layer" width=450>
+    </a>
+  </div>
+
++ [Rectification layer](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description): signals go through a ReLu operation
+
++ [Filtering layer](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description): use of transposed convolution
+  + flipped horizontally and vertically
+  + transposed convolution projects feature maps back to input space
+  + transposed convolution corresponds to the backpropagation of the gradient
+
++ [How do we perform feature visualization?](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  1. evaluate the validation database on the trained network
+  2. record the nine highest activation values of each filter's output
+  3. project the recorded 9 outputs into input space for every neuron
+    + projecting: all other activation units in the given layer set to zero
+    + only observing the gradient of a single channel
+    + switch variables used in the unpooling layers
+  + earlier layers learn more fundamental features such as lines and shapes
+  + latter layers learn more complex features
+
++ [How do we test feature evolution during training?](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + the feature evolution after 1, 2, 5, 10, 20, 39, 40 and 64 (see diagram)
+  + notes about the network
+    + lower layers converge soon after a few single passes
+    + fifth layer not converged until a very large number of epochs
+    + lower layers may change their features correspondence after converging
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2323/1*exTfLFv6y0LYIseZRUsJ1g.png" style="margin: 0.1em;" alt="Example output of five layers at a specified number of epochs" title="Example output of five layers at a specified number of epochs" width=600>
+    </a>
+  </div>
+
++ [How do we know this is the best architecture?](../ML/MLNN-Hinton/a05-VisualCNN.md#deconvolutional-network-description)
+  + comparison of two architectures (see diagram)
+  + less dead unit on the modified (left) network
+  + more defined features on modified network
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1818/1*i0DWeHo8uqAVr_586BIWUw.png" style="margin: 0.1em;" alt="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" title="Left picture used filters 7 × 7 instead of 11 × 11, and reduced the stride from 4 to 2" width=400>
+    </a>
+  </div>
+
+
+### Image reconstruction
+
++ [Deep image representation](../ML/MLNN-Hinton/a05-VisualCNN.md#image-reconstruction)
+  + able to reconstruct an image from latent features
+  + training network to retain an accuracy photographic representation about the image, retaining geometric and photometric invariance
+
++ [Mathematical representation](../ML/MLNN-Hinton/a05-VisualCNN.md#image-reconstruction)
+  + Assumptions & Notations
+    + $a^{[l]}$: the latent representation of layer $l$
+  + Optimization problem
+
+    \[\hat{x} = \underset{\mathbf{y}}{\operatorname{arg min}} J_C^{[l]}(\mathbf{x}, \mathbf{y}) + \lambda R(\mathbf{y})\]
+
+    \[J_C^{[l]}(\mathbf{x}, \mathbf{y}) = \left\| a^{[l](G)} - a^{[l](C)} \right\|_{\mathcal{F}}^2\]
+
+  + Regularization w/ $\alpha$-norm regularizer
+
+    \[R_{\alpha} (\mathbf{y}) = \lambda_\alpha \left\| \mathbf{y} \right\|_{\alpha}^{\alpha}\]
+
+  + Regularization w/ total variation regularizer
+
+    \[R_{V_\beta} (\mathbf{y}) = \lambda_{V_\beta} \sum_{i, j, k} \left( \left(y_{i, j+1, k} - y_{i, j, k}\right)^2 + \left(y_{i+1, j, k} - y_{i, j, k}\right)^2 \right)^{\beta/2}\]
+
++ [Procedure for image reconstruction](../ML/MLNN-Hinton/a05-VisualCNN.md#image-reconstruction)
+  1. initialize $\mathbf{y}$ with random noise
+  2. feedforward pass the image
+  3. computing the loss function
+  4. computing the gradients of the cost and backpropagate to input space
+  5. updating general image $G$ w/ a gradient step
+
+
+
+### Texture Synthesis
+
++ [Texture synthesis](../ML/MLNN-Hinton/a05-VisualCNN.md#texture-synthesis)
+  + purpose: to generate high perceptual quality images that imitate a given texture
+  + using a trained convolutional neural network for object classification
+  + employing correlation of features among layers as a generative process
+  
++ [Output of a given layer](../ML/MLNN-Hinton/a05-VisualCNN.md#texture-synthesis)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1035/1*PBwlcoL2R7zvQ1SBIOT_zA.png" style="margin: 0.1em;" alt="Output layer of texture synthesis" title="Output layer of texture synthesis" width=250>
+    </a>
+  </div>
+
++ [Computing the cross-correlation of the feature maps](../ML/MLNN-Hinton/a05-VisualCNN.md#texture-synthesis)
+  + Notations
+    + $a_{ijk}^{[l]}$: the output of a given filter $k$ at layer $l$
+  + the cross-correlation btw output and a different channel $k$
+
+    \[G_{kk^\prime}^{[l]} = \sum_{i=1}^{n_{H}^{[l]}} \sum_{j=1}^{n_W^{[l]}} a_{ijk}^{[l]} a_{ijk^\prime}^{[l]}\]
+
+  + The Gram matrix: vectorized cross-correlation
+
+    \[G^{[l]} = A^{[l]}(A^{[l]})^T\]
+
+    \[\left(A^{[l]}\right)^T = (a_{::1}^{[l]}, \dots, a_{::n_C^{[l]}}^{[l]})\]
+
+
+### Generating new textures
+
++ [Notations](../ML/MLNN-Hinton/a05-VisualCNN.md#generating-new-textures)
+  + $G^{[l](S)}$: the Gram matrix of the style image
+  + $G^{[l](G)}$: the Gram matrix of the newly generated matrix
+  + $\|G\|_\mathcal{F}$: the Frobenius norm
+
++ [creating new texture](../ML/MLNN-Hinton/a05-VisualCNN.md#generating-new-textures)
+  + synthesize an image w/ similar correlation to the one to reproduce
+  
+  \[J^{[l]}_S (G^{[l]}(S), G^{[l](G)}) = \frac{1}{4\left(n_W^{[l]} n_H^{[l]}\right)^2} \left\| G^{[l](S)} - G^{[l](G)} \right\|_\mathcal{F}^2\]
+
++ [global cost function](../ML/MLNN-Hinton/a05-VisualCNN.md#generating-new-textures): with given weights $\lambda_1, \dots, \lambda_L$
+
+  \[J_S(\mathbf{x}, \mathbf{y}) = \sum_{l=0}^L \lambda_l J_S^{[l]} \left(G^{[l](S)}, G^{[l](G)}\right)\]
+
+
+### Neural Style Transfer
+
++ [Neural Style Transfer](../ML/MLNN-Hinton/a05-VisualCNN.md#neural-style-transfer)
+  + combining content and style reconstruction
+  + procedure of NST
+    + choose a layer (or set of layers) to represent content - the middle layers recommended (not too shall, not too deep) for best results
+    + minimizing the total cost by using backpropagation
+
+      \[J_{total}(\mathbf{x}, \mathbf{y}) = \alpha J_C^{[l]}(\mathbf{x}, \mathbf{y}) + \beta J_S(\mathbf{x}, \mathbf{y})\]
+
+    + initializing the input with random noise (necessary of generating gradients)
+    + replacing max-pool layers with average pooling to improve the gradient flow and to produce more appealing pictures
+
+
+### DeepDream
+
++ [DeepDreamer](../ML/MLNN-Hinton/a05-VisualCNN.md#deepdream)
+  + a computer vision program created by Alexander Mordvintsev at Google
+  + using a convolutional neural network to find and enhance patterns in images via algorithm pareidolia
+  + creating a dream-like hallucinogenic appearance in the deliberately over-processed images
+  + dreaming:
+    + the generation of images that produce desired activation in a trained deep network
+    + a collection of related approaches
+
+
+### Inceptionism: Going Deeper into Neural Networks
+
++ Incep[tionism(../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + having a reasonable intuition about what types of features encapsulated by each of the layers in a neural network
+  + network
+    + first layer: edges or corners
+    + intermediate layers: interpreting the basic features to look for overall shapes or components, like a door or a leaf
+    + final layer: assembling shapes or components into complete interpretations, like trees, building, etc.
+
++ [class generation](../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + purpose: flipping the discriminative model into a generative model
+  + useful to ensure that the network is learning the right features and not cheating
+
++ [visualizing mistakes](../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + cheating with dumbbells
+  + training a network w/ a set of pictures of dumbbells
+  + using random noise w/ prior constraints to imagine some dumbbells (see diagram)
+  + failed tto completely distill the essence of a dumbbell
+  + none of the training pictures having any weightlifters
+  + visualization help to correct these kinds of training mishaps
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/neural-style-transfer-and-visualization-of-convolutional-networks-7362f6cf4b9b" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1280/1*A6jsI8cxorXp-7fhBo6WaA.png" style="margin: 0.1em;" alt="Example of visualizing mistakes" title="Example of visualizing mistakes" width=300>
+    </a>
+  </div>
+
++ [Enhancing feature maps](../ML/MLNN-Hinton/a05-VisualCNN.md#inceptionism-going-deeper-into-neural-networks)
+  + feeding an image and then picking a layer and asking the network to enhance whatever it detect
+  + lower layer: producing strokes and simple ornament-like patters
+  + higher layer: emerging into complex features or even whole objects
+  + training w/ pictures of animals, look more like an animal
+  + features entered bias as the network toward certain interpretations
+  + applying the algorithm iteratively on its own outputs and zooming after each iteration
 

@@ -177,6 +177,54 @@
   + automate the loop of designing features for a particular task and seeing ho well they work
 
 
+### Bias & Variance
+
++ [Point estimation](../ML/MLNN-Hinton/a14-Advanced.md#41-estimators)
+  + providing the single "best" prediction of some quantity of interest
+
+    \[ \hat{\mathbf{\theta}}_m = g(\mathbf{x}^{(1)}, \dots, \mathbf{x}^{(m)}) \]
+
+    + $\mathbf{\theta}$: true value
+    + $\hat{\mathbf{\theta}}_m$: estimator for $m$ samples
+  + more often, $\mathbf{\theta}$ fixed but unknown and the data is random
+
++ [Bias & Variance](../ML/MLNN-Hinton/a14-Advanced.md#41-estimators)
+  + estimator: a random variable
+  + random variable susceptible to bias and variance
+    + bias: expected deviation from the true value
+    + variance: deviation from the expected estimator
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1475/1*hk99PbiLpVCHnMPEkP2YdA.png" style="margin: 0.1em;" alt="Examples of bais and variance" title="Examples of bais and variance" width=300>
+    </a>
+  </div>
+
++ [Bias-variance trade-off](../ML/MLNN-Hinton/a14-Advanced.md#42-diagnosing-bias-variance)
+  + high dimensions: no decision curves to inspect bias-variance
+  + calculating error values to infer the source of errors on the training set, as well as on the validation set
+
++ [Bayes error rate](../ML/MLNN-Hinton/a14-Advanced.md#42-diagnosing-bias-variance)
+  + bias: baseline required, such as human-level performance
+  + the lowest possible error rate for any classifier of a random outcome
+  + the minimum error able to obtain with a perfect model stripped of all avoidable bias and variance
+
++ [Analyzing the errors](../ML/MLNN-Hinton/a14-Advanced.md#42-diagnosing-bias-variance)
+  + analyzing and comparing the errors on the training and validation sets to deduce the cause of the error (see diagram)
+  + techniques to analyze the errors of estimator
+    + orthogonalization
+    + early stopping
+  + ways to reduce the bias
+    + train a bigger model (increasing the explainability of the model)
+    + train longer (reaching convergence)
+    + adapt the neural architecture or perform an extensive hyperparameter search
+  + ways to reduce the variance
+    + get more data
+    + use regularization mechanisms
+
++ extremely helpful way to troubleshoot the network: analyze network's results and determine whether the issue is caused by biasing or variance
+
+
 ### Considerations of Learning Procedures
 
 + [Main decisions about how to use error derivatives](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
@@ -205,93 +253,37 @@
     + Generative pre-training
 
 
-### Gradient Descent
+### Backpropagation
 
-+ [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
-  + an iterative method for finding the minimum of a function
-  + Making a step means: $w^{new} = w^{old} + \text{step}$
-  + Opposite direction of the derivative means: $w^{new} = w^{old} - \lambda \frac{d\mathcal{L}}{dw}$
-  + change to move conventional notation: $w^{(i+1)} = w^{(i)} - \lambda \frac{d\mathcal{L}}{dw}$
-  + learning rate ($\lambda$):
-    + large learning rate:
-      + put more weight on the derivative
-      + made larger step for each iteration of the algorithm
-    + smaller learning rate
-      + less weight is put on the derivative
-      + smaller steps made for each iteration
++ [Backpropagation algorithm](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation)
+  + a rather slow learning algorithm
+  + malicious selection of parameters made even slower
+  + non-linear optimization: accelerate the training method with practically no effort
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=200>
-    </a>
-  </div>
++ [Artificial neural networks](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation)
+  + NP-complete in the worst cases
+  + network parameters grow exponentially w/ the number of unknown
 
-+ [Considerations for gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
-  + derive the derivatives
-  + know what the learning rate is or how to set it
-  + avoid local minima
-  + the full loss function includes summing up all individual 'errors'
++ [Standard online backpropagation](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation) performs better than many fast learning algorithms when
+  + a realistic level of complexity in the learning task
+  + the size of the training set beyond a critical threshold
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
-      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" height=150>
-      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" height=150>
-      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" height=150>
-    </a>
-  </div>
++ [online backpropagation](../ML/MLNN-Hinton/a12-Learning.md#the-gauss-jacobi-and-gauss-seidel-methods-and-backpropagation)
+  + not converge to a single point in weight space
+  + oscillation around the minimum of the error function
+  + expected value of the derivation based on the learning step size used
+  + linear associator = Iterated Function System [Barnsley, M. (1988), Fractals Everywhere, Academic Press, London.]
 
-+ [Batch and stochastic gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
-  + use a batch (a subset) of data as opposed to the whole set of data, such that the loss surface is partially morphed during each iteration
-  + the loss (likelihood) function used to derive the derivatives for iteration $k$
-
-    \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
-
-
-### Delta Rule
-
-+ [Delta rule for perceptrons](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
-  + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
-  + The change in a given weight must be proportional to the negative of the prior equation
-
-    \[\Delta w_{ij_x} = - \varepsilon \frac{\partial E}{\partial w_{ij}} = \varepsilon \partial a_{i_x}\]
-
-  + $\Delta$: the difference btw the target and actual activation of the relevant output node
-  + $\varepsilon$: learning rate
-
-+ [Linear Activation function instead of a Threshold Activation function](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
-  + Threshold Activation function:
-    + characterize both the McColloch and Pitts network and the perceptron is not differentiable at the transition between the activations of $0$ and $1$ (slope = $\infty$) 
-    + derivative = 0 over the remainder of the function
-  + Linear Activation function or other differentiable functions
-    + allow the derivative of the error to be calculable
-
-+ [Kronecker Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#kronecker-delta)
-  + Definition
-
-    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \]
-
-  + __property__. Simplify
-
-    \[\sum_k \delta_{ik}\delta{kj} = \delta_{ij}\]
-
-+ [Dirac Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#dirac-delta)
-  + Definition
-
-    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \]
-
-    The value at which the delta function become infinite can be controlled by substituting $x - x_0$ for $x$
-
-    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \]
-
-  + Alternative definition
-
-    \[ \int_{-\infty}^{\infty} f(x) \delta(x - x_0) dx = f(x_0) \tag*{(7)}\]
-
-    + continuous around $x=x_0$
-    + most common way used for the dirac delta function
-  + __Property__.
-
-    \[\int_{-\infty}^{\infty} f(x) \delta(x - x_0)dx = f(x_0) \\ \delta(ax) = \frac{1}{|a|} \delta(x)\]
++ [Visualization online & offline backpropagation approach](../ML/MLNN-Hinton/a12-Learning.md#the-gauss-jacobi-and-gauss-seidel-methods-and-backpropagation)
+  + Gauss-Jacobi method
+    + starting at some point in search space
+    + projecting the point in the directions of the axes on the two lines considered
+    + next iteration point: the $x$-coordinate of the horizontal projection & $y$-coordinate of the vertical projection
+  + Gauss-Seidel method
+    + dealing with each line equation individually
+    + 1st projection in the $x$ direction
+    + 2nd projection in the $y$ direction
+    + usually converge faster than the Gauss-Jacobi method
 
 
 ## Architectures
@@ -329,7 +321,7 @@
   + Recurrent Neural network (RNN)
     + a.k.a Jordan network
     + each of hidden cell received its own output with fixed delay
-    + mainly used =when context is important
+    + mainly used when context is important
 
 + [Feed-forward neural Networks](../ML/MLNN-Hinton/02-Perceprtons.md#an-overview-of-the-main-types-of-network-architecture)
   + Input layer: the first layer
@@ -346,10 +338,10 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788397872/1/ch01lvl1sec21/feed-forward-and-feedback-networks" ismap target="_blank">
-    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" height=150>
+    <img src="https://static.packt-cdn.com/products/9781788397872/graphics/1ebc2a0a-2123-4351-b7e1-eb57f098bafa.png" style="margin: 0.1em;" alt="Feed-forward network" title="Feed-forward network" height=130>
   </a>
   <a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/recurrent_neural_networks.html" ismap target="_blank">
-    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" height=150>
+    <img src="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_folder_6/recurrent.jpg" style="margin: 0.1em;" alt="Recurrent Neural Network" title="Recurrent Neural Network" height=130>
   </a>
 </div>
 
@@ -368,10 +360,10 @@
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng.html" ismap target="_blank">
-    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" height=150>
+    <img src="http://galaxy.agh.edu.pl/~vlsi/AI/hopf/hopfield_eng_pliki/image002.jpg" style="margin: 0.1em;" alt="Hopfield Neural Network" title="Hopfield Neural Network" height=130>
   </a>
   <a href="https://www.researchgate.net/figure/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected_fig8_257649811" ismap target="_blank">
-    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=150>
+    <img src="https://www.researchgate.net/profile/Dan_Neil/publication/257649811/figure/fig8/AS:272067278929927@1441877302138/Boltzmann-and-Restricted-Boltzmann-Machines-A-Boltzmann-machine-is-fully-connected.png" style="margin: 0.1em;" alt="Boltzmann and Restricted Boltzmann Machines" title="Boltzmann and Restricted Boltzmann Machines" height=130>
   </a>
 </div>
 
@@ -414,8 +406,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*LtzuTUh0kkCfvlwKxx2zvw.png" style="margin: 0.1em;" alt="increasing the number of layers of neural networks tends to improve overall test set accuracy" title="increasing the number of layers of neural networks tends to improve overall test set accuracy" width=350>
-      <img src="https://miro.medium.com/max/875/1*nUHyEEaHEMy3Kl72xTu9Pg.png" style="margin: 0.1em;" alt="large, shallow networks tend to overfit more" title="large, shallow networks tend to overfit more" width=405>
+      <img src="https://miro.medium.com/max/875/1*LtzuTUh0kkCfvlwKxx2zvw.png" style="margin: 0.1em;" alt="increasing the number of layers of neural networks tends to improve overall test set accuracy" title="increasing the number of layers of neural networks tends to improve overall test set accuracy" height=150>
+      <img src="https://miro.medium.com/max/875/1*nUHyEEaHEMy3Kl72xTu9Pg.png" style="margin: 0.1em;" alt="large, shallow networks tend to overfit more" title="large, shallow networks tend to overfit more" height=150>
     </a>
   </div>
 
@@ -821,6 +813,332 @@
 
 
 
+## Lost/Cost Function and Gradient Descent
+
+### Overview of Lost Function
+
++ [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
+  + NN trained using an optimization process that requires a loss function to calculate the model error
+  + many functions used to estimate the error of a set of weights in a neural network
+  + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
+  + maximum likelihood: a framework for choosing a loss function when training neural networks and machine models in general
+  + what loss function to use depends on the output data distribution and is closely coupled to the output unit
+  + main types of loss functions: cross-entropy and mean squared error
+  + cross-entropy loss function > mean squared error: classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly
+  + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturation and slow learning when using the mean squared error loss. - Deep Learning, 2016
+
++ [Cross-entropy loss function](../ML/MLNN-Hinton/a09-SoftmaxClass.md#introduction)
+
+  \[L_i = -\log \left( \frac{e^{f_{y_i}}}{\sum_j e^{f_j}} \right) \qquad \text{or equivalently} \qquad L_i = -f_{y_i} + \log \sum_j e^{f_j}\]
+
+  + $f_j$: the $i$-th element of the vector of class score $f$
+  + the full loss for the database: the mean of $L-i$ over all training examples together with a regularization term $R(W)$
+  + softmax function: $f_j(z) = \frac{e^{z_j}}{\sum_k e^{f_j}}$; taking a vector of arbitrary real-valued scores (in $z$) and squashing it to a vector of values between zero and one that sum to one
+
++ [Cross-entropy vs. Mean Squared Error](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
+  + form for training data and model distribution (i.e., negative log-likelihood)
+
+    \[J(W) = - \displaystyle \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{\text{model}}(y|x))\]
+
+  + example of cost functions
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+        <img src="https://miro.medium.com/max/1250/1*ERuk0wZZw7sejFI9zwd7zQ.png" style="margin: 0.1em;" alt="an example of a sigmoid output coupled with a mean squared error loss" title="an example of a sigmoid output coupled with a mean squared error loss" height=180>
+        <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=180>
+      </a>
+    </div>
+
+
+### Lost Function for Softmax Function
+
++ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
+
+  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
+
+  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
+  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
+  + if the classifier outputs 1 for the training example, then the cos is zero.
+
+
+### Gradient Descent for Softmax Function
+
++ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+
+  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
+
+  + the function computes the gradients for a single class $j$
+
+  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
+
+  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
+
++ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
+  + $grad$: gradient matrix; dimension: [numClass x input Size]
+  + $data$: data matrix; dimension: [inputSize x numExamples]
+
+  \[grad = M * data\]
+
+
+## Output Units
+
+### Overview of Output Units
+
++ [Summary of data types, distributions, output layers and cost functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#output-units)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*s83dd-WhOgE6ZckGST-C8Q.png" style="margin: 0.1em;" alt="Summary of data types, distributions, output layers and cost functions" title="Summary of data types, distributions, output layers and cost functions" width=500>
+    </a>
+  </div>
+
+
+## Activation Functions
+
+### Overview of Activation Functions
+
++ [Activation functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + analogous to the build-up of electrical potential in biological neurons
+  + activation potential: mimicked in artificial neural networks using a probability
+  + Characteristics:
+    + non-linearity: ensures not linearity
+    + differentiable: ensure gradients remain large through the hidden unit
+  + The general form of an activation function
+
+    \[h = f(W^T X + b)\]
+
+    + $h$: the neural output
+    + $f(.)$: the activation function acting on the weights and bases
+
++ [Non-linearity](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + linear function
+    + a polynomial of one degree
+    + linear equation easy to solve
+    + limited in complexity and less power to learn complex functional mappings from data
+  + Neural network w/o activation function
+    + a linear regression model
+    + limited in the set of functions able to approximate
+  + Universal approximation theorem: generalized non-linear function approximations
+  + non-linear activation able to generate non-linear mappings from inputs to outputs
+
++ [nonlinear layer (or activation layer)](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + introduce nonlinearity to system that basically has been computing linear operations during the convolutional layer
+  + linear operation: element wise multiplications and summations
+  + nonlinearity: tanh, sigmoid, and ReLU
+  + increasing the nonlinearity properties of the model and the overall network without affecting the receptive fields of the convolutional layer
+
++ [Differentiable](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + required to perform backpropagation in the network
+  + required to compute gradients of errors (loss) w.r.t. to the weights updated using gradient descent
+  + linear activation function
+    + an easily differentiable function
+    + optimized using convex optimization
+    + limited model capacity
+
++ [Vanishing gradient problem](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + small gradients and several hidden layers results in multiplied gradient during backpropagation
+  + computer limitation on precision when multiply many small numbers
+  + the value of the gradient quickly vanished
+  + important challenge generated in deep neural networks
+
++ [Common choices of activation function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*22g-mJEUfAWBT7lzgiyIiw.png" style="margin: 0.1em;" alt="Summary of activation functions for neural networks." title="Summary of activation functions for neural networks." width=550>
+    </a>
+  </div>
+
+
+### Sigmoid and Softmax Functions
+
++ Logistic regression as a special case of Softmax regression with 2 classes
+
++ [Softmax classifier](../ML/MLNN-Hinton/a09-SoftmaxClass.md#possible-confusion-naming-conventions)
+  + using the cross-entropy loss
+  + using softmax function: used to squash the raw class scores into normalized positive values that sum to one
+
++ [Sigmoid and softmax functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \frac{1}{1 + e^{-z}}\]
+
+  + used as output functions for binary classification
+  + generally not used within hidden layers
+  + softmax function
+    + multidimensional version of the sigmoid
+    + used for multiclass classification
+  + issue: zero centeredness
+
++ [Architecture for Softmax](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture4/lec4.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m04-13.png" style="margin: 0.1em;" alt="Representation of Softmax group" title="Representation of Softmax group" width=200>
+      </a>
+      <a href="https://www.ritchieng.com/machine-learning/deep-learning/neural-nets/" ismap target="_blank">
+        <img src="https://raw.githubusercontent.com/ritchieng/machine-learning-nanodegree/master/deep_learning/introduction/lr2.png" style="margin: 0.1em;" alt=" multinomial logistic regression or softmax logistic regression" title=" multinomial logistic regression or softmax logistic regression" width=300>
+      </a>
+    </div>
+
++ [Softmax Definition](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  A softmax group $G$ is a group of output neurons whose outputs use the softmax activation defined by
+
+  \[y_i = \frac{e^{z_i}}{\displaystyle \sum_{j \in G} e^{z_j}}\]
+
+  so that the outputs sum to 1. The cost function is given by
+
+  \[C = - \sum_j t_j \ln(y_j)\]
+
++ [Proposition of Softmax](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  By the Quotient Rule, the derivatives are
+
+  \[\frac{\partial y_i}{\partial z_i} = \frac{\partial}{\partial z_i} \left(\frac{e^{z_i}}{\sum_{j \in G} e^{z_j}}\right) = y_i(1 - y_i) \qquad\qquad \frac{\partial y_i}{\partial z_j} = \frac{\partial}{\partial z_j} \frac{1}{2} (t_j - y_j)^2 = - y_i y_j\]
+
+  or more fancy-like using the Kronecker Delta:
+
+  \[\frac{\partial y_i}{\partial z_j} = y_i (\delta_{ij} - y_j)\]
+
++ [Proposition of Softmax](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  The derivatives of the cost function are
+
+  \[\frac{\partial C}{\partial z_i} = y_i - t_i.\]
+
++ [Cross-entropy for Softmax](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  the suggested cost function to use with softmax
+
+  \[C = - \sum_j t_j \ln(y_j) = -\ln(y_i)\]
+
+  + $t_j$: target values
+  + $t_j = \begin{cases} 1 & j \in I \subset G \\ 0 & j \in G-I \end{cases}$
+  + $y_i$: the probability of the input belonging to class $I$
+  + simply put 0 on the wrong answers and 1 for the right answer ($t_i$)
+  + Cross-entropy cost function
+
++ [Property of Softmax](../ML/MLNN-Hinton/04-Multiclasses.md#another-diversion-the-softmax-output-function)
+
+  $C$ w/ very big gradient descent if target value = 1 and actual value approx. 0.
+
++ Softmax better than the gradient descent w/ squared error
+
++ [Softmax regression](../ML/MLNN-Hinton/a08-SoftmaxReg.md#introduction)
+  + a generalized form of logistic regression
+  + used in multi-class classification problems where the classes are mutually exclusive
+  + Formula
+
+    \[h_\theta(x^{(i)}) = \begin{bmatrix} p(y^{(i)} = 1 | x^{(i)}; \theta) \\ p(y^{(i)} = 2 | x^{(i)}; \theta) \\ \vdots \\ p(y^{(i)} = k | x^{(i)}; \theta) \end{bmatrix} = \frac{1}{\sum_{j=1}^k e^{\theta_j^T} x{(i)}} \begin{bmatrix} e^{\theta_1^T x^{(i)}} \\ e^{\theta_2^T x^{(i)}} \\ \vdots \\ e^{\theta_k^T x^{(i)}}\end{bmatrix}\]
+
+  + $x^{(i)}$: the input vector of the $i$th sampling case
+  + $y^{(i)}$: the actual calculated output value of the $i$th sampling case
+  + The output is a vector of the probability w/ actual output value of $y^{(k)} = i$ where $i = 1, 2, \dots, k$
+
++ [Softmax classifier](../ML/MLNN-Hinton/a09-SoftmaxClass.md#introduction)
+  + a generalization of Logistic Regression classifier to multiple classes
+  + providing a intuitive output (normalized class probabilities)
+  + a probabilistic interpretation 
+  + function mapping $f(x_i; W) - Wx_i$ stays unchanged
+  + interpret these scores as the uncommonalized log probabilities for each class
+
+
+### Hyperbolic Tangent (tanh) Function
+
++ [Hyperbolic tangent function (Tanh) function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\]
+
+  + resolving the zero centeredness issue of the sigmoid function
+  + always preferred to the sigmoid function within hidden layers
+  + suffer from the other problems plaguing the sigmoid function, including the vanishing gradient problem
+
+
+### Softplus Functions
+
++ [Softplus functions](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = \ln(1 + e^z)\]
+
+  + a slight variation of ReLU where the transition at zero is somewhat smooth
+  + benefit: no discontinuities in the activation function
+
+  + sigmoid for binary classification
+  + softmax for multiclass classification
+  + linear for a regression problem
+
+
+### Rectified Linear Unit (ReLU)
+
++ [Rectified Linear Unit (ReLU)](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[\phi(z) = max(o, x)\]
+
+  + simplest non-linear activation function
+  + avoid and rectify the vanishing gradient problem
+  + used by almost all deep learning models
+  + only used within hidden layers of a neural network
+  + issue: maybe unstable during training and die
+  + the most successful and widely-used activation function
+
++ [Leaky ReLU and Generalized ReLU](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+  + dead neurons: ReLU unstable causes network never activated on any data point
+  + Leaky ReLU
+
+    \[g(x_i, \alpha) = \max{a, x_i} + \alpha \min{0, x_i}\]
+
+    + contain a small slope
+    + purpose of slope: keep the updates alive and prevent the production of dead neurons
+    + still discontinuity at zero
+    + no longer flat below zero
+    + merely having a reduced gradient
+    + a subset of generalized ReLU
+
+  + Leaky ReLU & Generalized ReLU
+    + slight variations on the basic ReLU function
+    + difference: merely depend on the chosen value of $\alpha$
+
++ [Rectified Linear Units](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
+  + working far better
+  + able to train a lot faster (computational efficiency) w/o making a significant difference to the accuracy
+  + alleviating the vanishing gradient problem
+  + applying yje function $f(x) = \max(0, x)$ to all of the values in the input volume
+
+
+### Maxout Function
+
++ [Maxout function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[g(x) = \max_{i \in \{ 1, \dots, k\}} \alpha_i x_i + \beta\]
+
+  + simply the maximum of $k$ linear functions
+  + a hybrid approach consisting of linear combinations of ReLU and leaky ReLU units
+
+
+### Self-Gated Activation Function
+
++ [Swish: A Self-Gated Activation Function](../ML/MLNN-Hinton/a02-IntermediateNN.md#activation-functions)
+
+  \[f(x) = x \cdot sigmoid(x)\]
+
+  + tend to work better than ReLU on deeper models across a number of challenging datasets
+  + a smooth non-monotonic function that does not suffer from the problem of zero derivatives
+  + seen as a somewhat magical improvement to neural networks
+  + a clear improvement for deep networks
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
+    <img src="https://miro.medium.com/max/1400/0*WYB0K0zk1MiIB6xp.png" style="margin: 0.1em;" alt="Curve of Sigmoid function" title="Curve of Sigmoid function" height=140>
+    <img src="https://miro.medium.com/max/1400/0*VHhGS4NwibecRjIa.png" style="margin: 0.1em;" alt="Curve of hyperbolic tangent function" title="Curve of hyperbolic tangent function" height=140>
+    <img src="https://miro.medium.com/max/875/0*TsH2CNeu5Qlt32Oj.png" style="margin: 0.1em;" alt="Curves of the ReLU & Softplus function" title="Curve of the ReLU & Softplus function" height=140>
+    <img src="https://miro.medium.com/max/875/1*pTuWvoEIiHQFBvosVjmW5A.png" style="margin: 0.1em;" alt="Curves of Leaky ReLU & Generalized ReLU functions" title="Curves of Leaky ReLU & Generalized ReLU functions" height=140><br/>
+    <img src="https://miro.medium.com/max/875/1*XZQ-Op5RiB2gwXQqOlCvkA.png" style="margin: 0.1em;" alt="Curves of Maxout function" title="Curves of Maxout function" height=150>
+    <img src="https://miro.medium.com/max/1250/1*2c9kIQBN0gV-fk4cmr2sAQ.png" style="margin: 0.1em;" alt="Curves of swish functions" title="Curves of swish functions" height=150>
+  </a>
+</div>
+
 
 ## Lost/Cost Function and Gradient Descent
 
@@ -859,38 +1177,213 @@
     </div>
 
 
+### Gradient Descent
 
-### Lost Function for Softmax Function
++ [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
+  + an iterative method for finding the minimum of a function
+  + Making a step means: $w^{new} = w^{old} + \text{step}$
+  + Opposite direction of the derivative means: $w^{new} = w^{old} - \lambda \frac{d\mathcal{L}}{dw}$
+  + change to move conventional notation: $w^{(i+1)} = w^{(i)} - \lambda \frac{d\mathcal{L}}{dw}$
+  + learning rate ($\lambda$):
+    + large learning rate:
+      + put more weight on the derivative
+      + made larger step for each iteration of the algorithm
+    + smaller learning rate
+      + less weight is put on the derivative
+      + smaller steps made for each iteration
 
-+ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/875/1*MizSwb7-StSLiWlI2MKsxg.png" style="margin: 0.1em;" alt="Illustration of learning rate" title="Illustration of learning rate" width=200>
+    </a>
+  </div>
 
-  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
++ [Considerations for gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
+  + derive the derivatives
+  + know what the learning rate is or how to set it
+  + avoid local minima
+  + the full loss function includes summing up all individual 'errors'
 
-  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
-  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
-  + if the classifier outputs 1 for the training example, then the cos is zero.
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c" ismap target="_blank">
+      <img src="https://miro.medium.com/max/625/1*tIqU7GK--aJ-SOdOBrh37Q.png" style="margin: 0.1em;" alt="Illustration of local & global optimal" title="Illustration of local & global optimal" height=150>
+      <img src="https://miro.medium.com/max/875/1*MwnXifl-uLdTrjjxiNCDJw.png" style="margin: 0.1em;" alt="Network getting stuck in local minima" title="Network getting stuck in local minima" height=150>
+      <img src="https://miro.medium.com/max/875/1*K7HNhO3Fsedvx94psTpBHA.png" style="margin: 0.1em;" alt="Network reach global minima" title="Network reach global minima" height=150>
+    </a>
+  </div>
 
++ [Batch and stochastic gradient descent](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
+  + use a batch (a subset) of data as opposed to the whole set of data, such that the loss surface is partially morphed during each iteration
+  + the loss (likelihood) function used to derive the derivatives for iteration $k$
 
-### Gradient Descent for Softmax Function
-
-+ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
-
-  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
-
-  + the function computes the gradients for a single class $j$
-
-  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
-
-  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
-
-+ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
-  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
-  + $grad$: gradient matrix; dimension: [numClass x input Size]
-  + $data$: data matrix; dimension: [inputSize x numExamples]
-
-  \[grad = M * data\]
+    \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
 
 
+### Delta Rule
+
++ [Delta rule for perceptrons](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
+  + Gradient descent learning requires that any change in a particular weight be proportional to the negative of the derivative of the error
+  + The change in a given weight must be proportional to the negative of the prior equation
+
+    \[\Delta w_{ij_x} = - \varepsilon \frac{\partial E}{\partial w_{ij}} = \varepsilon \partial a_{i_x}\]
+
+  + $\Delta$: the difference btw the target and actual activation of the relevant output node
+  + $\varepsilon$: learning rate
+
++ [Linear Activation function instead of a Threshold Activation function](../ML/MLNN-Hinton/a06-DeltaRule.md#delta-rule)
+  + Threshold Activation function:
+    + characterize both the McColloch and Pitts network and the perceptron is not differentiable at the transition between the activations of $0$ and $1$ (slope = $\infty$) 
+    + derivative = 0 over the remainder of the function
+  + Linear Activation function or other differentiable functions
+    + allow the derivative of the error to be calculable
+
++ [Kronecker Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#kronecker-delta)
+  + Definition
+
+    \[\delta_{ij} = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases} \]
+
+  + __property__. Simplify
+
+    \[\sum_k \delta_{ik}\delta{kj} = \delta_{ij}\]
+
++ [Dirac Delta](../ML/MLNN-Hinton/a07-DeltaFunc.md#dirac-delta)
+  + Definition
+
+    \[\delta(x) = \begin{cases} \infty & x = 0 \\ 0 & \text{otherwise}\end{cases} \]
+
+    The value at which the delta function become infinite can be controlled by substituting $x - x_0$ for $x$
+
+    \[\delta(x - x_0) = \begin{cases} \infty & x=x_0 \\ 0 & \text{otherwise} \end{cases} \]
+
+  + Alternative definition
+
+    \[ \int_{-\infty}^{\infty} f(x) \delta(x - x_0) dx = f(x_0) \tag*{(7)}\]
+
+    + continuous around $x=x_0$
+    + most common way used for the dirac delta function
+  + __Property__.
+
+    \[\int_{-\infty}^{\infty} f(x) \delta(x - x_0)dx = f(x_0) \\ \delta(ax) = \frac{1}{|a|} \delta(x)\]
+
+
+### Mini-batch Gradient Descent
+
++ [Stochastic gradient descent (SGD)](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + highly redundant dataset
+    + the first half gradient $\simeq$ the second half gradient
+    + update the weights using the first half gradient then get a gradient for the new weights on the second half gradient
+  + online learning: update weights after each case
+  + mini-batches usually better than online
+    + typically 10, 100, even 1000 examples
+    + advantages:
+      + less computation to update the weights
+      + using matrix-matrix multiplies to compute the gradient for many cases simultaneously
+    + efficient matrix multiplications, especially on GPUs
+  + mini-batches require to be balanced for classes
+    + allocating the same class in a batch causing sloshing weights
+    + random permutation for mini-atches and randomly select the mini-batches for training
+
++ [Two types of learning algorithm](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + full gradient computed from all the training cases
+    + ways to speed up learning, eg. non-linear conjugate gradient
+    + optimization community: the general problem of optimizing smooth non-linear functions
+    + multilayer neural nets: not typical of the problems; required a lot of modification to make them work
+  + mini-batch learning for large neural networks w/ very large and highly redundant training sets
+    + mini-batches may be quite big when adapting fancy methods
+    + big mini-batches: more computationally efficient
+
++ [A basic mini-batch gradient descent algorithm](../ML/MLNN-Hinton/06-MiniBatch.md#lecture-notes)
+  + guess an initial learning rate
+    + measured on a validation set
+    + each mini-batch just a rough estimate of the overall gradient
+    + reducing learning rate: error getting worse or oscillated
+    + increasing learning rate: error falling fairly consistent but slowly
+  + write a simple program to automate this way to adjusting the learning rate
+  + toward end of mini-batch learning
+    + nearly always help to turn down the learning rate
+    + remove fluctuations in the final weights caused by the variations btw mini-batches
+  + criteria to cease the learning
+    + the error stops decreasing
+    + using the error on a separate validation set
+
+### Tricks for mini-batch gradient descent
+
++ [Initializing the weights](../ML/MLNN-Hinton/06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
+  + two different units w/ exactly the same bias and exactly the same incoming and outgoing weights
+    + exactly the same gradients
+    + break symmetry by initializing the weights to have small random values
+  + overshooting learning
+    + generally smaller incoming weights when the fan-in is big
+    + principle: initialize the weights to be proportional to sqrt(fan-in)
+  + scale the learning rate the same way as initialization
+ 
++ [Shifting and scaling the inputs](../ML/MLNN-Hinton/06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
+  + Shifting
+    + adding a constant to each of the components of the inputs
+    + when using steepest descent, shifting the input values makes a big
+    + help to transform each component of the input vector so that it has zero mean over the whole training set
+    + considering the inputs from a hidden unit
+      + the hyperbolic tangent (2*logistic - 1) produces hidden activations roughly zero mean
+      + hyperbolic tangent btw $[-1, 1]$
+      + faster learning in the next layer only if the inputs to the hyperbolic tangents distributed sensibly around 0
+      + better than the logistic
+    + Logistic performs better when
+      + logistic sweeps things under
+      + output = 0 no matter how small the inputs are
+      + fluctuations ignore in big negative inputs
+      + hyperbolic tangent requires to go out of the plateau before ignoring
+  + Scaling
+    + when using steepest descent, scaling the input values makes a big difference
+    + help to transform each component of the input vector so that it has unit variance over the whole training set
+    + each component of the input with typical variance value of 1 or -1
+
++ [Decorrelating the input components](../ML/MLNN-Hinton/06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent) - a thorough method
+  + guarantee to get a circle error surface at least for a linear neuron
+  + decorrelate the components of the input vectors to make learning much easier
+  + linear neuron: a big win by decorrelating each component of the input from the other input components
+  + ways to decorrelate inputs
+    + reasonable method: Principal Components Analysis (PCA)
+    + drop the principal components with the smallest eigenvalues
+    + achieving some dimensionality reduction
+    + divide the remaining principal components by the square roots of their eigenvalues
+    + linear neuron: convert an axis aligned elliptical error surface into a circular one
+  + circular error surface: the gradient points straight towards the minimum
+
++ [Common problems occurring in multilayer networks](../ML/MLNN-Hinton/06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
+  + Starting w/ a very big learning rate
+    + the weights of each hidden unit will all become very big and positive or very big and negative
+    + driven the hidden units either firmly on or firmly off
+    + state of the hidden unit no longer depends on the input
+    + tiny error derivatives for the hidden units and not decreasing; the error root $\to$ 0
+    + hit a plateau (zero derivatives): mistaken for a local minimum
+  + Strategy w/ multilayer nets
+    + classification networks: using a squared error or a cross-entropy error
+    + the best guessing strategy: to make each output unit always produce an output equal to the proportion of time it should be a 1
+    + quickly find the strategy and the error decrease quickly
+    + multilayer nets:
+      + improving over the guessing strategy requires sensible information through the whole nets
+      + take a long time to improve on it by making use of the input
+      + small weights result in the long learning time
+    + quick learn w/ quick stop $\simeq$ local minimum $\to$ another plateau
+
++ [Criteria to stop the learning](../ML/MLNN-Hinton/06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
+  + error fluctuations caused by the different gradients on different mini-batches
+  + turing down the learning rate reduces the random fluctuations in the error
+    + a quicker win (red curve)
+    + a slower learning (green curve)
+  + Don't turn down the learning rate too soon!
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture6/lec6.pptx" ismap target="_blank">
+      <img src="img/m06-04.png" style="margin: 0.1em;" alt="Curve of learning rate" title="Curve of learning rate" width=250>
+    </a>
+  </div>
+
++ [Methods to speed up mini-batch learning](../ML/MLNN-Hinton/06-MiniBatch.md#a-bag-of-tricks-for-mini-batch-descent)
+  + use "momentum"
+  + use separate adaptive learning rates for each parameter
+  + rmsprop
+  + take a fancy method from the optimization literature that makes use of curvature information
 
 
 ## Output Units
@@ -906,6 +1399,131 @@
   </div>
 
 
+
+## Hyperparameters
+
+### Summary
+
++ __REMARK 1.__ the test/validation loss is a good indicator of the network's convergence.
+  + the test/validation loss used to provide insights on the training process
+  + the final test accuracy used for comparing performance
+
++ __REMARK 2.__ achieving the horizontal part of the test loss is the goal of hyper-parameter tuning
+  + difficult with deep neural network
+  + with networks becoming more powerful with greater depth (i.e., more layers), width (i.e., more neurons or filters per layer), and the addition of skip connections to its architecture
+  + various forms of regularization, such as weight decay or dropout
+  + important hyper-parameters
+  + using a variety of optimization methods
+
++ __REMARK 3.__ the amount of regularization must be balanced for each dataset and architecture
+  + permit general use of super-convergence
+  + reducing other forms of regularization
+  + regularized w/ very large learning rates makes training significantly and efficient
+
++ __REMARK 4.__ the practitioner's goal is obtaining the highest performance while minimizing the needed computational time
+  + examined in conjunction with the execution time of the training
+  + choosing the number of epochs/iterations for training should be large enough to maximize the final test performance but no larger
+
++ __REMARK 5.__ optimal momentum value(s) will improve network training
+  + the optimal training procedure: a combination of
+    + an increasing cyclical learning rate w/ an initial small learning rate permits convergence to begin
+    + a decreasing cyclical momentum w/ allowing the learning rate to become larger in the early to middle parts of training
+  + a constant learning rate and a decreasing cyclical momentum (0.9 ~ 0.99):
+    + acting like a pseudo increasing rate
+    + speeding up the training
+  + too large momentum value
+    + poor training results
+    + visible early in the training
+    + quickly tested
+
++ __REMARK 6.__ the amount of regularization must be balanced for each dataset and architecture
+  + the value of weight decay: key knob to tune regularization against the regularization from an increasing learning rate
+  + other regularization generally fixed
+  + weight decay changed easily when experimenting with maximum learning rate and stepsize values
+
+### Overview
+
++ [the process of setting the hyper-parameters](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
+  + including the designing the network architecture
+  + requiring expertise and extensive trial and error and time consuming
+
++ [no simple and easy ways to set hyper-parameters](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
+  + learning rate, batch size, momentum and weight decay
+  + grid search or random search: computationally expensive and time consuming
+  + training time and final performance: highly dependent on good choice
+  + choosing the standard architecture and the hyper-parameter files freely available in model zoo or from gitgub.com
+
++ proposed methodologies for finding optimal settings for several hyper-parameters
+  
++ goal: providing practical advice that saves time and effort, yet improves performance
+
++ [basis of the approach](../ML/MLNN-Hinton/a13-HyperParam.md#1-introduction)
+  + well-known concept of the balance between underfitting and overfitting
+  + examining the training's test-/validation loss for clues of underfitting and overfitting to strive for optimal set of hyper-parameters
+  + paying close attention while using cyclical learning rates and cyclical momentum
+
+### Batch Size
+
++ [Small batch sizes](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + recommended for regularization effects
+  + optimal batch size on the order of 80 for Cifar-10
+  + using a large batch size when using the 1cycle learning rate schedule
+
++ [Comparing batch sizes](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + issue: conflicting results if one maintains a constant number of epochs vs. a constant number of iterations
+  + neither appropriate for comparing different batch sizes
+    + constant epochs: not account for the significant computational efficient of large batch size so it penalizes larger batch sizes
+    + constant iterations: favor of larger batch sizes too much
+  + larger batch sizes $\to$ the use of larger learning rate in the 1cycle learning rate schedule
+  + best practice: maintaining a near constant execution time
+  + people interested in minimizing training time while maintaining high performance
+
++ [The effects of total batch size (TBS)](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + The effects of total batch size (TBS) on validation loss for the Cifar-10 with resnet-56 and a 1cycle learning rate schedule.
+  + For a fixed computational budget, larger TBS yields higher test accuracy but smaller TBS has lower test loss.
+
++ [Other recommendations](../ML/MLNN-Hinton/a13-HyperParam.md#42-batch-size)
+  + modifying the batch size, rather than the learning rates
+  + the batch size limited by the hardware's memory, while the learning rate not
+  + using a batch size that fits in the hardware's memory and enable using larger learning rates
+
+
+### Weight Decay
+
++ [Weight decay](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + a form of regularization
+  + balancing the various forms of regularization to obtain good performance
+  + best practice: remaining constant through the training
+  + generally applied for regularization
+  + network performance: proper weight decay value
+  + the validation loss early in the training: sufficient for determining a good value
+  + reasonable procedure: combined CLR and CM runs at a few values of the weight decay to simultaneously determine the best learning rates, momentum and weight decay
+
++ [Weight decay values](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + reasonable values: $10^{-3}, 10^{-4}, 10^{-5}$ and $0$
+  + smaller datasets and architectures: larger values for weight decay
+  + larger datasets and deeper architectures: smaller values
+  + hypothesis: complex data provides its own regularization and other regularization should be reduced
+  + experience: $10^{-4}$ about right w/ initial runs at $3 \times 10^{-5}, 10^{-4}, 3 \times 10^{-4}$
+  + bisection of the exponent rather than bisecting the value ($10^{-3.5} = 3.16 \times 10^{-4}$)
+  + make a follow up run that bisects the exponent of the best two of these if none seem best, extrapolate toward an improved value
+
++ Examples of weight decay search using a 3-layer network on the Cifar-10 dataset
+  + Training used a constant learning rate (0.005) and constant momentum (0.95).
+  + The best value for weight decay is easier to interpret from the loss than from the accuracy.
+
++ More examples of weight decay search using a 3-layer network on the Cifar-10 dataset
+  + Training used cyclical learning rates (0.001 - 0.01) and cyclical momentum (0.98 - 0.9).
+  + The best value of weight decay is smaller when using CLR because the larger learning rates help with regularization.
+
++ [Grid search for weight decay (WD) on Cifar-10 with resnet-56 and a constant momentum=0.95 and TBS = 1,030](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + The optimal weight decay is different if you search with a constant learning rate (left) versus using a learning rate range (right) due to the regularization by large learning rates.
+  + different optimal weight decay: a constat learning rate vs. a learning rate range
+  + the larger learning rates provide regularization so a smaller weight decay value is optimal
+
++ [Grid search for the optimal WD restarting from a snapshot](../ML/MLNN-Hinton/a13-HyperParam.md#44-weight-decay)
+  + a grid search for a weight decay to make a single run at a middle value for weight decay and save a snapshot after the loss plateau
+  + using the snapshot to restart runs w/ different WD values
 
 
 ## Linear Neurons
@@ -1105,589 +1723,204 @@
     \]\mathcal{L}(\beta_0, \beta_1) = - \sum_i \left[ y_i \log(p_i) + ( 1- y_i) \log(1 - p_i)\right]\]
 
 
+### Lost Function for Softmax Function
 
-## Issues and Algorithms for Optimization
++ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
 
-### Challenges with optimization
+  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
 
-+ [Convex optimization](../ML/MLNN-Hinton/a03-Optimization.md#challenges-with-optimization)
-  + a function in which there is only one optimum, corresponding to the global optimum (maximum or minimum)
-  + no concept of local optima for convex optimization problems, making them relatively easy to solve
-
-+ [Non-convex optimization](/ML/MLNN-Hinton/a03-Optimization.md#challenges-with-optimization)
-  + a function which has multiple optima, only one of which is the global optima
-  + Maybe very difficult to locate the global optima depending on the loss surface
-
-+ [Neural network](../ML/MLNN-Hinton/a03-Optimization.md#challenges-with-optimization)
-  + loss surface: minimize the prediction error of the network
-  + interested in finding the global minimum on this loss surface
-
-+ [Multiple problems on neural network training](/ML/MLNN-Hinton/a03-Optimization.md#challenges-with-optimization)
-  + What is a reasonable learning rate to use?
-    + small learning rate: long to converge
-    + large learning rate: not converge
-  + How do we avoid getting stuck in local optima?
-    + one local optimum may be surrounded by a particularly steep loss function
-    + difficult to escape this local optimum
-  + What if the loss surface morphology changes?
-    + no guarantee found global minimum remain indefinitely
-    + trained dataset not representative of the actual data distribution
-    + different dataset might with different loss surface
-    + importance: make the training and test datasets representative of the total data distribution
+  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
+  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
+  + if the classifier outputs 1 for the training example, then the cos is zero.
 
 
-### Local optima and Saddle Points
+### Gradient Descent for Softmax Function
 
-+ [Local optima](../ML/MLNN-Hinton/a03-Optimization.md#local-optima)
-  + viewed as a major problem in neural network training
-  + using insufficiently large neural networks, most local minima incur a low cost
-  + not particularly important to find the true global minimum
-  + a local minimum with reasonably low error is acceptable
++ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+
+  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
+
+  + the function computes the gradients for a single class $j$
+
+  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
+
+  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
+
++ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
+  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
+  + $grad$: gradient matrix; dimension: [numClass x input Size]
+  + $data$: data matrix; dimension: [inputSize x numExamples]
+
+  \[grad = M * data\]
+
+
+## Overfitting and Underfitting
+
+### Overview
+
++ [Overfitting in deep neural networks](../ML/MLNN-Hinton/a14-Advanced.md#4-how-to-address-overfitting)
+  + never truly believe that the results from a trained network are optimal
+  + very common
+
++ [Generalization Concern - Overfitting](../ML/MLNN-Hinton/03-Backpropagation.md#how-to-use-the-derivatives-computed-by-the-backpropagation-algorithm)
+  + Unable to identify which regularities causing errors
+  + Possible solutions:
+    + Weight-decay
+    + Weight-sharing
+    + Early stopping
+    + Model averaging
+    + Bayesian fitting on neural nets
+    + Dropout
+    + Generative pre-training
+
++ [Underfitting](../ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off)
+  + unable to reduce the error for either the test or training set
+  + cause: an under capacity of the machine learning model
+  + not powerful enough to fit the underlying complexities of the data distribution
+
++ [Overfitting](/ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off): model so powerful as to fit the training set too well and the generalization error increases
+
++ Pictorial explanation of the tradeoff between underfitting and overfitting (Fig. 2)
+  + model complexity (the x axis) refers to the capacity or powerfulness of the machine learning model
+  + the optimal capacity falls between underfitting and overfitting
+  + achieving a horizontal test loss during the training of a network can also point to the optimal balance of the hyper-parameter
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*fGx-IJkvPLuurfR9VWlu2g.png" style="margin: 0.1em;" alt="Curve of loss function with local and global minimum" title="Curve of loss function with local and global minimum" width=350>
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/a13-under-overfitting.png" style="margin: 0.1em;" alt="Pictorial explanation of the tradeoff between underfitting and overfitting." title="Pictorial explanation of the tradeoff between underfitting and overfitting." height=200>
     </a>
   </div>
 
-+ [Saddle pints](../ML/MLNN-Hinton/a03-Optimization.md#saddle-points)
-  + more likely than local minima in high dimensions
-  + more problematic than local minima because close to a saddle point the gradient can be very small
-  + gradient descent results in negligible updates to the network and network training will cease
++ [Insight of underfitting and overfitting](../ML/MLNN-Hinton/a13-HyperParam.md#31-a-review-of-the-underfitting-and-overfitting-trade-off)
+  + signs of the underfitting and overfitting of the test or validation loss early in the training process useful for tuning the hyper-parameters
+  + Fig. 1a: some overfitting within the black square indicates a suboptimal choice of hyper-parameters
+  + well set initial values for hyper-parameters results in performing well through the entire training process
+  + the test loss during the training process used to find the optimal network architecture and hyper-parameters w/o performing a full training to compare the final performance results
+
+
+### Underfitting
+
++ [Underfitting visible during the training](../ML/MLNN-Hinton/a13-HyperParam.md#32-underfitting)
+  + Underfitting is characterized by a continuously decreasing test loss, rather than a horizontal plateau.
+  + Test loss for the Cifar-10 dataset with a shallow 3 layer network (left diagram)
+    + red curve
+      + decreasing test loss w/ a learning rate ($LR = 0.001$)
+      + Underfitting: continue to decrease
+    + blue curve
+      + decreasing more rapidly during the initial iterations and then is horizontal
+      + __a positive clue__: the configuration producing a better final accuracy than other configuration
+  + Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2 (right diagram)
+    + underfitting: underlying complexities of the data distributions
+    + the test loss continues decreasing over the 100,000 iterations (about 3 epochs)
+    + the inception-resnet-v2 decreasing more and becoming more horizontal
+    + the inception-resnet-v2 less underfitting
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/0*GuknkQNZ8pQqDGsr.jpg" style="margin: 0.1em;" alt="Saddle point — simultaneously a local minimum and a local maximum." title="Saddle point — simultaneously a local minimum and a local maximum." width=350>
-    </a>
-  </div>
-
-+ [Rosenbrook function](../ML/MLNN-Hinton/a03-Optimization.md#saddle-points)
-  + often used for testing the performance of optimization algorithms on saddle points
-  + formula $f(x, y) = (a - x)^2 + b(y - x^2)^2$ with global minimum at $(x, y) = (a, a^2)$
-  + a non-convex function with a global minimum located within a long and narrow valley
-  + difficult to converge to the global minimum due to the flat valley
-  + flat valley with small gradients makes it difficult for gradient-based optimization procedures to converge
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/750/1*2K4R96WUViI8r5zosC9F5Q.png" style="margin: 0.1em;" alt="A plot of the Rosenbrock function of two variables. Here a=1,b=100, and the minimum value of zero is at (1,1)." title="A plot of the Rosenbrock function of two variables. Here a=1,b=100, and the minimum value of zero is at (1,1)." height=250>
-      <img src="https://miro.medium.com/max/750/1*zUFSP2xTzbOyXg4_ewOf9Q.gif" style="margin: 0.1em;" alt="Animation of Rosenbrock’s function of three variables." title="Animation of Rosenbrock’s function of three variables." height=250>
-    </a>
-  </div>
-
-
-### Poor Conditioning
-
-+ [Derivative Issues](../ML/MLNN-Hinton/a03-Optimization.md#poor-conditioning)
-  + ill-conditioned derivatives of the error function
-  + reflected in error landscapes containing many saddle points and flat areas
-
-+ [Hessian matrix](../ML/MLNN-Hinton/a03-Optimization.md#poor-conditioning)
-  + a square matrix of second-order partial derivatives of a scalar-valued function
-  + the Hessian describes the local curvature of a function of many variables
-
-  \[H = \begin{bmatrix} \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\\\ \dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2 \partial x_n} \\ \vdots & \vdots & \ddots & \vdots \\ \dfrac{\partial^2 f}{\partial x_n \partial x_1} & \dfrac{\partial^2 f}{\partial x_n \partial x_n \partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2} \end{bmatrix}\]
-
-  + used to determine whether a given stationary points is a saddle point or not
-  + full Hessian matrix takes $\mathcal{O}(n^2)$ memory, infeasible for high dimensional functions such as the loss functions of neural networks
-  + use [truncated-Newton](https://en.wikipedia.org/wiki/Truncated_Newton_method) and [quasi-Newton](https://en.wikipedia.org/wiki/Quasi-Newton_method) algorithms to optimize
-  + the quasi-Newton family of algorithms using approximations to the Hessian
-  + [Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm): the most popular quasi-Newton algorithms
-
-+ Neural network:
-  + the Hessian matrix is poorly conditioned - the output changes rapidly for a small change of input
-  + undesirable property: the optimization process is not particularly stable
-  + learning is slow despite the presence of strong gradients because oscillations slow the learning process down
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*hT12fHjYZJPXCCxjCWvM3w.png" style="margin: 0.1em;" alt="slow learning w.r.t poorly conditioned" title="slow learning w.r.t poorly conditioned" width=250>
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/a13-3layerLoss.png" style="margin: 0.1em;" alt="(a) Test loss for the Cifar-10 dataset with a shallow 3 layer network." title="Test loss for the Cifar-10 dataset with a shallow 3 layer network." height=150>
+      <img src="../ML/MLNN-Hinton/img/a13-imagenetTestLoss3.png" style="margin: 0.1em;" alt="(b) Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." title="Test loss for Imagenet with two networks; resnet-50 and inception-resnet-v2." height=150>
     </a>
   </div>
 
 
-### Vanishing/Exploding Gradients
+### Overfitting
 
-+ [Deep neural network](../ML/MLNN-Hinton/a03-Optimization.md#vanishingexploding-gradients)
++ [Examples of overfitting](../ML/MLNN-Hinton/a13-HyperParam.md#33-overfitting)
+  + increasing validation/test loss indicates overfitting
+  + Cifar-10 dataset with a shallow 3 layer network (left diagram)
+    + $WD = 10^{-4}$ (blue curve): minimizing near at $LR = 0.002$, then increasing (overfitting)
+    + $WD = 4 \times 10^{-3}$: (red curve)
+      + stable at a larger LR range
+      + attain a lower loss value
+      + better than the previous one
+      + diverging at $LR = 0.008$
+    + $WD = 10^{-2}$ (yellow curve): sharp increasing at $LR = 0.005$
+      + not a sign of overfitting
+      + caused by instabilities in the training due to the large learning rate
+  + Imagenet dataset with resnet-50 architecture (right diagram)
+    + blue curve: underfitting w/ $LR = 0.1$ and $WD = 10^{-4}$
+    + red curve: overfittign w/ a ver small $WD = 10^{-7}$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/1250/1*Hae-goX40dfHmNFmgd5jZw.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
+    <a href="https://www.arxiv-vanity.com/papers/1803.09820/" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/a13-overfitting3.png" style="margin: 0.1em;" alt="(a) Cifar-10 dataset with a shallow 3 layer network." title="Cifar-10 dataset with a shallow 3 layer network." height=150>
+      <img src="../ML/MLNN-Hinton/img/a13-imagenetResnetOverfitting.png" style="margin: 0.1em;" alt="(b) Imagenet dataset with resnet-50 architecture." title="Imagenet dataset with resnet-50 architecture." height=150>
     </a>
   </div>
 
-  + affine transformation followed by an activation function (a single layer)
-
-    \[\begin{array}{lll} \text{Linear} \qquad & h_i = W_x & \\ \text{activation} & h_i = W h_{i-1}, & i = 2, \dots, n\end{array}\]
-
-  + output for an $n$-layer network
-
-    \[\text{Suppose } \mathbf{W} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}: \qquad \begin{bmatrix} h_1^1 \\ h_2^1 \end{bmatrix} = \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \quad \cdots \begin{bmatrix} h_1^n \\ h_2^n \end{bmatrix} = \begin{bmatrix} a^n & 0 \\ 0 & b^n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\]
-
-+ [Vanishing and Exploding](../ML/MLNN-Hinton/a03-Optimization.md#vanishingexploding-gradients)
-  + Two possible cases depending on the magnitude of $a$ and $b$
-
-  \[\begin{array}{lll} \text{Suppose } x = \begin{bmatrix} 1 \\ 1 \end{bmatrix} & & \\ \text{Case 1: } a = 1, b =2: & y \rightarrow 1,\; \Delta_y \rightarrow \begin{bmatrix} n \\ n \cdot 2^{n-1} \end{bmatrix} & \quad \text{Explodes!} \\ \text{Case 2: } a = 0.5, b = 0.9: & y \rightarrow 0,\; \Delta_y \rightarrow \begin{bmatrix} 0 \\ 0 \end{bmatrix} & \quad \text{Vanishes!} \end{array}\]
-
-    + Gradient clipping rule
-
-      \[\text{if } \parallel g \parallel > u, \quad g \leftarrow \dfrac{gu}{\parallel g \parallel}\]
-
-  + for $a$, $b$ less than 1
-    + the gradients quickly tends to zero
-    + gradient values smaller than the precision threshold recognized as zero
-
-+ [Vanishing gradient issue](../ML/MLNN-Hinton/a10-CNNsGuide.md#relu-rectified-linear-units-layers)
-  + the lower layers of the network training very slowly
-  + the gradient decreasing exponentially through the layers
-  + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
-  + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
 
-### Momentum
 
-+ [Momentum](../ML/MLNN-Hinton/a03-Optimization.md#momentum)
-  + an inertia motion of object to move in the direction of motion
-  + the general direction that the optimization algorithm is moving
-  + optimization algorithm moving in a general direction, the momentum causes it to 'resist' changes in the direction
-  + dampening of oscillations for high curvature surfaces
-  + an added term in the objective function
-  + a value in $[0, 1]$ increasing the size of the steps taken towards the minimum by trying to jump from a local minimum
-  + large momentum & small learning rate: fast convergence
-  + large momentum & large learning rate: skip the minimum with a huge step
-  + small momentum: not reliably avoid local minima and slow down  the training of the system
-  + help in smoothing out the variations, if the gradient keeps changing direction
-  + right value of momentum: either learned by hit and trial or through cross-validation
 
-+ [Formula for Momentum](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
-  + using past gradients for updating values
-  + $v$: velocity
-  + more weight applied to more recent gradients, creating an exponentially decaying average of gradients
+### Dropout
 
-  \[\begin{array}{rcl} g &=& \frac{1}{m} \displaystyle \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)}) \\ v &=& \alpha v + (-\varepsilon g) \end{array}\]
++ [Dropout](../ML/MLNN-Hinton/a14-Advanced.md#5-dropout)
+  + easy to implement but more difficult to grasp its underlying philosophy
+  + a regularization technique for deep neural networks
+  + employed at training time
+    + eliminated the dropout od some units randomly
+    + preventing the network from relying on individual neurons too much
+    + preventing from overfitting
+  + testing time
+    + all neurons presented
+    + firing probability scaled
+    + more neurons than previously present at training time
 
-  + $\alpha \in [0, 1)$ controls how quickly effect of past gradients decay
-  + $\varepsilon$: current gradient update
++ [Dropout technique](../ML/MLNN-Hinton/a14-Advanced.md#5-dropout)
+  + used in combination with other regularization techniques (such as L2, batch normalization, etc.)
+  + Purpose: prevent the co-adaption of feature detectors for a set of neurons, and avoid overfitting
+    + enforcing the neurons to develop an individual role on their own given an overall population behavior
+    + training weights encouraged to be spread across the neural network because no neuron is permanent
+  + Interpretation: training examples provide gradients from different, randomly sampled architectures
+  + direct implementation
+    + at training time: eliminate the output of some units randomly
+    + at test time: all units are present
 
-+ [Compute gradient estimate:](../ML/MLNN-Hinton/a03-Optimization.md#classical-momentum)
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+      <img src="https://miro.medium.com/max/1375/1*J_l09l2Fo4k5EHwUSRenQA.png" style="margin: 0.1em;" alt="Example of applying dropout" title="Example of applying dropout" height=150>
+      <img src="https://miro.medium.com/max/1395/1*pBncBWIkmogWIQ_6AhWCeQ.png" style="margin: 0.1em;" alt="Implement of dropout at training and test times" title="Implement of dropout at training and test times" height=100>
+    </a>
+  </div>
 
-    \[g = \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \theta), y^{(i)})\]
-  + Update velocity: $v = \alpha v - \varepsilon g$
-  + Update parameters: $\theta = \theta + v$
-  + Impacts
-    + SGD w/ momentum updates no real advantage at the first few updates over vanilla SGD
-    + As the number of updates increases the momentum kickstarts and allows faster convergence.
 
-+ [Nesterov momentum](../ML/MLNN-Hinton/a03-Optimization.md#nesterov-momentum)
-  + Sutskever, Martens et al. "[On the importance of initialization and momentum in deep learning](http://proceedings.mlr.press/v28/sutskever13.pdf)" 2013
-  + Classical vs Nesterov Momentum
-    + Classical
-      + first correct velocity
-      + make a big step according to that velocity (and then repeat)
-  + Nesterov
-    + first make a step into velocity direction
-    + make a correction to a velocity vector based on a new location (then repeat)
+### Inverted Dropout
 
-  + Hugh difference in practice
-    + Apply an interim update: $\tilde{\theta} = \theta + v$
-    + Perform a correction based on gradient at the interim point
++ [Dropout usage](../ML/MLNN-Hinton/a14-Advanced.md#51-inverted-dropout)
+  + normal dropout
+    + scale activations by dropout rate $p$ at test time
+    + not dropping out any of the neurons
+    + required to match expected value at training
+  + inverted dropout
+    + scaling applied at training time, but inversely
+    + dropout all activations by dropout factor $p$
+    + scaling by inverse dropout factor $1/p$
 
-      \[\begin{array}{rcl} g &=& \frac{1}{m} \sum_i \Delta_\theta L(f(x^{(i)}; \tilde{\theta}), y^{(i)}) \\ v &=& \alpha v - \varepsilon g \\ \theta & = & \theta + v \end{array}\]
++ [Inverted dropout](../ML/MLNN-Hinton/a14-Advanced.md#51-inverted-dropout)
+  + advantage: don't have to do anything at test time to make inference faster
+  + most current implementations
+    + weighting performed during training
+    + no re-weighting at test time required
+  + for layer $l$
 
-    + momentum based on look-ahead slope
-    + visual representation of the difference between the traditional momentum update and Nesterov momentum
+    \[\begin{align*}
+      z^{[l]} &= \frac{1}{p_l} W^{[l]} D^{[l]} a^{[a-1]} + b^{[l]} \\
+      a^{[l]} &= g(z^{[l]}) 
+    \end{align*}\]
+
+    + $p_l$: retention probability
+    + $D^{[l]}$: dropout activations
+    + $a^{[l-1]}$: output from previous layer
+    + $W^{[l]}$: layer weights
+    + $b^{[l]}$: offset weights
+    + $z^{[l]}$: linear output
+    + $g(\cdot)$: nonlinear activation function
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-        <img src="https://miro.medium.com/max/875/1*hJSLxZMjYVzgF5A_MoqeVQ.jpeg" style="margin: 0.1em;" alt="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." title="Nesterov momentum. Instead of evaluating gradient at the current position (red circle), we know that our momentum is about to carry us to the tip of the green arrow. With Nesterov momentum we therefore instead evaluate the gradient at this 'looked-ahead' position." width=350>
-      </a>
-    </div>  
-
-
-### Adaptive Learning Rates
-
-+ [Oscillations along vertical direction](../ML/MLNN-Hinton/a03-Optimization.md#adaptive-learning-rates)
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*0v0zucWChoudFcJRPpB74Q.png" style="margin: 0.1em;" alt="Gradient descent oscillates along vertical direction" title="Gradient descent oscillates along vertical direction" width=300>
-    </a>
-  </div>
-
-+ List of Proposals
-  + AdaGrad
-  + RMSProp
-  + Adam
-
-
-### Parameter Initialization
-
-+ [Initialization of network weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
-  + overlooked characteristics of developing neural networks
-  + poorly initialized networks determined to network performance
-  + initialized with all values of zero
-    + the network not learn anything at all
-    + after a gradient update, all weights would be zero
-  + initialized with all weights 0.5
-    + actually learn something
-    + prematurely prescribed some form of symmetry between neural units
-
-+ [Randomizing weights](../ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
-  + avoid presupposing any form of a neural structure by randomizing weights according to a normal distribution
-  + often done in Keras by specifying a random state
-
-+ [Scale of initialization](/ML/MLNN-Hinton/a03-Optimization.md#parameter-initialization)
-  + large values for the weights: lead to exploding gradients
-  + small values for the weights: lead to vanishing gradients
-  + sweet spot that provides the optimum tradeoff between these two
-  + not a priori but inferred through trial and error
-
-
-### Normalization
-
-+ Purpose
-  + ways to navigate the loss surface of then neural network using momentum and adaptive learning rates
-  + methods of parameter initialization to minimize a prior biases within the network
-
-+ Normalizing features before applying the learning algorithm
-
-+ [Min-max normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
-  + simplest method to scale data
-  + rescaling the range of features to scale the range in [0, 1] or [-1, 0]
-  + subtracting each value by the minimum value and scaling by the range of values present in the dataset
-  + Issue: highly skewed data results in many values clustered inn one location
-  + Solution: taking the logarithm of the feature variable
-
-  \[x^\prime = \frac{x - \min(x)}{\max(x) - \min(x)}\]
-
-+ [Mean normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
-  + essentially the same as min-max normalization except the average value is subtracted from each value
-  + the least common way
-
-  \[x^\prime = \frac{x - \text{average}(x)}{\max(x) - \min(x)}\]
-
-+ [Feature normalization](../ML/MLNN-Hinton/a03-Optimization.md#feature-normalization)
-  + make each feature normalized with zero mean and unit variance
-  + widely used for normalization in many machine learning algorithms
-  + typically involving distance-based methods
-  + general method
-    + determine the distribution mean and standard variation for each feature
-    + subtract the mean from each feature
-    + divide the values of each feature by its standard deviation
-  + Formula
-
-    \[x^\prime = \frac{x - \mu}{\sigma}\]
-
-    + $x$: feature vector
-    + $\mu$: vector of mean feature values
-    + $\sigma$: vector of SD of feature values
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-        <img src="https://miro.medium.com/max/875/1*bo1Utxme6zS2nr0IHtATRg.png" style="margin: 0.1em;" alt="Contour to represent feature normalization" title="Contour to represent feature normalization" width=350>
+      <a href="https://towardsdatascience.com/advanced-topics-in-neural-networks-f27fbcc638ae" ismap target="_blank">
+        <img src="https://miro.medium.com/max/618/1*CAcPwIHBS_-8Ms4ZqlnbFA.png" style="margin: 0.1em;" alt="Inverted dropout — weights are scaled at training time as opposed to testing time, the opposite of traditional dropout." title="Inverted dropout" width=150>
       </a>
     </div>
-
-
-### Assessment with Beale's Function
-
-+ [Beale's function](https://en.wikipedia.org/wiki/Test_functions_for_optimization)
-  + one of many test functions commonly used for studying the effectiveness of various optimization techniques
-  + a test function accesses how well the optimization algorithms perform when in flat regions with very well shallow gradients
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/simple-guide-to-hyperparameter-tuning-in-neural-networks-3fe03dad8594" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/0*b6VbjuQQJVXxd_rE.jpg" style="margin: 0.1em;" alt="The Beale function." title="The Beale function." width=350>
-    </a>
-  </div>
-
-  + Optimizing a function $f: A \rightarrow R$, from some set A to the real numbers is finding an element $x_0 \in A$ such that $f(x_0) \leq f(x)$ for all $x \in A$ (finding the minimum) or such that $f(x_0) \geq f(x)$ fro all $x \in A$ (finding the maximum).
-  + Formula:
-
-    $$f(x,, y) = (1.5 -x +xy)^2 + (2.25 -x + xy^2)^2 + (2.625 - x +xy^3)^2$$
-
-    Answer: $(x, y) = (3, 0.5)$
-
-+ [Artificial landscape](../ML/MLNN-Hinton/a04-Hyperparameter.md#beales-function)
-  + find a way of comparing the performance of various algorithms
-    + Convergence (how fast they reach the answer)
-    + Precision (how close do they approximate the exact answer)
-    + Robustness (so they perform well for all functions or just a small subset)
-    + General performance (e.g., computational complexity)
-  + analogous to the loss surface of a neural network
-  + goal of NN training: find the global minimum on the loss surface by performing some form of optimization - typically stochastic gradient
-
-
-### Implementation with Keras
-
-+ [Keras](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
-  + a Python library for deep learning that can run on top of both Theano or TensorFlow, tow powerful Python libraries for fast numerical computing created and released by Facebook and Google, respective
-  + developed to make developing deep learning models as fast and easy and easy as possible for research and practical applications
-  + built on the idea of a model
-  + Sequential model: a sequence of layers, a linear stack of layers
-
-+ [Summarize the construction of deep learning models in Keras using the Sequential model](../ML/MLNN-Hinton/a04-Hyperparameter.md#a-keras-refresher)
-  1. Define model: create a Sequential model and add layers
-  2. Compile model: specify loss function and optimizers and call the `.compile()` function
-  3. Fit model: train the model on data by calling the `.fit()` function
-  4. Make prediction: use the model to generate predictions on new data by calling functionbs such as `.evaluate()` or `.predict()`
-
-+ [Callbacks](../ML/MLNN-Hinton/a04-Hyperparameter.md#callbacks-taking-a-peek-into-our-model-while-its-training)
-  + how to examine the performance of the model
-  + what happening in various stages of the model
-  + a set of functions to be applied at given stages of the training procedure
-  + get a view on internal states and statistics of the model during training
-  + pass a list of callbacks (as the keyword arguments callbacks) to the `.fit()` method of th eSequential or Model classes
-
-+ [Relevant methods of the callbacks at each stage of the training](../ML/MLNN-Hinton/a04-Hyperparameter.md#callbacks-taking-a-peek-into-our-model-while-its-training)
-  + `keras.callbacks.History()`: a callback function automatically included in `.fit()`
-  + `keras.callbacks.ModelCheckPoint` saves the model with its weights at a certain point in the training; e.g., a good practice to save the model weights only when an improvement is observed as measured by the `acc`
-  + `keras.callbacks.EarlySStopping`: stop the training when a monitored quantity has stopped improving
-  + `keras.callbacks.LearningRateScheduler`: change the learning rate during training
-
-+ Procedure by Example
-  + Step 1 - [Deciding on the network topology](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-1---deciding-on-the-network-topology)
-    + Preprocess the data
-  + Step 2 - [Adjusting the `learning rate`](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-2---adjusting-the-learning-rate)
-    + Stochastic Gradient Descent (SGD)
-    + Typical values for hyperparameter: $lr = 0.01$, $decay = 1e^{-6}$, $momentum = 0.9$, and nesterov = True
-    + Learning rate hyperparameter
-    + Implement a learning rate adaption schedule in Keras
-    + Apply a custom learning rate change using `LearningRateScheduler`
-  + Step 3 - [Choosing an optimizer and a loss function](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-3---choosing-an-optimizer-and-a-loss-function)
-    + goal of optimization: efficiently calculate the parameters/weights that minimize the loss function
-    + [types of loss functions in keras](https://github.com/keras-team/keras/blob/master/keras/losses.py)
-    + Distance: the 'loss' function
-    + types of loss functions: MSE (for regression); categorical cross-entropy (for classification); binary cross entropy (for classification)
-  + Step 4 - [Deciding on the batch size and number of epochs](../ML/MLNN-Hinton/a04-Hyperparameter.md#step-4---deciding-on-the-batch-szie-and-number-of-epochs)
-    + batch size: the number of samples propagated through the network
-    + advantages od using a batch size < number of all samples
-    + Disadvantages of using a batch size < number of all samples
-    + epoch: a hyperparameter defines the number times that the learning algorithm will work through the entire training dataset
-  + Step 5 - [Random restarts](/ML/MLNN-Hinton/a04-Hyperparameter.md#step-5---random-restarts)
-    + Not implemented in Keras
-    + Easily done by altering `keras.callbacks.LearningRateScheduler`
-    + Resetting the learning rate after a specified number of epoch for a finite number of times
-
-### Implementation for Cross-Validation
-
-+ [Tuning Hyperparameters using Cross-Validation](../ML/MLNN-Hinton/a04-Hyperparameter.md#tuning-hyperparameters-using-cross-validation)
-  + Use `GridSearchCV` from Scikit-Learn to try out several values for hyperparameters and compare the results
-  + Cross-validation with `keras`
-    + use the wrappers for the Scikit-Learn API
-    + Provide a way to use Sequential Keras models (single-input only) as part of Sckikit-Learn workflow
-    + wrappers
-      + Scikit-Learn classifier interface: `keras.wrappers.scikit_learn.KerasClassifier(build_fn=None, **sk_params)`
-      + Scikit-Learn regressor interface: `keras.wrappers.scikit_learn.KerasRegressor(build_fn=None, **sk_params)`
-
-+ [Cross-Validation with more than one hyperparameters](../ML/MLNN-Hinton/a04-Hyperparameter.md#cross-validation-with-more-than-one-hyperparameters)
-  + effectively trying out combinations of them.
-  + Cross-validation in neural networks is computationally expensive.
-    + each combination evaluated using the k-fold cross-validation (k is a parameter we choose)
-
-
-## Adaptive Learning Rates
-
-#### AdaGrad
-
-+ Momentum adds updates to the slope of error function and speeds up SGD in turn.
-
-+ [AdaGrad]](../ML/MLNN-Hinton/a03-Optimization.md#adagrad) adapts updates to each individual parameter to perform larger or smaller updates depending on their importance.
-
-+ Accumulate squared gradients: $r_i = r_i + g_i^2$
-
-+ Update each parameter:
-
-  \[\theta_i = \theta_1 - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i\]
-
-  + inversely proportional to cumulative squared gradient
-
-+ Benefits:
-  + eliminate the need to manually tune the learning rate
-  + result in greater progress along gently sloped directions
-
-+ Disadvantages:
-  + accumulation of the squared gradients in the denominator
-  + positive added term:
-    + the accumulated sum keeps growing during training
-    + the learning rate shrink and eventually become infinitesimally small
-
-#### RMSProp
-
-+ For non-convex problems, AdaGrad can prematurely decrease the learning rate.
-
-+ Use an exponentially weighted average for gradient accumulation.
-
-  \[\begin{array}{rcl} r_i &=& \rho r_i + (1 - \rho) g_i^2 \\ \theta_i &=& \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} g_i \end{array}\]
-
-
-#### Adam
-
-+ [Adaptive moment estimation (Adam)](..](../ML/MLNN-Hinton/a03-Optimization.md#adam))
-  + a combination of RMSprop and momentum
-  + the most popular optimizer used for neural networks
-
-+ Nadam: a combination of MRSprop and Nesterov momentum
-
-+ Adam computes adaptive learning rates for each parameters.
-
-+ Adam keeps an exponentially decaying average of past gradients, similar to momentum.
-  + Estimate first moment: 
-
-    \[v_i = \rho_1 v_i + (1 - \rho_1) g_i\]
-  
-  + Estimate second moment:
-
-    \[r_i = \rho_2 r_i + 91 - \rho_2) g_i^2\]
-
-    + applies bias correction to $v$ and $r$
-
-  + Update parameters:
-
-    \[\theta_i = \theta_i - \frac{\varepsilon}{\delta + \sqrt{r_i}} v_i\]
-
-    + works well in practice, is fairly robust to hyper-parameters
-
-
-## Parameter Initialization
-
-
-### Xavier Initialization
-
-+ [Xavier initialization](../ML/MLNN-Hinton/a03-Optimization.md#xavier-initialization) is a simple heuristic for assigning network weights.
-
-+ Objective: the variance to remain the same with each passing layer
-
-+ Keep the signal from exploding to high values or vanishing to zero
-
-+ To initialize the weights in such a way that the variance remains the same for both the input and the output
-
-+ The weights drawn from a distribution with zero mean and a specific variance.
-
-+ For a fully-connected layer with $m$ inputs:
-
-  \[W_{ij} \sim N \left(0, \frac{1}{m} \right)\]
-
-  + $m$: fan-in; the number of incoming neurons (input units in the weight tensor)
-  + heuristic value: merely empirically observed to perform well
-
-
-### HE Normal Initialization
-
-+ [HE normal initialization](../ML/MLNN-Hinton/a03-Optimization.md#he-normal-initialization)
-  + the same as Xavier Initialization, except that the variance multiplied by a factor of two
-  + initialized the size of the previous layer which helps in attaining a global minimum of the cost function faster and more efficiently
-  + random but differ in range depending on the size of the previous layer of neurons
-  + controlled initialization hence the faster and more efficient gradient descent
-
-+ For ReLU units
-
-  \[W_{ij} \sim N \left(0, \frac{2}{m} \right)\]
-
-
-### Bias Initialization
-
-+ [Bias initialization](../ML/MLNN-Hinton/a03-Optimization.md#bias-initialization): how the biases of the neurons should be initialized
-
-+ The simplest and a common way of initializing biases is to set them to zero.
-
-+ Asymmetry breaking: provided by the small random numbers in th weights
-
-+ ReLU non-linearity
-  + using small constant values such as 0.01 for all biases
-  + ensure that all ReLU units fire in the beginning and obtain and propagate some gradient
-
-+ Main concern: avoid saturation at initialization within hidden units, ReLU by initializing biases to 0.1 instead of zero
-
-
-### Pre-initialization
-
-+ [Pre-initialization](../ML/MLNN-Hinton/a03-Optimization.md#pre-initialization):
-  + common for convolutional networks used for examining images
-  + involve importing the weights of an already trained network
-  + used as the initial weights of the network to be trained
-  + a tenable method to utilize for analyzing images with few data samples
-  + underlying concept behind transfer learning
-
-
-## Normalization
-
-### Internal Covariate Shift
-
-+ [Internal Covariate Shift](../ML/MLNN-Hinton/a03-Optimization.md#internal-covariate-shift):
-  + the change in the distribution of network activation due to the change in network parameters during training
-  + the parameters of a layer changed, the distribution of inputs to subsequent layers also changes
-  + Issue: the shifts in input distributions tend to slow down learning, especially deep neural networks
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*Dnxnj2STbo-42DfalLMi-g.png" style="margin: 0.1em;" alt="Deep neural network: multiple hidden layers" title="Deep neural network: multiple hidden layers" width=350>
-    </a>
-  </div>
-
-+ Whitened inputs
-  + converge faster and uncorrelated
-  + internal covariate shift leads to just the opposite
-
-+ Ref: [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/abs/1502.03167)
-  + gradient descent converges much faster with feature scaling than without it
-
-
-### Batch Normalization
-
-+ [Batch normalization](../ML/MLNN-Hinton/a03-Optimization.md#batch-normalization)
-  + a method intended to mitigate internal covariate shift for neral networks
-  + an extension to the idea of feature standardization to other layers of the neural network
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-      <img src="https://miro.medium.com/max/875/1*x3FtLuoYjWeNctiNPlTBjw.png" style="margin: 0.1em;" alt="Matrix representation of weights for hidden layers" title="Matrix representation of weights for hidden layers" width=350>
-    </a>
-  </div>
-
-  + reducing overfit due to a slight regularization effect
-  + similar to dropout, add some noise to each hidden layer's activations
-
-+ [Batch normalization transformation](../ML/MLNN-Hinton/a03-Optimization.md#batch-normalization)
-  + normalizes the output of a previous activation layer by subtracting the batch mean and dividing by the batch standard deviation.
-
-    \[\begin{array}{lcl} H^\prime &=& \frac{H - \mu}{\sigma} \\ \mu &=& \frac{1}{m} \sum_i H_{i,:} \\ \sigma &=& \sqrt{\frac{1}{m} \sum_i (H - \mu)^2 + \delta}\end{array}\]
-
-    + $\mu$: vector of mean activations across mini-batch
-    + $\sigma$: vector of SD of each unit across mini-batch
-  + allowing each layer of a network to learn by itself more independently of other layers
-  + after shift/scale of activation outputs by some randomly initialized parameters, the weights in the next layer are no longer optimal.
-  + Adding two trainable (learnable) parameters to each layer
-    + normalized output multiplied by a "standard deviation" parameter ($\gamma$) and add a "mean" parameter ($\beta$)
-    + let SGD do the denormalization by changing only these two wrights for each activation
-    + not losing the stability of the network by changing all the weights
-
-    \[\gamma H^\prime + \beta\]
-
-  + For each of the N mini-batches, calculate the mean and standard deviation of the output
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/neural-network-optimization-7ca72d4db3e0" ismap target="_blank">
-        <img src="https://miro.medium.com/max/875/1*a-B6jX8B-8lfz5ZrIFQyFw.png" style="margin: 0.1em;" alt="Add normalization operations for layer 1" title="Add normalization operations for layer 1" width=400>
-        <img src="https://miro.medium.com/max/875/1*LdQ7HKaqDYtszL8R0bdb4Q.png" style="margin: 0.1em;" alt="Add normalization operations for layer 2" title="Add normalization operations for layer 2" width=400>
-      </a>
-    </div>
-
-  + subsequently repeated for all subsequent hidden layers
-  + differentiate the joint loss for the N mini-batches and then backpropagate through the normalization operations
-
-+ Testing time
-  + the mean and standard deviations replaced with running average collected during training time
-  + same as using the population statistics instead of mini-batch statistics
-  + the output deterministically depends on the input
-
-+ Advantages
-  1. reduces internal coariate shift
-  2. reduces the dependence of gradients on the scale of the parameters or their initial values
-  3. regularizes the model ad reduces the need for dropout, photometric distortions, local response normalization and other regularization techniques
-  4. allows use of saturating nonlinearities and higher learning rates
-
-
 
 
 ## Applications
@@ -1747,7 +1980,7 @@
 
   + similar to family tree problem but larger scale
   + Typical 5 previous words used but shown 2 in the diagram
-  + Using distributed representations via hidden layers to predict via huge sofmax to get probabilities for all various words might coming next
+  + Using distributed representations via hidden layers to predict via huge softmax to get probabilities for all various words might coming next
   + refinement:
     + skip layer connection to skip from input to output
     + input words individually informative about what the word might be
@@ -1792,7 +2025,6 @@
 ### A Unified Architecture for Natural Language Processing
 
 + Collobert and Weston, [A unified architecture for natural language processing: deep neural networks with multitask learning](https://ronan.collobert.com/pub/matos/2008_nlp_icml.pdf), ICML'08, 2008
-4-Multiclasses.md#dealing-with-large-number-of-possible-outputs)
   + learned feature vectors for words
   + applied to many different natural language processing tasks well
   + not try to predict the next word but good feature vectors for words
