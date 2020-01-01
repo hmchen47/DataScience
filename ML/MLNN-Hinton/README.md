@@ -63,10 +63,10 @@
 
 ## 08. Recurrent Neural Networks II
   
-+ [A brief overview of Hessian-free optimization](08-Multicaptive.md#)
-+ [Modeling character strings with multiplicative connections](08-Multicaptive.md#)
-+ [Learning to predict the next character using HF](08-Multicaptive.md#)
-+ [Echo state networks](08-Multicaptive.md#)
++ [A brief overview of Hessian-free optimization](08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
++ [Modeling character strings with multiplicative connections](08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
++ [Learning to predict the next character using HF](08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
++ [Echo state networks](08-RNN2.md#84-echo-state-networks)
 
 
 ## 09. Overfitting
@@ -160,7 +160,7 @@
 
 + [Introduction to Neural Networks and Machine Learning - CSC321 Winter 2014](http://www.cs.toronto.edu/~tijmen/csc321/)
   + [Lecture Notes](http://www.cs.toronto.edu/~tijmen/csc321/lecture_notes.shtml)
-  + [Assignmenets](http://www.cs.toronto.edu/~tijmen/csc321/assignments.shtml)
+  + [Assignments](http://www.cs.toronto.edu/~tijmen/csc321/assignments.shtml)
   + [Optional Readings](http://www.cs.toronto.edu/~tijmen/csc321/texts.shtml)
   + [Computing](http://www.cs.toronto.edu/~tijmen/csc321/computing.shtml)
   + [Exam](http://www.cs.toronto.edu/~tijmen/csc321/tests.shtml)

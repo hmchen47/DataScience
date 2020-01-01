@@ -1,4 +1,4 @@
-# 7. Recurrent Neural Networks
+# 7. Recurrent Neural Networks I
 
 ## 7.1 Modeling sequences: A brief overview
 

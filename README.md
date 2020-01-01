@@ -482,20 +482,20 @@
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#training-for-rnn"> Training </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#binary-addition"> Binary Addition </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Lon Short-term Memory </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#long-short-term-memory-for-hand-written-recognition"> Long Short-term Memory </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimization </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#hessian-free-optimization"> Hessian-free </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#modeling-text-characters"> Text Characters </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#predicting-next-character"> Predicting Next Character </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#echo-state-networks-esn"> Echo State networks </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -614,14 +614,14 @@
 + [Machine Learning with Python](./RefCards/PythonML.md)
 
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
-    + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
-    + [Numpy](./RefCards/DataScience-UCB.md#numpy)
-    + [Array](./RefCards/DataScience-UCB.md#array)
-    + [Table](./RefCards/DataScience-UCB.md#table)
-    + [Visualizations](./DataScience-UCB.md#visualizations)
-    + [iPython](./RefCards/DataScience-UCB.md#ipython)
-    + [Conditions](./RefCards/DataScience-UCB.md#conditions)
-    + [Utility](./RefCards/DataScience-UCB.md#utility)
+  + [Typical Programming Environment](./RefCards/DataScience-UCB.md#typical-programming-environment)
+  + [Numpy](./RefCards/DataScience-UCB.md#numpy)
+  + [Array](./RefCards/DataScience-UCB.md#array)
+  + [Table](./RefCards/DataScience-UCB.md#table)
+  + [Visualizations](./DataScience-UCB.md#visualizations)
+  + [iPython](./RefCards/DataScience-UCB.md#ipython)
+  + [Conditions](./RefCards/DataScience-UCB.md#conditions)
+  + [Utility](./RefCards/DataScience-UCB.md#utility)
 
 
 
