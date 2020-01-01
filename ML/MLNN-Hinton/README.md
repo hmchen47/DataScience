@@ -52,21 +52,21 @@
 + [rmsprop: Normalized the gradient](06-MiniBatch.md#rmsprop-normalized-the-gradient)
 
 
-## 07. Recurrent Neural Networks
+## 07. Recurrent Neural Networks I
 
-+ [Modeling sequences: A brief overview](07-RNN.md#)
-+ [Training RNNs with backpropagation](07-RNN.md#)
-+ [A toy example of training an RNN](07-RNN.md#)
-+ [Why it is difficult to train an RNN](07-RNN.md#)
-+ [Long term short term memory](07-RNN.md#)
++ [Modeling sequences: A brief overview](07-RNN.md#71-modeling-sequences-a-brief-overview)
++ [Training RNNs with backpropagation](07-RNN.md#72-training-rnns-with-backpropagation)
++ [A toy example of training an RNN](07-RNN.md#73-a-toy-example-of-training-an-rnn)
++ [Why it is difficult to train an RNN](07-RNN.md#74-why-it-is-difficult-to-train-an-rnn)
++ [Long term short term memory](07-RNN.md#75-long-term-short-term-memory)
 
 
-## 08. Multicaptive Connections
+## 08. Recurrent Neural Networks II
   
-+ [A brief overview of Hessian-free optimization](08-Multicaptive.md#)
-+ [Modeling character strings with multiplicative connections](08-Multicaptive.md#)
-+ [Learning to predict the next character using HF](08-Multicaptive.md#)
-+ [Echo state networks](08-Multicaptive.md#)
++ [A brief overview of Hessian-free optimization](08-RNN2.md#81-a-brief-overview-of-hessian-free-optimization)
++ [Modeling character strings with multiplicative connections](08-RNN2.md#82-modeling-character-strings-with-multiplicative-connections)
++ [Learning to predict the next character using HF](08-RNN2.md#83-learning-to-predict-the-next-character-using-hf)
++ [Echo state networks](08-RNN2.md#84-echo-state-networks)
 
 
 ## 09. Overfitting
@@ -160,7 +160,7 @@
 
 + [Introduction to Neural Networks and Machine Learning - CSC321 Winter 2014](http://www.cs.toronto.edu/~tijmen/csc321/)
   + [Lecture Notes](http://www.cs.toronto.edu/~tijmen/csc321/lecture_notes.shtml)
-  + [Assignmenets](http://www.cs.toronto.edu/~tijmen/csc321/assignments.shtml)
+  + [Assignments](http://www.cs.toronto.edu/~tijmen/csc321/assignments.shtml)
   + [Optional Readings](http://www.cs.toronto.edu/~tijmen/csc321/texts.shtml)
   + [Computing](http://www.cs.toronto.edu/~tijmen/csc321/computing.shtml)
   + [Exam](http://www.cs.toronto.edu/~tijmen/csc321/tests.shtml)
