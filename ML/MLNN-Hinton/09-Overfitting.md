@@ -198,8 +198,55 @@
 
 ### Lecture Notes
 
++ L2 weight-decay via noisy input
+  + Adding Gaussian noise to the inputs
+    + the variance of the noise amplified by the squared weight before going into the next layer
+  + linear network $\implies$ amplified noise simply adds to the output
+  + making an additive contribution to the squared error
+    + minimizing the squared error tends to minimize the squared weights when the inputs are noisy
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-05.png" style="margin: 0.1em;" alt="Examples of weight penalty" title="Examples of weight penalty" width=150>
+    </a>
+  </div>
 
+  + output on one case
+
+    \[ y^{noise} = \sum_i w_i x_i + \sum_i w_i \varepsilon_i \]
+
+    + $\varepsilon_i$ sampled from $N(0, \sigma^2)$
+
+  + Variance of output and penalty
+
+    \[\begin{align*}
+      E[(y^{noise} - t)^2] &= E\left[ \left( y + \sum_i w_i \varepsilon_i - t \right)^2 \right] = \left[\left((y-t)+\sum_i w_i \varepsilon_i \right)^2 \right] \\
+        &= (y-t)^2 + \underbrace{E\left[2(y-t) \sum_i w_i \varepsilon_i \right]}_{\varepsilon_i \text{ independent of } \varepsilon_j \text{ and } \\ \varepsilon_i \text{ independent of } (y-t)} + E\left[\left(\sum_i w_i \varepsilon_i \right)^2 \right] \\
+        &= (y-t)^2 + E\left[\sum_i w_i^2 \varepsilon_i^2 \right] \\
+        &= (y-t)^2 + \sum_i w_i^2 \sigma_i^2
+    \end{align*}\]
+
+    $\therefore \sigma_i^2 \equiv$ an L2 penalty
+
++ Noisy weights in complex nets
+  + adding Gaussian noise to the weights of a multilayer non-linear architecture
+  + not exactly equivalent to using an L2 weight penalty
+  + may work better, especially in recurrent networks
+  + Alex Graves: handwritting recognition recurrent net significantly better w/ noise
+
++ Using noise in he activities as a regularizer
+  + using backpropagation to train a multilayer NN composed of logistic units
+    + forward pass: units w/ binary and stochastic
+    + backward pass: able to work "properly"?
+  + worse on the training set
+  + considerably slower
+  + significantly better on the test set
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-06.png" style="margin: 0.1em;" alt="Logistic function" title="Logistic function" width=200>
+    </a>
+  </div>
 
 
 ### Lecture Video
