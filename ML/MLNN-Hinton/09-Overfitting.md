@@ -201,13 +201,19 @@
 + L2 weight-decay via noisy input
   + Adding Gaussian noise to the inputs
     + the variance of the noise amplified by the squared weight before going into the next layer
-  + linear network $\implies$ amplified noise simply adds to the output
+  + linear network $\implies$ amplified noise simply adds to the output (diagram)
+    + input $x_i$ w/ additional Gaussian noise w/ zero mean and variance $\sigma_i$
+    + the Gaussian noise multiplied by the squared weight
+    + pass through the linear output unit $j$
+    + output: $y_j + N(0, w_i^2 \sigma_i^2)$
   + making an additive contribution to the squared error
     + minimizing the squared error tends to minimize the squared weights when the inputs are noisy
+    + noise independent to $y_j$
+    + correspond to an L2 penalty on $w_i$ w/ a penalty strength of $\sigma_i^2$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-05.png" style="margin: 0.1em;" alt="Examples of weight penalty" title="Examples of weight penalty" width=150>
+      <img src="img/m09-05.png" style="margin: 0.1em;" alt="Examples of weight penalty" title="Examples of weight penalty" width=100>
     </a>
   </div>
 
@@ -215,15 +221,14 @@
 
     \[ y^{noise} = \sum_i w_i x_i + \sum_i w_i \varepsilon_i \]
 
-    + $\varepsilon_i$ sampled from $N(0, \sigma^2)$
+    + $\varepsilon_i$ sampled from $N(0, \sigma_i^2)$
 
-  + Variance of output and penalty
+  + expected squared difference between $y^{noise}$ and target value $t$
 
     \[\begin{align*}
       E[(y^{noise} - t)^2] &= E\left[ \left( y + \sum_i w_i \varepsilon_i - t \right)^2 \right] = \left[\left((y-t)+\sum_i w_i \varepsilon_i \right)^2 \right] \\
         &= (y-t)^2 + \underbrace{E\left[2(y-t) \sum_i w_i \varepsilon_i \right]}_{\varepsilon_i \text{ independent of } \varepsilon_j \text{ and } \\ \varepsilon_i \text{ independent of } (y-t)} + E\left[\left(\sum_i w_i \varepsilon_i \right)^2 \right] \\
-        &= (y-t)^2 + E\left[\sum_i w_i^2 \varepsilon_i^2 \right] \\
-        &= (y-t)^2 + \sum_i w_i^2 \sigma_i^2
+        &= (y-t)^2 + E\left[\sum_i w_i^2 \varepsilon_i^2 \right] = (y-t)^2 + \sum_i w_i^2 \sigma_i^2
     \end{align*}\]
 
     $\therefore \sigma_i^2 \equiv$ an L2 penalty
@@ -237,16 +242,24 @@
 + Using noise in he activities as a regularizer
   + using backpropagation to train a multilayer NN composed of logistic units
     + forward pass: units w/ binary and stochastic
-    + backward pass: able to work "properly"?
-  + worse on the training set
-  + considerably slower
-  + significantly better on the test set
+    + backward pass: as if we done the normal deterministic forward pass using the real value
+  + logistic function (see diagram)
+    + treat a logistic unit in the forward pass as if a stochastic binary neuron
+    + compute the output of the logistic $p$ as a probability of outputting "1"
+    + the forward pass makes a random decision wether to "1" or "0" using the probability
+    + for backward pass, using the real value $p$ for backpropagating derivatives through the hidden unit
+    + not exact the stochastic system but close if all of the units make small contributions to each unit in the layer above
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-06.png" style="margin: 0.1em;" alt="Logistic function" title="Logistic function" width=200>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+        <img src="img/m09-06.png" style="margin: 0.1em;" alt="Logistic function" title="Logistic function" width=150>
+      </a>
+    </div>
+
+  + Characteristics:
+    + worse on the training set
+    + considerably slower
+    + significantly better on the test set
 
 
 ### Lecture Video
