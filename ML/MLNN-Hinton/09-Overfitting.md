@@ -274,8 +274,87 @@
 
 ### Lecture Notes
 
++ The Bayesian framework
+  + assumption: always have a prior distribution for everything
+    + the prior may be very vague
+    + data gathered $\to$ combine the prior distribution w/ a likelihood term to get a posterior distribution
+  + likelihood term: how probable the observed data is given the parameters of the model
+    + flavor parameter settings that make the data likely
+    + fight the prior
+    + always win w/ enough data
 
++ Example: coin toss
+  + Assumption:
+    + each tossing event produces a head w/ some unknown probability $p$ and a tail w/ probability $1-p$
+    + model of a coin w/ parameter $p$
+  + Suppose we observe 100 tosses and there are 53 heads: what is $p$?
+  + the frequentest answer 9also called maximum likelihood): pick the value $p$ that makes the observation of 53 heads nad 47 tails most probable
+    + the value $p = 0.53$
+  + probability of a particular sequence containing 53 heads and 47 tails
+  
+    \[\begin{align*}
+      P(D) &= p^{53}(1-p)^{47} \\
+      \frac{dP(D)}{d p} &= 53 \cdot p^{53}(1-p)^{47} - 47 \cdot p^{53}(1-p)^{46} \\
+        &= \left(\frac{53}{p} - \frac{47}{(1-p)} \right) \left[ p^{53}(1-p)^{47} \right] = 0 \text{    if } p=.53
+    \end{align*}\]
 
++ Issues on picking the parameters
+  + picking the parameters that are most likely to generate the data
+  + only one coin toss and got one head
+    + is $p=1$ a sensible answer?
+    + surely $p=0.5$ is a much better answer
+  + is it reasonable to give a single answer?
+    + not much data $\implies$ unsure about $p$
+    + computations of probabilities will work much better if we take this uncertainty into account
+
++ Using a distribution over parameter values
+  + start w/ a prior distribution over $p \implies$ uniform distribution
+  + multiply the prior probability of each parameter value by the probability of observing a head given that value
+  + scale up all of the probability densities so that their integral comes to 1 $\implies$ the posterior distribution
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-07.png" style="margin: 0.1em;" alt="left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" title="left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" width=450>
+    </a>
+  </div>
+
++ Using a distribution for tails
+  + start w/ a prior distribution over $p$
+  + multiply the prior probability of each parameter value by the probability of observing a tail given that value
+  + then renormalize to get the posterior distribution.  Look how sensible it is!
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-08.png" style="margin: 0.1em;" alt="Bayesian framework - left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" title="Bayesian framework - left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" width=450>
+    </a>
+  </div>
+
++ Consecutive tossing
+  + Another 98 times
+  + after 53 heads and 47 tails $\to$ get a very sensible posterior distribution w/ peak at 0.53
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-09.png" style="margin: 0.1em;" alt="Probability density function of coin tosses" title="Probability density function of coin tosses" width=200>
+    </a>
+  </div>
+
++ Bayes Theorem
+  + formula
+  
+    \[ p(D)p(D|W) = p(D, W) = p(W)p(D|W) \]
+
+    + $p(D, W)$: join probability
+    + $p(D|W)$: conditional probability
+
+  + alternative formula
+
+    \[ p(W|D) = \frac{p(W) p(D|W)}{p(D)} \]
+
+    + $p(W|D)$: posterior probability of weight vector $W$ given training data $D$
+    + $p(W)$: prior probability of weight vector $W$
+    + $p(D|W)$: probability of observed data given $W$
+    + $p(D) = \int_W p(W)p(D|W)$
 
 
 ### Lecture Video
