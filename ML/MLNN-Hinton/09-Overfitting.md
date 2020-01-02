@@ -124,7 +124,63 @@
 
 ### Lecture Notes
 
++ Limiting the size of the weights
+  + the standard L2 weight penalty
+    + adding an extra term to the cost function that penalizes the squared weights
+    + keep the weights small unless they have big error derivaties
+  + mathematical representation
 
+    \[\begin{align*} 
+      C &= E + \frac{\lambda}{2} \sum_i w_i^2 \\
+      \frac{\partial C}{\partial w_i} &= \frac{\partial E}{\partial w_i} + \lambda w_i
+    \end{align*}\]
+
+    + $\frac{\partial C}{\partial w_i} = 0$
+    + $w_i = \frac{1}{\lambda} \frac{\partial E}{\partial w_i}$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-02.png" style="margin: 0.1em;" alt="Limiting size of the weights" title="Limiting size of the weights" width=200>
+    </a>
+  </div>
+
++ The effect of L2 weight cost
+  + prevent the network from using weights not needed
+    + improve generalization significantly $\impliedby$ stop the network from fitting the sampling error
+    + a soother model: the output changes more slowly as the inputs changes
+  + prefer to equally divide the weight on each branch
+    + a network w/ two very similar inputs
+    + put half the weight on each tather than all the weight on one
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-03.png" style="margin: 0.1em;" alt="Examples of distributing weights" title="Examples of distributing weights" width=200>
+    </a>
+  </div>
+
++ Other kinds of weight penalty
+  + penalize the absolute values of the weights
+    + make many weights exactly equal to zero which helps interpretation a lot
+  + weight penalty w/ negligible effect on large weights
+    + allowing a few large weights
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+      <img src="img/m09-04.png" style="margin: 0.1em;" alt="Examples of weight penalty" title="Examples of weight penalty" width=200>
+    </a>
+  </div>
+
++ Weight penalities vs weight constraints
+  + usually penalize the squared value of each weight separately
+  + constraint on the maximum squared length of the incoming weight vector of each unit
+    + an update violates constraint $\implies$ scale down the vector of incoming weights to the allowed length
+  + advantages of weight constraints over weight penalities
+    + easier to set a sensible value
+    + preventing hidden units getting stuck near zero
+    + prevent weights exploding
+  + the effectiveness of weight penalty determined by the big gradients
+    + when a unit hits its limit
+    + more effective than a fixed penalty at pushing irrelevant weights towards zero
 
 
 ### Lecture Video
