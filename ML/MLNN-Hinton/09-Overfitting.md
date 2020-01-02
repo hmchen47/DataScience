@@ -126,29 +126,27 @@
 
 + Limiting the size of the weights
   + the standard L2 weight penalty
+    + a.k.a weight decay in NN literature
+    + the derivative of the penalty acts as a force pulling weight towards to zero
     + adding an extra term to the cost function that penalizes the squared weights
     + keep the weights small unless they have big error derivaties
-  + mathematical representation
+    + cost function: parabolic curve as weight increasing
+  + cost function: optimize by reducing the normal error
 
     \[\begin{align*} 
       C &= E + \frac{\lambda}{2} \sum_i w_i^2 \\
       \frac{\partial C}{\partial w_i} &= \frac{\partial E}{\partial w_i} + \lambda w_i
     \end{align*}\]
 
-    + $\frac{\partial C}{\partial w_i} = 0$
-    + $w_i = \frac{1}{\lambda} \frac{\partial E}{\partial w_i}$
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-02.png" style="margin: 0.1em;" alt="Limiting size of the weights" title="Limiting size of the weights" width=200>
-    </a>
-  </div>
+    + weight cost: $\frac{\lambda}{2}$ to determin how strong the weight penalty is
+    + $\frac{\partial C}{\partial w_i} = 0 \implies w_i = - \frac{1}{\lambda} \frac{\partial E}{\partial w_i}$
+    + big weights $\impliedby$ minimum of the cost function $\iff$ maximum error derivatives
 
 + The effect of L2 weight cost
   + prevent the network from using weights not needed
     + improve generalization significantly $\impliedby$ stop the network from fitting the sampling error
     + a soother model: the output changes more slowly as the inputs changes
-  + prefer to equally divide the weight on each branch
+  + prefer to equally divide the weight on each branch (see diagrams)
     + a network w/ two very similar inputs
     + put half the weight on each tather than all the weight on one
 
@@ -159,10 +157,12 @@
   </div>
 
 + Other kinds of weight penalty
+  + L1 penalty: the cost function as the left diagram
   + penalize the absolute values of the weights
     + make many weights exactly equal to zero which helps interpretation a lot
   + weight penalty w/ negligible effect on large weights
-    + allowing a few large weights
+    + the gradient of the cost function actually get smaller when the weight gets really big
+    + allowing a few large weights w/o pulled towards to zero
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
@@ -172,15 +172,18 @@
 
 + Weight penalities vs weight constraints
   + usually penalize the squared value of each weight separately
-  + constraint on the maximum squared length of the incoming weight vector of each unit
+  + constraint on the maximum squared length of the incoming weight vector of each hidden or output unit
     + an update violates constraint $\implies$ scale down the vector of incoming weights to the allowed length
   + advantages of weight constraints over weight penalities
-    + easier to set a sensible value
-    + preventing hidden units getting stuck near zero
+    + easier to set a sensible value for the squared length of the incoming weight vector than to select a weight penalty
+    + preventing hidden units getting stuck near zero w/ their weights being tiny and not doing anything useful
     + prevent weights exploding
   + the effectiveness of weight penalty determined by the big gradients
-    + when a unit hits its limit
+    + when a unit hits its constraint
     + more effective than a fixed penalty at pushing irrelevant weights towards zero
+    + some of the incoming weights have very big gradients $\implies$ trying to push the length of the incoming weight vector up $\implies$ push down all the other weights
+    + look like that penalty scales itself as to be appropriate for the big weights and to suppress the small weights
+    + the penalty just the Lagrange multipliers required to keep the constraints satisfied
 
 
 ### Lecture Video
