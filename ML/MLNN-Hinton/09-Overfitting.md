@@ -491,7 +491,29 @@
 
 ### Lecture Notes
 
++ Estimateing the variance of the output noise
+  + find the best value for the output noise
+    + minimizing the squared error w/ a learned model
+    + maxizing the probability of producing exactly the correct answers after adding Gaussian
+    + found by simply using the variance of the residual errors
 
++ Estimating the variance of the Gaussian prior on the weights
+  + empirical Bayes
+    + after learning a model w/ some initial choice of variance for the weight prior
+    + set the variance of the Gaussian prior to be whatever makes the weights that the model learned most likely
+      + i.e., use the data itself to decide what your prior is!
+    + done by simply fitting a zero0mean Gaussian to the one-dimensional distribution of the learned weight values
+      + easily learn different variances for different sets of weights
+  + no validation set required
+
++ MacKay's method
+  + quick and dirty approach of choosing the ratio of the noise variance to the weight prior variance
+  1. start w/ guesses for both the noise variance and the weight prior variance
+  2. while not yet bored
+    + learning using the ratio of the variances as the weight penalty coefficient
+    + reset the noise variance to be the variance of the residual errors
+    + reset the weight prior variance to be the variance of the distribution of the actual learned weights
+  + repeat step 1 & 2
 
 
 
