@@ -275,27 +275,29 @@
 ### Lecture Notes
 
 + The Bayesian framework
+  + instead of looking for the most likely setting of the parameters of a model, consider all possible settings of the parameters
+  + trying to figure out for each of these possible settings have probabilities given the data we observed
   + assumption: always have a prior distribution for everything
     + the prior may be very vague
-    + data gathered $\to$ combine the prior distribution w/ a likelihood term to get a posterior distribution
+    + with given data, combine the prior distribution w/ a likelihood term to get a posterior distribution
   + likelihood term: how probable the observed data is given the parameters of the model
     + flavor parameter settings that make the data likely
     + fight the prior
-    + always win w/ enough data
+    + always win w/ enough data: even w/ the wrong prior but end up w/ the right hypothesis if awful of data
 
 + Example: coin toss
   + Assumption:
     + each tossing event produces a head w/ some unknown probability $p$ and a tail w/ probability $1-p$
     + model of a coin w/ parameter $p$
   + Suppose we observe 100 tosses and there are 53 heads: what is $p$?
-  + the frequentest answer 9also called maximum likelihood): pick the value $p$ that makes the observation of 53 heads nad 47 tails most probable
+  + the frequentest answer ( also called maximum likelihood): pick the value $p$ that makes the observation of 53 heads nad 47 tails most probable
     + the value $p = 0.53$
   + probability of a particular sequence containing 53 heads and 47 tails
   
     \[\begin{align*}
       P(D) &= p^{53}(1-p)^{47} \\
       \frac{dP(D)}{d p} &= 53 \cdot p^{53}(1-p)^{47} - 47 \cdot p^{53}(1-p)^{46} \\
-        &= \left(\frac{53}{p} - \frac{47}{(1-p)} \right) \left[ p^{53}(1-p)^{47} \right] = 0 \text{    if } p=.53
+        &= \left(\frac{53}{p} - \frac{47}{(1-p)} \right) \left[ p^{53}(1-p)^{47} \right] = 0 \text{ if } p=.53
     \end{align*}\]
 
 + Issues on picking the parameters
@@ -306,48 +308,44 @@
   + is it reasonable to give a single answer?
     + not much data $\implies$ unsure about $p$
     + computations of probabilities will work much better if we take this uncertainty into account
+  + example
+    + Using a distribution over parameter values (left set of diagrams)
+      + start w/ a prior distribution over $p$, such as uniform distribution
+      + multiply the prior probability of each parameter value by the probability of observing a head given that value $\implies$ un-normalized posterior (area under the curve is not equal to 1)
+      + scale up all of the probability densities so that their integral comes to 1 $\implies$ the posterior distribution
+    + continue w/ a distribution for tails (right set of diagrams)
+      + start w/ a prior distribution over $p$
+        + red line: the posterior probability of the head from the above observation
+        + green line: the probability for trail
+      + multiply the prior probability of each parameter value by the probability of observing a tail given that value
+      + then re-normalize to get the posterior distribution.  Look how sensible it is!
 
-+ Using a distribution over parameter values
-  + start w/ a prior distribution over $p \implies$ uniform distribution
-  + multiply the prior probability of each parameter value by the probability of observing a head given that value
-  + scale up all of the probability densities so that their integral comes to 1 $\implies$ the posterior distribution
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+          <img src="img/m09-07.png" style="margin: 0.1em;" alt="left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" title="left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" height=60>
+          <img src="img/m09-08.png" style="margin: 0.1em;" alt="Bayesian framework - left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" title="Bayesian framework - left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" height=60>
+        </a>
+      </div>
+    + Consecutive tossing
+      + Another 98 times
+      + after 53 heads and 47 tails $\to$ get a very sensible posterior distribution w/ peak at 0.53
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-07.png" style="margin: 0.1em;" alt="left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" title="left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" width=450>
-    </a>
-  </div>
-
-+ Using a distribution for tails
-  + start w/ a prior distribution over $p$
-  + multiply the prior probability of each parameter value by the probability of observing a tail given that value
-  + then renormalize to get the posterior distribution.  Look how sensible it is!
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-08.png" style="margin: 0.1em;" alt="Bayesian framework - left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" title="Bayesian framework - left: prior distribution, middle: observered value w/ prior distribution, right: posterior distribution" width=450>
-    </a>
-  </div>
-
-+ Consecutive tossing
-  + Another 98 times
-  + after 53 heads and 47 tails $\to$ get a very sensible posterior distribution w/ peak at 0.53
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-09.png" style="margin: 0.1em;" alt="Probability density function of coin tosses" title="Probability density function of coin tosses" width=200>
-    </a>
-  </div>
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
+          <img src="img/m09-09.png" style="margin: 0.1em;" alt="Probability density function of coin tosses" title="Probability density function of coin tosses" width=150>
+        </a>
+      </div>
 
 + Bayes Theorem
-  + formula
+  + equivalent expression for the join probability
   
     \[ p(D)p(D|W) = p(D, W) = p(W)p(D|W) \]
 
-    + $p(D, W)$: join probability
+    + $p(D, W)$: join probability with a set of parameters $W$ and some data $D$
+    + for supervised learning, the data is going to consist of the target values
     + $p(D|W)$: conditional probability
 
-  + alternative formula
+  + Bayes theorem
 
     \[ p(W|D) = \frac{p(W) p(D|W)}{p(D)} \]
 
