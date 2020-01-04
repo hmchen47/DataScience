@@ -516,7 +516,6 @@
   + repeat step 1 & 2
 
 
-
 ### Lecture Video
 
 <video src="https://youtu.be/EJfqOAi_rj8?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>

@@ -74,8 +74,8 @@
 + [Overview of ways to improve generalization](09-Overfitting.md#)
 + [Limiting size of the weights](09-Overfitting.md#)
 + [Using noise as a regularizer](09-Overfitting.md#)
-+ [Introduction to the bayesian approach](09-Overfitting.md#)
-+ [The bayesian interpretation of weight decay](09-Overfitting.md#)
++ [Introduction to the Bayesian approach](09-Overfitting.md#)
++ [The Bayesian interpretation of weight decay](09-Overfitting.md#)
 + [MacKays quick and dirty method of fixing weight costs](09-Overfitting.md#)
 
 
