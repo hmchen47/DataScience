@@ -5,7 +5,7 @@
 ### Lecture Notes
 
 + Reminder: Overfitting
-  + training data in the mapping from input to output
+  + true and accidental regularities: training data in the mapping from input to output
     + containing information about the regularities
     + containing sampling error
     + accidental regularities existed because of the particular training cases that were chosen
@@ -35,7 +35,7 @@
     + <span style="color: blue;">architecture</span>: limit the number of hidden layers and the number of units per layer
     + <span style="color: blue;">early stopping</span>: start w/ small weights and stop the learning before it overfits
     + <span style="color: blue;">weight-decay</span>:
-      + given model a number of hiddent layers or units per layer which is a little too large
+      + given model a number of hidden layers or units per layer which is a little too large
       + penalize large weights using penalties or constrains on their squared values (L2 penalty) or absolute values (L1 penalty)
     + <span style="color: blue;">noise</span>: add to the weights of the activities
   + typically, using a combinaition of several of these methods
@@ -44,12 +44,12 @@
   + meta parameters: the number of hidden units, the number of layers, or the size of the weight penalty
   + trying lots of alternatives and choosing the one w/ the best performance on the test set
     + wrong method
-    + easy to do but giving false impression of how well the methods works
+    + easy to do but giving false impression of how well the methods work
     + settings w/ best performance on a test set unlikely to work on new data set drawn from the same distribution
     + model tuned for a particular test set
   + extreme example
     + assume that the test set has random answers that does not depend on the input
-    + the best architecture perform better than chance on the test set
+    + the best architecture performs better than chance on the test set
     + unable to be expected to do better than chance on a new test set
 
 + Cross-validation
@@ -124,7 +124,7 @@
 
 ### Lecture Notes
 
-+ Limiting the size of the weights
++ Weight decay
   + the standard L2 weight penalty
     + a.k.a weight decay in NN literature
     + the derivative of the penalty acts as a force pulling weight towards to zero
@@ -145,7 +145,7 @@
 + The effect of L2 weight cost
   + prevent the network from using weights not needed
     + improve generalization significantly $\impliedby$ stop the network from fitting the sampling error
-    + a soother model: the output changes more slowly as the inputs changes
+    + a smoother model: the output changes more slowly as the inputs changes
   + prefer to equally divide the weight on each branch (see diagrams)
     + a network w/ two very similar inputs
     + put half the weight on each tather than all the weight on one
