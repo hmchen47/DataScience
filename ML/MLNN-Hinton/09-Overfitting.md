@@ -354,6 +354,12 @@
     + $p(D|W)$: probability of observed data given $W$
     + $p(D) = \int_W p(W)p(D|W)$
 
++ [Maximum likelihood estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation) (MLE)
+  + a method of estimating the parameters of a probability distribution by maximizing a likelihood function
+  + the assumed statistical model: the observed data is most probable
+  + maximum likelihood estimate: the point in the parameter space that maximizes the likelihood function
+  + Bayesian inference: a special case of maximum a posteriori estimation (MAP) that assumes a uniform prior distribution of the parameters
+  + frequentist inference: a special case of an extremum estimator, with the objective function being the likelihood
 
 ### Lecture Video
 
