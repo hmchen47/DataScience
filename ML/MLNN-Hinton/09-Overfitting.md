@@ -339,11 +339,11 @@
 + Bayes Theorem
   + equivalent expression for the join probability
   
-    \[ p(D)p(D|W) = p(D, W) = p(W)p(D|W) \]
+    \[ p(D)p(W|D) = p(D, W) = p(W)p(D|W) \]
 
     + $p(D, W)$: join probability with a set of parameters $W$ and some data $D$
     + for supervised learning, the data is going to consist of the target values
-    + $p(D|W)$: conditional probability
+    + $p(W|D), p(D|W)$: conditional probability
 
   + Bayes theorem
 
