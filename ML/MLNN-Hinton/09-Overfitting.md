@@ -171,7 +171,7 @@
   </div>
 
 + Weight penalities vs weight constraints
-  + usually penalize the squared value of each weight separately
+  + penalities: usually penalize the squared value of each weight separately
   + constraint on the maximum squared length of the incoming weight vector of each hidden or output unit
     + an update violates constraint $\implies$ scale down the vector of incoming weights to the allowed length
   + advantages of weight constraints over weight penalities
@@ -213,7 +213,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture9/lec9.pptx" ismap target="_blank">
-      <img src="img/m09-05.png" style="margin: 0.1em;" alt="Examples of weight penalty" title="Examples of weight penalty" width=100>
+      <img src="img/m09-05.png" style="margin: 0.1em;" alt="Examples of weight penalty" title="Examples of weight penalty" width=150>
     </a>
   </div>
 
@@ -239,7 +239,7 @@
   + may work better, especially in recurrent networks
   + Alex Graves: handwritting recognition recurrent net significantly better w/ noise
 
-+ Using noise in he activities as a regularizer
++ Using noise in the activities as a regularizer
   + using backpropagation to train a multilayer NN composed of logistic units
     + forward pass: units w/ binary and stochastic
     + backward pass: as if we done the normal deterministic forward pass using the real value
@@ -296,7 +296,7 @@
   
     \[\begin{align*}
       P(D) &= p^{53}(1-p)^{47} \\
-      \frac{dP(D)}{d p} &= 53 \cdot p^{53}(1-p)^{47} - 47 \cdot p^{53}(1-p)^{46} \\
+      \frac{dP(D)}{d p} &= 53 \cdot p^{52}(1-p)^{47} - 47 \cdot p^{53}(1-p)^{46} \\
         &= \left(\frac{53}{p} - \frac{47}{(1-p)} \right) \left[ p^{53}(1-p)^{47} \right] = 0 \text{ if } p=.53
     \end{align*}\]
 
