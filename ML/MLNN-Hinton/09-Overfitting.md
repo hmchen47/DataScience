@@ -374,8 +374,8 @@
 ### Lecture Notes
 
 + Bayesian approaches
-  + full Bayesian model: try to compute the posterior probability of every possible setting of the parameters of a model
-  + reduced form of the Bayesian approach: look for single set of parameters that is best compomise between 
+  + full model: trying to compute the posterior probability of every possible setting of the parameters of a model
+  + reduced form: looking for single set of parameters that is best compromise between
     + fitting my prior beliefs about what the parametres should be like
     + fitting the data observed
 
@@ -387,7 +387,7 @@
     + what's the probability to get the correct answer
   + max likelihood learning (see diagram)
     + model's output: the center of a Gaussian
-    + goal: having the target value have high probability under the Gaussian
+    + goal: having the target value w/ high probability under the Gaussian
     + the probability of producing the target value $t$ given network output $y$, the probability density of $t$ under a Gaussian centered at $y$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -402,7 +402,7 @@
 
   + probability density of the target value given the net's output plus Gaussian noise
 
-    \[ p(t_c | y_c) = \underbrace{\frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(t_c - y_c)^2}(2\sigma^2)}}_{\text{Gaussian distribution centered at the net's output}} \]
+    \[ p(t_c | y_c) = \underbrace{\frac{1}{\sqrt{2\pi} \sigma} \exp \left(-\frac{(t_c - y_c)^2}{2\sigma^2}\right)}_{\text{Gaussian distribution}\\ \text{centered at the net's output}} \]
 
   + cost: minimizing squared error is the same as maximizing log prob under a Gaussian
 
@@ -437,12 +437,12 @@
   + to maximize the product the probabilities of the producing the target values on all the different training cases
   + assume that output errors on different cases, $c$, are independent
 
-    \[ p(D|W) = \prod_c p(t_c|W) = \prod_c p(t_c | f(input_c, W)) \]
+    \[ p(D|W) = \prod_c p(t_c|W) = \prod_c p\left(t_c | f(input_c, W)\right) \]
 
   + Monotonic log function
     + not change where the maxima are
-    + maximize sums of log probabilities $\to$ more stable and work better on computer
-    + maximize tge log probability of the data given the weights $\implies$ simply maximizing sum over all the training cases as the log probability of the output for that training case given the input and given the weights
+    + maximize sums of log probabilities $\implies$ more stable and work better on computer
+    + maximize the log probability of the data given the weights $\implies$ simply maximizing sum over all the training cases as the log probability of the output for that training case given the input and given the weights
 
       \[ \log p(D|W) = \sum_c \log p(t_c | W) \]
 
