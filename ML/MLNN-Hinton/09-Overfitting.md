@@ -73,7 +73,7 @@
   + expensive to keep re-training the model
     + assumption: lots of data and a big model
     + training w/ different sized penalities on the weights of different architectures
-  + Solution:
+  + procedure:
     + start w/ very small weights
     + grow the weights until the performance on the validation set starts getting worse
   + issues:
@@ -497,18 +497,17 @@
 
 ### Lecture Notes
 
-+ Estimateing the variance of the output noise
-  + find the best value for the output noise
-    + minimizing the squared error w/ a learned model
-    + maxizing the probability of producing exactly the correct answers after adding Gaussian
-    + found by simply using the variance of the residual errors
++ Estimating the variance of the output noise $\implies$ finding the best value for the output noise
+  + minimizing the squared error w/ a learned model
+  + maxizing the probability of producing exactly the correct answers after adding Gaussian
+  + found by simply using the variance of the residual errors
 
 + Estimating the variance of the Gaussian prior on the weights
   + empirical Bayes
     + after learning a model w/ some initial choice of variance for the weight prior
     + set the variance of the Gaussian prior to be whatever makes the weights that the model learned most likely
       + i.e., use the data itself to decide what your prior is!
-    + done by simply fitting a zero0mean Gaussian to the one-dimensional distribution of the learned weight values
+    + done by simply fitting a zero-mean Gaussian to the one-dimensional distribution of the learned weight values
       + easily learn different variances for different sets of weights
   + no validation set required
 
