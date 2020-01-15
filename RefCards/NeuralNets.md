@@ -1890,6 +1890,27 @@
     + the $N$ estimates not independent
 
 
+### Early Stopping
+
++ [Early stopping](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + goal: preventing overfitting
+  + expensive: training w/ different sized penalities on the weights of different architectures
+  + Procedure:
+    + start w/ very small weights
+    + grow the weights until the performance on the validation set starts getting worse
+  + issues:
+    + hard to decide when the performance getting worse
+    + limited capacity of the model
+
++ [Why early stopping works](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + very small weights
+    + every hidden unit in its linear range
+    + even w/ a large layer of hidden units
+    + no more capacity than a linear net (inputs directly connected to outputs)
+  + as weights grow
+    + hidden units start using the non-linear ranges
+    + capacity grows
+
 
 ### Dropout
 
