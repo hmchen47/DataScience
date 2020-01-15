@@ -313,6 +313,13 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Bayesian Approach </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#weight-decay"> Weight Decay </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Optimization Issues & Algorithms </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#challenges-with-optimization"> Challenges </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Optimiztion.md#local-optima-and-saddle-points"> Local Optima & Saddle Points </a> </td>
