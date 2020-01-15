@@ -2040,11 +2040,6 @@
     </div>
 
 
-## Bayesian Approach
-
-### Overview
-
-
 ## Applications
 
 ### Family Tree - Multiclass Learning
