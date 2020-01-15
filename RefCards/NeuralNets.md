@@ -1872,6 +1872,23 @@
   + typically, using a combinaition of several of these methods
 
 
+### Meta Parameters
+
++ [Meta parameters to control capacity](..(../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization))
+  + meta parameters: the number of hidden units, the number of layers, or the size of the weight penalty
+  + wrong: trying lots of alternatives and choosing the one w/ the best performance on the test set
+
++ [Cross-validation](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + a better way to choose meta parameters
+  + divide the total dataset into 3 subsets
+    + <span style="color: red;">training data</span>: used for learning the parameters of the model
+    + <span style="color: red;">validation data</span>: not for learning but for deciding what settings of the meta parameters work best
+    + <span style="color: red;">test data</span>: used to get a final, unbiased estimate of how well the network works
+  + N-fold cross-validation
+    + divide the total dataset into one final test set and $N$ other subsets
+    + train on all but one of those subsets to get $N$ different estimates of the validation error rate
+    + the $N$ estimates not independent
+
 
 
 ### Dropout
