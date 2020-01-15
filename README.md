@@ -294,10 +294,16 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#gradient-descent-for-softmax-function"> Softmax Gradient Descent </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Overfitting & Underfitting </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Overfitting & Underfitting </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-1"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#underfitting"> Underfitting </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overfitting"> Overfitting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#meta-parameters"> Meta Parameters </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#early-stopping"> Early Stopping </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#weight-decay"> Weight Decay </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adding-noise"> Adding Noise </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#dropout"> Dropout </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
