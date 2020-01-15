@@ -1944,6 +1944,33 @@
     + the penalty just the Lagrange multipliers required to keep the constraints satisfied
 
 
+### Adding Noise
+
++ [L2 weight-decay via noisy input](../ML/MLNN-Hinton/09-Overfitting.md#93-using-noise-as-a-regularizer)
+  + Adding Gaussian noise to the inputs
+  + linear network $\implies$ amplified noise simply adds to the output
+  + minimizing the squared error tends to minimize the squared weights when the inputs are noisy
+  + expected squared difference between $y^{noise}$ and target value $t$
+
+    \[E[(y^{noise} - t)^2] = (y-t)^2 + \sum_i w_i^2 \sigma_i^2 \]
+
+    $\therefore \sigma_i^2 \equiv$ an L2 penalty
+
++ [Noisy weights in complex nets](../ML/MLNN-Hinton/09-Overfitting.md#93-using-noise-as-a-regularizer)
+  + adding Gaussian noise to the weights of a multilayer non-linear architecture
+  + not exactly equivalent to using an L2 weight penalty
+
++ [Using noise in the activities as a regularizer](../ML/MLNN-Hinton/09-Overfitting.md#93-using-noise-as-a-regularizer)
+  + using backpropagation to train a multilayer NN composed of logistic units
+  + logistic function
+    + treat a logistic unit in the forward pass as if a stochastic binary neuron
+    + the forward pass makes a random decision wether to "1" or "0" using the probability
+    + for backward pass, using the real value $p$ for backpropagating derivatives through the hidden unit
+  + Characteristics:
+    + worse on the training set
+    + considerably slower
+    + significantly better on the test set
+
 
 ### Dropout
 
