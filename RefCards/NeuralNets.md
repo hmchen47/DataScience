@@ -1912,6 +1912,39 @@
     + capacity grows
 
 
+### Weight Decay
+
++ [Weight decay](../ML/MLNN-Hinton/09-Overfitting.md#92-limiting-size-of-the-weights)
+  + the standard L2 weight penalty
+    + the derivative of the penalty acts as a force pulling weight towards to zero
+    + adding an extra term to the cost function that penalizes the squared weights
+  + cost function: optimize by reducing the normal error
+
+    \[\begin{align*} 
+      C &= E + \frac{\lambda}{2} \sum_i w_i^2 \\
+      \frac{\partial C}{\partial w_i} &= \frac{\partial E}{\partial w_i} + \lambda w_i
+    \end{align*}\]
+
+    + $\frac{\partial C}{\partial w_i} = 0 \implies w_i = - \frac{1}{\lambda} \frac{\partial E}{\partial w_i}$
+    + big weights $\impliedby$ minimum of the cost function $\iff$ maximum error derivatives
+
++ [The effect of L2 weight cost](../ML/MLNN-Hinton/09-Overfitting.md#92-limiting-size-of-the-weights)
+  + prevent the network from using weights not needed
+  + prefer to equally divide the weight on each branch
+
++ [Weight penalities vs weight constraints](../ML/MLNN-Hinton/09-Overfitting.md#92-limiting-size-of-the-weights)
+  + penalities: usually penalize the squared value of each weight separately
+  + constraint on the maximum squared length of the incoming weight vector of each hidden or output unit
+  + advantages of weight constraints over weight penalities
+    + easier to set a sensible value
+    + preventing hidden units getting stuck near zero
+    + prevent weights exploding
+  + the effectiveness of weight penalty determined by the big gradients
+    + more effective than a fixed penalty at pushing irrelevant weights towards zero
+    + the penalty just the Lagrange multipliers required to keep the constraints satisfied
+
+
+
 ### Dropout
 
 + [Dropout](../ML/MLNN-Hinton/a14-Advanced.md#5-dropout)
