@@ -1848,6 +1848,28 @@
     </a>
   </div>
 
++ [Overfitting](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + true and accidental regularities: training data in the mapping from input to output
+  + unable to identify the regularities real or caused by sampling error
+  + variance
+    + fit the model w/ another training set drawn from the same distribution over cases
+    + making different predictions on the test data
+
++ [Preventing overfitting](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + Approach 1: get more data!
+  + Approach 2: using a model w/ the right capacity
+  + Approach 3: average many different models
+  + Approach 4: Bayesian
+
++ [Ways to limit the cpacity of a neural network](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + controlling capacity w/
+    + <span style="color: blue;">architecture</span>: limit the number of hidden layers and the number of units per layer
+    + <span style="color: blue;">early stopping</span>: start w/ small weights and stop the learning before it overfits
+    + <span style="color: blue;">weight-decay</span>:
+      + given model a number of hidden layers or units per layer which is a little too large
+      + penalize large weights using penalties or constrains on their squared values (L2 penalty) or absolute values (L1 penalty)
+    + <span style="color: blue;">noise</span>: add to the weights of the activities
+  + typically, using a combinaition of several of these methods
 
 
 
