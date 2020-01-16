@@ -115,8 +115,125 @@
 
 ### Lecture Notes
 
++ Purpose of mixtures of experts
+  + Better way than just averaging models
+    + possible: looking at the input data for a particular case to help decide which model to rely on
+    + allowing particular models to specialize in a subset of the training cases
+    + not learn on cases for which they are not picked $\implies$ ignore stuff not good at modeling
+  + key idea
+    + make each expert focus on predicting the right answer
+    + the cases w/ right answer where it is already doing better than the other experts
+    + causing specialization
 
++ A spectrum of models
+  + Very local model
+    + nearest neighbors
+    + very fast to fit: just store training cases
+    + local smoothing would obviously improve things (left diagram)
+  + Fully global models
+    + a polynomial (right diagram)
+    + may be slow to fit and also unstable
+    + each parameter depends on all the data
+    + small changes to data can cause big changes to the fit
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-03.png" style="margin: 0.1em;" alt="Local and global models" title="Local and global models" width=450>
+    </a>
+  </div>
+
++ Multiple local models
+  + using several models of intermediate complexity than using a single global model or lots of very local models
+    + good if the dataset contains several different regimes which have different relationships btw input and output
+    + e.g., financial data which depends on the state of the economy
+  + how to partition the dataset into regimes?
+
++ Datset partitioning
+  + ways: based on input vs. based on the input-output relationship04.png
+  + cluster the training cases into subsets
+  + one for each local model
+  + aim of the clustering:
+    + Not to find clusters of similar input vectors
+    + each cluster to have a relationship btw input and output that can be well-modeled by one local model
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-04.png" style="margin: 0.1em;" alt="Dataset partitioning" title="Dataset partitioning" width=200>
+    </a>
+  </div>
+
++ Cooperation vs. Specialization
+  + averaging models during training causes cooperation not specialization
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+        <img src="img/m10-05.png" style="margin: 0.1em;" alt="Example of predictors, target, and model output" title="Example of predictors, target, and model output" width=300>
+      </a>
+    </div>
+
+    + move the output of model $i$ away from the target value?
+
+  + error function encouraging cooperation
+    + compare the average to all the predictors w/ the target
+    + train to reduce the discrepancy
+    + overfit badly: making the model much more powerful than training each predictor separately
+
+      \[ E = (t - \underbrace{<y_i>_i}_{\text{average of all}\\ \text{the predictor}})^2 \]
+
+  + error function encouraging specialization
+    + compare each predictor separately w/ the target
+    + use a "manager" to determine the probability of picking each expert
+    + most experts end up ignoring most targets
+
+      \[ E = <p_i(t-y_i)^2> \]
+
+    + $p_i$: probability of the manager picking expert $i$ for this case
+  
++ The mixture of experts architecture (almost)
+  + a simple cost function: a better cost function based on a mixture model
+
+    \[ E = \sum_i p_i (t - y_i)^2 \]
+
+  + architecture
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+        <img src="img/m10-07.png" style="margin: 0.1em;" alt="Architecture for mixture of experts" title="Architecture for mixture of experts" width=350>
+      </a>
+    </div>
+
++ The derivatives of the simple cost function
+  + differentiate w.r.t. the outputs of the experts $\implies$ a signal for training each expert
+  + differentiate w.r.t. the outputs of the gating network $\implies$ a signal for training the gating network
+    + raise $p$ for all experts that give less than the average squared error of all the experts (weighted by $p$)
+  + math representation
+
+    \[ p_i = \frac{e^{x_i}}{\sum_j e^{e^{x_j}}}, \qquad\qquad E = \sum_i p_i (t-y_i)^2 \]
+
+    \[ \frac{\partial E}{\partial y_i} = p_i (t-y_i) \qquad\qquad \frac{\partial E}{\partial x_i} = p_i \left( (t-y_i)^2 - E \right) \]
+
++ A better cost function for mixtures of experts
+  + Jacobs, Robert & Jordan, Michael & Nowlan, Steven & Hinton, Geoffrey. (1991). [Adaptive Mixture of Local Expert](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf). Neural Computation. 3. 78-88. 10.1162/neco.1991.3.1.79.
+  + each expert as making a prediction w/ a Gaussian distribution around its output (w/ variance 1)
+  + the manager:
+    + deciding on a scale for each of these Gaussian
+    + the scale called a "mixing proportion"; e.g., $\{ 0.4 \; 0.6 \}$ (see diagram (red, green))
+  + maximize the log probability of the target value under this mixture of Gaussian model; i.e., the sum of the two scaled Gaussian
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-08.png" style="margin: 0.1em;" alt="Gaussian distributions of two models" title="Gaussian distributions of two models" width=350>
+    </a>
+  </div>
+
++ the probability of the target under a mixture of Gaussian
+
+  \[ p(t^c | MoE) = \sum_i p_i^c \frac{1}{\sqrt{2\pi}} \exp \left(-\frac{1}{2} (t^c - y_i^c)^2 \right) \]
+
+  + $p(t^c | MoE)$: prob. of target value on case $c$ given the mixture
+  + $p_i^c$: mixing proportion assigned to expert $i$ for case $c$ by the gating network
+  + $1/\sqrt{2 \pi}$: normoralization term for a Gaussian w/ $\sigma^2 = 1$
+  + $y_i^c$: output of expert $i$
 
 
 ### Lecture Video
