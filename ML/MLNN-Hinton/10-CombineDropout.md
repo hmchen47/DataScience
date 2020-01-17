@@ -304,9 +304,11 @@
     + prediction based on each different setting o the parameters
     + combine all these predictions by weighting each of them by the posterior probability of that setting of the parameters
     + very computationally intensive
-  + allowing to us complicated models even w/o much data
+  + advantage: allowing to use complicated models even w/o much data
 
 + Overfitting: a frequentist illusion?
+  + overfitting: fit a complicated model to a small amount of data
+  + result of not bothering to get the full posterior distribution over the parameters
   + not much data
     + using simple model than complex one to prevent overfitting
     + only if assume that fitting a model means choosing a single best setting of the parameters
@@ -314,17 +316,40 @@
     + overfitting disappear
     + little data $\implies$ ver vague predictions
     + many different parameters settings have significant posterior probability
+  + more and more data:
+    + posterior probability will get more and more focused on a few settings of parameters
+    + posterior prediction will get much shaper
 
 + A class example of overfitting
-  + which model better? (right diagram)
-    + complicated models fitting the data better
-    + not economical
-    + making silly predictions
-  + more complicated model (left diagram)
-    + starting w/ a reasonable prior over all fifth-order polynomials
-    + using the full posterior distribution
+  + example: (left diagram)
+    + 6 data points
+    + red line: fit w/ a fifth order polynomial $\implies$ exactly thought the data more or less
+    + green line: a straight line w/ only two degrees of freedom
+  + which model better?
+    + complicated models fitting the data better: 
+      + 6 coefficients and almost perfectly
+      + not economical
+      + making silly predictions
+    + simple model
+      + two coefficients
+      + fit data badly
+    + blue arrow:
+      + red curve predict a value lower than any of the observed data points $\implies$ nor reasonable
+      + green line: predict a sensible value
+  + more complicated model (right diagram)
+    + starting w/ a reasonable prior over all fifth-order polynomials w/ coefficient not too big
+    + compute the full posterior distribution over the fifth order polynomial
+    + red lines shown as samples from the distribution
+    + thicker line means higher probability in the posterior
+    + thin curves miss a few of data points by quite a lot, nevertheless they're quite close to most of the data points
     + get vague and sensible predictions
+    + blue arrow will get different predictions w/ different models
+    + on average they make a prediction quite close to the prediction made by the green line
   + no reason why the amount of data should influence prior beliefs about the complexity of the model
+  + true Basian:
+    + you have prior about how complicatied things might be
+    + because you haven't elected any data yet
+    + not mean things much simplier
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
@@ -336,9 +361,15 @@
   + neural network w/ a few parameters
     + put a grid over the parameters space
     + evaluate $p(W|D)$ at each grid-point
+    + each parameter only allow a few alternative values
+    + taking the cross-product of all these values for all the parameters
+    + evaluate at each point how well the mode predict the data as if supervised learning hwo well the model predicts the targets
+    + the posterior probability of that group point
+      + the product of how well it predicts the data and how likely it is under the prior
+      + then with the whole thing normalized
     + characteristics:
       + expensive
-      + not involving any gradient descent 
+      + not involving any gradient descent
       + no local optimum issues
   + evaluating all predictions made w/ gride points on test data
     + expensive
@@ -357,7 +388,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
-      <img src="img/m10-10.png" style="margin: 0.1em;" alt="Neural network w/ Bayesian approach" title="Neural network w/ Bayesian approach" width=150>
+      <img src="img/m10-10.png" style="margin: 0.1em;" alt="Neural network w/ Bayesian approach" title="Neural network w/ Bayesian approach" width=120>
     </a>
   </div>
 
