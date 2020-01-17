@@ -419,16 +419,23 @@
 
 + Sampling weight vectors
   + standard backpropagation
-    + keep moving the weights in the direction that decreases the cost
+    + keep moving the weights in the direction that decreases the cost (left diagram)
+      + start w/ some small value of the weights
+      + follow the gradient to move downhill in the cost function
     + the direction: increasing the log likelihood plus the log prior, summed over all training cases
-  + situations of the weights (left diagram)
+  + situations of the weights
     + settle into a local minimum
     + get stuck on a plateau
     + just move so slowly that we run out of patience
-  + adding Gaussian noise after each update
+  + adding Gaussian noise after each update (right diagram)
     + weight vector never settle down
     + keep wandering around but tend to prefer low cost regions of the weight space
     + how often visiting each possible setting of the weights?
+    + red dots:
+      + samples take of the weights as wandering around the space and then save the weights after every 10000 steps
+      + a few of them in high-cost regions $\impliedby$ big regions
+      + the depest minimum w/ the most red dots while other minima w/ red dots as well
+      + the dots not right at bootom or minimum  $\impliedby$ noisy samples
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
@@ -438,20 +445,22 @@
   </div>
 
 + Markov Chain Monte Carlo (MCMC)
-  + Markov Chain Monte Carlo method
+  + property of Markov Chain Monte Carlo method
     + use just the right amount noise
     + let the weight vector wander around for long enough taking a sample
-    + to get an unbiased sample from the true posterior over weight vectors
+    + get an unbiased sample from the true posterior over weight vectors
+      + red dots shown in the above diagram will be samples from posterior
+      + weight vectors highly probable under the posterior are much more likely to be represented by a red dot
     + make it feasible to use full Bayesian learning w/ thousands of parameters
   + related MCMC methods
-    + more complicated bur more efficient
+    + more complicated but more efficient
     + no need to let weights wander around for so long before getting samples from the posterior
 
 + Full Bayesian learning w/ mini-batches
   + computing the gradient of the cost function on a random mini-batch
     + get an unbiased estimate w/ sampling noise
     + might use the sampling noise to provide the noise that an MCMC method needs
-  + Ahn, korattikara & Welling
+  + proposal of Ahn, Korattikara & Welling
     + [Bayesian Posterior Sampling via Stochastic Gradient Fisher Scoring](https://arxiv.org/pdf/1206.6380), Proceedings of the 29th International Conference on Machine Learning (ICML), 2012
     + how to do this efficiently
     + possible w/ lots of parameters
