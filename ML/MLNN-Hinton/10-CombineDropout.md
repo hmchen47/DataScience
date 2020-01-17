@@ -478,8 +478,82 @@
 
 ### Lecture Notes
 
++ Two ways to average models
+  + Mixture
+    + combine models by averaging their output probabilities
+    + example:
+      + Model A: $\{.3, .2, .5\}$
+      + Model B: $\{.1, .8, .1\}$
+      + Combined: $\{().3+.1)/2=.2, (.2+.8)/2=.5, (.5+.1)/2=.3\}$
+  + Product
+    + combine by taking geometric means of their output probabilities
+    + example:
+      + Model A: $\{.3, .2, .5\}$
+      + Model B: $\{.1, .8, .1\}$
+      + Combined: $\{\sqrt{.03}, \sqrt{.16}, \sqrt{.05}\} / (\sqrt{.03}+\sqrt{.16}+\sqrt{.05})$
 
++ Dropout
+  + an efficient way to average many large neural nets
+  + G. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, R. Salakhutdinov, [Improving neural networks by preventing co-adaptation of feature detectors](https://arxiv.org/pdf/1207.0580), 2012
+  + consider a neural net w/ one hidden layer
+  + randomly omit each hidden unit w/ probability $0.5$ for a training example
+  + randomly sampling from 2^H different architectures
+  + all architectures share weights
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-13.png" style="margin: 0.1em;" alt="Architecture of neural network w/ dropout" title="Architecture of neural network w/ dropout" height=150>
+    </a>
+  </div>
+
+  + a form of model averaging
+    + sample from 2^H models
+      + only a few of the models ever get trained
+      + only get one training example
+      + as extreme as bagging able to get
+    + sharing of the weights
+      + every model is very strongly regularized
+      + much better than L2 and L1 penalities that pull the weights towards zero
+
++ Testing
+  + sample many different architectures
+  + take the geometric mean of their output distribution
+  + use all of the hidden units but to halve their outgoing weights
+  + exactly compute the geometric mean of the predictions of all 2^H models
+
++ Multiple hiddent layers
+  + use dropout of %0.5$ in every layer
+  + testing: use the "mean net" that has all the outgoing weights halved
+    + not exactly the same as averaging all the separate dropped out model
+    + a pretty good approximation
+    + fast
+  + alternative:
+    + run the stochastic model several times on the same input
+    + provide an idea of the uncertainty in the answer
+
++ Input layer
+  + use dropout too
+  + but w/ a higher probability of keeping an input unit
+  + used by the "denoising autoencoders"
+  + P. Vincent, H. Larochelle, Y. Bengio, and P.Manzagol, [Extracting and Composing Robust Features with Denoising Autoencoders](https://www.cs.toronto.edu/~larocheh/publications/icml-2008-denoising-autoencoders.pdf), 2008
+
++ How well dropout work
+  + Alex Krizhevsky: 
+    + recording breaking object recognition net
+    + using dropout and help a lot
+  + usually reduce the number of errors significantly w/ significantly overfitting deep neural net
+    + "early dropping" do better than "dropout"
+    + cost: longer training time
+  + deep neural net w/o overfitting $\imples$ using a bigger one
+
++ Another point of view
+  + a hidden unit knows which other hidden units present
+    + co-adapt to them on the training data
+    + complex co-adaptions likely likely to go wrong on new test data
+    + big, complex conspiracies not robust
+  + a hidden unit work well w/ combinatorially many sets of co-works
+    + more likely to do something that iis individually useful
+    + tend to do something that is marginally useful given what its co-workers achieve
 
 
 ### Lecture Video
