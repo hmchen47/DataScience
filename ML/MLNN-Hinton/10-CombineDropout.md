@@ -296,8 +296,70 @@
 
 ### Lecture Notes
 
++ Full Bayesian learning
+  + compute the full posterior distribution over all possible parameter settings
+    + tradition: trying to find the best single setting of the parameters (as in Maximum Likelihood or MAP)
+    + extremely computationally intensive for all but the simple models (its feasible for a biased coin)
+  + making prediction
+    + prediction based on each different setting o the parameters
+    + combine all these predictions by weighting each of them by the posterior probability of that setting of the parameters
+    + very computationally intensive
+  + allowing to us complicated models even w/o much data
 
++ Overfitting: a frequentist illusion?
+  + not much data
+    + using simple model than complex one to prevent overfitting
+    + only if assume that fitting a model means choosing a single best setting of the parameters
+  + using full posterior distribution over parameter setting
+    + overfitting disappear
+    + little data $\implies$ ver vague predictions
+    + many different parameters settings have significant posterior probability
 
++ A class example of overfitting
+  + which model better? (right diagram)
+    + complicated models fitting the data better
+    + not economical
+    + making silly predictions
+  + more complicated model (left diagram)
+    + starting w/ a reasonable prior over all fifth-order polynomials
+    + using the full posterior distribution
+    + get vague and sensible predictions
+  + no reason why the amount of data should influence prior beliefs about the complexity of the model
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-09.png" style="margin: 0.1em;" alt="Fitting functions and data points" title="Fitting functions and data points" width=350>
+    </a>
+  </div>
+
++ Approximating full Bayesian learning in a neural network
+  + neural network w/ a few parameters
+    + put a grid over the parameters space
+    + evaluate $p(W|D)$ at each grid-point
+    + characteristics:
+      + expensive
+      + not involving any gradient descent 
+      + no local optimum issues
+  + evaluating all predictions made w/ gride points on test data
+    + expensive
+    + much better than ML learning when the posterior is vague or multimodal (happened when data is scarce)
+
+  \[ p(t_{test} | input_{test}) = \sum_{g \in grid} p(W_g | D) p(t_{test} | input_{test}, W_g) \]
+
++ Example of full Bayesian learning
+  + Assign 6 weights and biases
+    + 9 possible values: $-2, -1.5, -1, -0.5, 0, 0.5, 1.0, 1.5, 2$
+    + totally $9^6$ grid-points in parameter space
+  + each grid-point: computing the probability of the observed outputs of all the training cases
+  + multiply the prior for each grid-point by the likelihood term
+  + normalize the product term to get the posterior probability for each grid-point
+  + make predictions by using the posterior probabilities to average the predictions made by the different grid-points
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-10.png" style="margin: 0.1em;" alt="Neural network w/ Bayesian approach" title="Neural network w/ Bayesian approach" width=150>
+    </a>
+  </div>
 
 
 ### Lecture Video
@@ -324,7 +386,7 @@
 </video><br/>
 
 
-## 10.4 Dropout an efficient way to combine neural nets
+## 10.5 Dropout an efficient way to combine neural nets
 
 ### Lecture Notes
 
