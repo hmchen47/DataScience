@@ -177,17 +177,8 @@
     </a>
   </div>
 
-+ Cooperation vs. Specialization
-  + error function encouraging cooperation
-    + compare the average to all the predictors w/ the target
-    + train all the predictors together to reduce the discrepancy btw the target and the average
-    + overfit badly
-      + making the model much more powerful than training each predictor separately
-      + the models learn to fix up the errors that other models make
-
-      \[ E = (t - \underbrace{<y_i>_i}_{\text{average of all}\\ \text{the predictor}})^2 \]
-
-  + pictorial explanation: averaging models during training causes cooperation not specialization
++ Cooperation and Specialization
+  + pictorial example: averaging models during training causes cooperation not specialization
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
@@ -197,11 +188,18 @@
 
     + average all models except for model $i$ on the right side
     + model $i$ alone on the left side
-    + overall average to be close to the target $\implies$ move the output of model $i$ away from the target value
+    + overall average to be close to the target $\implies$ move the output of model $i$ away from the target value (red arrow)
     + model $i$ learning to compensate for the errors made by all other models
     + really want to move the output of model $i$ in the wrong direction?
     + intitutively, it is better to move model $i$ towards the target (green arrow)
+  + error function encouraging cooperation
+    + compare the average to all the predictors w/ the target
+    + train all the predictors together to reduce the discrepancy btw the target and the average
+    + overfit badly
+      + making the model much more powerful than training each predictor separately
+      + the models learn to fix up the errors that other models make
 
+      \[ E = (t - \underbrace{<y_i>_i}_{\text{average of all}\\ \text{the predictor}})^2 \]
   + error function encouraging specialization
     + compare each predictor separately w/ the target
     + use a "manager" to determine the probability of picking each expert
@@ -209,16 +207,16 @@
       + each expert only deal w/ a small subset of the training cases
       + good at learning w/ the small subset of data
 
-      \[ E = <p_i(t-y_i)^2> \]
+      \[ E = <p_i \cdot (t-y_i)^2> \]
 
-    + $p_i$: probability of the manager picking expert $i$ for this case
+      + $p_i$: probability of the manager picking expert $i$ for this case
   
 + The mixture of experts architecture (almost)
   + a simple cost function:
-    + an intuition for explanation
+    + an intuitive explanation
     + a better cost function based on a mixture model introduced later
 
-    \[ E = \sum_i p_i (t - y_i)^2 \]
+    \[ E = \sum_i p_i \cdot (t - y_i)^2 \]
 
   + architecture
     + different experts (the right hand side) making their own predictions based on the input
@@ -241,25 +239,24 @@
   + differentiate w.r.t. the outputs of the gating network
     + a signal for training the gating network
     + as differentiate w.r.t. the quantity entering the softmax
-    + the derivative w.r.t. $x_i$ as product of 
-      + the probability of the expert picked and the difference btw the squared error made by the expert
-      + the average over all experts when using the weighting provided by the manager of the squared error
+    + the derivative w.r.t. $x_i$ as product of
+      + the probability of the expert picked
+      + the difference btw the squared error made by the expert and  the average over all experts when using the weighting provided by the manager of the squared error
     + raise $p$ for all experts that give less than the average squared error of all the experts (weighted by $p$)
       + expert $i$ makes a lower square error than the average of the other experts $\to$ raise the probability of expert $i$
       + expert $i$ makes a higher squared error than the average of the other experts $\to$ lower its probability
       + causing specialization
   + math representation
 
-    \[ p_i = \frac{e^{x_i}}{\sum_j e^{e^{x_j}}}, \qquad\qquad E = \sum_i p_i (t-y_i)^2 \]
+    \[ p_i = \frac{e^{x_i}}{\sum_j e^{x_j}}, \qquad\qquad E = \sum_i p_i \cdot (t-y_i)^2 \]
 
-    \[ \frac{\partial E}{\partial y_i} = p_i (t-y_i) \qquad\qquad \frac{\partial E}{\partial x_i} = p_i \left( (t-y_i)^2 - E \right) \]
+    \[ \frac{\partial E}{\partial y_i} = p_i \cdot (t-y_i) \qquad\qquad \frac{\partial E}{\partial x_i} = p_i \cdot \left( (t-y_i)^2 - E \right) \]
 
 + A better cost function for mixtures of experts
   + Jacobs, Robert & Jordan, Michael & Nowlan, Steven & Hinton, Geoffrey. (1991). [Adaptive Mixture of Local Expert](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf). Neural Computation. 3. 78-88. 10.1162/neco.1991.3.1.79.
-  + each expert as making a prediction w/ a Gaussian distribution around its output (w/ variance 1)
-    + assumption (see the left diagram)
-      + $y_1$ as the output of a particular value w/ a unit variance Gaussian prediction (red expert)
-      + $y_2$ as the prediction of another expert makes a Gaussian prediction (green expert)
+  + each expert making a prediction w/ a Gaussian distribution around its output (w/ variance 1)
+    + $y_1$ as the output of a particular value w/ a unit variance Gaussian prediction (red expert)
+    + $y_2$ as the prediction of another expert makes a Gaussian prediction (green expert)
   + the manager:
     + deciding on a scale for each of these Gaussian
     + the scale called a "mixing proportion"; e.g., $\{ 0.4 \; 0.6 \}$ for red and green experts respectively (see right diagram)
@@ -276,7 +273,7 @@
 
   + the probability of the target under a mixture of Gaussian
 
-    \[ p(t^c | MoE) = \sum_i p_i^c \frac{1}{\sqrt{2\pi}} \exp \left(-\frac{1}{2} (t^c - y_i^c)^2 \right) \]
+    \[ p(t^c | MoE) = \sum_i p_i^c \cdot \frac{1}{\sqrt{2\pi}} \exp \left(-\frac{1}{2} (t^c - y_i^c)^2 \right) \]
 
     + $p(t^c | MoE)$: prob. of target value on case $c$ given the mixture
     + $p_i^c$: mixing proportion assigned to expert $i$ for case $c$ by the gating network
