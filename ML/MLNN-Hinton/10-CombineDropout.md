@@ -414,7 +414,7 @@
 
     \[ p(y_{test} | input_{test}, D) = \sum_i \underbrace{p(W_i | D)}_{\text{sample weight vectors}\\ \text{with this probability}} p(y_{text} | input_{test}, W_i) \]
 
-+ Sampling weight vectors
++ Vector space and Gaussian noise
   + standard backpropagation
     + keep moving the weights in the direction that decreases the cost (left diagram)
       + start w/ some small value of the weights
@@ -432,7 +432,7 @@
       + samples take of the weights as wandering around the space and then save the weights after every 10000 steps
       + a few of them in high-cost regions $\impliedby$ big regions
       + the depest minimum w/ the most red dots while other minima w/ red dots as well
-      + the dots not right at bootom or minimum  $\impliedby$ noisy samples
+      + the dots not right at bottom or minimum  $\impliedby$ noisy samples
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
