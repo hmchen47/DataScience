@@ -492,7 +492,7 @@
   + G. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, R. Salakhutdinov, [Improving neural networks by preventing co-adaptation of feature detectors](https://arxiv.org/pdf/1207.0580), 2012
   + consider a neural net w/ one hidden layer
   + randomly omit each hidden unit w/ probability $0.5$ for a training example
-  + randomly sampling from $2^H$% different architectures where $H$ as the number of hidden units
+  + randomly sampling from $2^H$ different architectures where $H$ as the number of hidden units
   + all architectures share weights: a hidden unit uses the same weights as it has in other architectures
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -512,7 +512,7 @@
     + sharing weights with other models
       + every model is very strongly regularized by the others
       + much better than L2 and L1 penalities that pull the weights towards zero
-      + regularized by by something that tends to pull the weights towards the correct value
+      + regularized by something that tends to pull the weights towards the correct value
 
 + Testing
   + naive method
@@ -524,10 +524,10 @@
     + exactly compute the geometric mean of the predictions of all $2^H$ models
     + using a softmax output group
 
-+ Multiple hiddent layers
-  + use dropout of %0.5$ in every layer
++ Multiple hidden layers
+  + use dropout of $0.5$ in every layer
   + testing: use the "mean net" that has all the outgoing weights halved
-    + using a net w/ all of the hidden units butthe weights are halved
+    + using a net w/ all of the hidden units but the weights are halved
     + not exactly the same as averaging all the separate dropped out model
     + a pretty good approximation and fast
   + stochastic model w/ dropout:
@@ -536,13 +536,12 @@
     + provide an idea of the uncertainty in the answer
 
 + Input layer
-  + use dropout too
-  + but w/ a higher probability of keeping an input unit
+  + use dropout too but w/ a higher probability of keeping an input unit
   + used by the "denoising autoencoders"
   + P. Vincent, H. Larochelle, Y. Bengio, and P.Manzagol, [Extracting and Composing Robust Features with Denoising Autoencoders](https://www.cs.toronto.edu/~larocheh/publications/icml-2008-denoising-autoencoders.pdf), 2008
 
 + How well dropout work
-  + Alex Krizhevsky:
+  + Alex Krizhevsky's usage:
     + recording breaking object recognition net
     + using dropout and help a lot
   + usually reduce the number of errors significantly w/ significantly overfitting deep neural net
