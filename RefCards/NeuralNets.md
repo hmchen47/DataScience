@@ -1916,6 +1916,104 @@
     + use resources to try and deal w/ wrong models
 
 
+### Mixture of Experts
+
++ [Purpose of mixtures of experts](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + Better way than just averaging models
+    + possible: looking at the input data for a particular case to help decide which model to rely on
+    + allowing particular models to specialize in a subset of the training cases
+    + not learn on cases for which they are not picked $\implies$ ignore stuff not good at modeling
+    + individual model might be very good at something and very bad at other things
+  + key idea
+    + make each model or expert focus on predicting the right answer
+    + the cases w/ right answer where it is already doing better than the other experts
+    + causing specialization
+
++ [A spectrum of models](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + Very local model: predict $y$ from $x$ $\implies$ simply find the stored value of $x$ closest to the test value of $x$ to predict the $y$
+  + Fully global models
+    + may be slow to fit and also unstable
+    + small changes to data can cause big changes to the fit
+    + each parameter depends on all the data
+
++ [Multiple local models](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + in between the very local & fully global models
+  + using several models of intermediate complexity than using a single global model or lots of very local models
+  + how to partition the dataset into different regimes?
+
++ [Datset partitioning](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + ways: based on input vs. based on the input-output relationship
+  + cluster the training cases into subsets
+  + one for each local model
+  + aim of the clustering:
+    + Not to find clusters of similar input vectors
+    + each cluster to have a relationship btw input and output that can be well-modeled by one local model
+
++ [Cooperation and Specialization](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + error function encouraging cooperation
+    + compare the average to all the predictors w/ the target
+    + train all the predictors together to reduce the discrepancy btw the target and the average
+    + overfit badly: making the model much more powerful than training each predictor separately
+
+      \[ E = (t - \underbrace{<y_i>_i}_{\text{average of all}\\ \text{the predictor}})^2 \]
+
+  + error function encouraging specialization
+    + compare each predictor separately w/ the target
+    + use a "manager" to determine the probability of picking each expert
+    + most experts end up ignoring most targets
+
+      \[ E = <p_i \cdot (t-y_i)^2> \]
+
+      + $p_i$: probability of the manager picking expert $i$ for this case
+  
++ [The mixture of experts architecture (almost)](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + different experts (the right hand side) making their own predictions based on the input
+  + the manager (the left hand side)
+    + multiple layers
+    + the last layer: softmax
+    + output: probabilities for the experts
+  + using output of manager and experts to compute the value of the error function
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m10-07.png" style="margin: 0.1em;" alt="Architecture for mixture of experts" title="Architecture for mixture of experts" width=350>
+    </a>
+  </div>
+
++ [The derivatives of the simple cost function](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + differentiate w.r.t. the outputs of the experts: a signal for training each expert
+  + differentiate w.r.t. the outputs of the gating network
+    + a signal for training the gating network
+    + as differentiate w.r.t. the quantity entering the softmax
+    + raise $p$ for all experts that give less than the average squared error of all the experts (weighted by $p$)
+  + math representation
+
+    \[ p_i = \frac{e^{x_i}}{\sum_j e^{x_j}}, \qquad\qquad E = \sum_i p_i \cdot (t-y_i)^2 \]
+
+    \[ \frac{\partial E}{\partial y_i} = p_i \cdot (t-y_i) \qquad\qquad \frac{\partial E}{\partial x_i} = p_i \cdot \left( (t-y_i)^2 - E \right) \]
+
++ [A better cost function for mixtures of experts](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + each expert making a prediction w/ a Gaussian distribution around its output (w/ variance 1)
+  + the manager:
+    + deciding on a scale for each of these Gaussian
+    + the scale called a "mixing proportion"
+    + predictive distribution of mixture of expert: no longer Gaussian after summing of scaled down read Gaussian and scaled down green Gaussian
+  + maximize the log probability of the target value under this mixture of Gaussian model; i.e., the sum of the two scaled Gaussian
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-08.png" style="margin: 0.1em;" alt="Gaussian distributions of two models" title="Gaussian distributions of two models" width=350>
+    </a>
+  </div>
+
+  + the probability of the target under a mixture of Gaussian
+
+    \[ p(t^c | MoE) = \sum_i p_i^c \cdot \frac{1}{\sqrt{2\pi}} \exp \left(-\frac{1}{2} (t^c - y_i^c)^2 \right) \]
+
+    + $p(t^c | MoE)$: prob. of target value on case $c$ given the mixture
+    + $p_i^c$: mixing proportion assigned to expert $i$ for case $c$ by the gating network
+    + $y_i^c$: output of expert $i$
+    + $1/\sqrt{2 \pi}$: normoralization term for a Gaussian w/ $\sigma^2 = 1$
 
 
 ### Early Stopping
