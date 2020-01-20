@@ -1852,6 +1852,72 @@
     + the $N$ estimates not independent
 
 
+### Combined Models
+
++ [Combining networks: the bias-variance trade-off](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + limited amount of training data $\implies$ overfitting
+  + regression: squared error = "bias" term + "variance" term
+    + high bias: model w/ too little capacity to fit the data
+    + big variance: so much capacity that it is good at fitting the sampling error in each particular training set
+  + using high variance and high capacity (typically w/ low bias) models to average out the variance
+
++ [Combined predictor vs individual predictors](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + on any one test case, some individual predictors may be better than the combined predictor
+  + individual predictors <span style="color: red;">disagree</span> significantly
+    + combined predictor typically better than all of the individual predictors when averaging over test cases
+    + usage: trying to make the individual predictors disagree but w/o making them much worse individually
+
++ [Combining network reduces variance](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + compare two expected squared errors
+    + randomly pick a predictor to make prediction
+    + average all the predictors: $i$ as an index over the $N$ models, $<\;>$ as expection
+
+      \[ \overline{y} = \;<y_i>_i \;=\; \frac{1}{N} \sum_{i=1}^{N} y_i \]
+
+  + expected squared errors
+
+    \[<(t-y_i)^2>_i =  (t - \overline{y})^2 + \underbrace{<(y_i - \overline{y})^2>_i}_{\text{variance of }y_i} -2 \; (t - \overline{y}) \underbrace{\;<(y_i - \overline{y})_i>_i}_{=0} \]
+
++ [Discrete distributions over class labels](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + Assumption:
+    + one model gives the correct label probability $p_i$
+    + the other model gives the correct probability $p_j$
+  + which better way: randomly pick one model or averaging two probabilities?
+
+    \[ \log \left( \frac{p_i + p_j}{2} \right) \geq \frac{\log p_i + \log p_j}{2} \]
+
+  + the average of $p_i$ and $p_j$ (middle point of gold line) below the blue dot due to log probability
+
++ [Overview of ways to make predictors differ](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + rely on the learning algorithm getting stuck in different local optima $\implies$ a dubious hack (but worth to try)
+  + using different non-neural network models
+    + decision trees
+    + Gaussian process models
+    + support vector machines
+    + others
+  + neural network models
+    + different numbers of hidden layers
+    + different numbers of units per layer
+    + different types of unit, e.g., rectified linear units and logistic units
+    + different types or strengths of weight penalty; e.g., early stopping, L2 penalty, and L1 penalty
+    + different learning algorithms; e.g., full bach and mini-batch
+
++ [Making models different by changing the training data](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + Bagging
+    + train different models on different subsets of the data
+    + get different training sets by using sampling w/ replacement; e.g., $a, b, c, d, e \to a \, c \, c \, d \, d$
+    + random forest: using lots of different decision trees trained using bagging (better result)
+    + able to use w/ neural networks but very expensive; e.g., 20 neural nets $\implies$ 20 training and 20 testing
+  + Boosting
+    + train a sequence of low capacity models w/ the whole training set
+    + weight the training cases differently for each model in the sequence
+      + boosting up-weights cases w/ previous models got wrong
+      + boosting down-weight cases w/ previous cases got right
+    + use resources to try and deal w/ wrong models
+
+
+
+
 ### Early Stopping
 
 + [Early stopping](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
