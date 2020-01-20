@@ -298,8 +298,8 @@
     + tradition: trying to find the best single setting of the parameters (as in Maximum Likelihood or MAP)
     + extremely computationally intensive for all but the simple models (its feasible for a biased coin)
   + making prediction
-    + prediction based on each different setting o the parameters
-    + combine all these predictions by weighting each of them by the posterior probability of that setting of the parameters
+    + prediction based on each different setting of the parameters
+    + combine all these predictions by weighting each of them w/ the posterior probability of that setting of the parameters
     + very computationally intensive
   + advantage: allowing to use complicated models even w/o much data
 
@@ -309,10 +309,10 @@
   + not much data
     + using simple model than complex one to prevent overfitting
     + only if assume that fitting a model means choosing a single best setting of the parameters
-  + using full posterior distribution over parameter setting
-    + overfitting disappear
-    + little data $\implies$ ver vague predictions
-    + many different parameters settings have significant posterior probability
+    + using full posterior distribution over parameter setting $\implies$ overfitting disappear
+  + little data
+    + very vague predictions
+    + many different parameter settings have significant posterior probabilities
   + more and more data:
     + posterior probability will get more and more focused on a few settings of parameters
     + posterior prediction will get much shaper
@@ -323,16 +323,16 @@
     + red line: fit w/ a fifth order polynomial $\implies$ exactly thought the data more or less
     + green line: a straight line w/ only two degrees of freedom
   + which model better?
-    + complicated models fitting the data better: 
+    + complicated models fitting the data better:
       + 6 coefficients and almost perfectly
       + not economical
       + making silly predictions
     + simple model
-      + two coefficients
+      + 3 coefficients
       + fit data badly
     + blue arrow:
-      + red curve predict a value lower than any of the observed data points $\implies$ nor reasonable
-      + green line: predict a sensible value
+      + green curve predict a value lower than any of the observed data points $\implies$ not reasonable
+      + red line: predict a sensible value
   + more complicated model (right diagram)
     + starting w/ a reasonable prior over all fifth-order polynomials w/ coefficient not too big
     + compute the full posterior distribution over the fifth order polynomial
@@ -344,7 +344,7 @@
     + on average they make a prediction quite close to the prediction made by the green line
   + no reason why the amount of data should influence prior beliefs about the complexity of the model
   + true Basian:
-    + you have prior about how complicatied things might be
+    + having prior about how complicatied things might be
     + because you haven't elected any data yet
     + not mean things much simplier
 
@@ -360,7 +360,7 @@
     + evaluate $p(W|D)$ at each grid-point
     + each parameter only allow a few alternative values
     + taking the cross-product of all these values for all the parameters
-    + evaluate at each point how well the mode predict the data as if supervised learning hwo well the model predicts the targets
+    + evaluate at each point how well the model predict the data as if supervised learning hwo well the model predicts the targets
     + the posterior probability of that group point
       + the product of how well it predicts the data and how likely it is under the prior
       + then with the whole thing normalized
@@ -368,7 +368,7 @@
       + expensive
       + not involving any gradient descent
       + no local optimum issues
-  + evaluating all predictions made w/ gride points on test data
+  + evaluating all predictions made w/ grid points on test data
     + expensive
     + much better than ML learning when the posterior is vague or multimodal (happened when data is scarce)
 
