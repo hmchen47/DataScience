@@ -301,22 +301,22 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#meta-parameters"> Meta Parameters </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#combined-models"> Combined Models </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#mixture-of-experts"> Mixture of Experts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#early-stopping"> Early Stopping </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#weight-decay"> Weight Decay </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adding-noise"> Adding Noise </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#dropout"> Dropout </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#adding-noise"> Adding Noise </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#dropout"> Dropout </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#inverted-dropout"> Inverted Dropout </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Bayesian Approach </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#weight-decay"> Weight Decay </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#full-bayesian-learning"> Full Bayesian </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
