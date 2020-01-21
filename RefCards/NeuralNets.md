@@ -2178,6 +2178,64 @@
     </a>
   </div>
 
++ [Two ways to average models](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + Mixture: combine models by averaging their output probabilities
+  + Product: combine models by taking geometric means of their output probabilities
+
++ [Dropout](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + an efficient way to average many large neural nets
+  + consider a neural net w/ one hidden layer
+  + randomly omit each hidden unit w/ probability $0.5$ for a training example
+  + randomly sampling from $2^H$ different architectures where $H$ as the number of hidden units
+  + all architectures share weights: a hidden unit uses the same weights as it has in other architectures
+  + a form of model averaging
+    + sample from $2^H$ models
+      + only a few of the models ever get trained
+      + only get one training example when selected
+      + as extreme form of bagging
+    + sharing weights with other models
+      + every model is very strongly regularized by the others
+      + much better than L2 and L1 penalities that pull the weights towards zero
+      + regularized by something that tends to pull the weights towards the correct value
+
++ [Testing](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + naive method:
+    + sample many different architectures
+    + take the geometric mean of their output distribution
+  + efficient method
+    + use all of the hidden units but to halve their outgoing weights $\implies$ the same expected effect as they did when we were sampling
+    + using all of the hidden units w/ half of their outgoing weights
+    + exactly compute the geometric mean of the predictions of all $2^H$ models
+    + using a softmax output group
+
++ [Multiple hidden layers](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + use dropout of $0.5$ in every layer
+  + testing: use the "mean net" that has all the outgoing weights halved
+  + stochastic model w/ dropout:
+    + run the stochastic model several times on the same input
+    + average across those stochastic models
+    + provide an idea of the uncertainty in the answer
+
++ [Input layer](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + use dropout too but w/ a higher probability of keeping an input unit
+  + used by the "denoising autoencoders"
+
++ [How well dropout work](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + usually reduce the number of errors significantly w/ significantly overfitting deep neural net
+    + "early dropping" do better than "dropout"
+    + cost: longer training time and might be more hidden units
+  + deep neural net w/o overfitting:
+    + using a bigger one
+    + using dropout that's assuming enough computational power
+
++ [Viewpoint of Cooperation and Specialization](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + related to mixtures of experts
+  + a hidden unit knows which other hidden units present
+    + co-adapt to them on the training data
+    + big, complex conspiracies not robust
+    + better w/ conspiracies to have lots of little conspiracies
+  + a hidden unit work well w/ combinatorially many sets of co-works
+
 
 ### Inverted Dropout
 
