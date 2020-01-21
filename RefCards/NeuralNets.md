@@ -1833,6 +1833,20 @@
     + <span style="color: blue;">noise</span>: add to the weights of the activities
   + typically, using a combinaition of several of these methods
 
++ [Overfitting: a frequentist illusion?](../ML/MLNN-Hinton/10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
+  + overfitting: fit a complicated model to a small amount of data
+  + result of not bothering to get the full posterior distribution over the parameters
+  + not much data
+    + using simple model than complex one to prevent overfitting
+    + only if assume that fitting a model means choosing a single best setting of the parameters
+    + using full posterior distribution over parameter setting $\implies$ overfitting disappear
+  + little data
+    + very vague predictions
+    + many different parameter settings have significant posterior probabilities
+  + more and more data:
+    + posterior probability will get more and more focused on a few settings of parameters
+    + posterior prediction will get much shaper
+
 
 ### Meta Parameters
 
