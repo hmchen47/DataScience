@@ -154,8 +154,56 @@
 
 ### Lecture Notes
 
++ Storage capacity
+  + the capacity of a totally connected net w/ $N$ units:
+    + only about $0.15N$ memories
+    + only $0.15N^2$ bits at $N$ bits per memory
+    + not making efficient use of the bits required to store the weights
+  + the net w/ $N^2$ weights and biases
+  + after storing $M$ memories, the integer value range of each connection weight is $[-M, M]$
+  + number of bits to store the weights and biases:
 
+    \[ N^2 \log(2M+1) \]
 
++ Spurious minima limit capacity
+  + create a new energy minimum for each configuration memorizing
+  + what if two nearby minima merge to create a minimum at an intermediate location?
+  + limitation of the capacity in Hopfield net
+  + example (see diagram)
+    + state space: the corner of a hypercube
+    + mis-interpresentation as a 1-D continuous space
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+        <img src="img/m11-06.png" style="margin: 0.1em;" alt="State space for spurious minima" title="State space for spurious minima" width=200>
+      </a>
+    </div>
+
++ Avoiding spurious minima
+  + unlearing
+    + J. Hopfield, D. Feinstein and R. Palmer, [‘Unlearning’ has a stabilizing effect in collective memories](https://www.researchgate.net/profile/John_Hopfield/publication/16333131_'Unlearning'_has_a_stabilizing_effect_in_collective_memories/links/563fef2f08aec6f17ddb84cc/Unlearning-has-a-stabilizing-effect-in-collective-memories.pdf), Nature 304(5922):158-9 · July 1983
+    + strategy
+      + let the net settle from a random initial state and then do __unlearning__
+      + get ride of deep, spurious minima and increase memory capacity
+    + shown tha the strategy works but no analysis
+  + Crick and Mitchison proposal
+    + [reorganisational theory of dreaming - Reverse Learning](https://en.wikipedia.org/wiki/Reverse_learning)
+    + a model of what dreams are for
+    + what why you don't remember them
+  + derive unlearning as the right way to minimize some cost function?
+
++ Increasing the cpacity
+  + physics:
+    + the math already known might explain how the brain works
+    + many papers published in physics journals
+    + related to Hopfield nets and their storage capacity
+  + Elizabeth Gardiner proposal
+    + using the full capacity of the weights
+    + a much better storage rule
+  + updating the memories
+    + cycle through the training set many times than storing vectors in on shot
+    + using the perceptron convergence procedure to train each unit to to have the correct state given the states of all the other units in that vector
+  + statistics: pseudo-likelihood
 
 
 ### Lecture Video
