@@ -155,23 +155,46 @@
 ### Lecture Notes
 
 + Storage capacity
-  + the capacity of a totally connected net w/ $N$ units:
+  + Hopfield nets w/ memory storage devices
+  + obsessed by the storage capacity of the Hopfield net
+  + the capacity of a totally connected net w/ $N$ units by Hopfield storage rule
     + only about $0.15N$ memories
+      + before memories start getting confused w/ one another
+      + the number to store and retrive memories sensibly
     + only $0.15N^2$ bits at $N$ bits per memory
+      + each memory randomly configure the $N$ units
+      + $N$ bits information in it
     + not making efficient use of the bits required to store the weights
+      + how many bits the computer used to store the weight?
+      + using well over $0.15N^2$ bits to store the weihts
+      + local distributed memory in local energy minima is making efficient use of the bits in the computer
+      + able to analyze how many bits in the computer to make efficient use of the bits $\to N^2$
   + the net w/ $N^2$ weights and biases
   + after storing $M$ memories, the integer value range of each connection weight is $[-M, M]$
+    + assume that states are $-1$ and $1$
+    + increase or decrease by one each time when storing a memory
+    + not all values are equal-probable
   + number of bits to store the weights and biases:
 
     \[ N^2 \log(2M+1) \]
 
+    + compress the information and ignore the number of bits taken to store a connection weight in the naive way
+    + total number of bits of computer memory used is the order of $N^2 \log(2M+1)$
+    + the scales logarithmically with $M$ and storing things as Hopfield suggested $\to$ getting constant $0.15$
+
 + Spurious minima limit capacity
-  + create a new energy minimum for each configuration memorizing
-  + what if two nearby minima merge to create a minimum at an intermediate location?
-  + limitation of the capacity in Hopfield net
-  + example (see diagram)
-    + state space: the corner of a hypercube
-    + mis-interpresentation as a 1-D continuous space
+  + create a new energy minimum for each configuration memorizing (top fig)
+    + state space for all the states of the net depicted horizontally
+    + the energy depicted vertically
+    + one energy minimum for the blue pattern
+    + another energy minimum for the green pattern
+  + limitation of the capacity of Hopfield net (bottom fig)
+    + two nearby patterns $\implies$ unable to separate two minimum
+    + merging to create one minimum at an intermediate location
+    + unable to distinguish these two separate memories
+  + diagrams mis-interpresent Hopfield nets
+    + state space: the corners of a hypercube
+    + unable to show the corners of a hypercub w/ a 1-D continuous space 
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
@@ -184,13 +207,34 @@
     + J. Hopfield, D. Feinstein and R. Palmer, [‘Unlearning’ has a stabilizing effect in collective memories](https://www.researchgate.net/profile/John_Hopfield/publication/16333131_'Unlearning'_has_a_stabilizing_effect_in_collective_memories/links/563fef2f08aec6f17ddb84cc/Unlearning-has-a-stabilizing-effect-in-collective-memories.pdf), Nature 304(5922):158-9 · July 1983
     + strategy
       + let the net settle from a random initial state and then do __unlearning__
+        + whatever binary state it settles, apply the opposite of the storage rule
+        + example w/ the previous figs
+          + the red merged minimum if the net settle there and did some unlearning on that merge minimum
+          + get back to two separate minima becaus of pulling up the red point
       + get ride of deep, spurious minima and increase memory capacity
-    + shown tha the strategy works but no analysis
-  + Crick and Mitchison proposal
+    + shown that the strategy works but no good analysis to explain
+  + analogy w/ F. Crick and G. Mitchison
     + [reorganisational theory of dreaming - Reverse Learning](https://en.wikipedia.org/wiki/Reverse_learning)
+    + F. Crick: one the discovers of the structure of DNA
     + a model of what dreams are for
-    + what why you don't remember them
-  + derive unlearning as the right way to minimize some cost function?
+      + during REM sleep that is rapid eye movement sleep
+      + during day people store lots of things and get spurious minima
+      + at night put the network in a random state and settle to a minimum $\implies$ unlearn what settled to
+      + at night people dream for several hours, those dreams are gone when wake up in the morning
+      + the dreams are not quite all gone
+      + the dream just before wake up will get into short-term memory
+      + once people think of it, it will remembered for a long time
+      + all dreaming is paradoxical because the state of people's brain look extremely like the state of brain when awake
+      + except that it isn't being driven by real input but friven by a relay station just after the real input, called the thalamus
+      + the theory explains functionally what the point of dreams is to get rid of those spurious minima
+    + that's what why you don't remember them
+  + how much unlearning should apply?
+    + unlearning as part of the process of fitting a model to data
+    + apply maximum likelihood fitting of the model
+    + unlearning automatically come out of fitting the model
+    + knowing how much unlearning to do
+  + derive unlearning as the right way to minimize some cost function
+    + the cost function is how well the neural net models the data people saw dueing the day
 
 + Increasing the cpacity
   + physics:
@@ -202,8 +246,26 @@
     + a much better storage rule
   + updating the memories
     + cycle through the training set many times than storing vectors in on shot
-    + using the perceptron convergence procedure to train each unit to to have the correct state given the states of all the other units in that vector
+      + loose the nice online property
+      + gain more efficient storage
+    + using the perceptron convergence procedure
+      + to train each unit to have the correct state given the states of all the other units in that global vector that would like to store
+      + take the net and put into the memory state willing to store
+      + take each unit separately and judge that the unit adopt to the state you want for it given the states of all the other units
+        + yes: leave its incoming weight alone
+        + no: change its incoming weights in the way specified by the perceptron convergence procedure (integer changes to the weights)
+      + process several times
+      + too many memories $\implies$ diverge
+      + only converge w/ perceptron convergence procedure settled a set of weights to solve the problem
   + statistics: pseudo-likelihood
+    + get one thing right given all the other things
+    + w/ high dimensional data, trying to get the value on 1-dim right given the values on all the other dimensions
+    + main difference btw perceptron convergence procedure: 
+      + in the Hopfield net the weights are symmetric
+      + two sets of gradients for each weight and average them
+  + the way to use the full capacity of Hopfield net
+    + to use the perceptron convergence procedure
+    + go through the data several times
 
 
 ### Lecture Video
