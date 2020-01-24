@@ -280,8 +280,50 @@
 
 ### Lecture Notes
 
++ Different computational role
+  + using Hopfield net to construct interpretations of sensory input
+  + input: visible units
+  + interpretation: the states of the hidden units
+  + badness of the interpretation: the energy
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="img/m11-07.png" style="margin: 0.1em;" alt="Hopfield net about hidden and visible units" title="Hopfield net about hidden and visible units" width=150>
+    </a>
+  </div>
 
++ Infer about 3-D edges from 2-D lines in an image
+  + 2-D line in an image might be caused by many different 3-D edges
+  + a straight 3-D edge
+    + information lost in the image
+    + the 3-D depth of each end of the 2-D line
+    + a family of 3-D edges all corresponding to the sam e2-D lines
+  + pictorial explanation of 2-D and 3-D mapping (left diagram)
+    + only see one of these 3-D at a time
+    + 3-D edges occlude one another
+  + example: Interpreting a line drawing (right diagram)
+    + 2-D line
+      + one "2-D line" for each possible line in the picture
+      + any particular picture will only activate a very small subset of the line units
+    + 3-D line
+      + one "3-D line" for each for each possible 3-D line in the scene
+      + 2-D line unit projected to many possible 3-D lines
+      + <span style="color: red;">competition</span> between these 3-D lines
+    + make 3-D lines support each other if they join in 3-D
+    + make 3-D lines __strongly support__ each other if they join at right angles
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="img/m11-08.png" style="margin: 0.1em;" alt="Image of 2-D lines to represent 3-D edges" title="Image of 2-D lines to represent 3-D edges" height=80>
+      <img src="img/m11-09.png" style="margin: 0.1em;" alt="Interpretation of 3-D edges with 2-D lines" title="Interpretation of 3-D edges with 2-D lines" height=200>
+    </a>
+  </div>
+
++ Two difficult computational issues
+  + using the states of the hidden units to represent an interpretation of input raises two difficult issues
+  + Search: how do we avoid getting trapped in poor local minima of the energy function?
+    + poor minima represent sub-optimal interpretations
+  + Learning: how do we learn the weights on the connections to the hidden units and btw the hidden units?
 
 
 ### Lecture Video
