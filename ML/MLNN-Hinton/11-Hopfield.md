@@ -280,11 +280,25 @@
 
 ### Lecture Notes
 
++ Introduction
+  + the weights btw units represent constraints on good interpretations
+  + finding a low energy state $\to$ finding a good interpretation of the input data
+
++ Hopfield combines two ideas
+  + find local energy minimum by using as network of symmetrically connected binary threshold units
+  + local energy minimum might correspond to memories
+
 + Different computational role
-  + using Hopfield net to construct interpretations of sensory input
-  + input: visible units
-  + interpretation: the states of the hidden units
-  + badness of the interpretation: the energy
+  + using Hopfield net to construct interpretations of sensory input instead of using net to store memories
+  + Notations:
+    + input: visible units
+    + interpretation: the states of the hidden units
+    + badness of the interpretation: the energy
+  + construct an interpretation of input in the set of hidden units
+  + the interpretation or explanation of the input as a binary configuration over the hidden units
+  + the energy of the whole system represents the badness of that interpretation
+  + to get good interpretations according to current model is the energy function
+  + to find the low energy states of the hidden units given by the input represented by the visible units
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
@@ -292,25 +306,44 @@
     </a>
   </div>
 
-+ Infer about 3-D edges from 2-D lines in an image
++ Infer about 3-D edges from 2-D lines
   + 2-D line in an image might be caused by many different 3-D edges
   + a straight 3-D edge
     + information lost in the image
-    + the 3-D depth of each end of the 2-D line
-    + a family of 3-D edges all corresponding to the sam e2-D lines
+    + lost the 3-D depth of each end of the 2-D line
+    + a family of 3-D edges all corresponding to the same 2-D lines
   + pictorial explanation of 2-D and 3-D mapping (left diagram)
-    + only see one of these 3-D at a time
+    + <span style="color:red;">red lines</span>: two lines of sight coming from the center of eyeball
+    + black line: a possible 3-D edge leading to a 2-D line on people's retina
+    + all 3-D edges (black lines) having exactly the same appearance in the image
+    + lose the information about how far away the ends of the line are along that line of sight
+    + the end is somewhere along the line of sight but the depth unknown
+    + only see one of these 3-D edge at a time
     + 3-D edges occlude one another
-  + example: Interpreting a line drawing (right diagram)
+  + find low energy states of a network binary unit to find interpretations of sensory input
+  + example: Interpreting a line drawing to 3-D image (right diagram)
     + 2-D line
-      + one "2-D line" for each possible line in the picture
+      + using one "2-D line" for each possible line in the picture
       + any particular picture will only activate a very small subset of the line units
+      + two edges activating two of the neurons in the picture
+      + those neurons represent 2-D lines as data
     + 3-D line
-      + one "3-D line" for each for each possible 3-D line in the scene
+      + using one "3-D line" for each for each possible 3-D line in the scene
       + 2-D line unit projected to many possible 3-D lines
       + <span style="color: red;">competition</span> between these 3-D lines
+      + only one 3-D line seen on 2-D line
+      + s stack of 3-D line units
+      + <span style="color: green;">green connection</span>: excitatory connections coming from 2-D line unit w/ equal weights
+      + the 2-D line unit represents to tur on all of these 3-D line units
+      + <span style="color:red;">red line</span>: competition btw these 3-D line units
+      + the neural network in the green and red connections understands that each 2-D line can correspond to many different 3D edges but only one of them should be present at a time
     + make 3-D lines support each other if they join in 3-D
+      + <span style="color: green;">double arrow green line</span>: join the two 3-D edge units w/ same or different depth
+      + two joined units support each other
+      + join different depth of 3-D edge unit very unlikely
+      + therefore, expect coincide in the image to correspond too 3-D edges on the same depth of that point
     + make 3-D lines __strongly support__ each other if they join at right angles
+      + <span style="color: green; weight: bold">thicker green line</span>: join two 3-D edge unit w/ same depth and right angle
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
@@ -321,9 +354,14 @@
 
 + Two difficult computational issues
   + using the states of the hidden units to represent an interpretation of input raises two difficult issues
-  + Search: how do we avoid getting trapped in poor local minima of the energy function?
+  + <span style="color: blue;">Search</span>:
+    + how do we avoid getting trapped in poor local minima of the energy function?
     + poor minima represent sub-optimal interpretations
-  + Learning: how do we learn the weights on the connections to the hidden units and btw the hidden units?
+    + able to simply go downhill in energy from some random starting state?
+  + <span style="color: blue;">Learning</span>:
+    + how do we learn the weights on the connections to the hidden units and btw the hidden units?
+    + any simple algorithm for adjusting all those weights $implies$ get sensible perceptual interpretations?
+    + no supervisor so far
 
 
 ### Lecture Video
