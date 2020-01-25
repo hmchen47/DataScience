@@ -491,22 +491,55 @@
 
 ### Lecture Notes
 
++ Boltzmann machine
+  + a stochastic Hopfield networks w/ hidden units
+  + good at modeling binary data
+
 + Modeling binary data
   + building a model
     + given a training set of binary vectors
     + fit a model $\implies$ assign a probability to every possible binary vector
   + useful for deciding if other binary vectors come from the same distribution
-    + e.g., documents represented by binary features that represents the occurrence of a particulr word
+    + e.g., documents represented by binary features that represents the occurrence of a particular word
+      + examine a new binary vector
+      + decide which distribution it came from
+      + different kinds of documents represented by a number of binary features
+      + each of feature which whether more than 0 occurrences of a particular word in that document
+      + w/ different documents expect different counts for the different words and different correlations bte words
+      + using a set of hidden units to model the distribution for each document
+      + then picking up the most likely document
+      + assign a testing document to the appropriate class by seeing which class of documents is most likely to produce that binary vector
   + used for monitoring complex systems to detect unusual behavior
-  + models of several different distributions $\implies$ used to computer the posterior probability that a paticular distribution produced the observed data
+    + e.g., all dials are binary in a nuclear power station
+      + many binary numbers to display the state of the power station
+      + purpose: identify unusual states
+      + not using supervised learning for that because of no example of states that to blow up
+      + rather able to detect that is going into such a state w/o ever seeing such a state before
+      + build a model w/ the normal states look like
+      + noticing the states different from the normal states
+      + models of several different distribution
+  + models of several different distributions $\implies$ used to computer the posterior probability that a paticular distribution produced the observed data by using Bayes theorem
 
     \[ p(Model \; i | data) = \frac{p(data | Model \; i)}{\displaystyle \sum_j p(data | Model \; i)} \]
 
 + causal generative model
+  + generate the states of some latent variables
+  + using latent variable to generate binary vector
   + procedures
-    + pick the hidden states from their prior distribution
-    + pick the visible states from their conditional distribution given the hidden states
-  + probability of generating a visible vector, $\mathbf{v}$, is computed by summing over all possible hidden states
+    + pick the hidden states from their prior distribution (hidden layer)
+      + usually independent variables in the prior
+      + the probability of turning on depending on some bias if they were binary latent variables
+    + pick the visible states from their conditional distribution given the hidden states (visible layer)
+      + using the picked states in the hidden layer units to generate the states of visible units by using weighted connections in this model
+      + a kind of neural network causal generative model: 
+        + using logistic units, biases for the hidden units, and weights on the connections between hidden and visible units
+        + assign the probability to every possible visible vector
+  + probability of generating a visible vector, $\mathbf{v}$
+    + computed by summing over all possible hidden states
+    + the probability of generating that hidden state times the probability of generating $\mathbf{v}$ given that already generated that hidden state
+    + a causal model factor analysis; e.g., a causal model using continuous variables
+    + probably the most natural way to generate data
+    + generative model: a causal model like this
     + each hidden state is an "explanation" of $\mathbf{v}$
 
     \[ p(\mathbf{v}) = \sum_{\mathbf{h}} p(\mathbf{h}) p(\mathbf{v}|\mathbf{h}) \]
@@ -518,20 +551,19 @@
   </div>
 
 + Generating data in Boltzmann machine
-  + not a causal generative model
+  + not a causal generative model but an energy based model
   + everything defined in terms of the energies of joint configurations of the visible and hidden units
-  + energies of join configuration
-    + related to their probabilities in two ways
+  + energies of join configuration related to their probabilities in two ways
     + simply defined the probability to be $p(\mathbf{v}, \mathbf{h}) \propto \exp(-E(\mathbf{v}, \mathbf{h}))$
     + alternatively, define the probability to be the probability of finding the network in that joint configuration after we have updated all of the stochastic binary units many times
   + two definitions agree
   + The energy of a joint configuration
 
-    \[ -E(\mathbf{v}, \mathbf{h}) = \sum_{i \in vis} v_i b_i + \sum_{k \in hid} h_k b_k + \sum_{i < k} v_i v_j \cdot w_{ij} + \sum_{i, k} v_i h_k w_{ik} + \sum_{k < l} h_k h_l \cdot w_{kl} \]
+    \[ -E(\mathbf{v}, \mathbf{h}) = \underbrace{\sum_{i \in vis} v_i b_i + \sum_{k \in hid} h_k b_k}_{\text{bias terms}} + \sum_{i < k} v_i v_j \cdot w_{ij} + \sum_{i, k} v_i h_k w_{ik} + \sum_{k < l} h_k h_l \cdot w_{kl} \]
 
     + $E(\mathbf{v}, \mathbf{h})$: energy w/ configuration $\mathbf{v}$ on the visible units and $\mathbf{h}$ on the hidden units
     + $v_i$: binary state of unit $i$ in $\mathbf{v}$
-    + $h_i$: bias of unit $k$
+    + $b_k$: bias of unit $k$
     + $w_{ik}$: weight between visible unit $i$ and hidden unit $k$
     + $i < k$: indexes every non-identical pair of $i$ and $j$ once
 
@@ -541,12 +573,14 @@
 
     \[ p(\mathbf{v}, \mathbf{h}) = \frac{e^{-E(\mathbf{v}, \mathbf{h})}}{\displaystyle \sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}} \]
 
-    + $\sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}$: partition function
+    + $\sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}$: normalized term or partition function in physics
   + the probability of a configuration of the visible units
 
-    \[ p(\mathbf{v}) = \frac{\sum_{\mathbf{h}} e^{-E(\mathbf{v}, \mathbf{h})}}{\sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{v}, \mathbf{g})}} \]
+    \[ p(\mathbf{v}) = \frac{\sum_{\mathbf{h}} e^{-E(\mathbf{v}, \mathbf{h})}}{\sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}} \]
 
   + example of how weights define a distribution
+    + $\mathbf{v}$ columns: all possible states in visible units
+    + $\mathbf{h}$ columns: all possible states in hidden units
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
@@ -556,12 +590,11 @@
   </div>
 
 + Getting a sample from the model
-  + the normalizing term (the partition function)
-    + more than a few hidden units
-    + grow exponentially
+  + the normalizing term (the partition function): grow exponentially w/ more than a few hidden units
   + Markov Chain Monte Carlo (MCMC)
     + get samples from the model starting from a random global configuration
     + keep picking units at random and allowing them to stochastically update their states based on their energy gaps
+    + energy gaps deptermined by the states of all the other units in the network
   + run the Markov chain
     + reaching the stationary distribution (thermal equilibrium at a temperature of 1)
     + the probability of a global configuration related to its energy by the Boltzmann distribution
@@ -571,12 +604,17 @@
 + Sample from the posterior distribution
   + get sample from the posterior distribution over hidden configurations for a given data vector
   + the number of possible hidden configurations is exponential
+    + apply MCMC to sample from the posterior
     + same as getting a sample from the model
     + except for keeping the visible units clamped to the given data vector
     + only the hidden units allowed to change states
-  + samples from the posterior required for learning the weights
-  + hidden configuration: an "explanation" of an observed visible configuration
-  + better explanations having lower energy
+  + purpose:
+    + getting samples from the posterior given a data vector required for learning the weights
+    + knowing a good explanation for the observed data
+      + hidden configuration: an "explanation" of an observed visible configuration
+      + actions based on that good explanation
+      + using for learning
+    + better explanations having lower energy
 
 
 ### Lecture Video
