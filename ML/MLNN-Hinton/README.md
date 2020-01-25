@@ -91,17 +91,17 @@
 ## 11. Hopfield Nets and Boltzmann Machines
 
 + [Hopfield Nets](11-Hopfield.md#)
-+ [Dealing with spurious minima in hopfield nets](11-Hopfield.md#)
++ [Dealing with spurious minima in Hopfield nets](11-Hopfield.md#)
 + [Hopfields Nets with hidden units](11-Hopfield.md#)
 + [Using stochastic units to improve search](11-Hopfield.md#)
-+ [How a boltzmann machine models data](11-Hopfield.md#)
++ [How a Boltzmann machine models data](11-Hopfield.md#)
 
 
 ## 12. Restricted Boltzmann Machine (RBMs)
 
-+ [The boltzmann machine learning algorithm](12-Boltzmann.md#)
++ [The Boltzmann machine learning algorithm](12-Boltzmann.md#)
 + [More efficient ways to get the statistics](12-Boltzmann.md#)
-+ [Restricted boltzmann machines](12-Boltzmann.md#)
++ [Restricted Boltzmann machines](12-Boltzmann.md#)
 + [An example of contrastive divergence learning](12-Boltzmann.md#)
 + [RBMs for collaborative filtering](12-Boltzmann.md#)
 
