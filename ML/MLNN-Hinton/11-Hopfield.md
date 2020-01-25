@@ -376,8 +376,71 @@
 
 ### Lecture Notes
 
++ Noisy networks
+  + Hopfield always making decisions to reduce the energy
+    + impossible to escape from local minima
+  +using random noise to escape from poor minima
+    + start w/ a lot of noise to cross energy barriers
+    + simulated annealing: slowly reduce the noise so that the systems ends up in a deep minimum
 
++ How temperature affects transition probabilities
+  + high temperature transition probabilities (top diagram)
+  + low temperature transition probabilities (bottom diagram)
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="img/m11-12.png" style="margin: 0.1em;" alt="Transition probabilities" title="Transition probabilities" width=250>
+    </a>
+  </div>
+
++ Stochastic binary units
+  + biased random decisions w/ binary stochastic units
+    + temperature controls the amount of noise
+    + raising the noise level equivalent to decreasing all the energy gaps btw configuration
+    + $T$: temperature
+
+  \[ p(s_i = 1) = \frac{1}{1 + \exp(-\Delta E_i / T)} \\
+     \text{Energy gap} = \Delta E_i = E(s_i = 0) - E(s_i = 1) = b_i + \sum_j s_j \cdot w_{ij}
+  \]
+
++ Simulated annealing
+  + S. Kirkpatrick, C. D. Gelatt and M. P. Vecchi, [Optimization by Simulated Annealing](https://www.researchgate.net/profile/Scott_Kirkpatrick/publication/220118677_Optimization_by_Simulated_Annealing/links/543d17040cf24ef33b766d9e/Optimization-by-Simulated-Annealing.pdf), Science, New Series, Vol. 220, No. 4598. (May 13, 1983), pp. 671-680
+  + a powerful method for improving searches that get stuck in local optima
+  + one of the idea leading to Boltzmann machines
+  + a big distraction from the main ideas behind Boltzmann machines
+  + using binary stochastic units having a temperature of 1 for unity
+
++ Thermal equilibrium
+  + a difficult concept
+    + riching thermal equilibrium not meant that the system has settled down into thelowest energy configuration
+    + energy configuration that settles down is the <span style="color: red;">probability distribution</span> over configuration
+  + intuitive way to think about thermal equilibrium
+    + imagine a huge ensemble of a systems that all have exactly the same energy function
+    + the probability of a configuration: just the fraction of the systems that have that configuration
+
++ Approaching thermal equilibrium
+  + start w/ any distribution for all the identical systems
+    + start w/ all the systems in the same configuration or
+    + start w/ an equal number of systems in each possible configuration
+  + the keep applying stochastic update rule to pick the next configuration for each individual system
+  + running the systems stochastically in the right way
+  + eventually reach a situation where the fraction of systems in each configuration remains constant
+    + thermal equilibrium: the stationary distribution in physics
+    + any given system keeps changing its configuration, but the fraction of systems in each configuration does not change
+
++ Analogy
+  + full of card dealers
+  + procedure
+    + start w/ the card packs in standard order
+    + the dealers all start shuffling their packs
+    + after a few steps the king of spades still hs a good chance of being next to the queen of spades
+    + the packs have not yet forgotten where they started
+    + after prolonged shuffling, the packs will have forgotten where they started
+    + $52!$ possible orders in each packs
+    + one equilibrium reached, the number of packs that leave a configuration at each step will be equal to the number that enter the configuration
+  + wrong aspect in the analogy:
+    + all the configurations w/ equal energy
+    + w/ same probability
 
 
 ### Lecture Video
