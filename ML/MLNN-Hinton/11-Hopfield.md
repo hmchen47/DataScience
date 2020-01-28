@@ -389,11 +389,9 @@
 + Temperature in physical system
   + energy function in simulated system
   + high temperature transition probabilities (top diagram)
-    + the probability of going uphill from B to A lower than the probability of going wonhill from A to B
-    + but not much lower
+    + the probability of going uphill from B to A lower than the probability of going downhill from A to B but not much lower
     + temperature flattens the energy landscape
-    + black dot: particles
-    + particles moving according to the transition probabilities from an energy function and a temperature
+    + particles (black dots) moving according to the transition probabilities from an energy function and a temperature
     + a typical distribution if the system at high temperature $\implies$ easier to cross barriers
     + difficult to stay in deep minimum
   + low temperature transition probabilities (bottom diagram)
@@ -401,7 +399,7 @@
     + ratio of the probability from A to B vs. the probability from B to A is much better
     + expect all the particles in B
     + running long time at low temperature $\implies$ long time for particles to escape from A
-  + better solution: start w/ high temperature and them gradually reduce the temperature
+  + better solution: start w/ high temperature and then gradually reduce the temperature
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
@@ -419,8 +417,8 @@
 
     + $T$: temperature
     + energy gap scaled by a temperature
-    + very high temperature $\to \exp(-\Delta E_i / T) \approx 0 \to p(s_i=1) = 1/(1+1) \implies$ knees on and off states
-    + very low temperature $\to \exp(-\Delta E_i/T) \approx -\infty \text{ or } \infty \text{ (depending on value of } \Delta E_i) \to p(s_i =1) = 0 \text{ or } 1 \implies$ firmly off or on $\implies$ behave deterministically and a binary threshold unit
+    + $T \to \infty, \exp(-\Delta E_i / T) \approx 0 \to p(s_i=1) = 1/(1+1) \implies$ knees on and off states
+    + $T \to 0, \exp(-\Delta E_i/T) \approx -\infty \text{ or } \infty \text{ (depending on value of } \Delta E_i) \to p(s_i =1) = 0 \text{ or } 1 \implies$ firmly off or on $\implies$ behave deterministically and a binary threshold unit
   + energy gap
 
     \[ \text{Energy gap} = \Delta E_i = E(s_i = 0) - E(s_i = 1) = b_i + \sum_j s_j \cdot w_{ij} \]
@@ -438,22 +436,22 @@
 + Thermal equilibrium
   setting temperature as 1 $\implies$ fixed temperature
   + a difficult concept
-    + riching thermal equilibrium not meant that the system has settled down into the lowest energy configuration
+    + reaching thermal equilibrium not meant that the system has settled down into the lowest energy configuration
     + state units still rattling around at thermal equilibrium unless the temperature  is zero
     + settle down means the <span style="color: red;">probability distribution</span> over configurations
     + settle to the stationary distribution determined by the energy function of the system
     + stationary distribution: the probability of any configuration proportional to $\exp(-E)$
   + intuitive view
-    + imagine a huge ensemble of a systems w/ exactly same energy function
+    + imagine a huge ensemble of systems w/ exactly same energy function
       + large number of stochastic Hopfield nets w/ all the same weights
       + w/ huge ensemble, define the probability of a configuration as a fraction of the systems w/ the configuration
-    + the probability of a configuration: just the fraction of the systems that have that configuration
+    + the probability of a configuration: just the fraction of the systems w/ that configuration
 
 + Approaching thermal equilibrium
   + start w/ any distribution for all the identical systems
-    + start w/ all the systems in the same configuration $\implies$ the distribution w/ the probability of configuration w/ $p(x=1) = 1$ and $p(x\new 1 = 0$
+    + start w/ all the systems in the same configuration $\implies$ the distribution w/ the probability of configuration w/ $p(x=1) = 1$ and $p(x= 1) = 0$
     + start w/ an equal number of systems in each possible configuration $\implies$ uniform distribution
-  + the keep applying stochastic update rule to pick the next configuration for each individual system
+  + then keep applying stochastic update rule to pick the next configuration for each individual system
     + pick a unit then examine its energy gap
     + make random decision based on the energy gap to turn on or off
   + running the systems stochastically in the right way
