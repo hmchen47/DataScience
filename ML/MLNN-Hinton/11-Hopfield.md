@@ -161,7 +161,7 @@
       + before memories start getting confused w/ one another
       + the number to store and retrive memories sensibly
     + only $0.15N^2$ bits at $N$ bits per memory
-      + each memory randomly configure the $N$ units
+      + each memory randomly configures the $N$ units
       + $N$ bits information in it
     + not making efficient use of the bits required to store the weights
       + how many bits the computer used to store the weight?
@@ -210,9 +210,10 @@
         + example w/ the previous figs
           + the red merged minimum if the net settle there and did some unlearning on that merge minimum
           + get back to two separate minima becaus of pulling up the red point
-      + get ride of deep, spurious minima and increase memory capacity
+      + get rid of deep, spurious minima and increase memory capacity
     + shown that the strategy works but no good analysis to explain
-  + analogy w/ F. Crick and G. Mitchison
+  + analogy w/ Reverse Learning
+    + proposed by F. Crick and G. Mitchison
     + [reorganisational theory of dreaming - Reverse Learning](https://en.wikipedia.org/wiki/Reverse_learning)
     + F. Crick: one the discovers of the structure of DNA
     + a model of what dreams are for
@@ -222,9 +223,9 @@
       + at night people dream for several hours, those dreams are gone when wake up in the morning
       + the dreams are not quite all gone
       + the dream just before wake up will get into short-term memory
-      + once people think of it, it will remembered for a long time
+      + once people think of it, it will be remembered for a long time
       + all dreaming is paradoxical because the state of people's brain look extremely like the state of brain when awake
-      + except that it isn't being driven by real input but friven by a relay station just after the real input, called the thalamus
+      + except that it isn't being driven by real input but driven by a relay station just after the real input, called the thalamus
       + the theory explains functionally what the point of dreams is to get rid of those spurious minima
     + that's what why you don't remember them
   + how much unlearning should apply?
@@ -233,7 +234,7 @@
     + unlearning automatically come out of fitting the model
     + knowing how much unlearning to do
   + derive unlearning as the right way to minimize some cost function
-    + the cost function is how well the neural net models the data people saw dueing the day
+    + the cost function is how well the neural net models the data people saw during the day
 
 + Increasing the cpacity
   + physics:
