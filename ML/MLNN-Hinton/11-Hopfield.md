@@ -360,7 +360,7 @@
     + able to simply go downhill in energy from some random starting state?
   + <span style="color: blue;">Learning</span>:
     + how do we learn the weights on the connections to the hidden units and btw the hidden units?
-    + any simple algorithm for adjusting all those weights $implies$ get sensible perceptual interpretations?
+    + any simple algorithm for adjusting all those weights $\implies$ get sensible perceptual interpretations?
     + no supervisor so far
 
 
