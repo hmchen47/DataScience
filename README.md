@@ -551,6 +551,38 @@
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
+
+  <!--
+  Hopfield Networks & Boltzmann Machine
+  -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hopfield Networks & Boltzmann Machine </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hopfiled Networks </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#overview-for-hopfield-networks"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#energy-function"> Energy Function </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#memories"> Memories </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#spurious-minima--capacity"> Spurious Minima </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#issues-with-hidden-units"> Issues </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#searching-w-noise"> Searching </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#simulated-annealing"> Simulated Annealing </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Boltzmann Machine </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#overview-of-boltzmann-machine"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#causal-generative-model"> Causal Generative Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#modeling-for-boltzmann-machine"> Boltzmann Machine Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
   </tbody>
 </table>  
 
