@@ -278,3 +278,27 @@
     \[ p(Model \; i | data) = \frac{p(data | Model \; i)}{\displaystyle \sum_j p(data | Model \; j)} \]
 
 
+## Causal Generative Model
+
++ [Causal generative model](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
+  + generate the states of some latent variables
+  + using latent variables to generate binary vector
+  + procedures
+    + pick the hidden states from their prior distribution (hidden layer)
+    + pick the visible states from their conditional distribution given by the hidden states (visible layer)
+  + probability of generating a visible vector, $\mathbf{v}$
+    + the probability of generating that hidden state times the probability of generating $\mathbf{v}$ given that already generated that hidden state
+    + a causal model factor analysis; e.g., a causal model using continuous variables
+    + probably the most natural way to generate data
+    + generative model: a causal model alike
+    + each hidden state is an "explanation" of $\mathbf{v}$
+
+    \[ p(\mathbf{v}) = \sum_{\mathbf{h}} p(\mathbf{h}) p(\mathbf{v}|\mathbf{h}) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m11-13.png" style="margin: 0.1em;" alt="Causal model for generating data" title="Causal model for generating data" width=250>
+    </a>
+  </div>
+
+
