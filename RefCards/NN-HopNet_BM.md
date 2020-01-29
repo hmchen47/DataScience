@@ -263,5 +263,18 @@
     + any given system keeps changing its configuration
 
 
+## Overview of Boltzmann Machine
+
++ [Boltzmann machine](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
+  + a stochastic Hopfield networks w/ hidden units
+  + good at modeling binary data
+
++ [Modeling binary data]/ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data
+  + building a model: given a training set of binary vectors
+  + useful for deciding if other binary vectors come from the same distribution
+  + used for monitoring complex systems to detect unusual behavior
+  + models of several different distributions $\implies$ used to computer the posterior probability that a paticular distribution produced the observed data by using Bayes theorem
+
+    \[ p(Model \; i | data) = \frac{p(data | Model \; i)}{\displaystyle \sum_j p(data | Model \; j)} \]
 
 
