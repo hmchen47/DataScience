@@ -234,3 +234,34 @@
     \[ \text{Energy gap} = \Delta E_i = E(s_i = 0) - E(s_i = 1) = b_i + \sum_j s_j \cdot w_{ij} \]
 
 
+## Simulated Annealing
+
++ [Simulated annealing](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
+  + a powerful method for improving searches that get stuck in local optima
+  + one of the idea leading to Boltzmann machines
+  + a big distraction from the main ideas behind Boltzmann machines
+  + using binary stochastic units having a temperature of 1 for standard logistic function in the energy gap
+
++ [Thermal equilibrium](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
+  setting temperature as 1 $\implies$ fixed temperature
+  + a difficult concept
+    + reaching thermal equilibrium not meant that the system has settled down into the lowest energy configuration
+    + state units still rattling around at thermal equilibrium unless the temperature  is zero
+    + settle down means the <span style="color: red;">probability distribution</span> over configurations
+    + settle to the stationary distribution determined by the energy function of the system
+    + stationary distribution: the probability of any configuration proportional to $\exp(-E)$
+  + intuitive view
+    + imagine a huge ensemble of systems w/ exactly same energy function
+    + the probability of a configuration: just the fraction of the systems w/ that configuration
+
++ [Approaching thermal equilibrium](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
+  + start w/ any distribution for all the identical systems
+  + then keep applying stochastic update rule to pick the next configuration for each individual system
+  + running the systems stochastically in the right way
+  + eventually reach a situation where the fraction of systems in each configuration remains constant
+    + thermal equilibrium: the stationary distribution in physics
+    + any given system keeps changing its configuration
+
+
+
+
