@@ -16,6 +16,10 @@
     + each binary "configuration" of the whole network w/ an energy
     + binary threshold decision rule causing the network to settle to a minimum of the energy function
 
++ [Hopfield combines two ideas](../ML/MLNN-Hinton/11-Hopfield.md#113-hopfields-nets-with-hidden-units)
+  + find local energy minimum by using as network of symmetrically connected binary threshold units
+  + local energy minimum might correspond to memories
+
 
 ## Energy Function
 
@@ -142,5 +146,55 @@
   + the way to use the full capacity of Hopfield net
     + to use the perceptron convergence procedure
     + go through the data several times
+
+
+## Issues with Hidden Units
+
++ [Introduction](../ML/MLNN-Hinton/11-Hopfield.md#113-hopfields-nets-with-hidden-units)
+  + the weights btw units represent constraints on good interpretations
+  + finding a low energy state $\to$ finding a good interpretation of the input data
+
++ [Different computational role](../ML/MLNN-Hinton/11-Hopfield.md#113-hopfields-nets-with-hidden-units)
+  + using Hopfield net to construct interpretations of sensory input instead of using net to store memories
+  + Notations:
+    + input: visible units
+    + interpretation: the states of the hidden units
+    + badness of the interpretation: the energy
+  + construct an interpretation of input in the set of hidden units
+  + the interpretation or explanation of the input as a binary configuration over the hidden units
+  + the energy of the whole system represents the badness of that interpretation
+  + to get good interpretations according to current model is the energy function
+  + to find the low energy states of the hidden units given by the input represented by the visible units
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m11-07.png" style="margin: 0.1em;" alt="Hopfield net about hidden and visible units" title="Hopfield net about hidden and visible units" width=150>
+    </a>
+  </div>
+
++ [Infer about 3-D edges from 2-D lines](../ML/MLNN-Hinton/11-Hopfield.md#113-hopfields-nets-with-hidden-units)
+  + 2-D line in an image might be caused by many different 3-D edges
+  + a straight 3-D edge
+  + pictorial explanation of 2-D and 3-D mapping (left diagram)
+  + find low energy states of a network binary unit to find interpretations of sensory input
+  + example: Interpreting a line drawing to 3-D image (right diagram)
+    + 2-D line: using one "2-D line" for each possible line in the picture
+    + 3-D line: using one "3-D line" for each for each possible 3-D line in the scene
+    + make 3-D lines support each other if they join in 3-D: join the two 3-D edge units w/ same or different depth
+    + make 3-D lines __strongly support__ each other if they join at right angles
+      + <span style="color: green; weight: bold">thicker green line</span>: join two 3-D edge unit w/ same depth and right angle
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="img/m11-08.png" style="margin: 0.1em;" alt="Image of 2-D lines to represent 3-D edges" title="Image of 2-D lines to represent 3-D edges" height=80>
+      <img src="img/m11-09.png" style="margin: 0.1em;" alt="Interpretation of 3-D edges with 2-D lines" title="Interpretation of 3-D edges with 2-D lines" height=200>
+    </a>
+  </div>
+
++ [Two difficult computational issues](../ML/MLNN-Hinton/11-Hopfield.md#113-hopfields-nets-with-hidden-units)
+  + using the states of the hidden units to represent an interpretation of input raises two difficult issues
+  + <span style="color: blue;">Search</span>: how do we avoid getting trapped in poor local minima of the energy function?
+  + <span style="color: blue;">Learning</span>: how do we learn the weights on the connections to the hidden units and btw the hidden units?
+
 
 
