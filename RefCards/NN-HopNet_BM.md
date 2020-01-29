@@ -80,3 +80,67 @@
     \[ \Delta w_{ij} = 4 (s_i - \frac{1}{2}) (s_j - \frac{1}{2}) \]
 
 
+## Spurious Minima & Capacity
+
++ [Storage capacity](../ML/MLNN-Hinton/11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
+  + Hopfield nets w/ memory storage devices
+  + obsessed by the storage capacity of the Hopfield net
+  + the capacity of a totally connected net w/ $N$ units by Hopfield storage rule
+    + only about $0.15N$ memories
+    + only $0.15N^2$ bits at $N$ bits per memory
+    + not making efficient use of the bits required to store the weights
+  + the net w/ $N^2$ weights and biases
+  + after storing $M$ memories, the integer value range of each connection weight is $[-M, M]$
+  + number of bits to store the weights and biases:
+
+    \[ N^2 \log(2M+1) \]
+
++ [Spurious minima limit capacity](../ML/MLNN-Hinton/11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
+  + create a new energy minimum for each configuration memorizing (top fig)
+  + limitation of the capacity of Hopfield net (bottom fig)
+    + two nearby patterns $\implies$ unable to separate two minimum
+    + unable to distinguish these two separate memories
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m11-06.png" style="margin: 0.1em;" alt="State space for spurious minima" title="State space for spurious minima" width=200>
+      </a>
+    </div>
+
++ [Avoiding spurious minima](../ML/MLNN-Hinton/11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
+  + unlearing
+    + strategy
+      + let the net settle from a random initial state and then do __unlearning__
+      + whatever binary state it settles, apply the opposite of the storage rule
+      + get rid of deep, spurious minima and increase memory capacity
+    + shown that the strategy works but no good analysis to explain
+  + analogy w/ Reverse Learning
+    + proposed by F. Crick and G. Mitchison
+    + a model of what dreams are for
+    + that's what why you don't remember them
+  + how much unlearning should apply?
+    + unlearning as part of the process of fitting a model to data
+    + apply maximum likelihood fitting of the model
+    + unlearning automatically come out of fitting the model
+  + derive unlearning as the right way to minimize some cost function
+
++ [Increasing the cpacity](../ML/MLNN-Hinton/11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
+  + physics:
+    + the math already known might explain how the brain works
+    + many papers published in physics journals
+    + related to Hopfield nets and their storage capacity
+  + Elizabeth Gardiner proposal
+    + using the full capacity of the weights
+    + a much better storage rule
+  + updating the memories
+    + cycle through the training set many times than storing vectors in on shot
+    + using the perceptron convergence procedure
+  + statistics: pseudo-likelihood
+    + get one thing right given all the other things
+    + w/ high dimensional data, trying to get the value on 1-dim right given the values on all the other dimensions
+    + main difference btw perceptron convergence procedure
+  + the way to use the full capacity of Hopfield net
+    + to use the perceptron convergence procedure
+    + go through the data several times
+
+
