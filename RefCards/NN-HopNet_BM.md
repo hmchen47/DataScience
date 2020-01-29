@@ -302,3 +302,55 @@
   </div>
 
 
+## Modeling for Boltzmann Machine
+
++ [Generating data in Boltzmann machine](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
+  + not a causal generative model but an energy based model
+  + everything defined in terms of the energies of joint configurations of the visible and hidden units
+  + energies of join configuration related to their probabilities in two ways
+    + simply define the probability to be $p(\mathbf{v}, \mathbf{h}) \propto \exp(-E(\mathbf{v}, \mathbf{h}))$
+    + define the probability to be the probability of finding the network in that joint configuration after updating all of the stochastic binary units many times
+    + two definitions agree
+  + The energy of a joint configuration
+
+    \[ -E(\mathbf{v}, \mathbf{h}) = \underbrace{\sum_{i \in vis} v_i b_i + \sum_{k \in hid} h_k b_k}_{\text{bias terms}} + \sum_{i < k} v_i v_j \cdot w_{ij} + \sum_{i, k} v_i h_k \cdot w_{ik} + \sum_{k < l} h_k h_l \cdot w_{kl} \]
+
+    + $E(\mathbf{v}, \mathbf{h})$: energy w/ configuration $\mathbf{v}$ on the visible units and $\mathbf{h}$ on the hidden units
+    + $v_i$: binary state of unit $i$ in $\mathbf{v}$
+    + $b_k$: bias of unit $k$
+    + $w_{ik}$: weight between visible unit $i$ and hidden unit $k$
+    + $i < k$: indexes every non-identical pair of $i$ and $j$ once
+
++ [Using energies to define probabilities](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
+  + the probability of a joint configuration over both visible and hidden units
+    + the energy of that joint configuration compared w/ the energy of all other joint configurations
+
+    \[ p(\mathbf{v}, \mathbf{h}) = \frac{e^{-E(\mathbf{v}, \mathbf{h})}}{\displaystyle \sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}} \]
+
+    + $\sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}$: normalized term or partition function in physics
+  + the probability of a configuration of the visible units
+
+    \[ p(\mathbf{v}) = \frac{\sum_{\mathbf{h}} e^{-E(\mathbf{v}, \mathbf{h})}}{\sum_{\mathbf{u}, \mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}} \]
+
++ [Getting a sample from the model](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
+  + the normalizing term (the partition function): growing exponentially as hidden units increase
+  + Markov Chain Monte Carlo (MCMC)
+    + get samples from the model starting from a random global configuration
+    + keep picking units randomly and allowing them to stochastically update their states based on their energy gaps
+    + energy gaps deptermined by the states of all the other units in the network
+  + run the Markov chain
+    + reaching the stationary distribution (thermal equilibrium at a temperature of 1)
+    + the probability of a global configuration related to its energy by the Boltzmann distribution
+
+    \[ p(\mathbf{v}, \mathbf{h}) \propto e^{-E(\mathbf{v}, \mathbf{h})} \]
+
++ [Sample from the posterior distribution](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
+  + get sample from the posterior distribution over hidden configurations for a given data vector
+  + the number of possible hidden configurations is exponential
+  + purpose:
+    + getting samples from the posterior given a data vector required for learning the weights
+    + knowing a good explanation for the observed data
+    + better explanations having lower energy
+
+
+
