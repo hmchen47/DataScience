@@ -197,4 +197,40 @@
   + <span style="color: blue;">Learning</span>: how do we learn the weights on the connections to the hidden units and btw the hidden units?
 
 
+## Searching w/ Noise
+
++ [Noisy networks](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
+  + Hopfield always making decisions to reduce the energy $\implies$ impossible to escape from local minima
+  + using random noise to escape from poor minima
+    + start w/ a lot of noise to cross energy barriers
+    + simulated annealing: slowly reduce the noise so that the systems ends up in a deep minimum
+
++ [Temperature in physical system](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
+  + energy function in simulated system
+  + high temperature transition probabilities (top diagram)
+  + low temperature transition probabilities (bottom diagram)
+  + better solution: start w/ high temperature and then gradually reduce the temperature
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
+      <img src="img/m11-12.png" style="margin: 0.1em;" alt="Transition probabilities" title="Transition probabilities" width=250>
+    </a>
+  </div>
+
++ [Stochastic binary units](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
+  + biased random decisions w/ binary stochastic units
+    + temperature controls the amount of noise
+    + raising the noise level equivalent to decreasing all the energy gaps btw configuration
+  + normal logistic equation
+
+    \[ p(s_i = 1) = \frac{1}{1 + \exp(-\Delta E_i / T)} \]
+
+    + $T$: temperature
+    + energy gap scaled by a temperature
+    + $T \to \infty, \exp(-\Delta E_i / T) \approx 0 \to p(s_i=1) = 1/(1+1) \implies$ knees on and off states
+    + $T \to 0, \exp(-\Delta E_i/T) \approx -\infty \text{ or } \infty \text{ (depending on value of } \Delta E_i) \to p(s_i =1) = 0 \text{ or } 1 \implies$ firmly off or on $\implies$ behave deterministically and a binary threshold unit
+  + energy gap
+
+    \[ \text{Energy gap} = \Delta E_i = E(s_i = 0) - E(s_i = 1) = b_i + \sum_j s_j \cdot w_{ij} \]
+
 
