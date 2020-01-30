@@ -142,8 +142,117 @@
 
 ### Lecture Notes
 
++ Better way to collect statistics
+  + initial w/ random state
+    + long time to reach thermal equilibrium
+    + very hard to tell when reaching there
+  + initial w/ the last state - warm start
+    + the data vector in the previous state
+    + particle: stored sates
+  + Advantage of warm start
+    + small changedon weights at some thermal equilibrium
+    + a few updates to get back to equilibrium
 
++ Neal's method for collecting statistics
+  + Positive phase
+    + keep a set of "data-specific particles" per training case
+    + each particle w/ a current value, ie., a configuration of the hidden units
+    + sequentially update all the hidden units a few times in each particle w/ the relevant data vector clamped
+    + connected pair of units: average $s_i s_j$ over all the data-specific particles
+  + Negative phase
+    + keep a set of "fantasy partiels"
+    + each particle w/ a value that is a global configuration
+    + sequentially update all the units in each fantasy particle each time
+    + connected pair of units: average $s_i s_j$ over all the fantasy particles
+  + weight changing
 
+    \[ \Delta w_{ij} \propto \langle s_i s_j \rangle_{data} - \langle s_i s_j \rangle_{model} \]
+
+  + mini-batches
+    + not working well
+    + by the time get back to the same data vector again, the weights will have been updated many times
+    + the data-specific particle not updated  $\implies$ far from equilibrium
+  + strong assumption about how people understand the world
+    + clamped data vector: assuming that the set of good explannations (i.e., hidden unit states) is uni-modal
+    + restricting learning model: one sensory input vector w/o multiple very different explannations
+
++ Simple mean field approximation
+  + right statistics $\implies$ updating the units stochastically and sequentially
+  + using probabilities instead of binary states and update the unit in parallel due to speed
+  + using damped mean field to avoid bi-phasic oscillations
+
+    \[\begin{align*} 
+      prob(s_i) &= \sigma \left( b_i + \sum_i + \sum_j s_j w_{ij} \right)  \\
+      p_i^{t+1} &= \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \\
+        &= \lambda p_i^t + (1 - \lambda) \sigma \left( b_i + \sum_j p_j^t w_{ij} \right)
+    \end{align*}\]
+
++ Efficient mini-batch learning procedure
+  + G. Hinton, R. Salakhutdinov, [A Better Way to Pretrain Deep Boltzmann Machines](http://papers.nips.cc/paper/4610-a-better-way-to-pretrain-deep-boltzmann-machines.pdf), Advances in Neural Information Processing Systems 25 (NIPS 2012)
+  + Positive phase
+    + initialize all the hidden probabilities at $0.5$
+    + clamp a data vector on the visible units
+    + update all the hidden units in parallel until convergence using mean field updates
+    + after net converged, record $p_i p_j$ for every connected pair of units and average this over all data in the mini-batch
+  + Negative phase
+    + keep a set of "fantasy particles"
+    + each particle w/ a value  that is a global configuration
+    + sequentially update all the units in each fantasy particle a few times
+    + connected pair of units: average $s_i s_j$ over all the fantasy particles
+
++ Parallel updates
+  + general Boltzmann machine: the stochastic updates of units need to be sequential
+  + Deep Boltzmann Machine (DBM) (left diagram)
+    + special architecture: allowing alternative parallel updates $\implies$ more efficient
+    + no connections within a layer
+    + no skip-layer connections
+    + general Boltzmann machine w/  many missing connections
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-02.png" style="margin: 0.1em;" alt="Example architecture of DBM" title="Example architecture of DBM" height=150>
+      <img src="img/m12-03.png" style="margin: 0.1em;" alt="Example architecture of DBM" title="Example architecture of DBM" height=150>
+    </a>
+  </div>
+
++ Example: modling MNIST digits w/ DBM
+  + can a DBM learn a good model of the MNIST digits?
+  + do samples from the model look like real data?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-04.png" style="margin: 0.1em;" alt="Examples of MNIST digits" title="Examples of MNIST digits" width=350>
+    </a>
+  </div>
+
++ Issue
+  + Able to estimate the "negative phase statistics" well w/ only 100 negative examples to characterize the whole space of possible configurations?
+  + find all interesting problems the GLOBAL configuration space is highly multi-modal
+  + how to find and represent all the modes w/ only 100 particles?
+
++ Effective mixing rate
+  + learning
+    + interact w/ the Markov chain used to gather the "negative statistics"; i.e., the data-independent statistics
+    + not able to analyze the learning by viewing it as an outer loop and the gathering of statistics as an inner loop
+  + fantasy particles outnumber the positive data
+    + raising energy surface
+    + the fantasies rush around hyperactively
+    + moving around MUCH faster than the mixing rate of the Markov chain defined by the static current weights
+
++ Moving fantasy particles btw model's modes
+  + more fantasy particles than data
+    + energy surface raised until the fantasy particles escape
+    + overcome energy barrier: too high for the Markovchain to jump in a reasonable time
+  + changing energy surface: mixing in addition to defining the model
+  + fantasy particles filled in a hole
+    + rush off somewhere else to deal w/ the next problem
+    + like investigative journalists
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-05.png" style="margin: 0.1em;" alt="Examples of moving fantasy particles" title="Examples of moving fantasy particles" width=200>
+    </a>
+  </div>
 
 
 ### Lecture Video
