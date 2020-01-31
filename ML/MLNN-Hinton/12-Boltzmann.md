@@ -143,48 +143,67 @@
 ### Lecture Notes
 
 + Better way to collect statistics
-  + initial w/ random state
+  + initial w/ a random state
     + long time to reach thermal equilibrium
     + very hard to tell when reaching there
   + initial w/ the last state - warm start
-    + the data vector in the previous state
-    + particle: stored sates
+    + remember the interpretation of the data vector in the hidden units
+    + particle: stored sates of the interpretation of the data vector
   + Advantage of warm start
     + small changedon weights at some thermal equilibrium
-    + a few updates to get back to equilibrium
+    + only a few updates to get back to equilibrium
+    + able to useparticles for both 
+      + the positive phase for a clamp data factor
+      + the negative phase w/o clamped
 
-+ Neal's method for collecting statistics
++ Radford Neal's method for collecting statistics
   + Positive phase
     + keep a set of "data-specific particles" per training case
-    + each particle w/ a current value, ie., a configuration of the hidden units
+    + each particle w/ a current value, ie., a configuration of the hidden units + which data vector goes with
     + sequentially update all the hidden units a few times in each particle w/ the relevant data vector clamped
-    + connected pair of units: average $s_i s_j$ over all the data-specific particles
+    + connected pair of units: average the probability of the two units $s_i, s_j$ on over all the data-specific particles
   + Negative phase
-    + keep a set of "fantasy partiels"
+    + keep a set of "fantasy particles"
     + each particle w/ a value that is a global configuration
-    + sequentially update all the units in each fantasy particle each time
+    + sequentially update all the units in each fantasy particle a few times $\implies$ updating the visible units
     + connected pair of units: average $s_i s_j$ over all the fantasy particles
-  + weight changing
+  + change in the weight
 
     \[ \Delta w_{ij} \propto \langle s_i s_j \rangle_{data} - \langle s_i s_j \rangle_{model} \]
 
   + mini-batches
     + not working well
     + by the time get back to the same data vector again, the weights will have been updated many times
-    + the data-specific particle not updated  $\implies$ far from equilibrium
-  + strong assumption about how people understand the world
-    + clamped data vector: assuming that the set of good explannations (i.e., hidden unit states) is uni-modal
+    + the data-specific particle not anywhere near thermal equilibrium anymore $\implies$ the hiddent units not in thermal equilibrium w/ the visible units of the particle given the new weights
+    + no idea how long to reach theremal equilibrium again
+  + strong assumption about how people understand the world ( kind of epistemological assumption)
+    + assume clamped data vector:
+      + the set of good explannations (i.e., hidden unit states as interpretations of the data vector) is uni-modal
+      + for sensory input there's one correct explannation and if there exists a good model of data $\implies$ one energy minimum for that data point
     + restricting learning model: one sensory input vector w/o multiple very different explannations
+      + for a given data vector two very different explananions for that data vector
+      + learning algorithm incapable of learning models in which a data vector has many very different explanantions
+    + w/ this assumption able to use a very efficient method for approaching thermal equilibrium or an approximation thermal equilibrium w/ the data
 
 + Simple mean field approximation
-  + right statistics $\implies$ updating the units stochastically and sequentially
-  + using probabilities instead of binary states and update the unit in parallel due to speed
+  + right statistics $\implies$ updating the units stochastically and sequentially (Eq.(1))
+    + the update rule is the probability of turning on unit $i$ w/ logistic function of the total input received from the other units and its bias
+    + $s_j$: the state of another unit is a stochastic binary value
+  + using probabilities instead of binary states and update the unit in parallel to accelerate (Eq.(2))
+    + keep a real value in $[0, 1]$ as a probability
+    + $p_i^{t+1}$: the output of the logistic function w/ input of bias and sum of the other probabilities at time $t$ times the weights
+    + replacing the stochastic binary value by a real value probability
+    + only correct w/ a linear function
+    + not correct: putting probabilities instead of flucating binary values inside the nonlinear function
+    + however, it works well
   + using damped mean field to avoid bi-phasic oscillations
+    + bi-pgasic oscillations result in updating everything in parallel
+    + damped mean field (Eq.(3)) resolves the oscillations
 
     \[\begin{align*} 
-      prob(s_i) &= \sigma \left( b_i + \sum_i + \sum_j s_j w_{ij} \right)  \\
-      p_i^{t+1} &= \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \\
-        &= \lambda p_i^t + (1 - \lambda) \sigma \left( b_i + \sum_j p_j^t w_{ij} \right)
+      prob(s_i) &= \sigma \left( b_i + \sum_j s_j w_{ij} \right)  \tag{1}\\
+      p_i^{t+1} &= \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{2}\\
+        &= \lambda p_i^t + (1 - \lambda) \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{3}
     \end{align*}\]
 
 + Efficient mini-batch learning procedure
@@ -192,21 +211,29 @@
   + Positive phase
     + initialize all the hidden probabilities at $0.5$
     + clamp a data vector on the visible units
-    + update all the hidden units in parallel until convergence using mean field updates
+    + update all the hidden units in parallel until convergence (when probability stop changing) using mean field updates
     + after net converged, record $p_i p_j$ for every connected pair of units and average this over all data in the mini-batch
   + Negative phase
     + keep a set of "fantasy particles"
     + each particle w/ a value  that is a global configuration
     + sequentially update all the units in each fantasy particle a few times
-    + connected pair of units: average $s_i s_j$ over all the fantasy particles
+    + connected pair of units: average $s_i s_j$ (stochastic binary values) over all the fantasy particles
+  + the difference btw these averages:
+    + the learning rule
+    + change the weights by amount proportional to that difference
 
 + Parallel updates
   + general Boltzmann machine: the stochastic updates of units need to be sequential
   + Deep Boltzmann Machine (DBM) (left diagram)
-    + special architecture: allowing alternative parallel updates $\implies$ more efficient
+    + special architecture: allowing alternative parallel updates for fantasy particles $\implies$ more efficient
     + no connections within a layer
     + no skip-layer connections
-    + general Boltzmann machine w/  many missing connections
+    + general Boltzmann machine w/ many missing connections
+  + Update for states (right diagram)
+    + update the states of the 1st hidden layer (top) and 3rd hidden layer (3 units) w/ current states of the visible units and 2nd hidden layer (2 units)
+    + the update the states if the visible units in the 2nd hidden layer
+    + repeat the previous two processes
+    + update half of the states of all units in parallel
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
@@ -217,7 +244,15 @@
 
 + Example: modling MNIST digits w/ DBM
   + can a DBM learn a good model of the MNIST digits?
+    + a DBM trained by using mean field for the positive phase and updating fantasy particles by alternating btw even layer and odd layer for negative phase
+    + judgement: 
+      + remove all the input and then generate samples from your model
+      + run the Markov chain for a long time until it's burned in
+      + look at the samples got
   + do samples from the model look like real data?
+    + right figure: real data
+    + left figure: data got from model
+    + looks similar $\implies$ a good model
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
@@ -225,34 +260,45 @@
     </a>
   </div>
 
-+ Issue
-  + Able to estimate the "negative phase statistics" well w/ only 100 negative examples to characterize the whole space of possible configurations?
-  + find all interesting problems the GLOBAL configuration space is highly multi-modal
-  + how to find and represent all the modes w/ only 100 particles?
+  + Issue
+    + running model w/ 100 samples and the same 100 fantasy particles for every mini-batch
+    + Able to estimate the "negative phase statistics" well w/ only 100 negative examples to characterize the whole space of possible configurations?
+    + find all interesting problems the GLOBAL configuration space is highly multi-modal
+    + how to find and represent all the modes w/ only 100 particles?
 
 + Effective mixing rate
   + learning
     + interact w/ the Markov chain used to gather the "negative statistics"; i.e., the data-independent statistics
+      + the one used to update the fantasy particles
+      + interact w/ it to make it have a much higher effective mixing rate
     + not able to analyze the learning by viewing it as an outer loop and the gathering of statistics as an inner loop
+      + the learning is affecting how effective that inner loop is
   + fantasy particles outnumber the positive data
-    + raising energy surface
+    + raising energy surface $\to$ an effect on the mixing rate of the Markov chain
     + the fantasies rush around hyperactively
     + moving around MUCH faster than the mixing rate of the Markov chain defined by the static current weights
+  + Moving fantasy particles btw model's modes (see diagram)
+    + more fantasy particles than data
+      + energy surface raised until the fantasy particles escape
+      + overcome energy barrier: too high for the Markovchain to jump in a reasonable time
+      + left mode:
+        + 4 fantasy particles and only 2 data points
+        + the effect of learning: raise the energy there
+        + energy barrier too high for Markov chain to cross $\implies$ low mixing rate
+        + the learning actually spill those red particles out of that energy minimum by rasing the minimum
+        + the fantasy particles escape and go off somewhere else to some other deep minimum
+    + changing energy surface: mixing in addition to defining the model
+      + energy surface represent the model
+      + energy surface manipulated by the learning algorithm to make the Markov chain mix faster or rather have the aeffect of a faster mixing Markov chain
+    + fantasy particles filled in a hole
+      + rush off somewhere else to deal w/ the next problem
+      + like investigative journalists
 
-+ Moving fantasy particles btw model's modes
-  + more fantasy particles than data
-    + energy surface raised until the fantasy particles escape
-    + overcome energy barrier: too high for the Markovchain to jump in a reasonable time
-  + changing energy surface: mixing in addition to defining the model
-  + fantasy particles filled in a hole
-    + rush off somewhere else to deal w/ the next problem
-    + like investigative journalists
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
-      <img src="img/m12-05.png" style="margin: 0.1em;" alt="Examples of moving fantasy particles" title="Examples of moving fantasy particles" width=200>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="img/m12-05.png" style="margin: 0.1em;" alt="Examples of moving fantasy particles" title="Examples of moving fantasy particles" width=200>
+      </a>
+    </div>
 
 
 ### Lecture Video
