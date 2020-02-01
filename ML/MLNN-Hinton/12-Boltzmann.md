@@ -317,9 +317,9 @@
   + restrict the connectivity to make inference and learning easier
     + only one layer of hidden units
     + no connections btw hidden units
-    + typical architecture (see diagram)
-
-      \[ p(h_j = 1) = \frac{1}{1 + e^{-(b_j + \sum_{i \in vis} v_i w_{ij})}} \]
+  + typical architecture (see diagram)
+    + a bipartite graph
+    + no connection btw units on the same layer
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
@@ -327,35 +327,65 @@
       </a>
     </div>
 
-  + take only one step to reach thermal equilibrium when the visible units are clamped
-    + quickly get  the exactly value of:
+  + advantage
+    + reach thermal equilibrium in one step when the visible units are clamped to a data
+    + quickly get the expacted value of $\langle v_i h_j \rangle_{\mathbf{v}}$
+      + compute the exact probability w/ which unit $j$ turns on
+      + independent of all other hidden units in the hidden layer
+  + the probability of unit $j$ will turn on:
+    + a logistic function w/ input from visible units
+    + quite independent of what other hidden units doing
+    + compute the probabilities all in parallel
 
-      \[ \langle v_i h_j \rangle_{\mathbf{v}} \]
+    \[ p(h_j = 1) = \frac{1}{1 + e^{-(b_j + \sum_{i \in vis} v_i w_{ij})}} \]
 
 + Persistent Contrastive Divergence (PDC)
   + T. Tieleman, [Training Restricted Boltzmann Machines using Approximations to the Likelihood Gradient](https://www.cs.toronto.edu/~tijmen/pcd/pcd.pdf), Machine Learning, Proceedings of the Twenty-Fifth International Conference (ICML 2008), Helsinki, Finland, June 5-9, 2008
   + an efficient mini-batch learning procedure for Restricted Boltzmann Machines
   + positive phase
     + clamp a data vector on the visible units
-    + compute the exact value of $\langle v_i h_j \rangle$ for all pairs of a visible and a hidden unit
+    + compute the exact value of $\langle v_i h_j \rangle$ for all pairs of a visible and a hidden unit $\impliedby v_i$  fixed
     + connected pair of units: average $\langle v_i h_j \rangle$ over all data in the mini-batch
   + negative phase:
     + keep a set of "fantasy particles"
     + each particle w/ a value that is a global configuration
-    + update each fantasy particle a few times using alternating parallel updates
+    + update each fantasy particle a few times using alternating parallel updates $\implies$ bring back to close to equilibrium
     + connected pair of units: average $\langle v_i h_j \rangle$ over all the fantasy particles
+  + work well and allow RBM to build good density models of sets of binary vectors
   + inefficient version of the Boltzmann machines learning algorithm for an RBM (left diagram)
-    + start w/ a training vector on the visible units
-    + then alternate btw updating all the hidden units in parallel and updatingall the visible units in parallel
+    + times ($t$) not about weight updates but to note steps in a Markov chain
+    + process:
+      + $t=0$:
+        + start w/ a training vector on the visible units
+        + the visible vector $\to$ update the hidden units
+        + choose binary states for the hidden units
+        + measure the exected value of $v_i h_j$ for all pairs of visible binary units connected
+        + $\langle v_i h_j \rangle^0$: measurement at $t=0$ w/ the hidden units being determined by the visible units
+        + update all hidden units in parallel
+      + $t=1$
+        + using the hidden vector to update all the visible units in parallel
+        + update all the hiddent units in parallel
+        + reconstruction or one-step reconstruction: the visible vector at $t=1$
+      + then alternate btw updating all the hidden units in parallel and updatingall the visible units in parallel
+        + repeat the process for long time
+        + system reaching thermal equilibrium at $t=\infty$
+      + measure the correlation of $v_i$ and $h_j$: as $\langle v_i h_j \rangle^\infty$
+        + fantasy: a visible state at $t=\infty$
+  + the learning rule w/ weight updating
 
-      \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^\infty \right) \]
+    \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^\infty \right) \]
+
+    + $\varepsilon$: the learning rate
+  + disadvantage: running algorithm for a long time to reach thermal equilibrium $\to$ misleading w/ $t=\infty$
   
   + contrastive divergence (right diagram)
+    + not good at building density models but much faster
     + surprising short-cut
     + start w/ a training vector on the visible units
     + update all the hidden units in parallel
     + update the all visible units in parallel to get a "reconstruction"
     + update the hidden units again
+    + measure statistics after doing one full update of the Markov chain
     + not following the gradient of the log likelihood, but working well
 
       \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
@@ -369,32 +399,46 @@
 
 + Why contrastive divergence works?
   + initiate w/ data
-    + the Markov chain wanders away from the data and towards things that it likes more
+    + the Markov chain wanders away from the data and towards initial weights (the equilibrium distribution)
     + able to see what direction it is wandering in after only a few steps
-  + lowering the probability of the configurations
+      + initial weight not good $\to$ waste time to go all the way to equilibrium
+      + knowing how to change them to stop it wandering away from the data w/o reaching the equilibrium
+  + lowering the probability of the reconstruction (or configurations in psychology)
     + achieved after one full step
     + raise the probability of the data
     + then stop wandering away
     + canceling out once the confabulations and the data have the same distribution
   + example
+    + energy surface in space of global configuration (top diagram)
+    + datapoint: both the visible vector and the particular hidden vector
+    + particular hidden vector got by stochastic updating the hidden units
+    + hidden vector: a function of what the data point is
+    + start w/ the data point
+    + run the Markov chain for one full step to get a new visible vector and the hidden vector that goes with it
+    + a reconstruction of the data point plus the hidden vector that goes with that reconstruction
+    + then change the weight to pull the energy down at the datapoint and to pull the energy up of the reconstruction
+    + the changes will make the surface as shown in the bottom diagram
+    + at the data: beginning to construct an energy minimum
+    + away from data: stay what it was
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
-      <img src="img/m12-09.png" style="margin: 0.1em;" alt="Example of contrastive divergence learning" title="Example of contrastive divergence learning" width=450>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="img/m12-09.png" style="margin: 0.1em;" alt="Example of contrastive divergence learning" title="Example of contrastive divergence learning" width=450>
+      </a>
+    </div>
 
 + Limitation of contrastive divergence
+  + reconstruction fails for places away from the data
   + regions of the data-space
     + the model likes but regions very far away from any data
     + low energy holes causing the normalization term to be big
     + unable to sense the low energy holes when using the short-cut
     + persistent particles: eventually fall into a hole
-    + filling up the hole then moe on to another hole
+    + filling up the hole then move on to another hole
   + compromise btw speed and correctness
     + start w/ small weights and use CD1
     + the weight $\uparrow \to$ Markov chain mixing more slowly $\to$ using CD3
-    + the weight $\uparrow\uparrow \to$ using CD10
+    + the weight $\uparrow\uparrow \to$ using CDx, where x = 5 or 9 or 10
     + CDx: use x full steps to get the "negative data"
 
 
