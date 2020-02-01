@@ -455,10 +455,41 @@
 ### Lecture Notes
 
 + Learn features of images of the digit 2
+  + RBM learning a model of images of handwritten 2s
+    + all digit classes w/ considerably larger weight $\to$ wide variety of features btw them good at reconstructing all the different classes of digits
+    + a good model for digit classes: 
+      + binary vector of handwitten digit images able to find low energy states compitable w/ that image
+      + unable to find low energy w/ binary vector away from the target image
   + learning a set of features good for reconstructing images (architecture: top diagram)
+    + learn to become interesting feature detectors
+    + image of 16 pixels by 16 pixels (bottom left box) and 50 binary hidden units (top left box)
+    + using the weights and connections from pixels to feature detectors to activate the feature detectors (green arrow line)
+    + each binary neuron makes a stochastic decision about whether state 0 or 1
+    + the use the binary patterns of activation to reconstruct the data (blue arrow line)
+    + feed pixel to make a binary decision about state 0 or 1
+    + then reactivate the binary feature detectors using the reconstruction to activate rather than the data (the red arrow line)
+    + the weight changed by incrementing the weights between an active pixel or an active feature detector (green line) when the network is look at data
+    + low energy of the global configuration of the data and whatever hidden pattern w/ it
+    + decrementing the weight btw active pixel and an active detector when reconstructing and raise the energy of the reconstruction
+    + near the beginning of the learning, weights are random
+    + the reconstruction will almost certainly have lower energy than the data
+    + the reconstruction is what the network likes to reproduce on the visible units given the hidden pattern of activity
+    + the model likes to reproduce patterns w/ low anager according to the energy function
+    + learning is to change the weights $\to$ data is low energy
+    + reconstructions of the data are generally higher energy
   + the weights of the 50 feature detectors
     + start w/ small random weights to break symmetry (fig.a)
-    + the final 50 x 256 weights: each neuron grabs a different feature
+      + each square shows the weights to the pixels coming from a particular feature detector
+      + using small random weights to break symmetry
+      + small random weight not necessary due to stochastic process
+    + progress on learning (fig. b - fig. i)
+      + after seen hundreds of digits and adjusting the weights a few times $\to$ the weight beginning to form patterns
+      + repeat the process, many features detectors are detecting the pattern $\to$ global feature detectors
+      + the feature detectors getting stronger and some of them begin to localize and they are getting more local
+    + the final 50 x 256 weights: each neuron grabs a different feature (fig. j)
+      + each neuron becomes a different feature detector
+      + most of the feature detectors are fairly local
+      + red box feature: detecting the top of a 2 and 
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
@@ -485,6 +516,32 @@
   </div>
 
 + Measurement for the reconstructing digit images
+  + left diagram
+    + test w/ an example of the 2
+    + reconstruct w/ a pretty faithful to the test example but slightly blurry
+    + a hook on the top of the test example but blur out in the reconstruction
+  + middle diagram
+    + test w/ an example of 3
+    + reconstructs actually looks more like 2 than 3
+    + all feature detectors learned are good for representing 2 but no feature dectors for things like presenting that cusp in the middle of 3
+    + end up reconstructing something that obeys the regularities of a 2 than 3
+  + right diagram
+    + using 500 hidden units to model all 10 digit classes
+    + the feature detectors learned in the first hidden layer
+    + train for a long time w/ contrastive divergence
+    + a big variety of feature detectors
+      + blue box: useful for detecting 8s
+      + red box: curious kind of feature; 
+        + pixels on very near bottom $\to$ data was normalized
+        + digits unable to have a height of greater than 20 pixels
+        + impossible to have a pixel on where those big positive weights are
+        + picking up on a long-range regularity introduced by normalizating the data
+      + green box:
+        + detect where the bottom of a vertical stroke comes
+        + detect it in a number of different positions
+        + refuse to detect it in the intermediate positions
+        + very like one of the least significant digits in a binary number as you increase the magnitude of the number goes on and off repeatedly
+        + it shows this is developing quite complex ways of representing where thing are
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
