@@ -289,7 +289,7 @@
         + the fantasy particles escape and go off somewhere else to some other deep minimum
     + changing energy surface: mixing in addition to defining the model
       + energy surface represent the model
-      + energy surface manipulated by the learning algorithm to make the Markov chain mix faster or rather have the aeffect of a faster mixing Markov chain
+      + energy surface manipulated by the learning algorithm to make the Markov chain mix faster or rather have the affect of a faster mixing Markov chain
     + fantasy particles filled in a hole
       + rush off somewhere else to deal w/ the next problem
       + like investigative journalists
@@ -313,8 +313,89 @@
 
 ### Lecture Notes
 
++ Restricted Boltzmann Machines
+  + restrict the connectivity to make inference and learning easier
+    + only one layer of hidden units
+    + no connections btw hidden units
+    + typical architecture (see diagram)
 
+      \[ p(h_j = 1) = \frac{1}{1 + e^{-(b_j + \sum_{i \in vis} v_i w_{ij})}} \]
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="img/m12-06.png" style="margin: 0.1em;" alt="Example of RBM architecture" title="Example of RBM architecture" width=200>
+      </a>
+    </div>
+
+  + take only one step to reach thermal equilibrium when the visible units are clamped
+    + quickly get  the exactly value of:
+
+      \[ \langle v_i h_j \rangle_{\mathbf{v}} \]
+
++ Persistent Contrastive Divergence (PDC)
+  + T. Tieleman, [Training Restricted Boltzmann Machines using Approximations to the Likelihood Gradient](https://www.cs.toronto.edu/~tijmen/pcd/pcd.pdf), Machine Learning, Proceedings of the Twenty-Fifth International Conference (ICML 2008), Helsinki, Finland, June 5-9, 2008
+  + an efficient mini-batch learning procedure for Restricted Boltzmann Machines
+  + positive phase
+    + clamp a data vector on the visible units
+    + compute the exact value of $\langle v_i h_j \rangle$ for all pairs of a visible and a hidden unit
+    + connected pair of units: average $\langle v_i h_j \rangle$ over all data in the mini-batch
+  + negative phase:
+    + keep a set of "fantasy particles"
+    + each particle w/ a value that is a global configuration
+    + update each fantasy particle a few times using alternating parallel updates
+    + connected pair of units: average $\langle v_i h_j \rangle$ over all the fantasy particles
+  + inefficient version of the Boltzmann machines learning algorithm for an RBM (left diagram)
+    + start w/ a training vector on the visible units
+    + then alternate btw updating all the hidden units in parallel and updatingall the visible units in parallel
+
+      \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^\infty \right) \]
+  
+  + contrastive divergence (right diagram)
+    + surprising short-cut
+    + start w/ a training vector on the visible units
+    + update all the hidden units in parallel
+    + update the all visible units in parallel to get a "reconstruction"
+    + update the hidden units again
+    + not following the gradient of the log likelihood, but working well
+
+      \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-07.png" style="margin: 0.1em;" alt="Inefficient version of a Boltzmann Machine" title="Inefficient version of a Boltzmann Machine" height=120>
+      <img src="img/m12-08.png" style="margin: 0.1em;" alt="Restricted Boltzmann Machine" title="Restricted Boltzmann Machine" height=120>
+    </a>
+  </div>
+
++ Why contrastive divergence works?
+  + initiate w/ data
+    + the Markov chain wanders away from the data and towards things that it likes more
+    + able to see what direction it is wandering in after only a few steps
+  + lowering the probability of the configurations
+    + achieved after one full step
+    + raise the probability of the data
+    + then stop wandering away
+    + canceling out once the confabulations and the data have the same distribution
+  + example
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-09.png" style="margin: 0.1em;" alt="Example of contrastive divergence learning" title="Example of contrastive divergence learning" width=450>
+    </a>
+  </div>
+
++ Limitation of contrastive divergence
+  + regions of the data-space
+    + the model likes but regions very far away from any data
+    + low energy holes causing the normalization term to be big
+    + unable to sense the low energy holes when using the short-cut
+    + persistent particles: eventually fall into a hole
+    + filling up the hole then moe on to another hole
+  + compromise btw speed and correctness
+    + start w/ small weights and use CD1
+    + the weight $\uparrow \to$ Markov chain mixing more slowly $\to$ using CD3
+    + the weight $\uparrow\uparrow \to$ using CD10
+    + CDx: use x full steps to get the "negative data"
 
 
 ### Lecture Video
