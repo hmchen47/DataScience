@@ -563,13 +563,26 @@
 
 ### Lecture Notes
 
-+ Collaborative filtering: the Netflix competition
++ Collaborative filtering:
+  + trying to figure out how much the user would like one product based on 
+    + how much user liked other products
+    + how many other users like products
+  + 
+
++ The Netflix competition w/ collaborative filtering
   + given most of the ratings
     + half a million users gave to 18,000 movies on a scale from 1 to 5
+    + half million users
+    + nearly all the ratings of old movies missing
     + each user only rates a small fraction of the movies
+    + about 100 million ratings $\to$ big data set
   + goal:
     + predict the ratings users gave to the held out movies
     + winner: get $1,000,000
+  + matrix of ratings
+    + columns: movies
+    + users: rows
+    + prodict the rating for user 4 on movie 3
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
@@ -578,24 +591,44 @@
   </div>
 
 + Language model
-  + data: strings of triples
+  + data: strings of triples, like family trees
   + string form: User, Movie, rating; e.g.,
     > U2 M1 5 <br/>
     > U2 M3 1 <br/>
     > U4 M1 4 <br/>
     > U4 M3 ?
   + architecture
+    + convert each user into a learned feature vector for that user
+    + convert each movie into a learned feature vector for that movie
+    + these two feature vectors $\to$ predict the rating
+    + put a big hidden layer btw feature vectors and rating
+    + simply take the scalar product of the feature vector for the user and feature vector for the movie
+    + just multiply them together pointwise and sum together
+    + the output as rating
+    + not even softmax, actually output whatever real number from the scalar product
+    + exactly equivalent to a matrix factorization model
+    + matrix factorization model - details
+      + user features down the rows
+      + movie features above the columns
+      + multiply matrix of users times features by the matrix of features times the movie $\to$ predictions for the ratings
+      + exactly equivalent to the language model beside
+    + matrix factorization model: the most commonly used for collaborative filtering
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
-        <img src="img/m12-24.png" style="margin: 0.1em;" alt="Language model to predict rating" title="Language model to predict rating" width=300>
+        <img src="img/m12-24.png" style="margin: 0.1em;" alt="Language model and matrix factorization model" title="Language model and matrix factorization model" width=300>
       </a>
     </div>
 
 + RBM for matrix factorization
   + treat each user as a training case
     + user: a vector movie ratings
-    + one visible unit per movie w/ 5-way softmax
+    + one visible unit per movie w/ 5-way softmax (see diagram)
+      + RBM architecture shown in the diagram
+      + each visible units as a five-way softmax
+      + one visible unit per movie
+      + hundred binary hidden units existed
+      + each hidden unit connected to all five values of softmax w/ bias $\to$ large number of parameters
     + CD learning rule for a softmax same as for a binary unit
     + ~100 hidden units
   + one of the visible values unknown
@@ -608,21 +641,29 @@
   </div>
 
 + Avoid dealing all missing ratings
-  + instead of one RBM for all users
+  + instead of one RBM for all users where only a few of them have known ratings $\to$ huge number of missing values to dealing w/
   + for each user, using an RBM that only has visible units for the movies the user rated
-  + a different RBM for every user
-    + all these RBMs useing the same hidden units
+  + a different RBM for every user w/ different subset of the visible units
+    + all these RBMs sharing the same weight
+    + knowing which movie is which; e.g.,
+      + 2 users saw and rated the same movie
+      + the weights from that movie to the hidden units will be the same for those 2 users
     + the weights from each hidden unit to each movie are shared by all the users who rated that movie
   + each user-specific RBM only gets one training case $\impliedby$ weight-sharing
-  + trained w/ CD1 then CD3, CD5 & CD9
+    + make the specific RBm for each user w/ the right architecture
+    + the right number of visible units for the movies that the user rated
+    + only one training case w/ that rating vector
+    + all of the half million training cases share weights to hidden units
+  + trained w/ CD1 then CD3, CD5 & CD9 to collect the statistics for the negative phase
 
 + Measurements for RBM
   + R. Salakhutdinov, A. Mnih, and G. Hinton, [Restricted Boltzmann Machines for Collaborative Filtering](https://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf), ICML '07: Proceedings of the 24th international conference on Machine learning, June 2007
   + RBM and matrix factorization methods
-    + work together but give very different errors
-    + averaging the predictions of matrix-factorization is a big win
+    + equivalent but giving very different errors
+    + averaging the predictions of RBM w/ the predictions of matrix-factorization $\implies$ a big win
   + winning group
-    + using multiple different RBM models in their average of over a hundred models
+    + using multiple different RBM models in their average and multiple different matrix factorization models
+    + might be w/ other models
     + main models: matrix factorization and RBMs
 
 
