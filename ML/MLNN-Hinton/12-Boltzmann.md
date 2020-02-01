@@ -454,8 +454,44 @@
 
 ### Lecture Notes
 
++ Learn features of images of the digit 2
+  + learning a set of features good for reconstructing images (architecture: top diagram)
+  + the weights of the 50 feature detectors
+    + start w/ small random weights to break symmetry (fig.a)
+    + the final 50 x 256 weights: each neuron grabs a different feature
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-10.png" style="margin: 0.1em;" alt="Architecture for image recognition" title="Architecture for image recognition" height=120>
+    </a>
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-11.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.a" title="Featrues for recinstructing images - fig.a" height=120>
+      <img src="img/m12-12.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.b" title="Featrues for recinstructing images - fig.b" height=120>
+      <img src="img/m12-13.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.c" title="Featrues for recinstructing images - fig.c" height=120>
+    </a>
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-14.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.d" title="Featrues for recinstructing images - fig.d" height=120>
+      <img src="img/m12-15.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.e" title="Featrues for recinstructing images - fig.e" height=120>
+      <img src="img/m12-16.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.f" title="Featrues for recinstructing images - fig.f" height=120>
+    </a>
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-17.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.g" title="Featrues for recinstructing images - fig.g" height=120>
+      <img src="img/m12-18.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.h" title="Featrues for recinstructing images - fig.h" height=120>
+      <img src="img/m12-19.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.i" title="Featrues for recinstructing images - fig.i" height=120>
+    </a>
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-20.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.j" title="Featrues for recinstructing images - fig.j" height=150>
+    </a>
+  </div>
 
++ Measurement for the reconstructing digit images
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-21.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.j" title="Featrues for recinstructing images - fig.j" height=200>
+      <img src="img/m12-22.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.j" title="Featrues for recinstructing images - fig.j" height=200>
+    </a>
+  </div>
 
 
 ### Lecture Video
