@@ -545,8 +545,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
-      <img src="img/m12-21.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.j" title="Featrues for recinstructing images - fig.j" height=200>
-      <img src="img/m12-22.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.j" title="Featrues for recinstructing images - fig.j" height=200>
+      <img src="img/m12-21.png" style="margin: 0.1em;" alt="Testing and recognition of digits" title="Testing and recognition of digits" height=200>
+      <img src="img/m12-22.png" style="margin: 0.1em;" alt="Features detectors for digit recognition" title="Features detectors for digit recognition" height=200>
     </a>
   </div>
 
@@ -563,8 +563,67 @@
 
 ### Lecture Notes
 
++ Collaborative filtering: the Netflix competition
+  + given most of the ratings
+    + half a million users gave to 18,000 movies on a scale from 1 to 5
+    + each user only rates a small fraction of the movies
+  + goal:
+    + predict the ratings users gave to the held out movies
+    + winner: get $1,000,000
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-23.png" style="margin: 0.1em;" alt="Examples of ratings for different movies and users" title="Examples of ratings for different movies and users" height=200>
+    </a>
+  </div>
 
++ Language model
+  + data: strings of triples
+  + string form: User, Movie, rating; e.g.,
+    > U2 M1 5 <br/>
+    > U2 M3 1 <br/>
+    > U4 M1 4 <br/>
+    > U4 M3 ?
+  + architecture
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="img/m12-24.png" style="margin: 0.1em;" alt="Language model to predict rating" title="Language model to predict rating" width=300>
+      </a>
+    </div>
+
++ RBM for matrix factorization
+  + treat each user as a training case
+    + user: a vector movie ratings
+    + one visible unit per movie w/ 5-way softmax
+    + CD learning rule for a softmax same as for a binary unit
+    + ~100 hidden units
+  + one of the visible values unknown
+  + goal: fill in the value by the model
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-25.png" style="margin: 0.1em;" alt="RBM to predict movie rating" title="RBM to predict movie rating" width=200>
+    </a>
+  </div>
+
++ Avoid dealing all missing ratings
+  + instead of one RBM for all users
+  + for each user, using an RBM that only has visible units for the movies the user rated
+  + a different RBM for every user
+    + all these RBMs useing the same hidden units
+    + the weights from each hidden unit to each movie are shared by all the users who rated that movie
+  + each user-specific RBM only gets one training case $\impliedby$ weight-sharing
+  + trained w/ CD1 then CD3, CD5 & CD9
+
++ Measurements for RBM
+  + R. Salakhutdinov, A. Mnih, and G. Hinton, [Restricted Boltzmann Machines for Collaborative Filtering](https://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf), ICML '07: Proceedings of the 24th international conference on Machine learning, June 2007
+  + RBM and matrix factorization methods
+    + work together but give very different errors
+    + averaging the predictions of matrix-factorization is a big win
+  + winning group
+    + using multiple different RBM models in their average of over a hundred models
+    + main models: matrix factorization and RBMs
 
 
 ### Lecture Video
