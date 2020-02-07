@@ -149,18 +149,18 @@
     + very hard to tell when reaching there
   + initial w/ the last state - warm start
     + remember the interpretation of the data vector in the hidden units
-    + particle: stored sates of the interpretation of the data vector
+    + particle: stored states of the interpretation of the data vector
   + Advantage of warm start
-    + small changedon weights at some thermal equilibrium
+    + small changed on weights at some thermal equilibrium
     + only a few updates to get back to equilibrium
-    + able to useparticles for both 
-      + the positive phase for a clamp data factor
-      + the negative phase w/o clamped
+    + able to use particles for both
+      + the positive phase w/ clamped data
+      + the negative phase w/o clamped data
 
 + Radford Neal's method for collecting statistics
   + Positive phase
     + keep a set of "data-specific particles" per training case
-    + each particle w/ a current value, ie., a configuration of the hidden units + which data vector goes with
+    + each particle w/ a current value, ie., a configuration of the hidden units which data vector goes with
     + sequentially update all the hidden units a few times in each particle w/ the relevant data vector clamped
     + connected pair of units: average the probability of the two units $s_i, s_j$ on over all the data-specific particles
   + Negative phase
@@ -168,7 +168,7 @@
     + each particle w/ a value that is a global configuration
     + sequentially update all the units in each fantasy particle a few times $\implies$ updating the visible units
     + connected pair of units: average $s_i s_j$ over all the fantasy particles
-  + change in the weight
+  + weight changing
 
     \[ \Delta w_{ij} \propto \langle s_i s_j \rangle_{data} - \langle s_i s_j \rangle_{model} \]
 
@@ -179,14 +179,21 @@
     + no idea how long to reach theremal equilibrium again
   + strong assumption about how people understand the world ( kind of epistemological assumption)
     + assume clamped data vector:
-      + the set of good explannations (i.e., hidden unit states as interpretations of the data vector) is uni-modal
-      + for sensory input there's one correct explannation and if there exists a good model of data $\implies$ one energy minimum for that data point
+      + the set of good explanations (i.e., hidden unit states as interpretations of the data vector): uni-modal
+      + for sensory input there's one correct explannation and $\exists$ a good model of data $\implies$ one energy minimum for that data point
     + restricting learning model: one sensory input vector w/o multiple very different explannations
       + for a given data vector two very different explananions for that data vector
       + learning algorithm incapable of learning models in which a data vector has many very different explanantions
     + w/ this assumption able to use a very efficient method for approaching thermal equilibrium or an approximation thermal equilibrium w/ the data
 
 + Simple mean field approximation
+
+  \[\begin{align*}
+    prob(s_i) &= \sigma \left( b_i + \sum_j s_j w_{ij} \right)  \tag{1}\\
+    p_i^{t+1} &= \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{2}\\
+      &= \lambda p_i^t + (1 - \lambda) \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{3}
+  \end{align*}\]
+
   + right statistics $\implies$ updating the units stochastically and sequentially (Eq.(1))
     + the update rule is the probability of turning on unit $i$ w/ logistic function of the total input received from the other units and its bias
     + $s_j$: the state of another unit is a stochastic binary value
@@ -195,24 +202,18 @@
     + $p_i^{t+1}$: the output of the logistic function w/ input of bias and sum of the other probabilities at time $t$ times the weights
     + replacing the stochastic binary value by a real value probability
     + only correct w/ a linear function
-    + not correct: putting probabilities instead of flucating binary values inside the nonlinear function
+    + not correct: putting probabilities instead of fluctuating binary values inside the nonlinear function
     + however, it works well
   + using damped mean field to avoid bi-phasic oscillations
-    + bi-pgasic oscillations result in updating everything in parallel
+    + bi-phasic oscillations result in updating everything in parallel
     + damped mean field (Eq.(3)) resolves the oscillations
-
-    \[\begin{align*} 
-      prob(s_i) &= \sigma \left( b_i + \sum_j s_j w_{ij} \right)  \tag{1}\\
-      p_i^{t+1} &= \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{2}\\
-        &= \lambda p_i^t + (1 - \lambda) \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{3}
-    \end{align*}\]
 
 + Efficient mini-batch learning procedure
   + G. Hinton, R. Salakhutdinov, [A Better Way to Pretrain Deep Boltzmann Machines](http://papers.nips.cc/paper/4610-a-better-way-to-pretrain-deep-boltzmann-machines.pdf), Advances in Neural Information Processing Systems 25 (NIPS 2012)
   + Positive phase
     + initialize all the hidden probabilities at $0.5$
     + clamp a data vector on the visible units
-    + update all the hidden units in parallel until convergence (when probability stop changing) using mean field updates
+    + update all the hidden units in parallel until convergence (when probability stops changing) using mean field updates
     + after net converged, record $p_i p_j$ for every connected pair of units and average this over all data in the mini-batch
   + Negative phase
     + keep a set of "fantasy particles"
@@ -232,7 +233,7 @@
     + general Boltzmann machine w/ many missing connections
   + Update for states (right diagram)
     + update the states of the 1st hidden layer (top) and 3rd hidden layer (3 units) w/ current states of the visible units and 2nd hidden layer (2 units)
-    + the update the states if the visible units in the 2nd hidden layer
+    + update the states if the visible units in the 2nd hidden layer
     + repeat the previous two processes
     + update half of the states of all units in parallel
 
@@ -243,10 +244,10 @@
     </a>
   </div>
 
-+ Example: modling MNIST digits w/ DBM
++ Example: modeling MNIST digits w/ DBM
   + can a DBM learn a good model of the MNIST digits?
     + a DBM trained by using mean field for the positive phase and updating fantasy particles by alternating btw even layer and odd layer for negative phase
-    + judgement: 
+    + judgement:
       + remove all the input and then generate samples from your model
       + run the Markov chain for a long time until it's burned in
       + look at the samples got
@@ -264,7 +265,7 @@
   + Issue
     + running model w/ 100 samples and the same 100 fantasy particles for every mini-batch
     + Able to estimate the "negative phase statistics" well w/ only 100 negative examples to characterize the whole space of possible configurations?
-    + find all interesting problems the GLOBAL configuration space is highly multi-modal
+    + find all interesting problems $\to$ the GLOBAL configuration space is highly multi-modal
     + how to find and represent all the modes w/ only 100 particles?
 
 + Effective mixing rate
@@ -278,13 +279,13 @@
     + raising energy surface $\to$ an effect on the mixing rate of the Markov chain
     + the fantasies rush around hyperactively
     + moving around MUCH faster than the mixing rate of the Markov chain defined by the static current weights
-  + Moving fantasy particles btw model's modes (see diagram)
+  + Moving fantasy particles btw model's modes
     + more fantasy particles than data
       + energy surface raised until the fantasy particles escape
-      + overcome energy barrier: too high for the Markovchain to jump in a reasonable time
-      + left mode:
+      + overcome energy barrier: too high for the Markov chain to jump in a reasonable time
+      + left mode (see diagram)
         + 4 fantasy particles and only 2 data points
-        + the effect of learning: raise the energy there
+        + the effect of learning: raise the energy there (red dots)
         + energy barrier too high for Markov chain to cross $\implies$ low mixing rate
         + the learning actually spill those red particles out of that energy minimum by rasing the minimum
         + the fantasy particles escape and go off somewhere else to some other deep minimum
