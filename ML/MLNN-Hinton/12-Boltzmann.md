@@ -331,7 +331,7 @@
 
   + advantage
     + reach thermal equilibrium in one step when the visible units are clamped to a data
-    + quickly get the expacted value of $\langle v_i h_j \rangle_{\mathbf{v}}$
+    + quickly get the expected value of $\langle v_i h_j \rangle_{\mathbf{v}}$
       + compute the exact probability w/ which unit $j$ turns on
       + independent of all other hidden units in the hidden layer
   + the probability of unit $j$ will turn on:
@@ -341,7 +341,7 @@
 
     \[ p(h_j = 1) = \frac{1}{1 + e^{-(b_j + \sum_{i \in vis} v_i w_{ij})}} \]
 
-+ Persistent Contrastive Divergence (PDC)
++ Persistent Contrastive Divergence (PCD)
   + T. Tieleman, [Training Restricted Boltzmann Machines using Approximations to the Likelihood Gradient](https://www.cs.toronto.edu/~tijmen/pcd/pcd.pdf), Machine Learning, Proceedings of the Twenty-Fifth International Conference (ICML 2008), Helsinki, Finland, June 5-9, 2008
   + an efficient mini-batch learning procedure for Restricted Boltzmann Machines
   + positive phase
@@ -361,7 +361,7 @@
         + start w/ a training vector on the visible units
         + the visible vector $\to$ update the hidden units
         + choose binary states for the hidden units
-        + measure the exected value of $v_i h_j$ for all pairs of visible binary units connected
+        + measure the expected value of $v_i h_j$ for all pairs of visible binary units connected
         + $\langle v_i h_j \rangle^0$: measurement at $t=0$ w/ the hidden units being determined by the visible units
         + update all hidden units in parallel
       + $t=1$
@@ -375,7 +375,7 @@
         + fantasy: a visible state at $t=\infty$
   + the learning rule w/ weight updating
 
-    \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^\infty \right) \]
+    \[ \Delta w_{ij} = \varepsilon \left(\langle v_i h_j \rangle^0 - \langle v_i h_j \rangle^\infty \right) \]
 
     + $\varepsilon$: the learning rate
   + disadvantage: running algorithm for a long time to reach thermal equilibrium $\to$ misleading w/ $t=\infty$
@@ -385,12 +385,12 @@
     + surprising short-cut
     + start w/ a training vector on the visible units
     + update all the hidden units in parallel
-    + update the all visible units in parallel to get a "reconstruction"
+    + update all visible units in parallel to get a "reconstruction"
     + update the hidden units again
     + measure statistics after doing one full update of the Markov chain
     + not following the gradient of the log likelihood, but working well
 
-      \[ \Delta w_{ij} = \varepsilon \left(\langle v-i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
+      \[ \Delta w_{ij} = \varepsilon \left(\langle v_i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
@@ -409,7 +409,7 @@
     + achieved after one full step
     + raise the probability of the data
     + then stop wandering away
-    + canceling out once the confabulations and the data have the same distribution
+    + cancelling out once the configurations and the data have the same distribution
   + example
     + energy surface in space of global configuration (top diagram)
     + datapoint: both the visible vector and the particular hidden vector
@@ -418,7 +418,7 @@
     + start w/ the data point
     + run the Markov chain for one full step to get a new visible vector and the hidden vector that goes with it
     + a reconstruction of the data point plus the hidden vector that goes with that reconstruction
-    + then change the weight to pull the energy down at the datapoint and to pull the energy up of the reconstruction
+    + then change the weights to pull the energy down at the datapoint and to pull the energy up of the reconstruction
     + the changes will make the surface as shown in the bottom diagram
     + at the data: beginning to construct an energy minimum
     + away from data: stay what it was
@@ -441,7 +441,7 @@
     + start w/ small weights and use CD1
     + the weight $\uparrow \to$ Markov chain mixing more slowly $\to$ using CD3
     + the weight $\uparrow\uparrow \to$ using CDx, where x = 5 or 9 or 10
-    + CDx: use x full steps to get the "negative data"
+    + CD$x$: use $x$ full steps to get the "negative data"
 
 
 ### Lecture Video
