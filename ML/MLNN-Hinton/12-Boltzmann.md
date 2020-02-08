@@ -479,7 +479,7 @@
 
 + Learn features of images of the digit 2
   + RBM learning a model of images of handwritten 2s
-    + all digit classes w/ considerably larger weight $\to$ wide variety of features btw them good at reconstructing all the different classes of digits
+    + all digit classes w/ considerably larger weight, wide variety of features btw them $\to$ good at reconstructing all the different classes of digits
     + a good model for digit classes: 
       + binary vector of handwitten digit images able to find low energy states compitable w/ that image
       + unable to find low energy w/ binary vector away from the target image
@@ -491,14 +491,14 @@
     + the use the binary patterns of activation to reconstruct the data (blue arrow line)
     + feed pixel to make a binary decision about state 0 or 1
     + then reactivate the binary feature detectors using the reconstruction to activate rather than the data (the red arrow line)
-    + the weight changed by incrementing the weights between an active pixel or an active feature detector (green line) when the network is look at data
-    + low energy of the global configuration of the data and whatever hidden pattern w/ it
-    + decrementing the weight btw active pixel and an active detector when reconstructing and raise the energy of the reconstruction
+    + the weight changed by incrementing the weights between an active pixel and an active feature detector (green line)
+    + when the network is looking at data, low energy of the global configuration of the data and whatever hidden pattern w/ it
+    + decrementing the weight btw an active pixel and an active detector when reconstructing and raising the energy of the reconstruction
     + near the beginning of the learning, weights are random
     + the reconstruction will almost certainly have lower energy than the data
     + the reconstruction is what the network likes to reproduce on the visible units given the hidden pattern of activity
-    + the model likes to reproduce patterns w/ low anager according to the energy function
-    + learning is to change the weights $\to$ data is low energy
+    + the model likes to reproduce patterns w/ low energy according to the energy function
+    + learning to change the weights $\to$ data w/ low energy
     + reconstructions of the data are generally higher energy
   + the weights of the 50 feature detectors
     + start w/ small random weights to break symmetry (fig.a)
@@ -512,11 +512,11 @@
     + the final 50 x 256 weights: each neuron grabs a different feature (fig. j)
       + each neuron becomes a different feature detector
       + most of the feature detectors are fairly local
-      + red box feature: detecting the top of a 2 and 
+      + red box feature: detecting the top of a 2
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
-      <img src="img/m12-10.png" style="margin: 0.1em;" alt="Architecture for image recognition" title="Architecture for image recognition" height=120>
+      <img src="img/m12-10.png" style="margin: 0.1em;" alt="Architecture for image recognition" title="Architecture for image recognition" height=150>
     </a>
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
       <img src="img/m12-11.png" style="margin: 0.1em;" alt="Featrues for recinstructing images - fig.a" title="Featrues for recinstructing images - fig.a" height=120>
@@ -564,7 +564,7 @@
         + detect it in a number of different positions
         + refuse to detect it in the intermediate positions
         + very like one of the least significant digits in a binary number as you increase the magnitude of the number goes on and off repeatedly
-        + it shows this is developing quite complex ways of representing where thing are
+        + it shows this is developing quite complex ways of representing where things are
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
