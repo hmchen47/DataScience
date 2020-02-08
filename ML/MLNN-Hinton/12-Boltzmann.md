@@ -362,7 +362,9 @@
     + each particle w/ a value that is a global configuration
     + update each fantasy particle a few times using alternating parallel updates $\implies$ bring back to close to equilibrium
     + connected pair of units: average $\langle v_i h_j \rangle$ over all the fantasy particles
-  + work well and allow RBM to build good density models of sets of binary vectors
+  + advantage:
+    + work well
+    + allow RBM to build good density models of sets of binary vectors
   + inefficient version of the Boltzmann machines learning algorithm for an RBM (left diagram)
     + times ($t$) not about weight updates but to note steps in a Markov chain
     + process:
@@ -388,22 +390,27 @@
 
     + $\varepsilon$: the learning rate
   + disadvantage: running algorithm for a long time to reach thermal equilibrium $\to$ misleading w/ $t=\infty$
-  
-  + contrastive divergence (right diagram)
-    + not good at building density models but much faster
-    + surprising short-cut
-    + start w/ a training vector on the visible units
-    + update all the hidden units in parallel
-    + update all visible units in parallel to get a "reconstruction"
-    + update the hidden units again
-    + measure statistics after doing one full update of the Markov chain
-    + not following the gradient of the log likelihood, but working well
-
-      \[ \Delta w_{ij} = \varepsilon \left(\langle v_i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
       <img src="img/m12-07.png" style="margin: 0.1em;" alt="Inefficient version of a Boltzmann Machine" title="Inefficient version of a Boltzmann Machine" height=120>
+    </a>
+  </div>
+
++ Contrastive divergence (right diagram)
+  + not good at building density models but much faster
+  + surprising short-cut
+  + start w/ a training vector on the visible units
+  + update all the hidden units in parallel
+  + update all visible units in parallel to get a "reconstruction"
+  + update the hidden units again
+  + measure statistics after doing one full update of the Markov chain
+  + not following the gradient of the log likelihood, but working well
+
+    \[ \Delta w_{ij} = \varepsilon \left(\langle v_i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
       <img src="img/m12-08.png" style="margin: 0.1em;" alt="Restricted Boltzmann Machine" title="Restricted Boltzmann Machine" height=120>
     </a>
   </div>
@@ -419,26 +426,27 @@
     + raise the probability of the data
     + then stop wandering away
     + cancelling out once the configurations and the data have the same distribution
-  + example
-    + energy surface in space of global configuration (top diagram)
-    + datapoint: both the visible vector and the particular hidden vector
-    + particular hidden vector got by stochastic updating the hidden units
-    + hidden vector: a function of what the data point is
-    + start w/ the data point
-    + run the Markov chain for one full step to get a new visible vector and the hidden vector that goes with it
-    + a reconstruction of the data point plus the hidden vector that goes with that reconstruction
-    + then change the weights to pull the energy down at the datapoint and to pull the energy up of the reconstruction
-    + the changes will make the surface as shown in the bottom diagram
-    + at the data: beginning to construct an energy minimum
-    + away from data: stay what it was
 
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
-        <img src="img/m12-09.png" style="margin: 0.1em;" alt="Example of contrastive divergence learning" title="Example of contrastive divergence learning" width=450>
-      </a>
-    </div>
++ Example of Contrastive Divergence
+  + energy surface in space of global configuration (top diagram)
+  + datapoint: both the visible vector and the particular hidden vector
+  + particular hidden vector got by stochastic updating the hidden units
+  + hidden vector: a function of what the data point is
+  + start w/ the data point
+  + run the Markov chain for one full step to get a new visible vector and the hidden vector that goes with it
+  + a reconstruction of the data point plus the hidden vector that goes with that reconstruction
+  + then change the weights to pull the energy down at the datapoint and to pull the energy up of the reconstruction
+  + the changes will make the surface as shown in the bottom diagram
+  + at the data: beginning to construct an energy minimum
+  + away from data: stay what it was
 
-+ Limitation of contrastive divergence
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="img/m12-09.png" style="margin: 0.1em;" alt="Example of contrastive divergence learning" title="Example of contrastive divergence learning" width=450>
+    </a>
+  </div>
+
++ Limitation and Practice of contrastive divergence
   + reconstruction fails for places away from the data
   + regions of the data-space
     + the model likes but regions very far away from any data
@@ -463,7 +471,6 @@
 -->
 
 <a href="https://youtu.be/JvF3gninXi8?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK"><img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/></a><br/>
-
 
 
 ## 12.4 An example of contrastive divergence learning
