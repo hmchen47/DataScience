@@ -133,10 +133,15 @@
 
 ### Lecture Video
 
+<!--
 <video src="https://youtu.be/MMBX--6_hA4?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
+-->
+
+<a href="https://youtu.be/MMBX--6_hA4?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK"><img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/></a><br/>
+
 
 
 ## 12.2 More efficient ways to get the statistics
@@ -305,10 +310,14 @@
 
 ### Lecture Video
 
+<!--
 <video src="https://youtu.be/ltv1KjVLCdE?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
+-->
+
+<a href="https://youtu.be/ltv1KjVLCdE?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK"><img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/></a><br/>
 
 
 ## 12.3 Restricted Boltzmann machines
@@ -446,10 +455,15 @@
 
 ### Lecture Video
 
+<!--
 <video src="https://youtu.be/JvF3gninXi8?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
+-->
+
+<a href="https://youtu.be/JvF3gninXi8?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK"><img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/></a><br/>
+
 
 
 ## 12.4 An example of contrastive divergence learning
@@ -555,10 +569,14 @@
 
 ### Lecture Video
 
+<!--
 <video src="https://youtu.be/2gWEP6IewgM?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
+-->
+
+<a href="https://youtu.be/2gWEP6IewgM?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK"><img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/></a><br/>
 
 
 ## 12.5 RBMs for collaborative filtering
@@ -669,9 +687,13 @@
 
 ### Lecture Video
 
+<!--
 <video src="https://youtu.be/6xbPLDAoZ-U?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
+-->
+
+<a href="https://youtu.be/6xbPLDAoZ-U?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK"><img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/></a><br/>
 
 
