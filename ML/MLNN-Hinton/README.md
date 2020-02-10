@@ -81,11 +81,11 @@
 
 ## 10. Model Combination and Dropouts
   
-+ [Why it helps to combine models](10-CombineDropout.md#)
-+ [Mixtures of experts](10-CombineDropout.md#)
-+ [The idea of full bayesian learning](10-CombineDropout.md#)
-+ [Making full bayesian learning practical](10-CombineDropout.md#)
-+ [Dropout an efficient way to combine neural nets](10-CombineDropout.md#)
++ [Why it helps to combine models](10-CombineDropout.md#101-why-it-helps-to-combine-models)
++ [Mixtures of experts](10-CombineDropout.md#102-mixtures-of-experts)
++ [The idea of full bayesian learning](10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
++ [Making full bayesian learning practical](10-CombineDropout.md#104-making-full-bayesian-learning-practical)
++ [Dropout an efficient way to combine neural nets](10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
 
 
 ## 11. Hopfield Nets and Boltzmann Machines
