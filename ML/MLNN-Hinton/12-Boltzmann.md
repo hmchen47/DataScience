@@ -39,8 +39,7 @@
 + Surprising fact
   + one weight needs to know about other weights in order to be able to change even in the right direction
   + the learning algorithm only requires local information
-  + everything that one weight needs to know about the other weights
-  + the data contained in the difference of two correlations
+  + everything that one weight needs to know about the other weights: the data contained in the difference of two correlations
   + derivatives of log probability of a visible vector
 
     \[ \frac{\partial \log p(\mathbf{v})}{\partial w_{ij}} = \langle s_i s_j \rangle_{\mathbf{v}} - \langle s_i s_j \rangle_{model} \]
@@ -155,7 +154,7 @@
   + initial w/ the last state - warm start
     + remember the interpretation of the data vector in the hidden units
     + particle: stored states of the interpretation of the data vector
-  + Advantage of warm start
+  + Advantages of warm start
     + small changed on weights at some thermal equilibrium
     + only a few updates to get back to equilibrium
     + able to use particles for both
@@ -328,7 +327,7 @@
   + restrict the connectivity to make inference and learning easier
     + only one layer of hidden units
     + no connections btw hidden units
-  + typical architecture (see diagram)
+  + typical architecture
     + a bipartite graph
     + no connection btw units on the same layer
 
@@ -397,7 +396,7 @@
     </a>
   </div>
 
-+ Contrastive divergence (right diagram)
++ Contrastive divergence
   + not good at building density models but much faster
   + surprising short-cut
   + start w/ a training vector on the visible units
