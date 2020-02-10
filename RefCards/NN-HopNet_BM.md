@@ -550,3 +550,32 @@
     </div>
 
 
+## Restricted Boltzmann machines (RBM)
+
+### Modeling for Restricted Boltzmann machines
+
++ [Restricted Boltzmann Machines](../ML/MLNN-Hinton/12-Boltzmann.md#123-restricted-boltzmann-machines)
+  + restrict the connectivity to make inference and learning easier
+  + typical architecture
+    + a bipartite graph
+    + no connection btw units on the same layer
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m12-06.png" style="margin: 0.1em;" alt="Example of RBM architecture" title="Example of RBM architecture" width=200>
+      </a>
+    </div>
+
+  + advantage
+    + reach thermal equilibrium in one step when the visible units are clamped to a data
+    + quickly get the expected value of $\langle v_i h_j \rangle_{\mathbf{v}}$
+      + compute the exact probability w/ which unit $j$ turns on
+      + independent of all other hidden units in the hidden layer
+  + the probability of unit $j$ will turn on:
+    + a logistic function w/ input from visible units
+    + quite independent of what other hidden units doing
+    + compute the probabilities all in parallel
+
+    \[ p(h_j = 1) = \frac{1}{1 + e^{-(b_j + \sum_{i \in vis} v_i w_{ij})}} \]
+
+
