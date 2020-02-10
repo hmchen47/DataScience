@@ -28,7 +28,21 @@
 </a><br/>
 
 
-## 13.3 The wake-sleep algorithm
+## 13.3 Learning Sigmoid Belief Nets
+
+### Lecture Notes
+
+
+
+
+### Lecture Video
+
+<a href="url" target="_BLANK">
+  <img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/>
+</a><br/>
+
+
+## 13.4 The wake-sleep algorithm
 
 ### Lecture Notes
 
