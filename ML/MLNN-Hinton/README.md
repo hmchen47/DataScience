@@ -99,11 +99,11 @@
 
 ## 12. Restricted Boltzmann Machine (RBMs)
 
-+ [The Boltzmann machine learning algorithm](12-Boltzmann.md#)
-+ [More efficient ways to get the statistics](12-Boltzmann.md#)
-+ [Restricted Boltzmann machines](12-Boltzmann.md#)
-+ [An example of contrastive divergence learning](12-Boltzmann.md#)
-+ [RBMs for collaborative filtering](12-Boltzmann.md#)
++ [The Boltzmann machine learning algorithm](12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
++ [More efficient ways to get the statistics](12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
++ [Restricted Boltzmann machines](12-Boltzmann.md#123-restricted-boltzmann-machines)
++ [An example of contrastive divergence learning](12-Boltzmann.md#124-an-example-of-contrastive-divergence-learning)
++ [RBMs for collaborative filtering](12-Boltzmann.md#125-rbms-for-collaborative-filtering)
 
 
 ## 13. Deep Belief Nets
