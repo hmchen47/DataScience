@@ -110,6 +110,7 @@
 
 + [The ups and downs of backpropagation](13-BeliefNets.md#)
 + [Belief nets](13-BeliefNets.md#)
++ [Learning Sigmoid Belief Nets](13-BeliefNets.md#)
 + [The wake-sleep algorithm](13-BeliefNets.md#)
 
 
