@@ -610,4 +610,109 @@
   </div>
 
 
+### Contrastive Divergence (CD)
 
++ [Contrastive divergence](../ML/MLNN-Hinton/12-Boltzmann.md#123-restricted-boltzmann-machines)
+  + not good at building density models but much faster
+  + surprising short-cut
+  + start w/ a training vector on the visible units
+  + update all the hidden units in parallel
+  + update all visible units in parallel to get a "reconstruction"
+  + update the hidden units again
+  + measure statistics after doing one full update of the Markov chain
+  + not following the gradient of the log likelihood, but working well
+
+    \[ \Delta w_{ij} = \varepsilon \left(\langle v_i h_j \rangle^0 - \langle v_i h_j \rangle^1 \right) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-08.png" style="margin: 0.1em;" alt="Restricted Boltzmann Machine" title="Restricted Boltzmann Machine" height=120>
+    </a>
+  </div>
+
++ [Why contrastive divergence works?](../ML/MLNN-Hinton/12-Boltzmann.md#123-restricted-boltzmann-machines)
+  + initiate w/ data
+    + the Markov chain wanders away from the data and towards initial weights (the equilibrium distribution)
+    + able to see what direction it is wandering in after only a few steps
+  + lowering the probability of the reconstruction (or configurations in psychology)
+    + achieved after one full step
+    + raise the probability of the data
+    + then stop wandering away
+    + cancelling out once the configurations and the data have the same distribution
+
++ [Example of Contrastive Divergence](../ML/MLNN-Hinton/12-Boltzmann.md#123-restricted-boltzmann-machines)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-09.png" style="margin: 0.1em;" alt="Example of contrastive divergence learning" title="Example of contrastive divergence learning" width=450>
+    </a>
+  </div>
+
++ [Limitation and Practice of contrastive divergence](../ML/MLNN-Hinton/12-Boltzmann.md#123-restricted-boltzmann-machines)
+  + reconstruction fails for places away from the data
+  + regions of the data-space
+    + the model likes but regions very far away from any data
+    + low energy holes causing the normalization term to be big
+    + unable to sense the low energy holes when using the short-cut
+    + persistent particles: eventually fall into a hole
+    + filling up the hole then move on to another hole
+  + compromise btw speed and correctness
+    + start w/ small weights and use CD1
+    + the weight $\uparrow \to$ Markov chain mixing more slowly $\to$ using CD3
+    + the weight $\uparrow\uparrow \to$ using CDx, where x = 5 or 9 or 10
+    + CD$x$: use $x$ full steps to get the "negative data"
+
++ [Learn features of images of the digit 2](../ML/MLNN-Hinton/12-Boltzmann.md#124-an-example-of-contrastive-divergence-learning)
+  + RBM learning a model of images of handwritten 2s
+    + all digit classes w/ considerably larger weight, wide variety of features btw them $\to$ good at reconstructing all the different classes of digits
+    + a good model for digit classes: 
+      + binary vector of handwitten digit images able to find low energy states compitable w/ that image
+      + unable to find low energy w/ binary vector away from the target image
+  + learning a set of features good for reconstructing images (architecture: diagram)
+    + learn to become interesting feature detectors
+    + image of 16 pixels by 16 pixels (bottom left box) and 50 binary hidden units (top left box)
+    + using the weights and connections from pixels to feature detectors to activate the feature detectors (green arrow line)
+    + each binary neuron makes a stochastic decision about whether state 0 or 1
+    + the use the binary patterns of activation to reconstruct the data (blue arrow line)
+    + feed pixel to make a binary decision about state 0 or 1
+    + then reactivate the binary feature detectors using the reconstruction to activate rather than the data (the red arrow line)
+    + the weight changed by incrementing the weights between an active pixel and an active feature detector (green line)
+    + when the network is looking at data, low energy of the global configuration of the data and whatever hidden pattern w/ it
+    + decrementing the weight btw an active pixel and an active detector when reconstructing and raising the energy of the reconstruction
+    + near the beginning of the learning, weights are random
+    + the reconstruction will almost certainly have lower energy than the data
+    + the reconstruction is what the network likes to reproduce on the visible units given the hidden pattern of activity
+    + the model likes to reproduce patterns w/ low energy according to the energy function
+    + learning to change the weights $\to$ data w/ low energy
+    + reconstructions of the data are generally higher energy
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-10.png" style="margin: 0.1em;" alt="Architecture for image recognition" title="Architecture for image recognition" height=150>
+    </a>
+    </a>
+  </div>
+
++ [Measurement for the reconstructing digit images](../ML/MLNN-Hinton/12-Boltzmann.md#124-an-example-of-contrastive-divergence-learning)
+  + left diagram: test w/ an example of the 2
+  + middle diagram: test w/ an example of 3
+  + right diagram
+    + using 500 hidden units to model all 10 digit classes
+    + the feature detectors learned in the first hidden layer
+    + train for a long time w/ contrastive divergence
+    + a big variety of feature detectors
+      + blue box: useful for detecting 8s
+      + red box: curious kind of feature
+      + green box:
+        + detect where the bottom of a vertical stroke comes
+        + detect it in a number of different positions
+        + refuse to detect it in the intermediate positions
+        + very like one of the least significant digits in a binary number as you increase the magnitude of the number goes on and off repeatedly
+        + it shows this is developing quite complex ways of representing where things are
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-21.png" style="margin: 0.1em;" alt="Testing and recognition of digits" title="Testing and recognition of digits" height=200>
+      <img src="../ML/MLNN-Hinton/img/m12-22.png" style="margin: 0.1em;" alt="Features detectors for digit recognition" title="Features detectors for digit recognition" height=200>
+    </a>
+  </div>
