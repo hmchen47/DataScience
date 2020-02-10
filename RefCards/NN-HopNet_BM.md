@@ -579,3 +579,35 @@
     \[ p(h_j = 1) = \frac{1}{1 + e^{-(b_j + \sum_{i \in vis} v_i w_{ij})}} \]
 
 
+### Persistent Contrastive Divergence
+
++ [Persistent Contrastive Divergence](../ML/MLNN-Hinton/12-Boltzmann.md#123-restricted-boltzmann-machines) (PCD)
+  + an efficient mini-batch learning procedure for Restricted Boltzmann Machines
+  + positive phase
+    + clamp a data vector on the visible units
+    + compute the exact value of $\langle v_i h_j \rangle$ for all pairs of a visible and a hidden unit $\impliedby v_i$  fixed
+    + connected pair of units: average $\langle v_i h_j \rangle$ over all data in the mini-batch
+  + negative phase:
+    + keep a set of "fantasy particles"
+    + each particle w/ a value that is a global configuration
+    + update each fantasy particle a few times using alternating parallel updates $\implies$ bring back to close to equilibrium
+    + connected pair of units: average $\langle v_i h_j \rangle$ over all the fantasy particles
+  + advantage:
+    + work well
+    + allow RBM to build good density models of sets of binary vectors
+  + inefficient version of the Boltzmann machines learning algorithm for an RBM (see diagram)
+    + times ($t$) not about weight updates but to note steps in a Markov chain
+  + the learning rule w/ weight updating
+
+    \[ \Delta w_{ij} = \varepsilon \left(\langle v_i h_j \rangle^0 - \langle v_i h_j \rangle^\infty \right) \]
+
+  + disadvantage: running algorithm for a long time to reach thermal equilibrium $\to$ misleading w/ $t=\infty$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-07.png" style="margin: 0.1em;" alt="Inefficient version of a Boltzmann Machine" title="Inefficient version of a Boltzmann Machine" height=120>
+    </a>
+  </div>
+
+
+
