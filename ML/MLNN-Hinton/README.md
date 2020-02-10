@@ -90,11 +90,11 @@
 
 ## 11. Hopfield Nets and Boltzmann Machines
 
-+ [Hopfield Nets](11-Hopfield.md#)
-+ [Dealing with spurious minima in Hopfield nets](11-Hopfield.md#)
-+ [Hopfields Nets with hidden units](11-Hopfield.md#)
-+ [Using stochastic units to improve search](11-Hopfield.md#)
-+ [How a Boltzmann machine models data](11-Hopfield.md#)
++ [Hopfield Nets](11-Hopfield.md#111-hopfield-nets)
++ [Dealing with spurious minima in Hopfield nets](11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
++ [Hopfields Nets with hidden units](11-Hopfield.md#113-hopfields-nets-with-hidden-units)
++ [Using stochastic units to improve search](11-Hopfield.md#114-using-stochastic-units-to-improve-search)
++ [How a Boltzmann machine models data](11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
 
 
 ## 12. Restricted Boltzmann Machine (RBMs)
