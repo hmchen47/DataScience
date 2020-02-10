@@ -71,39 +71,39 @@
 
 ## 09. Overfitting
   
-+ [Overview of ways to improve generalization](09-Overfitting.md#)
-+ [Limiting size of the weights](09-Overfitting.md#)
-+ [Using noise as a regularizer](09-Overfitting.md#)
-+ [Introduction to the Bayesian approach](09-Overfitting.md#)
-+ [The Bayesian interpretation of weight decay](09-Overfitting.md#)
-+ [MacKays quick and dirty method of fixing weight costs](09-Overfitting.md#)
++ [Overview of ways to improve generalization](09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
++ [Limiting size of the weights](09-Overfitting.md#92-limiting-size-of-the-weights)
++ [Using noise as a regularizer](09-Overfitting.md#93-using-noise-as-a-regularizer)
++ [Introduction to the Bayesian approach](09-Overfitting.md#94-introduction-to-the-bayesian-approach)
++ [The Bayesian interpretation of weight decay](09-Overfitting.md#95-the-bayesian-interpretation-of-weight-decay)
++ [MacKays quick and dirty method of fixing weight costs](09-Overfitting.md#96-mackays-quick-and-dirty-method-of-fixing-weight-costs)
 
 
 ## 10. Model Combination and Dropouts
   
-+ [Why it helps to combine models](10-CombineDropout.md#)
-+ [Mixtures of experts](10-CombineDropout.md#)
-+ [The idea of full bayesian learning](10-CombineDropout.md#)
-+ [Making full bayesian learning practical](10-CombineDropout.md#)
-+ [Dropout an efficient way to combine neural nets](10-CombineDropout.md#)
++ [Why it helps to combine models](10-CombineDropout.md#101-why-it-helps-to-combine-models)
++ [Mixtures of experts](10-CombineDropout.md#102-mixtures-of-experts)
++ [The idea of full bayesian learning](10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
++ [Making full bayesian learning practical](10-CombineDropout.md#104-making-full-bayesian-learning-practical)
++ [Dropout an efficient way to combine neural nets](10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
 
 
 ## 11. Hopfield Nets and Boltzmann Machines
 
-+ [Hopfield Nets](11-Hopfield.md#)
-+ [Dealing with spurious minima in hopfield nets](11-Hopfield.md#)
-+ [Hopfields Nets with hidden units](11-Hopfield.md#)
-+ [Using stochastic units to improve search](11-Hopfield.md#)
-+ [How a boltzmann machine models data](11-Hopfield.md#)
++ [Hopfield Nets](11-Hopfield.md#111-hopfield-nets)
++ [Dealing with spurious minima in Hopfield nets](11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
++ [Hopfields Nets with hidden units](11-Hopfield.md#113-hopfields-nets-with-hidden-units)
++ [Using stochastic units to improve search](11-Hopfield.md#114-using-stochastic-units-to-improve-search)
++ [How a Boltzmann machine models data](11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
 
 
 ## 12. Restricted Boltzmann Machine (RBMs)
 
-+ [The boltzmann machine learning algorithm](12-Boltzmann.md#)
-+ [More efficient ways to get the statistics](12-Boltzmann.md#)
-+ [Restricted boltzmann machines](12-Boltzmann.md#)
-+ [An example of contrastive divergence learning](12-Boltzmann.md#)
-+ [RBMs for collaborative filtering](12-Boltzmann.md#)
++ [The Boltzmann machine learning algorithm](12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
++ [More efficient ways to get the statistics](12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
++ [Restricted Boltzmann machines](12-Boltzmann.md#123-restricted-boltzmann-machines)
++ [An example of contrastive divergence learning](12-Boltzmann.md#124-an-example-of-contrastive-divergence-learning)
++ [RBMs for collaborative filtering](12-Boltzmann.md#125-rbms-for-collaborative-filtering)
 
 
 ## 13. Deep Belief Nets
