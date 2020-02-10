@@ -423,4 +423,54 @@
     + finding the global configurations raising their energy to contribute less
 
 
+### Collecting Statistics
+
++ [Collecting statistics for learning](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + Positive phase
+    + clamp a data vector on the visible units
+    + set the hidden units to random binary states
+    + update the hidden units one at a time until the network reaches thermal equilibrium at a temperature of 1
+    + sample $\langle s_i s_j \rangle$ for every connected pair of units
+    + repeat for all data vectors in the training set and then average hem
+  + Negative phase
+    + prevent from clamping a data vector on the visible units $\implies$ unlearning
+    + set all the units to random binary states
+    + update all the units one at a time until the network reaches thermal equilibrium at a temperature of 1
+    + sample $\langle s_j s_j \rangle$ for every connected pair of units
+    + repeat many times (how many?) and average to get good estimates
+    + expect the energy landscape to have many different seperately minima w/ about the same energy
+    + expect a small fraction of the space to be these low energy states and a very large fraction of the space to be bad high energy states
+
++ [Better way to collect statistics](../ML/MLNN-Hinton/12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
+  + initial w/ a random state
+  + initial w/ the last state - warm start
+  + Advantages of warm start
+    + small changed on weights at some thermal equilibrium
+    + only a few updates to get back to equilibrium
+    + able to use particles for both
+
++ [Radford Neal's method for collecting statistics](../ML/MLNN-Hinton/12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
+  + Positive phase
+    + keep a set of "data-specific particles" per training case
+    + each particle w/ a current value, ie., a configuration of the hidden units which data vector goes with
+    + sequentially update all the hidden units a few times in each particle w/ the relevant data vector clamped
+    + connected pair of units: average the probability of the two units $s_i, s_j$ on over all the data-specific particles
+  + Negative phase
+    + keep a set of "fantasy particles"
+    + each particle w/ a value that is a global configuration
+    + sequentially update all the units in each fantasy particle a few times $\implies$ updating the visible units
+    + connected pair of units: average $s_i s_j$ over all the fantasy particles
+  + weight changing
+
+    \[ \Delta w_{ij} \propto \langle s_i s_j \rangle_{data} - \langle s_i s_j \rangle_{model} \]
+
+  + mini-batches
+    + not working well
+    + no idea how long to reach theremal equilibrium again
+  + strong assumption about how people understand the world ( kind of epistemological assumption)
+    + assume clamped data vector: the set of good explanations (i.e., hidden unit states as interpretations of the data vector): uni-modal
+    + restricting learning model: one sensory input vector w/o multiple very different explannations
+    + w/ this assumption able to use a very efficient method for approaching thermal equilibrium or an approximation thermal equilibrium w/ the data
+
+
 
