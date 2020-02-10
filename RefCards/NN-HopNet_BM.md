@@ -473,4 +473,80 @@
     + w/ this assumption able to use a very efficient method for approaching thermal equilibrium or an approximation thermal equilibrium w/ the data
 
 
+### Mean Filed approximation
+
++ [Simple mean field approximation](../ML/MLNN-Hinton/12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
+
+  \[\begin{align*}
+    prob(s_i) &= \sigma \left( b_i + \sum_j s_j w_{ij} \right)  \tag{1}\\
+    p_i^{t+1} &= \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{2}\\
+      &= \lambda p_i^t + (1 - \lambda) \sigma \left( b_i + \sum_j p_j^t w_{ij} \right) \tag{3}
+  \end{align*}\]
+
+  + right statistics $\implies$ updating the units stochastically and sequentially (Eq.(1))
+  + using probabilities instead of binary states and update the unit in parallel to accelerate (Eq.(2))
+  + using damped mean field to avoid bi-phasic oscillations
+    + bi-phasic oscillations result in updating everything in parallel
+    + damped mean field (Eq.(3)) resolves the oscillations
+
++ [Efficient mini-batch learning procedure](../ML/MLNN-Hinton/12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
+  + Positive phase
+    + initialize all the hidden probabilities at $0.5$
+    + clamp a data vector on the visible units
+    + update all the hidden units in parallel until convergence using mean field updates
+    + after net converged, record $p_i p_j$ for every connected pair of units and average this over all data in the mini-batch
+  + Negative phase
+    + keep a set of "fantasy particles"
+    + each particle w/ a value  that is a global configuration
+    + sequentially update all the units in each fantasy particle a few times
+    + connected pair of units: average $s_i s_j$ (stochastic binary values) over all the fantasy particles
+  + the difference btw these averages:
+    + the learning rule
+    + change the weights by amount proportional to that difference
+
++ [Parallel updates](../ML/MLNN-Hinton/12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
+  + general Boltzmann machine: the stochastic updates of units need to be sequential
+  + Deep Boltzmann Machine (DBM) (left diagram)
+    + special architecture: allowing alternative parallel updates for fantasy particles $\implies$ more efficient
+    + no connections within a layer
+    + no skip-layer connections
+    + general Boltzmann machine w/ many missing connections
+  + Update for states (right diagram)
+    + update the states of the 1st hidden layer (top) and 3rd hidden layer (3 units) w/ current states of the visible units and 2nd hidden layer (2 units)
+    + update the states if the visible units in the 2nd hidden layer
+    + repeat the previous two processes
+    + update half of the states of all units in parallel
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-02.png" style="margin: 0.1em;" alt="Example architecture of DBM" title="Example architecture of DBM" height=150>
+      <img src="../ML/MLNN-Hinton/img/m12-03.png" style="margin: 0.1em;" alt="Example architecture of DBM" title="Example architecture of DBM" height=150>
+    </a>
+  </div>
+
++ [Effective mixing rate](../ML/MLNN-Hinton/12-Boltzmann.md#122-more-efficient-ways-to-get-the-statistics)
+  + learning
+    + interact w/ the Markov chain used to gather the "negative statistics"; i.e., the data-independent statistics
+    + not able to analyze the learning by viewing it as an outer loop and the gathering of statistics as an inner loop
+  + fantasy particles outnumber the positive data
+    + raising energy surface $\to$ an effect on the mixing rate of the Markov chain
+    + the fantasies rush around hyperactively
+    + moving around MUCH faster than the mixing rate of the Markov chain defined by the static current weights
+  + Moving fantasy particles btw model's modes
+    + more fantasy particles than data
+      + energy surface raised until the fantasy particles escape
+      + overcome energy barrier: too high for the Markov chain to jump in a reasonable time
+    + changing energy surface: mixing in addition to defining the model
+      + energy surface represent the model
+      + energy surface manipulated by the learning algorithm to make the Markov chain mix faster or rather have the affect of a faster mixing Markov chain
+    + fantasy particles filled in a hole
+      + rush off somewhere else to deal w/ the next problem
+      + like investigative journalists
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m12-05.png" style="margin: 0.1em;" alt="Examples of moving fantasy particles" title="Examples of moving fantasy particles" width=200>
+      </a>
+    </div>
+
 
