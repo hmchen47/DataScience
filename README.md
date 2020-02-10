@@ -29,7 +29,7 @@
 
 ### [Machine Learning Theory](./RefCards/MLTheory.md)
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
@@ -164,7 +164,7 @@
 ### Neural Networks
 
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
@@ -235,6 +235,7 @@
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Output Unit </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#overview-of-output-units"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
   </tr>
@@ -570,11 +571,24 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Boltzmann Machine </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Boltzmann Machine </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#overview-of-boltzmann-machine"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#causal-generative-model"> Causal Generative Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#modeling-for-boltzmann-machine"> Boltzmann Machine Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#learning-for-bm"> Learning </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#phases-of-energy-function-for-learning"> Phases </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#collecting-statistics"> Statistics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#mean-filed-approximation"> Mean Field </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Restricted Boltzmann Machines </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#modeling-for-restricted-boltzmann-machines"> Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#persistent-contrastive-divergence"> Persistent Contrastive Divergence </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#contrastive-divergence-cd"> Contrastive Divergence </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#collaborative-filtering"> Collaborative Filtering </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
@@ -589,7 +603,7 @@
 
 ### [Data Science with Python](./RefCards/PythonDS.md)
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 100vw;">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
