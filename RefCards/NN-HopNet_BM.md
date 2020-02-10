@@ -716,3 +716,78 @@
       <img src="../ML/MLNN-Hinton/img/m12-22.png" style="margin: 0.1em;" alt="Features detectors for digit recognition" title="Features detectors for digit recognition" height=200>
     </a>
   </div>
+
+
+### Collaborative Filtering
+
++ [Collaborative filtering](../ML/MLNN-Hinton/12-Boltzmann.md#125-rbms-for-collaborative-filtering): <br/>
+  trying to figure out how much the user would like one product based on
+  + how much the user liked other products
+  + how many other users like the product
+
++ [The Netflix competition w/ collaborative filtering](../ML/MLNN-Hinton/12-Boltzmann.md#125-rbms-for-collaborative-filtering)
+  + given most of the ratings
+  + goal & prize:
+    + predict the ratings that users gave to the held out movies
+    + winner: get $1,000,000
+
++ [Language model](../ML/MLNN-Hinton/12-Boltzmann.md#125-rbms-for-collaborative-filtering)
+  + data: strings of triples, like family trees
+  + string form: User, Movie, rating
+  + architecture
+    + convert each user into a learned feature vector for that user
+    + convert each movie into a learned feature vector for that movie
+    + these two feature vectors $\to$ predict the rating
+    + put a big hidden layer btw feature vectors and rating
+    + simply take the scalar product of the feature vector for the user and feature vector for the movie
+    + just multiply them together pointwise and sum together
+    + exactly equivalent to a matrix factorization model
+  + matrix factorization model
+    + modeling
+      + user features down the rows
+      + movie features above the columns
+      + multiply matrix of users times features by the matrix of features times the movie $\to$ predictions for the ratings
+      + exactly equivalent to the language model beside
+    + the most commonly used for collaborative filtering
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m12-24.png" style="margin: 0.1em;" alt="Language model and matrix factorization model" title="Language model and matrix factorization model" width=300>
+      </a>
+    </div>
+
++ [RBM for matrix factorization](../ML/MLNN-Hinton/12-Boltzmann.md#125-rbms-for-collaborative-filtering)
+  + treat each user as a training case
+    + user: a vector movie ratings
+    + one visible unit per movie w/ 5-way softmax (see diagram)
+    + CD learning rule for a softmax same as for a binary unit
+    + ~100 hidden units
+  + issue: one of the visible values unknown
+  + goal: fill in the value by the model
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture12/lec12.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m12-25.png" style="margin: 0.1em;" alt="RBM to predict movie rating" title="RBM to predict movie rating" width=200>
+    </a>
+  </div>
+
++ [Avoid dealing all missing ratings](../ML/MLNN-Hinton/12-Boltzmann.md#125-rbms-for-collaborative-filtering)
+  + instead of one RBM for all users where only a few of them have known ratings $\to$ huge number of missing values to deal w/
+  + for each user, using an RBM that only has visible units for the movies the user rated
+  + a different RBM for every user w/ different subset of the visible units
+    + all these RBMs sharing the same weight
+    + knowing which movie is which
+    + the weights from each hidden unit to each movie are shared by all the users who rated that movie
+  + each user-specific RBM only gets one training case $\impliedby$ weight-sharing
+  + trained w/ CD1 then CD3, CD5 & CD9 to collect the statistics for the negative phase
+
++ [Measurements for RBM](../ML/MLNN-Hinton/12-Boltzmann.md#125-rbms-for-collaborative-filtering)
+  + RBM and matrix factorization methods
+    + equivalent but giving very different errors
+    + averaging the predictions of RBM w/ the predictions of matrix-factorization $\implies$ a big win
+  + winning group
+    + using multiple different RBM models in their average and multiple different matrix factorization models
+    + might be w/ other models
+    + main models: matrix factorization and RBMs
+
+
