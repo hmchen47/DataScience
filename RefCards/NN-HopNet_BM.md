@@ -1,6 +1,8 @@
 # Hopfield Networks & Boltzmann Machine
 
-## Overview for Hopfield Networks
+## Hopfield Networks
+
+### Overview for Hopfield Networks
 
 + [Hopfield Networks](../ML/MLNN-Hinton/11-Hopfield.md#111-hopfield-nets)
   + energy-based model: properties derive from a global energy function
@@ -21,7 +23,7 @@
   + local energy minimum might correspond to memories
 
 
-## Energy Function
+### Energy Function
 
 + [The energy function](../ML/MLNN-Hinton/11-Hopfield.md#111-hopfield-nets)
   + global energy: the sum of many local contributions
@@ -48,7 +50,7 @@
     + minimum energy
 
 
-## Memories
+### Memories
 
 + [Sequential decisions](../ML/MLNN-Hinton/11-Hopfield.md#111-hopfield-nets)
   + if units make __simultaneous__ decisions the energy could go up
@@ -84,7 +86,7 @@
     \[ \Delta w_{ij} = 4 (s_i - \frac{1}{2}) (s_j - \frac{1}{2}) \]
 
 
-## Spurious Minima & Capacity
+### Spurious Minima & Capacity
 
 + [Storage capacity](../ML/MLNN-Hinton/11-Hopfield.md#112-dealing-with-spurious-minima-in-hopfield-nets)
   + Hopfield nets w/ memory storage devices
@@ -148,7 +150,7 @@
     + go through the data several times
 
 
-## Issues with Hidden Units
+### Issues with Hidden Units
 
 + [Introduction](../ML/MLNN-Hinton/11-Hopfield.md#113-hopfields-nets-with-hidden-units)
   + the weights btw units represent constraints on good interpretations
@@ -186,8 +188,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
-      <img src="img/m11-08.png" style="margin: 0.1em;" alt="Image of 2-D lines to represent 3-D edges" title="Image of 2-D lines to represent 3-D edges" height=80>
-      <img src="img/m11-09.png" style="margin: 0.1em;" alt="Interpretation of 3-D edges with 2-D lines" title="Interpretation of 3-D edges with 2-D lines" height=200>
+      <img src="../ML/MLNN-Hinton/img/m11-08.png" style="margin: 0.1em;" alt="Image of 2-D lines to represent 3-D edges" title="Image of 2-D lines to represent 3-D edges" height=80>
+      <img src="../ML/MLNN-Hinton/img/m11-09.png" style="margin: 0.1em;" alt="Interpretation of 3-D edges with 2-D lines" title="Interpretation of 3-D edges with 2-D lines" height=200>
     </a>
   </div>
 
@@ -197,7 +199,7 @@
   + <span style="color: blue;">Learning</span>: how do we learn the weights on the connections to the hidden units and btw the hidden units?
 
 
-## Searching w/ Noise
+### Searching w/ Noise
 
 + [Noisy networks](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
   + Hopfield always making decisions to reduce the energy $\implies$ impossible to escape from local minima
@@ -213,7 +215,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture11/lec11.pptx" ismap target="_blank">
-      <img src="img/m11-12.png" style="margin: 0.1em;" alt="Transition probabilities" title="Transition probabilities" width=250>
+      <img src="../ML/MLNN-Hinton/img/m11-12.png" style="margin: 0.1em;" alt="Transition probabilities" title="Transition probabilities" width=250>
     </a>
   </div>
 
@@ -234,7 +236,7 @@
     \[ \text{Energy gap} = \Delta E_i = E(s_i = 0) - E(s_i = 1) = b_i + \sum_j s_j \cdot w_{ij} \]
 
 
-## Simulated Annealing
+### Simulated Annealing
 
 + [Simulated annealing](../ML/MLNN-Hinton/11-Hopfield.md#114-using-stochastic-units-to-improve-search)
   + a powerful method for improving searches that get stuck in local optima
@@ -263,7 +265,9 @@
     + any given system keeps changing its configuration
 
 
-## Overview of Boltzmann Machine
+## Boltzmann Machines
+
+### Overview of Boltzmann Machine
 
 + [Boltzmann machine](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
   + a stochastic Hopfield networks w/ hidden units
@@ -278,7 +282,7 @@
     \[ p(Model \; i | data) = \frac{p(data | Model \; i)}{\displaystyle \sum_j p(data | Model \; j)} \]
 
 
-## Causal Generative Model
+### Causal Generative Model
 
 + [Causal generative model](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
   + generate the states of some latent variables
@@ -302,7 +306,7 @@
   </div>
 
 
-## Modeling for Boltzmann Machine
+### Modeling for Boltzmann Machine
 
 + [Generating data in Boltzmann machine](../ML/MLNN-Hinton/11-Hopfield.md#115-how-a-boltzmann-machine-models-data)
   + not a causal generative model but an energy based model
@@ -351,6 +355,5 @@
     + getting samples from the posterior given a data vector required for learning the weights
     + knowing a good explanation for the observed data
     + better explanations having lower energy
-
 
 
