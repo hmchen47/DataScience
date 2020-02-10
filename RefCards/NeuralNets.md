@@ -1833,6 +1833,20 @@
     + <span style="color: blue;">noise</span>: add to the weights of the activities
   + typically, using a combinaition of several of these methods
 
++ [Overfitting: a frequentist illusion?](../ML/MLNN-Hinton/10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
+  + overfitting: fit a complicated model to a small amount of data
+  + result of not bothering to get the full posterior distribution over the parameters
+  + not much data
+    + using simple model than complex one to prevent overfitting
+    + only if assume that fitting a model means choosing a single best setting of the parameters
+    + using full posterior distribution over parameter setting $\implies$ overfitting disappear
+  + little data
+    + very vague predictions
+    + many different parameter settings have significant posterior probabilities
+  + more and more data:
+    + posterior probability will get more and more focused on a few settings of parameters
+    + posterior prediction will get much shaper
+
 
 ### Meta Parameters
 
@@ -1850,6 +1864,170 @@
     + divide the total dataset into one final test set and $N$ other subsets
     + train on all but one of those subsets to get $N$ different estimates of the validation error rate
     + the $N$ estimates not independent
+
+
+### Combined Models
+
++ [Combining networks: the bias-variance trade-off](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + limited amount of training data $\implies$ overfitting
+  + regression: squared error = "bias" term + "variance" term
+    + high bias: model w/ too little capacity to fit the data
+    + big variance: so much capacity that it is good at fitting the sampling error in each particular training set
+  + using high variance and high capacity (typically w/ low bias) models to average out the variance
+
++ [Combined predictor vs individual predictors](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + on any one test case, some individual predictors may be better than the combined predictor
+  + individual predictors <span style="color: red;">disagree</span> significantly
+    + combined predictor typically better than all of the individual predictors when averaging over test cases
+    + usage: trying to make the individual predictors disagree but w/o making them much worse individually
+
++ [Combining network reduces variance](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + compare two expected squared errors
+    + randomly pick a predictor to make prediction
+    + average all the predictors: $i$ as an index over the $N$ models, $<\;>$ as expection
+
+      \[ \overline{y} = \;<y_i>_i \;=\; \frac{1}{N} \sum_{i=1}^{N} y_i \]
+
+  + expected squared errors
+
+    \[<(t-y_i)^2>_i =  (t - \overline{y})^2 + \underbrace{<(y_i - \overline{y})^2>_i}_{\text{variance of }y_i} -2 \; (t - \overline{y}) \underbrace{\;<(y_i - \overline{y})_i>_i}_{=0} \]
+
++ [Discrete distributions over class labels](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + Assumption:
+    + one model gives the correct label probability $p_i$
+    + the other model gives the correct probability $p_j$
+  + which better way: randomly pick one model or averaging two probabilities?
+
+    \[ \log \left( \frac{p_i + p_j}{2} \right) \geq \frac{\log p_i + \log p_j}{2} \]
+
+  + the average of $p_i$ and $p_j$ (middle point of gold line) below the blue dot due to log probability
+
++ [Overview of ways to make predictors differ](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + rely on the learning algorithm getting stuck in different local optima $\implies$ a dubious hack (but worth to try)
+  + using different non-neural network models
+    + decision trees
+    + Gaussian process models
+    + support vector machines
+    + others
+  + neural network models
+    + different numbers of hidden layers
+    + different numbers of units per layer
+    + different types of unit, e.g., rectified linear units and logistic units
+    + different types or strengths of weight penalty; e.g., early stopping, L2 penalty, and L1 penalty
+    + different learning algorithms; e.g., full bach and mini-batch
+
++ [Making models different by changing the training data](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
+  + Bagging
+    + train different models on different subsets of the data
+    + get different training sets by using sampling w/ replacement; e.g., $a, b, c, d, e \to a \, c \, c \, d \, d$
+    + random forest: using lots of different decision trees trained using bagging (better result)
+    + able to use w/ neural networks but very expensive; e.g., 20 neural nets $\implies$ 20 training and 20 testing
+  + Boosting
+    + train a sequence of low capacity models w/ the whole training set
+    + weight the training cases differently for each model in the sequence
+      + boosting up-weights cases w/ previous models got wrong
+      + boosting down-weight cases w/ previous cases got right
+    + use resources to try and deal w/ wrong models
+
+
+### Mixture of Experts
+
++ [Purpose of mixtures of experts](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + Better way than just averaging models
+    + possible: looking at the input data for a particular case to help decide which model to rely on
+    + allowing particular models to specialize in a subset of the training cases
+    + not learn on cases for which they are not picked $\implies$ ignore stuff not good at modeling
+    + individual model might be very good at something and very bad at other things
+  + key idea
+    + make each model or expert focus on predicting the right answer
+    + the cases w/ right answer where it is already doing better than the other experts
+    + causing specialization
+
++ [A spectrum of models](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + Very local model: predict $y$ from $x$ $\implies$ simply find the stored value of $x$ closest to the test value of $x$ to predict the $y$
+  + Fully global models
+    + may be slow to fit and also unstable
+    + small changes to data can cause big changes to the fit
+    + each parameter depends on all the data
+
++ [Multiple local models](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + in between the very local & fully global models
+  + using several models of intermediate complexity than using a single global model or lots of very local models
+  + how to partition the dataset into different regimes?
+
++ [Datset partitioning](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + ways: based on input vs. based on the input-output relationship
+  + cluster the training cases into subsets
+  + one for each local model
+  + aim of the clustering:
+    + Not to find clusters of similar input vectors
+    + each cluster to have a relationship btw input and output that can be well-modeled by one local model
+
++ [Cooperation and Specialization](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + error function encouraging cooperation
+    + compare the average to all the predictors w/ the target
+    + train all the predictors together to reduce the discrepancy btw the target and the average
+    + overfit badly: making the model much more powerful than training each predictor separately
+
+      \[ E = (t - \underbrace{<y_i>_i}_{\text{average of all}\\ \text{the predictor}})^2 \]
+
+  + error function encouraging specialization
+    + compare each predictor separately w/ the target
+    + use a "manager" to determine the probability of picking each expert
+    + most experts end up ignoring most targets
+
+      \[ E = <p_i \cdot (t-y_i)^2> \]
+
+      + $p_i$: probability of the manager picking expert $i$ for this case
+  
++ [The mixture of experts architecture (almost)](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + different experts (the right hand side) making their own predictions based on the input
+  + the manager (the left hand side)
+    + multiple layers
+    + the last layer: softmax
+    + output: probabilities for the experts
+  + using output of manager and experts to compute the value of the error function
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m10-07.png" style="margin: 0.1em;" alt="Architecture for mixture of experts" title="Architecture for mixture of experts" width=350>
+    </a>
+  </div>
+
++ [The derivatives of the simple cost function](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + differentiate w.r.t. the outputs of the experts: a signal for training each expert
+  + differentiate w.r.t. the outputs of the gating network
+    + a signal for training the gating network
+    + as differentiate w.r.t. the quantity entering the softmax
+    + raise $p$ for all experts that give less than the average squared error of all the experts (weighted by $p$)
+  + math representation
+
+    \[ p_i = \frac{e^{x_i}}{\sum_j e^{x_j}}, \qquad\qquad E = \sum_i p_i \cdot (t-y_i)^2 \]
+
+    \[ \frac{\partial E}{\partial y_i} = p_i \cdot (t-y_i) \qquad\qquad \frac{\partial E}{\partial x_i} = p_i \cdot \left( (t-y_i)^2 - E \right) \]
+
++ [A better cost function for mixtures of experts](../ML/MLNN-Hinton/10-CombineDropout.md#102-mixtures-of-experts)
+  + each expert making a prediction w/ a Gaussian distribution around its output (w/ variance 1)
+  + the manager:
+    + deciding on a scale for each of these Gaussian
+    + the scale called a "mixing proportion"
+    + predictive distribution of mixture of expert: no longer Gaussian after summing of scaled down read Gaussian and scaled down green Gaussian
+  + maximize the log probability of the target value under this mixture of Gaussian model; i.e., the sum of the two scaled Gaussian
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="img/m10-08.png" style="margin: 0.1em;" alt="Gaussian distributions of two models" title="Gaussian distributions of two models" width=350>
+    </a>
+  </div>
+
+  + the probability of the target under a mixture of Gaussian
+
+    \[ p(t^c | MoE) = \sum_i p_i^c \cdot \frac{1}{\sqrt{2\pi}} \exp \left(-\frac{1}{2} (t^c - y_i^c)^2 \right) \]
+
+    + $p(t^c | MoE)$: prob. of target value on case $c$ given the mixture
+    + $p_i^c$: mixing proportion assigned to expert $i$ for case $c$ by the gating network
+    + $y_i^c$: output of expert $i$
+    + $1/\sqrt{2 \pi}$: normoralization term for a Gaussian w/ $\sigma^2 = 1$
 
 
 ### Early Stopping
@@ -1999,6 +2177,64 @@
       <img src="https://miro.medium.com/max/1395/1*pBncBWIkmogWIQ_6AhWCeQ.png" style="margin: 0.1em;" alt="Implement of dropout at training and test times" title="Implement of dropout at training and test times" height=100>
     </a>
   </div>
+
++ [Two ways to average models](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + Mixture: combine models by averaging their output probabilities
+  + Product: combine models by taking geometric means of their output probabilities
+
++ [Dropout](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + an efficient way to average many large neural nets
+  + consider a neural net w/ one hidden layer
+  + randomly omit each hidden unit w/ probability $0.5$ for a training example
+  + randomly sampling from $2^H$ different architectures where $H$ as the number of hidden units
+  + all architectures share weights: a hidden unit uses the same weights as it has in other architectures
+  + a form of model averaging
+    + sample from $2^H$ models
+      + only a few of the models ever get trained
+      + only get one training example when selected
+      + as extreme form of bagging
+    + sharing weights with other models
+      + every model is very strongly regularized by the others
+      + much better than L2 and L1 penalities that pull the weights towards zero
+      + regularized by something that tends to pull the weights towards the correct value
+
++ [Testing](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + naive method:
+    + sample many different architectures
+    + take the geometric mean of their output distribution
+  + efficient method
+    + use all of the hidden units but to halve their outgoing weights $\implies$ the same expected effect as they did when we were sampling
+    + using all of the hidden units w/ half of their outgoing weights
+    + exactly compute the geometric mean of the predictions of all $2^H$ models
+    + using a softmax output group
+
++ [Multiple hidden layers](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + use dropout of $0.5$ in every layer
+  + testing: use the "mean net" that has all the outgoing weights halved
+  + stochastic model w/ dropout:
+    + run the stochastic model several times on the same input
+    + average across those stochastic models
+    + provide an idea of the uncertainty in the answer
+
++ [Input layer](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + use dropout too but w/ a higher probability of keeping an input unit
+  + used by the "denoising autoencoders"
+
++ [How well dropout work](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + usually reduce the number of errors significantly w/ significantly overfitting deep neural net
+    + "early dropping" do better than "dropout"
+    + cost: longer training time and might be more hidden units
+  + deep neural net w/o overfitting:
+    + using a bigger one
+    + using dropout that's assuming enough computational power
+
++ [Viewpoint of Cooperation and Specialization](../ML/MLNN-Hinton/10-CombineDropout.md#105-dropout-an-efficient-way-to-combine-neural-nets)
+  + related to mixtures of experts
+  + a hidden unit knows which other hidden units present
+    + co-adapt to them on the training data
+    + big, complex conspiracies not robust
+    + better w/ conspiracies to have lots of little conspiracies
+  + a hidden unit work well w/ combinatorially many sets of co-works
 
 
 ### Inverted Dropout

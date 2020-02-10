@@ -101,4 +101,74 @@
   3. repeat step 1 & 2
 
 
+## Full Bayesian Learning
+
++ [Full Bayesian learning](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + compute the full posterior distribution over all possible parameter settings
+  + making prediction
+    + prediction based on each different setting of the parameters
+    + combine all these predictions by weighting each of them w/ the posterior probability of that setting of the parameters
+    + very computationally intensive
+  + advantage: allowing to use complicated models even w/o much data
+
++ [Approximating full Bayesian learning in a neural network](../ML/MLNN-Hinton/09-Overfitting.md#91-overview-of-ways-to-improve-generalization)
+  + neural network w/ a few parameters
+    + put a grid over the parameters space
+    + evaluate $p(W|D)$ at each grid-point
+    + each parameter only allow a few alternative values
+    + taking the cross-product of all these values for all the parameters
+    + evaluate at each point how well the model predict the data as if supervised learning hwo well the model predicts the targets
+    + the posterior probability of that group point
+    + characteristics: expensive; not involving any gradient descent; no local optimum issues
+  + evaluating all predictions made w/ grid points on test data
+    + expensive
+    + much better than ML learning when the posterior is vague or multimodal (happened when data is scarce)
+
+  \[ p(t_{test} | input_{test}) = \sum_{g \in grid} p(W_g | D) p(t_{test} | input_{test}, W_g) \]
+
++ [Dealing w/ too many parameters for a grid](../ML/MLNN-Hinton/10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
+  + the numbder of grid-point: exponential growth as the number of parameters increase
+  + enough data
+    + only a tiny fraction of the grid points makes a significant contribution to the predictions
+    + focus on evaluating this tiny fraction
+  + idea: good enough to just sample weight vectors according to their posterior probabilities
+
+    \[ p(y_{test} | input_{test}, D) = \sum_i \underbrace{p(W_i | D)}_{\text{sample weight vectors}\\ \text{with this probability}} p(y_{text} | input_{test}, W_i) \]
+
++ [Vector space and Gaussian noise](../ML/MLNN-Hinton/10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
+  + standard backpropagation
+  + situations of the weights (left diagram)
+    + settle into a local minimum
+    + get stuck on a plateau
+    + just move so slowly that we run out of patience
+  + adding Gaussian noise after each update (right diagram)
+    + weight vector never settle down
+    + keep wandering around but tend to prefer low cost regions of the weight space
+    + how often visiting each possible setting of the weights?
+    + red dots:
+      + samples take of the weights as wandering around the space and then save the weights after every 10000 steps
+      + a few of them in high-cost regions $\impliedby$ big regions
+      + the depest minimum w/ the most red dots while other minima w/ red dots as well
+      + the dots not right at bottom or minimum  $\impliedby$ noisy samples
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m10-11.png" style="margin: 0.1em;" alt="Situations of weight vector in weight space" title="Situations of weight vector in weight space" height=200>
+      <img src="../ML/MLNN-Hinton/img/m10-12.png" style="margin: 0.1em;" alt="Weight vector w/ Gaussian noise" title="Weight vector w/ Gaussian noise" height=200>
+    </a>
+  </div>
+
++ [Markov Chain Monte Carlo (MCMC)](../ML/MLNN-Hinton/10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
+  + property of Markov Chain Monte Carlo method
+    + use just the right amount noise
+    + let the weight vector wander around for long enough taking a sample
+    + get an unbiased sample from the true posterior over weight vectors
+    + make it feasible to use full Bayesian learning w/ thousands of parameters
+
++ [Full Bayesian learning w/ mini-batches](../ML/MLNN-Hinton/10-CombineDropout.md#103-the-idea-of-full-bayesian-learning)
+  + computing the gradient of the cost function on a random mini-batch
+  + proposal of Ahn, Korattikara & Welling
+    + how to do this efficiently
+    + possible w/ lots of parameters
+
 
