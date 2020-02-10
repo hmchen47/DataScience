@@ -392,4 +392,35 @@
     + $\langle s_i s_j \rangle_{model}$: the product of the same two activities when not clamped anything and the network reaches thermal equilibrium w/o external interference
 
 
+### Phases of Energy Function for Learning
+
++ [Simple derivative](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + the probability of a global configuration <span style="color: red;">at thermal equilibrium</span>
+    + exponential function of its energy ($e^{-E}$)
+    + a linear function of the energy achieved by the log probability when settling to equilibrium
+  + the energy: a linear function of the weights and states
+
+    \[ - \frac{\partial E}{\partial w_{ij}} = s_i s_j \]
+  
+  + the process of settling to thermal equilibrium propagates information about the weight $\implies$ no backpropagation required
+  + two stages required:
+    + settle w/ the data
+    + settle w/o the data
+  + the units deep in the network doing the same thing just w/ different boundary conditions
+
++ [Phases of energy function](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + similar to unlearning in Hopfield nets to get rid of spurious minima
+
+  \[ p(\mathbf{v}) = \frac{\sum_{\mathbf{h}} e^{-E(\mathbf{v}, \mathbf{h})}}{\sum_{\mathbf{u}} \sum_{\mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}} \]
+
+  + $\sum_{\mathbf{h}} e^{-E(\mathbf{v}, \mathbf{h})}$:
+    + the positive phase finds hidden configurations that work well w/ $v$ and lowers their energies
+    + find these terms by settling to thermal equilibrium w/ vector $\mathbf{v}$ clamped
+    + sampled those vectors $\mathbf{h}$ then changing the weights to make that energy even lower
+  + $\sum_{\mathbf{u}} \sum_{\mathbf{g}} e^{-E(\mathbf{u}, \mathbf{g})}$:
+    + the negative phase finds the joint configurations that are the best competitors and raises their energies
+    + finding the global configurations w/ combinations of visible and hidden states to have low energy
+    + finding the global configurations raising their energy to contribute less
+
+
 
