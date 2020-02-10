@@ -357,3 +357,39 @@
     + better explanations having lower energy
 
 
+### Learning for BM
+
++ [Boltzmann machine learning algorithm](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + an unsupervised learning algorithm
+  + no backpropagation required
+
++ [Goal of learning](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + maxizing the product of the probabilities that the Boltzmann machine assigns to a set of binary vectors in the training set
+  + equivalent to maxizing the sum of the log probabilities that the Boltzmann machine assigns to the training vectors
+  + equivalent to maximizing the probabilities to obtain exactly the $N$ training cases if
+    + settle the network to its stationary $N$ different times w/o external input
+    + sample the visible vector once each time
+    + repeat the process
+
++ [Issue for learning](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + consider a chain of hidden units w/ visible units at the ends (see diagram)
+  + Goal: the training set consisting of $(1, 0)$ and $(0, 1)$; i.e., two visible units to be in opposite states
+  + Solution: by making the product of all the weights to be negative
+
++ [Surprising fact](../ML/MLNN-Hinton/12-Boltzmann.md#121-the-boltzmann-machine-learning-algorithm)
+  + one weight needs to know about other weights in order to be able to change even in the right direction
+  + the learning algorithm only requires local information
+  + everything that one weight needs to know about the other weights: the data contained in the difference of two correlations
+  + the probability of Boltzmann machine assigns to a visible vector $\mathbf{v}$
+
+    \[ \frac{\partial \log p(\mathbf{v})}{\partial w_{ij}} = \langle s_i s_j \rangle_{\mathbf{v}} - \langle s_i s_j \rangle_{model} \]
+
+  + changing weight
+
+    \[ \Delta w_{ij} \propto \langle s_i s_j \rangle_{data} - \langle s_i s_j \rangle_{model} \]
+
+    + $\langle s_i s_j \rangle_{data}$: changing in the weight proportional to the expected product of the activities averaged over all visible vectors in the training set (data)
+    + $\langle s_i s_j \rangle_{model}$: the product of the same two activities when not clamped anything and the network reaches thermal equilibrium w/o external interference
+
+
+
