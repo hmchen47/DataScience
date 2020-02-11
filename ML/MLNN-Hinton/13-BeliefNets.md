@@ -28,12 +28,14 @@
       + working better
       + required less expertise
       + produced repeatable results
-      + much fancier theory
+      + much better and fancier theory
   + actual reasons
     + computers: thousands of times too slow
-    + labeled datasets: hundreds of times too small
-    + deep networks: too small and not initialized sensibly
-  + these issues preenting from being successful for tasks where it would eventual be a big win
+    + labeled datasets: hundreds of times too small for the regime in which backpropagation would really shine
+    + deep networks:
+      + too small and not initialized sensibly
+      + gradient die too fast because of small initialized weights
+  + these issues preenting from being successful for tasks, including vision and speech, where it would eventual be a big win
 
 + A spectrum of machine learning tasks
   + Typical Statistics $\longleftrightarrow$ Artificial Intelligence
@@ -41,28 +43,41 @@
     + low-dimensional data; e.g., less than 100 dimensions
     + lots of noise in the data
     + not much structure in the data; structure able to captured by a fairly simple model
-    + main problem: separating true structure from noise
-    + solution: No-ideal for non-Bayesian neural nets $\implies$ trying SVM or GP
+    + main problem: separating true structure from noise, not thinking noise is a structure
+    + solution: good for Bayesian nets but not ideal for non-Bayesian neural nets $\implies$ trying SVM or Gaussian Process (GP - regression)
   + artificial intelligence
-    + high-dimensional data; e.g., more than 100 dimensions
+    + high-dimensional data; e.g., more than 100 dimensions, such images and coefficients representing speech
     + noise: not the main problem
     + huge amount structure in the data, but too complicated to be represented by a simple model
     + main problem: figuring out a way to represent the complicated structure so that it can be learned
+      + try to hand design appropriate representations
+      + earier to resolve by letting backpropagation figure out what representations to use by given a multiple layers
+      + using computation power to decide what the representation should be
     + solution: using backpropagation to figure it out
 
 + Support Vector Machines (SVM)
   + never a good bet for Artificial Intelligence tasks that need good representations
-  + SVM: just a clever reincarnation of Perceptrons
+  + SVM: just a clever reincarnation of Perceptrons with kernel function
   + viewpoint 1:
-    + expanding the input to a (very large) layer of non-linear <span style="color: re;">non-adaptive</span> features
-    + only one layer of adaptive weights
-    + a very efficient way of fitting the weights that controls overfitting
+    + expanding the input to a (very large) layer of non-linear <span style="color: re;">non-adaptive</span> features; like perceptrons w/ big layers of features
+    + only one layer of adaptive weights, the weights from the features to the decision unit
+    + a very efficient way of fitting the weights that controls overfitting by maximum margin hyperplane in a high dimensional space
   + viewpoint 2:
     + using each input vector in the training set to define a <span style="color: re;">non-adaptive</span> "pheature"
-    + global match btw a test input and that training input
+    + global match btw a test input and that training input, i.e., how similar the test input is to a particular training case 
     + a clever way of simultaneously doing feature selection and finding weights on the remaining features
+  + Limitation: 
+    + only for non-adaptive features and one layer of adaptive weights
+    + unable to learn multiple layers of representation
 
 + Historical document from AT&T Adaptive Systems Research Dept, 1995
+  + Larry Jackel, Head of AT&T Adaptive Systems Research Dept.
+    + people would understand why big neural networks trained w/ backpropagation worked well on datasets
+    + people would understand theoretically in terms of conditions and bounds
+  + Vladimir Vapnik: by 2005 nobody will be using big neural nets to train w/ backpropagation
+  + both wrong: limitations of using backpropagation
+    + not because of no good theory and essentially hopeless
+    + no big enough computers or big enough datasets
 
 
 
