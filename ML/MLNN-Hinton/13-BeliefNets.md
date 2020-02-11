@@ -68,7 +68,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://youtu.be/KSevMPjHgx4?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK">
   <img style="margin-left: 2em;" src="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=100/>
 </a><br/>
 
