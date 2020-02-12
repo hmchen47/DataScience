@@ -88,11 +88,83 @@
 </a><br/>
 
 
-## 13.2 Belief nets
+## 13.2 Belief Networks
 
 ### Lecture Notes
 
++ Limitations of backpropagation
+  + labeled training data: almost all data unlabeled
+  + learning time
+    + not scale well
+    + very slow in networks w/ multiple hidden layers
+    + why?
+  + poor local optima
+    + usually quite good but far from optimal for deep nets
+    + should we retrat to models that allow convex optimization?
 
++ Unsupervised learning
+  + overcoming the limtations of back propagation
+  + gradient method
+    + efficient and simple
+    + used for modeling the structure of the sensory input
+    + adjusting the weights to maximize the probability
+    + probability that a generative model would have generated the sensory input
+  + learning objective for a generative model: maximize $p(x)$ not $p(y|x)$
+  + what generative model to use?
+    + an energy-based model like a Boltzmann machine
+    + a causal mode made of idealized neurons
+    + a hybrid of the two
+
++ Artificial Intelligence and Probability
+  + "Many ancient Greeks supported Socrates opinion that deep, inexplicable thoughts came from the gods. Today's equivalent to those gods is the erratic, even probabilistic neuron.  It is more likely that increased randomness of neural behavior is the problem of the epileptic and the drunk, not the advantage of the brilliant." <br/> P. H. Winston, "Artificial Intelligence", 1977 (The first AI textbook)
+  + All of this will lead to theories of computation which are much less rigidly of an all-or-none nature than past and present formal logic ... There are numerous indications to make us believe that this new system of formal logic will move closer to another discipline which has been little linked in the past with logic.  This is thermodynamics primarily in the form it was received from Boltzmann." <br/> John von Neumann, "the Computer and the Brian", 1958 (unfinished manuscript)
+
++ Belief Networks
+  + combination of graph theory and probability theory
+  + AI works in the 1980's
+    + using bags of rules for tasks such as medical diagnosis and exploration for minerals
+    + dealing w/ uncertainty for practical problems
+    + made up ways of doing this that did not involve probabilities
+  + Graphical models
+    + Pearl, Heckeman, Lauritzen, and others shown that probabilities worked better
+    + good for representing what depended on what
+    + computing for nodes of the graph, given the states of other nodes
+  + Belief nets: sparsely connected, directly acyclic graphs, clever inference algorithms
+
++ Belief Networks
+  + a directed acyclic graph composed of stochastic variables
+  + observe some of the variables
+  + Problems to solve:
+    + the __inference__ problem: infer the states of the unobserved variables
+    + the __learning__ problem: adjust the interactions btw variables to make the network more likely to generate the training data
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+      <img src="img/m13-01.png" style="margin: 0.1em;" alt="Architecture of Belief nets" title="Architecture of Belief nets" width=350>
+    </a>
+  </div>
+
++ Graphical models vs. Neural networks
+  + Graphical models
+    + using experts to define the graph structure and the conditional probabilities
+    + sparsely connected
+    + initially focused on doing correct inference, not on learning
+  + Neural networks
+    + main task: learning
+    + hand-wiring knowledge $\to$ not cool
+    + knowledge from learning the training data
+  + Not for inference
+    + NN not aiming for interpretability or sparse connectivity
+    + neural network versions of belief nets
+
++ Types of generative neural network composed of Stochastic binary neurons
+  + Energy-based
+    + connected binary stochastic neurons using symmetric connections to get a Boltzmann Machine
+    + restrict the connectivity in a special way $\implies$ ways to learn a Boltzmann machine
+    + only one hidden layer
+  + Causal: (see the previous diagram)
+    + connecting binary stochastic neurons in a directed acyclic graph
+    + Sigmoid Belief Networks (Neal 1992)
 
 
 ### Lecture Video
