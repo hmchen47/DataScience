@@ -273,7 +273,7 @@
     + two hidden causes and one observed effect
     + observed effect: a house jumps
       + very unlikely to happen unless one of the causes is true
-    + one of the causes happened, the 20 cancels the -20 $\impplies$ house jumps w/ a probability 0.5
+    + one of the causes happened, the 20 cancels the -20 $\implies$ house jumps w/ a probability 0.5
     + each of the causes is itself rather than unlikely but not nearly as unlikely as a house spontaneously jumping
     + house jumping observed, plausible explanantions
       + a truck hits the house
@@ -291,7 +291,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
-        <img src="img/m13-03.png" style="margin: 0.1em;" alt="Example of explaining away" title="Example of explaining away" width=350>
+        <img src="img/m13-03.png" style="margin: 0.1em;" alt="Example of explaining away" title="Example of explaining away" width=300>
       </a>
     </div>
 
@@ -301,7 +301,7 @@
   + learning $W$: reqiring sample from the posterio distribution in the first hidden layer
   + problem 1: the posterior not factorial because of "explaining away"
     + the posterior distribution of the first layer of hidden variables not factorial
-    + not independent in the posterior $\implied$ explaning away
+    + not independent in the posterior $\implies$ explaning away
     + even if only having the layer of hidden variables, the data not independent
   + problem 2: posterior depending on the prior as well as the likelihood
     + required to know the weights iin higher layers, even w/ approximated posterior
@@ -350,7 +350,64 @@
 
 ### Lecture Notes
 
++ Crazy idea
+  + hard to learn complicated models like Sigmod Belief Nets
+  + problem: hard to infer to the posterior distribution over hidden configurations when given a data vector
+    + hard even to get a sample from the posterior
+  + Crazy idea: do the inference wrong
+    + learning might still work
+    + turn out to be true for SBNs
+  + each hidden layer
+    + assumption (wrongly): the posterior over hidden configurations factorizes into a product of distributions for each separate hidden unit
 
++ Factorial distributions
+  + factorial distributions
+    + the probability of a whole vector is just the product of the probabilities of its individual terms
+    + individual probabilities of three hidden units in a layer: 0.3, 0.6. 0.8
+    + probability that the hidden units have state $1, 0, 1$ if the distribution is factorial: $p(1, 0, 1) = 0.3 \times (1 -0.6) \times 0.8$
+  + degrees of freedom
+    + a general distribution over binary vectors of length $N$: $2^N - 1$ degrees of freedom
+    + factorial distribution: only $N$ degrees of freedom
+
++ The wake-sleep algorithm
+  + G. Hinton, P. Dayan, B. Frey, and R. Neal, [The wake-sleep algorithm for unsupervised neural networks](https://www.cs.toronto.edu/~hinton/csc2535/readings/ws.pdf), Science, Vol. 268, Issue 5214, pp. 1158-1161, 1995
+  + Wake phase
+    + use recognition weights to perform a bottom-up pass
+    + train the generative weights to reconstruct activities in each layer from the layer above
+  + Sleep phase
+    + use generative weights to generate samples from the model
+    + train the recognition weights to reconstruct activities in each layer from the layer below
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+      <img src="img/m13-05.png" style="margin: 0.1em;" alt="Architecure of the wake-sleep algorithm" title="Architecure of the wake-sleep algorithm" width=150>
+    </a>
+  </div>
+
++ Limitations of the wake-sleep algorithm
+  + the recognition weights
+    + trained to invert the generative model in parts of the space where there is no data $\to$ wasteful
+    + not follow the gradient of the log probability of the data
+    + only approximately follow the gradient of the variational bound on the probability
+    + lead to incorrect mode-averaging
+  + explaning away effects $\implies$ the posterior over the top hidden layer is very far from independent
+  + Karl Friston: how the brian works
+
++ Mode averaging
+  + learning recognition weights
+    + generating from the model
+    + half the instances of a $1$ at the data layer will be caused by a $(1, 0)$ and half caused by a $(0, 1)$
+    + learning to produce $(0.5, 0.5)$
+    + representing a distribution that put half its mass on $(1, 1)$ or $(0, 0)$: very improbabe hidden configurations
+  + much better picking one mode
+    + assume that the posterior over hidden states factorizes
+    + the best recognition model to get
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+      <img src="img/m13-06.png" style="margin: 0.1em;" alt="Example and distribution of the mode averaging" title="Example and distribution of the mode averaging" width=450>
+    </a>
+  </div>
 
 
 ### Lecture Video
