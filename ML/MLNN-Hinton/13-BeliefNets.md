@@ -354,11 +354,21 @@
   + hard to learn complicated models like Sigmod Belief Nets
   + problem: hard to infer to the posterior distribution over hidden configurations when given a data vector
     + hard even to get a sample from the posterior
+    + hard to get unbiased sample
   + Crazy idea: do the inference wrong
-    + learning might still work
-    + turn out to be true for SBNs
+    + use samples from some other distribution and hope that learning still works
+    + apply the learning rule that would be correct if we've got samples from the posterior
+    + reasonably expect the learning to be a diaster but actually the learning comes to your rescue
+    + observe what's driving the weights during the learning when using an approximate posterior
+    + two terms driving the weights
+      + driving them to get a better a model of the data that makes the sigmoid belief net more likely to generate the observed data in the training set
+      + driving weights towards sets of weights for which the proximate posterior using is a good fit to the real posterior by manipulating the real posterior to mak eit fir the approximate posterior
+    + turn out to be true for Sigmoid Belief Nets (SBNs)
   + each hidden layer
-    + assumption (wrongly): the posterior over hidden configurations factorizes into a product of distributions for each separate hidden unit
+    + using distribution that ignores explaining away
+    + assumption (__wrongly__): the posterior over hidden configurations factorizes into a product of distributions for each separate hidden unit
+    + equivalent assumption: given the data the units in each hidden layer are independent of one another as in RBM
+    + RBM: unit independent of another units in the same hiddent layer
 
 + Factorial distributions
   + factorial distributions
@@ -371,12 +381,41 @@
 
 + The wake-sleep algorithm
   + G. Hinton, P. Dayan, B. Frey, and R. Neal, [The wake-sleep algorithm for unsupervised neural networks](https://www.cs.toronto.edu/~hinton/csc2535/readings/ws.pdf), Science, Vol. 268, Issue 5214, pp. 1158-1161, 1995
+  + lead new area of machine learning $\to$ variational learning in the late 1990s for learing complicated graphical models
+  + used for directly graphical models like sigmoid belief nets
+  + make uses of the idea of using the wrong distribution
+  + architecture: (see diagram)
+    + a neural network w/ two different sets of weights
+    + a generative model
+      + generative weights
+        + weights in green as the weights of the model
+        + weight defining the probability distribution over data vectors
+      + recognition weights
+        + weights in red  used for approximately getting the posterior distribution
+        + using the weight to get factorial distribution in each hidden layer
+        + the approximations of the posterior not working very well
   + Wake phase
     + use recognition weights to perform a bottom-up pass
     + train the generative weights to reconstruct activities in each layer from the layer above
+    + putting data in of the visible layer at the bottom
+    + using forward pass through the network w/ the recognition weights
+    + making stochastic binary decision at each hidden layer
+    + each hidden units independently about whether on or off
+    + forward pass: stochastic binary states for all of the hidden units
+    + treating the stochastic binary states as a sample from the true posterior distribution given the data
+    + applying maximum likelihood learning
+      + not for recognition weights which just used to get the approximate sample
+      + the generative weights to define the model
+    + driving the system in the forward pass w/ the recognition weights to learn the generative weights
   + Sleep phase
     + use generative weights to generate samples from the model
     + train the recognition weights to reconstruct activities in each layer from the layer below
+    + driving the system w/ the generative weights
+    + starting w/ a random vector at the top hidden layer to generate the binary states of those hidden units from their independent prior
+    + moving down the system to generate states for each layer one at a time
+    + using the generative model correctly to generate unbiased sample
+    + to recover the hidden states of h1 from the data or hiddent states at layer h2 from the hiddent states at h1
+    + training the recognition weight to recover the hidden states actually generated the states in the layer below
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
@@ -386,22 +425,38 @@
 
 + Limitations of the wake-sleep algorithm
   + the recognition weights
-    + trained to invert the generative model in parts of the space where there is no data $\to$ wasteful
-    + not follow the gradient of the log probability of the data
-    + only approximately follow the gradient of the variational bound on the probability
-    + lead to incorrect mode-averaging
+    + initial phase: not big deal
+      + trained to invert the generative model in parts of the space where there is no data $\to$ wasteful
+      + at the beginning of learing, generate stuff very different from the real data
+      + weights not very good at this moment $\to$ waste not not big issue
+    + progressive phase: serious issue
+      + not follow the gradient of the log probability of the data
+      + only approximately follow the gradient of the variational bound on the probability
+      + lead to incorrect mode-averaging
   + explaning away effects $\implies$ the posterior over the top hidden layer is very far from independent
+    + forced approximation w/ a distribution independently
+    + independence might not be so bad for intermediate hidden layers
+    + explaining away effects from the below could be partially canceled out by prior effects from the above
   + Karl Friston: how the brian works
 
 + Mode averaging
-  + learning recognition weights
-    + generating from the model
+  + learning recognition weights (left diagram)
+    + running the sleep phase to generate data from the model
+    + most of time those top two units off $\impliedby$ very unlikely to tun on under their prior
+    + visible unit firmly off due to the states off on the top layer units w/ bias of -20
+    + occasionally one time w/ probability of $e^{-10}$, one of the two top units on
     + half the instances of a $1$ at the data layer will be caused by a $(1, 0)$ and half caused by a $(0, 1)$
-    + learning to produce $(0.5, 0.5)$
+      + none of those occasion having neither or both unit on
+    + learning to produce $(0.5, 0.5)$ for the recognition units
     + representing a distribution that put half its mass on $(1, 1)$ or $(0, 0)$: very improbabe hidden configurations
-  + much better picking one mode
+  + much better picking one mode (right diagram)
     + assume that the posterior over hidden states factorizes
-    + the best recognition model to get
+    + the best recognition model to get if foreced to have factorial model
+    + the true posterior is bimodal that focuses on $(0, 1)$ or $(1, 0)$ (black curve)
+    + the papproximation w/ the wake-sleep algorithm given all four states of the hidden units equal probability (red curve)
+    + the best solution to pick one of its states to give it all the probability mass (green curve)
+    + variational learning manipulating the true posterior to make it fit the approximation
+    + normal learing manipulating an approximation to fit the true thing
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">

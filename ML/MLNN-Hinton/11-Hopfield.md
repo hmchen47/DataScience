@@ -491,6 +491,7 @@
 
 + Boltzmann machine
   + a stochastic Hopfield networks w/ hidden units
+  + used for undirectly graphical models
   + good at modeling binary data
 
 + Modeling binary data
