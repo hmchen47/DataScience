@@ -6,16 +6,15 @@
 
 + A brief history of backpropagation
   + the backprogapation algorithm for learning multiple layers of features
-    + Bryson A E, Jr. & Ho Y C. "Applied optimal control: optimization, estimation, and control",  Waltham, MA: Blaisdell, 1969. 481 p.
     + A. Bryson, Y.-C. Ho, and G. Siouris, [Applied Optimal Control: Optimization, Estimation, and Control](https://www.researchgate.net/profile/Y-C_Ho/publication/3116618_Applied_Optimal_Control_Optimization_Estimation_and_Control/links/5b7abdeaa6fdcc5f8b56a7df/Applied-Optimal-Control-Optimization-Estimation-and-Control.pdf), IEEE Transactions on Systems Man and Cybernetics 9(6):366 - 367 · July 1979  $\to$ linear version of backpropagation
     + P. Webos, [Beyond regression : new tools for prediction and analysis in the behavioral sciences](https://www.researchgate.net/profile/Paul_Werbos/publication/35657389_Beyond_regression_new_tools_for_prediction_and_analysis_in_the_behavioral_sciences/links/576ac78508aef2a864d20964/Beyond-regression-new-tools-for-prediction-and-analysis-in-the-behavioral-sciences.pdf), Thesis, 1974 $\to$ non-linear version and 1st version of backpropagation
-    + McClelland, J. L., & Rumelhart, D. E. (1981). [An interactive activation model of context effects in letter perception: I. An account of basic findings.](https://psycnet.apa.org/doi/10.1037/0033-295X.88.5.375) Psychological Review, 88(5), 375–407. $\to$ not knowing P. Webos work and abandon due to bad performance by Hinton
+    + J. McClelland & D. Rumelhart, [An interactive activation model of context effects in letter perception: I. An account of basic findings.](https://psycnet.apa.org/doi/10.1037/0033-295X.88.5.375) Psychological Review, 88(5), 375–407, 1981. $\to$ not knowing P. Webos work and abandon due to bad performance by Hinton
     + D. Parker, “Learning-logic," Invention Report 581-64, File 1, Office of Technology Licensing, Stanford University, Stanford, CA, Oct. 1982.
     + Y. LeCun, [A Theoretical Framework for Back-Propagation](http://yann.lecun.com/exdb/publis/pdf/lecun-88.pdf), proceedings of the 1988 Connectionist Models Summer School
     + D. Rumelhart, G. Hinton, R. Williams, [Learning Internal Representations by Error Propagation](https://apps.dtic.mil/dtic/tr/fulltext/u2/a164453.pdf), Technical rept. Mar-Sep 1985
   + backpropagation algorithm: clearly having great promise for learning multiple layers for non-linear feature detector
   + Give up at the late 1990's by most serious researchers
-  + still widely used in psychological models and in practical applications suc as credit card fraud detection
+  + still widely used in psychological models and in practical applications such as credit card fraud detection
 
 + Why failed
   + popular reasons for giving up in the late 1990's
@@ -34,7 +33,7 @@
     + deep networks:
       + too small and not initialized sensibly
       + gradient die too fast because of small initialized weights
-  + these issues preenting from being successful for tasks, including vision and speech, where it would eventual be a big win
+  + these issues preventing from being successful for tasks, including vision and speech, where it would eventually  be a big win
 
 + A spectrum of machine learning tasks
   + Typical Statistics $\longleftrightarrow$ Artificial Intelligence
@@ -77,7 +76,6 @@
   + both wrong: limitations of using backpropagation
     + not because of no good theory and essentially hopeless
     + no big enough computers or big enough datasets
-
 
 
 ### Lecture Video
