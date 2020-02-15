@@ -104,7 +104,7 @@
       + in practice, running away from the complexity of real data
 
 + Unsupervised learning
-  + overcoming the limtations of back propagation
+  + overcoming the limtations of backpropagation
   + gradient method and stochastic mini-batch descent
     + efficient and simple
     + used for modeling the structure of the sensory input, not for modeling the relation btw input and output
@@ -118,9 +118,9 @@
     + a causal mode made of idealized neurons
     + a hybrid of the two
 
-+ Artificial Intelligence and Anti-Probability in 1970s
++ Artificial Intelligence and Anti-Probability in 1970's
   + "Many ancient Greeks supported Socrates opinion that deep, inexplicable thoughts came from the gods. Today's equivalent to those gods is the erratic, even probabilistic neuron.  It is more likely that increased randomness of neural behavior is the problem of the epileptic and the drunk, not the advantage of the brilliant." <br/> P. H. Winston, "Artificial Intelligence", 1977 (The first AI textbook)
-  + All of this will lead to theories of computation which are much less rigidly of an all-or-none nature than past and present formal logic ... There are numerous indications to make us believe that this new system of formal logic will move closer to another discipline which has been little linked in the past with logic.  This is thermodynamics primarily in the form it was received from Boltzmann." <br/> John von Neumann, "the Computer and the Brian", 1958 (unfinished manuscript)
+  + "All of this will lead to theories of computation which are much less rigidly of an all-or-none nature than past and present formal logic ... There are numerous indications to make us believe that this new system of formal logic will move closer to another discipline which has been little linked in the past with logic.  This is thermodynamics primarily in the form it was received from Boltzmann." <br/> John von Neumann, "the Computer and the Brian", 1958 (unfinished manuscript)
 
 + Incorporating probability into AI
   + combination of graph theory and probability theory
@@ -133,29 +133,28 @@
     + discrete graph good for representing what depended on what other variables
     + computing for nodes of the graph, given the states of other nodes
       + dealing w/ real valued computations
-      + respected the rules of probability
-        + compute the expected values of some nodes in the graph given the observed states of other nodes
+      + respected the rules of probability: compute the expected values of some nodes in the graph given the observed states of other nodes
   + Belief nets:
-    + named that people in graphical models give to a particular subset of graph
+    + a particular subset of graph
     + sparsely connected, directly acyclic graphs
-    + clever inference algorithms to compute the probabilities of unobserved node efficiently for sparesely connected graph
+    + clever inference algorithms to compute the probabilities of unobserved node efficiently for sparsely connected graph
     + working exponentially in the number of nodes that influence each node $\implies$ not for densely connected networks
 
 + Belief Networks
   + a directed acyclic graph composed of stochastic variables (see diagram)
-    + observe any of the variable in general
+    + observe any variable in general
     + unobserved hidden causes, may be layered (blue nodes)
     + eventually give rise to some observed effect (red nodes)
   + observe some of the variables
   + Problems to solve:
     + __the inference problem__: infer the states of the unobserved variables
       + unable to infer them w/ certainty $\implies$ probability distribution over unobserved variables
-      + dependent unobserved variable: probability distribution likely to be big cumbersome things w/ an exponential number of terms
+      + dependent unobserved variable $\implies$ probability distribution likely to be big cumbersome things w/ an exponential number of terms
     + __the learning problem__: adjust the interactions btw variables to make the network more likely to generate the training data
       + given a training set composed of observed vectors of states of all the leaf nodes
       + how to adjust the interactions btw variables to make the network more likely to generate that training data
-      + adjusting interactions will involve both 
-        + deciding which node affected by which other node
+      + adjusting interactions will involve both
+        + deciding which node affected by which other nodes
         + deciding the strength of that effect
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -169,32 +168,31 @@
     + using experts to define the graph structure and the conditional probabilities; example: medical experts
       + asking how likely a cause for a syndrome
       + making a graph where the nodes had meanings
-      + typically having a conditional probability tables
+      + typically having a conditional probability table
       + table to describe a set of values for the parents of the nodes would determine the distribution of values for the node
     + sparsely connected
     + initially focused on doing correct inference, not on learning
   + Neural networks
     + main task: learning
-    + hand-wiring knowledge $\to$ not cool
-      + wiring in some basic properties as in convolutional nets was a very sensible thing to do
+    + hand-wiring knowledge $\to$ not cool: wiring in some basic properties as in convolutional nets was a very sensible thing to do
     + knowledge from learning the training data not from experts
-  + Not for inference
-    + NN not aiming for interpretability or sparse connectivity
-    + neural network versions of belief nets
+    + not for inference
+      + not aiming for interpretability or sparse connectivity
+      + neural network versions of belief nets
 
-+ Types of generative neural network composed of Stochastic binary neurons
-  + Energy-based
++ Types of generative neural network composed of stochastic binary neurons
+  + Energy-based models
     + connected binary stochastic neurons using symmetric connections to get a Boltzmann Machine
     + ways to learn a Boltzmann machine but difficult $\implies$ restrict the connectivity in a special way (RBM)
     + RBM only w/ one hidden layer
-  + Causal:
+  + Causal models
     + connecting binary stochastic neurons in a directed acyclic graph
     + Sigmoid Belief Networks (Neal 1992) $\to$ easier to learn than BM (see the previous diagram)
       + all variables: binary stochastic neurons
       + take top layer neurons to determine whether states 1 or 0 according to biases
       + given the states of the neurons in the top layer, making stochastic decisions about what the states of the neurons in the middel layer
       + w/ the decision in the middle layer, determining what the visible effect should be
-    + causal sequence from layer to layer to get unbiased sample of the kinds of vectors iof visible values that the NN believes in
+    + causal sequence from layer to layer to get unbiased sample of the kinds of vectors of visible values that the NN believes in
   + causal model easier to generate data than Boltzmann machine
 
 
