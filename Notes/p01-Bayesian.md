@@ -37,11 +37,79 @@ Year: 2004
   + treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
 
-## 3.2 Bayes theorem for two hypotheses 51
+## 3.2 Bayes theorem for two hypotheses
 
++ Prior to posterior analysis
+  + hypotheses $H_0$ and $H_1$: mutually exhaustive and exclusive
+  + the prior probability for each of two hypotheses: $p(H_0)$ and $p(H_1)$
+  + $y$: the result of a test
+  + $p(y | H_0)$ and $p(y | H_1)$
+    + the probability of observing $y$ under each of the two hypotheses
+    + the _likelihoods_
+  + posterior probabilities:
 
+    \[ p(H_0 | y) = \frac{p(y | H_0)}{p(y)} \times p(H_0)  \tag{1} \]
 
+    + the overall probability of $y$ occuring: $p(y) = p(y | H_0) p(H_0) + p(y | H_1) p(H_1)$
+  + Bayes theorem
 
+    \[ \frac{p(H_0 | y)}{p(H_1 | y)} = \frac{p(y | H_0)}{p(y | H_1)} \times \frac{p(H_0)}{p(H_1)} \tag{2} \]
+
+  + the prior odds: $p(H_0)/p(H_1)$
+  + the posterior odds: $p(H_0 | y) / p(H_1 | y)$
+  + the ratio of the likelihood:
+
+    \[\begin{align*}
+      \text{posterior odds} &= \text{likelihood ratio} \times \text{prior odds} \\
+      \log(\text{posterior odds}) &= \log(\text{likelihood ratio}) + \log(\text{prior odds})
+    \end{align*}\]
+
+  + the weight of evidence: $\log(\text{posterior odds})$
+
++ Example 1: Diagnosis: Bays theorem in diagnostic testing
+  + Assumption:
+    + a new home HIV test
+    + %95\%$ sensitivity
+    + $98\%$ specificity
+    + used in a population w/ an HIV prevalence of $1/1000$
+  + Expected status of 100,000 tested individuals in a population w/ an HIV prevalence of $1/1000$
+
+    |     | HIV- | HIV+ |   |
+    |-----|-----:|-----:|--:|
+    | Test - | 87,902 | 5 | 97,907 |
+    | Test + | 1, 998 | 95 | 2,093 |
+    |Total   | 99,900 | 100 | 100,000 |
+
+  + $H_0$: the hypothesis that individual is truly HIV positive
+  + $H_1$: the hypothesis truly HIV negative
+  + $y$: the observation tested positive
+  + the prior probability of the disease prevalence: $p(H_0) = 0.001$
+  + the posterior probability $p(H_0 | y)$: the chance that someone who tests positive is truly HIV positive
+  + Analysis
+    + $95\%$ sensitivity: $p(y | H_0) = 0.95$
+    + $98\%$ specificity: $p(y | H_1) = 0.02$
+    + the prior odds: $p(H_0)/p(H_1) = 1/999$
+    + the likelihood ratio: $p(y | H_0) / p(y | H_1) = 0.95/0.02 = 95/2$
+    + the posterior odds: $p(H_0 | y) / p(H_1 | y) = (95/2) \times (1/999) = 95/1998$
+    + the posterior probability: $p(H_0 | y) = 95/(95 + 1998) = 0.045$
+  + Bayes theorem (Eq. (1))
+
+    \[\begin{align*}
+      p(y ) & = p(y | H_0) p(H_0) | p(y | H_1) p(H_1) = 0.95 \cdot 0.001 + 0.02 \cdot 0.999 = 0.02093 \\
+      p(H_o | y) &= 0.95 \cdot 0.001 / 0.02093 = 0.045
+    \end{align*}\]
+
+  + Ans: over $95\%$ pf those testing positive will not have HIV
+  + Bayes theorem for two hypotheses $H_0$ and $H_1$
+    + by specifying the prior probability or odds, and likelihood ratio $p(y|H_0)/p(y|H_1)$, the posterior probability or odds can be read off the graphs
+    + using the logarithmic scaling, under which Bayes theorem gives a linear relationship (fig.(b))
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+        <img src="img/p01-01a.png" style="margin: 0.1em;" alt="Bayes theorem for two hypotheses H0 and H1 in probability p(H0) form" title="Bayes theorem for two hypotheses H0 and H1 in probability p(H0) form" height=200>
+        <img src="img/p01-01b.png" style="margin: 0.1em;" alt="Bayes theorem for two hypotheses H0 and H1 in odd p(H0)/p(H1) form" title="Bayes theorem for two hypotheses H0 and H1 in odd p(H0)/p(H1) form" height=200>
+      </a>
+    </div>
 
 
 
