@@ -794,9 +794,15 @@
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#general-topics-for-neural-networks"> General Topics </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#examples-of-neural-networks"> Examples </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> Activation Functions </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> CNN </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> Deep Learning </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
   </tr>
