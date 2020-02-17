@@ -52,6 +52,32 @@
     + causal sequence from layer to layer to get unbiased sample of the kinds of vectors of visible values that the NN believes in
   + causal model easier to generate data than Boltzmann machine
 
+## Sigmoid Belief Networks
+
++ [Sigmoid Belief Networks](../ML/MLNN-Hinton/13-BeliefNets.md#133-learning-sigmoid-belief-nets)
+  + only one positive phase required
+  + locally normalized models, no partition function or derivatives required
+  + easily to generate an unbiased example at the leaf nodes
+  + following the gradient specified by maximum likelihood learning in a mini-batch stochastic kinds of ways $\to$ understanding what kinds of data the network believes in
+  + hard to infer the posterior distribution over all possible configurations of hidden causes when observing the visible effects
+  + hard to even get a sample from the posterior $\gets$ stochastic gradient descent required
+  + how to learn sigmoid belief networks w/ millions of parameters?
+    + very different regime from the normally used graphical models
+    + graphical models: interpretable models and trying to learn dozens or hundreds of parameters
+
+
+## Explaining Away
+
++ [Explaining away](../ML/MLNN-Hinton/13-BeliefNets.md#133-learning-sigmoid-belief-nets)
+  + two independent hidden causes in the prior
+  + becoming dependent when observing an effect that they can both influence
+  + example: earthquake and truck (see diagram)
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+        <img src="img/m13-03.png" style="margin: 0.1em;" alt="Example of explaining away" title="Example of explaining away" width=300>
+      </a>
+    </div>
 
 
 
