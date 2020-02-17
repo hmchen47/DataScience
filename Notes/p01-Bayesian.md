@@ -15,7 +15,26 @@ Year: 2004
 
 ## 3.1 Subjectivity and Context
 
++ Terminology
+  + __the prior distribution__: a reasonable opinion concerning the plausibility of different values of the treatment effect _excluding_ the evidence from the trail
+  + __likelihood__: the support  for different values of the treatment effect based _solely_ on data from the trial
+  + __the posterior distribution__: a final opinion about the treatment effect
+  + frequency interpretation of probability: long-run properties of repeated random events
+  + frequentist: standard statistical methods
 
++ The Bayesian approach
+  + resting on an essentially _subjective_ interpretation of probability
+  + allowed to express generic uncertainty or _degree of belief_ about any unknown but potentially observable quantity
+  + rules of probability
+    + Lindley, D. V. (2000) [The philosophy of statistics (with discussion)](https://www.phil.vt.edu/dmayo/personal_website/Lindley_Philosophy_of_Statistics.pdf). The Statistician, 49, 293–337.
+    + not assumed as self-evident
+    + able to derived from 'deeper' axioms of reasonable behavior of an individual
+  + probabilities _for_ events rather than probabilities _of_ events
+  + the probability is a reflection of personal uncertainty ranther than necessarily being based on future unknown events illustrated by a gambling game
+
++ Bayesian statistics
+  + Berger, J. and Berry, D. A. (1988) [Statistical analysis and the illusion of objectivity](http://ifmlab.for.unb.ca/people/kershaw/Courses/Research_Methods/Readings/BergerJO1988a.pdf). American Scientist, 76, 159–65.
+  + treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
 
 ## 3.2 Bayes theorem for two hypotheses 51
