@@ -83,10 +83,10 @@
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#model-svm"> Model </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#decision-boundary"> Decision Boundary </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#kernels"> Kernels </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/MLTheory.md#">  </a> </td>
   </tr>
 
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgray; color: gray;"> Unsupervised Machine Learning </td> </tr>
@@ -556,7 +556,7 @@
   <!--
   Hopfield Networks & Boltzmann Machine
   -->
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hopfield Networks & Boltzmann Machine </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hopfield Networks & Boltzmann Machines </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hopfiled Networks </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#overview-for-hopfield-networks"> Overview </a> </td>
@@ -571,7 +571,7 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Boltzmann Machine </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Boltzmann Machines </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#overview-of-boltzmann-machine"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#causal-generative-model"> Causal Generative Model </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#modeling-for-boltzmann-machine"> Boltzmann Machine Model </a> </td>
@@ -596,6 +596,45 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
+
+  <!--
+  Belief/Bayesian Networks
+  -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Belief/Bayesian Networks </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#sigmoid-belief-networks"> Sigmoid </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#explaining-away-effects"> Explaining Away </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#factorial-distribution"> Factorial </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Learning </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#learning-for-belief-networks"> General Rule </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#the-wake-sleep-algorithm"> Wake-Sleep Algorithm </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
   </tr>
   </tbody>
 </table>  
@@ -716,6 +755,68 @@
   + [Utility](./RefCards/DataScience-UCB.md#utility)
 
 
+### Reading Notes
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue;"> Sub-topics </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#visualization"> Visualization </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Statistics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> Bayesian </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Artificial Intelligence </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Machine Learning </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#general-topics-for-ml"> General Topics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#machine-learning-models"> Models </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#application---social-networks"> Applications </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#general-topics-for-neural-networks"> General Topics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#examples-of-neural-networks"> Examples </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Database </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Python Implementation </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+  </tr>
+  </tbody>
+</table>
+
 
 
 ----------------------------
@@ -724,7 +825,7 @@ NB: keywords for Git Commits
   <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 50vw;">
     <thead>
     <tr style="border-bottom: double black;">
-      <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em;"> Symbol </th>
+      <th style="font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em;"> Symbol </th>
       <th style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;"> Description </th>
     </tr>
     </thead>
