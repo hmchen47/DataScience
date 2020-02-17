@@ -939,6 +939,24 @@
 
 ### Support Vector Machine (SVM)
 
+#### Overview 
+
++ [Support Vector Machines](../ML/MLNN-Hinton/13-BeliefNets.md#131-the-ups-and-downs-of-backpropagation) (SVM)
+  + never a good bet for Artificial Intelligence tasks that need good representations
+  + SVM: just a clever reincarnation of Perceptrons with kernel function
+  + viewpoint 1:
+    + expanding the input to a (very large) layer of non-linear <span style="color: re;">non-adaptive</span> features; like perceptrons w/ big layers of features
+    + only one layer of adaptive weights, the weights from the features to the decision unit
+    + a very efficient way of fitting the weights that controls overfitting by maximum margin hyperplane in a high dimensional space
+  + viewpoint 2:
+    + using each input vector in the training set to define a <span style="color: re;">non-adaptive</span> "pheature"
+    + global match btw a test input and that training input, i.e., how similar the test input is to a particular training case 
+    + a clever way of simultaneously doing feature selection and finding weights on the remaining features
+  + Limitation: 
+    + only for non-adaptive features and one layer of adaptive weights
+    + unable to learn multiple layers of representation
+
+
 #### Model: SVM
  
 + [hinge loss](https://en.wikipedia.org/wiki/Hinge_loss) function

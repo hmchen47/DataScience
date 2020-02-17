@@ -4,6 +4,24 @@
 
 ### Motivations
 
++ [A spectrum of machine learning tasks](../ML/MLNN-Hinton/13-BeliefNets.md#131-the-ups-and-downs-of-backpropagation)
+  + Typical Statistics $\longleftrightarrow$ Artificial Intelligence
+  + typical statistics
+    + low-dimensional data; e.g., less than 100 dimensions
+    + lots of noise in the data
+    + not much structure in the data; structure able to captured by a fairly simple model
+    + main problem: separating true structure from noise, not thinking noise is a structure
+    + solution: good for Bayesian nets but not ideal for non-Bayesian neural nets $\implies$ trying SVM or Gaussian Process (GP - regression)
+  + artificial intelligence
+    + high-dimensional data; e.g., more than 100 dimensions, such images and coefficients representing speech
+    + noise: not the main problem
+    + huge amount structure in the data, but too complicated to be represented by a simple model
+    + main problem: figuring out a way to represent the complicated structure so that it can be learned
+      + try to hand design appropriate representations
+      + earier to resolve by letting backpropagation figure out what representations to use by given a multiple layers
+      + using computation power to decide what the representation should be
+    + solution: using backpropagation to figure it out
+
 + [Machine learning problems](../ML/MLNN-Hinton/a01-IntroNN.md#the-motivation-for-neural-networks)
   + regressions (and Ridge, LASSO, etc.)
   + classification problem
@@ -254,6 +272,29 @@
 
 
 ### Backpropagation
+
++ [A brief history of backpropagation](../ML/MLNN-Hinton/13-BeliefNets.md#131-the-ups-and-downs-of-backpropagation)
+  + backpropagation algorithm: clearly having great promise for learning multiple layers for non-linear feature detector
+  + Give up at the late 1990's by most serious researchers
+  + still widely used in psychological models and in practical applications such as credit card fraud detection
+
++ [Why backpropagation failed in the late 1990's](../ML/MLNN-Hinton/13-BeliefNets.md#131-the-ups-and-downs-of-backpropagation)
+  + popular reasons for giving up
+    + not good use of multiple hidden layers of non-linear features
+    + not work well in recurrent networks or deep auto-encoders
+    + Support Vector Machine (SVM)
+      + working better
+      + required less expertise
+      + produced repeatable results
+      + much better and fancier theory
+  + actual reasons
+    + computers: thousands of times too slow
+    + labeled datasets: hundreds of times too small for the regime in which backpropagation would really shine
+    + deep networks:
+      + too small and not initialized sensibly
+      + gradient die too fast because of small initialized weights
+  + these issues preventing from being successful for tasks, including vision and speech, where it would eventually  be a big win
+
 
 + [Backpropagation algorithm](../ML/MLNN-Hinton/a12-Learning.md#81-introduction---classical-backpropagation)
   + a rather slow learning algorithm
@@ -1599,7 +1640,6 @@
     </a>
   </div>
 
-
 + [Automatic differentiation](../ML/MLNN-Hinton/a01-IntroNN.md#backpropagation)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1618,6 +1658,8 @@
       <img src="https://miro.medium.com/max/1250/1*fdYrXF6IGhS0nitxkoHJcA.png" style="margin: 0.1em;" alt="function library to the architecture such that the procedure is abstracted and update automatically as the network architecture" title="Function library" width=650>
     </a>
   </div>
+
+
 
 
 ## Logistic Neurons
@@ -1905,7 +1947,7 @@
 + [Overview of ways to make predictors differ](../ML/MLNN-Hinton/10-CombineDropout.md#101-why-it-helps-to-combine-models)
   + rely on the learning algorithm getting stuck in different local optima $\implies$ a dubious hack (but worth to try)
   + using different non-neural network models
-    + decision trees
+Backpro    + decision trees
     + Gaussian process models
     + support vector machines
     + others
@@ -2016,7 +2058,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture10/lec10.pptx" ismap target="_blank">
-      <img src="img/m10-08.png" style="margin: 0.1em;" alt="Gaussian distributions of two models" title="Gaussian distributions of two models" width=350>
+      <img src="../ML/MLNN-Hinton/img/m10-08.png" style="margin: 0.1em;" alt="Gaussian distributions of two models" title="Gaussian distributions of two models" width=350>
     </a>
   </div>
 
