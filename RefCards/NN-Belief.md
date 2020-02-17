@@ -79,6 +79,17 @@
       </a>
     </div>
 
+## Factorial Distribution
+
++ [Factorial distributions](../ML/MLNN-Hinton/13-BeliefNets.md#134-the-wake-sleep-algorithm)
+  + defintion: the probability of a whole vector is just the product of the probabilities of its individual terms
+  + example:
+    + individual probabilities of three hidden units in a layer: 0.3, 0.6. 0.8
+    + probability of the hidden units w/ states $(1, 0, 1)$ if the distribution is factorial: $p(1, 0, 1) = 0.3 \times (1 -0.6) \times 0.8$
+  + degrees of freedom
+    + a general distribution over binary vectors of length $N: (2^N - 1)$ degrees of freedom
+    + factorial distribution: only $N$ degrees of freedom
+
 
 ## Learning for Belief Networks
 
@@ -126,6 +137,5 @@
       + the log probability related to the generation of data
       + providing a lower bound on that mode probability
       + pushing lower bound to push up log probability
-
 
 
