@@ -66,7 +66,7 @@
     + graphical models: interpretable models and trying to learn dozens or hundreds of parameters
 
 
-## Explaining Away
+## Explaining Away Effects
 
 + [Explaining away](../ML/MLNN-Hinton/13-BeliefNets.md#133-learning-sigmoid-belief-nets)
   + two independent hidden causes in the prior
@@ -78,6 +78,54 @@
         <img src="img/m13-03.png" style="margin: 0.1em;" alt="Example of explaining away" title="Example of explaining away" width=300>
       </a>
     </div>
+
+
+## Learning for Belief Networks
+
++ [Learning rule](../ML/MLNN-Hinton/13-BeliefNets.md#133-learning-sigmoid-belief-nets)
+  + learning is easy $\gets$ getting an unbiased sample from the posterior distribution over hidden states given the observed data
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m13-02.png" style="margin: 0.1em;" alt="Architecture of Sigmoid Belief nets" title="Architecture of Sigmoid Belief nets" width=250>
+      </a>
+    </div>
+  
+  + maximizing the log probability for each unit
+    + $p_i$: the probability to turn on node $i$ involves the binary states of the parents
+    + $\Delta w_{ji}$: the maximum likelihood learning rule
+
+    \[\begin{align*}
+      p_i \equiv p(s_i = 1) &= \frac{1}{1 + \exp \left( -b_i - \sum_j s_j w_{ji} \right)} \\
+      \Delta w_{ji} &= \varepsilon \, s_j (s_i - p_i)
+    \end{align*}\]
+
+  + given an assignment of binary states to all the hidden nodes $\implies$ easily to do maximum likelihood learning in typical stochastic way
+
++ [Issue for learning](../ML/MLNN-Hinton/13-BeliefNets.md#133-learning-sigmoid-belief-nets)
+  + multiple layers of hidden variables to give rise to some data in the causal model (see diagram)
+  + hard to learn sigmoid belief nets one layer at a time
+  + learning $W$: reqiring sample from the posterio distribution in the first hidden layer
+  + problem 1: the posterior not factorial because of "explaining away"
+  + problem 2: posterior depending on the prior as well as the likelihood
+  + problem 3: required to integrate over all possible configurations in the higher layers to get the prior for the first hidden layer $\to$ hopeless
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m13-04.png" style="margin: 0.1em;" alt="Architecure of Belief nets" title="Architecure of Belief nets" width=150>
+    </a>
+  </div>
+
++ [Learning methods](../ML/MLNN-Hinton/13-BeliefNets.md#133-learning-sigmoid-belief-nets)
+  + Monte Carlo methods
+  + Variational mehods: only get approximated samples from the posterior
+  + Learning from wrong distribution: maximum likelihood learning requiring unbiased samples from the posterior
+  + sampling from wrong distribution + the maximum likelihood learning rule:
+    + no guarantee on improvement
+    + guaranteed to improve:
+      + the log probability related to the generation of data
+      + providing a lower bound on that mode probability
+      + pushing lower bound to push up log probability
 
 
 
