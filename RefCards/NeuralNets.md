@@ -326,6 +326,24 @@
     + 2nd projection in the $y$ direction
     + usually converge faster than the Gauss-Jacobi method
 
++ [Limitations of backpropagation](../ML/MLNN-Hinton/13-BeliefNets.md#132-belief-networks)
+  + labeled training data: almost all data unlabeled
+  + learning time: not scale well
+  + poor local optima
+    + usually quite good but far from optimal for deep nets (small initialized random weights)
+    + should we retreat to models that allow convex optimization?
+      + mathematically good
+      + in practice, running away from the complexity of real data
+
++ [Unsupervised learning](../ML/MLNN-Hinton/13-BeliefNets.md#132-belief-networks)
+  + overcoming the limtations of backpropagation
+  + gradient method and stochastic mini-batch descent
+  + learning objective for a generative model as w/ Boltzmann Machines: maximize $p(x)$ (probability of observed data)  not $p(y|x)$ (probability of labels w/ given inputs)
+  + what generative model to use?
+    + an energy-based model like a Boltzmann machine
+    + a causal mode made of idealized neurons
+    + a hybrid of the two
+
 
 ## Architectures
 
