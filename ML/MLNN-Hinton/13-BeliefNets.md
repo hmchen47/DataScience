@@ -342,14 +342,14 @@
   + problem: hard to infer to the posterior distribution over hidden configurations when given a data vector
     + hard even to get a sample from the posterior
     + hard to get unbiased sample
-  + Crazy idea: do the inference wrong
+  + Crazy idea: doing the inference wrong
     + use samples from some other distribution and hope that learning still works
     + apply the learning rule that would be correct if we've got samples from the posterior
     + reasonably expect the learning to be a diaster but actually the learning comes to your rescue
     + observe what's driving the weights during the learning when using an approximate posterior
     + two terms driving the weights
-      + driving them to get a better a model of the data that makes the sigmoid belief net more likely to generate the observed data in the training set
-      + driving weights towards sets of weights for which the proximate posterior using is a good fit to the real posterior by manipulating the real posterior to mak eit fir the approximate posterior
+      + driving weights to get a better model of the data that makes the sigmoid belief net more likely to generate the observed data in the training set
+      + driving weights towards sets of weights for which the proximate posterior used is a good fit to the real posterior by manipulating the real posterior to make it for the approximate posterior
     + turn out to be true for Sigmoid Belief Nets (SBNs)
   + each hidden layer
     + using distribution that ignores explaining away
@@ -358,12 +358,12 @@
     + RBM: unit independent of another units in the same hiddent layer
 
 + Factorial distributions
-  + factorial distributions
-    + the probability of a whole vector is just the product of the probabilities of its individual terms
+  + defintion: the probability of a whole vector is just the product of the probabilities of its individual terms
+  + example:
     + individual probabilities of three hidden units in a layer: 0.3, 0.6. 0.8
-    + probability that the hidden units have state $1, 0, 1$ if the distribution is factorial: $p(1, 0, 1) = 0.3 \times (1 -0.6) \times 0.8$
+    + probability of the hidden units w/ states $(1, 0, 1)$ if the distribution is factorial: $p(1, 0, 1) = 0.3 \times (1 -0.6) \times 0.8$
   + degrees of freedom
-    + a general distribution over binary vectors of length $N$: $2^N - 1$ degrees of freedom
+    + a general distribution over binary vectors of length $N: (2^N - 1)$ degrees of freedom
     + factorial distribution: only $N$ degrees of freedom
 
 + The wake-sleep algorithm
@@ -379,12 +379,12 @@
         + weight defining the probability distribution over data vectors
       + recognition weights
         + weights in red  used for approximately getting the posterior distribution
-        + using the weight to get factorial distribution in each hidden layer
+        + using the weights to get factorial distribution in each hidden layer
         + the approximations of the posterior not working very well
   + Wake phase
     + use recognition weights to perform a bottom-up pass
     + train the generative weights to reconstruct activities in each layer from the layer above
-    + putting data in of the visible layer at the bottom
+    + putting data into the visible layer at the bottom
     + using forward pass through the network w/ the recognition weights
     + making stochastic binary decision at each hidden layer
     + each hidden units independently about whether on or off
@@ -392,7 +392,7 @@
     + treating the stochastic binary states as a sample from the true posterior distribution given the data
     + applying maximum likelihood learning
       + not for recognition weights which just used to get the approximate sample
-      + the generative weights to define the model
+      + but the generative weights to define the model
     + driving the system in the forward pass w/ the recognition weights to learn the generative weights
   + Sleep phase
     + use generative weights to generate samples from the model
@@ -423,27 +423,27 @@
   + explaning away effects $\implies$ the posterior over the top hidden layer is very far from independent
     + forced approximation w/ a distribution independently
     + independence might not be so bad for intermediate hidden layers
-    + explaining away effects from the below could be partially canceled out by prior effects from the above
-  + Karl Friston: how the brian works
+    + explaining away effects from the below could be partially cancelled out by prior effects from the above
+  + Karl Friston: similar to how the brian works
 
 + Mode averaging
   + learning recognition weights (left diagram)
     + running the sleep phase to generate data from the model
-    + most of time those top two units off $\impliedby$ very unlikely to tun on under their prior
+    + those top two units off most of time $\gets$ very unlikely to tun on under their prior
     + visible unit firmly off due to the states off on the top layer units w/ bias of -20
-    + occasionally one time w/ probability of $e^{-10}$, one of the two top units on
+    + occasionally one of the two top units on w/ probability of $e^{-10}$
     + half the instances of a $1$ at the data layer will be caused by a $(1, 0)$ and half caused by a $(0, 1)$
-      + none of those occasion having neither or both unit on
-    + learning to produce $(0.5, 0.5)$ for the recognition units
-    + representing a distribution that put half its mass on $(1, 1)$ or $(0, 0)$: very improbabe hidden configurations
+      + none of those occasion having neither or both units on
+    + learning to produce $(0.5, 0.5)$ for the recognition weights
+    + representing a distribution that put half its mass on $(1, 0)$ or $(0, 1)$: very improbabe hidden configurations
   + much better picking one mode (right diagram)
-    + assume that the posterior over hidden states factorizes
-    + the best recognition model to get if foreced to have factorial model
+    + assume that the posterior over hidden states factorized
+    + the best recognition model to get if forced to have factorial model
     + the true posterior is bimodal that focuses on $(0, 1)$ or $(1, 0)$ (black curve)
-    + the papproximation w/ the wake-sleep algorithm given all four states of the hidden units equal probability (red curve)
+    + the papproximation w/ the wake-sleep algorithm given all four states of the hidden units w/ equal probabilities (red curve)
     + the best solution to pick one of its states to give it all the probability mass (green curve)
     + variational learning manipulating the true posterior to make it fit the approximation
-    + normal learing manipulating an approximation to fit the true thing
+    + normal learing manipulating an approximation to fit the true posterior
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
