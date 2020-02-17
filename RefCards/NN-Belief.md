@@ -139,3 +139,62 @@
       + pushing lower bound to push up log probability
 
 
+## The Wake-Sleep Algorithm
+
++ [Crazy idea](../ML/MLNN-Hinton/13-BeliefNets.md#134-the-wake-sleep-algorithm)
+  + problem: hard to infer to the posterior distribution over hidden configurations when given a data vector
+  + Crazy idea: doing the inference wrong
+    + observe what's driving the weights during the learning when using an approximate posterior
+    + two terms driving the weights
+      + driving weights to get a better model of the data that makes the sigmoid belief net more likely to generate the observed data in the training set
+      + driving weights towards sets of weights for which the proximate posterior used is a good fit to the real posterior by manipulating the real posterior to make it for the approximate posterior
+  + each hidden layer
+    + using distribution that ignores explaining away
+    + assumption (__wrongly__): the posterior over hidden configurations factorizes into a product of distributions for each separate hidden unit
+
++ [The wake-sleep algorithm](../ML/MLNN-Hinton/13-BeliefNets.md#134-the-wake-sleep-algorithm)
+  + lead new area of machine learning $\to$ variational learning in the late 1990s for learing complicated graphical models
+  + used for directly graphical models like sigmoid belief nets
+  + make uses of the idea of using the wrong distribution
+  + architecture: (see diagram)
+    + a neural network w/ two different sets of weights
+    + a generative model
+      + generative weights: weight defining the probability distribution over data vectors
+      + recognition weights: using the weights to get factorial distribution in each hidden layer
+  + Wake phase
+    + use recognition weights to perform a bottom-up pass
+    + train the generative weights to reconstruct activities in each layer from the layer above
+  + Sleep phase
+    + use generative weights to generate samples from the model
+    + train the recognition weights to reconstruct activities in each layer from the layer below
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m13-05.png" style="margin: 0.1em;" alt="Architecure of the wake-sleep algorithm" title="Architecure of the wake-sleep algorithm" width=150>
+    </a>
+  </div>
+
++ [Limitations of the wake-sleep algorithm](../ML/MLNN-Hinton/13-BeliefNets.md#134-the-wake-sleep-algorithm)
+  + the recognition weights
+    + initial phase: weights not very good at the beginning of learing $\to$ waste not not big issue
+    + progressive phase: only approximately follow the gradient of the variational bound on the probability $\to$ incorrect mode-averaging
+  + explaning away effects $\implies$ the posterior over the top hidden layer is very far from independent
+  + Karl Friston: similar to how the brian works
+
++ [Mode averaging](../ML/MLNN-Hinton/13-BeliefNets.md#134-the-wake-sleep-algorithm)
+  + learning recognition weights (left diagram)
+    + learning to produce $(0.5, 0.5)$ for the recognition weights
+    + representing a distribution that put half its mass on $(1, 0)$ or $(0, 1)$: very improbabe hidden configurations
+  + much better picking one mode (right diagram)
+    + the best solution to pick one of its states to give it all the probability mass (green curve)
+    + variational learning manipulating the true posterior to make it fit the approximation
+    + normal learing manipulating an approximation to fit the true posterior
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m13-06.png" style="margin: 0.1em;" alt="Example and distribution of the mode averaging" title="Example and distribution of the mode averaging" width=450>
+    </a>
+  </div>
+
+
+
