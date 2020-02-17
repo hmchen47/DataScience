@@ -1,4 +1,4 @@
-# Bayesian Approach got Neural Networks
+# Bayesian Approach for Neural Networks
 
 ## Overview
 
