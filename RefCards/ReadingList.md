@@ -1,6 +1,5 @@
 # Reading Notes for Data Science
 
-
 ## General Topics
 
 
@@ -12,6 +11,9 @@
 ## Statistics
 
 ### Bayesian Approaches
+
++ D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
+
 
 
 ## Artificial Intelligence
@@ -53,12 +55,25 @@
 + Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](../ML/MLNN-Hinton/a04-Hyperparameter.md)
 + Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](../ML/MLNN-Hinton/a05-VisualCNN.md)
 + Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](../ML/MLNN-Hinton/a06-DeltaRule.md)
++ Drew Rollins, [Delta Function](../ML/MLNN-Hinton/a07-DeltaFunc.md)
+
+
+### Activation Functions
+
++ Chris McCormick, [Deep Learning Tutorial - Softmax Regression](../ML/MLNN-Hinton/a08-SoftmaxReg.md)
++ [Softmax Classifier](../ML/MLNN-Hinton/a09-SoftmaxClass.md) in CS231n Convolutional Neural Networks for Visual Recognition, Stanford University
 
 
 
+### Convolution Neural Networks
 
-### Examples of Neural Networks
++ Adit Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](../ML/MLNN-Hinton/a10-CNNsGuide.md)
 
+
+
+### Deep Learning
+
++ Adit Deshpande, [The 9 Deep Learning Papers You Need to Know About](../ML/MLNN-Hinton/a11-9Papers.md)
 
 
 
@@ -76,7 +91,7 @@
 
 ## Reading List
 
-+ D. Spiegelhalter, [An Overview of the Bayesian Approach](http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf), In: Bayesian Approaches to Clinical Trials and Health-Care Evaluation
++ D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf), In: [Bayesian Approaches to Clinical Trials and Health-Care Evaluation](http://93.174.95.29/main/791000/1c3cccffb374be94e8940aa087c433c0/%28Statistic%20in%20practice%29%20David%20J.%20Spiegelhalter%2C%20Keith%20R.%20Abrams%2C%20Jonathan%20P.%20Myles%20-%20Bayesian%20Approaches%20to%20Clinical%20Trials%20and%20Health-Care%20Evaluation-Wiley%20%282004%29.pdf), pp.49-120, Wiley, 2004
 + [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf)
 + S. Ghosh, [Basics of Bayesian Methods](https://www.researchgate.net/profile/Sujit_Ghosh4/publication/45283465_Basics_of_Bayesian_Methods/links/55cce51208ae1141f6b9e8e0/Basics-of-Bayesian-Methods.pdf), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
 + [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf), chapter 12
