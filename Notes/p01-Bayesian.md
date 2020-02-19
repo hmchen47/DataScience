@@ -72,6 +72,23 @@ Year: 2004
   + frequentist:
     + standard statistical methods
     + $p(x)$ is the proportion of times $x$ will occur in an infintitely long series of repeated identical situations
+  + odds ($O$):
+    + the probability ($p$) that the event will occur divided by the probability ($1 - p$) that the event will not occur
+    + used to describe the chance of an event occurring
+
+    \[ O = \frac{p}{1 - p} \]
+  
+  + logit: the natural logarithm of the odds
+
+  \[ \text{logit}(p) = \ln(\frac{p}{1 - p}) \]
+
+  + Bayes theorem
+
+    \[ p(b|a) = \frac{p(a|b)}{p(a)} \times p(b) \]
+
+  + The odds form of Bayes theorem
+
+    \[ \frac{p(b|a)}{p(b|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \]
 
 + The Bayesian approach
   + resting on an essentially _subjective_ interpretation of probability
@@ -101,26 +118,32 @@ Year: 2004
 
     \[ p(H_0 | y) = \frac{p(y | H_0)}{p(y)} \times p(H_0)  \tag{1} \]
 
-    + the overall probability of $y$ occuring: $p(y) = p(y | H_0) p(H_0) + p(y | H_1) p(H_1)$
-  + Bayes theorem
+  + the overall probability of $y$ occuring: 
+  
+    \[p(y) = p(y | H_0) p(H_0) + p(y | H_1) p(H_1) \]
 
-    \[ \frac{p(H_0 | y)}{p(H_1 | y)} = \frac{p(y | H_0)}{p(y | H_1)} \times \frac{p(H_0)}{p(H_1)} \tag{2} \]
-
-  + the prior odds: $p(H_0)/p(H_1)$
-  + the posterior odds: $p(H_0 | y) / p(H_1 | y)$
-  + the ratio of the likelihood:
+  + the odds form of Bayes theorem
 
     \[\begin{align*}
-      \text{posterior odds} &= \text{likelihood ratio} \times \text{prior odds} \\
+
+      \frac{p(H_0 | y)}{p(H_1 | y)} &= \frac{p(y | H_0)}{p(y | H_1)} \times \frac{p(H_0)}{p(H_1)} \tag{2} \\
+    \end{align*}\]
+
+    + the prior odds: $p(H_0)/p(H_1)$
+    + the posterior odds: $p(H_0 | y) / p(H_1 | y)$
+    + the ratio of the likelihood: $p(y | H_0) / p(y | H_1)$
+
+    \[\begin{align*}
+      \text{posterior odds} &= \text{likelihood ratio} \times \text{prior odds} \\ \\
       \log(\text{posterior odds}) &= \log(\text{likelihood ratio}) + \log(\text{prior odds})
     \end{align*}\]
 
-  + the weight of evidence: $\log(\text{posterior odds})$
+    + the weight of evidence: $\log(\text{likelihood ratio})$
 
-+ Example 1: Diagnosis: Bays theorem in diagnostic testing
++ Example 1: Diagnosis: Bayes theorem in diagnostic testing
   + Assumption:
     + a new home HIV test
-    + %95\%$ sensitivity
+    + $95\%$ sensitivity
     + $98\%$ specificity
     + used in a population w/ an HIV prevalence of $1/1000$
   + Expected status of 100,000 tested individuals in a population w/ an HIV prevalence of $1/1000$
@@ -131,8 +154,8 @@ Year: 2004
     | Test + | 1, 998 | 95 | 2,093 |
     |Total   | 99,900 | 100 | 100,000 |
 
-  + $H_0$: the hypothesis that individual is truly HIV positive
-  + $H_1$: the hypothesis truly HIV negative
+  + $H_0$: individual truly HIV positive
+  + $H_1$: truly HIV negative
   + $y$: the observation tested positive
   + the prior probability of the disease prevalence: $p(H_0) = 0.001$
   + the posterior probability $p(H_0 | y)$: the chance that someone who tests positive is truly HIV positive
@@ -150,7 +173,7 @@ Year: 2004
       p(H_o | y) &= 0.95 \cdot 0.001 / 0.02093 = 0.045
     \end{align*}\]
 
-  + Ans: over $95\%$ pf those testing positive will not have HIV
+  + Ans: over $95\%$ of those testing positive will not have HIV
   + Bayes theorem for two hypotheses $H_0$ and $H_1$
     + by specifying the prior probability or odds, and likelihood ratio $p(y|H_0)/p(y|H_1)$, the posterior probability or odds can be read off the graphs
     + using the logarithmic scaling, under which Bayes theorem gives a linear relationship (fig.(b))
