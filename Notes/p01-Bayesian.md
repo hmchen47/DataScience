@@ -15,52 +15,67 @@ Year: 2004
 
 ## 3.1 Subjectivity and Context
 
-+ [the prior distribution](https://en.wikipedia.org/wiki/Prior_probability)
++ [The prior distribution](https://en.wikipedia.org/wiki/Prior_probability)
   + in Bayesian statistical inference, the probability distribution that would express one's beliefs about the quantity before some evidence is taken into account
   + the prior probability of a random event or an uncertain proposition: the unconditional probability assigned before any relevant evidence is taken into account
   + the unknown quantity may be a parameter of the model or a latent variable rather than an observable variable
   + methods to create prior
     + determined from past information, such as previous experiments
     + elicited from the purely subjective assessment of an experienced expert
-    + (uninformative) created to reflect a balance among to some principle, such as symmetry or maximizing entropy given constraints
-    + (conjugate) choosing a prior from that family simplifies calculation of the posterior distribution
+    + (uninformative) created to reflect a balance among outcomes when no information is available
+    + chosen according to some principle, such as symmetry or maximizing entropy given constraints
+    + (conjugate) chosen a prior from a family simplifies calculation of the posterior distribution
 
-+ [likelihood function / likelihood](https://en.wikipedia.org/wiki/Likelihood_function)
++ [Likelihood function / likelihood](https://en.wikipedia.org/wiki/Likelihood_function)
   + measuring the goodness of fit of a statistical model to a sample of data for given values of the unknown parameters
   + formed from the joint probability of the sample but viewed and used as function of the parameters only
-  + describing a hypersurface whose peak represents the combination of model parameter value that maximize the probability of drawing the sample obtained
+  + describing a hypersurface whose peak represents the combination of model parameter values that maximize the probability of drawing the sample obtained
   + maximum likelihood estimation: a procedure for obtaining the arguments of the maximum of the likelihood function
   + the shape and curvature of the likelihood surface represent information about the stability of the estimates
-  + Definition: $f(x | \theta) =$ the joint probability density function of sample $x = (x_1, \ldots, x_n)$
-    + $\theta$: a parameter
-    + $x$: an observed sample point
-    + the likelihood function of $\theta$
+  + Definition of a parameterized model
+    + $x \to f(x | \theta)$: a parameterized family of probability density function (pdf) or probability mass function (discrete distribution), $\theta$ is the parameter
+    + the likelihood function
 
-      \[ \mathcal{L}(\theta | x) = f(x | \theta) \]
+      \[ \theta \to f(x | \theta) \implies \mathcal{L}(\theta | x) = f(x | \theta) \]
 
-  + probability density function: $\theta$ as constant and focused on an ever changing $x$
-  + an equivalence class of functions
-  + likelihood function: $x$ as a constant and imaging $\theta$ to be a varying over the whole range of possible parameter values
+      + $x$: observed outcome of an experiment
+    + $f(x | \theta)$:
+      + probability density function: a function of $x$ w/ $\theta$ fixed
+      + a likelihood function: a function of $\theta$ w/ $x$ fixed
+    + an equivalence class of functions
+    + likelihood function: $x$ as a constant and imaging $\theta$ to be a varying over the whole range of possible parameter values
+  + Definition for continuous distribution:
+    + given an observation $x_j$, 
+    + $\mathcal{L}(\theta | x \in [x_j, x_j+h])$: the likelihood for the interval $[x_j, x_j + h]$, where $h > 0$ is a constant
+
+      \[\begin{align*}
+        \text{argmax}_\theta \, \mathcal{L}(\theta | x \in [x_j, x_j + h]) & = \text{argmax}_\theta \, \frac{1}{h} \mathcal{L}(\theta | x \in [x_j, x_j + h]) \\
+        & \downarrow \\
+        \text{argmax}_\theta \mathcal{L}(\theta, x_j) &= \text{argmax}_\theta f(x_j | \theta)
+      \end{align*}\]
+
   + a key part of Bayesian inference
   + using likelihoods to generate estimators $\to$ the maximum likelihood estimator
 
-+ [the posterior distribution](https://www.statisticshowto.datasciencecentral.com/posterior-distribution-probability/)
++ [The posterior distribution](https://www.statisticshowto.datasciencecentral.com/posterior-distribution-probability/)
   + Wikipedia: the probability distribution of an unknown quantity, treated as a random variable, conditional on the evidence obtained from an experiment or survey
   + a way to summarize what we know about uncertain quantities in Bayesian analysis
   + a combination of the prior distribution and the likelihood function
   + summarizing what you know after the data has been observed
 
     \[ \text{Posterior Distribution} = \text{Prior Distribution} + \text{Likelihood Function (“new evidence”)} \]
-  + Posterior probability: the probability an event will happen after all evidence or background information has been taken into account
+  + Posterior probability: the probability that an event will happen after all evidence or background information has been taken into account
 
 + Terminology
   + likelihood principle: the proposition that, given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
   + frequency interpretation of probability: long-run properties of repeated random events
-  + frequentist: standard statistical methods
+  + frequentist:
+    + standard statistical methods
+    + $p(x)$ is the proportion of times $x$ will occur in an infintitely long series of repeated identical situations
 
 + The Bayesian approach
   + resting on an essentially _subjective_ interpretation of probability
-  + allowed to express generic uncertainty or _degree of belief_ about any unknown but potentially observable quantity
+  + allowed to express generic _uncertainty_ or _degree of belief_ about any unknown but potentially observable quantity
   + rules of probability
     + Lindley, D. V. (2000) [The philosophy of statistics (with discussion)](https://www.phil.vt.edu/dmayo/personal_website/Lindley_Philosophy_of_Statistics.pdf). The Statistician, 49, 293–337.
     + not assumed as self-evident
