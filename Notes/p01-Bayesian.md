@@ -140,13 +140,13 @@ Year: 2004
 
     + the weight of evidence: $\log(\text{likelihood ratio})$
 
-+ Example 1: Diagnosis: Bayes theorem in diagnostic testing
++ Example 1 -- Diagnosis: Bayes theorem in diagnostic testing
   + Assumption:
     + a new home HIV test
     + $95\%$ sensitivity
     + $98\%$ specificity
     + used in a population w/ an HIV prevalence of $1/1000$
-  + Expected status of 100,000 tested individuals in a population w/ an HIV prevalence of $1/1000$
+  + Table 1 -- Expected status of 100,000 tested individuals in a population w/ an HIV prevalence of $1/1000$
 
     |     | HIV- | HIV+ |   |
     |-----|-----:|-----:|--:|
@@ -186,13 +186,53 @@ Year: 2004
     </div>
 
 
+## 3.3 Comparing simple hypotheses: likelihood ratios and Bayes factors
 
-## 3.3 Comparing simple hypotheses: likelihood ratios and Bayes factors 54
++ the likelihood principle
+  + the likelihoods contains all the rellevant that can be extracted from the data
+  + Berger, J. and Wolpert, R. (1988) [The Likelihood Principle (2nd edition)](https://b-ok.org/dl/505521/68882f), Institute of Mathematical Statistics, Hayward, CA, 1998
+  + all the information that the data provide about the parameter is contained in the likelihood
 
++ Bayes factor (BF)
+  + measure of the relative likelihood of two hypotheses
+  + the 'relative betting odds' btw two hypotheses
+  + value in $[0, \infty]$
+  + small values being considered as both evidence _against_ $H_0$ abd evidence _for_ $H_1$
+  + transforming prior to posterior odds
+  + Example 1: a positive test of $BF = 47.5$ in favor of being HIV positive ($H_0$)
+  + obtained for composite hypotheses that include unknown parameters
 
++ Table 2 -- Calibration of Bayes factor (likelihood ratio)
 
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=50%>
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf">Calibration of Bayes factor (likelihood ratio)</a></caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Bayes factor range</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Strength of evidence in favour of $H_0$ and against %H_1$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;"> <td> > 100 </td>       <td>Decisive</td> </tr>
+    <tr style="text-align: center;"> <td>32 to 100 </td>    <td>Very strong</td> </tr>
+    <tr style="text-align: center;"> <td>10 to 32 </td>     <td>Strong</td> </tr>
+    <tr style="text-align: center;"> <td>3.2 to 10</td>     <td>Substantial</td> </tr>
+    <tr style="text-align: center;"> <td>1 to 3.2</td>      <td>'Not worth more than a bare mention'</td> </tr>
+    <tr style="text-align: center;"> <td> </td>             <td>Strength of evidence against $H_0$ and in favor of $H_1$</td> </tr>
+    <tr style="text-align: center;"> <td>1 tp 1/3.2</td>    <td>'Not worth more than a bare mention'</td> </tr>
+    <tr style="text-align: center;"> <td>1/3.2 to 1/10</td> <td>Substantial</td> </tr>
+    <tr style="text-align: center;"> <td>1/10 to 1/32</td>  <td>Strong</td> </tr>
+    <tr style="text-align: center;"> <td>1/32 to 1/100</td> <td>Very strong</td> </tr>
+    <tr style="text-align: center;"> <td>< 1/100</td>       <td>Decisive</td> </tr>
+    </tbody>
+  </table>
 
-
++ Use of Bayes theorem
+  + diagnostic testing: an established part of formal clincial reasoning
+  + general statistical analysis
+    + a parameter $\theta$ is an unknown quantity such as the mean benefit of a treatment on a specified patient
+    + the prior distribution $p(\theta)$ needs to be specified
+    + concern: a natural extension of the subjective interpretation of probability
 
 
 ## 3.4 Exchangeability and parametric modelling* 56
