@@ -247,7 +247,7 @@ Year: 2004
 ## 3.4 Exchangeability and parametric modelling
 
 + Exchangeability
-  + the rules of probability could be derived from more basic ideas of relational behavior
+  + the rules of probability able to be derived from more basic ideas of relational behavior
   + deriving the idea of i.i.d. variables and prior distributions of parameters from the more basic subjective judgement
   + a formal expression of the idea that no systematic reason to distinguish the individual variables $Y_1, \dots, Y_n$ (similar but not identical)
   + exchangeable: the probability of $Y_1, \dots, Y_n$ assigned to any set of potential outcomes, $p(y_1, \dots, y_n)$, unaffected by permutations of the labels attached to the variables
@@ -255,9 +255,10 @@ Year: 2004
     + $Y_1, Y_2, Y_3$: the first 3 tosses of a (possible biased) coin
     + $Y_1 = 0$ indicates a tail and $Y_1 = 1$ indicates a head
     + $p(Y_1 = 1, Y_2 = 0, Y_3 = 1) = p(Y_2 = 1, Y_1 = 0, Y_3 = 1) = p(Y_1 = 1, Y_3 = 0, Y_2 = 1)$: the probability of getting two head and one tail is unaffected by the particular toss on which the tail comes
-  + $Y_1, \dots, Y_3$ not independent
+    + $Y_1, \dots, Y_3$ might not independent
 
 + Judgement of exchangeability
+  + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](https://b-ok.org/dl/703263/7209ab). John Wiley & Sons, Ltd, Chichester.
   + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
 
     \[ p(y_1, \dots, y_n) = \int \, \prod_{i=1}^{n} p(y_i | \theta) p(\theta) d\theta \tag{3} \]
