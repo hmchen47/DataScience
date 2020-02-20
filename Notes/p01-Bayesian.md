@@ -298,10 +298,80 @@ Year: 2004
 + Bayesian approach to make inference: combining the likelihood w/ initial evidence or opinion regarding $\theta$, as expressed in a prior distribution $p(\theta)$
 
 
-### 3.6.1 Binary data with a discrete prior distribution 58
+### 3.6.1 Binary data with a discrete prior distribution
 
++ only a limited set of hypotheses concerning the true proportional $\theta$, corresponding to a finite list denoted $\theta_1, \dots, \theta_J$
 
++ Bernoulli distribution
+  + for a single Bernoulli trial w/ outcome 0 or 1, the likelihood for each possible value for $\theta$
 
+    \[ p(y | \theta_j) = \theta_j^y (1 - \theta_j)^{1-y}  \qquad \text{ where } \quad
+      p(y | \theta) = \begin{cases} \theta_j & \text{ if } y = 1 \\ 1 - \theta_j & \text{ if } y = 0 \end{cases} \tag{6} 
+    \]
+
+  + the posterior probabilities for the $\theta_j$
+
+    \[ p(\theta_j | y) \propto \theta_j^y (1 - \theta_j)^{1-y} \times p(\theta_j)  \tag{7} \]
+
+    where the normalizing factor that ensures that the posterior probabilities add to 1
+
+    \[ p(y) = \sum_j \theta_j^y (1 - \theta_j)^{1-y} \times p(\theta_j) \]
+
+  + the result w/ $r$ 'successes' out of $n$ trials, the relevant posterior
+
+    \[ p(\theta_j | r) \propto \theta_j^r (1 - \theta_j)^{1-y} \times p(\theta_j) \tag{8} \]
+
++ Example 2 -- Drug: Binary data and a discrete prior
+  + Assumptions
+    + a drug w/ an unknown true response rate $\theta$
+    + only take one of the values $\theta_1 = 0.2, \theta_2 = 0.4, \theta_3 = 0.6, \text{ or } \theta_4 = 0.8$
+    + 'neutral' position: equally likely value for $\theta_j$, i.e. $p(\theta_j) = 0.25$ for $j=1, 2, 3,4$
+  + likelihood: $p(Y|\theta_j)$ = \theta_j^y (1 - \theta_j)^{1-y} = \theta_j
+  + Table 3: results after observing a single positive response, $y=1$, for a drug given an initial uniform distribution over four possible response rate $\theta_j$
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf">Results after observing a single response</a></caption>
+      <thead>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$j$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$\theta_j$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Prior <br/>$p(\theta_j)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood <br/>$p(y|\theta_j)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood x prior <br/>$p(y|\theta_j) p(\theta_j)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Posterior <br/>$p(\theta_j|y)$</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;"> <td>1</td> <td>0.2</td> <td>0.25</td> <td>0.2</td> <td>0.05</td> <td>0.10</td> </tr>
+        <tr style="text-align: center;"> <td>2</td> <td>0.4</td> <td>0.25</td> <td>0.4</td> <td>0.10</td> <td>0.20</td> </tr>
+        <tr style="text-align: center;"> <td>3</td> <td>0.6</td> <td>0.25</td> <td>0.6</td> <td>0.15</td> <td>0.30</td> </tr>
+        <tr style="text-align: center;"> <td>4</td> <td>0.8</td> <td>0.25</td> <td>0.8</td> <td>0.20</td> <td>0.40</td> </tr>
+        <tr style="text-align: center;"> <td></td> <td>$\sum_j$</td> <td>1.0</td> <td></td> <td>0.50</td> <td>1.00</td> </tr>
+      </tbody>
+    </table>
+
+  + Table 4: Results after observing 15 positive responses, $y=15$, for a drug out of 20 cases, given an initial uniform distribution over four possible response rates $\theta_j$
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf">Results after observing 15 positive responses</a></caption>
+      <thead>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$j$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$\theta_j$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Prior <br/>$p(\theta_j)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood <br/>$\theta_j^{15}(1-\theta_j^5)$<br/>$(\times 10^{-7})$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood x prior <br/>$\theta_j^{15}(1-\theta_j^5)p(\theta_j)$<br/>$(\times 10^{-7})$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Posterior <br/>$p(\theta_j|X=1)$</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;"> <td>1</td> <td>0.2</td> <td>0.25</td> <td>0.0</td> <td>0.0</td> <td>0.000</td> </tr>
+        <tr style="text-align: center;"> <td>2</td> <td>0.4</td> <td>0.25</td> <td>0.8</td> <td>0.2</td> <td>0.005</td> </tr>
+        <tr style="text-align: center;"> <td>3</td> <td>0.6</td> <td>0.25</td> <td>48.1</td> <td>12.0</td> <td>0.298</td> </tr>
+        <tr style="text-align: center;"> <td>4</td> <td>0.8</td> <td>0.25</td> <td>112.6</td> <td>28.1</td> <td>0.697</td> </tr>
+        <tr style="text-align: center;"> <td></td> <td>$\sum_j$</td> <td>1.0</td> <td></td> <td>40.3</td> <td>1.0</td> </tr>
+      </tbody>
+    </table>
 
 
 
