@@ -68,6 +68,21 @@ Year: 2004
 
 + Terminology
   + likelihood principle: the proposition that, given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
+  + joint probability distribution
+    + joint probability: the probability of two events occurring simultaneously
+    + a probability distribution giving the probability that each $X, Y, \dots$ falls in any particular range or discrete set of values specified for that variable
+    + the joint probability density function of random variable $X$ and $Y$ is $f_{X, Y}(x, y)$, the marginal probability density function of $X$ and $Y$
+
+      \[ f_X(x) = \int f_{XY} (x, y) dy, \qquad f_Y(y) = \int f_{XY} (x, y) dx \]
+
+  + marginal distribution
+    + marginal probability: the probability of an event irrespective of the outcome of another variable
+    + the marginal distribution of a subset of a collection iof random variables is the probability distribution of the variables contained in the subset
+    + two random variables independent $\iff$ their joint distribution function equal to the product of their marginal distribution functions
+    + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $b \in [c, d]$
+
+      \[ f_Y(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
+
   + frequency interpretation of probability: long-run properties of repeated random events
   + frequentist:
     + standard statistical methods
@@ -229,12 +244,30 @@ Year: 2004
     + concern: a natural extension of the subjective interpretation of probability
 
 
-## 3.4 Exchangeability and parametric modelling* 56
+## 3.4 Exchangeability and parametric modelling
 
++ Exchangeability
+  + the rules of probability could be derived from more basic ideas of relational behavior
+  + deriving the idea of i.i.d. variables and prior distributions of parameters from the more basic subjective judgement
+  + a formal expression of the idea that no systematic reason to distinguish the individual variables $Y_1, \dots, Y_n$ (similar but not identical)
+  + exchangeable: the probability of $Y_1, \dots, Y_n$ assigned to any set of potential outcomes, $p(y_1, \dots, y_n)$, unaffected by permutations of the labels attached to the variables
+  + example:
+    + $Y_1, Y_2, Y_3$: the first 3 tosses of a (possible biased) coin
+    + $Y_1 = 0$ indicates a tail and $Y_1 = 1$ indicates a head
+    + $p(Y_1 = 1, Y_2 = 0, Y_3 = 1) = p(Y_2 = 1, Y_1 = 0, Y_3 = 1) = p(Y_1 = 1, Y_3 = 0, Y_2 = 1)$: the probability of getting two head and one tail is unaffected by the particular toss on which the tail comes
+  + $Y_1, \dots, Y_3$ not independent
 
++ Judgement of exchangeability
+  + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
 
+    \[ p(y_1, \dots, y_n) = \int \, \prod_{i=1}^{n} p(y_i | \theta) p(\theta) d\theta \tag{3} \]
 
+  + $Y_1, \dots, Y_n$ are i.i.d., each with distribution $p(y_i, \theta)$, the joint distribution (conditional $\theta$) is
 
+    \[ p(y_1, \dots, y_n | \theta) = \prod_{i=1}^n p(y_i | \theta) \]
+
+  + exchangable random quantities can be though of being i.i.d. variables drawn from some common distribution depending on an unknown parameter $\theta$ w/ a prior distribution $p(\theta)$
+  + from a subjective judgement about observable quantities, one derives that whole apparatus of i.i.d. variables, conditional independence, parameters and prior distributions
 
 
 ## 3.5 Bayes theorem for general quantities 57
