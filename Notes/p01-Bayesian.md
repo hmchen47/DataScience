@@ -258,7 +258,7 @@ Year: 2004
     + $Y_1, \dots, Y_3$ might not independent
 
 + Judgement of exchangeability
-  + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](https://b-ok.org/dl/703263/7209ab). John Wiley & Sons, Ltd, Chichester.
+  + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](http://abelo.zlibcdn.com/dtoken/f1ddfe4ba4a2b3c9eebeb81935e28f80/Bayesian_Theory_by_Jos%C3%A9_M._Bernardo,_Adrian_F._M.__703263_(z-lib.org).pdf). John Wiley & Sons, Ltd, Chichester.
   + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
 
     \[ p(y_1, \dots, y_n) = \int \, \prod_{i=1}^{n} p(y_i | \theta) p(\theta) d\theta \tag{3} \]
