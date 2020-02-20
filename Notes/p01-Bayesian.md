@@ -271,12 +271,26 @@ Year: 2004
   + from a subjective judgement about observable quantities, one derives that whole apparatus of i.i.d. variables, conditional independence, parameters and prior distributions
 
 
-## 3.5 Bayes theorem for general quantities 57
+## 3.5 Bayes theorem for general quantities
 
++ Assumptions
+  + $\theta$: unknown quantity
+  + $p(\theta | H)$: the prior distribution of $\theta$; judgement about $\theta$ conditional on a context $H$
+  + $y$: some observed evidence
 
++ Bayesian approach
+  + $p(y | \theta)$: the (conditional) probability of $y$ for each possible value of $\theta$
+  + $p(\theta | y)$: likelihood; to obtain the new, posterior, probability for different $\theta$, taking account of the evidence $y$
+  + applying Bayesian theorem to a general quantity $\theta$
 
+    \[ p(\theta | y) = \frac{p(y | \theta)}{p(y)} \times p(\theta)  \tag{4}\]
 
+    + $p(y)$: a normalizing factor to ensure that $\int p(\theta|y)d\theta = 1$ and value not interested
+  + the essence of bayes theorem only concerns the terms involving $\theta$
 
+    \[ p(\theta | y) \propto p(y | \theta) \times p(\theta) \tag{5} \]
+
+  + the posterior distribution proportional to (i.e. has the same shape as) the product of the likelihood and the prior
 
 
 ## 3.6 Bayesian analysis with binary data 57
