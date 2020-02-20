@@ -293,12 +293,9 @@ Year: 2004
   + the posterior distribution proportional to (i.e. has the same shape as) the product of the likelihood and the prior
 
 
-## 3.6 Bayesian analysis with binary data 57
+## 3.6 Bayesian analysis with binary data
 
-
-
-
-
++ Bayesian approach to make inference: combining the likelihood w/ initial evidence or opinion regarding $\theta$, as expressed in a prior distribution $p(\theta)$
 
 
 ### 3.6.1 Binary data with a discrete prior distribution 58
