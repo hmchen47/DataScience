@@ -286,7 +286,7 @@ Year: 2004
     \[ p(\theta | y) = \frac{p(y | \theta)}{p(y)} \times p(\theta)  \tag{4}\]
 
     + $p(y)$: a normalizing factor to ensure that $\int p(\theta|y)d\theta = 1$ and value not interested
-  + the essence of bayes theorem only concerns the terms involving $\theta$
+  + the essence of Bayes theorem only concerns the terms involving $\theta$
 
     \[ p(\theta | y) \propto p(y | \theta) \times p(\theta) \tag{5} \]
 
