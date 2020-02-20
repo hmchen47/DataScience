@@ -306,14 +306,14 @@ Year: 2004
   + for a single Bernoulli trial w/ outcome 0 or 1, the likelihood for each possible value for $\theta$
 
     \[ p(y | \theta_j) = \theta_j^y (1 - \theta_j)^{1-y}  \qquad \text{ where } \quad
-      p(y | \theta) = \begin{cases} \theta_j & \text{ if } y = 1 \\ 1 - \theta_j & \text{ if } y = 0 \end{cases} \tag{6} 
+      p(y | \theta_j) = \begin{cases} \theta_j & \text{ if } y = 1 \\ 1 - \theta_j & \text{ if } y = 0 \end{cases} \tag{6} 
     \]
 
   + the posterior probabilities for the $\theta_j$
 
     \[ p(\theta_j | y) \propto \theta_j^y (1 - \theta_j)^{1-y} \times p(\theta_j)  \tag{7} \]
 
-    where the normalizing factor that ensures that the posterior probabilities add to 1
+    where the normalizing factor that ensures the posterior probabilities add to 1
 
     \[ p(y) = \sum_j \theta_j^y (1 - \theta_j)^{1-y} \times p(\theta_j) \]
 
@@ -324,9 +324,9 @@ Year: 2004
 + Example 2 -- Drug: Binary data and a discrete prior
   + Assumptions
     + a drug w/ an unknown true response rate $\theta$
-    + only take one of the values $\theta_1 = 0.2, \theta_2 = 0.4, \theta_3 = 0.6, \text{ or } \theta_4 = 0.8$
+    + only one of the values $\theta_1 = 0.2, \theta_2 = 0.4, \theta_3 = 0.6, \text{ or } \theta_4 = 0.8$
     + 'neutral' position: equally likely value for $\theta_j$, i.e. $p(\theta_j) = 0.25$ for $j=1, 2, 3,4$
-  + likelihood: $p(Y|\theta_j)$ = \theta_j^y (1 - \theta_j)^{1-y} = \theta_j
+  + likelihood for one response: $p(y|\theta_j) = \theta_j^y (1 - \theta_j)^{1-y} = \theta_j$
   + Table 3: results after observing a single positive response, $y=1$, for a drug given an initial uniform distribution over four possible response rate $\theta_j$
 
     <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
@@ -359,8 +359,8 @@ Year: 2004
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$j$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$\theta_j$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Prior <br/>$p(\theta_j)$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood <br/>$\theta_j^{15}(1-\theta_j^5)$<br/>$(\times 10^{-7})$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood x prior <br/>$\theta_j^{15}(1-\theta_j^5)p(\theta_j)$<br/>$(\times 10^{-7})$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood <br/>$\theta_j^{15}(1-\theta_j)^5$<br/>$(\times 10^{-7})$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Likelihood x prior <br/>$\theta_j^{15}(1-\theta_j)^5p(\theta_j)$<br/>$(\times 10^{-7})$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Posterior <br/>$p(\theta_j|X=1)$</th>
       </tr>
       </thead>
