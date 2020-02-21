@@ -36,7 +36,7 @@ Year: 2004
     + $x \to f(x | \theta)$: a parameterized family of probability density function (pdf) or probability mass function (discrete distribution), $\theta$ is the parameter
     + the likelihood function
 
-      \[ \theta \to f(x | \theta) \implies \mathcal{L}(\theta | x) = f(x | \theta) \]
+      \[ \theta \to f(x | \theta) \implies \mathcal{L}(\theta | x) = f(x | \theta) \tag{Likelihood} \]
 
       + $x$: observed outcome of an experiment
     + $f(x | \theta)$:
@@ -64,6 +64,7 @@ Year: 2004
   + summarizing what you know after the data has been observed
 
     \[ \text{Posterior Distribution} = \text{Prior Distribution} + \text{Likelihood Function (“new evidence”)} \]
+
   + Posterior probability: the probability that an event will happen after all evidence or background information has been taken into account
 
 + Terminology
@@ -91,19 +92,32 @@ Year: 2004
     + the probability ($p$) that the event will occur divided by the probability ($1 - p$) that the event will not occur
     + used to describe the chance of an event occurring
 
-    \[ O = \frac{p}{1 - p} \]
+    \[ O = \frac{p}{1 - p} \tag{Odds} \]
   
   + logit: the natural logarithm of the odds
 
-  \[ \text{logit}(p) = \ln(\frac{p}{1 - p}) \]
+  \[ \text{logit}(p) = \ln(\frac{p}{1 - p}) \tag{Odds.log} \]
 
   + Bayes theorem
 
-    \[ p(b|a) = \frac{p(a|b)}{p(a)} \times p(b) \]
+    \[ p(b|a) = \frac{p(a|b)}{p(a)} \times p(b) \tag{Bayes} \]
 
   + The odds form of Bayes theorem
 
-    \[ \frac{p(b|a)}{p(b|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \]
+    \[ \frac{p(b|a)}{p(b|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \tag{Bayes.odds} \]
+
++ beta distribution
+  + a flexible abd mathematically convenient class for quantities contained to lie btw 0 and 1
+  + form: $Y \sim Beta(a, b)$
+  + properties
+
+    \[\begin{align*}
+      p(y | a, b) &= \frac{\Gamma (a, b)}{\Gamma (a) \Gamma (b)} y^{a-1} (1-y)^{a-1)}, \quad y \in (0, 1) \tag{Beta.prob}\\
+      E(Y|a, b) &= \frac{a}{a+b} \tag{Beta.mean}\\
+      V(Y|a, b) &= \frac{ab}{(a+b)^2(a+b+1)} \tag{Beta.var}
+    \end{align*}\]
+
+    where $\Gamma(a) = (a-1)!$
 
 + The Bayesian approach
   + resting on an essentially _subjective_ interpretation of probability
@@ -374,14 +388,59 @@ Year: 2004
     </table>
 
 
+### 3.6.2 Conjugate analysis for binary data
 
++ Uniform distribution
+  + assumption for prior distribution:
+    + all possible values of $\theta$ equally likely
+    + uniform distribution, $p(\theta) = 1 \text{ for } 0 \leq \theta \leq 1$
+  + applying Bayes theorem
 
-### 3.6.2 Conjugate analysis for binary data 59
+    \[ p(\theta | y) \propto \theta^r (1-\theta)^{n-r} \times 1  \tag{9} \]
 
+    + $r$: the number of events
+    + $n$: the total number of individuals
+  + the functional form of the posterior distribution proportional to a beta distribution: $Beta(r+1, n-r+1)$
 
++ Beta distribution
+  + prior distribution: $Beta(a, b)$
+  
+  \[\begin{align*}
+    \text{Prior} &\propto \theta^{a-1} (1 - \theta)^{b-1} \\
+    \text{Likelihood} &\propto \theta^r (1 - \theta)^{n-r} \\
+    \text{Posterior} &\propto \theta^{a-1}(1 - \theta)^{b-1} \theta^r (1-\theta)^{n-r} \tag{10} \\
+      &\propto \theta^{a+r-1}(1-\theta)^{b+n-r-1} = Beta(a+r, b+n-r)
+  \end{align*}\]
 
++ Example 3 -- Drug(continued): Binary data and a continuous prior
+  + experience: response rates btw 0.2 and 0.6 w/ expectation around 0.4 $\implies Beta(a, b)$
+  + estimate the mean and variance of the prior distribution
+    + normal distribution: $m \pm 2s$ including over 95% of the probability; e.g. $m = 0.4, s = 0.1$
+    + beta distribution w/ reasonably high $a$ and $b$ as an approximately normal shape
+  + a beta distribution to a normal distribution
 
+    \[\begin{align*}
+      m &= a/(a+b) \tag{11} \\
+      s^2 &= m(1-m)/(a+b+1) \tag{12}
+    \end{align*}\]
+  
+  + $m = 0.4, b = 0.1 \implies a = 9.2, b = 13.8$
+  + Figure for prior distribution ($Beta(0, 0)$ to posterior distribution ($Beta(9.2, 13.8)$) w/ likelihood function
+    + Fig. (a)
+      + representing the prior assumption w/ a 'non-informative' prior $Beta(0, 0)$
+      + observeing that $a=9.2$ successes in $a+b = 23$ patients
+      + only heuristic argument as no agreed 'non-informative' beta prior, w/ $Beta(0,0), Beta(0.5, 0.5), beta(1, 1)$ all having been suggested
+    + observed $r=15$ successes out of 20 trials
+    + updated to $Beta(a+15, B+20-5) = Beta(24.2, 18.8)$
+    + Fig. (c): posterior distribution w/ mean $24.2/(24.2 + 18.8) == 0.56$
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-02a.png" style="margin: 0.1em;" alt="a Beta[9.2,13.8] prior distribution supporting response rates between 0.2 and 0.6" title="(a) a Beta[9.2,13.8] prior distribution supporting response rates between 0.2 and 0.6" height=70>
+        <img src="img/p01-02b.png" style="margin: 0.1em;" alt="a likelihood arising from a binomial observation of 15 successes out of 20 cases" title="(b) a likelihood arising from a binomial observation of 15 successes out of 20 cases" height=70>
+        <img src="img/p01-02c.png" style="margin: 0.1em;" alt="the resulting Beta[24.2, 18.8] posterior from a conjugate beta-binomial analysis" title="(c) the resulting Beta[24.2, 18.8] posterior from a conjugate beta-binomial analysis" height=70>
+      </a>
+    </div>
 
 
 ## 3.7 Bayesian analysis with normal distributions 62
