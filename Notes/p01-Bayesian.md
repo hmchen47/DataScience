@@ -112,7 +112,7 @@ Year: 2004
   + properties
 
     \[\begin{align*}
-      p(y | a, b) &= \frac{\Gamma (a, b)}{\Gamma (a) \Gamma (b)} y^{a-1} (1-y)^{a-1)}, \quad y \in (0, 1) \tag{Beta.prob}\\
+      p(y | a, b) &= \frac{\Gamma (a, b)}{\Gamma (a) \Gamma (b)} y^{a-1} (1-y)^{b-1}, \quad y \in (0, 1) \tag{Beta.prob}\\
       E(Y|a, b) &= \frac{a}{a+b} \tag{Beta.mean}\\
       V(Y|a, b) &= \frac{ab}{(a+b)^2(a+b+1)} \tag{Beta.var}
     \end{align*}\]
@@ -393,7 +393,7 @@ Year: 2004
 + Uniform distribution
   + assumption for prior distribution:
     + all possible values of $\theta$ equally likely
-    + uniform distribution, $p(\theta) = 1 \text{ for } 0 \leq \theta \leq 1$
+    + uniform distribution, $p(\theta) = 1 \, \text{ for } \,0 \leq \theta \leq 1$
   + applying Bayes theorem
 
     \[ p(\theta | y) \propto \theta^r (1-\theta)^{n-r} \times 1  \tag{9} \]
@@ -402,8 +402,7 @@ Year: 2004
     + $n$: the total number of individuals
   + the functional form of the posterior distribution proportional to a beta distribution: $Beta(r+1, n-r+1)$
 
-+ Beta distribution
-  + prior distribution: $Beta(a, b)$
++ Beta distribution: $Beta(a, b)$ for prior distribution
   
   \[\begin{align*}
     \text{Prior} &\propto \theta^{a-1} (1 - \theta)^{b-1} \\
@@ -425,14 +424,14 @@ Year: 2004
     \end{align*}\]
   
   + $m = 0.4, b = 0.1 \implies a = 9.2, b = 13.8$
-  + Figure for prior distribution ($Beta(0, 0)$ to posterior distribution ($Beta(9.2, 13.8)$) w/ likelihood function
+  + Figure for prior distribution ($Beta(0, 0)$) to posterior distribution ($Beta(9.2, 13.8)$) w/ likelihood function
     + Fig. (a)
       + representing the prior assumption w/ a 'non-informative' prior $Beta(0, 0)$
-      + observeing that $a=9.2$ successes in $a+b = 23$ patients
-      + only heuristic argument as no agreed 'non-informative' beta prior, w/ $Beta(0,0), Beta(0.5, 0.5), beta(1, 1)$ all having been suggested
+      + observing that $a=9.2$ successes in $a+b = 23$ patients
+      + only heuristic argument as no agreed 'non-informative' beta prior, w/ $Beta(0,0), Beta(0.5, 0.5), Beta(1, 1)$ all having been suggested
     + observed $r=15$ successes out of 20 trials
     + updated to $Beta(a+15, B+20-5) = Beta(24.2, 18.8)$
-    + Fig. (c): posterior distribution w/ mean $24.2/(24.2 + 18.8) == 0.56$
+    + Fig. (c): posterior distribution w/ mean $24.2/(24.2 + 18.8) = 0.56$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
