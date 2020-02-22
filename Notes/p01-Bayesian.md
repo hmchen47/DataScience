@@ -471,11 +471,11 @@ Year: 2004
 
     + the term involving $\theta$ exactly that arising from a posterior distribution
 
-      \[ p(\theta|y_m) = N \left(\theta \left\vert \frac{n_0\mu + ny_m}{n_o + m}, \frac{\sigma^2}{n_0 + m}\right.\right) \tag{14}\]
+      \[ p(\theta|y_m) = N \left(\theta \left\vert \frac{n_0\mu + my_m}{n_o + m}, \frac{\sigma^2}{n_0 + m}\right.\right) \tag{14}\]
 
       by matching terms in $p(\theta | y_m)$ w/ $\theta$
 
-      \[ (y_m - \theta)^2 m +(\theta - \theta_0)^2 n_o = \left(\theta - \frac{n_0 \theta_0 + m y_m}{2\sigma^2} \right)^2 (n_0 + m) + (y_m - \mu)^2 \left(\frac{1}{m} + \frac{1}{n_0}\right) \]
+      \[ (y_m - \theta)^2 m +(\theta - \mu)^2 n_o = \left(\theta - \frac{n_0 \mu + m y_m}{m+n_0} \right)^2 (n_0 + m) + (y_m - \mu)^2 \left(\frac{1}{m} + \frac{1}{n_0}\right) \]
 
     + posterior mean $(n_o \mu + m y_m)/(n_o + m)$
       + a weighted average of the prior mean $\mu$ and parameter estimate $y_m$, 
@@ -502,11 +502,11 @@ Year: 2004
 
 + Example 4 -- SBP: Bayesian analysis for normal data
   + Interest: the long-term systolic blood pressure (SBP) in Hgmm of a particular 60-year-old female
-  + Observations: two independent readings 6 weeks apart w/ $\mu = 130$ and $\sigma = 5$
+  + Observations: two independent readings 6 weeks apart w/ mean $ = 130$ and standard deviation $\sigma = 5$
   + Problem: estimate SBP
   + Notations & Assumptions:
     + $\theta$: the long-term SBP
-    + estimate: standard analysis w/ $y+m = 130$ and standard error $\sigma/\sqrt{m} = 5/\sqrt{2} = 3.5$
+    + estimate: standard analysis w/ $y_m = 130$ and standard error $\sigma/\sqrt{m} = 5/\sqrt{2} = 3.5$
     + 95% confidence interval: $y_m \pm 1.96 \times \sigma/\sqrt{m} \to (123.1, 136.9)$
   + Survey: the long-term SBP of female aged 60 w/ $\mu = 120, \sigma = 10$
     + Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman
