@@ -453,7 +453,7 @@ Year: 2004
     \[ p(\theta) = N \left(\theta \left\vert \mu, \frac{\sigma^2}{n_0}\right.\right) \tag{13} \]
 
     + $\mu$: the prior mean
-    + $\sigma$: the standard deviation fro the prior and the likelihood
+    + $\sigma$: the standard deviation for the prior and the likelihood
     + $n_0$: 'implicit' sample size that the prior based on
   + advantages of Eq.13 for prior-to-posterior analysis
     + $n_0 \to 0 \implies \sigma^2 \uparrow$ and the distribution becoming 'flatter'
@@ -488,7 +488,7 @@ Year: 2004
 
     > A bayesian is one who, vaguely expecting a horse and catching a glimpse of a donkey, strongly concludes he has seen a  mule.
 
-  + $n_0 \to 0 \implies$ prior $\to$ uniform distribution and the posterior $\to$ the same shape of the likelihood
+  + $n_0 \to 0 \implies$ prior $\sim$ uniform distribution and posterior $\sim$ the same shape of the likelihood
 
 + General form of normal distribution
   + prior variance: $\sigma^2/n_0$
@@ -500,14 +500,14 @@ Year: 2004
 
     \[ p(\theta | y_m) = N \left( \theta \left\vert \frac{\frac{\mu}{\tau^2} + \frac{y_m}{\sigma_m^2}}{\frac{1}{\tau^2}+\frac{1}{\sigma_m^2}}, \frac{1}{\frac{1}{\tau^2}+\frac{1}{\sigma_m^2}} \right.\right) \tag{15} \]
 
-+ Example 4 -- SBP: bayesian analysis for normal data
++ Example 4 -- SBP: Bayesian analysis for normal data
   + Interest: the long-term systolic blood pressure (SBP) in Hgmm of a particular 60-year-old female
   + Observations: two independent readings 6 weeks apart w/ $\mu = 130$ and $\sigma = 5$
   + Problem: estimate SBP
   + Notations & Assumptions:
     + $\theta$: the long-term SBP
     + estimate: standard analysis w/ $y+m = 130$ and standard error $\sigma/\sqrt{m} = 5/\sqrt{2} = 3.5$
-    + 95% confidence interval: $y_m \pm 1.96 \times \sigma/\sqrt{m} \to [123.1, 136.9]$
+    + 95% confidence interval: $y_m \pm 1.96 \times \sigma/\sqrt{m} \to (123.1, 136.9)$
   + Survey: the long-term SBP of female aged 60 w/ $\mu = 120, \sigma = 10$
     + Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman
     + Fig. 3(a): population distribution as prior distbution w/ standard deviation as $\sigma/\sqrt{n_0} \implies n_0 = (\sigma/10)^2 = 0.25$
@@ -516,15 +516,15 @@ Year: 2004
       + posterior distribution of $\theta$: normal distribution w/ $\mu = (0.25 \times 120 + 2 \times 130) = 128.9$ and standard deviation $\sigma / \sqrt{n_0 + m} = 5/\sqrt{2.25} = 3.3 \implies$ a 95% interval of $128.9 \pm 1.96 \times 3.3 = (122.4, 135.4)$
       + the posterior distribution revealing some 'shrinkage' towards the population mean and a small increase in precision from not using the data alone
     + Conclusion:
-      + the women somewhat higher measurements than expected at her age
+      + the woman somewhat higher measurements than expected at her age
       + slightly adjust estimate to allow for the possibility that her two measures happened by chance to be on the high side
       + additional measures $\implies$ possibility becomes less plausible and the prior knowledge will be systematically downgraded
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
-        <img src="img/p01-03a.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" width=250>
-        <img src="img/p01-03b.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" width=250>
-        <img src="img/p01-03c.png" style="margin: 0.1em;" alt="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" title="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" width=250>
+        <img src="img/p01-03a.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" width=240>
+        <img src="img/p01-03b.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" width=240>
+        <img src="img/p01-03c.png" style="margin: 0.1em;" alt="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" title="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" width=240>
       </a>
     </div>
 
