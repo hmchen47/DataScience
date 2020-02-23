@@ -435,9 +435,11 @@ Year: 2004
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
-        <img src="img/p01-02a.png" style="margin: 0.1em;" alt="a Beta[9.2,13.8] prior distribution supporting response rates between 0.2 and 0.6" title="(a) a Beta[9.2,13.8] prior distribution supporting response rates between 0.2 and 0.6" height=70>
-        <img src="img/p01-02b.png" style="margin: 0.1em;" alt="a likelihood arising from a binomial observation of 15 successes out of 20 cases" title="(b) a likelihood arising from a binomial observation of 15 successes out of 20 cases" height=70>
-        <img src="img/p01-02c.png" style="margin: 0.1em;" alt="the resulting Beta[24.2, 18.8] posterior from a conjugate beta-binomial analysis" title="(c) the resulting Beta[24.2, 18.8] posterior from a conjugate beta-binomial analysis" height=70>
+        <img src="img/p01-02a.png" style="margin: 0.1em;" alt="a Beta[9.2,13.8] prior distribution supporting response rates between 0.2 and 0.6" title="(a) a Beta[9.2,13.8] prior distribution supporting response rates between 0.2 and 0.6" height=100>
+        <img src="img/p01-02b.png" style="margin: 0.1em;" alt="a likelihood arising from a binomial observation of 15 successes out of 20 cases" title="(b) a likelihood arising from a binomial observation of 15 successes out of 20 cases" height=100>
+      </a>
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-02c.png" style="margin: 0.1em;" alt="the resulting Beta[24.2, 18.8] posterior from a conjugate beta-binomial analysis" title="(c) the resulting Beta[24.2, 18.8] posterior from a conjugate beta-binomial analysis" height=150>
       </a>
     </div>
 
@@ -522,20 +524,216 @@ Year: 2004
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
-        <img src="img/p01-03a.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" width=240>
-        <img src="img/p01-03b.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" width=240>
-        <img src="img/p01-03c.png" style="margin: 0.1em;" alt="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" title="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" width=240>
+        <img src="img/p01-03a.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (a) the prior distribution is N(120, 102) and expresses the distribution of true SBPs in the population" width=350>
+        <img src="img/p01-03b.png" style="margin: 0.1em;" alt="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" title="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (b) the likelihood is proportional to N(130, 3:52) and expresses the support for different values arising from the two measurements made on the woman" width=350>
+      </a>
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-03c.png" style="margin: 0.1em;" alt="Fig. 3 Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" title="Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman: (c) the posterior distribution is N(128:9, 3:32) and is proportional to the likelihood multiplied by the prior" width=400>
       </a>
     </div>
 
 
 
-## 3.8 Point estimation, interval estimation and interval hypotheses 64
+## 3.8 Point estimation, interval estimation and interval hypotheses
 
++ __Point estimates__
+  + traditional measures of location of distribution: mean, median, andmode
+  + given a theoretical justification as a point estimate derived from a posterior distribution, by imposing a particular penalty on error in estimation
+  + posterior disteribution: symmetric and unimodal $\implies$ mean, median, and mode all coincide in a single value and no difficulty in making a choice
+  + posterior distribution considerably skewed in some circumstances $\implies$ marked difference btw mean and median
+  + the median: les sentitivie to the tails of the distribution
 
++ __Interval estimates__
+  + credible interval: any interval conaining probability different from a 'Neyman-Pearson' confidence interval
+  + types of intervals: assume a continuous parameter $\theta$ w/ range on $(-\infty, \infty)$ and posterior conditional on generic data $y$
+    + _one-side intervals_: one-side upper 95% w/ $(\theta_L, \infty)$ where $p(\theta < \theta_L| y) = 0.05$
+    + _two-sided 'equi-tail-area' intervals_: a two-sided 95% interval w/ equal probability in each tail area w/ $(\theta_L, \theta_U)$ where $p(\theta < \theta_L | y) = 0.025$ and $p(\theta > \theta_U | y) = 0.975$
+    + _Highest Posterior Density (HPD) intervals_
+      + typical property: skewed posterior distribution $\implies$ a two-sided interval w/ equal tail areas generally containing some parameter values having lower posterior probability than values outside the interval
+      + HPD w/o such property
+      + adjusting: the probability ordinates at each end of the interval ae identical $\implies$ the narrowest possible interval comaining the required possibility
+      + posterior distribution w/ more than one mode $\implies$ HPD may be a set of disjoint intervals
+  + HPD interval
+    + preferable but generally difficult to compute
+    + normal distributions: using tables or programs giving tail areas
+    + more complicated situation: generally simulating value of $\theta$ and one and two-sided intervals constructed using theempirical distribution of simulated values
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-04a.png" style="margin: 0.1em;" alt="(a) a symmetric unimodal distribution in which equi-tail-area and HPD intervals coincide at -1.64 to 1.64" title="Fig. 4(a) a symmetric unimodal distribution in which equi-tail-area and HPD intervals coincide at -1.64 to 1.64" height=120>
+        <img src="img/p01-04b.png" style="margin: 0.1em;" alt="(b) a skewed unimodal distribution in which the equi-tail-area interval is 0.8 to 6.3, whereas the HPD of 0.4 to 5.5 is considerably shorter" title="Fig. 4(b) a skewed unimodal distribution in which the equi-tail-area interval is 0.8 to 6.3, whereas the HPD of 0.4 to 5.5 is considerably shorter" height=120>
+      </a>
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-04c.png" style="margin: 0.1em;" alt="(c) a bimodal distribution in which the equi-tail-area interval is -3.9 to 8.6, whereas the HPD appropriately consists of two segments" title="Fig. (c) a bimodal distribution in which the equi-tail-area interval is -3.9 to 8.6, whereas the HPD appropriately consists of two segments" height=150>
+      </a>
+    </div>
 
+  + traditional confidence intervals vs. Bayesian credible intervals
+    1. interpretation - most important
+      + a 95% probability that the true $\theta$ lies in a 95% credible interval $\implies$ certainly _not_ the interpretation of a 95% confidence interval
+      + a long series of 95% confidence intervals: 95% of events containing the true parameter value - unlike the Bayesian interpretation
+      + the Bayesian interpretation: giving a probability of whether a _particular_ confidence interval contains the true value
+      + the direct Bayesian interpretation often wrongly ascribed to confidence interval
+    2. credible interval
+      + generally narrower due to the additional information provided by the prior
+      + normal distribution: $2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
+      + confidence interval of normal distribution: $2 \times 1.96 \times \sigma/\sqrt{m}$
+    3. care required in terminology:
+      + the width of classical confidence intervals: the standard error of the estimator
+      + the width of Bayesian credible intervals: dedicated by the posterior standard deviation
 
++ __Interval hypotheses__
+  + a hypothesis of intertest comprises an interval $H_0: \theta_L < \theta < theta_U$
+  + posterior distribution: $p(H_0 | y) = p(\theta_L < \theta < \theta_U | y)$
+  + computed w/ standard formulae or simulation methods
+
++ Example 5 -- SBP (continued): interval estimation
+  + hypothesis: the woman w/ a long-term SBP greater than 135 and the provision of 95% intervals
+  + the probability of the hypothesis $H_0: \theta_L < \theta < \infty$, $\theta_L = 135$
+
+    \[ p(H_0 | y) = p(\theta > \theta_L | y) = 1 - \Phi\left( \frac{\theta_i - \frac{n_0 \mu + my_m}{n_0+m}}{\sigma / \sqrt{n_0 + m}} \right) \]
+  
+  + Inference from the posterior distribution of the true underlying systolic blood pressure of a 60-year-old woman
+    + Fig. 5(a): the probability of the hypothesis
+    + Fig. 5(b): a 95% posterior interval comprising the posterior $mean \pm 1.96 \times \sigma/\sqrt{n_o + m}$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-05a.png" style="margin: 0.1em;" alt="(a) shaded area is the probability 0.033 that theta > 135" title="Fig. 5(a) shaded area is the probability 0.033 that theta > 135" height=110>
+        <img src="img/p01-05b.png" style="margin: 0.1em;" alt="(b) a two-sided 95% interval (both equi-probability and HPD)" title="Fig. 5(b) a two-sided 95% interval (both equi-probability and HPD)" height=110>
+      </a>
+    </div>
+
+  + the Bayesian analysis w/ the classical classical conclusions drawn from the likelihood alone
+  + comprising a 95% confidence interval $y_m \pm 1.96 \times \sigma/\sqrt{m}$ and a one-sided P-value
+
+    \[ p(Y < y_m | H_0) = \Phi\left( \frac{y_m - \theta_L}{\sigma/\sqrt{m}} \right) \]
+
+  + numerical identical to the tail area of the posterior w/ a uniform prior obtained by setting $n_0 = 0$
+  + a traditional one-sided $p$-value for the hypothesis $H_0: \theta > 135$ is 0.08, while the Bayesian analysis has used the prior opinion to reduce this to 0.03
+
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+    <caption style="font-size: 1.5em; margin: 0.2em;">Bayesian and traditional intervals and tests of hypothesis $H_0: y > 135$</caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"> </th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Mean</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">SD</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">95% credible interval</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(H_0|y_m)$</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr style="text-align: center;">  <td>Prior</td> <td>120.0</td> <td>10.0</td> <td>100.4 to 139.6</td> <td>0.067</td></tr>
+      <tr style="text-align: center;">  <td>Posterior</td> <td>128.9</td> <td>3.3</td> <td>122.4 to 135.4</td> <td>0.033</td></tr>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"> </th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Estimate</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">SE</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">95% CI</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(Y < y_m | H_0)$</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr style="text-align: center;"> <td>Classical</td> <td>130.0</td> <td>3.5</td> <td>123.1 to 136.9</td> <td>0.078</td></tr>
+    </tbody>
+  </table>
+
++ Confidence interval and prior distribution
+  + the (rather odd) prior belief that all values of $\theta$ were equally likely $\implies p(\theta)$ constant
+  + Eq. (5): the resulting posterior distribution simply proportional to the likelihood
+  + Eq. (14): equivalent to assuming $n_0 = 0$ in an analysis assuming a normal distribution
+  + traditional confidence interval: essentially equivalent to a credible interval based on the likelihood alone
+  + Bayesian and classical equivalent results w/ a uniform or 'flat' prior
+  + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
+
++ Example 6 -- GREAT (continue): Bayesian analysis of a trial of early thrombolytic therapy
+  + the GRATE trial of early treatment for myocardial infarction
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=80%>
+      <thead>
+      <tr> <th style="text-align: center;"></th> <th style="text-align: center;"></th> <th colspan="2" style="text-align: center;">Treatment</th> <th style="text-align: center;"></th>
+      </tr>
+      <tr> <th style="text-align: center;"></th> <th style="text-align: center;"></th> <th style="text-align: center;">New</th> <th style="text-align: center;">Control</th> <th style="text-align: center;"></th> </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">Event</td> <td style="text-align: center;">Death</td> <td style="text-align: right;">13</td> <td style="text-align: right;">23</td> <td style="text-align: right;">36</td> </tr>
+      <tr> <td style="text-align: center;"></td> <td style="text-align: center;">No death</td> <td style="text-align: right;">150</td> <td style="text-align: right;">125</td> <td style="text-align: right;">275</td> </tr>
+      <tr> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: right;">163</td> <td style="text-align: right;">148</td> <td style="text-align: right;">311</td> </tr>
+      </tbody>
+    </table>
+
+  + distribution: $N(2, 30.5)$
+  + _Intervention_: thrombolytic therapy after myocardial infarction, given at home by general practitioners
+  + _Ami of study_: to compare anistreplase (a new treatment) and placebo (contentional treatment)
+  + _Studey design_: randomized controlled trial
+  + _Outcome measure_:
+    + 30-day mortality rate under each treatment, w/ the benefit of the new treatment measured by the odds ratio (OR)
+    + the ratio of the odds of death following the new treatment to the odds of death on the conventional: $OR < 1$ therefore favours the new treatment
+  + _Statistical model_: approximate normal likelihood for the logarithm of the odds ratio
+  + _Prospective Bayesian analysis?_: No, it was carried out after the trial reported its results
+  + _Prior distribution_:
+    + based on the subjective judgement of a senior cardiologist
+    + informed by empirical evidence derived from one unpublished and two published trials
+    + belief: an expectation of 15-20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely
+    + translated to a normal distribution on the $\log(OR)$ scale, w/ a prior mean of $\mu = -0.26$ (OR = 0.78) and symmetric 95% interval of -0.15 to 0.00 (OR 0.60 to 1.00), giving a standard deviation of 0.13
+  + _Loss function or demands_: none specified
+  + _Evidence from study_: 30-day mortality
+    + control: 23/148
+    + new treatment: 13/163
+    + the estimate $\log(OR)$: $y_m = -0.74$ (OR = 0.48), w/ estimated standard error 0.36, given a 95% classical confidence interval for $\log(OR)$ from 1.45 to -0.03 (OR from 0.24 to 0.97)
+    + traditional test statictic is -0.74/0.36 = 2.03 and yjr null hypothesis of no effect is rejected w/ a two-sided $p$-value of $2\Phi(-2.03) = 0.04$
+    + the likelihood: reasonable support for values of $\theta$ representing a 40-60% reduction in odds of death (Fig. 6(b))
+  + Prior, likelihood and posterior distributions arising from GREAT trial of home thrombolysis. These are all normal on the y ¼ log (OR) scale.
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-06a.png" style="margin: 0.1em;" alt="Prior distribution arising from GREAT trial of home thrombolysis" title="Prior distribution arising from GREAT trial of home thrombolysis" height=120>
+        <img src="img/p01-06b.png" style="margin: 0.1em;" alt="Likelihood distribution arising from GREAT trial of home thrombolysis" title="Likelihood distribution arising from GREAT trial of home thrombolysis" height=120>
+      </a>
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-06c.png" style="margin: 0.1em;" alt="Posterior distribution arising from GREAT trial of home thrombolysis" title="Posterior distribution arising from GREAT trial of home thrombolysis" height=150>
+      </a>
+    </div>
+
+  + _Bayesian interpretation_:
+    + the posterior distribution, obtained by multiplying the prior and likelihood and then making the total area under the curve equal to one ('certainty') (Fig. 6(c))
+    + prior distribution: $sd = \sigma/\sqrt{n_0} = 0.13 \to n_o = 236.7$
+    + the prior having around $236.7/30.5 \approx 8$ times of information as the likelihood $\implies$ the strength of subjective judgement
+    + posterior distribution:
+      + sample size = n_0 + m = 236.7 + 30.5 = 267.2, mean = weighted average $(n_0 \mu + m y_m)/(n_o + m) = -0.31$, standard deviation = $\sigma/\sqrt{n_0 + m} = 0.12$
+      + estimated odds ratio $\approx e^{-0.31} = 0.73$ or 27% risk reduction
+      + 95% credible interval = (-0.55, -0.07) on the $\log(OR)$ scale w/ corresponding odds ratio = (0.55, 0.93)
+      + a 95% probability that true risk reduction = (7%, 42%)
+      + the posterior probability that the reduction is at least 50%: $\Phi((-0.69 + 0.13)/.12) = \Phi(-3.11) = 0.001$ 23h34 $\log(OR) = -0.69$
+      + the posterior probability that there is nay treatment effect: $p(\theta < 0 |y_m) = \Phi((0+0.31)/0.12) = \Phi(2.54) = 0.995
+      + adopting the prior provided by 'expert', 95% certain the newtreatment  is of benefit
+      + the evidence in the likelihood pulled back towards the prior distribution - a formal representation of the belief that the result were 'too good to be true"
+  + _Sensitivity analysis_:
+    + consider an observer who has no prior bias one way or another, but more sceptical about large treatment effects than the current expert: 
+      + represented by a normal prior centered on $\log(OR) = 0 (OR = 1)$
+      + a 50% reduction in odds of death (OR = 0.5): $\log(OR) = -0.69$ w/ a 95% interval
+      + a 100% increase in odds of death (OR = 2.0): $\log(OR) = 0.69$ w/ a 95% interval
+      + On a $log(OR)$ scale, the prior w/ a 95% interval: $(-0.69, 0.69)$
+      + standard deviation = 0.69/1.96 = 0.35 and $m = 4/0.35^2 = 32.3$, approximately the same weight of evidence as the likelihood
+    + prior: providing equivalent evidence to that arising from the imaginary balanced trial, in which around 16 deaths were observed on each arm
+    + prior, likelihood and posterior distributions:
+      + Fig. 7: A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0. This is equivalent to a previous study in which 32.3 events occurred, divided equally between the two arms. Adopting this prior and updating it with the GREAT data leads to a posterior distribution as shown, with the shaded area representing a probability of 8% that the treatment is harmful.
+      + mean = 0.36, (OR = 0.70), equivalent size = $n_0 + m = 62.8$, and standard deviation of 0.25
+      + the probability w/o benefit from the new treatment: $\Phi(-0.36/0.25) = \Phi(-1.42) = 0.08$
+    + a reasonably sceptical person may therefore not find the GREAT results convincing that there is a benefit
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/p01-07.png" style="margin: 0.1em;" alt="A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0." title="A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0." width=350>
+    </div>
+  
+  + _Comments_:
+    + "meta-analysis of early thrombolytic therapy and estimated OR = -0.83 (95% interval (0.70, 0.98)), far less impressive than the GREAT results and reasonably in line w/ the posterior distribution in Fig. 6" -- J. Morrison, et.al., 'Mortality and prehospital thrombolysis for acute myocardial infarction – a metaanalysis', 2000
+    + not over-interpreted and two points should keep in mind
+      + including some trials that contributed tot he prior used by the expert  and good reason why the posterior (interpreted as a type of subjective meta-analysis) and the formal meta-analysis should correspond
+      + primary outcome measure is in-hospital mortality, for which GREAT showed a non-significant (but still substantial) benefit of 11/163 vs. 17/148, with an estimated OR of 0.57
 
 
 ## 3.9 The prior distribution 73
