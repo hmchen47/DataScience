@@ -57,6 +57,35 @@ Year: 2004
   + a key part of Bayesian inference
   + using likelihoods to generate estimators $\to$ the maximum likelihood estimator
 
++ Likelihoods
+  + statistical inference:
+    + learning about the assumed underlying distribution of quantities observed
+    + generally carried out by assuming that the probability distributions follow a particular _parametric_ form $p(y | \theta)$
+    + the distribution of $Y$ depends on some currently unknown parameter $\theta$
+  + Bayesian inference: considered as random variables but the usual convention of capital and lower-case letters is ignore, to no apparent detriment
+  + likelihood $p(Y | \theta)$:
+    + once data $y$ observed, a function of $\theta \to$ extend to which different values $\theta$ are supported by the data
+    + summarizing all the information that the data $y$ able to provide about the parameter $\theta$
+  + any function of $\theta$ proportional to $p(y|\theta)$ can be considered as the likelihood
+  + likelihood function: the relative plausibility of different values of $\theta$
+  + maximum likelihood estimate: with the value of $\theta$ for which the likelihood is a maximum
+  + using a range of values which are _best_ supported by the data as an interval estimate for $\theta$
+  + a reasonable range defined by values of the likelihood above $\exp(-1.96^2/2) = 14.7\%$ of the maximum value
+  + in practice, constructing intervals in such a manner is laborious, and in general approximate likelihood functions by the normal distribution
+  + example: Bernoulli
+    + $n$ individuals and measured the $i$-th individual responds to treatment, $Y_i = 1$, or not, $Y_i = 0$
+    + assume a set of independent Bernoulli trials such that the probability of response is $\theta$
+    + joint distribution for all $n$ individuals
+
+      \[\begin{align*}
+        p(y_1, \ots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \tag{Bernoulli}\\
+          &= \theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r} \tag{Bernoulli.indep}
+      \end{align*}\]
+
+      + $r = \sum_i y_i$: the number of responders
+    + likelihood maximized at $\hat{\theta} = r/n$
+    + the maximum likelihood estimate proportional to responders
+
 + [The posterior distribution](https://www.statisticshowto.datasciencecentral.com/posterior-distribution-probability/)
   + Wikipedia: the probability distribution of an unknown quantity, treated as a random variable, conditional on the evidence obtained from an experiment or survey
   + a way to summarize what we know about uncertain quantities in Bayesian analysis
