@@ -540,6 +540,8 @@ Year: 2004
     + estimate: standard analysis w/ $y_m = 130$ and standard error $\sigma/\sqrt{m} = 5/\sqrt{2} = 3.5$
     + 95% confidence interval: $y_m \pm 1.96 \times \sigma/\sqrt{m} \to (123.1, 136.9)$
   + Survey: the long-term SBP of female aged 60 w/ $\mu = 120, \sigma = 10$
+    + additional information about SBPs able to express a prior distribution
+    + the population distribution as a prior distribution for the specific individual
     + Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman
     + Fig. 3(a): population distribution as prior distbution w/ standard deviation as $\sigma/\sqrt{n_0} \implies n_0 = (\sigma/10)^2 = 0.25$
     + Fig. 3(b): the likelihood arising from the two observations on the women
@@ -566,26 +568,28 @@ Year: 2004
 ## 3.8 Point estimation, interval estimation and interval hypotheses
 
 + __Point estimates__
-  + traditional measures of location of distribution: mean, median, andmode
+  + traditional measures of location of distribution: mean, median, and mode
   + given a theoretical justification as a point estimate derived from a posterior distribution, by imposing a particular penalty on error in estimation
   + posterior disteribution: symmetric and unimodal $\implies$ mean, median, and mode all coincide in a single value and no difficulty in making a choice
   + posterior distribution considerably skewed in some circumstances $\implies$ marked difference btw mean and median
-  + the median: les sentitivie to the tails of the distribution
+  + the median: less sentitive to the tails of the distribution
 
 + __Interval estimates__
   + credible interval: any interval conaining probability different from a 'Neyman-Pearson' confidence interval
   + types of intervals: assume a continuous parameter $\theta$ w/ range on $(-\infty, \infty)$ and posterior conditional on generic data $y$
-    + _one-side intervals_: one-side upper 95% w/ $(\theta_L, \infty)$ where $p(\theta < \theta_L| y) = 0.05$
-    + _two-sided 'equi-tail-area' intervals_: a two-sided 95% interval w/ equal probability in each tail area w/ $(\theta_L, \theta_U)$ where $p(\theta < \theta_L | y) = 0.025$ and $p(\theta > \theta_U | y) = 0.975$
+    + _one-side intervals_: typical  $x = .90, .95, .99$
+      + one-side upper $x \cdot 100\%$ w/ $(\theta_L, \infty)$ where $p(\theta < \theta_L| y) = x$
+      + one side lower $x \cdot 100\%$ w/ $(-\infty, \theta_U)$ where $p(\theta > \theta_U | y) = x$
+    + _two-sided 'equi-tail-area' intervals_: a two-sided $x \cdot 100\%$ (typical 90%, 95%, 99%) interval w/ equal probability in each tail area w/ $(\theta_L, \theta_U)$ where $p(\theta < \theta_L | y) = x/2$ and $p(\theta > \theta_U | y) = 1.0 - x/2$
     + _Highest Posterior Density (HPD) intervals_
       + typical property: skewed posterior distribution $\implies$ a two-sided interval w/ equal tail areas generally containing some parameter values having lower posterior probability than values outside the interval
       + HPD w/o such property
-      + adjusting: the probability ordinates at each end of the interval ae identical $\implies$ the narrowest possible interval comaining the required possibility
+      + adjusting: the probability ordinates at each end of the interval are identical $\implies$ the narrowest possible interval containing the required possibility
       + posterior distribution w/ more than one mode $\implies$ HPD may be a set of disjoint intervals
-  + HPD interval
+  + HPD interval (Fig. 4)
     + preferable but generally difficult to compute
     + normal distributions: using tables or programs giving tail areas
-    + more complicated situation: generally simulating value of $\theta$ and one and two-sided intervals constructed using theempirical distribution of simulated values
+    + more complicated situation: generally simulating value of $\theta$ and one and two-sided intervals constructed using the empirical distribution of simulated values
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
@@ -598,30 +602,31 @@ Year: 2004
     </div>
 
   + traditional confidence intervals vs. Bayesian credible intervals
-    1. interpretation - most important
+    1. _interpretation_ - most important
       + a 95% probability that the true $\theta$ lies in a 95% credible interval $\implies$ certainly _not_ the interpretation of a 95% confidence interval
-      + a long series of 95% confidence intervals: 95% of events containing the true parameter value - unlike the Bayesian interpretation
+      + a long series of 95% confidence intervals: 95% of events containing the true parameter value
       + the Bayesian interpretation: giving a probability of whether a _particular_ confidence interval contains the true value
       + the direct Bayesian interpretation often wrongly ascribed to confidence interval
-    2. credible interval
+    2. _credible interval_
       + generally narrower due to the additional information provided by the prior
-      + normal distribution: $2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
+      + width of posterior distribution w/ normal distribution: $2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
       + confidence interval of normal distribution: $2 \times 1.96 \times \sigma/\sqrt{m}$
-    3. care required in terminology:
+    3. _care required in terminology_:
       + the width of classical confidence intervals: the standard error of the estimator
       + the width of Bayesian credible intervals: dedicated by the posterior standard deviation
 
 + __Interval hypotheses__
-  + a hypothesis of intertest comprises an interval $H_0: \theta_L < \theta < theta_U$
+  + a hypothesis of intertest comprises an interval $H_0: \theta_L < \theta < \theta_U$
   + posterior distribution: $p(H_0 | y) = p(\theta_L < \theta < \theta_U | y)$
   + computed w/ standard formulae or simulation methods
 
 + Example 5 -- SBP (continued): interval estimation
   + hypothesis: the woman w/ a long-term SBP greater than 135 and the provision of 95% intervals
-  + the probability of the hypothesis $H_0: \theta_L < \theta < \infty$, $\theta_L = 135$
+  + the probability of the hypothesis $H_0: \theta_L < \theta$, $\theta_L = 135$
 
     \[ p(H_0 | y) = p(\theta > \theta_L | y) = 1 - \Phi\left( \frac{\theta_i - \frac{n_0 \mu + my_m}{n_0+m}}{\sigma / \sqrt{n_0 + m}} \right) \]
-  
+
+    + $\Phi(z) = P(Z \leq z)$: the probability that $Z$ is less than or equal to $z$  
   + Inference from the posterior distribution of the true underlying systolic blood pressure of a 60-year-old woman
     + Fig. 5(a): the probability of the hypothesis
     + Fig. 5(b): a 95% posterior interval comprising the posterior $mean \pm 1.96 \times \sigma/\sqrt{n_o + m}$
@@ -634,61 +639,70 @@ Year: 2004
     </div>
 
   + the Bayesian analysis w/ the classical classical conclusions drawn from the likelihood alone
-  + comprising a 95% confidence interval $y_m \pm 1.96 \times \sigma/\sqrt{m}$ and a one-sided P-value
+  + comprising a 95% confidence interval $y_m \pm 1.96 \times \sigma/\sqrt{m}$ and a one-sided $p$-value
 
     \[ p(Y < y_m | H_0) = \Phi\left( \frac{y_m - \theta_L}{\sigma/\sqrt{m}} \right) \]
 
   + numerical identical to the tail area of the posterior w/ a uniform prior obtained by setting $n_0 = 0$
-  + a traditional one-sided $p$-value for the hypothesis $H_0: \theta > 135$ is 0.08, while the Bayesian analysis has used the prior opinion to reduce this to 0.03
+  + hypothesis $H_0: \theta > 135$ w/ a traditional one-sided $p$-value = 0.08, while $p$-value = 0.03 for the Bayesian analysis
+  + Table 5: Bayesian and traditional intervals and tests of hypothesis $H_0: y > 135$
 
-  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
-    <caption style="font-size: 1.5em; margin: 0.2em;">Bayesian and traditional intervals and tests of hypothesis $H_0: y > 135$</caption>
-    <thead>
-    <tr>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"> </th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Mean</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">SD</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">95% credible interval</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(H_0|y_m)$</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr style="text-align: center;">  <td>Prior</td> <td>120.0</td> <td>10.0</td> <td>100.4 to 139.6</td> <td>0.067</td></tr>
-      <tr style="text-align: center;">  <td>Posterior</td> <td>128.9</td> <td>3.3</td> <td>122.4 to 135.4</td> <td>0.033</td></tr>
-    <thead>
-    <tr>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"> </th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Estimate</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">SE</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">95% CI</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(Y < y_m | H_0)$</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr style="text-align: center;"> <td>Classical</td> <td>130.0</td> <td>3.5</td> <td>123.1 to 136.9</td> <td>0.078</td></tr>
-    </tbody>
-  </table>
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80vw>
+      <thead>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"> </th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Mean</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">SD</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">95% credible interval</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(H_0|y_m)$</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;">  <td>Prior</td> <td>120.0</td> <td>10.0</td> <td>100.4 to 139.6</td> <td>0.067</td></tr>
+        <tr style="text-align: center;">  <td>Posterior</td> <td>128.9</td> <td>3.3</td> <td>122.4 to 135.4</td> <td>0.033</td></tr>
+      <thead>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"> </th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Estimate</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">SE</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">95% CI</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(Y < y_m | H_0)$</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;"> <td>Classical</td> <td>130.0</td> <td>3.5</td> <td>123.1 to 136.9</td> <td>0.078</td></tr>
+      </tbody>
+    </table>
 
 + Confidence interval and prior distribution
   + the (rather odd) prior belief that all values of $\theta$ were equally likely $\implies p(\theta)$ constant
   + Eq. (5): the resulting posterior distribution simply proportional to the likelihood
-  + Eq. (14): equivalent to assuming $n_0 = 0$ in an analysis assuming a normal distribution
+  + Eq. (14): equivalent to assuming $n_0 = 0$ in an analysis w/ normal distribution
   + traditional confidence interval: essentially equivalent to a credible interval based on the likelihood alone
   + Bayesian and classical equivalent results w/ a uniform or 'flat' prior
   + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
 
 + Example 6 -- GREAT (continue): Bayesian analysis of a trial of early thrombolytic therapy
-  + the GRATE trial of early treatment for myocardial infarction
+  + the GREAT trial of early treatment for myocardial infarction
 
     <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=80%>
       <thead>
-      <tr> <th style="text-align: center;"></th> <th style="text-align: center;"></th> <th colspan="2" style="text-align: center;">Treatment</th> <th style="text-align: center;"></th>
+      <tr> 
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th> 
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff;">Treatment</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th>
       </tr>
-      <tr> <th style="text-align: center;"></th> <th style="text-align: center;"></th> <th style="text-align: center;">New</th> <th style="text-align: center;">Control</th> <th style="text-align: center;"></th> </tr>
+      <tr> 
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th> 
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%">New</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%">Control</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th> </tr>
       </thead>
       <tbody>
-      <tr> <td style="text-align: center;">Event</td> <td style="text-align: center;">Death</td> <td style="text-align: right;">13</td> <td style="text-align: right;">23</td> <td style="text-align: right;">36</td> </tr>
-      <tr> <td style="text-align: center;"></td> <td style="text-align: center;">No death</td> <td style="text-align: right;">150</td> <td style="text-align: right;">125</td> <td style="text-align: right;">275</td> </tr>
+      <tr> <td rowspan="2"style="text-align: center;">Event</td> <td style="text-align: center;">Death</td> <td style="text-align: right;">13</td> <td style="text-align: right;">23</td> <td style="text-align: right;">36</td> </tr>
+      <tr> <td style="text-align: center;">No death</td> <td style="text-align: right;">150</td> <td style="text-align: right;">125</td> <td style="text-align: right;">275</td> </tr>
       <tr> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: right;">163</td> <td style="text-align: right;">148</td> <td style="text-align: right;">311</td> </tr>
       </tbody>
     </table>
@@ -699,7 +713,7 @@ Year: 2004
   + _Studey design_: randomized controlled trial
   + _Outcome measure_:
     + 30-day mortality rate under each treatment, w/ the benefit of the new treatment measured by the odds ratio (OR)
-    + the ratio of the odds of death following the new treatment to the odds of death on the conventional: $OR < 1$ therefore favours the new treatment
+    + the ratio of the odds of death following the new treatment to the odds of death on the conventional: $OR  < 1$ therefore favours the new treatment
   + _Statistical model_: approximate normal likelihood for the logarithm of the odds ratio
   + _Prospective Bayesian analysis?_: No, it was carried out after the trial reported its results
   + _Prior distribution_:
@@ -756,6 +770,7 @@ Year: 2004
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
         <img src="img/p01-07.png" style="margin: 0.1em;" alt="A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0." title="A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0." width=350>
+      </a>
     </div>
   
   + _Comments_:
