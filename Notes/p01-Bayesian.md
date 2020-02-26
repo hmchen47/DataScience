@@ -677,7 +677,7 @@ Year: 2004
       </tbody>
     </table>
 
-+ Confidence interval and prior distribution
++ Confidence interval of prior distribution and posterior distribution
   + the (rather odd) prior belief that all values of $\theta$ were equally likely $\implies p(\theta)$ constant
   + Eq. (5): the resulting posterior distribution simply proportional to the likelihood
   + Eq. (14): equivalent to assuming $n_0 = 0$ in an analysis w/ normal distribution
@@ -686,7 +686,7 @@ Year: 2004
   + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
 
 + Example 6 -- GREAT (continue): Bayesian analysis of a trial of early thrombolytic therapy
-  + the GREAT trial of early treatment for myocardial infarction
+  + the GREAT trial of early treatment for myocardial infarction (a.k.a. heart attack)
 
     <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=80%>
       <thead>
@@ -704,34 +704,60 @@ Year: 2004
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th> </tr>
       </thead>
       <tbody>
-      <tr> <td rowspan="2"style="text-align: center;">Event</td> <td style="text-align: center;">Death</td> <td style="text-align: right;">13</td> <td style="text-align: right;">23</td> <td style="text-align: right;">36</td> </tr>
-      <tr> <td style="text-align: center;">No death</td> <td style="text-align: right;">150</td> <td style="text-align: right;">125</td> <td style="text-align: right;">275</td> </tr>
-      <tr> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: right;">163</td> <td style="text-align: right;">148</td> <td style="text-align: right;">311</td> </tr>
+      <tr> <td rowspan="2"style="text-align: center;">Event</td> <td style="text-align: center;">Death</td> <td style="text-align: right;">13 (a)</td> <td style="text-align: right;">23 (b)</td> <td style="text-align: right;">36</td> </tr>
+      <tr> <td style="text-align: center;">No death</td> <td style="text-align: right;">150 (c)</td> <td style="text-align: right;">125 (d)</td> <td style="text-align: right;">275</td> </tr>
+      <tr> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: right;">163<br/>(a + c)</td> <td style="text-align: right;">148<br/>(b + d)</td> <td style="text-align: right;">311<br/>(a + b + c + d)</td> </tr>
       </tbody>
     </table>
 
-  + distribution: $N(2, 30.5)$
+  + normal approximations for binary data
+    + two events w/ probabilities $p_1$ and $p_2$, the odds ratio (OR)
+
+      \[ OR = \frac{p_1}{1 - p_1} / \frac{p_2}{1 - p_2} \]
+
+    + for convenience, the natural logarithm of the odds ratio so that it takes values on the whole range btw $(-\infty, +\infty)$
+
+      \[ \log(OR) = \theta = \log(\frac{p_1}{1 - p_1}) - \log(\frac{p_2}{1 - p_2}) \]
+
+    + for small values of $\theta = \log(OR)$, the approximation
+
+      \[ \theta \approx \log(1 + \theta) \]
+
+    + estimate of $\theta$: mean and variance
+  
+      \[\hat{\theta} = \log \left[ \frac{(a + 1/2)(d + 1/2)}{(b + 1/2)(c + 1/2)} \right]  \qquad Var(\hat{\theta}) = \frac{1}{a + 1/2} + \frac{1}{b + 1/2} + \frac{1}{c + 1/2} + \frac{1}{d + 1/2} \]
+
   + _Intervention_: thrombolytic therapy after myocardial infarction, given at home by general practitioners
-  + _Ami of study_: to compare anistreplase (a new treatment) and placebo (contentional treatment)
-  + _Studey design_: randomized controlled trial
+  + _Aim of study_: to compare anistreplase (a new treatment) and placebo (contentional treatment)
+  + _Study design_: randomized controlled trial
   + _Outcome measure_:
     + 30-day mortality rate under each treatment, w/ the benefit of the new treatment measured by the odds ratio (OR)
+      + $p_1$: 30-day mortality rate w/ new treatment
+      + $p_2$: 30-day mortality rate w/ conventional treatment
     + the ratio of the odds of death following the new treatment to the odds of death on the conventional: $OR  < 1$ therefore favours the new treatment
+      + $OR < 1 \implies p_1 < p_2$: favor the new treatment
   + _Statistical model_: approximate normal likelihood for the logarithm of the odds ratio
   + _Prospective Bayesian analysis?_: No, it was carried out after the trial reported its results
   + _Prior distribution_:
     + based on the subjective judgement of a senior cardiologist
-    + informed by empirical evidence derived from one unpublished and two published trials
+    + empirical evidence derived from one unpublished and two published trials
     + belief: an expectation of 15-20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely
-    + translated to a normal distribution on the $\log(OR)$ scale, w/ a prior mean of $\mu = -0.26$ (OR = 0.78) and symmetric 95% interval of -0.15 to 0.00 (OR 0.60 to 1.00), giving a standard deviation of 0.13
+    + translated to a normal distribution on the $\log(OR)$ scale, w/ a prior mean of $\mu_0 = -0.26$ (OR = 0.78) and symmetric 95% interval of (-0.15, 0.00) w/ OR = (0.60, 1.00), giving $sd = 0.13$
+    + statistics: $\mu_0 = -0.26, se = 0.13 = \sigma/\sqrt{n_0} \implies n_0 = 236.7$
   + _Loss function or demands_: none specified
   + _Evidence from study_: 30-day mortality
-    + control: 23/148
-    + new treatment: 13/163
-    + the estimate $\log(OR)$: $y_m = -0.74$ (OR = 0.48), w/ estimated standard error 0.36, given a 95% classical confidence interval for $\log(OR)$ from 1.45 to -0.03 (OR from 0.24 to 0.97)
-    + traditional test statictic is -0.74/0.36 = 2.03 and yjr null hypothesis of no effect is rejected w/ a two-sided $p$-value of $2\Phi(-2.03) = 0.04$
+    + normal approximations for binary data (Likelihood)
+      + the estimate of $\log(OR)$: $y_m = -0.736$, $se = 0.131 \implies sd = \sqrt{se} = 0.362$, and $m = 4/0.131 =30.5$ w/ $\sigma = 2$
+      + normal sampling distribution $y_m \sim N(\theta, \sigma^2/m) \implies$ the likelihood $\sim N(-0.736, 30.5)$
+      + likelihood statistics: $y_m = -0.736, \sigma = 2, m = 30.5$
+    + exact values (likelihood):
+      + control: $p_2 = 23/148 = 0.1554$
+      + new treatment: $p_1 = 13/163 = 0.0798$
+      + $OR = (p_1/(1 - p_1)) / (p_2/(1 - p_2)) = 0.741, \log(OR) = -0.7529$
+    + the estimate $\log(OR)$ (likelihood): $y_m = -0.74 \implies OR = 0.48$, w/ estimated $se = 0.36$, given a 95% classical CI for $\log(OR) = y_m \pm 1.06 \times se = (-1.45, -0.03) \implies OR = (0.24, 0.97)$
+    + traditional test statictic: $-0.74/0.36 = -2.03$ and the null hypothesis of no effect is rejected w/ a two-sided $p$-value of $2\Phi(-2.03) = 0.04$
     + the likelihood: reasonable support for values of $\theta$ representing a 40-60% reduction in odds of death (Fig. 6(b))
-  + Prior, likelihood and posterior distributions arising from GREAT trial of home thrombolysis. These are all normal on the y ¼ log (OR) scale.
+  + Prior, likelihood and posterior distributions arising from GREAT trial of home thrombolysis. These are all normal on the $\theta = \log(OR)$ scale. (Fig. 6)
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
@@ -745,30 +771,32 @@ Year: 2004
 
   + _Bayesian interpretation_:
     + the posterior distribution, obtained by multiplying the prior and likelihood and then making the total area under the curve equal to one ('certainty') (Fig. 6(c))
-    + prior distribution: $sd = \sigma/\sqrt{n_0} = 0.13 \to n_o = 236.7$
-    + the prior having around $236.7/30.5 \approx 8$ times of information as the likelihood $\implies$ the strength of subjective judgement
+    + prior distribution:
+      + $se = \sigma/\sqrt{n_0} = 0.13 \to n_0 = 236.7$
+      + the prior having around $236.7/30.5 \approx 8$ times of information as the likelihood $\implies$ the strength of subjective judgement
     + posterior distribution:
-      + sample size = n_0 + m = 236.7 + 30.5 = 267.2, mean = weighted average $(n_0 \mu + m y_m)/(n_o + m) = -0.31$, standard deviation = $\sigma/\sqrt{n_0 + m} = 0.12$
+      + sample size = $n_0 + m = 236.7 + 30.5 = 267.2$, mean = weighted average = $\mu_p = (n_0 \mu + m y_m)/(n_0 + m) = -0.31, se_p = \sigma/\sqrt{n_0 + m} = 0.12$
       + estimated odds ratio $\approx e^{-0.31} = 0.73$ or 27% risk reduction
-      + 95% credible interval = (-0.55, -0.07) on the $\log(OR)$ scale w/ corresponding odds ratio = (0.55, 0.93)
+      + 95% credible interval $\mu_p \pm 1.96 \times se_p = (-0.55, -0.07)$ on the $\log(OR)$ scale w/ corresponding odds ratio (0.58, 0.93)
       + a 95% probability that true risk reduction = (7%, 42%)
-      + the posterior probability that the reduction is at least 50%: $\Phi((-0.69 + 0.13)/.12) = \Phi(-3.11) = 0.001$ 23h34 $\log(OR) = -0.69$
-      + the posterior probability that there is nay treatment effect: $p(\theta < 0 |y_m) = \Phi((0+0.31)/0.12) = \Phi(2.54) = 0.995
-      + adopting the prior provided by 'expert', 95% certain the newtreatment  is of benefit
+      + the posterior probability that the reduction is at least 50% (equivalent to $\log(OR) = -0.69$): $\Phi((-0.69 + 0.13)/.12) = \Phi(-3.11) = 0.001$
+      + the posterior probability that there is any treatment effect: $p(\theta < 0 |y_m) = \Phi((0+0.31)/0.12) = \Phi(2.54) = 0.995$
+      + adopting the prior provided by 'expert', 95% certain the new treatment  is of benefit
       + the evidence in the likelihood pulled back towards the prior distribution - a formal representation of the belief that the result were 'too good to be true"
   + _Sensitivity analysis_:
-    + consider an observer who has no prior bias one way or another, but more skeptical about large treatment effects than the current expert: 
-      + represented by a normal prior centered on $\log(OR) = 0 (OR = 1)$
-      + a 50% reduction in odds of death (OR = 0.5): $\log(OR) = -0.69$ w/ a 95% interval
-      + a 100% increase in odds of death (OR = 2.0): $\log(OR) = 0.69$ w/ a 95% interval
+    + Prior: consider an observer w/o prior bias one way or another, but more skeptical about large treatment effects than the current expert:
+      + represented by a normal prior centered on $\log(OR) = 0 (OR = 1)$ (based on OR)
+        + a 50% reduction in odds of death (OR = 0.5): $\log(OR) = -0.69$
+        + a 100% increase in odds of death (OR = 2.0): $\log(OR) = 0.69$
       + On a $log(OR)$ scale, the prior w/ a 95% interval: $(-0.69, 0.69)$
-      + standard deviation = 0.69/1.96 = 0.35 and $m = 4/0.35^2 = 32.3$, approximately the same weight of evidence as the likelihood
+      + $se = 0.69/1.96 = 0.35$ and $n_0 = 4/0.35^2 = 32.3$, approximately the same weight of evidence as the likelihood
     + prior: providing equivalent evidence to that arising from the imaginary balanced trial, in which around 16 deaths were observed on each arm
     + prior, likelihood and posterior distributions:
       + Fig. 7: A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0. This is equivalent to a previous study in which 32.3 events occurred, divided equally between the two arms. Adopting this prior and updating it with the GREAT data leads to a posterior distribution as shown, with the shaded area representing a probability of 8% that the treatment is harmful.
-      + mean = 0.36, (OR = 0.70), equivalent size = $n_0 + m = 62.8$, and standard deviation of 0.25
+      + prior: $\mu_0 = 0.0, n_0 = 32.3, se = 0.35$
+      + posterior: $\mu_p = -0.36 \; (OR = 0.70)$, equivalent size = $n_0 + m = 62.8$, and $se = 0.25$
       + the probability w/o benefit from the new treatment: $\Phi(-0.36/0.25) = \Phi(-1.42) = 0.08$
-    + a reasonably skeptical person may therefore not find the GREAT results convincing that there is a benefit
+    + a reasonably skeptical person may therefore not find the GREAT results convincing that there is a benefit (Fig.6)
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
@@ -777,9 +805,9 @@ Year: 2004
     </div>
   
   + _Comments_:
-    + "meta-analysis of early thrombolytic therapy and estimated OR = -0.83 (95% interval (0.70, 0.98)), far less impressive than the GREAT results and reasonably in line w/ the posterior distribution in Fig. 6" -- J. Morrison, et.al., 'Mortality and prehospital thrombolysis for acute myocardial infarction – a metaanalysis', 2000
+    + "meta-analysis of early thrombolytic therapy and estimated OR = 0.83 (95% interval (0.70, 0.98)), far less impressive than the GREAT results and reasonably in line w/ the posterior distribution in Fig. 6" -- J. Morrison, et.al., 'Mortality and prehospital thrombolysis for acute myocardial infarction – a meta-analysis', 2000
     + not over-interpreted and two points should keep in mind
-      + including some trials that contributed tot he prior used by the expert  and good reason why the posterior (interpreted as a type of subjective meta-analysis) and the formal meta-analysis should correspond
+      + including some trials that contributed to the prior used by the expert  and good reason why the posterior (interpreted as a type of subjective meta-analysis) and the formal meta-analysis should correspond
       + primary outcome measure is in-hospital mortality, for which GREAT showed a non-significant (but still substantial) benefit of 11/163 vs. 17/148, with an estimated OR of 0.57
 
 
