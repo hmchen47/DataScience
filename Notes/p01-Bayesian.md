@@ -813,22 +813,22 @@ Year: 2004
 
 ## 3.9 The prior distribution
 
-+ Bayesian distributions
++ prior distributions
   + fundamental of the Bayesian analysis
   + sources:
     + elicitation from experts
     + deviation from historical data
-    + the use of 'default' priors to respent archetypal positions of ignorance, scepticism and enthusiasm
+    + the use of 'default' priors to respent archetypal positions of ignorance, skepticism and enthusiasm
     + multiple related studied simultaneously analyzed
 
-+ Prior
-  + not necessary specified beforehand
++ characteristics of prior
+  + not necessarily specified beforehand
     + feasible for a prior distribution to be decided after seeing the results of the study
     + simply intended to summarize reasonable uncertainty given evidence external to the study in question
-    + 'Period does not refer to time, but to a situation, hypothetical when we have data, where we assess what our evidence would have been if we had had no data' - D. Cox, Discussion of ‘Some statistical heresies’ (Lindsey), The Statistician, 1999
+    + 'Period does not refer to time, but to a situation, hypothetical when we have data, where we assess what our evidence would have been if we had had no data.' - D. Cox, Discussion of ‘Some statistical heresies’ (Lindsey), The Statistician, 1999
     + unambiguously specified when making predictions or decisions
   + not necessarily unique
-    + suggested using a 'communit' of prior distributions expressing a range of reasonable opinions
+    + suggested using a 'community' of prior distributions expressing a range of reasonable opinions
     + Bayesian analysis of evidence: best seen as providing a mapping from specified prior beliefs to appropriate posterior beliefs
   + not necessarily completely specified
     + analyzing multiple related studies simultaneously
