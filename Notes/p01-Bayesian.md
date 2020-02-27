@@ -843,12 +843,64 @@ Year: 2004
     + the prior distribution should be under the control of the consumer of the evidence
 
 
-## 3.10 How to use Bayes theorem to interpret trial results 74
+## 3.10 How to use Bayes theorem to interpret trial results
 
++ connections btw Bayes and trials
+  + the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
+  + huge number of clinical trials that are carried out and the few clearly beneficial interventions found
+  + a Bayesian approach provides 'a yardstick against which a surprising finding may be measurred' - A. Grieve, Bayesian analyses of two-treatment crossover studies. Statistical Methods in Medical Research, 1994
 
++ Example 7 -- False positive: 'the epidemiology of clinical trials'
+  + Notations & Assumptions
+    + 200 trials
+    + 10% truly effective treatments
+    + Type I error $\alpha$: 5% (the chance of claiming an ineffective treatment is effective)
+    + Type II error $\beta$: 20% (the chance of claining an effective treatment is ineffective)
+  + expected outcomes (Table 6)
+    + expected to give a 'significant' result w/ truly ineffective treatment: 9 (5%) of 180 trials
+    + expected to be negative w/ effective treatment: 4 (20%) of 20 trials
+  + Table 7. Th expected results when carrying out 200 clinical trials w/ $\alpha = 5\%, \beta = 20\%$, and and of which only 10% of treatments are truly effective
 
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=80%>
+      <thead>
+      <tr> 
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th> 
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff;">Treatment</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th>
+      </tr>
+      <tr> 
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th> 
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%">Truly ineffective</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%">Truly effective</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%"></th> </tr>
+      </thead>
+      <tbody>
+      <tr> <td rowspan="2"style="text-align: center;">Trial conclusion</td> <td style="text-align: center;">Not significant</td> <td style="text-align: right;">171</td> <td style="text-align: right;">4</td> <td style="text-align: right;">175</td> </tr>
+      <tr> <td style="text-align: center;">Significant</td> <td style="text-align: right;">9</td> <td style="text-align: right;">16</td> <td style="text-align: right;">25</td> </tr>
+      <tr> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: right;">180</td> <td style="text-align: right;">20</td> <td style="text-align: right;">200</td> </tr>
+      </tbody>
+    </table>
 
+  + $9/25 = 36\%$ trials w/ significant results are in fact of totally ineffective treatments
+  + the 'predictive value positive': 64%
+  + the odds of formulation of Bayes theorem, when a 'significant result' is robserved
 
+    \[\begin{align*}
+      \frac{p(H_0 | \text{significant result})}{p(H_1 | \text{significant result})} &= \frac{p(\text{significant result} | H_0)}{p(\text{significant result} | H_1)} \times \frac{p(H_0)}{p(H_1)} \\\\
+        &= \frac{p(\text{Type I error})}{1 - p(\text{Type II error})} \times \frac{p(H_0)}{p(H_1)}
+    \end{align*}\]
+
+    + $H_0$: ineffective treatment
+    + prior odds: $OR = 0.90/0.10$
+    + likelihood ratio / Bayes factor (BF) for $H_0$: $\alpha / (1 - \beta) = 0.05/0.80 = 1/16 \implies$ strong evidence against $H_0$
+    + posterior odds: prior odds x likelihood ratio = 9/16
+    + posterior probability: 9/25
+  + truly effective treatment relative rare $\implies$ a 'statistical significant' result stands a good chance of being a false positive
+  + the precise $p$-value / 'significant' and $\alpha$
+    + Lee & Zelen (2000): suggested selecting $\alpha$ that the posterior probability of an effective treatment, having observed a significant result, is sufficient high, say above 0.9
+    + Simon (2000) and Bryant & Day (2000): criticized solely based on the trail is 'significant', rather than the actual observed data
 
 
 ## 3.11 The ‘credibility’ of significant trial results* 75
