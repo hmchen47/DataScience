@@ -845,21 +845,20 @@ Year: 2004
 
 ## 3.10 How to use Bayes theorem to interpret trial results
 
-+ connections btw Bayes and trials
-  + the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
-  + huge number of clinical trials that are carried out and the few clearly beneficial interventions found
-  + a Bayesian approach provides 'a yardstick against which a surprising finding may be measurred' - A. Grieve, Bayesian analyses of two-treatment crossover studies. Statistical Methods in Medical Research, 1994
++ Connections btw Bayes theorem and clinical trials
+  + known: the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
+  + consideration: huge number of clinical trials carried out and finding the few clearly beneficial interventions
+  + a Bayesian approach providing 'a yardstick against which a surprising finding may be measurred' - A. Grieve, Bayesian analyses of two-treatment crossover studies, Statistical Methods in Medical Research, 1994
 
 + Example 7 -- False positive: 'the epidemiology of clinical trials'
   + Notations & Assumptions
-    + 200 trials
-    + 10% truly effective treatments
-    + Type I error $\alpha$: 5% (the chance of claiming an ineffective treatment is effective)
-    + Type II error $\beta$: 20% (the chance of claining an effective treatment is ineffective)
-  + expected outcomes (Table 6)
+    + 200 trials & 10% truly effective treatments
+    + Type I error ($\alpha$): false positive - the chance of claiming an ineffective treatment is effective; 5%
+    + Type II error ($\beta$): false negative - the chance of claining an effective treatment is ineffective; 20%
+  + expected outcomes
     + expected to give a 'significant' result w/ truly ineffective treatment: 9 (5%) of 180 trials
     + expected to be negative w/ effective treatment: 4 (20%) of 20 trials
-  + Table 7. Th expected results when carrying out 200 clinical trials w/ $\alpha = 5\%, \beta = 20\%$, and and of which only 10% of treatments are truly effective
+  + Table 6. Th expected results when carrying out 200 clinical trials w/ $\alpha = 5\%, \beta = 20\%$, and and of which only 10% of treatments are truly effective
 
     <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=80%>
       <thead>
@@ -884,8 +883,8 @@ Year: 2004
     </table>
 
   + $9/25 = 36\%$ trials w/ significant results are in fact of totally ineffective treatments
-  + the 'predictive value positive': 64%
-  + the odds of formulation of Bayes theorem, when a 'significant result' is robserved
+  + the 'predictive value positive' in diagnostic testing term: 64% (100% - 36%)
+  + the odds of formulation of Bayes theorem, when a 'significant result' observed
 
     \[\begin{align*}
       \frac{p(H_0 | \text{significant result})}{p(H_1 | \text{significant result})} &= \frac{p(\text{significant result} | H_0)}{p(\text{significant result} | H_1)} \times \frac{p(H_0)}{p(H_1)} \\\\
