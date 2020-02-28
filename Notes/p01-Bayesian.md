@@ -77,10 +77,10 @@ Year: 2004
     + assume a set of independent Bernoulli trials such that the probability of response is $\theta$
     + joint distribution for all $n$ individuals
 
-      \[\begin{align*}
-        p(y_1, \ots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \tag{Bernoulli}\\
-          &= \theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r} \tag{Bernoulli.indep}
-      \end{align*}\]
+    \[\begin{align*}
+      p(y_1, \dots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \\
+        &= \underbrace{\theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r}}_{y_1, \dots, y_n \text{ independent}} 
+    \end{align*}\]
 
       + $r = \sum_i y_i$: the number of responders
     + likelihood maximized at $\hat{\theta} = r/n$
@@ -858,7 +858,7 @@ Year: 2004
   + expected outcomes
     + expected to give a 'significant' result w/ truly ineffective treatment: 9 (5%) of 180 trials
     + expected to be negative w/ effective treatment: 4 (20%) of 20 trials
-  + Table 6. Th expected results when carrying out 200 clinical trials w/ $\alpha = 5\%, \beta = 20\%$, and and of which only 10% of treatments are truly effective
+  + Table 6. The expected results when carrying out 200 clinical trials w/ $\alpha = 5\%, \beta = 20\%$, and and of which only 10% of treatments are truly effective
 
     <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=80%>
       <thead>
@@ -902,12 +902,96 @@ Year: 2004
     + Simon (2000) and Bryant & Day (2000): criticized solely based on the trail is 'significant', rather than the actual observed data
 
 
-## 3.11 The ‘credibility’ of significant trial results* 75
+## 3.11 The ‘credibility’ of significant trial results
 
++ Credibility in clinical trials
+  + R. Matthews, [Methods for assessing the credibility of clinical trial outcomes](http://robertmatthews.org/wp-content/uploads/2016/03/DIApaper.pdf), Drug Information Journal, 2001
+  + credibility
+    + the believability of new findings in the light of current knowledge
+    + a key issue iin the assessment of clinical trial outcomes
+  + Bayesian methods view probability not as idealized long-run frequencies, but as degrees of belief based on all the available evidence
+  + Example 6: how a 'skeptical' prior centered on 'no treatment difference' ($\theta = 0$) to represent doubts large treatment effects
+  + extending to ask how skeptical we would have to be not to find an apparently positive treatment effective convincing
+  + Observed data $y$: 'significant' in the conventional sense $\iff$ the classical 95% interval for $\theta$ based on a normal likelihood lies wholly above or below 0
+  + prior mean $y_m = 0$, reflecting initial skepticism about treatment difference, w/ the variance of the prior expressing the degree of skepticism with which we view extreme treatment effects, either positive or negative
 
++ Bayesian credibility test
+  + critical prior distribution $\implies$ the corresponding posterior 95% interval including 0
+  + observing $y_m >0$, a normal likelihood and prior w/ $\mu = 0$
 
+    \[ \theta \sim N \left( \frac{m y_m}{n_0 + m}, \frac{\sigma^2}{n_0 + m} \right) \]
 
+  + the upper point $u_m$ of the 95% posterior interval
 
+    \[ u_m = \frac{m y_m}{n_0 + m} + 1.96 \frac{\sigma}{\sqrt{n_0 + m}} \]
+
+  + $\therefore$ the 95% interval will overlap 0 if $u_m > 0$
+  + the effective number of events in the skeptical prior leading to a 95% posterior interval including 0
+
+    \[ n_0 > \left( \frac{m y_m}{1.96 \sigma} \right) -m = \frac{m^2}{1.96^2 \sigma^2} \left(y_m^2 - \frac{1.96^2 \sigma^2}{m} \right) \tag{16} \]
+
+  + $l_D$, $u_D$: the lower and upper points of a 95% interval  based on the data alone, respectively
+
+    \[\begin{align*}
+      (l_D, u_D) = y_m &\pm 1.96 \sigma / \sqrt{m} \\\\
+      (u_d - l_d)^2 = 4 \times 1.96^2 \sigma^2 /m \quad & \quad u_d l_D = y_m^2 - 1.96^2 \sigma^2/m \\\\
+      l_0 = \frac{-19.6 \sigma}{\sqrt{n_0}} = - \frac{u_D - l_D)^2}{4 \sqrt{u_D l_D}} \quad & \quad u_0 = \frac{19.6 \sigma}{\sqrt{n_0}} = \frac{u_D - l_D)^2}{4 \sqrt{u_D l_D}}
+    \end{align*}\]
+  
+  + $l_d, u_D$ on a $\log(OR)$ scale $\to l_0 = \log(L_0), l_D = \log(L_D), u_D = \log(U_D)$
+
+    \[ L_0 = \exp\left( \frac{-\log^2(U_D/L_D)}{4 \sqrt{\log(U_D) \log(L_D)}} \right) \tag{17} \]
+
+  + $L_0$ and CI
+    + the critical value ($L_0$) for the lower end of 95% skeptical interval $\to$ the resulting posterior distribution w/ a 95% interval including 1
+    + prior belief in $(L_o, 1/L_0) \implies$ not convinced
+    + a significant trial _not credible_ unless prior experience indicates that OR lying outside the critical prior interval are plausible
+  
++ Assessment of ‘credibility’ of ORs (Fig. 8)
+  + observing a classical 95% interval $(L_D, U_D)$ for an OR
+  + $L_0$: 
+    + the lower end of a 95% prior interval centered on 1 expressing skepticism about large differences
+    + the critical value such that the resulting posterior distribution has a 95% interval that just includes 1
+    + not producing 'convincing' evidence
+  + unless OR values more extreme than $L_0$ are judged plausible based on evidence external to the study
+  + the significant conclusions should not be considered convincing
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+      <img src="img/p01-08.png" style="margin: 0.1em;" alt="Assessment of 'credibility' of odds ratios" title="Assessment of 'credibility' of odds ratios" width=350>
+    </a>
+  </div>
+
++ Applying assessment to GREAT study
+  + 95% classical CI for $\log(OR) = (-1.45, -0.03) \to OR = (0.24, 0.97) \implies L_D = 0.24, U_D = 0.97, L_0 = 0.10$
+  + unless ORs more extreme than 0.1 cnsidered as plausible, the results of the GREAT study should be treated w/ caution
+  + $L_D, U_D$ and $L_0$ not plausible $\implies$ not finding GREAT result 'credible'
+  + characteristic of any 'just significant' results such as those observed in the GREAT trial: just a minimal amount of prior skepticism is necessary to make the Bayesian analysis 'non-significant'
+
++ Example 8 -- Credibility: Sumartriptan trial results
+  + The results of an early study of subcutaneous sumatriptan for migraine - Matthews, 2001
+  + improvement: 79% w/ sumatriptan vs. 25% w/ placebo
+  + estimated odds ratio: $\mu_p = 11.4$, 95% CI = $(6.0, 21.5)$
+  + sumtriptan example (Fig. 9)
+    + dotted curve: the critical skeptical prior distribution centered on OR = 1
+    + dashed curve: the resulting posterior distribution w/ a 95% interval including 1, i.e. the shaded area 0.025
+    + the degree of prior skepticism unreasonably extreme $\implies$ the clinical trial findings 'credible'
+  + $OR > 1 \implies$  favor the new treatment since positive events
+  + reasonable to ask whether such extreme results really 'too good to be true'
+    + estimate OR by inverting ORs in favor of placebo, i.e. $OR < 1$
+      + $\mu_p = 0.088, (L_D, U_D) = (0.05, 0.17)$
+      + approximate $L_0 = 0.8$ from Fig. 8
+      + exact $L_0 = 0.84$ from Eq. (17)
+    + transforming back to original OR $\implies$ a critical prior interval $(1/L_0, L_0) = (0.84, 1/0.84) = (0.84, 1.19)$
+    + the critical prior and the resulting posterior distribution: 95% interval including OR = 1
+  + 95% of the prior belief within critical interval $\implies$ posterior 95% interval not exclude OR = 1 $\implies$ the data not 'convincing'
+  + unreasonable to rule out on prior grounds advantages of greater than 19%, and hence reject the critical prior interval as being unreasonabley skeptical, and accept the results as 'credible'
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+        <img src="img/p01-09.png" style="margin: 0.1em;" alt="Sumatriptan example: the critical skeptical prior distribution, th elikelihood, and the resulting posterior distribution" title="Sumatriptan example: the critical skeptical prior distribution, th elikelihood, and the resulting posterior distribution" width=250>
+      </a>
+    </div>
 
 
 ## 3.12 Sequential use of Bayes theorem* 79
