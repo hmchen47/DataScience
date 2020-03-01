@@ -1092,23 +1092,26 @@ Year: 2004
     </table>
 
 
+## 3.13 Predictions
 
+### 3.13.1 Predictions in the Bayesian framework
 
++ Prediction w/ Bayes theorem
+  + task: predict some future observations $x$ on the basis of currently observed data $y$
+  + the distribtion $p(x|y)$ etended w/ unknown parameters $\theta$ by
 
-## 3.13 Predictions 80
+    \[ p(x | y) = \int p(x | y, \theta) p(\theta | y) d\theta \]
 
+  + the posteriro distribution $p(y | \theta)$
+  + $x$ and $y$ conditionally independent given $\theta \implies p(x | y, \theta) = p(x | \theta)$
+  + the predictive distribution: the sampling distribution of $x$ averaged over the current beliefs regarding the unknown $\theta$
 
+    \[ p(x | y) = \int p(x|\theta) p(\theta | y) d\theta \]
 
-
-
-
-
-### 3.13.1 Predictions in the Bayesian framework 80
-
-
-
-
-
++ Application of predictive distributions
+  + design and power calculations, model checking, and deciding whether to conduct a future trial - Berry and Stangle, Bayesian methods in health-related research, In Bayesian Biostatistics, 1996
+  + examples in bioequivlanence, trial monitoring, and toxicology -- A. Grieve, A Bayesian analysis of the two-period crossover design for clinical trials, in Biometrics, 1985
+  + power calculations, sequential analysis, health policy-making and payback from research -- D. Spiegelhalter, Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
 
 
 ### 3.13.2 Predictions for binary data* 81
