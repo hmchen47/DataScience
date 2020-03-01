@@ -1017,9 +1017,79 @@ Year: 2004
     </div>
 
 
-## 3.12 Sequential use of Bayes theorem* 79
+## 3.12 Sequential use of Bayes theorem
 
++ Modeling for sequential data sets
+  + $\exits$ two or more segmented observed data, $y_m$ followed by $y_n$
+  + the posterior distribution of $y_m$ w/ Bayes theorem (Eq. 5)
 
+    \[ p(\theta | y_m) \propto p(y_m | theta) \times p(\theta) \tag{18} \]
+
+  + using the posterior distribution as the prior distribution after observing the following data segment, $y_n$
+  + the posterior conditioning on all the data
+
+    \[\begin{align*}
+      p(\theta | y_m, y_n) & \propto p(p(y_n | theta, y_m) p(y_m | \theta) p(\theta | y_m)  \tag{19} \\
+        & \propto p(y_n | \theta, y_m) p(y_m | \theta) p(\theta)
+    \end{align*}\]
+
+  + factorizing the joint likelihood
+
+    \[ p(y_m, y_n) = p(y_n \ \theta, y_m) p(y_m | \theta) \]
+
+  + most situations, $p(p(y_n | theta, y_m)$ not depending on $y_m$; i.e. $Y_n$ simply conditionally independent of $Y-m$ given $\theta$
+  + $p(\theta | ym)$ simply as the prior for a standard Bayesian update using the likelihood $p(y_n | \theta)$
+
++ Example 9 -- GREAT (cont.): Sequential use of Bayes theorem
+  + the estimated $\log(OR)$ w/ $\sigma = 2$
+  + Table 7. possible results were the GREAT trial to have been analyzed midway
+    + sequential Bayesian approach
+      + (a) the prior statistics calculated in Example 6 (the prior distribution of the first part)
+      + (b) a first half way through the likelihood calculated in Example 6 (the likelihood of the first part)
+      + (c) the interim posterior $n_0 + m_1 = 236.7 + 18.1 = 254.8, \mu_D = ((236.7 \times -0.255) + (18.1 \times -0.654)) / 254.8 = -0.283, se_D = \sigma/\sqrt{254.8} = 0.125$ (as the prior distribution of the second part)
+      + (d) the second half of the study (the likelihood of th second part)
+      + (e) using result of (c) as the prior distribution to calculate the posterior distribution
+    + analysis in two stages
+      + (f) combining the first (b) and second (d) part of data: $m = (2/0.362)^2 = 30.5$
+      + (g) the combined posterior obtained from the prior distribution (a) and the likelihood (f): $n_0 + m = 267.2, \mu_D = ((236.7 * -0.255) + (30.5 * -0.736)) / 267.2 = -0.309, se_D = \sigma/\sqrt{n_0 + m} = 2/\sqrt{267.2} = 0.122$
+    + the 'final' posterior based on using the posterior from the 1st part of trial as the prior as the 2nd part
+    + the 'comnined' posterior based on pooling all the data into the likelihood
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+      <thead>
+      <tr>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:20%;">Stage</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Control<br/>deaths/cases</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">New treatment<br/>deaths/cases</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Estimated<br/>log(OR)</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Effective no. events</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Estimated SE</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: left;">(a) Prior</td> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: center;">-0.255</td> <td style="text-align: center;">236.7</td> <td style="text-align: center;">0.130</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">(b) Data - first half</td> <td style="text-align: center;">13/74</td> <td style="text-align: center;">8/82</td> <td style="text-align: center;">-0.654</td> <td style="text-align: center;">18.1</td> <td style="text-align: center;">0.471</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">(c) Interim Posterior</td> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: center;">-0.283</td> <td style="text-align: center;">254.8</td> <td style="text-align: center;">0.125</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">(d) Data - second half</td> <td style="text-align: center;">10/74</td> <td style="text-align: center;">5/81</td> <td style="text-align: center;">-0.817</td> <td style="text-align: center;">13.1</td> <td style="text-align: center;">0.552</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">(e) 'Final' posterior</td> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: center;">-0.309</td> <td style="text-align: center;">267.9</td> <td style="text-align: center;">0.122</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">(f) Combined data</td> <td style="text-align: center;">23/144</td> <td style="text-align: center;">13/163</td> <td style="text-align: center;">-0.736</td> <td style="text-align: center;">30.5</td> <td style="text-align: center;">0.362</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">(g) 'Combined' posteriro</td> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: center;">-0.309</td> <td style="text-align: center;">267.2</td> <td style="text-align: center;">0.122</td>
+      </tr>
+      </tbody>
+    </table>
 
 
 
