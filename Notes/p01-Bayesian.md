@@ -1098,7 +1098,7 @@ Year: 2004
 
 + Prediction w/ Bayes theorem
   + task: predict some future observations $x$ on the basis of currently observed data $y$
-  + the distribtion $p(x|y)$ etended w/ unknown parameters $\theta$ by
+  + the distribtion $p(x|y)$ ex tended w/ unknown parameters $\theta$ by
 
     \[ p(x | y) = \int p(x | y, \theta) p(\theta | y) d\theta \]
 
@@ -1111,7 +1111,7 @@ Year: 2004
 + Application of predictive distributions
   + design and power calculations, model checking, and deciding whether to conduct a future trial - Berry and Stangle, Bayesian methods in health-related research, In Bayesian Biostatistics, 1996
   + examples in bioequivlanence, trial monitoring, and toxicology -- A. Grieve, A Bayesian analysis of the two-period crossover design for clinical trials, in Biometrics, 1985
-  + power calculations, sequential analysis, health policy-making and payback from research -- D. Spiegelhalter, Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
+  + power calculations, sequential analysis, health policy-making and payback from research -- D. Spiegelhalter, et.al., Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
 
 
 ### 3.13.2 Predictions for binary data* 81
