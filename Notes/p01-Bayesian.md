@@ -97,6 +97,11 @@ Year: 2004
   + Posterior probability: the probability that an event will happen after all evidence or background information has been taken into account
 
 + Terminology
+  + standard deviation ($sd$): a measure of the amount of variation or dispersion of a set of values ($var = sd^2$) $\implies$ true population mean
+  + standard error ($se$)
+    + the standard deviation ($sd$) of its sampling distribution or an estimate of that standard deviation
+    + not enough samples & different trials $\to$ different population means
+  + sampling distribution: the probability distribution of a given random-sample-based statistic
   + likelihood principle: the proposition that, given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
   + joint probability distribution
     + joint probability: the probability of two events occurring simultaneously
@@ -134,6 +139,21 @@ Year: 2004
   + The odds form of Bayes theorem
 
     \[ \frac{p(b|a)}{p(b|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \tag{Bayes.odds} \]
+
+  + [statistically significance](https://www.investopedia.com/terms/s/statistically_significant.asp)
+    + a determination by an analyst that the results in the data are not explainable by chance alone
+    + the likelihood that a relationship btw two or more variables caused by something other than chance
+    + used to provide evidence concerning the plausibility of the null hypothesis, which hypothesizes that there is nothing more than random chance at work in the data
+    + a p-value of 5% or lower often considered to be statistically significant
+  + [statistical hypothesis testing](https://www.investopedia.com/terms/h/hypothesistesting.asp)
+    + the method by which the analyst makes this determination
+    + an act in statistics whereby an analyst tests an assumption regarding a population parameter
+    + used to assess the plausibility of a hypothesis by using sample data
+  + [p-value](https://www.investopedia.com/terms/p/p-value.asp)
+    + the probability of observing results as extreme as those in the data, assuming the results are truly due to chance alone
+    + the probability of obtaining results as extreme as the observed results of a statistical hypothesis test, assuming that the null hypothesis is correct
+    + used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected
+    + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
 
 + beta distribution
   + a flexible abd mathematically convenient class for quantities contained to lie btw 0 and 1
@@ -609,7 +629,7 @@ Year: 2004
       + the direct Bayesian interpretation often wrongly ascribed to confidence interval
     2. _credible interval_
       + generally narrower due to the additional information provided by the prior
-      + width of posterior distribution w/ normal distribution: $2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
+      + width of posterior distribution w/ normal distribution: $U_D - L_D = 2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
       + confidence interval of normal distribution: $2 \times 1.96 \times \sigma/\sqrt{m}$
     3. _care required in terminology_:
       + the width of classical confidence intervals: the standard error of the estimator
@@ -623,8 +643,8 @@ Year: 2004
 + Example 5 -- SBP (continued): interval estimation
   + hypothesis: the woman w/ a long-term SBP greater than 135 and the provision of 95% intervals
   + likelihood (individual): $m = 2, y_m = 130, sd = \sigma = 5, se = \sigma/\sqrt{m} = 3.5$
-  + prior distribution (population): $\mu = 120, se = 10 = \sigma_m/\sqrt{n_0} \implies n_0 = 3.3$
-  + posterior distribution: $\mu_p = (\mu \times n_0 + m \times y_m)/(n_0 + m) = 128.9, se = \sigma / \sqrt{n_0 + m} = 3.3$
+  + prior distribution (population): $\mu_0 = 120, se_0 = 10 = \sigma_m/\sqrt{n_0} \implies n_0 = 3.3$
+  + posterior distribution: $\mu_D = (\mu_D \times n_0 + m \times y_m)/(n_0 + m) = 128.9, se_D = \sigma / \sqrt{n_0 + m} = 3.3$
   + the probability of the hypothesis $H_0: \theta_L < \theta$, $\theta_L = 135$
 
     \[ p(H_0 | y) = p(\theta > \theta_L | y) = 1 - \Phi\left( \frac{\theta_i - \frac{n_0 \mu + my_m}{n_0+m}}{\sigma / \sqrt{n_0 + m}} \right) \]
@@ -742,19 +762,19 @@ Year: 2004
     + based on the subjective judgement of a senior cardiologist
     + empirical evidence derived from one unpublished and two published trials
     + belief: an expectation of 15-20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely
-    + translated to a normal distribution on the $\log(OR)$ scale, w/ a prior mean of $\mu_0 = -0.26$ (OR = 0.78) and symmetric 95% interval of (-0.15, 0.00) w/ OR = (0.60, 1.00), giving $sd = 0.13$
+    + translated to a normal distribution on the $\log(OR)$ scale, w/ a prior mean of $\mu_0 = -0.26 (OR_0 = 0.78)$ and symmetric 95% interval of $(l_0, u_0) = (-0.15, 0.00)$ w/ $(L_0, U_0) = (0.60, 1.00)$, giving $sd_0 = 0.13$
     + statistics: $\mu_0 = -0.26, se = 0.13 = \sigma/\sqrt{n_0} \implies n_0 = 236.7$
   + _Loss function or demands_: none specified
   + _Evidence from study_: 30-day mortality
     + normal approximations for binary data (Likelihood)
-      + the estimate of $\log(OR)$: $y_m = -0.736$, $se = 0.131 \implies sd = \sqrt{se} = 0.362$, and $m = 4/0.131 =30.5$ w/ $\sigma = 2$
+      + the estimate of $\log(OR)$: $y_m = -0.736$, $se_m = 0.131 \implies sd_m = \sqrt{se_m} = 0.362$, and $m = 4/0.131 =30.5$ w/ $\sigma = 2$
       + normal sampling distribution $y_m \sim N(\theta, \sigma^2/m) \implies$ the likelihood $\sim N(-0.736, 30.5)$
       + likelihood statistics: $y_m = -0.736, \sigma = 2, m = 30.5$
     + exact values (likelihood):
       + control: $p_2 = 23/148 = 0.1554$
       + new treatment: $p_1 = 13/163 = 0.0798$
-      + $OR = (p_1/(1 - p_1)) / (p_2/(1 - p_2)) = 0.741, \log(OR) = -0.7529$
-    + the estimate $\log(OR)$ (likelihood): $y_m = -0.74 \implies OR = 0.48$, w/ estimated $se = 0.36$, given a 95% classical CI for $\log(OR) = y_m \pm 1.06 \times se = (-1.45, -0.03) \implies OR = (0.24, 0.97)$
+      + $OR_m = (p_1/(1 - p_1)) / (p_2/(1 - p_2)) = 0.741, \log(OR_m) = -0.7529$
+    + the estimate $\log(OR)$ (likelihood): $y_m = -0.74 \implies OR_m = 0.48$, w/ estimated $se_m = 0.36$, given a 95% classical CI for $\log(OR_m), (l_m, u_m) = y_m \pm 1.06 \times se_m = (-1.45, -0.03) \implies$ 95% CI for OR, $(L_m, U_m) = (0.24, 0.97)$
     + traditional test statictic: $-0.74/0.36 = -2.03$ and the null hypothesis of no effect is rejected w/ a two-sided $p$-value of $2\Phi(-2.03) = 0.04$
     + the likelihood: reasonable support for values of $\theta$ representing a 40-60% reduction in odds of death (Fig. 6(b))
   + Prior, likelihood and posterior distributions arising from GREAT trial of home thrombolysis. These are all normal on the $\theta = \log(OR)$ scale. (Fig. 6)
@@ -773,28 +793,28 @@ Year: 2004
     + the posterior distribution, obtained by multiplying the prior and likelihood and then making the total area under the curve equal to one ('certainty') (Fig. 6(c))
     + prior distribution:
       + $se = \sigma/\sqrt{n_0} = 0.13 \to n_0 = 236.7$
-      + the prior having around $236.7/30.5 \approx 8$ times of information as the likelihood $\implies$ the strength of subjective judgement
+      + the prior having around $n_o/m = 236.7/30.5 \approx 8$ times of information as the likelihood $\implies$ the strength of subjective judgement
     + posterior distribution:
-      + sample size = $n_0 + m = 236.7 + 30.5 = 267.2$, mean = weighted average = $\mu_p = (n_0 \mu + m y_m)/(n_0 + m) = -0.31, se_p = \sigma/\sqrt{n_0 + m} = 0.12$
-      + estimated odds ratio $\approx e^{-0.31} = 0.73$ or 27% risk reduction
-      + 95% credible interval $\mu_p \pm 1.96 \times se_p = (-0.55, -0.07)$ on the $\log(OR)$ scale w/ corresponding odds ratio (0.58, 0.93)
+      + sample size = $n_0 + m = 236.7 + 30.5 = 267.2$, mean = weighted average = $\mu_D = (n_0 \mu + m y_m)/(n_0 + m) = -0.31, se_D = \sigma/\sqrt{n_0 + m} = 0.12$
+      + estimated odds ratio $OR_D \approx e^{-0.31} = 0.73$ or 27% risk reduction
+      + 95% credible interval $\mu_D \pm 1.96 \times se_D = (-0.55, -0.07)$ on the $\log(OR)$ scale w/ corresponding odds ratio $(L_D, U_D) = (0.58, 0.93)$
       + a 95% probability that true risk reduction = (7%, 42%)
-      + the posterior probability that the reduction is at least 50% (equivalent to $\log(OR) = -0.69$): $\Phi((-0.69 + 0.13)/.12) = \Phi(-3.11) = 0.001$
+      + the posterior probability that the reduction is at least 50% (equivalent to $\log(OR_D) = -0.69$): $\Phi((-0.69 + 0.13)/.12) = \Phi(-3.11) = 0.001$
       + the posterior probability that there is any treatment effect: $p(\theta < 0 |y_m) = \Phi((0+0.31)/0.12) = \Phi(2.54) = 0.995$
       + adopting the prior provided by 'expert', 95% certain the new treatment  is of benefit
       + the evidence in the likelihood pulled back towards the prior distribution - a formal representation of the belief that the result were 'too good to be true"
   + _Sensitivity analysis_:
     + Prior: consider an observer w/o prior bias one way or another, but more skeptical about large treatment effects than the current expert:
-      + represented by a normal prior centered on $\log(OR) = 0 (OR = 1)$ (based on OR)
-        + a 50% reduction in odds of death (OR = 0.5): $\log(OR) = -0.69$
-        + a 100% increase in odds of death (OR = 2.0): $\log(OR) = 0.69$
-      + On a $log(OR)$ scale, the prior w/ a 95% interval: $(-0.69, 0.69)$
-      + $se = 0.69/1.96 = 0.35$ and $n_0 = 4/0.35^2 = 32.3$, approximately the same weight of evidence as the likelihood
+      + represented by a normal prior centered on $\log(OR_0) = 0 (OR_0 = 1)$ (based on OR)
+        + a 50% reduction in odds of death ($OR_D = 0.5$): $\log(OR_D) = -0.69$
+        + a 100% increase in odds of death ($OR_D = 2.0$): $\log(OR_D) = 0.69$
+      + On a $log(OR_0)$ scale, the prior w/ a 95% interval: $(L_0, U_0) = (-0.69, 0.69)$
+      + $se_0 = 0.69/1.96 = 0.35$ and $n_0 = 4/0.35^2 = 32.3$, approximately the same weight of evidence as the likelihood
     + prior: providing equivalent evidence to that arising from the imaginary balanced trial, in which around 16 deaths were observed on each arm
     + prior, likelihood and posterior distributions:
       + Fig. 7: A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0. This is equivalent to a previous study in which 32.3 events occurred, divided equally between the two arms. Adopting this prior and updating it with the GREAT data leads to a posterior distribution as shown, with the shaded area representing a probability of 8% that the treatment is harmful.
-      + prior: $\mu_0 = 0.0, n_0 = 32.3, se = 0.35$
-      + posterior: $\mu_p = -0.36 \; (OR = 0.70)$, equivalent size = $n_0 + m = 62.8$, and $se = 0.25$
+      + prior: $\mu_0 = 0.0, n_0 = 32.3, se_0 = 0.35$
+      + posterior: $\mu_D = -0.36 \; (OR_D = 0.70)$, equivalent size = $n_0 + m = 62.8$, and $se_D = 0.25$
       + the probability w/o benefit from the new treatment: $\Phi(-0.36/0.25) = \Phi(-1.42) = 0.08$
     + a reasonably skeptical person may therefore not find the GREAT results convincing that there is a benefit (Fig.6)
 
@@ -908,11 +928,11 @@ Year: 2004
   + R. Matthews, [Methods for assessing the credibility of clinical trial outcomes](http://robertmatthews.org/wp-content/uploads/2016/03/DIApaper.pdf), Drug Information Journal, 2001
   + credibility
     + the believability of new findings in the light of current knowledge
-    + a key issue iin the assessment of clinical trial outcomes
-  + Bayesian methods view probability not as idealized long-run frequencies, but as degrees of belief based on all the available evidence
+    + a key issue in the assessment of clinical trial outcomes
+  + Bayesian methods: probability not as idealized long-run frequencies, but as degrees of belief based on all the available evidence
   + Example 6: how a 'skeptical' prior centered on 'no treatment difference' ($\theta = 0$) to represent doubts large treatment effects
-  + extending to ask how skeptical we would have to be not to find an apparently positive treatment effective convincing
-  + Observed data $y$: 'significant' in the conventional sense $\iff$ the classical 95% interval for $\theta$ based on a normal likelihood lies wholly above or below 0
+  + extending to ask how skeptical not to find an apparently positive treatment effective convincing
+  + observed data $y$: 'significant' in the conventional sense $\iff$ the classical 95% interval for $\theta$ based on a normal likelihood lies wholly above or below 0
   + prior mean $y_m = 0$, reflecting initial skepticism about treatment difference, w/ the variance of the prior expressing the degree of skepticism with which we view extreme treatment effects, either positive or negative
 
 + Bayesian credibility test
@@ -925,8 +945,8 @@ Year: 2004
 
     \[ u_m = \frac{m y_m}{n_0 + m} + 1.96 \frac{\sigma}{\sqrt{n_0 + m}} \]
 
-  + $\therefore$ the 95% interval will overlap 0 if $u_m > 0$
-  + the effective number of events in the skeptical prior leading to a 95% posterior interval including 0
+    $\implies$ the 95% interval will overlap 0 if $u_m > 0$
+  + the effective number of events in the skeptical prior leading to a 95% posterior interval including 0 (to simplify w/ equality)
 
     \[ n_0 > \left( \frac{m y_m}{1.96 \sigma} \right) -m = \frac{m^2}{1.96^2 \sigma^2} \left(y_m^2 - \frac{1.96^2 \sigma^2}{m} \right) \tag{16} \]
 
@@ -934,27 +954,30 @@ Year: 2004
 
     \[\begin{align*}
       (l_D, u_D) = y_m &\pm 1.96 \sigma / \sqrt{m} \\\\
-      (u_d - l_d)^2 = 4 \times 1.96^2 \sigma^2 /m \quad & \quad u_d l_D = y_m^2 - 1.96^2 \sigma^2/m \\\\
-      l_0 = \frac{-19.6 \sigma}{\sqrt{n_0}} = - \frac{u_D - l_D)^2}{4 \sqrt{u_D l_D}} \quad & \quad u_0 = \frac{19.6 \sigma}{\sqrt{n_0}} = \frac{u_D - l_D)^2}{4 \sqrt{u_D l_D}}
+      (u_d - l_d)^2 = 4 \times 1.96^2 \sigma^2 /m \quad & \quad u_d l_D = y_m^2 - 1.96^2 \sigma^2/m
     \end{align*}\]
   
-  + $l_d, u_D$ on a $\log(OR)$ scale $\to l_0 = \log(L_0), l_D = \log(L_D), u_D = \log(U_D)$
+  + the critical value of $l_0$ occurs when the lower point of the 95% prior interval
+
+    \[ l_0 = \frac{-19.6 \sigma}{\sqrt{n_0}} = - \frac{(u_D - l_D)^2}{4 \sqrt{u_D l_D}} \]
+
+  + $l_D, u_D$ on a $\log(OR)$ scale $\to l_0 = \log(L_0), l_D = \log(L_D), u_D = \log(U_D)$
 
     \[ L_0 = \exp\left( \frac{-\log^2(U_D/L_D)}{4 \sqrt{\log(U_D) \log(L_D)}} \right) \tag{17} \]
 
   + $L_0$ and CI
     + the critical value ($L_0$) for the lower end of 95% skeptical interval $\to$ the resulting posterior distribution w/ a 95% interval including 1
-    + prior belief in $(L_o, 1/L_0) \implies$ not convinced
-    + a significant trial _not credible_ unless prior experience indicates that OR lying outside the critical prior interval are plausible
+    + prior belief in $(L_0, 1/L_0) \implies$ not convinced by the evidence
+    + a significant trial _credible_ $\implies$ prior experience indicates that OR lying outside the critical prior interval are plausible
   
 + Assessment of ‘credibility’ of ORs (Fig. 8)
   + observing a classical 95% interval $(L_D, U_D)$ for an OR
-  + $L_0$: 
+  + $L_0$:
     + the lower end of a 95% prior interval centered on 1 expressing skepticism about large differences
     + the critical value such that the resulting posterior distribution has a 95% interval that just includes 1
     + not producing 'convincing' evidence
-  + unless OR values more extreme than $L_0$ are judged plausible based on evidence external to the study
-  + the significant conclusions should not be considered convincing
+  + $OR >> L_0 \implies$ judged plausible based on evidence external to the study
+  + the significant conclusions $\nRightarrow$ convincing
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
@@ -964,32 +987,32 @@ Year: 2004
 
 + Applying assessment to GREAT study
   + 95% classical CI for $\log(OR) = (-1.45, -0.03) \to OR = (0.24, 0.97) \implies L_D = 0.24, U_D = 0.97, L_0 = 0.10$
-  + unless ORs more extreme than 0.1 cnsidered as plausible, the results of the GREAT study should be treated w/ caution
+  + $OR >> 0.1$ as plausible $\to$ the results of the GREAT study w/ caution
   + $L_D, U_D$ and $L_0$ not plausible $\implies$ not finding GREAT result 'credible'
   + characteristic of any 'just significant' results such as those observed in the GREAT trial: just a minimal amount of prior skepticism is necessary to make the Bayesian analysis 'non-significant'
 
 + Example 8 -- Credibility: Sumartriptan trial results
-  + The results of an early study of subcutaneous sumatriptan for migraine - Matthews, 2001
+  + interest: the results of an early study of subcutaneous sumatriptan for migraine - Matthews, 2001
   + improvement: 79% w/ sumatriptan vs. 25% w/ placebo
-  + estimated odds ratio: $\mu_p = 11.4$, 95% CI = $(6.0, 21.5)$
+  + estimated odds ratio of likelihood: $y_m = 11.4$, 95% CI $(L_m, U_m) = (6.0, 21.5)$
   + sumtriptan example (Fig. 9)
     + dotted curve: the critical skeptical prior distribution centered on OR = 1
     + dashed curve: the resulting posterior distribution w/ a 95% interval including 1, i.e. the shaded area 0.025
     + the degree of prior skepticism unreasonably extreme $\implies$ the clinical trial findings 'credible'
   + $OR > 1 \implies$  favor the new treatment since positive events
   + reasonable to ask whether such extreme results really 'too good to be true'
-    + estimate OR by inverting ORs in favor of placebo, i.e. $OR < 1$
-      + $\mu_p = 0.088, (L_D, U_D) = (0.05, 0.17)$
+    + estimate OR by inverting ORs $\implies$ in favor of placebo, i.e. $OR < 1$
+      + $\mu_D = 0.088, (L_D, U_D) = (0.05, 0.17)$
       + approximate $L_0 = 0.8$ from Fig. 8
       + exact $L_0 = 0.84$ from Eq. (17)
-    + transforming back to original OR $\implies$ a critical prior interval $(1/L_0, L_0) = (0.84, 1/0.84) = (0.84, 1.19)$
+    + transforming back to original OR $\implies$ a critical prior interval $(L_0, 1/L_0) = (0.84, 1/0.84) = (0.84, 1.19)$
     + the critical prior and the resulting posterior distribution: 95% interval including OR = 1
   + 95% of the prior belief within critical interval $\implies$ posterior 95% interval not exclude OR = 1 $\implies$ the data not 'convincing'
-  + unreasonable to rule out on prior grounds advantages of greater than 19%, and hence reject the critical prior interval as being unreasonabley skeptical, and accept the results as 'credible'
+  + unreasonable to rule out on prior grounds advantages of greater than 19%, and hence reject the critical prior interval as being unreasonably skeptical, and accept the results as 'credible'
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
-        <img src="img/p01-09.png" style="margin: 0.1em;" alt="Sumatriptan example: the critical skeptical prior distribution, th elikelihood, and the resulting posterior distribution" title="Sumatriptan example: the critical skeptical prior distribution, th elikelihood, and the resulting posterior distribution" width=250>
+        <img src="img/p01-09.png" style="margin: 0.1em;" alt="Sumatriptan example: the critical skeptical prior distribution, th elikelihood, and the resulting posterior distribution" title="Sumatriptan example: the critical skeptical prior distribution, th elikelihood, and the resulting posterior distribution" width=300>
       </a>
     </div>
 
