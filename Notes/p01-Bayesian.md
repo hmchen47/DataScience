@@ -1020,25 +1020,25 @@ Year: 2004
 ## 3.12 Sequential use of Bayes theorem
 
 + Modeling for sequential data sets
-  + $\exits$ two or more segmented observed data, $y_m$ followed by $y_n$
+  + $\exists$ two or more segmented observed data, $y_m$ followed by $y_n$
   + the posterior distribution of $y_m$ w/ Bayes theorem (Eq. 5)
 
-    \[ p(\theta | y_m) \propto p(y_m | theta) \times p(\theta) \tag{18} \]
+    \[ p(\theta | y_m) \propto p(y_m | \theta) \times p(\theta) \tag{18} \]
 
   + using the posterior distribution as the prior distribution after observing the following data segment, $y_n$
   + the posterior conditioning on all the data
 
     \[\begin{align*}
-      p(\theta | y_m, y_n) & \propto p(p(y_n | theta, y_m) p(y_m | \theta) p(\theta | y_m)  \tag{19} \\
+      p(\theta | y_n, y_m) & \propto p(y_n | \theta, y_m) p(\theta | y_m)  \tag{19} \\
         & \propto p(y_n | \theta, y_m) p(y_m | \theta) p(\theta)
     \end{align*}\]
 
   + factorizing the joint likelihood
 
-    \[ p(y_m, y_n) = p(y_n \ \theta, y_m) p(y_m | \theta) \]
+    \[ p(y_m, y_n | \theta) = p(y_n | \theta, y_m) p(y_m | \theta) \]
 
-  + most situations, $p(p(y_n | theta, y_m)$ not depending on $y_m$; i.e. $Y_n$ simply conditionally independent of $Y-m$ given $\theta$
-  + $p(\theta | ym)$ simply as the prior for a standard Bayesian update using the likelihood $p(y_n | \theta)$
+  + most situations, $p(y_n | \theta, y_m)$ not depending on $y_m$; i.e. $Y_n$ simply conditionally independent of $Y_m$ given $\theta$
+  + $\therefore p(\theta | y_m)$ simply as the prior for a standard Bayesian update using the likelihood $p(y_n | \theta)$
 
 + Example 9 -- GREAT (cont.): Sequential use of Bayes theorem
   + the estimated $\log(OR)$ w/ $\sigma = 2$
@@ -1046,12 +1046,12 @@ Year: 2004
     + sequential Bayesian approach
       + (a) the prior statistics calculated in Example 6 (the prior distribution of the first part)
       + (b) a first half way through the likelihood calculated in Example 6 (the likelihood of the first part)
-      + (c) the interim posterior $n_0 + m_1 = 236.7 + 18.1 = 254.8, \mu_D = ((236.7 \times -0.255) + (18.1 \times -0.654)) / 254.8 = -0.283, se_D = \sigma/\sqrt{254.8} = 0.125$ (as the prior distribution of the second part)
+      + (c) the interim posterior $n_0 + m_1 = 236.7 + 18.1 = 254.8$, $\mu_D = ((236.7 \times -0.255) + (18.1 \times -0.654)) / 254.8 = -0.283$, $se_D = \sigma/\sqrt{254.8} = 0.125$ (as the prior distribution of the second part)
       + (d) the second half of the study (the likelihood of th second part)
       + (e) using result of (c) as the prior distribution to calculate the posterior distribution
     + analysis in two stages
       + (f) combining the first (b) and second (d) part of data: $m = (2/0.362)^2 = 30.5$
-      + (g) the combined posterior obtained from the prior distribution (a) and the likelihood (f): $n_0 + m = 267.2, \mu_D = ((236.7 * -0.255) + (30.5 * -0.736)) / 267.2 = -0.309, se_D = \sigma/\sqrt{n_0 + m} = 2/\sqrt{267.2} = 0.122$
+      + (g) the combined posterior obtained from the prior distribution (a) and the likelihood (f): $n_0 + m = 267.2$, $\mu_D = ((236.7 * -0.255) + (30.5 * -0.736)) / 267.2 = -0.309$, $se_D = \sigma/\sqrt{n_0 + m} = 2/\sqrt{267.2} = 0.122$
     + the 'final' posterior based on using the posterior from the 1st part of trial as the prior as the 2nd part
     + the 'comnined' posterior based on pooling all the data into the likelihood
 
