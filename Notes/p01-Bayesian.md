@@ -1114,11 +1114,59 @@ Year: 2004
   + power calculations, sequential analysis, health policy-making and payback from research -- D. Spiegelhalter, et.al., Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
 
 
-### 3.13.2 Predictions for binary data* 81
+### 3.13.2 Predictions for binary data
 
++ Prective distribution w/ binary data
+  + $\theta$ as the true response rate for a set of Bernoulli trials
+  + current posterior distribution of $\theta$ with mean $\mu$
+  + observing the next $n$ trials to predict $Y_n$, the number of successes
 
+    \[ E(Y_n) = E_\theta[E(Y_n | \theta)] = E_\theta[n\theta] = n\mu \tag{20} \]
 
+  + the probability that the next observation (n=1$) is success equal to $\mu$, the posteerior mean of $\theta$
+  + e.g. Example 2
+    + $\theta_j = 0.2, 0.4, 0.6, 0.8$ and $p(\theta | y) = 0.1, 0.2, 0.3, 0.4$
+    + the probability that the next case shows a response is the current posterior mean of $\theta$
 
+    \[ p(Y_1 = 1) = E(Y_1) = \sum_j \theta_jp(\theta_j | data) - (0.2 \cdot 0.1)+(0.4 \cdot 0.2) + (0.6 \cdot 0.3) + (0.8 \cdot 0.4) = 0.6 \]
+
++ Beta distribution
+  + $\theta$ as a conjugate $Beta[1, b]$
+  + the exact predictive distribution for $Y_n$, known as the beta-binomial distribution
+
+    \[ p(y_n) = \frac{\Gamma (a+b)}{\Gamma(a)\Gamma(b)} \begin{pmatrix} n \\ y_n \end{pmatrix} \frac{\Gamma(a+y_n) \Gamma(b+n-y_n)}{\Gamma(a+b+n)} \tag{21} \]
+
+  + w/ $E(\theta) = a/(a+b)$, the mean and varinace of the distribution
+
+    \[ E(Y_n) = n \frac{a}{a+b} \]
+    \[ Var(Y_n) = \frac{nab}{(a+b)^2} \frac{a+b+n}{(a+b+1)} \tag{22} \]
+
+  + Special cases
+    + $a = b = 1$:
+      + the current poster distribution $\sim$ uniform
+      + the predictive distribution for the number of successes in the next $n$ trials $\sim$ unifrom $\forall \; n = 0, 1, 2, \dots$
+    + predicting the next single observation ($n = 1$), Eq. 21 simplified to a Bernoulli distribution w/ $\mu = a/(a+b)$
+
++ Uniform distribution
+  + a prior for $\theta$ as uniform
+  + observing $m$ trial w/ postive, the posterior distribution $\sim$ Beta[m+1, 1]
+  + Lapace's law of success: the probability that the event will occur at the next trial is $m/(m+1)$
+  + even if an event has happened in every case so far, never completely certain that it will happen at the next opportunity
+
++ Example 10 -- Drug (cont.): Makinng predictions for binary data
+  + initial prior distribution for a drug's response rate approximated by a Beta[9.2, 13.8]
+  + likelihood: observed 15/20 successes
+  + the posterior distribution $\sim$ Beta[24.2, 18.8], w/ $\mu = 0.56$
+  + the predictive probabilitythat the next case responds successfully expressed in Eq. 20
+  + treating 40 additional cases, the predictive probability of the total number of successes out of 40: a beta-binomial distribution (Eq. 21, Fig. 10(b)) w/ $\mu = 22.5, se = 4.3$
+  + considering a development program if the drug managed to achieve at least a further 25 successes of 40 future trials
+  + exact solution: the chance of achieving this number by summing the probabilities in the right-hand tail of Fig. 10(b) as 0.329
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+      <img src="img/p01-10.png" style="margin: 0.1em;" alt="" title="" width=350>
+    </a>
+  </div>
 
 
 
