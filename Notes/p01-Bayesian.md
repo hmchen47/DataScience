@@ -1229,17 +1229,50 @@ Year: 2004
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
-      <img src="img/p01-10.png" style="margin: 0.1em;" alt="" title="" width=350>
+      <img src="img/p01-10.png" style="margin: 0.1em;" alt="(a) is the beta posterior distribution after having observed 15 successes in 20 trials, (b) is the predictive beta-binomial distribution of the number of successes Y in the next 40 trials." title="Fig. 11 (a) is the beta posterior distribution after having observed 15 successes in 20 trials, (b) is the predictive beta-binomial distribution of the number of successes Y in the next 40 trials." width=350>
     </a>
   </div>
 
 
-### 3.13.3 Predictions for normal data 83
+### 3.13.3 Predictions for normal data
 
++ Normal predictive distribution
+  + likelihood: a normal sampling distribution $Y_n \sim N(\theta, \sigma^2/n)$
+  + prior distribution: $\theta \sim N(\mu, \sigma^2/n_0)$
+  + make predictions concerning future values of $Y_n$, taking into account the uncertainty about its mean $\theta$
+  + consider $Y_n$ as being the sum of two independent quantities: $Y - \theta \sim N(0, \sigma^2/n)$ and $\theta \sim N(\mu, \sigma^2, n_0)$ w/ $Y_n = (Y_n - \theta) + \theta$
+  + the sum of two independent normal quanties as noraml w/ the sum of the mean and variance, the predictive distribution
 
+    \[ Y_n \sim N \left( \mu, \sigma^2 \left(\frac{1}{n} + \frac{1}{n_0}\right) \right) \tag{23} \]
 
+  + predictions: adding variances $\implies$ increasing uncertainty
+  + combining sources of evidence using Bayes theorem $\implies$ increasing precision and decreasing uncertainty
+  + observed data $y_m$ and the current posterior distribution $\theta \sim N((n_0\mu+my_m)/(n_o+m), \sigma^2/(n_o+m))$, the predivtive distribution
 
+    \[ Y_n|y_m \sim N \left( \frac{n_0\mu+my_m}{n_0+m}, \sigma^2 \left( \frac{1}{n_0+m} + \frac{1}{n} \right) \right) \tag{24} \]
 
++ Exmple 11 -- GREAT (cont.): Predictions of continuing the trial
+  + extending the GREAT trial to include a further 100 patients on each arm (see Example 3)
+  + task: predict the observed OR in those future patients to be
+  + the precison w/ which the OR can be estimated does not depend on the actual number randomized (100 in each arm), but on the number of events (deaths) observed
+  + the observed $\log(OR)$ in those future patients: $Y_n \sim N(\theta, \sigma^2/n)$, where $n$ as the future number of events and $\sigma = 2$
+  + w/ 100 patients in each arm , expect $n \approx 20$given the current mortality rate of around 20%
+  + the current posterior distribution: $\theta \sim N(-0.31, \sigma^2/(n_0+m))$ w/ $n_0+m = 267.2$
+  + the predictive distribution of $\log(OR)$: $\mu_p = -0.31$ and $\sigma^2_p = \sigma^2 (1/267.2 + 1/20.0) = \sigma^2/18.6 = 0.21 = 0.64^2$ (Eq. 24 & Fig. 11 - w/ pre-trial)
+  + using the data from the trial alone equivalent to setting $n_0 = 0$ and using 'flat' prior
+  + the current posterior distribution based on the likelihood: $\theta \sim N(-0.74, \sigma^2/m)$, where $m=30.5$
+  + ignoring the pre-trial prior based on the expert opinion, the predictive distribution of $\log(OR)$ w/ $\mu = -0.74$ and $\sigma_p^2 = \sigma^2(1/30.5 = 1/20.0) = \sigma^2/12.1=0.33=0.48^2$ (Fig. 11 - w/o pre-trial)
+  + using the predictive distribution to calculate the chance of any outcome of interest: observing $OR < 0.5$ in the future component of the trial
+  + using the fairly skeptical prior infomation
+    + w/ pre-trial prior: $p(Y_n < \log(0.50) | y_m) = \Phi((-0.69 + 0.31)/0.46) = \Phi(-0.83) = 0.21$
+    + w/0 pre-trial prior: $p(Y_n < \log(0.50) | y_m) = \Phi((-0.69 + 0.74)/0.58) = \Phi(0.08) = 0.53$
+  + Fig. 11: Predictive distributions for observed OR in a future 100 patients randomised to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+      <img src="img/p01-11.png" style="margin: 0.1em;" alt="Predictive distributions for observed OR in a future 100 patients randomised to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information." title="Fig. 11 Predictive distributions for observed OR in a future 100 patients randomised to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information." width=350>
+    </a>
+  </div>
 
 
 ## 3.14 Decision-making 85
