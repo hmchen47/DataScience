@@ -337,7 +337,7 @@ Year: 2004
   </table>
 
 + Use of Bayes theorem
-  + diagnostic testing: an established part of formal clincial reasoning
+  + diagnostic testing: an established part of formal clinical reasoning
   + general statistical analysis
     + a parameter $\theta$ is an unknown quantity such as the mean benefit of a treatment on a specified patient
     + the prior distribution $p(\theta)$ needs to be specified
@@ -535,7 +535,7 @@ Year: 2004
 + Normal distribution
   + notations and assumptions
     + considering the likelihood w/ a normal distribution
-    + might involve working on somewhat uninituitive scales such as the logarithm of the hazard ratio
+    + might involve working on somewhat unintuitive scales such as the logarithm of the hazard ratio
   + the prior distribution $p(\theta)$
 
     \[ p(\theta) = N \left(\theta \left\vert \mu, \frac{\sigma^2}{n_0}\right.\right) \tag{13} \]
@@ -1123,7 +1123,7 @@ Year: 2004
         <td style="text-align: left;">(f) Combined data</td> <td style="text-align: center;">23/144</td> <td style="text-align: center;">13/163</td> <td style="text-align: center;">-0.736</td> <td style="text-align: center;">30.5</td> <td style="text-align: center;">0.362</td>
       </tr>
       <tr>
-        <td style="text-align: left;">(g) 'Combined' posteriro</td> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: center;">-0.309</td> <td style="text-align: center;">267.2</td> <td style="text-align: center;">0.122</td>
+        <td style="text-align: left;">(g) 'Combined' posterior</td> <td style="text-align: center;"></td> <td style="text-align: center;"></td> <td style="text-align: center;">-0.309</td> <td style="text-align: center;">267.2</td> <td style="text-align: center;">0.122</td>
       </tr>
       </tbody>
     </table>
@@ -1135,11 +1135,11 @@ Year: 2004
 
 + Prediction w/ Bayes theorem
   + task: predict some future observations $x$ on the basis of currently observed data $y$
-  + the distribtion $p(x|y)$ ex tended w/ unknown parameters $\theta$ by
+  + the distribution $p(x|y)$ ex tended w/ unknown parameters $\theta$ by
 
     \[ p(x | y) = \int p(x | y, \theta) p(\theta | y) d\theta \]
 
-  + the posteriro distribution $p(y | \theta)$
+  + the posterior distribution $p(y | \theta)$
   + $x$ and $y$ conditionally independent given $\theta \implies p(x | y, \theta) = p(x | \theta)$
   + the predictive distribution: the sampling distribution of $x$ averaged over the current beliefs regarding the unknown $\theta$
 
@@ -1160,7 +1160,7 @@ Year: 2004
 
     \[ E(Y_n) = E_\theta[E(Y_n | \theta)] = E_\theta[n\theta] = n\mu \tag{20} \]
 
-  + the probability that the next observation (n=1) is success equal to $\mu$, the posteerior mean of $\theta$
+  + the probability that the next observation (n=1) is success equal to $\mu$, the posterior mean of $\theta$
   + e.g. Example 2
     + $\theta_j = 0.2, 0.4, 0.6, 0.8\,$ and $\,p(\theta | y) = 0.1, 0.2, 0.3, 0.4$
     + the probability that the next case shows a response is the current posterior mean of $\theta$
@@ -1176,7 +1176,7 @@ Year: 2004
 
     \[ p(y_n) = \frac{\Gamma (a+b)}{\Gamma(a)\Gamma(b)} \begin{pmatrix} n \\ y_n \end{pmatrix} \frac{\Gamma(a+y_n) \Gamma(b+n-y_n)}{\Gamma(a+b+n)} \tag{21} \]
 
-  + w/ $E(\theta) = a/(a+b)$, the mean and varinace of the distribution
+  + w/ $E(\theta) = a/(a+b)$, the mean and variance of the distribution
 
     \[ E(Y_n) = n \frac{a}{a+b} \]
     \[ Var(Y_n) = \frac{nab}{(a+b)^2} \frac{a+b+n}{(a+b+1)} \tag{22} \]
@@ -1187,7 +1187,7 @@ Year: 2004
       + the predictive distribution for the number of successes in the next $n$ trials $\sim$ unifrom $\forall \; n = 0, 1, 2, \dots$
     + predicting the next single observation ($n = 1$), Eq. 21 simplified to a Bernoulli distribution w/ $\mu = a/(a+b)$
 
-+ [Beta-Binomial distribtion w/ Bayesian considerations](https://en.wikipedia.org/wiki/Beta-binomial_distribution#Further_Bayesian_considerations)
++ [Beta-Binomial distribution w/ Bayesian considerations](https://en.wikipedia.org/wiki/Beta-binomial_distribution#Further_Bayesian_considerations)
   + prior distribution: let $\mu = a/(a+b), M = a+b$
 
     \[\begin{align*}
@@ -1214,11 +1214,11 @@ Year: 2004
 
 + Uniform distribution
   + a prior for $\theta$ as uniform
-  + observing $m$ trials w/ postive, the posterior distribution $\sim$ Beta(m+1, 1)
+  + observing $m$ trials w/ positive, the posterior distribution $\sim$ Beta(m+1, 1)
   + Lapace's law of success: the probability that the event will occur at the next trial is $m/(m+1)$
   + even if an event has happened in every case so far, never completely certain that it will happen at the next opportunity
 
-+ Example 10 -- Drug (cont.): Makinng predictions for binary data
++ Example 10 -- Drug (cont.): Making predictions for binary data
   + initial prior distribution for a drug's response rate approximated by a Beta(9.2, 13.8)
   + the likelihood: observed 15/20 successes
   + the posterior distribution $\sim$ Beta(24.2, 18.8), w/ $\mu = 0.56$
@@ -1239,38 +1239,40 @@ Year: 2004
 + Normal predictive distribution
   + likelihood: a normal sampling distribution $Y_n \sim N(\theta, \sigma^2/n)$
   + prior distribution: $\theta \sim N(\mu, \sigma^2/n_0)$
-  + make predictions concerning future values of $Y_n$, taking into account the uncertainty about its mean $\theta$
-  + consider $Y_n$ as being the sum of two independent quantities: $Y - \theta \sim N(0, \sigma^2/n)$ and $\theta \sim N(\mu, \sigma^2, n_0)$ w/ $Y_n = (Y_n - \theta) + \theta$
-  + the sum of two independent normal quanties as noraml w/ the sum of the mean and variance, the predictive distribution
+  + predictions on future values of $Y_n$, taking into account the uncertainty about its mean $\theta$
+  + consider $Y_n$ as being the sum of two independent quantities: $(Y - \theta) \sim N(0, \sigma^2/n)$ and $\theta \sim N(\mu, \sigma^2, n_0)$ w/ $Y_n = (Y_n - \theta) + \theta$
+  + the sum of two independent normal quantities as normal w/ the sum of the mean and variance, the predictive distribution
 
     \[ Y_n \sim N \left( \mu, \sigma^2 \left(\frac{1}{n} + \frac{1}{n_0}\right) \right) \tag{23} \]
 
   + predictions: adding variances $\implies$ increasing uncertainty
   + combining sources of evidence using Bayes theorem $\implies$ increasing precision and decreasing uncertainty
-  + observed data $y_m$ and the current posterior distribution $\theta \sim N((n_0\mu+my_m)/(n_o+m), \sigma^2/(n_o+m))$, the predivtive distribution
+  + observed data $y_m$ and the current posterior distribution $\theta \sim N((n_0\mu+my_m)/(n_o+m), \sigma^2/(n_o+m))$, the predictive distribution
 
     \[ Y_n|y_m \sim N \left( \frac{n_0\mu+my_m}{n_0+m}, \sigma^2 \left( \frac{1}{n_0+m} + \frac{1}{n} \right) \right) \tag{24} \]
 
-+ Exmple 11 -- GREAT (cont.): Predictions of continuing the trial
++ Example 11 -- GREAT (cont.): Predictions of continuing the trial
   + extending the GREAT trial to include a further 100 patients on each arm (see Example 3)
   + task: predict the observed OR in those future patients to be
-  + the precison w/ which the OR can be estimated does not depend on the actual number randomized (100 in each arm), but on the number of events (deaths) observed
+  + the precision of estimated OR not depending on the actual number randomized (100 in each arm), but on the number of events (deaths) observed
   + the observed $\log(OR)$ in those future patients: $Y_n \sim N(\theta, \sigma^2/n)$, where $n$ as the future number of events and $\sigma = 2$
-  + w/ 100 patients in each arm , expect $n \approx 20$given the current mortality rate of around 20%
-  + the current posterior distribution: $\theta \sim N(-0.31, \sigma^2/(n_0+m))$ w/ $n_0+m = 267.2$
-  + the predictive distribution of $\log(OR)$: $\mu_p = -0.31$ and $\sigma^2_p = \sigma^2 (1/267.2 + 1/20.0) = \sigma^2/18.6 = 0.21 = 0.64^2$ (Eq. 24 & Fig. 11 - w/ pre-trial)
-  + using the data from the trial alone equivalent to setting $n_0 = 0$ and using 'flat' prior
-  + the current posterior distribution based on the likelihood: $\theta \sim N(-0.74, \sigma^2/m)$, where $m=30.5$
-  + ignoring the pre-trial prior based on the expert opinion, the predictive distribution of $\log(OR)$ w/ $\mu = -0.74$ and $\sigma_p^2 = \sigma^2(1/30.5 = 1/20.0) = \sigma^2/12.1=0.33=0.48^2$ (Fig. 11 - w/o pre-trial)
-  + using the predictive distribution to calculate the chance of any outcome of interest: observing $OR < 0.5$ in the future component of the trial
+  + w/ 100 patients in each arm , expect $n \approx 20$ given the current mortality rate of around 20%
+  + the predictive distribution w/ the pre-trial prior distribution (Fig. 11 - w/ prior)
+    + the current posterior distribution: $\theta \sim N(-0.31, \sigma^2/(n_0+m))$ w/ $n_0+m = 267.2$
+    + the predictive distribution of $\log(OR)$: $\mu_p = -0.31$ and $\sigma^2_p = \sigma^2 (1/267.2 + 1/20.0) = \sigma^2/18.6 = 0.21 = 0.46^2$ (Eq. 24)
+  + the predictive distribution w/o the pre-trial prior distribution (Fig. 11 - w/o prior)
+    + using the data from the trial alone equivalent to setting $n_0 = 0$ and using 'flat' prior
+    + the current posterior distribution based on the likelihood: $\theta \sim N(-0.74, \sigma^2/m)$, where $m=30.5$
+    + ignoring the pre-trial prior based on the expert opinion, the predictive distribution of $\log(OR)$ w/ $\mu = -0.74$ and $\sigma_p^2 = \sigma^2(1/30.5 + 1/20.0) = \sigma^2/12.1=0.33=0.58^2$ (Fig. 11 - w/o pre-trial)
+    + using the predictive distribution to calculate the chance of any outcome of interest: observing $OR < 0.5$ in the future component of the trial
   + using the fairly skeptical prior infomation
     + w/ pre-trial prior: $p(Y_n < \log(0.50) | y_m) = \Phi((-0.69 + 0.31)/0.46) = \Phi(-0.83) = 0.21$
-    + w/0 pre-trial prior: $p(Y_n < \log(0.50) | y_m) = \Phi((-0.69 + 0.74)/0.58) = \Phi(0.08) = 0.53$
-  + Fig. 11: Predictive distributions for observed OR in a future 100 patients randomised to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information.
+    + w/o pre-trial prior: $p(Y_n < \log(0.50) | y_m) = \Phi((-0.69 + 0.74)/0.58) = \Phi(0.08) = 0.53$
+  + Fig. 11: Predictive distributions for observed OR in a future 100 patients randomized to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information.
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
-      <img src="img/p01-11.png" style="margin: 0.1em;" alt="Predictive distributions for observed OR in a future 100 patients randomised to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information." title="Fig. 11 Predictive distributions for observed OR in a future 100 patients randomised to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information." width=350>
+      <img src="img/p01-11.png" style="margin: 0.1em;" alt="Predictive distributions for observed OR in a future 100 patients randomized to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information." title="Fig. 11 Predictive distributions for observed OR in a future 100 patients randomized to each arm in the GREAT trial, assuming around 20 events will be observed: with and without pre-trial prior information." width=350>
     </a>
   </div>
 
