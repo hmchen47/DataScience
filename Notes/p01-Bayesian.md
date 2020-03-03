@@ -155,7 +155,21 @@ Year: 2004
     + used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected
     + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
 
-+ beta distribution
++ Binomial and Bernoulli distributions
+  + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
+  + $\theta$: the probability of success in each Bernoulli trial
+  + $\theta^y (1 - \theta)^{n-y}$: the likelihood, the probability for a specific sequence of $n-y$ 'failure' and '$y$ 'successes', $\begin{pmatrix} n \\ y \end{pmatrix}$ sequences
+  + $Y \sim Bin[n, \theta]$: a binomial distribution w/ properties
+
+    \[\begin{align*}
+      p(y | n, \theta) & = \begin{pmatrix} n \\ y \end{pmatrix} \theta^y (1-\theta)^{n-y}, \qquad y = 0, 1, \dots, n \tag{Bin.prob} \\
+      E(Y | n, \theta) &  = n \theta \tag{Bin.mean} \\
+      Var(Y | n, \theta) &= n \theta (1-\theta) \tag{Bin.var}
+    \end{align*}\]
+
+  + $Y \sim Bern[\theta]$: a Bernoulli distribution, a binomial w/ $n=1$
+
++ Beta distribution
   + a flexible abd mathematically convenient class for quantities contained to lie btw 0 and 1
   + form: $Y \sim Beta(a, b)$
   + properties
@@ -163,10 +177,33 @@ Year: 2004
     \[\begin{align*}
       p(y | a, b) &= \frac{\Gamma (a, b)}{\Gamma (a) \Gamma (b)} y^{a-1} (1-y)^{b-1}, \quad y \in (0, 1) \tag{Beta.prob}\\
       E(Y|a, b) &= \frac{a}{a+b} \tag{Beta.mean}\\
-      V(Y|a, b) &= \frac{ab}{(a+b)^2(a+b+1)} \tag{Beta.var}
+      Var(Y|a, b) &= \frac{ab}{(a+b)^2(a+b+1)} \tag{Beta.var}
     \end{align*}\]
 
     where $\Gamma(a) = (a-1)!$
+
++ [the Beta-Binomial distribution](https://en.wikipedia.org/wiki/Beta-binomial_distribution)
+  + the Beta distribution as a conjugate distribution of the binomial distribution
+  + an analytically tractable compound distribution
+  + $p$ parameter in the binomial distribution as being randomly draw from a beta distribution
+  
+    \[ X \sim Bin(n, \theta) \implies p(X=k | p, n) = L(p | k) = \begin{pmatrix} n \\ k \end{pmatrix} \theta^k (1-\theta)^{n-k} \]
+
+  + $\theta$: a random variable w/ a beta distribution
+
+    \[ p(\theta | a, b) = Beta(a, b) = \frac{\theta^{a-1} (1-\theta)^{b-1}}{B(a, b)} \qquad \text{ for } 0 \leq \theta \leq 1 \]
+
+    + $B(a, b) = \Gamma(a) \Gamma(b) / \Gamma(a+b)$
+
+  + the compound distribution
+
+    \[\begin{align*}
+      p(k | n, a, b) &= \int_0^1 \underbrace{L(\theta | k)}_{\text{binomial}} \underbrace{p(\theta | a, b)}_{\text{beta}} d\theta \\\\
+        &= \begin{pmatrix} n \\ k \end{pmatrix} \frac{1}{B(a, b)} \int_0^1 \theta^{k+a-1} (1-\theta)^{n-k+b-1} d\theta 
+        = \begin{pmatrix} n \\ k \end{pmatrix} \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
+        &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \tag{Beta-Bin.prob} \\
+      
+    \end{align*}\]
 
 + The Bayesian approach
   + resting on an essentially _subjective_ interpretation of probability
@@ -1116,22 +1153,25 @@ Year: 2004
 
 ### 3.13.2 Predictions for binary data
 
-+ Prective distribution w/ binary data
++ Predictive distribution w/ binary data
   + $\theta$ as the true response rate for a set of Bernoulli trials
   + current posterior distribution of $\theta$ with mean $\mu$
   + observing the next $n$ trials to predict $Y_n$, the number of successes
 
     \[ E(Y_n) = E_\theta[E(Y_n | \theta)] = E_\theta[n\theta] = n\mu \tag{20} \]
 
-  + the probability that the next observation (n=1$) is success equal to $\mu$, the posteerior mean of $\theta$
+  + the probability that the next observation (n=1) is success equal to $\mu$, the posteerior mean of $\theta$
   + e.g. Example 2
-    + $\theta_j = 0.2, 0.4, 0.6, 0.8$ and $p(\theta | y) = 0.1, 0.2, 0.3, 0.4$
+    + $\theta_j = 0.2, 0.4, 0.6, 0.8\,$ and $\,p(\theta | y) = 0.1, 0.2, 0.3, 0.4$
     + the probability that the next case shows a response is the current posterior mean of $\theta$
 
-    \[ p(Y_1 = 1) = E(Y_1) = \sum_j \theta_jp(\theta_j | data) - (0.2 \cdot 0.1)+(0.4 \cdot 0.2) + (0.6 \cdot 0.3) + (0.8 \cdot 0.4) = 0.6 \]
+    \[\begin{align*}
+      p(Y_1 = 1) &= E(Y_1) = \sum_j \theta_j \cdot p(\theta_j | data)\\
+        &= (0.2 \times 0.1)+(0.4 \times 0.2) + (0.6 \times 0.3) + (0.8 \times 0.4) = 0.6
+    \end{align*}\]
 
-+ Beta distribution
-  + $\theta$ as a conjugate $Beta[1, b]$
++ Beta-Binomial distribution
+  + $\theta$ as a conjugate $Beta(a, b)$
   + the exact predictive distribution for $Y_n$, known as the beta-binomial distribution
 
     \[ p(y_n) = \frac{\Gamma (a+b)}{\Gamma(a)\Gamma(b)} \begin{pmatrix} n \\ y_n \end{pmatrix} \frac{\Gamma(a+y_n) \Gamma(b+n-y_n)}{\Gamma(a+b+n)} \tag{21} \]
@@ -1143,21 +1183,46 @@ Year: 2004
 
   + Special cases
     + $a = b = 1$:
-      + the current poster distribution $\sim$ uniform
+      + the current posterior distribution $\sim$ uniform
       + the predictive distribution for the number of successes in the next $n$ trials $\sim$ unifrom $\forall \; n = 0, 1, 2, \dots$
     + predicting the next single observation ($n = 1$), Eq. 21 simplified to a Bernoulli distribution w/ $\mu = a/(a+b)$
 
++ [Beta-Binomial distribtion w/ Bayesian considerations](https://en.wikipedia.org/wiki/Beta-binomial_distribution#Further_Bayesian_considerations)
+  + prior distribution: let $\mu = a/(a+b), M = a+b$
+
+    \[\begin{align*}
+      p(\theta | \mu, M) = Beta(M\mu, M(1-\mu)) &= \frac{\Gamma(M)}{\Gamma(M\mu) \Gamma(M(1-\mu))} \theta^{M\mu-1}(1-\theta)^{M(1-\mu)-1} \\\\
+      E(\theta | \mu, M) = \mu \qquad & \qquad Var(\theta | \mu, M) = \frac{\mu(1-\mu)}{M-1}
+    \end{align*}\]
+
+  + posterior distribution
+
+    \[\begin{align*}
+      p(\theta | k) &\propto \underbrace{p(k | \theta)}_{\text{binomial}} \underbrace{p(\theta | \mu, M)}_{\text{beta}} = Beta(k+M\mu, n-k+M(1-\mu)) \\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu) \Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \theta^{k+M\mu-1} (1-\theta)^{n-k+M(1-\mu)-1} \\\\
+      E(\theta | k) &= \frac{k+M\mu}{n+M}
+    \end{align*}\]
+
+  + marginal distribution
+
+    \[\begin{align*}
+      p(k | \mu, M) &= \int_0^1 p(k | \theta) p(\theta | \mu, M) d\theta \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \int_0^1 \theta^{k+M\mu-1}(1-\theta)^{n-k+M(1-\mu)-1} d\theta \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \frac{\Gamma(k+M\mu)\Gamma(n-k+M(1-\mu))}{\Gamma(n+M)} \\\\
+      p(k | a, b) &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)}\frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)}\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
+    \end{align*}\]
+
 + Uniform distribution
   + a prior for $\theta$ as uniform
-  + observing $m$ trial w/ postive, the posterior distribution $\sim$ Beta[m+1, 1]
+  + observing $m$ trials w/ postive, the posterior distribution $\sim$ Beta(m+1, 1)
   + Lapace's law of success: the probability that the event will occur at the next trial is $m/(m+1)$
   + even if an event has happened in every case so far, never completely certain that it will happen at the next opportunity
 
 + Example 10 -- Drug (cont.): Makinng predictions for binary data
-  + initial prior distribution for a drug's response rate approximated by a Beta[9.2, 13.8]
-  + likelihood: observed 15/20 successes
-  + the posterior distribution $\sim$ Beta[24.2, 18.8], w/ $\mu = 0.56$
-  + the predictive probabilitythat the next case responds successfully expressed in Eq. 20
+  + initial prior distribution for a drug's response rate approximated by a Beta(9.2, 13.8)
+  + the likelihood: observed 15/20 successes
+  + the posterior distribution $\sim$ Beta(24.2, 18.8), w/ $\mu = 0.56$
+  + the predictive probability that the next case responds successfully expressed in Eq. 20
   + treating 40 additional cases, the predictive probability of the total number of successes out of 40: a beta-binomial distribution (Eq. 21, Fig. 10(b)) w/ $\mu = 22.5, se = 4.3$
   + considering a development program if the drug managed to achieve at least a further 25 successes of 40 future trials
   + exact solution: the chance of achieving this number by summing the probabilities in the right-hand tail of Fig. 10(b) as 0.329
@@ -1167,7 +1232,6 @@ Year: 2004
       <img src="img/p01-10.png" style="margin: 0.1em;" alt="" title="" width=350>
     </a>
   </div>
-
 
 
 ### 3.13.3 Predictions for normal data 83
