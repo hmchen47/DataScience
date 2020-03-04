@@ -12,7 +12,6 @@ Year: 2004
 
 [Chapter 3](http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf)
 
-
 ## 3.1 Subjectivity and Context
 
 + [The prior distribution](https://en.wikipedia.org/wiki/Prior_probability)
@@ -45,7 +44,7 @@ Year: 2004
     + an equivalence class of functions
     + likelihood function: $x$ as a constant and imaging $\theta$ to be a varying over the whole range of possible parameter values
   + Definition for continuous distribution:
-    + given an observation $x_j$, 
+    + given an observation $x_j$
     + $\mathcal{L}(\theta | x \in [x_j, x_j+h])$: the likelihood for the interval $[x_j, x_j + h]$, where $h > 0$ is a constant
 
       \[\begin{align*}
@@ -77,10 +76,10 @@ Year: 2004
     + assume a set of independent Bernoulli trials such that the probability of response is $\theta$
     + joint distribution for all $n$ individuals
 
-    \[\begin{align*}
-      p(y_1, \dots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \\
-        &= \underbrace{\theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r}}_{y_1, \dots, y_n \text{ independent}} 
-    \end{align*}\]
+      \[\begin{align*}
+        p(y_1, \dots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \\
+          &= \underbrace{\theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r}}_{y_1, \dots, y_n \text{ independent}}
+      \end{align*}\]
 
       + $r = \sum_i y_i$: the number of responders
     + likelihood maximized at $\hat{\theta} = r/n$
@@ -199,10 +198,9 @@ Year: 2004
 
     \[\begin{align*}
       p(k | n, a, b) &= \int_0^1 \underbrace{L(\theta | k)}_{\text{binomial}} \underbrace{p(\theta | a, b)}_{\text{beta}} d\theta \\\\
-        &= \begin{pmatrix} n \\ k \end{pmatrix} \frac{1}{B(a, b)} \int_0^1 \theta^{k+a-1} (1-\theta)^{n-k+b-1} d\theta 
+        &= \begin{pmatrix} n \\ k \end{pmatrix} \frac{1}{B(a, b)} \int_0^1 \theta^{k+a-1} (1-\theta)^{n-k+b-1} d\theta
         = \begin{pmatrix} n \\ k \end{pmatrix} \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
         &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \tag{Beta-Bin.prob} \\
-      
     \end{align*}\]
 
 + The Bayesian approach
@@ -219,7 +217,6 @@ Year: 2004
   + Berger, J. and Berry, D. A. (1988) [Statistical analysis and the illusion of objectivity](http://ifmlab.for.unb.ca/people/kershaw/Courses/Research_Methods/Readings/BergerJO1988a.pdf). American Scientist, 76, 159–65.
   + treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
-
 ## 3.2 Bayes theorem for two hypotheses
 
 + Prior to posterior analysis
@@ -233,7 +230,7 @@ Year: 2004
 
     \[ p(H_0 | y) = \frac{p(y | H_0)}{p(y)} \times p(H_0)  \tag{1} \]
 
-  + the overall probability of $y$ occuring: 
+  + the overall probability of $y$ occuring:
   
     \[p(y) = p(y | H_0) p(H_0) + p(y | H_1) p(H_1) \]
 
@@ -1277,12 +1274,118 @@ Year: 2004
   </div>
 
 
-## 3.14 Decision-making 85
+## 3.14 Decision-making
 
++ Modeling of decision-making
+  + the appropriate role for formal decision theory in health-care evaluation: the subject of a long and continuing debate
+  + __utility__: $u(d, \theta)$ of the consequences of taking each decision $d$ when $\theta$ is true unknown 'state of nature'
+  + $p(\theta | y)$: the probability distribution for $\theta$ w/ observed some data $y$
+  + $d$: expected utility of taking decision
 
+    \[ E(d) = \int u(d, \theta) p(\theta | y) d\theta \]
+  
+  + $d^{opt}$: the optimal decision to maximize $E(d, \theta)$
 
++ Hyptheses and decision-making
+  + $H_0$ & $H_1$: two hypotheses w/ the unknown 'state of nature'
+  + $p(H_0|y)$ & $p(H_1 | y)$: current posterior probabilities w/ $H_0$ and $H_1$ respectively
+  + $d_0$ & $d_1$: possible decisions for $H_0$ & $H_1$ respectively, $d_0$ believing $H_0$ true while $d_1$ believing $H_1$
+  + $u(d_0, H_0)$ & $u(d_1, H_1)$: the utility of taking decision $d_0$ / $d_1$ where $H_0$ / $H_1$ is true
+  + maximizing expected utility by taking decision $d_0$ if $E(d_0) > E(d_1)$
 
+    \[\begin{align*}
+      u(d_0, H_0) p(H_0|y) + u(d_0, H_1) p(H_1|y) &> u(d_1, H_0) p(H_0|y) + u(d_1, H_1) p(H_1 | y) \\\\
+      \frac{p(H_0|y)}{p(H_1|y)} &> \frac{u(d_1, H_1) - u(d_0, H_1)}{u(d_0, H_0) - u(d_1, H_0)} \tag{25}
+    \end{align*}\]
+  
+  + intuitive explanation:
+    + $u(d_1, H_1) - u(d_0, H_1)$:
+      + the potential _regret_ : the potential loss in utility when erroneously deciding on $H_0$ instead of $H_1$
+      + the additional utility involved in taking the correct decision when $H_1$ turns out to be the correct hypothesis
+    + $U(d_0, H_0) - u(d_1, H_0)$: the potebntial _regret_ when $H_0$ is true
+    + should only take decision $d_0$ if the posterior odds in favor of $H_0$ are sufficient to outweight any extra potential rgret associated w/ incorrectly rejecting $H_1$
 
++ Decision based on future events
+  + using the principle of maximizing expected utility based on future events
+  + choice of action chnaging the probability of the events ocurring
+  + $c_i$: the cost taken at the decision $d_i$
+  + $p_i$: the probability of taking decision $d_i$ w/ an adverse event Y = 0 or 1 occuring w/ utility $U_Y$
+  + the expected utility of taking decision $i$
+
+    \[ E(d_i) = p_iU_1 + (1-p_i)U_0 - c_i \]
+
+  + $d_0$ preferred to $d_0$ if
+
+    \[\begin{align*}
+      p_0 U_1 + (1-p_0) U_0 -c_0 &> p_1U_1 + (1-p_1)U_0 - c_1 \\\\
+      p_1 - p_0 &> \frac{c_0 - c_1}{U_0 - U_1} \tag{26}
+    \end{align*}\]
+
+    + $U_0 - U_1 > 0 \impliedby$ undesirable event
+  + $\frac{c_0 - c_1}{U_0 - U_1} < 0$ and $p_1 - p_0 > 0 \implies$ both costs less ($c_0 < c_1$) and reducing the risk of $Y$ occurring (#P_0 < p_1$)
+  + $c_0 > c_1 \implies \frac{c_0 - c_1}{U_0 - U_1} > 0 \implies$ preffer $d0$if reducin ght risk by a sufficient quantity
+  + the decision depends on the risk difference $p_1 - p_0$, rathe rthan a relative measure such as the odds ratio
+  + D. Ashby and A. Smith, [Evidence-based medicine as Bayesian decision-making](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.468.6719&rep=rep1&type=pdf), Statistics in Medicine, 2000
+    + NTT: the 'number needed to treat' to prevent one adverse event
+    + $N(p_1 - p_0)$: the expected number of events prevented when treating $N$ individuals according to $d_0$ instead of $d_1$
+    + to prevent one event when treating $N = 1/(p_1 - p_0)$
+
+    \[ NTT = \frac{1}{p_1 - p_0} < \frac{U_0 - U_1}{c_0 - c_1} \tag{27} \]
+
++ Example 12 -- Netural tube defects: Making personal decisions about preventative treatment
+  + D. Ashby and A. Smith, [Evidence-based medicine as Bayesian decision-making](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.468.6719&rep=rep1&type=pdf), Statistics in Medicine, 2000
+  + illustrating the power (and the difficulties) of carrying out a formal decision analysis w/ utilities
+  + task: a couple wishing to try and become pregnant but faced w/ the decision whether to take folic acid supplements to reduce the risk of a netural tube defect (NTD), such as spina bifida or anencehaly
+  + Notations & Assumptions:
+    + $d_0$ & $d_1$: the decisions to take and not to take supplementation, respectively
+    + $c_0$ & $c_1$: the costs og the two decisions
+    + $p_0$ & $p_1$: the probabilities of a foetus having an NTD following each of the two decisions
+    + $U_0$ & $U_1$: the utilities of having a child w/o or w/ an NTD, respectively
+    + $\rho \cdot c = c_1 - c_0$: the cost for a couple deciding whether to take the supplementation; may be in money to pay for a course of tablets
+  + the couples choosing supplementation ($d_1$) if (Eq. 26)
+
+    \[ U_0 - U_1 > \frac{c_0 - c_1}{p_1 - p_0} \tag{28} \]
+
+  + issue: assigning reasonable values to these quantities
+  + estimates of $p_0$ and $p_1$ obtained from randomized trial and epidemiological evidence
+  + providing the results of the sole available clinical trial of folic acid supplementation: randomized to placebo had pregnancy
+    + 21/602 w/ an NTD
+    + 6/539 w/o NTD
+  + $p_0 = 0.010, p_1 = 0.035, NNT = 1/(p_1 - p_0) = 40.4$ and $OR = 0.30$
+  + the 'disutility' $U_0 - U_1$ of an NTD by taking suplementation: $40c$
+  + problem: expressing the 'disutility' in $c$
+  + importance: identifying the appropriate decision-maker whose utilities are to be taken into account
+  + making public policy decisions regarding supplementation $\implies$ prevention of an NDT worth more than around $40c$, even if the couple decide to terminate the pregnancy
+  + from the couple's point of view, the utility $U_0$ of a 'healthy baby'
+  + $S = c/U_0$: the cost of supplementationin terms of 'healthy baby' equivalents
+  + decision threshold
+
+    \[ \frac{U_1}{U_0} < 1 - (S \times NNT) \]
+  
+  + previous analysis: $S \approx 0.00001, NNT \approx 40$, so supplementation preferred if $NNT < 0.9996$ of a healthy baby
+  + consider a couple w/o previous history of an NTD
+    + cite an incidence rate of 3.3/1000 pregnancies in a non-supplemented population
+    + $p = 0.001$ and the trial odds ratio applied to this group $\implies$ an estimate of $p_1 = 0.0033, p_0 - p_1 = 0.0023, NNT = 435$
+    + prefer sumplmentation if $U_1/U_0 < 1 - 0.00001 \times 435 \approx 0.996$
+  
++ Deciscion-making and Bayesian methods
+  + focused on the utility of consequences than the use of Bayesian methods to revise opinions
+  + this activity blends naturally into cost-effectiveness analysis, but nevertheless the subjective interpretation of probability is essential
+  + the expressions of uncertainty required for a decision analysis can rarely be based on empirical data
+
++ Disucssion
+  + debate on the use of loss functions the negative of utility), in parallel to that concerning prior distributions
+  + arguing the design, monitoring and analysis of a study must explicitly take into account the consequences of eventual dicision-making that uses loss functions
+  + frequestist theory of decision-making using loss functions
+    + not average w.r.t. prior or posterior distributions
+    + strategy: generally 'minimax'
+    + the loss minimized whatever the true value of the parameter might be
+    + thought of as assuming the most pessimistic prior distribution
+    + ideological approaches employing all combinations of the use of prior distributions and/or loss  functions are possible
+
++ Optimal decision-making
+  + depending solely on the expected benefit
+  + irrelevance: masures of uncertainty such as intervals or $p$-values
 
 
 ## 3.15 Design 90
