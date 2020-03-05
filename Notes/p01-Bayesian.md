@@ -1276,9 +1276,9 @@ Year: 2004
 
 ## 3.14 Decision-making
 
-+ Modeling of decision-making
-  + the appropriate role for formal decision theory in health-care evaluation: the subject of a long and continuing debate
-  + __utility__: $u(d, \theta)$ of the consequences of taking each decision $d$ when $\theta$ is true unknown 'state of nature'
++ Modeling of health-care w/ decision-making
+  + the appropriate role for formal decision theory in health-care evaluation -- a subject of a long and continuing debate
+  + __utility__ $u(d, \theta)$: the consequences of taking each decision $d$ when $\theta$ is true unknown 'state of nature'
   + $p(\theta | y)$: the probability distribution for $\theta$ w/ observed some data $y$
   + $d$: expected utility of taking decision
 
@@ -1302,19 +1302,19 @@ Year: 2004
     + $u(d_1, H_1) - u(d_0, H_1)$:
       + the potential _regret_ : the potential loss in utility when erroneously deciding on $H_0$ instead of $H_1$
       + the additional utility involved in taking the correct decision when $H_1$ turns out to be the correct hypothesis
-    + $U(d_0, H_0) - u(d_1, H_0)$: the potebntial _regret_ when $H_0$ is true
+    + $u(d_0, H_0) - u(d_1, H_0)$: the potential _regret_ when $H_0$ is true
     + should only take decision $d_0$ if the posterior odds in favor of $H_0$ are sufficient to outweight any extra potential rgret associated w/ incorrectly rejecting $H_1$
 
 + Decision based on future events
   + using the principle of maximizing expected utility based on future events
-  + choice of action chnaging the probability of the events ocurring
+  + choice of action chnaging the probability of the events occurring
   + $c_i$: the cost taken at the decision $d_i$
   + $p_i$: the probability of taking decision $d_i$ w/ an adverse event Y = 0 or 1 occuring w/ utility $U_Y$
   + the expected utility of taking decision $i$
 
-    \[ E(d_i) = p_iU_1 + (1-p_i)U_0 - c_i \]
+    \[ E(d_i) = p_i U_1 + (1-p_i) U_0 - c_i \]
 
-  + $d_0$ preferred to $d_0$ if
+  + $d_0$ preferred to $d_1$ if
 
     \[\begin{align*}
       p_0 U_1 + (1-p_0) U_0 -c_0 &> p_1U_1 + (1-p_1)U_0 - c_1 \\\\
@@ -1322,25 +1322,25 @@ Year: 2004
     \end{align*}\]
 
     + $U_0 - U_1 > 0 \impliedby$ undesirable event
-  + $\frac{c_0 - c_1}{U_0 - U_1} < 0$ and $p_1 - p_0 > 0 \implies$ both costs less ($c_0 < c_1$) and reducing the risk of $Y$ occurring (#P_0 < p_1$)
-  + $c_0 > c_1 \implies \frac{c_0 - c_1}{U_0 - U_1} > 0 \implies$ preffer $d0$if reducin ght risk by a sufficient quantity
-  + the decision depends on the risk difference $p_1 - p_0$, rathe rthan a relative measure such as the odds ratio
+  + $(c_0 - c_1)/(U_0 - U_1) < 0$ and $p_1 - p_0 > 0 \implies$ both costs less ($c_0 < c_1$) and reducing the risk of $Y$ occurring ($p_0 < p_1$)
+  + $d_0 > d_1 \implies (c_0 - c_1)/(U_0 - U_1) > 0 \implies$ prefer $d_0$ if reducing the risk by a sufficient quantity
+  + the decision depends on the risk difference $p_1 - p_0$, rather than a relative measure such as the odds ratio
   + D. Ashby and A. Smith, [Evidence-based medicine as Bayesian decision-making](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.468.6719&rep=rep1&type=pdf), Statistics in Medicine, 2000
-    + NTT: the 'number needed to treat' to prevent one adverse event
+    + NNT: the 'number needed to treat' to prevent one adverse event
     + $N(p_1 - p_0)$: the expected number of events prevented when treating $N$ individuals according to $d_0$ instead of $d_1$
-    + to prevent one event when treating $N = 1/(p_1 - p_0)$
+    + preventing one event when treating $N = 1/(p_1 - p_0)$
 
-    \[ NTT = \frac{1}{p_1 - p_0} < \frac{U_0 - U_1}{c_0 - c_1} \tag{27} \]
+    \[ NNT = \frac{1}{p_1 - p_0} < \frac{U_0 - U_1}{c_0 - c_1} \tag{27} \]
 
-+ Example 12 -- Netural tube defects: Making personal decisions about preventative treatment
++ Example 12 -- Nesural tube defects: Making personal decisions about preventative treatment
   + D. Ashby and A. Smith, [Evidence-based medicine as Bayesian decision-making](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.468.6719&rep=rep1&type=pdf), Statistics in Medicine, 2000
   + illustrating the power (and the difficulties) of carrying out a formal decision analysis w/ utilities
-  + task: a couple wishing to try and become pregnant but faced w/ the decision whether to take folic acid supplements to reduce the risk of a netural tube defect (NTD), such as spina bifida or anencehaly
+  + task: a couple wishing to try and become pregnant but faced w/ the decision whether to take folic acid supplements to reduce the risk of a neural tube defect (NTD), such as spina bifida or anencephaly
   + Notations & Assumptions:
-    + $d_0$ & $d_1$: the decisions to take and not to take supplementation, respectively
-    + $c_0$ & $c_1$: the costs og the two decisions
-    + $p_0$ & $p_1$: the probabilities of a foetus having an NTD following each of the two decisions
-    + $U_0$ & $U_1$: the utilities of having a child w/o or w/ an NTD, respectively
+    + $d_0$ / $d_1$: the decisions not to take or to take supplementation, respectively
+    + $c_0$ / $c_1$: the costs of the two decisions
+    + $p_0$ / $p_1$: the probabilities of a fetus having an NTD following each of the two decisions
+    + $U_0$ / $U_1$: the utilities of having a child w/o or w/ taking an NTD, respectively
     + $\rho \cdot c = c_1 - c_0$: the cost for a couple deciding whether to take the supplementation; may be in money to pay for a course of tablets
   + the couples choosing supplementation ($d_1$) if (Eq. 26)
 
@@ -1352,12 +1352,12 @@ Year: 2004
     + 21/602 w/ an NTD
     + 6/539 w/o NTD
   + $p_0 = 0.010, p_1 = 0.035, NNT = 1/(p_1 - p_0) = 40.4$ and $OR = 0.30$
-  + the 'disutility' $U_0 - U_1$ of an NTD by taking suplementation: $40c$
+  + the 'disutility' $U_0 - U_1$ of an NTD by taking suplementation: $40c, \rho = 40$
   + problem: expressing the 'disutility' in $c$
   + importance: identifying the appropriate decision-maker whose utilities are to be taken into account
   + making public policy decisions regarding supplementation $\implies$ prevention of an NDT worth more than around $40c$, even if the couple decide to terminate the pregnancy
   + from the couple's point of view, the utility $U_0$ of a 'healthy baby'
-  + $S = c/U_0$: the cost of supplementationin terms of 'healthy baby' equivalents
+  + $S = c/U_0$: the cost of supplementation in terms of 'healthy baby' equivalents
   + decision threshold
 
     \[ \frac{U_1}{U_0} < 1 - (S \times NNT) \]
@@ -1373,19 +1373,18 @@ Year: 2004
   + this activity blends naturally into cost-effectiveness analysis, but nevertheless the subjective interpretation of probability is essential
   + the expressions of uncertainty required for a decision analysis can rarely be based on empirical data
 
-+ Disucssion
-  + debate on the use of loss functions the negative of utility), in parallel to that concerning prior distributions
-  + arguing the design, monitoring and analysis of a study must explicitly take into account the consequences of eventual dicision-making that uses loss functions
++ Disucssion of using Bayesian methods on decision-making
+  + debate on the use of loss functions, the negative of utility, in parallel to that concerning prior distributions
+  + arguing the design, monitoring and analysis of a study using the consequences of eventual dicision-making w/ loss functions
   + frequestist theory of decision-making using loss functions
-    + not average w.r.t. prior or posterior distributions
+    + not averaging w.r.t. prior or posterior distributions
     + strategy: generally 'minimax'
-    + the loss minimized whatever the true value of the parameter might be
+    + minimizing the loss whatever the true value of the parameter might be
     + thought of as assuming the most pessimistic prior distribution
-    + ideological approaches employing all combinations of the use of prior distributions and/or loss  functions are possible
-
-+ Optimal decision-making
-  + depending solely on the expected benefit
-  + irrelevance: masures of uncertainty such as intervals or $p$-values
+    + ideological approaches employing all combinations of the use of prior distributions and/or loss  functions
+  + Optimal decision-making
+    + depending solely on the expected benefit
+    + irrelevance: masures of uncertainty such as intervals or $p$-values
 
 
 ## 3.15 Design 90
