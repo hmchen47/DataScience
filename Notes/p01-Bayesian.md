@@ -1391,10 +1391,10 @@ Year: 2004
 
 + Experiment design
   + a natural combination of prediction and decision-making
-  + investigatorseeking to choose a design which they predict will achieve the desired goals
+  + investigator seeking to choose a design to achieve the desired goals
   + technically and computational challenging
   + backwards induction
-    + sequential designs to work back ward from the end of the study
+    + sequential designs to work backward from the end of the study
     + examining all the possible decision points
     + optimize the decision allowing for all the possible circumstances
   + computationally demanding
