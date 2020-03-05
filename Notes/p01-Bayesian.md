@@ -1414,19 +1414,19 @@ Year: 2004
     + the synthesis of multiple sources
 
 + Relationships btw historical data and current observations
-  + irrelevance: no relevant information
-  + exchangable
+  + _irrelevance_: no relevant information
+  + _exchangable_
     + current and past studies similar
     + parametres considered exchangable - typical situation in a meta-analysis
     + adopted as standard hierarchical modelling techniques
-  + potential biase
+  + _potential bias_
     + past studeies
       + lack of quality (internal biase)
       + setting not precisely measured (external bias)
     + appropriately adjusting historical results
-  + equal but discounted: precision decreased to 'discount' past data
-  + functional dependence: current parameter of intrest = a logical function of parameters estimated in historical studies
-  + equal: measuring precisely the parameters of interest and data able to directly pool
+  + _equal but discounted_: precision decreased to 'discount' past data
+  + _functional dependence_: current parameter of intrest = a logical function of parameters estimated in historical studies
+  + _equal_: measuring precisely the parameters of interest and data able to directly pool
 
 
 ## 3.17 Multiplicity, exchangeability and hierarchical models 91
