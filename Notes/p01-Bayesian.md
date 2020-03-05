@@ -1387,12 +1387,19 @@ Year: 2004
     + irrelevance: masures of uncertainty such as intervals or $p$-values
 
 
-## 3.15 Design 90
+## 3.15 Design
 
-
-
-
-
++ Experiment design
+  + a natural combination of prediction and decision-making
+  + investigatorseeking to choose a design which they predict will achieve the desired goals
+  + technically and computational challenging
+  + backwards induction
+    + sequential designs to work back ward from the end of the study
+    + examining all the possible decision points
+    + optimize the decision allowing for all the possible circumstances
+  + computationally demanding
+    + all posible future eventualities
+    + approximations
 
 
 ## 3.16 Use of historical data 90
