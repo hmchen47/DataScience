@@ -1402,12 +1402,31 @@ Year: 2004
     + approximations
 
 
-## 3.16 Use of historical data 90
+## 3.16 Use of historical data
 
++ usage of historical data
+  + helping the design of experiements and pooling data in a meta-analysis
+  + Bayesian reasoning gives a formal role in many aspects of evaluation
+  + a brief taxonomy of ways
+    + the deviation of prior distributions
+    + the use of histroical controls in clinical trials
+    + the adjustment of observational studies for potential biases
+    + the synthesis of multiple sources
 
-
-
-
++ Relationships btw historical data and current observations
+  + irrelevance: no relevant information
+  + exchangable
+    + current and past studies similar
+    + parametres considered exchangable - typical situation in a meta-analysis
+    + adopted as standard hierarchical modelling techniques
+  + potential biase
+    + past studeies
+      + lack of quality (internal biase)
+      + setting not precisely measured (external bias)
+    + appropriately adjusting historical results
+  + equal but discounted: precision decreased to 'discount' past data
+  + functional dependence: current parameter of intrest = a logical function of parameters estimated in historical studies
+  + equal: measuring precisely the parameters of interest and data able to directly pool
 
 
 ## 3.17 Multiplicity, exchangeability and hierarchical models 91
