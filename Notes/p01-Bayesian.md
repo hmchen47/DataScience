@@ -1307,7 +1307,7 @@ Year: 2004
 
 + Decision based on future events
   + using the principle of maximizing expected utility based on future events
-  + choice of action chnaging the probability of the events occurring
+  + choice of action changing the probability of the events occurring
   + $c_i$: the cost taken at the decision $d_i$
   + $p_i$: the probability of taking decision $d_i$ w/ an adverse event Y = 0 or 1 occuring w/ utility $U_Y$
   + the expected utility of taking decision $i$
@@ -1332,7 +1332,7 @@ Year: 2004
 
     \[ NNT = \frac{1}{p_1 - p_0} < \frac{U_0 - U_1}{c_0 - c_1} \tag{27} \]
 
-+ Example 12 -- Nesural tube defects: Making personal decisions about preventative treatment
++ Example 12 -- Neural tube defects: Making personal decisions about preventative treatment
   + D. Ashby and A. Smith, [Evidence-based medicine as Bayesian decision-making](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.468.6719&rep=rep1&type=pdf), Statistics in Medicine, 2000
   + illustrating the power (and the difficulties) of carrying out a formal decision analysis w/ utilities
   + task: a couple wishing to try and become pregnant but faced w/ the decision whether to take folic acid supplements to reduce the risk of a neural tube defect (NTD), such as spina bifida or anencephaly
@@ -1352,7 +1352,7 @@ Year: 2004
     + 21/602 w/ an NTD
     + 6/539 w/o NTD
   + $p_0 = 0.010, p_1 = 0.035, NNT = 1/(p_1 - p_0) = 40.4$ and $OR = 0.30$
-  + the 'disutility' $U_0 - U_1$ of an NTD by taking suplementation: $40c, \rho = 40$
+  + the 'disutility' $U_0 - U_1$ of an NTD by taking supplementation: $40c, \rho = 40$
   + problem: expressing the 'disutility' in $c$
   + importance: identifying the appropriate decision-maker whose utilities are to be taken into account
   + making public policy decisions regarding supplementation $\implies$ prevention of an NDT worth more than around $40c$, even if the couple decide to terminate the pregnancy
@@ -1366,16 +1366,16 @@ Year: 2004
   + consider a couple w/o previous history of an NTD
     + cite an incidence rate of 3.3/1000 pregnancies in a non-supplemented population
     + $p = 0.001$ and the trial odds ratio applied to this group $\implies$ an estimate of $p_1 = 0.0033, p_0 - p_1 = 0.0023, NNT = 435$
-    + prefer sumplmentation if $U_1/U_0 < 1 - 0.00001 \times 435 \approx 0.996$
+    + prefer supplmentation if $U_1/U_0 < 1 - 0.00001 \times 435 \approx 0.996$
   
-+ Deciscion-making and Bayesian methods
++ Decision-making and Bayesian methods
   + focused on the utility of consequences than the use of Bayesian methods to revise opinions
   + this activity blends naturally into cost-effectiveness analysis, but nevertheless the subjective interpretation of probability is essential
   + the expressions of uncertainty required for a decision analysis can rarely be based on empirical data
 
-+ Disucssion of using Bayesian methods on decision-making
++ Discussion of using Bayesian methods on decision-making
   + debate on the use of loss functions, the negative of utility, in parallel to that concerning prior distributions
-  + arguing the design, monitoring and analysis of a study using the consequences of eventual dicision-making w/ loss functions
+  + arguing the design, monitoring and analysis of a study using the consequences of eventual decision-making w/ loss functions
   + frequestist theory of decision-making using loss functions
     + not averaging w.r.t. prior or posterior distributions
     + strategy: generally 'minimax'
@@ -1384,7 +1384,7 @@ Year: 2004
     + ideological approaches employing all combinations of the use of prior distributions and/or loss  functions
   + Optimal decision-making
     + depending solely on the expected benefit
-    + irrelevance: masures of uncertainty such as intervals or $p$-values
+    + irrelevance: measures of uncertainty such as intervals or $p$-values
 
 
 ## 3.15 Design
@@ -1398,18 +1398,18 @@ Year: 2004
     + examining all the possible decision points
     + optimize the decision allowing for all the possible circumstances
   + computationally demanding
-    + all posible future eventualities
+    + all possible future eventualities
     + approximations
 
 
 ## 3.16 Use of historical data
 
 + usage of historical data
-  + helping the design of experiements and pooling data in a meta-analysis
+  + helping the design of experiments and pooling data in a meta-analysis
   + Bayesian reasoning gives a formal role in many aspects of evaluation
   + a brief taxonomy of ways
     + the deviation of prior distributions
-    + the use of histroical controls in clinical trials
+    + the use of historical controls in clinical trials
     + the adjustment of observational studies for potential biases
     + the synthesis of multiple sources
 
@@ -1420,8 +1420,8 @@ Year: 2004
     + parametres considered exchangable - typical situation in a meta-analysis
     + adopted as standard hierarchical modelling techniques
   + _potential bias_
-    + past studeies
-      + lack of quality (internal biase)
+    + past studies
+      + lack of quality (internal bias)
       + setting not precisely measured (external bias)
     + appropriately adjusting historical results
   + _equal but discounted_: precision decreased to 'discount' past data
@@ -1432,45 +1432,45 @@ Year: 2004
 ## 3.17 Multiplicity, exchangeability and hierarchical models
 
 + Multiplicity
-  + clinical trials examples - R. Simon, Problems of multiplicity in clinical trials, Journal of Statistical Planning and Inference, 1994
+  + clinical trial examples - R. Simon, Problems of multiplicity in clinical trials, Journal of Statistical Planning and Inference, 1994
     + multiple analyses of accumulating data
-    + analyses of multiciple endpoints
+    + analyses of multiple endpoints
     + multiple subsets of patients
     + multiple treatment group contrasts
     + interpreting the results of multiple clinical trials
-  + observational features for multiple institutions and meta-analysis for synthesis of multiple studies
+  + observational features for multiple institutions
+  + meta-analysis for synthesis of multiple studies
   
-+ Assumptions for multiciplity
++ Assumptions for multiplicity
   + making inference on many parameters $\theta_1, \dots, \theta_K$ measured on '$K$ units'
   + different assumptions
-    + _identical parameters_: all the $\theta$s identical $\implies$ pooled data w/o invidual units
-    + _independent parameter_: all the $\theta$s entirely unrelated $\implies$ independent analysis
-    + _exchangable parameter_
-      + $\theta$s 'similar'
-      + labeling $\theta$ w/ $A, B, \dots$ w/o knowing whic is which
-      + prior opinion about a set of $\theta$s afftected by only knowing the labels rather than the actual identities
-      + $Y_1, \dots, Y_n$ random variables w/ 'exchangable' equivalent
+    + _identical parameters_: all the $\theta$s identical $\implies$ pooled data w/o individual units
+    + _independent parameters_: all the $\theta$s entirely unrelated $\implies$ independent analysis
+    + _exchangeable parameters_
+      + $\theta$s 'similar': labeling $\theta$ w/ $A, B, \dots$ w/o knowing which is which
+      + prior opinion about a set of $\theta$s affected by only knowing the labels rather than the actual identities
+      + $Y_1, \dots, Y_n$ random variables w/ 'exchangeable' equivalent
       + independent variables drawn from some parametric distribution w/ a prior distribution on the parameter
-      + exchangable parameters $\theta_1, \dots, \theta_K \implies$ exchangable units mathematically equivalent to assuming the $\theta$s drawn at random from some population distribution, as a traditional random-effects model
-      + considerin a common prior for all units, but one unknown parameter
-      + no need for any actual sampling $impliedby$ the probability structure is a consequence of the blief in exchangability rather than a physical randomization mechnism
+      + exchangeable parameters $\theta_1, \dots, \theta_K \implies$ exchangeable units mathematically equivalent to assuming the $\theta$s drawn at random from some population distribution, as a traditional random-effects model
+      + considering a common prior for all units, but one unknown parameter
+      + no need for any actual sampling $\impliedby$ the probability structure is a consequence of the belief in exchangability rather than a physical randomization mechanism
       + not normal distribution:
         + heavy-tailed or skewed distributions
         + partiton - cluster similar or equal units into groups
 
-+ Hierarchical / multi-levle model
++ Hierarchical / multi-level model
   + reasonable assumption: prior distribution w/ exchangability
-  + Bayesian approach to multiciplity $\implies$ integrating all the units into a single model
+  + Bayesian approach to multiplicity $\implies$ integrating all the units into a single model
   + assumptions:
     + $\theta_1, \dots, \theta_K$ drawn from some common distribution w/ unknown parameters
     + normal distribution
   + a response $Y_k$ w/ a normal likelihood
 
-    \[ Y_k \sim N(]\theta, s_k^2) \tag{29} \]
+    \[ Y_k \sim N(\theta, s_k^2) \tag{29} \]
 
-+ Situations of assumptions
++ Situations of assumptions for hierarchical model
   + identical parameters (pooled effect)
-    + all the $\theta_k$ identical w/ a common treatment effecct $\mu$
+    + all the $\theta_k$ identical w/ a common treatment effect $\mu$
 
       \[ Y_k \sim N(\mu, s_k^2) \]
 
@@ -1478,62 +1478,62 @@ Year: 2004
 
       \[ \mu \sim N \left(\frac{\sum_k n_k y_k}{n_0 + \sum_k n_k}, \frac{\sigma^2}{n_0 + \sum_k n_k} \right) \tag{30}\]
 
-    + the posterior mena, $\mu$ = an overall sample mean, where the 'imaginary' observations of $0$, $n_0$, contributed by the prior
-    + $n_0 \to 0 \implies$ the prior distrinution on $\mu \to$ uniform
-    + the posterior mean and w/ $s_k^2 = \sigma^2/n_k$
+      + $\mu$: the posterior mean, an overall sample mean
+      + $n_0$: the 'imaginary' observations of $0$, contributed by the prior
+      + $n_0 \to 0 \implies$ the prior distribution on $\mu \to$ uniform
+    + w/ $n_0 \to 0$ and $s_k^2 = \sigma^2/n_k$
 
       \[\begin{align*}
         \mu &\sim N \left( \frac{\sum_k n_k y_k}{\sum_k n_k}, \frac{\sigma^2}{\sum_k n_k} \right) \tag{31} \\\\
         \mu &\sim N \left( \frac{\sum_k y_k / s_k^2}{\sum_k 1/s_k^2}, \frac{1}{\sum_k 1/s_k^2} \right) \tag{32}
       \end{align*}\]
 
-    + the posterior mean = the classical pooled estimat $\hat{\mu}$ = the average of the individual estimates, inversely by its variance
+      + the posterior mean = the classical pooled estimate $\hat{\mu}$ = the average of the individual estimates w/ inverse variance
     + all the trials measuring the same quantity
 
-      \[Q &= \sum_k \frac{n_k}{\sigma^2} (y_k - \hat{\mu})^2 \tag{33} \]
+      \[Q = \sum_k \frac{n_k}{\sigma^2} (y_k - \hat{\mu})^2 \tag{33} \]
 
-    + equivalently, $Q= \sum_k \frac{(y_k - \hat{\mu})^2}{s_k^2}}$ w/ a $\chi_{k-1}^2$ distribution under $H_0$ of homogeneity
+    + equivalently, $Q = \sum_k \frac{(y_k - \hat{\mu})^2}{s_k^2}\;$ w/ a $\chi_{k-1}^2$ distribution under $H_0$ of homogeneity
     + absence of a significant $Q \nRightarrow$ homogenous trials
   + independent parameters (fixed effects)
     + $\theta_k$ estimated totally w/o regard for the others
-    + uniform prior for each $]\theta_k$ and likelihood (Eq. (29)) $\implies$ the posterior distribution = the normalized likelihood
+    + uniform prior for each $\theta_k$ and likelihood $Y_k \sim N(\theta, s_k^2) \implies$ the posterior distribution = the normalized likelihood
 
       \[ \theta_k \sim N(y_k, s_k^2) \tag{34} \]
 
   + exchangable parameters (random effects)
-    + $\theta_k$ assumed to be exchangeable w/ a normal distribution: 'hyperparameters', $\mu$ and $\tao^2$, for moment assumed known
+    + $\theta_k$ assumed to be exchangeable w/ a normal distribution: 'hyperparameters', $\mu$ and $\tau^2$, for moment assumed known
 
-      \[ \theta_k \sim N(\mu, \tao^2) \tag{35} \]
+      \[ \theta_k \sim N(\mu, \tau^2) \tag{35} \]
 
-    + observing $y_k$, Bayes theorem
+    + observing $y_k$, Bayes theorem w/ $B_k = s_k^2/(s_k^2 + \tau^2)$ (the weight given to the prior mean)
 
-      \[ \theta_k | y_k \sim N(B_k \mu + (1 - B_k) y_k, (1 - B_k) s_k^2) \tag{36} \]
+      \[ \theta_k | y_k \sim N \left(B_k \mu + (1 - B_k) y_k, (1 - B_k) s_k^2 \right) \tag{36} \]
 
-      + $B_k = s_k^2/(s_k^2 + \tao^2)$: the weihght given to the prior mean
-    + $\tao^2$ value and Eq. (36)
-      + $\tao^2 = 0$: the pooled result, Eq. (32)
-      + $\tao^2 = \infty$: the independent reult, Eq. (34)
-    + exchangeable model $\implies$ inferences for each unit having narrower intervals than if they are assumed independent
+    + $\tau^2$ value and Eq. (36)
+      + $\tau^2 = 0$: a special case of the pooled result, Eq. (32)
+      + $\tau^2 = \infty$: a special case of the independent result, Eq. (34)
+    + exchangeable model $\implies$ inferences for each unit having narrower intervals than independent ones
     + shrunk towards the prior mean response
-      + shrunk $\implied$ a degree of pooling depending on the variability btw studies and the precision of the invidual study
+      + shrunk $\impliedby$ a degree of pooling depending on the variability btw studies and the precision of the individual study
       + $B_k$ controlling the 'shrinkage' of the estimate towards $\mu$
       + the reduction in the width of the interval for $\theta_k$
-      + $B_k = n_0 / ((n_0 + n_k)$ as $s_k^2 = \sigma^2/n_k, \tao^2 = \sigma^2/n_0 \implies$ how the degree shrinkage increasing w/ the relative information in the prior distribution compared to the likelihood
+      + $B_k = n_0 / ((n_0 + n_k)$ as $s_k^2 = \sigma^2/n_k, \tau^2 = \sigma^2/n_0 \implies$ how the degree shrinkage increasing w/ the relative information in the prior distribution compared to the likelihood
     + empirical Bayes approach
-      + unknown hyperparameters $\mu$ and $\tao$ estimated directly from the data
-      + avoid specification of prior distribution for $\mu$ and $\tao$
-      + not detailing the variety of etchniques available as they form part of classical random-effects meta-analysis
+      + unknown hyperparameters $\mu$ and $\tau$ estimated directly from the data
+      + avoid specification of prior distribution for $\mu$ and $\tau$
+      + not detailing the variety of techniques available as they form part of classical random-effects meta-analysis
     + the 'method-of-moments' estimator
 
-      \[ \hat{\tao}^2 = \frac{Q - (K - 1)}{N - \sum_k n_k^2 / N} \tag{37} \]
+      \[ \hat{\tau}^2 = \frac{Q - (K - 1)}{N - \sum_k n_k^2 / N} \tag{37} \]
 
-      + $Q$: the test for hrterogeneity given in Eq. (33)
+      + $Q$: the test for heterogeneity given in Eq. (33)
       + $N = \sum_k n_k$
-      + $Q < (K-1) \implies \hat{\tao}^2$ and assumed complete homogeneity
+      + $Q < (K-1) \implies \hat{\tau}^2 = 0$ and complete homogeneity assumed
     + full Bayes approach
-      + prior distribution: $\mu$ and $\tao^2$
-      + taking particular care in the choice of a prior distribution for th ebetween-unit variation $\tao$
-    + the result from either an empirical or full Bayes analysis will often be similar provided each unit is not small and there are a reasonable number of units
+      + prior distribution w/ $\mu$ and $\tau^2$
+      + taking particular care in the choice of a prior distribution for the between-unit variation $\tau$
+    + the results from either an empirical or full Bayes analysis will often be similar provided each unit is not small and there are a reasonable number of units
 
 
 
