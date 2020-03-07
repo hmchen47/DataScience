@@ -153,6 +153,10 @@ Year: 2004
     + the probability of obtaining results as extreme as the observed results of a statistical hypothesis test, assuming that the null hypothesis is correct
     + used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected
     + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
+  + [meta-analysis](https://en.wikipedia.org/wiki/Meta-analysis)
+    + a statistical analysis that comnines the results of multiple scientific studies
+    + performed when multiple scientific studies address the same question w/ each syudy reporting measurements expected some degree of error
+    + derived a pooled estimate cloest to the unknown common truh based on how this error is perceived
 
 + Binomial and Bernoulli distributions
   + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
@@ -1535,6 +1539,154 @@ Year: 2004
       + taking particular care in the choice of a prior distribution for the between-unit variation $\tau$
     + the results from either an empirical or full Bayes analysis will often be similar provided each unit is not small and there are a reasonable number of units
 
++ Example 13 -- Mnesium: Meta-analysis using a skeptical prior
+  + J. Higgins and D. Spiegelhalter, [Being sceptical about meta-analysis: a Bayesian perspective on magnesium trials in myocardial infarction](https://watermark.silverchair.com/310096.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAlIwggJOBgkqhkiG9w0BBwagggI_MIICOwIBADCCAjQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIt3O_WltP_R4HzDvAgEQgIICBRVzuMdm0clizSh4LIBdVxk4BPfNlTZRM4pQ2PBV0WfGJOH7eAgBuLWSikpgb00TycOpVeFAoUKlyC2zhyeYruD33sTcyxiBnDtK3LjYvSTn87fLmSHEUlkxC1A9uqYzlK9abN9YdGVOB0r-Dp_Zq9UpC-kyaJ5rpZobrAKgd9Vf-tH0-8ViOlWZS_bax2vMCi47s81KxykOEkFwBmz2WJa_BtmisbFSwYMnUY1tNaRkIFAm6Vd8G2nSgeC-7uwddkz4le0Qnu6wyRwWRlK67JEv14N7NJAyhlPklsY2s3rX8MlHhcR48ZvEu9YH8OMep034gBDgCnLZMlRBHV-m3zFOVLc5Hk-ZKLXH50f0oyHA044m01Jlf-oVnxdq8TN1Wb0bbj7ik8IkaNowoz8yJy5ypv4D5ZNt04bRbpcnTXJOzGLDd0TSTDDGCykJxmKdwno9nbtPVd8qTnW8cfZu6aFwyiIOdYWrv_SG1awmQSFGEQsKgQ-jVAvC9izhbWo6A6sZVqjBsyNEwrrm4ovYGtifAljrZtZwTAmcuxVLKmX01jDxejrXLvjUaZbaoKiVzQfrQ96ViFBhFhaMGuGmkwW5lL2K13-ecbdTwvAeGI_KE7hWWS6R_OQbyL3KmC3bZaQCHI7aPJZhDtQl9U3aNyMjRwDIMVLxOGE4-7-tP_w9JxIB1Lo), International Journal of Epidemiology, 2002
+  + _intervention_:
+    + pidemiology, animal models and biochemical studies suggested intravenous magnesium sulphate may have a protective effect after acute myocardial infactrction (AMI), particularly through preventing serious arrhythmias
+    + K. Teo, et al, Effects of intravenous magnesium in suspected acute myocardial infarction: overview of randomised trials, British Medical Journal, 1991
+      + a seriess of small randomized trials cumulated in a meta-analysis
+      + a highly significant ($p< 0.001$) 550% reduction in odds of death
+    + L. Woods, et al., Intravenous magnesium sulphate in suspected acute myocardial infarction: results of the Second Leicester Intravenous Magnesium Intervention Trial (LIMIT-2). Lancet, 1992
+      + further large scale trials to confirm (or refute) these finding s are desirable
+      + a 24% reduction in mortality in over 2000 patients
+    + S. Yusuf, K. Teo, and K. Woods, Intravenous magnesium in acute myocardial infarction: an effective, safe, simple and inexpensive treatment, Circulation, 1993
+      + an effective, safe, simple and inexpensive treatment
+      + further trials to obtain a more precise estimate of the mortality benefit
+    + R. Collins, R. Peto, M. Flather, and ISIS-4 Collaborative Group, ISIS-4 – a randomised factorial trial assessing early oral captopril, oral mononitrate, and intravenous magnesium sulphate in 58,050 patients with suspected acute myocardial infarction, Lance, 1995
+      + a lack of any benefit
+      + trials on over 58000 patients w/ a non-significant adverse mortality effect of magnesium
+      + no effect in any subgroups
+      + conclusion: overall, there does not now seem to be any good clinical trial evidence for the routine use of magnesium in suspected acuate MI
+  + _aim of study_
+    + to investigate how a Bayesian perspective might have influenced the interpretation of the published evidence on mahnesium sulphate in AMI available in 1993
+    + what degree of 'skepticism' would have been necessary in 1993 not to be convinced by the meta-analysis reported by Yusuf, et al (1993)?
+  + _study design_: meta-analysis of randomized trials, allowing for prior distributions that express skepticism about large effects
+  + _outcome measure_: odds ratio for in-hospital mortality, w/ odds ratios less than 1 favouring magnesium
+  + _statistical model_:
+    + investigating all threee approaches to modelling the multiple trials
+      + a 'pooled' analysis assuming identical underlying effects
+      + a fixed-effects analysis assuming independent, unrelated effects
+      + a random-effects analysis assuming exchangable treatment effects
+    + assume a normal hierarchical model on the $\log(OR)$ scale
+    + adpating an empirical Bayes analysis using estimates of the overall mean $\mu$ and the between-study standarddeviation $\tau$
+  + _prospective analysis?_: No
+  + _prior distribution_:
+    + pooled- and fixed-effects analysis: a uniform prior for the unknown effects on the $\log(OR)$ scale
+    + empirical Bayes analysis: not using any prior distributions on the parameters $\mu$ and $\tau$
+    + sensitivity analysis: skeptical priors for $\mu$ centered on 'no effect'
+  + _loss function or demands_: none
+  + _computation/software_: conjugate normal analysis
+  + _evidence from study_:
+    + Table 8: raw data and the estimated log-odds ratios $y_k$ and their deviations $s_k$
+      + estimated odds ratios, log(odds ratios) ($y_k$)
+      + standard deviations for log(odds ratios) ($s_k$)
+      + the effective number of events assuming $\sigma = 2$ ($n_k$)
+      + shrinkage coefficients $B_k = s_k^2/(s_k^2 + \hat{\tau}^2)$, $\hat{\tau}$ is taken to be 0.29
+    + the classical test for heterogeneity Q Eq.(33): not significant (9.35 on 7 degrees of freedom
+    + the moethod-of-moments estimate, EQ.(37): $\tau = 0.29$
+    + Fig. 13: Profile log(likelihood) of $\tau$
+      + superimposed on this plot: the changing parameter estimates for different values of $\tau$
+      + reasonable support for values of $\tau \in (0, 1)$
+      + individual and overall estimates of treatment effects for different values of $\tau$
+      + $\tau = 0$: the maximum likelihood estimate
+      + plausible values of $\tau$ w/ substantial impact on the estimated treatment effects
+      + values for $\tau$ w/ a profile log(likelihood) above $-1.96^2 \approx 2$: reasonably supported by the data
+      + $\hat{\tau} = 0$ not a robust choice as an estimate since non-zero values of $\tau$ supported by the data
+      + the method-of-moments estimator: $\hat{\tau} = 0.29$
+    + Fig. 14: Fixed- (solid lines) and random-effects (dashed lines) meta-analysis of magnesium data assuming $t = 0.29$, leading to considerable shrinkage of the estimates towards a common value
+      + the standard pooled-effect analysis estimates an odds ratio $OR = 0.67$ w/ $95\% CI = (0.52, 0.86)
+      + random-effecct analysis:
+        + the estimates of individual trials 'shrunk' towards the overall mean by a factor given by $B_k$
+        + individual trials w/ narrower intervals
+      + the estimate of th e'average' effect
+        + less precise but still 'significantly' less than 1
+        + $OR = 0.58$ w/ %95\% CI = (0.38, 0.89)$
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em; margin: 0.2em;">Table 8. Summary data for magnesium meta-analysis</caption>
+  <thead>
+  <tr>
+    <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Trial</th>
+    <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Magnesium group</th>
+    <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Control group</th>
+    <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Estimated<br/>log(odds ratio)<br/>$y_k$</th>
+    <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Estimated SD<br/>$s_k$</th>
+    <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Effective<br/>no. events $n_k$</th>
+    <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Shrinkage<br/>$B_k$</th>
+  </tr>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Deaths</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Patients</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Deaths</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Patients</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Morton</td> <td style="text-align: center;">1</td> <td style="text-align: center;">40</td> <td style="text-align: center;">2</td> <td style="text-align: center;">36</td> <td style="text-align: center;">-0.65</td> <td style="text-align: center;">1.06</td> <td style="text-align: center;">3.6</td> <td style="text-align: center;">0.93</td>
+  </tr>
+  <tr>
+    <td>Rasmussen</td> <td style="text-align: center;">9</td> <td style="text-align: center;">135</td> <td style="text-align: center;">23</td> <td style="text-align: center;">135</td> <td style="text-align: center;">-1.02</td> <td style="text-align: center;">0.41</td> <td style="text-align: center;">24.3</td> <td style="text-align: center;">0.65</td>
+  </tr>
+  <tr>
+    <td>Smith</td> <td style="text-align: center;">2</td> <td style="text-align: center;">200</td> <td style="text-align: center;">7</td> <td style="text-align: center;">200</td> <td style="text-align: center;">-1.12</td> <td style="text-align: center;">0.74</td> <td style="text-align: center;">7.4</td> <td style="text-align: center;">0.86</td>
+  </tr>
+  <tr>
+    <td>Abraham</td> <td style="text-align: center;">1</td> <td style="text-align: center;">48</td> <td style="text-align: center;">1</td> <td style="text-align: center;">46</td> <td style="text-align: center;">-0.04</td> <td style="text-align: center;">1.17</td> <td style="text-align: center;">2.9</td> <td style="text-align: center;">0.94</td>
+  </tr>
+  <tr>
+    <td>Feldstedt</td> <td style="text-align: center;">10</td> <td style="text-align: center;">150</td> <td style="text-align: center;">8</td> <td style="text-align: center;">148</td> <td style="text-align: center;">0.21</td> <td style="text-align: center;">0.48</td> <td style="text-align: center;">17.6</td> <td style="text-align: center;">0.72</td>
+  </tr>
+  <tr>
+    <td>Shechter</td> <td style="text-align: center;">1</td> <td style="text-align: center;">59</td> <td style="text-align: center;">9</td> <td style="text-align: center;">56</td> <td style="text-align: center;">-2.05</td> <td style="text-align: center;">0.90</td> <td style="text-align: center;">4.9</td> <td style="text-align: center;">0.90</td>
+  </tr>
+  <tr>
+    <td>Ceremuzynski</td> <td style="text-align: center;">1</td> <td style="text-align: center;">25</td> <td style="text-align: center;">3</td> <td style="text-align: center;">23</td> <td style="text-align: center;">-1.03</td> <td style="text-align: center;">1.02</td> <td style="text-align: center;">3.8</td> <td style="text-align: center;">0.92</td>
+  </tr>
+  <tr>
+    <td>LIMIT-2</td><td style="text-align: center;">90</td><td style="text-align: center;">1159</td><td style="text-align: center;">118</td><td style="text-align: center;">1157</td><td style="text-align: center;">-0.30</td><td style="text-align: center;">0.15</td><td style="text-align: center;">187.0</td><td style="text-align: center;">0.19</td>
+  </tr>
+  </tbody>
+</table>
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+      <img src="img/p01-13.png" style="margin: 0.1em;" alt="Profile log(likelihood) of t, showing reasonable support for values of t between 0 and 1. Also shown are individual and overall estimates of treatment effects for different values of t: although t = 0 is the maximum likelihood estimate, plausible values of t have substantial impact on the estimated treatment effects." title="Fig. 13 Profile log(likelihood) of t, showing reasonable support for values of t between 0 and 1. Also shown are individual and overall estimates of treatment effects for different values of t: although t = 0 is the maximum likelihood estimate, plausible values of t have substantial impact on the estimated treatment effects." height=300>
+      <img src="img/p01-14.png" style="margin: 0.1em;" alt="Fixed- (solid lines) and random-effects (dashed lines) meta-analysis of magnesium data assuming t = 0.29, leading to considerable shrinkage of the estimates towards a common value." title="Fig. 14 Fixed- (solid lines) and random-effects (dashed lines) meta-analysis of magnesium data assuming t = 0.29, leading to considerable shrinkage of the estimates towards a common value." height=300>
+    </a>
+  </div>
+
+  + _Bayesian interpretation_
+    + random-effects analysis
+      + not really a Bayesian technique
+      + no prior distributions for parameters
+      + conclusion: reported in the traditional way
+    + as an approximate Bayesian analysis w/ exchangeability btw treatments and unifrom prior on unknown parameters
+  + _Sensitivity analysis_
+    + finding: meta-analysis w/ uniform prior distributions, whether a pooled- or randonm-effects analysis $\implies$ a significant benefit from magnesium
+    + dispute about the conflict btw the finding and the results of the ISIS-4 mega-trial
+    + the robustness of the meta-analysis $\implies$ the choice of prior distribution
+    + using the credibility analysis to check whether the findings robust to a reasonable expression of prior skepticism concering large benefits
+    + the pooled analysis to find unconcincing the pooled analysis ($95\% = (0.52, 0.86)$) $\impliedby$ a skepticial prior w/ a lower 95% point at around 0.80
+    + Fig. 15: Critical sceptical prior for the _pooled_ analysis, just sufficient to make posterior 95% interval include 1
+      + this degree of scepticism seems unreasonably severe, as it equivalent to having already observed 421 events – 210.5 on each treatment
+      + the pooled likelihood and the 'critical' skeptical prior distribution $implies$ a psoterior tail area of 0.025 above OR = 1
+      + the prior $\sim N(0, 262/421)$: a trial w/ 421 events observed, exactly the sam enumber in each arm
+      + a particular extreme form of skepticism in that it essentially rules out all effeccts greater than around 20% on prior grounds
+    + Fig. 16: Critical sceptical prior for _random-effects_ analysis, just sufficient to make posterior 95% interval include 1
+      + this degree of scepticism appears quite reasonable, corresponding to 58 events (29 in each arm) in a previous ‘imaginary trial’.
+      + random-effects analysis w/ $95\% CI = (0.38, 0.89)$
+      + the lower end of the skeptical interval: 0.6
+      + finding $OR < 0.6$ extremely surprising
+      + a reasonably skepticial prior $\implies$ the meta-analysis unconvincing
+      + 'if one assumed that only moderate sized effects were possible, the apparent large effects observed in the meta-analysis of small trials w/ megnesium .. should perhapses have been tempered by this general judgement. If a result appears too good to be true, it probably is.' - S. Yusuf, Meta-analysis of randomised trials: Looking back and looking again, Controlled Clinical Trials, 1997
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+        <img src="img/p01-15.png" style="margin: 0.1em;" alt="Critical sceptical prior for the pooled analysis, just sufficient to makeposterior 95% interval include 1. This degree of scepticism seems unreasonably severe, as it equivalent to having already observed 421 events – 210.5 on each treatment." title="Fig. 15 Critical sceptical prior for the pooled analysis, just sufficient to makeposterior 95% interval include 1. This degree of scepticism seems unreasonably severe, as it equivalent to having already observed 421 events – 210.5 on each treatment." height=300>
+        <img src="img/p01-16.png" style="margin: 0.1em;" alt="Critical sceptical prior for random-effects analysis, just sufficient to make posterior 95% interval include 1. This degree of scepticism appears quite reasonable, corresponding to 58 events (29 in each arm) in a previous ‘imaginary trial’." title="Fig. 16 Critical sceptical prior for random-effects analysis, just sufficient to make posterior 95% interval include 1. This degree of scepticism appears quite reasonable, corresponding to 58 events (29 in each arm) in a previous ‘imaginary trial’." height=300>
+      </a>
+    </div>
 
 
 ## 3.18 Dealing with nuisance parameters* 100
