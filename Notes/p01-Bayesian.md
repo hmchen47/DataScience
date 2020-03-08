@@ -155,8 +155,14 @@ Year: 2004
     + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
   + [meta-analysis](https://en.wikipedia.org/wiki/Meta-analysis)
     + a statistical analysis that comnines the results of multiple scientific studies
-    + performed when multiple scientific studies address the same question w/ each syudy reporting measurements expected some degree of error
-    + derived a pooled estimate cloest to the unknown common truh based on how this error is perceived
+    + performed when multiple scientific studies address the same question w/ each study reporting measurements expected some degree of error
+    + derived a pooled estimate closest to the unknown common true based on how this error is perceived
+  + [prospective nalysis](https://www.longwoods.com/content/20972/healthcare-quarterly/looking-ahead-the-use-of-prospective-analysis-to-improve-the-quality-and-safety-of-care)
+    + used as an analytical tool to assess and mitigate the occurrence of loss by analyzing a situation or process that carries with it some inherent risk
+    + to identify the way in which a process might potentially fail, w/ the goal to eliminate or reduce the liklihood or outcome severity of such a failure
+    + applied to preocess or equipment and systems
+    + FEMA used proactively when designing a new system or process for a high-risk or complex process or during an inter-professional process w/ hands-off and interdependent steps
+    + w/ its roots in the engineering industry
 
 + Binomial and Bernoulli distributions
   + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
@@ -201,10 +207,11 @@ Year: 2004
   + the compound distribution
 
     \[\begin{align*}
-      p(k | n, a, b) &= \int_0^1 \underbrace{L(\theta | k)}_{\text{binomial}} \underbrace{p(\theta | a, b)}_{\text{beta}} d\theta \\\\
+      p(k | n, a, b) 
+        &= \int_0^1 \underbrace{L(\theta | k)}_{\text{binomial}} \cdot \underbrace{p(\theta | a, b)}_{\text{beta}} d\theta \\
         &= \begin{pmatrix} n \\ k \end{pmatrix} \frac{1}{B(a, b)} \int_0^1 \theta^{k+a-1} (1-\theta)^{n-k+b-1} d\theta
         = \begin{pmatrix} n \\ k \end{pmatrix} \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
-        &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \tag{Beta-Bin.prob} \\
+        &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
     \end{align*}\]
 
 + The Bayesian approach
@@ -1539,36 +1546,36 @@ Year: 2004
       + taking particular care in the choice of a prior distribution for the between-unit variation $\tau$
     + the results from either an empirical or full Bayes analysis will often be similar provided each unit is not small and there are a reasonable number of units
 
-+ Example 13 -- Mnesium: Meta-analysis using a skeptical prior
-  + J. Higgins and D. Spiegelhalter, [Being sceptical about meta-analysis: a Bayesian perspective on magnesium trials in myocardial infarction](https://watermark.silverchair.com/310096.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAlIwggJOBgkqhkiG9w0BBwagggI_MIICOwIBADCCAjQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIt3O_WltP_R4HzDvAgEQgIICBRVzuMdm0clizSh4LIBdVxk4BPfNlTZRM4pQ2PBV0WfGJOH7eAgBuLWSikpgb00TycOpVeFAoUKlyC2zhyeYruD33sTcyxiBnDtK3LjYvSTn87fLmSHEUlkxC1A9uqYzlK9abN9YdGVOB0r-Dp_Zq9UpC-kyaJ5rpZobrAKgd9Vf-tH0-8ViOlWZS_bax2vMCi47s81KxykOEkFwBmz2WJa_BtmisbFSwYMnUY1tNaRkIFAm6Vd8G2nSgeC-7uwddkz4le0Qnu6wyRwWRlK67JEv14N7NJAyhlPklsY2s3rX8MlHhcR48ZvEu9YH8OMep034gBDgCnLZMlRBHV-m3zFOVLc5Hk-ZKLXH50f0oyHA044m01Jlf-oVnxdq8TN1Wb0bbj7ik8IkaNowoz8yJy5ypv4D5ZNt04bRbpcnTXJOzGLDd0TSTDDGCykJxmKdwno9nbtPVd8qTnW8cfZu6aFwyiIOdYWrv_SG1awmQSFGEQsKgQ-jVAvC9izhbWo6A6sZVqjBsyNEwrrm4ovYGtifAljrZtZwTAmcuxVLKmX01jDxejrXLvjUaZbaoKiVzQfrQ96ViFBhFhaMGuGmkwW5lL2K13-ecbdTwvAeGI_KE7hWWS6R_OQbyL3KmC3bZaQCHI7aPJZhDtQl9U3aNyMjRwDIMVLxOGE4-7-tP_w9JxIB1Lo), International Journal of Epidemiology, 2002
++ Example 13 -- Magnesium: Meta-analysis using a skeptical prior
+  + J. Higgins and D. Spiegelhalter, [Being skeptical about meta-analysis: a Bayesian perspective on magnesium trials in myocardial infarction](https://watermark.silverchair.com/310096.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAlIwggJOBgkqhkiG9w0BBwagggI_MIICOwIBADCCAjQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIt3O_WltP_R4HzDvAgEQgIICBRVzuMdm0clizSh4LIBdVxk4BPfNlTZRM4pQ2PBV0WfGJOH7eAgBuLWSikpgb00TycOpVeFAoUKlyC2zhyeYruD33sTcyxiBnDtK3LjYvSTn87fLmSHEUlkxC1A9uqYzlK9abN9YdGVOB0r-Dp_Zq9UpC-kyaJ5rpZobrAKgd9Vf-tH0-8ViOlWZS_bax2vMCi47s81KxykOEkFwBmz2WJa_BtmisbFSwYMnUY1tNaRkIFAm6Vd8G2nSgeC-7uwddkz4le0Qnu6wyRwWRlK67JEv14N7NJAyhlPklsY2s3rX8MlHhcR48ZvEu9YH8OMep034gBDgCnLZMlRBHV-m3zFOVLc5Hk-ZKLXH50f0oyHA044m01Jlf-oVnxdq8TN1Wb0bbj7ik8IkaNowoz8yJy5ypv4D5ZNt04bRbpcnTXJOzGLDd0TSTDDGCykJxmKdwno9nbtPVd8qTnW8cfZu6aFwyiIOdYWrv_SG1awmQSFGEQsKgQ-jVAvC9izhbWo6A6sZVqjBsyNEwrrm4ovYGtifAljrZtZwTAmcuxVLKmX01jDxejrXLvjUaZbaoKiVzQfrQ96ViFBhFhaMGuGmkwW5lL2K13-ecbdTwvAeGI_KE7hWWS6R_OQbyL3KmC3bZaQCHI7aPJZhDtQl9U3aNyMjRwDIMVLxOGE4-7-tP_w9JxIB1Lo), International Journal of Epidemiology, 2002
   + _intervention_:
-    + pidemiology, animal models and biochemical studies suggested intravenous magnesium sulphate may have a protective effect after acute myocardial infactrction (AMI), particularly through preventing serious arrhythmias
-    + K. Teo, et al, Effects of intravenous magnesium in suspected acute myocardial infarction: overview of randomised trials, British Medical Journal, 1991
-      + a seriess of small randomized trials cumulated in a meta-analysis
-      + a highly significant ($p< 0.001$) 550% reduction in odds of death
+    + epidemiology, animal models and biochemical studies suggested intravenous magnesium sulphate may have a protective effect after acute myocardial infaction (AMI), particularly through preventing serious arrhythmias
+    + K. Teo, et al, Effects of intravenous magnesium in suspected acute myocardial infarction: overview of randomized trials, British Medical Journal, 1991
+      + a series of small randomized trials cumulated in a meta-analysis
+      + a highly significant ($p< 0.001$) 50% reduction in odds of death
     + L. Woods, et al., Intravenous magnesium sulphate in suspected acute myocardial infarction: results of the Second Leicester Intravenous Magnesium Intervention Trial (LIMIT-2). Lancet, 1992
-      + further large scale trials to confirm (or refute) these finding s are desirable
+      + further large scale trials to confirm (or refute) these findings are desirable
       + a 24% reduction in mortality in over 2000 patients
     + S. Yusuf, K. Teo, and K. Woods, Intravenous magnesium in acute myocardial infarction: an effective, safe, simple and inexpensive treatment, Circulation, 1993
       + an effective, safe, simple and inexpensive treatment
       + further trials to obtain a more precise estimate of the mortality benefit
-    + R. Collins, R. Peto, M. Flather, and ISIS-4 Collaborative Group, ISIS-4 – a randomised factorial trial assessing early oral captopril, oral mononitrate, and intravenous magnesium sulphate in 58,050 patients with suspected acute myocardial infarction, Lance, 1995
+    + R. Collins, R. Peto, M. Flather, and ISIS-4 Collaborative Group, ISIS-4 – a randomized factorial trial assessing early oral captopril, oral mononitrate, and intravenous magnesium sulphate in 58,050 patients with suspected acute myocardial infarction, Lance, 1995
       + a lack of any benefit
       + trials on over 58000 patients w/ a non-significant adverse mortality effect of magnesium
       + no effect in any subgroups
       + conclusion: overall, there does not now seem to be any good clinical trial evidence for the routine use of magnesium in suspected acuate MI
   + _aim of study_
-    + to investigate how a Bayesian perspective might have influenced the interpretation of the published evidence on mahnesium sulphate in AMI available in 1993
+    + to investigate how a Bayesian perspective might have influenced the interpretation of the published evidence on magnesium sulphate in AMI available in 1993
     + what degree of 'skepticism' would have been necessary in 1993 not to be convinced by the meta-analysis reported by Yusuf, et al (1993)?
   + _study design_: meta-analysis of randomized trials, allowing for prior distributions that express skepticism about large effects
   + _outcome measure_: odds ratio for in-hospital mortality, w/ odds ratios less than 1 favouring magnesium
   + _statistical model_:
-    + investigating all threee approaches to modelling the multiple trials
+    + investigating all three approaches to modelling the multiple trials
       + a 'pooled' analysis assuming identical underlying effects
       + a fixed-effects analysis assuming independent, unrelated effects
       + a random-effects analysis assuming exchangable treatment effects
     + assume a normal hierarchical model on the $\log(OR)$ scale
-    + adpating an empirical Bayes analysis using estimates of the overall mean $\mu$ and the between-study standarddeviation $\tau$
+    + adopting an empirical Bayes analysis using estimates of the overall mean $\mu$ and the between-study standard deviation $\tau$
   + _prospective analysis?_: No
   + _prior distribution_:
     + pooled- and fixed-effects analysis: a uniform prior for the unknown effects on the $\log(OR)$ scale
@@ -1577,13 +1584,14 @@ Year: 2004
   + _loss function or demands_: none
   + _computation/software_: conjugate normal analysis
   + _evidence from study_:
-    + Table 8: raw data and the estimated log-odds ratios $y_k$ and their deviations $s_k$
-      + estimated odds ratios, log(odds ratios) ($y_k$)
-      + standard deviations for log(odds ratios) ($s_k$)
-      + the effective number of events assuming $\sigma = 2$ ($n_k$)
-      + shrinkage coefficients $B_k = s_k^2/(s_k^2 + \hat{\tau}^2)$, $\hat{\tau}$ is taken to be 0.29
-    + the classical test for heterogeneity Q Eq.(33): not significant (9.35 on 7 degrees of freedom
-    + the moethod-of-moments estimate, EQ.(37): $\tau = 0.29$
+    + Table 8: raw data and estimates
+      + $s_k$: the estimated log-odds ratios $y_k$ and their deviations
+      + $y_k$: estimated odds ratios, log(odds ratios)
+      + $s_k$: standard deviations for log(odds ratios)
+      + $n_k$: the effective number of events assuming $\sigma = 2$
+      + shrinkage coefficients $B_k = s_k^2/(s_k^2 + \hat{\tau}^2)$, w/ $\hat{\tau} = 0.29$
+    + the classical test for heterogeneity, Q, Eq. (33): not significant (9.35 on 7 degrees of freedom)
+    + the moethod-of-moments estimate, Eq. (37): $\tau = 0.29$
     + Fig. 13: Profile log(likelihood) of $\tau$
       + superimposed on this plot: the changing parameter estimates for different values of $\tau$
       + reasonable support for values of $\tau \in (0, 1)$
@@ -1595,12 +1603,12 @@ Year: 2004
       + the method-of-moments estimator: $\hat{\tau} = 0.29$
     + Fig. 14: Fixed- (solid lines) and random-effects (dashed lines) meta-analysis of magnesium data assuming $t = 0.29$, leading to considerable shrinkage of the estimates towards a common value
       + the standard pooled-effect analysis estimates an odds ratio $OR = 0.67$ w/ $95\% CI = (0.52, 0.86)
-      + random-effecct analysis:
+      + random-effect analysis:
         + the estimates of individual trials 'shrunk' towards the overall mean by a factor given by $B_k$
         + individual trials w/ narrower intervals
-      + the estimate of th e'average' effect
+      + the estimate of the 'average' effect
         + less precise but still 'significantly' less than 1
-        + $OR = 0.58$ w/ %95\% CI = (0.38, 0.89)$
+        + $OR = 0.58$ w/ $95\% CI = (0.38, 0.89)$
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
   <caption style="font-size: 1.5em; margin: 0.2em;">Table 8. Summary data for magnesium meta-analysis</caption>
