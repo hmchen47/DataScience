@@ -1738,12 +1738,37 @@ Year: 2004
     + good approximation to the full Bayesian approach
 
 
-### 3.18.2 Profile likelihood in a hierarchical model* 102
+### 3.18.2 Profile likelihood in a hierarchical model
 
++ Profile likelihood for hierarchical model
+  + the hierarchical model: likelihood and prior distribution
 
+    \[ Y_k \sim N(\theta_k, s_k^2) \qquad\qquad \theta_k \sim N(\mu, \tau^2 \]
 
+  + the hyperparameters $\mu$ and $\tau^2$: generally unknown
+  + the predictive distribution of $Y_k$, having integrated out $\theta_k$
 
+    \[ Y_k \sim N(\mu, s_k^2 + \tau^2) \]
 
+  + the precision $w_k = 1/(s_k^2 + \tau^2)$: the 'weight' associated w/ the $k$th study
+  + the joint log(likelihood) for $\mu$ and $\tau$: an arbitary constant plus
+
+    \[ L(\mu, \tau) = -\frac{1}{2} \sum_k \left( (y_k - \mu)^2 w_k - \log w_k \right) \tag{38} \]
+
+  + w/ fixed $\tau$, the conditional maximum likelihood estiamtor of $\mu$ and vaiance
+
+    \[\begin{align*}
+      \hat{\mu}(\tau) = \sum_k y_k w_k/\sum_k w_k \tag{39} \\\\
+      \hat{\sigma} = \frac{1}{\sum_k w_k}
+    \end{align*}\]
+
+    + applied for the posterior mean and variance of $\mu$ w/ a uniform prior distribution
+  + the profile log(likelihood) for $\tau$
+
+    \[ L(\tau) = -\frac{1}{2} \sum_k \left( \left( y_k - \hat{\mu}(\tau) \right)^2 w_k - \log w_k \right) \tag{40} \]
+
+  + plotting log(likelihood) $\implies$ maximizing numerically to obtain the maximum likelihood estimate $\hat{\tau}}$
+  + the maximum likelihood estimate $\hat{\tau}}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
 
 
 ## 3.19 Computational issues 102
