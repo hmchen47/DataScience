@@ -1697,20 +1697,45 @@ Year: 2004
     </div>
 
 
-## 3.18 Dealing with nuisance parameters* 100
+## 3.18 Dealing with nuisance parameters
 
 
+### 3.18.1 Alternative methods for eliminating nuisance parameters
 
++ Nuisance parameetr
+  + a major issue in statistical modeling
+  + additional unknown quantities which influence the observed data but which are not of primary interest
+  + eg. thee variance of continuous quantities, conflictents measuring the influence of background risk factors, baseline event rates in control groups, etc.
 
++ Eliminating nuisance parameters from the likelihood
+  + restricting attention to an estimator of $\theta$ whose likelihood (at least approximately) does not depend on the nuisance parameters
+    + eg. the form of approximate normal likelihoods for unknown odds ratios, hazard ratios, and rate ratios
+  + estimating the nuisance parameters and 'plugging in' their maximum likelihood estimates into the likelihood for $\theta$
+    + ignoring the uncertainty concerning the nuisance parameters
+    + inappropriate if the number of nuisance is large
+    + hierarchical model: using this technique for the hyperparameters of the population distribution
+    + the empirical Bayes approach
+  + by conditioning on some aspect of the data that is taken to be uniformative about $\theta$, forming a 'conditional likelihood' which depends only on $\theta$
+  + forming a 'profile likelihood' for $\theta$, obtained by maximizing over the nuisance parameters for each value of $\theta$
 
++ a more 'pure' Bayesian approach
+  + place prior distributions over the nuisance parameters
+  + form a joint posterior distribution over all the unknown quantities in the model
+  + integrate out the nuisance parameters to obtain the marginal posterior distribution over $\theta$
+  + examples
+    + not assuming normal approximations to likelihoods
+      + control group risks for binomial data
+      + control group rates for Poisson data
+    + full Bayesian modelling of sample variances for normal data
+    + adopting an approximation at the the sampling level for hirarchical models
+    + full Bayesian analysis of the remaining nuisance parameters: the between-group standard deviation $\tau$
 
-
-### 3.18.1 Alternative methods for eliminating nuisance parameters* 100
-
-
-
-
-
++ Sensitivity analysis
+  + importance: nuisance parametres of prior distributions
+  + innocuous choices may exert unintended influence
+  + hybrid strategy
+    + using traditional methods to eliminate nuisance parameetrs before carrying out a Bayesian analysis on $\theta$ alone
+    + good approximation to the full Bayesian approach
 
 
 ### 3.18.2 Profile likelihood in a hierarchical model* 102
