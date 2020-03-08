@@ -1702,10 +1702,10 @@ Year: 2004
 
 ### 3.18.1 Alternative methods for eliminating nuisance parameters
 
-+ Nuisance parameetr
++ Nuisance parameter
   + a major issue in statistical modeling
   + additional unknown quantities which influence the observed data but which are not of primary interest
-  + eg. thee variance of continuous quantities, conflictents measuring the influence of background risk factors, baseline event rates in control groups, etc.
+  + eg. the variance of continuous quantities, conflicients measuring the influence of background risk factors, baseline event rates in control groups, etc.
 
 + Eliminating nuisance parameters from the likelihood
   + restricting attention to an estimator of $\theta$ whose likelihood (at least approximately) does not depend on the nuisance parameters
@@ -1734,7 +1734,7 @@ Year: 2004
   + importance: nuisance parametres of prior distributions
   + innocuous choices may exert unintended influence
   + hybrid strategy
-    + using traditional methods to eliminate nuisance parameetrs before carrying out a Bayesian analysis on $\theta$ alone
+    + using traditional methods to eliminate nuisance parameters before carrying out a Bayesian analysis on $\theta$ alone
     + good approximation to the full Bayesian approach
 
 
