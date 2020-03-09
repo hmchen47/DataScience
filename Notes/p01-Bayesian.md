@@ -1743,7 +1743,7 @@ Year: 2004
 + Profile likelihood for hierarchical model
   + the hierarchical model: likelihood and prior distribution
 
-    \[ Y_k \sim N(\theta_k, s_k^2) \qquad\qquad \theta_k \sim N(\mu, \tau^2 \]
+    \[ Y_k \sim N(\theta_k, s_k^2) \qquad\qquad \theta_k \sim N(\mu, \tau^2) \]
 
   + the hyperparameters $\mu$ and $\tau^2$: generally unknown
   + the predictive distribution of $Y_k$, having integrated out $\theta_k$
@@ -1758,8 +1758,8 @@ Year: 2004
   + w/ fixed $\tau$, the conditional maximum likelihood estiamtor of $\mu$ and vaiance
 
     \[\begin{align*}
-      \hat{\mu}(\tau) = \sum_k y_k w_k/\sum_k w_k \tag{39} \\\\
-      \hat{\sigma} = \frac{1}{\sum_k w_k}
+      \hat{\mu}(\tau) &= \sum_k y_k w_k/\sum_k w_k \tag{39} \\\\
+      \hat{\sigma} &= \frac{1}{\sum_k w_k}
     \end{align*}\]
 
     + applied for the posterior mean and variance of $\mu$ w/ a uniform prior distribution
@@ -1768,7 +1768,7 @@ Year: 2004
     \[ L(\tau) = -\frac{1}{2} \sum_k \left( \left( y_k - \hat{\mu}(\tau) \right)^2 w_k - \log w_k \right) \tag{40} \]
 
   + plotting log(likelihood) $\implies$ maximizing numerically to obtain the maximum likelihood estimate $\hat{\tau}}$
-  + the maximum likelihood estimate $\hat{\tau}}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
+  + the maximum likelihood estimate $\hat{\tau}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
 
 
 ## 3.19 Computational issues 102
