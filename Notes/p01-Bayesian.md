@@ -1777,8 +1777,8 @@ Year: 2004
   + full probability modelling
     + a.k.a. the Bayesian approach
     + applying probability theory to a model derived from substantive knowledge
-    + able to deal w/ realistically complex situation
-  + computataional difficulties: w/ the specific problem being to carry out the integrations necessary to obtain the posterior distributions of quantities of interest in situations
+    + able to deal w/ realistically complex situations
+  + computataional difficulties: <br/>w/ the specific problem being to carry out the integrations necessary to obtain the posterior distributions of quantities of interest in situations
     + non-standard prior distributions used
     + additional nuisance parameters in the model
   + solution: Markov Chain Monte Carlo (MCMC) methods
