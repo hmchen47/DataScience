@@ -1784,11 +1784,42 @@ Year: 2004
   + solution: Markov Chain Monte Carlo (MCMC) methods
 
 
-### 3.19.1 Monte Carlo methods 103
+### 3.19.1 Monte Carlo methods
 
++ Monte Carlo methods
+  + a toolkit of techniques that all have the aim of evaluating integrals or sums by simulation rather than exact or approximate algebraic analysis
+  + a.k.a. probablistic sensitivity analysis
+  + the simulated quantities can then be passed into a standard spreadsheet and the rresulting distributions of the outputs of the spreadsheet will reflect the uncertainty about the inputs
+  + used for Bayesiuan analysis provided the distribution of concern is a member of a known family - this distribution may be the prior (if no data are available) or current posterior
+  + conjugate Bayesian analysis: possible to derive such a posterior distribution algebraically
+  + used to find tail areas or more usefully to find the distribution of complex functions of one or more unknown quantities as in the probabilistic sensitivity analysis
 
++ Examplle 14 -- Coins: A Monte carlo approach to estimating tail areas of distributions
+  + task: the probability of getting 8 or more heads when we toss a fair coin 10 times
+  + algebraic approach
+    + using the formula for the bonomial distribution to provide the probability of 8, 9, and 10 heads
 
+    \[\begin{align*}
+      p(\text{8 or more heads}) &= \begin{pmatrix} 10 \\ 8 \end{pmatrix} (\frac{1}{2})^8 (\frac{1}{2})^2 + \begin{pmatrix} 10 \\ 9 \end{pmatrix} (\frac{1}{2})^9 (\frac{1}{2})^1 + \begin{pmatrix} 10 \\ 10 \end{pmatrix} (\frac{1}{2})^{10} (\frac{1}{2})^0 \\\\
+       &= \frac{1}{2^{10}} (45 + 10 + 1) = \frac{56}{1024} = 0.0547
+    \end{align*}\]
 
+  + physical approach:
+    + repeatedly throw a set of 10 coins and count the proportion of throws where 8 or more heads
+    + basic probability theory: after sufficient throws, this portion will tend to the correct result of 0.0547
+  + simulation approach
+    + generating the throws according to reliable random mechanism
+    + generatinng a random number $U$ btw 0 and 1, and declaring a 'head' if $U > 0.5$
+    + Fig. 17: empirical distribution w/ occurences od heads for (8, 9, 10) and true distribution 
+      + (a): 102 throws, occurrences = (4, 1, 0) $\implies$ overall proportion of 5/102 = 0.0490
+      + (b): 10240 throws, occurrences = (428, 87, 7) $\implies$ overall proportion of 522/10240 = 0.0510
+      + (c): true probability = 0.0547
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+        <img src="img/p01-17.png" style="margin: 0.1em;" alt="(a) Empirical distribution of the number of heads thrown in 102 tosses of 10 balanced coins, where the results of the tosses are obtained by a computer simulation. (b) Empirical distribution after 10 240 throws. (c) True distribution based on the binomial distribution." title="(a) Empirical distribution of the number of heads thrown in 102 tosses of 10 balanced coins, where the results of the tosses are obtained by a computer simulation. (b) Empirical distribution after 10 240 throws. (c) True distribution based on the binomial distribution." height=300>
+      </a>
+    </div>
 
 
 
