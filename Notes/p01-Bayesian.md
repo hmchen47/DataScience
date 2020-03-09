@@ -1787,20 +1787,20 @@ Year: 2004
 ### 3.19.1 Monte Carlo methods
 
 + Monte Carlo methods
-  + a toolkit of techniques that all have the aim of evaluating integrals or sums by simulation rather than exact or approximate algebraic analysis
+  + a toolkit of techniques aiming oo evaluating integrals or sums by simulation rather than exact or approximate algebraic analysis
   + a.k.a. probablistic sensitivity analysis
-  + the simulated quantities can then be passed into a standard spreadsheet and the rresulting distributions of the outputs of the spreadsheet will reflect the uncertainty about the inputs
-  + used for Bayesiuan analysis provided the distribution of concern is a member of a known family - this distribution may be the prior (if no data are available) or current posterior
+  + the simulated quantities passed into a standard spreadsheet and the resulting distributions of the outputs of the spreadsheet reflecting the uncertainty about the inputs
+  + used for Bayesian analysis provided the prior/current posterior distribution of concern is a member of a known family
   + conjugate Bayesian analysis: possible to derive such a posterior distribution algebraically
   + used to find tail areas or more usefully to find the distribution of complex functions of one or more unknown quantities as in the probabilistic sensitivity analysis
 
-+ Examplle 14 -- Coins: A Monte carlo approach to estimating tail areas of distributions
-  + task: the probability of getting 8 or more heads when we toss a fair coin 10 times
++ Examplle 14 -- Coins: A Monte Carlo approach to estimating tail areas of distributions
+  + task: the probability of getting 8 or more heads when tossing a fair coin 10 times
   + algebraic approach
-    + using the formula for the bonomial distribution to provide the probability of 8, 9, and 10 heads
+    + using the formula for the binomial distribution to provide the probability of 8, 9, and 10 heads
 
     \[\begin{align*}
-      p(\text{8 or more heads}) &= \begin{pmatrix} 10 \\ 8 \end{pmatrix} (\frac{1}{2})^8 (\frac{1}{2})^2 + \begin{pmatrix} 10 \\ 9 \end{pmatrix} (\frac{1}{2})^9 (\frac{1}{2})^1 + \begin{pmatrix} 10 \\ 10 \end{pmatrix} (\frac{1}{2})^{10} (\frac{1}{2})^0 \\\\
+      p(\text{8 or more heads}) &= \begin{pmatrix} 10 \\ 8 \end{pmatrix} \left(\frac{1}{2}\right)^8 \left(\frac{1}{2}\right)^2 + \begin{pmatrix} 10 \\ 9 \end{pmatrix} \left(\frac{1}{2}\right)^9 \left(\frac{1}{2}\right)^1 + \begin{pmatrix} 10 \\ 10 \end{pmatrix} \left(\frac{1}{2}\right)^{10} \left(\frac{1}{2}\right)^0 \\
        &= \frac{1}{2^{10}} (45 + 10 + 1) = \frac{56}{1024} = 0.0547
     \end{align*}\]
 
@@ -1809,8 +1809,8 @@ Year: 2004
     + basic probability theory: after sufficient throws, this portion will tend to the correct result of 0.0547
   + simulation approach
     + generating the throws according to reliable random mechanism
-    + generatinng a random number $U$ btw 0 and 1, and declaring a 'head' if $U > 0.5$
-    + Fig. 17: empirical distribution w/ occurences od heads for (8, 9, 10) and true distribution 
+    + generatinng a random number $U \in \{0, 1\}$ and declaring a 'head' if $U > 0.5$
+    + Fig. 17: empirical distribution w/ occurences of heads for (8, 9, 10) and true distribution 
       + (a): 102 throws, occurrences = (4, 1, 0) $\implies$ overall proportion of 5/102 = 0.0490
       + (b): 10240 throws, occurrences = (428, 87, 7) $\implies$ overall proportion of 522/10240 = 0.0510
       + (c): true probability = 0.0547
