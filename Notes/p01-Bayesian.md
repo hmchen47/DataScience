@@ -1771,12 +1771,17 @@ Year: 2004
   + the maximum likelihood estimate $\hat{\tau}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
 
 
-## 3.19 Computational issues 102
+## 3.19 Computational issues
 
-
-
-
-
++ Computation and Bayesian approach
+  + full probability modelling
+    + a.k.a. the Bayesian approach
+    + applying probability theory to a model derived from substantive knowledge
+    + able to deal w/ realistically complex situation
+  + computataional difficulties: w/ the specific problem being to carry out the integrations necessary to obtain the posterior distributions of quantities of interest in situations
+    + non-standard prior distributions used
+    + additional nuisance parameters in the model
+  + solution: Markov Chain Monte Carlo (MCMC) methods
 
 
 ### 3.19.1 Monte Carlo methods 103
