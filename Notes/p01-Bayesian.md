@@ -1876,11 +1876,60 @@ Year: 2004
       + to expected chance variability, coming from the same equilibrium distribution which is assumed to be the posterior of interest
 
 
-### 3.19.3 WinBUGS 107
+### 3.19.3 WinBUGS
 
++ WinBUGs package
+  + a piece of software designed to make MCMC analyses fairly straightforward
+  + advantages:
+    + a very flexible language for model specification
+    + the capacity to automatically work out appropriate sampling methods
+    + built-in graphics and convergence diagnostics
+    + a large range of examples and web presence that covers many different subject areas
+  + disadvantages
+    + a stabnd-alone program not integrated w/ any traditional statistical package for data manipulation, explorary analyses and so on
+    + skilled users on Bayesian analysis, including
+      + accessing the impact of the chosen prior and likelihood
+      + adepuatedly checking the fit of model
+      + checking convergence
+  + WinBUGS reference
+    + [Windows](https://www.mrc-bsu.cam.ac.uk/software/bugs/the-bugs-project-winbugs/)
+    + [Python 2 module - PyMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3097064/)
+    + [Python 3 module - PyMC](https://github.com/pymc-devs/pymc)
 
++ Example 15 -- Drup (cont.): Using WinBUGS to implement Markov chain Monte Carlo methods
+  + using the exact form in Example 10 of the beta-binormial distribution to obtain the predictive distribution of the number of successes in future Bernoulli trials
+  + the current uncertainty about the probabilityof success expressed as a beta distribution
+  + basic components of the model
 
+    \[\begin{align*}
+      \theta &\sim Beta(a, b) & \text{prior distribution} \\
+      y &\sim Bin(\theta, m) & \text{sampling distribution} \\
+      y_{pred} &\sim Bin(0, n) & \text{predictive distribution} \\
+      P_{crit} &= P(y_{pred} \geq n_}crit}) & \text{probability of exceeding critical threshold}
+    \end{align*}\]
 
+  + Fig. 18: Doodle for drug example
+    + the graphical model representing each quantity as a node in directed acyclic graph
+      + rectangle: constant
+      + oval: random quantity
+      + single arrow: stochastic dependence
+      + double arrow: a logical function
+    + resulting structure: like a spreadsheet but allowing uncertiinty on the dependencies
+  + relevant values for the model
+    + prior distribution: $a = 9.2, b = 13.8$
+    + number of trials: $m = 20$
+    + number of success: $y = 15$
+    + future number of trial: $n = 40$
+    + critical value of future successes: $n_{crit} = 25$
+  + best way: checking convergency by carrying out multiple runs from widely dispersed starting point
+  + initial values: $\theta = 0.1, 0.5, 0.9$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+      <img src="img/p01-18.png" style="margin: 0.1em;" alt="Doodle for drug example" title="Fig. 18 Doodle for drug example" width=350>
+      <img src="img/p01-19.png" style="margin: 0.1em;" alt="Some results based on 30000 iterations" title="Gig. 19 Some results based on 30000 iterations" width=350>
+    </a>
+  </div>
 
 
 
