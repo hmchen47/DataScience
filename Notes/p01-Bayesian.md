@@ -1886,27 +1886,27 @@ Year: 2004
     + built-in graphics and convergence diagnostics
     + a large range of examples and web presence that covers many different subject areas
   + disadvantages
-    + a stabnd-alone program not integrated w/ any traditional statistical package for data manipulation, explorary analyses and so on
+    + a stand-alone program not integrated w/ any traditional statistical package for data manipulation, exploratory analyses and so on
     + skilled users on Bayesian analysis, including
       + accessing the impact of the chosen prior and likelihood
-      + adepuatedly checking the fit of model
+      + adepuatedly checking the fit of the model
       + checking convergence
   + WinBUGS reference
     + [Windows](https://www.mrc-bsu.cam.ac.uk/software/bugs/the-bugs-project-winbugs/)
     + [Python 2 module - PyMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3097064/)
     + [Python 3 module - PyMC](https://github.com/pymc-devs/pymc)
 
-+ Example 15 -- Drup (cont.): Using WinBUGS to implement Markov chain Monte Carlo methods
++ Example 15 -- Drug (cont.): Using WinBUGS to implement Markov chain Monte Carlo methods
   + using the exact form in Example 10 of the beta-binormial distribution to obtain the predictive distribution of the number of successes in future Bernoulli trials
-  + the current uncertainty about the probabilityof success expressed as a beta distribution
+  + the current uncertainty about the probability of success expressed as a beta distribution
   + basic components of the model
 
-    \[\begin{align*}
-      \theta &\sim Beta(a, b) & \text{prior distribution} \\
-      y &\sim Bin(\theta, m) & \text{sampling distribution} \\
-      y_{pred} &\sim Bin(0, n) & \text{predictive distribution} \\
-      P_{crit} &= P(y_{pred} \geq n_}crit}) & \text{probability of exceeding critical threshold}
-    \end{align*}\]
+    \[\begin{array}{lcll}
+      \theta &\sim & Beta(a, b) & \text{prior distribution} \\
+      y &\sim & Bin(\theta, m) & \text{sampling distribution} \\
+      y_{pred} &\sim & Bin(0, n) & \text{predictive distribution} \\
+      P_{crit} &= & P(y_{pred} \geq n_{crit}) & \text{probability of exceeding critical threshold}
+    \end{array}\]
 
   + Fig. 18: Doodle for drug example
     + the graphical model representing each quantity as a node in directed acyclic graph
@@ -1923,6 +1923,9 @@ Year: 2004
     + critical value of future successes: $n_{crit} = 25$
   + best way: checking convergency by carrying out multiple runs from widely dispersed starting point
   + initial values: $\theta = 0.1, 0.5, 0.9$
+  + Fig. 19: Some results based on 30 000 iterations
+    + convergence rapidly achieved in such a simple model
+    + the burn-in of 1000 iterations hardly necessary.
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
