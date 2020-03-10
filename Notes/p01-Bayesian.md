@@ -1822,13 +1822,58 @@ Year: 2004
     </div>
 
 
+### 3.19.2 Markov chain Monte Carlo methods
 
-### 3.19.2 Markov chain Monte Carlo methods 105
++ Non-standard distributions and Bayesian approach
+  + non-conjugate distribution or nuisance parameters
+    + more complex Bayesian analysis
+    + not possible to derive the posterior distribution in an algebraic form
+  + Markiv chain Monte Carlo methods: developed as a remarkably effecctive means of sampling from the posterior distribution of interest w/o knowing its algebraic form
+  + References:
+    + S. Brooks, [Markov chain Monte Carlo method and its application](http://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/Basic/Brooks1998.pdf), The Statistician, 1998
+    + G. Casella and E. George, [Explaining the Gibbs sampler](http://biostat.jhsph.edu/~mmccall/articles/casella_1992.pdf), American Statistician, 1992
+    + W. Gilks, S. Richardson, and D. Spiegelhalter, [Markov Chain Monte Carlo in Practice](https://www.researchgate.net/profile/Sylvia_Richardson2/publication/243777736_Introducing_Markov_Chain_Monte_Carlo/links/544f848c0cf2bca5ce923da7/Introducing-Markov-Chain-Monte-Carlo.pdf?_sg%5B0%5D=QpJLdLrHwFZzy7fEca6ULLb4gvhi3KAwqGtRvAzGPFTTmUgUwrOIwa4xkabGiXJq9xZedfHg3N-lwbFIQj7CLQ.lflQiLId65nAVimw1GhPsVMMgEKr8i0GAV9n7oYVOkVrOftaQZuAp5NlmS_oddDpXQwIizEs_CrI9nIdBdPRkA&_sg%5B1%5D=_gvt-j_yCZ99aOsQ-hffHlxrvq489Zk6IcKyQPdviL6jXutJsV7jXYccKNFH67xkLJ_mwDQi4JSG6SvcvD0ikaidabt_WAd8lZNeEx3vY_wi.lflQiLId65nAVimw1GhPsVMMgEKr8i0GAV9n7oYVOkVrOftaQZuAp5NlmS_oddDpXQwIizEs_CrI9nIdBdPRkA&_iepl=), Chapman & Hall, London, 1996
 
++ Essential components of MCMC methods
+  + _replacing analytic methods by simulation_
+    + observing some data $y$ to make inference about a parmeter $\theta$ of interest
+    + the likelihood $p(y | \theta, \psi)$ featuring a set of nuisance parameters $\psi$
+    + eg. $\theta$ = the average treatment effect in a meta-analysis, $\psi$ = the control and treatment group response rates in the individual trials
+    + Bayesian approach
+      + a joint prior distribution $p(\theta, \psi)$
+      + the joint posterior posterior $p(\theta, \psi | y) \propto p(y|\theta, \psi) p(\theta, \psi)$ 
+      + integrating out the nuisance parameteers to give the marginal posterior of interest
 
+      \[ p(\theta | y) = \int p(\theta, \psi | y) d\psi \]
 
-
-
+    + realistic situations: not a standard form but approximation
+    + sampling from the joint posterior $p(\theta, \psi | y)$
+    + sample values: $(\theta^{(1)}, \psi^{(1)}), (\theta^{(2)}, \psi^{(2)}), \dots, (\theta^{(j)}, \psi^{(j)}), \dots$
+    + eg. using the sample mean of the $\theta^{(j)}$ as an estimate of the posterior mean $E(\theta|y)$
+    + creating a smoothed histogram of all the sampled $\theta^{j)}$ to estimate the shape of the posterior distribution $p(\theta|y)$
+    + replacing analytic integration by empirical summaries of sample values
+  + _sampling from the posterior distribution_
+    + a wealth of theoretical work on ways of sampling from a joint posterior distribution
+    + a joint posterior distribution proportional to likelihood $\times$ poior, $p(y|\theta, \psi) p(\theta, \psi)$
+    + methods focusing on producing a _Markov chain_
+    + Markov chain: the distribution for the next simulated value $(\theta^{(j+1)}, \psi^{(j+1)})$ depends only on the current $(\theta^{(j)}, \psi^{(j)})$
+    + the theory of Markov chai: the samples eventually converging into an 'equilibrium distribution'
+    + algorithms using $p(y|\tehta, \psi) p(\theta, \psi)$ to ensure the equilibrium distribution exectly same as the posterior of interest, including Gibbs sampling and the Metropolis algorithm
+  + _starting the simulation_
+    + selecting initial values for unknown parameters
+    + the choice of initial values: no influence on the eventual saples from the Markov chain
+    + reasonable initial values
+      + improving convergence
+      + avoiding numerical problems
+  + _checcking convergence_
+    + checking convergence of a Markov chain to its equilibrium distribution not straightforward
+    + diagnosing lack of convergence simply by observing erratic behavior of the sample values
+    + fact: a chain w/ a steady trajectory $\neq$ sampling from the correct posterior distribution
+    + stucking in a particular area due to the choice of initial values
+    + solution:
+      + best to run multiple chains from a adverse set of initial values
+      + formal diagonistics to check whether these chains end up
+      + to expected chance variability, coming from the same equilibrium distribution which is assumed to be the posterior of interest
 
 
 ### 3.19.3 WinBUGS 107
