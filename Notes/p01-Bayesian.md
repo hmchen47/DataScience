@@ -1671,23 +1671,23 @@ Year: 2004
       + conclusion: reported in the traditional way
     + as an approximate Bayesian analysis w/ exchangeability btw treatments and unifrom prior on unknown parameters
   + _Sensitivity analysis_
-    + finding: meta-analysis w/ uniform prior distributions, whether a pooled- or randonm-effects analysis $\implies$ a significant benefit from magnesium
+    + finding: meta-analysis w/ uniform prior distributions, whether a pooled- or random-effects analysis $\implies$ a significant benefit from magnesium
     + dispute about the conflict btw the finding and the results of the ISIS-4 mega-trial
     + the robustness of the meta-analysis $\implies$ the choice of prior distribution
     + using the credibility analysis to check whether the findings robust to a reasonable expression of prior skepticism concering large benefits
-    + the pooled analysis to find unconcincing the pooled analysis ($95\% = (0.52, 0.86)$) $\impliedby$ a skepticial prior w/ a lower 95% point at around 0.80
-    + Fig. 15: Critical sceptical prior for the _pooled_ analysis, just sufficient to make posterior 95% interval include 1
+    + the pooled analysis to find unconvincing the pooled analysis ($95\% = (0.52, 0.86)$) $\impliedby$ a skeptical prior w/ a lower 95% point at around 0.80
+    + Fig. 15: Critical skeptical prior for the _pooled_ analysis, just sufficient to make posterior 95% interval include 1
       + this degree of scepticism seems unreasonably severe, as it equivalent to having already observed 421 events – 210.5 on each treatment
-      + the pooled likelihood and the 'critical' skeptical prior distribution $implies$ a psoterior tail area of 0.025 above OR = 1
-      + the prior $\sim N(0, 262/421)$: a trial w/ 421 events observed, exactly the sam enumber in each arm
-      + a particular extreme form of skepticism in that it essentially rules out all effeccts greater than around 20% on prior grounds
-    + Fig. 16: Critical sceptical prior for _random-effects_ analysis, just sufficient to make posterior 95% interval include 1
+      + the pooled likelihood and the 'critical' skeptical prior distribution $implies$ a posterior tail area of 0.025 above OR = 1
+      + the prior $\sim N(0, 262/421)$: a trial w/ 421 events observed, exactly the same number in each arm
+      + a particular extreme form of skepticism in that it essentially rules out all effects greater than around 20% on prior grounds
+    + Fig. 16: Critical skeptical prior for _random-effects_ analysis, just sufficient to make posterior 95% interval include 1
       + this degree of scepticism appears quite reasonable, corresponding to 58 events (29 in each arm) in a previous ‘imaginary trial’.
       + random-effects analysis w/ $95\% CI = (0.38, 0.89)$
       + the lower end of the skeptical interval: 0.6
       + finding $OR < 0.6$ extremely surprising
-      + a reasonably skepticial prior $\implies$ the meta-analysis unconvincing
-      + 'if one assumed that only moderate sized effects were possible, the apparent large effects observed in the meta-analysis of small trials w/ megnesium .. should perhapses have been tempered by this general judgement. If a result appears too good to be true, it probably is.' - S. Yusuf, Meta-analysis of randomised trials: Looking back and looking again, Controlled Clinical Trials, 1997
+      + a reasonably skeptical prior $\implies$ the meta-analysis unconvincing
+      + 'if one assumed that only moderate sized effects were possible, the apparent large effects observed in the meta-analysis of small trials w/ magnesium .. should perhapses have been tempered by this general judgement. If a result appears too good to be true, it probably is.' - S. Yusuf, Meta-analysis of randomized trials: Looking back and looking again, Controlled Clinical Trials, 1997
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
@@ -1727,7 +1727,7 @@ Year: 2004
       + control group risks for binomial data
       + control group rates for Poisson data
     + full Bayesian modelling of sample variances for normal data
-    + adopting an approximation at the the sampling level for hirarchical models
+    + adopting an approximation at the the sampling level for hierarchical models
     + full Bayesian analysis of the remaining nuisance parameters: the between-group standard deviation $\tau$
 
 + Sensitivity analysis
@@ -1751,11 +1751,11 @@ Year: 2004
     \[ Y_k \sim N(\mu, s_k^2 + \tau^2) \]
 
   + the precision $w_k = 1/(s_k^2 + \tau^2)$: the 'weight' associated w/ the $k$th study
-  + the joint log(likelihood) for $\mu$ and $\tau$: an arbitary constant plus
+  + the joint log(likelihood) for $\mu$ and $\tau$: an arbitrary constant plus
 
     \[ L(\mu, \tau) = -\frac{1}{2} \sum_k \left( (y_k - \mu)^2 w_k - \log w_k \right) \tag{38} \]
 
-  + w/ fixed $\tau$, the conditional maximum likelihood estiamtor of $\mu$ and vaiance
+  + w/ fixed $\tau$, the conditional maximum likelihood estimator of $\mu$ and variance
 
     \[\begin{align*}
       \hat{\mu}(\tau) &= \sum_k y_k w_k/\sum_k w_k \tag{39} \\\\
@@ -1778,7 +1778,7 @@ Year: 2004
     + a.k.a. the Bayesian approach
     + applying probability theory to a model derived from substantive knowledge
     + able to deal w/ realistically complex situations
-  + computataional difficulties: <br/>w/ the specific problem being to carry out the integrations necessary to obtain the posterior distributions of quantities of interest in situations
+  + computational difficulties: <br/>w/ the specific problem being to carry out the integrations necessary to obtain the posterior distributions of quantities of interest in situations
     + non-standard prior distributions used
     + additional nuisance parameters in the model
   + solution: Markov Chain Monte Carlo (MCMC) methods
@@ -1788,13 +1788,13 @@ Year: 2004
 
 + Monte Carlo methods
   + a toolkit of techniques aiming oo evaluating integrals or sums by simulation rather than exact or approximate algebraic analysis
-  + a.k.a. probablistic sensitivity analysis
+  + a.k.a. probabilistic sensitivity analysis
   + the simulated quantities passed into a standard spreadsheet and the resulting distributions of the outputs of the spreadsheet reflecting the uncertainty about the inputs
   + used for Bayesian analysis provided the prior/current posterior distribution of concern is a member of a known family
   + conjugate Bayesian analysis: possible to derive such a posterior distribution algebraically
   + used to find tail areas or more usefully to find the distribution of complex functions of one or more unknown quantities as in the probabilistic sensitivity analysis
 
-+ Examplle 14 -- Coins: A Monte Carlo approach to estimating tail areas of distributions
++ Example 14 -- Coins: A Monte Carlo approach to estimating tail areas of distributions
   + task: the probability of getting 8 or more heads when tossing a fair coin 10 times
   + algebraic approach
     + using the formula for the binomial distribution to provide the probability of 8, 9, and 10 heads
@@ -1809,8 +1809,8 @@ Year: 2004
     + basic probability theory: after sufficient throws, this portion will tend to the correct result of 0.0547
   + simulation approach
     + generating the throws according to reliable random mechanism
-    + generatinng a random number $U \in \{0, 1\}$ and declaring a 'head' if $U > 0.5$
-    + Fig. 17: empirical distribution w/ occurences of heads for (8, 9, 10) and true distribution 
+    + generating a random number $U \in \{0, 1\}$ and declaring a 'head' if $U > 0.5$
+    + Fig. 17: empirical distribution w/ occurrences of heads for (8, 9, 10) and true distribution 
       + (a): 102 throws, occurrences = (4, 1, 0) $\implies$ overall proportion of 5/102 = 0.0490
       + (b): 10240 throws, occurrences = (428, 87, 7) $\implies$ overall proportion of 522/10240 = 0.0510
       + (c): true probability = 0.0547
@@ -1828,7 +1828,7 @@ Year: 2004
   + non-conjugate distribution or nuisance parameters
     + more complex Bayesian analysis
     + not possible to derive the posterior distribution in an algebraic form
-  + Markiv chain Monte Carlo methods: developed as a remarkably effecctive means of sampling from the posterior distribution of interest w/o knowing its algebraic form
+  + Markov chain Monte Carlo methods: developed as a remarkably effective means of sampling from the posterior distribution of interest w/o knowing its algebraic form
   + References:
     + S. Brooks, [Markov chain Monte Carlo method and its application](http://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/Basic/Brooks1998.pdf), The Statistician, 1998
     + G. Casella and E. George, [Explaining the Gibbs sampler](http://biostat.jhsph.edu/~mmccall/articles/casella_1992.pdf), American Statistician, 1992
@@ -1850,29 +1850,29 @@ Year: 2004
     + sampling from the joint posterior $p(\theta, \psi | y)$
     + sample values: $(\theta^{(1)}, \psi^{(1)}), (\theta^{(2)}, \psi^{(2)}), \dots, (\theta^{(j)}, \psi^{(j)}), \dots$
     + eg. using the sample mean of the $\theta^{(j)}$ as an estimate of the posterior mean $E(\theta|y)$
-    + creating a smoothed histogram of all the sampled $\theta^{j)}$ to estimate the shape of the posterior distribution $p(\theta|y)$
+    + creating a smoothed histogram of all the sampled $\theta^{(j)}$ to estimate the shape of the posterior distribution $p(\theta|y)$
     + replacing analytic integration by empirical summaries of sample values
   + _sampling from the posterior distribution_
     + a wealth of theoretical work on ways of sampling from a joint posterior distribution
-    + a joint posterior distribution proportional to likelihood $\times$ poior, $p(y|\theta, \psi) p(\theta, \psi)$
+    + a joint posterior distribution proportional to likelihood $\times$ prior, $p(y|\theta, \psi) p(\theta, \psi)$
     + methods focusing on producing a _Markov chain_
     + Markov chain: the distribution for the next simulated value $(\theta^{(j+1)}, \psi^{(j+1)})$ depends only on the current $(\theta^{(j)}, \psi^{(j)})$
-    + the theory of Markov chai: the samples eventually converging into an 'equilibrium distribution'
-    + algorithms using $p(y|\tehta, \psi) p(\theta, \psi)$ to ensure the equilibrium distribution exectly same as the posterior of interest, including Gibbs sampling and the Metropolis algorithm
+    + the theory of Markov chain: the samples eventually converging into an 'equilibrium distribution'
+    + algorithms using $p(y|\theta, \psi) p(\theta, \psi)$ to ensure the equilibrium distribution exactly same as the posterior of interest, including Gibbs sampling and the Metropolis algorithm
   + _starting the simulation_
     + selecting initial values for unknown parameters
-    + the choice of initial values: no influence on the eventual saples from the Markov chain
+    + the choice of initial values: no influence on the eventual samples from the Markov chain
     + reasonable initial values
       + improving convergence
       + avoiding numerical problems
-  + _checcking convergence_
+  + _checking convergence_
     + checking convergence of a Markov chain to its equilibrium distribution not straightforward
     + diagnosing lack of convergence simply by observing erratic behavior of the sample values
     + fact: a chain w/ a steady trajectory $\neq$ sampling from the correct posterior distribution
     + stucking in a particular area due to the choice of initial values
     + solution:
       + best to run multiple chains from a adverse set of initial values
-      + formal diagonistics to check whether these chains end up
+      + formal diagnostics to check whether these chains end up
       + to expected chance variability, coming from the same equilibrium distribution which is assumed to be the posterior of interest
 
 
