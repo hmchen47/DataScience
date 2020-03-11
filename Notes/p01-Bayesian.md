@@ -1938,36 +1938,42 @@ Year: 2004
 
 ## 3.20 Schools of Bayesians
 
-+ Four broad levels of increasing 'purty' of Bayesians
++ Four broad levels of increasing 'purity' of Bayesians
   + the __empirical__ Bayes approach
     + a prior distribution estimated from multiple experiments
     + analysis and reporting in traditional terms
     + justification through improved sampling properties of procedures
-  + the __reference__ bayes approach
-    + a Bayesian interpretation given to conclusions expressed as posterior distributions
-    + atempting to use 'objective' or 'reference' prior distributions
+  + the __reference__ Bayes approach
+    + interpreting conclusions as posterior distributions
+    + attempting to use 'objective' or 'reference' prior distributions
     + Bayesian methods w/ uniform priors $\implies$ gaining the intuitive Bayesian interpretation while having essentially the classical results
     + using 'confidence levels' of the posterior distribution calculated from a normalized likelihood and a uniform prior
   + the __proper__ Bayes approach
     + informative prior distribution based on available evidence
-    + conclusion: summarized by posteriro distributions w/o explicit incorportation of utility functions
-    + focusing on hypothesistesting using Bayes factor
+    + conclusion: summarized by posterior distributions w/o explicit incorportation of utility functions
+    + focusing on hypothesis testing using Bayes factor
     + Bayes factor analysis:
       + entertaining the possibility of the precise truth of the null hypothesis
       + either $\theta$ extremely close to 0 or almost no idea of regarding $\theta$
-    + particular circustances: dichotomies might be feasible
+    + particular circumstances: dichotomies might be feasible
       + considered more reasonable to express a 'smooth' skeptical prior
       + estimation more appropriate than testing in most RCTs
   + the __decision-theoretic__ or 'full' Bayes approach
     + explicit utility functions used to make decisions based on maximizing expected utility
     + debate:
-      + incorprotaing an explicit loss function or not
+      + incorproating an explicit loss function or not
       + a health-care evaluation $\stackrel{?}{\implies}$ an inference about a treatment effect or decision as to future policy
     + important objections
       + the lack of a coherent theory for decison-making on behave of multiple audiences w/ different utility functions
       + the difficulty of obtaining agree utility values
-      + a strict decision-theoretic view $\imlies$ future treatments being recommended on the basis of even marginal expected gains
+      + a strict decision-theoretic view $\implies$ future treatments being recommended on the basis of even marginal expected gains
       + w/o any concern as to the level of confidence w/ which such a recommendation is made
+    + [coherency principle](https://en.wikipedia.org/wiki/Coherence_(statistics)#In_Bayesian_decision_theory): the assumption that personal probabilities follow the ordinary rules for probability calculations and thus that consistent decisions obtained from these probabilities
+    + [utility theory](https://www.sciencedirect.com/topics/psychology/utility-theory):
+      + quantative representations of qualitative relations
+      + $\succsim$:
+        + a binary preference relation on an arbitrary nonempty set
+        + a weak ordering relation
 
 + fundamental importance of concepts to distinguish Bayesian and conventional models
   + coherence of probability statements
