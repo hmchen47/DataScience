@@ -1981,12 +1981,69 @@ Year: 2004
   + the likelihood principle
 
 
-## 3.21 A Bayesian checklist 113
+## 3.21 A Bayesian checklist
 
++ Guideline for reporting Bayesian analyses
+  + Rudinebtary guidance: 
+    + T. Lang and M. Secic, Considering ‘prior probabilities’: reporting Bayesian statistical analyses, In 'How to Report Statistics in Medicine' (T. Lang and M. Secic), pp.231–5. American College of Physicians, Philadelphia, 1997
+    + instructions
+      + report the pre-trial probabilistics and specify how thet were determined
+      + report the post-trial probabilities and their probability intervals
+      + interpret the post-trial probabilities
+  + instructions of 'the Annuals of Internal Medicine'
+  + The BaSiS (Bayesian Standards in Science)
+  + CONSORT guidelines
+    + D. Moher, F. Schulz and D. Altman, [The CONSORT statement: revised recommendations for improving the quality of reports of parallel-group randomised trials](https://www.equator-network.org/wp-content/uploads/2013/09/CONSORT-2010-Checklist-MS-Word.doc), Lancet, 2001
 
-
-
-
++ Checklist of Bayesian assessments of health-care intervention
+  + __Background__
+    + _the intervention_: evaluated w.r.t. the population of interest and so on
+    + _amin of study_
+      + a clear ditinguish made btw prior distribution and explicit or implicit considertion of a loss or utility function
+      + proor distribution: desiredd inferences on any quantity or quantities of interest, representing the parameters to be estimated
+      + explicit or implicit considertion of a loss or utility function: any decisions or recommendations for action to be made subsequent to the interferences
+  + __Methods__
+    + _study design_
+      + a standard requirement
+      + particular attention on synthesising evidence to the similarity of studies in order to justify any assumptions of exchangeability
+    + _outcome measure_: th etrue underlying parameters of interest
+    + _statistical model_
+      + the probabilistic relationship btw the parameter9s) of interest and the observed data
+      + relationship on mathematics or in such a way to allow its mathematic form to be unambiguously obtained by a competent reader
+      + ways including any model seletion procedure, whether Bayesian or not
+    + _prospetive Bayesian analysis?_
+      + wether the prior and any loss function were constructed preceeding the data collection
+      + wether analysis carried out durinng the study
+    + _proior distribution_
+      + giving explicit prior distributions for the parameters of interest
+      + informative: detailing the deviation of the prior from an elicitation process or empirical evidence
+      + non-informative: 
+        + justifing the effect of using different priors on the conclusion of the study
+        + stating the prior and alternative priors explicitly
+    + _loss function or deman_
+      + an explicit method of deducing scientific consequences selected in advanced
+      + methods
+        + a range of equivalence: a range of values $\ni$ the parameter of interest lies within it $\implies$ two different technologies regarded as being of equal effectiveness
+        + a loss function: minimizing the epected valuse w.r.t. the posterior distribution of the parameter of interest
+      + describing any elicitation process from experts
+    + _computation/software_
+      + repeating all the calculations to obtain the required results
+      + justifying the assumption of convergence w/ MCMC methods
+  + __Results__
+    + _evidence from study_
+      + giving the observed data, sampling sizes, measurements, etc., compatible w/ brevity and data confidentiality
+      + reconstructing likelihood for the subsequent users
+  + __Interpretation__
+    + _Bayesian interpretation_
+      + clearly summarizing the posterior distribution
+        + a presentation of posterior credible intervals
+        + a graphical presentation of the posterior distribution
+      + describing the formal or informal loss function and the results
+      + current summary for immedite action
+        + a synthesis of all relevant sources of evidence
+        + a contributor of information to a future evidence synthesis
+    + _sensitivity analysis_: the results of any alternative prior and//or expressions of the consequences of decisions
+    + _comments_:  including an honest appraisal of the strengths and possible weaknesses of the analysis
 
 
 ## 3.22 Further reading 115
