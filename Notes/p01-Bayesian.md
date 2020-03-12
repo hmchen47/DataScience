@@ -1987,7 +1987,7 @@ Year: 2004
   + Rudinebtary guidance: 
     + T. Lang and M. Secic, Considering ‘prior probabilities’: reporting Bayesian statistical analyses, In 'How to Report Statistics in Medicine' (T. Lang and M. Secic), pp.231–5. American College of Physicians, Philadelphia, 1997
     + instructions
-      + report the pre-trial probabilistics and specify how thet were determined
+      + report the pre-trial probabilities and specify how they were determined
       + report the post-trial probabilities and their probability intervals
       + interpret the post-trial probabilities
   + instructions of 'the Annuals of Internal Medicine'
@@ -2000,31 +2000,31 @@ Year: 2004
     + _the intervention_: evaluated w.r.t. the population of interest and so on
     + _amin of study_
       + a clear ditinguish made btw prior distribution and explicit or implicit considertion of a loss or utility function
-      + proor distribution: desiredd inferences on any quantity or quantities of interest, representing the parameters to be estimated
-      + explicit or implicit considertion of a loss or utility function: any decisions or recommendations for action to be made subsequent to the interferences
+      + prior distribution: desired inferences on any quantity or quantities of interest, representing the parameters to be estimated
+      + explicit or implicit considertion of a loss or utility function: any decisions or recommendations for action to be made subsequent to the inferences
   + __Methods__
     + _study design_
       + a standard requirement
       + particular attention on synthesising evidence to the similarity of studies in order to justify any assumptions of exchangeability
-    + _outcome measure_: th etrue underlying parameters of interest
+    + _outcome measure_: the true underlying parameters of interest
     + _statistical model_
-      + the probabilistic relationship btw the parameter9s) of interest and the observed data
+      + the probabilistic relationship btw the parameter(s) of interest and the observed data
       + relationship on mathematics or in such a way to allow its mathematic form to be unambiguously obtained by a competent reader
-      + ways including any model seletion procedure, whether Bayesian or not
-    + _prospetive Bayesian analysis?_
-      + wether the prior and any loss function were constructed preceeding the data collection
-      + wether analysis carried out durinng the study
+      + any model seletion procedure, whether Bayesian or not
+    + _prospective Bayesian analysis?_
+      + whether the prior and any loss function were constructed preceding the data collection
+      + whether analysis carried out durinng the study
     + _proior distribution_
       + giving explicit prior distributions for the parameters of interest
       + informative: detailing the deviation of the prior from an elicitation process or empirical evidence
-      + non-informative: 
+      + non-informative:
         + justifing the effect of using different priors on the conclusion of the study
         + stating the prior and alternative priors explicitly
-    + _loss function or deman_
-      + an explicit method of deducing scientific consequences selected in advanced
+    + _loss function or demand_
+      + an explicit method of deducting scientific consequences selected in advanced
       + methods
         + a range of equivalence: a range of values $\ni$ the parameter of interest lies within it $\implies$ two different technologies regarded as being of equal effectiveness
-        + a loss function: minimizing the epected valuse w.r.t. the posterior distribution of the parameter of interest
+        + a loss function: minimizing the expected values w.r.t. the posterior distribution of the parameter of interest
       + describing any elicitation process from experts
     + _computation/software_
       + repeating all the calculations to obtain the required results
@@ -2042,7 +2042,7 @@ Year: 2004
       + current summary for immedite action
         + a synthesis of all relevant sources of evidence
         + a contributor of information to a future evidence synthesis
-    + _sensitivity analysis_: the results of any alternative prior and//or expressions of the consequences of decisions
+    + _sensitivity analysis_: the results of any alternative prior and/or expressions of the consequences of decisions
     + _comments_:  including an honest appraisal of the strengths and possible weaknesses of the analysis
 
 
