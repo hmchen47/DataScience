@@ -111,7 +111,7 @@ Year: 2004
 
   + marginal distribution
     + marginal probability: the probability of an event irrespective of the outcome of another variable
-    + the marginal distribution of a subset of a collection iof random variables is the probability distribution of the variables contained in the subset
+    + the marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset
     + two random variables independent $\iff$ their joint distribution function equal to the product of their marginal distribution functions
     + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $b \in [c, d]$
 
@@ -120,7 +120,7 @@ Year: 2004
   + frequency interpretation of probability: long-run properties of repeated random events
   + frequentist:
     + standard statistical methods
-    + $p(x)$ is the proportion of times $x$ will occur in an infintitely long series of repeated identical situations
+    + $p(x)$ is the proportion of times $x$ will occur in an infinitely long series of repeated identical situations
   + odds ($O$):
     + the probability ($p$) that the event will occur divided by the probability ($1 - p$) that the event will not occur
     + used to describe the chance of an event occurring
@@ -154,13 +154,13 @@ Year: 2004
     + used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected
     + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
   + [meta-analysis](https://en.wikipedia.org/wiki/Meta-analysis)
-    + a statistical analysis that comnines the results of multiple scientific studies
+    + a statistical analysis that combines the results of multiple scientific studies
     + performed when multiple scientific studies address the same question w/ each study reporting measurements expected some degree of error
     + derived a pooled estimate closest to the unknown common true based on how this error is perceived
-  + [prospective nalysis](https://www.longwoods.com/content/20972/healthcare-quarterly/looking-ahead-the-use-of-prospective-analysis-to-improve-the-quality-and-safety-of-care)
+  + [prospective analysis](https://www.longwoods.com/content/20972/healthcare-quarterly/looking-ahead-the-use-of-prospective-analysis-to-improve-the-quality-and-safety-of-care)
     + used as an analytical tool to assess and mitigate the occurrence of loss by analyzing a situation or process that carries with it some inherent risk
-    + to identify the way in which a process might potentially fail, w/ the goal to eliminate or reduce the liklihood or outcome severity of such a failure
-    + applied to preocess or equipment and systems
+    + to identify the way in which a process might potentially fail, w/ the goal to eliminate or reduce the likelihood or outcome severity of such a failure
+    + applied to process or equipment and systems
     + FEMA used proactively when designing a new system or process for a high-risk or complex process or during an inter-professional process w/ hands-off and interdependent steps
     + w/ its roots in the engineering industry
 
@@ -179,7 +179,7 @@ Year: 2004
   + $Y \sim Bern[\theta]$: a Bernoulli distribution, a binomial w/ $n=1$
 
 + Beta distribution
-  + a flexible abd mathematically convenient class for quantities contained to lie btw 0 and 1
+  + a flexible and mathematically convenient class for quantities contained to lie btw 0 and 1
   + form: $Y \sim Beta(a, b)$
   + properties
 
@@ -222,7 +222,7 @@ Year: 2004
     + not assumed as self-evident
     + able to derived from 'deeper' axioms of reasonable behavior of an individual
   + probabilities _for_ events rather than probabilities _of_ events
-  + the probability is a reflection of personal uncertainty ranther than necessarily being based on future unknown events illustrated by a gambling game
+  + the probability is a reflection of personal uncertainty rather than necessarily being based on future unknown events illustrated by a gambling game
 
 + Bayesian statistics
   + Berger, J. and Berry, D. A. (1988) [Statistical analysis and the illusion of objectivity](http://ifmlab.for.unb.ca/people/kershaw/Courses/Research_Methods/Readings/BergerJO1988a.pdf). American Scientist, 76, 159–65.
@@ -241,7 +241,7 @@ Year: 2004
 
     \[ p(H_0 | y) = \frac{p(y | H_0)}{p(y)} \times p(H_0)  \tag{1} \]
 
-  + the overall probability of $y$ occuring:
+  + the overall probability of $y$ occurring:
   
     \[p(y) = p(y | H_0) p(H_0) + p(y | H_1) p(H_1) \]
 
@@ -312,7 +312,7 @@ Year: 2004
 ## 3.3 Comparing simple hypotheses: likelihood ratios and Bayes factors
 
 + the likelihood principle
-  + the likelihoods contains all the rellevant that can be extracted from the data
+  + the likelihoods contains all the relevant that can be extracted from the data
   + all the information that the data provide about the parameter is contained in the likelihood
   + Berger, J. and Wolpert, R. (1988) [The Likelihood Principle (2nd edition)](https://b-ok.org/dl/505521/68882f), Institute of Mathematical Statistics, Hayward, CA, 1998
 
@@ -352,7 +352,7 @@ Year: 2004
     + concern: a natural extension of the subjective interpretation of probability
 
 
-## 3.4 Exchangeability and parametric modelling
+## 3.4 Exchangeability and parametric modeling
 
 + Exchangeability
   + the rules of probability able to be derived from more basic ideas of relational behavior
@@ -365,7 +365,7 @@ Year: 2004
     + $p(Y_1 = 1, Y_2 = 0, Y_3 = 1) = p(Y_2 = 1, Y_1 = 0, Y_3 = 1) = p(Y_1 = 1, Y_3 = 0, Y_2 = 1)$: the probability of getting two head and one tail is unaffected by the particular toss on which the tail comes
     + $Y_1, \dots, Y_3$ might not independent
 
-+ Judgement of exchangeability
++ Judgment of exchangeability
   + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](http://abelo.zlibcdn.com/dtoken/f1ddfe4ba4a2b3c9eebeb81935e28f80/Bayesian_Theory_by_Jos%C3%A9_M._Bernardo,_Adrian_F._M.__703263_(z-lib.org).pdf). John Wiley & Sons, Ltd, Chichester.
   + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
 
@@ -375,15 +375,15 @@ Year: 2004
 
     \[ p(y_1, \dots, y_n | \theta) = \prod_{i=1}^n p(y_i | \theta) \]
 
-  + exchangable random quantities can be though of being i.i.d. variables drawn from some common distribution depending on an unknown parameter $\theta$ w/ a prior distribution $p(\theta)$
-  + from a subjective judgement about observable quantities, one derives that whole apparatus of i.i.d. variables, conditional independence, parameters and prior distributions
+  + exchangeable random quantities can be though of being i.i.d. variables drawn from some common distribution depending on an unknown parameter $\theta$ w/ a prior distribution $p(\theta)$
+  + from a subjective judgment about observable quantities, one derives that whole apparatus of i.i.d. variables, conditional independence, parameters and prior distributions
 
 
 ## 3.5 Bayes theorem for general quantities
 
 + Notations & Assumptions
   + $\theta$: unknown quantity
-  + $p(\theta | H)$: the prior distribution of $\theta$; judgement about $\theta$ conditional on a context $H$
+  + $p(\theta | H)$: the prior distribution of $\theta$; judgment about $\theta$ conditional on a context $H$
   + $y$: some observed evidence
 
 + Bayesian approach
@@ -575,7 +575,7 @@ Year: 2004
 
     + posterior mean $(n_o \mu + m y_m)/(n_o + m)$
       + a weighted average of the prior mean $\mu$ and parameter estimate $y_m$, 
-      + $y_m$ weighted by their precisions
+      + $y_m$ weighted by their precision
       + a compromised btw the two
     + posterior variance (1/precision)
       + based on an implicit sample size equivalent to the sum of the prior 'sample size' $n_0$ and the sample size of the data $m$
@@ -609,7 +609,7 @@ Year: 2004
     + the population distribution as a prior distribution for the specific individual: $sd = \sigma/\sqrt{n_0} \implies var = \sigma^2/n_0$
     + Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman
   + Estimating the true long-term underlying systolic blood pressure of a 60-year-old woman
-    + Fig. 3(a): population distribution as prior distbution w/ standard deviation as $sd = \sigma/\sqrt{n_0} \implies n_0 = (\sigma/10)^2 = 0.25$
+    + Fig. 3(a): population distribution as prior distribution w/ standard deviation as $sd = \sigma/\sqrt{n_0} \implies n_0 = (\sigma/10)^2 = 0.25$
     + Fig. 3(b): the likelihood arising from the two observations on the women
     + Fig. 3(c):
       + posterior distribution of $\theta$: normal distribution w/ $\mu = (0.25 \times 120 + 2 \times 130)/(0.25 + 2) = 128.9$ and $se = \sigma / \sqrt{n_0 + m} = 5/\sqrt{2.25} = 3.3 \implies$ a 95% interval of $128.9 \pm 1.96 \times 3.3 = (122.4, 135.4)$
@@ -635,12 +635,12 @@ Year: 2004
 + __Point estimates__
   + traditional measures of location of distribution: mean, median, and mode
   + given a theoretical justification as a point estimate derived from a posterior distribution, by imposing a particular penalty on error in estimation
-  + posterior disteribution: symmetric and unimodal $\implies$ mean, median, and mode all coincide in a single value and no difficulty in making a choice
+  + posterior distribution: symmetric and unimodal $\implies$ mean, median, and mode all coincide in a single value and no difficulty in making a choice
   + posterior distribution considerably skewed in some circumstances $\implies$ marked difference btw mean and median
   + the median: less sensitive to the tails of the distribution
 
 + __Interval estimates__
-  + credible interval: any interval conaining probability different from a 'Neyman-Pearson' confidence interval
+  + credible interval: any interval containing probability different from a 'Neyman-Pearson' confidence interval
   + types of intervals: assume a continuous parameter $\theta$ w/ range on $(-\infty, \infty)$ and posterior conditional on generic data $y$
     + _one-side intervals_: typical  $x = .90, .95, .99$
       + one-side upper $x \cdot 100\%$ w/ $(\theta_L, \infty)$ where $p(\theta < \theta_L| y) = x$
@@ -681,7 +681,7 @@ Year: 2004
       + the width of Bayesian credible intervals: dedicated by the posterior standard deviation
 
 + __Interval hypotheses__
-  + a hypothesis of intertest comprises an interval $H_0: \theta_L < \theta < \theta_U$
+  + a hypothesis of interest comprises an interval $H_0: \theta_L < \theta < \theta_U$
   + posterior distribution: $p(H_0 | y) = p(\theta_L < \theta < \theta_U | y)$
   + computed w/ standard formulae or simulation methods
 
@@ -793,7 +793,7 @@ Year: 2004
       \[\hat{\theta} = \log \left[ \frac{(a + 1/2)(d + 1/2)}{(b + 1/2)(c + 1/2)} \right]  \qquad Var(\hat{\theta}) = \frac{1}{a + 1/2} + \frac{1}{b + 1/2} + \frac{1}{c + 1/2} + \frac{1}{d + 1/2} \]
 
   + _Intervention_: thrombolytic therapy after myocardial infarction, given at home by general practitioners
-  + _Aim of study_: to compare anistreplase (a new treatment) and placebo (contentional treatment)
+  + _Aim of study_: to compare anistreplase (a new treatment) and placebo (conventional treatment)
   + _Study design_: randomized controlled trial
   + _Outcome measure_:
     + 30-day mortality rate under each treatment, w/ the benefit of the new treatment measured by the odds ratio (OR)
@@ -804,7 +804,7 @@ Year: 2004
   + _Statistical model_: approximate normal likelihood for the logarithm of the odds ratio
   + _Prospective Bayesian analysis?_: No, it was carried out after the trial reported its results
   + _Prior distribution_:
-    + based on the subjective judgement of a senior cardiologist
+    + based on the subjective judgment of a senior cardiologist
     + empirical evidence derived from one unpublished and two published trials
     + belief: an expectation of 15-20% reduction in mortality is highly plausible, while the extremes of no benefit and a 40% relative reduction are both unlikely
     + translated to a normal distribution on the $\log(OR)$ scale, w/ a prior mean of $\mu_0 = -0.26 (OR_0 = 0.78)$ and symmetric 95% interval of $(l_0, u_0) = (-0.15, 0.00)$ w/ $(L_0, U_0) = (0.60, 1.00)$, giving $sd_0 = 0.13$
@@ -820,7 +820,7 @@ Year: 2004
       + new treatment: $p_1 = 13/163 = 0.0798$
       + $OR_m = (p_1/(1 - p_1)) / (p_2/(1 - p_2)) = 0.741, \log(OR_m) = -0.7529$
     + the estimate $\log(OR)$ (likelihood): $y_m = -0.74 \implies OR_m = 0.48$, w/ estimated $se_m = 0.36$, given a 95% classical CI for $\log(OR_m), (l_m, u_m) = y_m \pm 1.06 \times se_m = (-1.45, -0.03) \implies$ 95% CI for OR, $(L_m, U_m) = (0.24, 0.97)$
-    + traditional test statictic: $-0.74/0.36 = -2.03$ and the null hypothesis of no effect is rejected w/ a two-sided $p$-value of $2\Phi(-2.03) = 0.04$
+    + traditional test statistic: $-0.74/0.36 = -2.03$ and the null hypothesis of no effect is rejected w/ a two-sided $p$-value of $2\Phi(-2.03) = 0.04$
     + the likelihood: reasonable support for values of $\theta$ representing a 40-60% reduction in odds of death (Fig. 6(b))
   + Prior, likelihood and posterior distributions arising from GREAT trial of home thrombolysis. These are all normal on the $\theta = \log(OR)$ scale. (Fig. 6)
 
@@ -857,7 +857,7 @@ Year: 2004
       + $se_0 = 0.69/1.96 = 0.35$ and $n_0 = 4/0.35^2 = 32.3$, approximately the same weight of evidence as the likelihood
     + prior: providing equivalent evidence to that arising from the imaginary balanced trial, in which around 16 deaths were observed on each arm
     + prior, likelihood and posterior distributions:
-      + Fig. 7: A prior distribution that expresses scepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0. This is equivalent to a previous study in which 32.3 events occurred, divided equally between the two arms. Adopting this prior and updating it with the GREAT data leads to a posterior distribution as shown, with the shaded area representing a probability of 8% that the treatment is harmful.
+      + Fig. 7: A prior distribution that expresses skepticism about large treatment effects would be centred on 0 and have, for example, a 95% interval for OR between 0.5 and 2.0. This is equivalent to a previous study in which 32.3 events occurred, divided equally between the two arms. Adopting this prior and updating it with the GREAT data leads to a posterior distribution as shown, with the shaded area representing a probability of 8% that the treatment is harmful.
       + prior: $\mu_0 = 0.0, n_0 = 32.3, se_0 = 0.35$
       + posterior: $\mu_D = -0.36 \; (OR_D = 0.70)$, equivalent size = $n_0 + m = 62.8$, and $se_D = 0.25$
       + the probability w/o benefit from the new treatment: $\Phi(-0.36/0.25) = \Phi(-1.42) = 0.08$
@@ -870,7 +870,7 @@ Year: 2004
     </div>
   
   + _Comments_:
-    + "meta-analysis of early thrombolytic therapy and estimated OR = 0.83 (95% interval (0.70, 0.98)), far less impressive than the GREAT results and reasonably in line w/ the posterior distribution in Fig. 6" -- J. Morrison, et.al., 'Mortality and prehospital thrombolysis for acute myocardial infarction – a meta-analysis', 2000
+    + "meta-analysis of early thrombolytic therapy and estimated OR = 0.83 (95% interval (0.70, 0.98)), far less impressive than the GREAT results and reasonably in line w/ the posterior distribution in Fig. 6" -- J. Morrison, et al., 'Mortality and prehospital thrombolysis for acute myocardial infarction – a meta-analysis', 2000
     + not over-interpreted and two points should keep in mind
       + including some trials that contributed to the prior used by the expert  and good reason why the posterior (interpreted as a type of subjective meta-analysis) and the formal meta-analysis should correspond
       + primary outcome measure is in-hospital mortality, for which GREAT showed a non-significant (but still substantial) benefit of 11/163 vs. 17/148, with an estimated OR of 0.57
@@ -883,7 +883,7 @@ Year: 2004
   + sources:
     + elicitation from experts
     + deviation from historical data
-    + the use of 'default' priors to respent archetypal positions of ignorance, skepticism and enthusiasm
+    + the use of 'default' priors to reprsent archetypal positions of ignorance, skepticism and enthusiasm
     + multiple related studied simultaneously analyzed
 
 + characteristics of prior
@@ -913,13 +913,13 @@ Year: 2004
 + Connections btw Bayes theorem and clinical trials
   + known: the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
   + consideration: huge number of clinical trials carried out and finding the few clearly beneficial interventions
-  + a Bayesian approach providing 'a yardstick against which a surprising finding may be measurred' - A. Grieve, Bayesian analyses of two-treatment crossover studies, Statistical Methods in Medical Research, 1994
+  + a Bayesian approach providing 'a yardstick against which a surprising finding may be measured' - A. Grieve, Bayesian analyses of two-treatment crossover studies, Statistical Methods in Medical Research, 1994
 
 + Example 7 -- False positive: 'the epidemiology of clinical trials'
   + Notations & Assumptions
     + 200 trials & 10% truly effective treatments
     + Type I error ($\alpha$): false positive - the chance of claiming an ineffective treatment is effective; 5%
-    + Type II error ($\beta$): false negative - the chance of claining an effective treatment is ineffective; 20%
+    + Type II error ($\beta$): false negative - the chance of claiming an effective treatment is ineffective; 20%
   + expected outcomes
     + expected to give a 'significant' result w/ truly ineffective treatment: 9 (5%) of 180 trials
     + expected to be negative w/ effective treatment: 4 (20%) of 20 trials
@@ -1092,7 +1092,7 @@ Year: 2004
       + (a) the prior statistics calculated in Example 6 (the prior distribution of the first part)
       + (b) a first half way through the likelihood calculated in Example 6 (the likelihood of the first part)
       + (c) the interim posterior $n_0 + m_1 = 236.7 + 18.1 = 254.8$, $\mu_D = ((236.7 \times -0.255) + (18.1 \times -0.654)) / 254.8 = -0.283$, $se_D = \sigma/\sqrt{254.8} = 0.125$ (as the prior distribution of the second part)
-      + (d) the second half of the study (the likelihood of th second part)
+      + (d) the second half of the study (the likelihood of the second part)
       + (e) using result of (c) as the prior distribution to calculate the posterior distribution
     + analysis in two stages
       + (f) combining the first (b) and second (d) part of data: $m = (2/0.362)^2 = 30.5$
@@ -1155,7 +1155,7 @@ Year: 2004
 
 + Application of predictive distributions
   + design and power calculations, model checking, and deciding whether to conduct a future trial - Berry and Stangle, Bayesian methods in health-related research, In Bayesian Biostatistics, 1996
-  + examples in bioequivlanence, trial monitoring, and toxicology -- A. Grieve, A Bayesian analysis of the two-period crossover design for clinical trials, in Biometrics, 1985
+  + examples in bioequivlence, trial monitoring, and toxicology -- A. Grieve, A Bayesian analysis of the two-period crossover design for clinical trials, in Biometrics, 1985
   + power calculations, sequential analysis, health policy-making and payback from research -- D. Spiegelhalter, et.al., Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
 
 
@@ -1387,7 +1387,7 @@ Year: 2004
 + Discussion of using Bayesian methods on decision-making
   + debate on the use of loss functions, the negative of utility, in parallel to that concerning prior distributions
   + arguing the design, monitoring and analysis of a study using the consequences of eventual decision-making w/ loss functions
-  + frequestist theory of decision-making using loss functions
+  + frequentist theory of decision-making using loss functions
     + not averaging w.r.t. prior or posterior distributions
     + strategy: generally 'minimax'
     + minimizing the loss whatever the true value of the parameter might be
@@ -1470,7 +1470,7 @@ Year: 2004
         + partiton - cluster similar or equal units into groups
 
 + Hierarchical / multi-level model
-  + reasonable assumption: prior distribution w/ exchangability
+  + reasonable assumption: prior distribution w/ exchangeability
   + Bayesian approach to multiplicity $\implies$ integrating all the units into a single model
   + assumptions:
     + $\theta_1, \dots, \theta_K$ drawn from some common distribution w/ unknown parameters
@@ -1551,7 +1551,7 @@ Year: 2004
   + _intervention_:
     + epidemiology, animal models and biochemical studies suggested intravenous magnesium sulphate may have a protective effect after acute myocardial infaction (AMI), particularly through preventing serious arrhythmias
     + K. Teo, et al, Effects of intravenous magnesium in suspected acute myocardial infarction: overview of randomized trials, British Medical Journal, 1991
-      + a series of small randomized trials cumulated in a meta-analysis
+      + a series of small randomized trials accumulated in a meta-analysis
       + a highly significant ($p< 0.001$) 50% reduction in odds of death
     + L. Woods, et al., Intravenous magnesium sulphate in suspected acute myocardial infarction: results of the Second Leicester Intravenous Magnesium Intervention Trial (LIMIT-2). Lancet, 1992
       + further large scale trials to confirm (or refute) these findings are desirable
@@ -1559,21 +1559,21 @@ Year: 2004
     + S. Yusuf, K. Teo, and K. Woods, Intravenous magnesium in acute myocardial infarction: an effective, safe, simple and inexpensive treatment, Circulation, 1993
       + an effective, safe, simple and inexpensive treatment
       + further trials to obtain a more precise estimate of the mortality benefit
-    + R. Collins, R. Peto, M. Flather, and ISIS-4 Collaborative Group, ISIS-4 – a randomized factorial trial assessing early oral captopril, oral mononitrate, and intravenous magnesium sulphate in 58,050 patients with suspected acute myocardial infarction, Lance, 1995
+    + R. Collins, R. Peto, M. Flather, and ISIS-4 Collaborative Group, ISIS-4 – a randomized factorial trial assessing early oral captopril, oral monoitrate, and intravenous magnesium sulphate in 58,050 patients with suspected acute myocardial infarction, Lance, 1995
       + a lack of any benefit
       + trials on over 58000 patients w/ a non-significant adverse mortality effect of magnesium
       + no effect in any subgroups
-      + conclusion: overall, there does not now seem to be any good clinical trial evidence for the routine use of magnesium in suspected acuate MI
+      + conclusion: overall, there does not now seem to be any good clinical trial evidence for the routine use of magnesium in suspected acute MI
   + _aim of study_
     + to investigate how a Bayesian perspective might have influenced the interpretation of the published evidence on magnesium sulphate in AMI available in 1993
     + what degree of 'skepticism' would have been necessary in 1993 not to be convinced by the meta-analysis reported by Yusuf, et al (1993)?
   + _study design_: meta-analysis of randomized trials, allowing for prior distributions that express skepticism about large effects
-  + _outcome measure_: odds ratio for in-hospital mortality, w/ odds ratios less than 1 favouring magnesium
+  + _outcome measure_: odds ratio for in-hospital mortality, w/ odds ratios less than 1 favoring magnesium
   + _statistical model_:
-    + investigating all three approaches to modelling the multiple trials
+    + investigating all three approaches to modeling the multiple trials
       + a 'pooled' analysis assuming identical underlying effects
       + a fixed-effects analysis assuming independent, unrelated effects
-      + a random-effects analysis assuming exchangable treatment effects
+      + a random-effects analysis assuming exchangeable treatment effects
     + assume a normal hierarchical model on the $\log(OR)$ scale
     + adopting an empirical Bayes analysis using estimates of the overall mean $\mu$ and the between-study standard deviation $\tau$
   + _prospective analysis?_: No
@@ -1591,7 +1591,7 @@ Year: 2004
       + $n_k$: the effective number of events assuming $\sigma = 2$
       + shrinkage coefficients $B_k = s_k^2/(s_k^2 + \hat{\tau}^2)$, w/ $\hat{\tau} = 0.29$
     + the classical test for heterogeneity, Q, Eq. (33): not significant (9.35 on 7 degrees of freedom)
-    + the moethod-of-moments estimate, Eq. (37): $\tau = 0.29$
+    + the method-of-moments estimate, Eq. (37): $\tau = 0.29$
     + Fig. 13: Profile log(likelihood) of $\tau$
       + superimposed on this plot: the changing parameter estimates for different values of $\tau$
       + reasonable support for values of $\tau \in (0, 1)$
@@ -1669,25 +1669,25 @@ Year: 2004
       + not really a Bayesian technique
       + no prior distributions for parameters
       + conclusion: reported in the traditional way
-    + as an approximate Bayesian analysis w/ exchangeability btw treatments and unifrom prior on unknown parameters
+    + as an approximate Bayesian analysis w/ exchangeability btw treatments and uniform prior on unknown parameters
   + _Sensitivity analysis_
     + finding: meta-analysis w/ uniform prior distributions, whether a pooled- or random-effects analysis $\implies$ a significant benefit from magnesium
     + dispute about the conflict btw the finding and the results of the ISIS-4 mega-trial
     + the robustness of the meta-analysis $\implies$ the choice of prior distribution
-    + using the credibility analysis to check whether the findings robust to a reasonable expression of prior skepticism concering large benefits
+    + using the credibility analysis to check whether the findings robust to a reasonable expression of prior skepticism concerning large benefits
     + the pooled analysis to find unconvincing the pooled analysis ($95\% = (0.52, 0.86)$) $\impliedby$ a skeptical prior w/ a lower 95% point at around 0.80
     + Fig. 15: Critical skeptical prior for the _pooled_ analysis, just sufficient to make posterior 95% interval include 1
-      + this degree of scepticism seems unreasonably severe, as it equivalent to having already observed 421 events – 210.5 on each treatment
+      + this degree of skepticism seems unreasonably severe, as it equivalent to having already observed 421 events – 210.5 on each treatment
       + the pooled likelihood and the 'critical' skeptical prior distribution $implies$ a posterior tail area of 0.025 above OR = 1
       + the prior $\sim N(0, 262/421)$: a trial w/ 421 events observed, exactly the same number in each arm
       + a particular extreme form of skepticism in that it essentially rules out all effects greater than around 20% on prior grounds
     + Fig. 16: Critical skeptical prior for _random-effects_ analysis, just sufficient to make posterior 95% interval include 1
-      + this degree of scepticism appears quite reasonable, corresponding to 58 events (29 in each arm) in a previous ‘imaginary trial’.
+      + this degree of skepticism appears quite reasonable, corresponding to 58 events (29 in each arm) in a previous ‘imaginary trial’.
       + random-effects analysis w/ $95\% CI = (0.38, 0.89)$
       + the lower end of the skeptical interval: 0.6
       + finding $OR < 0.6$ extremely surprising
       + a reasonably skeptical prior $\implies$ the meta-analysis unconvincing
-      + 'if one assumed that only moderate sized effects were possible, the apparent large effects observed in the meta-analysis of small trials w/ magnesium .. should perhapses have been tempered by this general judgement. If a result appears too good to be true, it probably is.' - S. Yusuf, Meta-analysis of randomized trials: Looking back and looking again, Controlled Clinical Trials, 1997
+      + 'if one assumed that only moderate sized effects were possible, the apparent large effects observed in the meta-analysis of small trials w/ magnesium .. should perhaps have been tempered by this general judgment. If a result appears too good to be true, it probably is.' - S. Yusuf, Meta-analysis of randomized trials: Looking back and looking again, Controlled Clinical Trials, 1997
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
@@ -1726,12 +1726,12 @@ Year: 2004
     + not assuming normal approximations to likelihoods
       + control group risks for binomial data
       + control group rates for Poisson data
-    + full Bayesian modelling of sample variances for normal data
+    + full Bayesian modeling of sample variances for normal data
     + adopting an approximation at the the sampling level for hierarchical models
     + full Bayesian analysis of the remaining nuisance parameters: the between-group standard deviation $\tau$
 
 + Sensitivity analysis
-  + importance: nuisance parametres of prior distributions
+  + importance: nuisance parameters of prior distributions
   + innocuous choices may exert unintended influence
   + hybrid strategy
     + using traditional methods to eliminate nuisance parameters before carrying out a Bayesian analysis on $\theta$ alone
@@ -1774,7 +1774,7 @@ Year: 2004
 ## 3.19 Computational issues
 
 + Computation and Bayesian approach
-  + full probability modelling
+  + full probability modeling
     + a.k.a. the Bayesian approach
     + applying probability theory to a model derived from substantive knowledge
     + able to deal w/ realistically complex situations
@@ -1787,7 +1787,7 @@ Year: 2004
 ### 3.19.1 Monte Carlo methods
 
 + Monte Carlo methods
-  + a toolkit of techniques aiming oo evaluating integrals or sums by simulation rather than exact or approximate algebraic analysis
+  + a toolkit of techniques aiming on evaluating integrals or sums by simulation rather than exact or approximate algebraic analysis
   + a.k.a. probabilistic sensitivity analysis
   + the simulated quantities passed into a standard spreadsheet and the resulting distributions of the outputs of the spreadsheet reflecting the uncertainty about the inputs
   + used for Bayesian analysis provided the prior/current posterior distribution of concern is a member of a known family
@@ -1836,13 +1836,13 @@ Year: 2004
 
 + Essential components of MCMC methods
   + _replacing analytic methods by simulation_
-    + observing some data $y$ to make inference about a parmeter $\theta$ of interest
+    + observing some data $y$ to make inference about a parameter $\theta$ of interest
     + the likelihood $p(y | \theta, \psi)$ featuring a set of nuisance parameters $\psi$
     + eg. $\theta$ = the average treatment effect in a meta-analysis, $\psi$ = the control and treatment group response rates in the individual trials
     + Bayesian approach
       + a joint prior distribution $p(\theta, \psi)$
       + the joint posterior posterior $p(\theta, \psi | y) \propto p(y|\theta, \psi) p(\theta, \psi)$ 
-      + integrating out the nuisance parameteers to give the marginal posterior of interest
+      + integrating out the nuisance parameters to give the marginal posterior of interest
 
       \[ p(\theta | y) = \int p(\theta, \psi | y) d\psi \]
 
@@ -1869,7 +1869,7 @@ Year: 2004
     + checking convergence of a Markov chain to its equilibrium distribution not straightforward
     + diagnosing lack of convergence simply by observing erratic behavior of the sample values
     + fact: a chain w/ a steady trajectory $\neq$ sampling from the correct posterior distribution
-    + stucking in a particular area due to the choice of initial values
+    + stuck in a particular area due to the choice of initial values
     + solution:
       + best to run multiple chains from a adverse set of initial values
       + formal diagnostics to check whether these chains end up
@@ -1889,7 +1889,7 @@ Year: 2004
     + a stand-alone program not integrated w/ any traditional statistical package for data manipulation, exploratory analyses and so on
     + skilled users on Bayesian analysis, including
       + accessing the impact of the chosen prior and likelihood
-      + adepuatedly checking the fit of the model
+      + adepuately checking the fit of the model
       + checking convergence
   + WinBUGS reference
     + [Windows](https://www.mrc-bsu.cam.ac.uk/software/bugs/the-bugs-project-winbugs/)
@@ -1897,7 +1897,7 @@ Year: 2004
     + [Python 3 module - PyMC](https://github.com/pymc-devs/pymc)
 
 + Example 15 -- Drug (cont.): Using WinBUGS to implement Markov chain Monte Carlo methods
-  + using the exact form in Example 10 of the beta-binormial distribution to obtain the predictive distribution of the number of successes in future Bernoulli trials
+  + using the exact form in Example 10 of the beta-binomial distribution to obtain the predictive distribution of the number of successes in future Bernoulli trials
   + the current uncertainty about the probability of success expressed as a beta distribution
   + basic components of the model
 
@@ -1914,14 +1914,14 @@ Year: 2004
       + oval: random quantity
       + single arrow: stochastic dependence
       + double arrow: a logical function
-    + resulting structure: like a spreadsheet but allowing uncertiinty on the dependencies
+    + resulting structure: like a spreadsheet but allowing uncertainty on the dependencies
   + relevant values for the model
     + prior distribution: $a = 9.2, b = 13.8$
     + number of trials: $m = 20$
     + number of success: $y = 15$
     + future number of trial: $n = 40$
     + critical value of future successes: $n_{crit} = 25$
-  + best way: checking convergency by carrying out multiple runs from widely dispersed starting point
+  + best way: checking convergence by carrying out multiple runs from widely dispersed starting point
   + initial values: $\theta = 0.1, 0.5, 0.9$
   + Fig. 19: Some results based on 30 000 iterations
     + convergence rapidly achieved in such a simple model
@@ -1950,7 +1950,7 @@ Year: 2004
     + using 'confidence levels' of the posterior distribution calculated from a normalized likelihood and a uniform prior
   + the __proper__ Bayes approach
     + informative prior distribution based on available evidence
-    + conclusion: summarized by posterior distributions w/o explicit incorportation of utility functions
+    + conclusion: summarized by posterior distributions w/o explicit incorporation of utility functions
     + focusing on hypothesis testing using Bayes factor
     + Bayes factor analysis:
       + entertaining the possibility of the precise truth of the null hypothesis
@@ -1961,16 +1961,16 @@ Year: 2004
   + the __decision-theoretic__ or 'full' Bayes approach
     + explicit utility functions used to make decisions based on maximizing expected utility
     + debate:
-      + incorproating an explicit loss function or not
+      + incorporating an explicit loss function or not
       + a health-care evaluation $\stackrel{?}{\implies}$ an inference about a treatment effect or decision as to future policy
     + important objections
-      + the lack of a coherent theory for decison-making on behave of multiple audiences w/ different utility functions
+      + the lack of a coherent theory for decision-making on behave of multiple audiences w/ different utility functions
       + the difficulty of obtaining agree utility values
       + a strict decision-theoretic view $\implies$ future treatments being recommended on the basis of even marginal expected gains
       + w/o any concern as to the level of confidence w/ which such a recommendation is made
     + [coherency principle](https://en.wikipedia.org/wiki/Coherence_(statistics)#In_Bayesian_decision_theory): the assumption that personal probabilities follow the ordinary rules for probability calculations and thus that consistent decisions obtained from these probabilities
     + [utility theory](https://www.sciencedirect.com/topics/psychology/utility-theory):
-      + quantative representations of qualitative relations
+      + quantitative representations of qualitative relations
       + $\succsim$:
         + a binary preference relation on an arbitrary nonempty set
         + a weak ordering relation
@@ -1993,13 +1993,13 @@ Year: 2004
   + instructions of 'the Annuals of Internal Medicine'
   + The BaSiS (Bayesian Standards in Science)
   + CONSORT guidelines
-    + D. Moher, F. Schulz and D. Altman, [The CONSORT statement: revised recommendations for improving the quality of reports of parallel-group randomised trials](https://www.equator-network.org/wp-content/uploads/2013/09/CONSORT-2010-Checklist-MS-Word.doc), Lancet, 2001
+    + D. Moher, F. Schulz and D. Altman, [The CONSORT statement: revised recommendations for improving the quality of reports of parallel-group randomized trials](https://www.equator-network.org/wp-content/uploads/2013/09/CONSORT-2010-Checklist-MS-Word.doc), Lancet, 2001
 
 + Checklist of Bayesian assessments of health-care intervention
   + __Background__
     + _the intervention_: evaluated w.r.t. the population of interest and so on
     + _amin of study_
-      + a clear ditinguish made btw prior distribution and explicit or implicit considertion of a loss or utility function
+      + a clear distinguish made btw prior distribution and explicit or implicit consideration of a loss or utility function
       + prior distribution: desired inferences on any quantity or quantities of interest, representing the parameters to be estimated
       + explicit or implicit considertion of a loss or utility function: any decisions or recommendations for action to be made subsequent to the inferences
   + __Methods__
@@ -2010,15 +2010,15 @@ Year: 2004
     + _statistical model_
       + the probabilistic relationship btw the parameter(s) of interest and the observed data
       + relationship on mathematics or in such a way to allow its mathematic form to be unambiguously obtained by a competent reader
-      + any model seletion procedure, whether Bayesian or not
+      + any model selection procedure, whether Bayesian or not
     + _prospective Bayesian analysis?_
       + whether the prior and any loss function were constructed preceding the data collection
-      + whether analysis carried out durinng the study
-    + _proior distribution_
+      + whether analysis carried out during the study
+    + _prior distribution_
       + giving explicit prior distributions for the parameters of interest
       + informative: detailing the deviation of the prior from an elicitation process or empirical evidence
       + non-informative:
-        + justifing the effect of using different priors on the conclusion of the study
+        + justifying the effect of using different priors on the conclusion of the study
         + stating the prior and alternative priors explicitly
     + _loss function or demand_
       + an explicit method of deducting scientific consequences selected in advanced
@@ -2039,7 +2039,7 @@ Year: 2004
         + a presentation of posterior credible intervals
         + a graphical presentation of the posterior distribution
       + describing the formal or informal loss function and the results
-      + current summary for immedite action
+      + current summary for immediate action
         + a synthesis of all relevant sources of evidence
         + a contributor of information to a future evidence synthesis
     + _sensitivity analysis_: the results of any alternative prior and/or expressions of the consequences of decisions
