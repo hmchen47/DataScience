@@ -228,6 +228,38 @@ Year: 2004
   + Berger, J. and Berry, D. A. (1988) [Statistical analysis and the illusion of objectivity](http://ifmlab.for.unb.ca/people/kershaw/Courses/Research_Methods/Readings/BergerJO1988a.pdf). American Scientist, 76, 159–65.
   + treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
++ [Neyman-Pearson lemma](https://en.wikipedia.org/wiki/Neyman%E2%80%93Pearson_lemma)
+  + performing a hyposis test btw two simple hypotheses, $H_0 \theta = 0$ and  $H_1: \theta = \theta_1$ w/
+  + using the likelihood ratio test  w/ threshold $\eta$
+  + rejecting $H_0$ in favor of $H_1$ at a significance level of 
+
+    \[ \alpha = P(\Lambda(x) \leq \eta | H_0) \]
+
+    + $\Lambda(x) = \frac{\mathcal{L}(\theta_0 | x)}{\mathcal{L}(\theta_1 | x)}$
+    + $\mathcal{L}(\theta | \theta)$: th elikelihood function
+  + the Neyman-Pearson lemma: the likelihood ratio, $\Lambda(x)$, is the __most powerful test__ at signifiance level $\alpha$
+  + Properties
+    + the test is most powerful for $\theta_1 \in \Theta_1 \implies$ test as uniformly most powerful (UMP) for alternatives in the set $\Theta_1$
+    + the likelihood ratio: used directly to construct tests
+  + Example:
+    + $X_1, X_2, \dots, X_n$: a random sample from $N(\mu, \sigma^2)$
+    + test: $H_0: \sigma^2 = \sigma_0^2$ against $H_1: \sigma^2 = \sigma_1^2$
+    + the likelihood for this set of normal distributed data
+
+      \[ \mathcal{L}(\sigma^2 | x) \propto (\sigma^2)^{-n/2} \exp \left( - \frac{\sum_{i=1}^n (x_i - \mu)^2}{2\sigma^2} \right) \]
+
+    + the likelihood ratio
+
+      \[ \Lambda(x) = \frac{\sigma_0^2 | x}{\mathcal{L}(\sigma_1^2 | x)} = \left( \frac{\sigma_0}{\sigma_1} \right)^{-n/2} \exp \left( -\frac{1}{2}(\sigma_0^2 - \sigma_1^2) \right) \sum_{i=1}^n (x_i - \mu)^2 \]
+
+    + the ratio only depends on the data through $\sum_{i=1}^n (x_i - \mu)^2$
+    + by Heyman-Peearson lemma, the most powerful test for this data only depends on $\sum_{i=1}^n (x_i - \mu)^2$
+    + $\sigma_1^2 > \sigma_0^2 \implies \Lambda(x)$ is a decreasing function of $\sum_{i=1}^n (x_i - \mu)^2$
+    + reject $H_0$ if $\sum_{i=1}^n (x_i - \mu)^2$ is sufficient large
+    + the rejection threshold depending on the size of the test
+    + $\therefore$ test statistic w/ a scaled $\chi^2$ distributed random variable $\implies$ obtaining an exact critical value $\eta$
+
+
 ## 3.2 Bayes theorem for two hypotheses
 
 + Prior to posterior analysis
