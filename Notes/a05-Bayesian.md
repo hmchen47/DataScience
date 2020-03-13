@@ -33,7 +33,7 @@ Author: J. Martin Bland and Douglas G. Altman
   + using the data to modify the prior probability distribution $\implies$ posterior distribution
   + e.g., survey of 1000 subjects
     + 15 (1.4%) to be diabetic
-    + posterior distribution: $\mu = 1.7\%, \sigma = 0.3\% \implies 95\% CI = (1.2\%, 2.4\%)$
+    + posterior distribution: $\mu = 1.8\%, \sigma = 0.3\% \implies 95\% CI = (1.2\%, 2.4\%)$
   + the Bayesian method: an estimate nearer the prior mean and narrower interval
 
 + The frequentist analysis
