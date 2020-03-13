@@ -2126,7 +2126,7 @@ Year: 2004
 
 + Bayesian methods
   + found on the explicit use of judgement, formally expressed as prior belief and possibly loss functions
-  + reasonably dependng on the context abnd the audience
+  + reasonably dependng on the context and the audience
   + aiming to convince a wide range of opinion $\implies$ subjective inputs strongly argued and subject to sensitivity analysis
 
 + Bayes theorem and Bayes factor
@@ -2146,9 +2146,9 @@ Year: 2004
   + Bayesian methods providing a flexible means of making predictions
   + helped by MCMC methods
 
-+ Hierarchical models: providing a flexible and widely applicable structure when wanting to simultaneously analuse multiple sources of evidence
++ Hierarchical models: providing a flexible and widely applicable structure when wanting to simultaneously analyze multiple sources of evidence
 
-+ Decision-theoretic approach: appropriate ehere the consequences of a study considered reasonably predictable
++ Decision-theoretic approach: appropriate where the consequences of a study considered reasonably predictable
 
 + Normal approximation
   + used in many context, particularly when deriving likelihood from standard analyses
