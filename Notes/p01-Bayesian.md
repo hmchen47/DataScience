@@ -2048,7 +2048,7 @@ Year: 2004
 
 ## 3.22 Further reading
 
-+ Hostorical Bayesian methods
++ Historical Bayesian methods
   + Bayes, T. (1763). An essay towards solving a problem in the doctrine of chances. Philosophical Transactions of the Royal Society
   + Fienberg, S. (1992). [A brief history of statistics in three and one-half chapters: a review essay](https://projecteuclid.org/download/pdf_1/euclid.ss/1177011360). Statistical Science
   + Dempster, A. (1998). Bayesian methods. In [Encyclopedia of Biostatistics](http://93.174.95.29/main/197000/8598d404442a1611852ea189297c3cc8/Peter%20%20Armitage%2C%20Theodore%20Colton%20-%20Encyclopedia%20of%20Biostatistics.%208-Volume%20Set-John%20Wiley%20%282005%29.pdf) (P. Armitage and T. Colton, eds), pp. 263–71. John Wiley & Sons, Ltd, Chichester.
@@ -2072,7 +2072,6 @@ Year: 2004
     + Etzioni, R. and Kadane, J. B. (1995) [Bayesian statistical methods in public health and medicine](https://www.researchgate.net/profile/Ruth_Etzioni/publication/15559026_Bayesian_Statistical_Methods_in_Public_Health_and_Medicine/links/547f282c0cf2de80e7cc7742/Bayesian-Statistical-Methods-in-Public-Health-and-Medicine.pdf?_sg%5B0%5D=8gj6VEp17dpngWJcYeONLvnK7ftPaZdlbEOc1rJiuxMik1FEluhRs7eh6RNuapl4gx8Q1eUj-20zHg0lTqHVaA.ibNGxgBqQDeAqowNKPOaKz0bQ03MSKiyS_P2kpcdK3W5ya54Gei0_dpAEpSvGNWBUC9PZ7PArEZrmlHDrU_zQw&_sg%5B1%5D=IyNdxLApOqqbJDB_hb5fE_X4Q90R3VhSF3Bp0eVLYIrGOnJ3Q_za-WvbZGWqgZyZ5SPYCqUAqbpXn758acbdPVytLqhnjxNauBpIxmjN_p0x.ibNGxgBqQDeAqowNKPOaKz0bQ03MSKiyS_P2kpcdK3W5ya54Gei0_dpAEpSvGNWBUC9PZ7PArEZrmlHDrU_zQw&_sg%5B2%5D=b0W9nwmPddcD5C5WMDX4ShlEZe-P3DqLkGL32W5D5J1JSKLn1z9mzXErHRZtnD5nSk8Syc9Uq8PkSn4.UFK6xSzgWlxMf-OaAENZ_HC-AA0ccKQhl-HIzrYl5jHAzyxjiXbJMWEYMoSo-ssG2vCyQlctqY68VWosNTVfJA&_iepl=). Annual Review of Public Health
   + concentrating on the ability to combine 'objective' evidence w/ clinical judgement
     + Freedman, L. (1996) [Bayesian statistical methods – a natural way to assess clinical evidence](https://go.gale.com/ps/i.do?id=GALE%7CA18742215&sid=googleScholar&v=2.1&it=r&linkaccess=fulltext&issn=17592151&p=AONE&sw=w). British Medical Journal
-    + concentrating on the ability to combine 'objective' evidence w/ clinical judgement
     + Lilford, R. J. and Braunholtz, D. (1996). [The statistical basis of public policy: a paradigm shift is overdue]((https://europepmc.org/articles/PMC2352073/pdf/bmj00558-0039.pdf)). British Medical Journal
   + providing a recent review of biomedical applications
     + Stangl, D. K. and Berry, D. A. (1998) [Bayesian statistics in medicine: where we are and where we should be going](https://www.researchgate.net/profile/Dalene_Stangl/publication/2468864_Bayesian_Statistics_in_Medicine_Where_Are_We_and_Where_Should_We_Be_Going/links/0deec5283b35bc368c000000/Bayesian-Statistics-in-Medicine-Where-Are-We-and-Where-Should-We-Be-Going.pdf?_sg%5B0%5D=u1bikiZu4vJkf5gaE-RmW0HeC8U29JausVjxzMjoFuJxosJXDslgmpQpgH0LRIHPlE1T4unWDRylNb2Ofwl2CA.xKugHZSrMMtzz6dOS-td7FQIV408fwnjqowX7GD0V-yjU3FOaeDMsuquuVgPxuAz_NZPWucjh6pCL8LdFV5g0A&_sg%5B1%5D=REgx3lRGZVtru-fhnTp9xUhQ4YeKTGocDAMHKGuqjyg9BSN9FYYw3ngdVIAZjwNO2f-jFArxxvYyTNYVYE73hEa8sFHMwB5pNzlj2Uyc_GRp.xKugHZSrMMtzz6dOS-td7FQIV408fwnjqowX7GD0V-yjU3FOaeDMsuquuVgPxuAz_NZPWucjh6pCL8LdFV5g0A&_iepl=). Sankhya, Series B
@@ -2123,7 +2122,7 @@ Year: 2004
     + Greenland, S. (2000) [Principles of multilevel modelling](https://watermark.silverchair.com/290158.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAlQwggJQBgkqhkiG9w0BBwagggJBMIICPQIBADCCAjYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMGscchAjT8PcG_58BAgEQgIICB96Iu8G7V0Ic4O-mSiR_TFyn_6kwozWjpIbP8mHgGc-cD1ib5qqT180HFlWEvrwVLfOnxS9Mp1VwMIwblPJ50A_2NwTW1MhywJ1n1yzHc9_2C3U38mjaHGOn-ZIc1fXQlgZL3BCC0n9s7T41W-ciLANq3rh49CmkjIQ9e9iDeqYHLXv9SjoK5NiOJZ-yIl9Rn-SJwE687IcIKaTQvpjw8sdGS5szarA-g2Rqby6KiuLFJtmPre6VAvnycW8LlLMzI-L05r4M8IKHj5k_ygcFhxB9GpWGMlMxeTfM_QfwK19fpeCuHu7xD8jIblnsru9AEe_FT0GVNXa5IlNVQ8WYNHYcrFwdxYIcoQ8D7axgUxkog6F4-sAzY7x96i4lyKrZLoSmgHKCmTiItTLqSH2qlpfRXJACMkj9oujNrvmFfQQOowUBh1Hsuymsw5UwcYfvzO2vQhnKwAYWtD6Km4fPDZJXdoLSY79UDcr_7VFSD0wM0MECL0kziaPHXtwODWGr4NwRBCHD3Ihg6b-fN5mi00S50todP7MFFxorOWWMMAV4b2ty_mzHUY6CbxCNln1eqzldHULDcfXiMB7jVMbRmNk7Cl7B0g0cFc0JwjvVv0pFE-8GdU_mpt8Ad8129Nn1fPKcvk0nx0NVPvEFGUct4TlK4vzTTo7pTeiKj012SaS1CqYc4e3IzA). International Journal of Epidemiology
 
 
-## 3.23 Key points 116
+## 3.23 Key points
 
 
 
