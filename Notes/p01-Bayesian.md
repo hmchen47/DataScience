@@ -2124,16 +2124,40 @@ Year: 2004
 
 ## 3.23 Key points
 
++ Bayesian methods
+  + found on the explicit use of judgement, formally expressed as prior belief and possibly loss functions
+  + reasonably dependng on the context abnd the audience
+  + aiming to convince a wide range of opinion $\implies$ subjective inputs strongly argued and subject to sensitivity analysis
 
++ Bayes theorem and Bayes factor
+  + Bayes theorem: providing a natural means of revising opinions in the light of new evidence
+  + Bayes factor / likelihood ratio: providing a scale on which to access the weight of evidence for or against specific hypotheses
 
++ Bayesian methods as transformer
+  + a transformation from initial to final opinion
+  + not providing a single 'correct' inference
 
++ Exchangeability
+  + a vital judgement
+  + exchangeable observations justify the use of parametric models and prior distribution
+  + exchangeable parameters $\implies$ use of hierarchical models
 
++ Preditions
+  + Bayesian methods providing a flexible means of making predictions
+  + helped by MCMC methods
 
++ Hierarchical models: providing a flexible and widely applicable structure when wanting to simultaneously analuse multiple sources of evidence
 
-## Exercises
++ Decision-theoretic approach: appropriate ehere the consequences of a study considered reasonably predictable
 
++ Normal approximation
+  + used in many context, particularly when deriving likelihood from standard analyses
+  + generally entail transformation btw different scales of measurement
 
-
++ Stnadard for Bayesian reporting: <br/>the most important aspect is to provide details of
+  + each of the prior distribution
+  + its justification
+  + its influence assessed through sensitivity analysis
 
 
 
