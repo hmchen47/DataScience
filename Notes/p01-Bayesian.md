@@ -2078,10 +2078,10 @@ Year: 2004
     + Stangl, D. K. and Berry, D. A. (1998) [Bayesian statistics in medicine: where we are and where we should be going](https://www.researchgate.net/profile/Dalene_Stangl/publication/2468864_Bayesian_Statistics_in_Medicine_Where_Are_We_and_Where_Should_We_Be_Going/links/0deec5283b35bc368c000000/Bayesian-Statistics-in-Medicine-Where-Are-We-and-Where-Should-We-Be-Going.pdf?_sg%5B0%5D=u1bikiZu4vJkf5gaE-RmW0HeC8U29JausVjxzMjoFuJxosJXDslgmpQpgH0LRIHPlE1T4unWDRylNb2Ofwl2CA.xKugHZSrMMtzz6dOS-td7FQIV408fwnjqowX7GD0V-yjU3FOaeDMsuquuVgPxuAz_NZPWucjh6pCL8LdFV5g0A&_sg%5B1%5D=REgx3lRGZVtru-fhnTp9xUhQ4YeKTGocDAMHKGuqjyg9BSN9FYYw3ngdVIAZjwNO2f-jFArxxvYyTNYVYE73hEa8sFHMwB5pNzlj2Uyc_GRp.xKugHZSrMMtzz6dOS-td7FQIV408fwnjqowX7GD0V-yjU3FOaeDMsuquuVgPxuAz_NZPWucjh6pCL8LdFV5g0A&_iepl=). Sankhya, Series B
 
 + General Bayesian methods
-  + Cornfield, J. (1969) The Bayesian outlook and its applications. Biometrics
-    + a theoretical justification of the Bayesian approaches, in terms of ideas such as coherence
-  + Edwards, W., Lindman, H. and Savage, L. (1963) Bayesian statistical inference for psychological research. Psychological Review
-    + one of the best technical introductions to the Bayesian philosophy
+  + a theoretical justification of the Bayesian approaches, in terms of ideas such as coherence
+    + Cornfield, J. (1969) The Bayesian outlook and its applications. Biometrics
+  + one of the best technical introductions to the Bayesian philosophy
+    + Edwards, W., Lindman, H. and Savage, L. (1963) Bayesian statistical inference for psychological research. Psychological Review
 
 + Tutorial introductions
   + Lindley, D. V. (1991) [Making Decisions (2nd edition)](http://93.174.95.29/main/694000/dcee93121458749ef6faf913f4e7b761/Dennis%20V.%20Lindley%20-%20Making%20Decisions%2C%202nd%20Edition-Wiley%20%281991%29.epub) John Wiley & Sons, Ltd, London
@@ -2093,6 +2093,34 @@ Year: 2004
   + Carlin, B. P. and Louis, T. A. (2000) [Bayes and Empirical Bayes Methods for Data Analysis (2nd edition)](http://93.174.95.29/main/788000/94c5fe05b9f2dd72cb4f6513f311f15e/Bradley%20P.%20Carlin%2C%20Thomas%20A.%20Louis%2C%20Bradley%20Carlin%20-%20Bayes%20and%20Empirical%20Bayes%20Methods%20for%20Data%20Analysis%2C%20Second%20Edition%20%20%20%20-Chapman%20and%20Hall_CRC%20%282000%29.pdf) Chapman & Hall/CRC, Boca Raton, FL 
   + Berger, J. (1985) [Statistical Decision Theory and Bayesian Inference](https://b-ok.org/book/638094/eecfb4). Springer-Verlag, Berlin
   + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](https://b-ok.org/book/703263/bfd7b3). John Wiley & Sons, Ltd, Chichester.
+
++ Special issues
+  + decision theory, aximatic approaches and backwards induction
+    + DeGroot, M. H. (1970). [Optimal Statistical Decisions](https://b-ok.org/book/3613671/8d13e8). McGraw-Hill, New York
+  + exchangeability
+    + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](https://b-ok.org/book/703263/bfd7b3). John Wiley & Sons, Ltd, Chichester.
+  + Bayes factors
+    + Kass, R. E. and Raftery, A. (1995) [Bayes factors and model uncertainty](https://www.stat.washington.edu/sites/default/files/files/reports/1993/tr254.pdf). Journal of the American Statistical Association
+
++ Computational issues
+  + a range of methods used, normal approximations, Laplace approximations and numerical methods including MCMC
+    + Carlin, B. P. and Louis, T. A. (2000) [Bayes and Empirical Bayes Methods for Data Analysis (2nd edition)](http://93.174.95.29/main/788000/94c5fe05b9f2dd72cb4f6513f311f15e/Bradley%20P.%20Carlin%2C%20Thomas%20A.%20Louis%2C%20Bradley%20Carlin%20-%20Bayes%20and%20Empirical%20Bayes%20Methods%20for%20Data%20Analysis%2C%20Second%20Edition%20%20%20%20-Chapman%20and%20Hall_CRC%20%282000%29.pdf) Chapman & Hall/CRC, Boca Raton, FL 
+    + Etzioni, R. and Kadane, J. B. (1995) [Bayesian statistical methods in public health and medicine](https://www.researchgate.net/profile/Ruth_Etzioni/publication/15559026_Bayesian_Statistical_Methods_in_Public_Health_and_Medicine/links/547f282c0cf2de80e7cc7742/Bayesian-Statistical-Methods-in-Public-Health-and-Medicine.pdf?_sg%5B0%5D=t3JjA1Qs2DZ41uaXXTMa57E2QJdNSVLZmB2brqucZUjUVumIXXBPhAN8k1dQj0w14WIjtX_qY1DOQRjrmAoInQ.MbXBavqXrL_mA9wzA9umheaQUK7dbbSVdgLdg9fgK8RBwf8WrRjfIJ8GLlKeDbaeJBa_1HVbsWIc7fEKa8b5_g&_sg%5B1%5D=LaNljfKY2b4GKa164SySufpKU0FpMb-5gYGF3qsJMi7ZMJfbWWGPB0ZUCn-5JZdr0-FfI-kyGmMeIo6p5-sDSgjPlVkzPU2pclDunmfSSoLd.MbXBavqXrL_mA9wzA9umheaQUK7dbbSVdgLdg9fgK8RBwf8WrRjfIJ8GLlKeDbaeJBa_1HVbsWIc7fEKa8b5_g&_sg%5B2%5D=M6lbh2R9uqHJleJwKApDgbxK0nFQNLAhy14-9yzYTjYchpPCHCGIf0av2Ck4MZJdYjFdVEvSStwgP34.P8Mtes1EFE0BX1ngeM5DX4DUMAoVW6TXfk_2K1pw5SEswGadBRWLeojoDs83SbA61SVrD3ZQI7qbDafZfjWr0g&_iepl=). Annual Review of Public Health
+  + MCMC methods in biostatistics
+    + Gelman, A. and Rubin, D. B. (1996) [Markov chain Monte Carlo methods in biostatistics](http://www.stat.columbia.edu/~gelman/research/published/med4.pdf). Statistical Methods in Medical Research
+  + a commentary on the importance of computational methods in the future of biostatistics
+    + van Houwelingen, H. C. (1997) [The future of biostatistics: expecting the unexpected](https://www.ime.usp.br/~abe/lista/pdfrqWHp1OSOU.pdf). Statistics in Medicine
+
++ Hierarchical models
+  + an early proponent of the Bayesian approach yo multiplicity
+    + Cornfield, J. (1969) The Bayesian outlook and its applications. Biometrics, 25, 617–57.
+    + Cornfield, J. (1976) [Recent methodological contributions to clinical trials](https://pdfs.semanticscholar.org/ec22/6ec1500c920f306cada080197a51c3f1bf3c.pdf). American Journal of Epidemiology
+  + many examples of problems of multiplicity and reviews the use of empirical Bayes methods for longitudinal data, small-area mapping, estimation of a large number of relative risks in a case-control study, and multiple tumour sites in a taxicology experiment
+    + Breslow, N. (1990) [Biostatistics and Bayes]((https://projecteuclid.org/download/pdf_1/euclid.ss/1177012092)). Statistical Science
+  + reviewing the area and providing a detailed case study
+    + Louis, T. A. (1991). Using empirical Bayes methods in biopharmaceutical research. Statistics in Medicine
+  + justification
+    + Greenland, S. (2000) [Principles of multilevel modelling](https://watermark.silverchair.com/290158.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAlQwggJQBgkqhkiG9w0BBwagggJBMIICPQIBADCCAjYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMGscchAjT8PcG_58BAgEQgIICB96Iu8G7V0Ic4O-mSiR_TFyn_6kwozWjpIbP8mHgGc-cD1ib5qqT180HFlWEvrwVLfOnxS9Mp1VwMIwblPJ50A_2NwTW1MhywJ1n1yzHc9_2C3U38mjaHGOn-ZIc1fXQlgZL3BCC0n9s7T41W-ciLANq3rh49CmkjIQ9e9iDeqYHLXv9SjoK5NiOJZ-yIl9Rn-SJwE687IcIKaTQvpjw8sdGS5szarA-g2Rqby6KiuLFJtmPre6VAvnycW8LlLMzI-L05r4M8IKHj5k_ygcFhxB9GpWGMlMxeTfM_QfwK19fpeCuHu7xD8jIblnsru9AEe_FT0GVNXa5IlNVQ8WYNHYcrFwdxYIcoQ8D7axgUxkog6F4-sAzY7x96i4lyKrZLoSmgHKCmTiItTLqSH2qlpfRXJACMkj9oujNrvmFfQQOowUBh1Hsuymsw5UwcYfvzO2vQhnKwAYWtD6Km4fPDZJXdoLSY79UDcr_7VFSD0wM0MECL0kziaPHXtwODWGr4NwRBCHD3Ihg6b-fN5mi00S50todP7MFFxorOWWMMAV4b2ty_mzHUY6CbxCNln1eqzldHULDcfXiMB7jVMbRmNk7Cl7B0g0cFc0JwjvVv0pFE-8GdU_mpt8Ad8129Nn1fPKcvk0nx0NVPvEFGUct4TlK4vzTTo7pTeiKj012SaS1CqYc4e3IzA). International Journal of Epidemiology
 
 
 ## 3.23 Key points 116
