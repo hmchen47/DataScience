@@ -2046,12 +2046,53 @@ Year: 2004
     + _comments_:  including an honest appraisal of the strengths and possible weaknesses of the analysis
 
 
-## 3.22 Further reading 115
+## 3.22 Further reading
 
++ Hostorical Bayesian methods
+  + Bayes, T. (1763). An essay towards solving a problem in the doctrine of chances. Philosophical Transactions of the Royal Society
+  + Fienberg, S. (1992). [A brief history of statistics in three and one-half chapters: a review essay](https://projecteuclid.org/download/pdf_1/euclid.ss/1177011360). Statistical Science
+  + Dempster, A. (1998). Bayesian methods. In [Encyclopedia of Biostatistics](http://93.174.95.29/main/197000/8598d404442a1611852ea189297c3cc8/Peter%20%20Armitage%2C%20Theodore%20Colton%20-%20Encyclopedia%20of%20Biostatistics.%208-Volume%20Set-John%20Wiley%20%282005%29.pdf) (P. Armitage and T. Colton, eds), pp. 263–71. John Wiley & Sons, Ltd, Chichester.
 
++ General introduction
+  + Berry, D. A. and Stangl, D. K. (eds) (1996) [Bayesian Biostatistics](http://93.174.95.29/main/995000/f91dfeab477e3f4359a9a9c06dcc9dac/Emmanuel%20Lesaffre%2C%20Andrew%20B.%20Lawson%28auth.%29%20-%20Bayesian%20Biostatistics%20%282012%29.pdf). Marcel Dekker,NewYork.
+  + covering a whole range of modelling issues: elicitation, model choice, computation, prediction and decision-making
 
++ Non-technical tutorial
+  + Lewis, R. J. and Wears, R. L. (1993) An introduction to the Bayesian analysis of clinical trials. Annals of Emergency Medicine
+  + Bland, J. M. and Altman, D. G. (1998) [Statistics notes: Bayesians and frequentists](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1114120/). British Medical Journal
+  + Lilford, R. J. and Braunholtz, D. (1996). [The statistical basis of public policy: a paradigm shift is overdue](https://europepmc.org/articles/PMC2352073/pdf/bmj00558-0039.pdf). British Medical Journal
+  + O’Hagan, A. and Luce, B. R. (2003) [A Primer on Bayesian Statistics in Health Economics and Outcomes Research](http://gemini-grp.com/Bayes/OHaganPrimer.pdf). Centre for Bayesian Statistics in Health Economics, Sheffield.
 
++ Merits of Bayesian approaches in health-care evaluation
+  + concentrating on the ability to deal w/ varieties of outcomes, designs and sources of bias
+    + Eddy, D. M., Hasselblad, V. and Shachter, R. (1990) A Bayesian method for synthesizing evidence: The confidence profile method. International Journal of Technology Assessment in Health Care
+  + stress the flexibility w/ which multiple similar studies can be handled
+    + Breslow, N. (1990) [Biostatistics and Bayes](https://projecteuclid.org/download/pdf_1/euclid.ss/1177012092). Statistical Science
+  + general applications in the health sciences w/ an emphasis on decision-making
+    + Etzioni, R. and Kadane, J. B. (1995) [Bayesian statistical methods in public health and medicine](https://www.researchgate.net/profile/Ruth_Etzioni/publication/15559026_Bayesian_Statistical_Methods_in_Public_Health_and_Medicine/links/547f282c0cf2de80e7cc7742/Bayesian-Statistical-Methods-in-Public-Health-and-Medicine.pdf?_sg%5B0%5D=8gj6VEp17dpngWJcYeONLvnK7ftPaZdlbEOc1rJiuxMik1FEluhRs7eh6RNuapl4gx8Q1eUj-20zHg0lTqHVaA.ibNGxgBqQDeAqowNKPOaKz0bQ03MSKiyS_P2kpcdK3W5ya54Gei0_dpAEpSvGNWBUC9PZ7PArEZrmlHDrU_zQw&_sg%5B1%5D=IyNdxLApOqqbJDB_hb5fE_X4Q90R3VhSF3Bp0eVLYIrGOnJ3Q_za-WvbZGWqgZyZ5SPYCqUAqbpXn758acbdPVytLqhnjxNauBpIxmjN_p0x.ibNGxgBqQDeAqowNKPOaKz0bQ03MSKiyS_P2kpcdK3W5ya54Gei0_dpAEpSvGNWBUC9PZ7PArEZrmlHDrU_zQw&_sg%5B2%5D=b0W9nwmPddcD5C5WMDX4ShlEZe-P3DqLkGL32W5D5J1JSKLn1z9mzXErHRZtnD5nSk8Syc9Uq8PkSn4.UFK6xSzgWlxMf-OaAENZ_HC-AA0ccKQhl-HIzrYl5jHAzyxjiXbJMWEYMoSo-ssG2vCyQlctqY68VWosNTVfJA&_iepl=). Annual Review of Public Health
+  + concentrating on the ability to combine 'objective' evidence w/ clinical judgement
+    + Freedman, L. (1996) [Bayesian statistical methods – a natural way to assess clinical evidence](https://go.gale.com/ps/i.do?id=GALE%7CA18742215&sid=googleScholar&v=2.1&it=r&linkaccess=fulltext&issn=17592151&p=AONE&sw=w). British Medical Journal
+    + concentrating on the ability to combine 'objective' evidence w/ clinical judgement
+    + Lilford, R. J. and Braunholtz, D. (1996). [The statistical basis of public policy: a paradigm shift is overdue]((https://europepmc.org/articles/PMC2352073/pdf/bmj00558-0039.pdf)). British Medical Journal
+  + providing a recent review of biomedical applications
+    + Stangl, D. K. and Berry, D. A. (1998) [Bayesian statistics in medicine: where we are and where we should be going](https://www.researchgate.net/profile/Dalene_Stangl/publication/2468864_Bayesian_Statistics_in_Medicine_Where_Are_We_and_Where_Should_We_Be_Going/links/0deec5283b35bc368c000000/Bayesian-Statistics-in-Medicine-Where-Are-We-and-Where-Should-We-Be-Going.pdf?_sg%5B0%5D=u1bikiZu4vJkf5gaE-RmW0HeC8U29JausVjxzMjoFuJxosJXDslgmpQpgH0LRIHPlE1T4unWDRylNb2Ofwl2CA.xKugHZSrMMtzz6dOS-td7FQIV408fwnjqowX7GD0V-yjU3FOaeDMsuquuVgPxuAz_NZPWucjh6pCL8LdFV5g0A&_sg%5B1%5D=REgx3lRGZVtru-fhnTp9xUhQ4YeKTGocDAMHKGuqjyg9BSN9FYYw3ngdVIAZjwNO2f-jFArxxvYyTNYVYE73hEa8sFHMwB5pNzlj2Uyc_GRp.xKugHZSrMMtzz6dOS-td7FQIV408fwnjqowX7GD0V-yjU3FOaeDMsuquuVgPxuAz_NZPWucjh6pCL8LdFV5g0A&_iepl=). Sankhya, Series B
 
++ General Bayesian methods
+  + Cornfield, J. (1969) The Bayesian outlook and its applications. Biometrics
+    + a theoretical justification of the Bayesian approaches, in terms of ideas such as coherence
+  + Edwards, W., Lindman, H. and Savage, L. (1963) Bayesian statistical inference for psychological research. Psychological Review
+    + one of the best technical introductions to the Bayesian philosophy
+
++ Tutorial introductions
+  + Lindley, D. V. (1991) [Making Decisions (2nd edition)](http://93.174.95.29/main/694000/dcee93121458749ef6faf913f4e7b761/Dennis%20V.%20Lindley%20-%20Making%20Decisions%2C%202nd%20Edition-Wiley%20%281991%29.epub) John Wiley & Sons, Ltd, London
+  + Barnett, V. (1999). [Comparative Statistical Inference (3rd edition)](http://93.174.95.29/main/997000/369ea9ce6bff2c12b20f03c0db4fba45/%28Wiley%20Series%20in%20Probability%20and%20Statistics%29%20Vic%20Barnett%28auth.%29%20-%20Comparative%20Statistical%20Inference%2C%20Third%20Edition%20%281999%29.pdf). John Wiley & Sons, Ltd, Chichester
+  + Berry, D. A. (1995) [Statistics: A Bayesian Perspective](http://93.174.95.29/main/635000/fe3960851c39c6f4af26d8196bd05bbe/Donald%20A.%28Donald%20A.%20Berry%29%20Berry%20-%20Statistics_%20A%20Bayesian%20Perspective-Duxbury%20Press%20%281995%29.pdf). Duxbury Press, Belmont, CA.
+  + Lee, P. M. (1997) [Bayesian Statistics: An Introduction (2nd edition)](https://b-ok.org/book/2361200/ce3a2c). Edward Arnold, London.
+  + O’Hagan, A. (1994) [Kendall’s Advanced Theory of Statistics Vol 2B: Bayesian Inference](https://b-ok.org/dl/2446063/b7ee99). Arnold, London
+  + Gelman, A., Carlin, J., Stern, H. and Rubin, D. B. (1995) [Bayesian Data Analysis](https://b-ok.org/dl/2494866/2ad658). Chapman & Hall, London
+  + Carlin, B. P. and Louis, T. A. (2000) [Bayes and Empirical Bayes Methods for Data Analysis (2nd edition)](http://93.174.95.29/main/788000/94c5fe05b9f2dd72cb4f6513f311f15e/Bradley%20P.%20Carlin%2C%20Thomas%20A.%20Louis%2C%20Bradley%20Carlin%20-%20Bayes%20and%20Empirical%20Bayes%20Methods%20for%20Data%20Analysis%2C%20Second%20Edition%20%20%20%20-Chapman%20and%20Hall_CRC%20%282000%29.pdf) Chapman & Hall/CRC, Boca Raton, FL 
+  + Berger, J. (1985) [Statistical Decision Theory and Bayesian Inference](https://b-ok.org/book/638094/eecfb4). Springer-Verlag, Berlin
+  + Bernardo, J. M. and Smith, A. F. M. (1994) [Bayesian Theory](https://b-ok.org/book/703263/bfd7b3). John Wiley & Sons, Ltd, Chichester.
 
 
 ## 3.23 Key points 116
