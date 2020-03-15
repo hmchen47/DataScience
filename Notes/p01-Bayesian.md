@@ -61,29 +61,32 @@ Year: 2004
     + learning about the assumed underlying distribution of quantities observed
     + generally carried out by assuming that the probability distributions follow a particular _parametric_ form $p(y | \theta)$
     + the distribution of $Y$ depends on some currently unknown parameter $\theta$
-  + Bayesian inference: considered as random variables but the usual convention of capital and lower-case letters is ignore, to no apparent detriment
+  + Bayesian inference: parameters $\theta$s considered as random variables to no apparent detriment
   + likelihood $p(Y | \theta)$:
-    + once data $y$ observed, a function of $\theta \to$ extend to which different values $\theta$ are supported by the data
+    + a function of $\theta \to$ different values $\theta$ supported by the observed data $y$
     + summarizing all the information that the data $y$ able to provide about the parameter $\theta$
-  + any function of $\theta$ proportional to $p(y|\theta)$ can be considered as the likelihood
-  + likelihood function: the relative plausibility of different values of $\theta$
+  + the likelihood: any function of $\theta$ proportional to $p(y|\theta)$ considered
+  + likelihood function: the relative plausibility of different values of $\theta$ w/ given data $y$
   + maximum likelihood estimate: with the value of $\theta$ for which the likelihood is a maximum
-  + using a range of values which are _best_ supported by the data as an interval estimate for $\theta$
-  + a reasonable range defined by values of the likelihood above $\exp(-1.96^2/2) = 14.7\%$ of the maximum value
-  + in practice, constructing intervals in such a manner is laborious, and in general approximate likelihood functions by the normal distribution
-  + example: Bernoulli
-    + $n$ individuals and measured the $i$-th individual responds to treatment, $Y_i = 1$, or not, $Y_i = 0$
-    + assume a set of independent Bernoulli trials such that the probability of response is $\theta$
-    + joint distribution for all $n$ individuals
+  + interval estimate for $\theta$:
+    + def: a range of values _best_ supported by the data
+    + a reasonable range: the likelihood above $\exp(-1.96^2/2) = 14.7\%$ of the maximum value
+    + in practice, constructing intervals laborious
+    + in general, approximating likelihood functions by the normal distribution
 
-      \[\begin{align*}
-        p(y_1, \dots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \\
-          &= \underbrace{\theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r}}_{y_1, \dots, y_n \text{ independent}}
-      \end{align*}\]
++ Example: independent Bernoulli trials for likelihood
+  + $n$ individuals and measured the $i$-th individual responds to treatment, $Y_i = 1$, or not, $Y_i = 0$
+  + assume a set of independent Bernoulli trials such that the probability of response is $\theta$
+  + joint distribution for all $n$ individuals
 
-      + $r = \sum_i y_i$: the number of responders
-    + likelihood maximized at $\hat{\theta} = r/n$
-    + the maximum likelihood estimate proportional to responders
+    \[\begin{align*}
+      p(y_1, \dots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \\
+        &= \theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r}
+    \end{align*}\]
+
+    + $r = \sum_i y_i$: the number of responders
+  + likelihood maximized at $\hat{\theta} = r/n$
+  + the maximum likelihood estimate proportional to responders
 
 + [The posterior distribution](https://www.statisticshowto.datasciencecentral.com/posterior-distribution-probability/)
   + Wikipedia: the probability distribution of an unknown quantity, treated as a random variable, conditional on the evidence obtained from an experiment or survey
@@ -102,21 +105,6 @@ Year: 2004
     + not enough samples & different trials $\to$ different population means
   + sampling distribution: the probability distribution of a given random-sample-based statistic
   + likelihood principle: the proposition that, given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
-  + joint probability distribution
-    + joint probability: the probability of two events occurring simultaneously
-    + a probability distribution giving the probability that each $X, Y, \dots$ falls in any particular range or discrete set of values specified for that variable
-    + the joint probability density function of random variable $X$ and $Y$ is $f_{X, Y}(x, y)$, the marginal probability density function of $X$ and $Y$
-
-      \[ f_X(x) = \int f_{XY} (x, y) dy, \qquad f_Y(y) = \int f_{XY} (x, y) dx \]
-
-  + marginal distribution
-    + marginal probability: the probability of an event irrespective of the outcome of another variable
-    + the marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset
-    + two random variables independent $\iff$ their joint distribution function equal to the product of their marginal distribution functions
-    + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $b \in [c, d]$
-
-      \[ f_Y(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
-
   + frequency interpretation of probability: long-run properties of repeated random events
   + frequentist:
     + standard statistical methods
@@ -163,6 +151,21 @@ Year: 2004
     + applied to process or equipment and systems
     + FEMA used proactively when designing a new system or process for a high-risk or complex process or during an inter-professional process w/ hands-off and interdependent steps
     + w/ its roots in the engineering industry
+
++ Joint probability distribution
+  + joint probability: the probability of two events occurring simultaneously
+  + a probability distribution giving the probability that each $X, Y, \dots$ falls in any particular range or discrete set of values specified for that variable
+  + the joint probability density function of random variable $X$ and $Y$ is $f_{X, Y}(x, y)$, the marginal probability density function of $X$ and $Y$
+
+    \[ f_X(x) = \int f_{XY} (x, y) dy, \qquad f_Y(y) = \int f_{XY} (x, y) dx \]
+
++ Marginal distribution
+  + marginal probability: the probability of an event irrespective of the outcome of another variable
+  + the marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset
+  + two random variables independent $\iff$ their joint distribution function equal to the product of their marginal distribution functions
+  + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $b \in [c, d]$
+
+    \[ f_Y(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
 
 + Binomial and Bernoulli distributions
   + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
@@ -258,6 +261,7 @@ Year: 2004
     + reject $H_0$ if $\sum_{i=1}^n (x_i - \mu)^2$ is sufficient large
     + the rejection threshold depending on the size of the test
     + $\therefore$ test statistic w/ a scaled $\chi^2$ distributed random variable $\implies$ obtaining an exact critical value $\eta$
+
 
 
 ## 3.2 Bayes theorem for two hypotheses
