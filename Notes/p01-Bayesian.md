@@ -232,15 +232,15 @@ Year: 2004
   + treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
 + [Neyman-Pearson lemma](https://en.wikipedia.org/wiki/Neyman%E2%80%93Pearson_lemma)
-  + performing a hyposis test btw two simple hypotheses, $H_0 \theta = 0$ and  $H_1: \theta = \theta_1$ w/
+  + performing a hypothesis test btw two simple hypotheses, $H_0 \theta = 0$ and  $H_1: \theta = \theta_1$ w/
   + using the likelihood ratio test  w/ threshold $\eta$
-  + rejecting $H_0$ in favor of $H_1$ at a significance level of 
+  + rejecting $H_0$ in favor of $H_1$ at a significance level of
 
     \[ \alpha = P(\Lambda(x) \leq \eta | H_0) \]
 
     + $\Lambda(x) = \frac{\mathcal{L}(\theta_0 | x)}{\mathcal{L}(\theta_1 | x)}$
     + $\mathcal{L}(\theta | \theta)$: th elikelihood function
-  + the Neyman-Pearson lemma: the likelihood ratio, $\Lambda(x)$, is the __most powerful test__ at signifiance level $\alpha$
+  + the Neyman-Pearson lemma: the likelihood ratio, $\Lambda(x)$, is the __most powerful test__ at significance level $\alpha$
   + Properties
     + the test is most powerful for $\theta_1 \in \Theta_1 \implies$ test as uniformly most powerful (UMP) for alternatives in the set $\Theta_1$
     + the likelihood ratio: used directly to construct tests
@@ -256,11 +256,100 @@ Year: 2004
       \[ \Lambda(x) = \frac{\sigma_0^2 | x}{\mathcal{L}(\sigma_1^2 | x)} = \left( \frac{\sigma_0}{\sigma_1} \right)^{-n/2} \exp \left( -\frac{1}{2}(\sigma_0^2 - \sigma_1^2) \right) \sum_{i=1}^n (x_i - \mu)^2 \]
 
     + the ratio only depends on the data through $\sum_{i=1}^n (x_i - \mu)^2$
-    + by Heyman-Peearson lemma, the most powerful test for this data only depends on $\sum_{i=1}^n (x_i - \mu)^2$
+    + by Heyman-Pearson lemma, the most powerful test for this data only depends on $\sum_{i=1}^n (x_i - \mu)^2$
     + $\sigma_1^2 > \sigma_0^2 \implies \Lambda(x)$ is a decreasing function of $\sum_{i=1}^n (x_i - \mu)^2$
     + reject $H_0$ if $\sum_{i=1}^n (x_i - \mu)^2$ is sufficient large
     + the rejection threshold depending on the size of the test
     + $\therefore$ test statistic w/ a scaled $\chi^2$ distributed random variable $\implies$ obtaining an exact critical value $\eta$
+
++ The likelihood principle
+  + all the information that the data provide about the parameter is contained in the likelihood
+  + data only influence the relative plausibility of an alternative hypothesis through the relative likelihood
+  + Bayesian inference automatically obeys this principle
+  + example -- Stopping: The likelihood principle in action
+    + survey:
+      + 6 people have ach been given treatments A and B and asked which they prefer
+      + 5 preferred A and one preferred B
+    + task: what evidence is this against the null hypothesis that A and B are preferred equally in the population?
+    + notation & assumption
+      + $\theta$: the true unknown proportation in the population preferring A
+      + null hypothesis: $H_0: \theta = 0.5$
+    + the likelihood proportional to $\theta^5 (1 - \theta)$
+    + th elikelihood principle: all the evidence about $\theta$ to be derived from this experiment can be extracted from this function, using either likelihood or Bayesian methods
+    + $P$-value
+      + the probability of observing a result at least as extreme as the data, given the null hypothesis $H_0: \theta = 0.5$
+      + what results are 'at least as extreme'?
+    + suppose that the experimenter decided in advance that 6 people were to be included
+    + table: two different experimental designs
+      + design 1: ask six subjects whether they prefer A or B
+      + design 2: ask subjects sequentially until one prefers B and the stop
+      + observed data comprise 5 preferences for A and one for B
+      + highlighted values indicate potential data 'at least as extreme' as that observed under the null hypothesis $H_0$ of no overall preference in the population
+    + Design 1:
+      + the results of the experiment and their probabilities under $H_0$
+      + w/ 'at least as extreme as observed' outcomes highlighted in bold
+      + these probabilities come from the binomial distribution $Bin(0.5, 6)$
+      + not clear how to handle the probability of the observation itself when defining what is 'as extreme'
+      + adopting the standard convention of including half its probability
+      + one-side $P$-value: $\frac{1}{2}(6/64) + 1/64 = 0.0625$
+      + two-side $P$-value: 0.13
+      + S. Goodman, 'Towards evidence-based medical statistics: 1. The P value fallacy. Annals of Internal Medicine', 1999: consider the one-sided $P$-value including the whole contribution from the observed data, leading to $P = 0.11$
+    + Design 2:
+      + mistake made in reporting the results 
+      + the experimenter using a different (an admittedly rather strange) sampling procedure
+      + procedure: carrying on experimenting until someone preferred B
+      + the possible results w/ those 'at least as extreme as observed' highlighted
+      + the probabilities follow a 'geometric' distribution in which the chance of first getting a B preference on the $n$th trial s $1/2^n$
+      + $P$-value: $\frac{1}{2} (1/64) + 1/128 + 1/256 + \dots = \frac{1}{2}(1/64) + 1/64 = 3/128 = 0.023$
+      + two-sided $P-value = 0.046 \implies$ 'significant' at $P < 0.05$
+    + the intention of the experimenter dedicated the conclusions to be drawn from the results
+    + the $P$-value depends on what would have happened had something else been observed
+    + the likelihood principle claims such behavior is nonsensical, since only the observed data influence the conclusions and this is through the likelihood alone
+
+      <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+        <caption style="font-size: 1.5em; margin: 0.2em;">Two different experimental designs</caption>
+        <thead>
+        <tr>
+          <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Design 1</th>
+          <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Design 2</th>
+        </tr>
+        <tr>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$Y_1 =$ No. subject <br/>preferring A</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Probability<br/> under $H_0$</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$Y_2 =$ First subject<br/> preferring B</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Probability<br/> under $H_0$</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="text-align: center;">
+          <td>0</td> <td>1/64</td> <td>1</td> <td>1/2</td>
+        </tr>
+        <tr style="text-align: center;">
+          <td>1</td> <td>6/64</td> <td>2</td> <td>1/4</td>
+        </tr>
+        <tr style="text-align: center;">
+          <td>2</td> <td>15/64</td> <td>3</td> <td>1/8</td>
+        </tr>
+        <tr style="text-align: center;">
+          <td>3</td> <td>20/64</td> <td>4</td> <td>1/16</td>
+        </tr>
+        <tr style="text-align: center;">
+          <td>4</td> <td>15/64</td> <td>5</td> <td>1/32</td>
+        </tr>
+        <tr style="text-align: center; font-weight: bold;">
+          <td>5</td> <td>6/64</td> <td>6</td> <td>1/64</td>
+        </tr>
+        <tr style="text-align: center; font-weight: bold;">
+          <td>6</td> <td>1/64</td> <td>7</td> <td>1/128</td>
+        </tr>
+        <tr style="text-align: center; font-weight: bold;">
+          <td></td> <td></td> <td>8</td> <td>1/256</td>
+        </tr>
+        <tr style="text-align: center;">
+          <td></td> <td></td> <td>etc.</td> <td>etc.</td>
+        </tr>
+        </tbody>
+      </table>
 
 
 
