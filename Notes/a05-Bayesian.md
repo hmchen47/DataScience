@@ -58,8 +58,8 @@ Author: J. Martin Bland and Douglas G. Altman
   + intractable computational problems
   + choice of Bayesian or frequentist: unknown which existed
 
-+ Colutions for computational issue
-  + computer intensive methods of analysis developed
++ Conclusions for computational issue
+  + developing computer intensive methods of analysis
   + new approaches to very difficult statistical problems, such as the location of geographical clusters of cases of a disease
   + a change in the statistical paradigm
 
