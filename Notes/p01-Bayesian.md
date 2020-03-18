@@ -104,11 +104,10 @@ Year: 2004
     + the standard deviation ($sd$) of its sampling distribution or an estimate of that standard deviation
     + not enough samples & different trials $\to$ different population means
   + sampling distribution: the probability distribution of a given random-sample-based statistic
-  + likelihood principle: the proposition that, given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
   + frequency interpretation of probability: long-run properties of repeated random events
   + frequentist:
     + standard statistical methods
-    + $p(x)$ is the proportion of times $x$ will occur in an infinitely long series of repeated identical situations
+    + $p(x)$: the proportion of times $x$ will occur in an infinitely long series of repeated identical situations
   + odds ($O$):
     + the probability ($p$) that the event will occur divided by the probability ($1 - p$) that the event will not occur
     + used to describe the chance of an event occurring
@@ -117,7 +116,7 @@ Year: 2004
   
   + logit: the natural logarithm of the odds
 
-  \[ \text{logit}(p) = \ln(\frac{p}{1 - p}) \tag{Odds.log} \]
+    \[ \text{logit}(p) = \ln(\frac{p}{1 - p}) \tag{Odds.log} \]
 
   + Bayes theorem
 
@@ -125,18 +124,18 @@ Year: 2004
 
   + The odds form of Bayes theorem
 
-    \[ \frac{p(b|a)}{p(b|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \tag{Bayes.odds} \]
+    \[ \frac{p(b|a)}{p(\overline{b}|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \tag{Bayes.odds} \]
 
   + [statistically significance](https://www.investopedia.com/terms/s/statistically_significant.asp)
     + a determination by an analyst that the results in the data are not explainable by chance alone
     + the likelihood that a relationship btw two or more variables caused by something other than chance
     + used to provide evidence concerning the plausibility of the null hypothesis, which hypothesizes that there is nothing more than random chance at work in the data
-    + a p-value of 5% or lower often considered to be statistically significant
+    + a $p$-value of 5% or lower often considered to be statistically significant
   + [statistical hypothesis testing](https://www.investopedia.com/terms/h/hypothesistesting.asp)
     + the method by which the analyst makes this determination
     + an act in statistics whereby an analyst tests an assumption regarding a population parameter
     + used to assess the plausibility of a hypothesis by using sample data
-  + [p-value](https://www.investopedia.com/terms/p/p-value.asp)
+  + [$p$-value](https://www.investopedia.com/terms/p/p-value.asp)
     + the probability of observing results as extreme as those in the data, assuming the results are truly due to chance alone
     + the probability of obtaining results as extreme as the observed results of a statistical hypothesis test, assuming that the null hypothesis is correct
     + used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected
@@ -155,7 +154,7 @@ Year: 2004
 + Joint probability distribution
   + joint probability: the probability of two events occurring simultaneously
   + a probability distribution giving the probability that each $X, Y, \dots$ falls in any particular range or discrete set of values specified for that variable
-  + the joint probability density function of random variable $X$ and $Y$ is $f_{X, Y}(x, y)$, the marginal probability density function of $X$ and $Y$
+  + $f_{X, Y}(x, y)$: the joint probability density function of random variable $X$ and $Y$, the marginal probability density function of $X$ and $Y$
 
     \[ f_X(x) = \int f_{XY} (x, y) dy, \qquad f_Y(y) = \int f_{XY} (x, y) dx \]
 
@@ -163,15 +162,15 @@ Year: 2004
   + marginal probability: the probability of an event irrespective of the outcome of another variable
   + the marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset
   + two random variables independent $\iff$ their joint distribution function equal to the product of their marginal distribution functions
-  + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $b \in [c, d]$
+  + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $y \in [c, d]$
 
-    \[ f_Y(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
+    \[ f_X(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
 
 + Binomial and Bernoulli distributions
   + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
   + $\theta$: the probability of success in each Bernoulli trial
-  + $\theta^y (1 - \theta)^{n-y}$: the likelihood, the probability for a specific sequence of $n-y$ 'failure' and '$y$ 'successes', $\begin{pmatrix} n \\ y \end{pmatrix}$ sequences
-  + $Y \sim Bin[n, \theta]$: a binomial distribution w/ properties
+  + $\theta^y (1 - \theta)^{n-y}$: the likelihood, the probability for a specific sequence of $n-y$ 'failure' and $y$ 'successes', $\begin{pmatrix} n \\ y \end{pmatrix}$ sequences
+  + $Y \sim Bin(n, \theta)$: a binomial distribution w/ properties
 
     \[\begin{align*}
       p(y | n, \theta) & = \begin{pmatrix} n \\ y \end{pmatrix} \theta^y (1-\theta)^{n-y}, \qquad y = 0, 1, \dots, n \tag{Bin.prob} \\
@@ -179,7 +178,7 @@ Year: 2004
       Var(Y | n, \theta) &= n \theta (1-\theta) \tag{Bin.var}
     \end{align*}\]
 
-  + $Y \sim Bern[\theta]$: a Bernoulli distribution, a binomial w/ $n=1$
+  + $Y \sim Bern(\theta)$: a Bernoulli distribution, a binomial w/ $n=1$
 
 + Beta distribution
   + a flexible and mathematically convenient class for quantities contained to lie btw 0 and 1
@@ -197,7 +196,7 @@ Year: 2004
 + [the Beta-Binomial distribution](https://en.wikipedia.org/wiki/Beta-binomial_distribution)
   + the Beta distribution as a conjugate distribution of the binomial distribution
   + an analytically tractable compound distribution
-  + $p$ parameter in the binomial distribution as being randomly draw from a beta distribution
+  + $\theta$ parameter in the binomial distribution as being randomly draw from a beta distribution
   
     \[ X \sim Bin(n, \theta) \implies p(X=k | p, n) = L(p | k) = \begin{pmatrix} n \\ k \end{pmatrix} \theta^k (1-\theta)^{n-k} \]
 
@@ -225,21 +224,21 @@ Year: 2004
     + not assumed as self-evident
     + able to derived from 'deeper' axioms of reasonable behavior of an individual
   + probabilities _for_ events rather than probabilities _of_ events
-  + the probability is a reflection of personal uncertainty rather than necessarily being based on future unknown events illustrated by a gambling game
+  + a reflection of personal uncertainty rather than necessarily being based on future unknown events
 
 + Bayesian statistics
   + Berger, J. and Berry, D. A. (1988) [Statistical analysis and the illusion of objectivity](http://ifmlab.for.unb.ca/people/kershaw/Courses/Research_Methods/Readings/BergerJO1988a.pdf). American Scientist, 76, 159–65.
   + treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
 + [Neyman-Pearson lemma](https://en.wikipedia.org/wiki/Neyman%E2%80%93Pearson_lemma)
-  + performing a hypothesis test btw two simple hypotheses, $H_0 \theta = 0$ and  $H_1: \theta = \theta_1$ w/
+  + performing a hypothesis test btw two simple hypotheses, $H_0: \theta = \theta_0$ and  $H_1: \theta = \theta_1$
   + using the likelihood ratio test  w/ threshold $\eta$
   + rejecting $H_0$ in favor of $H_1$ at a significance level of
 
     \[ \alpha = P(\Lambda(x) \leq \eta | H_0) \]
 
     + $\Lambda(x) = \frac{\mathcal{L}(\theta_0 | x)}{\mathcal{L}(\theta_1 | x)}$
-    + $\mathcal{L}(\theta | \theta)$: th elikelihood function
+    + $\mathcal{L}(\theta | x)$: the likelihood function
   + the Neyman-Pearson lemma: the likelihood ratio, $\Lambda(x)$, is the __most powerful test__ at significance level $\alpha$
   + Properties
     + the test is most powerful for $\theta_1 \in \Theta_1 \implies$ test as uniformly most powerful (UMP) for alternatives in the set $\Theta_1$
@@ -253,30 +252,31 @@ Year: 2004
 
     + the likelihood ratio
 
-      \[ \Lambda(x) = \frac{\sigma_0^2 | x}{\mathcal{L}(\sigma_1^2 | x)} = \left( \frac{\sigma_0}{\sigma_1} \right)^{-n/2} \exp \left( -\frac{1}{2}(\sigma_0^2 - \sigma_1^2) \right) \sum_{i=1}^n (x_i - \mu)^2 \]
+      \[ \Lambda(x) = \frac{\mathcal{L}(\sigma_0^2 | x)}{\mathcal{L}(\sigma_1^2 | x)} = \left( \frac{\sigma_0}{\sigma_1} \right)^{-n/2} \exp \left( -\frac{1}{2}(\sigma_0^2 - \sigma_1^2) \right) \sum_{i=1}^n (x_i - \mu)^2 \]
 
     + the ratio only depends on the data through $\sum_{i=1}^n (x_i - \mu)^2$
     + by Heyman-Pearson lemma, the most powerful test for this data only depends on $\sum_{i=1}^n (x_i - \mu)^2$
-    + $\sigma_1^2 > \sigma_0^2 \implies \Lambda(x)$ is a decreasing function of $\sum_{i=1}^n (x_i - \mu)^2$
+    + $\sigma_1^2 > \sigma_0^2 \implies \Lambda(x)$ a decreasing function of $\sum_{i=1}^n (x_i - \mu)^2$
     + reject $H_0$ if $\sum_{i=1}^n (x_i - \mu)^2$ is sufficient large
     + the rejection threshold depending on the size of the test
     + $\therefore$ test statistic w/ a scaled $\chi^2$ distributed random variable $\implies$ obtaining an exact critical value $\eta$
 
 + The likelihood principle
-  + all the information that the data provide about the parameter is contained in the likelihood
+  + proposition: given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
+  + all the information that the data provides about the parameter is contained in the likelihood
   + data only influence the relative plausibility of an alternative hypothesis through the relative likelihood
   + Bayesian inference automatically obeys this principle
   + example -- Stopping: The likelihood principle in action
     + survey:
-      + 6 people have ach been given treatments A and B and asked which they prefer
+      + 6 people given treatments A and B and asking preference
       + 5 preferred A and one preferred B
     + task: what evidence is this against the null hypothesis that A and B are preferred equally in the population?
     + notation & assumption
-      + $\theta$: the true unknown proportation in the population preferring A
+      + $\theta$: the true unknown proportion in the population preferring A
       + null hypothesis: $H_0: \theta = 0.5$
     + the likelihood proportional to $\theta^5 (1 - \theta)$
-    + th elikelihood principle: all the evidence about $\theta$ to be derived from this experiment can be extracted from this function, using either likelihood or Bayesian methods
-    + $P$-value
+    + the likelihood principle: all the evidence about $\theta$ to be derived from this experiment can be extracted from this function, using either likelihood or Bayesian methods
+    + $p$-value
       + the probability of observing a result at least as extreme as the data, given the null hypothesis $H_0: \theta = 0.5$
       + what results are 'at least as extreme'?
     + suppose that the experimenter decided in advance that 6 people were to be included
@@ -291,19 +291,19 @@ Year: 2004
       + these probabilities come from the binomial distribution $Bin(0.5, 6)$
       + not clear how to handle the probability of the observation itself when defining what is 'as extreme'
       + adopting the standard convention of including half its probability
-      + one-side $P$-value: $\frac{1}{2}(6/64) + 1/64 = 0.0625$
-      + two-side $P$-value: 0.13
-      + S. Goodman, 'Towards evidence-based medical statistics: 1. The P value fallacy. Annals of Internal Medicine', 1999: consider the one-sided $P$-value including the whole contribution from the observed data, leading to $P = 0.11$
+      + one-side $p$-value: $\frac{1}{2}(6/64) + 1/64 = 0.0625$
+      + two-side $p$-value: 0.13
+      + S. Goodman, 'Towards evidence-based medical statistics: 1. The P value fallacy. Annals of Internal Medicine', 1999: consider the one-sided $p$-value including the whole contribution from the observed data, leading to $P = 0.11$
     + Design 2:
       + mistake made in reporting the results 
       + the experimenter using a different (an admittedly rather strange) sampling procedure
       + procedure: carrying on experimenting until someone preferred B
       + the possible results w/ those 'at least as extreme as observed' highlighted
-      + the probabilities follow a 'geometric' distribution in which the chance of first getting a B preference on the $n$th trial s $1/2^n$
-      + $P$-value: $\frac{1}{2} (1/64) + 1/128 + 1/256 + \dots = \frac{1}{2}(1/64) + 1/64 = 3/128 = 0.023$
-      + two-sided $P-value = 0.046 \implies$ 'significant' at $P < 0.05$
+      + the probabilities follow a 'geometric' distribution in which the chance of first getting a B preference on the $n$-th trials $1/2^n$
+      + $p$-value: $\frac{1}{2} (1/64) + 1/128 + 1/256 + \dots = \frac{1}{2}(1/64) + 1/64 = 3/128 = 0.023$
+      + two-sided $p-value = 0.046 \implies$ 'significant' at $p < 0.05$
     + the intention of the experimenter dedicated the conclusions to be drawn from the results
-    + the $P$-value depends on what would have happened had something else been observed
+    + the $p$-value depends on what would have happened had something else been observed
     + the likelihood principle claims such behavior is nonsensical, since only the observed data influence the conclusions and this is through the likelihood alone
 
       <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
@@ -1502,7 +1502,7 @@ Year: 2004
   + consider a couple w/o previous history of an NTD
     + cite an incidence rate of 3.3/1000 pregnancies in a non-supplemented population
     + $p = 0.001$ and the trial odds ratio applied to this group $\implies$ an estimate of $p_1 = 0.0033, p_0 - p_1 = 0.0023, NNT = 435$
-    + prefer supplmentation if $U_1/U_0 < 1 - 0.00001 \times 435 \approx 0.996$
+    + prefer supplementation if $U_1/U_0 < 1 - 0.00001 \times 435 \approx 0.996$
   
 + Decision-making and Bayesian methods
   + focused on the utility of consequences than the use of Bayesian methods to revise opinions
