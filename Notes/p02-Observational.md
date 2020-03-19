@@ -7,7 +7,68 @@ Author: Jae W. Song and Kevin C. Chung
 
 ## Introduction
 
++ Observational studies
+  + category of study design
+  + providing results similar to randomized control trials
+  + challenging the belief
 
++ Evidence-based medicine (EBM)
+  + levels of evidence based medicine
+
+    <table frame="box" rules="all" class="rendered small default_table">
+      <thead>
+        <tr>
+          <th align="left" valign="top" rowspan="1" colspan="1">Level of Evidence</th><th align="left" valign="top" rowspan="1" colspan="1">Qualifying Studies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left" valign="top" rowspan="1" colspan="1">I</td><td align="left" valign="top" rowspan="1" colspan="1">High-quality, multicenter or single-center, randomized controlled trial with adequate power; or systematic review of these studies</td>
+        </tr>
+          <tr><td align="left" valign="top" rowspan="1" colspan="1">II</td><td align="left" valign="top" rowspan="1" colspan="1">Lesser quality, randomized controlled trial; prospective cohort study; or systematic review of these studies</td>
+        </tr>
+          <tr><td align="left" valign="top" rowspan="1" colspan="1">III</td><td align="left" valign="top" rowspan="1" colspan="1">Retrospective comparative study; case-control study; or systematic review of these studies</td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" rowspan="1" colspan="1">IV</td><td align="left" valign="top" rowspan="1" colspan="1">Case-series</td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" rowspan="1" colspan="1">V</td><td align="left" valign="top" rowspan="1" colspan="1">Expert opinion; case report or clinical example; or evidence based on physiology, bench research, or “first principles”</td>
+        </tr>
+      </tbody>
+    </table>
+  
+  + randomized controlled trial (RCT) methodology
+    + held the pre-eminent position in the hierarchy of EBM as level I evidence
+    + developed for drug trials
+    + difficulty for surgical investigations
+  + observational studies
+    + playing an important role in deriving evidence for plastic surgery
+    + level II and III evidence in EBM
+    + recent challenge: vulnerable to influence by unpredictable confounding factors
+    + complement RCTs in hypothesis generation, establishing questions for further RCTs, and defining clinical, and clinical conditions
+
++ Analytic study designs
+  + category of analytic study design (left diagram)
+  + goal: to identify and evaluate causes or risk factors of diseases or health-related events
+  + differences
+    + experimental study:
+      + the presence or absence of undergoing an intervention defining the groups
+    + observational study:
+      + simply observing and accessing the strength of the relationship btw and exposure and outcome (disease variable)
+      + types of observational studies: cohort studies, case-control studies, and cross-sectional studies
+      + case-control and cohort studies: measuring disease occurrence and its association w/ an exposure by offering a temporal dimension(i.e. prospective and retrospective study design)
+      + cross-section / prevalence studies (right diagram)
+        + examining the data on outcome and exposure at one particular time point
+        + no temporal relationship btw disease occurrence and exposure
+        + unable to assess the cause and effect relationship
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761954&s=23&r=1&c=1" style="margin: 0.1em;" alt="Analytic Study Design" title="Analytic Study Design" width=400>
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761958&s=23&r=1&c=1" style="margin: 0.1em;" alt="Temporal Design of Observational Studies: Cross-sectional studies are known as prevalence studies and do not have an inherent temporal dimension." title="Temporal Design of Observational Studies: Cross-sectional studies are known as prevalence studies and do not have an inherent temporal dimension." width=300>
+    </a>
+  </div>
 
 
 ## Cohort Study
