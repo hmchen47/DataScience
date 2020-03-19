@@ -7,61 +7,43 @@ Author: Jae W. Song and Kevin C. Chung
 
 ## Introduction
 
-+ Observational studies
-  + category of study design
-  + providing results similar to randomized control trials
-  + challenging the belief
-
 + Evidence-based medicine (EBM)
-  + levels of evidence based medicine
-
-    <table frame="box" rules="all" class="rendered small default_table">
-      <thead>
-        <tr>
-          <th align="left" valign="top" rowspan="1" colspan="1">Level of Evidence</th><th align="left" valign="top" rowspan="1" colspan="1">Qualifying Studies</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td align="left" valign="top" rowspan="1" colspan="1">I</td><td align="left" valign="top" rowspan="1" colspan="1">High-quality, multicenter or single-center, randomized controlled trial with adequate power; or systematic review of these studies</td>
-        </tr>
-          <tr><td align="left" valign="top" rowspan="1" colspan="1">II</td><td align="left" valign="top" rowspan="1" colspan="1">Lesser quality, randomized controlled trial; prospective cohort study; or systematic review of these studies</td>
-        </tr>
-          <tr><td align="left" valign="top" rowspan="1" colspan="1">III</td><td align="left" valign="top" rowspan="1" colspan="1">Retrospective comparative study; case-control study; or systematic review of these studies</td>
-        </tr>
-        <tr>
-          <td align="left" valign="top" rowspan="1" colspan="1">IV</td><td align="left" valign="top" rowspan="1" colspan="1">Case-series</td>
-        </tr>
-        <tr>
-          <td align="left" valign="top" rowspan="1" colspan="1">V</td><td align="left" valign="top" rowspan="1" colspan="1">Expert opinion; case report or clinical example; or evidence based on physiology, bench research, or “first principles”</td>
-        </tr>
-      </tbody>
-    </table>
-  
+  + levels and qualifying studies
+    + I: High-quality, multicenter or single-center, randomized controlled trial with adequate power; or systematic review of these studies
+    + II: Lesser quality, randomized controlled trial; prospective cohort study; or systematic review of these studies
+    + III: Retrospective comparative study; case-control study; or systematic review of these studies
+    + IV: Case-series
+    + V: Expert opinion; case report or clinical example; or evidence based on physiology, bench research, or “first principles”
   + randomized controlled trial (RCT) methodology
     + held the pre-eminent position in the hierarchy of EBM as level I evidence
     + developed for drug trials
     + difficulty for surgical investigations
   + observational studies
+    + providing results similar to RCTs
+    + challenging the belief
     + playing an important role in deriving evidence for plastic surgery
     + level II and III evidence in EBM
-    + recent challenge: vulnerable to influence by unpredictable confounding factors
-    + complement RCTs in hypothesis generation, establishing questions for further RCTs, and defining clinical, and clinical conditions
+    + recent challenge: vulnerable to influenced by unpredictable confounding factors
+    + complement RCTs in hypothesis generation, establishing questions for further RCTs, and defining clinical conditions
 
 + Analytic study designs
   + category of analytic study design (left diagram)
   + goal: to identify and evaluate causes or risk factors of diseases or health-related events
-  + differences
-    + experimental study:
-      + the presence or absence of undergoing an intervention defining the groups
-    + observational study:
-      + simply observing and accessing the strength of the relationship btw and exposure and outcome (disease variable)
-      + types of observational studies: cohort studies, case-control studies, and cross-sectional studies
-      + case-control and cohort studies: measuring disease occurrence and its association w/ an exposure by offering a temporal dimension(i.e. prospective and retrospective study design)
-      + cross-section / prevalence studies (right diagram)
-        + examining the data on outcome and exposure at one particular time point
-        + no temporal relationship btw disease occurrence and exposure
-        + unable to assess the cause and effect relationship
+  + differences of experimental and observational design
+    + experimental study: the presence or absence of undergoing an intervention defining the groups
+    + observational study: simply observing and accessing the strength of the relationship btw exposure and outcome (disease variable)
+  + Types of observational studies
+    + case-control and cohort studies: measuring disease occurrence and its association w/ an exposure by offering a temporal dimension (i.e. prospective and retrospective study design)
+    + cross-section / prevalence studies
+      + examining the data on outcome and exposure at one particular time point
+      + no temporal relationship btw disease occurrence and exposure
+      + unable to assess the cause and effect relationship
+  + Temporal design of observational studies (right diagram)
+    + cross-sectional study: no inherent temporal dimension
+    + cohort study: either retrospective or prospective
+    + case-control study: retrospective; assessing the history of the subject for the presence or absence of an exposure
+    + retrospective ('retro' = 'back, behind') studies: looking back in time to examine causal association
+    + prospective ('pro') = 'before, in front of') studies: looking ahead in time to examine causal association
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
