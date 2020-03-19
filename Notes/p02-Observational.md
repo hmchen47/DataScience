@@ -55,7 +55,7 @@ Author: Jae W. Song and Kevin C. Chung
 
 ## Cohort Study
 
-+ History
++ Definition of cohort
   + 'cohort' $\gets$ 'cohors' in Latin
   + Roman: a cohort = a specific number of warriors and commanding centurions $\to$ traceable
   + epidemiology: cohort = a set of people followed over a period of time
