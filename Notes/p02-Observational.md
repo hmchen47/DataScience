@@ -55,7 +55,11 @@ Author: Jae W. Song and Kevin C. Chung
 
 ## Cohort Study
 
-
++ History
+  + 'cohort' $\gets$ 'cohors' in Latin
+  + Roman: a cohort = a specific number of warriors and commanding centurions $\to$ traceable
+  + epidemiology: cohort = a set of people followed over a period of time
+  + modern epidemiological definition: a group of people w/ defined characteristics who are followed up to determine incidence of, or mortality from, some specific disease, all causes of death, or some other outcome
 
 
 ### Study design
