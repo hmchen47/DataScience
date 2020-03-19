@@ -62,10 +62,72 @@ Author: Jae W. Song and Kevin C. Chung
   + modern epidemiological definition: a group of people w/ defined characteristics who are followed up to determine incidence of, or mortality from, some specific disease, all causes of death, or some other outcome
 
 
-### Study design
+### Study design of cohort studies
 
++ Cohort study
+  + an outcome or disease-free study population
+  + defined by the exposure or event of interest and followed in time until the disease of outcome of interest occurs (diagram)
+  + exposure identified before outcome $\implies$ a temporal framework to assess causality and then having the potential to provide the strongest scientific evidence
+  + advantages
+    + gather data regarding sequence of events; able to assess causality
+    + examining multiple outcomes for a given exposure
+    + good for investigating rare exposures
+    + able to calculate rates of disease in exposed and unexposed individuals over time(e.g. incidence, relative risk)
+  + disadvantages
+    + requiring large number of subjects to study rare exposures
+    + susceptible to selection bias
+    + prospective cohort study
+      + may be expensive to conduct
+      + may be require long duration to follow up
+      + may be difficult to maintain follow-up
+      + susceptible to loss to follow-up or withdrawals
+    + retrospective cohort study
+      + susceptible to recall bias or information bias
+      + less control over variables
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761962&s=23&r=1&c=1" style="margin: 0.1em;" alt="Cohort study" title="Cohort study" width=500>
+    </a>
+  </div>
 
++ Prospective cohort studies
+  + carried out from the present into the future
+  + designed w/ specific data collection methods
+  + advantage: tailored to collect specific exposure data and more complete
+  + disadvantage:
+    + the long follow-up period while waiting for events or diseases to occur
+    + inefficient for investigating diseases w/ long latency periods
+    + vulnerable to a high loss to follow-up rate
+  + examples: the landmark Framingham Heart study and plastic surgery
+
++ Retrospective cohort studies
+  + a.k.a historical cohort studies
+  + carried out the present time and looking to the past to examine medical events or outcomes
+  + timeliness and inexpensive nature
+  + choosing a cohort of subjects based on exposure status at the present time
+  + reconstructing measured outcome data (i.e. disease status, event status) for analysis
+  + disadvantage:
+    + the limited control over collected data 
+    + data: incomplete, inaccurate, or inconsistent btw subjects
+  + advantage: inexpensive, short time
+  + example: Spear et al.
+    + task: examining the effect of obesity and complication rates after undergoing the pedicled TRAM flap
+    + reconstructed by retrospectively reviewing 224 pedicled TRAM flaps in 200 partients over 10-year period
+    + subjects selected and categorized into cohorts by their exposure status: normal/underweight, overweight, or obesity
+    + outcomes of interest: flap and donor site complications
+    + findings: obese patients had a significantly higher incidence of donor site complications, multiple flap complications, and partial flap necrosis than normal or overweight patients
+    + advantage: immediate access to data
+    + disadvantage: the limited control over the data collection because data was gathered retrospectively over 10-years
+
++ Case-series
+  + difference w/ cohort studies: the presence of a control, or unexposed, group
+  + descriptive studies following one small group of subjects
+  + extensions of case reports
+  + cases obtained from the author's experiences, generally involving a small group w/o control group
+  + often confused w/ cohort study w/ only one group of subjects
+  + clarified unless a second comparative group serving as a control
+  + to strengthen an observation from a case-series by selecting appropriate control groups to conduct a cohort or case-control studies
 
 
 ### Methodological issues
