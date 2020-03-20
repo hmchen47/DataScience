@@ -69,7 +69,7 @@ Author: Jae W. Song and Kevin C. Chung
   + defined by the exposure or event of interest and followed in time until the disease of outcome of interest occurs (diagram)
   + exposure identified before outcome $\implies$ a temporal framework to assess causality and then having the potential to provide the strongest scientific evidence
   + advantages
-    + gather data regarding sequence of events; able to assess causality
+    + gathering data regarding sequence of events; able to assess causality
     + examining multiple outcomes for a given exposure
     + good for investigating rare exposures
     + able to calculate rates of disease in exposed and unexposed individuals over time(e.g. incidence, relative risk)
@@ -110,10 +110,10 @@ Author: Jae W. Song and Kevin C. Chung
   + disadvantage:
     + the limited control over collected data 
     + data: incomplete, inaccurate, or inconsistent btw subjects
-  + advantage: inexpensive, short time
+  + advantage: inexpensive, short time period
   + example: Spear et al.
     + task: examining the effect of obesity and complication rates after undergoing the pedicled TRAM flap
-    + reconstructed by retrospectively reviewing 224 pedicled TRAM flaps in 200 partients over 10-year period
+    + reconstructed by retrospectively reviewing 224 pedicled TRAM flaps in 200 patients over 10-year period
     + subjects selected and categorized into cohorts by their exposure status: normal/underweight, overweight, or obesity
     + outcomes of interest: flap and donor site complications
     + findings: obese patients had a significantly higher incidence of donor site complications, multiple flap complications, and partial flap necrosis than normal or overweight patients
@@ -125,7 +125,7 @@ Author: Jae W. Song and Kevin C. Chung
   + descriptive studies following one small group of subjects
   + extensions of case reports
   + cases obtained from the author's experiences, generally involving a small group w/o control group
-  + often confused w/ cohort study w/ only one group of subjects
+  + often confused w/ cohort study when only one group of subjects presents
   + clarified unless a second comparative group serving as a control
   + to strengthen an observation from a case-series by selecting appropriate control groups to conduct a cohort or case-control studies
 
