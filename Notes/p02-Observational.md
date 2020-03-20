@@ -137,7 +137,7 @@ Author: Jae W. Song and Kevin C. Chung
   + characteristic: selecting both the exposed and unexposed groups from the same source population (diagram)
   + excluding subjects not at risk for developing the outcome
   + source population determined by practical considerations, such as sampling
-  + sampling subjects from hospital, member of community, or a doctor's individual practice
+  + examples of sampling subjects: hospital, member of community, or a doctor's individual practice
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
@@ -147,7 +147,7 @@ Author: Jae W. Song and Kevin C. Chung
 
 + Attrition bias (loss to follow-up)
   + long follow-up period $\implies$ minimizing loss of follow-up
-  + loss to follow-up: a situation in which the investigator loses contact w/ the subject, resulting in missing data
+  + loss to follow-up: a situation losing contact w/ the subject $\implies$ missing data
   + losing too many subjects $\implies$ the internal validity reduced
   + rule of thumb: the loss to follow-up rate $<20\%$ of the samples
   + examining any systemic differences related to the outcome and exposure of risk factors by comparing individuals
