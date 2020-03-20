@@ -172,8 +172,8 @@ Author: Jae W. Song and Kevin C. Chung
 
 + History of cost-effect studies
   + born out of interest of disease etiology
-  + diseased patient questioned and examined
-  + knitting elements together to reveal characteristics or factors that predisposed the patient to disease
+    + diseased patient questioned and examined
+    + knitting elements together to reveal characteristics or factors that predisposed the patient to disease
   + reasons of practicality and feasibility inherent in study design $\implies$ cohort study or case-control study
   + Janet Lane-Claypon, breast cancer, 1926: low fertility rate raising the risk of breast cancer
   + study crystallized w/ the publication linking smoking ad lung cancer
