@@ -87,7 +87,7 @@ Author: Jae W. Song and Kevin C. Chung
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
-      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761962&s=23&r=1&c=1" style="margin: 0.1em;" alt="Cohort study" title="Cohort study" width=500>
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761962&s=23&r=1&c=1" style="margin: 0.1em;" alt="Cohort Study Designs" title="Cohort Study Designs" width=500>
     </a>
   </div>
 
@@ -174,16 +174,58 @@ Author: Jae W. Song and Kevin C. Chung
   + born out of interest of disease etiology
     + diseased patient questioned and examined
     + knitting elements together to reveal characteristics or factors that predisposed the patient to disease
+  + conceptual basis similar to taking a history and physical
   + reasons of practicality and feasibility inherent in study design $\implies$ cohort study or case-control study
   + Janet Lane-Claypon, breast cancer, 1926: low fertility rate raising the risk of breast cancer
   + study crystallized w/ the publication linking smoking ad lung cancer
   + more prominent in the biomedical literature w/ more rigorous methodological advanced in design, execution, and analysis
 
 
-### Study design
+### Study design of cast-control studies
 
++ Case-control studies
+  + identifying subjects by outcome at the outset of the investigation
+  + outcome of interest: subject undergone a specific type of surgery, experienced a complication, or a diagnosed w/ a disease
+  + case-control study design (diagram)
+    + case: identifying outcome status and categorizing subjects
+    + control: selecting subjects w/o the outcome but from the same source population
+    + collecting data about exposure to a risk factor or several risk factors via interview, abstraction from records, or survey
+  + suitable for investigating rare outcomes or outcomes w/ long letency period $\impliedby$ subjects selected from the outset by their outcome status
+  + advantages:
+    + good for examining rare outcomes or outcomes w/ long latency
+    + relatively quick to conduct
+    + relatively inexpensive
+    + requiring comparatively few subjects
+    + existing records used
+    + examining multiple exposures or risk factors
+  + disadvantages
+    + susceptible to recall bias or information bias
+    + difficult to validate information
+    + incomplete control of extraneous variables
+    + difficult to select an appropriate comparison group
+    + unable to determine rates of disease in exposed and unexposed individuals
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761967&s=23&r=1&c=1" style="margin: 0.1em;" alt="Case-Control Study Designs" title="Case-Control Study Designs" width=500>
+    </a>
+  </div>
 
++ Example: environment and genetic factors associated w/ rare congenital microtia
+  + Zhang et al,: examining the association of environment and genetic w/ rare congenital mictotia
+  + Hypothesis: estimated prevalence (0.83, 17.4) in 10,000
+  + case: 121 congenital microtia selected based on clinical phenotype
+  + control: 152 uneffected microtia
+  + population: Hans Chinese origin from Jiangsu matched by age and sex in the same hospital and same period
+  + case & control w/ same genetic background $implies$ investigating association btw genetic and congenital microtia
+  + questionnaire to mothers to examine the environment factors
+  + findings: adverse maternal health was among the main risk factors for congenital microtia,
+    + specifically maternal disease during pregnancy, OR = 5.89, 95% CI = (2.36, 14.72)
+    + maternal toxicity exposure during pregnancy, OR= 4.76, 95% CI = (1.66, 13.68)
+    + resident area (air population), OR = 7.00, 95% CI = (2.09, 23.47)
+  + case-control study design
+    + most efficient for this investigation, given the rarity of disease outcome
+    + congenital microtia w/ multifactorial causes $\implies$ the ability to examine multiple exposures and risk factors
 
 
 ### Methodological issues
