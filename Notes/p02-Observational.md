@@ -130,10 +130,42 @@ Author: Jae W. Song and Kevin C. Chung
   + to strengthen an observation from a case-series by selecting appropriate control groups to conduct a cohort or case-control studies
 
 
-### Methodological issues
+### Methodological issues of Cohort Studies
 
++ Selection of subjects
+  + hallmark: defining the selected group of subjects by exposure status at the start of the investigation
+  + characteristic: selecting both the exposed and unexposed groups from the same source population (diagram)
+  + excluding subjects not at risk for developing the outcome
+  + source population determined by practical considerations, such as sampling
+  + sampling subjects from hospital, member of community, or a doctor's individual practice
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761971&s=23&r=1&c=1" style="margin: 0.1em;" alt="Levels of Subject Selection" title="Levels of Subject Selection" width=500>
+    </a>
+  </div>
 
++ Attrition bias (loss to follow-up)
+  + long follow-up period $\implies$ minimizing loss of follow-up
+  + loss to follow-up: a situation in which the investigator loses contact w/ the subject, resulting in missing data
+  + losing too many subjects $\implies$ the internal validity reduced
+  + rule of thumb: the loss to follow-up rate $<20\%$ of the samples
+  + examining any systemic differences related to the outcome and exposure of risk factors by comparing individuals
+  + selecting the subjects able to be followed through the study
+
++ Methods to minimize loss to follow-up
+  + during enrollment
+    + exclude subject likely to be lost
+      + planning to move
+      + non-committal
+    + obtain information to allow future tracking
+      + collect subject's contact information (e.g. mailing addresses, telephone numbers, email addresses)
+      + collect social security and/or Medicare numbers
+  + during follow-up
+    + maintain periodic contact
+      + by telephone: many require calls during the weekends and/or evenings
+      + by mail: repeated mailings by email or w/ stamped, self-addressed return envelopes
+      + other: newsletters or token gifts w/ study logo
 
 
 ## Case-control Study
