@@ -231,7 +231,7 @@ Author: Jae W. Song and Kevin C. Chung
 ### Methodological issues of case-control studies
 
 + Selection of cases
-  + sampling starting w. selecting the cases
+  + sampling started with
     + explicitly defined inclusion and exclusion criteria
     + e.g. a disease, specific diagnostic criteria, disease subtype, stage of disease, or degree if severity
     + criteria ensuring all cases homogeneous
@@ -246,14 +246,14 @@ Author: Jae W. Song and Kevin C. Chung
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
-        <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761975&s=23&r=1&c=1" style="margin: 0.1em;" alt="Levels of case selection" title="Levels of case selection" width=400>
+        <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761975&s=23&r=1&c=1" style="margin: 0.1em;" alt="Levels of case selection" title="Levels of case selection" width=300>
       </a>
     </div>
 
 + Selection of controls
   + one of the most demanding aspects
   + important principle
-    + the distribution of exposure and should be the same among cases and controls
+    + the distribution of exposure should be the same among cases and controls
     + i.e. both cases and controls should stem from the same source population
   + same inclusion criteria: the validity depending on the comparability of these two groups
   + example: Chung et al.
@@ -271,7 +271,7 @@ Author: Jae W. Song and Kevin C. Chung
     + reduce variability and systematic difference due to background variables not interested
   + individual matching
     + each cases typically individually paired w/ a control subject w.r.t. the background variables
-    + exposure tot he risk factor of interest compared btw the cases and the controls
+    + exposure to the risk factor of interest compared btw the cases and the controls
   + confounder
     + variables associated w/ risk factor
     + potentially a cause of the outcome
@@ -281,6 +281,12 @@ Author: Jae W. Song and Kevin C. Chung
     + eliminating influence of confounders difficult to measure
     + a sampling convenience making it easier to select the controls
     + improving study efficiency
+  + disadvantages
+    + time-consuming and expensive
+    + decision to match and confounding variables to match decided at the outset of the study
+    + matched variables unable to be examined in the study
+    + requiring a matching analysis
+    + vulnerable to overmatching: when matching variable having some relationship w/ the outcome
 
 + Multiple controls
   + rare outcomes: a limited number of cases to select from w/ a large number of controls
