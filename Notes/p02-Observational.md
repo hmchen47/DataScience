@@ -307,16 +307,6 @@ Author: Jae W. Song and Kevin C. Chung
     + solution: implementing a standardized interview in a non-judgmental atmosphere w/ well-trained interviewers
 
 
-## The STROBE Statement
-
-
-
-
-## Conclusion
-
-
-
-
 ## References
 
 1. Chung KC, Swanson JA, Schmitz D, et al. [Introducing evidence-based medicine to plastic and reconstructive surgery](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2714535/). Plast. Reconstr. Surg. 2009;123:1385–1389.
