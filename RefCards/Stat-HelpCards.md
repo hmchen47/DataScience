@@ -223,9 +223,82 @@
 
 
 
-## Naming Scenarios
+## Naming Scenarios for Inference
+
++ How many populations are there?
+  + one
+  + two
+  + more than two
+
++ How many variables are there?
+  + one
+  + two
+
++ What type of variable(s)?
+  + categorical
+  + quantitative
 
 
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Type of Inference</a></caption>
+  <thead>
+  <tr>
+    <th colspan="2"style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+    <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:90%;">Number of Populations</th>
+  </tr>
+  <tr>
+    <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Number of Variables & Type</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">One</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Two</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">More than Two</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th rowspan="2" style="text-align: left;">One</th>
+    <th>Categorical</th>
+    <td><span style="color: lightgreen">1-sample inference for popul. proportion ($p$)</span><br/>[approx. cond: 1 r.s., $min(np, (n(1-p)) \geq 10$)]<br/><br/><br/><span style="color: lightgreen">$\chi^2$: Goodness of Fit</span><br/>[cond: 1 r.s., 1 response w/ $k$ outcomes, <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
+    <td><span style="color: lightgreen">2-indep. samples inference for the difference btw 2 popul. proportions ($p_1 - p_2$)</span><br/>[approx. cond.: 2 r.s., $min(n_1p_1, n_1(1-p_1),$ $n_2p_2, n_2(1-p_2) \geq 10$]<br/><br/><br/><span style="color: lightgreen">$\chi^2$: Homogeneity</span><br/>[cond: 2 indep. r.s., 1 response w/ $r$ outcomes, <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
+    <td>$\chi^2$: homogeneity<br/>[cond.: $c$ indep. r.s., 1 response w/ $r$ outcomes,  <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
+  </tr>
+  <tr>
+    <th>Quantitative</th>
+    <td><span style="color: lightgreen;">1-same inference for popul. mean ($\mu$)</span><br/>[approx. cond: 1 r.s. & $n \geq 25$, no outlier]<br/><br/><br/><span style="color: lightgreen;">Paired samples inference for a popul. mean difference ($\mu_0$)</span><br/>[approx. cond.: 1 rs & $n \geq 25$, no outlier]</td>
+    <td><span style="color: lightgreen;">2 indep. samples inference for the difference btw 2 popul. means ($\mu_1 - \mu_2$)</span><br/>[approx. cond.: 2 indep. r.s., normal popul., same $\sigma^2$ (pooled only)] </td>
+    <td><span style="color: lightgreen;">ANOVA <br/>($\mu_i$ - one $\mu_i$ for each popul.)</span><br/>[cond.: 1 indep. r.s., normal popul., same $\sigma^2$]</span></td>
+  </tr>
+  <tr>
+    <th rowspan="2" style="text-align: left;">Two</th>
+    <th>Categorical</th>
+    <td><span style="color: lightgreen;">$\chi^2$: indep.</span><br/>[cond.: 1 r.s., $c$ & $r$ outcomes, <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Quantitative</th>
+    <td><span style="color: lightgreen;">Regression ($\beta_1$)</span><br/>[cond.: linear relationship, normal error, constant variance, no pattern</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tfoot style="border-top: 1px double;">
+  <tr>
+    <th colspan="2" style="text-align: left;">Note</th>
+    <td colspan="3">the corresponding parameter is in parentheses, where appropriate.</td>
+  </tr>
+  <tr>
+    <th colspan="2" style="text-align: left;">Distributions</th>
+    <td colspan="3">$N(\mu, sigma), t(df), F(df_1, df_2), \chi^2(df)$ where $df_1 = gps - 1$, $df_2 = n - gps$</td>
+  </tr>
+  <tr>
+    <th colspan="2" style="text-align: left;"><span style="text-weight: bold; color: cyan;">Condition</span></th>
+    <td colspan="3">80% expected count > 5; none of them < 1</td>
+  </tr>
+  <tr>
+    <th colspan="2" style="text-align: left;">Abbreviations</th>
+    <td colspan="3">Popul. = population; r.s. = random sample' indep. = independent, gps = groups/td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Population Proportion
