@@ -217,7 +217,7 @@ Author: Jae W. Song and Kevin C. Chung
   + case: 121 congenital microtia selected based on clinical phenotype
   + control: 152 uneffected microtia
   + population: Hans Chinese origin from Jiangsu matched by age and sex in the same hospital and same period
-  + case & control w/ same genetic background $implies$ investigating association btw genetic and congenital microtia
+  + case & control w/ same genetic background $\implies$ investigating association btw genetic and congenital microtia
   + questionnaire to mothers to examine the environment factors
   + findings: adverse maternal health was among the main risk factors for congenital microtia,
     + specifically maternal disease during pregnancy, OR = 5.89, 95% CI = (2.36, 14.72)
@@ -228,11 +228,77 @@ Author: Jae W. Song and Kevin C. Chung
     + congenital microtia w/ multifactorial causes $\implies$ the ability to examine multiple exposures and risk factors
 
 
-### Methodological issues
+### Methodological issues of case-control studies
 
++ Selection of cases
+  + sampling starting w. selecting the cases
+    + explicitly defined inclusion and exclusion criteria
+    + e.g. a disease, specific diagnostic criteria, disease subtype, stage of disease, or degree if severity
+    + criteria ensuring all cases homogeneous
+  + selected from various sources
+    + sources: hospital patients, clinical patients, or community subjects
+    + validity issues
+      + e.g. risk factors unique to single hospital
+      + e.g. cases from the hospital vs the community, more severe from the hospital
+    + weakening the generalizability of the study findings
+  + representative of cases in the target population
+    + cases from the original target population filtered out
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+        <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761975&s=23&r=1&c=1" style="margin: 0.1em;" alt="Levels of case selection" title="Levels of case selection" width=400>
+      </a>
+    </div>
 
++ Selection of controls
+  + one of the most demanding aspects
+  + important principle
+    + the distribution of exposure and should be the same among cases and controls
+    + i.e. both cases and controls should stem from the same source population
+  + same inclusion criteria: the validity depending on the comparability of these two groups
+  + example: Chung et al.
+    + task: maternal cigarette smoking during pregnancy and the risk of newborns developing cleft lip/palate
+    + use of the 1996 US Natality database where cases and controls selected
+    + case/outcome: newborn development of cleft lip/palate
+    + hypothesis: incidence w/ 1/1000 live births
+    + controls: healthy newborns
+    + generalizable to the general population 
+    + significant relationship: adjusted OR = 1.34, 95% CI = (1.36, 1.76)
 
++ Matching strategy
+  + a method in an attemp to
+    + ensure comparability btw cases and controls
+    + reduce variability and systematic difference due to background variables not interested
+  + individual matching
+    + each cases typically individually paired w/ a control subject w.r.t. the background variables
+    + exposure tot he risk factor of interest compared btw the cases and the controls
+  + confounder
+    + variables associated w/ risk factor
+    + potentially a cause of the outcome
+    + e.g. age, sex, and race often used to match cases and controls
+  + advantages
+    + eliminating influence of measurable confounders
+    + eliminating influence of confounders difficult to measure
+    + a sampling convenience making it easier to select the controls
+    + improving study efficiency
+
++ Multiple controls
+  + rare outcomes: a limited number of cases to select from w/ a large number of controls
+  + providing more information if multiple control per case
+  + increasing statistical power $\to$ increasing the sample size
+  + improving precision by having about up to 3 or 4 controls per case
+
++ Bias in case-control studies
+  + Achilles heel: evaluating exposure status
+  + information collected by self-report, interview, or from recorded information
+  + susceptible: recall bias, interview bias, or relying on the completeness or accuracy of recorded information
+  + bias decreasing the validity $\implies$ carefully addressed and reduced in study design
+  + recall bias:
+    + occurred when differential response btw cases and controls
+    + common scenario: a subject w/ disease (case) unconsciously recall and report an exposure w/ better clarity
+  + interviewer bias
+    + interviewer leading questions or inconsistent interview approach btw cases and controls
+    + solution: implementing a standardized interview in a non-judgmental atmosphere w/ well-trained interviewers
 
 
 ## The STROBE Statement
