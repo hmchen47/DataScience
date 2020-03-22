@@ -518,8 +518,64 @@
 
 ## One-Way ANOVA
 
-
-
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em; margin: 0.2em;">One-Way ANOVA</caption>
+  <tbody>
+  <tr>
+    <td style="width: 10%;">SS Group = SSG = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\displaystyle\sum_{\text{groups}} n_i (\overline{x}_i - \overline{x})^2$</div></td>
+    <td style="width: 10%;">MS Groups = MSG = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\frac{\text{SSG}}{k-1}$</div></td>
+    <td style="width: 15%;" rowspan="3">
+      <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+        <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">ANOVA Table</a></caption>
+        <thead>
+        <tr>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Source</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:25%;">SS</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">DF</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:25%;">MS</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">F</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th style="text-align: left;">Groups</th>
+          <td>SS Groups</td>
+          <td>$k-1$</td>
+          <td>MS Groups</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <th style="text-align: left;">Error</th>
+          <td>SS Error</td>
+          <td>$N-k$</td>
+          <td>MS Error</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th style="text-align: left;">Total</th>
+          <td>SSTO</td>
+          <td>$N-1$</td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>SS Error = SSE = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\displaystyle \sum_{\text{groups}} (n_i - 1) s_i^2$</div></td>
+    <td>MS Error = MSE = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$s_p^2 = \displaystyle \frac{\text{SSE}}{N-k}$</div></td>
+  </tr>
+  <tr>
+    <td>SS Total = SSTO = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\displaystyle \sum_{\text{values}} \left(x_{ij} - \overline{x}\right)^2$</div></td>
+    <td>F = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\frac{\text{MS Groups}}{\text{MS Error}}$</div></td>
+  </tr>
+  <tr>
+    <td colspan="2"><span style="font-weight: bold; padding-right: 1em;">Confidence Interval</span>$\overline{x}_i \pm t^\ast \frac{s_p}{\sqrt{n_i}} \quad df=N-k$</td>
+    <td>Under $H_0$, the $F$ statistic follows an $F(k-1, N-k)$ distribution</td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Regression
