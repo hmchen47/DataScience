@@ -436,11 +436,83 @@
 ## Population Proportion
 
 
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Population Proportion</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Two Population Proportions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><span style="font-weight: bold;">Parameter</span><span style="padding-left: 2em;">$p$</span></td>
+    <td><span style="font-weight: bold;">Parameter</span><span style="padding-left: 2em;">$p_1 - p_2$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Statistic</span><span style="padding-left: 3em;">$\hat{p}$</span></td>
+    <td><span style="font-weight: bold;">Statistic</span><span style="padding-left: 3em;">$\hat{p}_1 - \hat{p}_2$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Standard error</span><br/><br/><span style="padding-left: 5em;">$s.e.(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$</span></td>
+    <td><span style="font-weight: bold;">Standard error</span><br/><br/><span style="padding-left: 5em;">$s.e.(\hat{p_1} - \hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}+ \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 5em;">$\hat{p} \pm z^\ast s.e.(\hat{p})$</span><br/><br/><span style="font-weight: bold;">Conservative Confidence Interval</span><br/><br/><span style="padding-left: 5em;">$\hat{p} \pm \frac{z^\ast}{2\sqrt{n}}$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 5em;">$(\hat{p}_1 - \hat{p}_2) \pm z^\ast s.e.(\hat{p}_1 - \hat{p}_2)$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Large-Sample $z$-Test</span><br/><br/><span style="padding-left: 5em;">$z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}$</span></td>
+    <td rowspan="2" style="vertical-align: top;"><span style="font-weight: bold;">Large-Sample $z$-Test</span><br/><br/><span style="padding-left: 5em;">$z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{(\hat{p}_1 - \hat{p}_2)\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \quad$ where $\hat{p} = \frac{n_1\hat{p}_1 + n_2\hat{p}_2}{n_1+n_2}$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Sample Size</span><br/><span style="padding-left: 5em;">$n = \left(\frac{z^\ast}{2m}\right)^2$</span></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Population Mean
 
 
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Population Mean</th>
+    <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Two Population Means</th>
+  </tr>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">General</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Pooled</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><span style="font-weight: bold;">Parameter</span><span style="padding-left: 2em;">$\mu$</span></td>
+    <td><span style="font-weight: bold;">Parameter</span><span style="padding-left: 2em;">$\mu_1 - \mu_2$</span></td>
+    <td><span style="font-weight: bold;">Parameter</span><span style="padding-left: 2em;">$\mu_1 - \mu_2$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Statistic</span><span style="padding-left: 3em;">$\overline{x}$</span></td>
+    <td><span style="font-weight: bold;">Statistic</span><span style="padding-left: 3em;">$\overline{x}_1 - \overline{x}_2$</span></td>
+    <td><span style="font-weight: bold;">Statistic</span><span style="padding-left: 3em;">$\overline{x}_1 - \overline{x}_2$</span></td>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Standard Error</span><br/><br/><span style="padding-left: 1em;">$s.e.(\overline{x}) = \frac{s}{\sqrt{n}}$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Standard Error</span><br/><br/><span style="padding-left: 1em;">$s.e.(\overline{x}_1 - \overline{x}_2) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$</span></td>
+    <td><span style="font-weight: bold;">Standard Error</span><br/><br/><span style="padding-left: 1em;">$\text{pooled } s.e.(\overline{x}_1 - \overline{x}_2) = s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$</span><br/><br/><span style="padding-left: 2em;">where $s_p = \sqrt{\frac{(n_1-1)s_1^2 + (n_2 -1)s_2^2}{n_1+n_2-2}}$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 1em;">$\overline{x} \pm t^\ast s.e.(\overline{x})$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span><br/><br/><br/><span style="font-weight: bold;">Paired Confidence Interval</span><br/><br/><span style="padding-left: 1em;">$\overline{x} \pm t^\ast s.e.(\overline{d})$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 0.5em;">$(\overline{x}_1 - \overline{x}_2) \pm t^\ast \left(s.e.(\overline{x}_1 - \overline{x}_2)\right)$</span><br/><br/><span style="padding-left: 2em;">$df = \min(n_1 -1, n_2 -1)$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 0.5em;">$(\overline{x}_1 - \overline{x}_2) \pm t^\ast (\text{pooled }s.e.(\overline{x}_1 - \overline{x}_2))$</span><br/><br/><span style="padding-left: 2em;">$df = n_1 + n_2 -2$</span></td>
+  </tr>
+  <tr>
+    <td><span style="font-weight: bold;">One-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}-\mu_0}{s.e.(\overline{x})} = \frac{\overline{x} - \mu_0}{s/\sqrt{n}}$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span><br/><br/><br/><span style="font-weight: bold;">Paired $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{d}-0}{s.e.(\overline{d})} = \frac{\overline{d}}{s_d/\sqrt{n}}$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Two-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}_1 - \overline{x}_2 - 0}{s.e.(\overline{x}_1 - \overline{x}_2)} = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$</span><br/><br/><span style="padding-left: 2em;">$df = \min(n_1 - 1, n_2 - 1)$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">One-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}_1 - \overline{x}_2-0}{\text{pooled }s.e.(\overline{x}_1 - \overline{x}_2)} = \frac{\overline{x}_1 - \overline{x}_2}{s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}$</span><br/><br/><span style="padding-left: 2em;">$df = n_1 + n_2 - 2$</span></td>
+  </tr>
+  </tbody>
+</table>
 
 
 
