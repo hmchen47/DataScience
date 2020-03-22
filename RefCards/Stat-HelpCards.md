@@ -580,12 +580,129 @@
 
 ## Regression
 
+### Linear Regression Model
+
++ Population Version
+  + Mean
+
+    \[ \mu_Y (x) = E(Y) = \beta_0 + \beta_1 x \]
+
+  + Individual
+
+    \[ y_i = \beta_0 + \beta_1 x_i + \varepsilon_i \qquad\text{where } \varepsilon_i \sim N(0, \sigma) \]
+
++ Sample version
+  + Mean
+
+    \[ \hat{y} = b_0 + b_1 x \]
+
+  + Individual
+
+    \[ y_i = b_0 + b_1 x_i + e_i \]
+
+
+### Parameter Estimators
+
+  \[\begin{align*}
+    b_1 &= \frac{S_{XY}}{S_{XX}} = \frac{\sum (x - \overline{x})(y - \overline{y})}{\sum (x - \overline{x})^2} = \frac{\sum (x-\overline{x})y}{\sum (x - \overline{x})^2} \\\\
+    b_0 &= \overline{y} - b_1 \overline{x}
+  \end{align*}\]
+
+
+### Residuals
+
+  \[ e = y - \hat{y} = \text{observed } y - \text{predicted } y \]
+
+
+### Correlation and its square
+
+  \[\begin{align*}
+    r &= \frac{S_{XY}}{\sqrt{S_{XX}S_{YY}}} \\\\
+    r^2 &= \frac{SSTP - SSE}{SSTO} = \frac{SSREG}{SSTO} \qquad \text{where } SSTO = S_{YY} = \sum (y - \hat{y})^2 = \sum e^2
+  \end{align*}\]
+
+
+### Estimate of \sigma
+
+  \[ s = \sqrt{MSE} = \sqrt{\frac{SSE}{n-2}} \qquad \text{where } SSE = \sum (y - \hat{y})^2 = \sum e \]
+
+
+### Standard Error of Sample Slop
+
+  \[ s.e.(b_1) = \frac{s}{\sqrt{S_{XX}}} = \frac{s}{\sqrt{\sum (x - \overline{x})^2}} \]
+
+
+### Confidence Interval of $\beta_1$
+
+  \[ b_1 \pm t^\ast s.e.(b_1) \qquad df = n-2 \]
+
+
+### $t$-Test for $\beta_1$
+
+  \[\begin{align*}
+    \text{To test } & H_0: \beta_1 = 0 \\\\
+    t &= \frac{b_1 -0}{s.e.(b_1)} \qquad df = n-2 \\\\
+    \text{or } F &= \frac{MSREG}{MSE} \qquad df = 1, n-2
+  \end{align*}\]
+
+
+### Confidence Interval for the Mean Response
+
+  \[\begin{align*}
+    \hat{y} \pm t^\ast & s.e.(fit)   \qquad df = n-2 \\\\
+    & \text{where } s.e.(fit) = s \sqrt{\frac{1}{n}+\frac{(x - \overline{x})^2}{S_{XX}}}
+  \end{align*}\]
+
+### Prediction Interval for the Mean Response
+
+  \[\begin{align*}
+    \hat{y} \pm t^\ast & s.e.(pred) \qquad df = n-2 \\\\
+    & \text{where } s.e.(pred) = \sqrt{s^2 + \left(s.e.(fit)\right)^2}
+  \end{align*}\]
+
+
+### Standard Error of the Sample Intercept
+
+  \[ s.e.(b_0) = s \sqrt{\frac{1}{n} + \frac{\overline{x}^2}{S_{XX}}} \]
+
+
+### Confidence Interval for $\beta_0$
+
+  \[ b_0 \pm t^\ast s.e.(b_0) \qquad df = n-2\]
+
+
+### $t$-Test for $\beta_0$
+
+  \[\begin{align*}
+    \text{Tp test } & H_0: \beta_0 = 0 \\\\
+    t &= \frac{b_0 - 0}{s.e.(b_0)}  \qquad df = n-2
+  \end{align*}\]
 
 
 
 ## Chi-Square Tests
 
-
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em; margin: 0.2em;">$\chi^2$ Tests</caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Test of Independence & Test of Homogeneity</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Test for Goodness of Fit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="vertical-align: top;">
+    <td><div style="font-weight: bold;">Expected Count</div><div style="padding-left: 2em; padding-top: 1em;">$E = \text{expected} = \frac{\text{row total } \times \text{ column total}}{\text{total } n}$</div></td>
+    <td><div style="font-weight: bold;">Expected Count</div><div style="padding-left: 2em; padding-top: 1em;">$E_i = \text{expected} = n p_{i0}$</div></td>
+  </tr>
+  <tr style="vertical-align: top;">
+    <td><div style="font-weight: bold;">Test Statistic</div><div style="padding-left: 2em; padding-top: 1em;">$X^2 = \sum \frac{(O - E)^2}{E} = \sum \frac{(\text{observed } - \text{ expected})^2}{\text{expected}}$</div><div style="padding-left: 15em; padding-top: 1em;"> $df = (r-1)(c-1)$</div></td>
+    <td><div style="font-weight: bold;">Test Statistic</div><div style="padding-left: 2em; padding-top: 1em;">$X^2 = \sum \frac{(O - E)^2}{E} = \sum \frac{(\text{observed } - \text{ expected})^2}{\text{expected}}$</div><div style="padding-left: 15em; padding-top: 1em;"> $df = k-1$</div></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center;">$Y \sim \chi^2(df) \implies E(Y) = df,\; Var(Y) = 2\cdot df$</td>
+  </tbody>
+</table>
 
 
 
