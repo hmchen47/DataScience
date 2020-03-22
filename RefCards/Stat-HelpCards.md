@@ -220,6 +220,138 @@
 
 ## Basic Formula
 
+### Summary Measures
+
++ Sample mean
+
+  \[ \overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{\sum x_1}{n} \]
+
++ Sample standard deviation
+  
+  \[ s = \sqrt{\frac{\sum(x_i - \overline{x})^2}}{n-1} = \sqrt{\sum x_i^2 - n\overline{x}^2}{n-1} \]
+
+
+### Probability Rules
+
++ Complement rule
+
+  \[ P(A^C) = 1 - P(A) \]
+
++ Addition rule
+  + general
+  
+    \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+
+  + for independent event
+
+    \[ P(A \cup B) = P(A) + P(B) - P(A) P(B)\]
+
+  + for mutually exclusive events
+
+    \[ P(A \cup B) = P(A) + P(B) \]
+
++ Multiplication rule
+  + general
+
+    \[ P(A \cap B) = P(A) P(B | A) \]
+
+  + for independent events
+
+    \[ P(A \cap B) = P(A) P(B) \]
+
+  + for mutuallu exclusive events
+
+    \[ P(A \cap B) = 0 \]
+
++ Conditional probability
+  + general
+
+    \[ P(A | B) = \frac{P(A \cap B)}{{P(B)}} \]
+
+  + for independent events
+
+    \[ P(A | B) = P(A) \]
+
+  + for mutual exclusive events
+
+    \[ P(A | B) = 0 \]
+
+
+### Discrete Random Variables
+
++ Mean
+
+  \[ E(X) = \mu = \sum x_ip_i = x_1p_1 + x_2p_2 + \cdots + x_kp_k \]
+
++ Standard deviation
+
+  \[ s.d.(X) = \sigma = \sqrt{\sum (x_i - \mu)^2 p_i} = \sqrt{\sum (x_i^2 p_i) - \mu^2} \]
+
+
+### Binomial Random Variables
+
++ Distribution
+
+  \[ P(X = k) = \begin{pmatrix}n\\k\end{pmatrix} p^k (1-p)^{n-k}, \qquad\qquad \text{where } \begin{pmatrix} n  \\ k \end{pmatrix} = \frac{n!}{k!(n-k)!} \]
+
++ Mean
+
+  \[ E(X) = \mu_X = np \]
+
++ Standard deviation
+
+  \[ s.d.(X) = \sigma_X = \sqrt{np(1-p)} \]
+
+
+### Normal Random Variables
+
++ $z$-score
+
+  \[ z\text{-score} = \frac{\text{observation - mean}}{\text{standard deviation}} = \frac{x = \mu}{\sigma} \]
+
++ Percentile:
+
+  \[ x = \mu + z\sigma \]
+
++ Normalization: <br/>if $X$ has the $N(\mu, \sigma)$ distribution, then the variable $Z = \frac{X - \mu}{\sigma}$ has the $N(0, 1)$ distribution
+
+
+### Normal Approximation to the Binomial Distribution
+
+  + If $X$ has the $B(n, p)$ distribution and the sample size $n$ is large enough (namely $np \geq 10$ and $n(1-p) \geq 10$), the $X$ is approximately $B\left(np, \sqrt{np(1-p)}\right)$
+
+
+### Sample Proportion
+
++ Proportion
+
+    \[ \hat{p} = \frac{x}{n} \]
+
++ Mean
+  \[ E(\hat{p}) = \mu_{\hat{p}} = p \]
+
++ Standard deviation
+
+  \[ s.d.(\hat{p}) = \sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} \]
+
++ Sampling distribution of $\hat{p}$: <br/>if the sample size $n$ is large enough (namely, $np \geq 10$, and $n(1-p) \geq 10$), then $\hat{p}$ is _approximately_ $N\left( p, \sqrt{\frac{p(1-p)}{n}} \right)$
+
+### Sample means
+
++ Mean
+
+  \[ E(X) = \mu_{\overline{X}} = \mu \]
+
++ Standard deviation
+
+  \[ s.d.(\overline{X}) = \sigma_{\overline{X}}  = \frac{\sigma}{\sqrt{n}} \]
+
++ Sampling distribution of $\overline{X}$ 
+  + if $X$ has the $N(\mu, \sigma)$ distribution, the $\overline{X}$ is
+
+    \[ N(\mu_{\overline{X}}, \sigma_{\overline{X}}) \iff N\left(\mu, \frac{\sigma}{\sqrt{n}}\right) \]
+  
+  + __Central Limit Theorem__: if $X$ follows _any_ distribution w/ mean $\mu$ and standard deviation $\sigma$ and $n$ is large, the $\overline{X}$ is approximately $N\left( \mu, \frac{\sigma}{\sqrt{n}} \right)$
 
 
 
