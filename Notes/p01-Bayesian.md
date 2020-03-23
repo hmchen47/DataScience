@@ -1008,7 +1008,7 @@ Year: 2004
   + sources:
     + elicitation from experts
     + deviation from historical data
-    + the use of 'default' priors to reprsent archetypal positions of ignorance, skepticism and enthusiasm
+    + the use of 'default' priors to represent archetypal positions of ignorance, skepticism and enthusiasm
     + multiple related studied simultaneously analyzed
 
 + characteristics of prior
@@ -1422,7 +1422,7 @@ Year: 2004
   
   + $d^{opt}$: the optimal decision to maximize $E(d, \theta)$
 
-+ Hyptheses and decision-making
++ Hypotheses and decision-making
   + $H_0$ & $H_1$: two hypotheses w/ the unknown 'state of nature'
   + $p(H_0|y)$ & $p(H_1 | y)$: current posterior probabilities w/ $H_0$ and $H_1$ respectively
   + $d_0$ & $d_1$: possible decisions for $H_0$ & $H_1$ respectively, $d_0$ believing $H_0$ true while $d_1$ believing $H_1$
@@ -1503,7 +1503,7 @@ Year: 2004
     + cite an incidence rate of 3.3/1000 pregnancies in a non-supplemented population
     + $p = 0.001$ and the trial odds ratio applied to this group $\implies$ an estimate of $p_1 = 0.0033, p_0 - p_1 = 0.0023, NNT = 435$
     + prefer supplementation if $U_1/U_0 < 1 - 0.00001 \times 435 \approx 0.996$
-  
+
 + Decision-making and Bayesian methods
   + focused on the utility of consequences than the use of Bayesian methods to revise opinions
   + this activity blends naturally into cost-effectiveness analysis, but nevertheless the subjective interpretation of probability is essential
@@ -1551,17 +1551,17 @@ Year: 2004
 
 + Relationships btw historical data and current observations
   + _irrelevance_: no relevant information
-  + _exchangable_
+  + _exchangeable_
     + current and past studies similar
-    + parametres considered exchangable - typical situation in a meta-analysis
-    + adopted as standard hierarchical modelling techniques
+    + parameters considered exchangeable - typical situation in a meta-analysis
+    + adopted as standard hierarchical modeling techniques
   + _potential bias_
     + past studies
       + lack of quality (internal bias)
       + setting not precisely measured (external bias)
     + appropriately adjusting historical results
   + _equal but discounted_: precision decreased to 'discount' past data
-  + _functional dependence_: current parameter of intrest = a logical function of parameters estimated in historical studies
+  + _functional dependence_: current parameter of interest = a logical function of parameters estimated in historical studies
   + _equal_: measuring precisely the parameters of interest and data able to directly pool
 
 
@@ -1630,14 +1630,14 @@ Year: 2004
       \[Q = \sum_k \frac{n_k}{\sigma^2} (y_k - \hat{\mu})^2 \tag{33} \]
 
     + equivalently, $Q = \sum_k \frac{(y_k - \hat{\mu})^2}{s_k^2}\;$ w/ a $\chi_{k-1}^2$ distribution under $H_0$ of homogeneity
-    + absence of a significant $Q \nRightarrow$ homogenous trials
+    + absence of a significant $Q \nRightarrow$ homogeneous trials
   + independent parameters (fixed effects)
     + $\theta_k$ estimated totally w/o regard for the others
     + uniform prior for each $\theta_k$ and likelihood $Y_k \sim N(\theta, s_k^2) \implies$ the posterior distribution = the normalized likelihood
 
       \[ \theta_k \sim N(y_k, s_k^2) \tag{34} \]
 
-  + exchangable parameters (random effects)
+  + exchangeable parameters (random effects)
     + $\theta_k$ assumed to be exchangeable w/ a normal distribution: 'hyperparameters', $\mu$ and $\tau^2$, for moment assumed known
 
       \[ \theta_k \sim N(\mu, \tau^2) \tag{35} \]
@@ -1840,7 +1840,7 @@ Year: 2004
     + inappropriate if the number of nuisance is large
     + hierarchical model: using this technique for the hyperparameters of the population distribution
     + the empirical Bayes approach
-  + by conditioning on some aspect of the data that is taken to be uniformative about $\theta$, forming a 'conditional likelihood' which depends only on $\theta$
+  + by conditioning on some aspect of the data that is taken to be uninformative about $\theta$, forming a 'conditional likelihood' which depends only on $\theta$
   + forming a 'profile likelihood' for $\theta$, obtained by maximizing over the nuisance parameters for each value of $\theta$
 
 + a more 'pure' Bayesian approach
@@ -2123,7 +2123,7 @@ Year: 2004
 + Checklist of Bayesian assessments of health-care intervention
   + __Background__
     + _the intervention_: evaluated w.r.t. the population of interest and so on
-    + _amin of study_
+    + _aim of study_
       + a clear distinguish made btw prior distribution and explicit or implicit consideration of a loss or utility function
       + prior distribution: desired inferences on any quantity or quantities of interest, representing the parameters to be estimated
       + explicit or implicit considertion of a loss or utility function: any decisions or recommendations for action to be made subsequent to the inferences
@@ -2134,7 +2134,7 @@ Year: 2004
     + _outcome measure_: the true underlying parameters of interest
     + _statistical model_
       + the probabilistic relationship btw the parameter(s) of interest and the observed data
-      + relationship on mathematics or in such a way to allow its mathematic form to be unambiguously obtained by a competent reader
+      + relationship on mathematics or in such a way to allow its mathematical form to be unambiguously obtained by a competent reader
       + any model selection procedure, whether Bayesian or not
     + _prospective Bayesian analysis?_
       + whether the prior and any loss function were constructed preceding the data collection
