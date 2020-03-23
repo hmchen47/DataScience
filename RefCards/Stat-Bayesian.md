@@ -56,6 +56,7 @@
 
 + [Example 6](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses) -- GREAT (continue): Bayesian analysis of a trial of early thrombolytic therapy
 
++ [Example 13](../Notes/p01-Bayesian.md#317-multiplicity-exchangeability-and-hierarchical-models) -- Magnesium: Meta-analysis using a skeptical prior
 
 
 ## Prior Distribution
