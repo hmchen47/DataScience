@@ -350,7 +350,7 @@
   \end{align*}\]
 
 
-+ [Beta-Binomial distribution w/ Bayesian considerations](../Notes/p01-Bayesian.md#3132-predictions-for-binary-data)
++ [Beta-Binomial distribution w/ Bayesian considerations](../Notes/p01-Bayesian.md#3132-predictions-for-binary-data )
   + prior distribution: let $\mu = a/(a+b), M = a+b$
 
     \[\begin{align*}
@@ -626,6 +626,21 @@
   + observing $m$ trials w/ positive, the posterior distribution $\sim$ Beta(m+1, 1)
   + Lapace's law of success: the probability that the event will occur at the next trial is $m/(m+1)$
   + even if an event has happened in every case so far, never completely certain that it will happen at the next opportunity
+
++ [Normal predictive distribution](../Notes/p01-Bayesian.md#3133-predictions-for-normal-data)
+  + likelihood: $Y_n \sim N(\theta, \sigma^2/n)$
+  + prior distribution: $\theta \sim N(\mu, \sigma^2/n_0)$
+  + predictions on future values of $Y_n$
+  + consider $Y_n$ as being the sum of two independent quantities: $(Y - \theta) \sim N(0, \sigma^2/n)$ and $\theta \sim N(\mu, \sigma^2, n_0)$
+  + the predictive distribution
+
+    \[ Y_n \sim N \left( \mu, \sigma^2 \left(\frac{1}{n} + \frac{1}{n_0}\right) \right) \tag{23} \]
+
+  + predictions: adding variances $\implies$ increasing uncertainty
+  + combining sources of evidence using Bayes theorem $\implies$ increasing precision and decreasing uncertainty
+  + observed data $y_m$ and the current posterior distribution $\theta \sim N((n_0\mu+my_m)/(n_o+m), \sigma^2/(n_o+m))$, the predictive distribution
+
+    \[ Y_n|y_m \sim N \left( \frac{n_0\mu+my_m}{n_0+m}, \sigma^2 \left( \frac{1}{n_0+m} + \frac{1}{n} \right) \right) \tag{24} \]
 
 
 
