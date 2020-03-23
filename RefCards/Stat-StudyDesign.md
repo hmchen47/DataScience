@@ -34,6 +34,9 @@
 
 ## Cohort Studies
 
++ [Definition of cohort](../Notes/p02-Observational.md#cohort-study)
+  + epidemiology: cohort = a set of people followed over a period of time
+  + modern epidemiological definition: a group of people w/ defined characteristics who are followed up to determine incidence of, or mortality from, some specific disease, all causes of death, or some other outcome
 
 
 
