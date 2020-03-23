@@ -335,6 +335,50 @@
 
 
 
+## Bayesian analysis with normal distributions
+
++ [Normal distribution](../Notes/p01-Bayesian.md#37-bayesian-analysis-with-normal-distributions)
+  + the prior distribution $p(\theta)$
+
+    \[ p(\theta) = N \left(\theta \left\vert \mu, \frac{\sigma^2}{n_0}\right.\right) \tag{13} \]
+
+    + $\mu$: the prior mean
+    + $\sigma$: the standard deviation for the prior and the likelihood
+    + $n_0$: 'implicit' sample size that the prior based on
+  + advantages of Eq.13 for prior-to-posterior analysis
+    + $n_0 \to 0 \implies \sigma^2 \uparrow$ and the distribution becoming 'flatter'
+    + the distribution $\to$ uniform over $(-\infty, \infty)$
+    + normal prior w/ a very large variance used to represent a 'non-informative' distribution
+  + posterior distribution
+    + normal prior distribution: $\theta \sim N(\mu, \sigma^2/n_0)$
+    + likelihood: $y_m \sim N(\theta, \sigma^2/m)$
+    + posterior distribution obeys
+
+      \[\begin{align*}
+        p(\theta|y_m) &\propto p(y_m | \theta) p(\theta) \\
+         &\propto \exp \left(-\frac{(y_m - \theta)^2 m}{2\sigma^2} \right) \times \exp \left(-\frac{(\theta - \mu)^2 n_o}{2\sigma^2} \right)
+      \end{align*}\]
+
+    + the term involving $\theta$ exactly that arising from a posterior distribution
+
+      \[ p(\theta|y_m) = N \left(\theta \left\vert \frac{n_0\mu + my_m}{n_o + m}, \frac{\sigma^2}{n_0 + m}\right.\right) \tag{14}\]
+
+    + posterior mean $(n_o \mu + m y_m)/(n_o + m)$
+      + a weighted average of the prior mean $\mu$ and parameter estimate $y_m$
+      + $y_m$ weighted by their precision
+    + posterior variance (1/precision)
+      + based on an implicit sample size equivalent to the sum of the prior 'sample size' $n_0$ and the sample size of the data $m$
+      + when combining sources of evidence from the prior and the likelihood, _adding precisions_ to decrease the uncertainty
+
++ [General form of normal distribution](../Notes/p01-Bayesian.md#37-bayesian-analysis-with-normal-distributions)
+  + general notations:
+    + prior distribution: $\theta \sim N(\mu, \tau^2)$
+    + likelihood: $y_m \sim N(\theta, \sigma_m^2)$
+  + posterior distribution
+
+    \[ p(\theta | y_m) = N \left( \theta \left\vert \frac{\frac{\mu}{\tau^2} + \frac{y_m}{\sigma_m^2}}{\frac{1}{\tau^2}+\frac{1}{\sigma_m^2}}, \frac{1}{\frac{1}{\tau^2}+\frac{1}{\sigma_m^2}} \right.\right) \tag{15} \]
+
+
 
 
 
