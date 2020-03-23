@@ -723,6 +723,31 @@
     + irrelevance: measures of uncertainty such as intervals or $p$-values
 
 
+## Nuisance Parameters
+
++ [Nuisance parameter](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + a major issue in statistical modeling
+  + additional unknown quantities which influence the observed data but which are not of primary interest
+
++ [Eliminating nuisance parameters from the likelihood](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + restricting attention to an estimator of $\theta$ whose likelihood (at least approximately) does not depend on the nuisance parameters
+  + estimating the nuisance parameters and 'plugging in' their maximum likelihood estimates into the likelihood for $\theta$
+  + by conditioning on some aspect of the data that is taken to be uninformative about $\theta$, forming a 'conditional likelihood' which depends only on $\theta$
+  + forming a 'profile likelihood' for $\theta$, obtained by maximizing over the nuisance parameters for each value of $\theta$
+
++ [A more 'pure' Bayesian approach](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + place prior distributions over the nuisance parameters
+  + form a joint posterior distribution over all the unknown quantities in the model
+  + integrate out the nuisance parameters to obtain the marginal posterior distribution over $\theta$
+
++ [Sensitivity analysis](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + importance: nuisance parameters of prior distributions
+  + innocuous choices may exert unintended influence
+  + hybrid strategy
+    + using traditional methods to eliminate nuisance parameters before carrying out a Bayesian analysis on $\theta$ alone
+    + good approximation to the full Bayesian approach
+
+
 
 
 
