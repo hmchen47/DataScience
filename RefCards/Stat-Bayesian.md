@@ -52,8 +52,9 @@
 
 
 
-
 + [Example 4](../Notes/p01-Bayesian.md#37-bayesian-analysis-with-normal-distributions) -- SBP: Bayesian analysis for normal data
+
++ [Example 6](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses) -- GREAT (continue): Bayesian analysis of a trial of early thrombolytic therapy
 
 
 
