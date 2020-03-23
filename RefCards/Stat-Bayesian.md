@@ -79,6 +79,14 @@
 
 ## Posterior Distribution
 
++ [The posterior distribution](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
+  + a way to summarize what we know about uncertain quantities in Bayesian analysis
+  + summarizing what you know after the data has been observed
+
+    \[ \text{Posterior Distribution} = \text{Prior Distribution} + \text{Likelihood Function (“new evidence”)} \]
+
+  + Posterior probability: the probability that an event will happen after all evidence or background information has been taken into account
+
 
 
 
