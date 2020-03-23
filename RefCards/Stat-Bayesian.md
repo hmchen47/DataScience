@@ -769,5 +769,91 @@
   + functional dependence
   + equal
 
++ [Assumptions for multiplicity](../Notes/p01-Bayesian.md#317-multiplicity-exchangeability-and-hierarchical-models)
+  + different assumptions
+    + _identical parameters_: all the $\theta$s identical $\implies$ pooled data w/o individual units
+    + _independent parameters_: all the $\theta$s entirely unrelated $\implies$ independent analysis
+    + _exchangeable parameters_
+      + $\theta$s 'similar': labeling $\theta$ w/ $A, B, \dots$ w/o knowing which is which
+      + prior opinion about a set of $\theta$s affected by only knowing the labels rather than the actual identities
+      + $Y_1, \dots, Y_n$ random variables w/ 'exchangeable' equivalent
+      + exchangeable parameters $\theta_1, \dots, \theta_K \implies$ exchangeable units mathematically equivalent to assuming the $\theta$s drawn at random from some population distribution, as a traditional random-effects model
+      + considering a common prior for all units, but one unknown parameter
+      + no need for any actual sampling $\impliedby$ the probability structure is a consequence of the belief in exchangability rather than a physical randomization mechanism
+      + not normal distribution:
+        + heavy-tailed or skewed distributions
+        + partiton - cluster similar or equal units into groups
+
++ [Hierarchical / multi-level model](../Notes/p01-Bayesian.md#317-multiplicity-exchangeability-and-hierarchical-models)
+  + reasonable assumption: prior distribution w/ exchangeability
+  + Bayesian approach to multiplicity $\implies$ integrating all the units into a single model
+  + assumptions:
+    + $\theta_1, \dots, \theta_K$ drawn from some common distribution w/ unknown parameters
+    + normal distribution
+  + a response $Y_k$ w/ a normal likelihood
+
+    \[ Y_k \sim N(\theta, s_k^2) \tag{29} \]
+
++ [Situations of assumptions for hierarchical model](../Notes/p01-Bayesian.md#317-multiplicity-exchangeability-and-hierarchical-models)
+  + identical parameters (pooled effect)
+    + all the $\theta_k$ identical w/ a common treatment effect $\mu$
+
+      \[ Y_k \sim N(\mu, s_k^2) \]
+
+    + assuming $\mu \sim N(0, \sigma^2/n_0)$ and sequential application of Bayes theorem w/ $s_k^2 = \sigma^2/n_k$, Eq. (14) giving a 'pooled' posterior distribution for $\mu$
+
+      \[ \mu \sim N \left(\frac{\sum_k n_k y_k}{n_0 + \sum_k n_k}, \frac{\sigma^2}{n_0 + \sum_k n_k} \right) \tag{30}\]
+
+      + $\mu$: the posterior mean, an overall sample mean
+      + $n_0$: the 'imaginary' observations of $0$, contributed by the prior
+      + $n_0 \to 0 \implies$ the prior distribution on $\mu \to$ uniform
+    + w/ $n_0 \to 0$ and $s_k^2 = \sigma^2/n_k$
+
+      \[ \mu &\sim N \left( \frac{\sum_k y_k / s_k^2}{\sum_k 1/s_k^2}, \frac{1}{\sum_k 1/s_k^2} \right) \]
+
+      + the posterior mean = the classical pooled estimate $\hat{\mu}$ = the average of the individual estimates w/ inverse variance
+    + all the trials measuring the same quantity
+
+      \[Q = \sum_k \frac{n_k}{\sigma^2} (y_k - \hat{\mu})^2 \tag{33} \]
+
+    + absence of a significant $Q \nRightarrow$ homogeneous trials
+  + independent parameters (fixed effects)
+    + $\theta_k$ estimated totally w/o regard for the others
+    + uniform prior for each $\theta_k$ and likelihood $Y_k \sim N(\theta, s_k^2) \implies$ the posterior distribution = the normalized likelihood
+
+      \[ \theta_k \sim N(y_k, s_k^2) \tag{34} \]
+
+  + exchangeable parameters (random effects)
+    + $\theta_k$ assumed to be exchangeable w/ a normal distribution: 'hyperparameters', $\mu$ and $\tau^2$, for moment assumed known
+
+      \[ \theta_k \sim N(\mu, \tau^2) \tag{35} \]
+
+    + observing $y_k$, Bayes theorem w/ $B_k = s_k^2/(s_k^2 + \tau^2)$ (the weight given to the prior mean)
+
+      \[ \theta_k | y_k \sim N \left(B_k \mu + (1 - B_k) y_k, (1 - B_k) s_k^2 \right) \tag{36} \]
+
+    + $\tau^2$ value and Eq. (36)
+      + $\tau^2 = 0$: a special case of the pooled result, Eq. (32)
+      + $\tau^2 = \infty$: a special case of the independent result, Eq. (34)
+    + exchangeable model $\implies$ inferences for each unit having narrower intervals than independent ones
+    + shrunk towards the prior mean response
+      + shrunk $\impliedby$ a degree of pooling depending on the variability btw studies and the precision of the individual study
+      + $B_k$ controlling the 'shrinkage' of the estimate towards $\mu$
+      + the reduction in the width of the interval for $\theta_k$
+      + $B_k = n_0 / ((n_0 + n_k)$ as $s_k^2 = \sigma^2/n_k, \tau^2 = \sigma^2/n_0 \implies$ how the degree shrinkage increasing w/ the relative information in the prior distribution compared to the likelihood
+    + empirical Bayes approach
+      + unknown hyperparameters $\mu$ and $\tau$ estimated directly from the data
+      + avoid specification of prior distribution for $\mu$ and $\tau$
+      + not detailing the variety of techniques available as they form part of classical random-effects meta-analysis
+    + the 'method-of-moments' estimator
+
+      \[ \hat{\tau}^2 = \frac{Q - (K - 1)}{N - \sum_k n_k^2 / N} \tag{37} \]
+
+      + $Q$: the test for heterogeneity given in Eq. (33)
+      + $N = \sum_k n_k$
+      + $Q < (K-1) \implies \hat{\tau}^2 = 0$ and complete homogeneity assumed
+    + full Bayes approach
+      + prior distribution w/ $\mu$ and $\tau^2$
+      + taking particular care in the choice of a prior distribution for the between-unit variation $\tau$
 
 
