@@ -50,10 +50,10 @@
 ## School of Bayesian Approaches
 
 + [Four broad levels of increasing 'purity' of Bayesians](../Notes/p01-Bayesian.md#320-schools-of-bayesians)
-  + the __empirical__ Bayes approach
-  + the __reference__ Bayes approach
-  + the __proper__ Bayes approach
-  + the __decision-theoretic__ or 'full' Bayes approach
+  + the empirical Bayes approach
+  + the reference Bayes approach
+  + the proper Bayes approach
+  + the decision-theoretic or 'full' Bayes approach
 
 + [Fundamental importance of concepts to distinguish Bayesian and conventional models](../Notes/p01-Bayesian.md#320-schools-of-bayesians)
   + coherence of probability statements
@@ -65,7 +65,27 @@
 
 ## Reporting
 
-
++ [Checklist of Bayesian assessments of health-care intervention](../Notes/p01-Bayesian.md#321-a-bayesian-checklist)
+  + Background
+    + the intervention
+    + aim of study
+  + Methods
+    + study design
+    + outcome measure
+    + statistical model
+    + prospective Bayesian analysis?
+    + prior distribution
+    + loss function or demand
+    + computation/software
+  + Results
+    + evidence from study
+  + Interpretation
+    + Bayesian interpretation
+      + clearly summarizing the posterior distribution
+      + describing the formal or informal loss function and the results
+      + current summary for immediate action
+    + sensitivity analysis: the results of any alternative prior and/or expressions of the consequences of decisions
+    + comments:  including an honest appraisal of the strengths and possible weaknesses of the analysis
 
 + [Example 4](../Notes/p01-Bayesian.md#37-bayesian-analysis-with-normal-distributions) -- SBP: Bayesian analysis for normal data
 
@@ -663,7 +683,7 @@
 
 + [Modeling of health-care w/ decision-making](../Notes/p01-Bayesian.md#314-decision-making)
   + the appropriate role for formal decision theory in health-care evaluation -- a subject of a long and continuing debate
-  + __utility__ $u(d, \theta)$: the consequences of taking each decision $d$ when $\theta$ is true unknown 'state of nature'
+  + utility $u(d, \theta)$: the consequences of taking each decision $d$ when $\theta$ is true unknown 'state of nature'
   + $p(\theta | y)$: the probability distribution for $\theta$ w/ observed some data $y$
   + $d$: expected utility of taking decision
 
