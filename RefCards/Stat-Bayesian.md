@@ -226,7 +226,23 @@
     + overall, depression is strongly linked to suicidal and suicidal attempt w/ a particular size and composition, and in the presence of other variables, the association may not be significant
 
 
-## Bayes Theorem with Hypotheses
+## Exchangeability
+
++ Exchangeability
+  + a formal expression of the idea that no systematic reason to distinguish the individual variables $Y_1, \dots, Y_n$ (similar but not identical)
+  + exchangeable: the probability of $Y_1, \dots, Y_n$ assigned to any set of potential outcomes, $p(y_1, \dots, y_n)$, unaffected by permutations of the labels attached to the variables
+
++ Judgment of exchangeability
+  + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
+
+    \[ p(y_1, \dots, y_n) = \int \, \prod_{i=1}^{n} p(y_i | \theta) p(\theta) d\theta \tag{3} \]
+
+  + exchangeable random quantities can be though of being i.i.d. variables drawn from some common distribution depending on an unknown parameter $\theta$ w/ a prior distribution $p(\theta)$
+  + from a subjective judgment about observable quantities, one derives that whole apparatus of i.i.d. variables, conditional independence, parameters and prior distributions
+
+
+
+## Bayesian Analysis
 
 + [Prior to posterior analysis](../Notes/p01-Bayesian.md#32-bayes-theorem-for-two-hypotheses)
   + hypotheses $H_0$ and $H_1$: mutually exhaustive and exclusive
@@ -257,21 +273,6 @@
     \end{align*}\]
 
     + the weight of evidence: $\log(\text{likelihood ratio})$
-
-
-## Exchangeability
-
-+ Exchangeability
-  + a formal expression of the idea that no systematic reason to distinguish the individual variables $Y_1, \dots, Y_n$ (similar but not identical)
-  + exchangeable: the probability of $Y_1, \dots, Y_n$ assigned to any set of potential outcomes, $p(y_1, \dots, y_n)$, unaffected by permutations of the labels attached to the variables
-
-+ Judgment of exchangeability
-  + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
-
-    \[ p(y_1, \dots, y_n) = \int \, \prod_{i=1}^{n} p(y_i | \theta) p(\theta) d\theta \tag{3} \]
-
-  + exchangeable random quantities can be though of being i.i.d. variables drawn from some common distribution depending on an unknown parameter $\theta$ w/ a prior distribution $p(\theta)$
-  + from a subjective judgment about observable quantities, one derives that whole apparatus of i.i.d. variables, conditional independence, parameters and prior distributions
 
 
 
