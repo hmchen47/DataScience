@@ -68,3 +68,23 @@
   + w/ its roots in the engineering industry
 
 
+
+## Multiple Distributions
+
++ Joint probability distribution
+  + joint probability: the probability of two events occurring simultaneously
+  + a probability distribution giving the probability that each $X, Y, \dots$ falls in any particular range or discrete set of values specified for that variable
+  + $f_{X, Y}(x, y)$: the joint probability density function of random variable $X$ and $Y$, the marginal probability density function of $X$ and $Y$
+
+    \[ f_X(x) = \int f_{XY} (x, y) dy, \qquad f_Y(y) = \int f_{XY} (x, y) dx \]
+
++ Marginal distribution
+  + marginal probability: the probability of an event irrespective of the outcome of another variable
+  + the marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset
+  + two random variables independent $\iff$ their joint distribution function equal to the product of their marginal distribution functions
+  + marginal probability density function: two continuous random variables $X$ and $Y$ w/ $x \in [a, b]$ and $y \in [c, d]$
+
+    \[ f_X(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
+
+
+
