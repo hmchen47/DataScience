@@ -555,11 +555,33 @@
   + unreasonable to rule out on prior grounds advantages of greater than 19%, and hence reject the critical prior interval as being unreasonably skeptical, and accept the results as 'credible'
 
 
+## Prediction
+
 
 
 
 ## Hierarchical Models
 
++ Modeling for sequential data sets
+  + $\exists$ two or more segmented observed data, $y_m$ followed by $y_n$
+  + the posterior distribution of $y_m$ w/ Bayes theorem (Eq. 5)
+
+    \[ p(\theta | y_m) \propto p(y_m | \theta) \times p(\theta) \tag{18} \]
+
+  + using the posterior distribution as the prior distribution after observing the following data segment, $y_n$
+  + the posterior conditioning on all the data
+
+    \[\begin{align*}
+      p(\theta | y_n, y_m) & \propto p(y_n | \theta, y_m) p(\theta | y_m)  \tag{19} \\
+        & \propto p(y_n | \theta, y_m) p(y_m | \theta) p(\theta)
+    \end{align*}\]
+
+  + factorizing the joint likelihood
+
+    \[ p(y_m, y_n | \theta) = p(y_n | \theta, y_m) p(y_m | \theta) \]
+
+  + most situations, $p(y_n | \theta, y_m)$ not depending on $y_m$; i.e. $Y_n$ simply conditionally independent of $Y_m$ given $\theta$
+  + $\therefore p(\theta | y_m)$ simply as the prior for a standard Bayesian update using the likelihood $p(y_n | \theta)$
 
 
 
