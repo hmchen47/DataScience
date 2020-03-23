@@ -69,6 +69,12 @@
     + chosen according to some principle, such as symmetry or maximizing entropy given constraints
     + (conjugate) chosen a prior from a family simplifies calculation of the posterior distribution
 
++ [Characteristics of prior](../Notes/p01-Bayesian.md#39-the-prior-distribution)
+  + not necessarily specified beforehand
+  + not necessarily unique
+  + not necessarily completely specified
+  + not necessarily important
+
 
 
 ## The Likelihood
