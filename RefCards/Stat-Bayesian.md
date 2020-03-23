@@ -111,7 +111,12 @@
 
 ## The Likelihood Principles
 
-
++ [The likelihood principle](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
+  + proposition: given a statistical model, all the evidence in a sample relevant to model parameters is contained in the likelihood function
+  + all the information that the data provides about the parameter is contained in the likelihood
+  + data only influence the relative plausibility of an alternative hypothesis through the relative likelihood
+  + Bayesian inference automatically obeys this principle
+  + example -- Stopping: The likelihood principle in action
 
 
 
