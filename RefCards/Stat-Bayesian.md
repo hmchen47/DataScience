@@ -193,6 +193,40 @@
     + overall, depression is strongly linked to suicidal and suicidal attempt w/ a particular size and composition, and in the presence of other variables, the association may not be significant
 
 
+## Bayes Theorem with Hypotheses
+
++ [Prior to posterior analysis](../Notes/p01-Bayesian.md#32-bayes-theorem-for-two-hypotheses)
+  + hypotheses $H_0$ and $H_1$: mutually exhaustive and exclusive
+  + the prior probability for each of two hypotheses: $p(H_0)$ and $p(H_1)$
+  + $y$: the result of a test
+  + posterior probabilities:
+
+    \[ p(H_0 | y) = \frac{p(y | H_0)}{p(y)} \times p(H_0)  \tag{1} \]
+
+  + the overall probability of $y$ occurring:
+  
+    \[p(y) = p(y | H_0) p(H_0) + p(y | H_1) p(H_1) \]
+
+  + the odds form of Bayes theorem
+
+    \[\begin{align*}
+
+      \frac{p(H_0 | y)}{p(H_1 | y)} &= \frac{p(y | H_0)}{p(y | H_1)} \times \frac{p(H_0)}{p(H_1)} \tag{2} \\
+    \end{align*}\]
+
+    + the prior odds: $p(H_0)/p(H_1)$
+    + the posterior odds: $p(H_0 | y) / p(H_1 | y)$
+    + the ratio of the likelihood: $p(y | H_0) / p(y | H_1)$
+
+    \[\begin{align*}
+      \text{posterior odds} &= \text{likelihood ratio} \times \text{prior odds} \\ \\
+      \log(\text{posterior odds}) &= \log(\text{likelihood ratio}) + \log(\text{prior odds})
+    \end{align*}\]
+
+    + the weight of evidence: $\log(\text{likelihood ratio})$
+
+
+
 
 
 ## Hierarchical Models
