@@ -643,6 +643,86 @@
     \[ Y_n|y_m \sim N \left( \frac{n_0\mu+my_m}{n_0+m}, \sigma^2 \left( \frac{1}{n_0+m} + \frac{1}{n} \right) \right) \tag{24} \]
 
 
+## Decision-Making
+
++ [Modeling of health-care w/ decision-making](../Notes/p01-Bayesian.md#314-decision-making)
+  + the appropriate role for formal decision theory in health-care evaluation -- a subject of a long and continuing debate
+  + __utility__ $u(d, \theta)$: the consequences of taking each decision $d$ when $\theta$ is true unknown 'state of nature'
+  + $p(\theta | y)$: the probability distribution for $\theta$ w/ observed some data $y$
+  + $d$: expected utility of taking decision
+
+    \[ E(d) = \int u(d, \theta) p(\theta | y) d\theta \]
+  
+  + $d^{opt}$: the optimal decision to maximize $E(d, \theta)$
+
++ [Hypotheses and decision-making](../Notes/p01-Bayesian.md#314-decision-making)
+  + $H_0$ & $H_1$: two hypotheses w/ the unknown 'state of nature'
+  + $p(H_0|y)$ & $p(H_1 | y)$: current posterior probabilities w/ $H_0$ and $H_1$ respectively
+  + $d_0$ & $d_1$: possible decisions for $H_0$ & $H_1$ respectively, $d_0$ believing $H_0$ true while $d_1$ believing $H_1$
+  + $u(d_0, H_0)$ & $u(d_1, H_1)$: the utility of taking decision $d_0$ / $d_1$ where $H_0$ / $H_1$ is true
+  + maximizing expected utility by taking decision $d_0$ if $E(d_0) > E(d_1)$
+
+    \[\frac{p(H_0|y)}{p(H_1|y)} &> \frac{u(d_1, H_1) - u(d_0, H_1)}{u(d_0, H_0) - u(d_1, H_0)} \]
+  
+  + intuitive explanation:
+    + $u(d_1, H_1) - u(d_0, H_1)$:
+      + the potential _regret_ : the potential loss in utility when erroneously deciding on $H_0$ instead of $H_1$
+      + the additional utility involved in taking the correct decision when $H_1$ turns out to be the correct hypothesis
+    + $u(d_0, H_0) - u(d_1, H_0)$: the potential _regret_ when $H_0$ is true
+    + should only take decision $d_0$ if the posterior odds in favor of $H_0$ are sufficient to outweight any extra potential rgret associated w/ incorrectly rejecting $H_1$
+
++ [Decision based on future events](../Notes/p01-Bayesian.md#314-decision-making)
+  + using the principle of maximizing expected utility based on future events
+  + choice of action changing the probability of the events occurring
+  + $c_i$: the cost taken at the decision $d_i$
+  + $p_i$: the probability of taking decision $d_i$ w/ an adverse event Y = 0 or 1 occuring w/ utility $U_Y$
+  + the expected utility of taking decision $i$
+
+    \[ E(d_i) = p_i U_1 + (1-p_i) U_0 - c_i \]
+
+  + $d_0$ preferred to $d_1$ if
+
+    \[ p_1 - p_0 &> \frac{c_0 - c_1}{U_0 - U_1} \tag{26} \]
+
+    + $U_0 - U_1 > 0 \impliedby$ undesirable event
+  + the decision depends on the risk difference $p_1 - p_0$, rather than a relative measure such as the odds ratio
+  + D. Ashby and A. Smith
+    + NNT: the 'number needed to treat' to prevent one adverse event
+    + $N(p_1 - p_0)$: the expected number of events prevented when treating $N$ individuals according to $d_0$ instead of $d_1$
+    + preventing one event when treating $N = 1/(p_1 - p_0)$
+
+    \[ NNT = \frac{1}{p_1 - p_0} < \frac{U_0 - U_1}{c_0 - c_1} \tag{27} \]
+
++ [Neural tube defects](../Notes/p01-Bayesian.md#314-decision-making): Making personal decisions about preventative treatment
+  + task: a couple wishing to try and become pregnant but faced w/ the decision whether to take folic acid supplements to reduce the risk of a neural tube defect (NTD), such as spina bifida or anencephaly
+  + Notations & Assumptions:
+    + $d_0$ / $d_1$: the decisions not to take or to take supplementation, respectively
+    + $c_0$ / $c_1$: the costs of the two decisions
+    + $p_0$ / $p_1$: the probabilities of a fetus having an NTD following each of the two decisions
+    + $U_0$ / $U_1$: the utilities of having a child w/o or w/ taking an NTD, respectively
+    + $\rho \cdot c = c_1 - c_0$: the cost for a couple deciding whether to take the supplementation; may be in money to pay for a course of tablets
+  + the couples choosing supplementation ($d_1$) if (Eq. 26)
+
+    \[ U_0 - U_1 > \frac{c_0 - c_1}{p_1 - p_0} \tag{28} \]
+
++ [Decision-making and Bayesian methods](../Notes/p01-Bayesian.md#314-decision-making)
+  + focused on the utility of consequences than the use of Bayesian methods to revise opinions
+  + this activity blends naturally into cost-effectiveness analysis, but nevertheless the subjective interpretation of probability is essential
+  + the expressions of uncertainty required for a decision analysis can rarely be based on empirical data
+
++ [Discussion of using Bayesian methods on decision-making](../Notes/p01-Bayesian.md#314-decision-making)
+  + debate on the use of loss functions, the negative of utility, in parallel to that concerning prior distributions
+  + arguing the design, monitoring and analysis of a study using the consequences of eventual decision-making w/ loss functions
+  + frequentist theory of decision-making using loss functions
+    + minimizing the loss whatever the true value of the parameter might be
+    + thought of as assuming the most pessimistic prior distribution
+    + ideological approaches employing all combinations of the use of prior distributions and/or loss  functions
+  + Optimal decision-making
+    + depending solely on the expected benefit
+    + irrelevance: measures of uncertainty such as intervals or $p$-values
+
+
+
 
 
 ## Hierarchical Models
