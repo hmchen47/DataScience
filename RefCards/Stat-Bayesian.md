@@ -228,11 +228,11 @@
 
 ## Exchangeability
 
-+ Exchangeability
++ [Exchangeability](../Notes/p01-Bayesian.md#34-exchangeability-and-parametric-modeling)
   + a formal expression of the idea that no systematic reason to distinguish the individual variables $Y_1, \dots, Y_n$ (similar but not identical)
   + exchangeable: the probability of $Y_1, \dots, Y_n$ assigned to any set of potential outcomes, $p(y_1, \dots, y_n)$, unaffected by permutations of the labels attached to the variables
 
-+ Judgment of exchangeability
++ [Judgment of exchangeability](../Notes/p01-Bayesian.md#34-exchangeability-and-parametric-modeling)
   + a set of binary variables $Y_1, \dots, Y_n$ exchangeable $\implies$ the marginal distribution
 
     \[ p(y_1, \dots, y_n) = \int \, \prod_{i=1}^{n} p(y_i | \theta) p(\theta) d\theta \tag{3} \]
@@ -274,7 +274,23 @@
 
     + the weight of evidence: $\log(\text{likelihood ratio})$
 
++ [Bayesian approach](../Notes/p01-Bayesian.md#35-bayes-theorem-for-general-quantities)
+  + Notations & Assumptions
+    + $\theta$: unknown quantity
+    + $p(\theta | H)$: the prior distribution of $\theta$; judgment about $\theta$ conditional on a context $H$
+    + $y$: some observed evidence
+  + $p(y | \theta)$: the (conditional) probability of $y$ for each possible value of $\theta$
+  + $p(\theta | y)$: likelihood; to obtain the new, posterior, probability for different $\theta$, taking account of the evidence $y$
+  + applying Bayesian theorem to a general quantity $\theta$
 
+    \[ p(\theta | y) = \frac{p(y | \theta)}{p(y)} \times p(\theta)  \tag{4}\]
+
+    + $p(y)$: a normalizing factor to ensure that $\int p(\theta|y)d\theta = 1$ and value not interested
+  + the essence of Bayes theorem only concerns the terms involving $\theta$
+
+    \[ p(\theta | y) \propto p(y | \theta) \times p(\theta) \tag{5} \]
+
+  + the posterior distribution proportional to (i.e. has the same shape as) the product of the likelihood and the prior
 
 
 
