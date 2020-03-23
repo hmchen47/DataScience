@@ -2,17 +2,38 @@
 
 ## Overview
 
-+ Two competing philosophies of statistical analysis
++ [Two competing philosophies of statistical analysis](../Notes/a05-Bayesian.md#notes)
   + the frequentist
   + the Bayesian
 
-+ Bayesian methods
++ [Bayesian methods](../Notes/a05-Bayesian.md#notes)
   + based on the idea of unknown quantities w/ probability distributions
   + unknown quantities including population means and proportions
   + prior knowledge / belief
     + the probability distribution proportion
     + the knowledge from data before knowing it
 
++ [Frequentist vs Bayesian methods](../Notes/a05-Bayesian.md#notes)
+  + frequentist methods
+    + the population value: fixed, unvarying (but unknown) quantity
+    + w/o a probability distribution
+    + calculating confidence intervals for the quantity or significance tests of hypotheses concerning it
+  + Bayesian methods
+    + not allowing to widen knowledge of the problem
+    + not providing what researchers seem to want
+    + able to provide
+      + the probability of the 95% of the population value lies within the 95% CI
+      + the probability of truth of the null hypothesis less than 5% $\to p(H_0 = \text{true}) < 5\%$
+
++ [Issues of the Bayesian methods](../Notes/a05-Bayesian.md#notes)
+  + how to decide on the prior distribution
+  + intractable computational problems
+  + choice of Bayesian or frequentist: unknown which existed
+
++ [Conclusions for computational issue](../Notes/a05-Bayesian.md#notes)
+  + developing computer intensive methods of analysis
+  + new approaches to very difficult statistical problems, such as the location of geographical clusters of cases of a disease
+  + a change in the statistical paradigm
 
 
 ## Bayes Theorem
