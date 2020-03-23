@@ -66,6 +66,7 @@
   + Definition for continuous distribution
 
     \[\text{argmax}_\theta \mathcal{L}(\theta, x_j) = \text{argmax}_\theta f(x_j | \theta) \]
+  + using likelihoods to generate estimators $\to$ the maximum likelihood estimator
 
 + [Likelihoods](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
   + statistical inference:
@@ -83,18 +84,6 @@
   + a reasonable range defined by values of the likelihood above $\exp(-1.96^2/2) = 14.7\%$ of the maximum value
   + in practice, constructing intervals in such a manner is laborious, and in general approximate likelihood functions by the normal distribution
   + example: Bernoulli
-    + $n$ individuals and measured the $i$-th individual responds to treatment, $Y_i = 1$, or not, $Y_i = 0$
-    + assume a set of independent Bernoulli trials such that the probability of response is $\theta$
-    + joint distribution for all $n$ individuals
-
-      \[\begin{align*}
-        p(y_1, \dots, y_n|\theta) &= \prod_{i=1}^n p(y_i|\theta) =  \prod_{i=1}^n \theta^{y_i}(1 - \theta)^{1 - y_i} \\
-          &= \underbrace{\theta^{y_1+\dots+y_n} (1 - \theta)^{(1-y_1)+\dots+(1-y_n)} = \theta^r (1-\theta)^{n - r}}_{y_1, \dots, y_n \text{ independent}}
-      \end{align*}\]
-
-      + $r = \sum_i y_i$: the number of responders
-    + likelihood maximized at $\hat{\theta} = r/n$
-    + the maximum likelihood estimate proportional to responders
 
 
 
