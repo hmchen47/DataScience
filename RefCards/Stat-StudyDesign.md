@@ -38,6 +38,44 @@
   + epidemiology: cohort = a set of people followed over a period of time
   + modern epidemiological definition: a group of people w/ defined characteristics who are followed up to determine incidence of, or mortality from, some specific disease, all causes of death, or some other outcome
 
+### Study Design for Cohort Study
+
++ [Cohort study](../Notes/p02-Observational.md#study-design-of-cohort-studies)
+  + an outcome or disease-free study population
+  + defined by the exposure or event of interest and followed in time until the disease of outcome of interest occurs (diagram)
+  + exposure identified before outcome $\implies$ a temporal framework to assess causality and then having the potential to provide the strongest scientific evidence
+  + advantages
+  + disadvantages
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761962&s=23&r=1&c=1" style="margin: 0.1em;" alt="Cohort Study Designs" title="Cohort Study Designs" width=500>
+    </a>
+  </div>
+
++ [Prospective cohort studies](../Notes/p02-Observational.md#study-design-of-cohort-studies)
+  + carried out from the present into the future
+  + designed w/ specific data collection methods
+  + advantage: tailored to collect specific exposure data and more complete
+  + disadvantage
+  + examples: the landmark Framingham Heart study and plastic surgery
+
++ [Retrospective cohort studies](../Notes/p02-Observational.md#study-design-of-cohort-studies)
+  + a.k.a historical cohort studies
+  + carried out the present time and looking to the past to examine medical events or outcomes
+  + timeliness and inexpensive nature
+  + choosing a cohort of subjects based on exposure status at the present time
+  + reconstructing measured outcome data (i.e. disease status, event status) for analysis
+  + disadvantage
+  + advantage: inexpensive, short time period
+
++ [Case-series](../Notes/p02-Observational.md#study-design-of-cohort-studies)
+  + difference w/ cohort studies: the presence of a control, or unexposed, group
+  + descriptive studies following one small group of subjects
+  + often confused w/ cohort study when only one group of subjects presents
+  + clarified unless a second comparative group serving as a control
+  + to strengthen an observation from a case-series by selecting appropriate control groups to conduct a cohort or case-control studies
+
 
 
 ## Cast-Control Studies
