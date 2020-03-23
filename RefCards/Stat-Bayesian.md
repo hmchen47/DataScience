@@ -389,6 +389,70 @@
 
 
 
+## Parameter Estimation
+
++ [Point estimates](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
+  + traditional measures of location of distribution: mean, median, and mode
+  + given a theoretical justification as a point estimate derived from a posterior distribution, by imposing a particular penalty on error in estimation
+  + posterior distribution: symmetric and unimodal $\implies$ mean, median, and mode all coincide in a single value and no difficulty in making a choice
+  + posterior distribution considerably skewed in some circumstances $\implies$ marked difference btw mean and median
+
++ [Interval estimates](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
+  + credible interval: any interval containing probability different from a 'Neyman-Pearson' confidence interval
+  + types of intervals: assume a continuous parameter $\theta$ w/ range on $(-\infty, \infty)$ and posterior conditional on generic data $y$
+    + _one-side intervals_: typical  $x = .90, .95, .99$
+      + one-side upper $x \cdot 100\%$ w/ $(\theta_L, \infty)$ where $p(\theta < \theta_L| y) = x$
+      + one side lower $x \cdot 100\%$ w/ $(-\infty, \theta_U)$ where $p(\theta > \theta_U | y) = x$
+    + _two-sided 'equi-tail-area' intervals_: a two-sided $x \cdot 100\%$ (typical 90%, 95%, 99%) interval w/ equal probability in each tail area w/ $(\theta_L, \theta_U)$ where $p(\theta < \theta_L | y) = x/2$ and $p(\theta > \theta_U | y) = 1.0 - x/2$
+    + _Highest Posterior Density (HPD) intervals_
+      + typical property: skewed posterior distribution $\implies$ a two-sided interval w/ equal tail areas generally containing some parameter values having lower posterior probability than values outside the interval
+      + HPD w/o such property
+      + adjusting: the probability ordinates at each end of the interval are identical $\implies$ the narrowest possible interval containing the required possibility
+      + posterior distribution w/ more than one mode $\implies$ HPD may be a set of disjoint intervals
+  + HPD interval (Fig. 4)
+    + preferable but generally difficult to compute
+    + normal distributions: using tables or programs giving tail areas
+    + more complicated situation: generally simulating value of $\theta$ and one and two-sided intervals constructed using the empirical distribution of simulated values
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+        <img src="../Notes/img/p01-04a.png" style="margin: 0.1em;" alt="(a) a symmetric unimodal distribution in which equi-tail-area and HPD intervals coincide at -1.64 to 1.64" title="Fig. 4(a) a symmetric unimodal distribution in which equi-tail-area and HPD intervals coincide at -1.64 to 1.64" height=120>
+        <img src="../Notes/img/p01-04b.png" style="margin: 0.1em;" alt="(b) a skewed unimodal distribution in which the equi-tail-area interval is 0.8 to 6.3, whereas the HPD of 0.4 to 5.5 is considerably shorter" title="Fig. 4(b) a skewed unimodal distribution in which the equi-tail-area interval is 0.8 to 6.3, whereas the HPD of 0.4 to 5.5 is considerably shorter" height=120>
+      </a>
+      <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+        <img src="../Notes/img/p01-04c.png" style="margin: 0.1em;" alt="(c) a bimodal distribution in which the equi-tail-area interval is -3.9 to 8.6, whereas the HPD appropriately consists of two segments" title="Fig. (c) a bimodal distribution in which the equi-tail-area interval is -3.9 to 8.6, whereas the HPD appropriately consists of two segments" height=150>
+      </a>
+    </div>
+
+  + traditional confidence intervals vs. Bayesian credible intervals
+    1. _interpretation_ - most important
+      + a 95% probability that the true $\theta$ lies in a 95% credible interval $\implies$ certainly _not_ the interpretation of a 95% confidence interval
+      + a long series of 95% confidence intervals: 95% of events containing the true parameter value
+      + the Bayesian interpretation: giving a probability of whether a _particular_ confidence interval contains the true value
+    2. _credible interval_
+      + generally narrower due to the additional information provided by the prior
+      + width of posterior distribution w/ normal distribution: $U_D - L_D = 2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
+      + confidence interval of normal distribution: $2 \times 1.96 \times \sigma/\sqrt{m}$
+    3. _care required in terminology_:
+      + the width of classical confidence intervals: the standard error of the estimator
+      + the width of Bayesian credible intervals: dedicated by the posterior standard deviation
+
++ [Interval hypotheses](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
+  + a hypothesis of interest comprises an interval $H_0: \theta_L < \theta < \theta_U$
+  + posterior distribution: $p(H_0 | y) = p(\theta_L < \theta < \theta_U | y)$
+  + computed w/ standard formulae or simulation methods
+
++ [Confidence interval of prior distribution and posterior distribution](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
+  + the (rather odd) prior belief that all values of $\theta$ were equally likely $\implies p(\theta)$ constant
+  + $p(\theta | y) \propto p(y | \theta) \times p(\theta)$: the resulting posterior distribution simply proportional to the likelihood
+  + $p(\theta|y_m) = N \left(\theta \left\vert \frac{n_0\mu + my_m}{n_o + m}, \frac{\sigma^2}{n_0 + m}\right.\right)$: equivalent to assuming $n_0 = 0$ in an analysis w/ normal distribution
+  + traditional confidence interval: essentially equivalent to a credible interval based on the likelihood alone
+  + Bayesian and classical equivalent results w/ a uniform or 'flat' prior
+  + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
+
+
+
+
 
 
 ## Hierarchical Models
