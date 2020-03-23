@@ -168,7 +168,7 @@
     <th style="text-align: left;">Explanatory (independent) variable</th>
     <td style="text-align: center;">$x$</td>
     <td style="text-align: center;">$x$</td>
-    <td style="text-align: center;"><a href="https://realpython.com/linear-regression-in-python/#linear-regression">Example</a>, <a href="https://datatofish.com/multiple-linear-regression-python/">Example2</a></td>
+    <td style="text-align: center;"><a href="https://realpython.com/linear-regression-in-python/#linear-regression">Example1</a>, <a href="https://datatofish.com/multiple-linear-regression-python/">Example2</a></td>
     <td style="text-align: center;">($x$-variable)</td>
   </tr>
   <tr>
@@ -209,7 +209,7 @@
   </tbody>
   <tfoot style="border-top: 1px double;">
   <tr>
-    <td colspan="5"><span style="font-weight: bold;">Python</span>: <span style="font-family: courier">import pandas as pd; ser = pd.sSeries([1,2,3]); ser.describe(); df = pd.read_csv("filename.csv"); df.info(); df.describe();</td>
+    <td colspan="5"><div style="font-weight: bold;">Python:</div> <div style="font-family: courier">import pandas as pd;<br/>ser = pd.Series([1,2,3]); ser.describe(); <br/>df = pd.read_csv("filename.csv"); df.info(); df.describe();</div></td>
   </tr>
   <tr>
     <td colspan="5"></td>
@@ -228,7 +228,7 @@
 
 + Sample standard deviation
   
-  \[ s = \sqrt{\frac{\sum(x_i - \overline{x})^2}}{n-1} = \sqrt{\sum x_i^2 - n\overline{x}^2}{n-1} \]
+  \[ s = \sqrt{\frac{\sum(x_i - \overline{x})^2}{n-1}} = \sqrt{\frac{\sum x_i^2 - n\overline{x}^2}{n-1}} \]
 
 
 ### Probability Rules
@@ -313,12 +313,14 @@
 
   \[ x = \mu + z\sigma \]
 
-+ Normalization: <br/>if $X$ has the $N(\mu, \sigma)$ distribution, then the variable $Z = \frac{X - \mu}{\sigma}$ has the $N(0, 1)$ distribution
++ Normalization
+
+  \[X \sim N(\mu, \sigma) \implies Z = \frac{X - \mu}{\sigma} \sim N(0, 1)\]
 
 
 ### Normal Approximation to the Binomial Distribution
 
-  + If $X$ has the $B(n, p)$ distribution and the sample size $n$ is large enough (namely $np \geq 10$ and $n(1-p) \geq 10$), the $X$ is approximately $B\left(np, \sqrt{np(1-p)}\right)$
+  \[X \sim B(n, p),\; np \geq 10, n(1-p) \geq 10 \implies X \approx B\left(np, \sqrt{np(1-p)}\right)\]
 
 
 ### Sample Proportion
@@ -334,7 +336,9 @@
 
   \[ s.d.(\hat{p}) = \sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} \]
 
-+ Sampling distribution of $\hat{p}$: <br/>if the sample size $n$ is large enough (namely, $np \geq 10$, and $n(1-p) \geq 10$), then $\hat{p}$ is _approximately_ $N\left( p, \sqrt{\frac{p(1-p)}{n}} \right)$
++ Sampling distribution of $\hat{p}$: 
+
+  \[ \exists \text{ sample size } n \ni np \geq 10, \;n(1-p) \geq 10 \implies \hat{p} \approx N\left( p, \sqrt{\frac{p(1-p)}{n}} \right)\]
 
 ### Sample means
 
@@ -351,7 +355,9 @@
 
     \[ N(\mu_{\overline{X}}, \sigma_{\overline{X}}) \iff N\left(\mu, \frac{\sigma}{\sqrt{n}}\right) \]
   
-  + __Central Limit Theorem__: if $X$ follows _any_ distribution w/ mean $\mu$ and standard deviation $\sigma$ and $n$ is large, the $\overline{X}$ is approximately $N\left( \mu, \frac{\sigma}{\sqrt{n}} \right)$
+  + __Central Limit Theorem__: 
+  
+    \[\exists \;X \text{ with } \mu, \; \sigma \text{ and } n \gg 1 \implies \overline{X} \sim N\left( \mu, \frac{\sigma}{\sqrt{n}} \right)\]
 
 
 
@@ -389,20 +395,20 @@
   <tr>
     <th rowspan="2" style="text-align: left;">One</th>
     <th>Categorical</th>
-    <td><span style="color: lightgreen">1-sample inference for popul. proportion ($p$)</span><br/>[approx. cond: 1 r.s., $min(np, (n(1-p)) \geq 10$)]<br/><br/><br/><span style="color: lightgreen">$\chi^2$: Goodness of Fit</span><br/>[cond: 1 r.s., 1 response w/ $k$ outcomes, <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
-    <td><span style="color: lightgreen">2-indep. samples inference for the difference btw 2 popul. proportions ($p_1 - p_2$)</span><br/>[approx. cond.: 2 r.s., $min(n_1p_1, n_1(1-p_1),$ $n_2p_2, n_2(1-p_2) \geq 10$]<br/><br/><br/><span style="color: lightgreen">$\chi^2$: Homogeneity</span><br/>[cond: 2 indep. r.s., 1 response w/ $r$ outcomes, <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
-    <td>$\chi^2$: homogeneity<br/>[cond.: $c$ indep. r.s., 1 response w/ $r$ outcomes,  <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
+    <td style="vertical-align: top;"><span style="color: lightgreen">1-sample inference for popul. proportion ($p$)</span><br/>[approx. cond: 1 r.s., $\min(np, (n(1-p)) \geq 10$)]<br/><br/><br/><span style="color: lightgreen">$\chi^2$: Goodness of Fit</span><br/>[cond: 1 r.s., 1 response w/ $k$ outcomes, <span style="font-weight: bold; color: cyan;">Condition</span>]</td>
+    <td style="vertical-align: top;"><span style="color: lightgreen">2-indep. samples inference for the difference btw 2 popul. proportions ($p_1 - p_2$)</span><br/>[approx. cond.: 2 r.s., $\min(n_1p_1, n_1(1-p_1),$ $n_2p_2, n_2(1-p_2)) \geq 10$]<br/><br/><br/><span style="color: lightgreen">$\chi^2$: Homogeneity</span><br/>[cond: 2 indep. r.s., 1 response w/ $r$ outcomes, <span style="font-weight: bold; color: cyan;">Condition</span>]</td>
+    <td style="vertical-align: top;"><span style="color: lightgreen">$\chi^2$: homogeneity</span><br/>[cond.: $c$ indep. r.s., 1 response w/ $r$ outcomes,  <span style="font-weight: bold; color: cyan;">Condition</span>]</td>
   </tr>
   <tr>
     <th>Quantitative</th>
-    <td><span style="color: lightgreen;">1-same inference for popul. mean ($\mu$)</span><br/>[approx. cond: 1 r.s. & $n \geq 25$, no outlier]<br/><br/><br/><span style="color: lightgreen;">Paired samples inference for a popul. mean difference ($\mu_0$)</span><br/>[approx. cond.: 1 rs & $n \geq 25$, no outlier]</td>
-    <td><span style="color: lightgreen;">2 indep. samples inference for the difference btw 2 popul. means ($\mu_1 - \mu_2$)</span><br/>[approx. cond.: 2 indep. r.s., normal popul., same $\sigma^2$ (pooled only)] </td>
-    <td><span style="color: lightgreen;">ANOVA <br/>($\mu_i$ - one $\mu_i$ for each popul.)</span><br/>[cond.: 1 indep. r.s., normal popul., same $\sigma^2$]</span></td>
+    <td style="vertical-align: top;"><span style="color: lightgreen;">1-same inference for popul. mean ($\mu$)</span><br/>[approx. cond: 1 r.s. & $n \geq 25$, no outlier]<br/><br/><br/><span style="color: lightgreen;">Paired samples inference for a popul. mean difference ($\mu_0$)</span><br/>[approx. cond.: 1 rs & $n \geq 25$, no outlier]</td>
+    <td style="vertical-align: top;"><span style="color: lightgreen;">2 indep. samples inference for the difference btw 2 popul. means ($\mu_1 - \mu_2$)</span><br/>[approx. cond.: 2 indep. r.s., normal popul., same $\sigma^2$ (pooled only)] </td>
+    <td style="vertical-align: top;"><span style="color: lightgreen;">ANOVA <br/>($\mu_i$ - one $\mu_i$ for each popul.)</span><br/>[cond.: 1 indep. r.s., normal popul., same $\sigma^2$]</span></td>
   </tr>
   <tr>
     <th rowspan="2" style="text-align: left;">Two</th>
     <th>Categorical</th>
-    <td><span style="color: lightgreen;">$\chi^2$: indep.</span><br/>[cond.: 1 r.s., $c$ & $r$ outcomes, <span style="text-weight: bold; color: cyan;">Condition</span>]</td>
+    <td style="vertical-align: top;"><span style="color: lightgreen;">$\chi^2$: indep.</span><br/>[cond.: 1 r.s., $c$ & $r$ outcomes, <span style="font-weight: bold; color: cyan;">Condition</span>]</td>
     <td></td>
     <td></td>
   </tr>
@@ -419,15 +425,15 @@
   </tr>
   <tr>
     <th colspan="2" style="text-align: left;">Distributions</th>
-    <td colspan="3">$N(\mu, sigma), t(df), F(df_1, df_2), \chi^2(df)$ where $df_1 = gps - 1$, $df_2 = n - gps$</td>
+    <td colspan="3">$N(\mu, \sigma), t(df), F(df_1, df_2), \chi^2(df)$ where $df_1 = gps - 1$, $df_2 = n - gps$</td>
   </tr>
   <tr>
-    <th colspan="2" style="text-align: left;"><span style="text-weight: bold; color: cyan;">Condition</span></th>
+    <th colspan="2" style="text-align: left;"><span style="font-weight: bold; color: cyan;">Condition</span></th>
     <td colspan="3">80% expected count > 5; none of them < 1</td>
   </tr>
   <tr>
     <th colspan="2" style="text-align: left;">Abbreviations</th>
-    <td colspan="3">Popul. = population; r.s. = random sample' indep. = independent, gps = groups/td>
+    <td colspan="3">Popul. = population; r.s. = random sample; indep. = independent; gps = groups</td>
   </tr>
   </tbody>
 </table>
@@ -440,7 +446,7 @@
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Population Proportion</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Two Population Proportions</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Two Population Proportions</th>
   </tr>
   </thead>
   <tbody>
@@ -462,7 +468,7 @@
   </tr>
   <tr>
     <td><span style="font-weight: bold;">Large-Sample $z$-Test</span><br/><br/><span style="padding-left: 5em;">$z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}$</span></td>
-    <td rowspan="2" style="vertical-align: top;"><span style="font-weight: bold;">Large-Sample $z$-Test</span><br/><br/><span style="padding-left: 5em;">$z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{(\hat{p}_1 - \hat{p}_2)\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \quad$ where $\hat{p} = \frac{n_1\hat{p}_1 + n_2\hat{p}_2}{n_1+n_2}$</span></td>
+    <td rowspan="2" style="vertical-align: top;"><span style="font-weight: bold;">Large-Sample $z$-Test</span><br/><br/><span style="padding-left: 5em; padding-top: 1em;">$z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1 - \hat{p})\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}$</span><div style="padding-left: 10em; padding-top: 1.5em;"> where $\hat{p} = \frac{n_1\hat{p}_1 + n_2\hat{p}_2}{n_1+n_2}$</div></td>
   </tr>
   <tr>
     <td><span style="font-weight: bold;">Sample Size</span><br/><span style="padding-left: 5em;">$n = \left(\frac{z^\ast}{2m}\right)^2$</span></td>
@@ -502,14 +508,14 @@
     <td><span style="font-weight: bold;">Standard Error</span><br/><br/><span style="padding-left: 1em;">$\text{pooled } s.e.(\overline{x}_1 - \overline{x}_2) = s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$</span><br/><br/><span style="padding-left: 2em;">where $s_p = \sqrt{\frac{(n_1-1)s_1^2 + (n_2 -1)s_2^2}{n_1+n_2-2}}$</span></td>
   </tr>
   <tr>
-    <td><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 1em;">$\overline{x} \pm t^\ast s.e.(\overline{x})$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span><br/><br/><br/><span style="font-weight: bold;">Paired Confidence Interval</span><br/><br/><span style="padding-left: 1em;">$\overline{x} \pm t^\ast s.e.(\overline{d})$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span></td>
+    <td><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 1em;">$\overline{x} \pm t^\ast s.e.(\overline{x})$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span><br/><br/><br/><span style="font-weight: bold;">Paired Confidence Interval</span><br/><br/><span style="padding-left: 1em;">$\overline{d} \pm t^\ast s.e.(\overline{d})$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span></td>
     <td style="vertical-align: top;"><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 0.5em;">$(\overline{x}_1 - \overline{x}_2) \pm t^\ast \left(s.e.(\overline{x}_1 - \overline{x}_2)\right)$</span><br/><br/><span style="padding-left: 2em;">$df = \min(n_1 -1, n_2 -1)$</span></td>
     <td style="vertical-align: top;"><span style="font-weight: bold;">Confidence Interval</span><br/><br/><span style="padding-left: 0.5em;">$(\overline{x}_1 - \overline{x}_2) \pm t^\ast (\text{pooled }s.e.(\overline{x}_1 - \overline{x}_2))$</span><br/><br/><span style="padding-left: 2em;">$df = n_1 + n_2 -2$</span></td>
   </tr>
   <tr>
     <td><span style="font-weight: bold;">One-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}-\mu_0}{s.e.(\overline{x})} = \frac{\overline{x} - \mu_0}{s/\sqrt{n}}$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span><br/><br/><br/><span style="font-weight: bold;">Paired $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{d}-0}{s.e.(\overline{d})} = \frac{\overline{d}}{s_d/\sqrt{n}}$</span><br/><br/><span style="padding-left: 2em;">$df = n -1$</span></td>
     <td style="vertical-align: top;"><span style="font-weight: bold;">Two-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}_1 - \overline{x}_2 - 0}{s.e.(\overline{x}_1 - \overline{x}_2)} = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$</span><br/><br/><span style="padding-left: 2em;">$df = \min(n_1 - 1, n_2 - 1)$</span></td>
-    <td style="vertical-align: top;"><span style="font-weight: bold;">One-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}_1 - \overline{x}_2-0}{\text{pooled }s.e.(\overline{x}_1 - \overline{x}_2)} = \frac{\overline{x}_1 - \overline{x}_2}{s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}$</span><br/><br/><span style="padding-left: 2em;">$df = n_1 + n_2 - 2$</span></td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Pooled Two-Sample $t$-Test</span><br/><br/><span style="padding-left: 1em;">$t = \frac{\overline{x}_1 - \overline{x}_2-0}{\text{pooled }s.e.(\overline{x}_1 - \overline{x}_2)} = \frac{\overline{x}_1 - \overline{x}_2}{s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}$</span><br/><br/><span style="padding-left: 2em;">$df = n_1 + n_2 - 2$</span></td>
   </tr>
   </tbody>
 </table>
@@ -523,8 +529,8 @@
   <tbody>
   <tr>
     <td style="width: 10%;">SS Group = SSG = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\displaystyle\sum_{\text{groups}} n_i (\overline{x}_i - \overline{x})^2$</div></td>
-    <td style="width: 10%;">MS Groups = MSG = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\frac{\text{SSG}}{k-1}$</div></td>
-    <td style="width: 15%;" rowspan="3">
+    <td style="width: 15%;">MS Groups = MSG = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\frac{\text{SSG}}{k-1}$</div></td>
+    <td style="width: 20%;" rowspan="3">
       <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
         <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">ANOVA Table</a></caption>
         <thead>
@@ -568,11 +574,11 @@
   </tr>
   <tr>
     <td>SS Total = SSTO = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\displaystyle \sum_{\text{values}} \left(x_{ij} - \overline{x}\right)^2$</div></td>
-    <td>F = <br/><div style="padding-top: 1.0em; padding-left: 1.0em;">$\frac{\text{MS Groups}}{\text{MS Error}}$</div></td>
+    <td>F = $\frac{\text{MS Groups}}{\text{MS Error}}$</div></td>
   </tr>
   <tr>
     <td colspan="2"><span style="font-weight: bold; padding-right: 1em;">Confidence Interval</span>$\overline{x}_i \pm t^\ast \frac{s_p}{\sqrt{n_i}} \quad df=N-k$</td>
-    <td>Under $H_0$, the $F$ statistic follows an $F(k-1, N-k)$ distribution</td>
+    <td>Under $H_0$, $F \sim F(k-1, N-k)$</td>
   </tr>
   </tbody>
 </table>
@@ -618,26 +624,28 @@
 
   \[\begin{align*}
     r &= \frac{S_{XY}}{\sqrt{S_{XX}S_{YY}}} \\\\
-    r^2 &= \frac{SSTP - SSE}{SSTO} = \frac{SSREG}{SSTO} \qquad \text{where } SSTO = S_{YY} = \sum (y - \hat{y})^2 = \sum e^2
+    r^2 &= \frac{SSTO - SSE}{SSTO} = \frac{SSREG}{SSTO} \qquad\qquad \text{where } SSTO = S_{YY} = \sum (y - \hat{y})^2
   \end{align*}\]
 
 
-### Estimate of \sigma
+### Estimate of $\sigma$
 
-  \[ s = \sqrt{MSE} = \sqrt{\frac{SSE}{n-2}} \qquad \text{where } SSE = \sum (y - \hat{y})^2 = \sum e \]
+  \[ s = \sqrt{MSE} = \sqrt{\frac{SSE}{n-2}} \qquad\qquad \text{where } SSE = \sum (y - \hat{y})^2 = \sum e^2 \]
 
 
-### Standard Error of Sample Slop
+### Sample Slope
+
++ Standard Error of Sample Slop
 
   \[ s.e.(b_1) = \frac{s}{\sqrt{S_{XX}}} = \frac{s}{\sqrt{\sum (x - \overline{x})^2}} \]
 
 
-### Confidence Interval of $\beta_1$
++ Confidence Interval of $\beta_1$
 
   \[ b_1 \pm t^\ast s.e.(b_1) \qquad df = n-2 \]
 
 
-### $t$-Test for $\beta_1$
++ $t$-Test for $\beta_1$
 
   \[\begin{align*}
     \text{To test } & H_0: \beta_1 = 0 \\\\
@@ -661,20 +669,22 @@
   \end{align*}\]
 
 
-### Standard Error of the Sample Intercept
+### Sample Intercept
+
++ Standard Error of the Sample Intercept
 
   \[ s.e.(b_0) = s \sqrt{\frac{1}{n} + \frac{\overline{x}^2}{S_{XX}}} \]
 
 
-### Confidence Interval for $\beta_0$
++ Confidence Interval for $\beta_0$
 
   \[ b_0 \pm t^\ast s.e.(b_0) \qquad df = n-2\]
 
 
-### $t$-Test for $\beta_0$
++ $t$-Test for $\beta_0$
 
   \[\begin{align*}
-    \text{Tp test } & H_0: \beta_0 = 0 \\\\
+    \text{To test } & H_0: \beta_0 = 0 \\\\
     t &= \frac{b_0 - 0}{s.e.(b_0)}  \qquad df = n-2
   \end{align*}\]
 
