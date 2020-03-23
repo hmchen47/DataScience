@@ -727,7 +727,7 @@
 
 ## Hierarchical Models
 
-+ Modeling for sequential data sets
++ [Modeling for sequential data sets](../Notes/p01-Bayesian.md#312-sequential-use-of-bayes-theorem)
   + $\exists$ two or more segmented observed data, $y_m$ followed by $y_n$
   + the posterior distribution of $y_m$ w/ Bayes theorem (Eq. 5)
 
@@ -748,6 +748,26 @@
   + most situations, $p(y_n | \theta, y_m)$ not depending on $y_m$; i.e. $Y_n$ simply conditionally independent of $Y_m$ given $\theta$
   + $\therefore p(\theta | y_m)$ simply as the prior for a standard Bayesian update using the likelihood $p(y_n | \theta)$
 
++ [usage of historical data](../Notes/p01-Bayesian.md#316-use-of-historical-data)
+  + helping the design of experiments and pooling data in a meta-analysis
+  + Bayesian reasoning gives a formal role in many aspects of evaluation
+  + a brief taxonomy of ways
+    + the deviation of prior distributions
+    + the use of historical controls in clinical trials
+    + the adjustment of observational studies for potential biases
+    + the synthesis of multiple sources
+
++ [Relationships btw historical data and current observations](../Notes/p01-Bayesian.md#316-use-of-historical-data)
+  + irrelevance: no relevant information
+  + exchangeable: current and past studies similar
+  + potential bias
+    + past studies
+      + lack of quality (internal bias)
+      + setting not precisely measured (external bias)
+    + appropriately adjusting historical results
+  + equal but discounted
+  + functional dependence
+  + equal
 
 
 
