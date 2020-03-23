@@ -1,9 +1,18 @@
 # Statistics: Distributions
 
 
-## Binomial and Bernoulli Distributions
+## Bernoulli Distribution
 
-+ [Binomial and Bernoulli distributions](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
++ [Bernoulli distribution](/Notes/p01-Bayesian.md#361-binary-data-with-a-discrete-prior-distribution): for a single Bernoulli trial w/ outcome 0 or 1, the likelihood for each possible value for $\theta$
+
+  \[ p(y | \theta_j) = \theta_j^y (1 - \theta_j)^{1-y}  \qquad \text{ where } \quad
+    p(y | \theta_j) = \begin{cases} \theta_j & \text{ if } y = 1 \\ 1 - \theta_j & \text{ if } y = 0 \end{cases}
+  \]
+
+
+## Binomial Distribution
+
++ [Binomial distribution](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
   + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
   + $\theta$: the probability of success in each Bernoulli trial
   + $\theta^y (1 - \theta)^{n-y}$: the likelihood, the probability for a specific sequence of $n-y$ 'failure' and $y$ 'successes', $\begin{pmatrix} n \\ y \end{pmatrix}$ sequences
