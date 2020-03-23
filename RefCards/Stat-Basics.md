@@ -53,3 +53,18 @@
   + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
 
 
+## Analysis Methodologies
+
++ [meta-analysis](https://en.wikipedia.org/wiki/Meta-analysis)
+  + a statistical analysis that combines the results of multiple scientific studies
+  + performed when multiple scientific studies address the same question w/ each study reporting measurements expected some degree of error
+  + derived a pooled estimate closest to the unknown common true based on how this error is perceived
+
++ [prospective analysis](https://www.longwoods.com/content/20972/healthcare-quarterly/looking-ahead-the-use-of-prospective-analysis-to-improve-the-quality-and-safety-of-care)
+  + used as an analytical tool to assess and mitigate the occurrence of loss by analyzing a situation or process that carries with it some inherent risk
+  + to identify the way in which a process might potentially fail, w/ the goal to eliminate or reduce the likelihood or outcome severity of such a failure
+  + applied to process or equipment and systems
+  + FEMA used proactively when designing a new system or process for a high-risk or complex process or during an inter-professional process w/ hands-off and interdependent steps
+  + w/ its roots in the engineering industry
+
+
