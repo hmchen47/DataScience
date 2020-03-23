@@ -542,6 +542,18 @@
     </a>
   </div>
 
++ [Applying assessment to GREAT study](..](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results))
+  + 95% classical CI for $\log(OR) = (-1.45, -0.03) \to OR = (0.24, 0.97) \implies L_D = 0.24, U_D = 0.97, L_0 = 0.10$
+  + $OR >> 0.1$ as plausible $\to$ the results of the GREAT study w/ caution
+  + $L_D, U_D$ and $L_0$ not plausible $\implies$ not finding GREAT result 'credible'
+  + characteristic of any 'just significant' results such as those observed in the GREAT trial: just a minimal amount of prior skepticism is necessary to make the Bayesian analysis 'non-significant'
+
++ [Credibility: Sumartriptan trial results](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
+  + interest: the results of an early study of subcutaneous sumatriptan for migraine - Matthews, 2001
+  + improvement: 79% w/ sumatriptan vs. 25% w/ placebo
+  + 95% of the prior belief within critical interval $\implies$ posterior 95% interval not exclude OR = 1 $\implies$ the data not 'convincing'
+  + unreasonable to rule out on prior grounds advantages of greater than 19%, and hence reject the critical prior interval as being unreasonably skeptical, and accept the results as 'credible'
+
 
 
 
