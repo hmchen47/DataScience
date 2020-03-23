@@ -38,7 +38,7 @@
   + epidemiology: cohort = a set of people followed over a period of time
   + modern epidemiological definition: a group of people w/ defined characteristics who are followed up to determine incidence of, or mortality from, some specific disease, all causes of death, or some other outcome
 
-### Study Design for Cohort Study
+### Study Design for Cohort Studies
 
 + [Cohort study](../Notes/p02-Observational.md#study-design-of-cohort-studies)
   + an outcome or disease-free study population
@@ -77,7 +77,7 @@
   + to strengthen an observation from a case-series by selecting appropriate control groups to conduct a cohort or case-control studies
 
 
-### Methodological Issues for Cohort Study
+### Methodological Issues for Cohort Studies
 
 + [Selection of subjects](../Notes/p02-Observational.md#methodological-issues-of-cohort-studies)
   + hallmark: defining the selected group of subjects by exposure status at the start of the investigation
@@ -107,6 +107,22 @@
 ## Cast-Control Studies
 
 
+### Design Study for Case-Control Studies
+
+
++ Case-control studies
+  + identifying subjects by outcome at the outset of the investigation
+  + outcome of interest: subject undergone a specific type of surgery, experienced a complication, or a diagnosed w/ a disease
+  + case-control study design (diagram)
+  + suitable for investigating rare outcomes or outcomes w/ long letency period $\impliedby$ subjects selected from the outset by their outcome status
+  + advantages
+  + disadvantages
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761967&s=23&r=1&c=1" style="margin: 0.1em;" alt="Case-Control Study Designs" title="Case-Control Study Designs" width=500>
+    </a>
+  </div>
 
 
 
