@@ -460,11 +460,11 @@
 
 ## Result Interpretation
 
-+ Connections btw Bayes theorem and clinical trials
++ [Connections btw Bayes theorem and clinical trials](../Notes/p01-Bayesian.md#310-how-to-use-bayes-theorem-to-interpret-trial-results)
   + known: the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
   + consideration: huge number of clinical trials carried out and finding the few clearly beneficial interventions
   
-+ Types of error
++ [Types of error](../Notes/p01-Bayesian.md#310-how-to-use-bayes-theorem-to-interpret-trial-results)
   + Type I error ($\alpha$): false positive - the chance of claiming an ineffective treatment is effective
   + Type II error ($\beta$): false negative - the chance of claiming an effective treatment is ineffective
   + the odds of formulation of Bayes theorem, when a 'significant result' observed
@@ -479,6 +479,68 @@
   + the precise $p$-value / 'significant' and $\alpha$
     + Lee & Zelen (2000): suggested selecting $\alpha$ that the posterior probability of an effective treatment, having observed a significant result, is sufficient high, say above 0.9
     + Simon (2000) and Bryant & Day (2000): criticized solely based on the trail is 'significant', rather than the actual observed data
+
+
+
+## Credibility Test
+
++ [Credibility in clinical trials](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
+  + credibility
+    + the beliefability of new findings in the light of current knowledge
+    + a key issue in the assessment of clinical trial outcomes
+  + Bayesian methods: probability not as idealized long-run frequencies, but as degrees of belief based on all the available evidence
+  + extending to ask how skeptical not to find an apparently positive treatment effective convincing
+  + prior mean $y_m = 0$, reflecting initial skepticism about treatment difference, w/ the variance of the prior expressing the degree of skepticism with which we view extreme treatment effects, either positive or negative
+
++ [Bayesian credibility test](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
+  + critical prior distribution $\implies$ the corresponding posterior 95% interval including 0
+  + observing $y_m >0$, a normal likelihood and prior w/ $\mu = 0$
+
+    \[ \theta \sim N \left( \frac{m y_m}{n_0 + m}, \frac{\sigma^2}{n_0 + m} \right) \]
+
+  + the upper point $u_m$ of the 95% posterior interval
+
+    \[ u_m = \frac{m y_m}{n_0 + m} + 1.96 \frac{\sigma}{\sqrt{n_0 + m}} \]
+
+    $\implies$ the 95% interval will overlap 0 if $u_m > 0$
+  + the effective number of events in the skeptical prior leading to a 95% posterior interval including 0 (to simplify w/ equality)
+
+    \[ n_0 > \left( \frac{m y_m}{1.96 \sigma} \right) -m = \frac{m^2}{1.96^2 \sigma^2} \left(y_m^2 - \frac{1.96^2 \sigma^2}{m} \right) \tag{16} \]
+
+  + $l_D$, $u_D$: the lower and upper points of a 95% interval  based on the data alone, respectively
+
+    \[\begin{align*}
+      (l_D, u_D) = y_m &\pm 1.96 \sigma / \sqrt{m} \\\\
+      (u_d - l_d)^2 = 4 \times 1.96^2 \sigma^2 /m \quad & \quad u_d l_D = y_m^2 - 1.96^2 \sigma^2/m
+    \end{align*}\]
+  
+  + the critical value of $l_0$ occurs when the lower point of the 95% prior interval
+
+    \[ l_0 = \frac{-19.6 \sigma}{\sqrt{n_0}} = - \frac{(u_D - l_D)^2}{4 \sqrt{u_D l_D}} \]
+
+  + $l_D, u_D$ on a $\log(OR)$ scale $\to l_0 = \log(L_0), l_D = \log(L_D), u_D = \log(U_D)$
+
+    \[ L_0 = \exp\left( \frac{-\log^2(U_D/L_D)}{4 \sqrt{\log(U_D) \log(L_D)}} \right) \tag{17} \]
+
+  + $L_0$ and CI
+    + the critical value ($L_0$) for the lower end of 95% skeptical interval $\to$ the resulting posterior distribution w/ a 95% interval including 1
+    + prior belief in $(L_0, 1/L_0) \implies$ not convinced by the evidence
+    + a significant trial _credible_ $\implies$ prior experience indicates that OR lying outside the critical prior interval are plausible
+  
++ [Assessment of ‘credibility’ of ORs](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
+  + observing a classical 95% interval $(L_D, U_D)$ for an OR
+  + $L_0$:
+    + the lower end of a 95% prior interval centered on 1 expressing skepticism about large differences
+    + the critical value such that the resulting posterior distribution has a 95% interval that just includes 1
+    + not producing 'convincing' evidence
+  + $OR >> L_0 \implies$ judged plausible based on evidence external to the study
+  + the significant conclusions $\nRightarrow$ convincing
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf" ismap target="_blank">
+      <img src="../Notes/img/p01-08.png" style="margin: 0.1em;" alt="Assessment of 'credibility' of odds ratios" title="Assessment of 'credibility' of odds ratios" width=350>
+    </a>
+  </div>
 
 
 
