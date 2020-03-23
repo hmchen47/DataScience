@@ -109,8 +109,7 @@
 
 ### Design Study for Case-Control Studies
 
-
-+ Case-control studies
++ [Case-control studies](../Notes/p02-Observational.md#study-design-of-cast-control-studies)
   + identifying subjects by outcome at the outset of the investigation
   + outcome of interest: subject undergone a specific type of surgery, experienced a complication, or a diagnosed w/ a disease
   + case-control study design (diagram)
@@ -124,6 +123,50 @@
     </a>
   </div>
 
+
+### Methodological Issues of Case-Control Studies
+
++ [Selection of cases](../Notes/p02-Observational.md#methodological-issues-of-case-control-studies)
+  + sampling started with
+    + explicitly defined inclusion and exclusion criteria
+    + criteria ensuring all cases homogeneous
+  + selected from various sources
+    + validity issues
+    + weakening the generalizability of the study findings
+  + representative of cases in the target population
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+        <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761975&s=23&r=1&c=1" style="margin: 0.1em;" alt="Levels of case selection" title="Levels of case selection" width=300>
+      </a>
+    </div>
+
++ [Selection of controls](../Notes/p02-Observational.md#methodological-issues-of-case-control-studies)
+  + one of the most demanding aspects
+  + important principle: the distribution of exposure should be the same among cases and controls
+  + same inclusion criteria: the validity depending on the comparability of these two groups
+
++ [Matching strategy](../Notes/p02-Observational.md#methodological-issues-of-case-control-studies)
+  + a method in an attempt to
+    + ensure comparability btw cases and controls
+    + reduce variability and systematic difference due to background variables not interested
+  + individual matching
+    + each cases typically individually paired w/ a control subject w.r.t. the background variables
+    + exposure to the risk factor of interest compared btw the cases and the controls
+  + confounder: variables associated w/ risk factor
+  + advantages
+  + disadvantages
+
++ [Multiple controls](../Notes/p02-Observational.md#methodological-issues-of-case-control-studies)
+  + rare outcomes: a limited number of cases to select from w/ a large number of controls
+  + increasing statistical power $\to$ increasing the sample size
+  + improving precision by having about up to 3 or 4 controls per case
+
++ [Bias in case-control studies](../Notes/p02-Observational.md#methodological-issues-of-case-control-studies)
+  + Achilles heel: evaluating exposure status
+  + information collected by self-report, interview, or from recorded information
+  + susceptible: recall bias, interview bias, or relying on the completeness or accuracy of recorded information
+  + bias decreasing the validity $\implies$ carefully addressed and reduced in study design
 
 
 
