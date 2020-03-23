@@ -244,6 +244,8 @@
 
 ## Bayesian Analysis
 
++ [Bayesian approach to make inference](../Notes/p01-Bayesian.md#36-bayesian-analysis-with-binary-data): combining the likelihood w/ initial evidence or opinion regarding $\theta$, as expressed in a prior distribution $p(\theta)$
+
 + [Prior to posterior analysis](../Notes/p01-Bayesian.md#32-bayes-theorem-for-two-hypotheses)
   + hypotheses $H_0$ and $H_1$: mutually exhaustive and exclusive
   + the prior probability for each of two hypotheses: $p(H_0)$ and $p(H_1)$
@@ -291,6 +293,48 @@
     \[ p(\theta | y) \propto p(y | \theta) \times p(\theta) \tag{5} \]
 
   + the posterior distribution proportional to (i.e. has the same shape as) the product of the likelihood and the prior
+
+
+
+## Bayesian Analysis w/ Binary Data
+
++ [Bernoulli distribution](../Notes/p01-Bayesian.md#361-binary-data-with-a-discrete-prior-distribution)
+  + only a limited set of hypotheses concerning the true proportional $\theta$, corresponding to a finite list denoted $\theta_1, \dots, \theta_j$
+  + the posterior probabilities for the $\theta_j$
+
+    \[ p(\theta_j | y) \propto \theta_j^y (1 - \theta_j)^{1-y} \times p(\theta_j)  \tag{7} \]
+
+    where the normalizing factor that ensures the posterior probabilities add to 1
+
+    \[ p(y) = \sum_j \theta_j^y (1 - \theta_j)^{1-y} \times p(\theta_j) \]
+
+  + the result w/ $r$ 'successes' out of $n$ trials, the relevant posterior
+
+    \[ p(\theta_j | r) \propto \theta_j^r (1 - \theta_j)^{1-y} \times p(\theta_j) \tag{8} \]
+
++ [Uniform distribution/Notes/p01-Bayesian.md#362-conjugate-analysis-for-binary-data
+  + assumption for prior distribution:
+    + all possible values of $\theta$ equally likely
+    + uniform distribution, $p(\theta) = 1 \, \text{ for } \,0 \leq \theta \leq 1$
+  + applying Bayes theorem
+
+    \[ p(\theta | y) \propto \theta^r (1-\theta)^{n-r} \times 1  \tag{9} \]
+
+    + $r$: the number of events
+    + $n$: the total number of individuals
+  + the functional form of the posterior distribution proportional to a beta distribution: $Beta(r+1, n-r+1)$
+
++ [Beta distribution/Notes/p01-Bayesian.md#362-conjugate-analysis-for-binary-data): $Beta(a, b)$ for prior distribution
+  
+  \[\begin{align*}
+    \text{Prior} &\propto \theta^{a-1} (1 - \theta)^{b-1} \\
+    \text{Likelihood} &\propto \theta^r (1 - \theta)^{n-r} \\
+    \text{Posterior} &\propto \theta^{a-1}(1 - \theta)^{b-1} \theta^r (1-\theta)^{n-r} \tag{10} \\
+      &\propto \theta^{a+r-1}(1-\theta)^{b+n-r-1} = Beta(a+r, b+n-r)
+  \end{align*}\]
+
+
+
 
 
 
