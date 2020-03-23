@@ -86,6 +86,17 @@
   </tr>
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Basics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em;"> <a href="./Stat-Basics.md#basic-concepts"> Terminology </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Inference </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#analysis-methodologies"> Analysis </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a></td>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Hypothesis Test </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#bernoulli-distribution"> Bernoulli </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#binomial-distribution"> Binomial </a></td>
@@ -100,6 +111,13 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Simulations </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Simulations.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Simulations.md#monte-carlo-methods"> Monte Carlo </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Simulations.md#markov-chain-monte-carlo-methods"> MCMC </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
@@ -108,61 +126,57 @@
   </tr>
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Bayesian Approaches </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#school-of-bayesian-approaches"> School </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#reporting"> Reporting </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#prior-distribution"> Prior </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#the-likelihood"> Likelihood </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#posterior-distribution"> Posterior </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#the-likelihood-principles"> Likelihood Principle </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#odds-ratios"> Odds Ratios </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#exchangeability"> Exchangeability </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#nuisance-parameters"> Unisance Parameetrs </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Analysis </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#bayesian-analysis"> Modeling </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#bayesian-analysis-w-binary-data"> Binary Data </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#bayesian-analysis-with-normal-distributions"> Normal </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#parameter-estimation"> Parameter Estimation </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#result-interpretation"> Result Interpretation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#credibility-test"> Creditability </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#prediction"> Predication </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#decision-making"> Decision Making </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Bayesian.md#hierarchical-models"> Hierarchical Models </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
   </tr>
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Subject Title </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
-    <td style="padding: 0.3em;"> <a href="">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
   </tbody>
 </table>
