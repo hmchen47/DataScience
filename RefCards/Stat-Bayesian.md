@@ -35,8 +35,16 @@
   + new approaches to very difficult statistical problems, such as the location of geographical clusters of cases of a disease
   + a change in the statistical paradigm
 
++ [The Bayesian approach](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
+  + resting on an essentially _subjective_ interpretation of probability
+  + allowed to express generic _uncertainty_ or _degree of belief_ about any unknown but potentially observable quantity
+  + rules of probability
+    + not assumed as self-evident
+    + able to derived from 'deeper' axioms of reasonable behavior of an individual
+  + probabilities _for_ events rather than probabilities _of_ events
+  + a reflection of personal uncertainty rather than necessarily being based on future unknown events
 
-## Bayes Theorem
++ Bayesian statistics: treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
 
 
