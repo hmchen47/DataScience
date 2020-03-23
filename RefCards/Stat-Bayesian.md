@@ -350,6 +350,32 @@
   \end{align*}\]
 
 
++ [Beta-Binomial distribution w/ Bayesian considerations](../Notes/p01-Bayesian.md#3132-predictions-for-binary-data)
+  + prior distribution: let $\mu = a/(a+b), M = a+b$
+
+    \[\begin{align*}
+      p(\theta | \mu, M) = Beta(M\mu, M(1-\mu)) &= \frac{\Gamma(M)}{\Gamma(M\mu) \Gamma(M(1-\mu))} \theta^{M\mu-1}(1-\theta)^{M(1-\mu)-1} \\\\
+      E(\theta | \mu, M) = \mu \qquad & \qquad Var(\theta | \mu, M) = \frac{\mu(1-\mu)}{M-1}
+    \end{align*}\]
+
+  + posterior distribution
+
+    \[\begin{align*}
+      p(\theta | k) &\propto \underbrace{p(k | \theta)}_{\text{binomial}} \underbrace{p(\theta | \mu, M)}_{\text{beta}} = Beta(k+M\mu, n-k+M(1-\mu)) \\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu) \Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \theta^{k+M\mu-1} (1-\theta)^{n-k+M(1-\mu)-1} \\\\
+      E(\theta | k) &= \frac{k+M\mu}{n+M}
+    \end{align*}\]
+
+  + marginal distribution
+
+    \[\begin{align*}
+      p(k | \mu, M) &= \int_0^1 p(k | \theta) p(\theta | \mu, M) d\theta \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \int_0^1 \theta^{k+M\mu-1}(1-\theta)^{n-k+M(1-\mu)-1} d\theta \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \frac{\Gamma(k+M\mu)\Gamma(n-k+M(1-\mu))}{\Gamma(n+M)} \\\\
+      p(k | a, b) &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)}\frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)}\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
+    \end{align*}\]
+
+
 
 ## Bayesian analysis with normal distributions
 
@@ -556,6 +582,50 @@
 
 
 ## Prediction
+
++ [Prediction w/ Bayes theorem](../Notes/p01-Bayesian.md#3131-predictions-in-the-bayesian-framework)
+  + task: predict some future observations $x$ on the basis of currently observed data $y$
+  + the distribution $p(x|y)$ ex tended w/ unknown parameters $\theta$ by
+
+    \[ p(x | y) = \int p(x | y, \theta) p(\theta | y) d\theta \]
+
+  + the posterior distribution $p(y | \theta)$
+  + $x$ and $y$ conditionally independent given $\theta \implies p(x | y, \theta) = p(x | \theta)$
+  + the predictive distribution: the sampling distribution of $x$ averaged over the current beliefs regarding the unknown $\theta$
+
+    \[ p(x | y) = \int p(x|\theta) p(\theta | y) d\theta \]
+
++ Predictive distribution w/ binary data
+  + $\theta$ as the true response rate for a set of Bernoulli trials
+  + current posterior distribution of $\theta$ with mean $\mu$
+  + observing the next $n$ trials to predict $Y_n$, the number of successes
+
+    \[ E(Y_n) = E_\theta[E(Y_n | \theta)] = E_\theta[n\theta] = n\mu \tag{20} \]
+
+  + the probability that the next observation (n=1) is success equal to $\mu$, the posterior mean of $\theta$
+
++ Beta-Binomial distribution
+  + $\theta$ as a conjugate $Beta(a, b)$
+  + the exact predictive distribution for $Y_n$, known as the beta-binomial distribution
+
+    \[ p(y_n) = \frac{\Gamma (a+b)}{\Gamma(a)\Gamma(b)} \begin{pmatrix} n \\ y_n \end{pmatrix} \frac{\Gamma(a+y_n) \Gamma(b+n-y_n)}{\Gamma(a+b+n)} \tag{21} \]
+
+  + w/ $E(\theta) = a/(a+b)$, the mean and variance of the distribution
+
+    \[ E(Y_n) = n \frac{a}{a+b} \]
+    \[ Var(Y_n) = \frac{nab}{(a+b)^2} \frac{a+b+n}{(a+b+1)} \tag{22} \]
+
+  + Special cases
+    + $a = b = 1$:
+      + the current posterior distribution $\sim$ uniform
+      + the predictive distribution for the number of successes in the next $n$ trials $\sim$ unifrom $\forall \; n = 0, 1, 2, \dots$
+    + predicting the next single observation ($n = 1$), Eq. 21 simplified to a Bernoulli distribution w/ $\mu = a/(a+b)$
+
++ Uniform distribution
+  + a prior for $\theta$ as uniform
+  + observing $m$ trials w/ positive, the posterior distribution $\sim$ Beta(m+1, 1)
+  + Lapace's law of success: the probability that the event will occur at the next trial is $m/(m+1)$
+  + even if an event has happened in every case so far, never completely certain that it will happen at the next opportunity
 
 
 
