@@ -47,6 +47,22 @@
 + Bayesian statistics: treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
 
+## School of Bayesian Approaches
+
++ [Four broad levels of increasing 'purity' of Bayesians](../Notes/p01-Bayesian.md#320-schools-of-bayesians)
+  + the __empirical__ Bayes approach
+  + the __reference__ Bayes approach
+  + the __proper__ Bayes approach
+  + the __decision-theoretic__ or 'full' Bayes approach
+
++ [Fundamental importance of concepts to distinguish Bayesian and conventional models](../Notes/p01-Bayesian.md#320-schools-of-bayesians)
+  + coherence of probability statements
+  + exchangeability
+  + the likelihood principle
+
+
+
+
 ## Reporting
 
 
