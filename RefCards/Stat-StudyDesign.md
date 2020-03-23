@@ -77,6 +77,32 @@
   + to strengthen an observation from a case-series by selecting appropriate control groups to conduct a cohort or case-control studies
 
 
+### Methodological Issues for Cohort Study
+
++ [Selection of subjects](../Notes/p02-Observational.md#methodological-issues-of-cohort-studies)
+  + hallmark: defining the selected group of subjects by exposure status at the start of the investigation
+  + characteristic: selecting both the exposed and unexposed groups from the same source population (diagram)
+  + excluding subjects not at risk for developing the outcome
+  + source population determined by practical considerations, such as sampling
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2998589/" ismap target="_blank">
+      <img src="https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?p=PMC3&id=761971&s=23&r=1&c=1" style="margin: 0.1em;" alt="Levels of Subject Selection" title="Levels of Subject Selection" width=500>
+    </a>
+  </div>
+
++ [Attrition bias]](../Notes/p02-Observational.md#methodological-issues-of-cohort-studies) (loss to follow-up)
+  + long follow-up period $\implies$ minimizing loss of follow-up
+  + loss to follow-up: a situation losing contact w/ the subject $\implies$ missing data
+  + losing too many subjects $\implies$ the internal validity reduced
+  + rule of thumb: the loss to follow-up rate $<20\%$ of the samples
+
++ [Methods to minimize loss to follow-up](../Notes/p02-Observational.md#methodological-issues-of-cohort-studies)
+  + during enrollment
+    + exclude subject likely to be lost
+    + obtain information to allow future tracking
+  + during follow-up: maintain periodic contact
+
 
 ## Cast-Control Studies
 
