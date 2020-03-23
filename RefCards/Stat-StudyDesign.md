@@ -31,6 +31,18 @@
     + recent challenge: vulnerable to influenced by unpredictable confounding factors
     + complement RCTs in hypothesis generation, establishing questions for further RCTs, and defining clinical conditions
 
++ [Experiment design](../Notes/p01-Bayesian.md#315-design)
+  + a natural combination of prediction and decision-making
+  + investigator seeking to choose a design to achieve the desired goals
+  + technically and computational challenging
+  + backwards induction
+    + sequential designs to work backward from the end of the study
+    + examining all the possible decision points
+    + optimize the decision allowing for all the possible circumstances
+  + computationally demanding
+    + all possible future eventualities
+    + approximations
+
 
 ## Cohort Studies
 
