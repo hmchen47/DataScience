@@ -43,7 +43,7 @@
 ## Prior Distribution
 
 + [The prior distribution](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
-  + in Bayesian statistical inference, the probability distribution that would express one's beliefs about the quantity before some evidence is taken into account
+  + the prior probability of a random event or an uncertain proposition: the unconditional probability assigned before any relevant evidence is taken into account
   + methods to create prior
     + determined from past information, such as previous experiments
     + elicited from the purely subjective assessment of an experienced expert
