@@ -48,6 +48,15 @@
 
 
 
+## Reporting
+
+
+
+
++ [Example 4](../Notes/p01-Bayesian.md#37-bayesian-analysis-with-normal-distributions) -- SBP: Bayesian analysis for normal data
+
+
+
 ## Prior Distribution
 
 + [The prior distribution](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
