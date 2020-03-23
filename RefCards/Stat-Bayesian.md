@@ -116,6 +116,39 @@
   + Bayesian inference automatically obeys this principle
   + example -- Stopping: The likelihood principle in action
 
++ [The likelihood principle](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors)
+  + the likelihoods contains all the relevant that can be extracted from the data
+  + all the information that the data provide about the parameter is contained in the likelihood
+
++ [Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (BF)
+  + measure of the relative likelihood of two hypotheses
+  + small values being considered as both evidence _against_ $H_0$ and evidence _for_ $H_1$
+  + transforming prior to posterior odds
+
++ [Calibration of Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (likelihood ratio)
+
+  <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=50%>
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf">Calibration of Bayes factor (likelihood ratio)</a></caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Bayes factor range</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Strength of evidence in favour of $H_0$ and against $H_1$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;"> <td> > 100 / < 1/100</td>       <td>Decisive</td> </tr>
+    <tr style="text-align: center;"> <td>32 to 100 / 1/32 to 1/100</td>    <td>Very strong</td> </tr>
+    <tr style="text-align: center;"> <td>10 to 32 / 1/10 to 1/3.2</td>     <td>Strong</td> </tr>
+    <tr style="text-align: center;"> <td>3.2 to 10 1/3.2 to 1/10</td>     <td>Substantial</td> </tr>
+    <tr style="text-align: center;"> <td>1 to 3.2 / 1 to 1/3.2</td>      <td>'Not worth more than a bare mention'</td> </tr>
+    </tbody>
+  </table>
+
++ Use of Bayes theorem: general statistical analysis
+  + a parameter $\theta$ is an unknown quantity such as the mean benefit of a treatment on a specified patient
+  + the prior distribution $p(\theta)$ needs to be specified
+  + concern: a natural extension of the subjective interpretation of probability
+
 
 
 ## Odds Ratios
@@ -224,6 +257,8 @@
     \end{align*}\]
 
     + the weight of evidence: $\log(\text{likelihood ratio})$
+
+
 
 
 
