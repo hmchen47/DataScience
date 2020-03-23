@@ -107,8 +107,6 @@
 
 
 
-
-
 ## The Likelihood Principles
 
 + [The likelihood principle](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
@@ -117,6 +115,83 @@
   + data only influence the relative plausibility of an alternative hypothesis through the relative likelihood
   + Bayesian inference automatically obeys this principle
   + example -- Stopping: The likelihood principle in action
+
+
+
+## Odds Ratios
+
++ [Odds ratios](../Notes/a06-OddsRatios.md#what-is-an-odds-ratio) (OR)
+  + Def: A measure of association btw an exposure and an outcome
+  + the odds that an outcome will occur given a particular exposure, compared to the odds of the outcome occurring in the absence of that exposure
+  + most commonly used in case control studies
+  + able to be used in cross-sectional and cohort study designs
+  + example: logistic regression
+
++ [Usage of OR](/Notes/a06-OddsRatios.md#when-is-it-used)
+  + used to compare
+    + the relative odds of the occurrence of the outcome of interest, eg, disease or disorder
+    + given exposure to the variable of interest, eg, health characteristics, aspect of medical history
+  + used to determine whether a particular exposure is a risk factor for a particular outcome, and to compare the magnitude of various risk factors for that outcome
+    + $OR = 1$: exposure not affecting odds of outcomes
+    + $OR > 1$: exposure associated w/ higher odds of outcome
+    + $OR < 1$: exposure associated w/ lower odds of outcome
+
++ [confidence interval of OR](/Notes/a06-OddsRatios.md#what-about-confidence-intervals)
+  + 95% confidence interval (CI): used to estimate the precision of the OR
+    + large CI  $\implies$ low level of precision of the OR
+    + small CI $\implies$ higher precision of the OR
+  + 95% CI not measuring statistical significance
+  + used as a proxy for the presence of statistical significance if not overlap the null value (eg, $OR=1$)
+  + inappropriate to interpret OR w/ 95% CI that spans the null value as indicating  evidence for lack of association btw the exposure and outcome
+
++ [confounding](/Notes/a06-OddsRatios.md#confounding)
+  + Def: non-casual association observed btw a given exposure, outcome as a result of the influence of a third variable
+  + confounding variable: the third variable
+    + causally associated w/ the outcome of interest
+    + non-causally or causally associated w/ the exposure
+    + not an intermediate variable in the causal pathway btw exposure and outcome
+  + methods to address confounding
+    + stratification: fixing the level of confounders and producing groups within which the confounder does not vary
+    + multiple regression: adjusting for (accounting for) potentially confounding variables in the model
+
++ [Example: case control study](/Notes/a06-OddsRatios.md#example)
+  + goal: calculating (a) ORs and (b) 95% CIs
+  + Calculating ORs
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Two-by-two frequency table</a></caption>
+      <thead>
+      <tr>
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Outcome Status</th>
+      </tr>
+      <tr>
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">+</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">-</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td rowspan="2">Exposure status</td> <td style="text-align: center;">+</td> <td style="text-align: center;">a</td> <td style="text-align: center;">b</td> </tr>
+      <tr> <td style="text-align: center;">-</td> <td style="text-align: center;">c</td> <td style="text-align: center;">d</td> </tr>
+      </tbody>
+    </table>
+
+    + a = number of exposed cases
+    + b = number of exposed non-cases
+    + c = number of unexposed cases
+    + d = number of unexposed non-cases
+
+    \[\begin{align*}
+      OR &= \frac{a/c}{b/d} = \frac{ad}{bc} \\\\
+      OR &= \frac{(n) \text{ exposed cases } / (n) \text{ unexposed cases }}{(n) \text{ exposed non-cases }/(n) \text{ unexpected non-cases }} \\\\
+         &= \frac{(n) \text{ exposed non-cases } \times (n) \text{ unexpected non-cases}}{(n) \text{ exposed cases } \times (n) \text{ unexposed cases }}
+    \end{align*}\]
+
+  + conclusion: important points from example
+    + presence of a positive OR for an outcome given a particular exposure does not necessarily indicate that this association is statistically significant $\implies$ determined by the confidence intervals and $p$-value
+    + overall, depression is strongly linked to suicidal and suicidal attempt w/ a particular size and composition, and in the presence of other variables, the association may not be significant
+
 
 
 
