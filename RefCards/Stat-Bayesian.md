@@ -458,6 +458,28 @@
   + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
 
 
+## Result Interpretation
+
++ Connections btw Bayes theorem and clinical trials
+  + known: the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
+  + consideration: huge number of clinical trials carried out and finding the few clearly beneficial interventions
+  
++ Types of error
+  + Type I error ($\alpha$): false positive - the chance of claiming an ineffective treatment is effective
+  + Type II error ($\beta$): false negative - the chance of claiming an effective treatment is ineffective
+  + the odds of formulation of Bayes theorem, when a 'significant result' observed
+
+    \[\begin{align*}
+      \frac{p(H_0 | \text{significant result})}{p(H_1 | \text{significant result})} &= \frac{p(\text{significant result} | H_0)}{p(\text{significant result} | H_1)} \times \frac{p(H_0)}{p(H_1)} \\\\
+        &= \frac{p(\text{Type I error})}{1 - p(\text{Type II error})} \times \frac{p(H_0)}{p(H_1)}
+    \end{align*}\]
+
+    + $H_0$: ineffective treatment
+  + truly effective treatment relative rare $\implies$ a 'statistical significant' result stands a good chance of being a false positive
+  + the precise $p$-value / 'significant' and $\alpha$
+    + Lee & Zelen (2000): suggested selecting $\alpha$ that the posterior probability of an effective treatment, having observed a significant result, is sufficient high, say above 0.9
+    + Simon (2000) and Bryant & Day (2000): criticized solely based on the trail is 'significant', rather than the actual observed data
+
 
 
 
