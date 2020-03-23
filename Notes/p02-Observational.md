@@ -266,7 +266,7 @@ Author: Jae W. Song and Kevin C. Chung
     + significant relationship: adjusted OR = 1.34, 95% CI = (1.36, 1.76)
 
 + Matching strategy
-  + a method in an attemp to
+  + a method in an attempt to
     + ensure comparability btw cases and controls
     + reduce variability and systematic difference due to background variables not interested
   + individual matching
