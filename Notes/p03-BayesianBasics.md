@@ -15,19 +15,19 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 + Bayesian inference method
   + providing a logical framework to utilize all available sources of information in making a decision when analyzing data
-  + prior knowledge: experience, expert pinion, or from data collected in previous studies based on similar protocol
+  + prior knowledge: experience, expert pinion, or collected data in previous studies w/ similar protocol
 
 + Subjectivity
   + Bayesian statistical methods criticized as being subjective
-  + almost any scientific knowledge and theories at best are subjective in nature
-  + S. Press and M. Tanur, Subjectivity of Scientist and the Bayesian Approach, 2001
+  + almost any scientific knowledge and theories at best: subjective in nature
+  + S. Press and M. Tanur, [Subjectivity of Scientist and the Bayesian Approach](http://booksdl.org/get.php?md5=c94435049cbb7a46c6344e4e6e33739a&key=C3C2V5CV3735F9RE&mirr=1), 2001
     + Subjectivity occurs, and should occurs, in the works of scientists
     + Total objectivity in science is a myth.  Good science inevitably involves a mixture of subjective and objective parts.
   + Bayesian inferential framework: a logical foundation in data analysis to accommodate
     + objective (by modeling observed data)
     + subjective (by using prior distribution for parameter)
   + classical (frequentist) statistical methods
-    + not as objective as often as claimed in practice
+    + not objective as often as claimed in practice
     + e.g., $p$-value < 0.05 $\implies$ reject $H_0$, why 0.05?
   + non-parametric methods
     + not completely objective
@@ -37,16 +37,15 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + validating assumptions w/ sensitivity analysis
 
 + Task, Notations and Assumptions
-  + experiment goal: to infer about plausible value(s) of the parameter vector $\theta$
+  + experimental goal: to infer about plausible value(s) of the parameter vector $\theta$
   + $Y = (y_1, y_2, \dots, y_n)$: observed response data
-  + making inference about such hidden cause(s), $\theta$, based on the observing the effect(s), $y$
+  + making inference about such hidden cause(s), $\theta$, based on observing the effect(s), $y$
   + $p(y|\theta)$: a conditional density of the observation $y$ defined on the _sample space_ $\mathbb{X}$; the _sampling density_ of $y$ given $\theta$
   + $p(\theta)$: the marginal density of $\theta$ to be the _prior density_ of $\theta$ defined on the _parameter space_ $\Theta$
   + actual determination of the prior density = the determination of the sampling density $p(y|\theta)$
   + $\{f(y|\theta): \theta \in \Theta\}$: the parametric class of sampling densities
   + assumption: the specific form of $p(\cdot | \theta)$ completely known once $\theta$ determined
   + assumption: $\Theta \subseteq \mathbb{R}^m$; i.e. finite-dimensional _parametric space_
-
 
 
 ### 1.1 The Bayes' Rule
