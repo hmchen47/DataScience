@@ -50,30 +50,28 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 ### 1.1 The Bayes' Rule
 
-+ Byes theorem
++ Bayes model
   + scalar form
     + $p(y|\theta)$: the sampling density of $y \in \mathbb{Y}$ for a given value $\theta \in \Theta$
     + $p(\theta)$: the prior density of $\theta$
     + the conditional density of $\theta$ given $y$
 
-      \[ p(\theta|y) = \frac{p(y|\theta) p(\theta)}{\int p(y|theta)p(\theta)d\theta} = \frac{p(y|\theta)p(\theta)}{m(y)} \tag{1} \]
+      \[ p(\theta|y) = \frac{p(y|\theta) p(\theta)}{\int p(y|\theta)p(\theta)d\theta} = \frac{p(y|\theta)p(\theta)}{m(y)} \tag{1} \]
 
-    + $p(\theta|y)$: the posterior density of $\theta$ given y
-    + $m(y) = \int p(y|\theta) p(\theta)$: marginal density of $y$
+      + $p(\theta|y)$: the posterior density of $\theta$ given y
+      + $m(y) = \int p(y|\theta) p(\theta)$: marginal density of $y$
 
   + vector form
-    + $Y = (y_1, y_2, \cdots, y_n$)$:  a vector of response
+    + $Y = (y_1, y_2, \cdots, y_n)$:  a vector of response
     + $p(Y|\theta)$: the joint density of $Y$ given $\theta$
     + the conditional density of $\theta$ given $Y$
 
-      \[ p(\theta|y) = \frac{p(y|\theta) p(\theta)}{\int p(Y|theta)p(\theta)d\theta} = \frac{p(Y|\theta)p(\theta)}{m(y)} \]
+      \[ p(\theta|Y) = \frac{p(Y|\theta) p(\theta)}{\int p(Y|\theta)p(\theta)d\theta} = \frac{p(Y|\theta)p(\theta)}{m(Y)} \]
 
   + independently and identically distributed (iid) observations
-    + $y_i|\theta \stackrel{\text{iid}}{\sim} p(y|\theta),\; \forall i=1, \dots, n \implies$ $f(Y|\theta) = \prod_{i=1}^n p(y_i | \theta)$
-    + More general, the conditional density $p_i(y_1, \dots, y_{i-1}, \theta)$ of $y_i$ given $y_1, \dots, y_{i-1}$ and $\theta$ for $i=2, 3, \dots, n \implies f(Y|\theta) = p_1(x_1|\theta) \prod_{i=1}^n p(x_i|\theta)$
-     vector form: replacing $p(y|\theta)$ by $p(Y|\theta)$ fro Eq.(1)
-
-+ Bayesian Model
+    + $y_i|\theta \stackrel{\text{iid}}{\sim} p(y|\theta),\; \forall i=1, \dots, n \implies$ $p(Y|\theta) = \prod_{i=1}^n p(y_i | \theta)$
+    + generality: $\exists p_i(y_1, \dots, y_{i-1}, \theta)$ of $y_i$ given $y_1, \dots, y_{i-1}$ and $\theta$ for $i=2, 3, \dots, n \implies f(Y|\theta) = p_1(y_1|\theta) \prod_{i=1}^n p(y_i|\theta)$
+    + vector form: replacing $p(y|\theta)$ by $p(Y|\theta)$ for Eq.(1)
   + an observed data set $Y$ consisting two quantities
     + $p(Y|\theta)$: sampling density
     + $p(\theta)$: prior density
@@ -82,7 +80,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     \[\begin{array}{ll}
       \text{prior density for } \theta: & p(\theta) \\
       \text{sampling density of } y \text{ given } \theta: & p(y|\theta) \\
-      \text{marginal density of } y: & m(x) = \int p(y|\theta)p(\theta) d\theta \\
+      \text{marginal density of } y: & m(y) = \int p(y|\theta)p(\theta) d\theta \\
       \text{posterior density of } \theta \text{ given } y: & p(\theta | y) = p(y|\theta)/m(y)
     \end{array}\]
   
@@ -93,11 +91,13 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 + Kernel functions
   + prior kernel function
-    + $p(\theta) = C \cdot k(\theta)$$
+    + $p(\theta) = C \cdot k(\theta)$
       + $C = (\int k(\theta)d\theta)^{-1} > 0$: normalizing constant
       + $k(\cdot)$: a non-negative function defined on the parameter space $\Theta$
-    + examples 
-      + $\theta^{5.2} (1-\theta)^2.5 I_{(0, 1)}(\theta)$: a kernel function of beta distribution w/ shape parameters 6.2 and 3.5
+    + examples
+      + $\theta^{5.2} (1-\theta)^{2.5} I_{(0, 1)}(\theta)$:
+        + a kernel function of beta distribution w/ shape parameters 6.2 and 3.5
+        + $k(\theta) = \theta^{5.2} (1-\theta)^{2.5}$ and $C = I_{(0, 1)}(\theta)$
       + $\theta^5e^{-\theta} I_{(0, \infty)}(\theta)$: a kernel function of gamma distribution w/ parameters 6 and 1
       + indicator function of the set $A$
 
@@ -110,16 +110,16 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
       + $C(Y) > 0$: a function of data $Y$ only
       + $\mathcal{L}(\theta; Y)$: the likelihood function of $\theta$
-    + example
-      + $y_i|\theta \stackrel{\text{iid}}{\sim} N(\theta_1, \theta_2)$ where $\theta \in (\theta_1, \theta_2) \in \Theta = \mathbb{R} \times (0, \infty)$
-      + $y_i$ normal distribution w/ mean $\theta_1$ and variance $\theta_2$
-      + posterior density: $p(y|\theta) = (2\pi \theta_2)^{-1/2} \exp\left(-(x - \theta_1)^2/2\theta_2\right)$
-      + likelihood function: $\mathcal{L}(\theta; Y) = \theta_2^{-n/2} \exp\left(-\sum_{i=1}^n (y_i - \theta_1)^2/2\theta_2 \right)$
+    + examples
+      + $y_i|\theta \stackrel{\text{iid}}{\sim} N(\theta_1, \theta_2) ,\; \theta = (\theta_1, \theta_2) \in \Theta = \mathbb{R} \times (0, \infty) \implies y_i \sim N(\theta_1, \theta_2)$
+      + posterior density: $p(y|\theta) = (2\pi \theta_2)^{-1/2} \exp\left(-(x - \theta_1)^2/2\theta_2^2 \right)$
+      + likelihood function: $\mathcal{L}(\theta; Y) = \theta_2^{-n/2} \exp\left(-\sum_{i=1}^n (y_i - \theta_1)^2/2\theta_2^2 \right)$
   + posterior kernel function
+    + the posterior density determined by
 
-    \[ K(\theta; Y) = \mathcal{L}(\theta; Y) k(\theta) \tag{2} \]
+      \[ K(\theta; Y) = \mathcal{L}(\theta; Y) k(\theta) \tag{2} \]
 
-    + $\mathcal{L}(\theta, Y): the likelihood function of $\theta$
+    + $\mathcal{L}(\theta; Y)$: the likelihood function of $\theta$
     + $k(\theta)$: a prior kernel function of $\theta$
 
 + The posterior density
@@ -129,56 +129,65 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
   + Bayesian Mantra: posterior is proportional to likelihood times prior kernel
 
-    \[p(\theta|Y) \propto \mathcal{L}(\theta; Y) k(\theta) \]0
+    \[p(\theta|Y) \propto \mathcal{L}(\theta; Y) k(\theta) \]
 
 + Improper prior
   + def: prior kernel function $k(\theta) \geq 0$ for which $\int C \cdot k(\theta) d\theta  = \infty$
-  + determined only up to a constant: $\int k(\theta) d\theta \implies \int C \cdot k(\theta) = \infty \;\forall\; C > 0$
-  + not an improper prior (probability) distribution as $p(\theta)$ no longer a (probability) density function
+  + an improper prior is determined only up to a constant because $\int k(\theta) d\theta \implies \int C \cdot k(\theta) = \infty \;\forall\; C > 0$
+  + not an improper prior (probability) distribution any more as $p(\theta)$ no longer a (probability) density function
   + checking the posterior still proper for almost all data if the improper prior used
   + using improper prior $p(\theta) = C \cdot k(\theta) \implies$ verifying the posterior kernel finitely integrable $\int K(\theta; Y) d\theta < \infty$ for almost all $Y$
   + Applying Fubini's theorem (on interchanging order of integration):
     + improper prior $\iff$ improper marginal
     + $\int k(\theta) d\theta = \infty \iff  \int m(Y) dY = \infty$
-  + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0$, then any improper prior leads to an improper posterior
+  + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0 \implies$ any improper prior leads to an improper posterior
+  + the posterior distribution not necessary proper if the prior improper [[Wiki](https://en.wikipedia.org/wiki/Prior_probability#Improper_priors)]
+  + using improper priors as uninformative priors; e.g., $p(m, v) \sim 1/v \implies$ any value for the mean "equally likely" and a value for the positive variance "less likely" [[Wiki](https://en.wikipedia.org/wiki/Prior_probability#Improper_priors)]
+  + [examples](https://en.wikipedia.org/wiki/Prior_probability#Improper_priors)
+    + uniform distribution on an infinite interval; i.e., a half line or entire real line
+    + $Beta(0,0)$ (uniform distribution on log-odds scale)
+    + logarithmic prior on the positive reals (uniform distribution on log scale)
+  + improper priors not true probability distributions [[Degroot & Schervish](https://stats.stackexchange.com/questions/97768/how-can-an-improper-prior-lead-to-a-proper-posterior-distribution)]
 
 + Example: Does vitamin C cure common cold?
-  + a randomly chosen group of patients suffering from common col d took (same amount of) vitamin C for 1 week and response whether or not vitamin C cured common cold immediately following the week
+  + intervention: a randomly chosen group of patients suffering from common cold took (same amount of) vitamin C for 1 week and response whether or not vitamin C cured common cold immediately following the week
   + Notations & Assumptions
     + $y$: response w/ 1 as common cold cured and 0 otherwise
     + $\theta$ = Pr[common cold cured within a week]: the parameter of interest
     + outcome of a given patient: Bernoulli distribution $p(y|\theta) = \theta^y(1-\theta)^{1-y}$ w/ $x = 0, 1$ and $\theta \in [0, 1]$
-    + $n$ i.i.d. observations: $y_i \in [0, 1]$
+    + $n$ iid observations: $y_i \in [0, 1], i=1, \dots, n$
     + $Y = (y_1, y_2, \cdots, y_n)$: the response vector
     + $s$: the total number of patents (out of n) cured within a week on taking vitamin C
-  + the joint density of the response vector $Y$: $p(Y|\theta) = \prod_{i=1}^n p(y_i|\theta) = \theta^s(1-\theta)^{n-s}$
-  + $s \sim Bin(n, \theta)$, binomial distribution w/ density function $p(s|\theta) = \begin{pmatrix} n \\ s \end{pmatrix} \theta^s (1-\theta){n-s}, \text{ for } s=0, 1, \cdots, n$
+  + the joint density of the response vector $Y$: $p(Y|\theta) = \prod_{i=1}^n p(y_i|\theta) = \theta^s(1-\theta)^{n-s} \implies$ $s \sim Bin(n, \theta)$, binomial distribution w/ density function
+
+    \[p(s|\theta) = \begin{pmatrix} n \\ s \end{pmatrix} \theta^s (1-\theta)^{n-s}, \quad\text{ for } s=0, 1, \cdots, n\]
+
   + the posterior density w/ any prior density $p(\theta)$
 
     \[p(\theta|Y) = \frac{\theta^s(1-\theta)^{n-s} p(\theta)}{\int_0^1 \theta^s (1-\theta)^{n-s} p(\theta) d\theta} \tag{4}\]
   + remark
-    + $s = \sum_i y_i$: the _sufficient statistic_; the posterior distribution $p(\theta|Y)$ depends on the data $Y$ only through $s$
+    + $s = \sum_i y_i$: the _sufficient statistic_; the posterior density $p(\theta|Y)$ depends on the data $Y$ only through $s$
     + $p(\theta|Y) = p(s|\theta) \implies$ the conditional density of $\theta$ given only the sum $s$ (and sample size $n$)
-    + applying Fisher-Neyman factorization theorem: $f(Y|\theta)$ = the joint density of $X$ given $\theta$ and $S = S(Y)$ as a sufficient statistic (vector) $\implies p(\theta | X) = p(\theta|S)$ for any prior density $p(\theta)$
+    + applying Fisher-Neyman factorization theorem: $p(Y|\theta)$ = the joint density of $Y$ given $\theta$ & $S = S(Y)$ = a sufficient statistic (vector) $\implies p(\theta | Y) = p(\theta|S) \;\forall\; p(\theta)$
 
-+ Conjugate family of prior
-  + prior distribution: $p(\theta) = C \theta^{a-1}(1-\theta)^{b-1}$ w/ $C = C(a, b)$ and $a > 0, b > 0$ unknown quantities
-  + posterior distribution: $C^\ast \theta^{a^\ast -1} (1-\theta)^{b^\ast - 1}$ w/ $C^\ast = (a^\ast, b^\ast), \; a^\ast = (a+s), b^\ast = (b + s)$
-  + $C(a, b) = \Gamma(a+b)/\Gamma(a)\Gamma(b)$,  where gamma function $\Gamma(a) = \int_0^\infty t^{a-1}e^{-t} dt$
-  + the prior $\theta \sim Beta(a, b) \implies$ the posterior $\theta|Y \sim Beta(a^\ast, b^\ast)$
-  + remark:
-    + conjugate family: prior density and its leading posterior densities belonging to the same family
-    + example: binomial sampling density
-      + $s|\theta \sim Bin(n, \theta) \in \{Beta(a, b): a > 0, b>0\}$ form a conjugate family of beta densities
-      + the choice of conjugate family not unique
-      + $\{C(a, b)\theta^{a-1} (1-\theta)^{b-1}\p_0(\theta}: a>0, b>0\}$ forms a conjugate family
-        + $p_0(\cdot)$to be any nonnegative continuous function defined on $[0, 1]$
-        + normalizing constant: $C(a, b) = \left(\int_0^1 \theta^{a-1}(1-\theta)^{b-1} p_0(\theta) d\theta\right)^{-1}$
-  + exponential family of densities: sampling density w/ a sufficient statistic of constant dimension always finds a conjugate family of prior desnities
++ Prior conjugate family
+  + conjugate family: prior densities and their leading posterior densities belonging to the same family
+  + the choice of conjugate family not unique
+  + example of beta distribution
+    + prior distribution: $p(\theta) = C \theta^{a-1}(1-\theta)^{b-1}$ w/ $C = C(a, b)$ and $a > 0, b > 0$ unknown quantities
+    + posterior distribution: $p(y|\theta) = C^\ast \theta^{a^\ast -1} (1-\theta)^{b^\ast - 1}$ w/ $C^\ast = C(a^\ast, b^\ast), \; a^\ast = (a+s), b^\ast = (b + s)$
+    + $C(a, b) = \Gamma(a+b)/\Gamma(a)\Gamma(b)$,  where gamma function $\Gamma(a) = \int_0^\infty t^{a-1}e^{-t} dt$
+    + the prior $\theta \sim Beta(a, b) \implies$ the posterior $\theta|Y \sim Beta(a^\ast, b^\ast)$
+  + example: binomial sampling density
+    + $s|\theta \sim Bin(n, \theta) \in \{Beta(a, b): a > 0, b>0\}$ forming a conjugate family of beta densities
+    + $\{C(a, b)\theta^{a-1} (1-\theta)^{b-1} p_0(\theta): a>0, b>0\}$ forms a conjugate family
+      + $p_0(\cdot) \in [0, 1]$: any nonnegative continuous function
+      + $C(a, b) = \left(\int_0^1 \theta^{a-1}(1-\theta)^{b-1} p_0(\theta) d\theta\right)^{-1}$: normalizing constant
+  + exponential family of densities: sampling density w/ a sufficient statistic of constant dimension always finds a conjugate family of prior densities
   + _natural conjugate family_:
-    + constructing a class of such family for i.i.d. observations obtaining from a sampling density $p(y|\theta)$ for $y \in \mathbb{Y}$ and $\theta \in \Theta$
-    + by simply defining the family of prior densities as $\{\prod_{j=1}^m p(y_j^0|\theta): y_j^0 \in \mathbb{X}, m = m_0, m_0 + 1, \dots\}$
-    + provided $\exists m_0 \in \mathbb{N} \ni \int \prod_{j=1}^{m_0} p(x_j^0 | \theta) d\theta < \infty$
+    + constructing a class of such family for iid observations obtaining from a sampling density $p(y|\theta)$ for $y \in \mathbb{Y}$ and $\theta \in \Theta$
+    + by simply defining the family of prior densities as $\{\prod_{j=1}^m p(y_j^0|\theta): y_j^0 \in \mathbb{Y}, m = m_0, m_0 + 1, \dots\}$
+    + provided $\exists \; m_0 \in \mathbb{N} \to \int \prod_{j=1}^{m_0} p(y_j^0 | \theta) d\theta < \infty$
   + _subjective prior of informative prior_: the parameters of the prior density elicited using a previously collected data or expert knowledge
   + _noninformative prior_:
     + no such prior information available or very little knowledge available about the parameter $\theta$
@@ -193,7 +202,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + binomial sampling density:
     + Zellner's prior: $p(\theta) = C\theta^\theta (1-\theta)^{1-\theta}$ for $\theta \in (0, 1)$ and C = 1.61857
     + Jeffery's prior: $Beta(a = 0.5, b = 0.5)$
-  + Haldane's prior: improper prior $p(\theta) = [\theta(1-\theta)]^{-1$
+  + Haldane's prior: improper prior $p(\theta) = [\theta(1-\theta)]^{-1}$
   + uniform prior: same as $Beta(a=1, b=1)$ w/ $\theta$ using binomial sampling density
   + posterior inference about $\theta$ or odds ratio $\rho = \theta/(1-\theta)$ or log-odds ratio $\eta = \log \rho$ relative insensitive to all previous priors
 
