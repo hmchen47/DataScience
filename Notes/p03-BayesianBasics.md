@@ -211,20 +211,19 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 + Un-pure Bayesian method
   + issue: difficult to completely specify the prior density based on available expert opinion or background scientific information
-  + utilizing hyperparametes
+  + utilizing hyperparametes to resolve
     + $\{p_1(\theta|\lambda): \lambda \in \Lambda\}$: a class of prior densities
     + $\lambda$: hyper-parameter
     + $p_1(\cdot | \cdot)$: a conditional density of $\theta$ given $\lambda$
   + example: beta distribution for vitamin C 
-    + $\{Beta(a, b): (a, b) \in (0, \infty) \times (0, \infty)\}$
+    + $\{Beta(a, b): (a, b) \in (0, \infty) \times (0, \infty)\}$: a class of beta densities
     + $(a, b)$: hyper-parameter for the family of beta density
-    + what a reasonable choice for $(a, b)$?
-  + methods to determine hyperparameter $\lambda$
+    + what would be a reasonable choice for $(a, b)$?
+  + methods to determine hyperparameter $\lambda \to$ empirical estimate $\hat{\lambda}$
     + Bayesian Hierarchical Model (BHM)
     + Empirical Bayes (EB) method
-  + empirical estimate $\hat{\lambda}$ obtained
   + using $p(\theta) = p_1(\theta | \hat{\lambda})$ as the prior for $\theta$
-  + criticize: the prior density $p(\theta)$ obtained via the data $Y$
+  + criticizing: the prior density $p(\theta)$ obtained via the data $Y$
 
 + Bayesian hierarchical Model (EBM)
   + assigning another prior distribution for $\lambda$:
@@ -239,24 +238,21 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + issue:
     + difficult to analytically obtain the posterior distribution of $\theta$ given $Y$
     + inference based on $p(\theta|Y)$ requiring integration both on $\theta$ and $\lambda$
-  + solutions: Monte Carlo methods (in particular, Markov Chain Monte Carlo (MCMC) methods) used to obtain samples from the posterior density $P(\theta|Y)$
+  + solutions: Monte Carlo methods (in particular, Markov Chain Monte Carlo (MCMC) methods) used to obtain samples from the posterior density $p(\theta|Y)$
 
 + Empirical Bayes (EB) method
   + based on marginal likelihood $m(Y|\lambda) = \int p(Y|\theta) p_1(\theta|\lambda) d\theta$
-  + $m(Y|\lambda)$:
-    + as the marginal likelihood function of $\lambda$
-    + 'estimate' $\lambda$ by maximizing it
+  + $m(Y|\lambda)$: the marginal likelihood function of $\lambda \implies$ maximizing
 
     \[ \hat{\lambda} = \hat{\lambda}(Y) = \underset{\lambda \in \Lambda}{\mathrm{argmin}}\; m(Y|\lambda) \]
   
-  + alternatively, obtaining the a moment based method to 'estimate' $\lambda$
+  + alternatively, obtaining a moment based method to 'estimate' $\lambda$
     + $\lambda$: a $q$-dimensional parameter
     + using a set of $q$ suitable moments of $Y$ w.r.t. the marginal density $m(Y|\lambda)$
-    + equate moments to the corresponding $q$ empirical moments of the data vector $Y = (y_1, y_2, \dots, y_n$
+    + equate moments to the corresponding $q$ empirical moments of the data vector $Y = (y_1, y_2, \dots, y_n)$
 
 
 ## 2. Point Estimation
-
 
 
 
