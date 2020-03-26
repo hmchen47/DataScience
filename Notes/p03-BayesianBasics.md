@@ -256,25 +256,25 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 + Assumptions & Notations
   + $p(Y|\theta)$: the joint (conditional) density of the data vector $Y = (y_1, y_2, \dots, y_n)$, given a parameter vector $\theta$
-  + iid $y_1, y_2, \dots, y_n$: $p(Y|\theta) = \prod_{i=1}^n p(y_i|\theta)$
+  + iid $y_1, y_2, \dots, y_n \implies p(Y|\theta) = \prod_{i=1}^n p(y_i|\theta)$
   + iid for $y_i, i=1, 2, \dots, n$ not required to obtain the posterior estimate of $\theta$
-  + $p(\theta)$: prior density; $\theta \sim p(\theta)$ determined possibly by hierarchical prior or an EB method
+  + $p(\theta)$: prior density; i.e., $\theta \sim p(\theta)$ determined possibly by hierarchical prior or an EB method
 
-+ Posterior density
-  + all relevant statistical inference about $\theta$ obtained from the posterior kernel
-  + posterior density obtained via prior density w/ Bayesian method
-  + prior density: $p(\theta | Y) = K(\theta; Y)/ b(Y)$ where $K(Y) = \int K(\theta; Y) d]theta$
-  + determining $K(\theta; Y)$ to obtain posterior estimate not necessary
++ Statistical inference about $\theta$
+  + obtained from the posterior kernel
+  + posterior density obtained via prior density w/ Bayes rule
+  + prior density: $p(\theta | Y) = K(\theta; Y)/ b(Y)$ where $b(Y) = \int K(\theta; Y) d\theta$
+  + the normalizing constant $b(Y)$ not required to obtain posterior estimate (via Monte Carlo method)
 
 + Modeling the point estimate
   + goal: estimating a special function $\eta = \eta(\theta)$
-  + example
-    + $\theta = (\tehta_1, \theta_2, \dots, \theta_m)$: a $m$-dimensional parameter vector
-    + estimator 1 - first component of $\theta$: $\eta = \eta(\theta) = \theta_1$
-    + estimator 2: $\eta = (\theta_1, \theta_2 - \theta_1^2)
-    + estimator 3 - entire parameter vector $\theta$: $\eta = \eta(\theta) = \theta$
+  + $\theta = (\theta_1, \theta_2, \dots, \theta_m)$: a $m$-dimensional parameter vector
+  + various estimators
+    + $\eta = \eta(\theta) = \theta_1$: first component of $\theta$: 
+    + $\eta = (\theta_1, \theta_2 - \theta_1^2)$
+    + $\eta = \eta(\theta) = \theta$: entire parameter vector $\theta$
   + point of estimates of $\eta$: mean, median, or mode of the posterior distribution of $\eta$ given $Y$
-  + _posterior mean of $eta$
+  + _posterior mean of $\eta$_
 
     \[ \hat{\eta}(Y) = E[\eta | Y] = E[\eta(\theta) | Y] = \frac{\int \eta(\theta) K(\theta; Y) d\theta}{\int K(\theta; Y) d\theta} \tag{5} \]
 
@@ -285,7 +285,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
     \[ E[\| \eta - \hat{\eta} \|^2] \leq E[\| \eta - T(Y)\|^2] \]
 
-    + for any other estimator $T(Y) of $\eta$
+    + for any other estimator $T(Y)$ of $\eta$
     + the expectation taken 
       + w.r.t. both $Y$ and $\theta$
       + w.r.t the joint density of $(Y, \theta)$ and 
@@ -293,7 +293,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + Bayes estimator exists for more general (convex) loss functions, such as weighted squared error loss, asymmetric loss, etc.
   + Bayes estimator expressed in close form as suitable integrals of the posterior kernel
   + advantage: obtained in a straightforward way and expressed in closed form
-  + road-block to apply in practice w/ high-dimensional integrals not an easy task in most situation
+  + road-block in practice: high-dimensional integrals not an easy task in most situation
   + solution: advent of modern computing
 
 
