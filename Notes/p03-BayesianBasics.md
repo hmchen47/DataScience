@@ -305,8 +305,8 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + hypothesis: two competing hypotheses
       + $H_0: \theta \in \Theta_0$ vs. $H_a: \theta \in \Theta_a$
       + $\Theta_0 \cap \Theta_a = \emptyset$ and $\Theta_0 \cup \Theta_a = \Theta$
-  + comparing two hypotheses $\implies$ comparing the posterior probabilities of the null set $\Theta_0$ and the alternative set $\Theta_a$
-  + deciding which hypothesis w/ a larger probability $\implies$ reject $H_0 \iff Pr(\theta \in \Theta_0 | Y) < Pr(\theta \in \Theta_a | Y)$
+  + comparing two hypotheses $\iff$ comparing the posterior probabilities of the null set $\Theta_0$ and the alternative set $\Theta_a$
+  + deciding which hypothesis w/ a larger probability: reject $H_0 \iff Pr(\theta \in \Theta_0 | Y) < Pr(\theta \in \Theta_a | Y)$
   + the posterior probabilities
 
     \[ Pr(H_j|Y) = Pr(\theta \in \Theta_j | Y) = \frac{\int_{\Theta_j} K(\theta; X) d\theta}{\int_{\Theta} K(\theta; Y) d\theta} \quad\text{ for } j = 0, a  \tag{6} \]
@@ -315,13 +315,13 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
     \[ \text{Reject } H_0 \iff \int_{\Theta_0} K(\theta; Y) d\theta < \int_{\Theta_a} K(\theta; Y) d\theta \tag{7} \]
 
-  + constructing the prior distribution especially when one of the hypotheses is a singleton set or containing a lower dimensional plane $implies$ the prior distribution allowing a positive probability of the null set $\Theta_0$
-  + a prior distribution ensuring $Pr(\theta \in \Theta_j) > 0$ for $j=0, a$
+  + carefully constructing the prior distribution especially when one of the hypotheses is a singleton set or containing a lower dimensional plane $\implies$ the prior distribution allowing a positive probability of the null set $\Theta_0$
+  + i.e., a prior distribution ensuring $Pr(\theta \in \Theta_j) > 0$ for $j=0, a$
   + using a prior distribution which assures  $Pr(\theta \in \Theta_0) = Pr(\theta \in \Theta_a)$ unless $\exists$ any substantial prior information about the two hypotheses
   + assume a prior w/ equal-probable hypotheses before observing any data
   + example: vitamin C
     + $H_0: \theta = 0.5$ vs. $H_a: \theta > 0.5$
-    + $\Theta = [0, 1], \Theta_0 = \{0.5\}$ and $\Theta_a = [0.5, 1]$
+    + $\Theta = [0, 1], \Theta_0 = \{0.5\}$ and $\Theta_a = (0.5, 1]$
     + singleton set: $\Theta_0 = \{0.5\}$
     + lower dimensional plane: $\Theta_0 = \{(\theta_1, \theta_2) \in [0, 1]^2: \theta_1 = \theta_2}
 
@@ -331,18 +331,18 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + the BF of $H_a$ to $H_0$
 
     \[\begin{align*}
-      BF)Y) &= BF(a|0) = \frac{Pr(\theta \in \Theta_a | Y)/Pr(\theta \ in \Theta_0 | Y)}{Pr(\theta \in \Theta_a)/Pr(\theta \in \Theta_0)} \\\\
+      BF(Y) &= BF(a|0) = \frac{Pr(\theta \in \Theta_a | Y)/Pr(\theta \in \Theta_0 | Y)}{Pr(\theta \in \Theta_a)/Pr(\theta \in \Theta_0)} \\\\
        &= \frac{\int_{\Theta_a} K(\theta; Y) d\theta}{\int_{\Theta_0} K(\theta; Y) d\theta} \cdot \frac{\int_{\Theta_0} k(\theta)d\theta}{\int_{\Theta_a} k(\theta) d\theta} \tag{8}
     \end{align*}\]
 
   + rule to choose btw the two hypotheses
 
-    \[Reject H_0 \iff \log(BF(Y)) > 0  \tag{9}\]
+    \[\text{Reject } H_0 \iff \log\left(BF(Y)\right) > 0  \tag{9}\]
 
-  + rule (7) = rule (9): an equal-probable prior $\to Pr(\theta \in \Theta_0) = Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
+  + equal-probable prior: $Pr(\theta \in \Theta_0) = Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
 
 + Errors of hypothesis testing
-  + traditional frequentist methods
+  + Type I error rate: traditional frequentist methods
     + constructed to maintain a specific (but arbitrary) level of significance $\alpha$; e.g., $\alpha = 0.05$
     + $T(Y)$: a test statistic
     + rule: reject $H_0$ if $T(Y) > T_0 \implies$ the cut-off value $T_0$ chosen $\to$ type I error rate
@@ -350,32 +350,36 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
       \[\inf_{\theta \in \Theta_0} Pr\left(T(Y) > T_0 | \theta\right) \leq \alpha\]
 
       + $Pr(T(Y) > T_0 | \theta)$ computed using the conditional joint density $p(Y|\theta)$
-  + Bayesian tests
+  + Type II error rate: Bayesian tests
     + not generally constructed to maintain a specific value of type I error rate
+    + type II error rate: (further check required)
+
+      \[\inf_{\theta \in \Theta_a} Pr(T(Y) \leq T_0 | \theta) \leq \alpha \;\;\forall \theta \in \Theta_a\]
+
     + using either posterior odds or the BF as a test statistic
       + example:
-        + defining $T(Y) = \log(BF(Y))$ the test statistic $\to$ find $T_0$ to satisfy $Pr(T(Y) > T_0 | \theta) \leq \alpha \;\forall\, \theta\in \Theta_0$
-        + modify rule (9): reject $H_0 \iff \log(BF(Y)) > T_0$, instead of $T_0 = 0$
-      + choice of $T_0$ might unnecessarily inflate the type II error rate, $Pr(T(Y) \leq T_0 | \theta)$ for $\theta \ in \Theta_a$
+        + defining $T(Y) = \log(BF(Y))$ the test statistic $\to$ find $T_0$ to satisfy $Pr(T(Y) > T_0 | \theta) \leq \alpha \;\;\forall\, \theta\in \Theta_0$
+        + modify rule (9): reject $H_0 \iff \log(BF(Y)) > T_0$
+      + choice of $T_0$ might unnecessarily inflate the type II error rate
     + alternative test statistic
       + simply report posterior probabilities $Pr(\theta \in \Theta_j | Y)$ for $j = 0, a$
       + researcher decides a cut-off value, e.g., $p_0 \to H_0$ rejected $\iff Pr(\theta \in \Theta_a | Y) > p_0$
-      + example: 
+      + example:
         + instead of $p = 0.5$ as default value, using $p_0 = 0.8$
         + arbitrary choice of $p_0$ but so for the significance $\alpha$ (or a cut-off value of 0.05 for the $p$-value)
-  + Bayesian type I error
+  + Bayesian type I error rate
 
     \[ BE_1(T_0) = Pr(T(Y) > T_0 | \theta \in \Theta_0) \]
 
-    + frequentist method: used to select the cut-off value $T_0 \to Pr(T(Y) > T_0 | \theta) < \alpha \;\forall\, \theta \in \Theta_0 \implies$ the same $T_0 \to BE_1(T_0) \leq \alpha \forall\; \text{ prior } p(\theta)$
-  + Bayesian type II error
+    + frequentist method: used to select the cut-off value $T_0 \to Pr(T(Y) > T_0 | \theta) < \alpha \;\;\forall\, \theta \in \Theta_0 \implies$ the same $T_0 \to BE_1(T_0) \leq \alpha \;\;\forall\; \text{ prior } p(\theta)$
+  + Bayesian type II error rate
 
-    \[ BE_2(T_0) = Pr(T(Y) \leq T)o | \theta \in \Theta_a\]
+    \[ BE_2(T_0) = Pr(T(Y) \leq T_0 | \theta \in \Theta_a) \]
 
   + $T_0 \nearrow \implies BE_1(T_0) \searrow \;\&\; BE_2(T_0) \nearrow$
   + controlling both types of Bayesian errors: finding a $T_0$ to minimize the the total weight error, i.e., determining
 
-    \[\hat{T}_0 = \underset{\mathrm{argmin}} TWE(T_0)
+    \[\hat{T}_0 = \arg\min TWE(T_0)\]
 
     + $TWE(T_)) = w_1 BE_1(T_0) + w_2 BE_2(T_0)$
     + $w_1, w_1 \geq 0$: some suitable nonnegative weights
