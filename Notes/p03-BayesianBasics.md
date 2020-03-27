@@ -390,8 +390,37 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 ## 4. Region Estimation
 
++ Region estimate
+  + credible set:
+    + a subset $R(Y)$ said a $100(1 - \alpha)\%$ _credible set_ for $\theta$ w/ a given value $\alpha \in (0, 1)$
 
+      \[ R = R(Y) \to$ $Pr(\theta \in R(Y) | Y) \geq 1 - \alpha \]
 
+    + $R = R(Y)$ guarantees that the probability that $\theta$ in $R(Y)$ is at least $1 - \alpha$
+    + e.g.,
+  + confidence set:
+    + a subset $C(Y)$ said a $100(1-\alpha)$ _confidence set for $\theta$
+
+      \[ C = C(Y) = Pr(\theta \in C(Y) | Y) \gew 1 - \alpha \;\;\forall \theta \in \Theta\]
+
+    + $C(Y)$ merely suggests that if the method of computing the confidence set is repeated many times then at least $1 - \alpha$ proportion of those confidence sets would contain $\theta$
+    + an observed data vector $Y \to$ the chance that a confidence set $C(Y)$ contains $\theta$ is either 0 or 1
+  
++ Highest Probability Density (HPD) region
+  + given a specific level $1-\alpha$ of credible set $R(Y)$
+  + _highest probability density_ (HPD) region: the 'smallest' set or region to maintain the given level
+  + $R(Y) as a HPD region of level $1 - \alpha$, if
+
+    \[ R(Y) = \{\theta \in \Theta: K(\theta; Y) > K_0(Y)\} \]
+
+    + $K_0(Y) > 0 \to Pr(\theta \in R(Y) | Y) \geq 1 - \alpha$
+    + $K(\theta; Y)$: th eposterior kernel function
+  + in practice, not straightforward to compute the HPD region $R(Y)$, but numerical method
+  + $\eta = \eta(\theta) \in \Re \to$ the HPD region for $\eta$ may may consist of a union of intervals
+  + e.g., the posterior density as a bimodal density $\to$ the HPD may be the union of two intervals, each centered around the to modes
+  + the posterior density of a real-valued parameter $\eta$ as a unimodal $\to$ the HPD region as an interval of the form
+
+    \[ R(Y) = (a(Y), b(Y)) \subseteq \Theta \;\; -\infty \leq a(Y) < b(Y) \leq \infty \]
 
 
 ## 5. Numerical Integration Methods
