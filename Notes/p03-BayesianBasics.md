@@ -70,7 +70,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
   + independently and identically distributed (iid) observations
     + $y_i|\theta \stackrel{\text{iid}}{\sim} p(y|\theta),\; \forall i=1, \dots, n \implies$ $p(Y|\theta) = \prod_{i=1}^n p(y_i | \theta)$
-    + generality: $\exists p_i(y_1, \dots, y_{i-1}, \theta)$ of $y_i$ given $y_1, \dots, y_{i-1}$ and $\theta$ for $i=2, 3, \dots, n \implies f(Y|\theta) = p_1(y_1|\theta) \prod_{i=1}^n p(y_i|\theta)$
+    + generality: $\exists\; p_i(y_1, \dots, y_{i-1}, \theta)$ of $y_i$ given $y_1, \dots, y_{i-1}$ and $\theta$ for $i=2, 3, \dots, n \implies f(Y|\theta) = p_1(y_1|\theta) \prod_{i=1}^n p(y_i|\theta)$
     + vector form: replacing $p(y|\theta)$ by $p(Y|\theta)$ for Eq.(1)
   + an observed data set $Y$ consisting two quantities
     + $p(Y|\theta)$: sampling density
@@ -160,7 +160,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + $s$: the total number of patents (out of n) cured within a week on taking vitamin C
   + the joint density of the response vector $Y$: $p(Y|\theta) = \prod_{i=1}^n p(y_i|\theta) = \theta^s(1-\theta)^{n-s} \implies$ $s \sim Bin(n, \theta)$, binomial distribution w/ density function
 
-    \[p(s|\theta) = \begin{pmatrix} n \\ s \end{pmatrix} \theta^s (1-\theta)^{n-s}, \quad\text{ for } s=0, 1, \cdots, n\]
+    \[p(s|\theta) = {n \choose k} \theta^s (1-\theta)^{n-s}, \quad\text{ for } s=0, 1, \cdots, n\]
 
   + the posterior density w/ any prior density $p(\theta)$
 
@@ -410,12 +410,12 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + _highest probability density_ (HPD) region: the 'smallest' set or region to maintain the given level
   + $R(Y)$ as a HPD region of level $1 - \alpha$, if
 
-    \[ R(Y) = \{\theta \in \Theta: K(\theta; Y) > K_0(Y)\} \]
+    \[ R(Y) = \{\theta \in \Theta: K(\theta; Y) > K_0(Y)\} \tag{10} \]
 
     + $K_0(Y) > 0 \to Pr(\theta \in R(Y) | Y) \geq 1 - \alpha$
     + $K(\theta; Y)$: the posterior kernel function
   + in practice, not straightforward to compute the HPD region $R(Y)$, but numerical method
-  + $\eta = \eta(\theta) \in \Re \to$ the HPD region for $\eta$ may consist of a union of intervals
+  + $\eta = \eta(\theta) \in \mathbb{R}$ \to$ the HPD region for $\eta$ may consist of a union of intervals
   + e.g., the posterior density as a bimodal density $\to$ the HPD may be the union of two intervals, each centered around the two modes
   + the posterior density of a real-valued parameter $\eta$ as a unimodal $\to$ the HPD region as an interval of the form
 
@@ -424,8 +424,34 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 ## 5. Numerical Integration Methods
 
++ Integrals for posterior inference
+  + issue: almost any posterior inference based on $K(\theta; Y) \to$ high-dimensional integration w/ $\Theta \mathbb{R}^m$, where $\mathbb{R}^m$ as a Euclidean
+  space
+  + examples:
+    + point estimate (Eq.5)
+    + posterior probability for hypothesis testing (Eq.6)
+    + HPD region (Eq.10)
+  + a generic function $\mathfrak{g}(\theta)$ of the parameter $\theta$, the posterior inference requires the computation of the integral
 
+    \[ I = I(Y) \int \mathfrack{g}(\theta) K(\theta; Y) d\theta \tag{11} \]
 
+    + $\mathfrack{g}(\theta) = 1$: denominator of (Eq.5) and (Eq.6)
+    + $\mathfrack{g}(\theta) = \eta(\theta)$: the numerator of (Eq.5)
+    + $\mathfrack{g}(\theta) = I_{\Theta_j}(\theta)$: the numerator of (Eq.6)
+  
++ Numerical methods for integrals
+  + numerical approaches
+    + classical (deterministic) numerical methods
+      + applied when $m < 5$
+      + performing well in practice provided the function $\mathfrack{g}(\theta)$ and $K(\theta; Y) \to$ certain smoothness condition
+      + order of accuracy: $O(N^{-2/m})$
+      + rate of convergence depending on $m$ (curse of dimensionality)
+    + stochastic integration methods
+      + applied when $m \geq 5$
+      + known as Monte Carlo (MC) methods
+      + order of accuracy: $O(^{-1/2})$
+      + rate of convergence not depending on $m$
+  + performance: deterministic >> stochastic
 
 
 ### 5.1 Deterministic Methods
