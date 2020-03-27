@@ -425,25 +425,25 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 ## 5. Numerical Integration Methods
 
 + Integrals for posterior inference
-  + issue: almost any posterior inference based on $K(\theta; Y) \to$ high-dimensional integration w/ $\Theta \mathbb{R}^m$, where $\mathbb{R}^m$ as a Euclidean
+  + issue: almost any posterior inference based on $K(\theta; Y) \to$ high-dimensional integration w/ $\Theta \in \mathbb{R}^m$, where $\mathbb{R}^m$ as a Euclidean
   space
   + examples:
     + point estimate (Eq.5)
     + posterior probability for hypothesis testing (Eq.6)
     + HPD region (Eq.10)
-  + a generic function $\mathfrak{g}(\theta)$ of the parameter $\theta$, the posterior inference requires the computation of the integral
+  + a generic function $\mathfrak{g}(\theta)$ of the parameter $\theta$, the posterior inference requiring the computation of the integral
 
-    \[ I = I(Y) \int \mathfrack{g}(\theta) K(\theta; Y) d\theta \tag{11} \]
+    \[ I = I(Y) \int \mathfrak{g}(\theta) K(\theta; Y) d\theta \tag{11} \]
 
-    + $\mathfrack{g}(\theta) = 1$: denominator of (Eq.5) and (Eq.6)
-    + $\mathfrack{g}(\theta) = \eta(\theta)$: the numerator of (Eq.5)
-    + $\mathfrack{g}(\theta) = I_{\Theta_j}(\theta)$: the numerator of (Eq.6)
+    + $\ {g}(\theta) = 1$: denominator of $\int K(\theta|Y)d\theta$ in (Eq.5) and $\int_{\Theta_j} K(\theta; y) d\theta$ in (Eq.6)
+    + $\mathfrak{g}(\theta) = \eta(\theta)$: the numerator of $\int \eta(\theta) K(\theta; Y) d\theta$ in (Eq.5)
+    + $\mathfrak{g}(\theta) = I_{\Theta_j}(\theta)$: the numerator of $\int_{\Theta_j} K(\theta; Y) d\theta$ in (Eq.6)
   
 + Numerical methods for integrals
   + numerical approaches
     + classical (deterministic) numerical methods
       + applied when $m < 5$
-      + performing well in practice provided the function $\mathfrack{g}(\theta)$ and $K(\theta; Y) \to$ certain smoothness condition
+      + performing well in practice provided the function $\mathfrak{g}(\theta)$ and $K(\theta; Y) \gets$ certain smoothness condition
       + order of accuracy: $O(N^{-2/m})$
       + rate of convergence depending on $m$ (curse of dimensionality)
     + stochastic integration methods
