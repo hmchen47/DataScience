@@ -462,15 +462,15 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
     \[ I = \int_a^b h(\theta) d \theta \]
 
-    + $h(\theta) = \mathfrak{g}(\theta) K(\theta|Y)$
+    + $h(\theta) = \mathfrak{g}(\theta) K(\theta;Y)$
     + suppressed the dependence on the data $Y$
-  + task: finding suitable weights $w_i$'s and order knot points $\theta_j$'s $\to$
+  + task: finding suitable weights $w_i$'s and ordered knot points $\theta_j$'s $\to$
 
-    \[ I = \int_a^b h(\theta)d\theta \approx I_N = \sum_{j=1}^N w_j h(\theta_j0 \tag{12}) \]
+    \[ I = \int_a^b h(\theta)d\theta \approx I_N = \sum_{j=1}^N w_j h(\theta_j) \tag{12}) \]
 
-  + $\exists\; N = 1,2 , \dots$ large enough to ensure $I - I_n| \to 0$ as $N \to \infty$
+  + $\exists\; N = 1,2 , \dots$ large enough to ensure $|I - I_n| \to 0$ as $N \to \infty$
   + different choices of the weights and the knot points $\to$ different integration rules
-  + categories of the numerical quadratic rules
+  + categories of the numerical quadrature rules
     + Newton-Cotes rules
       + based on equally spaced knot points
       + e.g., $\theta_j - \theta_{j-1} = (b-a)/N$
@@ -485,18 +485,14 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + Simpson's rule: a three-point rule
   + general rule:
     + a $(2k - 1)$-point (or $2k$-point) rule w/ $N$ equally spaced knots w/ suitably chosen weights
-    + $\exists\; \theta^\ast \in (a, b) \to |I - I_n| = C_k (b - a)^{2k+1} b^(2k)(\theta^\ast) / N^{2k}$
+    + $\exists\; \theta^\ast \in (a, b) \to |I - I_n| = C_k (b - a)^{2k+1} b^{2k}(\theta^\ast) / N^{2k}$
     + $C_K > 0$: a constant
   + exact result: polynomials of degree $N$ ($N = 2k+1$) or degree $(N-1)$ ($N=2k$) $\to$ N knots
-  + very accurate but declined rapidly as $m \nearrow$
-  + invalid theoretical error:
-    + a complicated parameter space
-    + insufficiently smooth function
   
 + Gaussian quadrature rules
   + not only suitably choosing the weights but also the knots at which the function $h(\cdot)$ evaluated
   + exact result: polynomials of degree $2N -1$ or less $\to N$ knots
-  + $K(]\theta; Y)$ as weight functions: abundant different rules
+  + $K(\theta; Y)$ as weight functions: abundant different rules
     + Davis, P. J., and Rabinowitz, P. (1984) Methods of Numerical Integration. 2nd Edition. Academic Press, New York.
     + Piessens, R., de Doncker-Kapenga, E., Uberhuber, C., and Kahaner, D. (1983) QUADPACK, A Subroutine Package for Automatic Integration. Springer-Verlag, Berlin.
 
@@ -506,10 +502,16 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     \[ I = I_N + O(N^{2/m}) \]
 
     + $N$: the number of knots at which evaluating $h(\theta)$
-    + $\exist\; \theta = (\theta_1, \dots, \theta_m)$, a $m$-dimensional vector
+    + $\exists\; \theta = (\theta_1, \dots, \theta_m)$, a $m$-dimensional vector
   + multidimensional Simpson's rule: $O(N^{-4/m})$
   + Monte Carlo methods: $O_p(N^{-1/2})$
   + accuracy of integration: $m \nearrow \;\;\to$ accuracy $\searrow$
+
++ Summary of deterministic numerical integration methods  
+  + very accurate but declined rapidly as $m \nearrow$
+  + invalid theoretical error estimate
+    + a complicated parameter space
+    + insufficiently smooth function
   + [Alan Genz Software - R, MATLAB, Fortan](http://www.math.wsu.edu/faculty/genz/software/software.html)
 
 
