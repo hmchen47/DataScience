@@ -153,7 +153,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + intervention: a randomly chosen group of patients suffering from common cold took (same amount of) vitamin C for 1 week and response whether or not vitamin C cured common cold immediately following the week
   + Notations & Assumptions
     + $y$: response w/ 1 as common cold cured and 0 otherwise
-    + $\theta$ = Pr[common cold cured within a week]: the parameter of interest
+    + $\theta$ = \Pr[common cold cured within a week]: the parameter of interest
     + outcome of a given patient: Bernoulli distribution $p(y|\theta) = \theta^y(1-\theta)^{1-y}$ w/ $x = 0, 1$ and $\theta \in [0, 1]$
     + $n$ iid observations: $y_i \in [0, 1], i=1, \dots, n$
     + $Y = (y_1, y_2, \cdots, y_n)$: the response vector
@@ -306,18 +306,18 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
       + $H_0: \theta \in \Theta_0$ vs. $H_a: \theta \in \Theta_a$
       + $\Theta_0 \cap \Theta_a = \emptyset$ and $\Theta_0 \cup \Theta_a = \Theta$
   + comparing two hypotheses $\iff$ comparing the posterior probabilities of the null set $\Theta_0$ and the alternative set $\Theta_a$
-  + deciding which hypothesis w/ a larger probability: reject $H_0 \iff Pr(\theta \in \Theta_0 | Y) < Pr(\theta \in \Theta_a | Y)$
+  + deciding which hypothesis w/ a larger probability: reject $H_0 \iff \Pr(\theta \in \Theta_0 | Y) < \Pr(\theta \in \Theta_a | Y)$
   + the posterior probabilities
 
-    \[ Pr(H_j|Y) = Pr(\theta \in \Theta_j | Y) = \frac{\int_{\Theta_j} K(\theta; X) d\theta}{\int_{\Theta} K(\theta; Y) d\theta} \quad\text{ for } j = 0, a  \tag{6} \]
+    \[ \Pr(H_j|Y) = \Pr(\theta \in \Theta_j | Y) = \frac{\int_{\Theta_j} K(\theta; X) d\theta}{\int_{\Theta} K(\theta; Y) d\theta} \quad\text{ for } j = 0, a  \tag{6} \]
 
   + comparing the numerators to make a decision
 
     \[ \text{Reject } H_0 \iff \int_{\Theta_0} K(\theta; Y) d\theta < \int_{\Theta_a} K(\theta; Y) d\theta \tag{7} \]
 
   + carefully constructing the prior distribution especially when one of the hypotheses is a singleton set or containing a lower dimensional plane $\implies$ the prior distribution allowing a positive probability of the null set $\Theta_0$
-  + i.e., a prior distribution ensuring $Pr(\theta \in \Theta_j) > 0$ for $j=0, a$
-  + using a prior distribution which assures  $Pr(\theta \in \Theta_0) = Pr(\theta \in \Theta_a)$ unless $\exists$ any substantial prior information about the two hypotheses
+  + i.e., a prior distribution ensuring $\Pr(\theta \in \Theta_j) > 0$ for $j=0, a$
+  + using a prior distribution which assures  $\Pr(\theta \in \Theta_0) = \Pr(\theta \in \Theta_a)$ unless $\exists$ any substantial prior information about the two hypotheses
   + assume a prior w/ equal-probable hypotheses before observing any data
   + example: vitamin C
     + $H_0: \theta = 0.5$ vs. $H_a: \theta > 0.5$
@@ -331,7 +331,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + the BF of $H_a$ to $H_0$
 
     \[\begin{align*}
-      BF(Y) &= BF(a|0) = \frac{Pr(\theta \in \Theta_a | Y)/Pr(\theta \in \Theta_0 | Y)}{Pr(\theta \in \Theta_a)/Pr(\theta \in \Theta_0)} \\\\
+      BF(Y) &= BF(a|0) = \frac{\Pr(\theta \in \Theta_a | Y)/\Pr(\theta \in \Theta_0 | Y)}{\Pr(\theta \in \Theta_a)/\Pr(\theta \in \Theta_0)} \\\\
        &= \frac{\int_{\Theta_a} K(\theta; Y) d\theta}{\int_{\Theta_0} K(\theta; Y) d\theta} \cdot \frac{\int_{\Theta_0} k(\theta)d\theta}{\int_{\Theta_a} k(\theta) d\theta} \tag{8}
     \end{align*}\]
 
@@ -339,7 +339,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
     \[\text{Reject } H_0 \iff \log\left(BF(Y)\right) > 0  \tag{9}\]
 
-  + equal-probable prior: $Pr(\theta \in \Theta_0) = Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
+  + equal-probable prior: $\Pr(\theta \in \Theta_0) = \Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
 
 + Errors of hypothesis testing
   + Type I error rate: traditional frequentist methods
@@ -347,34 +347,34 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + $T(Y)$: a test statistic
     + rule: reject $H_0$ if $T(Y) > T_0 \implies$ the cut-off value $T_0$ chosen $\to$ type I error rate
 
-      \[\inf_{\theta \in \Theta_0} Pr\left(T(Y) > T_0 | \theta\right) \leq \alpha\]
+      \[\inf_{\theta \in \Theta_0} \Pr\left(T(Y) > T_0 | \theta\right) \leq \alpha\]
 
-      + $Pr(T(Y) > T_0 | \theta)$ computed using the conditional joint density $p(Y|\theta)$
+      + $\Pr(T(Y) > T_0 | \theta)$ computed using the conditional joint density $p(Y|\theta)$
   + Type II error rate: Bayesian tests
     + not generally constructed to maintain a specific value of type I error rate
     + type II error rate: (further check required)
 
-      \[\inf_{\theta \in \Theta_a} Pr(T(Y) \leq T_0 | \theta) \leq \alpha \;\;\forall \theta \in \Theta_a\]
+      \[\inf_{\theta \in \Theta_a} \Pr(T(Y) \leq T_0 | \theta) \leq \alpha \;\;\forall \theta \in \Theta_a\]
 
     + using either posterior odds or the BF as a test statistic
       + example:
-        + defining $T(Y) = \log(BF(Y))$ the test statistic $\to$ find $T_0$ to satisfy $Pr(T(Y) > T_0 | \theta) \leq \alpha \;\;\forall\, \theta\in \Theta_0$
+        + defining $T(Y) = \log(BF(Y))$ the test statistic $\to$ find $T_0$ to satisfy $\Pr(T(Y) > T_0 | \theta) \leq \alpha \;\;\forall\, \theta\in \Theta_0$
         + modify rule (9): reject $H_0 \iff \log(BF(Y)) > T_0$
       + choice of $T_0$ might unnecessarily inflate the type II error rate
     + alternative test statistic
-      + simply report posterior probabilities $Pr(\theta \in \Theta_j | Y)$ for $j = 0, a$
-      + researcher decides a cut-off value, e.g., $p_0 \to H_0$ rejected $\iff Pr(\theta \in \Theta_a | Y) > p_0$
+      + simply report posterior probabilities $\Pr(\theta \in \Theta_j | Y)$ for $j = 0, a$
+      + researcher decides a cut-off value, e.g., $p_0 \to H_0$ rejected $\iff \Pr(\theta \in \Theta_a | Y) > p_0$
       + example:
         + instead of $p = 0.5$ as default value, using $p_0 = 0.8$
         + arbitrary choice of $p_0$ but so for the significance $\alpha$ (or a cut-off value of 0.05 for the $p$-value)
   + Bayesian type I error rate
 
-    \[ BE_1(T_0) = Pr(T(Y) > T_0 | \theta \in \Theta_0) \]
+    \[ BE_1(T_0) = \Pr(T(Y) > T_0 | \theta \in \Theta_0) \]
 
-    + frequentist method: used to select the cut-off value $T_0 \to Pr(T(Y) > T_0 | \theta) < \alpha \;\;\forall\, \theta \in \Theta_0 \implies$ the same $T_0 \to BE_1(T_0) \leq \alpha \;\;\forall\; \text{ prior } p(\theta)$
+    + frequentist method: used to select the cut-off value $T_0 \to \Pr(T(Y) > T_0 | \theta) < \alpha \;\;\forall\, \theta \in \Theta_0 \implies$ the same $T_0 \to BE_1(T_0) \leq \alpha \;\;\forall\; \text{ prior } p(\theta)$
   + Bayesian type II error rate
 
-    \[ BE_2(T_0) = Pr(T(Y) \leq T_0 | \theta \in \Theta_a) \]
+    \[ BE_2(T_0) = \Pr(T(Y) \leq T_0 | \theta \in \Theta_a) \]
 
   + $T_0 \nearrow \implies BE_1(T_0) \searrow \;\&\; BE_2(T_0) \nearrow$
   + controlling both types of Bayesian errors: finding a $T_0$ to minimize the the total weight error, i.e., determining
@@ -394,13 +394,13 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + credible set: Bayesian tests
     + a subset $R(Y)$ said a $100(1 - \alpha)\%$ _credible set_ for $\theta$ w/ a given value $\alpha \in (0, 1)$
 
-      \[ R = R(Y) \to Pr(\theta \in R(Y) | Y) \geq 1 - \alpha \]
+      \[ R = R(Y) \to \Pr(\theta \in R(Y) | Y) \geq 1 - \alpha \]
 
     + $R = R(Y)$ guarantees that the probability that $\theta$ in $R(Y)$ is at least $1 - \alpha$
   + confidence set: traditional frequentist tests
     + a subset $C(Y)$ said a $100(1-\alpha)\%$ _confidence set_ for $\theta$
 
-      \[ C = C(Y) = Pr(\theta \in C(Y) | Y) \geq 1 - \alpha \;\;\forall \theta \in \Theta\]
+      \[ C = C(Y) = \Pr(\theta \in C(Y) | Y) \geq 1 - \alpha \;\;\forall \theta \in \Theta\]
 
     + $C(Y)$ merely suggests that if the method of computing the confidence set is repeated many times then at least $1 - \alpha$ proportion of those confidence sets would contain $\theta$
     + an observed data vector $Y \to$ the chance that a confidence set $C(Y)$ contains $\theta$ is either 0 or 1
@@ -412,7 +412,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
     \[ R(Y) = \{\theta \in \Theta: K(\theta; Y) > K_0(Y)\} \tag{10} \]
 
-    + $K_0(Y) > 0 \to Pr(\theta \in R(Y) | Y) \geq 1 - \alpha$
+    + $K_0(Y) > 0 \to \Pr(\theta \in R(Y) | Y) \geq 1 - \alpha$
     + $K(\theta; Y)$: the posterior kernel function
   + in practice, not straightforward to compute the HPD region $R(Y)$, but numerical method
   + $\eta = \eta(\theta) \in \mathbb{R}$ \to$ the HPD region for $\eta$ may consist of a union of intervals
@@ -466,9 +466,9 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + suppressed the dependence on the data $Y$
   + task: finding suitable weights $w_i$'s and ordered knot points $\theta_j$'s $\to$
 
-    \[ I = \int_a^b h(\theta)d\theta \approx I_N = \sum_{j=1}^N w_j h(\theta_j) \tag{12}) \]
+    \[ I = \int_a^b h(\theta)d\theta \approx I_N = \sum_{j=1}^N w_j h(\theta_j) \tag{12} \]
 
-  + $\exists\; N = 1,2 , \dots$ large enough to ensure $|I - I_n| \to 0$ as $N \to \infty$
+  + $\exists\; N \to \infty: |I - I_n| \to 0$
   + different choices of the weights and the knot points $\to$ different integration rules
   + categories of the numerical quadrature rules
     + Newton-Cotes rules
@@ -501,7 +501,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
     \[ I = I_N + O(N^{2/m}) \]
 
-    + $N$: the number of knots at which evaluating $h(\theta)$
+    + $N$: the number of knots at which evaluating $h(\theta)$Math Symbols List
     + $\exists\; \theta = (\theta_1, \dots, \theta_m)$, a $m$-dimensional vector
   + multidimensional Simpson's rule: $O(N^{-4/m})$
   + Monte Carlo methods: $O_p(N^{-1/2})$
