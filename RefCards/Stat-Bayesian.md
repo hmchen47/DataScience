@@ -106,7 +106,7 @@
 
 
 
-## Modeling
+## Modeling for Bayesian Approaches
 
 + [Task, Notations and Assumptions](../Notes/p03-BayesianBasics.md#1-introduction)
   + experimental goal: to infer about plausible value(s) of the parameter vector $\theta$
@@ -152,6 +152,8 @@
   + posterior kernel function
 
     \[ K(\theta; Y) = \mathcal{L}(\theta; Y) k(\theta) \tag{2} \]
+
++ [Example: vitamin C cure within a week (cont.)](../Notes/p03-BayesianBasics.md#6-examples)
 
 
 
@@ -1178,5 +1180,7 @@
     + $\lambda$: a $q$-dimensional parameter
     + using a set of $q$ suitable moments of $Y$ w.r.t. the marginal density $m(Y|\lambda)$
     + equate moments to the corresponding $q$ empirical moments of the data vector $Y = (y_1, y_2, \dots, y_n)$
+
+
 
 
