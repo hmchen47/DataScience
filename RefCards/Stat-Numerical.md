@@ -95,6 +95,10 @@
 
 
 
+## Importance Sampling
+
+
+
 
 
 
@@ -109,7 +113,41 @@
   + conjugate Bayesian analysis: possible to derive such a posterior distribution algebraically
   + used to find tail areas or more usefully to find the distribution of complex functions of one or more unknown quantities as in the probabilistic sensitivity analysis
 
++ [MC statistical methods](../Notes/p03-BayesianBasics.md#52-monte-carlo-methods)
+  + used in statistics and various fields to solve various problems
+  + procedure
+    + generating pseudo-random numbers
+    + observing that sample analogue of the numbers converges to their population versions
+  + useful for obtaining numerical solutions to problems which are too complicated to solve analytically or by using deterministic methods
+  + relying on two celebrated results in Statistics
+    + The (Strong or Weak) _Law of Large Numbers_ (LLN)
+    + The _Central Limit  Theorem_ (CLT)
+  + generating $\theta^{(l)} \stackrel{iid}{\sim} p(\theta | Y), \;\; l=1,2,\cdots,N$ by using only $K(\theta; Y)$
+  + w/ (Strong/Weak) LLN: as $N \to \infty$
 
+    \[ \overline{\mathfrak{g}}_N = \frac{1}{N} \sum_{l=1}^N \mathfrak{g}(\theta^{(l)}) \xrightarrow{p} E[\mathfrak{g}(\theta) | Y] = \int \mathfrak{g}(\theta) p(\theta | Y) d\theta \tag{13} \]
+
+  + $N \nearrow  \implies \overline{\mathfrak{g}}_N \to E[\mathfrak{g}(\theta) | Y]$; $\overline{\mathfrak{g}}_N$ = sample mean, $E[\mathfrak{g}(\theta)$: population mean
+  + almost no smoothness condition required on the function $\mathfrak{g}(\cdot)$ to apply the MC method
+
++ [Sample size](../Notes/p03-BayesianBasics.md#52-monte-carlo-methods)
+  + applying CLT to determine the least approximate value of $N$
+  + as $N \to \infty$
+
+    \[ \sqrt{N} (\overline{\mathfrak{g}}_N - E[\mathfrak{g}(\theta) | Y]) \sim N\left(0, \sum_{\mathfrak{g}}\right) \tag{14} \]
+
+  + $\overline{\mathfrak{g}}_N = E[\mathfrak{g}(\theta) | Y] + O_p(N^{-1/2})$ and (stochastic) error bound: not depend on the dimension $m$ of $\theta$
+  + Summary: an accuracy of $\epsilon > 0$ with 95% CI $\implies$
+
+    \[ N \geq \frac{4\hat{\sigma}_{\mathfrak{g}}^2}{\epsilon^2} \]
+  
++ [Performance of MC methods](../Notes/p03-BayesianBasics.md#52-monte-carlo-methods)
+  + error bound of integration methods:
+    + MC integration: probabilistic
+    + deterministic integration: fixed
+  + MC methods more advanced
+    + non-smooth $\mathfrak{g}(\cdot)$
+    + complicated parameter space
 
 
 
