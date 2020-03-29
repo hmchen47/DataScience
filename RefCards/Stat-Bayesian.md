@@ -1083,4 +1083,17 @@
 
 
 
+## Empirical Bayes Method
+
++ [Empirical Bayes (EB) method](../Notes/p03-BayesianBasics.md#12-hierarchical-and-empirical-approaches)
+  + based on marginal likelihood $m(Y|\lambda) = \int p(Y|\theta) p_1(\theta|\lambda) d\theta$
+  + $m(Y|\lambda)$: the marginal likelihood function of $\lambda \implies$ maximizing
+
+    \[ \hat{\lambda} = \hat{\lambda}(Y) = \underset{\lambda \in \Lambda}{\mathrm{argmin}}\; m(Y|\lambda) \]
+  
+  + alternatively, obtaining a moment based method to 'estimate' $\lambda$
+    + $\lambda$: a $q$-dimensional parameter
+    + using a set of $q$ suitable moments of $Y$ w.r.t. the marginal density $m(Y|\lambda)$
+    + equate moments to the corresponding $q$ empirical moments of the data vector $Y = (y_1, y_2, \dots, y_n)$
+
 
