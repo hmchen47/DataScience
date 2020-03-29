@@ -43,6 +43,60 @@
 
 
 
+## Deterministic Methods
+
++ [Fundamentals of deterministic numerical methods](../Notes/p03-BayesianBasics.md#51-deterministic-methods)
+  + computing integrals usually depending on some adaptation of the quadratic rules
+  + goal: computing the integral
+
+    \[ I = \int_a^b h(\theta) d \theta \]
+
+  + task: finding suitable weights $w_i$'s and ordered knot points $\theta_j$'s $\to$
+
+    \[ I = \int_a^b h(\theta)d\theta \approx I_N = \sum_{j=1}^N w_j h(\theta_j) \tag{12} \]
+
+  + $\exists\; N \to \infty: |I - I_n| \to 0$
+  + different choices of the weights and the knot points $\to$ different integration rules
+  + categories of the numerical quadrature rules
+    + Newton-Cotes rules: based on equally spaced knot points
+    + Gaussian quadrature rules
+      + based on knot points obtained via the roots of the orthogonal polynomials
+      + more accurate results, especially $h(\cdot)$ approximates reasonably well by a sequence of polynomials
+
++ [Newton-Cotes rules](../Notes/p03-BayesianBasics.md#51-deterministic-methods)
+  + simplest approaches
+    + trapezoidal rule: a two-point rule
+    + mid-point rule: another two point rule
+    + Simpson's rule: a three-point rule
+  + general rule:
+    + a $(2k - 1)$-point (or $2k$-point) rule w/ $N$ equally spaced knots w/ suitably chosen weights
+    + $\exists\; \theta^\ast \in (a, b) \to |I - I_n| = C_k (b - a)^{2k+1} b^{2k}(\theta^\ast) / N^{2k}$
+    + $C_K > 0$: a constant
+  + exact result: polynomials of degree $N$ ($N = 2k+1$) or degree $(N-1)$ ($N=2k$) $\to$ N knots
+  
++ Gaussian quadrature rules
+  + not only suitably choosing the weights but also the knots at which the function $h(\cdot)$ evaluated
+  + exact result: polynomials of degree $2N -1$ or less $\to N$ knots
+
++ Multi-dimensional numerical integration rules
+  + multidimensional trapezoidal rule
+
+    \[ I = I_N + O(N^{2/m}) \]
+
+  + multidimensional Simpson's rule: $O(N^{-4/m})$
+  + Monte Carlo methods: $O_p(N^{-1/2})$
+  + accuracy of integration: $m \nearrow \;\;\to$ accuracy $\searrow$
+
++ [Summary of deterministic numerical integration methods ] (../Notes/p03-BayesianBasics.md#51-deterministic-methods)
+  + very accurate but declined rapidly as $m \nearrow$
+  + invalid theoretical error estimate
+    + a complicated parameter space
+    + insufficiently smooth function
+
+
+
+
+
 
 
 ## Monte Carlo Methods
