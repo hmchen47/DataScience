@@ -625,6 +625,35 @@
   + Bayesian and classical equivalent results w/ a uniform or 'flat' prior
   + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
 
++ [Region estimate](../Notes/p03-BayesianBasics.md#4-region-estimation)
+  + credible set: Bayesian tests
+    + a subset $R(Y)$ said a $100(1 - \alpha)\%$ _credible set_ for $\theta$ w/ a given value $\alpha \in (0, 1)$
+
+      \[ R = R(Y) \to \Pr(\theta \in R(Y) | Y) \geq 1 - \alpha \]
+
+    + $R = R(Y)$ guarantees that the probability that $\theta$ in $R(Y)$ is at least $1 - \alpha$
+  + confidence set: traditional frequentist tests
+    + a subset $C(Y)$ said a $100(1-\alpha)\%$ _confidence set_ for $\theta$
+
+      \[ C = C(Y) = \Pr(\theta \in C(Y) | Y) \geq 1 - \alpha \;\;\forall \theta \in \Theta\]
+
+    + $C(Y)$ merely suggests that if the method of computing the confidence set is repeated many times then at least $1 - \alpha$ proportion of those confidence sets would contain $\theta$
+    + an observed data vector $Y \to$ the chance that a confidence set $C(Y)$ contains $\theta$ is either 0 or 1
+  
++ [Highest Probability Density (HPD) region](../Notes/p03-BayesianBasics.md#4-region-estimation)
+  + given a specific level $1-\alpha$ of credible set $R(Y)$
+  + _highest probability density_ (HPD) region: the 'smallest' set or region to maintain the given level
+  + $R(Y)$ as a HPD region of level $1 - \alpha$, if
+
+    \[ R(Y) = \{\theta \in \Theta: K(\theta; Y) > K_0(Y)\} \tag{10} \]
+
+  + in practice, not straightforward to compute the HPD region $R(Y)$, but numerical method
+  + $\eta = \eta(\theta) \in \mathbb{R}$ \to$ the HPD region for $\eta$ may consist of a union of intervals
+  + e.g., the posterior density as a bimodal density $\to$ the HPD may be the union of two intervals, each centered around the two modes
+  + the posterior density of a real-valued parameter $\eta$ as a unimodal $\to$ the HPD region as an interval of the form
+
+    \[ R(Y) = (a(Y), b(Y)) \subseteq \Theta, \;\; -\infty \leq a(Y) < b(Y) \leq \infty \]
+
 
 
 
