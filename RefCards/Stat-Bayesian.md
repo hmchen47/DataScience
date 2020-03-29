@@ -245,11 +245,6 @@
   + the likelihoods contains all the relevant that can be extracted from the data
   + all the information that the data provide about the parameter is contained in the likelihood
 
-+ [Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (BF)
-  + measure of the relative likelihood of two hypotheses
-  + small values being considered as both evidence _against_ $H_0$ and evidence _for_ $H_1$
-  + transforming prior to posterior odds
-
 + [Calibration of Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (likelihood ratio)
 
   <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=50%>
@@ -339,42 +334,36 @@
     + multiple regression: adjusting for (accounting for) potentially confounding variables in the model
 
 + [Example: case control study](/Notes/a06-OddsRatios.md#example)
-  + goal: calculating (a) ORs and (b) 95% CIs
-  + Calculating ORs
 
-    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
-      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Two-by-two frequency table</a></caption>
-      <thead>
-      <tr>
-        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
-        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Outcome Status</th>
-      </tr>
-      <tr>
-        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">+</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">-</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr> <td rowspan="2">Exposure status</td> <td style="text-align: center;">+</td> <td style="text-align: center;">a</td> <td style="text-align: center;">b</td> </tr>
-      <tr> <td style="text-align: center;">-</td> <td style="text-align: center;">c</td> <td style="text-align: center;">d</td> </tr>
-      </tbody>
-    </table>
 
-    + a = number of exposed cases
-    + b = number of exposed non-cases
-    + c = number of unexposed cases
-    + d = number of unexposed non-cases
+
+
+
+## Bayes Factor (BF)
+
++ [Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (BF)
+  + measure of the relative likelihood of two hypotheses
+  + small values being considered as both evidence _against_ $H_0$ and evidence _for_ $H_1$
+  + transforming prior to posterior odds
+
++ [Bayesian factor](../Notes/p03-BayesianBasics.md#3-hypothesis-testing)
+  + def: the ratio of posterior odds to prior odds
+  + used to choose btw two hypotheses
+  + the BF of $H_a$ to $H_0$
 
     \[\begin{align*}
-      OR &= \frac{a/c}{b/d} = \frac{ad}{bc} \\\\
-      OR &= \frac{(n) \text{ exposed cases } / (n) \text{ unexposed cases }}{(n) \text{ exposed non-cases }/(n) \text{ unexpected non-cases }} \\\\
-         &= \frac{(n) \text{ exposed non-cases } \times (n) \text{ unexpected non-cases}}{(n) \text{ exposed cases } \times (n) \text{ unexposed cases }}
+      BF(Y) &= BF(a|0) = \frac{\Pr(\theta \in \Theta_a | Y)/\Pr(\theta \in \Theta_0 | Y)}{\Pr(\theta \in \Theta_a)/\Pr(\theta \in \Theta_0)} \\\\
+       &= \frac{\int_{\Theta_a} K(\theta; Y) d\theta}{\int_{\Theta_0} K(\theta; Y) d\theta} \cdot \frac{\int_{\Theta_0} k(\theta)d\theta}{\int_{\Theta_a} k(\theta) d\theta} \tag{8}
     \end{align*}\]
 
-  + conclusion: important points from example
-    + presence of a positive OR for an outcome given a particular exposure does not necessarily indicate that this association is statistically significant $\implies$ determined by the confidence intervals and $p$-value
-    + overall, depression is strongly linked to suicidal and suicidal attempt w/ a particular size and composition, and in the presence of other variables, the association may not be significant
+  + rule to choose btw the two hypotheses
+
+    \[\text{Reject } H_0 \iff \log\left(BF(Y)\right) > 0  \tag{9}\]
+
+  + equal-probable prior: $\Pr(\theta \in \Theta_0) = \Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
+
+
+
 
 
 ## Exchangeability
@@ -599,12 +588,8 @@
   + credible interval: any interval containing probability different from a 'Neyman-Pearson' confidence interval
   + types of intervals: assume a continuous parameter $\theta$ w/ range on $(-\infty, \infty)$ and posterior conditional on generic data $y$
     + _one-side intervals_: typical  $x = .90, .95, .99$
-      + one-side upper $x \cdot 100\%$ w/ $(\theta_L, \infty)$ where $p(\theta < \theta_L| y) = x$
-      + one side lower $x \cdot 100\%$ w/ $(-\infty, \theta_U)$ where $p(\theta > \theta_U | y) = x$
     + _two-sided 'equi-tail-area' intervals_: a two-sided $x \cdot 100\%$ (typical 90%, 95%, 99%) interval w/ equal probability in each tail area w/ $(\theta_L, \theta_U)$ where $p(\theta < \theta_L | y) = x/2$ and $p(\theta > \theta_U | y) = 1.0 - x/2$
     + _Highest Posterior Density (HPD) intervals_
-      + typical property: skewed posterior distribution $\implies$ a two-sided interval w/ equal tail areas generally containing some parameter values having lower posterior probability than values outside the interval
-      + HPD w/o such property
       + adjusting: the probability ordinates at each end of the interval are identical $\implies$ the narrowest possible interval containing the required possibility
       + posterior distribution w/ more than one mode $\implies$ HPD may be a set of disjoint intervals
   + HPD interval (Fig. 4)
@@ -624,16 +609,8 @@
 
   + traditional confidence intervals vs. Bayesian credible intervals
     1. _interpretation_ - most important
-      + a 95% probability that the true $\theta$ lies in a 95% credible interval $\implies$ certainly _not_ the interpretation of a 95% confidence interval
-      + a long series of 95% confidence intervals: 95% of events containing the true parameter value
-      + the Bayesian interpretation: giving a probability of whether a _particular_ confidence interval contains the true value
     2. _credible interval_
-      + generally narrower due to the additional information provided by the prior
-      + width of posterior distribution w/ normal distribution: $U_D - L_D = 2 \times 1.96 \times \sigma/\sqrt{n_o + m}$
-      + confidence interval of normal distribution: $2 \times 1.96 \times \sigma/\sqrt{m}$
-    3. _care required in terminology_:
-      + the width of classical confidence intervals: the standard error of the estimator
-      + the width of Bayesian credible intervals: dedicated by the posterior standard deviation
+    3. _care required in terminology_
 
 + [Interval hypotheses](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
   + a hypothesis of interest comprises an interval $H_0: \theta_L < \theta < \theta_U$
@@ -647,6 +624,53 @@
   + traditional confidence interval: essentially equivalent to a credible interval based on the likelihood alone
   + Bayesian and classical equivalent results w/ a uniform or 'flat' prior
   + 'it is already common practice in medical statistics to interpret a frequentist confidence interval as if it did represent a Bayesian posterior probability arising from a calculation invoking a prior density that is uniform on the fundamental scale of analysis' -- P. Burton, 'Helping doctors to draw appropriate inferences from the analysis of medical studies'
+
+
+
+
+## Hypothesis Testing
+
++ [Modeling of hypothesis testing](../Notes/p03-BayesianBasics.md#3-hypothesis-testing)
+  + deciding which hypothesis w/ a larger probability: reject $H_0 \iff \Pr(\theta \in \Theta_0 | Y) < \Pr(\theta \in \Theta_a | Y)$
+  + comparing the numerators to make a decision
+
+    \[ \text{Reject } H_0 \iff \int_{\Theta_0} K(\theta; Y) d\theta < \int_{\Theta_a} K(\theta; Y) d\theta \tag{7} \]
+
+  + a prior distribution ensuring $\Pr(\theta \in \Theta_j) > 0$ for $j=0, a$
+  + using a prior distribution which assures  $\Pr(\theta \in \Theta_0) = \Pr(\theta \in \Theta_a)$ unless $\exists$ any substantial prior information about the two hypotheses
+  + assume a prior w/ equal-probable hypotheses before observing any data
+
++ [Errors of hypothesis testing](../Notes/p03-BayesianBasics.md#3-hypothesis-testing)
+  + Type I error rate: traditional frequentist methods
+    + rule: reject $H_0$ if $T(Y) > T_0 \implies$ the cut-off value $T_0$ chosen $\to$ type I error rate
+
+      \[\inf_{\theta \in \Theta_0} \Pr\left(T(Y) > T_0 | \theta\right) \leq \alpha\]
+
+  + Type II error rate: Bayesian tests
+    + type II error rate: (further check required)
+
+      \[\inf_{\theta \in \Theta_a} \Pr(T(Y) \leq T_0 | \theta) \leq \alpha \;\;\forall \theta \in \Theta_a\]
+
+    + alternative test statistic
+      + simply report posterior probabilities $\Pr(\theta \in \Theta_j | Y)$ for $j = 0, a$
+      + researcher decides a cut-off value, e.g., $p_0 \to H_0$ rejected $\iff \Pr(\theta \in \Theta_a | Y) > p_0$
+  + Bayesian type I error rate
+
+    \[ BE_1(T_0) = \Pr(T(Y) > T_0 | \theta \in \Theta_0) \]
+
+  + Bayesian type II error rate
+
+    \[ BE_2(T_0) = \Pr(T(Y) \leq T_0 | \theta \in \Theta_a) \]
+
+  + controlling both types of Bayesian errors: finding a $T_0$ to minimize the the total weight error, i.e., determining
+
+    \[\hat{T}_0 = \arg\min TWE(T_0)\]
+
+  + sample size: $\hat{T}_0$ fixed $\implies$ optimal (minimum) sample size $\to$ $BE_1(\hat{T}_0) + BE_2(\hat{T}_0) \leq \alpha$
+
+
+
+
 
 
 ## Result Interpretation
