@@ -10,9 +10,15 @@
 
 ## Statistics
 
+### Study Design
+
++ Song JW, Chung KC. [Observational studies: cohort and case-control studies](../Notes/p02-Observational.md). Plast Reconstr Surg. 2010;126(6):2234–2242
+
+
+
 ### Bayesian Approaches
 
-+ D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004
++ D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
 
 
 
@@ -25,6 +31,7 @@
 
 ### General Topics for ML
 
++ Reashikaa Verma, [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07=MLBools.md)
 + Pedro Domingos, [A Few Useful Things to Know about Machine Learning](../AppliedDS-UMich/3-AML/p0-UsefulThings.md)
 + Ron Kohavi, Randal M. Henne, and Dan Sommerfield, [Practical Guide to Controlled Experiments on the Web: Listen to Your Customers not to the HiPPO](../AppliedDS-UMich/3-AML/p1-ControlledExp.md)
 + S. Kaufman, S. Rosset, & C. Perlich, [Leakage in Data Mining: Formulation, Detection, and Avoidance](../AppliedDS-UMich/3-AML/p3-Leakage.md)
@@ -93,7 +100,7 @@
 
 + D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](http://www.medicine.mcgill.ca/epidemiology/hanley/bios602/Bayes/an%20overview%20of%20the%20Bayesian%20approach.pdf), In: [Bayesian Approaches to Clinical Trials and Health-Care Evaluation](http://93.174.95.29/main/791000/1c3cccffb374be94e8940aa087c433c0/%28Statistic%20in%20practice%29%20David%20J.%20Spiegelhalter%2C%20Keith%20R.%20Abrams%2C%20Jonathan%20P.%20Myles%20-%20Bayesian%20Approaches%20to%20Clinical%20Trials%20and%20Health-Care%20Evaluation-Wiley%20%282004%29.pdf), pp.49-120, Wiley, 2004
 + [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf)
-+ S. Ghosh, [Basics of Bayesian Methods](https://www.researchgate.net/profile/Sujit_Ghosh4/publication/45283465_Basics_of_Bayesian_Methods/links/55cce51208ae1141f6b9e8e0/Basics-of-Bayesian-Methods.pdf), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
+
 + [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf), chapter 12
 + A. Julien-Laferriere, [Hopfield network](http://perso.ens-lyon.fr/eric.thierry/Graphes2010/alice-julien-laferriere.pdf)
 + [Hopfield Model of Neural Network](https://shodhganga.inflibnet.ac.in/bitstream/10603/1760/6/06_chapter%202.pdf), Chapter 2,
