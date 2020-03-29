@@ -169,11 +169,11 @@ Year: 2004
 + Binomial and Bernoulli distributions
   + $Y$: a discrete binomial variable w/ the sampling distribution of the total number of 'successes' in $n$ independent Bernoulli trials
   + $\theta$: the probability of success in each Bernoulli trial
-  + $\theta^y (1 - \theta)^{n-y}$: the likelihood, the probability for a specific sequence of $n-y$ 'failure' and $y$ 'successes', $\begin{pmatrix} n \\ y \end{pmatrix}$ sequences
+  + $\theta^y (1 - \theta)^{n-y}$: the likelihood, the probability for a specific sequence of $n-y$ 'failure' and $y$ 'successes', ${n \choose y} $ sequences
   + $Y \sim Bin(n, \theta)$: a binomial distribution w/ properties
 
     \[\begin{align*}
-      p(y | n, \theta) & = \begin{pmatrix} n \\ y \end{pmatrix} \theta^y (1-\theta)^{n-y}, \qquad y = 0, 1, \dots, n \tag{Bin.prob} \\
+      p(y | n, \theta) & = {n \choose y}  \theta^y (1-\theta)^{n-y}, \qquad y = 0, 1, \dots, n \tag{Bin.prob} \\
       E(Y | n, \theta) &  = n \theta \tag{Bin.mean} \\
       Var(Y | n, \theta) &= n \theta (1-\theta) \tag{Bin.var}
     \end{align*}\]
@@ -198,7 +198,7 @@ Year: 2004
   + an analytically tractable compound distribution
   + $\theta$ parameter in the binomial distribution as being randomly draw from a beta distribution
   
-    \[ X \sim Bin(n, \theta) \implies p(X=k | p, n) = L(p | k) = \begin{pmatrix} n \\ k \end{pmatrix} \theta^k (1-\theta)^{n-k} \]
+    \[ X \sim Bin(n, \theta) \implies p(X=k | p, n) = L(p | k) = {n \choose k}  \theta^k (1-\theta)^{n-k} \]
 
   + $\theta$: a random variable w/ a beta distribution
 
@@ -211,8 +211,8 @@ Year: 2004
     \[\begin{align*}
       p(k | n, a, b) 
         &= \int_0^1 \underbrace{L(\theta | k)}_{\text{binomial}} \cdot \underbrace{p(\theta | a, b)}_{\text{beta}} d\theta \\
-        &= \begin{pmatrix} n \\ k \end{pmatrix} \frac{1}{B(a, b)} \int_0^1 \theta^{k+a-1} (1-\theta)^{n-k+b-1} d\theta
-        = \begin{pmatrix} n \\ k \end{pmatrix} \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
+        &= {n \choose k}  \frac{1}{B(a, b)} \int_0^1 \theta^{k+a-1} (1-\theta)^{n-k+b-1} d\theta
+        = {n \choose k}  \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
         &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
     \end{align*}\]
 
@@ -1307,7 +1307,7 @@ Year: 2004
   + $\theta$ as a conjugate $Beta(a, b)$
   + the exact predictive distribution for $Y_n$, known as the beta-binomial distribution
 
-    \[ p(y_n) = \frac{\Gamma (a+b)}{\Gamma(a)\Gamma(b)} \begin{pmatrix} n \\ y_n \end{pmatrix} \frac{\Gamma(a+y_n) \Gamma(b+n-y_n)}{\Gamma(a+b+n)} \tag{21} \]
+    \[ p(y_n) = \frac{\Gamma (a+b)}{\Gamma(a)\Gamma(b)} {n \choose y_n}  \frac{\Gamma(a+y_n) \Gamma(b+n-y_n)}{\Gamma(a+b+n)} \tag{21} \]
 
   + w/ $E(\theta) = a/(a+b)$, the mean and variance of the distribution
 
@@ -1332,7 +1332,7 @@ Year: 2004
 
     \[\begin{align*}
       p(\theta | k) &\propto \underbrace{p(k | \theta)}_{\text{binomial}} \underbrace{p(\theta | \mu, M)}_{\text{beta}} = Beta(k+M\mu, n-k+M(1-\mu)) \\
-        &= \frac{\Gamma(M)}{\Gamma(M\mu) \Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \theta^{k+M\mu-1} (1-\theta)^{n-k+M(1-\mu)-1} \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu) \Gamma(M(1-\mu))} {n \choose k}  \theta^{k+M\mu-1} (1-\theta)^{n-k+M(1-\mu)-1} \\\\
       E(\theta | k) &= \frac{k+M\mu}{n+M}
     \end{align*}\]
 
@@ -1340,8 +1340,8 @@ Year: 2004
 
     \[\begin{align*}
       p(k | \mu, M) &= \int_0^1 p(k | \theta) p(\theta | \mu, M) d\theta \\\\
-        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \int_0^1 \theta^{k+M\mu-1}(1-\theta)^{n-k+M(1-\mu)-1} d\theta \\\\
-        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} \begin{pmatrix} n \\ k \end{pmatrix} \frac{\Gamma(k+M\mu)\Gamma(n-k+M(1-\mu))}{\Gamma(n+M)} \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} {n \choose k}  \int_0^1 \theta^{k+M\mu-1}(1-\theta)^{n-k+M(1-\mu)-1} d\theta \\\\
+        &= \frac{\Gamma(M)}{\Gamma(M\mu)\Gamma(M(1-\mu))} {n \choose k}  \frac{\Gamma(k+M\mu)\Gamma(n-k+M(1-\mu))}{\Gamma(n+M)} \\\\
       p(k | a, b) &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)}\frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)}\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
     \end{align*}\]
 
@@ -1925,7 +1925,7 @@ Year: 2004
     + using the formula for the binomial distribution to provide the probability of 8, 9, and 10 heads
 
     \[\begin{align*}
-      p(\text{8 or more heads}) &= \begin{pmatrix} 10 \\ 8 \end{pmatrix} \left(\frac{1}{2}\right)^8 \left(\frac{1}{2}\right)^2 + \begin{pmatrix} 10 \\ 9 \end{pmatrix} \left(\frac{1}{2}\right)^9 \left(\frac{1}{2}\right)^1 + \begin{pmatrix} 10 \\ 10 \end{pmatrix} \left(\frac{1}{2}\right)^{10} \left(\frac{1}{2}\right)^0 \\
+      p(\text{8 or more heads}) &= {10 \choose 8}  \left(\frac{1}{2}\right)^8 \left(\frac{1}{2}\right)^2 + {10 \choose 9}  \left(\frac{1}{2}\right)^9 \left(\frac{1}{2}\right)^1 + {10 \choose 10}  \left(\frac{1}{2}\right)^{10} \left(\frac{1}{2}\right)^0 \\
        &= \frac{1}{2^{10}} (45 + 10 + 1) = \frac{56}{1024} = 0.0547
     \end{align*}\]
 
