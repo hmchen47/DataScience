@@ -526,8 +526,8 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + relying on two celebrated results in Statistics
     + The (Strong or Weak) _Law of Large Numbers_ (LLN)
     + The _Central Limit  Theorem_ (CLT)
-  + generating $\theta^{(l)} \stackrel{iid}{\sim} p(\theta | Y) \; l=1,2,\dots,N$ by using only $K(\theta | Y)$
-  + following (Strong/Weak) LLN: as $N \to \infty$
+  + generating $\theta^{(l)} \stackrel{iid}{\sim} p(\theta | Y), \;\; l=1,2,\cdots,N$ by using only $K(\theta; Y)$
+  + w/ (Strong/Weak) LLN: as $N \to \infty$
 
     \[ \overline{\mathfrak{g}}_N = \frac{1}{N} \sum_{l=1}^N \mathfrak{g}(\theta^{(l)}) \xrightarrow{p} E[\mathfrak{g}(\theta) | Y] = \int \mathfrak{g}(\theta) p(\theta | Y) d\theta \tag{13} \]
 
@@ -535,18 +535,18 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + $E[\mathfrak{g}(\theta) | Y] < \infty$
   + avoid computing the numerator and denominator
   + generating random samples by using only the kernel of the posterior density
-  + the sample mean $\mathfrak{g}_N$ converges to the population mean $E[\mathfrak{g}(\theta) | Y]$ as $N \nearrow$
+  + $N \nearrow  \implies \overline{\mathfrak{g}}_N \to E[\mathfrak{g}(\theta) | Y]$; $\overline{\mathfrak{g}}_N$ = sample mean, $E[\mathfrak{g}(\theta)$: population mean
   + almost no smoothness condition required on the function $\mathfrak{g}(\cdot)$ to apply the MC method
 
 + Sample size
   + applying CLT to determine the least approximate value of $N$
   + as $N \to \infty$
 
-    \[ \sqrt{N} (\mathfrak{g}_N - E[\mathfrak{g}(\theta) | Y]) \xrightarrow{d} N\left(0, \sum_{\mathfrak{g}}\right) \tag{14} \]
+    \[ \sqrt{N} (\overline{\mathfrak{g}}_N - E[\mathfrak{g}(\theta) | Y]) \sim N\left(0, \sum_{\mathfrak{g}}\right) \tag{14} \]
 
   + the posterior variance (matrix) of $\mathfrak{g}(\theta)$ as $E[\| \mathfrak{g}(\theta)\|^2 | Y] < \infty$
 
-    \[ \sum_{\mathfrak{g}} = E[(\mathfrak{g}(\theta) - E[\mathfrak{g}(\theta) | Y])(\mathfrak{g}(\theta)|Y]))^\prime | Y] \]
+    \[ \sum_{\mathfrak{g}} = E\big[\left(\mathfrak{g}(\theta) - E[\mathfrak{g}(\theta) | Y]\right)\cdot\left(\mathfrak{g}(\theta) - E[\mathfrak{g}(\theta)|Y]\right)^\prime | Y\big] \]
 
   + $\overline{\mathfrak{g}}_N = E[\mathfrak{g}(\theta) | Y] + O_p(N^{-1/2})$ and (stochastic) error bound: not depend on the dimension $m$ of $\theta$
   + a real-valued function, $\mathfrak{g}(\cdot) \xrightarrow{CTL}$ approximate value of $N$
@@ -554,13 +554,13 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + using CLT, the 95% CI for $E[\mathfrak{g}(\theta) | Y] = \overline{\mathfrak{g}}_N \pm 1.96 \times \sigma_{\mathfrak{g}} / \sqrt{N}$
     + find $N$: 
 
-      \[ \frac{1.96 \times \sigma_{\mathfrak{g}}}{\sqrt{N}} \leq \epsilon \to N \geq \frac{(1.96)^2 \times \sigma_{\mathfrak{g}}^2}{\epsilon^2} \]
+      \[ \frac{1.96 \times \sigma_{\mathfrak{g}}}{\sqrt{N}} \leq \epsilon \longrightarrow N \geq \frac{(1.96)^2 \times \sigma_{\mathfrak{g}}^2}{\epsilon^2} \]
 
     + estimating the sample standard deviation
 
-      \[ \sigma_{\mathfrak{g}}^2 \text{ unknown } \quad\xrightarrow{\text{estimate}}\quad \hat{\sigma}_{\mathfrak{g}}^2 = \frac{\sum_{l=1}^N (\mathfrak{g}(\theta)^{(l)}) - \overline{\mathfrak{g}}_N)^2}{N-1} \]
+      \[ \sigma_{\mathfrak{g}}^2 \text{ unknown } \quad\xrightarrow{\text{estimate}}\quad \hat{\sigma}_{\mathfrak{g}}^2 = \frac{\sum_{l=1}^N \left(\mathfrak{g}(\theta^{(l)}) - \overline{\mathfrak{g}}_N \right)^2}{N-1} \]
 
-  + Summary: an accuracy of $epsilon > 0$ with 95% CI $\implies$
+  + Summary: an accuracy of $\epsilon > 0$ with 95% CI $\implies$
 
     \[ N \geq \frac{4\hat{\sigma}_{\mathfrak{g}}^2}{\epsilon^2} \]
   
@@ -579,7 +579,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + deterministic integration: fixed
   + MC methods
     + hardly improved
-    + inferior to the deterministic integration methods as $m \geq 4$ and sufficiently smooth
+    + inferior to the deterministic integration methods as $m \leq 4$ and sufficiently smooth
   + deterministic methods more sufficient
     + smooth function $\mathfrak{g}(\theta)$
     + little dimension $m$ of $\theta$
@@ -588,23 +588,20 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + complicated parameter space
 
 + Importance sampling
-  + using another density to generate samples and then uses a weighted sample mean to approximate the posterior mean instead of $K(\theta; Y)$
+  + using another density to generate samples and then useing a weighted sample mean to approximate the posterior mean instead of $K(\theta; Y)$
 
-    \[ \int \mathfrak{g}(\theta) K(\theta; Y) = \int \mathfrak{g} \frac{\theta; Y)}{q(\theta)} q(\theta) d\theta = \int \mathfrak{g} w(\theta) q(\theta) d\theta \tag{15} \]
+    \[ \int \mathfrak{g}(\theta) K(\theta; Y) d\theta = \int \mathfrak{g}(\theta) \frac{K(\theta; Y)}{q(\theta)} q(\theta) d\theta = \int \mathfrak{g}(\theta) w(\theta) q(\theta) d\theta \tag{15} \]
 
-    + $q(\theta)$: a probability density function containing $K(\theta; Y)$; i.e., $\{ \theta \in \Theta: K(\theta; Y) > 0 \} \subseteq \{ \theta \in \Theta: q(\theta) > 0 \}$
+    + $q(\theta)$: the _importance proposal_ density $\to \{ \theta \in \Theta: K(\theta; Y) > 0 \} \subseteq \{ \theta \in \Theta: q(\theta) > 0 \}$
     + $w(\theta)$: the _importance weight_ function
-    + $q(\theta)$: the _importance proposal_ density
   + algorithm to estimate $I = I(Y)$
-    + 1. generate $\theta^{(l)} \stackrel[iid]{\sim} q(\theta)$ for $l = 1, 2, \cdots, N$
-    + 2. compute the importance weights $w^{(l)} = w(\theta^{(l)})$ fro $l = 1, 2, \cdots, N$
-    + 3. compute $\overline{I}_N = \frac{1}{N} \sum_{l=1}^N \mathfrak{g}(\theta^{(l)}w^{(l)})$
+    1. generate $\theta^{(l)} \stackrel{iid}{\sim} q(\theta)$ for $l = 1, 2, \cdots, N$
+    1. compute the importance weights $w^{(l)} = w(\theta^{(l)})$ for $l = 1, 2, \cdots, N$
+    1. compute $\overline{I}_N = \frac{1}{N} \sum_{l=1}^N \mathfrak{g}(\theta^{(l)}w^{(l)})$
   + using LLN, $N \to \infty \implies \overline{I}_N \xrightarrow{p} I$
-  + estimating the posterior mean $E[\mathfrak{g}|Y]$ by quantifying 
+  + estimating the posterior mean
 
-    \[ \overline{\mathfrak{g}}_N = \frac{\sum_{l=1}^N \mathfrak{g}(\theta^{(l)} w^{(l)})}{\sum_{l=1}^N w^{(l)}} \]
-
-    as $\sum_{l=1}^N w^{(l)}/N$ converges in probability to the normalizing constant $\int K(\theta; Y) d\theta$
+    \[ E[\mathfrak{g}\theta)|Y] \approx \overline{\mathfrak{g}}_N = \frac{\sum_{l=1}^N \mathfrak{g}(\theta^{(l)} w^{(l)})}{\sum_{l=1}^N w^{(l)}} \implies \frac{\sum_{l=1}^N w^{(l)}}{N} \xrightarrow[\text{in probability}]{\text{converge}} \int K(\theta; Y) d\theta \]
 
 + Markov Chain Monte Carlo (MCMC) methods
   + to resolve the choice of $q(\theta)$, in particular, high dimensional $\theta$ 
@@ -620,8 +617,8 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + MCMC samples
     + not directly obtained from the posterior distribution
     + obtained in an asymptotic sense $\to$ discarding the first thousand samples
-    + $\{\theta^{(l)}: l = 1, 2, \dots\} \to \{\theta^{(l)}: l = B+1, B+2, \dots\}, \;\; B > 1$
-  + estimating $\eta = \eta(\theta)$ based on samples $\theta^{(l)} \to$ computing $\overline{\eta} = \sum_{l=B+1}^N \eta^{(l)} / (N-B)$ to approximate its posterior mean $E[\eta|Y]$ for some large integers $N > B > 1$
+    + $\{\theta^{(l)}: l = 1, 2, \dots\} \to \{\theta^{(l)}: l = B+1, B+2, \dots\, B > 1\}$
+  + estimating $\eta = \eta(\theta)$ based on samples $\theta^{(l)} \implies$ computing $\overline{\eta} = \sum_{l=B+1}^N \eta^{(l)} / (N-B) \approx E[\eta|Y], \exists\; N >> B >> 1$
 
 
 
