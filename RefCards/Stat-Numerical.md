@@ -1,4 +1,4 @@
-# Statistics: Simulations
+# Statistics: Numerical Approaches
 
 ## Overview
 
@@ -12,6 +12,14 @@
     + additional nuisance parameters in the model
   + solution: Markov Chain Monte Carlo (MCMC) methods
 
++ [Numerical methods](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + computing posterior summary estimates
+  + binomial sampling density:
+    + Zellner's prior: $p(\theta) = C\theta^\theta (1-\theta)^{1-\theta}$ for $\theta \in (0, 1)$ and C = 1.61857
+    + Jeffery's prior: $Beta(a = 0.5, b = 0.5)$
+  + Haldane's prior: improper prior $p(\theta) = [\theta(1-\theta)]^{-1}$
+  + uniform prior: same as $Beta(a=1, b=1)$ w/ $\theta$ using binomial sampling density
+  + posterior inference about $\theta$ or odds ratio $\rho = \theta/(1-\theta)$ or log-odds ratio $\eta = \log \rho$ relative insensitive to all previous priors
 
 
 
