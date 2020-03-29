@@ -4,11 +4,11 @@ Author: Sujit Ghosh
 
 Year: 2010
 
-[Origin: Chapter 3, pp 155-178](https://www.researchgate.net/profile/Sujit_Ghosh4/publication/45283465_Basics_of_Bayesian_Methods/links/55cce51208ae1141f6b9e8e0/Basics-of-Bayesian-Methods.pdf?_sg%5B0%5D=RYx6EbikVeUbU3ozrXtkqLCXVIvQ0o9eDAKjgFrlujf_APZQowfysbsEnxzlzNaAGSL_YAqpV3FISn1Ucnub-Q.zj6VTWH_eNFhLuRj667jIXPAS4C1jYg7-5hlP55xHIjoJgAlVjaZs2-2jKFIcdC5pA8X7phiUtuf1MWdW8vSzw&_sg%5B1%5D=ERHR_2NWgCe1_zXptdBuyYhmnsX2-0Fj7q-wgrhFbPoQUwwodDpYJCWdsx0A3G8tO_0vbrUSMJNB3N4vClwDV5zDN7rslAQFGr2vFe7JtNOh.zj6VTWH_eNFhLuRj667jIXPAS4C1jYg7-5hlP55xHIjoJgAlVjaZs2-2jKFIcdC5pA8X7phiUtuf1MWdW8vSzw&_sg%5B2%5D=UVSglZoLJvV38KMGeYnGO7ba8kwqYXxzjS1aeHAmZhGOi0LeelZIl7p2M23nf64xGDSJGlJXk6HgW0g.kNxpVr303YvmrXDjZyu-m_IYu_Hhy1anVHmfDHFcriS-WmXE2cPPICYY325bbN5RVkkfZt3EpUgIdd0N70d1Pw&_iepl=)
+[Origin: Chapter 3, pp 155-178](https://bit.ly/2WTB3va)
 
 
 
-Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in Molecular Biology](http://booksdl.org/get.php?md5=ffb73f3149241e26f224462391bdb64b&key=DMCZ35DZ93WB4E14&mirr=1). Methods in Molecular Biology (Methods and Protocols), vol 620. Humana Press, Totowa, NJ
+Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in Molecular Biology](https://bit.ly/39ukdpi). Methods in Molecular Biology (Methods and Protocols), vol 620. Humana Press, Totowa, NJ
 
 
 ## 1. Introduction
@@ -20,7 +20,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 + Subjectivity
   + Bayesian statistical methods criticized as being subjective
   + almost any scientific knowledge and theories at best: subjective in nature
-  + S. Press and M. Tanur, [Subjectivity of Scientist and the Bayesian Approach](http://booksdl.org/get.php?md5=c94435049cbb7a46c6344e4e6e33739a&key=C3C2V5CV3735F9RE&mirr=1), 2001
+  + S. Press and M. Tanur, [Subjectivity of Scientist and the Bayesian Approach](https://bit.ly/39ygXJS), 2001
     + Subjectivity occurs, and should occurs, in the works of scientists
     + Total objectivity in science is a myth.  Good science inevitably involves a mixture of subjective and objective parts.
   + Bayesian inferential framework: a logical foundation in data analysis to accommodate
@@ -83,7 +83,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
       \text{marginal density of } y: & m(y) = \int p(y|\theta)p(\theta) d\theta \\
       \text{posterior density of } \theta \text{ given } y: & p(\theta | y) = p(y|\theta)/m(y)
     \end{array}\]
-  
+
 + Marginal density $m(y)$
   + discrete version: replacing integration by summation
   + the marginal density and the posterior density w.r.t a $\sigma$-finite measure; e.g., Lebesgue measure or counting measure
@@ -141,13 +141,13 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
     + improper prior $\iff$ improper marginal
     + $\int k(\theta) d\theta = \infty \iff  \int m(Y) dY = \infty$
   + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0 \implies$ any improper prior leads to an improper posterior
-  + the posterior distribution not necessary proper if the prior improper [[Wiki](https://en.wikipedia.org/wiki/Prior_probability#Improper_priors)]
-  + using improper priors as uninformative priors; e.g., $p(m, v) \sim 1/v \implies$ any value for the mean "equally likely" and a value for the positive variance "less likely" [[Wiki](https://en.wikipedia.org/wiki/Prior_probability#Improper_priors)]
-  + [examples](https://en.wikipedia.org/wiki/Prior_probability#Improper_priors)
+  + the posterior distribution not necessary proper if the prior improper [[Wiki](https://bit.ly/2vYuixh)]
+  + using improper priors as uninformative priors; e.g., $p(m, v) \sim 1/v \implies$ any value for the mean "equally likely" and a value for the positive variance "less likely" [[Wiki](https://bit.ly/3bDybXF)]
+  + [examples](https://bit.ly/2xzRqSW)
     + uniform distribution on an infinite interval; i.e., a half line or entire real line
     + $Beta(0,0)$ (uniform distribution on log-odds scale)
     + logarithmic prior on the positive reals (uniform distribution on log scale)
-  + improper priors not true probability distributions [[Degroot & Schervish](https://stats.stackexchange.com/questions/97768/how-can-an-improper-prior-lead-to-a-proper-posterior-distribution)]
+  + improper priors not true probability distributions [[Degroot & Schervish](https://bit.ly/2QVlXSb)]
 
 + Example: Does vitamin C cure common cold?
   + intervention: a randomly chosen group of patients suffering from common cold took (same amount of) vitamin C for 1 week and response whether or not vitamin C cured common cold immediately following the week
@@ -512,7 +512,7 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + invalid theoretical error estimate
     + a complicated parameter space
     + insufficiently smooth function
-  + [Alan Genz Software - R, MATLAB, Fortan](http://www.math.wsu.edu/faculty/genz/software/software.html)
+  + [Alan Genz Software - R, MATLAB, Fortan](https://bit.ly/2xuo9JE)
 
 
 ### 5.2 Monte Carlo Methods
