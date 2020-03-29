@@ -178,6 +178,34 @@
 
 
 
+
+
+## Improper Prior
+
++ [Improper prior](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + def: prior kernel function $k(\theta) \geq 0$ for which $\int C \cdot k(\theta) d\theta  = \infty$
+  + using improper prior $p(\theta) = C \cdot k(\theta) \implies$ verifying the posterior kernel finitely integrable $\int K(\theta; Y) d\theta < \infty$ for almost all $Y$
+  + Applying Fubini's theorem (on interchanging order of integration)
+  + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0 \implies$ any improper prior leads to an improper posterior
+  + the posterior distribution not necessary proper if the prior improper
+  + improper priors not true probability distributions
+
+
+
+## Prior with Conjugate Family
+
++ [Prior conjugate family](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + conjugate family: prior densities and their leading posterior densities belonging to the same family
+  + the choice of conjugate family not unique
+  + exponential family of densities: sampling density w/ a sufficient statistic of constant dimension always finds a conjugate family of prior densities
+  + _natural conjugate family_:
+  + _subjective prior of informative prior_: the parameters of the prior density elicited using a previously collected data or expert knowledge
+  + _noninformative prior_: no such prior information available or very little knowledge available about the parameter $\theta$
+
+
+
+
+
 ## The Likelihood
 
 + [Likelihood function / likelihood](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
@@ -270,31 +298,6 @@
   + a parameter $\theta$ is an unknown quantity such as the mean benefit of a treatment on a specified patient
   + the prior distribution $p(\theta)$ needs to be specified
   + concern: a natural extension of the subjective interpretation of probability
-
-
-
-## Improper Prior
-
-+ [Improper prior](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
-  + def: prior kernel function $k(\theta) \geq 0$ for which $\int C \cdot k(\theta) d\theta  = \infty$
-  + using improper prior $p(\theta) = C \cdot k(\theta) \implies$ verifying the posterior kernel finitely integrable $\int K(\theta; Y) d\theta < \infty$ for almost all $Y$
-  + Applying Fubini's theorem (on interchanging order of integration)
-  + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0 \implies$ any improper prior leads to an improper posterior
-  + the posterior distribution not necessary proper if the prior improper
-  + improper priors not true probability distributions
-
-
-
-## Prior with Conjugate Family
-
-+ [Prior conjugate family](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
-  + conjugate family: prior densities and their leading posterior densities belonging to the same family
-  + the choice of conjugate family not unique
-  + exponential family of densities: sampling density w/ a sufficient statistic of constant dimension always finds a conjugate family of prior densities
-  + _natural conjugate family_:
-  + _subjective prior of informative prior_: the parameters of the prior density elicited using a previously collected data or expert knowledge
-  + _noninformative prior_: no such prior information available or very little knowledge available about the parameter $\theta$
-
 
 
 
@@ -703,31 +706,6 @@
 
 
 
-
-## Result Interpretation
-
-+ [Connections btw Bayes theorem and clinical trials](../Notes/p01-Bayesian.md#310-how-to-use-bayes-theorem-to-interpret-trial-results)
-  + known: the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
-  + consideration: huge number of clinical trials carried out and finding the few clearly beneficial interventions
-  
-+ [Types of error](../Notes/p01-Bayesian.md#310-how-to-use-bayes-theorem-to-interpret-trial-results)
-  + Type I error ($\alpha$): false positive - the chance of claiming an ineffective treatment is effective
-  + Type II error ($\beta$): false negative - the chance of claiming an effective treatment is ineffective
-  + the odds of formulation of Bayes theorem, when a 'significant result' observed
-
-    \[\begin{align*}
-      \frac{p(H_0 | \text{significant result})}{p(H_1 | \text{significant result})} &= \frac{p(\text{significant result} | H_0)}{p(\text{significant result} | H_1)} \times \frac{p(H_0)}{p(H_1)} \\\\
-        &= \frac{p(\text{Type I error})}{1 - p(\text{Type II error})} \times \frac{p(H_0)}{p(H_1)}
-    \end{align*}\]
-
-    + $H_0$: ineffective treatment
-  + truly effective treatment relative rare $\implies$ a 'statistical significant' result stands a good chance of being a false positive
-  + the precise $p$-value / 'significant' and $\alpha$
-    + Lee & Zelen (2000): suggested selecting $\alpha$ that the posterior probability of an effective treatment, having observed a significant result, is sufficient high, say above 0.9
-    + Simon (2000) and Bryant & Day (2000): criticized solely based on the trail is 'significant', rather than the actual observed data
-
-
-
 ## Credibility Test
 
 + [Credibility in clinical trials](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
@@ -799,6 +777,60 @@
   + improvement: 79% w/ sumatriptan vs. 25% w/ placebo
   + 95% of the prior belief within critical interval $\implies$ posterior 95% interval not exclude OR = 1 $\implies$ the data not 'convincing'
   + unreasonable to rule out on prior grounds advantages of greater than 19%, and hence reject the critical prior interval as being unreasonably skeptical, and accept the results as 'credible'
+
+
+
+## Nuisance Parameters
+
++ [Nuisance parameter](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + a major issue in statistical modeling
+  + additional unknown quantities which influence the observed data but which are not of primary interest
+
++ [Eliminating nuisance parameters from the likelihood](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + restricting attention to an estimator of $\theta$ whose likelihood (at least approximately) does not depend on the nuisance parameters
+  + estimating the nuisance parameters and 'plugging in' their maximum likelihood estimates into the likelihood for $\theta$
+  + by conditioning on some aspect of the data that is taken to be uninformative about $\theta$, forming a 'conditional likelihood' which depends only on $\theta$
+  + forming a 'profile likelihood' for $\theta$, obtained by maximizing over the nuisance parameters for each value of $\theta$
+
++ [A more 'pure' Bayesian approach](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + place prior distributions over the nuisance parameters
+  + form a joint posterior distribution over all the unknown quantities in the model
+  + integrate out the nuisance parameters to obtain the marginal posterior distribution over $\theta$
+
++ [Sensitivity analysis](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
+  + importance: nuisance parameters of prior distributions
+  + innocuous choices may exert unintended influence
+  + hybrid strategy
+    + using traditional methods to eliminate nuisance parameters before carrying out a Bayesian analysis on $\theta$ alone
+    + good approximation to the full Bayesian approach
+
+
+
+
+
+## Result Interpretation
+
++ [Connections btw Bayes theorem and clinical trials](../Notes/p01-Bayesian.md#310-how-to-use-bayes-theorem-to-interpret-trial-results)
+  + known: the prior distribution on $\theta$ should supplement the usual information ($p$-value and CI) which summarizes the likelihood
+  + consideration: huge number of clinical trials carried out and finding the few clearly beneficial interventions
+  
++ [Types of error](../Notes/p01-Bayesian.md#310-how-to-use-bayes-theorem-to-interpret-trial-results)
+  + Type I error ($\alpha$): false positive - the chance of claiming an ineffective treatment is effective
+  + Type II error ($\beta$): false negative - the chance of claiming an effective treatment is ineffective
+  + the odds of formulation of Bayes theorem, when a 'significant result' observed
+
+    \[\begin{align*}
+      \frac{p(H_0 | \text{significant result})}{p(H_1 | \text{significant result})} &= \frac{p(\text{significant result} | H_0)}{p(\text{significant result} | H_1)} \times \frac{p(H_0)}{p(H_1)} \\\\
+        &= \frac{p(\text{Type I error})}{1 - p(\text{Type II error})} \times \frac{p(H_0)}{p(H_1)}
+    \end{align*}\]
+
+    + $H_0$: ineffective treatment
+  + truly effective treatment relative rare $\implies$ a 'statistical significant' result stands a good chance of being a false positive
+  + the precise $p$-value / 'significant' and $\alpha$
+    + Lee & Zelen (2000): suggested selecting $\alpha$ that the posterior probability of an effective treatment, having observed a significant result, is sufficient high, say above 0.9
+    + Simon (2000) and Bryant & Day (2000): criticized solely based on the trail is 'significant', rather than the actual observed data
+
+
 
 
 ## Prediction
@@ -940,31 +972,6 @@
   + Optimal decision-making
     + depending solely on the expected benefit
     + irrelevance: measures of uncertainty such as intervals or $p$-values
-
-
-## Nuisance Parameters
-
-+ [Nuisance parameter](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
-  + a major issue in statistical modeling
-  + additional unknown quantities which influence the observed data but which are not of primary interest
-
-+ [Eliminating nuisance parameters from the likelihood](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
-  + restricting attention to an estimator of $\theta$ whose likelihood (at least approximately) does not depend on the nuisance parameters
-  + estimating the nuisance parameters and 'plugging in' their maximum likelihood estimates into the likelihood for $\theta$
-  + by conditioning on some aspect of the data that is taken to be uninformative about $\theta$, forming a 'conditional likelihood' which depends only on $\theta$
-  + forming a 'profile likelihood' for $\theta$, obtained by maximizing over the nuisance parameters for each value of $\theta$
-
-+ [A more 'pure' Bayesian approach](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
-  + place prior distributions over the nuisance parameters
-  + form a joint posterior distribution over all the unknown quantities in the model
-  + integrate out the nuisance parameters to obtain the marginal posterior distribution over $\theta$
-
-+ [Sensitivity analysis](../Notes/p01-Bayesian.md#3181-alternative-methods-for-eliminating-nuisance-parameters)
-  + importance: nuisance parameters of prior distributions
-  + innocuous choices may exert unintended influence
-  + hybrid strategy
-    + using traditional methods to eliminate nuisance parameters before carrying out a Bayesian analysis on $\theta$ alone
-    + good approximation to the full Bayesian approach
 
 
 
