@@ -557,13 +557,43 @@
 
 
 
-## Parameter Estimation
+## Point Estimation
 
 + [Point estimates](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
   + traditional measures of location of distribution: mean, median, and mode
   + given a theoretical justification as a point estimate derived from a posterior distribution, by imposing a particular penalty on error in estimation
   + posterior distribution: symmetric and unimodal $\implies$ mean, median, and mode all coincide in a single value and no difficulty in making a choice
   + posterior distribution considerably skewed in some circumstances $\implies$ marked difference btw mean and median
+
++ [Statistical inference about $\theta$](../Notes/p03-BayesianBasics.md#2-point-estimation)
+  + obtained from the posterior kernel
+  + posterior density obtained via prior density w/ Bayes rule
+  + prior density: $p(\theta | Y) = K(\theta; Y)/ b(Y)$ where $b(Y) = \int K(\theta; Y) d\theta$
+  + the normalizing constant $b(Y)$ not required to obtain posterior estimate (via Monte Carlo method)
+
++ [Modeling the point estimate](../Notes/p03-BayesianBasics.md#2-point-estimation)
+  + goal: estimating a special function $\eta = \eta(\theta)$
+  + $\theta = (\theta_1, \theta_2, \dots, \theta_m)$: a $m$-dimensional parameter vector
+  + point of estimates of $\eta$: mean, median, or mode of the posterior distribution of $\eta$ given $Y$
+  + _posterior mean of $\eta$_
+
+    \[ \hat{\eta}(Y) = E[\eta | Y] = E[\eta(\theta) | Y] = \frac{\int \eta(\theta) K(\theta; Y) d\theta}{\int K(\theta; Y) d\theta} \tag{5} \]
+
++ [Bayes estimator](../Notes/p03-BayesianBasics.md#2-point-estimation)
+  + the optimal (Bayes) estimator of $\eta$: the posterior mean of $\eta$ w/ minimized squared error loss
+
+    \[ E[\| \eta - \hat{\eta} \|^2] \leq E[\| \eta - T(Y)\|^2] \]
+
+  + Bayes estimator exists for more general (convex) loss functions, such as weighted squared error loss, asymmetric loss, etc.
+  + Bayes estimator expressed in close form as suitable integrals of the posterior kernel
+  + advantage: obtained in a straightforward way and expressed in closed form
+  + road-block in practice: high-dimensional integrals not an easy task in most situation
+  + solution: advent of modern computing
+
+
+
+
+## Region Estimation
 
 + [Interval estimates](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses)
   + credible interval: any interval containing probability different from a 'Neyman-Pearson' confidence interval
