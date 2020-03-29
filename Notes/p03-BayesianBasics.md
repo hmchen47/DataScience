@@ -621,10 +621,37 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
   + estimating $\eta = \eta(\theta)$ based on samples $\theta^{(l)} \implies$ computing $\overline{\eta} = \sum_{l=B+1}^N \eta^{(l)} / (N-B) \approx E[\eta|Y], \exists\; N >> B >> 1$
 
 
-
-
 ## 6. Examples
 
++ Example: vitamin C cure (cont.)
+  + the posterior density: $p(Y|\theta) = \mathcal{L}(\theta; Y) = \mathcal{L}(\theta | s) = \theta^s (1 - \theta)^{n-s}
+  + the posterior kernel function: $K(\theta; Y) = K(\theta|s) = \theta^s (1-\theta)^{n-s} k(\theta)$
+  + a prior kernel function: $k(\theta \in [0, 1])$
+  + task: estimating the odds ratio, $\rho = (\frac{\theta}{1-\theta})$, or the log-odds ratio, $\eta = \log \rho$
+  + computing the posterior estimator: $\exists\; k(\theta) \to$
+
+    \[ \hat{\eta} = \frac{\int_0^1 \log(\frac{\theta}{1-\theta})\theta^s(1-\theta)^{n-s} k(\theta) d\theta}{\int_0^1 \theta^s(1-\theta)^{n-s} k(\theta) d\theta} \tag{16} \]
+
+  + choice of kernels
+    + beta prior: $k(\theta) = \theta^{a-1}(1-\theta)^{b-1}, \; a, b >0$
+      + Uniform prior: a = b = 1
+      + Jeffery's prior: a = b = 0.5
+      + Haldane's prior: a = b = 0; checking: valid w/ $s(n-s) > 0$, otherwise, improper
+    + Zellner's prior: $k(\theta) = \theta^\theta (1-\theta)^{1-\theta}$
+  + survey: 15 out of 20 randomly selected patients reported that common cold was cured using vitamin C within a week $\to n = 20, s = 15$
+  + the response: $y_i \in \{0, 1\}$
+  + patient level predictor variables: gender, age, etc. $\to z_i$, a vector
+  + using a regression model to account for subjective level heterogeneity $\to \theta_i = \Pr(x_i = 1|z_i) = \theta(z_i), \; i = 1, \cdots, n$
+  + parametric models for the regression function $\theta(\cdot)$
+    + logistic regression model: $\theta(z) = (1 + \exp(-\beta^\prime z))^{-1}$
+    + probit regression model: $\theta(z) = \Theta(\beta^\prime z)$
+    + general regression model: $\theta(z) = F_0(\beta^\prime z), \;\exists\; F(\cdot) \in \mathbb{R}$
+  + express the framework as BHM
+
+    \[ x_i|z_i \sim Ber(\theta_i) \to \theta_i = F_0(\beta^\prime z_i) \to \beta \sim N(0, c_oI)\]
+
+    + $c_0 > 0$: a large constant
+    + $I$: identity matrix
 
 
 
