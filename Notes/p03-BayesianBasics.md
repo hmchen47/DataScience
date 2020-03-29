@@ -623,10 +623,10 @@ Book: Bang H., Zhou X., van Epps H., Mazumdar M. (eds) [Statistical Methods in M
 
 ## 6. Examples
 
-+ Example: vitamin C cure (cont.)
-  + the posterior density: $p(Y|\theta) = \mathcal{L}(\theta; Y) = \mathcal{L}(\theta | s) = \theta^s (1 - \theta)^{n-s}
++ Example: vitamin C cure within a week (cont.)
+  + the posterior density: $p(Y|\theta) = \mathcal{L}(\theta; Y) = \mathcal{L}(\theta | s) = \theta^s (1 - \theta)^{n-s}$
   + the posterior kernel function: $K(\theta; Y) = K(\theta|s) = \theta^s (1-\theta)^{n-s} k(\theta)$
-  + a prior kernel function: $k(\theta \in [0, 1])$
+  + a prior kernel function: $k(\theta) \in [0, 1]$
   + task: estimating the odds ratio, $\rho = (\frac{\theta}{1-\theta})$, or the log-odds ratio, $\eta = \log \rho$
   + computing the posterior estimator: $\exists\; k(\theta) \to$
 
