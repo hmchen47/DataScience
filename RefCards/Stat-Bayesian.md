@@ -884,6 +884,21 @@
 
 
 
+## Numerical Methods
+
++ [Un-pure Bayesian method](../Notes/p03-BayesianBasics.md#12-hierarchical-and-empirical-approaches)
+  + issue: difficult to completely specify the prior density based on available expert opinion or background scientific information
+  + utilizing hyperparametes to resolve
+    + $\{p_1(\theta|\lambda): \lambda \in \Lambda\}$: a class of prior densities
+    + $\lambda$: hyper-parameter
+    + $p_1(\cdot | \cdot)$: a conditional density of $\theta$ given $\lambda$
+  + methods to determine hyperparameter $\lambda \to$ empirical estimate $\hat{\lambda}$
+    + Bayesian Hierarchical Model (BHM)
+    + Empirical Bayes (EB) method
+  + using $p(\theta) = p_1(\theta | \hat{\lambda})$ as the prior for $\theta$
+  + criticizing: the prior density $p(\theta)$ obtained via the data $Y$
+
+
 
 ## Hierarchical Models
 
@@ -942,7 +957,7 @@
       + no need for any actual sampling $\impliedby$ the probability structure is a consequence of the belief in exchangability rather than a physical randomization mechanism
       + not normal distribution:
         + heavy-tailed or skewed distributions
-        + partiton - cluster similar or equal units into groups
+        + partition - cluster similar or equal units into groups
 
 + [Hierarchical / multi-level model](../Notes/p01-Bayesian.md#317-multiplicity-exchangeability-and-hierarchical-models)
   + reasonable assumption: prior distribution w/ exchangeability
@@ -1045,6 +1060,8 @@
 
   + plotting log(likelihood) $\implies$ maximizing numerically to obtain the maximum likelihood estimate $\hat{\tau}}$
   + the maximum likelihood estimate $\hat{\tau}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
+
+
 
 
 
