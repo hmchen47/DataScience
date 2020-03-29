@@ -46,6 +46,16 @@
 
 + Bayesian statistics: treating subjectivity with respect by placing it in the open and under the control of the consumer of data
 
++ [Subjectivity](../Notes/p03-BayesianBasics.md#1-introduction)
+  + Bayesian statistical methods criticized as being subjective
+  + Bayesian inferential framework: a logical foundation in data analysis to accommodate
+    + objective (by modeling observed data)
+    + subjective (by using prior distribution for parameter)
+  + classical (frequentist) statistical methods: not objective as often as claimed in practice
+  + non-parametric methods: not completely objective
+  + assumptions built around any scientific methods $\implies$ subjective
+  + validating assumptions w/ sensitivity analysis
+
 
 ## School of Bayesian Approaches
 
@@ -92,6 +102,24 @@
 + [Example 6](../Notes/p01-Bayesian.md#38-point-estimation-interval-estimation-and-interval-hypotheses) -- GREAT (continue): Bayesian analysis of a trial of early thrombolytic therapy
 
 + [Example 13](../Notes/p01-Bayesian.md#317-multiplicity-exchangeability-and-hierarchical-models) -- Magnesium: Meta-analysis using a skeptical prior
+
+
+
+
+## Modeling
+
++ [Task, Notations and Assumptions](../Notes/p03-BayesianBasics.md#1-introduction)
+  + experimental goal: to infer about plausible value(s) of the parameter vector $\theta$
+  + $Y = (y_1, y_2, \dots, y_n)$: observed response data
+  + making inference about such hidden cause(s), $\theta$, based on observing the effect(s), $y$
+  + $p(y|\theta)$: a conditional density of the observation $y$ defined on the _sample space_ $\mathbb{Y}$; the _sampling density_ of $y$ given $\theta$
+  + $p(\theta)$: the marginal density of $\theta$ to be the _prior density_ of $\theta$ defined on the _parameter space_ $\Theta$
+  + actual determination of the prior density = the determination of the sampling density $p(y|\theta)$
+  + $\{f(y|\theta): \theta \in \Theta\}$: the parametric class of sampling densities
+  + assumption: the specific form of $p(\cdot | \theta)$ completely known once $\theta$ determined
+  + assumption: $\Theta \subseteq \mathbb{R}^m$; i.e. finite-dimensional _parametric space_
+
+
 
 
 ## Prior Distribution
