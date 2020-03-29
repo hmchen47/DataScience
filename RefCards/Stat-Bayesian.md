@@ -884,22 +884,6 @@
 
 
 
-## Numerical Methods
-
-+ [Un-pure Bayesian method](../Notes/p03-BayesianBasics.md#12-hierarchical-and-empirical-approaches)
-  + issue: difficult to completely specify the prior density based on available expert opinion or background scientific information
-  + utilizing hyperparametes to resolve
-    + $\{p_1(\theta|\lambda): \lambda \in \Lambda\}$: a class of prior densities
-    + $\lambda$: hyper-parameter
-    + $p_1(\cdot | \cdot)$: a conditional density of $\theta$ given $\lambda$
-  + methods to determine hyperparameter $\lambda \to$ empirical estimate $\hat{\lambda}$
-    + Bayesian Hierarchical Model (BHM)
-    + Empirical Bayes (EB) method
-  + using $p(\theta) = p_1(\theta | \hat{\lambda})$ as the prior for $\theta$
-  + criticizing: the prior density $p(\theta)$ obtained via the data $Y$
-
-
-
 ## Hierarchical Models
 
 + [Modeling for sequential data sets](../Notes/p01-Bayesian.md#312-sequential-use-of-bayes-theorem)
@@ -1061,6 +1045,41 @@
   + plotting log(likelihood) $\implies$ maximizing numerically to obtain the maximum likelihood estimate $\hat{\tau}}$
   + the maximum likelihood estimate $\hat{\tau}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
 
+
+
+
+
+## Numerical Methods
+
++ [Un-pure Bayesian method](../Notes/p03-BayesianBasics.md#12-hierarchical-and-empirical-approaches)
+  + issue: difficult to completely specify the prior density based on available expert opinion or background scientific information
+  + utilizing hyperparametes to resolve
+    + $\{p_1(\theta|\lambda): \lambda \in \Lambda\}$: a class of prior densities
+    + $\lambda$: hyper-parameter
+    + $p_1(\cdot | \cdot)$: a conditional density of $\theta$ given $\lambda$
+  + methods to determine hyperparameter $\lambda \to$ empirical estimate $\hat{\lambda}$
+    + Bayesian Hierarchical Model (BHM)
+    + Empirical Bayes (EB) method
+  + using $p(\theta) = p_1(\theta | \hat{\lambda})$ as the prior for $\theta$
+  + criticizing: the prior density $p(\theta)$ obtained via the data $Y$
+
+
+
+
+## Bayesian Hierarchical Model
+
++ [Bayesian hierarchical Model](../Notes/p03-BayesianBasics.md#12-hierarchical-and-empirical-approaches) (EBM)
+  + assigning another prior distribution for $\lambda$:
+    + $\lambda \sim p_2(\lambda)$
+    + $p_2(\cdot)$: a probability density defined over $\Lambda$
+  + $\therefore\; p(\theta) = \int p_1(\theta|\lambda) p_2(\lambda)d\lambda$: a more flexible prior for $\theta$
+  + forming a hierarchical stages for the complete Bayes model
+
+    \[ Y|\theta, \lambda \sim p(Y|\theta) \implies \theta|\lambda \sim p_1(\theta|\lambda) \quad \&\quad \lambda \sim p_2(\lambda)\]
+
+  + often choosing $p_2(\cdot)$ suitable to obtain estimators w/ good frequentist properties
+  + issue: inference based on $p(\theta|Y)$ requiring integration both on $\theta$ and $\lambda$
+  + solutions: Monte Carlo methods (in particular, Markov Chain Monte Carlo (MCMC) methods) used to obtain samples from the posterior density $p(\theta|Y)$
 
 
 
