@@ -21,6 +21,28 @@
   + uniform prior: same as $Beta(a=1, b=1)$ w/ $\theta$ using binomial sampling density
   + posterior inference about $\theta$ or odds ratio $\rho = \theta/(1-\theta)$ or log-odds ratio $\eta = \log \rho$ relative insensitive to all previous priors
 
++ [Integrals for posterior inference](../Notes/p03-BayesianBasics.md#5-numerical-integration-methods)
+  + issue: almost any posterior inference based on $K(\theta; Y) \to$ high-dimensional integration w/ $\Theta \in \mathbb{R}^m$, where $\mathbb{R}^m$ as a Euclidean
+  space
+  + ageneric function $\mathfrak{g}(\theta)$ of the parameter $\theta$, the posterior inference requiring the computation of the integral
+
+    \[ I = I(Y) \int \mathfrak{g}(\theta) K(\theta; Y) d\theta \tag{11} \]
+
++ [Numerical methods for integrals](../Notes/p03-BayesianBasics.md#5-numerical-integration-methods)
+  + numerical approaches
+    + classical (deterministic) numerical methods
+      + applied when $m < 5$
+      + order of accuracy: $O(N^{-2/m})$
+      + rate of convergence depending on $m$ (curse of dimensionality)
+    + stochastic integration methods
+      + applied when $m \geq 5$
+      + known as Monte Carlo (MC) methods
+      + order of accuracy: $O(^{-1/2})$
+      + rate of convergence not depending on $m$
+  + performance: deterministic >> stochastic
+
+
+
 
 
 ## Monte Carlo Methods
