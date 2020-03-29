@@ -97,6 +97,20 @@
 
 ## Importance Sampling
 
++ [Importance sampling](../Notes/p01-Bayesian.md#3192-markov-chain-monte-carlo-methods)
+  + using another density to generate samples and then useing a weighted sample mean to approximate the posterior mean instead of $K(\theta; Y)$
+
+    \[ \int \mathfrak{g}(\theta) K(\theta; Y) d\theta = \int \mathfrak{g}(\theta) \frac{K(\theta; Y)}{q(\theta)} q(\theta) d\theta = \int \mathfrak{g}(\theta) w(\theta) q(\theta) d\theta \tag{15} \]
+
+    + $q(\theta)$: the _importance proposal_ density $\to \{ \theta \in \Theta: K(\theta; Y) > 0 \} \subseteq \{ \theta \in \Theta: q(\theta) > 0 \}$
+    + $w(\theta)$: the _importance weight_ function
+  + algorithm to estimate $I = I(Y)$
+    1. generate $\theta^{(l)} \stackrel{iid}{\sim} q(\theta)$ for $l = 1, 2, \cdots, N$
+    1. compute the importance weights $w^{(l)} = w(\theta^{(l)})$ for $l = 1, 2, \cdots, N$
+    1. compute $\overline{I}_N = \frac{1}{N} \sum_{l=1}^N \mathfrak{g}(\theta^{(l)}w^{(l)})$
+  + estimating the posterior mean
+
+    \[ E[\mathfrak{g}\theta)|Y] \approx \overline{\mathfrak{g}}_N = \frac{\sum_{l=1}^N \mathfrak{g}(\theta^{(l)} w^{(l)})}{\sum_{l=1}^N w^{(l)}} \implies \frac{\sum_{l=1}^N w^{(l)}}{N} \xrightarrow[\text{in probability}]{\text{converge}} \int K(\theta; Y) d\theta \]
 
 
 
