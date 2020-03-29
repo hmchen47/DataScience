@@ -119,6 +119,41 @@
   + assumption: the specific form of $p(\cdot | \theta)$ completely known once $\theta$ determined
   + assumption: $\Theta \subseteq \mathbb{R}^m$; i.e. finite-dimensional _parametric space_
 
++ [Bayes model](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + scalar form
+
+      \[ p(\theta|y) = \frac{p(y|\theta) p(\theta)}{\int p(y|\theta)p(\theta)d\theta} = \frac{p(y|\theta)p(\theta)}{m(y)} \tag{Model.1} \]
+
+  + vector form
+
+      \[ p(\theta|Y) = \frac{p(Y|\theta) p(\theta)}{\int p(Y|\theta)p(\theta)d\theta} = \frac{p(Y|\theta)p(\theta)}{m(Y)} \]
+
+  + independently and identically distributed (iid) observations
+    + general: $\exists\; p_i(y_1, \dots, y_{i-1}, \theta)$ of $y_i$ given $y_1, \dots, y_{i-1}$ and $\theta$ for $i=2, 3, \dots, n \implies f(Y|\theta) = p_1(y_1|\theta) \prod_{i=1}^n p(y_i|\theta)$
+    + vector form: replacing $p(y|\theta)$ by $p(Y|\theta)$ for (Eq.Model.1)
+  + summary
+
+    \[\begin{array}{ll}
+      \text{prior density for } \theta: & p(\theta) \\
+      \text{sampling density of } y \text{ given } \theta: & p(y|\theta) \\
+      \text{marginal density of } y: & m(y) = \int p(y|\theta)p(\theta) d\theta \\
+      \text{posterior density of } \theta \text{ given } y: & p(\theta | y) = p(y|\theta)/m(y)
+    \end{array}\]
+
++ [Kernel functions](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + prior kernel function
+
+    \[ p(\theta) = C \cdot k(\theta \]
+
+  + likelihood function
+
+    \[ p(Y|\theta) =  C(Y)\mathcal{L}(\theta; Y) \]
+
+  + posterior kernel function
+
+    \[ K(\theta; Y) = \mathcal{L}(\theta; Y) k(\theta) \tag{2} \]
+
+
 
 
 
@@ -185,6 +220,16 @@
 
   + Posterior probability: the probability that an event will happen after all evidence or background information has been taken into account
 
++ [The posterior density](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + representation w/ kernel functions
+
+    \[ p(\theta|Y) = \frac{K(\theta; Y)}{\int K(\theta; Y) d\theta} = \frac{\mathcal{L}(\theta; Y) k(\theta)}{\int \mathcal{L}(\theta; Y) k(\theta) d\theta} \]
+
+  + Bayesian Mantra: posterior is proportional to likelihood times prior kernel
+
+    \[p(\theta|Y) \propto \mathcal{L}(\theta; Y) k(\theta) \]
+
+
 
 
 ## The Likelihood Principles
@@ -228,6 +273,32 @@
   + a parameter $\theta$ is an unknown quantity such as the mean benefit of a treatment on a specified patient
   + the prior distribution $p(\theta)$ needs to be specified
   + concern: a natural extension of the subjective interpretation of probability
+
+
+
+## Improper Prior
+
++ [Improper prior](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + def: prior kernel function $k(\theta) \geq 0$ for which $\int C \cdot k(\theta) d\theta  = \infty$
+  + using improper prior $p(\theta) = C \cdot k(\theta) \implies$ verifying the posterior kernel finitely integrable $\int K(\theta; Y) d\theta < \infty$ for almost all $Y$
+  + Applying Fubini's theorem (on interchanging order of integration)
+  + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0 \implies$ any improper prior leads to an improper posterior
+  + the posterior distribution not necessary proper if the prior improper
+  + improper priors not true probability distributions
+
+
+
+## Prior with Conjugate Family
+
++ [Prior conjugate family](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
+  + conjugate family: prior densities and their leading posterior densities belonging to the same family
+  + the choice of conjugate family not unique
+  + exponential family of densities: sampling density w/ a sufficient statistic of constant dimension always finds a conjugate family of prior densities
+  + _natural conjugate family_:
+  + _subjective prior of informative prior_: the parameters of the prior density elicited using a previously collected data or expert knowledge
+  + _noninformative prior_: no such prior information available or very little knowledge available about the parameter $\theta$
+
+
 
 
 
