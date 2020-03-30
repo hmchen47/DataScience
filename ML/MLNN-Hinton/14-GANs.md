@@ -4,7 +4,7 @@
 
 ### Lecture Notes
 
-+ Deep network w/ stacking RBMs
++ Stacking RBMs as deep belief net
   + procedure
     + training a layer of features w/ input directly from the pixels
     + treating the activations of the trained features as if they were pixels and learn features from features
@@ -19,8 +19,8 @@
       + stacked RBMs $\to$ deep belief net
       + learning RBM ($v \stackrel{w_1}{\longleftrightarrow} h_1$) w/ its own weight
       + once trained, hidden activity patterns as data for the 2nd RBM ($h_1 \stackrel{w_2}{\longleftrightarrow} h_2$)
-      + starting the 2nd RBM off w/ $W-2$ being transpose of $w_1$ and same number of hidden units as $v$
-      + the 2nd RBM a good model of $h_1 \to$ the 1st RBM upside down $\implies$ bipartite graph (no need to distinguish layers for visible and hidden units)
+      + starting the 2nd RBM off w/ $w_2$ being transpose of $w_1$ and same number of hidden units as $v$
+      + the 2nd RBM as good model of $h_1 \to$ the 1st RBM upside down $\implies$ bipartite graph (no need to distinguish layers for visible and hidden units)
     + compose both RBMs (left diagram) to form a single model (right diagram)
     + right diagram
       + top two layers = 2nd RBM $\implies$ undirected model w/ symmetric actions
@@ -30,25 +30,26 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-        <img src="img/m14-01.png" style="margin: 0.1em;" alt="Basic RBM to DBN" title="Basic RBM to DBN" width=350>
+        <img src="img/m14-01.png" style="margin: 0.1em;" alt="Basic RBM to DBN" title="Basic RBM to DBN" width=450>
       </a>
     </div>
 
 + Generative model w/ 3 layers
   + stacked up 3 RBMs (diagram)
-    + $h_2 \stackrel[w_2]{\longleftrightarrow} H_3$ as a RBM
-    + data and $H_1$ forming directed layers as in a sigmoid belief nets
+    + $h_2 \stackrel{w_2}{\longleftrightarrow} h_3$ as a RBM
+    + $data$ and $h_1$ forming directed layers as in a sigmoid belief nets
   + procedure to generate data
     + get an equilibrium sample from the top-level RBM by performing alternating Gibbs sampling for a long time
       + back and forth btw $h_2$ and $h_3$ to reach equilibrium w/ top-level RBM
-      + involving alternating Gibbs sampling sampling 
+      + involving alternating Gibbs sampling
       + update all units in $h_3$ in parallel then update all units in $h_2$ in parallel then ...
     + perform a top-down pass to get states for all the other layers
       + top-level RBM = the prior distribution over $h_2$
-      + $h_2 \xrightarrow[\text{generativ connecction}]{w_2} h_1 \xrightarrow{w_1} data$
-      + performing as a belief net
-  + the lower bottom-up connections are not part of the generative model $\to$ used for inference
-    + transposes of corresponding weights
+      + $h_2 \xrightarrow[\text{generativ connecction}]{w_2} h_1 \xrightarrow{w_1} data \implies$ performing as a belief net
+  + the lower bottom-up connections (transposes of corresponding weights) not part of the generative model $\to$ used for inference
+  + Gibbs sampling
+    + generating posterior samples by sweeping through each variables (or block of variables) to sample from its conditional distribution w/ the remaining variables fixed to their current values
+    + a MCMC algorithm for obtaining a sequence of observations, approximately from a specified multivariate probability distribution
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -68,17 +69,17 @@
   + consider the binary vector (1, 1, 0, 0)
     + posterior for v1: $p(1, 1, 0, 0) = 0.9 \times 0.9 \times (1-0.1) \times (1-0.1) = 0.9^4 = 0.43$
     + posterior for v2: $p(1, 1, 0, 0) = 0.1^4 = 0.0001$
-    + aggregated posterior: p(1, 1, 0, 0) = 0.215$
+    + aggregated posterior: $p(1, 1, 0, 0) = 0.215$
   + aggregated posterior: factorial w/ $p=0.5^4 \implies$ aggregated posterior not factorial distribution
 
 + Mechanism in greedy learning
-  + weights, $W$, in the bottom level RBM define many different distribution
-    + $p(v|h): the probability of visible  units given the hidden units
+  + weights, $w$, in the bottom level RBM define many different distribution
+    + $p(v|h)$: the probability of visible  units given the hidden units
     + $p(h|v)$: the probability of hidden units given the visible units
     + $p(h)$: the probability of hidden units
     + $p(v)$$: the probability of visible units
   + process and restriction
-    + 1st two probabilities used for running alternative Markov Chain updates
+    + $p(v|h)$ and $p(h|v)$ used for running alternative Markov Chain updates
     + a long sequence of updates $\to$ a sample from the joint distribution of $v$ and $h$
     + the weights also clearly defined the joint distribution
     + the weights also define the joint distribution more directly in terms of $e^{-E}$
@@ -89,11 +90,11 @@
   + the RBM models: $p(v) = \sum_h p(h) p(v|h)$
   + $p(v|h)$ fixed, improve $p(h) \implies p(v)$ improved
     + learn new parameters giving a better model of $p(h)$
-    + substitute $p(h)$ in stead of the old model out of $p(h) \to$ improve model $v$
-  + to improve $p(h)$, a better model than $h(h; W)$ of the <span style="color: blue;">aggregated posterior</span> distribution over hidden vectors produced by applying $W$ transpose to the data
+    + substitute $p(h)$ in stead of the old model out of $p(h) \to$ improve model over  $v$
+  + to improve $p(h)$, a better model than $p(h; w)$ of the <span style="color: blue;">aggregated posterior</span> distribution over hidden vectors produced by applying $W$ transpose to the data
     + better model $p(h)$: fitting the aggregated posterior better
     + the aggregated posterior: the average over all vectors in the training set of the posterior distribution over $h$
-    + using 1st RBM to get aggregated posterior
+    + using the 1st RBM to get aggregated posterior
     + using the 2nd RBM to build a better model of this aggregated posterior $\to$ 1st RBM reaching a better model
     + start w/ 2nd RBM as the previous but upside down
     + start w/ the same model of the aggregated posterior as the 1st RBM has
@@ -111,26 +112,23 @@
       + the correlations after a few iterations in that RBM
   3. do a stochastic top-down pass
     + adjust the bottom-up weights to be good at reconstructing the feature activities in the layer above
-    + using the directed lower connections (a sigmoid belief net)
-    + generated some data from that sigmoid belief net
-    + adjust the bottom-up weights
+    + using the directed lower connections to generate some data from that sigmoid belief net
     + the sleep phase of the wake-sleep algorithm
   + differences
     + top-level RBM acts as a much better prior over the top layers than just a layer of units assumed to be independent
     + rather than generating data by sampling from the prior, looking at a training case going up to the top-level RBM and just running a few iterations before generating data
 
 + Example: Modeling with the DBN on MNIST digits
-  + first two hidden layers learned w/o using labels
+  + first two hidden layers learned w/o labels
     + bottom two layers involved
-    + task: modeling all 10 digit classes in images 0f 28 by 28 pixels (right bottom input box)
-    + hidden layers (right bottom hidden boxes): 500 units
+    + task: modeling all 10 digit classes in images of 28 by 28 pixels (right bottom input box)
     + learning RBM w/o knowing labels $\to$ unsupervised learning
     + taking the patterns of activities in the hidden units
     + treating the patterns of activity as data
     + learn another RBM (2nd hidden layer - 500 units) w/o knowing the labels
   + top layer learned as an RBM for modeling the labels concatenated w/ the features in the second hidden layer
     + adding a big top layer w/ 2000 hidden units (top layer)
-    + providing 10 lanels (left 2nd top boxes)
+    + providing 10 labels (left 2nd top boxes)
     + concatenating those 10 labels w/ the 500 units representing features $\to$ really w/ one softmax unit
     + training top-level RBM to model the concatenation of the softmax unit for the 10 labels w/ the 500 feature activities reproduced by the two layers below
   + fine-tuning weights as a better generative model using contrastive wake-sleep
