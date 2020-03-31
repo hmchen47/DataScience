@@ -207,6 +207,24 @@
 + Unsupervised "pre-training"
   + help for models w/ more data and better priors
   + M. Ranzato, C.S. Poultney, S. Chopra and Y. LeCun. "[Efficient Learning of Sparse Overcomplete Representations with an Energy-Based Model](https://bit.ly/2UN6hSf)". Advances in Neural Information Processing Systems 19 (NIPS 2006)
+    + used an additional 600,000 distored digits
+    + used convolutional multilayer neural networks
+  + Performance
+    + Backpropagation alone: 0.49%
+    + Unsupervised layer-by-layer pre-trained followed by backpropagation: 0.39%
+
++ Phone recognition on the TIMIT benchmark
+  + A. Mohamed, G. Dahl, and G. Hinton, [Deep Belief Networks for phone recognition](http://www.cs.utoronto.ca/~gdahl/papers/dbnPhoneRec.pdf), 2009
+  + Geoffrey E. Hinton, et al., [Deep Neural Networks for Acoustic Modeling in Speech Recognition: The Shared Views of Four Research Groups](https://bit.ly/3avie5J), IEEE Signal Processing Magazine, 29, November 2012
+  + after standard post-processing using a bi-phone model, a deep net w/ 8 layers $to$ 20.7% error rate
+  + the best previous speaker-independent result on TIMIT w/ averaging several model $\to$ 24.4%
+  + Li Deng: the result could change the way speech recognition was done
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-05.png" style="margin: 0.1em;" alt="Architecture of HMM for phone recognition" title="Architecture of HMM for phone recognition" width=300>
+    </a>
+  </div>
 
 
 ### Lecture Video
