@@ -167,12 +167,12 @@
 
 + Backpropagation better than greedy pre-training
   + the optimization view
-    + greedily learning one layer at a time scales well to really big networks, especially locality in each layer; e.g., vision
-      + local receptive fields in each layer
-      + not much interaction btw widely separate locations
-      + very easy to learn a big layer more or less in parallel
-    + not starting backpropagation until sensible feature detectors
-      + feature detectors very helpful for the discrimination task
+    + greedily learning one layer at a time scales well to really big networks, especially locality in each layer
+      + example: vision
+        + local receptive fields in each layer
+        + not much interaction btw widely separate locations
+        + very easy to learn a big layer more or less in parallel
+    + not starting backpropagation until sensible feature detectors very helpful for the discrimination task
       + initial gradients more sensible than random white noise
       + backpropagation only performing a local search from a sensible starting point
   + the overfitting view
@@ -184,7 +184,7 @@
       + precious information in the labels only used for the fine-tuning
         + at this stage feature detectors decided
         + not squandering precious information designing feature detectors from scratch
-    + fine-tuning only modifying the features slightly to get the category boundaries right $to$ backpropagation not required to discover new features
+    + fine-tuning only modifying the features slightly to get the category boundaries right $\to$ backpropagation not required to discover new features
     + unlabeled training data
       + backpropagation works well
       + still very useful for discovering good features
@@ -206,7 +206,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=100>
+      <img src="img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=150>
     </a>
   </div>
 
@@ -234,8 +234,8 @@
 + Phone recognition on the TIMIT benchmark
   + A. Mohamed, G. Dahl, and G. Hinton, [Deep Belief Networks for phone recognition](http://www.cs.utoronto.ca/~gdahl/papers/dbnPhoneRec.pdf), 2009
   + Geoffrey E. Hinton, et al., [Deep Neural Networks for Acoustic Modeling in Speech Recognition: The Shared Views of Four Research Groups](https://bit.ly/3avie5J), IEEE Signal Processing Magazine, 29, November 2012
-  + after standard post-processing using a bi-phone model, a deep net w/ 8 layers $to$ 20.7% error rate
-  + the best previous speaker-independent result on TIMIT w/ averaging several model $\to$ 24.4%
+  + after standard post-processing using a bi-phone model, a deep net w/ 8 layers: 20.7%
+  + the best previous speaker-independent result on TIMIT w/ averaging several model: 24.4%
   + Li Deng: the result could change the way speech recognition was done
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -262,7 +262,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://bit.ly/3bGIcmI" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
