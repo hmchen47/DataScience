@@ -240,7 +240,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-05.png" style="margin: 0.1em;" alt="Architecture of HMM for phone recognition" title="Architecture of HMM for phone recognition" width=300>
+      <img src="img/m14-05.png" style="margin: 0.1em;" alt="Architecture of HMM for phone recognition" title="Architecture of HMM for phone recognition" width=250>
     </a>
   </div>
 
@@ -252,12 +252,47 @@
 </a><br/>
 
 
-## 14.3 What happens during discriminative fine-tuning
+## 14.3 What happens during discriminative fine-tuning?
 
 ### Lecture Notes
 
++ Learning dyanmic of deep nets
+  + Dumitru Erhan, Yoshua Bengio, Aaron Courville, Pierre-Antoine Manzagol, Pascal Vincent, Samy Bengio, [Why Does Unsupervised Pre-training Help Deep Learning?](https://bit.ly/2yg8A8z), Journal of Machine Learning Research, 2010
+  + 
+  + effect of unsupervised pre-training
+  + effect of depth
+  + trajectories of the learning in function space
+    + each point is a model in function space
+    + color = epoch
+    + top portion: trajectories w/o pre-training $\to$ each trajectories converges to a different local min
+    + bottom portion: trajectories w/ pre-training
+    + no overlap!
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-06.png" style="margin: 0.1em;" alt="Feature dectors for MNIST digits" title="Feature dectors for MNIST digits" height=100>
+      <img src="img/m14-07a.png" style="margin: 0.1em;" alt="Effect of unsupervised pre-training" title="Effect of unsupervised pre-training" height=150>
+      <img src="img/m14-07b.png" style="margin: 0.1em;" alt="Effect of unsupervised pre-training" title="Effect of unsupervised pre-training" height=150>
+    </a>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-08.png" style="margin: 0.1em;" alt="Effect of depth" title="Effect of depth" height=150>
+      <img src="img/m14-09.png" style="margin: 0.1em;" alt="Trajectories of the learning in function space" title="Trajectories of the learning in function space" height=150>
+    </a>
 
++ Mechanism of unsupervised pre-training
+  + sequential image-label pairs (left diagram)
+    + trying to go straight from images to labels
+    + e.g., do the pixels have even parity?
+  + parallel image-pairs (right diagram)
+    + first learning to recover the stuff
+    + caused the image by inverting the high bandwidth pathway
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequntial" title="Flow diagram for unsupervised pre-training: sequential" height=130>
+      <img src="img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
+    </a>
 
 
 ### Lecture Video
