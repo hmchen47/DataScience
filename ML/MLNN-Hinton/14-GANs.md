@@ -119,6 +119,7 @@
     + rather than generating data by sampling from the prior, looking at a training case going up to the top-level RBM and just running a few iterations before generating data
 
 + Example: Modeling with the DBN on MNIST digits
+  + G. Hinton, S. Osindero,, and Y.-W. Teh, [A Fast Learning Algorithm for Deep Belief Nets](https://bit.ly/2wQSqCk), Neural Computation, July 2006
   + first two hidden layers learned w/o labels
     + bottom two layers involved
     + task: modeling all 10 digit classes in images of 28 by 28 pixels (right bottom input box)
@@ -155,38 +156,53 @@
 + Fine-tuning for discrimination
   + learn on layer at a time by staking RBMs
   + treating this as "pre-training"
-    + finding a good initial set of weights fine-tune by a local procedure
-    + contrastive wake-sleep: a way of fine-tuning the model to be better at generation
+    + finding a good initial set of weights in a deep neural networks
+    + fine-tuning the weights using some local search procedure
+    + contrastive wake-sleep: a way of fine-tuning the model to be better at generating the inputs
   + backpropagation used to find-tune the model
     + better than discrimination
     + overcome many of the limitations of standard backpropagation
     + easier to learn deep nets
     + generalizing the nets better
 
-+ backpropagation better than greedy pre-training
++ Backpropagation better than greedy pre-training
   + the optimization view
-    + greedily learning one layer at a time scales well to really big networks, especially locality in each layer
-    + not starting backpropagation until sensible feature detectors very helpful for the discrimination task
-      + sensible initial gradients
+    + greedily learning one layer at a time scales well to really big networks, especially locality in each layer; e.g., vision
+      + local receptive fields in each layer
+      + not much interaction btw widely separate locations
+      + very easy to learn a big layer more or less in parallel
+    + not starting backpropagation until sensible feature detectors
+      + feature detectors very helpful for the discrimination task
+      + initial gradients more sensible than random white noise
       + backpropagation only performing a local search from a sensible starting point
   + the overfitting view
+    + pre-trained notes exhibiting much less overfitting
     + most of the information in the final weights from modeling the distribution of input vectors
       + input vectors generally containing a lot more information than the labels
+        + labels only containing a few bits of information to constraint the mapping from input to output
+        + an image containing a lot of information which will constraint any generative model of a set of images
       + precious information in the labels only used for the fine-tuning
-    + fine-tuning only modifying the features slightly to get the category boundaries right $to$ no new features required
+        + at this stage feature detectors decided
+        + not squandering precious information designing feature detectors from scratch
+    + fine-tuning only modifying the features slightly to get the category boundaries right $to$ backpropagation not required to discover new features
     + unlabeled training data
       + backpropagation works well
       + still very useful for discovering good features
-    + objection: many of the features
-      + useless for any particular discriminative task (considering shape & pose)
+      + the generative pre-training using a lot of information
+    + objection: learning many of the features
+      + useless for any particular discriminative task
+        + example: net to discriminate btw shape and btw different poses of one shape $\to$ very different features required
+        + not knowing task in advance $\implies$ inevitably learning features never used
+        + serious objection w/ small computer
       + more useful than the raw inputs
 
-+ Modeling the distribution of digit images
++ Modeling MNIST digits w/ a DBM
+  + learning w/ 3 hidden layers of features entirely unsupervised (see diagram)
   + top two layers forming a RBM whose energy landscape should model the low dimensional manifolds of the digits
   + the network learns a density model for unlabeled digit images
   + generating from the model $\to$ get things that look like real digits of all classes
   + hidden features really help w/ digit discrimination?
-  + adding a 10-way softmax at the top and do backpropagation
+  + adding a 10-way softmax at the top and the doing backpropagation
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -194,20 +210,22 @@
     </a>
   </div>
 
-+ Results on the permutation-invariant MNIST task
-  
-  | Models | Error Rate |
-  |--------|------------|
-  | Backpropagation net w/ one or two hidden layers (Platt; Hinton) | 1.6% |
-  | Backpropagaton w/ L2 constraints on incoming weights | 1.5% |
-  | Support Vector Machines ([Decoste & Schoelkopf, 2002](https://bit.ly/3aA3IJO)) | 1.4% |
-  | Generative model of joint density of images and labels (+ generative fine-tuning) | 1.25% |
-  | Generative model of unlabelled digits followed by gentle backpropagation ([Hinton & Salakhutdinov, 2006](https://bit.ly/344vKuE)) | 1.155 $\to$ 1.0% |
+  + results on the permutation-invariant MNIST task
+    + permutation-invariant: applying a fixed permutation to all the pixels, the same permutation to every test in training case
+    + the results w/ the same algorithm but different net structure due to convolutional nets
+
+    | Models | Error Rate |
+    |--------|------------|
+    | Backpropagation net w/ one or two hidden layers ([Platt](https://bit.ly/39y0kOi); [Hinton](https://bit.ly/2wQSqCk)) | 1.6% |
+    | Backpropagaton w/ L2 constraints on incoming weights | 1.5% |
+    | Support Vector Machines ([Decoste & Schoelkopf, 2002](https://bit.ly/3aA3IJO)) | 1.4% |
+    | Generative model of joint density of images and labels (+ generative fine-tuning) | 1.25% |
+    | Generative model of unlabelled digits followed by gentle backpropagation ([Hinton & Salakhutdinov, 2006](https://bit.ly/344vKuE)) | 1.155 $\to$ 1.0% |
 
 + Unsupervised "pre-training"
   + help for models w/ more data and better priors
   + M. Ranzato, C.S. Poultney, S. Chopra and Y. LeCun. "[Efficient Learning of Sparse Overcomplete Representations with an Energy-Based Model](https://bit.ly/2UN6hSf)". Advances in Neural Information Processing Systems 19 (NIPS 2006)
-    + used an additional 600,000 distored digits
+    + used an additional 600,000 distorted digits
     + used convolutional multilayer neural networks
   + Performance
     + Backpropagation alone: 0.49%
