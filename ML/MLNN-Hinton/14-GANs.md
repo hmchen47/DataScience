@@ -150,11 +150,63 @@
 
 ## 14.2 Discriminative fine-tuning for DBNs
 
-
 ### Lecture Notes
 
++ Fine-tuning for discrimination
+  + learn on layer at a time by staking RBMs
+  + treating this as "pre-training"
+    + finding a good initial set of weights fine-tune by a local procedure
+    + contrastive wake-sleep: a way of fine-tuning the model to be better at generation
+  + backpropagation used to find-tune the model
+    + better than discrimination
+    + overcome many of the limitations of standard backpropagation
+    + easier to learn deep nets
+    + generalizing the nets better
 
++ backpropagation better than greedy pre-training
+  + the optimization view
+    + greedily learning one layer at a time scales well to really big networks, especially locality in each layer
+    + not starting backpropagation until sensible feature detectors very helpful for the discrimination task
+      + sensible initial gradients
+      + backpropagation only performing a local search from a sensible starting point
+  + the overfitting view
+    + most of the information in the final weights from modeling the distribution of input vectors
+      + input vectors generally containing a lot more information than the labels
+      + precious information in the labels only used for the fine-tuning
+    + fine-tuning only modifying the features slightly to get the category boundaries right $to$ no new features required
+    + unlabeled training data
+      + backpropagation works well
+      + still very useful for discovering good features
+    + objection: many of the features
+      + useless for any particular discriminative task (considering shape & pose)
+      + more useful than the raw inputs
 
++ Modeling the distribution of digit images
+  + top two layers forming a RBM whose energy landscape should model the low dimensional manifolds of the digits
+  + the network learns a density model for unlabeled digit images
+  + generating from the model $\to$ get things that look like real digits of all classes
+  + hidden features really help w/ digit discrimination?
+  + adding a 10-way softmax at the top and do backpropagation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=100>
+    </a>
+  </div>
+
++ Results on the permutation-invariant MNIST task
+  
+  | Models | Error Rate |
+  |--------|------------|
+  | Backpropagation net w/ one or two hidden layers (Platt; Hinton) | 1.6% |
+  | Backpropagaton w/ L2 constraints on incoming weights | 1.5% |
+  | Support Vector Machines ([Decoste & Schoelkopf, 2002](https://bit.ly/3aA3IJO)) | 1.4% |
+  | Generative model of joint density of images and labels (+ generative fine-tuning) | 1.25% |
+  | Generative model of unlabelled digits followed by gentle backpropagation ([Hinton & Salakhutdinov, 2006](https://bit.ly/344vKuE)) | 1.155 $\to$ 1.0% |
+
++ Unsupervised "pre-training"
+  + help for models w/ more data and better priors
+  + M. Ranzato, C.S. Poultney, S. Chopra and Y. LeCun. "[Efficient Learning of Sparse Overcomplete Representations with an Energy-Based Model](https://bit.ly/2UN6hSf)". Advances in Neural Information Processing Systems 19 (NIPS 2006)
 
 
 ### Lecture Video
@@ -165,7 +217,6 @@
 
 
 ## 14.3 What happens during discriminative fine-tuning
-
 
 ### Lecture Notes
 
