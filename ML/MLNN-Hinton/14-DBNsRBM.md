@@ -1,4 +1,4 @@
-# 14. Generative Adversarial Networks (GANs)
+# 14. Deep Belief Networks and Restricted Boltzmann Machine
   
 ## 14.1 Learning layers of features by stacking RBMs
 
