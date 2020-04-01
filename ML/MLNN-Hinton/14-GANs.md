@@ -301,11 +301,13 @@
       <img src="img/m14-07a.png" style="margin: 0.1em;" alt="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 1 hidden layer" title="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 1 hidden layer" height=150>
       <img src="img/m14-07b.png" style="margin: 0.1em;" alt="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 4 hidden layers" title="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 4 hidden layers" height=150>
     </a>
+  </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
       <img src="img/m14-08.png" style="margin: 0.1em;" alt="Effect of depth" title="Effect of depth" height=150>
       <img src="img/m14-09.png" style="margin: 0.1em;" alt="Trajectories of the learning in function space" title="Trajectories of the learning in function space" height=150>
     </a>
+  </div>
 
 + Mechanism of unsupervised pre-training
   + sequential image-label pairs (left diagram)
@@ -328,9 +330,10 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequntial" title="Flow diagram for unsupervised pre-training: sequential" height=130>
+      <img src="img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequential" title="Flow diagram for unsupervised pre-training: sequential" height=130>
       <img src="img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
     </a>
+  </div>
 
 
 ### Lecture Video
@@ -342,11 +345,72 @@
 
 ## 14.4 Modeling real-valued data with an RBM
 
-
 ### Lecture Notes
 
++ Modeling real-valued data
+  + intermediate intensities of digit images
+    + represented as probabilities by using 'mean-field' logistic units
+    + treating intermediate values as the probability of the inked pixel
+  + not working for real images
+    + real-image: intensity of a pixel almost always and almost exactly the average of the neighboring pixels
+    + mean-field logistic units unable to precise intermediate values
 
++ A standard type of real-valued visible unit
+  + modeling pixels as Gaussian variables
+  + Gibbs sampling: still easy but slow learning
 
+  \[ E(\mathbb{v}, \mathbb{h}) = \underbrace{\sum_{i \in vis} \frac{(v_i - b_i)^2}{2\sigma^2}}_{\text{parabolic containment}\\ \text{function}} - \sum_{j \in hid} b_j h_j - \underbrace{\sum_{i, j} \frac{v_i}{\sigma_i} h_j w_{ij}}_{\text{energy-gradient produced by}\\ \text{the total input to a visible unit}} \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-11.png" style="margin: 0.1em;" alt="Energy function" title="Energy function" height=130>
+    </a>
+  </div>
+
++ Gaussian-binary RBM architecture
+  + extremely hard to learn tight variances for the visible units
+  + small $\sigma \to$ many more hidden units required than visible units
+  + allowing small weights to produce big to-down effects
+  + $\sigma << 1$: the bottom-up effects too big while top-down effect too small
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-12.png" style="margin: 0.1em;" alt="Gaussian-binary RBM architecture" title="Gaussian-binary RBM architecture" height=150>
+    </a>
+  </div>
+
++ Stepped sigmoid units
+  + a neat way to implement integer values
+  + make many copies of a stochastic binary unit
+  + all copies w/ the same weights and the same adaptive bias, $b$, but different fixed offsets to the bias: $b - 0.5, b-1.5, b-2.5, b-3.5, \dots$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-13.png" style="margin: 0.1em;" alt="Stepped sigmoid units" title="Stepped sigmoid units" height=80>
+    </a>
+  </div>
+
++ Fast approximations
+  + contrastice divernence learning working well for the sum of stochastic logistic units w/ offset biases
+  + $\sigma(y)$: the noise variance
+  + rectified linear units
+    + working as well
+    + much faster than the sum of many logistic units w/ different biases
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-14.png" style="margin: 0.1em;" alt="Stepped sigmoid units" title="Stepped sigmoid units" height=80>
+    </a>
+  </div>
+
++ Rectified linear unit: <br/>ReUL w/ bias of zero $\implies$ exhibits scale quivariance
+  + a nice property for image
+
+    \[ R(a\mathbb{x}) = aR(\mathbb{x}) \qquad \text{but} \qquad R(a + b \neq R(a) + R(b) \]
+
+  + translation exhibits by convolutional nets
+
+    \[ R(shift(\mathbb{x})) = shift(R(\mathbb{x})) \]
 
 
 ### Lecture Video
