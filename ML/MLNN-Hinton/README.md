@@ -114,13 +114,13 @@
 + [The wake-sleep algorithm](13-BeliefNets.md#)
 
 
-## 14. Deep Belief Networks (DBNs)
+## 14. Deep Belief Networks and Restricted Boltzmann Machine
   
-+ [Learning layers of features by stacking RBMs](14-DBNs.md#)
-+ [Discriminative fine-tuning for DBNs](14-DBNs.md#)
-+ [What happens during discriminative fine-tuning?](14-DBNs.md#)
-+ [Modeling real-valued data with an RBM](14-DBNs.md#)
-+ [RBMs are infinite sigmoid belief nets](14-DBNs.md#)
++ [Learning layers of features by stacking RBMs](14-DBNsRBM.md#)
++ [Discriminative fine-tuning for DBNs](14-DBNsRBM.md#)
++ [What happens during discriminative fine-tuning?](14-DBNsRBM.md#)
++ [Modeling real-valued data with an RBM](14-DBNsRBM.md#)
++ [RBMs are infinite sigmoid belief nets](14-DBNsRBM.md#)
 
 
 ## 15. Hierarchical Structure with Neural Networks
