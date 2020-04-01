@@ -350,28 +350,55 @@
 + Modeling real-valued data
   + intermediate intensities of digit images
     + represented as probabilities by using 'mean-field' logistic units
+      + probability btw 0 and 1 $\to$ probability of a logistic unit off and on
     + treating intermediate values as the probability of the inked pixel
+      + partial inked pixels $to$ probability of being inked (incorrect) but working well
   + not working for real images
     + real-image: intensity of a pixel almost always and almost exactly the average of the neighboring pixels
-    + mean-field logistic units unable to precise intermediate values
+      + high probability of being very close to average
+      + little probability of being a little further away
+    + mean-field logistic units unable to represent precise intermediate values
+      + e.g., intensity = 0.69 but very unlikely to be 0.71 & 0.67
+      + other unit required
 
 + A standard type of real-valued visible unit
   + modeling pixels as Gaussian variables
   + Gibbs sampling: still easy but slow learning
+    + running Markov chain required for contrastive learning
+    + much smaller learning rate used, otherwise blowing up
+  + energy function
 
-  \[ E(\mathbb{v}, \mathbb{h}) = \underbrace{\sum_{i \in vis} \frac{(v_i - b_i)^2}{2\sigma^2}}_{\text{parabolic containment}\\ \text{function}} - \sum_{j \in hid} b_j h_j - \underbrace{\sum_{i, j} \frac{v_i}{\sigma_i} h_j w_{ij}}_{\text{energy-gradient produced by}\\ \text{the total input to a visible unit}} \]
+    \[ E(\mathbb{v}, \mathbb{h}) = \underbrace{\sum_{i \in vis} \frac{(v_i - b_i)^2}{2\sigma^2}}_{\text{parabolic containment}\\ \text{function}} - \quad\sum_{j \in hid} b_j h_j\quad - \underbrace{\sum_{i, j} \frac{v_i}{\sigma_i} h_j w_{ij}}_{\text{energy-gradient produced by}\\ \text{the total input to a visible unit}} \]
+
+    + parabolic containment function:
+      + stop things blowing up
+      + parabolic shape (see diagram): a parabola w/ its minimum of the bias of the $i$-th unit, $b_i$
+      + adding energy quadratically as $i$-th unit departing from the bias $to$ keeping the $i$-th visible unit close to $b_i$
+    + energy-gradient term
+      + an interactive term btw visible and hidden units
+      + differentiated w.r.t $v_i \to$ constant gradient (blue line)
+    + adding the top-down contribution w/ linear and parabolic function $\to$ mean shifted away from $b_i$
+      + the shift amount depending on the slope of the blue line
+      + pushing the mean to one side
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-11.png" style="margin: 0.1em;" alt="Energy function" title="Energy function" height=130>
+      <img src="img/m14-11.png" style="margin: 0.1em;" alt="Energy function w/ gradient to shift mean" title="Energy function w/ gradient to shift mean" height=130>
     </a>
   </div>
 
 + Gaussian-binary RBM architecture
-  + extremely hard to learn tight variances for the visible units
-  + small $\sigma \to$ many more hidden units required than visible units
-  + allowing small weights to produce big to-down effects
-  + $\sigma << 1$: the bottom-up effects too big while top-down effect too small
+  + extremely hard to learn tight variances for the visible units (see diagram)
+    + the visible unit $v_i$ on the hidden unit $h_j$
+    + measuring the activity of $v_i$ in units of its standard deviation
+    + $v_i$ w/ small standard deviation $\sigma_i$:
+      + exaggerating the bottom up weights: small $\sigma_i$: multiply the weight by a lot
+      + attenuating the top down weights: multiplied by $\sigma_i \to$ small standard deviation of $v_i$
+    + $\sigma << 1$: the bottom-up effects too big while top-down effect too small
+    + conflict: hidden units firmly on and off all the time
+  + Solution:
+    + small $\sigma \to$ many more hidden units required than visible units
+    + allowing small weights to produce big top-down effects
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -380,9 +407,17 @@
   </div>
 
 + Stepped sigmoid units
+  + resolving the issue on many more hidden units than visible units
   + a neat way to implement integer values
   + make many copies of a stochastic binary unit
   + all copies w/ the same weights and the same adaptive bias, $b$, but different fixed offsets to the bias: $b - 0.5, b-1.5, b-2.5, b-3.5, \dots$
+  + the response curve (see diagram)
+    + small input $x \to$ none turned on
+    + increasing the number $\to$ increasing turn on linearly
+    + get more top-down effect to drive the visible unit w/ small standard deviations
+  + issue
+    + expensive to use a big population of binary stochastic units w/ offset biases
+    + each on required the total input through the logistic function
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -391,24 +426,37 @@
   </div>
 
 + Fast approximations
-  + contrastice divernence learning working well for the sum of stochastic logistic units w/ offset biases
+  + Rectified Linear unit (ReLU): approximation of multiple sigmoid functions (see diagram)
+
+    \[ \langle y \rangle = \sum_{n=1}^{\infty} \sigma(x+0.5-n) \approx \log(1+e^x) \approx \max(0, x+noise) \]
+
+  + contrastice divergence learning working well for the sum of stochastic logistic units w/ offset biases
   + $\sigma(y)$: the noise variance
-  + rectified linear units
-    + working as well
+  + applying ReLU
+    + working on contrastive divergence learning
     + much faster than the sum of many logistic units w/ different biases
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-14.png" style="margin: 0.1em;" alt="Stepped sigmoid units" title="Stepped sigmoid units" height=80>
+      <img src="img/m14-14.png" style="margin: 0.1em;" alt="Approximation from multiple sigmoid to ReLU" title="Approximation from multiple sigmoid to ReLU" height=120>
     </a>
   </div>
 
-+ Rectified linear unit: <br/>ReUL w/ bias of zero $\implies$ exhibits scale quivariance
-  + a nice property for image
++ Property of Rectified linear unit
+  + ReUL w/ bias of zero $\implies$ exhibits __scale equivariance__
+    + a nice property for image
+    + multiplying all the pixel intensities by a scalar $a$
+    + the representation of $a\mathbb{x}$ in ReLU = $a$ times of the representation of $\mathbb{x}$
+    + scaling up all intensities in the image = scaling up the activities of all hidden units but maintaining the same ratios
+    + ReLU not fully linear: adding two ReUL $\neq$ the sum of the representations of each image separately
 
-    \[ R(a\mathbb{x}) = aR(\mathbb{x}) \qquad \text{but} \qquad R(a + b \neq R(a) + R(b) \]
+    \[ R(a\mathbb{x}) = aR(\mathbb{x}) \qquad \text{but} \qquad R(a + b) \neq R(a) + R(b) \]
 
-  + translation exhibits by convolutional nets
+  + similar to the property of translational equivariance exhibited in convolutional nets
+    + ignoring pooling in the convolutional net
+    + the representation of a shifted image = shifted version of the representation of the unshifted image
+    + comvolutional net w/o pooling = translations of the input flowing through the layers of the net w/o effecting anything
+    + ytanslating the representation of every layer
 
     \[ R(shift(\mathbb{x})) = shift(R(\mathbb{x})) \]
 
