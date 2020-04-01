@@ -258,21 +258,47 @@
 
 + Learning dyanmic of deep nets
   + Dumitru Erhan, Yoshua Bengio, Aaron Courville, Pierre-Antoine Manzagol, Pascal Vincent, Samy Bengio, [Why Does Unsupervised Pre-training Help Deep Learning?](https://bit.ly/2yg8A8z), Journal of Machine Learning Research, 2010
-  + 
-  + effect of unsupervised pre-training
+  + Receptive fields of the first hidden layer of feature detectors
+    + after generative pre-training but before fine-tune (left diagram)
+    + after fin-tuning (right diagram)
+    + no significant changes
+    + changes helping w/ discrimination
+  + effect of unsupervised pre-training: pre-training reducing the test errors for network
+    + task: disciminating btw digits in a very large set of distorted digits
+    + after backpropagation of fine-tuning, the network w/ pre-training almost always did better than the networks w/0 pre-training (left diagram - 1 hidden layer)
+    + the improvement even bigger w/ deeper network $\to$ no overlap btw two distributions (right diagram - 4 hidden layers)
   + effect of depth
+    + depicted classification error and variation classification error
+    + changing the number of layers
+      + w/o pre-training: 2 layers as the best (left diagram)
+      + w/ pre-training:
+        + layers (4 < 3 < 2 < 5 < 1) $\to$ 4 layers the best
+        + much less variation w/ lower errors
   + trajectories of the learning in function space
+    + 2D visualization w/ t-SNE
     + each point is a model in function space
+      + no use comparing weight vectors
+      + two nets might differ by having two of the hidden units work around
+      + behaving the same way w/ very different weights
+      + comparing the function implemented rather than the weight vectors
+      + procedure
+        + having a suite test cases and observing their output
+        + concatenate outputs into a great long vector
+      + two networks producing very similar points on all test cases
+      + plotting the concatenated output vectors w/ t-SNE
     + color = epoch
+      + the stages of the training
+      + initial stages in dark blue
+      + all cases moving toward roghtly the same direction
     + top portion: trajectories w/o pre-training $\to$ each trajectories converges to a different local min
-    + bottom portion: trajectories w/ pre-training
+    + bottom portion: trajectories w/ pre-training $\to$ different region of function space but more similar
     + no overlap!
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
       <img src="img/m14-06.png" style="margin: 0.1em;" alt="Feature dectors for MNIST digits" title="Feature dectors for MNIST digits" height=100>
-      <img src="img/m14-07a.png" style="margin: 0.1em;" alt="Effect of unsupervised pre-training" title="Effect of unsupervised pre-training" height=150>
-      <img src="img/m14-07b.png" style="margin: 0.1em;" alt="Effect of unsupervised pre-training" title="Effect of unsupervised pre-training" height=150>
+      <img src="img/m14-07a.png" style="margin: 0.1em;" alt="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 1 hidden layer" title="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 1 hidden layer" height=150>
+      <img src="img/m14-07b.png" style="margin: 0.1em;" alt="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 4 hidden layers" title="Histograms presenting the test errors obtained on MNIST using models trained with or without pre-training (400 different initializations each: 4 hidden layers" height=150>
     </a>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -282,11 +308,22 @@
 
 + Mechanism of unsupervised pre-training
   + sequential image-label pairs (left diagram)
-    + trying to go straight from images to labels
+    + generating an image and then attaching a label to it $\to$ independent of the stuff
+    + contingent on the image itself irrelevant w/ the stuff
+    + the label depending on the pixels in the image
+    + trying and lean a mapping to go straight from images to labels
     + e.g., do the pixels have even parity?
   + parallel image-pairs (right diagram)
-    + first learning to recover the stuff
-    + caused the image by inverting the high bandwidth pathway
+    + generating image and label in pair
+    + the label depending on the stuff in the world rather than the pixels of the image
+    + high bandwidth required from stuff to image ( more bits) while low bandwidth required from stuff to label
+    + to recover the label:
+      + inverting the high bandwidth pathway to get back to the stuff causes the image
+      + recovered stuff generating the image to decide what label it would be given
+    + much more plausible model of how to assign names to things in images
+    + justifying the procedure:
+      + having pre-training phase to discover the underlying causes of the images
+      + followed by a descriptive phase to get the underlying label where slightly fine-tune the mapping from the image to the underlying causes
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
