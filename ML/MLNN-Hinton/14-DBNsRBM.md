@@ -352,7 +352,7 @@
     + represented as probabilities by using 'mean-field' logistic units
       + probability btw 0 and 1 $\to$ probability of a logistic unit off and on
     + treating intermediate values as the probability of the inked pixel
-      + partial inked pixels $to$ probability of being inked (incorrect) but working well
+      + partial inked pixels $\to$ probability of being inked (incorrect) but working well
   + not working for real images
     + real-image: intensity of a pixel almost always and almost exactly the average of the neighboring pixels
       + high probability of being very close to average
@@ -389,12 +389,12 @@
 
 + Gaussian-binary RBM architecture
   + extremely hard to learn tight variances for the visible units (see diagram)
-    + the visible unit $v_i$ on the hidden unit $h_j$
+    + the visible unit $v_i$ onto the hidden unit $h_j$
     + measuring the activity of $v_i$ in units of its standard deviation
     + $v_i$ w/ small standard deviation $\sigma_i$:
-      + exaggerating the bottom up weights: small $\sigma_i$: multiply the weight by a lot
-      + attenuating the top down weights: multiplied by $\sigma_i \to$ small standard deviation of $v_i$
-    + $\sigma << 1$: the bottom-up effects too big while top-down effect too small
+      + exaggerating the bottom up weights: multiply the weight by a lot
+      + attenuating the top down weights: small standard deviation of $v_i$
+    + $\sigma \ll 1$: the bottom-up effects too big while top-down effect too small
     + conflict: hidden units firmly on and off all the time
   + Solution:
     + small $\sigma \to$ many more hidden units required than visible units
@@ -409,12 +409,12 @@
 + Stepped sigmoid units
   + resolving the issue on many more hidden units than visible units
   + a neat way to implement integer values
-  + make many copies of a stochastic binary unit
+  + making many copies of a stochastic binary unit
   + all copies w/ the same weights and the same adaptive bias, $b$, but different fixed offsets to the bias: $b - 0.5, b-1.5, b-2.5, b-3.5, \dots$
   + the response curve (see diagram)
     + small input $x \to$ none turned on
     + increasing the number $\to$ increasing turn on linearly
-    + get more top-down effect to drive the visible unit w/ small standard deviations
+    + getting more top-bottom effect to drive the visible unit w/ small standard deviations
   + issue
     + expensive to use a big population of binary stochastic units w/ offset biases
     + each on required the total input through the logistic function
@@ -433,7 +433,7 @@
   + contrastice divergence learning working well for the sum of stochastic logistic units w/ offset biases
   + $\sigma(y)$: the noise variance
   + applying ReLU
-    + working on contrastive divergence learning
+    + working well on contrastive divergence learning
     + much faster than the sum of many logistic units w/ different biases
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -443,7 +443,7 @@
   </div>
 
 + Property of Rectified linear unit
-  + ReUL w/ bias of zero $\implies$ exhibits __scale equivariance__
+  + ReUL w/ bias of zero $\implies$ exhibiting __scale equivariance__
     + a nice property for image
     + multiplying all the pixel intensities by a scalar $a$
     + the representation of $a\mathbb{x}$ in ReLU = $a$ times of the representation of $\mathbb{x}$
@@ -455,8 +455,8 @@
   + similar to the property of translational equivariance exhibited in convolutional nets
     + ignoring pooling in the convolutional net
     + the representation of a shifted image = shifted version of the representation of the unshifted image
-    + comvolutional net w/o pooling = translations of the input flowing through the layers of the net w/o effecting anything
-    + ytanslating the representation of every layer
+    + convolutional net w/o pooling = translations of the input flowing through the layers of the net w/o effecting anything
+    + tanslating the representation of every layer
 
     \[ R(shift(\mathbb{x})) = shift(R(\mathbb{x})) \]
 
