@@ -142,6 +142,7 @@
     </a>
   </div>
 
+
 ### Lecture Video
 
 <a href="https://bit.ly/2JvxsLP" target="_BLANK">
@@ -323,10 +324,10 @@
     + to recover the label:
       + inverting the high bandwidth pathway to get back to the stuff producing the image
       + recovered stuff generating the image to decide what label it would be given
-    + much more plausible model of how to assign names to things in images
-    + justifying the procedure:
-      + having pre-training phase to discover the underlying causes of the images
-      + followed by a descriptive phase to get the underlying label where slightly fine-tune the mapping from the image to the underlying causes
+  + much more plausible model of how to assign names to things in images
+  + justifying the procedure:
+    + having pre-training phase to discover the underlying causes of the images
+    + followed by a descriptive phase to get the underlying label where slightly fine-tune the mapping from the image to the underlying causes
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -430,7 +431,7 @@
 
     \[ \langle y \rangle = \sum_{n=1}^{\infty} \sigma(x+0.5-n) \approx \log(1+e^x) \approx \max(0, x+noise) \]
 
-  + contrastice divergence learning working well for the sum of stochastic logistic units w/ offset biases
+  + contrastive divergence learning working well for the sum of stochastic logistic units w/ offset biases
   + $\sigma(y)$: the noise variance
   + applying ReLU
     + working well on contrastive divergence learning
