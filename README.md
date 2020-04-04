@@ -776,7 +776,13 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#collaborative-filtering"> Collaborative Filtering </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
@@ -788,17 +794,11 @@
   -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Belief/Bayesian Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#sigmoid-belief-networks"> Sigmoid </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#explaining-away-effects"> Explaining Away </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#factorial-distribution"> Factorial </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Learning </th>
@@ -808,14 +808,26 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Deep Belief Nets </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#deep-belief-networks-and-rbms"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#contrastive-wake-sleep-algorithm"> Contrastive </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#discriminative-fine-tune"> Fine-Tune </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#modeling-real-valued-data"> Real-Valued Data </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#infinite-sigmoid-belief-net--rbm"> Infinite Sigmoid Belief </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
