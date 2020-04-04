@@ -255,4 +255,38 @@
 
 
 
+## Discriminative Fine-Tune
+
++ [Fine-tuning for discrimination](../ML/MLNN-Hinton/14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns)
+  + learn on layer at a time by staking RBMs
+  + treating this as "pre-training"
+  + backpropagation used to find-tune the model
+
++ [Backpropagation better than greedy pre-training](../ML/MLNN-Hinton/14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns)
+  + the optimization view
+    + greedily learning one layer at a time scales well to really big networks, especially locality in each layer
+    + not starting backpropagation until sensible feature detectors very helpful for the discrimination task
+  + the overfitting view
+    + pre-trained notes exhibiting much less overfitting
+    + most of the information in the final weights from modeling the distribution of input vectors
+    + fine-tuning only modifying the features slightly to get the category boundaries right $\to$ backpropagation not required to discover new features
+    + unlabeled training data
+    + objection: learning many of the features
+      + useless for any particular discriminative task
+      + more useful than the raw inputs
+
++ [Modeling MNIST digits w/ a DBM](../ML/MLNN-Hinton/14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns)
+  + learning w/ 3 hidden layers of features entirely unsupervised (see diagram)
+  + the network learns a density model for unlabeled digit images
+  + adding a 10-way softmax at the top and the doing backpropagation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=150>
+    </a>
+  </div>
+
++ [Unsupervised "pre-training"](../ML/MLNN-Hinton/14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns): help for models w/ more data and better priors
+
+
 
