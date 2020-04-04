@@ -288,5 +288,20 @@
 
 + [Unsupervised "pre-training"](../ML/MLNN-Hinton/14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns): help for models w/ more data and better priors
 
++ Mechanism of unsupervised pre-training
+  + sequential image-label pairs (left diagram)
+  + parallel image-label pairs (right diagram)
+  + much more plausible model of how to assign names to things in images
+  + justifying the procedure:
+    + having pre-training phase to discover the underlying causes of the images
+    + followed by a descriptive phase to get the underlying label where slightly fine-tune the mapping from the image to the underlying causes
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequential" title="Flow diagram for unsupervised pre-training: sequential" height=130>
+      <img src="img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
+    </a>
+  </div>
+
 
 
