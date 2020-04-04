@@ -288,7 +288,7 @@
 
 + [Unsupervised "pre-training"](../ML/MLNN-Hinton/14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns): help for models w/ more data and better priors
 
-+ Mechanism of unsupervised pre-training
++ [Mechanism of unsupervised pre-training](../ML/MLNN-Hinton/14-DBNsRBM.md#143-what-happens-during-discriminative-fine-tuning)
   + sequential image-label pairs (left diagram)
   + parallel image-label pairs (right diagram)
   + much more plausible model of how to assign names to things in images
@@ -302,6 +302,88 @@
       <img src="img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
     </a>
   </div>
+
+
+
+## Modeling Real-Valued Data
+
++ [Modeling real-valued data](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + intermediate intensities of digit images
+    + represented as probabilities by using 'mean-field' logistic units
+    + treating intermediate values as the probability of the inked pixel
+  + not working for real images
+    + real-image: intensity of a pixel almost always and almost exactly the average of the neighboring pixels
+    + mean-field logistic units unable to represent precise intermediate values
+
++ [A standard type of real-valued visible unit](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + modeling pixels as Gaussian variables
+  + Gibbs sampling: still easy but slow learning
+  + energy function
+
+    \[ E(\mathbb{v}, \mathbb{h}) = \underbrace{\sum_{i \in vis} \frac{(v_i - b_i)^2}{2\sigma^2}}_{\text{parabolic containment}\\ \text{function}} - \quad\sum_{j \in hid} b_j h_j\quad - \underbrace{\sum_{i, j} \frac{v_i}{\sigma_i} h_j w_{ij}}_{\text{energy-gradient produced by}\\ \text{the total input to a visible unit}} \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m14-11.png" style="margin: 0.1em;" alt="Energy function w/ gradient to shift mean" title="Energy function w/ gradient to shift mean" height=130>
+    </a>
+  </div>
+
++ [Gaussian-binary RBM architecture](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + extremely hard to learn tight variances for the visible units (see diagram)
+    + $\sigma \ll 1$: the bottom-up effects too big while top-down effect too small
+    + conflict: hidden units firmly on and off all the time
+  + Solution:
+    + small $\sigma \to$ many more hidden units required than visible units
+    + allowing small weights to produce big top-down effects
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m14-12.png" style="margin: 0.1em;" alt="Gaussian-binary RBM architecture" title="Gaussian-binary RBM architecture" height=150>
+    </a>
+  </div>
+
++ [Stepped sigmoid units](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + a neat way to implement integer values
+  + making many copies of a stochastic binary unit
+  + all copies w/ the same weights and the same adaptive bias, $b$, but different fixed offsets to the bias: $b - 0.5, b-1.5, b-2.5, b-3.5, \dots$
+  + issue
+    + expensive to use a big population of binary stochastic units w/ offset biases
+    + each on required the total input through the logistic function
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m14-13.png" style="margin: 0.1em;" alt="Stepped sigmoid units" title="Stepped sigmoid units" height=80>
+    </a>
+  </div>
+
++ [Fast approximations](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + Rectified Linear unit (ReLU): approximation of multiple sigmoid functions (see diagram)
+
+    \[ \langle y \rangle = \sum_{n=1}^{\infty} \sigma(x+0.5-n) \approx \log(1+e^x) \approx \max(0, x+noise) \]
+
+  + contrastice divergence learning working well for the sum of stochastic logistic units w/ offset biases
+  + $\sigma(y)$: the noise variance
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m14-14.png" style="margin: 0.1em;" alt="Approximation from multiple sigmoid to ReLU" title="Approximation from multiple sigmoid to ReLU" height=120>
+    </a>
+  </div>
+
++ [Property of Rectified linear unit](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + ReUL w/ bias of zero $\implies$ exhibiting __scale equivariance__
+    + scaling up all intensities in the image = scaling up the activities of all hidden units but maintaining the same ratios
+    + ReLU not fully linear: adding two ReUL $\neq$ the sum of the representations of each image separately
+
+    \[ R(a\mathbb{x}) = aR(\mathbb{x}) \qquad \text{but} \qquad R(a + b) \neq R(a) + R(b) \]
+
+  + similar to the property of translational equivariance exhibited in convolutional nets
+    + convolutional net w/o pooling = translations of the input flowing through the layers of the net w/o effecting anything
+    + tanslating the representation of every layer
+
+    \[ R(shift(\mathbb{x})) = shift(R(\mathbb{x})) \]
+
+
 
 
 
