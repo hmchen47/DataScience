@@ -146,8 +146,6 @@
   + Crazy idea: doing the inference wrong
     + observe what's driving the weights during the learning when using an approximate posterior
     + two terms driving the weights
-      + driving weights to get a better model of the data that makes the sigmoid belief net more likely to generate the observed data in the training set
-      + driving weights towards sets of weights for which the proximate posterior used is a good fit to the real posterior by manipulating the real posterior to make it for the approximate posterior
   + each hidden layer
     + using distribution that ignores explaining away
     + assumption (__wrongly__): the posterior over hidden configurations factorizes into a product of distributions for each separate hidden unit
@@ -159,8 +157,6 @@
   + architecture: (see diagram)
     + a neural network w/ two different sets of weights
     + a generative model
-      + generative weights: weight defining the probability distribution over data vectors
-      + recognition weights: using the weights to get factorial distribution in each hidden layer
   + Wake phase
     + use recognition weights to perform a bottom-up pass
     + train the generative weights to reconstruct activities in each layer from the layer above
@@ -193,6 +189,67 @@
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf" ismap target="_blank">
       <img src="../ML/MLNN-Hinton/img/m13-06.png" style="margin: 0.1em;" alt="Example and distribution of the mode averaging" title="Example and distribution of the mode averaging" width=450>
+    </a>
+  </div>
+
+
+## Deep Belief Networks and RBMs
+
++ [Stacking RBMs as deep belief net](../ML/MLNN-Hinton/14-DBNsRBM.md#lecture-notes)
+  + procedure
+    + training a layer of features w/ input directly from the pixels
+    + treating the activations of the trained features as if they were pixels and learn features from features
+    + repeat the steps
+  + each new layer of features by modeling the correlated activity in the feature in the layer below
+  + adding another layer of features
+    + improving a variatonal lower bound on the log probability of generating the training data
+    + complicated proof and only applied to unreal cases
+    + proof based on a neat equivalence btw an RBM and an infinitely deep belief net
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m14-01.png" style="margin: 0.1em;" alt="Basic RBM to DBN" title="Basic RBM to DBN" width=450>
+      </a>
+    </div>
+
++ [Generative model w/ 3 layers](../ML/MLNN-Hinton/14-DBNsRBM.md#lecture-notes)
+  + procedure to generate data
+    + get an equilibrium sample from the top-level RBM by performing alternating Gibbs sampling for a long time
+    + perform a top-down pass to get states for all the other layers
+  + the lower bottom-up connections (transposes of corresponding weights) not part of the generative model $\to$ used for inference
+
++ [Mechanism in greedy learning](../ML/MLNN-Hinton/14-DBNsRBM.md#lecture-notes)
+  + weights, $w$, in the bottom level RBM define many different distribution
+  + the RBM models: $p(v) = \sum_h p(h) p(v|h)$
+  + $p(v|h)$ fixed, improve $p(h) \implies p(v)$ improved
+    + learn new parameters giving a better model of $p(h)$
+    + substitute $p(h)$ in stead of the old model out of $p(h) \to$ improve model over  $v$
+  + to improve $p(h)$, a better model than $p(h; w)$ of the <span style="color: blue;">aggregated posterior</span> distribution over hidden vectors produced by applying $W$ transpose to the data
+    + better model $p(h)$: fitting the aggregated posterior better
+    + the aggregated posterior: the average over all vectors in the training set of the posterior distribution over $h$
+
+
+## Contrastive Wake-Sleep Algorithm
+
++ [Contrastive version of the wake-sleep algorithm](../ML/MLNN-Hinton/14-DBNsRBM.md#lecture-notes) <br/> after learning many layers of features, fine-tune the features to improve generation
+  1. do a stochastic bottom-up pass
+    + adjust the top-bottom generative weights of lower layer to be good at reconstructing the feature activities in the layer below
+  2. do a few iterations of sampling in the top level RBM
+    + adjust the weights in the top-level RBM using contrasted divergence (CD)
+  3. do a stochastic top-down pass
+    + adjust the bottom-up weights to be good at reconstructing the feature activities in the layer above
+  + differences
+    + top-level RBM acts as a much better prior over the top layers than just a layer of units assumed to be independent
+    + rather than generating data by sampling from the prior, looking at a training case going up to the top-level RBM and just running a few iterations before generating data
+
++ [Example](../ML/MLNN-Hinton/14-DBNsRBM.md#lecture-notes): Modeling with the DBN on MNIST digits
+  + first two hidden layers learned w/o labels
+  + top layer learned as an RBM for modeling the labels concatenated w/ the features in the second hidden layer
+  + fine-tuning weights as a better generative model using contrastive wake-sleep
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="img/m14-03.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits and their labels" title="DBN used for modeling the joint distribution of MNIST digits and their labels" width=200>
     </a>
   </div>
 
