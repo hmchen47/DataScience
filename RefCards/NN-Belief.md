@@ -361,7 +361,7 @@
 
     \[ \langle y \rangle = \sum_{n=1}^{\infty} \sigma(x+0.5-n) \approx \log(1+e^x) \approx \max(0, x+noise) \]
 
-  + contrastice divergence learning working well for the sum of stochastic logistic units w/ offset biases
+  + contrastive divergence learning working well for the sum of stochastic logistic units w/ offset biases
   + $\sigma(y)$: the noise variance
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
