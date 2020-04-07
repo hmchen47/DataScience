@@ -254,9 +254,24 @@
     + comparing w/ LSA (a version of PCA)
       + not a very good measure of the quality of the retrieval
   + Performance plottings
-    + left diagram: Retrieval performance on 400,000 Reuter new stories - The fraction of retrieved documents in the same class as the query when a query document from the test set is used to retrieve other test set documents, averaged over all 402,207 possible queries.
-    + middle diagram: First compress all documents to 2 numbers using PCA on $\log(1+count)$. Then use different colors for different categories.
-    + right diagram: First compress all documents to 2 numbers using deep auto. Then use different colors for different document categories
+    + left diagram: accuracy retrieval as a function of the number of retrieval documents
+      + Retrieval performance on 400,000 Reuter new stories
+      + The fraction of retrieved documents in the same class as the query when a query document from the test set is used to retrieve other test set documents, averaged over all 402,207 possible queries.
+      + accuracy: autoencoders using a code w/ 10 real numbers > LSA w/ 50 real numbers > LSA w/ 10 real numbers
+      + computational: Autoencoder $\approx$ LSA-50D / 5
+    + middle diagram: distribution of classes
+      + compressing all documents to 2 numbers using PCA on $\log(1+count)$ by the class of the document
+      + using different colors for different categories
+      + logarithm to suppress counts w/ big numbers $\to$ PCA work better
+      + green classes in one place while the red class in slightly different place
+      + classes mixed
+    + right diagram: 
+      + compressing all documents to 2 numbers using deep auto
+      + using different colors for different document categories
+      + much better layout for the structure of the data set
+      + classes separated w/ different colors
+      + documents in the middle = not many words in them $\to$ difficult to distinguish them
+  + visualization: very useful for judgement
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
@@ -285,7 +300,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://youtu.be/swjncYpcLsk?list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
