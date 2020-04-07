@@ -8,7 +8,7 @@
   + widely used technique in signal processing
   + higher dimensional data represented by a much lower dimensional code
   + situation: a data lying a linear manifold in the high dimensional space
-  + task: finding a data manifold and projecting the data onto the manifold = representation on the manifold $\ni$ orthogonal directions not variation much in the data $\implies$ not losing much information
+  + task: finding a data manifold and projecting the data onto the manifold = representation on the manifold $\to$ orthogonal directions not variation much in the data $\implies$ not losing much information
   + operation:
     + standard principal components methods: efficient
     + neural network w/ one linear hidden layer and linear output layer: inefficient
@@ -66,7 +66,7 @@
       </a>
     </div>
 
-  + efficient code = the activities of the hidden units $\ni$ the bottleneck
+  + efficient code = the activities of the hidden units $\to$ the bottleneck
     + the activities of the hidden unit forming a bottleneck
     + the code vector = a compressed representation of the input vector
   + linear hidden and output layers $\implies$ autoencoder
@@ -93,7 +93,7 @@
     + encoder: converting coordinates in the input space to coordinates on the manifold
     + decoder: inverting the mapping of encoder
     + nonlinear layers: possibly efficiently representing data that lies on or near a nonlinear manifold
-  + learned $\ni$ mapping on both directions  
+  + learned $\to$ mapping on both directions  
   + network architecture (see diagram)
     + adding one ore more layers of nonlinear hidden units, typically using logistic units
     + the code layer: linear units
@@ -128,12 +128,12 @@
 + Deep autoencoders
   + always looking like a nice way to do nonlinear dimensional reduction
     + providing flexible mapping both ways
-    + mapping cable to be nonlinear
+    + mapping able to be nonlinear
     + linear (or better) learning time in the number of training cases
-    + final encoding model: fairly compact and fast $\impliedby$ multiplication of matrices fro each layer
+    + final encoding model: fairly compact and fast $\impliedby$ multiplication of matrices for each layer
   + difficulties
     + very difficult to optimize deep autoencoders using backpropagation
-    + small initial weights $\ni$ backpropagation gradient vanished
+    + small initial weights $\to$ backpropagation gradient vanished
   + Solutions
     + unspervised layer-by-layer pre-training
     + initializing the weights carefully as in Echo-state nets
@@ -143,11 +143,11 @@
   + network architecture: (see diagram)
     + starting w/ images w/ 784 pixels
     + encoding the pixels via 3 hidden layers into 30 real-value activities in a central code layer
-    + decoded those 30 real-valued activities back to 784 reconstructed pixels
+    + decoding those 30 real-valued activities back to 784 reconstructed pixels
     + using a stack of RBMs to initialize the weights used for encoding ($W_1, W_2, W_3, W_4$)
     + taking the transpose over those weights to initialize the decoding network ($W_4^T, W_3^T, W_2^T, W_1^T$)
     + training a stack of 4 RBM's and then unrolling them
-    + fine-tuning w/ gen gentle backpropagation to minimize the reconstruction error
+    + fine-tuning w/ gentle backpropagation to minimize the reconstruction error
     + using cross-entropy error due to logistic units
   + comparisons of methods for compressing digit images to 30 real numbers
     + real data
