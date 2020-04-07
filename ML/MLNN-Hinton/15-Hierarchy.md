@@ -175,7 +175,7 @@
 
 + Introduction
   + applying deep autoencoders to document retrieval
-  + method: latent semantic analysis (LSA)
+  + method: latent semantic analysis (LSA) - a technique in natural language processing, in particular, distributional semantics, of analyzing relationship btw a set of documents and the terms they contains by producing a set of concepts related to the document and terms
   + applying PCA to vector of word counts extracted from the documents
   + the codes
     + produced by latent semantic analysis
@@ -183,7 +183,7 @@
   + $\therefore\;$ used for document retrival
   + expecting much better codes using a deep autoencorder than using latent semantic analysis
   + results:
-    + 10 components extracted w/ a deep autoencoders > 50 documents extracted w/ linear method like latent semantic analysis
+    + 10 components extracted w/ a deep autoencoders > 50 components extracted w/ linear method like latent semantic analysis
     + 2 components to visualize documents as a point in a 2D map > the first two principal components
 
 + Modeling similarity of documents
@@ -191,8 +191,7 @@
     + a vector of word counts ignoring order
       + throwing away a lot of information
       + retaining a lot of information about the topic of the document
-    + ignoring stop words (like "the" or "over")
-      + not containing much information about the topic
+    + ignoring stop words (like "the" or "over") $\impliedby$ not containing much information about the topic
     + example: counting for various words (see diagram)
       + the counts for the document on the bottom
       + nonzero counts for the words telling the information about the document
@@ -210,7 +209,7 @@
 + Mechanism to compress the count vector
   + deep autoencoder architecture
     + compressing 2000 word counts $\to$ 10 real numbers
-    + reconstructing the 10 numbers back to the 2000 words
+    + reconstructing the 2000 words w/ the 10 numbers
   + training the neural network to reproduce its input vector as its output
   + forcing the net to compress as much information as possible into the 10 numbers in the central bottleneck
   + comparing documents w/ these 10 numbers
@@ -221,7 +220,7 @@
     </a>
   </div>
 
-+ reconstructing bag of words w/ non-linearity
++ Reconstructing bag of words w/ non-linearity
   + word counts not the same as pixels or real values
   + word frequency in the document
     + dividing the counts in a bag of words vector by $N$
@@ -232,8 +231,8 @@
   + training the first RBM in the stack by using the same trick
     + $N$ observations from the probability distribution
     + treating the word counts as probabilities
-    + making the visible to hidden weights $N$ times bigger than the hidden to visible
-    + input = probabilities $\implies$ very small activities fir the first hidden layer
+    + the visible to hidden weights = $N \times$ the hidden to visible weights
+    + input in probabilities $\implies$ very small activities for the 1st hidden layer
 
 + Performance of the autoencoder at document retrieval
   + autoencoder settings:
@@ -271,7 +270,7 @@
       + much better layout for the structure of the data set
       + classes separated w/ different colors
       + documents in the middle = not many words in them $\to$ difficult to distinguish them
-  + visualization: very useful for judgement
+  + visualization: very useful for judgment
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
