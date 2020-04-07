@@ -173,19 +173,47 @@
 
 ### Lecture Notes
 
-+ Modeling similarity of query document
++ Introduction
+  + applying deep autoencoders to document retrieval
+  + method: latent semantic analysis (LSA)
+  + applying PCA to vector of word counts extracted from the documents
+  + the codes
+    + produced by latent semantic analysis
+    + used for judging similarity btw documents
+  + $\therefore\;$ used for document retrival
+  + expecting much better codes using a deep autoencorder than using latent semantic analysis
+  + results:
+    + 10 components extracted w/ a deep autoencoders > 50 documents extracted w/ linear method like latent semantic analysis
+    + 2 components to visualize documents as a point in a 2D map > the first two principal components
+
++ Modeling similarity of documents
   + converting each documents into a "bag of words"
     + a vector of word counts ignoring order
+      + throwing away a lot of information
+      + retaining a lot of information about the topic of the document
     + ignoring stop words (like "the" or "over")
+      + not containing much information about the topic
+    + example: counting for various words (see diagram)
+      + the counts for the document on the bottom
+      + nonzero counts for the words telling the information about the document
   + comparison the word counts of the query document and millions of other documents
-    + too slow
-    + reducing each query vector to a much smaller vector
+    + issue: too slow $\impliedby$ involving big vectors
+    + solution: reducing each query vector to a much smaller vector
     + the vector still containing most of the information about the content of the document
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-06.png" style="margin: 0.1em;" alt="Architecture of compressing word count" title="Architecture of compressing word count" height=100>
+    </a>
+  </div>
+
 + Mechanism to compress the count vector
+  + deep autoencoder architecture
+    + compressing 2000 word counts $\to$ 10 real numbers
+    + reconstructing the 10 numbers back to the 2000 words
   + training the neural network to reproduce its input vector as its output
   + forcing the net to compress as much information as possible into the 10 numbers in the central bottleneck
-  + the 10 numbers taken used to compare document
+  + comparing documents w/ these 10 numbers
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
@@ -194,22 +222,26 @@
   </div>
 
 + reconstructing bag of words w/ non-linearity
+  + word counts not the same as pixels or real values
   + word frequency in the document
     + dividing the counts in a bag of words vector by $N$
-    + $N$: the total number of non-stop words in the document
-    + resulting <span style="color: blue;">probability vector</span> = the probability of getting a particular word if picking a non-stop word at random from the document
+    + $N$ = the total number of non-stop words in the document
+    + result: <span style="color: blue;">probability vector</span> = the probability of getting a particular word if picking a non-stop word at random from the document
   + using softmax at the output of the autoencoder
     + probability vector $:=$ the desired outputs of the softmax
   + training the first RBM in the stack by using the same trick
     + $N$ observations from the probability distribution
     + treating the word counts as probabilities
     + making the visible to hidden weights $N$ times bigger than the hidden to visible
+    + input = probabilities $\implies$ very small activities fir the first hidden layer
 
 + Performance of the autoencoder at document retrieval
   + autoencoder settings:
     + bags of words: 2000
     + training cases: 400,000
     + type: business documents
+    + label: $\sim$ 100 categories
+    + output: softmax w/ 2000 ways
   + training procedure
     + first train a stack of RBMs
     + fine-tune w/ backpropagation
@@ -220,18 +252,20 @@
   + plotting the number of retrieved documents against the proportion
     + the proportion in the same hand-labeled class as the query document
     + comparing w/ LSA (a version of PCA)
+      + not a very good measure of the quality of the retrieval
   + Performance plottings
-    + left diagram: Retrieval performance on 400,000 Reuter new stories
+    + left diagram: Retrieval performance on 400,000 Reuter new stories - The fraction of retrieved documents in the same class as the query when a query document from the test set is used to retrieve other test set documents, averaged over all 402,207 possible queries.
     + middle diagram: First compress all documents to 2 numbers using PCA on $\log(1+count)$. Then use different colors for different categories.
     + right diagram: First compress all documents to 2 numbers using deep auto. Then use different colors for different document categories
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
-      <img src="img/m15-08.png" style="margin: 0.1em;" alt="Retrieval performance on 400,000 Reuter new stories" title="Retrieval performance on 400,000 Reuter new stories" height=200>
-      <img src="img/m15-09.png" style="margin: 0.1em;" alt="First compress all documents to 2 numbers using PCA on log(1+count). Then use different colors for different categories." title="First compress all documents to 2 numbers using PCA on log(1+count). Then use different colors for different categories." height=200>
-      <img src="img/m15-10.png" style="margin: 0.1em;" alt="First compress all documents to 2 numbers using deep auto. Then use different colors for different document categories" title="First compress all documents to 2 numbers using deep auto. Then use different colors for different document categories" height=200>
+      <img src="img/m15-08.png" style="margin: 0.1em;" alt="The fraction of retrieved documents in the same class as the query when a query document from the test set is used to retrieve other test set documents, averaged over all 402,207 possible queries." title="Retrieval performance on 400,000 Reuter new stories" height=200>
+      <img src="img/m15-09.png" style="margin: 0.1em;" alt="First compress all documents to 2 numbers using PCA on log(1+count). Then use different colors for different categories." title="The codes produced by two-dimensional LSA." height=200>
+      <img src="img/m15-10.png" style="margin: 0.1em;" alt="First compress all documents to 2 numbers using deep auto. Then use different colors for different document categories" title="The codes produced by a 2000-500-250-125-2 autoencoder" height=200>
     </a>
   </div>
+
 
 
 ### Lecture Video
