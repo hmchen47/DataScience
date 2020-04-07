@@ -119,7 +119,34 @@
 
 ### Lecture Notes
 
++ Deep autoencoders
+  + always looking as a nice way to do nonlinear dimensional reduction
+    + providing flexible mapping both ways
+    + linear (or better) learning time in the number of training cases
+    + final encoding model: fairly compact and fast
+  + difficulties
+    + very difficult to optimize deep autoencoders using backpropagation
+    + small initial weights $\ni$ backpropagation gradient vanished
+  + Solutions
+    + unspervised layer-by-layer pre-training
+    + initializing the weights carefully as in Echo-state nets
 
++ Encoder network
+  + G. E. Hinton*, R. R. Salakhutdinov, [Reducing the Dimensionality of Data with Neural Networks](https://bit.ly/2xbMHXZ), Science, 28 Jul 2006
+  + network architecture:
+    + training a stack of 4 RBM's and then unrolling them
+    + fine-tuning w/ gen gentle backpropagation
+  + comparisons of methods for compressing digit images to 30 real numbers
+    + real data
+    + 30-D deep autoencoder
+    + 30D PCA
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-04.png" style="margin: 0.1em;" alt="Autoencoder example w/ 4 RBMs" title="Autoencoder example w/ 4 RBMs" width=350>
+      <img src="img/m15-05.png" style="margin: 0.1em;" alt="Comparison of autoencoder results" title="Comparison of autoencoder results" width=350>
+    </a>
+  </div>
 
 
 
