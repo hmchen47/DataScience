@@ -119,11 +119,18 @@
 
 ### Lecture Notes
 
++ Prior works
+  + developed in 1980s
+  + unable to train them significantly better than PCA
+  + various publications w/o good demonstrations of impressive performance
+  + applying pre-training deep networks layer-by-layer to pre-training deep autoencoders
+
 + Deep autoencoders
-  + always looking as a nice way to do nonlinear dimensional reduction
+  + always looking like a nice way to do nonlinear dimensional reduction
     + providing flexible mapping both ways
+    + mapping cable to be nonlinear
     + linear (or better) learning time in the number of training cases
-    + final encoding model: fairly compact and fast
+    + final encoding model: fairly compact and fast $\impliedby$ multiplication of matrices fro each layer
   + difficulties
     + very difficult to optimize deep autoencoders using backpropagation
     + small initial weights $\ni$ backpropagation gradient vanished
@@ -131,11 +138,17 @@
     + unspervised layer-by-layer pre-training
     + initializing the weights carefully as in Echo-state nets
 
-+ Encoder network
++ Deep autoencoders on MNIST digits
   + G. E. Hinton*, R. R. Salakhutdinov, [Reducing the Dimensionality of Data with Neural Networks](https://bit.ly/2xbMHXZ), Science, 28 Jul 2006
-  + network architecture:
+  + network architecture: (see diagram)
+    + starting w/ images w/ 784 pixels
+    + encoding the pixels via 3 hidden layers into 30 real-value activities in a central code layer
+    + decoded those 30 real-valued activities back to 784 reconstructed pixels
+    + using a stack of RBMs to initialize the weights used for encoding ($W_1, W_2, W_3, W_4$)
+    + taking the transpose over those weights to initialize the decoding network ($W_4^T, W_3^T, W_2^T, W_1^T$)
     + training a stack of 4 RBM's and then unrolling them
-    + fine-tuning w/ gen gentle backpropagation
+    + fine-tuning w/ gen gentle backpropagation to minimize the reconstruction error
+    + using cross-entropy error due to logistic units
   + comparisons of methods for compressing digit images to 30 real numbers
     + real data
     + 30-D deep autoencoder
