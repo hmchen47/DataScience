@@ -391,12 +391,12 @@
 
 + Binary codes for image retrieval
   + typically done by using the captions
-  + task: retrieval images by image itself
+  + task: retrieval images by objects in images
     + pixels not like words
     + individual pixels not telling much about the content
     + recognizing objects in the images $\to$ searching similar to words
-    + hard to extracting object classes from images
-    + deep neural network solved
+    + hard to extract object classes from images
+    + solved by deep neural network
   + extracting a real-valued vector w/ information about the content
     + matching real-valued vectors: big database and slow
     + requiring a lot of storage
@@ -410,20 +410,20 @@
     + using 256-binary codes to do a serial search for good matches
       + only requiring a few words of storage per image
       + the serial search done by using fast bit-operation
-      + the candid images able to matched using 256-bit binary codes to store each known images
+      + the candid images able to match by using 256-bit binary codes stored for each known images
       + much better matching than finding w/ a 28-bit binary code
-      + only 4-word of memory per image
+      + only 4-word memory per image
       + fast searching $\to$ a few operations to compare 256-bit binary codes
   + 256-bit binary code
     + is good enough?
     + how to judge similarity?
 
 + Krizhevsky's deep autoencoder
-  + architecture (to left diagram)
+  + architecture (top left diagram)
     + input: 32x32 pixels of images
     + taking input via red, green and blue channels $\to \approx$ 3000 inputs
-    + expanding w/ a larger number of hidden units: real-value inputs to logistic hidden units w/ less capacity
-    + progressively decreasing the number of units each layer $\to$ 256-bit binary code at the last layer
+    + expanding w/ a larger number of hidden units: real-valued inputs to logistic hidden units w/ less capacity
+    + progressively decreasing the half number of units each layer $\to$ 256-bit binary code at the last layer
   + the encoder $\approx$ 67,000,000 parameters
   + taking a few days on a GTX 285 GPU to train on two million images
   + no theory to justify this architecture
@@ -436,7 +436,8 @@
       + the right sub-image as the reconstructed images
     + starting w/ a picture of Michael Jackson in red box
       + middle left: retrieved using 256 bit codes
-        + Alex net retrieving the most similar images and indicating the bit distance on top of each subimages
+        + Alex net retrieving objects from images
+        + extracting the most similar images and indicating the bit distance on top of each subimages
         + distance = 61: extraordinarily unlikely to happen by chance
         + similar images; only a few bits
       + middle right: retrieved using Euclidean distance in pixel intensity space
@@ -476,7 +477,7 @@
       + much better representation to match than the pixel intensities
   + verify w/ the net described in Mod 05, won the ImageNet competition
   + only using the Euclidean distance btw the activity vector in the last hidden layer
-    + taking those activity vectors and build an autoencoder on them to get down to binary codes $\to$ working really well
+    + taking those activity vectors and building an autoencoder on them to get down to binary codes $\to$ working really well
     + working w/ binary code?
   + examples (see diagram)
     + leftmost column: the search image
