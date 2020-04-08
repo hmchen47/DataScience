@@ -293,7 +293,35 @@
 
 ### Lecture Notes
 
++ Finding binary codes for documents
+  + training an auto-encoder using 30 logistic units for the code layer
+  + fine-tuning stage
+    + adding noise to the inputs to the code units
+    + noise forcing their activities to become bimodal in order to resist the effects of the noise
+    + simply threshold the activities of the 30 code units to get a binary code
+  + easier to just use binary stochastic units in the code layer during training
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-11.png" style="margin: 0.1em;" alt="Deep autoencoder architecture w/ 30 real-valued numbers" title="Deep autoencoder architecture w/ 30 real-valued numbers" height=200>
+    </a>
+  </div>
+
++ Semantic hashing
+  + deep autoencoder as hash-function
+    + task: finding approximate matches
+  + fast retrieval methods
+    + working by intersecting stored lists that are associated w/ cues extracted from the query
+  + computer hardware
+    + intersecting 32 very long lists in one instruction
+    + each bit in a 32-bit binary code specifying a list of half the addresses in the memory
+  + using machine learning to map the retrieval problem onto the type of list intersection the computer is good at
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-12.png" style="margin: 0.1em;" alt="" title="" height=150>
+    </a>
+  </div>
 
 
 
