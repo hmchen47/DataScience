@@ -389,8 +389,71 @@
 
 ### Lecture Notes
 
++ Binary codes for image retrieval
+  + typically done by using the captions
+  + task: retrieval images by image itself
+    + pixels not like words
+    + individual pixels not telling much about the content
+    + hard to extracting object classes from images (out of date)
+  + extracting a real-valued vector w/ information about the content
+    + matching real-valued vectors: big database and slow
+    + requiring a lot of storage
+  + storing short codes $\to$ easy to store and match
 
++ A two-stage method
+  + procedure
+    + using semantic hashing w/ 28-bit binary code to get a long "shortlist" of promising images
+    + using 256-binary codes to do a serial search for good matches
+      + only requiring a few words of storage per image
+      + the serial search done by using fast bit-operation
+  + 256-bit binary code
+    + is good enough?
+    + how to judge similarity?
 
++ Krizhevsky's deep autoencoder
+  + the encoder $\approx$ 67,000,000 parameters
+  + taking a few days on a GTX 285 GPU to train on two million images
+  + no theory to justify this architecture
+  + Diagrams
+    + top left: network architecture of autoencoder for image
+    + top right: reconstructions of 32x32 color images from 256-bit codes
+    + bottom two left: retrieved using 256 bit codes
+    + bottom two right: retrieved using Euclidean distance in pixel intensity space
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-13.png" style="margin: 0.1em;" alt="Network architecture for image encoding" title="Network architecture for image encoding" height=150>
+      <img src="img/m15-14.png" style="margin: 0.1em;" alt="Reconstructions of 32x32 color images from 256-bit codes" title="Reconstructions of 32x32 color images from 256-bit codes" width=350>
+    </a>
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-15a.png" style="margin: 0.1em;" alt="Retrieved using 256 bit codes" title="Retrieved using 256 bit codes" width=350>
+      <img src="img/m15-15b.png" style="margin: 0.1em;" alt="Retrieved using Euclidean distance in pixel intensity space" title="Retrieved using Euclidean distance in pixel intensity space" width=350>
+    </a>
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-16a.png" style="margin: 0.1em;" alt="Retrieved using 256 bit codes" title="Retrieved using 256 bit codes" width=350>
+      <img src="img/m15-16b.png" style="margin: 0.1em;" alt="Retrieved using Euclidean distance in pixel intensity space" title="Retrieved using Euclidean distance in pixel intensity space" width=350>
+    </a>
+  </div>
+
++ Improvement of deep autoencoder
+  + task: making image retrieval more sensitive to object and less sensitive to pixels
+  + procedure
+    + training a big net to recognize lots of different types of object in real image
+    + using the activity vector in the last hidden layer as the representation of the image
+      + much better representation to match than the pixel intensities
+  + verify w/ the net described in Mod 5, won the ImageNet competition
+  + only using the Euclidean distance btw the activity vector in the last hidden layer
+    + working really well
+    + working w/ binary code?
+  + examples (see diagram)
+    + leftmost column: the search image
+    + other columns: the most similar feature activities in the last hidden layer
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-17.png" style="margin: 0.1em;" alt="Query images and various matching images" title="Query images and various matching images" width=350>
+    </a>
+  </div>
 
 
 ### Lecture Video
