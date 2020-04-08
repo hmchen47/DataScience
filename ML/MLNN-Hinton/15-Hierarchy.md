@@ -372,7 +372,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
-      <img src="img/m15-12.png" style="margin: 0.1em;" alt="" title="" height=150>
+      <img src="img/m15-12.png" style="margin: 0.1em;" alt="Approximation match w/ a hash-function" title="Approximation match w/ a hash-function" height=150>
     </a>
   </div>
 
