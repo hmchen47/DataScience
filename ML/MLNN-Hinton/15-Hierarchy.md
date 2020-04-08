@@ -394,7 +394,9 @@
   + task: retrieval images by image itself
     + pixels not like words
     + individual pixels not telling much about the content
-    + hard to extracting object classes from images (out of date)
+    + recognizing objects in the images $\to$ searching similar to words
+    + hard to extracting object classes from images
+    + deep neural network solved
   + extracting a real-valued vector w/ information about the content
     + matching real-valued vectors: big database and slow
     + requiring a lot of storage
@@ -403,22 +405,53 @@
 + A two-stage method
   + procedure
     + using semantic hashing w/ 28-bit binary code to get a long "shortlist" of promising images
+      + applying short binary code as used w/ semantic hashing $\to$ very rapidly to get a shortlist of promising images
+      + taking the short binary code and flipping a few bits $\to$ candid images
     + using 256-binary codes to do a serial search for good matches
       + only requiring a few words of storage per image
       + the serial search done by using fast bit-operation
+      + the candid images able to matched using 256-bit binary codes to store each known images
+      + much better matching than finding w/ a 28-bit binary code
+      + only 4-word of memory per image
+      + fast searching $\to$ a few operations to compare 256-bit binary codes
   + 256-bit binary code
     + is good enough?
     + how to judge similarity?
 
 + Krizhevsky's deep autoencoder
+  + architecture (to left diagram)
+    + input: 32x32 pixels of images
+    + taking input via red, green and blue channels $\to \approx$ 3000 inputs
+    + expanding w/ a larger number of hidden units: real-value inputs to logistic hidden units w/ less capacity
+    + progressively decreasing the number of units each layer $\to$ 256-bit binary code at the last layer
   + the encoder $\approx$ 67,000,000 parameters
   + taking a few days on a GTX 285 GPU to train on two million images
   + no theory to justify this architecture
-  + Diagrams
-    + top left: network architecture of autoencoder for image
-    + top right: reconstructions of 32x32 color images from 256-bit codes
-    + bottom two left: retrieved using 256 bit codes
-    + bottom two right: retrieved using Euclidean distance in pixel intensity space
+    + guess: architecture half number of units each layer
+    + presumably some other architecture working better
+  + examples
+    + top right: how well the autoencoder
+      + reconstructions of 32x32 color images from 256-bit codes
+      + each left sub-image as the origin
+      + the right sub-image as the reconstructed images
+    + starting w/ a picture of Michael Jackson in red box
+      + middle left: retrieved using 256 bit codes
+        + Alex net retrieving the most similar images and indicating the bit distance on top of each subimages
+        + distance = 61: extraordinarily unlikely to happen by chance
+        + similar images; only a few bits
+      + middle right: retrieved using Euclidean distance in pixel intensity space
+    + image of a party scene and retrieving other images
+      + bottom left: retrieved using 256 bit codes
+        + half of the retried images fairly similar
+        + origin party scene: bright in the middle
+        + most bad matches: bright in the middle
+        + sensitive to the image structure and brighter patches
+      + bottom left: retrieved using Euclidean distance in pixel intensity space
+        + much worse results: only one other images w/ a group of people
+        + Euclidean distance: not very smooth images
+          + unable to match the high frequency variation in the images
+          + better to match the average of the high frequency variation of other stuff $\to$ out of phase
+        + Euclidean distance usually finding smooth images to match $\because$ minimizing squared error in pixel space
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
@@ -436,18 +469,25 @@
   </div>
 
 + Improvement of deep autoencoder
-  + task: making image retrieval more sensitive to object and less sensitive to pixels
+  + task: making image retrieval more sensitive to object and less sensitive to pixel intensities
   + procedure
-    + training a big net to recognize lots of different types of object in real image
+    + training a big net to recognize lots of different types of object in real image (Mod05)
     + using the activity vector in the last hidden layer as the representation of the image
       + much better representation to match than the pixel intensities
-  + verify w/ the net described in Mod 5, won the ImageNet competition
+  + verify w/ the net described in Mod 05, won the ImageNet competition
   + only using the Euclidean distance btw the activity vector in the last hidden layer
-    + working really well
+    + taking those activity vectors and build an autoencoder on them to get down to binary codes $\to$ working really well
     + working w/ binary code?
   + examples (see diagram)
     + leftmost column: the search image
     + other columns: the most similar feature activities in the last hidden layer
+    + elephant image:
+      + retrieving elephant images w/ different poses
+      + images w/o good overlap in pixel space
+    + Halloween pumpkins:
+      + good for all retrieved images
+      + some of images w/ pretty bad overlap in pixel space
+  + expectation: reducing these activity vector to short binary codes $\to$ a fast and effective way of retrieving similar images just by the contents of the image
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
