@@ -307,14 +307,14 @@
     + difficult to get a list of binary descriptors, said 30 $\to$ more or less orthogonal to one another
     + solved by machine learning
   + training an autoencoder using 30 logistic units for the code layer
-    + instead of getting real valued for documents
+    + instead of getting real values for documents
     + getting binary code from word count documents
     + implementing logistic units in code layer $\to$ inefficient
-    + logistic unit used real value in their middle range $\to$ conveying as much as information as possible about the 2000 word counts
+    + logistic unit used real value in their middle range $\to$ conveying as much information as possible about the 2000 word counts
   + procedure
-    + first training w/ a stack of RBMs
-    + the unrolling these RBMs by using the transposes of the weight matrices for the decoder
-    + then fine-tuning w/ backpropagation
+    + first, training w/ a stack of RBMs
+    + then unrolling these RBMs by using the transposes of the weight matrices for the decoder
+    + last, fine-tuning w/ backpropagation
   + fine-tuning stage
     + adding noise to the inputs to the code units
     + noise forcing their activities to become bimodal in order to resist the effects of the noise
@@ -323,13 +323,13 @@
       + the range conveying a lot of information but very sensitive to noise in its inputs
     + simply threshold the activities of the 30 code units to get a binary code
       + tested w/ simple threshold in logistic units to get binary values
-      + training w/ autoencoder able to convert the camps for a bag of words into small number of binary values
+      + training w/ autoencoder able to convert the kind of a bag of words into small number of binary values
       + learning a set of binary features good for reconstructing the bag of words
   + easier to just use binary stochastic units in the code layer during training - Krizhevsky
     + adding Gaussian noise to the inputs to the 30 code units not required
     + just making the 30 code units as stochastic binary units
-    + forward pass: picking a binary value using the output of the logistic
-    + backward pass: pretending to transmit the real value of probability from the logistic $\to$ smooth gradient for backpropagation
+      + forward pass: picking a binary value using the output of the logistic
+      + backward pass: pretending to transmit the real value of probability from the logistic $\to$ smooth gradient for backpropagation
     + doing sequential search on the obtained short binary code
     + storing a code for each known document
     + a query document
@@ -349,9 +349,8 @@
   + deep autoencoder as hash-function
     + task: finding approximate matches
     + using autoencoder as a hash function to convert a document into a 30 bit address
-    + a memory w/ 30 bit addresses
-    + each bit of the memory pointing back to the document
-    + a list to store same address
+    + a memory w/ 30 bit addresses and each bit of the memory pointing back to the document
+    + collision: a list to store same address
     + similar documents $\implies$ similar addresses
     + query document $\to$ binary code $\to$ memory address
     + looking at nearby addresses $\to$ flipping bits in the address to access nearby addresses
@@ -361,7 +360,7 @@
     + a.k.a. supermarket search (see diagram)
   + fast retrieval methods
     + working by intersecting stored lists that are associated w/ cues extracted from the query
-    + example Google search
+    + example: Google search
       + a list of all documents w/ some particular rare word
       + a query w/ the rare word $\to$ immediately accessing to the list
       + intersecting the list w/ other lists to satisfy all the terms in the query
