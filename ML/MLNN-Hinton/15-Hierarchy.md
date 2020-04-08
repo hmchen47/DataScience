@@ -293,13 +293,51 @@
 
 ### Lecture Notes
 
++ Introduction to semantic hashing
+  + providing an extremely efficient way of finding a documents similar to a query document
+  + idea:
+    + converting the document into a memory address
+    + organizing semantic in the memory
+    + looking at the nearby addresses for a particular address $\to$ finding documents very similar
+  + analogy: similar products located nearby in a supermarket
+
 + Finding binary codes for documents
-  + training an auto-encoder using 30 logistic units for the code layer
+  + binary descriptors of images $\to$ a good way of retrieving images quickly
+    + some binary descriptor easily to get; e.g., indoor or outdoor scene, color or black-and-white image
+    + difficult to get a list of binary descriptors, said 30 $\to$ more or less orthogonal to one another
+    + solved by machine learning
+  + training an autoencoder using 30 logistic units for the code layer
+    + instead of getting real valued for documents
+    + getting binary code from word count documents
+    + implementing logistic units in code layer $\to$ inefficient
+    + logistic unit used real value in their middle range $\to$ conveying as much as information as possible about the 2000 word counts
+  + procedure
+    + first training w/ a stack of RBMs
+    + the unrolling these RBMs by using the transposes of the weight matrices for the decoder
+    + then fine-tuning w/ backpropagation
   + fine-tuning stage
     + adding noise to the inputs to the code units
     + noise forcing their activities to become bimodal in order to resist the effects of the noise
+      + code units either firmly on or firmly off
+      + noise encouraging the learning to avoid the middle region of the logistic
+      + the range conveying a lot of information but very sensitive to noise in its inputs
     + simply threshold the activities of the 30 code units to get a binary code
-  + easier to just use binary stochastic units in the code layer during training
+      + tested w/ simple threshold in logistic units to get binary values
+      + training w/ autoencoder able to convert the camps for a bag of words into small number of binary values
+      + learning a set of binary features good for reconstructing the bag of words
+  + easier to just use binary stochastic units in the code layer during training - Krizhevsky
+    + adding Gaussian noise to the inputs to the 30 code units not required
+    + just making the 30 code units as stochastic binary units
+    + forward pass: picking a binary value using the output of the logistic
+    + backward pass: pretending to transmit the real value of probability from the logistic $\to$ smooth gradient for backpropagation
+    + doing sequential search on the obtained short binary code
+    + storing a code for each known document
+    + a query document
+      + extracting the binary code of the document
+      + comparing the code w/ the codes of all stored documents
+    + using special bit operations to do fast comparison $\to$ parallel operations in CPU
+    + issue: probably a long list of documents
+    + solution: treating the code as if a memory address
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
@@ -310,11 +348,27 @@
 + Semantic hashing
   + deep autoencoder as hash-function
     + task: finding approximate matches
+    + using autoencoder as a hash function to convert a document into a 30 bit address
+    + a memory w/ 30 bit addresses
+    + each bit of the memory pointing back to the document
+    + a list to store same address
+    + similar documents $\implies$ similar addresses
+    + query document $\to$ binary code $\to$ memory address
+    + looking at nearby addresses $\to$ flipping bits in the address to access nearby addresses
+    + a little Hamming ball of nearby addresses = small difference in bit flipping counts
+    + nearby address $\implies$ semantically similar document
+    + advantage: avoiding searching a big list but flipping a few bits in memory addresses
+    + a.k.a. supermarket search (see diagram)
   + fast retrieval methods
     + working by intersecting stored lists that are associated w/ cues extracted from the query
-  + computer hardware
+    + example Google search
+      + a list of all documents w/ some particular rare word
+      + a query w/ the rare word $\to$ immediately accessing to the list
+      + intersecting the list w/ other lists to satisfy all the terms in the query
+  + memory bus in computer hardware
     + intersecting 32 very long lists in one instruction
     + each bit in a 32-bit binary code specifying a list of half the addresses in the memory
+    + forming a binary search
   + using machine learning to map the retrieval problem onto the type of list intersection the computer is good at
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
