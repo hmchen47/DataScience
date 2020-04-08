@@ -25,8 +25,8 @@
     + right diagram
       + top two layers = 2nd RBM $\implies$ undirected model w/ symmetric actions
       + bottom two layers = directed model as a sigmoid belief net $\implies$ remove symmetry connection btw $v$ and $h_1 \to$ remove upgoing part
-      + not a RBM $\to$ deep belief net
-      + lower layers as a sigmoid belief nets while the top two layers forming a RBM $\to$ a hybrid model
+      + not an RBM $\to$ deep belief net
+      + lower layers as a sigmoid belief nets while the top two layers forming an RBM $\to$ a hybrid model
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://bit.ly/2JpLNti" ismap target="_blank">
@@ -36,7 +36,7 @@
 
 + Generative model w/ 3 layers
   + stacked up 3 RBMs (diagram)
-    + $h_2 \stackrel{w_2}{\longleftrightarrow} h_3$ as a RBM
+    + $h_2 \stackrel{w_2}{\longleftrightarrow} h_3$ as an RBM
     + $data$ and $h_1$ forming directed layers as in a sigmoid belief nets
   + procedure to generate data
     + get an equilibrium sample from the top-level RBM by performing alternating Gibbs sampling for a long time
@@ -199,7 +199,7 @@
 
 + Modeling MNIST digits w/ a DBM
   + learning w/ 3 hidden layers of features entirely unsupervised (see diagram)
-  + top two layers forming a RBM whose energy landscape should model the low dimensional manifolds of the digits
+  + top two layers forming an RBM whose energy landscape should model the low dimensional manifolds of the digits
   + the network learns a density model for unlabeled digit images
   + generating from the model $\to$ get things that look like real digits of all classes
   + hidden features really help w/ digit discrimination?
@@ -492,9 +492,9 @@
     + same as the equilibrium distribution for a compatible pair of conditional distribution
     + $p(v|h)$ and $p(h|v)$ both defined by the same weight matrix $W$
     + obtaining equilibrium distribution by alternatively processing $p(v|h)$ and $p(h|v)$
-    + same procedure as running Markov chain on a RBM to get sample from the equilibrium distribution
-  + top-down pass of the directed net exactly equivalent to letting a RBM settle to equilibrium
-  + infinite directed net defining the same distribution as a RBM
+    + same procedure as running Markov chain on an RBM to get sample from the equilibrium distribution
+  + top-down pass of the directed net exactly equivalent to letting an RBM settle to equilibrium
+  + infinite directed net defining the same distribution as an RBM
   + sample from $v_0$ in the infinite directed net = the equilibrium sample of the equivalent RBM
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -533,7 +533,7 @@
     + the binary state of $h_0$ multiplied by $W$ and passed through the logistic sigmoid
     + the binary state of $v_1$ obtained
     + repeating the process upwards
-    + the generative model = running alternative Markov chain of a RBM to equilibrium
+    + the generative model = running alternative Markov chain of an RBM to equilibrium
     + performing inference in this mode = same process in the opposite direction
     + a very special kind of sigmoid belief net: inference as easy as generative
 
@@ -578,10 +578,10 @@
     + a sample w/ that probability = $s_i^1$, an unbiased estimate of the derivative
     + plugging in $s_i^1$ on the first line of the learning rule
     + repeating the process to substitute $p_i$
-    + becoming a RBM learning rule
+    + becoming an RBM learning rule
 
   + learning w/ all the weights tied together (middle left diagram = middle diagram)
-    + exactly equivalent to learning a RBM
+    + exactly equivalent to learning an RBM
     + thinking of the symmetric connections as a shorthand notation for an infinite directed net w/ tied weights
   + using CD1 as a shortcut instead, ought to use maximum likelihood learning
   + freezing the first layer of weights in both directions and learning the remaining weights (still tie together)
@@ -595,7 +595,7 @@
     + to sample a data vector to train the network
       + putting a real data vector of $v_0$ = inference through those frozen weights
       + a binary vector obtained at $h_0$ = data for training the next RBM
-    + repeating the procedure $\to$ a RBM at the top 
+    + repeating the procedure $\to$ an RBM at the top 
       + equivalent to all the weights in the infinite directed net above still tied together
       + weights below different
 
