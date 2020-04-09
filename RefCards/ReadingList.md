@@ -122,5 +122,7 @@
 + C. Bishop and J. Lasserre, [Generative or Discriminative? Getting the Best of Both Worlds](https://bit.ly/2yuricF), BAYESIAN STATISTICS 8, pp. 3–24, 2007
 + R. Tibshirani, [Modeling Basics: Assessment, Selection, and Complexity](https://bit.ly/3dXnSiO), Statistical Machine Learning, Spring 2015
 + G. Hinton, S. Osindero,, and Y.-W. Teh, [A Fast Learning Algorithm for Deep Belief Nets](https://bit.ly/2wQSqCk), Neural Computation, July 2006
-
++ G. E. Hinton*, R. R. Salakhutdinov, [Reducing the Dimensionality of Data with Neural Networks](https://bit.ly/2xbMHXZ), Science, 28 Jul 2006
++ P. Vincent, H. Larochelle, Y. Bengio, and P. Manzagol, [Extracting and composing robust features with denoising autoencoders](https://bit.ly/2USqMy4), ICML '08: Proceedings of the 25th international conference on Machine learning, 2008
++ S. Rifai, P. Vincent, X. Muller, X. Glorot, and Y. Bengio, [Contractive Auto-Encoders: Explicit Invariance During Feature Extraction](https://bit.ly/2K2WXVr), ICML 2011
 
