@@ -510,17 +510,17 @@
 
 + RBM as autoencoder 
   + one hidden layer RBM = shallow autoencoder
-  + train an RBM w/one-step contrastive divergence
-    + RBM trying to make the reconstructions look like data
+  + training an RBM w/ one-step contrastive divergence
+    + RBM trying to make the reconstructions look like input data
     + autoencoder view: strongly regularized by using binary activities in the hidden layer
-  + trained w/ miximum likelihood, RBMs not like autoencoders
+  + RBMs $\neq$ autoencoders when trained w/ maximum likelihood
     + e.g., pixel as pure noise
       + autoencoder: trying to reconstruct whatever noise value it had
       + RBM: training w/ maximum likelihood and using the bias for that input
   + applying pre-training on autoencoders
     + Question: replacing the stack of RBMs used for pre-training by a stack of shallow autoencoders
-    + the shallow autoencoders regularized by penalizing the squared weights $\implies$ pre-training not as effective (for subsequent discrimination)
-    + stacking autoencoder not working as well as stacking RBMs
+    + the shallow autoencoders regularized by penalizing the squared weights $\implies$ pre-training not effective (for subsequent discrimination)
+    + stacking autoencoders not working as well as stacking RBMs
 
 + Denoising autencoders
   + adding noise to input vector setting many of its components to zero
@@ -529,14 +529,12 @@
     + still required to reconstruct these components
     + extracting features to capture correlations btw inputs
     + not just copying input $\impliedby$ denoising
-    + N.B.: 
-      + shallow autoencoder w/ enough hidden units $\to$ copying each pixel to one hidden unit $\to$  reconstruct that pixel from that hidden unit
-      + not applied for a denoising autoencoder
+    + N.B.: shallow autoencoder w/ enough hidden units $\to$ copying each pixel to one hidden unit $\to$  reconstruct that pixel from that hidden unit $\implies$ not applied for a denoising autoencoder
     + using hidden units to capture correlation btw the inputs
-    + using the value of some inputs too help reconstructing the inputs that have been zeroed out
+    + using the value of some inputs to help reconstructing the inputs that have been zeroed out
   + pre-training working well w/ a stack of denoising autoencoders
     + performance: $\geq$ RBM w/ pre-training
-    + simpler to evaluate the pre-training $\because$ easily computing the value of the objective function
+    + simpler to evaluate the pre-training $\gets$ easily computing the value of the objective function
       + pre-training RBM w/ contrastive divergence unable to compute the value of real objective function to minimize
       + squared reconstruction error not what been minimized
     + lacking the nice variational bound as w/ RBMs $\to$ only of theoretical interest
@@ -545,9 +543,9 @@
 + Contractive autencoders
   + alternative way to regularize an autoencoder
     + trying to make the activities of the hidden units as intensities as possible to the inputs
-    + unable to ignore the inputs $\because$ reconstruction
+    + reconstruction $\to$ unable to ignore the inputs
   + achieved by penalizing the squared gradient of each hidden activity w.r.t. the inputs
-  + working well for pre-training
+  + working well w/ pre-training
     + property of the codes: only a small subset of the hidden units sensitive to changes in the input
       + different parts of the input space = different subset in an active set acting like a sparse code
       + other hidden units all saturated and insensitive
@@ -561,12 +559,12 @@
     + discovering features before using the labels
     + helpful for subsequent discriminative learning as database w/o huge numbers of labeled cases
     + useful for discovering features w/o using the information in the labels
-    + information in the labels used for fine-tune the decision boundaries btw classes
+    + information in the labels used for fine-tuning the decision boundaries btw classes
   + initializing weights not required
     + situation
       + applied for very large, labeled datasets
       + executing supervised learning by using unsupervised pre-training
-    + pre-training used to be a good way to initialize the weights got deep nets
+    + pre-training used to be a good way to initialize the weights for deep nets
     + other ways available now
   + large network $\implies$ pre-training required
 
