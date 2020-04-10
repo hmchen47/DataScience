@@ -609,6 +609,29 @@
     + the visible to hidden weights = $N \times$ the hidden to visible weights
     + input in probabilities $\implies$ very small activities for the 1st hidden layer
 
++ Finding binary codes for documents
+  + binary descriptors of images $\to$ a good way of retrieving images quickly
+  + training an autoencoder using 30 logistic units for the code layer
+  + procedure
+    + first, training w/ a stack of RBMs
+    + then unrolling these RBMs by using the transposes of the weight matrices for the decoder
+    + last, fine-tuning w/ backpropagation
+  + fine-tuning stage
+    + adding noise to the inputs to the code units
+    + noise forcing their activities to become bimodal in order to resist the effects of the noise
+    + simply threshold the activities of the 30 code units to get a binary code
+  + easier to just use binary stochastic units in the code layer during training - Krizhevsky
+
++ Semantic hashing
+  + deep autoencoder as hash-function
+    + task: finding approximate matches
+    + using autoencoder as a hash function to convert a document into a 30 bit address
+    + advantage: avoiding searching a big list but flipping a few bits in memory addresses
+    + a.k.a. supermarket search (see diagram)
+  + fast retrieval methods: working by intersecting stored lists that are associated w/ cues extracted from the query
+  + memory bus in computer hardware
+  + using machine learning to map the retrieval problem onto the type of list intersection the computer is good at
+
 
 
 
