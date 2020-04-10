@@ -574,6 +574,41 @@
 
 ## Document Retrieval with Autoencoders
 
++ Modeling similarity of documents
+  + converting each documents into a "bag of words"
+    + a vector of word counts ignoring order
+    + ignoring stop words (like "the" or "over") $\impliedby$ not containing much information about the topic
+  + comparison the word counts of the query document and millions of other documents
+    + issue: too slow $\impliedby$ involving big vectors
+    + solution: reducing each query vector to a much smaller vector
+    + the vector still containing most of the information about the content of the document
+
++ Mechanism to compress the count vector
+  + deep autoencoder architecture
+    + compressing 2000 word counts $\to$ 10 real numbers
+    + reconstructing the 2000 words w/ the 10 numbers
+  + training the neural network to reproduce its input vector as its output
+  + forcing the net to compress as much information as possible into the 10 numbers in the central bottleneck
+  + comparing documents w/ these 10 numbers
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="img/m15-07.png" style="margin: 0.1em;" alt="Architecture of compressing word count" title="Architecture of compressing word count" height=250>
+    </a>
+  </div>
+
++ Reconstructing bag of words w/ non-linearity
+  + word frequency in the document
+    + dividing the counts in a bag of words vector by $N$
+    + $N$ = the total number of non-stop words in the document
+    + result: <span style="color: blue;">probability vector</span> = the probability of getting a particular word if picking a non-stop word at random from the document
+  + using softmax at the output of the autoencoder
+  + training the first RBM in the stack by using the same trick
+    + $N$ observations from the probability distribution
+    + treating the word counts as probabilities
+    + the visible to hidden weights = $N \times$ the hidden to visible weights
+    + input in probabilities $\implies$ very small activities for the 1st hidden layer
+
 
 
 
