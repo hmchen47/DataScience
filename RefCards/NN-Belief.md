@@ -556,3 +556,24 @@
   </div>
 
 
+## Deep Autoencoder
+
++ [Deep autoencoders](../ML/MLNN-Hinton/15-Hierarchy.md#152-deep-autoencoders)
+  + always looking like a nice way to do nonlinear dimensional reduction
+    + providing flexible mapping both ways
+    + mapping able to be nonlinear
+    + linear (or better) learning time in the number of training cases
+    + final encoding model: fairly compact and fast $\impliedby$ multiplication of matrices for each layer
+  + difficulties
+    + very difficult to optimize deep autoencoders using backpropagation
+    + small initial weights $\to$ backpropagation gradient vanished
+  + Solutions
+    + unspervised layer-by-layer pre-training
+    + initializing the weights carefully as in Echo-state nets
+
+
+## Document Retrieval with Autoencoders
+
+
+
+
