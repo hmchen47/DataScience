@@ -483,6 +483,52 @@
     + using CD to build a stack of RBMs to learn multiple features
 
 
+## Pre-Training and Autoencoder
+
++ [RBM as autoencoder](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + one hidden layer RBM = shallow autoencoder
+  + training an RBM w/ one-step contrastive divergence
+  + RBMs $\neq$ autoencoders when trained w/ maximum likelihood
+  + applying pre-training on autoencoders
+    + Question: replacing the stack of RBMs used for pre-training by a stack of shallow autoencoders
+    + the shallow autoencoders regularized by penalizing the squared weights $\implies$ pre-training not effective (for subsequent discrimination)
+    + stacking autoencoders not working as well as stacking RBMs
+
++ [Denoising autencoders](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + adding noise to input vector setting many of its components to zero
+    + different components for different input vectors
+    + like dropout but for input than hidden units
+    + still required to reconstruct these components
+    + extracting features to capture correlations btw inputs
+  + pre-training working well w/ a stack of denoising autoencoders
+    + performance: $\geq$ RBM w/ pre-training
+    + simpler to evaluate the pre-training $\gets$ easily computing the value of the objective function
+    + lacking the nice variational bound as w/ RBMs $\to$ only of theoretical interest
+
++ [Contractive autencoders](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + alternative way to regularize an autoencoder
+    + trying to make the activities of the hidden units as intensities as possible to the inputs
+    + reconstruction $\to$ unable to ignore the inputs
+  + achieved by penalizing the squared gradient of each hidden activity w.r.t. the inputs
+  + working well w/ pre-training
+    + property of the codes: only a small subset of the hidden units sensitive to changes in the input
+    + RBMs behaving similar
+
++ [Summary about pre-training](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + many different ways to do layer-by-layer pre-training to discover good features
+    + discovering features before using the labels
+    + helpful for subsequent discriminative learning as database w/o huge numbers of labeled cases
+    + useful for discovering features w/o using the information in the labels
+    + information in the labels used for fine-tuning the decision boundaries btw classes
+  + initializing weights not required
+    + situation
+      + applied for very large, labeled datasets
+      + executing supervised learning by using unsupervised pre-training
+    + pre-training used to be a good way to initialize the weights for deep nets
+    + other ways available now
+  + large network $\implies$ pre-training required
+
+
 ## Autoencoder and Principal Components Analysis
 
 + [Principal Components Analysis (PCA) -Intro](../ML/MLNN-Hinton/15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
