@@ -174,7 +174,7 @@
   + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
   + [Chouffe](https://github.com/Chouffe/hinton-coursera)
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
-+ Harry Wechsler, [Neural Networks for Perception. Computation, Learning, and Architectures](http://93.174.95.29/main/1199000/8de6d2df3a95f9c5477b6d95f3e80a06/Harry%20Wechsler%20-%20Neural%20Networks%20for%20Perception.%20Computation%2C%20Learning%2C%20and%20Architectures-Elsevier%20Inc%2C%20Academic%20Press%20%281992%29.pdf), AP, 1992
++ Harry Wechsler, [Neural Networks for Perception. Computation, Learning, and Architectures](https://bit.ly/2RcSCTs), AP, 1992
 
 
 
