@@ -574,7 +574,7 @@
 
 ## Document Retrieval with Autoencoders
 
-+ Modeling similarity of documents
++ [Modeling similarity of documents](../ML/MLNN-Hinton/15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
   + converting each documents into a "bag of words"
     + a vector of word counts ignoring order
     + ignoring stop words (like "the" or "over") $\impliedby$ not containing much information about the topic
@@ -583,7 +583,7 @@
     + solution: reducing each query vector to a much smaller vector
     + the vector still containing most of the information about the content of the document
 
-+ Mechanism to compress the count vector
++ [Mechanism to compress the count vector](../ML/MLNN-Hinton/15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
   + deep autoencoder architecture
     + compressing 2000 word counts $\to$ 10 real numbers
     + reconstructing the 2000 words w/ the 10 numbers
@@ -593,11 +593,11 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
-      <img src="img/m15-07.png" style="margin: 0.1em;" alt="Architecture of compressing word count" title="Architecture of compressing word count" height=250>
+      <img src="../ML/MLNN-Hinton/img/m15-07.png" style="margin: 0.1em;" alt="Architecture of compressing word count" title="Architecture of compressing word count" height=250>
     </a>
   </div>
 
-+ Reconstructing bag of words w/ non-linearity
++ [Reconstructing bag of words w/ non-linearity](../ML/MLNN-Hinton/15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
   + word frequency in the document
     + dividing the counts in a bag of words vector by $N$
     + $N$ = the total number of non-stop words in the document
@@ -609,7 +609,7 @@
     + the visible to hidden weights = $N \times$ the hidden to visible weights
     + input in probabilities $\implies$ very small activities for the 1st hidden layer
 
-+ Finding binary codes for documents
++ [Finding binary codes for documents](../ML/MLNN-Hinton/15-Hierarchy.md#154-semantic-hashing)
   + binary descriptors of images $\to$ a good way of retrieving images quickly
   + training an autoencoder using 30 logistic units for the code layer
   + procedure
@@ -622,7 +622,7 @@
     + simply threshold the activities of the 30 code units to get a binary code
   + easier to just use binary stochastic units in the code layer during training - Krizhevsky
 
-+ Semantic hashing
++ [Semantic hashing](../ML/MLNN-Hinton/15-Hierarchy.md#154-semantic-hashing)
   + deep autoencoder as hash-function
     + task: finding approximate matches
     + using autoencoder as a hash function to convert a document into a 30 bit address
@@ -631,6 +631,42 @@
   + fast retrieval methods: working by intersecting stored lists that are associated w/ cues extracted from the query
   + memory bus in computer hardware
   + using machine learning to map the retrieval problem onto the type of list intersection the computer is good at
+
+## Image Retrieval with Autoencoders
+
++ [Binary codes for image retrieval](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + task: retrieval images by objects in images
+  + extracting a real-valued vector w/ information about the content
+  + storing short codes $\to$ easy to store and match
+
++ [A two-stage method](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + procedure
+    + using semantic hashing w/ 28-bit binary code to get a long "shortlist" of promising images
+    + using 256-binary codes to do a serial search for good matches
+  + 256-bit binary code
+    + is good enough?
+    + how to judge similarity?
+
++ [Krizhevsky's deep autoencoder](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + architecture (top left diagram)
+  + the encoder $\approx$ 67,000,000 parameters
+  + taking a few days on a GTX 285 GPU to train on two million images
+  + no theory to justify this architecture
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m15-13.png" style="margin: 0.1em;" alt="Network architecture for image encoding" title="Network architecture for image encoding" height=150>
+    </a>
+  </div>
+
++ [Improvement of deep autoencoder](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + task: making image retrieval more sensitive to object and less sensitive to pixel intensities
+  + procedure
+    + training a big net to recognize lots of different types of object in real image (Mod05)
+    + using the activity vector in the last hidden layer as the representation of the image
+  + verify w/ the net described in Mod 05, won the ImageNet competition
+  + only using the Euclidean distance btw the activity vector in the last hidden layer
+  + expectation: reducing these activity vector to short binary codes $\to$ a fast and effective way of retrieving similar images just by the contents of the image
 
 
 
