@@ -10,21 +10,49 @@
   + issue: requiring more computation than building a joint density model of labels and digit images
   + procedure:
     + training a multilayer model of images
-    + training a separated multilayer model of word-count vectors
+      + a multi-layer model of the features extracted from images
+      + using standard computer vision features
+    + training a separated multilayer model of word-count vectors from the captions
     + adding a new top layer connected to the top layers of both individual models
-      + using further joint training of the whole system to allow each modality to improve the earlier layers of other modality
-  + using a deep Boltzmann machine 
+      + using further joint training of the whole system
+      + allowing each modality to improve the earlier layers of other modality
+  + using a deep Boltzmann machine (DBM)
     + instead of using a deep belief net
     + symmetric connection btw all pairs of layers
-    + further joint training of the whole DBM allows each modality to improve the earily layers of the otehr modality $\to$ used a DBM
-    + probably used a DBM and done generative fine-tuning w/ contrastive wake-sleep
+    + further joint training of the whole DBM allows each modality to improve the earlier layers of the other modality $\to$ using a DBM
+    + bale to use a DBM and done generative fine-tuning w/ contrastive wake-sleep
+    + fine-tuning algorithm probably working better for DBM
   + mechanism of pre-training on the hidden layers of the DBM
     + standard pre-training $\implies$ a composite model w/ DBM $\to$ not DBM
+    + combining a stack of RBM $\to$ a deep belief network
 
 + Combining 3 RBMs to make a DBM
+  + combining a stack of pre-trained RBMs $\to$ DBM
   + network architecture (see diagram)
-  + the top and bottom RBMs pre-trained w/ the weights in one direction twice as big as in the other direction
-  + the middle layers: geometric model averaging
+    + the top and bottom RBMs pre-trained w/ the weights in one direction twice as big as in the other direction
+      + named scale symmetric
+      + the bottom RBM trained w/ bottom-up weights being twice as big as the top-down weights
+      + the top RBM trained the bottom-up weights w/ half of the top-down weights
+    + the middle layers: geometric model averaging
+      + trained w/ symmetric weights
+    + combining these RBMs to a composite model
+      + RBMs in the middle simply halved its weights
+      + bottom RBM weights:  halved the up-going weights = the down-poing weights
+      + top RBM weights: halved the down-going weights = the top-going weights
+  + rough explanation for scale symmetric
+    + separated RBMs
+      + $h_1$ w/ two different ways to infer the states of the units in $h_1$ in the stack of RBM on the left
+      + inferring the states of $h_1$ either bottom-up from $v$ or top-down from $h-2$
+      + combining middle and bottom RBMs by taking average of these two weights of inferring $h_1$
+      + taking geometric average by halving the weights
+      + using half of the bottom-up model, %2W_1/2$
+      + same applied to middle and top RBMs
+    + combined model
+      + given states of $h_2$ or $v$ $\implies$ states of $h_1$
+      + halving weights to prevent the double counts
+      + the state of $H_2$ depending on $v$
+      + using the bottom-up input from the 1st RBM and the top-dowm input from 2nd RBM $\to$ counting evidence twice
+      + inferring $h_1$ from $v$ and inferring it from $h_2$, depending on $v$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
