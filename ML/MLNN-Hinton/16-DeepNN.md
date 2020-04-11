@@ -72,23 +72,50 @@
 
 ### Lecture Notes
 
++ Approaches to recognizing objects
+  + deep convolutional neural network
+  + parts based approach
+  + existing features used for computer vision to
+    + extract from images
+    + make histograms
+    + use a lot of hand enginerring
+
 + Disadvantages of convolutional neural networks
+  + pulling the activities of a bunch of replicated feature detectors $\to$ losing the position of the feature detector
   + pooling
     + losing the precise spatial relationship btw higher-level parts such as a nose and a mouth
     + precise spatial relationships required for identity recognition
-    + partial solution: overlapping the pools 
-  + only translation
-    + unable to extrapolate their understanding of geometric relationships to radically new viewpoints
+    + partial solution: overlapping the pools
+      + feature occurring in several pools
+      + retaining more information about its position
+  + only translations to replicated features detectors
+    + unable to extrapolate their understanding of geometric relationships to radically new viewpoints, such as different orientations or scales
     + human good at extrapolation
     + seeing new shape $\to$ recognizing it from a different viewpoint
+  + approach w/ convolutional neural networks
+    + training viewpoints on transformed data
+    + huge training sets w/ orientations, scales and lighting $\to$ coping w/ the variations
+    + clumsy way to dealing w/ variantions
 
 + The hierarchical coordinate frame approach
-  + a group of neurons to represent the conjunction of 
+  + a group of neurons to represent the conjunction of
     + the shape of a feature
+      + neurons telling features of objects, such as noise and mouth
     + the pose relative to the retina
       + the relationship btw the coordinate frame of the retina
       + the intrinsic coordinate frame of the feature
+      + should embed a coordinate frame within it
   + recognizing larger features by using the consistency of the poses of their parts
+    + representation of the pose of parts of objects relative to retina
+    + easier to use relationships btw parts and recognize larger objects
+    + using the posees of the parts as a cue for recognizing a larger shape
+  + example: nose and mouth
+    + left diagram:
+      + nose and mouth w/ the right spatial relationship to one another
+      + using mouth or nose to predict the pose of whole face $\to$ similar prediction
+    + right diagram:
+      + nose and mouth w/ wrong spatial relationship
+      + making prediction separately about the pose of the whole face $\to$ not agreed
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
@@ -100,6 +127,22 @@
   + a higher level visual entity
     + several level visual entities agreeing on their predictions for its pose
     + inverse computer graphics
+  + network model
+    + larger parts recognized by consistent predictions from smaller parts
+    + $T_j$: a collection of neurons $\to$ recognizing the pose of the whole face
+    + $p_j$: a single logistic neuron to representing whether or not a face there
+    + similar neurons to represent the mouth, $T_i$, and nose, $T_h$
+    + recognizing the face by noticing that those two representations make consistent predictions
+      + taking a vector of activities to represent the pose of the mouth
+      + multiplying by a matrix $T_{ij}$ to represent the spatial relationship btw a mouth and a face
+      + obtaining the prediction $T_i T_{ij}$ for the pose of the face
+    + same procedure for nose to get $T_h T{hj}$
+    + $Ti_T{ij} \approx T_hT_{hj} \mplies$ the nose and the mouth w/ righ spatial relationship
+  + inverse computer graphics
+    + knowing the pose of the face $\implies$ computed by using inverse of $T_{ij}$; same as nose
+    + computer graphics: from poses of larger things to poses of their parts
+    + computer vision: from the poses of the parts to the poses of the larger things
+    + verifying the consistency btw them
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
@@ -108,18 +151,35 @@
   </div>
 
 + A crucial property of the pose vectors
-  + modeling spatial transformation w/ linear operations
+  + able to get neural network to represent these pose vectors, vectors of neural activity $\to$ property
+  + property: modeling spatial transformation w/ linear operations
     + easier to learn a hierarchy of visual entities
     + easier to generalize across viewpoints
+  + issue: small changes in viewpoint $\to$ the pose vectors of neural activities changed
   + invariant geometric properties of a shape
     + invariant in the weights, not in the activities
-    + equivariant activities: varying the pose of the object $\implies$ varying activities
+      + weights representing the relationship btw a part and a whole
+      + e.g., $T_{ij}$ not depending on viewpoint
+      + to get the invariant properties of a shape into a weights
+      + changing viewpoint  $\to$ all those pose vectors in the activities changed
+      + getting neural activities invariant to viewpoint = the pooling in a convolution neural network behaved
+    + equivariant activities
+      + varying the pose of the object $\implies$ varying activities
+      + goal: getting neural activities equivariant = the pose of the object varying the activities of the neurons vary = the percept of an object not its label but its appearance
     + changing the viewpoint $\implies$ changing the percept of an object
 
 + Imposing coordinate frames in order to represent shapes
+  + proposed by Irvin Rock, The Logic of Perception ([Wikipedia](https://tinyurl.com/w8ktgqr))
   + evidence of visual systems to represent shapes
   + What country is this? Hint: Sarah Palin (left diagram)
-  + the square and the diamond: very different percepts $\to$ different paroperties
+  + the square and the diamond: very different percepts $\to$ different properties
+    + perceiving as a tilted square $\to$ acutely  sensitive to whether the angles are right angles
+    + perceiving as an upright diamond $\to$ not sensitive to the angle
+      + the angles probably 5 degrees off and not noticed
+      + sensitive to whether the corner on the left and the corner on the right w/ the same height
+  + representing shape $\to$ imposing coordinate frames on them
+    + square or diamond: the same thing in appearance but the percepts totally different
+    + depending on what coordinate frame imposing
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
