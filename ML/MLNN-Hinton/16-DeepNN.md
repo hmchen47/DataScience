@@ -81,7 +81,7 @@
     + use a lot of hand enginerring
 
 + Disadvantages of convolutional neural networks
-  + pulling the activities of a bunch of replicated feature detectors $\to$ losing the position of the feature detector
+  + pooling the activities of a bunch of replicated feature detectors $\to$ losing the position of the feature detector
   + pooling
     + losing the precise spatial relationship btw higher-level parts such as a nose and a mouth
     + precise spatial relationships required for identity recognition
@@ -99,8 +99,7 @@
 
 + The hierarchical coordinate frame approach
   + a group of neurons to represent the conjunction of
-    + the shape of a feature
-      + neurons telling features of objects, such as noise and mouth
+    + the shape of a feature: neurons telling features of objects, such as nose and mouth
     + the pose relative to the retina
       + the relationship btw the coordinate frame of the retina
       + the intrinsic coordinate frame of the feature
@@ -108,7 +107,7 @@
   + recognizing larger features by using the consistency of the poses of their parts
     + representation of the pose of parts of objects relative to retina
     + easier to use relationships btw parts and recognize larger objects
-    + using the posees of the parts as a cue for recognizing a larger shape
+    + using the poses of the parts as a cue for recognizing a larger shape
   + example: nose and mouth
     + left diagram:
       + nose and mouth w/ the right spatial relationship to one another
@@ -136,8 +135,8 @@
       + taking a vector of activities to represent the pose of the mouth
       + multiplying by a matrix $T_{ij}$ to represent the spatial relationship btw a mouth and a face
       + obtaining the prediction $T_i T_{ij}$ for the pose of the face
-    + same procedure for nose to get $T_h T{hj}$
-    + $Ti_T{ij} \approx T_hT_{hj} \mplies$ the nose and the mouth w/ righ spatial relationship
+    + same procedure for nose to get $T_h T_{hj}$
+    + $T_iT_{ij} \approx T_hT_{hj} \implies$ the nose and the mouth w/ righ spatial relationship
   + inverse computer graphics
     + knowing the pose of the face $\implies$ computed by using inverse of $T_{ij}$; same as nose
     + computer graphics: from poses of larger things to poses of their parts
@@ -151,7 +150,7 @@
   </div>
 
 + A crucial property of the pose vectors
-  + able to get neural network to represent these pose vectors, vectors of neural activity $\to$ property
+  + able to get neural network to represent these pose vectors, vectors of neural activities $\to$ property
   + property: modeling spatial transformation w/ linear operations
     + easier to learn a hierarchy of visual entities
     + easier to generalize across viewpoints
@@ -176,8 +175,8 @@
     + perceiving as a tilted square $\to$ acutely  sensitive to whether the angles are right angles
     + perceiving as an upright diamond $\to$ not sensitive to the angle
       + the angles probably 5 degrees off and not noticed
-      + sensitive to whether the corner on the left and the corner on the right w/ the same height
-  + representing shape $\to$ imposing coordinate frames on them
+      + sensitive to whether the corners on the left and on the right w/ the same height
+  + representing shapes $\to$ imposing coordinate frames on them
     + square or diamond: the same thing in appearance but the percepts totally different
     + depending on what coordinate frame imposing
 
