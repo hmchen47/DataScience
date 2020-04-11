@@ -56,7 +56,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
-      <img src="img/m16-01.png" style="margin: 0.1em;" alt="Combining RBMs to a DBM" title="Combining RBMs to a DBM" width=300>
+      <img src="img/m16-01.png" style="margin: 0.1em;" alt="Combining RBMs to a DBM" title="Combining RBMs to a DBM" width=250>
     </a>
   </div>
 
@@ -72,9 +72,61 @@
 
 ### Lecture Notes
 
++ Disadvantages of convolutional neural networks
+  + pooling
+    + losing the precise spatial relationship btw higher-level parts such as a nose and a mouth
+    + precise spatial relationships required for identity recognition
+    + partial solution: overlapping the pools 
+  + only translation
+    + unable to extrapolate their understanding of geometric relationships to radically new viewpoints
+    + human good at extrapolation
+    + seeing new shape $\to$ recognizing it from a different viewpoint
 
++ The hierarchical coordinate frame approach
+  + a group of neurons to represent the conjunction of 
+    + the shape of a feature
+    + the pose relative to the retina
+      + the relationship btw the coordinate frame of the retina
+      + the intrinsic coordinate frame of the feature
+  + recognizing larger features by using the consistency of the poses of their parts
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="img/m16-02.png" style="margin: 0.1em;" alt="Relationship of nose and mouth" title="Relationship of nose and mouth" width=250>
+    </a>
+  </div>
 
++ Two layers in a hierarchy of parts
+  + a higher level visual entity
+    + several level visual entities agreeing on their predictions for its pose
+    + inverse computer graphics
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="img/m16-03.png" style="margin: 0.1em;" alt="Hierarchical model for different parts" title="Hierarchical model for different parts" width=400>
+    </a>
+  </div>
+
++ A crucial property of the pose vectors
+  + modeling spatial transformation w/ linear operations
+    + easier to learn a hierarchy of visual entities
+    + easier to generalize across viewpoints
+  + invariant geometric properties of a shape
+    + invariant in the weights, not in the activities
+    + equivariant activities: varying the pose of the object $\implies$ varying activities
+    + changing the viewpoint $\implies$ changing the percept of an object
+
++ Imposing coordinate frames in order to represent shapes
+  + evidence of visual systems to represent shapes
+  + What country is this? Hint: Sarah Palin (left diagram)
+  + the square and the diamond: very different percepts $\to$ different paroperties
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="img/m16-05a.png" style="margin: 0.1em;" alt="Shape of a country" title="Shape of a country" height=100>
+      <img src="img/m16-05b.png" style="margin: 0.1em;" alt="Shape of square and diamond" title="Shape of square and diamond" width=100>
+    </a>
+  </div>
 
 
 ### Lecture Video
