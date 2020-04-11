@@ -10,7 +10,7 @@
   + issue: requiring more computation than building a joint density model of labels and digit images
   + procedure:
     + training a multilayer model of images
-      + a multi-layer model of the features extracted from images
+      + a multilayer model of the features extracted from images
       + using standard computer vision features
     + training a separated multilayer model of word-count vectors from the captions
     + adding a new top layer connected to the top layers of both individual models
@@ -20,10 +20,10 @@
     + instead of using a deep belief net
     + symmetric connection btw all pairs of layers
     + further joint training of the whole DBM allows each modality to improve the earlier layers of the other modality $\to$ using a DBM
-    + bale to use a DBM and done generative fine-tuning w/ contrastive wake-sleep
+    + able to use a DBM and done generative fine-tuning w/ contrastive wake-sleep
     + fine-tuning algorithm probably working better for DBM
-  + mechanism of pre-training on the hidden layers of the DBM
-    + standard pre-training $\implies$ a composite model w/ DBM $\to$ not DBM
+  + effect of pre-training on the hidden layers of the DBM
+    + standard pre-training on a composite model w/ RBM $\to$ not DBM
     + combining a stack of RBM $\to$ a deep belief network
 
 + Combining 3 RBMs to make a DBM
