@@ -172,3 +172,38 @@
     + possible w/ lots of parameters
 
 
+## Joint Model of Images and Captions
+
++ [Modeling the joint density of images and captions](../ML/MLNN-Hinton/16-DeepNN.md#161-learning-a-joint-model-of-images-and-captions)
+  + goal: to build a joint density model of captions and standard computer vision feature vectors extracted from real photographs
+  + procedure:
+    + training a multilayer model of images
+    + training a separated multilayer model of word-count vectors from the captions
+    + adding a new top layer connected to the top layers of both individual models
+  + using a deep Boltzmann machine (DBM)
+    + further joint training of the whole DBM allows each modality to improve the earlier layers of the other modality $\to$ using a DBM
+    + able to use a DBM and done generative fine-tuning w/ contrastive wake-sleep
+    + fine-tuning algorithm probably working better for DBM
+  + effect of pre-training on the hidden layers of the DBM
+    + standard pre-training on a composite model w/ RBM $\to$ not DBM
+    + combining a stack of RBM $\to$ a deep belief network
+
++ [Combining 3 RBMs to make a DBM](../ML/MLNN-Hinton/16-DeepNN.md#161-learning-a-joint-model-of-images-and-captions)
+  + combining a stack of pre-trained RBMs $\to$ DBM
+  + network architecture (see diagram)
+    + the top and bottom RBMs pre-trained w/ the weights in one direction twice as big as in the other direction
+    + the middle layers: geometric model averaging
+    + combining these RBMs to a composite model
+      + RBMs in the middle simply halved its weights
+      + bottom RBM weights:  halved the up-going weights = the down-poing weights
+      + top RBM weights: halved the down-going weights = the top-going weights
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="img/m16-01.png" style="margin: 0.1em;" alt="Combining RBMs to a DBM" title="Combining RBMs to a DBM" width=250>
+    </a>
+  </div>
+
+
+
+
