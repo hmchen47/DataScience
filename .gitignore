@@ -61,6 +61,7 @@ __pycache__/
 octave-workspace
 token.mat
 .vscode/
+.fuse*
 
 
 

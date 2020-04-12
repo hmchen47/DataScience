@@ -1,4 +1,4 @@
-# Belief/Bayesian Networks
+# Belief / Bayesian Networks
 
 ## Overview
 
@@ -282,7 +282,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=150>
+      <img src="../ML/MLNN-Hinton/img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=150>
     </a>
   </div>
 
@@ -298,8 +298,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequential" title="Flow diagram for unsupervised pre-training: sequential" height=130>
-      <img src="img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
+      <img src="../ML/MLNN-Hinton/img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequential" title="Flow diagram for unsupervised pre-training: sequential" height=130>
+      <img src="../ML/MLNN-Hinton/img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
     </a>
   </div>
 
@@ -442,7 +442,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-17.png" style="margin: 0.1em;" alt="Architecture of learning a deep directed network" title="Architecture of learning a deep directed network" width=150>
+      <img src="../ML/MLNN-Hinton/img/m14-17.png" style="margin: 0.1em;" alt="Architecture of learning a deep directed network" title="Architecture of learning a deep directed network" width=150>
       <img src="../ML/MLNN-Hinton/img/m14-18.png" style="margin: 0.1em;" alt="Architecture to tied all weights together" title="Architecture to tied all weights together" width=150>
       <img src="../ML/MLNN-Hinton/img/m14-15.png" style="margin: 0.1em;" alt="Infinite sigmoid belief net and RBM" title="Infinite sigmoid belief net and RBM" width=150>
       <img src="../ML/MLNN-Hinton/img/m14-19a.png" style="margin: 0.1em;" alt="Equivalent RBM network" title="Equivalent RBM network" width=150>
@@ -481,6 +481,238 @@
   + weight $\nearrow \to$ running more iteration of CD
     + allowing CD to continue $\to$ a good approximation to maximum likelihood
     + using CD to build a stack of RBMs to learn multiple features
+
+
+## Pre-Training and Autoencoder
+
++ [RBM as autoencoder](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + one hidden layer RBM = shallow autoencoder
+  + training an RBM w/ one-step contrastive divergence
+  + RBMs $\neq$ autoencoders when trained w/ maximum likelihood
+  + applying pre-training on autoencoders
+    + Question: replacing the stack of RBMs used for pre-training by a stack of shallow autoencoders
+    + the shallow autoencoders regularized by penalizing the squared weights $\implies$ pre-training not effective (for subsequent discrimination)
+    + stacking autoencoders not working as well as stacking RBMs
+
++ [Denoising autencoders](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + adding noise to input vector setting many of its components to zero
+    + different components for different input vectors
+    + like dropout but for input than hidden units
+    + still required to reconstruct these components
+    + extracting features to capture correlations btw inputs
+  + pre-training working well w/ a stack of denoising autoencoders
+    + performance: $\geq$ RBM w/ pre-training
+    + simpler to evaluate the pre-training $\gets$ easily computing the value of the objective function
+    + lacking the nice variational bound as w/ RBMs $\to$ only of theoretical interest
+
++ [Contractive autencoders](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + alternative way to regularize an autoencoder
+    + trying to make the activities of the hidden units as intensities as possible to the inputs
+    + reconstruction $\to$ unable to ignore the inputs
+  + achieved by penalizing the squared gradient of each hidden activity w.r.t. the inputs
+  + working well w/ pre-training
+    + property of the codes: only a small subset of the hidden units sensitive to changes in the input
+    + RBMs behaving similar
+
++ [Summary about pre-training](../ML/MLNN-Hinton/15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
+  + many different ways to do layer-by-layer pre-training to discover good features
+    + discovering features before using the labels
+    + helpful for subsequent discriminative learning as database w/o huge numbers of labeled cases
+    + useful for discovering features w/o using the information in the labels
+    + information in the labels used for fine-tuning the decision boundaries btw classes
+  + initializing weights not required
+    + situation
+      + applied for very large, labeled datasets
+      + executing supervised learning by using unsupervised pre-training
+    + pre-training used to be a good way to initialize the weights for deep nets
+    + other ways available now
+  + large network $\implies$ pre-training required
+
+
+## Autoencoder and Principal Components Analysis
+
++ [Principal Components Analysis (PCA) -Intro](../ML/MLNN-Hinton/15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
+  + higher dimensional data represented by a much lower dimensional code
+  + situation: a data lying a linear manifold in the high dimensional space
+  + task: finding a data manifold and projecting the data onto the manifold = representation on the manifold $\to$ orthogonal directions not variation much in the data $\implies$ not losing much information
+  + operation:
+    + standard principal components methods: efficient
+    + neural network w/ one linear hidden layer and linear output layer: inefficient
+  + advantage of using neural networks:
+    + generalizing the technique by using deep neural networks where the code is a nonlinear function of the input
+    + reconstructing the data from the code as a nonlinear function of the input vector
+    + able to deal w/ curved manifold in the input space
+
++ [Principal Components Analysis](../ML/MLNN-Hinton/15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
+  + finding the $M$ orthogonal directions
+    + $M$ principal directions forming a lower-dimensional subspace
+    + representing an $N$-dimensional datapoint by its projections onto the $M$ principal directions
+    + losing all information about where the datapoint located in the remaining orthogonal directions but not much
+  + reconstructing by using the mean value (over all the data)
+    + the mean value w/ $N-M$ directions not represented w/ $M$ orthogonal directions
+    + reconstruction error = sum over all these unrepresented directions of the squared differences of the datapoint from the mean
+  + example: PCA w/ $N=2$ and $M=1$ (see diagram)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m15-01.png" style="margin: 0.1em;" alt="PCA example w/ N=2 and M=1" title="PCA example w/ N=2 and M=1" width=350>
+    </a>
+  </div>
+
++ [Implementing PCA w/ backpropagation](../ML/MLNN-Hinton/15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
+  + inefficient implementation
+  + task: making output = the input in a network w/ a central bottleneck
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+        <img src="../ML/MLNN-Hinton/img/m15-02.png" style="margin: 0.1em;" alt="PCA example w/ N=2 and M=1" title="PCA example w/ N=2 and M=1" width=200>
+      </a>
+    </div>
+
+  + efficient code = the activities of the hidden units $\to$ the bottleneck
+    + the activities of the hidden unit forming a bottleneck
+    + the code vector = a compressed representation of the input vector
+  + linear hidden and output layers $\implies$ autoencoder
+    + autoencoder
+      + learning hidden units w/ a linear function of the data
+      + minimizing the squared reconstruction error
+    + exactly what PCA does
+  + $M$ hidden units
+    + spanning the same space at the first $M$ components found by PCA
+    + weight vectors probably not orthogonal
+    + tending to have equal variances
+    + $\therefore\;$ the networks $\equiv$ principal components
+    + performance: the stochastic gradient descent learning for the network < PCA algorithm
+
++ [Generalizing PCA w/ backpropagation](../ML/MLNN-Hinton/15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
+  + purpose: generalizing PCA
+    + able to represent data w/ a curved manifold rather than a linear manifold in a high dimensional space
+  + adding nonlinear layers before and after the code: encoding and decoding weights
+    + encoder: converting coordinates in the input space to coordinates on the manifold
+    + decoder: inverting the mapping of encoder
+  + learned $\to$ mapping on both directions  
+  + network architecture (see diagram)
+    + output layer trained as similar as possible to the input vector
+    + using supervisor learning algorithm to do unsupervised learning
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m15-03.png" style="margin: 0.1em;" alt="PCA example w/ N=2 and M=1" title="PCA example w/ N=2 and M=1" width=200>
+    </a>
+  </div>
+
+
+## Deep Autoencoder
+
++ [Deep autoencoders](../ML/MLNN-Hinton/15-Hierarchy.md#152-deep-autoencoders)
+  + always looking like a nice way to do nonlinear dimensional reduction
+    + providing flexible mapping both ways
+    + mapping able to be nonlinear
+    + linear (or better) learning time in the number of training cases
+    + final encoding model: fairly compact and fast $\impliedby$ multiplication of matrices for each layer
+  + difficulties
+    + very difficult to optimize deep autoencoders using backpropagation
+    + small initial weights $\to$ backpropagation gradient vanished
+  + Solutions
+    + unspervised layer-by-layer pre-training
+    + initializing the weights carefully as in Echo-state nets
+
+
+## Document Retrieval with Autoencoders
+
++ [Modeling similarity of documents](../ML/MLNN-Hinton/15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
+  + converting each documents into a "bag of words"
+    + a vector of word counts ignoring order
+    + ignoring stop words (like "the" or "over") $\impliedby$ not containing much information about the topic
+  + comparison the word counts of the query document and millions of other documents
+    + issue: too slow $\impliedby$ involving big vectors
+    + solution: reducing each query vector to a much smaller vector
+    + the vector still containing most of the information about the content of the document
+
++ [Mechanism to compress the count vector](../ML/MLNN-Hinton/15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
+  + deep autoencoder architecture
+    + compressing 2000 word counts $\to$ 10 real numbers
+    + reconstructing the 2000 words w/ the 10 numbers
+  + training the neural network to reproduce its input vector as its output
+  + forcing the net to compress as much information as possible into the 10 numbers in the central bottleneck
+  + comparing documents w/ these 10 numbers
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m15-07.png" style="margin: 0.1em;" alt="Architecture of compressing word count" title="Architecture of compressing word count" height=250>
+    </a>
+  </div>
+
++ [Reconstructing bag of words w/ non-linearity](../ML/MLNN-Hinton/15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
+  + word frequency in the document
+    + dividing the counts in a bag of words vector by $N$
+    + $N$ = the total number of non-stop words in the document
+    + result: <span style="color: blue;">probability vector</span> = the probability of getting a particular word if picking a non-stop word at random from the document
+  + using softmax at the output of the autoencoder
+  + training the first RBM in the stack by using the same trick
+    + $N$ observations from the probability distribution
+    + treating the word counts as probabilities
+    + the visible to hidden weights = $N \times$ the hidden to visible weights
+    + input in probabilities $\implies$ very small activities for the 1st hidden layer
+
++ [Finding binary codes for documents](../ML/MLNN-Hinton/15-Hierarchy.md#154-semantic-hashing)
+  + binary descriptors of images $\to$ a good way of retrieving images quickly
+  + training an autoencoder using 30 logistic units for the code layer
+  + procedure
+    + first, training w/ a stack of RBMs
+    + then unrolling these RBMs by using the transposes of the weight matrices for the decoder
+    + last, fine-tuning w/ backpropagation
+  + fine-tuning stage
+    + adding noise to the inputs to the code units
+    + noise forcing their activities to become bimodal in order to resist the effects of the noise
+    + simply threshold the activities of the 30 code units to get a binary code
+  + easier to just use binary stochastic units in the code layer during training - Krizhevsky
+
++ [Semantic hashing](../ML/MLNN-Hinton/15-Hierarchy.md#154-semantic-hashing)
+  + deep autoencoder as hash-function
+    + task: finding approximate matches
+    + using autoencoder as a hash function to convert a document into a 30 bit address
+    + advantage: avoiding searching a big list but flipping a few bits in memory addresses
+    + a.k.a. supermarket search (see diagram)
+  + fast retrieval methods: working by intersecting stored lists that are associated w/ cues extracted from the query
+  + memory bus in computer hardware
+  + using machine learning to map the retrieval problem onto the type of list intersection the computer is good at
+
+## Image Retrieval with Autoencoders
+
++ [Binary codes for image retrieval](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + task: retrieval images by objects in images
+  + extracting a real-valued vector w/ information about the content
+  + storing short codes $\to$ easy to store and match
+
++ [A two-stage method](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + procedure
+    + using semantic hashing w/ 28-bit binary code to get a long "shortlist" of promising images
+    + using 256-binary codes to do a serial search for good matches
+  + 256-bit binary code
+    + is good enough?
+    + how to judge similarity?
+
++ [Krizhevsky's deep autoencoder](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + architecture (top left diagram)
+  + the encoder $\approx$ 67,000,000 parameters
+  + taking a few days on a GTX 285 GPU to train on two million images
+  + no theory to justify this architecture
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/39K9qaJ" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m15-13.png" style="margin: 0.1em;" alt="Network architecture for image encoding" title="Network architecture for image encoding" height=150>
+    </a>
+  </div>
+
++ [Improvement of deep autoencoder](../ML/MLNN-Hinton/15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
+  + task: making image retrieval more sensitive to object and less sensitive to pixel intensities
+  + procedure
+    + training a big net to recognize lots of different types of object in real image (Mod05)
+    + using the activity vector in the last hidden layer as the representation of the image
+  + verify w/ the net described in Mod 05, won the ImageNet competition
+  + only using the Euclidean distance btw the activity vector in the last hidden layer
+  + expectation: reducing these activity vector to short binary codes $\to$ a fast and effective way of retrieving similar images just by the contents of the image
 
 
 

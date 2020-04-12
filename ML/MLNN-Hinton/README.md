@@ -125,19 +125,20 @@
 
 ## 15. Hierarchical Structure with Neural Networks
 
-+ [From principal components analysis to autoencoders](15-Hierarchy.md#)
-+ [Deep Autoencoders](15-Hierarchy.md#)
-+ [Deep autoencoders for document retrieval and visualization](15-Hierarchy.md#)
-+ [Semantic hashing](15-Hierarchy.md#)
-+ [Learning binary codes for image retrieval](15-Hierarchy.md#)
-+ [Shallow autoencoders for pre-training](15-Hierarchy.md#)
++ [From principal components analysis to autoencoders](15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
++ [Deep Autoencoders](15-Hierarchy.md#152-deep-autoencoders)
++ [Deep autoencoders for document retrieval and visualization](15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
++ [Semantic hashing](15-Hierarchy.md#154-semantic-hashing)
++ [Learning binary codes for image retrieval](15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
++ [Shallow autoencoders for pre-training](15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
 
 
 ## 16. Deep Neural Networks
   
-+ [Learning a joint model of images and captions](16-DeepNN.md#)
-+ [Hierarchical coordinate frames](16-DeepNN.md#)
-+ [Bayesian optimization of neural network hyperparameters](16-DeepNN.md#)
++ [Learning a joint model of images and captions](16-DeepNN.md#161-learning-a-joint-model-of-images-and-captions)
++ [Hierarchical coordinate frames](16-DeepNN.md#162-hierarchical-coordinate-frames)
++ [Bayesian optimization of neural network hyperparameters](16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
++ [The fog of progress](16-DeepNN.md#164-the-fog-of-progress)
 
 
 ## Related Articles
@@ -174,7 +175,7 @@
   + [Chinmay Das](https://github.com/chinmaydas96/Neural-Networks-for-Machine-Learning)
   + [Chouffe](https://github.com/Chouffe/hinton-coursera)
   + [khanhnamle1994](https://github.com/khanhnamle1994/neural-nets)
-+ Harry Wechsler, [Neural Networks for Perception. Computation, Learning, and Architectures](http://93.174.95.29/main/1199000/8de6d2df3a95f9c5477b6d95f3e80a06/Harry%20Wechsler%20-%20Neural%20Networks%20for%20Perception.%20Computation%2C%20Learning%2C%20and%20Architectures-Elsevier%20Inc%2C%20Academic%20Press%20%281992%29.pdf), AP, 1992
++ Harry Wechsler, [Neural Networks for Perception. Computation, Learning, and Architectures](https://bit.ly/2RcSCTs), AP, 1992
 
 
 
