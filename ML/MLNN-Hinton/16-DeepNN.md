@@ -199,66 +199,88 @@
 
 ### Lecture Notes
 
-+ Learning hyperparameters
++ Learning hyper-parameters
+  + J. Snoek, H. Larochellel, and R. Adams, [Practical Bayesian Optimization of Machine Learning Algorithms](https://tinyurl.com/rgeervt), NIPS 2012
   + setting hyper-parameters
     + one of the commonest issues using neural networks
     + requiring a lot of skill to set hyper-parameters
+      + not much experience $\to$ easily stuck on using completely wrong value for one of the hyper-parameters
+      + wrong hyper-parameter $\to$ nothing work
     + common hyper-parameters
       +_number of layers
       + number of units per layers
       + type of unit
-      + weight penality
+      + weight penalty
       + learning rate
       + momentum, etc.
   + __Naive grid search__
     + making a list of alternative values for each hyper-parameter
     + trying all possible combinations
+    + possible several points along each axis w/ identical other parameters $\to$ similar results
     + Q: way to improve?
   + __Sampling random combinations__
     + much better if some hyper-parameters w/o effect
-    + a big wast to exactly repeat the settings of the other hyper-parametres
+    + a big waste to exactly repeat the settings of the other hyper-parametres
 
 + Machine learning to the rescue
-  + using the results instead of random combinations of values
-    + predict regions of hyper-parameter space probably w/ better results
+  + observing the results instead of random combinations of values of hyper-parameters
+    + predicting regions of hyper-parameter space probably w/ better results
     + requirements
       + predicting how well a new combinations will
       + modeling the uncertainty of the prediction
   + huge amount of computation in evaluating one setting of the hyper-parameters
-    + much more than the work involved in building a model
+    + involved training a big neural network on a huge data set
+    + building a model to predict how well a setting of hyper-parameter will do
+    + much less work by given all settings experimented w/ hyper-parameters
+    + requiring much less computation to fit the predicted model to the results of the experiments observed than running a single experiment
     + the model predicting the result from knowing previous results w/ different settings of the hyper-parameters
 
 + Gaussian process models
   + assumption: similar inputs giving similar outputs
     + a very weak but very sensible prior for the effects of hyper-parameters
+    + not much more sophisticated prior than that
+    + very good using that prior in an effective way
+    + prior work probably the best strategy to set hyper-parameters
   + learning the appropriate scale for measuring similarity on each input dimension
-    + is 200 similar to 30?
-    + observing the similarity of results w/ scaling
+    + the number of hidden units: 200 similar to 300?
+    + observing how similar the results w/ scaling
   + GP model
-    + doing much more than just predicting a single value
-    + predicting a Gaussian distribution of values
-  + test cases 
-    + close to several: consistent training cases $\to$ the predictions fairly sharp
+    + doing much more than just predicting the expected outcome of a particular experiment
+    + how well the neural network trained on a validation set
+    + in addition to predicting a mean value for how well thet expect the neural network to do
+    + predicting a Gaussian distribution of values, mean and variance
+  + test cases
+    + close to several consistent training cases run $\to$ the predictions fairly sharp = low variance
     + far from any training cases: the predictions w/ high variance
+  + strategy: a sensible way to decide what to try
+    + a model w/ a big neural network $\to$ long time to run
+    + using GP model as a different kind of model to experiment
+    + trying to predict for some proposed new setting of the hyper-parameters $\to$ how well the neural network to do and how uncertain that prediction is
+    + keep track of the best setting of hyper-parameters so far
+    + the last result is best $\implies$ experiment performing better or staying the same
+    + picking a setting of the hyper-parameters $\to$ the __expected improvement__ in our best setting is big
+    + not worrying about the downside
+  + experiment: three predictions for settings A, B and C
+    + A, B and C w/ different settings of the hyper-parameters but not yet been tried
+    + green curves: the predictions of the Gaussian process model for how well each setting will do
+    + A: mean < current best so far w/ moderate variance
+    + B: mean close to the best so far w/ small variance
+    + C: mean lower than setting B w/ high variance
+    + taking area above red line and the moment of that area about red line $\to$ maximum of 
+    + moments of C > B > A $\implies$ A the worse bet while C the best bet
 
-+ A sensible way to decide what to try
-  + keep track of the best setting so far
-  + the last result is best $\implies$ experiment performing better or staying the same
-  + picking a setting of the hyper-parameters $\to$ the __expected improvement__ in our best setting is big
-  + not worrying about the downside
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
-      <img src="img/m16-04.png" style="margin: 0.1em;" alt="Gaussina distribution with difference variance" title="Gaussina distribution with difference variance" height=200>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+        <img src="img/m16-04.png" style="margin: 0.1em;" alt="Gaussina distribution with difference variance" title="Gaussina distribution with difference variance" height=200>
+      </a>
+    </div>
 
 + Bayesian optimization
   + much better approach than finding good combinations of hyper-parameters
     + required resources to run a log of experiments
     + not the kind of task people good at
     + unable to keep in mind the results of 50 different experiments and see what they predict
-  + much less prone to doing 
+  + much less prone to doing
     + a good job for the method we preferred
     + a bad job for the method we are comparing with
     + people cannot help doing this
