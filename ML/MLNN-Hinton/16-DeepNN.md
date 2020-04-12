@@ -199,48 +199,48 @@
 
 ### Lecture Notes
 
-+ Learning hyper-parameters
++ Learning hyperparameters
   + J. Snoek, H. Larochellel, and R. Adams, [Practical Bayesian Optimization of Machine Learning Algorithms](https://tinyurl.com/rgeervt), NIPS 2012
-  + setting hyper-parameters
+  + setting hyperparameters
     + one of the commonest issues using neural networks
-    + requiring a lot of skill to set hyper-parameters
-      + not much experience $\to$ easily stuck on using completely wrong value for one of the hyper-parameters
-      + wrong hyper-parameter $\to$ nothing work
-    + common hyper-parameters
-      +_number of layers
+    + requiring a lot of skill to set hyperparameters
+      + not much experience $\to$ easily stuck on using completely wrong value for one of the hyperparameters
+      + wrong hyperparameter $\to$ nothing work
+    + common hyperparameters
+      + number of layers
       + number of units per layers
       + type of unit
       + weight penalty
       + learning rate
       + momentum, etc.
   + __Naive grid search__
-    + making a list of alternative values for each hyper-parameter
+    + making a list of alternative values for each hyperparameter
     + trying all possible combinations
-    + possible several points along each axis w/ identical other parameters $\to$ similar results
+    + possibly several points along each axis w/ identical other parameters $\to$ similar results
     + Q: way to improve?
   + __Sampling random combinations__
-    + much better if some hyper-parameters w/o effect
+    + much better if some hyperparameters w/o effect
     + a big waste to exactly repeat the settings of the other hyper-parametres
 
 + Machine learning to the rescue
-  + observing the results instead of random combinations of values of hyper-parameters
-    + predicting regions of hyper-parameter space probably w/ better results
+  + observing the results instead of random combinations of values of hyperparameters
+    + predicting regions of hyperparameter space probably w/ better results
     + requirements
       + predicting how well a new combinations will
       + modeling the uncertainty of the prediction
-  + huge amount of computation in evaluating one setting of the hyper-parameters
+  + huge amount of computation in evaluating one setting of the hyperparameters
     + involved training a big neural network on a huge data set
-    + building a model to predict how well a setting of hyper-parameter will do
-    + much less work by given all settings experimented w/ hyper-parameters
+    + building a model to predict how well a setting of hyperparameter will do
+    + much less work than experimenting all settings of hyperparameters
     + requiring much less computation to fit the predicted model to the results of the experiments observed than running a single experiment
-    + the model predicting the result from knowing previous results w/ different settings of the hyper-parameters
+    + the model predicting the result from knowing previous results w/ different settings of the hyperparameters
 
 + Gaussian process models
   + assumption: similar inputs giving similar outputs
-    + a very weak but very sensible prior for the effects of hyper-parameters
+    + a very weak but very sensible prior for the effects of hyperparameters
     + not much more sophisticated prior than that
     + very good using that prior in an effective way
-    + prior work probably the best strategy to set hyper-parameters
+    + prior work probably the best strategy to set hyperparameters
   + learning the appropriate scale for measuring similarity on each input dimension
     + the number of hidden units: 200 similar to 300?
     + observing how similar the results w/ scaling
@@ -255,13 +255,13 @@
   + strategy: a sensible way to decide what to try
     + a model w/ a big neural network $\to$ long time to run
     + using GP model as a different kind of model to experiment
-    + trying to predict for some proposed new setting of the hyper-parameters $\to$ how well the neural network to do and how uncertain that prediction is
-    + keep track of the best setting of hyper-parameters so far
+    + trying to predict for some proposed new settings of the hyperparameters $\to$ how well the neural network to do and how uncertain that prediction is
+    + keep track of the best setting of hyperparameters so far
     + the last result is best $\implies$ experiment performing better or staying the same
-    + picking a setting of the hyper-parameters $\to$ the __expected improvement__ in our best setting is big
+    + picking a setting of the hyperparameters $\to$ the __expected improvement__ in our best setting is big
     + not worrying about the downside
-  + experiment: three predictions for settings A, B and C
-    + A, B and C w/ different settings of the hyper-parameters but not yet been tried
+  + example: three predictions for settings A, B and C
+    + A, B and C w/ different settings of the hyperparameters but not yet been tried
     + green curves: the predictions of the Gaussian process model for how well each setting will do
     + A: mean < current best so far w/ moderate variance
     + B: mean close to the best so far w/ small variance
@@ -275,9 +275,9 @@
       </a>
     </div>
 
-+ Bayesian optimization
-  + much better approach than finding good combinations of hyper-parameters
-    + required resources to run a log of experiments
++ Evaluating Bayesian optimization
+  + much better approach than finding good combinations of hyperparameters
+    + required resources to run a lot of experiments
     + not the kind of task people good at
     + unable to keep in mind the results of 50 different experiments and see what they predict
   + much less prone to doing
