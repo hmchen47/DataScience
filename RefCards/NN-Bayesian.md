@@ -172,3 +172,169 @@
     + possible w/ lots of parameters
 
 
+## Joint Model of Images and Captions
+
++ [Modeling the joint density of images and captions](../ML/MLNN-Hinton/16-DeepNN.md#161-learning-a-joint-model-of-images-and-captions)
+  + goal: to build a joint density model of captions and standard computer vision feature vectors extracted from real photographs
+  + procedure:
+    + training a multilayer model of images
+    + training a separated multilayer model of word-count vectors from the captions
+    + adding a new top layer connected to the top layers of both individual models
+  + using a deep Boltzmann machine (DBM)
+    + further joint training of the whole DBM allows each modality to improve the earlier layers of the other modality $\to$ using a DBM
+    + able to use a DBM and done generative fine-tuning w/ contrastive wake-sleep
+    + fine-tuning algorithm probably working better for DBM
+  + effect of pre-training on the hidden layers of the DBM
+    + standard pre-training on a composite model w/ RBM $\to$ not DBM
+    + combining a stack of RBM $\to$ a deep belief network
+
++ [Combining 3 RBMs to make a DBM](../ML/MLNN-Hinton/16-DeepNN.md#161-learning-a-joint-model-of-images-and-captions)
+  + combining a stack of pre-trained RBMs $\to$ DBM
+  + network architecture (see diagram)
+    + the top and bottom RBMs pre-trained w/ the weights in one direction twice as big as in the other direction
+    + the middle layers: geometric model averaging
+    + combining these RBMs to a composite model
+      + RBMs in the middle simply halved its weights
+      + bottom RBM weights:  halved the up-going weights = the down-poing weights
+      + top RBM weights: halved the down-going weights = the top-going weights
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="img/m16-01.png" style="margin: 0.1em;" alt="Combining RBMs to a DBM" title="Combining RBMs to a DBM" width=250>
+    </a>
+  </div>
+
+
+
+## Hierarchical Coordinate Frames
+
++ [Approaches to recognizing objects](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + deep convolutional neural network
+  + parts based approach
+  + existing features used for computer vision to
+    + extract from images
+    + make histograms
+    + use a lot of hand enginerring
+
++ [Disadvantages of convolutional neural networks](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + pooling the activities of a bunch of replicated feature detectors $\to$ losing the position of the feature detector
+  + pooling
+    + losing the precise spatial relationship btw higher-level parts such as a nose and a mouth
+    + precise spatial relationships required for identity recognition
+    + partial solution: overlapping the pools
+  + only translations to replicated features detectors
+  + approach w/ convolutional neural networks
+    + training viewpoints on transformed data
+    + huge training sets w/ orientations, scales and lighting $\to$ coping w/ the variations
+    + clumsy way to dealing w/ variantions
+
++ [The hierarchical coordinate frame approach](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + a group of neurons to represent the conjunction of
+    + the shape of a feature: neurons telling features of objects, such as nose and mouth
+    + the pose relative to the retina
+  + recognizing larger features by using the consistency of the poses of their parts
+
++ [Two layers in a hierarchy of parts](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + a higher level visual entity
+    + several level visual entities agreeing on their predictions for its pose
+    + inverse computer graphics
+  + network model
+    + $T_j$: a collection of neurons $\to$ recognizing the pose of the whole face
+    + $p_j$: a single logistic neuron to representing whether or not a face there
+    + recognizing the face by noticing that those two representations make consistent predictions
+    + $T_iT_{ij} \approx T_hT_{hj} \implies$ the nose and the mouth w/ righ spatial relationship
+  + inverse computer graphics
+    + knowing the pose of the face $\implies$ computed by using inverse of $T_{ij}$; same as nose
+    + computer graphics: from poses of larger things to poses of their parts
+    + computer vision: from the poses of the parts to the poses of the larger things
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m16-03.png" style="margin: 0.1em;" alt="Hierarchical model for different parts" title="Hierarchical model for different parts" width=400>
+    </a>
+  </div>
+
++ [A crucial property of the pose vectors](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + property: modeling spatial transformation w/ linear operations
+    + easier to learn a hierarchy of visual entities
+    + easier to generalize across viewpoints
+  + issue: small changes in viewpoint $\to$ the pose vectors of neural activities changed
+  + invariant geometric properties of a shape
+    + invariant in the weights, not in the activities
+    + equivariant activities
+      + varying the pose of the object $\implies$ varying activities
+      + goal: getting neural activities equivariant = the pose of the object varying the activities of the neurons vary = the percept of an object not its label but its appearance
+    + changing the viewpoint $\implies$ changing the percept of an object
+
++ [Imposing coordinate frames in order to represent shapes](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + evidence of visual systems to represent shapes
+  + What country is this? Hint: Sarah Palin (left diagram)
+  + the square and the diamond: very different percepts $\to$ different properties
+  + representing shapes $\to$ imposing coordinate frames on them
+
+
+
+## Bayesian Optimization for Hyperparameters
+
++ [Learning hyperparameters](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + setting hyperparameters
+    + one of the commonest issues using neural networks
+    + requiring a lot of skill to set hyperparameters
+    + common hyperparameters
+      + number of layers
+      + number of units per layers
+      + type of unit
+      + weight penalty
+      + learning rate
+      + momentum, etc.
+  + __Naive grid search__
+  + __Sampling random combinations__
+
++ [Machine learning to the rescue](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + observing the results instead of random combinations of values of hyperparameters
+    + predicting regions of hyperparameter space probably w/ better results
+    + requirements
+      + predicting how well a new combinations will
+      + modeling the uncertainty of the prediction
+  + huge amount of computation in evaluating one setting of the hyperparameters
+
++ [Gaussian process models](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + assumption: similar inputs giving similar outputs
+    + a very weak but very sensible prior for the effects of hyperparameters
+    + very good using that prior in an effective way
+    + prior work probably the best strategy to set hyperparameters
+  + learning the appropriate scale for measuring similarity on each input dimension
+  + GP model
+    + doing much more than just predicting the expected outcome of a particular experiment
+    + in addition to predicting a mean value for how well thet expect the neural network to do
+    + predicting a Gaussian distribution of values, mean and variance
+  + test cases
+    + close to several consistent training cases run $\to$ the predictions fairly sharp = low variance
+    + far from any training cases: the predictions w/ high variance
+  + strategy: a sensible way to decide what to try
+    + using GP model as a different kind of model to experiment
+    + trying to predict for some proposed new settings of the hyperparameters $\to$ how well the neural network to do and how uncertain that prediction is
+    + keep track of the best setting of hyperparameters so far
+    + the last result is best $\implies$ experiment performing better or staying the same
+    + picking a setting of the hyperparameters $\to$ the __expected improvement__ in our best setting is big
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+        <img src="img/m16-04.png" style="margin: 0.1em;" alt="Gaussina distribution with difference variance" title="Gaussina distribution with difference variance" height=200>
+      </a>
+    </div>
+
++ [Evaluating Bayesian optimization](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + much better approach than finding good combinations of hyperparameters
+    + required resources to run a lot of experiments
+    + not the kind of task people good at
+    + unable to keep in mind the results of 50 different experiments and see what they predict
+  + much less prone to doing
+    + a good job for the method we preferred
+    + a bad job for the method we are comparing with
+    + people cannot help doing this
+    + people try much harder for their own methods because they know it ought to work better
+
+
+
+

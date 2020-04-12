@@ -421,6 +421,20 @@
   + Wiki, [Vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
   + Quora, [https://www.quora.com/What-is-the-vanishing-gradient-problem](https://www.quora.com/What-is-the-vanishing-gradient-problem)
 
++ [Fast approximations](../ML/MLNN-Hinton/14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
+  + Rectified Linear unit (ReLU): approximation of multiple sigmoid functions (see diagram)
+
+    \[ \langle y \rangle = \sum_{n=1}^{\infty} \sigma(x+0.5-n) \approx \log(1+e^x) \approx \max(0, x+noise) \]
+
+  + contrastice divergence learning working well for the sum of stochastic logistic units w/ offset biases
+  + $\sigma(y)$: the noise variance
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2JpLNti" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m14-14.png" style="margin: 0.1em;" alt="Approximation from multiple sigmoid to ReLU" title="Approximation from multiple sigmoid to ReLU" height=120>
+    </a>
+  </div>
+
 
 ### Pooling Layers
 

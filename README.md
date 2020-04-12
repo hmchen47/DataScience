@@ -611,11 +611,17 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#pre-initialization"> Pre-initilaization </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#family-tree-multiclass-learning"> Family Tree </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#speech-recognition"> Speech Recognition </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#a-unified-architecture-for-natural-language-processing"> Architecture for NLP </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#joint-model-of-images-and-captions"> Joint Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#hierarchical-coordinate-frames"> Coordinate Frames </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#bayesian-optimization-for-hyperparameters"> Hyperparasmeter </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
@@ -638,71 +644,71 @@
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Convolutional Neural Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#object-recognition-and-classification"> Issues </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#solutions-for-viewpoint-invariance"> Viewpoint Invariance </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#replicated-feature-approach"> Replicated Features </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#transfer-learning"> Transfer Learning </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#object-recognition-and-classification"> Issues </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#solutions-for-viewpoint-invariance"> Viewpoint Invariance </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#replicated-feature-approach"> Replicated Features </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#transfer-learning"> Transfer Learning </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hyperparameters </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#stride-and-padding"> Stride & Padding </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#relu-rectified-linear-units-layers"> ReLU </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#pooling-layers"> Pooling </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#dropout-layers"> Dropout </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#stride-and-padding"> Stride & Padding </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#relu-rectified-linear-units-layers"> ReLU </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#pooling-layers"> Pooling </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#dropout-layers"> Dropout </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#network-in-network-layers"> Network in Network </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#network-in-network-layers"> Network in Network </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Other Models </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015"> Region Based </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#generative-adversarial-networks-2014"> GAN </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#generating-image-descriptions-2014"> Generating Image Description </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#vald-mnih-icml-2012---finding-roads"> Finding Roads (2012) </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#region-based-cnns-r-cnn---2013-fast-r-cnn---2015-faster-r-cnn---2015"> Region Based </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#generative-adversarial-networks-2014"> GAN </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#generating-image-descriptions-2014"> Generating Image Description </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#vald-mnih-icml-2012---finding-roads"> Finding Roads (2012) </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hand-written Recognition</th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#le-net-yann-lecun--collaborators"> Le Net </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#brute-force-approach-for-hand-written-recognition"> Brute Force </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#measurement-for-hand-written-recognition"> Measurement </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#spatial-transformer-networks-2015"> Spatiasl Transform </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#le-net-yann-lecun--collaborators"> Le Net </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#brute-force-approach-for-hand-written-recognition"> Brute Force </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#measurement-for-hand-written-recognition"> Measurement </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#spatial-transformer-networks-2015"> Spatiasl Transform </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Object Classification</th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#problem-space-and-analogy"> Problem Space </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#modeling-for-the-cnn-for-object-classification"> Modeling </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#training-the-cnn-for-object-classification"> Training </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#training-the-cnn-for-object-classification"> Testing </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#problem-space-and-analogy"> Problem Space </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#modeling-for-the-cnn-for-object-classification"> Modeling </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#training-the-cnn-for-object-classification"> Training </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#training-the-cnn-for-object-classification"> Testing </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Object Recognition </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#overview-of-object-recognition"> Overview </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#alexnet-2012"> AlexNet (2012) </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#zf-net-2013"> ZF net (2013) </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#vgg-net-2014"> VGG Net (2014) </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#overview-of-object-recognition"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#alexnet-2012"> AlexNet (2012) </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#zf-net-2013"> ZF net (2013) </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#vgg-net-2014"> VGG Net (2014) </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#googlenet-2015"> GoogLeNet (2015) </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#googlenet-2015"> GoogLeNet (2015) </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-CNN.md#">  </a> </td>
   </tr>
 
   <!--
@@ -776,7 +782,13 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#collaborative-filtering"> Collaborative Filtering </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-HopNet_BM.md#">  </a> </td>
@@ -784,21 +796,22 @@
   </tr>
 
   <!--
-  Belief/Bayesian Networks
+  Belief / Bayesian Networks
   -->
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Belief/Bayesian Networks </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Belief / Bayesian Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Belief </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#sigmoid-belief-networks"> Sigmoid </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#explaining-away-effects"> Explaining Away </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#factorial-distribution"> Factorial </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Bayesian </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#overview"> Modeling </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#weight-decay"> Weight Decay </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#full-bayesian-learning"> Full </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Learning </th>
@@ -808,14 +821,39 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Deep Belief Nets </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#deep-belief-networks-and-rbms"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#contrastive-wake-sleep-algorithm"> Contrastive </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#discriminative-fine-tune"> Fine-Tune </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#modeling-real-valued-data"> Real-Valued Data </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#infinite-sigmoid-belief-net--rbm"> Infinite Sigmoid Belief </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Autoencoder </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#pre-training-and-autoencoder"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#autoencoder-and-principal-components-analysis"> PCA </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#deep-autoencoder"> Deep Nets </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#document-retrieval-with-autoencoders"> Document Retrieval </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#image-retrieval-with-autoencoders"> Image Retrieval </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#">  </a> </td>
