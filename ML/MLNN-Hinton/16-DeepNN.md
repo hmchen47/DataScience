@@ -301,7 +301,7 @@
 + Unable to predict the long-term future
   + considering driving at night
   + the number of photons received from the tail-lights of the car in front falls off $1/d^2$
-  + suppose $\exits\;$ fog, received photons
+  + suppose $\exists\;$ fog, received photons
     + small distances: $\propto 1/d^2$
     + big distances: $\propto \exp(-d)$
       + fog absorbed a certain fraction of of the photons per unit distance
