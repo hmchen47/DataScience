@@ -60,6 +60,8 @@ Thumbs.db
 __pycache__/
 octave-workspace
 token.mat
+.vscode/
+.fuse*
 
 
 

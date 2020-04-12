@@ -1292,7 +1292,7 @@ from nltk.collocations import TrigramAssocMeasures
 | `trigram_score_fn(n_iii, (n_iix, n_ixi, n_xii), (n_ixx, n_xix, n_xxi), n_xxx)` | associate measure | [Semantic][587] |
 
 
-## Toic Modeling
+## Topic Modeling
 
 ### Import Files
 
