@@ -274,6 +274,67 @@
 
 
 
+## Bayesian Optimization for Hyperparameters
+
++ [Learning hyperparameters](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + setting hyperparameters
+    + one of the commonest issues using neural networks
+    + requiring a lot of skill to set hyperparameters
+    + common hyperparameters
+      + number of layers
+      + number of units per layers
+      + type of unit
+      + weight penalty
+      + learning rate
+      + momentum, etc.
+  + __Naive grid search__
+  + __Sampling random combinations__
+
++ [Machine learning to the rescue](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + observing the results instead of random combinations of values of hyperparameters
+    + predicting regions of hyperparameter space probably w/ better results
+    + requirements
+      + predicting how well a new combinations will
+      + modeling the uncertainty of the prediction
+  + huge amount of computation in evaluating one setting of the hyperparameters
+
++ [Gaussian process models](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + assumption: similar inputs giving similar outputs
+    + a very weak but very sensible prior for the effects of hyperparameters
+    + very good using that prior in an effective way
+    + prior work probably the best strategy to set hyperparameters
+  + learning the appropriate scale for measuring similarity on each input dimension
+  + GP model
+    + doing much more than just predicting the expected outcome of a particular experiment
+    + in addition to predicting a mean value for how well thet expect the neural network to do
+    + predicting a Gaussian distribution of values, mean and variance
+  + test cases
+    + close to several consistent training cases run $\to$ the predictions fairly sharp = low variance
+    + far from any training cases: the predictions w/ high variance
+  + strategy: a sensible way to decide what to try
+    + using GP model as a different kind of model to experiment
+    + trying to predict for some proposed new settings of the hyperparameters $\to$ how well the neural network to do and how uncertain that prediction is
+    + keep track of the best setting of hyperparameters so far
+    + the last result is best $\implies$ experiment performing better or staying the same
+    + picking a setting of the hyperparameters $\to$ the __expected improvement__ in our best setting is big
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+        <img src="img/m16-04.png" style="margin: 0.1em;" alt="Gaussina distribution with difference variance" title="Gaussina distribution with difference variance" height=200>
+      </a>
+    </div>
+
++ [Evaluating Bayesian optimization](../ML/MLNN-Hinton/16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
+  + much better approach than finding good combinations of hyperparameters
+    + required resources to run a lot of experiments
+    + not the kind of task people good at
+    + unable to keep in mind the results of 50 different experiments and see what they predict
+  + much less prone to doing
+    + a good job for the method we preferred
+    + a bad job for the method we are comparing with
+    + people cannot help doing this
+    + people try much harder for their own methods because they know it ought to work better
+
 
 
 
