@@ -611,11 +611,17 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#pre-initialization"> Pre-initilaization </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Applications </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#family-tree-multiclass-learning"> Family Tree </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#speech-recognition"> Speech Recognition </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#a-unified-architecture-for-natural-language-processing"> Architecture for NLP </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NeuralNets.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#joint-model-of-images-and-captions"> Joint Model </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#hierarchical-coordinate-frames"> Coordinate Frames </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#bayesian-optimization-for-hyperparameters"> Hyperparasmeter </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/RNN.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
@@ -790,15 +796,22 @@
   </tr>
 
   <!--
-  Belief/Bayesian Networks
+  Belief / Bayesian Networks
   -->
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Belief/Bayesian Networks </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Belief / Bayesian Networks </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Belief </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#sigmoid-belief-networks"> Sigmoid </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#explaining-away-effects"> Explaining Away </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Belief.md#factorial-distribution"> Factorial </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Bayesian </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#overview"> Modeling </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#weight-decay"> Weight Decay </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#full-bayesian-learning"> Full </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Bayesian.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Learning </th>

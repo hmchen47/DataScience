@@ -125,4 +125,5 @@
 + G. E. Hinton*, R. R. Salakhutdinov, [Reducing the Dimensionality of Data with Neural Networks](https://bit.ly/2xbMHXZ), Science, 28 Jul 2006
 + P. Vincent, H. Larochelle, Y. Bengio, and P. Manzagol, [Extracting and composing robust features with denoising autoencoders](https://bit.ly/2USqMy4), ICML '08: Proceedings of the 25th international conference on Machine learning, 2008
 + S. Rifai, P. Vincent, X. Muller, X. Glorot, and Y. Bengio, [Contractive Auto-Encoders: Explicit Invariance During Feature Extraction](https://bit.ly/2K2WXVr), ICML 2011
-
++ N. Srivastava and R. Salakhutdinov, [Multimodal Learning with Deep Boltzmann Machines](https://tinyurl.com/wzsknt8), NIPS 2012
++ J. Snoek, H. Larochellel, and R. Adams, [Practical Bayesian Optimization of Machine Learning Algorithms](https://tinyurl.com/rgeervt), NIPS 2012

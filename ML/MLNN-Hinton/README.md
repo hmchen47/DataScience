@@ -135,9 +135,10 @@
 
 ## 16. Deep Neural Networks
   
-+ [Learning a joint model of images and captions](16-DeepNN.md#)
-+ [Hierarchical coordinate frames](16-DeepNN.md#)
-+ [Bayesian optimization of neural network hyperparameters](16-DeepNN.md#)
++ [Learning a joint model of images and captions](16-DeepNN.md#161-learning-a-joint-model-of-images-and-captions)
++ [Hierarchical coordinate frames](16-DeepNN.md#162-hierarchical-coordinate-frames)
++ [Bayesian optimization of neural network hyperparameters](16-DeepNN.md#163-bayesian-optimization-of-neural-network-hyperparameters)
++ [The fog of progress](16-DeepNN.md#164-the-fog-of-progress)
 
 
 ## Related Articles
