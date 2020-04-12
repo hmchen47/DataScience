@@ -1,4 +1,4 @@
-# Belief/Bayesian Networks
+# Belief / Bayesian Networks
 
 ## Overview
 
@@ -282,7 +282,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=150>
+      <img src="../ML/MLNN-Hinton/img/m14-04.png" style="margin: 0.1em;" alt="DBN used for modeling the joint distribution of MNIST digits" title="DBN used for modeling the joint distribution of MNIST digits" width=150>
     </a>
   </div>
 
@@ -298,8 +298,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequential" title="Flow diagram for unsupervised pre-training: sequential" height=130>
-      <img src="img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
+      <img src="../ML/MLNN-Hinton/img/m14-10a.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: sequential" title="Flow diagram for unsupervised pre-training: sequential" height=130>
+      <img src="../ML/MLNN-Hinton/img/m14-10b.png" style="margin: 0.1em;" alt="Flow diagram for unsupervised pre-training: parallel" title="Flow diagram for unsupervised pre-training: parallel" height=130>
     </a>
   </div>
 
@@ -442,7 +442,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/2JpLNti" ismap target="_blank">
-      <img src="img/m14-17.png" style="margin: 0.1em;" alt="Architecture of learning a deep directed network" title="Architecture of learning a deep directed network" width=150>
+      <img src="../ML/MLNN-Hinton/img/m14-17.png" style="margin: 0.1em;" alt="Architecture of learning a deep directed network" title="Architecture of learning a deep directed network" width=150>
       <img src="../ML/MLNN-Hinton/img/m14-18.png" style="margin: 0.1em;" alt="Architecture to tied all weights together" title="Architecture to tied all weights together" width=150>
       <img src="../ML/MLNN-Hinton/img/m14-15.png" style="margin: 0.1em;" alt="Infinite sigmoid belief net and RBM" title="Infinite sigmoid belief net and RBM" width=150>
       <img src="../ML/MLNN-Hinton/img/m14-19a.png" style="margin: 0.1em;" alt="Equivalent RBM network" title="Equivalent RBM network" width=150>
