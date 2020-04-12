@@ -298,9 +298,26 @@
 
 ### Lecture Notes
 
++ Unable to predict the long-term future
+  + considering driving at night
+  + the number of photons received from the tail-lights of the car in front falls off $1/d^2$
+  + suppose $\exits\;$ fog, received photons
+    + small distances: $\propto 1/d^2$
+    + big distances: $\propto \exp(-d)$
+      + fog absorbed a certain fraction of of the photons per unit distance
+  + front car completely invisible at a distance 
+    + at which the short-range $1/d^2$ model predicts it will very visible
+    + this kill people
 
-
-
++ The effect of exponential progress
+  + short term effect
+    + things changing slowly
+    + easy to predict progress
+    + e.g., able to make quite good guesses about what features in the next iPhone
+  + longer run $\to$ perception of future hitting wall, like fog
+  + long-term future of machine learning and neural networks
+    + a total mystery
+    + highly probable big, deep neural networks doing amazing things in the next 5 years (2012)
 
 
 ### Lecture Video
