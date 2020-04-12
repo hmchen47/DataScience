@@ -206,4 +206,74 @@
 
 
 
+## Hierarchical Coordinate Frames
+
++ [Approaches to recognizing objects](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + deep convolutional neural network
+  + parts based approach
+  + existing features used for computer vision to
+    + extract from images
+    + make histograms
+    + use a lot of hand enginerring
+
++ [Disadvantages of convolutional neural networks](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + pooling the activities of a bunch of replicated feature detectors $\to$ losing the position of the feature detector
+  + pooling
+    + losing the precise spatial relationship btw higher-level parts such as a nose and a mouth
+    + precise spatial relationships required for identity recognition
+    + partial solution: overlapping the pools
+  + only translations to replicated features detectors
+  + approach w/ convolutional neural networks
+    + training viewpoints on transformed data
+    + huge training sets w/ orientations, scales and lighting $\to$ coping w/ the variations
+    + clumsy way to dealing w/ variantions
+
++ [The hierarchical coordinate frame approach](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + a group of neurons to represent the conjunction of
+    + the shape of a feature: neurons telling features of objects, such as nose and mouth
+    + the pose relative to the retina
+  + recognizing larger features by using the consistency of the poses of their parts
+
++ [Two layers in a hierarchy of parts](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + a higher level visual entity
+    + several level visual entities agreeing on their predictions for its pose
+    + inverse computer graphics
+  + network model
+    + $T_j$: a collection of neurons $\to$ recognizing the pose of the whole face
+    + $p_j$: a single logistic neuron to representing whether or not a face there
+    + recognizing the face by noticing that those two representations make consistent predictions
+    + $T_iT_{ij} \approx T_hT_{hj} \implies$ the nose and the mouth w/ righ spatial relationship
+  + inverse computer graphics
+    + knowing the pose of the face $\implies$ computed by using inverse of $T_{ij}$; same as nose
+    + computer graphics: from poses of larger things to poses of their parts
+    + computer vision: from the poses of the parts to the poses of the larger things
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="../ML/MLNN-Hinton/img/m16-03.png" style="margin: 0.1em;" alt="Hierarchical model for different parts" title="Hierarchical model for different parts" width=400>
+    </a>
+  </div>
+
++ [A crucial property of the pose vectors](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + property: modeling spatial transformation w/ linear operations
+    + easier to learn a hierarchy of visual entities
+    + easier to generalize across viewpoints
+  + issue: small changes in viewpoint $\to$ the pose vectors of neural activities changed
+  + invariant geometric properties of a shape
+    + invariant in the weights, not in the activities
+    + equivariant activities
+      + varying the pose of the object $\implies$ varying activities
+      + goal: getting neural activities equivariant = the pose of the object varying the activities of the neurons vary = the percept of an object not its label but its appearance
+    + changing the viewpoint $\implies$ changing the percept of an object
+
++ [Imposing coordinate frames in order to represent shapes](../ML/MLNN-Hinton/16-DeepNN.md#162-hierarchical-coordinate-frames)
+  + evidence of visual systems to represent shapes
+  + What country is this? Hint: Sarah Palin (left diagram)
+  + the square and the diamond: very different percepts $\to$ different properties
+  + representing shapes $\to$ imposing coordinate frames on them
+
+
+
+
+
 
