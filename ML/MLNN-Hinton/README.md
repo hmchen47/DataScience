@@ -116,11 +116,11 @@
 
 ## 14. Deep Belief Networks and Restricted Boltzmann Machine
   
-+ [Learning layers of features by stacking RBMs](14-DBNsRBM.md#)
-+ [Discriminative fine-tuning for DBNs](14-DBNsRBM.md#)
-+ [What happens during discriminative fine-tuning?](14-DBNsRBM.md#)
-+ [Modeling real-valued data with an RBM](14-DBNsRBM.md#)
-+ [RBMs are infinite sigmoid belief nets](14-DBNsRBM.md#)
++ [Learning layers of features by stacking RBMs](14-DBNsRBM.md#141-learning-layers-of-features-by-stacking-rbms)
++ [Discriminative fine-tuning for DBNs](14-DBNsRBM.md#142-discriminative-fine-tuning-for-dbns)
++ [What happens during discriminative fine-tuning?](14-DBNsRBM.md#143-what-happens-during-discriminative-fine-tuning)
++ [Modeling real-valued data with an RBM](14-DBNsRBM.md#144-modeling-real-valued-data-with-an-rbm)
++ [RBMs are infinite sigmoid belief nets](14-DBNsRBM.md#145-rbms-are-infinite-sigmoid-belief-nets)
 
 
 ## 15. Hierarchical Structure with Neural Networks
