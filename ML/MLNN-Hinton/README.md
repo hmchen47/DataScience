@@ -125,12 +125,12 @@
 
 ## 15. Hierarchical Structure with Neural Networks
 
-+ [From principal components analysis to autoencoders](15-Hierarchy.md#)
-+ [Deep Autoencoders](15-Hierarchy.md#)
-+ [Deep autoencoders for document retrieval and visualization](15-Hierarchy.md#)
-+ [Semantic hashing](15-Hierarchy.md#)
-+ [Learning binary codes for image retrieval](15-Hierarchy.md#)
-+ [Shallow autoencoders for pre-training](15-Hierarchy.md#)
++ [From principal components analysis to autoencoders](15-Hierarchy.md#151-from-principal-components-analysis-to-autoencoders)
++ [Deep Autoencoders](15-Hierarchy.md#152-deep-autoencoders)
++ [Deep autoencoders for document retrieval and visualization](15-Hierarchy.md#153-deep-autoencoders-for-document-retrieval-and-visualization)
++ [Semantic hashing](15-Hierarchy.md#154-semantic-hashing)
++ [Learning binary codes for image retrieval](15-Hierarchy.md#155-learning-binary-codes-for-image-retrieval)
++ [Shallow autoencoders for pre-training](15-Hierarchy.md#156-shallow-autoencoders-for-pre-training)
 
 
 ## 16. Deep Neural Networks
