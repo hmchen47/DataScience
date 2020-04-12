@@ -108,10 +108,10 @@
 
 ## 13. Deep Belief Nets
 
-+ [The ups and downs of backpropagation](13-BeliefNets.md#)
-+ [Belief nets](13-BeliefNets.md#)
-+ [Learning Sigmoid Belief Nets](13-BeliefNets.md#)
-+ [The wake-sleep algorithm](13-BeliefNets.md#)
++ [The ups and downs of backpropagation](13-BeliefNets.md#131-the-ups-and-downs-of-backpropagation)
++ [Belief nets](13-BeliefNets.md#132-belief-networks)
++ [Learning Sigmoid Belief Nets](13-BeliefNets.md#133-learning-sigmoid-belief-nets)
++ [The wake-sleep algorithm](13-BeliefNets.md#134-the-wake-sleep-algorithm)
 
 
 ## 14. Generative Adversarial Networks (GANs)
