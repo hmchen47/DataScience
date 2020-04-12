@@ -199,9 +199,70 @@
 
 ### Lecture Notes
 
++ Learning hyperparameters
+  + setting hyper-parameters
+    + one of the commonest issues using neural networks
+    + requiring a lot of skill to set hyper-parameters
+    + common hyper-parameters
+      +_number of layers
+      + number of units per layers
+      + type of unit
+      + weight penality
+      + learning rate
+      + momentum, etc.
+  + __Naive grid search__
+    + making a list of alternative values for each hyper-parameter
+    + trying all possible combinations
+    + Q: way to improve?
+  + __Sampling random combinations__
+    + much better if some hyper-parameters w/o effect
+    + a big wast to exactly repeat the settings of the other hyper-parametres
 
++ Machine learning to the rescue
+  + using the results instead of random combinations of values
+    + predict regions of hyper-parameter space probably w/ better results
+    + requirements
+      + predicting how well a new combinations will
+      + modeling the uncertainty of the prediction
+  + huge amount of computation in evaluating one setting of the hyper-parameters
+    + much more than the work involved in building a model
+    + the model predicting the result from knowing previous results w/ different settings of the hyper-parameters
 
++ Gaussian process models
+  + assumption: similar inputs giving similar outputs
+    + a very weak but very sensible prior for the effects of hyper-parameters
+  + learning the appropriate scale for measuring similarity on each input dimension
+    + is 200 similar to 30?
+    + observing the similarity of results w/ scaling
+  + GP model
+    + doing much more than just predicting a single value
+    + predicting a Gaussian distribution of values
+  + test cases 
+    + close to several: consistent training cases $\to$ the predictions fairly sharp
+    + far from any training cases: the predictions w/ high variance
 
++ A sensible way to decide what to try
+  + keep track of the best setting so far
+  + the last result is best $\implies$ experiment performing better or staying the same
+  + picking a setting of the hyper-parameters $\to$ the __expected improvement__ in our best setting is big
+  + not worrying about the downside
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/u3whuvf" ismap target="_blank">
+      <img src="img/m16-04.png" style="margin: 0.1em;" alt="Gaussina distribution with difference variance" title="Gaussina distribution with difference variance" height=200>
+    </a>
+  </div>
+
++ Bayesian optimization
+  + much better approach than finding good combinations of hyper-parameters
+    + required resources to run a log of experiments
+    + not the kind of task people good at
+    + unable to keep in mind the results of 50 different experiments and see what they predict
+  + much less prone to doing 
+    + a good job for the method we preferred
+    + a bad job for the method we are comparing with
+    + people cannot help doing this
+    + people try much harder for their own methods because they know it ought to work better
 
 
 ### Lecture Video
