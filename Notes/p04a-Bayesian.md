@@ -39,11 +39,10 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Frequentist approach for interval estimate
   + $\exists\; X_1, \dots, X_n \sim N(\theta, 1)$
-  + confidence interval
+  + probability statement about the random interval $C$: confidence interval
 
     \[ C = \left[\overline{X}_n - \frac{1.96}{\sqrt{n}},\; \overline{X}_n + \frac{1.96}{\sqrt{n}}\right] \quad \implies \quad \mathbb{P}_\theta(\theta \in C) = 0.95 \quad \forall\;  \theta \in \mathbb{R} \]
 
-  + probability statement about the random interval $C$
   + interval: a function of the data $\to$ random
   + parameter $\theta$: fixed, unknown quantity
   + statement: $C$ will trap the true value w/ probability 0.95
@@ -57,12 +56,10 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + finding the interval $C_j$ traps the parameters $\theta_j$, 95 percent of time
   + more precisely
 
-    \[ \mathop{\lim\inf}_{n \to \infty} \frac{1}{n} \sum_{i=1}^n I(\theta_i \in C_i) \geq 0.95 \tag{1} \]
-
-    $\forall\; \theta_1, \theta_2, \dots$
+    \[ \mathop{\lim\inf}_{n \to \infty} \frac{1}{n} \sum_{i=1}^n I(\theta_i \in C_i) \geq 0.95 \quad \forall\; \theta_1, \theta_2, \dots \tag{1} \]
 
 + Bayesian approach for interval estimate
-  + unknown parameter $\theta \sim$ prior distribution $\pi{\theta}$ representing ones subjective beliefs about $\theta$
+  + unknown parameter $\theta \sim$ prior distribution $\pi(\theta)$ representing ones subjective beliefs about $\theta$
   + observing the data $X_1, \dots, X_n$, the posterior distribution for $\theta$ given the data using Bayes theorem
 
     \[ \pi(\theta | X_1, \dots, X_n) \propto \mathcal{L}(\theta) \pi(\theta) \tag{2} \]
@@ -92,7 +89,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \mathbb{P}(\theta \in C | X_1, \dots, X_N) = 1 - \alpha \]
 
-+ Faviors of Bayesian inference
++ Favors of Bayesian inference
   + subjective Bayesian: probability strictly as personal degrees of belief
   + objective Bayesian: finding prior distributions that formally express ignorance w/ the hope that the resulting posterior is , in some sense, objective
   + empirical Bayesian: estimating the prior distribution from the data
