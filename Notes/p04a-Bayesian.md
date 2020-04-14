@@ -56,9 +56,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   
 
 
-
-
-
 ## 12.1 What is Bayesian Inference?
 
 + Approaches to statistical machine learning
@@ -147,7 +144,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.2 Basic Concepts
 
-
++ Notations and Assumptions
+  + $X_1, \dots, X_n$: $n$ observations sampled from a probability density $p(x, \theta)$
+  + $p(x|\that)$:
+    + $\theta$ as a random variable
+    + representing the conditional probability density of $X$ conditioned on $\theta$
+  + $p_\theta (x)$: $theta$ as a deterministic value
 
 
 ### 12.2.1 The Mechanics of Bayesian Inference
