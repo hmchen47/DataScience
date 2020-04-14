@@ -10,6 +10,55 @@ Year: 2014
 Related Course: [36-708 Statistical Methods for Machine Learning](http://www.stat.cmu.edu/~larry/=sml/)
 
 
+## 12.0 Mathematical Tools
+
++ [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
+  + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_{++} \to \mathbb{R}$
+
+    \[ B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x+y)} \]
+
+    where $\Gamma(\;)$ is the Gamma function
+  + Integral btw zero and infinity
+
+    \[ B(x, y)  = \int_0^\infty t^{x-1} (1+t)^{-x-y} dt \]
+
+  + Integral btw zero and one
+
+    \[ B(x, y) = \int_0^1 t^{x-1} (1-t)^{y-1} dt \]
+
+  + Incomplete Beta function: replacing upper bound of integration ($t = 1$) w/ a variable ($t = z \leq 1$)
+
+    \[ B(z, x, y) = \int_0^z t^{x-1} (1 - t)^{y-1} dt \]
+
+
++ [Dirichlet distribution](https://stephens999.github.io/fiveMinuteStats/dirichlet.html)
+  + a generalization of the Beta distribution
+    + 2-dim Dirichlet distribution = the Beta distribution
+    + let $q = (q_1,, q_2)$, and $q \sim Dirichlet(\alpha_1, \alpha_2) \implies$
+
+      \[ q_1 \sim Beta(\alpha_1, \alpha_2)\quad\text{and}\quad q_2 = 1 - q_1 \]
+
+  + more generally, the marginals of the Dirichlet distribution are also beta distribution.
+
+    \[ q \sim Dirichlet(\alpha_1, \dots. \alpha_J) \;\implies\; q_i \sim Beta(\alpha_j,\; \sum_{i \neq j} \alpha_i) \]
+
+  + the density of the Dirichlet distribution in the most convenient way
+
+    \[ p(q|\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^J q_j^{\alpha_j - 1} \qquad (q_j \geq 0; \quad \sum_j q_j = 1) \]
+
+    + performing standard (Lebesgue) integration of this density over the $J$-sim space $(q_q, \dots, q_J)$, the density integrates to 0, not 12 as a density should
+    + cause: constraints that the $q$s must sum to 1 $\implies$ the Dirichlet distribution is effectively a $J-1$-dim distribution and not $J$-dim distribution
+  + density function satisfying the constraint
+    + let the $J$-sim Dirichlet distribution as a distribution on the $J-1$ numbers $(q_1, \dots, q_{J-1})$, satisfying $\sum_{j=1}^{J-1} q_j \leq 1$, and define $q_J := (1 - q_1 - q_2 - \cdots - q_{J-1})$
+    + the density of the $J$-dim Dirichlet distribution
+
+      \[ p(q_1, \dots, q_{J-1}|\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^{J-1} q_j^{\alpha_j - 1} (1 - q_1 - q_2 - \cdots - q_{j_1})^{\alpha_J} \\ \qquad\qquad\qquad\qquad (q_j \geq 0; \quad \sum_{j=1}^{J-1} q_j \leq 1) \]
+  
+
+
+
+
+
 ## 12.1 What is Bayesian Inference?
 
 + Approaches to statistical machine learning
