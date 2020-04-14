@@ -30,6 +30,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ B(z, x, y) = \int_0^z t^{x-1} (1 - t)^{y-1} dt \]
 
+  + the mean of Beta distribution $Beta(a, b)$: $a / (a+b)$
+
 
 + [Dirichlet distribution](https://stephens999.github.io/fiveMinuteStats/dirichlet.html)
   + a generalization of the Beta distribution
@@ -146,7 +148,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Notations and Assumptions
   + $X_1, \dots, X_n$: $n$ observations sampled from a probability density $p(x, \theta)$
-  + $p(x|\that)$:
+  + $p(x|\theta)$:
     + $\theta$ as a random variable
     + representing the conditional probability density of $X$ conditioned on $\theta$
   + $p_\theta (x)$: $theta$ as a deterministic value
@@ -154,6 +156,82 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.2.1 The Mechanics of Bayesian Inference
 
++ Bayesian procedure
+  + choose the prior distribution
+    + a probability density $\pi(\theta)$
+    + expressing out beliefs about a parameter $\theta$ before observing any data
+  + choose a statistical mode $p(x|\theta)$ to reflect our beliefs about $x$ given $\theta$
+  + observe data $\mathcal(D) = \{X_1, \dots, X_n\}$, and then update our beliefs and calculate the posterior distribution $p(\theta|\mathcal{D})$
+
++ Bayesian approach
+  + the posterior distribution
+
+    \[ p(\theta | X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n| \theta) \pi((\theta))}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
+
+    + $\mathcal{L}(\theta) = \prod_{i=1}^n p(X_i | \theta)$: the likelihood function
+    + the normalizing constant, a.k.a. the evidence
+
+      \[ c_n = p(X_1, \dots, X_n) = \int p(X_1, \dots, X_n | \theta) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
+
+  + Bayesian point estimate
+    + getting a Bayesian mean or mode by summing the center of the posterior $\to$ typically using the mean or mode of the posterior distribution
+    + the posterior mean
+
+      \[ \overline{\theta} = \int \theta p(\theta | \mathcal{D}) d\theta = \frac{\int \theta \mathcal{L}_n \pi(\theta) d\theta}{\int \mathcal{L} \pi(\theta) d\theta} \]
+
+  + Bayesian interval estimate
+    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \to$
+
+      \[ \int_{-\infty}^a p(\theta | \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta | \mathcal{D}_n) d\theta = \alpha/2 \]
+
+    + let $C = (a, b)$,
+
+      \[ \mathbb{P}(\theta \in C | \mathcal{D}_n) = \int_b^a p(\theta | \mathcal{D}_n) d\theta = 1 - \alpha \]
+
+    + $C$: a $1-\alpha$ Bayesian posterior interval or _credible interval_
+    + _credible region_: $\theta$ w/ multi-dimensional
+
++ Prior uniform distribution
+  + $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$
+  + prior distribution: uniform distribution as $\pi(\theta) = 1$
+  + the posterior distribution
+
+    \[\begin{align*} 
+      p(\theta|\mathcal{D}_n) & \propto \pi(\theta) \mathcal{L}_n(\theta) = \theta^{S_n} (1-\theta)^{n - S_n} = \theta^{S_n+1-1} (1-\theta)^{n - S_n +1 -1} \\\\
+       &= \frac{\Gamma(n+2)}{\Gamma(S_n + 1) \Gamma(n-S_n+1)} \theta^{(S_n+1)-1} (1-\theta)^{(n-S_n+1)-1} \qquad \bigg(Beta(S_n+1, n-S_n+1)\bigg) \\\\
+       \theta|\mathcal{D}_n &\sim Beta(S_n+1, n-S_n +1)
+    \end{align*}\]
+
+    + $S_n = \sum_{i=1}^n X_i$: the number of success
+  + the Bayesian posterior point estimator
+
+    \[ \overline{\theta} = \frac{S_n + 1}{n+2} = \lambda_n \hat{\theta} + (1 - \lambda) \tilde{\theta} \]
+
+    + $\hat{\theta} = S_n / n$: the maximum likelihood estimate
+    + $\tilde{\theta} = 1/2$: the prior mean
+    + $\lambda_n = n/(n+2) \approx 1$
+  + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta|\mathcal{D}_n) d\theta = .95$
+
++ Prior Beta distribution
+  + the prior distribution: $\theta \sim Beta(\alpha, \beta)$
+  + the posterior distribution: $\theta | \mathcal{D}_n \sim Beta(\alpha + S_n, \beta + n - S_n)$
+  + the flat (uniform) prior: $\alpha = \beta = 1$
+  + the posterior mean: prior mean = $\theta_0 = \alpha/(alpha+\beta)$
+
+    \[ \overline{\theta} = \frac{\alpha + S_n}{\alpha + \beta + n} = \left(\frac{n}{\alpha+\beta+n}\right) \hat{\theta} + \left(\frac{\alpha+\beta}{\alpha+\beta+n} \theta_0 \right) \]
+  + example
+    + assumptions:
+      + Bernoulli model: $n = 15, \theta = 0.4$
+      + sample size: $s = 7$
+    + maximum likelihood estimate: $\hat{\theta}(\theta) = 7/15 = 0.47$
+    + left plot: prior w/ $Beta(4, 6) \to$ posterior mode = 0.43
+    + right plot: prior w/ $Beta(4, 2) \to$ posterior mode = 0.67
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-01.png" style="margin: 0.1em;" alt="Illustration of Bayesian inference on Bernoulli data with two priors. The three curves are prior distribution (red-solid), likelihood function (blue-dashed), and the posterior distribution (black-dashed). The true parameter value theta = 0.4 is indicated by the vertical line." title="Illustration of Bayesian inference on Bernoulli data with two priors. The three curves are prior distribution (red-solid), likelihood function (blue-dashed), and the posterior distribution (black-dashed). The true parameter value theta = 0.4 is indicated by the vertical line." width=550>
+      </a>
+    </div>
 
 
 
