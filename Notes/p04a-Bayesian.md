@@ -292,6 +292,34 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       </a>
     </div>
 
++ Conjugate prior
+  + observed data: $\exists\; X \sim N(\theta, \sigma^2),\; \mathcal{D}_n = \{X_1, \dots, X_n\}$ w/ known $\sigma$
+  + task: $\theta \in \mathbb{R}$
+  + prior: $\theta \sim N(a, b^2)$
+  + sample mean: $\overline{X} = \sum_{i=1}^n X_i/n$
+  + the posterior for $\theta$
+
+    \[\begin{align*}
+      \theta \,|\, \mathcal{D}_n & \sim N(\overline{\theta}, \, \tau^2) \tag{4} \\\\
+      \overline{\theta} = w\hat{\theta} + (1 - w), \quad \hat{\theta} = \overline{X}, &\quad w = \frac{\frac{1}{se^2}}{\frac{1}{se^2} + \frac{1}{b^2}}, \quad \frac{1}{\tau^2} = \frac{1}{se^2} + \frac{1}{b^2}
+    \end{align*}\]
+
+    + $se = \sigma/\sqrt{n}$: the standard error of the maximum likelihood estimate $\hat{\theta}$
+    + $n \to \infty \implies w \to 1 \text{ and } \tau/se \to 1$
+    + fixed $n, b \to \infty \implies$ flat prior
+  + task: find posterior interval = find $C = (c, d) to \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = 0.95$
+  + $\exists\; c$ and $d \to \mathbb{P(\theta < c \,|\, \mathcal{D}_n) = 0.025$
+  + find $ c \to$
+
+    \[ \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = \mathbb{P} \left( \frac{\theta - \overline{\theta}}{\tau} < \frac{c - \overline{\theta}}{\tau}\right) = \mathbb{P}\left( Z < \frac{c - \overline{\theta}}{\tau} \right) = 0.025 \]
+
+    where $Z \sim N(0, 1)$: a standard Gaussian random variable
+
+    \[ \mathbb{P}(Z < -1.96) = 0.025) \to \frac{c - \overline{\theta}}{\tau} = -1.96  \implies c = \overline{\theta} - 1.96\tau \]
+
+  + similarly, $d = \overline{\theta} = 1.96 \tau$
+  + 95% Bayesian credible interval $\overline{\theta} \pm 1.96 \tau$
+  + $n \gg 1 \to \overline{\theta} \approx \hat{\theta}, \; \tau \approx se \implies$ the 95% Bayesian credible interval approximated by $\hat{\theta} \pm 1.96 se$
 
 
 
