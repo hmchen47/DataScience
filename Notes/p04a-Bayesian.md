@@ -13,7 +13,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ## 12.0 Mathematical Tools
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
-  + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_{++} \to \mathbb{R}$
+  + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_+ \to \mathbb{R}$
 
     \[ B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x+y)} \]
 
@@ -46,7 +46,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + the density of the Dirichlet distribution in the most convenient way
 
-    \[ p(q|\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^J q_j^{\alpha_j - 1} \qquad (q_j \geq 0; \quad \sum_j q_j = 1) \]
+    \[ p(q\,|\,\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^J q_j^{\alpha_j - 1} \qquad (q_j \geq 0; \quad \sum_j q_j = 1) \]
 
     + performing standard (Lebesgue) integration of this density over the $J$-sim space $(q_q, \dots, q_J)$, the density integrates to 0, not 12 as a density should
     + cause: constraints that the $q$s must sum to 1 $\implies$ the Dirichlet distribution is effectively a $J-1$-dim distribution and not $J$-dim distribution
@@ -54,7 +54,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + let the $J$-sim Dirichlet distribution as a distribution on the $J-1$ numbers $(q_1, \dots, q_{J-1})$, satisfying $\sum_{j=1}^{J-1} q_j \leq 1$, and define $q_J := (1 - q_1 - q_2 - \cdots - q_{J-1})$
     + the density of the $J$-dim Dirichlet distribution
 
-      \[ p(q_1, \dots, q_{J-1}|\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^{J-1} q_j^{\alpha_j - 1} (1 - q_1 - q_2 - \cdots - q_{j_1})^{\alpha_J} \\ \qquad\qquad\qquad\qquad (q_j \geq 0; \quad \sum_{j=1}^{J-1} q_j \leq 1) \]
+      \[ p(q_1, \dots, q_{J-1}\,|\,\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^{J-1} q_j^{\alpha_j - 1} (1 - q_1 - q_2 - \cdots - q_{j_1})^{\alpha_J} \\ \qquad\qquad\qquad\qquad (q_j \geq 0; \quad \sum_{j=1}^{J-1} q_j \leq 1) \]
   
 
 
@@ -110,16 +110,16 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + unknown parameter $\theta \sim$ prior distribution $\pi(\theta)$ representing ones subjective beliefs about $\theta$
   + observing the data $X_1, \dots, X_n$, the posterior distribution for $\theta$ given the data using Bayes theorem
 
-    \[ \pi(\theta | X_1, \dots, X_n) \propto \mathcal{L}(\theta) \pi(\theta) \tag{2} \]
+    \[ \pi(\theta \,|\, X_1, \dots, X_n) \propto \mathcal{L}(\theta) \pi(\theta) \tag{2} \]
 
   + $\mathcal{L}(\theta)$: the likelihood function
   + finding an interval $C \to$
 
-    \[ \int_C \pi(\theta | X_1, \dots, X_n) d\theta = 0.95 \]
+    \[ \int_C \pi(\theta \,|\, X_1, \dots, X_n) d\theta = 0.95 \]
 
   + the degree-of-belief probability statement about $\theta$ given the data
 
-    \[ \mathbb{P}(\theta \in C | X_1, \dots, X_n) = 0.95 \]
+    \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_n) = 0.95 \]
 
   + repeating the experiment many times $\to$ the intervals not trapping the true value 95 percent of the time
 
@@ -135,7 +135,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + a method for stating and updating beliefs
     + probability to $\theta$: Bayesian confidence interval $C$ satisfies
 
-      \[ \mathbb{P}(\theta \in C | X_1, \dots, X_N) = 1 - \alpha \]
+      \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_N) = 1 - \alpha \]
 
 + Favors of Bayesian inference
   + subjective Bayesian: probability strictly as personal degrees of belief
@@ -148,7 +148,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Notations and Assumptions
   + $X_1, \dots, X_n$: $n$ observations sampled from a probability density $p(x, \theta)$
-  + $p(x|\theta)$:
+  + $p(x\,|\,\theta)$:
     + $\theta$ as a random variable
     + representing the conditional probability density of $X$ conditioned on $\theta$
   + $p_\theta (x)$: $theta$ as a deterministic value
@@ -160,33 +160,33 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + choose the prior distribution
     + a probability density $\pi(\theta)$
     + expressing out beliefs about a parameter $\theta$ before observing any data
-  + choose a statistical mode $p(x|\theta)$ to reflect our beliefs about $x$ given $\theta$
-  + observe data $\mathcal(D) = \{X_1, \dots, X_n\}$, and then update our beliefs and calculate the posterior distribution $p(\theta|\mathcal{D})$
+  + choose a statistical mode $p(x\,|\,\theta)$ to reflect our beliefs about $x$ given $\theta$
+  + observe data $\mathcal(D) = \{X_1, \dots, X_n\}$, and then update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D})$
 
 + Bayesian approach
   + the posterior distribution
 
-    \[ p(\theta | X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n| \theta) \pi((\theta))}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
+    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi((\theta))}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
 
-    + $\mathcal{L}(\theta) = \prod_{i=1}^n p(X_i | \theta)$: the likelihood function
+    + $\mathcal{L}(\theta) = \prod_{i=1}^n p(X_i \,|\, \theta)$: the likelihood function
     + the normalizing constant, a.k.a. the evidence
 
-      \[ c_n = p(X_1, \dots, X_n) = \int p(X_1, \dots, X_n | \theta) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
+      \[ c_n = p(X_1, \dots, X_n) = \int p(X_1, \dots, X_n \,|\, \theta) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
 
   + Bayesian point estimate
     + getting a Bayesian mean or mode by summing the center of the posterior $\to$ typically using the mean or mode of the posterior distribution
     + the posterior mean
 
-      \[ \overline{\theta} = \int \theta p(\theta | \mathcal{D}) d\theta = \frac{\int \theta \mathcal{L}_n \pi(\theta) d\theta}{\int \mathcal{L} \pi(\theta) d\theta} \]
+      \[ \overline{\theta} = \int \theta p(\theta \,|\, \mathcal{D}) d\theta = \frac{\int \theta \mathcal{L}_n \pi(\theta) d\theta}{\int \mathcal{L} \pi(\theta) d\theta} \]
 
   + Bayesian interval estimate
     + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \to$
 
-      \[ \int_{-\infty}^a p(\theta | \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta | \mathcal{D}_n) d\theta = \alpha/2 \]
+      \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
 
     + let $C = (a, b)$,
 
-      \[ \mathbb{P}(\theta \in C | \mathcal{D}_n) = \int_b^a p(\theta | \mathcal{D}_n) d\theta = 1 - \alpha \]
+      \[ \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = \int_b^a p(\theta \,|\, \mathcal{D}_n) d\theta = 1 - \alpha \]
 
     + $C$: a $1-\alpha$ Bayesian posterior interval or _credible interval_
     + _credible region_: $\theta$ w/ multi-dimensional
@@ -197,9 +197,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the posterior distribution
 
     \[\begin{align*} 
-      p(\theta|\mathcal{D}_n) & \propto \pi(\theta) \mathcal{L}_n(\theta) = \theta^{S_n} (1-\theta)^{n - S_n} = \theta^{S_n+1-1} (1-\theta)^{n - S_n +1 -1} \\\\
+      p(\theta\,|\,\mathcal{D}_n) & \propto \pi(\theta) \mathcal{L}_n(\theta) = \theta^{S_n} (1-\theta)^{n - S_n} = \theta^{S_n+1-1} (1-\theta)^{n - S_n +1 -1} \\\\
        &= \frac{\Gamma(n+2)}{\Gamma(S_n + 1) \Gamma(n-S_n+1)} \theta^{(S_n+1)-1} (1-\theta)^{(n-S_n+1)-1} \qquad \bigg(Beta(S_n+1, n-S_n+1)\bigg) \\\\
-       \theta|\mathcal{D}_n &\sim Beta(S_n+1, n-S_n +1)
+       \theta\,|\,\mathcal{D}_n &\sim Beta(S_n+1, n-S_n +1)
     \end{align*}\]
 
     + $S_n = \sum_{i=1}^n X_i$: the number of success
@@ -210,11 +210,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + $\hat{\theta} = S_n / n$: the maximum likelihood estimate
     + $\tilde{\theta} = 1/2$: the prior mean
     + $\lambda_n = n/(n+2) \approx 1$
-  + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta|\mathcal{D}_n) d\theta = .95$
+  + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta\,|\,\mathcal{D}_n) d\theta = .95$
 
 + Prior Beta distribution
   + the prior distribution: $\theta \sim Beta(\alpha, \beta)$
-  + the posterior distribution: $\theta | \mathcal{D}_n \sim Beta(\alpha + S_n, \beta + n - S_n)$
+  + the posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(\alpha + S_n, \beta + n - S_n)$
   + the flat (uniform) prior: $\alpha = \beta = 1$
   + the posterior mean: prior mean = $\theta_0 = \alpha/(alpha+\beta)$
 
@@ -229,9 +229,69 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
-        <img src="img/p04-01.png" style="margin: 0.1em;" alt="Illustration of Bayesian inference on Bernoulli data with two priors. The three curves are prior distribution (red-solid), likelihood function (blue-dashed), and the posterior distribution (black-dashed). The true parameter value theta = 0.4 is indicated by the vertical line." title="Illustration of Bayesian inference on Bernoulli data with two priors. The three curves are prior distribution (red-solid), likelihood function (blue-dashed), and the posterior distribution (black-dashed). The true parameter value theta = 0.4 is indicated by the vertical line." width=550>
+        <img src="img/p04-01.png" style="margin: 0.1em;" alt="Illustration of Bayesian inference on Bernoulli data with two priors. The three curves are prior distribution (red-solid), likelihood function (blue-dashed), and the posterior distribution (black-dashed). The true parameter value theta = 0.4 is indicated by the vertical line." title="Illustration of Bayesian inference on Bernoulli data with two priors. The three curves are prior distribution (red-solid), likelihood function (blue-dashed), and the posterior distribution (black-dashed). The true parameter value theta = 0.4 is indicated by the vertical line." width=400>
       </a>
     </div>
+
++ Dirichlet prior distribution
+  + the multinomial model w/ a Dirichlet prior
+    + a generalization of the Bernoulli model and Beta prior
+    + $\exists\; \mathbf{X} \sim Multinomial(n, \mathbf{\theta})$
+    + $\mathbf{\theta} = (\theta_1, \dots, \theta_K)^T, \; (K > 1)$: a $K$-dim parameter
+  + the Dirichlet distribution for $K$ outcomes
+    + the exponential family distribution on the $K-1$ dimensional probability simplex
+    + probability simplex defined as
+
+      \[ \Delta_k = \{\mathbf{\theta} = (\theta)_1, \dots, \theta_K^T \in \mathbb{R}^K | \theta_i \geq 0\; \forall i, \sum_{i=1}^K \theta_i = 1 \} \]
+
+    + the probability density of Dirichlet distribution
+
+      \[ \pi_{\mathbf{\alpha}}(\mathbf{\theta}) = \frac{\Gamma(\sum_{j=1}^K \alpha_j)}{\prod_{j=1}^K \Gamma(\alpha_j)} \prod_{j=1}^K \theta_j^{\alpha_j -1} \]
+
+      + $\mathbf{\alpha} = (\alpha_1, \dots, \alpha_K)^T \in \mathbb{R}_+^K$: a non-negative vector of scaling coefficients; the parameters of the model
+  + the sample space of the multinomial w/ $K$ outcomes as the set of vertices of the $K$-dim hypercube $\mathbb{H}_K$, mad up of vectors w/ exactly only one 1 and remaining element 0
+
+    \[ x = \underbrace{(0, 0, \dots, 00, 1, 0, \dots, 0)^T}_{\text{K places}} \]
+
+  + $\exists\; \mathbf{X}_i = (X_{i1}, \dots, X_{iK})^T \in \mathbb{H}_K$,
+  
+    \[ \theta \sim Dirichlet(\mathbf{\alpha}) \text{ and } $\mathbf{X}_i \,|\, \theta \sim Multinomial(\mathbf{\theta}) \]
+
+    $\implies$ the posterior satisfies
+
+    \[ p(\mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) \propto \mathcal{L}(\theta)\pi(\theta) \propto \prod_{i=1}^n \prod_{j=1}^K \theta_j^{X_{ij}} \prod_{j=1}^K \theta_j^{\alpha_j - 1} = \prod_{j=1}^K \theta_j^{\sum_{i=1}^n X_{ij}+\alpha_j-1} \]
+
+  + the posterior distribution w/ $\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i / n \in \Delta_K$
+
+    \[ \mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim Dirichlet(\alpha+ n \overline{\mathbf{X}})\]
+
+  + the mean of a Dirichlet distribution $\pi_\alpha (\mathbf{\alpha})$
+
+    \[ \mathbb{E}(\mathbf{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
+
+  + the posterior mean of a multinomial w/ Dirichlet prior
+
+    \[ \mathbb{E}(\theta \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) = \left(\frac{\alpha_1 + \sum_{i=1}^n X_{i1}}{\sum_{i=1}^K \alpha_j + n}, \dots, \frac{\alpha_K + \sum_{i=1}^n X_{iK}}{\sum_{i=1}^K \alpha_j + n} \right)^T \]
+
+  + the posterior mean viewed as smoothing out the maximum likelihood estimated by allocating some additional probability mass to low frequency observation
+  + the parameters $\alpha_1, \dots, \alpha_K$ act as "virtual counts" that don't actually appear in the observed data
+  + prior conjugate w.r.t. the mode: the prior as Dirichlet distribution $\to$ the posterior as Dirichlet distribution
+  + example
+    + prior distribution $\sim Dirichlet(6, 6, 6)$
+    + observed data size: $n = 20 \text{ and } 200$
+    + parameter: $\mathbf{\theta} = (0.2, 0.3, 0.5)^T$
+    + the contours of the prior, likelihood, and posteriors are plotted on a two-dimensional probability simplex (Starting from the bottom left vertex of each triangle, clock-wisely the three vertices correspond to $\theta_1, \theta_2, \theta_3$)
+    + number of the observed data
+      + small $\to$ the posterior affected by both the prior and the likelihood
+      + large $\to$ the posterior mainly dominated by the likelihood
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-02a.png" style="margin: 0.1em;" alt="Illustration of Bayesian inference on multinomial data with the prior Dirichlet(6, 6, 6)" title="Illustration of Bayesian inference on multinomial data with the prior Dirichlet(6, 6, 6)" height=150>
+        <img src="img/p04-02b.png" style="margin: 0.1em;" alt="Illustration of Bayesian inference on multinomial data with the prior Dirichlet(6, 6, 6)" title="Illustration of Bayesian inference on multinomial data with the prior Dirichlet(6, 6, 6)" height=150>
+      </a>
+    </div>
+
 
 
 
