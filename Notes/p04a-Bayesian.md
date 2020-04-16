@@ -345,30 +345,27 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.3 Inference about Functions of Parameters
 
 + Bayesian inference about a function
-  + $\exists\, \tau = g(\theta)$ a function
+  + $\exists\; \tau = g(\theta)$ a function
   + the posterior CDF for $\tau$ w/ a given $A = \{\theta: g(\theta) \leq t\}$
 
-    \[ H(\tau \,|\, \mathcal{D}_n) = \mathbb{P}(g(\theta) \leq t \,|\, \mathcal{D}_n) = \int_A p(\theta \,|\, \mathcal{D}_n) \,d\theta \]
+    \[ H(t \,|\, \mathcal{D}_n) = \mathbb{P}(g(\theta) \leq t \,|\, \mathcal{D}_n) = \int_A p(\theta \,|\, \mathcal{D}_n) \,d\theta \]
 
   + the posterior density $p(\tau \,|\, \mathcal{D}_n) = H'(\tau \,|\, \mathcal{D}_n)$
 
-+ Uniform-Bernoulli likelihood model for function of parameters
++ Uniform-Bernoulli likelihood model w/ logarithm of odds ratio
   + likelihood: $X \sim Bernoulli(\theta)$
   + prior distribution: $\pi(\theta) = 1$
   + posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(S_n+1, \,n - S_n + 1)\;\;$ w/ $S_n = \sum_{i=1}^n X_i$
-  + let $\psi = \log(\theta/(1 - \theta))$, the poster CDF for $t$
+  + let $\psi = \log(\theta/(1 - \theta))$, the posterior CDF for $\psi$
 
     \[\begin{align*}
-      H(t \,|\, \mathcal{D}_n) &= \mathbb{P}(\psi \leq \tau \,|\, \mathcal{D}_n) = \mathbb{P}\left( \log(\frac{\theta}{1 - \theta}) \leq t \,|\, \mathcal{D}_n \right)  \\\\
+      H(t \,|\, \mathcal{D}_n) &= \mathbb{P}(\psi \leq t \,|\, \mathcal{D}_n) = \mathbb{P}\left( \log(\frac{\theta}{1 - \theta}) \leq t \,|\, \mathcal{D}_n \right)  \\\\
       &= \int_0^{e^t/(1+e^t)} p(\theta \,|\, \mathcal{D}_n) \,d\theta =\frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \int_0^{e^t/(1-e^t)} \theta^{S_n} (1-\theta)^{n - S_n} \,d\theta
     \end{align*}\]
   
   + the poster density w/ $\psi \in \mathbb{R}$
 
-    \[ p(\psi \,|\, \mathcal{D}_n) = H'(\psi \,|\, \mathcal{D}_n) = \frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \left(\frac{w^\psi}{1+e^\psi}\right)^{S_n} \left(\frac{1}{1+e^\psi}\right)^{n-S_n+2} \]
-
-
-
+    \[ p(\psi \,|\, \mathcal{D}_n) = H'(\psi \,|\, \mathcal{D}_n) = \frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \left(\frac{w^\psi}{1+e^\psi}\right)^{S_n+1} \left(\frac{1}{1+e^\psi}\right)^{n-S_n+1} \]
 
 
 ### 12.2.4 Multiparameter Problems
