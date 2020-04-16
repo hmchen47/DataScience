@@ -372,34 +372,34 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Extracting inferences about one single parameters
   + observed data (likelihood): $\mathcal{D}_n = \{X_1, \dots, X_n \}$
-  + prior distribution: $\pi(\mathbf{\theta}),\; \mathbf{\theta) = (\theta_1, \dots, \theta_d)^T$
-  + posterior density
+  + prior distribution: $\pi(\mathbf{\theta}),\; \mathbf{\theta} = (\theta_1, \dots, \theta_d)^T$
+  + the marginal posterior for $\theta_1$
 
     \[ p(\mathbf{\theta} \,|\, \mathcal{D}_n) = \int \cdots \int p(\theta_1, \dots, \theta_d \,|\, \mathcal{D}_n) \, d\theta_2 \cdots d\theta_d \]
 
   + probably not feasible to do the integral
-  + Sol: simulation by drawing randomly from the posterior
+  + Solution: simulation by drawing randomly from the posterior
 
     \[ \mathbf{\theta}^1, \dots, \mathbf{\theta}^B \sim p(\mathbf{\theta} \,|\, \mathcal{D}_n) \]
 
     + the superscript index: different draw
-    + $\mathbf{\theta} = (\theta_1^j, \dots, \theta_d^j)^T$
-    + the first component of each draw: $\theta_1^1, \dots, \theta_1^B$
+    + $\mathbf{\theta}^j = (\theta_1^j, \dots, \theta_d^j)^T$
+  + the first component of each draw: $\theta_1^1, \dots, \theta_1^B$
   + a sample from $p(\theta_1 \,|\, \mathcal{D}_n) \to$ avoided doing any integrals
-  + sampling $B$ data from a multi-variate distribution $p(\mathbf{\theta} \,|\, \mathcal{D}_n) to$ challenging especially w/ large dimensionality $d$
+  + sampling $B$ data from a multivariate distribution $p(\mathbf{\theta} \,|\, \mathcal{D}_n) \to$ challenging especially w/ large dimensionality $d$
 
 + Comparing two binomials
-  + $n_1$ control patients and $n_2$ treatment patients
+  + control patients = $n_1$, treatment patients = $n_2$
   + $X_1$: the number of survived patients in the control group
   + $X_2$: the number of survived patients in the treatment group
   + Binomial model
 
-    \[ X_1 \sim Ninomial(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim Binomial(n_2, \theta_2) \]
+    \[ X_1 \sim Binomial(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim Binomial(n_2, \theta_2) \]
 
-  + task: estimate $\tau = g(\theta_1, \theta_2) = \theta_1 - \theta_2$
+  + task: estimate $\tau = g(\theta_1, \theta_2) = \theta_2 - \theta_1$
   + $\pi(\theta_1, \theta_2) = 1 \implies$ the posterior
 
-    \[ p(\theta_1, \theta_2 \,|\, X_1, X_2) &\propto \theta_1^{X_1} (1-\theta_1)^{n_1 - X_1} \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \]
+    \[ p(\theta_1, \theta_2 \,|\, X_1, X_2) \propto \theta_1^{X_1} (1-\theta_1)^{n_1 - X_1} \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \]
 
   + $(\theta_1, \theta_2)$ as rectangle $\implies$ $\theta_1$ and $\theta_2$ independent under the posterior
 
