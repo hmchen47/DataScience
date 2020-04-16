@@ -328,8 +328,18 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.2.2 Bayesian Prediction
 
++ Bayesian predictive distribution
+  + $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + task: to predict the distribution of a future data point $X$ conditioned on $\mathcal{D}_n$
+  + the predictive distribution
 
+    \[\begin{align*}
+      p(x \,|\, \mathcal{D}_n) &= \int p(x, \theta \,|\, \mathcal{D}_n) \,d\theta  = \int p(x \,|\, \theta, \mathcal{D}_n)\, p(\theta \,|\, \mathcal{D}_n) \,d\theta  \\\\
+       &= \int p(x \,|\, \theta) \, p(\theta \,|\, \mathcal{D}_N) \,d\theta \hspace{3em} (\text{conditional independent})
+    \end{align*}\]
 
+  + the predictive distribution viewed as a weighted average of the model $p(x \,|\, \theta)$
+  + he weights determined by the posterior distribution of $\theta$
 
 
 ### 12.2.3 Inference about Functions of Parameters
