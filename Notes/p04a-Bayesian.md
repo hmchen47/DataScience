@@ -36,7 +36,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 + [Dirichlet distribution](https://stephens999.github.io/fiveMinuteStats/dirichlet.html)
   + a generalization of the Beta distribution
     + 2-dim Dirichlet distribution = the Beta distribution
-    + let $q = (q_1,, q_2)$, and $q \sim Dirichlet(\alpha_1, \alpha_2) \implies$
+    + let $q = (q_1, q_2)$, and $q \sim Dirichlet(\alpha_1, \alpha_2) \implies$
 
       \[ q_1 \sim Beta(\alpha_1, \alpha_2)\quad\text{and}\quad q_2 = 1 - q_1 \]
 
@@ -48,14 +48,28 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ p(q\,|\,\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^J q_j^{\alpha_j - 1} \qquad (q_j \geq 0; \quad \sum_j q_j = 1) \]
 
-    + performing standard (Lebesgue) integration of this density over the $J$-sim space $(q_q, \dots, q_J)$, the density integrates to 0, not 12 as a density should
+    + performing standard (Lebesgue) integration of this density over the $J$-dim space $(q_q, \dots, q_J)$, the density integrates to 0, not 12 as a density should
     + cause: constraints that the $q$s must sum to 1 $\implies$ the Dirichlet distribution is effectively a $J-1$-dim distribution and not $J$-dim distribution
   + density function satisfying the constraint
-    + let the $J$-sim Dirichlet distribution as a distribution on the $J-1$ numbers $(q_1, \dots, q_{J-1})$, satisfying $\sum_{j=1}^{J-1} q_j \leq 1$, and define $q_J := (1 - q_1 - q_2 - \cdots - q_{J-1})$
+    + let the $J$-dim Dirichlet distribution as a distribution on the $J-1$ numbers $(q_1, \dots, q_{J-1})$, satisfying $\sum_{j=1}^{J-1} q_j \leq 1$, and define $q_J := (1 - q_1 - q_2 - \cdots - q_{J-1})$
     + the density of the $J$-dim Dirichlet distribution
 
-      \[ p(q_1, \dots, q_{J-1}\,|\,\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^{J-1} q_j^{\alpha_j - 1} (1 - q_1 - q_2 - \cdots - q_{j_1})^{\alpha_J} \\ \qquad\qquad\qquad\qquad (q_j \geq 0; \quad \sum_{j=1}^{J-1} q_j \leq 1) \]
-  
+      \[ p(q_1, \dots, q_{J-1}\,|\,\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^{J-1} q_j^{\alpha_j - 1} (1 - q_1 - q_2 - \cdots - q_{J-1})^{\alpha_J} \\ \hspace{15em} \left(q_j \geq 0; \quad \sum_{j=1}^{J-1} q_j \leq 1\right) \]
+
++ The Dirichlet distribution for $K$ outcomes
+  + the exponential family distribution on the $K-1$ dimensional probability simplex
+  + the parameters of the model: $\mathbf{\alpha} = (\alpha_1, \dots, \alpha_K)^T \in \mathbb{R}_+^K$, a non-negative vector of scaling coefficients
+  + probability simplex defined as
+
+    \[ \Delta_k = \left\{\mathbf{\theta} = (\theta_1, \dots, \theta_K)^T \in \mathbb{R}^K \,|\, \theta_i \geq 0\; \forall i, \sum_{i=1}^K \theta_i = 1 \right\} \]
+
+  + the probability density of Dirichlet distribution
+
+    \[ \pi_{\mathbf{\alpha}}(\mathbf{\theta}) = \frac{\Gamma(\sum_{j=1}^K \alpha_j)}{\prod_{j=1}^K \Gamma(\alpha_j)} \prod_{j=1}^K \theta_j^{\alpha_j -1} \]
+
+  + the mean of a Dirichlet distribution $\pi_\alpha (\mathbf{\alpha})$
+
+    \[ \mathbb{E}(\mathbf{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
 
 
 ## 12.1 What is Bayesian Inference?
@@ -161,26 +175,26 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + a probability density $\pi(\theta)$
     + expressing out beliefs about a parameter $\theta$ before observing any data
   + choose a statistical mode $p(x\,|\,\theta)$ to reflect our beliefs about $x$ given $\theta$
-  + observe data $\mathcal(D) = \{X_1, \dots, X_n\}$, and then update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D})$
+  + observe data $\mathcal{D}_n = \{X_1, \dots, X_n\} \to$ update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D}_n)$
 
-+ Bayesian approach
++ General Bayesian inference
   + the posterior distribution
 
-    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi((\theta))}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
+    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi(\theta)}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
 
-    + $\mathcal{L}(\theta) = \prod_{i=1}^n p(X_i \,|\, \theta)$: the likelihood function
+    + $\mathcal{L}(\theta) = p(X_1, \dots, X_n\,|\, \theta)$: the likelihood function
     + the normalizing constant, a.k.a. the evidence
 
-      \[ c_n = p(X_1, \dots, X_n) = \int p(X_1, \dots, X_n \,|\, \theta) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
+      \[ c_n = p(X_1, \dots, X_n) = \int p\left(X_1, \dots, X_n \,|\, \theta\right) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
 
   + Bayesian point estimate
-    + getting a Bayesian mean or mode by summing the center of the posterior $\to$ typically using the mean or mode of the posterior distribution
+    + getting a Bayesian mean or mode by summing the center of the posterior $\gets$ typically using the mean or mode of the posterior distribution
     + the posterior mean
 
-      \[ \overline{\theta} = \int \theta p(\theta \,|\, \mathcal{D}) d\theta = \frac{\int \theta \mathcal{L}_n \pi(\theta) d\theta}{\int \mathcal{L} \pi(\theta) d\theta} \]
+      \[ \overline{\theta} = \int \theta\, p(\theta \,|\, \mathcal{D}_n)\, d\theta = \frac{\int \theta\, \mathcal{L}_n(\theta)\, \pi(\theta) d\theta}{\int \mathcal{L}_n(\theta) \pi(\theta) d\theta} \]
 
   + Bayesian interval estimate
-    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \to$
+    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \ni$
 
       \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
 
@@ -188,41 +202,43 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = \int_b^a p(\theta \,|\, \mathcal{D}_n) d\theta = 1 - \alpha \]
 
-    + $C$: a $1-\alpha$ Bayesian posterior interval or _credible interval_
+    + $C$: viz. a ($1-\alpha$) Bayesian posterior interval or _credible interval_
     + _credible region_: $\theta$ w/ multi-dimensional
 
-+ Prior uniform distribution
-  + $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$
++ Uniform-Bernoulli likelihood model
+  + likelihood: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$
   + prior distribution: uniform distribution as $\pi(\theta) = 1$
+  + $S_n = \sum_{i=1}^n X_i$: the number of success
   + the posterior distribution
 
     \[\begin{align*} 
       p(\theta\,|\,\mathcal{D}_n) & \propto \pi(\theta) \mathcal{L}_n(\theta) = \theta^{S_n} (1-\theta)^{n - S_n} = \theta^{S_n+1-1} (1-\theta)^{n - S_n +1 -1} \\\\
-       &= \frac{\Gamma(n+2)}{\Gamma(S_n + 1) \Gamma(n-S_n+1)} \theta^{(S_n+1)-1} (1-\theta)^{(n-S_n+1)-1} \qquad \bigg(Beta(S_n+1, n-S_n+1)\bigg) \\\\
-       \theta\,|\,\mathcal{D}_n &\sim Beta(S_n+1, n-S_n +1)
+       &= \frac{\Gamma(n+2)}{\Gamma(S_n + 1) \Gamma(n-S_n+1)} \theta^{(S_n+1)-1} (1-\theta)^{(n-S_n+1)-1} \\\\
+       \therefore\;\theta\,|\,\mathcal{D}_n &\sim Beta(S_n+1, n-S_n +1)
     \end{align*}\]
 
-    + $S_n = \sum_{i=1}^n X_i$: the number of success
   + the Bayesian posterior point estimator
 
-    \[ \overline{\theta} = \frac{S_n + 1}{n+2} = \lambda_n \hat{\theta} + (1 - \lambda) \tilde{\theta} \]
+    \[ \overline{\theta} = \frac{S_n + 1}{n+2} = \lambda_n \hat{\theta} + (1 - \lambda_n) \tilde{\theta} \]
 
     + $\hat{\theta} = S_n / n$: the maximum likelihood estimate
     + $\tilde{\theta} = 1/2$: the prior mean
     + $\lambda_n = n/(n+2) \approx 1$
   + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta\,|\,\mathcal{D}_n) d\theta = .95$
 
-+ Prior Beta distribution
-  + the prior distribution: $\theta \sim Beta(\alpha, \beta)$
++ Beta-Bernoulli likelihood model
+  + likelihood: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + the prior distribution: $\theta \sim Beta(\alpha, \beta)$ w/ prior mean $\theta_0 = \alpha/(\alpha+\beta)$
   + the posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(\alpha + S_n, \beta + n - S_n)$
   + the flat (uniform) prior: $\alpha = \beta = 1$
-  + the posterior mean: prior mean = $\theta_0 = \alpha/(alpha+\beta)$
+  + the posterior mean:
 
-    \[ \overline{\theta} = \frac{\alpha + S_n}{\alpha + \beta + n} = \left(\frac{n}{\alpha+\beta+n}\right) \hat{\theta} + \left(\frac{\alpha+\beta}{\alpha+\beta+n} \theta_0 \right) \]
+    \[ \overline{\theta} = \frac{\alpha + S_n}{\alpha + \beta + n} = \left(\frac{n}{\alpha+\beta+n}\right) \hat{\theta} + \left(\frac{\alpha+\beta}{\alpha+\beta+n} \right) \theta_0 \]
+
   + example
     + assumptions:
       + Bernoulli model: $n = 15, \theta = 0.4$
-      + sample size: $s = 7$
+      + number of success: $s = 7$
     + maximum likelihood estimate: $\hat{\theta}(\theta) = 7/15 = 0.47$
     + left plot: prior w/ $Beta(4, 6) \to$ posterior mode = 0.43
     + right plot: prior w/ $Beta(4, 2) \to$ posterior mode = 0.67
@@ -233,45 +249,32 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       </a>
     </div>
 
-+ Dirichlet prior distribution
-  + the multinomial model w/ a Dirichlet prior
++ Dirichlet-Multinomial likelihood Model
+  + likelihood: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + prior distribution: Dirichlet prior
+    + a multinomial distribution
     + a generalization of the Bernoulli model and Beta prior
     + $\exists\; \mathbf{X} \sim Multinomial(n, \mathbf{\theta})$
     + $\mathbf{\theta} = (\theta_1, \dots, \theta_K)^T, \; (K > 1)$: a $K$-dim parameter
-  + the Dirichlet distribution for $K$ outcomes
-    + the exponential family distribution on the $K-1$ dimensional probability simplex
-    + probability simplex defined as
+  + the sample space of the multinomial w/ $K$ outcomes as the set of vertices of the $K$-dim hypercube $\mathbb{H}_K$, mad up of vectors w/ exactly only one 1 and the remaining elements 0
 
-      \[ \Delta_k = \{\mathbf{\theta} = (\theta)_1, \dots, \theta_K^T \in \mathbb{R}^K | \theta_i \geq 0\; \forall i, \sum_{i=1}^K \theta_i = 1 \} \]
-
-    + the probability density of Dirichlet distribution
-
-      \[ \pi_{\mathbf{\alpha}}(\mathbf{\theta}) = \frac{\Gamma(\sum_{j=1}^K \alpha_j)}{\prod_{j=1}^K \Gamma(\alpha_j)} \prod_{j=1}^K \theta_j^{\alpha_j -1} \]
-
-      + $\mathbf{\alpha} = (\alpha_1, \dots, \alpha_K)^T \in \mathbb{R}_+^K$: a non-negative vector of scaling coefficients; the parameters of the model
-  + the sample space of the multinomial w/ $K$ outcomes as the set of vertices of the $K$-dim hypercube $\mathbb{H}_K$, mad up of vectors w/ exactly only one 1 and remaining element 0
-
-    \[ x = \underbrace{(0, 0, \dots, 00, 1, 0, \dots, 0)^T}_{\text{K places}} \]
+    \[ x = \underbrace{(0, 0, \dots, 0, 1, 0, \dots, 0)^T}_{K\text{ places}} \]
 
   + $\exists\; \mathbf{X}_i = (X_{i1}, \dots, X_{iK})^T \in \mathbb{H}_K$,
   
-    \[ \theta \sim Dirichlet(\mathbf{\alpha}) \text{ and } $\mathbf{X}_i \,|\, \theta \sim Multinomial(\mathbf{\theta}) \]
+    \[ \underbrace{\theta \sim Dirichlet(\mathbf{\alpha})}_{\text{Prior}} \;\text{ and }\; \underbrace{\mathbf{X}_i \,|\, \theta \sim Multinomial(\mathbf{\theta})}_{\text{likeliehood}} \; \forall\; i=1, 2, \dots, n\]
 
     $\implies$ the posterior satisfies
 
-    \[ p(\mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) \propto \mathcal{L}(\theta)\pi(\theta) \propto \prod_{i=1}^n \prod_{j=1}^K \theta_j^{X_{ij}} \prod_{j=1}^K \theta_j^{\alpha_j - 1} = \prod_{j=1}^K \theta_j^{\sum_{i=1}^n X_{ij}+\alpha_j-1} \]
+    \[ p(\mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) \propto \mathcal{L}_n(\theta)\pi(\theta) \propto \prod_{i=1}^n \prod_{j=1}^K \theta_j^{X_{ij}} \prod_{j=1}^K \theta_j^{\alpha_j - 1} = \prod_{j=1}^K \theta_j^{\sum_{i=1}^n X_{ij}+\alpha_j-1} \]
 
   + the posterior distribution w/ $\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i / n \in \Delta_K$
 
     \[ \mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim Dirichlet(\alpha+ n \overline{\mathbf{X}})\]
 
-  + the mean of a Dirichlet distribution $\pi_\alpha (\mathbf{\alpha})$
+  + the posterior mean
 
-    \[ \mathbb{E}(\mathbf{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
-
-  + the posterior mean of a multinomial w/ Dirichlet prior
-
-    \[ \mathbb{E}(\theta \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) = \left(\frac{\alpha_1 + \sum_{i=1}^n X_{i1}}{\sum_{i=1}^K \alpha_j + n}, \dots, \frac{\alpha_K + \sum_{i=1}^n X_{iK}}{\sum_{i=1}^K \alpha_j + n} \right)^T \]
+    \[ \mathbb{E}(\theta \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) = \left(\frac{\alpha_1 + \sum_{i=1}^n X_{i1}}{\sum_{i=1}^K \alpha_i + n}, \dots, \frac{\alpha_K + \sum_{i=1}^n X_{iK}}{\sum_{i=1}^K \alpha_i + n} \right)^T \]
 
   + the posterior mean viewed as smoothing out the maximum likelihood estimated by allocating some additional probability mass to low frequency observation
   + the parameters $\alpha_1, \dots, \alpha_K$ act as "virtual counts" that don't actually appear in the observed data
@@ -294,28 +297,28 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Conjugate prior
   + observed data: $\exists\; X \sim N(\theta, \sigma^2),\; \mathcal{D}_n = \{X_1, \dots, X_n\}$ w/ known $\sigma$
-  + task: $\theta \in \mathbb{R}$
+  + point estimate: $\theta \in \mathbb{R}$
   + prior: $\theta \sim N(a, b^2)$
   + sample mean: $\overline{X} = \sum_{i=1}^n X_i/n$
   + the posterior for $\theta$
 
     \[\begin{align*}
       \theta \,|\, \mathcal{D}_n & \sim N(\overline{\theta}, \, \tau^2) \tag{4} \\\\
-      \overline{\theta} = w\hat{\theta} + (1 - w), \quad \hat{\theta} = \overline{X}, &\quad w = \frac{\frac{1}{se^2}}{\frac{1}{se^2} + \frac{1}{b^2}}, \quad \frac{1}{\tau^2} = \frac{1}{se^2} + \frac{1}{b^2}
+      \overline{\theta} = w\hat{\theta} + (1 - w)a, \quad \hat{\theta} = \overline{X}, &\quad w = \frac{\frac{1}{se^2}}{\frac{1}{se^2} + \frac{1}{b^2}}, \quad \frac{1}{\tau^2} = \frac{1}{se^2} + \frac{1}{b^2}
     \end{align*}\]
 
     + $se = \sigma/\sqrt{n}$: the standard error of the maximum likelihood estimate $\hat{\theta}$
     + $n \to \infty \implies w \to 1 \text{ and } \tau/se \to 1$
     + fixed $n, b \to \infty \implies$ flat prior
-  + task: find posterior interval = find $C = (c, d) to \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = 0.95$
-  + $\exists\; c$ and $d \to \mathbb{P(\theta < c \,|\, \mathcal{D}_n) = 0.025$
-  + find $ c \to$
+  + region estimate: find posterior interval = find $C = (c, d) \to \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = 0.95$
+  + $\exists\; c$ and $d \ni \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = 0.025$
+  + find $ c \ni$
 
     \[ \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = \mathbb{P} \left( \frac{\theta - \overline{\theta}}{\tau} < \frac{c - \overline{\theta}}{\tau}\right) = \mathbb{P}\left( Z < \frac{c - \overline{\theta}}{\tau} \right) = 0.025 \]
 
     where $Z \sim N(0, 1)$: a standard Gaussian random variable
 
-    \[ \mathbb{P}(Z < -1.96) = 0.025) \to \frac{c - \overline{\theta}}{\tau} = -1.96  \implies c = \overline{\theta} - 1.96\tau \]
+    \[ \mathbb{P}(Z < -1.96) = 0.025 \to \frac{c - \overline{\theta}}{\tau} = -1.96  \implies c = \overline{\theta} - 1.96\tau \]
 
   + similarly, $d = \overline{\theta} = 1.96 \tau$
   + 95% Bayesian credible interval $\overline{\theta} \pm 1.96 \tau$
