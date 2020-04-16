@@ -415,7 +415,70 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.2.5 Flat Priors, Improper Priors, and "Noninformative" Priors
 
++ Subjective debate
+  + subjectiveism: the prior should reflect our subjective opinion about $\theta$ (before data collected)
+  + impractical in complicated problems, in particular, many parameters
+  + injecting subjective opinion into the analysis contrary to to the goal of making scientific inference as objective as possible
 
++ Noninformative priors
+  + candidate noninformative prior: a flat prior \(\pi(\theta) \propto \text{ constant}\)
+  + example: Uniform-Bernoulli likelihood model: $\pi(\theta) =1 \to Beta(S_n+1, n-S_n+1)$
+
++ Improper priors
+  + $X \sim N(\theta, \sigma^2)$ w/ known $\sigma$
+  + observed data: $\mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + prior distribution: flat prior $\pi(\theta) \propto c, \; c > 0$
+    + $\int \pi(\theta) \;d\theta = \infty \to$ not a valid probability density
+    + _improper prior_
+  + still able to carrying out Bayes' theorem
+  + the posterior density
+
+    \[ p(\theta \,|\, \mathcal{D}_n) \propto \mathcal{L}_n(\theta) \pi(\theta) \propto \mathcal{L}_n(\theta) \]
+
+  + $\theta \,|\, \mathcal{D}_n \sim N(\overline{X}, \,\sigma^2/n)$ w/ $\overline{X} = \sum_{i=1}^n X_i/n$
+  + the resulting point and interval estimators agree exactly w/ their their frequentist counterparts
+  + Summary: improper priors not a problem as long as the resulting posterior as a well-defined probability distribution
+
++ Flat priors not invariant
+  + $X \sim Bernoulli(\theta)$
+  + flat prior $\pi(\theta) = 1 \implies$ lack of informaitonabout $\theta$ before the experiment
+  + $\psi = \log(\theta/1-\theta)$: a transformationof $\theta$
+  + the resulting distribution for $\psi$, not flat
+
+    \[ p(\psi) = \frac{e^{\psi}}{(1+e^\psi)^2} \]
+  
+  + ignorant about $\theta$ and $\psi \implies$ a flat prior for $\psi$
+  + contradiction
+    + the notation of a flat prior not well define
+    + a flat prior on a parameter $\nRightarrow$ a flat prior on a transformed version of this parameter
+  + flat priors not transformed _invariant_
+
++ Jefferys' prior
+  + transformation invariant priors
+  + Harold Jefferys' rule
+    + taking the prior distribution on parameter space proportional to the square root of the determinant of the Fisher infromation
+    + the Fisher infromation
+
+      \[ \pi(\theta) \propto \sqrt{|I(\theta)|}, \quad I(\theta) = -\mathbb{E} \left[ \left.\frac{\partial^2 \log p(X \,|\, \theta)}{\partial\theta\, \partial \theta^T} \,\right|\, \theta \right] \]
+
+  + __Theorem:__ The Jefferys' prior is transformed invariant.
+  + _Proof._
+    + likelihood function: $p(x \,|\, \theta)$
+    + $\psi$: transformation of $\theta$
+    + shown that $\pi(\psi) \propto \sqrt{|I(\psi)|}$
+    + using the change of variable theorem and the fact that the product of determinants is the determinant of matrix product. $\tag*{$\Box$}$
+
+  + Bernoulli ($\theta$) model
+    + the Fisher information
+
+      \[ I(\theta) = \frac{1}{\theta(1 - \theta)} \]
+
+    + Jefferys' rule using the prior
+
+      \[ \pi(\theta) \propto \sqrt{|I(\theta)|} = \theta^{-1/2} (1-\theta)^{-1/2} \implies \pi(\theta) \sim Beta(1/2, 1/2)\]
+
+    + $\pi(\theta)$ closed to a uniform density
+  + Jeffers' prior: transformation invariant $\neq$  non-informative
 
 
 ### 12.2.6 Conjugate Priors
