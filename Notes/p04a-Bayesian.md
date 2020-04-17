@@ -36,13 +36,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 + [Dirichlet distribution](https://stephens999.github.io/fiveMinuteStats/dirichlet.html)
   + a generalization of the Beta distribution
     + 2-dim Dirichlet distribution = the Beta distribution
-    + let $q = (q_1, q_2)$, and $q \sim Dirichlet(\alpha_1, \alpha_2) \implies$
+    + let $q = (q_1, q_2)$, and $q \sim \text{Dirichlet}(\alpha_1, \alpha_2) \implies$
 
-      \[ q_1 \sim Beta(\alpha_1, \alpha_2)\quad\text{and}\quad q_2 = 1 - q_1 \]
+      \[ q_1 \sim \text{Beta}(\alpha_1, \alpha_2)\quad\text{and}\quad q_2 = 1 - q_1 \]
 
   + more generally, the marginals of the Dirichlet distribution are also beta distribution.
 
-    \[ q \sim Dirichlet(\alpha_1, \dots. \alpha_J) \;\implies\; q_i \sim Beta(\alpha_j,\; \sum_{i \neq j} \alpha_i) \]
+    \[ q \sim \text{Dirichlet}(\alpha_1, \dots. \alpha_J) \;\implies\; q_i \sim \text{Beta}(\alpha_j,\; \sum_{i \neq j} \alpha_i) \]
 
   + the density of the Dirichlet distribution in the most convenient way
 
@@ -214,7 +214,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \[\begin{align*} 
       p(\theta\,|\,\mathcal{D}_n) & \propto \pi(\theta) \mathcal{L}_n(\theta) = \theta^{S_n} (1-\theta)^{n - S_n} = \theta^{S_n+1-1} (1-\theta)^{n - S_n +1 -1} \\\\
        &= \frac{\Gamma(n+2)}{\Gamma(S_n + 1) \Gamma(n-S_n+1)} \theta^{(S_n+1)-1} (1-\theta)^{(n-S_n+1)-1} \\\\
-       \therefore\;\theta\,|\,\mathcal{D}_n &\sim Beta(S_n+1, n-S_n +1)
+       \therefore\;\theta\,|\,\mathcal{D}_n &\sim \text{Beta}(S_n+1, n-S_n +1)
     \end{align*}\]
 
   + the Bayesian posterior point estimator
@@ -227,9 +227,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta\,|\,\mathcal{D}_n) d\theta = .95$
 
 + Beta-Bernoulli likelihood model
-  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
-  + the prior distribution: $\theta \sim Beta(\alpha, \beta)$ w/ prior mean $\theta_0 = \alpha/(\alpha+\beta)$
-  + the posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(\alpha + S_n, \beta + n - S_n)$
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim \text{Bernoulli}(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + the prior distribution: $\theta \sim \text{Beta}(\alpha, \beta)$ w/ prior mean $\theta_0 = \alpha/(\alpha+\beta)$
+  + the posterior distribution: $\theta \,|\, \mathcal{D}_n \sim \text{Beta}(\alpha + S_n, \beta + n - S_n)$
   + the flat (uniform) prior: $\alpha = \beta = 1$
   + the posterior mean:
 
@@ -250,11 +250,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     </div>
 
 + Dirichlet-Multinomial likelihood Model
-  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim \text{Bernoulli}(\theta)$ w/ $\hat{\theta} = S_n/n$
   + prior distribution: Dirichlet prior
     + a multinomial distribution
     + a generalization of the Bernoulli model and Beta prior
-    + $\exists\; \mathbf{X} \sim Multinomial(n, \mathbf{\theta})$
+    + $\exists\; \mathbf{X} \sim \text{Multinomial}(n, \mathbf{\theta})$
     + $\mathbf{\theta} = (\theta_1, \dots, \theta_K)^T, \; (K > 1)$: a $K$-dim parameter
   + the sample space of the multinomial w/ $K$ outcomes as the set of vertices of the $K$-dim hypercube $\mathbb{H}_K$, mad up of vectors w/ exactly only one 1 and the remaining elements 0
 
@@ -262,7 +262,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + $\exists\; \mathbf{X}_i = (X_{i1}, \dots, X_{iK})^T \in \mathbb{H}_K$,
   
-    \[ \underbrace{\theta \sim Dirichlet(\mathbf{\alpha})}_{\text{Prior}} \;\text{ and }\; \underbrace{\mathbf{X}_i \,|\, \theta \sim Multinomial(\mathbf{\theta})}_{\text{likeliehood}} \; \forall\; i=1, 2, \dots, n\]
+    \[ \underbrace{\theta \sim \text{Dirichlet}(\mathbf{\alpha})}_{\text{Prior}} \;\text{ and }\; \underbrace{\mathbf{X}_i \,|\, \theta \sim \text{Multinomial}(\mathbf{\theta})}_{\text{likeliehood}} \; \forall\; i=1, 2, \dots, n\]
 
     $\implies$ the posterior satisfies
 
@@ -270,7 +270,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + the posterior distribution w/ $\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i / n \in \Delta_K$
 
-    \[ \mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim Dirichlet(\alpha+ n \overline{\mathbf{X}})\]
+    \[ \mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{Dirichlet}(\alpha+ n \overline{\mathbf{X}})\]
 
   + the posterior mean
 
@@ -280,7 +280,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the parameters $\alpha_1, \dots, \alpha_K$ act as "virtual counts" that don't actually appear in the observed data
   + prior conjugate w.r.t. the mode: the prior as Dirichlet distribution $\to$ the posterior as Dirichlet distribution
   + example
-    + prior distribution $\sim Dirichlet(6, 6, 6)$
+    + prior distribution $\sim \text{Dirichlet}(6, 6, 6)$
     + observed data size: $n = 20 \text{ and } 200$
     + parameter: $\mathbf{\theta} = (0.2, 0.3, 0.5)^T$
     + the contours of the prior, likelihood, and posteriors are plotted on a two-dimensional probability simplex (Starting from the bottom left vertex of each triangle, clock-wisely the three vertices correspond to $\theta_1, \theta_2, \theta_3$)
@@ -353,9 +353,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the posterior density $p(\tau \,|\, \mathcal{D}_n) = H'(\tau \,|\, \mathcal{D}_n)$
 
 + Uniform-Bernoulli likelihood model w/ logarithm of odds ratio
-  + sampling distribution: $X \sim Bernoulli(\theta)$
+  + sampling distribution: $X \sim \text{Bernoulli}(\theta)$
   + prior distribution: $\pi(\theta) = 1$
-  + posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(S_n+1, \,n - S_n + 1)\;\;$ w/ $S_n = \sum_{i=1}^n X_i$
+  + posterior distribution: $\theta \,|\, \mathcal{D}_n \sim \text{Beta}(S_n+1, \,n - S_n + 1)\;\;$ w/ $S_n = \sum_{i=1}^n X_i$
   + let $\psi = \log(\theta/(1 - \theta))$, the posterior CDF for $\psi$
 
     \[\begin{align*}
@@ -395,7 +395,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + $X_2$: the number of survived patients in the treatment group
   + Binomial model
 
-    \[ X_1 \sim Binomial(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim Binomial(n_2, \theta_2) \]
+    \[ X_1 \sim \text{Binomial}(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim \text{Binomial}(n_2, \theta_2) \]
 
   + task: estimate $\tau = g(\theta_1, \theta_2) = \theta_2 - \theta_1$
   + $\pi(\theta_1, \theta_2) = 1 \implies$ the posterior
@@ -407,10 +407,10 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \[\begin{align*}
       p(\theta_1, \theta_2 \,|\, X_1, X_2) &= p(\theta_1 \,|\, X_1) p(\theta_2 \,|\, X_2) \hspace{5em} \\\\
       p(\theta_1 \,|\, X_1) \propto \theta_1^{X_1} (1 - \theta_1)^{n_1 - X_1} \quad&\&\quad p(\theta_2 \,|\, X_2) \propto \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \\\\
-      \theta_1 \,|\, X_1 \sim Beta(X_1+1, n_1 - X_1 +1) \quad&\&\quad \theta_2 \,|\, X_2 \sim Beta(X_2 + 1, n_2 - X_2 + 1)
+      \theta_1 \,|\, X_1 \sim \text{Beta}(X_1+1, n_1 - X_1 +1) \quad&\&\quad \theta_2 \,|\, X_2 \sim \text{Beta}(X_2 + 1, n_2 - X_2 + 1)
     \end{align*}\]
 
-  + $\theta_1^1, \dots, \theta_1^B \sim Beta(X_1 + 1,\, n_1 - X_1 + 1)$ and $\theta_2^1, \dots, \theta_2^B \sim Beta(X_2 + 1,\, n_2 - X_2 + 1)$ $\implies \tau_b = \theta_2^b - \theta_1^b, \forall\; b=1,\dots,B \to p(\tau \,|\, X_1, X_2)$, a sample form
+  + $\theta_1^1, \dots, \theta_1^B \sim \text{Beta}(X_1 + 1,\, n_1 - X_1 + 1)$ and $\theta_2^1, \dots, \theta_2^B \sim \text{Beta}(X_2 + 1,\, n_2 - X_2 + 1)$ $\implies \tau_b = \theta_2^b - \theta_1^b, \forall\; b=1,\dots,B \to p(\tau \,|\, X_1, X_2)$, a sample form
   
 
 
@@ -441,7 +441,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + Summary: improper priors not a problem as long as the resulting posterior as a well-defined probability distribution
 
 + Flat priors not invariant
-  + sampling distribution: $X \sim Bernoulli(\theta)$
+  + sampling distribution: $X \sim \text{Bernoulli}(\theta)$
   + flat prior $\pi(\theta) = 1 \implies$ lack of information about $\theta$ before the experiment
   + $\psi = \log(\theta/1-\theta)$: a transformation of $\theta$
   + the resulting distribution for $\psi$, not flat
@@ -476,7 +476,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     + Jefferys' rule using the prior
 
-      \[ \pi(\theta) \propto \sqrt{|I(\theta)|} = \theta^{-1/2} (1-\theta)^{-1/2} \implies \pi(\theta) \sim Beta(1/2, 1/2)\]
+      \[ \pi(\theta) \propto \sqrt{|I(\theta)|} = \theta^{-1/2} (1-\theta)^{-1/2} \implies \pi(\theta) \sim \text{Beta}(1/2, 1/2)\]
 
     + $\pi(\theta)$ closed to a uniform density
   + Jeffers' prior: transformation invariant $\neq$  non-informative
@@ -589,7 +589,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + $\exists\; X_1, \dots, X_n$ observations from $Poisson(\lambda)$
   + the posterior
 
-    \[ \lambda \,|\, X_1, \dots, X_n \sim Gamma(\alpha + n\overline{\mathbf{X}},\, \beta+n) \]
+    \[ \lambda \,|\, X_1, \dots, X_n \sim \text{Gamma}(\alpha + n\overline{\mathbf{X}},\, \beta+n) \]
 
   + the prior acts as if $\beta$ virtual observations were made, with a total count of $\alpha -1$ among them
 
@@ -606,7 +606,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + $\exists\; X_1, \dots, X_n$ observed data from $Gamma(\theta)$
   + the posterior
 
-    \[ \theta \,|\, X_1, \dots, X_n \sim Gamma(\alpha + n,\, \beta + n\overline{X}) \]
+    \[ \theta \,|\, X_1, \dots, X_n \sim \text{Gamma}(\alpha + n,\, \beta + n\overline{X}) \]
 
   + the prior acts if $\alpha -1$ virtual example are used, w/ a total waiting time of $\beta$
 
@@ -621,7 +621,69 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $Geometric(\theta)$
   + the posterior
 
-    \[ \theta \,|\, X_1, \dots, X_n \sim Gamma(\alpha + n, \,\beta + n\overline{X}) \]
+    \[ \theta \,|\, X_1, \dots, X_n \sim \text{Gamma}(\alpha + n, \,\beta + n\overline{X}) \]
+
++ InvGamma-Gaussian likelihood model
+  + sampling distribution: $N(\mu, \sigma^2)$
+  + the likelihood function
+
+    \[\begin{align*}
+      p(X_1, \dots, X_n \,|\, \sigma^2) &\propto (\sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \mu^2) \right) \\\\
+        &= (\sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} n \overline{(X - \mu)^2} \right) \\
+        & \hspace{5em} \text{with }\left(\overline{(X-\mu)^2} = \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2 \right)
+    \end{align*}\]
+
+  + the conjugate prior
+    + inverse Gamma distribution as $1/\theta \sim \text{Gamma}(\alpha, \beta)$
+    + the density
+
+      \[ \pi_{\alpha, \beta}(\theta) \propto \theta^{-(\alpha+1)} e^{-\beta/\theta} \]
+
+  + the posterior distribution of $\sigma^2$
+
+    \[ \sigma^2 \,|\, X_1, \dots, X_n \propto InvGamma(\alpha + \frac{n}{2},\, \beta + \frac{\beta}{2} \overline{X - \mu)^2}) \]
+
++ ScaledInv-$\chi^2$-Gaussian likelihood model
+  + the prior: scaled inverse $\chi^2$ distribution of $\sigma^2\nu_0Z$ w/ $Z \sim \chi_{\nu_0}^2$
+
+    \[ \pi_{\nu_0, \sigma_0^2}(\theta) \propto \theta^{-(1+\nu_0/2)} \exp\left( -\frac{\nu_0 \sigma^2_0}{2\theta} \right) \]
+
+  + the posterior
+
+    \[ \sigma^2 \,|\, X_1, \dots, X_n \sim \text{ScaledInv-}\chi^2 \left( \nu_0 +n, \,\frac{\nu_0 \sigma_0^2}{\nu_0 + n} + \frac{n \overline{(X - \mu)^2}}{\nu_0 + n} \right) \]
+
++ InvWhishart-Gaussian likelihood Model
+  + The Wishart distribution
+    + a multidiemsional analogue of the Gamma distribution
+    + a distribution over symmetric positive semi-definite $d \times d$ matrices $\mathbf{W}$
+    + the density
+
+      \[ \pi_{\nu_0, \mathbf{S}_0}(\mathbf{W}) \propto |\mathbf{W}|^{(\nu_0 - d -1)/2} \exp\left( -\frac{1}{2} \text{tr}(\mathbf{S}_0^{-1} \mathbf{W}) \right) \]
+
+      + $\nu_0$: the degrees of freedom
+      + $\mathbf{S}_0$: the positive-definite matrix
+  + $\mathbf{W}^{-1} \sim \text{Wishart}(\nu_0, \mathbf{S}_0) \implies \mathbf{W} \sim$ inverse Wishart distribution
+  + the density of the inverse Wishart distribution
+
+    \[ \pi_{\nu_0, \mathbf{S}_0}(\mathbf{W}) \propto |\mathbf{W}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}(\mathbf{S}_0 \mathbf{W}^{-1}) \right) \]
+
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $N(\mathbf{0}, \mathbf{\Sigma})$
+  + the posterior: an inverse Wishart prior multiplies the likelihood
+
+    \[\begin{align*}
+      &p(\mathbf{X}_1, \dots, \mathbf{X}_n \,|\, \mathbf{\Sigma})\pi_{\nu_0, \mathbf{S}_0} \\\\
+      & \hspace{3em}\propto |\mathbf{\Sigma}|^{-n/2} \exp \left( -\frac{n}{2} \text{tr}(\overline{\mathbf{S}}\mathbf{\Sigma}^{-1}) \right) |\mathbf{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2}\text{tr}(\mathbf{S}_0 \mathbf{\Sigma}^{-1})) \right) \\\\
+      &\hspace{1em}= |\mathbf{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}\left(n \overline{\mathbf{S}} + \mathbf{S}_0) \mathbf{\Sigma}^{-1}\right) \right)
+    \end{align*}\]
+
+    + the empirical covariance: $\overline{\mathbf{S}} = \frac{1}{n} \sum_{i=1}^n \mathbf{X}_i\mathbf{X}_i^T$
+  + the posterior
+
+    \[ \mathbf{\Sigma} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{InvWishart}(\nu_0 + n,\, \mathbf{S}_0 + n\overline{\mathbf{S}}) \]
+
+  + similarly, the conjugate prior for the inverse covariance $\mathbf{\Sigma}^{-1}$ (precision matrix) is a Wishart
+
+
 
 
 
