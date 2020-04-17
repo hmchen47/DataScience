@@ -416,9 +416,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.5 Flat Priors, Improper Priors, and "Noninformative" Priors
 
 + Subjective debate
-  + subjectiveism: the prior should reflect our subjective opinion about $\theta$ (before data collected)
+  + subjectivism: the prior should reflect our subjective opinion about $\theta$ (before data collected)
   + impractical in complicated problems, in particular, many parameters
-  + injecting subjective opinion into the analysis contrary to to the goal of making scientific inference as objective as possible
+  + injecting subjective opinion into the analysis contrary to the goal of making scientific inference as objective as possible
 
 + Noninformative priors
   + candidate noninformative prior: a flat prior \(\pi(\theta) \propto \text{ constant}\)
@@ -441,8 +441,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Flat priors not invariant
   + $X \sim Bernoulli(\theta)$
-  + flat prior $\pi(\theta) = 1 \implies$ lack of informaitonabout $\theta$ before the experiment
-  + $\psi = \log(\theta/1-\theta)$: a transformationof $\theta$
+  + flat prior $\pi(\theta) = 1 \implies$ lack of information about $\theta$ before the experiment
+  + $\psi = \log(\theta/1-\theta)$: a transformation of $\theta$
   + the resulting distribution for $\psi$, not flat
 
     \[ p(\psi) = \frac{e^{\psi}}{(1+e^\psi)^2} \]
