@@ -122,7 +122,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Bayesian approach for interval estimate
   + unknown parameter $\theta \sim$ prior distribution $\pi(\theta)$ representing ones subjective beliefs about $\theta$
-  + observing the data $X_1, \dots, X_n$, the posterior distribution for $\theta$ given the data using Bayes theorem
+  + sampling distribution: observing the data $X_1, \dots, X_n$, the posterior distribution for $\theta$ given the data using Bayes theorem
 
     \[ \pi(\theta \,|\, X_1, \dots, X_n) \propto \mathcal{L}(\theta) \pi(\theta) \tag{2} \]
 
@@ -206,7 +206,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + _credible region_: $\theta$ w/ multi-dimensional
 
 + Uniform-Bernoulli likelihood model
-  + likelihood: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$
   + prior distribution: uniform distribution as $\pi(\theta) = 1$
   + $S_n = \sum_{i=1}^n X_i$: the number of success
   + the posterior distribution
@@ -227,7 +227,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta\,|\,\mathcal{D}_n) d\theta = .95$
 
 + Beta-Bernoulli likelihood model
-  + likelihood: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
   + the prior distribution: $\theta \sim Beta(\alpha, \beta)$ w/ prior mean $\theta_0 = \alpha/(\alpha+\beta)$
   + the posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(\alpha + S_n, \beta + n - S_n)$
   + the flat (uniform) prior: $\alpha = \beta = 1$
@@ -250,7 +250,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     </div>
 
 + Dirichlet-Multinomial likelihood Model
-  + likelihood: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$ w/ $\hat{\theta} = S_n/n$
   + prior distribution: Dirichlet prior
     + a multinomial distribution
     + a generalization of the Bernoulli model and Beta prior
@@ -296,7 +296,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     </div>
 
 + Conjugate prior
-  + observed data: $\exists\; X \sim N(\theta, \sigma^2),\; \mathcal{D}_n = \{X_1, \dots, X_n\}$ w/ known $\sigma$
+  + sampling distribution: $\exists\; X \sim N(\theta, \sigma^2),\; \mathcal{D}_n = \{X_1, \dots, X_n\}$ w/ known $\sigma$
   + point estimate: $\theta \in \mathbb{R}$
   + prior: $\theta \sim N(a, b^2)$
   + sample mean: $\overline{X} = \sum_{i=1}^n X_i/n$
@@ -353,7 +353,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the posterior density $p(\tau \,|\, \mathcal{D}_n) = H'(\tau \,|\, \mathcal{D}_n)$
 
 + Uniform-Bernoulli likelihood model w/ logarithm of odds ratio
-  + likelihood: $X \sim Bernoulli(\theta)$
+  + sampling distribution: $X \sim Bernoulli(\theta)$
   + prior distribution: $\pi(\theta) = 1$
   + posterior distribution: $\theta \,|\, \mathcal{D}_n \sim Beta(S_n+1, \,n - S_n + 1)\;\;$ w/ $S_n = \sum_{i=1}^n X_i$
   + let $\psi = \log(\theta/(1 - \theta))$, the posterior CDF for $\psi$
@@ -371,7 +371,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.4 Multiparameter Problems
 
 + Extracting inferences about one single parameters
-  + observed data (likelihood): $\mathcal{D}_n = \{X_1, \dots, X_n \}$
+  + sampling distribution: $\mathcal{D}_n = \{X_1, \dots, X_n \}$
   + prior distribution: $\pi(\mathbf{\theta}),\; \mathbf{\theta} = (\theta_1, \dots, \theta_d)^T$
   + the marginal posterior for $\theta_1$
 
@@ -390,8 +390,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Comparing two binomials
   + control patients = $n_1$, treatment patients = $n_2$
-  + $X_1$: the number of survived patients in the control group
-  + $X_2$: the number of survived patients in the treatment group
+  + sampling distribution
+    + $X_1$: the number of survived patients in the control group
+    + $X_2$: the number of survived patients in the treatment group
   + Binomial model
 
     \[ X_1 \sim Binomial(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim Binomial(n_2, \theta_2) \]
@@ -425,7 +426,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + example: Uniform-Bernoulli likelihood model: $\pi(\theta) =1 \to Beta(S_n+1, n-S_n+1)$
 
 + Improper priors
-  + $X \sim N(\theta, \sigma^2)$ w/ known $\sigma$
+  + sampling distribution: $X \sim N(\theta, \sigma^2)$ w/ known $\sigma$
   + observed data: $\mathcal{D}_n = \{X_1, \dots, X_n\}$
   + prior distribution: flat prior $\pi(\theta) \propto c, \; c > 0$
     + $\int \pi(\theta) \;d\theta = \infty \to$ not a valid probability density
@@ -440,7 +441,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + Summary: improper priors not a problem as long as the resulting posterior as a well-defined probability distribution
 
 + Flat priors not invariant
-  + $X \sim Bernoulli(\theta)$
+  + sampling distribution: $X \sim Bernoulli(\theta)$
   + flat prior $\pi(\theta) = 1 \implies$ lack of information about $\theta$ before the experiment
   + $\psi = \log(\theta/1-\theta)$: a transformation of $\theta$
   + the resulting distribution for $\psi$, not flat
@@ -483,7 +484,45 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.2.6 Conjugate Priors
 
++ Conjugate priors
+  + a prior distribution closed under samlping
+  + $\mathcal{P}$: a family of prior distribution
+  + __Definition__. $\forall\; \theta, \, \exists\; p(\cdot \,|\, \theta) \in \mathcal{F}$ over a sample space $\mathcal{X}$. The posterior
 
+    \[ p(\theta \,|\, \mathbf{x}) = \frac{p(\mathbf{x} \,|\, \theta)\; \pi(\theta)}{\int p(\mathbf{x} \,|\, \theta)\; \pi(\theta) \;d\theta} \]
+
+    satisfies $p(\cdot \,|\,\mathbf{x}) \in \mathcal{P} \implies$ the family $\mathcal{P}$ is _conjugate_ to the family of sampling distribution $\mathcal{F}$
+  + the family $\mathcal{P}$ should be sufficiently restricted, and is typically taken to be a specific parametric family.
+
++ General exponential family models
+  + $p(\cdot \,|\, \theta)$: a standard exponential family model
+  + the density w.r.t. a positive measure $\mu$
+
+    \[ p(\mathbf{x} \,|\, \mathbf{\theta}) = \exp\left(\mathbf{\theta}^T\,\mathbf{x} - A(\mathbf{\theta})\right) \tag{5} \]
+
+    + $\mathbf{\theta} \in \mathbb{R}^d$: the $d$-dimensional parameter
+    + $\Theta \in \mathbf{R}^d$: the open parameter space w/
+
+      \[ \int \exp\left(\mathbf{\theta}^T\,\mathbf{x} - A(\mathbf{\theta})\right)\,d\mu(\mathbf{x}) < \infty \]
+
+    + $A(\mathbf{\theta})$: the moment generation or log-normalizing constant
+
+      \[A(\mathbf{\theta}) = \log\left(\int \exp(\mathbf{\theta} \mathbf{x} - A(\mathbf{\theta}))\, d\mu(\mathbf{x}) \right)\]
+
+  + the density of a conjugate prior for the exponential family
+
+    \[\pi_{\mathbf{x}_0,n_0}(\theta) = \frac{\exp(n_0 \mathbf{x}_0^T \mathbf{\theta} - n_0A(\mathbf{\theta}))}{\int \exp(n_0 \mathbf{x}_0^T \mathbf{\theta} - n_0A(\mathbf{\theta}))\,d\mathbf{\theta}} \]
+
+    + $\mathbf{x}_0 \in \mathbb{R}^d$: a vector
+    + $n_0 \in \mathbb{R}$: a scalar
+  + the posterior
+
+    \[\begin{align*}
+      p(\mathbf{x} \,|\, \mathbf{\theta}) \pi_{\mathbf{x}_0,n_0}(\mathbf{\theta}) &= \exp(\mathbf{\theta}^T \mathbf{x} - A(\mathbf{\theta})) = \exp\left((\mathbf{x} + \mathbf{x}_0)^T\mathbf{\theta} - (1+n_0)A(\mathbf{\theta})\right) \\\\
+      &= \exp\left( (1+n_0) \left( \frac{\mathbf{x}}{1+n_0} + \frac{n_0\mathbf{x}_0}{1+n_0} \right)^T \mathbf{\theta} - (1+n_0)A(\mathbf{\theta}) \right) \\\\
+      &\propto \pi_{\frac{\mathbf{x}}{1+n_0}+\frac{n_0\mathbf{x}_0}{1+n_0}, 1+n_0}(\mathbf{\theta})
+    \end{align*}\]
+  
 
 
 ### 12.2.7 Bayesian Hypothesis Testing
