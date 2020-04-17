@@ -561,6 +561,67 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + under appropriate regularity conditions, the converse also holds, so that linearity of $\nabla A(\mathbf{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n$ is sufficient for conjugacy
 
++ __Theorem__
+  + open space $\Theta \subset \mathbb{R}^d$
+  + $\mathbf{X}$: a sample of size one from the exponential family $p(\cdot \,|\, \mathbf{\theta})$
+  + the support of $\mu$ containing an open interval
+  + $\pi(\mathbf{\theta})$: a prior density not concentrated at a single point
+  + the posterior mean of $\nabla A(\mathbf{\theta})$ given a single observation $\mathbf{X}$ is linear
+
+    \[ \mathbb{E}[\nabla A(\theta) \,|\, X] = a\mathbf{X} + \mathbf{b} \quad\iff\quad \pi(\mathbf{\theta}) \propto \exp\left( \frac{1}{a} \mathbf{b}^T \mathbf{\theta} - \frac{1 -a}{a} A(\mathbf{\theta}) \right)  \]
+
+  + similar result holds w/ discrete measure $\mu$
+
++ Gamma-Poisson likelihood model
+  + sampling distribution: Poisson model w/ rate $\lambda \geq 0$ in the sample space $\mathcal{X} = \mathbb{Z}_+$
+
+    \[ X = x \,|\, \lambda) = \frac{\lambda^x}{x!} e^{-\lambda} \propto \exp(x\log\lambda - \lambda) \]
+
+  + the natural parameter: $\theta = \log\lambda$
+  + the conjugate prior
+
+    \[ \pi_{x_0, n_0}(\lambda) \propto \exp(n_0x_0\log \lambda - n_0\lambda) \]
+  
+  + a better parameterization of the prior as the $Gamma(\alpha, \beta)$
+
+    \[ \pi_{\alpha, \beta}(\lambda) \propto \lambda^{\alpha-1} (1-\lambda)^{-beta\lambda} \]
+
+  + $\exists\; X_1, \dots, X_n$ observations from $Poisson(\lambda)$
+  + the posterior
+
+    \[ \lambda \,|\, X_1, \dots, X_n \sim Gamma(\alpha + n\overline{\mathbf{X}},\, \beta+n) \]
+
+  + the prior acts as if $\beta$ virtual observations were made, with a total count of $\alpha -1$ among them
+
++ Gamma-Exponential likelihood model
+  + sampling distribution: exponential distribution w/ the sample space $\mathcal{X} \in \mathbb{R}_+$
+
+    \[ p(x \,|\, \theta) = \theta e^{-x\theta} \]
+  
+  + exponential model widely used for survival times or waiting times btw events
+  + the conjugate prior: Gamma distribution in the most convenient parameterization
+
+    \[ \pi_{\alpha, \beta} \propto \theta^{\alpha - 1} e^{-\beta\theta} \]
+
+  + $\exists\; X_1, \dots, X_n$ observed data from $Gamma(\theta)$
+  + the posterior
+
+    \[ \theta \,|\, X_1, \dots, X_n \sim Gamma(\alpha + n,\, \beta + n\overline{X}) \]
+
+  + the prior acts if $\alpha -1$ virtual example are used, w/ a total waiting time of $\beta$
+
++ Gamma-Geometric likelihood model
+  + sampling distribution: the geometric distribution
+    + the discrete analogue of the exponential model
+    + w/ sample space $\mathcal{X} = \mathbb{Z}_{++}$, the strictly positive integers
+  
+    \[ \mathbb{P}(X = x \,|\, \theta) = (1-\theta)^{x-1} \theta \]
+
+  + the conjugate prior: $Gamma(\alpha, \beta)$
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $Geometric(\theta)$
+  + the posterior
+
+    \[ \theta \,|\, X_1, \dots, X_n \sim Gamma(\alpha + n, \,\beta + n\overline{X}) \]
 
 
 
