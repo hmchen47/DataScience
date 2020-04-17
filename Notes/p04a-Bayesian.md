@@ -485,7 +485,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.6 Conjugate Priors
 
 + Conjugate priors
-  + a prior distribution closed under samlping
+  + a prior distribution closed under sampling
   + $\mathcal{P}$: a family of prior distribution
   + __Definition__. $\forall\; \theta, \, \exists\; p(\cdot \,|\, \theta) \in \mathcal{F}$ over a sample space $\mathcal{X}$. The posterior
 
@@ -523,6 +523,45 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       &\propto \pi_{\frac{\mathbf{x}}{1+n_0}+\frac{n_0\mathbf{x}_0}{1+n_0}, 1+n_0}(\mathbf{\theta})
     \end{align*}\]
   
+  + the prior incorporating $n_0$ "virtual" observations of $\mathbf{x}_0 \in \mathbb{R}$
+  + after making one "real" observation x: the parameters of the posterior as a mixture of the virtual and actual observation
+
+    \[ n_0^\prime = 1 + n_0 \quad \text{ and } \quad \mathbf{x}_0^\prime = \frac{\mathbf{x}}{1 + n_0} + \frac{n_0 \mathbf{x}}{1 + n_0} \]
+
++ Generalized exponential family model
+  + $n$ observations $\mathbf{X}_1, \dots, \mathbf{X}_n \implies$ the posterior
+
+    \[\begin{align*}
+      p(\mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) &= \pi_{\frac{\mathbf{n \mathbf{\hat{x}}}}{n+n_0} + \frac{n_0\mathbf{x}_0}{n+n_0}, n+n_0}(\mathbf{\theta}) \\\\
+      &\propto \exp \left( (n + n_0) \left( \frac{n\overline{\mathbf{X}}}{n + n_0} + \frac{n_0\mathbf{x}_0}{n+n_0} \right)^T \mathbf{\theta} - (n + n_0)A(\mathbf{\theta}) \right) \\ 
+      &\hspace{15em} \text{where }\left(\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i/n \right)
+    \end{align*}\]
+
+  + the parameters of the posterior
+
+    \[ n_0^\prime = n + n_0 \quad \text{ and } \quad \mathbf{x}_0^\prime = \frac{n \overline{\mathbf{X}}}{n+n_0} + \frac{n_0\mathbf{x}_0}{n+n_0} \]
+
+  + define $\pi_{\mathbf{x}_0, n_0}$ as
+
+    \[\begin{align*}
+      \pi_{\mathbf{x}_0, n_0} &= \exp\left(n_0 \mathbf{x}_0^T \mathbf{\theta}  -n_0 A(\mathbf{\theta})\right) \\\\
+      \nabla \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta}) &= n_0(\mathbf{x}_0 - \nabla A(\mathbf{\theta})) \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})
+    \end{align*}\]
+
+  + the expectation w.r.t. $\pi_{\mathbf{x}_0, n_0}$
+
+    \[\begin{align*}
+      \mathbb{E}[\nabla A(\mathbf{\theta})] = \int \nabla A(\mathbf{\theta}) \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})\,d\mathbf{\theta} &= \mathbf{x}_0 - \frac{1}{n_0} \int \nabla \pi_{\mathbf{x}_0, n_0} (\mathbf{\theta})\,d\mathbf{\theta} = \mathbf{x}_0 \\\\
+      \text{with } \int\nabla \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})\,d\mathbf{\theta} &= \nabla \left( \int \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})\,d\mathbf{\theta} \right) = 0
+    \end{align*}\]
+
+  + more generally,
+
+    \[ \mathbb{E}[\nabla A(\mathbf{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n] = \frac{n\overline{\mathbf{X}}}{n_0+n} + \frac{n_0 \mathbf{x}_0}{n_0+n} \]
+
+  + under appropriate regularity conditions, the converse also holds, so that linearity of $\nabla A(\mathbf{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n$ is sufficient for conjugacy
+
+
 
 
 ### 12.2.7 Bayesian Hypothesis Testing
