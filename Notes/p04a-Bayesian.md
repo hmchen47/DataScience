@@ -683,8 +683,128 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + similarly, the conjugate prior for the inverse covariance $\mathbf{\Sigma}^{-1}$ (precision matrix) is a Wishart
 
++ Pareto-Uniform likelihood model
+  + uniform distribution: $\text{Uniform}(0, \theta),\, \theta \geq 0$
+  + Pareto distribution
+    + the standard power-law distribution
+    + $\theta \sim \text{Pareto}(\nu_0,\, k)$, the survival function
 
+      \[ \mathbb{P}(\theta \geq t) = \left( \frac{t}{\nu_0} \right)^{-k}, \quad t \geq \nu_0 \]
 
+      + $k$: the rate of decay
+      + $\nu_0$: the support of the distribution
+    + the density
+
+      \[ \pi_{k, \nu_0}(\theta) = \begin{cases}
+        \frac{k \nu_0^k}{\theta^{k+1}} & \theta \geq \nu_0 \\
+        0 & \text{otherwise}
+      \end{cases}\]
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $\text{Uniform}(0, \theta)$
+  + the prior of $\theta$: $\text{Pareto}(k, \nu_0)$
+  + let $X_{(n)} = \max_{1 \leq i \leq n} \{ X_i \}$
+    + $\nu_0 > X_{(n)} \implies$
+
+      \[ \mathcal{L}(\theta) \pi_{k, \nu_0}(\theta) = 0 \]
+
+    + $\nu_o \leq X_{(n)} \implies$ the posterior ($\theta$ must be at least $X_{(n)}$)
+
+      \[ \mathcal{L}_n(\theta) \pi_{k, \nu_0}(\theta) \propto \frac{1}{\theta^n} \frac{1}{\theta^{k+1}} \]
+  + the posterior
+
+    \[ \theta \,|\, X_1, \dots, X_n \sim \text{Pareto}\left(n + k, \max\{X_{(n)}, \,\nu_0\}\right) \]
+
+  + $n \nearrow \;\to$ the decay of the posterior $\nearrow \implies$ a more peaked distribution around $X_{(n)}$
+  + the parameter $K$ controls the sharpness of the decay for small $n$
+
++ Conjugate priors for discrete exponential family distributions
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.2em; margin: 0.2em;"><a href="http://www.stat.cmu.edu/~larry/=sml/">Conjugate priors for discrete exponential family distributions</a></caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sample Space</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sampling Dist.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Conjugate Prior</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Posterior</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">$X = \{0, 1\}$</td>
+      <td style="text-align: center;">$\text{Bernoulli}(\theta)$</td>
+      <td style="text-align: center;">$\text{Beta}(\alpha, \,\beta)$</td>
+      <td style="text-align: center;">$\text{Beta}(\alpha + n\overline{X}, \,\beta + n(1-\overline{X}))$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$X = \mathbb{Z}_+$</td>
+      <td style="text-align: center;">$\text{Poisson{\lambda}}$</td>
+      <td style="text-align: center;">$\text{Gamma}(\alpha, \,\beta)$</td>
+      <td style="text-align: center;">$\text{Gamma}(\alpha + n\overline{X}, \,\beta + n))$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$X = \mathbb{Z}_{++}$</td>
+      <td style="text-align: center;">$\text{Geometric}(\theta)$</td>
+      <td style="text-align: center;">$\text{Gamma}(\alpha, \,\beta)$</td>
+      <td style="text-align: center;">$\text{Gamma}(\alpha+n, \,\beta+n\overline{X})$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$X = \mathbb{H}_k$</td>
+      <td style="text-align: center;">$\text{Multinomial}(\theta)$</td>
+      <td style="text-align: center;">$\text{Dirichlet}(\alpha)$</td>
+      <td style="text-align: center;">$\text{Dirichlet}(\alpha+n\overline{X})$</td>
+    </tr>
+    </tbody>
+  </table>
+
++ Conjugate priors for some continuous distributions
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.2em; margin: 0.2em;"><a href="http://www.stat.cmu.edu/~larry/=sml/">Conjugate priors for some continuous distributions</a></caption>
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Sampling Dist.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Conjugate Prior</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Posterior</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">$\text{Uniform}(\theta)$</td>
+      <td style="text-align: center;">$\text{Pareto}(\nu_0, \,k)$</td>
+      <td style="text-align: center;">$\text{Pareto}(\max\{\nu_0, \,X_{(n)}, \,n+k\})$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Exponential}(\theta)$</td>
+      <td style="text-align: center;">$\text{Gamma}(\alpha, \,\beta)$</td>
+      <td style="text-align: center;">$\text{Gamma}(\alpha+n, \,\beta+n\overline{X})$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mu, \,\sigma^2)$, known $\sigma^2$</td>
+      <td style="text-align: center;">$N(\mu_0, \,\sigma_0^2)$</td>
+      <td style="text-align: center;">$N\left(\left(\frac{1}{\sigma_0^2} + \frac{n}{\sigma^2}\right)^{-1}\left(\frac{\mu_0}{\sigma_0^2} + \frac{n\overline{X}}{\sigma^2}\right), \,\left(\frac{1}{\sigma_0^2} + \frac{n}{\sigma^2}\right)^{-1}\right)$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mu, \,\sigma^2)$, known $\mu$</td>
+      <td style="text-align: center;">$\text{InvGamma}(\alpha, \,\beta)$</td>
+      <td style="text-align: center;">$\text{InvGamma}\left(\alpha+\frac{n}{2}, \,\beta + \frac{n}{2} \, \overline{(X - \mu)^2}\right)$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mu, \,\sigma^2)$, known $\mu$</td>
+      <td style="text-align: center;">$\text{ScaledInv-}\chi^2(\nu_0, \,\sigma_0^2)$</td>
+      <td style="text-align: center;">$\text{ScaledInv-}\chi^2\left(\nu_0+n, \,\beta + \frac{\nu_0+\sigma_0^2}{\nu_0 + n} + \frac{n\,\overline(X-\mu)^{2}}{\nu_0 + n} \right)$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mathbf{\mu}, \,\mathbf{\Sigma})$, known $\mathbf{\Sigma}$</td>
+      <td style="text-align: center;">$N(\mathbf{\mu}_0, \,\mathbf{\Sigma}_0)$</td>
+      <td style="text-align: center;">$N\left(\mathbf{K}\left(\Sigma_0^{-1} \mu_0 + n + \Sigma^{-1} \overline{X}\right), \,\mathbf{K}\right), \\ \hspace{10em}\;\mathbf{K} = (\Sigma_0^{-1} + n\Sigma^{-1})^{-1}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mathbf{\mu}, \,\mathbf{\Sigma})$, known $\mathbf{\mu}$</td>
+      <td style="text-align: center;">$\text{InvWishart}(\nu_0, \,\mathbf{S}_0)$</td>
+      <td style="text-align: center;">$\text{InvWishart}(\nu_0+n, \,\mathbf{S}_0+n \overline{\mathbf{S}}), \;\overline{\mathbf{S}}$ sample covariance</td>
+    </tr>
+    </tbody>
+  </table>
 
 
 ### 12.2.7 Bayesian Hypothesis Testing
