@@ -484,8 +484,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.2.6 Conjugate Priors
 
-+ Conjugate priors
-  + a prior distribution closed under sampling
++ Definition of conjugate priors
+  + a prior distribution closed under sampling distribution
   + $\mathcal{P}$: a family of prior distribution
   + __Definition__. $\forall\; \theta, \, \exists\; p(\cdot \,|\, \theta) \in \mathcal{F}$ over a sample space $\mathcal{X}$. The posterior
 
@@ -500,8 +500,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ p(\mathbf{x} \,|\, \mathbf{\theta}) = \exp\left(\mathbf{\theta}^T\,\mathbf{x} - A(\mathbf{\theta})\right) \tag{5} \]
 
-    + $\mathbf{\theta} \in \mathbb{R}^d$: the $d$-dimensional parameter
-    + $\Theta \in \mathbf{R}^d$: the open parameter space w/
+    + $\mathbf{\theta} \in \mathbb{R}^d$: a $d$-dimensional parameter
+    + $\Theta \subset \mathbb{R}^d$: an open parameter space $\ni$
 
       \[ \int \exp\left(\mathbf{\theta}^T\,\mathbf{x} - A(\mathbf{\theta})\right)\,d\mu(\mathbf{x}) < \infty \]
 
@@ -518,12 +518,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the posterior
 
     \[\begin{align*}
-      p(\mathbf{x} \,|\, \mathbf{\theta}) \pi_{\mathbf{x}_0,n_0}(\mathbf{\theta}) &= \exp(\mathbf{\theta}^T \mathbf{x} - A(\mathbf{\theta})) = \exp\left((\mathbf{x} + \mathbf{x}_0)^T\mathbf{\theta} - (1+n_0)A(\mathbf{\theta})\right) \\\\
+      p(\mathbf{x} \,|\, \mathbf{\theta}) \pi_{\mathbf{x}_0,n_0}(\mathbf{\theta}) &= \exp(\mathbf{\theta}^T \mathbf{x} - A(\mathbf{\theta}))  \exp\left(n_0\mathbf{x}_0^T\mathbf{\theta} - n_0 \,A(\mathbf{\theta})\right) \\\\
+      &= \exp\left((\mathbf{x} + \mathbf{x}_0)^T\mathbf{\theta} - (1+n_0)A(\mathbf{\theta})\right) \\\\
       &= \exp\left( (1+n_0) \left( \frac{\mathbf{x}}{1+n_0} + \frac{n_0\mathbf{x}_0}{1+n_0} \right)^T \mathbf{\theta} - (1+n_0)A(\mathbf{\theta}) \right) \\\\
       &\propto \pi_{\frac{\mathbf{x}}{1+n_0}+\frac{n_0\mathbf{x}_0}{1+n_0}, 1+n_0}(\mathbf{\theta})
     \end{align*}\]
   
-  + the prior incorporating $n_0$ "virtual" observations of $\mathbf{x}_0 \in \mathbb{R}$
+  + the prior incorporating $n_0$ "virtual" observations of $\mathbf{x}_0 \in \mathbb{R}^d$
   + after making one "real" observation x: the parameters of the posterior as a mixture of the virtual and actual observation
 
     \[ n_0^\prime = 1 + n_0 \quad \text{ and } \quad \mathbf{x}_0^\prime = \frac{\mathbf{x}}{1 + n_0} + \frac{n_0 \mathbf{x}}{1 + n_0} \]
@@ -573,20 +574,20 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + similar result holds w/ discrete measure $\mu$
 
 + Gamma-Poisson likelihood model
-  + sampling distribution: Poisson model w/ rate $\lambda \geq 0$ in the sample space $\mathcal{X} = \mathbb{Z}_+$
+  + Poisson model w/ rate $\lambda \geq 0$ in the sample space $\mathcal{X} = \mathbb{Z}_+ \ni$
 
-    \[ X = x \,|\, \lambda) = \frac{\lambda^x}{x!} e^{-\lambda} \propto \exp(x\log\lambda - \lambda) \]
+    \[ \mathbb{P}(X = x \,|\, \lambda) = \frac{\lambda^x}{x!} e^{-\lambda} \propto \exp(x\log\lambda - \lambda) \]
 
   + the natural parameter: $\theta = \log\lambda$
   + the conjugate prior
 
     \[ \pi_{x_0, n_0}(\lambda) \propto \exp(n_0x_0\log \lambda - n_0\lambda) \]
   
-  + a better parameterization of the prior as the $Gamma(\alpha, \beta)$
+  + a better parameterization of the prior as the $\text{Gamma}(\alpha, \beta)$
 
-    \[ \pi_{\alpha, \beta}(\lambda) \propto \lambda^{\alpha-1} (1-\lambda)^{-beta\lambda} \]
+    \[ \pi_{\alpha, \beta}(\lambda) \propto \lambda^{\alpha-1} (1-\lambda)^{-\beta\lambda} \]
 
-  + $\exists\; X_1, \dots, X_n$ observations from $Poisson(\lambda)$
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observations from $\text{Poisson}(\lambda)$
   + the posterior
 
     \[ \lambda \,|\, X_1, \dots, X_n \sim \text{Gamma}(\alpha + n\overline{\mathbf{X}},\, \beta+n) \]
@@ -594,7 +595,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the prior acts as if $\beta$ virtual observations were made, with a total count of $\alpha -1$ among them
 
 + Gamma-Exponential likelihood model
-  + sampling distribution: exponential distribution w/ the sample space $\mathcal{X} \in \mathbb{R}_+$
+  + exponential distribution w/ the sample space $\mathcal{X} \in \mathbb{R}_+ \ni$
 
     \[ p(x \,|\, \theta) = \theta e^{-x\theta} \]
   
@@ -603,7 +604,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ \pi_{\alpha, \beta} \propto \theta^{\alpha - 1} e^{-\beta\theta} \]
 
-  + $\exists\; X_1, \dots, X_n$ observed data from $Gamma(\theta)$
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $\text{Exponential}(\theta)$
   + the posterior
 
     \[ \theta \,|\, X_1, \dots, X_n \sim \text{Gamma}(\alpha + n,\, \beta + n\overline{X}) \]
@@ -611,14 +612,15 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the prior acts if $\alpha -1$ virtual example are used, w/ a total waiting time of $\beta$
 
 + Gamma-Geometric likelihood model
-  + sampling distribution: the geometric distribution
+  + the geometric distribution
     + the discrete analogue of the exponential model
-    + w/ sample space $\mathcal{X} = \mathbb{Z}_{++}$, the strictly positive integers
+    + sample space $\mathcal{X} = \mathbb{Z}_{++}$, the strictly positive integers
+    + the density
   
     \[ \mathbb{P}(X = x \,|\, \theta) = (1-\theta)^{x-1} \theta \]
 
-  + the conjugate prior: $Gamma(\alpha, \beta)$
-  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $Geometric(\theta)$
+  + the conjugate prior: $\text{Gamma}(\alpha, \beta)$
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $\text{Geometric}(\theta)$
   + the posterior
 
     \[ \theta \,|\, X_1, \dots, X_n \sim \text{Gamma}(\alpha + n, \,\beta + n\overline{X}) \]
@@ -629,28 +631,28 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[\begin{align*}
       p(X_1, \dots, X_n \,|\, \sigma^2) &\propto (\sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \mu^2) \right) \\\\
-        &= (\sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} n \overline{(X - \mu)^2} \right) \\
-        & \hspace{5em} \text{with }\left(\overline{(X-\mu)^2} = \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2 \right)
+        &= (\sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} n\, \overline{(X - \mu)^2} \right) \\
+        & \hspace{10em} \text{with }\left(\overline{(X-\mu)^2} = \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2 \right)
     \end{align*}\]
 
   + the conjugate prior
-    + inverse Gamma distribution as $1/\theta \sim \text{Gamma}(\alpha, \beta)$
+    + inverse Gamma distribution: $1/\theta \sim \text{Gamma}(\alpha, \beta)$
     + the density
 
       \[ \pi_{\alpha, \beta}(\theta) \propto \theta^{-(\alpha+1)} e^{-\beta/\theta} \]
 
   + the posterior distribution of $\sigma^2$
 
-    \[ \sigma^2 \,|\, X_1, \dots, X_n \propto InvGamma(\alpha + \frac{n}{2},\, \beta + \frac{\beta}{2} \overline{X - \mu)^2}) \]
+    \[ \sigma^2 \,|\, X_1, \dots, X_n \propto \text{InvGamma}\left(\alpha + \frac{n}{2},\, \beta + \frac{n}{2}\, \overline{X - \mu)^2}\,\right) \]
 
 + ScaledInv-$\chi^2$-Gaussian likelihood model
-  + the prior: scaled inverse $\chi^2$ distribution of $\sigma^2\nu_0Z$ w/ $Z \sim \chi_{\nu_0}^2$
+  + the prior: scaled inverse $\chi^2$ distribution of $\sigma^2\nu_0Z\;$ w/ $Z \sim \chi_{\nu_0}^2$
 
     \[ \pi_{\nu_0, \sigma_0^2}(\theta) \propto \theta^{-(1+\nu_0/2)} \exp\left( -\frac{\nu_0 \sigma^2_0}{2\theta} \right) \]
 
   + the posterior
 
-    \[ \sigma^2 \,|\, X_1, \dots, X_n \sim \text{ScaledInv-}\chi^2 \left( \nu_0 +n, \,\frac{\nu_0 \sigma_0^2}{\nu_0 + n} + \frac{n \overline{(X - \mu)^2}}{\nu_0 + n} \right) \]
+    \[ \sigma^2 \,|\, X_1, \dots, X_n \sim \text{ScaledInv-}\chi^2 \left( \nu_0 +n, \,\frac{\nu_0 \sigma_0^2}{\nu_0 + n} + \frac{n\, \overline{(X - \mu)^2}}{\nu_0 + n} \right) \]
 
 + InvWhishart-Gaussian likelihood Model
   + The Wishart distribution
@@ -658,7 +660,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + a distribution over symmetric positive semi-definite $d \times d$ matrices $\mathbf{W}$
     + the density
 
-      \[ \pi_{\nu_0, \mathbf{S}_0}(\mathbf{W}) \propto |\mathbf{W}|^{(\nu_0 - d -1)/2} \exp\left( -\frac{1}{2} \text{tr}(\mathbf{S}_0^{-1} \mathbf{W}) \right) \]
+      \[ \pi_{\nu_0, \mathbf{S}_0}(\mathbf{W}) \propto |\mathbf{W}|^{(\nu_0 + d + 1)/2} \exp\left( -\frac{1}{2} \text{tr}(\mathbf{S}_0^{-1} \mathbf{W}) \right) \]
 
       + $\nu_0$: the degrees of freedom
       + $\mathbf{S}_0$: the positive-definite matrix
@@ -667,13 +669,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ \pi_{\nu_0, \mathbf{S}_0}(\mathbf{W}) \propto |\mathbf{W}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}(\mathbf{S}_0 \mathbf{W}^{-1}) \right) \]
 
-  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $N(\mathbf{0}, \mathbf{\Sigma})$
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $N(\mathbf{0}, \mathbf{\Sigma}), \;\mathbf{\Sigma} \in \mathbb{R}^{n\times n}$ as covariance (positive semi-defined matrix)
   + the posterior: an inverse Wishart prior multiplies the likelihood
 
     \[\begin{align*}
       &p(\mathbf{X}_1, \dots, \mathbf{X}_n \,|\, \mathbf{\Sigma})\pi_{\nu_0, \mathbf{S}_0} \\\\
-      & \hspace{3em}\propto |\mathbf{\Sigma}|^{-n/2} \exp \left( -\frac{n}{2} \text{tr}(\overline{\mathbf{S}}\mathbf{\Sigma}^{-1}) \right) |\mathbf{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2}\text{tr}(\mathbf{S}_0 \mathbf{\Sigma}^{-1})) \right) \\\\
-      &\hspace{1em}= |\mathbf{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}\left(n \overline{\mathbf{S}} + \mathbf{S}_0) \mathbf{\Sigma}^{-1}\right) \right)
+      & \hspace{3em}\propto |\mathbf{\Sigma}|^{-n/2} \exp \left( -\frac{n}{2} \text{tr}(\overline{\mathbf{S}}\mathbf{\Sigma}^{-1}) \right) |\mathbf{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2}\text{tr}(\mathbf{S}_0 \mathbf{\Sigma}^{-1}) \right) \\\\
+      &\hspace{1em}= |\mathbf{\Sigma}|^{-(n+\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}\left(\left(n \overline{\mathbf{S}} + \mathbf{S}_0\right) \mathbf{\Sigma}^{-1}\right) \right)
     \end{align*}\]
 
     + the empirical covariance: $\overline{\mathbf{S}} = \frac{1}{n} \sum_{i=1}^n \mathbf{X}_i\mathbf{X}_i^T$
@@ -696,7 +698,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the density
 
       \[ \pi_{k, \nu_0}(\theta) = \begin{cases}
-        \frac{k \nu_0^k}{\theta^{k+1}} & \theta \geq \nu_0 \\
+        k \nu_0^k/\theta^{k+1} & \theta \geq \nu_0 \\
         0 & \text{otherwise}
       \end{cases}\]
   + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $\text{Uniform}(0, \theta)$
@@ -704,7 +706,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + let $X_{(n)} = \max_{1 \leq i \leq n} \{ X_i \}$
     + $\nu_0 > X_{(n)} \implies$
 
-      \[ \mathcal{L}(\theta) \pi_{k, \nu_0}(\theta) = 0 \]
+      \[ \mathcal{L}_n(\theta) \pi_{k, \nu_0}(\theta) = 0 \]
 
     + $\nu_o \leq X_{(n)} \implies$ the posterior ($\theta$ must be at least $X_{(n)}$)
 
@@ -733,25 +735,25 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       <td style="text-align: center;">$X = \{0, 1\}$</td>
       <td style="text-align: center;">$\text{Bernoulli}(\theta)$</td>
       <td style="text-align: center;">$\text{Beta}(\alpha, \,\beta)$</td>
-      <td style="text-align: center;">$\text{Beta}(\alpha + n\overline{X}, \,\beta + n(1-\overline{X}))$</td>
+      <td style="text-align: center;">$\text{Beta}\left(\alpha + n\overline{X}, \,\beta + n\left(1-\overline{X}\right)\right)$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$X = \mathbb{Z}_+$</td>
-      <td style="text-align: center;">$\text{Poisson{\lambda}}$</td>
+      <td style="text-align: center;">$\text{Poisson}(\lambda)$</td>
       <td style="text-align: center;">$\text{Gamma}(\alpha, \,\beta)$</td>
-      <td style="text-align: center;">$\text{Gamma}(\alpha + n\overline{X}, \,\beta + n))$</td>
+      <td style="text-align: center;">$\text{Gamma}\left(\alpha + n\overline{X}, \,\beta + n\right)$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$X = \mathbb{Z}_{++}$</td>
       <td style="text-align: center;">$\text{Geometric}(\theta)$</td>
-      <td style="text-align: center;">$\text{Gamma}(\alpha, \,\beta)$</td>
-      <td style="text-align: center;">$\text{Gamma}(\alpha+n, \,\beta+n\overline{X})$</td>
+      <td style="text-align: center;">$\text{Gamma}\left(\alpha, \,\beta\right)$</td>
+      <td style="text-align: center;">$\text{Gamma}\left(\alpha+n, \,\beta+n\overline{X}\right)$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$X = \mathbb{H}_k$</td>
       <td style="text-align: center;">$\text{Multinomial}(\theta)$</td>
-      <td style="text-align: center;">$\text{Dirichlet}(\alpha)$</td>
-      <td style="text-align: center;">$\text{Dirichlet}(\alpha+n\overline{X})$</td>
+      <td style="text-align: center;">$\text{Dirichlet}\left(\alpha+n\overline{X}\right)$</td>
+      <td style="text-align: center;">$\text{Dirichlet}\left(\alpha\right)$</td>
     </tr>
     </tbody>
   </table>
@@ -762,21 +764,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     <caption style="font-size: 1.2em; margin: 0.2em;"><a href="http://www.stat.cmu.edu/~larry/=sml/">Conjugate priors for some continuous distributions</a></caption>
     <thead>
     <tr>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Sampling Dist.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Sampling Dist.</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Conjugate Prior</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Posterior</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:25%;">Posterior</th>
     </tr>
     </thead>
     <tbody>
     <tr>
       <td style="text-align: center;">$\text{Uniform}(\theta)$</td>
-      <td style="text-align: center;">$\text{Pareto}(\nu_0, \,k)$</td>
-      <td style="text-align: center;">$\text{Pareto}(\max\{\nu_0, \,X_{(n)}, \,n+k\})$</td>
+      <td style="text-align: center;">$\text{Pareto}\left(\nu_0, \,k\right)$</td>
+      <td style="text-align: center;">$\text{Pareto}\left(\max\{\nu_0, \,X_{(n)}\}, \,n+k\right)$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$\text{Exponential}(\theta)$</td>
-      <td style="text-align: center;">$\text{Gamma}(\alpha, \,\beta)$</td>
-      <td style="text-align: center;">$\text{Gamma}(\alpha+n, \,\beta+n\overline{X})$</td>
+      <td style="text-align: center;">$\text{Gamma}\left(\alpha, \,\beta\right)$</td>
+      <td style="text-align: center;">$\text{Gamma}\left(\alpha+n, \,\beta+n\overline{X}\right)$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$N(\mu, \,\sigma^2)$, known $\sigma^2$</td>
@@ -791,12 +793,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     <tr>
       <td style="text-align: center;">$N(\mu, \,\sigma^2)$, known $\mu$</td>
       <td style="text-align: center;">$\text{ScaledInv-}\chi^2(\nu_0, \,\sigma_0^2)$</td>
-      <td style="text-align: center;">$\text{ScaledInv-}\chi^2\left(\nu_0+n, \,\beta + \frac{\nu_0+\sigma_0^2}{\nu_0 + n} + \frac{n\,\overline(X-\mu)^{2}}{\nu_0 + n} \right)$</td>
+      <td style="text-align: center;">$\text{ScaledInv-}\chi^2\left(\nu_0+n, \,\beta + \frac{\nu_0+\sigma_0^2}{\nu_0 + n} + \frac{n\,\overline{(X-\mu)^{2}}}{\nu_0 + n} \right)$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$N(\mathbf{\mu}, \,\mathbf{\Sigma})$, known $\mathbf{\Sigma}$</td>
       <td style="text-align: center;">$N(\mathbf{\mu}_0, \,\mathbf{\Sigma}_0)$</td>
-      <td style="text-align: center;">$N\left(\mathbf{K}\left(\Sigma_0^{-1} \mu_0 + n + \Sigma^{-1} \overline{X}\right), \,\mathbf{K}\right), \\ \hspace{10em}\;\mathbf{K} = (\Sigma_0^{-1} + n\Sigma^{-1})^{-1}$</td>
+      <td style="text-align: center;">$N\left(\mathbf{K}\left(\Sigma_0^{-1} \mu_0 + n \Sigma^{-1} \overline{X}\right), \,\mathbf{K}\right), \\ \hspace{10em}\;\mathbf{K} = (\Sigma_0^{-1} + n\Sigma^{-1})^{-1}$</td>
     </tr>
     <tr>
       <td style="text-align: center;">$N(\mathbf{\mu}, \,\mathbf{\Sigma})$, known $\mathbf{\mu}$</td>
