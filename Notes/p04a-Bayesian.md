@@ -812,20 +812,22 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.7 Bayesian Hypothesis Testing
 
 + Bayesian hypothesis testing
-  + hypothesis: $\theta \in \mathbb{R}$
+  + hypothesis: $\exists\; \theta \in \mathbb{R} \ni$
 
     \[ H_0: \theta = \theta_0 \quad \text{ vs. } H_1: \theta \neq \theta_0 \]
 
-  + the Bayesian approach to testing involves putting a prior on $H_0$ and on the parameter $\theta$ and then computing $\mathbb{P}(H_0 \,|\, \mathcal{D}_n)$
+  + the Bayesian approach to testing
+    + putting a prior on $H_0$ and on the parameter $\theta$
+    + then computing $\mathbb{P}(H_0 \,|\, \mathcal{D}_n)$
   + commonly using the prior $\mathbb{P}(H_0) = \mathbb{P}(H_1) = 1/2$
   + the prior distribution comprising a point mass 0.5 at $\theta_0$ mixed w/ a continuous density elsewhere
-  + Bayes theorem
+  + applying Bayes theorem
 
     \[\begin{align*}
-      \mathbb{P}(H_0 \,|\, \mathcal{D}_n) &= \frac{p(\mathcal{D}_n \,|\, H_0) \mathbb{P}(H_0)}{p(\mathcal{P} \,|\, H_0) \mathbb{P}(H_0) + p(\mathcal{P} \,|\, H_1) \mathbb{P}(H_1)} \\\\
+      \mathbb{P}(H_0 \,|\, \mathcal{D}_n) &= \frac{p(\mathcal{D}_n \,|\, H_0) \mathbb{P}(H_0)}{p(\mathcal{D} \,|\, H_0) \mathbb{P}(H_0) + p(\mathcal{D}_n \,|\, H_1) \mathbb{P}(H_1)} \\\\
       &= \frac{p(\mathcal{D}_n \,|\, \theta_0)}{p(\mathcal{D}_n \,|\, \theta_0) + p(\mathcal{D}_n \,|\, H_1)} = \frac{p(\mathcal{D}_n \,|\, \theta_0)}{p(\mathcal{D}_n \,|\, \theta_0) + \int p(\mathcal{D}_n \,|\, \theta) \pi(\theta)\,d\theta} \\\\
-      &= \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_0) + \int \mathcal{L}\pi(\theta)\,d\theta}
-    \end{align*}]
+      &= \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_0) + \int \mathcal{L}(\theta)\pi(\theta)\,d\theta}
+    \end{align*}\]
   
   + estimation problem:
     + the prior not very influential
