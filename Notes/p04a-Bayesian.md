@@ -58,18 +58,18 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + The Dirichlet distribution for $K$ outcomes
   + the exponential family distribution on the $K-1$ dimensional probability simplex
-  + the parameters of the model: $\mathbf{\alpha} = (\alpha_1, \dots, \alpha_K)^T \in \mathbb{R}_+^K$, a non-negative vector of scaling coefficients
+  + the parameters of the model: $\pmb{\alpha} = (\alpha_1, \dots, \alpha_K)^T \in \mathbb{R}_+^K$, a non-negative vector of scaling coefficients
   + probability simplex defined as
 
-    \[ \Delta_k = \left\{\mathbf{\theta} = (\theta_1, \dots, \theta_K)^T \in \mathbb{R}^K \,|\, \theta_i \geq 0\; \forall i, \sum_{i=1}^K \theta_i = 1 \right\} \]
+    \[ \Delta_k = \left\{\pmb{\theta} = (\theta_1, \dots, \theta_K)^T \in \mathbb{R}^K \,|\, \theta_i \geq 0\; \forall i, \sum_{i=1}^K \theta_i = 1 \right\} \]
 
   + the probability density of Dirichlet distribution
 
-    \[ \pi_{\mathbf{\alpha}}(\mathbf{\theta}) = \frac{\Gamma(\sum_{j=1}^K \alpha_j)}{\prod_{j=1}^K \Gamma(\alpha_j)} \prod_{j=1}^K \theta_j^{\alpha_j -1} \]
+    \[ \pi_{\pmb{\alpha}}(\pmb{\theta}) = \frac{\Gamma(\sum_{j=1}^K \alpha_j)}{\prod_{j=1}^K \Gamma(\alpha_j)} \prod_{j=1}^K \theta_j^{\alpha_j -1} \]
 
-  + the mean of a Dirichlet distribution $\pi_\alpha (\mathbf{\alpha})$
+  + the mean of a Dirichlet distribution $\pi_\alpha (\pmb{\alpha})$
 
-    \[ \mathbb{E}(\mathbf{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
+    \[ \mathbb{E}(\pmb{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
 
 
 ## 12.1 What is Bayesian Inference?
@@ -254,23 +254,23 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + prior distribution: Dirichlet prior
     + a multinomial distribution
     + a generalization of the Bernoulli model and Beta prior
-    + $\exists\; \mathbf{X} \sim \text{Multinomial}(n, \mathbf{\theta})$
-    + $\mathbf{\theta} = (\theta_1, \dots, \theta_K)^T, \; (K > 1)$: a $K$-dim parameter
+    + $\exists\; \mathbf{X} \sim \text{Multinomial}(n, \pmb{\theta})$
+    + $\pmb{\theta} = (\theta_1, \dots, \theta_K)^T, \; (K > 1)$: a $K$-dim parameter
   + the sample space of the multinomial w/ $K$ outcomes as the set of vertices of the $K$-dim hypercube $\mathbb{H}_K$, mad up of vectors w/ exactly only one 1 and the remaining elements 0
 
     \[ x = \underbrace{(0, 0, \dots, 0, 1, 0, \dots, 0)^T}_{K\text{ places}} \]
 
   + $\exists\; \mathbf{X}_i = (X_{i1}, \dots, X_{iK})^T \in \mathbb{H}_K$,
   
-    \[ \underbrace{\theta \sim \text{Dirichlet}(\mathbf{\alpha})}_{\text{Prior}} \;\text{ and }\; \underbrace{\mathbf{X}_i \,|\, \theta \sim \text{Multinomial}(\mathbf{\theta})}_{\text{likeliehood}} \; \forall\; i=1, 2, \dots, n\]
+    \[ \underbrace{\theta \sim \text{Dirichlet}(\pmb{\alpha})}_{\text{Prior}} \;\text{ and }\; \underbrace{\mathbf{X}_i \,|\, \theta \sim \text{Multinomial}(\pmb{\theta})}_{\text{likeliehood}} \; \forall\; i=1, 2, \dots, n\]
 
     $\implies$ the posterior satisfies
 
-    \[ p(\mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) \propto \mathcal{L}_n(\theta)\pi(\theta) \propto \prod_{i=1}^n \prod_{j=1}^K \theta_j^{X_{ij}} \prod_{j=1}^K \theta_j^{\alpha_j - 1} = \prod_{j=1}^K \theta_j^{\sum_{i=1}^n X_{ij}+\alpha_j-1} \]
+    \[ p(\pmb{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) \propto \mathcal{L}_n(\theta)\pi(\theta) \propto \prod_{i=1}^n \prod_{j=1}^K \theta_j^{X_{ij}} \prod_{j=1}^K \theta_j^{\alpha_j - 1} = \prod_{j=1}^K \theta_j^{\sum_{i=1}^n X_{ij}+\alpha_j-1} \]
 
   + the posterior distribution w/ $\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i / n \in \Delta_K$
 
-    \[ \mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{Dirichlet}(\alpha+ n \overline{\mathbf{X}})\]
+    \[ \pmb{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{Dirichlet}(\alpha+ n \overline{\mathbf{X}})\]
 
   + the posterior mean
 
@@ -282,7 +282,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + example
     + prior distribution $\sim \text{Dirichlet}(6, 6, 6)$
     + observed data size: $n = 20 \text{ and } 200$
-    + parameter: $\mathbf{\theta} = (0.2, 0.3, 0.5)^T$
+    + parameter: $\pmb{\theta} = (0.2, 0.3, 0.5)^T$
     + the contours of the prior, likelihood, and posteriors are plotted on a two-dimensional probability simplex (Starting from the bottom left vertex of each triangle, clock-wisely the three vertices correspond to $\theta_1, \theta_2, \theta_3$)
     + number of the observed data
       + small $\to$ the posterior affected by both the prior and the likelihood
@@ -372,21 +372,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Extracting inferences about one single parameters
   + sampling distribution: $\mathcal{D}_n = \{X_1, \dots, X_n \}$
-  + prior distribution: $\pi(\mathbf{\theta}),\; \mathbf{\theta} = (\theta_1, \dots, \theta_d)^T$
+  + prior distribution: $\pi(\pmb{\theta}),\; \pmb{\theta} = (\theta_1, \dots, \theta_d)^T$
   + the marginal posterior for $\theta_1$
 
-    \[ p(\mathbf{\theta} \,|\, \mathcal{D}_n) = \int \cdots \int p(\theta_1, \dots, \theta_d \,|\, \mathcal{D}_n) \, d\theta_2 \cdots d\theta_d \]
+    \[ p(\pmb{\theta} \,|\, \mathcal{D}_n) = \int \cdots \int p(\theta_1, \dots, \theta_d \,|\, \mathcal{D}_n) \, d\theta_2 \cdots d\theta_d \]
 
   + probably not feasible to do the integral
   + Solution: simulation by drawing randomly from the posterior
 
-    \[ \mathbf{\theta}^1, \dots, \mathbf{\theta}^B \sim p(\mathbf{\theta} \,|\, \mathcal{D}_n) \]
+    \[ \pmb{\theta}^1, \dots, \pmb{\theta}^B \sim p(\pmb{\theta} \,|\, \mathcal{D}_n) \]
 
     + the superscript index: different draw
-    + $\mathbf{\theta}^j = (\theta_1^j, \dots, \theta_d^j)^T$
+    + $\pmb{\theta}^j = (\theta_1^j, \dots, \theta_d^j)^T$
   + the first component of each draw: $\theta_1^1, \dots, \theta_1^B$
   + a sample from $p(\theta_1 \,|\, \mathcal{D}_n) \to$ avoided doing any integrals
-  + sampling $B$ data from a multivariate distribution $p(\mathbf{\theta} \,|\, \mathcal{D}_n) \to$ challenging especially w/ large dimensionality $d$
+  + sampling $B$ data from a multivariate distribution $p(\pmb{\theta} \,|\, \mathcal{D}_n) \to$ challenging especially w/ large dimensionality $d$
 
 + Comparing two binomials
   + control patients = $n_1$, treatment patients = $n_2$
@@ -498,30 +498,30 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + $p(\cdot \,|\, \theta)$: a standard exponential family model
   + the density w.r.t. a positive measure $\mu$
 
-    \[ p(\mathbf{x} \,|\, \mathbf{\theta}) = \exp\left(\mathbf{\theta}^T\,\mathbf{x} - A(\mathbf{\theta})\right) \tag{5} \]
+    \[ p(\mathbf{x} \,|\, \pmb{\theta}) = \exp\left(\pmb{\theta}^T\,\mathbf{x} - A(\pmb{\theta})\right) \tag{5} \]
 
-    + $\mathbf{\theta} \in \mathbb{R}^d$: a $d$-dimensional parameter
+    + $\pmb{\theta} \in \mathbb{R}^d$: a $d$-dimensional parameter
     + $\Theta \subset \mathbb{R}^d$: an open parameter space $\ni$
 
-      \[ \int \exp\left(\mathbf{\theta}^T\,\mathbf{x} - A(\mathbf{\theta})\right)\,d\mu(\mathbf{x}) < \infty \]
+      \[ \int \exp\left(\pmb{\theta}^T\,\mathbf{x} - A(\pmb{\theta})\right)\,d\mu(\mathbf{x}) < \infty \]
 
-    + $A(\mathbf{\theta})$: the moment generation or log-normalizing constant
+    + $A(\pmb{\theta})$: the moment generation or log-normalizing constant
 
-      \[A(\mathbf{\theta}) = \log\left(\int \exp(\mathbf{\theta} \mathbf{x} - A(\mathbf{\theta}))\, d\mu(\mathbf{x}) \right)\]
+      \[A(\pmb{\theta}) = \log\left(\int \exp(\pmb{\theta} \mathbf{x} - A(\pmb{\theta}))\, d\mu(\mathbf{x}) \right)\]
 
   + the density of a conjugate prior for the exponential family
 
-    \[\pi_{\mathbf{x}_0,n_0}(\theta) = \frac{\exp(n_0 \mathbf{x}_0^T \mathbf{\theta} - n_0A(\mathbf{\theta}))}{\int \exp(n_0 \mathbf{x}_0^T \mathbf{\theta} - n_0A(\mathbf{\theta}))\,d\mathbf{\theta}} \]
+    \[\pi_{\mathbf{x}_0,n_0}(\theta) = \frac{\exp(n_0 \mathbf{x}_0^T \pmb{\theta} - n_0A(\pmb{\theta}))}{\int \exp(n_0 \mathbf{x}_0^T \pmb{\theta} - n_0A(\pmb{\theta}))\,d\pmb{\theta}} \]
 
     + $\mathbf{x}_0 \in \mathbb{R}^d$: a vector
     + $n_0 \in \mathbb{R}$: a scalar
   + the posterior
 
     \[\begin{align*}
-      p(\mathbf{x} \,|\, \mathbf{\theta}) \pi_{\mathbf{x}_0,n_0}(\mathbf{\theta}) &= \exp(\mathbf{\theta}^T \mathbf{x} - A(\mathbf{\theta}))  \exp\left(n_0\mathbf{x}_0^T\mathbf{\theta} - n_0 \,A(\mathbf{\theta})\right) \\\\
-      &= \exp\left((\mathbf{x} + \mathbf{x}_0)^T\mathbf{\theta} - (1+n_0)A(\mathbf{\theta})\right) \\\\
-      &= \exp\left( (1+n_0) \left( \frac{\mathbf{x}}{1+n_0} + \frac{n_0\mathbf{x}_0}{1+n_0} \right)^T \mathbf{\theta} - (1+n_0)A(\mathbf{\theta}) \right) \\\\
-      &\propto \pi_{\frac{\mathbf{x}}{1+n_0}+\frac{n_0\mathbf{x}_0}{1+n_0}, 1+n_0}(\mathbf{\theta})
+      p(\mathbf{x} \,|\, \pmb{\theta}) \pi_{\mathbf{x}_0,n_0}(\pmb{\theta}) &= \exp(\pmb{\theta}^T \mathbf{x} - A(\pmb{\theta}))  \exp\left(n_0\mathbf{x}_0^T\pmb{\theta} - n_0 \,A(\pmb{\theta})\right) \\\\
+      &= \exp\left((\mathbf{x} + \mathbf{x}_0)^T\pmb{\theta} - (1+n_0)A(\pmb{\theta})\right) \\\\
+      &= \exp\left( (1+n_0) \left( \frac{\mathbf{x}}{1+n_0} + \frac{n_0\mathbf{x}_0}{1+n_0} \right)^T \pmb{\theta} - (1+n_0)A(\pmb{\theta}) \right) \\\\
+      &\propto \pi_{\frac{\mathbf{x}}{1+n_0}+\frac{n_0\mathbf{x}_0}{1+n_0}, 1+n_0}(\pmb{\theta})
     \end{align*}\]
   
   + the prior incorporating $n_0$ "virtual" observations of $\mathbf{x}_0 \in \mathbb{R}^d$
@@ -533,8 +533,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + $n$ observations $\mathbf{X}_1, \dots, \mathbf{X}_n \implies$ the posterior
 
     \[\begin{align*}
-      p(\mathbf{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) &= \pi_{\frac{\mathbf{n \mathbf{\hat{x}}}}{n+n_0} + \frac{n_0\mathbf{x}_0}{n+n_0}, n+n_0}(\mathbf{\theta}) \\\\
-      &\propto \exp \left( (n + n_0) \left( \frac{n\overline{\mathbf{X}}}{n + n_0} + \frac{n_0\mathbf{x}_0}{n+n_0} \right)^T \mathbf{\theta} - (n + n_0)A(\mathbf{\theta}) \right) \\ 
+      p(\pmb{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) &= \pi_{\frac{\mathbf{n \hat{\pmb{x}}}}{n+n_0} + \frac{n_0\mathbf{x}_0}{n+n_0}, n+n_0}(\pmb{\theta}) \\\\
+      &\propto \exp \left( (n + n_0) \left( \frac{n\overline{\mathbf{X}}}{n + n_0} + \frac{n_0\mathbf{x}_0}{n+n_0} \right)^T \pmb{\theta} - (n + n_0)A(\pmb{\theta}) \right) \\ 
       &\hspace{15em} \text{where }\left(\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i/n \right)
     \end{align*}\]
 
@@ -545,31 +545,31 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + define $\pi_{\mathbf{x}_0, n_0}$ as
 
     \[\begin{align*}
-      \pi_{\mathbf{x}_0, n_0} &= \exp\left(n_0 \mathbf{x}_0^T \mathbf{\theta}  -n_0 A(\mathbf{\theta})\right) \\\\
-      \nabla \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta}) &= n_0(\mathbf{x}_0 - \nabla A(\mathbf{\theta})) \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})
+      \pi_{\mathbf{x}_0, n_0} &= \exp\left(n_0 \mathbf{x}_0^T \pmb{\theta}  -n_0 A(\pmb{\theta})\right) \\\\
+      \nabla \pi_{\mathbf{x}_0, n_0}(\pmb{\theta}) &= n_0(\mathbf{x}_0 - \nabla A(\pmb{\theta})) \pi_{\mathbf{x}_0, n_0}(\pmb{\theta})
     \end{align*}\]
 
   + the expectation w.r.t. $\pi_{\mathbf{x}_0, n_0}$
 
     \[\begin{align*}
-      \mathbb{E}[\nabla A(\mathbf{\theta})] = \int \nabla A(\mathbf{\theta}) \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})\,d\mathbf{\theta} &= \mathbf{x}_0 - \frac{1}{n_0} \int \nabla \pi_{\mathbf{x}_0, n_0} (\mathbf{\theta})\,d\mathbf{\theta} = \mathbf{x}_0 \\\\
-      \text{with } \int\nabla \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})\,d\mathbf{\theta} &= \nabla \left( \int \pi_{\mathbf{x}_0, n_0}(\mathbf{\theta})\,d\mathbf{\theta} \right) = 0
+      \mathbb{E}[\nabla A(\pmb{\theta})] = \int \nabla A(\pmb{\theta}) \pi_{\mathbf{x}_0, n_0}(\pmb{\theta})\,d\pmb{\theta} &= \mathbf{x}_0 - \frac{1}{n_0} \int \nabla \pi_{\mathbf{x}_0, n_0} (\pmb{\theta})\,d\pmb{\theta} = \mathbf{x}_0 \\\\
+      \text{with } \int\nabla \pi_{\mathbf{x}_0, n_0}(\pmb{\theta})\,d\pmb{\theta} &= \nabla \left( \int \pi_{\mathbf{x}_0, n_0}(\pmb{\theta})\,d\pmb{\theta} \right) = 0
     \end{align*}\]
 
   + more generally,
 
-    \[ \mathbb{E}[\nabla A(\mathbf{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n] = \frac{n\overline{\mathbf{X}}}{n_0+n} + \frac{n_0 \mathbf{x}_0}{n_0+n} \]
+    \[ \mathbb{E}[\nabla A(\pmb{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n] = \frac{n\overline{\mathbf{X}}}{n_0+n} + \frac{n_0 \mathbf{x}_0}{n_0+n} \]
 
-  + under appropriate regularity conditions, the converse also holds, so that linearity of $\nabla A(\mathbf{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n$ is sufficient for conjugacy
+  + under appropriate regularity conditions, the converse also holds, so that linearity of $\nabla A(\pmb{\theta}) \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n$ is sufficient for conjugacy
 
 + __Theorem__
   + open space $\Theta \subset \mathbb{R}^d$
-  + $\mathbf{X}$: a sample of size one from the exponential family $p(\cdot \,|\, \mathbf{\theta})$
+  + $\mathbf{X}$: a sample of size one from the exponential family $p(\cdot \,|\, \pmb{\theta})$
   + the support of $\mu$ containing an open interval
-  + $\pi(\mathbf{\theta})$: a prior density not concentrated at a single point
-  + the posterior mean of $\nabla A(\mathbf{\theta})$ given a single observation $\mathbf{X}$ is linear
+  + $\pi(\pmb{\theta})$: a prior density not concentrated at a single point
+  + the posterior mean of $\nabla A(\pmb{\theta})$ given a single observation $\mathbf{X}$ is linear
 
-    \[ \mathbb{E}[\nabla A(\theta) \,|\, X] = a\mathbf{X} + \mathbf{b} \quad\iff\quad \pi(\mathbf{\theta}) \propto \exp\left( \frac{1}{a} \mathbf{b}^T \mathbf{\theta} - \frac{1 -a}{a} A(\mathbf{\theta}) \right)  \]
+    \[ \mathbb{E}[\nabla A(\theta) \,|\, X] = a\mathbf{X} + \mathbf{b} \quad\iff\quad \pi(\pmb{\theta}) \propto \exp\left( \frac{1}{a} \mathbf{b}^T \pmb{\theta} - \frac{1 -a}{a} A(\pmb{\theta}) \right)  \]
 
   + similar result holds w/ discrete measure $\mu$
 
@@ -669,21 +669,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ \pi_{\nu_0, \mathbf{S}_0}(\mathbf{W}) \propto |\mathbf{W}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}(\mathbf{S}_0 \mathbf{W}^{-1}) \right) \]
 
-  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $N(\mathbf{0}, \mathbf{\Sigma}), \;\mathbf{\Sigma} \in \mathbb{R}^{n\times n}$ as covariance (positive semi-defined matrix)
+  + sampling distribution: $\exists\; X_1, \dots, X_n$ observed data from $N(\mathbf{0}, \pmb{\Sigma}), \;\pmb{\Sigma} \in \mathbb{R}^{n\times n}$ as covariance (positive semi-defined matrix)
   + the posterior: an inverse Wishart prior multiplies the likelihood
 
     \[\begin{align*}
-      &p(\mathbf{X}_1, \dots, \mathbf{X}_n \,|\, \mathbf{\Sigma})\pi_{\nu_0, \mathbf{S}_0} \\\\
-      & \hspace{3em}\propto |\mathbf{\Sigma}|^{-n/2} \exp \left( -\frac{n}{2} \text{tr}(\overline{\mathbf{S}}\mathbf{\Sigma}^{-1}) \right) |\mathbf{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2}\text{tr}(\mathbf{S}_0 \mathbf{\Sigma}^{-1}) \right) \\\\
-      &\hspace{1em}= |\mathbf{\Sigma}|^{-(n+\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}\left(\left(n \overline{\mathbf{S}} + \mathbf{S}_0\right) \mathbf{\Sigma}^{-1}\right) \right)
+      &p(\mathbf{X}_1, \dots, \mathbf{X}_n \,|\, \pmb{\Sigma})\pi_{\nu_0, \mathbf{S}_0} \\\\
+      & \hspace{3em}\propto |\pmb{\Sigma}|^{-n/2} \exp \left( -\frac{n}{2} \text{tr}(\overline{\mathbf{S}}\pmb{\Sigma}^{-1}) \right) |\pmb{\Sigma}|^{-(\nu_0+d+1)/2} \exp \left( -\frac{1}{2}\text{tr}(\mathbf{S}_0 \pmb{\Sigma}^{-1}) \right) \\\\
+      &\hspace{1em}= |\pmb{\Sigma}|^{-(n+\nu_0+d+1)/2} \exp \left( -\frac{1}{2} \text{tr}\left(\left(n \overline{\mathbf{S}} + \mathbf{S}_0\right) \pmb{\Sigma}^{-1}\right) \right)
     \end{align*}\]
 
     + the empirical covariance: $\overline{\mathbf{S}} = \frac{1}{n} \sum_{i=1}^n \mathbf{X}_i\mathbf{X}_i^T$
   + the posterior
 
-    \[ \mathbf{\Sigma} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{InvWishart}(\nu_0 + n,\, \mathbf{S}_0 + n\overline{\mathbf{S}}) \]
+    \[ \pmb{\Sigma} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{InvWishart}(\nu_0 + n,\, \mathbf{S}_0 + n\overline{\mathbf{S}}) \]
 
-  + similarly, the conjugate prior for the inverse covariance $\mathbf{\Sigma}^{-1}$ (precision matrix) is a Wishart
+  + similarly, the conjugate prior for the inverse covariance $\pmb{\Sigma}^{-1}$ (precision matrix) is a Wishart
 
 + Pareto-Uniform likelihood model
   + uniform distribution: $\text{Uniform}(0, \theta),\, \theta \geq 0$
@@ -796,12 +796,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       <td style="text-align: center;">$\text{ScaledInv-}\chi^2\left(\nu_0+n, \,\beta + \frac{\nu_0+\sigma_0^2}{\nu_0 + n} + \frac{n\,\overline{(X-\mu)^{2}}}{\nu_0 + n} \right)$</td>
     </tr>
     <tr>
-      <td style="text-align: center;">$N(\mathbf{\mu}, \,\mathbf{\Sigma})$, known $\mathbf{\Sigma}$</td>
-      <td style="text-align: center;">$N(\mathbf{\mu}_0, \,\mathbf{\Sigma}_0)$</td>
+      <td style="text-align: center;">$N(\pmb{\mu}, \,\pmb{\Sigma})$, known $\pmb{\Sigma}$</td>
+      <td style="text-align: center;">$N(\pmb{\mu}_0, \,\pmb{\Sigma}_0)$</td>
       <td style="text-align: center;">$N\left(\mathbf{K}\left(\Sigma_0^{-1} \mu_0 + n \Sigma^{-1} \overline{X}\right), \,\mathbf{K}\right), \\ \hspace{10em}\;\mathbf{K} = (\Sigma_0^{-1} + n\Sigma^{-1})^{-1}$</td>
     </tr>
     <tr>
-      <td style="text-align: center;">$N(\mathbf{\mu}, \,\mathbf{\Sigma})$, known $\mathbf{\mu}$</td>
+      <td style="text-align: center;">$N(\pmb{\mu}, \,\pmb{\Sigma})$, known $\pmb{\mu}$</td>
       <td style="text-align: center;">$\text{InvWishart}(\nu_0, \,\mathbf{S}_0)$</td>
       <td style="text-align: center;">$\text{InvWishart}(\nu_0+n, \,\mathbf{S}_0+n \overline{\mathbf{S}}), \;\overline{\mathbf{S}}$ sample covariance</td>
     </tr>
@@ -834,7 +834,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the frequentist and Bayesian giving similar answers
   + using improper prior in testing hypothesis $\to$ undefined constant in the denominator
   + caution: choosing the prior $\pi(\theta)$ very carefully
-
 
 
 ### 12.2.8 Model Comparison and Bayesian Information Criterion
