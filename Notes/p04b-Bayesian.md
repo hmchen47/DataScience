@@ -18,7 +18,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 + Risk of an estimator
   + $\hat{\theta}(X)$:
     + an estimator of a parameter $\theta \in \Theta$
-    + $\hat{\theta)$ as a function of the data $X$
+    + $\hat{\theta}$ as a function of the data $X$
   + measuring ht discrepancy btw a parameter $\theta$ and its estimator $\hat{\theta}(X)$ using a loss function $L: \Theta \times \Theta \to \mathbb{R}$
   + the risk of an estimator $\hat{\theta}(X)$
 
@@ -31,17 +31,17 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \[ R_{\max}(\tilde{\theta}) := \sup_{\theta \in \Theta} R(\theta, \,\tilde{\theta}) \]
 
 + Decision theory from Bayesian viewpoint
-  + a random quantity w/ a prior distribution $\pi(\theta)$
+  + the parameter $\theta$ as a random quantity w/ a prior distribution $\pi(\theta)$
   + purpose: finding the estimator $\hat{\theta}(X)$ to minimize the posterior expected loss
 
     \[ R_{\pi}(\hat{\theta} \,|\, X) = \int_{\Theta} L\left(\theta, \hat{\theta}(X)\right) p(\theta \,|\, X) d\theta \]
   
   + estimator $\hat{\theta}$: a Bayes rule w.r.t. the prior $\pi(\theta)$ if
 
-    \[ R_{\pi}(\hat{\theta}) = \inf_{\tilde{\theta} \in \Theta} R_{\pi}(\tilde{\theta} \,|\, X) \]
+    \[ R_{\pi}(\hat{\theta}) = \inf_{\tilde{\theta} \in \Theta} R_{\pi}(\hat{\theta} \,|\, X) \]
 
 
-+ Bayes rish
++ Bayes risk
   + minimizing the posterior expected loss $\equiv$ minimizing the average risk, Bayes risk
 
     \[ B_{\pi} = \int R(\theta, \hat{\theta}) \pi(\theta) \,d\theta \]
