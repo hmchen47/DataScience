@@ -61,11 +61,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + under appropriate conditions
     + the posterior distribution $\approx$ Normal distribution
     + the posterior mean $\approx$ mle
-  + __THeorem__.
+  + __Theorem__.
     + $I(\theta)$: the Fisher information
     + $\widehat{\theta}_n$: the maximum likelihood estimator
     + $\widehat{se} = 1 / \sqrt{n I(\widehat{\theta}_n)}$
-    + Under appropriate regularity conditions, the posterior $approx N(\widehat{\theta}_n, \widehat{se})$, i.e.,
+    + Under appropriate regularity conditions, the posterior $\approx N(\widehat{\theta}_n, \widehat{se})$, i.e.,
 
       \[ \int \left|p(\theta \,|\, X_1, \dots, X_n) - N(\theta; \widehat{\theta}, \widehat{se} )\right| \,d\theta \xrightarrow{P} 0 \]
 
@@ -77,14 +77,14 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + _Proof_.
     + rigorous proof w van der Vaart (1998)
-    + the effect of the prior diminishes as $n \nearrow \;\ni$ $p(\theta \,|\, \mathcal{D}_n) \propto \mathcal{L}(\theta)p(\theta) \approx \mathcal{L}(\theta)$
-    + $l_n(\theta) = \log \mathcal{L}_n(\theta) \to \log p(\theta\,|\, \mathcal{D}_n) \approx l_n(\theta)$
+    + the effect of the prior diminishes as $n \nearrow \;\ni$ $p(\theta \,|\, \mathcal{D}_n) \propto \mathcal{L}_n(\theta)p(\theta) \approx \mathcal{L}_n(\theta)$
+    + $l_n(\theta) = \log \mathcal{L}_n(\theta) \implies \log p(\theta\,|\, \mathcal{D}_n) \approx l_n(\theta)$
     + by Taylor expansion around $\widehat{\theta}_n$
 
       \[\begin{align*}
-        l_n(\theta) &\approx l_n(\widehat{\theta}_n) + (\theta - \widehat{\theta}_n) \underbrace{l_n^\prime (\widehat{\theta})}_{=0} + [(\theta - \widehat{\theta}_n)^2/2] l_n^{\prime\prime} (\widehat{\theta}_n) \\\\
-        &= l_n(\widehat{\theta}_n) + [(\theta - \widehat{\theta}_n)^2 / 2] l_n^{\prime\prime} (\widehat{\theta}_n) \\
-        &\Downarrow (\sigma_n^2 = -1 / l_n^{\prime\prime} (\widehat{\theta}_n) \text{ and exponetiating both sides}) \\
+        l_n(\theta) &\approx l_n(\widehat{\theta}_n) + (\theta - \widehat{\theta}_n) \underbrace{l_n^\prime (\widehat{\theta})}_{=0} + [(\theta - \widehat{\theta}_n)^2/2] l_n^{\prime\prime} (\widehat{\theta}_n) \\
+        &= l_n(\widehat{\theta}_n) + [(\theta - \widehat{\theta}_n)^2 / 2] l_n^{\prime\prime} (\widehat{\theta}_n) \\\\
+        &\Downarrow (\sigma_n^2 = -1 / l_n^{\prime\prime} (\widehat{\theta}_n) \text{ and exponetiating both sides}) \\\\
         p(\theta \,|\, \mathcal{D}_n) &\propto \exp\left( -\frac{1}{2} \frac{(\theta - \widehat{\theta}_n)^2}{\sigma_n^2} \right)
       \end{align*}\]
 
@@ -96,7 +96,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
         & \implies \sigma_n \approx se(\widehat{\theta}_n) \tag*{$\Box$} 
       \end{align*}\]
 
-  + Bayes delta method: $\tau = g(\theta) \implies \tau \,|\, \mathcal{D}_n \approx N(\widehat{\tau}, \widetilde{se}^2), \;\;\widehat{\tau} = g(\widehat{\theta}), \,\widetilde{se} = \widehat{se} |g'(\widehat{\theta})$
+  + Bayes delta method: $\tau = g(\theta) \implies \tau \,|\, \mathcal{D}_n \approx N(\widehat{\tau}, \widetilde{se}^2), \;\;\widehat{\tau} = g(\widehat{\theta}), \,\widetilde{se} = \widehat{se} \,g'(\widehat{\theta})$
 
 
 
