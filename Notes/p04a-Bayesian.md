@@ -71,6 +71,30 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ \mathbb{E}(\pmb{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
 
++ [Regularity conditions](https://stats.stackexchange.com/questions/101520/what-are-the-regularity-conditions-for-likelihood-ratio-test)
+  + __Condition 1:__ the pdfs are distinguish = the parameter identifies the pdf, i.e., $\theta \neq \theta' \implies f(x_i, \theta) \neq f(x_i, \theta')$
+  + __Condition 2:__ the pdfs are common support for all $\theta \implies$ the support does not depend on $\theta$
+  + __Condition 3:__ the point $\theta_0 \in \mathbb{R}$ is an interior point in some set $\Omega$
+    + the probability that $\theta$ appears in the endpoints of an interval
+    + the likelihood is maximized at the true parameter $\theta_0$ and the MLE $\hat{\theta}$ solving the equation
+
+      \[ \frac{\partial l(\theta)})\partial \theta} = 0 \]
+
+      is consistent.
+  + __Condition 4:__ the pdf $f(x, \theta)$ is twice differentiable as a function of $\theta$
+  + __Condition 5:__ the integral $\int_{\infty}^{\infty} f(x, \theta) \,dx$ can be differentiated twice under the integral sign as a function $\theta$
+    + the last two derive the Fisher information playing a certain role in the theory of convergence of the MLE
+    + ensuring the asymptotic normality of the MLE
+  + __Condition 5:__ the pdf $f(x, \theta)$ is 3 times differentiable as a function of $\theta$.  Further $\forall\, \theta \in \Omega, \exists \text{ a constant } c \text{ and a function } M(x) \ni$
+
+    \[ \left| \frac{\partial^3 \log f(x, \theta)}{\partial \theta^3} \right| \leq M(x) \]
+
+    w/ $E_{\theta_0}[M(X)] < \infty \; \forall |\theta - \theta_0| < c$ and all $x$ in the support of $X$
+    + the remainder of a second order Taylor expansion about $\theta_0$ is bounded in probability and thus poses no problem asymptotically.
+
++ [Standard Regularity Conditions for Statistics](http://www.stat.rice.edu/~dobelman/courses/Regularity.pdf)
+
+
 
 ## 12.1 What is Bayesian Inference?
 
@@ -839,15 +863,15 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.8 Model Comparison and Bayesian Information Criterion
 
 + Bayes factor and model selection
-  + $sampling data: $\mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + sampling data: $\mathcal{D}_n = \{X_1, \dots, X_n\}$
   + parametric models: $\mathcal{M}_1, \dots, \mathcal{M}_K$
   + $\pi_j = \mathbb{P}(\mathcal{M}_j)$: a prior probability to model $\mathcal{M}_j$
   + $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$: a prior to the parameter $\pmb{\theta}_j$ under model $\mathcal{M}_j$
   + the posterior probability of model $\mathcal{M}_j$ conditional on data $\mathcal{D}_n$
 
-    \[ \mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_j) = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)\pi_j}{\sum_{k=1}^K p(\mathcal{D}_n \,|\, \mathcal{M}_k)\pi_k} \]
+    \[ \mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_n) = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)\pi_j}{\sum_{k=1}^K p(\mathcal{D}_n \,|\, \mathcal{M}_k)\pi_k} \]
 
-  + $\mathcal{L}_j$: the likelihood function for model $j \ni$
+  + $\mathcal{L}_j(\theta_j)$: the likelihood function for model $j \ni$
 
     \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int \mathcal{L}_j(\theta_j) p_j(\theta_j)\, d\theta_j \]
 
@@ -857,60 +881,60 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + __Definition__. (Bayes factor) The Bayes factor btw $\mathcal{M}_j$ and $\mathcal{M}_k$ defined as 
 
-    \[ \text{BF}(\mathcal{D}_n) = \frac{\mathcal{D}_n \,|\, \mathcal{M}_j}{\mathcal{D}_n \,|\, \mathcal{M}_k} = \frac{\mathcal{L}_j(\theta_j)p_j(\theta_j)\,d\theta_j}{\mathcal{L}_j(\theta_j)p_j(\theta_k)\,d\theta_k} \]
+    \[ \text{BF}(\mathcal{D}_n) = \frac{\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_j)}{\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_k)} = \frac{\int \mathcal{L}_j(\theta_j)p_j(\theta_j)\,d\theta_j}{\int \mathcal{L}_j(\theta_j)p_j(\theta_k)\,d\theta_k} \]
 
-    + $\mathcal{D}_n \,|\, \mathcal{M}_j$: the marginal likelihood for model $\mathcal{M}_j$
+    + $\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_j)$: the marginal likelihood for model $\mathcal{M}_j$
 
   + the use of Bayes factor viewed as a Bayesian alternative to classical hypothesis testing
   + Bayesian model comparison: a method of model selection based on Bayes factor
 
-+ Marginal likelihood w/ uniform prior
++ Marginal likelihood w/ uniform prior - prerequisite for Bayesian Information Criterion
   + adapting a uniform prior over the models: $\pi_1 = \pi_2 = \cdots = \pi_K = 1/K$
-  + the marginal likelihood for model $\mathcal{M}_j$
+  + the marginal likelihood density for model $\mathcal{M}_j$
 
-    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \inf p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j) p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j) \,d\pmb{\theta}_j = \int \mathcal{L}_n(\pmb{\theta}_j) \,|\, \mathcal{M}_j),d\pmb{\theta}_j \]
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j) p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j) \,d\pmb{\theta}_j = \int \mathcal{L}_n(\pmb{\theta}_j) p_j\left(\pmb{\theta}_j\,|\, \mathcal{M}_j\right)\,d\pmb{\theta}_j \]
 
   + $I_n(\pmb{\theta}_j)$: empirical Fisher information matrix for the dataset $\mathcal{D}_n$
 
-    \[ I_n(\pmb{\theta}) = \frac{\partial^2 \log p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j)}{\partial \pmb{\theta}_j\, \partial\pmb{\theta}_j^T} \]
+    \[ I_n(\pmb{\theta}_j) = \frac{\partial^2 \log p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j)}{\partial \pmb{\theta}_j\, \partial\pmb{\theta}_j^T} \]
 
   + $I_1(\pmb{\theta}_j)$: empirical Fisher information matrix for one data point
 
-    \[ I_1(\pmb{\theta}) = \frac{\partial^2 \log p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j)}{\partial \pmb{X}_1\, \partial\pmb{\theta}_j^T} \]
+    \[ I_1(\pmb{\theta}_j) = \frac{\partial^2 \log p(\pmb{X}_1 \,|\, \mathcal{M}_j, \pmb{\theta}_j)}{\partial \pmb{\theta}_j\, \partial\pmb{\theta}_j^T} \]
   
   + under certain regularity conditions, $I_n(\theta_j) = n I_1(\theta_j)$
   + $\hat{\pmb{\theta}}_j$: the maximum a poster (MAP) estimator under model $\mathcal{M}_j$
 
     \[ \left.\frac{\partial \log p(\pmb{\theta}_j \,|\, \mathcal{M}_j, \mathcal{D}_n)}{\partial\pmb{\theta}_j} \right|_{\pmb{\theta}_j = \hat{\pmb{\theta}}_j}  = 0 \]
 
-  + let $\mathcal{L}_n(\pmb{\theta}_j) = p(\mathcal{M}_j, \pmb{\theta}_j)$ and a Tauerlor expansion at $\hat{\pmb{\theta}}_j$
+  + let $\mathcal{L}_n(\pmb{\theta}_j) = p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j)$ and a Taylor expansion at $\hat{\pmb{\theta}}_j$
 
     \[\begin{align*}
-      \log \mathcal{L}_n(\pmb{\theta}_j) &\approx \log \mathcal{L}_n (\hat{\pmb{\theta}}_j) - \frac{1}{2} (\pmb{\theta}_j - \hat{\pmb{\theta}}_j)^T I_n(\hat{\pmb{\theta}}_j)(\pmb{\theta}_j - \hat{\pmb{\theta}}_j)) \\\\
+      \log \mathcal{L}_n(\pmb{\theta}_j) &\approx \log \mathcal{L}_n (\hat{\pmb{\theta}}_j) - \frac{1}{2} (\pmb{\theta}_j - \hat{\pmb{\theta}}_j)^T I_n(\hat{\pmb{\theta}}_j)(\pmb{\theta}_j - \hat{\pmb{\theta}}_j) \\\\
       \mathcal{L}_n(\pmb{\theta}_j) &\approx \mathcal{L}_n(\hat{\pmb{\theta}}_j) \exp\left( -\frac{1}{2}(\pmb{\theta}_j - \hat{\pmb{\theta}}_j)^T I_n(\hat{\pmb{\theta}}_j)(\pmb{\theta}_j - \hat{\pmb{\theta}}_j) \right)
     \end{align*}\]
 
-  + $\exists\; \pmb{\theta}_j \in \mathbb{R}^d$, choosing a prior $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$ as a noninformative or "flat" over the neighborhood of $\pmb{\theta}_k$ w/ $\mathcal{L}(\pmb{\theta})$
+  + $\exists\; \pmb{\theta}_j \in \mathbb{R}^d$, choosing a prior $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$ as a noninformative or "flat" over the neighborhood of $\pmb{\theta}_k$ w/ $\mathcal{L}_n(\pmb{\theta})$
 
     \[\begin{align*}
       p(\mathcal{D}_n \,|\, \mathcal{M}_j) &= \int \mathcal{L}_n(\pmb{\theta}_j) p(\pmb{\theta}_j \,|\, \mathcal{M}_j)\, d\pmb{\theta}_j = \mathcal{L}_n(\hat{\pmb{\theta}}_j) \int \frac{\mathcal{L}_n(\pmb{\theta}_j)}{\mathcal{L}_n(\hat{\pmb{\theta}}_j)} p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)\, d\pmb{\theta}_j \\\\
       &\approx \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \int \frac{\mathcal{L}_n\left(\pmb{\theta}_j\right)}{\mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right)} \,d\pmb{\theta}_j \\\\
-      &\approx \mathcal{L}\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \int \exp\left( -\frac{1}{2}\left(\pmb{\theta}_j - \hat{\pmb{\theta}}_j\right)^T\, I_n\left(\hat{\pmb{\theta}}_j\right)\left(\pmb{\theta}_j - \hat{\pmb{\theta}}_j\right) \right)\, d\pmb{\theta}_j \\\\
-      &= \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{\left|I_n(\hat{\pmb{\theta}}_j)\right|^{1/2}} \hspace{1em} \left(\text{integral = kernel of a Gaussian density}\right) \\\\
-      &= \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{n^{d_j/2} \left|I_1(\hat{\pmb{\theta}}_j)\right|^{1/2}}
+      &\approx \mathcal{L}\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \underbrace{\int \exp\left( -\frac{1}{2}\left(\pmb{\theta}_j - \hat{\pmb{\theta}}_j\right)^T\, I_n\left(\hat{\pmb{\theta}}_j\right)\left(\pmb{\theta}_j - \hat{\pmb{\theta}}_j\right) \right)\, d\pmb{\theta}_j}_{\text{integral = kernel of a Gaussian density}} \\\\
+      &= \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{\left|I_n(\hat{\pmb{\theta}}_j)\right|^{1/2}} \hspace{1em} = \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{n^{d_j/2} \left|I_1(\hat{\pmb{\theta}}_j)\right|^{1/2}}
     \end{align*}\]
 
-+ Bayesian information criterion (BIC)
   + approximation of $\log p(\mathcal{D}_n \,|\, \mathcal{M}_j)$
 
-    \[ -2\log p(\mathcal{D}_n \,|\, \mathcal{M}_j) \approx -2\log \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) + d_j \log n + \;\log \left|I_1\left(\hat{\pmb{\theta}}_j\right)\right| - d_j\log(2\pi) + \log p(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j) \]
+    \[ -2\log p(\mathcal{D}_n \,|\, \mathcal{M}_j) \approx \underbrace{-2\log \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) + d_j \log n}_{\text{term I}} + \;\underbrace{\log \left|I_1\left(\hat{\pmb{\theta}}_j\right)\right| - d_j\log(2\pi) + \log p(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j)}_{\text{term II}} \]
 
-  + computational order: $\mathcal{O}\left(\log \left|I_1\left(\hat{\pmb{\theta}}_j\right)\right| - d_j\log(2\pi) + \log p(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j)\right) < \mathcal{O}\left(-2\log \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) + d_j \log n\right)$
+  + computational order: $\mathcal{O}(\text{term II}) < \mathcal{O}(\text{term I}))$
+
++ Bayesian information criterion (BIC)
   + __Definition__. (Bayesian information criterion)
-    + $\exists\; \mathcal{D}_n, \mathcal{M}$
+    + $\exists \text{ data } \mathcal{D}_n \text{ and a model } \mathcal{M}$
     + the Bayesian information criterion for $\mathcal{M}$ w/ $d$ as the dimensionality of the model $\mathcal{M} \ni$ 
 
-      \[ \text{BIC}(\mathcal{M}) = \log \mathcal{L}_n(\theta_j) - \frac{1}{2} \log n \]
+      \[ \text{BIC}(\mathcal{M}) = \log \mathcal{L}_n(\theta) - \frac{1}{2} \log n \]
 
   + BIC score: providing a large-sample approximation to the log posterior probability associated w/ the approximation model
   + choosing the fitted candidate model corresponding to the maximum value of BIC $\implies$ selecting the candiate model corresponding to the highest Bayesian posterior probability
@@ -924,8 +948,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + $n \to \infty \implies p(\mathcal{D}_n \,|\, \mathcal{M}_j)/p(\mathcal{D}_n \,|\, \mathcal{M}_k) \to -\infty / \infty$ as $O_p(1)$ negligible
   + BIC characteristics
     + an approximation to the posterior
-    + preferred simpler model compared to AIC
-    + model selection consistent; i.e., the true model within the candidate pool $\implies$ $p(\text{selecting the true model}) \to 1$ w/ $n \to \infty$
+    + preferred simpler model compared to AIC ([Akaike information criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion))
+    + model selection consistent; i.e., the true model within the candidate pool $\implies$ $p(\text{selecting the true model}) \to 1$ as $n \to \infty$
     + not selecting the fitted candidate model minimizing the mean squared error for prediction, but AIC optimizing predictive accuracy
 
 
