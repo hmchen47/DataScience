@@ -956,7 +956,32 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.2.9  Calculating the Posterior Distribution
 
++ Simulation methods for posterior distribution
+  + general procedure
+    + drawing $\theta^1, \dots, \theta^B \sim p(\theta \,|\, \mathcal{D}_n)$
+    + generating a histogram of $\theta^1, \dots, \theta^B$ approximates the posterior density $p(\theta \,|\, \mathcal{D}_n)$
+  + approximation to the posterior mean: $\overline{\theta}_n = \mathbb{E}(\theta \,|\, \mathcal{D}_n) = b^{-1}\sum_{j=1}^B \theta^j$
+  + approximation to posterior $(1-\alpha)$ interval: $(\theta_{\alpha/2}, \theta_{1 - \alpha/2})$ w/ $\theta_{\alpha/2}$ as the $\alpha/2$ sample quantile of $\theta^1, \dots, \theta^B$
+  + $\exists\; \theta^1, \dots, \theta^B$ from $p(\theta | \mathcal{D}_n})$ and $$\tau^1 = g(\theta^1}) \implies \tau^1, \dots, \tau^B$ as a sample from $p(\tau \,|\, \mathcal{D}_n)$
 
++ Methods for obtaining simulated values from the posterior
+  + simulation methods
+    + Monte Carlo integration
+    + importance sampling
+    + Markov chain Monte Carlo (MCMC)
+  + variational inference
+    + based on deterministic approximation and numerical optimization
+    + applied to wide range problems
+    + very weak theoretical guarantees
+  + stochastic simulation
+    + based on random sampling
+
++ Approximation of Uniform-Bernoulli model
+  + the posterior for $\psi$ w/o any calculus
+    + draw $\theta^1, \dots, \theta^B \sim \text{Beta}(s+1, n-s+1)$
+    + let $\psi^1 = \log(\theta^1/(1-\theta^1)), \,\forall i = 1, 2, \dots, B$
+  + $\psi^1, \dots, \psi^B$ are i.i.d.  draws from the posterior density $p(\psi \,|\, \mathcal{D}_n)$
+  + a histogram of these values providing an estimate of $p(\psi \,|\, \mathcal{D}_n)$
 
 
 
