@@ -155,7 +155,44 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.5 Simulation Methods for Bayesian Computation
 
++ Simulation approaches for distribution
+  + drawing sample $X$ from a distribution $F$
+    + $F(X)$: uniform distribution over the interval (0, 1)
+    + a basic strategy to sample $U \sim \text{Uniform}(0, 1) \to X = F^{-1}(U)$
+  + procedure
+    + sampling from a distribution that is easy to draw from, $\text{Uniform}(0, 1)$
+    + using it to sample from a more complicated commmplicated distribution $F$
 
++ Basic simulation approach to estimate integral
+  + estimating the integral $\int_0^1 h(x) \,dx$ for some complicated function $h$
+  + drawing $N$ samples $X_i \sim \text{Uniform}(01, 1)$
+  + estimating the integral
+
+    \[ \int_0^1 h(x) \,dx \approx \frac{1}{N} \sum_{i=1}^N h(X_i) \]
+
+  + converged to the desired integral by the law of large numbers
+
++ Simulation methods for Bayesian inference
+  + the prior: $\pi(\theta)$
+  + sampling distribution: $\mathcal{D}_n = \{ X_1, \dots, X_n \}$
+  + the posterior density
+
+    \[ \pi(\theta \,|\, \mathcal{D}_n) = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c} \]
+
+    + $\mathcal{L}_n(\theta)$: the likelihood function
+    + the normalizing constant $c = \int \mathcal{L}_n(\theta) \pi(\theta) \,d\theta$
+  + the posterior mean
+  
+    \[ \overline{theta} = \int \theta \pi(\theta \,|\, \mathcal{D}_n) \,d\theta = \frac{1}{c} \int \theta\mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
+
+  + $\pmb{\theta} = (\theta_1, \dots, \theta_s)^T$ multidimensional
+  + the marginal posterior density for $\theta_i$
+
+    \[ \pi(\theta_i \,|\, \mathcal{D}_n) = \int\int\cdots\int \pi(\theta_1,  \cdots, \theta_d) \,d\theta_1 \cdots d\theta_{i-1} d\theta_{i+1} \cdots d\theta_s \]
+
+  + high-dimensional $\theta$
+    + not feasible to calculate these integrals analytically
+    + simulation methods helpful
 
 
 
