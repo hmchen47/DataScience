@@ -12,20 +12,32 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.0 Mathematical Tools
 
-+ Basic definitions
-  + __Definition__ (the arguments of the maxima)
-    + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
-    + the $\mathop{\arg\max}$ over some subset, $S$ of S define as
-
-      \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S \cup \forall\, y \in S: f(y) \leq f(x) \} \]
-
++ Basic concepts
+  + the __mode__ of a set of data values is the value that happen most often.
   + __Definition__ (lower bound and infimum)
     + a _lower bound_ of a subset $S$ of a partially ordered set ($P,\leq$) is an element $a$ of $P \ni a < x \,\forall\, x \in S$
     + a lower bound $a$ of $S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S$ if $\forall$ boundss $y$ of $S \in P, y \leq a$ (a is larger than or equal to any other lower bound)
-
   + __Definition__ (upper bound and supremum)
     + an _upper bound_  $b$ of a subset $S$ of a partially ordered set ($P, \leq$) is an element $b$ of $S \ni b \geq x\.\forall\, x \in S$
     + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S$ if $\forall$ upper bounds $z$ of $S \in P, z \geq b$ (b is less than any other upper bound)
+  + the arguments of the maxima
+    + __Definition__ (the arguments of the maxima)
+      + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
+      + the $\mathop{\arg\max}$ over some subset, $S$ of S define as
+
+        \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S \cup \forall\, y \in S: f(y) \leq f(x) \} \]
+
+    + $X = S$ or $S$ is clear from the context $\implies \mathop{\arg\max}_x f(x) := \{ x \,|\, \forall\, y: f(y) \leq f(x) \}$, i.e., $\mathop{\arg\max} is the set of points, $x$, for which $f(x) attains the function's largest value (if exists)
+    + $\mathop{\arg\max}$ possibly the empty set, a singleton, or containing multiple elements
+    + e.g., $f(x) = 1 - |x| \ni \mathop{\arg\max}_x (1 - |x|) = \{0\$
+    + $M$ as the maximum of $f \implies \mathop{\arg\max}$ as the level set of the maximum
+
+      \[ \mathop{\arg\max}_x f(x) = \{ x \,,|\, f(x) = M \} =: f^{-1}(M) \]
+
+  + __Definition__. (argument of the minimum)
+
+    \mathop{\arg\min}_{x \in S} := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}
+
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
   + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_+ \to \mathbb{R}$
@@ -109,15 +121,15 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + [Standard Regularity Conditions for Statistics](http://www.stat.rice.edu/~dobelman/courses/Regularity.pdf)
 
-+ Measure theory
-  + $^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
++ Probability, Statistics, and Measure Theory
+  + $L^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
   + a.k.a., Lebesgue spaces
   + $L^p$ metrics: measures of central tendency and statistical dispersion, such as mean, median, and standard deviation
   + penalized regression:
     + L1 penalty: the $L^1$ norm of a solution's vector of parameter values, i.e., the sum of its absolute values
     + L2 penalty: the $L^2$ norm of a solution's vector of parameter values, i.e., Euclidean length
   + $p$-norm in finite dimensions
-    + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ uusually given by the Euclidean norm
+    + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ usually given by the Euclidean norm
 
       \[ \|x\|_2 = (x_1^2 + x_2^2 + \cdots + x_n^2)^{1/2} \]
 
@@ -127,7 +139,62 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     + 1-norm: the norm corresponding to the rectilinear distance
     + 2-norm: Euclidean nor
+  + __Definition__ (probability space) a probability space is a triple $(\Omega, \mathcal{F}, P)$ consisting of
+    + the sample space $\Omega$: an arbitrary non-empty set
+    + the $\sigma$-algebra $\mathcal{F} \subseteq 2^{\Omega}$ (also called \sigma$-field): a set of subsets of $\Omega$, called events $\ni$
+      + $\mathcal{F}$ containing the sample space: $\Omega \in \mathcal{F}$
+      + $\mathcal{F}$ closed under complements: $A \in \mathcal{F} \implies ((\Omega \\ A) \in \mathcal{F}$
+      + $\mathcal{F}$ closed under countable unions: $A_i \in \mathcal{F}, \; i=1, 2, \dots \implies (\bigcup_{i=1}^\infty A-i) \in \mathcal{F}$
+      + corollary (complement + countable unions + De Morgan's law): \mathcal{F} closed under countable intersections: $A_i \in \mathcal{F}, \, i=1, 2, \dots \implies (\bigcap_{i=1}^\infty A_i) \in \mathcal{F}$
+    + the probability measure $P: \mathcal{F} \to [0, 1]$: a function on $\mathcal{F} \ni$
+      + $P$ countably additive (also called $\sigma$-additive): $\{A_i\}_{i=1}^\infty \subseteq \mathcal{F}$ as a countable collection of pairwise disjoint sets $\implies p(\bigcup_{i=1}^\infty) = \sum_{i=1}^\infty P(A_i)$
+      + the measure of entire sample space equal to one: $P(\Omega) = 1$
+  + __Definition__ (measure)
+    + $\exists\, \text{a set } X, \Sigma$ a $\sigma$-algebra over $X$
+    + a function $\mu$ from $\Sigma$ to the extended real number line is called _measure_ if it satisfies the following properties
+      + non-negative: $\forall\, E \in \Sigma, \, \mu(E) \geq 0$
+      + null empty set \{\varnothing\} = 0$
+      + countable additive (or $\sigma$-additive): for all countable collections $\{E\}_{i=1}^\infty$ of a pairwise disjoint sets in $\Sigma$
 
+        \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
+    + one may require that at least one set $E$ has finite measure
+    + the empty set automatically has measure zero because of countable additivity, because
+
+      \[ \mu(E) = \mu(E \cup \varnothing \cup \varnothing \cup \cdots) = \mu(E) + \mu(\varnothing) + \mu(\varnothing) + \cdots \implies \mu(\varnothing) = 0 \]
+
+    + only 2nd & 3rd conditions of the definitions met and $\mu$ taking on at most one of the values $\pm \infty \implies \mu$ as a _signed measure_
+    + the pair $(X, \Sigma)$called a _measurable space_ and the member of $\Sigma$ called _measurable sets_
+    + $(X, \Sigma_X) \text{ and } (Y, \Sigma_Y)$ are two measurable spaces $\implies f: X \to Y$  called _measurable_ if $\forall \, Y$-measureable set $B \in \Sigma_Y$
+    + the inverse image is $X$-measurable, i.e., $f^{(-1)}(B) \in \Sigma_X$
+    + a triple $(X, \Sigma, \mu)$ as a _measure space_
+    + _probability measure_: a measure w/ total measure one, i.e., $\mu(X) = 1$
+    + _probability space_: a measure space w/ a probability measure
+  + __Definition__ (outer measure) an _outer measure_ on a set $X$ is a function
+
+    \[ \varphi: 2^{X} \to [0, \infty] \]
+
+    defined on all subsets of $X$ ($2^X$ - power set) that satisfies the following conditions
+    + null empty set: $\varphi(\varnothing) = 0$
+    + monotonicity: $\exists\, A, B \in $X, A \subseteq B \implies \varphi(A) \leq \varphi(B)$
+    + countable subadditivity: $\forall \{A_i\} \subseteq X \ni$
+
+      \[ \varphi\left( \bigcup_{j=1}^\infty A_j \right) \leq \sum_{j=1}^\infty \varphi(A_j) \]
+
+  + __Definition__ ($\varphi$-measurable) $\exists\, E \subset X$ is _$\varphi$-measurable_ (or  Carathéodory-measurable by $\varphi$) $\iff \forall\, A \subset X \ni$
+
+    \[ \varphi(A) = \varphi(A \cup E) + \varphi(A \cup E^C) \]
+
+  + __Definition__ (Lebsegue measure)
+    + \exists\, E \subseteq \mathbb{R}$ w/ the length of interval $I = [a, b] (\text{or } I = (a, b))$ given by $l(I) - b - a$
+    + $\lambda^*(E)$: the _Lebesgue outer measure_ defined as 
+
+      \[ \lambda^*(E) = \inf \left\{ \sum_{k=1}^\infty l(I_k): (I_k)_{k \in \mathbb{N}} \text{ is a sequence of open intervals w/ } E \subseteq \bigcup_{k=1}^\infty I_k \right\} \]
+
+    + _Lebesgue measure_: on the Lebesgue $\sigma$-algebra, the collection of all sets $E$ satisfying the "Carathéodory criterion", $\forall\, A \subseteq \mathbb{R} \ni$
+
+      \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
+
+    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
 
 
 ## 12.1 What is Bayesian Inference?
