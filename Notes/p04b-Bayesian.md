@@ -135,7 +135,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.4.2 Hierarchical Models
 
++ Hieracrhical model
+  + a multi-level statistical model
+  + a typical hierarchical model
 
+    \[\begin{align*}
+      \alpha &\sim \pi(\alpha) \\\\
+      \theta_1, \dots, \theta_n \,|\, &\sim p(\theta \,|\, \alpha) \\\\
+      X_i \,|\, \&\sim p(X_i \,|\, \theta_i), \; i=1, \dots, n
+    \end{align*}\]
+
+  + example: infection rate at hospital
+    + $\theta_i$: the infection rate at hospital $i$
+    + X_i$: presence or absence of infection in a patient at hospital $i$
+    + $\theta_1, \dots, \theta_n$ as random draws from a distribution $p(\theta \,|\, \alpha)$
+    + the distribution depending on parameters $\alpha$, known as hyperparameters
 
 
 
