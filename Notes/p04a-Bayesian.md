@@ -12,6 +12,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.0 Mathematical Tools
 
++ Basic definitions
+  + __Definition__ (the arguments of the maxima)
+    + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
+    + the $\mathop{\arg\max}$ over some subset, $S$ of S define as
+
+      \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S \cup \forall\, y \in S: f(y) \leq f(x) \} \]
+
+  + __Definition__ (lower bound and infimum)
+    + a _lower bound_ of a subset $S$ of a partially ordered set ($P,\leq$) is an element $a$ of $P \ni a < x \,\forall\, x \in S$
+    + a lower bound $a$ of $S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S$ if $\forall$ boundss $y$ of $S \in P, y \leq a$ (a is larger than or equal to any other lower bound)
+
+  + __Definition__ (upper bound and supremum)
+    + an _upper bound_  $b$ of a subset $S$ of a partially ordered set ($P, \leq$) is an element $b$ of $S \ni b \geq x\.\forall\, x \in S$
+    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S$ if $\forall$ upper bounds $z$ of $S \in P, z \geq b$ (b is less than any other upper bound)
+
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
   + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_+ \to \mathbb{R}$
 
@@ -93,6 +108,25 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the remainder of a second order Taylor expansion about $\theta_0$ is bounded in probability and thus poses no problem asymptotically.
 
 + [Standard Regularity Conditions for Statistics](http://www.stat.rice.edu/~dobelman/courses/Regularity.pdf)
+
++ Measure theory
+  + $^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
+  + a.k.a., Lebesgue spaces
+  + $L^p$ metrics: measures of central tendency and statistical dispersion, such as mean, median, and standard deviation
+  + penalized regression:
+    + L1 penalty: the $L^1$ norm of a solution's vector of parameter values, i.e., the sum of its absolute values
+    + L2 penalty: the $L^2$ norm of a solution's vector of parameter values, i.e., Euclidean length
+  + $p$-norm in finite dimensions
+    + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ uusually given by the Euclidean norm
+
+      \[ \|x\|_2 = (x_1^2 + x_2^2 + \cdots + x_n^2)^{1/2} \]
+
+    + __Definition__.  for a real number $p \geq 1$, the __p$-norm or $L&p$-norm of $x$ defined as
+
+      \[ \|x\|_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{1/p} \]
+
+    + 1-norm: the norm corresponding to the rectilinear distance
+    + 2-norm: Euclidean nor
 
 
 
