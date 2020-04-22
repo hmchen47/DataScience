@@ -155,13 +155,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.5 Simulation Methods for Bayesian Computation
 
-+ Simulation approaches for distribution
++ Simulation approach for distribution
   + drawing sample $X$ from a distribution $F$
     + $F(X)$: uniform distribution over the interval (0, 1)
     + a basic strategy to sample $U \sim \text{Uniform}(0, 1) \to X = F^{-1}(U)$
   + procedure
     + sampling from a distribution that is easy to draw from, $\text{Uniform}(0, 1)$
-    + using it to sample from a more complicated commmplicated distribution $F$
+    + using it to sample from a more complicated complicated distribution $F$
 
 + Basic simulation approach to estimate integral
   + estimating the integral $\int_0^1 h(x) \,dx$ for some complicated function $h$
@@ -183,7 +183,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the normalizing constant $c = \int \mathcal{L}_n(\theta) \pi(\theta) \,d\theta$
   + the posterior mean
   
-    \[ \overline{theta} = \int \theta \pi(\theta \,|\, \mathcal{D}_n) \,d\theta = \frac{1}{c} \int \theta\mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
+    \[ \overline{\theta} = \int \theta \pi(\theta \,|\, \mathcal{D}_n) \,d\theta = \frac{1}{c} \int \theta\mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
 
   + $\pmb{\theta} = (\theta_1, \dots, \theta_s)^T$ multidimensional
   + the marginal posterior density for $\theta_i$
