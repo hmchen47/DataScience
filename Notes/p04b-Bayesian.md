@@ -108,7 +108,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + many frequentist method viewed as the maximum a posterior (MAP) estimator under a Bayesian framework
   + Gaussian linear regression w/ known $\sigma$
 
-    \[ Y = \beta_0 + \sum_{j=1}^d \beta_j X_j = \varepsilon, \; \varepsilon \sim N(0, \sigma^2) \]
+    \[ Y = \beta_0 + \sum_{j=1}^d \beta_j X_j = \varepsilon, \quad \varepsilon \sim N(0, \sigma^2) \]
 
   + sampling distribution: $\mathcal{D}_n = \{ (\pmb{X}_1, Y_1), \dots,  (\pmb{X}_n, Y_n)\}$
   + the conditional likelihood of $\pmb{\beta} = (\beta_0, \beta_1, \dots, \beta_s)^T$
@@ -119,17 +119,17 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ p(\pmb{\beta} \,|\, \mathcal{D}_n) \propto \mathcal{L}(\pmb{\beta}) \pi_\lambda(\pmb{\beta}) \]
 
-  + the MAP estimator $\widehat{\pmb{\beta}}^{MAP}$
+  + the MAP estimator, $\widehat{\pmb{\beta}}^{\,MAP}$
 
-    \[ \widehat{\pmb{\beta}}^{MAP} = \mathop{\arg\min}_{\pmb{\beta}} p(\pmb{\beta} \,|\, \mathcal{D}_n) = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
+    \[ \widehat{\pmb{\beta}}^{\,MAP} = \mathop{\arg\min}_{\pmb{\beta}} p(\pmb{\beta} \,|\, \mathcal{D}_n) = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
 
     + exactly the ridge regression w/ the regularization parameter $\lambda' = \lambda \sigma^2$
   + adopting the Laplacian prior $\pi_\lambda(\pmb{\beta}) \propto \exp(-\lambda \|\pmb{\beta}\|_1 / 2) \implies$ the Lasso estimator
 
-    \[ \hat{\pmb{\beta}}^{MAP} = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
+    \[ \hat{\pmb{\beta}}^{\,MAP} = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
 
   + a complete Bayesian analysis aiming at obtaining the whole posterior distribution $p(\pmb{\beta} \,|\, \mathcal{D}_n)$
-  + in general, $p(\mathcal{D} \,|\, \mathcal{D}_n)$ not having an analytic form and resorting to simulation to approximate the posterior
+  + in general, $p(\pmb{\beta} \,|\, \mathcal{D}_n)$ not having an analytic form and resorting to simulation to approximate the posterior
 
 
 
