@@ -198,8 +198,181 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.5.1 Basic Monte Carlo Integration
 
++ Numerical method for integral
+  + $\exists\, \text{ a function } h$
+  + to evaluate the integral
 
+    \[ I = \int_a^b h(x) dx \]
 
+  + easy $h \implies$ calculating the integral in closed form
+  + complicated $h \implies$ no known closed form expression for $I$
+  + numerical techniques for evaluating $I$
+    + Simpson's rule
+    + the trapezoidal rule
+    + Gaussian quadrature
+    + Monte Carlo integration
+  
++ Basic Monte Carlo integration method
+  + approximating $I$ which is notable for its simplicity, generality and scalability
+  + $\exists w(x) - h(x) (b-a), f(x) = 1/(b-a) \ni$
+  
+    \[ I = \int_a^b h(x) dx = \int_a^b w(x) f(x) dx \]
+
+  + $f$: the probability density for a uniform random variable over $(a, b)$ w/ $X \sim \text{Uniform}(a, b)$
+
+    \[ I = \mathbb{E}_f(w(X)) \]
+
+  + generating $X-1, \dots, X_N \sim \text{Uniform}(a, b) \implies$ the the law of large numbers
+
+    \[ \widehat{I} \equiv \frac{1}{N} \sum_{i=1}^N w(X_i) \xrightarrow{P} \mathbb{E}(w(X)) = I \]
+
+  + the standard error of the estimate
+
+    \[ \widehat{se} = \frac{s}{\sqrt{N}}, \qquad s^2 = \frac{\sum_{i=1}^N (\widehat{Y}_1 - \widehat{I})^2}{N - 1} \text{ and } Y_i = w(X_i) \]
+
+  + regional estimate: $(1 - \alpha)$ confidence interval = $\widehat{I} \pm z_{\alpha/2} \, \widehat{se}$
+  + $N \nearrow  \implies CI \searrow$
+  + example
+    + $h(x) = x^3 \implies I = \int_0^1 x^3 dx = 1/4$
+    + $N = 10,000$ observations from a Uniform(0, 1)
+    + obtaining $\widehat{I} = .248, \widehat{se} = 0.0028$
+
++ Generalized Monte Carlo integration methods
+  + the integral w/ $f(x)$ a probability density fucntion
+
+    \[ I = \int_a^b h(x) f(x) dx \]
+
+  + special case: $f \sim \text{Uniform}(a, b)$
+  + drawing $X_1, \dots, X_N \sim f$
+
+    \[ \widehat{I} := \frac{1}{N} \sum_{i=1}^N h(X_i) \]
+
++ Numerical methods for Gaussian density
+  + the standard normal PDF
+
+    \[ f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \]
+
+  + computing the CDF at some point $x$
+
+    \[ I = \int_{-\infty}^x f(s) ds = \Phi(x) \implies I = \int h(s) f(s) ds, \quad h(s) = \begin{cases} 1 & s < x \\ 0 & s \geq x  \end{cases} \]
+
+  + generating $X_1, \dots, X_N \sim N(0, 1)$ and 
+
+    \[ \widehat{I} = \frac{1}{N} \sum_i h(X_i) = \frac{\text{number of observations} \leq x}{N} \]
+
+  + example:
+    + $x = 2$ and the true answer $\Phi(2) = .9772$
+    + the Mont Carlo estimate
+      + $N = 10,000 \to \Phi(2) = .9751$
+      + $N = 100,000 to \Phi(2) = .9771$
+
++ Bayesian inference for two binomial
+  + freqentist analysis
+    + $X \sim \text{Binomial}(n, p_1), \,Y \sim \text{Binomial}(m, p_2)$
+    + task: to estimate $\delta = p_2 - p_1$
+    + the MLE: $\widehat{delta} = \widehat{p}_1 - \widehat{p}_2 = (Y/m) - (X/n)$
+    + the standard error $\widehat{se}$ using the delta method
+
+      \[ \widehat{se} = \sqrt{\frac{\widehat{p}_1 (1 - \widehat{p}_1)}{n} + \frac{\widehat{p}_2 (1 - \widehat{p}_2)}{m}} \]
+
+    + 95% confidence interval: $\widehat{\delta} \pm \widehat{se}$
+  + Bayesian analysis
+    + the prior: $\pi(p_1, p_2) = \pi(p_1) \pi(p_2) = 1 \implies$ a flat prior on $(p_1, p_2)$
+    + the posterior
+
+      \[ \pi(p_1, p_2 \,|\, X, Y) \propto p_1^X(1 - p_1)^{n - X} p_2^Y (1 - p_2)^{m-Y} \]
+
+    + the posterior mean of $\delta$
+
+      \[ \overline{\delta} = \int_0^1\in_0^1 \delta(p_1, p_2) \pi(p_1, p_2 \,|\, X, Y) = \int_0^1\int_0^1 (p_2 - p_1) \pi(p_1, p_2 \,|\, X, Y) \]
+
+    + obtaining the posterior CDF w/ $A = \{ (p_1, p_2): p_2 - p_1 \leq c \}$
+
+      \[ F(c \,|\, X, Y) = \mathbb{P}(\delta \leq c \,|\, X, Y) = \int_A \pi(p_1, p_2 \,|\, X, Y) \]
+
+    + then differentiate $F \to$ too complicated
+  + simulation approach
+    + $\pi(p_1, p_2 \,|\, X, Y) = \pi(p_1 \,|\, X) \pi(p_2 \,|\, Y) \implies p_1, p_2$ independent under the posterior distribution
+    + simulate $(P_1^{(1)}, P_2^{(1)}), \dots, (P_1^{(N)}, P_2^{(N)})$ from the posterior by drawing ($i = 1,  \dots, N$)
+
+      \[\begin{align*}
+        P_1^{(i)} \sim \text{Beta}(X + 1, n - X + 1) \\
+        P_2^{(i)} \sim \text{Beta}(Y + 1, n - Y + 1)
+      \end{align*}\]
+
+    + $\delta^{(i)} = P_2^{(i) - P_1{(i)}} \implies$
+
+      \[ \overline{\delta} \approx \frac{1}{N} \sum_{i=1}^N \delta^{(i)} \]
+
+    + 95% posterior interval for $\delta$:
+      + sorting the simulated values
+      + finding the .025 and .975 quantile
+    + the posterior density $f(\delta \,|\, X, Y)$
+      + applying density estimation techniques to $\delta^{(1)}, \dots, \delta^{(N)}$
+      + plotting a histogram
+  + simulation example
+    + $n = m = 10, \, X = 9, \,Y = 6$
+    + posterior sample size = 1000
+    + 95% posterior interval = (-0.52, 0.20)
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-05.png" style="margin: 0.1em;" alt="Posterior of delta from distribution" title="Posterior of delta from distribution" width=150>
+      </a>
+    </div>
+
++ Bayesian inference for multiple parameters
+  + Bayesian inference for dose response
+  + conducting an experiment by giving rats one of 10 possible doses of a drug, $x_1 \leq x_2 \leq \cdots \leq x_{10}$
+  + for each dose level $x_i$ using $n$ rates and observing the survival numbers $Y_i$
+  + sampling distribution 10 independent binomials $Y_i \sim Binomial(n, p_i)$
+  + biological considerations: higher dose w/ higher probability of death, i.e., $p_1 \leq p_2 \leq \cdots, \leq p_{10}$
+  + task: to estimate the dose at which the animals w/ 50% chance of dying, LD50
+  
+    \[ \delta = x_j \qquad j^* = \min\{ j: p_j \geq 1/2 \} \]
+
+  + $\delta$ implicitly just a complicated function of $p_1, \dots, p_{10} \to \delta = g(p_1, \dots, p_{10})$
+  + known $(p_1, \dots, p_{10}) \implies$ find $\delta$
+  + the posterior mean of $delta$ w/ $A = \{ (p_1, \dots, p_{10}: p_1 \leq \cdots \leq p_{10}) \}$
+
+    \[ \int\int\cdots\int_A g(p_1, \dots, p_{10})\pi(p_1, \dots, p_{10} \,|\, Y_1, \dots, Y_10) \,dp_1 dp_2 \cdots dp_{10} \]
+
+  + the posterior CDF of $\delta$ w/ $B = A \cup \{ (p_1, \dots, p_{10}): g(p_1, \dots, p_{10}) \leq c \}$
+
+    \[\begin{align*}
+      F(c \,|\, Y_1, \dots, Y_{10}) &= \mathbb{P}(\delta \leq \,|\, Y_1, \dots, Y_{10}) \\
+      &= \int\int \cdots\int_B \pi(p_1, \cdots, p_{10} \,|\, Y_1, \dots, Y_{10}) dp_1 dp_2 \cdots dp_{10}
+    \end{align*}\]
+
+  + simulation procedure
+    + taking a flat prior truncated over $A$
+    + each $P_i \sim$  Beta distribution
+    + drawing from the posterior
+      + drawing $P_i \sim \text{Beta}(Y_i + 1, \,n - Y_i +1), \;i = 1, \dots, 10$
+      + if $P_1 \leq P_2 \leq \dots \leq P_{10}$ keeping this draw.  Otherwise, throw it away and draw again until getting one to keep
+      + let $\delta = x_j^\ast$ w/ $j^\ast = \min \{ j: P_j > 1/2 \}$
+    + repeat $N$ times to get $\delta{(1)}, \dots, \delta^{(N)}$ and take
+
+      \[ \mathbb{E}(\delta \,|\, Y_1, \dots, Y_{10}) \approx \frac{1}{N} \sum_{i=1}^N \delta^{(i)} \]
+
+    + estimate the probability mass function as $\delta$ a discrete variable
+
+      \[ \mathbb{P}(\delta = x_j \,|\, Y_1, \dots, Y_{10}) \approx \frac{1}{N} \sum_{i=1}^N I(\delta^{(i)} = x_j) \]
+  + example
+    + the simulated data
+
+      | Dose | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+      |------|---|---|---|---|---|---|---|---|---|---|
+      | Number of animals $n_i$ | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 |
+      | Number of survivors $Y_i$ | 0 | 0 | 2 | 2 | 8 | 10 | 12 | 14 | 15 | 14 |
+
+    + the posterior draws for $p_1, \dots, p_{10}$ w/ $N = 500 \implies \overline{\delta} = 5.45$ and 95% CI = $(5, 7)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-06.png" style="margin: 0.1em;" alt="Posterior distributions of the probabilities P_i, i = 1, 2, ..., 10, for the dose response data" title="Posterior distributions of the probabilities P_i, i = 1, 2, ..., 10, for the dose response data" width=550>
+      </a>
+    </div>
 
 
 ### 12.5.2 Importance Sampling
