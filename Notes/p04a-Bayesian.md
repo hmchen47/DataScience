@@ -18,7 +18,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + a _lower bound_ of a subset $S$ of a partially ordered set ($P,\leq$) is an element $a$ of $P \ni a < x \,\forall\, x \in S$
     + a lower bound $a$ of $S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S$ if $\forall$ boundss $y$ of $S \in P, y \leq a$ (a is larger than or equal to any other lower bound)
   + __Definition__ (upper bound and supremum)
-    + an _upper bound_  $b$ of a subset $S$ of a partially ordered set ($P, \leq$) is an element $b$ of $S \ni b \geq x\.\forall\, x \in S$
+    + an _upper bound_  $b$ of a subset $S$ of a partially ordered set ($P, \leq$) is an element $b$ of $S \ni b \geq x\,\forall\, x \in S$
     + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S$ if $\forall$ upper bounds $z$ of $S \in P, z \geq b$ (b is less than any other upper bound)
   + the arguments of the maxima
     + __Definition__ (the arguments of the maxima)
@@ -37,6 +37,38 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + __Definition__. (argument of the minimum)
 
     \mathop{\arg\min}_{x \in S} := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}
+
+  + __Definition__ (moment)
+    + a _moment_ is a specific quantitative measure of the shape of a function
+    + the $n$-moment of a real-valued continuous fucntion $f(x)$ of a real variable about a value $c$ (usually $c=0$)
+
+      \[ \mu_n = \int_{-\infty}^\infty (x - c)^n f(x) dx \]
+
+    + $f$ as a probability density function $\implies$ the $n$-th moment of the probability distribution
+    + $F$ as a cumulative probability distribution fucntion of any probability distribution, probably no density function $\implies$ the $n$-th moment of the probability distribution given by the Reimann-Stieltjes integral
+
+      \[ \mu_n^' = E[X^n] = \int_{-\infty}^\infty x^n dF(x) \]
+
+      + $X$: a random variable w/ the cumulative distribution $F$
+      + $E$: the expectation operator or mean
+    + $n$-th moment not exists if
+
+      \[ E[|X^n\] = \int_{-\infty}^\infty |x^n| dF(x) = \infty \]
+
+    + the normalized $n$-th central moment or standardized moment id the $n$-th central moment divided by $\sigma^n$
+
+      \[ \frac{\mu_n}{\sigma^n} = \frac{E[(X - \mu)^n]}{\sigma^n} \]
+
+    + the normalized 3rd central moment: _skewness_ ($\gamma$)
+      + the measure of the lopsidedness of the distribution
+      + any symmetric distribution w/ a 3rd moment
+      + negative skewness: skewed to left
+      + positive skewness: skewed to right
+      + distribution $\approx$ Normal distribution: median $\approx \mu - \gamma\sigma/6$, mode = $\mu - \gamma \sigma/2$
+    + the standardized fourth central moment: _kurtosis_ ($\kappa$)
+      + a measure of the heaviness of the tail of the distribution
+      + always non-negative and $\kappa \geq \gamma^2 + 1$
+      + Gaussian distribution: $\kappa = 3\sigma^4$
 
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
@@ -194,7 +226,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
 
-    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
+    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$img
 
 
 ## 12.1 What is Bayesian Inference?
@@ -240,6 +272,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
         <img src="img/p04-00.png" style="margin: 0.1em;" alt="Repeating the experiment" title="Repeating the experiment" width=550>
       </a>
     </div>
+
   + finding the interval $C_j$ traps the parameters $\theta_j$, 95 percent of time
   + more precisely
 
