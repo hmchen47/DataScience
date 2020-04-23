@@ -199,13 +199,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.5.1 Basic Monte Carlo Integration
 
 + Numerical method for integral
-  + $\exists\, \text{ a function } h$
-  + to evaluate the integral
+  + $\exists\, \text{ a function } h$, to evaluate the integral
 
     \[ I = \int_a^b h(x) dx \]
 
-  + easy $h \implies$ calculating the integral in closed form
-  + complicated $h \implies$ no known closed form expression for $I$
+  + easy $h$: calculating the integral in closed form
+  + complicated $h$: no known closed form expression for $I$
   + numerical techniques for evaluating $I$
     + Simpson's rule
     + the trapezoidal rule
@@ -214,7 +213,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   
 + Basic Monte Carlo integration method
   + approximating $I$ which is notable for its simplicity, generality and scalability
-  + $\exists w(x) - h(x) (b-a), f(x) = 1/(b-a) \ni$
+  + $\exists\; w(x) - h(x) (b-a), f(x) = 1/(b-a) \ni$
   
     \[ I = \int_a^b h(x) dx = \int_a^b w(x) f(x) dx \]
 
@@ -222,15 +221,15 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ I = \mathbb{E}_f(w(X)) \]
 
-  + generating $X-1, \dots, X_N \sim \text{Uniform}(a, b) \implies$ the the law of large numbers
+  + generating $X_1, \dots, X_N \sim \text{Uniform}(a, b) \implies$ the the law of large numbers
 
     \[ \widehat{I} \equiv \frac{1}{N} \sum_{i=1}^N w(X_i) \xrightarrow{P} \mathbb{E}(w(X)) = I \]
 
   + the standard error of the estimate
 
-    \[ \widehat{se} = \frac{s}{\sqrt{N}}, \qquad s^2 = \frac{\sum_{i=1}^N (\widehat{Y}_1 - \widehat{I})^2}{N - 1} \text{ and } Y_i = w(X_i) \]
+    \[ \widehat{se} = \frac{s}{\sqrt{N}}, \qquad s^2 = \frac{\sum_{i=1}^N (\widehat{Y}_i - \widehat{I})^2}{N - 1} \;\;\text{ and }\;\; Y_i = w(X_i) \]
 
-  + regional estimate: $(1 - \alpha)$ confidence interval = $\widehat{I} \pm z_{\alpha/2} \, \widehat{se}$
+  + region estimate: $(1 - \alpha)$ confidence interval = $\widehat{I} \pm z_{\alpha/2} \cdot \widehat{se}$
   + $N \nearrow  \implies CI \searrow$
   + example
     + $h(x) = x^3 \implies I = \int_0^1 x^3 dx = 1/4$
@@ -238,7 +237,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + obtaining $\widehat{I} = .248, \widehat{se} = 0.0028$
 
 + Generalized Monte Carlo integration methods
-  + the integral w/ $f(x)$ a probability density fucntion
+  + the integral w/ $f(x)$ a probability density function
 
     \[ I = \int_a^b h(x) f(x) dx \]
 
@@ -258,7 +257,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + generating $X_1, \dots, X_N \sim N(0, 1)$ and 
 
-    \[ \widehat{I} = \frac{1}{N} \sum_i h(X_i) = \frac{\text{number of observations} \leq x}{N} \]
+    \[ \widehat{I} = \frac{1}{N} \sum_i h(X_i) = \frac{\text{number of observations w/ their values} \leq x}{N} \]
 
   + example:
     + $x = 2$ and the true answer $\Phi(2) = .9772$
@@ -270,12 +269,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + freqentist analysis
     + $X \sim \text{Binomial}(n, p_1), \,Y \sim \text{Binomial}(m, p_2)$
     + task: to estimate $\delta = p_2 - p_1$
-    + the MLE: $\widehat{delta} = \widehat{p}_1 - \widehat{p}_2 = (Y/m) - (X/n)$
+    + the MLE: $\widehat{\delta} = \widehat{p}_1 - \widehat{p}_2 = (Y/m) - (X/n)$
     + the standard error $\widehat{se}$ using the delta method
 
       \[ \widehat{se} = \sqrt{\frac{\widehat{p}_1 (1 - \widehat{p}_1)}{n} + \frac{\widehat{p}_2 (1 - \widehat{p}_2)}{m}} \]
 
-    + 95% confidence interval: $\widehat{\delta} \pm \widehat{se}$
+    + 95% confidence interval: $\widehat{\delta} \pm 2 \cdot \widehat{se}$
   + Bayesian analysis
     + the prior: $\pi(p_1, p_2) = \pi(p_1) \pi(p_2) = 1 \implies$ a flat prior on $(p_1, p_2)$
     + the posterior
@@ -284,7 +283,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     + the posterior mean of $\delta$
 
-      \[ \overline{\delta} = \int_0^1\in_0^1 \delta(p_1, p_2) \pi(p_1, p_2 \,|\, X, Y) = \int_0^1\int_0^1 (p_2 - p_1) \pi(p_1, p_2 \,|\, X, Y) \]
+      \[ \overline{\delta} = \int_0^1\int_0^1 \delta(p_1, p_2) \pi(p_1, p_2 \,|\, X, Y)\,dp_1 dp_2 = \int_0^1\int_0^1 (p_2 - p_1) \pi(p_1, p_2 \,|\, X, Y) \,dp_1 dp_2 \]
 
     + obtaining the posterior CDF w/ $A = \{ (p_1, p_2): p_2 - p_1 \leq c \}$
 
@@ -300,7 +299,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
         P_2^{(i)} \sim \text{Beta}(Y + 1, n - Y + 1)
       \end{align*}\]
 
-    + $\delta^{(i)} = P_2^{(i) - P_1{(i)}} \implies$
+    + $\delta^{(i)} = P_2^{(i)} - P_1{(i)} \implies$
 
       \[ \overline{\delta} \approx \frac{1}{N} \sum_{i=1}^N \delta^{(i)} \]
 
@@ -322,25 +321,25 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     </div>
 
 + Bayesian inference for multiple parameters
-  + Bayesian inference for dose response
+  + example: Bayesian inference for dose response
   + conducting an experiment by giving rats one of 10 possible doses of a drug, $x_1 \leq x_2 \leq \cdots \leq x_{10}$
   + for each dose level $x_i$ using $n$ rates and observing the survival numbers $Y_i$
-  + sampling distribution 10 independent binomials $Y_i \sim Binomial(n, p_i)$
+  + sampling distribution 10 independent binomials $Y_i \sim \text{Binomial}(n, p_i)$
   + biological considerations: higher dose w/ higher probability of death, i.e., $p_1 \leq p_2 \leq \cdots, \leq p_{10}$
   + task: to estimate the dose at which the animals w/ 50% chance of dying, LD50
   
-    \[ \delta = x_j \qquad j^* = \min\{ j: p_j \geq 1/2 \} \]
+    \[ \delta = x_j^*  \qquad j^* = \min\{ j: p_j \geq 1/2 \} \]
 
   + $\delta$ implicitly just a complicated function of $p_1, \dots, p_{10} \to \delta = g(p_1, \dots, p_{10})$
   + known $(p_1, \dots, p_{10}) \implies$ find $\delta$
-  + the posterior mean of $delta$ w/ $A = \{ (p_1, \dots, p_{10}: p_1 \leq \cdots \leq p_{10}) \}$
+  + the posterior mean of $\delta$ w/ $A = \{ (p_1, \dots, p_{10}): p_1 \leq \cdots \leq p_{10}) \}$
 
-    \[ \int\int\cdots\int_A g(p_1, \dots, p_{10})\pi(p_1, \dots, p_{10} \,|\, Y_1, \dots, Y_10) \,dp_1 dp_2 \cdots dp_{10} \]
+    \[ \int\int\cdots\int_A g(p_1, \dots, p_{10})\pi(p_1, \dots, p_{10} \,|\, Y_1, \dots, Y_{10}) \,dp_1 dp_2 \cdots dp_{10} \]
 
   + the posterior CDF of $\delta$ w/ $B = A \cup \{ (p_1, \dots, p_{10}): g(p_1, \dots, p_{10}) \leq c \}$
 
     \[\begin{align*}
-      F(c \,|\, Y_1, \dots, Y_{10}) &= \mathbb{P}(\delta \leq \,|\, Y_1, \dots, Y_{10}) \\
+      F(c \,|\, Y_1, \dots, Y_{10}) &= \mathbb{P}(\delta \leq c \,|\, Y_1, \dots, Y_{10}) \\
       &= \int\int \cdots\int_B \pi(p_1, \cdots, p_{10} \,|\, Y_1, \dots, Y_{10}) dp_1 dp_2 \cdots dp_{10}
     \end{align*}\]
 
