@@ -376,6 +376,93 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.5.2 Importance Sampling
 
++ Issue on basic Monte Carlo method
+  + $\exists\; f$ a probability density $\ni I = \int h(x) f(x) dx$
+  + cases not knowing how to sample from $f$
+  + in Bayesian inference, the posterior obtained from the likelihood $\mathcal{L}_n(\theta)$ and the prior $\pi(\theta)$
+  + issue: no guarantee $\pi(\\theta | \mathcal{D}_n)$ w/ a known distribution
+  + sol: importance sampling - a generalization of basic Monte Carlo
+
++ Modeling of importance sampling
+  + $\exists\; g$ a probability density w/ known distribution
+  + the integral
+
+    \[ I = \int h(x) f(x) dx = \int \frac{h(x) f(x)}{g(x)} g(x) dx = \mathbb{E}_g (Y) \]
+
+    + $Y = h(X)f(X)/g(X)$
+    + $\mathbb{E}_g(Y)$: the expectation w.r.t $g$
+
+  + importance sampling:
+    + simulate $X_1, \dots, X_N \sim g$ 
+    + estimate $I$ by the sample average
+
+      \[ \widehat{I} = \frac{1}{N} \sum_{i=1}^N Y_i = \frac{1}{N} \sum_{i=1}^N \frac{h(X_i)f(X_i)}{g(X_i)} \]
+
+  + by the law of large number: $\widehat{I} \xrightarrow{P} I$
+
++ Guideline of importance sampling
+  + $\widehat{I}$ probably w/ an infinite standard error
+  + as $I = \mathbb{E}[w(x)] = \mathbb{E}_g[h(x)f(x)/g(x)]$, the 2nd moment
+
+    \[ \mathbb{E}_g(w^2(X)) = \int \left( \frac{h(x)f(x)}{g(x)} \right)^2 g(x) \,dx = \int \frac{h^2(x)f^2(x)}{g(x)} dx \]
+
+  + $g$ w/ thinner tails than $f \implies$ the integral probably infinite
+  + basic rule of importance sampling: to sample  from a density $g$ w/ thicker tails than $f$
+  + $g(x)$ small over some set $A$ where $f(x) is large
+  + large ratio of $f/g \to$ a large variance $\implies$ choosing $g$ to be similar in shape to $f$
+  + summary: a good choice for an importance sampling density g$ should be similar to $f$ but w/ thicker tails
+  + __Theorem__ the choice of $g$ that minimizes the variance of $\widehat{I}$
+
+    \[ g^*(x) = \frac{|h(x)| f(x)}{\int |h(s)| f(s) ds} \]
+
+  + _Proof_
+    + the variance of $w = fh/g$
+
+      \[\begin{align*}
+        \mathbb{E}_g(w^2) - (\mathbb{E}(w^2))^2 &= \int w^2(x) g(x) dx - \left(\int w(x)g(x)dx\right)^2 \\
+        &= \int \frac{h^2(x)f^2(x)}{g^2(x)} g(x)dx - \left(\int \frac{h(x)f(x)}{g(x)} g(x)dx\right)^2 \\
+        &= \int \frac{h^2(x)f^2(x)}{g^2(x)} g(x)dx - \underbrace{\left(\int h(x)f(x) dx\right)^2}_{\text{not depending on }g}
+      \end{align*}\]
+
+    + minimizing the 1st term w/ Jensen's inequality to have lower bound
+
+      \[ \mathbb{E}_g(W^2) \geq \left( \mathbb{E}_g(|W|) \right)^2 = \left(\int |h(x)| f(x) dx \right)^2 \]
+
+    + $\mathbb{E}_{g^*}(W^2) = \left( \mathbb{E}_g(|W|) \right)^2$ $\tag*{$\Box$}$
+
++ Importance sampling w/ tail probability
+  + estimate $I = \mathbb{P}(Z > 3) = .0013, \; Z \sim N(0,1)$
+  + the integral w/ standard normal density $f$
+
+    \[ I = \int h(x) f(x) dx, \qquad h(x) = \begin{cases} 1 & x > 3 \\ 0 & \text{otherwise} \end{cases} \]
+
+  + basic Monte Carlo estimator w/ $X_1, \dots, X_N \sim N(0, 1)$
+
+    \[ \widehat{I} = \frac{1}{N} \sum_i h(X_i) \]
+
+  + $N = 100 \implies \mathbb{E}(\widehat{I}) = .0015, \;Var(\widehat{I}) = .0039$
+  + estimate w/ importance sampling taking $g \sim N(4, 1)$
+  + simulation by drawing values from $g$ and the estimate
+
+    \[ \widehat{I} = N^{-1} \sum_{i=1}^N f(X_i h(X_i) / g(X_i)) \implies \mathbb{E}(\widehat{I}) = .0011 \text{ and } Var(\widehat{I}) = .0002 \]
+
+  + reducing the standard deviation by a factor of 20
+
++ Modeling importance sampling in Bayesian inference
+  + the posterior mean: $\overline{\theta} = \mathbb{E}[\theta \,|\, X_1, \dots, X_n]$
+  + $g$: an importance sampling distribution
+  + the posterior mean
+
+    \[\begin{align*}
+      \mathbb{E}[\theta \,|\, X_1, \dots, X_n] = \frac{\int \theta \mathcal{L}(\theta) \pi(\theta) \,d\theta}{\mathcal{L}(\theta) \pi(\theta) \,d\theta} &= \frac{\int h_1(\theta) g(\theta) \,d\theta}{\int h_2(\theta) g(\theta) \,d\theta}, \\\\ 
+      h_1(\theta) = \frac{\theta \mathcal{L}(\theta) \pi(\theta)}{g(\theta)}, &\quad h_2(\theta) = \frac{\mathcal{L}(\theta) \pi(\theta)}{g(\theta)}
+    \end{align*}\]
+
+  + $\theta_1, \dots, \theta_N$ as a sample from $g$, the posterior mean
+
+    \[ \mathbb{E}[\theta \,|\, X_1, \dots, X_n] \approx \frac{\frac{1}{N} \sum_{i=1}^N h_1(\theta_i)}{\frac{1}{N} \sum_{i=1}^N h_2(\theta_i)} \]
+
+  + very difficult to choose a good importance sampler $g$, especially in high dimensions
 
 
 
