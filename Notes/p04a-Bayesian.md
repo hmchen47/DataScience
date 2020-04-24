@@ -69,6 +69,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + a measure of the heaviness of the tail of the distribution
       + always non-negative and $\kappa \geq \gamma^2 + 1$
       + Gaussian distribution: $\kappa = 3\sigma^4$
+  + Jensen's inequality
+    + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
+    + $X$ as an integrable real-valued random variable
+    + $\varphi$: a convex function
+
+      \[ \varphi(E[X]) \leq E[\varphi(X)] \]
 
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
