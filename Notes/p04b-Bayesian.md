@@ -482,14 +482,14 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + __algorithm__
 
     <div style="padding-left: 1em; padding-top: 0.2em;">choose $X_0$ arbitrary </div>
-    <div style="padding-left: 1em; padding-top: 0.2em;">Given $X_0, X-1, \dots, X_i$, generate $X_{i+1}$ as follows: </div>
+    <div style="padding-left: 1em; padding-top: 0.2em;">Given $X_0, X_1, \dots, X_i$, generate $X_{i+1}$ as following: </div>
       <div style="padding-left: 2em; padding-top: 0.2em;">1. generate a proposal or candidate value $Y \sim q(y | X_i)$</div>
       <div style="padding-left: 2em; padding-top: 0.2em;">2. Evaluate $r \equiv r(X_i, Y)$ where</div>
       <div style="text-align: center; padding-top: 0.2em;">$r(x, y) = \min \{ \frac{f(y)}{f(x)}\,\frac{q(x|y)}{q(y|x)}, \; 1 \}$</div>
       <div style="padding-left: 2em; padding-top: 0.2em;">3. Set</div>
       <div style="text-align: center; padding-top: 0.2em;">$X_{i+1} = \begin{cases} Y & \text{with probability } r \\ X_i & \text{with probability } 1 - r \end{cases}$</div><br/>
 
-  + simply way to execute step 3: generate $U \sim \text{Uniform}(0, 1)$
+  + simple way to execute step 3: generate $U \sim \text{Uniform}(0, 1)$
 
     \[ X_{i+1} = \begin{cases} Y & U < r \\ X_i & \text{otherwise} \end{cases} \]
 
@@ -497,10 +497,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + $q(Y|x) \sim N(x, b^2), \,b >0 \ni$ the proposal drawing from a normal, centered at the current value
     + the proposal density $q$ symmetric $\implies q(y|x) = q(x|y)$ and
 
-      \[ r = \min\{ \frac{f(Y)}{f(X-i)}, \,1 \} \]
+      \[ r = \min\left\{ \frac\left{f(Y)}{f(X_i)}, \,1 \right\} \]
 
   + constructed $X_0, X_1, \dots \to$ Markov chain
   + the chain mixing well: the sample from the Markov chain starts look like the target distribution $f$ quickly
+    + tuning parameter ($b$) $\implies$ the efficiency and goodness of the chain
 
 + Example: Cauchy distribution
   + Cauchy density
@@ -510,7 +511,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + task: simulate a Markov chain whose stationary distribution is $f$
   + taking $q(Y|x) \sim N(x, b^2)$
 
-    \[ r(x, y) = \min\{ \frac{f(x)}{f(y)}, \,1 \} = \min \{ \frac{1+x^2}{1+y^2}, \,1 \} \]
+    \[ r(x, y) = \min\left\{ \frac{f(y)}{f(x)}, \,1 \right\} = \min \left\{ \frac{1+x^2}{1+y^2}, \,1 \right\} \]
 
   + drawing $Y \sim N(x, b^2)$ w/ Metropolis-Hasting algorithm w/
 
@@ -522,13 +523,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + the chain not exploring much of the sample space
       + histogram: the sample not approximating the true density very well
     + $b = 10$
-      + causing the proposals to often be far in tails, making $r$ small
+      + causing the proposals too often being far in tails, making $r$ small
       + rejecting the proposal and keeping the chain in its current position
       + the chain traps at the same place quite often
       + histogram: not approximating the true density very well
     + $b = 1$
-      + avoiding extremes and resulting in a Markov chain sample that better represents the density sooner
-    + tuning parameters and the efficieny of the chain depending on these parameters
+      + avoiding extremes
+      + resulting in a Markov chain sample representing the density well and sooner
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
