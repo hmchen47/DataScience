@@ -542,8 +542,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Interpretation of Markov chain
   + a Markov chain w/ the transition kernel $p(y|x)$ = the probability of transiting from $x$ to $y$
-  + $f(x) = \int f(y) p(x|y) dy \implies f$ as stationary for the Markov chain
-  + Interpretation
+  + $f(x) = \int f(y) p(x|y) dy \implies f$ is a stationary distribution for the Markov chain
+  + Interpretation of stationary
     + the chain reaching the distribution $f \to$ the chain staying in $f$
     + another step of the chain $p(x|y) \to$  not changing the distribution
   + $f$ as a stationary distribution for a Markov chain $\implies$ the data from a sample run of the Markov chain approximating the distribution $f$
@@ -557,21 +557,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the chain satisfying detailed balance holds w.r.t. $f \implies$ $f$ as a stationary distribution
   + $f(x) = \int f(y)p(x|y)dy$ required $\ni$
 
-    \[ \int f(y)p(x|y) dy = \int f(x) p(y|x) dy = f(x) \int p(y|x) dy \]
+    \[ \int f(y)p(x|y) dy = \int f(x) p(y|x) dy = f(x) \int p(y|x) dy  = f(x) \]
 
-  + goal: show that $p(y|x)$ as the Markov chain defined by the Metropolis-Hastings algorithm $\implies f$ satisfies detailed balance $\implies$ a stationary distribution for the chain
+  + goal: shown that $p(y|x)$ as the Markov chain defined by the Metropolis-Hastings algorithm $\implies f$ satisfies detailed balance $\implies f$ is a stationary distribution for the chain
   + the Metropolis-Hastings algorithm
-    + using a user-chosen distribution $q(y|x)$ w/ a accept/reject step $\implies$ a Markov chain w/ transition probability $p(y|x) = 1(y|x) r(x, y)$
+    + using a user-chosen distribution $q(y|x)$ w/ a accept/reject step $\implies$ a Markov chain w/ transition probability $p(y|x) = q(y|x) r(x, y)$
     + two situations: $f(x) q(y|x) < f(y) q(x|y)$ or $f(x) q(y|x) > f(y) q(x|y)$
   + $f(x) q(y|x) > f(y) q(x|y) \implies$
 
     \[ r(x, y) = \frac{f(y)}{f(x)} \frac{q(x | y)}{q(y | x)} < 1  \text{ and } r(y, x) = 1 \]
 
-  + $p(y|x)$: the probability of jumping from $y$ to $x$
+  + $p(y|x)$: the probability of jumping from $x$ to $y$
     + the proposal distribution must generate $y$
     + $y$ must be accepted
 
-    \[ p(y|x) = q(y|x) r(x, y) = 1(y|x) \frac{f(y)}{f(x)} \frac{q(x|y)}{q(x|y)} = \frac{f(y)}{f(x)} q(x|y) \]
+    \[ p(y|x) = q(y|x) r(x, y) = q(y|x) \frac{f(y)}{f(x)} \frac{q(x|y)}{q(x|y)} = \frac{f(y)}{f(x)} q(x|y) \]
 
     \[ \therefore f(x)p(y|x) = f(y) q(x|y) \tag{7} \]
 
@@ -579,9 +579,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the proposal distribution must generate $x$
     + $x$ must be accepted
 
-    \[ p(y | x) = q(x | y) r(y, x) = q(x | y) \]
+    \[ p(x | y) = q(x | y) r(y, x) = q(x | y) \]
 
-    \[ \therefore f(y)p(x|y) = f(y) p(x | y) \tag{8}\]
+    \[ \therefore f(y)p(x|y) = f(y) q(x | y) \tag{8}\]
 
   + comparing (Eq.7) and (Eq. 8), it has been shown that detailed balance holds
 
