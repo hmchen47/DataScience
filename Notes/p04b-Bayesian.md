@@ -474,7 +474,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ \frac{1}{N} \sum_{i=1}^N h(X_i) \xrightarrow{P} \mathbb{E}_f(h(X)) = I \]
 
-+ Metropolis-Hasting algorithm
++ Metropolis-Hastings algorithm
   + a specific MCMC method
   + the proposal distribution
     + $g(y \,|\, x)$: an arbitrary "friendly" distribution
@@ -501,7 +501,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + constructed $X_0, X_1, \dots \to$ Markov chain
   + the chain mixing well: the sample from the Markov chain starts look like the target distribution $f$ quickly
-    + tuning parameter ($b$) $\implies$ the efficiency and goodness of the chain
+    + tuning parameter ($b$) $\implies$ the efficiency and mixing-well of the chain
 
 + Example: Cauchy distribution
   + Cauchy density
@@ -513,7 +513,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ r(x, y) = \min\left\{ \frac{f(y)}{f(x)}, \,1 \right\} = \min \left\{ \frac{1+x^2}{1+y^2}, \,1 \right\} \]
 
-  + drawing $Y \sim N(x, b^2)$ w/ Metropolis-Hasting algorithm w/
+  + drawing $Y \sim N(x, b^2)$ w/ Metropolis-Hastings algorithm w/
 
     \[ X_{i+1} = \begin{cases} Y & \text{with probability } r(X_i, Y) \\ X_i & \text{with probability } 1 - r(X_i, Y) \end{cases} \]
 
@@ -540,7 +540,50 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.5.4 Why It Works
 
++ Interpretation of Markov chain
+  + a Markov chain w/ the transition kernel $p(y|x)$ = the probability of transiting from $x$ to $y$
+  + $f(x) = \int f(y) p(x|y) dy \implies f$ as stationary for the Markov chain
+  + Interpretation
+    + the chain reaching the distribution $f \to$ the chain staying in $f$
+    + another step of the chain $p(x|y) \to$  not changing the distribution
+  + $f$ as a stationary distribution for a Markov chain $\implies$ the data from a sample run of the Markov chain approximating the distribution $f$
+  + designing a Markov chain w/ stationary distribution $f \implies$ running the Markov chain and using the resulting data as if it were a sample from $f$
 
++ Derivative of the Metropolis-Hastings algorithm
+  + detailed balance
+    + $f(x)p(y|x) = f(y) p(x|y) \implies$ the chain satisfies _detailed balance_ holds w.r.t. $f$
+    + $(x, y)$ w/ the same probability as $(y, x)$
+    + the chain time reversible
+  + the chain satisfying detailed balance holds w.r.t. $f \implies$ $f$ as a stationary distribution
+  + $f(x) = \int f(y)p(x|y)dy$ required $\ni$
+
+    \[ \int f(y)p(x|y) dy = \int f(x) p(y|x) dy = f(x) \int p(y|x) dy \]
+
+  + goal: show that $p(y|x)$ as the Markov chain defined by the Metropolis-Hastings algorithm $\implies f$ satisfies detailed balance $\implies$ a stationary distribution for the chain
+  + the Metropolis-Hastings algorithm
+    + using a user-chosen distribution $q(y|x)$ w/ a accept/reject step $\implies$ a Markov chain w/ transition probability $p(y|x) = 1(y|x) r(x, y)$
+    + two situations: $f(x) q(y|x) < f(y) q(x|y)$ or $f(x) q(y|x) > f(y) q(x|y)$
+  + $f(x) q(y|x) > f(y) q(x|y) \implies$
+
+    \[ r(x, y) = \frac{f(y)}{f(x)} \frac{q(x | y)}{q(y | x)} < 1  \text{ and } r(y, x) = 1 \]
+
+  + $p(y|x)$: the probability of jumping from $y$ to $x$
+    + the proposal distribution must generate $y$
+    + $y$ must be accepted
+
+    \[ p(y|x) = q(y|x) r(x, y) = 1(y|x) \frac{f(y)}{f(x)} \frac{q(x|y)}{q(x|y)} = \frac{f(y)}{f(x)} q(x|y) \]
+
+    \[ \therefore f(x)p(y|x) = f(y) q(x|y) \tag{7} \]
+
+  + $p(x|y)$: the probability of jumping from $y$ to $x$
+    + the proposal distribution must generate $x$
+    + $x$ must be accepted
+
+    \[ p(y | x) = q(x | y) r(y, x) = q(x | y) \]
+
+    \[ \therefore f(y)p(x|y) = f(y) p(x | y) \tag{8}\]
+
+  + comparing (Eq.7) and (Eq. 8), it has been shown that detailed balance holds
 
 
 
