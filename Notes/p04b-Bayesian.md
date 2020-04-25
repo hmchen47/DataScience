@@ -595,7 +595,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \[ Y = X_i + \epsilon_i \implies q(y|x) = g(y-x) \]
 
     + $\epsilon_i$: coming from some distribution w/ density $g$
-  + the accept-reject step
+  + the acceptance probability
 
     \[ r(x, y) = \min \left\{ 1, \frac{f(y)}{f(x)} \right\} \]
 
@@ -608,7 +608,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + e.g., $X \in (0, \infty), Y = log X \implies $ simulating $Y$ instead of $X$
 
 + Independence-Metropolis-Hastings method
-  + 
+  + an importance sampling version of MCMC
+  + drawing the proposal from a fixed distribution $g$
+  + $g$ chosen to be an approximation to $f$
+  + the acceptance probability
+
+    \[ r(x, y) = \min \left\{ 1, \frac{f(y)}{f(x)} \frac{g(x)}{f(y)} \right\} \ \min \left\{ 1, \frac{f(y)}{g(y)} \frac{g(x)}{f(x)} \right\} \]
+
 
 
 
