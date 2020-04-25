@@ -589,7 +589,26 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.5.5 Different Flavors of MCMC
 
++ Random-Walk-Metropolis-Hastings method
+  + drawing a proposal $Y$ of the form
 
+    \[ Y = X_i + \epsilon_i \implies q(y|x) = g(y-x) \]
+
+    + $\epsilon_i$: coming from some distribution w/ density $g$
+  + the accept-reject step
+
+    \[ r(x, y) = \min \left\{ 1, \frac{f(y)}{f(x)} \right\} \]
+
+  + random-walk-Metropolis-Hastings w/o accept-reject step = random walk simulation
+  + common choice: $g \sim N(0, b^2)$
+  + issue: choosing $b$ to mix well for the Markov chain
+  + rule of thumb: choosing $b \ni$  about 50% of the proposal are accepted
+  + assumption: $X \in \mathbb{R}$
+    + $X$ restricted to some interval $\to$ transform $X$
+    + e.g., $X \in (0, \infty), Y = log X \implies $ simulating $Y$ instead of $X$
+
++ Independence-Metropolis-Hastings method
+  + 
 
 
 
