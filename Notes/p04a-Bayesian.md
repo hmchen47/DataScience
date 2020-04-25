@@ -76,6 +76,22 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \varphi(E[X]) \leq E[\varphi(X)] \]
 
+  + detailed balance
+    + __Definition__ (Reversible Markov process or reversible Markov chain) A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
+    + __Definition__ (detailed balance in discrete process) the transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \ni$
+
+      \[ \pi_i P_{ij} = \pi_j P_{ji} \]
+
+      + $P_{ij} = P(X_t = i | X_{t-1} = j$: the Markov transition probability from state $i$ to state $j$
+      + $\pi$: the equilibrium probability of being in state $i$
+
+    + __Definition__ (detailed balance in continuous process)
+
+      \[ \pi(s') P(s', s) = \pi(s) P(s, s') \]
+
+      + $P(s, s')$: a transition kernel probability density from state $s'$ to state $s$
+      + $\pi(s)$: a probability density at state $s$
+
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
   + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_+ \to \mathbb{R}$
