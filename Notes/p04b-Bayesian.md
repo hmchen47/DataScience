@@ -615,6 +615,33 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ r(x, y) = \min \left\{ 1, \frac{f(y)}{f(x)} \frac{g(x)}{f(y)} \right\} \ \min \left\{ 1, \frac{f(y)}{g(y)} \frac{g(x)}{f(x)} \right\} \]
 
++ Gibbs sampling
+  + issue for Random-Walk-Metropolis-Hastings and Independence-Metropolis-Hastings: tuning the chains to make them mix well, in particular, in high dimensions
+  + a way to turn a high-dimensional problem into several one-dimensional problems
+  + a special case of the metropolis-Hastings algorithm
+  + a bivariate problem: $(X, Y)$ w/ density $f_{X, Y}(x, y)$
+  + simulating from the conditional distributions: $f_{X|Y}(x|y), f_{Y|X}(y|x)$
+  + initial point: $X_0, Y_0)$
+  + drawing the Markov chain samples: (X_0, Y_0), \dots, (X_n, Y_n)$
+  + the algorithm for getting $(X_{n+1}, Y_{n+1})$
+    + the current state: $(X_n, Y_n)$
+    + the proposal $(X_n, Y)$ w/ $f_{Y|X}(Y | X_n)$
+    + the acceptance probability for the Metropolis-Hastings algorithm
+
+      \[ r((X_n, Y_n), (X_n, Y)) = \min \left\{ 1, \frac{f(X_n, Y)}{f(X_n, Y_n)} \frac{f_{Y|X}(Y_n|X_n)}{f_{Y|X}(Y|X_N)} \right\} \]
+
+    + iterating until convergence
+
+      \[\begin{align*}
+        X_{n+1} &\sim f_{X|Y}(x \,|\, Y_n) \\
+        Y_{n+1} &\sim f_{Y|X}(y \,|\, X_{n+1})
+      \end{align*}\]
+
+    + the acceptance probability for the Metropolis-Hastings algorithm restated
+
+      \[ r((X_n, Y_n), (X_n, Y)) = \min \left\{ 1, \frac{f(X_n, Y)}{f(X_n, Y_n)} \frac{f(X_n, Y_n)}{f(X_n, Y)} \right\}= 1 \]
+
+
 
 
 
