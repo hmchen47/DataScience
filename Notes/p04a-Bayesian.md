@@ -47,13 +47,13 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + $f$ as a probability density function $\implies$ the $n$-th moment of the probability distribution
     + $F$ as a cumulative probability distribution fucntion of any probability distribution, probably no density function $\implies$ the $n$-th moment of the probability distribution given by the Reimann-Stieltjes integral
 
-      \[ \mu_n^' = E[X^n] = \int_{-\infty}^\infty x^n dF(x) \]
+      \[ \mu_n^\prime = E[X^n] = \int_{-\infty}^\infty x^n dF(x) \]
 
       + $X$: a random variable w/ the cumulative distribution $F$
       + $E$: the expectation operator or mean
     + $n$-th moment not exists if
 
-      \[ E[|X^n\] = \int_{-\infty}^\infty |x^n| dF(x) = \infty \]
+      \[ E[|X^n|] = \int_{-\infty}^\infty |x^n| dF(x) = \infty \]
 
     + the normalized $n$-th central moment or standardized moment id the $n$-th central moment divided by $\sigma^n$
 
@@ -91,6 +91,29 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       + $P(s, s')$: a transition kernel probability density from state $s'$ to state $s$
       + $\pi(s)$: a probability density at state $s$
+  + __Definition__ (converge in distribution) a sequence $X_1, X-2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
+
+    \[ \lim_{n \to \infty} F_n(x) = F(x) \]
+
+    $\forall\, x \in \mathbb{R}$ at which $F$ is continuous. $F_n, F$: the cumulative distribution functions of random variables $X_n$ and $F$, respectively.
+
+  + __Definition__ (converge in probability) a sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$ towards the random variable $X$ if $\forall\, \varepsilon > 0$
+
+    \[ \lim_{n \to \infty} \Pr(|X_n - X|) > \varepsilon) = 0 \]
+
+    + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
+    + $X_n$ _converges in probability_ to $X$:  
+
+      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N} \to \,\forall n \geq N, P_n < \delta \]
+
+  + __Theorem__(univariate delta method)
+    + $\exists$ a sequence of random variables $X_n$ satisfying
+
+      \[ \sqrt{n}[X_n - \theta] \xrightarrow{D} N(0, \sigma^2) \implies \sqrt{n} [g(X_n) - g(\theta)] \xrightarrow{D} N(0, \sigma^2 \cdot [g'(\theta)]^2) \]
+
+      + $\theta, \sigma^2$: finite valued constants
+      + $\xrightarrow{D}$: convergence in distribution
+      + $g'(\theta)$ exists and is non-zero valued
 
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
