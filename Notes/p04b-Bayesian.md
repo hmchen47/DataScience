@@ -641,8 +641,114 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ r((X_n, Y_n), (X_n, Y)) = \min \left\{ 1, \frac{f(X_n, Y)}{f(X_n, Y_n)} \frac{f(X_n, Y_n)}{f(X_n, Y)} \right\}= 1 \]
 
++ Normal hierarchical model w/ Gibbs sampling
+  + a sample of data from $k$ cities
+  + drawing $n_i$ people from city $i$ and observing how many people $Y_i$ w/ disease
+  + $Y_i \sim \text{Binomial}(n_i, p_i)$ allowing for different disease rates in different cities
+  + $p_i$: random draws from some distribution $F$
+  + estimating $p_i$'s and the overall disease rate $\int p\,d\pi(p)$ w/ the model
 
+    \[\begin{align*}
+      P_i &\sim F \\
+      Y_i \,|\, P_i = p_i &\sim \text{Binomial}(n_i, p_i)
+    \end{align*}\]
 
+  + making some transformations to use some normal approximations
+    + $\widehat{p}_i = Y_i / n_i \approx N(0p_i, s_i), \quad_i = \sqrt{\widehat{p}_i(1 - \widehat{p}_i)/n_i} $
+    + $\psi_i = \log\left(p_i/(1-p_i)\right), \quad Z \equiv \widehat{\psi}_i = \log(\widehat{p}_i / (1 - \widehat{p}_i))$
+  + by delta method
+
+    \[ \widehat{\psi}_i \approx N(\psi, \sigma_i^2),  \qquad \sigma_i^2 = \frac{1}{n\widehat{p}_i (1 - \widehat{p}_i)} \]
+
+  + the normal approximation for $\psi$ more accurate than the normal approximation for $p$
+  + the hierarchical model
+
+    \[ \psi_i \sim N(\mu^2, \tau_2), \qquad Z_i \,|\, \sim N(\psi_i, \,\sigma_i^2) \]
+
+  + simplified w/ $\tau = 1 \ni$ the unknown parameters $\theta = (\mu, \psi_1, \dots, \psi_k)$
+  + the likelihood function
+
+    \[\begin{align*}
+      \mathcal{L}_n(\theta) &\propto \prod_i f(\psi_i \,|\, \mu) \prod_i f(Z_i \,|\, \psi_i) \\
+      &\propto \prod_i \exp\left( -\frac{1}{2}(\psi_i - \mu)^2 \right) \exp\left( -\frac{1}{2\sigma_i^2}(Z_i - \psi_i)^2 \right)
+    \end{align*}\]
+
+  + the prior $f(\mu) \propto 1 \implies$ the posterior proportional to the likelihood
+  + using Gibbs sampling to find the conditional distribution of each parameter conditional on all the others, $f(\mu \,|\, \text{rest})$
+  + ignoring the terms not related to $\mu$
+
+    \[ f(\mu ,\, \text{rest}) \propto \prod_i \exp\left( -\frac{1}{2} (\psi_i - \mu)^2 \right) \propto \exp\left( -\frac{k}{2} (\mu - b)^2 \right), \quad b = \frac{1}{k} \sum_i \psi_i \]
+
+  + $therefore\; \mu \,|\, \text{rest} \sim N(b, \,1/k)$
+  + fining $f(\psi \,|\, \text{rest})$ by ignoring any terms irrelevant to $\psi$
+
+    \[\begin{align*}
+      f(\psi_i \,|\, \text{rest}) &\propto \exp\left( -\frac{1}{2}(\psi_i - \mu)^2 \right) \exp\left( -\frac{1}{2\sigma_i^2} (Z_i - \psi_i^2) \right) \\
+      &\propto \exp\left( -\frac{1}{2d_i^2}(\psi_i - e_i) \right)^2  \hspace{3em} \left(e_i = \frac{Zi/\sigma_i^2 + \mu}{1 + 1/\sigma_i^2}, \; d_i^2 = \frac{1}{1 + 1/ \sigma_i^2}\right)
+    \end{align*}\]
+
+  + $therefore\; \psi_i \,|\, \text{rest} \sim N(e_i, \,d_i^2)$
+  + the Gibbs sampling algorithm involving iterating the following steps $N$ times
+
+    \[\begin{array}{rcl}
+      \text{draw } \mu & \sim & N(b, \,v^2)\\
+      \text{draw } \psi_1 & \sim & N(e_1, \,d_1^2) \\
+        & \vdots &  \\
+      \text{draw } \psi_k & \sim & N(e_k, \,d_k^2)
+    \end{array}\]
+  
+  + at each step, the most recently drawn version of each variable used
+  + numerical example
+    + $k = 20$ cities, $n = 20$ people  per city
+    + converting $$\psi_i$ back to $p_i$ w/ $p_i = e^{\psi_i} / (1 + e^{\psi_i})$
+    + trace plots of the Markov chain for $p_1$ and $\mu$ (top two diagrams)
+    + the poster for $\mu$ based on the simulated values (bottom two diagrams)
+    + the Bayes estimates have been shrunk closer together than the raw proportions
+    + the parameter $\tau$ controlling the amount of shrinkage
+    + 
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-08a.png" style="margin: 0.1em;" alt="Posterior simulation: simulated values of p1" title="Posterior simulation: simulated values of p1" height=150>
+        <img src="img/p04-08b.png" style="margin: 0.1em;" alt="Posterior simulation: simulated values of μ" title="Posterior simulation: simulated values of μ" height=150>
+      </a>
+    </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-09a.png" style="margin: 0.1em;" alt="Posterior histogram of μ" title="Posterior histogram of μ" height=100>
+        <img src="img/p04-09b.png" style="margin: 0.1em;" alt="Raw proportions and the Bayes posterior estimates" title="Raw proportions and the Bayes posterior estimates" height=100>
+      </a>
+    </div>
+
++ Gibbs sampling w/ Metropolis-Hastings
+  + Gibbs sampling assumption: knowing how to draw samples from the conditionals $f_{X|Y(x|y)}$ and $f_{Y|X}(y|x)$
+  + not knowing how to draw samples $\to$ using the Gibbs sampling algorithm by drawing each observation using a Metropolis-Hastings step
+  + $q$: a proposal distribution from $x$
+  + $\tilde{q}$: a proposal distribution for $y$
+  + doing a Metropolis step for $X$ by treating $Y$ fixed, while doing a Metropolis step for $Y$ by treating $X$ as fixed
+  + algorithm
+
+    <div style="pading-top: 0.2em; padding-left: 1em">(1a) draw a proposal $Z \sim q(z \,|\, X_n)$</div>
+    <div style="pading-top: 0.2em; padding-left: 1em">(1b) Evaluate</div>
+
+      \[ r = \min\left\{ \frac{f(Z, Y_n)}{f(X_n, Y_n)} \frac{q(X_n | Z)}{q(Z | X_n)}, \;1 \right\} \]
+
+    <div style="pading-top: 0.2em; padding-left: 1em">(1c) Set</div>
+
+      \[ X_{n+1} = \begin{cases} Z & \text{with probability } r \\ X_n & \text{with probability } 1- r \end{cases} \]
+
+    <div style="pading-top: 0.2em; padding-left: 1em">(2a) Draw a proposal $Z \sim \tilde{q}(z \,|\, Y_n)$</div>
+    <div style="pading-top: 0.2em; padding-left: 1em">(2b) Evaluate</div>
+
+      \[ r = \min \left\{ \frac{f(X_{n+1}, Z)}{f(X_{n+1}, Y_n)} \frac{\tilde{q}(Y_n | Z)}{\tilde{q}(Z | Y_n)}, \; 1 \right\} \]
+
+    <div style="pading-top: 0.2em; padding-left: 1em">(2c) Set</div>
+
+      \[ Y_{n+1} = \begin{cases} Z & \text{with probability } r \\ Y_n & \text{text probability } 1 - r \end{cases} \]
+
+  + step (1) (and similar step (2)), w/ $Y_n$ fixed, sampling from $f(Z | Y_n)$ equivalent to sampling from $f(Z, Y_n)$, as the ratios are identical
+
+    \[ \frac{f(Z, Y_n)}{f(X_n, Y_n)} = \frac{f(Z | Y_n)}{f(X_n | Y_n)} \]
 
 
 ### 12.5.6 Normalizing Constants
