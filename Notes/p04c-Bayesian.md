@@ -54,6 +54,26 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + a serious issue in sequential clinical trials
 
 + Godambe's example
+  + $\exists\; C = \{ c_1, \dots, c_N \}$, a finite set of constants
+  + $c_i \in \{0, 1 \}$ for simplification
+  + to estimate $\theta = N^{-1}\sum_{j=1}^N c_j$
+  + $S_1, \dots, S_n \sim \text{Bernoulli}(\pi), w/ \pi$ known and $c_i = \begin{cases} \text{existed} & S_i = 1 \\ \text{not existed} & S_i \neq 1$
+  + the likelihood function
+
+    \[ \prod_i \pi^{S_i}(1 - \pi)^{1- S_i} \]
+  
+  + the unknown parameter $\theta$ not appearing in the likelihood $\to$ no infromation at all
+  + the posterior for $\theta$ = the prior for $\theta$
+  + frequentist perspective
+    + to estimate $\theta$
+
+      \[ \widehat{\theta} = \frac{1}{N\pi} \sum_{j=1}^N c_j S_j \implies \mathbb{E}(\widehat{\theta}) = \theta \]
+
+    + Hoeffding's inequality $implies$
+
+      \[ mathbb{P}(|\widehat{P} - \theta | > \epsilon ) \leq 2e^{-2n\epsilon^2\pi^2} \]
+
+    + $\therefore\, \widehat{\theta}$ closed to $\theta$ w/ high probability
 
 
 
