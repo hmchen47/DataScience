@@ -605,7 +605,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + rule of thumb: choosing $b \ni$  about 50% of the proposal are accepted
   + assumption: $X \in \mathbb{R}$
     + $X$ restricted to some interval $\to$ transform $X$
-    + e.g., $X \in (0, \infty), Y = log X \implies $ simulating $Y$ instead of $X$
+    + e.g., $X \in (0, \infty), Y = \log X \implies $ simulating $Y$ instead of $X$
 
 + Independence-Metropolis-Hastings method
   + an importance sampling version of MCMC
@@ -618,17 +618,17 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 + Gibbs sampling
   + issue for Random-Walk-Metropolis-Hastings and Independence-Metropolis-Hastings: tuning the chains to make them mix well, in particular, in high dimensions
   + a way to turn a high-dimensional problem into several one-dimensional problems
-  + a special case of the metropolis-Hastings algorithm
+  + a special case of the Metropolis-Hastings algorithm
   + a bivariate problem: $(X, Y)$ w/ density $f_{X, Y}(x, y)$
   + simulating from the conditional distributions: $f_{X|Y}(x|y), f_{Y|X}(y|x)$
-  + initial point: $X_0, Y_0)$
-  + drawing the Markov chain samples: (X_0, Y_0), \dots, (X_n, Y_n)$
+  + initial point: $(X_0, Y_0)$
+  + drawing the Markov chain samples: $(X_0, Y_0), \dots, (X_n, Y_n)$
   + the algorithm for getting $(X_{n+1}, Y_{n+1})$
     + the current state: $(X_n, Y_n)$
     + the proposal $(X_n, Y)$ w/ $f_{Y|X}(Y | X_n)$
     + the acceptance probability for the Metropolis-Hastings algorithm
 
-      \[ r((X_n, Y_n), (X_n, Y)) = \min \left\{ 1, \frac{f(X_n, Y)}{f(X_n, Y_n)} \frac{f_{Y|X}(Y_n|X_n)}{f_{Y|X}(Y|X_N)} \right\} \]
+      \[ r((X_n, Y_n), (X_n, Y)) = \min \left\{ 1, \frac{f(X_n, Y)}{f(X_n, Y_n)} \frac{f_{Y|X}(Y_n|X_n)}{f_{Y|X}(Y|X_n)} \right\} \]
 
     + iterating until convergence
 
@@ -654,16 +654,16 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \end{align*}\]
 
   + making some transformations to use some normal approximations
-    + $\widehat{p}_i = Y_i / n_i \approx N(0p_i, s_i), \quad_i = \sqrt{\widehat{p}_i(1 - \widehat{p}_i)/n_i} $
+    + $\widehat{p}_i = Y_i / n_i \approx N(p_i, s_i), \quad s_i = \sqrt{\widehat{p}_i(1 - \widehat{p}_i)/n_i} $
     + $\psi_i = \log\left(p_i/(1-p_i)\right), \quad Z \equiv \widehat{\psi}_i = \log(\widehat{p}_i / (1 - \widehat{p}_i))$
   + by delta method
 
-    \[ \widehat{\psi}_i \approx N(\psi, \sigma_i^2),  \qquad \sigma_i^2 = \frac{1}{n\widehat{p}_i (1 - \widehat{p}_i)} \]
+    \[ \widehat{\psi}_i \approx N(\psi_i, \sigma_i^2),  \qquad \sigma_i^2 = \frac{1}{n\widehat{p}_i (1 - \widehat{p}_i)} \]
 
   + the normal approximation for $\psi$ more accurate than the normal approximation for $p$
   + the hierarchical model
 
-    \[ \psi_i \sim N(\mu^2, \tau_2), \qquad Z_i \,|\, \sim N(\psi_i, \,\sigma_i^2) \]
+    \[ \psi_i \sim N(\mu, \tau^2), \qquad Z_i \,|\, \psi_i \sim N(\psi_i, \,\sigma_i^2) \]
 
   + simplified w/ $\tau = 1 \ni$ the unknown parameters $\theta = (\mu, \psi_1, \dots, \psi_k)$
   + the likelihood function
@@ -675,11 +675,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + the prior $f(\mu) \propto 1 \implies$ the posterior proportional to the likelihood
   + using Gibbs sampling to find the conditional distribution of each parameter conditional on all the others, $f(\mu \,|\, \text{rest})$
-  + ignoring the terms not related to $\mu$
+    + ignoring the terms not related to $\mu$
 
-    \[ f(\mu ,\, \text{rest}) \propto \prod_i \exp\left( -\frac{1}{2} (\psi_i - \mu)^2 \right) \propto \exp\left( -\frac{k}{2} (\mu - b)^2 \right), \quad b = \frac{1}{k} \sum_i \psi_i \]
+      \[ f(\mu \,|\, \text{rest}) \propto \prod_i \exp\left( -\frac{1}{2} (\psi_i - \mu)^2 \right) \propto \exp\left( -\frac{k}{2} (\mu - b)^2 \right), \quad b = \frac{1}{k} \sum_i \psi_i \]
 
-  + $therefore\; \mu \,|\, \text{rest} \sim N(b, \,1/k)$
+    + $\therefore\; \mu \,|\, \text{rest} \sim N(b, \,1/k)$
   + fining $f(\psi \,|\, \text{rest})$ by ignoring any terms irrelevant to $\psi$
 
     \[\begin{align*}
@@ -687,7 +687,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       &\propto \exp\left( -\frac{1}{2d_i^2}(\psi_i - e_i) \right)^2  \hspace{3em} \left(e_i = \frac{Zi/\sigma_i^2 + \mu}{1 + 1/\sigma_i^2}, \; d_i^2 = \frac{1}{1 + 1/ \sigma_i^2}\right)
     \end{align*}\]
 
-  + $therefore\; \psi_i \,|\, \text{rest} \sim N(e_i, \,d_i^2)$
+    + $\therefore\; \psi_i \,|\, \text{rest} \sim N(e_i, \,d_i^2)$
   + the Gibbs sampling algorithm involving iterating the following steps $N$ times
 
     \[\begin{array}{rcl}
@@ -696,16 +696,15 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
         & \vdots &  \\
       \text{draw } \psi_k & \sim & N(e_k, \,d_k^2)
     \end{array}\]
-  
+
   + at each step, the most recently drawn version of each variable used
   + numerical example
     + $k = 20$ cities, $n = 20$ people  per city
-    + converting $$\psi_i$ back to $p_i$ w/ $p_i = e^{\psi_i} / (1 + e^{\psi_i})$
+    + converting $\psi_i$ back to $p_i$ w/ $p_i = e^{\psi_i} / (1 + e^{\psi_i})$
     + trace plots of the Markov chain for $p_1$ and $\mu$ (top two diagrams)
     + the poster for $\mu$ based on the simulated values (bottom two diagrams)
     + the Bayes estimates have been shrunk closer together than the raw proportions
     + the parameter $\tau$ controlling the amount of shrinkage
-    + 
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
@@ -721,28 +720,30 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     </div>
 
 + Gibbs sampling w/ Metropolis-Hastings
-  + Gibbs sampling assumption: knowing how to draw samples from the conditionals $f_{X|Y(x|y)}$ and $f_{Y|X}(y|x)$
+  + basic Gibbs sampling assumption: knowing how to draw samples from the conditionals $f_{X|Y(x|y)}$ and $f_{Y|X}(y|x)$
   + not knowing how to draw samples $\to$ using the Gibbs sampling algorithm by drawing each observation using a Metropolis-Hastings step
   + $q$: a proposal distribution from $x$
   + $\tilde{q}$: a proposal distribution for $y$
-  + doing a Metropolis step for $X$ by treating $Y$ fixed, while doing a Metropolis step for $Y$ by treating $X$ as fixed
+  + idea:
+    + doing a Metropolis step for $X$ by treating $Y$ fixed
+    + doing a Metropolis step for $Y$ by treating $X$ fixed
   + algorithm
 
-    <div style="pading-top: 0.2em; padding-left: 1em">(1a) draw a proposal $Z \sim q(z \,|\, X_n)$</div>
-    <div style="pading-top: 0.2em; padding-left: 1em">(1b) Evaluate</div>
+    <div style="pading-top: 0.5em; padding-left: 1em">(1a) draw a proposal $Z \sim q(z \,|\, X_n)$</div>
+    <div style="pading-top: 0.5em; padding-left: 1em">(1b) Evaluate</div>
 
       \[ r = \min\left\{ \frac{f(Z, Y_n)}{f(X_n, Y_n)} \frac{q(X_n | Z)}{q(Z | X_n)}, \;1 \right\} \]
 
-    <div style="pading-top: 0.2em; padding-left: 1em">(1c) Set</div>
+    <div style="pading-top: 0.5em; padding-left: 1em">(1c) Set</div>
 
       \[ X_{n+1} = \begin{cases} Z & \text{with probability } r \\ X_n & \text{with probability } 1- r \end{cases} \]
 
-    <div style="pading-top: 0.2em; padding-left: 1em">(2a) Draw a proposal $Z \sim \tilde{q}(z \,|\, Y_n)$</div>
-    <div style="pading-top: 0.2em; padding-left: 1em">(2b) Evaluate</div>
+    <div style="pading-top: 0.5em; padding-left: 1em">(2a) Draw a proposal $Z \sim \tilde{q}(z \,|\, Y_n)$</div>
+    <div style="pading-top: 0.5em; padding-left: 1em">(2b) Evaluate</div>
 
       \[ r = \min \left\{ \frac{f(X_{n+1}, Z)}{f(X_{n+1}, Y_n)} \frac{\tilde{q}(Y_n | Z)}{\tilde{q}(Z | Y_n)}, \; 1 \right\} \]
 
-    <div style="pading-top: 0.2em; padding-left: 1em">(2c) Set</div>
+    <div style="pading-top: 0.5em; padding-left: 1em">(2c) Set</div>
 
       \[ Y_{n+1} = \begin{cases} Z & \text{with probability } r \\ Y_n & \text{text probability } 1 - r \end{cases} \]
 
