@@ -32,7 +32,28 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + a sharp difference btw $\mathbb{P}_\mu(\theta \in C_n)$ and $\mathbb{P}(\theta \in \mathcal{D}_n \,|\, \mathcal{D}_n)$
 
++ Sampling to a Foregone Conclusion
+  + random variable: $X \sim N(\theta, 1)$
+  + sampling distribution: $\mathcal{D}_N = \{ X_1, \dots, X_N \}$
+  + $X_i$: statistics comparing to a new drug to a placebo
+  + continuing sampling until $T_n > k, \,T_N = \sqrt{NX_N}, k= 10 \implies$ stop when the drug appears to be much better than the placebo
+  + $N$ becoming as a random variable
+  + shown that $\mathbb{P}(N < \infty) = 1$
+  + shown that the posterior $p(\theta \,|\, X_1, \dots, X_N)$ same as if $N$ had been fixed in advance, i.e., the randomness in $N$ not effecting the posterior
+  + approximating to Normal distribution: the prior $\pi(\theta)$ smooth $\implies$ the posterior approximately $\theta \,|\, X_1, \dots, X_N \sim N(\overline(X)_N, 1/N)$
+  + region estimate: $C_N = \overline{X}_N \pm 1.96/\sqrt{N} \implies \mathbb{P}(\theta \in C_N \,|\, X_1, \dots, X_N) \approx 0.95$ w/ $0 \notin C_N$
+  + stop sampling w/ $T > 10 \ni$
 
+    \[ \overline{X}_N - \frac{1.96}{\sqrt{N}} > \frac{10}{\sqrt{N}} - \frac{1.96}{\sqrt{N}} > 0  \quad\therefore \theta = 0 \ni \mathbb{P}_\theta(\theta \in C_N) = 0 \]
+
+  + sampling to a forgone conclusion
+    + the frequentist coverage
+
+      \[ \text{Coverage} = \inf_{\theta} \mathbb{P}_\theta(\theta \in C_N) = 0 \]
+
+    + a serious issue in sequential clinical trials
+
++ Godambe's example
 
 
 
