@@ -75,6 +75,95 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     + $\therefore\, \widehat{\theta}$ closed to $\theta$ w/ high probability
 
++ Flatland - Stone's paradox
+  + it had been shown that a finitely additive on the free group w/ two generators is nonconglomoerable.
+  + i.e., even for a simple problem w/ a discrete parameters space, Bayesian inference can lead to surprises
+  + $\exists\, A$ wondering randomly in two dimensional grid-world (left diagram)
+    + A drags an elastic string which is taut
+    + only moving four directions North, East, South , West
+    + wandering around for a while
+    + stop and bury a treasure
+    + $\theta$: the path A wondering
+  + A taking one more random step w/ equal probability for each direction, the path $x$ (middle diagram)
+  + B (Bayesian) and F (frequentist) trying to find the treasure
+  + only four possible paths w/ the path $x$ (right diagram)
+    + same likelihood for each direction: $p(x \,|\, \theta) = 1/4, \, \theta = \{ N, E, S, W \}$
+    + $B$ using a flat prior
+    + the likelihood: flat
+    + the posterior
+
+      \[ P(\theta = N \,|\, x) = P(\theta = S \,|\, x) = P(\theta = W \,|\, x) = P(\theta = E \,|\, x) = 1/4  \]
+
+  + $\exists\, Ext = \{ N, W, E \}$ as the three paths extending $x \implies p(\theta \in Ext |x) = 3/4$
+  + F very confident and selecting a confidence set w/ only one path, the path shortening $x \implies Short = Ext^C$ as the confidence set
+  + B's experience unable to be learned $\gets$ each hunt independent of the other
+  + $A_{event}$ as the event shortening string at the final step
+    + using the posterior B finding that $P(A_{event} | x) = 3/4, \forall\, x \to$ hold for each $x \implies$ P(A) = 3/4$
+    + B notes that $P(A |\theta) =1/4 \;\forall\, \theta \implies P(A) = 1/4$
+    + B just proved $1/4 = 3/4$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yx567vmm" ismap target="_blank">
+        <img src="img/p04-10a.png" style="margin: 0.1em;" alt="Path 1 of A" title="Path 1 of A" height=200>
+        <img src="img/p04-10b.png" style="margin: 0.1em;" alt="Path 2 of A" title="Path 2 of A" height=200>
+        <img src="img/p04-10c.png" style="margin: 0.1em;" alt="Path of A" title="Path of A" height=200>
+      </a>
+    </div>
+
+  + contradiction: stemming from the improper prior
+  + technically, an example of the non-congolomerability of finite additive measures
+
+
++ Brief explanation for Stone's paradox (Kass and Wasserman, 1996)
+  + first impression
+    + $\pi$ B's improper flat prior
+    + $\pi(\theta|x)$: B's posterior distribution
+    + $\pi_p$: the (proper) prior w/ uniform on  the set of all paths of length $p$
+    + $\forall\, \text{fixed } x, \pi_p(A_{event} | x) \to 3/4 \text{ as }p \to \infty$
+    + $\therefore$ B's posterior distribution as a limit of well-defined posterior distributions
+  + carefully examined
+    + $m_p =(x) = \sum_\theta f(x|\theta) \pi_p(\theta)$: the marginal of $x$ induced by $\pi_p$
+    + $X_p$: all $x$'s of length $p$ or $p+1$
+    + $\pi_p(\theta|x), \,x \in X_p$: a poor approximation to $\pi(\theta|x)$
+    + $p$ focused on a single point while $p+1$ concentrated on on four points
+    + the total variation distance $\sup_{\theta|x} |\pi(\theta|x) - \pi(\theta|x) = 3/4, \,\forall x \in X_p$
+    + $X_p$: a set w/ high probability
+    + $m_p(X_p) \to 2/3$ as $p \to \infty$
+    + $\pi_p(\theta | x) \xrightarrow{D} \pi(\theta|x)$ as $p \to \infty \,\forall\, \text{ fixed } x \implies$  not close w/ high probability
+  + alternative description
+    + considering a four sided die w/ labels as $\{a, b a^{-1}, b^{-1}\}$
+    + rolling the die several time s and recording the label on the lowermost face
+    + a typical outcome as a string of symbols, e.g., $a \; a \; b \; a^{-1} \; b \;b^{-1} \;a \;a^{-1} \; b$
+    + annihilation rule: eliminating both $a$ and $a^{-1}$ (or vice verse) if they are next to each other; same as $b$ and $b^{-1}$
+    + applying annihilation rule to the string: $a \; a \; b \; a^{-1} \; b \;b^{-1} \;b\;a \;a^{-1} \; b \to a\;a\;b\;a^{-1}\;b\;b$
+    + $\theta$: the resulting string of symbols after applying annihilation
+    + tossing the die one more time $\to$ adding the symbol to the last symbol to $\theta$ $\to$ applying annihilation rule again $\to x$
+    + task: observing $x$ to estimate $\theta$
+      + 4 possible values of $\theta$ and each w/ the same likelihood
+      + e.g., $x = (a, a) \ni \theta$ w/ one of the following
+
+        \[ (a), \quad (a\;a\;a), \quad (a\;a\;b^{-1}), \quad (a\;a\;b) \]
+
+    + the likelihood function is constant over these four values
+    + a flat prior on $\theta \implies$ the posterior as uniform on these four possibilities
+    + $C = C(x)$: the three values of $\theta > x$
+    + the posterior satisfies
+
+      \[ P(\theta \in C \ x) = 3/4 \implies C(x) \text{ a 75% posterior confidence set} \]
+
+    + the frequentist coverage: $C(x) = 1/4 \;\forall\, \theta$ fixed
+    + $\theta \in C(x) \iff \theta + x < \theta$
+    + applying proper prior not helpful
+      + proper prior very flat $\to$ the posterior similar to the posterior from the uniform
+      + choosing a specifically designed prior $to$ the posterior mimics the frequentist answer
+    + issue: choosing a prior to represent one's beliefs $\implies$ not giving a good, winning behavior of the frequentist method
+    + choosing a prior specifically to get a posterior approximating the frequentist answer $\to$ no point of doing Bayesian inference
+  + References
+    + Stone, M. (1970). [Necessary and sufficient condition for convergence in probability to invariant posterior distributions](https://tinyurl.com/yanmef72). The Annals of Mathematical Statistics, 41, 1349-1353,
+    + Stone, M. (1976). Strong inconsistency from uniform priors. Journal of the American Statistical Association, 71, 114-116.
+    + Stone, M. (1982). Review and analysis of some inconsistencies related to improper priors and finite additivity. Studies in Logic and the Foundations of Mathematics, 104, 413-426.
+    + Kass, R.E. and Wasserman, L. (1996). [The selection of prior distributions by formal rules](https://tinyurl.com/y7k3ar8z). Journal of the American Statistical Association, 91, 1343-1370.
+
 
 
 ## 12.7 Freedman's Theorem
