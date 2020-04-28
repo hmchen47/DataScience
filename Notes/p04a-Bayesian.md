@@ -114,6 +114,37 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + $\theta, \sigma^2$: finite valued constants
       + $\xrightarrow{D}$: convergence in distribution
       + $g'(\theta)$ exists and is non-zero valued
+  + Hoeffding's inequality
+    + providing an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount
+    + a generalization of the Chernoff bound, only applied to Bernoulli random variable
+  + __Definition__ (countable set)<br/> A set $S$ is _countable_ if there exists an injective function (one-to-one mapping) $f$ from $S$ to the natural number $\mathbb{N} = \{ 0, 1, 2, \dots \}$
+    + $S$ is _countably infinite_ if such an $f$ is also surjective (many -to-one mapping)
+    + a set is _countably infinite_ if it has one-to-one correspondence w/ the natural number set, $\mathbb{N}$
+  + __Definition__ (meager set, set of first category) <br/>
+    a set that, considered as a subet of a (usually larger) topological s[pace, is in a precise sense small or negligible]
+  + __Definition__ (Measure) <br/>
+    Let $X$ be a set and $\Sigma$ a $\sigma$-algebra over $X$. A function $\mu$ from $\Sigma$ to the extended real number line is called __measure_ if it satisfied the following properties
+    + __Non-negativity__: $\forall\, $E$ in $\Sigma \ni \mu(E) \geq 0$
+    + __Null empty set__: $\mu(\varnothing) = 0$
+    + __Countable additive__ (or $\sigma$-additive): $\forall$ countable collections $\{ E_i \}_{i=1}^\infty$ of pairwise disjoint sets in $\Sigma$
+
+      \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
+
+    + $mu$ is a signed measure if only the 2nd and 3rd conditions of the definition of measure met and taking on at most one of the values $\pm\infty$
+    + the pair $(X, \Sigma)$ called a __measurable space__:
+      + __measurable sets__: the members of $\Sigma$
+      + __measurable function__: $(X, \Sigma_X), (Y, \Sigma_Y)$ are two measurable space, a _measurable_ function $f: X \to Y$ if $\forall Y$ -measurable set $B \in \Sigma_Y$, the inverse image is $X$-measurable, i.e., $f^{-1}(B) \in \Sigma_X$
+      + the composition of measurable functions are measurable, making the measurable spaces and measurable functions a category, w/ the measurable spaces as objects and the set of measurable functions as arrows
+    + the triple $(X, \Sigma, \mu)$ called a __measurable space__:
+      + a probability measure is a measure w/ total measure one, i.e., $\mu(X) = 1$
+      + a probability space is a measure space with a probability measure
+
+  + __Definition__ ($\sigma$ idea) a _$\sigma$-ideal_ of a sigma-algebra is a subset w/ certain desirable closure properties
+    + properties: Let $(X, \Sigma)$ be a measurable space ($\Sigma$ is a $\sigma$-albegra of subset of $X$).  A subset $N$ of $\Sigma$ is a $\sigma$-ideal if the following properties are satisfied
+      + $\varnothing \in N$
+      + when $A \in N$ and $B \in \Sigma, \,B \subseteq A \implies B \in M$
+      + $\{ A_n \}_{n \in \mathbb{N}} \subseteq N \implies \bigcup_{n \in \mathbb{N}} A_n \in N$
+
 
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
@@ -271,7 +302,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
 
-    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$img
+    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
 
 
 ## 12.1 What is Bayesian Inference?
