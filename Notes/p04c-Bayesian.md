@@ -204,7 +204,17 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.8 The Bayes-Frequestist Debate
 
-
++ Bayesian vs. frequentist
+  + frequentist and Bayesian methods answering different questions
+  + summary
+    + Bayesian inference: analyzing subjective beliefs in a principal way
+    + frequentist inference: designing methods w/ long run frequency guarantees
+  + Bayesian methods not having good frequency performance
+  + frequentist methods not representing anyone's subjective beliefs
+  + models
+    + similar: low dimensional models w/ lots of data
+    + different: high dimensional model
+  + Bayesian models methods having poor frequentist behavior when the parameter space is high dimensional
 
 
 
