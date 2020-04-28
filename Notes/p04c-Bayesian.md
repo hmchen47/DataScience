@@ -206,7 +206,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Bayesian vs. frequentist
   + frequentist and Bayesian methods answering different questions
-  + summary
+  + usage conditions
     + Bayesian inference: analyzing subjective beliefs in a principal way
     + frequentist inference: designing methods w/ long run frequency guarantees
   + Bayesian methods not having good frequency performance
@@ -224,7 +224,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"></th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Bayesian</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Frequentists</th>
   </tr>
