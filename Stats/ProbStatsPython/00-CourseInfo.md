@@ -71,8 +71,24 @@ At UCSD, we are committed to giving learners everywhere access to the quality, s
 In addition to the benefits outlined above, verified learners will get more material(s) and engagement from the course team. For example, verified Learners of this course will get access to more questions on all graded assignments. Verified learners will also receive priority over audit learners in the discussion board.
 
 
-## Help us help you!
+## Tips for Succeeding in this Course
 
+We really want you to succeed and finish this course!
+
+To help with that, we have a lot of experience working with learners online and hope to share some of the best practices we've seen from the data and which have been reported back to us from learners. 
+
+Here are some tips for you to help you complete the course:
+
+Set aside time to work on the class.  We've all had the best intentions to start a new hobby, fitness regiment, or learn a new field.  One of the best ways to ensure you start, and stick, with the new practice is to set aside time for it on your calendar and hold yourself accountable to work at that time.
+
+1. __Find friends or colleagues to work through the course with you.__  For our in-person classes, there is a lot of social accountability with being enrolled in a class.  Students attend class together and study together. While we know this isn't always possible for online learners, particularly those with already busy schedules, please explore this option if possible.
+1. __Set aside time to work on the class.__  We've all had the best intentions to start a new hobby, fitness regiment, or learn a new field.  One of the best ways to ensure you start, and stick, with the new practice is to set aside time for it on your calendar and hold yourself accountable to work at that time.
+1. __Participate in the discussion forums.__  We have a number of discussion prompts during the class.  We encourage you to participate.  This helps you engage with the material in an active way and gain an increased sense of social belonging.
+1. __Install the coding platform early.__  Learners often stumble at the first point in the course when coding is required.  So by the end of this week, be sure to follow our instructions on setting up Jupyter to run on your machine. This leads to....
+1. __Play with the code.__  Throughout the course, we'll be walking through notebooks we've provided you.  Please work along with us and feel free to make changes, try out new ideas, and just generally play around with the code.
+1. __Sign up for a certificate.__  It's easy -- just click here! This course is new, so we don't have data for it.  But for one of our other online courses, learners who sign up for the certificate are over 4x more likely to complete the course learners who do not.*  Also remember, this course is the first in our MicroMasters in Data Science.  We'll tell you more about it, but you can earn credit toward a real Masters degree!
+
+\* Comparing learners who sign up for the certificate against learners who sign up to audit AND complete at least one graded assignment, certificate learners were over 4x more likely to finish the course.
 
 
 
