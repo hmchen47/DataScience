@@ -109,6 +109,17 @@ Teaching Assistants
 Mingchao Liang, Graduate Student, ECE, UC San Diego
 
 
+### Prerequisites
+
+The course is intended for learners with an undergraduate degree or senior undergraduates interested in broadening their understanding of probability and statistics. We will assume basic knowledge of the following topics
+
++ Logic (e.g., De Morgan’s Laws) 
++ Set theory (e.g., what are functions)
++ Calculus (e.g., calculating integrals and derivatives)
++ Programming (e.g., basic experience with any programming language)
++ Linear algebra (e.g., vectors and matrices)
+
+The Python programming language will be used throughout the course. This can be obtained by taking the course DSE 200x, Python for Data Science.
 
 
 
