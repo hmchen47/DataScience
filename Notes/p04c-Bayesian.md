@@ -213,8 +213,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + frequentist methods not representing anyone's subjective beliefs
   + models
     + similar: low dimensional models w/ lots of data
-    + different: high dimensional model
-  + Bayesian models methods having poor frequentist behavior when the parameter space is high dimensional
+    + different: high dimensional models
+  + Bayesian models having poor frequentist behavior when the parameter space w/ high dimensional
 
 
 
