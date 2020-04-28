@@ -169,22 +169,22 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ## 12.7 Freedman's Theorem
 
 + $weak^\ast$ topology
-  + $X-1, \dots, X_n$: an i.i.d. sample from distribution $P$ on the natural numbers $I = \{ 1, 2, 3, \dots \}$
+  + $X_1, \dots, X_n$: an i.i.d. sample from distribution $P$ on the natural numbers $I = \{ 1, 2, 3, \dots \}$
   + $\mathcal{P}$: the set of all such distributions
-  + endowing \mathcal{P}$ w/ the $weak^\ast$ topology: $P_n \to P$ in the $weak^*$ topology $\iff P_n(i) \tp P(i) \;\forall\, i$
-  + $\mu$: a prior distribution on $\mathcal{P}$, more precisely, a prior on an appropriate $\sigma$-field
   + $\Pi$: all priors
   + $f$: bounded, continuous, real functions
-  + endowing the set w/ the $weak^\ast$ topology: \mu_n \tp \mu \iff \int fd\mu_n \to \int fd\mu, \;\forall\, f$
+  + endowing $\mathcal{P}$ w/ the $weak^\ast$ topology: $P_n \to P$ in the $weak^*$ topology $\iff P_n(i) \to  P(i) \;\forall\, i$
+  + endowing the set w/ the $weak^\ast$ topology: $\mu_n \to \mu \iff \int fd\mu_n \to \int fd\mu, \;\forall\, f$
+  + $\mu$: a prior distribution on $\mathcal{P}$, more precisely, a prior on an appropriate $\sigma$-field
   + $\mu_n$: the posterior corresponding to the prior $\mu$ after $n$ observations
-  + the pair $(P, \mu)$ is consistent if
+  + the pair $(P, \mu)$ is __consistent__ if
 
     \[ P^\infty\left(\lim_{n\to\infty} \mu_n = \delta_p\right) = 1 \]
 
     + $P^\infty$: the product measure corresponding to $P$
     + $\delta_p$: a point mass at $P$
 
-+ Meager
++ Meager set
   + a set is nowhere dense if its closure has an empty interior
   + a set is __meager__ (or first category) if it is a countable union of nowhere dense set
   + meager sets are small
