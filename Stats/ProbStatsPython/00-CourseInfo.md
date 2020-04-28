@@ -170,9 +170,43 @@ To help you better understand the material and help us assess your progress, we 
 + __Programming Assignments and Data Assignments (25% of grade).__  Each of the 13 topics will have a programming or data assignment in Python to help you develop your programming skills and ability to implement probabilistic concepts. You will need to run the program on your computer and enter your numerical answer on EdX. We will drop the worst 2 (20%) grades. 
 + __Final exam (40% of grade).__ The final exam will cover all course materials. It will consist of 10 problems similar in nature to those in the problem sets, and several problems may be taken or modified from the homework assignments. Due to testing challenges, programming problems will not be included in the final. A practice exam will be posted to prepare you for the type of questions asked. You can bring one standard sheet of paper (two sides, front and back) of handwritten or typed notes, three clean sheets of scratch paper, and a basic calculator, no other material will be allowed. You will have up to 4.5 hours to complete the exam. 
 
-Please see the official course syllabus under course handouts to read all the details about grading.  
+__Please see the official course syllabus under course handouts to read all the details about grading.__
+
 NOTE: To receive a passing grade you must earn a (B) or better.
 
 Verified Learners: If you feel that we made a mistake in grading, please first check the general discussion for Verified Learners to see if that problem has already been addressed.  If not, please explain your issue in the discussion forum and one of our teaching team will try to resolve your issue. If, after this, you still feel that your problem remains unresolved, please send an email to probstatpyth@gmail.com explaining your issue and we will either be able to solve your problem or direct your where to go to ensure that it is resolved. 
 
 Please note: If the grading issue won't affect your overall grade, please refrain from requesting a regrade as there may be a large volume of learners making such requests.
+
+
+### Verified Certificate and Grading
+
+#### Verified Learner - Earning a Certificate
+
+To earn a verified certificate for this course, you need to enroll as part of the verified track, complete identity verification, and earn a passing grade. If you are auditing the course, you will not receive a certificate. You can change from unverified to verified track until 10 days before the course end date.
+
+ 
+#### Grading
+
+Letter grades will be assigned as follows. Grades of “B” and above are considered passing grades.
+
+<table style="border: none; border-collapse: collapse; width: 30vw;">
+<tbody>
+<tr style="height: 1.2em">
+<td style="vertical-align: top; padding: 5pt; width: 10%;">Percent of total points</td>
+<td style="vertical-align: top; padding: 5pt; width: 10%;">Grade</td>
+</tr>
+<tr style="height: 1.2em;">
+<td style="vertical-align: top; padding: 5pt;">85%-100%</td>
+<td style="vertical-align: top; padding: 5pt;">A</td>
+</tr>
+<tr style="height: 1.2em;">
+<td style="vertical-align: top; padding: 5pt;">65%-84.9%</td>
+<td style="vertical-align: top; padding: 5pt;">B</td>
+</tr>
+<tr style="height: 1.2em;">
+<td style="vertical-align: top; padding: 5pt;">&lt;65%</td>
+<td style="vertical-align: top; padding: 5pt;">F</td>
+</tr>
+</tbody>
+</table>
