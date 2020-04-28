@@ -168,7 +168,37 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.7 Freedman's Theorem
 
++ $weak^\ast$ topology
+  + $X-1, \dots, X_n$: an i.i.d. sample from distribution $P$ on the natural numbers $I = \{ 1, 2, 3, \dots \}$
+  + $\mathcal{P}$: the set of all such distributions
+  + endowing \mathcal{P}$ w/ the $weak^\ast$ topology: $P_n \to P$ in the $weak^*$ topology $\iff P_n(i) \tp P(i) \;\forall\, i$
+  + $\mu$: a prior distribution on $\mathcal{P}$, more precisely, a prior on an appropriate $\sigma$-field
+  + $\Pi$: all priors
+  + $f$: bounded, continuous, real functions
+  + endowing the set w/ the $weak^\ast$ topology: \mu_n \tp \mu \iff \int fd\mu_n \to \int fd\mu, \;\forall\, f$
+  + $\mu_n$: the posterior corresponding to the prior $\mu$ after $n$ observations
+  + the pair $(P, \mu)$ is consistent if
 
+    \[ P^\infty\left(\lim_{n\to\infty} \mu_n = \delta_p\right) = 1 \]
+
+    + $P^\infty$: the product measure corresponding to $P$
+    + $\delta_p$: a point mass at $P$
+
++ Meager
+  + a set is nowhere dense if its closure has an empty interior
+  + a set is __meager__ (or first category) if it is a countable union of nowhere dense set
+  + meager sets are small
+  + a meager set: the topological version of a null set in measure theory
+
++ Freedman's theorem
+  + __Theorem__ (Freedman 965) The sets of pairs $(P, \mu)$ is meager.
+  + topological sense: consistency rare for Bayesian procedures
+  + most pairs lead to inferences that disagree
+  + the agreeing pairs are meager
+  + "for essentially any pair of Bayesian, each thinks the other is crazy." - Freedman
+  + priors guaranteeing consistency in the frequentist sense are rare
+  + choosing a prior to get consistency $\implies$ really trying to be frequentists
+  + choosing a prior to represent one's belief $\implies$ the posterior likely inconsistent by Freedman's theorem
 
 
 
