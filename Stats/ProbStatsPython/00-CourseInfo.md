@@ -7,8 +7,7 @@
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
-
-## Syllabus
+### MicroMasters in Data Science
 
 To receive a MicroMasters Certificate in Data Science you must receive verified certificates in the following courses:
 
@@ -30,7 +29,7 @@ However, we are committed to working with other edX University partners to find 
 To earn a certificate for this course, you must become a verified learner 10 days before the end date. If you purchase the program in bundle you receive a discount, but all courses must be completed in 15 months. 
 
 
-## Introduce Yourself
+### Verified Certificate Learners
 
 Learners working toward a Verified Certificate may receive university course credit.  As such, there are a number of differences for those learners compared with those just wishing to audit the course.
 
@@ -45,33 +44,33 @@ Grading for learners working toward a Verified Certificate will be as follows:
 2. The final exam will be proctored online.
 
 
-### HEY, WAIT!  THIS COURSE'S VERIFIED CERTIFICATE IS PRETTY EXPENSIVE!
+#### HEY, WAIT!  THIS COURSE'S VERIFIED CERTIFICATE IS PRETTY EXPENSIVE!
 
 It's true -- and you'll find that to be true for all courses in edX's MicroMasters programs.  Why is this?  Well, these courses are selected because they represent Masters level course content at UC San Diego and other edX University Partners.  __By completing our MicroMasters, not just a single course certificate, you indicate to employers and hiring personnel that you have made a significant investment in completing rigorous, Masters-level courses and content.__   So, MicroMasters courses should offer you more.
 
 Also, if you decide you want to do a full Masters degree you can get one faster and less expensively!
 
 
-### UNIVERSITY COURSE CREDIT
+#### UNIVERSITY COURSE CREDIT
 
 edX's MicroMasters Credential program allows MOOC learners, like you, to get credit towards courses for a Masters degree on various university campuses (affiliated with edX).  
 
-#### Current Masters Options
+##### Current Masters Options
 
 Currently, learners who successfully earn the MicroMasters Credential are eligible to apply for admission to the __Master of Predictive Analytics program at Curtin University__.
 
 If a learner applies for admission to the Master of Predictive Analytics program at Curtin University, and is accepted, the MicroMasters Credential will count towards 25% (or 100 credits of the 400 credits) of the coursework required for graduation in the Curtin program.
 
-#### Future Masters Options
+##### Future Masters Options
 
 At UCSD, we are committed to giving learners everywhere access to the quality, state-of-the-art data science training and preparation we provide our own Masters students in San Diego.  __We plan to work with other edX partner universities with appropriate Masters programs to encourage them to accept our MicroMasters courses for credit within their own programs.__  We'll update this page as we do this. These courses are designed directly from our own courses on campus and we believe they serve as an excellent foundation for many Masters programs preparing data scientists.
 
-### Verified Learners
+#### Verified Learners
 
 In addition to the benefits outlined above, verified learners will get more material(s) and engagement from the course team. For example, verified Learners of this course will get access to more questions on all graded assignments. Verified learners will also receive priority over audit learners in the discussion board.
 
 
-## Tips for Succeeding in this Course
+### Tips for Succeeding in this Course
 
 We really want you to succeed and finish this course!
 
@@ -89,6 +88,12 @@ Set aside time to work on the class.  We've all had the best intentions to start
 1. __Sign up for a certificate.__  It's easy -- just click here! This course is new, so we don't have data for it.  But for one of our other online courses, learners who sign up for the certificate are over 4x more likely to complete the course learners who do not.*  Also remember, this course is the first in our MicroMasters in Data Science.  We'll tell you more about it, but you can earn credit toward a real Masters degree!
 
 \* Comparing learners who sign up for the certificate against learners who sign up to audit AND complete at least one graded assignment, certificate learners were over 4x more likely to finish the course.
+
+
+## Syllabus
+
+
+
 
 
 
