@@ -149,3 +149,30 @@ The course will cover the following topics:
 
 The course will teach you how to visualize, understand, and reason about probabilistic and statistical concepts, and how to apply your knowledge to analyze data sets and draw meaningful conclusions from data. We will cover both theoretical and practical aspects, and will start each topic with motivation and intuition and will proceed with rigorous arguments and provable techniques. Each topic will be accompanied by a Python Notebook that you could run and modify to experiment with the material learned and get a better feel for the material covered. 
 
+
+### Assessments
+
+#### Python Notebooks
+
+Each topic will be accompanied by a Python Jupyter Notebook with programs for visualizing, simulating, and exploring the material covered. You will be able to run the programs, modify the algorithms, and experiment with the simulations to get a better feel and understanding of the concepts covered.
+
+
+#### Discussion forums
+
+Two discussion forums, one for verified-learners and one for audit-learners, will let you to better understand the material by discussing it with fellow students and with course staff. While both forums will be monitored by our staff, the verified-learner forum will be more closely monitored and receive priority.
+
+ 
+#### Assignments and Exams
+
+To help you better understand the material and help us assess your progress, we will use three components. 
+
++ __Problem sets (35% of grade).__  Each lecture will be followed by a small problem set of roughly two math or calculation problems that test your understanding of the fundamental and practical implications of the material studied. There will be roughly 70 such problem sets, of which we will drop the worst 14 (roughly 20%). 
++ __Programming Assignments and Data Assignments (25% of grade).__  Each of the 13 topics will have a programming or data assignment in Python to help you develop your programming skills and ability to implement probabilistic concepts. You will need to run the program on your computer and enter your numerical answer on EdX. We will drop the worst 2 (20%) grades. 
++ __Final exam (40% of grade).__ The final exam will cover all course materials. It will consist of 10 problems similar in nature to those in the problem sets, and several problems may be taken or modified from the homework assignments. Due to testing challenges, programming problems will not be included in the final. A practice exam will be posted to prepare you for the type of questions asked. You can bring one standard sheet of paper (two sides, front and back) of handwritten or typed notes, three clean sheets of scratch paper, and a basic calculator, no other material will be allowed. You will have up to 4.5 hours to complete the exam. 
+
+Please see the official course syllabus under course handouts to read all the details about grading.  
+NOTE: To receive a passing grade you must earn a (B) or better.
+
+Verified Learners: If you feel that we made a mistake in grading, please first check the general discussion for Verified Learners to see if that problem has already been addressed.  If not, please explain your issue in the discussion forum and one of our teaching team will try to resolve your issue. If, after this, you still feel that your problem remains unresolved, please send an email to probstatpyth@gmail.com explaining your issue and we will either be able to solve your problem or direct your where to go to ensure that it is resolved. 
+
+Please note: If the grading issue won't affect your overall grade, please refrain from requesting a regrade as there may be a large volume of learners making such requests.
