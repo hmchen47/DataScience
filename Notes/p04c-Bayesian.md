@@ -221,5 +221,20 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ## 12.9 Summary
 
 
+<table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Bayesian</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Frequentists</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr> <td>Probability</td> <td>degree of subjective belief</td> <td>limiting relative frequency</td> </tr>
+  <tr> <td>Typical point estimate</td> <td>posterior mean or mode</td> <td>(penalized) maximum likelihood</td> </tr>
+  <tr> <td>Optimal estimate</td> <td>Bayes rule</td> <td>maximum estimate</td> </tr>
+  <tr> <td>Interval estimate</td> <td>credible interval</td> <td>confidence interval</td> </tr>
+  </tbody>
+</table>
 
 
