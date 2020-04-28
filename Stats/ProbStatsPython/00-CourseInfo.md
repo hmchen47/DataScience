@@ -92,6 +92,21 @@ Set aside time to work on the class.  We've all had the best intentions to start
 
 ## Syllabus
 
+### Welcome to DSE210x
+
+Welcome to Probability and Statistics In Data Science using Python!
+We are delighted to welcome you to Probability and Statistics in Data Science using Python. In this course, you will learn the motivation, intuition, and theory behind the probabilistic and statistical foundations of data science, and will get to experiment and practice with these concepts via Python programs and the Jupyter Notebook platform.
+
+#### Course Staff
+
+Instructors
+
+Alon Orlitsky, Professor, ECE and CSE Departments, UC San Diego
+Yoav Freund, Professor, CSE Department, UC San Diego
+
+Teaching Assistants
+
+Mingchao Liang, Graduate Student, ECE, UC San Diego
 
 
 
