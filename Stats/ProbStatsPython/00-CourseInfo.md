@@ -210,3 +210,14 @@ Letter grades will be assigned as follows. Grades of “B” and above are consi
 </tr>
 </tbody>
 </table>
+
+
+### Course End Date and Verification Deadline
+
+Although this class is self-paced, you must complete all work by August 11th, 2020, 18:00 UTC to earn a certificate. This instance of the course will close on August 11th, 2020, 18:00 UTC and we will open a new version of the course shortly thereafter. 
+
+#### FAQ
+
+I started the course late and I don't know if I can finish in time. Can I use my work and Verified Certificate for the next session?
+Unfortunately, completed work and the Verified Certificate does not roll over per session, according to edX's policies. If you find that you cannot finish before the deadline (for the refund or switching to Verified), we suggest that you un-enroll your Verified status and re-enroll in the next session. 
+
