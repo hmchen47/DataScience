@@ -2,10 +2,24 @@
 
 ## General Topics
 
+### Recommended books, articles and courses
+
++ [10 Free Top Notch Machine Learning Courses](../Notes/a01-MLCourses.md#10-free-top-notch-machine-learning-courses)
++ [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07-MLBooks.md#)24-best-and-free-books-to-understand-machine-learning
++ Daniel Smith, Lionbridge, [10 Best Machine Learning Textbooks that All Data Scientists Should Read](../Notes/a07-MLBooks.md#10-best-machine-learning-textbooks-that-all-data-scientists-should-read)
++ Vincent Granville, [19 Great Articles About Natural Language Processing (NLP)](../Notes/a04-19NLP.md#19-great-articles-about-natural-language-processing-nlp)
+
 
 ### Visualization
 
 + K. He & G.Meeden, [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](../AppliedDS-UMich/2-InfoVis/p01-HistBins.md)
+
+
+### Feature Engineering
+
++ [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
++ Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
+
 
 
 ## Statistics
@@ -19,6 +33,8 @@
 ### Bayesian Approaches
 
 + D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
++ J. Martin Bland and Douglas G. Altman, [Bayesians and frequentists](../Notes/a05-Bayesian.md)
++ Magdalena Szumilas, [Explaining Odds Ratios](/Notes/a06-OddsRatios.md)
 
 
 
