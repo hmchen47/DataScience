@@ -232,6 +232,7 @@ We expect the course to take 10-15 hours per week to complete.
  
 #### Pace and deadlines
 
-The course is self-paced. All materials will stay online till the end of the course. As described before, you will have the entire duration of the course to submit all graded assignments. 
+The course is self-paced. All materials will stay online till the end of the course. As described before, you will have the entire duration of the course to submit all graded assignments.
+
 
 
