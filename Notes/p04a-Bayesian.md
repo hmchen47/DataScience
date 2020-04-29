@@ -12,14 +12,15 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ## 12.0 Mathematical Tools
 
-+ Basic concepts
-  + the __mode__ of a set of data values is the value that happen most often.
+### 12.0.1 Math fundamental
+
++ Basic concepts of mathematical foundation
   + __Definition__ (lower bound and infimum)
-    + a _lower bound_ of a subset $S$ of a partially ordered set ($P,\leq$) is an element $a$ of $P \ni a < x \,\forall\, x \in S$
-    + a lower bound $a$ of $S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S$ if $\forall$ boundss $y$ of $S \in P, y \leq a$ (a is larger than or equal to any other lower bound)
+    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq) \to a \leq x, \;\forall\, x \in S$
+    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S \to \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
   + __Definition__ (upper bound and supremum)
-    + an _upper bound_  $b$ of a subset $S$ of a partially ordered set ($P, \leq$) is an element $b$ of $S \ni b \geq x\,\forall\, x \in S$
-    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S$ if $\forall$ upper bounds $z$ of $S \in P, z \geq b$ (b is less than any other upper bound)
+    + $b \in S$ as an _upper bound_  of $S \subseteq P$, a partially ordered set $(P,\leq) \to b \geq x, \;\forall\, x \in S$
+    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S \to \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than any other upper bound)
   + the arguments of the maxima
     + __Definition__ (the arguments of the maxima)
       + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
@@ -38,6 +39,10 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \mathop{\arg\min}_{x \in S} := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}
 
+### 12.0.2 Probability and Statistics
+
++ Basic concepts of Probability and Statistics
+  + the __mode__ of a set of data values is the value that happen most often.
   + __Definition__ (moment)
     + a _moment_ is a specific quantitative measure of the shape of a function
     + the $n$-moment of a real-valued continuous fucntion $f(x)$ of a real variable about a value $c$ (usually $c=0$)
@@ -69,6 +74,21 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + a measure of the heaviness of the tail of the distribution
       + always non-negative and $\kappa \geq \gamma^2 + 1$
       + Gaussian distribution: $\kappa = 3\sigma^4$
+  + __Definition__ (converge in distribution) a sequence $X_1, X-2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
+
+    \[ \lim_{n \to \infty} F_n(x) = F(x) \]
+
+    $\forall\, x \in \mathbb{R}$ at which $F$ is continuous. $F_n, F$: the cumulative distribution functions of random variables $X_n$ and $F$, respectively.
+
+  + __Definition__ (converge in probability) a sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$ towards the random variable $X$ if $\forall\, \varepsilon > 0$
+
+    \[ \lim_{n \to \infty} \Pr(|X_n - X|) > \varepsilon) = 0 \]
+
+    + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
+    + $X_n$ _converges in probability_ to $X$:  
+
+      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N} \to \,\forall n \geq N, P_n < \delta \]
+
   + Jensen's inequality
     + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
     + $X$ as an integrable real-valued random variable
@@ -91,21 +111,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       + $P(s, s')$: a transition kernel probability density from state $s'$ to state $s$
       + $\pi(s)$: a probability density at state $s$
-  + __Definition__ (converge in distribution) a sequence $X_1, X-2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
-
-    \[ \lim_{n \to \infty} F_n(x) = F(x) \]
-
-    $\forall\, x \in \mathbb{R}$ at which $F$ is continuous. $F_n, F$: the cumulative distribution functions of random variables $X_n$ and $F$, respectively.
-
-  + __Definition__ (converge in probability) a sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$ towards the random variable $X$ if $\forall\, \varepsilon > 0$
-
-    \[ \lim_{n \to \infty} \Pr(|X_n - X|) > \varepsilon) = 0 \]
-
-    + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
-    + $X_n$ _converges in probability_ to $X$:  
-
-      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N} \to \,\forall n \geq N, P_n < \delta \]
-
   + __Theorem__(univariate delta method)
     + $\exists$ a sequence of random variables $X_n$ satisfying
 
@@ -117,35 +122,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + Hoeffding's inequality
     + providing an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount
     + a generalization of the Chernoff bound, only applied to Bernoulli random variable
-  + __Definition__ (countable set)<br/> A set $S$ is _countable_ if there exists an injective function (one-to-one mapping) $f$ from $S$ to the natural number $\mathbb{N} = \{ 0, 1, 2, \dots \}$
-    + $S$ is _countably infinite_ if such an $f$ is also surjective (many -to-one mapping)
-    + a set is _countably infinite_ if it has one-to-one correspondence w/ the natural number set, $\mathbb{N}$
-  + __Definition__ (meager set, set of first category) <br/>
-    a set that, considered as a subet of a (usually larger) topological s[pace, is in a precise sense small or negligible]
-  + __Definition__ (Measure) <br/>
-    Let $X$ be a set and $\Sigma$ a $\sigma$-algebra over $X$. A function $\mu$ from $\Sigma$ to the extended real number line is called __measure_ if it satisfied the following properties
-    + __Non-negativity__: $\forall\, $E$ in $\Sigma \ni \mu(E) \geq 0$
-    + __Null empty set__: $\mu(\varnothing) = 0$
-    + __Countable additive__ (or $\sigma$-additive): $\forall$ countable collections $\{ E_i \}_{i=1}^\infty$ of pairwise disjoint sets in $\Sigma$
-
-      \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
-
-    + $mu$ is a signed measure if only the 2nd and 3rd conditions of the definition of measure met and taking on at most one of the values $\pm\infty$
-    + the pair $(X, \Sigma)$ called a __measurable space__:
-      + __measurable sets__: the members of $\Sigma$
-      + __measurable function__: $(X, \Sigma_X), (Y, \Sigma_Y)$ are two measurable space, a _measurable_ function $f: X \to Y$ if $\forall Y$ -measurable set $B \in \Sigma_Y$, the inverse image is $X$-measurable, i.e., $f^{-1}(B) \in \Sigma_X$
-      + the composition of measurable functions are measurable, making the measurable spaces and measurable functions a category, w/ the measurable spaces as objects and the set of measurable functions as arrows
-    + the triple $(X, \Sigma, \mu)$ called a __measurable space__:
-      + a probability measure is a measure w/ total measure one, i.e., $\mu(X) = 1$
-      + a probability space is a measure space with a probability measure
-
-  + __Definition__ ($\sigma$ idea) a _$\sigma$-ideal_ of a sigma-algebra is a subset w/ certain desirable closure properties
-    + properties: Let $(X, \Sigma)$ be a measurable space ($\Sigma$ is a $\sigma$-albegra of subset of $X$).  A subset $N$ of $\Sigma$ is a $\sigma$-ideal if the following properties are satisfied
-      + $\varnothing \in N$
-      + when $A \in N$ and $B \in \Sigma, \,B \subseteq A \implies B \in M$
-      + $\{ A_n \}_{n \in \mathbb{N}} \subseteq N \implies \bigcup_{n \in \mathbb{N}} A_n \in N$
-
-
 
 + [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
   + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_+ \to \mathbb{R}$
@@ -229,24 +205,37 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + [Standard Regularity Conditions for Statistics](http://www.stat.rice.edu/~dobelman/courses/Regularity.pdf)
 
+
+### 12.0.3 Various spaces
+
 + Probability, Statistics, and Measure Theory
-  + $L^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
-  + a.k.a., Lebesgue spaces
-  + $L^p$ metrics: measures of central tendency and statistical dispersion, such as mean, median, and standard deviation
-  + penalized regression:
-    + L1 penalty: the $L^1$ norm of a solution's vector of parameter values, i.e., the sum of its absolute values
-    + L2 penalty: the $L^2$ norm of a solution's vector of parameter values, i.e., Euclidean length
-  + $p$-norm in finite dimensions
-    + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ usually given by the Euclidean norm
+  + __Definition__ (countable set)<br/> A set $S$ is _countable_ if there exists an injective function (one-to-one mapping) $f$ from $S$ to the natural number $\mathbb{N} = \{ 0, 1, 2, \dots \}$
+    + $S$ is _countably infinite_ if such an $f$ is also surjective (many -to-one mapping)
+    + a set is _countably infinite_ if it has one-to-one correspondence w/ the natural number set, $\mathbb{N}$
 
-      \[ \|x\|_2 = (x_1^2 + x_2^2 + \cdots + x_n^2)^{1/2} \]
+  + __Definition__ (Measure) <br/>
+    Let $X$ be a set and $\Sigma$ a $\sigma$-algebra over $X$. A function $\mu$ from $\Sigma$ to the extended real number line is called __measure_ if it satisfied the following properties
+    + __Non-negativity__: $\forall\, $E$ in $\Sigma \ni \mu(E) \geq 0$
+    + __Null empty set__: $\mu(\varnothing) = 0$
+    + __Countable additive__ (or $\sigma$-additive): $\forall$ countable collections $\{ E_i \}_{i=1}^\infty$ of pairwise disjoint sets in $\Sigma$
 
-    + __Definition__.  for a real number $p \geq 1$, the __p$-norm or $L&p$-norm of $x$ defined as
+      \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
 
-      \[ \|x\|_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{1/p} \]
+    + $mu$ is a signed measure if only the 2nd and 3rd conditions of the definition of measure met and taking on at most one of the values $\pm\infty$
+    + the pair $(X, \Sigma)$ called a __measurable space__:
+      + __measurable sets__: the members of $\Sigma$
+      + __measurable function__: $(X, \Sigma_X), (Y, \Sigma_Y)$ are two measurable space, a _measurable_ function $f: X \to Y$ if $\forall Y$ -measurable set $B \in \Sigma_Y$, the inverse image is $X$-measurable, i.e., $f^{-1}(B) \in \Sigma_X$
+      + the composition of measurable functions are measurable, making the measurable spaces and measurable functions a category, w/ the measurable spaces as objects and the set of measurable functions as arrows
+    + the triple $(X, \Sigma, \mu)$ called a __measurable space__:
+      + a probability measure is a measure w/ total measure one, i.e., $\mu(X) = 1$
+      + a probability space is a measure space with a probability measure
 
-    + 1-norm: the norm corresponding to the rectilinear distance
-    + 2-norm: Euclidean nor
+  + __Definition__ ($\sigma$ idea) a _$\sigma$-ideal_ of a sigma-algebra is a subset w/ certain desirable closure properties
+    + properties: Let $(X, \Sigma)$ be a measurable space ($\Sigma$ is a $\sigma$-albegra of subset of $X$).  A subset $N$ of $\Sigma$ is a $\sigma$-ideal if the following properties are satisfied
+      + $\varnothing \in N$
+      + when $A \in N$ and $B \in \Sigma, \,B \subseteq A \implies B \in M$
+      + $\{ A_n \}_{n \in \mathbb{N}} \subseteq N \implies \bigcup_{n \in \mathbb{N}} A_n \in N$
+
   + __Definition__ (probability space) a probability space is a triple $(\Omega, \mathcal{F}, P)$ consisting of
     + the sample space $\Omega$: an arbitrary non-empty set
     + the $\sigma$-algebra $\mathcal{F} \subseteq 2^{\Omega}$ (also called \sigma$-field): a set of subsets of $\Omega$, called events $\ni$
@@ -257,6 +246,29 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the probability measure $P: \mathcal{F} \to [0, 1]$: a function on $\mathcal{F} \ni$
       + $P$ countably additive (also called $\sigma$-additive): $\{A_i\}_{i=1}^\infty \subseteq \mathcal{F}$ as a countable collection of pairwise disjoint sets $\implies p(\bigcup_{i=1}^\infty) = \sum_{i=1}^\infty P(A_i)$
       + the measure of entire sample space equal to one: $P(\Omega) = 1$
+
+  + __Definition__ (meager set, set of first category) <br/>
+    a set that, considered as a subset of a (usually larger) topological space, is in a precise sense small or negligible
+
+  + Norm
+    + $L^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
+    + a.k.a., Lebesgue spaces
+    + $L^p$ metrics: measures of central tendency and statistical dispersion, such as mean, median, and standard deviation
+    + penalized regression:
+      + L1 penalty: the $L^1$ norm of a solution's vector of parameter values, i.e., the sum of its absolute values
+      + L2 penalty: the $L^2$ norm of a solution's vector of parameter values, i.e., Euclidean length
+    + $p$-norm in finite dimensions
+      + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ usually given by the Euclidean norm
+
+        \[ \|x\|_2 = (x_1^2 + x_2^2 + \cdots + x_n^2)^{1/2} \]
+
+      + __Definition__.  for a real number $p \geq 1$, the __p$-norm or $L&p$-norm of $x$ defined as
+
+        \[ \|x\|_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{1/p} \]
+
+      + 1-norm: the norm corresponding to the rectilinear distance
+      + 2-norm: Euclidean nor
+
   + __Definition__ (measure)
     + $\exists\, \text{a set } X, \Sigma$ a $\sigma$-algebra over $X$
     + a function $\mu$ from $\Sigma$ to the extended real number line is called _measure_ if it satisfies the following properties
@@ -277,6 +289,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + a triple $(X, \Sigma, \mu)$ as a _measure space_
     + _probability measure_: a measure w/ total measure one, i.e., $\mu(X) = 1$
     + _probability space_: a measure space w/ a probability measure
+
   + __Definition__ (outer measure) an _outer measure_ on a set $X$ is a function
 
     \[ \varphi: 2^{X} \to [0, \infty] \]
@@ -303,6 +316,9 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
 
     + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
+
++ Topology
+
 
 
 ## 12.1 What is Bayesian Inference?
