@@ -35,6 +35,7 @@
 + D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
 + J. Martin Bland and Douglas G. Altman, [Bayesians and frequentists](../Notes/a05-Bayesian.md)
 + Magdalena Szumilas, [Explaining Odds Ratios](/Notes/a06-OddsRatios.md)
++ H. Liu and L. Wasserman, "Bayesian Inference" [Part A](../Notes/p04a-Bayesian.md), [Part B](../Notes/p04b-Bayesian.md), and [Part C](../Notes/p04c-Bayesian.md)
 
 
 
