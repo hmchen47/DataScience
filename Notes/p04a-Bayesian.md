@@ -16,11 +16,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Basic concepts of mathematical foundation
   + __Definition__ (lower bound and infimum)
-    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq) \to a \leq x, \;\forall\, x \in S$
-    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S \to \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
+    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq), \to a \leq x, \;\forall\, x \in S$
+    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S, \,\text{ s.t. } \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
   + __Definition__ (upper bound and supremum)
-    + $b \in S$ as an _upper bound_  of $S \subseteq P$, a partially ordered set $(P,\leq) \to b \geq x, \;\forall\, x \in S$
-    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S \to \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than any other upper bound)
+    + $b \in S$ as an _upper bound_  of $S \subseteq P$, a partially ordered set $(P,\leq), \,\text{ s.t. } b \geq x, \;\forall\, x \in S$
+    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S, \,\text{ s.t. } \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than any other upper bound)
   + the arguments of the maxima
     + __Definition__ (the arguments of the maxima)
       + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
@@ -30,14 +30,14 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     + $X = S$ or $S$ is clear from the context $\implies \mathop{\arg\max}_x f(x) := \{ x \,|\, \forall\, y: f(y) \leq f(x) \}$, i.e., $\mathop{\arg\max} is the set of points, $x$, for which $f(x) attains the function's largest value (if exists)
     + $\mathop{\arg\max}$ possibly the empty set, a singleton, or containing multiple elements
-    + e.g., $f(x) = 1 - |x| \ni \mathop{\arg\max}_x (1 - |x|) = \{0\$
+    + e.g., $f(x) = 1 - |x| \text{ s.t. } \mathop{\arg\max}_x (1 - |x|) = \{0\$
     + $M$ as the maximum of $f \implies \mathop{\arg\max}$ as the level set of the maximum
 
       \[ \mathop{\arg\max}_x f(x) = \{ x \,,|\, f(x) = M \} =: f^{-1}(M) \]
 
   + __Definition__. (argument of the minimum)
 
-    \mathop{\arg\min}_{x \in S} := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}
+    \[\mathop{\arg\min}_{x \in S} := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}\]
 
 ### 12.0.2 Probability and Statistics
 
@@ -87,7 +87,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
     + $X_n$ _converges in probability_ to $X$:  
 
-      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N} \to \,\forall n \geq N, P_n < \delta \]
+      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N}, \,\text{ s.t. } \,\forall n \geq N, P_n < \delta \]
 
   + Jensen's inequality
     + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
@@ -98,7 +98,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + detailed balance
     + __Definition__ (Reversible Markov process or reversible Markov chain) A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
-    + __Definition__ (detailed balance in discrete process) the transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \ni$
+    + __Definition__ (detailed balance in discrete process) the transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \text{ s.t. }$
 
       \[ \pi_i P_{ij} = \pi_j P_{ji} \]
 
@@ -142,7 +142,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \[ B(z, x, y) = \int_0^z t^{x-1} (1 - t)^{y-1} dt \]
 
   + the mean of Beta distribution $Beta(a, b)$: $a / (a+b)$
-
 
 + [Dirichlet distribution](https://stephens999.github.io/fiveMinuteStats/dirichlet.html)
   + a generalization of the Beta distribution
@@ -189,14 +188,14 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the probability that $\theta$ appears in the endpoints of an interval
     + the likelihood is maximized at the true parameter $\theta_0$ and the MLE $\hat{\theta}$ solving the equation
 
-      \[ \frac{\partial l(\theta)})\partial \theta} = 0 \]
+      \[ \frac{\partial l(\theta)}{\partial \theta} = 0 \]
 
       is consistent.
   + __Condition 4:__ the pdf $f(x, \theta)$ is twice differentiable as a function of $\theta$
   + __Condition 5:__ the integral $\int_{\infty}^{\infty} f(x, \theta) \,dx$ can be differentiated twice under the integral sign as a function $\theta$
     + the last two derive the Fisher information playing a certain role in the theory of convergence of the MLE
     + ensuring the asymptotic normality of the MLE
-  + __Condition 5:__ the pdf $f(x, \theta)$ is 3 times differentiable as a function of $\theta$.  Further $\forall\, \theta \in \Omega, \exists \text{ a constant } c \text{ and a function } M(x) \ni$
+  + __Condition 5:__ the pdf $f(x, \theta)$ is 3 times differentiable as a function of $\theta$.  Further $\forall\, \theta \in \Omega, \exists \text{ a constant } c \text{ and a function } M(x) \text{ s.t. }$
 
     \[ \left| \frac{\partial^3 \log f(x, \theta)}{\partial \theta^3} \right| \leq M(x) \]
 
@@ -204,6 +203,48 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + the remainder of a second order Taylor expansion about $\theta_0$ is bounded in probability and thus poses no problem asymptotically.
 
 + [Standard Regularity Conditions for Statistics](http://www.stat.rice.edu/~dobelman/courses/Regularity.pdf)
+  + general assumptions and notations
+    + $X_1, \dots, X_n$: an i.i.d. set (sample) pf  random variable defined on the probability space $(|Omega, \mathcal{F}, P)$
+    + $X_i \in \mathbb{R}^d$ w/ parametric d.f. $F_X$
+    + $F_X$ w/ density $f(x|\theta)$ w.r.t. a $\sigma$-finite measure $\mu$
+    + $\{ X_i \}_{i=1}^\infty$: an i.i.d. sequence of random variables (convergence result)
+    + high order moment conditions on randoom vectors requiring tensor analysis for $k > 2$
+  + Regularity conditions for interchanging limits and integrals/sums
+    + `1.` A Lipschitz condition on bounded variation of $f(x \,|\, \theta), \ddot{f}(x \,|\, \theta)$, etc., is needed for LDC to exchange limits and integrals
+      + $f(x \,|\, \theta)$ differentiable at $\theta = \theta_0$, i.e., 
+
+        \[\forall\; x, \delta \in \mathbb{R}^k, \|\delta\| \cdot T(x, \theta) |_{\theta = \theta_0} \doteq \|\delta|\ \cdot\nabla f(x, \theta) |_{\theta = \theta_0} = f(x, \theta_0 + \delta) - f(x. \theta_0) + o(\|\delta\|)\]
+
+      + $g(x \,|\, \theta_0)$: a scalar function
+      + $\delta_0 \in \mathbb{R}_+$: a constant
+      + the properties
+        + (i) $\|f(x, \theta_0 + \delta) - f(x, \theta_0)\| \leq \|\delta\| \cdot g(x \,|\, \theta_0), \;\forall\, x, \|\delta\| \leq \delta_0$
+        + (ii) $\int g(x \,|\, \theta_0) \,dx < \infty$
+    + `2.` let $f(x \,|\, \theta)$ differentiable in $\theta \in \Theta, \;\exists\, \delta_0 \in \mathbb{R}_+$ and there be a scalar function $g(x \,|\, \theta) \text{ s.t. }$
+      + (i) $\int g(x \,|\, \theta) \,dx < \infty, \;\forall \,\theta \in \Theta$
+      + (ii) $\left\| \frac{\partial}{\partial \theta} f(x \,|\, \theta) |_{\theta = \theta^\prime} \right\| \leq g(x \,|\, \theta) \;\forall\, \theta^\prime \in \Theta \text{ s.t. } \|\theta^\prime - \theta \| \leq \delta_0$
+      + ciondition (ii): the Lipschitz condition extended by the MVT to provide a uniform result in $\theta \in \Theta$, $\delta_0$ implicitly a function of $\theta$
+    + `2'.` (Le Cam). Same as 2., except $g(x \,|\, \theta) > 0, \,E(g(x \,|\, \theta)) < \infty$ w/ the Frobenius norm $\|A\|_{F} = \sqrt{\sum\sum |a_{ij}|^2}$
+
+      \[ \sup_{\theta^\prime: \|\theta^\prime - \theta\|_{\leq \delta_0}} \left\| \frac{\partial^2 \log f(x \,|\, \theta)}{\partial\theta^\prime\,\partial\theta^{\prime T}} \right\|_{F} \leq g(x \,|\, \theta) \]
+  + classical statistical regularity conditions
+    + `1.` identifiability of $\theta$: $f(x | \theta)$ is distinct $\forall\, \theta \in \Theta$; $\theta+1 \neq \theta_2, \;f(x | \theta_1) \neq f(x | \theta_2)$ , the condiation is also stated in terms of the Kullback-Leibler distance btw densities $f_\theta$, where for $\theta_1 \neq \theta_2, \mathcal{D}(f_1, f_2) = \int f(x | \theta_1) \log\left( \frac{f(x | \theta_1)}{f(x | \theta_2)} \right) \,dx > 0$
+    + `2.` common support: $\{ x: f(x|\theta) > 0 \}$ is the same $\forall\, \theta \in \Theta$; i.e., the support is independent of $\theta$
+    + `3.` $\Theta \subset \mathbb{R}^k$ is an open set (rectabngle), not necessarily finite [finite, semi-finite, or finite]
+    + `3'.` $\theta_0$ is an interior point of $W$, and open set contained in $\Theta \subset \mathbb{R}^k$
+    + `4.` $f(\theta \,|\, \theta)$ is differentiable in $\theta \in \Theta \;\forall\, x \in \mathbb{R}^d \; \mu$ - a.e. (almost everywhere)
+    + `4'.` $f(x | \theta)$ is differentiable in $\theta \in W \subset \Theta, \;\forall\,x \in \mathbb{R}^d \; \mu$ - a.e.
+    + `4".` $f(x \,|\, \theta)$ is twice differentiable in $\theta \in \Theta \;\forall\, x\in \text{Supt}(f) \; \mu \text{ - a.e., with } \frac{\partial^2}{\partial \theta^2}\int\int \rightleftharpoons \int\int \frac{\partial^2}{\partial \theta^2}$
+    + `4'''.` $f(x \,|\, \theta)$ is 3 times differentiable in $\theta \in \Theta \;\forall\, x\in \text{Supt}(f) \; \mu \text{ - a.e., with } \frac{\partial^3}{\partial \theta^3}\int\int\int \rightleftharpoons \int\int\int \frac{\partial^3}{\partial \theta^3}$
+    + `5.` Unique MLE. The likelihood equation (LE), $\frac{\partial}{\partial \theta} L(\theta | x) = 0$, has a single, unique rroot (RLE) $\forall\, n , x \in \mathbb{R}^d$
+    + `5'.` there exists a unique MLE $\widehat{\theta}_n \;\forall\, n, \theta \in \Theta$
+    + `6.` (expected) Fisher information (FI) defined, positive, finite:
+      + $0 < I(\theta) < \infty$, where $I(\theta) = E\left[\left( \frac{\partial \ln f(x \,|\, \theta)}{\partial \theta} \right)^2  \right]$ and is often denoted  $I(\theta_0)$ where $\theta_0$ is th true parameter
+      + multi-parameteer case, FI is positive definite, with $I(\theta) - E[\nabla \mathcal{l} \nabla \mathcal{l}^T]$
+      + when `4".` is in force, $I(\theta) = -E[\nabla^2 \mathcal{l}] = -E[\nabla\nabla \mathcal{l}^T] = -E[H_{\mathcal{l}}(\theta)] = E[J(\theta)]$, where $J is the observed FI, although $J$ is normally evaluated at $\widehat{\theta}_{ML}$ and not averaged over $x$
+    + `7.` boundedness of variaton of second derivatives of LF: $\forall\, x \in \text{Supt}(f), \;\exists\, d \in \mathbb{R}$ and function $B(x) \text{ s.t. } \left| \frac{\partial^2}{\partial \theta^2}\ln f(x \,|\, \theta) \right| \leq B(x)$ with $\theta \in [\theta_0 - d, \theta_0 + d]$ and $E[B(x)] < \infty$. Biothe $B$ and $d$ can be fucntions of $\theta$
+    + `7'.` in additional to  `7.`, $B \neq B(\theta)$, and there are integrable $F-1(x)$ and $F_2(x) \text{ s.t. } \left|\frac{\partial f}{\partial \theta} \right| < F_1(x)$ and $\left| \frac{\partial^2 f}{\partial \theta^2} \right| < F_2(x)$
+
 
 
 ### 12.0.3 Various spaces
@@ -215,7 +256,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + __Definition__ (Measure) <br/>
     Let $X$ be a set and $\Sigma$ a $\sigma$-algebra over $X$. A function $\mu$ from $\Sigma$ to the extended real number line is called __measure_ if it satisfied the following properties
-    + __Non-negativity__: $\forall\, $E$ in $\Sigma \ni \mu(E) \geq 0$
+    + __Non-negativity__: $\forall\, $E$ in $\Sigma \text{ s.t. } \mu(E) \geq 0$
     + __Null empty set__: $\mu(\varnothing) = 0$
     + __Countable additive__ (or $\sigma$-additive): $\forall$ countable collections $\{ E_i \}_{i=1}^\infty$ of pairwise disjoint sets in $\Sigma$
 
@@ -238,12 +279,12 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
   + __Definition__ (probability space) a probability space is a triple $(\Omega, \mathcal{F}, P)$ consisting of
     + the sample space $\Omega$: an arbitrary non-empty set
-    + the $\sigma$-algebra $\mathcal{F} \subseteq 2^{\Omega}$ (also called \sigma$-field): a set of subsets of $\Omega$, called events $\ni$
+    + the $\sigma$-algebra $\mathcal{F} \subseteq 2^{\Omega}$ (also called \sigma$-field): a set of subsets of $\Omega$, called events $\text{ s.t. }$
       + $\mathcal{F}$ containing the sample space: $\Omega \in \mathcal{F}$
-      + $\mathcal{F}$ closed under complements: $A \in \mathcal{F} \implies ((\Omega \\ A) \in \mathcal{F}$
+      + $\mathcal{F}$ closed under complements: $A \in \mathcal{F} \implies ((\Omega ,\, A) \in \mathcal{F}$
       + $\mathcal{F}$ closed under countable unions: $A_i \in \mathcal{F}, \; i=1, 2, \dots \implies (\bigcup_{i=1}^\infty A-i) \in \mathcal{F}$
       + corollary (complement + countable unions + De Morgan's law): \mathcal{F} closed under countable intersections: $A_i \in \mathcal{F}, \, i=1, 2, \dots \implies (\bigcap_{i=1}^\infty A_i) \in \mathcal{F}$
-    + the probability measure $P: \mathcal{F} \to [0, 1]$: a function on $\mathcal{F} \ni$
+    + the probability measure $P: \mathcal{F} \to [0, 1]$: a function on $\mathcal{F} \text{ s.t. }$
       + $P$ countably additive (also called $\sigma$-additive): $\{A_i\}_{i=1}^\infty \subseteq \mathcal{F}$ as a countable collection of pairwise disjoint sets $\implies p(\bigcup_{i=1}^\infty) = \sum_{i=1}^\infty P(A_i)$
       + the measure of entire sample space equal to one: $P(\Omega) = 1$
 
@@ -297,11 +338,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     defined on all subsets of $X$ ($2^X$ - power set) that satisfies the following conditions
     + null empty set: $\varphi(\varnothing) = 0$
     + monotonicity: $\exists\, A, B \in $X, A \subseteq B \implies \varphi(A) \leq \varphi(B)$
-    + countable subadditivity: $\forall \{A_i\} \subseteq X \ni$
+    + countable subadditivity: $\forall \{A_i\} \subseteq X \text{ s.t. }$
 
       \[ \varphi\left( \bigcup_{j=1}^\infty A_j \right) \leq \sum_{j=1}^\infty \varphi(A_j) \]
 
-  + __Definition__ ($\varphi$-measurable) $\exists\, E \subset X$ is _$\varphi$-measurable_ (or  Carathéodory-measurable by $\varphi$) $\iff \forall\, A \subset X \ni$
+  + __Definition__ ($\varphi$-measurable) $\exists\, E \subset X$ is _$\varphi$-measurable_ (or  Carathéodory-measurable by $\varphi$) $\iff \forall\, A \subset X \text{ s.t. }$
 
     \[ \varphi(A) = \varphi(A \cup E) + \varphi(A \cup E^C) \]
 
@@ -311,7 +352,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \lambda^*(E) = \inf \left\{ \sum_{k=1}^\infty l(I_k): (I_k)_{k \in \mathbb{N}} \text{ is a sequence of open intervals w/ } E \subseteq \bigcup_{k=1}^\infty I_k \right\} \]
 
-    + _Lebesgue measure_: on the Lebesgue $\sigma$-algebra, the collection of all sets $E$ satisfying the "Carathéodory criterion", $\forall\, A \subseteq \mathbb{R} \ni$
+    + _Lebesgue measure_: on the Lebesgue $\sigma$-algebra, the collection of all sets $E$ satisfying the "Carathéodory criterion", $\forall\, A \subseteq \mathbb{R} \text{ s.t. }$
 
       \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
 
@@ -444,7 +485,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       \[ \overline{\theta} = \int \theta\, p(\theta \,|\, \mathcal{D}_n)\, d\theta = \frac{\int \theta\, \mathcal{L}_n(\theta)\, \pi(\theta) d\theta}{\int \mathcal{L}_n(\theta) \pi(\theta) d\theta} \]
 
   + Bayesian interval estimate
-    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \ni$
+    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \text{ s.t. }$
 
       \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
 
@@ -561,8 +602,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + $n \to \infty \implies w \to 1 \text{ and } \tau/se \to 1$
     + fixed $n, b \to \infty \implies$ flat prior
   + region estimate: find posterior interval = find $C = (c, d) \to \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = 0.95$
-  + $\exists\; c$ and $d \ni \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = 0.025$
-  + find $ c \ni$
+  + $\exists\; c$ and $d \text{ s.t. } \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = 0.025$
+  + find $ c \text{ s.t. }$
 
     \[ \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = \mathbb{P} \left( \frac{\theta - \overline{\theta}}{\tau} < \frac{c - \overline{\theta}}{\tau}\right) = \mathbb{P}\left( Z < \frac{c - \overline{\theta}}{\tau} \right) = 0.025 \]
 
@@ -751,7 +792,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     \[ p(\mathbf{x} \,|\, \pmb{\theta}) = \exp\left(\pmb{\theta}^T\,\mathbf{x} - A(\pmb{\theta})\right) \tag{5} \]
 
     + $\pmb{\theta} \in \mathbb{R}^d$: a $d$-dimensional parameter
-    + $\Theta \subset \mathbb{R}^d$: an open parameter space $\ni$
+    + $\Theta \subset \mathbb{R}^d$: an open parameter space $\text{ s.t. }$
 
       \[ \int \exp\left(\pmb{\theta}^T\,\mathbf{x} - A(\pmb{\theta})\right)\,d\mu(\mathbf{x}) < \infty \]
 
@@ -824,7 +865,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + similar result holds w/ discrete measure $\mu$
 
 + Gamma-Poisson likelihood model
-  + Poisson model w/ rate $\lambda \geq 0$ in the sample space $\mathcal{X} = \mathbb{Z}_+ \ni$
+  + Poisson model w/ rate $\lambda \geq 0$ in the sample space $\mathcal{X} = \mathbb{Z}_+ \text{ s.t. }$
 
     \[ \mathbb{P}(X = x \,|\, \lambda) = \frac{\lambda^x}{x!} e^{-\lambda} \propto \exp(x\log\lambda - \lambda) \]
 
@@ -845,7 +886,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
   + the prior acts as if $\beta$ virtual observations were made, with a total count of $\alpha -1$ among them
 
 + Gamma-Exponential likelihood model
-  + exponential distribution w/ the sample space $\mathcal{X} \in \mathbb{R}_+ \ni$
+  + exponential distribution w/ the sample space $\mathcal{X} \in \mathbb{R}_+ \text{ s.t. }$
 
     \[ p(x \,|\, \theta) = \theta e^{-x\theta} \]
   
@@ -1062,7 +1103,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.2.7 Bayesian Hypothesis Testing
 
 + Bayesian hypothesis testing
-  + hypothesis: $\exists\; \theta \in \mathbb{R} \ni$
+  + hypothesis: $\exists\; \theta \in \mathbb{R} \text{ s.t. }$
 
     \[ H_0: \theta = \theta_0 \quad \text{ vs. } H_1: \theta \neq \theta_0 \]
 
@@ -1097,7 +1138,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
     \[ \mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_n) = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)\pi_j}{\sum_{k=1}^K p(\mathcal{D}_n \,|\, \mathcal{M}_k)\pi_k} \]
 
-  + $\mathcal{L}_j(\theta_j)$: the likelihood function for model $j \ni$
+  + $\mathcal{L}_j(\theta_j)$: the likelihood function for model $j \text{ s.t. }$
 
     \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int \mathcal{L}_j(\theta_j) p_j(\theta_j)\, d\theta_j \]
 
@@ -1158,7 +1199,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 + Bayesian information criterion (BIC)
   + __Definition__. (Bayesian information criterion)
     + $\exists \text{ data } \mathcal{D}_n \text{ and a model } \mathcal{M}$
-    + the Bayesian information criterion for $\mathcal{M}$ w/ $d$ as the dimensionality of the model $\mathcal{M} \ni$ 
+    + the Bayesian information criterion for $\mathcal{M}$ w/ $d$ as the dimensionality of the model $\mathcal{M} \text{ s.t. }$ 
 
       \[ \text{BIC}(\mathcal{M}) = \log \mathcal{L}_n(\theta) - \frac{1}{2} \log n \]
 
