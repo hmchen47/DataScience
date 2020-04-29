@@ -218,6 +218,20 @@ Although this class is self-paced, you must complete all work by August 11th, 20
 
 #### FAQ
 
-I started the course late and I don't know if I can finish in time. Can I use my work and Verified Certificate for the next session?
-Unfortunately, completed work and the Verified Certificate does not roll over per session, according to edX's policies. If you find that you cannot finish before the deadline (for the refund or switching to Verified), we suggest that you un-enroll your Verified status and re-enroll in the next session. 
+1. I started the course late and I don't know if I can finish in time. Can I use my work and Verified Certificate for the next session?
+
+  + Unfortunately, completed work and the Verified Certificate does not roll over per session, according to edX's policies. If you find that you cannot finish before the deadline (for the refund or switching to Verified), we suggest that you un-enroll your Verified status and re-enroll in the next session. 
+
+
+### Effort and Pace
+
+#### Effort
+
+We expect the course to take 10-15 hours per week to complete.
+
+ 
+#### Pace and deadlines
+
+The course is self-paced. All materials will stay online till the end of the course. As described before, you will have the entire duration of the course to submit all graded assignments. 
+
 
