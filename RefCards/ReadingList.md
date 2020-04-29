@@ -4,9 +4,8 @@
 
 ### Recommended books, articles and courses
 
-+ [10 Free Top Notch Machine Learning Courses](../Notes/a01-MLCourses.md#10-free-top-notch-machine-learning-courses)
-+ [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07-MLBooks.md#)24-best-and-free-books-to-understand-machine-learning
-+ Daniel Smith, Lionbridge, [10 Best Machine Learning Textbooks that All Data Scientists Should Read](../Notes/a07-MLBooks.md#10-best-machine-learning-textbooks-that-all-data-scientists-should-read)
++ Daniel Smith, Lionbridge, [10 Free Top Notch Machine Learning Courses](../Notes/a07-MLBooks.md#10-best-machine-learning-textbooks-that-all-data-scientists-should-read)
++ Reashikaa Verma, [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07-MLBooks.md#24-best-and-free-books-to-understand-machine-learning)
 + Vincent Granville, [19 Great Articles About Natural Language Processing (NLP)](../Notes/a04-19NLP.md#19-great-articles-about-natural-language-processing-nlp)
 
 
@@ -17,7 +16,7 @@
 
 ### Feature Engineering
 
-+ [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
++ Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
 + Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
 
 
@@ -48,7 +47,6 @@
 
 ### General Topics for ML
 
-+ Reashikaa Verma, [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07=MLBools.md)
 + Pedro Domingos, [A Few Useful Things to Know about Machine Learning](../AppliedDS-UMich/3-AML/p0-UsefulThings.md)
 + Ron Kohavi, Randal M. Henne, and Dan Sommerfield, [Practical Guide to Controlled Experiments on the Web: Listen to Your Customers not to the HiPPO](../AppliedDS-UMich/3-AML/p1-ControlledExp.md)
 + S. Kaufman, S. Rosset, & C. Perlich, [Leakage in Data Mining: Formulation, Detection, and Avoidance](../AppliedDS-UMich/3-AML/p3-Leakage.md)
@@ -115,7 +113,6 @@
 
 ## Reading List
 
-+ [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf), chapter 12
 + A. Julien-Laferriere, [Hopfield network](https://bit.ly/2UH5h2X)
 + [Hopfield Model of Neural Network](https://bit.ly/2xQGikM), Chapter 2,
 + R. Rojas, [The Hopfield Model](https://bit.ly/2wTiP2A) in Neural Networks, Springer, 1996
