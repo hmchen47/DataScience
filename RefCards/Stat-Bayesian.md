@@ -437,7 +437,7 @@
 
 
 
-## Bayes Factor (BF)
+## Bayes Factor (BF) and Model Selection
 
 + [Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (BF)
   + measure of the relative likelihood of two hypotheses
@@ -460,7 +460,70 @@
 
   + equal-probable prior: $\Pr(\theta \in \Theta_0) = \Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
 
++ [Bayes factor and model selection](../Notes/p04a-Bayesian.md#1228-model-comparison-and-bayesian-information-criterion)
+  + sampling data: $\mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + parametric models: $\mathcal{M}_1, \dots, \mathcal{M}_K$
+  + $\pi_j = \mathbb{P}(\mathcal{M}_j)$: a prior probability to model $\mathcal{M}_j$
+  + $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$: a prior to the parameter $\pmb{\theta}_j$ under model $\mathcal{M}_j$
+  + the posterior probability of model $\mathcal{M}_j$ conditional on data $\mathcal{D}_n$
 
+    \[ \mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_n) = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)\pi_j}{\sum_{k=1}^K p(\mathcal{D}_n \,|\, \mathcal{M}_k)\pi_k} \]
+
+  + $\mathcal{L}_j(\theta_j)$: the likelihood function for model $j \text{ s.t. }$
+
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int \mathcal{L}_j(\theta_j) p_j(\theta_j)\, d\theta_j \]
+
+  + the comparison btw $\mathcal{M}_j$ and $\mathcal{M}_k$
+
+    \[ \frac{\mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_n)}{\mathbb{P}(\mathcal{M}_k \,|\, \mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n \,|\, \mathcal{M}_k) \pi_k} \tag{6} \]
+
+  + __Definition__. (Bayes factor) The Bayes factor btw $\mathcal{M}_j$ and $\mathcal{M}_k$ defined as 
+
+    \[ \text{BF}(\mathcal{D}_n) = \frac{\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_j)}{\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_k)} = \frac{\int \mathcal{L}_j(\theta_j)p_j(\theta_j)\,d\theta_j}{\int \mathcal{L}_j(\theta_j)p_j(\theta_k)\,d\theta_k} \]
+
+    + $\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_j)$: the marginal likelihood for model $\mathcal{M}_j$
+
+  + Bayesian model comparison: a method of model selection based on Bayes factor
+
++ [Marginal likelihood w/ uniform prior - prerequisite for Bayesian Information Criterion](../Notes/p04a-Bayesian.md#1228-model-comparison-and-bayesian-information-criterion)
+  + the marginal likelihood density for model $\mathcal{M}_j$
+
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int \mathcal{L}_n(\pmb{\theta}_j) p_j\left(\pmb{\theta}_j\,|\, \mathcal{M}_j\right)\,d\pmb{\theta}_j \]
+
+  + $I_n(\pmb{\theta}_j)$: empirical Fisher information matrix for the dataset $\mathcal{D}_n$
+  + $I_1(\pmb{\theta}_j)$: empirical Fisher information matrix for one data point
+  + under certain regularity conditions, $I_n(\theta_j) = n I_1(\theta_j)$
+  + $\hat{\pmb{\theta}}_j$: the maximum a poster (MAP) estimator under model $\mathcal{M}_j$
+  + let $\mathcal{L}_n(\pmb{\theta}_j) = p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j)$ and a Taylor expansion at $\hat{\pmb{\theta}}_j$
+
+    \[ \mathcal{L}_n(\pmb{\theta}_j) \approx \mathcal{L}_n(\hat{\pmb{\theta}}_j) \exp\left( -\frac{1}{2}(\pmb{\theta}_j - \hat{\pmb{\theta}}_j)^T I_n(\hat{\pmb{\theta}}_j)(\pmb{\theta}_j - \hat{\pmb{\theta}}_j) \right) \]
+
+  + $\exists\; \pmb{\theta}_j \in \mathbb{R}^d$, choosing a prior $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$ as a noninformative or "flat" over the neighborhood of $\pmb{\theta}_k$ w/ $\mathcal{L}_n(\pmb{\theta})$
+
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{\left|I_n(\hat{\pmb{\theta}}_j)\right|^{1/2}} \hspace{1em} = \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{n^{d_j/2} \left|I_1(\hat{\pmb{\theta}}_j)\right|^{1/2}} \]
+
++ [[Bayesian information criterion (BIC)](../Notes/p04a-Bayesian.md#1228-model-comparison-and-bayesian-information-criterion)
+  + __Definition__. (Bayesian information criterion)
+    + $\exists \text{ data } \mathcal{D}_n \text{ and a model } \mathcal{M}$
+    + the Bayesian information criterion for $\mathcal{M}$ w/ $d$ as the dimensionality of the model $\mathcal{M} \text{ s.t. }$ 
+
+      \[ \text{BIC}(\mathcal{M}) = \log \mathcal{L}_n(\theta) - \frac{1}{2} \log n \]
+
+  + BIC score: providing a large-sample approximation to the log posterior probability associated w/ the approximation model
+  + choosing the fitted candidate model corresponding to the maximum value of BIC $\implies$ selecting the candiate model corresponding to the highest Bayesian posterior probability
+
+    \[ \log \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)}{p(\mathcal{D}_n \,|\, \mathcal{M}_k)} = \text{BIC}(\mathcal{M}_j) - \text{BIC}(\mathcal{M}_k) + O_P(1) \]
+
+  + the likelihood for the model $j$
+
+    \[ \pi_1 = \cdots = \pi_k = 1/K \implies p(\mathcal{M}_j \,|\, \mathcal{D}_n) \approx \frac{\exp(\text{BIC}(\mathcal{M}_j))}{\sum_{k=1}^K \exp(\text{BIC}(\mathcal{M}_k))} \]
+
+  + $n \to \infty \implies p(\mathcal{D}_n \,|\, \mathcal{M}_j)/p(\mathcal{D}_n \,|\, \mathcal{M}_k) \to -\infty / \infty$ as $O_p(1)$ negligible
+  + BIC characteristics
+    + an approximation to the posterior
+    + preferred simpler model compared to AIC ([Akaike information criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion))
+    + model selection consistent; i.e., the true model within the candidate pool $\implies$ $p(\text{selecting the true model}) \to 1$ as $n \to \infty$
+    + not selecting the fitted candidate model minimizing the mean squared error for prediction, but AIC optimizing predictive accuracy
 
 
 
