@@ -100,46 +100,17 @@
 
       \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_N) = 1 - \alpha \]
 
-+ [Favors of Bayesian inference](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
-  + subjective Bayesian
-  + objective Bayesian
-  + empirical Bayesian
-  + frequentist Bayesian
-
-+ [Bayesian procedure](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
-  + choose the prior distribution
-    + a probability density $\pi(\theta)$
-    + expressing out beliefs about a parameter $\theta$ before observing any data
-  + choose a statistical mode $p(x\,|\,\theta)$ to reflect our beliefs about $x$ given $\theta$
-  + observe data $\mathcal{D}_n = \{X_1, \dots, X_n\} \to$ update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D}_n)$
-
-+ [General Bayesian inference](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
-  + the posterior distribution
-
-    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi(\theta)}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
-
-    + $\mathcal{L}(\theta) = p(X_1, \dots, X_n\,|\, \theta)$: the likelihood function
-    + the normalizing constant, a.k.a. the evidence
-
-      \[ c_n = p(X_1, \dots, X_n) = \int p\left(X_1, \dots, X_n \,|\, \theta\right) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
-
-  + Bayesian point estimate
-    + getting a Bayesian mean or mode by summing the center of the posterior $\gets$ typically using the mean or mode of the posterior distribution
-    + the posterior mean
-
-      \[ \overline{\theta} = \int \theta\, p(\theta \,|\, \mathcal{D}_n)\, d\theta = \frac{\int \theta\, \mathcal{L}_n(\theta)\, \pi(\theta) d\theta}{\int \mathcal{L}_n(\theta) \pi(\theta) d\theta} \]
-
-  + Bayesian interval estimate
-    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \text{ s.t. }$
-
-      \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
-
-    + let $C = (a, b)$,
-
-      \[ \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = \int_b^a p(\theta \,|\, \mathcal{D}_n) d\theta = 1 - \alpha \]
-
-    + $C$: viz. a ($1-\alpha$) Bayesian posterior interval or _credible interval_
-    + _credible region_: $\theta$ w/ multi-dimensional
++ [Bayesian vs. frequentist(../Notes/p04c-Bayesian.md#128-the-bayes-frequestist-debate)
+  + frequentist and Bayesian methods answering different questions
+  + usage conditions
+    + Bayesian inference: analyzing subjective beliefs in a principal way
+    + frequentist inference: designing methods w/ long run frequency guarantees
+  + Bayesian methods not having good frequency performance
+  + frequentist methods not representing anyone's subjective beliefs
+  + models
+    + similar: low dimensional models w/ lots of data
+    + different: high dimensional models
+  + Bayesian models having poor frequentist behavior when the parameter space w/ high dimensional
 
 
 
@@ -157,6 +128,11 @@
   + exchangeability
   + the likelihood principle
 
++ [Favors of Bayesian inference](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + subjective Bayesian
+  + objective Bayesian
+  + empirical Bayesian
+  + frequentist Bayesian
 
 
 
@@ -242,6 +218,40 @@
 
 + [Example: vitamin C cure within a week (cont.)](../Notes/p03-BayesianBasics.md#6-examples)
 
++ [Bayesian procedure](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + choose the prior distribution
+    + a probability density $\pi(\theta)$
+    + expressing out beliefs about a parameter $\theta$ before observing any data
+  + choose a statistical mode $p(x\,|\,\theta)$ to reflect our beliefs about $x$ given $\theta$
+  + observe data $\mathcal{D}_n = \{X_1, \dots, X_n\} \to$ update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D}_n)$
+
++ [General Bayesian inference](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + the posterior distribution
+
+    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi(\theta)}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
+
+    + $\mathcal{L}(\theta) = p(X_1, \dots, X_n\,|\, \theta)$: the likelihood function
+    + the normalizing constant, a.k.a. the evidence
+
+      \[ c_n = p(X_1, \dots, X_n) = \int p\left(X_1, \dots, X_n \,|\, \theta\right) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
+
+  + Bayesian point estimate
+    + getting a Bayesian mean or mode by summing the center of the posterior $\gets$ typically using the mean or mode of the posterior distribution
+    + the posterior mean
+
+      \[ \overline{\theta} = \int \theta\, p(\theta \,|\, \mathcal{D}_n)\, d\theta = \frac{\int \theta\, \mathcal{L}_n(\theta)\, \pi(\theta) d\theta}{\int \mathcal{L}_n(\theta) \pi(\theta) d\theta} \]
+
+  + Bayesian interval estimate
+    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \text{ s.t. }$
+
+      \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
+
+    + let $C = (a, b)$,
+
+      \[ \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = \int_b^a p(\theta \,|\, \mathcal{D}_n) d\theta = 1 - \alpha \]
+
+    + $C$: viz. a ($1-\alpha$) Bayesian posterior interval or _credible interval_
+    + _credible region_: $\theta$ w/ multi-dimensional
 
 
 
@@ -1620,4 +1630,5 @@
 
 
 
+## 
 
