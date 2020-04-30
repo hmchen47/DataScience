@@ -818,6 +818,26 @@
 
   + sample size: $\hat{T}_0$ fixed $\implies$ optimal (minimum) sample size $\to$ $BE_1(\hat{T}_0) + BE_2(\hat{T}_0) \leq \alpha$
 
++ [Bayesian hypothesis testing](../Notes/p04a-Bayesian.md#1227-bayesian-hypothesis-testing)
+  + hypothesis: $\exists\; \theta \in \mathbb{R} \text{ s.t. }$
+
+    \[ H_0: \theta = \theta_0 \quad \text{ vs. } H_1: \theta \neq \theta_0 \]
+
+  + the Bayesian approach to testing
+    + putting a prior on $H_0$ and on the parameter $\theta$
+    + then computing $\mathbb{P}(H_0 \,|\, \mathcal{D}_n)$
+  + commonly using the prior $\mathbb{P}(H_0) = \mathbb{P}(H_1) = 1/2$
+  + applying Bayes theorem
+
+    \[ \mathbb{P}(H_0 \,|\, \mathcal{D}_n) = \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_0) + \int \mathcal{L}(\theta)\pi(\theta)\,d\theta} \]
+  
+  + estimation problem:
+    + the prior not very influential
+    + the frequentist and Bayesian giving similar answers
+  + using improper prior in testing hypothesis $\to$ undefined constant in the denominator
+  + caution: choosing the prior $\pi(\theta)$ very carefully
+
+
 
 
 
