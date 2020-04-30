@@ -232,6 +232,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
     + `2'.` (Le Cam). Same as 2., except $g(x \,|\, \theta) > 0, \,E(g(x \,|\, \theta)) < \infty$ w/ the Frobenius norm $\|A\|_{F} = \sqrt{\sum\sum |a_{ij}|^2}$
 
       \[ \sup_{\theta^\prime: \|\theta^\prime - \theta\|_{\leq \delta_0}} \left\| \frac{\partial^2 \log f(x \,|\, \theta)}{\partial\theta^\prime\,\partial\theta^{\prime T}} \right\|_{F} \leq g(x \,|\, \theta) \]
+  
   + classical statistical regularity conditions
     + `1.` identifiability of $\theta$: $f(x | \theta)$ is distinct $\forall\, \theta \in \Theta$; $\theta+1 \neq \theta_2, \;f(x | \theta_1) \neq f(x | \theta_2)$ , the condiation is also stated in terms of the Kullback-Leibler distance btw densities $f_\theta$, where for $\theta_1 \neq \theta_2, \mathcal{D}(f_1, f_2) = \int f(x | \theta_1) \log\left( \frac{f(x | \theta_1)}{f(x | \theta_2)} \right) \,dx > 0$
     + `2.` common support: $\{ x: f(x|\theta) > 0 \}$ is the same $\forall\, \theta \in \Theta$; i.e., the support is independent of $\theta$
@@ -252,7 +253,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 
 
-### 12.0.3 Various spaces
+### 12.0.3 Advanced probability and statistics concepts
 
 + Probability, Statistics, and Measure Theory
   + __Definition__ (countable set)<br/> A set $S$ is _countable_ if there exists an injective function (one-to-one mapping) $f$ from $S$ to the natural number $\mathbb{N} = \{ 0, 1, 2, \dots \}$
