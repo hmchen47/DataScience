@@ -97,12 +97,23 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#elationship-of-distribution"> Relationship </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#tables-of-common-continuous-distributions"> Common Continuous </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#tables-of-common-continuous-distributions"> Common Discrete </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#bernoulli-distribution"> Bernoulli </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#binomial-distribution"> Binomial </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-distribution"> Beta </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-binomial-distribution"> Beta-Binomial </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#dirichlet-distribution"> Dirichlet </a></td>
   </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#wishart-distribution"> Wishart </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#pareto-distribution"> Pareto </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Study Design </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#overview"> Overview </a></td>
