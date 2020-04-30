@@ -16,28 +16,27 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 + Basic concepts of mathematical foundation
   + __Definition__ (lower bound and infimum)
-    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq), \to a \leq x, \;\forall\, x \in S$
-    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S, \,\text{ s.t. } \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
+    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq) \text{ s.t. } a \leq x, \;\forall\, x \in S$
+    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S \text{ s.t. } \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
   + __Definition__ (upper bound and supremum)
     + $b \in S$ as an _upper bound_  of $S \subseteq P$, a partially ordered set $(P,\leq), \,\text{ s.t. } b \geq x, \;\forall\, x \in S$
-    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S, \,\text{ s.t. } \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than any other upper bound)
-  + the arguments of the maxima
-    + __Definition__ (the arguments of the maxima)
-      + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
-      + the $\mathop{\arg\max}$ over some subset, $S$ of S define as
+    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S \,\text{ s.t. } \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than or equal to any other upper bound)
 
-        \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S \cup \forall\, y \in S: f(y) \leq f(x) \} \]
+  + __Definition__ (the arguments of the maxima)
+    + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
+    + the $\mathop{\arg\max}$ over some subset, $S$ of X define as
 
-    + $X = S$ or $S$ is clear from the context $\implies \mathop{\arg\max}_x f(x) := \{ x \,|\, \forall\, y: f(y) \leq f(x) \}$, i.e., $\mathop{\arg\max} is the set of points, $x$, for which $f(x) attains the function's largest value (if exists)
-    + $\mathop{\arg\max}$ possibly the empty set, a singleton, or containing multiple elements
-    + e.g., $f(x) = 1 - |x| \text{ s.t. } \mathop{\arg\max}_x (1 - |x|) = \{0\$
-    + $M$ as the maximum of $f \implies \mathop{\arg\max}$ as the level set of the maximum
+      \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S,  \forall\, y \in S: f(y) \leq f(x) \} \]
 
-      \[ \mathop{\arg\max}_x f(x) = \{ x \,,|\, f(x) = M \} =: f^{-1}(M) \]
+    + properties
+      + $X = S$ or $S$ is clear from the context $\implies \mathop{\arg\max}_x f(x) := \{ x \,|\, \forall\, y: f(y) \leq f(x) \}$, i.e., $\mathop{\arg\max}$ is the set of points, $x$, for which $f(x)$ attains the function's largest value (if exists)
+      + $\mathop{\arg\max}$ possibly the empty set, a singleton, or containing multiple elements, e.g., $f(x) = 1 - |x| \text{ s.t. } \mathop{\arg\max}_x (1 - |x|) = \{0\}$
+      + $M$ as the maximum of $f \implies \mathop{\arg\max}$ as the level set of the maximum
 
-  + __Definition__. (argument of the minimum)
 
-    \[\mathop{\arg\min}_{x \in S} := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}\]
+  + __Definition__ (argument of the minimum)
+
+    \[\mathop{\arg\min}_{x \in S} f9x) := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}\]
 
 ### 12.0.2 Probability and Statistics
 
@@ -357,8 +356,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
 
     + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
-
-+ Topology
 
 
 
