@@ -988,6 +988,41 @@
 
 
 
+
+## Normalizing Constants
+
++ [Estimating normalizing constant](../Notes/p04b-Bayesian.md#1256-normalizing-constants)
+  + advantage of MCMC: avoiding having to compute the normalizing constant
+
+    \[ c = \int \mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
+
+  + example
+    + $\exists\, \mathcal{M}_1 \mathcal{M}_2$
+    + $p_1$: the prior probability of model 1
+    + $c_1, c_2$: the normalizing constants for the two models
+    + to estimate $c$
+
+      \[ \mathbb{P}(\mathcal{M}_1 \,|\, X_1, \dots, X_n) = \frac{c_1 p}{c_1 p + c_2 (1 - p)} \]
+
+  + general model
+    + $f$: a probability density function
+
+      \[ f(\theta) = cg(\theta) \]
+
+    + $g(\theta) > 0$: known function
+    + $c$: unknown
+  + estimating $c$
+    + typically, $g(\theta)  = \mathcal{L}(\theta) \pi(\theta)$
+    + $\theta_1, \dots, \theta_n$: a sample from $f$
+    + $h$: a known probability density function
+    + the posterior mean and expected value
+
+      \[ \widehat{c} = \frac{1}{n} \sum_{i=1}^n \frac{h(\theta_i)}{g(\theta_i)} \implies \mathbb{E}(\widehat{c}) = \int \frac{h(\theta)}{g(\theta)} f(\theta) \,d\theta = \int \frac{h(\theta)}{g(\theta)} cg(\theta)\,d\theta = c \]
+
+      \[ \int \frac{h^2(\theta)}{g(\theta)} \,d\theta < \infty \implies \widehat{c} - c = O_p(n^{-1/2}) \]
+
+
+
 ## Credibility Test
 
 + [Credibility in clinical trials](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
