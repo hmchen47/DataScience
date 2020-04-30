@@ -478,6 +478,39 @@
     + $\{\theta^{(l)}: l = 1, 2, \dots\} \to \{\theta^{(l)}: l = B+1, B+2, \dots\, B > 1\}$
   + estimating $\eta = \eta(\theta)$ based on samples $\theta^{(l)} \implies$ computing $\overline{\eta} = \sum_{l=B+1}^N \eta^{(l)} / (N-B) \approx E[\eta|Y], \exists\; N >> B >> 1$
 
++ [Markov chain Monte Carlo methods](../Notes/p04b-Bayesian.md#1253-markov-chain-monte-carlo-mcmc)
+  + constructing a Markov chain $X_1, X_2, \dots$ w/ $f$ as their stationary distribution
+  + problem: estimating the integral $I = \int h(x) f(x) dx$
+  + under certain conditions, the integral following
+
+    \[ \frac{1}{N} \sum_{i=1}^N h(X_i) \xrightarrow{P} \mathbb{E}_f(h(X)) = I \]
+
+
+
+
+## Metropolis-Hastings Algorithm
+
++ [Metropolis-Hastings algorithm](../Notes/p04b-Bayesian.md#1253-markov-chain-monte-carlo-mcmc)
+  + __algorithm__
+
+    <div style="padding-left: 1em; padding-top: 0.2em;">choose $X_0$ arbitrary </div>
+    <div style="padding-left: 1em; padding-top: 0.2em;">Given $X_0, X_1, \dots, X_i$, generate $X_{i+1}$ as following: </div>
+      <div style="padding-left: 2em; padding-top: 0.2em;">1. generate a proposal or candidate value $Y \sim q(y | X_i)$</div>
+      <div style="padding-left: 2em; padding-top: 0.2em;">2. Evaluate $r \equiv r(X_i, Y)$ where</div>
+      <div style="text-align: center; padding-top: 0.2em;">$r(x, y) = \min \{ \frac{f(y)}{f(x)}\,\frac{q(x|y)}{q(y|x)}, \; 1 \}$</div>
+      <div style="padding-left: 2em; padding-top: 0.2em;">3. Set</div>
+      <div style="text-align: center; padding-top: 0.2em;">$X_{i+1} = \begin{cases} Y & \text{with probability } r \\ X_i & \text{with probability } 1 - r \end{cases}$</div><br/>
+
+  + simple way to execute step 3: generate $U \sim \text{Uniform}(0, 1)$
+  + common choice: 
+    + $q(Y|x) \sim N(x, b^2), \,b >0 \ni$ the proposal drawing from a normal, centered at the current value
+    + the proposal density $q$ symmetric $\implies q(y|x) = q(x|y)$ and
+
+      \[ r = \min\left\{ \frac\left{f(Y)}{f(X_i)}, \,1 \right\} \]
+
+  + constructed $X_0, X_1, \dots \to$ Markov chain
+  + the chain mixing well: the sample from the Markov chain starts look like the target distribution $f$ quickly
+    + tuning parameter ($b$) $\implies$ the efficiency and mixing-well of the chain
 
 
 
