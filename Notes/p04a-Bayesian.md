@@ -41,7 +41,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 ### 12.0.2 Probability and Statistics
 
 + Basic concepts of Probability and Statistics
-  + the __mode__ of a set of data values is the value that happen most often.
   + __Definition__ (moment)
     + a _moment_ is a specific quantitative measure of the shape of a function
     + the $n$-moment of a real-valued continuous fucntion $f(x)$ of a real variable about a value $c$ (usually $c=0$)
@@ -55,11 +54,11 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       + $X$: a random variable w/ the cumulative distribution $F$
       + $E$: the expectation operator or mean
-    + $n$-th moment not exists if
+    + $\not\exists\, n$-th moment if
 
       \[ E[|X^n|] = \int_{-\infty}^\infty |x^n| dF(x) = \infty \]
 
-    + the normalized $n$-th central moment or standardized moment id the $n$-th central moment divided by $\sigma^n$
+    + the normalized $n$-th central moment or standardized moment is the $n$-th central moment divided by $\sigma^n$
 
       \[ \frac{\mu_n}{\sigma^n} = \frac{E[(X - \mu)^n]}{\sigma^n} \]
 
@@ -68,26 +67,31 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + any symmetric distribution w/ a 3rd moment
       + negative skewness: skewed to left
       + positive skewness: skewed to right
-      + distribution $\approx$ Normal distribution: median $\approx \mu - \gamma\sigma/6$, mode = $\mu - \gamma \sigma/2$
+      + distribution $\approx$ Normal distribution: median $\approx \mu - \gamma\sigma/6$, mode $\approx \mu - \gamma \sigma/2$
     + the standardized fourth central moment: _kurtosis_ ($\kappa$)
       + a measure of the heaviness of the tail of the distribution
       + always non-negative and $\kappa \geq \gamma^2 + 1$
       + Gaussian distribution: $\kappa = 3\sigma^4$
-  + __Definition__ (converge in distribution) a sequence $X_1, X-2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
+
+  + __Definition__ (converge in distribution) <br/>
+    A sequence $X_1, X_2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
 
     \[ \lim_{n \to \infty} F_n(x) = F(x) \]
 
-    $\forall\, x \in \mathbb{R}$ at which $F$ is continuous. $F_n, F$: the cumulative distribution functions of random variables $X_n$ and $F$, respectively.
+    + $\forall\, x \in \mathbb{R}$ at which $F$ is continuous. 
+    + $F_n, F$: the cumulative distribution functions of random variables $X_n$ and $X$, respectively.
 
-  + __Definition__ (converge in probability) a sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$ towards the random variable $X$ if $\forall\, \varepsilon > 0$
+  + __Definition__ (converge in probability) <br/>
+    A sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$, towards the random variable $X$ if $\forall\, \varepsilon > 0$
 
     \[ \lim_{n \to \infty} \Pr(|X_n - X|) > \varepsilon) = 0 \]
 
     + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
     + $X_n$ _converges in probability_ to $X$:  
 
-      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N}, \,\text{ s.t. } \,\forall n \geq N, P_n < \delta \]
+      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N}, \,\text{ s.t. } P_n < \delta \;\forall n \geq N, \]
 
+  + the __mode__ of a set of data values is the value that happen most often.
   + Jensen's inequality
     + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
     + $X$ as an integrable real-valued random variable
@@ -96,8 +100,8 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       \[ \varphi(E[X]) \leq E[\varphi(X)] \]
 
   + detailed balance
-    + __Definition__ (Reversible Markov process or reversible Markov chain) A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
-    + __Definition__ (detailed balance in discrete process) the transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \text{ s.t. }$
+    + __Definition__ (Reversible Markov process or reversible Markov chain) <br/> A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
+    + __Definition__ (detailed balance in discrete process) <br/> The transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \text{ s.t. }$
 
       \[ \pi_i P_{ij} = \pi_j P_{ji} \]
 
@@ -110,6 +114,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       + $P(s, s')$: a transition kernel probability density from state $s'$ to state $s$
       + $\pi(s)$: a probability density at state $s$
+
   + __Theorem__(univariate delta method)
     + $\exists$ a sequence of random variables $X_n$ satisfying
 
@@ -118,6 +123,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + $\theta, \sigma^2$: finite valued constants
       + $\xrightarrow{D}$: convergence in distribution
       + $g'(\theta)$ exists and is non-zero valued
+
   + Hoeffding's inequality
     + providing an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount
     + a generalization of the Chernoff bound, only applied to Bernoulli random variable
