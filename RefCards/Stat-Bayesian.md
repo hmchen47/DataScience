@@ -101,6 +101,42 @@
   + empirical Bayesian
   + frequentist Bayesian
 
++ [Bayesian procedure](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + choose the prior distribution
+    + a probability density $\pi(\theta)$
+    + expressing out beliefs about a parameter $\theta$ before observing any data
+  + choose a statistical mode $p(x\,|\,\theta)$ to reflect our beliefs about $x$ given $\theta$
+  + observe data $\mathcal{D}_n = \{X_1, \dots, X_n\} \to$ update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D}_n)$
+
++ [General Bayesian inference](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + the posterior distribution
+
+    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi(\theta)}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
+
+    + $\mathcal{L}(\theta) = p(X_1, \dots, X_n\,|\, \theta)$: the likelihood function
+    + the normalizing constant, a.k.a. the evidence
+
+      \[ c_n = p(X_1, \dots, X_n) = \int p\left(X_1, \dots, X_n \,|\, \theta\right) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
+
+  + Bayesian point estimate
+    + getting a Bayesian mean or mode by summing the center of the posterior $\gets$ typically using the mean or mode of the posterior distribution
+    + the posterior mean
+
+      \[ \overline{\theta} = \int \theta\, p(\theta \,|\, \mathcal{D}_n)\, d\theta = \frac{\int \theta\, \mathcal{L}_n(\theta)\, \pi(\theta) d\theta}{\int \mathcal{L}_n(\theta) \pi(\theta) d\theta} \]
+
+  + Bayesian interval estimate
+    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \text{ s.t. }$
+
+      \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
+
+    + let $C = (a, b)$,
+
+      \[ \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = \int_b^a p(\theta \,|\, \mathcal{D}_n) d\theta = 1 - \alpha \]
+
+    + $C$: viz. a ($1-\alpha$) Bayesian posterior interval or _credible interval_
+    + _credible region_: $\theta$ w/ multi-dimensional
+
+
 
 
 ## School of Bayesian Approaches
@@ -248,7 +284,17 @@
   + _subjective prior of informative prior_: the parameters of the prior density elicited using a previously collected data or expert knowledge
   + _noninformative prior_: no such prior information available or very little knowledge available about the parameter $\theta$
 
++ [Conjugate prior](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + prior: $\theta \sim N(a, b^2)$
+  + the posterior for $\theta$
 
+    \[ \theta \,|\, \mathcal{D}_n \sim N(\overline{\theta}, \, \tau^2) \tag{4} \]
+
+  + region estimate: find posterior interval = find $C = (c, d) \to \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = 0.95$
+  + $\exists\; c$ and $d \text{ s.t. } \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = 0.025$
+  + find $ c \text{ s.t. }$
+
+    \[ \mathbb{P}(\theta < c \,|\, \mathcal{D}_n) = \mathbb{P} \left( \frac{\theta - \overline{\theta}}{\tau} < \frac{c - \overline{\theta}}{\tau}\right) = \mathbb{P}\left( Z < \frac{c - \overline{\theta}}{\tau} \right) = 0.025 \]
 
 
 
@@ -773,6 +819,72 @@
 
 
 
+## Uniform-Bernoulli likelihood model
+
++ [Uniform-Bernoulli likelihood model](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim Bernoulli(\theta)$
+  + prior distribution: uniform distribution as $\pi(\theta) = 1$
+  + $S_n = \sum_{i=1}^n X_i$: the number of success
+  + the posterior distribution
+
+    \[\begin{align*} 
+      p(\theta\,|\,\mathcal{D}_n) & \propto \pi(\theta) \mathcal{L}_n(\theta) = \theta^{S_n} (1-\theta)^{n - S_n} = \theta^{S_n+1-1} (1-\theta)^{n - S_n +1 -1} \\\\
+       &= \frac{\Gamma(n+2)}{\Gamma(S_n + 1) \Gamma(n-S_n+1)} \theta^{(S_n+1)-1} (1-\theta)^{(n-S_n+1)-1} \\\\
+       \therefore\;\theta\,|\,\mathcal{D}_n &\sim \text{Beta}(S_n+1, n-S_n +1)
+    \end{align*}\]
+
+  + the Bayesian posterior point estimator
+
+    \[ \overline{\theta} = \frac{S_n + 1}{n+2} = \lambda_n \hat{\theta} + (1 - \lambda_n) \tilde{\theta} \]
+
+    + $\hat{\theta} = S_n / n$: the maximum likelihood estimate
+    + $\tilde{\theta} = 1/2$: the prior mean
+    + $\lambda_n = n/(n+2) \approx 1$
+  + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta\,|\,\mathcal{D}_n) d\theta = .95$
+
+
+
+
+## Beta-Bernoulli likelihood model
+
++ [Beta-Bernoulli likelihood model](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim \text{Bernoulli}(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + the prior distribution: $\theta \sim \text{Beta}(\alpha, \beta)$ w/ prior mean $\theta_0 = \alpha/(\alpha+\beta)$
+  + the posterior distribution: $\theta \,|\, \mathcal{D}_n \sim \text{Beta}(\alpha + S_n, \beta + n - S_n)$
+  + the flat (uniform) prior: $\alpha = \beta = 1$
+  + the posterior mean:
+
+    \[ \overline{\theta} = \frac{\alpha + S_n}{\alpha + \beta + n} = \left(\frac{n}{\alpha+\beta+n}\right) \hat{\theta} + \left(\frac{\alpha+\beta}{\alpha+\beta+n} \right) \theta_0 \]
+
+
+
+## Dirichlet-Multinomial likelihood Model
+
++ Dirichlet-Multinomial likelihood Model
+  + sampling distribution: $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}, \;\; X_1, \dots, X_n \sim \text{Bernoulli}(\theta)$ w/ $\hat{\theta} = S_n/n$
+  + prior distribution: Dirichlet prior
+  + the sample space of the multinomial w/ $K$ outcomes as the set of vertices of the $K$-dim hypercube $\mathbb{H}_K$, mad up of vectors w/ exactly only one 1 and the remaining elements 0
+
+    \[ x = \underbrace{(0, 0, \dots, 0, 1, 0, \dots, 0)^T}_{K\text{ places}} \]
+
+  + $\exists\; \mathbf{X}_i = (X_{i1}, \dots, X_{iK})^T \in \mathbb{H}_K$,
+  
+    \[ \underbrace{\theta \sim \text{Dirichlet}(\pmb{\alpha})}_{\text{Prior}} \;\text{ and }\; \underbrace{\mathbf{X}_i \,|\, \theta \sim \text{Multinomial}(\pmb{\theta})}_{\text{likeliehood}} \; \forall\; i=1, 2, \dots, n\]
+
+    $\implies$ the posterior satisfies
+
+    \[ p(\pmb{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) \propto \mathcal{L}_n(\theta)\pi(\theta) \propto \prod_{i=1}^n \prod_{j=1}^K \theta_j^{X_{ij}} \prod_{j=1}^K \theta_j^{\alpha_j - 1} = \prod_{j=1}^K \theta_j^{\sum_{i=1}^n X_{ij}+\alpha_j-1} \]
+
+  + the posterior distribution w/ $\overline{\mathbf{X}} = \sum_{i=1}^n \mathbf{X}_i / n \in \Delta_K$
+
+    \[ \pmb{\theta} \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n \sim \text{Dirichlet}(\alpha+ n \overline{\mathbf{X}})\]
+
+  + the posterior mean
+
+    \[ \mathbb{E}(\theta \,|\, \mathbf{X}_1, \dots, \mathbf{X}_n) = \left(\frac{\alpha_1 + \sum_{i=1}^n X_{i1}}{\sum_{i=1}^K \alpha_i + n}, \dots, \frac{\alpha_K + \sum_{i=1}^n X_{iK}}{\sum_{i=1}^K \alpha_i + n} \right)^T \]
+
+  + prior conjugate w.r.t. the mode: the prior as Dirichlet distribution $\to$ the posterior as Dirichlet distribution
+
 
 
 ## Credibility Test
@@ -962,6 +1074,22 @@
   + observed data $y_m$ and the current posterior distribution $\theta \sim N((n_0\mu+my_m)/(n_o+m), \sigma^2/(n_o+m))$, the predictive distribution
 
     \[ Y_n|y_m \sim N \left( \frac{n_0\mu+my_m}{n_0+m}, \sigma^2 \left( \frac{1}{n_0+m} + \frac{1}{n} \right) \right) \tag{24} \]
+
++ [Bayesian predictive distribution](../Notes/p04a-Bayesian.md#1222-bayesian-prediction)
+  + $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + task: to predict the distribution of a future data point $X$ conditioned on $\mathcal{D}_n$
+  + the predictive distribution
+
+    \[\begin{align*}
+      p(x \,|\, \mathcal{D}_n) &= \int p(x, \theta \,|\, \mathcal{D}_n) \,d\theta  = \int p(x \,|\, \theta, \mathcal{D}_n)\, p(\theta \,|\, \mathcal{D}_n) \,d\theta  \\\\
+       &= \int p(x \,|\, \theta) \, p(\theta \,|\, \mathcal{D}_N) \,d\theta \hspace{3em} (\text{cond. indep.})
+    \end{align*}\]
+
+  + the predictive distribution w/ conditionally independent viewed as a weighted average of the model $p(x \,|\, \theta)$
+  + the weights determined by the posterior distribution of $\theta$
+
+
+
 
 
 ## Decision-Making
