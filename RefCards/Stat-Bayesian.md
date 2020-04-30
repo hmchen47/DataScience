@@ -910,6 +910,42 @@
 
 
 
+## Multiparameters
+
++ [Extracting inferences about one single parameters](../Notes/p04a-Bayesian.md#1224-multiparameter-problems)
+  + the marginal posterior for $\theta_1$
+
+    \[ p(\pmb{\theta} \,|\, \mathcal{D}_n) = \int \cdots \int p(\theta_1, \dots, \theta_d \,|\, \mathcal{D}_n) \, d\theta_2 \cdots d\theta_d \]
+
+  + probably not feasible to do the integral
+  + Solution: simulation by drawing randomly from the posterior
+
+    \[ \pmb{\theta}^1, \dots, \pmb{\theta}^B \sim p(\pmb{\theta} \,|\, \mathcal{D}_n) \]
+
+  + a sample from $p(\theta_1 \,|\, \mathcal{D}_n) \to$ avoided doing any integrals
+  + sampling $B$ data from a multivariate distribution $p(\pmb{\theta} \,|\, \mathcal{D}_n) \to$ challenging especially w/ large dimensionality $d$
+
++ [Comparing two binomials](../Notes/p04a-Bayesian.md#1224-multiparameter-problems)
+  + Binomial model
+
+    \[ X_1 \sim \text{Binomial}(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim \text{Binomial}(n_2, \theta_2) \]
+
+  + task: estimate $\tau = g(\theta_1, \theta_2) = \theta_2 - \theta_1$
+  + $\pi(\theta_1, \theta_2) = 1 \implies$ the posterior
+
+    \[ p(\theta_1, \theta_2 \,|\, X_1, X_2) \propto \theta_1^{X_1} (1-\theta_1)^{n_1 - X_1} \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \]
+
+  + $(\theta_1, \theta_2)$ as rectangle $\implies$ $\theta_1$ and $\theta_2$ independent under the posterior
+
+    \[\begin{align*}
+      p(\theta_1, \theta_2 \,|\, X_1, X_2) &= p(\theta_1 \,|\, X_1) p(\theta_2 \,|\, X_2) \hspace{5em} \\\\
+      p(\theta_1 \,|\, X_1) \propto \theta_1^{X_1} (1 - \theta_1)^{n_1 - X_1} \quad&\&\quad p(\theta_2 \,|\, X_2) \propto \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \\\\
+      \theta_1 \,|\, X_1 \sim \text{Beta}(X_1+1, n_1 - X_1 +1) \quad&\&\quad \theta_2 \,|\, X_2 \sim \text{Beta}(X_2 + 1, n_2 - X_2 + 1)
+    \end{align*}\]
+
+
+
+
 ## Credibility Test
 
 + [Credibility in clinical trials](../Notes/p01-Bayesian.md#311-the-credibility-of-significant-trial-results)
