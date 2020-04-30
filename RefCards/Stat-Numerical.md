@@ -58,7 +58,10 @@
     + applied to wide range problems
     + very weak theoretical guarantees
 
-
++ [Simulation approach for distribution](../Notes/p04b-Bayesian.md#125-simulation-methods-for-bayesian-computation)
+  + drawing sample $X$ from a distribution $F$
+    + $F(X)$: uniform distribution over the interval (0, 1)
+    + a basic strategy to sample $U \sim \text{Uniform}(0, 1) \to X = F^{-1}(U)$
 
 
 
@@ -84,6 +87,14 @@
       + rate of convergence not depending on $m$
   + performance: deterministic >> stochastic
 
++ [Basic simulation approach to estimate integral](../Notes/p04b-Bayesian.md#125-simulation-methods-for-bayesian-computation)
+  + estimating the integral $\int_0^1 h(x) \,dx$ for some complicated function $h$
+  + drawing $N$ samples $X_i \sim \text{Uniform}(01, 1)$
+  + estimating the integral
+
+    \[ \int_0^1 h(x) \,dx \approx \frac{1}{N} \sum_{i=1}^N h(X_i) \]
+
+  + converged to the desired integral by the law of large numbers
 
 
 
@@ -117,6 +128,21 @@
     + $\lambda$: a $q$-dimensional parameter
     + using a set of $q$ suitable moments of $Y$ w.r.t. the marginal density $m(Y|\lambda)$
     + equate moments to the corresponding $q$ empirical moments of the data vector $Y = (y_1, y_2, \dots, y_n)$
+
++ [Simulation methods for Bayesian inference](../Notes/p04b-Bayesian.md#125-simulation-methods-for-bayesian-computation)
+  + the posterior density
+
+    \[ \pi(\theta \,|\, \mathcal{D}_n) = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c} \]
+
+    + $\mathcal{L}_n(\theta)$: the likelihood function
+    + the normalizing constant $c = \int \mathcal{L}_n(\theta) \pi(\theta) \,d\theta$
+  + the posterior mean
+  
+    \[ \overline{\theta} = \int \theta \pi(\theta \,|\, \mathcal{D}_n) \,d\theta = \frac{1}{c} \int \theta\mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
+
+  + the marginal posterior density for $\theta_i$
+
+    \[ \pi(\theta_i \,|\, \mathcal{D}_n) = \int\int\cdots\int \pi(\theta_1,  \cdots, \theta_d) \,d\theta_1 \cdots d\theta_{i-1} d\theta_{i+1} \cdots d\theta_s \]
 
 
 
