@@ -32,6 +32,74 @@
 
     \[ \frac{p(b|a)}{p(\overline{b}|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \tag{Bayes.odds} \]
 
++ [Basic concepts of mathematical foundation](../Notes/p04a-Bayesian.md#1201-math-fundamental)
+  + __Definition__ (lower bound and infimum)
+    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq) \text{ s.t. } a \leq x, \;\forall\, x \in S$
+    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S \text{ s.t. } \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
+  + __Definition__ (upper bound and supremum)
+    + $b \in S$ as an _upper bound_  of $S \subseteq P$, a partially ordered set $(P,\leq), \,\text{ s.t. } b \geq x, \;\forall\, x \in S$
+    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S \,\text{ s.t. } \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than or equal to any other upper bound)
+
+  + __Definition__ (the arguments of the maxima)
+    + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
+    + the $\mathop{\arg\max}$ over some subset, $S$ of X define as
+
+      \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S,  \forall\, y \in S: f(y) \leq f(x) \} \]
+
+  + __Definition__ (argument of the minimum)
+
+    \[\mathop{\arg\min}_{x \in S} f9x) := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}\]
+
++ [Basic concepts of Probability and Statistics](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + __Definition__ (moment)
+    + a _moment_ is a specific quantitative measure of the shape of a function
+    + the $n$-moment of a real-valued continuous fucntion $f(x)$ of a real variable about a value $c$ (usually $c=0$)
+
+      \[ \mu_n = \int_{-\infty}^\infty (x - c)^n f(x) dx \]
+
+    + $f$ as a probability density function $\implies$ the $n$-th moment of the probability distribution
+    + $F$ as a cumulative probability distribution fucntion of any probability distribution, probably no density function $\implies$ the $n$-th moment of the probability distribution given by the Reimann-Stieltjes integral
+
+      \[ \mu_n^\prime = E[X^n] = \int_{-\infty}^\infty x^n dF(x) \]
+
+  + __Definition__ (converge in distribution) <br/>
+    A sequence $X_1, X_2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
+
+    \[ \lim_{n \to \infty} F_n(x) = F(x) \]
+  + __Definition__ (converge in probability) <br/>
+    A sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$, towards the random variable $X$ if $\forall\, \varepsilon > 0$
+
+    \[ \lim_{n \to \infty} \Pr(|X_n - X|) > \varepsilon) = 0 \]
+
+    + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
+    + $X_n$ _converges in probability_ to $X$:  
+
+      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N}, \,\text{ s.t. } P_n < \delta \;\forall n \geq N, \]
+
+  + detailed balance
+    + __Definition__ (Reversible Markov process or reversible Markov chain) <br/> A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
+    + __Definition__ (detailed balance in discrete process) <br/> The transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \text{ s.t. }$
+
+      \[ \pi_i P_{ij} = \pi_j P_{ji} \]
+
+  + __Theorem__ (univariate delta method) <br/>
+    $\exists$ a sequence of random variables $X_n$ satisfying
+
+      \[ \sqrt{n}[X_n - \theta] \xrightarrow{D} N(0, \sigma^2) \implies \sqrt{n} [g(X_n) - g(\theta)] \xrightarrow{D} N(0, \sigma^2 \cdot [g'(\theta)]^2) \]
+
+  + the __mode__ of a set of data values is the value that happen most often.
+  + Jensen's inequality
+    + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
+    + $X$ as an integrable real-valued random variable
+    + $\varphi$: a convex function
+
+      \[ \varphi(E[X]) \leq E[\varphi(X)] \]
+
+  + Hoeffding's inequality
+    + providing an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount
+    + a generalization of the Chernoff bound, only applied to Bernoulli random variable
+
+
 
 ## Statistical Inference
 
