@@ -100,6 +100,90 @@
     + a generalization of the Chernoff bound, only applied to Bernoulli random variable
 
 
+## Advanced concepts
+
++ [Probability, Statistics, and Measure Theory](../Notes/p04a-Bayesian.md#1203-advanced-probability-and-statistics-concepts)
+  + __Definition__ (countable set)<br/> A set $S$ is _countable_ if there exists an injective function (one-to-one mapping) $f$ from $S$ to the natural number $\mathbb{N} = \{ 0, 1, 2, \dots \}$
+    + $S$ is _countably infinite_ if such an $f$ is also surjective (many -to-one mapping)
+    + a set is _countably infinite_ if it has one-to-one correspondence w/ the natural number set, $\mathbb{N}$
+
+  + __Definition__ (Measure) <br/>
+    Let $X$ be a set and $\Sigma$ a $\sigma$-algebra over $X$. A function $\mu$ from $\Sigma$ to the extended real number line is called __measure_ if it satisfied the following properties
+    + __Non-negativity__: $\forall\, $E$ in $\Sigma \text{ s.t. } \mu(E) \geq 0$
+    + __Null empty set__: $\mu(\varnothing) = 0$
+    + __Countable additive__ (or $\sigma$-additive): $\forall$ countable collections $\{ E_i \}_{i=1}^\infty$ of pairwise disjoint sets in $\Sigma$
+
+      \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
+
+  + __Definition__ ($\sigma$ idea) a _$\sigma$-ideal_ of a sigma-algebra is a subset w/ certain desirable closure properties
+    + properties: Let $(X, \Sigma)$ be a measurable space ($\Sigma$ is a $\sigma$-albegra of subset of $X$).  A subset $N$ of $\Sigma$ is a $\sigma$-ideal if the following properties are satisfied
+      + $\varnothing \in N$
+      + when $A \in N$ and $B \in \Sigma, \,B \subseteq A \implies B \in M$
+      + $\{ A_n \}_{n \in \mathbb{N}} \subseteq N \implies \bigcup_{n \in \mathbb{N}} A_n \in N$
+
+  + __Definition__ (probability space) <br/>A probability space is a triple $(\Omega, \mathcal{F}, P)$ consisting of
+    + the sample space $\Omega$: an arbitrary non-empty set
+    + the $\sigma$-algebra $\mathcal{F} \subseteq 2^{\Omega}$ (also called \sigma$-field): a set of subsets of $\Omega$, called events $\text{ s.t. }$
+    + the probability measure $P: \mathcal{F} \to [0, 1]$: a function on $\mathcal{F} \text{ s.t. }$
+
+  + __Definition__ (meager set, set of first category) <br/>
+    a set that, considered as a subset of a (usually larger) topological space, is in a precise sense small or negligible
+
+  + __Definition__ (measure)
+    + $\exists\, \text{a set } X, \Sigma$ a $\sigma$-algebra over $X$
+    + a function $\mu$ from $\Sigma$ to the extended real number line is called _measure_ if it satisfies the following properties
+      + non-negative: $\forall\, E \in \Sigma, \, \mu(E) \geq 0$
+      + null empty set \{\varnothing\} = 0$
+      + countable additive (or $\sigma$-additive): for all countable collections $\{E\}_{i=1}^\infty$ of a pairwise disjoint sets in $\Sigma$
+
+        \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
+    + a triple $(X, \Sigma, \mu)$ as a _measure space_
+    + _probability measure_: a measure w/ total measure one, i.e., $\mu(X) = 1$
+    + _probability space_: a measure space w/ a probability measure
+
+  + __Definition__ (outer measure) an _outer measure_ on a set $X$ is a function
+
+    \[ \varphi: 2^{X} \to [0, \infty] \]
+
+    defined on all subsets of $X$ ($2^X$ - power set) that satisfies the following conditions
+
+  + __Definition__ ($\varphi$-measurable) $\exists\, E \subset X$ is _$\varphi$-measurable_ (or  Carathéodory-measurable by $\varphi$) $\iff \forall\, A \subset X \text{ s.t. }$
+
+    \[ \varphi(A) = \varphi(A \cup E) + \varphi(A \cup E^C) \]
+
+  + __Definition__ (Lebsegue measure)
+    + \exists\, E \subseteq \mathbb{R}$ w/ the length of interval $I = [a, b] (\text{or } I = (a, b))$ given by $l(I) - b - a$
+    + $\lambda^*(E)$: the _Lebesgue outer measure_ defined as 
+
+      \[ \lambda^*(E) = \inf \left\{ \sum_{k=1}^\infty l(I_k): (I_k)_{k \in \mathbb{N}} \text{ is a sequence of open intervals w/ } E \subseteq \bigcup_{k=1}^\infty I_k \right\} \]
+
+    + _Lebesgue measure_: on the Lebesgue $\sigma$-algebra, the collection of all sets $E$ satisfying the "Carathéodory criterion", $\forall\, A \subseteq \mathbb{R} \text{ s.t. }$
+
+      \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
+
+    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
+
+  + Norm
+    + $L^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
+    + a.k.a., Lebesgue spaces
+    + $L^p$ metrics: measures of central tendency and statistical dispersion, such as mean, median, and standard deviation
+    + penalized regression:
+      + L1 penalty: the $L^1$ norm of a solution's vector of parameter values, i.e., the sum of its absolute values
+      + L2 penalty: the $L^2$ norm of a solution's vector of parameter values, i.e., Euclidean length
+    + $p$-norm in finite dimensions
+      + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ usually given by the Euclidean norm
+
+        \[ \|x\|_2 = (x_1^2 + x_2^2 + \cdots + x_n^2)^{1/2} \]
+
+      + __Definition__.  for a real number $p \geq 1$, the __p$-norm or $L&p$-norm of $x$ defined as
+
+        \[ \|x\|_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{1/p} \]
+
+      + 1-norm: the norm corresponding to the rectilinear distance
+      + 2-norm: Euclidean nor
+
+
+
 ## Regularity condition
 
 + [Regularity conditions](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
