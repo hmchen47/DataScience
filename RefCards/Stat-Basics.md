@@ -100,6 +100,41 @@
     + a generalization of the Chernoff bound, only applied to Bernoulli random variable
 
 
+## Regularity condition
+
++ [Regularity conditions](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + __Condition 1:__ the pdfs are distinguish = the parameter identifies the pdf, i.e., $\theta \neq \theta' \implies f(x_i, \theta) \neq f(x_i, \theta')$
+  + __Condition 2:__ the pdfs are common support for all $\theta \implies$ the support does not depend on $\theta$
+  + __Condition 3:__ the point $\theta_0 \in \mathbb{R}$ is an interior point in some set $\Omega$
+    + the probability that $\theta$ appears in the endpoints of an interval
+    + the likelihood is maximized at the true parameter $\theta_0$ and the MLE $\hat{\theta}$ solving the equation
+
+      \[ \frac{\partial l(\theta)}{\partial \theta} = 0 \]
+
+      is consistent.
+  + __Condition 4:__ the pdf $f(x, \theta)$ is twice differentiable as a function of $\theta$
+  + __Condition 5:__ the integral $\int_{\infty}^{\infty} f(x, \theta) \,dx$ can be differentiated twice under the integral sign as a function $\theta$
+    + the last two derive the Fisher information playing a certain role in the theory of convergence of the MLE
+    + ensuring the asymptotic normality of the MLE
+  + __Condition 5:__ the pdf $f(x, \theta)$ is 3 times differentiable as a function of $\theta$.  Further $\forall\, \theta \in \Omega, \exists \text{ a constant } c \text{ and a function } M(x) \text{ s.t. }$
+
+    \[ \left| \frac{\partial^3 \log f(x, \theta)}{\partial \theta^3} \right| \leq M(x) \]
+
+    w/ $E_{\theta_0}[M(X)] < \infty \; \forall |\theta - \theta_0| < c$ and all $x$ in the support of $X$
+    + the remainder of a second order Taylor expansion about $\theta_0$ is bounded in probability and thus poses no problem asymptotically.
+
++ [Standard Regularity Conditions for Statistics](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + general assumptions and notations
+    + $X_1, \dots, X_n$: an i.i.d. set (sample) pf  random variable defined on the probability space $(|Omega, \mathcal{F}, P)$
+    + $X_i \in \mathbb{R}^d$ w/ parametric d.f. $F_X$
+    + $F_X$ w/ density $f(x|\theta)$ w.r.t. a $\sigma$-finite measure $\mu$
+    + $\{ X_i \}_{i=1}^\infty$: an i.i.d. sequence of random variables (convergence result)
+    + high order moment conditions on randoom vectors requiring tensor analysis for $k > 2$
+  + Regularity conditions for interchanging limits and integrals/sums
+  + classical statistical regularity conditions
+
+
+
 
 ## Statistical Inference
 

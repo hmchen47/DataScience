@@ -42,6 +42,26 @@
 
     where $\Gamma(a) = (a-1)!$
 
++ [Beta function](https://www.statlect.com/mathematical-tools/beta-function)
+  + __Definition__: The __Beta function__ is a function $B: \mathbb{R}^2_+ \to \mathbb{R}$
+
+    \[ B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x+y)} \]
+
+    where $\Gamma(\;)$ is the Gamma function
+  + Integral btw zero and infinity
+
+    \[ B(x, y)  = \int_0^\infty t^{x-1} (1+t)^{-x-y} dt \]
+
+  + Integral btw zero and one
+
+    \[ B(x, y) = \int_0^1 t^{x-1} (1-t)^{y-1} dt \]
+
+  + Incomplete Beta function: replacing upper bound of integration ($t = 1$) w/ a variable ($t = z \leq 1$)
+
+    \[ B(z, x, y) = \int_0^z t^{x-1} (1 - t)^{y-1} dt \]
+
+  + the mean of Beta distribution $Beta(a, b)$: $a / (a+b)$
+
 
 ## Beta-Binomial Distribution
 
@@ -67,4 +87,38 @@
         = \begin{pmatrix} n \\ k \end{pmatrix} \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
         &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
     \end{align*}\]
+
+
+## Dirichlet distribution
+
++ [Dirichlet distribution](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + a generalization of the Beta distribution
+    + 2-dim Dirichlet distribution = the Beta distribution
+    + let $q = (q_1, q_2)$, and $q \sim \text{Dirichlet}(\alpha_1, \alpha_2) \implies$
+
+      \[ q_1 \sim \text{Beta}(\alpha_1, \alpha_2)\quad\text{and}\quad q_2 = 1 - q_1 \]
+
+  + more generally, the marginals of the Dirichlet distribution are also beta distribution.
+
+    \[ q \sim \text{Dirichlet}(\alpha_1, \dots. \alpha_J) \;\implies\; q_i \sim \text{Beta}(\alpha_j,\; \sum_{i \neq j} \alpha_i) \]
+
+  + the density of the Dirichlet distribution in the most convenient way
+
+    \[ p(q\,|\,\alpha) = \frac{\Gamma(\alpha_1 + \cdots + \alpha_J)}{\Gamma(\alpha_1) \cdots \Gamma(\alpha_J)} \prod_{j=1}^J q_j^{\alpha_j - 1} \qquad (q_j \geq 0; \quad \sum_j q_j = 1) \]
+
++ [The Dirichlet distribution for $K$ outcomes](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + the exponential family distribution on the $K-1$ dimensional probability simplex
+  + the parameters of the model: $\pmb{\alpha} = (\alpha_1, \dots, \alpha_K)^T \in \mathbb{R}_+^K$, a non-negative vector of scaling coefficients
+  + probability simplex defined as
+
+    \[ \Delta_k = \left\{\pmb{\theta} = (\theta_1, \dots, \theta_K)^T \in \mathbb{R}^K \,|\, \theta_i \geq 0\; \forall i, \sum_{i=1}^K \theta_i = 1 \right\} \]
+
+  + the probability density of Dirichlet distribution
+
+    \[ \pi_{\pmb{\alpha}}(\pmb{\theta}) = \frac{\Gamma(\sum_{j=1}^K \alpha_j)}{\prod_{j=1}^K \Gamma(\alpha_j)} \prod_{j=1}^K \theta_j^{\alpha_j -1} \]
+
+  + the mean of a Dirichlet distribution $\pi_\alpha (\pmb{\alpha})$
+
+    \[ \mathbb{E}(\pmb{\theta}) = \left( \frac{\alpha_1}{\sum_{i=1}^K \alpha_i}, \dots, \frac{\alpha_K}{\sum_{i=1}^K \alpha_i} \right)^T \]
+
 
