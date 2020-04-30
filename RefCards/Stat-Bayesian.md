@@ -1603,6 +1603,21 @@
 
 
 
+## Freedman's Theory
+
++ [$weak^\ast$ topology](../Notes/p04c-Bayesian.md#127-freedmans-theorem)
+  + endowing $\mathcal{P}$ w/ the $weak^\ast$ topology: $P_n \to P$ in the $weak^*$ topology $\iff P_n(i) \to  P(i) \;\forall\, i$
+  + endowing the set w/ the $weak^\ast$ topology: $\mu_n \to \mu \iff \int fd\mu_n \to \int fd\mu, \;\forall\, f$
+  + the pair $(P, \mu)$ is __consistent__ if
+
+    \[ P^\infty\left(\lim_{n\to\infty} \mu_n = \delta_p\right) = 1 \]
+
++ [Freedman's theorem](../Notes/p04c-Bayesian.md#127-freedmans-theorem)
+  + __Theorem__ (Freedman 965) The sets of pairs $(P, \mu)$ is meager.
+  + priors guaranteeing consistency in the frequentist sense are rare
+  + choosing a prior to get consistency $\implies$ really trying to be frequentists
+  + choosing a prior to represent one's belief $\implies$ the posterior likely inconsistent by Freedman's theorem
+
 
 
 
