@@ -509,7 +509,6 @@
 
       \[ \text{BIC}(\mathcal{M}) = \log \mathcal{L}_n(\theta) - \frac{1}{2} \log n \]
 
-  + BIC score: providing a large-sample approximation to the log posterior probability associated w/ the approximation model
   + choosing the fitted candidate model corresponding to the maximum value of BIC $\implies$ selecting the candiate model corresponding to the highest Bayesian posterior probability
 
     \[ \log \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)}{p(\mathcal{D}_n \,|\, \mathcal{M}_k)} = \text{BIC}(\mathcal{M}_j) - \text{BIC}(\mathcal{M}_k) + O_P(1) \]
@@ -1169,7 +1168,7 @@
 
 
 
-## Decision-Making
+## Bayesian Decision Theory
 
 + [Modeling of health-care w/ decision-making](../Notes/p01-Bayesian.md#314-decision-making)
   + the appropriate role for formal decision theory in health-care evaluation -- a subject of a long and continuing debate
@@ -1246,6 +1245,44 @@
   + Optimal decision-making
     + depending solely on the expected benefit
     + irrelevance: measures of uncertainty such as intervals or $p$-values
+
++ [Risk of an estimator](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + $\widehat{\theta}(X)$:
+    + an estimator of a parameter $\theta \in \Theta$
+    + $\widehat{\theta}$ as a function of the data $X$
+  + measuring ht discrepancy btw a parameter $\theta$ and its estimator $\widehat{\theta}(X)$ using a loss function $L: \Theta \times \Theta \to \mathbb{R}$
+  + the risk of an estimator $\widehat{\theta}(X)$
+
+    \[ R(\theta, \widehat{\theta}) = \mathbb{E}_\theta(L(\theta, \widehat{\theta})) = \int L(\theta, \widehat{\theta}(x)) p_\theta(x) dx \]
+
++ [Decision theory from frequentist viewpoint](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + the parameter $\theta$ as a deterministic quantity
+  + purpose: finding a minimax estimator $\widehat{\theta}$ to minimize the maximum risk, i.e.,
+
+    \[ R_{\max}(\widetilde{\theta}) := \sup_{\theta \in \Theta} R(\theta, \,\widetilde{\theta}) \]
+
++ [Decision theory from Bayesian viewpoint](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + the parameter $\theta$ as a random quantity w/ a prior distribution $\pi(\theta)$
+  + purpose: finding the estimator $\widehat{\theta}(X)$ to minimize the posterior expected loss
+
+    \[ R_{\pi}(\widehat{\theta} \,|\, X) = \int_{\Theta} L\left(\theta, \widehat{\theta}(X)\right) p(\theta \,|\, X) d\theta \]
+  
+  + estimator $\widehat{\theta}$: a Bayes rule w.r.t. the prior $\pi(\theta)$ if
+
+    \[ R_{\pi}(\widehat{\theta}) = \inf_{\widetilde{\theta} \in \Theta} R_{\pi}(\widehat{\theta} \,|\, X) \]
+
++ [Bayes risk](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + minimizing the posterior expected loss $\equiv$ minimizing the average risk, Bayes risk
+
+    \[ B_{\pi} = \int R(\theta, \widehat{\theta}) \pi(\theta) \,d\theta \]
+
+  + __Theorem__. The Bayes rules minimizes the $B_\pi$
+
+  + __Theorem__. Bayes estimators
+    + $L(\theta, \widehat{\theta}) = (\theta, \widehat{\theta})^2 \implies$ the posterior mean
+    + $L(\theta, \widehat{\theta}) = |\theta, \widehat{\theta}| \implies$ the posterior median
+    + $L(\theta, \widehat{\theta}) = I(\theta \neq \widehat{\theta}) \implies$ the posterior mode
+
 
 
 
