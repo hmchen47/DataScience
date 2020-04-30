@@ -56,6 +56,11 @@
   + assumptions built around any scientific methods $\implies$ subjective
   + validating assumptions w/ sensitivity analysis
 
++ [Subjective debate](../Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors)
+  + subjectivism: the prior should reflect our subjective opinion about $\theta$ (before data collected)
+  + impractical in complicated problems, in particular, many parameters
+  + injecting subjective opinion into the analysis contrary to the goal of making scientific inference as objective as possible
+
 + [Approaches to statistical machine learning](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
   + _frequentist_ inference
     + probabilities interpreted as long run frequencies
@@ -258,7 +263,14 @@
   + not necessarily completely specified
   + not necessarily important
 
++ [Jefferys' prior](../Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors)
+  + Harold Jefferys' rule
+    + taking the prior distribution on parameter space proportional to the square root of the determinant of the Fisher infromation
+    + the Fisher infromation
 
+      \[ \pi(\theta) \propto \sqrt{|I(\theta)|}, \quad I(\theta) = -\mathbb{E} \left[ \left.\frac{\partial^2 \log p(X \,|\, \theta)}{\partial\theta\, \partial \theta^T} \,\right|\, \theta \right] \]
+
+  + __Theorem:__ The Jefferys' prior is transformed invariant.
 
 
 
@@ -271,6 +283,8 @@
   + __Lemma__: If the likelihood function is bounded below, i.e., $\inf_\theta \mathcal{L}(\theta; Y) \geq \mathcal{L}_0(Y)$ for some $\mathcal{L}_0(Y) >0 \implies$ any improper prior leads to an improper posterior
   + the posterior distribution not necessary proper if the prior improper
   + improper priors not true probability distributions
+
++ [Improper prior](/Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors): improper priors not a problem as long as the resulting posterior as a well-defined probability distribution
 
 
 
@@ -842,6 +856,11 @@
     + $\lambda_n = n/(n+2) \approx 1$
   + the Bayesian posterior credible interval: 95% posterior interval = $\int_a^b p(\theta\,|\,\mathcal{D}_n) d\theta = .95$
 
++ [Flat priors not invariant](../Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors)
+  + contradiction
+    + the notation of a flat prior not well define
+    + a flat prior on a parameter $\nRightarrow$ a flat prior on a transformed version of this parameter
+  + flat priors not transformed _invariant_
 
 
 
