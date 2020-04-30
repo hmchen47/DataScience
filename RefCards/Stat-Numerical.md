@@ -216,7 +216,35 @@
 
     \[ E[\mathfrak{g}\theta)|Y] \approx \overline{\mathfrak{g}}_N = \frac{\sum_{l=1}^N \mathfrak{g}(\theta^{(l)} w^{(l)})}{\sum_{l=1}^N w^{(l)}} \implies \frac{\sum_{l=1}^N w^{(l)}}{N} \xrightarrow[\text{in probability}]{\text{converge}} \int K(\theta; Y) d\theta \]
 
++ [Modeling of importance sampling](../Notes/p04b-Bayesian.md#1252-importance-sampling)
+  + $\exists\; g$ a probability density w/ known distribution
+  + the integral
 
+    \[ I = \int h(x) f(x) dx = \int \frac{h(x) f(x)}{g(x)} g(x) dx = \mathbb{E}_g (W) \]
+
+    + $W = h(X)f(X)/g(X)$
+    + $\mathbb{E}_g(W)$: the expectation w.r.t $g$
+
+  + importance sampling:
+    + simulate $X_1, \dots, X_N \sim g$ 
+    + estimate $I$ by the sample average
+
+      \[ \widehat{I} = \frac{1}{N} \sum_{i=1}^N Y_i = \frac{1}{N} \sum_{i=1}^N \frac{h(X_i)f(X_i)}{g(X_i)} \]
+
+  + by the law of large number: $\widehat{I} \xrightarrow{P} I$
+
++ [Guideline to importance sampling](../Notes/p04b-Bayesian.md#1252-importance-sampling)
+  + summary: a good choice for an importance sampling density $g$ should be similar to $f$ but w/ thicker tails
+  + __Theorem__: the choice of $g$ that minimizes the variance of $\widehat{I}$ is
+
+    \[ g^*(x) = \frac{|h(x)| f(x)}{\int |h(s)| f(s) ds} \]
+
++ [Modeling importance sampling in Bayesian inference](../Notes/p04b-Bayesian.md#1252-importance-sampling)
+  + $\theta_1, \dots, \theta_N$ as a sample from $g$, the posterior mean
+
+    \[ \mathbb{E}[\theta \,|\, X_1, \dots, X_n] \approx \frac{\frac{1}{N} \sum_{i=1}^N h_1(\theta_i)}{\frac{1}{N} \sum_{i=1}^N h_2(\theta_i)} \]
+
+  + very difficult to choose a good importance sampler $g$, especially in high dimensions
 
 
 
@@ -294,6 +322,11 @@
 
   + region estimate: $(1 - \alpha)$ confidence interval = $\widehat{I} \pm z_{\alpha/2} \cdot \widehat{se}$
   + $N \nearrow  \implies CI \searrow$
+
++ [Issue on basic Monte Carlo method](../Notes/p04b-Bayesian.md#1252-importance-sampling)
+  + issue: no guarantee $\pi(\theta | \mathcal{D}_n)$ w/ a known distribution
+  + solution: importance sampling - a generalization of basic Monte Carlo
+
 
 
 ## Monte Carlo Method for Integral
