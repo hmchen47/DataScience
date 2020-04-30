@@ -298,7 +298,7 @@
 
 
 
-## Prior with Conjugate Family
+## Overview of Conjugate Priors
 
 + [Prior conjugate family](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
   + conjugate family: prior densities and their leading posterior densities belonging to the same family
@@ -329,6 +329,10 @@
 
     satisfies $p(\cdot \,|\,\mathbf{x}) \in \mathcal{P} \implies$ the family $\mathcal{P}$ is _conjugate_ to the family of sampling distribution $\mathcal{F}$
   + the family $\mathcal{P}$ should be sufficiently restricted, and is typically taken to be a specific parametric family.
+
+
+
+## Conjugate Priors with Exponential Family
 
 + [General exponential family models](../Notes/p04a-Bayesian.md#1226-conjugate-priors)
   + $p(\cdot \,|\, \theta)$: a standard exponential family model
@@ -385,7 +389,6 @@
     \[ \mathbb{E}[\nabla A(\theta) \,|\, X] = a\mathbf{X} + \mathbf{b} \quad\iff\quad \pi(\pmb{\theta}) \propto \exp\left( \frac{1}{a} \mathbf{b}^T \pmb{\theta} - \frac{1 -a}{a} A(\pmb{\theta}) \right)  \]
 
   + similar result holds w/ discrete measure $\mu$
-
 
 + [Conjugate priors for discrete exponential family distributions](../Notes/p04a-Bayesian.md#1226-conjugate-priors)
 
