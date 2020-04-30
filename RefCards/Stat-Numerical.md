@@ -38,6 +38,28 @@
   + uniform prior: same as $Beta(a=1, b=1)$ w/ $\theta$ using binomial sampling density
   + posterior inference about $\theta$ or odds ratio $\rho = \theta/(1-\theta)$ or log-odds ratio $\eta = \log \rho$ relative insensitive to all previous priors
 
++ [Simulation methods for posterior distribution](../Notes/p04a-Bayesian.md#1229--calculating-the-posterior-distribution)
+  + general procedure
+    + drawing $\theta^1, \dots, \theta^B \sim p(\theta \,|\, \mathcal{D}_n)$
+    + generating a histogram of $\theta^1, \dots, \theta^B$ approximates the posterior density $p(\theta \,|\, \mathcal{D}_n)$
+  + approximation to the posterior mean: $\overline{\theta}_n = \mathbb{E}(\theta \,|\, \mathcal{D}_n) = B^{-1}\sum_{j=1}^B \theta^j$
+  + approximation to posterior $(1-\alpha)$ interval: $(\theta_{\alpha/2}, \theta_{1 - \alpha/2})$ w/ $\theta_{\alpha/2}$ as the $\alpha/2$ sample quantile of $\theta^1, \dots, \theta^B$
+  + $\exists\; \theta^1, \dots, \theta^B$ from $p(\theta | \mathcal{D}_n)$ and $\tau^i = g(\theta^i) \,\forall\, i=1, \dots, B \implies \tau^1, \dots, \tau^B$ as a sample from $p(\tau \,|\, \mathcal{D}_n)$
+
++ [Methods for obtaining simulated values from the posterior](../Notes/p04a-Bayesian.md#1229--calculating-the-posterior-distribution)
+  + stochastic simulation methods
+    + based on random sampling
+    + typical approaches
+      + Monte Carlo integration
+      + importance sampling
+      + Markov chain Monte Carlo (MCMC)
+  + variational inference
+    + based on deterministic approximation and numerical optimization
+    + applied to wide range problems
+    + very weak theoretical guarantees
+
+
+
 
 
 ## Numerical for Integrals
