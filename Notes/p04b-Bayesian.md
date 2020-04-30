@@ -135,7 +135,7 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
 ### 12.4.2 Hierarchical Models
 
-+ Hieracrhical model
++ Hier0archical model
   + a multi-level statistical model
   + a typical hierarchical model
 
