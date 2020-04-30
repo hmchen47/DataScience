@@ -485,6 +485,12 @@
 
     \[ \frac{1}{N} \sum_{i=1}^N h(X_i) \xrightarrow{P} \mathbb{E}_f(h(X)) = I \]
 
++ [Interpretation of Markov chain](../Notes/p04b-Bayesian.md#1254-why-it-works)
+  + a Markov chain w/ the transition kernel $p(y|x)$ = the probability of transiting from $x$ to $y$
+  + $f(x) = \int f(y) p(x|y) dy \implies f$ is a stationary distribution for the Markov chain
+  + $f$ as a stationary distribution for a Markov chain $\implies$ the data from a sample run of the Markov chain approximating the distribution $f$
+  + designing a Markov chain w/ stationary distribution $f \implies$ running the Markov chain and using the resulting data as if it were a sample from $f$
+
 
 
 
