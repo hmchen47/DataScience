@@ -91,14 +91,6 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
 
       \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N}, \,\text{ s.t. } P_n < \delta \;\forall n \geq N, \]
 
-  + the __mode__ of a set of data values is the value that happen most often.
-  + Jensen's inequality
-    + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
-    + $X$ as an integrable real-valued random variable
-    + $\varphi$: a convex function
-
-      \[ \varphi(E[X]) \leq E[\varphi(X)] \]
-
   + detailed balance
     + __Definition__ (Reversible Markov process or reversible Markov chain) <br/> A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
     + __Definition__ (detailed balance in discrete process) <br/> The transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \text{ s.t. }$
@@ -115,14 +107,22 @@ Related Course: [36-708 Statistical Methods for Machine Learning](http://www.sta
       + $P(s, s')$: a transition kernel probability density from state $s'$ to state $s$
       + $\pi(s)$: a probability density at state $s$
 
-  + __Theorem__(univariate delta method)
-    + $\exists$ a sequence of random variables $X_n$ satisfying
+  + __Theorem__ (univariate delta method) <br/>
+    $\exists$ a sequence of random variables $X_n$ satisfying
 
       \[ \sqrt{n}[X_n - \theta] \xrightarrow{D} N(0, \sigma^2) \implies \sqrt{n} [g(X_n) - g(\theta)] \xrightarrow{D} N(0, \sigma^2 \cdot [g'(\theta)]^2) \]
 
       + $\theta, \sigma^2$: finite valued constants
       + $\xrightarrow{D}$: convergence in distribution
       + $g'(\theta)$ exists and is non-zero valued
+
+  + the __mode__ of a set of data values is the value that happen most often.
+  + Jensen's inequality
+    + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
+    + $X$ as an integrable real-valued random variable
+    + $\varphi$: a convex function
+
+      \[ \varphi(E[X]) \leq E[\varphi(X)] \]
 
   + Hoeffding's inequality
     + providing an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount
