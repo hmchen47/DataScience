@@ -415,6 +415,8 @@
 
       \[ \mathbb{P}(\theta \in C_n \,|\, \mathcal{D}_n) \to 1 - \alpha \]
 
+  + [Bayes delta method](../Notes/p04b-Bayesian.md#1232-large-sample-properties-of-bayess-procedures): $\tau = g(\theta) \implies \tau \,|\, \mathcal{D}_n \approx N(\widehat{\tau}, \widetilde{se}^2), \;\;\widehat{\tau} = g(\widehat{\theta}), \,\widetilde{se} = \widehat{se} \,g'(\widehat{\theta})$
+
 
 
 
