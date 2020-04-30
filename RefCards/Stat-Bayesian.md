@@ -56,6 +56,52 @@
   + assumptions built around any scientific methods $\implies$ subjective
   + validating assumptions w/ sensitivity analysis
 
++ [Approaches to statistical machine learning](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + _frequentist_ inference
+    + probabilities interpreted as long run frequencies
+    + goal: to create procedures w/ long run frequency guarantees
+  + _Bayesian_ inference
+    + probabilities interpreted as subjective degree of belief
+    + goal: to state and analyze one's beliefs
+  + differences
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:30%;"> </th>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:20%;">Frequentist</th>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:20%;">Bayesian</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>  <td>Probability is:</td>  <td>limiting relative frequency</td>  <td>degree of belief</td></tr>
+      <tr>  <td>Parameter $\theta$ is a:</td>  <td>fixed constant</td>  <td>random variable</td></tr>
+      <tr>  <td>Probability statements are about:</td>  <td>procedures</td>  <td>parameters</td></tr>
+      <tr>  <td>Frequency guarantees?</td>  <td>yes</td>  <td>no</td></tr>
+      </tbody>
+    </table>
+
++ [Summary](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + frequentist inference
+    + procedures w/ frequency probability guarantees
+    + probability to random interval $C$: a frequentist confidence interval $C$ satisfies
+
+      \[ \inf_{\theta} \mathbb{P}_\theta(\theta \in X) = 1 - \alpha \]
+
+    + $\inf_\theta \mathbb{P}(\theta \in C)$: the coverage of the confidence interval $C$
+  + Bayesian inference
+    + a method for stating and updating beliefs
+    + probability to $\theta$: Bayesian confidence interval $C$ satisfies
+
+      \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_N) = 1 - \alpha \]
+
++ [Favors of Bayesian inference](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + subjective Bayesian
+  + objective Bayesian
+  + empirical Bayesian
+  + frequentist Bayesian
+
+
 
 ## School of Bayesian Approaches
 
@@ -659,6 +705,29 @@
 
     \[ R(Y) = (a(Y), b(Y)) \subseteq \Theta, \;\; -\infty \leq a(Y) < b(Y) \leq \infty \]
 
++ [Frequentist approach for interval estimate](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + $\exists\; X_1, \dots, X_n \sim N(\theta, 1)$
+  + probability statement about the random interval $C$: confidence interval
+
+    \[ C = \left[\overline{X}_n - \frac{1.96}{\sqrt{n}},\; \overline{X}_n + \frac{1.96}{\sqrt{n}}\right] \quad \implies \quad \mathbb{P}_\theta(\theta \in C) = 0.95 \quad \forall\;  \theta \in \mathbb{R} \]
+
+  + interval: a function of the data $\to$ random
+  + parameter $\theta$: fixed, unknown quantity
+  + finding the interval $C_j$ traps the parameters $\theta_j$, 95 percent of time
+  + more precisely
+
+    \[ \mathop{\lim\inf}_{n \to \infty} \frac{1}{n} \sum_{i=1}^n I(\theta_i \in C_i) \geq 0.95 \quad \forall\; \theta_1, \theta_2, \dots \tag{1} \]
+
++ [Bayesian approach for interval estimate](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + unknown parameter $\theta \sim$ prior distribution $\pi(\theta)$ representing ones subjective beliefs about $\theta$
+  + sampling distribution: observing the data $X_1, \dots, X_n$, the posterior distribution for $\theta$ given the data using Bayes theorem
+
+    \[ \pi(\theta \,|\, X_1, \dots, X_n) \propto \mathcal{L}(\theta) \pi(\theta) \tag{2} \]
+
+  + $\mathcal{L}(\theta)$: the likelihood function
+  + the degree-of-belief probability statement about $\theta$ given the data
+
+    \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_n) = 0.95 \]
 
 
 
