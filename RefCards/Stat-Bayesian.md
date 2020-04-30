@@ -1312,6 +1312,38 @@
 
 
 
+## Bayesian Linear Models
+
++ [Gaussian linear regression](../Notes/p04b-Bayesian.md#1241-bayesian-linear-model)
+  + many frequentist method viewed as the maximum a posterior (MAP) estimator under a Bayesian framework
+  + Gaussian linear regression w/ known $\sigma$
+
+    \[ Y = \beta_0 + \sum_{j=1}^d \beta_j X_j = \varepsilon, \quad \varepsilon \sim N(0, \sigma^2) \]
+
+  + sampling distribution: $\mathcal{D}_n = \{ (\pmb{X}_1, Y_1), \dots,  (\pmb{X}_n, Y_n)\}$
+  + the conditional likelihood of $\pmb{\beta} = (\beta_0, \beta_1, \dots, \beta_s)^T$
+
+    \[ \mathcal{L}(\pmb{\beta}) = \prod_{i=1}^n p(y_i \,|\, x_i, \pmb{\beta}) \propto \exp\left( -\frac{\sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^d \beta_j x_{ij})^2}{2 \sigma^2} \right) \]
+
+  + a Gaussian prior $\pi_\lambda(\pmb{\beta}) \propto \exp( -\lambda \|\pmb{\beta}\|^2_2 / 2) \implies$ the posterior
+
+    \[ p(\pmb{\beta} \,|\, \mathcal{D}_n) \propto \mathcal{L}(\pmb{\beta}) \pi_\lambda(\pmb{\beta}) \]
+
+  + the MAP estimator, $\widehat{\pmb{\beta}}^{\,MAP}$
+
+    \[ \widehat{\pmb{\beta}}^{\,MAP} = \mathop{\arg\min}_{\pmb{\beta}} p(\pmb{\beta} \,|\, \mathcal{D}_n) = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
+
+    + exactly the ridge regression w/ the regularization parameter $\lambda' = \lambda \sigma^2$
+  + adopting the Laplacian prior $\pi_\lambda(\pmb{\beta}) \propto \exp(-\lambda \|\pmb{\beta}\|_1 / 2) \implies$ the Lasso estimator
+
+    \[ \hat{\pmb{\beta}}^{\,MAP} = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
+
+  + a complete Bayesian analysis aiming at obtaining the whole posterior distribution $p(\pmb{\beta} \,|\, \mathcal{D}_n)$
+  + in general, $p(\pmb{\beta} \,|\, \mathcal{D}_n)$ not having an analytic form and resorting to simulation to approximate the posterior
+
+
+
+
 ## Hierarchical Models
 
 + [Modeling for sequential data sets](../Notes/p01-Bayesian.md#312-sequential-use-of-bayes-theorem)
@@ -1472,6 +1504,16 @@
 
   + plotting log(likelihood) $\implies$ maximizing numerically to obtain the maximum likelihood estimate $\hat{\tau}}$
   + the maximum likelihood estimate $\hat{\tau}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
+
++ [Hierarchical model](../Notes/p04b-Bayesian.md#1242-hierarchical-models)
+  + a multi-level statistical model
+  + a typical hierarchical model
+
+    \[\begin{align*}
+      \alpha &\sim \pi(\alpha) \\
+      \theta_1, \dots, \theta_n \,|\, \alpha &\sim p(\theta \,|\, \alpha) \\
+      X_i \,|\, \theta &\sim p(X_i \,|\, \theta_i), \; i=1, \dots, n
+    \end{align*}\]
 
 
 
