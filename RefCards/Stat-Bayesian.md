@@ -395,6 +395,29 @@
 
 
 
+## Large Sample Properties
+
++ [Bayesian approach w/ large samples](../Notes/p04b-Bayesian.md#1232-large-sample-properties-of-bayess-procedures)
+  + under appropriate conditions
+    + the posterior distribution $\approx$ Normal distribution
+    + the posterior mean $\approx$ mle
+  + __Theorem__.
+    + $I(\theta)$: the Fisher information
+    + $\widehat{\theta}_n$: the maximum likelihood estimator
+    + $\widehat{se} = 1 / \sqrt{n I(\widehat{\theta}_n)}$
+    + Under appropriate regularity conditions, the posterior $\approx N(\widehat{\theta}_n, \widehat{se})$, i.e.,
+
+      \[ \int \left|p(\theta \,|\, X_1, \dots, X_n) - N(\theta; \widehat{\theta}, \widehat{se} )\right| \,d\theta \xrightarrow{P} 0 \]
+
+    + $\overline{\theta} - \widehat{\theta} = O_P(1/n)$
+    + $z_{\alpha/2}: \alpha/2$-quantile of a standard Gaussian distribution
+    + $C_n = [\widehat{\theta}_n - z_{\alpha/2} \, \widehat{se}, \,\widehat{\theta}_n + z_{\alpha/2}\,\widehat{se}]$: the asymptotic frequentist $1-\alpha$ confidence interval
+
+      \[ \mathbb{P}(\theta \in C_n \,|\, \mathcal{D}_n) \to 1 - \alpha \]
+
+
+
+
 ## Odds Ratios
 
 + [Odds ratios](../Notes/a06-OddsRatios.md#what-is-an-odds-ratio) (OR)
