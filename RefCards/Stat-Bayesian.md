@@ -886,6 +886,29 @@
   + prior conjugate w.r.t. the mode: the prior as Dirichlet distribution $\to$ the posterior as Dirichlet distribution
 
 
+## Function Inference
+
++ [Bayesian inference about a function](/Notes/p04a-Bayesian.md#1223-inference-about-functions-of-parameters)
+  + $\exists\; \tau = g(\theta)$ a function
+  + the posterior CDF for $\tau$ w/ a given $A = \{\theta: g(\theta) \leq t\}$
+
+    \[ H(t \,|\, \mathcal{D}_n) = \mathbb{P}(g(\theta) \leq t \,|\, \mathcal{D}_n) = \int_A p(\theta \,|\, \mathcal{D}_n) \,d\theta \]
+
+  + the posterior density $p(\tau \,|\, \mathcal{D}_n) = H'(\tau \,|\, \mathcal{D}_n)$
+
++ [Uniform-Bernoulli likelihood model w/ logarithm of odds ratio](../Notes/p04a-Bayesian.md#1223-inference-about-functions-of-parameters)
+  + let $\psi = \log(\theta/(1 - \theta))$, the posterior CDF for $\psi$
+
+    \[\begin{align*}
+      H(t \,|\, \mathcal{D}_n) &= \mathbb{P}(\psi \leq t \,|\, \mathcal{D}_n) = \mathbb{P}\left( \log(\frac{\theta}{1 - \theta}) \leq t \,|\, \mathcal{D}_n \right)  \\\\
+      &= \int_0^{e^t/(1+e^t)} p(\theta \,|\, \mathcal{D}_n) \,d\theta =\frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \int_0^{e^t/(1-e^t)} \theta^{S_n} (1-\theta)^{n - S_n} \,d\theta
+    \end{align*}\]
+  
+  + the poster density w/ $\psi \in \mathbb{R}$
+
+    \[ p(\psi \,|\, \mathcal{D}_n) = H'(\psi \,|\, \mathcal{D}_n) = \frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \left(\frac{w^\psi}{1+e^\psi}\right)^{S_n+1} \left(\frac{1}{1+e^\psi}\right)^{n-S_n+1} \]
+
+
 
 ## Credibility Test
 
