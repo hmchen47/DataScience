@@ -988,21 +988,12 @@
 
 
 
-
 ## Normalizing Constants
 
 + [Estimating normalizing constant](../Notes/p04b-Bayesian.md#1256-normalizing-constants)
   + advantage of MCMC: avoiding having to compute the normalizing constant
 
     \[ c = \int \mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
-
-  + example
-    + $\exists\, \mathcal{M}_1 \mathcal{M}_2$
-    + $p_1$: the prior probability of model 1
-    + $c_1, c_2$: the normalizing constants for the two models
-    + to estimate $c$
-
-      \[ \mathbb{P}(\mathcal{M}_1 \,|\, X_1, \dots, X_n) = \frac{c_1 p}{c_1 p + c_2 (1 - p)} \]
 
   + general model
     + $f$: a probability density function
@@ -1012,14 +1003,10 @@
     + $g(\theta) > 0$: known function
     + $c$: unknown
   + estimating $c$
-    + typically, $g(\theta)  = \mathcal{L}(\theta) \pi(\theta)$
-    + $\theta_1, \dots, \theta_n$: a sample from $f$
-    + $h$: a known probability density function
     + the posterior mean and expected value
 
       \[ \widehat{c} = \frac{1}{n} \sum_{i=1}^n \frac{h(\theta_i)}{g(\theta_i)} \implies \mathbb{E}(\widehat{c}) = \int \frac{h(\theta)}{g(\theta)} f(\theta) \,d\theta = \int \frac{h(\theta)}{g(\theta)} cg(\theta)\,d\theta = c \]
 
-      \[ \int \frac{h^2(\theta)}{g(\theta)} \,d\theta < \infty \implies \widehat{c} - c = O_p(n^{-1/2}) \]
 
 
 
@@ -1549,6 +1536,70 @@
       \theta_1, \dots, \theta_n \,|\, \alpha &\sim p(\theta \,|\, \alpha) \\
       X_i \,|\, \theta &\sim p(X_i \,|\, \theta_i), \; i=1, \dots, n
     \end{align*}\]
+
+
+
+
+## Conflicts of Bayesian and Frequentist Approaches
+
++ [Multivariate Normal distribution w/ sum of squared mean](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + task: estimate $\pmb{\mu} = (\mu_1, \dots, \mu_n)^T$
+  + $\theta = \sum_{i=1}^n \mu^2_i$
+  + $\exists\, c_n, \,C_n = [c_n , \infty) \to \mathbb{P}(\theta \in C_n \,|\, \mathcal{D}_n) = 0.95$
+  + frequentist sense
+
+    \[ n \to \infty \ni \mathbb{P}_{\pmb{\mu}} (\theta \in C_n) \to 0 \]
+
+  + a sharp difference btw $\mathbb{P}_{\pmb{\mu}}(\theta \in C_n)$ and $\mathbb{P}(\theta \in \mathcal{D}_n \,|\, \mathcal{D}_n)$
+
++ [Sampling to a Foregone Conclusion](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + $X_i$: statistics comparing to a new drug to a placebo
+  + continuing sampling until $T_n > k, \,T_N = \sqrt{NX_N}, k= 10 \implies$ stop when the drug appears to be much better than the placebo
+  + approximating to Normal distribution: the prior $\pi(\theta)$ smooth $\implies$ the posterior approximately $\theta \,|\, X_1, \dots, X_N \sim N(\overline{X}_N, 1/N)$
+  + region estimate: $C_N = \overline{X}_N \pm 1.96/\sqrt{N} \implies \mathbb{P}(\theta \in C_N \,|\, X_1, \dots, X_N) \approx 0.95$ w/ $0 \notin C_N$
+  + frequentist perspective:
+    + stop sampling w/ $T > 10 \ni$
+
+      \[ \overline{X}_N - \frac{1.96}{\sqrt{N}} > \frac{10}{\sqrt{N}} - \frac{1.96}{\sqrt{N}} > 0  \quad\therefore \theta = 0 \ni \mathbb{P}_\theta(\theta \in C_N) = 0 \]
+
+    + the frequentist coverage
+
+      \[ \text{Coverage} = \inf_{\theta} \mathbb{P}_\theta(\theta \in C_N) = 0 \]
+
+  + sampling to a forgone conclusion: a serious issue in sequential clinical trials
+
++ [Godambe's example](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + $\exists\; C = \{ c_1, \dots, c_N \}$, a finite set of constants
+  + $c_i \in \{0, 1 \}$ for simplification
+  + to estimate $\theta = N^{-1}\sum_{j=1}^N c_j$
+  + the posterior for $\theta$ = the prior for $\theta$
+  + frequentist perspective
+    + to estimate $\theta$
+
+      \[ \widehat{\theta} = \frac{1}{N\pi} \sum_{j=1}^N c_j S_j \implies \mathbb{E}(\widehat{\theta}) = \theta \]
+
+    + $\therefore\, \widehat{\theta}$ closed to $\theta$ w/ high probability
+
++ [Flatland - Stone's paradox](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + even for a simple problem w/ a discrete parameters space, Bayesian inference can lead to surprises
+  + $\exists\, A$ wondering randomly in two dimensional grid-world
+  + A taking one more random step w/ equal probability for each direction, the path $x$ (middle diagram)
+  + B (Bayesian) and F (frequentist) trying to find the treasure
+  + $A_{event}$ as the event shortening string at the final step
+    + using the posterior B finding that $P(A_{event} | x) = 3/4, \forall\, x \to$ hold for each $x \implies P(A) = 3/4$
+    + B notes that $P(A |\theta) =1/4 \;\forall\, \theta \implies P(A) = 1/4$
+    + B just proved $1/4 = 3/4$
+  + contradiction: stemming from the improper prior
+  + technically, an example of the non-congolomerability of finite additive measures
+
++ [Brief explanation for Stone's paradox](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree) (Kass and Wasserman, 1996)
+  + first impression
+    + $\forall\, \text{fixed } x, \pi_p(A_{event} | x) \to 3/4 \text{ as }p \to \infty$
+    + $\therefore$ B's posterior distribution as a limit of well-defined posterior distributions
+  + carefully examined
+    + $m_p(x) = \sum_\theta f(x|\theta) \pi_p(\theta)$: the marginal of $x$ induced by $\pi_p$
+    + $m_p(X_p) \to 2/3$ as $p \to \infty$
+    + $\pi_p(\theta | x) \xrightarrow{D} \pi(\theta|x)$ as $p \to \infty \;\forall\, \text{ fixed } x \implies$  not close w/ high probability
 
 
 
