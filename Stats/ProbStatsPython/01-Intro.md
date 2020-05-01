@@ -93,11 +93,11 @@
 
 + Simulating coin flips
   + using the pseudo random number generators in `numpy` to simulate the coin flips
-  + instead of "Heads" and "tails", using $x_i =9" or "x_1 = -1$
-  + considering the sum $S_{10000} = x_1 + x_2 + \cdots + x_{10000}
+  + instead of "Heads" and "tails", using $x_i = 0$ or $x_i = -1$
+  + considering the sum $S_{10000} = x_1 + x_2 + \cdots + x_{10000}$
   + the number of heads is about 5,000 $\implies S_{10000} \approx 0$
   + varying the number of coin flips, dented by $k$
-  + demo: generate $ n \times k \pm 1$ samples
+  + demo: generate $ n \times k$ coin flips w/ values $\pm 1$
 
     ```python
     # Generate the sum of k coin flips, repeat that n times
@@ -109,7 +109,7 @@
 
   + the sum $S_{10000}$ is not __exactly__ 0, it is only __close to__ 0
   + using __probability theory__, calculate __how small__ is $|S_k|$
-  + later, its wll be shown that the probability that $|S_k| \geq 4\sqrt{k}$ is smaller than $2 times 10^{-8}$ which is 0.000002%
+  + later, its wll be shown that the probability that $|S_k| \geq 4\sqrt{k}$ is smaller than $2 \times 10^{-8} = 0.000002\%$
 
 + Demo: simulation
 
@@ -143,15 +143,15 @@
 
 + Summary
   + executing some experiments summing $k$ random numbers: $S_k = x_1, x_2 + \cdots + x_k$
-  + the probability
+  + the probability of the value of $x_i, \; i = 1, 2, \dots, k$
 
     \[ p(x_i) = \begin{cases} 1/2 & \text{for } x_i = -1 \\ 1/2 & \text{for } x_i = +1 \end{cases} \]
 
   + experiments show that the sum $S_k$ is (almost) always in the range $[-4\sqrt{k}, 4\sqrt{k}]$
 
     \[\begin{align*}
-      k \to \infty &\implies \frac{4\sqrt{k}}{k} = \frac{4}{\sqrt{k}} \to 0 \\
-      \therefore\; k \to \infty &\implies \frac{S_k}{k} \to 0
+      k \to \infty &\text{ s.t. }\frac{4\sqrt{k}}{k} = \frac{4}{\sqrt{k}} \to 0 \\
+      \therefore\; k \to \infty &\text{ s.t. } \frac{S_k}{k} \to 0
     \end{align*}\]
 
 + Math interpretation
@@ -159,7 +159,7 @@
   + in most cases, __approximating__ probabilities using simulations (Monte-Carlo simulations)
   + calculating the probabilities is better because
     + providing a precise answer
-    + much faster than Monte V=Carlo simulations
+    + much faster than Monte-Carlo simulations
 
 
 + [Original Slides](https://tinyurl.com/ya5gx8z7)
