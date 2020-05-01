@@ -227,14 +227,33 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#bayesian-hierarchical-model"> Hierarchical </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#empirical-bayes-method"> Empirical </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#deterministic-methods"> Deterministic </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Monte Carlo Methods </th>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#monte-carlo-methods"> Basic </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#markov-chain-monte-carlo-methods"> MCMC </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Monte Carlo Methods </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#monte-carlo-methods"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#monte-carlo-method-for-integral"> Integrals </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#monte-carlo-method-for-gaussian-distribution"> Gaussian </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#monte-carlo-method-for-two-binomials"> Two Binomials </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#monte-carlo-method-w-multiparameters"> Multiparameters </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Markov Chain Monte Carlo Methods </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#markov-chain-monte-carlo-methods"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#metropolis-hastings-algorithm"> Metropolis-Hastings (MH) </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#random-walk-metropolis-hastings-algorithm"> Random-Walk-MH </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#independence-metropolis-hastings-algorithm"> Independence-MH </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#gibbs-sampling"> Gibbs Sampling </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
   </tr>
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Subject Title </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
