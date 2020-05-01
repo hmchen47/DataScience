@@ -32,6 +32,193 @@
 
     \[ \frac{p(b|a)}{p(\overline{b}|a)} = \frac{p(a|b)}{p(a| \overline{b})} \times \frac{p(b)}{p(\overline{b})} \tag{Bayes.odds} \]
 
++ [Basic concepts of mathematical foundation](../Notes/p04a-Bayesian.md#1201-math-fundamental)
+  + __Definition__ (lower bound and infimum)
+    + $a \in S$ as a _lower bound_  of $ S \subseteq P$, a partially ordered set $(P,\leq) \text{ s.t. } a \leq x, \;\forall\, x \in S$
+    + a lower bound $a \in S$ as an _infimum_ (or _greatest lower bound_, or _meet_) of $S \text{ s.t. } \forall$ lower bounds $y \in S \subseteq P, y \leq a$ ($a$ is larger than or equal to any other lower bound)
+  + __Definition__ (upper bound and supremum)
+    + $b \in S$ as an _upper bound_  of $S \subseteq P$, a partially ordered set $(P,\leq), \,\text{ s.t. } b \geq x, \;\forall\, x \in S$
+    + an upper bound $b$ of $S$ as a _supremum_ (or _least upper bound_, or _join_) of $S \,\text{ s.t. } \forall$ upper bounds $z \in S \subseteq P, z \geq b$ (b is less than or equal to any other upper bound)
+
+  + __Definition__ (the arguments of the maxima)
+    + $\exists$ an arbitrary set $X$, a totally ordered set $Y$ and a function $f: X \to Y$
+    + the $\mathop{\arg\max}$ over some subset, $S$ of X define as
+
+      \[ \mathop{\arg\max}_{x \in S \subseteq X} f(x) := \{ x \,|\, x \in S,  \forall\, y \in S: f(y) \leq f(x) \} \]
+
+  + __Definition__ (argument of the minimum)
+
+    \[\mathop{\arg\min}_{x \in S} f9x) := \{ x \,|\, \forall\, y \in S: f(y) \geq f(x) \}\]
+
++ [Basic concepts of Probability and Statistics](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + __Definition__ (moment)
+    + a _moment_ is a specific quantitative measure of the shape of a function
+    + the $n$-moment of a real-valued continuous fucntion $f(x)$ of a real variable about a value $c$ (usually $c=0$)
+
+      \[ \mu_n = \int_{-\infty}^\infty (x - c)^n f(x) dx \]
+
+    + $f$ as a probability density function $\implies$ the $n$-th moment of the probability distribution
+    + $F$ as a cumulative probability distribution fucntion of any probability distribution, probably no density function $\implies$ the $n$-th moment of the probability distribution given by the Reimann-Stieltjes integral
+
+      \[ \mu_n^\prime = E[X^n] = \int_{-\infty}^\infty x^n dF(x) \]
+
+  + __Definition__ (converge in distribution) <br/>
+    A sequence $X_1, X_2, \dots$ of real-valued random variables is said to _converge in distribution_, or _converge weakly_, or _converge in law_ to a random variable $X$, denoted as $\xrightarrow{D}$, if
+
+    \[ \lim_{n \to \infty} F_n(x) = F(x) \]
+  + __Definition__ (converge in probability) <br/>
+    A sequence $\{X_n\}$ of random variables _converges in probability_, denoted as $\xrightarrow{P}$, towards the random variable $X$ if $\forall\, \varepsilon > 0$
+
+    \[ \lim_{n \to \infty} \Pr(|X_n - X|) > \varepsilon) = 0 \]
+
+    + $P_n$: the probability that $X_n$ is outside the ball of radius $\varepsilon$ centered at $X$
+    + $X_n$ _converges in probability_ to $X$:  
+
+      \[ \forall\, \varepsilon > 0, \delta > 0, \;\exists\, N \in \mathbb{N}, \,\text{ s.t. } P_n < \delta \;\forall n \geq N, \]
+
+  + detailed balance
+    + __Definition__ (Reversible Markov process or reversible Markov chain) <br/> A Markov process called _reverse Markov process_ or _reversible Markov chain_ if it satisfies the detailed balance equations
+    + __Definition__ (detailed balance in discrete process) <br/> The transition probability matrix, $P$, for a Markov process posses a stationary distribution (i.e., equilibrium distribution) $\pi \text{ s.t. }$
+
+      \[ \pi_i P_{ij} = \pi_j P_{ji} \]
+
+  + __Theorem__ (univariate delta method) <br/>
+    $\exists$ a sequence of random variables $X_n$ satisfying
+
+      \[ \sqrt{n}[X_n - \theta] \xrightarrow{D} N(0, \sigma^2) \implies \sqrt{n} [g(X_n) - g(\theta)] \xrightarrow{D} N(0, \sigma^2 \cdot [g'(\theta)]^2) \]
+
+  + the __mode__ of a set of data values is the value that happen most often.
+  + Jensen's inequality
+    + $\exists\, (\Omega, \mathcal{F}, P)$ as a probability space
+    + $X$ as an integrable real-valued random variable
+    + $\varphi$: a convex function
+
+      \[ \varphi(E[X]) \leq E[\varphi(X)] \]
+
+  + Hoeffding's inequality
+    + providing an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount
+    + a generalization of the Chernoff bound, only applied to Bernoulli random variable
+
+
+## Advanced concepts
+
++ [Probability, Statistics, and Measure Theory](../Notes/p04a-Bayesian.md#1203-advanced-probability-and-statistics-concepts)
+  + __Definition__ (countable set)<br/> A set $S$ is _countable_ if there exists an injective function (one-to-one mapping) $f$ from $S$ to the natural number $\mathbb{N} = \{ 0, 1, 2, \dots \}$
+    + $S$ is _countably infinite_ if such an $f$ is also surjective (many -to-one mapping)
+    + a set is _countably infinite_ if it has one-to-one correspondence w/ the natural number set, $\mathbb{N}$
+
+  + __Definition__ (Measure) <br/>
+    Let $X$ be a set and $\Sigma$ a $\sigma$-algebra over $X$. A function $\mu$ from $\Sigma$ to the extended real number line is called __measure_ if it satisfied the following properties
+    + __Non-negativity__: $\forall\, $E$ in $\Sigma \text{ s.t. } \mu(E) \geq 0$
+    + __Null empty set__: $\mu(\varnothing) = 0$
+    + __Countable additive__ (or $\sigma$-additive): $\forall$ countable collections $\{ E_i \}_{i=1}^\infty$ of pairwise disjoint sets in $\Sigma$
+
+      \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
+
+  + __Definition__ ($\sigma$ idea) a _$\sigma$-ideal_ of a sigma-algebra is a subset w/ certain desirable closure properties
+    + properties: Let $(X, \Sigma)$ be a measurable space ($\Sigma$ is a $\sigma$-albegra of subset of $X$).  A subset $N$ of $\Sigma$ is a $\sigma$-ideal if the following properties are satisfied
+      + $\varnothing \in N$
+      + when $A \in N$ and $B \in \Sigma, \,B \subseteq A \implies B \in M$
+      + $\{ A_n \}_{n \in \mathbb{N}} \subseteq N \implies \bigcup_{n \in \mathbb{N}} A_n \in N$
+
+  + __Definition__ (probability space) <br/>A probability space is a triple $(\Omega, \mathcal{F}, P)$ consisting of
+    + the sample space $\Omega$: an arbitrary non-empty set
+    + the $\sigma$-algebra $\mathcal{F} \subseteq 2^{\Omega}$ (also called \sigma$-field): a set of subsets of $\Omega$, called events $\text{ s.t. }$
+    + the probability measure $P: \mathcal{F} \to [0, 1]$: a function on $\mathcal{F} \text{ s.t. }$
+
+  + __Definition__ (meager set, set of first category) <br/>
+    a set that, considered as a subset of a (usually larger) topological space, is in a precise sense small or negligible
+
+  + __Definition__ (measure)
+    + $\exists\, \text{a set } X, \Sigma$ a $\sigma$-algebra over $X$
+    + a function $\mu$ from $\Sigma$ to the extended real number line is called _measure_ if it satisfies the following properties
+      + non-negative: $\forall\, E \in \Sigma, \, \mu(E) \geq 0$
+      + null empty set \{\varnothing\} = 0$
+      + countable additive (or $\sigma$-additive): for all countable collections $\{E\}_{i=1}^\infty$ of a pairwise disjoint sets in $\Sigma$
+
+        \[ \mu\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty \mu(E_k) \]
+    + a triple $(X, \Sigma, \mu)$ as a _measure space_
+    + _probability measure_: a measure w/ total measure one, i.e., $\mu(X) = 1$
+    + _probability space_: a measure space w/ a probability measure
+
+  + __Definition__ (outer measure) an _outer measure_ on a set $X$ is a function
+
+    \[ \varphi: 2^{X} \to [0, \infty] \]
+
+    defined on all subsets of $X$ ($2^X$ - power set) that satisfies the following conditions
+
+  + __Definition__ ($\varphi$-measurable) $\exists\, E \subset X$ is _$\varphi$-measurable_ (or  Carathéodory-measurable by $\varphi$) $\iff \forall\, A \subset X \text{ s.t. }$
+
+    \[ \varphi(A) = \varphi(A \cup E) + \varphi(A \cup E^C) \]
+
+  + __Definition__ (Lebsegue measure)
+    + \exists\, E \subseteq \mathbb{R}$ w/ the length of interval $I = [a, b] (\text{or } I = (a, b))$ given by $l(I) - b - a$
+    + $\lambda^*(E)$: the _Lebesgue outer measure_ defined as 
+
+      \[ \lambda^*(E) = \inf \left\{ \sum_{k=1}^\infty l(I_k): (I_k)_{k \in \mathbb{N}} \text{ is a sequence of open intervals w/ } E \subseteq \bigcup_{k=1}^\infty I_k \right\} \]
+
+    + _Lebesgue measure_: on the Lebesgue $\sigma$-algebra, the collection of all sets $E$ satisfying the "Carathéodory criterion", $\forall\, A \subseteq \mathbb{R} \text{ s.t. }$
+
+      \[ \lambda^*(A) = \lambda^*(A \cap E) + \lambda^*(A \cap E^C) \]
+
+    + for any set in the Lebesgue $\sigma$-algebra, its Lebesgue measure is given by its Lebesgue outer measure $\lambda(E) = \lambda^*(E)$
+
+  + Norm
+    + $L^p$ spaces: functional spaces defined using a natural generalization of the $p$-norm for finite-dimensional vector spaces
+    + a.k.a., Lebesgue spaces
+    + $L^p$ metrics: measures of central tendency and statistical dispersion, such as mean, median, and standard deviation
+    + penalized regression:
+      + L1 penalty: the $L^1$ norm of a solution's vector of parameter values, i.e., the sum of its absolute values
+      + L2 penalty: the $L^2$ norm of a solution's vector of parameter values, i.e., Euclidean length
+    + $p$-norm in finite dimensions
+      + the length of a vector $x = (x_1, x_2, \dots, x_n)$ in the n-dimensional real-vector space $\mathbb{R}^n$ usually given by the Euclidean norm
+
+        \[ \|x\|_2 = (x_1^2 + x_2^2 + \cdots + x_n^2)^{1/2} \]
+
+      + __Definition__.  for a real number $p \geq 1$, the __p$-norm or $L&p$-norm of $x$ defined as
+
+        \[ \|x\|_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{1/p} \]
+
+      + 1-norm: the norm corresponding to the rectilinear distance
+      + 2-norm: Euclidean nor
+
+
+
+## Regularity condition
+
++ [Regularity conditions](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + __Condition 1:__ the pdfs are distinguish = the parameter identifies the pdf, i.e., $\theta \neq \theta' \implies f(x_i, \theta) \neq f(x_i, \theta')$
+  + __Condition 2:__ the pdfs are common support for all $\theta \implies$ the support does not depend on $\theta$
+  + __Condition 3:__ the point $\theta_0 \in \mathbb{R}$ is an interior point in some set $\Omega$
+    + the probability that $\theta$ appears in the endpoints of an interval
+    + the likelihood is maximized at the true parameter $\theta_0$ and the MLE $\hat{\theta}$ solving the equation
+
+      \[ \frac{\partial l(\theta)}{\partial \theta} = 0 \]
+
+      is consistent.
+  + __Condition 4:__ the pdf $f(x, \theta)$ is twice differentiable as a function of $\theta$
+  + __Condition 5:__ the integral $\int_{\infty}^{\infty} f(x, \theta) \,dx$ can be differentiated twice under the integral sign as a function $\theta$
+    + the last two derive the Fisher information playing a certain role in the theory of convergence of the MLE
+    + ensuring the asymptotic normality of the MLE
+  + __Condition 5:__ the pdf $f(x, \theta)$ is 3 times differentiable as a function of $\theta$.  Further $\forall\, \theta \in \Omega, \exists \text{ a constant } c \text{ and a function } M(x) \text{ s.t. }$
+
+    \[ \left| \frac{\partial^3 \log f(x, \theta)}{\partial \theta^3} \right| \leq M(x) \]
+
+    w/ $E_{\theta_0}[M(X)] < \infty \; \forall |\theta - \theta_0| < c$ and all $x$ in the support of $X$
+    + the remainder of a second order Taylor expansion about $\theta_0$ is bounded in probability and thus poses no problem asymptotically.
+
++ [Standard Regularity Conditions for Statistics](../Notes/p04a-Bayesian.md#1202-probability-and-statistics)
+  + general assumptions and notations
+    + $X_1, \dots, X_n$: an i.i.d. set (sample) pf  random variable defined on the probability space $(|Omega, \mathcal{F}, P)$
+    + $X_i \in \mathbb{R}^d$ w/ parametric d.f. $F_X$
+    + $F_X$ w/ density $f(x|\theta)$ w.r.t. a $\sigma$-finite measure $\mu$
+    + $\{ X_i \}_{i=1}^\infty$: an i.i.d. sequence of random variables (convergence result)
+    + high order moment conditions on randoom vectors requiring tensor analysis for $k > 2$
+  + Regularity conditions for interchanging limits and integrals/sums
+  + classical statistical regularity conditions
+
+
+
 
 ## Statistical Inference
 

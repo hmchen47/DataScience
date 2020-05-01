@@ -1,4 +1,6 @@
-# 24 Best (and Free) Books To Understand Machine Learning
+# Data Science and Machine Learning Books
+
+## 24 Best (and Free) Books To Understand Machine Learning
 
 Author: Reashikaa Verma
 
@@ -107,3 +109,35 @@ Author: Reashikaa Verma
 
   With causality making inroads into Data Science fields, Machine Learning is not free from the discussion too. While no detailed material is available around this, here is a short tutorial trying to explain key concepts of Causality for Machine Learning.
 
+
+
+## 10 Best Machine Learning Textbooks that All Data Scientists Should Read
+
+
+Author: Daniel Smith, Lionbridge
+
+[Origin](https://tinyurl.com/yb8lcbu3)
+
+1. Ian Goodfellow, Yoshua Bengio, and Aaron Courville, "[Deep Learning](https://www.deeplearningbook.org/)"
+
+2. Stuart J. Russell and Peter Norvig, "Artificial Intelligence: A Modern Approach"
+
+3. Trevor Hastie, Robert Tibshirani, and Jerome Friedman, "The Elements of Statistical Learning: Data Mining, Inference, and Prediction"
+
+4. Andriy Burkov, "[The Hundred-Page Machine Learning Book](http://themlbook.com/wiki/doku.php)"
+
+5. Christopher M. Bishop, "Pattern Recognition and Machine Learning"
+
+6. Max Kuhn and Kjell Johnson, "[Applied Predictive Modeling]()"
+
+7. Tom M. Mitchell, "[Machine Learning]()"
+
+8. Sebastian Raschka and Vahid Mirjalili, "[Python Machine Learning]()"
+
+9. Aurélien Géron, "[Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems]()"
+
+10. Daniel Jurafsky and James H. Martin, "[Speech and Language Processing]()"
+
+
+
+  

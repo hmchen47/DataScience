@@ -1,4 +1,6 @@
-# 10 Free Top Notch Machine Learning Courses
+# Recommended Courses
+
+## 10 Free Top Notch Machine Learning Courses
 
 [Origin](https://www.kdnuggets.com/2019/12/10-free-top-notch-courses-machine-learning.html)
 

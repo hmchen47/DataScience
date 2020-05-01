@@ -2,10 +2,23 @@
 
 ## General Topics
 
+### Recommended books, articles and courses
+
++ Daniel Smith, Lionbridge, [10 Free Top Notch Machine Learning Courses](../Notes/a07-MLBooks.md#10-best-machine-learning-textbooks-that-all-data-scientists-should-read)
++ Reashikaa Verma, [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07-MLBooks.md#24-best-and-free-books-to-understand-machine-learning)
++ Vincent Granville, [19 Great Articles About Natural Language Processing (NLP)](../Notes/a04-19NLP.md#19-great-articles-about-natural-language-processing-nlp)
+
 
 ### Visualization
 
 + K. He & G.Meeden, [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](../AppliedDS-UMich/2-InfoVis/p01-HistBins.md)
+
+
+### Feature Engineering
+
++ Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
++ Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
+
 
 
 ## Statistics
@@ -19,6 +32,9 @@
 ### Bayesian Approaches
 
 + D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
++ J. Martin Bland and Douglas G. Altman, [Bayesians and frequentists](../Notes/a05-Bayesian.md)
++ Magdalena Szumilas, [Explaining Odds Ratios](/Notes/a06-OddsRatios.md)
++ H. Liu and L. Wasserman, "Bayesian Inference" [Part A](../Notes/p04a-Bayesian.md), [Part B](../Notes/p04b-Bayesian.md), and [Part C](../Notes/p04c-Bayesian.md)
 
 
 
@@ -31,7 +47,6 @@
 
 ### General Topics for ML
 
-+ Reashikaa Verma, [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07=MLBools.md)
 + Pedro Domingos, [A Few Useful Things to Know about Machine Learning](../AppliedDS-UMich/3-AML/p0-UsefulThings.md)
 + Ron Kohavi, Randal M. Henne, and Dan Sommerfield, [Practical Guide to Controlled Experiments on the Web: Listen to Your Customers not to the HiPPO](../AppliedDS-UMich/3-AML/p1-ControlledExp.md)
 + S. Kaufman, S. Rosset, & C. Perlich, [Leakage in Data Mining: Formulation, Detection, and Avoidance](../AppliedDS-UMich/3-AML/p3-Leakage.md)
@@ -98,7 +113,6 @@
 
 ## Reading List
 
-+ [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf), chapter 12
 + A. Julien-Laferriere, [Hopfield network](https://bit.ly/2UH5h2X)
 + [Hopfield Model of Neural Network](https://bit.ly/2xQGikM), Chapter 2,
 + R. Rojas, [The Hopfield Model](https://bit.ly/2wTiP2A) in Neural Networks, Springer, 1996

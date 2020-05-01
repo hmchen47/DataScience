@@ -39,6 +39,8 @@
     + $p(D) = \int_W p(W)p(D|W)$
 
 
+
+
 ## Weight Decay
 
 + [Bayesian approaches](../ML/MLNN-Hinton/09-Overfitting.md#95-the-bayesian-interpretation-of-weight-decay)
