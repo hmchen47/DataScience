@@ -11,7 +11,7 @@
     + Uncertainty: find the _fastest_ rout from a to b
   + example: Search engine
     + Certainty: find _all_ web pages that contain the word "Trump", "Hillary"
-    + Uncertainty: find the 10 _most relevant_ pages doe the query "trump, Hillary debate"
+    + Uncertainty: find the 10 _most relevant_ pages for the query "Trump, Hillary debate"
       + not about certain words appeared
       + about what pages really most relevant up to date
   + example: Insurance company
@@ -35,7 +35,7 @@
 
 + Summary
   + Uncertainty is all around us
-  + Probability and Statistics provide a rational way o deal w/ uncertainty
+  + Probability and Statistics provide a rational way to deal w/ uncertainty
 
 
 + [Original Slides](https://tinyurl.com/y75qx6vl)
@@ -51,14 +51,19 @@
   c. Estimating your potential winnings in a game of Blackjack.<br/>
   d. Guessing the winner of the next World Cup.<br/>
 
-  Ans:
+  Ans: abcd<br/>
+  Explanation: All these events are uncertain, and can be addressed by various aspects of probability and statistics, some of which we will encounter in this course.
 
 2. What are probability and statistics useful for?<br/>
   a. Quantifying uncertainty.<br/>
   a. Finding exact solutions to mathematical equations.<br/>
   c. Making predictions about the future.<br/>
 
-  Ans: 
+  Ans: ac<br/>
+  Explanation
+  + True. Just note that some random phenomena can be better quantified than others.
+  + False. There is no uncertainty here.
+  + True. Of course, the accuracy may depend on what we predict, and how far into the future.
 
 
 ### Lecture Video
