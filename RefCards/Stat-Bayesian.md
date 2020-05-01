@@ -56,6 +56,80 @@
   + assumptions built around any scientific methods $\implies$ subjective
   + validating assumptions w/ sensitivity analysis
 
++ [Subjective debate](../Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors)
+  + subjectivism: the prior should reflect our subjective opinion about $\theta$ (before data collected)
+  + impractical in complicated problems, in particular, many parameters
+  + injecting subjective opinion into the analysis contrary to the goal of making scientific inference as objective as possible
+
++ [Approaches to statistical machine learning](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + _frequentist_ inference
+    + probabilities interpreted as long run frequencies
+    + goal: to create procedures w/ long run frequency guarantees
+  + _Bayesian_ inference
+    + probabilities interpreted as subjective degree of belief
+    + goal: to state and analyze one's beliefs
+  + differences
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:30%;"> </th>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:20%;">Frequentist</th>
+        <th style="text-align: left; background-color: #3d64ff; color: #ffffff; width:20%;">Bayesian</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>  <td>Probability is:</td>  <td>limiting relative frequency</td>  <td>degree of belief</td></tr>
+      <tr>  <td>Parameter $\theta$ is a:</td>  <td>fixed constant</td>  <td>random variable</td></tr>
+      <tr>  <td>Probability statements are about:</td>  <td>procedures</td>  <td>parameters</td></tr>
+      <tr>  <td>Frequency guarantees?</td>  <td>yes</td>  <td>no</td></tr>
+      </tbody>
+    </table>
+
++ [Summary](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + frequentist inference
+    + procedures w/ frequency probability guarantees
+    + probability to random interval $C$: a frequentist confidence interval $C$ satisfies
+
+      \[ \inf_{\theta} \mathbb{P}_\theta(\theta \in X) = 1 - \alpha \]
+
+    + $\inf_\theta \mathbb{P}(\theta \in C)$: the coverage of the confidence interval $C$
+  + Bayesian inference
+    + a method for stating and updating beliefs
+    + probability to $\theta$: Bayesian confidence interval $C$ satisfies
+
+      \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_N) = 1 - \alpha \]
+
++ [Bayesian vs. frequentist(../Notes/p04c-Bayesian.md#128-the-bayes-frequestist-debate)
+  + frequentist and Bayesian methods answering different questions
+  + usage conditions
+    + Bayesian inference: analyzing subjective beliefs in a principal way
+    + frequentist inference: designing methods w/ long run frequency guarantees
+  + Bayesian methods not having good frequency performance
+  + frequentist methods not representing anyone's subjective beliefs
+  + models
+    + similar: low dimensional models w/ lots of data
+    + different: high dimensional models
+  + Bayesian models having poor frequentist behavior when the parameter space w/ high dimensional
+
+
+<table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../Notes/p04c-Bayesian.md#129-summary">Comparisons of Bayesian and Frequentist Methods</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"></th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Bayesian</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Frequentists</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr> <td>Probability</td> <td>degree of subjective belief</td> <td>limiting relative frequency</td> </tr>
+  <tr> <td>Typical point estimate</td> <td>posterior mean or mode</td> <td>(penalized) maximum likelihood</td> </tr>
+  <tr> <td>Optimal estimate</td> <td>Bayes rule</td> <td>maximum estimate</td> </tr>
+  <tr> <td>Interval estimate</td> <td>credible interval</td> <td>confidence interval</td> </tr>
+  </tbody>
+</table>
+
 
 ## School of Bayesian Approaches
 
@@ -70,6 +144,11 @@
   + exchangeability
   + the likelihood principle
 
++ [Favors of Bayesian inference](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + subjective Bayesian
+  + objective Bayesian
+  + empirical Bayesian
+  + frequentist Bayesian
 
 
 
@@ -155,6 +234,40 @@
 
 + [Example: vitamin C cure within a week (cont.)](../Notes/p03-BayesianBasics.md#6-examples)
 
++ [Bayesian procedure](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + choose the prior distribution
+    + a probability density $\pi(\theta)$
+    + expressing out beliefs about a parameter $\theta$ before observing any data
+  + choose a statistical mode $p(x\,|\,\theta)$ to reflect our beliefs about $x$ given $\theta$
+  + observe data $\mathcal{D}_n = \{X_1, \dots, X_n\} \to$ update our beliefs and calculate the posterior distribution $p(\theta\,|\,\mathcal{D}_n)$
+
++ [General Bayesian inference](../Notes/p04a-Bayesian.md#1221-the-mechanics-of-bayesian-inference)
+  + the posterior distribution
+
+    \[ p(\theta \,|\, X_1, \dots, X_n) = \frac{p(X_1, \dots, X_n\,|\, \theta) \pi(\theta)}{p(X_1, \dots, X_n)}  = \frac{\mathcal{L}_n(\theta)\pi(\theta)}{c_n} \propto \mathcal{L}(\theta) \pi(\theta) \tag{3} \]
+
+    + $\mathcal{L}(\theta) = p(X_1, \dots, X_n\,|\, \theta)$: the likelihood function
+    + the normalizing constant, a.k.a. the evidence
+
+      \[ c_n = p(X_1, \dots, X_n) = \int p\left(X_1, \dots, X_n \,|\, \theta\right) \pi(\theta) d\theta = \int \mathcal{L}_n(\theta) \pi(\theta) d\theta \]
+
+  + Bayesian point estimate
+    + getting a Bayesian mean or mode by summing the center of the posterior $\gets$ typically using the mean or mode of the posterior distribution
+    + the posterior mean
+
+      \[ \overline{\theta} = \int \theta\, p(\theta \,|\, \mathcal{D}_n)\, d\theta = \frac{\int \theta\, \mathcal{L}_n(\theta)\, \pi(\theta) d\theta}{\int \mathcal{L}_n(\theta) \pi(\theta) d\theta} \]
+
+  + Bayesian interval estimate
+    + $\exists\; \alpha \in (0, 1)$, find $a$ and $b \text{ s.t. }$
+
+      \[ \int_{-\infty}^a p(\theta \,|\, \mathcal{D}_n) d\theta = \int^{\infty}_b p(\theta \,|\, \mathcal{D}_n) d\theta = \alpha/2 \]
+
+    + let $C = (a, b)$,
+
+      \[ \mathbb{P}(\theta \in C \,|\, \mathcal{D}_n) = \int_b^a p(\theta \,|\, \mathcal{D}_n) d\theta = 1 - \alpha \]
+
+    + $C$: viz. a ($1-\alpha$) Bayesian posterior interval or _credible interval_
+    + _credible region_: $\theta$ w/ multi-dimensional
 
 
 
@@ -176,8 +289,25 @@
   + not necessarily completely specified
   + not necessarily important
 
++ [Jefferys' prior](../Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors)
+  + Harold Jefferys' rule
+    + taking the prior distribution on parameter space proportional to the square root of the determinant of the Fisher infromation
+    + the Fisher infromation
 
+      \[ \pi(\theta) \propto \sqrt{|I(\theta)|}, \quad I(\theta) = -\mathbb{E} \left[ \left.\frac{\partial^2 \log p(X \,|\, \theta)}{\partial\theta\, \partial \theta^T} \,\right|\, \theta \right] \]
 
+  + __Theorem:__ The Jefferys' prior is transformed invariant.
+  + Bernoulli ($\theta$) model
+    + the Fisher information
+
+      \[ I(\theta) = \frac{1}{\theta(1 - \theta)} \]
+
+    + Jefferys' rule using the prior
+
+      \[ \pi(\theta) \propto \sqrt{|I(\theta)|} = \theta^{-1/2} (1-\theta)^{-1/2} \implies \pi(\theta) \sim \text{Beta}(1/2, 1/2)\]
+
+    + $\pi(\theta)$ closed to a uniform density
+  + Jeffers' prior: transformation invariant $\neq$  non-informative
 
 
 ## Improper Prior
@@ -190,18 +320,7 @@
   + the posterior distribution not necessary proper if the prior improper
   + improper priors not true probability distributions
 
-
-
-## Prior with Conjugate Family
-
-+ [Prior conjugate family](../Notes/p03-BayesianBasics.md#11-the-bayes-rule)
-  + conjugate family: prior densities and their leading posterior densities belonging to the same family
-  + the choice of conjugate family not unique
-  + exponential family of densities: sampling density w/ a sufficient statistic of constant dimension always finds a conjugate family of prior densities
-  + _natural conjugate family_:
-  + _subjective prior of informative prior_: the parameters of the prior density elicited using a previously collected data or expert knowledge
-  + _noninformative prior_: no such prior information available or very little knowledge available about the parameter $\theta$
-
++ [Improper prior](/Notes/p04a-Bayesian.md#1225-flat-priors-improper-priors-and-noninformative-priors): improper priors not a problem as long as the resulting posterior as a well-defined probability distribution
 
 
 
@@ -302,6 +421,31 @@
 
 
 
+## Large Sample Properties
+
++ [Bayesian approach w/ large samples](../Notes/p04b-Bayesian.md#1232-large-sample-properties-of-bayess-procedures)
+  + under appropriate conditions
+    + the posterior distribution $\approx$ Normal distribution
+    + the posterior mean $\approx$ mle
+  + __Theorem__.
+    + $I(\theta)$: the Fisher information
+    + $\widehat{\theta}_n$: the maximum likelihood estimator
+    + $\widehat{se} = 1 / \sqrt{n I(\widehat{\theta}_n)}$
+    + Under appropriate regularity conditions, the posterior $\approx N(\widehat{\theta}_n, \widehat{se})$, i.e.,
+
+      \[ \int \left|p(\theta \,|\, X_1, \dots, X_n) - N(\theta; \widehat{\theta}, \widehat{se} )\right| \,d\theta \xrightarrow{P} 0 \]
+
+    + $\overline{\theta} - \widehat{\theta} = O_P(1/n)$
+    + $z_{\alpha/2}: \alpha/2$-quantile of a standard Gaussian distribution
+    + $C_n = [\widehat{\theta}_n - z_{\alpha/2} \, \widehat{se}, \,\widehat{\theta}_n + z_{\alpha/2}\,\widehat{se}]$: the asymptotic frequentist $1-\alpha$ confidence interval
+
+      \[ \mathbb{P}(\theta \in C_n \,|\, \mathcal{D}_n) \to 1 - \alpha \]
+
+  + [Bayes delta method](../Notes/p04b-Bayesian.md#1232-large-sample-properties-of-bayess-procedures): $\tau = g(\theta) \implies \tau \,|\, \mathcal{D}_n \approx N(\widehat{\tau}, \widetilde{se}^2), \;\;\widehat{\tau} = g(\widehat{\theta}), \,\widetilde{se} = \widehat{se} \,g'(\widehat{\theta})$
+
+
+
+
 ## Odds Ratios
 
 + [Odds ratios](../Notes/a06-OddsRatios.md#what-is-an-odds-ratio) (OR)
@@ -344,7 +488,7 @@
 
 
 
-## Bayes Factor (BF)
+## Bayes Factor (BF) and Model Selection
 
 + [Bayes factor](../Notes/p01-Bayesian.md#33-comparing-simple-hypotheses-likelihood-ratios-and-bayes-factors) (BF)
   + measure of the relative likelihood of two hypotheses
@@ -367,7 +511,69 @@
 
   + equal-probable prior: $\Pr(\theta \in \Theta_0) = \Pr(\theta \in \Theta_a)$ or $\int_{\Theta_0} k(\theta) d\theta = \int_{\Theta_a} k(\theta) d\theta$
 
++ [Bayes factor and model selection](../Notes/p04a-Bayesian.md#1228-model-comparison-and-bayesian-information-criterion)
+  + sampling data: $\mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + parametric models: $\mathcal{M}_1, \dots, \mathcal{M}_K$
+  + $\pi_j = \mathbb{P}(\mathcal{M}_j)$: a prior probability to model $\mathcal{M}_j$
+  + $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$: a prior to the parameter $\pmb{\theta}_j$ under model $\mathcal{M}_j$
+  + the posterior probability of model $\mathcal{M}_j$ conditional on data $\mathcal{D}_n$
 
+    \[ \mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_n) = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)\pi_j}{\sum_{k=1}^K p(\mathcal{D}_n \,|\, \mathcal{M}_k)\pi_k} \]
+
+  + $\mathcal{L}_j(\theta_j)$: the likelihood function for model $j \text{ s.t. }$
+
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int \mathcal{L}_j(\theta_j) p_j(\theta_j)\, d\theta_j \]
+
+  + the comparison btw $\mathcal{M}_j$ and $\mathcal{M}_k$
+
+    \[ \frac{\mathbb{P}(\mathcal{M}_j \,|\, \mathcal{D}_n)}{\mathbb{P}(\mathcal{M}_k \,|\, \mathcal{D}_n)} = \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j) \pi_j}{p(\mathcal{D}_n \,|\, \mathcal{M}_k) \pi_k} \tag{6} \]
+
+  + __Definition__. (Bayes factor) The Bayes factor btw $\mathcal{M}_j$ and $\mathcal{M}_k$ defined as 
+
+    \[ \text{BF}(\mathcal{D}_n) = \frac{\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_j)}{\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_k)} = \frac{\int \mathcal{L}_j(\theta_j)p_j(\theta_j)\,d\theta_j}{\int \mathcal{L}_j(\theta_j)p_j(\theta_k)\,d\theta_k} \]
+
+    + $\mathbb{P}(\mathcal{D}_n \,|\, \mathcal{M}_j)$: the marginal likelihood for model $\mathcal{M}_j$
+
+  + Bayesian model comparison: a method of model selection based on Bayes factor
+
++ [Marginal likelihood w/ uniform prior - prerequisite for Bayesian Information Criterion](../Notes/p04a-Bayesian.md#1228-model-comparison-and-bayesian-information-criterion)
+  + the marginal likelihood density for model $\mathcal{M}_j$
+
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \int \mathcal{L}_n(\pmb{\theta}_j) p_j\left(\pmb{\theta}_j\,|\, \mathcal{M}_j\right)\,d\pmb{\theta}_j \]
+
+  + $I_n(\pmb{\theta}_j)$: empirical Fisher information matrix for the dataset $\mathcal{D}_n$
+  + $I_1(\pmb{\theta}_j)$: empirical Fisher information matrix for one data point
+  + under certain regularity conditions, $I_n(\theta_j) = n I_1(\theta_j)$
+  + $\hat{\pmb{\theta}}_j$: the maximum a poster (MAP) estimator under model $\mathcal{M}_j$
+  + let $\mathcal{L}_n(\pmb{\theta}_j) = p(\mathcal{D}_n \,|\, \mathcal{M}_j, \pmb{\theta}_j)$ and a Taylor expansion at $\hat{\pmb{\theta}}_j$
+
+    \[ \mathcal{L}_n(\pmb{\theta}_j) \approx \mathcal{L}_n(\hat{\pmb{\theta}}_j) \exp\left( -\frac{1}{2}(\pmb{\theta}_j - \hat{\pmb{\theta}}_j)^T I_n(\hat{\pmb{\theta}}_j)(\pmb{\theta}_j - \hat{\pmb{\theta}}_j) \right) \]
+
+  + $\exists\; \pmb{\theta}_j \in \mathbb{R}^d$, choosing a prior $p_j(\pmb{\theta}_j \,|\, \mathcal{M}_j)$ as a noninformative or "flat" over the neighborhood of $\pmb{\theta}_k$ w/ $\mathcal{L}_n(\pmb{\theta})$
+
+    \[ p(\mathcal{D}_n \,|\, \mathcal{M}_j) = \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{\left|I_n(\hat{\pmb{\theta}}_j)\right|^{1/2}} \hspace{1em} = \mathcal{L}_n\left(\hat{\pmb{\theta}}_j\right) p_j\left(\hat{\pmb{\theta}}_j \,|\, \mathcal{M}_j\right) \frac{(2\pi)^{d_j/2}}{n^{d_j/2} \left|I_1(\hat{\pmb{\theta}}_j)\right|^{1/2}} \]
+
++ [[Bayesian information criterion (BIC)](../Notes/p04a-Bayesian.md#1228-model-comparison-and-bayesian-information-criterion)
+  + __Definition__. (Bayesian information criterion)
+    + $\exists \text{ data } \mathcal{D}_n \text{ and a model } \mathcal{M}$
+    + the Bayesian information criterion for $\mathcal{M}$ w/ $d$ as the dimensionality of the model $\mathcal{M} \text{ s.t. }$ 
+
+      \[ \text{BIC}(\mathcal{M}) = \log \mathcal{L}_n(\theta) - \frac{1}{2} \log n \]
+
+  + choosing the fitted candidate model corresponding to the maximum value of BIC $\implies$ selecting the candiate model corresponding to the highest Bayesian posterior probability
+
+    \[ \log \frac{p(\mathcal{D}_n \,|\, \mathcal{M}_j)}{p(\mathcal{D}_n \,|\, \mathcal{M}_k)} = \text{BIC}(\mathcal{M}_j) - \text{BIC}(\mathcal{M}_k) + O_P(1) \]
+
+  + the likelihood for the model $j$
+
+    \[ \pi_1 = \cdots = \pi_k = 1/K \implies p(\mathcal{M}_j \,|\, \mathcal{D}_n) \approx \frac{\exp(\text{BIC}(\mathcal{M}_j))}{\sum_{k=1}^K \exp(\text{BIC}(\mathcal{M}_k))} \]
+
+  + $n \to \infty \implies p(\mathcal{D}_n \,|\, \mathcal{M}_j)/p(\mathcal{D}_n \,|\, \mathcal{M}_k) \to -\infty / \infty$ as $O_p(1)$ negligible
+  + BIC characteristics
+    + an approximation to the posterior
+    + preferred simpler model compared to AIC ([Akaike information criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion))
+    + model selection consistent; i.e., the true model within the candidate pool $\implies$ $p(\text{selecting the true model}) \to 1$ as $n \to \infty$
+    + not selecting the fitted candidate model minimizing the mean squared error for prediction, but AIC optimizing predictive accuracy
 
 
 
@@ -659,6 +865,29 @@
 
     \[ R(Y) = (a(Y), b(Y)) \subseteq \Theta, \;\; -\infty \leq a(Y) < b(Y) \leq \infty \]
 
++ [Frequentist approach for interval estimate](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + $\exists\; X_1, \dots, X_n \sim N(\theta, 1)$
+  + probability statement about the random interval $C$: confidence interval
+
+    \[ C = \left[\overline{X}_n - \frac{1.96}{\sqrt{n}},\; \overline{X}_n + \frac{1.96}{\sqrt{n}}\right] \quad \implies \quad \mathbb{P}_\theta(\theta \in C) = 0.95 \quad \forall\;  \theta \in \mathbb{R} \]
+
+  + interval: a function of the data $\to$ random
+  + parameter $\theta$: fixed, unknown quantity
+  + finding the interval $C_j$ traps the parameters $\theta_j$, 95 percent of time
+  + more precisely
+
+    \[ \mathop{\lim\inf}_{n \to \infty} \frac{1}{n} \sum_{i=1}^n I(\theta_i \in C_i) \geq 0.95 \quad \forall\; \theta_1, \theta_2, \dots \tag{1} \]
+
++ [Bayesian approach for interval estimate](../Notes/p04a-Bayesian.md#121-what-is-bayesian-inference)
+  + unknown parameter $\theta \sim$ prior distribution $\pi(\theta)$ representing ones subjective beliefs about $\theta$
+  + sampling distribution: observing the data $X_1, \dots, X_n$, the posterior distribution for $\theta$ given the data using Bayes theorem
+
+    \[ \pi(\theta \,|\, X_1, \dots, X_n) \propto \mathcal{L}(\theta) \pi(\theta) \tag{2} \]
+
+  + $\mathcal{L}(\theta)$: the likelihood function
+  + the degree-of-belief probability statement about $\theta$ given the data
+
+    \[ \mathbb{P}(\theta \in C \,|\, X_1, \dots, X_n) = 0.95 \]
 
 
 
@@ -702,6 +931,107 @@
 
   + sample size: $\hat{T}_0$ fixed $\implies$ optimal (minimum) sample size $\to$ $BE_1(\hat{T}_0) + BE_2(\hat{T}_0) \leq \alpha$
 
++ [Bayesian hypothesis testing](../Notes/p04a-Bayesian.md#1227-bayesian-hypothesis-testing)
+  + hypothesis: $\exists\; \theta \in \mathbb{R} \text{ s.t. }$
+
+    \[ H_0: \theta = \theta_0 \quad \text{ vs. } H_1: \theta \neq \theta_0 \]
+
+  + the Bayesian approach to testing
+    + putting a prior on $H_0$ and on the parameter $\theta$
+    + then computing $\mathbb{P}(H_0 \,|\, \mathcal{D}_n)$
+  + commonly using the prior $\mathbb{P}(H_0) = \mathbb{P}(H_1) = 1/2$
+  + applying Bayes theorem
+
+    \[ \mathbb{P}(H_0 \,|\, \mathcal{D}_n) = \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_0) + \int \mathcal{L}(\theta)\pi(\theta)\,d\theta} \]
+  
+  + estimation problem:
+    + the prior not very influential
+    + the frequentist and Bayesian giving similar answers
+  + using improper prior in testing hypothesis $\to$ undefined constant in the denominator
+  + caution: choosing the prior $\pi(\theta)$ very carefully
+
+
+
+
+
+## Function Inference
+
++ [Bayesian inference about a function](/Notes/p04a-Bayesian.md#1223-inference-about-functions-of-parameters)
+  + $\exists\; \tau = g(\theta)$ a function
+  + the posterior CDF for $\tau$ w/ a given $A = \{\theta: g(\theta) \leq t\}$
+
+    \[ H(t \,|\, \mathcal{D}_n) = \mathbb{P}(g(\theta) \leq t \,|\, \mathcal{D}_n) = \int_A p(\theta \,|\, \mathcal{D}_n) \,d\theta \]
+
+  + the posterior density $p(\tau \,|\, \mathcal{D}_n) = H'(\tau \,|\, \mathcal{D}_n)$
+
++ [Uniform-Bernoulli likelihood model w/ logarithm of odds ratio](../Notes/p04a-Bayesian.md#1223-inference-about-functions-of-parameters)
+  + let $\psi = \log(\theta/(1 - \theta))$, the posterior CDF for $\psi$
+
+    \[\begin{align*}
+      H(t \,|\, \mathcal{D}_n) &= \mathbb{P}(\psi \leq t \,|\, \mathcal{D}_n) = \mathbb{P}\left( \log(\frac{\theta}{1 - \theta}) \leq t \,|\, \mathcal{D}_n \right)  \\\\
+      &= \int_0^{e^t/(1+e^t)} p(\theta \,|\, \mathcal{D}_n) \,d\theta =\frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \int_0^{e^t/(1-e^t)} \theta^{S_n} (1-\theta)^{n - S_n} \,d\theta
+    \end{align*}\]
+  
+  + the poster density w/ $\psi \in \mathbb{R}$
+
+    \[ p(\psi \,|\, \mathcal{D}_n) = H'(\psi \,|\, \mathcal{D}_n) = \frac{\Gamma(n+2)}{\Gamma(S_n+1)\Gamma(n-S_n+1)} \left(\frac{w^\psi}{1+e^\psi}\right)^{S_n+1} \left(\frac{1}{1+e^\psi}\right)^{n-S_n+1} \]
+
+
+
+## Multiparameters
+
++ [Extracting inferences about one single parameters](../Notes/p04a-Bayesian.md#1224-multiparameter-problems)
+  + the marginal posterior for $\theta_1$
+
+    \[ p(\pmb{\theta} \,|\, \mathcal{D}_n) = \int \cdots \int p(\theta_1, \dots, \theta_d \,|\, \mathcal{D}_n) \, d\theta_2 \cdots d\theta_d \]
+
+  + probably not feasible to do the integral
+  + Solution: simulation by drawing randomly from the posterior
+
+    \[ \pmb{\theta}^1, \dots, \pmb{\theta}^B \sim p(\pmb{\theta} \,|\, \mathcal{D}_n) \]
+
+  + a sample from $p(\theta_1 \,|\, \mathcal{D}_n) \to$ avoided doing any integrals
+  + sampling $B$ data from a multivariate distribution $p(\pmb{\theta} \,|\, \mathcal{D}_n) \to$ challenging especially w/ large dimensionality $d$
+
++ [Comparing two binomials](../Notes/p04a-Bayesian.md#1224-multiparameter-problems)
+  + Binomial model
+
+    \[ X_1 \sim \text{Binomial}(n_1, \theta_1) \quad\text{ and }\quad X_2 \sim \text{Binomial}(n_2, \theta_2) \]
+
+  + task: estimate $\tau = g(\theta_1, \theta_2) = \theta_2 - \theta_1$
+  + $\pi(\theta_1, \theta_2) = 1 \implies$ the posterior
+
+    \[ p(\theta_1, \theta_2 \,|\, X_1, X_2) \propto \theta_1^{X_1} (1-\theta_1)^{n_1 - X_1} \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \]
+
+  + $(\theta_1, \theta_2)$ as rectangle $\implies$ $\theta_1$ and $\theta_2$ independent under the posterior
+
+    \[\begin{align*}
+      p(\theta_1, \theta_2 \,|\, X_1, X_2) &= p(\theta_1 \,|\, X_1) p(\theta_2 \,|\, X_2) \hspace{5em} \\\\
+      p(\theta_1 \,|\, X_1) \propto \theta_1^{X_1} (1 - \theta_1)^{n_1 - X_1} \quad&\&\quad p(\theta_2 \,|\, X_2) \propto \theta_2^{X_2} (1 - \theta_2)^{n_2 - X_2} \\\\
+      \theta_1 \,|\, X_1 \sim \text{Beta}(X_1+1, n_1 - X_1 +1) \quad&\&\quad \theta_2 \,|\, X_2 \sim \text{Beta}(X_2 + 1, n_2 - X_2 + 1)
+    \end{align*}\]
+
+
+
+
+## Normalizing Constants
+
++ [Estimating normalizing constant](../Notes/p04b-Bayesian.md#1256-normalizing-constants)
+  + advantage of MCMC: avoiding having to compute the normalizing constant
+
+    \[ c = \int \mathcal{L}_n(\theta) \pi(\theta) \,d\theta \]
+
+  + general model
+    + $f$: a probability density function
+
+      \[ f(\theta) = cg(\theta) \]
+
+    + $g(\theta) > 0$: known function
+    + $c$: unknown
+  + estimating $c$
+    + the posterior mean and expected value
+
+      \[ \widehat{c} = \frac{1}{n} \sum_{i=1}^n \frac{h(\theta_i)}{g(\theta_i)} \implies \mathbb{E}(\widehat{c}) = \int \frac{h(\theta)}{g(\theta)} f(\theta) \,d\theta = \int \frac{h(\theta)}{g(\theta)} cg(\theta)\,d\theta = c \]
 
 
 
@@ -894,8 +1224,24 @@
 
     \[ Y_n|y_m \sim N \left( \frac{n_0\mu+my_m}{n_0+m}, \sigma^2 \left( \frac{1}{n_0+m} + \frac{1}{n} \right) \right) \tag{24} \]
 
++ [Bayesian predictive distribution](../Notes/p04a-Bayesian.md#1222-bayesian-prediction)
+  + $\exists\; \mathcal{D}_n = \{X_1, \dots, X_n\}$
+  + task: to predict the distribution of a future data point $X$ conditioned on $\mathcal{D}_n$
+  + the predictive distribution
 
-## Decision-Making
+    \[\begin{align*}
+      p(x \,|\, \mathcal{D}_n) &= \int p(x, \theta \,|\, \mathcal{D}_n) \,d\theta  = \int p(x \,|\, \theta, \mathcal{D}_n)\, p(\theta \,|\, \mathcal{D}_n) \,d\theta  \\\\
+       &= \int p(x \,|\, \theta) \, p(\theta \,|\, \mathcal{D}_N) \,d\theta \hspace{3em} (\text{cond. indep.})
+    \end{align*}\]
+
+  + the predictive distribution w/ conditionally independent viewed as a weighted average of the model $p(x \,|\, \theta)$
+  + the weights determined by the posterior distribution of $\theta$
+
+
+
+
+
+## Bayesian Decision Theory
 
 + [Modeling of health-care w/ decision-making](../Notes/p01-Bayesian.md#314-decision-making)
   + the appropriate role for formal decision theory in health-care evaluation -- a subject of a long and continuing debate
@@ -972,6 +1318,76 @@
   + Optimal decision-making
     + depending solely on the expected benefit
     + irrelevance: measures of uncertainty such as intervals or $p$-values
+
++ [Risk of an estimator](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + $\widehat{\theta}(X)$:
+    + an estimator of a parameter $\theta \in \Theta$
+    + $\widehat{\theta}$ as a function of the data $X$
+  + measuring ht discrepancy btw a parameter $\theta$ and its estimator $\widehat{\theta}(X)$ using a loss function $L: \Theta \times \Theta \to \mathbb{R}$
+  + the risk of an estimator $\widehat{\theta}(X)$
+
+    \[ R(\theta, \widehat{\theta}) = \mathbb{E}_\theta(L(\theta, \widehat{\theta})) = \int L(\theta, \widehat{\theta}(x)) p_\theta(x) dx \]
+
++ [Decision theory from frequentist viewpoint](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + the parameter $\theta$ as a deterministic quantity
+  + purpose: finding a minimax estimator $\widehat{\theta}$ to minimize the maximum risk, i.e.,
+
+    \[ R_{\max}(\widetilde{\theta}) := \sup_{\theta \in \Theta} R(\theta, \,\widetilde{\theta}) \]
+
++ [Decision theory from Bayesian viewpoint](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + the parameter $\theta$ as a random quantity w/ a prior distribution $\pi(\theta)$
+  + purpose: finding the estimator $\widehat{\theta}(X)$ to minimize the posterior expected loss
+
+    \[ R_{\pi}(\widehat{\theta} \,|\, X) = \int_{\Theta} L\left(\theta, \widehat{\theta}(X)\right) p(\theta \,|\, X) d\theta \]
+  
+  + estimator $\widehat{\theta}$: a Bayes rule w.r.t. the prior $\pi(\theta)$ if
+
+    \[ R_{\pi}(\widehat{\theta}) = \inf_{\widetilde{\theta} \in \Theta} R_{\pi}(\widehat{\theta} \,|\, X) \]
+
++ [Bayes risk](../Notes/p04b-Bayesian.md#1231-bayesian-decision-theory)
+  + minimizing the posterior expected loss $\equiv$ minimizing the average risk, Bayes risk
+
+    \[ B_{\pi} = \int R(\theta, \widehat{\theta}) \pi(\theta) \,d\theta \]
+
+  + __Theorem__. The Bayes rules minimizes the $B_\pi$
+
+  + __Theorem__. Bayes estimators
+    + $L(\theta, \widehat{\theta}) = (\theta, \widehat{\theta})^2 \implies$ the posterior mean
+    + $L(\theta, \widehat{\theta}) = |\theta, \widehat{\theta}| \implies$ the posterior median
+    + $L(\theta, \widehat{\theta}) = I(\theta \neq \widehat{\theta}) \implies$ the posterior mode
+
+
+
+
+
+## Bayesian Linear Models
+
++ [Gaussian linear regression](../Notes/p04b-Bayesian.md#1241-bayesian-linear-model)
+  + many frequentist method viewed as the maximum a posterior (MAP) estimator under a Bayesian framework
+  + Gaussian linear regression w/ known $\sigma$
+
+    \[ Y = \beta_0 + \sum_{j=1}^d \beta_j X_j = \varepsilon, \quad \varepsilon \sim N(0, \sigma^2) \]
+
+  + sampling distribution: $\mathcal{D}_n = \{ (\pmb{X}_1, Y_1), \dots,  (\pmb{X}_n, Y_n)\}$
+  + the conditional likelihood of $\pmb{\beta} = (\beta_0, \beta_1, \dots, \beta_s)^T$
+
+    \[ \mathcal{L}(\pmb{\beta}) = \prod_{i=1}^n p(y_i \,|\, x_i, \pmb{\beta}) \propto \exp\left( -\frac{\sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^d \beta_j x_{ij})^2}{2 \sigma^2} \right) \]
+
+  + a Gaussian prior $\pi_\lambda(\pmb{\beta}) \propto \exp( -\lambda \|\pmb{\beta}\|^2_2 / 2) \implies$ the posterior
+
+    \[ p(\pmb{\beta} \,|\, \mathcal{D}_n) \propto \mathcal{L}(\pmb{\beta}) \pi_\lambda(\pmb{\beta}) \]
+
+  + the MAP estimator, $\widehat{\pmb{\beta}}^{\,MAP}$
+
+    \[ \widehat{\pmb{\beta}}^{\,MAP} = \mathop{\arg\min}_{\pmb{\beta}} p(\pmb{\beta} \,|\, \mathcal{D}_n) = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
+
+    + exactly the ridge regression w/ the regularization parameter $\lambda' = \lambda \sigma^2$
+  + adopting the Laplacian prior $\pi_\lambda(\pmb{\beta}) \propto \exp(-\lambda \|\pmb{\beta}\|_1 / 2) \implies$ the Lasso estimator
+
+    \[ \hat{\pmb{\beta}}^{\,MAP} = \mathop{\arg\min}_{\pmb{\beta}} \left\{ \sum_{i=1}^n \left(Y_i - \beta_0 - \sum_{j=1}^d \beta_j X_{ij}\right)^2 + \lambda \sigma^2 \|\pmb{\beta}\|_1 \right\} \]
+
+  + a complete Bayesian analysis aiming at obtaining the whole posterior distribution $p(\pmb{\beta} \,|\, \mathcal{D}_n)$
+  + in general, $p(\pmb{\beta} \,|\, \mathcal{D}_n)$ not having an analytic form and resorting to simulation to approximate the posterior
 
 
 
@@ -1137,8 +1553,98 @@
   + plotting log(likelihood) $\implies$ maximizing numerically to obtain the maximum likelihood estimate $\hat{\tau}}$
   + the maximum likelihood estimate $\hat{\tau}$ used to obtain the maximum likelihood estimate of $\mu$ instead of Eq. (39)
 
++ [Hierarchical model](../Notes/p04b-Bayesian.md#1242-hierarchical-models)
+  + a multi-level statistical model
+  + a typical hierarchical model
+
+    \[\begin{align*}
+      \alpha &\sim \pi(\alpha) \\
+      \theta_1, \dots, \theta_n \,|\, \alpha &\sim p(\theta \,|\, \alpha) \\
+      X_i \,|\, \theta &\sim p(X_i \,|\, \theta_i), \; i=1, \dots, n
+    \end{align*}\]
 
 
 
 
+## Conflicts of Bayesian and Frequentist Approaches
+
++ [Multivariate Normal distribution w/ sum of squared mean](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + task: estimate $\pmb{\mu} = (\mu_1, \dots, \mu_n)^T$
+  + $\theta = \sum_{i=1}^n \mu^2_i$
+  + $\exists\, c_n, \,C_n = [c_n , \infty) \to \mathbb{P}(\theta \in C_n \,|\, \mathcal{D}_n) = 0.95$
+  + frequentist sense
+
+    \[ n \to \infty \ni \mathbb{P}_{\pmb{\mu}} (\theta \in C_n) \to 0 \]
+
+  + a sharp difference btw $\mathbb{P}_{\pmb{\mu}}(\theta \in C_n)$ and $\mathbb{P}(\theta \in \mathcal{D}_n \,|\, \mathcal{D}_n)$
+
++ [Sampling to a Foregone Conclusion](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + $X_i$: statistics comparing to a new drug to a placebo
+  + continuing sampling until $T_n > k, \,T_N = \sqrt{NX_N}, k= 10 \implies$ stop when the drug appears to be much better than the placebo
+  + approximating to Normal distribution: the prior $\pi(\theta)$ smooth $\implies$ the posterior approximately $\theta \,|\, X_1, \dots, X_N \sim N(\overline{X}_N, 1/N)$
+  + region estimate: $C_N = \overline{X}_N \pm 1.96/\sqrt{N} \implies \mathbb{P}(\theta \in C_N \,|\, X_1, \dots, X_N) \approx 0.95$ w/ $0 \notin C_N$
+  + frequentist perspective:
+    + stop sampling w/ $T > 10 \ni$
+
+      \[ \overline{X}_N - \frac{1.96}{\sqrt{N}} > \frac{10}{\sqrt{N}} - \frac{1.96}{\sqrt{N}} > 0  \quad\therefore \theta = 0 \ni \mathbb{P}_\theta(\theta \in C_N) = 0 \]
+
+    + the frequentist coverage
+
+      \[ \text{Coverage} = \inf_{\theta} \mathbb{P}_\theta(\theta \in C_N) = 0 \]
+
+  + sampling to a forgone conclusion: a serious issue in sequential clinical trials
+
++ [Godambe's example](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + $\exists\; C = \{ c_1, \dots, c_N \}$, a finite set of constants
+  + $c_i \in \{0, 1 \}$ for simplification
+  + to estimate $\theta = N^{-1}\sum_{j=1}^N c_j$
+  + the posterior for $\theta$ = the prior for $\theta$
+  + frequentist perspective
+    + to estimate $\theta$
+
+      \[ \widehat{\theta} = \frac{1}{N\pi} \sum_{j=1}^N c_j S_j \implies \mathbb{E}(\widehat{\theta}) = \theta \]
+
+    + $\therefore\, \widehat{\theta}$ closed to $\theta$ w/ high probability
+
++ [Flatland - Stone's paradox](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree)
+  + even for a simple problem w/ a discrete parameters space, Bayesian inference can lead to surprises
+  + $\exists\, A$ wondering randomly in two dimensional grid-world
+  + A taking one more random step w/ equal probability for each direction, the path $x$ (middle diagram)
+  + B (Bayesian) and F (frequentist) trying to find the treasure
+  + $A_{event}$ as the event shortening string at the final step
+    + using the posterior B finding that $P(A_{event} | x) = 3/4, \forall\, x \to$ hold for each $x \implies P(A) = 3/4$
+    + B notes that $P(A |\theta) =1/4 \;\forall\, \theta \implies P(A) = 1/4$
+    + B just proved $1/4 = 3/4$
+  + contradiction: stemming from the improper prior
+  + technically, an example of the non-congolomerability of finite additive measures
+
++ [Brief explanation for Stone's paradox](/Notes/p04c-Bayesian.md#126-examples-where-bayesian-inference-and-frequentist-inference-disagree) (Kass and Wasserman, 1996)
+  + first impression
+    + $\forall\, \text{fixed } x, \pi_p(A_{event} | x) \to 3/4 \text{ as }p \to \infty$
+    + $\therefore$ B's posterior distribution as a limit of well-defined posterior distributions
+  + carefully examined
+    + $m_p(x) = \sum_\theta f(x|\theta) \pi_p(\theta)$: the marginal of $x$ induced by $\pi_p$
+    + $m_p(X_p) \to 2/3$ as $p \to \infty$
+    + $\pi_p(\theta | x) \xrightarrow{D} \pi(\theta|x)$ as $p \to \infty \;\forall\, \text{ fixed } x \implies$  not close w/ high probability
+
+
+
+## Freedman's Theory
+
++ [$weak^\ast$ topology](../Notes/p04c-Bayesian.md#127-freedmans-theorem)
+  + endowing $\mathcal{P}$ w/ the $weak^\ast$ topology: $P_n \to P$ in the $weak^*$ topology $\iff P_n(i) \to  P(i) \;\forall\, i$
+  + endowing the set w/ the $weak^\ast$ topology: $\mu_n \to \mu \iff \int fd\mu_n \to \int fd\mu, \;\forall\, f$
+  + the pair $(P, \mu)$ is __consistent__ if
+
+    \[ P^\infty\left(\lim_{n\to\infty} \mu_n = \delta_p\right) = 1 \]
+
++ [Freedman's theorem](../Notes/p04c-Bayesian.md#127-freedmans-theorem)
+  + __Theorem__ (Freedman 965) The sets of pairs $(P, \mu)$ is meager.
+  + priors guaranteeing consistency in the frequentist sense are rare
+  + choosing a prior to get consistency $\implies$ really trying to be frequentists
+  + choosing a prior to represent one's belief $\implies$ the posterior likely inconsistent by Freedman's theorem
+
+
+
+## 
 
