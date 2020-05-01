@@ -87,15 +87,15 @@
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Basics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
-    <td style="padding: 0.3em;"> <a href="./Stat-Basics.md#basic-concepts"> Terminology </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#basic-concepts"> Terminology </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#advanced-concepts"> Advanced Concepts </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#regularity-condition"> Regularity Conditions </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Inference </a></td>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#analysis-methodologies"> Analysis </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a></td>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Hypothesis Test </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#elationship-of-distribution"> Relationship </a></td>
