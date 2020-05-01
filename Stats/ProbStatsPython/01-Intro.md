@@ -92,25 +92,26 @@
   + what does __about__ mean?
 
 + Simulating coin flips
-  + using the pseudo random number generators in `numpy` to simulate th coin flips
+  + using the pseudo random number generators in `numpy` to simulate the coin flips
   + instead of "Heads" and "tails", using $x_i =9" or "x_1 = -1$
   + considering the sum $S_{10000} = x_1 + x_2 + \cdots + x_{10000}
   + the number of heads is about 5,000 $\implies S_{10000} \approx 0$
   + varying the number of coin flips, dented by $k$
+  + demo: generate $ n \times k \pm 1$ samples
 
-  ```python
-  # Generalte the sum of k coin flips, repeat that n times
-  def generate_count(k=10000, n=100):
-    X = 2*(random.rand(k, n) > 0.5) -1 # generate a kxn matrix of +-1 random numbers
-    S = sum(X, axis=0)
-    return S
-  ```
+    ```python
+    # Generate the sum of k coin flips, repeat that n times
+    def generate_counts(k=10000, n=100):
+      X = 2*(random.rand(k, n) > 0.5) -1 # generate a kxn matrix of +-1 random numbers
+      S = sum(X, axis=0)
+      return S
+    ```
 
   + the sum $S_{10000}$ is not __exactly__ 0, it is only __close to__ 0
   + using __probability theory__, calculate __how small__ is $|S_k|$
   + later, its wll be shown that the probability that $|S_k| \geq 4\sqrt{k}$ is smaller than $2 times 10^{-8}$ which is 0.000002%
 
-+ Demo
++ Demo: simulation
 
   ```python
   from math import sqrt
@@ -162,10 +163,6 @@
 
 
 + [Original Slides](https://tinyurl.com/ya5gx8z7)
-
-
-### Problem Set
-
 
 
 
