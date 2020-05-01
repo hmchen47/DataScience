@@ -77,7 +77,91 @@
 
 ### Lecture Notes
 
++ What is Probability Theory?
+  + Probability theory: a __mathematical__ framework for computing the probability of complex events
+  + Assumption: __we know the probability of the basic events.__
+  + the precise meaning of "probability" and "event"?
+  + giving precise definitions later in the class
+  + relying on common sense at first
 
++ A simple (?) question
+  + flipping a fair coin w/ equal probabilities of "heads" or "tails"
+  + what does the statement mean?
+    + flipping the coin $k$ times, $\exists\, k \gg 1$, say $k = 10,000$
+  + the number of "heads" is __about__ $\frac{k}{2} = \frac{10,000}{2} = 5,000$
+  + what does __about__ mean?
+
++ Simulating coin flips
+  + using the pseudo random number generators in `numpy` to simulate th coin flips
+  + instead of "Heads" and "tails", using $x_i =9" or "x_1 = -1$
+  + considering the sum $S_{10000} = x_1 + x_2 + \cdots + x_{10000}
+  + the number of heads is about 5,000 $\implies S_{10000} \approx 0$
+  + varying the number of coin flips, dented by $k$
+
+  ```python
+  # Generalte the sum of k coin flips, repeat that n times
+  def generate_count(k=10000, n=100):
+    X = 2*(random.rand(k, n) > 0.5) -1 # generate a kxn matrix of +-1 random numbers
+    S = sum(X, axis=0)
+    return S
+  ```
+
+  + the sum $S_{10000}$ is not __exactly__ 0, it is only __close to__ 0
+  + using __probability theory__, calculate __how small__ is $|S_k|$
+  + later, its wll be shown that the probability that $|S_k| \geq 4\sqrt{k}$ is smaller than $2 times 10^{-8}$ which is 0.000002%
+
++ Demo
+
+  ```python
+  from math import sqrt
+  figure(figsize=[13, 3.5])
+  for j in range(2, 5):
+    k = 10*8j
+    counts = generate_counts(k=k, n=100)
+    subplot(130 + j - 1)
+    hist(counts, bin=10);
+    d = 4*sqrt(k)
+    plot([-d, -d], [0, 30], 'r')
+    plot([+d, +d], [0, 30], 'r')
+    grid()
+    title('{0:d} flips, bound=+-{1:6.1f}'.format(k, d))
+
+  figure(figsize=[13, 3.5])
+  for j in range(2, 5):
+    k = 10*8j
+    counts = generate_counts(k=k, n=100)
+    subplot(130 + j - 1)
+    hist(counts, bin=10);
+    xlim([-k, k])
+    d = 4*sqrt(k)
+    plot([-d, -d], [0, 30], 'r')
+    plot([+d, +d], [0, 30], 'r')
+    grid()
+    title('{0:d} flips, bound=+-{1:6.1f}'.format(k, d))
+  ```
+
++ Summary
+  + executing some experiments summing $k$ random numbers: $S_k = x_1, x_2 + \cdots + x_k$
+  + the probability
+
+    \[ p(x_i) = \begin{cases} 1/2 & \text{for } x_i = -1 \\ 1/2 & \text{for } x_i = +1 \end{cases} \]
+
+  + experiments show that the sum $S_k$ is (almost) always in the range $[-4\sqrt{k}, 4\sqrt{k}]$
+
+    \[\begin{align*}
+      k \to \infty &\implies \frac{4\sqrt{k}}{k} = \frac{4}{\sqrt{k}} \to 0 \\
+      \therefore\; k \to \infty &\implies \frac{S_k}{k} \to 0
+    \end{align*}\]
+
++ Math interpretation
+  + math involved in __proving__ (a precise version of) the statements above
+  + in most cases, __approximating__ probabilities using simulations (Monte-Carlo simulations)
+  + calculating the probabilities is better because
+    + providing a precise answer
+    + much faster than Monte V=Carlo simulations
+
+
++ [Original Slides](https://tinyurl.com/ya5gx8z7)
 
 
 ### Problem Set
