@@ -34,11 +34,11 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 1: Introduction to Probability and Statistics
-  + 1.1 [Introduction to Probability and Statistics](/01-Intro.md#)
-  + 1.2 [What is Probability Theory](/01-Intro.md#)
-  + 1.3 [What is Statistics](/01-Intro.md#)
-  + 1.4 [A Puzzle](/01-Intro.md#)
-  + 1.5 [History of Probability and Statistics](/01-Intro.md#)
+  + 1.1 [Introduction to Probability and Statistics](./01-Intro.md#)
+  + 1.2 [What is Probability Theory](./01-Intro.md#)
+  + 1.3 [What is Statistics](./01-Intro.md#)
+  + 1.4 [A Puzzle](./01-Intro.md#)
+  + 1.5 [History of Probability and Statistics](./01-Intro.md#)
   + [Lecture Notebook 1](./01-Intro.md#)
   + [Programming Assignment 1](./01-Intro.md#)
 
