@@ -100,9 +100,10 @@
   + demo: generate $ n \times k$ coin flips w/ values $\pm 1$
 
     ```python
+    import numpy as np
     # Generate the sum of k coin flips, repeat that n times
     def generate_counts(k=10000, n=100):
-      X = 2*(random.rand(k, n) > 0.5) -1 # generate a kxn matrix of +-1 random numbers
+      X = 2*(np.random.rand(k, n) > 0.5) -1 # generate a kxn matrix of +-1 random numbers
       S = sum(X, axis=0)
       return S
     ```
@@ -114,7 +115,7 @@
 + Demo: simulation
 
   ```python
-  from math import sqrt
+  from math import sqrt  
   figure(figsize=[13, 3.5])
   for j in range(2, 5):
     k = 10*8j
@@ -220,11 +221,11 @@
   + why should we care whether a coin is fair?
     + this is a valid critique
     + examples where knowing a coin is biased or not is required
-  + Case I: Pools
+  + Case I: Polls
     + suppose elections will take place in a few days and we want to know how people plan to vote
     + suppose there are to parties: D and R
     + take a survey for __all__ voters $\to$ expensive
-    + using a poll instead:call up a small random selected set of people
+    + using a poll instead: call up a small random selected set of people
     + call $n$ people at random and count the number of D votes
     + can you say <span style="color: red">with confidence</span> that there are more D votes, or more R votes?
     + mathematically equivalent to flipping a biased coin
@@ -251,6 +252,39 @@
 
 ### Problem Set
 
++ If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?
+
+  Ans: No<br/>
+  Explanation: Regardless of the bias of the coin (except when it is always heads or always tails), we can get 507 heads, hence we cannot deduce the bias with certainty. We will see how likely this outcome is later on.
+
+1. In rolling a fair  6-sided die  1,200  times, roughly how many times would you expect to see a 2 ?<br/>
+  a.  200 <br/>
+  a.  600 <br/>
+  a.  1,000 <br/>
+  a. Not enough information is given<br/>
+
+  Ans: a<br/>
+  Explanation: The number 2 will appear in roughly one sixth of the flips, namely $1200 \times 1/6=200$ times.
+
+
+2. A coin is tossed  1000  times and turns up heads  700  times. Is the coin biased?<br/>
+  a. With high confidence, yes.<br/>
+  b. Unclear.<br/>
+
+  Ans: a<br/>
+  Explanation: The probability that an unbiased coin would generate  700  heads is small. Hence we can be pretty confident that it is biased. How confident, we will see later on.
+
+
+3. Which of the following describe the differences between probability and statistics?<br/>
+  a. Probability predicts what will happen. Statistics, at least in part, uses what has already happened.<br/>
+  b. Probability requires existing data. Statistics requires underlying models.<br/>
+  a. Probability and statistics are two words describing the same thing.<br/>
+
+  Ans: a<br/>
+  Explanation
+  + True. Probability analyzes given models. Statistics helps us understand the what we observe.
+  + False. Probability requires underlying models. Statistics requires existing data.
+  + False. As you can see from the previous two parts, they are different.
 
 
 
