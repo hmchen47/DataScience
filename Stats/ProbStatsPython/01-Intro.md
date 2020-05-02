@@ -494,19 +494,14 @@
 + [Original Slides](https://tinyurl.com/yd8ag7aw)
 
 
-### Problem Set
-
-
-
-
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/yd58kkr3" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
 
-## Lecture Notebook 1](./01-Intro.md#)
+## Lecture Notebook 1
 
 
 
