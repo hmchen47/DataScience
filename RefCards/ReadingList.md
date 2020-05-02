@@ -98,7 +98,8 @@
 
 ## Reading List
 
-+ [Bayesian Inference](http://www.stat.cmu.edu/~larry/=sml/Bayes.pdf), chapter 12
++ Brown, E.N. and Kass, R.E. (2009) [What is Statistics? (with discussion)](http://www.stat.cmu.edu/~kass/papers/what.pdf), American Statistician, 63:105-123.
++ Robert E. Kass, [Statistical Inference: The Big Picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf), Statistical Science, 2011, Vol. 26, No. 1, 1–9
 + A. Julien-Laferriere, [Hopfield network](https://bit.ly/2UH5h2X)
 + [Hopfield Model of Neural Network](https://bit.ly/2xQGikM), Chapter 2,
 + R. Rojas, [The Hopfield Model](https://bit.ly/2wTiP2A) in Neural Networks, Springer, 1996
