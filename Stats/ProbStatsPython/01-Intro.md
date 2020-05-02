@@ -306,7 +306,7 @@
     + RR: one card pained red on both sides
   + the setup
     + pick one of the three cards at random, flip it to a random side, and place it on the table
-    + $U$ be the color of the side of the card facing up (B or R)
+    + $U$: the color of the side of the card facing up (B or R)
   + do you wan to bet?
     + if the other side of the card has a different, dealer pay player $1.
     + if the other side has the same color, player pay dealer $1.
@@ -345,7 +345,7 @@
   + simulation result: not agree w/ the argument
     + in simulation: the two sides have the same color about twice the number of times that they have different color
     + player is twice as likely to lose as player is to win
-    + on average, player lose 33 cents per iteration, $\$1 \times (2/3) - \$1 \times (1/3)$
+    + on average, player lose 33 cents per iteration, $1 \times (2/3) - 1 \times (1/3)$
   + alternative argument<br/>
     if you pick a card at random 2/3 of the time, we pick a card where the two sides have the same color, and only 1/3 where the color is different
   + how can we be sure?
@@ -358,6 +358,29 @@
 
 ### Problem Set
 
+0. Why was the assumption that both players have a 50% chance of winning incorrect?<br/>
+  a. We never accounted for a blue side.<br/>
+  b. We cannot know the probability until many tests are performed.<br/>
+  c. We are more likely to pick a card with the same color on both sides.<br/>
+  d. We didn't consider the probability of drawing a card with the same color on both sides.<br/>
+
+  Ans: c<br/>
+  Explanation: If we see, say a blue card, then we are twice as likely to have picked the two-blue-sides card, hence the other side is twice as likely to be blue too. We will better understand that when we study conditional probability.
+
+1. What is the probability of drawing a Queen from a deck of  52  cards?<br/>
+  a. 1/52 <br/>
+  b. 4/52 <br/>
+  c. 1/2 <br/>
+  d. 2/52<br/>
+
+  Ans: b <br/>
+  Explanation: There are 4 Queens in a deck of 52 cards. The probability is 4/52 .
+
+
+2. If we repeat an experiment many times, the long-term frequencies of the outcomes converge to the probabilities. (True/False)
+
+  Ans: True <br/>
+  Explanation: Ture, in fact, as we will see, probabilities are defined to model long-term frequency averages.
 
 
 
