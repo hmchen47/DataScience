@@ -2,8 +2,6 @@
 
 ## 1.1 Introduction to Probability and Statistics
 
-### Lecture Notes
-
 + Why should you care about prob&stat?
   + a powerful tool to deal w/ uncertainty
   + example: Navigation software
@@ -74,8 +72,6 @@
 
 
 ## 1.2 What is Probability Theory
-
-### Lecture Notes
 
 + What is Probability Theory?
   + Probability theory: a __mathematical__ framework for computing the probability of complex events
@@ -175,8 +171,6 @@
 
 
 ## 1.3 What is Statistics
-
-### Lecture Notes
 
 + What is statistics?
   + probability theory: computing probabilities of complex events given the underlying base distribution
@@ -297,8 +291,6 @@
 
 ## 1.4 A Puzzle
 
-### Lecture Notes
-
 + The three card puzzle
   + suppose there are 3 cards in a hat
     + RB: one card pained blue on one side and red on the other
@@ -393,9 +385,113 @@
 
 ## 1.5 History of Probability and Statistics
 
-### Lecture Notes
+#### 1.5.1 A short history of Probability and Statistics
+
++ Games of chance vs. Strength of evidence
+  + brief history of statistics (top left diagram)
+  + Two concepts in practice of data analysis (top right diagram)
+  + R. Kass, [Statistical Inference: the big picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf)
+    + bottom left figure: The big picture of statistical inference.
+      + Statistical procedures are abstractly defined in terms of mathematics but are used, in conjunction with scientific models and methods, to explain observable phenomena. 
+      + This picture emphasizes the hypothetical link between variation in data and its description using statistical models.
+    + bottom right figure: A more elaborate big picture, reflecting in greater detail the process of statistical inference. As in left figure, there is a hypothetical link between data and statistical models but here the data are connected more specifically to their representation as random variables.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
+      <img src="img/t01-01.png" style="margin: 0.1em;" alt="Historical flow of statistics" title="Simulation result w/ 1000 flips" width=350>
+    </a>
+    <a href="https://vuorre.netlify.app/post/2016/08/23/statistical-inference-prix-fixe-or-a-la-carte/" ismap target="_blank">
+      <img src="https://vuorre.netlify.app/img/2016/inference-table.png" style="margin: 0.1em;" alt="A table of “inferential stances” reproduced without permission from Kruschke & Liddell (2015; the original caption: 'Two conceptual distinctions in the practice of data analysis. Rows show point-value hypothesis testing versus estimating magnitude with uncertainty. Columns show frequentist versus Bayesian methods'.)" title="Two conceptual distintions in the practice of data analysis." width=350>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yd3yk5xm" ismap target="_blank">
+      <img src="https://tinyurl.com/y8umclpa" style="margin: 0.1em;" alt="The big picture of statistical inference" title="Statistical Pragmatism Bayesian and Frequentist approach" width=300>
+    </a>
+    <a href="https://tinyurl.com/yd3yk5xm" ismap target="_blank">
+      <img src="https://tinyurl.com/yaqn949f" style="margin: 0.1em;" alt="Statistical Pragmatism Bayesian and Frequentist approach" title="Statistical Pragmatism Bayesian and Frequentist approach" width=400>
+    </a>
+  </div>
+
++ Games of chance
+  + Sumeria, Assyria, ancient Greece, ancient Rome
+  + knuckle bones (tails)
+  + repeat the basil
+
++ From knuckle bones to dice and cards
+  + wining or losing is up to chance, luck, or god
+  + equal probability assumption: all outcomes have the same probability
+    + True for dice and roulette
+    + Not true for knuckle bones
+
++ Long term frequencies
+  + the probability that a knuckle bone lands on a narrow face is smaller than it lands on a wide face
+  + each knuckle bone different $\to$ the probabilities different
+  + suppose that $p(6) = 0.1, p(1) = 0.2, p(3) =0.3, p(4) =0.4$
+  + difference setting
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
+        <img src="img/t01-02a.png" style="margin: 0.1em;" alt="Simulation result w/ 1000 flips" title="Simulation result w/ 1000 flips" height=100>
+      </a>
+      <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
+        <img src="img/t01-02b.png" style="margin: 0.1em;" alt="Simulation result w/ 100 flips" title="Simulation result w/ 100 flips" height=80>
+        <img src="img/t01-02c.png" style="margin: 0.1em;" alt="Simulation result w/ 10 flips" title="Simulation result w/ 10 flips" height=80>
+      </a>
+    </div>
+
++ Stopping a game in the middle
+  + simplified version of problem in famous letter from Pascal to Fermat in 1654
+  + suppose a card game of pure chance is played until one side wins
+  + both players put in 1$
+  + the winner takes the 2$
+  + suppose the game is __stopped__ before either side wins
+  + how should the 2$ be splits?
+  + what is the probability that player 1 will win given the cards currently held?
+
++ The frequentist point of view
+  + to assign a probabilities to the outcomes of a game/experiment is the same as saying that if we repeat the game many times, the long term frequencies of the outcomes converge to the probabilities
+  + provide a solid foundation on which probability theory is built
+  + make sense in game and other situations where one can repeat the same random choice many times
+  + not always possible
+
++ Situations where repetition is hard
+  + a meteorologist says the probability of rain tomorrow is 10%
+    + what does that mean?
+    + it will either rain or not rain
+    + tomorrow happens only once
+  + suppose a surgeon says that there is 2% chance of complications w/ a particular surgery
+    + it might mean that 2% of the patients that underwent the surgery had complications
+    + what does it mean for __you__?
+    + maybe most of the complications where with patients older than 90 (and you are 35) ...
+
++ The colloquial meaning of probability
+  + the word 'probable' was used before 1650, but its meaning is not quantitative
+  + even today the words 'probable' and 'probably' have common use meanings that is qualitative, not quantitative
+  + Merriam Webster Dictionary - Probably
+    + def: insofar seems reasonably true, factual, or to be expected; w/o much doubt
+    + e.g., is probably happy; it will probably rain
+
++ A probable doctor
+  + before 1660 it was common to say that some one is a 'probable doctor'
+  + it meant that the doctor was __approved__ by someone authority
+  + at this time, in Europe, the authority was usually the church
+  + today MDs are approved by a board, after passing the board exams
+
++ Combining evidence for Diagnosis
+  + diagnosing a patient requires combining pieces of information
+  + most of the information is uncertain (measurement error)
+  + difference relevance
+
++ Combining evidence
+  + central to many fields: medicine, economics, investment. law, science, technology, ...
+  + typically, you don't repeat an experiment many times
+  + the math used is the probability theory, but much of the discussion is not mathematical
+  + closely related concepts: fairness, pricing
+  + a popular approach: Bayesian Statistics
 
 
++ [Original Slides](https://tinyurl.com/yd8ag7aw)
 
 
 ### Problem Set
