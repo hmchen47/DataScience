@@ -389,6 +389,9 @@
 
 + Games of chance vs. Strength of evidence
   + brief history of statistics (top left diagram)
+    + started around 1650 w/ modern form
+    + red: game of chance
+    + green: strength of evidence and degrees of belief
   + Two concepts in practice of data analysis (top right diagram)
   + R. Kass, [Statistical Inference: the big picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf)
     + bottom left figure: The big picture of statistical inference.
@@ -414,21 +417,27 @@
   </div>
 
 + Games of chance
+  + existed much longer than modern form developed
   + Sumeria, Assyria, ancient Greece, ancient Rome
-  + knuckle bones (tails)
-  + repeat the basil
+  + knuckle bones (Talis)
+  + repeat the basic game many times
 
 + From knuckle bones to dice and cards
   + wining or losing is up to chance, luck, or god
-  + equal probability assumption: all outcomes have the same probability
-    + True for dice and roulette
-    + Not true for knuckle bones
+  + __equal probability assumption__
+    + all outcomes have the same probability
+    + simplest setting of probability
+  + _true_ for dice and roulette
+  + _not true_ for knuckle bones: different side w/ different probability $\to$ asymmetric
 
-+ Long term frequencies
++ Long term frequencies for knuckle bone
   + the probability that a knuckle bone lands on a narrow face is smaller than it lands on a wide face
   + each knuckle bone different $\to$ the probabilities different
   + suppose that $p(6) = 0.1, p(1) = 0.2, p(3) =0.3, p(4) =0.4$
   + difference setting
+    + top diagram: 1000 flips $\to$ result close to the setting
+    + bottom left: 100 flips $\to$ distance away from the setting
+    + bottom left: 10 flips $\to$ further away from the setting
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
@@ -445,7 +454,7 @@
   + suppose a card game of pure chance is played until one side wins
   + both players put in 1$
   + the winner takes the 2$
-  + suppose the game is __stopped__ before either side wins
+  + suppose the game is <span style="text-decoration: underline; font-weight: bold;">stopped</span> before either side wins
   + how should the 2$ be splits?
   + what is the probability that player 1 will win given the cards currently held?
 
@@ -453,7 +462,7 @@
   + to assign a probabilities to the outcomes of a game/experiment is the same as saying that if we repeat the game many times, the long term frequencies of the outcomes converge to the probabilities
   + provide a solid foundation on which probability theory is built
   + make sense in game and other situations where one can repeat the same random choice many times
-  + not always possible
+  + not always possible...
 
 + Situations where repetition is hard
   + a meteorologist says the probability of rain tomorrow is 10%
@@ -473,19 +482,25 @@
     + e.g., is probably happy; it will probably rain
 
 + A probable doctor
-  + before 1660 it was common to say that some one is a 'probable doctor'
-  + it meant that the doctor was __approved__ by someone authority
+  + before 1660 it was common to say that someone is a 'probable doctor'
+  + it meant that the doctor was <span style="text-decoration: underline; font-weight: bold;">approved</span> by someone authority
   + at this time, in Europe, the authority was usually the church
   + today MDs are approved by a board, after passing the board exams
 
 + Combining evidence for Diagnosis
-  + diagnosing a patient requires combining pieces of information
-  + most of the information is uncertain (measurement error)
-  + difference relevance
+  + diagnosing a patient requiring combining pieces of information (see diagram)
+  + most of the information uncertain (measurement error)
+  + difference pieces having different relevance
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://labtestsonline.org/articles/laboratory-test-reliability" ismap target="_blank">
+        <img src="https://tinyurl.com/ycqqr3s6" style="margin: 0.1em;" alt="Information sources critical to the diagnostic process" title="Information sources critical to the diagnostic process" width=400>
+      </a>
+    </div>
 
 + Combining evidence
-  + central to many fields: medicine, economics, investment. law, science, technology, ...
-  + typically, you don't repeat an experiment many times
+  + central to many fields: medicine, economics, investment, law, science, technology, ...
+  + typically, not repeating an experiment many times
   + the math used is the probability theory, but much of the discussion is not mathematical
   + closely related concepts: fairness, pricing
   + a popular approach: Bayesian Statistics
