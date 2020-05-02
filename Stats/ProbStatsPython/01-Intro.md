@@ -290,12 +290,12 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y9uvlvfn" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
 
-## 1.4 A Puzzle (2 Questions)
+## 1.4 A Puzzle
 
 ### Lecture Notes
 
