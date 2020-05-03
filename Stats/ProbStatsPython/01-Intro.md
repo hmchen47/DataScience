@@ -530,7 +530,7 @@
   + two threads
     + repeated games of chance (red): more mechanical side
     + the strength of evidence and degrees of belief (green): more about evidence
-  + before the formal developed
+  + before the formal form developed
     + red thread
       + playing games repeatedly, including knuckle bones, dice, and cards
       + question: what is the right way to split money when to stop a game earlier
@@ -538,10 +538,9 @@
       + not well defined
       + question: what to do w/ a state of uncertainty
       + how to make conclusions w/ some evidence
-      + how to weight different evidences that might be contradictory
+      + how to weight different evidence probably contradict
     + applied fields: law, medicine, science, technology, and public policies
-  + starting w/ the discussions mainly btw Pascal and Fermat around 1650~1660 (blue line)
-  + the modern mathematical probability and statistics starting to be developed
+  + the modern mathematical probability and statistics: starting w/ the discussions mainly btw Pascal and Fermat around 1650~1660 (blue line)
   + frequentist approach
     + mechanism such as rolling dice
     + Andre Kolmogorov: the axiom of probability
@@ -549,14 +548,14 @@
   + Bayesian approach
     + taking belief before seeing any evidence
     + updating beliefs w/ evidence
-    + Bruno De-finetti
+    + Bruno De-finetti: the "operational subjective" conception of probability
   + tension btw frequentist and Bayesian approaches: "All your Bayes are belong to us" - Vladimir Vapnik
   + statistics practitioners
     + using probability and statistics to solve real world problem
     + not dogmatic to either side
     + using the tools when appropriate, including frequentist, Bayesian or even heuristic
     + Ronald Fisher: brought statistics to science and social sciences
-    + John Tukey
+    + John Tukey: box plot and FFT
     + Leo Breiman: inventor of bagging and cart and other algorithms
     + practitioners w/ different arrows due to their uniqueness
     + taking various ideas from probability and statistics and applying to real world problems
@@ -567,7 +566,7 @@
   + machine learning, big data, neural networks
     + modern statistics practitioners
     + long history by using important methods developed
-  + Reference: Ian hacking, "The Emergence of Probability"
+  + Reference: Ian hacking, [The Emergence of Probability: A Philosophical Study of Early Ideas about Probability, Induction and Statistical Inference](https://tinyurl.com/ybeszfph), Cambridge University Press, 2006
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
