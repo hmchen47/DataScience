@@ -100,6 +100,7 @@
 
 + Brown, E.N. and Kass, R.E. (2009) [What is Statistics? (with discussion)](http://www.stat.cmu.edu/~kass/papers/what.pdf), American Statistician, 63:105-123.
 + Robert E. Kass, [Statistical Inference: The Big Picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf), Statistical Science, 2011, Vol. 26, No. 1, 1–9
++ J. K. Kruschke1 and T. M. Liddell1, [The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective](https://link.springer.com/content/pdf/10.3758/s13423-016-1221-4.pdf), Psychon Bull Rev (2018) 25:178–206
 + A. Julien-Laferriere, [Hopfield network](https://bit.ly/2UH5h2X)
 + [Hopfield Model of Neural Network](https://bit.ly/2xQGikM), Chapter 2,
 + R. Rojas, [The Hopfield Model](https://bit.ly/2wTiP2A) in Neural Networks, Springer, 1996
