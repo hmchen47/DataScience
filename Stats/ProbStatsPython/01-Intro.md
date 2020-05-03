@@ -396,10 +396,7 @@
 #### 1.5.1 A short history of Probability and Statistics
 
 + Games of chance vs. Strength of evidence
-  + brief history of statistics (top left diagram)
-    + started around 1650 w/ modern form
-    + red: game of chance
-    + green: strength of evidence and degrees of belief
+  + brief history of statistics (detailed in 1.5.2)
   + Two concepts in practice of data analysis (top right diagram)
     + Rows: point-value hypothesis testing versus estimating magnitude with uncertainty
     + Columns: frequentist versus Bayesian methods. 
@@ -421,19 +418,16 @@
         + algorithms
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
-      <img src="img/t01-01.png" style="margin: 0.1em;" alt="Historical flow of statistics" title="Simulation result w/ 1000 flips" width=350>
-    </a>
     <a href="https://link.springer.com/content/pdf/10.3758/s13423-016-1221-4.pdf" ismap target="_blank">
-      <img src="https://vuorre.netlify.app/img/2016/inference-table.png" style="margin: 0.1em;" alt="A table of “inferential stances” reproduced without permission from Kruschke & Liddell (2015; the original caption: 'Two conceptual distinctions in the practice of data analysis. Rows show point-value hypothesis testing versus estimating magnitude with uncertainty. Columns show frequentist versus Bayesian methods'.)" title="Two conceptual distintions in the practice of data analysis." width=350>
+      <img src="https://vuorre.netlify.app/img/2016/inference-table.png" style="margin: 0.1em;" alt="A table of “inferential stances” reproduced without permission from Kruschke & Liddell (2015; the original caption: 'Two conceptual distinctions in the practice of data analysis. Rows show point-value hypothesis testing versus estimating magnitude with uncertainty. Columns show frequentist versus Bayesian methods'.)" title="Two conceptual distintions in the practice of data analysis." height=200>
+    </a>
+    <a href="https://tinyurl.com/yd3yk5xm" ismap target="_blank">
+      <img src="https://tinyurl.com/y8umclpa" style="margin: 0.1em;" alt="The big picture of statistical inference" title="Statistical Pragmatism Bayesian and Frequentist approach" height=200>
     </a>
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yd3yk5xm" ismap target="_blank">
-      <img src="https://tinyurl.com/y8umclpa" style="margin: 0.1em;" alt="The big picture of statistical inference" title="Statistical Pragmatism Bayesian and Frequentist approach" width=300>
-    </a>
-    <a href="https://tinyurl.com/yd3yk5xm" ismap target="_blank">
-      <img src="https://tinyurl.com/yaqn949f" style="margin: 0.1em;" alt="Statistical Pragmatism Bayesian and Frequentist approach" title="Statistical Pragmatism Bayesian and Frequentist approach" width=400>
+      <img src="https://tinyurl.com/yaqn949f" style="margin: 0.1em;" alt="Statistical Pragmatism Bayesian and Frequentist approach (detailed version)" title="Statistical Pragmatism Bayesian and Frequentist approach (detailed version)" width=400>
     </a>
   </div>
 
@@ -530,8 +524,70 @@
 + [Original Slides](https://tinyurl.com/yd8ag7aw)
 
 
-### History poster
+### 1.5.2 History poster
 
++ The poster: timeline of probability and statistics
+  + two threads
+    + repeated games of chance (red): more mechanical side
+    + the strength of evidence and degrees of belief (green): more about evidence
+  + before the formal developed
+    + red thread
+      + playing games repeatedly, including knuckle bones, dice, and cards
+      + question: what is the right way to split money when to stop a game earlier
+    + green thread
+      + not well defined
+      + question: what to do w/ a state of uncertainty
+      + how to make conclusions w/ some evidence
+      + how to weight different evidences that might be contradictory
+    + applied fields: law, medicine, science, technology, and public policies
+  + starting w/ the discussions mainly btw Pascal and Fermat around 1650~1660 (blue line)
+  + the modern mathematical probability and statistics starting to be developed
+  + frequentist approach
+    + mechanism such as rolling dice
+    + Andre Kolmogorov: the axiom of probability
+    + Vladimir Vapnik: developed some foundations for machine learning
+  + Bayesian approach
+    + taking belief before seeing any evidence
+    + updating beliefs w/ evidence
+    + Bruno De-finetti
+  + tension btw frequentist and Bayesian approaches: "All your Bayes are belong to us" - Vladimir Vapnik
+  + statistics practitioners
+    + using probability and statistics to solve real world problem
+    + not dogmatic to either side
+    + using the tools when appropriate, including frequentist, Bayesian or even heuristic
+    + Ronald Fisher: brought statistics to science and social sciences
+    + John Tukey
+    + Leo Breiman: inventor of bagging and cart and other algorithms
+    + practitioners w/ different arrows due to their uniqueness
+    + taking various ideas from probability and statistics and applying to real world problems
+  + hypothesis testing and p-value
+    + frequentist approach to argue about degree of belief
+    + interesting contrast
+    + commonly used in science to accept or reject hypothesis according to the strength of evidence
+  + machine learning, big data, neural networks
+    + modern statistics practitioners
+    + long history by using important methods developed
+  + Reference: Ian hacking, "The Emergence of Probability"
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
+      <img src="img/t01-01.png" style="margin: 0.1em;" alt="Historical flow of statistics" title="Historical flow of statistics" width=750>
+    </a>
+  </div>
+
+
++ [Original Slide](https://tinyurl.com/ybubuv96)
+
+
+### Problem Set
+
+0. Machine learning uses: <br/>
+  a. Only Bayesian statistics<br/>
+  b. Only the Frequentist approach.<br/>
+  c. Both the Bayesian and Frequentist approaches.<br/>
+
+  Ans: c <br/>
+  Explanation: Machine learning is a practical field, hence uses any technique it finds useful, in particular it uses both Bayesian and Frequentist statistics.
 
 
 ### Lecture Video
