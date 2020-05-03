@@ -11,7 +11,7 @@ import matplotlab.pyplot as plt
 
 def main():
 
-    input("Press Enter to continue ...")
+    input("\nPress Enter to continue ...\n")
 
     return None
 
