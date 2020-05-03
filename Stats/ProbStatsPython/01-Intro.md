@@ -616,6 +616,59 @@
 
 ## Programming Assignment 1
 
++ [Assignment 1](src/HW_01.ipynb)
 
+1. For the seq_sum function in Exercise 1, which of the following is a possible output to seq_sum(2)?<br/>
+  a. 0<br/>
+  b. 1<br/>
+  c. 2<br/>
+  d. 3<br/>
+
+  Ans: abc<br/>
+  Explanation:
+
+  ```python
+  def seq_sum(n):
+    """ input: n, generate a sequence of n random coin flips
+        output: return the number of heads 
+        Hint: For simplicity, use 1,0 to represent head,tails
+    """
+
+    return np.sum(np.random.randint(0, 2, size = n))
+  ```
+
+2. In the function estimate_prob(n,k1,k2,m) how many times should the seq_sum be called?<br/>
+  a. n  times<br/>
+  b. m  times<br/>
+  c. k2−k1  times<br/>
+  d. 0  times, estimate_prob does not use seq_sum<br/>
+
+  Ans: b
+
+
+3. Which of the following is the most plausible answer for estimate_prob(100,40,60,1000)<br/>
+  a. 1.50 <br/>
+  b. 0.95 <br/>
+  c. 0.75 <br/>
+  d. 0.53 <br/>
+  e. 0.10 <br/>
+
+  Ans: b<br/>
+  Explanation:
+
+  ```python
+  def estimate_prob(n,k1,k2,m):
+    """Estimate the probability that n flips of a fair coin result in k1 to k2 heads
+    n: the number of coin flips (length of the sequence)
+    k1,k2: the trial is successful if the number of heads is 
+    between k1 and k2-1
+    m: the number of trials (number of sequences of length n)
+
+    output: the estimated probability 
+    """
+
+    sim = np.array([seq_sum(n) for j in range(m)])
+    return np.sum(np.logical_and(sim >= k1, sim < k2) ) / m
+  ```
 
 
