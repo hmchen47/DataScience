@@ -598,7 +598,20 @@
 
 ## Lecture Notebook 1
 
-[Lecture Notebook](https://tinyurl.com/yd4pnp8u)
++ [Lecture Notebook - origin](https://tinyurl.com/yd4pnp8u)
+
++ [Notebook -- 1.2 What is probability](src/Topic01-IntroMotivation/1.What-is-Probability.ipyn)
++ [Python code -- 1.2 What is probability ](src/topic01-2.coinflips.py)
+
+
++ [Notebook -- 1.3 What is Statistics](src/Topic01-IntroMotivation/2.What-is-Statistics_.ipynb)
+
++ [Notebook -- 1.4 Long Term Frequencies](src/Topic01-IntroMotivation/3.Long-term-frequencies.ipynb)
++ [Python Code -- 1.4 A Puzzle](src/topic01.4-knucklebones.py)
+
++ [Notebook -- 1.5 History of Probability & Statistics](src/Topic01-IntroMotivation/4.The-Three-card-Puzzle.ipynb)
++ [Python code -- 1.5 History of Probability & Statistics](src/topic01.5-cardpuzzle.py)
+
 
 
 ## Programming Assignment 1
