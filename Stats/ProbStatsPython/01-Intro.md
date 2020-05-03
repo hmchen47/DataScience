@@ -35,6 +35,14 @@
   + Uncertainty is all around us
   + Probability and Statistics provide a rational way to deal w/ uncertainty
 
++ Probability vs Statistics
+  + [Cross Validated](https://tinyurl.com/y8utuukd):
+    + probability theory: considering some underlying process which has some randomness or uncertainty modeled by random variables, and figuring out what happens
+    + statistics: observing something that has happened, and trying to figure out what underlying process would explain those observations
+  + [Michael Hochster @Quaro](https://www.quora.com/What-is-the-relationship-between-statistics-and-probability)
+    + probability: starting with a model, w/ the given model, computing probabilities of observing various things
+    + statistics: starting with observations and then trying to guess what model produced them
+
 
 + [Original Slides](https://tinyurl.com/y75qx6vl)
 
@@ -393,17 +401,30 @@
     + red: game of chance
     + green: strength of evidence and degrees of belief
   + Two concepts in practice of data analysis (top right diagram)
+    + Rows: point-value hypothesis testing versus estimating magnitude with uncertainty
+    + Columns: frequentist versus Bayesian methods. 
+    + Cells indicate the typical information provided by each approach
   + R. Kass, [Statistical Inference: the big picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf)
     + bottom left figure: The big picture of statistical inference.
-      + Statistical procedures are abstractly defined in terms of mathematics but are used, in conjunction with scientific models and methods, to explain observable phenomena. 
+      + Statistical procedures are abstractly defined in terms of mathematics but are used, in conjunction with scientific models and methods, to explain observable phenomena.
       + This picture emphasizes the hypothetical link between variation in data and its description using statistical models.
-    + bottom right figure: A more elaborate big picture, reflecting in greater detail the process of statistical inference. As in left figure, there is a hypothetical link between data and statistical models but here the data are connected more specifically to their representation as random variables.
+    + bottom right figure: A more elaborate big picture, reflecting in greater detail the process of statistical inference. 
+      + hypothetical link (red dotted line):
+        + data and random variables
+        + key features of unobserved mechanisms and parameters
+        + real-world and theoretical conclusions
+      + data consisting of
+        + regularity: often described in theoretical terms as a “signal,” sometimes conforming to simple mathematical descriptions or “laws”
+        + unexplained variability: usually taken to be “noise”
+      + other components
+        + exploratory data analysis (EDA)
+        + algorithms
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
       <img src="img/t01-01.png" style="margin: 0.1em;" alt="Historical flow of statistics" title="Simulation result w/ 1000 flips" width=350>
     </a>
-    <a href="https://vuorre.netlify.app/post/2016/08/23/statistical-inference-prix-fixe-or-a-la-carte/" ismap target="_blank">
+    <a href="https://link.springer.com/content/pdf/10.3758/s13423-016-1221-4.pdf" ismap target="_blank">
       <img src="https://vuorre.netlify.app/img/2016/inference-table.png" style="margin: 0.1em;" alt="A table of “inferential stances” reproduced without permission from Kruschke & Liddell (2015; the original caption: 'Two conceptual distinctions in the practice of data analysis. Rows show point-value hypothesis testing versus estimating magnitude with uncertainty. Columns show frequentist versus Bayesian methods'.)" title="Two conceptual distintions in the practice of data analysis." width=350>
     </a>
   </div>
@@ -425,16 +446,16 @@
 + From knuckle bones to dice and cards
   + wining or losing is up to chance, luck, or god
   + __equal probability assumption__
-    + all outcomes have the same probability
+    + all outcomes w/ the same probability
     + simplest setting of probability
-  + _true_ for dice and roulette
-  + _not true_ for knuckle bones: different side w/ different probability $\to$ asymmetric
+    + _true_ for dice and roulette
+    + _not true_ for knuckle bones: different side w/ different probability $\to$ asymmetric
 
-+ Long term frequencies for knuckle bone
++ Long term frequencies w/ simulation of knuckle bone
   + the probability that a knuckle bone lands on a narrow face is smaller than it lands on a wide face
   + each knuckle bone different $\to$ the probabilities different
   + suppose that $p(6) = 0.1, p(1) = 0.2, p(3) =0.3, p(4) =0.4$
-  + difference setting
+  + difference trials
     + top diagram: 1000 flips $\to$ result close to the setting
     + bottom left: 100 flips $\to$ distance away from the setting
     + bottom left: 10 flips $\to$ further away from the setting
@@ -455,7 +476,7 @@
   + both players put in 1$
   + the winner takes the 2$
   + suppose the game is <span style="text-decoration: underline; font-weight: bold;">stopped</span> before either side wins
-  + how should the 2$ be splits?
+  + how should the 2$ be split?
   + what is the probability that player 1 will win given the cards currently held?
 
 + The frequentist point of view
@@ -475,22 +496,22 @@
     + maybe most of the complications where with patients older than 90 (and you are 35) ...
 
 + The colloquial meaning of probability
-  + the word 'probable' was used before 1650, but its meaning is not quantitative
-  + even today the words 'probable' and 'probably' have common use meanings that is qualitative, not quantitative
+  + the word 'probable' used before 1650, but meaning not quantitative
+  + today 'probable' and 'probably' commonly used as meanings w/ qualitative, not quantitative
   + Merriam Webster Dictionary - Probably
     + def: insofar seems reasonably true, factual, or to be expected; w/o much doubt
     + e.g., is probably happy; it will probably rain
 
 + A probable doctor
   + before 1660 it was common to say that someone is a 'probable doctor'
-  + it meant that the doctor was <span style="text-decoration: underline; font-weight: bold;">approved</span> by someone authority
+  + it meant that the doctor was <span style="text-decoration: underline; font-weight: bold;">approved</span> by some authority
   + at this time, in Europe, the authority was usually the church
-  + today MDs are approved by a board, after passing the board exams
+  + today MDs approved by a board, after passing the board exams
 
 + Combining evidence for Diagnosis
   + diagnosing a patient requiring combining pieces of information (see diagram)
   + most of the information uncertain (measurement error)
-  + difference pieces having different relevance
+  + different pieces having different relevance
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://labtestsonline.org/articles/laboratory-test-reliability" ismap target="_blank">
@@ -501,12 +522,16 @@
 + Combining evidence
   + central to many fields: medicine, economics, investment, law, science, technology, ...
   + typically, not repeating an experiment many times
-  + the math used is the probability theory, but much of the discussion is not mathematical
+  + the probability theory used, but much of the discussion not mathematical
   + closely related concepts: fairness, pricing
   + a popular approach: Bayesian Statistics
 
 
 + [Original Slides](https://tinyurl.com/yd8ag7aw)
+
+
+### History poster
+
 
 
 ### Lecture Video
