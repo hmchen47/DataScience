@@ -598,7 +598,7 @@
 
 ## Lecture Notebook 1
 
-
+[Lecture Notebook](https://tinyurl.com/yd4pnp8u)
 
 
 ## Programming Assignment 1
