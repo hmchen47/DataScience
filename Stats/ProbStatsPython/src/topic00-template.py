@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import math
-import numpy as numpy
+import numpy as np
 import matplotlab.pyplot as plt
 
 
