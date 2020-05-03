@@ -16,7 +16,7 @@ def main():
     return None
 
 
-if __init__ == "__main__":
+if __name__ == "__main__":
     print("\nStarting Topic xx Python code execution ...")
 
     main()
