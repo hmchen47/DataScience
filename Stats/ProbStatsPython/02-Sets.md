@@ -5,32 +5,34 @@
 
 + Elements
   + foundations, building blocks of sets
-  + can be anything
-    + structure
-    + numbers
+  + can be anything: football player, Google, aspirin
+  + structure: letters, words, documents, or web pages
+  + numbers: for probability and statistics
 
 + Elements to sets
   + beyond individual elements
   + "Bigger picture"
   + set: collection of elements
-  + define specify elements
+  + define { specify elements }
 
 + Specification
-  + explicit: compact and expressive
+  + explicit:
     + coin: {heads, tails}
     + bits: {0, 1}
     + die: {1, 2, 3, 4 ,5 6}
-  + implicit: ambiguous
+  + implicit:
     + digits: {0, 1, 2, ..., 9}
     + letters: {a, b, ..., z}
     + days: {Monday, ..., Sunday}
   + descriptive: {four-letter words} = {love, like, dear, ...}
+  + explicit $\to$ implicit $\to$ descriptive: compact & expressive $\to$ ambiguous
 
 + Common sets
-  + integers $\mathbb{Z}$: {..., -2, -2, 0, 1, 2, ...}
-  + natural $\mathbb{N}$: {0, 1, 2, ...}
-  + rationals $\mathbb{Q}$: {integer ratios $m/n, \; n \neq 0$}
-  + Reals |mathbb{R}$
+  + integers: $\mathbb{Z}$ = {..., -2, -2, 0, 1, 2, ...}
+  + natural: $\mathbb{N}$ = {0, 1, 2, ...}
+  + positive: \mathbb{P}$ = (1, 2, 3, ...)
+  + rationals: $\mathbb{Q}$ = {integer ratios $m/n, \; n \neq 0$}
+  + Reals: $\mathbb{R}$ = { ... Google ...}
   + convention:
     + set: Upper case, e.g., A
     + elements: lower case;, e.g., a
@@ -52,23 +54,19 @@
   + repetition matters: using <span style="color: blue; font-weigh: bold;">multisets</span>, or <span style="color: blue; font-weigh: bold;">bags</span>
 
 + Special sets
-  + empty set: containing no elements, $\varnothing$ or $\{ \}$
-    + e.g., $\forall\, x, \,x \in \varnothing$, $\forall$- All, every
-  + universal set: all possible elements, $\Omega$
-    + e.g., $\forall, \;x \in \Omega$
-  + $\Omega$: considering only relevant elements
-    + e.g., integers - $\Omega = \mathbb{Z}$, "prime" = 2, 3, 5, ...
-  + $\Omega$ depending on application
-    + e.g., temperature - $\Omega = \mathbb{R}$, text - $\Omega = \{words\}$
+  + empty set: containing no elements, $\varnothing$ or $\{ \}$, e.g., $\forall\, x, \,x \in \varnothing$, $\forall$- All, every
+  + universal set: all possible elements, $\Omega$, e.g., $\forall, \;x \in \Omega$
+  + $\Omega$: considering only relevant elements, e.g., integers - $\Omega = \mathbb{Z}$, "prime" = 2, 3, 5, ...
+  + $\Omega$ depending on application, e.g., temperature - $\Omega = \mathbb{R}$, text - $\Omega = \{\text{words}\}$
   + only one $\varnothing$: set w/o elements
 
 + Set definition in Python
-  + define a set: $\{\dots\}$ or $\text{set(\{\dots\})}$
-    + e.g., `Set1 = {1, 2}; print(Set1)`, `Set2 = set({2, 3}); print(Set2)`
+  + define a set: `{...}` or `set(...)`
+    + e.g., `Set1 = {1, 2}; print(Set1) $ {1, 2}`, `Set2 = set({2, 3}); print(Set2) ${2, 3}`
   + empty set: using only `set()` or `set({})`
-    + e.g., `Empty1 = set(); type(Empty1) # set; print(Empty1) #set{}`
-    + e.g., `Empty2 = set({}); type(Empty2) # set; print(Empty2) $set{}`
-    + e.g., `NotASet = {}; type(NotASet) #dict`
+    + e.g., `Empty1 = set(); type(Empty1) # set; print(Empty1) # set{}`
+    + e.g., `Empty2 = set({}); type(Empty2) # set; print(Empty2) # set{}`
+    + e.g., `NotASet = {}; type(NotASet) # dict`, `{}` not an empty set
 
 + Membership
   + $\in$: `in`
@@ -87,13 +85,13 @@
     'bed' not in Furniture    # True
     ```
 
-+ Testing if empty, size
++ Testing if empty set, size
   + test empty: `not`
     + e.g., `S = set(); not S # True`, `T = {1, 2}; not T # False`
   + size: `len()`
     + e.g., `print(len(S)) # 0`, `print(len(T)) # 2`
-  + check if size is 0: `len() = 0`
-    + e.g., `print(len(S) == 0) # true`, `print(len(T) == T) # False`
+  + check if size is 0: `len() == 0`
+    + e.g., `print(len(S) == 0) # True`, `print(len(T) == 0) # False`
 
 
 ### Problem Sets
