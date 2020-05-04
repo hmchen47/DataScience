@@ -1,6 +1,5 @@
 # Topic 2: Sets
 
-
 ## 2.1 Notation
 
 + Elements
@@ -38,20 +37,20 @@
     + elements: lower case;, e.g., a
 
 + Membership
-  + if element $x$ is in a set $A$, it is a <span style="color: red; font-weigh: bold;">member</span> of, or <span style="color: red; font-weigh: bold;">belongs</span> to $A$, denoted $x \in A$
+  + if element $x$ is in a set $A$, it is a <span style="color: magenta; font-weigh: bold;">member</span> of, or <span style="color: magenta; font-weigh: bold;">belongs</span> to $A$, denoted $x \in A$
     + e.g., $0 \in \{0, 1\}, \;1 \in \{0, 1\}, \;\pi \in \mathbb{R}$
-  + Equivalently, $A$ <span style="color: red; font-weigh: bold;">contains</span> $x$, written $A \ni x$
+  + Equivalently, $A$ <span style="color: magenta; font-weigh: bold;">contains</span> $x$, written $A \ni x$
     + e.g., $\{0, 1\} \ni 0, \;\{0, 1\} \ni 1, \;\mathbb{R} \ni \pi$
-  + If $x$ is <span style="color: red; font-weigh: bold;">not</span> in $A$, then $x$ is <span style="color: red; font-weigh: bold;">not a member</span>, or does <span style="color: red; font-weigh: bold;">not belong</span> to $A$, denoted $x \notin A$
+  + If $x$ is <span style="color: magenta; font-weigh: bold;">not</span> in $A$, then $x$ is <span style="color: magenta; font-weigh: bold;">not a member</span>, or does <span style="color: magenta; font-weigh: bold;">not belong</span> to $A$, denoted $x \notin A$
     + e.g., $2 \notin \{0, 1\}, \;\pi \notin \mathbb{Q}$
-  + Equivalently, $A$ does <span style="color: red; font-weigh: bold;">not contain</span> $x$, $A \not\ni x$
+  + Equivalently, $A$ does <span style="color: magenta; font-weigh: bold;">not contain</span> $x$, $A \not\ni x$
     + e.g., $\{0, 1\} \not\ni 2, \;\mathbb{Q} \not\ni \pi$
 
 + Don't matter
   + order: $\{0, 1 \} = \{1, 0 \}$
   + repetition: $\{0, 1 \} = \{0, 1, 1\}$
-  + order matters: using <span style="color: blue; font-weigh: bold;">ordered tuples</span>: $(0, 1) \neq (1, 0)$
-  + repetition matters: using <span style="color: blue; font-weigh: bold;">multisets</span>, or <span style="color: blue; font-weigh: bold;">bags</span>
+  + order matters: using <span style="color: cyan; font-weigh: bold;">ordemagenta tuples</span>: $(0, 1) \neq (1, 0)$
+  + repetition matters: using <span style="color: cyan; font-weigh: bold;">multisets</span>, or <span style="color: cyan; font-weigh: bold;">bags</span>
 
 + Special sets
   + empty set: containing no elements, $\varnothing$ or $\{ \}$, e.g., $\forall\, x, \,x \in \varnothing$, $\forall$- All, every
@@ -100,7 +99,6 @@
 
   Ans: False <br/>
   Explanation: Empty set has no elements. No zero, no zilch, no nada - nothing!
-
 
 
 1. The empty set $\varnothing$ is unique.<br/>
@@ -186,7 +184,7 @@
 7. Elements of a set<br/>
   List the elements of the following sets.
 
-  Write each element once, using 'emptyset' for $varnothing$ and 'none' if there are no elements. Separate elements by commas, without any spaces.
+  Write each element once, using 'emptyset' for $\varnothing$ and 'none' if there are no elements. Separate elements by commas, without any spaces.
 
   a. $\{a\}$<br/>
   b. $\{\{a\}\}$<br/>
@@ -229,7 +227,69 @@
 
 ## 2.2 Basic Sets
 
++ Sets within sets
+  + specify a set within a universal, or any other set
+    + $\{ x \in A \,{\color{Magenta}{|}}\, \dots\} = \{\text{element } x \text{ in } A {\color{Magenta}{\text{ such that }}} \dots \}$
+    + $\{ x \in A {\color{Magenta}{:}} \dots\}$
+  + solutions to equations
+    + $\{x \in \mathbb{R} \,|\, x^2 \geq 0\} = \mathbb{R}$
+    + $\{x \in \mathbb{R} \,:\, x^2 = 1\} = \{-1, 1\}$
+    + $\{x \in \mathbb{R} \,|\, x^2 = 0\} = \{0\} \gets$ a single-element set is a <span style="color: Magenta;">singleton</span>
+    + $\{ x \in \mathbb{R} \,|\, -1\} = \varnothing$
+    + $\{x \in \mathbb{C} \,|\, x^2 = -1\} = \{1, -i \}$
 
++ Integer intervals
+  + integers from $m$ to $n$, inclusive: $\{m, \dots, n\} = \{i \in \mathbb{Z} \,|\, m \leq i \leq n\}$
+  + $\{3, \dots, 5\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 5\} = \{3, 4, 5\}$
+  + $\{3, \dots, 4\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 4\} = \{3, 4\}$
+  + $\{3, \dots, 3\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 3\} = \{3\}$
+  + $\{3, \dots, 2\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 2\} = \varnothing$
+  + convention: $[n] = \{1, \dots, n\}$
+
++ Real intervals
+  + $[1, b] = \{x \in \mathbb{R} \,|\, a \leq x \leq b\}$, e.g. [3, 5]
+  + $(a, b) = \{x \in \mathbb{R} \,|\, a < x < b\}$, e.g., (3. 5)
+  + $[a, b) = \{x \in \mathbb{R} \,|\, a \leq x < b\}$, e.g., [3, 5)
+  + $(a, b] = \{x \in \mathbb{R} \,|\, a <> x \leq b\}$), e.g., (3, 5]
+  + singleton: $[3, 3] = \{3\}$
+  + $[3, 2] = [3. 3) = (3, 3] = \varnothing$
+
++ Divisibility
+  + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, and written <span style="color: magenta;">$m \,|\, n$</span>
+    + $\underbrace{6}_{n} = \underbrace{2}_{c} \cdot \underbrace{3}_{m} \to \underbrace{3}_{m}\,|\,\underbrace{6}_{n}$
+    + $\underbrace{-8}_{n} = \underbrace{(-2)}_{c} \cdot \underbrace{4}_{m} \to \underbrace{4}_{m} \,|\, \underbrace{-8}_{n}$
+    + $0 = 0 \cdot (-2) to -2 | 0$
+  + inf no such $c$ exists, <span style="color: magenta;">$m$ does not divide $n$</span>, or <span style="color: magenta;">$n$ is not a multiple of $m$</span>, denoted <span style="color: magenta;">$m \nmid n$</span>
+    + $\not\exists\, c \in \mathbb{Z} \textrm{ s.t. } 4 = c \cdot 3 \to 3 \nmid 3$
+    + $0 \nmid n \;\forall\, n \neq 0$
+
++ Quiz
+  + Multiples:
+    + $3 \,|\, ? \to \{\dots, -6, -3, 0, 3, 6, \dots\}$
+    + $1 \,|\, ? \to \mathbb{Z}$
+    + $0 \,|\, ? \to 0$
+  + Divisors
+    + $? \,|\, 4 \to \pm 1, \pm 2, \pm 4$
+    + $? \,|\, 0 \to \mathbb{Z}$
+    + $? \,|\, \forall\, n\neq 0 \to \pm 1, \pm n$
+
++ Set of multiples
+  + integer multiples of $M$: $\exists\, m \in \mathbb{Z}, {}_m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
+    + even number: $_2\mathbb{Z} = \{\dots, -4, -2, 0, 2, 4, \dots\} \stackrel{\text{def}}{=} \mathbb{E}$
+    + ${}_1\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\} = \mathbb{Z}$
+    + ${}_0\mathbb{Z} = \{0\}$
+  + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i}$
+    + $_2[13] = \{i \in \{i, \dots, 13\}: 3\,|\,i\} = \{3, 6, 9, 12\}$
+    + $_7[13] = \{7\}, _1[13] = [13], _{14}[13] = _0[13] = \varnothing$
+
++ Intervals and Multiples in Python
+  + $\{0, \dots, n-1}$: `range(n)`
+    + note: [n] = {1...n}
+    + e.g., `print(set(range(3))) # {0, 1, 2}`
+  + $\{m, \dots, n-1\}$: `range(m, n)`
+    + e.g., `print(set(range(2, 5))) # {2, 3, 4}`
+  + $\{m, m+d, m+2d, \dots\} < n-1$: `range(m, n, d)`
+  + e.g., `print(set(range(2, 12, 3))) # {8, 2, 11, 5}`
 
 
 
