@@ -230,13 +230,13 @@
 + Sets within sets
   + specify a set within a universal, or any other set
     + $\{ x \in A \,{\color{Magenta}{|}}\, \dots\} = \{\text{element } x \text{ in } A {\color{Magenta}{\text{ such that }}} \dots \}$ or $\{ x \in A {\color{Magenta}{:}} \dots\}$
-    + e.g., $\mathbb{N} = \{x \in \mathbb{Z} \,|\, x \geq 0\}, \mathbb{P} = \{x \in \mathbb{P} \,|\, x > 0\}$
+    + e.g., $\mathbb{N} = \{x \in \mathbb{Z} \,|\, x \geq 0\}, \mathbb{P} = \{x \in \mathbb{N} \,|\, x > 0\}$
   + solutions to equations
     + $\{x \in \mathbb{R} \,|\, x^2 \geq 0\} = \mathbb{R}$
     + $\{x \in \mathbb{R} \,:\, x^2 = 1\} = \{-1, 1\}$
     + $\{x \in \mathbb{R} \,|\, x^2 = 0\} = \{0\} \gets$ a single-element set is a <span style="color: Magenta;">singleton</span>
-    + $\{ x \in \mathbb{R} \,|\, -1\} = \varnothing$
-    + $\{x \in \mathbb{C} \,|\, x^2 = -1\} = \{1, -i \}$
+    + $\{ x \in \mathbb{R} \,|\, x^2 = -1\} = \varnothing$
+    + $\{x \in \mathbb{C} \,|\, x^2 = -1\} = \{i, -i \}$
 
 + Integer intervals
   + integers from $m$ to $n$, inclusive: $\{m, \dots, n\} = \{i \in \mathbb{Z} \,|\, m \leq i \leq n\}$
@@ -259,7 +259,7 @@
   + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \,|\, n$</span>
     + $\underbrace{6}_{n} = \underbrace{2}_{c} \cdot \underbrace{3}_{m} \to \underbrace{3}_{m}\,|\,\underbrace{6}_{n}$
     + $\underbrace{-8}_{n} = \underbrace{(-2)}_{c} \cdot \underbrace{4}_{m} \to \underbrace{4}_{m} \,|\, \underbrace{-8}_{n}$
-    + $0 = 0 \cdot (-2) to -2 | 0$
+    + $0 = 0 \cdot (-2) \to -2 | 0$
   + if no such $c$ exists, <span style="color: magenta;">$m$ does not divide $n$</span>, or <span style="color: magenta;">$n$ is not a multiple of $m$</span>, denoted <span style="color: magenta;">$m \nmid n$</span>
     + $\not\exists\, c \in \mathbb{Z} \textrm{ s.t. } 4 = c \cdot 3 \to 3 \nmid 3$
     + $0 \nmid n \;\forall\, n \neq 0$
@@ -275,12 +275,12 @@
     + $? \,|\, \forall\, n\neq 0 \to \pm 1, \pm n$
 
 + Set of multiples
-  + integer multiples of $m$: $\exists\, m \in \mathbb{Z}, _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
+  + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
     + even number: $_2\mathbb{Z} = \{\dots, -4, -2, 0, 2, 4, \dots\} \stackrel{\text{def}}{=} \mathbb{E}$
     + ${}_1\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\} = \mathbb{Z}$
     + ${}_0\mathbb{Z} = \{0\}$
   + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i\}$
-    + $_2[13] = \{i \in \{i, \dots, 13\}: 3\,|\,i\} = \{3, 6, 9, 12\}$
+    + $_3[13] = \{i \in \{i, \dots, 13\}: 3\,|\,i\} = \{3, 6, 9, 12\}$
     + $_7[13] = \{7\},\; _1[13] = [13],\; _{14}[13] =\, _0[13] = \varnothing$
 
 + Intervals and Multiples in Python
