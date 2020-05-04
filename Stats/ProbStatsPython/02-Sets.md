@@ -292,6 +292,7 @@
   + $\{m,\, m+d,\, m+2d,\, \dots\} \leq n-1$: `range(m, n, d)`
     + e.g., `print(set(range(2, 12, 3))) # {8, 2, 11, 5}`
 
++ [Original Slides](https://tinyurl.com/y9coykwu)
 
 
 ### Problem Sets
