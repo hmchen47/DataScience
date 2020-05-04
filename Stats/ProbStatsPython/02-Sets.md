@@ -405,6 +405,7 @@
     + understanding
 
 + example of matplotlib_venn package
+  + install the package first
   + demo code for two sets
 
     ```python
@@ -426,7 +427,14 @@
 
 ### Problem Sets
 
+0. The Venn diagram for 2 sets has 4 regions, and for 3 sets there are 8 regions. How many regions are there in a Venn diagram of 4 sets?<br/>
+  a. 12<br/>
+  b. 14<br/>
+  c. 16<br/>
+  d. 18<br/>
 
+  Ans: c<br/>
+  Explanation: 16 regions. Each region corresponds to the combination of whether its elements belong to each of the four sets. For example, in the first set, in second set , not in third set, and yes in fourth set.
 
 
 ### Lecture Video
