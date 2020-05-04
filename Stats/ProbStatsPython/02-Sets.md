@@ -385,11 +385,47 @@
 
 ## 2.3 Venn Diagrams
 
++ Venn diagram
+  + Visualizing sets, regions, elements, points
+  + two sets and three sets
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://mathworld.wolfram.com/VennDiagram.html" ismap target="_blank">
+        <img src="https://mathworld.wolfram.com/images/eps-gif/VennDiagram_900.gif" style="margin: 0.1em;" alt="Venn diagrams: two sets and three sets" title="Venn diagrams: two sets and three sets" width=350>
+      </a>
+    </div>
+
+  + why Venn
+    + an illustration of the relationships between and among sets, groups of objects that share something in common
+    + visualizing definitions and proofs
+  + relationship w/ sets
+    + visualizing
+    + reasoning
+    + proving
+    + understanding
+
++ example of matplotlib_venn package
+  + demo code for two sets
+
+    ```python
+    import matplotlib .pyplot as plt
+    import matplotlib_venn as venn
+
+    S = {1, 2, 3}
+    T = {0, 2, -1, 5}
+    venn.venn2([S, T], set_labels=('S', 'T'))
+
+    plot.show(
+    ```
+
+  + function for 3 sets: `venn.venn3([S, T, U], set_labels=('S', 'T', 'U'))`
 
 
++ [Original Slides](https://tinyurl.com/ybsaftw3)
 
 
 ### Problem Sets
+
 
 
 
