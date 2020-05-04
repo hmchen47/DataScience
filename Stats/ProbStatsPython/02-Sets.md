@@ -92,6 +92,8 @@
   + check if size is 0: `len() == 0`
     + e.g., `print(len(S) == 0) # True`, `print(len(T) == 0) # False`
 
++ [Original Slides](https://tinyurl.com/y7uxmevo)
+
 
 ### Problem Sets
 
