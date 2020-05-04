@@ -55,9 +55,9 @@
 
 + Special sets
   + empty set: containing no elements, $\varnothing$ or $\{ \}$, e.g., $\forall\, x, \,x \in \varnothing$, $\forall$- All, every
-  + universal set: all possible elements, $\Omega$, e.g., $\forall, \;x \in \Omega$
-  + $\Omega$: considering only relevant elements, e.g., integers - $\Omega = \mathbb{Z}$, "prime" = 2, 3, 5, ...
-  + $\Omega$ depending on application, e.g., temperature - $\Omega = \mathbb{R}$, text - $\Omega = \{\text{words}\}$
+  + universal set: all possible elements, $\Omega$, e.g., $\forall\,x, \;x \in \Omega$
+    + $\Omega$: considering only relevant elements, e.g., integers - $\Omega = \mathbb{Z}$, "prime" = 2, 3, 5, ...
+    + $\Omega$ depending on application, e.g., temperature - $\Omega = \mathbb{R}$, text - $\Omega = \{\text{words}\}$
   + only one $\varnothing$: set w/o elements
 
 + Set definition in Python
@@ -95,6 +95,128 @@
 
 
 ### Problem Sets
+
+0. The number zero is an element of the empty set. (True.False)
+
+  Ans: False <br/>
+  Explanation: Empty set has no elements. No zero, no zilch, no nada - nothing!
+
+
+
+1. The empty set $\varnothing$ is unique.<br/>
+   The universal set $\Omega$ is unique.
+
+  Ans: True/False<br/>
+  Explanation: $varnothing$ is the unique set having no elements.  $\Omega$ varies. It can be  \mathbb{R}, \mathbb{C}, etc.
+
+
+2. Which of the following hold?<br/>
+  a. $0 \in \{0, 1\}$<br/>
+  b. $a \in \{A, B\}$<br/>
+  c. $\{a, b\} \in \{\{a, b\}, c\}$<br/>
+  d. $a \in \{{a, b}, c\}$<br/>
+  e. $\{a\} \in \{a\}$<br/>
+
+  Ans: ac<br/>
+  Explanation:
+  + True. $\{0, 1\}$  contains two elements, and 0 is one of them.
+  + False. $\{A, B\}$ contains two elements,  A  and  B , but not  a .
+  + True. $\{\{a, b\}, c\}$ has two elements, the set $\{a, b\}$, and  c .
+  + False. $a$ is an element of $\{a, b\}$, not of $\{\{a, b\}, c\}$ .
+  + False. $\{a\}$ has only one element $a$, not the set $\{a\}$. More about that in the next lecture.
+
+3. Recall that $\varnothing$ is the empty set. How many elements do the following sets have?
+  a. $\varnothing$
+  b. $\{\varnothing\}$
+  c. $\{\varnothing, \varnothing\}$
+  d. $\{\{\varnothing\}, \varnothing\}$
+
+  Ans: a - 0, b - 1, c - 1, d - 2<br/>
+  Explanation:
+  a. 0, the empty set has no elements.
+  b. 1, just the empty set.
+  c. 1,  $\{$\varnothing, \varnothing\} = \{\varnothing\}$ , hence contains one element.
+  d. 2,  $\varnothing$ and $\{\varnothing\}$.
+
+
+4. How many elements do the following sets have?
+  a. $\{a\}$
+  b. $\{a, a\}$
+  c. $\{a, \varnothing\}$
+  d. $\{\{a\}, a\}$
+  e. $\{\{\{a\}\}\}$
+
+  Ans: a - 1, b - 1, c - 2, d - 2, e - 1<br/>
+  Explanation:
+  + $\{a\}$ has one element, $a$.
+  + As we mentioned $\{a, a\} = \{a\}$, hence both sets have one element.
+  + $a$ is different from the set $\{a\}$ that contains $a$, hence two elements.
+  + One element, the set $\{a\}$.
+
+
+5. How many elements do the following sets have?<br/>
+  a. $\{a, b\}$<br/>
+  b. $\{\{a, b\}\}$<br/>
+  c. $\{\{a, b\}, \{b, a\}, \{a, b, a\}\}$<br/>
+  d. $\{a, b, \{a, b\}\}$<br/>
+
+  Ans: 1 - 2, b - 1, c - 1, d - 3<br/>
+  Explanation:
+  + The elements are $a$ and $b$, hence 2.
+  + There is a single element, the set $\{a, b\}$, hence 1.
+  + Again just one element, the set $\{a, b\}$, written thrice, hence 1.
+  + The elements are  $a$, $b$, and $\{a, b\}$, hence 3.
+
+
+6. Animal anagrams<br/>
+  Let $A$ be the set of anagrams of singular English animal names. For example, "nails" and "slain" are anagrams of "snail", so all three $\in A$, yet "bar" $\notin A$.
+
+  Which of the following $\in A$?<br/>
+  a. tan<br/>
+  b. pea<br/>
+  c. low<br/>
+  d. bare<br/>
+  e. loin<br/>
+  f. bolster<br/>
+
+  Ans: abcdef<br>
+  Explanation: ant, ape, owl, bear, lion, lobster, so all $\in$. Maybe a bit much to learn the meaning of $\in$ and $\notin$, but hopefully you had fun.
+
+
+7. Elements of a set<br/>
+  List the elements of the following sets.
+
+  Write each element once, using 'emptyset' for $varnothing$ and 'none' if there are no elements. Separate elements by commas, without any spaces.
+
+  a. $\{a\}$<br/>
+  b. $\{\{a\}\}$<br/>
+  c. $\{a, \{b\}\}$<br/>
+  d. $\{\varnothing\}$<br/>
+  e. $\varnothing$<br/>
+
+  Ans: a - a; b - {a}; c - a,{b}; d - $\varnothing$; e - none
+
+
+8. Sets from elements<br/>
+  Write the sets containing the following elements.
+
+  Enter your answer without any spaces, list every element once, and write emptyset for $\varnothing$.
+
+  a. $a$<br/>
+  b. $a, a$<br/>
+  c. $\{a\}$<br/>
+  d. $\{a, b\}, \{b, a\}$<br/>
+  e. $a,{b}$<br/>
+  f. $\varnothing$<br/>
+  g. no elements<br/>
+
+  Ans: <br/>
+  a. {a}<br/>
+  b. {{a}}<br/>
+  c. {{a,b}}  or {{b,a}}<br/>
+  d. {a,{b}}  or {{b},a}<br/>
+  e. {$\varnothing$}  or {emptyset}<br/>
+  f. $\varnothing$ or emptyset<br/>
 
 
 
