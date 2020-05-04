@@ -296,6 +296,81 @@
 
 ### Problem Sets
 
+0. How many elements are there in the real interval [2,4)? <br/>
+  a. 1<br/>
+  b. 2<br/>
+  c. 3<br/>
+  d. Infinitely many<br/>
+
+  Ans: d<br/>
+  Explanation: The real interval [2,4) contains the infinitely many points 2, 2.1, 2.11, 2.111, .... (and more..).
+
+
+1. Which of the following define a set unambiguously?{br/>}
+  a. $\{3, 4, 5, 7\}$<br/>
+  b. {negative primes}<br/>
+  c. $\{x \in \mathbb{R} \,∣\, x^2 \cdot y > 100}\ $<br/>
+  d. {good drivers in San Diego}<br/>
+
+  Ans: ab<br/>
+  Explanation:<br/>
+  a. True. The most vanilla type of definition.<br/>
+  b. <span style="color: magenta;">True.</span> Happens to be the empty set.<br/>
+  c. <span style="color: magenta;">False.</span> $y$ is not defined, so neither is the set.<br/>
+  d. False. What's good for the goose is not good for the gander...<br/>
+
+
+2. Which of the following are true?<br/>
+  a. $0 \in $ {Even numbers} <br/>
+  b. $0.5 \in \mathbb{N}$<br/>
+  c. $\{−1\} \in \{x \in \mathbb{R}∣x^2 = 1\}$<br/>
+  d. $0.5 \in \{x \in \mathbb{Z} \,∣\, 2x^2 + x − 1 = 0\}$<br/>
+  e. $\varnothing \in \mathbb{Q}$<br/>
+  f. unanswered<br/>
+
+  Ans: a<br/>
+  Explanation:<br/>
+  a. True.<br/>
+  b. False.  0.5 is not an integer to begin with.<br/>
+  c. False.  {−1} is a set. $\{−1\} \subset \{x \in \mathbb{R} \,∣\, x^2=1]}$<br/>
+  d. False.  0.5  is not integer.<br/>
+  e. <span style="color: magenta;">False.</span>  $\varnothing \subset \mathbb{Q}$.<br/>
+
+
+3. Which of the following hold?<br/>
+  a. $\{0\}=\varnothing$ <br/>
+  b. $\{0,1,2\}=\{2,0,1,1\}$ <br/>
+  c. $\{\{0\},1\}=\{0,\{1\}\}$<br/>
+
+  Ans: b<br/>
+  Explanation<br/>
+  a. False. {0} contains the element 0, while ∅ contains no elements.<br/>
+  b. True. The order and repetition don't matter.<br/>
+  c. False. 1 is an element of the set on the left, but not on the right.<br/>
+
+
+4. Which of the following are true?<br/>
+  a. $e \in \{1,2,…,10\}$<br/>
+  b. $π \in (3,3.5)$<br/>
+  c. $2 \in[−2,2)$<br/>
+
+  Ans: b<br>
+  Explanation
+  a. False.  {1,2,…,10} is a set of integers, but e = 2.71828 is not an integer.
+  b. True. As 3 < π < 3.5 , π ∈ (3,3.5).
+  c. False. [−2,2) does not include 2.
+
+
+5. List all the elements of the following sets.
+
+  Note: Represent your answers in ascending order, For example the set {1,-1,0} should be written as -1,0,1 (without whitespace).
+
+  a. $\{x \in \mathbb{Z} \,∣\, −2 \leq x < 5\}$
+  b. $\{x \in \mathbb{N} \,∣\, x^2+x−2=0\}$
+  c. $\{x \in \mathbb{R} \,∣\, x^3+x−2=0\} $
+  
+  Ans: a - -2,-1,0,1,2,3,4; b - 1; c - 1
+
 
 
 ### Lecture Video
