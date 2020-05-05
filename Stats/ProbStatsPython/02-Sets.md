@@ -133,10 +133,10 @@
 
   Ans: a - 0, b - 1, c - 1, d - 2<br/>
   Explanation:
-  a. 0, the empty set has no elements.
-  b. 1, just the empty set.
-  c. 1,  $\{$\varnothing, \varnothing\} = \{\varnothing\}$ , hence contains one element.
-  d. 2,  $\varnothing$ and $\{\varnothing\}$.
+  + a. 0, the empty set has no elements.
+  + b. 1, just the empty set.
+  + c. 1, $\{$\varnothing, \varnothing\} = \{\varnothing\}$ , hence contains one element.
+  + d. 2, $\varnothing$ and $\{\varnothing\}$.
 
 
 4. How many elements do the following sets have?
@@ -194,7 +194,7 @@
   d. $\{\varnothing\}$<br/>
   e. $\varnothing$<br/>
 
-  Ans: a - a; b - {a}; c - a,{b}; d - $\varnothing$; e - none
+  Ans: a - (a); b - ({a}); c - (a,{b}); d - ($\varnothing$); e - (none)
 
 
 8. Sets from elements<br/>
@@ -211,12 +211,13 @@
   g. no elements<br/>
 
   Ans: <br/>
-  a. {a}<br/>
-  b. {{a}}<br/>
-  c. {{a,b}}  or {{b,a}}<br/>
-  d. {a,{b}}  or {{b},a}<br/>
-  e. {$\varnothing$}  or {emptyset}<br/>
-  f. $\varnothing$ or emptyset<br/>
+  Explanation:
+  + a. {a}
+  + b. {{a}}
+  + c. {{a,b}}  or {{b,a}}
+  + d. {a,{b}}  or {{b},a}
+  + e. {$\varnothing$}  or {emptyset}
+  + f. $\varnothing$ or emptyset
 
 
 
@@ -316,11 +317,11 @@
   d. {good drivers in San Diego}<br/>
 
   Ans: ab<br/>
-  Explanation:<br/>
-  a. True. The most vanilla type of definition.<br/>
-  b. <span style="color: magenta;">True.</span> Happens to be the empty set.<br/>
-  c. <span style="color: magenta;">False.</span> $y$ is not defined, so neither is the set.<br/>
-  d. False. What's good for the goose is not good for the gander...<br/>
+  Explanation:
+  + a. True. The most vanilla type of definition.
+  + b. <span style="color: magenta;">True.</span> Happens to be the empty set.
+  + c. <span style="color: magenta;">False.</span> $y$ is not defined, so neither is the set.
+  + d. False. What's good for the goose is not good for the gander...
 
 
 2. Which of the following are true?<br/>
@@ -332,12 +333,12 @@
   f. unanswered<br/>
 
   Ans: a<br/>
-  Explanation:<br/>
-  a. True.<br/>
-  b. False.  0.5 is not an integer to begin with.<br/>
-  c. False.  {−1} is a set. $\{−1\} \subset \{x \in \mathbb{R} \,∣\, x^2=1]}$<br/>
-  d. False.  0.5  is not integer.<br/>
-  e. <span style="color: magenta;">False.</span>  $\varnothing \subset \mathbb{Q}$.<br/>
+  Explanation:
+  + a. True.
+  + b. False.  0.5 is not an integer to begin with.
+  + c. False.  {−1} is a set. $\{−1\} \subset \{x \in \mathbb{R} \,∣\, x^2=1]}$
+  + d. False.  0.5  is not integer.
+  + e. <span style="color: magenta;">False.</span>  $\varnothing \subset \mathbb{Q}$.
 
 
 3. Which of the following hold?<br/>
@@ -346,10 +347,10 @@
   c. $\{\{0\},1\}=\{0,\{1\}\}$<br/>
 
   Ans: b<br/>
-  Explanation<br/>
-  a. False. {0} contains the element 0, while ∅ contains no elements.<br/>
-  b. True. The order and repetition don't matter.<br/>
-  c. False. 1 is an element of the set on the left, but not on the right.<br/>
+  Explanation
+  + a. False. {0} contains the element 0, while ∅ contains no elements.
+  + b. True. The order and repetition don't matter.
+  + c. False. 1 is an element of the set on the left, but not on the right.
 
 
 4. Which of the following are true?<br/>
@@ -359,9 +360,9 @@
 
   Ans: b<br>
   Explanation
-  a. False.  {1,2,…,10} is a set of integers, but e = 2.71828 is not an integer.
-  b. True. As 3 < π < 3.5 , π ∈ (3,3.5).
-  c. False. [−2,2) does not include 2.
+  + a. False.  {1,2,…,10} is a set of integers, but e = 2.71828 is not an integer.
+  + b. True. As 3 < π < 3.5 , π ∈ (3,3.5).
+  + c. False. [−2,2) does not include 2.
 
 
 5. List all the elements of the following sets.
@@ -372,7 +373,7 @@
   b. $\{x \in \mathbb{N} \,∣\, x^2+x−2=0\}$
   c. $\{x \in \mathbb{R} \,∣\, x^3+x−2=0\} $
   
-  Ans: a - -2,-1,0,1,2,3,4; b - 1; c - 1
+  Ans: a - (-2, -1, 0, 1, 2, 3, 4); b - (1); c - (1)
 
 
 
@@ -533,6 +534,136 @@
 
 
 ### Problem Sets
+
+0. If S is a proper, or strict, subset of T, then:<br/>
+  a. S cannot be empty<br/>
+  b. T cannot be empty<br/>
+  c. S and T must intersect<br/>
+
+  Ans: b<br/>
+  Explanation: <br/>
+  T cannot be empty. T must contain at least one element that is not in S, hence cannot be empty. <br/>
+  Observe that S can be the empty set, for example the empty set is a proper subset of {1}. <br/>
+  And since S can be empty, it also does not have to intersect T. <br/>
+
+
+1. Given the expression  m∈A , what can be said?<br/>
+  a. $m$ belongs to $A$<br/>
+  b. $A$ is a member of $m$<br/>
+  c. $m$ is an element of the set $A$<br/>
+  d. $m$ is a set of elements<br/>
+  e. $A$ contains $m$<br/>
+
+  Ans: ace<br/>
+  Explanation:
+  + a. True.
+  + b. False. $m$ is a member of $A$.
+  + c. True.
+  + d. False. $m$ is not a set.
+  + e. True.
+
+
+2. Which of the following is NOT true?<br/>
+  a. {red, green, blue} = {blue, red, green}<br/>
+  b. {a,b,c,d,e} = {a,a,b,b,c,c,d,d,e,e}<br/>
+  c. {1,2,3} ∋ 1<br/>
+  d. 2 ∈ {all odd integers}<br/>
+
+  Ans: d<br/>
+  Explanation
+  + a. The statement is true. The order does not matter.
+  + b. The statement is true. The repetition does not matter.
+  + c. The statement is true. 1 is in {1,2,3}.
+  + d. The statement is false. 2 is not odd.
+
+
+3. Which of the following holds?<br/>
+  a. {3,4} ⊅ {3,4} <br/>
+  b. {3,4} ≠ {3,4} <br/>
+  c. {4,3} ⊂ {3,4} <br/>
+  d. {3,4} ⊃ {4,3}<br/>
+
+  Ans: a<br/>
+  Explanation: {3,4}={3,4}, {3,4} is not a proper subset of {3,4}.
+
+
+4. Which of the following set pairs are equal?<br/>
+  a. $\{x \in \mathbb{R} \,∣\, x^2−4x+3=0\}$ and {3,1,3}<br/>
+  b. $\{x \in \mathbb{Q} \,∣\, x2=10\}$ and $\varnothing$ <br/>
+  c. {0} and {$\varnothing$}<br/>
+  d. { letters in word _little_ }  and  { letters in word _title_ }<br/>
+
+  Ans: abd<br/>
+  Explanation:
+  + a. True. {1,3}={3,1,3}.
+  + b. True. The solution of $x^2=10$ is $\pm\sqrt{10}$, which are not rational.
+  + c. False. $ 0 \neq \varnothing$.
+  + d. True. { l, i, t, t, l, e } = {t, i, t, l, e}.
+
+
+5. If the following Venn Diagram has elements in the red, orange, and yellow regions, the sets R and Y satisfy:
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybqtuszz" ismap target="_blank">
+      <img src="img/t02-venn_ry.png" style="margin: 0.1em;" alt="Venn Diagram with overlapping sections of R and Y" title="Venn Diagram with overlapping sections of R and Y" width=250>
+    </a>
+  </div>
+
+  a. R equals Y<br/>
+  b. R intersects Y<br/>
+  c. R is contained in Y<br/>
+  d. Y is not a subset of R<br/>
+  e. R and Y are disjoint<br/>
+
+  Ans: bd<br/>
+  Explanation
+  + a. False.  R≠Y .
+  + b. True.  R∩Y≠∅ .
+  + c. False.  R⊄Y .
+  + d. True.  Y⊄R .
+  + e. False.  R∩Y≠∅ .
+
+
+6. Which of the following are subsets of  A=[2,4)? <br/>
+  a. $B = \{x \in \mathbb{R} \,∣\, x+3>6\}$<br/>
+  b. $C = \{2,3,4\}$<br/>
+  c. $D = (2,4)$<br/>
+  d. $E = \varnothing$<br/>
+
+  Ans: cd<br/>
+  Explanation
+  + a. False.  $B=(3, \infty)$.
+  + b. False.  4 ∉ A.
+  + c. True.
+  + d. True.
+
+
+7. Recall that $\mathbb{P}(S)$ is the collection of all subsets of $S$, and let $\mathbb{Q}(S)$ be the collection of all proper subsets of $S$.
+
+  Which of the following hold for every set $S$?<br/>
+  a. $\mathbb{P}(S) \subseteq \mathbb{Q}(S)$<br/>
+  b. $\mathbb{P}(S) \supseteq \mathbb{Q}(S)$<br/>
+  c. $\mathbb{P}(S) \supset \mathbb{Q}(S)$<br/>
+  d. $\mathbb{P}(S) = \mathbb{Q}(S)$<br/>
+
+  Ans: b<span style="color: magenta;">c</span><br/>
+  Explanation: The collection of subsets $\mathbb{Q}(S)$ is $\mathbb{P}(S)$ minus $S$ itself. Hence ⊃ and ⊇ hold, while the rest do not.
+
+
+8. Which of the following set pairs intersect?<br/>
+  a. {1,2,3} and {2,4,6} <br/>
+  b. { prime numbers } and { even numbers }<br/>
+  c. $\{x \in \mathbb{R} \,∣\, x^2 \leq 4\}$  and  [2,7)<br/>
+  d. $\varnothing$ and $\varnothing$ <br/>
+  e. {$\varnothing$,1,2}  and $\varnothing$<br/>
+
+  Ans: abc<br/>
+  Explanation:
+  + a. True. 2 is in both sets.
+  + b. True. 2 is in both sets.
+  + c. True. 2 is in both sets.
+  + d. False. Two emptysets do not intersect, because they don't share any elements.
+  + e. False. Emptysets have no element, hence they do not have shared elements with other sets.
 
 
 
