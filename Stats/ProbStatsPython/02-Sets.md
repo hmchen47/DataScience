@@ -446,8 +446,88 @@
 
 ## 2.4 Relations
 
++ Relations types
+  + human relations
+  + number relations: $=,\, \leq,\, <,\, \dots$
+  + generalized to set
+
++ Equality
+  + all men are create equal
+    + generalize = of number
+    + Sets A and B are <span style="color: magenta;">equal</span>, denoted $A {\color{Magenta}{=}} B$, id they have exactly the same elements
+    + e.g., $\{0, 1\} = \{1, 0\}$
+  + all sets are <span style="color: magenta;">not</span> created equal
+    + if A and B are nor equal, they are <span style="color: magenta;">different</span>, denoted $A {\color{Magenta}{\neq}} B$
+    + e.g., $\{0, 1\} \neq \{1, 2\}$
+  + $=$: all element must be identical, e.g., $\{1, 2, 4\} = \{4, 1, 2\}$
+  + $\neq$: one different element enough, e.g., $\{1, 2, 4\} \neq \{4, 1, 2, 8\}$
+
++ Intersection
+  + two sets <span style="color: magenta;">intersect</span> if they share at least one common element
+    + $\exists\, x, \; x \in A \wedge x \in B$
+    + e.g., $\{0, 1\} \wedge \{1, 2\} = \{1\}$, $[3, 4] \wedge [2, 5] = [3, 4]$
+    + non-empty $\Omega$ intersects every set
+    + a set intersects itself $\iff$ non-empty
+  + two sets are <span style="color: magenta;">disjoint</span> i they share no elements
+    + $\not\exists\, x \text{ s.t. } x \in A \wedge x \in B$
+    + mutually exclusive
+    + e.g., $\{0, 1\} \wedge \{2, 3\} = \varnothing$, $[3, 4] \wedge (4, 5] = \varnothing$
+    + $\varnothing$ disjoint any set
+  + generalization: several sets
+    + <span style="color: magenta;">intersect</span> if <span style="color: cyan;">all share</span> a common element
+    + <span style="color: magenta;">mutually disjoint</span> if <span style="color: cyan;">every two</span> are disjoint
+
++ Subsets
+  + generalization: $\leq$
+  + every element in A is also in B $\implies$ A is a <span style="color: magenta;">subset of</span> B, denoted $S \,{\color{Magenta}{\subseteq}}\, B$
+    + e.g., $\{0\} \subseteq \{0, 1\}$, $\{0\} \subseteq \{0\}$
+  + equivalently, B is a <span style="color: magenta;">superset</span> of, or contains, A, denoted $B \,{\color{Magenta}{\supseteq}}\, A$
+    + e.g., $\{0, 1\} \supseteq \{0\}$
+  + A has an element that's not in B $\implies$ A is <span style="color: magenta;">not a subset</span> of B, denote $A {\color{Magenta}{\nsubseteq}} B$, or $B {\color{Magenta}{\nsupseteq}} A$
+    + e.g., $\{0, 1\} \nsubseteq \{1, 2\}$, $\{1, 2\} \nsupseteq \{0, 1\}$
+  + $\mathbb{P} \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
+  + $\varnothing \subseteq A \subseteq A \subseteq \Omega$
+  + $A \subseteq B \wedge B \subseteq C \to A \subseteq B$: $\subseteq$ is <span style="color: magenta;">transitive</span>
+  + $A \subseteq B \wedge B \subseteq A \to A = B$
+
++ Strict subset
+  + generalization $<$
+  + if $A \subseteq B$ and $A \neq B$, A is a <span style="color: magenta;">strict subset</span> of B, denoted $A \subset B$, and B  is a <span style="color: magenta;">strict superset</span> of A, denoted $B \supset A$
+    + e.g., $\{0\} \subset \{0, 1\}$, $\{0, 1\} \supset \{0\}$
+  + if A is <span style="color: magenta;">not</span> a strict subset of B, we write $A \not\subset B$ or $B \not\supset A$, two possible reasons:
+    + $A \nsubseteq B$, e.g., \{0\} \not\subset \{1\}$
+    + $A = B$, e,g, $\{0\} \not\subset \{0\}$
+
++ belongs to $\in$ vs, $\subseteq$ subset of
+  + $\in$: relationship btw an <span style="color: cyan;">element</span> and a <span style="color: cyan;">set</span>
+    + $x \in A$: an element x belongs to , or is contained in, set A
+    + e.g., $\{0, 1\}$ w/ two elements: 0 and 1 $\to 0 \in \{0, 1\}, 1 \in \{0, 1\}, \{0} \not\in \{0, 1\}$
+  + $\subseteq$: relationship btw <span style="color: cyan;">two sets</span>
+    + $A \subseteq B$: set A is a subset of set B
+    + $\{0, 1\}$ w/ two elements: 0 and 1, $\{0\}$ w/ on element: 0: $\{0\} \subseteq \{0, 1\}$, 
+    + 0 is an element of {0, 1}, but 0 is not a set: $0 \not\subseteq \{0, 1\}$
+
++ Set relationship in Python
+  + set define (`=`): `S1 = {0, 1}; S2 = set({0, 1}); S3 = {1, 0, 1}; T = {0, 2}`
+  + equality ($= \;\to$ `==`): `S1 == T $ False; S1 == S2 # True; S1 == S3 # True`
+  + inequality ($\neq \;\to$ `!=`): `S1 != S2 # False; S1 != T # True`
+  + disjoint (`isdisjoint`): `S1.isdisjoint(T) # False; S1.isdisjoint({2}) #True`
+
++ Subsets and supersets in Pytrhon
+  + set define: `zero = {0}; zplus = {0, 1}; zminus = {0, -1}`
+  + subset inclusive ($\subseteq\; \to$ `<=` or `sisubset`): `zminus <= zplus # True; zero <= zplus #True; zero.issubset(zplus) #True`
+  + supserset inclusive ($\supseteq\; \to$ `>=` or `issuperset`): `zplus >= zminus # False; zplus.issuperset(zminus) #False; zplus.issuperset(zplus) # True`
+  + subset exclusive ($\subset\; \to$ `<`): `zplus < zero # False; zero < minus # True`
+  + supeerset exclusive ($\supset\; \to$ `>`): `zminus > zminus # False; zminus > zero # True`
+
++ Summary of set relations
+  + equality and inequality: $= \quad \neq$
+  + intersection and disjointness
+  + subsets and supersets; $\subseteq \quad \subset \quad \supseteq \quad \supset$
+  + Python operators: `==`, `!=`, `isjusjoint`, `<=`, `<`, `>-`, `>`, `issubset`, ...
 
 
++ [Original Slides](https://tinyurl.com/yd2uqc85)
 
 
 ### Problem Sets
