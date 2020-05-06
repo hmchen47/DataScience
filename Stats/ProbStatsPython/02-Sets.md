@@ -965,13 +965,13 @@
 
 ## 2.6 Cartesian Products
 
-+ Rene Descates 1596-1650
++ René Descates 1596-1650
   + philosopher, scientist, mathematician
   + considered father of western philsopht
     + Cogito ergo sum = I think therefore I am
-    + divided each difficulty into as many parts as necessary to solve it
-    + each problem I solved became a rule I later used to solve other problems
-    + a good mind is not enough, the main thing is to use it well
+    + Divided each difficulty into as many parts as necessary to solve it.
+    + Each problem I solved became a rule I later used to solve other problems.
+    + A good mind is not enough, the main thing is to use it well.
 
 + Cartesian corrdinates: used also by 
   + Pierre de Fermat (1607-1665): a French lawyer at the Parlement of Toulouse, France, and a mathematician who is given credit for early developments that led to infinitesimal calculus, including his technique of adequality
@@ -985,10 +985,10 @@
 
 + Cartesian products
   + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
-  + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A, b \in B\}$
-  + Cartesian plane: $\mathbb{R} = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+  + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
+  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
   + Rectangle: $A, B \subseteq \mathbb{R} \text{ s.t. } A \times B \subseteq \mathbb{R}^2$
-  + example: $A = [0, 2], B = [1, 4] \text{ s.t. } A \times B = \{(x, y) = x \in [0, 2], by \in [1. 4]\}$
+  + example: $A = [0, 2], B = [1, 4] \text{ s.t. } A \times B = \{(x, y) = x \in [0, 2], y \in [1. 4]\}$
 
 + Discrete sets
   + similar to Cartesian product in continuous sets but simiplier
