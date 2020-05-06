@@ -348,7 +348,7 @@
 
   Ans: b<br/>
   Explanation
-  + a. False. {0} contains the element 0, while ∅ contains no elements.
+  + a. False. {0} contains the element 0, while $\varnothing$ contains no elements.
   + b. True. The order and repetition don't matter.
   + c. False. 1 is an element of the set on the left, but not on the right.
 
@@ -625,11 +625,11 @@
 
   Ans: bd<br/>
   Explanation
-  + a. False.  R≠Y .
-  + b. True.  R∩Y≠∅ .
-  + c. False.  R⊄Y .
-  + d. True.  Y⊄R .
-  + e. False.  R∩Y≠∅ .
+  + a. False. $R \neq Y$.
+  + b. True.  $R \cap Y \neq \varnothing$.
+  + c. False. $R ⊂\not\in Y$.
+  + d. True.  $Y \not\in \mathbb{R}$.
+  + e. False. $R \cap Y \neq \varnothing$.
 
 
 6. Which of the following are subsets of  A=[2,4)? <br/>
@@ -716,8 +716,7 @@
     </tbody>
   </table>
 
-
-+ Compelemt
++ Complement
   + universal set $\Omega$ containing all elements
   + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
   + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
@@ -807,8 +806,8 @@
 
 + Set- and Symmetric-Difference in Python
   + set define: `A = {1, 2}; B = {2, 3}`
-  + set difference (`-` or `difference`): `A - B  # {1};  B.difference(A) # {3}`
-  + symmetric difference (`^` or `symmetric_difference`): `A ^ B  # {3. 1};  B.symmetric_difference(A)  # {3, 1}`
+  + set difference ($- \to$ `-` or `difference`): `A - B  # {1};  B.difference(A) # {3}`
+  + symmetric difference ($\Delta \to$ `^` or `symmetric_difference`): `A ^ B  # {3. 1};  B.symmetric_difference(A)  # {3, 1}`
 
 + Summary - set operations
   + complement: $A^c$
@@ -823,6 +822,138 @@
 
 ### Problem Sets
 
+0. If A-B=A for sets A and B, then<br/>
+  a. B must be an empty set<br/>
+  b. B must be a subset of A<br/>
+  c. A and B must intersect<br/>
+  d. A and B must be disjoint<br/>
+
+  Ans: <span style="color: magenta;">d</span><br/>
+  Explanation: A and B must be disjoint, so that when you remove from A the elements of B, nothing gets taken away.
+
+
+1. If  $\Omega = \{x, y, z\}$ , then $\{x, y\}^c$  is<br/>
+  a. $\varnothing$<br/>
+  b. $z$<br/>
+  c. $\{z\}$<br/>
+  d. $\{x, y\}$<br/>
+
+  Ans: <span style="color: magenta;">c</span><br/>
+  Explanation: The element that is in Ω but not in {x, y} is z. The answer is {z}
+
+
+2. Which of the following equals $G$ for all $\Omega$ and $G$?<br/>
+  a. $G − \varnothing$<br/>
+  b. $Ω − G$<br/>
+  c. $Ω − G^c$<br/>
+  d. $G \cap \varnothing$<br/>
+
+  Ans: ac<br/>
+  Explanation
+    - True.
+    - False. $Ω − G = G^c$.
+    - True.
+    - False. $G ∩ \varnothing = \varnothing$.
+
+
+3. (Implying equality) Which of the following imply $A = B$?<br/>
+  a. $A^c = B^c$<br/>
+  b. $A \Delta B = \varnothing$<br/>
+  c. $A−B = B−A$<br/>
+  d. $A \cup B = A \cap B$<br/>
+
+  Ans: abcd<br>
+  Explanation
+    - True.
+    - True.  $A \Delta B = (A \cup B)−(A \cap B)$.
+    - True.  $A − B = A− (A \cap B), B − A = B − (A \cup B)$.
+    - True.
+
+
+4. Suppose that the following hold for an unknonwn set $C$. Which of the following implies $A=B$, regardless of what $C$ is?<br/>
+  a. $A − C = B − C$<br/>
+  b. $A \cap C = B \cap C$<br/>
+  c. $A \cup C = B \cup C$<br/>
+  d. $A \Delta C = B \Delta C$<br/>
+
+  Ans: d<br>
+  Explanation:
+    - 1 and 3 are Flase as if $C$ is the universal set then equality holds regardless of $A$ and $B$.
+    - 2 is False as if A={1}, B={2}, C={3}  then $A \cap B = A \cap C = \varnothing$  while and  $A \neq B$.
+    - 4 is correct. While the proof is simple, it is a bit tedious. 
+      - You can show that if the equality $A \Delta C = B \Delta C$ holds, then $A \subseteq B$. Then by symmetry, $B \subseteq A$, and hence $A=B$.
+      - To show that $A \subseteq B$ , assume that $a$ is any element of $A$ and consider two cases: $a \in C$ and $a \not\in C$. You can show that in both cases the equality implies $a \in B$.
+
+
+5. Which image identifies the union $A \cup B$?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yavxvnbm" ismap target="_blank">
+      <img src="img/t02-07.png" style="margin: 0.1em;" alt="Diagram for 2.5 Q5" title="Diagram for 2.5 Q5" width=150>
+    </a>
+  </div>
+
+  Ans: 3 <br/>
+  Explanation:
+    + 1. $A \cap B$.
+    + 2. $A \Delta B$.
+    + 4. $A − B$.
+
+
+6. For any two sets $A$ and $B$, add $\subseteq$ or $\supseteq$ to make the following statements true.<br/>
+  a. $A \cap B _____ A$<br/>
+  b. $A \cup B _____ A$<br/>
+  c. $A -    B _____ A$<br/>
+  d. $A \cap B _____ A \cup B$<br/>
+  e. $A -    B _____ A \Delta B$<br/>
+
+  Ans: a. ($\subseteq$); b. ($supseteq$); c. ($\subseteq$); d. ($\subseteq$); e. ($\subseteq$)
+
+
+7. What does the red area in the following Venn Diagram represent?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yavxvnbm" ismap target="_blank">
+      <img src="img/t02-08.png" style="margin: 0.1em;" alt="Diagram for 2.5 Q7" title="Diagram for 2.5 Q7" width=150>
+    </a>
+  </div>
+
+  a. $(A \cup B) − (A \cap )$<br/>
+  b. $(A \cap B)^c$<br/>
+  c. $A \cup B$<br/>
+  d. $A \cap B$<br/>
+
+  Ans: b<br/>
+  Explannation: The white area represents $A \cap B$, so the red area represents $(A \cap B)^c$.
+
+
+8. (Venn's view of symmetric difference) Which image shows the symmetric difference between the two circle sets?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yavxvnbm" ismap target="_blank">
+      <img src="img/t02-09.png" style="margin: 0.1em;" alt="Diagram for 2.5 Q8" title="Diagram for 2.5 Q8" width=150>
+    </a>
+  </div>
+
+  Ans: 1<br/>
+  Explanation
+    + 2. $A \cap B$.
+    + 3. $A \cup B$.
+    + 4. $(A \Delta B)^c$.
+
+
+9. Let $A \neq \varnothing$. Which of the following is different from the others?<br/>
+  a. $A \cup \varnothing$<br/>
+  b. $A \cup A$<br/>
+  c. $A \cap A$<br/>
+  d. $A \cap \varnothing$<br/>
+
+  Ans: d<br/>
+  Explanation
+    - $A \cup \varnothing = A$.
+    - $A \cup A = A$.
+    - $A \cap A = A$.
+    - $A \cap \varnothing = \varnothing$.
 
 
 ### Lecture Video
