@@ -690,7 +690,7 @@
     + Ans: yes
   + proof by example:
     + $\varnothing \subseteq$ any set, $\exists\, A = \varnothing$, need $\varnothing \in B \implies B = \{\varnothing\}$
-    + $\varnothing \in \{\varnothing\}, \varnothing \subseteq \{\varnothing\}$
+    + $\therefore\, \varnothing \in \{\varnothing\}, \varnothing \subseteq \{\varnothing\}$
   + also solutions w/ nonempty sets
 
 + Plan
@@ -720,7 +720,7 @@
 + Compelemt
   + universal set $\Omega$ containing all elements
   + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
-  + Definition (complement set): $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
+  + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
   + examples
     + $\Omega = \{0, 1\}$ s.t. $\{0\}^c = \{1\},\; \{0, 1\}^c = \varnothing,\; \varnothing^c = \{0, 1\}$
     + $\Omega = \{0, 1, 2\}$ s.t. $\{0\}^c = \{1, 2\} \gets A^c$ depending on both $A$ and $\Omega$
@@ -737,14 +737,14 @@
 
 + Intersection
   + the <span style="color: magenta;">intersection</span>, $A \,{\color{Magenta}{\cap}}\, B$, is the set of elements in both $A$ and $B$
-  + Definition (intersection): $A \cap B = \{x: x\in A \wedge B\}$
+  + Definition: (intersection) $A \cap B = \{x: x\in A \wedge x \in B\}$
   + examples
     + $\{0, 1\} \cap \{1, 3\} = \{1\}$, $\{0\} \cap \{1\} = \varnothing$
-    + $[0, 4) \cap [3, 6] = [3, 4)$, $[0, 2] \cap (2, 5]$
+    + $[0, 4) \cap [3, 6] = [3, 4)$, $[0, 2] \cap (2, 5] = \varnothing$
 
 + Union
   + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
-  + Definition (union): $A \cup B = \{x: x \in A \vee x \in B\}$
+  + Definition: (union) $A \cup B = \{x: x \in A \vee x \in B\}$
   + examples
     + $\{0, 1\} \cup \{1, 2\} = \{0, 1, 2\}$, $\{0, 1\} \cup \{2\} = \{0, 1, 2\}$
     + $[0, 2] \cup [1, 3] = [0, 3]$, $(0, 1) \cup \{1\} = (0, 1]$
@@ -757,16 +757,16 @@
     + e.g., $\bigcup_{i=-\infty}^\infty \{i\} = \mathbb{Z}$
   + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
 
-+ Law od sets
++ Law of sets
   + identities - one set
     + identity: $A \cap \Omega = A \quad A \cup \Omega = \Omega$
     + universal bound: $A \cap \varnothing = \varnothing \quad A \cup \varnothing = A$
     + idempotent: $A \cap A = A \quad A \cup A = A$
     + complement: $A \cap A^c = \varnothing \quad A \cup A^c = \Omega$
   + two and three sets
-    + commutative: $A \cap B = B \cap A \quad A \cap B = B \cup A$
+    + commutative: $A \cap B = B \cap A \quad A \cup B = B \cup A$
     + associative: $(A \cap B) \cap C = A \cap (B \cap C) \quad (A \cup B) \cup C = A \cup (B \cup C)$
-    + distributive: $A \cap (B \cap C) = (A \cap B) \cup (A \cap C) \quad A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    + distributive: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \quad A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
     + De Morgan: $(A \cap B)^c = A^c \cup B^c \quad (A \cup B)^c = A^c \cap B^c$
   + proof: De Morgan's law $(A \cap B)^c = A^c \cup B^c$ w/ Venn diagram
 
@@ -778,15 +778,15 @@
 
 + Set difference
   + the <span style="color: magenta;">difference</span>, $A {\color{Magenta}{-}} B$, is the set of elements in $A$ but not in $B$
-  + Definition (difference): $A - B = A \backslash B = \{x: x\in A \wedge x \not\in B\}$
+  + Definition: (difference) $A - B = A \backslash B = \{x: x\in A \wedge x \not\in B\}$
   + Remark: $A - B = A \cap B^c$
   + example
     + $\{0, 1\} - \{1\} = \{0\} \quad \{0, 1\} - \{0, 1, 2\} = \varnothing$
-    + [1, 3] - [2, 4] = [1, 2) \quad [1, 3] - (1, 3) = \{1, 3\}$
+    + $[1, 3] - [2, 4] = [1, 2) \quad [1, 3] - (1, 3) = \{1, 3\}$
 
 + Symmetric difference
   + the <span style="color: magenta;">symmetric difference</span> of two sets is the set of elements in exactly one set
-  + Definition (symmetric difference): $A \Delta B = \{x: x \in A \wedge x \not\in B \vee x \not\in A \wedge x \in B\}$
+  + Definition: (symmetric difference) $A \Delta B = \{x: x \in A \wedge x \not\in B \vee x \not\in A \wedge x \in B\}$
   + remark: $A \Delta B = (A - B) \cup (B - A)$
   + example:
     + $\{0, 1\} \Delta \{1, 2\} = \{0, 2\}$
@@ -802,7 +802,7 @@
 
 + Union and Intersection in Python
   + set define: $A = \{1, 2\}; B = \{2, 3\}$
-  + union ($\cup \to$ `|` or `union`): `A | B   # {1, 2 ,3};  c = A.union(B); print(C) ${2, 1, 3}`
+  + union ($\cup \to$ `|` or `union`): `A | B   # {1, 2 ,3};  C = A.union(B); print(C) ${2, 1, 3}`
   + intersection ($\cap \to$ `&` or `intersection`): `A & B  # {2}; C = A.intersecton(B); print(C)  # {2}`
 
 + Set- and Symmetric-Difference in Python
