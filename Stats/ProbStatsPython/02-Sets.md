@@ -688,29 +688,44 @@
   + are there sets $A$ and $B$ s.t. $A$ is both an <span style="color: cyan;">element</span> and <span style="color: cyan;">subset</span> of $B$?
     + i.e. $A \in B, A \subseteq B$
     + Ans: yes
-  + example: 
-    + $\varnothin \subseteq$ any set, $\exists\, A = \varnothing$, need $\varnothing \in B \imp;lies B = \{\varnothin\}$
+  + proof by example:
+    + $\varnothing \subseteq$ any set, $\exists\, A = \varnothing$, need $\varnothing \in B \implies B = \{\varnothing\}$
     + $\varnothing \in \{\varnothing\}, \varnothing \subseteq \{\varnothing\}$
   + also solutions w/ nonempty sets
 
 + Plan
   + again generalize numbers
-  + relations: 
-    + number: $= \quad  \leq \quad <$
-    + set: $= \quad \subseteq \quad \subset$
-  + operations
-    + number: $+ \quad - \quad \times$
-    + set: $\cup \quad - \quad \times$
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"></th>
+      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Relations</th>
+      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Number</td>
+      <td style="text-align: center;">$=$</td> <td style="text-align: center;">$\leq$</td> <td style="text-align: center;">$<$</td> <td style="text-align: center;">$+$</td> <td style="text-align: center;">$-$</td> <td style="text-align: center;">$\times$</td>
+    </tr>
+    <tr>
+      <td>Set</td>
+      <td style="text-align: center;">$=$</td> <td style="text-align: center;">$\subseteq$</td> <td style="text-align: center;">$\subset$</td> <td style="text-align: center;">$\cup$</td> <td style="text-align: center;">$-$</td> <td style="text-align: center;">$\times$</td>
+    </tr>
+    </tbody>
+  </table>
+
 
 + Compelemt
   + universal set $\Omega$ containing all elements
   + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
-  + Definition (complement set): $A^c = \overline{A} = \{x \in \Omega \,|\, x \not\in A\}$
+  + Definition (complement set): $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
   + examples
     + $\Omega = \{0, 1\}$ s.t. $\{0\}^c = \{1\},\; \{0, 1\}^c = \varnothing,\; \varnothing^c = \{0, 1\}$
-    + $\Omega = \{0, 1, 2\}$ s.t. $\{0\}^c = \{1, 2\} \\gets A^c$ depending on both $A$ and $\Omega$
+    + $\Omega = \{0, 1, 2\}$ s.t. $\{0\}^c = \{1, 2\} \gets A^c$ depending on both $A$ and $\Omega$
     + $\Omega = \mathbb{Z}$ s.t. $\{\dots, -2, -1\}^c = \mathbb{N}$
-    + $\mathbb{E}$ - even, s.t. $\mathbb{E}^c = \{\dots, -3, -1, 1, 3, \dots\} \stackrel{\text{def}}{=} \mathbb{O}$ - odd
+    + $\mathbb{E}$ (even) s.t. $\mathbb{E}^c = \{\dots, -3, -1, 1, 3, \dots\} \stackrel{\text{def}}{=} \mathbb{O}$ (odd)
 
 + Set identities
   + relations that hold for all sets
@@ -721,15 +736,14 @@
     + $A \subseteq B \to A^c \supseteq B^c$
 
 + Intersection
-  + the <span style="color: magenta;">intersection</span>, $A {\color{Magenta}{\cap}} B$, is the set of elements in both $A$ and $B$
+  + the <span style="color: magenta;">intersection</span>, $A \,{\color{Magenta}{\cap}}\, B$, is the set of elements in both $A$ and $B$
   + Definition (intersection): $A \cap B = \{x: x\in A \wedge B\}$
   + examples
     + $\{0, 1\} \cap \{1, 3\} = \{1\}$, $\{0\} \cap \{1\} = \varnothing$
     + $[0, 4) \cap [3, 6] = [3, 4)$, $[0, 2] \cap (2, 5]$
-  + generally, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1 \leq i \leq t, \, x \in A\}$
 
 + Union
-  + the <span style="color: magenta;">union</span>, $A {\color{Magenta}{\cup}} B$, is the collection of elements in $A$, $B$, or both
+  + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
   + Definition (union): $A \cup B = \{x: x \in A \vee x \in B\}$
   + examples
     + $\{0, 1\} \cup \{1, 2\} = \{0, 1, 2\}$, $\{0, 1\} \cup \{2\} = \{0, 1, 2\}$
@@ -741,10 +755,11 @@
     + e.g., $\{0, 1\} \cup \{1, 2\} \cup \{2, 3\} = \{0, 1, 2, 3\}$
   + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
     + e.g., $\bigcup_{i=-\infty}^\infty \{i\} = \mathbb{Z}$
+  + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
 
-+ Law for sets
-  + Identities - one set
-    + identity: $A \cap \Omega = A \quad \A \cup \Omega = \Omega$
++ Law od sets
+  + identities - one set
+    + identity: $A \cap \Omega = A \quad A \cup \Omega = \Omega$
     + universal bound: $A \cap \varnothing = \varnothing \quad A \cup \varnothing = A$
     + idempotent: $A \cap A = A \quad A \cup A = A$
     + complement: $A \cap A^c = \varnothing \quad A \cup A^c = \Omega$
@@ -753,14 +768,13 @@
     + associative: $(A \cap B) \cap C = A \cap (B \cap C) \quad (A \cup B) \cup C = A \cup (B \cup C)$
     + distributive: $A \cap (B \cap C) = (A \cap B) \cup (A \cap C) \quad A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
     + De Morgan: $(A \cap B)^c = A^c \cup B^c \quad (A \cup B)^c = A^c \cap B^c$
+  + proof: De Morgan's law $(A \cap B)^c = A^c \cup B^c$ w/ Venn diagram
 
-+ De Morgan's law: $(A \cap B)^c = A^c \cup B^c$
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/ydcz8kcd" ismap target="_blank">
-      <img src="img/t02-01.png" style="margin: 0.1em;" alt="De Morgan's law" title="De Morgan's law" width=450>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ydcz8kcd" ismap target="_blank">
+        <img src="img/t02-01.png" style="margin: 0.1em;" alt="De Morgan's law" title="De Morgan's law" width=450>
+      </a>
+    </div>
 
 + Set difference
   + the <span style="color: magenta;">difference</span>, $A {\color{Magenta}{-}} B$, is the set of elements in $A$ but not in $B$
