@@ -965,8 +965,105 @@
 
 ## 2.6 Cartesian Products
 
++ Rene Descates 1596-1650
+  + philosopher, scientist, mathematician
+  + considered father of western philsopht
+    + Cogito ergo sum = I think therefore I am
+    + divided each difficulty into as many parts as necessary to solve it
+    + each problem I solved became a rule I later used to solve other problems
+    + a good mind is not enough, the main thing is to use it well
+
++ Cartesian corrdinates: used also by 
+  + Pierre de Fermat (1607-1665): a French lawyer at the Parlement of Toulouse, France, and a mathematician who is given credit for early developments that led to infinitesimal calculus, including his technique of adequality
+  + Nicole Oresme (1320-1382): at the University of Paris and expanded the analytic study of changing quantities
+
++ Tuples and ordered pairs
+  + set: order and repetition not mattered, e.g., $\{a, b, c\} = \{b, c, a\}$
+  + tuple: both order and repetition matter, e.g., $(a, b, c) \neq (b , c, a) \qquad (a, a, a) \neq (a)$
+  + n-tuple: tuple w/ $n$ elements, e.g., $(a_1, a_2, \dots, a_n)$
+  + 2-tuple: order pair, e.g., $(3, 7)$
+
++ Cartesian products
+  + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
+  + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A, b \in B\}$
+  + Cartesian plane: $\mathbb{R} = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+  + Rectangle: $A, B \subset \mathbb{R} \text{ s.t. } A \times B \subseteq \mathbb{R}^2$
+  + example: $A = [0, 2], B = [1, 4] \text{ s.t. } A \times B = \{(x, y) = x \in [0, 2], by \in [1. 4]\}$
+
++ Discrete sets
+  + similar to Cartesian product but simiplier
+  + example
+  
+    \[\begin{align*}
+      \{a, b\} \times \{1, 2, 3\} &= \{(x, y) \,|\, x\in \{a, b\}, y \in \{a, 2, 3\}\} \\
+      &= \{(a, 1), (a, 2), (a, 3), (b, 1), (b, 2), (b, 3)\}
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yab7dxov" ismap target="_blank">
+      <img src="img/t02-10.png" style="margin: 0.1em;" alt="Illustration of discrete set product" title="Illustration of discrete set product" width=350>
+    </a>
+  </div>
+
++ Identity for Cartesian product
+  + $A \times \varnothing = \varnothing \times A = \varnothing$
+  + $A \times (B \cup C) = A \times B \cup A \times C$
+  + $A \times (B \cap C) = A \times B \cap A \times C$
+  + $A \times (B - C) = A \times B - A \times C$
+  + illustration example for $A \times (B \cup C)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yab7dxov" ismap target="_blank">
+      <img src="img/t02-11a.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x B" title="Illustration example for A x (B u C): A x B" height=100>
+      <img src="img/t02-11b.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x C" title="Illustration example for A x (B u C): A x C" height=100>
+      <img src="img/t02-11c.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x (B u C)" title="Illustration example for A x (B u C): A x (B u C)" height=100>
+    </a>
+  </div>
+
++ Table
+  + table are Cartesian product
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yab7dxov" ismap target="_blank">
+      <img src="img/t02-12.png" style="margin: 0.1em;" alt="Illustration of table" title="Illustration of table" height=150>
+    </a>
+  </div>
+
++ Cartesian product of 3 sets
+  + $A \times B$: 2-dimensional rectangle
+  + $A \times B \times C$: 3-dimensional 'cuboid'
+
++ Sequence
+  + tuples, just w/o '( )' and sometimes w/o ','
+  + examples
+    + $\{0, 1\}^2 = \{xy \,|\, x, y \in \{0, 1\}\} = \{00, 01, 10, 11\}$
+    + $\{0, 1\}^3 = \{000, 001, 010, 011, 100, 101, \dots, 111\}$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yab7dxov" ismap target="_blank">
+      <img src="img/t02-14.png" style="margin: 0.1em;" alt="Illustration of sequence" title="Illustration of sequence" height=80>
+    </a>
+  </div>
+
++ Cartesian products in Python
+  + using `product` function in `itertools` library
+  + example
+
+    ```python
+    from itertools import product
+    Fasces = set({'J', 'Q', 'K'})
+    Suites = {'&diams;', '&spades;'}
+    for pair in product(Faces, Suits):
+      print(pair)
+    ```
+  
++ Summary - Cartesian products
+  + tuple: $(a_1, \dots, a_n)$
+  + ordered pairs: $(a, b)$
+  + Python: `product` functon in `itertools` library
 
 
++ [Original Slide](https://tinyurl.com/yab7dxov)
 
 
 ### Problem Sets
