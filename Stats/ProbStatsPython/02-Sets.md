@@ -1068,6 +1068,62 @@
 
 ### Problem Sets
 
+0. Which of the following is NOT in the cartesian product {1,2} x {3,4}?<br/>
+  a. (3,1)<br/>
+  b. (1,3)<br/>
+  c. (1,4)<br/>
+  d. (2,4)<br/>
+
+  Ans: a<br/>
+  Explanntion: The cartesian product is {(1, 3), (1, 4), (2, 3), (2, 4)}, which does not include (3, 1). In general, for (x,y) to be in A x B, the element x must be in A and y must be in B. Here neither happens.
+
+
+1. Which of the following statements hold?<br/>
+  a. $\{1,2\} \subseteq \{1,2\}^2$<br/>
+  b. $\{1,2\} \in \{1,2\}^2$<br/>
+  c. $(1,2) \subseteq \{1,2\}^2$<br/>
+  d. $(1,2) \in \{1,2\}^2$<br/>
+
+  Ans: d<br/>
+  Explanation: $\{1,2\}^2 = \{(1,1),(1,2),(2,1),(2,2)\}$.
+
+
+2. Which of the following statements hold for all A?<br/>
+  a. $A × \varnothing = \varnothing$<br/>
+  b. $A × \varnothing = A $<br/>
+  c. $A \subseteq A^2 $<br/>
+  d. $A \in A^2 $<br/>
+  e. $A × A^c = \varnothing$<br/>
+
+  Ans: a<br/>
+  Explanation
+    + 1. The left set contains no elements, hence it is the empty set too. For the remaining options, the left and right sets may differ. Consider A={1} .
+    + 2. The left set contains no elements, but the right set contains 1.
+    + 3. $A^2 = \{(1,1)\}$ and does not contain the element 1.
+    + 4. $A^2 = \{(1,1)\}$ and does not contain the set $A$.
+    + 5. Note that to define $A^c$ we need to define the universal set, say {1,2},then the left set contains (1,2) while the right set does not.
+
+
+3. Which of the following statements hold for all sets A, B and C?<br/>
+  a. $A × B = B × A$<br/>
+  b. $A \cap (B × C) = (A \cap B) × (A \cap C)$<br/>
+  c. $A × (B \cap C) = (A × B) \cap (A × C)$<br/>
+
+  Ans: c<br/>
+  Explanation
+    + 1 does not hold whenever $A$ and $B$ are nonempty and different.
+    + 2 does not hold as the left set is a subset of $A$ while the right set is typically not.
+    + 3 holds as $(x,y)$ is in the left set $\iff x \in A, y \in B$, and $y \in C, \iff (x,y)$ is in the right set.
+
+
+4. Add $\subseteq, \supseteq$, or $\in$ in the blanks to make the following statements true.<br/>
+  a. $\{(x,y) \,∣\, x^2 + y^2 \leq 1\} \times \{x \,∣\, −1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \,∣\, x^2 + y^2 + z^2 \leq 1\}$<br/>
+  b. $(1,2,3)$ `_____` $\{(x,y) \,∣\, y = 2x\} \times \{x \,∣\, |x| \leq 3 \}$<br/>
+  c. $\{(x,y,z) \,∣\, \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \,∣\, −1 \leq x \leq 1\} \times \{(x,y) \,∣\, x^2 + y^2 \leq 1\}$<br/>
+
+  Ans: a. ($\supseteq$); b. ($\in$); c. ($\supseteq$)<br/>
+  Explanaition: Draw those sets in a 3-D coordinate system can help you visualize them.
+
 
 
 ### Lecture Video
