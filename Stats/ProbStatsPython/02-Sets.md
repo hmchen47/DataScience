@@ -987,11 +987,11 @@
   + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
   + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A, b \in B\}$
   + Cartesian plane: $\mathbb{R} = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
-  + Rectangle: $A, B \subset \mathbb{R} \text{ s.t. } A \times B \subseteq \mathbb{R}^2$
+  + Rectangle: $A, B \subseteq \mathbb{R} \text{ s.t. } A \times B \subseteq \mathbb{R}^2$
   + example: $A = [0, 2], B = [1, 4] \text{ s.t. } A \times B = \{(x, y) = x \in [0, 2], by \in [1. 4]\}$
 
 + Discrete sets
-  + similar to Cartesian product but simiplier
+  + similar to Cartesian product in continuous sets but simiplier
   + example
   
     \[\begin{align*}
@@ -1014,9 +1014,9 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yab7dxov" ismap target="_blank">
-      <img src="img/t02-11a.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x B" title="Illustration example for A x (B u C): A x B" height=100>
-      <img src="img/t02-11b.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x C" title="Illustration example for A x (B u C): A x C" height=100>
-      <img src="img/t02-11c.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x (B u C)" title="Illustration example for A x (B u C): A x (B u C)" height=100>
+      <img src="img/t02-11a.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x B" title="Illustration example for A x (B u C): A x B" height=80>
+      <img src="img/t02-11b.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x C" title="Illustration example for A x (B u C): A x C" height=80>
+      <img src="img/t02-11c.png" style="margin: 0.1em;" alt="Illustration example for A x (B u C): A x (B u C)" title="Illustration example for A x (B u C): A x (B u C)" height=80>
     </a>
   </div>
 
@@ -1047,7 +1047,7 @@
 
 + Cartesian products in Python
   + using `product` function in `itertools` library
-  + example
+  + demo
 
     ```python
     from itertools import product
@@ -1058,7 +1058,7 @@
     ```
   
 + Summary - Cartesian products
-  + tuple: $(a_1, \dots, a_n)$
+  + tuples: $(a_1, \dots, a_n)$
   + ordered pairs: $(a, b)$
   + Python: `product` functon in `itertools` library
 
