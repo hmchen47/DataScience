@@ -422,6 +422,14 @@
 
   + function for 3 sets: `venn.venn3([S, T, U], set_labels=('S', 'T', 'U'))`
 
++ A Venn diagram of unions and intersections for two sets, $A$ and $B$ and their complements, within a universe $\Omega$ 
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y77s4hje" ismap target="_blank">
+      <img src="https://tinyurl.com/ycdpc37o" style="margin: 0.1em;" alt="A Venn diagram of unions and intersections for two sets, A and B and their complements, within a universe Ω A,B" title="A Venn diagram of unions and intersections for two sets, A and B and their complements, within a universe Ω A,B" width=450>
+    </a>
+  </div>
+
 
 + [Original Slides](https://tinyurl.com/ybsaftw3)
 
@@ -676,8 +684,127 @@
 
 ## 2.5 Operations
 
++ Puzzle
+  + are there sets $A$ and $B$ s.t. $A$ is both an <span style="color: cyan;">element</span> and <span style="color: cyan;">subset</span> of $B$?
+    + i.e. $A \in B, A \subseteq B$
+    + Ans: yes
+  + example: 
+    + $\varnothin \subseteq$ any set, $\exists\, A = \varnothing$, need $\varnothing \in B \imp;lies B = \{\varnothin\}$
+    + $\varnothing \in \{\varnothing\}, \varnothing \subseteq \{\varnothing\}$
+  + also solutions w/ nonempty sets
+
++ Plan
+  + again generalize numbers
+  + relations: 
+    + number: $= \quad  \leq \quad <$
+    + set: $= \quad \subseteq \quad \subset$
+  + operations
+    + number: $+ \quad - \quad \times$
+    + set: $\cup \quad - \quad \times$
+
++ Compelemt
+  + universal set $\Omega$ containing all elements
+  + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
+  + Definition (complement set): $A^c = \overline{A} = \{x \in \Omega \,|\, x \not\in A\}$
+  + examples
+    + $\Omega = \{0, 1\}$ s.t. $\{0\}^c = \{1\},\; \{0, 1\}^c = \varnothing,\; \varnothing^c = \{0, 1\}$
+    + $\Omega = \{0, 1, 2\}$ s.t. $\{0\}^c = \{1, 2\} \\gets A^c$ depending on both $A$ and $\Omega$
+    + $\Omega = \mathbb{Z}$ s.t. $\{\dots, -2, -1\}^c = \mathbb{N}$
+    + $\mathbb{E}$ - even, s.t. $\mathbb{E}^c = \{\dots, -3, -1, 1, 3, \dots\} \stackrel{\text{def}}{=} \mathbb{O}$ - odd
+
++ Set identities
+  + relations that hold for all sets
+  + Remark
+    + $\varnothing^c = \Omega \implies \Omega^c = \varnothing$ 
+    + $A$ adn $A^c$: disjoint
+    + involution: $(A^c)^c = A$
+    + $A \subseteq B \to A^c \supseteq B^c$
+
++ Intersection
+  + the <span style="color: magenta;">intersection</span>, $A {\color{Magenta}{\cap}} B$, is the set of elements in both $A$ and $B$
+  + Definition (intersection): $A \cap B = \{x: x\in A \wedge B\}$
+  + examples
+    + $\{0, 1\} \cap \{1, 3\} = \{1\}$, $\{0\} \cap \{1\} = \varnothing$
+    + $[0, 4) \cap [3, 6] = [3, 4)$, $[0, 2] \cap (2, 5]$
+  + generally, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1 \leq i \leq t, \, x \in A\}$
+
++ Union
+  + the <span style="color: magenta;">union</span>, $A {\color{Magenta}{\cup}} B$, is the collection of elements in $A$, $B$, or both
+  + Definition (union): $A \cup B = \{x: x \in A \vee x \in B\}$
+  + examples
+    + $\{0, 1\} \cup \{1, 2\} = \{0, 1, 2\}$, $\{0, 1\} \cup \{2\} = \{0, 1, 2\}$
+    + $[0, 2] \cup [1, 3] = [0, 3]$, $(0, 1) \cup \{1\} = (0, 1]$
+    + $\mathbb{E} \cup \mathbb{O} = \mathbb{Z}$
+
++ Multiple sets
+  + $A \cup B \cup C = \{ x \in \Omega: x \in A \vee x \in B \vee x \in X\}$
+    + e.g., $\{0, 1\} \cup \{1, 2\} \cup \{2, 3\} = \{0, 1, 2, 3\}$
+  + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+    + e.g., $\bigcup_{i=-\infty}^\infty \{i\} = \mathbb{Z}$
+
++ Law for sets
+  + Identities - one set
+    + identity: $A \cap \Omega = A \quad \A \cup \Omega = \Omega$
+    + universal bound: $A \cap \varnothing = \varnothing \quad A \cup \varnothing = A$
+    + idempotent: $A \cap A = A \quad A \cup A = A$
+    + complement: $A \cap A^c = \varnothing \quad A \cup A^c = \Omega$
+  + two and three sets
+    + commutative: $A \cap B = B \cap A \quad A \cap B = B \cup A$
+    + associative: $(A \cap B) \cap C = A \cap (B \cap C) \quad (A \cup B) \cup C = A \cup (B \cup C)$
+    + distributive: $A \cap (B \cap C) = (A \cap B) \cup (A \cap C) \quad A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    + De Morgan: $(A \cap B)^c = A^c \cup B^c \quad (A \cup B)^c = A^c \cap B^c$
+
++ De Morgan's law: $(A \cap B)^c = A^c \cup B^c$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ydcz8kcd" ismap target="_blank">
+      <img src="img/t02-01.png" style="margin: 0.1em;" alt="De Morgan's law" title="De Morgan's law" width=450>
+    </a>
+  </div>
+
++ Set difference
+  + the <span style="color: magenta;">difference</span>, $A {\color{Magenta}{-}} B$, is the set of elements in $A$ but not in $B$
+  + Definition (difference): $A - B = A \backslash B = \{x: x\in A \wedge x \not\in B\}$
+  + Remark: $A - B = A \cap B^c$
+  + example
+    + $\{0, 1\} - \{1\} = \{0\} \quad \{0, 1\} - \{0, 1, 2\} = \varnothing$
+    + [1, 3] - [2, 4] = [1, 2) \quad [1, 3] - (1, 3) = \{1, 3\}$
+
++ Symmetric difference
+  + the <span style="color: magenta;">symmetric difference</span> of two sets is the set of elements in exactly one set
+  + Definition (symmetric difference): $A \Delta B = \{x: x \in A \wedge x \not\in B \vee x \not\in A \wedge x \in B\}$
+  + remark: $A \Delta B = (A - B) \cup (B - A)$
+  + example:
+    + $\{0, 1\} \Delta \{1, 2\} = \{0, 2\}$
+    + $[0, 2] \Delta [1, 4] = [0, 1) \cup (2, 4]$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ydcz8kcd" ismap target="_blank">
+      <img src="img/t02-02.png" style="margin: 0.1em;" alt="Set difference" title="Set difference" height=150>
+      <img src="img/t02-05.png" style="margin: 0.1em;" alt="Symmetric difference" title="Symmetric difference" height=150>
+      <img src="img/t02-06.png" style="margin: 0.1em;" alt="3 sets" title="3 sets" height=150>
+    </a>
+  </div>
+
++ Union and Intersection in Python
+  + set define: $A = \{1, 2\}; B = \{2, 3\}$
+  + union ($\cup \to$ `|` or `union`): `A | B   # {1, 2 ,3};  c = A.union(B); print(C) ${2, 1, 3}`
+  + intersection ($\cap \to$ `&` or `intersection`): `A & B  # {2}; C = A.intersecton(B); print(C)  # {2}`
+
++ Set- and Symmetric-Difference in Python
+  + set define: `A = {1, 2}; B = {2, 3}`
+  + set difference (`-` or `difference`): `A - B  # {1};  B.difference(A) # {3}`
+  + symmetric difference (`^` or `symmetric_difference`): `A ^ B  # {3. 1};  B.symmetric_difference(A)  # {3, 1}`
+
++ Summary - set operations
+  + complement: $A^c$
+  + intersection: $\cap \to$ `&` or `intersection`
+  + union: $\cup \to$ `|` or `union`
+  + difference: $- \to$ `-` or `difference`
+  + symmetric difference: $\Delta \to$ `^` or `symmetric_difference`
 
 
++ [Original Slides](https://tinyurl.com/ydcz8kcd)
 
 
 ### Problem Sets
