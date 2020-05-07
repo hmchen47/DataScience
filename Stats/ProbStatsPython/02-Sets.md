@@ -1197,8 +1197,12 @@
 
 ## Lecture Notebook 2
 
++ [Original Lecture NB](https://tinyurl.com/y9fypwth)
 
++ [Python code for set operations](src/topic02-sets.py)
 
 
 ## Programming Assignment 2
+
+
 
