@@ -327,8 +327,8 @@
 2. Which of the following are true?<br/>
   a. $0 \in $ {Even numbers} <br/>
   b. $0.5 \in \mathbb{N}$<br/>
-  c. $\{−1\} \in \{x \in \mathbb{R}∣x^2 = 1\}$<br/>
-  d. $0.5 \in \{x \in \mathbb{Z} \,∣\, 2x^2 + x − 1 = 0\}$<br/>
+  c. $\{-1\} \in \{x \in \mathbb{R}∣x^2 = 1\}$<br/>
+  d. $0.5 \in \{x \in \mathbb{Z} \,∣\, 2x^2 + x - 1 = 0\}$<br/>
   e. $\varnothing \in \mathbb{Q}$<br/>
   f. unanswered<br/>
 
@@ -336,7 +336,7 @@
   Explanation:
   + a. True.
   + b. False.  0.5 is not an integer to begin with.
-  + c. False.  {−1} is a set. $\{−1\} \subset \{x \in \mathbb{R} \,∣\, x^2=1]}$
+  + c. False.  {-1} is a set. $\{-1\} \subset \{x \in \mathbb{R} \,∣\, x^2=1]}$
   + d. False.  0.5  is not integer.
   + e. <span style="color: magenta;">False.</span>  $\varnothing \subset \mathbb{Q}$.
 
@@ -356,22 +356,22 @@
 4. Which of the following are true?<br/>
   a. $e \in \{1,2,…,10\}$<br/>
   b. $π \in (3,3.5)$<br/>
-  c. $2 \in[−2,2)$<br/>
+  c. $2 \in[-2,2)$<br/>
 
   Ans: b<br>
   Explanation
   + a. False.  {1,2,…,10} is a set of integers, but e = 2.71828 is not an integer.
   + b. True. As 3 < π < 3.5 , π ∈ (3,3.5).
-  + c. False. [−2,2) does not include 2.
+  + c. False. [-2,2) does not include 2.
 
 
 5. List all the elements of the following sets.
 
   Note: Represent your answers in ascending order, For example the set {1,-1,0} should be written as -1,0,1 (without whitespace).
 
-  a. $\{x \in \mathbb{Z} \,∣\, −2 \leq x < 5\}$
-  b. $\{x \in \mathbb{N} \,∣\, x^2+x−2=0\}$
-  c. $\{x \in \mathbb{R} \,∣\, x^3+x−2=0\} $
+  a. $\{x \in \mathbb{Z} \,∣\, -2 \leq x < 5\}$
+  b. $\{x \in \mathbb{N} \,∣\, x^2+x-2=0\}$
+  c. $\{x \in \mathbb{R} \,∣\, x^3+x-2=0\} $
   
   Ans: a - (-2, -1, 0, 1, 2, 3, 4); b - (1); c - (1)
 
@@ -596,7 +596,7 @@
 
 
 4. Which of the following set pairs are equal?<br/>
-  a. $\{x \in \mathbb{R} \,∣\, x^2−4x+3=0\}$ and {3,1,3}<br/>
+  a. $\{x \in \mathbb{R} \,∣\, x^2-4x+3=0\}$ and {3,1,3}<br/>
   b. $\{x \in \mathbb{Q} \,∣\, x2=10\}$ and $\varnothing$ <br/>
   c. {0} and {$\varnothing$}<br/>
   d. { letters in word _little_ }  and  { letters in word _title_ }<br/>
@@ -843,15 +843,15 @@
 
 
 2. Which of the following equals $G$ for all $\Omega$ and $G$?<br/>
-  a. $G − \varnothing$<br/>
-  b. $Ω − G$<br/>
-  c. $Ω − G^c$<br/>
+  a. $G - \varnothing$<br/>
+  b. $Ω - G$<br/>
+  c. $Ω - G^c$<br/>
   d. $G \cap \varnothing$<br/>
 
   Ans: ac<br/>
   Explanation
     - True.
-    - False. $Ω − G = G^c$.
+    - False. $Ω - G = G^c$.
     - True.
     - False. $G ∩ \varnothing = \varnothing$.
 
@@ -859,19 +859,19 @@
 3. (Implying equality) Which of the following imply $A = B$?<br/>
   a. $A^c = B^c$<br/>
   b. $A \Delta B = \varnothing$<br/>
-  c. $A−B = B−A$<br/>
+  c. $A-B = B-A$<br/>
   d. $A \cup B = A \cap B$<br/>
 
   Ans: abcd<br>
   Explanation
     - True.
-    - True.  $A \Delta B = (A \cup B)−(A \cap B)$.
-    - True.  $A − B = A− (A \cap B), B − A = B − (A \cup B)$.
+    - True.  $A \Delta B = (A \cup B)-(A \cap B)$.
+    - True.  $A - B = A- (A \cap B), B - A = B - (A \cup B)$.
     - True.
 
 
 4. Suppose that the following hold for an unknonwn set $C$. Which of the following implies $A=B$, regardless of what $C$ is?<br/>
-  a. $A − C = B − C$<br/>
+  a. $A - C = B - C$<br/>
   b. $A \cap C = B \cap C$<br/>
   c. $A \cup C = B \cup C$<br/>
   d. $A \Delta C = B \Delta C$<br/>
@@ -897,7 +897,7 @@
   Explanation:
     + 1. $A \cap B$.
     + 2. $A \Delta B$.
-    + 4. $A − B$.
+    + 4. $A - B$.
 
 
 6. For any two sets $A$ and $B$, add $\subseteq$ or $\supseteq$ to make the following statements true.<br/>
@@ -918,7 +918,7 @@
     </a>
   </div>
 
-  a. $(A \cup B) − (A \cap )$<br/>
+  a. $(A \cup B) - (A \cap )$<br/>
   b. $(A \cap B)^c$<br/>
   c. $A \cup B$<br/>
   d. $A \cap B$<br/>
@@ -1117,9 +1117,9 @@
 
 
 4. Add $\subseteq, \supseteq$, or $\in$ in the blanks to make the following statements true.<br/>
-  a. $\{(x,y) \,∣\, x^2 + y^2 \leq 1\} \times \{x \,∣\, −1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \,∣\, x^2 + y^2 + z^2 \leq 1\}$<br/>
+  a. $\{(x,y) \,∣\, x^2 + y^2 \leq 1\} \times \{x \,∣\, -1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \,∣\, x^2 + y^2 + z^2 \leq 1\}$<br/>
   b. $(1,2,3)$ `_____` $\{(x,y) \,∣\, y = 2x\} \times \{x \,∣\, |x| \leq 3 \}$<br/>
-  c. $\{(x,y,z) \,∣\, \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \,∣\, −1 \leq x \leq 1\} \times \{(x,y) \,∣\, x^2 + y^2 \leq 1\}$<br/>
+  c. $\{(x,y,z) \,∣\, \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \,∣\, -1 \leq x \leq 1\} \times \{(x,y) \,∣\, x^2 + y^2 \leq 1\}$<br/>
 
   Ans: a. ($\supseteq$); b. ($\in$); c. ($\supseteq$)<br/>
   Explanaition: Draw those sets in a 3-D coordinate system can help you visualize them.
@@ -1203,6 +1203,82 @@
 
 
 ## Programming Assignment 2
+
++ [Original Programming Assignment](https://tinyurl.com/y75bk5pn)
+
+1. Let $A = \{-6, 3, 4, 5\}, B = \{-6, 5, 13\}$, and $U = A \cup B \cup \{12, -2, -4\}.$
+
+  Which of the following is the correct output for `complement_of_union(A, B, U)`?<br/>
+  a. $\{-6,-2,3,4,13\},\{-6,-2,4,12\}$<br/>
+  b. $\{-4,-2\},\{-6,-4,3,5,13\}$<br/>
+  c. $\{-6,3,4,5,13\},\{-4,-2,12\}$<br/>
+
+  Ans: c<br/>
+
+  ```python
+  def complement_of_union(A, B, U):
+    # inputs: A, B and U are of type 'set'
+    # output: a tuple of the type (set, set)
+
+    return (A | B, U.difference(A | B))
+  ```
+
+2. Like before, let $A = {-6, 3, 4, 5}$, $B={-6,5,13}$, and $U=A\cupB\cup{12,-2,-4}$.
+
+  Which of the following is the correct output for `intersection_of_complements(A, B, U)`<br/>
+  a. $\{-6,-2,3,4,13\}, \{-4,-2,12,13\}$<br/>
+  b. $\{-4,-2,12,13\},\{-4,-2,12\}$<br/>
+  c. $\{-4,-2,12\},\{-4,-2,12,13\}$<br/>
+
+  Ans: b<br>
+
+  ```python
+  def intersection_of_complements(A, B, U):
+      # inputs: A, B and U are of type 'set'
+      # output: a tuple of the form (set, set)
+
+      return (U.difference(A), U.difference(A) & U.difference(B))
+  ```
+
+3. Let $A=\{5\}, B=\{5\}, S=\{-1,0\}, T=\{0\}$.
+
+  Which of the following is the correct output for `product_of_unions(A, B, S, T)`<br/>
+  a. $\{5\},\{(5,-1),(5,0)\}$<br/>
+  b. $(\{5,-1\},\{5,0\}),\{5\}$<br/>
+  c. $\{5\},(\{5,-1\},\{5,0\})$<br/>
+
+  Ans: a<br>
+
+  ```python
+  def product_of_unions(A, B, S, T):
+      # inputs: A, B, S and T are sets
+      # output: a tuple of the type (set, set)
+
+      return (A | B, set(itertools.product(list(A | B), list(S | T))))
+  ```
+
+4. Again, let  $A=\{5\},  B=\{5\},  S=\{-1,0\},  T=\{0\}$.
+  
+  Which of the following is the correct output for `union_of_products(A, B, S, T)`<br/>
+  a. $\{(5,-1),(5,0)\},\{(5,-1),(5,0)\}$<br/>
+  b. $\{5,-1\},\{5,0\}$<br/>
+  c. $(5,-1),(5,0)$<br/>
+
+  Ans: a<br/>
+
+  ```python
+  def union_of_products(A, B, S, T):
+      # inputs: A, B, S and T are sets
+      # output: a tuple of the type (set, set)
+
+      AS = set(itertools.product(list(A), list(S)))
+      AT = set(itertools.product(list(A), list(T)))
+      BS = set(itertools.product(list(B), list(S)))
+      BT = set(itertools.product(list(B), list(T)))
+
+      return (AS, AS | AT | BS | BT)
+  ```
+
 
 
 
