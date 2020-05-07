@@ -1138,24 +1138,25 @@
 + Bertrand Russell
   + Mathematician, philosopher, author
   + 1950 literature Norbel Laureate
-  + Democracy: fools have a right to vote. <br/> Dictatorship: fools have a right to rule.
-  + Most people would rather die than think.  If fact, most do.
-  + Men are born ignorant, not stupid.  They are mad stupid by education.
+  + famous quotes
+    + Democracy: fools have a right to vote. <br/> Dictatorship: fools have a right to rule.
+    + Most people would rather die than think.  If fact, most do.
+    + Men are born ignorant, not stupid.  They are mad stupid by education.
 
 + Sets in sets
   + sets able to be elements, e.g., \{\{0\}, \{1, 2\}\}$
   + every set as a subset of itself, e.g., $\{0\} \subseteq \{0\}$
   + can a set <span style="color: cyan;">belong to</span> (<span style="color: cyan;">be an element of</span>) itself? $\to S \,{\color{cyan}{\in}}\, S$?
     + typically, sets <span style="color: cyan;">do not</span> belong to themselves
-      + example: $\{0\} \not\in \{0\}, \; \varnothing \not\in \varnothin$
+      + example: $\{0\} \not\in \{0\}, \; \varnothing \not\in \varnothing$
     + some set <span style="color: cyan;">do</span> belong to themselves!
-      + example: NT = {anything that is not A} = {0, {1, 2}, ..., NT} $\to$ NT $\in$ NT
+      + example: NT = {anything that is not Trump} = {Hillary, {1, 2}, ..., NT} $\to$ NT $\in$ NT $\implies$ infinite subset within itself (recursively)
   + some sets $\in$ themselves (NT), others don't ({0})
 
 + Russell's paradox
   + define a set that cannot exist: R = { sets that <span style="color: magenta;"> don't</span> belong to themselves } = $\{S \,|\, S \,{\color{Magenta}{\not\in}}\, S\}$
   + examples
-    + $\{0\} \not\in \{0\}, \;\therefoer \{0\} \in R$,
+    + $\{0\} \not\in \{0\}, \;\therefore \{0\} \in R$,
     + $NT \in NT, \;\therefore NT \not\in R$
   + proof: Must have
     + $R \in R \to R \not\in R$
@@ -1165,10 +1166,15 @@
   + R defined but cannot exist!
 
 + What happened?
+  + recursive definitions
   + self-referential definition will avoid
   + example: 
     + $\{S: S \in S\}$
     + $\{S: S \not\in S\}$
+
++ Variations
+  + who shaves the barbar?
+  + this sentence is a lie
 
 
 + [Original Slide](https://tinyurl.com/y7xod9bw)
