@@ -9,15 +9,12 @@
     + intersection
     + Cartesian products
   + objective: learn how to determine the sizes of such sets
-
-+ Goal: avoid counting
-
-+ The bijection method
+  + Goal: avoid counting
+  + The bijection method
 
 + Functions
   + a <span style="color: magenta;">function f from A to B</span>, denote <span style="color: magenta;">$f: A \to B$</span>, associates w/ every $a\in A$ and <span style="color: magenta;">image</span> $f(a) \in B$
-  + e.g., $f: \{1, 2, 3\} \to \{a, b, c, d\} \implies f(1) = b, f(2) = a, f(3) = d$
-  + two elements able to share image
+  + e.g., $f: \{1, 2, 3\} \to \{a, b, c, d\} \textrm{ s.t. } f(1) = b, f(2) = a, f(3) = d$
 
 + One-to-one mapping
   + $f: A \to B$ is <span style="color: magenta;">1-1</span>, or <span style="color: magenta;">injective</span>, if different elements have different images
@@ -31,12 +28,12 @@
   + $n$-set: set of size $n$
   + examples
     + bits: $|\{0, 1\}| = 2$
-    + coin: $\{\text{heads}, \text{tails}}| = 2$
+    + coin: $|\{\text{heads}, \text{tails}\}| = 2$
     + die: $|\{1, 2, 3, ,4 ,5 ,6\}| = 6$
     + digits: $|\{0, 1, \dots, 9\}| = 10$
     + letters: $|\{a, \dots, z\}| = 26$
     + empty set: $|\varnothing| = 0$
-    + integers: $\mathbb{Z} = \mathbb{N} = \mathbb{P} = \infty \to$ countable infinite $\aleph_0$
+    + integers: $|\mathbb{Z}| = |\mathbb{N}| = |\mathbb{P}| = \infty \to$ countable infinite $\aleph_0$
     + Rreals: $|\mathbb{R}| = \infty \to$ uncountably infinite $\aleph$
 
 + Integer intervals
