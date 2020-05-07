@@ -1182,6 +1182,10 @@
 
 ### Problem Sets
 
+0. The set that contains only the empty set is not empty.
+
+  Ans: True<br/>
+  Explanation: True. With the empty set as an element, this set is not empty.
 
 
 ### Lecture Video
