@@ -74,6 +74,50 @@
 
 ### Problem Sets
 
+0. The Python definition `A = set(range(1,10))` implies that A has size<br/>
+  a. 2<br/>
+  b. 9<br/>
+  c. 10<br/>
+  d. 11<br/>
+
+  Ans: b<br/>
+  Explanation: A has size 9 as the elements are 1 to 9.
+
+
+1. (Perfect squares) A square of an integer, for example, 0, 1, 4 and 9, is called a _perfect square_. How many perfect squares are $\leq 100$?
+
+  Ans: 11 <br/>
+  Explanation: The perfect squares $\leq 100$ are $0^2, 1^2, 2^2, \dots, 10^2$. Hence there are 11.
+
+
+2. Which of the following sets are finite?<br/>
+  a. Weeks in a year<br/>
+  b. Students at UCSD<br/>
+  c. Odd primes<br/>
+  d. Positive integer divisors of 30<br/>
+
+  Ans: abd<br/>
+  Explanation
+    + True.
+    + True. Despite appearances, luckily, UCSD has only a finite number of students.
+    + False.
+    + True. It is {1,2,3,5,6,10,15,30}.
+
+
+3. Which of the following sets are finite?<br/>
+  a. $\{ x \in \mathbb{Z} \,|\, x^2 \leq 10\}$<br/>
+  b. $\{ x \in \mathbb{Z} \,|\, x^3 \leq 10\}$<br/>
+  c. $\{ x \in \mathbb{N} \,|\, x^3 \leq 10\}$<br/>
+  d. $\{ x \in \mathbb{R} \,|\, x^2 \leq 10\}$<br/>
+  e. $\{ x \in \mathbb{R} \,|\, x^3 = 10\}$<br/>
+
+  Ans: ace<br/>
+  Explanation
+    + True. It is $\{-3, -2, \dots, 3\}$.
+    + False. It is $\{x \in \mathbb{Z} \,|\, x \leq 2\}$.
+    + True. It is  {0,1,2}.
+    + False. It is  $\{x \in \mathbb{R} \,|\, -\sqrt{10} \leq x \leq \sqrt{10}\}$ .
+    + True. It is  $\{\sqrt[3]{10}\}$.
 
 
 
