@@ -183,6 +183,53 @@
 
 ### Problem Sets
 
+0. We saw that the size of a union of two disjoint sets is the sum of their sizes.
+
+  If the two sets are not necessarily disjoint, then the size of their union is:<br/>
+
+  a. At least the sum of the set sizes<br/>
+  b. At most the sum of the set sizes<br/>
+  c. Could be smaller, same, or larger than the sum of the set sizes.<br/>
+
+  Ans: b<br/>
+  Explanation: at most the sum of the sizes as some elements may be in both sets, and adding the sizes counts these elements twice.
+
+
+1. Which of the following are finite for every finite set  A  and an infinite set  B ?<br/>
+  a. $A \cap B$<br/>
+  b. $A \cup B$<br/>
+  c. $A − B$<br/>
+  d. $B − A$<br/>
+  e. $A \Delta B$<br/>
+
+  Ans: ac
+
+
+2. Which of the following pairs A and B satisfy $|A \cup B| = |A| + |B|$?<br/>
+  a. $\{1,2\}$ and $\{0,5\}$<br/>
+  b. $\{1,2\}$ and $\{2,3\}$<br/>
+  c. $\{i \in \mathbb{Z} : |i| \leq 3\}$ and $\{i \in \mathbb{Z} : 2 \leq |i| \leq 5\}$<br/>
+  d. {English words starting with the letter 'a'}  and  {English words ending with the letter 'a'}<br/>
+
+  Ans: a<br/>
+  Explanation: Explanation $|A \cup B| = |A| + |B|$ holds when $A$ and $B$ are disjoint.
+
+
+3. $|A \cup B \cup C| = |A| + |B| + |C|$ whenever: (True/False)
+
+  a. $A$ and $B$ are disjoint and $B$ and $C$ are disjoint,<br/>
+  b. $A$ and $B$ are disjoint, $B$ and $C$ are disjoint, and $A$ and $C$ are disjoint.<br/>
+
+  Ans: a. (False); b. (True)<br/>
+  Explanation: 
+  + a. False. Let  A=C={1}  and  B={2} . Then  A  and  B  are disjoint,  B  and  C  are disjoint. But  |A∪B∪C|=2 , while  |A|+|B|+|C|=3 .
+  + b. True. Since  A  and  C  are disjoint, and  B  and  C  are disjoint, we must have that  A∪B  and  C  are disjoint. Hence  |A∪B∪C|=|A∪B|+|C| . Since  A  and  B  are disjoint, we have  |A∪B|=|A|+|B| . Hence  |A∪B∪C|=|A|+|B|+|C| .
+
+
+4. (Non perfect-squares) Recall that a square of an integer, for example, 1, 4 and 9, is called a perfect square. How many integers between 1, and 100, inclusive, are not perfect squares?
+
+  Ans: 90 <br/>
+  Explanation: The perfect squares between 1 and 100 are $1^2, 2^2, \dots, 10^2$. Hence there are 10. By the complement rule, 100-10=90 integers between 1 and 100 are not perfect squares.
 
 
 
