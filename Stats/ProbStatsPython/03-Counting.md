@@ -401,7 +401,7 @@
     </div>
 
 + Rules of Cartesian products
-  + 2 sets: $a \times B = \{(a, b): a \in A, b \in B\} \to \text{ rectangle } \implies |A \times B| = |A| \times |B|$
+  + 2 sets: $A \times B = \{(a, b): a \in A, b \in B\} \to \text{ rectangle } \implies |A \times B| = |A| \times |B|$
   + 3 sets: 
   
     \[ A \times B \times C = \{(a, bb, c): a \in A, b \in B, c \in C\} \to \text{ 'cuboid' }\\ \implies |A \times B \times C| = |A| \times |B| \times |C|\]
@@ -413,7 +413,7 @@
       + |{Outfits}| = |{shirt}| $\times$ |{pants}| $\times$ |{shoes}| = 3 $\times$ 3 $\times$ 5 = 30
 
 + Cartesian product for $n$ sets
-  + for $n$  sets, $|A_1 \times A_2 \cdots \times A_n| = |A_1| \times \dots \times |A-n|$
+  + for $n$  sets, $|A_1 \times A_2 \cdots \times A_n| = |A_1| \times \dots \times |A_n|$
   + example: Subway
     + how many sandwiches can Subway make?
     + Beard = {Wheat, Italian}
