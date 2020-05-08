@@ -384,6 +384,7 @@
 ## 3.4 Cartesian Products
 
 + Cartesian products
+  + the size of a Cartesian product = the product of the set sizes
   + product rule: $|A \times B| = |A| \times |B|$
   + examples<br/>
     $|\{a, b\}| = 2 \qquad |\{1, 2, 3\}| = 3$
@@ -391,16 +392,15 @@
     \[ \{a, b\} \times \{1, 2, 3\} = \begin{Bmatrix} (a, 1) & (a, 2) & (a, 3) \\ (b, 1) & (b, 2) & (b, 3) \end{Bmatrix} \]
 
     $\therefore\, |\{a, b\} \times \{1, 2, 3\}| = 3 + 3 = 2 \times 3 = 6$
+  + example: Table
 
-+ Table = Cartesian product
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
+        <img src="img/t03-01.png" style="margin: 0.1em;" alt="Table and Cartesian product" title="Table and Cartesian product" width=250>
+      </a>
+    </div>
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
-      <img src="img/t03-01.png" style="margin: 0.1em;" alt="Table and Cartesian product" title="Table and Cartesian product" width=250>
-    </a>
-  </div>
-
-+ Cartesian products
++ Rules of Cartesian products
   + 2 sets: $a \times B = \{(a, b): a \in A, b \in B\} \to \text{ rectangle } \implies |A \times B| = |A| \times |B|$
   + 3 sets: 
   
@@ -422,12 +422,11 @@
     + Veggie = {Cucumbers, Lettuce, Spinach, Onions}
     + Sauce = {Ranch, Mustard, Mayonnaise}
     + Sandwiches = Bread $\times$ Meat $ \times$ Cheese $\times$ Veggie $\times$ Sauce
-    
+
     \[\begin{align*} 
       \therefore\; |\text{Sand's}| &= |\text{Bread}| \times |\text{Meat}| \times |\text{Cheese}| \times |\text{Veggie}| \times |\text{Sauce}| \\
        &= 2 \times 5 \times 3 \times  4 \times 3 = 360
     \end{align*}\]
-
 
 
 + [Original Slides](https://tinyurl.com/ycrand47)
