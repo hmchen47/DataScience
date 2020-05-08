@@ -198,8 +198,8 @@
 1. Which of the following are finite for every finite set  A  and an infinite set  B ?<br/>
   a. $A \cap B$<br/>
   b. $A \cup B$<br/>
-  c. $A − B$<br/>
-  d. $B − A$<br/>
+  c. $A - B$<br/>
+  d. $B - A$<br/>
   e. $A \Delta B$<br/>
 
   Ans: ac
@@ -307,6 +307,70 @@
 
 ### Problem Sets
 
+0. When does $|A \cup B| = |A| + |B|$?<br/>
+  a. When at least one of A and B is empty<br/>
+  b. When A and B are disjoint<br/>
+  c. Both of the above.<br/>
+
+  Ans: <span style="color: magenta;">c</span><br/>
+  Explanation: Both of the above. If A and B are disjoint then either by the disjoint union rule or by inclusion exclusion, the size of the union is the sum of the sizes. That implies that if one of the sets is empty the same holds.
+
+1. In a high school graduation exam, 80% of examinees passed the English exam, 85% passed the math exam, and 75% passed both. If 40 examinees failed both subjects, what what the total number of examinees?
+
+  Ans: 100<br/>
+  Explanation: By inclusion exclusion (applied to fractions), 80+85-75=90% of the students passed at least one topic. Therefore  10% failed both topics. It follows that 40 students correspond to 10%, hence 400 students took the exam.
+
+2. How many integers in  {1,2,…,100}  do not contain the digit  6 ?
+
+  Ans: 81<br/>
+  Explanation:<br/>
+    Let $U_6 = \{6,16,…,96\}$ be the sets of integers between 1 and 100 whose units digit is 6, and let $T_6 = \{60,61,…,69\}$ be the corresponding set for the tens digit.<br/>
+    The set of integers between 1 and 100 containing 6 is $U_6 \cup T_6$, and by inclusion-exclusion, its size is $|U_6 \cup T_6| = |U_6|+|T_6|-|U_6 \cap T_6|=10+10-1=19$.<br/>
+    Hence 100-19=81 integers between 1 and 100 do not contain the digit 6.<br/>
+
+3. Of 100 foreign journalists who can speak Chinese, English or French at a press conference:
+
+  + 60 speak Chinese.
+  + 65 speak English.
+  + 60 speak French.
+  + 35 speak both Chinese and English.
+  + 25 speak both Chinese and French.
+  + 35 speak both English and French.
+
+  How many journalists speak exactly<br/>
+  a. one language<br/>
+  b. two languages<br/>
+  c. three languages<br/>
+
+  Ans: a. (25); b. (65); c. (10)<br/>
+  Explanation: By the Principle of Inclusion and Exclusion for three sets, $100=|A \cup B \cup C| =|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B \cap C|=90+|A\cap B\cap C|$.
+
+
+4. $|A \cup B|=|A|+|B|$ when<br/>
+  a. A and B are disjoint,<br/>
+  b. A is the complement of B,<br/>
+  c. A and B do not intersect,<br/>
+  d. At least one of A and B is empty.<br/>
+
+  Ans: abcd<br/>
+  Explanation: It holds whenever  A  and  B  are disjoint.
+
+
+5. The following equation is incorrect. What needs to be added to make it correct?
+
+  \[ |A \cup B∪C| = |A| + |B| + |C| - |A\cap B| - |A \cap C| - |B \cap C| \]
+
+  a. $-|A \cap B \cap C|$<br>
+  b. $+|A \cap B \cap C|$<br>
+  c. $+3|A \cap B \cap C|$<br>
+
+  Ans: b
+
+
+6. In a high school graduation exam 70% of examinees passed the English exam, 76% passed the math exam, and 66% passed both. If 40 examinees failed in both subjects, what is the total number of examinees?
+
+  Ans: 200 <br/>
+  Explanation: By the inclusion-exclusion principle, the percentage of students who passed at least one of the two exams is 70+76-66=80. Therefore 20% have failed both subjects. Hence the total number of examinees is 40 / 20% = 200.
 
 
 
