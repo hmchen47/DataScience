@@ -164,17 +164,18 @@
     + $A = \{ i \in [100]: 3 \nmid i\} = \{1, 2, 4, 5, 7, \dots, 100\}$ and $\Omega = \{1, \dots, 100\}$
     + $A^c = \{i \in [100] : 3 | i\} = \{3, 6, 9, \dots, 999\} \text{ s.t. } |A^c| = 33$
     + $|A| = |\Omega| - |A^c| = 100 - 33 = 67$
-  + Days = {M, Tu, W, Th, F, Sa, Su}
+  + example: Days
+    + Days = {M, Tu, W, Th, F, Sa, Su}
     + \# weekdays? |{1, 2, 3, 4, 5}| = 5
     + \# weekend?   |Days| - |Weekend| = 7 - 5 = 2
-  + letters
+  + example: letters
     + vowels = {a, e, i, o ,u}
     + \# consonants?  26 - 5 = 21
     + facetious question: word containing all 5 vowels, in order?
 
 + General subtraction rule
-  + $\exists\, A \cup B \text{ s.t. } |B - A| = |B| - |A|$
-  + proof: $A \cup B \to B = A \cup (B-A) \to |B| = |A| + |B-A| \text{ s.t. } |B-A| = |B| - |A|$
+  + $\exists\, A, B \in \Omega \text{ s.t. } |B - A| = |B| - |A|$
+  + proof: $\exists\, A \cup B \to B = A \cup (B-A) \to |B| = |A| + |B-A| \text{ s.t. } |B-A| = |B| - |A|$
 
 
 + [Original Slides](https://tinyurl.com/ybtgvfus)
