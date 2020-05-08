@@ -383,8 +383,54 @@
 
 ## 3.4 Cartesian Products
 
++ Cartesian products
+  + product rule: $|A \times B| = |A| \times |B|$
+  + examples<br/>
+    $|\{a, b\}| = 2 \qquad |\{1, 2, 3\}| = 3$
+
+    \[ \{a, b\} \times \{1, 2, 3\} = \begin{Bmatrix} (a, 1) & (a, 2) & (a, 3) \\ (b, 1) & (b, 2) & (b, 3) \end{Bmatrix} \]
+
+    $\therefore\, |\{a, b\} \times \{1, 2, 3\}| = 3 + 3 = 2 \times 3 = 6$
+
++ Table = Cartesian product
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
+      <img src="img/t03-01.png" style="margin: 0.1em;" alt="Table and Cartesian product" title="Table and Cartesian product" width=250>
+    </a>
+  </div>
+
++ Cartesian products
+  + 2 sets: $a \times B = \{(a, b): a \in A, b \in B\} \to \text{ rectangle } \implies |A \times B| = |A| \times |B|$
+  + 3 sets: 
+  
+    \[ A \times B \times C = \{(a, bb, c): a \in A, b \in B, c \in C\} \to \text{ 'cuboid' }\\ \implies |A \times B \times C| = |A| \times |B| \times |C|\]
+
+  + example: Dandy dresser
+    + 3 shirts, 2 pants, and 5 pairs of shoes
+    + how many outfits can he have?
+      + Outfits = {(shirt, pants, shoes)} = {shirt} $\times$ {pants} $\times$ {shoes} $\gets$ Cartesian product
+      + |{Outfits}| = |{shirt}| $\times$ |{pants}| $\times$ |{shoes}| = 3 $\times$ 3 $\times$ 5 = 30
+
++ Cartesian product for $n$ sets
+  + for $n$  sets, $|A_1 \times A_2 \cdots \times A_n| = |A_1| \times \dots \times |A-n|$
+  + example: Subway
+    + how many sandwiches can Subway make?
+    + Beard = {Wheat, Italian}
+    + Meat = {Turkey, Ham, Chicken, Beacon, Beef}
+    + Cheese = {American, Monterey, Cheddar}
+    + Veggie = {Cucumbers, Lettuce, Spinach, Onions}
+    + Sauce = {Ranch, Mustard, Mayonnaise}
+    + Sandwiches = Bread $\times$ Meat $ \times$ Cheese $\times$ Veggie $\times$ Sauce
+    
+    \[\begin{align*} 
+      \therefore\; |\text{Sand's}| &= |\text{Bread}| \times |\text{Meat}| \times |\text{Cheese}| \times |\text{Veggie}| \times |\text{Sauce}| \\
+       &= 2 \times 5 \times 3 \times  4 \times 3 = 360
+    \end{align*}\]
 
 
+
++ [Original Slides](https://tinyurl.com/ycrand47)
 
 
 ### Problem Sets
