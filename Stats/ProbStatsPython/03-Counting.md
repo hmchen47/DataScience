@@ -130,8 +130,48 @@
 
 ## 3.2 Disjoint Unions
 
++ Disjoint unions
+  + a union of disjoint sets is called a <span style="color: magenta;">disjoint union</span>
+  + e.g., $|A| = 2, |B| = 3, A \cap B = \varnothing \to |A \cup B | = 2 + 3 = 5$
+  + for disjoint union sets, the size of the union is the sum of the size
+    + $|A \cup B | = |A| + |B|$
+  + addition rule: `+`
+    + numerous applications & implications
+    + reason: $\cup \approx +$
+
++ Complements
+  + Quintessential disjoint sets: $A$ and $A^c$
+    + $A \cup A^c = \Omega$
+    + |\Omega| = |A \cup A^c| = |A| + |A^c|$
+  + subtraction (or complement) rule: `-`
+    + $|A^c| = |\Omega| - |A|$
+    + reason: set difference $\approx -$
+  + examples
+    + $D = \{ i \in [6]: 3|i\} = {3, 6} \to |D| = 2$
+    + $D^c = \{i \in [6]: 3 \nmid i\} = \{1, 2, 4, 5} \to |D^c| = 4$
+    + $\Omega = [6] = \{1, \dots, 6\} \text{ s.t. } |D^c| = 4 = 6 - 2 = |\Omega| - |D|$
+
++ Think outside the circle
+  + handy for large or complex sets
+  + $|A^c| = |\Omega| - |A| \quad |A| = |\Omega| - |A^c|$
+  + examples - numbers
+    + $A = \{ i \in [100]: 3 \nmid i\} = \{1, 2, 4, 5, 7, \dots, 100\}$ and $\Omega = \{1, \dots, 100\}$
+    + $A^c = \{i \in [100] : 3 | i\} = {3, 6, 9, \dots, 999\} \text{ s.t. } |A^c| = 33$
+    + |A| = |\Omega| - |A^c| = 100 - 33 = 67$
+  + Days = {M, Tu, W, Th, F, Sa, Su}
+    + \# weekdays? |{1, 2, 3, 4, 5}| = 5
+    + \# weekend?   |Days| - |Weekend| = 7 - 5 = 2
+  + letters
+    + vowels = {a, e, i, o ,u}
+    + \# consonants?  26 - 5 = 21
+    + facetious question: word containing all 5 vowels, in order?
+
++ General subtraction rule
+  + $|B - A| = |B| - |A|$
+  + $A \cup B \to B = A \cup (B-A) \to |B| = |A| + |B-A| \text{ s.t. } |B-A| = |B| - |A|$
 
 
++ [Original Slides](https://tinyurl.com/ybtgvfus)
 
 
 ### Problem Sets
