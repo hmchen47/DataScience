@@ -260,7 +260,7 @@
 
 + General unions
   + disjoint A and B: $|A \cup B| = |A| + |B| \to$ size of union = sum of sizes
-  + in general: $A \cup B| \neq |A| + |B|$
+  + in general: $|A \cup B| \neq |A| + |B|$
     + e.g., $|\{a\} \cup \{a\}| = |\{a\}| = 1 \neq 2 = |\{a\}| + |\{a\}|$
   + __Principle of Inclusion-Exclusion (PIE)__: $|A \cup B| = |A| + |B| - |A \cap B|$
 
@@ -275,20 +275,20 @@
 
 + Multiple sets
   + two sets: $|A \cup B| = |A| + |B| - |A \cap B|$
-  + 3 sets: $A \up B \cup C| = |A| + |B| + |C| - |A \cap B| - |B \cap C| - |C \cap A| + |A \cab \cap C|
+  + 3 sets: $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |B \cap C| - |C \cap A| + |A \cap B \cap C|$
   + n sets:
 
-    \[ \left|\bigcup_{i=1}^n A_i \right| = \sum_{i \leq i \leq n} |A_i| - \sum_{1 \leq i < j \leq n} |A_i \cap A_j| + \cdots + (-1)^{n-1} \left| \bigcap_{i=1}^n A_i \right| \]
+    \[ \left|\bigcup_{i=1}^n A_i \right| = \sum_{1 \leq i \leq n} |A_i| - \sum_{1 \leq i < j \leq n} |A_i \cap A_j| + \cdots + (-1)^{n-1} \left| \bigcap_{i=1}^n A_i \right| \]
 
 + Example: Polyglots
-  + 8 students in class, each speaks C, R, or $\Pi$thon $\to C \cup R \cup \Pi = 8$
-  + each language spoken by 5 students $\to |C| = |R| = \Pi= 5$
+  + 8 students in class, each speaks C, R, or $\Pi$thon $\to |C \cup R \cup \Pi| = 8$
+  + each language spoken by 5 students $\to |C| = |R| = |\Pi| = 5$
   + every language _pair_ is spoken by 3 students $\to |C \cap R| = |C \cap \Pi| = |R \cap \Pi| = 3$
   + how many students speak all 3 languages? $\to |C \cap R \cap \Pi| = ?$
 
     \[\begin{align*}
       |C \cap R \cup \Pi| & = |C| + |R| + |\Pi| - |C \cap R| - |R \cap \Pi| - |\Pi \cap C| + |C \cap R \cap \Pi| \\
-      8 & = 5 + 5 - 3 - 3 - 3 + ? \\
+      8 & = 5 + 5 +5 - 3 - 3 - 3 + ? \\
       \therefore\; ? & = 8 - 5 - 5 - 5 + 3 + 3 \\
         &= 2
     \end{align*}\]
