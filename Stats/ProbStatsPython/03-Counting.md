@@ -496,13 +496,13 @@
   + Cartesian square: $A^2 = A \times A$
   + $n$-th Cartesian power: $A^n \stackrel{\text{def}}{=} \underbrace{A \times A \times \cdots \times A}_{n}$
   
-    \[ |A^n| = |A \times A \times A \times \cdots \times A| = |A| \times |A| \times \cdots \times |A| = |A|^n$ \]
+    \[ |A^n| = |A \times A \times A \times \cdots \times A| = |A| \times |A| \times \cdots \times |A| = |A|^n \]
 
   + example: California license plates
-    + till 904: no registration
-    + 1905 ~1912: various registration formats, onr-time $2 fee
+    + till 1904: no registration
+    + 1905 ~1912: various registration formats, one-time $2 fee
     + 1912: 6 digits; $\leq 6$ digits $\implies 10^6$ if all OK
-    + 1956: 3 letters + 3 digits; $26^3 \times 10^3 \approx 17.8$ m
+    + 1956: 3 letters + 3 digits; $26^3 \times 10^3 \approx 17.6$ m
     + 1969: 1 digit + 3 letters + 3 digits; $26^3 \times 10^4 \approx 176$ m
   + example: Binary strings
     + n-bit string: $\{0, 1\}^n = \{\text{ length-n binary strings } \}$
@@ -530,12 +530,11 @@
 
 + Subsets
   + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\mathbb{P}(S)$</span>, is the collection of all subsets of S
-  + $\mathbb{P}(\{a, b\}) \{\{\}, \{a\}, \{b\}, \{a, b\}\}$
-  + converting $\mathbb{P}(\{a, b\})$ to $\{0, 1\}^2$
-    + 1-1 correspondence btw $\mathbb{P}(S)$ and $\{0, 1\}^{|S|}$
+  + $\mathbb{P}(\{a, b\}) = \{\{\}, \{a\}, \{b\}, \{a, b\}\}$
+  + 1-1 correspondence btw $\mathbb{P}(S)$ (subset of $S$) and $\{0, 1\}^{|S|}$ (binary strings of length $|S|$): mapping $\mathbb{P}(\{a, b\})$ to $\{0, 1\}^2$
   + $|\mathbb{P}(S)| = ?$
 
-      \[ \left|\mathbb{P}(S)\right| = \left| \{0, 1\}^{|S|} | = s^{|S|} \]
+      \[ \left|\mathbb{P}(S)\right| = \left| \{0, 1\}^{|S|} \right| = 2^{|S|} \]
 
   + the size of the power set = the power of the set size
 
@@ -546,10 +545,10 @@
     + $f$ from {1, 2, 3} to {p, u}: specifying f(1), f(2), f(3) $\to$ f(1)=p, f(2)=u, f(3)=p
     + $f:\;$ 3-tuple (f(1), f(2), f(3)) $\to$ (p, u, p)
     + { function from {1, 2, 3} to {p, u} } $\to \{p, u\} \times \{p, u\} \times \{p, u \}$
-    + \# functions from {1, 2, 3} to {p, u} = $2 \times 2 \time 2 = |\{p,, u\}|^{\{1, 2, 3\}}
+    + \# functions from {1, 2, 3} to {p, u} = $2 \times 2 \time 2 = |\{p,, u\}|^{\{1, 2, 3\}}$
   + generalization
     + { function from A to B } $\implies \underbrace{B \times B \times \cdots \times B}_{|A|} = B^{|A|}$
-    + $\therefore\; \text{ # functions from A to B } = |B^{|A|} = |B|^{|A|}$
+    + $\therefore\; \text{ # functions from A to B } = |B^{|A|}| = |B|^{|A|}$
   + Exponential growth
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -576,15 +575,11 @@
 
 + Example: Chess-Rice Legend
   + chess
-    + invented by poor yet clever peasant
-    + become very popular
-    + King liked it
-    + offered peasant any reward he wished
+    + invented by poor yet clever peasant, become very popular
+    + King liked it, offered peasant any reward he wished
   + peasant
-    + poor and humble farmer
-    + just need a little rice
-    + kindly place a single rice grand on first square
-    + double on each subsequent square
+    + poor and humble farmer, just need a little rice
+    + kindly place a single rice grand on first square, double on each subsequent square
   + king
     + such a modest request
     + granted!
@@ -598,7 +593,7 @@
     + peasant became king
     + peasant beheaded
   + moral:
-    + be peasant or be king: beware of exponentials!
+    + be peasant or be king: beware of exponential!
 
 + Example: Jeopardy
   + counting questions $\to$ answer
