@@ -504,29 +504,30 @@
     + 1912: 6 digits; $\leq 6$ digits $\implies 10^6$ if all OK
     + 1956: 3 letters + 3 digits; $26^3 \times 10^3 \approx 17.6$ m
     + 1969: 1 digit + 3 letters + 3 digits; $26^3 \times 10^4 \approx 176$ m
-  + example: Binary strings
-    + n-bit string: $\{0, 1\}^n = \{\text{ length-n binary strings } \}$
 
-      <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-        <thead>
-        <tr>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">n</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Strings</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Size</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr> <th style="text-align: center;">0</th> <td style="text-align: center;">$\{0, 1\}^0$</td> <td style="text-align: center;">$\Lambda$</td> <td style="text-align: center;">$1$</td></tr>
-        <tr> <th style="text-align: center;">1</th> <td style="text-align: center;">$\{0, 1\}^1$</td> <td style="text-align: center;">$0, 1$</td> <td style="text-align: center;">$2$</td></tr>
-        <tr> <th style="text-align: center;">1</th> <td style="text-align: center;">$\{0, 1\}^2$</td> <td style="text-align: center;">$00, 01, 10, 11$</td> <td style="text-align: center;">$4$</td></tr>
-        <tr> <th style="text-align: center;">3</th> <td style="text-align: center;">$\{0, 1\}^3$</td> <td style="text-align: center;">$000, 001, 011, 010, \\100, 110, 101, 111$</td> <td style="text-align: center;">$8$</td></tr>
-        <tr> <th style="text-align: center;">$\dots$</th> <td style="text-align: center;">$\dots$</td> <td style="text-align: center;">$\dots$</td> <td style="text-align: center;">$\dots$</td></tr>
-        <tr> <th style="text-align: center;">n</th> <td style="text-align: center;">$\{0, 1\}^n$</td> <td style="text-align: center;">$0\dots 0, \dots, 1\dots 1$</td> <td style="text-align: center;">$2^n$</td> </tr>
-        </tbody>
-      </table>
++ Binary strings
+  + n-bit string: $\{0, 1\}^n = \{\text{ length-n binary strings } \}$
 
-    + size of n-bit string: $|\{0, 1\}^n| = |\{0, 1\}|^n = 2^n$
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">n</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Strings</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Size</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <th style="text-align: center;">0</th> <td style="text-align: center;">$\{0, 1\}^0$</td> <td style="text-align: center;">$\Lambda$</td> <td style="text-align: center;">$1$</td></tr>
+      <tr> <th style="text-align: center;">1</th> <td style="text-align: center;">$\{0, 1\}^1$</td> <td style="text-align: center;">$0, 1$</td> <td style="text-align: center;">$2$</td></tr>
+      <tr> <th style="text-align: center;">1</th> <td style="text-align: center;">$\{0, 1\}^2$</td> <td style="text-align: center;">$00, 01, 10, 11$</td> <td style="text-align: center;">$4$</td></tr>
+      <tr> <th style="text-align: center;">3</th> <td style="text-align: center;">$\{0, 1\}^3$</td> <td style="text-align: center;">$000, 001, 011, 010, \\100, 110, 101, 111$</td> <td style="text-align: center;">$8$</td></tr>
+      <tr> <th style="text-align: center;">$\dots$</th> <td style="text-align: center;">$\dots$</td> <td style="text-align: center;">$\dots$</td> <td style="text-align: center;">$\dots$</td></tr>
+      <tr> <th style="text-align: center;">n</th> <td style="text-align: center;">$\{0, 1\}^n$</td> <td style="text-align: center;">$0\dots 0, \dots, 1\dots 1$</td> <td style="text-align: center;">$2^n$</td> </tr>
+      </tbody>
+    </table>
+
+  + size of n-bit string: $|\{0, 1\}^n| = |\{0, 1\}|^n = 2^n$
 
 + Subsets
   + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\mathbb{P}(S)$</span>, is the collection of all subsets of S
@@ -545,7 +546,7 @@
     + $f$ from {1, 2, 3} to {p, u}: specifying f(1), f(2), f(3) $\to$ f(1)=p, f(2)=u, f(3)=p
     + $f:\;$ 3-tuple (f(1), f(2), f(3)) $\to$ (p, u, p)
     + { function from {1, 2, 3} to {p, u} } $\to \{p, u\} \times \{p, u\} \times \{p, u \}$
-    + \# functions from {1, 2, 3} to {p, u} = $2 \times 2 \time 2 = |\{p,, u\}|^{\{1, 2, 3\}}$
+    + \# functions from {1, 2, 3} to {p, u} = $2 \times 2 \times 2 = |\{p,, u\}|^{|\{1, 2, 3\}|}$
   + generalization
     + { function from A to B } $\implies \underbrace{B \times B \times \cdots \times B}_{|A|} = B^{|A|}$
     + $\therefore\; \text{ # functions from A to B } = |B^{|A|}| = |B|^{|A|}$
@@ -598,19 +599,19 @@
 + Example: Jeopardy
   + counting questions $\to$ answer
 
-    \[ \# \begin{Bmatrix} \text{n-bit sequences} \\ \text{Subsets of } \{1, \dots, n\} \\ \text{Functions: } \{1, dots, n\} \text { to } \{0, 1\} \end{Bmatrix} = 2^n \]
+    \[ \# \begin{Bmatrix} \text{n-bit sequences} \\ \text{Subsets of } \{1, \dots, n\} \\ \text{Functions: } \{1, \dots, n\} \text { to } \{0, 1\} \end{Bmatrix} = 2^n \]
 
   + find a natural counting question whose answer is a double exponential!
     + $? \gets 2^{2^n}$
     + solution 1: power set
-      + power set of S: set of subsets of S = $\mathbb{P}(S)$, e.g., $\mathbb(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\}$
+      + power set of S: set of subsets of S = $\mathbb{P}(S)$, e.g., $\mathbb({P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\}$
       + $|\mathbb{P}(S)| = 2^{|S|}$, e.g., $|\mathbb{P}(S)| = 4 = 2^2 = 2^{|\{a, b\}|}$
       + $\mathbb{P}(S)$ is a set $\to$ power set of $\mathbb{P}(S)$
       + $\mathbb{P}(\mathbb{P}(S))$ - set of subsets of $\mathbb{P}(S)$
-      + $|\mathbb{P}(S)| = 2^{|S|} \to |\mathbb(\mathbb(S)) | = 2^{|\mathbb{P}|} = 2^{2^n}$, e.g., $\mathbb{P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\} \to $
+      + $|\mathbb{P}(S)| = 2^{|S|} \to |\mathbb{P}(\mathbb{P}(S)) | = 2^{|\mathbb{P}(S)s|} = 2^{2^n}$, e.g., $\mathbb{P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\} \to $
 
         \[\begin{align*}
-          \mathbb{P}(\mathbb{P}(\{a, b\})) &= \mathbb{}P(\{ \{\}, \{a\}, \{b\}, \{a. b\}\}) \\
+          \mathbb{P}(\mathbb{P}(\{a, b\})) &= \mathbb{P}(\{ \{\}, \{a\}, \{b\}, \{a. b\}\}) \\
           &= \left\{ \{\}, \{\{\}\}, \{\{a\}\}, \dots, \{\{\}, \{a\}\}, \dots, \{\{\}, \{a\}, \{b\}, \{a, b\}\}\right\}
         \end{align*}\]
 
@@ -618,11 +619,12 @@
       + $\therefore\; |\mathbb{P}(\mathbb{P}([n])) = 2^{2^n} \to$ Double exponential
     + solution 2: Boolean functions
       + Functions from A to B $\to B^A \to # = |B|^{|A|$
-      + \# Boolean functions of $n$ boolean (binary) variables
-      + functions from $\{0, 1\}^n$ to $\{0, 1\} \to \{0, 1\}^{\{0, 1\}^n}$
-      + $# = |\{0, 1\}|^{|\{0, 1\}^n|} = 2^{2^n} \to$ Double exponential
-      + circuit w/ $n$ binary inputs, one binary output
-      + can implement $2^{2^n}$ functions $\to 2^{63} = 1/2 \cdot 2^{2^6}$
+      + \# Boolean functions of $n$ Boolean (binary) variables
+      + functions from $\{0, 1\}^n$ to $\{0, 1\} \to \{0, 1\}^{|\{0, 1\}|^n}$
+      + $\# = |\{0, 1\}|^{|\{0, 1\}^n|} = 2^{2^n} \to$ Double exponential
+
++ circuit w/ $n$ binary inputs, one binary output
+  + can implement $2^{2^n}$ functions $\to 2^{63} = 1/2 \cdot 2^{2^6}$
 
 + Analogies btw number and set operations
 
