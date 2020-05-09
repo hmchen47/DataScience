@@ -434,7 +434,52 @@
 
 ### Problem Sets
 
+0. Do AxB and BxA have the same size for any sets A and B?
 
+  Ans: Yes<br>
+  Explanation: Yes, just like a rectangle has the same area if you rotate it 90 degrees
+
+
+1. (Finite X infinite) If  A  is finite and  B  is infinite then  A×B  can be:<br/>
+  a. empty<br/>
+  b. nonempty finite<br/>
+  c. infinite<br/>
+
+  Ans: ac<br/>
+  Explanation: If A is empty then A×\\B , otherwise it is infinite.
+
+
+2. (Order matters) Which of the following ensures that $A \times B = B \times A$?<br/>
+  a. $A = B$<br/>
+  b. $A = \varnothing$<br/>
+  c. $B = \varnothing$<br/>
+  d. $A \cap B = \varnothing$<br/>
+  e. $|A| = |B|$<br/>
+
+  Ans: abc<br/>
+  Explanation
+    + True.
+    + True. A×B=B×A=∅ .
+    + True. Same as above.
+    + False. Let  A={1}, B={2}. Then A×B≠B×A .
+    + False. Same as above.
+
+
+3. (Cartesian product shape) Taking the geometric view of Cartesian products, if A and B are real intervals of positive length in $\mathbb{R}$, then A×B is a:<br/>
+  a. line,<br/>
+  b. rectangle,<br/>
+  c. circle,<br/>
+  d. triangle,<br/>
+  e. none of above.<br/>
+
+  Ans: b<br/>
+  Explanation: Let A=[a,b), B=[c,d). Then $ A \times B = \{(x,y) \mid a \leq x < b, c \leq y < d, x\in \mathbb{R}, y \in \mathbb{R}\}$, which is a rectangle.
+
+
+4. (Divisors) How many positive divisors does 2016 have?
+
+  Ans: 36 <br/>
+  Explanation: 2016=25⋅32⋅7. Hence any positive divisor of 2016 can factored as $2^x \cdot 3^y \cdot 7^z$, where $x \in \{0,1,...,5\},  y \in \{0,1,2\}$ and $z \in \{0,1\}$. By the product rule, there are 6×3×2=36 divisors.
 
 
 ### Lecture Video
