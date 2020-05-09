@@ -491,8 +491,164 @@
 
 ## 3.5 Cartesian Powers
 
++ Cartesian powers of a set
+  + Cartesian product of a set w/ itself is a <span style="color: magenta;">Cartesian power</span>
+  + Cartesian square: $A^2 = A \times A$
+  + $n$-th Cartesian power: $A^n \stackrel{\text{def}}{=} \underbrace{A \times A \times \cdots \times A}_{n}$
+  
+    \[ |A^n| = |A \times A \times A \times \cdots \times A| = |A| \times |A| \times \cdots \times |A| = |A|^n$ \]
+
+  + example: California license plates
+    + till 904: no registration
+    + 1905 ~1912: various registration formats, onr-time $2 fee
+    + 1912: 6 digits; $\leq 6$ digits $\implies 10^6$ if all OK
+    + 1956: 3 letters + 3 digits; $26^3 \times 10^3 \approx 17.8$ m
+    + 1969: 1 digit + 3 letters + 3 digits; $26^3 \times 10^4 \approx 176$ m
+  + example: Binary strings
+    + n-bit string: $\{0, 1\}^n = \{\text{ length-n binary strings } \}$
+
+      <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+        <thead>
+        <tr>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">n</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Strings</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Size</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr> <th style="text-align: center;">0</th> <td style="text-align: center;">$\{0, 1\}^0$</td> <td style="text-align: center;">$\Lambda$</td> <td style="text-align: center;">$1$</td></tr>
+        <tr> <th style="text-align: center;">1</th> <td style="text-align: center;">$\{0, 1\}^1$</td> <td style="text-align: center;">$0, 1$</td> <td style="text-align: center;">$2$</td></tr>
+        <tr> <th style="text-align: center;">1</th> <td style="text-align: center;">$\{0, 1\}^2$</td> <td style="text-align: center;">$00, 01, 10, 11$</td> <td style="text-align: center;">$4$</td></tr>
+        <tr> <th style="text-align: center;">3</th> <td style="text-align: center;">$\{0, 1\}^3$</td> <td style="text-align: center;">$000, 001, 011, 010, \\100, 110, 101, 111$</td> <td style="text-align: center;">$8$</td></tr>
+        <tr> <th style="text-align: center;">$\dots$</th> <td style="text-align: center;">$\dots$</td> <td style="text-align: center;">$\dots$</td> <td style="text-align: center;">$\dots$</td></tr>
+        <tr> <th style="text-align: center;">n</th> <td style="text-align: center;">$\{0, 1\}^n$</td> <td style="text-align: center;">$0\dots 0, \dots, 1\dots 1$</td> <td style="text-align: center;">$2^n$</td> </tr>
+        </tbody>
+      </table>
+
+    + size of n-bit string: $|\{0, 1\}^n| = |\{0, 1\}|^n = 2^n$
+
++ Subsets
+  + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\mathbb{P}(S)$</span>, is the collection of all subsets of S
+  + $\mathbb{P}(\{a, b\}) \{\{\}, \{a\}, \{b\}, \{a, b\}\}$
+  + converting $\mathbb{P}(\{a, b\})$ to $\{0, 1\}^2$
+    + 1-1 correspondence btw $\mathbb{P}(S)$ and $\{0, 1\}^{|S|}$
+  + $|\mathbb{P}(S)| = ?$
+
+      \[ \left|\mathbb{P}(S)\right| = \left| \{0, 1\}^{|S|} | = s^{|S|} \]
+
+  + the size of the power set = the power of the set size
+
++ Functions
+  + a <span style="color: magenta;">function from A to B</span> maps every elements $a \in A$ to an element $f(a) \in B$
+  + define a function $f:\; $ by specifying $f(a), \;\forall\, a \in A$
+  + example:
+    + $f$ from {1, 2, 3} to {p, u}: specifying f(1), f(2), f(3) $\to$ f(1)=p, f(2)=u, f(3)=p
+    + $f:\;$ 3-tuple (f(1), f(2), f(3)) $\to$ (p, u, p)
+    + { function from {1, 2, 3} to {p, u} } $\to \{p, u\} \times \{p, u\} \times \{p, u \}$
+    + \# functions from {1, 2, 3} to {p, u} = $2 \times 2 \time 2 = |\{p,, u\}|^{\{1, 2, 3\}}
+  + generalization
+    + { function from A to B } $\implies \underbrace{B \times B \times \cdots \times B}_{|A|} = B^{|A|}$
+    + $\therefore\; \text{ # functions from A to B } = |B^{|A|} = |B|^{|A|}$
+  + Exponential growth
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
+        <img src="img/t03-02.png" style="margin: 0.1em;" alt="Exponential growth" title="Exponential growth" width=250>
+      </a>
+    </div>
+
++ Cartesian powers and exponential in Python
+  + Cartesian : using `product` function in `itertools` library
+
+    ```python
+    import itertools
+    print(set(itertools.product({2, 5, 9}, repeat=2)))
+    # {(5, 9), (5, 5), (2, 9), (9, 2), (9, 9), (2, 2), (9, 5), (2, 5), (5, 2)}
+    ```
+  
+  + exponential: `**`
+
+    ```python
+    print(3**2)
+    # 9
+    ```
+
++ Example: Chess-Rice Legend
+  + chess
+    + invented by poor yet clever peasant
+    + become very popular
+    + King liked it
+    + offered peasant any reward he wished
+  + peasant
+    + poor and humble farmer
+    + just need a little rice
+    + kindly place a single rice grand on first square
+    + double on each subsequent square
+  + king
+    + such a modest request
+    + granted!
+  + king
+    + paced one ($2^0$) grain on the first square
+    + two ($2^1$) on the second
+    + four ($2^2) on the third
+    + ...
+    + 64th square: $2^{63} \approx 10^{27}$
+  + two endings
+    + peasant became king
+    + peasant beheaded
+  + moral:
+    + be peasant or be king: beware of exponentials!
+
++ Example: Jeopardy
+  + counting questions $\to$ answer
+
+    \[ \# \begin{Bmatrix} \text{n-bit sequences} \\ \text{Subsets of } \{1, \dots, n\} \\ \text{Functions: } \{1, dots, n\} \text { to } \{0, 1\} \end{Bmatrix} = 2^n \]
+
+  + find a natural counting question whose answer is a double exponential!
+    + $? \gets 2^{2^n}$
+    + solution 1: power set
+      + power set of S: set of subsets of S = $\mathbb{P}(S)$, e.g., $\mathbb(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\}$
+      + $|\mathbb{P}(S)| = 2^{|S|}$, e.g., $|\mathbb{P}(S)| = 4 = 2^2 = 2^{|\{a, b\}|}$
+      + $\mathbb{P}(S)$ is a set $\to$ power set of $\mathbb{P}(S)$
+      + $\mathbb{P}(\mathbb{P}(S))$ - set of subsets of $\mathbb{P}(S)$
+      + $|\mathbb{P}(S)| = 2^{|S|} \to |\mathbb(\mathbb(S)) | = 2^{|\mathbb{P}|} = 2^{2^n}$, e.g., $\mathbb{P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\} \to $
+
+        \[\begin{align*}
+          \mathbb{P}(\mathbb{P}(\{a, b\})) &= \mathbb{}P(\{ \{\}, \{a\}, \{b\}, \{a. b\}\}) \\
+          &= \left\{ \{\}, \{\{\}\}, \{\{a\}\}, \dots, \{\{\}, \{a\}\}, \dots, \{\{\}, \{a\}, \{b\}, \{a, b\}\}\right\}
+        \end{align*}\]
+
+      + $|\mathbb{P}(\mathbb{P}(\{a, b\}))| = 2^{|\mathbb{P}(\{a, b\})|} = 2^{2^{|\{a, b\}|}}$
+      + $\therefore\; |\mathbb{P}(\mathbb{P}([n])) = 2^{2^n} \to$ Double exponential
+    + solution 2: Boolean functions
+      + Functions from A to B $\to B^A \to # = |B|^{|A|$
+      + \# Boolean functions of $n$ boolean (binary) variables
+      + functions from $\{0, 1\}^n$ to $\{0, 1\} \to \{0, 1\}^{\{0, 1\}^n}$
+      + $# = |\{0, 1\}|^{|\{0, 1\}^n|} = 2^{2^n} \to$ Double exponential
+      + circuit w/ $n$ binary inputs, one binary output
+      + can implement $2^{2^n}$ functions $\to 2^{63} = 1/2 \cdot 2^{2^6}$
+
++ Analogies btw number and set operations
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Numbers</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sets</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">Addition</td> <td style="text-align: center;">Disjoint union</td> </tr>
+    <tr> <td style="text-align: center;">Subtraction</td> <td style="text-align: center;">Complement</td> </tr>
+    <tr> <td style="text-align: center;">Multiplication</td> <td style="text-align: center;">Cartesian product</td> </tr>
+    <tr> <td style="text-align: center;">Exponents</td> <td style="text-align: center;">Cartesian power</td> </tr>
+    </tbody>
+  </table>
 
 
+
++ [Original Slides](https://tinyurl.com/y84p7yro)
 
 
 ### Problem Sets
