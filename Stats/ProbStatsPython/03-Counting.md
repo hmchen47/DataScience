@@ -777,34 +777,34 @@
   + $D = \{0, 1, \dots, 9\}$
   + $Z = \{0\} \quad \overline{Z} = \{1, 2, \dots, 9\} \gets \overline{Z} = Z^c$ set of non-zero digits
   + n-digit sequence: $x^n \triangleq x_1, \dots, x_n$
-  + {n-digit PINS containing 0}: $Z = \{x^n \in D: \exists\, i x_i \in Z \}$
-  + $|Z| = ?$
+  + {n-digit PINS containing 0}: $Z_0 = \{x^n \in D: \exists\, i\; x_i \in Z \}$
+  + $|Z_0| = ?$
   + strategies: start w/ 2 digits $\to$ two ways
     + inclusion exclusion
     + subtraction rule
 
 + 2-digits: inclusion-exclusion
-  + $Z = \{ x_1 x_2: \exists\, i x_i = 0\}$, e.g., 00, 03, 50, <span style="text-decoration: line-through;">73</span>
+  + $Z_0 = \{ x_1 x_2: \exists\, i\; x_i = 0\}$, e.g., 00, 03, 50, <span style="text-decoration: line-through;">73</span>
   + $Z_1 = \{x_1x_2: x_1 = 0\}$ e.g., 00, 03, <span style="text-decoration: line-through;">50</span>, <span style="text-decoration: line-through;">73</span> $\implies |Z_1| = 10$
   + $Z_2 = \{x_1x_2: x_2 = 0\}$ e.g., 00, <span style="text-decoration: line-through;">03</span>, 50, <span style="text-decoration: line-through;">73</span> $\implies |Z_2| = 10$
   + $Z_1 \cap Z_2 = \{00\} \to |Z_1 \cap Z_2| = 1$
-  + $Z = Z_1 \cup Z_2$
-  + $|Z| = |Z_1| + |Z_2| - |Z_1 \cap Z_2| = 10 + 10 -1 =19$
+  + $Z_0 = Z_1 \cup Z_2$
+  + $|Z_0| = |Z_1| + |Z_2| - |Z_1 \cap Z_2| = 10 + 10 -1 =19$
 
 + 2-digits: complement rule
-  + $Z = \{x_1x_2: \exists\, i x_i = 0\}$, e..g., 00, 03, 50, <span style="text-decoration: line-through;">73</span>
+  + $Z_0 = \{x_1x_2: \exists\, i\; x_i = 0\}$, e..g., 00, 03, 50, <span style="text-decoration: line-through;">73</span>
   + all 2-digit PINs: $\Omega = D^2$
-  + $\overline{Z} = \{x_1x_2: \exists\, i\; x_i = 0\}^c = \underbrace{\{x_1x_2: \forall\, i\; x_i \neq 0\}}_{\text{both digits nonzero}} = Z^c \times Z^c$, e.g., 73, 44, 19, <span style="text-decoration: line-through;">50</span>
-  + $|\overline{Z}| = |Z^c \times Z^c| = |Z^c|^2 = 9^2 = 81$
-  + $Z = D^2 - \overline{Z} \implies |Z| = |D^2| - |\overline{Z}| = 100 - 81 = 19$
+  + $\overline{Z_0} = \{x_1x_2: \exists\, i\; x_i = 0\}^c = \underbrace{\{x_1x_2: \forall\, i\; x_i \neq 0\}}_{\text{both digits nonzero}} = Z^c \times Z^c$, e.g., 73, 44, 19, <span style="text-decoration: line-through;">50</span>
+  + $|\overline{Z_0}| = |Z^c \times Z^c| = |Z^c|^2 = 9^2 = 81$
+  + $Z_0 = D^2 - Z_0^c \implies |Z_0| = |D^2| - |Z_0^c| = 100 - 81 = 19$
 
 + n digit: Inclusion-Exclusion
-  + $Z = \{x^n: \exists\,i x_i = 0\} \quad x^n \triangleq x_1,\dots,x_n$
+  + $Z_0 = \{x^n: \exists\,i\; x_i = 0\} \quad x^n \triangleq x_1,\dots,x_n$
   + $Z_i = \{x^n: x_i = 0\}$, e.g., $n=4 \text{ s.t. } Z_2 = \{x0yz\} \quad Z_4 = \{xyz0\}$
-  + $Z = Z_1 \cup \dots \cup Z_n$
+  + $Z_0 = Z_1 \cup \dots \cup Z_n$
   
     \[\begin{align*}
-      |Z| &=\quad |Z_1| + |Z_2| + \cdots + |Z_n| \\
+      |Z_0| &=\quad |Z_1| + |Z_2| + \cdots + |Z_n| \\
         &\quad- |Z_1 \cap Z_2| - |Z_1 \cap Z_3| - \cdots - |Z_{n-1} \cap Z_n| \\
         &\quad+ |Z_1 \cap Z_2 \cap Z_3| + \cdots + |Z_{n-2} \cap Z_{n-1} \cap Z_n|\\
         &\quad \cdots\\
@@ -814,18 +814,18 @@
 + n Digits: complement
 
     \[\begin{align*}
-      \overline{Z} &= \{x^n: \exists\,i\; x_i \in Z\}^c = \{x^n: \forall\,i\; x_i \notin Z\} = (Z^c)^n \triangleq Z_c\\
+      Z_0^c &= \{x^n: \exists\,i\; x_i \in Z\}^c = \{x^n: \forall\,i\; x_i \notin Z\} = (Z^c)^n \triangleq Z_c\\
       |Z_c| &= |Z^c|^n = 9^n\\\\
-      Z &= D^n - Z_c \\
-      |Z| &= |D^n| - |Z_c| = 10^n - 9^n
+      Z_0 &= D^n - Z_c \\
+      |Z_0| &= |D^n| - |Z_c| = 10^n - 9^n
     \end{align*}\]
 
 + Visualization
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
-      <img src="img/t03-04.png" style="margin: 0.1em;" alt="Visualization of Inclusion-Exclusion and Complement w/ 2-digit" title="Visualization of Inclusion-Exclusion and Complement w/ 2-digit" height=150>
-      <img src="img/t03-03.png" style="margin: 0.1em;" alt="Visualization of Inclusion-Exclusion and Complement w/ 3-digit" title="Visualization of Inclusion-Exclusion and Complement w/ 3-digit" height=150>
+      <img src="img/t03-04.png" style="margin: 0.1em;" alt="Visualization of Inclusion-Exclusion and Complement w/ 2-digit" title="Visualization of Inclusion-Exclusion and Complement w/ 2-digit" height=200>
+      <img src="img/t03-03.png" style="margin: 0.1em;" alt="Visualization of Inclusion-Exclusion and Complement w/ 3-digit" title="Visualization of Inclusion-Exclusion and Complement w/ 3-digit" height=200>
     </a>
   </div>
 
