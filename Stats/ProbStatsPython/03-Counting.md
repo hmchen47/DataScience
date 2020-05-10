@@ -123,7 +123,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/yczxwur9" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
@@ -235,7 +235,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y82bbrt8" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
@@ -376,7 +376,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/yacpywqm" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
@@ -484,7 +484,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y9s48ovo" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
