@@ -650,6 +650,85 @@
 
 ### Problem Sets
 
+0. The set {000, 001, ....,111} of all 3-bit strings has the following number of subsets:<br/>
+  a. 2^3<br/>
+  b. 2^6<br/>
+  c. 2^8<br/>
+  d. 2^9<br/>
+
+  Ans: c<br/>
+  Explanation: 2^8. The set has (2^3=8) strings, and a set of 8 elements has 2^8 subsets.
+
+
+1. Rank the functions \(n^2\), \(2^n\), \(n\) from slow to fast in terms of their growth rate as \(n\) increases.<br/>
+  a. \(n\), \(2^n\), \(n^2\)<br/>
+  b. \(n\), \(n^2\), \(2^n\)<br/>
+  c. \(2^n\), \(n\), \(n^2\)<br/>
+  d. \(2^n\), \(n^2\), \(n\)<br/>
+
+  Ans: b<br/>
+
+
+2. Find the number of 7-character (capital letter or digit) license plates possible if:<br/>
+  a. there are no further restrictions, <br/>
+  b. the first 3 characters are letters and the last 4 are numbers,<br/>
+  c. letters and numbers alternate, for example A3B5A7Q or 0Z3Q4Q9.<br/>
+
+  Ans: a. ($37^7$); b. ($26^3 \cdot 10^4$); c. ($26^4 \cdot 10^3 + 26^3 \cdot 10^4$)<br/>
+  Explanation:
+  + a. In each position there are $26+10=36$ choices ($26$ letters and $10$ digits). The number of ways is $(26+10)^7=367=78,364,164,096$.
+  + b. For the first 3 positions, the number of ways is $26^3$ (letters only). For the last 4 positions, the number of ways is $10^4$ (digits only). The total number of ways is $26^3 \cdot 10^4 = 175,760,000$.
+  + c. If there are 4 digits and 3 letters, the number of ways is $26^3 \cdot 10^4$. If there are 4 letters and 3 digits, the number of ways is $26^4 \cdot 10^3$. The total number of ways is $26^3 \cdot 10^4 + 26^4 \cdot 10^3 = 175,760,000 + 456,976,000 = 632,736,000$.
+
+
+3. If $P$ and $Q$ are sets, then $|P|^{|Q|}$ is the number of functions<br/>
+  a. from $P$ to $Q$,<br/>
+  b. from $Q$ to $P$.<br/>
+
+  Ans: b<br/>
+  Explanation: The number of functions from $Q $to $P $as there are $|P| $possible images for every element of $Q$.
+
+
+4. Recall that the power set  P(S)  of a set  S  is the collection of all subsets of  S .
+
+  For $A  = \{1,2,3\}$ and $B=\{x,y\}$, calculate the following cardinalities.<br/>
+  a. $|\mathbb{P}(A)|$<br/>
+  b. $|\mathbb{P}(B)|$<br/>
+  c. $|A \times B^2|$<br/>
+  d. $|\mathbb{P}(A \times B)|$<br/>
+  e. $|\mathbb{P}(A) \times B|$<br/>
+  f. $|\mathbb{P}(\mathbb{P}(A))|$<br/>
+
+  Ans: a. (8); b. (4); c. (12); d. ($2^6 = 64$), e. (16); f. ($2^8 = 256$)
+
+
+5. Let $G = \{0,2,4,6,8\}$. What is $|G^4|$?<br/>
+  a. $5^4$<br/>
+  b. $4^5$<br/>
+  c. $5 \times 4 \times 3 \times 2 \times 1 <br/>
+  d. $0 + 2 + 4 + 6 + 8<br/>
+
+  Ans: a
+
+
+6. Let A be a set with size 5. How many proper subsets does A have?
+
+  Ans: 31<br/>
+  Explanation: A  itself is not included. $2^5−1 = 31$.
+
+
+7. How many subsets of $\{1,2,…,9\}$ <br/>
+  a. are there,<br/>
+  b. contain '1',<br/>
+  c. have $\geq 5$  elements,<br/>
+  d. have no odd elements,<br/>
+
+  Ans: a. ($2^9 = 512$); b. ($2^8 = 256$); c. (256); d. ($2^4 = 16$)<br/>
+  Explanation:
+  + a. Every element of  {1,2,…,9}  is an either in the subset of not, hence there are $2^9=512$ subsets.
+  + b. Ever set containing '1' corresponds to an arbitrary subset of  {2,3,⋯,9} , and there are $2^8=256$ such subsets.
+  + c. Every subset of size  ≥5  corresponds to its complement that has size  ≤4 . For example, {1,2,3,4,5} has 5 elements, while its complement {6,7,8,9} has 4 elements. Hence the number of subsets of size $\geq 5$  is the same as the number of subsets of size $\leq 4$ and together they comprise all $2^9$ subsets. Hence the number of subsets of size $ \geq 5$ is $\frac{2^9}{2} = 2^8 = 256$.
+  + d. Any subset with no odd elements is a subset of {2,4,6,8} and there are $2^4 = 16$ such subsets.
 
 
 
