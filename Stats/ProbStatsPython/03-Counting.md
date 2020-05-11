@@ -951,11 +951,11 @@
 ## 3.7 Trees
 
 + Cartesian products as trees
-  + used only at any level, all nodes have same degree
+  + restriction: used only  when all nodes have same degree at any level
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
-      <img src="img/t03-05.png" style="margin: 0.1em;" alt="Illustration example of trees and Cartesian products" title="Illustration example of trees and Cartesian products" height=200>
+      <img src="img/t03-05.png" style="margin: 0.1em;" alt="Illustration example of trees and Cartesian products" title="Illustration example of trees and Cartesian products" height=150>
     </a>
   </div>
 
@@ -968,19 +968,25 @@
     + 3 departments: CS, EE, Math
     + each offering two courses
     + \# courses?
-    + departments offering different courses %\to$ not Cartesian product
+    + departments offering different courses $\to$ not Cartesian product
     + still 2 courses/department
     + each level, all degrees equal
     + \# courses = $3 \times 2 = 6$
 
-+ Best of $n$
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
+      <img src="img/t03-08.png" style="margin: 0.1em;" alt="Tree structure of courses offerred" title="Tree structure of courses offerred" height=150>
+    </a>
+  </div>
+
++ Systematic tree counting: best of $n$
   + many sports: two teams of players compete to determine stronger
   + single competition too random $\to$ play odd \# games $\to n$
-    + e.g. NBA playoffs: $n = 7$ games
-    + e.g., tennis matches: $n = 3 \text{ or } 5$ sets
+    + NBA playoffs: $n = 7$ games
+    + tennis matches: $n = 3 \text{ or } 5$ sets
   + goal: win majority of $n$ games
   + once someone wins > n/2 $\to$ stop
-  + example: tennis match
+  + example: paths to victory
     + Roger and Serena w/ 3-set match
     + stop when one wins two sets
     + \# win sequences = ?
@@ -995,6 +1001,10 @@
   + generalized to directed acyclic graph
   + \# of paths from source to destination
   + recursively determine \# paths from a node to destination
+    + starting from destination
+    + the directed link nodes to destination providing 1, 2, and 3 ways to reaching destination
+    + recursive the process until reaching the source
+    + reversely starting from the source and reaching the destination
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y9sgyruh" ismap target="_blank">
