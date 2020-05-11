@@ -191,6 +191,40 @@ def scatter_plot():
     return None
 
 
+"""
+Contour plot J(w) = (w - w_0)^T A (w - w_0) 
+
+w = (-2, 2)^T, A = ((2, 0), (0, 1))
+"""
+
+def contour_plot():
+    # generate data
+    xmin, xmax, xstep = -4, 0, .1
+    ymin, ymax, ystep = 0, 4, 0.1
+
+    A = np.array([[2, 0], [0, 1]])
+    w0 = np.array([-2., 2.]).reshape(2, 1)
+
+    J = lambda x, y: A[0, 0]*(x - w0[0])**2 + (A[0, 1] + A[1, 0])*(x - w0[0])*(y - w0[1]) + A[1, 1]*(y - w0[1])**2
+    gradient_u = lambda x, y: (A[0, 0]*(x - w0[0]) + A[0, 1]*(y - w0[1])) + (A[0, 0] * (x - w0[0]) + A[1, 0]*(y - w0[1]))
+    gradient_v = lambda x, y: (A[1, 0]*(x - w0[0]) + A[1, 1]*(y - w0[1])) + (A[0, 1] * (x - w0[0]) + A[1, 1]*(y - w0[1]))
+
+    x, y = np.meshgrid(np.arange(xmin, xmax + xstep, xstep), 
+                       np.arange(ymin, ymax + ystep, ystep))
+
+    z = J(x, y)
+
+    fig, ax = plt.subplots(figsize=(7, 7))
+    ax.contour(x, y, z, levels=np.logspace(0, 5, 35), cmap='jet')
+    ax.set_xlabel('$x$')
+    ax.set_ylabel('$y$')
+    ax.set_xlim(xmin, xmax)
+    ax.set_ylim(ymin, ymax)
+    fig.suptitle('Contour plot w/ $J(W) = (w - w_0)^T A (w-w_0)$')
+    plt.show()
+
+    return None
+
 
 
 
@@ -218,7 +252,10 @@ def main():
     # maxes_plot()
 
     # scatter plot
-    scatter_plot()
+    # scatter_plot()
+
+    # contour plot
+    contour_plot()
 
     # input("\nPress Enter to continue ...")
 
