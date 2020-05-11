@@ -567,10 +567,10 @@
     # {(5, 9), (5, 5), (2, 9), (9, 2), (9, 9), (2, 2), (9, 5), (2, 5), (5, 2)}
     ```
   
-  + exponential: `**`
+  + exponential: `^`
 
     ```python
-    print(3**2)
+    print(3^2)
     # 9
     ```
 
@@ -834,6 +834,109 @@
 
 
 ### Problem Sets
+
+0. Sam tries to find how many 2-letter sequences do not include the letter Q, for example BR or ZZ, but not BQ, or QQ.
+  
+  First, Sam calculates the total number of 2-letter sequences, allowing all letters, as 26*26=676.
+  
+  Then Sam calculates the number of disallowed sequences:
+  
+  There are 26 sequences where a Q is the first letter (e.g. QS), and 26 where Q is the second letter (e.g. BQ).
+  
+  The total number of disallowed sequences is therefore 26+26=52. Subtracting 52 from 676, Sam deduces that there are 624 two-letter sequences without Q.
+  
+  Where did Sam go wrong?
+
+  a. Made a multiplication error.<br/>
+  b. Made a subtraction error<br/>
+  c. Subtracted the sequence QQ from the total twice.<br/>
+  d. Nothing, Sam is correct.<br/>
+
+  Ans: c<br/>
+  Explanation: Sam subtracted the sequence QQ from the total twice.
+
+
+1. An $n$-variable Boolean function maps $\{0,1\}^n$  to $\{0,1\}$. How many 4-variable Boolean functions are there?<br/>
+  a. 16 <br/>
+  b. 256 <br/>
+  c. 65,536<br/>
+
+  Ans: c<br/>
+  Explanation: From the video, there are $2^{2^n}$ Boolean functions of $n$-variables, and $2^{2^4} = 2^{16} = 65,436$
+
+
+2. A word that reads the same from left to right and right to left is a palindrome. For example, "I", "noon" and "racecar" are palindromes. In this question, we consider palindromic integers such as 101 and 66. Note that the first digit of an integer cannot be 0.
+
+  How many positive 5-digit integer palindromes<br/>
+  a. are there?<br/>
+  b. are even, for example 29192?<br/>
+  c. contain 7 or 8, for example 27172 or 38783?<br/>
+
+  Ans: a. (900); b. (400); c. (452)<br/>
+  Explanation:
+  + a. Since the number is palindromic, it is determined by its first three digits. The first digit must be 1,2,...,9, while the second and third are unconstrained. Hence the total number is $9 \cdot 10 \cdot 10 = 900$.
+  + b. The first digit can be only 2,4,6,8, hence $4 \cdot 10 \cdot 10 = 400$.
+  + c. $7 \cdot 8 \cdot 8 = 448$ palindromic integers do not contain 7 or 8. By the complement rule, $900-448=452$ contain 7 or 8.
+
+
+3. How many $5$-digit ternary strings are there without $4$ consecutive $0$s, $1$s or $2$s?
+
+  For example,  01210  and  11211  are counted, but  20000 ,  11112 , and  22222  are excluded.
+
+  Ans: 228<br>
+  Explanation:
+  Explanation:
+    + First count the number of excluded sequences.
+    + A 5-digit string contains 4 consecutive 0's if it starts with 0000, or ends with 0000, or both.
+    + The number of 5-digit ternary strings that start with 0000 is 3, the number that end with 0000 is 3, and the number that both starts and ends with 0000 is 1 (the sequence 00000). By inclusion exclusion, there are 3+3-1=5 sequences containing 0000.
+    + Similarly there are 5 sequences with 1111 and 5 sequences with 2222.
+    + These sequences are disjoint, hence by the sum rule, the total number of forbidden sequences is 5+5+5=15.
+    + The total number of 5-digit ternary strings is $3^5 = 243$.
+    + By the subtraction rule, the number of allowed sequences is 243−15=228.
+
+
+4. A password consists of four or five characters, each an upper-case letter, a lower-case letter, or a digit. How many passwords are there if each of the three character types must appear at least once?
+
+  Ans: <span style="color: magenra:">443,888,640</span><br/>
+  Explanation:
+    + For each of length 4 and 5, we use inclusion-exclusion to count the number of password that do not contain at least one of the three character types, then use the complement rule.
+    + Let $U$, $L$, and $D$ denote the sets of passwords that do not contain upper-case letters, lower-case letters, and digits, respectively, and let $n$ be the password length. Then $|U| = |L| = 36^n$, and $|D|= 52^n$. Furthermore, $|L \cap U|=10^n$, while $|L \cap D|=|U \cap D|=26^n$, and $U \cap L \cap D = \varnothing$. Finally, the number of length-n character sequences is $62^n$.
+    + $|U \cap L \cap D|$  is the number of sequences that have at least one character type missed.
+    + By the 3-set inclusion-exclusion principle, $|U \cup L \cup D| = |U|+|L|+|D|−|L \cap U|−|L \cap D|−|U \cap D|+|U \cap L \cap D|$. Hence, there are $(62^4−(36^4+36^4+52^4−26^4−26^4−10^4+0))+$ $(62^5−(36^5+36^5+52^5−26^5−26^5−10^5+0))=443,888,640$ valid passwords.
+
+
+5. In the US, telephone numbers are 7-digit long. While real phone numbers have some restrictions, for example, they cannot start with 0 or 1, here we assume that all 7-digit sequences are possible, even 0000000.
+
+  How many phone numbers:<br/>
+  a. start or end with two identical digits, for example 0012345, 1234511, or 2222222,<br/>
+  b. contain a substring of $5$ consecutive digits. For example 0034567, 2567892, or 0123456.<br/>
+
+  Ans: a. ($2 \cdot 10^6 + 10^5$); b. ($3 \cdot 600 - 2 \cdot 50 -4 + 4$) (<span style="color: magenta;">$3 \cdot 600, 3 \cdot 600 - 3 \cdot 50 + 4, 3 \cdot 600 - 2 \cdot 50 + 4$</span>)<br/>
+  Explanation:
+  + a. $10 \cdot 10^5 = 10^6$ phone numbers start with two identical digits, and the same number end with two identical digits, furthermore $10^2 \cdot 10^3 = 10^5$ numbers start and end with two identical digits. By inclusion-exclusion, the answer is $2 \cdot 10^6 − 10^5 = 1,900,000$.
+  + b. Let  $L$, $M$, and $R$, be the sets of phone numbers whose 5 left, middle, and right digits, respectively, are consecutive. The set of phone numbers with five consecutive digits is  L∪M∪R , and we'll determine its size. $|L|=|M|=|R|=6 \cdot 102 = 600$, while $|L \cap M|=|M \cap R|=5 \cdot 10=50$, and $|L \cap R|=|L \cap M \cap R| = 4$. By inclusion-exclusion, $|L \cup M \cup R|=3 \cdot 600−2 \cdot 50−4+4=1700$.
+
+
+6. How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$ have:<br/>
+  a. $A \cap B= \varnothing$<br/>
+  b. $A \cap B=\{1\}$<br/>
+  c. $|A \cap B|=1$<br/>
+
+  Ans: a. ($3^5$); b. ($3^4$); c. (5 \cdot 3^4$) <br/>
+  + Represent each pair $(A,B)$ of disjoint subssets of $\{1,2,3,4,5\}$ as a ternary sequence of length 5, where 1 in location $i$ indicaes that $i \in A$, 2 in location $i$ indicates that $i \in B$, and 0 in location $i$ indicates that $i$ is in neither $A$ nor $B$. For example, 10201 corresponds to $A=\{1,5\}$ and $B=\{3\}$. The number of disjoint subset pairs is therefore the same as the number of ternary sequences of length 5, namely $3^5$.
+  + Include $1$ in both $A$, $B$ and then repeat above part with the set $\{2,3,4,5\}$.
+  + Same as the above part, except the element in common can be any from $\{1,2,...,5\}$ and therefore $5 \cdot 3^4 = 405$.
+
+
+7. How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$, are there if:<br/>
+  a. $A \cup B = \{1,2,3,4,5\}$<br/>
+  b. $|A \cup B| = 4$<br/>
+
+  Ans: a. ($3^5$); b. ($5 \cdot 3^4$)<br/>
+  Explanation: 
+    + a. First solution: Or we can represent each pair $(A,B)$ of subssets of $\{1,2,3,4,5\}$  whose union is the whole set as a ternary sequence of length 5, where 1 in location $i$ indicates that $i \in A$, 2 in location $i$ indicates that $i \in B$, and 0 in location $i$ indicates that $i$ is in both $A$ nor $B$. For example, 10201 corresponds to $A=\{1,2,4,5\}$ and  $B=\{2,3,4\}$. The number of pairs whose union is $\{1,2,3,4,5\}$ is therefore the same as the number of ternary sequences of length 5, namely $3^5$.
+    + a. Second solution: By De Morgan's Law, $A \cup B=\{1,2,3,4,5\} \iff  A^C \cap B^c= \varnothing$. By part (a) there are $3^5=243$ ways to select the sets $A^C$  and $B^C$, hence there are also 243 ways to select $A$ and $B$.
+    + b. Choose one of the $5$ elements to be in neither in $A$ nor in $B$. Say this element is $1$. Then, we need to choose subsets $A,B$ of $\{2,3,4,5\}$ whose union is $\{2,3,4,5\}$. Repeating the argument in Q6, we see that there are $3^4$ ways of doing that, hence the total number is $5 \cdot 3^4=405$.
 
 
 
