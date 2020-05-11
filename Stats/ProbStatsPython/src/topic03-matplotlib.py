@@ -20,10 +20,38 @@ def line_plot():
 
     return None
 
+def llcm_plot():
+    """Display Legends, Linestyle, Colors, and Markers w/ y=2^x and y = x^2
+    """
+    x = np.arange(0, 10, 0.5)  # x in [0, 10)
+    y_1 = 2**x
+    y_2 = x**2
+
+    plt.figure()
+    # specify color, linestyle, and marker w/ keyword argument
+    # plt.plot(x, y_1, label='$2^x$', color='g', linestyle='--', marker='o')
+    plt.plot(x, y_1, 'g--o', label='$2^x$')
+    # plt.plot(x, y_2, label='$x^2$', color='r', linestyle='-', marker='*')
+    plt.plot(x, y_2, 'r-*', label='$x^2$')
+    plt.xlabel('$x$')
+    plt.ylabel('$y$')
+    plt.legend(loc='upper left')
+    plt.title('Line plots w/ Legend, linestyle, color, and marker')
+    plt.show()
+
+
+    return None
+
+
+
 def main():
 
-    print("\nLine plot ...")
+    # illustrate line plot w/ cos function
     line_plot()
+
+    # display legends, linestyle, colors and markers
+    llcm_plot()
+
     input("\nPress Enter to continue ...")
 
 
