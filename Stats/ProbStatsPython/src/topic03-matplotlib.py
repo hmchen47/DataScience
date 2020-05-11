@@ -205,10 +205,6 @@ def contour_plot():
     A = np.array([[2, 0], [0, 1]])
     w0 = np.array([-2., 2.]).reshape(2, 1)
 
-    J = lambda x, y: A[0, 0]*(x - w0[0])**2 + (A[0, 1] + A[1, 0])*(x - w0[0])*(y - w0[1]) + A[1, 1]*(y - w0[1])**2
-    gradient_u = lambda x, y: (A[0, 0]*(x - w0[0]) + A[0, 1]*(y - w0[1])) + (A[0, 0] * (x - w0[0]) + A[1, 0]*(y - w0[1]))
-    gradient_v = lambda x, y: (A[1, 0]*(x - w0[0]) + A[1, 1]*(y - w0[1])) + (A[0, 1] * (x - w0[0]) + A[1, 1]*(y - w0[1]))
-
     x, y = np.meshgrid(np.arange(xmin, xmax + xstep, xstep), 
                        np.arange(ymin, ymax + ystep, ystep))
 
@@ -220,11 +216,45 @@ def contour_plot():
     ax.set_ylabel('$y$')
     ax.set_xlim(xmin, xmax)
     ax.set_ylim(ymin, ymax)
-    fig.suptitle('Contour plot w/ $J(W) = (w - w_0)^T A (w-w_0)$')
+    fig.suptitle('Contour plot w/ $\mathbf{J}(\mathbf{W}) = (\mathbf{w} - \mathbf{w}_0)^T \mathbf{A} (\mathbf{w} - \mathbf{w}_0)$')
     plt.show()
 
     return None
 
+
+"""
+Quiver plot for \nabla J(W) - 2Aw - 2Aw_0
+"""
+
+def quiver_plot():
+    # generate data
+    xmin, xmax, xstep = -4, 0, .1
+    ymin, ymax, ystep = 0, 4, 0.1
+
+    A = np.array([[2, 0], [0, 1]])
+    w0 = np.array([-2., 2.]).reshape(2, 1)
+    
+    x1, y1 = np.meshgrid(np.arange(xmin, xmax, 0.2), np.arange(ymin, ymax, 0.2))
+
+    J = lambda x, y: A[0, 0]*(x - w0[0])**2 + (A[0, 1] + A[1, 0])*(x - w0[0])*(y - w0[1]) + A[1, 1]*(y - w0[1])**2
+    gradient_u = lambda x, y: (A[0, 0]*(x - w0[0]) + A[0, 1]*(y - w0[1])) + (A[0, 0] * (x - w0[0]) + A[1, 0]*(y - w0[1]))
+    gradient_v = lambda x, y: (A[1, 0]*(x - w0[0]) + A[1, 1]*(y - w0[1])) + (A[0, 1] * (x - w0[0]) + A[1, 1]*(y - w0[1]))
+
+    u1 = gradient_u(x1, y1)
+    v1 = gradient_v(x1, y1)
+
+    # quiver plotting
+    fig, ax = plt.subplots(figsize=(7, 7))
+    ax.quiver(x1, y1, u1, v1)
+    ax.set_xlabel('$x$')
+    ax.set_ylabel('$y$')
+    ax.set_xlim((xmin, xmax))
+    ax.set_ylim((ymin, ymax))
+
+    fig.suptitle(r'Quiver plot for $\nabla \mathbf{J}(\mathbf{w}) = 2\mathbf{Aw} - 2 \mathbf{Aw}_0$')
+    plt.show()
+
+    return None
 
 
 
@@ -255,7 +285,10 @@ def main():
     # scatter_plot()
 
     # contour plot
-    contour_plot()
+    # contour_plot()
+
+    # Quiver plot
+    quiver_plot()
 
     # input("\nPress Enter to continue ...")
 
