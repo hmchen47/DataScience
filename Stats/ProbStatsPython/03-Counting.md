@@ -1028,7 +1028,22 @@
 
 ### Problem Sets
 
+0. The NBA Finals is a best-of-seven game series. The first team to win four games, wins the championship.
 
+  For simplicity, consider a smaller series of just five games. The first team to win three games wins the championship. If the teams are named A and B, then AAA, ABBB, and BABAB are three possible win sequences, as one team won three games. What is the total number of possible win sequences ?<br/>
+  a. 10<br/>
+  b. 20<br/>
+  c. 30<br/>
+  d. None of the above<br/>
+
+  Ans: b<br/>
+  Explanation:
+    + The answer is 20. To see that, we show that there are 10 win sequences ending with A.
+    + There is one such sequence of three games: AAA;
+    + three sequences of four games: BAAA, ABAA, and AABA;
+    + and six sequences with five games: BBAAA, BABAA, BAABA, ABBAA, ABABA, AABBA.
+    + Similarly there are ten sequences ending with B, for a total of 20 win sequences.
+    + We will later see a systematic way of counting these sequences.
 
 
 ### Lecture Video
