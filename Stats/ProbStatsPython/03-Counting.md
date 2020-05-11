@@ -1055,7 +1055,9 @@
 
 ## Matplotlib and Numpy.random Notebook
 
++ [Original Matplotlib NB](https://tinyurl.com/y7u72vpq)
 
++ [Matplotlib tutorial Python code](src/topic03-matplotlib.py)
 
 
 
