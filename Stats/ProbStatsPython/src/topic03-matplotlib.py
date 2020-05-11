@@ -123,6 +123,24 @@ def axes_subplots():
 
     return None
 
+"""
+Plot Bar graph
+"""
+def bar_plot():
+    # generate data
+    x = np.arange(0, 7, 1)
+    y = x
+
+    # display plot
+    plt.figure()
+    plt.bar(x, y, label='$x$')
+    plt.xlabel('$x$')
+    plt.ylabel('$y$')
+    plt.legend(loc='upper left')
+    plt.title('Bar chart')
+    plt.show()
+
+    return None
 
 
 
@@ -141,7 +159,10 @@ def main():
     # subplots()
 
     # subplots sharing axes
-    axes_subplots()
+    # axes_subplots()
+
+    # bar plot
+    bar_plot()
 
     # input("\nPress Enter to continue ...")
 
