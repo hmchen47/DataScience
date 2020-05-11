@@ -9,13 +9,13 @@ def line_plot():
     """
     # generate data
     x = np.arange(0, 4 * np.pi, 0.1)    # x in [0, 4* pi)
-    y_cos = no.cos(x)
+    y_cos = np.cos(x)
 
     plt.figure()
     plt.plot(x, y_cos)
     plt.xlabel('$x$')
     plt.ylabel('$y$')
-    plt.title('Cosine function with [0, 4$pi$)')
+    plt.title('Cosine function in $[0, 4\pi)$ with line plot')
     plt.show()
 
     return None
