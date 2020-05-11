@@ -70,6 +70,35 @@ def tgfs_plot():
     return None
 
 
+"""
+Disply multiple subplots in a single figure for cosine and sine
+"""
+def subplots():
+    # generate data
+    x = np.arange(0, 6*np.pi + 0.2, 0.2)
+    y_1 = np.cos(x)
+    y_2 = np.sin(2*x)
+
+    # plot cos(x)
+    plt.figure()
+    plt.subplot(2, 1, 1)
+    plt.plot(x, y_1, label='$\cos(x)$')
+    plt.xlabel('$x$')
+    plt.ylabel('$y$')
+    plt.legend(loc='lower left')
+
+    # plot sin(2x)
+    plt.subplot(2, 1, 2)
+    plt.plot(x, y_2, label='$\sin(x)$')
+    plt.xlabel('$x$')
+    plt.ylabel('$y$')
+    plt.legend(loc='lower left')
+
+    plt.show()
+
+    return None
+
+
 
 def main():
 
@@ -80,7 +109,10 @@ def main():
     # llcm_plot()
 
     # display title and grid & change font size
-    tgfs_plot()
+    # tgfs_plot()
+
+    # display multiple figures
+    subplots()
 
     input("\nPress Enter to continue ...")
 
