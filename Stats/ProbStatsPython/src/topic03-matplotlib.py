@@ -325,6 +325,25 @@ def normal3D_plot(Mu, Cov):
     ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.jet)
     plt.show()
     
+    return None
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def box_plot():
+    """Demo for Box plot"""
+    # download the data from Kaggle: https://www.kaggle.com/camnugent/california-housing-prices/download
+
+    df = pd.read_csv('./housing.csv')
+    df = df.dropna()
+
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=df, x='ocean_proximity', y='median_house_value', palette='viridis')
+    plt.title('Box plot demo w/ Kaggle house pricing data')
+    plt.show()
 
     return None
 
@@ -366,13 +385,17 @@ def main():
     # quiverContour_plot()
 
     # Gaussian 3D plot
-    Mu = np.array([0, 0])
-    Cov = np.array([[1, 0], [0, 1]])
-    normal3D_plot(Mu, Cov)
+    # Mu = np.array([0, 0])
+    # Cov = np.array([[1, 0], [0, 1]])
+    # normal3D_plot(Mu, Cov)
 
-    Mu = np.array([0, 4])
-    Cov = np.array([[5, 0], [0, 1]])
-    normal3D_plot(Mu, Cov)
+    # Mu = np.array([0, 4])
+    # Cov = np.array([[5, 0], [0, 1]])
+    # normal3D_plot(Mu, Cov)
+
+    # Box plot
+    box_plot()
+
 
     # input("\nPress Enter to continue ...")
 
