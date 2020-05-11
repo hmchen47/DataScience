@@ -295,6 +295,42 @@ def quiverContour_plot():
     return None
 
 
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+import matplotlib.pyplot as plt
+from scipy.stats import multivariate_normal
+
+def normal3D_plot():
+    """Gaussian 3D plot w/
+    \mu = [0, 0]^T, \Sigma = [[1,0], [0, 1]]"""
+
+    # # generate data 
+    Mu = np.array([0, 0])
+    Cov = np.array([[1, 0], [0, 1]])
+    rv = multivariate_normal(Mu, Cov)
+    
+    xmin, xmax, xstep = -5, 5, 0.2
+    ymin, ymax, ystep = -5, 5, 0.2
+
+    # plot 3D Gaussian 
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    X = np.arange(xmin, xmax, xstep)
+    Y = np.arange(ymin, ymax, ystep)
+    X, Y = np.meshgrid(X, Y)
+
+    pos = np.empty(X.shape + (2,))
+    pos[:, :, 0] = X; pos[:, :, 1] = Y
+    Z = rv.pdf(pos)
+
+    ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.jet)
+    plt.show()
+    
+
+    return None
+
+
 
 def main():
 
@@ -329,7 +365,10 @@ def main():
     # quiver_plot()
 
     # Quiver & Contour plot
-    quiverContour_plot()
+    # quiverContour_plot()
+
+    # Gaussian 3D plot
+    normal3D_plot()
 
     # input("\nPress Enter to continue ...")
 
