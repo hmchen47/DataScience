@@ -43,14 +43,44 @@ def llcm_plot():
     return None
 
 
+def tgfs_plot():
+    """ Display title and changing ontsize
+    """
+    plt.rc('font', size=10)         # control the default font size
+    plt.rc('axes', titlesize=11)    # fontsize of the axes title
+    plt.rc('axes', labelsize=12)    # fontsize of the axes x and y labels
+    plt.rc('xtick', labelsize=10)   # fontsize of the tick label
+    plt.rc('ytick', labelsize=10)   # fontsize of the tick label
+    plt.rc('legend', fontsize=11)   # legend fontsize
+
+    # generate data
+    x = np.arange(-10, 10.1, 0.1)
+    y = x**3
+
+    # plot figure
+    plt.figure()
+    plt.plot(x, y, label='$x^3$')
+    plt.xlabel('$x$')
+    plt.ylabel('$y$')
+    plt.title('$y = x^3 for title, grid, & font size control "plt.rc()"$')
+    plt.legend(loc='upper left')
+    plt.grid()
+    plt.show()
+
+    return None
+
+
 
 def main():
 
     # illustrate line plot w/ cos function
-    line_plot()
+    # line_plot()
 
     # display legends, linestyle, colors and markers
-    llcm_plot()
+    # llcm_plot()
+
+    # display title and grid & change font size
+    tgfs_plot()
 
     input("\nPress Enter to continue ...")
 
