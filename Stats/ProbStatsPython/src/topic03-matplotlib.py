@@ -165,6 +165,34 @@ def maxes_plot():
     ax2.tick_params(axis='y', labelcolor='C0')
     plt.show()
 
+    return None
+
+
+"""
+Scatter plot w y = 2x+3 + epsilon, epsilon ~ N(0, 1)
+"""
+
+def scatter_plot():
+    # genater date
+    x = np.arange(0, 10.2, 0.2) # x in [0, 10]
+    noise = np.random.randn(len(x))
+    y = 2*x + 3 + noise
+
+    # plot scatter
+    plt.figure()
+    plt.scatter(x, y, label='$y=2x+3+\epsilob$')
+    plt.plot(x, 2*x+3, color='r', label='regression')
+    plt.xlabel('$x$')
+    plt.ylabel('$y$')
+    plt.title('Scatter plot w/ $y=2x+3+\epsilon, \epsilon \sim N(0,1)$')
+    # plt.legend(loc='upper left')
+    plt.show()
+
+    return None
+
+
+
+
 
 def main():
 
@@ -187,7 +215,10 @@ def main():
     # bar_plot()
 
     # multiple axes
-    maxes_plot()
+    # maxes_plot()
+
+    # scatter plot
+    scatter_plot()
 
     # input("\nPress Enter to continue ...")
 
