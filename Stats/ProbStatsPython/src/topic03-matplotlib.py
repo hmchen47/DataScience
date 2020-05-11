@@ -301,17 +301,15 @@ from matplotlib import cm
 import matplotlib.pyplot as plt
 from scipy.stats import multivariate_normal
 
-def normal3D_plot():
+def normal3D_plot(Mu, Cov):
     """Gaussian 3D plot w/
     \mu = [0, 0]^T, \Sigma = [[1,0], [0, 1]]"""
 
     # # generate data 
-    Mu = np.array([0, 0])
-    Cov = np.array([[1, 0], [0, 1]])
     rv = multivariate_normal(Mu, Cov)
     
-    xmin, xmax, xstep = -5, 5, 0.2
-    ymin, ymax, ystep = -5, 5, 0.2
+    xmin, xmax, xstep = -10, 10, 0.25
+    ymin, ymax, ystep = -10, 10, 0.25
 
     # plot 3D Gaussian 
     fig = plt.figure()
@@ -368,7 +366,13 @@ def main():
     # quiverContour_plot()
 
     # Gaussian 3D plot
-    normal3D_plot()
+    Mu = np.array([0, 0])
+    Cov = np.array([[1, 0], [0, 1]])
+    normal3D_plot(Mu, Cov)
+
+    Mu = np.array([0, 4])
+    Cov = np.array([[5, 0], [0, 1]])
+    normal3D_plot(Mu, Cov)
 
     # input("\nPress Enter to continue ...")
 
