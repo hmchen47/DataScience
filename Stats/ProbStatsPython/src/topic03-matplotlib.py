@@ -348,6 +348,29 @@ def box_plot():
     return None
 
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def matrix_heatmap():
+    """Demo fro matrix heatmap"""
+
+    # retrieve data
+    df = pd.read_csv('./housing.csv')
+    df = df.dropna()
+
+    # plot heatmap
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(cbar=False, annot=True, data=df.corr(), cmap='coolwarm')
+    plt.title('Correlation Matrix')
+
+    plt.show()
+
+    return None
+
+
+
 
 def main():
 
@@ -394,7 +417,10 @@ def main():
     # normal3D_plot(Mu, Cov)
 
     # Box plot
-    box_plot()
+    # box_plot()
+
+    # Matrix Heatmap
+    matrix_heatmap()
 
 
     # input("\nPress Enter to continue ...")
