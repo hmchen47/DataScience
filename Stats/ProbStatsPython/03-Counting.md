@@ -980,7 +980,7 @@
   </div>
 
 + Systematic tree counting: best of $n$
-  + many sports: two teams of players compete to determine stronger
+  + many sports: two teams or players compete to determine stronger
   + single competition too random $\to$ play odd \# games $\to n$
     + NBA playoffs: $n = 7$ games
     + tennis matches: $n = 3 \text{ or } 5$ sets
@@ -1004,7 +1004,7 @@
     + starting from destination
     + the directed link nodes to destination providing 1, 2, and 3 ways to reaching destination
     + recursive the process until reaching the source
-    + reversely starting from the source and reaching the destination
+  + reversely starting from the source and reaching the destination
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y9sgyruh" ismap target="_blank">
