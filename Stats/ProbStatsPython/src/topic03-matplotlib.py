@@ -86,6 +86,7 @@ def subplots():
     plt.xlabel('$x$')
     plt.ylabel('$y$')
     plt.legend(loc='lower left')
+    plt.title('Multiple subplots w/ plt.subplot()')
 
     # plot sin(2x)
     plt.subplot(2, 1, 2)
