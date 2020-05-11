@@ -950,8 +950,70 @@
 
 ## 3.7 Trees
 
++ Cartesian products as trees
+  + used only at any level, all nodes have same degree
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycrand47" ismap target="_blank">
+      <img src="img/t03-05.png" style="margin: 0.1em;" alt="Illustration example of trees and Cartesian products" title="Illustration example of trees and Cartesian products" height=200>
+    </a>
+  </div>
+
++ Trees more general
+  + a tree representing any set of sequences, not just Cartesian products
+  + enabling systematic counting technique
+  + useful in modeling random phenomena
+  + example
+    + San-Diego University of Data Science
+    + 3 departments: CS, EE, Math
+    + each offering two courses
+    + \# courses?
+    + departments offering different courses %\to$ not Cartesian product
+    + still 2 courses/department
+    + each level, all degrees equal
+    + \# courses = $3 \times 2 = 6$
+
++ Best of $n$
+  + many sports: two teams of players compete to determine stronger
+  + single competition too random $\to$ play odd \# games $\to n$
+    + e.g. NBA playoffs: $n = 7$ games
+    + e.g., tennis matches: $n = 3 \text{ or } 5$ sets
+  + goal: win majority of $n$ games
+  + once someone wins > n/2 $\to$ stop
+  + example: tennis match
+    + Roger and Serena w/ 3-set match
+    + stop when one wins two sets
+    + \# win sequences = ?
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y9sgyruh" ismap target="_blank">
+        <img src="img/t03-06.png" style="margin: 0.1em;" alt="Example tennis matches in tree structure" title="Example tennis matches in tree structure" height=150>
+      </a>
+    </div>
+
++ Path from source to destination
+  + generalized to directed acyclic graph
+  + \# of paths from source to destination
+  + recursively determine \# paths from a node to destination
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y9sgyruh" ismap target="_blank">
+        <img src="img/t03-07.png" style="margin: 0.1em;" alt="Example graph for shortest paths" title="Example graph for shortest paths" height=150>
+      </a>
+    </div>
+
++ Summary: counting sets
+  + disjoint unions: +
+  + complements: -
+  + general union: PIE
+  + Cartesian products: x
+  + Cartesian powers
+  + Variations: combining +, -, x
+  + sequences, trees, and graphs
+  + combinatorics: advanced counting, useful for determining probabilities
 
 
++ [Original Slides](https://tinyurl.com/y9sgyruh)
 
 
 ### Problem Sets
