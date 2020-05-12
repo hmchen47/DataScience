@@ -119,11 +119,11 @@
 
   Ans: ac<br/>
   Explanation:
-  + True. $\{0, 1\}$  contains two elements, and 0 is one of them.
-  + False. $\{A, B\}$ contains two elements,  A  and  B , but not  a .
-  + True. $\{\{a, b\}, c\}$ has two elements, the set $\{a, b\}$, and  c .
-  + False. $a$ is an element of $\{a, b\}$, not of $\{\{a, b\}, c\}$ .
-  + False. $\{a\}$ has only one element $a$, not the set $\{a\}$. More about that in the next lecture.
+    + True. $\{0, 1\}$  contains two elements, and 0 is one of them.
+    + False. $\{A, B\}$ contains two elements,  A  and  B , but not  a .
+    + True. $\{\{a, b\}, c\}$ has two elements, the set $\{a, b\}$, and  c .
+    + False. $a$ is an element of $\{a, b\}$, not of $\{\{a, b\}, c\}$ .
+    + False. $\{a\}$ has only one element $a$, not the set $\{a\}$. More about that in the next lecture.
 
 3. Recall that $\varnothing$ is the empty set. How many elements do the following sets have?
   a. $\varnothing$
@@ -133,10 +133,10 @@
 
   Ans: a - 0, b - 1, c - 1, d - 2<br/>
   Explanation:
-  + a. 0, the empty set has no elements.
-  + b. 1, just the empty set.
-  + c. 1, $\{$\varnothing, \varnothing\} = \{\varnothing\}$ , hence contains one element.
-  + d. 2, $\varnothing$ and $\{\varnothing\}$.
+    + a. 0, the empty set has no elements.
+    + b. 1, just the empty set.
+    + c. 1, $\{$\varnothing, \varnothing\} = \{\varnothing\}$ , hence contains one element.
+    + d. 2, $\varnothing$ and $\{\varnothing\}$.
 
 
 4. How many elements do the following sets have?
@@ -148,10 +148,10 @@
 
   Ans: a - 1, b - 1, c - 2, d - 2, e - 1<br/>
   Explanation:
-  + $\{a\}$ has one element, $a$.
-  + As we mentioned $\{a, a\} = \{a\}$, hence both sets have one element.
-  + $a$ is different from the set $\{a\}$ that contains $a$, hence two elements.
-  + One element, the set $\{a\}$.
+    + $\{a\}$ has one element, $a$.
+    + As we mentioned $\{a, a\} = \{a\}$, hence both sets have one element.
+    + $a$ is different from the set $\{a\}$ that contains $a$, hence two elements.
+    + One element, the set $\{a\}$.
 
 
 5. How many elements do the following sets have?<br/>
@@ -162,10 +162,10 @@
 
   Ans: 1 - 2, b - 1, c - 1, d - 3<br/>
   Explanation:
-  + The elements are $a$ and $b$, hence 2.
-  + There is a single element, the set $\{a, b\}$, hence 1.
-  + Again just one element, the set $\{a, b\}$, written thrice, hence 1.
-  + The elements are  $a$, $b$, and $\{a, b\}$, hence 3.
+    + The elements are $a$ and $b$, hence 2.
+    + There is a single element, the set $\{a, b\}$, hence 1.
+    + Again just one element, the set $\{a, b\}$, written thrice, hence 1.
+    + The elements are  $a$, $b$, and $\{a, b\}$, hence 3.
 
 
 6. Animal anagrams<br/>
@@ -212,12 +212,12 @@
 
   Ans: <br/>
   Explanation:
-  + a. {a}
-  + b. {{a}}
-  + c. {{a,b}}  or {{b,a}}
-  + d. {a,{b}}  or {{b},a}
-  + e. {$\varnothing$}  or {emptyset}
-  + f. $\varnothing$ or emptyset
+    + a. {a}
+    + b. {{a}}
+    + c. {{a,b}}  or {{b,a}}
+    + d. {a,{b}}  or {{b},a}
+    + e. {$\varnothing$}  or {emptyset}
+    + f. $\varnothing$ or emptyset
 
 
 
@@ -405,12 +405,12 @@
     + proving
     + understanding
 
-+ example of matplotlib_venn package
++ example of `matplotlib_venn` package
   + install the package first
   + demo code for two sets
 
     ```python
-    import matplotlib .pyplot as plt
+    import matplotlib.pyplot as plt
     import matplotlib_venn as venn
 
     S = {1, 2, 3}
@@ -564,11 +564,11 @@
 
   Ans: ace<br/>
   Explanation:
-  + a. True.
-  + b. False. $m$ is a member of $A$.
-  + c. True.
-  + d. False. $m$ is not a set.
-  + e. True.
+    + a. True.
+    + b. False. $m$ is a member of $A$.
+    + c. True.
+    + d. False. $m$ is not a set.
+    + e. True.
 
 
 2. Which of the following is NOT true?<br/>
@@ -579,10 +579,10 @@
 
   Ans: d<br/>
   Explanation
-  + a. The statement is true. The order does not matter.
-  + b. The statement is true. The repetition does not matter.
-  + c. The statement is true. 1 is in {1,2,3}.
-  + d. The statement is false. 2 is not odd.
+    + a. The statement is true. The order does not matter.
+    + b. The statement is true. The repetition does not matter.
+    + c. The statement is true. 1 is in {1,2,3}.
+    + d. The statement is false. 2 is not odd.
 
 
 3. Which of the following holds?<br/>
@@ -603,10 +603,10 @@
 
   Ans: abd<br/>
   Explanation:
-  + a. True. {1,3}={3,1,3}.
-  + b. True. The solution of $x^2=10$ is $\pm\sqrt{10}$, which are not rational.
-  + c. False. $ 0 \neq \varnothing$.
-  + d. True. { l, i, t, t, l, e } = {t, i, t, l, e}.
+    + a. True. {1,3}={3,1,3}.
+    + b. True. The solution of $x^2=10$ is $\pm\sqrt{10}$, which are not rational.
+    + c. False. $ 0 \neq \varnothing$.
+    + d. True. { l, i, t, t, l, e } = {t, i, t, l, e}.
 
 
 5. If the following Venn Diagram has elements in the red, orange, and yellow regions, the sets R and Y satisfy:
@@ -625,11 +625,11 @@
 
   Ans: bd<br/>
   Explanation
-  + a. False. $R \neq Y$.
-  + b. True.  $R \cap Y \neq \varnothing$.
-  + c. False. $R ⊂\not\in Y$.
-  + d. True.  $Y \not\in \mathbb{R}$.
-  + e. False. $R \cap Y \neq \varnothing$.
+    + a. False. $R \neq Y$.
+    + b. True.  $R \cap Y \neq \varnothing$.
+    + c. False. $R ⊂\not\in Y$.
+    + d. True.  $Y \not\in \mathbb{R}$.
+    + e. False. $R \cap Y \neq \varnothing$.
 
 
 6. Which of the following are subsets of  A=[2,4)? <br/>
@@ -640,10 +640,10 @@
 
   Ans: cd<br/>
   Explanation
-  + a. False.  $B=(3, \infty)$.
-  + b. False.  4 ∉ A.
-  + c. True.
-  + d. True.
+    + a. False.  $B=(3, \infty)$.
+    + b. False.  4 ∉ A.
+    + c. True.
+    + d. True.
 
 
 7. Recall that $\mathbb{P}(S)$ is the collection of all subsets of $S$, and let $\mathbb{Q}(S)$ be the collection of all proper subsets of $S$.
@@ -667,11 +667,11 @@
 
   Ans: abc<br/>
   Explanation:
-  + a. True. 2 is in both sets.
-  + b. True. 2 is in both sets.
-  + c. True. 2 is in both sets.
-  + d. False. Two emptysets do not intersect, because they don't share any elements.
-  + e. False. Emptysets have no element, hence they do not have shared elements with other sets.
+    + a. True. 2 is in both sets.
+    + b. True. 2 is in both sets.
+    + c. True. 2 is in both sets.
+    + d. False. Two emptysets do not intersect, because they don't share any elements.
+    + e. False. Emptysets have no element, hence they do not have shared elements with other sets.
 
 
 
@@ -967,14 +967,14 @@
 
 + René Descates 1596-1650
   + philosopher, scientist, mathematician
-  + considered father of western philsopht
+  + considered father of western philsophy
     + Cogito ergo sum = I think therefore I am
     + Divided each difficulty into as many parts as necessary to solve it.
     + Each problem I solved became a rule I later used to solve other problems.
     + A good mind is not enough, the main thing is to use it well.
 
-+ Cartesian corrdinates: used also by 
-  + Pierre de Fermat (1607-1665): a French lawyer at the Parlement of Toulouse, France, and a mathematician who is given credit for early developments that led to infinitesimal calculus, including his technique of adequality
++ Cartesian coordinates: used also by
+  + Pierre de Fermat (1607-1665): a French lawyer at the Parlement of Toulouse, France, and a mathematician who is given credit for early developments that led to infinitesimal calculus, including his technique of inequality
   + Nicole Oresme (1320-1382): at the University of Paris and expanded the analytic study of changing quantities
 
 + Tuples and ordered pairs
@@ -991,7 +991,7 @@
   + example: $A = [0, 2], B = [1, 4] \text{ s.t. } A \times B = \{(x, y) = x \in [0, 2], y \in [1. 4]\}$
 
 + Discrete sets
-  + similar to Cartesian product in continuous sets but simiplier
+  + similar to Cartesian product in continuous sets but simplier
   + example
   
     \[\begin{align*}
@@ -1075,7 +1075,7 @@
   d. (2,4)<br/>
 
   Ans: a<br/>
-  Explanntion: The cartesian product is {(1, 3), (1, 4), (2, 3), (2, 4)}, which does not include (3, 1). In general, for (x,y) to be in A x B, the element x must be in A and y must be in B. Here neither happens.
+  Explanation: The cartesian product is {(1, 3), (1, 4), (2, 3), (2, 4)}, which does not include (3, 1). In general, for (x,y) to be in A x B, the element x must be in A and y must be in B. Here neither happens.
 
 
 1. Which of the following statements hold?<br/>
