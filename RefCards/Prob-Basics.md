@@ -130,15 +130,6 @@
   + the <span style="color: magenta;">intersection</span>, $A \,{\color{Magenta}{\cap}}\, B$, is the set of elements in both $A$ and $B$
   + Definition: (intersection) $A \cap B = \{x: x\in A \wedge x \in B\}$
 
-+ [Union](../Stats/ProbStatsPython/02-Sets.md#25-operations)
-  + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
-  + Definition: (union) $A \cup B = \{x: x \in A \vee x \in B\}$
-
-+ [Multiple sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
-  + $A \cup B \cup C = \{ x \in \Omega: x \in A \vee x \in B \vee x \in X\}$
-  + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
-  + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
-
 + [Law of sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + identities - one set
     + identity: $A \cap \Omega = A \quad A \cup \Omega = \Omega$
@@ -205,6 +196,8 @@
     + $(n] = [n] = \{ 1, \dots, n\}$
     + size: $|\mid _d(n] \mid| = \lfloor n/d \rfloor$
 
+
+
 ## Disjoint Unions
 
 + [Disjoint unions](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions)
@@ -225,6 +218,37 @@
 + [General subtraction rule](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions): $\exists\, A, B \in \Omega \text{ s.t. } |B - A| = |B| - |A|$
 
 
+
+## General Union
+
++ [Union](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
+  + Definition: (union) $A \cup B = \{x: x \in A \vee x \in B\}$
+
++ [General unions](../Stats/ProbStatsPython/03-Counting.md#33-general-unions)
+  + disjoint A and B: $|A \cup B| = |A| + |B| \to$ size of union = sum of sizes
+  + in general: $|A \cup B| \neq |A| + |B|$
+  + __Principle of Inclusion-Exclusion (PIE)__: $|A \cup B| = |A| + |B| - |A \cap B|$
+
++ [Multiple sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + $A \cup B \cup C = \{ x \in \Omega: x \in A \vee x \in B \vee x \in X\}$
+  + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+  + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+
++ [Multiple sets union](../Stats/ProbStatsPython/03-Counting.md#33-general-unions)
+  + two sets: $|A \cup B| = |A| + |B| - |A \cap B|$
+  + 3 sets: $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |B \cap C| - |C \cap A| + |A \cap B \cap C|$
+  + n sets:
+
+    \[ \left|\bigcup_{i=1}^n A_i \right| = \sum_{1 \leq i \leq n} |A_i| - \sum_{1 \leq i < j \leq n} |A_i \cap A_j| + \cdots + (-1)^{n-1} \left| \bigcap_{i=1}^n A_i \right| \]
+
++ [Sanity checks](../Stats/ProbStatsPython/03-Counting.md#33-general-unions)
+  + compare PIE to some expected outcomes
+  + $A, B$ disjoint: $|A \cup B| = |A| + |B| - |A \cap B| = |A| + |B|$
+  + equal sets: $|A \cup A| = |A| + |A| - |A \cap A| = |A|$
+  + general union
+
+    \[ \max \{|A|, |B|\} \underbrace{\leq}_{= \iff \\ \text{nested}} |A \cup B| \underbrace{\leq}_{= \iff \\ \text{disjoint}} |A| + |B| \]
 
 
 
