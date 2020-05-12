@@ -153,26 +153,6 @@
   + remark: $A \Delta B = (A - B) \cup (B - A)$
 
 
-## Cartesian Products
-
-+ [Tuples and ordered pairs](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
-  + set: order and repetition not mattered
-  + tuple: both order and repetition matter
-  + n-tuple: tuple w/ $n$ elements
-  + 2-tuple: order pair
-
-+ [Cartesian products](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
-  + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
-  + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
-  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
-
-+ [Identity for Cartesian product](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
-  + $A \times \varnothing = \varnothing \times A = \varnothing$
-  + $A \times (B \cup C) = A \times B \cup A \times C$
-  + $A \times (B \cap C) = A \times B \cap A \times C$
-  + $A \times (B - C) = A \times B - A \times C$
-
-
 
 ## Set Counting
 
@@ -249,6 +229,34 @@
   + general union
 
     \[ \max \{|A|, |B|\} \underbrace{\leq}_{= \iff \\ \text{nested}} |A \cup B| \underbrace{\leq}_{= \iff \\ \text{disjoint}} |A| + |B| \]
+
+
+
+## Cartesian Products
+
++ [Tuples and ordered pairs](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + set: order and repetition not mattered
+  + tuple: both order and repetition matter
+  + n-tuple: tuple w/ $n$ elements
+  + 2-tuple: order pair
+
++ [Cartesian products](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
+  + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
+  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+
++ [Identity for Cartesian product](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + $A \times \varnothing = \varnothing \times A = \varnothing$
+  + $A \times (B \cup C) = A \times B \cup A \times C$
+  + $A \times (B \cap C) = A \times B \cap A \times C$
+  + $A \times (B - C) = A \times B - A \times C$
+
++ [Counting of Cartesian products](../Stats/ProbStatsPython/03-Counting.md#34-cartesian-products)
+  + the size of a Cartesian product = the product of the set sizes
+  + product rule: $|A \times B| = |A| \times |B|$
+  + for $n$  sets, $|A_1 \times A_2 \cdots \times A_n| = |A_1| \times \dots \times |A_n|$
+
+
 
 
 
