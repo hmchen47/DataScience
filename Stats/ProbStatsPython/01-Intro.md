@@ -393,19 +393,19 @@
 
 ## 1.5 History of Probability and Statistics
 
-#### 1.5.1 A short history of Probability and Statistics
+### 1.5.1 A short history of Probability and Statistics
 
 + Games of chance vs. Strength of evidence
   + brief history of statistics (detailed in 1.5.2)
   + Two concepts in practice of data analysis (top right diagram)
     + Rows: point-value hypothesis testing versus estimating magnitude with uncertainty
-    + Columns: frequentist versus Bayesian methods. 
+    + Columns: frequentist versus Bayesian methods.
     + Cells indicate the typical information provided by each approach
   + R. Kass, [Statistical Inference: the big picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf)
-    + bottom left figure: The big picture of statistical inference.
+    + top left figure: The big picture of statistical inference.
       + Statistical procedures are abstractly defined in terms of mathematics but are used, in conjunction with scientific models and methods, to explain observable phenomena.
       + This picture emphasizes the hypothetical link between variation in data and its description using statistical models.
-    + bottom right figure: A more elaborate big picture, reflecting in greater detail the process of statistical inference. 
+    + bottom figure: A more elaborate big picture, reflecting in greater detail the process of statistical inference. 
       + hypothetical link (red dotted line):
         + data and random variables
         + key features of unobserved mechanisms and parameters
