@@ -45,6 +45,19 @@ def main():
 
     input("\nPress Enter to continue ...")
 
+    # set operations
+    A = {1, 2, 3}
+    B = {1, 3, 5}
+    print("\nset operations w/ the sets: A={},    B={}".format(A, B))
+    print("  Intersection  (A & B)= {}    w/ |A&B|= {}".format(A&B, len(A&B)))
+    print("  Difference    (A - B)= {}    w/ |A-B|= {}".format(A-B, len(A-B)))
+    print("  General union (A | B)= {}    w/ |A|B|= {} = |A| + |B| - |A&B|".format(A|B, len(A|B)))
+    
+    input("\nPress Enter to continue ...")
+
+
+
+
     return None
 
 if __name__ == "__main__":
