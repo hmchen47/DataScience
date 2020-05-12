@@ -7,10 +7,10 @@
 ### Environment and Module
 
 ```python
-%matplotlib notebook                                    # provides an interactive environment in Jupyter and IPuthon
+%matplotlib notebook       # provides an interactive environment in Jupyter and IPuthon
 
-import matplotlib as mpl                                # load module in CLI
-import matplotlib.pyplot as plt                         # load pyplot module
+import matplotlib as mpl                # load module in CLI
+import matplotlib.pyplot as plt         # load pyplot module
 import matplotlib.gridspec as gridspec
 import mpl_toolkits.axes_grid1.inset_locator as mpl_il
 import matplotlib.animation as animation
@@ -101,10 +101,10 @@ from matplotlib.colors import ListedColormap
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
-    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; border-right: double white;"> Description </th>
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
-    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50;"> Description </th>
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em; border-right: double white;"> Description </th>
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Description </th>
   </tr>
   </thead>
   <tbody>
@@ -196,10 +196,10 @@ from matplotlib.colors import ListedColormap
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 40vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
-    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; border-right: double white;"> Color </th>
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50;"> Character </th>
-    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50;"> Color </th>
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em; border-right: double white;"> Color </th>
+    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Color </th>
   </tr>
   </thead>
   <tbody>
