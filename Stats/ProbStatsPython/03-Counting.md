@@ -1082,6 +1082,81 @@
 
 ## Programming Assignment 3
 
++ [Original Topic 3 Assignment](https://tinyurl.com/y7hgj9xs)
+
++ [Local Topic 3 Assignment](src/HW_Topic03/sets_HW.ipynb)
+
+
+1. Let $A = \{−2,0,5,bob\}$, $B = \{−2,0,5,10,jill\}$.
+
+  Which of the following is the correct output for `union(A,B)`<br/>
+  a. $\{−2,−2,0,0,5,5,10, bob, jill\}, 6 $<br/>
+  b. $\{−2,0,5,10, bob, jill\}, 6 $<br/>
+  c. $\{10, bob, jill\}, 3$<br/>
+
+  Ans: b<br/>
+  Explanation:
+
+  ```python
+  def union(A, B):
+    # inputs: A and B are of type 'set'
+    # output: a tuple of the type (set, set_length)
+
+    return (A | B, len(A | B))
+  ```
+
+
+2. Again, let $A = \{−2,0,5,bob\}, B = \{−2,0,5,10,jill\}$.
+
+  Which of the following is the correct output for `inclusion_exclusion(A,B)`<br/>
+  a. (5,5,2,6)<br/>
+  b. (4,5,3,6)<br/>
+  c. (5,4,3,6)<br/>
+
+  Ans: b<br/>
+
+  ```python
+  def inclusion_exclusion(A, B):
+    # inputs: A and B are of type 'set'
+    # output: a tuple of four integers
+
+    return (len(A), len(B), len(A & B), len(A | B))
+  ```
+
+
+3. Let  A={−2,0,5,bob} ,  B={−2,0,5,10,jill} ,  C={−2,0,3,5,10} .
+
+  Which of the following is the correct output for `union3(A,B,C)`<br/>
+  a. $\{−2,0,3,5,10, bob, jill\}, 7$<br/>
+  b. $\{−2,0,3,5,10\}, 5$<br/>
+  c. $\{−2,0,5,10, bob, jill\}, 6$<br/>
+
+  Ans: a<br/>
+
+  ```python
+  def union3(A, B, C):
+    # inputs: A, B and C are of type 'set'
+    # output: a tuple of the type (set, set_length)
+
+    return (A | B | C, len(A | B | C))
+  ```
+
+4. Again, let $A=\{−2,0,5,bob\}$, $B=\{−2,0,5,10,jill\}$, $C=\{−2,0,3,5,10\}$.
+
+  Which of the following is the correct output for `inclusion_exclusion3(A,B,C)`<br/>
+  a. 3, 5<br/>
+  b. 3, 6<br/>
+  c. 3, 7<br/>
+
+  Ans: c<br/>
+
+  ```python
+  def inclusion_exclusion3(A, B, C):
+    # inputs: A, B and C are of type 'set'
+    # output: a tuple of two integers
+
+    return (len(A & B & C), len(A | B | C))
+  ```
 
 
 
