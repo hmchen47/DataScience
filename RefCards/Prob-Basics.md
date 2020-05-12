@@ -162,6 +162,26 @@
   + remark: $A \Delta B = (A - B) \cup (B - A)$
 
 
+## Cartesian Products
+
++ [Tuples and ordered pairs](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + set: order and repetition not mattered
+  + tuple: both order and repetition matter
+  + n-tuple: tuple w/ $n$ elements
+  + 2-tuple: order pair
+
++ [Cartesian products](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
+  + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
+  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+
++ [Identity for Cartesian product](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + $A \times \varnothing = \varnothing \times A = \varnothing$
+  + $A \times (B \cup C) = A \times B \cup A \times C$
+  + $A \times (B \cap C) = A \times B \cap A \times C$
+  + $A \times (B - C) = A \times B - A \times C$
+
+
 
 
 
