@@ -951,11 +951,11 @@
     <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#seaborn"> Seaborn </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#seaborn-api"> Seaborn API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Seaborn </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#seaborn-api"> Seaborn API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
   </tr>
 
   <!-- Probability & Statistics -->
