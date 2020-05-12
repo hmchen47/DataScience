@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -* coding: utf-8 -*-
 
+import itertools
+
 def main():
 
     # size of an object
@@ -36,7 +38,12 @@ def main():
 
     input("\nPress Enter to continue ...")
 
+    # enumerate function
+    print("\nenumerate function pproviding an index number")
+    for idx, (a_i, b_i) in enumerate(zip(a, b)):
+        print("  {} {} {}".format(idx, a_i, b_i))
 
+    input("\nPress Enter to continue ...")
 
     return None
 
