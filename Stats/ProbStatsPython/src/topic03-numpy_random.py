@@ -16,6 +16,11 @@ def main():
 
     input('\nPress Enter to continue ...')
 
+    # generate integers ranging from low (inclusive) to high (exclusive)
+    print('\nrandom numbers (2x3) w/ integer range: np.random.randint(low=0, high=4, size=(2, 3))\n{}'.format(np.random.randint(low=0, high=4, size=(2, 3))))
+
+    input('\nPress Enter to continue ...')
+
 
     return None
 
