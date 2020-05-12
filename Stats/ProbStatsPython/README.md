@@ -27,10 +27,8 @@ In this course you will learn the following topics (some may be added or dropped
 ## Lecture Contents
 
 + Introduction and Course Information
-  + [How This Course is Run](./00-CourseInfo.md#)
-  + [Syllabus](./00-CourseInfo.md#)
-  + [Introduce Yourself](./00-CourseInfo.md#)
-  + [Tips for Succeeding in this Course](./00-CourseInfo.md#)
+  + [How This Course is Run](./00-CourseInfo.md#how-this-course-is-run)
+  + [Syllabus](./00-CourseInfo.md#syllabus)
 
 
 + Topic 1: Introduction to Probability and Statistics
