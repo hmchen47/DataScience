@@ -1072,6 +1072,13 @@
 + [Numpy Random Python code](src/topic03-numpy_random.py)
 
 
++ [Original Topic 3 Lecture NB](https://tinyurl.com/y7u72vpq)
+
++ [Local Topic 3 Lecture NB](src/Topic03-Lecture.ipynb)
+
++ [Topic 3 Lecture Python code](src/Topic03-Lecture.py)
+
+
 
 ## Programming Assignment 3
 
