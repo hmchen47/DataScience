@@ -193,6 +193,16 @@
     + $(n] = [n] = \{ 1, \dots, n\}$
     + size: $|\mid _d(n] \mid| = \lfloor n/d \rfloor$
 
++ [n Digits: complement](../Stats/ProbStatsPython/03-Counting.md#36-variations)
+
+    \[\begin{align*}
+      Z_0^c &= \{x^n: \exists\,i\; x_i \in Z\}^c = \{x^n: \forall\,i\; x_i \notin Z\} = (Z^c)^n \triangleq Z_c\\
+      |Z_c| &= |Z^c|^n = 9^n\\\\
+      Z_0 &= D^n - Z_c \\
+      |Z_0| &= |D^n| - |Z_c|
+    \end{align*}\]
+
+
 
 
 ## Disjoint Unions
@@ -213,6 +223,7 @@
     + reason: set difference $\approx -$
 
 + [General subtraction rule](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions): $\exists\, A, B \in \Omega \text{ s.t. } |B - A| = |B| - |A|$
+
 
 
 
@@ -246,6 +257,20 @@
   + general union
 
     \[ \max \{|A|, |B|\} \underbrace{\leq}_{= \iff \\ \text{nested}} |A \cup B| \underbrace{\leq}_{= \iff \\ \text{disjoint}} |A| + |B| \]
+
++ [n digit: Inclusion-Exclusion](../Stats/ProbStatsPython/03-Counting.md#36-variations)
+  + $Z_0 = \{x^n: \exists\,i\; x_i = 0\} \quad x^n \triangleq x_1,\dots,x_n$
+  + $Z_i = \{x^n: x_i = 0\}$, e.g., $n=4 \text{ s.t. } Z_2 = \{x0yz\} \quad Z_4 = \{xyz0\}$
+  + $Z_0 = Z_1 \cup \dots \cup Z_n$
+  
+    \[\begin{align*}
+      |Z_0| &=\quad |Z_1| + |Z_2| + \cdots + |Z_n| \\
+        &\quad- |Z_1 \cap Z_2| - |Z_1 \cap Z_3| - \cdots - |Z_{n-1} \cap Z_n| \\
+        &\quad+ |Z_1 \cap Z_2 \cap Z_3| + \cdots + |Z_{n-2} \cap Z_{n-1} \cap Z_n|\\
+        &\quad \cdots\\
+        &\quad+ (-1)^{n-1} |Z_1 \cap Z_2 \cap \cdots Z_n|
+    \end{align*}\]
+
 
 
 
