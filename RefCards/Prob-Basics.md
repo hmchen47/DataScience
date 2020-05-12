@@ -130,6 +130,7 @@
   + the <span style="color: magenta;">intersection</span>, $A \,{\color{Magenta}{\cap}}\, B$, is the set of elements in both $A$ and $B$
   + Definition: (intersection) $A \cap B = \{x: x\in A \wedge x \in B\}$
 
+<<<<<<< HEAD
 + [Union](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
   + Definition: (union) $A \cup B = \{x: x \in A \vee x \in B\}$
@@ -139,6 +140,8 @@
   + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
   + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
 
+=======
+>>>>>>> pspy03
 + [Law of sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + identities - one set
     + identity: $A \cap \Omega = A \quad A \cup \Omega = \Omega$
@@ -161,6 +164,127 @@
   + Definition: (symmetric difference) $A \Delta B = \{x: x \in A \wedge x \not\in B \vee x \not\in A \wedge x \in B\}$
   + remark: $A \Delta B = (A - B) \cup (B - A)$
 
++ [Analogies btw number and set operations](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Numbers</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sets</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Python Operator</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">Addition</td> <td style="text-align: center;">Disjoint union</td> <td style="text-align: center;">$+$</td> </tr>
+    <tr> <td style="text-align: center;">Subtraction</td> <td style="text-align: center;">Complement</td> <td style="text-align: center;">$-$</td> </tr>
+    <tr> <td style="text-align: center;">Multiplication</td> <td style="text-align: center;">Cartesian product</td> <td style="text-align: center;">$\times$</td> </tr>
+    <tr> <td style="text-align: center;">Exponents</td> <td style="text-align: center;">Cartesian power</td> <td style="text-align: center;">$\ast\ast$</td> </tr>
+    </tbody>
+  </table>
+
+
+## Set Counting
+
++ [Functions](../Stats/ProbStatsPython/03-Counting.md#31-counting)
+  + a <span style="color: magenta;">function f from A to B</span>, denote <span style="color: magenta;">$f: A \to B$</span>, associates w/ every $a\in A$ and <span style="color: magenta;">image</span> $f(a) \in B$
+  + $f: A \to B$ is <span style="color: magenta;">1-1</span>, or <span style="color: magenta;">injective</span>, if different elements have different images
+  + Definition: (injective) $\forall\mid a, a^\prime \in A, a \neq a^\prime \to f(a) \neq f(a^\prime) \text{ and } f(a) = f(a^\prime) \to a = a^\prime$
+  + $f: A \to B$ is <span style="color: magenta;">not 1-1</span> if $\exists\mid a \neq a^\prime \in A, f(a) = f(a^\prime)$
+
++ [Set size](../Stats/ProbStatsPython/03-Counting.md#31-counting)
+  + the number of elements in a set S is called its <span style="color: magenta;">size</span>, or <span style="color: magenta;">cardinality</span>, and denoted <span style="color: magenta;">$|S|$</span> or <span style="color: magenta;">$\#S$</span>
+  + $n$-set: set of size $n$
+
++ [Integer intervals](../Stats/ProbStatsPython/03-Counting.md#31-counting)
+  + $m \leq n$: $\{m, \dots, n\} = \{\text{integers from } m \text{ to } n, \text{inclusive}\}$, e.g., $\{3, \dots, 5\} = \{3, 4, 5\}$
+  + size: $| \{m, \dots, n\} \mid n-m+1$
+
++ [Integer multiples](../Stats/ProbStatsPython/03-Counting.md#31-counting)
+  + Definition: (integer multiples) $_d(n] = \{ 1 \leq i \leq n: d \mid i\}$
+  + remark: 
+    + $(n] = [n] = \{ 1, \dots, n\}$
+    + size: $|\mid _d(n] \mid| = \lfloor n/d \rfloor$
+
++ [n Digits: complement](../Stats/ProbStatsPython/03-Counting.md#36-variations)
+
+    \[\begin{align*}
+      Z_0^c &= \{x^n: \exists\,i\; x_i \in Z\}^c = \{x^n: \forall\,i\; x_i \notin Z\} = (Z^c)^n \triangleq Z_c\\
+      |Z_c| &= |Z^c|^n = 9^n\\\\
+      Z_0 &= D^n - Z_c \\
+      |Z_0| &= |D^n| - |Z_c|
+    \end{align*}\]
+
+
+
+
+## Disjoint Unions
+
++ [Disjoint unions](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions)
+  + a union of disjoint sets is called a <span style="color: magenta;">disjoint union</span>
+  + for disjoint union sets, the size of the union is the sum of the size for each set
+  + addition rule: `+`
+    + numerous applications & implications
+    + reason: $\cup \approx +$
+
++ [Complements](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions)
+  + Quintessential disjoint sets: $A$ and $A^c$
+    + $A \cup A^c = \Omega$
+    + $|\Omega| = |A \cup A^c| = |A| + |A^c|$
+  + subtraction (or complement) rule: `-`
+    + $|A^c| = |\Omega| - |A|$
+    + reason: set difference $\approx -$
+
++ [General subtraction rule](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions): $\exists\, A, B \in \Omega \text{ s.t. } |B - A| = |B| - |A|$
+
+
+
+
+## General Union
+
++ [Union](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
+  + Definition: (union) $A \cup B = \{x: x \in A \vee x \in B\}$
+
++ [General unions](../Stats/ProbStatsPython/03-Counting.md#33-general-unions)
+  + disjoint A and B: $|A \cup B| = |A| + |B| \to$ size of union = sum of sizes
+  + in general: $|A \cup B| \neq |A| + |B|$
+  + __Principle of Inclusion-Exclusion (PIE)__: $|A \cup B| = |A| + |B| - |A \cap B|$
+
++ [Multiple sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + $A \cup B \cup C = \{ x \in \Omega: x \in A \vee x \in B \vee x \in X\}$
+  + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+  + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+
++ [Multiple sets union](../Stats/ProbStatsPython/03-Counting.md#33-general-unions)
+  + two sets: $|A \cup B| = |A| + |B| - |A \cap B|$
+  + 3 sets: $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |B \cap C| - |C \cap A| + |A \cap B \cap C|$
+  + n sets:
+
+    \[ \left|\bigcup_{i=1}^n A_i \right| = \sum_{1 \leq i \leq n} |A_i| - \sum_{1 \leq i < j \leq n} |A_i \cap A_j| + \cdots + (-1)^{n-1} \left| \bigcap_{i=1}^n A_i \right| \]
+
++ [Sanity checks](../Stats/ProbStatsPython/03-Counting.md#33-general-unions)
+  + compare PIE to some expected outcomes
+  + $A, B$ disjoint: $|A \cup B| = |A| + |B| - |A \cap B| = |A| + |B|$
+  + equal sets: $|A \cup A| = |A| + |A| - |A \cap A| = |A|$
+  + general union
+
+    \[ \max \{|A|, |B|\} \underbrace{\leq}_{= \iff \\ \text{nested}} |A \cup B| \underbrace{\leq}_{= \iff \\ \text{disjoint}} |A| + |B| \]
+
++ [n digit: Inclusion-Exclusion](../Stats/ProbStatsPython/03-Counting.md#36-variations)
+  + $Z_0 = \{x^n: \exists\,i\; x_i = 0\} \quad x^n \triangleq x_1,\dots,x_n$
+  + $Z_i = \{x^n: x_i = 0\}$, e.g., $n=4 \text{ s.t. } Z_2 = \{x0yz\} \quad Z_4 = \{xyz0\}$
+  + $Z_0 = Z_1 \cup \dots \cup Z_n$
+  
+    \[\begin{align*}
+      |Z_0| &=\quad |Z_1| + |Z_2| + \cdots + |Z_n| \\
+        &\quad- |Z_1 \cap Z_2| - |Z_1 \cap Z_3| - \cdots - |Z_{n-1} \cap Z_n| \\
+        &\quad+ |Z_1 \cap Z_2 \cap Z_3| + \cdots + |Z_{n-2} \cap Z_{n-1} \cap Z_n|\\
+        &\quad \cdots\\
+        &\quad+ (-1)^{n-1} |Z_1 \cap Z_2 \cap \cdots Z_n|
+    \end{align*}\]
+
+
+
 
 ## Cartesian Products
 
@@ -181,10 +305,51 @@
   + $A \times (B \cap C) = A \times B \cap A \times C$
   + $A \times (B - C) = A \times B - A \times C$
 
++ [Counting of Cartesian products](../Stats/ProbStatsPython/03-Counting.md#34-cartesian-products)
+  + the size of a Cartesian product = the product of the set sizes
+  + product rule: $|A \times B| = |A| \times |B|$
+  + for $n$  sets, $|A_1 \times A_2 \cdots \times A_n| = |A_1| \times \dots \times |A_n|$
+
+
+
+## Cartesian Power
+
++ [Cartesian powers of a set](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + Cartesian product of a set w/ itself is a <span style="color: magenta;">Cartesian power</span>
+  + Cartesian square: $A^2 = A \times A$
+  + $n$-th Cartesian power: $A^n \stackrel{\text{def}}{=} \underbrace{A \times A \times \cdots \times A}_{n}$
+  
+    \[ |A^n| = |A \times A \times A \times \cdots \times A| = |A| \times |A| \times \cdots \times |A| = |A|^n \]
+
++ [Binary strings](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + n-bit string: $\{0, 1\}^n = \{\text{ length-n binary strings } \}$
+
++ [Subsets](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\mathbb{P}(S)$</span>, is the collection of all subsets of S
+  + 1-1 correspondence btw $\mathbb{P}(S)$ (subset of $S$) and $\{0, 1\}^{|S|}$ (binary strings of length $|S|$): mapping $\mathbb{P}(\{a, b\})$ to $\{0, 1\}^2$
+  + $|\mathbb{P}(S)| = ?$
+
+      \[ \left|\mathbb{P}(S)\right| = \left| \{0, 1\}^{|S|} \right| = 2^{|S|} \]
+
+  + the size of the power set = the power of the set size
+
++ [Functions](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + a <span style="color: magenta;">function from A to B</span> maps every elements $a \in A$ to an element $f(a) \in B$
+  + define a function $f:\; $ by specifying $f(a), \;\forall\, a \in A$
+  + generalization
+    + { function from A to B } $\implies \underbrace{B \times B \times \cdots \times B}_{|A|} = B^{|A|}$
+    + $\therefore\; \text{ # functions from A to B } = |B^{|A|}| = |B|^{|A|}$
 
 
 
 
+## Tree Structure
 
++ [Trees and Cartesian products](../Stats/ProbStatsPython/03-Counting.md#37-trees)
+  + tree advantages:
+    + a tree representing any set of sequences, not just Cartesian products
+    + enabling systematic counting technique
+    + useful in modeling random phenomena
+  + Cartesian products as trees: used only  when all nodes have same degree at any level
 
 

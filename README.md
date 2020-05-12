@@ -30,7 +30,7 @@
 
 ## Reference Cards
 
-### Statistics
+### Probability and Statistics
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -41,7 +41,7 @@
   </thead>
   <tbody>
   <tr>
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Help Cards </td> </tr>
+    <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Help Cards </td> </tr>
     <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#statistics-notation"> Notations </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#naming-scenarios-for-inference"> Inference Scenarios </a> </td>
@@ -87,31 +87,72 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Basics </td> </tr>
+
+  </tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#basic-concepts"> Concepts </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#tree-structure"> Tree </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sets &amp; Counting </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#basic-sets"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#set-relations"> Relations </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#set-operations"> Operations </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#set-counting"> Counting </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#disjoint-unions"> Disjoint Union </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#general-union"> General Union </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-products"> Cartesian Product </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-power"> Cartesian Power </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+
+
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Statistics Basics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
-    <td style="padding: 0.3em;"> <a href="./Stat-Basics.md#basic-concepts"> Terminology </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#basic-concepts"> Terminology </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Inference </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#analysis-methodologies"> Analysis </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a> </td>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Hypothesis Test </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#bernoulli-distribution"> Bernoulli </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#binomial-distribution"> Binomial </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-distribution"> Beta </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-binomial-distribution"> Beta-Binomial </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-binomial-distribution"> Beta-Binomial </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Study Design </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#overview"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#study-design-for-cohort-studies"> Cohort </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#cast-control-studies"> Case-Control </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
@@ -120,6 +161,7 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
+
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Bayesian Approaches </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
@@ -174,6 +216,7 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
+
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Numerical Methods </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
@@ -866,7 +909,8 @@
 </table>  
 
 
-### [Data Science with Python](./RefCards/PythonDS.md)
+### Python for Data Science
+
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -876,6 +920,63 @@
   </tr>
   </thead>
   <tbody>
+
+  <!-- Common Functions -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Common Functions </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Import Data </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  Matplotlib </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#official-pyplot-api"> Official Pyplot API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#environment-and-module"> Environment & Modules </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#classes"> Classes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md0official-docs#"> Official Docs </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#methods-4"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#line-style-or-marker"> Line Style & Marker </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#color-abbreviations"> Color abbreviations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Seaborn </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#seaborn-api"> Seaborn API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+  </tr>
+
+  <!-- Probability & Statistics -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability &amp; Statistics </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#sets"> Sets </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Number Generator </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+
+  <!-- Data Science -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Data Science </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
     <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
@@ -926,26 +1027,6 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-3"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#matplotlib"> Matplotlib </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#official-pyplot-api"> Official Pyplot API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#environment-and-module"> Environment & Modules </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#classes"> Classes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md0official-docs#"> Official Docs </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-4"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#line-style-or-marker"> Line Style & Marker </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#color-abbreviations"> Color abbreviations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#seaborn"> Seaborn </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#seaborn-api"> Seaborn API </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>

@@ -55,5 +55,15 @@
   + ordered pairs: $(a, b)$
   + Python: `product` functon in `itertools` library
 
++ [Set size](../Stats/ProbStatsPython/03-Counting.md#31-counting)
+  + size: `len`, e.g., `print(len({-1, 1})) # 2`
+  + sum: `sum`, e.g., `print(sum({-1, 1})) # 0`
+  + minimum: `min`, e.g., `print(min({-1, 1})) # -1`
+  + maximum: `max`, e.g., `print(max({-1, 1})) # 1`
+  + loops: `for <var> in <set>`
+
++ [Cartesian powers and exponential](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + Cartesian: using `product` function in `itertools` library
+  + exponential: `**`
 
 
