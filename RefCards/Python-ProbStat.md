@@ -62,5 +62,8 @@
   + maximum: `max`, e.g., `print(max({-1, 1})) # 1`
   + loops: `for <var> in <set>`
 
++ [Cartesian powers and exponential](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + Cartesian: using `product` function in `itertools` library
+  + exponential: `**`
 
 
