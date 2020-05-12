@@ -42,28 +42,28 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 2: Sets
-  + 2.1 [Notation](./02-Sets.md#)
-  + 2.2 [Basic Sets](./02-Sets.md#)
-  + 2.3 [Venn Diagrams](./02-Sets.md#)
-  + 2.4 [Relations](./02-Sets.md#)
-  + 2.5 [Operations](./02-Sets.md#)
-  + 2.6 [Cartesian Products](./02-Sets.md#)
-  + 2.7 [Russell's Paradox](./02-Sets.md#)
-  + [Lecture Notebook 2](./02-Sets.md#)
-  + [Programming Assignment 2](./02-Sets.md#)
+  + 2.1 [Notation](./02-Sets.md#21-notation)
+  + 2.2 [Basic Sets](./02-Sets.md#21-notation)
+  + 2.3 [Venn Diagrams](./02-Sets.md#23-venn-diagrams)
+  + 2.4 [Relations](./02-Sets.md#24-relations)
+  + 2.5 [Operations](./02-Sets.md#25-operations)
+  + 2.6 [Cartesian Products](./02-Sets.md#26-cartesian-products)
+  + 2.7 [Russell's Paradox](./02-Sets.md#27-russells-paradox)
+  + [Lecture Notebook 2](./02-Sets.md#lecture-notebook-2)
+  + [Programming Assignment 2](./02-Sets.md#programming-assignment-2)
 
 
 + Topic 3: Counting
-  + 3.1 [Counting](./03-Counting.md#)
-  + 3.2 [Disjoint Unions](./03-Counting.md#)
-  + 3.3 [General Unions](./03-Counting.md#)
-  + 3.4 [Cartesian Products](./03-Counting.md#)
-  + 3.5 [Cartesian Powers](./03-Counting.md#)
-  + 3.6 [Variations](./03-Counting.md#)
-  + 3.7 [Trees](./03-Counting.md#)
-  + [Matplotlib and Numpy.random Notebook](./03-Counting.md#)
-  + [Lecture Notebook 3](./03-Counting.md#)
-  + [Programming Assignment 3](./03-Counting.md#)
+  + 3.1 [Counting](./03-Counting.md#31-counting)
+  + 3.2 [Disjoint Unions](./03-Counting.md#32-disjoint-unions)
+  + 3.3 [General Unions](./03-Counting.md#33-general-unions)
+  + 3.4 [Cartesian Products](./03-Counting.md#34-cartesian-products)
+  + 3.5 [Cartesian Powers](./03-Counting.md#35-cartesian-powers)
+  + 3.6 [Variations](./03-Counting.md#36-variations)
+  + 3.7 [Trees](./03-Counting.md#37-trees)
+  + [Matplotlib and Numpy.random Notebook](./03-Counting.md#matplotlib-and-numpyrandom-notebook)
+  + [Lecture Notebook 3](./03-Counting.md#lecture-notebook-3)
+  + [Programming Assignment 3](./03-Counting.md#programming-assignment-3)
 
 
 + Topic 4: Combinatorics
