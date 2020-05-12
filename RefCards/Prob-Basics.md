@@ -76,7 +76,39 @@
   + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
   + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i\}$
 
-  
++ [Equality](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + $=$: <span style="color: cyan;">all</span> elements must be identical, e.g., $\{1, 2, 4\} = \{4, 1, 2\}$
+  + $\neq$: <span style="color: cyan;">one different</span> element enough, e.g., $\{1, 2, 4\} \neq \{4, 1, 2, 8\}$
+
++ [Intersection](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + Remarks
+    + $\varnothing$ disjoint any set
+    + non-empty $\Omega$ intersects every set
+    + a set intersects itself $\iff$ non-empty
+  + generalization: several sets
+    + <span style="color: magenta;">intersect</span> if <span style="color: cyan;">all share</span> a common element
+    + <span style="color: magenta;">mutually disjoint</span> if <span style="color: cyan;">every two</span> are disjoint
+
++ [Subsets](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + every element in A is also in B $\implies$ A is a <span style="color: magenta;">subset of</span> B, denoted $A \,{\color{Magenta}{\subseteq}}\, B$
+  + equivalently, B is a <span style="color: magenta;">superset</span> of, or contains, A, denoted $B \,{\color{Magenta}{\supseteq}}\, A$
+  + A has an element that's not in B $\implies$ A is <span style="color: magenta;">not a subset</span> of B, denote $A {\color{Magenta}{\nsubseteq}} B$, or $B {\color{Magenta}{\nsupseteq}} A$
+  + Remarks
+    + $\mathbb{P} \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
+    + $\varnothing \subseteq A \subseteq A \subseteq \Omega$
+    + $\subseteq$ is <span style="color: magenta;">transitive</span>: $A \subseteq B \wedge B \subseteq C \implies A \subseteq B$
+    + $A \subseteq B \wedge B \subseteq A \implies A = B$
+
++ [Strict subset](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + if $A \subseteq B$ and $A \neq B$, A is a <span style="color: magenta;">strict subset</span> of B, denoted $A {\color{Magenta}{\subset}} B$, and B  is a <span style="color: magenta;">strict superset</span> of A, denoted $B {\color{Magenta}{\supset}} A$
+    + e.g., $\{0\} \subset \{0, 1\}$, $\{0, 1\} \supset \{0\}$
+  + if A is <span style="color: magenta;">not</span> a strict subset of B, we write $A {\color{Magenta}{\not\subset}} B$ or $B {\color{Magenta}{\not\supset}} A$, w/ two possible reasons
+
++ [Belongs to $\in$ vs, $\subseteq$ subset of](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + $\in$: relationship btw an <span style="color: cyan;">element</span> and a <span style="color: cyan;">set</span>
+  + $\subseteq$: relationship btw <span style="color: cyan;">two sets</span>
+
+
 
 
 
