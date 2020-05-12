@@ -152,6 +152,23 @@
   + Definition: (symmetric difference) $A \Delta B = \{x: x \in A \wedge x \not\in B \vee x \not\in A \wedge x \in B\}$
   + remark: $A \Delta B = (A - B) \cup (B - A)$
 
++ [Analogies btw number and set operations](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Numbers</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sets</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Python Operator</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">Addition</td> <td style="text-align: center;">Disjoint union</td> <td style="text-align: center;">$+$</td> </tr>
+    <tr> <td style="text-align: center;">Subtraction</td> <td style="text-align: center;">Complement</td> <td style="text-align: center;">$-$</td> </tr>
+    <tr> <td style="text-align: center;">Multiplication</td> <td style="text-align: center;">Cartesian product</td> <td style="text-align: center;">$\times$</td> </tr>
+    <tr> <td style="text-align: center;">Exponents</td> <td style="text-align: center;">Cartesian power</td> <td style="text-align: center;">$\ast\ast$</td> </tr>
+    </tbody>
+  </table>
 
 
 ## Set Counting
@@ -256,6 +273,35 @@
   + product rule: $|A \times B| = |A| \times |B|$
   + for $n$  sets, $|A_1 \times A_2 \cdots \times A_n| = |A_1| \times \dots \times |A_n|$
 
+
+
+## Cartesian Power
+
++ [Cartesian powers of a set](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + Cartesian product of a set w/ itself is a <span style="color: magenta;">Cartesian power</span>
+  + Cartesian square: $A^2 = A \times A$
+  + $n$-th Cartesian power: $A^n \stackrel{\text{def}}{=} \underbrace{A \times A \times \cdots \times A}_{n}$
+  
+    \[ |A^n| = |A \times A \times A \times \cdots \times A| = |A| \times |A| \times \cdots \times |A| = |A|^n \]
+
++ [Binary strings](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + n-bit string: $\{0, 1\}^n = \{\text{ length-n binary strings } \}$
+
++ [Subsets](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\mathbb{P}(S)$</span>, is the collection of all subsets of S
+  + 1-1 correspondence btw $\mathbb{P}(S)$ (subset of $S$) and $\{0, 1\}^{|S|}$ (binary strings of length $|S|$): mapping $\mathbb{P}(\{a, b\})$ to $\{0, 1\}^2$
+  + $|\mathbb{P}(S)| = ?$
+
+      \[ \left|\mathbb{P}(S)\right| = \left| \{0, 1\}^{|S|} \right| = 2^{|S|} \]
+
+  + the size of the power set = the power of the set size
+
++ [Functions](../Stats/ProbStatsPython/03-Counting.md#35-cartesian-powers)
+  + a <span style="color: magenta;">function from A to B</span> maps every elements $a \in A$ to an element $f(a) \in B$
+  + define a function $f:\; $ by specifying $f(a), \;\forall\, a \in A$
+  + generalization
+    + { function from A to B } $\implies \underbrace{B \times B \times \cdots \times B}_{|A|} = B^{|A|}$
+    + $\therefore\; \text{ # functions from A to B } = |B^{|A|}| = |B|^{|A|}$
 
 
 
