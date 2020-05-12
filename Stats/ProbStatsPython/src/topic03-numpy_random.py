@@ -21,6 +21,17 @@ def main():
 
     input('\nPress Enter to continue ...')
 
+    # geneate random numbers following a given pmf
+    num = np.arange(4)
+    pmf = [0.1, 0.2, 0.3, 0.4]
+    print('\nrandom numbers (3x4) w/ a given pmf: np.random.choice(a=num, size=(3, 4), p=pmf)\n{}'.format(np.random.choice(a=num, size=(3, 4), p=pmf)))
+
+    num = ['Spade', 'Heart', 'Diamond', 'Club']
+    pmf = [0.25, 0.25, 0.25, 0.25]
+    print('\nrandom numbers (3x4) w/ a given pmf: np.random.choice(a=num, size=(3, 4), p=pmf)\n{}'.format(np.random.choice(a=num, size=(3, 4), p=pmf)))
+
+    input('\nPress Enter to continue ...')
+
 
     return None
 
