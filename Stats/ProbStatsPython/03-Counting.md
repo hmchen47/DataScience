@@ -1057,14 +1057,19 @@
 
 + [Original Matplotlib NB](https://tinyurl.com/y7u72vpq)
 
++ [Local Matplotlib Tutorial NB](./src/topic03-matplotlib.ipynb)
+
 + [Matplotlib tutorial Python code](src/topic03-matplotlib.py)
 
 
 
 ## Lecture Notebook 3
 
++ [Original Lecture Numpy Random NB](https://tinyurl.com/y8y8qw7e)
 
++ [Local Numpy Random NB](./src/topic03-numpy_random.ipynb)
 
++ [Numpy Random Python code](src/topic03-numpy_random.py)
 
 
 
