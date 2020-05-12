@@ -331,3 +331,13 @@
 
 
 
+## Tree Structure
+
++ [Trees and Cartesian products](../Stats/ProbStatsPython/03-Counting.md#37-trees)
+  + tree advantages:
+    + a tree representing any set of sequences, not just Cartesian products
+    + enabling systematic counting technique
+    + useful in modeling random phenomena
+  + Cartesian products as trees: used only  when all nodes have same degree at any level
+
+
