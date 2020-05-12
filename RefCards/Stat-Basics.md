@@ -80,7 +80,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yd8ag7aw" ismap target="_blank">
-      <img src="img/t01-01.png" style="margin: 0.1em;" alt="Historical flow of statistics" title="Historical flow of statistics" width=750>
+      <img src="../Stats/ProbStatsPython/img/t01-01.png" style="margin: 0.1em;" alt="Historical flow of statistics" title="Historical flow of statistics" width=750>
     </a>
   </div>
 
