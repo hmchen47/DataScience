@@ -31,7 +31,7 @@
 
 
 
-## Sets
+## Basic Sets
 
 + [Set specification](../Stats/ProbStatsPython/02-Sets.md#21-notation)
   + classification
@@ -67,6 +67,9 @@
 + [Basic Sets](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
   + $\{ x \in A \,{\color{Magenta}{|}}\, \dots\} = \{\text{element } x \text{ in } A {\color{Magenta}{\text{ such that }}} \dots \}$ or $\{ x \in A {\color{Magenta}{:}} \dots\}$
   + convention: $[n] = \{1, \dots, n\}$
+
+
+## Set Relations
 
 + [Divisibility](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
   + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \,|\, n$</span>
@@ -108,6 +111,55 @@
   + $\in$: relationship btw an <span style="color: cyan;">element</span> and a <span style="color: cyan;">set</span>
   + $\subseteq$: relationship btw <span style="color: cyan;">two sets</span>
 
+
+## Set Operations
+
++ [Complement](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
+  + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
+
++ [Set identities](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + relations that hold for all sets
+  + Remark
+    + $\varnothing^c = \Omega \implies \Omega^c = \varnothing$ 
+    + $A$ adn $A^c$: disjoint
+    + involution: $(A^c)^c = A$
+    + $A \subseteq B \to A^c \supseteq B^c$
+
++ [Intersection](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">intersection</span>, $A \,{\color{Magenta}{\cap}}\, B$, is the set of elements in both $A$ and $B$
+  + Definition: (intersection) $A \cap B = \{x: x\in A \wedge x \in B\}$
+
++ [Union](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">union</span>, $A \,{\color{Magenta}{\cup}}\, B$, is the collection of elements in $A$, $B$, or both
+  + Definition: (union) $A \cup B = \{x: x \in A \vee x \in B\}$
+
++ [Multiple sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + $A \cup B \cup C = \{ x \in \Omega: x \in A \vee x \in B \vee x \in X\}$
+  + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+  + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
+
++ [Law of sets](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + identities - one set
+    + identity: $A \cap \Omega = A \quad A \cup \Omega = \Omega$
+    + universal bound: $A \cap \varnothing = \varnothing \quad A \cup \varnothing = A$
+    + idempotent: $A \cap A = A \quad A \cup A = A$
+    + complement: $A \cap A^c = \varnothing \quad A \cup A^c = \Omega$
+  + two and three sets
+    + commutative: $A \cap B = B \cap A \quad A \cup B = B \cup A$
+    + associative: $(A \cap B) \cap C = A \cap (B \cap C) \quad (A \cup B) \cup C = A \cup (B \cup C)$
+    + distributive: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \quad A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    + De Morgan: $(A \cap B)^c = A^c \cup B^c \quad (A \cup B)^c = A^c \cap B^c$
+
++ [Set difference](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">difference</span>, $A {\color{Magenta}{-}} B$, is the set of elements in $A$ but not in $B$
+  + Definition: (difference) $A - B = A \backslash B = \{x: x\in A \wedge x \not\in B\}$
+  + Remark: $A - B = A \cap B^c$
+
++ [Symmetric difference](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + the <span style="color: magenta;">symmetric difference</span> of two sets is the set of elements in exactly one set
+  + Definition: (symmetric difference) $A \Delta B = \{x: x \in A \wedge x \not\in B \vee x \not\in A \wedge x \in B\}$
+  + remark: $A \Delta B = (A - B) \cup (B - A)$
 
 
 

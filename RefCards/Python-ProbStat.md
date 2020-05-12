@@ -24,6 +24,17 @@
   + $\{m, \dots, n-1\}$: `range(m, n)`
   + $\{m,\, m+d,\, m+2d,\, \dots\} \leq n-1$: `range(m, n, d)`
 
++ [Set relationship](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + equality ($= \;\to$ `==`)
+  + inequality ($\neq \;\to$ `!=`)
+  + disjoint (`isdisjoint`)
+
++ [Subsets and supersets](../Stats/ProbStatsPython/02-Sets.md#24-relations)
+  + subset ($\subseteq\; \to$ `<=` or `issubset`)
+  + supserset ($\supseteq\; \to$ `>=` or `issuperset`)
+  + strict subset ($\subset\; \to$ `<`)
+  + strict supeerset ($\supset\; \to$ `>`)
+
 
 
 
