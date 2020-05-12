@@ -44,15 +44,15 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 2: Sets
-  + 2.1 [Notation](./02-Sets.md#)
-  + 2.2 [Basic Sets](./02-Sets.md#)
-  + 2.3 [Venn Diagrams](./02-Sets.md#)
-  + 2.4 [Relations](./02-Sets.md#)
-  + 2.5 [Operations](./02-Sets.md#)
-  + 2.6 [Cartesian Products](./02-Sets.md#)
-  + 2.7 [Russell's Paradox](./02-Sets.md#)
-  + [Lecture Notebook 2](./02-Sets.md#)
-  + [Programming Assignment 2](./02-Sets.md#)
+  + 2.1 [Notation](./02-Sets.md#21-notation)
+  + 2.2 [Basic Sets](./02-Sets.md#21-notation)
+  + 2.3 [Venn Diagrams](./02-Sets.md#23-venn-diagrams)
+  + 2.4 [Relations](./02-Sets.md#24-relations)
+  + 2.5 [Operations](./02-Sets.md#25-operations)
+  + 2.6 [Cartesian Products](./02-Sets.md#26-cartesian-products)
+  + 2.7 [Russell's Paradox](./02-Sets.md#27-russells-paradox)
+  + [Lecture Notebook 2](./02-Sets.md#lecture-notebook-2)
+  + [Programming Assignment 2](./02-Sets.md#programming-assignment-2)
 
 
 + Topic 3: Counting
