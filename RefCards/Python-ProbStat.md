@@ -35,6 +35,21 @@
   + strict subset ($\subset\; \to$ `<`)
   + strict supeerset ($\supset\; \to$ `>`)
 
++ [Union and Intersection](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + union ($\cup \to$ `|` or `union`)
+  + intersection ($\cap \to$ `&` or `intersection`)
+
++ [Set- and Symmetric-Difference](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + set difference ($- \to$ `-` or `difference`)
+  + symmetric difference ($\Delta \to$ `^` or `symmetric_difference`)
+
++ [Set operations - Summary](../Stats/ProbStatsPython/02-Sets.md#25-operations)
+  + complement: $A^c$
+  + intersection: $\cap \to$ `&` or `intersection`
+  + union: $\cup \to$ `|` or `union`
+  + difference: $- \to$ `-` or `difference`
+  + symmetric difference: $\Delta \to$ `^` or `symmetric_difference`
+
 
 
 
