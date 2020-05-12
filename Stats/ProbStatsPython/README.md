@@ -56,16 +56,16 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 3: Counting
-  + 3.1 [Counting](./03-Counting.md#)
-  + 3.2 [Disjoint Unions](./03-Counting.md#)
-  + 3.3 [General Unions](./03-Counting.md#)
-  + 3.4 [Cartesian Products](./03-Counting.md#)
-  + 3.5 [Cartesian Powers](./03-Counting.md#)
-  + 3.6 [Variations](./03-Counting.md#)
-  + 3.7 [Trees](./03-Counting.md#)
-  + [Matplotlib and Numpy.random Notebook](./03-Counting.md#)
-  + [Lecture Notebook 3](./03-Counting.md#)
-  + [Programming Assignment 3](./03-Counting.md#)
+  + 3.1 [Counting](./03-Counting.md#31-counting)
+  + 3.2 [Disjoint Unions](./03-Counting.md#32-disjoint-unions)
+  + 3.3 [General Unions](./03-Counting.md#33-general-unions)
+  + 3.4 [Cartesian Products](./03-Counting.md#34-cartesian-products)
+  + 3.5 [Cartesian Powers](./03-Counting.md#35-cartesian-powers)
+  + 3.6 [Variations](./03-Counting.md#36-variations)
+  + 3.7 [Trees](./03-Counting.md#37-trees)
+  + [Matplotlib and Numpy.random Notebook](./03-Counting.md#matplotlib-and-numpyrandom-notebook)
+  + [Lecture Notebook 3](./03-Counting.md#lecture-notebook-3)
+  + [Programming Assignment 3](./03-Counting.md#programming-assignment-3)
 
 
 + Topic 4: Combinatorics
