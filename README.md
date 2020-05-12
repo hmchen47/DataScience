@@ -909,7 +909,8 @@
 </table>  
 
 
-### [Data Science with Python](./RefCards/PythonDS.md)
+### Python for Data Science
+
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -919,6 +920,63 @@
   </tr>
   </thead>
   <tbody>
+
+  <!-- Common Functions -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Common Functions </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Import Data </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  Matplotlib </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#official-pyplot-api"> Official Pyplot API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#environment-and-module"> Environment & Modules </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#classes"> Classes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md0official-docs#"> Official Docs </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#methods-4"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#line-style-or-marker"> Line Style & Marker </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#color-abbreviations"> Color abbreviations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#seaborn"> Seaborn </a> </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#seaborn-api"> Seaborn API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/PythonVisual.md#">  </a> </td>
+  </tr>
+
+  <!-- Probability & Statistics -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability &amp; Statistics </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#sets"> Sets </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Number Generator </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+
+  <!-- Data Science -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Data Science </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
     <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
@@ -969,26 +1027,6 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-3"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#matplotlib"> Matplotlib </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#official-pyplot-api"> Official Pyplot API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#environment-and-module"> Environment & Modules </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#classes"> Classes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md0official-docs#"> Official Docs </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-4"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#line-style-or-marker"> Line Style & Marker </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#color-abbreviations"> Color abbreviations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#seaborn"> Seaborn </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#seaborn-api"> Seaborn API </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
