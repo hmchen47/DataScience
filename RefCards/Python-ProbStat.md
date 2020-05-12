@@ -19,6 +19,10 @@
   + size: `len()`
   + check if size is 0: `len() == 0`
 
++ [Intervals and Multiples](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
+  + $\{0, \dots, n-1\}$: `range(n)`
+  + $\{m, \dots, n-1\}$: `range(m, n)`
+  + $\{m,\, m+d,\, m+2d,\, \dots\} \leq n-1$: `range(m, n, d)`
 
 
 
