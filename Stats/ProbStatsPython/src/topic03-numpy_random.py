@@ -32,6 +32,12 @@ def main():
 
     input('\nPress Enter to continue ...')
 
+    # exponential distribution
+    print('\nrandom numbers (2x3) w/ exponentail dist: np.random.exponential(scale = 2, size = (2, 3))\n{}'.format(np.random.exponential(scale = 2, size = (2, 3))))
+
+
+
+    input('\nPress Enter to continue ...')
 
     return None
 
