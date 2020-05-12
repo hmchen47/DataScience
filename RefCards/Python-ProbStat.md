@@ -50,6 +50,10 @@
   + difference: $- \to$ `-` or `difference`
   + symmetric difference: $\Delta \to$ `^` or `symmetric_difference`
 
++ [Cartesian products](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
+  + tuples: $(a_1, \dots, a_n)$
+  + ordered pairs: $(a, b)$
+  + Python: `product` functon in `itertools` library
 
 
 
