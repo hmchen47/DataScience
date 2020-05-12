@@ -27,6 +27,16 @@ def main():
 
     input("\nPress Enter to continue ...")
 
+    # zip function
+    a = [83,59,92]
+    b = ['Harry','Paul','Grace']
+    print("\nzip of two sets: a= {}, b= {}, zip(a, b) w/ for loop ".format(a, b))
+    for a_i, b_i in zip(a, b):
+        print("  {} {}".format(a_i, b_i))
+
+    input("\nPress Enter to continue ...")
+
+
 
     return None
 
