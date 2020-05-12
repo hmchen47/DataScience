@@ -181,6 +181,8 @@
   + $A \times (B \cap C) = A \times B \cap A \times C$
   + $A \times (B - C) = A \times B - A \times C$
 
+
+
 ## Set Counting
 
 + [Functions](../Stats/ProbStatsPython/03-Counting.md#31-counting)
@@ -203,7 +205,24 @@
     + $(n] = [n] = \{ 1, \dots, n\}$
     + size: $|\mid _d(n] \mid| = \lfloor n/d \rfloor$
 
+## Disjoint Unions
 
++ [Disjoint unions](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions)
+  + a union of disjoint sets is called a <span style="color: magenta;">disjoint union</span>
+  + for disjoint union sets, the size of the union is the sum of the size for each set
+  + addition rule: `+`
+    + numerous applications & implications
+    + reason: $\cup \approx +$
+
++ [Complements](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions)
+  + Quintessential disjoint sets: $A$ and $A^c$
+    + $A \cup A^c = \Omega$
+    + $|\Omega| = |A \cup A^c| = |A| + |A^c|$
+  + subtraction (or complement) rule: `-`
+    + $|A^c| = |\Omega| - |A|$
+    + reason: set difference $\approx -$
+
++ [General subtraction rule](../Stats/ProbStatsPython/03-Counting.md#32-disjoint-unions): $\exists\, A, B \in \Omega \text{ s.t. } |B - A| = |B| - |A|$
 
 
 
