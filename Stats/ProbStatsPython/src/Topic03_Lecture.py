@@ -56,6 +56,26 @@ def main():
     input("\nPress Enter to continue ...")
 
 
+    # Cartesian products - two ways
+    print("\nCartesian product:")
+    A = {1, 2, 3}
+    B = {4, 5}
+    print("\nOrdered pairs in {} x {}".format(A, B))
+    print("Cartesian product: \n set([(a,b) for a in A for b in B]) =\n  {}".format(set([(a,b) for a in A for b in B])))
+    print("Cartesian product: \n set([i for i in itertools.product(A, B)]) =\n  {}".format(set([i for i in itertools.product(A, B)])))
+
+    # Cartesian power: two ways
+    A = {1, 2, 3}
+    k = 2
+
+    # initialize every element as a tuple
+    print("\nCartesian power:")
+    cartesian_powers = [(a, ) for a in A]
+    for j in range(k-1):
+        cartesian_powers = [ i+(a, ) for i in cartesian_powers for a in A]
+    
+    print(" {}^{}: {}".format(A, k, cartesian_powers))
+    print(" size= {}".format(len(cartesian_powers)))
 
 
     return None
@@ -66,4 +86,4 @@ if __name__ == "__main__":
 
     main()
 
-    print("\nEnd Topic 3 Lecture Counting ...")
+    print("\nEnd Topic 3 Lecture Counting ...\n")
