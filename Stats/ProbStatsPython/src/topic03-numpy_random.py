@@ -32,10 +32,14 @@ def main():
 
     input('\nPress Enter to continue ...')
 
-    # exponential distribution
+    # exponential dist: f_x(x; \beta) = \frac{1}{\beta} \exp(-\frac{x}{\beta})
     print('\nrandom numbers (2x3) w/ exponentail dist: np.random.exponential(scale = 2, size = (2, 3))\n{}'.format(np.random.exponential(scale = 2, size = (2, 3))))
 
+    input('\nPress Enter to continue ...')
 
+    # Binomial dist: P_X(k; n, p) = \binom(n, k) p^k (1-p)^{n-k}
+    n, p = 10, 0.8
+    print('\nrandom numbers (2x3) w/ exponentail dist: np.random.binomial(n = n, p = p, size = (3, 3))\n{}'.format(np.random.binomial(n = n, p = p, size = (3, 3)))
 
     input('\nPress Enter to continue ...')
 
