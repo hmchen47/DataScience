@@ -181,14 +181,14 @@
 + Partial permutations
   + \# orders of n objects = n!
   + \# orders of some of the n objects = ?
-  + \# 2-digit PINs
+  + example: \# 2-digit PINs
     + any digits: \# = 10 x 10
     + distinct digits: \# = 10 x 9
-  + \# 3 letter words
+  + example: \# 3 letter words
     + any letters: \# = 26 x 26 x 26
-    + distinct letters: \# 26 x 25 x 24
+    + distinct letters: \#  26 x 25 x 24
   
-+ Sequences w/o repetition
++ Sequences with/without repetition
   + k-permutation of [n] $\to$ length-k sequences over [n]
   + w/ repetition: $n^k$
   + w/o repetition: $n^{\underline{k}}$
@@ -196,10 +196,11 @@
 + k-permutations
   + 2-permutations of {a, b, c}: ab, ac, ba, bc, ca, cb
   + n-permutation pf an n-set: a permutation of the set
+  + \# permutations of k out of n objects $\to$ <span style="color: cyan;">k-permutations</span> of n
   + \# k-permutations of an n-set
     + def: $n \times (n-1) \times \cdots \times (n-k+1) \stackrel{\text{def}}{=} n^{\underline{k}}$
-    + k-th <span style="color: cyan;">falling power</span> of n
-    + denoted $P(n, k)$ or $(n)_k$
+    + $k$-th <span style="color: cyan;">falling power</span> of n
+    + denoted as $P(n, k)$
   + falling powers simply related to factorial
 
     \[ n_{\underline{k}} = n \times (n-1) \times \cdots \times (n-k+1) = \frac{n!}{(n-k)!}  \]
