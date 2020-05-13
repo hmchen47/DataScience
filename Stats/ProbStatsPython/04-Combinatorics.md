@@ -178,9 +178,40 @@
 
 ## 4.2 Partial Permutations
 
++ Partial permutations
+  + \# orders of n objects = n!
+  + \# orders of some of the n objects = ?
+  + \# 2-digit PINs
+    + any digits: \# = 10 x 10
+    + distinct digits: \# = 10 x 9
+  + \# 3 letter words
+    + any letters: \# = 26 x 26 x 26
+    + distinct letters: \# 26 x 25 x 24
+  
++ Sequences w/o repetition
+  + k-permutation of [n] $\to$ length-k sequences over [n]
+  + w/ repetition: $n^k$
+  + w/o repetition: $n^{\underline{k}}$
+
++ k-permutations
+  + 2-permutations of {a, b, c}: ab, ac, ba, bc, ca, cb
+  + n-permutation pf an n-set: a permutation of the set
+  + \# k-permutations of an n-set
+    + def: $n \times (n-1) \times \cdots \times (n-k+1) \stackrel{\text{def}}{=} n^{\underline{k}}$
+    + k-th <span style="color: cyan;">falling power</span> of n
+    + denoted $P(n, k)$ or $(n)_k$
+  + falling powers simply related to factorial
+
+    \[ n_{\underline{k}} = n \times (n-1) \times \cdots \times (n-k+1) = \frac{n!}{(n-k)!}  \]
+
++ Factorials and permutations
+  + books: 4 programming, 5 probability, 6 machine learning
+  + \# ordered list w/ 2 books from each subject where same subject book are listed consecutively
+
+    \[ \underbrace{3!}_{\text{Subject}\\\text{Order}} \cdot \underbrace{4^{\underline{2}}}_{\text{Prog}} \cdot \underbrace{5^{\underline{2}}}_{\text{Prob}} \cdot \underbrace{6^{\underline{2}}}_{\text{ML}} = 6 \times (4\times 3) \times (5\times 4) \times (6 \times 5) = 43,200\]
 
 
-
++ [Original Slide](https://tinyurl.com/y8d35zzv)
 
 
 ### Problem Sets
