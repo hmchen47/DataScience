@@ -100,7 +100,73 @@
 
 ### Problem Sets
 
+0. How many permutations does the set {1,2,3,4} have?<br/>
+  a. 9<br/>
+  b. 18<br/>
+  c. 24<br/>
+  d. 36<br/>
 
+  Ans: 2<br/>
+  Explanation: 4! = 24
+
+
+1. 0! = <br/>
+  a. 0<br/>
+  b. 1<br/>
+  c. $\infty$<br/>
+  d. undefined<br/>
+
+  Ans: b
+
+
+2. Which of the following are true for all $n,m \in \mathbb{N}$ and $n \geq 1$.<br/>
+  a. $n! = n \cdot (n−1)! $<br/>
+  b. $(n⋅m)! = n! \cdot m! $<br/>
+  c. $(n+m)! = n! + m! $<br/>
+  d. $(nm)! = (n!)^m$<br/>
+
+  Ans: a
+
+
+3. In how many ways can 11 soccer players form a line before a game?<br/>
+  a. $11$<br/>
+  b. $11^2$<br/>
+  c. $11!$<br/>
+  d. None of the above<br/>
+
+  Ans: c
+
+
+4. In how many ways can 8 identical rooks be placed on an 8×8 chessboard so that none can capture any other, namely no row and no column contains more than one rook?
+
+  Ans: <span style="color: magenta;">8! = 40320</span><br/>
+  Explanation: Since there are 8 rooks and 8 rows, each with at most one rook, each row must have exactly one rook. In the first row, there are 8 options for the location of the rook, and once that is chosen, there are 7 options for the second row, etc. Hence the number of ways to place the rooks is $8 \cdot 7 \cdot  \dots \cdot 2 \cdot 1= 8! = 40,320$.
+
+
+5. In how many ways can 8 distinguishable rooks be placed on an 8×8 chessboard so that none can capture any other, namely no row and no column contains more than one rook?
+
+  For example, in a 2×2 chessboard, you can place 2 rooks labeled 'a' and 'b' in 4 ways. There are 4 locations to place 'a', and that location determines the location of 'b'.
+
+  Ans: $(8!)^2$<br/>
+  Explanation:
+    + You can either solve this based on the previous problem. There are  8!  ways to place identical rooks. And once that is done, you can label them in 8! ways.
+    + Alternatively, from scratch, there are 64 choices for the first rook, and once the first is placed, one row and column are ruled out for the second , resulting in  49  choices for the second, and so on. Therefore, number of ways is  $64 \cdot 49 \cdot \dots \cdot 4 \cdot 1 = 8!^2 = 1625702400$.
+
+
+6. In how many ways can 7 men and 7 women can sit around a table so that men and women alternate. Assume that all rotations of a configuration are identical hence counted as just one.
+
+  Ans: $7! \cdot 7! / 7 = 3628800$<br/>
+  Explanation: When rotations don't matter, there are 6! ways to seat the women. For each such configuration, there are 7! ways to seat the men. The total number of configurations is therefore $6! \times 7! = 3,628,800$.
+
+
+7. In how many ways can three couples be seated in a row so that each couple sits together (namely next to each other):<br/>
+  a. in a row,<br/>
+  b. in a circle?<br/>
+
+  Ans: a. (48); b. (96, <span style="color: magenta;">16<span>)<br/>
+  Explanation:
+    + There are  3!  ways to decide on the order of the couples, and then  23  ways to determine the order for each couple, hence a total of $3! \cdot 2^3 = 48$  ways.
+    + Configuration where the mark is between two couples correspond to configurations in a row, hence there are $3! \cdot 23=48$ of them. Furthermore each circular shift of such a configuration results in one where the mark separates two members of the same couple. Hence there are also 48 such configurations, and the total number of configurations is $48 \cdot 2=96$.
 
 
 ### Lecture Video
