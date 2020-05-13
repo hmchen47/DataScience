@@ -4,43 +4,64 @@
 ## 4.1 Permutations
 
 + Permutations
-  + a <span style="color: magenta;">permutation</span> of a set is an ordering of its elements
-  + \# permutations of a set: determined by just set size
-  + \# permutations of an $n$-set: $n \times (n-1) \times \cdots \times 2 \times 1 \triangleq n! \to n$ factorial
-  + for $n \geq 1$, $n! = #$ permutations of an n-set = $n \times (n-1) \times \cdots \times 2 \times 1$
-  + 0 factorial
-    + how many ways can you permute 0 objects?
-    + $0! = 1 \to$ exact same exact same reason as $2^0 =1$
+  + a <span style="color: magenta;">permutation</span> of a set is an ordering of objects
+  + \# permutations of n objects
+  + objects can be anything
+  + using letters to represent the objects
+
++ Counting permutations
+  + 2 objects:
+    + by letters - 1st choice: 2; 2nd choice: 1
+    + by tree structure - 1st level node: 2 branches; 2nd level node: 1 branch
+    + \$ permutation = 2 x 1 = 2
+  + 3 objects
+    + by letters - 1st choice: 3; 2nd choice: 2; 3rd choice: 1
+    + by tree structure - 1st level node: 3 branches; 2nd level node: 2 branches; 3rd level node: 1 branch
+    + \# permutations = 3 x 2 x 1 = 6
+  + \# permutations of n objects = $n \times (n-1) \times \cdots \times 2 \times 1 \triangleq n! \to n$ factorial
+
++ 0 factorial
+  + for $n \geq 1$, n! = \# permutations of an n-set = $n \times (n-1) \times \cdots \times 2 \times 1$
+  + what about 0! ?
+  + how many ways can you permute 0 objects?
+    + 2 objects: a, b $\to$ (ab), (ba)
+    + 1 object: a $\to$ (a)
+    + 0 object: $\varnothing \to ()$
+  + $0! = 1 \to$ exact same exact same reason as $2^0 =1$
   
 + Alternative factorial view
-  + $n! = n \times (n-1) \times \cdots \times 2 \times 1 = 1 \times 2 \times \cdots \times n$
-  + write elements left to right $\to$ smallest to largest
+  + counting by writing elements left to right $\to$ smallest to largest
+    + one position for the 1st element: only one possibility
+    + two positions for the 2nd element: one on each side of the 1st element
+    + 3 positions for the 3rd element: left-most, middle, right-most
+    + 4 positions for the 4th element: 2 outer and 2 middle
+    + and so on
+  + $n \times (n-1) \times \cdots \times 2 \times 1 = n!$
 
-+ n factorial and (n-1) factorial
-  
-  \[ n! = \underbrace{1 \cdot 2 \cdot \dots \cdot (n-1)}_{(n-1)!} \cdot n \]
++ Recursively definition
+  + n! defined recursively
 
-  \[ \therefore\; n! = (n-1)! \cdot n \qquad \forall\, n \geq 1 \]
+    \[\begin{align*}
+      n! &= ncdot (n-1) \cdot \dots \cdot 2 \cdot 1 \\
+      &= n \cdot [(n-1) \cdot \dots \cdot 2 \cdot 1] \\
+      &= n \cdot (n-1)! \quad \forall\, n \geq 1
+    \end{align*}\]
 
-  + determine n! recursively
+  + 0 factorial: 1! = 1 x 0!
+  + able to extend to negatives
 
-+ Basic permutations
++ Example: Basic permutations
   + \# orders to visit 3 cities: LA, SD, SF
-    + $3! = 3 \times 2 \times  =6$
-  + \# ways to rank 4 students
-    + $4! = 4 \times 3 \times 2 \times 1 = 24$
-
-+ Anagrams
-  + definition: a word or phrase made by transposing the letters of another word or phrase
-  + ignoring whether the word has a meaning
-  + for now, all letters distinct, but letters repeat later
-  + e.g., \# Anagrams of PEARS: all permutations of {P, E, A, R, S} $\to 5! = 120$
+    + 3! = 3 x 2 x 1 = 6
+  + \# anagrams of 5 distinct letter: PEARS
+    + 5! = 5 x 4 x 3 x 2 x 1 = 120
 
 + Constrained anagrams of PEARS
   + A, R staying adjacent in order
     + permutations of P, E, AR, S
-    + \# of permutation: 4! = 4 x 3 x 2 x 1 =24
-  + A, R are adjacent in either order
+    + \# of permutation: 4! = 4 x 3 x 2 x 1 = 24
+  + A, R adjacent in any order
+    + permutations of P, E, (AR, RA), S
     + 2 orders, 24 anagrams each
     + 2 x 24 = 48
   + A, R not adjacent: 5! - 48 = 120 - 48 = 72
@@ -49,7 +70,7 @@
   + \# ways 3 distinct boys and 2 distinct girls can stand in a row
   + unconstrained: (3+2)! = 5! = 120
   + alternating boys and girls: must be 'b, g, b, g, b' $\to$ 3! x 2! = 6 x 2 = 12
-  + boys together and girls together: '3b, 2g' or ''2g, 3b' $\to$ 2 x 3! x 2! = 24
+  + boys together and girls together: '3b, 2g' or '2g, 3b' $\to$ 2 x 3! x 2! = 24
   + unconstrained, but orientation (left to right) doesn't matter: 5! / 2 = 60
 
 + Circular arrangements
@@ -64,8 +85,15 @@
     </a>
   </div>
 
++ Stirling's approximations
+  
+  \[ n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right)^n \]
 
-
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation" ismap target="_blank">
+      <img src="https://tinyurl.com/yav2a9r7" style="margin: 0.1em;" alt="text" title="caption" width=350>
+    </a>
+  </div>
 
 + [Original Slides](https://tinyurl.com/y9cevx3r)
 
