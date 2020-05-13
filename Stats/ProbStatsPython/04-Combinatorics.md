@@ -171,7 +171,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/ybh6k4fn" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
