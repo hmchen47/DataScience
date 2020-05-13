@@ -13,7 +13,7 @@
   + 2 objects:
     + by letters - 1st choice: 2; 2nd choice: 1
     + by tree structure - 1st level node: 2 branches; 2nd level node: 1 branch
-    + \$ permutation = 2 x 1 = 2
+    + \# permutation = 2 x 1 = 2
   + 3 objects
     + by letters - 1st choice: 3; 2nd choice: 2; 3rd choice: 1
     + by tree structure - 1st level node: 3 branches; 2nd level node: 2 branches; 3rd level node: 1 branch
@@ -38,13 +38,13 @@
     + and so on
   + $n \times (n-1) \times \cdots \times 2 \times 1 = n!$
 
-+ Recursively definition
++ Recursive definition
   + n! defined recursively
 
     \[\begin{align*}
-      n! &= ncdot (n-1) \cdot \dots \cdot 2 \cdot 1 \\
-      &= n \cdot [(n-1) \cdot \dots \cdot 2 \cdot 1] \\
-      &= n \cdot (n-1)! \quad \forall\, n \geq 1
+      n! &= n \times (n-1) \times \cdots \times 2 \times 1 \\
+      &= n \times [(n-1) \times \cdots \times 2 \times 1] \\
+      &= n \times (n-1)! \quad \forall\, n \geq 1
     \end{align*}\]
 
   + 0 factorial: 1! = 1 x 0!
