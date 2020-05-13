@@ -194,8 +194,8 @@
   + w/o repetition: $n^{\underline{k}}$
 
 + k-permutations
-  + 2-permutations of {a, b, c}: ab, ac, ba, bc, ca, cb
-  + n-permutation pf an n-set: a permutation of the set
+  + example: 2-permutations of {a, b, c}: ab, ac, ba, bc, ca, cb
+  + n-permutation of an n-set: a permutation of the set
   + \# permutations of k out of n objects $\to$ <span style="color: cyan;">k-permutations</span> of n
   + \# k-permutations of an n-set
     + def: $n \times (n-1) \times \cdots \times (n-k+1) \stackrel{\text{def}}{=} n^{\underline{k}}$
@@ -203,7 +203,7 @@
     + denoted as $P(n, k)$
   + falling powers simply related to factorial
 
-    \[ n_{\underline{k}} = n \times (n-1) \times \cdots \times (n-k+1) = \frac{n!}{(n-k)!}  \]
+    \[ n^{\underline{k}} = n \times (n-1) \times \cdots \times (n-k+1) = \frac{n!}{(n-k)!}  \]
 
 + Factorials and permutations
   + books: 4 programming, 5 probability, 6 machine learning
