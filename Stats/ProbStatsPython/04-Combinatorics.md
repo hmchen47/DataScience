@@ -270,16 +270,110 @@
 
 ### Lecture Video
 
-<a href="https://tinyurl.com/y8d35zzv" target="_BLANK">
+<a href="https://tinyurl.com/y9msxez5" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
 
 ## 4.3 Combinations
 
++ k-subsets
+  + $k$-set: a k-element set
+  + $k$-subset: a k-element subset
+  + collection of k-subsets of $[n] = \{1, 2, \dots, n\}$: $\dbinom{[n]}{k}$
+  + example
+    + $\binom{[3]}{1} = \{\{1\}, \{2\}, \{3\}\}$
+    + $\binom{[3]}{2} = \{\{1, 2\}, \{1, 3\}, \{2, 3\}\}$
+    + $\binom{[4]}{2} = \{\{1,2\}, \{1, 3\}, \{1, 4\}, \{2, 3\}, \{2, 4\}, \{3, 4\}\}$
+
++ Sequences w/ k 1's
+  + collection of k-subsets of $[n] = \{1, 2, \dots, n\}$: $\dbinom{[n]}{k}$
+  + 1-1 correspondence to n-bit sequences w/ k binary sequence
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:25%;">Subsets</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:25%;">Binary Sequences</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">$\binom{[n]}{k}$</td> <td style="text-align: center;">k-subset of an n-set</td> <td style="text-align: center;">n-bit sequences w/ k 1's</td> </tr>
+      <tr> <td style="text-align: center;">$\binom{[3]}{1}$</td> <td style="text-align: center;">$\{1\}, \{2\}, \{3\}$</td> <td style="text-align: center;">$100, 010, 001$</td> </tr>
+      <tr> <td style="text-align: center;">$\binom{[3]}{2}$</td> <td style="text-align: center;">$\{1, 2\}, \{1, 3\}, \{2, 3\}$</td> <td style="text-align: center;">$110, 101, 011$</td> </tr>
+      <tr> <td style="text-align: center;">$\binom{[4]}{2}$</td> <td style="text-align: center;">$\{1,2\}, \{1, 3\}, \dots, \{3, 4\}$</td> <td style="text-align: center;">$1100, 1010, \dots, 0011$</td> </tr>
+      </tbody>
+    </table>
+
+    + same number of elements
+    + mostly count sequences
+    + same applied to subsets
+
++ Number of n-bit sequences w/ k 1's
+  + binomial coefficient:
+    + $\dbinom{n}{k} \triangleq |\dbinom{[n]}{k}|$ = \# n-bit sequences w/ k 1's
+    + e.g., $\binom{3}{2} = \left|\binom{[3]}{2} \right| = |\{110, 101, 011\}| = 3$
+  + locations of 1's: ordered pairs from {1, 2, 3}: $\# = 3^\underline{2} = P(3, 2) = 6$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ycb93ryy" ismap target="_blank">
+        <img src="img/t04-01.png" style="margin: 0.1em;" alt="Example of n-bit sequence and k-subsets" title="Example of n-bit sequence and k-subsets" width=350>
+      </a>
+    </div>
+
++ Calculating the Binomial coefficients
+  + $\dbinom{n}{k} \triangleq \left| \dbinom{[n]}{k} \right| = ?$
+    + $\binom{n}{k}$: number
+    + $\binom{[n]}{k}$: set
+  + specify locations of the k 1's in order; e.g., 123, 531, 213, ... $\gets$ each location $\in [n]$
+  + \# ordered locations: $n^\underline{k} = P(n, k)$
+  + every binary sequence w k 1's correspondence to k! ordered locations
+    + e.g., $10101 \iff 1,3,5 \quad 1,5,3 \quad 3,1,5 \quad 3,5,1 \quad 5,1,3 \quad 5,3,1$
+
+    \[ k! \dbinom{n}{k} = n^{\underline{k}} \to \dbinom{n}{k} = \frac{n^{\underline{k}}}{k!\,(n-k)!} \]
+
+  + for small $n, k$ s.t.
+
+    \[ \left| \dbinom{[n]}{k} \right| = \dbinom{n}{k} = \frac{n!}{k!\,(n-k)!} \]
+
+  + examples
+    \[\begin{array}{lll}
+      \dbinom{[3]}{1} = \begin{Bmatrix} 001 \\ 010 \\ 100 \end{Bmatrix} &\to \dbinom{3}{1} = \frac{3!}{1!2!} &\quad \text{choose location of 1} \\\\
+      \dbinom{[3]}{2} = \begin{Bmatrix} 011 \\ 101 \\ 110 \end{Bmatrix} &\to \dbinom{3}{2} = \frac{3!}{2!1!} &\quad \text{choose location of 0} \\\\
+      \dbinom{[4]}{2} = \begin{Bmatrix} 0011 \\ 0101 \\ 0110 \\\ 1001 \\ 1010 \\ 1100 \end{Bmatrix} &\to \dbinom{4}{2} = \frac{4!}{2!2!} &\quad \begin{matrix}\text{choose location of 1's}\\ \text{1st location: 4 choices}\\ \text{2nd location: 3 choices}\\text{Each chosen twice} \end{matrix}
+    \end{array}\]
+
++ Simple $\binom{n}{k}$
+  + all-zero sequence: $\dbinom{n}{0} = \dfrac{n!}{0!n!} = 1$
+  + all-one sequence: $\dbinom{n}{n} = \dfrac{n!}{n!0!} = 1$
+  + choose location of single 1: $\dbinom{n}{1} = \dfrac{n!}{1!(n-1)!} = n$
+  + each sequence chosen twice
+    + 1st location: n ways
+    + 2nd location: n-1 ways
+
+      \[ \dbinom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n(n-1)}{2} \]
+
+    + alternative explanation
+      + $\binom{[n]}{2} = \{ \text{n-bit strings w/ two 1's\}$
+      + $A_i = \{x^n: \text{first 1 at location } i\} \quad (1 \leq i \leq n-1)$
+      + $|A_i| = n-i \quad A_i$'s disjoint
+      + $\binom{[n]}{2} = A_1 \uplus A_2 \uplus \dots \uplus A_{n-1}$
+      + $\binom{n}{k} = |\binom{[n]}{2} | = |A_1| + \cdots + |A_{n-1}| = (n-1) + \cdots + 1 = \frac{n(n-1)}{2}
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ycb93ryy" ismap target="_blank">
+        <img src="img/t04-02.png" style="margin: 0.1em;" alt="Example of 2-bit" title="Example of 2-bit sequence and k-subsets" width=150>
+      </a>
+    </div>
+
++ Permutations or Combinations
+  + permutation: order matters
+  + combinations: order doesn't matter
+  + type of lock you used to secure your bike  $\to$  combinations
 
 
-
++ [Original Slides](https://tinyurl.com/ycb93ryy)
 
 
 ### Problem Sets
