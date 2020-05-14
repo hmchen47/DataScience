@@ -217,6 +217,54 @@
 
 ### Problem Sets
 
+0. How many 2-permutations do we have for set {1,2,3,4}?<br/>
+  a. 8<br/>
+  b. 12<br/>
+  c. 16<br/>
+
+  Ans: b<br/>
+  Explanation: The answer is $P(4, 2) = 4 \times 3 = 12$.
+
+
+1. In how many ways can 5 cars - a BMW, a Chevy, a Fiat, a Honda, and a Kia - park in 8 parking spots?
+
+  Ans: 6720<br/>
+  Explanation: There are 8 locations for the BMW, the 7 for the Chevy, etc, so the total number of ways is $8^{\underline{5}}=6720$.
+
+
+2. In how many ways can 5 people sit in 8 numbered chairs?
+
+  Ans: 6720<br/>
+  Explanation: The first person can sit in any of the 8 chairs, the second in one of the remaining 7, etc. Hence $P(8, 5) = 8⋅7⋅6⋅5⋅4 = 6720$.
+
+
+3. Find the number of 7-character (capital letter or digit) license plates possible if no character can repeat and:<br/>
+  a. there are no further restrictions, <br/>
+  b. the first 3 characters are letters and the last 4 are numbers,<br/>
+  c. letters and numbers alternate, for example A3B9D7Q or 0Z3Q4A9.<br/>
+
+  Ans: a. (42072307200); b. (78624000); c. (336960000) <br/>
+  Explanation:
+    + $36^7 = 42,072,307,200$
+    + Choose 3 from capital letters, and 4 from digits, where the order matters. The result is $P(26, 3) \cdot P(10, 4) = 78,624,000$.
+    + Such plates contain either four letters and three digits, or the other way. The two sets are disjoint. Hence $P(26, 3) \cdot P(10, 4) + P(26, 4) \cdot P(10, 3) = 336,960,000$.
+
+
+4. A derangement is a permutation of the elements such that none appear in its original position. For example, the only derangements of {1,2,3} are {2,3,1} and {3,1,2}. How many derangements does {1,2,3,4} have?
+
+  Ans: 9<br/>
+  Explanation:
+    + Let $F_1$ be the set of permutations of {1,2,3,4}, where 1 is in location 1, for example 1324. Similarly let $F_2$ be the set of permutations where 2 is in location 2, for example 3214, etc.
+    + Then $F_1 \cup F_2 \cup F_3 \cup F_4$ is the set of all 4-permutations where at least one element remains in its initial location. The set of permutations where no elements appears in its initial location is the complement of this set.
+    + Note that $\sum_i |F_i|= P(4, 3)$ (1 location is fixed, so 3-permutation), $\sum_i\sum_j |F_i \cap F_j|= P(4, 2)$ , $\sum_i \sum_j \sum_k |F_i \cap F_j \cap F_k| = P(4,1)$, and $|F_1 \cap F_2 \cap F_3 \cap F_4| = P(4, 0)$.
+    + Hence by inclusion exclusion, $|F_1 \cup F_2 \cup F_3 \cup F_4|= P(4, 3) − P(4, 2) + P(4, 1) − P(4, 0) = 24−12+4−1=15$.
+    + It follows that the number of derangements is $4!−15=9$.
+
+
+5. Eight books are placed on a shelf. Three of them form a 3-volume series, two form a 2-volume series, and 3 stand on their own. In how many ways can the eight books be arranged so that the books in the 3-volume series are placed together according to their correct order, and so are the books in the 2-volume series? Noted that there is only one correct order for each series.
+
+  Ans: 120<br/>
+  Explanation: Since the 3-volume books must be placed in a unique order, we can view them as a just one "super book", similarly for the 2-volume books. We therefore have a total of 5 books that we can arrange freely, and we can do so in $5!=120$ ways.
 
 
 
