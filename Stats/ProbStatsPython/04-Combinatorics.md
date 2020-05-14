@@ -536,9 +536,43 @@
 
 ## 4.4 Applications of Binomial Coefficients
 
++ Subsets
+  + \# k-element subsets of an n-set
+  + 1-1 correspondence btw such sets and n-bit sequence w/ k 1's
+
+    \[ \# = \binom{n}{k} \]
+
++ Example: Committees with constrained
+  + 4 boys and 3 girls
+  + choose 2 boys and 2 girls
+
+    \[ \binom{4}{2} \cdot \binom{2}{2} = 6 \cdot 3 = 18 \]
+
++ Example: Conflict resolution
+  + 4 boys and 3 girls
+  + John and Mary cannot serve together
+  + How many committees of 4
+    + w/ John: $\binom{5}{3} = 10$
+    + w/ Mary: $\binom{4}{3} = 10$
+    + neither: $\binom{5}{4} = 5$
+    + sum: 10 + 10 + 5 = 25
+
++ Example: Triangles
+  + n points in general position in plane
+  + how many triangles can be formed?
+
+  \[ \binom{n, 3} \]
+
++ Example How many paths
+  + a 4x6 grid
+  + start from (0,0) to (4, 6)
+  + every path from start to end is a length-10 sequence of U, R w/ r R's
+
+  \[ \text{# of paths } = \binom{10}{6} = 210 \]
 
 
 
++ [Original Slides](https://tinyurl.com/y9l85csd)
 
 
 ### Problem Sets
