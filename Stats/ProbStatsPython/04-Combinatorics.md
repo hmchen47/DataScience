@@ -280,15 +280,15 @@
 + k-subsets
   + $k$-set: a k-element set
   + $k$-subset: a k-element subset
-  + collection of k-subsets of $[n] = \{1, 2, \dots, n\}$: $\dbinom{[n]}{k}$
+  + $\dbinom{[n]}{k}$: collection of k-subsets of $[n] = \{1, 2, \dots, n\}$
   + example
     + $\binom{[3]}{1} = \{\{1\}, \{2\}, \{3\}\}$
     + $\binom{[3]}{2} = \{\{1, 2\}, \{1, 3\}, \{2, 3\}\}$
     + $\binom{[4]}{2} = \{\{1,2\}, \{1, 3\}, \{1, 4\}, \{2, 3\}, \{2, 4\}, \{3, 4\}\}$
 
-+ Sequences w/ k 1's
-  + collection of k-subsets of $[n] = \{1, 2, \dots, n\}$: $\dbinom{[n]}{k}$
-  + 1-1 correspondence to n-bit sequences w/ k binary sequence
++ Sequences w/ k 1's - an analogy to k-element subsets
+  + $\dbinom{[n]}{k}$: collection of k-subsets of $[n] = \{1, 2, \dots, n\}$
+  + 1-1 correspondence to n-bit sequences w/ k 1's
 
     <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
@@ -299,10 +299,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr> <td style="text-align: center;">$\binom{[n]}{k}$</td> <td style="text-align: center;">k-subset of an n-set</td> <td style="text-align: center;">n-bit sequences w/ k 1's</td> </tr>
       <tr> <td style="text-align: center;">$\binom{[3]}{1}$</td> <td style="text-align: center;">$\{1\}, \{2\}, \{3\}$</td> <td style="text-align: center;">$100, 010, 001$</td> </tr>
       <tr> <td style="text-align: center;">$\binom{[3]}{2}$</td> <td style="text-align: center;">$\{1, 2\}, \{1, 3\}, \{2, 3\}$</td> <td style="text-align: center;">$110, 101, 011$</td> </tr>
       <tr> <td style="text-align: center;">$\binom{[4]}{2}$</td> <td style="text-align: center;">$\{1,2\}, \{1, 3\}, \dots, \{3, 4\}$</td> <td style="text-align: center;">$1100, 1010, \dots, 0011$</td> </tr>
+      <tr> <td style="text-align: center;">$\binom{[n]}{k}$</td> <td style="text-align: center;">k-subset of an n-set</td> <td style="text-align: center;">n-bit sequences w/ k 1's</td> </tr>
       </tbody>
     </table>
 
@@ -312,26 +312,20 @@
 
 + Number of n-bit sequences w/ k 1's
   + binomial coefficient:
-    + $\dbinom{n}{k} \triangleq |\dbinom{[n]}{k}|$ = \# n-bit sequences w/ k 1's
+    + $\dbinom{n}{k} \triangleq \left|\dbinom{[n]}{k} \right|$ = \# n-bit sequences w/ k 1's
     + e.g., $\binom{3}{2} = \left|\binom{[3]}{2} \right| = |\{110, 101, 011\}| = 3$
-  + locations of 1's: ordered pairs from {1, 2, 3}: $\# = 3^\underline{2} = P(3, 2) = 6$
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/ycb93ryy" ismap target="_blank">
-        <img src="img/t04-01.png" style="margin: 0.1em;" alt="Example of n-bit sequence and k-subsets" title="Example of n-bit sequence and k-subsets" width=350>
-      </a>
-    </div>
+  + locations of 1's
+    + ordered pairs from {1, 2, 3}: $\# = 3^\underline{2} = P(3, 2) = 6$
+    + non-ordered: $\dbinom{3}{2} = \dfrac{3^{\underline{2}}}{2} = \frac{6}{2} = 3$
 
 + Calculating the Binomial coefficients
-  + $\dbinom{n}{k} \triangleq \left| \dbinom{[n]}{k} \right| = ?$
-    + $\binom{n}{k}$: number
-    + $\binom{[n]}{k}$: set
+  + $\underbrace{\dbinom{n}{k}}_{\text{number}} \triangleq \underbrace{\left| \dbinom{[n]}{k} \right|}_{\text{set}} = ?$
   + specify locations of the k 1's in order; e.g., 123, 531, 213, ... $\gets$ each location $\in [n]$
   + \# ordered locations: $n^\underline{k} = P(n, k)$
   + every binary sequence w k 1's correspondence to k! ordered locations
     + e.g., $10101 \iff 1,3,5 \quad 1,5,3 \quad 3,1,5 \quad 3,5,1 \quad 5,1,3 \quad 5,3,1$
 
-    \[ k! \dbinom{n}{k} = n^{\underline{k}} \to \dbinom{n}{k} = \frac{n^{\underline{k}}}{k!\,(n-k)!} \]
+    \[ k! \dbinom{n}{k} = n^{\underline{k}} \to \dbinom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!\,(n-k)!} \]
 
   + for small $n, k$ s.t.
 
@@ -348,18 +342,19 @@
   + all-zero sequence: $\dbinom{n}{0} = \dfrac{n!}{0!n!} = 1$
   + all-one sequence: $\dbinom{n}{n} = \dfrac{n!}{n!0!} = 1$
   + choose location of single 1: $\dbinom{n}{1} = \dfrac{n!}{1!(n-1)!} = n$
-  + each sequence chosen twice
+  + choose 2 locations
     + 1st location: n ways
     + 2nd location: n-1 ways
+    + each sequence chosen twice
 
       \[ \dbinom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n(n-1)}{2} \]
 
     + alternative explanation
-      + $\binom{[n]}{2} = \{ \text{n-bit strings w/ two 1's\}$
-      + $A_i = \{x^n: \text{first 1 at location } i\} \quad (1 \leq i \leq n-1)$
+      + $\binom{[n]}{2} = \{ \text{n-bit strings w/ two 1's}\}$
+      + $A_i = \{x^n: \text{first 1 at location } i\} \quad (1 \leq i \leq n-1)$ (see diagram)
       + $|A_i| = n-i \quad A_i$'s disjoint
-      + $\binom{[n]}{2} = A_1 \uplus A_2 \uplus \dots \uplus A_{n-1}$
-      + $\binom{n}{k} = |\binom{[n]}{2} | = |A_1| + \cdots + |A_{n-1}| = (n-1) + \cdots + 1 = \frac{n(n-1)}{2}
+      + $\binom{[n]}{2} = A_1 \uplus A_2 \uplus \dots \uplus A_{n-1} \qquad \uplus:$ disjoint union
+      + $\binom{n}{k} = |\binom{[n]}{2} | = |A_1| + \cdots + |A_{n-1}| = (n-1) + \cdots + 1 = \frac{n(n-1)}{2}$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/ycb93ryy" ismap target="_blank">
