@@ -373,6 +373,158 @@
 ### Problem Sets
 
 
+0. Which of the following is larger for $k \leq n$?<br/>
+  a. The number of k-permutations of an n-set<br/>
+  b. The number of k-subsets of an n-set<br/>
+
+  Ans: a<br/>
+  Explanation: The number of k-permutations is larger. In selecting subsets, the order doesn't matter, hence the number of k-subsets is the number of k-permutations divided by k!
+
+
+1. In how many ways can a basketball coach select 5 starting players form a team of 15?<br/>
+  a. $\frac{15!}{5!10!}$<br/>
+  b. $\frac{15!}{10!}$<br/>
+  c. $\frac{15!}{5!}$<br/>
+  d. None of the above<br/>
+
+  Ans: a<br/>
+  Explanation: It can be deducted from partial permutation, but the order does not matter. It is $(\frac{15}{5}) = \frac{15^5}{5!} = \frac{15!}{5!10!}$.
+
+
+2. In how many ways can you select a group of 2 people out of 5?
+  
+  In how many ways can you select a group of 3 people out of 5?
+
+  In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?
+
+  a. 10<br/>
+  b. 25<br/>
+  c. 125<br/>
+  d. None of the above<br/>
+
+  Ans: a<br/>
+  Explanation:
+  + binom(5, 2) = 10
+  + binom(5, 3) = 10
+  + After we determine the group of 2, the group of 3 is determined as well, hence the answer is binom(5, 2) = 10
+
+  
+3. Ten points are placed on a plane, with no three on the same line. Find the number of:<br/>
+  a. lines connecting two of the points,<br/>
+  b. these lines that do not pass through two specific points (say  A  or  B ),<br/>
+  c. triangles formed by three of the points,<br/>
+  d. these triangles that contain a given point (say point  A ),<br/>
+  e. these triangles contain the side  AB .<br/>
+
+  Ans: a. (45); b. (28); c. (120); d. (36); e. (8)<br/>
+  Explanation:
+    + Choosing any 2 points out of the 10 points can make a line: $\binom{10}{2}$
+    + Choosing any 2 points out of the remaining 8 points (except A,B): $\binom{8}{2}$
+    + As no three on the same line, choosing any 3 points out of the 10 points make a triangle: $\binom{10}{3}$
+    + With point A fixed, choosing any 2 points out of the remaining 9 points make a triangle: $\binom{9}{2}$
+    + With point  A  and  B  fixed, choosing any 1 point out of the remaining 8 points make a triangle: $\binom{8}{1}$
+
+
+4. The set {1,2,3} contains 6 nonempty intervals: {1}, {2}, {3}, {1,2}, {2,3}, and {1,3}.
+
+  How many nonempty intervals does  {1,2,…,10}  contain?
+
+  Ans: 55<br/>
+  Explanation; {1,2,…,n} contains $\binom{n}{1}$ singleton intervals and $\binom{n}{2}$ intervals of 2 or more elements. Hence the total number of intervals is $\binom{n}{2}+\binom{n}{1}$. By Pascal's identity $\binom{n}{2}+\binom{n}{1} = \binom{N+1}{2}$. This can also be seen by considering the n+1 midpoints {0.5,1.5,…n+0.5}. Any pair of these points defines an interval in {1,2,⋯n}.
+
+
+5. A rectangle in an m×n chessboard is a Cartesian product S×T, where S and T are nonempty intervals in {1,…,m} and {1,2,…,n} respectively. How many rectangles does the 3×6 chessboard have?
+
+  Ans: <span style="color: magenta;">126</span><br/>
+  Explanation: Repeating the same analysis as the above question, but for two different intervals, we have $\binom{4}{2} \cdot \binom{7}{2} = 126$.
+
+
+6. A standard 52-card deck consists of 4 suits and 13 ranks. Find the number of 5-card hands where:<br/>
+  a. any hand is allowed (namely the number of different hands), <br/>
+  b. all five cards are of same suit,<br/>
+  c. all four suits are present,<br/>
+  d. all cards are of distinct ranks.<br/>
+
+  Ans: a. (2598960); b. (5148); c. (685464); d. (1317888) <br/>
+  Explanation:
+    + This is simply $\binom{52}{5}$.
+    + There are 4 suits in total and 13 cards in each suit, hence $4 \cdot \binom{13}{5}$ hands.
+    + One of the 4 suits will appear twice, hence $4 \cdot \binom{13}{2} \cdot \binom{13}{3}$ hands.
+    + First pick 5 out of 13 ranks, then choose their suits. Therefore there are $\binom{13}{5} \cdot 4^5$ hands.
+
+
+7. A company employs 4 men and 3 women. How many teams of three employees have at most one woman?<br/>
+  a. 21<br/>
+  b. 22<br/>
+  c. 23<br/>
+  d. 24<br/>
+
+  Ans: b <br/>
+  Explanation: There are $\binom{4}{3})=4$ teams with 0 women and $\binom{3}{1} \times \binom{4}{2}=3 \times 6=18$ teams with 1 woman, for a total of 22.
+
+
+8. A (tiny) library has 5 history texts, 3 sociology texts, 6 anthropology texts and 4 psychology texts. Find the number of ways a student can choose:<br/>
+  a. one of the texts,<br/>
+  b. two of the texts,<br/>
+  c. one history text and one other type of text,<br/>
+  d. one of each type of text,<br/>
+  e. two of the texts with different types.<br/>
+
+  Ans: a. (18); b. (153); c. (65); d. (360); e. (119)<br/>
+  Explanation:
+    + c. The student can choose 5 different history texts, and  3+6+4=13  other texts, by the product rule there are 5⋅13=65 ways of doing that.
+    + d. The student selects one text of each type, by the product rule this can be done in  5⋅3⋅6⋅4=360  ways.
+    + e. There are  5⋅3=15  ways to choose one history and one sociology text,  5⋅6=30  ways to choose one history and one anthropology text, etc. In total there are  5⋅3+5⋅6+5⋅4+3⋅6+3⋅4+6⋅4=119  ways. $|\Omega| - \binom{5}{2} - \binom{3}{2} - \binom{6}{2} - \binom{4}{2}$
+
+
+9. In how many ways can 7 distinct red balls and 5 distinct blue balls be placed in a row such that<br/>
+  a. all red balls are adjacent,<br/>
+  b. all blue balls are adjacent,<br/>
+  c. no two blue balls are adjacent.<br/>
+
+  Ans: a. (3628800); b. (4838400); c. (33868800)<br/>
+    + There are 6 ways to place 7 red balls adjacent. Hence the number of ways is  6×7!×5!=3628800 .
+    + There are 8 ways to place 5 red balls adjacent. Hence the number of ways is  8×7!×5!=4838400 .
+    + First, decide on the locations of the red and blue balls. Arrange all 7 red balls in a line, we can then choose 5 out of the 8 gaps (including those at the beginning and end) to place the blue balls. Since the balls are distinct we can permute the blue balls, and the red balls, for a total of  (85)7!5!  arrangements.
+
+
+10. For the set {1,2,3,4,5,6,7} find the number of:<br/>
+  a. subsets,<br/>
+  b. 3-subsets,<br/>
+  c. 3-subsets containing the number 1,<br/>
+  d. 3-subsets not containing the number 1.<br/>
+
+  Ans: a. ($2^7$); b. (35); c. (15); d. (20)<br/>
+  Explanation: 
+    + There are 7 elements in the set. The number of subsets is $2^7$ .
+    + Choose 3 elements out of 7. The number of ways is $\binom{7}{3}=35$.
+    + 1  is fixed. Choose 2 elements out of 6. The number of ways is $\binom{6}{2}=15$.
+    + Choose 3 elements out of 6 (excluding  1 ). The number of ways is $\binom{6}{3}=20$
+
+
+11. A function $f:X \to Y$ is _injective_ or one-to-one if different elements in $X$ map to different elements in $Y$, namely,
+
+  \[ \forall\, x \neq x^\prime \in X,\, f(x) \neq f(x^\prime).  \]
+
+  A function $f:X \to Y$ is _surjective_ or onto if all elements in $Y$ are images of at least one element of $X$, namely,
+  
+  \[ \forall\, y \in Y, \exists\, x \in X,\, f(x)=y. \]
+
+  For sets A={1,2,3} and B={a,b,c,d}, find the number of
+
+  a. functions from $A$ to $B$,<br/>
+  b. functions from $B$ to $A$,<br/>
+  c. one-to-one functions from $A$ to $B$,<br/>
+  d. onto functions from $B$ to $A$.<br/>
+
+  Ans: a. ($4^3$); b. ($3^4$); c. (<span style="color: magenta;">24</span>); d. (<span style="color: magenta;">36</span>)<br/>
+  Explanation:
+    + As we saw in the lecture, there are  $|B|^{|A|}=4^33=64$ functions from $A$ to $B$.
+    + $|A|^{|B|}=3^4=81$
+    + There are 4 possible values for $f(1)$. Once $f(1)$ is determined, 3 options for $f(2)$ will keep $f$ one-to-one. And after $f(1)$ and $f(2)$ are determined, two options for $f(3)$ will keep $f$ one-to-one. Hence the total number of one-to-one functions is $4^{\underline{3}} = 4⋅3⋅2 = 24$.
+    + If a mapping from $B$ to $A$ is onto, then two elements of $B$ map to a single element in $A$, while the other two elements of $B$ map to the remaining 2 elements of $A$. There are $\binom{4}{2}=6$ ways to choose the two elements with the same image, and then $3!=6$ ways to to associate the pair and two other elements of $B$ with the three elements of $A$. The total number of onto functions from $B$ to $A$ is therefore $6⋅6=36$.
+    + alternative for counting surjective function w/ PIE: $n^m + \sum_{i=1}^{n-1} (-1)^i \binom{n}{i} (n-i)^m, \quad |A| = m, |B| = n$
+
 
 
 ### Lecture Video
