@@ -316,14 +316,13 @@
     + e.g., $\binom{3}{2} = \left|\binom{[3]}{2} \right| = |\{110, 101, 011\}| = 3$
   + locations of 1's
     + ordered pairs from {1, 2, 3}: $\# = 3^\underline{2} = P(3, 2) = 6$
-    + non-ordered: $\dbinom{3}{2} = \dfrac{3^{\underline{2}}}{2} = \frac{6}{2} = 3$
+    + non-ordered: $\dbinom{3}{2} = \dfrac{3^{\underline{2}}}{2} = \dfrac{6}{2} = 3$
 
 + Calculating the Binomial coefficients
   + $\underbrace{\dbinom{n}{k}}_{\text{number}} \triangleq \underbrace{\left| \dbinom{[n]}{k} \right|}_{\text{set}} = ?$
   + specify locations of the k 1's in order; e.g., 123, 531, 213, ... $\gets$ each location $\in [n]$
   + \# ordered locations: $n^\underline{k} = P(n, k)$
-  + every binary sequence w k 1's correspondence to k! ordered locations
-    + e.g., $10101 \iff 1,3,5 \quad 1,5,3 \quad 3,1,5 \quad 3,5,1 \quad 5,1,3 \quad 5,3,1$
+  + every binary sequence w/ k 1's correspondence to k! ordered locations, e.g., $10101 \iff 1,3,5 \quad 1,5,3 \quad 3,1,5 \quad 3,5,1 \quad 5,1,3 \quad 5,3,1$
 
     \[ k! \dbinom{n}{k} = n^{\underline{k}} \to \dbinom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!\,(n-k)!} \]
 
@@ -333,9 +332,9 @@
 
   + examples
     \[\begin{array}{lll}
-      \dbinom{[3]}{1} = \begin{Bmatrix} 001 \\ 010 \\ 100 \end{Bmatrix} &\to \dbinom{3}{1} = \frac{3!}{1!2!} &\quad \text{choose location of 1} \\\\
-      \dbinom{[3]}{2} = \begin{Bmatrix} 011 \\ 101 \\ 110 \end{Bmatrix} &\to \dbinom{3}{2} = \frac{3!}{2!1!} &\quad \text{choose location of 0} \\\\
-      \dbinom{[4]}{2} = \begin{Bmatrix} 0011 \\ 0101 \\ 0110 \\\ 1001 \\ 1010 \\ 1100 \end{Bmatrix} &\to \dbinom{4}{2} = \frac{4!}{2!2!} &\quad \begin{matrix}\text{choose location of 1's}\\ \text{1st location: 4 choices}\\ \text{2nd location: 3 choices}\\text{Each chosen twice} \end{matrix}
+      \dbinom{[3]}{1} = \begin{Bmatrix} 001 \\ 010 \\ 100 \end{Bmatrix} &\to \dbinom{3}{1} = \dfrac{3!}{1!2!} &\quad \text{choose location of 1} \\\\
+      \dbinom{[3]}{2} = \begin{Bmatrix} 011 \\ 101 \\ 110 \end{Bmatrix} &\to \dbinom{3}{2} = \dfrac{3!}{2!1!} &\quad \text{choose location of 0} \\\\
+      \dbinom{[4]}{2} = \begin{Bmatrix} 0011 \\ 0101 \\ 0110 \\\ 1001 \\ 1010 \\ 1100 \end{Bmatrix} &\to \dbinom{4}{2} = \dfrac{4!}{2!2!} &\quad \begin{matrix}\text{choose location of 1's}\\ \text{1st location: 4 choices}\\ \text{2nd location: 3 choices}\\ \text{Each chosen twice} \end{matrix}
     \end{array}\]
 
 + Simple $\binom{n}{k}$
