@@ -555,18 +555,18 @@
     + w/ John: $\binom{5}{3} = 10$
     + w/ Mary: $\binom{4}{3} = 10$
     + neither: $\binom{5}{4} = 5$
-    + sum: 10 + 10 + 5 = 25
+    + total: 10 + 10 + 5 = 25
 
 + Example: Triangles
   + n points in general position in plane
   + how many triangles can be formed?
 
-  \[ \binom{n, 3} \]
+  \[ \binom{n}{3} \]
 
 + Example How many paths
   + a 4x6 grid
   + start from (0,0) to (4, 6)
-  + every path from start to end is a length-10 sequence of U, R w/ r R's
+  + every path from start to end is a length-10 sequence of U, R w/ 6 R's
 
   \[ \text{# of paths } = \binom{10}{6} = 210 \]
 
@@ -578,6 +578,28 @@
 ### Problem Sets
 
 
+0. You school offers 6 science classes and 5 art classes. How many schedules can you form with 2 science and 2 art classes if order doesn't matter.<br/>
+  a. 25<br/>
+  b. 55<br/>
+  c. 60<br/>
+  d. 150<br/>
+
+  Ans: 150<br/>
+  Explanation: $\binom{6}{2} \cdot \binom{5}{2} = 15 \times 10 = 150$
+
+
+1. How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$, are there if: $|A|+|B|=4$
+
+  Ans: 210 <br/>
+  Explanation: Number of ways is $\binom{5}{0} \binom{5}{4} + \binom{5}{1} \binom{5}{3}+ \cdots + \binom{5}{4} \binom{(5}{0}$.
+
+
+2. In the video (slide 6, minute 4:04), we discussed the number of non-decreasing grid-paths from $(0,0)$ to $(6,4)$.
+
+  How many of these paths go through the point $(2,2)$?
+
+  Ans: 90<br/>
+  Explanation: From (0,0) to (2,2), there are $\binom{4}{2}=6$  paths. From (2,2) to (6,4), there are $\binom{6}{2}=15$ paths. The total number of paths is  6×15=90 .
 
 
 ### Lecture Video
