@@ -628,7 +628,7 @@
 
   + example:
 
-    \[ \binom{[4]}{3} \longleftrightarrow \binom{[4]}{4-3} \iff \begin{Bmatrix} 1110 \\ 1101 \\ 1011 \\ 0111 \end{Bmatrix} \longleftrightarrow \begin{Bmatrix} 0001 \\ 0010 \\ 0100 \\ 1000 \end{Bmatrix} \]
+    \[ \binom{[4]}{3} \iff \begin{Bmatrix} 1110 \\ 1101 \\ 1011 \\ 0111 \end{Bmatrix} \xrightarrow{\text{complement}} \begin{Bmatrix} 0001 \\ 0010 \\ 0100 \\ 1000 \end{Bmatrix} \iff \binom{[4]}{4-3} \]
 
 + Theorem: (Recursion)
 
@@ -671,7 +671,7 @@
   \[ \dbinom{k-1}{k-1} + \dbinom{k}{k-1} + \cdots + \dbinom{n+k-1}{k-1} = \dbinom{n+k}{k} \]
 
   + Proof: (Combinatorial)
-    + $A$ = {binary sequences of length n+k w/ 1's}
+    + $A$ = {binary sequences of length n+k w/ k 1's}
 
       \[ |A| = \dbinom{n+k}{k} \]
 
