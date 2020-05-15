@@ -621,29 +621,29 @@
 
   + example: $\dbinom{5}{3} = \dfrac{5!}{3!2!} = \dfrac{5!}{2!3!}$
   + Proof: (Combinatorial)
-    + complement bits to create 1-1 correspondence: $\binom{[n]}{n} \iff \binom{[n]}{n-k}$
+
+    complement bits to create 1-1 correspondence: $\binom{[n]}{k} \iff \binom{[n]}{n-k}$
 
     \[ \dbinom{n}{k} = \left| \binom{[n]}{k} \right| = \left| \dbinom{[n]}{n-k} \right| = \dbinom{n}{n-k} \tag*{$\Box$} \]
 
   + example:
 
-    \[ \binom{[4]}{3} \iff \binom{[4]}{4-3} \longleftrightarrow \begin{Bmatrix} 1110 \\ 1101 \\ 1011 \\ 0111 \end{Bmatrix} \iff \begin{Bmatrix} 0001 \\ 0010 \\ 0100 \\ 1000 \end{Bmatrix} \]
+    \[ \binom{[4]}{3} \longleftrightarrow \binom{[4]}{4-3} \iff \begin{Bmatrix} 1110 \\ 1101 \\ 1011 \\ 0111 \end{Bmatrix} \longleftrightarrow \begin{Bmatrix} 0001 \\ 0010 \\ 0100 \\ 1000 \end{Bmatrix} \]
 
 + Theorem: (Recursion)
 
     \[ \dbinom{n}{k} = \frac{n}{k} \cdot \dbinom{n-1}{k-1} \]
 
-  + Interpretation
+  + Interpretation: Number of length-n ternary strings w/ k-1 1's and one 2
 
     \[ \dbinom{n}{k} \cdot k = n \cdot \dbinom{n-1}{k-1} \]
 
-    + $k$ in $\binom{n}{k}: choose k locations of k non-zeros (1's & 2)
+    + $k$ in $\binom{n}{k}$: choose k locations of k non-zeros (1's & 2)
     + $k$ as multiple: choose one of these locations to be 2
     + $n$ as multiple: choose location of 2
     + $n-1$: from remaining n-1 locations choose locations of the k-1 1's
   + example: $\dbinom{5}{3} = \dfrac{5!}{3!2!} = 10 = \dfrac{5}{3} \cdot 6 = \dfrac{5}{3}\dbinom{4}{2} \quad\gets$ recursive definition
-  + Number of length-n ternary strings w/ k-1 1's and one 2
-    + e.g., $n=4 \quad k=3: \{ 0112, 1012, 2110, \dots \}$
+  + e.g., $n=4 \quad k=3: \{ 0112, 1012, 2110, \dots \}$
 
 + Theorem: (Binomial)
 
@@ -653,12 +653,16 @@
 
     \[ 2^{[n]} = \biguplus_{i=0}^n \dbinom{[n]}{i} \quad\to\quad 2^n = \left| 2^{[n]} \right| = \sum_{i=0}^n \left| \dbinom{[n]}{i} \right| = \sum_{i=0}^n \dbinom{n}{i} \tag*{$\Box$} \]
 
+  + e.g., $\dbinom{3}{0} + \dbinom{3}{1} + \dbinom{3}{2} + \dbinom{3}{3} = 1 + 3 = 3 + 1 = 8 = 2^3$
   + interpretation
     + \# subsets of [n] of size $\leq n-1 \to$ \# n-bit sequences w/ $\leq n-1$ 1's
     + e.g., $n = 3 \quad\to\quad \underbrace{000}_{1}, \underbrace{001, 010, 100}_{3}, \underbrace{011, 101, 110}_{3} \quad\to\quad 1 + 3 = 3 = 7$
     + two ways:
 
-      \[ \sum_{i=0}^{n-1} \dbinom{n}{i} \quad\to\quad \sum_{i=0}^{n} \dbinom{n}{i} = 2^n \quad \sum_{i=0}^{n-1} \dbinom{n}{i} = 2^n - \dbinom{n}{n} = 2^n - 1 \]
+      \[\begin{align*} 
+        & \sum_{i=0}^{n-1} \dbinom{n}{i} \\\\
+        & \sum_{i=0}^{n} \dbinom{n}{i} = 2^n \quad \sum_{i=0}^{n-1} \dbinom{n}{i} = 2^n - \dbinom{n}{n} = 2^n - 1 
+      \end{align*}\]
 
 + Theorem: (Hockey stick identify)
 
@@ -676,7 +680,6 @@
       \[ A = A_k \uplus A_{k+1} \uplus \cdots \uplus A_{n+k} \]
 
       \[ |A_i| = \dbinom{i-1}{k-1} \]
-
 
   + e.g., $k=3, n = 2 \quad \dbinom{2}{2} + \dbinom{3}{2} + \dbinom{4}{2} = 1 + 3 + 6 = 10 = \dbinom{5}{3}$
 
