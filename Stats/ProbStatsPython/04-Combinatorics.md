@@ -689,6 +689,34 @@
 
 ### Problem Sets
 
+0. For a positive integer n, n choose (n-1) equals to<br/>
+  a. 1<br/>
+  b. n-1<br/>
+  c. n<br/>
+  d. n+1<br/>
+
+  Ans: c
+
+
+1. A deck  $n \geq 5$ cards has as many 5-card hands as 2-card hands. What is $n$?
+
+  Ans: 7 <br/>
+  Explanation: From the information given, we have $\binom{n}{5} = \binom{n}{2}$ which clearly holds for n=7 since $\binom{n}{5} = \binom{n}{n−5}$.
+
+
+2. If $\binom{n+2}{5} = 12 \cdot \binom{n}{3}$, find $n$.
+
+  And: 14<br/>
+  Explanation: As $\binom{n+2}{5}= \frac{(n+2)(n+1)}{5⋅4}\binom{n}{3}$, $\frac{n+2)(n+1)}{5⋅4}=12$. Hence $n=14$.
+
+
+3. Which of the following is the expansion of  (x+y)3 ?<br/>
+  a. $x^3+y^3$<br/>
+  b. $x^3+x^2y+xy^2+y^3$<br/>
+  c. $x^3+6xy+y^3$<br/>
+  d. $x^3+3x^2y+3xy^2+y^3$<br/>
+
+  Ans: d
 
 
 
