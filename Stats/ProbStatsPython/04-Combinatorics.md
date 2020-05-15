@@ -840,7 +840,52 @@
 
 ### Problem Sets
 
+0. What is the coefficient of $x^2$ in the expansion of $(x+2)^4$?<br/>
+  a. 12<br/>
+  b. 24<br/>
+  c. 48<br/>
+  d. None of the above<br/>
 
+  Ans: b
+
+
+1. a. What is the coefficient of $x^4$  in the expansion of $(2x−1)^7$?
+ 
+   b. What is the constant term in the expansion of $(x−\frac{2}{x})^6$?
+
+  Ans: a. (-560); b. (-160) <br/>
+  Expression:
+  + By binomial theorem, the number of terms that contain $(2x)^4$ is \binom{7}{4}$. Hence, the coefficient of $x^4$ is $2^4 \times (−1)^3 \times \binom{7}{4}=−560$.
+  + $(x−\frac{2}{x})^6 = (x^2−2)^6(\frac{1}{x})^6$. To find the constant term, we just need to find the coefficient of $x^6$ in $(x^2−2)^6$. The number of terms that contain x6 is $\binom{6}{3}$, so the coefficient is $1^3×(−2)^3×\binom{6}{3}=−160$
+
+
+2. What is the coefficient of $x^2$ in the expansion of $(x+2)^4(x+3)^5$?
+
+  Ans: 23112<br/>
+  Explanation:
+    + Consider $(x+2)^4(x+3)^5$ as the product of $(x+2)^4$ and $(x+3)^5$, there are 3 ways to get $x^2$: (1) multiply the $x^2$ term in $(x+2)^4$ and the constant term in $(x+3)^5$, (2) multiply the $x$ term in $(x+2)^4$ and the $x$ term in $(x+3)^5$, (3) multiply the constant term in $(x+2)^4$ and the $x^2$ term in $(x+3)^5$.
+    + Hence the result is the sum of these 3 ways  $\binom{5}{2} 2^4 3^3 + \binom{4}{1} \binom{5}{1} 2^3 3^4 + \binom{4}{2}$ 3^5 2^2=23112$.
+
+
+3. In an earlier section, we solved this question by mapping the sets  A  and  B  to ternary sequences. In this section, we ask you to solve it using the binomial theorem.
+
+  How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$ have:
+
+  a. $A \cap B = \varnothing$<br/>
+  b. $A \cup B = \{1,2,3,4,5\}$<br/>
+
+  Ans: a. (243); b(243) <br>
+  <span style="color: magenta;">Explanation:</span>
+    + $A$ can be any subset of {1,2,3,4,5}, and then B can be any subset of $A^C$. There are $\binom{5}{i}$ subsets of size i, and then $2^{5−i}$ subsets of the complement, hence the total number is $\sum_{i=0}^5 \binom{5}{i} 2^i = 3^5 = 243$ subset pairs.
+    + Replicate the binomial theorem proof.
+
+4. Which of the followings are equal?
+  a. $\binom{10}{4})$
+  b. $\binom{10}{5})$
+  c. $\binom{10}{6})$
+  d. $\binom{9}{5)+\binom{9}{6}$
+
+  Ans: acd
 
 
 ### Lecture Video
