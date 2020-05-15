@@ -664,7 +664,7 @@
         & \sum_{i=0}^{n} \dbinom{n}{i} = 2^n \quad \sum_{i=0}^{n-1} \dbinom{n}{i} = 2^n - \dbinom{n}{n} = 2^n - 1 
       \end{align*}\]
 
-+ Theorem: (Hockey stick identify)
++ Theorem: (Identity)
 
   \[ \sum_{i=0}^n \dbinom{i+k-1}{k-1} = \dbinom{n+k}{k} \]
 
@@ -727,11 +727,102 @@
 </a><br/>
 
 
-## 4.6 Binomial Theorem
+## 4.6 Pascal Triangle and Binomial Theorem
+
++ Pascal's identity
+
+  \[ \dbinom{n+1}{k} = \dbinom{n}{k} + \dbinom{n}{k-1} \]
+
+  + e.g. $\binom{4}{3} = \binom{3}{3} + \binom{3}{2}$
+
+    \[\begin{align*}
+      \dbinom{n+1}{k} &= \dbinom{n}{k} + \dbinom{n}{k-1} \\\\
+      \binom{2}{1} &= \binom{1}{1} + \binom{1}{0} \\
+      \binom{3}{1} &= \binom{2}{1} + \binom{2}{0} \\
+      \binom{3}{2} &= \binom{2}{2} + \binom{2}{1}
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycyuz3ww" ismap target="_blank">
+      <img src="img/t04-03.png" style="margin: 0.1em;" alt="Example of k-bit sequences and their classification" title="Example of k-bit sequences and their classification" height=150>
+      <img src="img/t04-04.png" style="margin: 0.1em;" alt="Pascal's triangle and Binomial coefficients" title="Pascal's triangle and Binomial coefficients" height=200>
+    </a>
+  </div>
+
++ Binomial Theorem
+
+    \[ (a+b)^n = \sum_{i=0}{n} \dbinom{n}{i} a^{n-i} b^i \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycyuz3ww" ismap target="_blank">
+      <img src="img/t04-05.png" style="margin: 0.1em;" alt="Relationship btw Binomial coefficients and polynomial coefficient" title="Relationship btw Binomial coefficients and polynomial coefficient" height=150>
+    </a>
+  </div>
+
+  + Theorem: (Binomial)
+
+    \[ (a+b)^n = \sum_{i=0}^n \dbinom{n}{i} a^{n-i} b^i \quad \forall\, a, b \quad \forall\, n \geq 0 \]
+
+  + so important it gives the binomial coefficients their name
+  + interpretation: three $(a+b)$ factors
+
+    \[\begin{align*}
+      (a+b)^3 &= (a+b)(a+b)(a+b) \\
+      &= \underbrace{aaa + aab + aba + abb + baa + bab + bba + bbb}_{\text{Sum of terms}} \\
+      & \hspace{2em} \text{each term: product of a's and b's one selected from each other}\\
+      & \hspace{2em} \text{# a's + # b's = 3} \\\\
+      &= a^3 + 3a^2b + 3ab^2 + b^3 \\
+      & \hspace{2em} \text{# of terms w/ i b's = # ways to select i factors out of the 3 = } \binom{3}{i} \\
+      &= \binom{3}{0} a^3 + \binom{3}{1} a^2b + \binom{3}{2} ab^2 + \binom{3}{3} b^3
+    \end{align*}\]
+
+  + generally
+
+    \[ (a+b)^n = \dbinom{n}{0} a^n + \dbinom{n}{1} a^{n-1} b + \cdots + \dbinom{n}{n} = \sum_{i=0}^n \dbinom{n}{i} a^{n-i}b^i \]
+
++ Theorem: (Binomial)
+
+  \[ \sum_{i=0}^n \dbinom{n}{i} = 2^n \]
+
+  + Proof: (algebraic)
+
+    \[ 2^n = (1+1)^n = \sum_{i=0}^n \dbinom{n}{i} 1^{n-i}1^i = \sum+{i=0}^n \dbinom{n}{i} \]
+
++ Polynomial coefficients
+
+  \[ (1+x)^n = \sum_{i=0}^n \dbinom{n}{i} x^i \]
+
+  + examples:
+    + coefficient of $x^2$ in $(1+x)^7$
+
+      \[ (1+x)^7 = \sum_{i=0}^n \dbinom{7}{i} x^i \qquad \dbinom{7}{2} = 21 \]
+
+    + coefficient of $x^3$ in $(3+2x)^5$
+
+      \[ (3 + 2x)^5 = \sum_{i=0}^5 \dbinom{5}{i} 3^{5-i}(2x)^i \qquad \dbinom{5}{3} 3^2 \cdot 2^3 = 720 \]
+
++ Binomial $\to$ Taylor
+  + Taylor expression
+
+    \[ e^x = \sum_{i=0}^\infty \frac{x^i}{i!} \]
+
+  + Interpretation
+
+    \[\begin{align*}
+      (1+\frac{x}{n})^n &= \sum_{i=0}^n \dbinom{n}{i} (\dfrac{x}{i})^i = \sum_{i=0}^n \dfrac{n^{\underline{i}}}(\dfrac{x}{n})^i \\
+        &= \sum_{i=0}^n \dfrac{x^i}{i!} \cdot \dbinom{n^{\underline{i}}}{n^i} \\\\
+      e^x &= \sum_{i=0}^\infty \dfrac{x^i}{i!} \quad \text{as } n \to \infty
+    \end{align*}\]
+
++ Binomoial distribution
+
+  \[ \sum_{i=0}^n \dbinom{n}{i} p^{n-i} (1-p)^i = (p + (1-p))^n = 1^n = 1 \]
+
+  + example: $(\frac{1}{3})^2 + 2 (\frac{1}{3}) (\frac{2}{3}) + (\frac{2}{3})^2 = 1
 
 
 
-
++ [Original Slides](https://tinyurl.com/ycyuz3ww)
 
 
 ### Problem Sets
