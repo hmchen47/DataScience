@@ -790,7 +790,7 @@
 
   + generally
 
-    \[ (a+b)^n = \dbinom{n}{0} a^n + \dbinom{n}{1} a^{n-1} b + \cdots + \dbinom{n}{n} = \sum_{i=0}^n \dbinom{n}{i} a^{n-i}b^i \]
+    \[ (a+b)^n = \dbinom{n}{0} a^n + \dbinom{n}{1} a^{n-1} b + \cdots + \dbinom{n}{n} b^n = \sum_{i=0}^n \dbinom{n}{i} a^{n-i}b^i \]
 
 + Theorem: (Binomial)
 
