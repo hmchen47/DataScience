@@ -1055,9 +1055,113 @@
 
 ## 4.8 Stars and Bars
 
++ Counting sums
+  + \# ways to
+    + write 5 as a sum of 3 positive integers, when order matters
+    + partition 5 items into 3 group, when order matters
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Addition</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Partition</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">sun to 5</td> <td style="text-align: center;">5 starts (items)</td> </tr>
+    <tr> <td style="text-align: center;">3 positive terms</td> <td style="text-align: center;">3 consecutive start intervals</td> </tr>
+    <tr> <td style="text-align: center;">2 +'s separating the numbers</td> <td style="text-align: center;">2 bards separating intervals</td> </tr>
+    <tr> <td style="text-align: center;"></td> <td style="text-align: center;">4 inter-start gaps</td> </tr>
+    <tr> <td style="text-align: center;"></td> <td style="text-align: center;">choose 2 of 4 gaps</td> </tr>
+    </tbody>
+  </table>
+
++ k terms adding to n
+  + \# ways to write n as a sum of k positive integers, when order matters
+  + \# sums = $\binom{n-1}{k-1}$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
+      <img src="img/t04-06.png" style="margin: 0.1em;" alt="Example of separating starts w/ bars" title="Example of separating starts w/ bars" width=250>
+    </a>
+  </div>
+
+  + general cases
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$k$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">sums</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\binom{n-1}{k-1}$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr><td style="text-align: center;">$1$</td><td style="text-align: center;">$n$</td><td style="text-align: center;">$\binom{n-1}{1-1} = 1$</td> </tr>
+      <tr><td style="text-align: center;">$n$</td><td style="text-align: center;">$1 + 1 + \cdots + 1$</td><td style="text-align: center;">$\binom{n-1}{n-1} = 1$</td> </tr>
+      <tr><td style="text-align: center;">$2$</td><td style="text-align: center;">$1+(n-1), 2+(n-2), \dots, (n-1)+1$</td><td style="text-align: center;">$\binom{n-1}{2-1} = n-1$</td> </tr>
+      <tr><td style="text-align: center;">$n-1$</td><td style="text-align: center;">$2+1+\cdots+1, \dots, 1+1+\cdots+1+2$</td><td style="text-align: center;">$\binom{n-1}{n-2} = n-1$</td> </tr>
+      </tbody>
+    </table>
+
+  + e.g. 8 as sum of 4 positive integers: $\tbinom{8-1}{4-1} = \tbinom{7}{3} = \frac{7 \cdot 6 \cdot 5}{3 \cdot 2 \cdot 1} = 35$
+
++ Any sum to $n$
+  + \# ways to write n as a sum of (any # of) positive integers
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
+        <img src="img/t04-07.png" style="margin: 0.1em;" alt="Example of any sum to n" title="Example of any sum to n" width=350>
+      </a>
+    </div>
+
+  + n as sum of $k \in [n]$: $\binom{n-1}{k-1}$
+
+    \[ \sum_{k=1}^n \dbinom{n-1}{k-1} = sum_{i=0}^{n-1} \dbinom{n-1}{i} = 2^{n-1} \]
+
++ Nonnegative terms
+  + \# ways to write n as sum of k non-negative integers (left diagram)
+  + \# ways to write n as a sum of k non-negative integers, when order matters (right diagram)
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
+        <img src="img/t04-08.png" style="margin: 0.1em;" alt="Example of nonnegative terms" title="Example of nonnegative terms" height=150>
+        <img src="img/t04-09.png" style="margin: 0.1em;" alt="Illustration of non-negatives adding to n" title="Illustration of non-negatives adding to n" height=100>
+      </a>
+    </div>
+
+  + $\dbinom{n+k-1}{k-1}$
+    + \# sequences w/ n starts and k-1 bars
+    + \# length $n+(k-1)$ sequences w/ $k-1$ bars
+
++ Example: 4-letter words
+  + \# 4-letter words when order matter: $26^4 = 456,976$
+  + \# 4-letter words when order does not matter
+    + evil = vile = live = veil = eilv = liev = ...
+    + doom = mood = odom = ...
+  + determined by composition
+    + \#a, \#b, \#c, ..., \#z
+    + \#a + \#b + \#c + ... + \#z = 4
+  + 26 non-negative terms: $k = 26$; sum to 4: $n = 4$
+
+    \[ \binom{4+25-1}{26-1} = \binom{29}{25} = \binom{29}{4} = 23,751 \frac{26^4}{4!} \]
+
++ More applications
+  + can derive \# positive adding to n
+    + \# k positive adding to $n$ = \# k non-negative adding to $n-k$
+
+      \[ \dbinom{(n-k) + k -1}{k-1} = \dbinom{n-1}{k-1} \]
+
+    + e.g., \# k positive adding to $n = 1+2+1+3 = 7$; \# k non-negative adding to $n-k = 0+1+0+2 = 7-4 = 3$
+  + can derive \# non-negative addin to $\leq n$
+    + \# non-negative adding to $\leq n$ = \# K=1 non-negative adding to n
+
+      \[ \dbinom{n+(k=1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
+
+    + e.g., \# non-negative adding to $\leq n: 2+0+3 \leq 7$; \# K=1 non-negative adding to n: $2+0+3+2 = 7$
 
 
-
++ [Original Slides](https://tinyurl.com/y8z9zxet)
 
 
 ### Problem Sets
