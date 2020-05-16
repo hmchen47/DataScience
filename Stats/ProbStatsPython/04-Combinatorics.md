@@ -997,7 +997,7 @@
   e. three unlabeled groups with 3, 3 and 6 people<br/>
 
   Ans: a. (34650); b. (5775), c. (27720), d. (27720),; e. (<span style="color: magenta;">9240</span>)<br/>
-  Explanation
+  <span style="color: magenta;">Explanation</span>
     + $\tbinom{12}{4,4,4}=34650$.
     + Since the groups are unlabeled, every permutation of the three group counts the same, hence the number of ways is $\tbinom{12}{4,4,4}/3!=11550$.
     + $\tbinom{12}{3,4,5}=27720$.
@@ -1048,7 +1048,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/ya3g7gzq" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
