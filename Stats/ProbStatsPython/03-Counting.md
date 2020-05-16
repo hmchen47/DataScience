@@ -923,6 +923,7 @@
   c. $|A \cap B|=1$<br/>
 
   Ans: a. ($3^5$); b. ($3^4$); c. (5 \cdot 3^4$) <br/>
+  <span style="color: magenta;">Explanation:</span>
   + Represent each pair $(A,B)$ of disjoint subssets of $\{1,2,3,4,5\}$ as a ternary sequence of length 5, where 1 in location $i$ indicaes that $i \in A$, 2 in location $i$ indicates that $i \in B$, and 0 in location $i$ indicates that $i$ is in neither $A$ nor $B$. For example, 10201 corresponds to $A=\{1,5\}$ and $B=\{3\}$. The number of disjoint subset pairs is therefore the same as the number of ternary sequences of length 5, namely $3^5$.
   + Include $1$ in both $A$, $B$ and then repeat above part with the set $\{2,3,4,5\}$.
   + Same as the above part, except the element in common can be any from $\{1,2,...,5\}$ and therefore $5 \cdot 3^4 = 405$.
