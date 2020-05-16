@@ -785,7 +785,7 @@
       & \hspace{2em} \text{# a's + # b's = 3} \\\\
       &= a^3 + 3a^2b + 3ab^2 + b^3 \\
       & \hspace{2em} \text{# of terms w/ i b's = # ways to select i factors out of the 3 = } \binom{3}{i} \\
-      &= \binom{3}{0} a^3 + \binom{3}{1} a^2b + \binom{3}{2} ab^2 + \binom{3}{3} b^3
+      &= \tbinom{3}{0} a^3 + \tbinom{3}{1} a^2b + \tbinom{3}{2} ab^2 + \tbinom{3}{3} b^3
     \end{align*}\]
 
   + generally
@@ -879,11 +879,11 @@
     + $A$ can be any subset of {1,2,3,4,5}, and then B can be any subset of $A^C$. There are $\binom{5}{i}$ subsets of size i, and then $2^{5−i}$ subsets of the complement, hence the total number is $\sum_{i=0}^5 \binom{5}{i} 2^i = 3^5 = 243$ subset pairs.
     + Replicate the binomial theorem proof.
 
-4. Which of the followings are equal?
-  a. $\binom{10}{4})$
-  b. $\binom{10}{5})$
-  c. $\binom{10}{6})$
-  d. $\binom{9}{5)+\binom{9}{6}$
+4. Which of the followings are equal?<br/>
+  a. $\tbinom{10}{4}$<br/>
+  b. $\tbinom{10}{5}$<br/>
+  c. $\tbinom{10}{6}$<br/>
+  d. $\tbinom{9}{5}+\tbinom{9}{6}$<br/>
 
   Ans: acd
 
@@ -930,7 +930,7 @@
 
   + same as sequences over {1, 2, 3, 4} in previous slide
 
-    \[ \dbinom{11}{1, 4, 4, 2} = 34,650 \]
+    \[ \binom{11}{1, 4, 4, 2} = 34,650 \]
 
 + Example: students in class
   + 10 students
@@ -968,14 +968,82 @@
     \[ \underbrace{\tbinom{2}{2,0,0}}_{\text{1}} + \underbrace{\tbinom{2}{0,2,0}}_{\text{1}} + \underbrace{\tbinom{2}{0,0,2}}_{\text{1}} + \underbrace{\tbinom{2}{1,1,0}}_{\text{2}} + \underbrace{\tbinom{2}{1,0,1}}_{\text{2}} + \underbrace{\tbinom{2}{0,1,1}}_{\text{2}} = 9 \]
 
 
-
-
 + [Original Slides](https://tinyurl.com/y8urpjtm)
 
 
 ### Problem Sets
 
+0. What is the coefficient of xy in the expansion of $(x+y+2)^4$?<br/>
+  a. 12<br/>
+  b. 24<br/>
+  c. 48<br/>
+  d. None of the above<br/>
 
+  Ans: <span style="color: magenta;">48</span><br/>
+  Explanation: The answer is 48. The number of ways to have 2 "2"s, 1 "x", 1 "y" is 12 (using multinomial coefficient). Then we multiply it with $2^2 = 4$ and get the answer.
+
+
+1. In how many ways can you give three baseball tickets, three soccer tickets, and three opera tickets, all general admission, to nine friend so each gets one ticket?
+
+  Ans: 1680<br/>
+  Explanation: Using the multinomial coefficient, we get the answer $\tbinom{9}{3,3,3}=1680$.
+
+
+2. How many ways can we divide 12 people into:<br/>
+  a. three labeled groups evenly<br/>
+  b. three unlabeled groups evenly<br/>
+  c. three labeled groups with 3, 4 and 5 people<br/>
+  d. three unlabeled groups with 3, 4 and 5 people<br/>
+  e. three unlabeled groups with 3, 3 and 6 people<br/>
+
+  Ans: a. (34650); b. (5775), c. (27720), d. (27720),; e. (<span style="color: magenta;">9240</span>)<br/>
+  Explanation
+    + $\tbinom{12}{4,4,4}=34650$.
+    + Since the groups are unlabeled, every permutation of the three group counts the same, hence the number of ways is $\tbinom{12}{4,4,4}/3!=11550$.
+    + $\tbinom{12}{3,4,5}=27720$.
+    + Since the groups have different sizes, they are distinct regardless of label, hence answer stays $\tbinom{12}{3,4,5}=27720$.
+    + Since the groups are unlabeled, every permutation of the two groups that have 3 people counts the same, hence the number of ways is $\tbinom{12}{3,3,6}/2!=9240$.
+
+
+3. a. What is the coefficient of $x^3y^2$ in expansion of $(x+2y+1)^{10}$?<br/>
+   b. What is the coefficient of $x^3$ in expansion of $(x^2−x+2)^{10}$?<br/>
+
+  Ans: a(10080); b(-38400)<br/>
+  Explanation:
+    + To form $x^3y^2$, we need to pick three x's, two 2y's, and five  1's. The number of ways is $\tbinom{10}{3,2,5}$. The resulting term of  $x^3y^2$ is $\tbinom{10}{3,2,5}(x^3 \cdot (2y)^2 \cdot 1^5)$. Hence the coefficient is $\tbinom{10}{3,2,5} \cdot 2^2 = 10080$.
+    + To form $x^3$, we can pick one $x^2$'s, one $−x$'s, and eight 2's. The number of ways is $\tbinom{10}{1,1,8}$. Or we can pick zero $x^2$'s, three $−x$'s, and seven 2's. The number of ways is $\tbinom{10}{0,3,7}$.  The resulting term of $x^3$ is $\tbinom{10}{1,1,8}(x^2 (−x) 2^8) + \tbinom{10}{0,3,7} ((x^2)^0 (−x)^3 2^7$. Hence the coefficient is $\tbinom{10}{1,1,8} (−1) 2^8 + \tbinom{10}{0,3,7} (−1)^3 2^7 = −38400$.
+
+
+4. How many terms are there in the expansion of $(x+y+z)^{10} + (x−y+z)^{10}$?
+
+  Ans: 36<br/>
+  Explanation: All the terms where $y$ has odd power will be canceled out. We only need to consider the number of terms where the power of y is 0,2,4,6,8,10 (i.e., $y^0,y^2,y^4,y^6,y^8,y^{10}$) , which is $11+9+7+⋯+1=36$.
+
+
+5. How many anagrams, with or without meaning, does "REFEREE" have such that:<BR/>
+  a. there is no constraint<BR/>
+  b. two "R"'s are separated<BR/>
+  c. it contains subword “EE”<BR/>
+  d. it begins with letter “R”<BR/>
+
+  Ans: a. (105); b. (75); c. (102); d. (30)<br/>
+  Explanation: 
+    + We have 4 "E"s, 2 "R"s, and 1 "F". The answer is $\tbinom{7}{1,2,4} =105$.
+    + Suppose the 2 "R"s are not separated. Then we have 4 "E"s, 1 "RR", 1 "F". The number of them is $\tbinom{6}{1,1,4}$. The number of angrams where two "R"'s are separated $105 − \tbinom{6}{1,1,4}=75$.
+    + There are only 3 words that do not contain "EE" (i.e. "EREREFE", "EREFERE", "EFERERE") $105−btbinom{3}{1}=102$.
+    + Fixing "R" in the first postions, we now have 4"E"s, 1 "R", 1 "F". The number of them $\tbinom{6}{1,1,4}=30$.
+
+
+6. How many anagrams, with or without meaning, do the following words have?<br/>
+  a. CHAIR<br/>
+  b. INDIA<br/>
+  c. SWIMMING<br/>
+
+  Ans: a. (120); b. (60); c. (10080)<br/>
+  Explanation:
+    + Permutation of 5 letters.
+    + There are two "I"s, so there are $\tbinom{5}{2,1,1,1}=60$ anagrams.
+    + There are two "I"s and two "M"s, so $\tbinom{8}{2,2,1,1,1,1}=10080$ anagrams.
 
 
 ### Lecture Video
