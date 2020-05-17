@@ -48,6 +48,23 @@ def factorial_recursive(n):
     else:
         return n * factorial_recursive(n-1)
 
+def partial_permute(A, k, debug=False):
+    """Compute values of partial permutation
+
+    Arguments:
+        n {int} -- an integer for a given groups
+        k {int} -- an integer to choose from a group
+    """
+    if k == 0: return [tuple()]
+    permutations = []
+
+    for x in A:
+        if debug: print(x, A, permutations)
+
+        for y in partial_permute(A-{x}, k-1, debug):
+            permutations.append((x,)+y)
+    return permutations
+
 
 def main():
 
@@ -70,7 +87,15 @@ def main():
 
     print("\nrecursively w/ customized function (|{}|): {}".format(A, factorial_recursive(len(A))))
 
+
     input("\nPress Enter to continue ...")
+    print("\n... Partial Permutation ...")
+    A, k = {1, 2, 3, 4}, 2
+    print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ lenth= {}\n  {}".format(A, k, \
+        len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
+
+    print("\ncustomized partial permutation function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
+        len(partial_permute(A, k)), partial_permute(A, k, True)))
 
 
 
