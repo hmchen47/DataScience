@@ -55,7 +55,7 @@ def partial_permute(A, k, debug=False):
         n {int} -- an integer for a given groups
         k {int} -- an integer to choose from a group
     """
-    if k == 0: return [tuple()]
+    if k == 1: return [(x,) for x in A]
     permutations = []
 
     for x in A:
@@ -67,6 +67,8 @@ def partial_permute(A, k, debug=False):
 
 
 def main():
+
+    # Permutation
 
     print("\n... Permutations ...")
     print("\ncustomized permutation\n")
@@ -80,6 +82,9 @@ def main():
 
     input("\nPress Enter to continue ...")
 
+
+    # Factorial
+
     print("\n... Factorials ...")
     print("\nbuilt-in math module:  math.factorial(|{}|)= {}".format(A, math.factorial(len(A))))
 
@@ -88,15 +93,17 @@ def main():
     print("\nrecursively w/ customized function (|{}|): {}".format(A, factorial_recursive(len(A))))
 
 
+    # Partial permutation
+
     input("\nPress Enter to continue ...")
     print("\n... Partial Permutation ...")
     A, k = {1, 2, 3, 4}, 2
-    print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ lenth= {}\n  {}".format(A, k, \
-        len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
 
     print("\ncustomized partial permutation function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
-        len(partial_permute(A, k)), partial_permute(A, k, True)))
+        len(partial_permute(A, k)), partial_permute(A, k, False)))
 
+    print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ lenth= {}\n  {}".format(A, k, \
+        len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
 
 
 
