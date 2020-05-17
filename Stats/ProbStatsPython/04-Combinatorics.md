@@ -1068,7 +1068,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr> <td style="text-align: center;">sun to 5</td> <td style="text-align: center;">5 starts (items)</td> </tr>
+    <tr> <td style="text-align: center;">sum to 5</td> <td style="text-align: center;">5 starts (items)</td> </tr>
     <tr> <td style="text-align: center;">3 positive terms</td> <td style="text-align: center;">3 consecutive start intervals</td> </tr>
     <tr> <td style="text-align: center;">2 +'s separating the numbers</td> <td style="text-align: center;">2 bards separating intervals</td> </tr>
     <tr> <td style="text-align: center;"></td> <td style="text-align: center;">4 inter-start gaps</td> </tr>
@@ -1117,22 +1117,26 @@
 
   + n as sum of $k \in [n]$: $\binom{n-1}{k-1}$
 
-    \[ \sum_{k=1}^n \dbinom{n-1}{k-1} = sum_{i=0}^{n-1} \dbinom{n-1}{i} = 2^{n-1} \]
+    \[ \sum_{k=1}^n \dbinom{n-1}{k-1} = \sum_{i=0}^{n-1} \dbinom{n-1}{i} = 2^{n-1} \]
 
 + Nonnegative terms
   + \# ways to write n as sum of k non-negative integers (left diagram)
+
+    \[ \binom{n+k-1}{k} \]
+
   + \# ways to write n as a sum of k non-negative integers, when order matters (right diagram)
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
-        <img src="img/t04-08.png" style="margin: 0.1em;" alt="Example of nonnegative terms" title="Example of nonnegative terms" height=150>
-        <img src="img/t04-09.png" style="margin: 0.1em;" alt="Illustration of non-negatives adding to n" title="Illustration of non-negatives adding to n" height=100>
-      </a>
-    </div>
-
-  + $\dbinom{n+k-1}{k-1}$
     + \# sequences w/ n starts and k-1 bars
     + \# length $n+(k-1)$ sequences w/ $k-1$ bars
+
+    \[ \dbinom{n+k-1}{k-1} \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
+      <img src="img/t04-08.png" style="margin: 0.1em;" alt="Example of nonnegative terms" title="Example of nonnegative terms" height=150>
+      <img src="img/t04-09.png" style="margin: 0.1em;" alt="Illustration of non-negatives adding to n" title="Illustration of non-negatives adding to n" height=100>
+    </a>
+  </div>
+
 
 + Example: 4-letter words
   + \# 4-letter words when order matter: $26^4 = 456,976$
@@ -1144,7 +1148,7 @@
     + \#a + \#b + \#c + ... + \#z = 4
   + 26 non-negative terms: $k = 26$; sum to 4: $n = 4$
 
-    \[ \binom{4+25-1}{26-1} = \binom{29}{25} = \binom{29}{4} = 23,751 \frac{26^4}{4!} \]
+    \[ \binom{4+25-1}{26-1} = \binom{29}{25} = \binom{29}{4} = 23,751 \geq \frac{26^4}{4!} \]
 
 + More applications
   + can derive \# positive adding to n
@@ -1152,13 +1156,13 @@
 
       \[ \dbinom{(n-k) + k -1}{k-1} = \dbinom{n-1}{k-1} \]
 
-    + e.g., \# k positive adding to $n = 1+2+1+3 = 7$; \# k non-negative adding to $n-k = 0+1+0+2 = 7-4 = 3$
+    + e.g., \# k positive adding to $n = 1+2+1+3 = 7 \to$ \# k non-negative adding to $n-k = 0+1+0+2 = 7-4 = 3$
   + can derive \# non-negative addin to $\leq n$
     + \# non-negative adding to $\leq n$ = \# K=1 non-negative adding to n
 
       \[ \dbinom{n+(k=1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
 
-    + e.g., \# non-negative adding to $\leq n: 2+0+3 \leq 7$; \# K=1 non-negative adding to n: $2+0+3+2 = 7$
+    + e.g., \# non-negative adding to $\leq n: 2+0+3 \leq 7 \to$ \# K=1 non-negative adding to n: $2+0+3+2 = 7$
 
 
 + [Original Slides](https://tinyurl.com/y8z9zxet)
