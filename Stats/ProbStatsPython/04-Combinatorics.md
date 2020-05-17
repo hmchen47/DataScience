@@ -1056,11 +1056,10 @@
 ## 4.8 Stars and Bars
 
 + Counting sums
-  + \# ways to
-    + write 5 as a sum of 3 positive integers, when order matters
-    + partition 5 items into 3 group, when order matters
+  + \# ways to write 5 as a sum of 3 positive integers, when order matters
+  + \# ways to partition 5 items into 3 group, when order matters
 
-  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Addition</th>
@@ -1071,8 +1070,9 @@
     <tr> <td style="text-align: center;">sum to 5</td> <td style="text-align: center;">5 starts (items)</td> </tr>
     <tr> <td style="text-align: center;">3 positive terms</td> <td style="text-align: center;">3 consecutive start intervals</td> </tr>
     <tr> <td style="text-align: center;">2 +'s separating the numbers</td> <td style="text-align: center;">2 bards separating intervals</td> </tr>
-    <tr> <td style="text-align: center;"></td> <td style="text-align: center;">4 inter-start gaps</td> </tr>
-    <tr> <td style="text-align: center;"></td> <td style="text-align: center;">choose 2 of 4 gaps</td> </tr>
+    <tr> <td rowspan="3" style="text-align: center;">$3+1+1, \;2+2+1, \;2+1+2,\\ 1+3+1,\; 1+2+2, \; 1+1+3$<br/><br/># = 6</td> <td style="text-align: center;">4 inter-start gaps</td> </tr>
+    <tr> <td style="text-align: center;">choose 2 of 4 gaps</td> </tr>
+    <tr> <td style="text-align: center;">$\tbinom{4}{2} = 6$</td> </tr>
     </tbody>
   </table>
 
@@ -1119,21 +1119,19 @@
 
     \[ \sum_{k=1}^n \dbinom{n-1}{k-1} = \sum_{i=0}^{n-1} \dbinom{n-1}{i} = 2^{n-1} \]
 
-+ Nonnegative terms
-  + \# ways to write n as sum of k non-negative integers (left diagram)
-
-    \[ \binom{n+k-1}{k} \]
-
-  + \# ways to write n as a sum of k non-negative integers, when order matters (right diagram)
++ Non-negative terms adding to n
+  + \# ways to write n as sum of k non-negative integers, when order matters (right diagram)
     + \# sequences w/ n starts and k-1 bars
     + \# length $n+(k-1)$ sequences w/ $k-1$ bars
 
     \[ \dbinom{n+k-1}{k-1} \]
 
+  + example: left diagram
+
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
       <img src="img/t04-08.png" style="margin: 0.1em;" alt="Example of nonnegative terms" title="Example of nonnegative terms" height=150>
-      <img src="img/t04-09.png" style="margin: 0.1em;" alt="Illustration of non-negatives adding to n" title="Illustration of non-negatives adding to n" height=100>
+      <img src="img/t04-09.png" style="margin: 0.1em;" alt="Illustration of k non-negatives adding to n" title="Illustration of k non-negatives adding to n" height=100>
     </a>
   </div>
 
@@ -1157,10 +1155,10 @@
       \[ \dbinom{(n-k) + k -1}{k-1} = \dbinom{n-1}{k-1} \]
 
     + e.g., \# k positive adding to $n = 1+2+1+3 = 7 \to$ \# k non-negative adding to $n-k = 0+1+0+2 = 7-4 = 3$
-  + can derive \# non-negative addin to $\leq n$
-    + \# non-negative adding to $\leq n$ = \# K=1 non-negative adding to n
+  + can derive \# non-negative adding to $\leq n$
+    + \# non-negative adding to $\leq n$ = \# k+1 non-negative adding to n
 
-      \[ \dbinom{n+(k=1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
+      \[ \dbinom{n+(k+1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
 
     + e.g., \# non-negative adding to $\leq n: 2+0+3 \leq 7 \to$ \# K=1 non-negative adding to n: $2+0+3+2 = 7$
 
