@@ -1168,6 +1168,52 @@
 
 ### Problem Sets
 
+0. In how many different ways can you write 11 as a sum of 3 positive integers if order matters?<br/>
+  a. 28<br/>
+  b. 36<br/>
+  c. 45<br/>
+  d. None of the above<br/>
+
+  Ans: c<br/>
+  Explanation: The answer is 45. Following the equation mentioned in the video, it is "10 choose 2". $\tbinom{11-1}{3-1}$
+
+
+1. If $a+b+c+d=10$, how many ordered integer solutions $(a,b,c,d)$ are there, when all elements are<br/>
+  a. non-negative,<br/>
+  b. positive?<br/>
+
+  Ans: a. (286); b.(84)<br/>
+  Explanation:
+    + $\tbinom{13}{3}$ , follows from the lecture.
+    + $\tbinom{9}{3}$, follows from the lecture.
+
+  
+2. In how many ways can we place 10 identical red balls and 10 identical blue balls into 4 distinct urns if:<br/>
+  a. there are no constraints,<br/>
+  b. the first urn has at least  1  red ball and at least  2  blue balls,<br/>
+  c. each urn has at least 1 ball?<br/>
+
+  Ans: a. (81796); b. (); c. ()<br/>
+  <span style="color: magenta;">Explanation:</span>
+    + $\tbinom{13}{3} \cdot \tbinom{13}{3}$, by combining stars and bars for both balls evaluated separately. [StackExchange](https://tinyurl.com/y8myez2v)
+    + First place 1 red ball and 2 blue balls in the first urn, and then repeat the above part with 9 red balls and 8 blue balls, resulting in $\tbinom{12}{3} \cdot \tbinom{11}{3}$
+    + There are  $\tbinom{12}{2}^2$ ways to place the balls so that urn 1 is empty, $\tbinom{11}{1}^2$ ways so that urns 1 and 2 are empty and $\tbinom{10}{0}^2=1$ so that urns 1 2 and 3 are empty. By inclusion exclusion, there are  $\tbinom{4}{1} \tbinom{12}{2}^2 − \tbinom{4}{2}\tbinom{11}{1}^2+ \tbinom{4}{3}\tbinom{10}{0}^2$ placements where at least one urn is empty. And by the complement rule, the answer is $\tbinom{13}{3}^2−\tbinom{4}{1}\tbinom{12}{2}^2+\tbinom{4}{2}\tbinom{11}{1}^2−\tbinom{4}{3}\tbinom{10}{0}^2=65,094$. [StackExchange](https://tinyurl.com/y7w3h6t2)
+
+
+3. How many 6-digit sequences are:<br/>
+  a. strictly ascending, as 024579 or 135789, but not 011234,<br/>
+  b. ascending (not necessarily strictly), as 023689, 033588, or 222222.<br/>
+
+  Ans: a. (210); b. (5005)<br/>
+  Explanation
+    + Every six-digit strictly asending sequence corresponts to 6 distinct digits. There are $\tbinom(10}{6}=210$ ways to choose them. [StackExchange](https://tinyurl.com/ycw6teu5)
+    + Every six-digit (not necessarily striclty) assending sequence corresponds to a collection of 6 digits, possibly with repetition. Let $x_i$  denote the number of times digit i is included in the number. Using stars and bars, the number of ways of assigning $x_0+x_1+ \cdots + x_9=6$ is $\tbinom{6+10−1}{6}=5005$. [StackExchange](https://tinyurl.com/yb5zfhvv)
+
+
+4. How many terms are there in the expansion of  (x+y+z)10  ?
+
+  Ans: 66 <br/>
+  Explanation: Any coefficient corresponds to a term of the form  xa1ya2za3  with $a_1+a_2+a_3=10$ such that $a_i \geq 0$. The number of possible solutions to this problem is given by $\tbinom{12}{2}=66$.
 
 
 
