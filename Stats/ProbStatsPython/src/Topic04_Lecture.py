@@ -132,6 +132,8 @@ def main():
     print("\ncustomized combination function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
         len(combine_recur(A, k)), combine_recur(A, k, False)))
 
+    print("\nbuilt-in math module:  itertools.combinations({}, {}) w/ length= {}\n  {}".format(A, k, \
+        len(list(itertools.combinations(A, k))), list(itertools.combinations(A, k))))
 
     return None
 
