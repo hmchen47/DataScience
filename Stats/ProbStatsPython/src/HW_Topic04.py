@@ -31,11 +31,11 @@ def compositions(k, n, debug=False):
     # elif n-k < 1:
     #     return [tuple()]
 
-    comp = []
+    comp = set()
     for x in range(1, n):
         for new in compositions(k-1, n-x, debug):
-            if ((x,)+new) not in comp:
-                comp.append((x,)+new)
+            # if ((x,)+new) not in comp:
+            comp.add((x,)+new)
             if debug: print("n= {}, new_comp = {}, \t comp= {}".format(x, new, comp))
     return comp
 
@@ -48,6 +48,7 @@ def main():
     print("\nProblem 1 ...")
 
     k, n = 2, 8
+    # k, n = 3, 4
 
     func_out = compositions(k, n, False)
     print("all possible combinations: ")
