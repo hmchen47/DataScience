@@ -125,6 +125,7 @@ def main():
     #     len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
 
     # combinations
+
     input("\nPress Enter to continue ...")
     print("\n... Combinations ...")
     A, k = {'a', 'b', 'c', 'd', 'e'}, 3
@@ -134,6 +135,23 @@ def main():
 
     print("\nbuilt-in math module:  itertools.combinations({}, {}) w/ length= {}\n  {}".format(A, k, \
         len(list(itertools.combinations(A, k))), list(itertools.combinations(A, k))))
+
+    print("\ncounting combinations directly C(n, k) = n!/(k! (n-k)!):\n  C({}, {}) = {}".format(len(A),\
+        k, math.factorial(len(A)) / math.factorial(k) / math.factorial(len(A) - k)))
+
+    # concatnate characters
+    
+    permute_k = partial_permute(A, k)
+    permute_k = [''.join(x) for x in permute_k]
+    print("\npartial permutations w/ A= {}, k= {} w/ len= {}:\n  {}".format(A, k, len(permute_k), permute_k))
+
+    print("\npartial permutations counting directly P(n, k) = n!/(n-k)!:\n  {}".format(math.factorial(len(A)) / math.factorial(len(A)-k)))
+
+    combine_k = combine_recur(A, k)
+    combine_k = [''.join(x) for x in combine_k]
+    print("\ncombinations w/ A= {}, k= {} w/ len={}:\n  {}".format(A, k, len(combine_k), combine_k))
+
+
 
     return None
 
