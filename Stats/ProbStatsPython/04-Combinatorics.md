@@ -1226,11 +1226,11 @@
 
 ## Lecture Notebook 4
 
++ [Original Lecture NB](https://tinyurl.com/yagdrbb8)
 
++ [Local Lecture NB](src/Topic04_Lecture.ipynb)
 
-
-
-
++ [Local Lecture Python Code](src/Topic04_Lecture.py)
 
 
 
