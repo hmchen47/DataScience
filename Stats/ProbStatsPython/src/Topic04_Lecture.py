@@ -66,6 +66,7 @@ def partial_permute(A, k, debug=False):
     return permutations
 
 
+
 def main():
 
     # Permutation
@@ -102,9 +103,8 @@ def main():
     print("\ncustomized partial permutation function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
         len(partial_permute(A, k)), partial_permute(A, k, False)))
 
-    print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ lenth= {}\n  {}".format(A, k, \
+    print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ length= {}\n  {}".format(A, k, \
         len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
-
 
 
 
