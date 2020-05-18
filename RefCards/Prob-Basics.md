@@ -365,7 +365,20 @@
 
 ## Partial Permutations
 
++ [k-permutations](../Stats/ProbStatsPython/04-Combinatorics.md#42-partial-permutations)
+  + n-permutation of an n-set: a permutation of the set
+  + \# permutations of k out of n objects $\to$ <span style="color: cyan;">k-permutations</span> of n
+  + \# k-permutations of an n-set
+    + def: $n \times (n-1) \times \cdots \times (n-k+1) \stackrel{\text{def}}{=} n^{\underline{k}}$
+    + $k$-th <span style="color: cyan;">falling power</span> of n
+    + denoted as $P(n, k)$
+  + falling powers simply related to factorial
 
+    \[ n^{\underline{k}} = n \times (n-1) \times \cdots \times (n-k+1) = \frac{n!}{(n-k)!}  \]
+
+
+
+## 
 
 
 
