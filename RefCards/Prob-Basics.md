@@ -378,7 +378,43 @@
 
 
 
-## 
+## Combinations
+
++ [k-subsets](../Stats/ProbStatsPython/04-Combinatorics.md#43-combinations)
+  + $k$-set: a k-element set
+  + $k$-subset: a k-element subset
+  + $\dbinom{[n]}{k}$: collection of k-subsets of $[n] = \{1, 2, \dots, n\}$
+
++ [Sequences w/ k 1's - an analogy to k-element subsets](../Stats/ProbStatsPython/04-Combinatorics.md#43-combinations)
+  + $\dbinom{[n]}{k}$: collection of k-subsets of $[n] = \{1, 2, \dots, n\}$
+  + 1-1 correspondence to n-bit sequences w/ k 1's
+    + same number of elements
+    + mostly count sequences
+    + same applied to subsets
+
++ [Number of n-bit sequences w/ k 1's](../Stats/ProbStatsPython/04-Combinatorics.md#43-combinations)
+  + binomial coefficient:
+    + $\dbinom{n}{k} \triangleq \left|\dbinom{[n]}{k} \right|$ = \# n-bit sequences w/ k 1's
+  + locations of 1's
+    + ordered pairs from {1, 2, 3}: $\# = 3^\underline{2} = P(3, 2) = 6$
+    + non-ordered: $\dbinom{3}{2} = \dfrac{3^{\underline{2}}}{2} = \dfrac{6}{2} = 3$
+
++ [Calculating the Binomial coefficients](../Stats/ProbStatsPython/04-Combinatorics.md#43-combinations)
+  + \# ordered locations: $n^\underline{k} = P(n, k)$
+  + every binary sequence w/ k 1's correspondence to k! ordered locations, e.g., $10101 \iff 1,3,5 \quad 1,5,3 \quad 3,1,5 \quad 3,5,1 \quad 5,1,3 \quad 5,3,1$
+
+    \[ k! \dbinom{n}{k} = n^{\underline{k}} \to \dbinom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!\,(n-k)!} \]
+
++ [Simple $\binom{n}{k}$](../Stats/ProbStatsPython/04-Combinatorics.md#43-combinations)
+  + all-zero sequence: $\dbinom{n}{0} = \dfrac{n!}{0!n!} = 1$
+  + all-one sequence: $\dbinom{n}{n} = \dfrac{n!}{n!0!} = 1$
+  + choose location of single 1: $\dbinom{n}{1} = \dfrac{n!}{1!(n-1)!} = n$
+    + alternative explanation
+      + $\binom{[n]}{2} = \{ \text{n-bit strings w/ two 1's}\}$
+      + $A_i = \{x^n: \text{first 1 at location } i\} \quad (1 \leq i \leq n-1)$ (see diagram)
+      + $|A_i| = n-i \quad A_i$'s disjoint
+
+
 
 
 
