@@ -155,67 +155,67 @@ def main():
 
     # Permutation
 
-    # print("\n... Permutations ...")
-    # print("\ncustomized permutation\n")
-    # A = {'a', 'b', 6}
-    # print("  Permutations of {} w/ length= {}:\n  {}".format(A, len(permute(A)), permute(A, False)))
+    print("\n... Permutations ...")
+    print("\ncustomized permutation\n")
+    A = {'a', 'b', 6}
+    print("  Permutations of {} w/ length= {}:\n  {}".format(A, len(permute(A)), permute(A, False)))
 
-    # print("\nitertools permutation\n")
-    # A = 'a1c3'
-    # perm = set(itertools.permutations(A))
-    # print("  Permutations of {} w/ length= {}:\n  {}".format(A, len(perm), perm))
+    print("\nitertools permutation\n")
+    A = 'a1c3'
+    perm = set(itertools.permutations(A))
+    print("  Permutations of {} w/ length= {}:\n  {}".format(A, len(perm), perm))
 
-    # input("\nPress Enter to continue ...")
-
-
-    # # Factorial
-
-    # print("\n... Factorials ...")
-    # print("\nbuilt-in math module:  math.factorial(|{}|)= {}".format(A, math.factorial(len(A))))
-
-    # print("\niteratively w/ customized function (|{}|): {}".format(A, factorial_iter(len(A))))
-
-    # print("\nrecursively w/ customized function (|{}|): {}".format(A, factorial_recursive(len(A))))
+    input("\nPress Enter to continue ...")
 
 
-    # # Partial permutation
+    # Factorial
 
-    # input("\nPress Enter to continue ...")
-    # print("\n... Partial Permutation ...")
-    # A, k = {1, 2, 3, 4}, 2
+    print("\n... Factorials ...")
+    print("\nbuilt-in math module:  math.factorial(|{}|)= {}".format(A, math.factorial(len(A))))
 
-    # print("\ncustomized partial permutation function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
-    #     len(partial_permute(A, k)), partial_permute(A, k, False)))
+    print("\niteratively w/ customized function (|{}|): {}".format(A, factorial_iter(len(A))))
 
-    # print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ length= {}\n  {}".format(A, k, \
-    #     len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
+    print("\nrecursively w/ customized function (|{}|): {}".format(A, factorial_recursive(len(A))))
 
-    # combinations
 
-    # input("\nPress Enter to continue ...")
-    # print("\n... Combinations ...")
-    # A, k = {'a', 'b', 'c', 'd', 'e'}, 3
+    # Partial permutation
 
-    # print("\ncustomized combination function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
-    #     len(combine_recur(A, k)), combine_recur(A, k, False)))
+    input("\nPress Enter to continue ...")
+    print("\n... Partial Permutation ...")
+    A, k = {1, 2, 3, 4}, 2
 
-    # print("\nbuilt-in math module:  itertools.combinations({}, {}) w/ length= {}\n  {}".format(A, k, \
-    #     len(list(itertools.combinations(A, k))), list(itertools.combinations(A, k))))
+    print("\ncustomized partial permutation function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
+        len(partial_permute(A, k)), partial_permute(A, k, False)))
 
-    # print("\ncounting combinations directly C(n, k) = n!/(k! (n-k)!):\n  C({}, {}) = {}".format(len(A),\
-    #     k, math.factorial(len(A)) / math.factorial(k) / math.factorial(len(A) - k)))
+    print("\nbuilt-in math module:  itertools.permutations({}, {}) w/ length= {}\n  {}".format(A, k, \
+        len(list(itertools.permutations(A, k))), list(itertools.permutations(A, k))))
 
-    # # concatnate characters
+    combinations
+
+    input("\nPress Enter to continue ...")
+    print("\n... Combinations ...")
+    A, k = {'a', 'b', 'c', 'd', 'e'}, 3
+
+    print("\ncustomized combination function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
+        len(combine_recur(A, k)), combine_recur(A, k, False)))
+
+    print("\nbuilt-in math module:  itertools.combinations({}, {}) w/ length= {}\n  {}".format(A, k, \
+        len(list(itertools.combinations(A, k))), list(itertools.combinations(A, k))))
+
+    print("\ncounting combinations directly C(n, k) = n!/(k! (n-k)!):\n  C({}, {}) = {}".format(len(A),\
+        k, math.factorial(len(A)) / math.factorial(k) / math.factorial(len(A) - k)))
+
+    # concatnate characters
     
-    # permute_k = partial_permute(A, k)
-    # permute_k = [''.join(x) for x in permute_k]
-    # print("\npartial permutations w/ A= {}, k= {} w/ len= {}:\n  {}".format(A, k, len(permute_k), permute_k))
+    permute_k = partial_permute(A, k)
+    permute_k = [''.join(x) for x in permute_k]
+    print("\npartial permutations w/ A= {}, k= {} w/ len= {}:\n  {}".format(A, k, len(permute_k), permute_k))
 
-    # print("\npartial permutations counting directly P(n, k) = n!/(n-k)!:\n  {}".format(math.factorial(len(A)) / math.factorial(len(A)-k)))
+    print("\npartial permutations counting directly P(n, k) = n!/(n-k)!:\n  {}".format(math.factorial(len(A)) / math.factorial(len(A)-k)))
 
-    # combine_k = combine_recur(A, k)
-    # combine_k = [''.join(x) for x in combine_k]
-    # print("\ncombinations w/ A= {}, k= {} w/ len={}:\n  {}".format(A, k, len(combine_k), combine_k))
+    combine_k = combine_recur(A, k)
+    combine_k = [''.join(x) for x in combine_k]
+    print("\ncombinations w/ A= {}, k= {} w/ len={}:\n  {}".format(A, k, len(combine_k), combine_k))
 
 
     # plotting Sterling approximation
@@ -223,7 +223,7 @@ def main():
     # plot_stirling_approx(n)
 
     factorial_stirling_error(n)
-
+   
 
     return None
 
