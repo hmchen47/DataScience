@@ -2,7 +2,7 @@
 # -*- coding: utf--8 -*-
 
 import sys
-import numpy as nProblem
+import numpy as np
 import scipy as sp
 from scipy.special import *
 
@@ -39,6 +39,31 @@ def compositions(k, n, debug=False):
             if debug: print("n= {}, new_comp = {}, \t comp= {}".format(x, new, comp))
     return comp
 
+import math
+
+def binom(n, k):
+    """Binomial formula: Binom(n, k) = n!/(k! * (n-k)!)
+
+    Arguments:
+        n {int} -- an integer as the objects to choose
+        k {int} -- an integer as the the number of objects to choose 
+    """
+
+    return math.factorial(n)/math.factorial(k)/math.factorial(n-k)
+
+
+def composition_formula(k, n):
+    """take two positive integers, k an dn and return the number of k-compositions of n
+
+    using binomial formula C(n-1, k-1) to get the number of ways to composite n
+
+    Arguments:
+        k {int} -- a positive integer that the number of positive integers sum to n
+        n {int} -- a positive integer as the target sum
+    """
+
+    return (len(compositions(k, n)), int(binom(n-1, k-1)))
+
 
 
 def main():
@@ -49,11 +74,22 @@ def main():
 
     k, n = 2, 8
     # k, n = 3, 4
+    k, n = 2, 5
 
     func_out = compositions(k, n, False)
     print("all possible combinations: ")
     print_compositions(func_out)
     print("\nActual Output from combinations({}, {}):\n{}".format(k, n, func_out))
+
+
+    k, n = 3, 4
+    k, n = 4, 12
+    k, n = 9, 16
+
+    print("\nProblem 2 ...")
+    print(len(compositions(k, n)))
+    print(int(binom(n-1, k-1)))
+    print(composition_formula(k, n))
 
     # input("Press Enter to continue...")
 
