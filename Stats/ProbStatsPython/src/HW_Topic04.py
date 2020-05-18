@@ -65,6 +65,25 @@ def composition_formula(k, n):
     return (len(compositions(k, n)), int(binom(n-1, k-1)))
 
 
+def constrained_compositions(n, cond, debug=False):
+    """constrain a compositions of a given number w/ the condition
+
+    Arguments:
+        n {int} -- an integer for
+        cond {list} -- a list of conditions that the composition not greater than
+    """
+    k = len(cond)
+
+    comps = compositions(k, n)
+
+    constrained_comps = set()
+    for comp in comps:
+        if debug: print(comp, tuple(cond), comp<=tuple(cond))
+        if all([a <= b for a, b in zip(comp, cond)]):
+            constrained_comps.add(comp)
+
+    return constrained_comps
+
 
 def main():
     """main function to consolidate the individual functions for the Assignment problems"""
@@ -82,14 +101,29 @@ def main():
     print("\nActual Output from combinations({}, {}):\n{}".format(k, n, func_out))
 
 
+    print("\nProblem 2 ...")
+
     k, n = 3, 4
     k, n = 4, 12
     k, n = 9, 16
 
-    print("\nProblem 2 ...")
     print(len(compositions(k, n)))
     print(int(binom(n-1, k-1)))
     print(composition_formula(k, n))
+
+
+    print("\nProblem 3 ...")
+
+    n, cond = 7, [3, 2, 5]
+    n, cond = 7, [1,4,4]
+    n, cond = 8, [3,2,4]
+    n, cond = 20,[12, 15, 5]
+
+    func_out = constrained_compositions(n, cond)
+
+    print("all possible combinations: ")
+    print_compositions(func_out)
+    print("\nActual Output from compositions({},{}) w/ len= {}:\n  {}".format(len(cond), n, len(func_out), func_out))
 
     # input("Press Enter to continue...")
 
