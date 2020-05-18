@@ -1236,8 +1236,81 @@
 
 ## Programming Assignment 4
 
+1. Which one of the following is a possible return value for `compositions(2, 5)`?<br/>
+  a. $\{(4,1),(3,2),(2,3),(1,4)\}$<br/>
+  b. $\{(0,5),(1,4),(2,3),(3,2),(4,1),(5,0)\}$<br/>
+  c. $\{(1,1,3),(1,2,2),(1,3,1),(2,1,2),(2,2,1),(3,1,1)\}$<br/>
+  d. $\{(3,1,1),(2,2,1),(2,1,2),(1,3,1),(1,2,2),(1,1,3)\}$<br/>
+
+  Ans: a<br/>
+
+  ```python
+  def compositions(k, n):
+    # inputs: k and n are of type 'int'
+    # output: a set of tuples
+
+    parts = set()
+    if k == n:
+        parts.add((1,) * n)
+    if k == 1:
+        parts.add((n,))
+    else:
+        for x in range(1, n - k + 2):
+            for y in compositions(k - 1, n - x):
+                parts.add((x,) + y)
+    return parts
+  ```
+
+2. What is the python output for the following command: composition_formula(9, 16)<br/>
+  a. \( (4773,4773) \)<br/>
+  b. \( (5426,5426) \)<br/>
+  c. \( (6435, 6435) \)<br/>
+  d. \( (7962,7962) \)<br/>
 
 
+  Ans: c<br/>
+
+  ```python
+  def composition_formula(k, n):
+    # inputs: k and n are of type 'int'
+    # output: a set of tuples, (int, int)
+
+    return (len(compositions(k, n)), int(binom(n - 1, k - 1)))
+  ```
+
+3. What is the python output for the following command: constrained_compositions(8, [3,2,4])
+  a. $\{(2,2,4),(3,1,4),(3,2,3)\}$
+  b. $\{(3,2,3),(3,1,4),(2,3,3)\}$
+  c. $\{(2,3,2),(3,2,4),(3,2,3)\}$
+  d. $\{(3,2,3),(4,2,2),(2,3,4)\}$
+
+  Ans: a
 
 
+4. Which of the following is the correct output of len(constrained_compositions(20,[12, 15, 5]))<br/>
+  a. 171<br/>
+  b. 59<br/>
+  c. 54<br/>
+
+  Ans: c<br/>
+
+  ```python
+  def constrained_compositions(n, m):
+    # inputs: n is of type 'int' and m is a list of integers
+    # output: a set of tuples
+
+    k = len(m)
+    parts = set()
+    if k == n:
+        if 1 <= min(m):
+            parts.add((1,)*n)
+    if k == 1:
+        if n <= m[0]:
+           parts.add((n,))
+    else:
+        for x in range(1, min(n-k+2,m[0]+1)):
+            for y in constrained_compositions(n-x, m[1:]):
+                parts.add((x,)+y)
+    return parts
+  ```
 
