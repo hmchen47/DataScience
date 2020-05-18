@@ -85,6 +85,72 @@ def combine_recur(A, k, debug=False):
     return combinations
 
 
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import host_subplot
+import mpl_toolkits.axisartist as AA
+import pandas as pd
+
+def plot_stirling_approx(n):
+    """calculate and plot Stirling approximation
+
+    Arguments:
+        n {int} -- compute the factorial n
+    """
+    n_fact = []
+    n_fact_approx = []
+
+    # compute the factorial and Stirling approximation
+    for i in range(1, n+1):
+        n_fact.append(np.double(math.factorial(i)))
+        n_fact_approx.append(np.double(np.sqrt(2*np.pi*i)*(i/np.e)**i))
+
+    plt.figure(figsize=(12, 9))
+    host = host_subplot(111, axes_class=AA.Axes)
+    plt.subplots_adjust(right=0.75)
+
+    par1 = host.twinx()
+
+    plt.title("Comparison btw n! and Stirling approximation", fontsize=20)
+    host.semilogy(range(1, n+1), n_fact, linewidth=2, label="Factorial")
+    host.semilogy(range(1, n+1), n_fact_approx, linewidth=2, label="Stirling's approximation")
+    
+    host.set_xlabel("n", fontsize=16)
+    host.set_ylabel("n!", fontsize=16)
+
+    error = (np.asarray(n_fact)-np.asarray(n_fact_approx))/np.asarray(n_fact)
+
+    p1, = par1.semilogy(range(1, n+1), error*100, linewidth=2, label="Error %")
+    par1.set_ylabel("Error %", fontsize=16)
+    par1.axis["right"]
+    par1.axis["right"].label.set_color(p1.get_color())
+    host.legend(fontsize=14)
+
+    plt.show()
+
+    return None
+
+
+def factorial_stirling_error(n=20):
+    """compute the error of Stirling's approximation and factorial
+
+    Arguments:
+        n {int} -- a integer to compute the factorial
+    """
+
+    n_fact = [math.factorial(i) for i in range(n)]
+    n_fact_approx = [np.double(np.sqrt(2*np.pi*i)*(i/np.e)**i) for i in range(n)]
+
+    error = (np.asarray(n_fact)-np.asarray(n_fact_approx, dtype=np.float))/np.asarray(n_fact)
+    data = {"n": range(1, n+1), "n!": n_fact, "Stirling Approximation": n_fact_approx, "Error %": error*100}
+    df = pd.DataFrame(data=data, columns=["n", "n!", "Stirling Approximation", "Error %"])
+    df.set_index("n")
+    print("Comparison btw n! and Stirling Approximation")
+    print(df.to_string(index=False))
+
+    return None
+
+
+
 def main():
 
     # Permutation
@@ -126,31 +192,37 @@ def main():
 
     # combinations
 
-    input("\nPress Enter to continue ...")
-    print("\n... Combinations ...")
-    A, k = {'a', 'b', 'c', 'd', 'e'}, 3
+    # input("\nPress Enter to continue ...")
+    # print("\n... Combinations ...")
+    # A, k = {'a', 'b', 'c', 'd', 'e'}, 3
 
-    print("\ncustomized combination function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
-        len(combine_recur(A, k)), combine_recur(A, k, False)))
+    # print("\ncustomized combination function ({}, {}) w/ length= {}:\n  {}".format(A, k, \
+    #     len(combine_recur(A, k)), combine_recur(A, k, False)))
 
-    print("\nbuilt-in math module:  itertools.combinations({}, {}) w/ length= {}\n  {}".format(A, k, \
-        len(list(itertools.combinations(A, k))), list(itertools.combinations(A, k))))
+    # print("\nbuilt-in math module:  itertools.combinations({}, {}) w/ length= {}\n  {}".format(A, k, \
+    #     len(list(itertools.combinations(A, k))), list(itertools.combinations(A, k))))
 
-    print("\ncounting combinations directly C(n, k) = n!/(k! (n-k)!):\n  C({}, {}) = {}".format(len(A),\
-        k, math.factorial(len(A)) / math.factorial(k) / math.factorial(len(A) - k)))
+    # print("\ncounting combinations directly C(n, k) = n!/(k! (n-k)!):\n  C({}, {}) = {}".format(len(A),\
+    #     k, math.factorial(len(A)) / math.factorial(k) / math.factorial(len(A) - k)))
 
-    # concatnate characters
+    # # concatnate characters
     
-    permute_k = partial_permute(A, k)
-    permute_k = [''.join(x) for x in permute_k]
-    print("\npartial permutations w/ A= {}, k= {} w/ len= {}:\n  {}".format(A, k, len(permute_k), permute_k))
+    # permute_k = partial_permute(A, k)
+    # permute_k = [''.join(x) for x in permute_k]
+    # print("\npartial permutations w/ A= {}, k= {} w/ len= {}:\n  {}".format(A, k, len(permute_k), permute_k))
 
-    print("\npartial permutations counting directly P(n, k) = n!/(n-k)!:\n  {}".format(math.factorial(len(A)) / math.factorial(len(A)-k)))
+    # print("\npartial permutations counting directly P(n, k) = n!/(n-k)!:\n  {}".format(math.factorial(len(A)) / math.factorial(len(A)-k)))
 
-    combine_k = combine_recur(A, k)
-    combine_k = [''.join(x) for x in combine_k]
-    print("\ncombinations w/ A= {}, k= {} w/ len={}:\n  {}".format(A, k, len(combine_k), combine_k))
+    # combine_k = combine_recur(A, k)
+    # combine_k = [''.join(x) for x in combine_k]
+    # print("\ncombinations w/ A= {}, k= {} w/ len={}:\n  {}".format(A, k, len(combine_k), combine_k))
 
+
+    # plotting Sterling approximation
+    n = 30
+    # plot_stirling_approx(n)
+
+    factorial_stirling_error(n)
 
 
     return None
