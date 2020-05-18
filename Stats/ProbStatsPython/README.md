@@ -72,7 +72,7 @@ In this course you will learn the following topics (some may be added or dropped
   + 4.3 [Combinations](./04-Combinatorics.md#)
   + 4.4 [Applications of Binomial Coefficients](./04-Combinatorics.md#)
   + 4.5 [Properties of Binomial Coefficient](./04-Combinatorics.md#)
-  + 4.6 [Binomial Theorem](./04-Combinatorics.md#)
+  + 4.6 [Pascal Triangle and Binomial Theorem](./04-Combinatorics.md#)
   + 4.7 [Multinomials](./04-Combinatorics.md#)
   + 4.8 [Stars and Bars](./04-Combinatorics.md#)
   + [Lecture Notebook 4](./04-Combinatorics.md#)
