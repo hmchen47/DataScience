@@ -340,4 +340,32 @@
   + Cartesian products as trees: used only  when all nodes have same degree at any level
 
 
+## Factorials
+
++ [0 factorial](../Stats/ProbStatsPython/04-Combinatorics.md#41-permutations)
+  + for $n \geq 1$, n! = \# permutations of an n-set = $n \times (n-1) \times \cdots \times 2 \times 1$
+  + $0! = 1 \to$ exact same exact same reason as $2^0 =1$
+
++ [Recursive definition](../Stats/ProbStatsPython/04-Combinatorics.md#41-permutations)
+  + n! defined recursively
+
+    \[\begin{align*}
+      n! &= n \times (n-1) \times \cdots \times 2 \times 1 \\
+      &= n \times [(n-1) \times \cdots \times 2 \times 1] \\
+      &= n \times (n-1)! \quad \forall\, n \geq 1
+    \end{align*}\]
+
+  + 0 factorial: 1! = 1 x 0!
+  + able to extend to negatives
+
++ [Stirling's approximations](../Stats/ProbStatsPython/04-Combinatorics.md#41-permutations)
+  
+  \[ n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right)^n \]
+
+
+## Partial Permutations
+
+
+
+
 
