@@ -104,7 +104,7 @@
       + after: $X = \begin{cases} \text{h} & \text{get h} \\ \text{t} & \text{get t} \end{cases}$
 
 + Probability of an outcome
-  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), \Pr(x)$</span>, or <span style="color: magenta;">$P(X = x), \Pr(X = x)$</span>, is the fraction of time $x$ will occur when experiment is repeated many times
+  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), \Pr(x)$</span>, or <span style="color: magenta;">$P(X = x), \Pr(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
   + fair coin
     + as \# experiment $\to \infty$, fraction of heads (or tails) $\to 1/2$
     + heads w/ probability $1/2$: $P(h) = 1/2 \quad P(X=h) = 1/2$
@@ -121,16 +121,16 @@
     \[ \Pr(x) = \lim_{n \to \infty} \frac{n_x}{n} \]
 
     \[\begin{array}{ccccc}
-      0 \leq n_x \leq &\to& 0 \leq \frac{n_x}{n} \leq 1 &\to& 0 \leq p(x) \leq 1 \\\\
+      0 \leq n_x \leq n &\to& 0 \leq \frac{n_x}{n} \leq 1 &\to& 0 \leq p(x) \leq 1 \\\\
       \displaystyle \sum_{x \in \Omega} n_x = n &\to& \displaystyle\sum_{x \in \Omega} \dfrac{n_x}{n} = 1 &\to& \displaystyle\sum_{x\in \Omega} p(x) = 1
     \end{array}\]
 
 + Probability distribution function
   + $P(x)$: the fraction of times outcome $x$ occurs, e.g., $\Pr(h) = 1/2, \Pr(1) = 1/6$
   + viewed over the whole sample space $\to$ a pattern merges
-    + coin: $P(h) = 1/2, \Pr(r) = 1/2$
-    + die: $P(1) = 1/6, \dots, P(6) = 1/6$
-    + rain: $P(\text{rain}) = 10\%, P(\text{no rain}) = 90\%$
+    + coin: $\Pr(h) = 1/2, \Pr(t) = 1/2$
+    + die: $\Pr(1) = 1/6, \dots, \Pr(6) = 1/6$
+    + rain: $\Pr(\text{rain}) = 10\%, \Pr(\text{no rain}) = 90\%$
   + <span style="color: magenta;">Probability distribution function (PDF)</span>: $\Pr$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
   
     \[ \Pr: \Omega \to \Bbb{R} , \; \Pr(x) \geq 0 \text{ s.t. } \sum_{x\in \Omega} \Pr(x) = 1 \]
