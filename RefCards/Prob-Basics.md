@@ -417,4 +417,41 @@
 
 
 
+## Binomial Coefficients
+
++ [Theorem: (Symmetry)](../Stats/ProbStatsPython/04-Combinatorics.md#45-properties-of-binomial-coefficient)
+
+    \[ \dbinom{n}{k} = \dbinom{n}{n-k} \]
+
++ [Theorem: (Recursion)](../Stats/ProbStatsPython/04-Combinatorics.md#45-properties-of-binomial-coefficient)
+
+    \[ \dbinom{n}{k} = \frac{n}{k} \cdot \dbinom{n-1}{k-1} \]
+
+  + Interpretation: Number of length-n ternary strings w/ k-1 1's and one 2
+
+    \[ \dbinom{n}{k} \cdot k = n \cdot \dbinom{n-1}{k-1} \]
+
++ [Theorem: (Binomial)](../Stats/ProbStatsPython/04-Combinatorics.md#45-properties-of-binomial-coefficient)
+
+  \[ \sum_{i=0}^n \dbinom{n}{i} = 2^n \]
+
+  + interpretation
+    + \# subsets of [n] of size $\leq n-1 \to$ \# n-bit sequences w/ $\leq n-1$ 1's
+    + e.g., $n = 3 \quad\to\quad \underbrace{000}_{1}, \underbrace{001, 010, 100}_{3}, \underbrace{011, 101, 110}_{3} \quad\to\quad 1 + 3 = 3 = 7$
+    + two ways:
+
+      \[\begin{align*} 
+        & \sum_{i=0}^{n-1} \dbinom{n}{i} \\\\
+        & \sum_{i=0}^{n} \dbinom{n}{i} = 2^n \quad \sum_{i=0}^{n-1} \dbinom{n}{i} = 2^n - \dbinom{n}{n} = 2^n - 1 
+      \end{align*}\]
+
++ [Theorem: (Identity)](../Stats/ProbStatsPython/04-Combinatorics.md#45-properties-of-binomial-coefficient)
+
+  \[ \sum_{i=0}^n \dbinom{i+k-1}{k-1} = \dbinom{n+k}{k} \]
+
+  \[ \dbinom{k-1}{k-1} + \dbinom{k}{k-1} + \cdots + \dbinom{n+k-1}{k-1} = \dbinom{n+k}{k} \]
+
+
+
+
 
