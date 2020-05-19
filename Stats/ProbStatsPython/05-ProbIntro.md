@@ -308,20 +308,22 @@
 + Events
   + sometimes: care about one particular outcome; examples,
     + temperature 98.6 ℉
+    + out hourse will win race
     + Dow Jones close at $18,040
     + get ready B+ in class
   + usually: interested in a set of possible outcomes; examples,
-    + temperature $\neq$ 98.6 ℉
+    + temperature > 98.6 ℉
     + stock close higher
     + pass the course
   + outcome: single element of $\Omega$
   + event: subset of a space $\Omega$
-  + social event: set of people
-  + probability event: set of outcomes
+  + analogy
+    + social event: set of people
+    + probability event: set of outcomes
 
 + Die events
   + event: subset of sample space $\Omega$
-  + Die: $\Omega = \{1, 2, \dots, 6 \} \supseteq$ Event
+  + Die: $\Omega = \{1, 2, \dots, 6 \} \supseteq$ Events
   + complement
 
     <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -338,7 +340,7 @@
       <tr> <td style="text-align: center;">$\{1, 2, \dots, 6\}$</td> <td style="text-align: center;">$\Omega$ (certain)</td> <td rowspan="5" style="text-align: center;">$\xrightarrow{\text{Complement}}$</td> <td style="text-align: center;">$\{ \}$</td> <td style="text-align: center;">$\varnothing$</td> </tr>
       <tr> <td style="text-align: center;">$\{2, 4, 6\}$</td> <td style="text-align: center;">Even</td> <td style="text-align: center;">$\{1, 3, 5\}$</td> <td style="text-align: center;">Odd</td> </tr>
       <tr> <td style="text-align: center;">$\{1, 4\}$</td> <td style="text-align: center;">Square</td> <td style="text-align: center;">$\{2, 3, 5, 6\}$</td> <td style="text-align: center;">Non square</td> </tr>
-      <tr> <td style="text-align: center;">$\{5, 6\}$</td> <td style="text-align: center;">$\geq 4, > 5$</td> <td style="text-align: center;">$\{1, 2, 3, 4\}$</td> <td style="text-align: center;">$\leq 4, < 5$</td> </tr>
+      <tr> <td style="text-align: center;">$\{5, 6\}$</td> <td style="text-align: center;">$> 4, \geq 5$</td> <td style="text-align: center;">$\{1, 2, 3, 4\}$</td> <td style="text-align: center;">$\leq 4, < 5$</td> </tr>
       <tr> <td style="text-align: center;">$\{1, 2, 5\}$</td> <td style="text-align: center;">$\{1, 2, 5\}$</td> <td style="text-align: center;">$\{3, 4, 6\}$</td> <td style="text-align: center;">$\{3, 4, 6\}$</td> </tr>
       </tbody>
     </table>
@@ -493,7 +495,7 @@
     + outcome: $\Pr(x) = 1/|\Omega|$
     + event
 
-      \[ \Pr(E) = \sum_x \in E \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E}}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+      \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E}}{|\Omega|} = \frac{|E|}{|\Omega|} \]
 
   + example: die
     + $\Omega = \{1, 2, 3, 4, 5 6\} \to |\Omega| = 6$
@@ -524,7 +526,7 @@
     + $\Pr( 4 \in \text{ Even }) = 1$
       + less common
       + check that you meant it
-  + unlikely: $\Pr( c \in \text{ Even })$
+  + unlikely: $\Pr( x \in \text{ Even })$
     + previous anomaly on steriods, what is x?
     + $\forall\, x \in \{3, 7\}, \Pr(x \in \text{ Even })=0$, double check meant it
 
