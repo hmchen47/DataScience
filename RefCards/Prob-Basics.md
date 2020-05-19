@@ -528,5 +528,42 @@
 
 
 
+## Starts and Bars
+
++ [k terms adding to n](../Stats/ProbStatsPython/04-Combinatorics.md#48-stars-and-bars)
+  + \# ways to write n as a sum of k positive integers, when order matters
+  + \# sums = $\binom{n-1}{k-1}$
+
++ [Any sum to $n$](../Stats/ProbStatsPython/04-Combinatorics.md#48-stars-and-bars)
+  + \# ways to write n as a sum of (any # of) positive integers
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
+        <img src="img/t04-07.png" style="margin: 0.1em;" alt="Example of any sum to n" title="Example of any sum to n" width=350>
+      </a>
+    </div>
+
+  + n as sum of $k \in [n]$: $\binom{n-1}{k-1}$
+
+    \[ \sum_{k=1}^n \dbinom{n-1}{k-1} = \sum_{i=0}^{n-1} \dbinom{n-1}{i} = 2^{n-1} \]
+
++ [Non-negative terms adding to n](../Stats/ProbStatsPython/04-Combinatorics.md#48-stars-and-bars)
+  + \# ways to write n as sum of k non-negative integers, when order matters (right diagram)
+    + \# sequences w/ n starts and k-1 bars
+    + \# length $n+(k-1)$ sequences w/ $k-1$ bars
+
+    \[ \dbinom{n+k-1}{k-1} \]
+
++ [More applications](../Stats/ProbStatsPython/04-Combinatorics.md#48-stars-and-bars)
+  + can derive \# positive adding to n
+    + \# k positive adding to $n$ = \# k non-negative adding to $n-k$
+
+      \[ \dbinom{(n-k) + k -1}{k-1} = \dbinom{n-1}{k-1} \]
+
+  + can derive \# non-negative adding to $\leq n$
+    + \# non-negative adding to $\leq n$ = \# k+1 non-negative adding to n
+
+      \[ \dbinom{n+(k+1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
+
 
 
