@@ -264,6 +264,36 @@
 
 ### Problem Sets
 
+0. An outcome in a uniform probability space has probability 1/10, what is the size of the sample space?<br/>
+  a. 5<br/>
+  b. 10<br/>
+  c. 20<br/>
+  d. None of the above<br/>
+
+  Ans: b
+
+
+1. Which of the following sample spaces are uniform?<br/>
+  a. {land,sea} for a randomly point on a globe<br/>
+  b. {odd, even} for a random integer from {1,2,. . . ,100}<br/>
+  c. {leap year, non-leap year} for a random year before 2019<br/>
+  d. {two heads, two tails, one head and one tail} when flipping two fair coins<br/>
+  e. {distance to origin} for a random point in {−3, −1, 1, 3} × {−4, −2, 2, 4}<br/>
+
+  Ans: be<br/>
+  Explanation
+    + False. About 70% of the times will be "sea".
+    + True. Half the time we'll observe even, and half odd.
+    + False. "non-leap year" is roughly three times more likely.
+    + False. "one head and one tail" is more likely.
+    + True. There are four distances, and each shared by 4 of the 16 points.
+
+
+2. Given an uniform probability space $\Omega = \{1,2,3, \dots ,100\}$, what is the probability that the outcome contains the digit 1 (e.g. 19,91)?
+
+  Ans: 19/100<br/>
+  Explanation: There are 20 of them. Note that 11 should not be counted twice.
+
 
 
 ### Lecture Video
