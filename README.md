@@ -110,6 +110,21 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-power"> Cartesian Power </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Combinatorics </th>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#factorials"> Factorials </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#partial-permutations"> Partial Permutations </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#combinations"> Combinations </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#binomial-coefficients"> Binomial Coefficients </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#binomial-theorem"> Binomial Theorem </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#multinomials"> Multinomials </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#starts-and-bars"> Starts and Bars </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
