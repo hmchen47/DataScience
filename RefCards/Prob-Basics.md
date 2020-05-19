@@ -501,5 +501,32 @@
 
 
 
+## Multinomials
+
++ [Multinomial coefficients](../Stats/ProbStatsPython/04-Combinatorics.md#47-multinomials)
+  + ternary alphabets: $k_1 + k_2 + k_3 = n$
+  + \# {1, 2, 3} sequences w/ $\begin{cases} k_1 & \text{1's} \\ k_2 & \text{2's} \\ k_3 & \text{3's} \end{cases}$
+
+    \[ \dbinom{n}{k_1} \dbinom{n-k_1}{k_2} = \dfrac{n!}{k_1! \cdot (n-k)!} \cdot \dfrac{(n-k_1)!}{k_2! \cdot \underbrace{(n - k_1 - k_2)!}_{k_3}} = \dfrac{n!}{k_1! \cdot k_2! \cdot k_3!} \triangleq \dbinom{n}{k_1,k_2,k_3} \]
+
+    + $\binom{n}{k_1}$: $k_1$ location of 1's
+    + $\binom{n-k_1}{k_2}$: $k_2$ location of 2's out of $n-k_1$ locations left (location of $k_3$ 3's is determined)
+  + binomial as a special case: $\underbrace{\binom{n}{k, n-k}}_{\text{sum to n}} = \binom{n}{k}$
+
++ [Theorem: (multinomial)](../Stats/ProbStatsPython/04-Combinatorics.md#47-multinomials)
+
+  \[ (a_1 + a_2 + \cdots + a_m)^n = \sum_{\substack{k_1+k_2+\cdots +k_m = n\\ k_1, k_2, \dots, k_m \geq 0}} \dbinom{n}{k_1,k_2,\dots,k_m} \prod_{t=1}^m a_t^{k_t} \]
+
+
++ [Sum of multinomials](../Stats/ProbStatsPython/04-Combinatorics.md#47-multinomials)
+  + recall binomial identity: $2^n = \sum_{i=0}^n \dbinom{n}{i}$
+  + similar for multinomials
+
+    \[ m^n = (1 + 1 + \cdots + 1)^n = \sum_{\substack{k_1+k_2+\cdots+k_m = n\\ k_1,k_2, \dots, k_m \geq 0}} \dbinom{n}{k_1, k_2, \dots, k_m} \]
+
+
+
+
+
 
 
