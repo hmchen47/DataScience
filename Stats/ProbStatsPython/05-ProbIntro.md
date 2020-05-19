@@ -305,9 +305,232 @@
 
 ## 5.3 Events
 
++ Events
+  + sometimes: care about one particular outcome; examples,
+    + temperature 98.6 ℉
+    + Dow Jones close at $18,040
+    + get ready B+ in class
+  + usually: interested in a set of possible outcomes; examples,
+    + temperature $\neq$ 98.6 ℉
+    + stock close higher
+    + pass the course
+  + outcome: single element of $\Omega$
+  + event: subset of a space $\Omega$
+  + social event: set of people
+  + probability event: set of outcomes
+
++ Die events
+  + event: subset of sample space $\Omega$
+  + Die: $\Omega = \{1, 2, \dots, 6 \} \supseteq$ Event
+  + complement
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Name</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\hspace{3em}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">$\{1, 2, \dots, 6\}$</td> <td style="text-align: center;">$\Omega$ (certain)</td> <td rowspan="5" style="text-align: center;">$\xrightarrow{\text{Complement}}$</td> <td style="text-align: center;">$\{ \}$</td> <td style="text-align: center;">$\varnothing$</td> </tr>
+      <tr> <td style="text-align: center;">$\{2, 4, 6\}$</td> <td style="text-align: center;">Even</td> <td style="text-align: center;">$\{1, 3, 5\}$</td> <td style="text-align: center;">Odd</td> </tr>
+      <tr> <td style="text-align: center;">$\{1, 4\}$</td> <td style="text-align: center;">Square</td> <td style="text-align: center;">$\{2, 3, 5, 6\}$</td> <td style="text-align: center;">Non square</td> </tr>
+      <tr> <td style="text-align: center;">$\{5, 6\}$</td> <td style="text-align: center;">$\geq 4, > 5$</td> <td style="text-align: center;">$\{1, 2, 3, 4\}$</td> <td style="text-align: center;">$\leq 4, < 5$</td> </tr>
+      <tr> <td style="text-align: center;">$\{1, 2, 5\}$</td> <td style="text-align: center;">$\{1, 2, 5\}$</td> <td style="text-align: center;">$\{3, 4, 6\}$</td> <td style="text-align: center;">$\{3, 4, 6\}$</td> </tr>
+      </tbody>
+    </table>
+
++ Tetrahedral die
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 18.8vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <tbody>
+    <tr> <th style="text-align: center; background: seagreen">Face</th> <td style="text-align: center;">1</td> <td style="text-align: center;">2</td> <td style="text-align: center;">3</td> <td style="text-align: center;">4</td> </tr>
+    <tr> <th style="text-align: center; background: seagreen">Probability</th> <td style="text-align: center;">.1</td> <td style="text-align: center;">.2</td> <td style="text-align: center;">.3</td> <td style="text-align: center;">.4</td> </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Name</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Set</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">$\Omega$ (certain)</td> <td style="text-align: center;">$\{1, 2, 3, 4\}$</td> </tr>
+    <tr> <td style="text-align: center;">Even</td> <td style="text-align: center;">$\{2, 4\}$</td> </tr>
+    <tr> <td style="text-align: center;">Prime</td> <td style="text-align: center;">$\{2, 3\}$</td> </tr>
+    <tr> <td style="text-align: center;">$\varnothing$ (null)</td> <td style="text-align: center;">$\{\hspace{0.5em} \}$</td> </tr>
+    </tbody>
+  </table>
+
++ Event occurrence <br/>
+  an event <span style="color: magenta;">occurs</span>, or <span style="color: magenta;">happens</span>, if it contains the observed outcome
+
+    \[ E \;{\color{Magenta}{\text{ occurs }}} \text{ if } X \,{\color{Magenta}{\in}}\, E \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8rpqaq6" ismap target="_blank">
+        <img src="img/t05-01.png" style="margin: 0.1em;" alt="Illustration of event occurrence" title="Illustration of event occurrence" width=250>
+      </a>
+    </div>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Event</th>
+        <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Subset</th>
+        <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Outcome</th>
+      </tr>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">1</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">2</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">3</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">4</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$\Omega$ (certain)</td> <td style="text-align: center;">$\{1, 2, 3, 4\}$</td>
+        <td style="text-align: center; background-color: darkgreen;">&#9745;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center; background-color: darkgreen;">&#9745;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Even</td> <td style="text-align: center;">$\{2, 4\}$</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Prime</td> <td style="text-align: center;">$\{2, 3\}$</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center; background-color: darkgreen;">&#9745;</td> <td style="text-align: center; background-color: darkred;">&#9746;</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$\varnothing$ (null)</td> <td style="text-align: center;">$\{\hspace{0.5em}\}$</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkred;">&#9746;</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkred;">&#9746;</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Event probability
+  + $\Pr(E)$: probability of event $E$
+  + $\Pr(X \in E)$: probability that $E$ occurs
+  + fraction of experiments where $E$ occurs, as \# experiments grows
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8rpqaq6" ismap target="_blank">
+        <img src="img/t05-02.png" style="margin: 0.1em;" alt="Example of event occurrence w/ Tetrahedral die" title="Example of event occurrence w/ Tetrahedral die" width=450>
+      </a>
+    </div>
+
+  + task: $\Pr(E)$ = fraction
+    + \# experiments 12 $\to \infty$
+    + general distributions and events
+
++ $\Pr(X) \to \Pr(E)$
+  + related probability of event to probability of its elements (outcomes)
+  + general event $E$
+    + \# times E occurs = sum of \# times its elements occur
+
+    \[\begin{align*}
+      \Pr(E) &= \text{ fraction of times $E$ occurs} \\
+      &= \text{ sum of fraction of times its elements occur} \\
+      &= \text{ sum of its element probabilities} \\\\
+      \Pr(E) &= \Pr(X \in E) = \sum_{x \in E} \Pr(x)
+    \end{align*}\]
+
+  + example: Tetrahedral die
+    + \# times Event occurs = sum of \# times 2 and 4 occur
+    + Pr(Even) = fraction of times Even occurs = sum of fraction of times 2 and 4 = Pr(2) + Pr(4)
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Event</th>
+        <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Subset</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">1</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">2</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">3</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">4</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$\Pr(E)$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$\Omega$ (certain)</td> <td style="text-align: center;">$\{1, 2, 3, 4\}$</td>
+        <td style="text-align: center; background-color: darkgreen;">&#9745;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center; background-color: darkgreen;">&#9745;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center;">$.1+.2+.3+.4 =1$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Even</td> <td style="text-align: center;">$\{2, 4\}$</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center;">$.2+.4 =.61$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Prime</td> <td style="text-align: center;">$\{2, 3\}$</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkgreen;">&#9745;</td>
+        <td style="text-align: center; background-color: darkgreen;">&#9745;</td> <td style="text-align: center; background-color: darkred;">&#9746;</td>
+        <td style="text-align: center;">$.2+.3 =.5$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$\varnothing$ (null)</td> <td style="text-align: center;">$\{\hspace{0.5em}\}$</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkred;">&#9746;</td>
+        <td style="text-align: center; background-color: darkred;">&#9746;</td> <td style="text-align: center; background-color: darkred;">&#9746;</td>
+        <td style="text-align: center;">$0$</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Uniform spaces
+  + equiprobable spaces
+  + simple formula for probability of
+    + outcome: $\Pr(x) = 1/|\Omega|$
+    + event
+
+      \[ \Pr(E) = \sum_x \in E \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E}}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+
+  + example: die
+    + $\Omega = \{1, 2, 3, 4, 5 6\} \to |\Omega| = 6$
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Ecent</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$|Event|$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(Event) = \frac{|Event|}{6}$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">Even</td> <td style="text-align: center;">$\{2, 4, 6\}$</td> <td style="text-align: center;">3</td> <td style="text-align: center;">3/6 = 1/2</td> </tr>
+      <tr> <td style="text-align: center;">Square</td> <td style="text-align: center;">$\{1, 4\}$</td> <td style="text-align: center;">2</td> <td style="text-align: center;">2/6 = 1/3</td> </tr>
+      </tbody>
+    </table>
+
++ Dos and Don'ts
+  + Valid expression
+    + $\Pr(X \in \text{ Even})$: die - $\Pr(X \in \{2, 4, 6\}= 3/6 = 1/2$
+    + $\Pr(\text{ Even }) \,\stackrel{def}{=} \Pr(X \in \text{ Even })$
+  + less likely
+    + $\Pr(3 \in \text{ Even }) = 0$
+      + 3 is a (constant) random variable, so possible
+      + the r.v. 3 is never in Even, so probability is 0
+    + $\Pr( 4 \in \text{ Even }) = 1$
+      + less common
+      + check that you meant it
+  + unlikely: $\Pr( c \in \text{ Even })$
+    + previous anomaly on steriods, what is x?
+    + $\forall\, x \in \{3, 7\}, \Pr(x \in \text{ Even })=0$, double check meant it
 
 
 
++ [Original Slides](https://tinyurl.com/y8rpqaq6)
 
 
 ### Problem Sets
