@@ -208,7 +208,7 @@
   + all you need to know is $|\Omega|$
   + notation: denoted $U$, drawing uniformly, randomly
 
-+ Example: Fir coin
++ Example: Fair coin
   + $\Omega = \{ \text{heads}, \text{tails}\} = \{h, t\}$
   + $|\Omega| = 2$
   + flip, or toss
@@ -241,7 +241,7 @@
     + assumption: different probabilities
     + easy to remember
       + 4 faces
-      + $\Pr(1) = .1, \Pr(2) = .2 \Pr(3) = .3 \Pr(4) = .4$
+      + $\Pr(1) = .1, \;\Pr(2) = .2 \;\Pr(3) = .3 \;\Pr(4) = .4$
     + conveniently, add to 1
     + probability distribution
 
