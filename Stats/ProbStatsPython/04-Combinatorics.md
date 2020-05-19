@@ -1261,7 +1261,7 @@
     return parts
   ```
 
-2. What is the python output for the following command: composition_formula(9, 16)<br/>
+2. What is the python output for the following command: `composition_formula(9, 16)`<br/>
   a. \( (4773,4773) \)<br/>
   b. \( (5426,5426) \)<br/>
   c. \( (6435, 6435) \)<br/>
@@ -1278,7 +1278,7 @@
     return (len(compositions(k, n)), int(binom(n - 1, k - 1)))
   ```
 
-3. What is the python output for the following command: constrained_compositions(8, [3,2,4])
+3. What is the python output for the following command: `constrained_compositions(8, [3,2,4])`
   a. $\{(2,2,4),(3,1,4),(3,2,3)\}$
   b. $\{(3,2,3),(3,1,4),(2,3,3)\}$
   c. $\{(2,3,2),(3,2,4),(3,2,3)\}$
@@ -1287,7 +1287,7 @@
   Ans: a
 
 
-4. Which of the following is the correct output of len(constrained_compositions(20,[12, 15, 5]))<br/>
+4. Which of the following is the correct output of `len(constrained_compositions(20,[12, 15, 5]))`<br/>
   a. 171<br/>
   b. 59<br/>
   c. 54<br/>
