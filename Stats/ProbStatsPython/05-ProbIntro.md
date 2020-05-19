@@ -189,9 +189,79 @@
 
 ## 5.2 Distribution Types
 
++ Uniform probability spaces
+  + generally, outcomes may have different probability
+    + e.g., Rain: P(rain) = 10%, P(no rain) = 190%
+  + uniform (equiprobable) spaces: uniform distribution
+    + all outcomes are equally likely
+    + $\forall\, x \in \Omega \quad \Pr(x) = p$
+    + $1 = \sum_{x \in \Omega} \Pr(x) = \sum_{x \in \Omega} p = |\Omega| \cdot p$
+    + $p = 1 / |\Omega|$
+    + example
+      + $\sum_{x \in \{3,5\}} x^2 = 3^2 + 5^2 = 34$
+      + $\sum_{x \in \{3,5\}} x = 3 + 5 = 8$
+      + $\sum_{x \in \{3,5\}} p = p + p = 2p$
+      + $\sum_{x \in \Omega} p = p + p + \cdots + p = |\Omega|$
+      + fair coin: $\Pr(h) = P(t) = p \quad 1 = \Pr(h) + \Pr(t) = 2 \cdot p \quad p = 1/2$
+  + drastically simplified probability specification
+  + uniform spaces: every outcome w/ probability $1/|\Omega|$
+  + all you need to know is $|\Omega|$
+
++ Example: Fir coin
+  + $\Omega = \{ \text{heads}, \text{tails}\} = \{h, t\}$
+  + $|\Omega| = 2$
+  + flip, or toss
+  + equally likely: $\Pr(h) = \Pr(t)$
+  + $\Pr(h) = \Pr(t) = \frac{1}{|\Omega|} = \frac{1}{2}$
+
++ Example: Fair die
+  + sample space: $\Omega = \{1, 2, 3, 4, 5, 6\}$
+  + $|\Omega| = 6$
+  + roll
+  + equally likely: $\Pr(1) = \cdots = \Pr(6)$
+  + $\Pr(1) = \cdots = \Pr(6) = \frac{1}{\Omega} = \frac{1}{6}$
+
++ Example: deck of cards
+  + sample space: $\Omega = \{ \text{cards }\}$
+  + $|\Omega| = 52$
+  + draw a card
+  + equally likely: unifrom
+  + $\Pr(3C) = \cdots = \Pr(QH) = \frac{1}{\Omega} = \frac{1}{52}$
+
++ Uniform $\to$ Non
+  + uniform, equiprobable, spaces
+    + e.g., coin, die, cards
+  + in nature, nonuniform spaces around
+    + e.g., rain, grades, words, illnesses, web pages, people, ...
+
++ Pie chart
+  + challenge: non-uniform distribution we can remember
+
++ Tetrahedra die
+  + 4-sided, pyramid die
+  + used in games, D&D
+  + in games die equiprobable
+  + assumption: different probabilities
+  + easy to remember
+    + 4 faces
+    + $\Pr(1) = .1, \Pr(2) = .2 \Pr(3) = .3 \Pr(4) = .4$
+  + conveniently, add to 1
+  + probability distribution
+
++ Do's and Don'ts
+  + random notation may be confusing at first
+  + which expressions are valid?
+    + $\Pr(x)$ specify $x$, e.g., for $\forall\, x, \Pr(x) = 1/4$
+      + $\Pr(X=3)$ w/ fair die: 1/6
+      + $\Pr(3) \stackrel{def}{=} P(X=3)$
+    + possible, but less common, make sure it's what you mean
+      + $\Pr(1 = 3) = 0$
+      + $\Pr(X)$: random value
+    + even less likely, probably wrong
+      + $\Pr(x=3)$
 
 
-
++ [original Slides](https://tinyurl.com/y84vwcva)
 
 
 ### Problem Sets
