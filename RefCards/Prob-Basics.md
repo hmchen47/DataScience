@@ -453,5 +453,53 @@
 
 
 
+## Binomial Theorem
+
++ [Pascal's identity and Triangle](../Stats/ProbStatsPython/04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+  + Pascal's identity
+
+    \[ \dbinom{n+1}{k} = \dbinom{n}{k} + \dbinom{n}{k-1} \]
+
+  + Pascal's triangle
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ycyuz3ww" ismap target="_blank">
+        <img src="../Stats/ProbStatsPython/img/t04-04.png" style="margin: 0.1em;" alt="Pascal's triangle and Binomial coefficients" title="Pascal's triangle and Binomial coefficients" height=200>
+      </a>
+    </div>
+
++ [Observations for Binomial Theorem](../Stats/ProbStatsPython/04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+  + __Theorem__: (Binomial)
+
+    \[ (a+b)^n = \sum_{i=0}^n \dbinom{n}{i} a^{n-i} b^i \quad \forall\, a, b \quad \forall\, n \geq 0 \]
+
+  + so important it gives the binomial coefficients their name
+  + generally
+
+    \[ (a+b)^n = \dbinom{n}{0} a^n + \dbinom{n}{1} a^{n-1} b + \cdots + \dbinom{n}{n} b^n = \sum_{i=0}^n \dbinom{n}{i} a^{n-i}b^i \]
+
++ [Theorem: (Binomial)](../Stats/ProbStatsPython/04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+
+  \[ \sum_{i=0}^n \dbinom{n}{i} = 2^n \]
+
+
++ [Polynomial coefficients](../Stats/ProbStatsPython/04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+
+  \[ (1+x)^n = \sum_{i=0}^n \dbinom{n}{i} x^i \]
+
+
++ [Binomial $\to$ Taylor](../Stats/ProbStatsPython/04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+  + Taylor expression
+
+    \[ e^x = \sum_{i=0}^\infty \frac{x^i}{i!} \]
+
+
++ [Binomoial distribution](../Stats/ProbStatsPython/04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+
+  \[ \sum_{i=0}^n \dbinom{n}{i} p^{n-i} (1-p)^i = (p + (1-p))^n = 1^n = 1 \]
+
+
+
+
 
 
