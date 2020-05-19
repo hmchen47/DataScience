@@ -1,6 +1,5 @@
 # Topic 5: Probability Introduction
 
-
 ## 5.1 Probability
 
 + Why probability?
@@ -14,19 +13,20 @@
     + students: food line, grade, parents job, date, game
 
 + Random phenomena
+  + give up or reasonintelligently
 
-  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
     <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Give Up?</th>
-      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Reason intelligently?</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Properties</th>
+      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Interests</th>
     </tr>
     </thead>
     <tbody>
     <tr> <th>Learn</th> <td>range</td> <td>average</td> <td>variability</td> </tr>
     <tr> <th>Infer</th> <td>relations</td> <td>structure</td> <td>change</td> </tr>
-    <tr> <td>Predict</td> <td>future</td> <td>likelihood</td> <td>guarantees</td> </tr>
-    <tr> <td>Benefit</td> <td>plan</td> <td>create</td> <td>compete</td> </tr>
+    <tr> <th>Predict</th> <td>future</td> <td>likelihood</td> <td>guarantees</td> </tr>
+    <tr> <th>Benefit</th> <td>understand</td> <td>plan</td> <td>build</td> </tr>
     </tbody>
   </table>
 
@@ -39,8 +39,8 @@
     + process of generating and observing data
     + individual and collection of observations
     + meaning of probability
-  + several approaches
-    + intuitive
+  + precisely
+    + intuitive approach
     + axioms $\gets$ data
 
 + Experiments
@@ -53,20 +53,20 @@
     + understand
     + analyze
     + generalize
-  + experiment
+  + generic
     + biology
     + engineering
     + business
     + sociology
-  + out experiments
-    + coin - starting simple
-    + die - get very complex
+  + understand
+    + simple examples
+    + progress
 
 + Outcomes and sample space
-  + <span style="color: magenta;">(possible) outcomes</span>: potential experiment results
-  + <span style="color: magenta;">sample space</span>: set of possible outcomes, denoted <span style="color: magenta;">$\Omega$</span>
+  + <span style="color: magenta;">outcomes</span>: possible experiment results
+  + <span style="color: magenta;">sample space</span>: set of possible outcomes, denoted <span style="color: magenta;">$\Omega, S \text{ or } U$</span>
 
-    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <table style="font-family: arial,helvetica,sans-serif; width: 20vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Experiment</th>
@@ -84,7 +84,7 @@
 
 + Two sample-space types
   + <span style="color: magenta;">discrete</span>: finite or countable infinite sample space
-    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{R}, \{words\}, \{cities\}, \{people\}$
+    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{words\}, \{cities\}, \{people\}$
   + <span style="color: magenta;">continuous</span>: uncountably infinite sample space
     + e.g., $\Bbb{R}, [0, 1], \{\text{temperatures}\}, \underbrace{\{\text{salaries}\}, \{\text{prices}\}}_{\text{upgraded}}$
   + discrete space: easier to understand, visualize, analyze; important; first
@@ -92,19 +92,19 @@
 
 + Random outcomes
   + algebra
-    + unknown value, denote <span style="color: magenta;">x</span> $\gets$ lower case
+    + unknown value, denote <span style="color: cyan;">x</span> $\gets$ lower case
     + e.g., $2x - 4=0$, solution
       + before: $x \in \Bbb{R}$
       + after: $x = 2$
   + probability
-    + random outcome, denoted by <span style="color: magenta;">$X$</span> $\gets$ upper case
+    + <span style="color: cyan;">random</span> value of outcome, denoted by <span style="color: cyan;">$X$</span> $\gets$ upper case
     + experiment
       + $X$: coin flip outcome
       + before: $X \in \Omega$
       + after: $X = \begin{cases} \text{h} & \text{get h} \\ \text{t} & \text{get t} \end{cases}$
 
 + Probability of an outcome
-  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x)$</span>, or <span style="color: magenta;">$P(X = x)$</span>, is the fraction of time $x$ will occur when experiment is repeated many times
+  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), \Pr(x)$</span>, or <span style="color: magenta;">$P(X = x), \Pr(X = x)$</span>, is the fraction of time $x$ will occur when experiment is repeated many times
   + fair coin
     + as \# experiment $\to \infty$, fraction of heads (or tails) $\to 1/2$
     + heads w/ probability $1/2$: $P(h) = 1/2 \quad P(X=h) = 1/2$
@@ -125,20 +125,20 @@
       \displaystyle \sum_{x \in \Omega} n_x = n &\to& \displaystyle\sum_{x \in \Omega} \dfrac{n_x}{n} = 1 &\to& \displaystyle\sum_{x\in \Omega} p(x) = 1
     \end{array}\]
 
-+ Sum of probabilities
-  + $\Pr(x)$: the fraction of times outcome $x$ occurs, e.g., $\Pr(h) = 1/2, \Pr(1) = 1/6$
++ Probability distribution function
+  + $P(x)$: the fraction of times outcome $x$ occurs, e.g., $\Pr(h) = 1/2, \Pr(1) = 1/6$
   + viewed over the whole sample space $\to$ a pattern merges
-    + coin: $\Pr(h) = 1/2, \Pr(r) = 1/2$
-    + die: $\Pr(1) = 1/6, \dots, \Pr(6) = 1/6$
-    + rain: $\Pr(\text{rain}) = 10\%, \Pr(\text{no rain}) = 90\%$
+    + coin: $P(h) = 1/2, \Pr(r) = 1/2$
+    + die: $P(1) = 1/6, \dots, P(6) = 1/6$
+    + rain: $P(\text{rain}) = 10\%, P(\text{no rain}) = 90\%$
+  + <span style="color: magenta;">Probability distribution function (PDF)</span>: $\Pr$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
+  
+    \[ \Pr: \Omega \to \Bbb{R} , \; \Pr(x) \geq 0 \text{ s.t. } \sum_{x\in \Omega} \Pr(x) = 1 \]
 
-+ Probability distribution
-  + $\Pr$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
-  + Probability distribution function: a function $P: \Omega \to \Bbb{R} \text{ s.t. } P(x) \geq 0$
-  + sample space $\Omega$ + distribution $\Pr$ = probability space
+  + sample space $\Omega$ + distribution $P$ = probability space
 
-    \[ \Omega + \Pr = \text{probability space} \]
 
++ [Original Slides](https://tinyurl.com/y7p67f6u)
 
 
 ### Problem Sets
