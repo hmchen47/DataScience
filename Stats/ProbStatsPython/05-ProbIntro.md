@@ -143,6 +143,41 @@
 
 ### Problem Sets
 
+0. Which of the following outcomes are random (not certain) when rolling a six-sided dice?<br/>
+  a. A real number.<br/>
+  b. An even number.<br/>
+  c. A positive number.<br/>
+
+  Ans: <span style="color: magenta;">b</span>
+  Explanation: The outcome of dice is certainly real and positive, but it may or may not be even, so it is random.
+
+1. Which of the following outcomes are random (not certain) after throwing a six-sided dice?<br/>
+  a. Get number  3 <br/>
+  b. Get an even number<br/>
+  c. Get a positive number<br/>
+
+  Ans: ab<br/>
+  Explanation
+    + True. We may get e.g. 4 as an outcome, which is not 3.
+    + True. We may get e.g. 3 as an outcome, which is not even.
+    + False. All outcomes of a six-sided dice are positive.
+
+
+2. Imagine a single experiment where we flip a coin 6 times, and get “head, tail, head, head, head, head”.
+
+  Which of the following statements hold?
+
+  a. The coin is not fair.<br/>
+  b. The coin's "tail" probability is 1/6.<br/>
+  c. The sequence "head, tail, head, head, head, head" is an outcome in the sample space.<br/>
+  d. The sample space of the experiment is {head, tail}.<br/>
+
+  Ans: <span style="color: magenta;">c</span>
+  Explanation
+    + False. The outcome is random and the coin may be fair.
+    + False. In this experiment 1 out of 6 outcomes was "tail", but the coin's "tail" probability may differ.
+    + True. The sample space consists of all sequences of six "head" and "tail", and this is one of them.
+    + False. The sample space is a set of tuples  {(head, head, head, head, head, head),(head, head, head, head, head, tail),⋯,(tail, tail, tail, tail, tail, tail)} .
 
 
 ### Lecture Video
