@@ -752,7 +752,7 @@
     + experiments <span style="color: cyan;">dependent</span>
     + cf. difference largest for small $\Omega$
 
-+ sampling (selection) With / Without differences
++ Sampling (selection) With / Without differences
   + __with__ replacement
     + repeat as if from scratch
     + same element able to be selected again
@@ -792,11 +792,11 @@
     + draw one
     + w/o replacement, draw a second
   + outcomes
-    + $\Omega = \{12, \dots, 16, 21, \dots, 26, \dots, 65\} =(6]^{\underline{2}}) \gets$ 2-permutations of {1,2, ..., 6}
-    + $|\Omega| = 2^{\underline{2}} = 5 \cdot 5 = 30$
+    + $\Omega = \{12, \dots, 16, 21, \dots, 26, \dots, 65\} =(6]^{\underline{2}} \gets$ 2-permutations of {1,2, ..., 6}
+    + $|\Omega| = 6^{\underline{2}} = 6 \cdot 5 = 30$
   + probabilities
     + $i = j$ unable to happen
-    + $i=j, \; \Pr(i, j) = 1/6 \cdot 1/5 = 1/30$
+    + $i\neq j, \; \Pr(i, j) = 1/6 \cdot 1/5 = 1/30$
     + $\Pr(i, j) = 1/|\Omega| = 1/30$
 
 + Replacement summary
@@ -897,34 +897,25 @@
       + remaining uniform
   + sanity check
     + probabilities sum to 1
-    + $\binom{6}{2} \cdot \frac{2}{30} = 1$
+    + $\binom{[6]}{2} \cdot \frac{2}{30} = 1$
   + alternative calculation
     + select both cards simultaneously
     + $\Omega = \{\{1, 2\}, \{1, 3\}, \dots, \{5, 6\}\} = \binom{[6]}{2}$
-    + $|\Omega| = \binom{6}{2} = 15$, uniform space
+    + $|\Omega| = \binom{[6]}{2} = 15$, uniform space
     + $\Pr(\{1, 2\}) = 1/15$
     + sequential simultaneous same
 
 + Example: poker hand probabilities
   + deck: 52 cards, hand: 5 cards
-  + $\Omega = \{\text{ possible hands } \} = \{\{\text{ 2H, 4H, JH, 4H, 9H }\}, \{\text{ 4D, 5H, 6C, 7C, 8S }\}, \dots\}$
+  + $\Omega = \{\text{ possible hands } \} = \{\{2\heartsuit, 4\heartsuit, J\heartsuit, 4\heartsuit, 9\heartsuit\}, \{4\diamondsuit, 5\heartsuit, 6\clubsuit, 7\clubsuit, 8\spadesuit\}, \dots\}$
   
     \[\begin{align*}
       & \;{\color{Grey}{\approx 50 \cdot 50 \cdot 10 \cdot 100 = 2.5 \text{ M }}} \\
       |\Omega| = \binom{52}{5} = \frac{52!}{5! \cdot 47!} = \frac{52 \cdot 51 \cdot 50 \cdot 49 \cdot 48}{5 \cdot 4 \cdot 3 \cdot 2 \cdot 1} &= 2,598,960 \approx 2.6 \text{ million}
     \end{align*}\]
   + all hands equally likely $\to$ equiprobable
-  + $\Pr(\{\text{ 2S, 4C, AD, AH, AS }\}) \stackrel{U}{\approx} 1/2.6 \text{ M }$
+  + $\Pr(\{2\spadesuit, 4\clubsuit, A\diamondsuit, A\heartsuit, A\spadesuit\}) \stackrel{U}{\approx} 1/2.6 \text{ M }$
 
-+ Independent repetitions
-  + repetition
-    + all experiments of same type
-    + examples: daily temperature, daily stock price, coin flips, die rolls, card draws
-  + independent
-    + different components unrelated
-    + examples: first coin heads
-      + second coin 50% heads/tails (right)
-      + second coin more likely heads (wrong)
 
 
 + [Original Slides](https://tinyurl.com/yape5urh)
