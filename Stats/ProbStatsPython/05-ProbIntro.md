@@ -535,6 +535,128 @@
 
 ### Problem Sets
 
+0. What is the probability of drawing a Red Ace from a standard deck of cards?<br/>
+  a. 1/52<br/>
+  b. 2/52<br/>
+  c. 4/52<br/>
+  d. None of the above<br/>
+
+  Ans: b <br/>
+  Explanation: Both "heart ace" and "diamond ace" are "red ace". Since the sample space is uniform, the answer is 2/52.
+
+
+1. Which of the following holds for every event A?<br/>
+  a. $P(A) \geq 0$<br/>
+  b. $P(A) \leq1$<br/>
+  c. $P(A)+P(A^c)=1$<br/>
+  d. $P(A)=P(A^c)$<br/>
+  e. $A=\varnothing \implies P(A)=0$<br/>
+  f. $P(A)=0 \implies A=\varnothing$<br/>
+  
+  Ans: abce<br/>
+  Explanation
+    + True. $0 \leq P(A) \leq 1$.
+    + True. Same as above.
+    + True.
+    + False.
+    + True. Note that $A \cap \varnothing = \varnothing, A \cup \varnothing = \varnothing$ for any $A$. $P(A)=P(A \cup \varnothing) = P(A)+P(\varnothing)$, hence $P(\varnothing)=0$.
+    + False. Suppose a uniform sample space $\Omega$  has infinite number of elements. Then for some events  A  with finite size (i.e. $|A|$ is finite ), $P(A)=|A|/|Ω|$.
+
+
+2. Which of the following always hold for events  A  and  B ?<br/>
+  a. $A \subseteq B \implies P(A) \leq P(B)$<br/>
+  b. $P(A) \leq P(B) \implies A \subseteq B$<br/>
+
+  Ans: a<br/>
+  Explanation:
+    + True.
+    + False. Let  A  be the event of getting a head from a tossed coin, and B be the event of getting a tail.  P(A)=P(B)=12 , but A⊈B.
+
+
+3. Which of the following implies  P(S−T)=P(S)−P(T)  for events  S  and  T ?<br/>
+  a. $T \subseteq S$<br/>
+  b. $T \subset S$<br/>
+  c. $S = T$<br/>
+  d. $S \subseteq T$<br/>
+
+  Ans: abc<br/>
+  Explanation:
+    + Note that $P(S−T) = P(S \cup T)−P(T) .
+    + When $T \subseteq S$, $T \subset S$, and $S=T$, we have $S \cup T=S$, hence $P(S−T)=P(S)−P(T)$.
+    + When $S \subseteq T$, we have $S \cup T=T$, hence $P(S−T)=0$.
+
+
+4. 50% of UCSD students play soccer, 40% play basketball, and 30% play both. What is the probability that a random UCSD student does not play any of the two games.<br/>
+  a. 0<br/>
+  b. 0.1<br/>
+  c. 0.4<br/>
+  d. 0.6<br/>
+
+  Ans: c<br/>
+  Explanation: Let $A$ be the event that a student play soccer, $B$ be the event that a student play basketball. Then $A \cap B$ is the event that a student play both. We already know $P(A)=0.5, P(B)=0.4, P(A \cap B)=0.3$, hence $P(A \cup B) = P(A)+P(B)−P(A∩B)=0.6$. The probability that a random UCSD student does not play any of the two games is $1 − P(A \cup B)=0.4$.
+
+
+5. Which of the following are events in the sample space $\Omega = \{1,2,3,4,5\}$?<br/>
+  a. $\{1,2,3\}$<br/>
+  b. $\varnothing$<br/>
+  c. $\Omega$<br/>
+  d. $\{1\}$<br/>
+  e. $\{0,3,4\}$<br/>
+
+  Ans: abcd<br/>
+  Explanation
+    + True.
+    + True.
+    + True.
+    + True.
+    + False. {0,3,4} is not a subset of $\Omega$.
+
+
+6. For the uniform space  {1,2,…,10} , find:<br/>
+  a. $P(\{\text{primes}\})$,<br/>
+  b. $P(\{\text{multiples of 3}\})$.<br/>
+
+  Ans: a. (0.4); b. (0.3)<br/>
+  Explanation
+    + $\{\text{primes}\}=\{2,3,5,7\}$. Its probability is $P(\{\text{primes}\}) = |\text{primes}||Ω|=2/5$.
+    + $\{\text{primes}\}=\{3,6,9\}$. Its probability is $P(\{\text{multiples of 3}\}) = |\text{multiples of 3}||Ω|=3/10$.
+
+
+7. A bag contains 5 red and 3 blue balls.<br/>
+  a. Pick one ball at random and observe its random color. What is the size of the color sample space.<br/>
+  b. What is P(blue)?<br/>
+  c. Two balls added to the bag and now P(blue)=0.4. How many of the two balls are blue?<br/>
+  d. Two balls are removed from the original bag and now P(blue)=0.5. How many of the two balls were blue?<br/>
+
+  Ans: a. (2); b. (3/8); c. (1); d. (0)<br/>
+  Explanation:
+    + The sample space is $\{Red ,Blue\}$.
+    + $\frac{|\{\text{blue}\}|}{|Ω|} = 3/8 = 0.375$.
+    + If $a$ blues balls are added, $P(\text{blue}) = \frac{3+a}{8+2}=0.4$. Hence $a=1$.
+    + If $a$ blues balls are removed, $\frac{3−a}{8−2} = 0.5$. Hence $a=0$.
+
+
+8. Six balls are numbered 1, 2, 3, 4, 5, and 6. What is the chance that the numbers on three balls, picked simultaneously and randomly, will sum to a multiple of 3?<br/>
+  a. 1/3<br/>
+  b. 1/4<br/>
+  c. 2/5<br/>
+  d. 4/15<br/>
+
+  Ans: c<br/>
+  Explanation: The number of ways to pick 3 balls is $\tbinom{6}{3}=20$. 8 of them have their sum as a multiple of 3.
+
+
+9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:
+  a. a queen of hearts,
+  b. at least one queen,
+  c. at least one heart?
+
+  Ans: a. (5/52); b. (0.3412); c. (0.7785)<br/>
+  Explanation:
+    + The probability that there's no queen of hearts is $\tbinom{51}{5}/\tbinom{52}{5}=47/52$. Thus the probability that there's a queen of hearts is $1−47/52=5/52$.
+    + Similar to above, probability that there's no queen is $\tbinom{48}{5}/\tbinom{52}{5}=0.65884$. Thus the probability that there's a queen is $1−0.65884=0.34115$.
+    + Following the same principle, probability that there's a hearts is $1−\tbinom{39}{5}/\tbinom{52}{5}=0.7785$.
+
 
 
 ### Lecture Video
