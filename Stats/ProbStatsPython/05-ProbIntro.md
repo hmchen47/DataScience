@@ -668,9 +668,263 @@
 
 ## 5.4 Repeated Experiments
 
++ Composite experiments
+  + experiments often consist of several parts
+    + student: major, year, GPA
+    + Advertisement: product, audience, cost
+  + still viewed as a single experiment $\to$ outcomes more complex
+    + 3-tuple: (CS, senior, 3.8), (book, teenage, $9.99)
+    + sample space: Cartesian product
+  + goal: understand simple, analyze complex
+
++ Independent repetitions
+  + repetition
+    + all experiments of same type
+    + examples: daily temperatures, daily stock price, coin flips, die rolls, card draws
+  + independent
+    + different components unrelated
+    + examples: first coin heads
+      + second coin 50% heads / tails (right)
+      + second coin more likely heads (wrong)
+
++ Example: two coins
+  + fair, independent flips
+  + outcomes
+    + coin 1 = {h, t}, coin 2 = {h, t}
+    + $\Omega = \{hh, ht, th, tt\} = \{h, t\}^2$
+  + probability
+    + coin 1: $\Pr(\{h\}) = 1/2, \;\Pr(\{t\}) = 1/2$
+    + coin 2: $\Pr(\{h\}) = 1/2, \;\Pr(\{t\}) = 1/2$
+    + $\Pr(\{h, h\}) = 1/4, \;\Pr(\{h, t\}) = 1/4, \;\Pr(\{t, h\}) = 1/4, \;\Pr(\{t, t\}) = 1/4$
+    + Cartesian power: $|\Omega| = 2^2 = 4$
+    + 1 coin w/ $U \to$ 2 coins $U$
+
+    \[ \Pr(\text{hh}) = \Pr(\text{ht}) = \Pr(\text{th}) = \Pr(\text{tt}) = 1/|\Omega| = 1/4$ \]
+
++ Example: two dice
+  + fair, independent experiments
+  + outcome: 
+    + dice 1 = {1, 2, ..., 6}, dice 2 ={1, 2, ..., 6}
+    + two dice: $\Omega = \{11, 12, \dots, 66\} \to |\Omega| = 6^2 = 36$
+  + probability
+    + die 1: $\Pr(1) = \Pr(2) = \cdots = \Pr{6} =1/6$
+    + die 2: $\Pr(1) = \Pr(2) = \cdots = \Pr{6} =1/6$
+    + two dice: $\Pr(11) = \Pr(12) = \cdots = \Pr(66) = 1/36$
+    + 1 die $U \to$ 2 dice $U$
+    + $\Pr(11) = \Pr(12) = \Pr(21) = \cdots = \Pr(66) = 1/|\Omega| = 1/36$
+
++ Events
+  + probability of event
+
+    \[ \Pr(E) = \Pr(X \in E) = \sum_{x \in E} \Pr(x) \]
+
+  + uniform space: $U \to \Pr(E) = |E|/|\Omega|$
+  + 2 coins
+    + $|\Omega| = 2^2 = 4$
+    + $\Pr(\text{ Different outcomes }) = \Pr(\{\text{hh, tt} \}) = 2/|\Omega| = 2/4 = 1/2$
+    + $\Pr(\text{ At least one h}) = \Pr(\{\text{ ht, th, hh }\}) = 3/|\Omega| = 3/4$
+  + 3 coins
+    + $|Omega| = 2^3 = 8$
+    + $\Pr(\text{ Alternating }) = \Pr(\{\text{ hth, tht }\}) = 2/8 = 1/4$
+    + $\Pr(\text{ odd # h's }) = \Pr(\{\text{ htt, tht, tth, hhh }\}) = 4/8 = 1/2$
+
++ Sampling
+  + many sources of randomness, e\.g., coin, die, ...
+  + often sample (select) physical objects
+    + patients in a study
+    + customers at a restaurant
+    + products for quality control
+    + visitors to web pages
+    + cards from a deck
+    + balls from a urn
+  + two sampling types: with or without replacement
+
++ Replacement
+  + sequentially select physical objects
+  + with replacement
+    + <span style="color: cyan;">replace</span> (reuse) selected element
+    + outcomes <span style="color: cyan;">can</span> repeat
+    + experiments often <span style="color: cyan;">independent</span>
+    + like coins, dice
+  + without replacement
+    + <span style="color: cyan;">do not replace</span> (reuse) selected element
+    + outcomes <span style="color: cyan;">cannot</span> repeat
+    + experiments <span style="color: cyan;">dependent</span>
+    + difference largest for small $\Omega$
+
++ With / Without differences
+  + sampling (selection): with replacement
+    + repeat as if from scratch
+    + same element able to be selected again
+    + example: coin, die
+  + sampling (selection): without replacement
+    + repeat w/ smaller set
+    + same element unable to be selected again
+    + example: cards, people
+
++ Balls in a jar with replacement
+  + activity
+    + 1 yellow and 1 blue ball in a jar
+    + pick one ball and then replace it
+    + pick again
+  + selection with replacement
+  + second selection - from <span style="color: magenta;">original</span> set
+  + outcome: $\Omega = \{\text{ yy }, \,\text{ yb }, \,\text{ by }, \,\text{ bb } \}$
+  + probabilities
+    + $\Pr(\text{ yy }) = \Pr(\text{ yb }) = \Pr(\text{ by }) = \Pr(\text{ bb }) = 1/4$
+    + $|\Omega| = 4$
+    + uniform space: $U$
+
++ Balls in a jar without replacement
+  + activity
+    + 1 yellow and 1 blue ball in a jar
+    + pick one ball and do not replace it
+    + pick again
+  + outcomes: $\Omega = \{\text{ yb }, \,\text{ by } \}$
+  + selection without replacement
+  + second selection - from a <span style="color: magenta;">subset</span>
+  + probabilities
+    + $\Pr(\text{ yy }) = \Pr(\text{ bb }) = 0, \;\Pr(\text{ yb }) = \Pr(\text{ by }) = 1/2$
+    + $|\Omega| = 2$
+
++ Drawing cards
+  + six cards: $\Omega = \{1, 2, 3, 4, 5, 6\}$
+  + activity
+    + draw one
+    + w/o replacement, draw a second
+  + outcomes
+    + $\Omega = \{12, \dots, 16, 21, \dots, 26, \dots, 65\} =(6]^{\underline{2}})$
+    + $|\Omega = 2^{\underline{2}} = 5 \cdot 5 = 30$
+  + probabilities
+    + $i = j$ unable to happen
+    + $i=j, \; \Pr(i, j) = 1/6 \cdot 1/5 = 1/30$
+    + $\Pr(i, j) = 1/|\Omega| = 1/30$
+
++ Replacement summary
+  + 2 selections
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Origin</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">with replacement</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">without replacement</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">Description</td>
+        <td style="text-align: center;"></td>
+        <td style="text-align: center;">outcomes can repeat</td>
+        <td style="text-align: center;">outcomes cannot repeat</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Sample space</td>
+        <td style="text-align: center;">$\Omega$</td>
+        <td style="text-align: center;">$\{(x, y): x, y \in \Omega \} = \Omega^2$</td>
+        <td style="text-align: center;">$\{(x, y): x, y \in \Omega, x \neq y \} = \Omega^{\underline{2}}$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">| Sample space |</td>
+        <td style="text-align: center;">$|\Omega|$</td>
+        <td style="text-align: center;">$|\Omega^2|$</td>
+        <td style="text-align: center;">$|\Omega^{\underline{2}}| = |\Omega| \cdot (|\Omega| - 1)$</td>
+      </tr>
+      </tbody>
+    </table>
+
+  + probabilities
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Origin</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">with replacement</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">without replacement</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">Uniformity</td>
+        <td style="text-align: center;">Uniform</td>
+        <td style="text-align: center;">Uniform</td>
+        <td style="text-align: center;">Uniform</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$\Pr(\text{ element })$</td>
+        <td style="text-align: center;">$1 / \Omega$</td>
+        <td style="text-align: center;">$1 / |\Omega|^2$</td>
+        <td style="text-align: center;">$1 / \left(|\Omega| \cdot (|\Omega| - 1) \right)$</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Order not matter
+  + order matters: card $5 to 3$, stock $10 \to 50 \t0 10$
+  + sometimes order not matter: elections
+  + when order not matter
+    + tuple of outcome $\to$ set of outcomes
+    + (2, 5), (5, 2) $\to$ {2, 5}
+    + Event {(2, 5), {5, 2)}}
+    + (4, 4) $\to$ {4, 4}
+  + $\to$: order matter
+  + $\gets$ order not matter
+  + both w/ & w/o replacement
+
++ order consideration with replacement
+  + 2 cards $\in \{1, \dots, 6\}$ w/ replacement
+  + equivalently, 2 dice
+  + order
+    + $\gets$, matter: $\Pr(1, 1) = \Pr(1, 2) = \cdots = \Pr(6, 5) = \Pr(6, 6) = 1/36$
+    + $\to$, not matter
+      + $\Pr(\{1, 2\}) = \Pr(\{(1, 2), (2,1)\}) = \Pr(1, 2) + \Pr(2, 1) = 2/36$
+      + $\Pr(\{1, 1\}) = \Pr(1, 1) = 1/36$
+  + sanity check
+    + $\sum$ Probabilities = 1
+    + e.g., $\binom{6}{2} \cdot \frac{2}{36} + \binom{6}{1} \cdot \frac{1}{36} = \frace{5}{6} + \frac{1}{6} = 1$
+
++ Order consideration w/o replacement
+  + 2 cards $\in \{1, \dots, 6\}$ sequentially w/0 replacement
+  + order:
+    + $\gets$, matter: $i \neq j, \,\Pr(i, j) = 1/6 \cdot 1/5 = 1/30$
+    + $\to$, not matter:
+      + $\Pr(\{1, 2\}) = \Pr(\{(1, 2), (2, 1)\}) = \Pr(1, 2) + \Pr(2, 1) = 2/30$
+      + $\{1, 1\}$ not happened
+  + sanity check
+    + probabilities sum to 1
+    + $\binom{6}{2} \cdot \frac{2}{30} = 1$
+  + alternative calculation
+    + select both cards simultaneously
+    + $\Omega = \{\{1, 2\}, \{1, 3\}, \dots, \{5, 6\}\} = \binom{[6]}{2}$
+    + $||omega| = \binom{6}{2} = 15$, uniform space
+    + $\Pr(\{1, 2\}) = 1/15$
+    + sequential simultaneous same
+
++ Example: poker hand probabilities
+  + deck: 52 cards, hand: 5 cards
+  + $\Omega = \{\text{ possible hands } \} = \{\{\text{ 2H, 4H, JH, 4H, 9H }\}, \{\text{ 4D, 5H, 6C, 7C, 8S }\}, \dots\}$
+  
+    \[\begin{align*}
+      &{\color{Grey}{\approx 50 \cdot 50 \cdot 10 \cdot 100 = 2.5 \text{ M }}} \\
+      |\Omega| = \binom{52}{5} = \frac{52!}{5! \cdot 47!} = \frac{52 \cdot 51 \cdot 50 \cdot 49 \cdot 48}{5 \cdot 4 \cdot 3 \cdot 2 \cdot 1} &= 2,598,960 \approx 2.6 \text{ million}
+    \end{align*}\]
+  + all hands equally likely $\to$ equiprobable
+  + $\Pr(\{\text{ 2S, 4C, AD, AH, AS }\}) \stackrel{U}{\approx} 1/2.6 \text{ M }$
+
++ Independent repetitions
+  + repetition
+    + all experiments of same type
+    + examples: daily temperature, daily stock price, coin flips, die rolls, card draws
+  + independent
+    + different components unrelated
+    + examples: first coin heads
+      + second coin 50% heads/tails (right)
+      + second coin more likely heads (wrong)
 
 
-
++ [Original Slides](https://tinyurl.com/yape5urh)
 
 
 ### Problem Sets
