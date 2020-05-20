@@ -307,9 +307,7 @@
 
 + Events
   + sometimes: care about one particular outcome; examples,
-    + temperature 98.6 ℉
-    + out hourse will win race
-    + Dow Jones close at $18,040
+    + our hourse will win race
     + get ready B+ in class
   + usually: interested in a set of possible outcomes; examples,
     + temperature > 98.6 ℉
@@ -495,7 +493,7 @@
     + outcome: $\Pr(x) = 1/|\Omega|$
     + event
 
-      \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E}}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+      \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E} 1}{|\Omega|} = \frac{|E|}{|\Omega|} \]
 
   + example: die
     + $\Omega = \{1, 2, 3, 4, 5 6\} \to |\Omega| = 6$
@@ -503,7 +501,7 @@
     <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
       <tr style="font-size: 1.2em;">
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Ecent</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Event</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$|Event|$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(Event) = \frac{|Event|}{6}$</th>
