@@ -1017,19 +1017,17 @@
     + wheel: integers from 1 to 36 and 0
     + spin wheel and a ball
     + bet on where ball will land
-  + bets
-    + place one token bet and return
+  + bets: place one token bet and return
     + number: 36
-    + red, black, even, old, low, high: 2
+    + red, black, even, odd, low, high: 2
     + 1-12, 13-24, 25-36, $(x)_3 =0, (x)_3 = 1, (x)_3 = 2$: 3
 
 + Probabilities
   + individual outcomes
-    + $\Omega = \{0, 1, \dots, 36\}$
-    + $|\Omega| = 37$
+    + $\Omega = \{0, 1, \dots, 36\} \to |\Omega| = 37$
     + $\Pr(0) = \Pr(1) = \cdots = \Pr(36) = \frac{1}{|\Omega|} = \frac{1}{37} \gets$  should be 1/36 but 1/37 because of 0
   + events
-    + Even = {2, 4,..., 36} $\to |\text{Even}| = 18 \to \Pr(\text{Even}) = \frac{|Even}{|\Omega|} = \frac{18}{37} \gets$ should be half but slightly smaller because of 0
+    + Even = {2, 4,..., 36} $\to |\text{Even}| = 18 \to \Pr(\text{Even}) = \frac{|\text{Even}|}{|\Omega|} = \frac{18}{37} \gets$ should be half but slightly smaller because of 0
     + $|\text{Odd}| = |\text{Red}| = |\text{Black}| = |\text{1 to 18}| = |\text{19 to 36}| = 18 \to \Pr(\dots) = 18/37$
     + $|\text{1 to 12}| = \cdots = |(x)_3 = 0| = 12 \to \Pr(\dots) = 12/37$
   
@@ -1046,7 +1044,7 @@
       + bet: 1 each game $\to$ total n
       + get: correct $\approx \frac{n}{37}$ games $\to$ 36 each $\to$ total = $\frac{36}{37}n$
       + gain: $\frac{36}{37}n - n = -\frac{1}{37}n$
-      + lose: &cent;2.7/\$bet = 2.7% $\gets$ house edge (advantage)
+      + lose: &cent;2.7/bet = 2.7% $\gets$ house edge (advantage)
     + bet red
       + always bet red
       + \# games: $n \gg 1$
