@@ -1008,22 +1008,22 @@
 ## 5.5 Games of Chance
 
 + Roulette
-  + history
-    + where: France
-    + time: 17th century
-    + who: Blaise Pascal
-    + letter wheel
-  + wheel: integers from 1 to 36 and 0
-  + spin wheel and a ball
-  + bet on where ball will land
+  + basics
+    + history
+      + where: France
+      + time: 17th century
+      + who: Blaise Pascal
+      + letter wheel
+    + wheel: integers from 1 to 36 and 0
+    + spin wheel and a ball
+    + bet on where ball will land
+  + bets
+    + place one token bet and return
+    + number: 36
+    + red, black, even, old, low, high: 2
+    + 1-12, 13-24, 25-36, $(x)_3 =0, (x)_3 = 1, (x)_3 = 2$: 3
 
-+ Bets
-  + place one token bet and return
-  + number: 36
-  + red, black, even, old, low, high: 2
-  + 1-12, 13-24, 25-36, $(x)_3 =0, (x)_3 = 1, (x)_3 = 2$: 3
-
-+ probabilities
++ Probabilities
   + individual outcomes
     + $\Omega = \{0, 1, \dots, 36\}$
     + $|\Omega| = 37$
@@ -1040,23 +1040,20 @@
   + expected profit or loss
   + simplicity: each bet $1
   + evaluate two bet types
-
-+ Single-number bets
-  + always bet on single number, e.g., 6
-  + \# games: $n \gg 1$
-  + bet: 1 each game $\to$ total n
-  + get: correct $\approx \frac{n}{37}$ games $\to$ 36 each $\to$ total = $\frac{36}{37}n$
-  + gain: $\frac{36}{37}n - n = -\frac{1}{37}n$
-  + lose: &cent;2.7/$bet = 2.7%
-  + $\therefore$ house edge (advantage)
-
-+ Bet red
-  + always bet red
-  + \# games: $n \gg 1$
-  + bet: 1 each game $\to$ total = n
-  + get: correct $\frac{18}{37}n$ games $\to$ 2 each $\to$ total = $\frac{36}{37}n$
-  + gain: $\frac{36}{37}n - n = -\frac{1}{37}n$
-  + house edge $\approx 2.7%$
+    + single-number bets
+      + always bet on single number, e.g., 6
+      + \# games: $n \gg 1$
+      + bet: 1 each game $\to$ total n
+      + get: correct $\approx \frac{n}{37}$ games $\to$ 36 each $\to$ total = $\frac{36}{37}n$
+      + gain: $\frac{36}{37}n - n = -\frac{1}{37}n$
+      + lose: &cent;2.7/\$bet = 2.7% $\gets$ house edge (advantage)
+    + bet red
+      + always bet red
+      + \# games: $n \gg 1$
+      + bet: 1 each game $\to$ total = n
+      + get: correct $\frac{18}{37}n$ games $\to$ 2 each $\to$ total = $\frac{36}{37}n$
+      + gain: $\frac{36}{37}n - n = -\frac{1}{37}n$
+      + house edge $\approx 2.7\%$
 
 + House edge in other games
 
