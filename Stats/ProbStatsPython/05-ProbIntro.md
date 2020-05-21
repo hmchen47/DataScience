@@ -1068,6 +1068,112 @@
 
 ### Problem Sets
 
+0. What is the probability that two cards drawn from a standard deck without replacement have the same rank?<br/>
+  a. 1/13<br/>
+  b. 1/17<br/>
+  c. 2/52<br/>
+  d. None of the above<br/>
+
+  Ans: b<br/>
+  Explanation:
+    + There are 13 different ranks.
+    + The number of ways to two cards from a specific rank is (4 choose 2).
+    + Hence the probability is 13 * (4 choose 2) / (52 choose 2) = 3 / 51 = 1/17
+
+
+1. What is the probability that a random four-card hand consists of a single suit?<br/>
+  a. $\frac{4}{52}$<br/>
+  b. $\frac{13}{52}$<br/>
+  c. $\tbinom{13}{4}/\tbinom{52}{4}$<br/>
+  d. $\tbinom{4}{1}⋅\tbinom{13}{4}/(\tbinom{52}{4}$<br/>
+
+  Ans: d<br/>
+  Explanation: There are $\tbinom{4}{1}$ ways to choose the suit (e.g. hearts) and $\tbinom{13}{4}$ ways to draw 4 cards from this suit. Yet the total number of ways to draw 4 cards is $\tbinom{52}{4}$. Hence, the probability is $4 \tbinom{13}{4} / \tbinom{52}{4}$.
+
+
+2. Find the probability that a five-card hand contains:<br/>
+  a. the ace of diamonds,<br/>
+  b. at least an ace,<br/>
+  c. at least a diamond.<br/>
+
+  Ans: a. (0.09615); b. (0.3412); c. (0.7785)<br/>
+  Explanation
+    + The number of hands containing the ace of diamonds is $\tbinom{51}{4}$, corresponding to the choice of the remaining 4 cards from the other 51. Hence the probability is $\tbinom{51}{4}/\tbinom{52}{5}=5/52$.
+    + The number of ways to draw 5 cards without any ace is $\tbinom{48}{5}$. By the complement rule, the answer is $1−\tbinom{48}{5}/\tbinom{52}{5}=0.3412$.
+    + The number of ways to draw 5 cards without any diamond is $\tbinom{39}{5} \cdot 1 − \tbinom{39}{5}/\tbinom{52}{5}=0.7785$.
+
+
+3. Five cards are dealt from a poker deck. What is the probability of:<br/>
+  a. three-of-a-kind (three cards of one rank and two cards of two other ranks),<br/>
+  b. two pairs (two pairs of same-rank cards),<br/>
+  c. one pair (a pair of same-rank cards, and three cards of three different ranks).<br/>
+
+  Ans: a. (0.021128); b. (0.047539); c. ()<br/>
+  <span style="color: magenta;">Explanation</span><br/>
+    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  \tbinom{12}{2}⋅4^22$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 42/ \tbinom{52}{5}=0.0211$.
+    + We first deal with the rank of the 2 pairs, and then the one left over. There are $\tbinom{13}{2}$ ways to choose 2 ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. We do the same for both the pair, so the total number of ways is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2$,  For the one left over, there are 11 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $11 \cdot 4$. The answer is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2 \cdot 11 \cdot 4/ \tbinom{52}{5}=0.0475$.
+    + We first deal with the rank of the pair, and then the three left over. There are $\tbinom{13}{1}=13$ ways to choose a ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. The total number of ways is $13 \cdot \tbinom{4}{2}$, For the one left over, there are 12 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $\tbinom{12}{3} \cdot 43$. The answer is $13 \cdot \tbinom{4}{2} \cdot \tbinom{12}{3} \cdot 43/ \tbinom{52}{5}=0.4226$.
+    + [5-CARD POKER HANDS](https://tinyurl.com/6mh5em)
+
+
+4. A 52-card deck is randomly split into four 13-card hands. Find the probability that:<br/>
+  a. each hand has an ace, <br/>
+  b. one hand has all four aces.<br/>
+
+  Ans: a. (0.105498); b. (0.002641)<br/>
+  Explanation
+    + There are $4!$ ways to assign 4 aces to 4 hands. There are $\binom{48}{12,12,12,12}$  ways to assign the remaining 48 cards equally to 4 hands (12 for each). The answer is $4! \binom{48}{12,12,12,12}/\tbinom{52}{13,13,13,13}=0.1055$.
+    + There are 4 ways to assign all 4 aces to one hand. There are $\tbinom{48}{9,13,13,13}$ ways to assign the remaining 48 cards to 4 hands (9 for the one which gets 4 aces, and 13 for the others). The answer is $4 \tbinom{48}{9,13,13,13}/\tbinom{52}{13,13,13,13}=0.0106$.
+
+
+5. Assume that in blackjack, an ace is always worth 11, all face cards (Jack, Queen, King) are worth 10, and all number cards are worth the number they show. Given a shuffled deck of 52 cards:<br/>
+  a. What is the probability that you draw 2 cards and they sum 21?<br/>
+  b. What is the probability that you draw 2 cards and they sum 10?<br/>
+  c. Suppose you have drawn two cards: 10 of clubs and 4 of hearts. You now draw a third card from the remaining 50. What is the probability that the sum of all three cards is strictly larger than 21?<br/>
+
+  Ans: a. (0.048265); b. (<span style="color: magenta;">0.04072398</span>); c. (27/50)<br/>
+  Explanation
+    + The possible combinations that sum to 21 are (A, 10), (A, J), (A, Q), (A, K). The number of them is 16⋅4. The answer is $16⋅4/\tbinom{(52}{2}=0.0483$.
+    + The possible combinations that sum to 10 are (2, 8), (3, 7), (4, 6), (5, 5). The number of them is $3 \cdot 4^2 + \tbinom{4}{2}$. The answer is $(3⋅4⋅4+ \tbinom{4}{2})/\tbinom{52}{2}=0.0407$.
+    + To exceed 21, the third card belongs to { A, 8, 9, 10, J, Q, K }. As one 10 was drawn, $4 \cdot 7−1=27$ choices are left. The answer is $27/50=0.54$.
+
+
+6. Three dice are rolled. What is the probability that the three outcomes<br/>
+  a. contain at least a `1', e.g., 5,1,2,<br/>
+  b. are all distinct, e.g., 3,2,5,<br/>
+  c. in the order rolled, form an increasing consecutive sequence, e.g., 2,3,4.<br/>
+  d. can be arranged to form a consecutive sequence, e.g., 3,2,4 that can form 2,3,4?<br/>
+
+  Ans: a. (0.421296); b. (5/9); c. (0.01852); d. (1/9)<br/>
+  Explanation:
+    + Each roll differs from "1" with probability 5/6, hence "1" does not appear in any roll with probability $(5/6)^3$ , because they are independent, and "1" does appear with probability $1−(5/6)^3=0.4213$.
+    + There are $6^3$ possible ordered outcomes. By the "Partial Permutations" lecture, there are $6^{\underline{3}}$ distinct-element sequences of length 3 over $1 \dots 6$. Hence the probability is $6^{\underline{3}}/6^3=0.5556$.
+    + There are four increasing sequences (starting with 1...4), hence $4/6^3=0.0185$.
+    + Adding the permutations to part 2, the number of sequences is $4 \cdot 3!$. Hence, the answer is $4 \cdot 3!/6^3=1/9=0.1111$.
+
+
+7. An instructor assigns 10 problems and says that the final exam will consist of a random selection of 5 of them. If a student knows how to solve 7 of the problems, what is the probability that he or she will answer correctly<br/>
+  a. all 5 problems,<br/>
+  b. at least 4 problems?<br/>
+
+  Ans: a. (1/12); b. (<span style="color: magenta>1/2</span>)<br/>
+  Explanation
+    + The student answers all 5 correctly in the event that all 5 questions appear from the 7 questions that he/show knows to solve. Thus the probability is $\tbinom{7}{5}/\tbinom{10}{5}=0.083333$.
+    + The student answers at least 4 correctly at least 4 questions appear from the 7 questions that he/show knows to solve. Thus the probability is $\tbinom{7}{4} \times \tbinom{3}{1}/ \tbinom{10}{5}+\tbinom{7}{5}/\tbinom{10}{5}=0.50$.
+    + [Slader](https://tinyurl.com/yajz23pj)
+
+
+8. Let $X$ be the number of draws from a deck, without replacement, till an ace is observed. For example for draws Q, 2, A, $X=3$. Find:<br/>
+  a. $P(X = 10)$,<br/>
+  b. $P(X = 50)$,<br/>
+  c. $P(X < 10)$?<br/>
+
+  Ans: a. (0.0424047); b. (0); c. (0.54415)<br/>
+  <span style="color: magenta;">Explanation</span>
+    + This equals the probability that one randomly inserts four aces into the deck, of which one falls exactly at the 10th position, and the other three in the following $42$ positions. This probability is then given by $\tbinom{42}{3}/\tbinom{52}{4}=328/7735$.
+    + The probability is zero since this is impossible.
+    + Consider the probability of its complement, which equals the probability that one randomly inserts four aces into the deck, and all of them fall in the last 43 positions. The probability of this happening is $\tbinom{43}{4}/\tbinom{52}{4}=3526/7735$ and thus the probability is $1−3526/7735=4209/7735$.
+
 
 
 ### Lecture Video
