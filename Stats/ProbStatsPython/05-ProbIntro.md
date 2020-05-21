@@ -1185,9 +1185,62 @@
 
 ## 5.6 Axiomatic Formulation
 
++ Three axioms
+  + Non-negative: $\forall\, A, \Pr(A) \geq 0$
+  + Unitary: $\Pr(\Omega) = 1$
+  + Addition rule:
+
+    \[ A, B \text{ disjoint} \implies P(A \cup B) = P(A) + P(B) \]
+
+    + generalization
+
+      \[ A_1, A_2, \dots \text{ disjoint} \implies P(A_1 \cup A_2 \cdots) = P(A_1) + P(A-2) + \cdots \]
+
+    + applied to countable unions only
+
++ Building results
+  + complement rule
+  + subtraction, nested sets, general sets
+  + inclusion-exclusion
+
++ Complement rule
+  + complement rule for counting: $|A^c| = |\Omega| - |A|$
+  + proof:
+    + $A \cup A^c = \Omega$
+    + $\Pr(A) + \Pr(A^c) = \Pr(A \cup A^c) = \Pr(\Omega) = 1$
+    + complement rule for probability: $P(A^c) = 1 -P(A)$
+
++ Subtraction rule - nested sets
+  + complement rule: $A \subseteq \Omega, \Pr(A^c) = 1 - \Pr(A) \text{ s.t. } \Pr(\Omega - A) = \Pr(\Omega) - \Pr(A)$
+  + generalize: $A \subseteq B \implies \Pr(-A) = \Pr(B) - \Pr(A)$
+  + proof:
+    + $A \subseteq B \implies B = A \cup (B-A)$
+    + $\Pr(B) = \Pr(A \cup (B-A)) = \Pr(A) + \Pr(B-A)$
+    + subtraction rule for nested sets: $\Pr{B-A} = \Pr(B) - \Pr(A)$
+
++ Subtraction rule - general sets
+  + Nested: $A \subseteq B \text{ s.t. } \Pr(B-A) = \Pr(B) - \Pr(A)$
+  + general: $\forall\, A, B \text{ s.t. } \Pr(B-A) = \Pr(B) - \Pr(A\capB)$
+  + proof:
+    + $B - A = B - (A \cap B), A \cap B \subseteq B$
+    + $\Pr(B-A) = \Pr(B - (A\capB)) = \Pr(B) - \Pr(A \cap B)$
+
++ Inclusion-exclusion
+  + $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + proof:
+    + $A \cup B = A \cup B-A$
+    + $\Pr(A \cup B) = \Pr(A \cup B-A) = \Pr(A) + \Pr(B-A) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+
++ More sets
+  + two sets: $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + three sets: $\Pr(A \cup B \cup C) = \Pr(A) + \Pr(B) + \Pr(C) - \Pr(A \cap B) - \Pr(A \cap B) - \Pr(B \cap C) + \Pr(A \cap B \cap C)$
+  + n sets
+
+    \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leqi<j\leqn} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i) \]
 
 
 
++ [Original Slides](https://tinyurl.com/yafgbra7)
 
 
 ### Problem Sets
