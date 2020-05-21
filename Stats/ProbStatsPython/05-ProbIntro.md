@@ -923,6 +923,79 @@
 
 ### Problem Sets
 
+0. Which of the following are independent repetitive experiments?<br/>
+  a. card draws with replacement<br/>
+  b. card draws without replacement<br/>
+  c. neither<br/>
+
+  Ans: a<br/>
+  Explanation: Card draws with replacement will be independent repetitive experiments.
+
+
+1. You have two fair coins. If you flip a head with the first coin, what is the probability of flipping a head with the second?<br/>
+  a. \(1\)<br/>
+  b. \(0\)<br/>
+  c. \(\frac{1}{2}\)<br/>
+  d. \(\frac{1}{4}\)<br/>
+
+  Ans: c<br/>
+  Explanation: Flipping the first and the second coin are independent.
+
+
+2. A bag has 3 red and 3 green apples. You start by randomly selecting one red apple from the bag. Which of the following has the highest probability?<br/>
+  a. Select another red apple after replacing the first.<br/>
+  b. Select another red apple without replacing the first.<br/>
+  c. Select a green apple after replacing the first red apple.<br/>
+  d. Select a green apple without replacing the first red apple.<br/>
+
+  Ans: d<br/>
+  Explanation:
+    + After replacement, there are 3 green and 3 red apples. The probability to select a red one is $\frac{1}{2}$.
+    + Without replacement, there are 3 green and 2 red apples. The probability to select a red one is $\frac{2}{5}$ .
+    + After replacement, there are 3 green and 3 red apples. The probability to select a red one is \frac{1}{2}$.
+    + Without replacement, there are 3 green and 2 red apples. The probability to select a red one is \frac{3}{5}$.
+
+
+3. Roll two fair and distinguishable six-sided dice. What is the probability that the outcome of the second die is strictly greater than the the first?
+
+  Ans: 5/12<br/>
+  Explanation: The outcomes that give rise to this event are $(1,2),(1,3), \dots,(1,6), (2,3),(2,4), \dots,(2,6),(3,4),\dots,(3,6),(4,5),(4,6),(5,6)$, where in each ordered pair, the numbers correspond to the first and second die respectively. It can be easily verified that there are  15  such outcomes, each of probability 1/36, thus 15×1/36=5/12.
+
+
+4. 5 Engineers and 3 artists align at random along line. What is the probability that the first and last are Engineers?<br/>
+  a. 3/14<br/>
+  b. 8/16<br/>
+  c. 9/14<br/>
+  d. 5/14<br/>
+
+  Ans: <span style="color: magenta;">d</span><br/>
+  Explanation
+    + The 5 engineers and 3 artists can line up in $\tbinom{8}{3}$ ways, each corresponding to one choice of the the 3 artist locations out of the total 8. Note that all these arrangements are equally likely, hence this space is uniform.
+    + If the first and last are engineers, then there are 6 locations left, and the number of ways to choose the locations of the artists is $\tbinom{6}{3}$.
+    + Hence the probability that the first and last are engineers is $\tbinom{6}{3}/\tbinom{8}{3}=6⋅5⋅4/8⋅7⋅6=5/14$.
+    + In the sequential probability section we will see an easier way to find the answer.
+
+
+5. Which of the following are distributed uniformly when rolling two fair dice?<br/>
+  a. The outcome (number) of the first die, e.g., "4", or "6",<br/>
+  b. The ordered pair of outcomes, e.g., \((1,3)\), \((3,1)\), or \((6,6)\),<br/>
+  c. The unordered pair of outcomes, e.g., \(\{1,3\}\) or \(\{6,6\}\),<br/>
+  d. the difference between the first and second outcomes, e.g. \((1,3)\to-2\),<br/>
+  e. the difference between the first and second outcomes mod 6, e.g. \((1,3)\to(-2)_6=4\),<br/>
+  f. The absolute value of difference\((1,3)\to|1-3|=2\),<br/>
+  g. The lower of the two outcomes, e.g. \((1,3)\to1\),<br/>
+  h. the sum of the two outcomes, e.g. \((1,3)\to4\).<br/>
+
+  Ans: abe<br/>
+  Explanation
+    + True.
+    + True.
+    + False. $P(\{1,3\})=236 \neq P(\{6,6\})=136$.
+    + False. $P(\text{difference is 0})=\frac{6}{36} \neq P(\text{difference is 1})=\frac{5}{36}$.
+    + True.
+    + False. $P(\text{absolute difference is 0})=\frac{6}{36} \neq P(\text{absolute difference is 1})=\frac{10}{36}$.
+    + False.  
+
 
 
 ### Lecture Video
