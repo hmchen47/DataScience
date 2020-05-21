@@ -1218,7 +1218,7 @@
 
 + Subtraction rule - nested sets
   + complement rule: $A \subseteq \Omega, \Pr(A^c) = 1 - \Pr(A) \text{ s.t. } \Pr(\Omega - A) = \Pr(\Omega) - \Pr(A)$
-  + generalize: $A \subseteq B \implies \Pr(-A) = \Pr(B) - \Pr(A)$
+  + generalize: $A \subseteq B \implies \Pr(B-A) = \Pr(B) - \Pr(A)$
   + proof:
     + $A \subseteq B \implies B = A \cup (B-A)$
     + $\Pr(B) = \Pr(A \cup (B-A)) = \Pr(A) + \Pr(B-A)$
@@ -1234,7 +1234,7 @@
 + Inclusion-exclusion
   + $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
   + proof:
-    + $A \cup B = A \cup B-A$
+    + $A \cup B = A \cup (B-A)$
     + $\Pr(A \cup B) = \Pr(A \cup B-A) = \Pr(A) + \Pr(B-A) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
 
 + More sets
