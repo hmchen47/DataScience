@@ -1186,15 +1186,21 @@
 ## 5.6 Axiomatic Formulation
 
 + Three axioms
-  + Non-negative: $\forall\, A, \Pr(A) \geq 0$
-  + Unitary: $\Pr(\Omega) = 1$
+  + Non-negative: 
+  
+    \[ \forall\, A, \Pr(A) \geq 0 \]
+
+  + Unitary: 
+  
+    \[ \Pr(\Omega) = 1 \]
+
   + Addition rule:
 
     \[ A, B \text{ disjoint} \implies P(A \cup B) = P(A) + P(B) \]
 
     + generalization
 
-      \[ A_1, A_2, \dots \text{ disjoint} \implies P(A_1 \cup A_2 \cdots) = P(A_1) + P(A-2) + \cdots \]
+      \[ A_1, A_2, \dots \text{ disjoint} \implies P(A_1 \cup A_2 \cdots) = P(A_1) + P(A_2) + \cdots \]
 
     + applied to countable unions only
 
@@ -1208,7 +1214,7 @@
   + proof:
     + $A \cup A^c = \Omega$
     + $\Pr(A) + \Pr(A^c) = \Pr(A \cup A^c) = \Pr(\Omega) = 1$
-    + complement rule for probability: $P(A^c) = 1 -P(A)$
+  + complement rule for probability: $\Pr(A^c) = 1 - \Pr(A)$
 
 + Subtraction rule - nested sets
   + complement rule: $A \subseteq \Omega, \Pr(A^c) = 1 - \Pr(A) \text{ s.t. } \Pr(\Omega - A) = \Pr(\Omega) - \Pr(A)$
@@ -1216,14 +1222,14 @@
   + proof:
     + $A \subseteq B \implies B = A \cup (B-A)$
     + $\Pr(B) = \Pr(A \cup (B-A)) = \Pr(A) + \Pr(B-A)$
-    + subtraction rule for nested sets: $\Pr{B-A} = \Pr(B) - \Pr(A)$
+  + subtraction rule for nested sets: $\Pr(B-A) = \Pr(B) - \Pr(A)$
 
 + Subtraction rule - general sets
-  + Nested: $A \subseteq B \text{ s.t. } \Pr(B-A) = \Pr(B) - \Pr(A)$
-  + general: $\forall\, A, B \text{ s.t. } \Pr(B-A) = \Pr(B) - \Pr(A\capB)$
+  + Nested: $A \subseteq B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A)$
+  + general: $\forall\, A, B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A \cap B)$
   + proof:
-    + $B - A = B - (A \cap B), A \cap B \subseteq B$
-    + $\Pr(B-A) = \Pr(B - (A\capB)) = \Pr(B) - \Pr(A \cap B)$
+    + $B - A = B - (A \cap B),\; A \cap B \subseteq B$
+    + $\Pr(B-A) = \Pr(B - (A \cap B)) = \Pr(B) - \Pr(A \cap B)$
 
 + Inclusion-exclusion
   + $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
@@ -1233,10 +1239,17 @@
 
 + More sets
   + two sets: $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
-  + three sets: $\Pr(A \cup B \cup C) = \Pr(A) + \Pr(B) + \Pr(C) - \Pr(A \cap B) - \Pr(A \cap B) - \Pr(B \cap C) + \Pr(A \cap B \cap C)$
+  + three sets: 
+  
+    \[\begin{align*}
+      \Pr(A \cup B \cup C) &= \Pr(A) + \Pr(B) + \Pr(C) \\
+      &\hspace{1.0em} - \Pr(A \cap B) - \Pr(A \cap B) - \Pr(B \cap C) \\
+      &\hspace{1.0em} + \Pr(A \cap B \cap C)
+    \end{align*}\]
+
   + n sets
 
-    \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leqi<j\leqn} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i) \]
+    \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leq i < j \leq n} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i \right) \]
 
 
 
