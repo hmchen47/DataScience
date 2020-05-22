@@ -1319,7 +1319,7 @@
     + False. Same as option 4.
 
 
-5. Suppose A, B are events that $P(A)=0.65$, $P(B)=0.5$ and $P(A∩B)=0.25$. What are the following probabilities?<br/>
+5. Suppose A, B are events that $P(A)=0.65$, $P(B)=0.5$ and $P(A \cap B)=0.25$. What are the following probabilities?<br/>
   a. $P(A^c)$<br/>
   b. $P(B^c)$<br/>
   c. $P(A \cup B)$<br/>
@@ -1466,6 +1466,57 @@
 
 
 ### Problem Sets
+
+0. Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations. Which is more probable?<br/>
+  a. Linda is a bank teller<br/>
+  b. Linda is a bank teller and is active in the feminist movement<br/>
+
+  Ans: a<br/>
+  Explanation: It is more probable that Linda is a bank teller than Linda is both a bank teller and an activist.
+
+
+1. Which of the following holds for all events A and B
+
+  1.1 in any probability space:<br/>
+  
+  a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
+  b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
+  c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
+  d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
+
+  1.2 in any uniform probability space:
+
+  a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
+  b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
+  c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
+  d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
+  
+  Ans: 1.1 (xacd, a); 1.2 (xabcd, acd)<br/>
+  Explanation
+    + 1.1
+      + $A supseteq B \implies P(A)=P(B)+P(A∖B) \geq P(B)$.
+      + $A$ and $B$ can be nonempty and disjoint with $P(A) \geq P(B)$, then $A$ does not contain $B$.
+      + $B$ can be a singleton with higher probability than a set $A$ with two elements.
+      + Similar counter-example to 3.
+    + 1.2
+      + Follows from the result for general spaces.
+      + Similar counter-example to part a.
+      + I uniform sample spaces $S$, for any event $E$, $P(E)=|E|/|S|$, hence $|A| \geq |B| \implies P(A) \geq P(B)$.
+      + Again, follows since for any event $E$, $P(E)=|E|/|S|$.
+
+
+2. Let $\Omega$ be any sample space, and $A,B$ are subsets of $\Omega$ . Which of the following statements are always true?<br/>
+  a. If $|A|+|B| \geq |\Omega |$, then $P(A \cup B)=1$<br/>
+  b. If $|A|+|B| \geq |\Omega |$, then $P(A)+P(B) \geq 1$<br/>
+  c. If $P(A)+P(B)>1$, then $A \cap B \neq \varnothing$<br/>
+  d. If $P(A)+P(B)>1$, then $P(A \cup B)=1$<br/>
+
+  Ans: xbc, c<br/>
+  Explanation: Let  Ω={1,2,3} , and  P(1)=P(2)=0.1,P(3)=0.8 .
+    + False. Let $A=B=\{1,2\}$. $|A|+|B|=4>|Ω|$, but $P(A \cup B)=0.2$.
+    + False. Let $A=B=\{1,2\}$. $|A|+|B|=4>|Ω|$, but $P(A)+P(B)=0.4$.
+    + True.
+    + False. Let $A=B=\{3\}$. $P(A)+P(B)=1.6>1$, but $P(A \cup B)=0.8$.
 
 
 
