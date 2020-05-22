@@ -69,6 +69,58 @@ def simulate_coin_tosses(p, n_tosses=1000, n_simulations=10, debug=False):
     return None
 
 
+def tetrahedron_roll_plot(n, debug=False):
+    """Simulate rolling tetrahedron n time
+
+    Arguments:
+        n {int} -- the number of die rolling
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off debuging message (default: {False})
+    """
+
+    samples = np.random.choice([1, 2, 3, 4], p=[0.1, 0.2, 0.3, 0.4], size=n)
+    height, left = np.histogram(samples, bins=4, range=(1, 5))
+    heights = height/n
+
+    # plt.figure(figsize=(12, 9))
+    colors = 'rgby'
+    plt.bar(left[:-1], heights, color=colors, tick_label=[1, 2, 3, 4], align='center')
+    plt.xlabel("Outcomes", fontsize=16)
+    plt.ylabel("Probabilities", fontsize=16)
+    plt.show()
+
+    return None
+
+
+def tetrahedron_event_plot(n, debug=False):
+    """Plot tetrahedron rolling w/ Even and Oldd
+
+    Arguments:
+        n {int} -- the number of rolling tetrahedron die
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off (default: {False})
+    """
+
+    samples = np.random.choice([1, 2, 3, 4], p=[0.1, 0.2, 0.3, 0.4], size=n)
+    height, left = np.histogram(samples, bins=4, range=(1, 5))
+    heights = height/n
+
+    plt.bar([0, 1], [0, 0], tick_label=['Odd', 'Even'], align='center')
+    plt.bar([0, 1], [heights[0], 0], color='r', align='center')
+    plt.bar([0, 1], [heights[2], 0], color='b', bottom=[heights[0], 0], align='center')
+    plt.bar([0, 1], [0, heights[1]], color='g', align='center')
+    plt.bar([0, 1], [0, heights[3]], color='y', bottom=[0, heights[1]], align='center')
+    plt.xlabel('Events', fontsize=16)
+    plt.ylabel('Probabilities', fontsize=16)
+
+    plt.show()
+
+    return None
+
+
+
 
 def main():
 
@@ -98,7 +150,11 @@ def main():
     np.random.seed(666)
     print("\nrepeat\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
 
+    # Tetrahedron die events
+    n = 10000
+    tetrahedron_roll_plot(n, False)
 
+    tetrahedron_event_plot(n, False)
 
 
 
