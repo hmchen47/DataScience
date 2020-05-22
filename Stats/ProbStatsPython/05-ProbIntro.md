@@ -1404,8 +1404,9 @@
 
 + Subset
   + $A \subseteq B \to \Pr(A) \leq \Pr(B)$
-  + $A \subseteq B \to B = A \cup (B - A)$
-  + $\Pr(B) = \Pr(A \cup (B - A)) = \Pr(A) + \Pr(B-A) \geq \Pr(A)$
+  + proof
+    + $A \subseteq B \to B = A \cup (B - A)$
+    + $\Pr(B) = \Pr(A \cup (B - A)) = \Pr(A) + \Pr(B-A) \geq \Pr(A)$
 
 + Union
   + $\max(\Pr(A), \Pr(B)) \leq \Pr(A \cup B) \leq \Pr(A) + \Pr(B)$
@@ -1423,7 +1424,7 @@
   + survey: 88 UBC students answered 85% bank teller & activist more likely
     + B - bank teller
     + A - active in feminist movement
-  + $\Pr(B)$ vs. $\Pr(B \cap B) \quad B \supseteq (B \cap A): \Pr(B) \geq \Pr(B \cap A)$
+  + $\Pr(B)$ vs. $\Pr(B \cap A) \quad B \supseteq (B \cap A): \Pr(B) \geq \Pr(B \cap A)$
   + irrational concept of probability
 
 + Related questions
