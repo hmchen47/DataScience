@@ -192,6 +192,56 @@ def probability_event_plot(n, debug=False):
 
     return None
 
+def poker_create():
+    """Create a deck of cards and shuffle them"""
+    
+    # Define ranks, suits and cards
+    Ranks = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'}
+    Suits = {'♢', '♠', '♣', '♡'}
+
+    # creating a deck of cards
+    Cards = [(Rank, Suit) for Rank in Ranks for Suit in Suits]
+
+    # now shuffle the deck
+    np.random.shuffle(Cards)
+
+    return Cards
+
+
+def poker_event_red(n, k, debug=False):
+    """Plot event probability w/ red suits
+
+    Arguments:
+        n {int} -- number of iterations per simulation
+        k {int} -- number of simulations
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off debugging msg (default: {False})
+    """
+
+    Cards = poker_create()
+
+    for simulation in range(k):
+        sample_deck = [Cards[np.random.randint(0, 51)] for _ in range(n)]
+        R_cnt = 0
+        Prob_R = np.zeros((n, 1))
+        for idx in range(1, n):
+            if sample_deck[idx][1] == '♢' or sample_deck[idx][1] == '♠':
+                R_cnt += 1
+            Prob_R[idx] = R_cnt / idx
+
+        plt.plot(range(1, n+1), Prob_R, linewidth=2.0, label='Simulation {}'.format(simulation+1))
+
+    plt.title("Empirical and Theoretical probability of red card")
+    plt.xlabel("Iterations")
+    plt.ylabel('$\Pr(R)$')
+    plt.plot(range(1, n+1), [0.5]*n, 'k', linewidth=4.0, label="Theoretical Value")
+    plt.xlim([1, n])
+    plt.ylim([0, 1])
+    plt.legend()
+    plt.show()
+
+    return None
 
 
 def main():
@@ -233,8 +283,12 @@ def main():
     n = 1000
     # probability_plot(n, False)
 
-    probability_event_plot(n, False)
+    # probability_event_plot(n, False)
 
+    # Poker events
+
+    n, k = 1000, 5
+    poker_event_red(n, k, False)
 
     # input("Press Enter to continue ...")
 
