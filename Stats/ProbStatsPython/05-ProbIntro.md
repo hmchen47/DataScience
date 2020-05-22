@@ -560,7 +560,7 @@
     + True.
     + False.
     + True. Note that $A \cap \varnothing = \varnothing, A \cup \varnothing = \varnothing$ for any $A$. $P(A)=P(A \cup \varnothing) = P(A)+P(\varnothing)$, hence $P(\varnothing)=0$.
-    + False. Suppose a uniform sample space $\Omega$  has infinite number of elements. Then for some events  A  with finite size (i.e. $|A|$ is finite ), $P(A)=|A|/|Ω|$.
+    + False. Suppose a uniform sample space $\Omega$  has infinite number of elements. Then for some events  A  with finite size (i.e. $|A|$ is finite ), $P(A)=|A|/|\Omega|$.
 
 
 2. Which of the following always hold for events  A  and  B ?<br/>
@@ -593,7 +593,7 @@
   d. 0.6<br/>
 
   Ans: c<br/>
-  Explanation: Let $A$ be the event that a student play soccer, $B$ be the event that a student play basketball. Then $A \cap B$ is the event that a student play both. We already know $P(A)=0.5, P(B)=0.4, P(A \cap B)=0.3$, hence $P(A \cup B) = P(A)+P(B)−P(A∩B)=0.6$. The probability that a random UCSD student does not play any of the two games is $1 − P(A \cup B)=0.4$.
+  Explanation: Let $A$ be the event that a student play soccer, $B$ be the event that a student play basketball. Then $A \cap B$ is the event that a student play both. We already know $P(A)=0.5, P(B)=0.4, P(A \cap B)=0.3$, hence $P(A \cup B) = P(A)+P(B)−P(A \cap B)=0.6$. The probability that a random UCSD student does not play any of the two games is $1 − P(A \cup B)=0.4$.
 
 
 5. Which of the following are events in the sample space $\Omega = \{1,2,3,4,5\}$?<br/>
@@ -618,8 +618,8 @@
 
   Ans: a. (0.4); b. (0.3)<br/>
   Explanation
-    + $\{\text{primes}\}=\{2,3,5,7\}$. Its probability is $P(\{\text{primes}\}) = |\text{primes}||Ω|=2/5$.
-    + $\{\text{primes}\}=\{3,6,9\}$. Its probability is $P(\{\text{multiples of 3}\}) = |\text{multiples of 3}||Ω|=3/10$.
+    + $\{\text{primes}\}=\{2,3,5,7\}$. Its probability is $P(\{\text{primes}\}) = |\text{primes}||\Omega|=2/5$.
+    + $\{\text{primes}\}=\{3,6,9\}$. Its probability is $P(\{\text{multiples of 3}\}) = |\text{multiples of 3}||\Omega|=3/10$.
 
 
 7. A bag contains 5 red and 3 blue balls.<br/>
@@ -631,7 +631,7 @@
   Ans: a. (2); b. (3/8); c. (1); d. (0)<br/>
   Explanation:
     + The sample space is $\{Red ,Blue\}$.
-    + $\frac{|\{\text{blue}\}|}{|Ω|} = 3/8 = 0.375$.
+    + $\frac{|\{\text{blue}\}|}{|\Omega|} = 3/8 = 0.375$.
     + If $a$ blues balls are added, $P(\text{blue}) = \frac{3+a}{8+2}=0.4$. Hence $a=1$.
     + If $a$ blues balls are removed, $\frac{3−a}{8−2} = 0.5$. Hence $a=0$.
 
@@ -1252,11 +1252,129 @@
     \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leq i < j \leq n} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i \right) \]
 
 
-
 + [Original Slides](https://tinyurl.com/yafgbra7)
 
 
 ### Problem Sets
+
+0. Does $P(A)=0$ imply that A is the empty set?<br/>
+  a. Yes<br/>
+  b. Not necessarily<br/>
+
+  Ans: b<br/>
+  Explanation: It is possible that $P(A)=0$ for a non-empty set A.
+
+
+1. For any three events A, B, and C, we have $P(B)=$<br/>
+  a. $P(A \cap B)+P(B \cap C)+P(B \cap A^c \cap C^c)$<br/>
+  b. $P(A \cap B)+P(B \cap C)−P(A \cap B \cap C)+P(B \cap A^c \cap C^c)$<br/>
+  c. $P(A^c \cap C^c)+P(A \cap B)+P(B \cap C)$<br/>
+  d. $P(\Omega)−P(A)−P(C)+P(A \cap B \cap C)$<br/>
+
+  Ans: b<br/>
+  Explanation
+    + False. It is $P(B)+P(A \cap B \cap C)$.
+    + True.
+    + False. This includes the events outside of the three circles.
+    + False. Same as above.
+
+
+2. Under which of the following probability assignments does $S=\{a_1,a_2,a_3\}$ become a probability space?<br/>
+  a. $P(a_1)=0.2, P(a_2)=0.3, P(a_3)=0.4$<br/>
+  b. $P(a_1)=0.2, P(a_2)=0.3, P(a_3)=0.5$<br/>
+  c. $P(a_1)=0.3, P(a_2)=−0.2, P(a_3)=0.9$<br/>
+  d. $P(a_1)=0.2, P(a_2)=0, P(a_3)=0.8$<br/>
+
+  Ans: bd<br/>
+  Explanation: Two necessary conditions:
+    1. The probability  P  of the events satisfies  0≤P≤1 .
+    2. All  P s sum up to 1.
+
+
+3. Which of the following always holds?<br/>
+  a. $A \subseteq B \implies P(A) < P(B)$,<br/>
+  b. $A \subseteq B \implies P(A) \leq P(B)$,<br/>
+  c. $A \subset B \implies P(A) < P(B)$,<br/>
+  d. $A \subset B \implies P(A) \leq P(B)$.<br/>
+
+  Ans: bc<br/>
+  Explanation: The only tricky part may be the third. Note that because elements may have 0 probabilities, non-empty events may also have zero probability. Hence  A  may be a strict subset of  B  and yet have the same probability. For example, if the sample space is $\{a,b\}$ and $P(a)=1$ while $P(b)=0$, then $P(\{a\})=P(\{a,b\})$.
+
+
+4. Which of the following statements are true?<br/>
+  a. If $P(E)=0$ for event $E$, then $E=\varnothing$.<br/>
+  b. If $E=\varnothing$, then $P(E)=0$.<br/>
+  c. If $E1 \cup E2=\Omega $, then $P(E1)+P(E2)=1$.<br/>
+  d. If $P(E1)+P(E2)=1$, then $E1 \cup E2=\Omega $.<br/>
+  e. If $E1 \uplus E2=\Omega $, then $P(E1)+P(E2)=1$.<br/>
+  f. If $P(E1)+P(E2)=1$, then $E1 \cup E2=\Omega $.<br/>
+
+  Ans: be<br/>
+  Explanation
+    + False. $E$ is not necessary to be $\varnothing$.
+    + True.
+    + False. Let $\Omega=\{1,2,3\},E_1=\{1,2\},E_2=\{2,3\}$. $E_1 \cup E_2=\Omega$, but $P(E_1)+P(E_2)=4/3$.
+    + False. Let $\Omega=\{1,2,3\},E_1=\{1,2\},E_2=\{1\}$.  $P(E_1)+P(E_2)=1$, but $E1 \cup E2 \neq \Omega$.
+    + True.
+    + False. Same as option 4.
+
+
+5. Suppose A, B are events that $P(A)=0.65$, $P(B)=0.5$ and $P(A∩B)=0.25$. What are the following probabilities?<br/>
+  a. $P(A^c)$<br/>
+  b. $P(B^c)$<br/>
+  c. $P(A \cup B)$<br/>
+  d. $P(A−B)$<br/>
+  e. $P(B−A)$<br/>
+  f. $P(A \nabla B)$<br/>
+  g. $P((A\cup B)^c)$<br/>
+
+  Ans: a.(0.35); b. (0.5); c(0.9); d. (0.4); e. (0.25); f. (0.65); g. (0.1)<br/>
+  Explanation
+    + $P(A^c)=1−P(A)=0.35$.
+    + $P(B^c)=1−P(B)=0.5$.
+    + $P(A \cup B)=P(A)+P(B)−P(A \cap B)=0.9$.
+    + $P(A−B)=P(A\cup B)−P(B)=0.4$.
+    + $P(B−A)=P(A \cup B)−P(A)=0.25$.
+    + $P(A \nabla B)=P(A \cup B)−P(A \cap B)=0.65$.
+    + $P((A \cup B)^c)=1−P(A \cup B)=0.1$.
+
+
+6. Let $P$ be a probability function on $S=\{a_1,a_2,a_3\}$. Find $P(a_1)$ if:<br/>
+  a. $P({a_2,a_3})=3P(a_1)$<br/>
+  b. $P(a_1)=2P(a_2)=3P(a_3)$<br/>
+
+  Ans: a. (0.25); b. (6/11)<br/>
+  Explanation
+    + We have $P(\{a_2,a_3\})=3P(a_1)$ and $P(a_1)+P(\{a_2,a_3\})=1$. Solving the equations we have $P(a_1)=0.25$.
+    + We have $P(a_1)=2P(a_2)=3P(a_3)$ and $P(a_1)+P(a_2)+P(a_3)=1$. Solving the equations we have $P(a_1)=6/11$.
+
+
+7. Let $X$ be distributed over $\Omega=\{1,2,\dots,100\}$ with $P(X=i)=\frac{i}{k}$ for some integer $k$. Find:<br/>
+  a. $k$<br/>
+  b. $|E|$ where $E={x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
+  c. $P(E)$ .<br/>
+
+  Ans: a. (5050); b. (33); c. (0.333267)<br/>
+  Explanation:
+    + $K=1+2+…+100=(1+100) \cdot 100/2=5050$.
+    + $E=\{3,6,9,…,96,99\}$, hence $|E|=33$.
+    + $(3+6+...+96+99) / 5050 = 102 \cdot 33/ (2 \cdot 5050) = 1683/5050 = 0.333267$.  Note that, as could be expected, this probability is very close to $1/3$.
+
+
+8. Consider a die where the probability of rolling $1,2,3,4,5$ and $6$ are in the ratio $1:2:3:4:5:6$. What is the probability that when this die is rolled twice, the sum is $7$?
+
+  Ans: 0.126984<br/>
+  Explanation: Let $p$ be the probability of rolling a 1, then for $i=1,2,3,\dots,6$, the probability of rolling $i$ is $i \cdot p$. These probabilities sum to  $21p$, which must be 1, hence $p=1/21$. Hence The probability that the sum is 7 is $2 \cdot (1 \cdot 6+2 \cdot 5+3 \cdot 4)/(21 \cdot 21)=56/21^2=8/63$.
+
+
+9. Jack solves a Math problem with probability 0.4, and Rose solves it with probability 0.5. What is probability that at least one of them can solve the problem?<br/>
+  a. 0.7<br/>
+  b. 0.9<br/>
+  c. 0.6<br/>
+  d. Not enough information<br/>
+
+  Ans: d<br/>
+  Explanation: Let A be the event that Jack solves the problem, B be the event that Rose solves the problem. $P(A \cup B)=P(A)+P(B)−P(A \cap B)$, but $P(A \cap B)$  is missed here.
 
 
 
