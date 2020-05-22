@@ -88,8 +88,17 @@ def main():
     p, n = 0.5, 10
     # coin_flip_plot(p, n, True)
 
+    # increasing tosses and number of simulation 
     p, n_tosses, n_simulations = 0.5, 1000, 5
-    simulate_coin_tosses(p, n_tosses, n_simulations, False)
+    # simulate_coin_tosses(p, n_tosses, n_simulations, False)
+
+    # reproducibility
+    np.random.seed(666)
+    print("\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
+    np.random.seed(666)
+    print("\nrepeat\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
+
+
 
 
 
@@ -103,4 +112,4 @@ if __name__ == "__main__":
 
     main()
 
-    print("\nEnd Topic 5 Intro to Probability Python code...")
+    print("\nEnd Topic 5 Intro to Probability Python code...\n")
