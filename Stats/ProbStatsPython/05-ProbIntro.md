@@ -1390,20 +1390,22 @@
 + Probability of null event
   + $\Pr(\Omega) = 1$
   + what about $\Pr(\varnothing)?$
-  + $\Omega = \varnothing \cup \Omega \to \Pr(\Omega) = \Pr(\varnothing \cup \Omega) = \Pr(\varnothing) + \Pr(\Omega)$
-  + $\Pr(\varnothing) = 0$
+    + $\Omega = \varnothing \cup \Omega \to \Pr(\Omega) = \Pr(\varnothing \cup \Omega) = \Pr(\varnothing) + \Pr(\Omega)$
+    + $\Pr(\varnothing) = 0$
+  + the null event has nil probability
 
 + Probability value range
-  + $\Pr(A) \geq 0 \xrightarrow{?} \Pr(A) \leq 1$
-  + $A \cup A^c = \Omega$
-  + $\Pr(A) \leq \Pr(A) + \Pr(A^c) = \Pr(A \cup A^c) = \Pr(\Omega) = 1$
-  + $\P(A) \leq 1$
+  + $0 \leq \Pr(A) \leq 1$
+  + $\Pr(A) \geq 0 \quad$ show: $\Pr(A) \leq 1$
+    + $A \cup A^c = \Omega$
+    + $\Pr(A) \leq \Pr(A) + \Pr(A^c) = \Pr(A \cup A^c) = \Pr(\Omega) = 1$
+    + $\Pr(A) \leq 1$
   + probability always between 0 and 1
 
 + Subset
   + $A \subseteq B \to \Pr(A) \leq \Pr(B)$
   + $A \subseteq B \to B = A \cup (B - A)$
-  + $\Pr(B) = \Pr(A \cup (B - A)) = \Pr(A) + \Pr(B-A) \geq \Pr(A)
+  + $\Pr(B) = \Pr(A \cup (B - A)) = \Pr(A) + \Pr(B-A) \geq \Pr(A)$
 
 + Union
   + $\max(\Pr(A), \Pr(B)) \leq \Pr(A \cup B) \leq \Pr(A) + \Pr(B)$
@@ -1413,15 +1415,15 @@
   + Union bound: $\Pr(A \cup B) \leq \Pr(A) + \Pr(B) \to$ very useful
 
 + The Linda problem
-  + Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations.
+  + statement: Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations.
   + which is more probable?
     1. Linda is a bank teller
     2. Linda is a bank teller and is active in the feminist movement
   + A. Tversky and D. Kahneman, "Extensional vs. Intuitive Reasoning: the Conjunction Fallacy in Probability Judgment", Psychological Review, 1983
-  + 88 UBC students: 85% bank teller & activist more likely
+  + survey: 88 UBC students answered 85% bank teller & activist more likely
     + B - bank teller
     + A - active in feminist movement
-  + $\Pr(B)$ vs. $\Pr(B \cap B)$: $B \supseteq (B \cap A) \to \Pr(B) \geq \Pr(B \cap A)$
+  + $\Pr(B)$ vs. $\Pr(B \cap B) \quad B \supseteq (B \cap A): \Pr(B) \geq \Pr(B \cap A)$
   + irrational concept of probability
 
 + Related questions
@@ -1434,7 +1436,7 @@
       + A. Björn will lose first set
       + B. Björn will lose first set but win match
     + Survey: 72% choose B $\to$ again $B \subseteq A \to \Pr(B) \leq \Pr(A)$
-  + 1981: reach final, won first set, lost match
+  + 1981: reach final, won first set, lost match to John McEnroe
   + 1983: age 26, retired
 
 + The ultimate reward
@@ -1443,18 +1445,20 @@
   + 2002: Kahneman won Economics Nobel Prize
   + "for integrating insights from psychological research into economic science, especially regarding human judgment and decision-making under certainty"
 
-+ Critisim
++ Criticism
   + multiple choice and ranking questions often disjoint
     + coffee or tea
     + tea hot or cold
     + rank Mon, Tue, or Wed
   + often, when not explicitly disjoint, we still interpret them as such
-    + with milk or with milk and sugar $\timples$ milk only or milk and sugar
-    + meet Monday or Monday and Thuesday $\timplies$ Mon only or Mon and Tue
+    + with milk or with milk and sugar $\implies$ milk only or milk and sugar
+    + meet Monday or Monday and Thuesday $\implies$ Mon only or Mon and Tue
   + students may have similarly interpreted the Linda question
-    + teller or teller and activist $\imples$ teller only or teller and activist
+    + teller or teller and activist $\implies$ teller only or teller and activist
     + simply thought Linda more likely active in movement than not
 
++ Bottom line
+  + humans only moderately good at estimating probability
 
 
 + [Original Slides](https://tinyurl.com/ybgs9muc)
