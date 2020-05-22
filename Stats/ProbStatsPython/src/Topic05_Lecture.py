@@ -226,7 +226,7 @@ def poker_event_red(n, k, debug=False):
         R_cnt = 0
         Prob_R = np.zeros((n, 1))
         for idx in range(1, n):
-            if sample_deck[idx][1] == '♢' or sample_deck[idx][1] == '♠':
+            if sample_deck[idx][1] == '♢' or sample_deck[idx][1] == '♡':
                 R_cnt += 1
             Prob_R[idx] = R_cnt / idx
 
@@ -242,6 +242,119 @@ def poker_event_red(n, k, debug=False):
     plt.show()
 
     return None
+    
+
+def poker_event_face(n, k, debug=False):
+    """simulate the probability of drawing cards w/ faces
+
+    Arguments:
+        n {int} -- number of simulations
+        k {int} -- number of samples in each simulation
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off debuging mesg (default: {False})
+    """
+
+    # get a deck of cards
+    Cards = poker_create()
+
+    # sampling a card from the deck of cards
+    for simulation in range(k):
+        sample_deck = [Cards[np.random.randint(0, 51)] for _ in range(n)]
+        F_cnt = 0
+        Prob_F = np.zeros((n,))
+        for idx in range(n):
+            if sample_deck[idx][0] in {'J', 'Q', 'K'}:
+                F_cnt += 1
+            Prob_F[idx] = F_cnt/(idx+1)
+        
+        plt.plot(range(1, n+1), Prob_F, linewidth=2.0, label="Simulation {}".format(simulation))
+
+    plt.plot(range(1, n+1), [3/13]*n, 'k', linewidth=2.0, label="Theoretical Value")
+    plt.title("Empirical and Theoretical Probability of Face cards")
+    plt.ylabel("$\Pr(F)$")
+    plt.xlabel("Iterations")
+    plt.xlim([0.8, n])
+    plt.ylim([0, 1])
+    plt.legend()
+    plt.show()
+
+    return None
+
+
+def poker_event_intersection(n, k, debug=False):
+    """Simulate to observer the intersection of red face cards
+
+    Arguments:
+        n {int} -- number of samples in each simulation
+        k {int} -- number of simulation
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off debuging msg (default: {False})
+    """
+
+    for simulation in range(k):
+        Cards = poker_create()
+        sample_deck = [Cards[np.random.randint(0, 51)] for _ in range(n)]
+        intersection_cnt = 0
+        Prob_intersection = np.zeros((n,))
+        for idx in range(n):
+            if (sample_deck[idx][0] in {'J', 'K', 'Q'}) and (sample_deck[idx][1] == '♢' \
+                    or (sample_deck[idx][1] == '♡')):
+                intersection_cnt +=1
+            Prob_intersection[idx] = intersection_cnt/(idx+1)
+
+        plt.plot(range(1, n+1), Prob_intersection, linewidth=2.0, \
+            label="Simulation {}".format(simulation))
+
+    plt.title("Empirical and Theoretical probabilities of red face cards", fontsize=24)
+    plt.xlabel("Iterations", fontsize=16)
+    plt.ylabel("$\Pr(A \cap B)$")
+    plt.xlim([1, n])
+    plt.ylim([0, 1])
+    plt.plot(range(1, n+1), [3/26]*n, 'k', linewidth=2.0, label="Theoretical Value")
+    plt.legend()
+    plt.show()
+
+    return None
+
+
+def poker_event_union(n, k, debug=False):
+    """Simulate to observer the intersection of red face cards
+
+    Arguments:
+        n {int} -- number of samples in each simulation
+        k {int} -- number of simulation
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off debuging msg (default: {False})
+    """
+
+    for simulation in range(k):
+        Cards = poker_create()
+        sample_deck = [Cards[np.random.randint(0, 51)] for _ in range(n)]
+        intersection_cnt = 0
+        Prob_intersection = np.zeros((n,))
+        for idx in range(n):
+            if (sample_deck[idx][0] in {'J', 'K', 'Q'}) or (sample_deck[idx][1] == '♢' \
+                    or (sample_deck[idx][1] == '♡')):
+                intersection_cnt +=1
+            Prob_intersection[idx] = intersection_cnt/(idx+1)
+
+        plt.plot(range(1, n+1), Prob_intersection, linewidth=2.0, \
+            label="Simulation {}".format(simulation))
+
+    plt.title("Empirical and Theoretical probabilities of red face cards", fontsize=24)
+    plt.xlabel("Iterations", fontsize=16)
+    plt.ylabel("$\Pr(A \cap B)$")
+    plt.xlim([1, n])
+    plt.ylim([0, 1])
+    plt.plot(range(1, n+1), [1/2 + 3/13 - 3/26]*n, 'k', linewidth=2.0, label="Theoretical Value")
+    plt.legend()
+    plt.show()
+
+    return None
+
 
 
 def main():
@@ -288,7 +401,13 @@ def main():
     # Poker events
 
     n, k = 1000, 5
-    poker_event_red(n, k, False)
+    # poker_event_red(n, k, False)
+
+    # poker_event_face(n, k, False)
+
+    # poker_event_intersection(n, k, False)
+
+    poker_event_union(n, k, False)
 
     # input("Press Enter to continue ...")
 
