@@ -373,43 +373,43 @@ def main():
 
     # coin flip
     p, n = 0.5, 10
-    # coin_flip_plot(p, n, True)
+    coin_flip_plot(p, n, True)
 
     # increasing tosses and number of simulation 
     p, n_tosses, n_simulations = 0.5, 1000, 5
-    # simulate_coin_tosses(p, n_tosses, n_simulations, False)
+    simulate_coin_tosses(p, n_tosses, n_simulations, False)
 
     # reproducibility
-    # np.random.seed(666)
-    # print("\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
-    # np.random.seed(666)
-    # print("\nrepeat\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
+    np.random.seed(666)
+    print("\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
+    np.random.seed(666)
+    print("\nrepeat\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
 
     # Tetrahedron die events
     n = 10000
-    # tetrahedron_roll_plot(n, False)
+    tetrahedron_roll_plot(n, False)
 
-    # tetrahedron_event_plot(n, False)
+    tetrahedron_event_plot(n, False)
 
 
     # Die rolls
     n = 1000
-    # probability_plot(n, False)
+    probability_plot(n, False)
 
-    # probability_event_plot(n, False)
+    probability_event_plot(n, False)
 
     # Poker events
 
     n, k = 1000, 5
-    # poker_event_red(n, k, False)
+    poker_event_red(n, k, False)
 
-    # poker_event_face(n, k, False)
+    poker_event_face(n, k, False)
 
-    # poker_event_intersection(n, k, False)
+    poker_event_intersection(n, k, False)
 
     poker_event_union(n, k, False)
 
-    # input("Press Enter to continue ...")
+    input("Press Enter to continue ...")
 
     return None
 
@@ -420,3 +420,6 @@ if __name__ == "__main__":
     main()
 
     print("\nEnd Topic 5 Intro to Probability Python code...\n")
+
+
+
