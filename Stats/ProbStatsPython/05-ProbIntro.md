@@ -1529,7 +1529,15 @@
 
 ## Lecture Notebook 5
 
++ [Original Lecture NB](https://tinyurl.com/yd39fhof)
 
++ [Local Lecture NB](src/Topic05_Lecture.ipynb)
+
++ [Local Lecture Python code](src/Topic05_Lecture.py)
+
++ principal tool for visualization: [Matplotlib](https://matplotlib.org/#)
+
++ fundamental package for statistics in Python: [Numpy](http://www.numpy.org/)
 
 
 
