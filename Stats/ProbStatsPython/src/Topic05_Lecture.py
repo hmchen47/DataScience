@@ -57,7 +57,6 @@ def simulate_coin_tosses(p, n_tosses=1000, n_simulations=10, debug=False):
         # plot the partial estimates
         plt.plot(np.arange(1, n_tosses+1), partial_means)
 
-    # plt.plot(range(n_tosses), [p]*n_tosses, 'k', linewidth=5.0, leabel='p')   # plot the value p
     plt.plot(range(n_tosses), [p]* n_tosses, 'k', linewidth=5.0, label = 'p')
 
     plt.xlabel('Number of coin tosses')
@@ -120,6 +119,79 @@ def tetrahedron_event_plot(n, debug=False):
     return None
 
 
+def probability_plot(n, debug=False):
+    """simulate die rolling and plot
+
+    Arguments:
+        n {int} -- number of die rolling
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off (default: {False})
+    """
+
+    Outcomes = np.random.randint(6, size=n)
+    Count = np.zeros((6, n+1))
+    Prob = np.zeros((6, n+1))
+
+    # counting the occurrence of each event
+    for i in range(1, n+1):
+        Count[:, i] = Count[:, i-1]
+        Count[Outcomes[i-1], i] += 1
+
+    # plot the empirical values
+    for i in range(6):
+        Prob = Count[i, 1:]/np.arange(1, n+1)
+        plt.plot(np.arange(1, n+1), Prob, linewidth=2.0, label='Face '+str(i+1))
+
+    plt.plot(range(0, n), [1/6]*n, 'k', linewidth=3.0, label='Theoretical probability')
+    plt.title("Empirical and theoretical probabilities of the 6 faces")
+    plt.xlabel("Number of Iterations")
+    plt.ylabel("Probability")
+    plt.xlim([1, n])
+    plt.ylim([0, 1])
+    plt.legend()
+    
+    plt.show()
+
+    return None
+
+
+def probability_event_plot(n, debug=False):
+    """Simulate die rollinf and counting event occurrence
+
+    Arguments:
+        n {int} -- the number of event probability
+
+    Keyword Arguments:
+        debug {bool} -- turn on/off debuging message (default: {False})
+    """
+
+    Outcomes = 1 + np.random.randint(6, size=10000)
+    Count_E = np.zeros((2, n+1))
+
+    # counting the events of even numbers
+    for i in range(1, n+1):
+        Count_E[:, i] = Count_E[:, i-1]
+        Count_E[Outcomes[i]%2, i] += 1
+
+
+    # calculating the probability of even throw's
+    Prob_E = Count_E[0,1:]/np.arange(1,n+1)
+
+    plt.plot(range(1, n+1), Prob_E, 'b', linewidth=2, label="Empirical probability")
+    plt.plot(range(1, n+1), [1/2]*n, 'k', linewidth=2, label="Theoretical probability")
+
+    plt.xlabel("Number of Iterations")
+    plt.ylabel("Probability")
+    plt.title("Odds of rolling an even number")
+    plt.xlim([1, n])
+    plt.ylim([0, 1])
+    plt.legend()
+
+    plt.show()
+
+    return None
+
 
 
 def main():
@@ -145,17 +217,23 @@ def main():
     # simulate_coin_tosses(p, n_tosses, n_simulations, False)
 
     # reproducibility
-    np.random.seed(666)
-    print("\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
-    np.random.seed(666)
-    print("\nrepeat\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
+    # np.random.seed(666)
+    # print("\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
+    # np.random.seed(666)
+    # print("\nrepeat\nnp.random.seed(666) --> np.random.randint(9) x 2: {}, {}".format(np.random.randint(9), np.random.randint(9)))
 
     # Tetrahedron die events
     n = 10000
-    tetrahedron_roll_plot(n, False)
+    # tetrahedron_roll_plot(n, False)
 
-    tetrahedron_event_plot(n, False)
+    # tetrahedron_event_plot(n, False)
 
+
+    # Die rolls
+    n = 1000
+    # probability_plot(n, False)
+
+    probability_event_plot(n, False)
 
 
     # input("Press Enter to continue ...")
