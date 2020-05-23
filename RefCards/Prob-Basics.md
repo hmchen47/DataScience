@@ -771,6 +771,49 @@
 
 
 
+## Probability Axioms
+
++ [Three axioms](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation)
+  + Non-negative:
+  
+    \[ \forall\, A, \Pr(A) \geq 0 \]
+
+  + Unitary: 
+  
+    \[ \Pr(\Omega) = 1 \]
+
+  + Addition rule:
+
+    \[ A, B \text{ disjoint} \implies P(A \cup B) = P(A) + P(B) \]
+
+    + generalization
+
+      \[ A_1, A_2, \dots \text{ disjoint} \implies P(A_1 \cup A_2 \cdots) = P(A_1) + P(A_2) + \cdots \]
+
+    + applied to countable unions only
+
++ [Complement rule for probability](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation): $\Pr(A^c) = 1 - \Pr(A)$
+
++ [Subtraction rule - nested sets](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation): $\Pr(B-A) = \Pr(B) - \Pr(A)$
+
++ [Subtraction rule - general sets](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation)
+  + Nested: $A \subseteq B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A)$
+  + general: $\forall\, A, B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A \cap B)$
+
++ [Inclusion-exclusion](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation)
+  + $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + two sets: $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + three sets: 
+  
+    \[\begin{align*}
+      \Pr(A \cup B \cup C) &= \Pr(A) + \Pr(B) + \Pr(C) \\
+      &\hspace{1.0em} - \Pr(A \cap B) - \Pr(A \cap B) - \Pr(B \cap C) \\
+      &\hspace{1.0em} + \Pr(A \cap B \cap C)
+    \end{align*}\]
+
+  + n sets
+
+    \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leq i < j \leq n} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i \right) \]
 
 
 
