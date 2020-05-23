@@ -88,6 +88,7 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
 
+  <!-- Probability -->
   </tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
@@ -110,6 +111,21 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-power"> Cartesian Power </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Probability </th>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Uniform Space </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Events </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Experiments </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Axioms </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Inequalities </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -125,7 +141,7 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
   </tr>
 
-
+  <!-- Statistics Basics -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Statistics Basics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
@@ -162,6 +178,7 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
 
+  <!-- Bayesian approaches -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Bayesian Approaches </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
@@ -217,6 +234,7 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
 
+  <!-- Numerical methods -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Numerical Methods </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
