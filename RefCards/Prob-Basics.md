@@ -817,6 +817,22 @@
 
 
 
+## Inequalities
+
++ [Probability of null event](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $\Pr(\varnothing) = 0$
+  + the null event has nil probability
+
++ [Probability value range](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $0 \leq \Pr(A) \leq 1$
+  + probability always between 0 and 1
+
++ [Subset](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $A \subseteq B \to \Pr(A) \leq \Pr(B)$
+
++ [Union](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $\max(\Pr(A), \Pr(B)) \leq \Pr(A \cup B) \leq \Pr(A) + \Pr(B)$
+  + Union bound: $\Pr(A \cup B) \leq \Pr(A) + \Pr(B) \to$ very useful
 
 
 
