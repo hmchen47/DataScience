@@ -28,6 +28,25 @@
     + providing a precise answer
     + much faster than Monte-Carlo simulations
 
++ [Random phenomena](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + give up or reason intelligently
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Subject</th>
+      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <th>Learn</th> <td>range</td> <td>average</td> <td>variability</td> </tr>
+    <tr> <th>Infer</th> <td>relations</td> <td>structure</td> <td>change</td> </tr>
+    <tr> <th>Predict</th> <td>future</td> <td>likelihood</td> <td>guarantees</td> </tr>
+    <tr> <th>Benefit</th> <td>understand</td> <td>plan</td> <td>build</td> </tr>
+    </tbody>
+  </table>
+
+
 
 
 ## Basic Sets
@@ -564,6 +583,46 @@
     + \# non-negative adding to $\leq n$ = \# k+1 non-negative adding to n
 
       \[ \dbinom{n+(k+1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
+
+
+
+
+## Probability
+
++ [Outcomes and sample space](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + <span style="color: magenta;">outcomes</span>: possible experiment results
+  + <span style="color: magenta;">sample space</span>: set of possible outcomes, denoted <span style="color: magenta;">$\Omega, S \text{ or } U$</span>
+
++ [Two sample-space types](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + <span style="color: magenta;">discrete</span>: finite or countable infinite sample space
+    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{words\}, \{cities\}, \{people\}$
+  + <span style="color: magenta;">continuous</span>: uncountably infinite sample space
+    + e.g., $\Bbb{R}, [0, 1], \{\text{temperatures}\}, \underbrace{\{\text{salaries}\}, \{\text{prices}\}}_{\text{upgraded}}$
+  + discrete space: easier to understand, visualize, analyze; important; first
+  + continuous: important; conceptually harder; later
+
++ [Probability of an outcome](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), \Pr(x)$</span>, or <span style="color: magenta;">$P(X = x), \Pr(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
+
++ [Probability portrait](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + $n$ experiments
+  + $x \in \Omega \quad n_x =$ \# times x appeared
+
+    \[ \Pr(x) = \lim_{n \to \infty} \frac{n_x}{n} \]
+
++ [Probability distribution function](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + <span style="color: magenta;">Probability distribution function (PDF)</span>: $\Pr$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
+  
+    \[ \Pr: \Omega \to \Bbb{R} , \; \Pr(x) \geq 0 \text{ s.t. } \sum_{x\in \Omega} \Pr(x) = 1 \]
+
+  + sample space $\Omega$ + distribution $P$ = probability space
+
+
+
+
+
+
+
 
 
 
