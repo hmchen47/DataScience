@@ -1587,11 +1587,11 @@
   def face_sum(m, s):
     # inputs: m is list of integers and s is an integer
     # output: a variable of type 'float'
-    
+
     num_all = 1;
     for num_m in m :
         num_all *= num_m
-    
+
     return len(constrained_compositions(s, m)) / num_all
   ```
 
