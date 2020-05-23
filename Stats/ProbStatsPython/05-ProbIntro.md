@@ -13,13 +13,13 @@
     + students: food line, grade, parents job, date, game
 
 + Random phenomena
-  + give up or reasonintelligently
+  + give up or reason intelligently
 
   <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
     <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Properties</th>
-      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Interests</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Subject</th>
+      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
     </tr>
     </thead>
     <tbody>
