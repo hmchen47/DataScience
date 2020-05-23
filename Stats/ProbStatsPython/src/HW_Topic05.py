@@ -31,7 +31,7 @@ def largest_face(dice, x_max, debug=False):
 
     for idx in range(1, mface+1):
         for faces in dice:
-            prob[idx][0] *= (idx if idx < faces else faces)
+            prob[idx][0] *= min(idx, faces)
 
         prob[idx][1] = (prob[idx][0] - prob[idx-1][0]) / base
         if debug: print("iter({}): {}".format(idx, prob[idx]))
