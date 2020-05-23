@@ -643,6 +643,31 @@
 
 
 
+## Events
+
++ [Events](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + outcome: single element of $\Omega$
+  + event: subset of a space $\Omega$
+
++ [Event probability](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + $\Pr(E)$: probability of event $E$
+  + $\Pr(X \in E)$: probability that $E$ occurs
+  + fraction of experiments where $E$ occurs, as \# experiments grows
+
++ [$\Pr(X) \to \Pr(E)$](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + general event $E$
+    + \# times E occurs = sum of \# times its elements occur
+
+    \[ \Pr(E) &= \Pr(X \in E) = \sum_{x \in E} \Pr(x) \]
+
++ [Uniform spaces](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + equiprobable spaces
+  + simple formula for probability of
+    + outcome: $\Pr(x) = 1/|\Omega|$
+    + event
+
+      \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E} 1}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+
 
 
 
