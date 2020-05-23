@@ -1543,6 +1543,57 @@
 
 ## Programming Assignment 5
 
++ [Original HW NB](https://tinyurl.com/ycup4khk)
+
++ [Local HW NB](src/HW_Topic05.ipynb)
+
++ [Local HW Python code](src/HW_Topic05.py)
+
+
+1. Which of the following is the approximately correct output for: `largest_face( [7,4], 2)`<br/>
+  a. 0.84846<br/>
+  b. 0.87541<br/>
+  c. 0.10714<br/>
+  d. 0.42236<br/>
+
+  Ans: c<br/>
+  
+  ```python
+  def largest_face(f, x_max):
+    # inputs: f is a list of integers and x_max is an integer
+    # output: a variable of type 'float'
+
+    if x_max > max(f) or x_max <= 0:
+        return 0
+    P1 = 1
+    P2 = 1
+    for face in f:
+        P1 *= (min(1, x_max / face))
+        P2 *= (min(1, (x_max - 1) / face))
+
+    return P1 - P2
+  ```
+
+
+2. Which of the following is the correct output for: `face_sum([2,4,4,6], 10)`<br/>
+  a. 0.15625<br/>
+  b. 0.58962<br/>
+  c. 0.04515<br/>
+  d. 0.52158<br/>
+
+  Ans: a<br/>
+
+  ```python
+  def face_sum(m, s):
+    # inputs: m is list of integers and s is an integer
+    # output: a variable of type 'float'
+    
+    num_all = 1;
+    for num_m in m :
+        num_all *= num_m
+    
+    return len(constrained_compositions(s, m)) / num_all
+  ```
 
 
 
