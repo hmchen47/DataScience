@@ -13,10 +13,10 @@
     + improving estimates
     + determining original unconditional probabilities
 
-+ Basic to basics
++ Back to basics
   + empirical frequency interpretation of probability
-  + probability $\Pr(E)$ of event $E$: the fraction of experiments where $E$ occurs as \# experiments $\to$ \infty
-  + to estimate $\Pr(E)$ repeating the experiment many times, findingfraction of experiments where $E$ occurs
+  + probability $\Pr(E)$ of event $E$: the fraction of experiments where $E$ occurs as \# experiments $\to \infty$
+  + to estimate $\Pr(E)$ repeating the experiment many times, finding fraction of experiments where $E$ occurs
   + example: fair die -- $\Pr(2) = \frac{2}{12} = \frac{1}{6}$
 
 + Conditional probability
