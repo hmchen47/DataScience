@@ -619,6 +619,29 @@
 
 
 
+## Uniform Space
+
++ [Uniform probability spaces](../Stats/ProbStatsPython/05-probIntro.md#52-distribution-types)
+  + generally, outcomes may have different probability
+  + uniform (equiprobable) spaces: uniform distribution
+    + $\forall\, x \in \Omega \quad \Pr(x) = p$
+    + $1 = \sum_{x \in \Omega} \Pr(x) = \sum_{x \in \Omega} p = |\Omega| \cdot p$
+    + $p = 1 / |\Omega|$
+  + notation: denoted $U$, drawing uniformly, randomly
+
++ [Non-uniform](../Stats/ProbStatsPython/05-probIntro.md#52-distribution-types)
+  + uniform, equiprobable, spaces
+  + in nature, nonuniform spaces around
+
++ [Do's and Don'ts](../Stats/ProbStatsPython/05-probIntro.md#52-distribution-types)
+  + random notation may be confusing at first
+  + which expressions are valid?
+    + valid expression
+      + $\Pr(x)$ specify $x$
+    + possible, but less common, make sure it's what you mean
+    + even less likely, probably wrong
+
+
 
 
 
