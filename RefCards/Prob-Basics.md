@@ -29,7 +29,6 @@
     + much faster than Monte-Carlo simulations
 
 + [Random phenomena](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
-  + give up or reason intelligently
 
   <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
@@ -667,6 +666,112 @@
     + event
 
       \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E} 1}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+
+
+## Experiments
+
++ [Experiments](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + probability developed in part to aid science
+  + process
+    + generate random data
+    + observe outcome
+  + unified approach
+    + applies generally
+    + understand
+    + analyze
+    + generalize
+
++ [Independent repetitions](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + repetition: all experiments of same type
+  + independent: different components unrelated
+
++ [Events](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + probability of event
+
+    \[ \Pr(E) = \Pr(X \in E) = \sum_{x \in E} \Pr(x) \]
+
+  + uniform space: $U \to \Pr(E) = |E|/|\Omega|$
+
++ [Replacement](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + two sampling types: with or without replacement
+  + sequentially select physical objects
+  + with replacement
+    + <span style="color: cyan;">replace</span> (reuse) selected element
+    + outcomes <span style="color: cyan;">can</span> repeat
+    + experiments often <span style="color: cyan;">independent</span>
+  + without replacement
+    + <span style="color: cyan;">do not replace</span> (reuse) selected element
+    + outcomes <span style="color: cyan;">cannot</span> repeat
+    + experiments <span style="color: cyan;">dependent</span>
+    + cf. difference largest for small $\Omega$
+
++ [Sampling (selection) With / Without differences](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + __with__ replacement
+    + repeat as if from scratch
+    + same element able to be selected again
+  + __without__ replacement
+    + repeat w/ smaller set
+    + same element unable to be selected again
+
++ [Replacement summary](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + 2 selections
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 58vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Original</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">with replacement</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">without replacement</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">Description</td>
+        <td style="text-align: center;"></td>
+        <td style="text-align: center;">outcomes can repeat</td>
+        <td style="text-align: center;">outcomes cannot repeat</td>
+      </tr>
+      <tr> <td style="text-align: center;">Sample space</td> <td style="text-align: center;">$\Omega_1$</td> <td style="text-align: center;">$\{(x, y): x, y \in \Omega_1 \} = \Omega_1^2$</td> <td style="text-align: center;">$\{(x, y): x, y \in \Omega_1, x \neq y \} = \Omega_1^{\underline{2}}$</td> </tr>
+      <tr> <td style="text-align: center;">| Sample space |</td> <td style="text-align: center;">$|\Omega_1|$</td> <td style="text-align: center;">$|\Omega_1^2|$</td> <td style="text-align: center;">$|\Omega_1^{\underline{2}}| = |\Omega_1| \cdot (|\Omega_1| - 1)$</td> </tr>
+      </tbody>
+    </table>
+
+  + probabilities if original sample space uniform
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Original</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">with replacement</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">without replacement</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">Uniformity</td> <td style="text-align: center;">Uniform</td> <td style="text-align: center;">Uniform</td> <td style="text-align: center;">Uniform</td> </tr>
+      <tr> <td style="text-align: center;">$\Pr(\text{ element })$</td> <td style="text-align: center;">$1 / \Omega_1$</td> <td style="text-align: center;">$1 / |\Omega_1|^2$</td> <td style="text-align: center;">$1 / \left(|\Omega_1| \cdot (|\Omega_1| - 1) \right)$</td> </tr>
+      </tbody>
+    </table>
+
++ [Order not matter](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + $\to$: order matter, easier to calculate
+  + $\gets$ order not matter, considering w/ & w/o replacement
+
++ [Order consideration with replacement](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + order: remaining uniform
+    + $\to$, not matter: not uniform
+  + sanity check: $\sum$ Probabilities = 1
+
++ [Order consideration w/o replacement](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + order:
+    + $\gets$, matter: remaining unifrom
+    + $\to$, not matter: remaining uniform
+  + sanity check: probabilities sum to 1
+
+
+
+
 
 
 
