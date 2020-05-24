@@ -82,7 +82,96 @@
 
 ### Problem Sets
 
+0. Let A and B be two positive-probability events. Does P(A|B)>P(A) imply P(B|A)>P(B)?<br/>
+  a. Yes<br/>
+  b. Not necessarily<br/>
 
+  Ans: <span style="color: magenta;">a</span><br/>
+  Explanation: Yes. $P(A|B)=P(A,B) / P(B)$ and $P(B|A)=P(A,B) / P(A)$. Hence, $P(A|B)>P(A) \iff P(A,B)>P(A) * P(B) \iff P(B|A)>P(B)$.
+
+
+1. Suppose $P(A)>0$. Find $P(B|A)$ when:<br/>
+  a. $B=A$,<br/>
+  b. $B \supseteq A$,<br/>
+  c. $B=Ω$,<br/>
+  d. $B=A \subset $,<br/>
+  e. $A∩B= \varnothing$,<br/>
+  f. $B= \varnothing$.<br/>
+
+  Ans: a. (1); b. (1); c. (1); d. (0); d. (0); e. (0)<br/>
+  Explanation:
+    + Given that $A$ happens, $B$ must happens. Hence $P(B|A)=1$.
+    + Same as above.
+    + Same as above.
+    + Given that $A$ happens, $B$ can never happens. Hence $P(B|A)=0$.
+    + Same as above.
+    + Same as above.
+
+
+2. If \(A\) and \(B\) are disjoint positive-probability events, then \(P(A|B)\)=<br/>
+  a. \(P(A)\),<br/>
+  b. \(P(B|A)\),<br/>
+  c. \(P(A\cup B)\),<br/>
+  d. \(P(A\cap B)\).<br/>
+
+  Ans: bc<br>
+  Explanation: Since $A$ and $B$ are disjoint, $P(A|B)=0$. $P(A\ \cap B)=P(B|A)=0$, while $P(A)$ and $P(A∪B)$ are positive as $A$ and $B$ are positive-probability events.
+
+
+3. Given events $A$, $B$ with $P(A)=0.5$, $P(B)=0.7$, and $P(A \cap B)=0.3$ , find:<br/>
+  a. $P(A|B)$ ,<br/>
+  b. $P(B|A)$ ,<br/>
+  c. $P(A^c|B^c)$ ,<br/>
+  d. $P(B^c|A^c)$ .<br/>
+
+  Ans: a. (3/7); b. (3/5); c. (1/3); d. (1/5)<br/>
+  Explanation: 
+    + $P(A|B)=P(A \cap B)/P(B)=0.3/0.7=3/7$.
+    + $P(B|A)=P(B \cap A)/P(A)=0.3/0.5=3/5$.
+    + $P(A^c|B^c)=P(A^c \cap B^c)/P(B^c)=0.1/0.3=1/3$.
+    + $P(B^c|A^c)=P(B^c \cap A^c)/P(A^c)=0.1/0.5=1/5$.  
+
+
+4. Find the probability that the outcome of a fair-die roll is at least 5, given that it is at least 4.<br/>
+  a. \(\frac{2}{3}\)<br/>
+  b. \(\frac{2}{4}\)<br/>
+  c. \(\frac{1}{3}\)<br/>
+  d. \(\frac{1}{2}\)<br/>
+
+  Ans: a<br/>
+  Explanation: $P(\text{at least 5 }|\text { at least 4})=P(\text{at least 5 } \cap \text{ at least 4})P(\text{ at least 4 })=P(\text{ at least 5 })P(\text{ at least 4 })=2/3$.
+
+
+5. Two balls are painted red or blue uniformly and independently. Find the probability that both balls are red if:<br/>
+  a. at least one is red,<br/>
+  b. a ball is picked at random and it is pained red.<br/>
+
+  Ans: a. (1/3); b(0.5)<br/>
+  Explanation:
+    + $\Pr(2R| \text{ at least 1R })=\frac{\Pr( \text{ 2R } \cap \text{ at least 1R })}{\Pr( \text{ at least 1R })} = \frac{\Pr(2R)}{\Pr(\text{ at least 1R })}= \frac{1/4}{3/4}=\frac{1}{3}$.
+    + $\Pr(2R| \text{ random ball is R} )= \Pr(2R \wedge \text{ random ball is R }) \Pr(\text{ random ball is R })=\Pr(2R)\Pr(\text{ random ball is R })=\frac{1/4}{1/2}=\frac{1}{2}$.
+
+
+6. Three fair coins are sequentially tossed. Find the probability that all are heads if:<br/>
+  a. the first is tails,<br/>
+  b. the first is heads,<br/>
+  c. at least one is heads.<br/>
+
+  Ans: a. (0); b. (1/4); c. (1/7)<br/>
+  Explanation:
+    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $\Pr(X_1 \cap X_2 \cap X_3|\overline{X_3}) = \frac{\Pr(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{P(\overline{X_3})= \frac{\Pr(\varnothing)}{P(\overline{X_3})= \frac{0}{1/2}=0$.
+    + First intuitively, if the first coin is heads, then all are heads iff the second and third coins are heads, which by independence of coin flips happens with probability $\frac{1}{2} \cdot \frac{1}{2}=14$.  A bit more formally, let $X_1,X_2,X_3$ be the events that the first, second, and third coin is heads. Then $\Pr(X_1 \cap X_2 \cap X_3|X_1)=\frac{\Pr(X_1 \cap X_2 \cap X_3 \cap X_1)}{\Pr(X_1)}=\frac{\Pr(X_1 \cap X_2 \cap X_3)}{P(X_1)}=\frac{1/8}{1/2}=\frac{1}{4}$.
+    + First intuitively, there are seven possible outcome triples where at least one of the coins is heads, and only one of them has all heads. Hence the probability of all heads given that one is heads is $1/7$.  More formally, $\Pr(X_1 \cap X_2 \cap X_3|X_1 \cup X_2 \cup X_3)=\frac{\Pr((X_1 \cap X_2 \cap X_3) \cap (X_1 \cup X_2 \cup X_3))}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{P(X_1 \cap X_2 \cap 3)}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{1/8}{7/8}=\frac{1}{7}$.
+
+
+7. A 5-card poker hand is drawn randomly from a standard 52-card deck. Find the probability that:<br/>
+  a. all cards in the hand are  ≥7  (7, 8,..., K, Ace), given that the hand contains at least one face card (J, Q, or K),<br/>
+  b. there are exactly two suits given that the hand contains exactly one queen.<br/>
+
+  Ans: a. (<span style="color: magenta;">0.0957</span>); b. (0.16153846)<br/>
+  Explanation:
+    + There are where $4 \cdot (13−3)=40$ non-face cards, hence $\tbinom{40}{5}$ hands without face cards. Therefore, of the $\tbinom{52}{5}$ hands, $\binom{52}{5}-\binom{40}{5}$ hands contain a face card.  Similarly, there are $\tbinom{32}{5}$ hands consisting of cards $\geq 7$, of which $\tbinom{20}{5}$ contain no face cards, and $\tbinom{32}{5} − \tbinom{20}{5}$ hands contain a face card. Hence, the requested probability is  $\frac{\tbinom{32}{5} − \tbinom{20}{5}}{\tbinom{52}{5}−\tbinom{40}{5}}=0.0957$
+    + There are $4 \cdot \tbinom{48}{4}$ hands with exactly one queen.  To count the number of hands with exactly one queen and two suites, observe that there are 4 ways to choose the queen, then 3 ways to select the other suit, and from the $26−2=24$ non-queens of these two suits, $\tbinom{24}{4}$ ways to select the remaining 4 cards, but of those, $\tbinom{12}{4}$ hands will have all cards of the same suit as the queen. Hence there are $4 \cdot 3 \cdot \left(\tbinom{24}{4}−\tbinom{12}{4}\right)$  ways to select cards with exactly one queen and two suits.  The desired probability is therefore, $\frac{4 \cdot 3 \cdot \left(\tbinom{24}{4}−\tbinom{12}{4}\right)}{4 \cdot \tbinom{48}{4}}=0.156$.
 
 
 ### Lecture Video
