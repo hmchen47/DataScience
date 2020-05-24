@@ -3,29 +3,20 @@
 
 ## 6.1 Conditional Probability
 
-+ Why condition
++ Motivation
   + often having partial information about the world
   + modifying event probabilities
     + unemployment numbers $\to$ stock prices
     + LeBron James injured $\to$ Cavaliers game result
     + sunny weekend $\to$ beach traffic
-  + can help:
+  + importance
     + improving estimates
-    + determining original unconditional probabilities
+    + helping determine original unconditional probabilities
 
 + Intuitive definition
   + $E, F$: events
-  + $\Pr(F \,|\, E)$: probability that $F$ happens given that $E$ happend
-
-+ Back to basics
-  + empirical frequency interpretation of probability
-  + probability $\Pr(E)$ of event $E$: the fraction of experiments where $E$ occurs as \# experiments $\to \infty$
-  + to estimate $\Pr(E)$ repeating the experiment many times, finding fraction of experiments where $E$ occurs
-  + example: fair die -- $\Pr(2) = \frac{2}{12} = \frac{1}{6}$
-
-+ Conditional probability
-  + Definition: (conditional probability) $\exists \text{ events } E, F.$ The conditional probability <span style="color: magenta;">$\Pr(F\,|\,E)$</span> of $F$ given $E$ is the fraction of times $F$ occurs in experiments where $E$ occurs
-  + to estimate $\Pr(F|E)$ taking many samples, considering only experiments where $E$ occurs, and calculate the fraction therein where $F$ occurs too
+  + $\Pr(F \,|\, E)$ = probability that $F$ happens given that $E$ happened<br/>
+    $\hspace{4em}$ = fraction pf $E$ occurrences that F also occurs
   + e.g., Even = {2, 4, 6}, $\Pr(2 |\text{ Even }) = \frac{2}{6} = \frac{1}{3}$
 
 + Example: fair die
@@ -33,13 +24,13 @@
     + $\Pr( 4 \,|\, \geq 3) = \Pr(4 \,|\, \{3, 4, 5, 4\}) = \tfrac{1}{4}$
     + $\Pr(4 \,|\, \leq 3) = \Pr(4 \,|\, \{1, 2, 3\}) = \tfrac{0}{3} = 0$
   + $\Pr(\leq 2) = \Pr(\{1, 2\}) = 1/3$
-    + $\Pr(\leq 2 \,|\, \geq 4) = \Pr(\{1, 2\} \,|\, \{1, 2, 3, 4\}) = \frac{2}{4} = \frac{1}{4}$
-    + $\Pr(\leq 2 \,|\, \geq 2) = \Pr(\{1, 2\} \,|\, \{2, 3, 4, 5, 6\}) = \frac{2}{5}$
+    + $\Pr(\leq 2 \,|\, \leq 4) = \Pr(\{1, 2\} \,|\, \{1, 2, 3, 4\}) = \frac{2}{4} = \frac{1}{4}$
+    + $\Pr(\leq 2 \,|\, \geq 2) = \Pr(\{1, 2\} \,|\, \{2, 3, 4, 5, 6\}) = \frac{1}{5}$
 
 + General events - uniform spaces
   
   \[\begin{align*}
-    \Pr(F \,|\, E) & = \Pr(X \in F \,|\, X \in E) = \Pr(X \in E and X \in F \,|\, X \in E) \\
+    \Pr(F \,|\, E) & = \Pr(X \in F \,|\, X \in E) = \Pr(X \in E \wedge X \in F \,|\, X \in E) \\
     &= \Pr(X \in E \cap F \,|\, X \in X \in E) = \Pr(E \cap F \,|\, E) \\
     &= \frac{|E \cap F|}{|E|}
   \end{align*}\]
