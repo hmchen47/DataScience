@@ -184,10 +184,10 @@
 ## 6.2 Independence
 
 + Motivation
-  + $\Pr(F \,|\, E) > \Pr(E)$
+  + $\Pr(F \,|\, E) > \Pr(F)$
     + $E \nearrow$ probability of $F$
-    + e.g., $\Pr(2 \,|\, \text{Even}) = 1/ > 1/6 = \Pr(2)$
-  + $\Pr(E  \,|\,  E) < \Pr(F)$
+    + e.g., $\Pr(2 \,|\, \text{Even}) = 1/3 > 1/6 = \Pr(2)$
+  + $\Pr(F  \,|\,  E) < \Pr(F)$
     + $E \searrow$ probability of $F$
     + $\Pr(2 \,|\, \text{Odd}) = 0 < 1/6 = \Pr(2)$
   + $\Pr(F \,|\, E) = \Pr(F)$
@@ -228,7 +228,7 @@
     + $H_1$: first coin heads, $\Pr(H_1) = 1/2$
     + $H_2$: second coin heads. $\Pr(H_2) = 1/2$
     + $H_1 \cap H_2$: both coin heads, $\Pr(H_1 \cap H_2) = 1/4$
-    + $\Pr(H_1 \cap H_2) = 1/4 = \Pr(H_1) \cdot \Pr(H_2) \to H_1 {\perp \!\!\! \perp} F$
+    + $\Pr(H_1 \cap H_2) = 1/4 = \Pr(H_1) \cdot \Pr(H_2) \to H_1 {\perp \!\!\! \perp} H_2$
   + not surprising
     + two separate coins
     + "independent" experiments always
