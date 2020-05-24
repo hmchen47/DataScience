@@ -190,32 +190,37 @@
   + $\Pr(E  \,|\,  E) < \Pr(F)$
     + $E \searrow$ probability of $F$
     + $\Pr(2 \,|\, \text{Odd}) = 0 < 1/6 = \Pr(2)$
-  + $\Pr(F \,|\, E) = \Pr(F)
+  + $\Pr(F \,|\, E) = \Pr(F)$
     + $E$ neither $\nearrow$ nor $\searrow$ probability of $F$
     + e.g., $\Pr(\text{Even} \,|\, \leq 4) = 1/2 = \Pr(\text{Even})$
     + whether or not $E$ occurs, does not change $|Pr(F)$
   + motivation $\to$ intuitive definition $|to$ formal
 
 + Independence - Intuitive
-  + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span>, denoted <span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>, if the occurrence of one does not affect the other's probability.
-  + $\Pr(F \,|\, E) = \Pr(F)$
-  + virtually
+  + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span> (<span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>) if occurrence of one does not change the probability  that the other occurs.
+  + more formally, $\Pr(F \,|\, E) = \Pr(F)$
+  + visual interpretation
     + $\Pr(F) = \frac{\Pr(F)}{\Pr(\Omega)}$: $F$ as a fraction of $\Omega$
     + $\Pr(F \,|\, E) \triangleq \frac{\Pr(E \cap F)}{\Pr(E)}$: $E \cap F$ as a fraction of $E$
-  + two issues:
-    + asymmetric
-    + undefined if $\Pr(E) = 0$
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="url" ismap target="_blank">
+          <img src="img/t06-01.png" style="margin: 0.1em;" alt="Visual interpretation of P(F|E)" title="Visual interpretation of P(F|E)" width=200>
+        </a>
+      </div>
   
 + Independence - formal
   + informal
 
     \[ \Pr(F) = \Pr(F \,|\, E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
 
-    + issue: asymmetric, undefined if $\Pr(E) = 0$
+  + two issues:
+    + asymmetric: $\Pr(E \,|\, F)$
+    + undefined if $\Pr(E) = 0$
   + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $\Pr(E \cap F) = \Pr(E) \cdot \Pr(F)$, otherwise, <span style="color: magenta;">dependent</span>
   + symmetric and applied when $\Pr(\varnothing) = 0$
-  + $\implies$ intuitive def. 
-    + $\Pr(F \,|\, E) = \Pr(F) \quad \Pr(E \,|\, F) = \Pr(E)$
+  + $\implies$ to intuitive definition
+    + symmetric: $\Pr(F \,|\, E) = \Pr(F) \quad \Pr(E \,|\, F) = \Pr(E)$
     + $\Pr(F \,|\, \overline{E}) = \Pr(F) \quad \Pr(E \,|\, \overline{F}) = \Pr(E)$
 
 + Non-surprising independence
@@ -292,9 +297,9 @@
       </tr>
       </thead>
       <tbody>
-      <tr> <td style="text-align: center;">$H_1$</td> <td style="text-align: center;">1st coin heads</td> <td style="text-align: center;">$\{h \ast\ast\}$</td> <td style="text-align: center;">1/2</td> </tr>
-      <tr> <td style="text-align: center;">$H_2$</td> <td style="text-align: center;">2nd coin heads</td> <td style="text-align: center;">$\{\ast h \ast\}$</td> <td style="text-align: center;">1/2</td> </tr>
-      <tr> <td style="text-align: center;">$HH$</td> <td style="text-align: center;">exactly 2 heads in a row</td> <td style="text-align: center;">$\{hht, thh\}$</td> <td style="text-align: center;">1/4</td> </tr>
+      <tr> <td style="text-align: center;">$H_1$</td> <td style="text-align: center;">1st coin heads</td> <td style="text-align: center;">{h**}</td> <td style="text-align: center;">1/2</td> </tr>
+      <tr> <td style="text-align: center;">$H_2$</td> <td style="text-align: center;">2nd coin heads</td> <td style="text-align: center;">{*h*}</td> <td style="text-align: center;">1/2</td> </tr>
+      <tr> <td style="text-align: center;">$HH$</td> <td style="text-align: center;">exactly 2 heads in a row</td> <td style="text-align: center;">{hht, thh}</td> <td style="text-align: center;">1/4</td> </tr>
       </tbody>
     </table>
 
@@ -331,14 +336,14 @@
     </table>
 
 + Independence of $\Omega$ and $\varnothing$
-  + $\omega {\perp \!\!\!\! \perp}$ of any event
+  + $\Omega {\perp \!\!\!\! \perp}$ of any event
     + $\forall\,A \;\Pr(\Omega \cap A) = \Pr(A) = \Pr(\Omega) \cdot \Pr(A)$
     + $A$ occurring doesn't modify likelihood of $\Omega$
   + $\varnothing {\perp \!\!\!\! \perp}$ of any event
-    + $\forall\,A \;\Pr(\varnothing \cap A) = \Pr(\varnothing) = \Pr(\varnothin) \cdot \Pr(A)$
+    + $\forall\,A \;\Pr(\varnothing \cap A) = \Pr(\varnothing) = \Pr(\varnothing) \cdot \Pr(A)$
     + $A$ occurring doesn't modify likelihood of $\varnothing$
 
-    
+
 
 
 
