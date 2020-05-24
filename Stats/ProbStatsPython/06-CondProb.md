@@ -183,9 +183,166 @@
 
 ## 6.2 Independence
 
++ Motivation
+  + $\Pr(F \,|\, E) > \Pr(E)$
+    + $E \nearrow$ probability of $F$
+    + e.g., $\Pr(2 \,|\, \text{Even}) = 1/ > 1/6 = \Pr(2)$
+  + $\Pr(E  \,|\,  E) < \Pr(F)$
+    + $E \searrow$ probability of $F$
+    + $\Pr(2 \,|\, \text{Odd}) = 0 < 1/6 = \Pr(2)$
+  + $\Pr(F \,|\, E) = \Pr(F)
+    + $E$ neither $\nearrow$ nor $\searrow$ probability of $F$
+    + e.g., $\Pr(\text{Even} \,|\, \leq 4) = 1/2 = \Pr(\text{Even})$
+    + whether or not $E$ occurs, does not change $|Pr(F)$
+  + motivation $\to$ intuitive definition $|to$ formal
+
++ Independence - Intuitive
+  + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span>, denoted <span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>, if the occurrence of one does not affect the other's probability.
+  + $\Pr(F \,|\, E) = \Pr(F)$
+  + virtually
+    + $\Pr(F) = \frac{\Pr(F)}{\Pr(\Omega)}$: $F$ as a fraction of $\Omega$
+    + $\Pr(F \,|\, E) \triangleq \frac{\Pr(E \cap F)}{\Pr(E)}$: $E \cap F$ as a fraction of $E$
+  + two issues:
+    + asymmetric
+    + undefined if $\Pr(E) = 0$
+  
++ Independence - formal
+  + informal
+
+    \[ \Pr(F) = \Pr(F \,|\, E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
+
+    + issue: asymmetric, undefined if $\Pr(E) = 0$
+  + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $\Pr(E \cap F) = \Pr(E) \cdot \Pr(F)$, otherwise, <span style="color: magenta;">dependent</span>
+  + symmetric and applied when $\Pr(\varnothing) = 0$
+  + $\implies$ intuitive def. 
+    + $\Pr(F \,|\, E) = \Pr(F) \quad \Pr(E \,|\, F) = \Pr(E)$
+    + $\Pr(F \,|\, \overline{E}) = \Pr(F) \quad \Pr(E \,|\, \overline{F}) = \Pr(E)$
+
++ Non-surprising independence
+  + two coins
+    + $H_1$: first coin heads, $\Pr(H_1) = 1/2$
+    + $H_2$: second coin heads. $\Pr(H_2) = 1/2$
+    + $H_1 \cap H_2$: both coin heads, $\Pr(H_1 \cap H_2) = 1/4$
+    + $\Pr(H_1 \cap H_2) = 1/4 = \Pr(H_1) \cdot \Pr(H_2) \to H_1 {\perp \!\!\! \perp} F$
+  + not surprising
+    + two separate coins
+    + "independent" experiments always
+  + surprising (?): can have ${\perp \!\!\!\! \perp}$ even for one experiment
+
++ Example: single die
+  + three events
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Event</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Probability</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">Prime</td> <td style="text-align: center;">$\{2, 3, 5\}$</td> <td style="text-align: center;">1/2</td> </tr>
+      <tr> <td style="text-align: center;">Odd</td> <td style="text-align: center;">$\{1, 3, 5\}$</td> <td style="text-align: center;">1/2</td> </tr>
+      <tr> <td style="text-align: center;">Square</td> <td style="text-align: center;">$\{1, 4\}$</td> <td style="text-align: center;">1/3</td> </tr>
+      </tbody>
+    </table>
+
+  + which pairs are ${\perp \!\!\!\! \perp}$ and ${\not\!\perp \!\!\!\! \perp}$
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:25%;">Intersection</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Prob</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">product</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">=?</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Independent</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">Prime $\cap$ Odd</td> <td style="text-align: center;">$\{3, 5\}$</td>
+        <td style="text-align: center;">1/3</td> <td style="text-align: center;">$1/2 \cdot 1/2 = 1/4$</td>
+        <td style="text-align: center;">$\neq$</td> <td style="text-align: center;">dependent</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Prime $\cap$ Square</td> <td style="text-align: center;">$\varnothing$</td>
+        <td style="text-align: center;">0</td> <td style="text-align: center;">$1/2 \cdot 1/3 = 1/6$</td>
+        <td style="text-align: center;">$\neq$</td> <td style="text-align: center;">dependent</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Odd $\cap$ Square</td> <td style="text-align: center;">$\{1\}$</td>
+        <td style="text-align: center;">1/6</td> <td style="text-align: center;">$1/2 \cdot 1/3 = 1/6$</td>
+        <td style="text-align: center;">$=$</td> <td style="text-align: center;">independent</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Example: three coins
+  + three events
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Event</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Probability</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">$H_1$</td> <td style="text-align: center;">1st coin heads</td> <td style="text-align: center;">$\{h \ast\ast\}$</td> <td style="text-align: center;">1/2</td> </tr>
+      <tr> <td style="text-align: center;">$H_2$</td> <td style="text-align: center;">2nd coin heads</td> <td style="text-align: center;">$\{\ast h \ast\}$</td> <td style="text-align: center;">1/2</td> </tr>
+      <tr> <td style="text-align: center;">$HH$</td> <td style="text-align: center;">exactly 2 heads in a row</td> <td style="text-align: center;">$\{hht, thh\}$</td> <td style="text-align: center;">1/4</td> </tr>
+      </tbody>
+    </table>
+
+  + which pairs are ${\perp \!\!\!\! \perp}$ and ${\not\!\perp \!\!\!\! \perp}$
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Intersection</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Set</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Prob</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">=?</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Product</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Independence</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$H_1 \cap H_2$</td> <td style="text-align: center;">{hh*}</td>
+        <td style="text-align: center;">1/4</td> <td style="text-align: center;">$=$</td>
+        <td style="text-align: center;">$1/2 \cdot 1/2 = 1/4$</td> <td style="text-align: center;">independent</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$H_2 \cap HH$</td> <td style="text-align: center;">{hht, thh}</td>
+        <td style="text-align: center;">1/4</td> <td style="text-align: center;">$\neq$</td>
+        <td style="text-align: center;">$1/2 \cdot 1/4 = 1/8$</td> <td style="text-align: center;">dependent</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$H_1 \cap HH$</td> <td style="text-align: center;">{hht}</td>
+        <td style="text-align: center;">1/8</td> <td style="text-align: center;">$=$</td>
+        <td style="text-align: center;">$1/2 \cdot 1/4 = 1/8$</td> <td style="text-align: center;">independent</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Independence of $\Omega$ and $\varnothing$
+  + $\omega {\perp \!\!\!\! \perp}$ of any event
+    + $\forall\,A \;\Pr(\Omega \cap A) = \Pr(A) = \Pr(\Omega) \cdot \Pr(A)$
+    + $A$ occurring doesn't modify likelihood of $\Omega$
+  + $\varnothing {\perp \!\!\!\! \perp}$ of any event
+    + $\forall\,A \;\Pr(\varnothing \cap A) = \Pr(\varnothing) = \Pr(\varnothin) \cdot \Pr(A)$
+    + $A$ occurring doesn't modify likelihood of $\varnothing$
+
+    
 
 
 
++ [Original Slides](https://tinyurl.com/ybeanef9)
 
 
 ### Problem Sets
