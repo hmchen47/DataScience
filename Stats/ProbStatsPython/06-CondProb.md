@@ -458,9 +458,84 @@
 
 ## 6.3 Sequential Probability
 
++ Chain rule
+  + conditional probability
+
+    \[ \Pr(F |,|\, E) = \frac{\Pr(E \cap F)}{\Pr(E)} \to \Pr(E \cap F) = \Pr(E0 \cdot \Pr(F | E)) \]
+
+  + helping to calculate regular (not conditional) probabilities
+
++ Sequential selections
+  + urn: 1 blue, 2 red balls
+  + draw 2 balls w/o replacement
+  + task: $\Pr(\text{ both red }) = ?$
+  + Solution:
+    + $R_i$: $i$-th ball is red
+    + $\Pr(\text{both red}) = \Pr(R_1, R_2) = \Pr(1) \cdot \Pr(R_2 \,|\, R_1) = \frac{2}{3} \cdot \frac{1}{2} = \frac{1}[3}$
+
++ General product rule
+  
+  \[\begin{align*}
+    \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
+    &= \Pr(E) \cdot \Pr(D \,|\, E) \cdot \Pr(G \,|\, E \cap F)
+  \end{align*}\]
+
+  + example: odd ball
+    + $n-1$ red balls and one blue ball
+    + pick $n$ balls w/o replacement
+    + $|Pr(\text{last ball is blue}) = ?$
+      + $R_i$: $i$-th ball is red
+      + $R^i = R_1, R_2, \cdot, R_i$
+
+        \[\begin{align*}
+          \Pr(\text{last ball blue}) &= \Pr(R_1)\Pr(R_2 \,|\, R_1)\Pr(R_3 \,|\, R^2) \cdots \Pr(R_{n-1} \,|\, R^{n-2})$ \\
+          &= \frac{n-1}{n}\frac{n-2}{n-1}\frac{n-3}{n-2} \cdots \frac{2}{3}\frac{2}{2} = \frac{1}{n}
+        \end{align*}\]
+
+    + arrange in row, probability last ball is blue = 1/n
+
++ The birthday paradox
+  + how many people does it take so that two will likely share a birthday?
+    + assume that every year has 364 days
+    + everyone is equally likely to be born on any given day
+  + probabilistically
+    + choose $n$ random integers, each $\in \{1, 2, \dots, 365\}$, w/ replacement
+    + $B(n)$: probability that two (or more) are the same
+    + for which $n$ does $B(n)$ exceed, say , 1/2?
+  + some first think it $n \approx 365$, but infact much smaller
+  + first attempt
+    + consider the $n$ people in order, day alphabetically
+    + e.g., list their birthdays: 2, 10, 265, 180, 10, ...
+    + selection w/ replacement
+    + set of all possible birthdays sequences: $\Omega = \{1, 2, \dots, 365\}^n \to |\Omega| = 365^n$
+    + individual birthday uniform $\to \Omega$ uniform
+    + $B_n = \{\text{sequences w/ repetition}\}$
+    + $\Pr(\text{ repetition }) = |B_n| / |\Omega| \to$ evaluating $|B_n|$ involved
+  + complement
+    + $B_n$: $n$ people w/ birthday repetition
+    + $B_n^c$: $n$ people, no two share a birthday
+    + evaluating sequentially
+  + calculation
+    + among $n$ people
+
+      \[\begin{align*}
+        \Pr\left(\substack{\text{ no two people}\\ \text{share a birthday}}\right) &= \frac{364}{365} \cdot \frac{363}{365} \cdots \frac{365-n+1}{365} = \prod_{i=1}^{n-1} \left(1 - \frac{i}{365}\right) \\
+        &\leq \prod_{i=1}^n e^{-\frac{i}{365}} = \exp\left( -\frac{1}{365} \cdot \sum_{i=1}^{n-1} i \right) = \exp\left( -\frac{n(n-1)}{2 \cdot 365} \right) \\
+        &\approx \exp\left( -\frac{n^2}{2 \cdot 365} \right) = 0.5
+      \end{align*}\]
+
+    + when the probability is 0.5
+
+      \[ -\frac{n^2}{2 \cdot 365} = \ln(0.5) = -\ln(2) \to n \approx \sqrt{-2 \cdot 365 \cdot \ln(0.5)} = 22.494 \]
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/ycsx4c8w" ismap target="_blank">
+          <img src="img/t06-02.png" style="margin: 0.1em;" alt="Number of people and probability of a pair" title="Number of people and probability of a pair" width=300>
+        </a>
+      </div>
 
 
-
++ [Original Slides](https://tinyurl.com/ycsx4c8w)
 
 
 ### Problem Sets
