@@ -541,8 +541,100 @@
 
 ### Problem Sets
 
+0. The equality $P(A \cap B)=P(A)P(B)$ holds whenever the events A and B are<br/>
+  a. independent<br/>
+  b. disjoint<br/>
+  c. intersecting<br/>
+
+  Ans: a<br/>
+  Explanation: Independent. In fact, that's the definition of independence.
 
 
+1. An urn contains $b$ black balls and $w$ white balls. Sequentially remove a random ball from the urn, till none is left.
+
+  Which of the following observed color sequences would you think is more likely: first all white balls then all black ones (e.g. wwbbb), or alternating white (first) and black, till one color is exhausted, then the other color till it is exhausted (e.g. wbwbb)?
+
+  For $b=4$ and $w=2$, calculate the probability of:
+
+  a. white, white, black black, black black,<br/>
+  b. white, black, white, black, black, black,<br/>
+  
+  Try to understand the observed outcome.<br/>
+
+  Ans: a. (1/15); b. (1/15)<br/>
+  Explanation:
+    + By sequential probability, it is easy to see that the for any order of the colors, the denominator will be $(b+w)!$ while the numerator will be $b! \cdot w!$.
+    + This can also be seen by symmetry. Imagine that the balls are colored from 1 to  b+w . Then each of the ( b+w)!  permutations of the balls is equally likely to be observed, hence will happen with probability $1/(b+w)!$, and $b! \cdot w!$ of them will correspond to each specified order of the colors.
+
+
+2. An urn contains one red and one black ball. Each time, a ball is drawn independently at random from the urn, and then returned to the urn along with another ball of the same color. For example, if the first ball drawn is red, the urn will subsequently contain two red balls and one black ball.<br/>
+  a. What is the probability of observing the sequence r,b,b,r,r?<br/>
+  b. What is the probability of observing 3 red and 2 black balls?<br/>
+  c. What is the probability of observing 7 red and 9 black balls?<br/>
+
+  Ans: a. (1/60); b. (1/6); c. (1/17)<br/>
+  <span style="color: magenta;">Explanation</br>
+    + $\Pr(r,b,b,r,r)=\Pr(r) \cdot \Pr(b|r) \cdot \Pr(b|r,b) \cdot \Pr(r|r,b,b) \cdot \Pr(r|r,b,b,r)=1/2 \cdot 1/3 \cdot2/4 \cdot 2/5 \cdot 3/6=160=0.01666 \cdots$
+    + any sequence with 3 red and 2 black balls, e.g. r,r,r,b,b is observed with the same probability.
+    + t can be verified that for any sequence with $n_r$ red balls and $n_b$ black balls, the probability $p=n_r! \cdot n_b!/(n_r+n_b+1)!$.  Hence the probability of observing $n_r$ red balls and $n_b$ black balls is <span style="color: cyan;">$\tfrac{n_r! \cdot n_b!}{(n_r+n_b+1)!} \tbinom{n_r+n_b}{n_b}=\frac{1}{n_r+n_b+1}$</span>.
+    + [StackExchange](https://tinyurl.com/yc8x5e6j)
+
+
+3. A box has seven tennis balls. Five are brand new, and the remaining two had been previously used. Two of the balls are randomly chosen, played with, and then returned to the box. Later, two balls are again randomly chosen from the seven and played with. What is the probability that all four balls picked were brand new.
+
+  Ans: 10/147<br/>
+  Explanation: The first two must be brand new, which happens with probability $\tbinom{5}{2}/\tbinom{7}{2}$. After that, $2+2=4$ balls had been played with, and  $5−2=3$ are still brand new. The probability that the next two chosen are brand new is $\tbinom{3}{2}/\tbinom{7}{2}$. By the chain rule, the probability that all four were brand new is $\tbinom{5}{2} \cdot \tbinom{3}{2}/\tbinom{7}{2}^2=10/147$.
+
+
+4. A box contains six tennis balls. Peter picks two of the balls at random, plays with them, and returns them to the box. Next, Paul picks two balls at random from the box (they can be the same or different from Peter's balls), plays with them, and returns them to the box. Finally, Mary picks two balls at random and plays with them. What is the probability that each of the six balls in the box was played with exactly once?
+
+  Ans: <span style="color: cyan;">2/75</span><br/>
+  Explanation: The probability that every ball picked was played with exactly once is the probability that the 2 balls Paul picks differ from the 2 Peter picked, and that the 2 balls Mary picks differ from the 4 Peter or Paul picked. This probability is $\frac{\tbinom{6−2}{2}}{\tbinom{6}{2}} \cdot \frac{\tbinom{6−2−2}{2}}{\tbinom{6}{2}=\frac{\tbinom{4}{2}}{\tbinom{6}{2}} \cdot \frac{\tbinom{2}{2}}{\tbinom{6}{2}=6/15 \cdot 1/15=2/75$.
+
+
+5. A bag contains 4 white and 3 blue balls. Remove a random ball and put it aside. Then remove another random ball from the bag. What is the probability that the second ball is white?<br/>
+  a. 3/6<br/>
+  b. 4/6<br/>
+  c. 3/7<br/>
+  d. 4/7<br/>
+
+  Ans: d<br/>
+  Explanation: This can be done in two simple ways. First, by symmetry. There are 4 white balls and 3 blue balls. The second ball picked is equally likely to be any of the 7 balls, hence the probability that it is white is 4/7. Second, by total probability. The probability that the second ball is white is the probability that the first is white and the second is white namely $47 \cdot 36$, plus the probability that the first is blue and the second is white, namely $37 \cdot 46$, and $47 \cdot 36+37 \cdot 46=47$. Note that the first, symmetry, argument is easier to extend to the third ball picked etc. But both derivation are of interest, and you may want to use the total-variation for a general case with W white balls and R red balls.
+
+
+6. An urn contains  15  white and  20  black balls. The balls are withdrawn randomly, one at a time, until all remaining balls have the same color. Find the probability that:<br/>
+  a. all remaining balls are white (if needed, see hints below),<br/>
+  b. there are 5 remaining balls.<br/>
+
+  Ans: a. (<span style="color: magenta;">3/7</span>); b. (<span style="color: magenta;">0.0300463</span>)<br/>
+  Explanation:
+    + [StackExchange](https://tinyurl.com/y7v3tury)
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y7v3tury" ismap target="_blank">
+          <img src="https://i.stack.imgur.com/2JNnP.jpg" style="margin: 0.1em;" alt="Derivative of probability w/ remaining while balls" title="Derivative of probability w/ remaining while balls" width=450>
+        </a>
+        <a href="https://tinyurl.com/y7v3tury" ismap target="_blank">
+          <img src="https://i.stack.imgur.com/KAla7.jpg" style="margin: 0.1em;" alt="Derivative of probability w/ remaining while balls" title="Derivative of probability w/ remaining while balls" width=450>
+        </a>
+      </div>
+
+    + Let $S$ be the sequence of balls you draw, for example $S$ could be $BWWBW \cdot$), with $B$ being a black ball, $W$ being a white ball. $S$ is of length $35$.  The remaining colors will be all white iff the last ball of $S$ is white, which happens with probability $15/35$.
+    + Since there are five balls left, the last five balls need to be of the same color, and the ball just before them, of a different color. That is, the last 6 positions of $S$ should be either $BWWWWW$ or $WBBBBB$. Hence, the answer is $(\tbinom{29}{10}+\tbinom{29}{15})/\tbinom{35}{15}=0.03$.
+
+
+7. Eight equal-strength players, including Alice and Bob, are randomly split into  4  pairs, and each pair plays a game, resulting in four winners. Fnd the probability that:<br/>
+  a. both Alice and Bob will be among the four winners,<br/>
+  b. neither Alice and Bob will be among the four winners.<br/>
+
+  Ans: a. (<span style="color: magenta;">3/14</span>); b. (3/14)<br/>
+  Explanation:
+    + Here are two ways of solving the problem. One using sequential probability, the other by symmetry.
+      + Sequential Probability: <br/>For both Alice and Bob to win, they first need to be paired with other players (not with each other), and then win their games. The probability that they are paired with other players is the probability that Alice was not paired with Bob, namely $6/7$. The probability that both win their respective games is $(1/2)^2=1/4$.  Hence the probability that both win is $(6/7)/4=3/14$.
+      + Symmetry.<br/> In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely. The number of "quartets" that contain both Alice and Bob is $\tbinom{6}{2}$, corresponding to picking two out of the remaining 6 players. Hence the probability that this occurs is $\frac{\tbinom{6}{2}}{\tbinom{8}{4}}=3/14$.
+    + This is the same as the first part, except they need to lose rather than win both games, and using either sequential probability $(6/7)/4=3/14$. or symmetry  $\tbinom{6}{4}/\tbinom{8}{4}=3/14$, the probability is as before.
+
+  
 
 ### Lecture Video
 
