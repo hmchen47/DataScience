@@ -93,7 +93,7 @@
 1. Suppose $P(A)>0$. Find $P(B|A)$ when:<br/>
   a. $B=A$,<br/>
   b. $B \supseteq A$,<br/>
-  c. $B=Ω$,<br/>
+  c. $B=\Omega$,<br/>
   d. $B=A \subset $,<br/>
   e. $A∩B= \varnothing$,<br/>
   f. $B= \varnothing$.<br/>
@@ -344,15 +344,109 @@
     + $A$ occurring doesn't modify likelihood of $\varnothing$
 
 
-
-
-
 + [Original Slides](https://tinyurl.com/ybeanef9)
 
 
 ### Problem Sets
 
+0. Two disjoint events cannot be independent.<br/>
+  a. Yes<br/>
+  b. Not exactly<br/>
 
+  Ans: b<br/>
+  Explanation: Not exactly. If the two disjoint events have positive probability, they are dependent. But if one of the two events has zero probability, they are independent.
+
+
+1. Two dice are rolled. The event that the first die is 1 and the event that two dice sum up to be 7 are<br/>
+  a. Independent<br/>
+  b. Dependent<br/>
+
+  Ans: a<br/>
+  Explanation: Let $X$ be the outcome of the first die and $Y$ be the outcome of the second die. $P(X=1|X+Y=7)=1/6=P(X=1)$. Hence, they are independent.
+
+
+2. Of 10 students, 4 take only history, 3 take only math, and 3 take both history and math. If you select a student at random, the event that the student takes history and the event that the student takes math are:<br/>
+  a. Independent<br/>
+  b. Dependent<br/>
+
+  Ans: <span style="color: magenta;">b</span><br/>
+  Explanation: Let $H$ be the event that the student takes history, and $M$ the event that the student takes math. Then $P(H)=7/10$, $P(M)=6/10$, and $P(H,M)=3/10$. Since $P(H)P(M) \neq P(H,M)$, the two events are dependent.
+
+
+3. 4 freshman boys, 6 freshman girls, and 6 sophomore boys go on a trip. How many sophomore girls must join them if a student's gender and class are to be independent when a student is selected at random?
+
+  Ans:9 <br/>
+  Explanation: 
+    + First, let's do it the formal but hard way. Let $SG$ denote the number of sophomore girls. Then the total number of students is $4+6+6+SG=16+SG$.  If a student is selected at random, the probability that the student is a freshman is $4+616+SG$, the probability that a random student is a boy is $\frac{4+6}{16+SG}$, and the probability that the student is both a freshman and boy is $\frac{4}{16+SG}$. If the student's gender and class are independent, then by the product rule, the probability of the intersection is the product of the probabilities, hence $\frac{4}{16+SG}=\frac{4+6}{16+SG} \cdot \frac{4+6}{16+SG}$, hence $100=4 \cdot (16+SG)$, or $SG=9$.
+    + Another way to see this is to observe that if the gender and class are independent, then the fraction of girls that are freshmen, namely $\frac{6}{6+SG}$ should be the same as the fraction of boys that are freshmen, namely $\frac{4}{4+6}=2/5$. Therefore $\frac{6}{6+SG}=2/5$, or $SG=9$. 
+
+
+4. Every event $A$ is independent of:<br/>
+  a. $\varnothing$,<br/>
+  b. $\Omega$,<br/>
+  c. $A$ itself,<br/>
+  d. $A^c$.<br/>
+
+  Ans: ab<br/>
+  Explanation: Intuitively: $A$ is independent of the null event because occurrence of $A$ doesn't change the 0 probability of the null event. Similarly $A$ is independent of $\Omega$ because occurrence of $A$ does not change the probability 1 of $\Omega$.  If $A$ has probability strictly between 0 and 1, then its occurrence changes the probability of both itself and $A^c$, implying dependence. Mathematically:
+    + True. $P(\varnothing|A)=0=P(\varnothing)$.
+    + True. $P(A|\Omega)=P(A \cap \Omega)P(\Omega)=P(A)P(\Omega)=P(A)$.
+    + False.
+    + False.
+
+5. Which of the following ensure that events $A$ and $B$ are independent:<br/>
+  a. $A$ and $B^c$ are independent,<br/>
+  b. $A \cap B= \varnothing$,<br/>
+  c. $A \subseteq B$,<br/>
+  d. at least one of $A$ or $B$ is $\varnothing$ or $\Omega$?<br/>
+
+  Ans: ad<br/>
+  Explanation
+    + True. If $A$ and $B^c$ are independent, $1−\Pr(B|A)=\Pr(B^c|A)=\Pr(B^c)=1−\Pr(B)$, which implies $\Pr(B|A)=\Pr(B)$.
+    + False.
+    + False.
+    + True. For $\varnothing$, $\Pr(\varnothing|A)=0=\Pr(\varnothing)$. For $\Omega$, $\Pr(A|\Omega)=\frac{\Pr(A \cap\Omega)}{\Pr(\Omega)}=\frac{\Pr(A)}{\Pr(\Omega)}=\Pr(A)$. $\varnothing$ and $\Omega$ are independent with any sets.
+
+6. When rolling two dice, which of the following events are independent of the event that the first die is 4:<br/>
+  a. the second is 2,<br/>
+  b. the sum is 6,<br/>
+  c. the sum is 7,<br/>
+  d. the sum is even.<br/>
+
+  Ans: acd<br/>
+  Explanation: Let  X  be the outcome of the first dice, and  Y  be the second one.
+    + True.  $P(X=4|Y=2)=P(X=4)=1/6$.
+    + False. $P(X+Y=6|X=4)=1/6 .  P(X+Y=6)=5/36 .  P(X+Y=6) \neq P(X+Y=6|Y=4)$.
+    + True.  $P(X+Y=6|X=4)=1/6=P(X+Y=7)$.
+    + True.  $P(X+Y \text{ is even } |X=4)=P(Y \text{ is even })=1/2=P(X+Y \text{ is even })$.
+
+
+7. Roll two dice, and let $F_e$ be the event that the first die is even, $S_4$ the event that the second die is 4, and $\Sigma_o$ the event that the sum of the two dice is odd. Which of the following events are independent:<br/>
+  a. $F_e$ and $S_4$,<br/>
+  b. $F_e$ and $\Sigma_o$,<br/>
+  c. $S_4$ and $\Sigma_o$,<br/>
+  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)$?<br/>
+  
+  Ans: abc<br/>
+  Explanation
+    + True.  $\Pr(F_e,S_4)=1/12, \Pr(F_e)=1/2, \Pr(S4)=1/6$. As $\Pr(F_e,S_4)= \Pr(F_e)\Pr(S_4)$, $F_e$ and $S_4$ are independent.
+    + True.  $\Pr(F_e,\Sigma_o)=1/4, \Pr(F_e)=1/2, \Pr(\Sigma_o)=1/2$. As $\Pr(F_e,\Sigma_o) = \Pr(F_e) \Pr(\Sigma_o)$, $F_e$ and $\Sigma_o$ are independent.
+    + True.  $\Pr(S_4,\Sigma_o)=1/12, \Pr(S4)=1/6, \Pr(\Sigma_o)=1/2$. As $\Pr(S_4,\Sigma_o)= \Pr(S_4) \Pr(\Sigma_o)$, $S_4$ and $\Sigma_o$ are independent.
+    + False. $\Pr(F_e,S_4,\Sigma_o)=0 \neq P(F_e) \Pr(S_4) \Pr(\Sigma_o)$.
+
+
+8. Two dice are rolled. Let $F_3$ be the event that the first die is 3, $S_4$ the event that the second die is 4, and $\Sigma_7$ the event that the sum is 7. Which of the following are independent:<br/>
+  a. $F_3$ and $S_4$,<br/>
+  b. $F_3$ and $\Sigma_7$,<br/>
+  c. $S_4$ and $\Sigma_7$,<br/>
+  d. $F_3$, $S_4$, and $\Sigma_7$ (mutually independent)?<br/>
+
+  Ans: abc<br/>
+  Explanation
+    + True.  $\Pr(F_3,S_4)=1/36, \Pr(F_3)=1/6, \Pr(S_4)=1/6$. As $\Pr(F_3,S_4)=\Pr(F_3)\Pr(S_4)$, $F_3$ and $S_4$ are independent.
+    + True.  $\Pr(F_3,\Sigma_7)=1/36, \Pr(F_3)=1/6, \Pr(\Sigma_7)=1/6$. As $\Pr(F_3,\Sigma_7)=\Pr(F_3)\Pr(\Sigma_7)$, $F_3$ and $\Sigma_7$ are independent.
+    + True.  $\Pr(S_4,\Sigma_7)=1/36, \Pr(S_4)=1/6, \Pr(\Sigma_7)=1/6$. As $\Pr(S_4,\Sigma_7)=\Pr(S_4)\Pr(\Sigma_7)$, $S_4$ and $\Sigma_7$ are independent.
+    + False. $\Pr(F_3,S_4,\Sigma_7)=1/36 \neq \Pr(F_3) \Pr(S_4) \Pr(\Sigma_7)=\frac{1}{6}\frac{1}{6}\frac{1}{6}=1/216$.
 
 
 ### Lecture Video
