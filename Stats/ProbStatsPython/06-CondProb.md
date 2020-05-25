@@ -645,9 +645,75 @@
 
 ## 6.4 Total Probability
 
++ Divide and conquer
+  + when evaluating probability of an event
+  + sometimes easier to split event into different parts
+  + calculating probability of each part
+  + add probabilities
+
++ Law of total probability
+  + $\exists\, E, F$ events, $\Pr(F) = ?$
+  + $F = (E \cap F) \cup (E^c \cap F)$ s.t.
+
+    \[\begin{align*}
+      \Pr(E \cap F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
+      &= \Pr(E) \cdot \Pr(F \,|\, E) + \Pr(E^c) \cdot \Pr(F \,|\, E^c)
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yd7pzjew" ismap target="_blank">
+      <img src="img/t06-03.png" style="margin: 0.1em;" alt="Example of total probability" title="Example of total probability" width=250>
+    </a>
+  </div>
+
+  + example: 2 fair coins
+    + $H_i$: coin $i$ w/ h
+    + $\exists H$: at least one h, e.g., {hh, ht, th, tt} $\Pr(\exists H) = \frac{|\exists H|}{|\Omega|} = \frac{3}{4}$
+    + $\Pr(\exists H) = ?$
+
+      \[\begin{align*}
+        \Pr(\exist H) &= \Pr(H_1 \cap \exists H) | \Pr(H_1^c \cap \exists H) \\
+        &= \Pr(H_1) \cdot \Pr(\exists H \,|\, H_1) + \Pr(H_1^c) \cdot \Pr(\exists H \,|\, H_1^c)\\
+        &= 1/2 \cdot 1 + 1/2 \cdot 1/2 = 3/4
+      \end{align*}\]
+
++ Total probability - n conditions
+  + Let $E_1, E_2, \dots, E_n$ partition $\Omega$
+  + $F = \bigcup_{i=1}^n (E_i \cap F)$ s.t.
+
+    \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \,|\, E_i) \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yd7pzjew" ismap target="_blank">
+        <img src="img/t06-04.png" style="margin: 0.1em;" alt="Example of total probability w/ n conditions" title="Example of total probability w/ n conditions" width=200>
+      </a>
+    </div>
+  
+  + example: 3 dice
+    + $D_i$: outcome of die $i$
+    + $S = D_1 + D_2$: sum of 2 dice
+    + $\Pr(S = 5) = ?$
+
+      \[\begin{align*}
+        \Pr(S=5) &= \sum_{i=1}^4 \Pr(D_1 = i) \cdot \Pr(D_2 = 5 - i \,|\, D_1 = i) \\
+        &= \sum_{i=1}^4 \Pr(D_1 = i) \cdot \Pr(D_2 = 5-i) \\
+        &= 4 \cdot \tfrac{1}{36} = 1/9
+      \end{align*}\]
+
++ Example: iPhone X
+  + three factories produce 50%, 30%, and 20% of iPhones
+  + their defective rates are 4%, 10%, and 5% respectively
+  + what is the overall fraction of defective iPhones?
+
+    \[\begin{align*}
+      \Pr(D) &= \Pr(F_1 \cap D) + \Pr(F_2 \cap D) + \pr(F_2 \cap D) \\
+      &= \Pr(F_1) \Pr(D \,|\, F_1) + \Pr(F_2) \Pr(D \,|\, F_2) + \Pr(F_3) \Pr(D \,|\, F_3) \\
+      & = .5 \times .04 + .3 \times .1 + .2 \times .05 = .02 + .03 + .01  = 0.06
+    \end{align*}\]
 
 
 
++ [Original Slides](https://tinyurl.com/yd7pzjew)
 
 
 ### Problem Sets
