@@ -656,7 +656,7 @@
   + $F = (E \cap F) \cup (E^c \cap F)$ s.t.
 
     \[\begin{align*}
-      \Pr(E \cap F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
+      \Pr(F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
       &= \Pr(E) \cdot \Pr(F \,|\, E) + \Pr(E^c) \cdot \Pr(F \,|\, E^c)
     \end{align*}\]
 
@@ -672,14 +672,14 @@
     + $\Pr(\exists H) = ?$
 
       \[\begin{align*}
-        \Pr(\exist H) &= \Pr(H_1 \cap \exists H) | \Pr(H_1^c \cap \exists H) \\
+        \Pr(\exists H) &= \Pr(H_1 \cap \exists H) + \Pr(H_1^c \cap \exists H) \\
         &= \Pr(H_1) \cdot \Pr(\exists H \,|\, H_1) + \Pr(H_1^c) \cdot \Pr(\exists H \,|\, H_1^c)\\
         &= 1/2 \cdot 1 + 1/2 \cdot 1/2 = 3/4
       \end{align*}\]
 
 + Total probability - n conditions
   + Let $E_1, E_2, \dots, E_n$ partition $\Omega$
-  + $F = \bigcup_{i=1}^n (E_i \cap F)$ s.t.
+  + $F = \displaystyle \biguplus_{i=1}^n (E_i \cap F)$ s.t.
 
     \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \,|\, E_i) \]
 
@@ -706,7 +706,7 @@
   + what is the overall fraction of defective iPhones?
 
     \[\begin{align*}
-      \Pr(D) &= \Pr(F_1 \cap D) + \Pr(F_2 \cap D) + \pr(F_2 \cap D) \\
+      \Pr(D) &= \Pr(F_1 \cap D) + \Pr(F_2 \cap D) + \Pr(F_2 \cap D) \\
       &= \Pr(F_1) \Pr(D \,|\, F_1) + \Pr(F_2) \Pr(D \,|\, F_2) + \Pr(F_3) \Pr(D \,|\, F_3) \\
       & = .5 \times .04 + .3 \times .1 + .2 \times .05 = .02 + .03 + .01  = 0.06
     \end{align*}\]
